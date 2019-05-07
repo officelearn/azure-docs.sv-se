@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 385eee6223487e9d7ca5cc3b213d180bb0f1da46
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 6ada4a25f24a6dcbb1ebd54daad15b37127f7a21
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64710861"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154194"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Felsökningsguide för Azure Storage Explorer
 
@@ -235,7 +235,7 @@ Följ dessa steg om du av misstag ansluten med hjälp av en ogiltig SAS-URL och 
 
 I allmänhet krävs följande paket för att köra Storage Explorer på Linux:
 
-* [.NET Core 2.0 Runtime](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
+* [.NET core 2.0 Runtime](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x) Obs: Lagringsutforskaren version 1.7.0 och tidigare kräver .NET Core 2.0. Om du har en nyare version av .NET Core installeras måste att korrigera Storage Explorer (se nedan). Om du kör Lagringsutforskaren 1.8.0 eller större sedan bör du kunna använda upp till 2.2 för .NET Core. Versioner bortom 2.2 har inte verifierats ska fungera just nu.
 * `libgnome-keyring-common` och `libgnome-keyring-dev`
 * `libgconf-2-4`
 

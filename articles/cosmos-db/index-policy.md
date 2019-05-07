@@ -4,14 +4,14 @@ description: Lär dig mer om att konfigurera och ändra standard indexeringspoli
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 05/06/2019
 ms.author: thweiss
-ms.openlocfilehash: a089d8bd4f2197c93d43e70742743db29944b910
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.openlocfilehash: c7f2ccd2c074f2488c86b45a09859b308655df8d
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64872671"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068609"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Indexeringsprinciper i Azure Cosmos DB
 
@@ -72,6 +72,36 @@ Alla indexeringsprincip måste inkludera rotsökvägen `/*` som en inkluderad el
 - För sökvägar med vanliga tecken som består av: alfanumeriska tecken och _ (understreck) kan du inte undvika sökvägssträngen runt dubbla citattecken (till exempel ”/ sökväg /”?). För sökvägar med andra specialtecken, måste de föregås sökvägssträngen runt dubbla citattecken (till exempel ”/\"sökväg abc\"/”?). Om du förväntar dig specialtecken i din sökväg escape du varje sökväg för säkerhet. Funktionellt gör det inte skillnader om du escape-varje sökväg jämfört med bara de som innehåller ogiltiga tecken.
 
 Se [i det här avsnittet](how-to-manage-indexing-policy.md#indexing-policy-examples) för indexering av exempel på.
+
+## <a name="composite-indexes"></a>Sammansatta index
+
+Frågor som `ORDER BY` två eller flera egenskaper kräver ett sammansatt index. Sammansatta index är för närvarande endast används av flera `ORDER BY` frågor. Som standard inga sammansatta index har definierats så bör du [lägga till sammansatta index](how-to-manage-indexing-policy.md#composite-indexing-policy-examples) efter behov.
+
+När du definierar ett sammansatt index måste ange du:
+
+- Två eller flera sökvägar för egenskapen. Sekvensen som egenskap sökvägar är definierad som är viktigt.
+- Ordningen (stigande eller fallande).
+
+Följande överväganden används när du använder sammansatta index:
+
+- Om sökvägarna till sammansatta index inte matchar de egenskaper i ORDER BY-satsen sedan sammansatta index har inte stöd för frågan
+
+- Ordningen på sammansatta index sökvägar (stigande eller fallande) måste även matcha ordningen i ORDER BY-satsen.
+
+- Sammansatta index stöder också en ORDER BY-sats med omvänd ordning på alla sökvägar.
+
+Fundera på följande exempel där ett sammansatt index definieras egenskaperna för a, b och c:
+
+| **Sammansatta Index**     | **Exemplet `ORDER BY` fråga**      | **Stöds av Index?** |
+| ----------------------- | -------------------------------- | -------------- |
+| ```(a asc, b asc)```         | ```ORDER BY  a asc, bcasc```        | ```Yes```            |
+| ```(a asc, b asc)```          | ```ORDER BY  b asc, a asc```        | ```No```             |
+| ```(a asc, b asc)```          | ```ORDER BY  a desc, b desc```      | ```Yes```            |
+| ```(a asc, b asc)```          | ```ORDER BY  a asc, b desc```       | ```No```             |
+| ```(a asc, b asc, c asc)``` | ```ORDER BY  a asc, b asc, c asc``` | ```Yes```            |
+| ```(a asc, b asc, c asc)``` | ```ORDER BY  a asc, b asc```        | ```No```            |
+
+Du bör anpassa indexprincip så att du kan leverera all nödvändig `ORDER BY` frågor.
 
 ## <a name="modifying-the-indexing-policy"></a>Ändra indexprincip
 

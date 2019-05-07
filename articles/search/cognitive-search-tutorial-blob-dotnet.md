@@ -9,12 +9,12 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: maheff
-ms.openlocfilehash: 4e6f0317df2f0f631d2c8d3f8e5cefba06e154fd
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 1b3353cae73bb5710dc9343f1d211266d15743a2
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026839"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153199"
 ---
 # <a name="c-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline"></a>C#Självstudie: Anropa API: er med Cognitive Services i ett Azure Search indexering av pipeline
 
@@ -94,9 +94,9 @@ Börja genom att öppna Visual Studio och skapa ett nytt Console App-projekt som
 
 Den [Azure Search .NET SDK](https://aka.ms/search-sdk) består av några klientbibliotek som gör att du kan hantera index, datakällor, indexerare och kompetens, samt ladda upp och hantera dokument och köra frågor, allt utan att hantera den information om HTTP och JSON. Dessa klientbibliotek distribueras som NuGet-paket.
 
-För det här projektet, behöver du installera 7.x.x till förhandsversionen av den `Microsoft.Azure.Search` NuGet-paketet och senast `Microsoft.Extensions.Configuration.Json` NuGet-paketet.
+För det här projektet måste du installera version 9 av den `Microsoft.Azure.Search` NuGet-paketet och senast `Microsoft.Extensions.Configuration.Json` NuGet-paketet.
 
-Installera den `Microsoft.Azure.Search` NuGet-paketet med Package Manager-konsolen i Visual Studio. Öppna i Package Manager-konsolen väljer **verktyg** > **NuGet-Pakethanteraren** > **Pakethanterarkonsolen**. För att få kommandot för att köra, navigera till den [Microsoft.Azure.Search NuGet-paketet sidan](https://www.nuget.org/packages/Microsoft.Azure.Search)version 7.x.x-preview och välj Kopiera kommandot Package Manager. Kör det här kommandot i Package Manager-konsolen.
+Installera den `Microsoft.Azure.Search` NuGet-paketet med Package Manager-konsolen i Visual Studio. Öppna i Package Manager-konsolen väljer **verktyg** > **NuGet-Pakethanteraren** > **Pakethanterarkonsolen**. Om du vill ha kommandot för att köra, navigera till den [Microsoft.Azure.Search NuGet-paketet sidan](https://www.nuget.org/packages/Microsoft.Azure.Search), väljer du version 9 och kopiera kommandot Package Manager. Kör det här kommandot i Package Manager-konsolen.
 
 Installera den `Microsoft.Extensions.Configuration.Json` NuGet-paketet i Visual Studio väljer **verktyg** > **NuGet-Pakethanteraren** > **hantera NuGet-paket för lösningen...** . Välj Bläddra och söka efter den `Microsoft.Extensions.Configuration.Json` NuGet-paketet. När du har hittat den, väljer du paketet, markera projektet, bekräfta versionen är den senaste stabila versionen och sedan väljer installera.
 
@@ -137,13 +137,25 @@ using Microsoft.Extensions.Configuration;
 
 ## <a name="create-a-client"></a>Skapa en klient
 
-Skapa en instans av den `SearchServiceClient` klassen med hjälp av informationen som du lade till `appsettings.json`.
+Skapa en instans av den `SearchServiceClient` klass.
 
 ```csharp
 IConfigurationBuilder builder = new ConfigurationBuilder().AddJsonFile("appsettings.json");
 IConfigurationRoot configuration = builder.Build();
-
 SearchServiceClient serviceClient = CreateSearchServiceClient(configuration);
+```
+
+`CreateSearchServiceClient` skapar en ny `SearchServiceClient` med värden som lagras i programmets konfigurationsfil (appsettings.json).
+
+```csharp
+private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot configuration)
+{
+   string searchServiceName = configuration["SearchServiceName"];
+   string adminApiKey = configuration["SearchServiceAdminApiKey"];
+
+   SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, new SearchCredentials(adminApiKey));
+   return serviceClient;
+}
 ```
 
 > [!NOTE]
@@ -197,9 +209,9 @@ I det här avsnittet kan du definiera en uppsättning berikande steg som du vill
 
 + [Språkidentifiering](cognitive-search-skill-language-detection.md) för att identifiera innehållets språk.
 
-+ [Text dela](cognitive-search-skill-textsplit.md) att dela upp stora innehåll i mindre segment innan du anropar diskussionsämne extrahering färdighet och namngiven entitet erkännande färdigheter. Extrahering av diskussionsämne och igenkänning av namngivna entiteter du acceptera indata högst 50 000 tecken. Några av exempelfilerna måste delas upp för att rymmas inom gränsen.
++ [Text dela](cognitive-search-skill-textsplit.md) att dela upp stora innehåll i mindre segment innan du anropar diskussionsämne extrahering kunskaper och entiteten erkännande färdigheter. Extrahering av diskussionsämne och entitetsidentifiering acceptera indata högst 50 000 tecken. Några av exempelfilerna måste delas upp för att rymmas inom gränsen.
 
-+ [Igenkänning av namngiven enhet](cognitive-search-skill-named-entity-recognition.md) för extrahering av namnen och organisationerna från innehåll i blobcontainern.
++ [Entitetsidentifiering](cognitive-search-skill-entity-recognition.md) för att extrahera namnen på organisationer från innehållet i blob-behållaren.
 
 + [Extrahering av nyckelfraser](cognitive-search-skill-keyphrases.md) för att hämta viktigaste nyckelfraserna.
 
@@ -225,7 +237,7 @@ outputMappings.Add(new OutputFieldMappingEntry(
     targetName: "text"));
 
 OcrSkill ocrSkill = new OcrSkill(
-    description: "Extract text (plain and structured) from image).",
+    description: "Extract text (plain and structured) from image",
     context: "/document/normalized_images/*",
     inputs: inputMappings,
     outputs: outputMappings,
@@ -279,7 +291,7 @@ outputMappings.Add(new OutputFieldMappingEntry(
     targetName: "languageCode"));
 
 LanguageDetectionSkill languageDetectionSkill = new LanguageDetectionSkill(
-    description: "Language detection skill",
+    description: "Detect the language used in the document",
     context: "/document",
     inputs: inputMappings,
     outputs: outputMappings);
@@ -312,9 +324,9 @@ SplitSkill splitSkill = new SplitSkill(
     maximumPageLength: 4000);
 ```
 
-### <a name="named-entity-recognition-skill"></a>Namngiven entitet erkännande färdighet
+### <a name="entity-recognition-skill"></a>Entiteten erkännande färdighet
 
-Detta `NamedEntityRecognitionSkill` instans har angetts för att identifiera kategorityp `organization`. Den **med namnet Entitetsidentifiering** färdighet kan också identifiera kategorityper `person` och `location`.
+Detta `EntityRecognitionSkill` instans har angetts för att identifiera kategorityp `organization`. Den **Entitetsidentifiering** färdighet kan också identifiera kategorityper `person` och `location`.
 
 Lägg märke till att fältet ”kontexten” anges till ```"/document/pages/*"``` med en asterisk, vilket innebär att det berikande steget kallas för varje sida under ```"/document/pages"```.
 
@@ -329,21 +341,21 @@ outputMappings.Add(new OutputFieldMappingEntry(
     name: "organizations",
     targetName: "organizations"));
 
-List<NamedEntityCategory> namedEntityCategory = new List<NamedEntityCategory>();
-namedEntityCategory.Add(NamedEntityCategory.Organization);
+List<EntityCategory> entityCategory = new List<EntityCategory>();
+entityCategory.Add(EntityCategory.Organization);
     
-NamedEntityRecognitionSkill namedEntityRecognition = new NamedEntityRecognitionSkill(
+EntityRecognitionSkill entityRecognitionSkill = new EntityRecognitionSkill(
     description: "Recognize organizations",
     context: "/document/pages/*",
     inputs: inputMappings,
     outputs: outputMappings,
-    categories: namedEntityCategory,
-    defaultLanguageCode: NamedEntityRecognitionSkillLanguage.En);
+    categories: entityCategory,
+    defaultLanguageCode: EntityRecognitionSkillLanguage.En);
 ```
 
 ### <a name="key-phrase-extraction-skill"></a>Färdighet för extrahering av diskussionsämne
 
-Som den `NamedEntityRecognitionSkill` -instans som nyss skapades, den **nyckel diskussionsämne** färdighet anropas för varje sida i dokumentet.
+Som den `EntityRecognitionSkill` -instans som nyss skapades, den **nyckel diskussionsämne** färdighet anropas för varje sida i dokumentet.
 
 ```csharp
 List<InputFieldMappingEntry> inputMappings = new List<InputFieldMappingEntry>();
@@ -368,7 +380,7 @@ KeyPhraseExtractionSkill keyPhraseExtractionSkill = new KeyPhraseExtractionSkill
 
 ### <a name="build-and-create-the-skillset"></a>Bygg och skapa gruppens kunskaper avgör
 
-Skapa den `SkillSet` med de kunskaper som du skapade.
+Skapa den `Skillset` med de kunskaper som du skapade.
 
 ```csharp
 List<Skill> skills = new List<Skill>();
@@ -376,12 +388,12 @@ skills.Add(ocrSkill);
 skills.Add(mergeSkill);
 skills.Add(languageDetectionSkill);
 skills.Add(splitSkill);
-skills.Add(namedEntityRecognition);
+skills.Add(entityRecognitionSkill);
 skills.Add(keyPhraseExtractionSkill);
 
-Skillset skillSet = new Skillset(
+Skillset skillset = new Skillset(
     name: "demoskillset",
-    description: "Demo Skillset",
+    description: "Demo skillset",
     skills: skills);
 ```
 
@@ -390,7 +402,7 @@ Skapa gruppens kunskaper avgör i din söktjänst.
 ```csharp
 try
 {
-    serviceClient.Skillsets.CreateOrUpdate(skillSet);
+    serviceClient.Skillsets.CreateOrUpdate(skillset);
 }
 catch (Exception e)
 {
@@ -459,16 +471,24 @@ var index = new Index()
 };
 ```
 
-Under testningen hända att du försöker att skapa indexet mer än en gång. Kontrollera om det index som du håller på att skapa redan finns innan du försöker skapa den på grund av detta. 
+Under testningen hända att du försöker att skapa indexet mer än en gång. Kontrollera om det index som du håller på att skapa redan finns innan du försöker skapa den på grund av detta.
 
 ```csharp
-bool exists = serviceClient.Indexes.Exists(index.Name);
-if (exists)
+try
 {
-    serviceClient.Indexes.Delete(index.Name);
-}
+    bool exists = serviceClient.Indexes.Exists(index.Name);
 
-serviceClient.Indexes.Create(index);
+    if (exists)
+    {
+        serviceClient.Indexes.Delete(index.Name);
+    }
+
+    serviceClient.Indexes.Create(index);
+}
+catch (Exception e)
+{
+    // Handle exception
+}
 ```
 
 Om du vill veta mer om att definiera ett index kan du läsa [Create Index (Azure Search REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index) (Skapa index (Azure Search-REST API)).
@@ -526,14 +546,15 @@ Indexer indexer = new Indexer(
     fieldMappings: fieldMappings,
     outputFieldMappings: outputMappings);
 
-bool exists = serviceClient.Indexers.Exists(indexer.Name);
-if (exists)
-{
-    serviceClient.Indexers.Delete(indexer.Name);
-}
-
 try
 {
+    bool exists = serviceClient.Indexers.Exists(indexer.Name);
+
+    if (exists)
+    {
+        serviceClient.Indexers.Delete(indexer.Name);
+    }
+
     serviceClient.Indexers.Create(indexer);
 }
 catch (Exception e)
@@ -560,21 +581,29 @@ När innehållet har extraherats kan du ställa in `imageAction` på att extrahe
 När du har definierat indexeraren körs den automatiskt när du skickar din begäran. Beroende på vilka kognitiva kunskaper du har definierat kan indexeringen ta längre tid än väntat. Om du vill ta reda på om indexeraren körs fortfarande kan använda den `GetStatus` metoden.
 
 ```csharp
-IndexerExecutionInfo demoIndexerExecutionInfo = serviceClient.Indexers.GetStatus(indexer.Name);
-switch (demoIndexerExecutionInfo.Status)
+try
 {
-    case IndexerStatus.Error:
-        Console.WriteLine("Indexer has error status");
-        break;
-    case IndexerStatus.Running:
-        Console.WriteLine("Indexer is running");
-        break;
-    case IndexerStatus.Unknown:
-        Console.WriteLine("Indexer status is unknown");
-        break;
-    default:
-        Console.WriteLine("No indexer status information");
-        break;
+    IndexerExecutionInfo demoIndexerExecutionInfo = serviceClient.Indexers.GetStatus(indexer.Name);
+
+    switch (demoIndexerExecutionInfo.Status)
+    {
+        case IndexerStatus.Error:
+            Console.WriteLine("Indexer has error status");
+            break;
+        case IndexerStatus.Running:
+            Console.WriteLine("Indexer is running");
+            break;
+        case IndexerStatus.Unknown:
+            Console.WriteLine("Indexer status is unknown");
+            break;
+        default:
+            Console.WriteLine("No indexer information");
+            break;
+    }
+}
+catch (Exception e)
+{
+    // Handle exception
 }
 ```
 
@@ -603,6 +632,19 @@ catch (Exception e)
 }
 ```
 
+`CreateSearchIndexClient` skapar en ny `SearchIndexClient` med värden som lagras i programmets konfigurationsfil (appsettings.json). Observera att search service API Frågenyckeln används och inte admin-nyckel.
+
+```csharp
+private static SearchIndexClient CreateSearchIndexClient(IConfigurationRoot configuration)
+{
+   string searchServiceName = configuration["SearchServiceName"];
+   string queryApiKey = configuration["SearchServiceQueryApiKey"];
+
+   SearchIndexClient indexClient = new SearchIndexClient(searchServiceName, "demoindex", new SearchCredentials(queryApiKey));
+   return indexClient;
+}
+```
+
 Utdata är indexeringsschema med namn, typ och attribut för varje fält.
 
 Skicka en ny fråga för `"*"` för att returnera hela innehållet i ett enda fält som `organizations`.
@@ -626,52 +668,11 @@ catch (Exception e)
 
 Upprepa detta för ytterligare fält: innehåll, languageCode, keyPhrases och organisationer i den här övningen. Du kan returnera flera fält via `$select` med hjälp av en kommaavgränsad lista.
 
-<a name="access-enriched-document"></a>
-
-## <a name="accessing-the-enriched-document"></a>Åtkomst till det utökade dokumentet
-
-Med kognitiv sökning kan du se strukturen för det berikade dokumentet. Berikade dokument är tillfälliga strukturer som skapas under berikandet. De tas sedan bort när processen är klar.
-
-Om du vill ta en ögonblicksbild av det berikade dokumentet som skapades under indexeringen lägger du till ett fält som heter ```enriched``` i ditt index. Indexeraren placerar automatiskt en strängrepresentation i fältet för alla berikanden för det dokumentet.
-
-Fältet ```enriched``` innehåller en sträng som är en logisk representation av det berikade dokumentet i minnet i JSON.  Fältets värde är emellertid ett giltigt JSON-dokument. Kvoter är undantagna, så du behöver aldrig ersätta `\"` med `"` för att visa dokumenten som formaterad JSON.  
-
-Fältet ```enriched``` är avsett för felsökning, endast för att hjälpa dig att förstå innehållets logiska form som uttryck utvärderas mot. Det kan vara användbart att förstå och felsöka din kunskapsuppsättning.
-
-Upprepa föregående övning, inklusive ett `enriched`-fält för att fånga innehållet i ett berikat dokument:
-
-### <a name="request-body-syntax"></a>Syntax för brödtexten för begäran
-```csharp
-// The SerializePropertyNamesAsCamelCase attribute is defined in the Azure Search .NET SDK.
-// It ensures that Pascal-case property names in the model class are mapped to camel-case
-// field names in the index.
-[SerializePropertyNamesAsCamelCase]
-public class DemoIndex
-{
-    [System.ComponentModel.DataAnnotations.Key]
-    [IsSearchable, IsSortable]
-    public string Id { get; set; }
-
-    [IsSearchable]
-    public string Content { get; set; }
-
-    [IsSearchable]
-    public string LanguageCode { get; set; }
-
-    [IsSearchable]
-    public string[] KeyPhrases { get; set; }
-
-    [IsSearchable]
-    public string[] Organizations { get; set; }
-
-    public string Enriched { get; set; }
-}
-```
 <a name="reset"></a>
 
 ## <a name="reset-and-rerun"></a>Återställa och köra igen
 
-Experimentella tidigt i utvecklingen av är den mest praktiskt metoden för design iterationer att ta bort objekt från Azure Search och tillåta att koden återskapa dem. Resursnamn är unika. Om du tar bort ett objekt kan du återskapa det med samma namn. 
+Experimentella tidigt i utvecklingen av är den mest praktiskt metoden för design iterationer att ta bort objekt från Azure Search och tillåta att koden återskapa dem. Resursnamn är unika. Om du tar bort ett objekt kan du återskapa det med samma namn.
 
 Den här självstudien hand tog om söker efter befintliga indexerare och index och ta bort dem om de redan hade funnits så att du kan köra din kod.
 
@@ -681,11 +682,11 @@ När koden utvecklas kanske du vill begränsa en strategi för återskapning. L�
 
 ## <a name="takeaways"></a>Lärdomar
 
-Den här självstudien visar de grundläggande stegen för att skapa en utökad indexeringspipeline genom att skapa komponentdelar: en datakälla, kunskapsuppsättning, index och indexerare.
+Den här självstudien beskrivs de grundläggande stegen för att skapa en avancerad och indexering av pipeline genom att skapa komponenter: en datakälla, kompetens, index och indexerare.
 
 [Fördefinierade kunskaper](cognitive-search-predefined-skills.md) introducerades, tillsammans med en definition av kunskapsuppsättningen och mekanismerna för att sammanlänka kunskaper via in- och utdata. Du har också lärt dig att `outputFieldMappings` i indexerardefinitionen krävs för routningsberikade värden från pipelinen i ett sökbart index på en Azure Search-tjänst.
 
-Slutligen lärde du dig att testa resultat och återställa systemet för ytterligare iterationer. Du har lärt dig att när du utfärdar frågor mot indexet returneras utdata som skapades av pipelinen för berikande indexering. I den här versionen finns det en mekanism för att visa interna konstruktioner (berikade dokument som skapats av systemet). Du har också lärt dig att kontrollera indexerarstatus, och vilka objekt du ska ta bort innan du kör en pipeline igen.
+Slutligen lärde du dig att testa resultat och återställa systemet för ytterligare iterationer. Du har lärt dig att när du utfärdar frågor mot indexet returneras utdata som skapades av pipelinen för berikande indexering. Du har också lärt dig att kontrollera indexerarstatus, och vilka objekt du ska ta bort innan du kör en pipeline igen.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

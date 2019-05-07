@@ -32,11 +32,11 @@ sections:
             text: Ansluta med MetaMask
             href: /azure/blockchain/service/connect-metamask
           - image:
-              src: ./media/index/multi-connect.svg
+              src: ./media/index/cligeneric.svg
             text: Ansluta med Geth
             href: /azure/blockchain/service/connect-geth
           - image:
-              src: ./media/index/multi-connect.svg
+              src: ./media/index/code-blocks.svg
             text: Ansluta med Truffle
             href: /azure/blockchain/service/connect-truffle
   - title: Steg för steg-självstudier
@@ -47,3 +47,11 @@ sections:
         style: unordered
         items:
           - html: <a href="/azure/blockchain/service/send-transaction">Skapa en Azure Blockchain Service-medlem och skicka en transaktion</a>
+  - title: Referens
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: REST
+            html: '<p><a href="https://docs.microsoft.com/rest/api/blockchain">REST-API</a></p>'

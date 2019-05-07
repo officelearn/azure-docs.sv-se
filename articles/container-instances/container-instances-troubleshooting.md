@@ -6,19 +6,19 @@ author: dlepow
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 02/15/2019
+ms.date: 04/25/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: bf783c988c0163fe562669a8331c332dbf8d535e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9dc3e19f9429a6055a799f3f013c732538fa370d
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61067347"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65070856"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Felsöka vanliga problem i Azure Container Instances
 
-Den här artikeln visar hur du felsöker vanliga problem för att hantera och distribuera behållare till Azure Container Instances.
+Den här artikeln visar hur du felsöker vanliga problem för att hantera och distribuera behållare till Azure Container Instances. Se även [vanliga frågor och svar](container-instances-faq.md).
 
 ## <a name="naming-conventions"></a>Namngivningskonventioner
 
@@ -46,11 +46,7 @@ Om du anger en avbildning som Azure Container Instances inte stöder en `OsVersi
 }
 ```
 
-Det här felet uppstår oftast när distribuera Windows-avbildningar som baseras på en Halvårskanal kanal SAC ()-versionen. Till exempel Windows version 1709 och 1803 är SAC versioner och generera felet på distributionen.
-
-Azure Container Instances stöder för närvarande baseras bara på Windows-avbildningar i **Windows Server 2016 Long-Term Servicing kanal (LTSC)** versionen. Om du vill åtgärda problemet när du distribuerar Windows-behållare, alltid distribuera Windows Server 2016 LTSC-baserade avbildningar. Bilder baserat på Windows Server 2019 (LTSC) stöds inte.
-
-Mer information om LTSC och SAC versioner av Windows finns i [översikt över Windows Server Halvårskanal][windows-sac-overview].
+Det här felet uppstår oftast när distribuera Windows-avbildningar som baseras på Halvårskanal släpper 1709 eller 1803, vilket inte stöds. Stöds Windows-avbildningar i Azure Container Instances, se [vanliga frågor och svar](container-instances-faq.md#what-windows-base-os-images-are-supported).
 
 ## <a name="unable-to-pull-image"></a>Det går inte att pull-bild
 
@@ -102,7 +98,7 @@ az container create -g MyResourceGroup --name myapp --image ubuntu --command-lin
 
 ```azurecli-interactive 
 ## Deploying a Windows container
-az container create -g myResourceGroup --name mywindowsapp --os-type Windows --image mcr.microsoft.com/windows/servercore:ltsc2016
+az container create -g myResourceGroup --name mywindowsapp --os-type Windows --image mcr.microsoft.com/windows/servercore:ltsc2019
  --command-line "ping -t localhost"
 ```
 
@@ -156,7 +152,7 @@ De två främsta faktorerna som bidrar till starttiden för behållare i Azure C
 * [Avbildningens storlek](#image-size)
 * [Platsen för](#image-location)
 
-Windows-avbildningar har [ytterligare överväganden](#cached-windows-images).
+Windows-avbildningar har [ytterligare överväganden](#cached-images).
 
 ### <a name="image-size"></a>Avbildningens storlek
 
@@ -176,14 +172,12 @@ Nyckeln till att hålla bildstorleken små är att säkerställa att din slutlig
 
 Ett annat sätt att minska effekten av avbildningen pull på starttiden för din behållare är att vara värd för behållaravbildningen i [Azure Container Registry](/azure/container-registry/) i samma region som du tänker distribuera behållarinstanser. Detta förkortar nätverkssökvägen som behållaravbildningen behöver reser avsevärt förkorta tid.
 
-### <a name="cached-windows-images"></a>Cachelagrade Windows-avbildningar
+### <a name="cached-images"></a>Cachelagrade avbildningar
 
-Azure Container Instances använder en cachelagringsmekanism för att snabbt behållaren starttiden för bilder baserat på vanliga Windows och Linux-avbildningar. En detaljerad lista över cachelagrade avbildningar och taggar, använda den [lista cachelagrade avbildningar] [ list-cached-images] API.
+Azure Container Instances använder en cachelagringsmekanism för att hastighet behållare starttiden för avbildningar som bygger på vanliga [Windows basera avbildningar](container-instances-faq.md#what-windows-base-os-images-are-supported), inklusive `nanoserver:1809`, `servercore:ltsc2019`, och `servercore:1809`. Vanligaste Linux-avbildningar som `ubuntu:1604` och `alpine:3.6` även cachelagras. En uppdaterad förteckning över cachelagrade avbildningar och taggar, använda den [lista cachelagrade avbildningar] [ list-cached-images] API.
 
-För att säkerställa den snabbaste starttiden för Windows-behållare, Använd en av de **tre senaste** versioner av följande **två avbildningar** som basavbildningen:
-
-* [Windows Server Core 2016] [ docker-hub-windows-core] (endast LTSC)
-* [Windows Server 2016 Nano Server][docker-hub-windows-nano]
+> [!NOTE]
+> Användning av Windows Server 2019-baserade avbildningar i Azure Container Instances är i förhandsversion.
 
 ### <a name="windows-containers-slow-network-readiness"></a>Beredskap för Windows-behållare långsamt nätverk
 

@@ -3,19 +3,18 @@ title: Lär dig hur moduler köras logik på dina enheter – Azure IoT Edge | M
 description: Azure IoT Edge-moduler är behållare enheter som kan distribueras och hanteras via fjärranslutning så att du kan köra affärslogik på IoT Edge enheter
 author: kgremban
 manager: philmea
-ms.author: v-yiso
-origin.date: 03/21/2019
-ms.date: 04/08/2019
+ms.author: kgremban
+ms.date: 03/21/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: d1e2e35dafd90c16e9d0dbf38afb1e981653d1fe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 65cac484a9395aca47a38e2ba430b80c868267f5
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60445051"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65152654"
 ---
 # <a name="understand-azure-iot-edge-modules"></a>Förstå Azure IoT Edge-moduler
 
@@ -44,6 +43,7 @@ As use cases for Azure IoT Edge grow, new types of module images and instances w
 ## <a name="module-identities"></a>Modulen identiteter
 
 När en ny modulinstans skapas av IoT Edge-körningen, är instansen associerad med en motsvarande modul-identitet. Modulen identiteten lagras i IoT Hub och används som omfång för adressering och säkerhet för alla lokala och molnet kommunikation för den specifika modul-instansen.
+
 Identiteten som är associerade med en modulinstans beror på identiteten för enheten på-instansen körs vilket namn som du tillhandahåller denna modul i din lösning. Till exempel om du anropar `insight` en modul som använder en Azure Stream Analytics och distribuera den på en enhet med namnet `Hannover01`, IoT Edge-körningen skapas en motsvarande modulen identitet som kallas `/devices/Hannover01/modules/insight`.
 
 Uppenbarligen i scenarier kan när du behöver distribuera en modul bild flera gånger på samma enhet, du distribuera samma avbildning flera gånger med olika namn.
@@ -69,26 +69,9 @@ Twin twin = await client.GetTwinAsync(); 
 
 ## <a name="offline-capabilities"></a>Offlinefunktioner
 
-Azure IoT Edge stöder offline åtgärder på IoT Edge-enheter. De här funktionerna är begränsade för tillfället. Ytterligare funktioner som är offline finns i offentlig förhandsversion. Mer information finns i [förstå utökat offlinefunktionerna för IoT Edge-enheter, moduler och underordnade enheter](offline-capabilities.md).
-
-IoT Edge-moduler kan vara offline under långa perioder, förutsatt att följande krav är uppfyllda: 
-
-* **Meddelandet time to live (TTL) har inte upphört att gälla**. Standardvärdet för meddelande TTL är två timmar, kan men vara ändrade högre eller lägre i Store och vidarebefordra konfiguration i IoT Edge hub-inställningar. 
-* **Moduler som inte behöver autentiseras på nytt med IoT Edge hub när du är offline**. Moduler kan endast autentisera med IoT Edge-hubbar som har en aktiv anslutning till en IoT-hubb. Moduler som behöver autentiseras på nytt om de startas om av någon anledning. Moduler kan fortfarande skicka meddelanden till IoT Edge hub när deras SAS-token har upphört att gälla. När anslutningen återställs IoT Edge hub begär en ny token från modulen och validerar den med IoT hub. Om detta lyckas, IoT Edge hub vidarebefordrar modulen meddelanden lagras, även de meddelanden som skickades när modulens token har upphört att gälla. 
-* **Den modul som skickade meddelanden när offline fungerar fortfarande när anslutningen återställs**. När de återansluter till IoT Hub, behöver IoT Edge hub verifiera en ny modul-token (om det tidigare har gått ut) innan den kan vidarebefordra meddelandena som modulen. Om modulen inte är tillgängliga för att tillhandahålla en ny token kan inte IoT Edge hub fungera på modulens lagrade meddelanden. 
-* **IoT Edge hub har ledigt diskutrymme för att lagra meddelanden**. Som standard lagras meddelanden i IoT Edge hub behållarens filsystem. Det finns ett konfigurationsalternativ för att ange en monterad volym för att lagra meddelanden i stället. I båda fallen måste det finnas utrymme att lagra meddelanden för uppskjutna leverans till IoT Hub.  
-
+Azure IoT Edge-moduler kan fungera offline under obestämd tid när synkroniseringen med IoT Hub minst en gång. IoT Edge-enheter kan också utöka den här offline-kapaciteten till andra IoT-enheter. Mer information finns i [förstå utökat offlinefunktionerna för IoT Edge-enheter, moduler och underordnade enheter](offline-capabilities.md).
 
 ## <a name="next-steps"></a>Nästa steg
  - [Förstå de krav och verktyg för att utveckla IoT Edge-moduler](module-development.md)
  - [Förstå Azure IoT Edge-körningen och dess arkitektur](iot-edge-runtime.md)
 
-<!-- Images -->
-[1]: ./media/iot-edge-modules/image_instance.png
-[2]: ./media/iot-edge-modules/identity.png
-
-<!-- Links -->
-[lnk-device-identity]: ../iot-hub/iot-hub-devguide-identity-registry.md
-[lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
-[lnk-runtime]: iot-edge-runtime.md
-[lnk-mod-dev]: module-development.md

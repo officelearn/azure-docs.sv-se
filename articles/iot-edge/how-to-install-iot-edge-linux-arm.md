@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: kgremban
-ms.openlocfilehash: ad7e34110b0c6d047eb7454b7fac9f8c10df8be2
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 6c22680102c57fdfc3d25beb19e5bc9847995b28
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62126383"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65152738"
 ---
 # <a name="install-azure-iot-edge-runtime-on-linux-arm32v7armhf"></a>Installera Azure IoT Edge-körningen på Linux (ARM32v7/armhf)
 
@@ -22,7 +22,7 @@ Azure IoT Edge-körningen är vad omvandlar en enhet till en IoT Edge-enhet. Kö
 
 Läs mer om hur IoT Edge-körningen fungerar och vilka komponenter som ingår i [förstå Azure IoT Edge-körningen och dess arkitektur](iot-edge-runtime.md).
 
-Den här artikeln innehåller steg för att installera Azure IoT Edge-körningen på en Linux ARM32v7/armhf IoT Edge-enhet. De här stegen skulle till exempel fungerar för Raspberry Pi-enheter. En lista över operativsystem som stöds ARM32 finns i [support för Azure IoT Edge](support.md#operating-systems). 
+Den här artikeln innehåller steg för att installera Azure IoT Edge-körningen på en Linux ARM32v7/armhf IoT Edge-enhet. De här stegen skulle till exempel fungerar för Raspberry Pi-enheter. En lista över operativsystem som stöds ARM32 finns i [Azure IoT Edge stöds system](support.md#operating-systems). 
 
 >[!NOTE]
 >Paket i databaser för Linux-programvara är gäller under licensvillkor som finns i varje paket (/ usr/dela/docs/*paketnamn*). Läs licensvillkoren innan du börjar använda paketet. Din installation och användning av paketet kräver att du accepterar dessa villkor. Om du inte samtycker till licensvillkoren, Använd inte paketet.

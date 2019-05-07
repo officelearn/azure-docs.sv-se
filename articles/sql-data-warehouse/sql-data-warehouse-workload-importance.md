@@ -7,22 +7,19 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload management
-ms.date: 03/13/2019
+ms.date: 05/01/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 12e7d9bc22eff14bbf302aed50080412d04a40d3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9c26bca66b0f82ea58d01d0eb8358f521168a799
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474710"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154142"
 ---
-# <a name="sql-data-warehouse-workload-importance-preview"></a>SQL Data Warehouse arbetsbelastning vikten (förhandsversion)
+# <a name="sql-data-warehouse-workload-importance"></a>SQL Data Warehouse arbetsbelastning prioritet
 
 Den här artikeln förklarar hur arbetsbelastning prioritet kan påverka ordningen för körningen för SQL Data Warehouse-begäranden.
-
-> [!Note]
-> Klassificering för arbetsbelastningen är tillgänglig för förhandsversionen av SQL Data Warehouse Gen2. Klassificering för hantering av arbetsbelastning och vikten förhandsversion är för versioner med ett frisläppningsdatum av 9 April 2019 eller senare.  Användare bör undvika att använda versioner tidigare än det här datumet för arbetsbelastningen management testning.  För att fastställa om din version är hantering av arbetsbelastning kan du köra väljer @@version när du är ansluten till din SQL Data Warehouse-instans.
 
 ## <a name="importance"></a>Prioritet
 
@@ -64,4 +61,4 @@ Eftersom F5 är mediumrc, kräver två samtidighetsfack.  F5 måste vänta för 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om SQL Data Warehouse arbetsbelastning klassificering, [SQL Data Warehouse arbetsbelastning klassificering](sql-data-warehouse-workload-classification.md) och [skapa en arbetsbelastning klassificerare](quickstart-create-a-workload-classifier-tsql.md). Se [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) visa frågor och den prioritet som tilldelas.
+Kom igång med att skapa en klassificerare, se den [skapa ARBETSBELASTNING KLASSIFICERARE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql).  Läs mer om SQL Data Warehouse arbetsbelastning klassificering, [SQL Data Warehouse arbetsbelastning klassificering](sql-data-warehouse-workload-classification.md).  Se Snabbstart om hur du skapar en arbetsbelastning klassificerare [skapa en arbetsbelastning klassificerare](quickstart-create-a-workload-classifier-tsql.md). Se [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) visa frågor och den prioritet som tilldelas.

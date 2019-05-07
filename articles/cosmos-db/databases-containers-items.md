@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 8eaca83b7ea89737a63fe56a18505c8df7e93fdc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 215ae29c571e56b7e3af589149123083223023c7
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60889398"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153465"
 ---
 # <a name="work-with-databases-containers-and-items"></a>Arbeta med databaser, containrar och objekt
 
@@ -77,7 +77,7 @@ En Azure Cosmos-behållare har en uppsättning systemdefinierade egenskaper. Ber
 
 | **Systemdefinierade egenskapen** | **Datorer som genererade eller användarangiven** | **Syfte** | **SQL-API** | **API för Cassandra** | **Azure Cosmos DB: s API för MongoDB** | **Gremlin-API** | **Table API** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|_rid | Systemgenererad | Unik identifierare för behållare | Ja | Nej | Nej | Nej | Nej |
+|_id | Systemgenererad | Unik identifierare för behållare | Ja | Nej | Nej | Nej | Nej |
 |_etag | Systemgenererad | Enhetstagg som används för optimistisk samtidighetskontroll | Ja | Nej | Nej | Nej | Nej |
 |_ts | Systemgenererad | Senast uppdaterade tidsstämpeln i behållaren | Ja | Nej | Nej | Nej | Nej |
 |_self | Systemgenererad | Adresserbara URI: N för behållaren | Ja | Nej | Nej | Nej | Nej |

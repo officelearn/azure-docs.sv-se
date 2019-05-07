@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Använda en SAML 2.0-identitetsprovider för enkel inloggning på | Microsoft Docs'
+title: 'Azure AD Connect: Använda en SAML 2.0-identitetsprovider för enkel inloggning på – Azure'
 description: Det här dokumentet beskriver hur du använder en kompatibel Idp SAML 2.0 för enkel inloggning på.
 services: active-directory
 author: billmath
@@ -14,12 +14,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1870137505b3d00ee6ed31595050908c970c444
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e25060152577e7947a78aa0e8d78c85cc7fd2fad
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60350940"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138345"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Använda en SAML 2.0-identitetsprovider (IdP) för enkel inloggning på
 
@@ -41,7 +41,7 @@ Microsoft stöder den här inloggning som integreringen av en Microsoft-molntjä
 >     - E-postklient för Windows 8 och Windows 8.1 e-postklient
 >     - Windows 10 e-postklient
 
-Alla klienter är inte tillgängliga i det här scenariot inloggning med din SAML 2.0-identitetsprovider. Lync 2010-klientversionen är till exempel inte kunna logga in på tjänsten med din SAML 2.0-identitetsprovider som konfigurerats för enkel inloggning.
+Alla klienter är inte tillgängliga i det här scenariot inloggning med din SAML 2.0-identitetsprovider. Lync 2010-klientversionen är till exempel inte kunna logga in till tjänsten med din SAML 2.0-identitetsprovider som konfigurerats för enkel inloggning.
 
 ## <a name="azure-ad-saml-20-protocol-requirements"></a>Krav för Azure AD-SAML 2.0-protokollet
 Det här dokumentet innehåller detaljerade krav på protokoll och meddelandet formatering att din SAML 2.0-identitetsprovider måste använda för att federera med Azure AD så att inloggning till en eller flera Microsoft-molntjänster (till exempel Office 365). SAML 2.0 förlitande part (SP-STS) för en Microsoft-molntjänst som används i det här scenariot är Azure AD.
@@ -71,8 +71,8 @@ I SAML-svarsmeddelandet innehåller noden signatur information om den digitala s
 Bindningar är parametrarna för transport-relaterade kommunikation som krävs. Följande krav gäller för bindningarna
 
 1. HTTPS är obligatoriska transport.
-2.  Azure AD kräver HTTP POST token skicka under inloggning
-3.  Azure AD ska använda HTTP POST för autentiseringsbegäran till identitetsprovider och OMDIRIGERING för utloggning meddelandet till identitetsleverantören.
+2.  Azure AD kräver HTTP POST token skicka under inloggning.
+3.  Azure AD ska använda HTTP POST för autentisering till identitetsprovider och OMDIRIGERING logga ut meddelandet till identitetsleverantören.
 
 ## <a name="required-attributes"></a>Obligatoriska attribut
 Den här tabellen visas kraven för specifika attribut i SAML 2.0-meddelandet.
@@ -258,7 +258,7 @@ Microsoft tillhandahåller ett verktyg som du kan använda för att testa din ba
 2.  Klicka på Installera nu för att börja hämta och installera verktyget.
 3.  Välj ”jag kan inte konfigurera federation med Office 365, Azure eller andra tjänster som använder Azure Active Directory”.
 4.  När verktyget laddas ned och kör, visas fönstret Anslutningsdiagnostik. Verktyget vägleds du genom att testa anslutningen federation.
-5.  Connectivity Analyzer öppnas SAML 2.0 IDP: N att logga in, anger du autentiseringsuppgifterna för det UPN som du testar: ![SAML](./media/how-to-connect-fed-saml-idp/saml1.png)
+5.  Connectivity Analyzer öppnas SAML 2.0 IDP: N att logga in, anger du autentiseringsuppgifterna för huvudnamn du testar användaren: ![SAML](./media/how-to-connect-fed-saml-idp/saml1.png)
 6.  I fönstret Federation test logga in bör du ange ett kontonamn och lösenord för Azure AD-klient som är konfigurerad att vara federerad med din SAML 2.0-identitetsprovider. Verktyget kommer att försöka logga in med autentiseringsuppgifterna och detaljerade resultat för tester som utfördes under inloggningsförsök ges som utdata.
 ![SAML](./media/how-to-connect-fed-saml-idp/saml2.png)
 7. Det här fönstret visar misslyckade resultatet av testning. Att klicka på granska detaljerade resultat att visa information om resultaten för varje test som har utförts. Du kan också spara resultaten till disk för att kunna dela dem.
@@ -271,7 +271,7 @@ Manuell verifiering ger ytterligare steg som du kan vidta för att se till att d
 För att verifiera att enkel inloggning har konfigurerats korrekt, gör du följande:
 
 
-1. På en domänansluten dator, logga in till din molntjänst med samma inloggningsnamn som du använder för företagets autentiseringsuppgifter.
+1. På en domänansluten dator, logga in till din molntjänst med hjälp av samma inloggning namnet som du använder för företagets autentiseringsuppgifter.
 2.  Klicka i lösenordsrutan. Om enkel inloggning har konfigurerats, lösenordsrutan skuggade och följande meddelande visas: ”Du måste nu logga in på &lt;företaget&gt;”.
 3.  Klicka på inloggning på &lt;företaget&gt; länk. Om du kan har logga in, sedan enkel inloggning ställts in.
 

@@ -9,14 +9,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 672c9d43007f954d870f8195bcad63d9cee69523
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ea3bb551a32fdfb7e4a378c36858860808e27419
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58894465"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65072781"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Språkförståelse vanliga frågor (och svar FAQ)
 
@@ -233,7 +233,7 @@ Din nyckel för redigering/starter får bara 1000 endpoint frågar en månad. Sk
 
 ## <a name="bots"></a>Robotar
 
-### <a name="my-luis-bot-isnt-working-what-do-i-do"></a>Min LUIS-bot fungerar inte. Vad gör jag?
+### <a name="my-luis-bot-isnt-working-what-do-i-do"></a>Min LUIS-bot fungerar inte. Vad gör jag nu?
 
 Första problemet är att isolera om problemet är relaterat till LUIS eller händer utanför LUIS mellanprogram. 
 
@@ -282,27 +282,19 @@ Använd LUIS-exemplet för att [hitta region](https://github.com/Azure-Samples/c
 
 Ja, du kan använda LUIS [behållare](luis-container-howto.md) för dessa scenarier om du har den nödvändiga anslutningen att mäta användningen. 
 
-### <a name="at-the-build-2018-conference-i-heard-about-a-language-understanding-feature-or-demo-but-i-dont-remember-what-it-was-called"></a>Jag har hört talas om en funktion för Language Understanding eller demo men jag inte kommer ihåg vad den anropades på Build-konferensen för 2018?
+## <a name="migrating-to-the-next-version"></a>Migrera till nästa version
 
-Följande funktioner har släppts på Build 2018-konferensen:
+### <a name="how-do-i-migrate-to-preview-v3-api"></a>Hur migrerar du förhandsgranskar V3 API? 
 
-|Namn|Innehåll|
-|--|--|
-|Förbättringar|[Reguljärt uttryck](luis-concept-data-extraction.md##regular-expression-entity-data) entitet och [nyckel frasen](luis-concept-data-extraction.md#key-phrase-extraction-entity-data) entitet
-|Mönster|Mönster [konceptet](luis-concept-patterns.md), [självstudien](luis-tutorial-pattern.md), [how-to](luis-how-to-model-intent-pattern.md)<br>[Patterns.Any](luis-concept-entity-types.md) entitet konceptet inklusive [Explicit lista](luis-concept-patterns.md#explicit-lists) för undantag<br>[Roller](luis-concept-roles.md) begrepp|
-|Integreringar|[Textanalys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) integrering av [attitydanalys](luis-how-to-publish-app.md#enable-sentiment-analysis)<br>[Tal](https://docs.microsoft.com/azure/cognitive-services/speech) integrering av tal promotor tillsammans med [tal SDK](https://aka.ms/SpeechSDK)|
-|Dispatch-verktyget|En del av [BotBuilder-tools](https://github.com/Microsoft/botbuilder-tools), Dispatch kommandoraden [verktyget](luis-concept-enterprise.md#when-you-need-to-combine-several-luis-and-qna-maker-apps) att kombinera flera LUIS och QnA Maker appar till enkel LUIS-app för bättre taligenkänning i en robot
+Se [API v2 till v3 Migration guide för LUIS-appar](luis-migration-api-v3.md)
 
-Ytterligare redigering [API-vägar](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/authoring-routes.md) ingår.
+## <a name="build-2019-conference-announcements"></a>Build-konferensen 2019 meddelanden
 
-Videor:
-* [Azure Friday At Build 2018: Cognitive Services – Language (LUIS)](https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player)
-* [Build 2018 AI Show - Nyheter i tjänst för Språkförståelse](https://channel9.msdn.com/Shows/AI-Show/Whats-New-with-Language-Understanding-Service-LUIS/player)
-* [Session på Build 2018 – Robotintelligens, talfunktioner och regelverk för NLU](https://channel9.msdn.com/events/Build/2018/BRK3208)
-* [Build 2018 - LUIS-uppdateringar](https://channel9.msdn.com/events/Build/2018/THR3118/player)
+Följande funktioner har släppts på 2019 Utvecklarkonferens:
 
-Projekt:
-* [Contoso Cafe bot](https://github.com/botbuilderbuild2018/build2018demo) demo - källkod på GitHub
+* [Förhandsgranskning av V3 API-Migreringsguide](luis-migration-api-v3.md)
+* [Förbättrad analysinstrumentpanel](luis-how-to-use-dashboard.md)
+* [Förbättrad fördefinierade domäner](luis-reference-prebuilt-domains.md) fungerar med V2 och V3-API: er
 
 ## <a name="next-steps"></a>Nästa steg
 

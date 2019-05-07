@@ -8,13 +8,13 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
-ms.date: 06/22/2018
-ms.openlocfilehash: 76783ffd91a8ad17fca912ac9c3a66a5f0f15821
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/06/2019
+ms.openlocfilehash: 503bd6cfee1c19d2342ec9f535b3945178ab3ea0
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64691937"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65136607"
 ---
 # <a name="reference-for-trigger-and-action-types-in-workflow-definition-language-for-azure-logic-apps"></a>Referens för utlösare och åtgärd typer i Definitionsspråk för arbetsflödet för Azure Logic Apps
 
@@ -804,6 +804,8 @@ Här följer några vanliga åtgärdstyper:
 
   * [**Svaret** ](#response-action) för att svara på begäranden
 
+  * [**Köra JavaScript-kod** ](#run-javascript-code) för att köra JavaScript-kodfragment
+
   * [**Funktionen** ](#function-action) för att anropa Azure Functions
 
   * Åtgärden dataåtgärder som [ **ansluta**](#join-action), [ **Compose**](#compose-action), [ **tabell** ](#table-action), [ **Välj**](#select-action), och andra som skapar eller Transformera data från olika indata
@@ -821,6 +823,7 @@ Här följer några vanliga åtgärdstyper:
 | Åtgärdstyp | Beskrivning | 
 |-------------|-------------| 
 | [**Compose**](#compose-action) | Skapar ett enda utflöde från indata som kan ha olika typer. | 
+| [**Köra JavaScript-kod**](#run-javascript-code) | Köra JavaScript-kodavsnitt som passar för specifika villkor. Kodkrav och mer information finns i [Lägg till och köra kodfragment med infogad kod](../logic-apps/logic-apps-add-run-inline-code.md). |
 | [**Funktionen**](#function-action) | Anropar en Azure-funktion. | 
 | [**HTTP**](#http-action) | Anropar en HTTP-slutpunkt. | 
 | [**Join**](#join-action) | Skapar en sträng från alla objekt i en matris och delar upp dessa objekt med ett tecken för angiven avgränsare. | 
@@ -1047,6 +1050,81 @@ Den här åtgärdsdefinitionen sammanfogar en strängvariabel som innehåller `a
 Här är utdata som den här åtgärden skapar:
 
 `"abcdefg1234"`
+
+<a name="run-javascript-code"></a>
+
+### <a name="execute-javascript-code-action"></a>Köra JavaScript-kod åtgärd
+
+Den här åtgärden kör ett JavaScript-kodfragment och returnerar resultat via en `Result` token som kan referera till senare åtgärder.
+
+```json
+"Execute_JavaScript_Code": {
+   "type": "JavaScriptCode",
+   "inputs": {
+      "code": "<JavaScript-code-snippet>",
+      "explicitDependencies": {
+         "actions": [ <previous-actions> ],
+         "includeTrigger": true
+      }
+   },
+   "runAfter": {}
+}
+```
+
+*Krävs*
+
+| Värde | Typ | Beskrivning |
+|-------|------|-------------|
+| <*JavaScript-code-snippet*> | Varierar | JavaScript-koden som du vill köra. Kodkrav och mer information finns i [Lägg till och köra kodfragment med infogad kod](../logic-apps/logic-apps-add-run-inline-code.md). <p>I den `code` attribut, din kodfragmentet kan använda den skrivskyddade `workflowContext` objekt som indata. Det här objektet har subegenskaper som ger din kodåtkomst till resultaten från utlösaren och den tidigare åtgärder i arbetsflödet. Mer information om den `workflowContext` objekt, se [referera till utlösare och åtgärd resultat i din kod](../logic-apps/logic-apps-add-run-inline-code.md#workflowcontext). |
+||||
+
+*I vissa fall krävs*
+
+Den `explicitDependencies` attributet anger att du vill uttryckligen resultaten från utlösaren, tidigare åtgärder eller båda som beroenden för din kodfragmentet. Läs mer om att lägga till dessa beroenden, [lägga till parametrar för infogad kod](../logic-apps/logic-apps-add-run-inline-code.md#add-parameters). 
+
+För den `includeTrigger` attribut, som du kan ange `true` eller `false` värden.
+
+| Värde | Typ | Beskrivning |
+|-------|------|-------------|
+| <*previous-actions*> | Strängmatris | En matris med angiven åtgärd-namn. Använd åtgärdsnamn som visas i din arbetsflödesdefinitionen där åtgärdsnamn använder understreck (_), inte blanksteg (””). |
+||||
+
+*Exempel 1*
+
+Den här åtgärden körs koden som hämtar logikappens namn och returnerar texten ”Hello world från < logic-app-name >” som ett resultat. I det här exemplet refererar koden arbetsflödets namn genom att öppna den `workflowContext.workflow.name` egenskapen genom den skrivskyddade `workflowContext` objekt. Mer information om hur du använder den `workflowContext` objekt, se [referera till utlösare och åtgärd resultat i din kod](../logic-apps/logic-apps-add-run-inline-code.md#workflowcontext).
+
+```json
+"Execute_JavaScript_Code": {
+   "type": "JavaScriptCode",
+   "inputs": {
+      "code": "var text = \"Hello world from \" + workflowContext.workflow.name;\r\n\r\nreturn text;"
+   },
+   "runAfter": {}
+}
+```
+
+*Exempel 2*
+
+Den här åtgärden körs koden i en logikapp som utlöses när ett nytt e-postmeddelande tas emot i ett Office 365 Outlook-konto. Logikappen använder även en Skicka godkännande e-poståtgärd som vidarebefordrar innehållet från mottagna e-postmeddelandet tillsammans med en begäran om godkännande. 
+
+Koden extraherar e-postadresser från utlösarens `Body` egenskapen och returnerar de e-postadresser tillsammans med den `SelectedOption` egenskapsvärdet från Godkännandeåtgärden. Åtgärden bland annat omfattar Skicka godkännande e-poståtgärden som ett beroende i den `explicitDependencies`  >  `actions` attribut.
+
+```json
+"Execute_JavaScript_Code": {
+   "type": "JavaScriptCode",
+   "inputs": {
+      "code": "var re = /(([^<>()\\[\\]\\\\.,;:\\s@\"]+(\\.[^<>()\\[\\]\\\\.,;:\\s@\"]+)*)|(\".+\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))/g;\r\n\r\nvar email = workflowContext.trigger.outputs.body.Body;\r\n\r\nvar reply = workflowContext.actions.Send_approval_email_.outputs.body.SelectedOption;\r\n\r\nreturn email.match(re) + \" - \" + reply;\r\n;",
+      "explicitDependencies": {
+         "actions": [
+            "Send_approval_email_"
+         ]
+      }
+   },
+   "runAfter": {}
+}
+```
+
+
 
 <a name="function-action"></a>
 
@@ -2586,7 +2664,7 @@ För [grundläggande autentisering](../active-directory-b2c/active-directory-b2c
 
 | Egenskap  | Krävs | Value | Beskrivning | 
 |----------|----------|-------|-------------| 
-| **typ** | Ja | "Basic" | Den autentiseringstyp som använder, vilket är ”Basic” här | 
+| **type** | Ja | "Basic" | Den autentiseringstyp som använder, vilket är ”Basic” här | 
 | **användarnamn** | Ja | "@parameters('userNameParam')" | Användarnamnet för att autentisera åtkomst till mål-tjänstslutpunkt |
 | **Lösenord** | Ja | ”@parameters(passwordParam)” | Lösenord för att autentisera åtkomst till mål-tjänstslutpunkt |
 ||||| 
@@ -2620,7 +2698,7 @@ För [certifikatbaserad autentisering](../active-directory/authentication/active
 
 | Egenskap  | Krävs | Value | Beskrivning |
 |----------|----------|-------|-------------|
-| **typ** | Ja | "ClientCertificate" | Autentiseringstypen som ska användas för Secure Sockets Layer (SSL)-klientcertifikat. Självsignerade certifikat för SSL stöds inte finns stöd för självsignerade certifikat. |
+| **type** | Ja | "ClientCertificate" | Autentiseringstypen som ska användas för Secure Sockets Layer (SSL)-klientcertifikat. Självsignerade certifikat för SSL stöds inte finns stöd för självsignerade certifikat. |
 | **pfx** | Ja | "@parameters('pfxParam') | Base64-kodad innehållet från en Personal Information Exchange (PFX)-fil |
 | **Lösenord** | Ja | ”@parameters(passwordParam)” | Lösenord för åtkomst till PFX-filen |
 ||||| 
@@ -2652,9 +2730,9 @@ I det här exemplet definition för HTTP-åtgärd, den `authentication` anger `C
 
 För [Azure AD OAuth-autentisering](../active-directory/develop/authentication-scenarios.md), din utlösare eller åtgärd definition kan innehålla en `authentication` JSON-objekt som har egenskaper som anges av tabellen nedan. Du kan använda för att komma åt parametervärdena vid körning i `@parameters('parameterName')` uttryck, som tillhandahålls av den [Definitionsspråk för arbetsflödet](https://aka.ms/logicappsdocs).
 
-| Egenskap  | Krävs | Värde | Beskrivning |
+| Egenskap  | Krävs | Value | Beskrivning |
 |----------|----------|-------|-------------|
-| **typ** | Ja | `ActiveDirectoryOAuth` | Den autentiseringstyp som använder, vilket är ”ActiveDirectoryOAuth” för Azure AD OAuth |
+| **type** | Ja | `ActiveDirectoryOAuth` | Den autentiseringstyp som använder, vilket är ”ActiveDirectoryOAuth” för Azure AD OAuth |
 | **utfärdare** | Nej | <*URL-for-authority-token-issuer*> | URL-Adressen för utfärdaren som tillhandahåller autentiseringstoken |
 | **klient** | Ja | <*tenant-ID*> | Klient-ID för Azure AD-klient |
 | **Målgrupp** | Ja | <*resurs att auktorisera*> | Den resurs som du vill använda för auktorisering, till exempel `https://management.core.windows.net/` |

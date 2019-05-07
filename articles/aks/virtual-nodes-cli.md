@@ -5,23 +5,20 @@ services: container-service
 author: iainfoulds
 ms.topic: conceptual
 ms.service: container-service
-ms.date: 12/03/2018
+ms.date: 05/06/2019
 ms.author: iainfou
-ms.openlocfilehash: 38b2654c8f3e8d302a66cac335913583bd4426ef
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fe837c4d89a59325040355e35f12c3499aee7d98
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61024562"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65072817"
 ---
-# <a name="preview---create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Förhandsversion – skapa och konfigurera en Azure Kubernetes Services kluster (AKS) för att använda virtuella noder med Azure CLI
+# <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Skapa och konfigurera en Azure Kubernetes Services kluster (AKS) för att använda virtuella noder med Azure CLI
 
-Om du vill skala snabbt arbetsbelastningar för program i ett kluster i Azure Kubernetes Service (AKS), kan du använda virtuella noder. Med virtuella noder har snabb etablering av poddar och betala bara per sekund för sin Utförandetid. Du behöver inte vänta tills Kubernetes-kluster autoskalningen att distribuera VM-beräkningsnoder för att köra de nya poddarna. Den här artikeln visar hur du skapar och konfigurerar virtuella nätverksresurser och AKS-kluster och aktivera sedan virtuella noder.
+Om du vill skala snabbt arbetsbelastningar för program i ett kluster i Azure Kubernetes Service (AKS), kan du använda virtuella noder. Med virtuella noder har snabb etablering av poddar och betala bara per sekund för sin Utförandetid. Du behöver inte vänta tills Kubernetes-kluster autoskalningen att distribuera VM-beräkningsnoder för att köra de nya poddarna. Virtuella noder stöds endast med Linux-poddar och noder.
 
-> [!IMPORTANT]
-> AKS-förhandsversionsfunktioner är självbetjäning och delta i. Förhandsversioner tillhandahålls för att samla in feedback och buggar från vår community. De stöds dock inte av teknisk support för Azure. Om du skapar ett kluster eller lägga till dessa funktioner i befintliga kluster, stöds klustret inte förrän funktionen är inte längre i förhandsversion och uppgraderas till allmän tillgänglighet (GA).
->
-> Om du stöter på problem med funktioner i förhandsversion [öppna ett ärende på AKS GitHub-lagringsplatsen] [ aks-github] med namnet på funktionen för förhandsgranskning i rubriken för bugg.
+Den här artikeln visar hur du skapar och konfigurerar virtuella nätverksresurser och AKS-kluster och aktivera sedan virtuella noder.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -52,10 +49,16 @@ az provider register --namespace Microsoft.ContainerInstance
 Följande regioner har stöd för virtuell nod distributioner:
 
 * Australien, östra (Australien)
+* Centrala USA (centralus)
 * Östra USA (eastus)
+* Östra USA 2 (usaöstra2)
+* Japan East (japaneast)
+* Nordeuropa (europanorra)
+* Sydostasien (southeastasia)
 * USA, västra centrala (västra)
 * Västeuropa (westeurope)
 * Västra USA (westus)
+* Västra USA 2 (västra USA 2)
 
 ## <a name="known-limitations"></a>Kända begränsningar
 Funktionen för virtuella noder är kraftigt beroende på ACIS funktionsuppsättning. Följande scenarier stöds inte ännu med virtuella noder
@@ -183,11 +186,6 @@ az aks enable-addons \
     --addons virtual-node \
     --subnet-name myVirtualNodeSubnet
 ```
-> [!NOTE]
-> Om du får ett felmeddelande om virtuell nod inte kunde hittas kan du behöva installera dess CLI-tillägg 
-> ```azurecli-interactive
-> az extension add --source https://aksvnodeextension.blob.core.windows.net/aks-virtual-node/aks_virtual_node-0.2.0-py2.py3-none-any.whl
-> ```
 
 ## <a name="connect-to-the-cluster"></a>Anslut till klustret
 
@@ -266,7 +264,7 @@ aci-helloworld-9b55975f-bnmfl   1/1       Running   0          4m        10.241.
 Poden tilldelas en intern IP-adress från Azure-nätverksundernät delegerad för användning med virtuella noder.
 
 > [!NOTE]
-> Om du använder avbildningar som lagras i Azure Container Registry, [konfigurerar och använder en Kubernetes-hemlighet][acr-aks-secrets]. En aktuell begränsning i virtuella noder förhandsversionen är att du inte kan använda integrerad autentisering av Azure AD tjänstens huvudnamn. Om du inte använder en hemlighet poddar som schemalagts på virtuella noder gick inte att starta och rapportera felet `HTTP response status code 400 error code "InaccessibleImage"`.
+> Om du använder avbildningar som lagras i Azure Container Registry, [konfigurerar och använder en Kubernetes-hemlighet][acr-aks-secrets]. En aktuell begränsning i virtuella noder är att du inte kan använda integrerade Azure AD-tjänstobjektautentisering. Om du inte använder en hemlighet poddar som schemalagts på virtuella noder gick inte att starta och rapportera felet `HTTP response status code 400 error code "InaccessibleImage"`.
 
 ## <a name="test-the-virtual-node-pod"></a>Testa virtuell nod pod
 

@@ -1,23 +1,23 @@
 ---
-title: Server begrepp i Azure Database for PostgreSQL
-description: Den här artikeln innehåller riktlinjer för att konfigurera och hantera Azure Database for PostgreSQL-servrar och överväganden.
+title: Server begrepp i Azure Database för PostgreSQL – enskild Server
+description: Den här artikeln innehåller riktlinjer för att konfigurera och hantera Azure Database för PostgreSQL – enskild Server och överväganden.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 11/07/2018
-ms.openlocfilehash: a5b6db9f4bfbe9a11119270e9236580b41fae8c7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: bc135e58d0fbabc809f3718915e9f4e35b8ed875
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60422107"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067163"
 ---
-# <a name="azure-database-for-postgresql-servers"></a>Azure Database for PostgreSQL-servrar
-Den här artikeln innehåller överväganden och riktlinjer för att arbeta med Azure Database for PostgreSQL-servrar.
+# <a name="azure-database-for-postgresql---single-server"></a>Azure Database för PostgreSQL – enskild Server
+Den här artikeln innehåller överväganden och riktlinjer för att arbeta med Azure Database för PostgreSQL – enskild Server.
 
 ## <a name="what-is-an-azure-database-for-postgresql-server"></a>Vad är en Azure Database for PostgreSQL-server?
-En Azure Database for PostgreSQL-server är en central administrativ plats för flera databaser. Det är samma PostgreSQL server-konstruktion som du kanske är bekant med lokala över hela världen. Mer specifikt PostgreSQL-tjänsten hanteras, ger prestanda, exponerar åtkomst och funktioner på servernivå.
+En server i Azure Database för PostgreSQL – alternativ för distribution av enskild Server är en central administrativ plats för flera databaser. Det är samma PostgreSQL server-konstruktion som du kanske är bekant med lokala över hela världen. Mer specifikt PostgreSQL-tjänsten hanteras, ger prestanda, exponerar åtkomst och funktioner på servernivå.
 
 En Azure Database for PostgreSQL-server:
 

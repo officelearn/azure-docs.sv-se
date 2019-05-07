@@ -10,16 +10,28 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: gracez
-ms.openlocfilehash: 33a03b24de56ab1090cc8e07c9619eda17f33e27
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9147f02f6ef2e2f3f776e67aa1f103e95ef132aa
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64711898"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153040"
 ---
 # <a name="release-notes-of-cognitive-services-speech-devices-sdk"></a>Viktig information för Cognitive Services tal enheter SDK
 
 Följande avsnitt lista över ändringar i de senaste versionerna.
+
+## <a name="cognitive-services-speech-devices-sdk-150-2019-may-release"></a>Cognitive Services tal enheter SDK 1.5.0: 2019 maj versionen
+
+*   Tal Devices SDK är nu allmänt tillgängliga och inte längre en skyddad förhandsversion.
+*   Uppdatera den [tal SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) komponenten till version 1.5.0. Mer information finns i dess [viktig](https://aka.ms/csspeech/whatsnew).
+*   Ny wake word teknik ger betydande kvalitet förbättringar finns i icke-bakåtkompatibla ändringar.
+*   Ny ljud process-pipelinen för bättre tolkning av längst till fältet.
+
+**Större ändringar**
+
+*   På grund av den nya wake word tekniken måste alla wake ord återskapas på vår förbättrad wake word-portal. Om du vill ta bort avinstallera gamla nyckelord från enheten gamla appen.
+    - adb uninstall com.microsoft.coginitiveservices.speech.samples.sdsdkstarterapp
 
 ## <a name="cognitive-services-speech-devices-sdk-140-2019-apr-release"></a>Cognitive Services tal enheter SDK 1.4.0: 2019 Apr versionen 
 

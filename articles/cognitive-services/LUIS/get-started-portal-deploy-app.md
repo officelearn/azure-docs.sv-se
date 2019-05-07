@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 03/11/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 9a54cad9212bdb514f7742121909221863ba75e3
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: db2b543fa8e5429cc8d50d7789b03239173f563d
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64713518"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154540"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Snabbstart: Distribuera en app i LUIS-portalen
 
@@ -73,11 +73,11 @@ Du måste tilldela resursen till LUIS-app varje gång du skapar en ny resurs fö
 
 ## <a name="train-and-publish-the-app"></a>Träna och publicera appen
 
-Träna appen när du är redo att testa den. Publicera appen när du vill att den för närvarande tränade versionen för att vara tillgängliga för klientprogram från slutpunkt-runtime förutsägelse.
+Träna appen när du är redo att testa den. Publicera appen när du vill att den för närvarande tränade versionen för att vara tillgängliga för klientprogram från frågan förutsägelse endpoint runtime.
 
 1. Om appen är omdöme väljer **träna** från menyn i det övre högra hörnet.
 
-1. Välj **publicera** på menyn. Acceptera standardinställningarna för miljön och välj **publicera**.
+1. Välj **publicera** på den översta menyn. Acceptera standardinställningarna för miljön och välj **publicera**.
 
 1. När meddelandefältet grönt visas överst i webbläsarfönstret väljer **finns i listan över slutpunkter**.
 

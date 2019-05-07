@@ -1,6 +1,6 @@
 ---
 title: Hantera Azure Log Analytics-agenten | Microsoft Docs
-description: Den här artikeln beskrivs de olika administrativa uppgifter som du vanligtvis utför under livscykeln för den Microsoft Monitoring Agent (MMA) distribueras på en dator.
+description: Den här artikeln beskrivs de olika administrativa uppgifter som du vanligtvis utför under livscykeln för Log Analytics Windows eller Linux-agenten som distribuerats på en dator.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: magoedte
-ms.openlocfilehash: 19530aa676e681f9a6ec50d2cacf77711dcb0110
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1809cc50f3ad3c285e0b69bc6e383a2c7c398238
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64730285"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65139252"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Hantering och underhåll av Log Analytics-agenten för Windows och Linux
 
-Efter den första distributionen av Log Analytics Windows eller Linux-agenten i Azure Monitor kan du behöva konfigurera om agenten, uppgradera den eller ta bort den från datorn om du har nått tillbakadragande steg i livscykeln. Du kan enkelt hantera dessa rutinunderhåll manuellt eller via automatisering, vilket minskar både operativt fel och utgifter.
+Efter den första distributionen av Log Analytics Windows eller Linux-agenten i Azure Monitor kan du behöva konfigurera om agenten, uppgradera den eller ta bort den från datorn om den har nått tillbakadragande steg i livscykeln. Du kan enkelt hantera dessa rutinunderhåll manuellt eller via automatisering, vilket minskar både operativt fel och utgifter.
 
 ## <a name="upgrading-agent"></a>Uppgradera agent
 
@@ -40,7 +40,7 @@ Om du vill uppdatera agenten på en virtuell Windows-dator till den senaste vers
 
 Du kan hämta den senaste versionen av Windows-agenten från din Log Analytics-arbetsyta genom att utföra följande steg.
 
-1. Logga in på Azure Portal.
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
 2. Klicka på **Alla tjänster** på Azure Portal. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics-arbetsytor**.
 
@@ -91,6 +91,7 @@ Kör följande kommando för att uppgradera agenten.
 ## <a name="adding-or-removing-a-workspace"></a>Att lägga till eller ta bort en arbetsyta
 
 ### <a name="windows-agent"></a>Windows-agenten
+Stegen i det här avsnittet krävs när du vill konfigurera inte bara om Windows-agenten rapporterar till en annan arbetsyta eller ta bort en arbetsyta från dess konfiguration, men även när du vill konfigurera agenten för att rapportera till fler än en arbetsyta (ofta kallas multihoming). Konfigurera Windows-agenten till flera arbetsytor kan bara utföras efter installationen av agenten och på sätt som beskrivs nedan.    
 
 #### <a name="update-settings-from-control-panel"></a>Uppdatera inställningarna från Kontrollpanelen
 
@@ -140,7 +141,7 @@ $mma.ReloadConfiguration()
 >
 
 ### <a name="linux-agent"></a>Linux-agenten
-Följande steg visar hur du konfigurerar om Linux-agenten om du vill registrera den med en annan arbetsyta eller vill du ta bort en arbetsyta från dess konfiguration.
+Följande steg visar hur du konfigurerar om Linux-agenten om du bestämmer dig för att registrera den med en annan arbetsyta eller ta bort en arbetsyta från dess konfiguration.
 
 1. Kontrollera att den är registrerad till en arbetsyta genom att köra följande kommando:
 
@@ -160,7 +161,7 @@ Följande steg visar hur du konfigurerar om Linux-agenten om du vill registrera 
 
     `/opt/microsoft/omsagent/bin/omsadmin.sh -w <workspace id> -s <shared key> [-d <top level domain>]`
     
-4. Om du vill kontrollera ändringarna tog påverkar genom att köra följande kommando:
+4. Om du vill kontrollera ändringarna tog effekt genom att köra följande kommando:
 
     `/opt/microsoft/omsagent/bin/omsadmin.sh -l`
 
@@ -231,7 +232,7 @@ Utför följande steg om Linux-datorerna måste kommunicera via en proxyserver e
     ```
 
 ## <a name="uninstall-agent"></a>Avinstallera agent
-Använd någon av följande procedurer för att avinstallera Windows eller Linux-agenten med hjälp av guiden kommandoraden eller konfiguration.
+Använd någon av följande procedurer för att avinstallera Windows eller Linux-agenten med hjälp av kommandoraden eller installationsguiden.
 
 ### <a name="windows-agent"></a>Windows-agenten
 

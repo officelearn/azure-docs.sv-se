@@ -11,17 +11,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/28/2019
+ms.date: 05/05/2019
 ms.author: TomSh
-ms.openlocfilehash: 5bec7db1c4409165242416df16e437b121381b49
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.openlocfilehash: 78402d3e388f08eae6652859a71c93ff408a5b0d
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64872565"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65152978"
 ---
-# <a name="azure-network-security-best-practices"></a>Azure-nätverk säkerhetsmetoder
-Den här artikeln beskriver en uppsättning Azure-nätverk säkerhetsmetoder. Dessa metodtips härleds från vår erfarenhet av Azure-nätverk och erfarenheter från kunder som dig själv.
+# <a name="azure-best-practices-for-network-security"></a>Bästa praxis för nätverkssäkerhet för Azure
+Den här artikeln beskriver en uppsättning Metodtips för Azure att förbättra nätverkssäkerheten. Dessa metodtips härleds från vår erfarenhet av Azure-nätverk och erfarenheter från kunder som dig själv.
 
 Den här artikeln förklarar för varje skull:
 
@@ -31,20 +31,57 @@ Den här artikeln förklarar för varje skull:
 * Möjliga alternativ till den bästa praxis
 * Hur du kan lära dig att aktivera ett metodtips
 
-Den här artikeln Metodtips för Azure nätverkssäkerhet baseras på en konsensus-åsikter och funktioner för Azure-plattformen och funktioner, eftersom de finns när den här artikeln skrevs. Andras åsikter och tekniker som ändras med tiden och den här artikeln kommer att uppdateras regelbundet att återspegla dessa ändringar.
+Dessa metodtips baseras på en konsensus-åsikter och funktioner för Azure-plattformen och funktioner, som de finns på den tid som den här artikeln skrevs. Andras åsikter och tekniker som ändras med tiden och den här artikeln kommer att uppdateras regelbundet att återspegla dessa ändringar.
+
+## <a name="use-strong-network-controls"></a>Använd starka nätverkskontroller
+Du kan ansluta [virtuella Azure-datorer (VM)](https://azure.microsoft.com/services/virtual-machines/) och till andra nätverksenheter genom att placera dem på [virtuella Azure-nätverk](https://docs.microsoft.com/azure/virtual-network/). Det vill säga kan du ansluta virtuella nätverkskort till ett virtuellt nätverk till att tillåta TCP/IP-baserad kommunikation mellan nätverk-aktiverade enheter. Virtuella datorer är anslutna till en Azure-nätverk kan ansluta till enheter på samma virtuella nätverk, olika virtuella nätverk, internet eller dina egna lokala nätverk.
+
+När du planerar nätverket och säkerheten i nätverket, rekommenderar vi att du centralisera:
+
+- Hantering av core nätverksfunktioner som ExpressRoute, virtuellt nätverk och undernät etablering och IP-adresser.
+- Styrning av nätverkselement för säkerhet, till exempel virtuell installation av nätverksfunktioner som ExpressRoute, virtuellt nätverk och undernät etablering och IP-adresser.
+
+Om du använder en gemensam uppsättning verktyg för att övervaka ditt nätverk och säkerheten för ditt nätverk kan få direkt insyn i både. Ett enkelt, enhetligt säkerhetsstrategi minskar risken för fel eftersom det ökar mänskliga kunskaper och tillförlitligheten för automation.
 
 ## <a name="logically-segment-subnets"></a>Logiskt segment undernät
-Azure-nätverk liknar ett lokalt nätverk i ditt lokala nätverk. Tanken bakom Azure-nätverk är att du skapar ett enda privata IP-adress –-baserade nätverk där du kan placera alla virtuella datorer i Azure. De privata IP-adressutrymmena tillgängliga finns i klass A (10.0.0.0/8), klass B (172.16.0.0/12) och klass C (192.168.0.0/16) intervall.
+Azure-nätverk liknar LAN i ditt lokala nätverk. Tanken bakom Azure-nätverk är att du skapar ett nätverk, baserat på en enda privat IP-adressutrymme, där du kan placera alla virtuella datorer i Azure. De privata IP-adressutrymmena tillgängliga finns i klass A (10.0.0.0/8), klass B (172.16.0.0/12) och klass C (192.168.0.0/16) intervall.
 
 Metodtips för logiskt segmentera undernät är:
+
+**Bästa praxis**: Tilldela inte tillåter regler med bred intervall (till exempel Tillåt 0.0.0.0 via 255.255.255.255).  
+**Information om**: Se till att felsökningsanvisningar hindra eller stänga av hur du konfigurerar dessa typer av regler. Dessa är kan regler leda till en falsk känsla av säkerhet och ofta hittades utnyttjas av red team
 
 **Bästa praxis**: Segmentera större adressutrymmet i undernät.   
 **Information om**: Använd [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)-baserade undernät principer för att skapa dina undernät.
 
-**Bästa praxis**: Skapa åtkomstkontroll för nätverk mellan undernät. Routning mellan undernät sker automatiskt och du behöver inte konfigurera routningstabeller manuellt. Som standard finns inga åtkomstkontroller för nätverk mellan undernät som du skapar på Azure-nätverket.   
-**Information om**: Använd en [nätverkssäkerhetsgrupp](../virtual-network/virtual-networks-nsg.md) (NSG). NSG: er är enkla, tillståndskänsliga paketinspektion enheter som använder den 5-tuppeln (käll-IP, källport, mål-IP, målport, och layer 4-protokollet) metod, skapa tillåta/neka regler för nätverkstrafik. Du tillåter eller nekar trafik till och från en enskild IP-adress, till och från flera IP-adresser, eller till och från hela undernät.
+**Bästa praxis**: Skapa åtkomstkontroll för nätverk mellan undernät. Routning mellan undernät sker automatiskt och du behöver inte konfigurera routningstabeller manuellt. Som standard finns inga åtkomstkontroller för nätverk mellan undernät som du skapar på Azure-nätverk.   
+**Information om**: Använd en [nätverkssäkerhetsgrupp](../virtual-network/virtual-networks-nsg.md) som skydd mot oönskad trafik i Azure-undernät. Nätverkssäkerhetsgrupper är enkel, tillståndskänsliga paketinspektion enheter som använder metoden 5-tuppel (käll-IP, källport, mål-IP, målport och protocol layer 4) skapa tillåta/neka regler för nätverkstrafik. Du tillåter eller nekar trafik till och från en enskild IP-adress, till och från flera IP-adresser, eller till och från hela undernät.
 
-När du använder NSG: er för network access control mellan undernät, kan du placera resurser som tillhör samma säkerhetszon eller roll i sina egna undernät.
+När du använder nätverkssäkerhetsgrupper för network access control mellan undernät, kan du placera resurser som tillhör samma säkerhetszon eller roll i sina egna undernät.
+
+**Bästa praxis**: Undvik att små virtuella nätverk och undernät så enkelt och flexibelt.   
+**Information om**: De flesta organisationer lägga till fler resurser än inledningsvis planerat och omfördelning av adresser är arbete beräkningsintensiva. Använda små undernät mervärde för begränsad säkerhet och mappa en nätverkssäkerhetsgrupp till varje undernät lägger till overhead. Definiera undernät brett för att säkerställa att du har möjlighet att växa.
+
+**Bästa praxis**: Förenkla nätverk säkerhetshantering grupp regeln genom att definiera [Programsäkerhetsgrupper](https://docs.microsoft.com/rest/api/virtualnetwork/applicationsecuritygroups).  
+**Information om**: Definiera en Programsäkerhetsgrupp för en lista över IP-adresser som du tror kan ändras i framtiden eller användas i många nätverkssäkerhetsgrupper. Var noga med att namnet programsäkerhet grupper tydligt så andra kan förstå deras innehåll och syftet.
+
+## <a name="adopt-a-zero-trust-approach"></a>Anta en lita på noll-metod
+Perimeter-baserade nätverk fungerar på antagandet att alla system i ett nätverk är betrodd. Men dagens medarbetare åtkomst till organisationens resurser från valfri plats på en mängd olika enheter och appar, vilket gör perimeter säkerhetskontroller irrelevanta. Principer för åtkomstkontroll som fokuserar endast på vem som kan komma åt en resurs är inte tillräckligt. Om du vill balans mellan säkerhet och produktivitet, säkerhetsadministratörer måste också ta hänsyn till *hur* en resurs används.
+
+Nätverk som behöver utveckla från traditionella försvar eftersom nätverk kan vara sårbara för överträdelser: en angripare kan påverka en enda slutpunkt inom betrodda gräns och snabbt utöka en fot i hela nätverket. [Noll förtroende](https://www.microsoft.com/security/blog/2018/06/14/building-zero-trust-networks-with-microsoft-365/) nätverk eliminera begreppet förtroende baserat på nätverksplats i ett perimeternätverk. I stället använda noll förtroende arkitekturer enhets- och förtroende-anspråk som förhindrar åtkomst till organisationens data och resurser. Anta noll förtroende metoder som validerar förtroende vid tidpunkten för åtkomstkontroll för nya initiativ.
+
+Bästa praxis är:
+
+**Bästa praxis**: Ge villkorlig åtkomst till resurser baserat på enhet, identitet, assurance, nätverksplats och mycket mer.  
+**Information om**: [Azure AD villkorsstyrd åtkomst](../active-directory/conditional-access/overview.md) kan du tillämpa rätt åtkomstkontroller genom att implementera automatiserade besluten om åtkomstkontroll baserat på de nödvändiga villkor. Mer information finns i [hantera åtkomst till Azure-hantering med villkorlig åtkomst](../role-based-access-control/conditional-access-azure-management.md).
+
+**Bästa praxis**: Aktivera portåtkomst förrän arbetsflöde för godkännande.  
+**Information om**: Du kan använda [åtkomst till Virtuella just-in-time i Azure Security Center](../security-center/security-center-just-in-time.md) för att låsa inkommande trafik till dina virtuella Azure-datorer minskar exponeringen för attacker samtidigt som det ger enkel åtkomst till att ansluta till virtuella datorer när det behövs.
+
+**Bästa praxis**: Bevilja tillfällig behörigheter att utföra Privilegierade åtgärder, vilket förhindrar skadliga eller obehöriga användare från att få åtkomst när behörigheterna som har upphört att gälla. Åtkomst beviljas endast när användare behöver den.  
+**Information om**: Använd just-in-time-åtkomst i Azure AD Privileged Identity Management eller i en lösning från tredje part för att bevilja behörighet att utföra Privilegierade uppgifter.
+
+Noll förtroende är en vidareutveckling i nätverkssäkerhet. Tillståndet för cyberattacker Driver organisationer att dra tänkesätt ”förutsätta intrång”, men den här metoden får inte vara begränsande. Noll förtroende-nätverk kan du skydda företagets data och resurser samtidigt som man säkerställer att organisationer kan skapa en modern arbetsplats med hjälp av tekniker som gör det möjligt för anställda att vara produktiva när som helst, var som helst, på något sätt.
 
 ## <a name="control-routing-behavior"></a>Kontrollera funktionssättet för Routning
 När du placerar en virtuell dator på Azure-nätverk måste kan den virtuella datorn ansluta till andra virtuella datorer på samma virtuella nätverk, även om andra virtuella datorer finns i olika undernät. Detta är möjligt eftersom en uppsättning systemvägar aktiverad som standard tillåter den här typen av kommunikation. Dessa standardvägar att virtuella datorer på samma virtuella nätverk initierar anslutningar med varandra och med internet (för utgående kommunikation till endast internet).
@@ -58,17 +95,8 @@ Vi rekommenderar att du konfigurerar [användardefinierade vägar](../virtual-ne
 >
 >
 
-## <a name="enable-forced-tunneling"></a>Aktivera Tvingad tunneltrafik
-För att bättre förstå Tvingad tunneltrafik, är det praktiskt att förstå vilka ”delade tunnlar”. Det vanligaste exemplet på delade tunnlar visas med virtuella privata nätverksanslutningar (VPN). Anta att du upprättar en VPN-anslutning från ett hotellrum till företagsnätverket. Den här anslutningen kan du komma åt företagets resurser. Det går all kommunikation till företagsnätverket via VPN-tunneln.
-
-Vad händer när du vill ansluta till resurser på internet? När delade tunnlar aktiveras gå anslutningarna direkt till internet och inte via VPN-tunneln. Vissa säkerhetsexperter på det här som en möjlig risk. De rekommenderar inaktivera delade tunnlar och se till att alla anslutningar, de är avsedd för internet och de som är avsedd för företagets resurser, går via VPN-tunneln. Fördelen med att inaktivera delade tunnlar är att tvingas sedan anslutningar till internet via säkerhetsenheter i företagets nätverk. Som skulle vara fallet om VPN-klienten är ansluten till internet utanför VPN-tunneln.
-
-Nu ska vi ta den tillbaka till virtuella datorer på Azure-nätverk. Standardvägar för ett Azure-nätverk att virtuella datorer ska initiera trafik till internet. Detta kan för representerar en säkerhetsrisk, eftersom dessa utgående anslutningar kan öka risken för angrepp på en virtuell dator och användas av angripare. Därför rekommenderar vi att du [aktivera Tvingad tunneltrafik](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) på dina virtuella datorer när du har flera platsanslutningar mellan Azure-nätverk och ditt lokala nätverk. Vi pratar om flera platsanslutningar senare i nätverk bästa praxis.
-
-Om du inte har en anslutning mellan olika platser, se till att dra nytta av NSG: er (se ovan) eller Azure virtual network säkerhetsenheter (beskrivs nedan) för att förhindra att utgående anslutningar till internet från din Azure-datorer.
-
 ## <a name="use-virtual-network-appliances"></a>Använda virtuella nätverksinstallationer
-NSG: er och en användardefinierad routning kan ge en viss grad av nätverkssäkerhet på Nätverks- och plattformsnivå av den [OSI-modell](https://en.wikipedia.org/wiki/OSI_model). Men i vissa situationer kan du vilja eller behöva aktivera säkerhet på hög nivå av stacken. I så fall rekommenderar vi att du distribuerar virtuella nätverket säkerhetsenheter som tillhandahålls av Azure-partner.
+Nätverkssäkerhetsgrupper och användardefinierad routning kan ge en viss grad av nätverkssäkerhet på Nätverks- och plattformsnivå av den [OSI-modell](https://en.wikipedia.org/wiki/OSI_model). Men i vissa situationer kan du vilja eller behöva aktivera säkerhet på hög nivå av stacken. I så fall rekommenderar vi att du distribuerar virtuella nätverket säkerhetsenheter som tillhandahålls av Azure-partner.
 
 Azure funktioner för nätverkssäkerhet kan leverera bättre säkerhet än vad på nätverksnivå kontroller som ger. Nätverk säkerhetsfunktioner för virtuella funktioner för nätverkssäkerhet:
 
@@ -87,19 +115,27 @@ För att hitta tillgängliga Azure-nätverk säkerhetsenheter, går du till den 
 ## <a name="deploy-perimeter-networks-for-security-zones"></a>Distribuera perimeternätverk för säkerhetszoner
 En [perimeternätverk](https://docs.microsoft.com/azure/best-practices-network-security) (även kallat DMZ) är en fysisk eller logisk nätverkssegment som ger ett extra lager av säkerhet mellan dina tillgångar och internet. Särskild åtkomstkontroll nätverksenheter i utkanten av ett perimeternätverk tillåta endast önskad trafik till ditt virtuella nätverk.
 
-Perimeternätverk är användbara eftersom du kan fokusera dina nätverkshantering av åtkomstkontroll, övervakning, loggning och rapportering på enheter i utkanten av Azure-nätverk. Här aktivera du vanligtvis distribuerade denial of service (DDoS) dataförlustskydd, intrång identifiering/intrång förebyggande system (IDS/IPS), brandväggsregler och principer, webbfiltrering, network program mot skadlig kod och mer. Nätverkssäkerhetsenheter mellan internet och Azure-nätverk och har ett användargränssnitt på båda nätverken.
+Perimeternätverk är användbara eftersom du kan fokusera dina nätverkshantering av åtkomstkontroll, övervakning, loggning och rapportering på enheter i utkanten av Azure-nätverk. Ett perimeternätverk är vanligtvis där du aktivera distribuerade denial of service (DDoS) dataförlustskydd, intrång identifiering/intrång förebyggande system (IDS/IPS), brandväggsregler och principer, webbfiltrering, network program mot skadlig kod och mer. Nätverkssäkerhetsenheter mellan internet och Azure-nätverk och har ett användargränssnitt på båda nätverken.
 
 Det här är den grundläggande utformningen av ett perimeternätverk, men det finns många olika konstruktionerna som sekvens efter varandra, tre-homed och flera IP-adresser.
 
-Vi rekommenderar för alla distributioner med hög säkerhet du överväga att använda ett perimeternätverk till nivån på nätverkssäkerhet för dina Azure-resurser.
+Baserat på noll förtroende-konceptet som nämnts tidigare, rekommenderar vi att du överväga att använda ett perimeternätverk för alla distributioner med hög säkerhet till nivån på nätverket säkerhet och åtkomstkontroll för dina Azure-resurser. Du kan använda Azure eller en lösning från tredje part för att tillhandahålla ett ytterligare säkerhetslager mellan dina tillgångar och internet:
+
+- Azure interna kontroller. [Azure-brandväggen](../firewall/overview.md) och [Brandvägg för webbaserade program i Application Gateway](../application-gateway/overview.md#web-application-firewall) erbjuder grundläggande säkerhet med en fullständigt administrerad brandvägg som en tjänst, inbyggd hög tillgänglighet, obegränsade molnskalbarhet FQDN filtrering , stöd för OWASP core rule sets och enkel installation och konfiguration.
+- Erbjudanden från tredje part. Sök efter den [Azure Marketplace](https://azuremarketplace.microsoft.com/) för nästa generations brandvägg (NGFW) och erbjudanden från tredje part som tillhandahåller välbekanta säkerhetsverktyg och avsevärt förbättrat nivåer av nätverkssäkerhet. Konfigurationen kan vara mer komplexa, men ett erbjudande från tredje part kan tillåta dig att använda befintliga funktioner och kompetens.
 
 ## <a name="avoid-exposure-to-the-internet-with-dedicated-wan-links"></a>Undvika exponering på Internet med fast WAN-länkar
-Många organisationer har valt hybrid IT-vägen. I hybrid-IT finns några av företagets informationstillgångar i Azure, medan andra är på plats. I många fall kan körs vissa delar av en tjänst i Azure medan andra komponenter är på plats.
+Många organisationer har valt hybrid IT-vägen. Med hybrid-IT, några av företagets informationstillgångar är i Azure och andra lokala. I många fall kan körs vissa delar av en tjänst i Azure medan andra komponenter är på plats.
 
-I hybrid IT-scenariot finns vanligtvis någon typ av anslutning mellan olika platser. Anslutning mellan olika platser gör det möjligt för företag att ansluta sina lokala nätverk till Azure-nätverk. Det finns två olika platser anslutningslösningar:
+I en hybrid IT-scenariot finns vanligtvis någon typ av anslutning mellan olika platser. Anslutning mellan olika platser gör det möjligt för företag att ansluta sina lokala nätverk till Azure-nätverk. Det finns två olika platser anslutningslösningar:
 
-* **Plats-till-plats VPN**: Det är en betrodda och tillförlitliga etablerad teknik, men anslutningen sker över internet. Bandbredd är begränsad till högst 200 Mbit/s. Plats-till-plats-VPN är en önskvärt alternativet i vissa scenarier och beskrivs ytterligare i avsnittet [inaktivera RDP/SSH-åtkomst till virtuella datorer](#disable-rdpssh-access-to-virtual-machines).
-* **Azure ExpressRoute**: Vi rekommenderar att du använder [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) för dina korsanslutningar. ExpressRoute är en dedikerad WAN länken mellan din lokala plats eller en värdbaserade Exchange-provider. Eftersom detta är en telco-anslutning kan överföras inte via internet i dina data och därför visas inte för de potentiella riskerna för internet-kommunikation.
+* [Plats-till-plats VPN](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md). Det är en betrodda och tillförlitliga etablerad teknik, men anslutningen sker över internet. Bandbredd är begränsad till högst 200 Mbit/s. Plats-till-plats-VPN är ett önskvärt alternativ i vissa situationer.
+* **Azure ExpressRoute**. Vi rekommenderar att du använder [ExpressRoute](../expressroute/expressroute-introduction.md) för dina korsanslutningar. Med ExpressRoute kan du utöka ditt lokala nätverk till Microsoft-molnet över en privat anslutning som tillhandahålls av en anslutningsprovider. Med ExpressRoute kan upprätta du anslutningar till Microsofts molntjänster som Azure, Office 365 och Dynamics 365. ExpressRoute är en dedikerad WAN länken mellan din lokala plats eller en värdleverantör för Microsoft Exchange. Eftersom detta är en telco-anslutning kan överföras inte dina data via internet, så det inte är visas de potentiella risker för internet-kommunikation.
+
+Platsen för ExpressRoute-anslutningen kan påverka brandväggen kapacitet, skalbarhet, tillförlitlighet och nätverket trafik synlighet. Du behöver identifiera var du vill avsluta ExpressRoute i nätverk (lokalt). Du kan:
+
+- Avsluta utanför brandväggen (perimeternätverket nätverket paradigmet) om du ha insyn i trafiken, om du vill fortsätta en befintlig praxis och isolera datacenter, eller om det är enbart frågan extranätresurser på Azure.
+- Avsluta innanför brandväggen (network tillägget paradigmet). Det här är standardinställningarna. I alla andra fall rekommenderar vi behandla Azure som en n: te datacenter.
 
 ## <a name="optimize-uptime-and-performance"></a>Optimera drifttid och prestanda
 Om en tjänst är nere kan kan information inte nås. Om prestanda är dålig så att data är oanvändbara du överväga att data inte är tillgänglig. Du måste göra vad du kan för att se till att dina tjänster har optimala drifttid och prestanda från ett säkerhetsperspektiv.
@@ -172,5 +208,5 @@ Tjänstslutpunkter har följande fördelar:
 
 Läs mer om tjänstslutpunkter och Azure-tjänster och regioner som tjänstslutpunkter är tillgängliga för i [tjänstslutpunkter i virtuella nätverk](../virtual-network/virtual-network-service-endpoints-overview.md).
 
-## <a name="next-step"></a>Nästa steg
+## <a name="next-steps"></a>Nästa steg
 Se [säkerhet i Azure-metodtips och mönster](security-best-practices-and-patterns.md) för flera beprövade metoder för att använda när du utforma, distribuera och hantera dina molnlösningar med hjälp av Azure.

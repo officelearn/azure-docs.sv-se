@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 04/18/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 58f6d6cf8bf16f7c35bab35a69cfcdf8759f66ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 357ed4c42cc2758766b9ccd45a3fafa541338d11
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60814034"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154559"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>Gränser för LUIS-modell och nycklar
 LUIS har flera gräns områden. Först är det [modellen gräns](#model-boundaries), som styr avsikter, entiteter och funktioner i LUIS. Det andra området är [kvotgränser](#key-limits) baserat på nyckeltyp. Ett tredje område av gränser är den [tangentbord kombination](#keyboard-controls) för att styra LUIS-webbplatsen. En fjärde området är den [världen regionsmappning](luis-reference-regions.md) mellan LUIS redigering av webbplatsen och LUIS [endpoint](luis-glossary.md#endpoint) API: er. 
@@ -31,9 +31,11 @@ Om din app överskrider LUIS-modellen begränsningar och gränser, bör du anvä
 | [Appnamn][luis-get-started-create-app] | * Standardvärdet max |
 | [Batch-testning][batch-testing]| 10 datauppsättningar, 1000 yttranden per datauppsättning|
 | Explicit lista | 50 per program|
+| Externa enheter | ingen gräns |
 | [Avsikter][intents]|500 per program: 499 anpassade avsikter och de nödvändiga _ingen_ avsikt.<br>[Dispatch-baserade](https://aka.ms/dispatch-tool) programmet har motsvarande 500 dispatch-källor.|
 | [Lista över entiteter](./luis-concept-entity-types.md) | Överordnad: 50, underordnade: 20 000 objekt. Kanoniskt namn är * maximalt antal tecken som standard. Synonymen värden har ingen begränsning av lösenordslängd. |
-| [Datorn lärt dig entiteter](./luis-concept-entity-types.md):<br> Sammansatta,<br>  Hierarkisk<br> Enkel|En gräns på 100 överordnade entiteter (inkluderar inte hierarkiska underordnade) eller 330 entiteter (inklusive hierarkisk underordnade), beroende på vilket som begränsar träffar för användaren först.<br><br>Ett exempel på hierarki är 30 hierarkier varje med 10 underordnade.  Underordnade förbrukar 300 totala och element för hierarkin kommer att använda de återstående 30. |
+| [Datorn lärt dig entiteter + roller](./luis-concept-entity-types.md):<br> Sammansatta,<br>enkel,<br>entiteten roll|En gräns på 100 överordnade entiteter eller 330 entiteter, beroende på vilket som begränsar träffar för användaren först. En roll räknas som en entitet i den här gränsen. Ett exempel är en sammansatt med en enkel enhet som har 2 roller är: 1 sammansatta + 1 enkel + 2 roller = 4 330 entiteter.|
+| [Förhandsgranskning – dynamisk lista entiteter](https://aka.ms/luis-api-v3-doc#dynamic-lists-passed-in-at-prediction-time)|2 listor med ~ 1 kB per fråga förutsägelsefrågan slutpunkt|
 | [Mönster](luis-concept-patterns.md)|500 mönster per program.<br>Maximal längd på mönstret är 400 tecken.<br>3 Pattern.any entiteter per mönster<br>Högst 2 kapslade valfritt texter i mönstret|
 | [Pattern.any](./luis-concept-entity-types.md)|100 per program, 3 pattern.any entiteter per mönster |
 | [Fras lista][phrase-list]|10 fras listor, 5 000 poster per|

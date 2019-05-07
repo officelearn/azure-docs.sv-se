@@ -12,19 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/17/2018
+ms.date: 05/03/2019
 ms.author: barclayn
-ms.openlocfilehash: f872c61ad0597d2307cd244668fdfc258f7a45cb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2a669f5b46db4d5de7d1d6863b94e6c117667aee
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60611257"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153246"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Azure Identitetshantering och åtkomstkontroll säkerhetsmetoder
-
-Många Överväg identitet ska vara det nya gräns-lagret för säkerhet, tar över rollen traditionella nätverk-centric perspektiv. Den här utvecklingen av den primära pivot för säkerhet uppmärksamhet och investeringar kommer från det faktum att nätverket perimetrar har blivit allt högre grad porös och den perimeterskydd får inte vara så effektiv som de en gång var innan expanderingen av [BYOD ](https://aka.ms/byodcg) enheter och molnprogram.
-
 I den här artikeln diskuterar vi en samling Azure identity management och säkerhetsmetoder för access control. Dessa metodtips härleds från vår erfarenhet av [Azure AD](../active-directory/fundamentals/active-directory-whatis.md) och erfarenheter från kunder som dig själv.
 
 För varje rekommenderar förklarar vi:
@@ -41,6 +38,7 @@ Azure identitet och kontroll säkerhetsmetoder beskrivs i den här artikeln är:
 
 * Hantera identitet som primär säkerhetsperimeter
 * Centralisera Identitetshantering
+* Hantera anslutna klienter
 * Aktivera enkel inloggning
 * Aktivera villkorlig åtkomst
 * Aktivera lösenordshantering
@@ -48,30 +46,55 @@ Azure identitet och kontroll säkerhetsmetoder beskrivs i den här artikeln är:
 * Använd rollbaserad åtkomstkontroll
 * Lägre exponering av Privilegierade konton
 * Kontrollera platser där resurser finns
+* Använd Azure AD för autentisering för lagring
 
 ## <a name="treat-identity-as-the-primary-security-perimeter"></a>Hantera identitet som primär säkerhetsperimeter
 
 Många Överväg identitet för att vara primär perimeternätverket för säkerhet. Det här är en förändring jämfört med traditionella fokus på nätverkssäkerhet. Nätverket perimetrar fortsätta att få mer porös och den perimeterskydd får inte vara så effektiv innan alltfler [BYOD](https://aka.ms/byodcg) enheter och molnprogram.
+
 [Azure Active Directory (Azure AD)](../active-directory/active-directory-whatis.md) är Azure-lösning för identitets- och åtkomsthantering. Azure AD är en multitenant, molnbaserade företagskatalogen och identitetshanteringen management-tjänst från Microsoft. Den kombinerar viktiga katalogtjänster, åtkomsthantering för program och identitetsskydd i en enda lösning.
 
 I följande avsnitt listas Metodtips för identitets- och säkerhet med hjälp av Azure AD.
 
 ## <a name="centralize-identity-management"></a>Centralisera Identitetshantering
 
-I en [hybrididentitet](https://resources.office.com/ww-landing-M365E-EMS-IDAM-Hybrid-Identity-WhitePaper.html?) scenario rekommenderar vi att du integrera dina lokala och molnbaserade kataloger. Integrering gör det möjligt för IT-teamet och hantera konton från en enda plats, oavsett var ett konto har skapats. Integrering hjälper även användarna att bli mer produktiva genom att tillhandahålla en gemensam identitet för åtkomst till både i molnet och lokala resurser.
+I en [hybrididentitet](https://resources.office.com/ww-landing-M365E-EMS-IDAM-Hybrid-Identity-WhitePaper.html?) scenario rekommenderar vi att du integrera dina lokala och molnbaserade kataloger. Integrering gör det möjligt för IT-teamet och hantera konton från en plats, oavsett var ett konto har skapats. Integrering hjälper även användarna att bli mer produktiva genom att tillhandahålla en gemensam identitet för åtkomst till både i molnet och lokala resurser.
 
+**Bästa praxis**: Upprätta en enda Azure AD-instans. Konsekvens och en enda auktoritativa källor ökar tydlighet och minska säkerhetsrisker från mänskliga misstag och konfiguration av komplexitet.
+**Information om**: Ange en enda Azure AD directory som auktoritativ källa för företagets och organisatoriska konton.
 
 **Bästa praxis**: Integrera dina lokala kataloger med Azure AD.  
 **Information om**: Använd [Azure AD Connect](../active-directory/connect/active-directory-aadconnect.md) att synkronisera din lokala katalog med din molnkatalog.
 
-**Bästa praxis**: Aktivera synkronisering av lösenordshash.  
-**Information om**: Synkronisering av lösenordshash är en funktion som används för att synkronisera hashvärden av användarlösenord från en lokal Active Directory-instans för en molnbaserad Azure AD-instans.
+> [!Note]
+> Det finns [faktorer som påverkar prestanda för Azure AD Connect](../active-directory/hybrid/plan-connect-performance-factors.md). Kontrollera Azure AD Connect har tillräckligt med kapacitet för att hålla presterar som förväntat system från hindra säkerhet och produktivitet. Stora och komplexa organisationer (organisationer etablering mer än 100 000 objekt) bör följa den [rekommendationer](../active-directory/hybrid/whatis-hybrid-identity.md) att optimera sina Azure AD Connect-implementering.
 
-Även om du vill använda federation med Active Directory Federation Services (AD FS) eller andra identitetsleverantörer, kan du också ställa in synkronisering av lösenordshash som en säkerhetskopia om dina lokala servrar misslyckas eller bli tillfälligt otillgängliga. Detta gör det möjligt för användare att logga in på tjänsten med hjälp av samma lösenord som de använder för att logga in på sina lokala Active Directory-instans. Det gör också Identity Protection att identifiera avslöjade autentiseringsuppgifter genom att jämföra dessa hashvärden för lösenord med lösenord som är kända för äventyras, om en användare har använt sitt samma e-postadress och lösenord för andra tjänster som inte är anslutna till Azure AD.
+**Bästa praxis**: Synkronisera inte konton till Azure AD som har höga privilegier i din befintliga Active Directory-instans.
+**Information om**: Ändra inte standardvärdet [Azure AD Connect-konfigurationen](../active-directory/hybrid/how-to-connect-sync-configure-filtering.md) som filtrerar ut dessa konton. Den här konfigurationen minskar risken med att angripare pivotering från molnet till lokala resurser (vilket kan skapa en större incident).
+
+**Bästa praxis**: Aktivera synkronisering av lösenordshash.  
+**Information om**: Synkronisering av lösenordshash är en funktion som används för att synkronisera användare lösenords-hash från en lokal Active Directory-instans till en molnbaserad Azure AD-instans. Den här synkroniseringen hjälper dig för att skydda mot läckta autentiseringsuppgifter som spelas från föregående attacker.
+
+Även om du vill använda federation med Active Directory Federation Services (AD FS) eller andra identitetsleverantörer, kan du också ställa in synkronisering av lösenordshash som en säkerhetskopia om dina lokala servrar misslyckas eller bli tillfälligt otillgängliga. Den här synkroniseringen gör det möjligt för användare att logga in på tjänsten med hjälp av samma lösenord som de använder för att logga in på sina lokala Active Directory-instans. Det gör också Identity Protection att identifiera avslöjade autentiseringsuppgifter genom att jämföra synkroniserade lösenords-hash med kända äventyras, om en användare har använt samma e-postadress och lösenord för andra tjänster som inte är anslutna till Azure AD-lösenord.
 
 Mer information finns i [implementera lösenordshashsynkronisering med Azure AD Connect-synkronisering](../active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md).
 
+**Bästa praxis**: För programutveckling, använder du Azure AD för autentisering.
+**Information om**: Använd rätt funktioner för att stödja autentisering:
+
+  - Azure AD för anställda
+  - [Azure AD B2B](https://docs.microsoft.com/azure/active-directory/b2b/) för gästanvändare och externa partners
+  - [Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/) för att styra hur kunderna registrerar jag mig, logga in och hanterar sina profiler när de använder dina program
+
 Organisationer som inte integrerar sin lokala identitet med sin molnidentitet kan ha fler tillägg i hanteringen av konton. Det här arbetet ökar sannolikheten för fel och säkerhetsintrång.
+
+> [!Note]
+> Du måste välja vilka kritiska konton kommer att finnas i och om administratörsarbetsstation som används är hanteras av nya molntjänster eller befintliga bearbetar kataloger. Med hjälp av befintliga hanterings- och identitet etablering processer kan minska risker, men kan även skapa risken för en angripare att kompromissa med ett lokalt konto och pivotering till molnet. Du kanske vill använda en egen strategi för olika roller (till exempel IT-administratörer och business unit-administratörer). Har du två alternativ. Första alternativet är att skapa Azure AD-konton som inte är synkroniserade med din lokala Active Directory-instans. Anslut din arbetsstation till Azure AD, som du kan hantera och korrigera med hjälp av Microsoft Intune. Andra alternativ är att använda befintliga konton som synkroniseras till din lokala Active Directory-instans. Använd befintliga arbetsstationer i Active Directory-domänen för hantering och säkerhet.
+
+## <a name="manage-connected-tenants"></a>Hantera anslutna klienter
+Organisationen säkerhet måste synlighet att utvärdera risker och fastställa om principer för din organisation och eventuella regelkrav följs. Du bör se till att organisationen säkerhet har insyn i alla prenumerationer som är ansluten till din produktionsmiljö och nätverk (via [Azure ExpressRoute](../expressroute/expressroute-introduction.md) eller [plats-till-plats VPN](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)). En [Global administratör/företagsadministratör](../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator) i Azure AD kan utöka sin åtkomst till den [administratör för användaråtkomst](../role-based-access-control/built-in-roles.md#user-access-administrator) roll och se alla prenumerationer och hanterade grupper som är ansluten till din miljö.
+
+Se [utöka behörighet för att hantera alla Azure-prenumerationer och hanteringsgrupper](../role-based-access-control/elevate-access-global-admin.md) så att du och din säkerhetsgrupp kan visa alla prenumerationer eller hanteringsgrupper som är ansluten till din miljö. Du bör ta bort den här utökad åtkomst när du har utvärderat risker.
 
 ## <a name="enable-single-sign-on"></a>Aktivera enkel inloggning
 
@@ -88,12 +111,15 @@ Organisationer som inte skapar en gemensam identitet för att upprätta en enkel
 
 ## <a name="turn-on-conditional-access"></a>Aktivera villkorlig åtkomst
 
-Användare kan komma åt din organisations resurser med hjälp av en mängd olika enheter och appar från var som helst. Som IT-administratör kan du se till att dessa enheter uppfyller dina krav för säkerhet och efterlevnad. Bara fokusera på vem som kan komma åt en resurs räcker inte längre.
+Användare kan komma åt din organisations resurser med hjälp av en mängd olika enheter och appar från var som helst. Som IT-administratör, som du vill kontrollera att dessa enheter uppfyller dina krav för säkerhet och efterlevnad. Bara fokusera på vem som kan komma åt en resurs räcker inte längre.
 
-För att jämna ut säkerhet och produktivitet, måste du tänka på hur en resurs används innan du kan fatta ett beslut för kontroll av åtkomst. Med villkorsstyrd åtkoms i Azure AD kan du uppfylla det här kravet. Du kan göra automatiserade besluten om åtkomstkontroll för att komma åt dina appar i molnet som baseras på villkor med villkorlig åtkomst.
+För att jämna ut säkerhet och produktivitet, måste du tänka på hur en resurs används innan du kan fatta ett beslut om åtkomstkontroll. Med villkorsstyrd åtkoms i Azure AD kan du uppfylla det här kravet. Du kan göra automatiserade besluten om åtkomstkontroll baserat på villkor för att komma åt dina appar i molnet med villkorlig åtkomst.
 
 **Bästa praxis**: Hantera och styr åtkomsten till företagets resurser.  
 **Information om**: Konfigurera Azure AD [villkorlig åtkomst](../active-directory/active-directory-conditional-access-azure-portal.md) baserat på en grupp, plats och programmets känslighet för SaaS-appar och Azure AD-anslutna appar.
+
+**Bästa praxis**: Blockera äldre autentiseringsprotokoll.
+**Information om**: Angripare utnyttja svagheter i äldre protokoll varje dag, särskilt för lösenord besprutningsmedel attacker. Konfigurera villkorlig åtkomst för att blockera äldre protokoll. Se videon [Azure AD: Bra att veta](https://www.youtube.com/watch?v=wGk0J4z90GI) för mer information.
 
 ## <a name="enable-password-management"></a>Aktivera lösenordshantering
 
@@ -105,6 +131,9 @@ Om du har flera klienter eller om du vill att användarna kan [återställa sina
 **Bästa praxis**: Övervaka hur eller om SSPR som verkligen används.  
 **Information om**: Övervaka användare som registrerar med hjälp av Azure AD [lösenord återställer registreringen aktivitetsrapporten](../active-directory/active-directory-passwords-get-insights.md). Rapporteringsfunktionen som Azure AD tillhandahåller kan du besvara frågor med hjälp av fördefinierade rapporter. Om du har korrekt licens, kan du också skapa egna frågor.
 
+**Bästa praxis**: Utöka molnbaserade lösenordsprinciper till din lokala infrastruktur.
+**Information om**: Förbättra lösenordsprinciper i din organisation genom att utföra samma kontroller för lokala lösenordsändringar som du gör ändringar av molnbaserade lösenord. Installera [Azure AD-lösenordsskydd](../active-directory/authentication/concept-password-ban-bad.md) för Windows Server Active Directory agenter lokalt att utöka listor med förbjudna lösenord till din befintliga infrastruktur. Användare och administratörer som ändrar, ange eller återställa lösenord på plats krävs för att följa principen med samma lösenord som endast molnbaserade användare.
+
 ## <a name="enforce-multi-factor-verification-for-users"></a>Framtvinga multifaktorverifiering för användare
 
 Vi rekommenderar att du kräver tvåstegsverifiering för alla användare. Detta inkluderar administratörer och andra i organisationen som kan ha en betydande inverkan om sitt konto komprometteras (till exempel företagsriskkonsulter).
@@ -115,6 +144,8 @@ Följande är alternativ och fördelar för att aktivera tvåstegsverifiering:
 
 **Alternativ 1**: [Aktivera Multi-Factor Authentication genom att ändra användarens tillstånd](../active-directory/authentication/howto-mfa-userstates.md).   
 **Förmånen**: Det här är den traditionella metoden för att kräva tvåstegsverifiering. Det fungerar med både [Azure Multi-Factor Authentication i molnet och Azure Multi-Factor Authentication Server](../active-directory/authentication/concept-mfa-whichversion.md). Med den här metoden kräver att användare utför en tvåstegsverifiering varje gång de loggar in och åsidosättningar principer för villkorlig åtkomst.
+
+För att avgöra var Multifaktorautentisering måste vara aktiverat, se [vilken version av Azure MFA är rätt för min organisation?](../active-directory/authentication/concept-mfa-whichversion.md).
 
 **Alternativ 2**: [Aktivera Multi-Factor Authentication med principen för villkorlig åtkomst](../active-directory/authentication/howto-mfa-getstarted.md).
 **Förmånen**: Det här alternativet kan du fråga efter tvåstegsverifiering vissa villkor med hjälp av [villkorlig åtkomst](../active-directory/active-directory-conditional-access-azure-portal.md). Särskilda villkor kan vara användare logga in från olika platser, ej betrodda enheter eller program som du anser vara riskfyllda. Definiera särskilda villkor där du kräver tvåstegsverifiering kan du undvika konstant fråga om dina användare, vilket kan vara en otrevlig användarupplevelse.
@@ -135,11 +166,34 @@ Den här metoden används Azure AD Identity Protection riskbedömningen att avg�
 
 Organisationer som inte lägger till extra skyddslager för identitet, till exempel tvåstegsverifiering, är mer sårbara för angrepp för stöld av autentiseringsuppgifter. En attack med stöld av autentiseringsuppgifter kan leda till kompromettering av data.
 
-## <a name="use-role-based-access-control-rbac"></a>Använda rollbaserad åtkomstkontroll (RBAC)
+## <a name="use-role-based-access-control"></a>Använd rollbaserad åtkomstkontroll
+Åtkomsthantering för molnresurser är viktigt för alla organisationer som använder molnet. [Rollbaserad åtkomstkontroll (RBAC)](../role-based-access-control/overview.md) hjälper dig att hantera vem som har åtkomst till Azure-resurser, vad de kan göra med dessa resurser och vilka områden som de har åtkomst till.
 
-Begränsa åtkomst baserat på den [behöver veta](https://en.wikipedia.org/wiki/Need_to_know) och [lägsta behörighet](https://en.wikipedia.org/wiki/Principle_of_least_privilege) säkerhetsprinciper är mycket viktigt för organisationer som vill tillämpa säkerhetsprinciper för dataåtkomst. Du kan använda [rollbaserad åtkomstkontroll (RBAC)](../role-based-access-control/overview.md) att tilldela behörigheter till användare, grupper och program för ett visst omfång. Omfattningen för en rolltilldelning kan vara en prenumeration, en resursgrupp eller en enskild resurs.
+Utse grupper eller enskilda roller ansvarar för specifika funktioner i Azure hjälper dig att undvika förvirring som kan leda till mänskliga och Automatiseringsfel som skapar säkerhetsrisker. Begränsa åtkomst baserat på den [behöver veta](https://en.wikipedia.org/wiki/Need_to_know) och [lägsta behörighet](https://en.wikipedia.org/wiki/Principle_of_least_privilege) säkerhetsprinciper är mycket viktigt för organisationer som vill tillämpa säkerhetsprinciper för dataåtkomst.
 
-Du kan använda [inbyggda RBAC](../role-based-access-control/built-in-roles.md) roller i Azure för att tilldela behörigheter till användare. Organisationer som inte behöver använda åtkomstkontroll för data med hjälp av funktioner, till exempel RBAC kan ger fler behörigheter än vad som krävs till sina användare. Detta kan leda till kompromettering av data genom att låta användaråtkomst till vissa typer av data (till exempel stora marknadsfördelar) som de inte ska ha.
+Ditt säkerhetsteam måste insyn i dina Azure-resurser för att utvärdera och åtgärda risker. Om security-teamet har operativa ansvarsområden, behöver de ytterligare behörighet att utföra sitt arbete.
+
+Du kan använda [RBAC](../role-based-access-control/overview.md) att tilldela behörigheter till användare, grupper och program för ett visst omfång. Omfattningen för en rolltilldelning kan vara en prenumeration, en resursgrupp eller en enskild resurs.
+
+**Bästa praxis**: Hålla isär uppgifter i ditt team och bevilja endast mängden åtkomst till användare som de behöver för att utföra sitt arbete. Istället för att ge alla kan obegränsade behörigheter i din Azure-prenumeration eller resurser, endast vissa åtgärder i ett visst omfång.
+**Information om**: Använd [inbyggda RBAC-roller](../role-based-access-control/built-in-roles.md) i Azure för att tilldela behörigheter till användare.
+
+> [!Note]
+> Specifika behörigheter skapar onödig komplexitet och förvirring kommer innehåll kan sparas i ett ”äldre” konfiguration som är svårare att lösa utan att behöva betala något. Undvik att resurs-specifika behörigheter. Använd istället hanteringsgrupper för företagsomfattande behörigheter och resursgrupper för behörigheter i prenumerationer. Undvik att användarspecifika behörigheter. I stället tilldela åtkomst till grupper i Azure AD.
+
+**Bästa praxis**: Bevilja security team med Azure ansvarsområden åtkomst till finns i Azure-resurser så att de kan utvärdera och åtgärda risker.
+**Information om**: Bevilja security team i RBAC [Säkerhetsläsare](../role-based-access-control/built-in-roles.md#security-reader) roll. Du kan använda roten hanteringsgruppen eller hanteringsgruppen segment, beroende på omfattningen av ansvarsområden:
+
+- **Rot-hanteringsgruppen** för team som ansvarar för alla företagsresurser
+- **Segment-hanteringsgruppen** för team med begränsad omfattning (ofta på grund av regler eller andra organisatoriska gränser)
+
+**Bästa praxis**: Bevilja behörighet så att security team som har direkt operativa ansvarsområden.
+**Information om**: Granska de inbyggda RBAC-rollerna för lämpliga rolltilldelningen. Om de inbyggda rollerna inte uppfyller de specifika behoven i din organisation, kan du skapa [anpassade roller för Azure-resurser](../role-based-access-control/custom-roles.md). Som du kan tilldela anpassade roller till användare, grupper och tjänstens huvudnamn på prenumerationen, resursgruppen och resurs-scope med inbyggda roller.
+
+**Bästa praxis**: Bevilja Azure Security Center åtkomst till säkerhetsroller som behöver den. Security Center hjälper att snabbt identifiera och åtgärda risker.
+**Information om**: Lägg till security team utan dessa behov i RBAC [säkerhetsadministratör](../role-based-access-control/built-in-roles.md#security-admin) rollen så att de kan visa säkerhetsprinciper, security tillstånd, redigera säkerhetsprinciper, Visa aviseringar och rekommendationer och stänga aviseringar och rekommendationer. Du kan göra detta med hjälp av hanteringsgruppen roten eller hanteringsgruppen segment, beroende på omfattningen av ansvarsområden.
+
+Organisationer som inte framtvingar åtkomstkontroll för data med hjälp av funktionerna som RBAC ger fler behörigheter än vad som krävs till sina användare. Detta kan leda till kompromettering av data genom att tillåta användare att komma åt typer av data (till exempel stora marknadsfördelar) som de inte ska ha.
 
 ## <a name="lower-exposure-of-privileged-accounts"></a>Lägre exponering av Privilegierade konton
 
@@ -153,6 +207,12 @@ Följande sammanfattar de rekommenderade metoder som finns i [referensmaterialet
 
 **Bästa praxis**: Hantera, kontrollera och övervaka åtkomst till Privilegierade konton.   
 **Information om**: Aktivera [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/active-directory-securing-privileged-access.md). När du har aktiverat Privileged Identity Management kan du ett meddelande om e-postmeddelanden för privilegierad åtkomst rollen ändringar. Dessa meddelanden ge en tidig varning när ytterligare användare läggs till i mycket Privilegierade roller i din katalog.
+
+**Bästa praxis**: Se till att alla kritiska administratörskonton hanteras Azure AD-konton.
+**Information om**: Ta bort några konsument-konton från kritiska administratörsroller (till exempel Microsoft-konton som hotmail.com, live.com och outlook.com).
+
+**Bästa praxis**: Se till att alla kritiska administratörsroller ha ett separat konto för administrativa uppgifter för att undvika nätfiske och andra attacker för att angripa administrativa privilegier.
+**Information om**: Skapa ett separat administratörskonto som har tilldelats behörighet att utföra administrativa uppgifter. Blockera användning av dessa administrativa konton för dagliga produktivitetsverktyg som Microsoft Office 365 e-post godtyckliga webbsurfning.
 
 **Bästa praxis**: Identifiera och klassificera konton som är mycket Privilegierade roller.   
 **Information om**: Visa användare som ingår i den globala administratören privilegierad rolladministratör och andra mycket Privilegierade roller efter att aktivera Azure AD Privileged Identity Management. Ta bort alla konton som inte längre behövs i de här rollerna och kategorisera de återstående konton som tilldelas till administrativa roller:
@@ -173,10 +233,27 @@ Följande sammanfattar de rekommenderade metoder som finns i [referensmaterialet
 **Bästa praxis**: Definiera minst två konton för åtkomst vid akutfall.   
 **Information om**: För åtkomst vid akutfall hjälpa organisationer begränsa privilegierad åtkomst i en befintlig Azure Active Directory-miljö. Dessa konton är mycket Privilegierade och tilldelas inte till enskilda individer. För åtkomst vid akutfall är begränsade till scenarier där normala administrativa konton inte kan användas. Organisationer måste begränsa användningen av nödfall konton endast nödvändiga lång tid.
 
-Utvärdera de konton som är tilldelade eller berättigad för rollen som global administratör. Om du inte ser några endast molnbaserade konton med hjälp av den `*.onmicrosoft.com` domän (avsett för åtkomst vid akutfall), skapa dem. Mer information finns i hantera åtkomst vid akutfall administrativa konton i Azure AD.
+Utvärdera de konton som är tilldelade eller berättigad för rollen som global administratör. Om du inte ser några endast molnbaserade konton med hjälp av den `*.onmicrosoft.com` domän (avsett för åtkomst vid akutfall), skapa dem. Mer information finns i [hantera åtkomst vid akutfall administratörskonton i Azure AD](../active-directory/users-groups-roles/directory-emergency-access.md).
 
-**Bästa praxis**: Aktivera Multi-Factor Authentication och registrera alla andra med hög behörighetsnivå enanvändarläge icke-federerade administratörskonton.  
-**Information om**: Kräv Azure Multi-Factor Authentication vid inloggning för alla enskilda användare som tilldelas permanent till en eller flera av Azure AD-administratörsroller: global administratör, privilegierad rolladministratör, administratör i Exchange Online och SharePoint Online administratör. Använd guiden för att aktivera [Multifaktorautentisering för dina administratörskonton](../active-directory/authentication/howto-mfa-userstates.md) och se till att alla användare har [registrerad](https://aka.ms/mfasetup).
+**Bästa praxis**: Ha en ”Bryt om” på plats i ett nödfall.
+**Information om**: Följ stegen i [referensmaterialet för att skydda privilegierad åtkomst för hybrid- och distributioner i Azure AD](../active-directory/users-groups-roles/directory-admin-roles-secure.md).
+
+**Bästa praxis**: Kräver alla kritiska administratörskonton vara lösenord utan (rekommenderas) eller kräva Multifaktorautentisering.
+**Information om**: Använd den [Microsoft Authenticator-appen](../active-directory/authentication/howto-authentication-phone-sign-in.md) att logga in på alla Azure AD-konto utan lösenord. Som [Windows Hello för företag](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification), Microsoft Authenticator använder nyckel-baserad autentisering för att aktivera en autentiseringsuppgift för användare som är kopplad till en enhet och använder biometrisk autentisering eller en PIN-kod.
+
+Kräv Azure Multi-Factor Authentication vid inloggning för alla enskilda användare som tilldelas permanent till en eller flera av Azure AD-administratörsroller: Global administratör, privilegierad Rolladministratör, Exchange Online-administratör och SharePoint Online-administratör. Aktivera [Multifaktorautentisering för dina administratörskonton](../active-directory/authentication/howto-mfa-userstates.md) och se till att du har registrerat konto administratörsanvändare.
+
+**Bästa praxis**: Ha en administratörsarbetsstation där uppgifter inte är tillåtet (till exempel, bläddra och e-post) för kritiska administratörskonton. Detta skyddar dina administratörskonton från angreppsmetoder som använder Bläddra och e-post och avsevärt minska risken för att en större incident.
+**Information om**: Använd en administratörsarbetsstation. Välj en säkerhetsnivå för arbetsstation:
+
+- Mycket säker produktivitet enheter ger avancerad säkerhet för att bläddra bland och andra produktivitetsuppgifter.
+- [Privilegierad åtkomst arbetsstationer (Paw)](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations) ger ett dedikerat operativsystem som är skyddat mot internetattacker och hotvektorer för känsliga uppgifter.
+
+**Bästa praxis**: Avetablera administratörskonton när en medarbetare lämnar organisationen.
+**Information om**: Har en process som inaktiverar eller tar bort administratörskonton när en medarbetare lämnar organisationen.
+
+**Bästa praxis**: Testa regelbundet administratörskonton med hjälp av aktuella attackteknikerna.
+**Information om**: Använda Office 365-Attack simulatorn eller en tredje part erbjuder att köra realistisk attackscenarier i din organisation. Detta kan hjälpa dig hitta sårbara användare innan en verklig attack inträffar.
 
 **Bästa praxis**: Vidta åtgärder för att minimera de mest använda angripna teknikerna.  
 **Information om**: [Identifiera Microsoft-konton i administrativa roller som måste stängas för att arbets- eller skolkonton](../active-directory/users-groups-roles/directory-admin-roles-secure.md#identify-microsoft-accounts-in-administrative-roles-that-need-to-be-switched-to-work-or-school-accounts)  
@@ -232,6 +309,11 @@ En aktiv identitet övervakningen kan snabbt identifiera misstänkt beteende och
 **Information om**: Använd [Azure AD Identity Protection](../active-directory/active-directory-identityprotection.md), som flaggar aktuellt risker på sin egen instrumentpanel och skickar daglig sammanfattning av meddelanden via e-post. För att skydda din organisations identiteter, kan du konfigurera riskbaserade principer som automatiskt svarar på identifierade problem när en angiven risknivå har uppnåtts.
 
 Organisationer som inte aktivt övervakar sina identitetssystem finns risken att användarens autentiseringsuppgifter har komprometterats. Organisationer kan inte utan kännedom att misstänkta aktiviteter som äger rum via dessa autentiseringsuppgifter kan minimera den här typen av hot.
+
+## <a name="use-azure-ad-for-storage-authentication"></a>Använd Azure AD för autentisering för lagring
+[Azure Storage](../storage/common/storage-auth-aad.md) stöder autentisering och auktorisering med Azure AD för Blob storage och Queue storage. Du kan använda den rollbaserad åtkomstkontrollen i Azure med Azure AD-autentisering, tilldela specifika behörigheter till användare, grupper och program ned till området för en enskild blob-behållare eller kön.
+
+Vi rekommenderar att du använder [Azure AD för att autentisera åtkomst till lagring](https://azure.microsoft.com/blog/azure-storage-support-for-azure-ad-based-access-control-now-generally-available/).
 
 ## <a name="next-step"></a>Nästa steg
 

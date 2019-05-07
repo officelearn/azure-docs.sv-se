@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: azfuncdf
-ms.openlocfilehash: aa9563266f6b43e3bc2f21fbc0b340c86c5895ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 95ec6a863f951a8c26abd865041c68df333a4e38
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60862117"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65071356"
 ---
 # <a name="durable-functions-patterns-and-technical-concepts-azure-functions"></a>Varaktiga funktioner mönster och tekniska begrepp (Azure Functions)
 
@@ -219,9 +219,6 @@ module.exports = async function (context, req) {
 };
 ```
 
-> [!WARNING]
-> När du utvecklar lokalt i JavaScript för att använda metoder på `DurableOrchestrationClient`, måste du ange miljövariabeln `WEBSITE_HOSTNAME` till `localhost:<port>` (till exempel `localhost:7071`). Mer information om det här kravet finns i [GitHub-ärende 28](https://github.com/Azure/azure-functions-durable-js/issues/28).
-
 I .NET, den [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) `starter` parametern är ett värde från den `orchestrationClient` utdata bindning, som ingår i tillägget varaktiga funktioner. I JavaScript, returneras det här objektet genom att anropa `df.getClient(context)`. De här objekten tillhandahåller metoder som du kan använda för att starta, skicka händelser till, avsluta och fråga för nya eller befintliga orchestrator-funktion-instanser.
 
 I föregående exempel, tar en HTTP-utlöst funktion en `functionName` värdet från inkommande URL och skickar värdet som ska [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_). Den [CreateCheckStatusResponse](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateCheckStatusResponse_System_Net_Http_HttpRequestMessage_System_String_) bindning API sedan returnerar ett svar som innehåller en `Location` rubrik och ytterligare information om instansen. Du kan använda informationen senare att leta upp status för igång instansen eller att avsluta instansen.
@@ -377,6 +374,63 @@ module.exports = async function (context) {
 };
 ```
 
+## <a name="pattern-6-aggregator-preview"></a>Mönster #6: Aggregator (förhandsversion)
+
+Mönstret sjätte handlar om datainsamling händelse under en viss tidsperiod till en enda adresserbara *entitet*. I det här mönstret data som ska aggregeras kan komma från flera källor, kan tillhandahållas i batchar eller sprids ut under långa-tidsperioder. Aggregatorn kan behöva vidta åtgärder för händelsedata när de anländer och externa klienter kan behöva fråga aggregerade data.
+
+![Aggregator diagram](./media/durable-functions-concepts/aggregator.png)
+
+Det svårt som om att implementera det här mönstret med normal tillståndslösa functions är att samtidighetskontroll blir en stor utmaning. Inte bara behöver bekymra dig om flera trådar ändra samma data på samma gång, du behöver bekymra dig om att säkerställa att aggregatorn körs bara på en enskild virtuell dator i taget.
+
+Med hjälp av en [varaktiga entitet funktionen](durable-functions-preview.md#entity-functions), en kan implementera det här mönstret enkelt som en enskild funktion.
+
+```csharp
+public static async Task Counter(
+    [EntityTrigger(EntityClassName = "Counter")] IDurableEntityContext ctx)
+{
+    int currentValue = ctx.GetState<int>();
+    int operand = ctx.GetInput<int>();
+
+    switch (ctx.OperationName)
+    {
+        case "add":
+            currentValue += operand;
+            break;
+        case "subtract":
+            currentValue -= operand;
+            break;
+        case "reset":
+            await SendResetNotificationAsync();
+            currentValue = 0;
+            break;
+    }
+
+    ctx.SetState(currentValue);
+}
+```
+
+Klienter kan placera *operations* för (även kallat ”signaler”) en entitet funktionen med hjälp av den `orchestrationClient` bindning.
+
+```csharp
+[FunctionName("EventHubTriggerCSharp")]
+public static async Task Run(
+    [EventHubTrigger("device-sensor-events")] EventData eventData,
+    [OrchestrationClient] IDurableOrchestrationClient entityClient)
+{
+    var metricType = (string)eventData.Properties["metric"];
+    var delta = BitConverter.ToInt32(eventData.Body, eventData.Body.Offset);
+
+    // The "Counter/{metricType}" entity is created on-demand.
+    var entityId = new EntityId("Counter", metricType);
+    await entityClient.SignalEntityAsync(entityId, "add", delta);
+}
+```
+
+På samma sätt kan klienterna kan fråga efter tillståndet för en entitet-funktion med hjälp av metoder på det `orchestrationClient` bindning.
+
+> [!NOTE]
+> Funktioner för entiteten är för närvarande endast tillgängliga i den [varaktiga funktioner 2.0 preview](durable-functions-preview.md).
+
 ## <a name="the-technology"></a>Tekniken
 
 I bakgrunden tillägget varaktiga funktioner är byggt ovanpå den [varaktiga uppgift Framework](https://github.com/Azure/durabletask), ett bibliotek för öppen källkod på GitHub som används för att skapa varaktiga uppgift orkestreringar. Som Azure Functions är en serverlös utveckling av Azure WebJobs, är varaktiga funktioner utan Server utvecklingen av varaktiga uppgift Framework. Microsoft och andra organisationer som använder du varaktiga uppgift Framework stor utsträckning för att automatisera verksamhetskritiska processer. Det är därför lämplig för serverlösa Azure Functions-miljön.
@@ -423,7 +477,7 @@ Lagringsblobar används främst som en leasingmekanism för att koordinera skalb
 
 ![En skärmbild av Azure Storage Explorer](./media/durable-functions-concepts/storage-explorer.png)
 
-> [!WARNING]
+> [!NOTE]
 > Även om det är enkelt och praktiskt att se körningshistorik i table storage, gör eventuella beroenden på den här tabellen. Tabellen ändras när tillägget varaktiga funktioner utvecklas.
 
 ## <a name="known-issues"></a>Kända problem

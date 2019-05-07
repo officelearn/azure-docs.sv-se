@@ -11,14 +11,14 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: bb88da48f8961969176fd67bf6e5fa346655aeac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 77bc33747964a5f4ee1a67aba777dc3ed76b9a51
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60388751"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073455"
 ---
-# <a name="accelerated-database-recovery-preview"></a>Snabbare återställning av databas (förhandsversion)
+# <a name="accelerated-database-recovery"></a>Accelererad databasåterställning
 
 **Accelerated Database Recovery (ADR)** en ny SQL database engine-funktion som avsevärt förbättrar databastillgänglighet, särskilt om det förekommer långa körs transaktioner, genom att göra om SQL database engine återställningsprocessen. Regel för automatisk distribution är för närvarande tillgängligt för enskilda databaser och databaser i en pool i Azure SQL Database och databaser i Azure SQL Data Warehouse. De främsta fördelarna med ADR är:
 
@@ -65,7 +65,7 @@ ADR löser dessa frågor genom att helt ny design återställningsprocessen för
 - Gör det konstanta tid/snabbmeddelanden genom att inte behöva skanna loggen från/till början av den äldsta aktiva transaktionen. Med automatisk Distributionsregel bearbetas bara transaktionsloggen från den senaste kontrollpunkten (eller äldsta dirty sidan Log Sequence Number (LSN)). Därför återställningstid påverkas inte av långa köra transaktioner.
 - Minimera krävs transaktionsloggutrymmet eftersom det finns inte längre behöver bearbeta loggen för hela transaktionen. Därför transaktionsloggen kan trunkeras aggressivt som kontrollpunkter och säkerhetskopieras.
 
-På en hög nivå uppnår ADR snabb databasåterställning genom versionshantering alla ändringar av den fysiska databasen och bara ångra logiska åtgärder, som är begränsade och går att ångra nästan omedelbart. Alla transaktioner som var aktiv vid tidpunkten havererade är markerade som avbrutits och därför alla versioner som genereras av de här transaktionerna kan ignoreras av samtidiga användarfrågor.
+På en högnivå uppnår ADR snabb databasåterställning genom versionshantering alla ändringar av den fysiska databasen och bara ångra logiska åtgärder, som är begränsade och går att ångra nästan omedelbart. Alla transaktioner som var aktiv vid tidpunkten havererade är markerade som avbrutits och därför alla versioner som genereras av de här transaktionerna kan ignoreras av samtidiga användarfrågor.
 
 Den automatiska Distributionsregel återställningsprocessen har samma tre faser som den aktuella återställningsprocessen. Hur faserna fungerar med ADR illustreras i följande diagram och förklaras i detalj följa diagrammet.
 
@@ -128,6 +128,3 @@ Följande typer av kunder bör överväga att aktivera automatisk Distributionsr
 - Kunder som har sett fall där aktiva transaktioner orsakar transaktionsloggen att växa avsevärt.  
 - Kunder som har haft långa perioder av inaktivitet för databasen på grund av SQL Server som körs länge recovery (till exempel oväntat SQL Server startas om eller manuell transaktionsåterställning).
 
-## <a name="to-enable-adr-during-this-preview-period"></a>Aktivera ADR under denna förhandsgranskningsperiod
-
-Under utvärderingsperioden för den här funktionen, skicka ett e- [ adr@microsoft.com ](mailto:adr@microsoft.com) vill veta mer och försök ut Accelerated Database Recovery (ADR). I e-post, inkluderar du namnet på din SQL Database-server (för enkla databaser och databaser i pooler i SQL-databas och databaser i Azure Data Warehouse). Eftersom detta är en förhandsgranskningsfunktion måste testservern vara en icke-produktion-server.

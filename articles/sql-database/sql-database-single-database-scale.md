@@ -12,16 +12,16 @@ ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/26/2019
-ms.openlocfilehash: 4288eb7d051c44149a6f1970430dc8c409ca957d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1048b4e2ac3a8523d5539ddc1a1bdaca3ec2d912
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64572877"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65074266"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Skala resurser för enkel databas i Azure SQL Database
 
-Den här artikeln beskriver hur du skala beräknings- och resurserna som är tillgängliga för en enskild databas i den etablerade beräkning-nivån. 
+Den här artikeln beskriver hur du skala beräknings- och resurserna som är tillgängliga för en enskild databas i den etablerade beräkning-nivån. Du kan också den [utan server (förhandsversion) Beräkningsnivån](sql-database-serverless.md) tillhandahåller beräkning automatisk skalning och fakturering per sekund för beräkning som används.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]

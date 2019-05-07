@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: a3dd7f78362b5f5c99dc4a74fe0a32c4d26be5b7
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: a3b6327b9e05b039696cc1743fc2d16c5e945e26
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62125941"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65152622"
 ---
 # <a name="update-the-iot-edge-security-daemon-and-runtime"></a>Uppdatera IoT Edge security daemon och runtime
 
@@ -50,25 +50,15 @@ apt-get install libiothsm iotedge
 
 ### <a name="windows-devices"></a>Windows-enheter
 
-På Windows-enheter kan du använda PowerShell-skriptet avinstallera och installera sedan om daemonen säkerhet. Installationsskriptet hämtar automatiskt den senaste versionen av daemonen säkerhet. 
-
-Avinstallera daemonen säkerhet i en PowerShell-administratörssession. 
+På Windows-enheter kan du använda PowerShell-skriptet för att uppdatera daemonen säkerhet. Skriptet hämtar automatiskt den senaste versionen av daemonen säkerhet. 
 
 ```powershell
-. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
-Uninstall-SecurityDaemon
+. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Update-IoTEdge -ContainerOs <Windows or Linux>
 ```
 
-Kör den `Uninstall-SecurityDaemon` kommando utan några parametrar bara tar bort daemonen säkerhet från din enhet, tillsammans med två runtime-behållaravbildningar. Config.yaml filen sparas på enheten, samt data från Moby container-motorn. Att hålla den konfigurationen information innebär att du inte behöver ange anslutningssträngen eller Device Provisioning-tjänsten information för enheten igen under installationen. 
+Kör kommandot Update IoTEdge tar bort daemonen säkerhet från din enhet, tillsammans med två runtime-behållaravbildningar. Config.yaml filen sparas på enheten, samt data från Moby container-motorn (om du använder Windows-behållare). Att hålla den konfigurationen information innebär att du inte behöver ange anslutningssträngen eller Device Provisioning-tjänsten information för enheten igen under uppdateringen. 
 
-Installera om daemonen security beroende på om din IoT Edge-enhet använder behållare i Windows eller Linux-behållare. Ersätt frasen **\<Windows eller Linux\>** med operativsystem att rätt behållare. Använd den **- ExistingConfig** flagga för att peka på den befintliga config.yaml-filen på din enhet. 
-
-```powershell
-. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
-Install-SecurityDaemon -ExistingConfig -ContainerOS <Windows or Linux>
-```
-
-Om du vill installera en specifik version av daemonen säkerhet, Hämta lämplig iotedged windows.zip filen från [IoT Edge släpper](https://github.com/Azure/azure-iotedge/releases). Använd sedan den `-OfflineInstallationPath` parametern så att den pekar till filens plats. Mer information finns i [offlineinstallation](how-to-install-iot-edge-windows.md#offline-installation).
+Om du vill installera en specifik version av daemonen security kan hämta Microsoft-Azure-IoTEdge.cab filen från [IoT Edge släpper](https://github.com/Azure/azure-iotedge/releases). Använd sedan den `-OfflineInstallationPath` parametern så att den pekar till filens plats. Mer information finns i [offlineinstallation](how-to-install-iot-edge-windows.md#offline-installation).
 
 ## <a name="update-the-runtime-containers"></a>Uppdatera körningsbehållarna
 

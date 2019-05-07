@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/12/2019
+ms.date: 04/29/2019
 ms.author: magoedte
-ms.openlocfilehash: c7031e54c354392379fee83dbf2a777ba726c5e7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 34f02b1d72f08ef5da6b8a5740243b6e557bfb4a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60777377"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138132"
 ---
 # <a name="connect-windows-computers-to-azure-monitor"></a>Ansluta Windows-datorer till Azure Monitor
 
@@ -31,16 +31,18 @@ Agenten kan installeras med någon av följande metoder. De flesta installatione
 * Manuell installation. Installationen körs manuellt på datorn med hjälp av guiden Konfigurera från kommandoraden eller distribueras med ett befintligt programdistributionsverktyg.
 * Azure Automation Desired State Configuration (DSC). Använda DSC i Azure Automation med ett skript för Windows-datorer som redan har distribuerats i din miljö.  
 * PowerShell-skript.
-* Resource Manager-mall för virtuella datorer som kör Windows lokalt i Azure Stack.  
+* Resource Manager-mall för virtuella datorer som kör Windows lokalt i Azure Stack. 
 
 >[!NOTE]
 >Azure Security Center (ASC) ska är beroende av Microsoft Monitoring Agent (kallas även för Log Analytics-Windows-agent) och installera och konfigurera den för att rapportera till en Log Analytics-arbetsyta som en del av distributionen. ASC innehåller ett alternativ för automatisk etablering som aktiverar automatisk installation av Windows för Log Analytics-agenten på alla virtuella datorer i din prenumeration och konfigurerar den för att rapportera till en viss arbetsyta. Mer information om det här alternativet finns i [aktivera automatisk etablering av Log Analytics-agenten](../../security-center/security-center-enable-data-collection.md#enable-automatic-provisioning-of-microsoft-monitoring-agent-).
 >
 
+Om du vill konfigurera agenten för att rapportera till fler än en arbetsyta, detta kan inte utföras under den ursprungliga installationen, endast efteråt genom att uppdatera inställningarna från Kontrollpanelen eller PowerShell enligt beskrivningen i [när du lägger till eller ta bort en arbetsyta](agent-manage.md#adding-or-removing-a-workspace).  
+
 Om du vill förstå konfigurationen som stöds, så granska [de Windows-operativsystem som stöds](log-analytics-agent.md#supported-windows-operating-systems) och [nätverkets brandväggskonfiguration](log-analytics-agent.md#network-firewall-requirements).
 
 ## <a name="obtain-workspace-id-and-key"></a>Hämta arbetsytans ID och nyckel
-Innan du installerar Log Analytics-agenten för Windows, behöver du arbetsytans ID och nyckel för Log Analytics-arbetsytan.  Den här informationen krävs under installationen från olika installationsmetoderna korrekt konfigurera agenten och se till att den kan kommunicera med Azure Monitor i kommersiella Azure och molnet för amerikanska myndigheter.  
+Innan du installerar Log Analytics-agenten för Windows, behöver du arbetsytans ID och nyckel för Log Analytics-arbetsytan.  Den här informationen krävs under installationen från olika installationsmetoderna korrekt konfigurera agenten och se till att den kan kommunicera med Azure Monitor i kommersiella Azure och molnet för amerikanska myndigheter. 
 
 1. Klicka på **Alla tjänster** på Azure Portal. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.
 2. Välj den arbetsyta som du tänker om hur du konfigurerar agenten rapporterar till i din lista över Log Analytics-arbetsytor.

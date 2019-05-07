@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 04/15/2019
+ms.date: 05/06/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 5f488811e57ee20cb25db56b2d9e04202b17ffb2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4fffc54428b152a060594a5c107d3ac08457aaaa
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60869817"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154677"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Distribuera Azure Blockchain Workbench
 
@@ -27,16 +27,16 @@ Läs mer om komponenterna i Blockchain Workbench, [Azure Blockchain Workbench ar
 
 Blockchain Workbench kan du distribuera en blockchain-redovisning tillsammans med en uppsättning relevanta Azure-tjänster som oftast används för att skapa en blockchain-baserade program. Distribuera Blockchain Workbench resulterar i följande Azure-tjänster håller på att etableras i en resursgrupp i Azure-prenumerationen.
 
-* 1 event Grid-ämne
-* 1 Service Bus Namespace
-* 1 Application Insights
-* 1 SQL-databas (Standard S0)
-* 2 app Services (Standard)
-* 2 Azure Key Vaults
-* 2 azure Storage-konton (Standard LRS)
-* 2 VM-skalningsuppsättningar (för systemhälsoverifierarens- och arbetsroller noder)
-* 2 virtuella nätverk (inklusive belastningsutjämnaren nätverkssäkerhetsgrupp och offentlig IP-adress för varje virtuellt nätverk)
-* Valfritt: Azure Monitor
+* App Service-Plan (Standard)
+* Application Insights
+* Event Grid
+* Azure Key Vault
+* Service Bus
+* SQL-databas (Standard S0) + logisk SQL-Server
+* Azure Storage-konto (Standard LRS)
+* VM-skalningsuppsättning med kapacitet 1
+* Resursgrupp för virtuella nätverk (med Load Balancer, Nätverkssäkerhetsgrupp, offentlig IP-adress, virtuellt nätverk)
+* Valfritt: Azure Blockchain Service (Basic B0 standard)
 
 Följande är ett exempel på distribution skapats i **myblockchain** resursgrupp.
 
@@ -44,17 +44,12 @@ Följande är ett exempel på distribution skapats i **myblockchain** resursgrup
 
 Kostnaden för Blockchain Workbench är en aggregering av kostnaden för de underliggande Azure-tjänsterna. Information om priser för Azure-tjänster kan beräknas med hjälp av den [priskalkylatorn](https://azure.microsoft.com/pricing/calculator/).
 
-> [!IMPORTANT]
-> Om du använder en prenumeration med låg tjänstbegränsningar, till exempel en kostnadsfria nivån av Azure-prenumeration kan distributionen misslyckas på grund av otillräcklig kvot för VM-kärnor. Innan du distribuerar, kontrollera din kvot med hjälp av vägledning från den [VM vCPU-kvoter](../../virtual-machines/windows/quotas.md) artikeln. Standardvalet för virtuell dator kräver 6 VM-kärnor. Ändra till en mindre storlek på virtuell dator som *Standard DS1 v2* minskar antalet kärnor till 4.
-
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Azure Blockchain Workbench kräver Azure AD-konfiguration och programmet registreringar. Du kan välja att göra Azure AD [konfigurationer manuellt](#azure-ad-configuration) innan distribution eller kör ett skript efter distributionen. Om du omdistribuerar Blockchain Workbench kan se [Azure AD-konfiguration](#azure-ad-configuration) för att verifiera din Azure AD-konfigurationen.
 
 > [!IMPORTANT]
 > Workbench behöver inte distribueras i samma klient som du använder för att registrera ett Azure AD-program. Workbench måste distribueras i en klient där du har tillräcklig behörighet för att distribuera resurser. Mer information om Azure AD-klienter finns i [så här hämtar du en Active Directory-klient](../../active-directory/develop/quickstart-create-new-tenant.md) och [integrera program med Azure Active Directory](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md).
-
-
 
 ## <a name="deploy-blockchain-workbench"></a>Distribuera Blockchain Workbench
 
@@ -82,7 +77,7 @@ När nödvändiga steg har slutförts, är du redo att distribuera Blockchain Wo
     | Autentiseringstyp | Välj om du vill använda ett lösenord eller nyckel för att ansluta till virtuella datorer. |
     | Lösenord | Lösenordet används för att ansluta till virtuella datorer. |
     | SSH | Använda en offentlig RSA-nyckel i den enradigt format som början med **ssh-rsa** eller Använd flerradigt PEM-format. Du kan generera SSH-nycklar med `ssh-keygen` på Linux och OS X eller genom att använda PuTTYGen i Windows. Mer information om SSH-nycklar finns i [hur du använder SSH-nycklar med Windows på Azure](../../virtual-machines/linux/ssh-from-windows.md). |
-    | Lösenord för databas / Bekräfta lösenord | Ange lösenord ska användas för åtkomst till databasen skapas som en del av distributionen. |
+    | Databasen och Blockchain-lösenord | Ange lösenord ska användas för åtkomst till databasen skapas som en del av distributionen. Lösenordet måste uppfylla tre av följande fyra krav: längd måste vara mellan 12 och 72 tecken, 1 gemen bokstav, 1 versal bokstav, 1 siffra och 1 specialtecken som är inte antalet sign(#), procent (%), cittatecken, star(*), Bakåtlutande citattecken (\`), dubbelklicka quote("), enskild quote('), streck (-) och semicolumn(;) |
     | Distributionsregionen | Ange var du vill distribuera Blockchain Workbench resurser. För bästa tillgänglighet ska matcha den **plats** inställningen. |
     | Prenumeration | Ange Azure-prenumeration som du vill använda för din distribution. |
     | Resursgrupper | Skapa en ny resursgrupp genom att välja **Skapa nytt** och ange ett unikt Resursgruppsnamn. |
@@ -94,15 +89,15 @@ När nödvändiga steg har slutförts, är du redo att distribuera Blockchain Wo
 
     För **Skapa nytt**:
 
-    Den *skapa en ny* alternativet skapas en uppsättning Ethereum Proof-of Authority (PoA)-noder i en enda medlem prenumeration. 
+    Den *skapa en ny* alternativet distribuerar ett Azure Blockchain Service kvorum transaktionsregister med standard grundläggande sku.
 
     ![Avancerade inställningar för nya blockchain-nätverk](media/deploy/advanced-blockchain-settings-new.png)
 
     | Inställning | Beskrivning  |
     |---------|--------------|
-    | Övervakning | Välj om du vill aktivera Azure Monitor för att övervaka nätverket blockchain |
+    | Azure Blockchain Service-prisnivå | Välj **grundläggande** eller **Standard** Azure-Blockchain tjänstnivå som används för Blockchain Workbench |
     | Azure Active Directory-inställningar | Välj **lägga till senare**.</br>Obs! Om du har valt att [förkonfigurera Azure AD](#azure-ad-configuration) eller omdistribuera, välja att *Lägg till nu*. |
-    | Val av virtuell dator | Välj önskad storlek för nätverket blockchain. Välj en mindre VM-storlek som *Standard DS1 v2* om du har en prenumeration med låg tjänstbegränsningar som kostnadsfria nivån av Azure. |
+    | Val av virtuell dator | Välj önskad lagringsprestanda och VM-storlek för dina blockkedjor. Välj en mindre VM-storlek som *Standard DS1 v2* om du har en prenumeration med låg tjänstbegränsningar som kostnadsfria nivån av Azure. |
 
     För **Använd befintlig**:
 
@@ -121,7 +116,7 @@ När nödvändiga steg har slutförts, är du redo att distribuera Blockchain Wo
      |---------|--------------|
      | Ethereum RPC-slutpunkt | Ange RPC-slutpunkten för ett befintligt PoA blockchain nätverk. Slutpunkten som börjar med https:// eller http:// och slutar med ett portnummer. Till exempel, `http<s>://<network-url>:<port>` |
      | Azure Active Directory-inställningar | Välj **lägga till senare**.</br>Obs! Om du har valt att [förkonfigurera Azure AD](#azure-ad-configuration) eller omdistribuera, välja att *Lägg till nu*. |
-     | Val av virtuell dator | Välj önskad storlek för nätverket blockchain. |
+     | Val av virtuell dator | Välj önskad lagringsprestanda och VM-storlek för dina blockkedjor. Välj en mindre VM-storlek som *Standard DS1 v2* om du har en prenumeration med låg tjänstbegränsningar som kostnadsfria nivån av Azure. |
 
 9. Välj **OK** Slutför avancerade inställningar.
 

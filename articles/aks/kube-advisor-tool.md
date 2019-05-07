@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 11/05/2018
 ms.author: seanmck
-ms.openlocfilehash: 29f98e334b0d2527b5159e1a5394109c5041024a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 03c5eb2e32a0a8ec51844511276d9efba5651068
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60465378"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073766"
 ---
 # <a name="checking-for-kubernetes-best-practices-in-your-cluster"></a>Söker efter Kubernetes bästa praxis i ditt kluster
 
@@ -21,6 +21,8 @@ Det finns flera beprövade metoder som du bör följa på Kubernetes-distributio
 ## <a name="about-kube-advisor"></a>Om kube-advisor
 
 Den [kube-Analysverktyget för] [ kube-advisor-github] är en enskild behållare som är avsedd att köras i klustret. Den frågar Kubernetes API-server för information om dina distributioner och returnerar en mängd med förslag på förbättringar.
+
+Verktyget kube-advisor kan rapportera om resursbegäran och begränsningar som saknas i PodSpecs för Windows-program samt Linux-program, men själva kube-advisor-verktyget måste planeras på en Linux-pod. Du kan schemalägga en pod ska köras på en nodpool med ett specifikt operativsystem med en [noden väljare] [ k8s-node-selector] i en pod-konfiguration.
 
 > [!NOTE]
 > Kube-Analysverktyget för stöds av Microsoft på basis av bästa prestanda. Problem och förslag bör lämnas in på GitHub.
@@ -73,3 +75,4 @@ Om du kör verktyget mot ett kluster som inte är RBAC-aktiverad, krävs ingen r
 
 [kube-cpumem]: https://github.com/Azure/azure-quickstart-templates
 [kube-advisor-github]: https://github.com/azure/kube-advisor
+[k8s-node-selector]: concepts-clusters-workloads.md#node-selectors

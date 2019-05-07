@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: fecefbbed39f4fc12db79c7466006409e3da7dd1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 82a2330aeadb14bb421260a290a25581232293e5
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64574471"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073359"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planera för distribution av Azure Files
 
@@ -111,20 +111,16 @@ Det är möjligt att minska storleken på ditt etablerade resursen nedan din anv
 
 I följande tabell visas några exempel på dessa produkter för de etablerade resursen storlekarna:
 
-(Storlekar enligt en * är begränsad offentlig förhandsversion)
-
 |Kapacitet (GiB) | Baslinjen IOPS | Burst-IOPS | Utgående (MiB/s) | Inkommande (MiB/s) |
 |---------|---------|---------|---------|---------|
 |100         | 100     | Upp till 300     | 66   | 44   |
 |500         | 500     | Upp till 1 500   | 90   | 60   |
 |1,024       | 1,024   | Upp till 3 072   | 122   | 81   |
 |5,120       | 5,120   | Upp till 15 360  | 368   | 245   |
-|10,240 *     | 10,240  | Upp till 30 720  | 675 | 450   |
-|33,792 *     | 33,792  | Upp till 100 000 | 2,088 | 1,392   |
-|51,200 *     | 51,200  | Upp till 100 000 | 3,132 | 2,088   |
-|102,400 *    | 100 000 | Upp till 100 000 | 6,204 | 4,136   |
-
-För närvarande filstorlekar dela upp till 5 TiB är i offentlig förhandsversion, upp till 100 TiB är begränsad offentlig förhandsversion, att begära åtkomst till den begränsade offentliga förhandsversionen som fullständig [undersökningen.](https://aka.ms/azurefilesatscalesurvey)
+|10,240      | 10,240  | Upp till 30 720  | 675 | 450   |
+|33,792      | 33,792  | Upp till 100 000 | 2,088 | 1,392   |
+|51,200      | 51,200  | Upp till 100 000 | 3,132 | 2,088   |
+|102,400     | 100 000 | Upp till 100 000 | 6,204 | 4,136   |
 
 ### <a name="bursting"></a>Bursting
 
@@ -184,7 +180,7 @@ Ha de här punkterna i åtanke när du bestämmer vilket replikeringsalternativ 
 
 ## <a name="data-growth-pattern"></a>Tillväxt datamönster
 
-Idag är den maximala storleken för en Azure-filresurs är 5 TiB (100 TiB för premium-filen dela begränsad offentlig förhandsversion). På grund av den här tillfälliga begränsningen måste du överväga att den förväntade datatillväxten när du distribuerar en Azure-filresurs.
+Idag är den maximala storleken för en Azure-filresurs är 5 TiB (100 TiB för premium-filresurser som finns i offentlig förhandsversion). På grund av den här tillfälliga begränsningen måste du överväga att den förväntade datatillväxten när du distribuerar en Azure-filresurs.
 
 Det är möjligt att synkronisera flera Azure-filresurser på en enda Windows Server med Azure File Sync. På så sätt kan du se till att äldre, stora filresurser som du kan ha en lokal kan anslutas till Azure File Sync. Mer information finns i [planera för distribution av Azure File Sync](storage-files-planning.md).
 

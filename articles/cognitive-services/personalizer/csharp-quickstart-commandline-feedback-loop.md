@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: c566d1fd4b151efc0d28b7059504e60a1451c034
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: f0aca3e387d675064cf798b4efdeb66cfe906520
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65027147"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153549"
 ---
 # <a name="quickstart-personalize-content-using-c"></a>Snabbstart: Anpassa innehåll med hjälp avC# 
 
@@ -34,7 +34,7 @@ Komma igång med personanpassning omfattar följande steg:
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-* Du behöver en prenumerationsnyckel och token som utfärdas tjänst-url.
+* Du behöver en [Personalizer service](how-to-settings.md) för att göra din prenumeration nyckel och utfärdat tjänsten URL: en. 
 * [Visual Studio 2015 eller 2017](https://visualstudio.microsoft.com/downloads/).
 * Microsoft.Azure.CognitiveServices.Personalization SDK NuGet-paketet. Installationsinstruktioner finns nedan.
 

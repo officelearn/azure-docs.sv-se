@@ -4,6 +4,8 @@
   items:
     - name: Om Notification Hubs
       href: notification-hubs-push-notification-overview.md
+    - name: Integrering med Mobilappar i Apptjänst
+      href: notification-hubs-app-service.md
 - name: Snabbstarter
   items:
     - name: Skapa en meddelandehubb – Azure-portalen

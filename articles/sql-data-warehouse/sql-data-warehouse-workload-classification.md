@@ -7,22 +7,19 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload management
-ms.date: 03/13/2019
+ms.date: 05/01/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 888a64de29178834fc47199a033eb6bc62858e57
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 208308533753370575b844633c45f7e4aeda0864
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474835"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154214"
 ---
-# <a name="sql-data-warehouse-workload-classification-preview"></a>SQL Data Warehouse arbetsbelastning klassificering (förhandsversion)
+# <a name="sql-data-warehouse-workload-classification"></a>SQL Data Warehouse arbetsbelastning klassificering
 
 Den här artikeln beskrivs SQL Data Warehouse arbetsbelastning klassificeringsprocessen för att tilldela en resursklass och prioritet till inkommande begäranden.
-
-> [!Note]
-> Klassificering för arbetsbelastningen är tillgänglig för förhandsversionen av SQL Data Warehouse Gen2. Klassificering för hantering av arbetsbelastning och vikten förhandsversion är för versioner med ett frisläppningsdatum av 9 April 2019 eller senare.  Användare bör undvika att använda versioner tidigare än det här datumet för arbetsbelastningen management testning.  För att fastställa om din version är hantering av arbetsbelastning kan du köra väljer @@version när du är ansluten till din SQL Data Warehouse-instans.
 
 ## <a name="classification"></a>Klassificering
 
@@ -63,10 +60,10 @@ System-klassificerare som skapats i ditt ställe tillhandahåller ett enkelt sä
 
 Föreställ dig följande:
 
-•An befintliga data warehouse har en databasanvändare DBAUser tilldelats rollen largerc resource klass. Klass resurstilldelning gjordes med sp_addrolemember.
-•DNS-datalagret har uppdaterats med hantering av arbetsbelastning.
-•Om du vill testa den nya klassificering syntaxen i en databasroll DBARole (som DBAUser är medlem i) har en klassificerare som skapats för dessa mappar dem till mediumrc och hög prioritet.
-•When DBAUser loggar in och kör en fråga, frågan kommer att tilldelas till largerc. Eftersom en användare har företräde framför en rollmedlemskap.
+- Ett befintligt informationslager har en databasanvändare DBAUser tilldelats rollen largerc resource klass. Klass resurstilldelning gjordes med sp_addrolemember.
+- Datalagret har uppdaterats med hantering av arbetsbelastning.
+- Om du vill testa den nya syntaxen för klassificering, har rollen DBARole (som DBAUser är medlem i), en klassificerare som skapats för dessa mappar dem till mediumrc och hög prioritet.
+- När DBAUser loggar in och kör en fråga, kommer frågan att tilldelas till largerc. Eftersom en användare har företräde framför en rollmedlemskap.
 
 För att förenkla felsökning felklassificering, rekommenderar vi att du tar bort resursen klassmappningar rollen när du skapar arbetsbelastning klassificerare.  Koden nedan returnerar befintlig resurs rollmedlemskap för klassen.  Kör [sp_droprolemember](/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql) för varje medlemsnamn returnerades från motsvarande resursklass.
 
@@ -84,4 +81,4 @@ sp_droprolemember ‘[Resource Class]’, membername
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om SQL Data Warehouse arbetsbelastning klassificering och vikten [skapa en arbetsbelastning klassificerare](quickstart-create-a-workload-classifier-tsql.md) och [SQL Data Warehouse vikten](sql-data-warehouse-workload-importance.md). Se [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) visa frågor och den prioritet som tilldelas.
+Kom igång med att skapa en klassificerare, se den [skapa ARBETSBELASTNING KLASSIFICERARE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql).  Läs mer om SQL Data Warehouse arbetsbelastning klassificering och vikten [skapa en arbetsbelastning klassificerare](quickstart-create-a-workload-classifier-tsql.md) och [SQL Data Warehouse vikten](sql-data-warehouse-workload-importance.md). Se [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) visa frågor och den prioritet som tilldelas.

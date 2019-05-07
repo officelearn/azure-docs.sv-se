@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 12/04/2018
+ms.date: 4/26/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: dc78fbc93d625b39379e07f240eef7fbad10d194
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 02591185914f3b04a70af3b7c5d607f4a2865806
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474852"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154252"
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>Felsöka Azure SQL Data Warehouse
 Den här artikeln innehåller vanliga frågor för felsökning.
@@ -57,8 +57,9 @@ Den här artikeln innehåller vanliga frågor för felsökning.
 ## <a name="polybase"></a>Polybase
 | Problem                                           | Lösning                                                   |
 | :---------------------------------------------- | :----------------------------------------------------------- |
-| Läs in misslyckas på grund av stora rader                | Stöd för stor rad är för närvarande inte tillgängligt för Polybase.  Det innebär att om tabellen innehåller VARCHAR(MAX), NVARCHAR(MAX) eller VARBINARY(MAX), externa tabeller inte kan användas för att läsa in dina data.  Läser in stora rader är för närvarande stöds endast via Azure Data Factory (med BCP), Azure Stream Analytics, SSIS, BCP eller klassen .NET SqlBulkCopy körs. PolyBase-stöd för stora rader läggs till i en framtida version. |
-| BCP belastningen på tabellen med MAX-datatypen kan inte | Det finns ett känt problem som kräver att VARCHAR(MAX), NVARCHAR(MAX) eller VARBINARY(MAX) placeras i slutet av tabellen i vissa situationer.  Försök att flytta dina maximalt antal kolumner i slutet av tabellen. |
+| Exporterar misslyckas med typerna TINYINT och datum             | För Parquet och ORC-filformat, datumvärden typ måste vara mellan 1970-01-01-01:00:00 UTC-tid och 2038-01-19 03:14:07. TINYINT typ värdena måste vara mellan 0-127.    |
+| Problem med Parquet decimaltyp: skriva från Spark skriver DecimalType(18,4) och importera till en kolumn av typen double eller riktig ger ”fel: java.base/java.lang.Long kan inte typkonverteras till java.base/java.lang.Float”. | Du måste importera till bigint och dela med 10000 eller Använd den [Databricks] SQL DW-koppling. |
+| Problem med Parquet Datumtyp: skriva från Spark typen Date och importera till en kolumn med skriver datum eller datum/tid ger ”fel: java.base/java.lang.Integer kan inte typkonverteras till parquet.io.api.Binary”. | Du måste använda en annan Spark-typ (int) och beräkna datum eller använda den [Databricks] SQL DW-koppling. |
 
 ## <a name="differences-from-sql-database"></a>Skillnader från SQL-databas
 | Problem                                 | Lösning                                                   |
@@ -132,3 +133,4 @@ För mer hjälp med att hitta lösning på problemet, är här några resurser s
 [Stack Overflow-forum]: https://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Videoklipp]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
+[Databricks]: https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse#load-data-into-azure-sql-data-warehouse

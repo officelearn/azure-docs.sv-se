@@ -7,13 +7,14 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: c8f9b17bf5b572128348b22de62566ba06d5d766
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d8ef24bfec541ec65c74f77a90aa9476a8b298b2
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57992412"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153267"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Client Side Encryption och Azure Key Vault för Microsoft Azure Storage
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -241,7 +242,7 @@ Som nämnts ovan, om entiteten implementerar TableEntity sedan egenskaperna kan 
 Observera att kryptera din lagring data resulterar i ytterligare prestanda försämras. Innehållsnyckeln och IV måste genereras själva innehållet måste vara krypterat och ytterligare metadata måste formateras och laddat upp. Det här arbetet varierar beroende på mängden data som krypteras. Vi rekommenderar att kunderna alltid testa sina program för prestanda under utvecklingen.
 
 ## <a name="next-steps"></a>Nästa steg
-* [Självstudier: Kryptera och dekryptera blobbar i Microsoft Azure Storage med Azure Key Vault](../blobs/storage-encrypt-decrypt-blobs-key-vault.md)
+* [Självstudie: Kryptera och dekryptera blobbar i Microsoft Azure Storage med Azure Key Vault](../blobs/storage-encrypt-decrypt-blobs-key-vault.md)
 * Ladda ned den [Azure Storage-klientbiblioteket för .NET NuGet-paket](https://www.nuget.org/packages/WindowsAzure.Storage)
 * Ladda ned Azure Key Vault NuGet [Core](https://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [klienten](https://www.nuget.org/packages/Microsoft.Azure.KeyVault/), och [tillägg](https://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) paket  
 * Gå till den [dokumentation om Azure Key Vault](../../key-vault/key-vault-whatis.md)

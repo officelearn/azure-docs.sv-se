@@ -1,20 +1,20 @@
 ---
-title: Azure Database for PostgreSQL-Server brandväggsregler
-description: Den här artikeln beskrivs brandväggsregler för din Azure Database for PostgreSQL-server.
+title: Brandväggsregler i Azure Database för PostgreSQL – enskild Server
+description: Den här artikeln beskriver brandväggsregler för Azure Database för PostgreSQL – enskild Server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 793a68ee829d87a8433d5bdd77fe7b43e2f3af19
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 40a675fbefe9743f5de1f9766cf33ae7dba9e5a7
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60560255"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073573"
 ---
-# <a name="azure-database-for-postgresql-server-firewall-rules"></a>Azure Database for PostgreSQL-Server brandväggsregler
-Azure Database för PostgreSQL-Server-brandväggen förhindrar all åtkomst till din databasserver tills du anger vilka datorer som har behörighet. Brandväggen ger åtkomst till servern baserat på den ursprungliga IP-adressen för varje begäran.
+# <a name="firewall-rules-in-azure-database-for-postgresql---single-server"></a>Brandväggsregler i Azure Database för PostgreSQL – enskild Server
+Azure Database for PostgreSQL serverbrandvägg förhindrar all åtkomst till din databasserver tills du anger vilka datorer som har behörighet. Brandväggen ger åtkomst till servern baserat på den ursprungliga IP-adressen för varje begäran.
 Du konfigurerar brandväggen genom att skapa brandväggsregler som anger intervall med godkända IP-adresser. Du kan skapa brandväggsregler på servernivå.
 
 **Brandväggsregler:** Dessa regler gör att klienterna kan komma åt hela Azure Database for PostgreSQL-Server, det vill säga alla databaser i samma logiska server. Brandväggsregler på servernivå kan konfigureras med hjälp av Azure portal eller med hjälp av Azure CLI-kommandon. Du måste vara prenumerationsägare eller prenumerationsdeltagare för att skapa brandväggsregler på servernivå.

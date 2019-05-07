@@ -1,7 +1,7 @@
 ---
 title: Installera och köra behållare – formuläret Igenkännande
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du använder formuläret Igenkännande behållare för att parsa form-och tabelldata.
+description: Lär dig hur du använder formigenkänningscontainern för att parsa formulär- och tabelldata.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: pafarley
-ms.openlocfilehash: 5d4374b329049e2e55966a28567c5232be77abda
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: c7d5d9421ec89f1d75723d3538ee9a73e56dc6a3
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65027070"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143029"
 ---
 # <a name="install-and-run-form-recognizer-containers"></a>Installera och köra formuläret Igenkännande behållare
 Formuläret Igenkännande gäller maskininlärningsteknik för att identifiera och extrahera nyckel / värde-par och tabeller från formulär. Det kopplar värden och tabellposter till dem och sedan returnerar strukturerade data som innehåller relationerna i den ursprungliga filen. Du kan anropa anpassade formulär Igenkännande modellen med hjälp av ett enkelt REST API för att minska komplexiteten och integrera enkelt i ditt automation-arbetsflödesprocessen eller annat program. Endast fem dokument (eller ett tomt formulär) behövs, så du kan få resultat snabbt, korrekt och anpassats efter dina specifika innehåll, utan tunga manuella åtgärder eller omfattande data science-expertis. Det kräver inte märkning av data eller data anteckning.
@@ -34,7 +34,7 @@ Du måste uppfylla följande krav innan du använder formuläret Igenkännande b
 |Docker-motorn| Du behöver Docker-motorn installerad på en [värddatorn](#the-host-computer). Docker innehåller paket som konfigurerar Docker-miljön på [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), och [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Få en genomgång om grunderna för Docker och behållare finns i den [översikt över Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker måste konfigureras för att tillåta behållarna för att ansluta till och skicka faktureringsdata till Azure. <br><br> **På Windows**, Docker måste också konfigureras för att stödja Linux-behållare.<br><br>|
 |Liknar processen med Docker | Du bör ha grundläggande kunskaper om Docker-begrepp som register, databaser, behållare, och behållaravbildningar samt kunskaper om grundläggande `docker` kommandon.|
 |Azure CLI| Du måste installera den [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) på värden.|
-|Datorresurs för API för visuellt innehåll| För att bearbeta skannade dokument och bilder, en **visuellt resource** krävs. Du kan komma åt den **identifiera Text** funktion som antingen en Azure-resurs (REST API eller SDK) eller som en `cognitive-services-recognize-text` behållare. Vanliga fakturering avgiften gäller. <br><br>Du måste skicka in både nyckel och fakturering slutpunkt för din specifika visuellt resurs (Azure-molnet eller Cognitive Services-behållare). Använd den här nyckeln och fakturering slutpunkten som {COMPUTER_VISION_API_KEY} och {COMPUTER_VISION_BILLING_ENDPOINT_URI}.<br><br> Om du använder den  **`cognitive-services-recognize-text` behållare**, se till att:<br><br>* Din nyckel för visuellt innehåll för formuläret Igenkännande behållaren är nyckeln som anges i visuellt `docker run` kommandot för den `cognitive-services-recognize-text` behållare.<br>* Faktureringen slutpunkten är behållarens slutpunkt, till exempel `https://localhost:5000`. Om du använder både för visuellt innehåll och formuläret Igenkännande behållare tillsammans på samma värd de inte båda startas med standardporten `5000`.  |  
+|Datorresurs för API för visuellt innehåll| För att bearbeta skannade dokument och bilder, en **visuellt resource** krävs. Du kan komma åt den **identifiera Text** funktion som antingen en Azure-resurs (REST API eller SDK) eller som en `cognitive-services-recognize-text` [behållare](../Computer-vision/computer-vision-how-to-install-containers.md##get-the-container-image-with-docker-pull). Vanliga fakturering avgiften gäller. <br><br>Du måste skicka in både nyckel och fakturering slutpunkt för din specifika visuellt resurs (Azure-molnet eller Cognitive Services-behållare). Använd den här nyckeln och fakturering slutpunkten som {COMPUTER_VISION_API_KEY} och {COMPUTER_VISION_BILLING_ENDPOINT_URI}.<br><br> Om du använder den  **`cognitive-services-recognize-text` behållare**, se till att:<br><br>* Din nyckel för visuellt innehåll för formuläret Igenkännande behållaren är nyckeln som anges i visuellt `docker run` kommandot för den `cognitive-services-recognize-text` behållare.<br>* Faktureringen slutpunkten är behållarens slutpunkt, till exempel `https://localhost:5000`. Om du använder både för visuellt innehåll och formuläret Igenkännande behållare tillsammans på samma värd de inte båda startas med standardporten `5000`.  |  
 |Formuläret Igenkännande resurs |För att kunna använda de här behållarna, måste du ha:<br><br>En _formuläret Igenkännande_ Azure-resurs att hämta associerade krypteringsnyckeln och fakturering slutpunkt URI. Båda värdena är tillgängliga på Azure portal **formuläret Igenkännande** översikt och nycklar sidor och är krävs för att starta behållaren.<br><br>**{BILLING_KEY}** : Resursnyckeln<br><br>**{BILLING_ENDPOINT_URI}** : endpoint URI exempel är: `https://westus.api.cognitive.microsoft.com/forms/v1.0`| 
 
 ## <a name="request-access-to-the-container-registry"></a>Begär åtkomst till behållarregistret
@@ -65,13 +65,19 @@ Kärnor och minne som motsvarar den `--cpus` och `--memory` inställningar som a
 > [!Note]
 > De minsta och rekommenderade värdena är baserade på Docker gränser och *inte* värden machine resurser.
 
-## <a name="get-the-container-image-with-docker-pull"></a>Hämta behållaravbildningen med `docker pull`
+## <a name="get-the-container-image-with-docker-pull-command"></a>Hämta behållaravbildningen med docker pull-kommando
 
 Behållaravbildningar för formuläret Igenkännande är tillgängliga.
 
 | Container | Lagringsplats |
 |-----------|------------|
 | cognitive-services-form-recognizer | `containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer:latest` |
+
+Om du planerar att använda den `cognitive-services-recognize-text` [behållare](../Computer-vision/computer-vision-how-to-install-containers.md##get-the-container-image-with-docker-pull), istället för formatet Igenkännande-tjänsten, kontrollera att du använder den `docker pull` med rätt behållarens namn: 
+
+```
+docker pull containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest
+```
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 

@@ -7,12 +7,12 @@ ms.date: 04/01/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 729e9fe749212942c6dc18fc7d6301934e7dd184
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ff9513418857562408c162533c48f6495b1f83c4
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60775905"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65137864"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Arbeta med stora Azure-resurs datauppsättningar
 
@@ -67,8 +67,18 @@ När det är nödvändigt att avbryta en resultatmängd i mindre uppsättningar 
 
 När **resultTruncated** är **SANT**, **$skipToken** egenskapen är inställda i svaret. Det här värdet används med värdena för samma fråga och -prenumeration för att hämta nästa uppsättning poster som matchar frågan.
 
+Följande exempel visar hur du **hoppa över** första 3000 poster och gå sedan tillbaka de **första** 1 000 poster efter hoppas över med Azure CLI och Azure PowerShell:
+
+```azurecli-interactive
+az graph query -q "project id, name | order by id asc" --first 1000 --skip 3000
+```
+
+```azurepowershell-interactive
+Search-AzGraph -Query "project id, name | order by id asc" -First 1000 -Skip 3000
+```
+
 > [!IMPORTANT]
-> Frågan måste **projekt** den **id** fältet för sidbrytning ska fungera. Om den saknas från frågan, REST API-svaret inte innehålla den **$skipToken**.
+> Frågan måste **projekt** den **id** fältet för sidbrytning ska fungera. Om det saknas från frågan svaret inte innehålla den **$skipToken**.
 
 Ett exempel finns i [nästa sida fråga](/rest/api/azureresourcegraph/resources/resources#next_page_query) i REST API-dokument.
 

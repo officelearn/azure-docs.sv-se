@@ -1,25 +1,28 @@
 ---
 title: Azure Storage-kryptering av vilande data | Microsoft Docs
-description: Azure Storage skyddar dina data genom att automatiskt kryptera det före beständig lagring till molnet. Alla data i Azure Storage i blobbar, diskar, filer, köer och tabeller, krypteras och dekrypteras transparent med 256-bitars AES-kryptering och är FIPS 140-2-kompatibel.
+description: Azure Storage skyddar dina data genom att automatiskt kryptera det före beständig lagring till molnet. Alla data i Azure Storage krypteras och dekrypteras transparent med 256-bitars AES-kryptering och är FIPS 140-2-kompatibel.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 04/30/2019
 ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 211cfeb3aba29245e154f4a7db86fb4a3659c36f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 6eb7de7810ce23aed4031cca9f038da7149a6f9c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60730844"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153090"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Azure Storage-kryptering av vilande data
 
 Azure Storage krypterar dina data automatiskt när spara till molnet. Kryptering skyddar dina data och hjälper dig att uppfyller organisationens säkerhet och efterlevnad. Data i Azure Storage krypteras och dekrypteras transparent med 256-bitars [AES-kryptering](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), ett av de starkaste blockchiffer som finns och är FIPS 140-2-kompatibel. Azure Storage kryptering liknar BitLocker-kryptering på Windows.
 
-Azure Storage-kryptering är aktiverat för alla nya och befintliga lagringskonton och kan inte inaktiveras. Eftersom dina data är skyddade som standard, behöver du inte ändra din kod eller att dra nytta av Azure Storage kryptering. Storage-konton är krypterade oavsett prestandanivå (standard eller premium) eller distributionsmodellen (Azure Resource Manager eller klassisk). Redundansalternativ för alla Azure Storage stöder kryptering, och alla kopior av ett lagringskonto är krypterade. Alla resurser i Azure Storage krypteras, inklusive blobar, diskar, filer, köer och tabeller.
+Azure Storage-kryptering är aktiverat för alla nya och befintliga lagringskonton och kan inte inaktiveras. Eftersom dina data är skyddade som standard, behöver du inte ändra din kod eller att dra nytta av Azure Storage kryptering. 
+
+Storage-konton är krypterade oavsett prestandanivå (standard eller premium) eller distributionsmodellen (Azure Resource Manager eller klassisk). Redundansalternativ för alla Azure Storage stöder kryptering, och alla kopior av ett lagringskonto är krypterade. Alla resurser i Azure Storage krypteras, inklusive blobar, diskar, filer, köer och tabeller. Metadata för alla objekt är också krypterade.
 
 Azure Storage-prestanda påverkas inte av kryptering. Det finns ingen extra kostnad för Azure Storage kryptering.
 

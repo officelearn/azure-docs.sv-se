@@ -2,18 +2,19 @@
 title: Migrera virtuella datorer till Azure Premium Storage | Microsoft Docs
 description: Migrera dina befintliga virtuella datorer till Azure Premium Storage. Premium Storage erbjuder stöd för diskar med höga prestanda och låg latens för I/O-intensiva arbetsbelastningar som körs på Azure Virtual Machines.
 services: storage
-author: yuemlu
+author: roygara
 ms.service: storage
 ms.topic: article
 ms.date: 06/27/2017
-ms.author: yuemlu
+ms.author: rogarana
+ms.reviewer: yuemlu
 ms.subservice: common
-ms.openlocfilehash: fdca10c54c798bd47a34eb0f8af091908bcc2711
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 5cfb96bd3115c8f3116a28926e93df89dff54351
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372326"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153767"
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Migrera till Azure Premium Storage (ohanterade diskar)
 
@@ -40,7 +41,7 @@ Du har slutfört migreringen i sin helhet kan kräva ytterligare åtgärder båd
 ## <a name="plan-the-migration-to-premium-storage"></a>Planera för migrering till Premium Storage
 Det här avsnittet säkerställer att du är redo att följa stegen i migreringen i den här artikeln och hjälper dig att fatta det bästa beslutet på virtuell dator och Disk-typer.
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Nödvändiga komponenter
 * Du behöver en Azure-prenumeration. Om du inte har någon kan du skapa en månads [kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/) prenumeration eller besök [priser för Azure](https://azure.microsoft.com/pricing/) fler alternativ.
 * För att köra PowerShell-cmdlets, måste Microsoft Azure PowerShell-modulen. Information om installationsplatser och installationsanvisningar finns i [Installera och konfigurera Azure PowerShell](/powershell/azure/overview).
 * När du planerar att använda virtuella Azure-datorer med Premium Storage som du behöver använda Premium Storage kan virtuella datorer. Du kan använda både Standard och Premium Storage-diskar med Premium Storage kan virtuella datorer. Premium storage-diskar är tillgängliga med flera typer av virtuella datorer i framtiden. Mer information om alla tillgängliga Azure VM-disktyper och storlekar finns i [storlekar för virtuella datorer](../../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) och [storlekar för Cloud Services](../../cloud-services/cloud-services-sizes-specs.md).
@@ -74,7 +75,7 @@ Mer information om specifikationer för Premium Storage, Kolla in [skalbarhets- 
 #### <a name="disk-caching-policy"></a>Disk-principen för cachelagring
 Som standard disken Cachelagringsprincip är *skrivskyddad* för alla Premium datadiskar, och *skrivskyddad* för Premium operativsystemets disk som är kopplade till den virtuella datorn. Den här inställningen rekommenderas för att uppnå optimala prestanda för ditt programs IOs. Inaktivera diskcachelagring så att du kan få bättre prestanda för hög eller lässkyddad datadiskar (till exempel loggfiler för SQL Server). Inställningar för cachelagring för befintliga datadiskar kan uppdateras med hjälp av den [Azure-portalen](https://portal.azure.com) eller *- HostCaching* -parametern för den *Set-AzureDataDisk* cmdlet.
 
-#### <a name="location"></a>Plats
+#### <a name="location"></a>Location
 Välj en plats där Azure Premium Storage är tillgängligt. Se [Azure-tjänster efter Region](https://azure.microsoft.com/regions/#services) uppdaterad information om tillgängliga platser. Virtuella datorer finns i samma region som lagringskontot som lagrar diskarna för den virtuella datorn får mycket bättre prestanda än om de finns i olika områden.
 
 #### <a name="other-azure-vm-configuration-settings"></a>Andra Virtuella Azure-konfigurationsinställningar
@@ -89,7 +90,7 @@ Följande avsnitt innehåller riktlinjer för att förbereda virtuella hårddisk
 * [Scenario 1: ”Jag migrerar befintliga virtuella Azure-datorer till Azure Premium Storage”.](#scenario1)
 * [Scenario 2: ”Jag migrerar virtuella datorer från andra plattformar till Azure Premium Storage”.](#scenario2)
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Nödvändiga komponenter
 Om du vill förbereda de virtuella hårddiskarna för migrering behöver du:
 
 * En Azure-prenumeration, ett lagringskonto och en behållare i det lagringskontot som du kan kopiera en virtuell Hårddisk. Observera att mållagringskontot kan vara ett Standard- eller Premium Storage-konto utifrån dina behov.
@@ -255,7 +256,7 @@ Nu när du har en virtuell Hårddisk i den lokala katalogen kan du använda AzCo
 Add-AzureVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo>
 ```
 
-Ett exempel <Uri> kanske ***”https://storagesample.blob.core.windows.net/mycontainer/blob1.vhd”***. Ett exempel <FileInfo> kanske ***”C:\path\to\upload.vhd”***.
+Ett exempel \<Uri > kan vara ***”https://storagesample.blob.core.windows.net/mycontainer/blob1.vhd”***. Ett exempel \<FileInfo > kan vara ***”C:\path\to\upload.vhd”***.
 
 ##### <a name="option-2-using-azcopy-to-upload-the-vhd-file"></a>Alternativ 2: Använda AzCopy för att ladda upp VHD-filen
 Med AzCopy kan överföra du enkelt den virtuella Hårddisken via Internet. Det kan ta tid beroende på storleken på de virtuella hårddiskarna. Kom ihåg att kontrollera lagringskontogränser för ingående/utgående trafik när du använder det här alternativet. Se [skalbarhet för lagring av Azure- och prestandamål](storage-scalability-targets.md) mer information.

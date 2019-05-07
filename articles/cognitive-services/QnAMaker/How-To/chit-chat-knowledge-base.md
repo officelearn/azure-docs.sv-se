@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 05/07/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: a908185f2d8475afb642250d1499cffa539aca4d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 08d09680ee1797e73666c185f4430c7ef3079477
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64573497"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153688"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>Lägg till Chit-chatt i en kunskapsbas
 
@@ -54,10 +54,12 @@ När du redigerar din Kunskapsbas visas en ny källa för chit-chatt, baserat p�
 
 ![Redigera chit-chatt kunskapsbaser](../media/qnamaker-how-to-chit-chat/edit-chit-chat.png)
 
+Om du vill visa metadata, Välj **Visningsalternativ** i verktygsfältet och välj sedan **visa metadata**.
+
 ## <a name="add-additional-chit-chat-questions-and-answers"></a>Lägg till ytterligare chit-chatt frågor och svar
 Du kan lägga till nya chit-chatt frågor och svar som inte i den fördefinierade anges. Se till att du inte duplicerar ett QnA-par som redan omfattas av chit-chatt-uppsättningen. När du lägger till några nya chit-chatt frågor och svar om den läggs till din **språkliga** källa. Lägg till nyckel/värde-par metadata för att säkerställa rankningen förstår att detta är chit-chatt ”, språkliga: chit-chatt”, som visas i följande bild:
    
-![Lägg till chit-chatt kunskapsbaser](../media/qnamaker-how-to-chit-chat/add-new-chit-chat.png)
+![! [Add chit-chatt kunskapsbaser] (.. / media/qnamaker-how-to-chit-chat/add-new-chit-chat.png)](../media/qnamaker-how-to-chit-chat/add-new-chit-chat.png#lightbox)
 
 ## <a name="delete-chit-chat-from-an-existing-kb"></a>Ta bort chit-chatt från en befintlig KB
 Välj din Kunskapsbas och navigera till den **inställningar** sidan. Specifika chit-chatt-källa har listats som en fil med namnet på valda personlighet. Du kan ta bort detta som en källfil.

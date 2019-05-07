@@ -2,18 +2,17 @@
 title: Metodtips för Developer - Pod säkerhet i Azure Kubernetes Services (AKS)
 description: Läs metodtipsen för utvecklare om hur du skyddar poddar i Azure Kubernetes Service (AKS)
 services: container-service
-author: rockboyfor
+author: zr-msft
 ms.service: container-service
 ms.topic: conceptual
-origin.date: 12/06/2018
-ms.date: 04/08/2019
-ms.author: v-yeche
-ms.openlocfilehash: 1c2c5cbee91ddaee5f1f6af8ec17c48326f68e84
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 12/06/2018
+ms.author: zarhoads
+ms.openlocfilehash: f9d49d143b31b0b9e73d8a147605935cd88d412b
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60466892"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073978"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>Metodtips för pod säkerhet i Azure Kubernetes Service (AKS)
 
@@ -32,7 +31,9 @@ Du kan också läsa Metodtips för [kluster security] [ best-practices-cluster-s
 
 **Bästa praxis riktlinjer** – om du vill köra som en annan användare eller grupp och begränsa åtkomst till den underliggande noden processer och tjänster, definiera pod säkerhetsinställningar för kontexten. Tilldela minsta möjliga antal behörigheter som krävs.
 
-För dina program kan köras korrekt, poddar ska köras som en definierad användare eller grupp och inte som *rot*. Den `securityContext` för en pod eller behållare kan du definiera inställningar som *användare* eller *fsGroup* kan de behörigheter som krävs. Endast tilldela nödvändiga användare eller gruppbehörigheter och Använd inte säkerhetskontexten som ett sätt att skaffa sig fler behörigheter. När du kör som en rotanvändare behållare kan inte bindas till Privilegierade portar under 1024. I det här scenariot, kan Kubernetes-tjänster användas för att dölja det faktum att en app körs på en viss port.
+För dina program kan köras korrekt, poddar ska köras som en definierad användare eller grupp och inte som *rot*. Den `securityContext` för en pod eller behållare kan du definiera inställningar som *användare* eller *fsGroup* kan de behörigheter som krävs. Endast tilldela nödvändiga användare eller gruppbehörigheter och Använd inte säkerhetskontexten som ett sätt att skaffa sig fler behörigheter. Den *användare*, eskalering och andra inställningar för Linux-funktioner är endast tillgängliga på Linux-noder och poddar.
+
+När du kör som en rotanvändare behållare kan inte bindas till Privilegierade portar under 1024. I det här scenariot, kan Kubernetes-tjänster användas för att dölja det faktum att en app körs på en viss port.
 
 En pod-säkerhetskontext kan också definiera ytterligare funktioner eller behörigheter för att komma åt processer och tjänster. Följande vanliga security kontext definitioner kan ställas in:
 
@@ -54,7 +55,7 @@ metadata:
 spec:
   containers:
     - name: security-context-demo
-      image: dockerhub.azk8s.cn/nginx:1.15.5
+      image: nginx:1.15.5
     securityContext:
       runAsUser: 1000
       fsGroup: 2000
@@ -67,7 +68,7 @@ Arbeta med din kluster-operator för att avgöra vilka säkerhetsinställningar 
 
 ## <a name="limit-credential-exposure"></a>Begränsa exponeringen av autentiseringsuppgifter
 
-**Bästa praxis riktlinjer** -inte definiera autentiseringsuppgifter i programkoden. Använda hanterade identiteter för Azure-resurser så att din pod begära åtkomst till andra resurser. En digital valvet, till exempel Azure Key Vault, bör också användas för att lagra och hämta digitala nycklar och autentiseringsuppgifter.
+**Bästa praxis riktlinjer** -inte definiera autentiseringsuppgifter i programkoden. Använda hanterade identiteter för Azure-resurser så att din pod begära åtkomst till andra resurser. En digital valvet, till exempel Azure Key Vault, bör också användas för att lagra och hämta digitala nycklar och autentiseringsuppgifter. Pod hanterade identiteter är avsedd att användas med Linux-poddar och endast behållaravbildningar.
 
 Undvik att fasta eller delade autentiseringsuppgifter används för att begränsa risken för autentiseringsuppgifter som exponeras i programkoden. Autentiseringsuppgifter eller nycklar bör inte inkluderas direkt i din kod. Om autentiseringsuppgifterna exponeras måste programmet uppdateras och omdistribueras. En bättre metod är att ge poddar sina egna identitets- och sätt att autentisera sig eller automatiskt hämta autentiseringsuppgifter från ett digitala valv.
 
@@ -97,6 +98,8 @@ När program behöver en autentiseringsuppgift kan de kommunicera med digitala v
 ![Förenklad arbetsflöde för att hämta autentiseringsuppgifter från Key Vault med en pod-hanterad identitet](media/developer-best-practices-pod-security/basic-key-vault-flexvol.png)
 
 Med Key Vault kan du lagra och regelbundet rotera hemligheter, till exempel autentiseringsuppgifter, lagringskontonycklar eller certifikat. Du kan integrera Azure Key Vault med ett AKS-kluster med hjälp av en FlexVolume. Drivrutinen FlexVolume kan AKS-klustret internt hämta autentiseringsuppgifter från Key Vault och ge dem på ett säkert sätt till den begärande pod. Arbeta med din kluster-operatorn som ska distribuera Key Vault FlexVol drivrutinen till AKS-noder. Du kan använda en pod hanterad identitet för att begära åtkomst till Key Vault och hämta de autentiseringsuppgifter som du behöver via FlexVolume-drivrutinen.
+
+Azure Key Vault med FlexVol är avsedd att användas med program och tjänster som körs på Linux-poddar och noder.
 
 ## <a name="next-steps"></a>Nästa steg
 

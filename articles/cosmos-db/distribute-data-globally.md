@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.openlocfilehash: 70ead36e20861026e08e864f438071948c526844
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b90e495e0901c0caa14d9451f365e17f6c075e2b
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60889062"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65070794"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---overview"></a>Globala data-distribution med Azure Cosmos DB – översikt
 
@@ -51,6 +51,6 @@ Läs mer om global distribution i följande artiklar:
 
 * [Global distribution – under huven](global-dist-under-the-hood.md)
 * [Så här konfigurerar du multimaster i dina program](how-to-multi-master.md)
-* [Konfigurera klienter för multihoming](how-to-manage-database-account.md#configure-clients-for-multi-homing)
+* [Konfigurera klienter för multihoming](how-to-manage-database-account.md#configure-multiple-write-regions)
 * [Lägg till eller ta bort regioner från ditt Azure Cosmos DB-konto](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 * [Skapa principen för en anpassad konfliktlösning för SQL-API-konton](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)

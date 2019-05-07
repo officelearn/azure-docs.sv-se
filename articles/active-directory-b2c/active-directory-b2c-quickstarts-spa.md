@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 10/24/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 51e0f6b7162c9bfa6c34f091bdce2b896bd5e284
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2e5f16fa42e86442f6600e375df343f3b6369986
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64688939"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190393"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>Snabbstart: Konfigurera inloggning för en ensidesapp med hjälp av Azure Active Directory B2C
 
@@ -25,7 +25,7 @@ Azure Active Directory (AD Azure) B2C tillhandahåller identitetshantering i mol
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-- [Visual Studio 2017](https://www.visualstudio.com/downloads/) med arbetsbelastningen **ASP.NET och webbutveckling**.
+- [Visual Studio-2019](https://www.visualstudio.com/downloads/) med den **ASP.NET och webbutveckling** arbetsbelastning.
 - Installera [Node.js](https://nodejs.org/en/download/)
 - Ett konto från ett socialt medium, till exempel Facebook, Google, Microsoft eller Twitter.
 - [Ladda ned en zip-fil](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip) eller klona exempelwebbappen från GitHub.
@@ -64,7 +64,7 @@ Azure Active Directory (AD Azure) B2C tillhandahåller identitetshantering i mol
 
     ![Inloggnings- eller registreringsprovider](media/active-directory-b2c-quickstarts-spa/sign-in-or-sign-up-spa.png)
 
-    Du autentiserar dig (loggar in) med autentiseringsuppgifterna för ditt sociala konto och ger behörighet till programmet att läsa information från det sociala kontot. När du beviljar åtkomst kan programmet hämta profilinformation från det sociala kontot, till exempel ditt namn och din ort. 
+    Du kan autentisera (logga in) med ditt sociala konto autentiseringsuppgifter och godkänna att programmet att läsa information från det sociala kontot. När du beviljar åtkomst kan programmet hämta profilinformation från det sociala kontot, till exempel ditt namn och din ort. 
 
 3. Avsluta inloggningsprocessen för identitetsprovidern.
 
@@ -82,7 +82,12 @@ Du kan använda Azure AD B2C-klientorganisationen om du vill prova andra snabbst
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten använde du ett enkelsidigt exempelprogram för att logga in med en anpassad inloggningssida, logga in med en social identitetsprovider, skapa ett Azure AD B2C-konto och anropa ett Azure AD B2C-skyddat webb-API. 
+I den här snabbstarten använde du en enda sida-exempelprogram till:
+
+* Logga in med en anpassad inloggningssida
+* Logga in med en social identitetsprovider
+* Skapa ett Azure AD B2C-konto
+* Anropa ett webb-API som skyddas av Azure AD B2C
 
 Kom igång med att skapa en egen Azure AD B2C-klientorganisation.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/04/2018
 ms.author: gsilva
-ms.openlocfilehash: c4567919490c8bc9094dea3dddbe22550d9eebb2
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: ef6086afa17f1ab864d70678a6da6df2a78e0c16
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57192913"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190282"
 ---
 # <a name="create-a-windows-virtual-machine-with-accelerated-networking"></a>Skapa en Windows-dator med Accelererat nätverk
 
@@ -77,7 +77,7 @@ Installera [Azure PowerShell](/powershell/azure/install-az-ps) version 1.0.0 ell
 
 I följande exempel, ersätter du exempel parameternamn med dina egna värden. Parametern exempelnamnen ingår *myResourceGroup*, *myNic*, och *myVM*.
 
-Skapa en resursgrupp med [New AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* i den *centralus* plats:
+Skapa en resursgrupp med [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* i den *centralus* plats:
 
 ```powershell
 New-AzResourceGroup -Name "myResourceGroup" -Location "centralus"
@@ -230,7 +230,7 @@ Om du har skapat en virtuell dator utan Accelererat nätverk, är det möjligt a
 Först stoppa/frigör den virtuella datorn eller om en Tillgänglighetsuppsättning, alla virtuella datorer i uppsättningen:
 
 ```azurepowershell
-Stop-AzVM -ResourceGroup "myResourceGroup" `
+Stop-AzureRmVM -ResourceGroup "myResourceGroup" `
     -Name "myVM"
 ```
 
@@ -239,18 +239,18 @@ Viktigt,. Observera att om den virtuella datorn skapades individuellt, utan en t
 Stoppat, aktivera Accelererat nätverk på nätverkskortet för den virtuella datorn:
 
 ```azurepowershell
-$nic = Get-AzNetworkInterface -ResourceGroupName "myResourceGroup" `
+$nic = Get-AzureRMNetworkInterface -ResourceGroupName "myResourceGroup" `
     -Name "myNic"
 
 $nic.EnableAcceleratedNetworking = $true
 
-$nic | Set-AzNetworkInterface
+$nic | Set-AzureRMNetworkInterface
 ```
 
 Starta om virtuell dator eller, om i en tillgänglighetsuppsättning, alla virtuella datorer i uppsättningen, och bekräfta att Accelererat nätverk är aktiverat:
 
 ```azurepowershell
-Start-AzVM -ResourceGroup "myResourceGroup" `
+Start-AzureRmVM -ResourceGroup "myResourceGroup" `
     -Name "myVM"
 ```
 

@@ -1,6 +1,6 @@
 ---
-title: Klientprogram (Microsoft Authentication Library) | Azure
-description: Läs mer om offentlig klient och konfidentiell klient program i Microsoft Authentication Library (MSAL).
+title: Autentiseringsflöden (Microsoft Authentication Library) | Azure
+description: Läs mer om autentisering flöden/beviljar används av Microsoft Authentication Library (MSAL).
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 096aa5e5ce2f33467457cef22220f338ae49b708
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b7db73ff8bef553b36408cfae90e32014f875bd3
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65139103"
+ms.locfileid: "65191013"
 ---
 # <a name="authentication-flows"></a>Autentiseringsflöden
 
@@ -30,6 +30,7 @@ Den här artikeln beskrivs de olika autentiseringsflöden som tillhandahålls av
 
 | Flöde | Beskrivning | Används i|  
 | ---- | ----------- | ------- | 
+| [Interaktiv](#interactive) | Hämtar en token via en interaktiv process som frågar användaren om autentiseringsuppgifter via en webbläsare eller fönster. | [Skrivbordsappar](scenario-desktop-overview.md), [mobilappar](scenario-mobile-overview.md) |
 | [Implicit beviljande](#implicit-grant) | Tillåter appen att hämta token utan att utföra en autentiseringsutbyte för backend-server. På så sätt kan appen att logga in användaren, hålla sessionen aktiv och hämta token till andra webb-API: er inom klienten JavaScript-kod.| [Enkelsidigt program (SPA)](scenario-spa-overview.md) |
 | [auktoriseringskod](#authorization-code) | Används i appar som är installerade på en enhet för att få åtkomst till skyddade resurser, till exempel webb-API: er. På så sätt kan du lägga till logga in och API-åtkomst till dina appar och program. | [Skrivbordsappar](scenario-desktop-overview.md), [mobilappar](scenario-mobile-overview.md), [Web Apps](scenario-web-app-call-api-overview.md) | 
 | [On-behalf-of](#on-behalf-of) | Ett program anropar en tjänst/webb-API, som i sin tur måste anropa en annan tjänst/webb-API. Tanken är att sprida delegerade användaren identitets- och behörigheter genom begärandekedjan. | [Webb-API:er](scenario-web-api-call-api-overview.md) |
@@ -38,6 +39,17 @@ Den här artikeln beskrivs de olika autentiseringsflöden som tillhandahålls av
 | [Integrerad Windows-autentisering](scenario-desktop-acquire-token.md#integrated-windows-authentication) | Gör att program på domänen eller Azure AD domänanslutna datorer för att hämta en token för tyst installation (utan en UI-interaktion från användaren).| [Desktop/Mobile apps](scenario-desktop-acquire-token.md#integrated-windows-authentication) |
 | [Användarnamn/lösenord](scenario-desktop-acquire-token.md#username--password) | Gör att program att logga in användaren genom att direkt hantera sitt lösenord. Det här flödet rekommenderas inte. | [Desktop/mobilappar](scenario-desktop-acquire-token.md#username--password) | 
 
+## <a name="interactive"></a>Interaktiv
+MSAL stöder möjligheten att interaktivt uppmana användaren att ange sina autentiseringsuppgifter för att logga in och få en token med hjälp av autentiseringsuppgifterna.
+
+![Interaktiv flöde](media/msal-authentication-flows/interactive.png)
+
+Mer information om hur du använder MSAL.NET interaktivt hämta token på vissa plattformar, läsa följande:
+- [Xamarin Android](msal-net-xamarin-android-considerations.md)
+- [Xamarin iOS](msal-net-xamarin-ios-considerations.md)
+- [Universal Windows Platform](msal-net-uwp-considerations.md)
+
+Mer information om interaktiva anrop i MSAL.js [fråga beteende i MSAL.js interaktiva begäranden](msal-js-prompt-behavior.md)
 
 ## <a name="implicit-grant"></a>Implicit beviljande
 
@@ -55,6 +67,9 @@ MSAL stöder den [OAuth 2 beviljande via auktoriseringskod](v2-oauth2-auth-code-
 När användare loggar in till webbprogram (webbplatser), webbprogrammet tar emot en auktoriseringskod.  Auktoriseringskoden har löst in för att hämta en token för att anropa webb-API: er. I ASP.NET / ASP.NET core web apps och det enda syftet med `AcquireTokenByAuthorizationCode` är att lägga till en token tokens cacheminne, så att den kan sedan användas av programmet (vanligtvis i styrenheterna) som bara hämta en token för ett API med hjälp av `AcquireTokenSilent`.
 
 ![-Auktoriseringskodflöde](media/msal-authentication-flows/authorization-code.png)
+
+1. Begär en auktoriseringskod som har löst in för en åtkomsttoken.
+2. Använder åtkomsttoken för att anropa ett webb-API.
 
 ### <a name="considerations"></a>Överväganden
 - Auktoriseringskoden är användbar bara en gång att lösa in en token. Försök inte att hämta en token flera gånger med samma Auktoriseringskoden (det är uttryckligen förbjuden enligt standard protokollspecifikation). Om du har löst in koden flera gånger avsiktligt, eller eftersom du inte är medveten om att ett ramverk också gör det åt dig, får du ett fel: `AADSTS70002: Error validating credentials. AADSTS54005: OAuth2 Authorization code was already redeemed, please retry with a new valid code or use an existing refresh token.`
@@ -83,14 +98,23 @@ Med klientens autentiseringsuppgifter ge flow tillåter en webbtjänst (konfiden
 > [!NOTE]
 > Konfidentiell klientflödet är inte tillgänglig på de mobila plattformarna (UWP Xamarin.iOS och Xamarin.Android), eftersom dessa endast stöder offentliga klientprogram.  Offentliga klientprogram vet inte hur man verifiera programmets identitet till identitetsleverantören. En säker anslutning kan ske på webbapp eller webb-API-servrar genom att distribuera ett certifikat.
 
-MSAL.NET stöder tre typer av klientens autentiseringsuppgifter:
+MSAL.NET stöder två typer av klientens autentiseringsuppgifter. Dessa klientautentiseringsuppgifter måste vara registrerad med Azure AD. Autentiseringsuppgifterna skickas i till konstruktorerna i konfidentiell klientprogrammet i din kod.
 
-- Programhemligheter <BR>![Konfidentiell klient med lösenord](media/msal-authentication-flows/confidential-client-password.png)
-- Certifikat <BR>![Konfidentiell klient med certifikat](media/msal-authentication-flows/confidential-client-certificate.png)
-- Optimerad klienten intyg<BR>![Konfidentiell klient med intyg](media/msal-authentication-flows/confidential-client-assertions.png)
+### <a name="application-secrets"></a>Programhemligheter 
+
+![Konfidentiell klient med lösenord](media/msal-authentication-flows/confidential-client-password.png)
+
+1. Hämtar en token med hjälp av autentiseringsuppgifter för hemlighet/lösenord.
+2. Använder token för att göra förfrågningar från resursen.
+
+### <a name="certificates"></a>Certifikat 
+
+![Konfidentiell klient med certifikat](media/msal-authentication-flows/confidential-client-certificate.png)
+
+1. Hämtar en token med hjälp av autentiseringsuppgifter för certifikat.
+2. Använder token för att göra förfrågningar från resursen.
 
 Dessa klientautentiseringsuppgifter måste vara:
-
 - Registrerad med Azure AD.
 - Tidsstämpelsträng vid konstruktion av konfidentiell klient-programmet i din kod.
 
@@ -118,6 +142,9 @@ Programmet hämtar token via en tvåstegsprocess som särskilt utformats för de
 MSAL stöder integrerad Windows autentisering (IWA) för desktop eller mobila program som körs på en domänansluten eller Azure AD-anslutna Windows-dator. Använda IWA kan kan dessa program hämta en token tyst installation (utan en UI-interaktion från användaren). 
 
 ![Integrerad Windows-autentisering](media/msal-authentication-flows/integrated-windows-authentication.png)
+
+1. Hämtar en token som använder integrerad Windows-autentisering.
+2. Använder token för att göra förfrågningar från resursen.
 
 ### <a name="constraints"></a>Villkor
 
@@ -148,6 +175,9 @@ Mer information om medgivande finns [v2.0 behörigheter och samtycke](v2-permiss
 MSAL stöder den [OAuth 2 resource resursägarens lösenordsautentiseringsuppgifter](v2-oauth-ropc.md), vilket gör att ett program för att logga in användaren genom att direkt hantera sitt lösenord. Du kan använda användarnamn/lösenord flödet för att hämta en token tyst i din skrivbordsprogram. Något användargränssnitt krävs vid användning av programmet.
 
 ![Användarnamn/lösenord flöde](media/msal-authentication-flows/username-password.png)
+
+1. Hämtar en token genom att skicka det användarnamn och lösenord till identitetsleverantören.
+2. Anropar ett webb-API med hjälp av token.
 
 > [!WARNING]
 > Det här flödet är **rekommenderas inte** eftersom den kräver en hög grad av förtroende och användaren exponering.  Du bör bara använda det här flödet när andra och säkrare, flöden inte kan användas. Mer information om det här problemet finns i [i den här artikeln](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/). 

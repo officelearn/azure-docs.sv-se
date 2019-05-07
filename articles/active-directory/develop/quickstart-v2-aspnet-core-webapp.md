@@ -17,12 +17,12 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1150e68167ad4e932acce744cdd5eba88e49a8c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e51437a99217316ead50d4075be52f089225e618
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60302368"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190857"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Snabbstart: Lägga till inloggning med Microsoft i en ASP.NET Core-webbapp
 
@@ -73,13 +73,13 @@ I den här snabbstarten lär du dig hur en ASP.NET Core-webbapp kan logga in per
 
 #### <a name="step-2-download-your-aspnet-core-project"></a>Steg 2: Ladda ned ditt ASP.NET Core-projekt
 
-- [Ladda ned Visual Studio 2017-lösningen](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore2-2.zip)
+- [Ladda ned Visual Studio 2019 lösningen](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore2-2.zip)
 
 #### <a name="step-3-configure-your-visual-studio-project"></a>Steg 3: Konfigurera ditt Visual Studio-projekt
 
 1. Extrahera zip-filen i en lokal mapp i rotkatalogen, till exempel **C:\Azure-Samples**
-1. Om du använder Visual Studio 2017 öppnar du lösningen i Visual Studio (valfritt).
-1. Redigera filen **appsettings.json**. Hitta `ClientId` och uppdatera värdet för `ClientId` med den **(klient)-ID: T** värdet för programmet som du just registrerade. 
+1. Om du använder Visual Studio 2019, öppnar du lösningen i Visual Studio (valfritt).
+1. Redigera filen **appsettings.json**. Hitta `ClientId` och uppdatera värdet för `ClientId` med den **(klient)-ID: T** värdet för programmet som du har registrerat. 
 
     ```json
     "ClientId": "Enter_the_Application_Id_here"
@@ -99,7 +99,7 @@ I den här snabbstarten lär du dig hur en ASP.NET Core-webbapp kan logga in per
 
 ## <a name="more-information"></a>Mer information
 
-I det här avsnittet får du en översikt över koden som krävs för att logga in användare. Det kan vara användbart för att förstå hur koden fungerar, huvudargumenten och också om du vill lägga till inloggning för en befintlig ASP.NET Core-app.
+Det här avsnittet ger en översikt över den kod som krävs för att logga in användare. Den här översikten kan vara användbar för att förstå hur koden fungerar, huvudsakliga argument, och även om du vill lägga till inloggning till ett befintligt ASP.NET Core-program.
 
 ### <a name="startup-class"></a>Startklass
 
@@ -136,9 +136,9 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Metoden `AddAuthentication` konfigurerar tjänsten för att lägga till cookie-baserad autentisering, vilket används i webbläsarscenarier, samt ange frågan för OpenID Connect. 
+Metoden `AddAuthentication` konfigurerar tjänsten att lägga till cookie-baserad autentisering, som används på webbläsaren scenarier och ange utmaningen till OpenID Connect. 
 
-Den rad som innehåller `.AddAzureAd` lägger till Microsoft identity-plattformen autentisering i ditt program. Den konfigureras sedan för att logga in med Microsoft identity-plattformen slutpunkten.
+Den rad som innehåller `.AddAzureAd` lägger till Microsoft identity-plattformen autentisering i ditt program. Sedan konfigureras för att logga in med hjälp av Microsoft identity-plattformen slutpunkt.
 
 > |Var  |  |
 > |---------|---------|
@@ -153,13 +153,13 @@ Den rad som innehåller `.AddAzureAd` lägger till Microsoft identity-plattforme
 
 ### <a name="protect-a-controller-or-a-controllers-method"></a>Skydda en kontrollant eller en kontrollants metod
 
-Du kan skydda en kontrollant eller kontrollantmetoder med attributet `[Authorize]`. Det här attributet begränsar åtkomsten till kontrollanten eller metoderna genom att bara tillåta autentiserade användare. Det innebär att autentiseringsfrågan kan startas för att få åtkomst till kontrollanten om användaren inte har autentiserats.
+Du kan skydda en kontrollant eller kontrollantmetoder med attributet `[Authorize]`. Det här attributet begränsar åtkomsten till domänkontrollanten eller metoder genom att bara tillåta autentiserade användare, vilket innebär att autentiseringsfråga kan startas för att få åtkomst till kontrollanten om användaren inte autentiserats.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 
-Kolla in GitHub-lagringsplatsen för den här självstudiekursen för ASP.NET Core mer information och anvisningar om hur du lägger till autentisering till ett helt nytt ASP.NET Core webb-program, hur du anropar Microsoft Graph och andra Microsoft-APIs anropa dina egna API: er för hur du lägger till auktorisering, hur du loggar in användare i nationella moln, eller med sociala identiteter och mycket mer:
+Kolla in GitHub-lagringsplatsen för den här självstudiekursen för ASP.NET Core mer information och anvisningar om hur du lägger till autentisering till ett helt nytt ASP.NET Core webb-program, hur du anropar Microsoft Graph och andra Microsoft-APIs anropa dina egna API: er för hur du lägger till auktorisering, logga in användare i nationella moln, eller med sociala identiteter och mycket mer:
 
 > [!div class="nextstepaction"]
 > [Självstudie för ASP.NET Core-Webbapp](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/)

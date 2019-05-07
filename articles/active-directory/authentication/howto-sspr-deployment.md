@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/17/2018
+ms.date: 05/06/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb9333845a78204ea1c6e56e17b3b6f9e5513c9c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9c254ef3a71e95b33df2a779c728d47fff3c3759
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60358009"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190378"
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Distribuera självbetjäning för återställning av lösenord
 
@@ -32,6 +32,10 @@ De flesta kunder genomför följande steg för att säkerställa en smidig distr
    * Har du försett dem med URL: er för registrering och återställa?
       * Registrering:  https://aka.ms/ssprsetup
       * Reset: https://aka.ms/sspr
+
+   > [!WARNING]
+   > Det går inte att använda för kryssrutan ”användaren måste ändra lösenord vid nästa inloggning” i den lokala Active Directory-administrationsverktyg som Active Directory-användare och datorer eller Active Directory Administrationscenter. När du ändrar ett lösenord Markera lokala inte det här alternativet. 
+
 1. Förklara för användarna.
    * Det här avsnittet i det här dokumentet går över exemplet kommunikation lösenord portaler, verkställa registrering och fylla i autentiseringsdata.
    * Azure Active Directory-produktgruppen har skapat en [stegvis distributionsplan](https://aka.ms/SSPRDeploymentPlan) som kan användas parallellt med dokumentationen på den här webbplatsen, för att organisationen ska kunna skapa en affärsstudie och planera för distribution av självåterställning av lösenord.

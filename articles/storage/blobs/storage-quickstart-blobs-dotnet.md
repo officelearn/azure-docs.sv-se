@@ -2,18 +2,19 @@
 title: 'Snabbstart: Använda .NET för att skapa en blob i objektlagring - Azure Storage'
 description: I den här snabbstarten får du lära dig använda Azure Storage-klientbiblioteket för .NET för att skapa en behållare och en blob i bloblagring (objekt). Du får lära dig hur du hämtar bloben till din lokala dator och hur du visar alla blobar i en container.
 services: storage
-author: tamram
+author: mhopkins-msft
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 11/14/2018
-ms.author: tamram
-ms.openlocfilehash: 2708efc22d373db6ee55dfee6b8adfa35bd450ef
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.author: mhopkins
+ms.reviewer: seguler
+ms.openlocfilehash: 0b7a7ac7b8a71f33871247a1117c16609bbbcd88
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924324"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65191046"
 ---
 # <a name="quickstart-use-net-to-create-a-blob-in-object-storage"></a>Snabbstart: Använda .NET för att skapa en blob i objektlagring
 
@@ -152,7 +153,7 @@ Härnäst får du utforska exempelkoden så att du förstår hur den fungerar.
 
 ### <a name="try-parsing-the-connection-string"></a>Försök att parsa anslutningssträngen
 
-Det första som exemplet gör är att kontrollera att miljövariabeln innehåller en anslutningssträng som kan parsas för att skapa ett [CloudStorageAccount](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount)-objekt som pekar på lagringskontot. Kontrollera att anslutningssträngen är giltig med hjälp av [TryParse](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount.tryparse)-metoden. Om **TryParse** lyckas, initieras variabeln *storageAccount* och **SANT** returneras.
+Det första som exemplet gör är att kontrollera att miljövariabeln innehåller en anslutningssträng som kan parsas för att skapa ett [CloudStorageAccount](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount)-objekt som pekar på lagringskontot. Kontrollera att anslutningssträngen är giltig med hjälp av [TryParse](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount.tryparse)-metoden. Om **TryParse** lyckas, initieras variabeln *storageAccount* och **SANT** returneras.
 
 ```csharp
 // Retrieve the connection string for use with the application. The storage connection string is stored
@@ -184,9 +185,9 @@ else
 
 Sedan skapar exemplet en container och anger dess behörigheter så att alla blobar i containern är offentliga. Om en blob är offentlig kan den användas anonymt av alla klienter.
 
-För att kunna skapa containern måste du först skapa en instans av objektet [CloudBlobClient](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient) som pekar på bloblagringen i lagringskontot. Skapa en instans av objektet [CloudBlobContainer](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer) och skapa sedan behållaren.
+För att kunna skapa containern måste du först skapa en instans av objektet [CloudBlobClient](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient) som pekar på bloblagringen i lagringskontot. Skapa en instans av objektet [CloudBlobContainer](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer) och skapa sedan behållaren.
 
-I det här fallet anropar exemplet metoden [CreateAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.createasync) för att skapa containern. Ett GUID-värde läggs till containerns namn så att det blir unikt. I en produktionsmiljö är det ofta bäst att använda metoden [CreateIfNotExistsAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.createifnotexistsasync) för att skapa en container endast om den inte redan finns, och undvika namnkonflikter.
+I det här fallet anropar exemplet metoden [CreateAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createasync) för att skapa containern. Ett GUID-värde läggs till containerns namn så att det blir unikt. I en produktionsmiljö är det ofta bäst att använda metoden [CreateIfNotExistsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createifnotexistsasync) för att skapa en container endast om den inte redan finns, och undvika namnkonflikter.
 
 > [!IMPORTANT]
 > Containernamn måste använda gemener. Mer information om namngivning av containrar och blobar finns i [Namngivning och referens av containrar, blobar och metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
@@ -209,7 +210,7 @@ await cloudBlobContainer.SetPermissionsAsync(permissions);
 
 ### <a name="upload-blobs-to-the-container"></a>Ladda upp blobar i containern
 
-Exemplet laddar sedan upp en lokal fil till en blockblob. Kodexemplet hämtar en referens till ett **CloudBlockBlob**-objekt genom att anropa metoden [GetBlockBlobReference](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.getblockblobreference) på den container som skapades i föregående avsnitt. Det laddar sedan upp den valda filen till bloben genom att anropa metoden [UploadFromFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromfileasync). Den här metoden skapar bloben om den inte redan finns, och skriver över den om den finns.
+Exemplet laddar sedan upp en lokal fil till en blockblob. Kodexemplet hämtar en referens till ett **CloudBlockBlob**-objekt genom att anropa metoden [GetBlockBlobReference](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.getblockblobreference) på den container som skapades i föregående avsnitt. Det laddar sedan upp den valda filen till bloben genom att anropa metoden [UploadFromFileAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.uploadfromfileasync). Den här metoden skapar bloben om den inte redan finns, och skriver över den om den finns.
 
 ```csharp
 // Create a file in your local MyDocuments folder to upload to a blob.
@@ -230,7 +231,7 @@ await cloudBlockBlob.UploadFromFileAsync(sourceFile);
 
 ### <a name="list-the-blobs-in-a-container"></a>Visa en lista över blobarna i en container
 
-Exemplet listar blobarna i containern med metoden [ListBlobsSegmentedAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmentedasync). I det här exemplet har endast en blob lagts till i containern, så liståtgärden returnerar bara den bloben.
+Exemplet listar blobarna i containern med metoden [ListBlobsSegmentedAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.listblobssegmentedasync). I det här exemplet har endast en blob lagts till i containern, så liståtgärden returnerar bara den bloben.
 
 Om det finns för många blobar att returnera i ett anrop (som standard högst 5 000), returnerar metoden **ListBlobsSegmentedAsync** ett segment av den totala resultatuppsättningen och ett fortsättningstoken. Om du vill hämta nästa segment blobar anger du det fortsättningstoken som returnerades av tidigare anrop, och så vidare tills fortsättningstokenet är null. Ett fortsättningstoken med nullvärde anger att alla blobar har hämtats. Exempelkoden visar hur du använder fortsättningstoken för bästa praxis.
 
@@ -253,7 +254,7 @@ do
 
 ### <a name="download-blobs"></a>Ladda ned blobbar
 
-Därefter hämtar exemplet den blob som skapades tidigare till ditt lokala filsystem med metoden [DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync). Exempelkoden lägger till suffixet ”_DOWNLOADED” blobnamnet så att du kan se båda filerna i det lokala filsystemet.
+Därefter hämtar exemplet den blob som skapades tidigare till ditt lokala filsystem med metoden [DownloadToFileAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadtofileasync). Exempelkoden lägger till suffixet ”_DOWNLOADED” blobnamnet så att du kan se båda filerna i det lokala filsystemet.
 
 ```csharp
 // Download the blob to a local file, using the reference created earlier.
@@ -265,7 +266,7 @@ await cloudBlockBlob.DownloadToFileAsync(destinationFile, FileMode.Create);
 
 ### <a name="clean-up-resources"></a>Rensa resurser
 
-Exemplet rensar upp de resurser som den som skapade genom att ta bort hela behållaren med hjälp av [CloudBlobContainer.DeleteAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.deleteasync). Du kan även ta bort de lokala filerna om du vill.
+Exemplet rensar upp de resurser som den som skapade genom att ta bort hela behållaren med hjälp av [CloudBlobContainer.DeleteAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.deleteasync). Du kan även ta bort de lokala filerna om du vill.
 
 ```csharp
 Console.WriteLine("Press the 'Enter' key to delete the sample files, example container, and exit the application.");

@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/09/2018
-ms.openlocfilehash: aacb0ab69dad45f9ca7655daaae0c2acff0403f5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 397fb1d3934aad19b82f957b6994bd3c5ce4054c
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60740447"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65189971"
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>Schemalägga jobb på flera enheter
 
@@ -48,7 +48,7 @@ User-Agent: <sdk-name>/<sdk-version>
 
 {
     "jobId": "<jobId>",
-    "type": "scheduleDirectMethod",
+    "type": "scheduleDeviceMethod",
     "cloudToDeviceMethod": {
         "methodName": "<methodName>",
         "payload": <payload>,
@@ -118,7 +118,7 @@ I följande lista visar egenskaper och motsvarande beskrivningar som kan använd
 | **jobId** |Programmet ange ID för jobbet. |
 | **startTime** |Program tillhandahålls Starttid (ISO 8601-) för jobbet. |
 | **endTime** |IoT Hub tillhandahåller datum (ISO 8601-) för när jobbet är slutfört. Gäller endast när jobbet når ”slutfört” tillstånd. |
-| **typ** |Typer av jobb: |
+| **type** |Typer av jobb: |
 | | **scheduledUpdateTwin**: Ett jobb som används för att uppdatera en uppsättning önskade egenskaper eller taggar. |
 | | **scheduledDeviceMethod**: Ett jobb som används för att anropa en enhetsmetod på en uppsättning enhetstvillingar. |
 | **status** |Aktuell status för jobbet. Möjliga värden för status: |

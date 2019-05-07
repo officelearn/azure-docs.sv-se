@@ -10,12 +10,12 @@ ms.date: 02/20/2018
 ms.author: rogarana
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: a1dba92a9e156c82f49b9f6f85faf227fc652029
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0673d97f755d7e01d42d0be7c611720ff1e4ad01
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61427548"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65187782"
 ---
 # <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>Överföra stora mängder slumpmässiga data parallellt till Azure Storage
 
@@ -67,14 +67,14 @@ dotnet run
 
 Programmet skapar fem containrar med slumpmässiga namn och börjar överföra filerna i mellanlagringskatalogen till lagringskontot. Programmet anger inställningen för minsta antal trådar till 100 och [DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit(v=vs.110).aspx) till 100 för att säkerställa att ett stort antal samtidiga anslutningar tillåts när programmet körs.
 
-Förutom att ange inställningarna för trådning och anslutningsgräns konfigureras [BlobRequestOptions](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions?view=azure-dotnet) för metoden [UploadFromStreamAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromstreamasync?view=azure-dotnet) för att använda parallellitet och inaktivera MD5-hashverifiering. Filerna överförs i block om 100 MB. Den här konfigurationen ger bättre prestanda, men kan vara kostsam om du använder ett bristfälligt nätverk eftersom hela blocket på 100 MB hämtas om det uppstår ett fel.
+Förutom att ange inställningarna för trådning och anslutningsgräns konfigureras [BlobRequestOptions](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions?view=azure-dotnet) för metoden [UploadFromStreamAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.uploadfromstreamasync?view=azure-dotnet) för att använda parallellitet och inaktivera MD5-hashverifiering. Filerna överförs i block om 100 MB. Den här konfigurationen ger bättre prestanda, men kan vara kostsam om du använder ett bristfälligt nätverk eftersom hela blocket på 100 MB hämtas om det uppstår ett fel.
 
 |Egenskap |Värde|Beskrivning|
 |---|---|---|
-|[ParallelOperationThreadCount](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.paralleloperationthreadcount?view=azure-dotnet)| 8| Den här inställningen delar in bloben i block vid överföringen. Det här värdet ska vara åtta gånger antalet kärnor för högsta prestanda. |
-|[DisableContentMD5Validation](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.disablecontentmd5validation?view=azure-dotnet)| true| Den här egenskapen inaktiverar kontrollen av MD5-hashen för innehållet som har överförts. Överföringen går snabbare om MD5-verifieringen inaktiveras. Däremot bekräftas inte giltigheten eller integriteten för de filer som överförs.   |
-|[StoreBlobContentMD5](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.storeblobcontentmd5?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_StoreBlobContentMD5)| false| Den här egenskapen anger om en MD5-hash beräknas och sparas med filen.   |
-| [RetryPolicy](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.retrypolicy?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_RetryPolicy)| Två sekunders backoff med högst tio återförsök |Bestämmer återförsöksprincipen för begäranden. Vi anslutningsfel görs nya försök. I det här exemplet har en [ExponentialRetry](/dotnet/api/microsoft.windowsazure.storage.retrypolicies.exponentialretry?view=azure-dotnet)-princip angetts med två sekunders backoff och högst tio återförsök. Den här inställningen är viktig när programmet når [skalbarhetsmålen för blob storage](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets).  |
+|[ParallelOperationThreadCount](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.paralleloperationthreadcount?view=azure-dotnet)| 8| Den här inställningen delar in bloben i block vid överföringen. Det här värdet ska vara åtta gånger antalet kärnor för högsta prestanda. |
+|[DisableContentMD5Validation](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.disablecontentmd5validation?view=azure-dotnet)| true| Den här egenskapen inaktiverar kontrollen av MD5-hashen för innehållet som har överförts. Överföringen går snabbare om MD5-verifieringen inaktiveras. Däremot bekräftas inte giltigheten eller integriteten för de filer som överförs.   |
+|[StoreBlobContentMD5](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.storeblobcontentmd5?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_StoreBlobContentMD5)| false| Den här egenskapen anger om en MD5-hash beräknas och sparas med filen.   |
+| [RetryPolicy](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.retrypolicy?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_RetryPolicy)| Två sekunders backoff med högst tio återförsök |Bestämmer återförsöksprincipen för begäranden. Vi anslutningsfel görs nya försök. I det här exemplet har en [ExponentialRetry](/dotnet/api/microsoft.azure.batch.common.exponentialretry?view=azure-dotnet)-princip angetts med två sekunders backoff och högst tio återförsök. Den här inställningen är viktig när programmet når [skalbarhetsmålen för blob storage](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets).  |
 
 Aktiviteten `UploadFilesAsync` visas i följande exempel:
 

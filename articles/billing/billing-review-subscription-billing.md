@@ -48,7 +48,7 @@ Följande huvuden krävs:
 |Begärandehuvud|Beskrivning|
 |--------------------|-----------------|
 |*Content-Type:*|Krävs. Ange `application/json`.|
-|*Auktorisering:*|Krävs. Ange att ett giltigt `Bearer` [åtkomsttoken](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |
+|*Authorization:*|Krävs. Ange att ett giltigt `Bearer` [åtkomsttoken](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |
 
 ## <a name="response"></a>Svar
 

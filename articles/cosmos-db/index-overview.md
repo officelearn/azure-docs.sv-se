@@ -4,14 +4,14 @@ description: Förstå hur indexering fungerar i Azure Cosmos DB.
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 05/06/2019
 ms.author: thweiss
-ms.openlocfilehash: 3bb8913725acf04f71aba8b4c4350235f2c44dfb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 44706e5ebe2442dcb45dfc45e2c322938cf7dca9
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61051893"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068647"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Indexering i Azure Cosmos DB - översikt
 
@@ -66,19 +66,41 @@ Azure Cosmos DB stöder för närvarande två typer av index:
 
 Den **intervallet** index typ används till:
 
-- likhetsfrågor: `SELECT * FROM container c WHERE c.property = 'value'`
-- intervall frågor: `SELECT * FROM container c WHERE c.property > 'value'` (fungerar för `>`, `<`, `>=`, `<=`, `!=`)
-- `ORDER BY` frågor: `SELECT * FROM container c ORDER BY c.property`
-- `JOIN` frågor: `SELECT child FROM container c JOIN child IN c.properties WHERE child = 'value'`
+- likhetsfrågor: 
+
+   ```sql SELECT * FROM container c WHERE c.property = 'value'```
+
+- Omfångsfrågor: 
+
+   ```sql SELECT * FROM container c WHERE c.property > 'value'``` (fungerar för `>`, `<`, `>=`, `<=`, `!=`)
+
+- `ORDER BY` frågor:
+
+   ```sql SELECT * FROM container c ORDER BY c.property```
+
+- `JOIN` frågor: 
+
+   ```sql SELECT child FROM container c JOIN child IN c.properties WHERE child = 'value'```
 
 Intervallet index kan användas på skalära värden (sträng eller en siffra).
 
 Den **spatial** index typ används till:
 
-- geospatial avståndet frågor: `SELECT * FROM container c WHERE ST_DISTANCE(c.property, { "type": "Point", "coordinates": [0.0, 10.0] }) < 40`
-- geospatial i frågor: `SELECT * FROM container c WHERE ST_WITHIN(c.property, {"type": "Point", "coordinates": [0.0, 10.0] } })`
+- geospatial avståndet frågor: 
+
+   ```sql SELECT * FROM container c WHERE ST_DISTANCE(c.property, { "type": "Point", "coordinates": [0.0, 10.0] }) < 40```
+
+- geospatial i frågor: 
+
+   ```sql SELECT * FROM container c WHERE ST_WITHIN(c.property, {"type": "Point", "coordinates": [0.0, 10.0] } })```
 
 Spatialindex kan användas på korrekt formaterad [GeoJSON](geospatial.md) objekt. Punkter, LineStrings och polygoner stöds för närvarande.
+
+Den **sammansatta** index typ används till:
+
+- `ORDER BY` frågor med flera egenskaper: 
+
+   ```sql SELECT * FROM container c ORDER BY c.firstName, c.lastName```
 
 ## <a name="querying-with-indexes"></a>Frågor med index
 
@@ -89,7 +111,7 @@ Tänk dig följande fråga: `SELECT location FROM location IN company.locations 
 ![Matchar en angiven sökväg i ett träd](./media/index-overview/matching-path.png)
 
 > [!NOTE]
-> En `ORDER BY` satsen *alltid* måste flera index- och kommer att misslyckas om sökvägen den refererar till inte har något.
+> En `ORDER BY` sats som grupperas efter en enskild egenskap *alltid* måste flera index- och kommer att misslyckas om sökvägen den refererar till inte har en. På samma sätt kan en multi `ORDER BY` fråga *alltid* måste ett sammansatt index.
 
 ## <a name="next-steps"></a>Nästa steg
 

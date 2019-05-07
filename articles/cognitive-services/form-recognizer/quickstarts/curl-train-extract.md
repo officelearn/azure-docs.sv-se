@@ -9,16 +9,16 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: pafarley
-ms.openlocfilehash: cc6e8cdb7cd1719a8cd14cbfe6e576e07c34b32c
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 1afe9239dcc3f5a24d2e950ec7b563bf53d1f04c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65027266"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143242"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-using-rest-api-with-curl"></a>Snabbstart: Träna en modell för formuläret Igenkännande och extrahera formulärdata med hjälp av REST-API med cURL
 
-I den här snabbstarten ska du använda med formuläret Igenkännande REST API med cURL för att träna och betygsätta formulär för att extrahera nyckel / värde-par och tabeller.
+I den här snabbstarten använder du formuläret-Igenkännande REST-API med cURL för att träna och betygsätta formulär för att extrahera nyckel / värde-par och tabeller.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -90,7 +90,7 @@ Anteckna den `"modelId"` value; du behöver för följande steg.
 
 Nu ska du analysera ett dokument och extrahera nyckel / värde-par och tabeller från den. Anropa den **modellera – analysera** API genom att köra cURL-kommandot nedan. Innan du kör kommandot måste du göra följande ändringar:
 
-* Ersätt `<Endpoint>` med slutpunkten som du fick din prenumerationsnyckel för formuläret Igenkännande. Du hittar den i formuläret Igenkännande resource översikt-fliken.
+* Ersätt `<Endpoint>` till slutpunkten som du fick från din prenumerationsnyckel för formuläret Igenkännande. Du hittar i formuläret Igenkännande resursen **översikt** fliken.
 * Ersätt `<modelID>` med modell-ID som du fick i det föregående steget för att träna modellen.
 * Ersätt `<path to your form>` med sökväg i formuläret.
 * Ersätt `<subscription key>` med din prenumerationsnyckel.

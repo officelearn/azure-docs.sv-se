@@ -11,12 +11,12 @@ ms.author: tedway
 author: tedway
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: cfe21d2119b92665c5950d792dec6500257c6316
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 249a21bf9eeb3913826971fd1aae136197d264c4
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024185"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149616"
 ---
 # <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning-service"></a>Distribuera en modell som en webbtjänst på en FPGA med Azure Machine Learning-tjänsten
 
@@ -31,20 +31,31 @@ Dessa modeller är tillgängliga:
 
 FPGA är tillgängliga i de här Azure-regioner:
   - Östra USA
-  - Västra USA 2
-  - Västra Europa
   - Sydostasien
+  - Västra Europa
+  - Västra USA 2
 
 > [!IMPORTANT]
 > För att optimera svarstid och dataflöde, måste klienten skickar data till modellen FPGA vara i en av regionerna ovan (det som du har distribuerat modellen till).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-- Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfria versionen eller betalversionen av Azure Machine Learning-tjänsten](https://aka.ms/AMLFree) i dag.
+- En Azure-prenumeration.  Om du inte har någon kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfria versionen eller betalversionen av Azure Machine Learning-tjänsten](https://aka.ms/AMLFree) i dag.
+
+- FPGA kvot.  Använda Azure CLI för att kontrollera om du har kvot.
+    ```shell
+    az vm list-usage --location "eastus" -o table
+    ```
+
+    De andra platserna är ``southeastasia``, ``westeurope``, och ``westus2``.
+
+    Sök efter ”Standard PBS-serien virtuella processorer” under kolumnen ”Name” och se till att du har minst 6 vcpu: er under ”CurrentValue”.
+
+    Om du inte har kvoten kan sedan skicka formuläret med en begäran [här](https://aka.ms/accelerateAI).
 
 - En arbetsyta för Azure Machine Learning-tjänsten och Azure Machine Learning-SDK för Python installerat. Lär dig hur du hämtar dessa krav med hjälp av den [så här konfigurerar du en utvecklingsmiljö](how-to-configure-environment.md) dokumentet.
  
-  - Installera Python SDK för maskinvaruacceleration modeller:
+- Python SDK för maskinvaruacceleration modeller:
 
     ```shell
     pip install --upgrade azureml-accel-models
@@ -52,7 +63,7 @@ FPGA är tillgängliga i de här Azure-regioner:
 
 ## <a name="sample-notebooks"></a>Exempel på notebook-filer
 
-För din bekvämlighet [exempel anteckningsböcker](https://aka.ms/aml-notebooks) är tillgängliga för det här exemplet nedan och utöver andra exempel.  Titta under How-to-till-användning – azureml och distribution för snabbare modeller.
+För din bekvämlighet [exempel anteckningsböcker](https://aka.ms/aml-accel-models-notebooks) är tillgängliga för exemplet nedan och andra exempel.
 
 ## <a name="create-and-containerize-your-model"></a>Skapa och paketera modeller
 
@@ -61,6 +72,7 @@ Det här dokumentet beskrivs hur du skapar ett TensorFlow-diagram till Förbearb
 Följ anvisningarna för att:
 
 * Definiera TensorFlow-modell
+* Konvertera modellen
 * Distribuera modellen
 * Använd distribuerade modell
 * Ta bort distribuerade tjänster
@@ -74,7 +86,7 @@ import os
 import tensorflow as tf
  
 from azureml.core import Workspace
- 
+
 ws = Workspace.from_config()
 print(ws.name, ws.resource_group, ws.location, ws.subscription_id, sep = '\n')
 ```
@@ -86,6 +98,8 @@ Indata till webbtjänsten är en JPEG-bild.  Det första steget är att avkoda J
 ```python
 # Input images as a two-dimensional tensor containing an arbitrary number of images represented a strings
 import azureml.accel.models.utils as utils
+tf.reset_default_graph()
+
 in_images = tf.placeholder(tf.string)
 image_tensors = utils.preprocess_array(in_images)
 print(image_tensors.shape)
@@ -124,15 +138,47 @@ Nu när preprocessor och ResNet-50 upplärda klassificeraren har lästs in, spar
 
 ```python
 model_name = "resnet50"
-model_def_path = os.path.join(save_path, model_name)
-print("Saving model in {}".format(model_def_path))
+model_save_path = os.path.join(save_path, model_name)
+print("Saving model in {}".format(model_save_path))
 
 with tf.Session() as sess:
     model_graph.restore_weights(sess)
-    tf.saved_model.simple_save(sess, model_def_path,
+    tf.saved_model.simple_save(sess, model_save_path,
                                    inputs={'images': in_images},
                                    outputs={'output_alias': classifier_output})
 ```
+
+### <a name="save-input-and-output-tensors"></a>Spara inkommande och utgående tensors
+Inkommande och utgående tensors som skapades under Förbearbeta och klassificerare steg krävs för modellen konvertering och inferens.
+
+```python
+input_tensors = in_images.name
+output_tensors = classifier_output.name
+
+print(input_tensors)
+print(output_tensors)
+```
+
+> [!IMPORTANT]
+> Spara indata och utdata tensors eftersom du behöver dem för konvertering och inferensjobb modellbegäranden.
+
+De tillgängliga modellerna och motsvarande standard klassificeraren utdata tensors är nedan, vilket är vad du använder under inferensjobb om du använder standard-klassificerare.
+
++ Resnet50 QuantizedResnet50 ``
+output_tensors = "classifier_1/resnet_v1_50/predictions/Softmax:0"
+``
++ Resnet152 QuantizedResnet152 ``
+output_tensors = "classifier/resnet_v1_152/predictions/Softmax:0"
+``
++ Densenet121 QuantizedDensenet121 ``
+output_tensors = "classifier/densenet121/predictions/Softmax:0"
+``
++ Vgg16 QuantizedVgg16 ``
+output_tensors = "classifier/vgg_16/fc8/squeezed:0"
+``
++ SsdVgg QuantizedSsdVgg ``
+output_tensors = ['ssd_300_vgg/block4_box/Reshape_1:0', 'ssd_300_vgg/block7_box/Reshape_1:0', 'ssd_300_vgg/block8_box/Reshape_1:0', 'ssd_300_vgg/block9_box/Reshape_1:0', 'ssd_300_vgg/block10_box/Reshape_1:0', 'ssd_300_vgg/block11_box/Reshape_1:0', 'ssd_300_vgg/block4_box/Reshape:0', 'ssd_300_vgg/block7_box/Reshape:0', 'ssd_300_vgg/block8_box/Reshape:0', 'ssd_300_vgg/block9_box/Reshape:0', 'ssd_300_vgg/block10_box/Reshape:0', 'ssd_300_vgg/block11_box/Reshape:0']
+``
 
 ### <a name="register-model"></a>Registrera modellen
 
@@ -141,8 +187,8 @@ with tf.Session() as sess:
 ```python
 from azureml.core.model import Model
 
-registered_model = Model.register(workspace = ws
-                                  model_path = model_def_path,
+registered_model = Model.register(workspace = ws,
+                                  model_path = model_save_path,
                                   model_name = model_name)
 
 print("Successfully registered: ", registered_model.name, registered_model.description, registered_model.version, sep = '\t')
@@ -160,44 +206,39 @@ print(registered_model.name, registered_model.description, registered_model.vers
 
 ### <a name="convert-model"></a>Konvertera modell
 
-TensorFlow-diagrammet behöver konverteras till formatet öppna Neural Network Exchange ([ONNX](https://onnx.ai/)).  Du måste ange namnen på inkommande och utgående tensors och dessa namn som ska användas av klienten när du förbrukar webbtjänsten.
+Konvertera diagrammet TensorFlow till öppna Neural Network Exchange-formatet ([ONNX](https://onnx.ai/)).  Du måste ange namnen på inkommande och utgående tensors och dessa namn som ska användas av klienten när du förbrukar webbtjänsten.
 
 ```python
-input_tensor = in_images.name
-output_tensors = classifier_output.name
+from azureml.accel import AccelOnnxConverter
 
-print(input_tensor)
-print(output_tensors)
+convert_request = AccelOnnxConverter.convert_tf_model(ws, registered_model, input_tensors, output_tensors)
 
-
-from azureml.accel.accel_onnx_converter import AccelOnnxConverter
-
-convert_request = AccelOnnxConverter.convert_tf_model(ws, registered_model, input_tensor, output_tensors)
-convert_request.wait_for_completion(show_output=True)
+# If it fails, you can run wait_for_completion again with show_output=True.
+convert_request.wait_for_completion(show_output = False)
 
 # If the above call succeeded, get the converted model
 converted_model = convert_request.result
-print(converted_model.name, converted_model.url, converted_model.version, converted_model.id,converted_model.created_time)
+print("\nSuccessfully converted: ", converted_model.name, converted_model.url, converted_model.version, 
+      converted_model.id, converted_model.created_time, '\n')
 ```
 
 ### <a name="create-docker-image"></a>Skapa Docker-avbildning
 
-Den konvertera modellen och alla beroenden läggs till i en Docker-avbildning.  Den här Docker-avbildningen kan sedan distribueras och instansierats i molnet eller en stöds edge-enhet som [Azure Data Box Edge](https://docs.microsoft.com/azure/databox-online/data-box-edge-overview).  Du kan också lägga till taggar och beskrivningar för registrerade Docker-avbildningen.
+Den konvertera modellen och alla beroenden läggs till i en Docker-avbildning.  Den här Docker-avbildningen kan sedan distribueras och instansierats.  Mål för distribution som stöds inkluderar AKS i molnet eller en edge-enhet, till exempel [Azure Data Box Edge](https://docs.microsoft.com/azure/databox-online/data-box-edge-overview).  Du kan också lägga till taggar och beskrivningar för registrerade Docker-avbildningen.
 
 ```python
 from azureml.core.image import Image
-from azureml.accel.accel_container_image import AccelContainerImage
+from azureml.accel import AccelContainerImage
 
 image_config = AccelContainerImage.image_configuration()
+# Image name must be lowercase
 image_name = "{}-image".format(model_name)
 
 image = Image.create(name = image_name,
                      models = [converted_model],
                      image_config = image_config, 
                      workspace = ws)
-
-
-image.wait_for_creation(show_output = True)
+image.wait_for_creation(show_output = False)
 ```
 
 Lista över avbildningarna efter tagg och få detaljerade loggar för felsökning.
@@ -214,34 +255,44 @@ for i in Image.list(workspace = ws):
 Använd Azure Kubernetes Service (AKS) för att distribuera din modell som en webbtjänst i produktionsmiljön för hög skalbarhet. Du kan skapa en ny med SDK: N för Azure Machine Learning, CLI eller Azure-portalen.
 
 ```python
-# Use the default configuration (can also provide parameters to customize)
-prov_config = AksCompute.provisioning_configuration()
+from azureml.core.compute import AksCompute, ComputeTarget
 
-aks_name = 'my-aks-9' 
+# Specify the Standard_PB6s Azure VM
+prov_config = AksCompute.provisioning_configuration(vm_size = "Standard_PB6s",
+                                                    agent_count = 1)
+
+aks_name = 'my-aks-cluster'
 # Create the cluster
 aks_target = ComputeTarget.create(workspace = ws, 
                                   name = aks_name, 
                                   provisioning_configuration = prov_config)
+```
 
-%%time
+AKS-distributionen kan ta ungefär 15 minuter.  Kontrollera om distributionen har slutförts.
+
+```python
 aks_target.wait_for_completion(show_output = True)
 print(aks_target.provisioning_state)
 print(aks_target.provisioning_errors)
+```
 
-#Set the web service configuration (using default here)
-aks_config = AksWebservice.deploy_configuration()
+Distribuera behållaren till AKS-klustret.
+```python
+from azureml.core.webservice import Webservice, AksWebservice
 
-%%time
-aks_service_name ='aks-service-1'
+# For this deployment, set the web service configuration without enabling auto-scaling or authentication for testing
+aks_config = AksWebservice.deploy_configuration(autoscale_enabled=False,
+                                                num_replicas=1,
+                                                auth_enabled = False)
 
-aks_service = Webservice.deploy_from_image(workspace = ws, 
+aks_service_name ='my-aks-service'
+
+aks_service = Webservice.deploy_from_image(workspace = ws,
                                            name = aks_service_name,
                                            image = image,
                                            deployment_config = aks_config,
                                            deployment_target = aks_target)
 aks_service.wait_for_deployment(show_output = True)
-print(aks_service.state)
-print(aks_service.scoring_uri)
 ```
 
 #### <a name="test-the-cloud-service"></a>Testa Molntjänsten
@@ -252,12 +303,30 @@ Docker-avbildningen stöder gRPC och TensorFlow som betjänar ”förutsäga” 
 Om du vill använda TensorFlow betjänar kan du [ladda ned en exempel-klient](https://www.tensorflow.org/serving/setup).
 
 ```python
+# Using the grpc client in Azure ML Accelerated Models SDK package
+from azureml.accel.client import PredictionClient
+
+address = aks_service.scoring_uri
+ssl_enabled = address.startswith("https")
+address = address[address.find('/')+2:].strip('/')
+port = 443 if ssl_enabled else 80
+
+# Initialize AzureML Accelerated Models client
+client = PredictionClient(address=address,
+                          port=port,
+                          use_ssl=ssl_enabled,
+                          service_name=aks_service.name)
+```
+
+Eftersom den här klassificerare som har tränats på den [ImageNet](http://www.image-net.org/) data ange, mappa klasser till läsbart etiketter.
+
+```python
 import requests
 classes_entries = requests.get("https://raw.githubusercontent.com/Lasagne/Recipes/master/examples/resnet50/imagenet_classes.txt").text.splitlines()
 
-# Score image using input and output tensor names
+# Score image with input and output tensor names
 results = client.score_file(path="./snowleopardgaze.jpg", 
-                             input_name=input_tensor, 
+                             input_name=input_tensors, 
                              outputs=output_tensors)
 
 # map results [class_id] => [confidence]
@@ -274,6 +343,7 @@ Ta bort din webbtjänst, bild och modellen (måste utföras i angiven ordning ef
 
 ```python
 aks_service.delete()
+aks_target.delete()
 image.delete()
 registered_model.delete()
 converted_model.delete()
@@ -287,3 +357,7 @@ Alla [gränsenheter för Azure Data Box](https://docs.microsoft.com/azure/databo
 ## <a name="secure-fpga-web-services"></a>Skydda FPGA-webbtjänster
 
 Information om hur du skyddar FPGA webbtjänster finns i den [skydda webbtjänster](how-to-secure-web-service.md) dokumentet.
+
+## <a name="pbs-family-vms"></a>PBS-serien virtuella datorer
+
+PBS-serien av virtuella Azure-datorer innehåller Intel Arria 10 FPGA.  Den visas som ”Standard PBS-serien virtuella processorer” när du kontrollera att din Azure-kvot allokering.  PB6 VM har sex virtuella processorer och en FPGA och automatiskt ska etableras genom Azure ML som en del av att distribuera en modell till en FPGA.  Den används endast med Azure ML och det går inte att köra godtycklig bitstreams.  Till exempel att du inte kommer att kunna flash FPGA med bitstreams gör kryptering, kodning, etc. 

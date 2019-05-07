@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2018
 ms.author: apimpm
-ms.openlocfilehash: cfe2620801f743831f77fb76f344c156676966d3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b5467711f06380ca61b4a9d5150b66c3f945c08c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60657568"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65141080"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Skydda ett API med hjälp av OAuth 2.0 med Azure Active Directory och API Management
 
@@ -44,7 +44,7 @@ Här är en snabb översikt över stegen:
 
 Det första steget är att registrera ett program i Azure AD som representerar API: et för att skydda ett API med Azure AD. 
 
-1. Bläddra till din Azure AD-klient och bläddra sedan till **appregistreringar**.
+1. Bläddra till din Azure AD-klient och bläddra sedan till **appregistreringar (äldre)**.
 
 2. Välj **Ny programregistrering**. 
 
@@ -62,7 +62,7 @@ När programmet har skapats, notera den **program-ID**, för användning i ett s
 
 Alla klientprogram som anropar API: et måste registreras som ett program i Azure AD. I det här exemplet är klienten exempelprogrammet Utvecklarkonsolen i developer-portalen för API Management. Här är att registrera ett annat program i Azure AD för att representera Developer-konsolen.
 
-1. Välj **Ny programregistrering**. 
+1. När den är i **appregistreringar (äldre)** väljer **ny programregistrering**. 
 
 2. Ange ett namn för programmet. (I det här exemplet heter `client-app`.)
 
@@ -86,7 +86,7 @@ Anteckna värdet för nyckeln.
 
 Nu när du har registrerat två program som motsvarar API: et och Developer-konsolen, måste du bevilja behörigheter för att tillåta klientappen att anropa backend-app.  
 
-1. Bläddra till **programregistreringar**. 
+1. Bläddra till **programregistreringar (äldre)**. 
 
 2. Välj `client-app`, och gå till **inställningar**.
 

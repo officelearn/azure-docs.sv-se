@@ -12,22 +12,27 @@ ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/26/2019
-ms.openlocfilehash: 89ff11246c7cd36732df1332da94ec5318d7f1d7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f17df53c1ea77bf99ab86329fe914d058eb00f64
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64574087"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65072691"
 ---
 # <a name="choose-between-the-vcore-and-the-dtu-purchasing-model"></a>Välj mellan vCore- och DTU-inköpsmodellen
 
 Azure SQL Database kan du enkelt köpa helt hanterad PaaS-databasmotor som passar ditt behov av prestanda och kostnader. Beroende på distributionsmodell för Azure SQL Database, kan du välja den inköpsmodellen som passar dina behov:
+
+- [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md) (rekommenderas). Den här inköpsmodellen erbjuder mellan den etablerade beräkningen och utan server (förhandsversion) beräkning nivå. Med etablerade beräkningen-nivån kan välja du den exakta mängden beräkning som alltid är etablerad för din arbetsbelastning. Med beräkning utan Server-nivå konfigurerar du den automatisk skalningen av beräkning över en rad med konfigurerbara beräkning. Med den här Beräkningsnivån har du också ett alternativ för att pausa och återuppta databasen baserat på arbetsbelastningen aktivitet automatiskt. VCore-a-pris per tidsenhet är lägre i den etablerade Beräkningsnivån än i den serverfria Beräkningsnivån.
+- [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md). Den här inköpsmodell innehåller tillsammans beräknings- och paket som belastningsutjämnade för vanliga arbetsbelastningar.
 
 Olika inköpschef modeller är tillgängliga i Azure SQL Database-distributionsmodeller:
 
 - Den [enkel databas](sql-database-single-databases-manage.md) och [elastisk pool](sql-database-elastic-pool.md) distributionsalternativ i [Azure SQL Database](sql-database-technical-overview.md) erbjuder både den [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md) och [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md).
 - Den [hanterad instans](sql-database-managed-instance.md) distributionsalternativ i Azure SQL Database erbjuder endast de [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md).
 
+
+- Den [hyperskala tjänstnivå](sql-database-service-tier-hyperscale.md) är för närvarande tillgänglig för enskilda databaser med hjälp av den[vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md).
 
 Följande tabell och diagrammet Jämför och kontrastera vCore- och DTU-köpa modeller.
 
@@ -45,6 +50,9 @@ Följande tabell och diagrammet Jämför och kontrastera vCore- och DTU-köpa mo
 
 I den etablerade beräkning-nivån omfattar beräkningskostnaden totala beräkningskapaciteten som tillhandahålls för programmet.  På affärsnivå kritiska-allokera vi automatiskt minst 3 repliker. För att återspegla den här ytterligare tilldelning av beräkningsresurser är priset i den vCore-baserade inköpsmodellen cirka 2.7 x högre på kritiska-affärsnivå än på tjänstnivån generell användning. Av samma anledning visar högre lagringspris per GB på kritiska-affärsnivå hög i/o och låg fördröjning av SSD-lagring. På samma gång är kostnaden för lagring av säkerhetskopior inte skillnaden mellan dessa två tjänstnivåer eftersom i båda fallen använder vi en klass standardlagring.
 
+### <a name="serverless-compute-costs"></a>Kostnader för beräkning utan Server
+
+Beräkning utan Server-nivå, se [SQL-databas utan server (förhandsversion)](sql-database-serverless.md) för en beskrivning av hur beräkningskapacitet definieras och kostnader beräknas.
 
 ## <a name="storage-costs"></a>Lagringskostnader
 
@@ -56,7 +64,7 @@ Mer information om priserna för lagring finns i den [priser](https://azure.micr
 
 ## <a name="vcore-based-purchasing-model"></a>Köpmodell baserad på virtuell kärna
 
-En virtuell kärna representerar en logisk CPU med möjligheten att välja mellan av maskinvara och fysiska egenskaper av maskinvara (till exempel antal kärnor, minne, lagringsstorlek). Den vCore-baserade inköpsmodellen ger dig flexibilitet, kontroll, transparens av enskild resursförbrukning och ett enkelt sätt att överföra lokala arbetsbelastningskrav till molnet. Den här modellen kan du välja beräkning, minne och lagring utifrån deras arbetsbelastningsbehov. I den vCore-baserade inköpsmodellen, kan du välja mellan [generella](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) och [affärskritisk](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) tjänstnivåer för [enkla databaser](sql-database-single-database-scale.md), [ elastiska pooler](sql-database-elastic-pool.md), och [hanterade instanser](sql-database-managed-instance.md). För enskilda databaser du kan också välja den [hyperskala tjänstnivå (förhandsversion)](sql-database-service-tier-hyperscale.md).
+En virtuell kärna representerar en logisk CPU med möjligheten att välja mellan av maskinvara och fysiska egenskaper av maskinvara (till exempel antal kärnor, minne, lagringsstorlek). Den vCore-baserade inköpsmodellen ger dig flexibilitet, kontroll, transparens av enskild resursförbrukning och ett enkelt sätt att överföra lokala arbetsbelastningskrav till molnet. Den här modellen kan du välja beräkning, minne och lagring utifrån deras arbetsbelastningsbehov. I den vCore-baserade inköpsmodellen, kan du välja mellan [generella](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) och [affärskritisk](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) tjänstnivåer för [enkla databaser](sql-database-single-database-scale.md), [ elastiska pooler](sql-database-elastic-pool.md), och [hanterade instanser](sql-database-managed-instance.md). För enskilda databaser du kan också välja den [hyperskala tjänstnivå](sql-database-service-tier-hyperscale.md).
 
 Den vCore-baserade inköpsmodellen kan du välja beräknings- och lagringsresurser, matcha lokala prestanda och optimera priset oberoende av varandra. I den vCore-baserade inköpsmodellen, kunder som betalar för:
 

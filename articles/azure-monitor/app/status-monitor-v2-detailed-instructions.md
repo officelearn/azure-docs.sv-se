@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 62c7c6b2f78ea90999f72597291e8347ddc14029
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 3aca64c7b0f1ad04967782cb3349da302db557a0
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64870439"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145093"
 ---
 # <a name="status-monitor-v2-detailed-instructions"></a>Detaljerade instruktioner för status Monitor v2
 
@@ -229,3 +229,24 @@ Application Insights SDK behöver att skicka telemetri om ditt program till Micr
 Cmd: `Enable-ApplicationInsightsMonitoring`
 
 Granska våra [API-referens](status-monitor-v2-api-enable-monitoring.md) för en detaljerad beskrivning av hur du använder denna cmdlet. 
+
+
+
+## <a name="next-steps"></a>Nästa steg
+
+ Visa telemetrin:
+
+- [Utforska mått](../../azure-monitor/app/metrics-explorer.md) för att övervaka prestanda och användning
+- [Sök efter händelser och loggar](../../azure-monitor/app/diagnostic-search.md) att diagnostisera problem
+- [Analys](../../azure-monitor/app/analytics.md) för mer avancerade frågor
+- [Skapa instrumentpaneler](../../azure-monitor/app/app-insights-dashboards.md)
+
+ Lägg till mer telemetri:
+
+- [Skapa webbtester](monitor-web-app-availability.md) att kontrollera att webbplatsen är aktiv.
+- [Lägg till telemetri för webbklienten](../../azure-monitor/app/javascript.md) vill visa undantag från webbsidans kod och så att du spårningsanrop.
+- [Lägg till Application Insights SDK i koden](../../azure-monitor/app/asp-net.md) så att du kan lägga till spårnings- och logganrop
+
+Gör mer med Status Monitor v2:
+
+- Använd vår guide om hur du [Felsök](status-monitor-v2-troubleshoot.md) statusövervakaren v2.

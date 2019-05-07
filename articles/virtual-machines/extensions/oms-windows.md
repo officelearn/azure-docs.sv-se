@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/14/2017
+ms.date: 04/29/2019
 ms.author: roiyz
-ms.openlocfilehash: 7c56b54f2d5be2bd47644e07369120468bb6015e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2287a0c39a82509e21ff35d8c3786cf1c85b1b24
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61468388"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142884"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-windows"></a>Azure Monitor VM-tillägget för Windows
 
@@ -32,7 +32,10 @@ Azure Monitor-loggar ger övervakningsfunktionerna i molnet och lokala tillgång
 
 ### <a name="operating-system"></a>Operativsystem
 
-Log Analytics-agenttillägg versioner för Windows kan köras mot Windows Server 2008 R2, 2012, 2012 R2 och 2016.
+Log Analytics-agenttillägg för Windows stöder följande versioner av Windows-operativsystem:
+
+- Windows Server 2019
+- Windows Server 2008 R2, 2012, 2012 R2, 2016, version 1709 och 1803
 
 ### <a name="azure-security-center"></a>Azure Security Center
 
@@ -43,7 +46,7 @@ Log Analytics-agenttillägg för Windows kräver att den virtuella måldatorn ä
 
 ## <a name="extension-schema"></a>Tilläggsschema
 
-Följande JSON visar schemat för Log Analytics-agenttillägg. Tillägget kräver att arbetsytan Id och arbetsytenyckel från Log Analytics-målarbetsytan. Dessa kan hittas i inställningarna för arbetsytan på Azure-portalen. Eftersom arbetsytenyckeln ska behandlas som känsliga data, ska den lagras i en skyddad Konfigurationsinställningen. Azure VM-tillägget skyddade inställningsdata krypteras och dekrypteras bara på den virtuella måldatorn. Observera att **workspaceId** och **workspaceKey** är skiftlägeskänsliga.
+Följande JSON visar schemat för Log Analytics-agenttillägg. Tillägget kräver arbetsytans ID och arbetsytenyckel från Log Analytics-målarbetsytan. Dessa kan hittas i inställningarna för arbetsytan på Azure-portalen. Eftersom arbetsytenyckeln ska behandlas som känsliga data, ska den lagras i en skyddad Konfigurationsinställningen. Azure VM-tillägget skyddade inställningsdata krypteras och dekrypteras bara på den virtuella måldatorn. Observera att **workspaceId** och **workspaceKey** är skiftlägeskänsliga.
 
 ```json
 {
@@ -84,6 +87,9 @@ Följande JSON visar schemat för Log Analytics-agenttillägg. Tillägget kräve
 ## <a name="template-deployment"></a>Malldistribution
 
 Azure VM-tillägg kan distribueras med Azure Resource Manager-mallar. JSON-schemat som beskrivs i föregående avsnitt kan användas i en Azure Resource Manager-mall för att köra tillägget för Log Analytics-agent under en malldistribution för Azure Resource Manager. En exempelmall som innehåller VM-tillägg för Log Analytics-agenten finns på den [Azure Quick Start-galleriet](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-windows-vm). 
+
+>[!NOTE]
+>Mallen har inte stöd för att ange mer än en arbetsyte-ID och arbetsytenyckel när du vill konfigurera agenten för att rapportera till flera arbetsytor. För att konfigurera agenten till flera arbetsytor, se [när du lägger till eller ta bort en arbetsyta](../../azure-monitor/platform/agent-manage.md#adding-or-removing-a-workspace).  
 
 JSON för tillägg för virtuell dator kan kapslas i resursen för virtuella datorer eller placeras i roten eller översta nivån i en Resource Manager JSON-mall. Placeringen av JSON påverkar värdet för resursnamn och typ. Mer information finns i [ange namn och typ för underordnade resurser](../../azure-resource-manager/resource-group-authoring-templates.md#child-resources). 
 

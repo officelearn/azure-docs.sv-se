@@ -1,42 +1,50 @@
 ---
-title: Azure Backup-agenten vanliga frågor och svar
-description: Svar på vanliga frågor om hur Azure Backup-agenten fungerar samt begränsningar för säkerhetskopiering och kvarhållning.
-services: backup
-author: trinadhk
-manager: shreeshd
-keywords: säkerhetskopiering och katastrofåterställning, säkerhetskopieringstjänst
+title: Vanliga frågor när du säkerhetskopierar filer och mappar med Azure Backup
+description: Vanliga frågor om hur du säkerhetskopierar filer och mappar med Azure Backup-adresser.
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 8/6/2018
-ms.author: trinadhk
-ms.openlocfilehash: c1690fe6d0ce24bd319b042a3850bbfe487ffcfc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 04/30/2019
+ms.author: dacurwin
+ms.openlocfilehash: 5dbd4fefd5c5e1acd7e12ace547ddb8866b7f081
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60641236"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148596"
 ---
-# <a name="questions-about-the-azure-backup-agent"></a>Frågor om Azure Backup-agenten
-Den här artikeln innehåller svar på vanliga frågor så att du snabbt kan förstå Azure Backup-agentkomponenterna. I vissa svar finns det länkar till artiklar som har omfattande information. Du kan också ställa frågor om Azure Backup-tjänsten i [diskussionsforumet](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
+# <a name="common-questions-about-backing-up-files-and-folders"></a>Vanliga frågor om hur du säkerhetskopierar filer och mappar 
 
-## <a name="configure-backup"></a>Konfigurera säkerhetskopiering
-### <a name="where-can-i-download-the-latest-azure-backup-agent-br"></a>Var kan jag hämta den senaste Azure Backup-agenten? <br/>
-Du kan hämta den senaste agenten för säkerhetskopiering av Windows Server, System Center DPM eller Windows-klienten [här](https://aka.ms/azurebackup_agent). Om du vill säkerhetskopiera en virtuell dator använder du VM-agenten (som automatiskt installerar rätt tillägg). VM-agenten finns redan på virtuella datorer som skapats från Azure-galleriet.
+Den här artikeln innehåller svar på vanliga frågor fler säkerhetskopiera filer och mappar med Microsoft Azure Recovery Services MARS-agenten i den [Azure Backup](backup-overview.md) service.
 
-### <a name="when-configuring-the-azure-backup-agent-i-am-prompted-to-enter-the-vault-credentials-do-vault-credentials-expire"></a>När jag konfigurerar Azure Backup-agenten uppmanas jag att ange valvautentiseringsuppgifter. Slutar valvautentiseringsuppgifterna att gälla?
-Ja, valvautentiseringsuppgifterna upphör att gälla efter 48 timmar. Om filen går ut, logga in på Azure portal och ladda ned filerna med valvautentiseringsuppgifterna från ditt valv.
+## <a name="general"></a>Allmänt
 
-### <a name="what-types-of-drives-can-i-back-up-files-and-folders-from-br"></a>Från vilka typer av enheter kan jag säkerhetskopiera filer och mappar? <br/>
-Du kan inte säkerhetskopiera följande enheter/volymer:
+### <a name="why-does-the-mars-agent-need-net-framework-452-or-higher"></a>Varför MARS-agenten måste .NET framework 4.5.2 eller senare?
+
+Nya funktioner som är tillgängliga i [omedelbar återställning](backup-azure-restore-windows-server.md#use-instant-restore-to-recover-data-to-the-same-machine) måste .NET Framework 4.5.2 eller senare.
+
+## <a name="configure-backups"></a>Konfigurera säkerhetskopieringar
+
+### <a name="where-can-i-download-the-latest-version-of-the-mars-agent"></a>Var kan jag hämta den senaste versionen av MARS-agenten? 
+Senaste MARS-agenten används när du säkerhetskopierar Windows Server-datorer, System Center DPM och Microsoft Azure Backup server är tillgänglig för [hämta](https://aka.ms/azurebackup_agent). 
+
+### <a name="how-long-are-vault-credentials-valid"></a>Hur lång tid är giltiga autentiseringsuppgifter för valv?
+Valvautentiseringsuppgifterna upphör att gälla efter 48 timmar. Om filen med autentiseringsuppgifter upphör att gälla, kan du hämta filen igen från Azure-portalen.
+
+### <a name="from-what-drives-can-i-back-up-files-and-folders"></a>Från vilka enheter kan jag säkerhetskopiera filer och mappar? 
+
+Du kan inte säkerhetskopiera följande typer av enheter och volymer:
 
 * Flyttbart medium: Alla källor för säkerhetskopieringsobjekt måste rapporteras som fasta.
 * Skrivskyddade volymer: Volymen måste vara skrivbar för tjänsten volume shadow copy (VSS) för att fungera.
 * Offlinevolymer: Volymen måste vara online för att VSS ska fungera.
-* Nätverksresurs: Volymen måste vara lokal på servern som ska säkerhetskopieras med onlinesäkerhetskopiering.
+* Nätverksresurser: Volymen måste vara lokal på servern som ska säkerhetskopieras med onlinesäkerhetskopiering.
 * BitLocker-skyddade volymer: Volymen måste vara upplåst innan säkerhetskopieringen kan utföras.
 * Identifiering av filsystem: NTFS är det enda filsystem som stöds.
 
-### <a name="what-file-and-folder-types-can-i-back-up-from-my-serverbr"></a>Vilka typer av filer och mappar kan jag säkerhetskopiera från servern?<br/>
+### <a name="what-file-and-folder-types-are-supported"></a>Vilka typer av filer och mappar stöds?
+
 Följande typer stöds:
 
 * Krypterade
@@ -47,36 +55,61 @@ Följande typer stöds:
 * Referenspunkt: Stöds inte, hoppas över
 * Krypterade + utspridda: Stöds inte, hoppas över
 * Komprimerade Stream: Stöds inte, hoppas över
-* Null-optimerade Stream: Stöds inte, hoppas över
+* Referenspunkt, inklusive DFS-länkar och knutpunkter
 
-### <a name="can-i-install-the-azure-backup-agent-on-an-azure-vm-already-backed-by-the-azure-backup-service-using-the-vm-extension-br"></a>Kan jag installera Azure Backup-agenten på en virtuell dator i Azure som redan har säkerhetskopierats av Azure Backup-tjänsten med hjälp av VM-tillägget? <br/>
-Absolut. Azure Backup stöder säkerhetskopiering på VM-nivå för virtuella datorer i Azure med hjälp av VM-tillägget. Installera Azure Backup-agenten i Windows-gästoperativsystemet för att skydda filer och mappar i gästoperativsystemet.
 
-### <a name="can-i-install-the-azure-backup-agent-on-an-azure-vm-to-back-up-files-and-folders-present-on-temporary-storage-provided-by-the-azure-vm-br"></a>Kan jag installera Azure Backup-agenten på en virtuell dator i Azure om jag vill säkerhetskopiera filer och mappar med tillfällig lagring på den virtuella Azure-datorn? <br/>
-Ja. Installera Azure Backup-agenten i Windows-gästoperativsystemet och säkerhetskopiera filer och mappar till ett tillfälligt lagringsutrymme. Säkerhetskopieringsjobb misslyckas om du rensar data i tillfällig lagring. Om data i tillfällig lagring har tagits bort kan du bara återställa till beständig lagring.
+### <a name="can-i-use-the-mars-agent-to-back-up-files-and-folders-on-an-azure-vm"></a>Kan jag använda MARS-agenten för att säkerhetskopiera filer och mappar på en Azure-dator?  
+Ja. Azure Backup innehåller VM-nivå säkerhetskopiering för virtuella Azure-datorer med hjälp av VM-tillägget för Azure VM-agenten. Du kan installera MARS-agenten för att göra det om du vill säkerhetskopiera filer och mappar på gästoperativsystemet för Windows på den virtuella datorn. 
 
-### <a name="whats-the-minimum-size-requirement-for-the-cache-folder-br"></a>Vilken är den minsta nödvändiga storleken på cachelagringsmappen? <br/>
-Storleken på cachelagringsmappen avgör mängden data som säkerhetskopieras. Mängden cachelagringsmappens storlek bör vara minst 5 – 10% ledigt utrymme, jämfört med den totala mängden säkerhetskopierade data. Om volymen har mindre än 5% ledigt utrymme, antingen öka volymens storlek eller [flytta cachelagringsmappen till en volym med tillräckligt med ledigt utrymme](backup-azure-file-folder-backup-faq.md#backup).
+### <a name="can-i-use-the-mars-agent-to-back-up-files-and-folders-on-temporary-storage-for-the-azure-vm"></a>Kan jag använda MARS-agenten för säkerhetskopiering av filer och mappar med tillfällig lagring för virtuella Azure-datorer? 
+Ja. Installera MARS-agenten och säkerhetskopiera filer och mappar på Windows-gästoperativsystemet till ett tillfälligt lagringsutrymme. -Säkerhetskopieringsjobb misslyckas om tillfällig lagring data om du rensar.
+- Om data i tillfällig lagring tas bort kan återställa du bara till beständig lagring.
 
-### <a name="how-do-i-register-my-server-to-another-datacenterbr"></a>Hur registrerar jag min server till ett annat datacenter?<br/>
-Säkerhetskopierade data skickas till datacentret för det valv som det har registrerats för. Det enklaste sättet att ändra datacentret är att avinstallera och installera om agenten och registrera ett nytt valv som tillhör det önskade datacentret.
+### <a name="how-do-i-register-a-server-to-another-region"></a>Hur registrerar jag mig en server till en annan region?
 
-### <a name="does-the-azure-backup-agent-work-on-a-server-that-uses-windows-server-2012-deduplication-br"></a>Fungerar Azure Backup-agenten på en server som använder Windows Server 2012-deduplicering? <br/>
-Ja. Agenttjänsten konverterar deduplicerade data till vanliga data när den förbereder säkerhetskopieringen. Därefter optimerar tjänsten data för säkerhetskopiering, krypterar dessa data och skickar dem till onlinesäkerhetskopieringstjänsten.
+Säkerhetskopierade data skickas till datacentret för det valv som servern är registrerad. Det enklaste sättet att ändra datacentret är att avinstallera och installera om agenten och sedan registrerar datorn till ett nytt valv i den region som du behöver
 
-## <a name="prerequisites-and-dependencies"></a>Krav och beroenden
-### <a name="what-features-of-microsoft-azure-recovery-services-mars-agent-require-net-framework-452-and-higher"></a>Vilka funktioner i Microsoft Azure Recovery Services MARS-agenten kräver .NET framework 4.5.2 och högre?
-Den [omedelbar återställning](backup-azure-restore-windows-server.md#use-instant-restore-to-recover-data-to-the-same-machine) funktion som gör att återställning av enskilda filer och mappar från *Återställ Data* guiden kräver .NET Framework 4.5.2 eller senare.
+### <a name="does-the-mars-agent-support-windows-server-2012-deduplication"></a>Deduplicerar MARS-agenten support Windows Server 2012?
+Ja. MARS-agenten konverterar deduplicerade data till vanliga data när den förbereder säkerhetskopieringen. Den och sedan optimerar data för säkerhetskopiering, krypterar data och skickar sedan krypterade data till valvet.
 
-## <a name="backup"></a>Backup
-### <a name="how-do-i-change-the-cache-location-specified-for-the-azure-backup-agentbr"></a>Hur ändrar jag cachelagringsplatsen för Azure Backup-agenten?<br/>
-Använd följande lista för att ändra cachelagringsplatsen.
+## <a name="manage-backups"></a>Hantera säkerhetskopior
 
-1. Stoppa Backup-motorn genom att köra följande kommando från en upphöjd kommandotolk:
+### <a name="what-happens-if-i-rename-a-windows-machine-configured-for-backup"></a>Vad händer om jag byter namn på en Windows-dator som konfigureras för säkerhetskopiering?
+
+När du byter namn på en Windows-dator, stoppas alla konfigurerade säkerhetskopieringar.
+
+- Du behöver registrera namnet på nya datorn med Backup-valvet.
+- När du registrerar ett nytt namn med valvet, den första åtgärden är en *fullständig* säkerhetskopiering.
+- Om du behöver återställa data som säkerhetskopierats till valvet med det gamla servernamnet kan du använda alternativet för att återställa till en annan plats i guiden Återställ Data. [Läs mer](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine). 
+
+### <a name="what-is-the-maximum-file-path-length-for-backup"></a>Vad är den maximala längden på sökvägen för säkerhetskopiering?
+MARS-agenten använder NTFS och använder den specifikationen för filsökvägarnas längd begränsas av de [Windows API](/windows/desktop/FileIO/naming-a-file#fully_qualified_vs._relative_paths). Om du vill skydda filerna är längre än det tillåtna värdet kan du säkerhetskopiera den överordnade mappen eller diskenheten.  
+
+### <a name="what-characters-are-allowed-in-file-paths"></a>Vilka tecken tillåts i filsökvägar?
+
+MARS-agenten använder NTFS och tillåter [stöds tecken](/windows/desktop/FileIO/naming-a-file#naming_conventions) i namn/sökvägar.
+
+### <a name="the-warning-azure-backups-have-not-been-configured-for-this-server-appears"></a>Varningen ”Azure-säkerhetskopieringar inte har konfigurerats för den här servern” visas.
+Den här varningen kan visas även om du har konfigurerat en säkerhetskopieringsprincip när inställningarna för Säkerhetskopieringsschemat på den lokala servern inte är samma som inställningarna som lagras i säkerhetskopieringsvalvet.
+- När servern eller inställningarna har återställts till ett fungerande tillstånd, kan scheman för säkerhetskopiering bli osynkroniserad.
+- Om du får den här varningen [konfigurera](backup-azure-manage-windows-server.md) säkerhetskopieringsprincipen igen och kör en på begäran-säkerhetskopiering att omsynkronisera den lokala servern med Azure.
+
+
+## <a name="manage-the-backup-cache-folder"></a>Hantera säkerhetskopiering cachemappen
+
+### <a name="whats-the-minimum-size-requirement-for-the-cache-folder"></a>Vilken är den minsta nödvändiga storleken på cachelagringsmappen?
+Storleken på cachelagringsmappen avgör mängden data som säkerhetskopieras.
+- Volymer för cache-mappen bör ha ledigt utrymme som är lika med minst 5 – 10% av den totala mängden säkerhetskopierade data.
+- Om volymen har mindre än 5% ledigt utrymme, öka volymstorleken eller flytta cachelagringsmappen till en volym med tillräckligt med utrymme.
+- 
+### <a name="how-do-i-change-the-cache-location-for-the-mars-agent"></a>Hur ändrar jag cachelagringsplatsen för MARS-agenten?
+
+
+1. Kör följande kommando i en upphöjd kommandotolk för att stoppa Backup-motorn:
 
     ```PS C:\> Net stop obengine```
 
-2. Flytta inte filerna. Kopiera i stället cachelagringsmappen till en annan enhet med tillräckligt med utrymme. Du kan ta bort det ursprungliga cachelagringsutrymmet när du har bekräftat att säkerhetskopieringarna fungerar med den nya cachelagringsplatsen.
+2. Flytta inte filerna. Kopiera i stället cachelagringsmappen till en annan enhet som har tillräckligt med utrymme.
 3. Uppdatera följande registerposter med sökvägen till den nya cachelagringsmappen.<br/>
 
     | Sökväg i registret | Registernyckel | Värde |
@@ -84,20 +117,21 @@ Använd följande lista för att ändra cachelagringsplatsen.
     | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Ny plats för cachemappen* |
     | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Ny plats för cachemappen* |
 
-4. Starta om Backup-motorn genom att köra följande kommando från en upphöjd kommandotolk:
+4. Starta om Backup-motorn i en upphöjd kommandotolk:
 
     ```PS C:\> Net start obengine```
 
-När säkerhetskopian har skapats på den nya cachelagringsplatsen kan du ta bort den ursprungliga cachelagringsmappen.
+5. När säkerhetskopieringen är klar med den nya platsen, kan du ta bort den ursprungliga cachelagringsmappen.
 
 
-### <a name="where-can-i-put-the-cache-folder-for-the-azure-backup-agent-to-work-as-expectedbr"></a>Var kan jag placera cachelagringsmappen så att Azure Backup Agent fungerar korrekt?<br/>
+### <a name="where-should-the-cache-folder-be-located"></a>Där cachemappen placeras?
+
 Följande platser rekommenderas inte för cachelagringsmappen:
 
-* Nätverksresurs eller flyttbart medium: Cachelagringsmappen måste vara lokal på servern som ska säkerhetskopieras med onlinesäkerhetskopiering. Nätverksplatser eller flyttbara medier som USB-enheter stöds inte
+* Nätverket resurs/flyttbart medium: Cachelagringsmappen måste vara lokal på servern som ska säkerhetskopieras med onlinesäkerhetskopiering. Nätverksplatser eller flyttbara medier som USB-enheter stöds inte
 * Offlinevolymer: Cachelagringsmappen måste vara online för väntad säkerhetskopiering med Azure Backup-agenten
 
-### <a name="are-there-any-attributes-of-the-cache-folder-that-are-not-supportedbr"></a>Finns det några attribut för cachelagringsmappen som inte stöds?<br/>
+### <a name="are-there-any-attributes-of-the-cache-folder-that-arent-supported"></a>Finns det några attribut för cachelagringsmappen som inte stöds?
 Följande attribut eller deras kombinationer stöds inte för cachelagringsmappen:
 
 * Krypterade
@@ -108,25 +142,17 @@ Följande attribut eller deras kombinationer stöds inte för cachelagringsmappe
 
 Cachelagringsmappen och den virtuella hårddisken för metadata har inte de attribut som krävs för Azure Backup-agenten.
 
-### <a name="is-there-a-way-to-adjust-the-amount-of-bandwidth-used-by-the-backup-servicebr"></a>Kan jag justera mängden bandbredd som används av Backup-tjänsten?<br/>
-  Ja, använd alternativet **Ändra egenskaper** i Backup-agenten om du vill justera bandbredden. Du kan justera mängden bandbredd och tiderna då du använder bandbredden. Stegvisa instruktioner finns **[Aktivera nätverksbegränsning](backup-configure-vault.md#enable-network-throttling)**.
+### <a name="is-there-a-way-to-adjust-the-amount-of-bandwidth-used-for-backup"></a>Finns det ett sätt att justera mängden bandbredd som används för säkerhetskopiering?
+ 
+Ja, du kan använda den **ändra egenskaper för** alternativ i MARS-agenten för att justera bandbredden och val av tidpunkt. [Läs mer](backup-configure-vault.md#enable-network-throttling)**.
 
 ## <a name="restore"></a>Återställ
 
 ### <a name="what-happens-if-i-cancel-an-ongoing-restore-job"></a>Vad händer om jag avbryter en pågående återställningsjobbet?
-Om en pågående återställningsjobbet avbryts kvar återställning processen stoppas och alla filer som är återställd innan åtgärden avbryts finns i konfigurerade mål (ursprungliga eller en annan plats) utan några återställningar.
+
+Om en pågående återställningsjobbet avbryts så stoppas återställningsprocessen. Alla filer som har återställts innan avbrottet Behåll konfigurerade mål (ursprungliga eller en annan plats), utan några återställningar.
 
 
-## <a name="manage-backups"></a>Hantera säkerhetskopior
+## <a name="next-steps"></a>Nästa steg
 
-### <a name="what-happens-if-i-rename-a-windows-server-that-is-backing-up-data-to-azurebr"></a>Vad händer om jag byter namn på en Windows-server som säkerhetskopierar data till Azure?<br/>
-När du byter namn på en server stoppas alla säkerhetskopieringar som är konfigurerade för närvarande. Registrera det nya namnet på servern med Backup-valvet. När du registrerar ett nytt namn med valvet är den första säkerhetskopieringen en *fullständig* säkerhetskopiering. Om du behöver återställa data som har säkerhetskopierats till valvet med det gamla servernamnet kan du använda alternativet [**En annan server**](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) i guiden **Återställ data**.
-
-### <a name="what-is-the-maximum-file-path-length-that-can-be-specified-in-backup-policy-using-azure-backup-agent-br"></a>Vilken är den största längd på filsökvägar som kan anges i säkerhetskopieringsprincipen när Azure Backup-agenten används? <br/>
-Azure Backup-agenten använder NTFS. [Specifikationen för filsökvägarnas längd begränsas av Windows-API:et](/windows/desktop/FileIO/naming-a-file#fully_qualified_vs._relative_paths). Om de filer som du vill skydda har en filsökväg som är längre än vad som är tillåtet enligt Windows-API:et säkerhetskopierar du den överordnade mappen eller diskenheten.  
-
-### <a name="what-characters-are-allowed-in-file-path-of-azure-backup-policy-using-azure-backup-agent-br"></a>Vilka tecken tillåts i filsökvägar i Azure Backup-principen när Azure Backup-agenten används? <br>
- Azure Backup-agenten använder NTFS. [Tecken som stöds av NTFS](/windows/desktop/FileIO/naming-a-file#naming_conventions) stöds enligt filspecifikationen.
-
-### <a name="i-receive-the-warning-azure-backups-have-not-been-configured-for-this-server-even-though-i-configured-a-backup-policy-br"></a>Jag får varningen "Azure-säkerhetskopieringar har inte konfigurerats för denna server" trots att jag har konfigurerat en säkerhetskopieringsprincip <br/>
-Den här varningen visas om inställningarna för säkerhetskopieringsschemat på den lokala servern inte är samma som inställningarna som lagras i säkerhetskopieringsvalvet. Om servern eller inställningarna har återställts till ett fungerande tillstånd kan synkroniseringen av säkerhetskopieringsscheman brytas. Om den här varningen visas [omkonfigurerar du säkerhetskopieringspolicyn](backup-azure-manage-windows-server.md) och väljer **Kör säkerhetskopiering nu** för att synkronisera om den lokala servern med Azure.
+[Lär dig](tutorial-backup-windows-server-to-azure.md) säkerhetskopiering av en Windows-dator.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 3eb53fa88a0757d22fc4575e9d9f402d6eebee13
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 01410fb59135e9b1f54e4a3c75b206c7d30abeed
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64719307"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145024"
 ---
 # <a name="service-connectivity-monitor"></a>Övervakare av tjänstanslutning
 
@@ -64,6 +64,7 @@ Börja skapa dina tester för att övervaka nätverksanslutningar till Tjänstes
 
     * Välj **Web** att övervaka anslutningen till en tjänst som svarar på HTTP/S-begäranden, till exempel outlook.office365.com eller bing.com.<br>
     * Välj **nätverk** att övervaka anslutningen till en tjänst som svarar på förfrågningar TCP men inte svarar på HTTP/S-begäranden, till exempel en SQLServer, FTP-servern eller SSH-porten. 
+    * Exempel: Om du vill skapa ett webbtest till ett blob storage-konto, Välj **Web** och ange mål som <your storageaccount>. blob.core.windows.net. På samma sätt kan du skapa tester för andra tabellagring, kölagring och Azure Files med [den här länken.](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-overview#storage-account-endpoints)
 4. Om du inte vill att utföra nätverksmätningar som Nätverksfördröjningen, paketförlust och identifiering av topologi, avmarkera de **utför nätverksmätningar** markerar du kryssrutan. Behåll den markerad för att få största möjliga nytta från funktionen. 
 5. I **Target**, ange URL-Adressen/FQDN/IP-adressen som du vill övervaka nätverksanslutningar.
 6. I **portnummer**, ange portnumret för Måltjänsten. 

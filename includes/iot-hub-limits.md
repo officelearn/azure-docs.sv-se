@@ -4,16 +4,16 @@ ms.author: robinsh
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.openlocfilehash: 1bdf73dc6a4edf0c170b51e70fca2128d22e0eb8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 104849557a8580e16fa1860b7919d1c0252debe9
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59805219"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150297"
 ---
 I följande tabell visas de begränsningar som är associerade med de olika nivåerna S1, S2, S3 och F1. Information om kostnaden för var och en *enhet* i respektive nivå finns [priser för Azure IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/).
 
-| Resurs | S1 Standard | S2 Standard | S3 Standard | F1 Kostnadsfri |
+| Resource | S1 Standard | S2 Standard | S3 Standard | F1 Kostnadsfri |
 | --- | --- | --- | --- | --- |
 | Meddelanden per dag |400,000 |6,000,000 |300,000,000 |8,000 |
 | Maximalt antal enheter |200 |200 |10 |1 |
@@ -25,7 +25,7 @@ I följande tabell visas de begränsningar som är associerade med de olika niv�
 
 I följande tabell visas de begränsningar som gäller för IoT Hub-resurser.
 
-| Resurs | Gräns |
+| Resource | Gräns |
 | --- | --- |
 | Maximalt antal betalda IoT-hubbar per Azure-prenumeration |50 |
 | Maximalt antal kostnadsfria IoT-hubbar per Azure-prenumeration |1 |
@@ -40,9 +40,9 @@ I följande tabell visas de begränsningar som gäller för IoT Hub-resurser.
 | Maximalt antal leveranser för moln-till-enhet- <br/> meddelanden |100 |
 | Maximalt antal leveranser för feedbackmeddelanden <br/> som svar på ett moln-till-enhet-meddelande |100 |
 | Maximalt TTL-värde för meddelanden som <br/> svar på ett moln-till-enhet-meddelande |2 dagar |
-| Maximal storlek för enhetstvilling <br/> (taggar, rapporterade egenskaper och önskade egenskaper) | 8 kB |
+| [Maximal storlek för enhetstvilling](../articles/iot-hub/iot-hub-devguide-device-twins.md#device-twin-size) <br/> (taggar, rapporterade egenskaper och önskade egenskaper) | 8 kB |
 | Maximal storlek för strängvärde för enhetstvilling | 4 KB |
-| Maximalt djup för objekt i enhetstvilling | 5 |
+| [Maximalt djup för objekt i enhetstvilling](../articles/iot-hub/iot-hub-devguide-device-twins.md#tags-and-properties-format) | 5 |
 | Maximal storlek på nyttolast för direkt metod | 128 KB |
 | Maximal kvarhållning för jobbhistorik | 30 dagar |
 | Maximalt antal samtidiga jobb | 10 (för S3), 5 (för S2), 1 (för S1) |
@@ -51,10 +51,8 @@ I följande tabell visas de begränsningar som gäller för IoT Hub-resurser.
 | Maximalt antal samtidigt ansluten enhet strömmar | 50 (för S1, S2, S3 och endast F1) |
 | Maximal enhet stream-dataöverföring | 300 MB per dag (för S1, S2, S3 och endast F1) |
 
-
 > [!NOTE]
 > Om du behöver mer än 50 betalda IoT-hubbar i en Azure-prenumeration kan du kontakta Microsoft Support.
-
 
 > [!NOTE]
 > Det maximala antalet enheter som du kan ansluta till en enda IoT-hubb är för närvarande 1 000 000. Om du vill utöka gränsen kontaktar du [Microsoft Support](https://azure.microsoft.com/support/options/).

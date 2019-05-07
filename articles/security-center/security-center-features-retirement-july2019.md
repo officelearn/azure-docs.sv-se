@@ -8,12 +8,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/16/2019
 ms.author: yoafr
-ms.openlocfilehash: 392782310d8bc3b38a3dd1349cb1760ca287acd1
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.openlocfilehash: ac677a7f9586dbe893cbcbc480564aceac0149a0
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64875592"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147932"
 ---
 # <a name="retirement-of-security-center-features-july-2019"></a>Tillbakadragning av Security Center-funktioner (juli 2019)
 
@@ -155,7 +155,7 @@ Den här funktionen har varit i förhandsversion och kommer att dras tillbaka.
 
 ### <a name="edit-security-configurations---new-experience"></a>Redigera säkerhetskonfigurationerna - nya upplevelsen
 
-Security Center har stöd för den [i gästagenten](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration) inom en snar framtid, vilket gör att en mycket mer omfattande funktionsuppsättning – bland annat stöd för ytterligare operativsystem och integrering med gäst-konfiguration med Azure-principer (på gäster principer). Detta ger också möjlighet att styra i stor skala och tillämpa på nya resurser automatiskt.
+Security Center har stöd för den [configuration gästagenten](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration) inom en snar framtid, vilket gör att en mycket mer omfattande funktionsuppsättning – bland annat stöd för ytterligare operativsystem och integrering med gäst-konfiguration med Azure-principer ( i gäst-principer). Detta ger också möjlighet att styra i stor skala och tillämpa på nya resurser automatiskt.
 
 ## Säkerhet och granskning instrumentpanelen (ursprungligen används i OMS-portalen) för Log Analytics-arbetsytor<a name="menu_securityomsdashboard"></a>
 

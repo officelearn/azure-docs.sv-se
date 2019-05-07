@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 61d958ae4e53b5f2b123f3fa3660ef62a6cdcabe
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 241bda5c684197a43cc5564e950e924fed668b89
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65021515"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147572"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Stöd för behållare i Azure Cognitive Services
 
@@ -26,6 +26,7 @@ Stöd för behållare i Azure Cognitive Services kan utvecklare använda samma o
 * [Ansikte](Face/Overview.md)
 * [Form Recognizer](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409)
 * [Språkförståelse](LUIS/luis-container-howto.md) (LUIS)
+* [Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409)
 * [Speech Service API](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409)
 * [Textanalys](text-analytics/overview.md)
 
@@ -56,6 +57,7 @@ Azure Cognitive Services-behållare ger följande uppsättning Docker-behållare
 |[Ansikte](Face/face-how-to-install-containers.md) |F0, S0|**Ansikte** |Identifierar ansikten i bilder och identifierar attribut, inklusive ansiktslandmärken (till exempel och rörliga och ögon), kön, ålder och andra dator-förväntad ansiktsdrag. Förutom identifiering Kontrollera ansikte om två ansikten i samma bild eller olika bilder är samma med hjälp av ett förtroenderesultat eller jämföra ansikten mot en databas för att se om en likartade eller identiska ansikte finns redan. Det kan även sortera liknande ansikten i grupper, med hjälp av delade visual egenskaper.<br>[Begär åtkomst](Face/face-how-to-install-containers.md#request-access-to-the-private-container-registry) |
 |[Formuläret Igenkännande](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409) |F0, S0|**Form Recognizer** |Förstå formulär gäller maskininlärningsteknik för att identifiera och extrahera nyckel / värde-par och tabeller från formulär.<br>[Begär åtkomst](https://aka.ms/FormRecognizerContainerRequestAccess)|
 |[LUIS](LUIS/luis-container-howto.md) |F0, S0|**LUIS** ([bild](https://go.microsoft.com/fwlink/?linkid=2043204&clcid=0x409))|Läser in en tränad eller publicerade Language Understanding modell, även kallat en LUIS-app, i en docker-behållare och ger tillgång till fråga förutsägelser från behållarens API-slutpunkter. Du kan samla in fråga loggar från behållaren och ladda upp dessa tillbaka till den [LUIS portal](https://www.luis.ai) förbättra appens prognosens noggrannhet.|
+|[Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409) |F0, S0|**Personalizer** ([bild](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Personanpassning i Azure är en molnbaserad API-tjänst som gör det möjligt att välja det bästa alternativet att visa användarna och drar lärdom av beteende i realtid.|
 |[Speech Service API](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409) |F0, S0|**Tal till text** |Transkriberar kontinuerlig realtidsöversättning av tal till text.<br>[Begär åtkomst](https://aka.ms/speechcontainerspreview/)|
 |[Speech Service API](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409) |F0, S0|**Text till tal** |Konverterar text till naturligt tal.<br>[Begär åtkomst](https://aka.ms/speechcontainerspreview/)|
 |[Textanalys](text-analytics/how-tos/text-analytics-how-to-install-containers.md) |F0, S|**Nyckeln diskussionsämne** ([bild](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) |Extraherar viktiga fraser för att identifiera de viktigaste aspekterna. Exempel: För den inmatade texten ”Maten var härlig och personalen var underbar” returnerar API:et de huvudsakliga diskussionsämnena: ”mat” och ”underbar personal”. |
@@ -103,5 +105,6 @@ Installera och utforska funktionerna i behållare i Azure Cognitive Services:
 * [Ansikts-behållare](Face/face-how-to-install-containers.md)
 * [Formuläret Igenkännande behållare](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409)
 * [Behållare för språk Språkförståelse (LUIS)](LUIS/luis-container-howto.md)
+* [Personalizer behållare](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409)
 * [Behållare för tal-API för tjänst](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409)
 * [Text Analytics behållare](text-analytics/how-tos/text-analytics-how-to-install-containers.md)

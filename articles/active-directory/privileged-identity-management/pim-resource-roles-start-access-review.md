@@ -1,6 +1,6 @@
 ---
-title: Starta en åtkomstgranskning för Azure-resursroller i PIM - Azure Active Directory | Microsoft Docs
-description: Lär dig mer om att starta en åtkomstgranskning för Azure-resursroller i Azure AD Privileged Identity Management (PIM).
+title: Skapa en åtkomstgranskning i Azure-resursroller i PIM - Azure Active Directory | Microsoft Docs
+description: Lär dig hur du skapar en åtkomstgranskning i Azure-resursroller i Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,69 +11,67 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: pim
-ms.date: 04/02/2018
+ms.date: 04/29/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46903967b375d882dc3c7a62cd0b7f8b6059f8b3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 78e4de5bbc56f95c0e903b1dac4e8481373716f3
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60287069"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143528"
 ---
-# <a name="start-an-access-review-for-azure-resource-roles-in-pim"></a>Starta en åtkomstgranskning för Azure-resursroller i PIM
-Rolltilldelningar blir ”inaktuell” när användarna har privilegierad åtkomst som de inte behöver längre. För att minska risken som associeras med de här rolltilldelningarna som inaktuella, Privilegierade rolladministratörer bör regelbundet läsa igenom roller. Det här dokumentet beskriver steg för att starta en åtkomstgranskning i Azure Active Directory (Azure AD) Privileged Identity Management (PIM).
+# <a name="create-an-access-review-of-azure-resource-roles-in-pim"></a>Skapa en åtkomstgranskning i Azure-resursroller i PIM
 
-Gå till från PIM programmet huvudsidan:
+Åtkomst till Privilegierade Azure-resursroller för anställda ändras med tiden. För att minska riskerna med inaktuella rolltilldelningar så bör du regelbundet granska åtkomst. Du kan använda Azure Active Directory (Azure AD) Privileged Identity Management (PIM) för att skapa åtkomstgranskningar för privilegierade roller för Azure-resurs. Du kan också konfigurera återkommande åtkomstgranskningar som utförs automatiskt.
 
-* **Åtkomstgranskningar** > **Lägg till**
+Den här artikeln beskriver hur du skapar en eller flera åtkomstgranskningar för privilegierade Azure-resursroller.
 
-![Lägg till åtkomstgranskningar](media/azure-pim-resource-rbac/rbac-access-review-home.png)
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-När du väljer den **Lägg till** knapp, den **skapa en åtkomstgranskning** bladet visas. Konfigurera granskningen med ett namn och en tidsgräns på det här bladet, Välj en roll att granska och sedan bestämmer vem som gör att granskningen.
+- [Privilegierad Rolladministratör](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator)
 
-![Skapa en åtkomstgranskning](media/azure-pim-resource-rbac/rbac-create-access-review.png)
+## <a name="open-access-reviews"></a>Öppna åtkomstgranskningar
 
-### <a name="configure-the-review"></a>Konfigurera granskningen
-Om du vill skapa en åtkomstgranskning Döp först och ange sedan ett start- och datum.
+1. Logga in på [Azure-portalen](https://portal.azure.com/) med en användare som är medlem i rollen privilegierad Rolladministratör.
 
-![Konfigurera granskning – skärmbild](media/azure-pim-resource-rbac/rbac-access-review-setting-1.png)
+1. Öppna **Azure AD Privileged Identity Management**.
 
-Kontrollera längden på Granska tillräckligt länge för användare att slutföra den. Om de är klara före slutdatumet, kan de alltid stoppa granskningen tidigt.
+1. I den vänstra menyn klickar du på **Azure-resurser**.
 
-### <a name="choose-a-role-to-review"></a>Välj en roll att granska
-Varje recension fokuserar på endast en roll. Såvida du inte startade åtkomstgranskningen från en viss roll-bladet, måste du välja en roll nu.
+1. Klicka på resursen som du vill hantera, till exempel en prenumerations- eller grupp.
 
-1. Gå till **granska rollmedlemskap**
-   
-    ![Granska rollmedlemskap – skärmbild](media/azure-pim-resource-rbac/rbac-access-review-setting-2.png)
-2. Välj en roll i listan.
+1. Klicka på under hantera, **Åtkomstgranskningar**.
 
-### <a name="decide-who-will-perform-the-review"></a>Bestämma vem som ska utföra granskningen
-Det finns tre alternativ för att utföra en granskning. Du kan tilldela granskningen till någon annan att slutföra, du kan göra det själv eller varje användare kan granska sin egen åtkomst.
+    ![Azure-resurser – åtkomstgranskningar](./media/pim-resource-roles-start-access-review/access-reviews.png)
 
-1. Välj något av alternativen:
-   
-   * **Markerade användare**: Använd det här alternativet när du inte vet vilka som behöver åtkomst. Med det här alternativet kan du tilldela granskningen till en resursägaren eller gruppansvarig för att slutföra.
-   * **Tilldelad (själv)**: Använd det här alternativet för att be användarna granska sin egen rolltilldelningar.
-   
-2. Gå till **Välj granskare**.
-   
-    ![Välj granskare – skärmbild](media/azure-pim-resource-rbac/rbac-access-review-setting-3.png)
 
-### <a name="start-the-review"></a>Starta granskningen
-Slutligen kan du kräva att användare måste ange en anledning för att godkänna åtkomst. Lägg till en beskrivning av granskningen om du vill. Välj sedan **starta**.
+[!INCLUDE [Privileged Identity Management access reviews](../../../includes/active-directory-privileged-identity-management-access-reviews.md)]
 
-Kontrollera att du ger användarna vet att det finns en åtkomstgranskning som väntar på dem och visa dem [så här utför du en åtkomstgranskning](pim-resource-roles-perform-access-review.md).
+
+## <a name="start-the-access-review"></a>Starta åtkomstgranskningen
+
+När du har angett inställningarna för en åtkomstgranskning, klickar du på **starta**. Åtkomstgranskningen visas i listan med en indikator för dess status.
+
+![Åtkomstgranskningar lista](./media/pim-resource-roles-start-access-review/access-reviews-list.png)
+
+Som standard skickar Azure AD ett e-postmeddelande till granskare strax efter det att granskningen startar. Om du väljer att inte har Azure AD skickar e-postmeddelandet, måste du meddela granskarna att en åtkomstgranskning väntar dem att slutföra. Visa instruktioner för hur du [granska åtkomst till Azure-resursroller](pim-resource-roles-perform-access-review.md).
 
 ## <a name="manage-the-access-review"></a>Hantera åtkomstgranskningen
-Du kan spåra förloppet när granskarna har slutfört sina granskningar i instrumentpanelen för PIM-Azure-resurser. Ingen behörighet har ändrats i katalogen tills [granskningen har slutförts](pim-resource-roles-complete-access-review.md).
 
-Tills granskningsperioden är över, kan du påminna användarna om att slutföra sina granskningar eller stoppa granskningen tidigt från avsnittet om åtkomst granskningar.
+Du kan följa förloppet när granskarna har slutfört sina granskningar på den **översikt** sidan i åtkomstgranskningen. Ingen behörighet har ändrats i katalogen tills de [granskningen är klar](pim-resource-roles-complete-access-review.md).
+
+![Åtkomstgranskningar pågår](./media/pim-resource-roles-start-access-review/access-review-overview.png)
+
+Om det här är en enstaka granskning efter åtkomstgranskningsperiod är över eller administratören stoppar åtkomstgranskning, Följ stegen i [Slutför en åtkomstgranskning i Azure-resursroller](pim-resource-roles-complete-access-review.md) att se och tillämpa resultaten.  
+
+För att hantera en serie med granskningar, gå till åtkomstgranskningen, och du ska hitta kommande förekomster i schemalagd granskningar och redigera slutdatumet eller Lägg till/ta bort granskare i enlighet med detta.
+
+Baserat på dina val i **vid slutförande-inställningar**, Använd kommer automatiskt utförs efter slutet granskningsdatum eller när du manuellt stoppa granskningen. Status för granskningen kommer att ändras från **slutförd** via mellanliggande tillstånd som **tillämpar** och slutligen till tillstånd **kopplat**. Du kan förvänta att se nekade användare, om sådant finns, tas bort från roller på några få minuter.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Slutför en åtkomstgranskning för Azure-resursroller i PIM](pim-resource-roles-complete-access-review.md)
-- [Utför en åtkomstgranskning av mina Azure-resursroller i PIM](pim-resource-roles-perform-access-review.md)
-- [Starta en åtkomstgranskning för Azure AD-roller i PIM](pim-how-to-start-security-review.md)
+- [Granska åtkomst till Azure-resursroller](pim-resource-roles-perform-access-review.md)
+- [Slutför en åtkomstgranskning i Azure-resursroller](pim-resource-roles-complete-access-review.md)
+- [Skapa en åtkomstgranskning i Azure AD-roller](pim-how-to-start-security-review.md)

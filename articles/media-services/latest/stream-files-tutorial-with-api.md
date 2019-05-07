@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/22/2019
 ms.author: juliako
-ms.openlocfilehash: 53f69b6b8eb6cbbb8082ea0777af9dbceb7bdba1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 66ee2c110edfdbd0e33c69d45dee8040654d421a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64699694"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149149"
 ---
 # <a name="tutorial-upload-encode-and-stream-videos-using-net"></a>Självstudier: Ladda upp, koda och strömma videor med .NET
 
@@ -198,7 +198,7 @@ az group delete --name amsResourceGroup
 
 SDK:erna i Azure Media Services v3 är inte trådsäkra. När du utvecklar ett flertrådat program bör du skapa och använda ett nytt AzureMediaServicesClient-objekt per tråd.
 
-## <a name="provide-feedback"></a>Ge feedback
+## <a name="ask-questions-give-feedback-get-updates"></a>Ställ frågor, ge feedback, få uppdateringar
 
 Kolla in den [Azure Media Services-community](media-services-community.md) artikeln olika sätt du kan ställa frågor, ge feedback och få uppdateringar om Media Services.
 

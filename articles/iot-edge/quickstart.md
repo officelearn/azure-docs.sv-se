@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 8b446e3cfd3efc7d6f4c125747630cd3241fa804
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7b4fcf34831d17d35e9f4d8b38455ea22293076f
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64573934"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148087"
 ---
-# <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Snabbstart: Distribuera din första IoT Edge-modul från Azure Portal till en Windows.enhet – förhandsversion
+# <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device"></a>Snabbstart: Distribuera din första IoT Edge-modul från Azure portal till en Windows-enhet
 
 Använd Azure IoT Edge-molnsgränssnittet när du ska fjärrdistribuera färdig kod till en IoT-enhet i den här snabbstarten. Om du vill utföra den här uppgiften, först skapa och konfigurera en Windows-dator att fungera som en IoT Edge-enhet, kan sedan du distribuera en modul till den.
 
@@ -30,9 +30,6 @@ I den här snabbstarten lär du dig att:
 ![Diagram – Snabbstart av arkitektur för enhet och moln](./media/quickstart/install-edge-full.png)
 
 Modulen som du distribuerar i den här snabbstarten är en simulerad sensor som genererar temperatur-, fuktighets- och lufttrycksdata. De andra självstudierna i Azure IoT Edge bygger vidare på det arbete som du gör här, genom att distribuera moduler som analyserar simulerade data för verksamhetsinsyn.
-
-> [!NOTE]
-> IoT Edge-körning i Windows finns i [den öppna förhandsversionen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Om du inte har en aktiv Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free) innan du börjar.
 
@@ -71,6 +68,10 @@ IoT Edge-enhet:
   1. På den **RDP** fliken **ladda ned RDP-filen**.
 
   Öppna den här filen med anslutning till fjärrskrivbord kan ansluta till din Windows-dator med databasadministratörens namn och lösenord du angav med den `az vm create` kommando.
+
+
+> [!NOTE]
+> Den här snabbstarten används en Windows-skrivbord virtuell dator för enkelhetens skull. Information om vilka Windows operativsystem som är allmänt tillgängliga för produktionsscenarier finns i [Azure IoT Edge stöds system](support.md).
 
 ## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 
@@ -130,30 +131,33 @@ Under körningsinstallationen tillfrågas du om en enhetsanslutningssträng. Anv
 
 Stegen i det här avsnittet alla äga rum på din IoT Edge-enhet, så att du vill ansluta till den virtuella datorn nu via fjärrskrivbord.
 
-### <a name="prepare-your-device-for-containers"></a>Förbered enheten för behållare
-
-Installationsskriptet installerar automatiskt Moby-motorn på din enhet innan du installerar IoT Edge. Förbered din enhet genom att aktivera funktionen behållare.
-
-1. Sök efter i startfältet **aktivera Windows-funktioner på eller av** och öppna programmet på Kontrollpanelen.
-1. Hitta och välja **behållare**.
-1. Välj **OK**.
-
-Det är klart när, du måste starta om Windows för att ändringarna träder i kraft, men du kan göra det från fjärrskrivbordssessionen i stället för att starta om den virtuella datorn från Azure-portalen.
-
-### <a name="download-and-install-the-iot-edge-service"></a>Ladda ned och installera IoT Edge-tjänsten
+### <a name="install-and-configure-the-iot-edge-service"></a>Installera och konfigurera tjänsten IoT Edge
 
 Använd PowerShell för att ladda ned och installera IoT Edge-körningen. Använd den enhetsanslutningssträng som du hämtade från IoT Hub för att konfigurera din enhet.
 
-1. Kör PowerShell som administratör på din IoT Edge-enhet.
+1. Om du inte redan gjort följer du stegen i [registrera en ny Azure IoT Edge-enhet](how-to-register-device-portal.md) att registrera din enhet och hämta enhetens anslutningssträng. 
 
-2. Ladda ned och installera IoT Edge-tjänsten på din enhet.
+2. Kör PowerShell som administratör.
+
+3. Den **distribuera IoTEdge** kommandot kontrollerar att din Windows-dator är på en version som stöds, aktiverar funktionen behållare, laddar ned moby-runtime och laddar sedan ned IoT Edge-körningen.
 
    ```powershell
    . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
-   Install-SecurityDaemon -Manual -ContainerOs Windows
+   Deploy-IoTEdge -ContainerOs Windows
    ```
 
-3. När du tillfrågas om en **DeviceConnectionString** (enhetsanslutningssträng) anger den sträng som du kopierade i föregående avsnitt. Använd inte citattecknen runt anslutningssträngen.
+4. Datorn kan starta om automatiskt. Om du uppmanas av kommandot Distribuera IoTEdge ska startas om, ska du göra det nu. 
+
+5. Kör PowerShell som administratör igen.
+
+6. Den **initiera IoTEdge** kommando konfigurerar IoT Edge-körningen på din dator. Kommandot som standard till manuell etableras med Windows-behållare. 
+
+   ```powershell
+   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
+   Initialize-IoTEdge -ContainerOs Windows
+   ```
+
+7. När du tillfrågas om en **DeviceConnectionString** (enhetsanslutningssträng) anger den sträng som du kopierade i föregående avsnitt. Använd inte citattecknen runt anslutningssträngen.
 
 ### <a name="view-the-iot-edge-runtime-status"></a>Visa status för IoT Edge-körningen
 
@@ -168,14 +172,7 @@ Kontrollera att körningen har installerats och konfigurerats korrekt.
 2. Hämta tjänstloggar om du behöver felsöka tjänsten.
 
    ```powershell
-   # Displays logs from today, newest at the bottom.
-
-   Get-WinEvent -ea SilentlyContinue `
-    -FilterHashtable @{ProviderName= "iotedged";
-      LogName = "application"; StartTime = [datetime]::Today} |
-    select TimeCreated, Message |
-    sort-object @{Expression="TimeCreated";Descending=$false} |
-    format-table -autosize -wrap
+   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
    ```
 
 3. Visa alla moduler som körs på din IoT Edge-enhet. Eftersom det är första gången du startar tjänsten, bör du bara kunna se den **edgeAgent**-modul som körs. Modulen edgeAgent körs som standard och hjälper dig att installera och starta ytterligare moduler som du distribuerar till enheten.

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 93803a7d885bb68c1d5d6637eaf90fb090dabeb2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7c3b93db18cb8e2660118927da47ffe95abb900f
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60598769"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073009"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installera och köra LUIS docker-behållare
  
@@ -337,19 +337,28 @@ LUIS behållare skickar information till Azure-fakturering, med en _Cognitive Se
 
 Mer information om alternativen finns i [konfigurera behållare](luis-container-configuration.md).
 
-## <a name="unsupported-dependencies"></a>Beroenden som inte stöds
+## <a name="supported-dependencies-for-latest-container"></a>Stöd för beroenden för `latest` behållare
+
+Den senaste behållaren som släppts på 2019 / / skapa, stöder:
+
+* Stavningskontroll i Bing: begäranden till den fråga förutsägelse slutpunkten med den `&spellCheck=true&bing-spell-check-subscription-key={bingKey}` sträng Frågeparametrar. Använd den [stavningskontroll i Bing v7 självstudien](luis-tutorial-bing-spellcheck.md) vill veta mer. Om du använder den här funktionen skickar behållaren i uttryck till Bing stavningskontroll kontrollera V7-resursen.
+* [Ny fördefinierade domäner](luis-reference-prebuilt-domains.md): dessa företagsinriktade domäner är entiteter, exempel yttranden och mönster. Utöka dessa domäner för eget bruk. 
+
+<a name="unsupported-dependencies"></a>
+
+## <a name="unsupported-dependencies-for-latest-container"></a>Stöds inte beroenden för `latest` behållare
+
+Om LUIS-appen inte har beroenden som stöds, du kommer inte att kunna [exportera för behållaren](#export-packaged-app-from-luis) tills du tar bort funktionerna som inte stöds. När du försöker exportera för behållaren rapporterar LUIS-portalen stöds inte funktioner som du vill ta bort.
 
 Du kan använda en LUIS-programmet om det **omfattar inte** någon av följande beroenden:
 
 Konfigurationer som inte stöds|Information|
 |--|--|
-|Kulturer som stöds inte behållare| Tyska (de-DE)<br>Nederländska (nl-NL)<br>Japanese (ja-JP)<br>|
-|Domäner som inte stöds|Fördefinierade domäner, inklusive fördefinierade domän avsikter och entiteter|
+|Kulturer som stöds inte behållare| Nederländska (nl-NL)<br>Japanese (ja-JP)<br>Tyska stöds endast med den [1.0.1 tokenizer eller senare](luis-language-support.md#custom-tokenizer-versions).|
 |Stöds inte entiteter för alla kulturer|[KeyPhrase](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-keyphrase) fördefinierade entitet för alla kulturer|
 |Stöds inte entiteter för engelska (en-US) kultur|[GeographyV2](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-geographyv2) fördefinierade entiteter|
 |Tal promotor|Externa beroenden stöds inte i behållaren.|
 |Sentimentanalys|Externa beroenden stöds inte i behållaren.|
-|Stavningskontroll i Bing|Externa beroenden stöds inte i behållaren.|
 
 ## <a name="summary"></a>Sammanfattning
 

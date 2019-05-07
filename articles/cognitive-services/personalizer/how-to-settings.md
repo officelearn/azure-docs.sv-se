@@ -10,28 +10,34 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: 0cd08e1191c68c57975d3e68648134925155e7f2
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: bce260d2a6b897d3e45b231df4eecd7ecb31ba31
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65027224"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143249"
 ---
 # <a name="personalizer-settings"></a>Personalizer inställningar
 
 Tjänstkonfigurationen innehåller hur tjänsten behandlar belöningar, hur ofta tjänsten utforskar, hur ofta modellen modellkomponenten och hur mycket data lagras.
 
+## <a name="create-personalizer-resource"></a>Skapa Personalizer resurs
+
 Skapa en Personalizer resurs för varje feedbackloop. 
+
+1. Logga in på [Azure-portalen](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer). Den föregående länken tar dig till den **skapa** för tjänsten Personlizer. 
+1. Ange tjänstnamnet, Välj en prenumeration, plats, prisnivå, och resursgruppen.
+1. Välj bekräftelsen och välj **skapa**.
 
 ## <a name="configure-service-settings-in-the-azure-portal"></a>Konfigurera inställningar för tjänsten i Azure portal
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer).
 1. Hitta Personalizer-resursen. 
 1. I den **resurshantering** väljer **inställningar**.
 
-    ![Logga in på Azure Portal. Hitta Personalizer-resursen. Välj inställningar i avsnittet Resource management.](media/settings/how-to-configure.png)
+    Innan de lämnar Azure-portalen, kan du kopiera en av dina resursnycklar från den **nycklar** sidan. Du behöver detta för att använda den [Personalizer SDK](https://aka.ms/personalizer-dotnet-sdk-docs).
 
-### <a name="reward-settings-for-the-feedback-loop"></a>Inställningar för ersättning för feedback-loop
+### <a name="configure-reward-settings-for-the-feedback-loop-based-on-use-case"></a>Konfigurera inställningar för ersättning för feedbackloopen baserat på användningsfall
 
 Konfigurera inställningar för den tjänsten för din feedback-loop användning av fördelarna. Ändringar av följande inställningar kommer återställa den aktuella Personalizer-modellen och omtrimma med de senaste 2 dagarna av data:
 
@@ -81,4 +87,4 @@ Från den resurshantering avsnittet **modell och principen**, importera en ny pr
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Förstärkande inlärning](concepts-reinforcement-learning.md) 
+[Hur du använder Personalizer behållare](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409)

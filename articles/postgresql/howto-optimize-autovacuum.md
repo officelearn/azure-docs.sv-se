@@ -1,20 +1,19 @@
 ---
-title: Optimera autovacuum på en Azure Database for PostgreSQL-server
-description: Den här artikeln beskrivs hur du kan optimera autovacuum på en Azure Database for PostgreSQL-server.
-author: WenJason
-ms.author: v-jay
+title: Optimera autovacuum på en Azure Database för PostgreSQL – enskild Server
+description: Den här artikeln beskrivs hur du kan optimera autovacuum på en Azure Database för PostgreSQL – enskild Server
+author: dianaputnam
+ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 10/22/2018
-ms.date: 04/29/2019
-ms.openlocfilehash: e1b4bf1f9fa956da7a7b0ca1521439002d1ce76b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: fb1ab9525974601a8b8c22ccc44e2cf37baf21a1
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60420278"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65069107"
 ---
-# <a name="optimize-autovacuum-on-an-azure-database-for-postgresql-server"></a>Optimera autovacuum på en Azure Database for PostgreSQL-server 
+# <a name="optimize-autovacuum-on-an-azure-database-for-postgresql---single-server"></a>Optimera autovacuum på en Azure Database för PostgreSQL – enskild Server
 Den här artikeln beskriver hur du effektivt optimera autovacuum på en Azure Database for PostgreSQL-server.
 
 ## <a name="overview-of-autovacuum"></a>Översikt över autovacuum

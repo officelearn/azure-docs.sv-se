@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: diberry
-ms.openlocfilehash: 10fe5d90e7a7a59a1b543209a37b998376fdda1e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8f067bc005c4de9ddc87ed598b1717f8fbb29a6a
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60196226"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65072383"
 ---
 # <a name="language-and-region-support-for-luis"></a>Stöd för språk och din region för LUIS
 
@@ -102,7 +102,7 @@ Följande kulturer har anpassade tokenizer versioner:
 |Kultur|Version|Syfte|
 |--|--|--|
 |Tyska<br>`de-de`|1.0.0|Tokenizes ord genom att dela dem med hjälp av en dator maskininlärningsbaserade tokenizer som används för att bryta ned sammansatta ord i sina enda komponenter.<br>Om en användare anger `Ich fahre einen krankenwagen` som ett uttryck som den är aktiverad `Ich fahre einen kranken wagen`. Att tillåta märkning av `kranken` och `wagen` oberoende av varandra som olika entiteter.|
-|Tyska<br>`de-de`|1.0.1|Tokenizes ord genom att dela in dem på blanksteg.<br> Om en användare anger `Ich fahre einen krankenwagen` som ett uttryck, den är en enskild token. Därför `krankenwagen` har markerats som en enda enhet. |
+|Tyska<br>`de-de`|1.0.2|Tokenizes ord genom att dela in dem på blanksteg.<br> Om en användare anger `Ich fahre einen krankenwagen` som ett uttryck, den är en enskild token. Därför `krankenwagen` har markerats som en enda enhet. |
 
 ### <a name="migrating-between-tokenizer-versions"></a>Migrering mellan tokenizer versioner
 <!--

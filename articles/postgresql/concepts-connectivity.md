@@ -1,20 +1,20 @@
 ---
-title: Hantering av tillfälliga anslutningsfel för Azure Database för PostgreSQL
-description: Lär dig hur du hanterar tillfälliga anslutningsfel för Azure Database för PostgreSQL.
+title: Hantering av tillfälliga anslutningsfel för Azure Database för PostgreSQL – enskild Server
+description: Lär dig hur du hanterar tillfälliga anslutningsfel för Azure Database för PostgreSQL – enskild Server.
 keywords: PostgreSQL-anslutning, anslutningssträngen, problem med nätverksanslutningen, tillfälligt fel, anslutningsfel
 author: jan-eng
 ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 11/09/2018
-ms.openlocfilehash: 264656da38608026e3f9e866e2184ff55ba102d8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: ea90de612dcfb2559b29fbffce8306278beb45b9
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60559905"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073519"
 ---
-# <a name="handling-of-transient-connectivity-errors-for-azure-database-for-postgresql"></a>Hantering av tillfälliga anslutningsfel för Azure Database för PostgreSQL
+# <a name="handling-transient-connectivity-errors-for-azure-database-for-postgresql---single-server"></a>Hantering av tillfälliga anslutningsfel för Azure Database för PostgreSQL – enskild Server
 
 Den här artikeln beskriver hur du hanterar tillfälliga fel som ansluter till Azure Database för PostgreSQL.
 

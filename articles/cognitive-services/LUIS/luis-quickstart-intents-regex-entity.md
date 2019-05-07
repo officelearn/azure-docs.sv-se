@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 05/07/2018
 ms.author: diberry
-ms.openlocfilehash: 012d77227e7c0283b565361dda32cb77e12fc62b
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: 71104ecf0514b61e4f0d224d25f2ace9457f3cd3
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56867277"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145549"
 ---
 # <a name="tutorial-get-well-formatted-data-from-the-utterance"></a>Självstudier: Hämta välformaterade data från yttrandet
 I den här självstudien skapar du en app för att extrahera konsekvent formaterade data från ett yttrande med hjälp av entiteten **Reguljärt uttryck**.

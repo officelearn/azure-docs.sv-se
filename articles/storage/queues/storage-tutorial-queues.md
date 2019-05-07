@@ -1,21 +1,22 @@
 ---
-title: Självstudie – arbeta med Azure storage-köer
+title: Självstudie – arbeta med Azure storage-köer – Azure Storage
 description: En självstudiekurs om hur du använder Azure-Kötjänsten för att skapa köer och insert-, hämta och ta bort meddelanden.
 services: storage
 author: mhopkins-msft
 ms.author: mhopkins
+ms.reviewer: cbrooks
 ms.service: storage
 ms.subservice: queues
 ms.topic: tutorial
 ms.date: 04/24/2019
-ms.openlocfilehash: 5aa12c39b951ce65c4ef0a3f44de381c8961ed7f
-ms.sourcegitcommit: 1aab8b764d767d86fbf262bda34996189d00c7bb
+ms.openlocfilehash: 81d7572f800f191791158f2c1f99e1f072980116
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "64406170"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65151058"
 ---
-# <a name="tutorial-work-with-azure-storage-queues"></a>Självstudier: Arbeta med Azure storage-köer
+# <a name="tutorial-work-with-azure-storage-queues"></a>Självstudier: Arbeta med Azure Storage-köer
 
 Azure-kölagring implementerar molnbaserade köer för att aktivera kommunikation mellan komponenter i ett distribuerat program. Varje kö har en lista med meddelanden som kan läggas till av en sändarkomponenten och bearbetas av en komponent som mottagare. Med en kö skala ditt program direkt för att möta efterfrågan. Den här artikeln visar de grundläggande stegen för att arbeta med en Azure storage-kö.
 

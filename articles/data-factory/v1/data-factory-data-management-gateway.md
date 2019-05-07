@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 00c8d7cefd7539cd53de8081f44fe861bd063bee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 63b9cc26b927f78598422575646c876d90954bed
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60489767"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143307"
 ---
 # <a name="data-management-gateway"></a>Gateway för datahantering
 > [!NOTE]
@@ -205,8 +205,8 @@ Du kan visa och uppdatera HTTP-proxy med verktyget Configuration Manager.
 ### <a name="configure-proxy-server-settings"></a>Konfigurera inställningar för proxyserver
 Om du väljer **Använd systemproxy** ställa in för HTTP-proxy, använder gatewayen Proxyinställningen i diahost.exe.config och diawp.exe.config. Om ingen proxy har angetts i diahost.exe.config och diawp.exe.config ansluter gateway till Molntjänsten direkt utan att gå via proxy. Följande procedur innehåller instruktioner för att uppdatera filen diahost.exe.config.
 
-1. Skapa en säker kopia av C:\Program Files\Microsoft Data Management Gateway\2.0\Shared\diahost.exe.config att säkerhetskopiera den ursprungliga filen i Utforskaren.
-2. Starta Notepad.exe kör som administratör och öppna textfil ”C:\Program Files\Microsoft Data Management Gateway\2.0\Shared\diahost.exe.config. Du kan hitta Standardetiketten för system.net enligt följande kod:
+1. I Utforskaren, skapa en säker kopia av *C:\\\\programfiler\\Microsoft Data Management Gateway\\2.0\\delad\\diahost.exe.config* till Säkerhetskopiera den ursprungliga filen.
+2. Starta Notepad.exe kör som administratör och öppna textfil *C:\\\\programfiler\\Microsoft Data Management Gateway\\2.0\\delad\\ diahost.exe.config*. Du kan hitta Standardetiketten för system.net enligt följande kod:
 
     ```
     <system.net>
@@ -280,7 +280,7 @@ Du kan aktivera/inaktivera funktionen för automatisk uppdatering genom att gör
 
 [För enskild nod gateway]
 1. Starta Windows PowerShell på gateway-datorn.
-2. Växla till mappen C:\Program Files\Microsoft Integration Runtime\3.0\PowerShellScript\.
+2. Växla till den *C:\\\\programfiler\\Microsoft Integration Runtime\\3.0\\PowerShellScript\\*  mapp.
 3. Kör följande kommando för att aktivera automatisk uppdatering funktion av (inaktivera).
 
     ```powershell
@@ -293,7 +293,7 @@ Du kan aktivera/inaktivera funktionen för automatisk uppdatering genom att gör
     ```
    [För flera noder högtillgängliga och skalbara gateway](data-factory-data-management-gateway-high-availability-scalability.md)
 1. Starta Windows PowerShell på gateway-datorn.
-2. Växla till mappen C:\Program Files\Microsoft Integration Runtime\3.0\PowerShellScript\.
+2. Växla till den *C:\\\\programfiler\\Microsoft Integration Runtime\\3.0\\PowerShellScript\\*  mapp.
 3. Kör följande kommando för att aktivera automatisk uppdatering funktion av (inaktivera).
 
     En extra AuthKey param krävs för gateway med funktionen för hög tillgänglighet.
@@ -310,7 +310,7 @@ Du kan aktivera/inaktivera funktionen för automatisk uppdatering genom att gör
 När du har installerat gatewayen kan du starta konfigurationshanteraren för Data Management Gateway på något av följande sätt:
 
 1. I den **Search** fönster, Skriv in **Data Management Gateway** att komma åt det här verktyget.
-2. Kör den körbara filen **ConfigManager.exe** i mappen: **C:\Program Files\Microsoft Data Management Gateway\2.0\Shared**
+2. Kör den körbara filen *ConfigManager.exe* i mappen: *C:\\\\programfilerna\\Microsoft Data Management Gateway\\2.0\\delade*.
 
 ### <a name="home-page"></a>Startsida
 Startsidan kan du göra följande:
@@ -511,7 +511,7 @@ Det här avsnittet beskriver hur du skapar och registrerar en gateway med Azure 
     Key               : ADF#00000000-0000-4fb8-a867-947877aef6cb@fda06d87-f446-43b1-9485-78af26b8bab0@4707262b-dc25-4fe5-881c-c8a7c3c569fe@wu#nfU4aBlq/heRyYFZ2Xt/CD+7i73PEO521Sj2AFOCmiI
     ```
 
-1. Växla till mappen i Azure PowerShell: **C:\\Program Files\Microsoft Data Management Gateway\2.0\PowerShellScript\\**. Kör **RegisterGateway.ps1** som är associerade med den lokala variabeln **$Key** som visas i följande kommando. Det här skriptet registrerar klientagenten installerad på datorn med en logisk gateway som du skapat tidigare.
+1. Växla till mappen i Azure PowerShell: *C:\\\\programfilerna\\Microsoft Integration Runtime\\3.0\\PowerShellScript\\*. Kör *RegisterGateway.ps1* som är associerade med den lokala variabeln **$Key** som visas i följande kommando. Det här skriptet registrerar klientagenten installerad på datorn med en logisk gateway som du skapat tidigare.
 
     ```powershell
     PS C:\> .\RegisterGateway.ps1 $MyDMG.Key

@@ -1,7 +1,7 @@
 ---
 title: Vad är Personalizer
 titleSuffix: Azure Cognitive Services
-description: Azure Personalizer är en molnbaserad API-tjänst som gör det möjligt att välja den bästa upplevelsen ska visas för användarna, utbildning från beteendet i realtid.
+description: Personanpassning i Azure är en molnbaserad API-tjänst som gör det möjligt att välja det bästa alternativet att visa användarna och drar lärdom av beteende i realtid.
 services: cognitive-services
 author: edjez
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: c969029bcc0412267507efe81549ec6f8b2988ce
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 7eb85aa38815b8fcdfbe68518122563e1b579e17
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65027119"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150402"
 ---
-# <a name="what-is-personalizer"></a>Vad är Personalizer?
+# <a name="what-is-personalizer"></a>Vad är Personanpassning?
 
-Azure Personalizer är en molnbaserad API-tjänst som gör det möjligt att välja den bästa upplevelsen ska visas för användarna, utbildning från beteendet i realtid.
+Personanpassning i Azure är en molnbaserad API-tjänst som gör det möjligt att välja det bästa alternativet att visa användarna och drar lärdom av beteende i realtid.
 
 * Ange information om dina användare och innehåll och få den översta åtgärden för att visa dina användare. 
 * Behöver inte rensa och märka data innan du använder Personalizer.
@@ -64,4 +64,5 @@ Personalizer tjänsten har två API: er:
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Snabbstart: Skapa en feedbackloop iC#](csharp-quickstart-commandline-feedback-loop.md)
+* [Snabbstart: Skapa en feedbackloop iC#](csharp-quickstart-commandline-feedback-loop.md)
+* [Använda Interaktiv demo](https://personalizationdemo.azurewebsites.net/)

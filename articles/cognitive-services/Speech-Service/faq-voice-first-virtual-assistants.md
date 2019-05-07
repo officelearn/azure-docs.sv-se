@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: travisw
-ms.openlocfilehash: 16e4bcbb1514cfd5bbddc22b663d636292095231
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 8427417c9b579c7dfa21f834ce1ca77099159eb2
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025902"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65072608"
 ---
 # <a name="voice-first-virtual-assistants-preview-frequently-asked-questions"></a>Röst första virtuella assistenter förhandsversion: Vanliga frågor och svar
 
@@ -29,7 +29,7 @@ Om du inte hittar svar på dina frågor i det här dokumentet kan du kolla [andr
 
 **F: Hur kommer jag igång?**
 
-**S:** Det bästa sättet att börja med skapar en röst-första virtuella assistenter är att börja med [skapar en grundläggande Bot Framework-robot](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0). Anslut sedan din robot till den [Direct Line tal kanal](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech.md).
+**S:** Det bästa sättet att börja med skapar en röst-första virtuella assistenter är att börja med [skapar en grundläggande Bot Framework-robot](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0). Anslut sedan din robot till den [Direct Line tal kanal](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
 
 ## <a name="debugging"></a>Felsökning
 
@@ -41,7 +41,7 @@ Om du inte hittar svar på dina frågor i det här dokumentet kan du kolla [andr
 
 **F: Jag får erkännande text tillbaka från Direct Line-tal, men jag ser felet ”1011” och inget från min bot. Varför?**
 
-**S:** Det här felet indikerar ett kommunikationsproblem mellan bot och Direct Line-tal. Se till att du har [anslutna direkt rad tal kanalen](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech.md), [lagt till stöd för strömning protokoll](https://aka.ms/botframework/addstreamingprotocolsupport) till bot (med stöd för relaterade Web Socket) och sedan kontrollera att din robot svarar på inkommande begäranden från kanalen.
+**S:** Det här felet indikerar ett kommunikationsproblem mellan bot och Direct Line-tal. Se till att du har [anslutna direkt rad tal kanalen](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech), [lagt till stöd för strömning protokoll](https://aka.ms/botframework/addstreamingprotocolsupport) till bot (med stöd för relaterade Web Socket) och sedan kontrollera att din robot svarar på inkommande begäranden från kanalen.
 
 **F: Det fortfarande fungerar inte och/eller jag får ett annat fel när du använder en SpeechBotConnector och det är oklart på vad jag ska göra. Vad *bör* jag göra?**
 

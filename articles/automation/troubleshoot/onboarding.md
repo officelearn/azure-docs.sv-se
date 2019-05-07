@@ -8,12 +8,12 @@ ms.date: 03/20/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: eaafee304f606ae4d511a6cea1824c26db838635
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 16a03840f6bbf44853cf01e50189a194672d153e
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62119137"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145155"
 ---
 # <a name="troubleshoot-errors-when-onboarding-solutions"></a>Felsöka fel när onboarding-lösningar
 
@@ -78,6 +78,36 @@ För att kunna distribuera lösningen, måste du överväga att ändra den angiv
   * Ändra uppsättningen av resurser principen har konfigurerats för att neka.
 
 Kontrollera meddelanden i det övre högra hörnet i Azure-portalen eller navigera till resursgruppen som innehåller ditt automation-konto och välj **distributioner** under **inställningar** att visa den distribution. Om du vill veta finns mer om Azure Policy: [Översikt över Azure Policy](../../governance/policy/overview.md?toc=%2fazure%2fautomation%2ftoc.json).
+
+### <a name="unlink"></a>Scenario: Fel som försöker ta bort länk till en arbetsyta
+
+#### <a name="issue"></a>Problem
+
+Du får följande felmeddelande när du försöker ta bort länk till en arbetsyta:
+
+```error
+The link cannot be updated or deleted because it is linked to Update Management and/or ChangeTracking Solutions.
+```
+
+#### <a name="cause"></a>Orsak
+
+Det här felet uppstår när du har fortfarande lösningar active Log Analytics-arbetsytan som är beroende av din Automation-kontot och Log Analytics-arbetsyta länkade.
+
+### <a name="resolution"></a>Lösning
+
+För att lösa problemet måste du ta bort följande lösningar från din arbetsyta om du använder dem:
+
+* Uppdateringshantering
+* Spårning av ändringar
+* Starta/stoppa virtuella datorer utanför arbetstid
+
+När du tar bort lösningarna du kan ta bort länken till din arbetsyta. Det är viktigt att rensa eventuella befintliga artefakter från dessa lösningar från arbetsytan och Automation-konto.  
+
+* Uppdateringshantering
+  * Ta bort distributioner (scheman) från ditt Automation-konto
+* Starta/stoppa virtuella datorer utanför arbetstid
+  * Ta bort eventuella lås på lösningens komponenter i ditt Automation-konto under **inställningar** > **Lås**.
+  * För ytterligare åtgärder för att ta bort Starta/stoppa virtuella datorer vid låg belastning på nätverket lösning visas [ta bort Starta/Stoppa VM under kontorstid lösning](../automation-solution-vm-management.md##remove-the-solution).
 
 ## <a name="mma-extension-failures"></a>MMA-datortillägg
 

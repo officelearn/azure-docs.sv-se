@@ -1,19 +1,19 @@
 ---
-title: Serverloggar i Azure Database for PostgreSQL
-description: Den här artikeln beskriver hur Azure Database för PostgreSQL genererar loggar frågan och fel och logga hur kvarhållning har konfigurerats.
+title: Serverloggar i Azure Database för PostgreSQL – enskild Server
+description: Den här artikeln beskriver hur Azure Database för PostgreSQL – enskild Server genererar fråga och felloggar och hur loggbevarande konfigureras.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/28/2019
-ms.openlocfilehash: 99deef907818ffdb1ce858c8e988e26cbd53a1a1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 4d1cf2c59e324cedd9b747b1ac65d6edcb9deb45
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871545"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067399"
 ---
-# <a name="server-logs-in-azure-database-for-postgresql"></a>Serverloggar i Azure Database for PostgreSQL 
+# <a name="server-logs-in-azure-database-for-postgresql---single-server"></a>Serverloggar i Azure Database för PostgreSQL – enskild Server
 Azure Database för PostgreSQL genererar fråge- och loggar. Fråga och felloggar kan användas för att identifiera, felsöka och reparera konfigurationsfel och icke-optimal prestanda. (Åtkomst till transaktionsloggar ingår inte). 
 
 ## <a name="configure-logging"></a>Konfigurera loggning 
@@ -46,7 +46,7 @@ I följande tabell beskrivs vad som finns i varje logg. Beroende på den slutpun
 | ResourceProvider | Namnet på resursprovidern. Alltid `MICROSOFT.DBFORPOSTGRESQL` |
 | ResourceType | `Servers` |
 | ResourceId | Resurs-URI |
-| Resurs | Namnet på servern |
+| Resource | Namnet på servern |
 | Category | `PostgreSQLLogs` |
 | OperationName | `LogEvent` |
 | errorLevel | Loggning nivå, exempel: LOGGEN, FEL, MEDDELANDE |

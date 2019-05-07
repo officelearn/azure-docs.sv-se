@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/27/2018
 ms.author: magoedte
-ms.openlocfilehash: db4b468c03d93b073067083f4fae1ec86c70dde8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5f9fc128af4e89788e648fcfc238da300ff91724
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60494684"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068757"
 ---
 # <a name="troubleshooting-azure-monitor-for-containers"></a>Felsökning Azure Monitor för behållare
 
@@ -111,9 +111,9 @@ I tabellen nedan sammanfattas kända fel kan uppstå när du använder Azure Mon
 
 | Felmeddelanden  | Åtgärd |  
 | ---- | --- |  
-| Felmeddelande `No data for selected filters`  | Det kan ta lite tid att upprätta övervakning dataflöde för nyligen skapade kluster. Låt minst 10 – 15 minuter innan data visas för klustret. |   
-| Felmeddelande `Error retrieving data` | Medan Azure Kubenetes Service-kluster att konfigurera för hälso- och prestandaövervakning, upprättas en anslutning mellan kluster och Azure Log Analytics-arbetsyta. En Log Analytics-arbetsyta används för att lagra alla övervakningsdata för klustret. Det här felet kan uppstå när Log Analytics-arbetsytan har tagits bort eller tappas bort. Kontrollera om din arbetsyta är tillgänglig genom att granska [hantera åtkomst](../../azure-monitor/platform/manage-access.md?toc=/azure/azure-monitor/toc.json#view-workspace-details). Om arbetsytan saknas, behöver du re publicera ditt kluster med Azure Monitor för behållare. Att re publicera behöver du [inaktivera](container-insights-optout.md) övervakning för klustret och [aktivera](container-insights-onboard.md?toc=%2fazure%2fmonitoring%2ftoc.json#enable-monitoring-for-a-new-cluster) Azure Monitor för behållare igen. |  
-| `Error retrieving data` När du lägger till Azure Monitor för behållare via az aks cli | När onboarding med `az aks cli`, mycket sällan Azure Monitor för behållare kanske inte korrekt integrerats. Kontrollera om lösningen har publicerats. Gör detta genom att gå till Log Analytics-arbetsytan och se om lösningen är tillgänglig genom att välja **lösningar** från fönstret till vänster. För att lösa problemet måste du distribuera lösningen igen genom att följa anvisningarna [så här distribuerar du Azure Monitor för behållare](container-insights-onboard.md?toc=%2fazure%2fmonitoring%2ftoc.json) |  
+| Felmeddelande `No data for selected filters`  | Det kan ta lite tid att upprätta övervakning dataflöde för nyligen skapade kluster. Tillåt minst 10 – 15 minuter innan data visas för klustret. |   
+| Felmeddelande `Error retrieving data` | Medan Azure Kubenetes Service-kluster att konfigurera för hälso- och prestandaövervakning, upprättas en anslutning mellan kluster och Azure Log Analytics-arbetsyta. En Log Analytics-arbetsyta används för att lagra alla övervakningsdata för klustret. Det här felet kan uppstå när Log Analytics-arbetsytan har tagits bort eller tappas bort. Kontrollera om din arbetsyta är tillgänglig genom att granska [hantera åtkomst](../platform/manage-access.md#view-workspace-details). Om arbetsytan saknas, måste du återaktivera övervakning av ditt kluster med Azure Monitor för behållare. Om du vill återaktivera, behöver du [inaktivera](container-insights-optout.md) övervakning för klustret och [aktivera](container-insights-enable-new-cluster.md) Azure Monitor för behållare igen. |  
+| `Error retrieving data` När du lägger till Azure Monitor för behållare via az aks cli | När aktiverar övervakning med hjälp av `az aks cli`, Azure Monitor för behållare kanske inte korrekt integrerats. Kontrollera om lösningen har publicerats. Gör detta genom att gå till Log Analytics-arbetsytan och se om lösningen är tillgänglig genom att välja **lösningar** från fönstret till vänster. För att lösa problemet måste du distribuera lösningen igen genom att följa anvisningarna [så här distribuerar du Azure Monitor för behållare](container-insights-onboard.md) |  
 
 För att diagnosticera problemet, har vi lagt till ett felsökning skript som är tillgängliga [här](https://github.com/Microsoft/OMS-docker/tree/ci_feature_prod/Troubleshoot#troubleshooting-script).  
 

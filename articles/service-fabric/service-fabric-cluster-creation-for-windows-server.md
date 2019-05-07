@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/21/2019
 ms.author: dekapur
-ms.openlocfilehash: 3e9e3afd5172783c6b5ed8e6342ce9927353d006
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ed775bfca2db02b9bfddebb85bbd3f1f668cf3e0
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60386861"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142693"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Skapa ett fristående kluster som körs på Windows Server
 Du kan använda Azure Service Fabric för att skapa Service Fabric-kluster på några virtuella datorer eller datorer som kör Windows Server. Det innebär att du kan distribuera och köra Service Fabric-program i alla miljöer som innehåller en uppsättning sammankopplade Windows Server-datorer, oavsett om det är lokalt eller med någon annan molnleverantör. Service Fabric tillhandahåller ett konfigurationspaket för att skapa Service Fabric-kluster kallas det fristående paketet för Windows Server.
@@ -27,7 +27,7 @@ Du kan använda Azure Service Fabric för att skapa Service Fabric-kluster på n
 Den här artikeln vägleder dig genom stegen för att skapa fristående Service Fabric-kluster.
 
 > [!NOTE]
-> Det här fristående Windows Server-paketet är kommersiellt tillgängligt och kan användas för Produktionsdistribution. Det här paketet kan innehålla nya Service Fabric-funktioner som finns i ”förhandsversion”. Rulla ned till ”[Förhandsversionsfunktioner som ingår i det här paketet](#previewfeatures_anchor)”. avsnittet för förhandsfunktionerna i listan. Du kan [hämta en kopia av LICENSVILLKOREN](https://go.microsoft.com/fwlink/?LinkID=733084) nu.
+> Det här fristående Windows Server-paketet är kommersiellt tillgängligt utan kostnad och kan användas för Produktionsdistribution. Det här paketet kan innehålla nya Service Fabric-funktioner som finns i ”förhandsversion”. Rulla ned till ”[Förhandsversionsfunktioner som ingår i det här paketet](#previewfeatures_anchor)”. avsnittet för förhandsfunktionerna i listan. Du kan [hämta en kopia av LICENSVILLKOREN](https://go.microsoft.com/fwlink/?LinkID=733084) nu.
 > 
 > 
 

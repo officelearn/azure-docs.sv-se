@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/11/2018
 ms.author: iainfou
-ms.openlocfilehash: 4bd934c710d6300e95c60742d5873f5b71bdae59
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: f2477a26bd9df9bcbde8ac184c3667f7dd32dba9
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60466556"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65074007"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Konfigurera Azure CNI nätverk i Azure Kubernetes Service (AKS)
 
@@ -41,6 +41,7 @@ IP-adresser för poddarna och klustrets noder tilldelas från det angivna undern
 > Antal IP-adresser som krävs ska inkludera överväganden för uppgradering och skalning. Om du ställer in IP-adressintervall som endast stöd för ett fast antal noder kan du uppgradera eller skala ditt kluster.
 >
 > - När du **uppgradera** distribueras AKS-klustret, en ny nod i klustret. Tjänster och arbetsbelastningar från och med den nya noden och ett äldre noden tas bort från klustret. Den här processen för löpande uppgradering kräver minst en ytterligare block av IP-adresser ska vara tillgängliga. Din nodantal är sedan `n + 1`.
+>   - Detta är särskilt viktigt när du använder Windows Server nodpooler (för närvarande i förhandsversion i AKS). Windows Server-noder i AKS gäller inte automatiskt Windows-uppdateringar, i stället gör du en uppgradering för nod-poolen. Den här uppgraderingen distribuerar nya noder med de senaste fönstret Server 2019 basnod bild- och korrigeringarna. Läs mer om hur du uppgraderar en Windows Server-nodpool [uppgradera en nodpool i AKS][nodepool-upgrade].
 >
 > - När du **skala** distribueras ett AKS-kluster, en ny nod i klustret. Tjänster och arbetsbelastningar från och med den nya noden. IP-adressintervall behöver beakta att tänka på hur kan du skala upp antalet noder och poddar som har stöd för ditt kluster. En ny nod för uppgraderingsåtgärderna bör också ingå. Din nodantal är sedan `n + number-of-additional-scaled-nodes-you-anticipate + 1`.
 
@@ -62,13 +63,13 @@ Det maximala antalet poddar per nod i ett AKS-kluster är 110. Den *standard* ma
 
 | Distributionsmetod | Kubenet standard | Azure CNI standard | Kan konfigureras vid distribution |
 | -- | :--: | :--: | -- |
-| Azure CLI | 110 | 30 | Ja (upp till 110) |
-| Resource Manager-mall | 110 | 30 | Ja (upp till 110) |
+| Azure CLI | 110 | 30 | Ja (upp till 250) |
+| Resource Manager-mall | 110 | 30 | Ja (upp till 250) |
 | Portalen | 110 | 30 | Nej |
 
 ### <a name="configure-maximum---new-clusters"></a>Konfigurera maximal – nya kluster
 
-Det går att konfigurera det maximala antalet poddar per nod *endast vid tidpunkten för distribution av kluster*. Om du distribuerar med Azure CLI eller med en Resource Manager-mall kan ange du maximal poddarna per nodvärde så mycket som 110.
+Det går att konfigurera det maximala antalet poddar per nod *endast vid tidpunkten för distribution av kluster*. Om du distribuerar med Azure CLI eller med en Resource Manager-mall kan ange du maximal poddarna per nodvärde så mycket som 250.
 
 * **Azure CLI**: Ange den `--max-pods` argumentet när du distribuerar ett kluster med den [az aks skapa] [ az-aks-create] kommando. Det högsta värdet är 110.
 * **Resource Manager-mall**: Ange den `maxPods` -egenskapen i den [ManagedClusterAgentPoolProfile] objekt när du distribuerar ett kluster med en Resource Manager-mall. Det högsta värdet är 110.
@@ -105,7 +106,7 @@ När du skapar ett AKS-kluster med Azure CLI kan konfigurera du också CNI för 
 
 Hämta först undernät resurs-ID för det befintliga undernätet där AKS-klustret ska anslutas:
 
-```console
+```azurecli-interactive
 $ az network vnet subnet list \
     --resource-group myVnet \
     --vnet-name myVnet \
@@ -116,7 +117,7 @@ $ az network vnet subnet list \
 
 Använd den [az aks skapa] [ az-aks-create] med den `--network-plugin azure` argument för att skapa ett kluster med avancerade nätverk. Uppdatera den `--vnet-subnet-id` värdet med undernät-ID som samlas in i föregående steg:
 
-```azurecli
+```azurecli-interactive
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
@@ -143,7 +144,7 @@ Följande frågor och svar gäller den **Azure CNI** nätverkskonfiguration.
 
 * *Kan jag konfigurera per pod nätverksprinciper?*
 
-  Principen för Kubernetes-nätverk är tillgängligt som en förhandsversion av funktionen i AKS. Kom igång genom att se [skydda trafik mellan poddar genom att använda nätverksprinciper i AKS][network-policy].
+  Ja, nätverkspolicy för Kubernetes är tillgängliga i AKS. Kom igång genom att se [skydda trafik mellan poddar genom att använda nätverksprinciper i AKS][network-policy].
 
 * *Är det maximala antalet poddar distribueras till en nod kan konfigureras?*
 
@@ -202,3 +203,4 @@ Kubernetes-kluster som skapas med AKS-motorn ha stöd för både den [kubenet] [
 [aks-http-app-routing]: http-application-routing.md
 [aks-ingress-internal]: ingress-internal-ip.md
 [network-policy]: use-network-policies.md
+[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool

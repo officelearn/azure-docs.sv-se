@@ -1,20 +1,19 @@
 ---
-title: Azure Database för PostgreSQL-Server vnet services endpoint-översikt
-description: Lär dig hur VNET-tjänstslutpunkter fungerar för din Azure Database for PostgreSQL-server.
-author: WenJason
-ms.author: v-jay
+title: Virtuellt nätverk (VNet) tjänstöversikt slutpunkten i Azure Database för PostgreSQL – enskild Server
+description: Lär dig hur tjänstslutpunkter i virtuella nätverk (VNet) fungerar för Azure Database för PostgreSQL – enskild Server.
+author: bolzmj
+ms.author: mbolz
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 08/20/2018
-ms.date: 04/22/2019
-ms.openlocfilehash: c6549ad170a0fc3b4387d5bc5163ca0548b92119
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: c873abcdf3c64f8357c584c8e24809270946bf74
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60560131"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073484"
 ---
-# <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql"></a>Använda tjänstslutpunkter i virtuella nätverk och regler för Azure Database för PostgreSQL
+# <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql---single-server"></a>Använda tjänstslutpunkter i virtuella nätverk och regler för Azure Database för PostgreSQL – enskild Server
 
 *Virtuella Nätverksregler* är en säkerhetsfunktion för brandväggen som styr om din Azure Database for PostgreSQL-server tar emot meddelanden som skickas från specifika undernät i virtuella nätverk. Den här artikeln förklarar varför funktionen virtuellt nätverk regeln ibland är det bästa alternativet för att tillåta kommunikation till Azure Database for PostgreSQL-server på ett säkert sätt.
 

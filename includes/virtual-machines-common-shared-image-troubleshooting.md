@@ -5,15 +5,15 @@ services: virtual-machines
 author: axayjo
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 09/20/2018
+ms.date: 04/25/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 0eb47c8ec470ef05f3c6ae37bdc75e5bb1043eb0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1476830313296615591a69a2cadd04bcc56b22bc
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60418666"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149629"
 ---
 Om du får problem när du utför åtgärder i delade bildgallerier, eller för bilddefinitioner och bildversioner, kan du köra det misslyckade kommandot igen i felsökningsläge. Felsökningsläge aktiveras genom att skicka den **-felsöka** växla med CLI och **-felsöka** växla med PowerShell. När du har hittat felet följer du det här dokumentet för att felsöka felen.
 
@@ -24,7 +24,7 @@ Möjliga orsaker:
 
 *Namn på galleriet är ogiltig.*
 
-Tillåtna tecken för namn på galleriet är versaler, gemener, siffror, punkter och punkter. Namn på galleriet kan inte ha bindestreck i den. Ändra namn på galleriet och försök igen. 
+Tillåtna tecken för namn på galleriet är versaler, gemener, siffror, punkter och punkter. Namn på galleriet får inte innehålla bindestreck. Ändra namn på galleriet och försök igen. 
 
 *Namn på galleriet är inte unikt inom prenumerationen.*
 
@@ -62,20 +62,7 @@ Kontrollera om Källavbildningen finns och är i samma region som versionsnumret
 
 Kontrollera tillståndet för etablering av hanterade Källavbildningen är **lyckades**.
 
-*Källregionen stöds inte ännu.*
-
-Använd tabellen nedan för att se om det finns stöd för den avsedda källregionen:
-<br>
-
-| Skapa galleriet i eller ”källregionen”   | Replikera version som ska eller ”målregion” |
-|----------------------------------------|-------------------------------------------|
-| Västra centrala USA                        | Alla regioner i Azures offentliga moln            |
-| Södra centrala USA                       |                                           |
-| USA, östra 2                              |                                           |
-| Sydostasien                         |                                           |
-| Västra Europa                            |                                           |
-
-<br>
+*Mål-regionlistan innehåller inte källregionen.*
 
 Region mållistan måste innehålla källregionen av versionsnumret för avbildningen. Kontrollera att du har inkluderat källregionen i listan över målregioner där du vill att Azure för att replikera dina Avbildningsversion till.
 
@@ -101,7 +88,7 @@ Kontrollera att den **OSType** bildens har version som du vill skapa den virtuel
 
 ## <a name="unable-to-share-resources"></a>Det går inte att dela resurser
 
-Delning av delade bildgalleriet avbildningsdefinitionen och version bildresurser mellan prenumerationer är aktiverat med hjälp av [rollbaserad åtkomstkontroll](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles) (RBAC). 
+Delning av delade bildgalleriet avbildningsdefinitionen och version bildresurser mellan prenumerationer är aktiverat med hjälp av [Role-Based Access Control](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles) (RBAC). 
 
 ## <a name="replication-is-slow"></a>Replikeringen går långsamt
 

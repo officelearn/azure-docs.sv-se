@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 5/8/2018
 ms.author: saurse
-ms.openlocfilehash: 8d15eb03055aed32c8a99121b750ee5767a87b50
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 05e7dd11274bb120e40df4a63d428ac6b6d7489f
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60648116"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143336"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>Arbetsflöde för säkerhetskopiering offline för DPM och Azure Backup Server
 Azure Backup har flera inbyggda effektiviteten som sparar kostnader för lagring och nätverk under en första fullständig säkerhetskopiering av data till Azure. Inledande fullständiga säkerhetskopieringar vanligtvis överföra stora mängder data och kräver mer bandbredd i nätverket jämfört med efterföljande säkerhetskopieringar som överför bara deltan/varje. Azure Backup komprimerar första säkerhetskopieringarna. Genom processen för att ange startvärden offline, kan Azure Backup använda diskar för att ladda upp den komprimerade första säkerhetskopiera informationen offline till Azure.
@@ -98,7 +98,7 @@ Informationen i det här avsnittet hjälper dig att slutföra arbetsflöde för 
 ### <a name="prepare-sata-drives-and-ship-to-azure"></a>Förbered SATA-enheter och skicka till Azure
 Den *AzureOfflineBackupDiskPrep* verktyget används för att förbereda SATA-enheter som skickas till den närmaste Azure-Datacenter. Det här verktyget finns i installationskatalogen för Recovery Services-agenten på följande sökväg:
 
-   *\Microsoft* *Azure* *Recovery* *Services* *Agent\Utils\*
+*\\Microsoft Azure Recovery Services-agenten\\Utils\\*
 
 1. Gå till katalogen och kopiera den **AzureOfflineBackupDiskPrep** katalogen till en kopia-dator där SATA-enheter att vara förberedd är ansluten. Så här för kopiera datorn:
 

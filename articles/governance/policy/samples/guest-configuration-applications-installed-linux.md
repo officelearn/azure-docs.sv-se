@@ -5,18 +5,18 @@ author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
-ms.date: 03/18/2019
+ms.date: 05/02/2019
 ms.author: dacoulte
-ms.openlocfilehash: b432d8557c4244d58c23e7b068874dd747f6249f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c8ee73da16f4f3de2378e38d273051355c5c624c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60545103"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142849"
 ---
-# <a name="sample---audit-if-specified-applications-are-not-installed-inside-linux-vms"></a>Exempel – granska om angivna program inte är installerade i virtuella Linux-datorer
+# <a name="sample---audit-if-specified-applications-arent-installed-inside-linux-vms"></a>Exempel – granska om angivna program inte är installerad på virtuella Linux-datorer
 
-Det här initiativet gäst principkonfigurationen granskar att det angivna programmet är installerad i Linux-datorer. ID för den här inbyggda initiativ är `/providers/Microsoft.Authorization/policySetDefinitions/c937dcb4-4398-4b39-8d63-4a6be432252e`.
+Det här initiativet gäst principkonfigurationen skapar en granskningshändelse när de angivna programmen inte är installerad på Linux-datorer. ID för den här inbyggda initiativ är `/providers/Microsoft.Authorization/policySetDefinitions/c937dcb4-4398-4b39-8d63-4a6be432252e`.
 
 > [!IMPORTANT]
 > Alla gäster Configuration initiativen består av **granska** och **deployIfNotExists** principdefinitioner. Tilldela bara en av principdefinitionerna orsaka gäst konfiguration inte ska fungera korrekt.
@@ -32,9 +32,9 @@ Du kan tilldela det här exemplet med:
 
 Detta [gäst Configuration](../concepts/guest-configuration.md) initiativ består av följande principer:
 
-- [granska](#audit-definition) -gransknings-och att ett program är installerat på virtuella Linux-datorer
+- [granska](#audit-definition) -granska när program inte är installerad på virtuella Linux-datorer
   - ID: `/providers/Microsoft.Authorization/policyDefinitions/fee5cb2b-9d9b-410e-afe3-2902d90d0004`
-- [deployIfNotExists](#deployIfNotExists-definition) -distribuera VM-tillägget för att granska att ett program är installerat på virtuella Linux-datorer
+- [deployIfNotExists](#deployIfNotExists-definition) -distribuera VM-tillägget för att granska när program inte är installerad på virtuella Linux-datorer
   - ID: `/providers/Microsoft.Authorization/policyDefinitions/4d1c04de-2172-403f-901b-90608c35c721`
 
 ### <a name="initiative-definition"></a>Initiativdefinition
@@ -45,7 +45,9 @@ Initiativet har skapats genom att gå med i **granska** och **deployIfNotExists*
 
 ### <a name="initiative-parameters"></a>Initiativparametrar
 
-| Namnet | Typ || Beskrivning av | |---|---|| ---| | applicationName | Strängen | Programnamn. Exempel: ”python”, ”powershell” eller en kommaavgränsad lista, till exempel ”python, powershell”. Använd \* för matchning med jokertecken, t.ex ' power\*'. |
+|Namn |Typ |Beskrivning |
+|---|---|---|
+|ApplicationName |String |Programnamn. Exempel: ”python”, ”powershell” eller en kommaavgränsad lista, till exempel ”python, powershell”. Använd \* för matchning med jokertecken, t.ex ' power\*'. |
 
 När du skapar en tilldelning via PowerShell eller Azure CLI går det att skicka parametervärdena som JSON antingen i en sträng eller via en fil med hjälp av `-PolicyParameter` (PowerShell) eller `--params` (Azure CLI).
 PowerShell stödjer även `-PolicyParameterObject`, vilket kräver att det till cmdlet skickas en Name/Value-hashtabell där **Name** (Namn) är parameternamnet och **Value** (Värde) är det enskilda värde eller den matris med värden som skickas under tilldelningen.

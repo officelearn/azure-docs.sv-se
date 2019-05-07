@@ -1,19 +1,19 @@
 ---
-title: Prisnivåer för Azure Database for PostgreSQL
-description: Den här artikeln beskrivs olika prisnivåer för Azure Database för PostgreSQL.
+title: Prisnivåer för Azure Database för PostgreSQL – enskild Server
+description: Den här artikeln beskrivs olika prisnivåer för Azure Database för PostgreSQL – enskild Server.
 author: jan-eng
 ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/01/2019
-ms.openlocfilehash: 4109679c03b13303c16cef8edd92ecddb6ca5e5f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 5/6/2019
+ms.openlocfilehash: e2580a57f943ad8da16cfbaeda2ee35d0f4bb691
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64712364"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073181"
 ---
-# <a name="azure-database-for-postgresql-pricing-tiers"></a>Azure Database för PostgreSQL prisnivåer
+# <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Prisnivåer i Azure Database för PostgreSQL – enskild Server
 
 Du kan skapa en Azure Database for PostgreSQL-server i någon av tre olika tjänstnivåer: Grundläggande, generell användning och minnesoptimerad. Prisnivåerna åtskiljs av mängden beräkning i vCores som kan etableras och minne per vCore lagringsteknik som används för att lagra data. Alla resurser etableras på servernivå för PostgreSQL. En server kan ha en eller flera databaser.
 

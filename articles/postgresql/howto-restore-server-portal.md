@@ -1,19 +1,19 @@
 ---
-title: Hur du återställer en Server i Azure Database för PostgreSQL
-description: Den här artikeln beskriver hur du återställer en server i Azure Database for PostgreSQL med Azure-portalen.
+title: Hur du återställer en Server i Azure Database för PostgreSQL – enskild Server
+description: Den här artikeln beskriver hur du återställer en server i Azure Database för PostgreSQL – enskild Server med Azure portal.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 04/01/2018
-ms.openlocfilehash: 60489e3fc7fc6482a14a241e777066b3805a4d5e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 1950b43e0922eebe34463c06db9a5d67dce76f56
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60420555"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068868"
 ---
-# <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-portal"></a>Säkerhetskopiera och återställa en server i Azure Database for PostgreSQL med Azure-portalen
+# <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Säkerhetskopiera och återställa en server i Azure Database för PostgreSQL – enskild Server med Azure portal
 
 ## <a name="backup-happens-automatically"></a>Säkerhetskopieringen sker automatiskt
 Azure Database for PostgreSQL-servrar som säkerhetskopieras regelbundet för att aktivera funktioner för återställning. Med den här funktionen kan du återställa servern och dess databaser till en tidigare point-in-time, på en ny server.

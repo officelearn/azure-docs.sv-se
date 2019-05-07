@@ -12,31 +12,36 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/18/2018
+ms.date: 05/05/2019
 ms.author: barclayn
-ms.openlocfilehash: da165634f5323183b633ee3c8a59e0d2607e8ef1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f4b2506781df5572ddaff8dda34bf3edab8987be
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60586528"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145208"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Rekommenderade säkerhetsmetoder för IaaS-arbetsbelastningar i Azure
+Den här artikeln beskriver rekommenderade säkerhetsmetoder för virtuella datorer och operativsystem.
+
+De bästa metoderna är baserade på en enhälligt av åsikter och de fungerar med den aktuella Azure-plattformsfunktioner och egenskapsuppsättningar. Eftersom andras åsikter och tekniker kan ändras med tiden, kommer den här artikeln att uppdateras för att återspegla dessa ändringar.
 
 I de flesta infrastruktur som en tjänst (IaaS)-scenarier, [virtuella Azure-datorer (VM)](https://docs.microsoft.com/azure/virtual-machines/) är huvudsakliga arbetsbelastningen för organisationer som använder molnbaserad databehandling. Detta kan ses i [hybridscenarier](https://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx) där organisationer vill långsamt migrera arbetsbelastningar till molnet. I sådana scenarier, följer du de [allmänna säkerhetsaspekter för IaaS](https://social.technet.microsoft.com/wiki/contents/articles/3808.security-considerations-for-infrastructure-as-a-service-iaas.aspx), och tillämpa rekommenderade säkerhetsmetoder för alla dina virtuella datorer.
 
+## <a name="shared-responsibility"></a>Delat ansvar
 Ditt ansvar för säkerhet baseras på vilken typ av tjänst i molnet. Följande diagram sammanfattar balans ansvar för både Microsoft och du:
 
 ![Ansvarsområden](./media/azure-security-iaas/sec-cloudstack-new.png)
 
 Säkerhetskrav varierar beroende på ett antal faktorer, inklusive olika typer av arbetsbelastningar. Inte en av dessa metodtips skydda ensamt dina system. Som allt annat i security måste du välja lämpliga alternativ och se hur lösningarna kan kompletterar varandra genom att fylla luckor.
 
-Den här artikeln beskriver rekommenderade säkerhetsmetoder för virtuella datorer och operativsystem.
-
-De bästa metoderna är baserade på en enhälligt av åsikter och de fungerar med den aktuella Azure-plattformsfunktioner och egenskapsuppsättningar. Eftersom andras åsikter och tekniker kan ändras med tiden, kommer den här artikeln att uppdateras för att återspegla dessa ändringar.
-
 ## <a name="protect-vms-by-using-authentication-and-access-control"></a>Skydda virtuella datorer med hjälp av autentisering och åtkomstkontroll
 Det första steget i att skydda dina virtuella datorer är att säkerställa att endast behöriga användare kan ställa in nya virtuella datorer och åtkomst till virtuella datorer.
+
+> [!NOTE]
+> Du kan integrera med Azure AD-autentisering för att förbättra säkerheten för virtuella Linux-datorer på Azure. När du använder [Azure AD-autentisering för virtuella Linux-datorer](../virtual-machines/linux/login-using-aad.md), centralt styra och genomdriva principer som tillåter eller nekar åtkomst till de virtuella datorerna.
+>
+>
 
 **Bästa praxis**: Styra åtkomst till virtuell dator.   
 **Information om**: Använd [Azure principer](../azure-policy/azure-policy-introduction.md) upprätta konventioner för resurser i din organisation och skapa anpassade principer. Använda dessa principer på resurser, till exempel [resursgrupper](../azure-resource-manager/resource-group-overview.md). Virtuella datorer som tillhör en resursgrupp ärver dess principer.
@@ -102,6 +107,9 @@ Om du använder Windows Update, lämna inställningen för automatisk uppdaterin
 **Bästa praxis**: Distribuera med jämna mellanrum om dina virtuella datorer om du vill framtvinga en ny version av Operativsystemet.   
 **Information om**: Definiera den virtuella datorn med en [Azure Resource Manager-mall](../azure-resource-manager/resource-group-authoring-templates.md) så att du enkelt kan distribuera om den. En mall ger dig en korrigerad och säker virtuell dator när du behöver den.
 
+**Bästa praxis**: Snabbt använda säkerhetsuppdateringar för virtuella datorer.   
+**Information om**: Använd Azure Security Center (kostnadsfria nivån eller standardnivån) till [identifiera säkerhetsuppdateringar som saknas och tillämpa dem](../security-center/security-center-apply-system-updates.md).
+
 **Bästa praxis**: Installera de senaste säkerhetsuppdateringarna.   
 **Information om**: Vissa av de första arbetsbelastningarna som kunder flyttar till Azure är labs och externa system. Om virtuella datorer i Azure vara värd för program eller tjänster som måste vara tillgänglig på Internet, vara vaksam om uppdateringar. Korrigera sig utöver operativsystemet. Okorrigerade säkerhetsproblem på partnerprogram kan också leda till problem som kan undvikas om bra uppdateringshantering är på plats.
 
@@ -165,6 +173,18 @@ När du använder Azure Disk Encryption kan du uppfylla följande affärsbehov:
 
 - Virtuella IaaS-datorer är skyddade i vila med branschstandard krypteringsteknik att uppfylla organisationens krav för säkerhet och efterlevnad.
 - Virtuella IaaS-datorer startar under kund-kontrollerade nycklar och principer och du kan granska deras användning i ditt nyckelvalv.
+
+## <a name="restrict-direct-internet-connectivity"></a>Begränsa direkt Internetanslutning
+Övervaka och begränsa VM direkt Internetanslutning. Angripare ständigt Sök offentligt moln IP-intervall för öppna hanteringsportar och försök att ”enkla” attacker som vanliga lösenord och kända okorrigerade säkerhetsproblem. I följande tabell visas bästa praxis för att skydda mot dessa attacker:
+
+**Bästa praxis**: Förhindra oavsiktlig exponering nätverket Routning och säkerhet.   
+**Information om**: Använd RBAC för att se till att endast centrala nätverk gruppen har behörighet att nätverksresurser.
+
+**Bästa praxis**: Identifiera och åtgärda exponerade virtuella datorer som tillåter åtkomst från ”alla” källans IP-adress.   
+**Information om**: Använd Azure Security Center. Security Center rekommenderar att du begränsar åtkomst via internet-riktade slutpunkter om någon av dina nätverkssäkerhetsgrupper har en eller flera inkommande regler som tillåter åtkomst från ”alla” källans IP-adress. Security Center rekommenderar att du redigerar dessa regler för inkommande trafik till [begränsa åtkomsten](../security-center/security-center-restrict-access-through-internet-facing-endpoints.md) till källans IP-adresser som faktiskt behöver åtkomst.
+
+**Bästa praxis**: Begränsa hanteringsportar (RDP, SSH).   
+**Information om**: [Åtkomst till Virtuella just-in-time (JIT)](../security-center/security-center-just-in-time.md) kan användas för att låsa inkommande trafik till dina virtuella Azure-datorer minskar exponeringen för attacker samtidigt som det ger enkel åtkomst till att ansluta till virtuella datorer när det behövs. När JIT är aktiverad låser Security Center inkommande trafik till virtuella datorer i Azure genom att skapa en regel för nätverkssäkerhetsgrupp. Du väljer vilka portar på den virtuella datorn som inkommande trafik låses. De här portarna styrs av JIT-lösning.
 
 ## <a name="next-steps"></a>Nästa steg
 Se [säkerhet i Azure-metodtips och mönster](security-best-practices-and-patterns.md) för flera beprövade metoder för att använda när du utforma, distribuera och hantera dina molnlösningar med hjälp av Azure.

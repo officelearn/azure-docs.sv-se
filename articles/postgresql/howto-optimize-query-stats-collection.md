@@ -1,20 +1,19 @@
 ---
-title: Optimera fråga stats samlingen på en Azure Database for PostgreSQL-server
-description: Den här artikeln beskrivs hur du kan optimera frågan stats samlingen på en Azure Database for PostgreSQL-server.
-author: WenJason
-ms.author: v-jay
+title: Optimera fråga stats samlingen på en Azure Database för PostgreSQL – enskild Server
+description: Den här artikeln beskrivs hur du kan optimera frågan stats samlingen på en Azure Database för PostgreSQL – enskild Server
+author: dianaputnam
+ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 10/25/2018
-ms.date: 02/18/2019
-ms.openlocfilehash: 428a22f79008130448bef65f14322d6880b1b367
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 7425ee7916fd71625f336a7af35f6481d1ed2474
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60422719"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068966"
 ---
-# <a name="optimize-query-statistics-collection-on-an-azure-database-for-postgresql-server"></a>Optimera insamling av frågekörningsstatistik fråga på en Azure Database for PostgreSQL-server 
+# <a name="optimize-query-statistics-collection-on-an-azure-database-for-postgresql---single-server"></a>Optimera fråga statistiksamling på en Azure Database för PostgreSQL – enskild Server
 Den här artikeln beskriver hur du optimerar insamling av frågekörningsstatistik fråga på en Azure Database for PostgreSQL-server.
 
 ## <a name="use-pgstatsstatements"></a>Använda pg_stats_statements

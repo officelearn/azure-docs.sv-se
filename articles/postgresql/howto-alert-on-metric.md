@@ -1,19 +1,19 @@
 ---
-title: Konfigurera aviseringar för mått för Azure Database för PostgreSQL i Azure portal
-description: Den här artikeln beskriver hur du konfigurerar och åtkomst måttaviseringar för Azure Database for PostgreSQL från Azure-portalen.
+title: Konfigurera aviseringar för mått för Azure Database för PostgreSQL – enskild Server i Azure portal
+description: Den här artikeln beskriver hur du konfigurerar och åtkomst måttaviseringar för Azure Database för PostgreSQL – enskild Server från Azure-portalen.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/11/2019
-ms.openlocfilehash: 7211ffddf82b38ca27b776ecfd12bca25ebbb0f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 000dfe2d3e594c71f9c7ebbff7bce7141243668a
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60422040"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067304"
 ---
-# <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql"></a>Använda Azure portal för att konfigurera aviseringar i mått för Azure Database för PostgreSQL 
+# <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---single-server"></a>Använda Azure portal för att ställa in aviseringar i mått för Azure Database för PostgreSQL – enskild Server
 
 Den här artikeln visar hur du ställer in Azure Database för PostgreSQL-aviseringar med Azure portal. Du kan få en avisering baserat på övervakning av mått för dina Azure-tjänster.
 

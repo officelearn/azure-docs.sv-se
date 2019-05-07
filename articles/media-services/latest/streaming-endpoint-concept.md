@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/27/2019
 ms.author: juliako
-ms.openlocfilehash: 1b29e75531c9e24d2f296442d528a28a23ffa947
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 3f939154d2b34e6dc043e505ab89897221bcfe23
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64867614"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149238"
 ---
 # <a name="streaming-endpoints-origin"></a>Slutpunkter för direktuppspelning (ursprungliga)
 
@@ -156,7 +156,7 @@ CDN-integreringen har aktiverats i alla Azure-Datacenter förutom Kina och feder
 
 Du kan fastställa om DNS-ändring har gjorts på en slutpunkt för direktuppspelning (är att dirigeras trafiken till Azure CDN) genom att använda https://www.digwebinterface.com. Om resultatet har azureedge.net domännamn i resultatet, är trafiken nu att riktas till CDN.
 
-## <a name="provide-feedback"></a>Ge feedback
+## <a name="ask-questions-give-feedback-get-updates"></a>Ställ frågor, ge feedback, få uppdateringar
 
 Kolla in den [Azure Media Services-community](media-services-community.md) artikeln olika sätt du kan ställa frågor, ge feedback och få uppdateringar om Media Services.
 

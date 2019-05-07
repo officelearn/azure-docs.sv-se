@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: fac14281365ccf3c191684af8cfdebda69e734e0
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 77c2cd9e0eac6717d91a73a6fc033dcaa2390444
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64870454"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145033"
 ---
-# <a name="status-monitor-v2"></a>Status Monitor v2
+# <a name="status-monitor-v2"></a>Statusövervakare v2
 
 Status Monitor v2 är en PowerShell-modul som publiceras till den [PowerShellGallery](https://www.powershellgallery.com/packages/Az.ApplicationMonitor) och är en ersättning för [statusövervakaren](https://docs.microsoft.com/azure/azure-monitor/app/monitor-performance-live-website-now). Den här modulen innehåller kod utan instrumentering av .NET-webbprogram med IIS.
 Telemetri kommer att skickas till Azure-portalen där du kan [övervakaren](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) ditt program.
@@ -61,3 +61,19 @@ https://www.powershellgallery.com/packages/Az.ApplicationMonitor
 - Så här verifierar du operatörshanterad lyckades?
 
    Vi har inte en cmdlet för att verifiera att aktivering lyckades. Vi rekommenderar att du använder [Live Metrics](https://docs.microsoft.com/azure/azure-monitor/app/live-stream) att snabbt se om ditt program skickar oss telemetri.
+
+## <a name="next-steps"></a>Nästa steg
+
+Visa telemetrin:
+
+* [Utforska mått](../../azure-monitor/app/metrics-explorer.md) för att övervaka prestanda och användning
+* [Sök efter händelser och loggar](../../azure-monitor/app/diagnostic-search.md) att diagnostisera problem
+* [Analys](../../azure-monitor/app/analytics.md) för mer avancerade frågor
+* [Skapa instrumentpaneler](../../azure-monitor/app/app-insights-dashboards.md)
+
+Lägg till mer telemetri:
+
+* [Skapa webbtester](monitor-web-app-availability.md) att kontrollera att webbplatsen är aktiv.
+* [Lägg till telemetri för webbklienten](../../azure-monitor/app/javascript.md) vill visa undantag från webbsidans kod och så att du spårningsanrop.
+* [Lägg till Application Insights SDK i koden](../../azure-monitor/app/asp-net.md) så att du kan lägga till spårnings- och logganrop
+

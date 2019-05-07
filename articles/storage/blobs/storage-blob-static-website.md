@@ -2,18 +2,19 @@
 title: Värd för statisk webbplats i Azure Storage
 description: Azure Storage statisk webbplats som är värd för, ger en kostnadseffektiv och skalbar lösning som värd för moderna webbprogram.
 services: storage
-author: tamram
+author: normesta
 ms.service: storage
 ms.topic: article
+ms.author: normesta
+ms.reviewer: seguler
 ms.date: 04/29/2019
-ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 21944c62f09518e20619313cd6ac28fb2ad600c7
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: cd1fa71cb2a10c7e61f76bdd224ba6d0f039346f
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925288"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148463"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Värd för statisk webbplats i Azure Storage
 Azure Storage GPv2-konton kan du hantera statiskt innehåll (HTML, CSS, JavaScript och bildfiler) direkt från en storage-behållare med namnet *$web*. Dra nytta av värd i Azure Storage kan du använda arkitekturer utan server, inklusive [Azure Functions](/azure/azure-functions/functions-overview) och andra PaaS-tjänster.

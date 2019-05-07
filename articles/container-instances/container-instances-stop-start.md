@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: danlep
-ms.openlocfilehash: 50f3ecf69561313a5bda67827cfb02d2f61d461f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8e62d106a42dfbec897e5e14cf68fd3d7fd823c4
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60653669"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65070815"
 ---
 # <a name="manually-stop-or-start-containers-in-azure-container-instances"></a>Manuellt stoppa eller starta en behållare i Azure Container Instances
 
@@ -24,7 +24,7 @@ Stoppa en behållargrupp som körs – till exempel med hjälp av den [az contai
 
 *När en behållargrupp anger tillståndet Stoppad, avslutas och återanvänds alla behållare i gruppen. Behållartillstånd bevaras inte.*
 
-Även om behållare i en stoppad behållargrupp har återvunnits, den [resurser](container-instances-container-groups.md#resource-allocation) är fortfarande allokerade för din användning. Därför fortsätter debiteringen för en behållargrupp stoppad.
+När behållarna har återvunnits, den [resurser](container-instances-container-groups.md#resource-allocation) frigörs och fakturering stoppas för behållargruppen.
 
 Stop-åtgärd har ingen effekt om behållargruppen avslutas redan (är i tillståndet för en lyckades eller misslyckades). Till exempel avbryter en behållargrupp med uppgifter som körs en gång behållare som har körts med tillståndet lyckades. Försöker stoppa gruppen eftersom tillståndet inte ändrar tillståndet. 
 

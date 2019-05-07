@@ -9,19 +9,17 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: e82c842ec8fce703c48c98eaf09ea5c8d91be9be
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 74d2601c2319ccad9cc980b83894a3242705aa46
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60998633"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148108"
 ---
-# <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices-preview"></a>Förstå utökade offlinefunktionerna för IoT Edge-enheter, moduler och underordnade enheter (förhandsversion)
+# <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>Förstå utökade offlinefunktionerna för IoT Edge-enheter, moduler och underordnade enheter
 
 Azure IoT Edge stöder utökade offline åtgärder på IoT Edge-enheter och möjliggör offline åtgärder på icke-Edge underordnade enheter för. Så länge som en IoT Edge-enhet har haft en möjlighet att ansluta till IoT Hub, kan den och alla underordnade enheter fortsätta att funktionen med tillfälliga eller Ingen Internetanslutning. 
 
->[!NOTE]
->Offline stöd för IoT Edge är [förhandsversion](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="how-it-works"></a>Hur det fungerar
 
@@ -61,24 +59,49 @@ För IoT Edge-enhet att utöka funktionerna för utökade offline underordnade I
 
 ### <a name="assign-child-devices"></a>Tilldela underordnade enheter
 
-Underordnade enheter kan vara vilken-Edge-enhet som registrerats till samma IoT Hub. Du kan hantera överordnad-underordnad-relation om hur du skapar en ny enhet eller från sidan med enhetsinformation för antingen överordnat IoT Edge-enhet eller underordnade IoT-enheter. 
+Underordnade enheter kan vara vilken-Edge-enhet som registrerats till samma IoT Hub. Överordnade enheter kan ha flera underordnade enheter, men en underordnad enhet kan bara ha en överordnad. Det finns tre alternativ att ange underordnade enheterna till en edge-enhet:
+
+#### <a name="option-1-iot-hub-portal"></a>Alternativ 1: IoT Hub-portalen
+
+ Du kan hantera överordnad-underordnad-relation om hur du skapar en ny enhet eller från sidan med enhetsinformation för antingen överordnat IoT Edge-enhet eller underordnade IoT-enheter. 
 
    ![Hantera underordnade enheter från sidan IoT Edge-enhet](./media/offline-capabilities/manage-child-devices.png)
 
-Överordnade enheter kan ha flera underordnade enheter, men en underordnad enhet kan bara ha en överordnad.
+
+#### <a name="option-2-use-the-az-command-line-tool"></a>Alternativ 2: Använd den `az` kommandoradsverktyget
+
+Med hjälp av den [kommandoradsgränssnittet](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) med [IoT-tillägget](https://github.com/azure/azure-iot-cli-extension) (v0.7.0 eller senare), kan du hantera överordnade och underordnade objekt med den [enhetsidentitet](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest) underordnade kommandon. I exemplet nedan kör vi en fråga för att tilldela alla icke IoT Edge-enheter i hubben som underordnade enheter av en IoT Edge-enhet. 
+
+```shell
+# Set IoT Edge parent device
+egde_device="edge-device1"
+
+# Get All IoT Devices
+device_list=$(az iot hub query \
+        --hub-name replace-with-hub-name \
+        --subscription replace-with-sub-name \
+        --resource-group replace-with-rg-name \
+        -q "SELECT * FROM devices WHERE capabilities.iotEdge = false" \
+        --query 'join(`, `, [].deviceId)' -o tsv)
+
+# Add all IoT devices to IoT Edge (as child)
+az iot hub device-identity add-children \
+  --device-id $egde_device \
+  --child-list $device_list \
+  --hub-name replace-with-hub-name \
+  --resource-group replace-with-rg-name \
+  --subscription replace-with-sub-name 
+```
+
+Du kan ändra den [fråga](../iot-hub/iot-hub-devguide-query-language.md) att välja en annan Undergrupp enheter. Kommandot kan ta några sekunder om du anger ett stort antal enheter.
+
+#### <a name="option-3-use-iot-hub-service-sdk"></a>Alternativ 3: Använd IoT Hub Service SDK 
+
+Slutligen kan du hantera överordnade och underordnade objekt via programmering med hjälp av antingen C#, Java eller Node.js IoT Hub Service SDK. Här är en [exempel hur du tilldelar en underordnad enhet](https://aka.ms/set-child-iot-device-c-sharp) med hjälp av den C# SDK.
 
 ### <a name="specifying-dns-servers"></a>Ange DNS-servrar 
 
-Förbättrad stabilitet, bör du ange DNS-serveradresser som används i din miljö. Till exempel på Linux, uppdatera **/etc/docker/daemon.json** (du kan behöva skapa filen) att inkludera:
-
-```json
-{
-    "dns": ["1.1.1.1"]
-}
-```
-
-Om du använder en lokal DNS-server, ersätter du 1.1.1.1 med IP-adressen för den lokala DNS-servern. Starta om docker-tjänsten för att ändringarna ska börja gälla.
-
+Förbättrad stabilitet, rekommenderas du anger DNS-serveradresser som används i din miljö. Finns det [två alternativ för att göra detta från felsökningsartikeln](troubleshoot.md#resolution-7).
 
 ## <a name="optional-offline-settings"></a>Valfria inställningar för offline
 
@@ -86,7 +109,7 @@ Om du förväntar dig att samla in alla meddelanden som dina enheter som generer
 
 ### <a name="time-to-live"></a>Time to live
 
-Time to live inställningen är hur lång tid (i sekunder) som ett meddelande kan vänta som ska levereras innan den upphör. Standardvärdet är 7200 sekunder (två timmar). 
+Time to live inställningen är hur lång tid (i sekunder) som ett meddelande kan vänta som ska levereras innan den upphör. Standardvärdet är 7200 sekunder (två timmar). Det maximala värdet begränsas endast av det högsta värdet för en heltalsvariabel som är cirka 2 miljarder. 
 
 Den här inställningen är en önskad egenskap för IoT Edge-hubben, som lagras i modultvillingen. Du kan konfigurera det i Azure-portalen i den **konfigurera avancerade Edge-körningsinställningar** avsnittet eller direkt i distributionen manifest. 
 

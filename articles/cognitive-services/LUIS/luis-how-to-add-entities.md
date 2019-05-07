@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 0044cbc9e6142989a57e79de5fd1e78e999bb5e1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 241e89ac7fa78184e7c55f9e8065e1534cea9143
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60196140"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148732"
 ---
 # <a name="create-entities-without-utterances"></a>Skapa entiteter utan yttranden
 
@@ -66,29 +66,6 @@ Ett reguljärt uttryck entiteten används för att hämta data från uttryck bas
 
     Den här reguljära uttryck matchar strängtecken `hrf-`, sedan 6 siffror som representerar ett formulär nummer för ett formulär.
 
-## <a name="add-hierarchical-entities"></a>Lägg till hierarkiska entiteter
-
-En hierarkisk entitet är en viss kategori av sammanhangsmässigt inlärda och begreppsmässigt relaterade entiteter. I följande exempel innehåller entiteten ursprung- och målplatserna. 
-
-I uttryck `Move John Smith from Seattle to Cairo`, Seattle är ursprungsplatsen och Kairo är målplatsen. Varje plats är sammanhangsmässigt annan, inlärda från ordföljden och word valet i uttryck.
-
-Om du vill lägga till hierarkiska entiteter, gör du följande: 
-
-1. I din app, väljer **entiteter** vänstra navigeringsfönstret och välj sedan **Skapa ny entitet**.
-
-1. I popup-rutan, skriver `Location` i den **entitetsnamn** och väljer sedan **hierarkiska** från den **entitetstypen** lista.
-
-    ![Lägg till hierarkisk entitet](./media/add-entities/hier-location-entity-creation.png)
-
-1. Välj **Lägg till underordnad**, och ange sedan `Origin` i **underordnade nr 1** box. 
-
-1. Välj **Lägg till underordnad**, och ange sedan `Destination` i **underordnade nr 2** box. Välj **Done** (Klar).
-
-    >[!CAUTION]
-    >Namn på underordnade entiteter måste vara unikt inom alla entiteter i samma app. Två olika hierarkiska entiteter får inte innehålla underordnade entiteter med samma namn. 
-
-    När den här entiteten har skapats går du till alla avsikter som har exempel yttranden som innehåller entiteten. Markera texten i exempel-uttryck och markera text som entiteten. 
-
 <a name="add-composite-entities"></a>
 
 ## <a name="add-composite-entities-to-group-into-a-parent-child-relationship"></a>Lägg till sammansatta entiteter gruppera i en överordnad-underordnad-relation
@@ -137,9 +114,7 @@ I uttryck `Where is Request relocation from employee new to the company on the s
 
 En roll är en namngiven undertyp baserat på kontext. Det är tillgängligt i alla entiteter, inklusive fördefinierade och icke-machine-lärt dig entiteter. 
 
-Om du använder samma exempel som hierarkisk entiteten av ursprung och mål städer, skillnaden är att en roll har namnet ursprung i stället för en hierarkisk underordnad. 
-
-Syntaxen för en roll är **{Entityname:Rolename}** där enhetens namn följt av ett kolon och sedan namnet på rollen. Till exempel `Move {personName} from {LocationUsingRoles:Origin} to {LocationUsingRoles:Destination}`.
+Syntaxen för en roll är **`{Entityname:Rolename}`** där enhetens namn följt av ett kolon och sedan namnet på rollen. Till exempel `Move {personName} from {LocationUsingRoles:Origin} to {LocationUsingRoles:Destination}`.
 
 1. Från den **skapa** väljer **entiteter** på den vänstra panelen.
 

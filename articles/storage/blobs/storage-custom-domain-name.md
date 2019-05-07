@@ -2,22 +2,23 @@
 title: Konfigurera ett anpassat domännamn för ditt Azure storage-konto | Microsoft Docs
 description: Använda Azure-portalen för att mappa din egen kanoniskt namn (CNAME) till Blob-lagring eller web-slutpunkt i ett Azure storage-konto.
 services: storage
-author: tamram
+author: normesta
 ms.service: storage
 ms.topic: article
 ms.date: 06/26/2018
-ms.author: tamram
+ms.author: normesta
+ms.reviewer: seguler
 ms.subservice: blobs
-ms.openlocfilehash: e40b6fe115d6b6dea38ead9f0b2550d96bd04c7a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4f6776a5f15cf391f3a65aceb6e9e783d87a2078
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112644"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148935"
 ---
 # <a name="configure-a-custom-domain-name-for-your-azure-storage-account"></a>Konfigurera ett anpassat domännamn för ditt Azure storage-konto
 
-Du kan konfigurera en anpassad domän för åtkomst till blobdata på ditt Azure storage-konto. Standardslutpunkten för Azure Blob storage är  *\<lagringskontonamn->. blob.core.windows.net*. Du kan också använda webbslutpunkt som genereras som en del av den [serverstatiska webbplatser funktion (förhandsversion)](storage-blob-static-website.md). Om du mappar en anpassad domän och underdomänen, till exempel *www\.contoso.com*, till blob- eller web-slutpunkt för ditt lagringskonto kan användarna använda den domänen få åtkomst till blob-data i ditt lagringskonto.
+Du kan konfigurera en anpassad domän för åtkomst till blobdata på ditt Azure storage-konto. Standardslutpunkten för Azure Blob storage är  *\<lagringskontonamn->. blob.core.windows.net*. Du kan också använda webbslutpunkt som genereras som en del av den [serverstatiska webbplatser funktionen](storage-blob-static-website.md). Om du mappar en anpassad domän och underdomänen, till exempel *www\.contoso.com*, till blob- eller web-slutpunkt för ditt lagringskonto kan användarna använda den domänen få åtkomst till blob-data i ditt lagringskonto.
 
 > [!IMPORTANT]
 > Azure Storage har inte ännu har inbyggt stöd HTTPS med anpassade domäner. Du kan för närvarande [Använd Azure CDN för att få åtkomst till blobar med hjälp av anpassade domäner över HTTPS](storage-https-custom-domain-cdn.md).

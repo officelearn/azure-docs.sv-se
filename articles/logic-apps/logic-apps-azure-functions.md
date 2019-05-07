@@ -1,37 +1,35 @@
 ---
-title: Lägg till och kör anpassad kod i Azure Logic Apps med Azure Functions | Microsoft Docs
-description: Lär dig hur du lägger till och köra anpassade kodavsnitt i Azure Logic Apps med Azure Functions
+title: Lägga till och köra kod i Azure Logic Apps med Azure Functions
+description: Lägga till och köra kod i Azure Logic Apps med Azure Functions
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
 ms.topic: article
 ms.date: 08/20/2018
 ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: 2bec33a4a8540f9599cf1d479f1f59c4cde39bd2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e371a6abe32a1a41d3babeaa27aaec3e30bd3323
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60687695"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142310"
 ---
-# <a name="add-and-run-custom-code-snippets-in-azure-logic-apps-with-azure-functions"></a>Lägga till och köra egna i Azure Logic Apps med Azure Functions
+# <a name="add-and-run-code-by-using-azure-functions-in-azure-logic-apps"></a>Lägga till och köra kod med hjälp av Azure Functions i Azure Logic Apps
 
-När du vill köra tillräckligt med kod som utför ett specifikt jobb i dina logic apps kan du skapa egna funktioner med [Azure Functions](../azure-functions/functions-overview.md). Den här tjänsten hjälper dig att skapa Node.js, C#, och F# kodfragment så att du inte behöver skapa en fullständig app eller infrastrukturen för att köra din kod. Azure Functions tillhandahåller serverlös databehandling i molnet och är användbart för att utföra uppgifter som till exempel:
+När du vill köra kod som utför ett specifikt jobb i dina logic apps kan du skapa egna funktioner med [Azure Functions](../azure-functions/functions-overview.md). Den här tjänsten hjälper dig att skapa Node.js, C#, och F# code så att du inte behöver skapa en fullständig app eller infrastrukturen för att köra din kod. Du kan också [anropa logic apps från inuti Azure functions](#call-logic-app).
+Azure Functions tillhandahåller serverlös databehandling i molnet och är användbart för att utföra uppgifter som till exempel:
 
 * Utöka din logikapp beteende med funktioner i Node.js- eller C#.
 * Utföra beräkningar i logikappens arbetsflöde.
 * Använda avancerad formatering eller compute fälten i dina logic apps.
 
-Du kan också [anropa logic apps från inuti Azure functions](#call-logic-app).
+Om du vill köra kodavsnitt utan att skapa Azure functions, lär du dig hur du [lägga till och köra infogad kod](../logic-apps/logic-apps-add-run-inline-code.md).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Om du vill följa den här artikeln behöver du följande objekt:
-
-* Om du inte har en Azure-prenumeration än, <a href="https://azure.microsoft.com/free/" target="_blank">registrera dig för ett kostnadsfritt konto</a>. 
+* En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
 * En Azure function-app, vilket är en behållare för Azure functions och Azure-funktion. Om du inte har en funktionsapp [först skapa din funktionsapp](../azure-functions/functions-create-first-azure-function.md). Du kan sedan skapa din funktion antingen [separat utanför din logikapp](#create-function-external), eller [från inuti logikappen](#create-function-designer) i Logic App Designer.
 
@@ -58,7 +56,7 @@ Om du vill följa den här artikeln behöver du följande objekt:
 
 ## <a name="create-functions-outside-logic-apps"></a>Skapa functions utanför logic apps
 
-I den <a href="https://portal.azure.com" target="_blank">Azure-portalen</a>, skapa Azure-funktionsapp, som måste ha samma Azure-prenumeration som din logikapp och skapa din Azure-funktion.
+I den [Azure-portalen](https://portal.azure.com), skapa Azure-funktionsapp, som måste ha samma Azure-prenumeration som din logikapp och skapa din Azure-funktion.
 Om du inte har använt till att skapa Azure functions kan du lära dig hur du [skapa din första funktion i Azure-portalen](../azure-functions/functions-create-first-azure-function.md), men tänk på dessa krav för att skapa funktioner som du kan anropa från logikappar:
 
 * Kontrollera att du väljer den **HTTP-utlösare** funktionsmallen för antingen **JavaScript** eller **C#**.
@@ -116,7 +114,7 @@ Nu när du har skapat din Azure-funktion, följer du stegen för hur du [Lägg t
 
 Innan du kan skapa en Azure-funktion från och med i din logikapp i Logic App Designer, måste du först ha en Azure function-app, vilket är en behållare för dina funktioner. Om du inte har en funktionsapp kan du skapa den funktionsappen först. Se [skapa din första funktion i Azure-portalen](../azure-functions/functions-create-first-azure-function.md). 
 
-1. I den <a href="https://portal.azure.com" target="_blank">Azure-portalen</a>, öppna logikappen i Logic App Designer. 
+1. I den [Azure-portalen](https://portal.azure.com), öppna logikappen i Logic App Designer. 
 
 2. Följ de anvisningar som gäller för ditt scenario för att skapa och lägga till din funktion:
 
@@ -176,7 +174,7 @@ Välj den här åtgärden från åtgärdslistan över: **Välja en Azure-funktio
 
 Om du vill anropa befintliga Azure-funktioner från logikappar måste du lägga till Azure functions som andra åtgärder i Logic App Designer. 
 
-1. I den <a href="https://portal.azure.com" target="_blank">Azure-portalen</a>, öppna logikappen i Logic App Designer. 
+1. I den [Azure-portalen](https://portal.azure.com), öppna logikappen i Logic App Designer. 
 
 2. Under steget där du vill lägga till funktionen, Välj **nytt steg** > **Lägg till en åtgärd**. 
 

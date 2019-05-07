@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/31/2019
+ms.date: 04/24/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6d7b99da3e8e81973c51bbd68a15517828c9736d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eaff996f5d0ad9c2eac00c9306ef8808b43e25c2
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61306868"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65146042"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Starta/stoppa virtuella datorer vid låg belastning på nätverket lösning i Azure Automation
 
@@ -46,6 +46,50 @@ Följande är begränsningar i den aktuella lösningen:
 Runbooks för den här lösningen fungerar med en [kör som-konto](automation-create-runas-account.md). Kör som-kontot är den lämpligaste autentiseringsmetoden eftersom den använder certifikatautentisering istället för ett lösenord som kan upphöra att gälla eller ändras ofta.
 
 Det rekommenderas att använda ett separat Automation-konto för att starta/stoppa VM-lösning. Detta beror ofta Azure modulversioner uppgraderas och deras parametrar kan ändras. Lösningen Starta/Stoppa VM uppgraderas inte på samma takt så inte fungerar med nyare versioner av de cmdletar som används. Vi rekommenderar att testa modulen uppdateringar i ett test Automation-konto innan du importerar dem i en produktionsmiljö Automation-konto.
+
+### <a name="permissions-needed-to-deploy"></a>Behörigheter som krävs för att distribuera
+
+Det finns vissa behörigheter som en användare måste ha för att distribuera den Starta/stoppa virtuella datorer utanför timmar lösning. Dessa behörigheter finns olika om du använder en Automation-kontot och Log Analytics-arbetsyta som skapats i förväg och skapa nya filer under distributionen.
+
+#### <a name="pre-existing-automation-account-and-log-analytics-account"></a>Befintliga Automation-kontot och Log Analytics-konto
+
+Att distribuera den Starta/stoppa virtuella datorer utanför timmar lösningen till ett Automation-kontot och Log Analytics-lösningen distribueras användaren kräver följande behörigheter på den **resursgrupp**. Läs mer om administratörsroller i [anpassade roller för Azure-resurser](../role-based-access-control/custom-roles.md).
+
+| Behörighet | Scope|
+| --- | --- |
+| Microsoft.Automation/automationAccounts/read | Resursgrupp |
+| Microsoft.Automation/automationAccounts/variables/write | Resursgrupp |
+| Microsoft.Automation/automationAccounts/schedules/write | Resursgrupp |
+| Microsoft.Automation/automationAccounts/runbooks/write | Resursgrupp |
+| Microsoft.Automation/automationAccounts/connections/write | Resursgrupp |
+| Microsoft.Automation/automationAccounts/certificates/write | Resursgrupp |
+| Microsoft.Automation/automationAccounts/modules/write | Resursgrupp |
+| Microsoft.Automation/automationAccounts/modules/read | Resursgrupp |
+| Microsoft.automation/automationAccounts/jobSchedules/write | Resursgrupp |
+| Microsoft.Automation/automationAccounts/jobs/write | Resursgrupp |
+| Microsoft.Automation/automationAccounts/jobs/read | Resursgrupp |
+| Microsoft.OperationsManagement/solutions/write | Resursgrupp |
+| Microsoft.OperationalInsights/workspaces/* | Resursgrupp |
+| Microsoft.Insights/diagnosticSettings/write | Resursgrupp |
+| Microsoft.Insights/ActionGroups/WriteMicrosoft.Insights/ActionGroups/read | Resursgrupp |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Resursgrupp |
+| Microsoft.Resources/deployments/* | Resursgrupp |
+
+### <a name="new-automation-account-and-a-new-log-analytics-workspace"></a>Nytt Automation-konto och en ny Log Analytics-arbetsyta
+
+Om du vill distribuera Starta/stoppa virtuella datorer under arbetstid, måste lösningen till en ny Automation-kontot och Log Analytics-arbetsyta användaren-lösningen distribueras de behörigheter som definierats i föregående avsnitt samt följande behörigheter:
+
+- Delad administratör på prenumerationen – detta behövs för att skapa det klassiska kör som-konto
+- Vara en del av den **programutvecklare** roll. Mer information om hur du konfigurerar kör som-konton finns i [behörigheter för att konfigurera kör som-konton](manage-runas-account.md#permissions).
+
+| Behörighet |Scope|
+| --- | --- |
+| Microsoft.Authorization/roleAssignments/read | Prenumeration |
+| Microsoft.Authorization/roleAssignments/write | Prenumeration |
+| Microsoft.Automation/automationAccounts/connections/read | Resursgrupp |
+| Microsoft.Automation/automationAccounts/certificates/read | Resursgrupp |
+| Microsoft.Automation/automationAccounts/write | Resursgrupp |
+| Microsoft.OperationalInsights/workspaces/write | Resursgrupp |
 
 ## <a name="deploy-the-solution"></a>Distribuera lösningen
 
@@ -292,8 +336,8 @@ Följande tabell innehåller exempel på sökningar i loggen för jobbposter som
 
 |Fråga | Beskrivning|
 |----------|----------|
-|Hitta jobb för runbook ScheduledStartStop_Parent att har slutförts | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "ScheduledStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" )  <br>&#124;  summarize <br>&#124; AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
-|Hitta jobb för runbook SequencedStartStop_Parent att har slutförts | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "SequencedStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" ) <br>&#124;  summarize <br>&#124; AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc```|
+|Hitta jobb för runbook ScheduledStartStop_Parent att har slutförts | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "ScheduledStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" )  <br>&#124;  summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
+|Hitta jobb för runbook SequencedStartStop_Parent att har slutförts | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "SequencedStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" ) <br>&#124;  summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
 
 ## <a name="viewing-the-solution"></a>Visa lösningen
 

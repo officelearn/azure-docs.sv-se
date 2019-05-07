@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 manager: craigg
-ms.date: 04/26/2019
-ms.openlocfilehash: 0f7765e5b13f2d9c1e1213064d778ce6db5ef115
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/06/2019
+ms.openlocfilehash: 981198063b8e0951d4a4a4c4627d4b7966f34154
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64572676"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148986"
 ---
 # <a name="choose-among-the-vcore-service-tiers-and-migrate-from-dtu-service-tiers"></a>Välj bland de vCore-servicenivåerna och migrera från DTU-tjänstnivåer
 
@@ -38,14 +38,16 @@ VCore-modellen innehåller tre tjänstnivåer generell användning, hyperskala o
 
 Tabellen nedan hjälper dig att förstå skillnaderna mellan de tre nivåerna:
 
-||**Generell användning**|**Affärskritisk**|**Hyperskala (förhandsversion)**|
+||**Generell användning**|**Affärskritisk**|**Hyperskala**|
 |---|---|---|---|
 |Bäst för|De flesta företags arbetsbelastningar. Erbjudanden budgetera objektorienterad balanserade och skalbara beräknings- och lagringsalternativ.|Affärsprogram med höga I/O-krav. Erbjuder den högsta uthålligheten mot fel tack vare flera isolerade repliker.|De flesta företags arbetsbelastningar med mycket skalbar lagring och läs-och skalningskrav|
-|Processor|**Etablerad beräkning**:<br/>Gen4: 1-24 vCore<br/>Gen5: 1-80 vCore<br/>**Beräkning utan Server**<br/>Gen5: 0,5 – 4 vCore|**Etablerad beräkning**:<br/>Gen4: 1-24 vCore<br/>Gen5: 1-80 vCore|**Etablerad beräkning**:<br/>Gen4: 1-24 vCore<br/>Gen5: 1-80 vCore|
-|Minne|**Etablerad beräkning**:<br/>Gen4: 7 GB per kärna<br/>Gen5: 5.1 GB per kärna<br/>**Beräkning utan Server**<br/>Gen5: 3 GB per kärna|**Etablerad beräkning**:<br/>Gen4: 7 GB per kärna<br/>Gen5: 5.1 GB per kärna |**Etablerad beräkning**:<br/>Gen4: 7 GB per kärna<br/>Gen5: 5.1 GB per kärna|
+|Compute|**Etablerad beräkning**:<br/>Gen4: 1-24 vCore<br/>Gen5: 2-80 vCore<br/>**Beräkning utan Server**<br/>Gen5: 0,5 – 4 vCore|**Etablerad beräkning**:<br/>Gen4: 1-24 vCore<br/>Gen5: 2-80 vCore|**Etablerad beräkning**:<br/>Gen4: 1-24 vCore<br/>Gen5: 2-80 vCore|
+|Minne|**Etablerad beräkning**:<br/>Gen4: 7 GB per vCore<br/>Gen5: 5.1 GB per vCore<br/>**Beräkning utan Server**<br/>Gen5: 3 GB per vCore|**Etablerad beräkning**:<br/>Gen4: 7 GB per vCore<br/>Gen5: 5.1 GB per vCore |**Etablerad beräkning**:<br/>Gen4: 7 GB per vCore<br/>Gen5: 5.1 GB per vCore|
 |Storage|Använder Fjärrlagring:<br/>**Enkel databas etablerad beräkning**:<br/>5 GB – 4 TB<br/>**Beräkning för enkel databas utan Server**:<br/>5 GB - 1 TB<br/>**Hanterad instans**: 32 GB - 8 TB |Använder lokal SSD-lagring:<br/>**Enkel databas etablerad beräkning**:<br/>5 GB – 4 TB<br/>**Hanterad instans**:<br/>32 GB - 4 TB |Flexibel, automatisk storleksökning av lagring vid behov. Har stöd för upp till 100 TB lagring och mycket mer. Lokal SSD-lagring för lokala buffertminne för poolen och lokal datalagring. Azure Fjärrlagring sista långsiktig datalagring. |
+|Minne|Gen4: 7 GB per kärna<br>Gen5: 5.1 GB per kärna | Gen4: 7 GB per kärna<br>Gen5: 5.1 GB per kärna |Gen5: 5.1 GB per kärna|
+|Storage|Använder Fjärrlagring:<br/>Databas: 5 GB – 4 TB<br/>Hanterad instans: 32 GB - 8 TB |Använder lokal SSD-lagring:<br/>Databas: 5 GB – 4 TB<br/>Hanterad instans: 32 GB - 4 TB |Flexibel, automatisk storleksökning av lagring vid behov. Har stöd för upp till 100 TB lagring och mycket mer. Lokal SSD-lagring för lokala buffertminne för poolen och lokal datalagring. Azure Fjärrlagring sista långsiktig datalagring. |
 |I/o-genomströmning (ungefärlig)|Databas: 500 IOPS per vCore med 7000 högsta IOPS</br>Hanterad instans: Beror på [storleken på filen](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|5000 IOPS per kärna med 200 000 högsta IOPS|TBD|
-|Tillgänglighet|1 repliken, inga lässkala|3 repliker, 1 [lässkala repliken](sql-database-read-scale-out.md),<br/>zonen redundant hög tillgänglighet|?|
+|Tillgänglighet|1 repliken, inga lässkala|3 repliker, 1 [lässkala repliken](sql-database-read-scale-out.md),<br/>zonen redundant hög tillgänglighet|1 skrivbar replik plus 0-4 [lässkala repliker](sql-database-read-scale-out.md)|
 |Säkerhetskopior|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 dagar (7 dagar som standard)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 dagar (7 dagar som standard)|ögonblicksbild-baserad säkerhetskopiering i Azure Fjärrlagring och återställningar kan du använda de här ögonblicksbilderna för snabb återställning. Säkerhetskopior är omedelbara och påverkar inte i/o-prestanda för databearbetning. Återställningar är mycket snabbt och är inte en storlek på data igen (tar några minuter i stället för timmar eller dagar).|
 |I minnet|Stöds inte|Stöds|Stöds inte|
 |||
@@ -56,8 +58,6 @@ Tabellen nedan hjälper dig att förstå skillnaderna mellan de tre nivåerna:
 - Mer information finns i [vCore resursbegränsningar i enkel databas](sql-database-vcore-resource-limits-single-databases.md) och [vCore resursbegränsningar i Managed Instance](sql-database-managed-instance.md#vcore-based-purchasing-model).
 - Läs mer om tjänstnivåer för generell användning och affärskritisk [tjänstnivåer för generell användning och affärskritisk](sql-database-service-tiers-general-purpose-business-critical.md).
 - Mer information om tjänstnivån hyperskala i den vCore-baserade inköpsmodellen finns [hyperskala tjänstnivå](sql-database-service-tier-hyperscale.md).  
-
-
 
 ## <a name="azure-hybrid-benefit"></a>Azure Hybrid-förmån
 

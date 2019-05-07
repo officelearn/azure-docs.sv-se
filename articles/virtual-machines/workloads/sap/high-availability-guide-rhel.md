@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/15/2019
+ms.date: 04/30/2019
 ms.author: sedusch
-ms.openlocfilehash: c6746dc4bd5732a13c25793ed572a85acfca82d4
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 4e224a1abf72bfa068bebaf971e34c492b15d7c0
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925788"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142996"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux"></a>Azure virtuella datorer hög tillgänglighet för SAP NetWeaver på Red Hat Enterprise Linux
 
@@ -87,6 +87,9 @@ För att uppnå hög tillgänglighet, kräver SAP NetWeaver delad lagring. Glust
 
 SAP NetWeaver ASCS, SAP NetWeaver SCS, ÄNDARE för SAP NetWeaver och SAP HANA-databas använda virtuella värdnamn och virtuella IP-adresser. På Azure måste en belastningsutjämnare använda en virtuell IP-adress. I följande lista visas konfigurationen av (A) SCS och ÄNDARE belastningsutjämnare.
 
+> [!IMPORTANT]
+> Multi-SID klustring av SAP ASCS/ÄNDARE med Red Hat Linux som gästoperativsystem i virtuella Azure-datorer är **stöds inte**. Multi-SID klustring beskriver hur du installerar flera SAP ASCS/ÄNDARE instanser med olika SID i ett Pacemaker kluster.
+
 ### <a name="ascs"></a>(A)SCS
 
 * Konfiguration för klientdel
@@ -95,7 +98,7 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, ÄNDARE för SAP NetWeaver och SAP HANA-d
   * Ansluten till primära nätverksgränssnitt för alla virtuella datorer som ska vara en del av (A) SCS/ÄNDARE kluster
 * Avsökningsport
   * Port 620<strong>&lt;nr&gt;</strong>
-* Med regler
+* Belastningsutjämningsregler
   * 32<strong>&lt;nr&gt;</strong> TCP
   * 36<strong>&lt;nr&gt;</strong> TCP
   * 39<strong>&lt;nr&gt;</strong> TCP
@@ -112,7 +115,8 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, ÄNDARE för SAP NetWeaver och SAP HANA-d
   * Ansluten till primära nätverksgränssnitt för alla virtuella datorer som ska vara en del av (A) SCS/ÄNDARE kluster
 * Avsökningsport
   * Port 621<strong>&lt;nr&gt;</strong>
-* Med regler
+* Belastningsutjämningsregler
+  * 32<strong>&lt;nr&gt;</strong> TCP
   * 33<strong>&lt;nr&gt;</strong> TCP
   * 5<strong>&lt;nr&gt;</strong>13 TCP
   * 5<strong>&lt;nr&gt;</strong>14 TCP
@@ -124,11 +128,11 @@ SAP NetWeaver kräver delad lagring för katalogen transport och profil. Läs [G
 
 ## <a name="setting-up-ascs"></a>Konfigurationen av (A) SCS
 
-Du kan antingen använda en Azure-mall från github för att distribuera alla nödvändiga Azure-resurser, inklusive de virtuella datorerna, tillgänglighet och belastningsutjämning eller du kan distribuera resurserna manuellt.
+Du kan antingen använda en Azure-mall från GitHub för att distribuera alla nödvändiga Azure-resurser, inklusive de virtuella datorerna, tillgänglighet och belastningsutjämning eller du kan distribuera resurserna manuellt.
 
 ### <a name="deploy-linux-via-azure-template"></a>Distribuera Linux via Azure-mall
 
-Azure Marketplace innehåller en bild för Red Hat Enterprise Linux som du kan använda för att distribuera nya virtuella datorer. Du kan använda en av snabbstartsmallarna på github för att distribuera alla nödvändiga resurser. Mallen distribuerar virtuella datorer, belastningsutjämnare, tillgänglighetsuppsättning osv. Följ dessa steg om du vill distribuera mallen:
+Azure Marketplace innehåller en bild för Red Hat Enterprise Linux som du kan använda för att distribuera nya virtuella datorer. Du kan använda en av snabbstartsmallarna på GitHub för att distribuera alla nödvändiga resurser. Mallen distribuerar virtuella datorer, belastningsutjämnare, tillgänglighetsuppsättning osv. Följ dessa steg om du vill distribuera mallen:
 
 1. Öppna den [ASCS/SCS mallen] [ template-multisid-xscs] på Azure portal  
 1. Ange följande parametrar
@@ -192,7 +196,7 @@ Du måste först skapa de virtuella datorerna för det här klustret. Därefter 
          1. Klicka på OK
       1. Port 621**02** för ASCS ÄNDARE
          * Upprepa stegen ovan för att skapa en hälsoavsökning för ÄNDARE (till exempel 621**02** och **nw1-aers-hp**)
-   1. Med regler
+   1. Belastningsutjämningsregler
       1. 32**00** TCP för ASCS
          1. Öppna belastningsutjämnaren, Välj regler för belastningsutjämning och klicka på Lägg till
          1. Ange namnet på den nya belastningsutjämningsregeln (till exempel **nw1-lb-3200**)
@@ -527,7 +531,7 @@ Följande objekt har prefixet antingen **[A]** – gäller för alla noder, **[1
    sudo pcs property set maintenance-mode=false
    </code></pre>
 
-   Om du uppgraderar från en äldre version och växla till sätta server 2, se sap-kommentar [2641322](https://launchpad.support.sap.com/#/notes/2641322). 
+   Om du uppgraderar från en äldre version och växla till sätta server 2, se SAP anteckning [2641322](https://launchpad.support.sap.com/#/notes/2641322). 
 
    Kontrollera att klusterstatusen är ok och att alla resurser har startats. Det är inte viktigt i vilken nod som resurserna som körs.
 

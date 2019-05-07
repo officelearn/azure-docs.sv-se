@@ -2,20 +2,20 @@
 title: 'Självstudier: Läsa in New York-taxidata till Azure SQL Data Warehouse | Microsoft Docs'
 description: Självstudien används Azure portal och SQL Server Management Studio för att läsa in New York-taxidata från en offentlig Azure-blob till Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: mlee3gsd
+author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 03/27/2019
-ms.author: mlee3gsd
+ms.date: 04/26/2019
+ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 57ca749aec2a72379e92c46764eb9b6558653e29
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ca4084fb271320eb4cdfdeb6cb9026367761be0a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61079061"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143666"
 ---
 # <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>Självstudier: Läsa in New York-taxidata till Azure SQL Data Warehouse
 
@@ -561,6 +561,49 @@ Skriptet använder T-SQL-instruktionen [CREATE TABLE AS SELECT (CTAS)](/sql/t-sq
 
     ![Visa inlästa tabeller](media/load-data-from-azure-blob-storage-using-polybase/view-loaded-tables.png)
 
+## <a name="authenticate-using-managed-identities-to-load-optional"></a>Autentisera med hanterade identiteter för att läsa in (valfritt)
+Läser in med PolyBase och autentiserar med hjälp av hanterade identiteter är den säkraste metoden och gör att du kan använda VNet-tjänstslutpunkter med Azure storage. 
+
+### <a name="prerequisites"></a>Nödvändiga komponenter
+1.  Installera Azure PowerShell använder det här [guide](https://docs.microsoft.com/powershell/azure/install-az-ps).
+2.  Om du har ett allmänt v1- eller blob storage-konto, måste du först uppgradera till gpv2 med det här [guide](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
+3.  Du måste ha **Tillåt att betrodda Microsoft-tjänster för att komma åt det här lagringskontot** markerade under Azure Storage-konto **brandväggar och virtuella nätverk** inställningsmenyn. Referera till denna [guide](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) för mer information.
+
+#### <a name="steps"></a>Steg
+1. I PowerShell **registrera din SQL Database-server** med Azure Active Directory (AAD):
+
+   ```powershell
+   Connect-AzAccount
+   Select-AzSubscription -SubscriptionId your-subscriptionId
+   Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-database-servername -AssignIdentity
+   ```
+    
+   1. Skapa en **Allmänt gpv2-Lagringskonto** använder det här [guide](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
+
+   > [!NOTE]
+   > - Om du har ett allmänt v1- eller blob storage-konto, måste du **först uppgradera till v2** använder det här [guide](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
+    
+1. Under ditt storage-konto går du till **åtkomstkontroll (IAM)**, och klicka på **Lägg till rolltilldelning**. Tilldela **Storage Blob Data-deltagare** RBAC-roll till SQL Database-servern.
+
+   > [!NOTE] 
+   > Endast medlemmar med ägare behörighet kan utföra det här steget. För olika inbyggda roller för Azure-resurser, referera till denna [guide](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+  
+1. **Polybase-anslutningen till Azure Storage-kontot:**
+    
+   1. Skapa din databasbegränsade autentiseringsuppgifter med **IDENTITY = ”hanterad tjänstidentitet'**:
+
+       ```SQL
+       CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
+       ```
+       > [!NOTE] 
+       > - Behöver inte ange HEMLIGHETEN med Azure Storage-åtkomstnyckel eftersom den här mekanismen använder [hanterade identiteter](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) under försättsbladen.
+       > - Identitetsnamnet bör vara **”hanterad tjänstidentitet'** för PolyBase-anslutning att arbeta med Azure Storage-konto.
+    
+   1. Skapa extern datakälla att ange Database Scoped Credential med den hanterade tjänstidentiteten.
+        
+   1. Frågan som vanligt med [externa tabeller](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql).
+
+Referera till följande [dokumentationen för frågeobjekt] (https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview ) om du vill konfigurera tjänstslutpunkter i virtuella nätverk för SQL Data Warehouse. 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 05/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: ee52cde6feeb69f9140df497a9abee300c93fd71
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 258b603b8cd2e0cdfcc72ca17cd3cb0d034caf5b
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64692110"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143357"
 ---
 # <a name="add-an-iot-hub-event-source-to-your-time-series-insights-environment"></a>Lägg till en IoT hub-händelsekälla till Time Series Insights-miljön
 
@@ -42,7 +42,7 @@ Lägga till en ny konsumentgrupp till din IoT hub:
 
 1. I menyn, under **inställningar**väljer **inbyggda slutpunkter**, och välj sedan den **händelser** slutpunkt.
 
-   ![På sidan inbyggda slutpunkter väljer du knappen händelser][1]
+   [![På sidan inbyggda slutpunkter väljer du knappen händelser](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_one.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_one.png#lightbox)
 
 1. Under **konsumentgrupper**, ange ett unikt namn för konsumentgruppen. Använd det här samma namn i din Time Series Insights-miljö när du skapar en ny händelsekälla.
 
@@ -56,7 +56,7 @@ Lägga till en ny konsumentgrupp till din IoT hub:
 
 1. Under **miljöns topologi**väljer **händelsekällor**, och välj sedan **Lägg till**.
 
-   ![Välj händelsekällor och välj sedan knappen Lägg till][2]
+   [![Välj händelsekällor och välj sedan knappen Lägg till](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_two.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_two.png#lightbox)
 
 1. I den **ny händelsekälla** fönstret för **Händelsekällans namn för**, ange ett namn som är unik för den här Time Series Insights-miljön. Ange till exempel **händelseströmmen**.
 
@@ -67,11 +67,11 @@ Lägga till en ny konsumentgrupp till din IoT hub:
    * Om du redan har en IoT-hubb i någon av dina prenumerationer, väljer **Använd IoT Hub från tillgängliga prenumerationer**. Det här alternativet är den enklaste metoden.
    * Om IoT-hubben är extern till dina prenumerationer, eller om du vill välja avancerade alternativ väljer **ger IoT Hub-inställningar manuellt**.
 
-   ![Välj alternativ i den nya event källa][3]
+   [![Välj alternativ i den nya event källa](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_three.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_three.png#lightbox)
 
 1. I följande tabell beskrivs de egenskaper som krävs för den **Använd IoT Hub från tillgängliga prenumerationer** alternativet:
 
-   ![Ny händelse källa fönstret - Egenskaper för att ställa in i Använd IoT Hub från tillgängliga prenumerationer alternativet][4]
+   [![Ny händelse källa fönstret - Egenskaper för att ställa in i Använd IoT Hub från tillgängliga prenumerationer alternativet](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_four.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_four.png#lightbox)
 
    | Egenskap  | Beskrivning |
    | --- | --- |
@@ -100,7 +100,7 @@ Lägga till en ny konsumentgrupp till din IoT hub:
 
 1. Välj **Skapa**.
 
-   ![Skapa-knappen][5]
+   [![Knappen Skapa](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_five.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_five.png#lightbox)
 
 1. När du har skapat händelsekällan börjar Time Series Insights automatiskt strömmande data i din miljö.
 
@@ -111,10 +111,3 @@ Lägga till en ny konsumentgrupp till din IoT hub:
 * [Skicka händelser](time-series-insights-send-events.md) till händelsekällan.
 
 * Få tillgång till den i den [Time Series Insights explorer](https://insights.timeseries.azure.com).
-
-<!-- Images -->
-[1]: media/time-series-insights-how-to-add-an-event-source-iothub/iothub_one.png
-[2]: media/time-series-insights-how-to-add-an-event-source-iothub/iothub_two.png
-[3]: media/time-series-insights-how-to-add-an-event-source-iothub/iothub_three.png
-[4]: media/time-series-insights-how-to-add-an-event-source-iothub/iothub_four.png
-[5]: media/time-series-insights-how-to-add-an-event-source-iothub/iothub_five.png

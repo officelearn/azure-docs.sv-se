@@ -4,27 +4,53 @@ description: Använd den här artikeln lär du dig standard diagnostiska färdig
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 02/26/2019
+ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 83595bf045de412954c176028babc4f94fcb21e1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 02d50b81cb91a74e2cdb039c56195e2a15858ca1
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60612286"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142866"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Vanliga problem och lösningar för Azure IoT Edge
 
-Om du får problem med att köra Azure IoT Edge i din miljö kan du använda den här artikeln som en guide för felsökning och lösningar. 
+Om du får problem med att köra Azure IoT Edge i din miljö kan du använda den här artikeln som en guide för felsökning och lösningar.
 
-## <a name="standard-diagnostic-steps"></a>Standarddiagnostikåtgärder 
+## <a name="run-the-iotedge-check-command"></a>Kör iotedge Kontrollera-kommando
 
-När det uppstår ett problem, lär du dig mer om tillståndet för din IoT Edge-enhet genom att granska behållarloggarna och meddelandena som skickas till och från enheten. Använd kommandona och verktygen i det här avsnittet för att samla in information. 
+Första steget när du felsöker IoT Edge bör vara att använda den `check` kommandot, som utför en samling med konfiguration och anslutning tester för vanliga problem. Den `check` kommandot är tillgängligt i [viktig 1.0.7](https://github.com/Azure/azure-iotedge/releases/tag/1.0.7) och senare.
 
-### <a name="check-the-status-of-the-iot-edge-security-manager-and-its-logs"></a>Kontrollera status för IoT Edge Security Manager och dess loggfiler:
+Du kan köra den `check` startdiagnostikdata eller inkludera den `--help` om du vill visa en fullständig lista över alternativ:
+
+* I Linux:
+
+  ```bash
+  sudo iotedge check
+  ```
+
+* I Windows:
+
+  ```powershell
+  iotedge check
+  ```
+
+Vilka typer av kontroller som körs av verktyget kan klassificeras som:
+
+* Konfigurationskontroller: Undersöker information som kan förhindra att Edge-enheter från att ansluta till molnet, inklusive problem med *config.yaml* och container-motorn.
+* Kontroll av: Verifierar IoT Edge-körningen har åtkomst till portar på värdenheten och alla IoT Edge-komponenter kan ansluta till IoT Hub.
+* Beredskapen för produktion: Söker efter rekommenderade produktion bästa praxis, till exempel enhetscertifikat certificate authority (CA) och modulen loggfilskonfigurationen status.
+
+En fullständig lista över diagnostiska kontroller, se [inbyggd felsökning funktioner](https://github.com/Azure/iotedge/blob/master/doc/troubleshoot-checks.md).
+
+## <a name="standard-diagnostic-steps"></a>Standarddiagnostikåtgärder
+
+Om det uppstår ett problem kan läsa du mer om tillståndet för din IoT Edge-enhet genom att granska behållarloggarna och meddelandena som skickas till och från enheten. Använd kommandona och verktygen i det här avsnittet för att samla in information.
+
+### <a name="check-the-status-of-the-iot-edge-security-manager-and-its-logs"></a>Kontrollera status för IoT Edge Security Manager och dess loggar
 
 I Linux:
 - Visa status för IoT Edge-Säkerhetshanteraren:
@@ -72,14 +98,7 @@ I Windows:
 - Visa loggar av IoT Edge-Säkerhetshanteraren:
 
    ```powershell
-   # Displays logs from today, newest at the bottom.
- 
-   Get-WinEvent -ea SilentlyContinue `
-   -FilterHashtable @{ProviderName= "iotedged";
-     LogName = "application"; StartTime = [datetime]::Today} |
-   select TimeCreated, Message |
-   sort-object @{Expression="TimeCreated";Descending=$false} |
-   format-table -autosize -wrap
+   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
    ```
 
 ### <a name="if-the-iot-edge-security-manager-is-not-running-verify-your-yaml-configuration-file"></a>Om IoT Edge Security Manager inte körs, kontrollera din yaml-konfigurationsfil

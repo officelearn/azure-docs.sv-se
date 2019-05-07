@@ -9,12 +9,12 @@ ms.date: 4/23/2019
 ms.topic: troubleshooting
 ms.service: service-fabric-mesh
 manager: jeanpaul.connock
-ms.openlocfilehash: 7f3bed454bce90d797ca5829043c7e5f8ce5b051
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 950f9ac89b9d3224db29b32fe2d1e403ccc98116
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728590"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143278"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Vanliga frågor och svar om Service Fabric-nät
 
@@ -28,7 +28,7 @@ Ställ frågor, få svar från Microsofts tekniker och rapportera problem i den 
 
 ### <a name="what-is-the-cost-of-participating-in-the-preview"></a>Vad är kostnaden för att delta i förhandsgranskningen?
 
-Det finns inga avgifter för att distribuera program eller behållare till förhandsversionen av nät. Men vi rekommenderar att du tar bort de resurser som du distribuerar och inte låta dem vara köras om du testar aktivt dem.
+Det finns för närvarande inga avgifter för att distribuera program eller behållare till förhandsversionen av nät. Bevaka uppdateringar i maj för aktivering för fakturering. Men vi rekommenderar att du tar bort de resurser som du distribuerar och inte låta dem vara köras om du testar aktivt dem.
 
 ### <a name="is-there-a-quota-limit-of-the-number-of-cores-and-ram"></a>Finns det en kvotgräns på antalet kärnor och RAM-minne?
 
@@ -88,10 +88,15 @@ Om du utvecklar på en Windows 10 April 2018 uppdatera (version 1803)-dator kan 
 Följande behållare OS-avbildningar kan användas för att distribuera tjänster:
 
 - Windows - windowsservercore och nanoserver
-    - Windows Server version 1709
-    - Windows Server version 1803
+    - Windows Server 1709
+    - Windows Server 1803
+    - Windows Server 1809
+    - Windows Server 2019 LTSC
 - Linux
     - Inga kända begränsningar
+
+> [!NOTE]
+> Visual Studio-verktyg för nät ännu stöder inte distribution i Windows Server 2019 och 1809 behållare.
 
 ### <a name="what-types-of-applications-can-i-deploy"></a>Vilka typer av program kan jag distribuera? 
 
@@ -138,6 +143,10 @@ Du kan stöta på CPU-tillgänglighet och gränser som åtgärdas i alla program
 Flera program kan inte distribueras till ett kluster med en nod. Minimera:
 - Använd ett kluster med fem noder när du distribuerar flera appar till ett lokalt kluster.
 - Ta bort appar som du för närvarande inte testar.
+
+### <a name="vs-tooling-has-limited-support-for-windows-containers"></a>VS verktyg har begränsat stöd för Windows-behållare
+
+Visual Studio-verktyg stöder endast distribuera Windows-behållare med en grundläggande OS-version av Windows Server 1709 och 1803 idag. 
 
 ## <a name="feature-gaps-and-other-known-issues"></a>Funktionen luckor och andra kända problem
 

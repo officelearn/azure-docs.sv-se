@@ -13,12 +13,12 @@ ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/08/2019
-ms.openlocfilehash: ecfd0cbc3eaaae64a956568a506252fdbeddcac2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ed94677eea91e3543dced9825a1372f60550a524
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60580703"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073621"
 ---
 # <a name="what-is-azure-sql-database-service"></a>Vad är Azure SQL Database-tjänsten
 
@@ -54,7 +54,7 @@ SQL Database levererar förutsägbar prestanda med flera resurstyper, tjänstniv
 
 ## <a name="scalable-performance-and-pools"></a>Skalbar prestanda och pooler
 
-- Varje databas är isolerade från varandra och portabla, var och en med sin egen garanterad mängd resurser för beräkning, minne och lagring med en enskild databas. SQL-databasen innehåller olika resurser som beräkning, minne och lagring för olika behov – och möjligheten att dynamiskt [skala resurser för enkel databas](sql-database-single-database-scale.md) uppåt och nedåt. Den [hyperskala tjänstnivå](sql-database-service-tier-hyperscale.md) (förhandsversion) för enkel databas kan du skala till 100 TB med snabb säkerhetskopiering och återställningsfunktioner.
+- Varje databas är isolerade från varandra och portabla, var och en med sin egen garanterad mängd resurser för beräkning, minne och lagring med en enskild databas. SQL-databasen innehåller olika resurser som beräkning, minne och lagring för olika behov – och möjligheten att dynamiskt [skala resurser för enkel databas](sql-database-single-database-scale.md) uppåt och nedåt. Den [hyperskala tjänstnivå](sql-database-service-tier-hyperscale.md) för enkel databas kan du skala till 100 TB med snabb säkerhetskopiering och återställningsfunktioner.
 - Med elastiska pooler kan du skapa nya databaser eller flytta enskilda databaser i en resurspool för att maximera användningen av resurser och spara pengar – och möjligheten att dynamiskt [skala elastisk poolresurser](sql-database-elastic-pool-scale.md) uppåt och nedåt.
 - Med hanterade instanser är varje hanterad instans isolerad från andra instanser med garanterade resurser. I en hanterad instans, instansdatabaser delar en uppsättning resurser- och möjligheten att dynamiskt [skala resurser för hanterad instans](sql-database-managed-instance-resource-limits.md) uppåt och nedåt.
 
@@ -69,8 +69,7 @@ SQL Database erbjuder två inköpschef modeller:
 - Den [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md) erbjuder en kombination av beräkning, minne, IO-resurser i tre tjänstnivåer för att stödja lätta till tunga arbetsbelastningar. Compute-storlekar inom varje nivå med en blandning av dessa resurser, där du kan lägga till ytterligare lagringsresurser.
 - Den [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md) kan du välja antal virtuella kärnor, hur mycket eller minne, och mycket och snabbt lagringsutrymme. Den vCore-baserade inköpsmodellen kan du använda [Azure Hybrid-förmånen för SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) att få kostnadsbesparingar. Läs mer om Azure Hybrid-förmånen [vanliga frågor och svar](#sql-database-frequently-asked-questions-faq).
 
-  > [!IMPORTANT]
-  > Den [hyperskala tjänstnivå](sql-database-service-tier-hyperscale.md) för enskilda databaser är för närvarande i offentlig förhandsversion. Vi rekommenderar inte någon produktionsarbetsbelastning körs ännu i hyperskala databaser. Du kan inte uppdatera en storskalig databas till andra tjänstnivåer. För testning syfte rekommenderar vi du gör en kopia av den aktuella databasen och uppdatera kopian hyperskala tjänstnivån.
+  
 
 ### <a name="elastic-pools-to-maximize-resource-utilization"></a>Elastiska pooler som maximerar resursutnyttjandet
 

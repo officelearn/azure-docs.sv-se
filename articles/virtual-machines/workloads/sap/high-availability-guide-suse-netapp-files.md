@@ -14,14 +14,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/015/2019
+ms.date: 04/30/2019
 ms.author: radeltch
-ms.openlocfilehash: cd2479aed1e348a27c5cba56c6d809ffb24e4fc0
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 3bd8600d0839c31a17221bb5421dc36165deb434
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925779"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142985"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>Hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server med Azure NetApp-filer för SAP-program
 
@@ -99,6 +99,10 @@ Nu är det möjligt att uppnå SAP Netweaver hög tillgänglighet med hjälp av 
 
 SAP NetWeaver ASCS, SAP NetWeaver SCS, ÄNDARE för SAP NetWeaver och SAP HANA-databas använda virtuella värdnamn och virtuella IP-adresser. På Azure, en [belastningsutjämnare](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) krävs för att använda en virtuell IP-adress. I följande lista visas konfigurationen av (A) SCS och ÄNDARE belastningsutjämnare.
 
+> [!IMPORTANT]
+> Multi-SID klustring av SAP ASCS/ÄNDARE med SUSE Linux som gästoperativsystem i virtuella Azure-datorer är **stöds inte**. Multi-SID klustring beskriver installationen av flera SAP ASCS/ÄNDARE instanser med olika SID i ett Pacemaker kluster
+
+
 ### <a name="ascs"></a>(A)SCS
 
 * Konfiguration för klientdel
@@ -125,6 +129,7 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, ÄNDARE för SAP NetWeaver och SAP HANA-d
 * Avsökningsport
   * Port 621<strong>&lt;nr&gt;</strong>
 * Belastningsutjämningsregler
+  * 32<strong>&lt;nr&gt;</strong> TCP
   * 33<strong>&lt;nr&gt;</strong> TCP
   * 5<strong>&lt;nr&gt;</strong>13 TCP
   * 5<strong>&lt;nr&gt;</strong>14 TCP
@@ -626,7 +631,7 @@ Om du använder sätta serverarkitektur 2 ([ENSA2](https://help.sap.com/viewer/c
    sudo crm configure property maintenance-mode="false"
    </code></pre>
 
-   Om du uppgraderar från en äldre version och växla till sätta server 2, se sap-kommentar [2641019](https://launchpad.support.sap.com/#/notes/2641019). 
+   Om du uppgraderar från en äldre version och växla till sätta server 2, se SAP anteckning [2641019](https://launchpad.support.sap.com/#/notes/2641019). 
 
    Kontrollera att klusterstatusen är ok och att alla resurser har startats. Det är inte viktigt i vilken nod som resurserna som körs.
 

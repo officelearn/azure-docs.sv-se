@@ -1,7 +1,7 @@
 ---
-title: Appinstrumentpanel
-titleSuffix: Language Understanding - Azure Cognitive Services
-description: Läs mer om instrumentpanelen för program, ett visualiserade verktyg som hjälper dig att övervaka dina appar i korthet enkel.
+title: Instrumentpanel – Språkförståelse
+titleSuffix: Azure Cognitive Services
+description: Åtgärda avsikter med analytics sammanfattande instrumentpanel, en visualiserade Rapporteringsverktyg.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,68 +9,166 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: c173152d0a59e391fe77ee855311a867a1b2b6c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a518a697369ff74689a0c4ac05af96453b6a5ca4
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60198487"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65072472"
 ---
-# <a name="model-and-usage-statistics-in-the-dashboard"></a>Modell- och användningsdata statistik på instrumentpanelen
-Appinstrumentpanelen kan du övervaka din app på en snabb titt. Den **instrumentpanelen** visas när du öppnar en app genom att klicka på namnet på programmet på **Mina appar** sedan väljer **instrumentpanelen** från övre panelen. 
+# <a name="how-to-use-the-dashboard-to-improve-your-app"></a>Hur du använder instrumentpanelen för att förbättra din app
 
-> [!CAUTION]
-> Om du vill använda de senaste uppdaterade mått för LUIS måste du:
-> * Använda en LUIS [slutpunktsnyckeln](luis-how-to-azure-subscription.md) skapats i Azure
-> * Använd LUIS slutpunktsnyckeln för alla endpoint begäranden, inklusive LUIS [API](https://aka.ms/luis-endpoint-apis) och bot
-> * Använd olika slutpunktsnyckeln för varje LUIS-app. Använd inte en enda slutpunkt-nyckel för alla appar. Slutpunktsnyckeln spåras på viktiga-nivå, inte på appnivå.  
+Hitta och åtgärda problem med din tränade appavsikter när du använder exemplet yttranden. Instrumentpanel för nätverkssammanfattning visar övergripande appinformation med höjdpunkter i avsikter som ska åtgärdas. 
 
-Den **instrumentpanelen** sidan ger dig en översikt över LUIS-app, inklusive den aktuella modellen tillstånd, samt [endpoint](luis-glossary.md#endpoint) användning över tid. 
-  
-## <a name="app-status"></a>Appstatus
-Instrumentpanelen visar programmets utbildning och Publiceringsstatus, inklusive datum och tid när appen senast tränas och publiceras.  
+Granska instrumentpanelen analysen är en iterativ process, upprepas när du ändrar och förbättra din modell.
 
-![Instrumentpanel – Appstatus](./media/luis-how-to-use-dashboard/app-state.png)
+Den här sidan kommer inte att ha relevanta analys för appar som inte har några exempel yttranden i avsikter kallas _endast mönstret_ appar. 
 
-## <a name="model-data-statistics"></a>Data modellstatistik
-Instrumentpanelen visar det totala antalet avsikter och entiteter taggade yttranden befintliga i appen. 
+## <a name="what-issues-can-be-fixed-from-dashboard"></a>Vilka problem kan åtgärdas från instrumentpanelen?
 
-![AppData statistik](./media/luis-how-to-use-dashboard/app-model-count.png)
+De tre problem som åtgärdas i instrumentpanelen är:
 
-## <a name="endpoint-hits"></a>Slutpunkten träffar
-Instrumentpanelen visar de totala endpoint träffar som LUIS-app tar emot och kan du visa når inom en period som du anger. Det totala antalet träffar som visas är summan av slutpunkten träffar som använder en [slutpunktsnyckeln](./luis-concept-keys.md#endpoint-key) och slutpunkten når som använder en [redigering nyckeln](./luis-concept-keys.md#authoring-key).
+|Problem|Diagramfärg|Förklaring|
+|--|--|--|
+|Data obalans|-|Detta inträffar när antalet exempel yttranden kan variera avsevärt. Alla avsikter måste ha _ungefär_ samma antal exempel yttranden - utom avsikt None. Det bör bara ha 10 – 15% av det totala antalet uttryck i appen.<br><br> Om data är imbalanced men avsikt noggrannheten är över visst tröskelvärde rapporteras inte detta som ett problem.<br><br>**Börja med det här problemet – det kan vara orsaken till de andra problem.**|
+|Oklart förutsägelser|Orange|Detta inträffar när främsta syftet och nästa avsikten poäng ligger nära nog att de kan Vänd på nästa-utbildning på grund av [negativt sampling](luis-how-to-train.md#train-with-all-data) eller flera exempel yttranden som lagts till avsikt. |
+|Felaktig förutsägelser|Röd|Detta inträffar när en exempel-uttryck inte förväntas för den märkta avsikten (intent som den tillhör).|
 
-![Slutpunkten träffar](./media/luis-how-to-use-dashboard/dashboard-endpointhits.png)
+Korrekta förutsägelser visas med blå färg.
 
-> [!NOTE] 
-> Antal träffar i den senaste slutpunkten i Azure portal på tjänstöversikt LUIS. 
- 
-### <a name="total-endpoint-hits"></a>Totalt antal endpoint träffar
-Totalt antal endpoint träffar som tagits emot i din app sedan appskapande upp till det aktuella datumet.
+Instrumentpanel för nätverkssammanfattning visar de här problemen och talar om vilka avsikter som påverkas och ger förslag på vad du bör göra för att förbättra appen. 
 
-### <a name="endpoint-hits-per-period"></a>Slutpunkten träffar per period
-Antal träffar emot inom en tidigare period, visas per dag. Punkterna mellan start- och slutdatumen motsvarar dagar som omfattas av i den här perioden. Muspekaren över varje punkt om du vill se träffarna antal i varje dag under perioden. 
+## <a name="before-app-is-trained"></a>Innan app har tränats 
 
-Att välja en period om du vill visa i diagrammet:
- 
-1. Klicka på **ytterligare inställningar** ![knappen ytterligare inställningar](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png) att komma åt listan över perioder. Du kan välja perioder som sträcker sig från en vecka upp till ett år. 
+Innan du tränar appen innehåller instrumentpanel för nätverkssammanfattning inte några förslag för korrigeringar. Träna din app för att se dessa förslag.  
 
-    ![Slutpunkten träffar per Period](./media/luis-how-to-use-dashboard/timerange.png)
+## <a name="check-your-publishing-status"></a>Kontrollera din Publiceringsstatus
 
-2. Välj en punkt i listan och klicka sedan på bakåtpilen ![Bakåtpil](./media/luis-how-to-use-dashboard/Dashboard-backArrow.png) att visa diagrammet.
+Den **Publiceringsstatus** kort innehåller information om aktivt version användarens senaste publiceringen. 
 
-### <a name="key-usage"></a>Nyckelanvändning
-Antal träffar som konsumeras från programmets slutpunktsnyckeln. Mer information om slutpunkt-nycklar finns i [nycklar i LUIS](luis-concept-keys.md). 
-  
-## <a name="intent-breakdown"></a>Avsiktshantering analys på detaljnivå
-Den **avsikt analys på detaljnivå** visar en uppdelning av avsikter utifrån taggade yttranden eller slutpunkten träffar. Den här översiktsdiagrammet visar den relativa prioriteten för varje avsikt i appen. När du håller muspekaren över en sektor visas namnet på avsiktlig och procentandelen representerar det totala antalet träffar taggade yttranden eller slutpunktens. 
+Kontrollera att den aktiva versionen är den version du vill åtgärda. 
 
-![Avsiktshantering analys på detaljnivå](./media/luis-how-to-use-dashboard/intent-breakdown.png)
+![Instrumentpanel för nätverkssammanfattning visar appens externa tjänster, publicerat regioner och aggregeras endpoint träffar.](./media/luis-how-to-use-dashboard/analytics-card-1-shows-app-summary-and-endpoint-hits.png)
 
-## <a name="entity-breakdown"></a>Entiteten analys på detaljnivå
-Instrumentpanelen visar en uppdelning av enheter baserat på märkta yttranden eller slutpunkten träffar. Den här översiktsdiagrammet visar den relativa prioriteten för varje entitet i appen. När du håller muspekaren över en sektor visas enhetens namn och procent i taggade yttranden eller slutpunktens träffar. 
+Detta också visar eventuella externa tjänster, publicerade regioner och aggregeras endpoint träffar. 
 
-![Entiteten analys på detaljnivå](./media/luis-how-to-use-dashboard/entity-breakdown.png)
+## <a name="review-training-evaluation"></a>Granska utbildning utvärdering
 
+Den **utbildning utvärdering** kort innehåller sammanställda sammanfattningen av appens övergripande Precision per område. Poängen anger avsikt kvalitet. 
+
+![Utbildning utvärdering kort innehåller det första området för information om din app övergripande precision.](./media/luis-how-to-use-dashboard/analytics-card-2-shows-app-overall-accuracy.png)
+
+Diagrammet visar korrekt förväntade avsikter och problemområden med olika färger. Som du förbättrar appen med förslag, detta poäng ökar. 
+
+Föreslagna korrigeringar avgränsas med problemtyp och är de viktigaste för din app. Om du föredrar att granska och åtgärda problem per avsikt, Använd den **[avsikter med fel](#intents-with-errors)** kortet längst ned på sidan. 
+
+Varje problemområden har avsikter som behöver åtgärdas. När du väljer namnet på avsikt, den **avsikt** öppnas med ett filter som tillämpas på talade. Det här filtret kan du fokusera på yttranden som orsakar problemet.
+
+### <a name="compare-changes-across-versions"></a>Jämföra ändringar mellan versioner
+
+Skapa en ny version innan du gör ändringar i appen. I den nya versionen, göra de föreslagna ändringarna i det syftet exempel yttranden och sedan träna igen. På sidan instrumentpanel **utbildning utvärdering** kortet, Använd den **Show ändring från tränade version** att jämföra ändringarna. 
+
+![Jämföra ändringar mellan versioner](./media/luis-how-to-use-dashboard/compare-improvement-across-versions.png)
+
+### <a name="fix-version-by-adding-or-editing-example-utterances-and-retraining"></a>Åtgärda version genom att lägga till eller redigera exempel yttranden och träna
+
+Det bästa sättet att åtgärda din app kommer att lägga till eller redigera exempel yttranden och träna om. Nya eller ändrade yttranden måste du följa riktlinjerna för [olika yttranden](luis-concept-utterance.md).
+
+Att lägga till exempel yttranden bör utföras av någon som:
+
+* har en hög grad av förståelse för vilka yttranden som finns i olika avsikter
+* vet hur yttranden i en avsikt kan blandas ihop med en annan avsikt
+* kan fastställa om två avsikter som ofta förväxlas med varandra, ska vara dolda i en enda avsikten och andra data som hämtats med entiteter
+
+### <a name="patterns-and-phrase-lists"></a>Mönster och frasen listor
+
+Analyssidan anger inte när du ska använda [mönster](luis-concept-patterns.md) eller [fras listor](luis-concept-feature.md). Om du lägger till dem, kan hjälpa dig med felaktig eller oklart förutsägelser men med data obalans hjälp inte. 
+
+### <a name="review-data-imbalance"></a>Granska data obalans
+
+Börja med det här problemet – det kan vara orsaken till de andra problem.
+
+Den **data obalans** avsikt i listan visas avsikter som behöver mer yttranden för att korrigera data obalans. 
+
+**Lös problemet**:
+
+* Lägg till mer yttranden med intentionen och sedan träna igen. 
+
+Lägg inte till yttranden avsikt NONE, såvida inte som föreslås på instrumentpanel för nätverkssammanfattning.
+
+> [!Tip]
+> Använd det tredje avsnittet på sidan **yttranden per avsikt** med den **yttranden (nummer)** anger som en visual snabbguide som avsikter behöver mer yttranden.  
+    ![Använd ”yttranden (tal)” för att hitta avsikter med data obalans.](./media/luis-how-to-use-dashboard/predictions-per-intent-number-of-utterances.png)
+
+### <a name="review-incorrect-predictions"></a>Granska felaktig förutsägelser
+
+Den **felaktig förutsägelse** avsikt i listan visas avsikter som har yttranden som används som exempel för en specifik avsikt, men förutspås för olika avsikter. 
+
+**Lös problemet**:
+
+* Redigera uttryck för att vara mer specifikt för avsikt och träna igen.
+* Kombinera avsikter om yttranden justeras alltför mycket och träna igen.
+
+### <a name="review-unclear-predictions"></a>Granska oklart förutsägelser
+
+Den **oklart förutsägelse** avsikt i listan visas avsikter med yttranden med förutsägelse poäng som inte är tillräckligt långt sätt från sin närmaste rival som den översta uttryck som används kan ändras vid nästa utbildning på grund av [ negativt sampling](luis-how-to-train.md#train-with-all-data).
+
+**Lös problemet**;
+
+* Redigera uttryck för att vara mer specifikt för avsikt och träna igen.
+* Kombinera avsikter om yttranden justeras alltför mycket och träna igen.
+
+## <a name="utterances-per-intent"></a>Yttranden per avsikt
+
+Det här kortet visar den övergripande hälsan för appen i avsikter. Fortsätt alternativen i det här kortet för problem Eftersom du åtgärda avsikter och omtrimning.
+
+Följande diagram visar en väl avvägd app nästan utan problem att åtgärda.
+
+![Följande diagram visar en väl avvägd app nästan utan problem att åtgärda.](./media/luis-how-to-use-dashboard/utterance-per-intent-shows-data-balance.png)
+
+Följande diagram visar en felaktigt balanserade app med många problem att åtgärda.
+
+![Följande diagram visar en väl avvägd app nästan utan problem att åtgärda.](./media/luis-how-to-use-dashboard/utterance-per-intent-shows-data-imbalance.png)
+
+Hovra över fältet för varje avsikt att få information om avsikten. 
+
+![Följande diagram visar en väl avvägd app nästan utan problem att åtgärda.](./media/luis-how-to-use-dashboard/utterances-per-intent-with-details-of-errors.png)
+
+Använd den **sortera efter** funktionen för att ordna avsikter av typ av problem så att du kan fokusera på de mest problematiska avsikter med problemet. 
+
+## <a name="intents-with-errors"></a>Avsikter med fel
+
+Det här kortet kan du granska problem för en specifik avsikt. Standardvyn för det här kortet är de mest problematiska avsikter så att du vet var du vill fokusera.
+
+![Avsikter med fel kort kan du granska problem för en specifik avsikt. Kortet är filtrerats till de mest problematiska avsikter som standard så att du vet var du vill fokusera.](./media/luis-how-to-use-dashboard/most-problematic-intents-with-errors.png)
+
+Det främsta ringdiagrammet visar problem med avsikten i tre problemtyper. Om det finns problem i tre problemtyper visas har varje typ sin egen diagrammet nedan, och eventuella rival avsikter. 
+
+### <a name="filter-intents-by-issue-and-percentage"></a>Filtrera avsikter av problemet och procent
+
+Det här avsnittet av kortet kan du söka efter exempel yttranden som som faller utanför ditt tröskelvärde för fel. Vi rekommenderar att du vill korrekta förutsägelser vara betydande. När är verksamhets- och drivs i procent. 
+
+Fastställa tröskelvärden som du är nöjd med för din verksamhet. 
+
+Filtret kan du söka efter avsikter med specifika problem:
+
+|Filter|Föreslagna procent|Syfte|
+|--|--|--|
+|De mest problematiska avsikter|-|**Börja här** -åtgärda talade i den här förbättrar appen som är mer än andra korrigeringar.|
+|Korrekta förutsägelser nedan|60 %|Detta är i procent av yttranden i den valda metoden som är rätt men har ett förtroenderesultat under tröskeln. |
+|Oklart förutsägelser ovan|15 %|Detta är i procent av yttranden i den valda metoden som förväxlas med närmaste rival avsikten.|
+|Felaktig förutsägelser ovan|15 %|Detta är i procent av yttranden i den valda metoden som förutspås felaktigt. |
+
+### <a name="correct-prediction-threshold"></a>Tröskelvärde för rätt förutsägelse
+
+Vad är en säker på förutsägelse förtroendepoäng för dig? I början av apputveckling kanske 60% målet. Använd den **korrigera förutsägelser nedan** med procentandelen 60% för att hitta yttranden i den valda metoden som behöver åtgärdas.
+
+### <a name="unclear-or-incorrect-prediction-threshold"></a>Tröskelvärde för oklart eller felaktig förutsägelse
+
+Dessa två filter kan du hitta yttranden i den valda metoden din överskrids. Du kan tänka på de här två procenttal som procentandel fel. Om du är nöjd med en 10 – 15% Felfrekvens för förutsägelser att ange filter tröskelvärde för 15% för att hitta alla yttranden ovanför det här värdet. 
+
+## <a name="next-steps"></a>Nästa steg
+
+* [Hantera Azure-resurser](luis-how-to-azure-subscription.md)

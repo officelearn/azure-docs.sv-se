@@ -1,10 +1,10 @@
 ---
-title: Metodtips för datasäkerhet och kryptering | Microsoft Docs
+title: Datasäkerhet och kryptering bästa metoder – Microsoft Azure
 description: Den här artikeln innehåller en uppsättning Metodtips för datasäkerhet och kryptering med inbyggda i Azure-funktioner.
 services: security
 documentationcenter: na
-author: barclayn
-manager: mbalwin
+author: TerryLanfear
+manager: barbkess
 editor: TomSh
 ms.assetid: 17ba67ad-e5cd-4a8f-b435-5218df753ca4
 ms.service: security
@@ -12,33 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2018
-ms.author: barclayn
-ms.openlocfilehash: 686d4a8ac5239af12206b57072cc00aa10114d79
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.date: 05/06/2019
+ms.author: terrylan
+ms.openlocfilehash: 9955450b468ef38ba456d7ee73d9681de677494d
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62125128"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190712"
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Metodtips för datasäkerhet i Azure och kryptering
+Den här artikeln beskriver Metodtips för datasäkerhet och kryptering.
 
+De bästa metoderna är baserade på en enhälligt av åsikter och de fungerar med den aktuella Azure-plattformsfunktioner och egenskapsuppsättningar. Andras åsikter och tekniker som ändras med tiden och den här artikeln uppdateras regelbundet att återspegla dessa ändringar.
+
+## <a name="protect-data"></a>Skydda data
 För att skydda data i molnet, som du behöver för möjliga tillstånd som kan uppstå i dina data och vilka kontroller som finns för det aktuella tillståndet. Metodtips för datasäkerhet i Azure och kryptering som är relaterade till dessa data tillstånd:
 
 - Vilande: Detta inkluderar alla information lagringsobjekt, behållare, och typer som statiskt finns på fysiska mediet, om magnetiska eller optisk disk.
 - Under överföring: När data överförs mellan komponenter, platser eller program, är det under överföringen. Exempel är överföring över nätverket, i ett service bus (från lokalt till molnet och tvärtom, inklusive hybridanslutningar, till exempel ExpressRoute), eller under en in-/ utdata-process.
-
-I den här artikeln diskuterar vi en samling Azure säkerhet och kryptering Metodtips för data. Dessa metodtips härleds från vår erfarenhet med Azure datasäkerhet och kryptering och erfarenheter från kunder som dig själv.
-
-För varje skull förklarar vi:
-
-* Vad den bästa metoden är
-* Varför du vill aktivera den bästa praxis
-* Vad kan vara resultatet om du inte aktivera den bästa metoden
-* Möjliga alternativ till den bästa praxis
-* Hur du kan lära dig att aktivera ett metodtips
-
-Den här Azure-datasäkerhet och kryptering metodtips artikeln är baserad på en konsensus-åsikter och funktioner för Azure-plattformen och funktioner, eftersom de finns när den här artikeln skrevs. Andras åsikter och tekniker som ändras med tiden och den här artikeln kommer att uppdateras regelbundet att återspegla dessa ändringar.
 
 ## <a name="choose-a-key-management-solution"></a>Välj en lösning för hantering av nycklar
 
@@ -95,7 +87,7 @@ Eftersom det stora flertalet attacker mål slutanvändaren, blir en av de primä
 
 Azure Storage och Azure SQL Database kryptera vilande data som standard och många tjänster erbjudandet kryptering som ett alternativ. Du kan använda Azure Key Vault för att behålla kontrollen över nycklar som kommer åt och krypterar dina data. Se [Azure resource providers modellen stöd för kryptering mer](azure-security-encryption-atrest.md#azure-resource-providers-encryption-model-support).
 
-**Bästa praxis**: Använd kryptering för att minska riskerna för obehörig åtkomst.
+**Bästa praxis**: Använd kryptering för att minska riskerna för obehörig åtkomst.   
 **Information om**: Kryptera dina enheter innan du skriver känsliga data till dem.
 
 Organisationer som inte framtvingar datakryptering exponeras mer för datasekretess problem. Till exempel obehöriga eller icke-registrerade användare stjäla data i kapade konton eller få obehörig åtkomst till data som är kodade i Rensa Format. Företag måste också bevisa att de är flitig och använda rätt säkerhetsåtgärder för att förbättra deras datasäkerhet för att följa industrins föreskrifter.
@@ -118,7 +110,7 @@ Följande är rekommenderade metoder som är specifika för med Azure VPN Gatewa
 **Information om**: Använd [ExpressRoute](../expressroute/expressroute-introduction.md). Om du väljer att använda ExpressRoute, du kan också kryptera data på programnivå med hjälp av [SSL/TLS](https://support.microsoft.com/kb/257591) eller andra protokoll för extra skydd.
 
 **Bästa praxis**: Interagera med Azure Storage via Azure portal.   
-**Information om**: Alla transaktioner sker via HTTPS. Du kan också använda [Storage REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx) via HTTPS kan interagera med [Azure Storage](https://azure.microsoft.com/services/storage/) och [Azure SQL Database](https://azure.microsoft.com/services/sql-database/).
+**Information om**: Alla transaktioner sker via HTTPS. Du kan också använda [Storage REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx) via HTTPS kan interagera med [Azure Storage](https://azure.microsoft.com/services/storage/).
 
 Organisationer som inte vill skydda data under överföring är svårare att [man-in-the-middle-attacker](https://technet.microsoft.com/library/gg195821.aspx), [avlyssning](https://technet.microsoft.com/library/gg195641.aspx), och sessionskapning. Dessa attacker kan vara det första steget i att komma åt känsliga data.
 

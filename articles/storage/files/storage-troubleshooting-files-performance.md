@@ -2,22 +2,22 @@
 title: Azure filer prestanda felsökningsguide
 description: Kända problem med prestanda med Azure premium-filresurser (förhandsversion) och associerade lösningar.
 services: storage
-author: jeffpatt24
+author: gunjanj
 ms.service: storage
 ms.topic: article
 ms.date: 04/25/2019
-ms.author: jeffpatt
+ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 767473a037bf890756df68719698c3872fed6a9c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5ae0bb736a7cc0bbc38df5905abc5d8a71f60eb9
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64577922"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190042"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Felsöka Azure Files-prestandaproblem
 
-Den här artikeln innehåller några vanliga problem som rör premium för Microsoft Azure-filresurser (förhandsversion). Det ger möjliga orsaker och lösningar när problemen uppstår.
+Den här artikeln innehåller några vanliga problem som rör premium Azure-filresurser (förhandsversion). Det ger möjliga orsaker och lösningar när problemen uppstår.
 
 ## <a name="high-latency-low-throughput-and-general-performance-issues"></a>Lång svarstid och lågt dataflöde Allmänt prestandaproblem
 
@@ -27,7 +27,7 @@ Standardkvoten på en resurs är 100 GiB som ger 100 baslinje IOPS (med potentie
 
 Du kan utnyttja Azure-mått i portalen för att bekräfta om din resurs har begränsats.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
 1. Välj **alla tjänster** och söker sedan efter **mått**.
 
@@ -80,7 +80,7 @@ Virtuella klientdatorer kan finnas i en annan region än premium-filresurs.
 
 ## <a name="client-unable-to-achieve-maximum-throughput-supported-by-the-network"></a>Klienten kunde inte uppnå största möjliga dataflöde som stöds av nätverket
 
-En möjlig orsak till detta är en brist fo SMB stöd för flera kanaler. För närvarande stöder premium-filer endast en kanal så det finns bara en anslutning från VM-klienten till servern. Den här enda anslutningen är knuten till en enda kärna på klienten virtuell dator, så det maximala dataflöden som kan uppnås från en virtuell dator är bunden av en enda kärna.
+En möjlig orsak till detta är en brist fo SMB stöd för flera kanaler. För närvarande stöder Azure-filresurser endast en kanal så det finns bara en anslutning från VM-klienten till servern. Den här enda anslutningen är knuten till en enda kärna på klienten virtuell dator, så det maximala dataflöden som kan uppnås från en virtuell dator är bunden av en enda kärna.
 
 ### <a name="workaround"></a>Lösning
 
@@ -137,7 +137,7 @@ Klientprogrammet överskrider upprepade gånger baslinje IOPS. För närvarande 
 
 ### <a name="cause"></a>Orsak
 
-Om antalet DirectoryOpen/DirectoryClose anrop är ett av de främsta API-anrop och du inte tror att klienten kan vara vilket gör att många anrop som det kan vara ett problem med antivirusprogram installerat på Virtuella Azure-klientdatorer.
+Om antalet DirectoryOpen/DirectoryClose anrop är ett av de främsta API-anrop och du inte tror att klienten kan vara vilket gör att många anrop, kan det vara ett problem med antivirusprogram installerat på Azure VM-klienten.
 
 ### <a name="workaround"></a>Lösning
 

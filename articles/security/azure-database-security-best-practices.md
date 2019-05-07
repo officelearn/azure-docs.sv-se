@@ -1,9 +1,9 @@
 ---
-title: Azure database säkerhetsmetoder | Microsoft Docs
+title: Rekommenderade säkerhetsmetoder – Microsoft Azure-databas
 description: Den här artikeln innehåller en uppsättning Metodtips för Azure database-säkerhet.
 services: security
 documentationcenter: na
-author: unifycloud
+author: TerryLanfear
 manager: barbkess
 editor: tomsh
 ms.assetid: ''
@@ -13,27 +13,21 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
-ms.author: tomsh
-ms.openlocfilehash: 3e244f89904ce9aca161ed1ea435f4137e42bc5d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: terrylan
+ms.openlocfilehash: f59d349da023f9a1b21477a05750d4f8e9aef500
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60587531"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65187767"
 ---
 # <a name="azure-database-security-best-practices"></a>Metodtips för Azure database-säkerhet
+Den här artikeln beskriver Metodtips för databassäkerhet.
+
+De bästa metoderna är baserade på en enhälligt av åsikter och de fungerar med den aktuella Azure-plattformsfunktioner och egenskapsuppsättningar. Andras åsikter och tekniker som ändras med tiden och den här artikeln uppdateras regelbundet att återspegla dessa ändringar.
+
+## <a name="secure-databases"></a>Skydda databaser
 Säkerhet är ett viktigt mål för hantering av databaser och den har alltid varit en prioritet för [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/). Dina databaser kan skyddas nära för att hjälpa uppfyller de flesta juridiska eller säkerhetskrav, inklusive HIPAA, ISO 27001/27002 och PCI DSS Level 1. En aktuell lista över security efterlevnadscertifieringar är tillgänglig på den [Microsoft Trust Center plats](https://azure.microsoft.com/support/trust-center/services/). Du kan också välja att placera dina databaser i specifika Azure-datacenter som baseras på myndighetskrav.
-
-I den här artikeln diskuterar vi en samling med Azure database säkerhetsmetoder. Dessa metodtips härleds från vår erfarenhet med Azure database-säkerhet och erfarenheter från kunder som dig själv.
-
-För varje rekommenderar förklarar vi:
-
--   Vad den bästa metoden är
--   Varför du vill aktivera den bästa praxis
--   Vad kan vara resultatet om du inte aktivera den bästa metoden
--   Hur du kan lära dig att aktivera ett metodtips
-
-Den här säkerhetsmetoder för Azure Database-artikeln är baserad på en konsensus åsikter och funktioner för Azure-plattformen och funktionen anger eftersom de finns när den här artikeln skrevs. Andras åsikter och tekniker som ändras med tiden och den här artikeln kommer att uppdateras regelbundet att återspegla dessa ändringar.
 
 ## <a name="use-firewall-rules-to-restrict-database-access"></a>Använd brandväggsregler för att begränsa databasåtkomst
 Microsoft Azure SQL Database tillhandahåller en relationsdatabastjänst för Azure och andra Internetbaserade program. För att ge åtkomstsäkerhet, kontrollerar SQL Database åtkomsten med:

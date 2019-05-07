@@ -15,12 +15,12 @@ ms.date: 04/02/2019
 ms.author: celested
 ms.reviewer: asmalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 516faed0f41ae36079d0f26f0311b35d5582d57a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 67956b3369394f68d067fc4753a859c066428aea
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708298"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65191502"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatisera etablering och avetablering för SaaS-program med Azure Active Directory
 
@@ -274,6 +274,10 @@ Nej. När konfigurerad att ”synkronisera enbart tilldelade användare och grup
 Detta är en begränsning av ”gruppbaserad tilldelningar till program”, som också påverkar enkel inloggning och beskrivs i [hantera åtkomst till SaaS-program med hjälp av en grupp](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-saasapps ).
 
 Som en lösning kan du uttryckligen tilldela (eller på annat sätt [omfång i](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)) de grupper som innehåller de användare som behöver etableras.
+
+### <a name="is-provisioning-between-azure-ad-and-a-target-application-using-an-encrypted-channel"></a>Etablerar Azure AD och ett målprogram med en krypterad kanal?
+
+Ja. Vi använder HTTPS-SSL-kryptering för server-målet. 
 
 ## <a name="related-articles"></a>Relaterade artiklar
 

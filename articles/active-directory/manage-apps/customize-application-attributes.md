@@ -15,12 +15,12 @@ ms.date: 04/03/2019
 ms.author: celested
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b63118a7c5fae49edebe4ae4976a1362781ae8cf
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c9db6babff3ae0c91f730e6ec2e6e2a41d55b0bf
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64712860"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65191518"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Anpassa attributmappningar för Användaretablering för SaaS-program i Azure Active Directory
 Microsoft Azure AD har stöd för användaretablering för SaaS-program från tredje part, till exempel Salesforce, G Suite och andra. Om du aktiverar användaretablering för ett SaaS-program från tredje part, styr dess attributvärden via attributmappningar Azure-portalen.
@@ -149,6 +149,8 @@ Det här alternativet tvingar effektivt en omsynkronisering av alla användare m
 * Uppdaterar attributmappningar har en inverkan på prestanda hos en synkroniseringscykel. En uppdatering av attributmappning konfigurationen kräver alla hanterade objekt som ska vara omvärderas. 
 
 * En rekommenderad metod är att hålla din attributmappningar lägst antal på varandra följande ändringar.
+
+* Att lägga till ett foto-attribut som ska etableras i en app stöds inte i dag som du inte kan ange formatet för att synkronisera fotot. Du kan installera funktionen på [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory)
 
 
 ## <a name="next-steps"></a>Nästa steg

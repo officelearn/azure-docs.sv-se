@@ -16,12 +16,12 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 064c3e5fb7a65a7495c393db893e784548075daf
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d63ff648f89a231f0077363c88709a17d157ae8c
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708216"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190906"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Snabbstart: Lägga till inloggning med Microsoft till en ASP.NET-webbapp
 
@@ -68,7 +68,7 @@ Välj **autentiseringsmenyn** och ange **ID-token** under **Implicit beviljande*
 
 #### <a name="step-2-download-your-project"></a>Steg 2: Ladda ned ditt projekt
 
-[Ladda ned Visual Studio 2017-lösningen](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
+[Ladda ned Visual Studio 2019 lösningen](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
 
 #### <a name="step-3-configure-your-visual-studio-project"></a>Steg 3: Konfigurera ditt Visual Studio-projekt
 
@@ -96,7 +96,7 @@ Välj **autentiseringsmenyn** och ange **ID-token** under **Implicit beviljande*
 
 ## <a name="more-information"></a>Mer information
 
-I det här avsnittet får du en översikt över koden som krävs för att logga in användare. Det kan vara användbart för att förstå hur koden fungerar, huvudargumenten och också om du vill lägga till inloggning för en befintlig ASP.NET-app.
+I det här avsnittet får du en översikt över koden som krävs för att logga in användare. Den här översikten kan vara användbar för att förstå hur koden fungerar, huvudsakliga argument, och även om du vill lägga till inloggning till ett befintligt ASP.NET-program.
 
 ### <a name="owin-middleware-nuget-packages"></a>OWIN-mellanprogrammets NuGet-paket
 
@@ -110,7 +110,7 @@ Install-Package Microsoft.Owin.Host.SystemWeb
 
 ### <a name="owin-startup-class"></a>OWIN-startklass
 
-OWIN-mellanprogrammet använder en *startklass* som körs när värdprocessen initieras (i snabbstartens fall filen *startup.cs* som finns i rotmappen). Följande kod visar parametern som används av den här snabbstarten:
+OWIN-mellanprogrammet använder en *startklass* som körs när värdprocessen initierar. I den här snabbstarten den *startup.cs* finns i rotmappen. Följande kod visar parametern som används av den här snabbstarten:
 
 ```csharp
 public void Configuration(IAppBuilder app)

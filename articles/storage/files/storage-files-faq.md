@@ -8,12 +8,12 @@ ms.date: 01/02/2019
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 4186af31e17acea09e6b3c1a0121d2fcbe63f800
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: cdffbfd11a0f1c7d99818fa00f550965774b9b31
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917614"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190070"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Vanliga frågor (och svar FAQ) om Azure Files
 [Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade filresurser i molnet som är tillgängliga via vanliga [Server Message Block (SMB) protokollet](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Du kan montera Azure-filresurser samtidigt på molnet eller lokala distributioner av Windows, Linux och macOS. Du kan också cachelagra Azure-filresurser på Windows Server-datorer med hjälp av Azure File Sync för snabb åtkomst nära där data används.
@@ -145,7 +145,7 @@ Den här artikeln innehåller vanliga frågor och svar om Azure Files och funkti
 
 * <a id="afs-os-support"></a>
   **Kan jag använda Azure File Sync med Windows Server 2008 R2, Linux eller enheten nätverksansluten lagring (NAS)?**  
-    Azure File Sync stöder för närvarande endast Windows Server 2016 och Windows Server 2012 R2. Vi har inte några andra planer kan vi dela just nu, men vi är öppen för stöd för ytterligare plattformar baserat på kundernas behov. Berätta för oss på [Azure filer UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files) vilka plattformar du vill bli kontaktad för.
+    Azure File Sync stöder för närvarande endast 2019 för Windows Server, Windows Server 2016 och Windows Server 2012 R2. Vi har inte några andra planer kan vi dela just nu, men vi är öppen för stöd för ytterligare plattformar baserat på kundernas behov. Berätta för oss på [Azure filer UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files) vilka plattformar du vill bli kontaktad för.
 
 * <a id="afs-tiered-files-out-of-endpoint"></a>
   **Varför finns nivåindelade filer utanför den slutpunkten namnrymden?**  
@@ -222,7 +222,7 @@ Den här artikeln innehåller vanliga frågor och svar om Azure Files och funkti
 * <a id="encryption-at-rest"></a>
 **Hur kan jag kontrollera att min Azure-filresurs är krypterade i vila?**  
 
-    Azure Storage Service Encryption håller håller på att aktiveras som standard i alla regioner. För dessa regioner behöver du inte vidta några åtgärder för att aktivera kryptering. Andra regioner finns [Server side encryption](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+    Ja. Mer information finns i [Azure Storage Service Encryption](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 * <a id="access-via-browser"></a>
 **Hur kan jag ge åtkomst till en viss fil med hjälp av en webbläsare?**  

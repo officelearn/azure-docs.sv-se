@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: pullabhk
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 15bb64917fa58ba2d13c6f372640957508ab29c1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 94fde7714f3efe0a460983966923071bce1afcc6
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60700300"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190511"
 ---
 # <a name="monitoring-at-scale-using-azure-monitor"></a>Övervakning i stor skala med Azure Monitor
 
@@ -109,7 +109,7 @@ Viktigaste är utlösande villkoret för aviseringen. När du klickar på ”vil
 
 ![LAAzureBackupAlertCondition](media/backup-azure-monitoring-laworkspace/la-azurebackup-alertlogic.png)
 
-Redigera Kusto-fråga om det behövs genom att markera rätt tröskelvärdet (som avgör när aviseringen bränner), rätt perioden (tidsfönster som frågan körs), och hur ofta. För till exempel: Om tröskelvärdet är större än 0, perioden är 5 minuter och frekvensen är 5 minuter, sedan översätts regeln som ”kör fråga var femte minut under de senaste 5 minuterna och om antalet resultat som är större än 0, meddela mig via den valda åtgärdsgruppen”
+Redigera Kusto-fråga om det behövs genom att markera rätt tröskelvärdet (som avgör när aviseringen bränner), rätt perioden (tidsfönster som frågan körs), och hur ofta. Exempel: Om tröskelvärdet är större än 0, perioden är 5 minuter och frekvensen är 5 minuter, sedan översätts regeln som ”kör fråga var femte minut under de senaste 5 minuterna och om antalet resultat som är större än 0, meddela mig via den valda åtgärdsgruppen”
 
 #### <a name="action-group-integration"></a>Åtgärden gruppen integration
 

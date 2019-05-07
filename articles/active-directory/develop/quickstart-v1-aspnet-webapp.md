@@ -1,6 +1,6 @@
 ---
 title: Lägga till inloggning med Microsoft till en ASP.NET-webbapp | Microsoft Docs
-description: Lär dig hur du lägger till Microsoft-inloggning till en ASP.NET-lösning med ett traditionellt webbläsarbaserat program med OpenID Connect-standarden.
+description: Lär dig hur du lägger till Microsoft logga in på en ASP.NET-lösning med en traditionell webbläsarbaserade webbprogrammet med OpenID Connect-standarden.
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms
@@ -16,18 +16,18 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: andret
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6119baf79b9323a5c1ad06d75e1410f632015f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7aca42aa13ef78647b591eb0be7083f932ce0c35
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60299387"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65191031"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Snabbstart: Lägga till inloggning med Microsoft till en ASP.NET-webbapp
 
 [!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
 
-I den här snabbstarten lär du dig hur du implementerar inloggning med Microsoft med hjälp av en ASP.NET MVC-lösning med ett traditionellt webbläsarbaserat program med OpenID Connect. Du lär dig hur du lägger till inloggning från arbets- och skolkonton i ditt ASP.NET-program.
+I den här snabbstarten lär du dig att implementera logga in med Microsoft som använder en lösning för ASP.NET modellen View Controller (MVC) med ett traditionellt webbläsarbaserade webbprogram med OpenID Connect. Du lär dig hur du lägger till inloggning från arbets- och skolkonton i ditt ASP.NET-program.
 
 När du är klar med den här snabbstarten kommer ditt program att acceptera inloggningar med arbets- och skolkonton från organisationer som är integrerade med Azure Active Directory (AD Azure).
 
@@ -38,15 +38,15 @@ När du är klar med den här snabbstarten kommer ditt program att acceptera inl
 
 Innan du börjar kontrollerar du att följande krav är uppfyllda:
 
-* Visual Studio 2015 Update 3 eller Visual Studio 2017 är installerat. Saknas det? [Ladda ned Visual Studio 2017 utan kostnad](https://www.visualstudio.com/downloads/)
+* Visual Studio 2015 Update 3 eller Visual Studio 2019 installerat. Saknas det? [Ladda ned Visual Studio 2019 utan kostnad](https://www.visualstudio.com/downloads/)
 
 ## <a name="scenario-sign-in-users-from-work-and-school-accounts-in-your-aspnet-app"></a>Scenario: Logga in användare från arbets- och skolkonton i din ASP.NET-app
 
 ![Så här fungerar den här guiden](./media/quickstart-v1-aspnet-webapp/aspnet-intro.png)
 
-I det här scenariot ansluter en webbläsare till en ASP.NET-webbplats och begär att en användare autentiserar via en inloggningsknapp. I det här scenariot sker merparten av renderingen av webbsidan på serversidan.
+En webbläsare ansluter till en ASP.NET-webbplats och begär en användare autentiseras med ett tecken i knappen i det här scenariot. I det här scenariot sker merparten av renderingen av webbsidan på serversidan.
 
-Snabbstarten demonstrerar hur du loggar in användare i ett ASP.NET-webbprogram med början från en tom mall, och innehåller bland annat steg som beskriver hur du lägger till en inloggningsknapp, kontrollanter och metoder, samt beskriver koncepten bakom dessa aktiviteter. Du kan också skapa ett projekt för att logga in Azure AD-användare (arbets- och skolkonton) med hjälp av [Visual Studio-webbmallen](https://docs.microsoft.com/aspnet/visual-studio/overview/2013/creating-web-projects-in-visual-studio#organizational-account-authentication-options) och välja **Organisationskonton** och sedan något av molnalternativen – det här alternativet använder en mer omfattande mall, med ytterligare kontrollanter, metoder och vyer.
+Snabbstarten visar hur man loggar in användare på ASP.NET-webbprogram med början från en tom mall. Dessutom innehåller steg, till exempel att lägga till en knapp för inloggning och varje styrenhet och metoder och beskrivs koncepten bakom dessa uppgifter. Du kan också skapa ett projekt för att logga in Azure AD-användare (arbets- och skolkonton konton) med hjälp av den [Visual Studio webbmallen](https://docs.microsoft.com/aspnet/visual-studio/overview/2013/creating-web-projects-in-visual-studio#organizational-account-authentication-options) och välja **Organisationskonton** och sedan något av alternativen cloud - detta alternativet använder en mall för bättre med ytterligare domänkontrollanter, metoder och vyer.
 
 ## <a name="libraries"></a>Bibliotek
 
@@ -158,7 +158,7 @@ Den här kontrollanten demonstrerar hur `[Authorize]`-attributet kan skydda en k
 1. Välj **MVC-kontrollant {version} – tom**.
 1. Välj **Lägg till**.
 1. Ge den namnet **ClaimsController**.
-1. Ersätt koden i kontrollantklassen med följande kod, som lägger till attributet `[Authorize]` till klassen:
+1. Ersätt Koden i din kontrollantklassen med följande kod – det här exemplet lägger till den `[Authorize]` attributet klassen:
 
     [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Controllers/ClaimsController.cs?name=ClaimsController "ClaimsController.cs")]
 
@@ -196,29 +196,29 @@ Skapa en ny vy i Visual Studio för att visa användarens anspråk på en webbsi
 4. Kopiera projektets SSL-URL till Urklipp:<br/><br/>![Projektegenskaper](./media/quickstart-v1-aspnet-webapp/visual-studio-project-properties.png)<br />
 5. I <code>web.config</code> ersätter du <code>Enter_the_Redirect_URL_here</code> med SSL-URL:en för ditt projekt.
 
-### <a name="register-your-application-in-the-azure-portal-then-add-its-information-to-webconfig"></a>Registrera ditt program på Azure-portalen och lägg sedan till dess information i *web.config*
+### <a name="register-your-application-in-the-azure-portal-then-add-its-information-to-webconfig"></a>Registrera ditt program i Azure portal och sedan lägga till dess information till *web.config*
 
 1. Gå till [Appregistreringar på Microsoft Azure-portalen](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) för att registrera ett program.
 2. Välj **Ny programregistrering**.
 3. Ange ett namn för ditt program.
-4. Klistra in Visual Studio-projektets *SSL-URL* i **Inloggnings-URL**. Den här URL:en läggs också till automatiskt i listan över svars-URL:er för det program som du registrerar.
+4. Klistra in Visual Studio-projektets *SSL-URL* i **Inloggnings-URL**. Den här URL: en läggs också automatiskt i listan över svars-URL för programmet som du registrera.
 5. Välj **Skapa** för att registrera programmet. Den här åtgärden tar dig tillbaka till listan med program.
 6. Sök och/eller välj det program som du nyss skapade för att öppna dess egenskaper.
 7. Kopiera GUID under **Program-ID** till Urklipp.
-8. Gå tillbaka till Visual Studio och ersätt `Enter_the_Application_Id_here` i `web.config` med program-ID:t från programmet som du nyss registrerade.
+8. Gå tillbaka till Visual Studio och i `web.config`, Ersätt `Enter_the_Application_Id_here` med program-ID från programmet som du har registrerat.
 
 > [!TIP]
 > Om ditt konto har konfigurerats för åtkomst till flera kataloger kontrollerar du att du har valt rätt katalog för den organisation som du vill att programmet ska registreras för genom att klicka på namnet på ditt konto längst upp till höger på Azure-portalen och verifiera den valda katalogen:<br/>![Välja rätt katalog](./media/quickstart-v1-aspnet-webapp/tenantselector.png)
 
 ## <a name="step-10-configure-sign-in-options"></a>Steg 10: Konfigurera inloggningsalternativ
 
-Du kan konfigurera ditt program så att endast användare som tillhör en organisations Azure AD-instans kan logga in, eller godkänna inloggningar från användare oavsett vilken organisation de tillhör. Följ anvisningarna för något av följande alternativ:
+Du kan konfigurera ditt program så att endast användare som tillhör en organisations Azure AD-instans för att logga in och Godkänn inloggningar från användare som tillhör en organisation. Följ instruktionerna i något av följande alternativ:
 
 ### <a name="configure-your-application-to-allow-sign-ins-of-work-and-school-accounts-from-any-company-or-organization-multi-tenant"></a>Konfigurera ditt program för att tillåta inloggningar med arbets- och skolkonton från alla företag eller organisationer (flera innehavare)
 
-Följ anvisningarna nedan om du vill godkänna inloggningar med arbets- och skolkonton från alla företag eller organisationer som är integrerade med Azure AD. Det här är ett vanligt scenario för *SaaS-program*:
+Följ anvisningarna nedan om du vill godkänna inloggningar med arbets- och skolkonton från alla företag eller organisationer som är integrerade med Azure AD. Det här scenariot är gemensamt för *SaaS-program*:
 
-1. Gå tillbaka till [Appregistreringar på Microsoft Azure-portalen](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) och leta upp det program som du nyss registrerade.
+1. Gå tillbaka till [Microsoft Azure portal – appregistreringar](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) och leta upp det program som du har registrerat.
 2. Under **Alla inställningar** väljer du **Egenskaper**.
 3. Ändra egenskapen **Multi-klient** till **Ja** och välj sedan **Spara**.
 
@@ -238,7 +238,7 @@ Följ dessa steg om du endast vill tillåta användare från en lista med specif
 1. Ange `ValidateIssuer` till Sant.
 1. Använd parametern `ValidIssuers` för att ange en lista med organisationer.
 
-Ett annat alternativ är att implementera en anpassad metod för att verifiera utfärdarna med hjälp av parametern *IssuerValidator*. Mer information om `TokenValidationParameters` finns i [den här MSDN-artikeln](https://msdn.microsoft.com/library/system.identitymodel.tokens.tokenvalidationparameters.aspx "MSDN-artikel om TokenValidationParameters").
+Ett annat alternativ är att implementera en anpassad metod för att verifiera utfärdarna med hjälp av parametern *IssuerValidator*. Mer information om `TokenValidationParameters`, se [den här MSDN-artikeln](https://msdn.microsoft.com/library/system.identitymodel.tokens.tokenvalidationparameters.aspx "TokenValidationParameters MSDN-artikeln").
 
 <!--end-configure-->
 
@@ -278,7 +278,7 @@ När du är redo att testa använder du ett arbetskonto (Azure AD) för att logg
 
 #### <a name="expected-results"></a>Förväntat resultat
 
-Efter inloggningen omdirigeras användaren till startsidan för din webbplats, som är den HTTPS-URL som anges i registreringsinformationen för ditt program på Microsofts programregistreringsportal. Den här sidan visar nu *Hello {Användare}* och en länk för att logga ut, samt en länk för att visa användarens anspråk – vilket är en länk till auktoriseringskontrollanten som du skapade tidigare.
+När användaren loggar in, omdirigeras användaren till startsidan för din webbplats är HTTPS-URL som anges i ditt programs registreringsinformation i portalen för registrering av Microsoft-program. Den här sidan visar nu *Hello {Användare}* och en länk för att logga ut, samt en länk för att visa användarens anspråk – vilket är en länk till auktoriseringskontrollanten som du skapade tidigare.
 
 ### <a name="see-users-claims"></a>Visa användarens anspråk
 
@@ -292,7 +292,7 @@ Välj hyperlänken för att se användarens anspråk. Den här åtgärden leder 
 |---|---|---|
 | Namn | {User Full Name} | Användarens förnamn och efternamn |
 | Användarnamn | <span>user@domain.com</span> | Användarnamnet som används för att identifiera den inloggade användaren |
-| Subjekt| {Subject} |En sträng som identifierar användarinloggningen unikt på webben |
+| Subjekt| {Subject} |En sträng för att unikt identifiera användaren logga in på webben |
 | Klient-ID:t | {Guid} | Ett *guid* som representerar användarens Azure AD-organisation unikt |
 
 Dessutom ser du en tabell med alla användaranspråk i autentiseringsbegäran. En lista över alla anspråk i en ID-Token och deras beskrivning finns i [listan över anspråk i ID-token](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).

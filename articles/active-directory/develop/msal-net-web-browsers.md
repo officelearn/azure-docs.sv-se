@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/24/2019
-ms.author: ryanwi
+ms.date: 05/06/2019
+ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 350cb3fec4d325d6cf5848733c0bae18d5efacca
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: HT
+ms.openlocfilehash: d6e13ec3d822ba8a8cd2484f42ea81e615bae268
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65076847"
+ms.locfileid: "65190991"
 ---
 # <a name="using-web-browsers-in-msalnet"></a>Med webbläsare i MSAL.NET
 Webbläsare krävs för interaktiv autentisering. Som standard MSAL.NET stöder den [system webbläsare](#system-web-browser-on-xamarinios-and-xamarinandroid) på Xamarin.iOS och [Xamarin.Android](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/system-browser). Men [du kan också aktivera Embedded webbläsarens](#enable-embedded-webviews) beroende på dina behov (UX behovet av enkel inloggning (SSO), säkerhet) i [Xamarin.iOS](#choosing-between-embedded-web-browser-or-system-browser-on-xamarinios) och [Xamarin.Android](#choosing-between-embedded-web-browser-or-system-browser-on-xamarinandroid) appar. Och du kan även [väljer dynamiskt](#detecting-the-presence-of-custom-tabs-on-xamarinandroid) vilken webbläsare du använder baserat på förekomsten av Chrome eller en webbläsare som stöder Chrome anpassade flikar i Android.
@@ -40,7 +40,7 @@ Det är viktigt att förstå att när du hämtar en token interaktivt innehålle
 
 ## <a name="system-web-browser-on-xamarinios-and-xamarinandroid"></a>System-webbläsaren på Xamarin.iOS och Xamarin.Android
 
-Som standard stöder MSAL.NET system webbläsarens på Xamarin.iOS och Xamarin.Android. Om du vill vara värd för interaktion med STS ADAL.NET används bara den **embedded** webbläsare. För alla plattformar som tillhandahåller Användargränssnittet (det vill säga inte .NET Core), kommer en dialogruta från biblioteket bädda in en webbläsarkontroll. MSAL.NET använder även en inbäddad webbvy för .NET Desktop- och Windows Adressbok för UWP-plattformen. Men den använder som standard den **system webbläsare** för Xamarin iOS- och Xamarin Android-program. På iOS-, väljer den även webbvyn att använda beroende på vilken version av operativsystemet (iOS12, iOS11, och tidigare).
+Som standard stöder MSAL.NET system webbläsarens på Xamarin.iOS och Xamarin.Android. För alla plattformar som tillhandahåller Användargränssnittet (det vill säga inte .NET Core), kommer en dialogruta från biblioteket bädda in en webbläsarkontroll. MSAL.NET använder även en inbäddad webbvy för .NET Desktop- och Windows Adressbok för UWP-plattformen. Men den använder som standard den **system webbläsare** för Xamarin iOS- och Xamarin Android-program. På iOS-, väljer den även webbvyn att använda beroende på vilken version av operativsystemet (iOS12, iOS11, och tidigare).
 
 Webbläsaren system har stor fördel med att dela SSO-tillstånd med andra program och webbprogram utan att behöva en koordinator (Företagsportalen / Authenticator). System webbläsaren användes, som standard i MSAL.NET för Xamarin iOS- och Xamarin Android-plattformar eftersom, på följande plattformar system webbläsarens tar upp hela skärmen och användarupplevelsen är bättre. Webbvy system är inte kan särskiljas från en dialogruta. På iOS-, men kanske användaren ge ditt medgivande för webbläsaren om du vill anropa programmet, vilket kan vara störande.
 
@@ -70,49 +70,55 @@ Det finns några visual skillnader mellan embedded webbvy och system webbläsare
 
 Som utvecklare med hjälp av MSAL.NET har du flera alternativ för att visa dialogrutan interaktiva från STS:
 
-- **System-webbläsaren.** System-webbläsaren är som standard i biblioteket. Om du använder Android läsa [system webbläsare](msal-net-system-browser-android-considerations.md) för specifik information om vilka webbläsare som stöds för autentisering. När webbläsaren system i Android, rekommenderar vi att enheten har en webbläsare som stöder Chrome anpassade flikar.  I annat fall misslyckas autentiseringen. 
-- **Inbäddade webbvy.** Om du vill använda endast inbäddade webview i MSAL.NET, det finns överlagringar av den `UIParent()` konstruktorn som är tillgängliga för Android och iOS.
+- **System-webbläsaren.** System-webbläsaren är som standard i biblioteket. Om du använder Android läsa [system webbläsare](msal-net-system-browser-android-considerations.md) för specifik information om vilka webbläsare som stöds för autentisering. När webbläsaren system i Android, rekommenderar vi att enheten har en webbläsare som stöder Chrome anpassade flikar.  I annat fall misslyckas autentiseringen.
+- **Inbäddade webbvy.** Du använder endast inbäddade webview i MSAL.NET, den `AcquireTokenInteractively` parametrar builder innehåller en `WithUseEmbeddedWebView()` metod.
 
-    iOS:
+    iOS
 
     ```csharp
-    public UIParent(bool useEmbeddedWebview)
+    AuthenticationResult authResult;
+    authResult = app.AcquireTokenInteractively(scopes)
+                    .WithUseEmbeddedWebView(useEmbeddedWebview)
+                    .ExecuteAsync();
     ```
 
     Android:
 
     ```csharp
-    public UIParent(Activity activity, bool useEmbeddedWebview)
+    authResult = app.AcquireTokenInteractively(scopes)
+                .WithParentActivityOrWindow(activity)
+                .WithUseEmbeddedWebView(useEmbeddedWebview)
+                .ExecuteAsync();
     ```
 
 #### <a name="choosing-between-embedded-web-browser-or-system-browser-on-xamarinios"></a>Välja mellan embedded webbläsare eller system webbläsaren på Xamarin.iOS
 
-I din iOS-app i `AppDelegate.cs` du kan använda system webbläsare eller inbäddade webbvy.
+I din iOS-app i `AppDelegate.cs` kan du kan initiera den `ParentWindow` till `null`. Den används inte i iOS
 
 ```csharp
-// Use only embedded webview
-App.UIParent = new UIParent(true);
-
-// Use only system browser
-App.UIParent = new UIParent();
+App.ParentWindow = null; // no UI parent on iOS
 ```
 
 #### <a name="choosing-between-embedded-web-browser-or-system-browser-on-xamarinandroid"></a>Välja mellan embedded webbläsare eller system webbläsaren på Xamarin.Android
 
-I din Android-app i `MainActivity.cs` du kan bestämma hur du implementerar webview-alternativ.
+I din Android-app i `MainActivity.cs` du kan ange den överordnade aktiviteten så att resultat för autentisering hämtar tillbaka till den:
 
 ```csharp
-// Use only embedded webview
-App.UIParent = new UIParent(Xamarin.Forms.Forms.Context as Activity, true);
+ App.ParentWindow = this;
+```
 
-// or
-// Use only system browser
-App.UIParent = new UIParent(Xamarin.Forms.Forms.Context as Activity);
+I den `MainPage.xaml.cs`:
+
+```csharp
+authResult = await App.PCA.AcquireTokenInteractive(App.Scopes)
+                      .WithParentActivityOrWindow(App.ParentWindow)
+                      .WithUseEmbeddedWebView(true)
+                      .ExecuteAsync();
 ```
 
 #### <a name="detecting-the-presence-of-custom-tabs-on-xamarinandroid"></a>Identifiera förekomsten av anpassade flikar på Xamarin.Android
 
-Om du vill använda webbläsaren system för att aktivera enkel inloggning med appar som körs i webbläsaren, men de är oroliga om användarupplevelsen för Android-enheter inte har en webbläsare med stöd för anpassad flik, har möjlighet att bestämma genom att anropa den `IsSystemWebViewAvailable()` -metod i < c 2 > `UIParent` . Den här metoden returnerar `true` om PackageManager identifierar anpassade flikar och `false` om de inte identifieras på enheten.
+Om du vill använda webbläsaren system för att aktivera enkel inloggning med appar som körs i webbläsaren, men de är oroliga om användarupplevelsen för Android-enheter inte har en webbläsare med stöd för anpassad flik, har möjlighet att bestämma genom att anropa den `IsSystemWebViewAvailable()` -metod i < c 2 > `IPublicClientApplication` . Den här metoden returnerar `true` om PackageManager identifierar anpassade flikar och `false` om de inte identifieras på enheten.
 
 Baserat på värdet som returneras av den här metoden och dina krav kan fatta du ett beslut:
 
@@ -122,23 +128,16 @@ Baserat på värdet som returneras av den här metoden och dina krav kan fatta d
 Koden nedan visar embedded webview-alternativet:
 
 ```csharp
-bool useSystemBrowser = UIParent.IsSystemWebviewAvailable();
-if (useSystemBrowser)
-{
-    // A browser with custom tabs is present on device, use system browser
-    App.UIParent = new UIParent(Xamarin.Forms.Forms.Context as Activity);
-}
-else
-{
-    // A browser with custom tabs is not present on device, use embedded webview
-    App.UIParent = new UIParent(Xamarin.Forms.Forms.Context as Activity, true);
-}
+bool useSystemBrowser = app.IsSystemWebviewAvailable();
 
-// Alternative:
-App.UIParent = new UIParent(Xamarin.Forms.Forms.Context as Activity, !useSystemBrowser);
-
+authResult = await App.PCA.AcquireTokenInteractive(App.Scopes)
+                      .WithParentActivityOrWindow(App.ParentWindow)
+                      .WithUseEmbeddedWebView(!useSystemBrowser)
+                      .ExecuteAsync();
 ```
 
-## <a name="net-core-does-not-support-interactive-authentication"></a>.NET core stöder inte interaktiv autentisering
+## <a name="net-core-does-not-support-interactive-authentication-out-of-the-box"></a>.NET core stöder inte interaktiv autentisering direkt
 
 För .NET Core är inköp av token interaktivt inte tillgänglig. Verkligen, .NET Core ger inte Användargränssnittet ännu. Om du vill ange interaktiv inloggning för ett program med .NET Core kan du låta programmet presentera för användaren en kod och en URL att gå för att logga in interaktivt (se [enheten kod Flow](msal-authentication-flows.md#device-code)).
+
+Du kan också implementera den [IWithCustomUI](scenario-desktop-acquire-token.md#withcustomwebui) gränssnitt och ange din egen webbläsare

@@ -16,12 +16,12 @@ ms.date: 01/25/2018
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e988d03b60469940d8750cc07188a61fc7ab8b3a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 3973a35acb4cb95d3392a8daa59e7fd9a8c56eb1
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64709607"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65191529"
 ---
 # <a name="azure-active-directory-identity-protection-risk-events-reference"></a>Referera till Azure Active Directory Identity Protection riskhändelser
 
@@ -80,7 +80,9 @@ Den här riskhändelsetyp anger inloggningar från IP-adresser som smittats av s
 
 ## <a name="unfamiliar-sign-in-properties"></a>Obekanta inloggningsegenskaper
 
-**Identifieringstyp av:** I realtid **Gammalt namn:** Inloggningar från okända platser
+**Identifieringstyp av:** Realtid  
+**Gammalt namn:** Inloggningar från okända platser
+
 
 Den här riskhändelsetyp tar hänsyn till tidigare inloggningshistorik (IP, latitud / longitud och ASN) att leta efter avvikande inloggningar. Systemet lagrar information om tidigare platser som används av en användare och så att platserna ”välbekanta”. Riskhändelsen utlöses när inloggningen sker från en plats som inte redan finns i listan med välbekanta platser. Nya användare att i ”inlärningsläget” för en viss tidsperiod i bekant inloggning egenskaperna riskhändelser kommer att inaktiveras när våra algoritmer Läs användarens beteenden. Utbildningsresurser läge varaktighet är dynamisk och beror på hur lång tid det tar att samla in tillräckligt med information om användarens inloggningsmönster algoritmen. Minsta varaktighet är fem dagar. En användare kan gå tillbaka till inlärningsläge efter en lång tids inaktivitet. Systemet ignorerar också inloggningar från välbekanta enheter och platser som ligger geografiskt nära en bekant plats. 
 

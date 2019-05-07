@@ -16,12 +16,12 @@ ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f242afb717557a35b81515ab718971bdc398b5a
-ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
+ms.openlocfilehash: 605206682cb70d430773cdbf9ff746eabf594103
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "64992779"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190848"
 ---
 # <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-single-page-application-spa"></a>Snabbstart: Logga in användare och hämta en åtkomsttoken från ett JavaScript ensidesapplikation (SPA)
 
@@ -37,7 +37,7 @@ Du behöver följande inställningar för den här snabbstarten:
 * Kör projektet med en node.js-server
     * Installera [Node.js](https://nodejs.org/en/download/)
     * Installera [Visual Studio Code](https://code.visualstudio.com/download) redigera projektfiler
-* Om du vill köra projektet som en Visual Studio-lösning, installera [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/).
+* Om du vill köra projektet som en Visual Studio-lösning, installera [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/).
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-application"></a>Registrera och ladda ned snabbstartsprogrammet
@@ -147,16 +147,16 @@ När webbläsaren läser in programmet, klickar du på **logga In**.  Första g�
 MSAL finns i biblioteket som används för att logga in användare och begära token som används för att få åtkomst till ett API som skyddas av Microsoft identity-plattformen. Snabbstartens *index.html* innehåller en referens till biblioteket:
 
 ```html
-<script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.0-preview.4/js/msal.min.js"></script>
+<script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.0/js/msal.min.js"></script>
 ```
 > [!TIP]
 > Du kan ersätta senare version med den senaste utgivna versionen under [MSAL.js släpper](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases).
 
 
-Om du har noden installerad kan kan du hämta den senaste förhandsversionen via npm:
+Om du har noden installerad kan kan du hämta den senaste versionen via npm:
 
 ```batch
-npm install msal@preview
+npm install msal
 ```
 
 ### <a name="msal-initialization"></a>MSAL-initiering
@@ -192,11 +192,11 @@ var myMSALObj = new Msal.UserAgentApplication(msalConfig);
 Följande kodavsnitt visar hur du loggar in användare:
 
 ```javascript
-var request = {
+var requestObj = {
     scopes: ["user.read"]
 };
 
-myMSALObj.loginPopup(request).then(function (loginResponse) {
+myMSALObj.loginPopup(requestObj).then(function (loginResponse) {
     //Login Success callback code here
 }).catch(function (error) {
     console.log(error);
@@ -219,11 +219,11 @@ MSAL har tre metoder som används för att hämta token: `acquireTokenRedirect`,
 Metoden `acquireTokenSilent` hanterar hämtning och förnyelse av token utan någon användarinteraktion. När metoden `loginRedirect` eller `loginPopup` har körts för första gången är `acquireTokenSilent` den metod som vanligtvis används för att hämta token som används för att komma åt skyddade resurser för efterföljande anrop. Anrop för att begära eller förnya token görs tyst.
 
 ```javascript
-var request = {
+var requestObj = {
     scopes: ["user.read"]
 };
 
-myMSALObj.acquireTokenSilent(request).then(function (tokenResponse) {
+myMSALObj.acquireTokenSilent(requestObj).then(function (tokenResponse) {
     // Callback code here
     console.log(tokenResponse.accessToken);
 }).catch(function (error) {
@@ -247,11 +247,11 @@ Det vanligtvis rekommenderade mönstret för de flesta program är att först an
 Anropa den `acquireTokenPopup` resulterar i ett popup-fönster för att logga in (eller `acquireTokenRedirect` resulterar i att omdirigera användare till Microsoft identity-plattformen slutpunkten) där användare behöver interagera genom att kontrollera sina autentiseringsuppgifter kan ge samtycke till de nödvändiga resurs eller du har slutfört tvåfaktorautentisering.
 
 ```javascript
-var request = {
+var requestObj = {
     scopes: ["user.read"]
 };
 
-myMSALObj.acquireTokenPopup(request).then(function (tokenResponse) {
+myMSALObj.acquireTokenPopup(requestObj).then(function (tokenResponse) {
     // Callback code here
     console.log(tokenResponse.accessToken);
 }).catch(function (error) {

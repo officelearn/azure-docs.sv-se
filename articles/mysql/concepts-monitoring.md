@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/05/2018
 ms.openlocfilehash: 9dcb79e7f4ebd43da3f6c6fd35fa0707898d7ec8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 05/06/2019
 ms.locfileid: "60525572"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>Övervakning i Azure Database for MySQL
@@ -33,9 +33,9 @@ De här måtten är tillgängliga för Azure Database for MySQL:
 |serverlog_storage_usage|Server logglagring som används|Byte|Mängden log-serverlagring används.|
 |serverlog_storage_limit|Log storage gränsen|Byte|Det maximala server log lagringsutrymmet för den här servern.|
 |storage_limit|Gränsen för lagring|Byte|Det maximala lagringsutrymmet för den här servern.|
-|active_connections|Aktiva anslutningar|Antal|Antal aktiva anslutningar till servern.|
-|connections_failed|Misslyckade anslutningar|Antal|Antal misslyckade anslutningar till servern.|
-|seconds_behind_master|Replikeringsfördröjning i sekunder|Antal|Hur många sekunder som replikservern släpar mot huvudservern.|
+|active_connections|Aktiva anslutningar|Count|Antal aktiva anslutningar till servern.|
+|connections_failed|Misslyckade anslutningar|Count|Antal misslyckade anslutningar till servern.|
+|seconds_behind_master|Replikeringsfördröjning i sekunder|Count|Hur många sekunder som replikservern släpar mot huvudservern.|
 |network_bytes_egress|Nätverk ut|Byte|Nätverk ut över aktiva anslutningar.|
 |network_bytes_ingress|Nätverk in|Byte|Nätverk i över aktiva anslutningar.|
 |backup_storage_used|Används för lagring av säkerhetskopior|Byte|Mängden lagring av säkerhetskopior används.|

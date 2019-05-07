@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 884b3c2d3f4414427df87ee5f04138416f363b1c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0ff9ad850b111cf080447b699d35b4ef8205e006
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64577232"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190227"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Konfigurera autentisering sessionshantering med villkorlig åtkomst
 
@@ -53,7 +53,7 @@ Azure AD-standarden för persistence för webbläsare kan användare på personl
 Villkorlig åtkomst är en Azure AD Premium-funktion som kräver en premiumlicens. Om du vill veta mer om villkorlig åtkomst, se [vad är villkorlig åtkomst i Azure Active Directory?](overview.md#license-requirements-for-using-conditional-access)
 
 > [!WARNING]
-> Om du använder den [konfigurerbara livslängd för uppdateringstoken](../develop/active-directory-configurable-token-lifetimes.md) funktion för närvarande i offentlig förhandsversion, Observera att vi inte stöder skapandet av två olika principer för samma kombination av användare eller app: en med den här funktionen och en annan med konfigurerbara livslängd för token-funktionen. Microsoft planerar att inaktivera funktionen konfigurerbara livslängd för token på 1 November och Ersätt den med funktionen för villkorlig åtkomst autentisering session hantering.  
+> Om du använder den [konfigurerbara livslängd för uppdateringstoken](../develop/active-directory-configurable-token-lifetimes.md) funktion för närvarande i offentlig förhandsversion, Observera att vi inte stöder skapandet av två olika principer för samma kombination av användare eller app: en med den här funktionen och en annan med konfigurerbara livslängd för token-funktionen. Microsoft planerar att inaktivera funktionen konfigurerbara livslängd för token på 15 oktober och Ersätt den med funktionen för villkorlig åtkomst autentisering session hantering.  
 
 ### <a name="policy-1-sign-in-frequency-control"></a>Principen 1: Logga in frekvensen kontroll
 

@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d90af62c8d6267001ede567c71b7e1204f6ce74
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 73d3c2846ed97b725d745cc76714738ac34ed1a0
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917217"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190196"
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Anvisningar: Aktivera enkel inloggning mellan appar på iOS med hjälp av ADAL
 
@@ -165,7 +165,7 @@ För icke-förhandlad assisterad enkel inloggning i program hantera SDK: erna my
 
 Att aktivera enkel inloggning för program som du äger du behöver göra följande:
 
-1. Se till att alla program-användare på samma klient-ID eller program-ID.
+1. Kontrollera att alla dina program använder samma klient-ID eller program-ID.
 2. Kontrollera att alla dina program delar samma signeringscertifikat från Apple så att du kan dela nyckelringar.
 3. Begär samma nyckelring rättighet för var och en av dina program.
 4. Berätta SDK: erna om delade nyckelringen du vill att vi ska använda.

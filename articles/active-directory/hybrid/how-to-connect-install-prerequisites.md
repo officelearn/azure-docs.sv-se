@@ -16,12 +16,12 @@ ms.date: 12/28/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2746775c72976159cdcdb6bdd86e39a5dbe3a4fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b4bf8df2374d373ad36eada8a7de08be76396a76
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60348832"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190814"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Förhandskrav för Azure AD Connect
 Det här avsnittet beskriver kraven och maskinvarukrav för Azure AD Connect.
@@ -76,8 +76,8 @@ Du kan läsa mer här:
 * [Minska angreppsytan för Active Directory](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface)
 
 ### <a name="sql-server-used-by-azure-ad-connect"></a>SQL Server som används av Azure AD Connect
-* Azure AD Connect kräver en SQL Server-databas för att lagra identitetsdata. En SQL Server 2012 Express LocalDB (ett ljust version av SQL Server Express) installeras som standard. SQL Server Express har en gräns på 10GB storlek som hjälper dig att hantera cirka 100 000 objekt. Om du behöver hantera ett ökat antal katalogobjekt, måste du peka guiden Installera på en annan installation av SQL Server.
-* Om du använder en separat SQL Server gäller dessa krav:
+* Azure AD Connect kräver en SQL Server-databas för att lagra identitetsdata. En SQL Server 2012 Express LocalDB (ett ljust version av SQL Server Express) installeras som standard. SQL Server Express har en gräns på 10GB storlek som hjälper dig att hantera cirka 100 000 objekt. Om du behöver hantera ett ökat antal katalogobjekt, måste du peka guiden Installera på en annan installation av SQL Server. Typ av SQL Server-installation kan påverka den [prestanda av Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-performance-factors#sql-database-factors).
+* Om du använder en annan installation av SQL Server, gäller dessa krav:
   * Azure AD Connect stöder alla versioner av Microsoft SQL Server från 2008 R2 (med senaste Service Pack) till SQL Server 2019. Microsoft Azure SQL Database är **stöds inte** som en databas.
   * Du måste använda en icke skiftlägeskänslig sortering i SQL. Dessa sorteringar identifieras med en \_CI_ i sina namn. Det är **stöds inte** att använda en skiftlägeskänslig sortering, identifieras av \_CS_ i sina namn.
   * Du kan bara ha en Synkroniseringsmotorn per SQL-instans. Det är **stöds inte** att dela en SQL-instans med FIM/MIM-synkronisering, DirSync eller Azure AD Sync.

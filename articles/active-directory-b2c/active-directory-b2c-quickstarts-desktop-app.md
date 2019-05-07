@@ -11,12 +11,12 @@ ms.custom: mvc
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 909b9db08b9ee0ed1af716a0847e09264fb9accc
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 94e7972530afee15937b13ae35239a64d9bc986e
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64697521"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190548"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-desktop-app-using-azure-active-directory-b2c"></a>Snabbstart: Konfigurera inloggning för en skrivbordsapp med hjälp av Azure Active Directory B2C 
 
@@ -26,7 +26,7 @@ Azure Active Directory (AD Azure) B2C tillhandahåller identitetshantering i mol
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-- [Visual Studio 2017](https://www.visualstudio.com/downloads/) med arbetsbelastningen **ASP.NET och webbutveckling**. 
+- [Visual Studio-2019](https://www.visualstudio.com/downloads/) med den **ASP.NET och webbutveckling** arbetsbelastning. 
 - Ett konto från ett socialt medium, till exempel Facebook, Google, Microsoft eller Twitter.
 - [Ladda ned en zip-fil](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop/archive/master.zip) eller klona exempelwebbappen från GitHub.
 
@@ -45,14 +45,14 @@ Azure Active Directory (AD Azure) B2C tillhandahåller identitetshantering i mol
 
     ![Exempelprogram](media/active-directory-b2c-quickstarts-desktop-app/wpf-sample-application.png)
 
-    Exemplet stöder flera registreringsalternativ, till exempel att använda en social identitetsprovider eller att skapa ett lokalt konto med en e-postadress. För den här snabbstarten använder du ett konto från ett socialt medium, till exempel Facebook, Google, Microsoft eller Twitter. 
+    Exemplet stöder flera registreringsalternativ. Dessa alternativ inkluderar med en social identitetsprovider eller att skapa ett lokalt konto med en e-postadress. För den här snabbstarten använder du ett konto från ett socialt medium, till exempel Facebook, Google, Microsoft eller Twitter. 
 
 
 2. Azure AD B2C visar en anpassad inloggningssida för ett fiktivt varumärke som kallas Wingtip Toys för exempelwebbappen. Klicka på knappen för den identitetsprovider som du vill använda för att registrera dig med en social identitetsprovider. 
 
     ![Inloggnings- eller registreringsprovider](media/active-directory-b2c-quickstarts-desktop-app/sign-in-or-sign-up-wpf.png)
 
-    Du autentiserar dig (loggar in) med autentiseringsuppgifterna för ditt sociala konto och ger behörighet till programmet att läsa information från det sociala kontot. När du beviljar åtkomst kan programmet hämta profilinformation från det sociala kontot, till exempel ditt namn och din ort. 
+    Du kan autentisera (logga in) med ditt sociala konto autentiseringsuppgifter och godkänna att programmet att läsa information från det sociala kontot. När du beviljar åtkomst kan programmet hämta profilinformation från det sociala kontot, till exempel ditt namn och din ort. 
 
 2. Avsluta inloggningsprocessen för identitetsprovidern.
 
@@ -88,7 +88,12 @@ Du kan använda Azure AD B2C-klientorganisationen om du vill prova andra snabbst
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten använde du ett exempelskrivbordsprogram för att logga in med en anpassad inloggningssida, logga in med en social identitetsprovider, skapa ett Azure AD B2C-konto och anropa ett Azure AD B2C-skyddat webb-API. 
+I den här snabbstarten använde du en stationär exempelprogrammet för att: 
+
+* Logga in med en anpassad inloggningssida
+* Logga in med en social identitetsprovider
+* Skapa ett Azure AD B2C-konto
+* Anropa ett webb-API som skyddas av Azure AD B2C
 
 Kom igång med att skapa en egen Azure AD B2C-klientorganisation. 
 

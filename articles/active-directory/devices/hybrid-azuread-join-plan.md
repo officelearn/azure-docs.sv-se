@@ -17,12 +17,12 @@ ms.date: 04/10/2019
 ms.author: joflore
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8827a51a23b2ea274d8096a154e630c9cecbba7c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 0d8f1024ba660bc0e879940f20db70d547eea40e
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60352008"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190495"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Instruktioner: Planera implementeringen hybrid Azure Active Directory join
 
@@ -41,7 +41,7 @@ Om du har en lokal Active Directory-miljö och du vill ansluta dina domänanslut
 Den här artikeln förutsätter att du är bekant med den [introduktionen till enhetshantering i Azure Active Directory](../device-management-introduction.md).
 
 > [!NOTE]
-> Den begärda minimiversionen domänfunktionsnivån och skogens funktionsnivåer för Windows 10 hybrid Azure AD-anslutning är Windows Server 2008 R2. I lägre versioner kan användaren inte kan ta emot en primär uppdatera Token under Windows-inloggning på grund av problem i LSA.
+> Den begärda minimiversionen domänfunktionsnivån och skogens funktionsnivåer för Windows 10 hybrid Azure AD-anslutning är Windows Server 2008 R2.
 
 ## <a name="plan-your-implementation"></a>Planera implementeringen
 
@@ -121,6 +121,9 @@ Om din miljö har hanterade domäner, stöder hybrid Azure AD-anslutning:
 
 - Autentisering (PTA)
 - Lösenordets Hash-synkronisering (PHS)
+
+> [!NOTE]
+> Azure AD stöder inte smartkort eller certifikat i hanterade domäner.
 
 Från och med version 1.1.819.0 tillhandahåller Azure AD Connect en guide för att konfigurera Hybrid Azure AD-koppling. Med guiden kan du förenkla konfigurationsprocessen avsevärt. Mer information finns i:
 

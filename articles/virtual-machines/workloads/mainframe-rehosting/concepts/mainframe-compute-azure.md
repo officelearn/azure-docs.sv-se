@@ -6,12 +6,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: 8aea4a74ba84855f011dada70ea75ec0d5fb64fe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 335a056a34412a7ed148613bfff59ecb30053e09
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61485667"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190321"
 ---
 # <a name="move-mainframe-compute-to-azure"></a>Flytta stordatorprogram beräkning till Azure
 
@@ -47,7 +47,7 @@ IBM-stordatorer erbjuder möjligheten att skala upp till 240 kärnor (den aktuel
 
 En CF kan beräkningskluster att dela data med direktåtkomst. Den används för att låsa information, cacheinformationen och listan över delade dataresurser. En parallell Sysplex med hjälp av en eller flera CFs kan betraktas som en ”delad allt” skalbar beräkningskluster. Mer information om dessa funktioner finns i [parallella Sysplex på IBM Z](https://www.ibm.com/it-infrastructure/z/technologies/parallel-sysplex-resources) på IBM-webbplatsen.
 
-Program kan använda dessa funktioner för att både skalbara prestanda och hög tillgänglighet. Information om hur CICS kan använda parallella Sysplex med CF hämta den [IBM CICS och funktionen koppling: Bortom grunderna](http://www.redbooks.ibm.com/redbooks/pdfs/sg248420.pdf) redbook.
+Program kan använda dessa funktioner för att både skalbara prestanda och hög tillgänglighet. Information om hur CICS kan använda parallella Sysplex med CF hämta den [IBM CICS och funktionen koppling: Bortom grunderna](https://www.redbooks.ibm.com/redbooks/pdfs/sg248420.pdf) redbook.
 
 ## <a name="azure-compute-at-a-glance"></a>Azure-beräkning i korthet
 
@@ -121,10 +121,10 @@ Varje nivå kan också ge lämpliga disaster recovery services. Till exempel kan
 ### <a name="ibm-resources"></a>IBM-resurser
 
 - [Parallell Sysplex på IBM Z](https://www.ibm.com/it-infrastructure/z/technologies/parallel-sysplex-resources)
-- [IBM CICS och funktionen koppling: Bortom grunderna](http://www.redbooks.ibm.com/redbooks/pdfs/sg248420.pdf)
+- [IBM CICS och funktionen koppling: Bortom grunderna](https://www.redbooks.ibm.com/redbooks/pdfs/sg248420.pdf)
 - [Skapa nödvändiga användare för en Db2-pureScale funktionsinstallation](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.qb.server.doc/doc/t0055374.html?pos=2)
 - [Db2icrt - skapa instans-kommando](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.admin.cmd.doc/doc/r0002057.html)
-- [Db2 pureScale klustrade databaslösning](http://www.ibmbigdatahub.com/blog/db2-purescale-clustered-database-solution-part-1)
+- [Db2 pureScale klustrade databaslösning](https://www.ibmbigdatahub.com/blog/db2-purescale-clustered-database-solution-part-1)
 - [IBM Data Studio](https://www.ibm.com/developerworks/downloads/im/data/index.html/)
 
 ### <a name="azure-government"></a>Azure Government

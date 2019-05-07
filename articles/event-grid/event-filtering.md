@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: spelluru
-ms.openlocfilehash: 87599b05a3569bf6f28880352185a131f48a7f52
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9f284fea701220906a994cf108ed58cb6998aef9
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61436179"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65187660"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Förstå händelse filtrering för Event Grid-prenumerationer
 
@@ -43,7 +43,7 @@ För enkel filtrering efter ämne, ange ett start- och för ämnet. Du kan till 
 
 När du publicerar händelser till anpassade ämnen, skapa ämnen för händelser som gör det enkelt för prenumeranter att veta om de är intresserad av händelsen. Prenumeranter använda egenskapen ämne på filtret och dirigera händelser. Överväg att lägga till sökvägen för där händelsen har inträffat, så prenumeranter kan filtrera efter segment i sökvägen. Sökvägen kan prenumeranter att snävare eller brett Filtrera händelser. Om du anger en sökväg för tre segment som `/A/B/C` på ämnesraden prenumeranter kan filtrera efter det första segmentet `/A` att hämta en rad olika händelser. Dessa prenumeranter får händelser med ämnen som `/A/B/C` eller `/A/D/E`. Andra prenumeranter kan filtrera efter `/A/B` att hämta en smalare uppsättning händelser.
 
-JSON-syntaxen för att filtrera efter händelsetyp är:
+JSON-syntax för filtrering efter ämne är:
 
 ```json
 "filter": {

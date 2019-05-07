@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 4/17/2019
+ms.date: 5/3/2019
 ms.author: victorh
-ms.openlocfilehash: 5e009d5659a503fe8168f21a26939acff9944f2f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 4c4a6776e3bb56026a48963ec83fe582380c68d0
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64718803"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145948"
 ---
 # <a name="azure-firewall-faq"></a>Vanliga frågor om Azure-brandväggen
 
@@ -123,11 +123,9 @@ Ja. Konfigurera udr: er för att omdirigera trafik mellan undernät i samma virt
 
 Tvingad tunneltrafik stöds inte som standard, men den kan aktiveras med hjälp av Support.
 
-Azure-brandväggen måste ha direkt Internetanslutning. AzureFirewallSubnet har som standard en väg med 0.0.0.0/0 med NextHopType värdet **Internet**.
+Azure-brandväggen måste ha direkt Internetanslutning. Om din AzureFirewallSubnet lär sig en standardväg till ditt lokala nätverk via BGP, måste du åsidosätta detta med en 0.0.0.0/0 UDR med den **NextHopType** värdet **Internet** att upprätthålla direkt Ansluten till Internet. Som standard stöder Azure brandvägg inte framtvingad tunneling till ett lokalt nätverk.
 
-Om du aktiverar Tvingad tunneltrafik till lokalt via ExpressRoute eller VPN-Gateway, kan du behöva uttryckligen konfigurera en 0.0.0.0/0 användardefinierad väg (UDR) med NextHopType värde som Internet och associera den med din AzureFirewallSubnet. Detta åsidosätter eventuella standard-gateway BGP-meddelandet tillbaka till ditt lokala nätverk.
-
-Om din organisation kräver Tvingad tunneltrafik för Azure-brandvägg att dirigera standard gateway trafiken tillbaka via ditt lokala nätverk, kontakta supporten. Vi kan godkänna din prenumeration för att se till att nödvändiga brandväggen Internetanslutning upprätthålls.
+Men om din konfiguration kräver Tvingad tunneltrafik till ett lokalt nätverk, stöder Microsoft den på en fall till fall. Kontakta supporten, så att vi kan granska ditt ärende. Om godkända vi godkänna din prenumeration och se till att Internet-anslutning krävs brandväggen underhålls.
 
 ## <a name="are-there-any-firewall-resource-group-restrictions"></a>Finns det någon brandvägg resource group begränsningar?
 

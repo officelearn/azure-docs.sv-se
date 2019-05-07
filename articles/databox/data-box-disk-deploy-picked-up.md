@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 05/06/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: e7d57b9d6a06f230835b53d5f6c8120b2a9b61ac
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 023542dbc22234fc57e4ce8b662a9760be4efe04
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924894"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150752"
 ---
 # <a name="tutorial-return-azure-data-box-disk-and-verify-data-upload-to-azure"></a>Självstudier: Skicka tillbaka Azure Data Box-disken och verifiera datauppladdning till Azure
 
@@ -54,7 +54,12 @@ Gör följande om Returnerar enheten i USA eller Kanada.
     - Fästa etikett på enheten.
 
 2. Försegla fraktlådan och se till att adressetiketten är väl synlig.
-3. Schemalägga en upphämtning med Avbrottsfria.
+3. Schemalägga en upphämtning med Avbrottsfria. Så här schemalägger en hämtning:
+
+    - Anropa den lokala UPS (landsspecifika kostnadsfritt nummer).
+    - Citera omvänd leveransen spårnings-ID som visas i din utskrivna etikett i dina anrop.
+    - Om du inte är av citattecken Spårningsnumret, kräver UPS att betala en extra avgift under hämtning.
+    - I stället för schemaläggning för upphämtningen släpper du ut den närmaste samlingsplats Data Box-Disk.
 
 
 ### <a name="pick-up-in-europe"></a>Hämta i Europa

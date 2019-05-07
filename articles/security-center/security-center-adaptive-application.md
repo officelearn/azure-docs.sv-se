@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/26/2019
+ms.date: 05/02/2019
 ms.author: monhaber
-ms.openlocfilehash: c4b2ed1269ef669def2b6f2036d34a40fb181c5d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 581db3ebe3ce1cad5c8db3702af179e141f334b4
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60910497"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143468"
 ---
 # <a name="adaptive-application-controls-in-azure-security-center"></a>Anpassningsbara programkontroller i Azure Security Center
 Lär dig att konfigurera programkontroll i Azure Security Center med den här genomgången.
@@ -154,6 +154,22 @@ Listan innehåller:
 
 Azure Security Center kan du definiera en princip för lista över tillåtna på icke-rekommenderas grupper med virtuella datorer samt. Följ samma principer som beskrevs, om du vill konfigurera en princip för listan över tillåtna program på dessa grupper samt.
 
+## <a name="move-a-vm-from-one-group-to-another"></a>Flytta en virtuell dator från en grupp till en annan
+
+ När du flyttar en virtuell dator från en grupp till en annan application control-princip som tillämpas på den ändras till inställningarna för gruppen som du har flyttat den till. Du kan också flytta en virtuell dator från en konfigurerad grupp till en icke-konfigurerade grupp, vilket leder till att ta bort alla principer för programkontroll som tidigare har tillämpats på den virtuella datorn.
+
+ 1. Från den **anpassningsbara programkontroller** sidan från den **KONFIGURERAD** klickar du på gruppen som tillhör den virtuella datorn flyttas för närvarande.
+1. Klicka på **konfigurerade virtuella datorer och datorer**.
+1. Klicka på de tre punkterna i raden för den virtuella datorn att flytta och klicka på **flytta**. Den **flytta datorn till annan grupp** öppnas.
+
+    ![Skydd](./media/security-center-adaptive-application/adaptive-application-move-group.png)
+
+ 1. Markera gruppen för att flytta den virtuella datorn och klickar på **flytta datorn**, och klicka på **spara**.
+
+    ![Skydd](./media/security-center-adaptive-application/adaptive-application-move-group2.png)
+
+ > [!NOTE]
+> Se till att klicka på **spara** när du klickar på **flytta datorn**. Om du inte klickar på **spara**, och sedan datorn inte kommer att flyttas.
 
 ## <a name="next-steps"></a>Nästa steg
 I det här dokumentet lärde du dig att använda anpassningsbar programkontroll i Azure Security Center att vitlista godkända program som körs i Azure och icke - Azure. I följande avsnitt kan du lära dig mer om Azure Security Center:

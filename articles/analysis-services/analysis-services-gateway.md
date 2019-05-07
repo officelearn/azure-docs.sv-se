@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 12/19/2018
+ms.date: 04/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f13dd1282a6384a0acca4c6936fe7900a051795f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b35977061b7e5806d15f4b7b0087fcafa4f291ef
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60497405"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65141161"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>Ansluta till lokala datakällor med lokala Data Gateway
 Den lokala datagatewayen tillhandahåller säker dataöverföring mellan lokala datakällor och din Azure Analysis Services-servrar i molnet. Utöver att arbeta med flera Azure Analysis Services-servrar i samma region, fungerar den senaste versionen av gatewayen även med Azure Logic Apps, Power BI, Powerapps och Microsoft Flow. Du kan associera flera tjänster i samma prenumeration och samma region med en enda gateway. 
@@ -176,30 +176,9 @@ Loggfiler är en viktig resurs när du felsöker.
 
 `C:\Users\<username>\AppData\Local\Microsoft\On-premises data gateway\GatewayConfigurator.log`
 
-
 #### <a name="event-logs"></a>Händelseloggar
 
 Du kan hitta Data Management Gateway och PowerBIGateway loggar under **program- och tjänstloggar**.
-
-
-## <a name="telemetry"></a>Telemetri
-Telemetri kan användas för övervakning och felsökning. Som standard
-
-**Aktivera telemetri**
-
-1.  Kontrollera katalogen lokal data gateway-klienten på datorn. Det är vanligtvis **%systemdrive%\Program Files\On-premises datagateway**. Eller så kan du öppna en tjänstekonsolen och kontrollera sökvägen till körbar fil: En egenskap för lokala data gateway-tjänsten.
-2.  I filen Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config från klientkatalog. Ändra SendTelemetry-inställningen till true.
-        
-    ```
-        <setting name="SendTelemetry" serializeAs="String">
-                    <value>true</value>
-        </setting>
-    ```
-
-3.  Spara dina ändringar och starta om Windows-tjänsten: Lokala data gateway-tjänsten.
-
-
-
 
 ## <a name="next-steps"></a>Nästa steg
 * [Installera och konfigurera den lokala datagatewayen](analysis-services-gateway-install.md).   

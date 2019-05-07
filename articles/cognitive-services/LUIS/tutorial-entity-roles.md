@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 03/08/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 2e2b2c39cf9039c78a610e9b28065b972484123e
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: HT
+ms.openlocfilehash: a0ab928ef3b8551e3e20ff3c4b16533c80ee4b7d
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65069274"
+ms.locfileid: "65149252"
 ---
 # <a name="tutorial-extract-contextually-related-data-from-an-utterance"></a>Självstudier: Extrahera sammanhangsmässigt relaterade data från ett yttrande
 
@@ -93,12 +93,8 @@ Entiteten fördefinierade geographyV2, extraherar platsinformation, inklusive st
     ![Lägga till roller i fördefinierade entitet](media/tutorial-entity-roles/add-roles-to-prebuilt-entity.png)
 1. Välj **avsikter** från vänster navigering, Välj den **MoveEmployeeToCity** avsikt. Observera stadsnamn är märkta med entitet som är färdiga **geogrpahyV2**.
 1. I den första uttryck i listan väljer du ursprungsplatsen. En nedrullningsbar meny. Välj **geographyV2** i listan och följ sedan menyn över för att välja **ursprung**.
-
-    [![Skärmbild av Markera ort som ursprungsplatsen](media/tutorial-entity-roles/tag-origin-city-with-role.png "Skärmbild av Markera ort som ursprungsplatsen")](media/tutorial-entity-roles/tag-origin-city-with-role.png#lightbox)
-
 1. Använd metoden i föregående steg för att markera alla roller för platser i alla yttranden. 
 
-    [![Skärmbild av platsentitet etiketterad i yttranden](media/tutorial-entity-roles/all-locations-marked-with-roles.png "Skärmbild av platsentitet etiketterad i yttranden")](media/tutorial-entity-roles/all-locations-marked-with-roles.png#lightbox)
 
 ## <a name="add-example-utterances-to-the-none-intent"></a>Lägga till exempelyttranden i avsikten Ingen 
 

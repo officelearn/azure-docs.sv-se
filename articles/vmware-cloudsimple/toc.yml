@@ -41,15 +41,15 @@
         - name: Kontohantering
           href: cloudsimple-account.md
         - name: Aktivitetsledning
-          href: 'https://docs.azure.cloudsimple.com/cloudsimple-activity/'
+          href: cloudsimple-activity.md
         - name: VMware i privata moln
-          href: 'https://docs.azure.cloudsimple.com/vmware-components/'
+          href: vmware-components.md
         - name: Säkerhetsöversikt
           href: 'https://docs.azure.cloudsimple.com/cloudsimple-security/'
         - name: Nodkvot
-          href: 'https://docs.azure.cloudsimple.com/node-quota/'
+          href: node-quota.md
         - name: Underhåll och uppdateringar
-          href: 'https://docs.azure.cloudsimple.com/cloudsimple-maintenance-updates/'
+          href: cloudsimple-maintenance-updates.md
         - name: VANLIGA FRÅGOR OCH SVAR
           href: 'https://docs.azure.cloudsimple.com/cloudsimple-faq/'
     - name: Självstudier

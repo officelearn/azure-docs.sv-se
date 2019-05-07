@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 299dd61055503f0b5a11cbe97e137e4760edadda
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 85f8643a0936209c8f280498df92555a7b40c533
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60463769"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149973"
 ---
 # <a name="tutorial-from-qna-maker-portal-create-a-knowledge-base"></a>Självstudier: Med QnA Maker portal kan du skapa en kunskapsbas
 
@@ -68,7 +68,7 @@ Den här självstudien kräver en befintlig [QnA Maker-tjänst](../How-To/set-up
     |--|--|--|
     |URL|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs` |Innehållet i vanliga frågor och svar på den URL:en är formaterad med en fråga som följs av ett svar. QnA Maker kan tolka det här formatet för att extrahera frågor och tillhörande svar.|
     |Fil |_används inte i den här självstudien_|Det här laddar upp filer för frågor och svar. |
-    |Kommunikationspersonlighet|Vännen|Detta ger en informell och avslappnad personlighet för vanliga frågor och svar. Du kan redigera dessa frågor och svar senare. |
+    |Kommunikationspersonlighet|Eget|Detta ger en informell och avslappnad personlighet för vanliga frågor och svar. Du kan redigera dessa frågor och svar senare. |
 
     ![Steg 4 i skapandeprocessen för kunskapsbas](../media/qnamaker-tutorial-create-publish-query-in-portal/create-kb-step-4.png)
 
@@ -84,9 +84,9 @@ Den här självstudien kräver en befintlig [QnA Maker-tjänst](../How-To/set-up
 
 1. Välj den sista sidan med frågor och svar längst ned i tabellen. På sidan visas frågor och svar från kommunikationspersonligheten. 
 
-1. Välj metadataikonen från verktygsfältet ovanför listan med frågor och svar. Detta visar metadatataggar för varje fråga och svar. Kommunikationsfrågor har redan metadata **editorial: chit-chat** (redaktionellt: kommunikation) angett. Dessa metadata returneras till klientprogrammet tillsammans med det valda svaret. Klientprogrammet, till exempel en chattrobot, kan använda dessa filtrerade metadata för att fastställa ytterligare bearbetning eller interaktioner med användaren.
+1. Från verktygsfältet ovanför listan med frågor och svar, Välj den **Visa alternativ** ikonen och välj sedan **visa metadata**. Detta visar metadatataggar för varje fråga och svar. Kommunikationsfrågor har redan metadata **editorial: chit-chat** (redaktionellt: kommunikation) angett. Dessa metadata returneras till klientprogrammet tillsammans med det valda svaret. Klientprogrammet, till exempel en chattrobot, kan använda dessa filtrerade metadata för att fastställa ytterligare bearbetning eller interaktioner med användaren.
 
-    ![Visa metadatataggar](../media/qnamaker-tutorial-create-publish-query-in-portal/save-and-train-kb-chit-chat.png)
+    ![! [Visa metadatataggar] (.. / media/qnamaker-tutorial-create-publish-query-in-portal/save-and-train-kb-chit-chat.png)](../media/qnamaker-tutorial-create-publish-query-in-portal/save-and-train-kb-chit-chat.png#lightbox)
 
 1. Välj alternativet för att **spara och träna** på den övre menyraden.
 

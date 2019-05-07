@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.service: azure-blockchain
 ms.reviewer: seal
 manager: femila
-ms.openlocfilehash: 88b0336d7be1852d1bb2ae522f3d37ebed8d1fa0
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: e1b7558ea83c8948a8984215e15040e4d929cb1b
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026930"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65141385"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-blockchain-member-using-azure-cli"></a>Snabbstart: Skapa en Azure Blockchain Service blockchain medlem med hjälp av Azure CLI
 
@@ -48,7 +48,7 @@ Det finns flera parametrar och egenskaper måste du skicka. Ersätt följande pa
 | Parameter | Beskrivning |
 |---------|-------------|
 | **resource-group** | Resursgruppens namn var Azure Blockchain-tjänstresurser ska skapas. Använd den resursgrupp du skapade i föregående avsnitt.
-| **Namn** | Ett unikt namn som identifierar din Azure Blockchain Service blockchain medlem. Namnet används för offentlig slutpunkt-adress. Till exempel `myblockchainmember.blockchain.azure.com`.
+| **name** | Ett unikt namn som identifierar din Azure Blockchain Service blockchain medlem. Namnet används för offentlig slutpunkt-adress. Till exempel `myblockchainmember.blockchain.azure.com`.
 | **Plats** | Azure-region där den blockchain-medlemmen har skapats. Till exempel `eastus`. Välj den plats som är närmast dina användare eller dina andra Azure-program.
 | **Lösenord** | Lösenordet för medlem. Lösenordet för medlem används för att autentisera till medlemmen blockchain offentlig slutpunkt som använder grundläggande autentisering.
 | **consortium** | Namnet på consortium att ansluta till eller skapa.
@@ -56,7 +56,7 @@ Det finns flera parametrar och egenskaper måste du skicka. Ersätt följande pa
 | **skuName** | Nivåtyp. Använd S0 för Standard och B0 för Basic.
 
 ```azurecli-interactive
-az resource create --resource-group myResourceGroup --name myblockchainmember --resource-type Microsoft.Blockchain/blockchainMembers --is-full-object --properties '{ "location": "eastus", "properties": {"password": "strongMemberAccountPassword@1", "protocol": "Quorum", "consortium": "myConsortiumName", "consortiumManagementAccountPassword": "strongConsortiumManagementPassword@1" }, "sku": { "name": "S0" } }'
+az resource create --resource-group myResourceGroup --name myblockchainmember --resource-type Microsoft.Blockchain/blockchainMembers --is-full-object --properties "{ \"location\": \"eastus\", \"properties\": {\"password\": \"strongMemberAccountPassword@1\", \"protocol\": \"Quorum\", \"consortium\": \"myConsortiumName\", \"consortiumManagementAccountPassword\": \"strongConsortiumManagementPassword@1\" }, \"sku\": { \"name\": \"S0\" } }"
 ```
 
 Det tar cirka 10 minuter för att skapa blockchain-medlem och stödresurser.

@@ -2,18 +2,19 @@
 title: Azure snabbstart – Skapa en blob i objektlagring med hjälp av Ruby | Microsoft Docs
 description: I den här snabbstarten skapar du ett lagringskonto och en container i objektlagring (Blob). Sedan använder du lagringsklientbiblioteket för Ruby och laddar upp en blob till Azure Storage, laddar ned en blob och listar blobarna i en container.
 services: storage
-author: tamram
+author: mhopkins-msft
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 11/14/2018
-ms.author: seguler
-ms.openlocfilehash: 47143a76c2b57bc889b74f29d709785d0c19451a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: mhopkins
+ms.reviewer: seguler
+ms.openlocfilehash: 77e8e3dd8c32545b24230512ded00e335108d802
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60391716"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150436"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-ruby"></a>Snabbstart: Ladda upp, ladda ned och lista blobar med hjälp av Ruby
 

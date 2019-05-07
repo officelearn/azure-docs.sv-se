@@ -2,19 +2,20 @@
 title: Client Side Encryption med Python för Microsoft Azure Storage | Microsoft Docs
 description: Client side encryption för maximal säkerhet för dina Azure Storage-program har stöd för Azure Storage-klientbiblioteket för Python.
 services: storage
-author: lakasa
+author: tamram
 ms.service: storage
 ms.devlang: python
 ms.topic: article
 ms.date: 05/11/2017
-ms.author: lakasa
+ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: ecfd86a7e4a8ef97663cc930906fd909b6f0fae8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d04c1e137a190b01554106c041853aa2fd6786d7
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58011115"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65146899"
 ---
 # <a name="client-side-encryption-with-python-for-microsoft-azure-storage"></a>Client Side Encryption med Python för Microsoft Azure Storage
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -138,7 +139,7 @@ Viktiga matcharen verkställer minst en metod som, givet ett nyckel-id, returner
   * Viktiga matcharen anropas om att hämta nyckeln har angetts. Om matcharen har angetts men inte har en mappning för nyckel-ID, inträffar ett fel.
   * Om matchare har angetts men en nyckel har angetts, används nyckeln om dess ID: t matchar den nödvändiga Nyckelidentifieraren. Om det ID: t inte matchar genereras ett fel.
 
-    Exempel för kryptering i azure.storage.samples <fix URL>visar en mer detaljerad slutpunkt till slutpunkt-scenario för blobbar, köer och tabeller.
+    Exempel för kryptering i azure.storage.samples visar en mer detaljerad slutpunkt till slutpunkt-scenario för blobbar, köer och tabeller.
       Exemplet implementeringar av KEK och viktiga matchare finns i exempelfilerna som KeyWrapper och KeyResolver respektive.
 
 ### <a name="requireencryption-mode"></a>RequireEncryption läge

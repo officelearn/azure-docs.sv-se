@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 58edadb553730b646f23f4981d6cbf1bdbfe76d5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 3940adfaa42de8ac9c3f32a9eadc8f6d643ce3ce
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64577727"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149549"
 ---
 # <a name="quickstart---consume-vmware-vms-on-azure"></a>Snabbstart – använda virtuella VMware-datorer på Azure
 
@@ -25,57 +25,62 @@ Skapa en virtuell dator i ditt privata moln från vCenter-Användargränssnittet
 
 ## <a name="create-a-virtual-machine-in-the-azure-portal"></a>Skapa en virtuell dator i Azure portal
 
-1. På menyn till vänster klickar du på **+** eller **skapa en resurs**.
+1. Välj **Alla tjänster**.
 
-2. På menyn till vänster klickar du på **Compute**, och klicka sedan på **CloudSimple VM**.
+2. Sök efter **CloudSimple virtuella datorer**.
 
-3. Klicka på **Bekräfta** att verifiera att du vill skapa en ny virtuell dator.
+3. Klicka på **Lägg till**.
 
-4. Ange den grundläggande konfigurationen som beskrivs i följande tabell och klicka sedan på **nästa: Storlek**.
+    ![Skapa CloudSimple virtuell dator](media/create-cloudsimple-virtual-machine.png)
+
+4. Ange grundläggande information klickar du på **nästa: storlek**.
+
+    ![Skapa CloudSimple VM - grunderna](media/create-cloudsimple-virtual-machine-basic-info.png)
 
     | Fält | Beskrivning |
     | ------------ | ------------- |
-    | Prenumeration | Azure-prenumeration som är associerade med din distribution av privat moln.  |
-    | Resursgrupp | Grupp som den virtuella datorn kommer att tilldelas. Du kan välja en befintlig grupp eller skapa en ny. |
+    | Prenumeration | Azure-prenumeration som är associerade med ditt privata moln.  |
+    | Resursgrupp | Resursgrupp som den virtuella datorn kommer att tilldelas. Du kan välja en befintlig grupp eller skapa en ny. |
     | Namn | Namn som identifierar den virtuella datorn.  |
     | Location | Azure-region som är värd för den här virtuella datorn.  |
-    | Resurspool | Fysiska resurser för den virtuella datorn. Välj de tillgängliga resurspoolerna. |
-    | vSphere Template | Typ av operativsystem mallen för den virtuella datorn.  |
-    | Användarnamn | Användarnamn för VM-administratör. |
-    | Lösenord Bekräfta lösenord | Lösenordet för VM-administratör.  |
+    | Private Cloud | CloudSimple privata moln där du vill skapa den virtuella datorn. |
+    | Resurspool | Mappa resurspool för den virtuella datorn. Välj de tillgängliga resurspoolerna. |
+    | vSphere Template | vSphere-mallen för den virtuella datorn.  |
+    | Användarnamn | Användarnamn för VM-administratör (för Windows-mallar)|
+    | Lösenord |  Lösenordet för VM-administratör (för Windows-mallar). |
+    | Bekräfta lösenord | Bekräfta lösenordet |
 
-5. Välj antal kärnor och minneskapacitet för den virtuella datorn.
+5. Välj antal kärnor och minneskapacitet för den virtuella datorn och klicka på **nästa: konfigurationer**. Markera kryssrutan om du vill visa fullständig CPU-virtualisering till gästoperativsystemet. Program som kräver virtualisering av maskinvara kan köras på virtuella datorer utan binära translation eller paravirtualization. Mer information finns i artikeln VMware <a href="https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-2A98801C-68E8-47AF-99ED-00C63E4857F6.html" target="_blank">exponera VMware Assisted maskinvaruvirtualisering</a>.
 
-6. (Valfritt) Om du vill visa fullständig CPU-virtualisering till gästoperativsystemet väljer du den **exponerar för gäst-OS** kryssrutan.
-Det här alternativet gör det möjligt för program som kräver virtualisering av maskinvara ska köras på virtuella datorer utan binära translation eller paravirtualization. Mer information finns i artikeln VMware [exponera VMware Assisted maskinvaruvirtualisering](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-2A98801C-68E8-47AF-99ED-00C63E4857F6.html).
+    ![Skapa CloudSimple VM - storlek](media/create-cloudsimple-virtual-machine-size.png)
 
-7. Klicka på **Nästa: Konfiguration av**.
+6. Konfigurera nätverksgränssnitt och diskar som beskrivs i följande tabeller och klicka på **granska + skapa**.
 
-8. Konfigurera nätverksgränssnitt och diskar som beskrivs i följande tabeller.
+    ![Skapa CloudSimple VM - konfigurationer](media/create-cloudsimple-virtual-machine-configurations.png)
 
     För nätverksgränssnitt, klickar du på **Lägg till nätverksgränssnittet** och konfigurera följande inställningar.
-
+    
     | Kontroll | Beskrivning |
     | ------------ | ------------- |
     | Namn | Ange ett namn som identifierar gränssnittet.  |
-    | Nätverk | Välj i listan över konfigurerade nätverk i ditt privata moln vSphere.  |
-    | Nätverkskort | Välj en vSphere-adapter i listan över tillgängliga typer som konfigurerats för den virtuella datorn. Mer information finns i knowledge base-artikeln VMware [välja ett nätverkskort för den virtuella datorn](https://kb.vmware.com/s/article/1001805). |
+    | Nätverk | Välj i listan över konfigurerade distribuerade portgrupp i ditt privata moln vSphere.  |
+    | Nätverkskort | Välj en vSphere-adapter i listan över tillgängliga typer som konfigurerats för den virtuella datorn. Mer information finns i knowledge base-artikeln VMware <a href="https://kb.vmware.com/s/article/1001805" target="_blank">välja ett nätverkskort för den virtuella datorn</a>. |
     | Starta vid start | Välj om du vill aktivera NIC-maskinvaran när den virtuella datorn har startats. Standardvärdet är **aktivera**. |
 
     För diskar, klickar du på **Lägg till disk** och konfigurera följande inställningar.
 
-    | Objekt | Beskrivning |
-    | ------------ | ------------- |
-    | Namn | Ange ett namn för att identifiera disken.  |
-    | Storlek | Välj en av de tillgängliga storlekarna.  |
-    | SCSI-styrenhet | Välj en SCSI-styrenhet. Tillgängliga styrenheterna variera för olika operativsystem som stöds.  |
-    | Läge | Anger hur disken deltar i ögonblicksbilder. Välj något av följande alternativ: <br> -Oberoende beständiga: Alla data som skrivs till disken skrivs permanent.<br> -Oberoende icke-beständiga: Ändringar skrivs till disken tas bort när du stängs av eller återställer den virtuella datorn.  Oberoende icke-beständiga läge kan du alltid starta om den virtuella datorn i samma tillstånd. Mer information finns i den [VMware-dokumentationen.](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-8B6174E6-36A8-42DA-ACF7-0DA4D8C5B084.html)
+    | Objekt | Beskrivning | 
+    | ------------ | ------------- | 
+    | Namn | Ange ett namn för att identifiera disken.  | 
+    | Storlek | Välj en av de tillgängliga storlekarna.  | 
+    | SCSI-styrenhet | Välj en SCSI-styrenhet för disken.  |
+    | Läge | Anger hur disken deltar i ögonblicksbilder. Välj något av följande alternativ: <br> -Oberoende beständiga: Alla data som skrivs till disken skrivs permanent.<br> -Oberoende icke-beständiga: Ändringar skrivs till disken tas bort när du stängs av eller återställer den virtuella datorn.  Oberoende icke-beständiga läge kan du alltid starta om den virtuella datorn i samma tillstånd. Mer information finns i den <a href="https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-8B6174E6-36A8-42DA-ACF7-0DA4D8C5B084.html" target="_blank">dokumentationen om VMware</a>.
 
-9. Granska inställningarna. Klicka på flikarna längst upp för att göra några ändringar.
+7. När verifieringen är klar granskar du inställningarna och klicka på **skapa**. Om du vill göra några ändringar, klickar på flikarna längst upp.
 
-10. Klicka på **skapa** att spara inställningarna och skapa den virtuella datorn.
+    ![Skapa CloudSimple virtuell dator – granska](media/create-cloudsimple-virtual-machine-review.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Visa en lista över CloudSimple virtuella datorer](https://docs.azure.cloudsimple.com/azurelistvms/)
-* [Hantera CloudSimple virtuell dator från Azure](https://docs.azure.cloudsimple.com/azureoverviewpage/)
+* [Visa en lista över CloudSimple virtuella datorer](https://docs.azure.cloudsimple.com/azure-manage-vm/)
+* [Hantera CloudSimple virtuell dator från Azure](https://docs.azure.cloudsimple.com/azure-create-vm/#view-list-of-cloudsimple-virtual-machines)

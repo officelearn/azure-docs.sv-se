@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 04/30/2019
-ms.openlocfilehash: 3f5a69454356d16fd6f3c5dddb063fcf8e450014
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.date: 05/01/2019
+ms.openlocfilehash: 9aadfd1f3685466c8c0beb6dff3bb8d063f4bfd8
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64943674"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65137408"
 ---
 # <a name="tutorial-migrate-rds-mysql-to-azure-database-for-mysql-online-using-dms"></a>Självstudier: Migrera RDS MySQL till Azure Database för MySQL med hjälp av DMS
 
@@ -170,9 +170,7 @@ För att slutföra den här kursen behöver du:
 
 6. Välj en prisnivå; för den här onlinemigrering vara noga med att välja Premium: 4vCores prisnivå.
 
-    Mer information om kostnader och prisnivåer finns på [sidan med priser](https://aka.ms/dms-pricing). Om du behöver hjälp med att välja rätt Azure Database Migration Service prisnivån finns rekommendationer för bokföring [här](https://go.microsoft.com/fwlink/?linkid=861067).
-
-     ![Konfigurera Azure Database Migration Service-instansinställningar](media/tutorial-rds-mysql-server-azure-db-for-mysql-online/dms-settings3.png)
+    ![Konfigurera Azure Database Migration Service-instansinställningar](media/tutorial-rds-mysql-server-azure-db-for-mysql-online/dms-settings3.png)
 
 7. Välj **Skapa** för att skapa tjänsten.
 

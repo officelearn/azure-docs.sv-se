@@ -5,15 +5,15 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 03/31/2019
+ms.date: 05/06/2019
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: 22b03417495625ef70650a015530d6f56b32fd4f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1d874b9c8f14b1489ab5e5b8bbdddaff0669165e
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60626899"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145183"
 ---
 # <a name="sql-language-reference-for-azure-cosmos-db"></a>SQL-Språkreferens för Azure Cosmos DB 
 
@@ -31,7 +31,8 @@ Varje fråga består av en SELECT-sats och valfria FROM- och WHERE-satser enligt
 SELECT <select_specification>   
     [ FROM <from_specification>]   
     [ WHERE <filter_condition> ]  
-    [ ORDER BY <sort_specification> ]  
+    [ ORDER BY <sort_specification> ] 
+    [ OFFSET <offset_amount> LIMIT <limit_amount>]
 ```  
   
  **Kommentarer**  
@@ -42,6 +43,8 @@ SELECT <select_specification>
 -   [FROM-satsen](#bk_from_clause)    
 -   [WHERE-satsen](#bk_where_clause)    
 -   [ORDER BY-sats](#bk_orderby_clause)  
+-   [GRÄNSEN för OFFSET-sats](#bk_offsetlimit_clause)
+
   
 Satser i SELECT-instruktionen måste sorteras enligt ovan. En av de valfria satserna kan utelämnas. Men när valfria satser används, måste de visas i rätt ordning.  
   
@@ -52,7 +55,8 @@ Ordningen som satser bearbetas är:
 1.  [FROM-satsen](#bk_from_clause)  
 2.  [WHERE-satsen](#bk_where_clause)  
 3.  [ORDER BY-sats](#bk_orderby_clause)  
-4.  [SELECT-satsen](#bk_select_query)  
+4.  [SELECT-satsen](#bk_select_query)
+5.  [GRÄNSEN för OFFSET-sats](#bk_offsetlimit_clause)
 
 Observera att detta skiljer sig från den ordning som de visas i syntax. Sorteringen är så att alla nya symboler som introducerades av en bearbetade-sats är synliga och kan användas i satser som bearbetas senare. Exempelvis alias som deklarerats i en FROM-sats är tillgängliga i var och SELECT-satser.  
 
@@ -76,8 +80,8 @@ SELECT <select_specification>
 
 <select_specification> ::=   
       '*'   
-      | <object_property_list>   
-      | VALUE <scalar_expression> [[ AS ] value_alias]  
+      | [DISTINCT] <object_property_list>   
+      | [DISTINCT] VALUE <scalar_expression> [[ AS ] value_alias]  
   
 <object_property_list> ::=   
 { <scalar_expression> [ [ AS ] property_alias ] } [ ,...n ]  
@@ -101,7 +105,11 @@ SELECT <select_specification>
 - `VALUE`  
 
   Anger att JSON-värde ska hämtas i stället för det fullständiga JSON-objektet. Detta, till skillnad från `<property_list>` radbryts inte det beräknade värdet i ett objekt.  
+ 
+- `DISTINCT`
   
+  Anger att dubbletter av beräknade egenskaper bör tas bort.  
+
 - `<scalar_expression>`  
 
   Uttryck som representerar värdet som ska beräknas. Se [skaläruttryck](#bk_scalar_expressions) information.  
@@ -341,23 +349,23 @@ WHERE <filter_condition>
 ```sql  
 ORDER BY <sort_specification>  
 <sort_specification> ::= <sort_expression> [, <sort_expression>]  
-<sort_expression> ::= <scalar_expression> [ASC | DESC]  
+<sort_expression> ::= {<scalar_expression> [ASC | DESC]} [ ,...n ]  
   
 ```  
-  
+
  **Argument**  
   
 - `<sort_specification>`  
   
-   Anger en egenskap eller ett uttryck som du vill sortera frågeresultatet. En sorteringskolumn kan anges som ett alias för namn eller en kolumn.  
+   Anger en egenskap eller ett uttryck som du vill sortera frågeresultatet. En sorteringskolumn kan anges som ett namn eller egenskapen alias.  
   
-   Du kan ange flera sorteringskolumner. Kolumnnamnen måste vara unika. Vilken ordning kolumnerna sortera i ORDER BY-satsen definierar hur sorterade resultatuppsättningen. Det vill säga resultatet sorteras efter den första egenskapen och sedan den beställda listan sorteras efter den andra egenskapen och så vidare.  
+   Flera egenskaper kan anges. Egenskapsnamn måste vara unikt. Sekvens med egenskaperna sortera i ORDER BY-satsen definierar hur sorterade resultatuppsättningen. Det vill säga resultatet sorteras efter den första egenskapen och sedan den beställda listan sorteras efter den andra egenskapen och så vidare.  
   
-   Namn på kolumnerna som refereras i ORDER BY-satsen måste motsvara till antingen en kolumn i select-listan eller en kolumn som definierats i en tabell som angetts i FROM-sats utan någon tvetydigheter.  
+   Egenskapsnamn som refereras i ORDER BY-satsen måste motsvara till antingen en egenskap i select-listan eller till en egenskap som definierats i den samling som har angetts i FROM-sats utan någon tvetydigheter.  
   
 - `<sort_expression>`  
   
-   Anger en enskild egenskap eller ett uttryck som du vill sortera frågeresultatet.  
+   Anger en eller flera egenskaper eller uttryck som du vill sortera frågeresultatet.  
   
 - `<scalar_expression>`  
   
@@ -369,8 +377,34 @@ ORDER BY <sort_specification>
   
   **Kommentarer**  
   
-  Medan frågegrammatik har stöd för flera ordning av egenskaper, Cosmos DB-fråga runtime stöder sortering endast mot en enskild egenskap och endast mot egenskapsnamn (inte mot beräknade egenskaper). Sortera kräver också att indexprincip innehåller ett intervallsindex för egenskapen och den angivna typen, med den maximala precisionen. I indexering princip-dokumentationen för mer information.  
+   ORDER BY-satsen kräver att indexprincip inkluderar ett index för att sortera. Azure Cosmos DB-fråga runtime stöder sortering mot ett egenskapsnamn och inte mot beräknade egenskaper. Azure Cosmos DB stöder flera ORDER BY-egenskaper. För att köra en fråga med flera ORDER BY-egenskaper, bör du definiera en [sammansatta index](index-policy.md#composite-indexes) på att sortera.
+
+
+##  <a name=bk_offsetlimit_clause></a> GRÄNSEN för OFFSET-sats
+
+Anger antalet objekt som hoppas över och antalet objekt som returneras. Exempel finns i [GRÄNSEN för OFFSET-sats exempel](how-to-sql-query.md#OffsetLimitClause)
   
+ **Syntax**  
+  
+```sql  
+OFFSET <offset_amount> LIMIT <limit_amount>
+```  
+  
+ **Argument**  
+ 
+- `<offset_amount>`
+
+   Anger antalet objekt som resultatet av frågan ska hoppa över heltal.
+
+
+- `<limit_amount>`
+  
+   Anger antalet objekt som resultatet av frågan ska innehålla heltal
+
+  **Kommentarer**  
+  
+  Både antalet förskjutning och GRÄNSEN för antal måste anges i instruktionen förskjutning GRÄNSEN. Om en valfri `ORDER BY` satsen används, resultatuppsättningen skapas genom att göra den hoppa över de beställda värden. I annat fall returneras ett fast ordning med värden.
+
 ##  <a name="bk_scalar_expressions"></a> Skaläruttryck  
  Ett skalärt uttryck som är en kombination av symboler och operatörer som kan utvärderas för att få ett enskilt värde. Enkla uttryck kan vara konstanter, egenskapen referenser, matris referenser, alias referenser eller funktionsanrop. Enkla uttryck kan kombineras till komplexa uttryck med hjälp av operatörer. Exempel finns i [skaläruttryck exempel](how-to-sql-query.md#scalar-expressions)
   
@@ -681,7 +715,8 @@ ORDER BY <sort_specification>
 |[Matematiska funktioner](#bk_mathematical_functions)|Matematiska funktioner utför en beräkning, vanligtvis baserat på indatavärden som tillhandahålls som argument och returnerar ett numeriskt värde.|  
 |[Funktioner för typkontroll](#bk_type_checking_functions)|Med funktionerna för typkontroll kan du kontrollera typen av ett uttryck i SQL-frågor.|  
 |[Strängfunktioner](#bk_string_functions)|Strängfunktioner utföra en åtgärd på ett strängvärde för indata och returnerar en sträng, numeriskt eller booleskt värde.|  
-|[Matrisfunktioner](#bk_array_functions)|Matrisfunktioner kan du utföra en åtgärd på en matris indatavärdet och returnera numeriska, booleskt värde eller Matrisvärde.|  
+|[Matrisfunktioner](#bk_array_functions)|Matrisfunktioner kan du utföra en åtgärd på en matris indatavärdet och returnera numeriska, booleskt värde eller Matrisvärde.|
+|[Datum- och tidsfunktioner](#bk_date_and_time_functions)|Datum- och tidsfunktioner kan du hämta den aktuella UTC-datum och tid på två sätt; en numerisk tidsstämpel vars värde är Unix epoch i millisekunder eller som en sträng som överensstämmer med ISO 8601-format.|
 |[Spatial funktioner](#bk_spatial_functions)|Funktionerna spatial utföra en åtgärd på en spatialobjektet indatavärdet och returnerar ett numeriskt eller booleskt värde.|  
   
 ###  <a name="bk_mathematical_functions"></a> Matematiska funktioner  
@@ -2363,13 +2398,13 @@ SELECT
     StringToArray('[1,2,3, "[4,5,6]",[7,8]]') AS a5
 ```
 
- Här är resultatuppsättningen.
+Här är resultatuppsättningen.
 
 ```
 [{"a1": [], "a2": [1,2,3], "a3": ["str",2,3], "a4": [["5","6","7"],["8"],["9"]], "a5": [1,2,3,"[4,5,6]",[7,8]]}]
 ```
 
- Följande är ett exempel på ogiltiga indata. 
+Följande är ett exempel på ogiltiga indata. 
    
  Enkla citattecken i matrisen är inte giltig JSON.
 Även om de är giltiga i en fråga, kommer de inte att parsa till giltiga matriser. Strängar i matrisen strängen måste antingen undantas ”[\\”\\”]” eller omgivande citattecken måste vara enkel ”[” ”]”.
@@ -2379,13 +2414,13 @@ SELECT
     StringToArray("['5','6','7']")
 ```
 
- Här är resultatuppsättningen.
+Här är resultatuppsättningen.
 
 ```
 [{}]
 ```
 
- Här följer några exempel på ogiltiga indata.
+Här följer några exempel på ogiltiga indata.
    
  Det uttryck som skickas kommer att tolkas som en JSON-matris. följande utvärderar inte för att ange matris och därför returnera odefinierad.
    
@@ -2398,7 +2433,7 @@ SELECT
     StringToArray(undefined)
 ```
 
- Här är resultatuppsättningen.
+Här är resultatuppsättningen.
 
 ```
 [{}]
@@ -2429,7 +2464,7 @@ StringToBoolean(<expr>)
  
  Följande är exempel med giltiga indata.
 
- Blanksteg tillåts endast innan eller efter ”true” / ”false”.
+Blanksteg tillåts endast innan eller efter ”true” / ”false”.
 
 ```  
 SELECT 
@@ -2444,8 +2479,8 @@ SELECT
 [{"b1": true, "b2": false, "b3": false}]
 ```  
 
- Följande är exempel med ogiltiga indata.
- 
+Följande är exempel med ogiltiga indata.
+
  Booleska värden är skiftlägeskänsliga och måste skrivas med små bokstäver för d.v.s. ”true” och ”false”.
 
 ```  
@@ -2454,15 +2489,15 @@ SELECT
     StringToBoolean("False")
 ```  
 
- Här är resultatuppsättningen.  
+Här är resultatuppsättningen.  
   
 ```  
 [{}]
 ``` 
 
- Det uttryck som skickas ska parsas som ett booleskt uttryck; dessa indata utvärderas inte för att ange booleskt värde och därför returnera odefinierad.
+Det uttryck som skickas ska parsas som ett booleskt uttryck; dessa indata utvärderas inte för att ange booleskt värde och därför returnera odefinierad.
 
- ```  
+```  
 SELECT 
     StringToBoolean("null"),
     StringToBoolean(undefined),
@@ -2471,7 +2506,7 @@ SELECT
     StringToBoolean(true)
 ```  
 
- Här är resultatuppsättningen.  
+Här är resultatuppsättningen.  
   
 ```  
 [{}]
@@ -2500,8 +2535,8 @@ StringToNull(<expr>)
   
   I följande exempel visas hur StringToNull beter sig över olika typer. 
 
- Följande är exempel med giltiga indata.
- 
+Följande är exempel med giltiga indata.
+
  Blanksteg tillåts endast före eller efter ”null”.
 
 ```  
@@ -2517,9 +2552,9 @@ SELECT
 [{"n1": null, "n2": null, "n3": true}]
 ```  
 
- Följande är exempel med ogiltiga indata.
+Följande är exempel med ogiltiga indata.
 
- Null är skiftlägeskänsligt och måste skrivas med alla gemener d.v.s. ”null”.
+Null är skiftlägeskänsligt och måste skrivas med alla gemener d.v.s. ”null”.
 
 ```  
 SELECT    
@@ -2533,7 +2568,7 @@ SELECT
 [{}]
 ```  
 
- Det uttryck som skickas kommer att tolkas som ett null-uttryck; dessa indata utvärderas inte om du vill ange null och därför returnera odefinierad.
+Det uttryck som skickas kommer att tolkas som ett null-uttryck; dessa indata utvärderas inte om du vill ange null och därför returnera odefinierad.
 
 ```  
 SELECT    
@@ -2572,8 +2607,8 @@ StringToNumber(<expr>)
   
   I följande exempel visas hur StringToNumber beter sig över olika typer. 
 
- Blanksteg tillåts endast före eller efter hur många.
- 
+Blanksteg tillåts endast före eller efter hur många.
+
 ```  
 SELECT 
     StringToNumber("1.000000") AS num1, 
@@ -2588,8 +2623,8 @@ SELECT
 {{"num1": 1, "num2": 3.14, "num3": 60, "num4": -1.79769e+308}}
 ```  
 
- I JSON som ett giltigt nummer måste vara antingen vara ett heltal eller ett flyttal peka tal.
- 
+I JSON som ett giltigt nummer måste vara antingen vara ett heltal eller ett flyttal peka tal.
+
 ```  
 SELECT   
     StringToNumber("0xF")
@@ -2601,7 +2636,7 @@ SELECT
 {{}}
 ```  
 
- Det uttryck som skickas kommer att tolkas som ett antal uttryck; dessa indata utvärderas inte för att ange antal och därför returnera odefinierad. 
+Det uttryck som skickas kommer att tolkas som ett antal uttryck; dessa indata utvärderas inte för att ange antal och därför returnera odefinierad. 
 
 ```  
 SELECT 
@@ -2643,7 +2678,7 @@ StringToObject(<expr>)
   I följande exempel visas hur StringToObject beter sig över olika typer. 
   
  Följande är exempel med giltiga indata.
- 
+
 ``` 
 SELECT 
     StringToObject("{}") AS obj1, 
@@ -2652,7 +2687,7 @@ SELECT
     StringToObject("{\"C\":[{\"c1\":[5,6,7]},{\"c2\":8},{\"c3\":9}]}") AS obj4
 ``` 
 
- Här är resultatuppsättningen.
+Här är resultatuppsättningen.
 
 ```
 [{"obj1": {}, 
@@ -2660,40 +2695,40 @@ SELECT
   "obj3": {"B":[{"b1":[5,6,7]},{"b2":8},{"b3":9}]},
   "obj4": {"C":[{"c1":[5,6,7]},{"c2":8},{"c3":9}]}}]
 ```
- 
+
  Följande är exempel med ogiltiga indata.
 Även om de är giltiga i en fråga, kommer de inte att parsa giltiga objekt. Strängar i strängen i objektet måste antingen undantas ”{\\” en\\”:\\” str\\”}” eller omgivande citattecken måste vara enkel ' {”a”: ”str”} ”.
 
- Enkla citattecken som omger egenskapsnamn är inte giltig JSON.
+Enkla citattecken som omger egenskapsnamn är inte giltig JSON.
 
 ``` 
 SELECT 
     StringToObject("{'a':[1,2,3]}")
 ```
 
- Här är resultatuppsättningen.
+Här är resultatuppsättningen.
 
 ```  
 [{}]
 ```  
 
- Egenskapsnamn utan omgivande citattecken är inte giltig JSON.
+Egenskapsnamn utan omgivande citattecken är inte giltig JSON.
 
 ``` 
 SELECT 
     StringToObject("{a:[1,2,3]}")
 ```
 
- Här är resultatuppsättningen.
+Här är resultatuppsättningen.
 
 ```  
 [{}]
 ``` 
 
- Följande är exempel med ogiltiga indata.
- 
+Följande är exempel med ogiltiga indata.
+
  Det uttryck som skickas kommer att tolkas som ett JSON-objekt. dessa indata utvärderas inte för att ange objekt och därför returnera odefinierad.
- 
+
 ``` 
 SELECT 
     StringToObject("}"),
@@ -2798,20 +2833,20 @@ CONCAT(ToString(p.Weight), p.WeightUnits)
 FROM p in c.Products 
 ```  
 
- Här är resultatuppsättningen.  
+Här är resultatuppsättningen.  
   
 ```  
 [{"$1":"4lb" },
- {"$1":"32kg"},
- {"$1":"400g" },
- {"$1":"8999mg" }]
+{"$1":"32kg"},
+{"$1":"400g" },
+{"$1":"8999mg" }]
 
 ```  
 Får följande indata.
 ```
 {"id":"08259","description":"Cereals ready-to-eat, KELLOGG, KELLOGG'S CRISPIX","nutrients":[{"id":"305","description":"Caffeine","units":"mg"},{"id":"306","description":"Cholesterol, HDL","nutritionValue":30,"units":"mg"},{"id":"307","description":"Sodium, NA","nutritionValue":612,"units":"mg"},{"id":"308","description":"Protein, ABP","nutritionValue":60,"units":"mg"},{"id":"309","description":"Zinc, ZN","nutritionValue":null,"units":"mg"}]}
 ```
- I följande exempel visas hur ToString kan användas med andra strängfunktioner som Ersätt.   
+I följande exempel visas hur ToString kan användas med andra strängfunktioner som Ersätt.   
 ```
 SELECT 
     n.id AS nutrientID,
@@ -2819,14 +2854,14 @@ SELECT
 FROM food 
 JOIN n IN food.nutrients
 ```
- Här är resultatuppsättningen.  
+Här är resultatuppsättningen.  
  ```
 [{"nutrientID":"305"},
 {"nutrientID":"306","nutritionVal":"30"},
 {"nutrientID":"307","nutritionVal":"912"},
 {"nutrientID":"308","nutritionVal":"90"},
 {"nutrientID":"309","nutritionVal":"null"}]
- ``` 
+``` 
  
 ####  <a name="bk_trim"></a> TRIM  
  Returnerar ett stränguttryck efter att det tar bort inledande och avslutande blanksteg.  
@@ -2937,7 +2972,7 @@ SELECT ARRAY_CONCAT(["apples", "strawberries"], ["bananas"]) AS arrayConcat
 ####  <a name="bk_array_contains"></a> ARRAY_CONTAINS  
 Returnerar ett booleskt värde som anger huruvida matrisen innehåller det angivna värdet. Du kan söka efter en partiell eller fullständig matchning av ett objekt med hjälp av ett booleskt uttryck i kommandot. 
 
- **Syntax**  
+**Syntax**  
   
 ```  
 ARRAY_CONTAINS (<arr_expr>, <expr> [, bool_expr])  
@@ -2977,7 +3012,7 @@ SELECT
 [{"b1": true, "b2": false}]  
 ```  
 
- I följande exempel hur du söker efter en partiell matchning av en JSON i en matris med ARRAY_CONTAINS.  
+I följande exempel hur du söker efter en partiell matchning av en JSON i en matris med ARRAY_CONTAINS.  
   
 ```  
 SELECT  
@@ -3085,7 +3120,100 @@ SELECT
            "s7": [] 
 }]  
 ```  
- 
+
+###  <a name="bk_date_and_time_functions"></a> Datum- och tidsfunktioner
+ Följande skalära funktioner kan du hämta den aktuella UTC-datum och tid på två sätt; en numerisk tidsstämpel vars värde är Unix epoch i millisekunder eller som en sträng som överensstämmer med ISO 8601-format. 
+
+|||
+|-|-|
+|[GetCurrentDateTime](#bk_get_current_date_time)|[GetCurrentTimestamp](#bk_get_current_timestamp)||
+
+####  <a name="bk_get_current_date_time"></a> GetCurrentDateTime
+ Returnerar den aktuella UTC-datum och tid som en ISO 8601-sträng.
+  
+ **Syntax**
+  
+```
+GetCurrentDateTime ()
+```
+  
+  **Returnera typer**
+  
+  Returnerar det aktuella UTC datum- och ISO 8601 strängvärdet. 
+
+  Detta uttrycks i formatet ÅÅÅÅ-MM-DDThh:mm:ss.sssZ där:
+  
+  |||
+  |-|-|
+  |ÅÅÅÅ|fyrsiffrigt år|
+  |MM|månad med två siffror (01 = januari, osv.)|
+  |DD|tvåsiffrig dag i månaden (01 till 31)|
+  |T|signifier början av tidselement|
+  |hh|två siffror timme (00-23)|
+  |mm|två siffror minuter (00 till och med 59)|
+  |ss|två siffror sekunder (00 till och med 59)|
+  |.sss|tre siffrorna i decimaltal av en sekund|
+  |Z|UTC (Coordinated Universal Time) designator||
+  
+  Mer information om ISO 8601-format finns i [ISO_8601](https://en.wikipedia.org/wiki/ISO_8601)
+
+  **Kommentarer**
+
+  GetCurrentDateTime är en funktion som icke-deterministisk. 
+  
+  Resultatet som returneras är UTC (Coordinated Universal Time).
+
+  **Exempel**  
+  
+  I följande exempel visar hur du hämtar den aktuella UTC-datum tid med hjälp av den inbyggda funktionen GetCurrentDateTime.
+  
+```  
+SELECT GetCurrentDateTime() AS currentUtcDateTime
+```  
+  
+ Här är en exempel-resultatuppsättning.
+  
+```  
+[{
+  "currentUtcDateTime": "2019-05-03T20:36:17.784Z"
+}]  
+```  
+
+####  <a name="bk_get_current_timestamp"></a> GetCurrentTimestamp
+ Returnerar antalet millisekunder som har förflutit sedan 00:00:00 torsdag den 1 januari 1970. 
+  
+ **Syntax**  
+  
+```  
+GetCurrentTimestamp ()  
+```  
+  
+  **Returnera typer**  
+  
+  Returnerar ett numeriskt värde, det aktuella antalet millisekunder som har förflutit sedan Unix epoch t.ex. antalet millisekunder som har förflutit sedan 00:00:00 torsdag den 1 januari 1970.
+
+  **Kommentarer**
+
+  GetCurrentTimestamp är en funktion som icke-deterministisk. 
+  
+  Resultatet som returneras är UTC (Coordinated Universal Time).
+
+  **Exempel**  
+  
+  I följande exempel visar hur du hämtar den aktuella tidsstämpeln som använder den inbyggda funktionen GetCurrentTimestamp.
+  
+```  
+SELECT GetCurrentTimestamp() AS currentUtcTimestamp
+```  
+  
+ Här är en exempel-resultatuppsättning.
+  
+```  
+[{
+  "currentUtcTimestamp": 1556916469065
+}]  
+```  
+
 ###  <a name="bk_spatial_functions"></a> Spatial funktioner  
  Följande skalärfunktioner utföra en åtgärd på en spatialobjektet indatavärdet och returnerar ett numeriskt eller booleskt värde.  
   
@@ -3292,7 +3420,7 @@ SELECT ST_ISVALIDDETAILED({
   }  
 }]  
 ```  
-  
+ 
 ## <a name="next-steps"></a>Nästa steg  
 
 - [SQL-syntax och SQL-fråga för Cosmos DB](how-to-sql-query.md)

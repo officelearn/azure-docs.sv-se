@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: 131d62fd2cea3ed76342f0fd179b7a9e0fd673e5
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 25c71019227c52bf0c1530dcdf655fc7575d8032
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925267"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148528"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Vanliga frågor (och svar FAQ) om Azure-nätverk
 
@@ -170,7 +170,7 @@ Ja. Du hittar mer information finns i den [hur du flyttar en virtuell dator elle
 Nej. En MAC-adress kan inte konfigureras statiskt.
 
 ### <a name="will-the-mac-address-remain-the-same-for-my-vm-once-its-created"></a>MAC-adressen förblir densamma för den virtuella datorn när den har skapats?
-Ja, MAC-adressen förblir densamma för en virtuell dator distribueras via både Resource Manager och klassiska distributionsmodeller tills det tas bort. MAC-adressen gavs tidigare, om den virtuella datorn har Stoppad (frigjord), men nu MAC-adressen bevaras även om den virtuella datorn är i frigjort tillstånd.
+Ja, MAC-adressen förblir densamma för en virtuell dator distribueras via både Resource Manager och klassiska distributionsmodeller tills det tas bort. MAC-adressen gavs tidigare, om den virtuella datorn har Stoppad (frigjord), men nu MAC-adressen bevaras även om den virtuella datorn är i frigjort tillstånd. MAC-adressen förblir tilldelad till nätverksgränssnittet tills nätverksgränssnittet har tagits bort eller privata IP-adress som tilldelats den primära IP-adresskonfigurationen för det primära nätverksgränssnittet ändras. 
 
 ### <a name="can-i-connect-to-the-internet-from-a-vm-in-a-vnet"></a>Kan jag ansluta till internet från en virtuell dator i ett virtuellt nätverk?
 Ja. Alla virtuella datorer och molntjänster rollinstanser som distribuerats i ett virtuellt nätverk kan ansluta till Internet.

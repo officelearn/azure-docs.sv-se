@@ -5,28 +5,31 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 04/30/2019
 ms.author: tamram
-ms.openlocfilehash: 3996f22db2f5dc597939995a2699c4fe228821e3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.reviewer: cbrooks
+ms.openlocfilehash: e0f93b0a95a228b26fae266129aea4b595b05e0f
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60392573"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148362"
 ---
 # <a name="manage-anonymous-read-access-to-containers-and-blobs"></a>Hantera anonym läsåtkomst till containrar och blob-objekt
+
 Du kan aktivera anonym, offentlig läsbehörighet till en behållare och dess blobbar i Azure Blob storage. Då kan ge du skrivskyddad åtkomst till dessa resurser utan att dela din kontonyckel och utan en signatur för delad åtkomst (SAS).
 
 Offentlig läsbehörighet passar bäst för scenarier där du vill att vissa BLOB-och alltid vara tillgänglig för anonym läsbehörighet. För mer detaljerad kontroll kan skapa du en signatur för delad åtkomst. Signaturer för delad åtkomst kan du begränsad åtkomst med olika behörigheter för en viss tidsperiod. Mer information om hur du skapar delade åtkomstsignaturer, se [använda signaturer för delad åtkomst (SAS) i Azure Storage](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ## <a name="grant-anonymous-users-permissions-to-containers-and-blobs"></a>Bevilja behörigheter för anonyma användare till behållare och blobbar
-Som standard kan en behållare och alla blobbar i den endast användas av ägaren av storage-konto. Om du vill ge anonyma användare som har läsbehörighet till en behållare och dess blobbar, kan du ange behörigheter till behållaren att tillåta offentlig åtkomst. Anonyma användare kan läsa blobbar i en offentligt tillgänglig behållare utan att autentisera begäran.
+
+Som standard kan en behållare och alla blobbar i den endast användas av en användare som har rätt behörighet. För att bevilja läsbehörighet för anonyma användare till en behållare och dess blobbar, kan du ange behållare offentlig åtkomstnivå. När du beviljar offentlig åtkomst till en behållare kan kan sedan anonyma användare läsa blobbar i en offentligt tillgänglig behållare utan begäran.
 
 Du kan konfigurera en behållare med följande behörigheter:
 
 * **Ingen offentlig läsbehörighet:** Behållaren och dess blobbar kan endast användas av lagringskontoägaren. Det här är standard för alla nya behållare.
 * **Offentlig läsbehörighet endast för objekt:** Blobbar i behållaren kan läsas av anonym begäran, men behållardata är inte tillgänglig. Anonym klienter kan inte räkna upp blobbar i behållaren.
-* **Fullständig offentlig läsbehörighet:** Alla behållare och blob-data kan läsas av anonym begäran. Klienter kan räkna upp blobbar i behållaren av anonym begäran, men det går inte att räkna upp behållare i lagringskontot.
+* **Offentlig läsbehörighet för behållaren och dess blobbar:** Alla behållare och blob-data kan läsas av anonym begäran. Klienter kan räkna upp blobbar i behållaren av anonym begäran, men det går inte att räkna upp behållare i lagringskontot.
 
 Du kan använda följande för att ange behörigheter för behållare:
 
@@ -35,18 +38,25 @@ Du kan använda följande för att ange behörigheter för behållare:
 * [Azure CLI](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-and-manage-blobs)
 * Programmässigt med någon av storage-klientbibliotek eller REST API
 
-### <a name="set-container-permissions-in-the-azure-portal"></a>Ange behörigheter för behållare i Azure portal
-Ange behörigheter för behållare i den [Azure-portalen](https://portal.azure.com), Följ dessa steg:
+### <a name="set-container-public-access-level-in-the-azure-portal"></a>Ange offentlig åtkomstnivå för behållare i Azure portal
 
-1. Öppna din **lagringskonto** -bladet i portalen. Du hittar ditt storage-konto genom att välja **lagringskonton** på bladet portal huvudmenyn.
-1. Under **BLOBTJÄNSTEN** på menyn-bladet och välj **Blobar**.
-1. Högerklicka på behållaren raden eller ellipserna att öppna behållarens **snabbmenyn**.
-1. Välj **princip** på snabbmenyn.
-1. Välj en **åtkomsttyp** från nedrullningsbara menyn.
+Från den [Azure-portalen](https://portal.azure.com), kan du uppdatera offentlig åtkomstnivå för en eller flera behållare:
 
-    ![Metadata för behållaren dialogrutan Redigera](./media/storage-manage-access-to-resources/storage-manage-access-to-resources-0.png)
+1. Navigera till ditt lagringskonto i Azure-portalen.
+1. Under **Blobtjänst** på menyn-bladet och välj **Blobar**.
+1. Välj de behållare som du vill ange offentlig åtkomstnivå.
+1. Använd den **ändra åtkomstnivå** knappen för att visa inställningar för offentlig åtkomst.
+1. Välj den önskade offentlig åtkomstnivån från den **offentlig åtkomstnivå** listrutan och klicka på OK om du vill tillämpa ändringen för de valda behållarna.
 
-### <a name="set-container-permissions-with-net"></a>Ange behörigheter för behållaren med .NET
+Följande skärmbild visar hur du ändrar offentlig åtkomstnivå för de valda behållarna.
+
+![Skärmbild som visar hur du ställer in offentlig åtkomstnivå i portalen](./media/storage-manage-access-to-resources/storage-manage-access-to-resources-0.png)
+
+> [!NOTE]
+> Du kan inte ändra offentlig åtkomstnivå för en enskild blob. Offentlig åtkomstnivå anges endast på behållarenivån.
+
+### <a name="set-container-public-access-level-with-net"></a>Ange behållaren offentlig åtkomstnivå med .NET
+
 Om du vill ange behörigheter för en behållare med C# och Storage-klientbiblioteket för .NET, först hämta behållarens befintliga behörigheter genom att anropa den **GetPermissions** metod. Ange sedan den **PublicAccess** -egenskapen för den **BlobContainerPermissions** objekt som returneras av den **GetPermissions** metod. Anropa slutligen den **behörighetsgruppbehörighet** metod med uppdaterade behörigheter.
 
 I följande exempel anger behållarens behörigheter till fullständig offentlig läsbehörighet. Att ställa in behörigheter till offentlig läsbehörighet för blobar endast den **PublicAccess** egenskap **BlobContainerPublicAccessType.Blob**. Ta bort alla behörigheter för anonyma användare genom att ange egenskapen till **BlobContainerPublicAccessType.Off**.
@@ -61,15 +71,17 @@ public static void SetPublicContainerPermissions(CloudBlobContainer container)
 ```
 
 ## <a name="access-containers-and-blobs-anonymously"></a>Få åtkomst till behållare och blobbar anonymt
-En klient som har åtkomst till behållare och blobbar anonymt kan använda konstruktorer som inte kräver autentiseringsuppgifter. I följande exempel visas ett antal olika sätt att referera till anonymt Blob service-resurser.
+
+En klient som har åtkomst till behållare och blobbar anonymt kan använda konstruktorer som inte kräver autentiseringsuppgifter. I följande exempel visas ett antal olika sätt att referera till behållare och blobbar anonymt.
 
 ### <a name="create-an-anonymous-client-object"></a>Skapa ett anonym-klientobjekt
-Du kan skapa en ny tjänsten klientobjekt för anonym åtkomst genom att tillhandahålla Blob service-slutpunkt för kontot. Du måste också veta namnet på en behållare i det konto som är tillgängliga för anonym åtkomst.
+
+Du kan skapa en ny tjänsten klientobjekt för anonym åtkomst genom att tillhandahålla Blob storage-slutpunkten för kontot. Du måste också veta namnet på en behållare i det konto som är tillgängliga för anonym åtkomst.
 
 ```csharp
 public static void CreateAnonymousBlobClient()
 {
-    // Create the client object using the Blob service endpoint.
+    // Create the client object using the Blob storage endpoint.
     CloudBlobClient blobClient = new CloudBlobClient(new Uri(@"https://storagesample.blob.core.windows.net"));
 
     // Get a reference to a container that's available for anonymous access.
@@ -83,6 +95,7 @@ public static void CreateAnonymousBlobClient()
 ```
 
 ### <a name="reference-a-container-anonymously"></a>Referera till en behållare anonymt
+
 Om du har URL: en till en behållare som finns på anonymt, kan du använda det att direkt referera till behållaren.
 
 ```csharp
@@ -100,6 +113,7 @@ public static void ListBlobsAnonymously()
 ```
 
 ### <a name="reference-a-blob-anonymously"></a>Referera till en blob anonymt
+
 Om du har rätt Webbadress till en blob som är tillgängliga för anonym åtkomst kan du referera till blob direkt med URL:
 
 ```csharp
@@ -111,39 +125,39 @@ public static void DownloadBlobAnonymously()
 ```
 
 ## <a name="features-available-to-anonymous-users"></a>Funktioner som är tillgängliga för anonyma användare
-I följande tabell visas vilka åtgärder som kan anropas av anonyma användare när en behållare ACL har angetts att tillåta offentlig åtkomst.
 
-| REST-åtgärden | Behörigheten med fullständig offentlig läsbehörighet | Behörigheten med offentlig läsbehörighet endast för blobbar |
+I följande tabell visas vilka åtgärder som kan anropas anonymt när en behållare är konfigurerad för offentlig åtkomst.
+
+| REST-åtgärden | Offentlig läsbehörighet till behållare | Endast offentlig läsbehörighet för blobar |
 | --- | --- | --- |
-| Lista behållare |Endast ägare |Endast ägare |
-| Skapa behållare |Endast ägare |Endast ägare |
-| Hämta egenskaper för behållare |Alla |Endast ägare |
-| Hämta Metadata för behållaren |Alla |Endast ägare |
-| Ställ in Metadata för behållaren |Endast ägare |Endast ägare |
-| Hämta ACL-behållare |Endast ägare |Endast ägare |
-| Ange behållaren ACL |Endast ägare |Endast ägare |
-| Ta bort behållare |Endast ägare |Endast ägare |
-| Lista Blobar |Alla |Endast ägare |
-| Put Blob |Endast ägare |Endast ägare |
-| Hämta Blob |Alla |Alla |
-| Hämta Blobegenskaper |Alla |Alla |
-| Ange Blob-egenskaper |Endast ägare |Endast ägare |
-| Hämta blob-metadata |Alla |Alla |
-| Ange Blob-Metadata |Endast ägare |Endast ägare |
-| Placera Block |Endast ägare |Endast ägare |
-| Hämta lista över blockerade (endast allokerade blockeras) |Alla |Alla |
-| Hämta lista över blockerade (ogenomförda block eller alla block) |Endast ägare |Endast ägare |
-| Placera Blockeringslista |Endast ägare |Endast ägare |
-| Ta bort Blob |Endast ägare |Endast ägare |
-| Kopiera Blob |Endast ägare |Endast ägare |
-| Ta ögonblicksbild av Blob |Endast ägare |Endast ägare |
-| Lånet Blob |Endast ägare |Endast ägare |
-| Placera sidan |Endast ägare |Endast ägare |
-| Get Page Ranges |Alla |Alla |
-| Bifoga blob |Endast ägare |Endast ägare |
+| Lista behållare | Auktoriserade begäranden | Auktoriserade begäranden |
+| Skapa behållare | Auktoriserade begäranden | Auktoriserade begäranden |
+| Hämta egenskaper för behållare | Anonyma begäranden som tillåts | Auktoriserade begäranden |
+| Hämta Metadata för behållaren | Anonyma begäranden som tillåts | Auktoriserade begäranden |
+| Ställ in Metadata för behållaren | Auktoriserade begäranden | Auktoriserade begäranden |
+| Hämta ACL-behållare | Auktoriserade begäranden | Auktoriserade begäranden |
+| Ange behållaren ACL | Auktoriserade begäranden | Auktoriserade begäranden |
+| Ta bort behållare | Auktoriserade begäranden | Auktoriserade begäranden |
+| Lista Blobar | Anonyma begäranden som tillåts | Auktoriserade begäranden |
+| Put Blob | Auktoriserade begäranden | Auktoriserade begäranden |
+| Hämta Blob | Anonyma begäranden som tillåts | Anonyma begäranden som tillåts |
+| Hämta Blobegenskaper | Anonyma begäranden som tillåts | Anonyma begäranden som tillåts |
+| Ange Blob-egenskaper | Auktoriserade begäranden | Auktoriserade begäranden |
+| Hämta blob-metadata | Anonyma begäranden som tillåts | Anonyma begäranden som tillåts |
+| Ange Blob-Metadata | Auktoriserade begäranden | Auktoriserade begäranden |
+| Placera Block | Auktoriserade begäranden | Auktoriserade begäranden |
+| Hämta lista över blockerade (endast allokerade blockeras) | Anonyma begäranden som tillåts | Anonyma begäranden som tillåts |
+| Hämta lista över blockerade (ogenomförda block eller alla block) | Auktoriserade begäranden | Auktoriserade begäranden |
+| Placera Blockeringslista | Auktoriserade begäranden | Auktoriserade begäranden |
+| Ta bort Blob | Auktoriserade begäranden | Auktoriserade begäranden |
+| Kopiera Blob | Auktoriserade begäranden | Auktoriserade begäranden |
+| Ta ögonblicksbild av Blob | Auktoriserade begäranden | Auktoriserade begäranden |
+| Lånet Blob | Auktoriserade begäranden | Auktoriserade begäranden |
+| Placera sidan | Auktoriserade begäranden | Auktoriserade begäranden |
+| Get Page Ranges | Anonyma begäranden som tillåts | Anonyma begäranden som tillåts |
+| Bifoga blob | Auktoriserade begäranden | Auktoriserade begäranden |
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Autentisering för Azure Storage-tjänster](https://msdn.microsoft.com/library/azure/dd179428.aspx)
+* [Auktorisering för Azure Storage-tjänster](https://docs.microsoft.com/rest/api/storageservices/authorization-for-the-azure-storage-services)
 * [Använda signaturer för delad åtkomst (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-* [Delegera åtkomst med signatur för delad åtkomst](https://msdn.microsoft.com/library/azure/ee395415.aspx)

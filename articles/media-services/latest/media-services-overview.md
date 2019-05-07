@@ -16,12 +16,12 @@ ms.workload: media
 ms.date: 04/18/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 6876ffd76c5a7ba5745e8014bca2abdc5e5264a2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 91297a02966000899ab79dfb86446890e9c4439a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60321952"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148704"
 ---
 # <a name="azure-media-services-v3-overview"></a>Azure Media Services v3-översikt
 
@@ -80,7 +80,7 @@ Artiklar innehåller exempel som visar hur du utför en uppgift. I det här avsn
 * [Kryptera dynamiskt med multi-DRM - .NET](protect-with-drm.md) 
 * [Koda med en anpassad transformering – CLI](custom-preset-cli-howto.md)
 
-## <a name="provide-feedback"></a>Ge feedback
+## <a name="ask-questions-give-feedback-get-updates"></a>Ställ frågor, ge feedback, få uppdateringar
 
 Kolla in den [Azure Media Services-community](media-services-community.md) artikeln olika sätt du kan ställa frågor, ge feedback och få uppdateringar om Media Services.
 

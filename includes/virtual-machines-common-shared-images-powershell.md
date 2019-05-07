@@ -5,15 +5,15 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 12/10/2018
+ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 91889971e1ab8a9ea8341f6bc57735d973ea0e89
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5d4be0bf52fd925e22e40e98258082304a25a111
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60188346"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148757"
 ---
 ## <a name="launch-azure-cloud-shell"></a>Starta Azure Cloud Shell
 
@@ -21,17 +21,6 @@ Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att u
 
 Om du vill öppna Cloud Shell väljer du bara **Prova** från det övre högra hörnet i ett kodblock. Du kan också starta Cloud Shell i en separat webbläsarflik genom att gå till [https://shell.azure.com/powershell](https://shell.azure.com/powershell). Kopiera kodblocket genom att välja **Kopiera**, klistra in det i Cloud Shell och kör det genom att trycka på RETUR.
 
-
-## <a name="preview-register-the-feature"></a>Förhandsversion: Registrera funktionen
-
-Delade Image Galleries är i förhandsversion, men du behöver registrera funktionen innan du kan använda den. Så här registrerar funktionen delad Image Galleries:
-
-```azurepowershell-interactive
-Register-AzProviderFeature `
-   -FeatureName GalleryPreview `
-   -ProviderNamespace Microsoft.Compute
-Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
-```
 
 ## <a name="get-the-managed-image"></a>Hämta hanterad avbildning
 
@@ -45,7 +34,9 @@ $managedImage = Get-AzImage `
 
 ## <a name="create-an-image-gallery"></a>Skapa ett avbildningsgalleri 
 
-Ett galleri med avbildningar är den primära resursen som används för att aktivera delning av avbildningen. Galleriet namn måste vara unikt inom prenumerationen. Skapa en avbildning galleriet med hjälp av [New AzGallery](https://docs.microsoft.com/powershell/module/az.compute/new-azgallery). I följande exempel skapas ett galleri med namnet *myGallery* i den *myGalleryRG* resursgrupp.
+Ett galleri med avbildningar är den primära resursen som används för att aktivera delning av avbildningen. Tillåtna tecken för namn på galleriet är versaler, gemener, siffror, punkter och punkter. Namn på galleriet får inte innehålla bindestreck. Galleriet namn måste vara unikt inom prenumerationen. 
+
+Skapa en avbildning galleriet med hjälp av [New AzGallery](https://docs.microsoft.com/powershell/module/az.compute/new-azgallery). I följande exempel skapas ett galleri med namnet *myGallery* i den *myGalleryRG* resursgrupp.
 
 ```azurepowershell-interactive
 $resourceGroup = New-AzResourceGroup `
@@ -60,7 +51,9 @@ $gallery = New-AzGallery `
    
 ## <a name="create-an-image-definition"></a>Skapa en definition för avbildning 
 
-Skapar galleriet bilden definition med [New AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). I det här exemplet heter galleriet bilden *myGalleryImage*.
+Bild definitioner skapa en logisk gruppering för avbildningar. De används för att hantera information om vilka avbildningsversioner som skapas i dem. Namn på definition bilder kan bestå av versaler, gemener, siffror, punkter, bindestreck och punkter. Läs mer om de värden som du kan ange för en avbildningsdefinitionen [bild definitioner](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions).
+
+Skapar avbildning definition med [New AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). I det här exemplet heter galleriet bilden *myGalleryImage*.
 
 ```azurepowershell-interactive
 $galleryImage = New-AzGalleryImageDefinition `
@@ -74,30 +67,15 @@ $galleryImage = New-AzGalleryImageDefinition `
    -Offer 'myOffer' `
    -Sku 'mySKU'
 ```
-### <a name="using-publisher-offer-and-sku"></a>Med hjälp av utgivare, erbjudande och SKU 
-För kunder som planerar att implementera delade avbildningar **i en kommande version**, du kommer att kunna använda ditt personligt definierade **-utgivare**, **-erbjuder** och **- Sku** värden för att hitta och ange en definition av bild och sedan skapa en virtuell dator med senaste versionsnumret för avbildningen från den matchande bild definition. Här är till exempel tre definitioner som avbildning och deras värden:
 
-|Bilddefinition|Utgivare|Erbjudande|Sku|
-|---|---|---|---|
-|myImage1|myPublisher|myOffer|mySku|
-|myImage2|myPublisher|standardOffer|mySku|
-|myImage3|Testning|standardOffer|testSku|
-
-Alla tre av dessa ha unika värden. Du kan ha bild-versioner som delar en eller två, men inte alla tre värden. **I en kommande version**, du kommer att kunna kombinera dessa värden för att begära den senaste versionen av en viss avbildning. **Detta fungerar inte i den aktuella versionen**, men kommer att vara tillgängliga i framtiden. När den släpps, med följande syntax ska användas för att ange Källavbildningen som *myImage1* från tabellen ovan.
-
-```powershell
-$vmConfig = Set-AzVMSourceImage `
-   -VM $vmConfig `
-   -PublisherName myPublisher `
-   -Offer myOffer `
-   -Skus mySku 
-```
-
-Detta liknar hur du kan för närvarande ange Använd utgivare, erbjudande och SKU för [Azure Marketplace-avbildningar](../articles/virtual-machines/windows/cli-ps-findimage.md) att hämta den senaste versionen av en Marketplace-avbildning. Med detta i åtanke måste varje avbildningsdefinitionen ha en unik uppsättning dessa värden.  
 
 ## <a name="create-an-image-version"></a>Skapa en Bildversion
 
-Skapa en Avbildningsversion från en hanterad avbildning med hjälp av [New AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion) . I det här exemplet är versionsnumret för avbildningen *1.0.0* och den replikeras till både *USA, västra centrala* och *södra centrala USA* datacenter.
+Skapa en Avbildningsversion från en hanterad avbildning med hjälp av [New AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). 
+
+Tillåtna tecken för Avbildningsversion är siffror och punkter. Måste vara ett nummer i intervallet för ett 32-bitars heltal. Format: *MajorVersion*. *LägreVersion*. *Patch*.
+
+I det här exemplet är versionsnumret för avbildningen *1.0.0* och den replikeras till både *USA, västra centrala* och *södra centrala USA* datacenter. När du väljer målregioner för replikering, komma ihåg att du även inkludera den *källa* region som mål för replikering.
 
 
 ```azurepowershell-interactive
@@ -122,3 +100,5 @@ Det kan ta en stund att replikera avbildningen till alla målregioner, så vi ha
 $job.State
 ```
 
+> [!NOTE]
+> Du måste vänta tills Avbildningsversion helt Slutför som bygger och replikeras innan du kan använda samma avbildning som hanterad för att skapa en annan Avbildningsversion.

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cephalin
-ms.openlocfilehash: 544ef8947f3a593071cabea018c722db96ab1475
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d62632d6c28ac137095307e95dbbdab7e8573bbc
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59266213"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65137886"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Konfigurera mellanlagringsmiljöer i Azure App Service
 <a name="Overview"></a>
@@ -266,6 +266,8 @@ Så att användare kan välja att beta-app genom att ange samma Frågeparametern
 <webappname>.azurewebsites.net/?x-ms-routing-name=staging
 ```
 
+Som standard nya platser ges en routningsregel för `0%`, visas i grått. Genom att explicit ange det här värdet till `0%` (visas i svart text), användarna kan nå mellanlagringsplatsen manuellt med hjälp av den `x-ms-routing-name` Frågeparametern, men de kommer inte att dirigeras till facket automatiskt eftersom routning procentandelen anges till 0. Det här är ett avancerat scenario där du kan ”dölja” din mellanlagringsplats för allmänheten samtidigt som interna team att testa ändringar på platsen.
+
 <a name="Delete"></a>
 
 ## <a name="delete-slot"></a>Ta bort fack
@@ -287,7 +289,7 @@ Azure PowerShell är en modul som tillhandahåller cmdletar för att hantera Azu
 Information om att installera och konfigurera Azure PowerShell och om autentisering av Azure PowerShell med Azure-prenumerationen finns i [hur du installerar och konfigurerar du Microsoft Azure PowerShell](/powershell/azure/overview).  
 
 - - -
-### <a name="create-web-app"></a>Skapa webbprogram
+### <a name="create-web-app"></a>Skapa webbapp
 ```powershell
 New-AzWebApp -ResourceGroupName [resource group name] -Name [app name] -Location [location] -AppServicePlan [app service plan name]
 ```

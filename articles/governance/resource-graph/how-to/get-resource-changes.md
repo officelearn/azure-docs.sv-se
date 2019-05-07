@@ -8,12 +8,12 @@ ms.date: 04/20/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 0ae85b45dfcd80056316ed5f2099aab4057d24c8
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 81cb5e62c8abc93aa5defb690628c7178fd2a869
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64720338"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142544"
 ---
 # <a name="get-resource-changes"></a>Hämta resursändringar
 
@@ -29,7 +29,7 @@ Identifiering av ändring av och information är värdefull för följande exemp
 - Att hålla en Konfigurationshanteringsdatabas kallas en CMDB uppdaterad. I stället för att uppdatera alla resurser och deras fullständiga egenskapsuppsättningar enligt en frekvens som är schemalagd att bara hämta vad som ändrats.
 - Förstå vilka andra egenskaper kan ändras när en resurs ändras kompatibilitetsstatus. Utvärdering av dessa ytterligare egenskaper kan ge insikter om andra egenskaper som kan behöva hanteras via en Azure Policy definition.
 
-Den här artikeln visar hur du samlar in uppgifterna via Resource Graph SDK. Den här informationen i Azure-portalen finns i Azure Policy [ändringshistorik](../../policy/how-to/determine-non-compliance.md#change-history-preview).
+Den här artikeln visar hur du samlar in uppgifterna via Resource Graph SDK. Den här informationen i Azure-portalen finns i Azure Policy [ändringshistorik](../../policy/how-to/determine-non-compliance.md#change-history-preview) eller Azure-aktivitetsloggen [ändringshistorik](../../../azure-monitor/platform/activity-logs-overview.md#view-change-history).
 
 > [!NOTE]
 > Information om ändringar i resurs-diagrammet är för Resource Manager-egenskaper. Spåra ändringar i en virtuell dator finns i Azure Automation [ändringsspårning](../../../automation/automation-change-tracking.md) eller Azure Policy [gäst-konfigurationen för virtuella datorer](../../policy/concepts/guest-configuration.md).

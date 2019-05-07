@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: c64db6b35aa2f1daa4484f137c8505b1415c5a0b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 80bf4718b63496c0b220aa79dcdd27f2711b70ce
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60998463"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148105"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Förbereda för distribution av din IoT Edge-lösning i produktion
 
@@ -186,7 +186,11 @@ Om dina enheter kommer att distribueras på ett nätverk som använder en proxys
 
 ### <a name="set-up-logs-and-diagnostics"></a>Konfigurera loggar och diagnostik
 
-På Linux använder IoT Edge-daemon journaler som standard loggning av drivrutinen. Du kan använda kommandoradsverktyget `journalctl` att fråga daemon loggar. På Windows använder IoT Edge-daemon PowerShell diagnostik. Använd `Get-WinEvent` till fråga loggar från daemon. IoT Edge-moduler använda JSON-drivrutin för loggning, vilket är standard.  
+På Linux använder IoT Edge-daemon journaler som standard loggning av drivrutinen. Du kan använda kommandoradsverktyget `journalctl` att fråga daemon loggar. På Windows använder IoT Edge-daemon PowerShell diagnostik. Använd `Get-IoTEdgeLog` till fråga loggar från daemon. IoT Edge-moduler använda JSON-drivrutin för loggning, vilket är standard.  
+
+```powershell
+. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
+```
 
 När du testar en IoT Edge-distribution kan du normalt komma åt dina enheter för att hämta loggar och felsöka. Du kanske inte har alternativet i ett scenario för distribution. Överväg hur du ska samla in information om dina enheter i produktionen. Ett alternativ är att använda en loggningsmodul som samlar in information från andra moduler och skickar dem till molnet. Ett exempel på en loggningsmodul är [logspout loganalytics](https://github.com/veyalla/logspout-loganalytics), eller du kan utforma dina egna. 
 

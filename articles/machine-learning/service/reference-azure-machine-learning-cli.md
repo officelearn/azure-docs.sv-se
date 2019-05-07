@@ -11,16 +11,16 @@ ms.author: jordane
 author: jpe316
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9cc6ad4f7b33de4d132efe63ff11c34f10b614af
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: be3cedc4b496f4f64a52217099f64092dfb49228
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023374"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149853"
 ---
 # <a name="use-the-cli-extension-for-azure-machine-learning-service"></a>Använda CLI-tillägg för Azure Machine Learning-tjänsten
 
-Azure Machine Learning CLI är ett tillägg till den [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest), ett plattformsoberoende kommandoradsgränssnitt för Azure-plattformen. Det här tillägget innehåller kommandon för att arbeta med Azure Machine Learning-tjänsten från kommandoraden. Det kan du automatisera arbetsflöden för maskininlärning. Exempelvis kan du utföra följande åtgärder:
+Azure Machine Learning CLI är ett tillägg till den [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest), ett plattformsoberoende kommandoradsgränssnitt för Azure-plattformen. Det här tillägget innehåller kommandon för att arbeta med Azure Machine Learning-tjänsten. Det kan du automatisera din machine learning-aktiviteter. I följande lista innehåller vissa exempel som du kan göra med CLI-tillägg:
 
 + Köra experiment för att skapa machine learning-modeller
 
@@ -79,30 +79,49 @@ Följande kommandon visar hur du använder CLI för att hantera resurser som anv
     az ml workspace create -w myworkspace -g myresourcegroup
     ```
 
+    Mer information finns i [az ml-arbetsyta skapar](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-create).
+
 + Koppla en arbetsytekonfiguration till en mapp för att aktivera sammanhangsbaserad medvetenhet för CLI.
     ```azurecli-interactive
     az ml folder attach -w myworkspace -g myresourcegroup
     ```
+
+    Mer information finns i [az ml mappen bifoga](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/folder?view=azure-cli-latest#ext-azure-cli-ml-az-ml-folder-attach).
 
 + Koppla en Azure blob-behållare som ett datalager.
 
     ```azurecli-interactive
     az ml datastore attach-blob  -n datastorename -a accountname -c containername
     ```
+
+    Mer information finns i [az ml datalager bifoga-blob](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/datastore?view=azure-cli-latest#ext-azure-cli-ml-az-ml-datastore-attach-blob).
+
     
 + Koppla ett AKS-kluster som en Compute-mål.
 
     ```azurecli-interactive
-    az ml computetarget attach aks -n myaks -i myaksresourceid -g myrg -w myworkspace
+    az ml computetarget attach aks -n myaks -i myaksresourceid -g myresourcegroup -w myworkspace
     ```
+
+    Mer information finns i [az ml computetarget bifoga aks](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/attach?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-attach-aks)
+
++ Skapa ett nytt AMLcompute mål.
+
+    ```azurecli-interactive
+    az ml computetarget create amlcompute -n cpu --min-nodes 1 --max-nodes 1 -s STANDARD_D3_V2
+    ```
+
+    Mer information finns i [az ml computetarget skapa amlcompute](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute).
 
 ## <a id="experiments"></a>Köra experiment
 
 * Starta en körning av experimentet. När du använder det här kommandot kan du ange namnet på filen runconfig (text före \*.runconfig om du tittar på ditt filsystem) mot - c-parametern.
 
     ```azurecli-interactive
-    az ml run submit-script -c local -e testexperiment train.py
+    az ml run submit-script -c sklearn -e testexperiment train.py
     ```
+
+    Mer information finns i [az ml kör skicka skript](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-submit-script).
 
 * Visa en lista över experiment:
 
@@ -110,18 +129,36 @@ Följande kommandon visar hur du använder CLI för att hantera resurser som anv
     az ml experiment list
     ```
 
-## <a name="model-registration-profiling--deployment"></a>Modeller registrering, profilering och distribution
+    Mer information finns i [az ml experimentera lista](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/experiment?view=azure-cli-latest#ext-azure-cli-ml-az-ml-experiment-list).
+
+## <a name="model-registration-profiling-deployment"></a>Registrering av modellen, profilering, distribution
 
 Följande kommandon visar hur du kan registrera en träningsmodell och sedan distribuera den som en tjänst för produktion:
 
 + Registrera en modell med Azure Machine Learning:
 
-  ```azurecli-interactive
-  az ml model register -n mymodel -p sklearn_regression_model.pkl
-  ```
+    ```azurecli-interactive
+    az ml model register -n mymodel -p sklearn_regression_model.pkl
+    ```
+
+    Mer information finns i [az ml-modellen registrera](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-register).
+
++ **VALFRITT** profilera din modell för att få optimal processor- och värden för distribution.
+    ```azurecli-interactive
+    az ml model profile -n myprofile -m mymodel:1 --ic inferenceconfig.json -d "{\"data\": [[1,2,3,4,5,6,7,8,9,10],[10,9,8,7,6,5,4,3,2,1]]}" -t myprofileresult.json
+    ```
+
+    Mer information finns i [az ml-modellen profil](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-profile).
 
 + Distribuera din modell till AKS
 
-  ```azurecli-interactive
-  az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.json
-  ```
+    ```azurecli-interactive
+    az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.json
+    ```
+
+    Mer information finns i [az ml modelldistribution](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy).
+
+
+## <a name="next-steps"></a>Nästa steg
+
+* [Kommandot referens för Machine Learning CLI-tillägg för](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest).

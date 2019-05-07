@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 3/18/2019
+ms.date: 5/3/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 7beb3d986b016688c4ee0a512b9406dbf3dfbb40
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 608674d6e049c71d22c7bf91f37fcb16ffccc581
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60194260"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65144924"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Självstudier: Distribuera och konfigurera Azure Firewall i ett hybridnätverk med hjälp av Azure PowerShell
 
@@ -61,9 +61,9 @@ Det finns tre viktiga krav för att det här scenariot ska fungera korrekt:
 Information om hur dessa vägar skapas finns i avsnittet [Skapa vägar](#create-the-routes) i den här självstudien.
 
 >[!NOTE]
->Azure Firewall måste ha direkt Internetanslutning. Som standard bör AzureFirewallSubnet endast tillåta en UDR 0.0.0.0/0 med den **NextHopType** värdet **Internet**.
+>Azure-brandväggen måste ha direkt Internetanslutning. Om din AzureFirewallSubnet lär sig en standardväg till ditt lokala nätverk via BGP, måste du åsidosätta detta med en 0.0.0.0/0 UDR med den **NextHopType** värdet **Internet** att upprätthålla direkt Ansluten till Internet. Som standard stöder Azure brandvägg inte framtvingad tunneling till ett lokalt nätverk.
 >
->Om du aktiverar Tvingad tunneltrafik till lokalt via ExpressRoute eller Application Gateway kan du behöva uttryckligen konfigurera en UDR 0.0.0.0/0 med NextHopType värdet som **Internet** och associera den med din AzureFirewallSubnet. Om din organisation kräver Tvingad tunneltrafik för Brandvägg för Azure-trafik, kontakta supporten så att vi kan godkänna din prenumeration och se till att Internet-anslutning krävs brandväggen upprätthålls.
+>Men om din konfiguration kräver Tvingad tunneltrafik till ett lokalt nätverk, stöder Microsoft den på en fall till fall. Kontakta supporten, så att vi kan granska ditt ärende. Om godkända vi godkänna din prenumeration och se till att Internet-anslutning krävs brandväggen underhålls.
 
 >[!NOTE]
 >Trafiken mellan direkt peerkopplade virtuella nätverk dirigeras direkt även om en UDR pekar på Azure Firewall som standardgateway. För att undernät till undernät-trafik ska kunna skickas till brandväggen i det här scenariot måste en UDR uttryckligen innehålla nätverksprefixet för målundernätverket på båda undernäten.
@@ -138,7 +138,7 @@ $VNetHub = New-AzVirtualNetwork -Name $VNetnameHub -ResourceGroupName $RG1 `
 -Location $Location1 -AddressPrefix $VNetHubPrefix -Subnet $FWsub,$GWsub
 ```
 
-Begär en offentlig IP-adress som ska allokeras till den VPN-gateway som du ska skapa för det virtuella nätverket. Observera att *AllocationMethod* är **Dynamic**. Du kan inte ange den IP-adress som du vill använda. Den allokeras dynamiskt till VPN-gatewayen. 
+Begär en offentlig IP-adress som ska allokeras till en VPN-gateway som du skapar för ditt virtuella nätverk. Observera att *AllocationMethod* är **Dynamic**. Du kan inte ange den IP-adress som du vill använda. Den allokeras dynamiskt till VPN-gatewayen.
 
   ```azurepowershell
   $gwpip1 = New-AzPublicIpAddress -Name $GWHubpipName -ResourceGroupName $RG1 `
@@ -177,7 +177,7 @@ $VNetOnprem = New-AzVirtualNetwork -Name $VNetnameOnprem -ResourceGroupName $RG1
 -Location $Location1 -AddressPrefix $VNetOnpremPrefix -Subnet $Onpremsub,$GWOnpremsub
 ```
 
-Begär en offentlig IP-adress som ska allokeras till den gateway som du ska skapa för det virtuella nätverket. Observera att *AllocationMethod* är **Dynamic**. Du kan inte ange den IP-adress som du vill använda. Den allokeras dynamiskt till gatewayen. 
+Begär en offentlig IP-adress som ska allokeras till den gateway som du skapar för det virtuella nätverket. Observera att *AllocationMethod* är **Dynamic**. Du kan inte ange den IP-adress som du vill använda. Den allokeras dynamiskt till gatewayen.
 
   ```azurepowershell
   $gwOnprempip = New-AzPublicIpAddress -Name $GWOnprempipName -ResourceGroupName $RG1 `
@@ -471,7 +471,7 @@ Från **VM-Onprem** öppnar du ett fjärrskrivbord till **VM-spoke-01** på den 
 
 Anslutningen bör upprättas, och du bör kunna logga in med ditt valda användarnamn och lösenord.
 
-Nu har du verifierat att brandväggsreglerna fungerar:
+Nu har du kontrollera att brandväggsreglerna fungerar:
 
 <!---- You can ping the server on the spoke VNet.--->
 - Du kan bläddra i webbservern på det virtuella ekernätverket.

@@ -4,17 +4,17 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: b275a86f8fd35c43865fd920d1bfc9994a796a9c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: de3fd8dc0d45ea10e64af8e2258682a9e98639dc
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60557156"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150343"
 ---
 >[!NOTE]
 >Öppna ett supportärende och be om en ökning av kvoter för resurser som inte har åtgärdats. Skapa inte ytterligare Azure Media Services-konton i ett försök att få högre gränser.
 
-| Resurs | Standardgräns | 
+| Resource | Standardgräns | 
 | --- | --- | 
 | Azure Media Services-konton för en enskild prenumeration | 25 (fast) |
 | Mediereserverade enheter per Media Services-konto |25 (S1)<br/>10 (S2, S3)<sup>1</sup> | 
@@ -50,12 +50,12 @@ Från och med den 1 April 2017 raderas automatiskt alla jobbposter i ditt konto 
 >[!NOTE]
 > Om du alltid använder samma dagar och åtkomstbehörigheter, använda samma princip-ID. Information och ett exempel finns i [hantera tillgångar med Media Services .NET SDK](../articles/media-services/previous/media-services-dotnet-manage-entities.md#limit-access-policies).
 
-<sup>7</sup>om du överför innehåll till en tillgång i Media Services för att bearbeta den med en av medieprocessorerna i tjänsten, notera de maximala filstorlek som stöds. Tillgångar är kodare som Media Encoder Standard och Media Encoder Premium Workflow eller analysmotorer som Face Detector.
+<sup>7</sup>den maximala storleken som stöds för en enda blob är för närvarande upp till 5 TB i Azure Blob Storage. Ytterligare begränsningar gäller i Media Services baserat på de storlekar som används av tjänsten. Storleksgränsen gäller för de filer som du laddar upp och de filer som skapats på grund av Media Services-bearbetning (kodning eller analysera). Om källfilen är större än 260 GB, misslyckas sannolikt ditt jobb. 
 
-Den maximala storleken som stöds för en enda blob är för närvarande upp till 5 TB i Azure Blob Storage. Ytterligare begränsningar gäller i Media Services baserat på de storlekar som används av tjänsten. I följande tabell visas gränserna på mediereserverade enheter S1, S2 och S3. Om källfilen är större än de gränser som definierats i tabellen, inte dina kodningsjobb. Om du kodar 4K upplösning källor för lång tid måste du använda S3 mediereserverade enheter för att uppnå prestanda som behövs. Om du har 4K-innehåll som är större än 260 GB-gränsen för S3-mediereserverade enheter kontaktar du oss på amshelp@microsoft.com för möjliga lösningar för ditt scenario.
+I följande tabell visas gränserna på mediereserverade enheter S1, S2 och S3. Om källfilen är större än de gränser som definierats i tabellen, inte dina kodningsjobb. Om du kodar 4K upplösning källor för lång tid måste du använda S3 mediereserverade enheter för att uppnå prestanda som behövs. Om du har 4K-innehåll som är större än 260 GB-gränsen för S3-mediereserverade enheter kontaktar du oss på amshelp@microsoft.com för möjliga lösningar för ditt scenario.
 
-| Mediereserverade typ av enhet | Maximal inkommande storlek (GB)| 
-| --- | --- | 
-|S1 | 325|
-|S2 | 640|
-|S3 | 260|
+|Mediereserverade typ av enhet   |Maximal inkommande storlek (GB)|
+|---|---|
+|S1 |   26|
+|S2 | 60|
+|S3 |260|

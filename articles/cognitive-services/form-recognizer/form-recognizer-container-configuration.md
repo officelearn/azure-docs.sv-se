@@ -1,7 +1,7 @@
 ---
 title: Konfigurera behållaren - formuläret Igenkännande
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du använder formuläret Igenkännande behållare för att parsa form-och tabelldata.
+description: Lär dig hur du konfigurerar formuläret Igenkännande behållaren för att analysera form-och tabelldata.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: pafarley
-ms.openlocfilehash: 6066e7856ddf8ef757afc2072218c87420a37c10
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 3f6cc32f6fb2a9fb11220ac1a3134fb3ae4d2f84
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65027182"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147475"
 ---
 # <a name="configure-form-recognizer-containers"></a>Konfigurera formuläret Igenkännande behållare
 
@@ -70,7 +70,7 @@ Den här inställningen kan hittas på följande plats:
 
 Använd bindning monterar för att läsa och skriva data till och från behållaren. Du kan ange en monteringspunkt som indata eller utdata mount genom att ange den `--mount` alternativet i den [docker kör](https://docs.docker.com/engine/reference/commandline/run/) kommando.
 
-Formuläret Igenkännande behållare kräver en in- och utdata mount. Inkommande monterings kan vara skrivskyddade och krävs för att komma åt data som ska användas för träning och bedömning. Utdata mount måste vara skrivbar och används för att lagra modeller och tillfälliga data.
+Behållaren formuläret Igenkännande kräver en in- och utdata mount. Inkommande monterings kan vara skrivskyddade och krävs för att komma åt data som ska användas för träning och bedömning. Utdata mount måste vara skrivbar och används för att lagra modeller och tillfälliga data.
 
 Den exakta syntaxen hos montera värdplats varierar beroende på värdens operativsystem. Dessutom kan den [värddatorn](form-recognizer-container-howto.md#the-host-computer)'s montera platsen är kanske inte tillgänglig på grund av en konflikt mellan behörigheter som används av Docker-tjänstkontot och värden montera plats behörigheter.
 

@@ -9,14 +9,14 @@ ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 03/29/2019
+ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: 242b7cb45e9a73e78ae9f9b62e83311e110e07ee
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 80bb7af0f7ed20336ab08d4f3ca9639057b9c67f
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65021095"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149762"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Kända problem och felsökning Azure Machine Learning-tjänsten
 
@@ -69,6 +69,9 @@ Du kommer inte att kunna distribuera modeller på FPGA förrän du har begärt o
 
 Tensor Flow automatiserad maskininlärning stöder för närvarande inte tensor flow version 1.13. Installera den här versionen kommer paketberoenden slutar att fungera. Vi arbetar för att åtgärda problemet i en framtida version. 
 
+### <a name="experiment-charts"></a>Experiment diagram
+
+Binär klassificering diagram (precisionsåterkallningsdiagram, ROC, få kurvan osv) visas i iterationer av automatiserade ML-experiment är inte rendering corectly i användargränssnittet eftersom 4/12. Diagrammet diagrammen finns för närvarande som visar inverterade resultat, där modeller för bättre prestanda visas med lägre resultat. En lösning är under undersökningen.
 
 ## <a name="databricks"></a>Databricks
 

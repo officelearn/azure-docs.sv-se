@@ -10,15 +10,16 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 04/29/2019
-ms.openlocfilehash: 75241fe9922ac7ff8e2570c8f7bf7b114d5eb329
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.date: 05/01/2019
+ms.openlocfilehash: e92c0b5e02daf08100151e15314399722ffc8763
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64872847"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148796"
 ---
 # <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>Självstudie: Migrera MySQL till Azure Database for MySQL online med DMS
+
 Du kan använda Azure Database Migration Service till att migrera databaserna från en lokal MySQL-instans till [Azure SQL Database for SQL](https://docs.microsoft.com/azure/mysql/) med minimal avbrottstid. Du kan med andra ord migrera med minimal stilleståndstid i programmet. I den här självstudien migrerar du exempeldatabasen **Employees** från en lokal instans av MySQL 5.7 till Azure Database for MySQL genom att använda en onlinemigreringsaktivitet i Azure Database Migration Service.
 
 I den här guiden får du lära dig att:
@@ -83,7 +84,7 @@ För att slutföra den här kursen behöver du:
 
 För att slutföra alla databasobjekt som tabellscheman, index och lagrade procedurer måste vi extrahera schemat från källdatabasen och tillämpa det på databasen. Du kan extrahera schema med mysqldump med parametern `--no-data`.
 
-Anta att du har MySQL anställda exempeldatabasen i det lokala systemet och är kommandot för att göra schemamigreringen Använd mysqldump:
+Om vi antar att du har MySQL **anställda** exempeldatabasen i det lokala systemet, kommandot för att göra schemamigreringen Använd mysqldump är:
 
 ```
 mysqldump -h [servername] -u [username] -p[password] --databases [db name] --no-data > [schema file path]
@@ -152,7 +153,7 @@ SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGG
 
 3. Sök efter migreringen och välj sedan **Registrera** till höger om **Microsoft.DataMigration**.
 
-    ![Registrera resursprovider](media/tutorial-mysql-to-azure-mysql-online/portal-register-resource-provider.png)    
+    ![Registrera resursprovider](media/tutorial-mysql-to-azure-mysql-online/portal-register-resource-provider.png)
 
 ## <a name="create-a-dms-instance"></a>Skapa en DMS-instans
 
@@ -176,9 +177,7 @@ SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGG
 
     Mer information om kostnader och prisnivåer finns på [sidan med priser](https://aka.ms/dms-pricing).
 
-    Om du behöver hjälp med att välja rätt nivå för Azure Database Migration Service, ser du rekommendationerna i bloggen bokföring [välja en Azure Database Migration Service (Azure DMS) nivå](https://go.microsoft.com/fwlink/?linkid=861067). 
-
-     ![Konfigurera Azure Database Migration Service-instansinställningar](media/tutorial-mysql-to-azure-mysql-online/dms-settings3.png)
+    ![Konfigurera Azure Database Migration Service-instansinställningar](media/tutorial-mysql-to-azure-mysql-online/dms-settings3.png)
 
 6. Välj **Skapa** för att skapa tjänsten.
 

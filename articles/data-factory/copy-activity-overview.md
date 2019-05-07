@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: d04bb965ddf9616aaa01f4c8822ac42aea6dab2d
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 8f5a7d3f6300be100feffd23b98bd7dcd8f48148
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64869571"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150884"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Kopiera aktivitet i Azure Data Factory
 
@@ -176,12 +176,14 @@ Körningen kopiering och prestandaegenskaper returneras också i resultatet för
 | DataRead | Storleken på data som läses från källa | Int64 värdet i **byte** |
 | DataWritten | Storleken på data som skrivs till mottagare | Int64 värdet i **byte** |
 | filerskrivskyddad | Antal filer som kopieras när du kopierar data från fillagring. | Int64-värde (ingen enhet) |
-| fileScanned | Antal filer som genomsöks från källan för file storage. | Int64-värde (ingen enhet) |
 | filesWritten | Antal filer som kopieras när du kopierar data till file storage. | Int64-värde (ingen enhet) |
-| rowsCopied | Antal rader som kopieras (gäller inte för binär kopia). | Int64-värde (ingen enhet) |
+| rowsRead | Antal rader som läses från källa (gäller inte för binär kopia). | Int64-värde (ingen enhet) |
+| rowsCopied | Antal rader som kopieras till mottagare (gäller inte för binär kopia). | Int64-värde (ingen enhet) |
 | rowsSkipped | Antal inkompatibla rader hoppas över. Du kan aktivera funktionen genom att ange ”enableSkipIncompatibleRow” till true. | Int64-värde (ingen enhet) |
-| Dataflöde | Förhållandet mellan där data överförs | Flyttal i **KB/s** |
-| copyDuration | Varaktigheten för kopian | Ett Int32-värde i sekunder |
+| Dataflöde | Förhållande mellan där data överförs. | Flyttal i **KB/s** |
+| copyDuration | Varaktigheten för kopian. | Ett Int32-värde i sekunder |
+| sourcePeakConnections | Högsta antalet samtidiga anslutningar till källdatalagret vid kopiering. | Ett Int32-värde |
+| sinkPeakConnections| Högsta antalet samtidiga anslutningar till det mottagande datalagren vid kopiering.| Ett Int32-värde |
 | sqlDwPolyBase | Om PolyBase används när du kopierar data till SQL Data Warehouse. | Boolesk |
 | redshiftUnload | Om du ta bort när du kopierar data från Redshift. | Boolesk |
 | hdfsDistcp | Om DistCp används när du kopierar data från HDFS. | Boolesk |

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 03/11/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 5ec38c510fedee7f489b3b100285eeb7c75f4561
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2e4ff7dc97e3ee72336bd4c081caf1aa1a62bc56
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64690975"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65146567"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Snabbstart: Skapa en ny app i LUIS-portalen
 
@@ -72,6 +72,8 @@ Du kan lägga till exempel yttranden när du har skapat avsikter. Exempel yttran
 
 För det här exempelprogrammet `FindForm` avsikt, exempel yttranden ska innehålla formulärnumret för. Klientprogrammet måste det tal som formuläret ska uppfylla av användaren, så det är viktigt att inkludera den i uttryck.
 
+[![Ange exempel yttranden för FindForm avsikten](./media/get-started-portal-build-app/add-example-utterance.png)](./media/get-started-portal-build-app/add-example-utterance.png#lightbox)
+
 Lägg till följande 15 exempel talade till den `FindForm` avsikt.
 
 |#|Exempel på yttranden|
@@ -100,11 +102,11 @@ Av utformningen kan variera dessa exempel yttranden på följande sätt:
 * verb Tempus (är, var, kommer att)
 * ordföljden
 
-[![Ange exempel yttranden för FindForm avsikten](./media/get-started-portal-build-app/add-example-utterance.png)](./media/get-started-portal-build-app/add-example-utterance.png#lightbox)
+
 
 ## <a name="create-a-regular-expression-entity"></a>Skapa en entitet för reguljärt uttryck
 
-Formatet måste vara markerad som en entitet för att få formuläret tal som returneras som en del av körningssvar för förutsägelse. Eftersom texten för formuläret är mycket strukturerade, kan det markeras med en entitet för reguljärt uttryck. Skapa entiteten med följande steg:
+För att returnera antalet formuläret i förutsägelse körningssvar måste formatet vara markerad som en entitet. Eftersom texten för formuläret är mycket strukturerade, kan du markera den med hjälp av en entitet för reguljärt uttryck. Skapa entiteten med följande steg:
 
 1. Välj **entiteter** på menyn till vänster.
 

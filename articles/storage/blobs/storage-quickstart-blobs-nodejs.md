@@ -2,18 +2,19 @@
 title: Så här skapar du en blob i Azure Storage med hjälp av klientbiblioteket för Node.js v2
 description: Skapa ett lagringskonto och en container i objektlagring (Blob). Sedan använda Azure Storage-klientbiblioteket för Node.js v2 och ladda upp en blob till Azure Storage, laddar ned en blob och listar blobarna i en behållare.
 services: storage
-author: tamram
+author: mhopkins-msft
 ms.custom: mvc
 ms.service: storage
 ms.topic: conceptual
 ms.date: 02/04/2019
-ms.author: tamram
-ms.openlocfilehash: 182315c705360d254c3bf342cd9c64ffafa0c021
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.author: mhopkins
+ms.reviewer: seguler
+ms.openlocfilehash: 7ca1eacd1add7453833b4b9ad1d4bd0fbef13ca7
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62121546"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149425"
 ---
 # <a name="how-to-upload-download-and-list-blobs-using-the-client-library-for-nodejs-v2"></a>Hur du laddar upp, ladda ned och lista blobar med hjälp av klientbiblioteket för Node.js v2
 

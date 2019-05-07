@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 3bad247263af09462a44e04329e7f911afa3ad5c
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 15d6b0d28f926bdb39b35b763b89422cddcccc84
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64867706"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150687"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Extrahera data från uttryck text med avsikter och entiteter
 LUIS ger dig möjlighet att få information från en användares naturligt språk yttranden. Informationen hämtas i ett sätt att den kan användas av ett program, programmet eller chattrobot vidta åtgärder. Läs om vilka data returneras från avsikter och entiteter med exempel på JSON i avsnitten nedan.
@@ -172,34 +172,6 @@ De data som returneras från slutpunkten innehåller entitetsnamnet, identifiera
 |--|--|--|
 |Enkel enhet|`Customer`|`bob jones`|
 
-## <a name="hierarchical-entity-data"></a>Hierarkisk entitetsdata
-
-**Hierarkisk entiteter gälla så småningom upphör att. Använd [entitet roller](luis-concept-roles.md) fastställa entitet underordnade typer, i stället för hierarkisk entiteter.**
-
-[Hierarkisk](luis-concept-entity-types.md) entiteter är datorn lärt dig och kan innehålla ett ord eller fraser. Barn identifieras av kontext. Om du letar efter en överordnad-underordnad-relation med exakt denna matchning, använda en [lista](#list-entity-data) entitet.
-
-`book 2 tickets to paris`
-
-I den föregående uttryck `paris` är märkt med en `Location::ToLocation` underordnad den `Location` hierarkiska entitet.
-
-De data som returneras från slutpunkten innehåller enhetens namn och namnet på underordnade, identifierade texten från uttryck, platsen för den identifierade texten och poängen:
-
-```JSON
-"entities": [
-  {
-    "entity": "paris",
-    "type": "Location::ToLocation",
-    "startIndex": 18,
-    "endIndex": 22,
-    "score": 0.6866132
-  }
-]
-```
-
-|Dataobjekt|Överordnad|Underordnade|Värde|
-|--|--|--|--|
-|Hierarkisk entitet|Plats|ToLocation|”paris”|
-
 ## <a name="composite-entity-data"></a>Sammansatta entitetsdata
 [Sammansatta](luis-concept-entity-types.md) entiteter är datorn lärt dig och kan innehålla ett ord eller fraser. Anta exempelvis att en sammansatt entitet av färdiga `number` och `Location::ToLocation` med följande uttryck:
 
@@ -212,53 +184,54 @@ Observera att `2`, antalet, och `paris`, ToLocation har ord mellan dem som inte 
 Sammansatta entiteter returneras i en `compositeEntities` matris och alla enheter i sammansatt returneras också i de `entities` matris:
 
 ```JSON
-  "entities": [
+
+"entities": [
     {
-      "entity": "paris",
-      "type": "Location::ToLocation",
-      "startIndex": 18,
-      "endIndex": 22,
-      "score": 0.956998169
+    "entity": "2 tickets to cairo",
+    "type": "ticketInfo",
+    "startIndex": 0,
+    "endIndex": 17,
+    "score": 0.67200166
     },
     {
-      "entity": "2",
-      "type": "builtin.number",
-      "startIndex": 5,
-      "endIndex": 5,
-      "resolution": {
+    "entity": "2",
+    "type": "builtin.number",
+    "startIndex": 0,
+    "endIndex": 0,
+    "resolution": {
+        "subtype": "integer",
         "value": "2"
-      }
+    }
     },
     {
-      "entity": "2 tickets to paris",
-      "type": "Order",
-      "startIndex": 5,
-      "endIndex": 22,
-      "score": 0.7714499
+    "entity": "cairo",
+    "type": "builtin.geographyV2",
+    "startIndex": 13,
+    "endIndex": 17
     }
-  ],
-  "compositeEntities": [
+],
+"compositeEntities": [
     {
-      "parentType": "Order",
-      "value": "2 tickets to paris",
-      "children": [
+    "parentType": "ticketInfo",
+    "value": "2 tickets to cairo",
+    "children": [
         {
-          "type": "builtin.number",
-          "value": "2"
+        "type": "builtin.geographyV2",
+        "value": "cairo"
         },
         {
-          "type": "Location::ToLocation",
-          "value": "paris"
+        "type": "builtin.number",
+        "value": "2"
         }
-      ]
+    ]
     }
-  ]
+]
 ```    
 
 |Dataobjekt|Entitetsnamn|Värde|
 |--|--|--|
 |Fördefinierade enhet - nummer|”builtin.number”|”2”|
-|Hierarkisk enhet - plats|”Location::ToLocation”|”paris”|
+|Fördefinierade enhet – GeographyV2|”Location::ToLocation”|”paris”|
 
 ## <a name="list-entity-data"></a>Lista entitetsdata
 
@@ -268,8 +241,8 @@ Anta att appen har en lista som heter `Cities`, så att variationer av stadsnamn
 
 |Listobjekt|Objektet synonymer|
 |---|---|
-|Seattle|SEA tac, hav, 98101, 206, + 1 |
-|Paris|cdg, roissy, ormation om sig själva, 75001, 1, +33|
+|`Seattle`|`sea-tac`, `sea`, `98101`, `206`, `+1` |
+|`Paris`|`cdg`, `roissy`, `ory`, `75001`, `1`, `+33`|
 
 `book 2 tickets to paris`
 

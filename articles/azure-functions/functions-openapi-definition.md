@@ -1,5 +1,5 @@
 ---
-title: Skapa en OpenAPI-definition för en funktion | Microsoft Docs
+title: Skapa en OpenAPI-definition för en funktion med Azure API Management
 description: Skapa en OpenAPI-definition som gör det möjligt för andra appar och tjänster att anropa din funktion i Azure.
 services: functions
 keywords: OpenAPI, Swagger, cloud apps, cloud services,
@@ -12,87 +12,95 @@ ms.date: 11/26/2018
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 6daa29b4e8f09a4f8a40c3b92d2e2e86a5dea6aa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3ad304bc8f038d4009352dae72d70079828c26ba
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61026736"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65141475"
 ---
-# <a name="create-an-openapi-definition-for-a-function"></a>Skapa en OpenAPI-definition för en funktion
+# <a name="create-an-openapi-definition-for-a-function-with-azure-api-management"></a>Skapa en OpenAPI-definition för en funktion med Azure API Management
 
-REST-API:er beskrivs ofta med hjälp av en OpenAPI-definition (kallades tidigare för en [Swagger](https://swagger.io/)-fil). Den här definitionen innehåller information om vilka åtgärder som är tillgängliga i API:t och hur data om förfrågningar och svar för API:t ska vara strukturerade.
+REST API: er beskrivs ofta med hjälp av en OpenAPI-definition. Den här definitionen innehåller information om vilka åtgärder som är tillgängliga i API:t och hur data om förfrågningar och svar för API:t ska vara strukturerade.
 
-I den här självstudien skapar du en funktion som avgör om en nödreparation på en vindturbin är kostnadseffektiv. Du kan sedan skapa en OpenAPI-definition för funktionsappen så att funktionen kan anropas från andra appar och tjänster.
+I den här självstudien skapar du en funktion som avgör om en nödreparation på en vindturbin är kostnadseffektiv. Därefter kan du skapa en OpenAPI-definition för funktion appen med [Azure API Management](../api-management/api-management-key-concepts.md) så att funktionen kan anropas från andra appar och tjänster.
 
 I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * skapar en funktion i Azure
-> * genererar en OpenAPI-definition med hjälp av OpenAPI-verktyg
-> * ändrar definitionen för att tillhandahålla ytterligare metadata
+> * Generera en OpenAPI-definition med hjälp av Azure API Management
 > * testar definitionen genom att anropa funktionen.
-
-> [!IMPORTANT]
-> OpenAPI-funktionen är för närvarande i förhandsversion och är endast tillgänglig för version 1.x av Azure Functions-körningen.
 
 ## <a name="create-a-function-app"></a>Skapa en funktionsapp
 
-Du måste ha en funktionsapp som värd för körning av dina funktioner. I en funktionsapp kan du gruppera funktioner som en logisk enhet så att de blir enklare att hantera, distribuera, skala och dela resurser. 
+Du måste ha en funktionsapp som värd för körning av dina funktioner. En funktionsapp kan du gruppera funktioner som en logisk enhet för enklare hantering, distribution, skalning och dela resurser.
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
-## <a name="set-the-functions-runtime-version"></a>Ange körningsversionen för Functions
-
-Som standard använder den funktionsapp som du skapar version 2.x av körningsmiljön. Du måste ställa tillbaka körningsversionen till 1.x innan du skapar funktionen.
-
-[!INCLUDE [Set the runtime version in the portal](../../includes/functions-view-update-version-portal.md)]
-
 ## <a name="create-the-function"></a>Skapa funktionen
 
-I den här självstudien används en HTTP-utlöst funktion som tar två parametrar: beräknad tid för att reparera turbinen (i timmar) och turbinens kapacitet (i kilowatt). Funktionen beräknar sedan hur mycket en reparation skulle kosta och hur mycket intäkter turbinen kan generera under en 24-timmarsperiod.
+Den här självstudien används en HTTP-utlöst funktion som tar två parametrar:
 
-1. Expandera funktionsappen och välj knappen **+** bredvid **Funktioner**. Om det är den första funktionen i din funktionsapp väljer du **Anpassad funktion**. Detta visar en fullständig uppsättning med funktionsmallar. 
+* Beräknad tid för att göra en turbinen reparera i timmar.
+* Kapaciteten för turbinen i kilowatt. 
 
-    ![Sidan snabbstart för funktioner i Azure Portal](media/functions-openapi-definition/add-first-function.png)
+Funktionen beräknar sedan hur mycket en reparation skulle kosta och hur mycket intäkter turbinen kan generera under en 24-timmarsperiod. ATT skapa HTTP funktion i som utlöses av den [Azure-portalen](https://portal.azure.com).
 
-1. Skriv `http` i sökfältet och välj sedan **C#** för HTTP-utlösarmallen. 
+1. Expandera funktionsappen och välj knappen **+** bredvid **Funktioner**. Välj **i portalen** > **fortsätta**.
 
-    ![Välj HTTP-utlösare](./media/functions-openapi-definition/select-http-trigger-portal.png)
+1. Välj **fler mallar...** och välj sedan **Slutför och visa mallar**
 
-1. Skriv `TurbineRepair` som funktionens **Namn**, välj `Function` för **[Autentiseringsnivå](functions-bindings-http-webhook.md#http-auth)** och välj sedan **Skapa**.  
+1. Välj HTTP-utlösare, skriver du in `TurbineRepair` för funktionen **namn**, Välj `Function` för  **[autentiseringsnivå](functions-bindings-http-webhook.md#http-auth)**, och välj sedan  **Skapa**.  
 
-    ![Skapa den HTTP-utlösta funktionen](./media/functions-openapi-definition/select-http-trigger-portal-2.png)
+    ![Skapa HTTP-funktion för OpenAPI](media/functions-openapi-definition/select-http-trigger-openapi.png)
 
-1. Ersätt innehållet i filen run.csx med följande kod och klicka sedan på **Spara**:
+1. Ersätt innehållet i run.csx C# skriptfil med följande kod och välj sedan **spara**:
 
     ```csharp
+    #r "Newtonsoft.Json"
+    
     using System.Net;
-
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.Extensions.Primitives;
+    using Newtonsoft.Json;
+    
     const double revenuePerkW = 0.12;
     const double technicianCost = 250;
     const double turbineCost = 100;
-
-    public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
+    
+    public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
     {
-        //Get request body
-        dynamic data = await req.Content.ReadAsAsync<object>();
-        int hours = data.hours;
-        int capacity = data.capacity;
-
-        //Formulas to calculate revenue and cost
-        double revenueOpportunity = capacity * revenuePerkW * 24;  
-        double costToFix = (hours * technicianCost) +  turbineCost;
+        // Get query strings if they exist
+        int tempVal;
+        int? hours = Int32.TryParse(req.Query["hours"], out tempVal) ? tempVal : (int?)null;
+        int? capacity = Int32.TryParse(req.Query["capacity"], out tempVal) ? tempVal : (int?)null;
+    
+        // Get request body
+        string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+        dynamic data = JsonConvert.DeserializeObject(requestBody);
+    
+        // Use request body if a query was not sent
+        capacity = capacity ?? data?.capacity;
+        hours = hours ?? data?.hours;
+    
+        // Return bad request if capacity or hours are not passed in
+        if (capacity == null || hours == null){
+            return new BadRequestObjectResult("Please pass capacity and hours on the query string or in the request body");
+        }
+        // Formulas to calculate revenue and cost
+        double? revenueOpportunity = capacity * revenuePerkW * 24;  
+        double? costToFix = (hours * technicianCost) +  turbineCost;
         string repairTurbine;
-
+    
         if (revenueOpportunity > costToFix){
             repairTurbine = "Yes";
         }
         else {
             repairTurbine = "No";
-        }
-
-        return req.CreateResponse(HttpStatusCode.OK, new{
+        };
+    
+        return (ActionResult)new OkObjectResult(new{
             message = repairTurbine,
             revenueOpportunity = "$"+ revenueOpportunity,
             costToFix = "$"+ costToFix
@@ -100,7 +108,7 @@ I den här självstudien används en HTTP-utlöst funktion som tar två parametr
     }
     ```
 
-    Den här funktionskoden returnerar meddelandet `Yes` eller `No` som indikation på om en nödreparation är kostnadseffektiv, intäktsmöjligheten som turbinen representerar och kostnaden för att reparera turbinen. 
+    Den här funktionskoden returnerar meddelandet `Yes` eller `No` som indikation på om en nödreparation är kostnadseffektiv, intäktsmöjligheten som turbinen representerar och kostnaden för att reparera turbinen.
 
 1. Testa funktionen genom att klicka på **Test** längst till höger för att expandera fliken Test. Ange följande värde för **Brödtext i förfrågan** och klicka sedan på **Kör**.
 
@@ -119,182 +127,67 @@ I den här självstudien används en HTTP-utlöst funktion som tar två parametr
     {"message":"Yes","revenueOpportunity":"$7200","costToFix":"$1600"}
     ```
 
-Nu har du en funktion som avgör om en nödreparation är kostnadseffektiv. Nästa steg är att skapa och ändra en OpenAPI-definition för funktionsappen.
+Nu har du en funktion som avgör om en nödreparation är kostnadseffektiv. Nu ska skapa du en OpenAPI-definition för funktionsappen.
 
 ## <a name="generate-the-openapi-definition"></a>Generera OpenAPI-definitionen
 
-Nu är du redo att generera OpenAPI-definitionen. Den här definitionen kan användas av andra Microsoft-program som API Apps, [PowerApps](functions-powerapps-scenario.md) och [Microsoft Flow](../azure-functions/app-service-export-api-to-powerapps-and-flow.md), samt av andra utvecklingsverktyg från tredje part som [Postman](https://www.getpostman.com/docs/importing_swagger) och [många andra paket](https://swagger.io/tools/).
+Nu är du redo att generera OpenAPI-definitionen.
 
-1. Välj endast de *verb* som ditt API har stöd för (i det här fallet POST). Det gör den genererade API-definitionen tydligare.
+1. Välj funktionsappen och välj sedan **plattformsfunktioner**, **alla inställningar**
 
-    1. På fliken **Integrera** för den nya HTTP-utlösta funktionen ändrar du **Tillåtna HTTP-metoder** till **Valda metoder**.
+    ![Testa funktionen i Azure Portal](media/functions-openapi-definition/select-all-settings-openapi.png)
 
-    1. I **Valda HTTP-metoder** avmarkerar du alla alternativ utom **POST** och klickar på **Spara**.
+1. Rulla nedåt och välj sedan **API Management** > **Skapa nytt** att skapa en ny API Management-instans.
 
-        ![Valda HTTP-metoder](media/functions-openapi-definition/selected-http-methods.png)
+    ![Länk-funktion](media/functions-openapi-definition/link-apim-openapi.png)
 
-1. Klicka på din funktionsappens namn (till exempel **function-demo-energy**) > **Plattformsfunktioner** > **API-definition**.
+1. Använd API Management-inställningar som anges i tabellen nedanför bilden.
 
-    ![API-definition](media/functions-openapi-definition/api-definition.png)
+    ![Skapa ny API Management-tjänsten](media/functions-openapi-definition/new-apim-service-openapi.png)
 
-1. På fliken **API-definition** klickar du på **Funktion**.
+    | Inställning      | Föreslaget värde  | Beskrivning                                        |
+    | ------------ |  ------- | -------------------------------------------------- |
+    | **Namn** | Globalt unikt namn | Ett namn genereras baserat på namnet på din funktionsapp. |
+    | **Prenumeration** | Din prenumeration | Den prenumeration under vilken den här nya resursen skapas. |  
+    | **[Resursgrupp](../azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | Samma resurs som din funktionsapp, som ska få in åt dig. |
+    | **Plats** | Västra USA | Välj USA, västra |
+    | **Organisationens namn** | Contoso | Namnet på den organisation som används på utvecklarportalen och e-postmeddelanden. |
+    | **E-postadress för administratör** | din e-post | E-postmeddelande som har fått systemmeddelanden från API Management. |
+    | **prisnivå** | Förbrukning (förhandsversion) | Fullständig prisinformation finns på [API Management-sidan med priser](https://azure.microsoft.com/pricing/details/api-management/) |
+    | **Application Insights** | Din instans | Använd samma Application Insights som används av din funktionsapp. |
 
-    ![API-definitionskälla](media/functions-openapi-definition/api-definition-source.png)
+1. Välj **skapa** att skapa API Management-instans, vilket kan ta flera minuter.
 
-    Det här steget möjliggör en uppsättning OpenAPI-alternativ för funktionsappen, inklusive en slutpunkt som kan vara värd för en OpenAPI-fil från funktionsappens domän, en infogad kopia av [OpenAPI Editor](https://editor.swagger.io), och en mallgenerator för API-definitioner.
+1. Välj **aktivera Application Insights** för att skicka loggar till på samma plats som programmet funktion, acceptera den återstående standardvärdena och välj **länk API**.
 
-1. Klicka på **Generera API-definitionsmall** > **Spara**.
+1. Den **importera Azure Functions** öppnas med den **TurbineRepair** funktionen markerat. Välj **Välj** att fortsätta.
 
-    ![Generera API-definitionsmall](media/functions-openapi-definition/generate-template.png)
+    ![Importera Azure Functions till API Management](media/functions-openapi-definition/import-function-openapi.png)
 
-    Azure söker igenom funktionsappen efter HTTP-utlösarfunktioner och använder informationen i functions.json till att generera en OpenAPI-definition. Här är den definition som genereras:
+1. I den **skapa från Funktionsapp** , acceptera standardinställningarna och välj **skapa**
 
-    ```yaml
-    swagger: '2.0'
-    info:
-    title: function-demo-energy.azurewebsites.net
-    version: 1.0.0
-    host: function-demo-energy.azurewebsites.net
-    basePath: /
-    schemes:
-    - https
-    - http
-    paths:
-    /api/TurbineRepair:
-        post:
-        operationId: /api/TurbineRepair/post
-        produces: []
-        consumes: []
-        parameters: []
-        description: >-
-            Replace with Operation Object
-            #https://swagger.io/specification/#operationObject
-        responses:
-            '200':
-            description: Success operation
-        security:
-            - apikeyQuery: []
-    definitions: {}
-    securityDefinitions:
-    apikeyQuery:
-        type: apiKey
-        name: code
-        in: query
-    ```
+    ![Skapa från funktionsapp](media/functions-openapi-definition/create-function-openapi.png)
 
-    Den här definitionen beskrivs som en _mall_ eftersom det behövs mer metadata för att den ska vara en fullständig OpenAPI-definition. Du kommer att ändra definitionen i nästa steg.
-
-## <a name="modify-the-openapi-definition"></a>Ändra OpenAPI-definitionen
-
-Nu när du har en malldefinition ändrar du den för att tillhandahålla ytterligare metadata om API:tes åtgärder och datastrukturer. I **API-definition** tar du bort definitionen från `post` till slutet av definitionen. Klistra sedan in innehållet nedan och klicka på **spara**.
-
-```yaml
-    post:
-      operationId: CalculateCosts
-      description: Determines if a technician should be sent for repair
-      summary: Calculates costs
-      x-ms-summary: Calculates costs
-      x-ms-visibility: important
-      produces:
-        - application/json
-      consumes:
-        - application/json
-      parameters:
-        - name: body
-          in: body
-          description: Hours and capacity used to calculate costs
-          x-ms-summary: Hours and capacity
-          x-ms-visibility: important
-          required: true
-          schema:
-            type: object
-            properties:
-              hours:
-                description: The amount of effort in hours required to conduct repair
-                type: number
-                x-ms-summary: Hours
-                x-ms-visibility: important
-              capacity:
-                description: The max output of a turbine in kilowatts
-                type: number
-                x-ms-summary: Capacity
-                x-ms-visibility: important
-      responses:
-        200:
-          description: Message with cost and revenue numbers
-          x-ms-summary: Message
-          schema:
-           type: object
-           properties:
-            message:
-              type: string
-              description: Returns Yes or No depending on calculations
-              x-ms-summary: Message 
-            revenueOpportunity:
-              type: string
-              description: The revenue opportunity cost
-              x-ms-summary: RevenueOpportunity 
-            costToFix:
-              type: string
-              description: The cost in $ to fix the turbine
-              x-ms-summary: CostToFix
-      security:
-        - apikeyQuery: []
-definitions: {}
-securityDefinitions:
-  apikeyQuery:
-    type: apiKey
-    name: code
-    in: query
-```
-
-I det här fallet kan du bara klistra in uppdaterade metadata, men det är viktigt att du förstår vilka typer av ändringar vi har gjort i standardmallen:
-
-* vi angav att API:t skapar och använder data i JSON-format
-
-* vi angav obligatoriska parametrar med namn och datatyper
-
-* vi angav returvärden för lyckade svar med namn och datatyper
-
-* vi angav egna sammanfattningar och beskrivningar för API:t samt dess åtgärder och parametrar, detta är viktigt för de som ska använda funktionen
-
-* vi lade till x-ms-summary och x-ms-visibility, som används i användargränssnittet för Microsoft Flow och Logic Apps. Mer information finns i [OpenAPI extensions for custom APIs in Microsoft Flow](https://preview.flow.microsoft.com/documentation/customapi-how-to-swagger/) (OpenAPI-tillägg för egna API:er i Microsoft Flow).
-
-> [!NOTE]
-> Vi lämnade kvar säkerhetsdefinitionen med standardmetoden för autentisering med API-nyckel. Du skulle ändra det här avsnittet i definitionen om du använder en annan typ av autentisering.
-
-Mer information om att definiera API-åtgärder finns i [specifikationen för OpenAPI](https://swagger.io/specification/#operationObject).
+API: et har skapats för funktionen.
 
 ## <a name="test-the-openapi-definition"></a>Testa OpenAPI-definitionen
 
-Innan du använder API-definitionen är det bra att först testa den i Azure Functions-gränssnittet.
+Innan du använder API-definition, bör du kontrollera att den fungerar.
 
-1. På den **Hantera** i din funktion, under **Värdnycklar**, kopierar du nyckeln **standard**.
+1. På den **Test** i din funktion, väljer **POST** åtgärden
 
-    ![Kopiera API-nyckeln](media/functions-openapi-definition/copy-api-key.png)
+1. Ange värden för **timmar** och **kapacitet**
 
-    > [!NOTE]
-    >Du använder den här nyckeln för testning, och du använder den även när du anropar API:t från en app eller tjänst.
+```json
+{
+"hours": "6",
+"capacity": "2500"
+}
+```
 
-1. Återgå till API-definitionen: **function-demo-energy** > **Plattformsfunktioner** > **API-definition**.
+1. Klicka på **skicka**, visa HTTP-svaret.
 
-1. Klicka på **Autentisera** i den högra rutan, ange API-nyckeln du kopierade och klicka på **Autentisera**.
-
-    ![Autentisera med API-nyckel](media/functions-openapi-definition/authenticate-api-key.png)
-
-1. Rulla nedåt och klicka på **Försök utföra åtgärden**.
-
-    ![Försök utföra åtgärden](media/functions-openapi-definition/try-operation.png)
-
-1. Ange värden för **timmar** och **kapacitet**.
-
-    ![Ange parametrar](media/functions-openapi-definition/parameters.png)
-
-    Observera hur gränssnittet använder beskrivningarna från API-definitionen.
-
-1. Klicka på **Skicka förfrågan** och klicka sedan på fliken **Kodformatering** för att se utdata.
-
-    ![Skicka en förfrågan](media/functions-openapi-definition/send-request.png)
+    ![Testa API-funktion](media/functions-openapi-definition/test-function-api-openapi.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -302,11 +195,10 @@ I den här självstudiekursen lärde du dig att:
 
 > [!div class="checklist"]
 > * skapar en funktion i Azure
-> * genererar en OpenAPI-definition med hjälp av OpenAPI-verktyg
-> * ändrar definitionen för att tillhandahålla ytterligare metadata
+> * Generera en OpenAPI-definition med hjälp av Azure API Management
 > * testar definitionen genom att anropa funktionen.
 
-Gå vidare till nästa avsnitt där du får lära dig hur du skapar en PowerApps-app som använder OpenAPI-definitionen du skapade nyss.
+Gå vidare till nästa avsnitt om du vill veta mer om API Management.
 
 > [!div class="nextstepaction"]
-> [Anropa en funktion från PowerApps](functions-powerapps-scenario.md)
+> [API Management](../api-management/api-management-key-concepts.md)

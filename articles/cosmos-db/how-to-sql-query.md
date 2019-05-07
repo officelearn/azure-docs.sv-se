@@ -4,14 +4,14 @@ description: Läs mer om SQL-syntax, databasbegrepp och SQL-frågor för Azure C
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/04/2019
+ms.date: 05/06/2019
 ms.author: mjbrown
-ms.openlocfilehash: 04a88558e3aea33c6d99bd0e4f1354c4316f5529
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a5cc6bfca67f3d90467fa2339bc991c1f0bbeadf
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61054132"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148939"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>SQL-exempelfrågor för Azure Cosmos DB
 
@@ -139,14 +139,14 @@ Resultatet av frågan är:
     }]
 ```
 
-Följande fråga returnerar alla angivna namn på barnen i familjen vars `id` matchar `WakefieldFamily`, ordnade genom att i företagsklass.
+Följande fråga returnerar alla angivna namn på barnen i familjen vars `id` matchar `WakefieldFamily`, ordnade efter stad där.
 
 ```sql
     SELECT c.givenName
     FROM Families f
     JOIN c IN f.children
     WHERE f.id = 'WakefieldFamily'
-    ORDER BY f.grade ASC
+    ORDER BY f.address.city ASC
 ```
 
 Resultatet är:
@@ -314,6 +314,70 @@ Resultatet är:
     ]
 ```
 
+## <a id="DistinctKeyword"></a>DISTINKTA nyckelord
+
+Nyckelordet DISTINCT eliminerar dubbletter i frågans projektion.
+
+```sql
+SELECT DISTINCT VALUE f.lastName
+FROM Families f
+```
+
+I det här exemplet genererar frågan värden för varje efternamn.
+
+Resultatet är:
+
+```json
+[
+    "Andersen"
+]
+```
+
+Du kan också projicera unika objekt. Efternamn finns i det här fallet inte på något av två dokument, så att frågan returnerar ett tomt-objekt.
+
+```sql
+SELECT DISTINCT f.lastName
+FROM Families f
+```
+
+Resultatet är:
+
+```json
+[
+    {
+        "lastName": "Andersen"
+    },
+    {}
+]
+```
+
+DISTINCT kan också användas i projektionen i en underfråga:
+
+```sql
+SELECT f.id, ARRAY(SELECT DISTINCT VALUE c.givenName FROM c IN f.children) as ChildNames
+FROM f
+```
+
+Den här frågan genererar en matris som innehåller varje underordnad givenName med borttagna dubbletter. Den här matrisen är ett alias för konsolkommandot ChildNames och planerade i yttre frågan.
+
+Resultatet är:
+
+```json
+[
+    {
+        "id": "AndersenFamily",
+        "ChildNames": []
+    },
+    {
+        "id": "WakefieldFamily",
+        "ChildNames": [
+            "Jesse",
+            "Lisa"
+        ]
+    }
+]
+```
+
 ## <a name="aliasing"></a>Alias
 
 Du kan uttryckligen alias värden i frågor. Om en fråga har två egenskaper med samma namn, kan du använda alias för att byta namn på en eller båda egenskaperna så att de är skiljas åt i det beräknade resultatet.
@@ -380,7 +444,7 @@ Resultatet är:
         }
       ],
       [
-        {
+       {
             "familyName": "Merriam",
             "givenName": "Jesse",
             "gender": "female",
@@ -599,7 +663,7 @@ Använd den rubrikrad? operator för att effektivt söka efter en egenskap i ett
 
 ## <a id="TopKeyword"></a>Operatorn TOP
 
-Nyckelordet ÖVERSTA returnerar första `N` antal frågeresultaten i en odefinierad order. Ett bra tips är att använda TOP med ORDER BY-satsen för att begränsa resultaten till först `N` antal sorterad värden. Om du kombinerar dessa två satser är det enda sättet att förutsägbart indikerar vilka rader ÖVERSTA påverkar. 
+Nyckelordet ÖVERSTA returnerar första `N` antal frågeresultaten i en odefinierad order. Ett bra tips är att använda TOP med ORDER BY-satsen för att begränsa resultaten till först `N` antal sorterad värden. Om du kombinerar dessa två satser är det enda sättet att förutsägbart indikerar vilka rader ÖVERSTA påverkar.
 
 Du kan använda upp med ett konstant värde, som i följande exempel, eller med ett variabelvärde använda parameteriserade frågor. Mer information finns i den [frågor som innehåller parametrar](#parameterized-queries) avsnittet.
 
@@ -679,6 +743,65 @@ Resultatet är:
       }
     ]
 ```
+
+Dessutom kan du sortera efter flera egenskaper. En fråga som grupperas efter flera egenskaper kräver en [sammansatta index](index-policy.md#composite-indexes). Överväg följande fråga:
+
+```sql
+    SELECT f.id, f.creationDate
+    FROM Families f
+    ORDER BY f.address.city ASC, f.creationDate DESC
+```
+
+Den här frågan hämtar familjen `id` i stigande ordning efter namnet på staden. Om flera objekt har samma stad namn kan frågan ska sortera efter den `creationDate` i fallande ordning.
+
+## <a id="OffsetLimitClause"></a>GRÄNSEN för OFFSET-sats
+
+GRÄNSEN för förskjutning är en valfri sats att hoppa över och sedan vidta vissa antal värden från frågan. Antalet förskjutning och GRÄNSEN för antal måste anges i instruktionen förskjutning GRÄNSEN.
+
+När GRÄNSEN för förskjutning används tillsammans med en ORDER BY-sats, skapas genom att göra hoppa över resultatuppsättningen och utför på sorterad värdena. Om någon ORDER BY-sats används, resulterar det i en deterministisk ordning med värden.
+
+Här är till exempel en fråga som det första värdet och returnerar det andra värdet (i ordningen för fasta stadens namn):
+
+```sql
+    SELECT f.id, f.address.city
+    FROM Families f
+    ORDER BY f.address.city
+    OFFSET 1 LIMIT 1
+```
+
+Resultatet är:
+
+```json
+    [
+      {
+        "id": "AndersenFamily",
+        "city": "Seattle"
+      }
+    ]
+```
+
+Här är en fråga som det första värdet och returnerar det andra värdet (utan att beställa):
+
+```sql
+   SELECT f.id, f.address.city
+    FROM Families f
+    OFFSET 1 LIMIT 1
+```
+
+Resultatet är:
+
+```json
+    [
+      {
+        "id": "WakefieldFamily",
+        "city": "Seattle"
+      }
+    ]
+```
+
+
+
+
 ## <a name="scalar-expressions"></a>Skalära uttryck
 
 SELECT-satsen stöder skalärt uttryck som konstanter, matematiska uttryck och logiska uttryck. Följande fråga använder ett skalärt uttryck:
@@ -1018,7 +1141,7 @@ I följande exempel registreras en UDF under en objektbehållaren i Cosmos DB-da
        {
            Id = "REGEX_MATCH",
            Body = @"function (input, pattern) {
-                       return input.match(pattern) !== null;
+                      return input.match(pattern) !== null;
                    };",
        };
 

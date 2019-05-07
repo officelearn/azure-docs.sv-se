@@ -2,18 +2,19 @@
 title: Ladda upp, hämta, lista och ta bort blobar med Azure Storage v10 SDK för JavaScript
 description: Skapa, ladda upp och ta bort blobar och containrar i Node.js med Azure Storage
 services: storage
-author: tamram
+author: mhopkins-msft
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.date: 11/14/2018
-ms.author: tamram
-ms.openlocfilehash: f5f6e6dc1e8c0df88d69f9edbbdaf6e3421548df
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: mhopkins
+ms.reviewer: seguler
+ms.openlocfilehash: f426ee10017533c21021d618d613dc0931767988
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60392355"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149441"
 ---
 # <a name="quickstart-upload-download-list-and-delete-blobs-using-azure-storage-v10-sdk-for-javascript"></a>Snabbstart: Ladda upp, hämta, lista och ta bort blobar med Azure Storage v10 SDK för JavaScript
 

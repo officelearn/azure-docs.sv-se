@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: ed180563ea6138b3b4bab6092b39eeacf9dbf840
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 0c42ab44ba317888b982ba7c72f78be4ca73d93c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62097069"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148171"
 ---
 # <a name="add-intents-to-determine-user-intention-of-utterances"></a>Lägg till avsikter att fastställa användarens avsikt är att yttranden
 
@@ -42,16 +42,25 @@ Exempel yttranden är text-exempel på användarnas frågor eller kommandon. Om 
 
     LUIS konverterar alla yttranden till gemener och lägger till blanksteg runt token, till exempel bindestreck.
 
-## <a name="intent-prediction-discrepancy-errors"></a>Avsiktshantering förutsägelse avvikelse fel 
+<a name="#intent-prediction-discrepancy-errors"></a>
 
-Ett uttryck i ett intent som kan ha en avsiktlig förutsägelse avvikelse mellan den valda metoden och poäng för förutsägelse. LUIS anger skillnaden med en röd ram runt den **märkta avsikt** på raden i exempel-uttryck. 
+## <a name="intent-prediction-errors"></a>Avsiktshantering förutsägelse fel 
 
-![Skärmbild av avsikter detaljsidan med uttryck förutsägelse avvikelse fel](./media/luis-how-to-add-intents/prediction-discrepancy-intent.png) 
+En exempel-uttryck i ett intent som kan ha ett avsikt förutsägelse fel mellan avsikten exempel uttryck är för närvarande och förutsägelse avsikten bestäms vid träning. 
 
-I det övre navigeringsfältet väljer **träna**. Avvikelse för förutsägelse är nu borta.
+För att hitta uttryck förutsägelse fel och åtgärda dem, använda den **Filter** alternativet **utvärdering** alternativen felaktig och Unclear kombineras med den **visa** möjlighet att **Detaljerad vy**. 
 
-> [!Note]
-> När en röd linje är under ett ord eller fraser i exempel-uttryck ett [entitet förutsägelse fel](luis-how-to-add-example-utterances.md#entity-status-predictions) har inträffat. Du måste korrigera den. 
+![För att hitta uttryck förutsägelse fel och åtgärda dem, använder du filtret.](./media/luis-how-to-add-intents/find-intent-prediction-errors.png)
+
+Om filter och visa tillämpas och det finns exempel yttranden med fel, visar listan med exempel uttryck talade och problemen.
+
+![! [När filter och visa tillämpas och det finns exempel yttranden med fel, exempel uttryck listan visar talade och problemen.] (. / media/luis-how-to-add-intents/find-errors-in-utterances.png)](./media/luis-how-to-add-intents/find-errors-in-utterances.png#lightbox)
+
+Varje rad visar aktuella utbildningen förutsägelse poäng för exempel-uttryck, den närmaste rival poäng, som är skillnaden mellan dessa två poäng. 
+
+### <a name="fixing-intents"></a>Åtgärda avsikter
+
+Om du vill lära dig mer om att korrigera avsikt förutsägelse fel, Använd den [instrumentpanelens sammanfattning](luis-how-to-use-dashboard.md). Instrumentpanel för sammanfattning ger analys för den aktiva versionen senaste träning och erbjuder de högsta förslag för att åtgärda din modell.  
 
 ## <a name="add-a-custom-entity"></a>Lägg till en anpassad entitet
 

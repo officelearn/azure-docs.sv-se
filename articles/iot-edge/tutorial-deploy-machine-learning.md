@@ -9,14 +9,16 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 8b1036128755a5218afc35648dfd16f09f559908
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 6f85b0088fac97f4b9f2dd2835e3052cb598a987
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60611720"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142763"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Självstudier: Distribuera Azure Machine Learning som en IoT Edge-modul (förhandsversion)
+
+Använd Azure-anteckningsböcker för att utveckla en machine learning-modell och distribuera den till en Linux-enhet som kör Azure IoT Edge. 
 
 Du kan använda IoT Edge-moduler till att distribuera kod som implementerar din affärslogik direkt på dina IoT Edge-enheter. Den här självstudiekursen vägleder dig genom processen att distribuera en Azure Machine Learning-modul som förutsäger när en enhet slutar fungera baserat på simulerade data om datortemperaturen. Mer information om Azure Machine Learning-tjänsten på IoT Edge finns i [Dokumentation om Azure Machine Learning](../machine-learning/service/how-to-deploy-to-iot.md).
 
@@ -50,52 +52,6 @@ Molnresurser:
 * En Azure Machine Learning-arbetsyta. Följ instruktionerna i [använda Azure portal för att komma igång med Azure Machine Learning](../machine-learning/service/quickstart-get-started.md) skapa en och lär dig hur du använder den.
    * Anteckna den arbetsytans namn, resursgrupp och prenumerations-ID. Dessa värdena är den arbetsyta-översikt i Azure-portalen. Du kommer använda dessa värden senare under kursen för att ansluta en Azure-anteckningsbok till resurserna i arbetsytan. 
 
-
-### <a name="disable-process-identification"></a>Inaktivera processidentifiering
-
->[!NOTE]
->
-> I förhandsversionen stöder inte Azure Machine Learning säkerhetsfunktionen processidentifiering som är aktiverad som standard med IoT Edge.
-> Här nedan följer stegen för att inaktivera den. Detta är dock inte lämpligt för användning i produktion. Dessa åtgärder krävs endast på Linux-enheter. 
-
-Om du vill inaktivera identifiering av processen på din IoT Edge-enhet, måste du ange IP-adressen och porten för **workload_uri** och **management_uri** i den **ansluta** del av konfigurationen av IoT Edge-daemon.
-
-Hämta IP-adressen först. Ange `ifconfig` på kommandoraden och kopiera IP-adressen för gränssnittet **docker0**.
-
-Redigera daemon-konfigurationsfilen för IoT Edge:
-
-```cmd/sh
-sudo nano /etc/iotedge/config.yaml
-```
-
-Uppdatera avsnittet **connect** i konfigurationen med din IP-adress. Exempel:
-```yaml
-connect:
-  management_uri: "http://172.17.0.1:15580"
-  workload_uri: "http://172.17.0.1:15581"
-```
-
-Ange samma adresser i avsnittet **lyssna** i konfigurationen. Exempel:
-
-```yaml
-listen:
-  management_uri: "http://172.17.0.1:15580"
-  workload_uri: "http://172.17.0.1:15581"
-```
-
-Spara och Stäng konfigurationsfilen.
-
-Skapa en miljövariabel IOTEDGE_HOST med management_uri-adress (om du vill ange permanent, lägger du till den i `/etc/environment`). Exempel:
-
-```cmd/sh
-export IOTEDGE_HOST="http://172.17.0.1:15580"
-```
-
-Starta om tjänsten IoT Edge för att ändringarna ska börja gälla.
-
-```cmd/sh
-sudo systemctl restart iotedge
-```
 
 ## <a name="create-and-deploy-azure-machine-learning-module"></a>Skapa och distribuera Azure Machine Learning-modul
 
@@ -131,11 +87,11 @@ I det här avsnittet, konvertera trained modellfiler för maskininlärning och t
     >[!TIP]
     >Vissa av cellerna i avvikelseidentifiering identifiering av självstudiekursen anteckningsboken är valfria, eftersom de skapar resurser som vissa användare kanske eller kanske inte ännu, t.ex. en IoT-hubb. Om du placerar dina befintliga resursinformation på den första cellen får du fel om du kör cellerna som skapar nya resurser eftersom Azure inte kommer att skapa duplicerade resurser. Det här är bra, och du kan ignorera felen eller hoppa över dessa valfria avsnitt helt och hållet. 
 
-När du har slutfört alla steg i anteckningsboken, har du tränats en avvikelseidentifiering identifiering av modellen som skapats som en Docker-behållaravbildning och push-överfört avbildningen till Azure Container Registry. Sedan testade modellen och slutligen distribuerat den till din IoT Edge-enhet. 
+När du har slutfört alla steg i anteckningsboken tränas en avvikelseidentifiering identifiering av modellen som skapats som en Docker-behållaravbildning och push-överfört avbildningen till Azure Container Registry. Sedan testade modellen och slutligen distribuerat den till din IoT Edge-enhet. 
 
 ## <a name="view-container-repository"></a>Visa behållaren lagringsplats
 
-Kontrollera att din behållaravbildning skapades och lagras i Azure container registry som är associerad med din machine learning-miljö. Anteckningsboken som du använde i föregående avsnitt automatiskt tillhandahålls behållaravbildningen och autentiseringsuppgifter för registret till din IoT Edge-enhet, men du bör känna till där de lagras så att du kan hitta informationen om dig själv senare. 
+Kontrollera att din behållaravbildning skapades och lagras i Azure container registry som är associerade med din machine learning-miljö. Anteckningsboken som du använde i föregående avsnitt automatiskt tillhandahålls behållaravbildningen och autentiseringsuppgifter för registret till din IoT Edge-enhet, men du bör känna till där de lagras så att du kan hitta informationen om dig själv senare. 
 
 1. I den [Azure-portalen](https://portal.azure.com), navigera till din arbetsyta för Machine Learning-tjänsten. 
 
@@ -151,7 +107,7 @@ Kontrollera att din behållaravbildning skapades och lagras i Azure container re
 
    Dessa autentiseringsuppgifter kan ingå i manifestet distribution att ge dina IoT-Edge Enhetsåtkomst till hämta behållaravbildningar från registret. 
 
-Nu vet du var den Machine Learning-behållaravbildningen lagras. Nästa avsnitt går igenom stegen för att se hur det fungerar som en distribuerad modul på din IoT Edge-enhet. 
+Nu vet du var den Machine Learning-behållaravbildningen lagras. Nästa avsnitt går igenom stegen för att visa behållaren som körs som en modul på IoT Edge-enhet. 
 
 ## <a name="view-generated-data"></a>Visa genererade data
 

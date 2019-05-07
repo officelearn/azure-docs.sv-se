@@ -7,13 +7,14 @@ ms.service: storage
 ms.topic: article
 ms.date: 02/25/2019
 ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 87499c1b71e243fe976e436b525e0150689d3aa1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: f9d68af12f6b2e98c77d0bd1b65a82c69588f203
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59051197"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147617"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Disaster recovery och storage-konto redundans (förhandsversion) i Azure Storage
 
@@ -46,7 +47,7 @@ Det är viktigt att utforma ditt program för hög tillgänglighet från början
 * [Designa elastiska program för Azure](https://docs.microsoft.com/azure/architecture/resiliency/): En översikt över viktiga begrepp för att skapa program med hög tillgänglighet i Azure.
 * [Checklista för tillgänglighet](https://docs.microsoft.com/azure/architecture/checklist/availability): En checklista för att verifiera att ditt program använder Metodtips för design för hög tillgänglighet.
 * [Utforma högtillgängliga program med hjälp av RA-GRS](storage-designing-ha-apps-with-ragrs.md): Designriktlinjer för att bygga program för att dra nytta av RA-GRS.
-* [Självstudier: Skapa ett program med hög tillgänglighet med Blob storage](../blobs/storage-create-geo-redundant-storage.md): En självstudiekurs som visar hur du skapar ett program med hög tillgänglighet som växlar automatiskt mellan slutpunkter som fel och återställningar simuleras. 
+* [Självstudie: Skapa ett program med hög tillgänglighet med Blob storage](../blobs/storage-create-geo-redundant-storage.md): En självstudiekurs som visar hur du skapar ett program med hög tillgänglighet som växlar automatiskt mellan slutpunkter som fel och återställningar simuleras. 
 
 Dessutom vill ha i åtanke dessa bästa metoder för att upprätthålla hög tillgänglighet för dina Azure Storage-data:
 
@@ -181,4 +182,4 @@ Microsoft kan initiera en regional redundans i extrema fall där en region går 
 
 * [Påbörja en växling för kontot (förhandsversion)](storage-initiate-account-failover.md)
 * [Utforma högtillgängliga program med hjälp av RA GRS](storage-designing-ha-apps-with-ragrs.md)
-* [Självstudier: Skapa ett program med hög tillgänglighet med Blob storage](../blobs/storage-create-geo-redundant-storage.md) 
+* [Självstudie: Skapa ett program med hög tillgänglighet med Blob storage](../blobs/storage-create-geo-redundant-storage.md) 

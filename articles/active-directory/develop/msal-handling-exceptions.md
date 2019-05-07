@@ -16,12 +16,12 @@ ms.date: 04/10/2019
 ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 7c9a578cb3c3a59ae6bba13e585188020f35f03a
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: HT
+ms.openlocfilehash: 43c98181c926410bea2acf64bf1ed4d588c12616
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65080942"
+ms.locfileid: "65138974"
 ---
 # <a name="handling-exceptions-and-errors-using-msal"></a>Hantering av undantag och fel med MSAL
 Undantag i Microsoft Authentication Library (MSAL) är avsedda för apputvecklare att felsöka och inte för att visa för slutanvändare. Undantag meddelanden är inte lokaliserade.
@@ -82,21 +82,18 @@ Följande feltyper av är tillgängliga:
 
 * *InteractionRequiredAuthError:* Fel-klass som utökar ServerError för att representera serverfel som kräver ett interaktiva anrop. Det genereras av `acquireTokenSilent` om användaren måste interagera med servern för att ange autentiseringsuppgifter eller medgivande för autentisering/auktorisering. Error codes include "interaction_required", "login_required", "consent_required".
 
-För felhantering i autentiseringsflöden med omdirigera metoder (`loginRedirect`, `acquireTokenRedirect`), måste du registrera lyckade och misslyckade återanrop anropas efter omdirigeringen med `handleRedirectCallbacks()` metoden på följande sätt:
+För felhantering i autentiseringsflöden med omdirigera metoder (`loginRedirect`, `acquireTokenRedirect`), måste du registrera motringningen som kallas eller inte när du har använt den omdirigering `handleRedirectCallback()` metoden på följande sätt:
 
 ```javascript
-function acquireTokenRedirectCallBack(response) {
-    // success response
+function authCallback(error, response) {
+    //handle redirect response
 }
 
-function  acquireTokenErrorRedirectCallBack(error) {
-    console.log(error);
-}
 
 var myMSALObj = new Msal.UserAgentApplication(msalConfig);
 
 // Register Callbacks for redirect flow
-myMSALObj.handleRedirectCallbacks(acquireTokenRedirectCallBack, acquireTokenErrorRedirectCallBack);
+myMSALObj.handleRedirectCallback(authCallback);
 
 myMSALObj.acquireTokenRedirect(request);
 ```
@@ -143,7 +140,7 @@ myMSALObj.acquireTokenSilent(request).then(function (response) {
 ```
 
 ## <a name="conditional-access-and-claims-challenges"></a>Villkorlig åtkomst och anspråk utmaningar
-När du hämtar token tyst ditt program kan få felmeddelanden när en [villkorlig åtkomst anspråk utmaning](conditional-access-dev-guide.md#scenario-single-page-app-spa-using-adaljs) som principen för MFA krävs av ett API du försöker komma åt.
+När du hämtar token tyst ditt program kan få felmeddelanden när en [villkorlig åtkomst anspråk utmaning](conditional-access-dev-guide.md) som principen för MFA krävs av ett API du försöker komma åt.
 
 Mönster för att hantera det här felet är att interaktivt hämta en token med MSAL. Interaktivt skaffa en token som uppmanar användaren och ger dem möjlighet att uppfylla principen för villkorlig åtkomst som krävs.
 
@@ -155,7 +152,7 @@ När du anropar en API som kräver villkorlig åtkomst från MSAL.NET behöver d
 För att hantera utmaningen för anspråk, kommer du behöva använda den `.WithClaim()` -metoden för den `PublicClientApplicationBuilder` klass.
 
 ### <a name="javascript"></a>JavaScript
-Vid hämtning av token tyst (med hjälp av `acquireTokenSilent`) genom att använda MSAL.js, ditt program får fel när en [villkorlig åtkomst anspråk utmaning](conditional-access-dev-guide.md#scenario-single-page-app-spa-using-adaljs) som principen för MFA krävs av ett API du försöker komma åt.
+Vid hämtning av token tyst (med hjälp av `acquireTokenSilent`) genom att använda MSAL.js, ditt program får fel när en [villkorlig åtkomst anspråk utmaning](conditional-access-dev-guide.md) som principen för MFA krävs av ett API du försöker komma åt.
 
 Mönster för att hantera det här felet är att göra ett interaktiva anrop för att hämta token i MSAL.js som `acquireTokenPopup` eller `acquireTokenRedirect` som i följande exempel:
 

@@ -1,20 +1,20 @@
 ---
-title: Anslut med Windows Virtual Desktop förhandsversion webbklienten - Azure
-description: Hur du ansluter till Windows Virtual Desktop förhandsversion HTML5-webbklienten.
+title: Ansluta till Windows Virtual Desktop förhandsversion från en webbläsare – Azure
+description: Hur du ansluter till Windows-Preview för virtuella skrivbord från en webbläsare.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 03/21/2019
+ms.date: 04/12/2019
 ms.author: helohr
-ms.openlocfilehash: 231dc2b777ce7fa37f445215863a55e93562e411
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9696f3c32f8b903257e337191a5ce32645bfd198
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60328875"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142455"
 ---
-# <a name="connect-with-the-web-client"></a>Ansluta med webbklienten
+# <a name="connect-from-a-web-browser"></a>Ansluta från en webbläsare
 
 Webbklienten kan du komma åt dina förhandsversion för virtuella skrivbord i Windows-resurser från en webbläsare utan långa installationsprocessen.
 

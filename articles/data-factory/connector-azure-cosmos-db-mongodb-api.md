@@ -50,7 +50,7 @@ Följande egenskaper har stöd för Azure Cosmos DB: s API för MongoDB länkade
 |:--- |:--- |:--- |
 | typ | Den **typ** egenskapen måste anges till **CosmosDbMongoDbApi**. | Ja |
 | connectionString |Ange anslutningssträngen för ditt Azure Cosmos DB API för MongoDB. Du hittar den i Azure portal -> din Cosmos DB-bladet -> primär eller sekundär anslutningssträng med mönstret för `mongodb://<cosmosdb-name>:<password>@<cosmosdb-name>.documents.azure.com:10255/?ssl=true&replicaSet=globaldb`. <br/><br />Markera det här fältet som en **SecureString** Skriv för att lagra den på ett säkert sätt i Data Factory. Du kan också [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
-| databas | Namnet på databasen som du vill komma åt. | Ja |
+| database | Namnet på databasen som du vill komma åt. | Ja |
 | connectVia | Den [Integreringskörningen](concepts-integration-runtime.md) för att ansluta till datalagret. Du kan använda Azure Integration Runtime eller en lokal integration runtime (om ditt datalager finns i ett privat nätverk). Om egenskapen inte anges används standard Azure Integration Runtime. |Nej |
 
 **Exempel**
@@ -81,8 +81,8 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Den **typ** egenskap måste anges till **CosmosDbMongoDbApiCollection**. |Ja |
-| Samlingsnamn |Namnet på Azure Cosmos DB-samling. |Ja |
+| type | Den **typ** egenskap måste anges till **CosmosDbMongoDbApiCollection**. |Ja |
+| collectionName |Namnet på Azure Cosmos DB-samling. |Ja |
 
 **Exempel**
 
@@ -114,7 +114,7 @@ Följande egenskaper stöds i Kopieringsaktiviteten **källa** avsnittet:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Den **typ** egenskapen för aktiviteten kopieringskälla måste anges till **CosmosDbMongoDbApiSource**. |Ja |
+| type | Den **typ** egenskapen för aktiviteten kopieringskälla måste anges till **CosmosDbMongoDbApiSource**. |Ja |
 | filter | Anger val av filter som använder frågeoperatorer. Om du vill returnera alla dokument i en samling, utelämnar den här parametern eller skicka ett tomt dokument ({}). | Nej |
 | cursorMethods.project | Anger fälten att returnera i dokumenten för projektion. Om du vill returnera alla fält i matchande dokument, utelämnar du den här parametern. | Nej |
 | cursorMethods.sort | Anger den ordning som frågan returnerar matchande dokument. Referera till [cursor.sort()](https://docs.mongodb.com/manual/reference/method/cursor.sort/#cursor.sort). | Nej |
@@ -169,8 +169,8 @@ Följande egenskaper stöds i Kopieringsaktiviteten **mottagare** avsnittet:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Den **typ** egenskapen för mottagare för Kopieringsaktivitet måste anges till **CosmosDbMongoDbApiSink**. |Ja |
-| WriteBehavior |Beskriver hur du skriver data till Azure Cosmos DB. Tillåtna värden: **infoga** och **upsert**.<br/><br/>Beteendet för **upsert** är att ersätta dokumentet om ett dokument med samma ID redan finns, annars Infoga dokumentet.<br /><br />**Obs!** Data Factory genererar automatiskt ett ID för ett dokument om ett ID inte har angetts i det ursprungliga dokumentet eller genom kolumnmappning. Det innebär att måste du se till att, för **upsert** för att fungera som förväntat, dokumentet har ett ID. |Nej<br />(standardvärdet är **infoga**) |
+| type | Den **typ** egenskapen för mottagare för Kopieringsaktivitet måste anges till **CosmosDbMongoDbApiSink**. |Ja |
+| writeBehavior |Beskriver hur du skriver data till Azure Cosmos DB. Tillåtna värden: **infoga** och **upsert**.<br/><br/>Beteendet för **upsert** är att ersätta dokumentet om ett dokument med samma ID redan finns, annars Infoga dokumentet.<br /><br />**Obs!** Data Factory genererar automatiskt ett ID för ett dokument om ett ID inte har angetts i det ursprungliga dokumentet eller genom kolumnmappning. Det innebär att måste du se till att, för **upsert** för att fungera som förväntat, dokumentet har ett ID. |Nej<br />(standardvärdet är **infoga**) |
 | writeBatchSize | Den **writeBatchSize** egenskapen styr storleken på dokument att skriva i varje batch. Du kan prova att öka värdet för **writeBatchSize** att förbättra prestanda och minska värdet om dokumentstorleken på din är stor. |Nej<br />(standardvärdet är **10 000**) |
 | writeBatchTimeout | Väntetid för batch Infoga åtgärden slutförs innan tidsgränsen uppnås. Tillåtna värdet är tidsintervallet. | Nej<br/>(standardvärdet är **00:30:00** – 30 minuter) |
 

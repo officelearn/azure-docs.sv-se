@@ -142,7 +142,7 @@ För att kopiera data från Azure Database för MySQL, ange typ av datakälla i 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **AzureMySqlSource** | Ja |
-| DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
+| query | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 | queryCommandTimeout | Väntetid innan frågebegäran når sin tidsgräns. Standardvärdet är 120 minuter (02: 00:00) | Nej |
 
 **Exempel:**

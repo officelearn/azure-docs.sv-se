@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: 380cd84cc5ec56fe54c12201b9c1db810ac457bf
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.openlocfilehash: 14990cd4a066c126b5e4d498c5a109dac1b8820a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64875930"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65140944"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Arbeta med Azure Functions Core Tools
 
@@ -186,7 +186,7 @@ Filen local.settings.json lagrar appinställningar, anslutningssträngar och ins
 
 | Inställning      | Beskrivning                            |
 | ------------ | -------------------------------------- |
-| **`IsEncrypted`** | När värdet `true`, alla värden som krypteras med hjälp av en lokal dator-nyckel. Används med `func settings` kommandon. Standardvärdet är `false`. |
+| **`IsEncrypted`** | När värdet `true`, alla värden som krypteras med hjälp av en lokal dator-nyckel. Används med `func settings` kommandon. Standardvärdet är `true`. När `true`, alla inställningar har lagts till med hjälp av `func settings add` krypteras med hjälp av den lokala datornyckeln. Detta speglar hur funktionsappinställningar lagras i programinställningarna i Azure. Kryptera lokala inställningsvärden ger extra skydd för värdefulla data bör exponeras offentligt i local.settings.json.  |
 | **`Values`** | Samling av programinställningar och anslutningssträngar som används när du kör lokalt. Dessa värden motsvarar appinställningar i din funktionsapp i Azure, till exempel [ `AzureWebJobsStorage` ]. Många utlösare och bindningar har en egenskap som refererar till en appinställning för anslutningssträngen, till exempel `Connection` för den [Blob storage-utlösare](functions-bindings-storage-blob.md#trigger---configuration). För egenskaper, behöver du en programinställning som definierats i den `Values` matris. <br/>[`AzureWebJobsStorage`] är en obligatorisk app inställning för utlösare än HTTP. <br/>Version 2.x av funktionskörningen kräver den [ `FUNCTIONS_WORKER_RUNTIME` ] som genereras för ditt projekt med Core Tools. <br/> När du har den [Azure storage-emulatorn](../storage/common/storage-use-emulator.md) installerat lokalt kan du ange [ `AzureWebJobsStorage` ] till `UseDevelopmentStorage=true` och Core Tools använder emulatorn. Detta är användbart under utvecklingen, men du bör testa med en faktisk lagringsanslutning före distributionen. |
 | **`Host`** | Inställningarna i det här avsnittet Anpassa värdprocessen funktioner när du kör lokalt. |
 | **`LocalHttpPort`** | Anger standardporten som används när du kör den lokala Functions-värden (`func host start` och `func run`). Den `--port` kommandoradsalternativet har företräde framför det här värdet. |

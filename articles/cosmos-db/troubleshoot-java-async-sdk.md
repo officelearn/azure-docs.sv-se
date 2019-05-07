@@ -4,17 +4,17 @@ description: Använda funktioner som loggning på klientsidan och andra tredjepa
 author: moderakh
 ms.service: cosmos-db
 ms.topic: troubleshooting
-ms.date: 10/28/2018
+ms.date: 04/30/2019
 ms.author: moderakh
 ms.devlang: java
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 0a2bbb33182fcdef3cc6ed7ff213557f90be4544
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f0dc45f104e05fde083489604865aaae8282d6a2
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60404687"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65146209"
 ---
 # <a name="troubleshoot-issues-when-you-use-the-java-async-sdk-with-azure-cosmos-db-sql-api-accounts"></a>Felsöka problem när du använder Async Java-SDK med Azure Cosmos DB SQL API-konton
 Den här artikeln beskriver vanliga problem, lösningar, diagnos och verktyg när du använder den [Java Async SDK](sql-api-sdk-async-java.md) med Azure Cosmos DB SQL API-konton.
@@ -57,6 +57,16 @@ Om din app distribueras på Azure virtuella datorer utan en offentlig IP-adress 
 
     När tjänsteslutpunkt är aktiverat skickas inte längre begäranden från en offentlig IP-adress till Azure Cosmos DB. Istället skickas det virtuella nätverket och undernätet identitet. Den här ändringen kan resultera i brandväggen släpper om endast offentliga IP-adresser tillåts. Om du använder en brandvägg, när du aktiverar tjänstslutpunkten, lägga till ett undernät i brandväggen med hjälp av [ACL: er med virtuella nätverk](https://docs.microsoft.com/azure/virtual-network/virtual-networks-acl).
 * Tilldela en offentlig IP-adress till den virtuella Azure-datorn.
+
+##### <a name="cant-connect"></a>Det går inte att nå tjänsten - brandväggen
+``ConnectTimeoutException`` Anger att SDK inte kan nå tjänsten.
+När du använder direkt läge kan du få ett fel liknar följande:
+```
+GoneException{error=null, resourceAddress='https://cdb-ms-prod-westus-fd4.documents.azure.com:14940/apps/e41242a5-2d71-5acb-2e00-5e5f744b12de/services/d8aa21a5-340b-21d4-b1a2-4a5333e7ed8a/partitions/ed028254-b613-4c2a-bf3c-14bd5eb64500/replicas/131298754052060051p//', statusCode=410, message=Message: The requested resource is no longer available at the server., getCauseInfo=[class: class io.netty.channel.ConnectTimeoutException, message: connection timed out: cdb-ms-prod-westus-fd4.documents.azure.com/101.13.12.5:14940]
+```
+
+Om du har en brandvägg som körs på din app-dator, öppna portintervall 10 000 till 20 000 som används av direkt-läge.
+Följ även den [anslutningsgränsen på en värddator](#connection-limit-on-host).
 
 #### <a name="http-proxy"></a>HTTP-proxy
 

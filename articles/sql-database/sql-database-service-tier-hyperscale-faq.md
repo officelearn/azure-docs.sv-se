@@ -3,7 +3,7 @@ title: Azure SQL Database hyperskala vanliga frågor och svar | Microsoft Docs
 description: Svar på vanliga frågor kunder ställa om en Azure SQL-databas på tjänstnivån hyperskala - ofta kallas en storskalig databas.
 services: sql-database
 ms.service: sql-database
-ms.subservice: service
+ms.subservice: ''
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,17 +11,17 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 03/26/2019
-ms.openlocfilehash: 679de1d5accbd0f4f955bf5af95bc8dcc97e3b78
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.date: 10/17/2018
+ms.openlocfilehash: 55b18051f2376a59fa79b11cccc9e71cad5debbc
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64574285"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067811"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Vanliga frågor och svar om Azure SQL hyperskala databaser
 
-Den här artikeln innehåller svar på vanliga frågor och svar för kunder som överväger en databas i Azure SQL Database hyperskala tjänstenivå, ofta kallas en storskalig databas (för närvarande i allmänt tillgänglig förhandsversion). Den här artikeln beskrivs de scenarier som har stöd för storskaliga och cross-funktionen-tjänster som är kompatibel med SQL Database hyperskala Allmänt.
+Den här artikeln innehåller svar på vanliga frågor och svar för kunder som överväger en databas i Azure SQL Database hyperskala-tjänstnivå och som ofta kallas en storskalig databas. Den här artikeln beskrivs de scenarier som har stöd för storskaliga och cross-funktionen-tjänster som är kompatibel med SQL Database hyperskala Allmänt.
 
 - Den här vanliga frågor och svar är avsedd för läsare som har en kort förståelse för tjänstnivån hyperskala och vill ha sina specifika frågor och funderingar besvaras.
 - Den här vanliga frågor och svar är inte avsedd att vara en handboken eller svara på frågor om hur du använder en SQL-databas hyperskala-databas. För det, rekommenderar vi att du refererar till den [Azure SQL Database hyperskala](sql-database-service-tier-hyperscale.md) dokumentation.
@@ -45,7 +45,7 @@ Tjänsten vCore-baserade nivåer är främst differentierade baserat på tillgä
 - Affärskritisk tjänstnivån är lämpligt för arbetsbelastningar där i/o-svarstiden är en prioritet.
 
 | | Resurstyp | Generellt syfte |  Hyperskala | Affärskritisk |
-|:---|:---:|:---:|:---:|:---:|
+|:---|:---:|:---:|:---:|:---:|:---:|
 | **Bäst för** |Alla|  De flesta företags arbetsbelastningar. Erbjudanden budgetera objektorienterad belastningsutjämnade beräknings- och lagringsalternativ. | Dataprogram med kapacitetskrav för stora mängder data och möjligheten att automatiskt skala lagringsutrymme och skala databearbetningen smidigt sätt. | OLTP-program med höga transaktionsintervall och lägsta svarstid i/o. Erbjuder högsta återhämtning för fel som använder flera isolerade repliker.|
 |  **Resurstyp** ||Enkel databas / elastisk pool / hanterad instans | Enskild databas | Enkel databas / elastisk pool / hanterad instans |
 | **Beräkna storlek**|Enkel databas / elastisk pool * | 1-80 virtuella kärnor | 1-80 virtuella kärnor * | 1-80 virtuella kärnor |
@@ -56,7 +56,7 @@ Tjänsten vCore-baserade nivåer är främst differentierade baserat på tillgä
 | **I/o-dataflöde** | Enkel databas ** | 500 IOPS per vCore med 7000 högsta IOPS | Okänd ännu | 5000 IOPS med 200 000 högsta IOPS|
 | | Hanterad instans | Beror på storleken på filen | Gäller inte | Hanterad instans: Beror på storleken på filen|
 |**Tillgänglighet**|Alla|1 repliken, ingen lässkala, inte lokal cachelagring | Flera repliker, upp till 15 lässkala, delvis lokalt cacheminne | 3 repliker, 1 lässkala, zonredundant HA fullständig lokal cache |
-|**Säkerhetskopior**|Alla|RA-GRS 7-35 dagar (7 dagar som standard)| RA-GRS 7-35 dagar (7 dagar som standard), konstant punkt in0time tidsåterställning (PITR) | RA-GRS 7-35 dagar (7 dagar som standard) |
+|**Säkerhetskopior**|Alla|RA-GRS 7-35 dagar (7 dagar som standard)| RA-GRS 7-35 dagar (7 dagar som standard), konstant tid point-in-time-återställning (PITR) | RA-GRS 7-35 dagar (7 dagar som standard) |
 
 \* Elastiska pooler som inte stöds i hyperskala tjänstnivå
 
@@ -73,15 +73,19 @@ Tjänstnivån hyperskala är främst avsett för kunder som har stora lokala SQL
 
 ### <a name="what-regions-currently-support-hyperscale"></a>Vilka regioner stöder för närvarande hyperskala
 
-Hyperskala är nu tillgänglig för enskilda databaser i följande regioner:  Västra US1, USA, västra 2, östra US1, centrala USA, Västeuropa, Nordeuropa, Sydostasien, östra Japan, Korea, centrala, Australien, sydöstra och Östra Australien.
+Azure SQL Database hyperskala-nivån är nu tillgänglig i följande regioner:
 
-### <a name="can-i-create-multiple-hyperscale-databases-per-sql-database-server"></a>Jag kan skapa flera databaser i hyperskala per SQL Database-server
+Australien, östra, Australien, sydöstra Australien, södra Brasilien, Kanada, centrala Kanada, centrala USA, östra Asien, östra USA, östra USA 2, östra för Frankrike centrala, Japan, västra Japan, norra centrala USA, Norra Europa, Sydafrika Nord, södra centrala USA, Sydostasien, Storbritannien, södra Storbritannien, västra Europa, västra , USA, västra, USA, västra 2
 
-Ja. Mer information och gränser för hur många storskaliga databaser per SQL Database-server finns i [SQL Database-resursgränser för enkel och delade databaser på en SQL-databasserver](sql-database-resource-limits-database-server.md).
+Se [översikt över Azure SQL Database hyperskala](sql-database-service-tier-hyperscale-faq.md) för proceduren om du behöver tillgång i en annan region.
+
+### <a name="can-i-create-multiple-hyperscale-databases-per-logical-server"></a>Jag kan skapa flera hyperskala databaser per logisk server
+
+Ja. Mer information och gränser för hur många storskaliga databaser per logisk server, finns i [SQL Database-resursgränser för enkel och delade databaser på en logisk server](sql-database-resource-limits-logical-server.md).
 
 ### <a name="what-are-the-performance-characteristic-of-a-hyperscale-database"></a>Vad är prestandaegenskap för en storskalig databas
 
-SQL Database hyperskala arkitekturen ger hög prestanda och dataflöde stöd för stora databasstorlekar. De exakta prestanda profil och egenskaper är inte tillgänglig under den allmänna förhandsvisningen.
+SQL Database hyperskala arkitekturen ger hög prestanda och dataflöde stöd för stora databasstorlekar. 
 
 ### <a name="what-is-the-scalability-of-a-hyperscale-database"></a>Vad är skalbarheten i en storskalig databas
 
@@ -98,7 +102,7 @@ SQL Database hyperskala ger snabb skalbarhet på begäran för din arbetsbelastn
 
 ## <a name="deep-dive-questions"></a>Djupdykning frågor
 
-### <a name="can-i-mix-hyperscale-and-single-databases-a-my-sql-database-server"></a>Kan jag blanda hyperskala och enskilda databaser en min SQL Database-server
+### <a name="can-i-mix-hyperscale-and-single-databases-in-a-single-logical-server"></a>Jag kan blanda hyperskala och enskilda databaser i en enda logisk server
 
 Ja, det kan du.
 
@@ -116,7 +120,7 @@ Ja, [Azure Hybrid-förmånen](https://azure.microsoft.com/pricing/hybrid-benefit
 
 ### <a name="what-kind-of-workloads-is-sql-database-hyperscale-designed-for"></a>Vilka typer av arbetsbelastningar är SQL Database hyperskala utformat för
 
-SQL Database hyperskala stöder alla SQL Server-arbetsbelastningar, men det är främst optimerat för OLTP. Du kan hämta Hybrid och analys (datamart) arbetsbelastningar samt.
+SQL Database hyperskala stöder alla SQL Server-arbetsbelastningar, men det är främst optimerat för OLTP. Du kan hämta Hybrid (HTAP) och analys (datamart) arbetsbelastningar samt.
 
 ### <a name="how-can-i-choose-between-azure-sql-data-warehouse-and-sql-database-hyperscale"></a>Hur kan jag välja mellan Azure SQL Data Warehouse och SQL Database hyperskala
 
@@ -128,11 +132,11 @@ Om du kör dataanalys i stor skala med komplexa frågor och med Parallel Data Wa
 
 ### <a name="can-i-pause-my-compute-at-any-time"></a>Jag kan pausar mitt beräkning när som helst
 
-Nej.
+Inte just nu, men du kan skala beräknings- och antal repliker ned till att minska kostnaderna under tider med låg belastning.
 
 ### <a name="can-i-provision-a-compute-with-extra-ram-for-my-memory-intensive-workload"></a>Jag kan etablera en beräkning med extra RAM arbetsbelastningens minnesintensiva
 
-Nej. Du måste uppgradera till en högre beräkningsstorleken för att få mer RAM-minne. Gen4 maskinvaran tillhandahåller mer RAM-minne jämfört med Gen5 maskinvara. Mer information finns i [storlekar för lagring och beräkning i hyperskala](sql-database-vcore-resource-limits-single-databases.md).
+Nej. Du måste uppgradera till en högre beräkningsstorleken för att få mer RAM-minne. Mer information finns i [storlekar för lagring och beräkning i hyperskala](sql-database-vcore-resource-limits-single-databases.md#hyperscale-service-tier).
 
 ### <a name="can-i-provision-multiple-compute-nodes-of-different-sizes"></a>Jag kan lägga till flera beräkningsnoder i olika storlekar
 
@@ -140,11 +144,11 @@ Nej.
 
 ### <a name="how-many-read-scale-replicas-are-supported"></a>Hur många lässkala repliker stöds
 
-I den offentliga förhandsversionen skapas hyperskala-databaser med en lässkala replik (två repliker totalt) som standard. Skicka en supportförfrågan via Azure portal om du vill lägga till eller ta bort lässkala repliker.
+Hyperskala-databaser skapas med en lässkala replik (två repliker totalt) som standard. Du kan skala antalet skrivskyddade repliker mellan 0 och 4 med hjälp av den [Azure-portalen](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current), [Powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase) eller [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update)...
 
 ### <a name="for-high-availability-do-i-need-to-provision-additional-compute-nodes"></a>För hög tillgänglighet, jag behöver för att etablera ytterligare beräkningsnoder
 
-I hyperskala databaser tillhandahåller hög tillgänglighet på lagringsnivå. Du behöver bara en replik för att ge hög tillgänglighet. När beräkning repliken är nere kan skapas en ny replik automatiskt utan att förlora data.
+I hyperskala databaser tillhandahålls elasticiteten på lagringsnivå. Du behöver bara en replik som skydd. När beräkning repliken är nere kan skapas en ny replik automatiskt utan att förlora data.
 
 Om det finns bara en replik, kan det ta lite tid att skapa den lokala cachen i den nya repliken efter en redundansväxling. Under fasen för cache-återskapning hämtar data direkt från sidan servrar, vilket resulterar i försämrade prestanda för IOPS och fråga i databasen.
 
@@ -158,7 +162,7 @@ För verksamhetskritiska appar som kräver hög tillgänglighet, bör du tillhan
 
 ### <a name="what-is-the-size-of-the-transaction-log-with-hyperscale"></a>Vad är storleken på transaktionsloggen med hyperskala
 
-Transaktionsloggen med hyperskala är praktiskt taget oändlig. Du behöver inte bekymra dig om slut på loggutrymmet på ett system som har en hög log-genomströmning. Log generation frekvensen kan dock begränsade för kontinuerlig aggressiva arbetsbelastningar. Topp- och genomsnittlig logga generation rate ännu inte är känd (fortfarande i förhandsversion).
+Transaktionsloggen med hyperskala är praktiskt taget oändlig. Du behöver inte bekymra dig om slut på loggutrymmet på ett system som har en hög log-genomströmning. Log generation frekvensen kan dock begränsade för kontinuerlig aggressiva arbetsbelastningar. Högsta varaktigt log generation hastighet är cirka 100 MB per sekund.
 
 ### <a name="does-my-temp-db-scale-as-my-database-grows"></a>Mina temp db skala när min databas växer
 
@@ -170,7 +174,7 @@ Databasens storlek växer automatiskt när du infoga/hämta mer data.
 
 ### <a name="what-is-the-smallest-database-size-that-sql-database-hyperscale-supports-or-starts-with"></a>Vad är den minsta databasstorlek som har stöd för SQL Database hyperskala eller som börjar med
 
-5 GB
+10 GB
 
 ### <a name="in-what-increments-does-my-database-size-grow"></a>I vilka steg Mina databasens storlek växer
 
@@ -208,15 +212,15 @@ Ja. Datasidor som är associerade med en viss tabell kan få i flera datafiler, 
 
 ### <a name="can-i-move-my-existing-azure-sql-databases-to-the-hyperscale-service-tier"></a>Jag kan flytta min befintliga Azure SQL-databaser på hyperskala tjänstnivån
 
-Ja. Du kan flytta dina befintliga Azure SQL-databaser till hyperskala. I offentlig förhandsversion är det en enkelriktad migrering. Du kan inte flytta databaser från hyperskala till en annan tjänstnivå. Vi rekommenderar att du gör en kopia av produktionsdatabaserna och migrera till hyperskala för bevis på koncept (POC).
+Ja. Du kan flytta dina befintliga Azure SQL-databaser till hyperskala. Det här är en enkelriktad migrering. Du kan inte flytta databaser från hyperskala till en annan tjänstnivå. Vi rekommenderar att du gör en kopia av produktionsdatabaserna och migrera till hyperskala för bevis på koncept (POC).
   
 ### <a name="can-i-move-my-hyperscale-databases-to-other-editions"></a>Jag kan flytta min hyperskala-databaser till andra versioner
 
-Nej. Du kan inte flytta en storskalig databas till en annan tjänstenivå i offentlig förhandsversion.
+Nej. Du kan inte flytta en storskalig databas till en annan tjänstenivå för tillfället.
 
 ### <a name="do-i-lose-any-functionality-or-capabilities-after-migration-to-the-hyperscale-service-tier"></a>Jag förlora några funktioner eller funktioner efter migrering till hyperskala tjänstnivån
 
-Ja. Långsiktig kvarhållning av säkerhetskopior i Azure SQL Database stöds inte i hyperskala allmänt tillgängliga förhandsversionen. När du har migrerat dina databaser till hyperskala slutar fungera i den här funktionen.
+Ja. Vissa av Azure SQL Database-funktioner stöds inte i hyperskala ännu, inklusive men begränsat inte länge termen kvarhållning av säkerhetskopia. När du har migrerat dina databaser till hyperskala dessa funktioner att sluta fungera.  Vi förväntar oss dessa begränsningar att vara tillfällig.
 
 ### <a name="can-i-move-my--on-premises-sql-server-database-or-my-sql-server-virtual-machine-database-to-hyperscale"></a>Jag kan flytta min lokala SQL Server-databas eller SQL Server VM-databasen till hyperskala
 
@@ -229,13 +233,13 @@ Avbrottstid är samma som stilleståndstid när du migrerar dina databaser till 
 
 ### <a name="how-much-time-would-it-take-to-bring-in-x-amount-of-data-to-sql-database-hyperscale"></a>Hur mycket tid skulle det tar att ta i X mängden data som SQL Database hyperskala
 
-Ännu ej känd (fortfarande i förhandsversion)
+Hyperskala kan förbruka 100 MB/sek för nya/ändrade data.
 
 ### <a name="can-i-read-data-from-blob-storage-and-do-fast-load-like-polybase-and-sql-data-warehouse"></a>Kan jag läsa data från blob-lagring och snabba load (till exempel Polybase och SQL Data Warehouse)
 
 Du kan läsa data från Azure Storage och läsa in datainläsning i en storskalig databas (precis som du kan göra med en vanlig enkel databas). Polybase stöds inte för närvarande på Azure SQL Database. Du kan göra med Polybase [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/) eller kör ett Spark-jobb [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/) med den [Spark-anslutningsappen för SQL](sql-database-spark-connector.md). Massinfogning stöder i Spark-anslutningen till SQL.
 
-Enkel återställning eller bulk loggning modellen stöds inte i hyperskala. Fullständiga återställningsmodellen krävs för att tillhandahålla hög tillgänglighet. Dock hyperskala ger bättre pris jämfört med en enkel databas på grund av den nya arkitekturen i loggen för inmatning av data.
+Enkel återställning eller bulk loggning modellen stöds inte i hyperskala. Fullständiga återställningsmodellen krävs för att tillhandahålla hög tillgänglighet. Dock hyperskala ger bättre pris jämfört med en Azure SQL-databas på grund av den nya arkitekturen i loggen för inmatning av data.
 
 ### <a name="does-sql-database-hyperscale-allow-provisioning-multiple-nodes-for-ingesting-large-amounts-of-data"></a>SQL Database hyperskala tillåter att etablera flera noder för att föra in stora mängder data
 
@@ -253,7 +257,7 @@ Ja. Kommer från olika datakällor utom kräver SQL Server logiska migrering. Du
 
 ### <a name="what-slas-are-provided-for-a-hyperscale-database"></a>Vad serviceavtal tillhandahålls för en databas i hyperskala
 
-SERVICEAVTAL tillhandahålls i allmänhet inte allmänt tillgängliga förhandsversionen. Hyperskala innehåller dock samma nivå av hög tillgänglighet med den aktuella SQL DB erbjudanden. Se [SLA](https://azure.microsoft.com/support/legal/sla/).
+Med standard primära plus 1 läsbara sekundära är serviceavtalet 99,95% tillgänglighet.  Med flera repliker går serviceavtalet upp till 99,99%.  
 
 ### <a name="are-the-database-backups-managed-for-me-by-the-azure-sql-database-service"></a>Säkerhetskopior av databasen hanteras för mig av tjänsten Azure SQL Database
 
@@ -269,7 +273,7 @@ Ja
 
 ### <a name="what-is-the-recovery-point-objective-rporecovery-time-objective-rto-with-backuprestore-in-sql-database-hyperscale"></a>Vad är den mål för återställningspunkt (RPO) / återställning mål för återställningstid (RTO) med säkerhetskopiering/återställning i hyperskala för SQL-databas
 
-Återställningspunktmålet är 0 min. RTO-mål är mindre än 10 minuter, oavsett storlek. Men under den offentliga förhandsversionen kan uppstå längre återställningstiden.
+Återställningspunktmålet är 0 min. RTO-mål är mindre än 10 minuter, oavsett storlek. 
 
 ### <a name="do-backups-of-large-databases-affect-compute-performance-on-my-primary"></a>Påverkar säkerhetskopior av stora databaser beräkning prestanda på min primära
 
@@ -277,15 +281,15 @@ Nej. Säkerhetskopieringar som hanteras av underlagringssystemet och utnyttja ö
 
 ### <a name="can-i-perform-geo-restore-with-a-sql-database-hyperscale-database"></a>Jag kan utföra geo-återställning med en SQL-databas hyperskala-databas
 
-Nej, inte allmänt tillgängliga förhandsversionen.
+Ja.  GEO-återställning stöds fullt ut.
 
 ### <a name="can-i-setup-geo-replication-with-sql-database-hyperscale-database"></a>Jag kan konfigurera Geo-replikering med SQL Database storskalig databas
 
-Nej, inte allmänt tillgängliga förhandsversionen.
+Inte just nu.
 
 ### <a name="do-my-secondary-compute-nodes-get-geo-replicated-with-sql-database-hyperscale"></a>Får Mina sekundära beräkningsnoder geo-replikerade med SQL Database hyperskala
 
-Nej, inte allmänt tillgängliga förhandsversionen.
+Inte just nu.
 
 ### <a name="can-i-take-a-sql-database-hyperscale-database-backup-and-restore-it-to-my-on-premises-server-or-sql-server-in-vm"></a>Jag kan säkerhetskopiera en databas i SQL Database hyperskala och återställer dem till min lokala server eller SQL Server i virtuell dator
 
@@ -295,7 +299,7 @@ Nej. Lagringsformat för storskaliga databaser skiljer sig från traditionella S
 
 ### <a name="do-i-lose-any-functionality-or-capabilities-after-migration-to-the-hyperscale-service-tier"></a>Jag förlora några funktioner eller funktioner efter migrering till hyperskala tjänstnivån
 
-Ja. Långsiktig kvarhållning av säkerhetskopior i Azure SQL Database stöds inte i hyperskala allmänt tillgängliga förhandsversionen. När du har migrerat dina databaser till hyperskala slutar fungera i den här funktionen.
+Ja. Vissa av Azure SQL Database-funktioner stöds inte i hyperskala, inklusive men inte begränsat långsiktig kvarhållning av säkerhetskopia. När du har migrerat dina databaser till hyperskala dessa funktioner att sluta fungera.
 
 ### <a name="will-polybase-work-with-sql-database-hyperscale"></a>Will Polybase fungerar med SQL Database hyperskala
 
@@ -313,11 +317,11 @@ Nej. Databasen finns på en virtuell dator för beräknings- och inte en behåll
 
 ### <a name="how-much-throughput-can-i-push-on-the-largest-sql-database-hyperscale-compute"></a>Hur högt dataflöde kan jag skicka i den största beräkningen i hyperskala för SQL-databas
 
-Ännu ej känd (fortfarande i förhandsversion)
+Vi har sett en konsekvent 100 MB/s av ändringsdata (transaction log data generation)
 
 ### <a name="how-many-iops-do-i-get-on-the-largest-sql-database-hyperscale-compute"></a>Hur många IOPS visas i den största beräkningen i hyperskala för SQL-databas
 
-Ännu ej känd (fortfarande i förhandsversion)
+IOPS och i/o-svarstid varierar beroende på arbetsbelastningmönster.  Om data behöver nås är lokala för den beräkning cache, blir den samma i/o-mönster som lokal SSD-lagring.   
 
 ### <a name="does-my-throughput-get-affected-by-backups"></a>Mina dataflöde hämta påverkas av säkerhetskopior
 
@@ -325,13 +329,13 @@ Nej. Beräkningen är frikopplad från lagringsskikt att undvika påverkan på b
 
 ### <a name="does-my-throughput-get-affected-as-i-provision-additional-compute-nodes"></a>Få min dataflödet påverkas som jag lägga till ytterligare beräkningsnoder
 
-Eftersom lagringen delas och det finns ingen direkt fysiska replikering sker mellan primära och sekundära beräkningsnoder, tekniskt sett kommer dataflödet i primära noden att påverkas genom att lägga till lässkala som noder. Vi kan dock begränsa kontinuerlig aggressiva arbetsbelastning för att tillåta log tillämpas på sekundära noder och sidan servrar komma ikapp och undvika dåliga läsprestanda på sekundära noder.
+Eftersom lagringen delas och det finns ingen direkt fysiska replikering sker mellan primära och sekundära beräkningsnoder, tekniskt sett påverkas dataflödet i primära noden inte genom att lägga till lässkala som noder. Vi kan dock begränsa kontinuerlig aggressiva arbetsbelastning för att tillåta log tillämpas på sekundära noder och sidan servrar komma ikapp och undvika dåliga läsprestanda på sekundära noder.
 
 ## <a name="scalability-questions"></a>Frågor om skalbarhet
 
 ### <a name="how-long-would-it-take-to-scale-up-and-down-a-compute-node"></a>Hur lång tid det tar att skala uppåt och nedåt en beräkningsnod
 
-Flera minuter
+Skala beräkning upp eller ned tar 5 – 10 minuter, oavsett storlek.
 
 ### <a name="is-my-database-offline-while-the-scaling-updown-operation-is-in-progress"></a>Är min databas offline medan att skala upp/ned åtgärden pågår
 
@@ -357,7 +361,7 @@ Nej. Endast primära Beräkningsnoden accepterar läsningar/skrivningar. Sekund�
 
 ### <a name="how-many-secondary-compute-nodes-can-i-provision"></a>Hur många sekundära compute-noder kan jag etablera
 
-I offentlig förhandsversion skapar vi 2 repliker för storskaliga databaser som standard. Skicka en supportförfrågan via Azure portal om du vill justera antalet repliker.
+Vi kan skapa 2 repliker för storskaliga databaser som standard. Om du vill justera antalet repliker, kan du göra det med hjälp av [Azure-portalen](https://portal.azure.com).
 
 ### <a name="how-do-i-connect-to-these-secondary-compute-nodes"></a>Hur ansluter jag till de här sekundära compute-noder
 
@@ -365,19 +369,19 @@ Du kan ansluta till dessa extra skrivskyddad beräkningsnoder genom att ange den
 
 ### <a name="can-i-create-a-dedicated-endpoint-for-the-read-scale-replica"></a>Jag kan skapa en särskild slutpunkt för lässkala repliken
 
-Nej. I den offentliga förhandsversionen du kan bara ansluta till lässkala repliken genom att ange `ApplicationIntent=ReadOnly`.
+Nej. Du kan bara ansluta till lässkala repliken genom att ange `ApplicationIntent=ReadOnly`.
 
 ### <a name="does-the-system-do-intelligent-load-balancing-of-the-read-workload"></a>Gör systemet intelligent belastningsutjämning av arbetsbelastningen för läsning
 
-Nej. I förhandsversion är Läs endast arbetsbelastningen till en slumpmässig lässkala replik.
+Nej. Läs endast arbetsbelastningen är till en slumpmässig lässkala replik.
 
 ### <a name="can-i-scale-updown-the-secondary-compute-nodes-independently-of-the-primary-compute"></a>Jag kan skala upp/ned sekundära beräkningsnoderna oberoende av den primära beräkningen
 
-Nej, inte allmänt tillgängliga förhandsversionen.
+Nej. Sekundär compute-noder används också för hög tillgänglighet, så måste de vara samma konfiguration som primärt vid redundans.
 
 ### <a name="do-i-get-different-temp-db-sizing-for-my-primary-compute-and-my-additional-secondary-compute-nodes"></a>Får jag olika temp db storlek för min primära beräknings- och min ytterligare sekundära compute-noder
 
-Nej. Din `tempdb` konfigureras baserat på beräkning storlek etableringen, allmänt tillgängliga förhandsversionen sekundära compute-noder har samma storlek som den primära databearbetning.
+Nej. Din `tempdb` konfigureras baserat på beräkning storlek etableringen, sekundära compute-noder har samma storlek som den primära databearbetning.
 
 ### <a name="can-i-add-indexes-and-views-on-my-secondary-compute-nodes"></a>Kan jag lägga till index och vyer på min sekundära compute-noder
 
@@ -389,4 +393,4 @@ Från den tid som en transaktion har genomförts på primärt, beroende på log 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om tjänstnivån hyperskala [hyperskala tjänstnivå (förhandsversion)](sql-database-service-tier-hyperscale.md).
+Läs mer om tjänstnivån hyperskala [hyperskala tjänstnivå](sql-database-service-tier-hyperscale.md).

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: pabouwer
-ms.openlocfilehash: b83db323f6799b4677bcbb3a3d84b79329ec814a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: fc95ce4aad4e8597b02b9c862be33bfcf6185541
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64691864"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073809"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>Installera och använda Istio i Azure Kubernetes Service (AKS)
 
@@ -40,7 +40,7 @@ I den här artikeln kan du se hur du:
 
 Stegen som beskrivs i den här artikeln förutsätter att du har skapat ett AKS-kluster (Kubernetes `1.11` och ovan, med RBAC aktiverad) och har upprättat en `kubectl` anslutning med klustret. Om du behöver hjälp med något av dessa objekt läser den [AKS-Snabbstart][aks-quickstart].
 
-Du behöver [Helm] [ helm] att följa dessa anvisningar och installera Istio. Vi rekommenderar att du har version `2.12.2` eller senare korrekt installerat och konfigurerat i klustret. Om du behöver hjälp med att installera Helm läser den [vägledning för installation av AKS Helm][helm-install].
+Du behöver [Helm] [ helm] att följa dessa anvisningar och installera Istio. Vi rekommenderar att du har version `2.12.2` eller senare korrekt installerat och konfigurerat i klustret. Om du behöver hjälp med att installera Helm läser den [vägledning för installation av AKS Helm][helm-install]. Alla Istio poddar måste också schemaläggas att köras på Linux-noder.
 
 Den här artikeln separerar Istio installation vägledning i flera separata steg. Slutresultatet är samma i struktur som den officiella Istio installationen [vägledning][istio-install-helm].
 
@@ -336,6 +336,9 @@ helm install install/kubernetes/helm/istio --name istio --namespace istio-system
 ```
 
 Den `istio` Helm-diagrammet distribuerar ett stort antal objekt. Du kan se en lista från utdata från din `helm install` kommandot ovan. Distributionen av Istio-komponenter kan ta 4 till 5 minuter att slutföra beroende på klustermiljön.
+
+> [!NOTE]
+> Alla Istio poddar måste schemaläggas att köras på Linux-noder. Om du har Windows Server nodpooler förutom Linux nodpooler i ditt kluster, kontrollerar du att alla Istio poddar har schemalagts att köras på Linux-noder.
 
 Nu har du distribuerat Istio till AKS-klustret. För att säkerställa att vi har en lyckad distribution av Istio, vi går vidare till nästa avsnitt för att [verifierar installationen Istio](#validate-the-istio-installation).
 

@@ -3,8 +3,7 @@ title: Nätverksdataflöde för virtuella Azure-datorer | Microsoft Docs
 description: Läs mer om Azure-dator nätverkets genomflöde.
 services: virtual-network
 documentationcenter: na
-author: KumudD
-manager: twooley
+author: steveesp
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/13/2017
-ms.author: kumud
-ms.openlocfilehash: 182b3b7dad828e67d006391e00986406729c959d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 4/26/2019
+ms.author: kumud,steveesp, mareat
+ms.openlocfilehash: 9d74e53c754367ecfa63642514db93354fcadf25
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64689259"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153740"
 ---
 # <a name="virtual-machine-network-bandwidth"></a>Nätverksbandbredd för virtuell dator
 
@@ -43,6 +42,30 @@ Dataflöde gränsen gäller för den virtuella datorn. Dataflödet påverkas int
 - **Accelerated networking**: Även om funktionen kan vara användbart för att uppnå den publicerade gränsen, ändras inte gränsen.
 - **Trafikmål**: Alla mål räknas utgående.
 - **Protokoll**: All utgående trafik över alla protokoll räknas mot gränsen.
+
+## <a name="network-flow-limits"></a>Flödesgränser för nätverk
+
+Förutom bandbredd, kan antalet anslutningar finns på en virtuell dator vid en given tidpunkt påverka dess nätverkets prestanda. Azure nätverksstacken upprätthåller tillstånd för varje riktning för en TCP/UDP-anslutning i datastrukturer som kallas ”flöden”. En typisk TCP/UDP-anslutning har 2 flöden som skapas, en för det inkommande och en annan för utgående riktning. 
+
+Dataöverföring mellan slutpunkter kräver skapandet av flera flöden utöver de som utför dataöverföringen. Några exempel är flöden som skapas för DNS-matchning och flödena som skapats för belastningsutjämnarens hälsotillståndsavsökningar. Observera att virtuella nätverksinstallationer (Nva) som gatewayer, proxyservrar, brandväggar, visas också flöden som skapas för anslutningar avslutade vid installationen och har sitt ursprung av installationen. 
+
+![Flow antal för TCP-konversationen via en installation för vidarebefordran](media/virtual-machine-network-throughput/flow-count-through-network-virtual-appliance.png)
+
+## <a name="flow-limits-and-recommendations"></a>Flödesgränser och rekommendationer
+
+Idag, stöder Azure nätverksstacken 250K totala nätverk flöden med bra prestanda för virtuella datorer som är större än 8 CPU-kärnor och 100 k Totalt antal flöden med bra prestanda för virtuella datorer med färre än 8 CPU-kärnor. Tidigare den här gränsen nätverk prestanda försämras gradvis för ytterligare flöden inom en hård gräns på 1 miljon Totalt antal flöden, 500 K inkommande och 500 K utgående, efter vilken ytterligare flöden ignoreras.
+
+||Virtuella datorer med < 8 CPU-kärnor|Virtuella datorer med 8 + CPU-kärnor|
+|---|---|---|
+|<b>Bra prestanda</b>|100K flöden |250K flöden|
+|<b>Försämrade prestanda</b>|Över 100k flöden|Över 250K flöden|
+|<b>Gränsen för Flow</b>|1 miljon flöden|1 miljon flöden|
+
+Mått är tillgängliga i [Azure Monitor](../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines) att spåra antalet flöden för nätverket och skapa en flöde på virtuell dator eller VMSS-instanser.
+
+![azure-monitor-flow-metrics.png](media/virtual-machine-network-throughput/azure-monitor-flow-metrics.png)
+
+Anslutningen upprättande och avslutande priserna kan också påverka nätverkets prestanda som anslutningen upprättande och avslutande filresurser CPU med paket bearbetning rutiner. Vi rekommenderar att du benchmark arbetsbelastningar mot förväntade trafikmönster och skala ut arbetsbelastningar på lämpligt sätt för att matcha dina behov. 
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 9aa394a405e5b4392f900d1e7520d93e6d152e49
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 78f54e9e86de7a8b1b80300e0ed79a5e54f29282
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64690469"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65074188"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Metodtips för avancerade scheduler funktioner i Azure Kubernetes Service (AKS)
 
@@ -30,6 +30,8 @@ Den här bästa praxis-artikeln fokuserar på avancerade Kubernetes schemaläggn
 **Bästa praxis riktlinjer** – begränsa åtkomsten för resurs-intensiva program, till exempel ingress-styrenheter till specifika noder. Håll nod-resurser som är tillgängliga för arbetsbelastningar som kräver dem och Tillåt inte schemaläggning av andra arbetsbelastningar på noderna.
 
 När du skapar AKS-kluster kan du distribuera noder med GPU-stöd eller ett stort antal kraftfulla processorer. Dessa noder används ofta för bearbetning av stora arbetsbelastningar som machine learning-(ML) eller artificiell intelligens (AI). Eftersom den här typen av maskinvara är vanligtvis en dyr noden resurs att distribuera, begränsa de arbetsbelastningar som kan schemaläggas på noderna. Du kan i stället välja att dedikera vissa noder i klustret för att köra ingress-tjänster och förhindra att andra arbetsbelastningar.
+
+Det här stödet för olika noder tillhandahålls med hjälp av flera nodpooler. Ett AKS-kluster innehåller en eller flera nodpooler. Stöd för flera nodpooler i AKS förhandsvisas just nu.
 
 Kubernetes-Schemaläggaren kan använda taints och tolerations för att begränsa vilka arbetsbelastningar kan köras på noder.
 
@@ -53,13 +55,13 @@ spec:
   containers:
   - name: tf-mnist
     image: microsoft/samples-tf-mnist-demo:gpu
-  resources:
-    requests:
-      cpu: 0.5
-      memory: 2Gi
-    limits:
-      cpu: 4.0
-      memory: 16Gi
+    resources:
+      requests:
+        cpu: 0.5
+        memory: 2Gi
+      limits:
+        cpu: 4.0
+        memory: 16Gi
   tolerations:
   - key: "sku"
     operator: "Equal"
@@ -72,6 +74,8 @@ Om den här pod distribueras, till exempel med `kubectl apply -f gpu-toleration.
 När du tillämpar taints arbeta med programutvecklare och ägare och låt dem att definiera nödvändiga tolerations i sina distributioner.
 
 Läs mer om taints och tolerations [tillämpa taints och tolerations][k8s-taints-tolerations].
+
+Läs mer om hur du använder flera nodpooler i AKS [skapa och hantera flera nodpooler för ett kluster i AKS][use-multiple-node-pools].
 
 ### <a name="behavior-of-taints-and-tolerations-in-aks"></a>Beteendet för taints och tolerations i AKS
 
@@ -195,3 +199,4 @@ Den här artikeln fokuserar på avancerade funktioner för Kubernetes scheduler.
 [aks-best-practices-scheduler]: operator-best-practices-scheduler.md
 [aks-best-practices-cluster-isolation]: operator-best-practices-cluster-isolation.md
 [aks-best-practices-identity]: operator-best-practices-identity.md
+[use-multiple-node-pools]: use-multiple-node-pools.md

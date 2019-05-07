@@ -1,20 +1,19 @@
 ---
-title: Skrivskyddade repliker i Azure Database for PostgreSQL
-description: Den här artikeln beskrivs Läs replica-funktionen i Azure Database för PostgreSQL.
-author: WenJason
-ms.author: v-jay
+title: Läsa repliker i Azure Database för PostgreSQL – enskild Server
+description: Den här artikeln beskriver Läs replica-funktionen i Azure Database för PostgreSQL – enskild Server.
+author: rachel-msft
+ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 04/01/2019
-ms.date: 04/22/2019
-ms.openlocfilehash: f340f1e42b6993a1f834ab05570c669d4241222b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 1d75d01df74a239ba865d9a4e2b216a410e6069c
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60564365"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067423"
 ---
-# <a name="read-replicas-in-azure-database-for-postgresql"></a>Skrivskyddade repliker i Azure Database for PostgreSQL
+# <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Läsa repliker i Azure Database för PostgreSQL – enskild Server
 
 Läs replica-funktionen kan du replikera data från en Azure Database for PostgreSQL-server till en skrivskyddad server. Du kan replikera från huvudservern till upp till fem kopior på samma Azure-region. Repliker uppdateras asynkront med PostgreSQL-motorn interna replikeringsteknik.
 
@@ -51,7 +50,7 @@ Repliken ärver administratörskontot som från huvudservern. Alla användarkont
 Du kan ansluta till repliken med hjälp av dess värdnamn och ett giltigt användarkonto, precis som på en vanlig Azure-databas för PostgreSQL-server. För en server med namnet **myreplica** med administratörsanvändarnamnet **myadmin**, du kan ansluta till repliken med hjälp av psql:
 
 ```
-psql -h myreplica.postgres.database.chinacloudapi.cn -U myadmin@myreplica -d postgres
+psql -h myreplica.postgres.database.azure.com -U myadmin@myreplica -d postgres
 ```
 
 Ange lösenordet för användarkontot i Kommandotolken.

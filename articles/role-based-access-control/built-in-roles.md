@@ -15,12 +15,12 @@ ms.date: 04/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 36a98ea52ea48c9828ca5857dc480742632056fb
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: ce23b891decd20db239e653702533ac7af21b980
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64689867"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073344"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Inbyggda roller för Azure-resurser
 
@@ -74,6 +74,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 | [Cognitive Services Data-läsare (förhandsgranskning)](#cognitive-services-data-reader-preview) | Låter dig läsa Cognitive Services-data. |
 | [Cognitive Services-användare](#cognitive-services-user) | Låter dig läsa och lista nycklar för Cognitive Services. |
 | [Läsarroll för cosmos DB-konto](#cosmos-db-account-reader-role) | Kan läsa data i Azure Cosmos DB-konto. Se [DocumentDB-Kontodeltagare](#documentdb-account-contributor) för att hantera Azure Cosmos DB-konton. |
+| [Cosmos DB-Operator](#cosmos-db-operator) | Låter dig hantera Azure Cosmos DB-konton, men inte åtkomst till data i dem. Förhindrar åtkomst till nycklar och anslutningssträngar. |
 | [CosmosBackupOperator](#cosmosbackupoperator) | Kan skicka in återställningsbegäran för en Cosmos DB-databas eller en container för ett konto |
 | [Kostnadshantering deltagare](#cost-management-contributor) | Kan visa kostnader och hantera kostnadskonfiguration (t.ex. budgetar, exporter) |
 | [Kostnadshantering läsare](#cost-management-reader) | Kan visa kostnadsdata och konfiguration (t.ex. budgetar, exporter) |
@@ -1080,6 +1081,30 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 > | **NotActions** |  |
 > | *Ingen* |  |
+> | **DataActions** |  |
+> | *Ingen* |  |
+> | **NotDataActions** |  |
+> | *Ingen* |  |
+
+## <a name="cosmos-db-operator"></a>Cosmos DB-Operator
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beskrivning** | Låter dig hantera Azure Cosmos DB-konton, men inte åtkomst till data i dem. Förhindrar åtkomst till nycklar och anslutningssträngar. |
+> | **Id** | 230815da-be43-4aae-9cb4-875f7bd000aa |
+> | **Åtgärder** |  |
+> | Microsoft.DocumentDb/databaseAccounts/* |  |
+> | Microsoft.Insights/alertRules/* | Skapa och hantera Insights Varningsregler |
+> | Microsoft.Authorization/*/read | Läs roller och rolltilldelningar |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | Hämtar tillgänglighetsstatusarna för alla resurser i det angivna området |
+> | Microsoft.Resources/deployments/* | Skapa och hantera distribution av resursgrupper |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
+> | Microsoft.Support/* | Skapa och hantera supportärenden |
+> | **NotActions** |  |
+> | Microsoft.DocumentDB/databaseAccounts/readonlyKeys/* |  |
+> | Microsoft.DocumentDB/databaseAccounts/regenerateKey/* |  |
+> | Microsoft.DocumentDB/databaseAccounts/listKeys/* |  |
+> | Microsoft.DocumentDB/databaseAccounts/listConnectionStrings/* |  |
 > | **DataActions** |  |
 > | *Ingen* |  |
 > | **NotDataActions** |  |

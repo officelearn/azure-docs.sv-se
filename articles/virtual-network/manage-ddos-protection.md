@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: kumud
-ms.openlocfilehash: 6b1d62f4cedb7add843a5ddae24125019130d58f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a053beb121e1b3c0db020094c29a9a1e0117da87
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728340"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65203531"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Hantera Azure DDoS Protection Standard med hjälp av Azure portal
 
@@ -33,7 +33,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="create-a-ddos-protection-plan"></a>Skapa en DDoS-skyddsplan
 
-En DDoS-skyddsplan definierar en uppsättning virtuella nätverk där DDoS protection standard aktiverat för prenumerationer. Du kan konfigurera en DDoS-skyddsplanen för din organisation och länka virtuella nätverk från flera prenumerationer till samma plan. DDoS-skyddsplanen själva är även associerat med en prenumeration som du väljer under genereringen av planen. Prenumerationen planen är kopplad till medför månatliga återkommande fakturan för plan, samt avgifter för överförbrukning, om antalet skyddade offentliga IP-adresser överskrider 100. Mer information om DDoS priser finns i [prisinformation](https://azure.microsoft.com/pricing/details/ddos-protection/).
+En DDoS-skyddsplan definierar en uppsättning virtuella nätverk där DDoS protection standard aktiverat för prenumerationer. Du kan konfigurera en DDoS-skyddsplanen för din organisation och länka virtuella nätverk från flera prenumerationer till samma plan. DDoS-skyddsplanen själva är även associerat med en prenumeration som du väljer under genereringen av planen. Planera för DDoS Protection fungerar i regioner och prenumerationer. Exempel – du kan skapa planen i Region Öst-USA och länka till #1-prenumeration i din klient. Samma plan kan länkas till virtuella nätverk från andra prenumerationer i olika regioner i din klient. Prenumerationen planen är kopplad till medför månatliga återkommande fakturan för plan, samt avgifter för överförbrukning, om antalet skyddade offentliga IP-adresser överskrider 100. Mer information om DDoS priser finns i [prisinformation](https://azure.microsoft.com/pricing/details/ddos-protection/).
 
 Skapandet av mer än en plan krävs inte för de flesta organisationer. En plan kan inte flyttas mellan prenumerationer. Om du vill ändra en plan som är i prenumerationen kan du behöva [ta bort befintliga planen](#work-with-ddos-protection-plans) och skapa en ny.
 
@@ -101,7 +101,7 @@ Du kan välja någon av tillgängliga DDoS protection mått så att du varnas n�
     |Namn                     | myDdosAlert                                                                                        |
     |Prenumeration             | Välj den prenumeration som innehåller offentliga IP-adress som du vill få aviseringar för.        |
     |Resursgrupp           | Välj den resursgrupp som innehåller den offentliga IP-adress som du vill få aviseringar för.      |
-    |Resurs                 | Välj offentlig IP-adress som innehåller offentliga IP-adress som du vill få aviseringar för. DDoS övervakar offentliga IP-adresser som tilldelas resurser inom ett virtuellt nätverk. Om du inte har några resurser med offentliga IP-adresser i det virtuella nätverket, måste du först skapa en resurs med en offentlig IP-adress. Du kan övervaka offentliga IP-adressen för alla resurser som har distribuerats via Resource Manager (inte klassisk) visas i [virtuellt nätverk för Azure-tjänster](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network), förutom Azure App Service-miljöer och Azure VPN Gateway. Om du vill fortsätta med den här självstudiekursen, kan du snabbt skapa en [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) eller [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtuell dator.                   |
+    |Resource                 | Välj offentlig IP-adress som innehåller offentliga IP-adress som du vill få aviseringar för. DDoS övervakar offentliga IP-adresser som tilldelas resurser inom ett virtuellt nätverk. Om du inte har några resurser med offentliga IP-adresser i det virtuella nätverket, måste du först skapa en resurs med en offentlig IP-adress. Du kan övervaka offentliga IP-adressen för alla resurser som har distribuerats via Resource Manager (inte klassisk) visas i [virtuellt nätverk för Azure-tjänster](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network), förutom Azure App Service-miljöer och Azure VPN Gateway. Om du vill fortsätta med den här självstudiekursen, kan du snabbt skapa en [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) eller [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtuell dator.                   |
     |Mått                   | Under DDoS angrepp eller inte                                                                            |
     |Tröskelvärde                | 1 – **1** innebär att du är utsatt för en attack. **0** innebär att du inte är utsatt för en attack.                         |
     |Period                   | Välj det värde som du väljer.                                                                   |
@@ -127,6 +127,7 @@ Telemetri för en attack tillhandahålls via Azure Monitor i realtid. Telemetri 
 4. Välj den **prenumeration** och **resursgrupp** som innehåller den offentliga IP-adress som du vill att telemetri för.
 5. Välj **offentliga IP-adressen** för **resurstyp**, välj sedan specifika offentliga IP-adress du vill att telemetri för.
 6. En serie **tillgängliga mått** visas till vänster på skärmen. De här måtten, när du väljer är visas i diagram registreringen i den **Måttdiagram i Azure Monitor** på skärmen.
+7. Välj den **aggregering** skriver som **Max**
 
 Tjänstmåttets namn finns olika typer av paket och byte och paket, med en grundläggande konstruktion av taggnamn på varje mått på följande sätt:
 
@@ -138,7 +139,7 @@ För att simulera en DDoS-attack för att verifiera telemetri, se [Validera DDoS
 
 ## <a name="view-ddos-mitigation-policies"></a>Visa principer för DDoS-minskning
 
-DDoS Protection Standard gäller tre automatiskt justerade minskning principer (TCP SYN, TCP och UDP) för varje offentliga IP-adressen för den skyddade resursen i det virtuella nätverket som har aktiverat DDoS. Du kan visa tröskelvärdena som principen genom att välja den **inkommande TCP-paket för att utlösa DDoS-minskning** och **inkommande UDP-paket för att utlösa DDoS-minskning** mått, enligt följande bild:
+DDoS Protection Standard gäller tre automatiskt justerade minskning principer (TCP SYN, TCP och UDP) för varje offentliga IP-adressen för den skyddade resursen i det virtuella nätverket som har aktiverat DDoS. Du kan visa tröskelvärdena som principen genom att välja den **inkommande TCP-paket för att utlösa DDoS-minskning** och **inkommande UDP-paket för att utlösa DDoS-minskning** mått med **aggregering** skriver som Max, enligt följande bild:
 
 ![Visa minskning principer](./media/manage-ddos-protection/view-mitigation-policies.png)
 

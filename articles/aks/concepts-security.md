@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: iainfou
-ms.openlocfilehash: 8fd5b726c01b056d38e7e187cec8270ee4e127a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2e655627267546d88f76a2487817bca3153ee91d
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60466748"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65074024"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Säkerhetsbegrepp för program och -kluster i Azure Kubernetes Service (AKS)
 
@@ -34,9 +34,11 @@ Som standard Kubernetes API-servern använder en offentlig IP-adress och namnge 
 
 ## <a name="node-security"></a>Nod-säkerhet
 
-AKS-noder är Azure virtuella datorer som du hanterar och underhåller. Noderna kör en optimerad Ubuntu Linux-distribution med Moby behållare runtime. När ett AKS-kluster skapas eller skalas upp, distribueras automatiskt noderna med den senaste OS säkerhetsuppdateringar och konfigurationer.
+AKS-noder är Azure virtuella datorer som du hanterar och underhåller. Linux-noder som kör en optimerad Ubuntu-distribution med Moby behållare runtime. Windows Server-noder (för närvarande i förhandsversion i AKS) kör en optimerad Windows Server 2019 släpp och även använda Moby behållare runtime. När ett AKS-kluster skapas eller skalas upp, distribueras automatiskt noderna med den senaste OS säkerhetsuppdateringar och konfigurationer.
 
-Azure-plattformen används automatiskt OS säkerhetsuppdateringar till noder på basis av varje natt. Om en OS-säkerhetsuppdatering kräver en omstart av värden, utförs inte att starta om automatiskt. Du kan manuellt starta om noderna eller en vanlig metod är att använda [Kured][kured], en omstart för öppen källkod-daemon för Kubernetes. Kured körs som en [DaemonSet] [ aks-daemonsets] och övervakar varje nod för förekomsten av en fil som anger att en omstart krävs. Omstarter hanteras i klustret med samma [här och tömma processen](#cordon-and-drain) som en uppgradering av klustret.
+Azure-plattformen gäller automatiskt OS säkerhetsuppdateringar för Linux-noder på basis av varje natt. Om en säkerhetsuppdatering för Linux-operativsystem måste startas om för värden, utförs inte att starta om automatiskt. Du kan manuellt starta om Linux-noder eller en vanlig metod är att använda [Kured][kured], en omstart för öppen källkod-daemon för Kubernetes. Kured körs som en [DaemonSet] [ aks-daemonsets] och övervakar varje nod för förekomsten av en fil som anger att en omstart krävs. Omstarter hanteras i klustret med samma [här och tömma processen](#cordon-and-drain) som en uppgradering av klustret.
+
+Windows Server-noder (för närvarande i förhandsversion i AKS), Windows Update inte automatiskt köra och gäller för de senaste uppdateringarna. Med jämna mellanrum kring Windows-versionen uppdateringscykeln och egna verifieringsprocessen, bör du utföra en uppgradering på Windows Server-nod lagringspoolerna AKS-klustret. Den här uppgraderingsprocessen skapar noderna som kör den senaste Windows Server-avbildning och de uppdateringar och sedan tar bort äldre noderna. Mer information om den här processen finns i [uppgradera en nodpool i AKS][nodepool-upgrade].
 
 Noder distribueras i ett privat virtuellt nätverksundernät, med inga offentliga IP-adresserna som tilldelats. För felsökning och hantering, är SSH aktiverat som standard. Den här SSH-åtkomst är bara tillgänglig i den interna IP-adressen.
 
@@ -50,12 +52,12 @@ Säkerhet och efterlevnad, eller att använda de senaste funktionerna finns till
 
 ### <a name="cordon-and-drain"></a>Cordon och drain
 
-Under uppgraderingen avspärrade AKS-noder separat från klustret så att nya poddarna inte är schemalagda på dem. Noder är sedan tömda och uppgraderas enligt följande:
+Under uppgraderingen avspärrade AKS-noder separat från klustret så att nya poddarna inte schemaläggs på dem. Noder är sedan tömda och uppgraderas enligt följande:
 
-- Befintliga poddar är ett smidigt sätt avslutas och schemalagda på övriga noder.
-- Noden startas om, uppgraderingen har slutförts och kopplar tillbaka till AKS-klustret.
-- Poddar är schemalagda att köras på dem igen.
-- Nästa nod i klustret är avspärrade och tömda med samma process tills alla noder har uppgraderats.
+- En ny nod har distribuerats till nodpool. Den här noden kör den senaste OS-avbildning och korrigeringar.
+- En av de befintliga noderna identifieras för uppgradering. Poddar på den här noden är ett smidigt sätt avslutas och schemalagda på de andra noderna i poolen för noden.
+- Den här befintliga noden tas bort från AKS-klustret.
+- Nästa nod i klustret är avspärrade och tömda med samma process tills alla noder är ersatt som en del av uppgraderingsprocessen.
 
 Mer information finns i [uppgradera ett AKS-kluster][aks-upgrade-cluster].
 
@@ -102,3 +104,4 @@ Mer information om core Kubernetes och AKS-begrepp finns i följande artiklar:
 [aks-concepts-network]: concepts-network.md
 [cluster-isolation]: operator-best-practices-cluster-isolation.md
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
+[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool

@@ -234,7 +234,7 @@ sections:
       - type: list
         style: unordered
         items:
-          - html: '<a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk">Service SDK-exempel</a><br/>'
+          - html: '<a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk">Speech SDK-exempel</a><br/>'
           - html: '<a href="https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK">Device SDK-exempel</a><br/>'
   - title: Referens
     items:

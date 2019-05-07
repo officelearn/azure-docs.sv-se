@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: iainfou
-ms.openlocfilehash: c23c13969fd4e2814fdc1894a98a3f876da7315b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: 2a218a48223c81e009b83cb1f129601a8035e18e
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64574298"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138423"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Integrera Azure Active Directory med Azure Kubernetes Service
 
@@ -31,92 +31,99 @@ Azure AD-autentisering har angetts för AKS-kluster med OpenID Connect. OpenID C
 
 Från inuti Kubernetes-klustret används Webhook Tokenautentisering för att verifiera autentiseringstoken. Webhook-tokenautentisering konfigureras och hanteras som en del av AKS-klustret. Mer information om Webhook-tokenautentisering finns i den [webhook authentication dokumentation][kubernetes-webhook].
 
+För att ge Azure AD-autentisering för ett AKS-kluster, skapas två Azure AD-program. Det första programmet är en serverkomponent som tillhandahåller autentisering av användare. Det andra programmet är en klientkomponent som används när du uppmanas av CLI för autentisering. Det här klientprogrammet använder serverprogrammet för den faktiska autentiseringen av autentiseringsuppgifter som tillhandahålls av klienten.
+
 > [!NOTE]
-> När du konfigurerar Azure AD för AKS-autentisering kan konfigureras två Azure AD-program. Den här åtgärden måste utföras av en administratör för Azure-klient.
+> När du konfigurerar Azure AD för AKS-autentisering kan konfigureras två Azure AD-program. Stegen för att delegera behörigheter för var och en av program som måste utföras av en administratör för Azure-klient.
 
 ## <a name="create-server-application"></a>Skapa serverprogram
 
-Första Azure AD-programmet används för att hämta en Azure AD medlemskap i användargrupper.
+Första Azure AD-programmet används för att hämta en Azure AD medlemskap i användargrupper. Skapa det här programmet i Azure-portalen.
 
-1. Välj **Azure Active Directory** > **Appregistreringar** > **Ny programregistrering**.
+1. Välj **Azure Active Directory** > **appregistreringar** > **ny registrering**.
 
-   Ge programmet ett namn, Välj **webbapp / API** som programtyp, och ange något formaterad URI-värde för **inloggnings-URL**. Välj **skapa** när du är klar.
+    * Ge programmet ett namn, till exempel *AKSAzureADServer*.
+    * För **stöds kontotyper**, Välj *konton i den här organisationens katalogen*.
+    * Välj *Web* för den **omdirigerings-URI** skriver och ange valfritt formaterad URI-värde som *https://aksazureadserver*.
+    * Välj **registrera** när du är klar.
 
-   ![Skapa Azure AD-registrering](media/aad-integration/app-registration.png)
+1. Välj **Manifest** och redigera den `groupMembershipClaims` värde att `"All"`.
 
-2. Välj **Manifest** och redigera den `groupMembershipClaims` värde att `"All"`.
+    ![Uppdatera medlemskap för alla](media/aad-integration/edit-manifest.png)
 
-   **Spara** uppdateringar när du är klar.
+    **Spara** uppdateringar när du är klar.
 
-   ![Uppdatera medlemskap för alla](media/aad-integration/edit-manifest.png)
+1. I det vänstra navigeringsfältet på Azure AD-programmet väljer **certifikat och hemligheter**.
 
-3. Tillbaka på Azure AD-programmet väljer **inställningar** > **nycklar**.
+    * Välj **+ nya klienthemligheten**.
+    * Lägg till en nyckelbeskrivning som *AKS Azure AD-server*. Välj en förfallotid och välj **Lägg till**.
+    * Anteckna värdet för nyckeln. Det har bara visas den här första gången. När du distribuerar ett Azure AD-aktiverade AKS-kluster kan det här värdet kallas den `Server application secret`.
 
-   Lägg till en nyckelbeskrivning, väljer en tidsgräns för förfallodatum och väljer **spara**. Anteckna värdet för nyckeln. När distribuera en Azure AD aktiverats AKS-kluster kan det här värdet kallas den `Server application secret`.
+1. I det vänstra navigeringsfältet på Azure AD-programmet väljer **API-behörigheter**, sedan välja att **+ Lägg till en behörighet**.
 
-   ![Hämta den privata nyckeln för program](media/aad-integration/application-key.png)
+    * Under **Microsoft APIs**, Välj *Microsoft Graph*.
+    * Välj **delegerade behörigheter**, markera kryssrutan bredvid **Directory > Directory.Read.All (läsa kataloginformation)**.
+        * Om en standard delegerad behörighet för **användare > User.Read (logga in och läsa användarprofil)** inte finns, markera den här behörigheten.
+    * Välj **programbehörigheter**, markera kryssrutan bredvid **Directory > Directory.Read.All (läsa kataloginformation)**.
 
-4. Gå tillbaka till Azure AD-programmet väljer **inställningar** > **nödvändiga behörigheter** > **Lägg till**  >   **Välj en API** > **Microsoft Graph** > **Välj**.
+        ![Ange graph-behörigheter](media/aad-integration/graph-permissions.png)
 
-   ![Välj graph API](media/aad-integration/graph-api.png)
+    * Välj **Lägg till behörigheter** spara uppdateringarna.
 
-5. Under **PROGRAMBEHÖRIGHETER** sätt en bock bredvid **läsa katalogdata**.
+    * Under den **ge medgivande** väljer att **bevilja administratörens godkännande**. Den här knappen är nedtonad och är inte tillgängligt om det aktuella kontot inte är en administratör.
 
-   ![Ange program graph-behörigheter](media/aad-integration/read-directory.png)
+        När behörigheterna har beviljats har, visas följande meddelande i portalen:
 
-6. Under **DELEGERADE BEHÖRIGHETER**, markera kryssrutan bredvid **logga in och läsa användarprofil** och **läsa katalogdata**. Välj **Välj** spara uppdateringarna.
+        ![Meddelande om lyckad behörigheter](media/aad-integration/permissions-granted.png)
 
-   ![Ange program graph-behörigheter](media/aad-integration/delegated-permissions.png)
+1. I det vänstra navigeringsfältet på Azure AD-programmet väljer **exponerar ett API**, sedan välja att **+ Lägg till ett omfång**.
+    
+    * Ange en *scopenamn*, *visningsnamn för administratörsmedgivande*, och *beskrivning av administratörsmedgivande*, till exempel *AKSAzureADServer*.
+    * Kontrollera att den **tillstånd** är inställd på *aktiverad*.
 
-   Välj **klar**.
+        ![Exponera appen server som en API för användning med andra tjänster](media/aad-integration/expose-api.png)
 
-7. Välj *Microsoft Graph* från listan över API: er, Välj **bevilja behörigheter**. Det här steget misslyckas om det aktuella kontot inte är en administratör.
+    * Välj **Lägg till omfattning**.
 
-   ![Ange program graph-behörigheter](media/aad-integration/grant-permissions.png)
-
-   När behörigheterna har beviljats har, visas följande meddelande i portalen:
-
-   ![Meddelande om lyckad behörigheter](media/aad-integration/permissions-granted.png)
-
-8. Gå tillbaka till programmet och anteckna den **program-ID**. När du distribuerar ett Azure AD-aktiverade AKS-kluster kan det här värdet kallas den `Server application ID`.
+1. Gå tillbaka till programmet **översikt** sidan och anteckna den **(klient)-ID: T**. När du distribuerar ett Azure AD-aktiverade AKS-kluster kan det här värdet kallas den `Server application ID`.
 
    ![Hämta program-ID](media/aad-integration/application-id.png)
 
 ## <a name="create-client-application"></a>Skapa klientprogram
 
-Andra Azure AD-programmet används när du loggar in med Kubernetes CLI (kubectl).
+Andra Azure AD-programmet används när du loggar in med Kubernetes CLI (`kubectl`).
 
-1. Välj **Azure Active Directory** > **Appregistreringar** > **Ny programregistrering**.
+1. Välj **Azure Active Directory** > **appregistreringar** > **ny registrering**.
 
-   Ge programmet ett namn, Välj **interna** som programtyp, och ange något formaterad URI-värde för **omdirigerings-URI**. Välj **skapa** när du är klar.
+    * Ge programmet ett namn, till exempel *AKSAzureADClient*.
+    * För **stöds kontotyper**, Välj *konton i den här organisationens katalogen*.
+    * Välj *Web* för den **omdirigerings-URI** skriver och ange valfritt formaterad URI-värde som *https://aksazureadclient*.
+    * Välj **registrera** när du är klar.
 
-   ![Skapa AAD-registrering](media/aad-integration/app-registration-client.png)
+1. I det vänstra navigeringsfältet på Azure AD-programmet väljer **API-behörigheter**, sedan välja att **+ Lägg till en behörighet**.
 
-2. Azure AD-programmet väljer **inställningar** > **nödvändiga behörigheter** > **Lägg till** > **väljer en API: et** och Sök efter namnet på serverprogram som skapats i det sista steget i det här dokumentet.
+    * Välj **Mina API: er**, Välj din Azure AD-serverprogram som skapade i föregående steg, till exempel *AKSAzureADServer*.
+    * Välj **delegerade behörigheter**, markera kryssrutan bredvid din Azure AD-serverapp.
 
-   ![Konfigurera behörigheter för programmet](media/aad-integration/select-api.png)
+        ![Konfigurera behörigheter för programmet](media/aad-integration/select-api.png)
 
-    Välj serverprogrammet och sedan **Välj**.
+    * Välj **Lägg till behörigheter**.
 
-3. Gå tillbaka till den *Lägg till API-åtkomst* fönstret Välj **Välj behörigheter**. Ange en bock under den *delegerade behörigheter* för åtkomst till ditt program, välj sedan **Välj**.
+    * Under den **ge medgivande** väljer att **bevilja administratörens godkännande**. Den här knappen är nedtonad och är inte tillgängligt om det aktuella kontot inte är en administratör.
 
-   ![Välj program för AKS AAD serverslutpunkt](media/aad-integration/select-server-app.png)
+        När behörigheterna har beviljats har, visas följande meddelande i portalen:
 
-   Gå tillbaka till den *Lägg till API-åtkomst* väljer **klar**.
+        ![Meddelande om lyckad behörigheter](media/aad-integration/permissions-granted.png)
 
-4. Välj din API-server i listan och välj sedan **bevilja behörigheter**:
-
-   ![Bevilja behörigheter](media/aad-integration/grant-permissions-client.png)
-
-5. Tillbaka på AD-program, anteckna den **program-ID**. När du distribuerar ett Azure AD-aktiverade AKS-kluster kan det här värdet kallas den `Client application ID`.
+1. I det vänstra navigeringsfönstret för Azure AD-programmet, anteckna den **program-ID**. När du distribuerar ett Azure AD-aktiverade AKS-kluster kan det här värdet kallas den `Client application ID`.
 
    ![Hämta program-ID](media/aad-integration/application-id-client.png)
 
 ## <a name="get-tenant-id"></a>Hämta klientorganisations-ID
 
-Slutligen hämta ID för din Azure-klient. Det här värdet används också när du distribuerar AKS-kluster.
+Slutligen hämta ID för din Azure-klient. Det här värdet används när du skapar AKS-klustret.
 
-Azure-portalen väljer du **Azure Active Directory** > **egenskaper** och anteckna den **katalog-ID**. När du distribuerar ett Azure AD-aktiverade AKS-kluster kan det här värdet kallas den `Tenant ID`.
+Azure-portalen väljer du **Azure Active Directory** > **egenskaper** och anteckna den **katalog-ID**. När du skapar ett Azure AD-aktiverade AKS-kluster kan det här värdet kallas den `Tenant ID`.
 
 ![Hämta Azure-klient-ID](media/aad-integration/tenant-id.png)
 
@@ -128,7 +135,7 @@ Använd den [az gruppen skapa] [ az-group-create] kommando för att skapa en res
 az group create --name myResourceGroup --location eastus
 ```
 
-Distribuera kluster med hjälp av den [az aks skapa] [ az-aks-create] kommando. Ersätt värdena i exemplet-kommandot nedan med de värden som samlas in när du skapar Azure AD-program.
+Distribuera kluster med hjälp av den [az aks skapa] [ az-aks-create] kommando. Ersätt värdena i exemplet-kommandot nedan med de värden som samlas in när du skapar Azure AD-program för server app-ID och hemlighet, klientapp-ID och klient-ID:
 
 ```azurecli
 az aks create \
@@ -140,6 +147,8 @@ az aks create \
   --aad-client-app-id 8aaf8bd5-1bdd-4822-99ad-02bfaa63eea7 \
   --aad-tenant-id 72f988bf-0000-0000-0000-2d7cd011db47
 ```
+
+Det tar några minuter att skapa AKS-kluster.
 
 ## <a name="create-rbac-binding"></a>Skapa RBAC-bindning
 
@@ -217,7 +226,7 @@ Hämta sedan kontexten för en icke-användare med hjälp av den [aaz aks get-cr
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-När alla kubectl-kommandot har körts kan uppmanas du att autentisera med Azure. Följ den på skärmen instruktioner.
+När du har kört en `kubectl` kommandot uppmanas du att autentisera med Azure. Följ den på skärmen instruktionerna för att slutföra processen, som visas i följande exempel:
 
 ```console
 $ kubectl get nodes
@@ -225,15 +234,15 @@ $ kubectl get nodes
 To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code BUJHWDGNL to authenticate.
 
 NAME                       STATUS    ROLES     AGE       VERSION
-aks-nodepool1-79590246-0   Ready     agent     1h        v1.9.9
-aks-nodepool1-79590246-1   Ready     agent     1h        v1.9.9
-aks-nodepool1-79590246-2   Ready     agent     1h        v1.9.9
+aks-nodepool1-79590246-0   Ready     agent     1h        v1.13.5
+aks-nodepool1-79590246-1   Ready     agent     1h        v1.13.5
+aks-nodepool1-79590246-2   Ready     agent     1h        v1.13.5
 ```
 
 När du är klar cachelagras autentiseringstoken. Du är bara reprompted för inloggning när token har upphört att gälla eller Kubernetes-config-fil som skapas på nytt.
 
 Om du ser ett meddelande om auktoriseringsfel efter inloggningen, kontrollera om:
-1. Användaren du loggar in som är inte en gäst i Azure AD-instans (det är ofta fallet om du använder en federerad inloggning från en annan katalog).
+1. Användaren du loggar in som är inte en gäst i Azure AD-instans (det här scenariot är ofta fallet om du använder ett federerat konto från en annan katalog).
 2. Användaren är inte medlem i fler än 200.
 
 ```console

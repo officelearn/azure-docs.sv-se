@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 11/16/2018
-ms.openlocfilehash: f371376a7c801eecb6231d551546b13dbc68dd26
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.date: 05/06/2019
+ms.openlocfilehash: 634f3948f9a5e28454e9b2b29f950c3fb00f6c19
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64916816"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147732"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Begränsningar och konfigurationsinformation för Azure Logic Apps
 
@@ -48,20 +48,20 @@ Här följer begränsningarna för en enda logic app-definition:
 
 Här följer begränsningarna för en enkel logikapp-körningen:
 
-| Namn | Gräns | Anteckningar |
-|------|-------|-------|
-| Varaktighet för körning | 90 dagar | Om du vill ändra den här gränsen, se [ändra körningens varaktighet](#change-duration). |
-| Minsta Upprepningsintervall | 1 sekund | |
-| Maximal Upprepningsintervall | 500 dagar | |
-| Kvarhållning | Starttid för 90 dagar från kör | Om du vill ändra den här gränsen till ett värde mellan 7 dagar och 90 dagar, se [ändra kvarhållning](#change-retention). |
-||||
+| Namn | Gränsen för flera innehavare | Gränsen för integration service-miljö | Anteckningar |
+|------|--------------------|---------------------------------------|-------|
+| Varaktighet för körning | 90 dagar | 365 dagar | Om du vill ändra Standardgränsen [ändra körningens varaktighet](#change-duration). |
+| Kvarhållning | Starttid för 90 dagar från kör | 365 dagar | Om du vill ändra Standardgränsen [ändra kvarhållning](#change-retention). |
+| Minsta Upprepningsintervall | 1 sekund | 1 sekund ||
+| Maximal Upprepningsintervall | 500 dagar | 500 dagar ||
+|||||
 
 <a name="change-duration"></a>
 <a name="change-retention"></a>
 
 ### <a name="change-run-duration-and-storage-retention"></a>Ändra omgången varaktigheten och lagringen
 
-Följ dessa steg om du vill ändra Standardgränsen för mellan 7 dagar och 90 dagar. Om du vill gå över gränsvärdet, [Logic Apps-teamet](mailto://logicappsemail@microsoft.com) hjälp med dina behov.
+Följ dessa steg om du vill ändra Standardgränsen för varaktighet för körning och kvarhållning. Om du vill gå över gränsvärdet, [Logic Apps-teamet](mailto://logicappsemail@microsoft.com) hjälp med dina behov.
 
 1. I Azure-portalen på logikappens meny väljer **arbetsflödesinställningarna**.
 
@@ -91,7 +91,7 @@ Här följer begränsningarna för en enkel logikapp-körningen:
 
 Här följer begränsningarna för en enkel logikapp-körningen:
 
-### <a name="global-logic-apps-service"></a>Tjänsten för global Logic Apps
+### <a name="multi-tenant-logic-apps-service"></a>Logic Apps-tjänsten för flera innehavare
 
 | Namn | Gräns | Anteckningar |
 | ---- | ----- | ----- |
@@ -107,9 +107,9 @@ Här följer begränsningarna för en enkel logikapp-körningen:
 
 | Namn | Gräns | Anteckningar |
 |------|-------|-------|
-| Gräns för utförande av basenhet | 10 000 körningar per 5 minuter <br>vilket är ~ 80 miljoner körningar per månad | |
-| Skalningsgräns enhet körning | 5 000 körningar per 5 minuter <br>vilket är ~ 40 miljoner körningar per månad | |
-| Maximal skala enheter som du kan lägga till | 3 | |
+| Gräns för utförande av basenhet | System-begränsas när infrastrukturkapacitet når 80% | Tillhandahåller ~ 4 000 körningar per minut, vilket är ~ 160 miljoner körningar per månad | |
+| Skalningsgräns enhet körning | System-begränsas när infrastrukturkapacitet når 80% | Varje skalningsenhet kan ge ytterligare åtgärdskörningar som ~ 2 000 per minut, vilket är ~ 80 miljoner flera körningar per månad | |
+| Maximal skala enheter som du kan lägga till | 10 | |
 ||||
 
 Att gå över dessa gränser i normala bearbetningen eller köra belastningstest som kan gå över dessa gränser [Logic Apps-teamet](mailto://logicappsemail@microsoft.com) hjälp med dina behov.
@@ -124,20 +124,20 @@ Här följer begränsningarna för en HTTP-begäran eller synkron anslutning anr
 
 Vissa åtgärder för anslutningsappen göra asynkrona anrop eller lyssna efter begäranden som webhook, så att tidsgränsen för de här åtgärderna kan vara längre än dessa gränser. Mer information finns i de tekniska detaljerna för specifika anslutningen och även [utlösare och åtgärder](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action).
 
-| Namn | Gräns | Anteckningar |
-| ---- | ----- | ----- |
-| Utgående begäran | 120 sekunder | Längre åtgärder, använda en [asynkrona avsökningen mönstret](../logic-apps/logic-apps-create-api-app.md#async-pattern) eller en [until-loop](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). |
-| Synkron svar | 120 sekunder | För den ursprungliga begäran att hämta svaret måste alla steg i svaret slutförs inom gränsen, såvida inte du anropa en annan logikapp som ett kapslat arbetsflöde. Mer information finns i [anropa, utlösare, eller kapsla logikappar](../logic-apps/logic-apps-http-endpoint.md). |
-|||| 
+| Namn | Gränsen för flera innehavare | Gränsen för integration service-miljö | Anteckningar |
+|------|--------------------|---------------------------------------|-------|
+| Utgående begäran | 120 sekunder | 240 sekunder | Längre åtgärder, använda en [asynkrona avsökningen mönstret](../logic-apps/logic-apps-create-api-app.md#async-pattern) eller en [until-loop](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). |
+| Synkron svar | 120 sekunder | 240 sekunder | För den ursprungliga begäran att hämta svaret måste alla steg i svaret slutförs inom gränsen, såvida inte du anropa en annan logikapp som ett kapslat arbetsflöde. Mer information finns i [anropa, utlösare, eller kapsla logikappar](../logic-apps/logic-apps-http-endpoint.md). |
+|||||
 
 #### <a name="message-size"></a>Meddelandestorlek
 
-| Namn | Gräns | Anteckningar |
-| ---- | ----- | ----- |
-| Meddelandestorlek | 100 MB | Du kan undvika den här gränsen, se [hantera stora meddelanden med storlekar](../logic-apps/logic-apps-handle-large-messages.md). Men kan vissa kopplingar och API: er inte stöd för storlekar eller även Standardgränsen. |
-| Meddelandestorlek med storlekar | 1 GB | Den här gränsen gäller för åtgärder som har inbyggt stöd för storlekar eller kan du aktivera storlekar i sina runtime-konfigurationen. Mer information finns i [hantera stora meddelanden med storlekar](../logic-apps/logic-apps-handle-large-messages.md). |
-| Gräns för uttrycksutvärdering | 131 072 tecken | Den `@concat()`, `@base64()`, `@string()` uttryck får inte vara längre än den här gränsen. |
-||||
+| Namn | Gränsen för flera innehavare | Gränsen för integration service-miljö | Anteckningar |
+|------|--------------------|---------------------------------------|-------|
+| Meddelandestorlek | 100 MB | 200 MB | Du kan undvika den här gränsen, se [hantera stora meddelanden med storlekar](../logic-apps/logic-apps-handle-large-messages.md). Men kan vissa kopplingar och API: er inte stöd för storlekar eller även Standardgränsen. |
+| Meddelandestorlek med storlekar | 1 GB | 5 GB | Den här gränsen gäller för åtgärder som har inbyggt stöd för storlekar eller kan du aktivera storlekar i sina runtime-konfigurationen. <p>Logic Apps-motorn stöder den här gränsen för integration service-miljö, men anslutningar har sina egna för att maximera dedupliceringsbesparingen gränser upp till gränsen motorn, till exempel, se [Azure Blob Storage connector](/connectors/azureblob/). Mer information storlekar finns i [hantera stora meddelanden med storlekar](../logic-apps/logic-apps-handle-large-messages.md). |
+| Gräns för uttrycksutvärdering | 131 072 tecken | 131 072 tecken | Den `@concat()`, `@base64()`, `@string()` uttryck får inte vara längre än den här gränsen. |
+|||||
 
 #### <a name="retry-policy"></a>Återförsöksprincip
 
@@ -154,10 +154,10 @@ Vissa åtgärder för anslutningsappen göra asynkrona anrop eller lyssna efter 
 
 Här följer begränsningarna för anpassade anslutningsappar som du kan skapa från web API: er.
 
-| Namn | Gräns |
-| ---- | ----- |
-| Antal anpassade anslutningsappar | 1 000 per Azure-prenumeration |
-| Antal begäranden per minut för varje anslutning som skapats av en anpassad anslutningsapp | 500 begäranden per anslutning |
+| Namn | Gränsen för flera innehavare | Gränsen för integration service-miljö | Anteckningar |
+|------|--------------------|---------------------------------------|-------|
+| Antal anpassade anslutningsappar | 1 000 per Azure-prenumeration | 1 000 per Azure-prenumeration ||
+| Antal begäranden per minut för en anpassad anslutningsapp | 500 begäranden per minut per anslutning | 2 000 begäranden per minut per *anpassad anslutning* ||
 |||
 
 <a name="managed-identity"></a>
@@ -216,13 +216,13 @@ Här finns gränser för antalet artefakter för varje integrationskontot. Mer i
 
 ### <a name="b2b-protocol-as2-x12-edifact-message-size"></a>B2B-protokollet (AS2 X12, EDIFACT) meddelandestorlek
 
-Här följer de begränsningar som gäller för B2B-protokoll:
+Här följer de begränsningar för meddelandestorlek som gäller för B2B-protokoll:
 
-| Namn | Gräns | Anteckningar |
-| ---- | ----- | ----- |
-| AS2 | 50 MB | Gäller för att avkoda och koda |
-| X12 | 50 MB | Gäller för att avkoda och koda |
-| EDIFACT | 50 MB | Gäller för att avkoda och koda |
+| Namn | Gränsen för flera innehavare | Gränsen för integration service-miljö | Anteckningar |
+|------|--------------------|---------------------------------------|-------|
+| AS2 | v2 – 100 MB<br>v1 - 50 MB | v2 - 200 MB <br>v1 - 50 MB | Gäller för att avkoda och koda |
+| X12 | 50 MB | 50 MB | Gäller för att avkoda och koda |
+| EDIFACT | 50 MB | 50 MB | Gäller för att avkoda och koda |
 ||||
 
 <a name="disable-delete"></a>

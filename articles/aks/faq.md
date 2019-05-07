@@ -6,14 +6,14 @@ author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 04/25/2019
+ms.date: 05/06/2019
 ms.author: iainfou
-ms.openlocfilehash: 04ed95317311b81af49f5d96addb203b7cfeb74a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f365fcd61944fbae131ab79a1c3660aaf02fa8d7
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64725653"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073937"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Vanliga frågor och svar om Azure Kubernetes Service (AKS)
 
@@ -25,7 +25,9 @@ En fullständig lista över tillgängliga regioner finns i [AKS regioner och til
 
 ## <a name="does-aks-support-node-autoscaling"></a>AKS som har stöd för automatisk skalning nod?
 
-Ja, automatisk skalning är tillgängligt via den [Kubernetes autoskalningen] [ auto-scaler] från och med Kubernetes 1.10. Läs mer om hur du konfigurerar och använder klustret autoskalningen [autoskalning av kluster i AKS][aks-cluster-autoscale].
+Ja, automatisk skalning är tillgängligt via den [Kubernetes autoskalningen] [ auto-scaler] från och med Kubernetes 1.10. Läs mer om hur du manuellt konfigurerar och använder klustret autoskalningen [autoskalning av kluster i AKS][aks-cluster-autoscale].
+
+Du kan också använda inbyggda kluster autoskalningen (för närvarande i förhandsversion i AKS) för att hantera skalning av noder. Mer information finns i [automatiskt skala ett kluster för att uppfylla krav på program i AKS][aks-cluster-autoscaler].
 
 ## <a name="does-aks-support-kubernetes-role-based-access-control-rbac"></a>Stöder AKS Kubernetes rollbaserad åtkomstkontroll (RBAC)?
 
@@ -41,13 +43,17 @@ Inte just nu. Kubernetes API-servern visas som en offentlig fullständigt kvalif
 
 ## <a name="are-security-updates-applied-to-aks-agent-nodes"></a>Är säkerhetsuppdateringar som tillämpas på AKS agentnoder?
 
-Ja, Azure automatiskt tillämpar säkerhetsuppdateringar på noderna i klustret enligt ett schema som varje natt. Men du är ansvarig för att säkerställa att noderna startas om efter behov. Har du flera alternativ för att utföra omstarter av noden:
+Azure tillämpar automatiskt säkerhetsuppdateringar på Linux-noder i klustret enligt ett schema som varje natt. Men är du ansvarig för att säkerställa att dessa Linux noder startas om som krävs. Har du flera alternativ för att utföra omstarter av noden:
 
 - Manuellt via Azure portal eller Azure CLI.
 - Genom att uppgradera AKS-klustret. Uppgradering av kluster automatiskt [här och tömmer noderna][cordon-drain], ansluta varje nod säkerhetskopiera med den senaste Ubuntu-avbildningen och en ny Uppdateringsversion eller en mindre Kubernetes-version. Mer information finns i [uppgradera ett AKS-kluster][aks-upgrade].
 - Med hjälp av [Kured](https://github.com/weaveworks/kured), en omstart för öppen källkod-daemon för Kubernetes. Kured körs som en [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) och övervakar varje nod för förekomsten av en fil som anger att en omstart krävs. OS-omstarter hanteras i klustret med samma [här och tömma processen] [ cordon-drain] som en uppgradering av klustret.
 
 Läs mer om hur du använder kured [tillämpa säkerhets- och kernel-uppdateringar på noderna i AKS][node-updates-kured].
+
+### <a name="windows-server-nodes"></a>Windows Server-noder
+
+Windows Server-noder (för närvarande i förhandsversion i AKS), Windows Update inte automatiskt köra och gäller för de senaste uppdateringarna. Med jämna mellanrum kring Windows-versionen uppdateringscykeln och egna verifieringsprocessen, bör du utföra en uppgradering på Windows Server-nod lagringspoolerna AKS-klustret. Den här uppgraderingsprocessen skapar noderna som kör den senaste Windows Server-avbildning och de uppdateringar och sedan tar bort äldre noderna. Mer information om den här processen finns i [uppgradera en nodpool i AKS][nodepool-upgrade].
 
 ## <a name="why-are-two-resource-groups-created-with-aks"></a>Varför skapas två resursgrupper med AKS?
 
@@ -102,7 +108,9 @@ AKS är inte för närvarande internt integrerad med Azure Key Vault. Men den [A
 
 ## <a name="can-i-run-windows-server-containers-on-aks"></a>Kan jag köra Windows Server-behållare i AKS?
 
-Du måste köra Windows Server-baserade noder för att köra Windows Server-behållare. Windows Server-baserade noder är inte tillgängliga i AKS just nu. Du kan dock använda Virtual Kubelet för att schemalägga Windows-behållare i Azure Container Instances och hantera dem som en del av AKS-klustret. Mer information finns i [använda Virtual Kubelet med AKS][virtual-kubelet].
+Ja, Windows Server-behållare finns i förhandsversion. Om du vill köra Windows Server-behållare i AKS kan du skapa en pool för noden som kör Windows Server som gäst-OS. Windows Server-behållare kan bara använda Windows Server 2019. Du kommer igång [skapa ett AKS-kluster med en Windows Server-nodpool][aks-windows-cli].
+
+Fönstret serverstöd noden poolen innehåller vissa begränsningar som ingår i den överordnade Windows-servern i Kubernetes-projektet. Mer information om dessa begränsningar finns i [Windows Server-behållare i AKS begränsningar][aks-windows-limitations].
 
 ## <a name="does-aks-offer-a-service-level-agreement"></a>Erbjuder ett servicenivåavtal i AKS?
 
@@ -120,6 +128,10 @@ I ett servicenivåavtal (SLA) samtycker providern till att ersätta kunden för 
 [aks-preview-cli]: /cli/azure/ext/aks-preview/aks
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [aks-rm-template]: /rest/api/aks/managedclusters/createorupdate#managedcluster
+[aks-cluster-autoscaler]: cluster-autoscaler.md
+[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
+[aks-windows-cli]: windows-container-cli.md
+[aks-windows-limitations]: windows-node-limitations.md
 
 <!-- LINKS - external -->
 

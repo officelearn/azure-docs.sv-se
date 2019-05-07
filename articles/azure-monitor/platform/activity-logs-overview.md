@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: be2f5fdebc5ae4f779fe6e3da74ad7ea583226ef
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: d9583f232a7afd6ab64421d57bbf14a45299e374
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59995667"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138207"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Övervaka aktivitet om prenumeration med Azure-aktivitetsloggen
 
@@ -63,6 +63,7 @@ Här följer några av de saker som du kan göra med aktivitetsloggen:
 * Analysera dem i Power BI med hjälp av den [ **Power BI-Innehållspaketet**](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
 * [Spara den till en **Lagringskonto** för arkivering eller manuell granskning](../../azure-monitor/platform/archive-activity-log.md). Du kan ange kvarhållning tid (i dagar) med den **Loggprofil**.
 * Fråga den via PowerShell-cmdleten, CLI eller REST API.
+* Visa den [ändringshistorik](#view-change-history) för vissa händelser
 
 ## <a name="query-the-activity-log-in-the-azure-portal"></a>Fråga i aktivitetsloggen i Azure portal
 
@@ -183,6 +184,20 @@ Fullständig dokumentation för att skapa en profil för övervakaren med CLI fi
 ```azurecli
 az monitor log-profiles delete --name <profile name>
 ```
+
+## <a name="view-change-history"></a>Visa ändringshistorik
+
+När du granskar aktivitetsloggen, det kan bidra till att se vad som hände ändringar under den tiden. Du kan visa den här informationen med ändringshistoriken.
+
+Gå till aktivitetsloggen med hjälp av menyn på vänster sida av portalen. Välj en händelse i aktivitetsloggen som du vill söka djupet i. Välj den **ändringshistorik (förhandsversion)** fliken för att visa alla associerade ändringar till händelsen.
+
+![Ändra listan med kommandohistorik för en händelse](./media/activity-logs-overview/change-history-event.png)
+
+Om det finns några associerade ändringar till händelsen, visas en lista över ändringar som du kan välja. Gör det öppnas den **ändringshistorik (förhandsversion)** sidan. På den här sidan visas ändringarna till resursen. Vi kan inte bara se att den virtuella datorn ändras storlekar, men den föregående VM-storleken har innan ändringen och ändrades till som du ser i följande exempel.
+
+![Ändra historik-sidan som visar skillnader](./media/activity-logs-overview/change-history-event-details.png)
+
+Läs mer om ändra historik i [hämta resursändringar](../../governance/resource-graph/how-to/get-resource-changes.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

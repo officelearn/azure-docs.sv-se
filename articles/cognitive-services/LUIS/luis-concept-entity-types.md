@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 59a05e7a20f6b229b37977a75d22611c0d5c31d9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7fd9ae3ab1f50dc91118ba11bc357a0f6dc0e771
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60813228"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65141047"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>Entitetstyper och deras syften i LUIS
 
@@ -97,7 +97,6 @@ När entiteten har extraherat entitetsdata representeras som en enhet av informa
 |Machine-learned|Kan markera|Självstudier|Exempel<br>Svar|Entitetstyp|Syfte|
 |--|--|--|--|--|--|
 |✔|✔|[✔](luis-tutorial-composite-entity.md)|[✔](luis-concept-data-extraction.md#composite-entity-data)|[**Sammansatta**](#composite-entity)|Gruppering av enheter, oavsett typ av enhet.|
-|✔|✔|-|[✔](luis-concept-data-extraction.md#hierarchical-entity-data)|[**Hierarkisk**](#hierarchical-entity)|Gruppering av enkla enheter.|
 |||[✔](luis-quickstart-intent-and-list-entity.md)|[✔](luis-concept-data-extraction.md#list-entity-data)|[**List**](#list-entity)|Lista med objekt och deras synonymer extraheras med exakt denna matchning.|
 |Blandad||[✔](luis-tutorial-pattern.md)|[✔](luis-concept-data-extraction.md#patternany-entity-data)|[**Pattern.any**](#patternany-entity)|Enheten där det är svårt att avgöra att slutet av entiteten.|
 |||[✔](luis-tutorial-prebuilt-intents-entities.md)|[✔](luis-concept-data-extraction.md#prebuilt-entity-data)|[**Prebuilt**](#prebuilt-entity)|Redan tränats att extrahera olika typer av data.|
@@ -112,7 +111,7 @@ Blandade entiteterna används en kombination av entiteten identifieringsmetoder.
 
 ## <a name="composite-entity"></a>Sammansatt entitet
 
-En sammansatt entitet består av andra enheter, till exempel förskapade entiteter enkel, reguljära uttryck, lista och hierarkisk entiteter. Separata entiteter utgör en helhet. 
+En sammansatt entitet består av andra enheter, till exempel förskapade entiteter enkel, reguljära uttryck och listan över entiteter. Separata entiteter utgör en helhet. 
 
 Den här entiteten är ett bra passar när data:
 
@@ -126,18 +125,6 @@ Den här entiteten är ett bra passar när data:
 
 [Självstudie](luis-tutorial-composite-entity.md)<br>
 [Exempel-JSON-svar för entitet](luis-concept-data-extraction.md#composite-entity-data)<br>
-
-## <a name="hierarchical-entity"></a>Hierarkisk entitet
-
-**Hierarkisk entiteter gälla så småningom upphör att. Använd [entitet roller](luis-concept-roles.md) fastställa entitet underordnade typer, i stället för hierarkisk entiteter.**
-
-En hierarkisk entitet är en viss kategori av sammanhangsmässigt inlärda enkla enheter som kallas underordnade.
-
-![hierarkisk entitet](./media/luis-concept-entities/hierarchical-entity.png)
-
-### <a name="roles-versus-hierarchical-entities"></a>Roller jämfört med hierarkisk entiteter
-
-[Roller](luis-concept-roles.md) lösa samma problem som hierarkisk entiteter men gäller för alla typer av enheter.  
 
 ## <a name="list-entity"></a>Lista entitet
 
@@ -171,10 +158,10 @@ I tabellen nedan har varje rad två versioner av uttryck. Främsta uttryck är h
 
 |Yttrande|
 |--|
-|The Man som Misstog His FRU för en Hat och andra kliniska Tales skrevs av en American år?<br>Var **The Man som Misstog His FRU för en Hat och andra kliniska Tales** skrivits av en American år?|
-|Var halva vilande i Frog Pajamas som skrivits av en American år?<br>Var **halva vilande i Frog Pajamas** skrivits av en American år?|
-|Var särskilt sorg av Matt enkelt: En bok som skrivits av en American år?<br>Var **viss sorg av Matt enkelt: En bok** skrivits av en American år?|
-|Var det finns en Wocket i min Pocket! skrivits av en American år?<br>Var **det finns en Wocket i min Pocket!** skrivits av en American år?|
+|”Var det Man som Misstog His FRU under en Hat och andra kliniska Tales som skrivits av en American år?<br>Var **The Man som Misstog His FRU för en Hat och andra kliniska Tales** skrivits av en American år?|
+|`Was Half Asleep in Frog Pajamas written by an American this year?`<br>`Was **Half Asleep in Frog Pajamas** written by an American this year?`|
+|`Was The Particular Sadness of Lemon Cake: A Novel written by an American this year?`<br>`Was **The Particular Sadness of Lemon Cake: A Novel** written by an American this year?`|
+|`Was There's A Wocket In My Pocket! written by an American this year?`<br>`Was **There's A Wocket In My Pocket!** written by an American this year?`|
 
 ## <a name="prebuilt-entity"></a>Fördefinierade entitet
 

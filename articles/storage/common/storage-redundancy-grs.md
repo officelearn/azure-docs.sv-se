@@ -2,18 +2,19 @@
 title: GEO-redundant lagring (GRS) för tvärregional tillförlitlighet i Azure Storage | Microsoft Docs
 description: GEO-redundant lagring (GRS) replikerar data mellan två regioner som ligger hundratals mil ifrån varandra. GRS skyddar mot maskinvarufel i datacenter samt nationella katastrofer.
 services: storage
-author: tolandmike
+author: tamram
 ms.service: storage
 ms.topic: article
 ms.date: 10/20/2018
-ms.author: jeking
+ms.author: tamram
+ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 2dc409743ce94ecb73e351b839a5a2fb09eadab2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 09b553f3ca64d8f5217f023c776ec848215366f9
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60516265"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150998"
 ---
 # <a name="geo-redundant-storage-grs-cross-regional-replication-for-azure-storage"></a>GEO-redundant lagring (GRS): Tvärregional replikering för Azure Storage
 [!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-grs.md)]

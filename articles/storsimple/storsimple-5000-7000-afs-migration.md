@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/19/2019
 ms.author: alkohli
-ms.openlocfilehash: d107a9dae29f18b90ba7c23198c0cc1f97d83c70
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b46e9ee8fc3e14981a01cc2425a8ce55d06c5a9a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60309828"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150741"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-azure-file-sync"></a>Migrera data från StorSimple 5000-7000-serien till Azure File Sync
 
@@ -87,7 +87,7 @@ Utför följande steg för att migrera Windows-filresurs som konfigurerats på S
     Hoppa över det här steget och gå till nästa steg om du använder en annan Windows Server-värd. Om du använder samma Windows-filserver för AFS får nu ett par minuter stillestånd. 
     - **Avbrottstiden startar** -ta bort serverslutpunkt som du skapade i *steg 1F*. 
     - Skapa en ny serverslutpunkt med sökvägen där du vill att data ska finnas går framåt.
-    - När Serverslutpunkten visas som Felfri (Detta kan ta några minuter), visas data i den här nya platsen. Du kan nu konfigurera Windows Server-värd för att hantera filer från den här nya platsen. - **Nedtid ends**.
+    - När Serverslutpunkten visas som Felfri (Detta kan ta några minuter), visas data i den här nya platsen. Du kan nu konfigurera Windows Server-värd för att hantera filer från den här nya platsen. -  **Nedtid ends**.
 5.  Om du använder en annan Windows-filserver för Azure File Sync, kommer du inte får någon avbrottstid. 
     - Lägg till en annan serverslutpunkt med sökvägen till den lokala lagringen som du är beredd att använda som en cache i stället för StorSimple-enheten. 
     - Du kommer att kunna se filerna i den nya servern om några minuter. Du kan med övergången från StorSimple-enheten till den nya platsen på värden när som helst.

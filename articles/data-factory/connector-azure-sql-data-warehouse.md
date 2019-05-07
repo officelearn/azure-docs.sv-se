@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: 319ea3eaac2fcaa3c8e29680e125b7e29018ecc3
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: cf5713fecd354f1e1d2c0ce7d28439b5b8b785ec
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926607"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153426"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Kopiera data till och från Azure SQL Data Warehouse med hjälp av Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -229,7 +229,7 @@ Följ dessa steg om du vill använda hanterad identitet-autentisering:
 
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [datauppsättningar](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av Azure SQL Data Warehouse-datauppsättningen.
 
-För att kopiera data från eller till Azure SQL Data Warehouse, ange den **typ** egenskapen på datauppsättningen till **AzureSqlDWTable**. Följande egenskaper stöds:
+För att kopiera data från eller till Azure SQL Data Warehouse, stöds följande egenskaper:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
@@ -248,6 +248,7 @@ För att kopiera data från eller till Azure SQL Data Warehouse, ange den **typ*
             "referenceName": "<Azure SQL Data Warehouse linked service name>",
             "type": "LinkedServiceReference"
         },
+        "schema": [ < physical schema, optional, retrievable during authoring > ],
         "typeProperties": {
             "tableName": "MyTable"
         }
@@ -375,7 +376,7 @@ Om du vill kopiera data till Azure SQL Data Warehouse, ange Mottagartyp i Kopier
 | rejectType | Anger om den **rejectValue** alternativet är ett exakt värde eller en procentandel.<br/><br/>Tillåtna värden är **värdet** (standard) och **procent**. | Nej |
 | rejectSampleValue | Anger antalet rader som ska hämtas innan PolyBase beräknar om procentandelen avvisade raden.<br/><br/>Tillåtna värden är 1, 2, osv. | Ja, om den **rejectType** är **procent**. |
 | useTypeDefault | Anger hur du hanterar värden som saknas i avgränsade textfiler när PolyBase hämtar data från textfilen.<br/><br/>Mer information om den här egenskapen från avsnittet argument i [skapa externt FILFORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx).<br/><br/>Tillåtna värden är **SANT** och **FALSKT** (standard). | Nej |
-| writeBatchSize | Infogar data i SQL-tabell när buffertstorleken når **writeBatchSize**. Gäller endast när PolyBase inte används.<br/><br/>Det tillåtna värdet är **heltal** (antal rader). | Nej. Standardvärdet är 10 000. |
+| writeBatchSize | Antalet rader som tillägg i SQL-tabell **per batch**. Gäller endast när PolyBase inte används.<br/><br/>Det tillåtna värdet är **heltal** (antal rader). Som standard Data Factory dynamiskt kan bestämma lämpliga batchstorleken baserat på radstorleken. | Nej |
 | writeBatchTimeout | Väntetid för batch insert-åtgärden ska slutföras innan tidsgränsen uppnås. Gäller endast när PolyBase inte används.<br/><br/>Det tillåtna värdet är **timespan**. Exempel: ”00: 30:00” (30 minuter). | Nej |
 | preCopyScript | Ange en SQL-fråga för Kopieringsaktiviteten ska köras innan du skriver data till Azure SQL Data Warehouse i varje körning. Använd den här egenskapen för att rensa förinstallerade data. | Nej |
 
@@ -423,12 +424,13 @@ Om kraven inte uppfylls, Azure Data Factory kontrollerar du inställningarna och
 
 2. Den **källdataformatet** är av **Parquet**, **ORC**, eller **avgränsad text**, med följande konfigurationer:
 
-   1. `folderPath` och `fileName` inte innehåller jokertecken-filtret.
-   2. `rowDelimiter` måste vara **\n**.
-   3. `nullValue` anges antingen till **tom sträng** (””) eller till vänster som standard och `treatEmptyAsNull` är lämnas som standard eller angetts till true.
-   4. `encodingName` anges till **utf-8**, vilket är standardvärdet.
-   5. `escapeChar`, `quoteChar` och `skipLineCount` inte anges. Stöd för PolyBase hoppa över rubrikraden, vilket kan konfigureras som `firstRowAsHeader` i ADF.
-   6. `compression` kan vara **ingen komprimering**, **GZip**, eller **Deflate**.
+   1. Mappsökväg inte innehåller jokertecken-filtret.
+   2. Filnamnet pekar på en enda fil eller är `*` eller `*.*`.
+   3. `rowDelimiter` måste vara **\n**.
+   4. `nullValue` anges antingen till **tom sträng** (””) eller till vänster som standard och `treatEmptyAsNull` är lämnas som standard eller angetts till true.
+   5. `encodingName` anges till **utf-8**, vilket är standardvärdet.
+   6. `quoteChar`, `escapeChar`, och `skipLineCount` inte anges. Stöd för PolyBase hoppa över rubrikraden, vilket kan konfigureras som `firstRowAsHeader` i ADF.
+   7. `compression` kan vara **ingen komprimering**, **GZip**, eller **Deflate**.
 
 ```json
 "activities":[

@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 04/24/2019
-ms.openlocfilehash: 1623d592751da191efa5125b8d7cf28e10431808
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/01/2019
+ms.openlocfilehash: 131b86fec5fb51c6ff6f29a8e0beed86145a24b7
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64683872"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65136645"
 ---
 # <a name="tutorial-migrate-sql-server-to-a-single-database-or-pooled-database-in-azure-sql-database-online-using-dms"></a>Självstudier: Migrera SQL Server till en enkel databas eller pooldatabas i Azure SQL Database online med DMS
 
@@ -234,9 +234,7 @@ Att migrera den **AdventureWorks2012** schemat till en enkel databas eller datab
 
     Mer information om kostnader och prisnivåer finns på [sidan med priser](https://aka.ms/dms-pricing).
 
-    Om du behöver hjälp med att välja rätt nivå för Azure Database Migration Service finns rekommendationer för bokföring [här](https://go.microsoft.com/fwlink/?linkid=861067).  
-
-     ![Konfigurera Azure Database Migration Service-instansinställningar](media/tutorial-sql-server-to-azure-sql-online/dms-settings2.png)
+    ![Konfigurera Azure Database Migration Service-instansinställningar](media/tutorial-sql-server-to-azure-sql-online/dms-settings2.png)
 
 7. Välj **Skapa** för att skapa tjänsten.
 

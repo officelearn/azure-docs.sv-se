@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 11/14/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: 3ed1f251c8c09a52def517f4c94ed2ca1420eda8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b37f16ab914fe4062bc9720ae9cc0139c573fb93
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60778294"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154283"
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>SQL Data Warehouse kapacitetsbegränsningar
 Högsta värden som tillåts för olika komponenter i Azure SQL Data Warehouse.
@@ -54,7 +54,7 @@ Högsta värden som tillåts för olika komponenter i Azure SQL Data Warehouse.
 ## <a name="loads"></a>Inläsningar
 | Category | Beskrivning | Maximal |
 |:--- |:--- |:--- |
-| Polybase-inläsningar |MB per rad |1<br/><br/>Polybase läser in endast för rader som är mindre än 1 MB och det går inte att läsa in till VARCHAR(MAX), NVARCHAR(MAX) eller VARBINARY(MAX).<br/><br/> |
+| Polybase-inläsningar |MB per rad |1<br/><br/>Polybase läser in rader som är mindre än 1 MB.<br/><br/> |
 
 ## <a name="queries"></a>Frågor
 | Category | Beskrivning | Maximal |

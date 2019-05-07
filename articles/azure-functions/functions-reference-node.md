@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 02/24/2019
 ms.author: glenga
-ms.openlocfilehash: 37d00abbbf726dc1b92bdcc5f39b16301de9b93d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2eea1a1d30558765a2f8320b0b23efdbe3368807
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64697843"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65140950"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Utvecklarguide för Azure Functions JavaScript
 
@@ -204,7 +204,9 @@ module.exports = function(ctx) {
 context.bindings
 ```
 
-Returnerar ett namngivna objekt som innehåller alla inkommande och utgående data. Till exempel följande bindningsdefinitionerna i din function.json kan du få åtkomst till innehållet i en kö från `context.bindings.myInput` och tilldela utdata till en kö med hjälp av `context.bindings.myOutput`.
+Returnerar en namngiven objekt som används för att läsa eller tilldela bindningsdata. Indata och utlösare binda data kan nås genom att läsa egenskaper på `context.bindings`. Bindning av utdata kan tilldelas genom att lägga till data till `context.bindings`
+
+Till exempel följande bindningsdefinitionerna i din function.json kan du få åtkomst till innehållet i en kö från `context.bindings.myInput` och tilldela utdata till en kö med hjälp av `context.bindings.myOutput`.
 
 ```json
 {
@@ -290,7 +292,7 @@ Läs [övervaka Azure Functions](functions-monitoring.md) vill veta mer om att v
 
 ## <a name="writing-trace-output-to-the-console"></a>Skrivning spårningsutdata till konsolen 
 
-I funktioner, använder du den `context.log` metoder för att skriva spårningsutdata till konsolen. I funktioner v2.x trace matar du ut med hjälp av `console.log` samlas på Funktionsapp-nivå. Det innebär att utdata från `console.log` inte är knutna till en specifik funktionsanrop och kan därför inte visas i loggarna för en specifik funktion. De, men spridas till Application Insights. Du kan inte använda i Functions v1.x `console.log` att skriva till konsolen.
+I funktioner, använder du den `context.log` metoder för att skriva spårningsutdata till konsolen. I funktioner v2.x trace matar du ut med hjälp av `console.log` samlas på Funktionsapp-nivå. Det innebär att utdata från `console.log` inte är knutna till en specifik funktionsanrop och visas inte i en viss funktion loggar. De, men spridas till Application Insights. Du kan inte använda i Functions v1.x `console.log` att skriva till konsolen.
 
 När du anropar `context.log()`, meddelandet skrivs till konsolen vid spårningsnivån standard, vilket är den _info_ spårningsnivå. Följande kod skriver till konsolen vid spårningsnivån info:
 
@@ -351,11 +353,11 @@ Den `context.req` (begäran) objekt har följande egenskaper:
 | Egenskap       | Beskrivning                                                    |
 | ------------- | -------------------------------------------------------------- |
 | _body_        | Ett objekt som innehåller brödtext för begäran.               |
-| _headers_     | Ett objekt som innehåller de begärda rubrikerna.                   |
-| _method_      | HTTP-metod för begäran.                                |
+| _Rubriker_     | Ett objekt som innehåller de begärda rubrikerna.                   |
+| _Metoden_      | HTTP-metod för begäran.                                |
 | _originalUrl_ | URL för begäran.                                        |
-| _params_      | Ett objekt som innehåller parametrarna routning av begäran. |
-| _query_       | Ett objekt som innehåller frågeparametrarna.                  |
+| _parametrar_      | Ett objekt som innehåller parametrarna routning av begäran. |
+| _Fråga_       | Ett objekt som innehåller frågeparametrarna.                  |
 | _rawBody_     | Brödtexten i meddelandet som en sträng.                           |
 
 
@@ -366,7 +368,7 @@ Den `context.res` ()-svarsobjekt har följande egenskaper:
 | Egenskap   | Beskrivning                                               |
 | --------- | --------------------------------------------------------- |
 | _body_    | Ett objekt som innehåller brödtexten i svaret.         |
-| _headers_ | Ett objekt som innehåller svarshuvuden.             |
+| _Rubriker_ | Ett objekt som innehåller svarshuvuden.             |
 | _isRaw_   | Anger att formatering hoppas för svaret.    |
 | _status_  | HTTP-statuskod i svaret.                     |
 

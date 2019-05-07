@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: byvinyal
-ms.openlocfilehash: ae6547b7940ee4007c747847e6cec7b0c67a9d3c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8d7fa7bbb501675ee38ccc9183e981ce7bb714cf
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64717440"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150303"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure-prenumeration och tjänstbegränsningar, kvoter och krav
 Det här dokumentet innehåller några av de vanligaste Microsoft Azure-gränserna, som kallas ibland också kvoter. Det här dokumentet täcker inte för närvarande alla Azure-tjänster. Med tiden, kommer listan utökats och uppdaterats så att den täcker fler tjänster.
@@ -123,6 +123,13 @@ Information om Resource Manager API läsa och skriva begränsningar, finns i [be
 Följande begränsningar gäller när du använder Azure Resource Manager och Azure-resursgrupper. Gränser som inte har ändrats med Azure Resource Manager är inte visas. Se tabellen ovan för de här gränserna.
 
 [!INCLUDE [azure-virtual-machines-limits-azure-resource-manager](../includes/azure-virtual-machines-limits-azure-resource-manager.md)]
+
+#### <a name="shared-image-gallery-limits"></a>Delade bildgalleriet gränser
+
+Det finns gränser för en prenumeration för att distribuera resurser med hjälp av delad Image Galleries:
+- 10 delade bildgallerier per prenumeration per region
+- 200 bild definitioner, per prenumeration per region
+- 2000 bild versioner, per prenumeration per region
 
 ### <a name="virtual-machine-scale-sets-limits"></a>Gränser för skalningsuppsättningar för virtuella datorer
 [!INCLUDE [virtual-machine-scale-sets-limits](../includes/azure-virtual-machine-scale-sets-limits.md)]

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/29/2019
 ms.author: diberry
-ms.openlocfilehash: 391a5386a5ecc144b15c35a85d501dfb5ce2d172
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: af04ca19961abcfc7ee218824a4a1a804f7ad79c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60597403"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65146164"
 ---
 # <a name="tutorial-batch-test-data-sets"></a>Självstudier: Datauppsättningar för batch-test
 
@@ -28,7 +28,7 @@ Krav för att testa batch:
 
 * Högst 1000 yttranden per test. 
 * Inga dubbletter. 
-* Entitetstyper tillåts: endast bearbetas-lärt dig enheter enkla, hierarkisk (överordnade endast), och komposita. Batch testning är endast användbart för bearbetning-lärt dig avsikter och entiteter.
+* Entitetstyper tillåts: endast bearbetas-lärt dig enheter av enkla och sammansatta. Batch testning är endast användbart för bearbetning-lärt dig avsikter och entiteter.
 
 När du använder en app än den här självstudien gör *inte* använder exemplet talade redan lagts till i en avsikt. 
 
@@ -95,7 +95,7 @@ Använd följande steg:
 
 ## <a name="review-batch-results"></a>Granska resultatet från batch
 
-Batch-diagrammet visar fyra quadrants resultat. Är ett filter till höger om diagrammet. Filtret är som standard första avsikten i listan. Filtret innehåller alla avsikter och endast enkla, hierarkisk (överordnade endast), och sammansatta entiteter. När du väljer en [delen av diagrammet](luis-concept-batch-test.md#batch-test-results) eller en punkt i diagrammet visas de associerade utterance(s) under diagrammet. 
+Batch-diagrammet visar fyra quadrants resultat. Är ett filter till höger om diagrammet. Filtret är som standard första avsikten i listan. Filtret innehåller alla avsikter och bara enkla och sammansatta entiteter. När du väljer en [delen av diagrammet](luis-concept-batch-test.md#batch-test-results) eller en punkt i diagrammet visas de associerade utterance(s) under diagrammet. 
 
 Vid hovring över diagrammet, ett mushjul förstora eller minska visas i diagrammet. Detta är användbart när det finns många saker i diagrammet klustrade nära tillsammans. 
 
@@ -169,7 +169,7 @@ För att verifiera att yttranden i batch-testet är korrekt förutse, kör du ba
 
 ## <a name="create-batch-file-with-entities"></a>Skapa en batchfil med entiteter 
 
-För att verifiera entiteter i ett batch-test, måste entiteterna ska förses i batch JSON-fil. Endast datorn lärt dig-entiteter som används: enkelt, hierarkisk (överordnade endast), och sammansatta entiteter. Lägg inte till icke-machine-lärt dig entiteter, eftersom de finns alltid genom reguljära uttryck eller explicit text matchar.
+För att verifiera entiteter i ett batch-test, måste entiteterna ska förses i batch JSON-fil. Endast datorn lärt dig-entiteter som används: enkelt och sammansatta entiteter. Lägg inte till icke-machine-lärt dig entiteter, eftersom de finns alltid genom reguljära uttryck eller explicit text matchar.
 
 Variationen för entiteter för totalt antal ord ([token](luis-glossary.md#token)) antal kan påverka förutsägelse kvalitet. Kontrollera att träningsdata som angetts för avsikten med märkta yttranden innehåller en mängd längder för entiteten. 
 
@@ -205,11 +205,11 @@ Värdet för en **jobbet** entiteten i test-uttryck är vanligtvis en eller två
 
 ## <a name="review-entity-batch-results"></a>Granska batch-enhetsresultat
 
-Diagrammet öppnas med alla avsikter korrekt förutse. Rulla nedåt i höger filtret för att hitta siffervärdena entitet förutsägelser. 
+Diagrammet öppnas med alla avsikter korrekt förutse. Rulla nedåt i höger filtret för att hitta entiteten förutsägelser med fel. 
 
 1. Välj den **jobbet** entitet i filtret.
 
-    ![Siffervärdena entitet förutsägelser i filter](./media/luis-tutorial-batch-testing/hr-entities-filter-errors.png)
+    ![Fel entitet förutsägelser i filter](./media/luis-tutorial-batch-testing/hr-entities-filter-errors.png)
 
     Diagrammet ändras för att visa entitet förutsägelser. 
 

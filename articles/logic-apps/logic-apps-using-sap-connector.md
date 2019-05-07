@@ -8,29 +8,34 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: divswa, LADocs
 ms.topic: article
-ms.date: 09/14/2018
+ms.date: 04/19/2019
 tags: connectors
-ms.openlocfilehash: 468e73c64037a76da612cba8d6c2e9507dd3ac87
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 0ee8b164aa46c4fe2f66f27d9a41d0282c676907
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62120171"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65136725"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Ansluta till SAP-system från Azure Logic Apps
 
-Den här artikeln visar hur du kan komma åt dina lokala SAP-resurser från i en logikapp genom att använda anslutningstjänsten SAP ERP Central komponent (ECC). Anslutningen fungerar med både ECC och s/4 HANA system på plats. SAP ECC-anslutningsappen stöder meddelande eller data integration till och från SAP Netweaver-baserade system via mellanliggande dokumentet (IDoc) eller Business Application Programming Interface (BAPI) eller fjärransluten funktionen anropa (RFC).
+Den här artikeln visar hur du kan komma åt dina lokala SAP-resurser från i en logikapp med hjälp av SAP-anslutningen. Att anslutningen fungerar med SAP: s klassisk Frigör sådana R/3 ECC system på plats. Anslutningen möjliggör även integrering med SAP är nyare HANA baserad SAP-system, till exempel s/4 HANA, oavsett var de finns – lokalt eller i molnet.
+SAP-anslutningsappen stöder integration med meddelande- eller data till och från SAP Netweaver-baserade system via mellanliggande dokumentet (IDoc) eller Business Application Programming Interface (BAPI) eller fjärransluten funktionen anropa (RFC).
 
-SAP ECC-anslutningsappen använder den <a href="https://support.sap.com/en/product/connectors/msnet.html">SAP .NET Connector (NCo)-biblioteket</a> och ger dessa åtgärder eller åtgärder:
+SAP-anslutningsappen använder den <a href="https://support.sap.com/en/product/connectors/msnet.html">SAP .NET Connector (NCo)-biblioteket</a> och ger dessa åtgärder eller åtgärder:
 
 - **Skicka till SAP**: Skicka IDoc eller anropa BAPI funktioner över tRFC i SAP-system.
 - **Ta emot från SAP**: Ta emot IDoc eller BAPI funktionsanrop över tRFC från SAP-system.
 - **Generera scheman**: Generera scheman för SAP-artefakter för IDoc, BAPI eller RFC.
 
+SAP-anslutningsappen stöder grundläggande autentisering med användarnamn och lösenord för alla ovanstående åtgärder. Det stöder också anslutningen <a href="https://help.sap.com/doc/saphelp_nw70/7.0.31/en-US/e6/56f466e99a11d1a5b00000e835363f/content.htm?no_cache=true"> Secure Network Communications (SNC)</a>, som kan användas för SAP Netweaver enkel inloggning eller för ytterligare säkerhetsfunktioner som tillhandahålls av en extern security-produkt. 
+
 SAP-anslutningsappen kan integreras med en lokal SAP-system via den [lokal datagateway](https://www.microsoft.com/download/details.aspx?id=53127). I Skicka scenarier, till exempel när du skickar ett meddelande från Logikappar till ett SAP-system datagateway fungerar som en RFC-klient och vidarebefordrar begäranden som tas emot från Logikappar till SAP.
 I Receive scenarier fungerar på samma sätt kan datagateway som en RFC-server som tar emot förfrågningar från SAP och vidarebefordrar till Logikappen. 
 
 Den här artikeln visar hur du skapar exemplet logikappar som integreras med SAP samtidigt som täcker de tidigare beskrivna integrationsscenarier.
+
+<a name="pre-reqs"></a>
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -43,6 +48,12 @@ Om du vill följa den här artikeln behöver du följande objekt:
 * Din <a href="https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server" target="_blank">SAP-programservern</a> eller <a href="https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm" target="_blank">SAP Message Server</a>
 
 * Ladda ned och installera senast [lokal datagateway](https://www.microsoft.com/download/details.aspx?id=53127) på en lokal dator. Kontrollera att du konfigurerar din gateway i Azure-portalen innan du fortsätter. Gatewayen hjälper dig att på ett säkert sätt få åtkomst till data och resurser som är lokalt. Mer information finns i [installera den lokala datagatewayen för Azure Logic Apps](../logic-apps/logic-apps-gateway-install.md).
+
+* Om du använder SNC med enkel inloggning (SSO) och sedan kontrollera att gatewayen körs som en användare som har mappats mot SAP-användare. För att ändra standardkontot väljer **ändra konto** och ange autentiseringsuppgifter.
+
+   ![Ändra gateway-konto](./media/logic-apps-using-sap-connector/gateway-account.png)
+
+* Om du aktiverar SNC med en extern security-produkt, kopiera SNC-bibliotek eller filer på samma dator där gatewayen är installerad. Några exempel på SNC-produkter är <a href="https://help.sap.com/saphelp_nw74/helpdata/en/7a/0755dc6ef84f76890a77ad6eb13b13/frameset.htm">sapseculib</a>, Kerberos, NTLM, och så vidare.
 
 * Ladda ned och installera det senaste SAP-klientbiblioteket, som för närvarande är <a href="https://softwaredownloads.sap.com/file/0020000001865512018" target="_blank">SAP Connector (NCo) 3.0.21.0 för Microsoft .NET Framework 4.0 och Windows 64-bitars (x64)</a>, på samma dator som den lokala datagatewayen. Installera den här versionen eller senare av följande skäl:
 
@@ -114,7 +125,7 @@ I Azure Logic Apps, en [åtgärd](../logic-apps/logic-apps-overview.md#logic-app
       Om den **inloggningstyp** är inställd på **grupp**, dessa egenskaper, som normalt visas valfritt, krävs: 
 
       ![Skapa SAP meddelande serveranslutning](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png) 
-
+      
    2. När du är klar väljer du **Skapa**. 
    
       Logic Apps konfigurerar och testar anslutningen, se till att anslutningen fungerar korrekt.
@@ -375,23 +386,45 @@ Du kan också ladda ned eller lagra de genererade scheman i lagringsplatser, så
 
 2. Kör efter ett lyckat, gå till integrationskontot och kontrollera att de genererade scheman som genereras finns.
 
+## <a name="enable-secure-network-communications-snc"></a>Aktivera säker kommunikation (SNC)
+
+Innan du börjar bör du kontrollera att du har uppfyllt de tidigare angivna [krav](#pre-reqs):
+
+* Den lokala datagatewayen är installerad på en dator som finns i samma nätverk som din SAP-system.
+
+* För enkel inloggning, körs gatewayen som en användare som är mappad till SAP-användare.
+
+* SNC-bibliotek som innehåller funktioner för ytterligare säkerhet har installerats på samma dator som datagateway. Några exempel på detta är <a href="https://help.sap.com/saphelp_nw74/helpdata/en/7a/0755dc6ef84f76890a77ad6eb13b13/frameset.htm">sapseculib</a>, Kerberos, NTLM, och så vidare.
+
+Om du vill aktivera SNC för dina förfrågningar till eller från SAP-system, Välj den **Använd SNC** kryssrutan i SAP-anslutning och ange följande egenskaper:
+
+   ![Konfigurera SAP SNC i anslutning](media/logic-apps-using-sap-connector/configure-sapsnc.png) 
+
+   | Egenskap    | Beskrivning |
+   |------------| ------------|
+   | **SNC-bibliotek** | SNC-Biblioteksnamn eller sökväg i förhållande till NCo installationsplats eller absolut sökväg. Som exempel sapsnc.dll eller.\security\sapsnc.dll eller c:\security\sapsnc.dll  | 
+   | **SNC SSO** | När du ansluter via SNC, används vanligtvis SNC-identiteten för att autentisera anroparen. Ett annat alternativ är att åsidosätta så att användare/lösenord informationen kan användas för att autentisera anroparen, men raden fortfarande är krypterad.|
+   | **SNC mitt namn** | I de flesta fall utelämnas detta. Den installera SNC-lösningen vet vanligtvis sin egen SNC-namn. Endast för lösningar som stöd för ”flera identiteter”, kan du behöva ange identiteten som ska användas för den här specifika målservern |
+   | **SNC-Partnernamn** | Serverdelens SNC-namn |
+   | **SNC kvaliteten på skydd** | Tjänstkvalitet som ska användas för SNC-kommunikation för den här specifika målservern. Standardvärdet definieras av backend-system. Maxvärde definieras av security-produkten används för SNC |
+   |||
+
+   > [!NOTE]
+   > Miljövariabler miljövariabel SNC_LIB och SNC_LIB_64 ska inte anges på datorn där du har datagateway och SNC-bibliotek. Om kan de ha företräde framför SNC-bibliotek-värdet som skickas via anslutningen.
+   >
+
 ## <a name="known-issues-and-limitations"></a>Kända problem och begränsningar
 
 Här följer kända problem och begränsningar för SAP-anslutningen:
+
+* Endast en enda skicka till SAP-anrop eller meddelandet fungerar med tRFC. Business Application Programming Interface (BAPI) commit mönster, till exempel flera tRFC anrop i samma session, stöds inte.
 
 * SAP-utlösaren stöder inte tar emot batch idoc: er från SAP. Den här åtgärden kan resultera i RFC anslutningsfel mellan din SAP-system och datagateway.
 
 * SAP-utlösaren stöder inte data gateway-kluster. Ibland redundans data gateway-noden som kommunicerar med SAP-system kan skilja sig från den aktiva noden, vilket resulterar i oväntade resultat. Scenarier med skicka stöds data gateway-kluster.
 
-* I Receive scenarier stöds en icke-null-svar returneras inte. En logikapp med en utlösare och en svarsåtgärd leder till oväntade resultat. 
-
-* Endast en enda skicka till SAP-anrop eller meddelandet fungerar med tRFC. Business Application Programming Interface (BAPI) commit mönster, till exempel flera tRFC anrop i samma session, stöds inte.
-
-* RFC: er med bifogade filer stöds inte för båda skicka SAP och generera scheman åtgärder.
-
 * SAP-anslutningsappen stöder för närvarande inte SAP router strängar. Den lokala datagatewayen måste finnas i samma nätverk som SAP-system som du vill ansluta till.
 
-* Konverteringen för saknade (null), tom, minsta och högsta värden för fälten DATS och TIMS SAP kan komma att ändras i senare uppdateringar för den lokala datagatewayen.
 
 ## <a name="get-support"></a>Få support
 

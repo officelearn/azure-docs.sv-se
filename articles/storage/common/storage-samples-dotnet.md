@@ -2,19 +2,20 @@
 title: Azure Storage-exempel med hjälp av .NET | Microsoft Docs
 description: Visa, ladda ned och kör exempelkoden och program för Azure Storage. Upptäck komma igång-exempel för blobbar, köer, tabeller och filer, med hjälp av storage-klientbibliotek för .NET.
 services: storage
-author: seguler
+author: mhopkins-msft
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/12/2017
-ms.author: seguler
+ms.author: mhopkins
+ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: c4dcb3f42d97624e66258228ce27e130a05cac70
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 3874bf4e4b51354f14c9aa6357ee1c0d9033e545
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62101401"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142559"
 ---
 # <a name="azure-storage-samples-using-net"></a>Azure Storage-exempel med hjälp av .NET
 

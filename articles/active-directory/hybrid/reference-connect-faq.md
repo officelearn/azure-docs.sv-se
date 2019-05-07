@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 11/02/2018
+ms.date: 05/03/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a392fd03016f83f86364d8f92e8bb4da0aa3364a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2caca430de5ad666f4f4341e0723bc3173d6d91a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60381477"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65137792"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect – vanliga frågor och svar
 
@@ -78,6 +78,47 @@ Det enklaste sättet att göra detta är att använda SQL Server Management Stud
 
 För att göra det enkelt, rekommenderar vi att användare som installerar Azure AD Connect är systemadministratörer i SQL. Men med de senaste byggena kan du nu använda ett delegerat SQL-administratörer, enligt beskrivningen i [installera Azure AD Connect med SQL-delegerade administratörsbehörigheter](how-to-connect-install-sql-delegation.md).
 
+**F: Vilka är några av de bästa metoderna från fältet?**  
+
+Följande är ett informationsmeddelande dokument som presenteras några av de bästa metoderna som har stöd för tekniker, och våra konsulter som har utvecklats med åren.  Detta visas i en punktlista som snabbt kan refereras.  Även om den här listan försöker vara omfattande, kan det finnas ytterligare metoder som inte kanske har gjort det på listan ännu.
+
+- Om du använder fullständig SQL och den bör vara lokal och fjärransluten
+    - Färre hopp
+    - Enklare att felsöka
+    - Minskad komplexitet
+    - Tilldela resurser till SQL och tillåta kostnader för Azure AD Connect och OS
+- Kringgå Proxy om det är möjligt, om det inte går att kringgå proxyn måste du se till att timeout-värdet är större än 5 minuter.
+- Om proxyn krävs måste du lägga till proxyn machine.config filen
+- Tänk på lokala SQL-jobb och underhåll och hur de påverkar Azure AD Connect – särskilt omindexering
+- Kontrollera att DNS kan lösa externt
+- Se till att [serverspecifikationer](how-to-connect-install-prerequisites.md#hardware-requirements-for-azure-ad-connect) är per rekommendation om du använder fysiska eller virtuella servrar
+- Se till att om du använder en virtuell server att dedikerade resurser som krävs
+- Kontrollera att du har den disken och diskkonfiguration som uppfyller bästa praxis för SQL Server
+- Installera och konfigurera Azure AD Connect Health för övervakning
+- Använd ta bort tröskelvärdet som är inbyggt i Azure AD Connect.
+- Noggrant granska uppdateringar förberedas för alla ändringar och nya attribut som kan läggas till
+- Säkerhetskopiera allt
+    - Säkerhetskopiera nycklar
+    - Säkerhetskopiering Synkroniseringsregler
+    - Konfiguration av Backup Server
+    - Säkerhetskopiera SQL-databas
+- Se till att det finns inga 3 part backup-agenterna som säkerhetskopierar SQL utan SQL VSS-skrivaren (delad i virtuella servrar med 3 part ögonblicksbilder)
+- Begränsa mängden anpassade Synkroniseringsregler som används som de lägger till komplexitet
+- Behandla Azure AD Connect servrar som nivå 0-servrar
+- Vara leery att modifiera molnet Synkroniseringsregler utan bra uppfattning om effekten och rätt affärsdrivande faktorer
+- Kontrollera att rätt URL och brandväggsportar är öppna för stöd för Azure AD Connect och Azure AD Connect Health
+- Utnyttja molnet filtrerade attributet för att felsöka och förhindra phantom objekt
+- Se till att du använder Azure AD Connect Configuration Dokumenteraren för konsekvens mellan servrar med mellanlagring-Server
+- Mellanlagring servrar bör finnas i olika datacenter (fysiska platser
+- Mellanlagring servrar är inte avsedda att vara en lösning med hög tillgänglighet, men du kan ha flera mellanlagrings-servrar
+- Introduktion till en ”Lag” mellanlagring servrar kan minimera vissa potentiella avbrott vid fel
+- Testa och validera alla uppgraderingar på servern mellanlagring först
+- Verifiera alltid exporter innan du växlar till den tillfälliga serverLeverage mellanlagringsserver för fullständig import och fullständig synkronisering att minska påverkan på verksamheten
+- Behåll version konsekvensen mellan Azure AD Connect-servrar så mycket som möjligt 
+
+**F: Kan jag låta Azure AD Connect för att skapa konto för Azure AD Connector på arbetsgruppsdator?**
+Nej.  För att tillåta att Azure AD Connect för att skapa Azure AD-anslutningskontot automatiskt, måste datorn vara ansluten till domänen.  
+
 ## <a name="network"></a>Nätverk
 **F: Jag har en brandvägg, nätverksenhet eller något annat som begränsar den tid som anslutningen kan hålls öppen i nätverket. Vad mitt klientsidan timeout-tröskelvärde ska när jag använder Azure AD Connect?**  
 Alla nätverksprogramvara, fysiska enheter eller något annat som begränsar den maximala tid som anslutningar ska vara aktiva bör använda ett tröskelvärde för minst fem minuter (300 sekunder) för anslutning mellan den server där Azure AD Connect-klienten är installerad och Azure Active Directory. Den här rekommendationen gäller även för alla utgivna Microsoft Identity-synkroniseringsverktyg.
@@ -107,6 +148,9 @@ Använd de anvisningar som beskrivs i artikeln [förnya certifikat](how-to-conne
 ## <a name="environment"></a>Miljö
 **F: Finns det stöd för att byta namn på servern när du har installerat Azure AD Connect?**  
 Nej. Ändra servernamnet återger Synkroniseringsmotorn inte ansluta till SQL-databasinstans och kan inte starta tjänsten.
+
+**F: Nästa generations kryptografiska (NGC) Synkroniseringsregler stöds på en FIPS-aktiverad dator?**  
+Nej.  De stöds inte.
 
 ## <a name="identity-data"></a>Identitetsdata
 **F: Varför matchar inte den lokala UPN i attributet userPrincipalName (UPN) i Azure AD?**  

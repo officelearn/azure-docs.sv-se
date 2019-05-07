@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/18/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 1ebac5476c90b3cb49fccbb95ef8dedf413a6127
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: dc43e2ad2668a7d3a808e398857cbf1d28c9aa1c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58200301"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150857"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Självstudier: Konfigurera HTTPS på en anpassad Azure CDN-domän
 
@@ -44,7 +44,7 @@ I den här guiden får du lära dig att:
 > - Verifiera domänen
 > - Inaktivera HTTPS-protokollet på din anpassade domän.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)] 
 
@@ -90,10 +90,10 @@ Följ dessa steg om du vill aktivera HTTPS på en anpassad domän:
 # <a name="option-2-enable-https-with-your-own-certificatetaboption-2-enable-https-with-your-own-certificate"></a>[Alternativ 2: Aktivera HTTPS med ditt eget certifikat](#tab/option-2-enable-https-with-your-own-certificate)
 
 > [!IMPORTANT]
-> Det här alternativet är endast tillgängligt med profiler av typen **Azure CDN Standard från Microsoft**. 
+> Det här alternativet är endast tillgängligt med **Azure CDN från Microsoft** och **Azure CDN från Verizon** profiler. 
 >
  
-Du kan använda ditt eget certifikat för att aktivera HTTPS. Detta görs via en integrering med Azure Key Vault där du kan lagra certifikaten säkert. Azure CDN använder denna säkerhetsmekanism för att hämta certifikatet, och det krävs några ytterligare steg. När du skapar ett SSL-certifikat måste du skapa det med en tillåten certifikatutfärdare (CA). Om du använder en icke-tillåten certifikatutfärdare kan din begäran avvisas. En lista över tillåtna certifikatutfärdare finns i [Allowed certificate authorities for enabling custom HTTPS on Azure CDN](cdn-troubleshoot-allowed-ca.md) (Tillåtna certifikatutfärdare för att aktivera anpassad HTTPS på Azure CDN).
+Du kan använda ditt eget certifikat för att aktivera HTTPS. Detta görs via en integrering med Azure Key Vault där du kan lagra certifikaten säkert. Azure CDN använder denna säkerhetsmekanism för att hämta certifikatet, och det krävs några ytterligare steg. När du skapar ett SSL-certifikat måste du skapa det med en tillåten certifikatutfärdare (CA). Om du använder en icke-tillåten certifikatutfärdare kan din begäran avvisas. En lista över tillåtna certifikatutfärdare finns i [tillåtna certifikatutfärdare för att aktivera anpassad HTTPS på Azure CDN](cdn-troubleshoot-allowed-ca.md). För **Azure CDN från Verizon**, tas emot någon giltig Certifikatutfärdare. 
 
 ### <a name="prepare-your-azure-key-vault-account-and-certificate"></a>Förbered ditt Azure Key Vault-konto och certifikat
  
@@ -327,5 +327,5 @@ I den här självstudiekursen lärde du dig att:
 Gå vidare till nästa kurs om du vill lära dig hur du konfigurerar cachelagring på en CDN-slutpunkt.
 
 > [!div class="nextstepaction"]
-> [Självstudier: Konfigurera Azure CDN-cachelagringsregler](cdn-caching-rules-tutorial.md)
+> [Självstudie: Konfigurera Azure CDN-cachelagringsregler](cdn-caching-rules-tutorial.md)
 

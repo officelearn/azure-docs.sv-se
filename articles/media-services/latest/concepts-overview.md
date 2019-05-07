@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 04/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: feba7d53f196f6675aca965218046df67bbef81d
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 8a4ffdc09cb12f7a16173c86bd3d0e3aee78d46d
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64867068"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65152651"
 ---
 # <a name="media-services-concepts"></a>Media Services-koncepten
 
@@ -134,7 +134,7 @@ Du kan använda Azure Media Player för att spela upp mediainnehåll strömmas a
 
 - [Azure Media Player-översikt](use-azure-media-player.md)
 
-## <a name="provide-feedback"></a>Ge feedback
+## <a name="ask-questions-give-feedback-get-updates"></a>Ställ frågor, ge feedback, få uppdateringar
 
 Kolla in den [Azure Media Services-community](media-services-community.md) artikeln olika sätt du kan ställa frågor, ge feedback och få uppdateringar om Media Services.
 

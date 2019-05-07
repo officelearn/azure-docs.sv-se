@@ -16,12 +16,12 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7bd57b3d41ad7c670b5423f10a9c93b55e87d757
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 448858efeaae4c3e2a41d41181e9ec74b03223f6
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60252228"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138257"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Anropa Microsoft Graph API från en Universal Windows Platform-program (XAML)
 
@@ -333,8 +333,10 @@ Nu måste du registrera ditt program i portalen för registrering av Microsoft-p
    - I den **stöds kontotyper** väljer **konton alla organisationskatalog och personliga Microsoft-konton (t.ex. Skype, Xbox, Outlook.com)**.
    - Välj **Registrera** för att skapa programmet.
 1. I appen **översikt** sidan, hitta den **(klient)-ID: T** värde och spara den till senare. Gå tillbaka till Visual Studio, öppna **MainPage.xaml.cs**, och Ersätt värdet för ClientId med program-ID som du just registrerade:
-1. Välj i listan över sidor för appen, **autentisering**:
-   - I den **omdirigerings-URI: er** | **föreslås omdirigerings-URI: er för offentliga klienter (mobil, skrivbord)** avsnittet, kontrollera **urn: ietf:wg:oauth:2.0:oob**
+1. I listan över sidor för appen väljer du **Autentisering**.
+   1. I den **omdirigerings-URI: er** avsnittet i listan över omdirigerings-URI: er:
+   1. I den **typ** kolumn väljer **offentlig klient (mobila och stationära)**.
+   1. Ange `urn:ietf:wg:oauth:2.0:oob` i den **OMDIRIGERINGS-URI** kolumn.
 1. Välj **Spara**.
 1. I listan över sidor för appen, Välj **API-behörigheter**
    - Klicka på den **lägga till en behörighet** knappen och sedan,
@@ -384,7 +386,7 @@ Du också se grundläggande information om den token som anskaffats `AcquireToke
 |Egenskap   |Format  |Beskrivning |
 |---------|---------|---------|
 |**Användarnamn** |<span>user@domain.com</span> |Användarnamnet som identifierar användaren.|
-|**Token upphör att gälla** |Datetime |Den tid när token upphör att gälla. MSAL förlänger utgångsdatumet genom att förnya token efter behov.|
+|**Token upphör att gälla** |DateTime |Den tid när token upphör att gälla. MSAL förlänger utgångsdatumet genom att förnya token efter behov.|
 
 ### <a name="more-information-about-scopes-and-delegated-permissions"></a>Mer information om scope och delegerade behörigheter
 

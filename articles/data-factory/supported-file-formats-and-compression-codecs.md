@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: f117e02a063b93b8b1badbd9868f78da95c3c671
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 6af5c8cdad00802052f08be844f77d36420da3c9
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925144"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142373"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Filformat som stöds och komprimering codec-enheter i Azure Data Factory
 
@@ -412,7 +412,7 @@ Utdatauppsättningen med typen **JsonFormat** definieras så här: (partiell def
 ## <a name="parquet-format"></a>Parquet-format
 
 >[!NOTE]
->Data Factory introduceras nya Parquet-format datset, se [Parquet-format](format-delimited-text.md) artikeln med information. Följande konfigurationer för filbaserade data store datauppsättningen stöds fortfarande som-avser bakåt compabitility. Du rekommenderas för att använda den nya modellen framöver.
+>Data Factory introduceras nya Parquet-format datset, se [Parquet-format](format-parquet.md) artikeln med information. Följande konfigurationer för filbaserade data store datauppsättningen stöds fortfarande som-avser bakåt compabitility. Du rekommenderas för att använda den nya modellen framöver.
 
 Om du vill parsa Parquet-filer eller skriva data i Parquet-format anger du egenskapen `format` `type` till **ParquetFormat**. Du behöver inte ange några egenskaper i avsnittet Format i avsnittet typeProperties. Exempel:
 

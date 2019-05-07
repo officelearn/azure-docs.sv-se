@@ -2,19 +2,20 @@
 title: Client Side Encryption med Java för Microsoft Azure Storage | Microsoft Docs
 description: Azure Storage-klientbiblioteket för Java stöder client side encryption och integrering med Azure Key Vault för maximal säkerhet för dina Azure Storage-program.
 services: storage
-author: lakasa
+author: tamram
 ms.service: storage
 ms.devlang: java
 ms.topic: article
 ms.date: 05/11/2017
-ms.author: lakasa
+ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 0a2088e603828a7850cb250c1874008d63fe9c89
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 058dc97054aad310135ccc1f51d765f0af3f571b
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57992455"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147031"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-with-java-for-microsoft-azure-storage"></a>Client Side Encryption och Azure Key Vault med Java för Microsoft Azure Storage
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -118,7 +119,7 @@ Det finns tre Key Vault-paket:
 1. Skapa en hemlighet offline och överför den till Key Vault.  
 2. Använda hemlighetens grundläggande identifierare som en parameter för att matcha den aktuella versionen av hemligheten för kryptering och cachelagrar informationen lokalt. Använd CachingKeyResolver för cachelagring; användare som inte förväntas implementera sina egna cachelagring logik.  
 3. Använd cachelagring matcharen som indata när du skapar krypteringsprincipen.
-   Mer information om Key Vault fungerar finns i kodexempel för kryptering. <fix URL>  
+   Mer information om Key Vault fungerar finns i kodexempel för kryptering.
 
 ## <a name="best-practices"></a>Bästa praxis
 Stöd för kryptering är endast tillgänglig i storage-klientbibliotek för Java.
@@ -142,7 +143,7 @@ När du skapar ett EncryptionPolicy-objekt, kan användare ange endast en nyckel
   * Viktiga matcharen anropas om att hämta nyckeln har angetts. Om matcharen har angetts men inte har en mappning för nyckel-ID, inträffar ett fel.  
   * Om matchare har angetts men en nyckel har angetts, används nyckeln om dess ID: t matchar den nödvändiga Nyckelidentifieraren. Om det ID: t inte matchar genereras ett fel.  
     
-    Den [kryptering exempel](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples) <fix URL>visa en mer detaljerad slutpunkt till slutpunkt-scenario för blobar, köer och tabeller, tillsammans med Key Vault-integrering.
+    Den [kryptering exempel](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples) visa en mer detaljerad slutpunkt till slutpunkt-scenario för blobar, köer och tabeller, tillsammans med Key Vault-integrering.
 
 ### <a name="requireencryption-mode"></a>RequireEncryption läge
 Användare kan välja att ett läge där alla överföra och hämta filer måste vara krypterat. I det här läget misslyckas försök att överföra data utan en krypteringsprincip eller hämta data som inte är krypterad i tjänsten på klienten. Den **requireEncryption** flaggan objektets begäran alternativen styr detta beteende. Om ditt program kommer att kryptera alla objekt som lagras i Azure Storage så du kan ange den **requireEncryption** egenskapen på standardalternativen för begäran för klientobjektet.   

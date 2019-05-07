@@ -4,27 +4,29 @@ description: Lär dig hur du skapar en programgateway med en VM-skalningsuppsät
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: tutorial
-ms.date: 3/20/2019
+ms.topic: article
+ms.date: 5/1/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 83719ce0cddf3d77325b26fa40dd3cb2decaf921
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: b1bf91a13d3327873efab475067029ee4ce47639
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62129697"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145908"
 ---
 # <a name="manage-web-traffic-with-an-application-gateway-using-azure-powershell"></a>Hantera webbtrafik med en programgateway med Azure PowerShell
 
 Programgatewayen används till att hantera och skydda webbtrafiken till de servrar du hanterar. Du kan använda Azure PowerShell till att skapa en [programgateway](overview.md) som använder en [VM-skalningsuppsättning](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) för hantering av webbtrafik på servrarna i serverdelen. I det här exemplet innehåller skalningsuppsättningen två virtuella datorinstanser i serverdelens standardpool i programgatewayen.
 
-I den här guiden får du lära dig att:
+I den här artikeln kan du se hur du:
 
 > [!div class="checklist"]
 > * Konfigurera nätverket
 > * Skapa en programgateway
 > * Skapa en VM-skalningsuppsättning med serverdelens standardpool
+
+Om du vill kan du slutföra den här proceduren med [Azure CLI](tutorial-manage-web-traffic-cli.md).
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -32,7 +34,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Om du väljer att installera och använda PowerShell lokalt kräver den här självstudien Azure PowerShell-Modulversion 1.0.0 eller senare. Kör `Get-Module -ListAvailable Az` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Login-AzAccount` för att skapa en anslutning till Azure.
+Om du väljer att installera och använda PowerShell lokalt, i den här artikeln kräver Azure PowerShell-Modulversion 1.0.0 eller senare. Kör `Get-Module -ListAvailable Az` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Login-AzAccount` för att skapa en anslutning till Azure.
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
@@ -255,12 +257,4 @@ Remove-AzResourceGroup -Name myResourceGroupAG
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen lärde du dig att:
-
-> [!div class="checklist"]
-> * Konfigurera nätverket
-> * Skapa en programgateway
-> * Skapa en VM-skalningsuppsättning med serverdelens standardpool
-
-> [!div class="nextstepaction"]
-> [Begränsa webbtrafik med en brandvägg för webbaserade program](./tutorial-restrict-web-traffic-powershell.md)
+[Begränsa webbtrafik med en brandvägg för webbaserade program](./tutorial-restrict-web-traffic-powershell.md)

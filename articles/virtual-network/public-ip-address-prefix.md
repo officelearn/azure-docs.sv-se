@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: 3cc4933ae70ad1d661835749dd23e7e634ab54f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 68ca35590aaadba431d5f1dc06e0405162ebc69f
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474444"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154487"
 ---
 # <a name="public-ip-address-prefix"></a>Offentliga IP-adressprefix
 
@@ -29,9 +29,6 @@ En offentlig IP-adressprefixet är ett reserverat intervall med IP-adresser för
 Offentliga IP-adresser tilldelas från en pool med adresser i varje Azure-region. Du kan [hämta](https://www.microsoft.com/download/details.aspx?id=56519) lista med intervall som använder Azure för varje region. Till exempel är 40.121.0.0/16 ett av fler än 100 intervall som använder Azure i östra USA. Intervallet omfattar användbara adresser av 40.121.0.1 - 40.121.255.254.
 
 Du skapar en offentlig IP-adressprefix i ett Azure-region och prenumeration genom att ange ett namn och hur många adresser som du vill att prefixet som ska ingå. Till exempel om du skapar en offentlig IP-adressprefix på/28, tilldelar Azure 16 adresser från en av dess intervall för dig. Du vet inte vilka adressintervall som Azure tilldelar förrän du har skapat intervallet, men adresserna som är sammanhängande. Offentliga IP-adressprefix har en avgift. Mer information finns i [prissättning för offentliga IP-adresser](https://azure.microsoft.com/pricing/details/ip-addresses).
-
-> [!IMPORTANT]
-> Offentliga IP-Prefix är i en offentlig förhandsversion i begränsade regioner. Du kan [Lär dig vad det innebär att finnas i förhandsversion](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Offentliga IP-prefix är nu tillgänglig i: USA, västra centrala, USA, västra, USA, västra 2, centrala USA, Nordeuropa, Västeuropa och Sydostasien. En uppdaterad lista över regioner finns [Azure-uppdateringar](https://azure.microsoft.com/updates/?product=virtual-network).
 
 ## <a name="why-create-a-public-ip-address-prefix"></a>Varför skapa en offentlig IP-adressprefix?
 
@@ -49,7 +46,7 @@ När du skapar offentliga IP-adressresurser tilldela Azure en tillgänglig offen
 ## <a name="scenarios"></a>Scenarier
 Du kan associera följande resurser med en statisk offentlig IP-adress från ett prefix:
 
-|Resurs|Scenario|Steg|
+|Resource|Scenario|Steg|
 |---|---|---|
 |Virtuella datorer| Associera offentliga IP-adresser från ett prefix till dina virtuella datorer i Azure minskar hanteringskostnader när det gäller att lista över tillåtna IP-adresser i brandväggen. Du kan bara godkänna ett hela prefix med en enda brandväggsregel. När du skalar med virtuella datorer i Azure kan du associera IP-adresser från samma prefix sparar kostnader, tid och omkostnader för lagringshantering.| Associera IP-adresser från ett prefix till den virtuella datorn: 1. [Skapa ett prefix.](manage-public-ip-address-prefix.md) 2. [Skapa en IP-adress från prefixet.](manage-public-ip-address-prefix.md) 3. [Associera IP-Adressen till den virtuella datorns nätverksgränssnitt.](virtual-network-network-interface-addresses.md#add-ip-addresses)
 | Lastbalanserare | Associera offentliga IP-adresser från ett prefix till frontend-IP säkerställer konfiguration eller utgående regel för belastningsutjämning förenkling av distribution av ditt Azure offentlig IP-adressutrymme. Du kan förenkla din situation genom rensning utgående anslutningar till har sitt ursprung från en mängd sammanhängande IP-adresser som definieras av den offentliga IP-prefix. | Associera IP-adresser från ett prefix i Load balancer: 1. [Skapa ett prefix.](manage-public-ip-address-prefix.md) 2. [Skapa en IP-adress från prefixet.](manage-public-ip-address-prefix.md) 3. När du skapar belastningsutjämnaren, Välj eller uppdatera IP-Adressen som skapades i steg 2 ovan som frontend-IP för belastningsutjämnaren. |
@@ -58,6 +55,7 @@ Du kan associera följande resurser med en statisk offentlig IP-adress från ett
 ## <a name="constraints"></a>Villkor
 
 - Du kan inte ange IP-adresser för prefixet. Azure tilldelar IP-adresser för prefixet, baserat på den storlek som du anger.
+- Standardstorleken för ett prefix/28 eller 16 offentliga IP-adresser.
 - Du kan inte ändra intervallet när du har skapat prefixet.
 - Intervallet är för IPv4-adresser. Intervallet innehåller inte IPv6-adresser.
 - Endast statiska offentliga IP-adresser skapas med Standard-SKU kan tilldelas från adressintervallet för det prefixet. Läs mer om offentliga IP-adress SKU: er i [offentliga IP-adressen](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses).

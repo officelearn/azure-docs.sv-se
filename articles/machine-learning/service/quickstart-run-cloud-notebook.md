@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3d4127226037bf28ba677a49f6444ca987118cb9
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: ecb97860e70141a744833aa9b9a4fcea3f3688f0
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023890"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149830"
 ---
 # <a name="quickstart-use-a-cloud-based-notebook-server-to-get-started-with-azure-machine-learning"></a>Snabbstart: Använd en molnbaserad notebook-server för att komma igång med Azure Machine Learning
 
@@ -25,11 +25,11 @@ Den här snabbstarten visar hur du skapar en molnresurs i Azure Machine Learning
  
 I den här snabbstarten utför du följande åtgärder:
 
-* Skapa en ny molnbaserade notebook-server i din arbetsyta
-* Starta en Jupyter-webbgränssnitt
+* Skapa en ny molnbaserade notebook-server i din arbetsyta.
+* Starta Jupyter-webbgränssnittet.
 * Öppna en bärbar dator som innehåller kod för att beräkna pi och loggar fel vid varje iteration.
 * Köra anteckningsboken.
-* Visa loggade felvärdena i din arbetsyta.  Det här exemplet visar hur arbetsytan kan hjälpa dig att hålla reda på information som genereras i ett skript. 
+* Visa loggade felvärdena i din arbetsyta. Det här exemplet visar hur arbetsytan kan hjälpa dig att hålla reda på information som genereras i ett skript. 
 
 Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfria versionen eller betalversionen av Azure Machine Learning-tjänsten](https://aka.ms/AMLFree) i dag.
 
@@ -49,13 +49,15 @@ Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan
 
      ![Välj ny virtuell dator](./media/quickstart-run-cloud-notebook/add-workstation.png)
 
-1. Ange ett namn för den virtuella datorn. Välj sedan **Skapa**. 
+1. Ange ett namn för den virtuella datorn. Välj sedan **Skapa**.
+
+    > [!NOTE]
+    > Anteckningsboken VM-namn måste vara mellan 2 och 16 tecken. Giltiga tecken är bokstäver, siffror, och -tecken.  Namnet måste även vara unikt i din Azure-prenumeration.
 
     ![Skapa en ny virtuell dator](media/quickstart-run-cloud-notebook/create-new-workstation.png)
 
-1. Väntar du cirka 4 – 5 minuter, och välj sedan **uppdatera**.  Försök att uppdatera med 30 sekunders mellanrum eller så tills statusen blir **kör**.
+1. Väntar du cirka 4 – 5 minuter, tills status ändras till **kör**.
 
-    ![Uppdatera](media/quickstart-run-cloud-notebook/refresh.png)
 
 ## <a name="launch-jupyter-web-interface"></a>Starta Jupyter webbgränssnitt
 
@@ -67,7 +69,11 @@ När Virtuellt datorn körs, använda den **Notebook virtuella datorer** avsnitt
 
     Länken Starta notebook-server och öppna Jupyter notebook webbsidan i en ny webbläsarflik.  Den här länken fungerar endast för den person som skapar den virtuella datorn.
 
-1. Jupyter notebook webbsidan, Välj den **samples/Snabbstart** mappen för att se Snabbstart anteckningsboken.
+1. På webbsidan för Jupyter-anteckningsbok är den främsta mappnamn ditt användarnamn.  Välj den här mappen.
+
+1. Exempel-mappnamn innehåller ett versionsnummer, till exempel **exempel 1.0.33.1**.  Välj mappen samples.
+
+1. Välj den **snabbstarten** anteckningsboken.
 
 ## <a name="run-the-notebook"></a>Köra anteckningsboken
 
@@ -75,15 +81,7 @@ Kör en bärbar dator som beräknar pi och loggas felet i din arbetsyta.
 
 1. Välj **01.run-experiment.ipynb** för att öppna anteckningsboken.
 
-1. Du kan se ett meddelande om att kernel inte har angetts.  Välj **Python 3.6 - AzureML**och välj sedan **ange Kernel**.
-
-   ![Ange kernel](./media/quickstart-run-cloud-notebook/set-kernel.png)
-
-1. Meddelandefältet uppmanar dig att vänta tills kerneln har startats. När kerneln är klar försvinner meddelandet.
-
-    ![Vänta tills kerneln har startats](./media/quickstart-run-cloud-notebook/wait-for-kernel.png)
-
-1.  Klicka på den första kodcellen och välj **kör**.
+1. Klicka på den första kodcellen och välj **kör**.
 
     > [!NOTE]
     > Kod celler har hakparenteser före. Om hakparenteserna är tomma (__[]__), kod som inte har körts. När koden körs du ser en asterisk (__[*]__). När koden har slutförts, ett tal **[1]** visas.  Antalet visar den ordning i vilken cellerna kördes.
@@ -94,16 +92,15 @@ Kör en bärbar dator som beräknar pi och loggas felet i din arbetsyta.
 
 1. Kör den andra kodcellen. Om du ser instruktionerna för att autentisera, kopiera koden och följ länken för att logga in. När du loggar in kommer webbläsaren ihåg den här inställningen.  
 
-    > [!TIP]
-    > Tänk på att inte kopiera utrymmet efter den.  
-
     ![Autentisera](media/quickstart-run-cloud-notebook/authenticate.png)
 
 1. När du är klar, antalet celler __[2]__ visas.  Om du var tvungen att logga in, visas ett meddelande om lyckad autentisering.   Om du inte behöver logga in kan du se inte några utdata för den här cellen, endast siffran som visas för att indikera att cellen har körts.
 
     ![Meddelande om att något har slutförts](media/quickstart-run-cloud-notebook/success.png)
 
-1. Kör resten av cellerna kod.  Eftersom varje cell är klar ser du dess cellnummer som visas. Endast den sista cellen visar några andra utdata.  I den största kodcellen visas `run.log` på flera platser. Varje `run.log` lägger till dess värde till din arbetsyta.
+1. Kör resten av cellerna kod.  Eftersom varje cell är klar ser du dess cellnummer som visas. Endast den sista cellen visar några andra utdata.  
+
+    I den största kodcellen visas `run.log` på flera platser. Varje `run.log` lägger till dess värde till din arbetsyta.
 
 
 ## <a name="view-logged-values"></a>Visa loggade värden
@@ -146,11 +143,13 @@ Du kan också behålla resursgruppen men ta bort en enstaka arbetsyta. Visa arbe
 
 I den här snabbstarten har slutfört du uppgifterna:
 
-* Skapa en VM-anteckningsbok
-* Starta en Jupyter Notebook-server på den bärbara datorn VM
+* Skapa en anteckningsbok VM.
+* Starta Jupyter-webbgränssnittet.
 * Öppna en bärbar dator som innehåller kod för att beräkna pi och loggar fel vid varje iteration.
 * Köra anteckningsboken.
 * Visa loggade felvärdena i din arbetsyta.  Det här exemplet visar hur arbetsytan kan hjälpa dig att hålla reda på information som genereras i ett skript. 
+
+Bläddra bland andra anteckningsböcker i mappen samples vill veta mer om Azure Machine Learning-tjänsten på Jupyter Notebook-webbsidan.
 
 Följ självstudierna om Machine Learning för att träna och distribuera en modell om du vill ha en djupgående arbetsflödesupplevelse:  
 

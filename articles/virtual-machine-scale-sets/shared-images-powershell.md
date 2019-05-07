@@ -13,17 +13,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2018
+ms.date: 04/25/2019
 ms.author: akjosh; cynthn
 ms.custom: ''
-ms.openlocfilehash: 3e6baedc28805117962aa8dda8edc6ff3419280e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 44cb068f1aa40169e728fc28787990b161e148ae
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60188363"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150082"
 ---
-# <a name="preview-create-and-use-shared-images-for-virtual-machine-scale-sets-with-the-azure-powershell"></a>Förhandsversion: Skapa och använda delade avbildningar för VM-skalningsuppsättningar med Azure PowerShell
+# <a name="create-and-use-shared-images-for-virtual-machine-scale-sets-with-the-azure-powershell"></a>Skapa och använda delade avbildningar för VM-skalningsuppsättningar med Azure PowerShell
 
 När du skapar en skalningsuppsättning, kan du ange en avbildning som ska användas när de virtuella datorinstanserna distribueras. Tjänsten delad bildgalleriet förenklar anpassad avbildning delning i hela organisationen. Anpassade avbildningar liknar Marketplace-avbildningar, men du skapar dem själv. Anpassade avbildningar kan användas för startkonfigurationer, till exempel förinläsning av program, programkonfigurationer och andra OS-konfigurationer. 
 
@@ -33,7 +33,7 @@ Galleriet är en resurs på toppnivå som ger fullständig rollbaserad åtkomstk
 
 Delad bildgalleriet-funktionen har flera resurstyper. Vi ska använda eller att skapa dessa i den här artikeln:
 
-| Resurs | Beskrivning|
+| Resource | Beskrivning|
 |----------|------------|
 | **Hanterad avbildning** | Det här är en grundläggande avbildning som kan användas fristående eller används för att skapa en **Avbildningsversion** i ett galleri med avbildningar. Hanterade avbildningarna skapas från generaliserad virtuella datorer. En hanterad avbildning är en särskild typ av virtuell Hårddisk som kan användas för att göra flera virtuella datorer och kan nu användas för att skapa delade bild versioner. |
 | **Bildgalleri** | Som Azure Marketplace, en **bildgalleriet** är en lagringsplats för att hantera och dela bilder, men du bestämmer vem som har åtkomst. |
@@ -74,15 +74,7 @@ Det tar några minuter att skapa och konfigurera alla skalningsuppsättningsresu
 
 [!INCLUDE [virtual-machines-common-gallery-list-ps](../../includes/virtual-machines-common-gallery-list-ps.md)]
 
-
-## <a name="clean-up-resources"></a>Rensa resurser
-
-När de inte längre behövs använder du cmdleten [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) för att ta bort resursgruppen, den virtuella datorn och alla relaterade resurser:
-
-```azurepowershell-interactive
-Remove-AzResourceGroup -Name myGalleryRG
-Remove-AzResourceGroup -Name myVMSSRG
-```
+[!INCLUDE [virtual-machines-common-shared-images-update-delete-ps](../../includes/virtual-machines-common-shared-images-update-delete-ps.md)]
 
 
 ## <a name="next-steps"></a>Nästa steg

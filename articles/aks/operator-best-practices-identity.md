@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: iainfou
-ms.openlocfilehash: 1c20e7796d152c9198786c491f9a61752d88ea6f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f98e38556458b8d8a675d1e3f985aacfca022082
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64726625"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65074151"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>Metodtips för autentisering och auktorisering i Azure Kubernetes Service (AKS)
 
@@ -88,7 +88,7 @@ Om du vill se hur du använder Azure AD-grupper för att styra åtkomsten till K
 
 ## <a name="use-pod-identities"></a>Använda pod-identiteter
 
-**Bästa praxis riktlinjer** – Använd inte fasta autentiseringsuppgifter i poddar eller behållaravbildningar, eftersom de är på risken för exponering eller missbruk. Använd i stället pod identiteter automatiskt begära åtkomst med hjälp av en central identitetslösning för Azure AD.
+**Bästa praxis riktlinjer** – Använd inte fasta autentiseringsuppgifter i poddar eller behållaravbildningar, eftersom de är på risken för exponering eller missbruk. Använd i stället pod identiteter automatiskt begära åtkomst med hjälp av en central identitetslösning för Azure AD. Pod identiteter är avsedd att användas med Linux-poddar och endast behållaravbildningar.
 
 När poddar behöver åtkomst till andra Azure-tjänster, till exempel Cosmos DB, Key Vault eller Blob-lagring, måste din pod autentiseringsuppgifter. Dessa autentiseringsuppgifter kan definieras med behållaravbildningen eller matas in som en Kubernetes-hemlighet, men måste skapas och tilldelas manuellt. Ofta autentiseringsuppgifterna som återanvänds i poddar och regelbundet roteras med inte.
 

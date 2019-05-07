@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: e000c034d10efc652f328fa8d1db8d1902fac693
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 2adcbad55236917685ddcdbabe4809f36ab5a730
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026123"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153050"
 ---
 # <a name="install-and-run-speech-service-containers"></a>Installera och köra Speech Service-behållare
 
@@ -178,7 +178,7 @@ När behållaren är på den [värddatorn](#the-host-computer), använder du fö
 
 Använd den [docker kör](https://docs.docker.com/engine/reference/commandline/run/) kommando för att köra någon av tre behållarna. Kommandot använder följande parametrar:
 
-**Under den privata förhandsgranskningen**, fakturering inställningarna måste vara giltig för att starta behållaren men du debiteras inte för användning.
+**I förhandsversionen**, fakturering inställningarna måste vara giltig för att starta behållaren, men du inte debiteras för användning.
 
 | Platshållare | Värde |
 |-------------|-------|
@@ -226,7 +226,7 @@ Det här kommandot:
 
 ### <a name="speech-to-text"></a>Tal till text
 
-Behållaren innehåller websocket-baserade frågan endpoint API: er, som kan nås via [Speech services SDK-dokumentation](https://docs.microsoft.com/azure/cognitive-services/speech-service/).
+Behållaren innehåller websocket-baserade frågan endpoint API: er, som kan nås via den [tal SDK](index.yml).
 
 Som standard använder SDK: N för tal online taltjänster. Om du vill använda behållaren som du behöver ändra initieringsmetoden. Se följande exempel.
 

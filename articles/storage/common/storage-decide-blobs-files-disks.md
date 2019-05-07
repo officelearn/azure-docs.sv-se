@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/28/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 869d2105ccf635a46a21e9b7f382ddbef713d68b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f66a2699b6d29f10633b4853801240f0590ff918
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61483425"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147630"
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Avgöra när du ska använda Azure Blobs, Azure Files eller Azure-diskar
 Microsoft Azure tillhandahåller flera funktioner i Azure Storage för att lagra och komma åt dina data i molnet. Den här artikeln täcker Azure Files, BLOB-objekt och diskar och har utformats för att hjälpa dig att välja mellan de här funktionerna.

@@ -1,44 +1,41 @@
 ---
-title: Självstudie – Hantera webbtrafik – Azure CLI
+title: Hantera webbtrafik – Azure CLI
 description: Lär dig hur du skapar en programgateway med en VM-skalningsuppsättning för hantering av webbtrafik i Azure CLI.
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
-ms.topic: tutorial
-ms.workload: infrastructure-services
-ms.date: 7/14/2018
+ms.topic: article
+ms.date: 5/1/2019
 ms.author: victorh
-ms.custom: mvc
-ms.openlocfilehash: 264e1050e74c64c003e08bc6a8ba1c115b83032c
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: d60c756fcf0b527731b8a1f31a8d93f108c91665
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749078"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65146234"
 ---
-# <a name="tutorial-manage-web-traffic-with-an-application-gateway-using-the-azure-cli"></a>Självstudier: Hantera webbtrafik med en programgateway som använder Azure CLI
+# <a name="manage-web-traffic-with-an-application-gateway-using-the-azure-cli"></a>Hantera webbtrafik med en programgateway som använder Azure CLI
 
-Programgatewayen används till att hantera och skydda webbtrafiken till de servrar du hanterar. Du kan använda Azure CLI till att skapa en [programgateway](overview.md) som använder en [VM-skalningsuppsättning](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) för hantering av webbtrafik på servrarna i serverdelen. I det här exemplet innehåller skalningsuppsättningen två virtuella datorinstanser i serverdelens standardpool i programgatewayen.
+Programgatewayen används till att hantera och skydda webbtrafiken till de servrar du hanterar. Du kan använda Azure CLI för att skapa en [programgatewayen](overview.md) som använder en [virtual machine scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) för backend-servrar. I det här exemplet innehåller två instanser av virtuella datorer i skalningsuppsättningen. Skalningsuppsättningen har lagts till Standardpool för serverdelen för programgatewayen.
 
-I den här guiden får du lära dig att:
+I den här artikeln kan du se hur du:
 
 > [!div class="checklist"]
 > * Konfigurera nätverket
 > * Skapa en programgateway
 > * Skapa en VM-skalningsuppsättning med serverdelens standardpool
 
-Om du vill kan du utföra den här självstudien med [Azure PowerShell](tutorial-manage-web-traffic-powershell.md).
+Om du vill kan du slutföra den här proceduren med [Azure PowerShell](tutorial-manage-web-traffic-powershell.md).
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
+Om du väljer att installera och använda CLI lokalt måste den här snabbstarten måste du köra Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. Skapa en resursgrupp med [az group create](/cli/azure/group#az-group-create). 
+En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. Skapa en resursgrupp med [az group create](/cli/azure/group#az-group-create).
 
 I följande exempel skapas en resursgrupp med namnet *myResourceGroupAG* på platsen *eastus*.
 
@@ -90,7 +87,7 @@ az network application-gateway create \
   --public-ip-address myAGPublicIPAddress
 ```
 
- Det kan ta flera minuter att skapa programgatewayen. När programgatewayen har skapats ser du de här nya funktionerna:
+ Det kan ta flera minuter att skapa programgatewayen. När application gateway har skapats, visas de här nya funktionerna:
 
 - *appGatewayBackendPool* – en programgateway måste ha minst en serverdelsadresspool.
 - *appGatewayBackendHttpSettings* – anger att port 80 och ett HTTP-protokoll används för kommunikation.
@@ -136,7 +133,7 @@ az vmss extension set \
 
 Hämta den offentliga IP-adressen för programgatewayen med [az network public-ip show](/cli/azure/network/public-ip). Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält.
 
-```azurepowershell-interactive
+```azurecli-interactive
 az network public-ip show \
   --resource-group myResourceGroupAG \
   --name myAGPublicIPAddress \
@@ -156,12 +153,4 @@ az group delete --name myResourceGroupAG --location eastus
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen lärde du dig att:
-
-> [!div class="checklist"]
-> * Konfigurera nätverket
-> * Skapa en programgateway
-> * Skapa en VM-skalningsuppsättning med serverdelens standardpool
-
-> [!div class="nextstepaction"]
-> [Begränsa webbtrafik med en brandvägg för webbaserade program](./tutorial-restrict-web-traffic-cli.md)
+[Begränsa webbtrafik med en brandvägg för webbaserade program](./tutorial-restrict-web-traffic-cli.md)

@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 04/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 48d08af1c33eaddd8d963d9e1ab0322c3972997e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: cf1ea32e9b023db2e1a066c2baa6adf46ab51066
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64693266"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65152750"
 ---
 # <a name="tutorial-analyze-videos-with-media-services-v3-using-net"></a>Självstudier: Analysera videor med Media Services v3 med .NET
 
@@ -167,7 +167,7 @@ az group delete --name amsResourceGroup
 
 SDK:erna i Azure Media Services v3 är inte trådsäkra. När du arbetar med flertrådade program bör du skapa ett nytt AzureMediaServicesClient-objekt per tråd.
 
-## <a name="provide-feedback"></a>Ge feedback
+## <a name="ask-questions-give-feedback-get-updates"></a>Ställ frågor, ge feedback, få uppdateringar
 
 Kolla in den [Azure Media Services-community](media-services-community.md) artikeln olika sätt du kan ställa frågor, ge feedback och få uppdateringar om Media Services.
 

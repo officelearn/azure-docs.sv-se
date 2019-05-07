@@ -2,20 +2,21 @@
 title: Hantera Azure Storage-livscykel
 description: Lär dig mer om att skapa livscykel principregler övergången föråldras data från frekvent till lågfrekvent nivå eller arkivnivå.
 services: storage
-author: yzheng-msft
+author: mhopkins-msft
 ms.service: storage
 ms.topic: conceptual
 ms.date: 4/29/2019
-ms.author: yzheng
+ms.author: mhopkins
+ms.reviewer: yzheng
 ms.subservice: common
-ms.openlocfilehash: f1fdd1b239301a5340716e1d5d098487afe27f9f
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 130eb9cc8bec4681f5c0d165735c6c3b2357576c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64938573"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148324"
 ---
-# <a name="manage-the-azure-blob-storage-lifecycle"></a>Hantera Azure Blob storage livscykel
+# <a name="manage-the-azure-blob-storage-lifecycle"></a>Hantera livscykeln för Azure Blob-lagring
 
 Datauppsättningar har unika livscykler. Tidigt i livscykeln, personer åtkomst till vissa data ofta. Men behov av åtkomst sjunker drastiskt som data registrerar dig. Vissa data förblir inaktiva i molnet och används sällan lagras en gång. Vissa data upphör dagar eller månader när du har skapat, medan andra datauppsättningar läses aktivt och ändras under hela sin livslängd. Livscykelhantering för Azure Blob storage erbjuder en omfattande, regelbaserad princip för GPv2- och Blob storage-konton. Använda för att överföra data till lämpliga åtkomstnivåer eller upphör att gälla i slutet av den data livscykel.
 
@@ -156,7 +157,7 @@ Varje regel i principen har flera parametrar:
 | Parameternamn | Parametertyp | Anteckningar | Krävs |
 |----------------|----------------|-------|----------|
 | namn           | String |Ett regelnamn kan innehålla upp till 256 alfanumeriska tecken. Regelnamnet är skiftlägeskänsligt.  Det måste vara unika inom en princip. | True |
-| aktiverad | Boolean | Ett valfritt booleskt värde att tillåta en regel för att vara tillfälligt inaktiverats. Standardvärdet är SANT om det inte har angetts. | False | 
+| enabled | Boolean | Ett valfritt booleskt värde att tillåta en regel för att vara tillfälligt inaktiverats. Standardvärdet är SANT om det inte har angetts. | False | 
 | typ           | Ett uppräkningsvärde | Den aktuella giltiga typen är `Lifecycle`. | True |
 | definition     | Ett objekt som definierar regeln för livscykel | Varje definition består av ett filter och en åtgärd. | True |
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: shlo
-ms.openlocfilehash: 62c9a8e6375f6ac7db86ae81cdd4e5c9eb445770
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 09f80f69857ae17a0136229fe9bf13d4f63e7096
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432829"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65151077"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Skapa en utlösare som kör en pipeline enligt ett schema
 Den här artikeln innehåller information om schemautlösare och stegen för att skapa, starta och övervaka en schemautlösare. För andra typer av utlösare finns i [Pipelinekörning och utlösare](concepts-pipeline-execution-triggers.md).
@@ -274,7 +274,7 @@ Följande JSON-definition visar hur du skapar en schemautlösare med schemalägg
         "timeZone": "UTC"
         "schedule": {                    // Optional (advanced scheduling specifics)
           "hours": [<<0-23>>],
-          "weekDays": : [<<Monday-Sunday>>],
+          "weekDays": [<<Monday-Sunday>>],
           "minutes": [<<0-59>>],
           "monthDays": [<<1-31>>],
           "monthlyOccurrences": [
@@ -325,13 +325,13 @@ I följande tabell ges en översikt över de viktigaste schemaelementen relatera
 
 ### <a name="schema-defaults-limits-and-examples"></a>Standardvärden för scheman, begränsningar och exempel
 
-| JSON-egenskap | Type | Krävs | Standardvärde | Giltiga värden | Exempel |
+| JSON-egenskap | Typ | Obligatoriskt | Standardvärde | Giltiga värden | Exempel |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | **startTime** | String | Ja | Ingen | ISO 8601-datum/tid | `"startTime" : "2013-01-09T09:30:00-08:00"` |
-| **recurrence** | Objekt | Ja | Ingen | Upprepningsobjekt | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
+| **recurrence** | Object | Ja | Ingen | Upprepningsobjekt | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
 | **interval** | Tal | Nej | 1 | 1 till 1 000 | `"interval":10` |
 | **endTime** | String | Ja | Ingen | Ett datum/tid-värde som representerar en tidpunkt i framtiden. | `"endTime" : "2013-02-09T09:30:00-08:00"` |
-| **schedule** | Objekt | Nej | Ingen | Schemaobjekt | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
+| **schedule** | Object | Nej | Ingen | Schemaobjekt | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>Egenskapen startTime
 I följande tabell visas hur egenskapen **startTime** styr körningen av en utlösare:

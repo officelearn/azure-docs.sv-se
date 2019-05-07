@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 04/26/2019
-ms.openlocfilehash: 71610aa9916519338c564127616f4569aff70aaa
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.date: 05/01/2019
+ms.openlocfilehash: 3f1ab5c2cb30dd4067c07833529e6a6a0c71e286
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925365"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65136647"
 ---
 # <a name="tutorial-migrate-rds-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>Självstudier: Migrera Fjärrskrivbordstjänster PostgreSQL till Azure Database för PostgreSQL online med DMS
 
@@ -168,9 +168,7 @@ För att slutföra den här kursen behöver du:
 
 6. Välj en prisnivå; för den här onlinemigrering vara noga med att välja Premium: 4vCores prisnivå.
 
-    Mer information om kostnader och prisnivåer finns på [sidan med priser](https://aka.ms/dms-pricing). Om du behöver hjälp med att välja rätt Azure Database Migration Service prisnivån finns rekommendationer för bokföring [här](https://go.microsoft.com/fwlink/?linkid=861067).
-
-     ![Konfigurera Azure Database Migration Service-instansinställningar](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/dms-settings4.png)
+    ![Konfigurera Azure Database Migration Service-instansinställningar](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/dms-settings4.png)
 
 7. Välj **Skapa** för att skapa tjänsten.
 

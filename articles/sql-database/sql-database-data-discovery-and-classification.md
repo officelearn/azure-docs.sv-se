@@ -7,17 +7,17 @@ ms.subservice: security
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: ronitr
-ms.author: ronitr
+author: vainolo
+ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 03/22/2019
-ms.openlocfilehash: 74bd3af3e1ffd126f8cb4f2347e4566cc4708e25
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e451b7837a1cff4bbeaecd1573dc860524caf4d3
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60403528"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142657"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-data-discovery--classification"></a>Azure SQL Database och SQL Data Warehouse dataidentifiering och klassificering
 
@@ -127,7 +127,7 @@ En viktig aspekt av information protection-paradigm är möjligheten att överva
 
 ![Granskningslogg](./media/sql-data-discovery-and-classification/11_data_classification_audit_log.png)
 
-## <a id="subheading-4"></a>Automatiserad/Programmatic klassificering
+## <a id="subheading-4"></a>Hantera dataklassificering med T-SQL
 
 Du kan använda T-SQL för att lägga till/ta bort kolumnklassificeringar, samt hämta alla klassificeringar för hela databasen.
 
@@ -146,7 +146,26 @@ Du kan också använda REST API: er för att programmässigt hantera klassificer
 - [Lista över aktuella av databasen](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase) -hämtar aktuella känslighet etiketterna för en viss databas
 - [Listan rekommenderas av databasen](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) -hämtar rekommenderade känslighet etiketterna för en viss databas
 
+## <a name="manage-data-discovery-and-classification-using-azure-powershell"></a>Hantera identifiering och klassificering med hjälp av Azure PowerShell
+
+Du kan använda PowerShell för att hämta alla rekommenderade kolumner i en Azure SQL-databas och en hanterad instans.
+
+### <a name="powershell-cmdlets-for-azure-sql-database"></a>PowerShell-Cmdlets för Azure SQL-databas
+
+- [Get-AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasesensitivityclassification)
+- [Set-AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasesensitivityclassification)
+- [Remove-AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabasesensitivityclassification)
+- [Get-AzSqlDatabaseSensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasesensitivityrecommendation)
+
+### <a name="powershell-cmdlets-for-managed-instance"></a>PowerShell-Cmdlets för den hanterade instansen
+
+- [Get-AzSqlInstanceDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstancedatabasesensitivityclassification)
+- [Set-AzSqlInstanceDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasesensitivityclassification)
+- [Remove-AzSqlInstanceDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstancedatabasesensitivityclassification)
+- [Get-AzSqlInstanceDatabaseSensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstancedatabasesensitivityrecommendation)
+
 ## <a name="permissions"></a>Behörigheter
+
 Följande inbyggda roller kan läsa dataklassificering av en Azure SQL database: `Owner`, `Reader`, `Contributor`, `SQL Security Manager` och `User Access Administrator`.
 
 Följande inbyggda roller kan ändra dataklassificering av en Azure SQL database: `Owner`, `Contributor`, `SQL Security Manager`.

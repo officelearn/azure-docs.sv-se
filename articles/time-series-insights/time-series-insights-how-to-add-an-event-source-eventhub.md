@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 05/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: f2b307f662c0c9b94edc6bb8eb3ca299f5ad4620
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 41d3e72d978a210c2d68365ade5d8cb42c24aad5
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64702636"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147607"
 ---
 # <a name="add-an-event-hub-event-source-to-your-time-series-insights-environment"></a>Lägg till en event hub-händelsekälla till Time Series Insights-miljön
 
@@ -25,11 +25,11 @@ Den här artikeln beskriver hur du använder Azure-portalen för att lägga till
 > [!NOTE]
 > Stegen som beskrivs i den här artikeln gäller både till Time Series Insights GA och förhandsversionen av Time Series Insights-miljöer.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-- Skapa en Time Series Insights-miljö. Mer information finns i [skapa en Azure Time Series Insights-miljö](./time-series-insights-update-create-environment.md).
-- Skapa en händelsehubb. Mer information om Händelsehubbar finns i [skapa ett Event Hubs-namnområde och en event hub med hjälp av Azure portal](../event-hubs/event-hubs-create.md).
-- Event hub måste ha aktiva meddelandehändelser skickas till den. Mer information finns i [skicka händelser till Azure Event Hubs med hjälp av .NET Framework](../event-hubs/event-hubs-dotnet-framework-getstarted-send.md).
+- Skapa en Time Series Insights-miljö enligt beskrivningen i [skapa en Azure Time Series Insights-miljö](./time-series-insights-update-create-environment.md).
+- Skapa en händelsehubb. Se [skapa ett Event Hubs-namnområde och en event hub med hjälp av Azure portal](../event-hubs/event-hubs-create.md).
+- Event hub måste ha aktiva meddelandehändelser skickas till den. Lär dig hur du [skicka händelser till Azure Event Hubs med hjälp av .NET Framework](../event-hubs/event-hubs-dotnet-framework-getstarted-send.md).
 - Skapa en dedikerad konsumentgrupp i händelsehubb som Time Series Insights-miljön kan använda från. Varje Time Series Insights-händelsekälla måste ha sin egen dedikerad konsumentgrupp som inte delas med andra konsumenter. Om flera läsare konsumera händelser från samma konsumentgruppen, förmodligen alla läsare ser fel. Det finns en gräns på 20 konsumentgrupper per händelsehubb. Mer information finns i [programmeringsguiden för Event Hubs](../event-hubs/event-hubs-programming-guide.md).
 
 ### <a name="add-a-consumer-group-to-your-event-hub"></a>Lägg till en konsumentgrupp till din event hub
@@ -42,7 +42,7 @@ Så här lägger du till en ny konsumentgrupp i din event hub
 
 1. Under **entiteter**väljer **konsumentgrupper**, och välj sedan **konsumentgrupp**.
 
-   ![Händelsehubb – Lägg till en konsumentgrupp](media/time-series-insights-how-to-add-an-event-source-eventhub/5-event-hub-consumer-group.png)
+   [![Händelsehubb – Lägg till en konsumentgrupp](media/time-series-insights-how-to-add-an-event-source-eventhub/5-event-hub-consumer-group.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/5-event-hub-consumer-group.png#lightbox)
 
 1. På den **konsumentgrupper** anger du ett nytt unikt värde för **namn**.  Använd det här namnet när du skapar en ny händelsekälla i Time Series Insights-miljö.
 
@@ -56,7 +56,7 @@ Så här lägger du till en ny konsumentgrupp i din event hub
 
 1. Under **miljöns topologi**väljer **händelsekällor**, och välj sedan **Lägg till**.
 
-   ![Under händelsekällor, väljer du knappen Lägg till](media/time-series-insights-how-to-add-an-event-source-eventhub/1-event-sources.png)
+   [![Under händelsekällor, väljer du knappen Lägg till](media/time-series-insights-how-to-add-an-event-source-eventhub/1-event-sources.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/1-event-sources.png#lightbox)
 
 1. Ange ett värde för **Händelsekällans namn för** som är unik för den här Time Series Insights-miljön, till exempel **händelseströmmen**.
 
@@ -66,11 +66,11 @@ Så här lägger du till en ny konsumentgrupp i din event hub
    - Om du har en befintlig händelsehubb i en av dina prenumerationer, väljer **Använd Event Hub från tillgängliga prenumerationer**. Det här alternativet är den enklaste metoden.
    - Om event hub är extern till dina prenumerationer eller om du vill välja avancerade alternativ väljer **ange Event Hub-inställningar manuellt**.
 
-   ![I den nya event källa, kan du ange värden för de första tre parametrarna](media/time-series-insights-how-to-add-an-event-source-eventhub/2-import-option.png)
+   [![I den nya event källa, kan du ange värden för de första tre parametrarna](media/time-series-insights-how-to-add-an-event-source-eventhub/2-import-option.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/2-import-option.png#lightbox)
 
 1. I följande tabell beskrivs de nödvändiga egenskaperna för den **Använd Event Hub från tillgängliga prenumerationer** alternativet:
 
-   ![Prenumeration och event hub-information](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png)
+   [![Prenumeration och event hub-information](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png#lightbox)
 
    | Egenskap  | Beskrivning |
    | --- | --- |
@@ -101,7 +101,7 @@ Så här lägger du till en ny konsumentgrupp i din event hub
 
 1. Välj **Skapa**.
 
-   ![Välj Skapa](media/time-series-insights-how-to-add-an-event-source-eventhub/4-create-button.png)
+   [![Välj Skapa](media/time-series-insights-how-to-add-an-event-source-eventhub/4-create-button.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/4-create-button.png#lightbox)
 
    När du har skapat händelsekällan börjar Time Series Insights automatiskt strömmande data i din miljö.
 

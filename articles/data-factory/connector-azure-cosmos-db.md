@@ -57,7 +57,7 @@ Följande egenskaper har stöd för Azure Cosmos DB (SQL-API) länkade tjänsten
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Den **typ** egenskapen måste anges till **CosmosDb**. | Ja |
+| type | Den **typ** egenskapen måste anges till **CosmosDb**. | Ja |
 | connectionString |Ange information som krävs för att ansluta till Azure Cosmos DB-databasen.<br />**Obs!** Du måste ange databasinformation i anslutningssträngen som visas i följande exempel. <br/>Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory. Du kan också publicera kontonyckeln i Azure Key Vault och använda pull i `accountKey` konfiguration av anslutningssträngen. Följande exempel finns och [Store autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) artikel med mer information. |Ja |
 | connectVia | Den [Integreringskörningen](concepts-integration-runtime.md) för att ansluta till datalagret. Du kan använda Azure Integration Runtime eller en lokal integration runtime (om ditt datalager finns i ett privat nätverk). Om egenskapen inte anges används standard Azure Integration Runtime. |Nej |
 
@@ -121,8 +121,8 @@ För att kopiera data från eller till Azure Cosmos DB (SQL-API), ange den **typ
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Den **typ** egenskap måste anges till **DocumentDbCollection**. |Ja |
-| Samlingsnamn |Namnet på Azure Cosmos DB-dokumentsamling. |Ja |
+| type | Den **typ** egenskap måste anges till **DocumentDbCollection**. |Ja |
+| collectionName |Namnet på Azure Cosmos DB-dokumentsamling. |Ja |
 
 **Exempel**
 
@@ -167,8 +167,8 @@ Följande egenskaper stöds i Kopieringsaktiviteten **källa** avsnittet:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Den **typ** egenskapen för aktiviteten kopieringskälla måste anges till **DocumentDbCollectionSource**. |Ja |
-| DocumentDB |Ange Azure Cosmos DB-fråga för att läsa data.<br/><br/>Exempel:<br /> `SELECT c.BusinessEntityID, c.Name.First AS FirstName, c.Name.Middle AS MiddleName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Nej <br/><br/>Om inte anges, körs den här SQL-instruktionen: `select <columns defined in structure> from mycollection` |
+| type | Den **typ** egenskapen för aktiviteten kopieringskälla måste anges till **DocumentDbCollectionSource**. |Ja |
+| query |Ange Azure Cosmos DB-fråga för att läsa data.<br/><br/>Exempel:<br /> `SELECT c.BusinessEntityID, c.Name.First AS FirstName, c.Name.Middle AS MiddleName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Nej <br/><br/>Om inte anges, körs den här SQL-instruktionen: `select <columns defined in structure> from mycollection` |
 | nestingSeparator |Specialtecken som anger att dokumentet är kapslade och hur du platta ut resultatet.<br/><br/>Exempel: om en Azure Cosmos DB-fråga returnerar det kapslade `"Name": {"First": "John"}`, Kopieringsaktivitet identifierar kolumnnamnet som `Name.First`, med värdet ”John”, när den **nestedSeparator** värdet är **.** (punkt). |Nej<br />(standardvärdet är **.** (punkt)) |
 
 **Exempel**
@@ -211,9 +211,9 @@ Följande egenskaper stöds i Kopieringsaktiviteten **källa** avsnittet:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Den **typ** egenskapen för mottagare för Kopieringsaktivitet måste anges till **DocumentDbCollectionSink**. |Ja |
-| WriteBehavior |Beskriver hur du skriver data till Azure Cosmos DB. Tillåtna värden: **infoga** och **upsert**.<br/><br/>Beteendet för **upsert** är att ersätta dokumentet om ett dokument med samma ID redan finns, annars Infoga dokumentet.<br /><br />**Obs!** Data Factory genererar automatiskt ett ID för ett dokument om ett ID inte har angetts i det ursprungliga dokumentet eller genom kolumnmappning. Det innebär att måste du se till att, för **upsert** för att fungera som förväntat, dokumentet har ett ID. |Nej<br />(standardvärdet är **infoga**) |
-| WriteBatchSize | Data Factory använder den [Azure Cosmos DB bulk executor biblioteket](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) att skriva data till Azure Cosmos DB. Den **writeBatchSize** egenskapen styr storleken på dokument med ADF i biblioteket. Du kan prova att öka värdet för **writeBatchSize** att förbättra prestanda och minska värdet om dokumentet storlek vara stora – se nedan tips. |Nej<br />(standardvärdet är **10 000**) |
+| type | Den **typ** egenskapen för mottagare för Kopieringsaktivitet måste anges till **DocumentDbCollectionSink**. |Ja |
+| writeBehavior |Beskriver hur du skriver data till Azure Cosmos DB. Tillåtna värden: **infoga** och **upsert**.<br/><br/>Beteendet för **upsert** är att ersätta dokumentet om ett dokument med samma ID redan finns, annars Infoga dokumentet.<br /><br />**Obs!** Data Factory genererar automatiskt ett ID för ett dokument om ett ID inte har angetts i det ursprungliga dokumentet eller genom kolumnmappning. Det innebär att måste du se till att, för **upsert** för att fungera som förväntat, dokumentet har ett ID. |Nej<br />(standardvärdet är **infoga**) |
+| writeBatchSize | Data Factory använder den [Azure Cosmos DB bulk executor biblioteket](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) att skriva data till Azure Cosmos DB. Den **writeBatchSize** egenskapen styr storleken på dokument med ADF i biblioteket. Du kan prova att öka värdet för **writeBatchSize** att förbättra prestanda och minska värdet om dokumentet storlek vara stora – se nedan tips. |Nej<br />(standardvärdet är **10 000**) |
 | nestingSeparator |Specialtecken i den **källa** kolumnnamn som anger att ett kapslade dokument krävs. <br/><br/>Till exempel `Name.First` i datauppsättningen för utdata struktur genererar följande JSON-strukturen i Azure Cosmos DB dokumentera när den **nestedSeparator** är **.** (punkt): `"Name": {"First": "[value maps to this column from source]"}`  |Nej<br />(standardvärdet är **.** (punkt)) |
 
 >[!TIP]

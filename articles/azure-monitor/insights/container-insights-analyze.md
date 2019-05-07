@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/17/2019
+ms.date: 05/06/2019
 ms.author: magoedte
-ms.openlocfilehash: 8fb1d0083796671119de2b4d7feefe738b602fe2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ed387f7038c5dee1a1685c918abcae49942cd55d
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60497373"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148850"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Förstå prestanda för AKS-kluster med Azure Monitor för behållare 
 Med Azure Monitor för behållare kan använda du prestandadiagram och hälsostatus för att övervaka arbetsbelastningen för dina Azure Kubernetes Service (AKS) kluster ur två perspektiv, direkt från ett AKS-kluster eller alla AKS-kluster i en prenumeration från Azure Övervaka. Visa Azure Container Instances (ACI) är också möjligt när du övervakar ett specifikt AKS-kluster.
@@ -27,7 +27,19 @@ Den här artikeln hjälper dig att förstå upplevelse mellan två perspektiv oc
 
 Information om hur du aktiverar Azure Monitor för behållare finns i [publicera Azure Monitor för behållare](container-insights-onboard.md).
 
-Azure Monitor innehåller en vy för flera kluster som visar hälsotillståndet för alla övervakade AKS-kluster som distribueras mellan resursgrupper i dina prenumerationer.  Den visar AKS-kluster identifieras som inte övervakas av lösningen. Du kan omedelbart förstår klusterhälsa och härifrån kan du öka detaljnivån till sidan noden och controller prestanda eller navigera för att se prestandadiagram för klustret.  AKS-kluster identifieras och identifieras som oövervakade kan aktivera du övervakning för klustret när som helst.  
+> [!IMPORTANT]
+> Azure Monitor för behållare support att övervaka ett AKS-kluster som kör Windows Server 2019 är för närvarande i offentlig förhandsversion.
+> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Azure Monitor innehåller en vy för flera kluster som visar hälsotillståndet för alla övervakade AKS-kluster som kör Linux och Windows Server 2019 distribueras mellan resursgrupper i dina prenumerationer.  Den visar AKS-kluster identifieras som inte övervakas av lösningen. Du kan omedelbart förstår klusterhälsa och härifrån kan du öka detaljnivån till sidan noden och controller prestanda eller navigera för att se prestandadiagram för klustret.  AKS-kluster identifieras och identifieras som oövervakade kan aktivera du övervakning för klustret när som helst.  
+
+De viktigaste skillnaderna övervaka en Windows Server-kluster med Azure Monitor för behållare jämfört med ett Linux-kluster är följande:
+
+- Minne RSS-mått är inte tillgänglig för Windows-nod och behållare 
+- Information om disken lagringskapacitet är inte tillgänglig för Windows-noder
+- Live loggar support är tillgänglig med undantag för Windows-behållarloggarna.
+- Endast pod miljöer övervakas, inte Docker-miljöer.
+- Med förhandsversionen kan högst 30 Windows Server-behållare stöds. Den här begränsningen gäller inte för Linux-behållare.  
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 Logga in på [Azure Portal](https://portal.azure.com). 
@@ -35,7 +47,7 @@ Logga in på [Azure Portal](https://portal.azure.com).
 ## <a name="multi-cluster-view-from-azure-monitor"></a>Visa flera kluster från Azure Monitor 
 Om du vill visa alla AKS-kluster som distribueras hälsostatus, Välj **övervakaren** från det vänstra fönstret i Azure-portalen.  Under den **Insights** väljer **behållare**.  
 
-![Exempel på Azure Monitor flera klusterinstrumentpanel](./media/container-insights-analyze/azmon-containers-multiview-1018.png)
+![Exempel på Azure Monitor flera klusterinstrumentpanel](./media/container-insights-analyze/azmon-containers-multiview.png)
 
 På den **övervakas kluster** fliken du kan lära dig följande:
 
@@ -128,11 +140,11 @@ Du kan använda [uppdelningen](../platform/metrics-charts.md#apply-splitting-to-
 
 ## <a name="analyze-nodes-controllers-and-container-health"></a>Analysera noder, domänkontrollanter och hälsotillstånd för behållare
 
-När du växlar till **noder**, **domänkontrollanter**, och **behållare** fliken automatiskt visas till höger på sidan är egenskapsrutan.  Den visar egenskaperna för det objekt-markerats, inklusive etiketter som du definierar för att organisera Kubernetes-objekten. Klicka på den **>>** länkar i fönstret till view\hide fönstret.  
+När du växlar till **noder**, **domänkontrollanter**, och **behållare** fliken automatiskt visas till höger på sidan är egenskapsrutan. Den visar egenskaperna för det objekt-markerats, inklusive etiketter som du definierar för att organisera Kubernetes-objekten. När en Linux-nod väljs det visar även under avsnittet **lokala diskkapacitet** tillgängligt diskutrymme och procent som används för varje disk som presenteras för noden. Klicka på den **>>** länkar i fönstret till view\hide fönstret. 
 
 ![Egenskapsrutan för exempel Kubernetes perspektiv](./media/container-insights-analyze/perspectives-preview-pane-01.png)
 
-När du expanderar objekt inom hierarkin egenskaper fönstret uppdateringar baserat på de objekt som valts. Fönstret kan du också visa Kubernetes-händelser med fördefinierade loggsökningar genom att klicka på den **visa Kubernetes-händelseloggar** länken längst upp i fönstret. Mer information om hur du visar loggdata för Kubernetes finns i [söka loggarna för att analysera data](container-insights-log-search.md). När du granskar dina behållare i den **behållare** kan visas behållarens loggar i realtid. Läs mer om den här funktionen och den konfiguration som krävs för att bevilja och styra åtkomsten [visa behållarens loggar realtid med Azure Monitor för behållare](container-insights-live-logs.md). 
+När du expanderar objekt inom hierarkin egenskaper fönstret uppdateringar baserat på de objekt som valts. Fönstret kan du också visa Kubernetes-händelser med fördefinierade loggsökningar genom att klicka på den **visa Kubernetes-händelseloggar** länken längst upp i fönstret. Mer information om hur du visar loggdata för Kubernetes finns i [söka loggarna för att analysera data](container-insights-log-search.md). Du kan se behållarloggarna och händelser i realtid när du granskar klusterresurser. Läs mer om den här funktionen och den konfiguration som krävs för att bevilja och styra åtkomsten [visa loggar realtid med Azure Monitor för behållare](container-insights-live-logs.md). 
 
 Använd den **+ Lägg till Filter** alternativet högst upp på sidan om du vill filtrera resultatet för vyn av **Service**, **nod**, **Namespace**, eller  **Nodpool** och när du har valt vilka filter du sedan välja en av de värden som visas i den **Välj värde(n)** fält.  När filtret har konfigurerats kan tillämpas globalt medan du visar alla perspektiv AKS-klustret.  Formeln har endast stöd för likhetstecknet.  Du kan lägga till ytterligare filter på den första mallen för att ytterligare begränsa dina resultat.  Om du har angett ett filter genom att exempelvis **nod**, andra filtret skulle bara kan du välja **Service** eller **Namespace**.  
 
@@ -143,6 +155,10 @@ Ange ett filter i en flik fortsätter att tillämpas när du väljer en annan ut
 Växla till den **noder** fliken och raden hierarkin följer objektmodellen Kubernetes börjar med en nod i klustret. Expandera noden och du kan visa en eller flera poddar som körs på noden. Om flera behållare är grupperat till en pod, visas de som den sista raden i hierarkin. Du kan också visa hur många icke-pod relaterade arbetsbelastningar körs på värden om värden har processor eller minne.
 
 ![Exempel Kubernetes Node-hierarkin i prestandavyn](./media/container-insights-analyze/containers-nodes-view.png)
+
+Windows Server-behållare som kör Windows Server 2019 OS visas efter alla Linux-baserade noder i listan. När du expanderar en Windows Server-nod kan du visa en eller flera poddar och behållare som körs på noden. När en nod är vald visar egenskapsrutan versionsinformation, exklusive agentinformation eftersom Windows Server-noder inte har någon agent installerad.  
+
+![Exempel-Node-hierarkin med Windows Server-noder i listan](./media/container-insights-analyze/nodes-view-windows.png) 
 
 Azure Container Instances virtuella noder kör Linux-operativsystem visas efter den sista noden i AKS klustret i listan.  När du har expanderat en virtuell ACI-nod kan visa du en eller flera poddar i ACI och behållare som körs på noden.  Mått är inte samlas in och rapporteras för noderna, endast poddar.
 

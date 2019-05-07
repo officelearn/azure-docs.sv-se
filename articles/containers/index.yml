@@ -63,6 +63,7 @@ sections:
           - html: <a href="/azure/app-service/containers/tutorial-multi-container-app">Skapa en app med flera behållare i Web App for Containers</a>
           - html: <a href="/azure/container-registry/container-registry-tutorial-quick-task">Skapa och distribuera containeravbildningar med Azure Container Registry-uppgifter</a>
           - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Skapa och distribuera en container till Azure Container Instances</a>
+          - html: <a href="/azure/openshift/tutorial-create-cluster">Skapa ett kluster för Red Hat OpenShift på Azure</a>
   - title: Utveckla dina färdigheter med Microsoft Learn
     items:
       - type: list

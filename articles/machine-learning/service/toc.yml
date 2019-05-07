@@ -6,9 +6,6 @@
     - name: Vad är tjänsten Azure Machine Learning?
       displayName: AML services overview
       href: overview-what-is-azure-ml.md
-    - name: Vad har hänt med Workbench?
-      displayName: desktop ui Workbench upgrade update transfer
-      href: overview-what-happened-to-workbench.md
 - name: Konfiguration
   items:
     - name: Skapa en arbetsyta
@@ -92,6 +89,8 @@
     - name: Modelltolkning
       displayName: explainability
       href: machine-learning-interpretability-explainability.md
+    - name: 'Accelerera med GPU:er'
+      href: concept-accelerate-inferencing-with-gpus.md
     - name: Accelerera med FPGA
       href: concept-accelerate-with-fpgas.md
     - name: Optimera med ONNX- och ONNX-körning
@@ -117,6 +116,7 @@
         - name: Använda portalen för arbetsytor
           href: how-to-manage-workspace.md
         - name: Använda en Resource Manager-mall
+          displayName: arm
           href: how-to-create-workspace-template.md
     - name: "Konfigurera utvecklingsmiljön\_"
       items:
@@ -352,3 +352,6 @@
     - name: Jämför våra ML-produkter
       href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning
       maintainContext: true
+    - name: Vad har hänt med Workbench?
+      displayName: desktop ui Workbench upgrade update transfer
+      href: overview-what-happened-to-workbench.md

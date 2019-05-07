@@ -120,6 +120,8 @@
           href: sql-database-service-tiers-vcore.md
         - name: Tjänstnivåer för DTU
           href: sql-database-service-tiers-dtu.md
+        - name: Serverlös beräkningsnivå
+          href: sql-database-serverless.md
         - name: Förskottsbetalning för reserverad kapacitet
           href: sql-database-reserved-capacity.md
         - name: Migrera från Premium RS-tjänstnivån

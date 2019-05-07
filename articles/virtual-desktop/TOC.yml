@@ -18,9 +18,9 @@
   items:
     - name: Ansluta till Windows Virtual Desktop-resurser
       items:
-        - name: Ansluta med Windows 7 och Windows 10
+        - name: Ansluta från Windows 10 eller Windows 7
           href: connect-windows-7-and-10.md
-        - name: Ansluta med webbklienten
+        - name: Ansluta från en webbläsare
           href: connect-web.md
     - name: Skapa en värdpool med en Azure Resource Manager-mall
       href: create-host-pools-arm-template.md
@@ -34,6 +34,8 @@
       href: diagnostics-role-service.md
     - name: Förbereda och anpassa en VHD-huvudavbildning
       href: set-up-customize-master-image.md
+    - name: Konfigurera GPU för Windows Virtual Desktop
+      href: configure-vm-gpu.md
     - name: Skala sessionsvärdar automatiskt
       href: set-up-scaling-script.md
 - name: Begrepp

@@ -555,6 +555,8 @@
                   href: app/usage-workbooks.md
             - name: Lösning för webbappsanalys
               href: insights/azure-web-apps-analytics.md
+            - name: Appar i Kubernetes
+              href: app/kubernetes.md
         - name: Övervaka containrar
           items:
             - name: Azure Monitor för containrar
@@ -563,13 +565,19 @@
                   href: insights/container-insights-overview.md
                 - name: VANLIGA FRÅGOR OCH SVAR
                   href: insights/container-insights-faq.md
-                - name: Publicera
-                  href: insights/container-insights-onboard.md
+                - name: Aktivera övervakning
+                  items:
+                    - name: Aktivera övervakningsöversikt
+                      href: insights/container-insights-onboard.md
+                    - name: Aktivera för nytt kluster
+                      href: insights/container-insights-enable-new-cluster.md
+                    - name: Aktivera för befintligt kluster
+                      href: insights/container-insights-enable-existing-clusters.md
                 - name: Analysera
                   href: insights/container-insights-analyze.md
                 - name: Inaktivera övervakning
                   href: insights/container-insights-optout.md
-                - name: Visa liveloggar för containrar
+                - name: Visa live-loggar
                   href: insights/container-insights-live-logs.md
                 - name: Analysera data med loggfrågor
                   href: insights/container-insights-log-search.md
@@ -585,8 +593,6 @@
               href: insights/containers.md
             - name: Övervaka Docker-program
               href: app/docker.md
-            - name: Application Insights för Kubernetes
-              href: app/kubernetes.md
         - name: Övervaka resursgrupper
           href: insights/resource-group-insights.md
         - name: Övervaka databaser

@@ -51,6 +51,8 @@
           href: event-hubs-capture-python.md
     - name: Strömma till Event Hubs för Apache Kafka
       href: event-hubs-quickstart-kafka-enabled-event-hubs.md
+    - name: Skapa ett dedikerat Event Hubs-kluster
+      href: event-hubs-dedicated-cluster-create-portal.md
 - name: Självstudier
   items:
     - name: Visualisera dataavvikelser på Event Hubs-dataströmmar

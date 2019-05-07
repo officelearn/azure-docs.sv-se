@@ -12,7 +12,7 @@ metadata:
   ms.date: 12/06/2018
   ms.custom: seodec18
 abstract:
-  description: 'Lär dig hur du kör Sakernas Internet-analys (IoT) i molnet med Stream Analytics, en fullständigt hanterad motor för händelsebearbetning. Självstudier och annan dokumentation visar hur du analyserar data i realtid från program, sensorer, enheter, sociala media och många fler.'
+  description: 'Stream Analytics är en fullständigt hanterad, serverlös händelsebearbetningsmotor som gör det möjligt att analysera dataströmmar från program och IoT-enheter i realtid. Lär dig hur du använder Azure Stream Analytics med hjälp av våra snabbstarter, självstudier och exempel.'
   aside:
     image:
       alt: null

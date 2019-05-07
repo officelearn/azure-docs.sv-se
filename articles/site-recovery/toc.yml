@@ -167,6 +167,8 @@
               href: azure-to-azure-how-to-enable-replication-ade-vms.md
             - name: Aktivera Azure till Azure-replikering för virtuella S2D-datorer
               href: azure-to-azure-how-to-enable-replication-s2d-vms.md
+            - name: Aktivera replikering för en tillagd disk
+              href: azure-to-azure-enable-replication-added-disk.md
             - name: Uteslut diskar
               href: azure-to-azure-exclude-disks.md
             - name: Skydda virtuella Azure-datorer igen efter en redundansväxling

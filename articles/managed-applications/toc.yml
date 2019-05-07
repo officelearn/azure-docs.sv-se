@@ -17,6 +17,8 @@
       href: publish-service-catalog-app.md
     - name: Publicera marknadsplatsprogram
       href: publish-marketplace-app.md
+    - name: Skapa en anpassad resursprovider
+      href: create-custom-provider.md
 - name: Exempel
   items:
     - name: Azure CLI
@@ -25,6 +27,10 @@
       href: powershell-samples.md
     - name: Hanterade programlösningar
       href: sample-projects.md
+- name: Begrepp
+  items:
+    - name: Anpassade providrar
+      href: custom-providers-overview.md
 - name: Instruktionsguider
   items:
     - name: Utgivare

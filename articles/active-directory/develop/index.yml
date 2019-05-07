@@ -1,6 +1,6 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Microsoft Identity Platform (Azure Active Directory för utvecklare)
+title: Microsofts identitetsplattform (tidigare Azure Active Directory för utvecklare)
 metadata:
   title: Microsoft Identity Platform (Azure Active Directory för utvecklare)
   description: 'Lär diganvända Microsoft Identity-plattformen för att skapa appar som på ett säkert sätt loggar in användare i alla Microsoft-identiteter, hämtar tokens för att anropa Microsoft Graph, andra Microsoft-API:er eller API: er som utvecklare har byggt.'
@@ -12,10 +12,10 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 09/24/2018
+  ms.date: 05/07/2019
   ms.author: celested
 abstract:
-  description: 'Microsoft Identity-plattformen är en utveckling av identitetstjänsten och utvecklingsplattformen Azure Active Directory (Azure AD). Den hjälper utvecklare att bygga program som loggar in alla Microsoft-identiteter och hämtar tokens för att anropa Microsoft API:er som Microsoft Graph eller API:er som utvecklare har byggt. Det är en plattform med fullständiga funktioner som består av en OAuth 2.0- och OpenID Connect -standardkompatibel autentiseringstjänst, bibliotek med öppen källkod, programregistrering och konfiguration, driftsäker begreppsrelaterad dokumentation och referensdokumentation, ”snabbstartsexempel ”, kodexempel, självstudier och instruktionsguider.'
+  description: 'Microsoft Identity-plattformen är en utveckling av identitetstjänsten och utvecklingsplattformen Azure Active Directory (Azure AD). Den hjälper utvecklare att bygga program som loggar in alla Microsoft-identiteter och hämtar tokens för att anropa Microsoft API:er som Microsoft Graph eller API:er som utvecklare har byggt. Det här är en plattform med fullständiga funktioner som består av en autentiseringstjänst som följer standarderna OAuth 2.0 och OpenID Connect, bibliotek med öppen källkod, programregistrering och konfiguration, robust koncept- och referensdokumentation, exempel på snabbstarter, kodexempel, självstudier och instruktionsguider.'
   aside:
     image:
       alt: null
@@ -36,81 +36,42 @@ sections:
             html: <p>Läs mer om Microsoft Identity-plattformen och dess funktioner och möjligheter.</p>
             image:
               src: ./media/index/i_get-started.svg
-            title: Om Microsoft Identity-plattformen
+            title: Utvecklingen av Microsofts identitetsplattform
+          - href: /azure/active-directory/develop/v2-overview
+            html: '<p>Skapa program som loggar in alla Microsoft-identiteter och hämtar token för att anropa Microsoft-API:er, till exempel Microsoft Graph eller API:er som utvecklare har skapat.</p>'
+            image:
+              src: ./media/index/i_investigate.svg
+            title: v2.0
           - href: /azure/active-directory/develop/azure-ad-developers-guide/
             html: '<p>Autentisera Azure AD-identiteter (arbets- och skolkonton) genom att begära token från slutpunkten Azure AD v1.0 med hjälp av Azure AD Authentication Library (ADAL), Azure-portalen och Azure AD Graph API.</p>'
             image:
               src: ./media/index/i_advanced.svg
             title: V1.0
-          - href: /azure/active-directory/develop/v2-overview
-            html: '<p>Autentisera en bredare uppsättning Microsoft-identiteter via slutpunkten Azure AD v2.0 med hjälp av Microsoft Authentication Library (MSAL), Azure-portalen och Microsoft Graph API.</p>'
-            image:
-              src: ./media/index/i_investigate.svg
-            title: v2.0
+  - title: Programscenarier
+    items:
+      - type: paragraph
+        text: 'Det behöver inte vara svårt att arbeta med identiteter. Välj ett scenario som passar dig. Varje scenario innehåller en översikt, appregistrering och vägledning för konfiguration av kod i appen, kodexempel för att hämta en token och anropa ett API, samt rekommendationer för att börja använda appen i produktionen.'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/active-directory/develop/scenario-spa-overview">Ensidesapplikation</a>
+          - html: <a href="/azure/active-directory/develop/scenario-web-app-sign-user-overview">Webbapp som loggar in användare</a>
+          - html: '<a href="/azure/active-directory/develop/scenario-web-app-call-api-overview">Webbapp som anropar webb-API:er</a>'
+          - html: <a href="/azure/active-directory/develop/scenario-protected-web-api-overview">Skyddat webb-API</a>
+          - html: '<a href="/azure/active-directory/develop/scenario-web-api-call-api-overview">Webb-API som anropar underordnade webb-API: er</a>'
+          - html: '<a href="/azure/active-directory/develop/scenario-desktop-overview">Datorprogram som anropar webb-API:er</a>'
+          - html: <a href="/azure/active-directory/develop/scenario-daemon-overview">Daemon-program</a>
+          - html: <a href="/azure/active-directory/develop/scenario-mobile-overview">Mobilprogram</a>
   - title: Snabbstarter
     items:
       - type: paragraph
-        text: 'Följ anvisningarna i dessa snabbstarter för att snabbt bygga en app och lägga till funktioner som att hämta tokens, uppdatera tokens, logga in en användare, visa användarinformation med mera.'
-      - type: paragraph
-        text: <b>Enkelsidiga appar</b>
+        text: 'Följ de här snabbstarterna för att lära dig hur du använder ett kodexempel som visar hur en app kan logga in användare, hämta en åtkomsttoken för att anropa Microsoft Graph-API:et, eller valfritt webb-API, med mera.'
       - type: table
         style: dataMatrix
         columns:
-          - image:
-              src: ./media/index/angularjs-shield.svg
-            title: AngularJS
           - image:
               src: ./media/index/logo_js.svg
             title: JavaScript
-        rows:
-          - title: V1.0
-            values:
-              - href: quickstart-v1-angularjs-spa.md
-              - href: 'https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi'
-          - title: v2.0
-            values:
-              - href: null
-              - href: quickstart-v2-javascript.md
-      - type: paragraph
-        text: <b>Webbappar</b>
-      - type: table
-        style: dataMatrix
-        columns:
-          - image:
-              src: ./media/index/logo_NET.svg
-            title: ASP .NET
-          - image:
-              src: ./media/index/logo_NETcore.svg
-            title: ASP.NET Core
-          - image:
-              src: ./media/index/logo_java.svg
-            title: Java
-          - image:
-              src: ./media/index/logo_nodejs.svg
-            title: NodeJS
-          - image:
-              src: ./media/index/logo_python.svg
-            title: Python
-        rows:
-          - title: V1.0
-            values:
-              - href: quickstart-v1-aspnet-webapp.md
-              - href: null
-              - href: 'https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect'
-              - href: quickstart-v1-openid-connect-code.md
-              - href: 'https://github.com/Azure-Samples/active-directory-python-webapp-graphapi'
-          - title: v2.0
-            values:
-              - href: quickstart-v2-aspnet-webapp.md
-              - href: quickstart-v2-aspnet-core-webapp.md
-              - href: null
-              - href: 'https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs'
-              - href: null
-      - type: paragraph
-        text: '<b>Webb-API:er</b>'
-      - type: table
-        style: dataMatrix
-        columns:
           - image:
               src: ./media/index/logo_NET.svg
             title: ASP .NET
@@ -120,22 +81,6 @@ sections:
           - image:
               src: ./media/index/logo_nodejs.svg
             title: NodeJS
-        rows:
-          - title: V1.0
-            values:
-              - href: quickstart-v1-dotnet-webapi.md
-              - href: null
-              - href: quickstart-v1-nodejs-webapi.md
-          - title: v2.0
-            values:
-              - href: 'https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet'
-              - href: 'https://azure.microsoft.com/resources/samples/active-directory-dotnet-native-aspnetcore-v2'
-              - href: null
-      - type: paragraph
-        text: <b>Mobilappar och skrivbordsappar</b>
-      - type: table
-        style: dataMatrix
-        columns:
           - image:
               src: ./media/index/logo_android.svg
             title: Android
@@ -149,77 +94,77 @@ sections:
               src: ./media/index/logo_Windows.svg
             title: .NET för Windows-skrivbordet
           - image:
-              src: ./media/index/logo_xamarin.svg
-            title: Xamarin
+              src: ./media/index/logo_NET.svg
+            title: .NET
         rows:
-          - title: V1.0
+          - title: Ensidesapp
             values:
-              - href: quickstart-v1-android.md
-              - href: quickstart-v1-ios.md
+              - href: quickstart-v2-javascript.md
               - href: null
-              - href: quickstart-v1-dotnet.md
-              - href: quickstart-v1-xamarin.md
-          - title: v2.0
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+          - title: Webbapp
             values:
+              - href: null
+              - href: quickstart-v2-aspnet-webapp.md
+              - href: quickstart-v2-aspnet-core-webapp.md
+              - href: 'https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs'
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+          - title: Webb-API
+            values:
+              - href: null
+              - href: 'https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet'
+              - href: 'https://azure.microsoft.com/resources/samples/active-directory-dotnet-native-aspnetcore-v2'
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+          - title: Mobilappar och skrivbordsappar
+            values:
+              - href: null
+              - href: null
+              - href: null
+              - href: null
               - href: quickstart-v2-android.md
               - href: quickstart-v2-ios.md
               - href: quickstart-v2-uwp.md
               - href: quickstart-v2-windows-desktop.md
               - href: null
-      - type: paragraph
-        text: <b>Tjänst-till-tjänst och daemonappar</b>
-      - type: table
-        style: dataMatrix
-        columns:
-          - image:
-              src: ./media/index/logo_NET.svg
-            title: .NET
-        rows:
-          - title: V1.0
+          - title: Daemon-app
             values:
-              - href: sample-v1-code.md
-          - title: v2.0
-            values:
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+              - href: null
               - href: quickstart-v2-netcore-daemon.md
-  - title: Stegvisa självstudier
+  - title: Självstudier
     items:
       - type: paragraph
-        text: 'Använd Microsoft Identity-plattformen och följ djupgående scenariobaserade procedurer för högre utvecklaruppgifter, till exempel att hämta åtkomsttoken, implementera inloggning med Microsoft, med mera.'
-      - type: paragraph
-        text: <b>Enkelsidiga appar</b>
+        text: 'Använd Microsofts identitetsplattform och följ djupgående, scenariobaserade procedurer för viktiga autentiserings- och utvecklaruppgifter som att logga in en användare, hämta en åtkomsttoken för att anropa Microsoft Graph-API:et och skapa en grundläggande begäran för Microsoft Graph-API:et.'
       - type: table
         style: dataMatrix
         columns:
           - image:
               src: ./media/index/logo_js.svg
             title: JavaScript
-        rows:
-          - title: V1.0
-            values:
-              - href: null
-          - title: v2.0
-            values:
-              - href: tutorial-v2-javascript-spa.md
-      - type: paragraph
-        text: <b>Webbappar</b>
-      - type: table
-        style: dataMatrix
-        columns:
           - image:
               src: ./media/index/logo_NET.svg
             title: ASP .NET
-        rows:
-          - title: V1.0
-            values:
-              - href: null
-          - title: v2.0
-            values:
-              - href: tutorial-v2-asp-webapp.md
-      - type: paragraph
-        text: <b>Mobilappar och skrivbordsappar</b>
-      - type: table
-        style: dataMatrix
-        columns:
           - image:
               src: ./media/index/logo_android.svg
             title: Android
@@ -233,14 +178,26 @@ sections:
               src: ./media/index/logo_Windows.svg
             title: .NET för Windows-skrivbordet
         rows:
-          - title: V1.0
+          - title: Ensidesapp
+            values:
+              - href: tutorial-v2-javascript-spa.md
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+          - title: Webbapp
+            values:
+              - href: null
+              - href: tutorial-v2-asp-webapp.md
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+          - title: Mobilappar och skrivbordsappar
             values:
               - href: null
               - href: null
-              - href: null
-              - href: null
-          - title: v2.0
-            values:
               - href: tutorial-v2-android.md
               - href: tutorial-v2-ios.md
               - href: tutorial-v2-windows-uwp.md
@@ -252,5 +209,5 @@ sections:
       - type: list
         style: unordered
         items:
-          - html: <a href="/azure/active-directory/develop/sample-v1-code">v1.0-kodexempel efter scenario</a>
           - html: <a href="/azure/active-directory/develop/sample-v2-code">v2.0-kodexempel efter scenario</a>
+          - html: <a href="/azure/active-directory/develop/sample-v1-code">v1.0-kodexempel efter scenario</a>

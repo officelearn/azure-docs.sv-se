@@ -9,9 +9,9 @@ metadata:
   ms.author: raagyema
   ms.service: postgresql
   ms.topic: landing-page
-  ms.date: 02/25/2019
+  ms.date: 04/26/2019
 abstract:
-  description: 'Azure Database for PostgreSQL är en relationsdatabastjänst baserad på Postgres-databasmotorn med öppen källkod.  Det är en fullständigt hanterad databas som en tjänst som används för hantering av verksamhetskritiska arbetsbelastningar med förutsägbar prestanda, säkerhet, hög tillgänglighet och dynamisk skalbarhet.  Utveckla program med Azure Database for PostgreSQL och använd valfria verktyg och plattform med öppen källkod.  Lär dig hur du använder Azure Database med våra snabbstarter, självstudier och exempel.'
+  description: 'Azure Database for PostgreSQL är en relationsdatabastjänst baserad på Postgres-databasmotorn med öppen källkod.  Det är en fullständigt hanterad databas som en tjänst som används för hantering av verksamhetskritiska arbetsbelastningar med förutsägbar prestanda, säkerhet, hög tillgänglighet och dynamisk skalbarhet. Den finns tillgänglig som två distributionsalternativ, Enskild server och Hyperskala (Citus) (förhandsversion). Alternativet Hyperskala (Citus) skalar frågor över flera datorer horisontellt med hjälp av horisontell partitionering och är lämpligt för program som kräver större skala och bättre prestanda. Lär dig hur du använder Azure Database med våra snabbstarter, självstudier och exempel.'
 sections:
   - title: Snabbstarter på 5 minuter
     items:
@@ -22,22 +22,33 @@ sections:
         items:
           - image:
               src: 'https://docs.microsoft.com/azure/sql-database/media/index/portal.svg'
-            text: Azure Portal
+            text: Enskild server i Azure-portalen
             href: /azure/postgresql/quickstart-create-server-database-portal
           - image:
               src: 'https://docs.microsoft.com/azure/sql-database/media/index/cli.svg'
-            text: Azure CLI
+            text: Enskild server i Azure CLI
             href: /azure/postgresql/quickstart-create-server-database-azure-cli
+          - image:
+              src: 'https://docs.microsoft.com/azure/sql-database/media/index/portal.svg'
+            text: Hyperskala (Citus) i Azure-portalen
+            href: /azure/postgresql/quickstart-create-hyperscale-portal
   - title: Steg för steg-självstudier
     items:
       - type: paragraph
-        text: 'Lär dig att:'
+        text: 'För en enskild server:'
       - type: list
         style: ordered
         items:
           - html: 'Utforma en databas&#58; <a href="/azure/postgresql/tutorial-design-database-using-azure-portal">Azure Portal</a> | <a href="/azure/postgresql/tutorial-design-database-using-azure-cli">Azure CLI</a>'
           - html: <a href="/azure/app-service/containers/tutorial-python-postgresql-app?toc=%2fazure%2fpostgresql%2ftoc.json">Skapa en webbapp med Python och CLI</a>
           - html: <a href="/azure/postgresql/tutorial-monitor-and-tune">Övervaka och finjustera tjänsten</a>
+      - type: paragraph
+        text: 'För hyperskala (Citus) (förhandsversion):'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/postgresql/tutorial-design-database-hyperscale-multi-tenant">Utforma en databas för flera innehavare</a>
+          - html: <a href="/azure/postgresql/tutorial-design-database-hyperscale-realtime">Utforma en databas i realtid</a>
   - title: Utveckla dina färdigheter med Microsoft Learn
     items:
       - type: list

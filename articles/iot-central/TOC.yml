@@ -47,6 +47,8 @@
           href: howto-connect-raspberry-pi-csharp.md
         - name: Förbereda och ansluta en Windows IoT Core-enhet
           href: howto-connect-windowsiotcore.md
+        - name: Förbereda och ansluta en SensorTile.box-enhet
+          href: howto-connect-sensortile.md
         - name: Övervaka enhetsanslutning med hjälp av kommandoraden
           href: howto-use-iotc-explorer.md
     - name: Hantera enheter

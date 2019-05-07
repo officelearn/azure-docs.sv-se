@@ -112,6 +112,8 @@
           href: disk-scalability-targets.md
         - name: Lagring och haveriberedskap för diskar
           href: backup-and-disaster-recovery-for-azure-iaas-disks.md
+        - name: Tillfälliga operativsystemdiskar
+          href: ephemeral-os-disks.md
     - name: Nätverk
       href: network-overview.md
     - name: Skala program automatiskt
@@ -243,18 +245,38 @@
           href: reserved-vm-instance-size-flexibility.md
     - name: Använda avbildningar
       items:
-        - name: Delade bilder (förhandsversion)
+        - name: Delade avbildningar
           items:
             - name: Översikt
               href: shared-image-galleries.md
-            - name: Skapa delade avbildningar med PowerShell
+            - name: PowerShell
               href: shared-images.md
-            - name: Skapa delade bilder med hjälp av CLI
+            - name: Portalen
+              href: shared-images-portal.md
+            - name: CLI
               href: ../linux/shared-images.md
             - name: Portalen
               href: shared-images-portal.md
+            - name: Dela avbildningar i flera klientorganisationer
+              href: share-images-across-tenants.md
             - name: Felsöka delade bilder
               href: troubleshooting-shared-images.md
+        - name: Image Builder (förhandsversion)
+          items:
+            - name: Översikt
+              href: ../linux/image-builder-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+            - name: Använda CLI
+              href: image-builder.md
+            - name: Använda med gallerier
+              href: image-builder-gallery.md
+            - name: Uppdatera en avbildningsversion
+              href: image-builder-gallery-update-image-version.md
+            - name: Använda skript i Azure Storage
+              href: ../linux/image-builder-user-assigned-identity.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+            - name: Mallreferens
+              href: ../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+            - name: Felsöka
+              href: 'https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md'
         - name: Hitta och använda avbildningar
           href: cli-ps-findimage.md
         - name: Förbereda en virtuell dator för uppladdning

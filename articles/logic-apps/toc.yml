@@ -55,7 +55,9 @@
           href: logic-apps-create-variables-store-values.md
         - name: Utföra dataåtgärder
           href: logic-apps-perform-data-operations.md
-        - name: Lägga till anpassad kod med Azure Functions
+        - name: Lägga till och köra kodfragment med infogad kod
+          href: logic-apps-add-run-inline-code.md
+        - name: Lägga till och köra kod med Azure Functions
           href: logic-apps-azure-functions.md
         - name: Anropa Logic Apps med Azure Functions
           href: logic-apps-scenario-function-sb-trigger.md

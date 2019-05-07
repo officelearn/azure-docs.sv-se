@@ -79,37 +79,40 @@
       displayName: 'metadata, pair, sharepoint, authentication, permissions, faq, pdf, excel, xls, rtf, html, txt, tsv, url, end of line, new line, carriage return, markdown, commonmark, format, standard'
 - name: Instruktionsguider
   items:
+    - name: Redigera kunskapsbas
+      items:
+        - name: Redigera en kunskapsbas
+          href: How-To/edit-knowledge-base.md
+        - name: Skapa konversationer med uppföljande frågor
+          href: How-To/multiturn-conversation.md
+          displayName: 'multi-turn dialogs, parent question, child question, filtering, metadata, state, context, prompt, follow-up, followup, flow, conversation, previous question'
+        - name: Lägg till kommunikation
+          href: How-to/chit-chat-knowledge-base.md
+        - name: Lägga till en skyddad Sharepoint-fil
+          href: How-To/add-sharepoint-datasources.md
+          displayName: 'Sharepoint, secure, AAD, azure directory, admin, permission, authorization, file, authentication'
     - name: Hantera kunskapsbas
       items:
         - name: Skapa och publicera en kunskapsbas
           href: Quickstarts/create-publish-knowledge-base.md
           displayName: 'create bot, bot, publish to bot, test, edit'
-        - name: Lägga till konversationer i din kunskapsbas
-          href: How-to/chit-chat-knowledge-base.md
-        - name: Migrera en kunskapsbas
-          href: Tutorials/migrate-knowledge-base.md
-        - name: Redigera en kunskapsbas
-          href: How-To/edit-knowledge-base.md
-          displayName: 'metadata, pair'
-        - name: Lägga till en skyddad Sharepoint-fil
-          href: How-To/add-sharepoint-datasources.md
-          displayName: 'Sharepoint, secure, AAD, azure directory, admin, permission, authorization, file, authentication'
-        - name: Samarbeta i en kunskapsbas
-          href: How-To/collaborate-knowledge-base.md
+        - name: Få svar
+          href: How-To/metadata-generateanswer-usage.md
+          displayName: 'isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters, GenerateAnswer, API, answer'
+        - name: Skapa en robot med en kunskapsbas
+          href: Tutorials/integrate-qnamaker-luis.md
         - name: Skapa en kunskapsbas på ett annat språk
           href: How-To/language-knowledge-base.md
+        - name: Migrera en kunskapsbas
+          href: Tutorials/migrate-knowledge-base.md
+          displayName: 'metadata, pair'
+        - name: Samarbeta i en kunskapsbas
+          href: How-To/collaborate-knowledge-base.md
         - name: Testa en kunskapsbas
           href: How-To/test-knowledge-base.md
         - name: Använda aktiv inlärning för att förbättra kunskapsbasen
           href: How-to/improve-knowledge-base.md
           displayName: 'active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, auto-learn, user setting, service setting, services setting, accept, reject, filter by suggestion, filter active learning'
-    - name: Använda kunskapsbas
-      items:
-        - name: Använda metadata med API för GenerateAnswer
-          href: How-To/metadata-generateanswer-usage.md
-          displayName: 'isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters'
-        - name: Med en robot
-          href: Tutorials/integrate-qnamaker-luis.md
     - name: Hantera tjänst
       items:
         - name: Konfigurera en QnA Maker-tjänst
@@ -154,7 +157,7 @@
     - name: Exempel
       items:
         - name: Hjälprobot för QnA Maker
-          href: 'https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-support-bot'
+          href: 'https://aka.ms/qnamakerhelpbotsample'
     - name: 'SDK:er'
       items:
         - name: 'C#'

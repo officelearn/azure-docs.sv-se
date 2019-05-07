@@ -129,6 +129,8 @@
         - name: Premium-lagringsprestanda
           href: ../virtual-machines/windows/premium-storage-performance.md
           maintainContext: true
+        - name: Tillfälliga operativsystemdiskar
+          href: ephemeral-os-disks.md
         - name: Skalbarhetsmål för diskar
           href: ../virtual-machines/windows/disk-scalability-targets.md
           maintainContext: true
@@ -204,7 +206,7 @@
               href: virtual-machine-scale-sets-encrypt-disks-ps.md
             - name: Använda Azure CLI
               href: virtual-machine-scale-sets-encrypt-disks-cli.md
-            - name: Kryptering av disk med tilläggsordningsföljd
+            - name: Sekvensering för tillägg
               href: ../security/azure-security-disk-encryption-extension-sequencing.md
               maintainContext: true
         - name: Arbeta med stora skalningsuppsättningar
@@ -221,13 +223,16 @@
               href: virtual-machine-scale-sets-manage-cli.md
             - name: Använda Azure PowerShell
               href: virtual-machine-scale-sets-manage-powershell.md
-        - name: Delade bildgallerier (förhandsversion)
-          href: shared-image-galleries.md
+        - name: Delade bildgallerier
           items:
+            - name: Översikt
+              href: shared-image-galleries.md
             - name: CLI
               href: shared-images-cli.md
             - name: PowerShell
               href: shared-images-powershell.md
+            - name: Dela avbildningar i flera klientorganisationer
+              href: share-images-across-tenants.md
             - name: Felsöka delade bilder
               href: troubleshooting-shared-images.md
         - name: Vertikal skalning i en skalningsuppsättning

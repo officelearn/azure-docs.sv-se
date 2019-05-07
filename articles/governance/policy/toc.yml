@@ -118,7 +118,7 @@
           href: samples/enforce-data-lake-store-encryption.md
     - name: Gästkonfiguration
       items:
-        - name: Granska program installerade på Linux
+        - name: Granska program som inte är installerade på Linux
           displayName: 'audit, vm'
           href: samples/guest-configuration-applications-installed-linux.md
     - name: Nyckelvalv

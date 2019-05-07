@@ -174,8 +174,12 @@
               href: how-to-custom-speech-human-labeled-transcriptions.md
         - name: Text till tal
           items:
-            - name: Skapa rösttyper (bot brand voice)
-              href: how-to-customize-voice-font.md
+            - name: Komma igång med Custom Voice
+              href: how-to-custom-voice.md
+            - name: Förbereda data
+              href: how-to-custom-voice-prepare-data.md
+            - name: Skapa och använda Custom Voice-modeller
+              href: how-to-custom-voice-create-voice.md
             - name: Spela in röstexempel
               href: record-custom-voice-samples.md
             - name: Finjustera text till tal-utdata

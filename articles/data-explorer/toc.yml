@@ -66,6 +66,10 @@
       items:
         - name: Mata in exempeldata
           href: ingest-sample-data.md
+    - name: Distribuera
+      items:
+        - name: DevOps-uppgift
+          href: devops.md
     - name: Söka i data
       items:
         - name: Skriva frågor

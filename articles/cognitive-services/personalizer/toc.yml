@@ -37,13 +37,21 @@
           displayName: 'learning policy, Counterfactual, features'
 - name: Instruktionsguider
   items:
-    - name: Konfigurera Personanpassning
+    - name: Skapa och konfigurera Personanpassning
       href: how-to-settings.md
       displayName: 'azure, portal, settings, evaluation, offline, policy'
     - name: Analysera
       items:
         - name: Offlineutvärdering
           href: how-to-offline-evaluation.md
+    - name: Använda containrar
+      items:
+        - name: Installera och köra containrar
+          displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull, run, apikey'
+          href: personalizer-container-howto.md
+        - name: Konfigurera containrar
+          href: personalizer-container-configuration.md
+          displayName: 'docker, run, apikey'
 - name: Referens
   items:
     - name: Exempel

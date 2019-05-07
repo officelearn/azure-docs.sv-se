@@ -8,7 +8,7 @@ metadata:
   manager: carmonm
   ms.service: resource-graph
   ms.topic: landing-page
-  ms.date: 03/11/2019
+  ms.date: 05/06/2019
   ms.author: dacoulte
 abstract:
   description: Med dokumentation för Azure Resource Graph kan du konfigurera och lära dig frågespråket för att identifiera och utforska dina resurser i stor skala.
@@ -43,6 +43,6 @@ sections:
           - title: Kommandorad
             html: <p><a href="/cli/azure/ext/resource-graph/graph">Azure CLI</a></p><p><a href="/powershell/module/az.resourcegraph/">Azure PowerShell</a></p>
           - title: Språk
-            html: <p><a href="/dotnet/api/Microsoft.Azure.Management.ResourceGraph">Azure SDK för .NET</a></p><p><a href="/python/api/azure-mgmt-resourcegraph/azure.mgmt.resourcegraph">Azure SDK för Python</a></p>
+            html: '<p><a href="/dotnet/api/Microsoft.Azure.Management.ResourceGraph">Azure SDK för .NET</a></p><p><a href="https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceGraph/">Azure SDK för .NET (NuGet)</a></p><p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/resourcegraph/mgmt/2019-04-01/resourcegraph">Azure SDK för Go</a></p><p><a href="/java/api/overview/azure/resourcegraph/management?view=azure-java-stable">Azure SDK för Java</a></p><p><a href="https://search.maven.org/artifact/com.microsoft.azure.resourcegraph.v2019_04_01/azure-mgmt-resourcegraph/1.0.0-beta/jar">Azure SDK för Java (Maven)</a></p><p><a href="/javascript/api/@azure/arm-resourcegraph">Azure SDK för Node</a></p><p><a href="/python/api/azure-mgmt-resourcegraph/azure.mgmt.resourcegraph">Azure SDK för Python</a></p><p><a href="https://rubygems.org/gems/azure_mgmt_resourcegraph">Azure SDK för Ruby (Gem)</a></p>'
           - title: REST
-            html: '<p><a href="/rest/api/azureresourcegraph/resources/resources">API-referens</a></p><p><a href="https://github.com/Azure/azure-rest-api-specs/tree/master/specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/preview/2018-09-01-preview">2018-09-01-preview (OpenAPI)</a></p>'
+            html: '<p><a href="/rest/api/azureresourcegraph/resources/resources">API-referens</a></p><p><a href="https://github.com/Azure/azure-rest-api-specs/tree/master/specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/stable/2019-04-01">2019-04-01 (OpenAPI)</a></p>'

@@ -62,7 +62,7 @@
           href: quickstart-scale-compute-tsql.md
     - name: Arbetsbelastningshantering
       items:
-        - name: Skapa arbetsbelastningsklassificerare (förhandsversion)
+        - name: Skapa arbetsbelastningsklassificerare
           items:
             - name: T-SQL
               href: quickstart-create-a-workload-classifier-tsql.md
@@ -72,28 +72,48 @@
       items:
         - name: Översikt
           href: sql-data-warehouse-overview-manage-security.md
-        - name: Åtkomstkontroll
-          href: ../sql-database/sql-database-control-access.md?toc=/azure/sql-data-warehouse/toc.json
-        - name: Brandväggsregler
-          href: ../sql-database/sql-database-firewall-configure.md?toc=/azure/sql-data-warehouse/toc.json
-        - name: Slutpunkter för virtuellt nätverk
-          href: ../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/sql-data-warehouse/toc.json
-        - name: Autentisering
-          href: sql-data-warehouse-authentication.md?toc=/azure/sql-data-warehouse/toc.json
-        - name: Azure AD
-          href: ../sql-database/sql-database-aad-authentication.md?toc=/azure/sql-data-warehouse/toc.json
-        - name: Inloggningar och användare
-          href: ../sql-database/sql-database-manage-logins.md?toc=/azure/sql-data-warehouse/toc.json
-        - name: Multifaktorautentisering
-          href: ../sql-database/sql-database-ssms-mfa-authentication.md?toc=/azure/sql-data-warehouse/toc.json
+        - name: Advanced Data Security
+          items:
+            - name: Översikt
+              href: ../sql-database/sql-database-advanced-data-security.md?toc=/azure/sql-data-warehouse/toc.json
+            - name: Dataidentifiering och -klassificering
+              href: ../sql-database/sql-database-data-discovery-and-classification.md?toc=/azure/sql-data-warehouse/toc.json
+            - name: Sårbarhetsbedömning
+              href: ../sql-database/sql-vulnerability-assessment.md?toc=/azure/sql-data-warehouse/toc.json
+            - name: Advanced Threat Protection
+              href: ../sql-database/sql-database-threat-detection-overview.md?toc=/azure/sql-data-warehouse/toc.json
         - name: Granskning
           href: ../sql-database/sql-database-auditing.md?toc=/azure/sql-data-warehouse/toc.json
-        - name: Dataidentifiering och -klassificering
-          href: 'https://docs.microsoft.com/azure/sql-database/sql-database-data-discovery-and-classification?toc=%2Fazure%2Fsql-data-warehouse%2Ftoc.json'
-        - name: Säkerhet på kolumnnivå
-          href: column-level-security.md
-        - name: Säkerhet på radnivå
-          href: 'https://docs.microsoft.com/sql/relational-databases/security/row-level-security?toc=/azure/sql-data-warehouse/toc.json'
+        - name: Nätverkssäkerhet
+          items:
+            - name: Brandväggsregler
+              href: ../sql-database/sql-database-firewall-configure.md?toc=/azure/sql-data-warehouse/toc.json
+            - name: Tjänstslutpunkter för virtuellt nätverk
+              href: ../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/sql-data-warehouse/toc.json
+        - name: Autentisering
+          items:
+            - name: Översikt
+              href: sql-data-warehouse-authentication.md?toc=/azure/sql-data-warehouse/toc.json
+            - name: Azure Active Directory
+              href: ../sql-database/sql-database-aad-authentication.md?toc=/azure/sql-data-warehouse/toc.json
+            - name: Inloggningar och användare
+              href: ../sql-database/sql-database-manage-logins.md?toc=/azure/sql-data-warehouse/toc.json
+            - name: Flerfaktorautentisering
+              href: ../sql-database/sql-database-ssms-mfa-authentication.md?toc=/azure/sql-data-warehouse/toc.json
+        - name: Åtkomstkontroll
+          items:
+            - name: Översikt
+              href: ../sql-database/sql-database-control-access.md?toc=/azure/sql-data-warehouse/toc.json
+            - name: Säkerhet på kolumnnivå
+              href: column-level-security.md
+            - name: Säkerhet på radnivå
+              href: 'https://docs.microsoft.com/sql/relational-databases/security/row-level-security?toc=%2Fazure%2Fsql-data-warehouse%2Ftoc.json'
+        - name: Dataskydd
+          items:
+            - name: Översikt över transparent datakryptering (TDE)
+              href: ../sql-database/transparent-data-encryption-azure-sql.md?toc=/azure/sql-data-warehouse/toc.json
+            - name: TDE med Bring Your Own Key
+              href: ../sql-database/transparent-data-encryption-byok-azure-sql.md?toc=/azure/sql-data-warehouse/toc.json
     - name: Läsa in data
       items:
         - name: Översikt
@@ -158,9 +178,9 @@
       items:
         - name: Resursklasser för hantering av arbetsbelastningar
           href: resource-classes-for-workload-management.md
-        - name: Arbetsbelastningsklassificering (förhandsversion)
+        - name: Arbetsbelastningsklassificering
           href: sql-data-warehouse-workload-classification.md
-        - name: Arbetsbelastningsprioritet (förhandsversion)
+        - name: Arbetsbelastningsprioritet
           href: sql-data-warehouse-workload-importance.md
         - name: Minnes- och samtidighetsgränser
           href: memory-and-concurrency-limits.md
@@ -198,14 +218,12 @@
           href: ../sql-database/sql-database-aad-authentication-configure.md?toc=/azure/sql-data-warehouse/toc.json
         - name: Villkorlig åtkomst
           href: ../sql-database/sql-database-conditional-access.md?toc=/azure/sql-data-warehouse/toc.json
-        - name: Regler för Virtual Network av PowerShell
+        - name: Regler för virtuellt nätverk av PowerShell
           href: ../sql-database/sql-database-vnet-service-endpoint-rule-powershell.md?toc=/azure/sql-data-warehouse/toc.json
         - name: Aktivera kryptering – portalen
           href: sql-data-warehouse-encryption-tde.md
         - name: Aktivera kryptering – T-SQL
           href: sql-data-warehouse-encryption-tde-tsql.md
-        - name: Hotidentifiering
-          href: sql-data-warehouse-security-threat-detection.md
     - name: Läsa in data
       items:
         - name: Data om New York-taxibilar

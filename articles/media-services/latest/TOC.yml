@@ -26,8 +26,10 @@
     - name: Analysera din video – .NET
       displayName: 'job, transform'
       href: analyze-videos-tutorial-with-api.md
-    - name: 'AES-128, dynamisk kryptering – .NET'
+    - name: Kryptera dynamiskt med AES-128 – .NET
       href: protect-with-aes128.md
+    - name: Kryptera dynamiskt med DRM – .NET
+      href: protect-with-drm.md
 - name: Exempel
   items:
     - name: Azure-kodexempel
@@ -56,10 +58,9 @@
         - name: Generera anpassningsbar bithastighetsstege automatiskt
           href: autogen-bitrate-ladder.md
         - name: Innehållsmedveten kodning
-          displayName: 'content, aware, cae'
           href: cae-experimental.md
         - name: Jobbfelkoder
-          href: 'https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode'
+          href: job-error-codes.md
     - name: Medieanalys
       items:
         - name: Översikt
@@ -68,7 +69,7 @@
         - name: Transformeringar och jobb
           href: transforms-jobs-concept.md
         - name: Jobbfelkoder
-          href: 'https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode'
+          href: job-error-codes.md
     - name: 'Paketering, leverans, skydd'
       items:
         - name: Paketering
@@ -150,7 +151,7 @@
             - name: Ursprungsfelkoder
               href: origin-error-codes.md
             - name: Jobbfelkoder
-              href: 'https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode'
+              href: job-error-codes.md
     - name: Vägledning för migrering från v2 till v3
       href: migrate-from-v2-to-v3.md
 - name: Instruktionsguider
@@ -215,8 +216,6 @@
       items:
         - name: Hämta princip för innehållsnyckel – .NET
           href: get-content-key-policy-dotnet-howto.md
-        - name: 'DRM, dynamisk kryptering – .NET'
-          href: protect-with-drm.md
         - name: Offline FairPlay för iOS
           href: offline-fairplay-for-ios.md
         - name: Offline Widevine för Android
@@ -258,7 +257,7 @@
         - name: Ursprungsfelkoder
           href: origin-error-codes.md
         - name: Jobbfelkoder
-          href: 'https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode'
+          href: job-error-codes.md
 - name: Resurser
   items:
     - name: Azure Media Services-community

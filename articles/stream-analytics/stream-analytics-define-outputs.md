@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 3/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: f9663fb502d9eda4810c54a89a94481b7d00cd43
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 3fab76613bb992b29ceeef12cf5f410c5c3b208d
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926065"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205531"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Förstå utdata från Azure Stream Analytics
 Den här artikeln beskrivs vilka typer av utdata som är tillgängliga för Azure Stream Analytics-jobb. Utdata kan du lagra och spara resultatet av Stream Analytics-jobb. Med hjälp av utdata, kan du göra ytterligare affärsanalys och datalager för dina data.
@@ -228,7 +228,7 @@ I följande tabell visas egenskapsnamn och deras beskrivningar för att skapa et
 | Tabellnamn |Tabellens namn. Tabellen skapas om det inte finns. |
 | Partitionsnyckeln |Namnet på utdatakolumnen som innehåller Partitionsnyckeln. Partitionsnyckeln är en unik identifierare för partitionen i en tabell som utgör den första delen av en entitets primärnyckel. Det är ett strängvärde som kan vara upp till 1 KB stora. |
 | Radnyckel |Namnet på utdatakolumnen som innehåller Radnyckeln. Radnyckeln är en unik identifierare för en entitet i en partition. Den utgör den andra delen av en entitets primärnyckel. Radnyckeln är ett strängvärde som kan vara upp till 1 KB stora. |
-| Batchstorlek |Antalet poster för en batchåtgärd. Standardvärdet (100) är tillräckliga för de flesta jobb. Se den [tabell batchåtgärd spec](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx) för mer information om hur du ändrar den här inställningen. |
+| Batchstorlek |Antalet poster för en batchåtgärd. Standardvärdet (100) är tillräckliga för de flesta jobb. Se den [tabell batchåtgärd spec](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table._table_batch_operation) för mer information om hur du ändrar den här inställningen. |
 
 ## <a name="service-bus-queues"></a>Service Bus-köer
 [Service Bus-köer](https://msdn.microsoft.com/library/azure/hh367516.aspx) erbjuder en FIFO meddelandeleverans till en eller flera konkurrerande konsumenter. Meddelanden tas vanligtvis emot och bearbetas av mottagarna i den ordning som de har lagts till i kön. Varje meddelande tas emot och bearbetas av endast en meddelandekonsument.

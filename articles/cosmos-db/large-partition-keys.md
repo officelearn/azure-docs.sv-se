@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: mjbrown
-ms.openlocfilehash: ee1568274792621b8ed9f25d211c40440a82208c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 46df484303237722f4eb66099748f2fcef8240b4
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65160042"
+ms.locfileid: "65205839"
 ---
 # <a name="create-containers-with-large-partition-key"></a>Skapa behållare med stora partitionsnyckel
 
@@ -43,6 +43,17 @@ database,
 Om du vill skapa en stor partitionsnyckel när du skapar en ny behållare med Azure portal, markera den **min Partitionsnyckeln är större än 100 byte** alternativet. Som standard avanmäls alla nya behållare till med hjälp av stora partitionsnycklar. Avmarkera kryssrutan om du inte behöver stora partitionsnycklar eller om du har program som körs på SDK-version som är äldre än 1.18.
 
 ![Skapa stora partitionsnycklar med hjälp av Azure portal](./media/large-partition-keys/large-partition-key-with-portal.png)
+
+
+## <a name="supported-sdk-versions"></a>SDK-versioner som stöds
+
+De stora partitionsnycklarna stöds med följande minsta versioner av SDK: er:
+
+|SDK-typ  | Lägsta version   |
+|---------|---------|
+|.Net     |    1.18     |
+|Java-synkronisering     |   2.4.0      |
+|Java Async   |  2.5.0        |
  
 ## <a name="next-steps"></a>Nästa steg
 

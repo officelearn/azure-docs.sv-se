@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: alkohli
-ms.openlocfilehash: ee2820d78e95924e09a0219753f87d6910c0e736
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c5ceeb2e6419cab7945454087edd4c821db28343
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60782965"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204222"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box-blob-storage"></a>Felsöka problem med Azure Data Box Blob-lagring
 
@@ -55,7 +55,7 @@ Det här avsnittet beskriver några av de viktigaste problemen inför under dist
 |Felmeddelande  |Rekommenderad åtgärd |
 |---------|---------|
 |Värdet för en HTTP-huvuden är inte i rätt format. |Den installerade versionen av Microsoft Azure Storage-biblioteket för Python stöds inte av Data Box. Se Azure Data Box Blob lagringskraven för versioner som stöds.|
-|… [SSL: CERTIFICATE_VERIFY_FAILED] …|Innan du kör Python, ställa in miljövariabeln REQUESTS_CA_BUNDLE till sökvägen för Base64-kodad SSL-certifikatfil (se hur du [hämta certifikatet]()). <br>Exempel:<br>`export REQUESTS_CA_BUNDLE=/tmp/mycert.cer` <br>`python` <br>Alternativt kan du lägga till certifikatet i datorns certifikatarkiv och sedan ange variabeln till sökvägen för den store. <br> Till exempel på Ubuntu: <br>`export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt` <br>`python`|
+|… [SSL: CERTIFICATE_VERIFY_FAILED] …|Innan du kör Python, ställa in miljövariabeln REQUESTS_CA_BUNDLE till sökvägen för Base64-kodad SSL-certifikatfil (se hur du [hämta certifikatet](data-box-deploy-copy-data-via-rest.md#download-certificate)). <br>Exempel:<br>`export REQUESTS_CA_BUNDLE=/tmp/mycert.cer` <br>`python` <br>Alternativt kan du lägga till certifikatet i datorns certifikatarkiv och sedan ange variabeln till sökvägen för den store. <br> Till exempel på Ubuntu: <br>`export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt` <br>`python`|
 
 
 ## <a name="common-errors"></a>Vanliga fel

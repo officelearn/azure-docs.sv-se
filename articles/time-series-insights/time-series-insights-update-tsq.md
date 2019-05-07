@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 05/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0b1c43cb82d6dc2b7f0708dee8471f077befe349
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d28cb35b1e8e4eaa86418da632c6fcabb636e643
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64722169"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205020"
 ---
 # <a name="data-querying"></a>Fråga data
 
@@ -35,9 +35,9 @@ Den [Time Series uttryck (TSX) språk](https://docs.microsoft.com/rest/api/time-
 
 Följande grundläggande API: er som stöds.
 
-![tsq][1]
+[![Time Series-fråga: översikt](media/v2-update-tsq/tsq.png)](media/v2-update-tsq/tsq.png#lightbox)
 
-### <a name="environment-apis"></a>Miljö-API: er
+## <a name="environment-apis"></a>Miljö-API: er
 
 Följande miljö API: er är tillgängliga:
 
@@ -45,7 +45,7 @@ Följande miljö API: er är tillgängliga:
 * [Få miljö tillgänglighet API](https://docs.microsoft.com/rest/api/time-series-insights/preview-env#get-environment-availability-api): Returnerar fördelningen av händelseantal över tidsstämpel för händelsen `$ts`. Den här API: et avgöra om det finns några händelser i tidsstämpeln genom att returnera antalet händelser, om sådana finns.
 * [Hämta Händelseschema API](https://docs.microsoft.com/rest/api/time-series-insights/preview-env#get-event-schema-api): Returnerar händelsemetadata för schemat för en viss sökintervallet. Den här API: et hjälper till att hämta alla metadata och egenskaper som är tillgängliga i schemat för den angivna sökintervallet.
 
-### <a name="time-series-model-query-tsm-q-apis"></a>Time Series modell-fråga (TSM-Q) API: er
+## <a name="time-series-model-query-tsm-q-apis"></a>Time Series modell-fråga (TSM-Q) API: er
 
 Följande tid serien modell-Query API: er är tillgängliga:
 
@@ -54,7 +54,7 @@ Följande tid serien modell-Query API: er är tillgängliga:
 * [Hierarkier API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#hierarchies-api): Aktiverar CRUD på Time Series-hierarkier och deras associerade fältet sökvägar.
 * [API-instanser](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#instances-api): Aktiverar CRUD på Time Series-instanser och deras associerade instansfält.
 
-### <a name="time-series-query-tsq-apis"></a>Time Series-fråga (TSQ) API: er
+## <a name="time-series-query-tsq-apis"></a>Time Series-fråga (TSQ) API: er
 
 Följande Time Series fråga API: er är tillgängliga:
 
@@ -80,6 +80,3 @@ Följande Time Series fråga API: er är tillgängliga:
 - Läsa Time Series Insights Preview [datamodellering](./time-series-insights-update-tsm.md) artikeln.
 
 - Identifiera [bästa praxis när du väljer en tid-ID](./time-series-insights-update-how-to-id.md).
-
-<!-- Images -->
-[1]: media/v2-update-tsq/tsq.png

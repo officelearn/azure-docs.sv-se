@@ -14,23 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2018
 ms.author: rkarlin
-ms.openlocfilehash: 2573ad64830247d232bbd6d156fac7f50d65f410
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: a5deee4209001d8c2212033c2d547d7c4199bd25
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925092"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192628"
 ---
 # <a name="custom-alert-rules-in-azure-security-center-preview"></a>Anpassade aviseringsregler i Azure Security Center (förhandsversion)
 I det här avsnittet berättar vi hur du skapar anpassade aviseringsregler i Azure Security Center.
 
 > [!NOTE]
-> Anpassade aviseringar upphör snart, Läs mer på alternativa tjänster nedan.
+> Anpassade aviseringar tas ur bruk den 30 juni 2019.
 
 ## <a name="retirement-of-custom-alert-rules-in-azure-security-center"></a>Tillbakadragning av anpassad avisering regler i Azure Security Center
 
 Anpassade aviseringarna kommer att dras tillbaka den 30 juni 2019 på grund av tillbakadragning av den underliggande infrastrukturen som den är baserad på. I tidsramen tills utfasningen användare kommer att kunna redigera befintliga anpassade aviseringsregler men kommer inte att kunna lägga till nya.
-Användare bör aktivera [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) med ett klick onboarding att automatiskt migrera sina befintliga aviseringar och skapa nya eller också återskapa sina aviseringar med Azure Monitor loggaviseringar.
+Användare bör antingen:
+- Aktivera [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) med ett klick onboarding att automatiskt migrera sina befintliga aviseringar och skapa nya
+- Återskapa sina aviseringar med Azure Monitor loggaviseringar
                                      
 Om du vill behålla dina befintliga aviseringar och migrera dem till Azure Sentinel, kan du [starta Azure Sentinel](https://portal.azure.com/#create/Microsoft.ASI/preview). Välj arbetsytan där din anpassade aviseringar lagras som första steg och välj sedan menyalternativet 'Analytics' för att automatiskt migrera dina aviseringar.
 

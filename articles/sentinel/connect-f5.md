@@ -4,7 +4,7 @@ description: Lär dig hur du ansluter F5 data till Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: 0001cad6-699c-4ca9-b66c-80c194e439a5
 ms.service: sentinel
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 0f5452ade7a34a06cef4564760dc31981f1d8f37
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: b4dad338308853303612c92feddba42722ef10ee
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62118086"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205587"
 ---
 # <a name="connect-your-f5-appliance"></a>Ansluta din F5-installation
 

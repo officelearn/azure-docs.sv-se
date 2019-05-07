@@ -9,12 +9,12 @@ ms.date: 01/03/2019
 ms.author: tamram
 ms.reviewer: wielriac
 ms.subservice: blobs
-ms.openlocfilehash: a0fc9a8356f4a322ae81a668515a6a60c6001011
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: HT
+ms.openlocfilehash: c0d5108ee235be74f6188bfc8b590069a4e790b5
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65141244"
+ms.locfileid: "65192646"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Översikt över Azure-sidblobar
 
@@ -43,7 +43,7 @@ Följande diagram visar övergripande relationerna mellan konto, behållare och 
 ![](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure1.png)
 
 #### <a name="creating-an-empty-page-blob-of-a-specified-size"></a>Skapa en tom sida-blob med en angiven storlek
-Om du vill skapa en sidblobb vi först skapa en **CloudBlobClient** objekt med bas-URI för blob-lagring för ditt lagringskonto (*pbaccount* i bild 1) tillsammans med den  **StorageCredentialsAccountAndKey** objekt som visas i följande exempel. Exemplet visar sedan hur du skapar en referens till en **CloudBlobContainer** objekt och sedan skapa behållaren (*testvhds*) om den inte redan finns. Sedan använder den **CloudBlobContainer** objekt, skapar en referens till en **CloudPageBlob** objekt genom att ange sidans blob-namn (os4.vhd) åtkomst till. Om du vill skapa sidans blob anropa [CloudPageBlob.Create](/dotnet/api/microsoft.windowsazure.storage.blob.cloudpageblob.create?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudPageBlob_Create_System_Int64_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) skicka den maximala storleken för blobben som ska skapas. Den *blobSize* måste vara en multipel av 512 byte.
+Om du vill skapa en sidblobb vi först skapa en **CloudBlobClient** objekt med bas-URI för blob-lagring för ditt lagringskonto (*pbaccount* i bild 1) tillsammans med den  **StorageCredentialsAccountAndKey** objekt som visas i följande exempel. Exemplet visar sedan hur du skapar en referens till en **CloudBlobContainer** objekt och sedan skapa behållaren (*testvhds*) om den inte redan finns. Sedan använder den **CloudBlobContainer** objekt, skapar en referens till en **CloudPageBlob** objekt genom att ange sidans blob-namn (os4.vhd) åtkomst till. Om du vill skapa sidans blob anropa [CloudPageBlob.Create](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.create?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudPageBlob_Create_System_Int64_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) skicka den maximala storleken för blobben som ska skapas. Den *blobSize* måste vara en multipel av 512 byte.
 
 ```csharp
 using Microsoft.WindowsAzure.StorageClient;
@@ -66,13 +66,13 @@ pageBlob.Create(16 * OneGigabyteAsBytes);
 ```
 
 #### <a name="resizing-a-page-blob"></a>Ändra storlek på en sidblobb
-Ändra storlek på en sidblobb när du har skapat genom att använda den [ändra storlek på](/dotnet/api/microsoft.windowsazure.storage.blob.cloudpageblob.resize?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudPageBlob_Resize_System_Int64_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) API. Den begärda storleken ska vara en multipel av 512 byte.
+Ändra storlek på en sidblobb när du har skapat genom att använda den [ändra storlek på](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.resize?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudPageBlob_Resize_System_Int64_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) API. Den begärda storleken ska vara en multipel av 512 byte.
 ```csharp
 pageBlob.Resize(32 * OneGigabyteAsBytes); 
 ```
 
 #### <a name="writing-pages-to-a-page-blob"></a>Skriva sidor till en sidblob
-Om du vill skriva sidor, använda den [CloudPageBlob.WritePages](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudpageblob.beginwritepages?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudPageBlob_BeginWritePages_System_IO_Stream_System_Int64_System_String_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_System_AsyncCallback_System_Object_) metod.  På så sätt kan du skriva en sekventiell uppsättning sidor upp till 4MBs. Förskjutningen skrivs till måste börja på en 512 byte-gräns (startingOffset % 512 == 0), och på en 512 gräns - 1.  I följande kodexempel visas hur du anropar **WritePages** för en blob:
+Om du vill skriva sidor, använda den [CloudPageBlob.WritePages](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.beginwritepages?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudPageBlob_BeginWritePages_System_IO_Stream_System_Int64_System_String_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_System_AsyncCallback_System_Object_) metod.  På så sätt kan du skriva en sekventiell uppsättning sidor upp till 4MBs. Förskjutningen skrivs till måste börja på en 512 byte-gräns (startingOffset % 512 == 0), och på en 512 gräns - 1.  I följande kodexempel visas hur du anropar **WritePages** för en blob:
 
 ```csharp
 pageBlob.WritePages(dataStream, startingOffset); 
@@ -88,7 +88,7 @@ Den nedan visas diagram 2 separat skrivåtgärder:
 2.  Skrivning med början vid förskjutningen 4096 med längden 1024 
 
 #### <a name="reading-pages-from-a-page-blob"></a>Läsa sidor från en sidblob
-Om du vill läsa sidor, använda den [CloudPageBlob.DownloadRangeToByteArray](/dotnet/api/microsoft.windowsazure.storage.blob.icloudblob.downloadrangetobytearray?view=azure-dotnet) metod för att läsa byte från sidans blob. På så sätt kan du hämta fullständig blob eller byte från valfri förskjutning i blob. När du läser, behöver inte förskjutningen starta på en multipel av 512. När du läser byte från en sida för NUL returnerar tjänsten noll byte.
+Om du vill läsa sidor, använda den [CloudPageBlob.DownloadRangeToByteArray](/dotnet/api/microsoft.azure.storage.blob.icloudblob.downloadrangetobytearray?view=azure-dotnet) metod för att läsa byte från sidans blob. På så sätt kan du hämta fullständig blob eller byte från valfri förskjutning i blob. När du läser, behöver inte förskjutningen starta på en multipel av 512. När du läser byte från en sida för NUL returnerar tjänsten noll byte.
 ```csharp
 byte[] buffer = new byte[rangeSize];
 pageBlob.DownloadRangeToByteArray(buffer, bufferOffset, pageBlobOffset, rangeSize); 
@@ -97,7 +97,7 @@ Följande bild visar en Läs-åtgärd med BlobOffSet av 256 och rangeSize av 435
 
 ![](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure3.png)
 
-Om du har en sparsamt ifyllda blob kan du bara hämta giltig regioner kan undvika att betala för egressing noll byte och minska svarstider för hämtning.  Använd för att fastställa vilka sidor backas upp av data, [CloudPageBlob.GetPageRanges](/dotnet/api/microsoft.windowsazure.storage.blob.cloudpageblob.getpageranges?view=azure-dotnet). Du kan sedan räkna upp de returnerade intervall och hämta data i varje intervall. 
+Om du har en sparsamt ifyllda blob kan du bara hämta giltig regioner kan undvika att betala för egressing noll byte och minska svarstider för hämtning.  Använd för att fastställa vilka sidor backas upp av data, [CloudPageBlob.GetPageRanges](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.getpageranges?view=azure-dotnet). Du kan sedan räkna upp de returnerade intervall och hämta data i varje intervall. 
 ```csharp
 IEnumerable<PageRange> pageRanges = pageBlob.GetPageRanges();
 

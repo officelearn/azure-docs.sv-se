@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: 30d18e1e23767ce3a179221714e001574f8e9778
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 6c7fcb1429438ee024cb226b63cfcdcab05ed9f8
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65075497"
+ms.locfileid: "65205808"
 ---
 # <a name="introduction-to-the-azure-cosmos-db-etcd-api-preview"></a>Introduktion till Azure Cosmos DB-etcd API (förhandsversion)
 
@@ -23,7 +23,7 @@ Azure Cosmos DB är Microsofts globalt distribuerad databastjänst för verksamh
 Etcd API i Azure Cosmos DB kan du använda Azure Cosmos DB som backend-store för [Azure Kubernetes](../aks/index.yml). etcd API i Azure Cosmos DB är för närvarande i förhandsversion. Azure Cosmos DB implementerar kabelprotokoll etcd. Med etcd API i Azure Cosmos DB utvecklare automatiskt får en mycket pålitlig [tillgängliga](high-availability.md), [globalt distribuerade](distribute-data-globally.md) Kubernetes. Detta API kan utvecklare att skala Kubernetes tillståndshantering på en helt hanterad interna PaaS-tjänst. 
 
 > [!NOTE]
-> Till skillnad från andra API: er i Azure Cosmos DB, kan inte du etablera ett etcd API-konto via Azure portal, CLI eller SDK: er. Du kan etablera ett etcd API-konto genom att distribuera Resource Manager-mallen. detaljerade anvisningar finns i [hur man etablerar Azure Kubernetes med Azure Cosmos DB](bootstrap-kubernetes-cluster.md) artikeln.  
+> Till skillnad från andra API: er i Azure Cosmos DB, kan inte du etablera ett etcd API-konto via Azure portal, CLI eller SDK: er. Du kan etablera ett etcd API-konto genom att distribuera Resource Manager-mallen. detaljerade anvisningar finns i [hur man etablerar Azure Kubernetes med Azure Cosmos DB](bootstrap-kubernetes-cluster.md) artikeln. Azure Cosmos DB etcd API är för närvarande i en begränsad förhandsversion. Du kan [registrera dig för förhandsversionen av](https://aka.ms/cosmosetcdapi-signup), genom att fylla i fyllt i registreringsformuläret.
 
 ## <a name="wire-level-compatibility"></a>Under överföring på kompatibilitet
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: 25c71019227c52bf0c1530dcdf655fc7575d8032
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: bf36de1965a8c819af0ef5af98a2393d4cefa1b3
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148528"
+ms.locfileid: "65205723"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Vanliga frågor (och svar FAQ) om Azure-nätverk
 
@@ -67,7 +67,7 @@ Ja. Mer information om offentliga IP-adressintervall finns i [skapa ett virtuell
 Ja. Se [Azure-begränsningar](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) mer information. Adressutrymmen för undernätet får inte överlappa varandra.
 
 ### <a name="are-there-any-restrictions-on-using-ip-addresses-within-these-subnets"></a>Finns det några begränsningar med IP-adresser inom dessa undernät?
-Ja. Azure reserverar vissa IP-adresser i varje undernät. De första och sista IP-adresserna för varje undernät är reserverade för protokollöverensstämmelse, tillsammans med de x.x.x.1 x.x.x.3 adresserna i varje undernät som används för Azure-tjänster.
+Ja. Azure reserverar 5 IP-adresser i varje undernät. De första och sista IP-adresserna för varje undernät är reserverade för protokollöverensstämmelse, tillsammans med de x.x.x.1 x.x.x.3 adresserna i varje undernät som används för Azure-tjänster.
 
 ### <a name="how-small-and-how-large-can-vnets-and-subnets-be"></a>Hur små och hur stor kan vara virtuella nätverk och undernät?
 Minsta stöds undernätet är /29 och den största är/8 som (med CIDR-subnätsdefinitioner).
@@ -231,7 +231,7 @@ Ja. Lär dig mer om hur du använder:
 VNet-peering (eller virtuell nätverkspeering) kan du ansluta virtuella nätverk. En VNet peering-anslutning mellan virtuella nätverk kan du dirigera trafik mellan dem privat via IPv4-adresser. Virtuella datorer i peerkopplade virtuella nätverk kan kommunicera med varandra som om de är i samma nätverk. Dessa virtuella nätverk kan vara i samma region eller i olika regioner (även kallat Global VNet-Peering). Också kan skapa VNet peering-anslutningar mellan Azure-prenumerationer.
 
 ### <a name="can-i-create-a-peering-connection-to-a-vnet-in-a-different-region"></a>Kan jag skapa en peering-anslutning till ett virtuellt nätverk i en annan region?
-Ja. Global VNet-peering kan du peerkoppla virtuella nätverk i olika regioner. Global VNet-peering är tillgängligt i alla offentliga Azure-regioner och regioner för Kina-molnet. Du kan inte globalt peer-kopplas från offentliga Azure-regioner till molnregioner för nationella. Global peering är inte tillgänglig för tillfället i Government-molnet.
+Ja. Global VNet-peering kan du peerkoppla virtuella nätverk i olika regioner. Global VNet-peering är tillgängligt i alla offentliga Azure-regioner, Kina-molnområden och Government cloud-regioner. Du kan inte globalt peer-kopplas från offentliga Azure-regioner till molnregioner för nationella.
 
 ### <a name="what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers"></a>Vilka är de begränsningar som rör Global VNet-Peering och belastningsutjämnare?
 Om de två virtuella nätverken är i olika regioner (Global VNet-Peering) kan ansluta du inte till resurser som använder grundläggande belastningsutjämnare. Du kan ansluta till resurser som använder Standard Load Balancer.
@@ -241,7 +241,6 @@ Följande resurser använder grundläggande belastningsutjämnare vilket innebä
 - Redis Cache 
 - Application Gateway (v1) SKU
 - Service Fabric
-- SQL alltid på
 - SQL MI
 - API Managemenet
 - Active Directory Domain Service (ADDS)

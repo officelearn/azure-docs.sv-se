@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: iainfou
-ms.openlocfilehash: 2a218a48223c81e009b83cb1f129601a8035e18e
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: HT
+ms.openlocfilehash: 026c0eefc0c4fe31e72ecad91a4a7b558f367487
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138423"
+ms.locfileid: "65192110"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Integrera Azure Active Directory med Azure Kubernetes Service
 
@@ -244,6 +244,7 @@ När du är klar cachelagras autentiseringstoken. Du är bara reprompted för in
 Om du ser ett meddelande om auktoriseringsfel efter inloggningen, kontrollera om:
 1. Användaren du loggar in som är inte en gäst i Azure AD-instans (det här scenariot är ofta fallet om du använder ett federerat konto från en annan katalog).
 2. Användaren är inte medlem i fler än 200.
+3. Hemligheten som definierats i programregistrering för servern matchar inte värdet som konfigurerats med hjälp av--aad-server-app-hemlighet
 
 ```console
 error: You must be logged in to the server (Unauthorized)

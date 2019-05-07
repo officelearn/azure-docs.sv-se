@@ -1,19 +1,19 @@
 ---
-title: Skapa och hantera brandväggsregler i Azure Database för PostgreSQL
-description: Skapa och hantera Azure Database för PostgreSQL brandväggsregler med hjälp av Azure-portalen
+title: Skapa och hantera brandväggsregler i Azure Database för PostgreSQL – enskild Server
+description: Skapa och hantera brandväggsregler för Azure Database för PostgreSQL – enskild Server med Azure portal
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 04/09/2019
-ms.openlocfilehash: cb142e01009efbeaabd5d4e56dbedfe6384c5fc6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 7eed2e81c6781ca660cffa909f27962a7c5112cb
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60421039"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65069011"
 ---
-# <a name="create-and-manage-azure-database-for-postgresql-firewall-rules-using-the-azure-portal"></a>Skapa och hantera Azure Database för PostgreSQL brandväggsregler med hjälp av Azure-portalen
+# <a name="create-and-manage-firewall-rules-for-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Skapa och hantera brandväggsregler för Azure Database för PostgreSQL – enskild Server med Azure portal
 Brandväggsregler på servernivå kan användas för att hantera åtkomst till en Azure Database for PostgreSQL-Server från en angiven IP-adress eller IP-adressintervall.
 
 Virtuella nätverk (VNet)-regler kan också användas för att skydda åtkomsten till din server. Läs mer om [skapa och hantera Virtual Network service slutpunkter och regler med hjälp av Azure-portalen](howto-manage-vnet-using-portal.md).

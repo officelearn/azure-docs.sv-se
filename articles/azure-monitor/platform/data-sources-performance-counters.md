@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 93f47529e3be44ff1db4e089bdcdca3eb1b4dea3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 76f4061af816c59e644db99913193ed6fcf24d18
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61363519"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205759"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Windows- och Linux prestanda datakällor i Azure Monitor
 Prestandaräknare i Windows och Linux ger information om prestanda för maskinvarukomponenter, operativsystem och program.  Azure Monitor kan samla in prestandaräknare med återkommande intervall för analys i nära realtid (NRT) utöver sammanställa prestandadata för längre sikt analys och rapportering.
@@ -211,10 +211,10 @@ I följande tabell innehåller olika exempel på loggfrågor som hämtar prestan
 | Perf |Alla prestandadata |
 | Perf &#124; där dator == ”den här datorn” |Alla prestandadata från en viss dator |
 | Perf &#124; där CounterName == ”den Aktuell diskkölängd” |Alla prestandadata för en särskild räknare |
-| Perf &#124; där ObjectName == ”Processor” och CounterName == ”% processortid” och InstanceName == ”_Total” &#124; sammanfatta AVGCPU = avg(Average) per dator |Genomsnittlig CPU-användningen över alla datorer |
-| Perf &#124; där CounterName == ”% processortid” &#124; sammanfatta AggregatedValue = max(Max) per dator |Högsta CPU-användningen över alla datorer |
-| Perf &#124; där ObjectName == ”logisk disk” och CounterName == ”den Aktuell diskkölängd” och dator == ”MyComputerName” &#124; sammanfatta AggregatedValue = avg(Average) av instansnamn |Genomsnittlig Kölängd för aktuella Disk i alla instanser av en viss dator |
-| Perf &#124; där CounterName == ”DiskTransfers/sek” &#124; sammanfatta AggregatedValue =: e percentilen (Genomsnittlig, 95) per dator |95: e percentilen för disköverföringar/sek på alla datorer |
+| Perf &#124; där ObjectName == ”Processor” och CounterName == ”% processortid” och InstanceName == ”_Total” &#124; sammanfatta AVGCPU = avg(CounterValue) per dator |Genomsnittlig CPU-användningen över alla datorer |
+| Perf &#124; där CounterName == ”% processortid” &#124; sammanfatta AggregatedValue = max(CounterValue) per dator |Högsta CPU-användningen över alla datorer |
+| Perf &#124; där ObjectName == ”logisk disk” och CounterName == ”den Aktuell diskkölängd” och dator == ”MyComputerName” &#124; sammanfatta AggregatedValue = avg(CounterValue) av instansnamn |Genomsnittlig Kölängd för aktuella Disk i alla instanser av en viss dator |
+| Perf &#124; där CounterName == ”disköverföringar/sek” &#124; sammanfatta AggregatedValue =: e percentilen (CounterValue 95) per dator |95: e percentilen för disköverföringar/sek på alla datorer |
 | Perf &#124; där CounterName == ”% processortid” och InstanceName == ”_Total” &#124; sammanfatta AggregatedValue = avg(CounterValue) efter bin (TimeGenerated, 1 timme), dator |Per timme, genomsnitt CPU-användning på alla datorer |
 | Perf &#124; där dator == ”den här datorn” och CounterName startswith_cs ”%” och InstanceName == ”_Total” &#124; sammanfatta AggregatedValue =: e percentilen (CounterValue 70) efter bin (TimeGenerated, 1 timme), CounterName | Per timme 70: e percentilen för varje procent räknaren % för en viss dator |
 | Perf &#124; där CounterName == ”% processortid” och InstanceName == ”_Total” och dator == ”den här datorn” &#124; sammanfatta [”min(CounterValue)”] = min(CounterValue), [”avg(CounterValue)”] = avg(CounterValue), [”percentile75(CounterValue)”] =: e percentilen (CounterValue, 75), [”max(CounterValue)”] = max(CounterValue) efter bin (TimeGenerated, 1 timme), dator |Per timme average, lägsta, högsta och 75: e percentilen CPU-användning för en specifik dator |

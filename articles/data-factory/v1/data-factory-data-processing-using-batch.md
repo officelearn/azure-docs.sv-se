@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: f78275af5faaf19a4993a5ae4414b0163f9a4d9d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e95f167cf6dcfe90fff1c2be174ca197cb2aa004
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60487815"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204024"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Bearbeta datauppsättningar i stor skala med hjälp av Data Factory och Batch
 > [!NOTE]
@@ -409,7 +409,7 @@ Metoden har några viktiga komponenter som du behöver för att förstå:
 #### <a name="execute-method"></a>Execute-metoden
 Det här avsnittet innehåller mer information om koden i Execute-metoden.
 
-1. Medlemmar för att söka igenom inkommande samling finns i den [Microsoft.WindowsAzure.Storage.Blob](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.aspx) namnområde. Om du vill gå igenom samlingen blob, så måste du använda den **BlobContinuationToken** klass. I princip måste du använda en gör-vid-loop med token som mekanism för att avsluta slingan. Mer information finns i [använda Blob storage från .NET](../../storage/blobs/storage-dotnet-how-to-use-blobs.md). En grundläggande loop visas här:
+1. Medlemmar för att söka igenom inkommande samling finns i den [Microsoft.WindowsAzure.Storage.Blob](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob) namnområde. Om du vill gå igenom samlingen blob, så måste du använda den **BlobContinuationToken** klass. I princip måste du använda en gör-vid-loop med token som mekanism för att avsluta slingan. Mer information finns i [använda Blob storage från .NET](../../storage/blobs/storage-dotnet-how-to-use-blobs.md). En grundläggande loop visas här:
 
     ```csharp
     // Initialize the continuation token.
@@ -432,7 +432,7 @@ Det här avsnittet innehåller mer information om koden i Execute-metoden.
     } while (continuationToken != null);
 
     ```
-   Mer information finns i dokumentationen för den [ListBlobsSegmented](https://msdn.microsoft.com/library/jj717596.aspx) metod.
+   Mer information finns i dokumentationen för den [ListBlobsSegmented](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.listblobssegmented) metod.
 
 1. Koden för att arbeta igenom uppsättning blobar logiskt hamnar inom do-samtidigt loop. I den **kör** metod, do-medan loop skickar listan över blobar till en metod med namnet **Calculate**. Metoden returnerar en variabel med namnet **utdata** som är resultatet av att ha itereras via alla blobbar i segmentet.
 

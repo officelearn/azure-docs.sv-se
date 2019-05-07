@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 07d5aa752d6613f6733a44c9b34e48f537eb67ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 49fe9c0921579802b726e02a074bb0a911d88231
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60889594"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204199"
 ---
 # <a name="data-encryption-in-azure-cosmos-db"></a>Datakryptering i Azure Cosmos DB 
 
 Vilande kryptering är en fras som ofta refererar till kryptering av data på nonvolatile lagringsenheter, t.ex. solid state-hårddiskar (SSD) och hårddiskar (HDD). Cosmos DB lagrar dess primära databaser på SSD-enheter. Dess media bifogade filer och säkerhetskopior lagras i Azure Blob storage, det stöds vanligtvis av hårddiskar. Med lanseringen av kryptering i vila för Cosmos DB krypteras alla databaser, media bifogade filer och säkerhetskopior. Dina data nu krypteras under överföring (via nätverket) och i vila (nonvolatile lagring), vilket ger dig kryptering från slutpunkt till slutpunkt.
 
-Eftersom en PaaS-tjänst, Cosmos DB är mycket enkelt att använda. Eftersom alla data som lagras i Cosmos DB är krypterat i vila och under transport, har du inte vidta några åtgärder. Ett annat sätt att lägga till detta är att kryptering i vila är ”on” är standardvärdet. Det finns inga kontroller för att aktivera eller inaktivera. Vi ger den här funktionen medan vi fortsätter att uppfylla våra [serviceavtal för tillgänglighet och prestanda](https://azure.microsoft.com/support/legal/sla/cosmos-db).
+Eftersom en PaaS-tjänst, Cosmos DB är mycket enkelt att använda. Eftersom alla data som lagras i Cosmos DB är krypterat i vila och under transport, har du inte vidta några åtgärder. Ett annat sätt att lägga till detta är att kryptering i vila är ”on” är standardvärdet. Det finns inga kontroller för att aktivera eller inaktivera. Azure Cosmos DB använder AES-256-kryptering på alla regioner där kontot körs. Vi ger den här funktionen medan vi fortsätter att uppfylla våra [serviceavtal för tillgänglighet och prestanda](https://azure.microsoft.com/support/legal/sla/cosmos-db).
 
 ## <a name="implementation-of-encryption-at-rest-for-azure-cosmos-db"></a>Implementering av kryptering i vila för Azure Cosmos DB
 

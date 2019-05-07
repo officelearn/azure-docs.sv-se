@@ -1,19 +1,19 @@
 ---
 title: 'Snabbstart: Dirigera webbtrafik med Azure Application Gateway – Azure Portal | Microsoft Docs'
-description: Lär dig att använda Azure Portal för att skapa en Azure Application Gateway som leder webbtrafik till virtuella datorer i en serverdelspool.
+description: Lär dig hur du använder Azure-portalen för att skapa en Azure Application Gateway som dirigerar Internet-trafik till virtuella datorer i en serverdelspool.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 1/8/2019
+ms.date: 5/7/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 6f91b424398df7839c251d994fd3d484422d5e2c
-ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.openlocfilehash: bcbbb63206a443d87afa656ace6f141c6567d17d
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64947339"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192674"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>Snabbstart: Dirigera webbtrafik med Azure Application Gateway – Azure Portal
 
@@ -30,7 +30,7 @@ Logga in på [Azure Portal](https://portal.azure.com) med ditt Azure-konto.
 
 ## <a name="create-an-application-gateway"></a>Skapa en programgateway
 
-För att Azure ska kunna kommunicera mellan resurserna som du skapar krävs ett virtuellt nätverk. Du kan skapa ett nytt virtuellt nätverk, eller så kan du använda ett befintligt namn. I det här exemplet skapar vi ett nytt virtuellt nätverk. Du kan skapa ett virtuellt nätverk samtidigt som du skapar programgatewayen. Application Gateway-instanser skapas i olika undernät. Du skapar två undernät i det här exemplet: ett för programgatewayen och ett för backend-servrarna.
+För att Azure ska kunna kommunicera mellan resurserna som du skapar krävs ett virtuellt nätverk. Du kan skapa ett nytt virtuellt nätverk, eller så kan du använda ett befintligt namn. I det här exemplet skapar du ett nytt virtuellt nätverk. Du kan skapa ett virtuellt nätverk samtidigt som du skapar programgatewayen. Application Gateway-instanser skapas i olika undernät. Du skapar två undernät i det här exemplet: ett för programgatewayen och ett för backend-servrarna.
 
 1. Välj **Skapa en resurs** på den vänstra menyn på Azure-portalen. Fönstret **Nytt** visas.
 
@@ -65,13 +65,13 @@ För att Azure ska kunna kommunicera mellan resurserna som du skapar krävs ett 
 
 3. Välj **OK** för att återgå till sidan **Inställningar**.
 
-4. Välj den **Frontend-IP-konfiguration**. Kontrollera att **IP-adresstyp** är inställd på **Offentlig** under **IP-konfiguration för klientdel**. Kontrollera att **Skapa ny** har valts under **Offentlig IP-adress**. <br>Du kan konfigurera Frontend IP för att vara offentlig eller privat enligt ditt användningsområde. I det här exemplet väljer vi en offentlig Klientdels-IP.
+4. Välj den **Frontend-IP-konfiguration**. Kontrollera att **IP-adresstyp** är inställd på **Offentlig** under **IP-konfiguration för klientdel**. Kontrollera att **Skapa ny** har valts under **Offentlig IP-adress**. <br>Du kan konfigurera Frontend IP för att vara offentlig eller privat enligt ditt användningsområde. I det här exemplet ska du välja en offentlig Klientdels-IP.
    > [!NOTE]
-   > För SKU: N för Application Gateway v2 kan du endast välja **offentliga** IP-konfiguration. Privata IP-konfigurationen är inte aktiverat för v2-SKU.
+   > För SKU: N för Application Gateway v2 kan du endast välja **offentliga** klientdelens IP-konfiguration. Privat klientdelens IP-konfiguration är inte aktiverat för v2-SKU.
 
 5. Ange *myAGPublicIPAddress* som den offentliga IP-adressens namn. 
 
-6. Godkänn standardvärdena för de andra inställningarna och välj sedan **OK**.<br>Vi ska välja standardvärdena i den här artikeln för enkelhetens skull men du kan konfigurera anpassade värden för de andra inställningarna beroende på ditt användningsområde 
+6. Godkänn standardvärdena för de andra inställningarna och välj sedan **OK**.<br>Du ska välja standardvärdena i den här artikeln för enkelhetens skull men du kan konfigurera anpassade värden för de andra inställningarna beroende på ditt användningsområde 
 
 ### <a name="summary-page"></a>Sammanfattningssida
 
@@ -79,12 +79,14 @@ Granska inställningarna på **sammanfattningssidan** och välj sedan **OK** fö
 
 ## <a name="add-backend-pool"></a>Lägg till serverdelspool
 
-Serverdelspoolen används för att dirigera begäranden till backend-servrarna som ska tillhandahålla begäran. Serverdelspooler kan bestå av nätverkskort, VM-skalningsuppsättningar, offentliga IP-adresser, interna IP-adresser, fullständigt kvalificerade namn (FQDN) och flera innehavare serverprogram som Azure App Service. Du måste lägga till backend-mål i en serverdelspool.
+Serverdelspoolen används för att dirigera begäranden till backend-servrar som betjänar begäran. Serverdelspooler kan bestå av nätverkskort, VM-skalningsuppsättningar, offentliga IP-adresser, interna IP-adresser, fullständigt kvalificerade namn (FQDN) och flera innehavare serverprogram som Azure App Service. Du lägger till backend-mål i en serverdelspool.
 
-I det här exemplet använder vi virtuella datorer som mål-serverdelen. Vi kan använda befintliga virtuella datorer, eller så kan du skapa nya. I det här exemplet skapar vi två virtuella datorer som använder Azure som serverdelsservrar för application gateway. Detta gör att vi:
+I det här exemplet ska du använda virtuella datorer som mål-serverdel. Du kan använda befintliga virtuella datorer, eller så kan du skapa nya. Du ska skapa två virtuella datorer som använder Azure som serverdelsservrar för application gateway.
 
-1. Skapa ett nytt undernät *myBackendSubnet*, i vilket de nya virtuella datorerna kommer att skapas. 
-2. Skapa 2 nya virtuella datorer, *myVM* och *myVM2*, som ska användas som backend-servrarna.
+Om du vill göra detta måste du:
+
+1. Skapa ett nytt undernät *myBackendSubnet*, i vilket de nya virtuella datorerna kommer att skapas.
+2. Skapa två nya virtuella datorer, *myVM* och *myVM2*, som ska användas som backend-servrarna.
 3. Installera IIS på de virtuella datorerna för att kontrollera att application gateway har skapats.
 4. Lägg till backend-servrarna till i serverdelspoolen.
 
@@ -112,14 +114,14 @@ Lägg till ett undernät i det virtuella nätverket som du skapade genom att fö
     - **Lösenord**: Ange *Azure123456!* som administratörslösenord.
 4. Acceptera de övriga standardinställningarna och välj sedan **Nästa: Diskar**.  
 5. Acceptera standardinställningarna på fliken **Diskar** och välj sedan **Nästa: Nätverk**.
-6. På fliken **Nätverk** kontrollerar du att **myVNet** har valts för **Virtuellt nätverk** och att **Undernät** är inställt på **myBackendSubnet**. Acceptera de övriga standardinställningarna och välj sedan **Nästa: Hantering**.<br>Application Gateway kan kommunicera med instanser utanför det virtuella nätverket som den tillhör, men vi måste kontrollera att IP-anslutning. 
+6. På fliken **Nätverk** kontrollerar du att **myVNet** har valts för **Virtuellt nätverk** och att **Undernät** är inställt på **myBackendSubnet**. Acceptera de övriga standardinställningarna och välj sedan **Nästa: Hantering**.<br>Application Gateway kan kommunicera med instanser utanför det virtuella nätverket som den tillhör, men du måste kontrollera att IP anslutning.
 7. På fliken **Hantering** anger du **Startdiagnostik** till **Av**. Acceptera de övriga standardinställningarna och välj sedan **Granska + skapa**.
 8. Gå igenom inställningarna på fliken **Granska + skapa** och åtgärda eventuella verifieringsfel och välj sedan **Skapa**.
 9. Vänta på att skapandet av den virtuella datorn är klart innan du fortsätter.
 
 ### <a name="install-iis-for-testing"></a>Installera IIS för att testa
 
-I det här exemplet installerar vi IIS på de virtuella datorerna endast i syfte att verifiera Azure har skapats application gateway. 
+I det här exemplet kan installera du IIS på de virtuella datorerna endast för att verifiera Azure har skapats application gateway.
 
 1. Öppna [Azure PowerShell](https://docs.microsoft.com/azure/cloud-shell/quickstart-powershell). Det gör du genom att först välja **Cloud Shell** i det övre navigeringsfältet på Azure-portalen och sedan välja **PowerShell** i listrutan. 
 
@@ -161,10 +163,9 @@ I det här exemplet installerar vi IIS på de virtuella datorerna endast i syfte
 
 IIS krävs inte för skapande av programgatewayen, men du installerade det i den här snabbstarten för att kontrollera om Azure lyckades skapa programgatewayen. Använd IIS för att testa programgatewayen:
 
-1. Hitta den offentliga IP-adressen för application gateway på dess **översikt** sidan.![ Registrera program gatewayens offentliga IP-adress](./media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png)du kan även välja **alla resurser**, ange *myAGPublicIPAddress* i sökningen och väljer den i sökningen resultat. Azure visar den offentliga IP-adressen på sidan **Översikt**.
+1. Hitta den offentliga IP-adressen för application gateway på dess **översikt** sidan.![ Registrera program gatewayens offentliga IP-adress](./media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png) eller så kan du välja **alla resurser**, ange *myAGPublicIPAddress* i sökningen och väljer den i sökresultatet. Azure visar den offentliga IP-adressen på sidan **Översikt**.
 2. Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält.
-3. Kontrollera svaret. Ett giltigt svar verifierar att application gateway har skapats och är det kunna ansluta med serverdelen.![Testa programgatewayen](./media/application-gateway-create-gateway-portal/application-gateway-iistest.png)
-
+3. Kontrollera svaret. Ett giltigt svar verifierar att application gateway har skapats och att den kan ansluta med serverdelen.![Testa programgatewayen](./media/application-gateway-create-gateway-portal/application-gateway-iistest.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

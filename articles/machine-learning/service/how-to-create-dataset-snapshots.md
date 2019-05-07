@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.author: sihhu
 author: MayMSFT
 ms.date: 05/02/2019
-ms.openlocfilehash: ed10cb259802321769605bc0399a610131ddb174
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 51d0dcfc543834e9a8725d11fa82b566a5132a6b
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65029152"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205006"
 ---
 # <a name="compare-data-and-ensure-reproducibility-with-snapshots-preview"></a>Jämförelse av data och se till att reproducerbarhet med ögonblicksbilder (förhandsversion)
 
-I den här artikeln får du lära dig att skapa och hantera ögonblicksbilder av din [Azure Machine Learning datauppsättningar](how-to-create-register-datasets.md) (datauppsättningar) så att du kan avbilda eller jämföra data över tid. Datauppsättningar som gör det enklare att komma åt och arbeta med dina data i molnet i olika scenarier. 
+I den här artikeln får du lära dig att skapa och hantera ögonblicksbilder av din [Azure Machine Learning datauppsättningar](how-to-create-register-datasets.md) (datauppsättningar) så att du kan avbilda eller jämföra data över tid. Datauppsättningar som gör det enklare att komma åt och arbeta med dina data i molnet i olika scenarier.
 
-**Datauppsättningen ögonblicksbilder** lagra en profil (sammanfattande statistik) av data när den har skapats. Du kan välja att även spara en kopia av data i ögonblicksbilden för reproducerbarhet. 
+**Datauppsättningen ögonblicksbilder** lagra en profil (sammanfattande statistik) av data när den har skapats. Du kan välja att även spara en kopia av data i ögonblicksbilden för reproducerbarhet.
 
 >[!Important]
 > Ögonblicksbilder debiteras lagringskostnader. Lagrar en kopia av data i ögonblicksbilden kräver ännu mer lagring. Använd [ `dataset.delete_snapshot()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#delete-snapshot-snapshot-name-) när de inte längre behövs.
@@ -29,9 +29,9 @@ I den här artikeln får du lära dig att skapa och hantera ögonblicksbilder av
 
 Det finns tre huvudsakliga användningsområden för ögonblicksbilder:
 
-+ **Modellera verifiering**: Jämför dataprofil olika ögonblicksbilder mellan träningskörningar eller mot produktionsdata. 
++ **Modellera verifiering**: Jämför dataprofil olika ögonblicksbilder mellan träningskörningar eller mot produktionsdata.
 
-+ **Modellera reproducerbarhet**: Återskapa dina resultat genom att anropa en ögonblicksbild som innehåller data vid träning. 
++ **Modellera reproducerbarhet**: Återskapa dina resultat genom att anropa en ögonblicksbild som innehåller data vid träning.
 
 + **Spåra data över tid**: Se hur datauppsättningen har utvecklats av [jämföra profiler](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_snapshot.datasetsnapshot?view=azure-ml-py#compare-profiles-rhs-dataset-snapshot--include-columns-none--exclude-columns-none--histogram-compare-method--histogramcomparemethod-wasserstein--0--)
   
@@ -41,16 +41,17 @@ Du behöver en registrerad datauppsättning för Azure Machine Learning för att
 
 ## <a name="create-dataset-snapshots"></a>Skapa datauppsättning ögonblicksbilder
 
-Du kan skapa en ögonblicksbild av en datauppsättning med [ `dataset.create_snapshot()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?#create-snapshot-snapshot-name--compute-target-none--create-data-snapshot-false--target-datastore-none-) från Azure Machine Learning SDK. 
+Du kan skapa en ögonblicksbild av en datauppsättning med [ `dataset.create_snapshot()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?#create-snapshot-snapshot-name--compute-target-none--create-data-snapshot-false--target-datastore-none-) från Azure Machine Learning SDK.
 
 Som standard lagrar ögonblicksbilden profil (sammanfattande statistik) av data med senast [datauppsättningsdefinitionen](how-to-manage-dataset-definitions.md) tillämpas. Definitionen av datauppsättningen innehåller en post för alla transformeringssteg som definierats för data. Det är ett bra sätt att göra din data prep fungerar reproducerbar.
 
-Du kan också ta en kopia av data i ögonblicksbilden genom att lägga till `create_data_snapshot = True`.  Dessa data kan vara användbart för reproducerbarhet. 
+Du kan också ta en kopia av data i ögonblicksbilden genom att lägga till `create_data_snapshot = True`.  Dessa data kan vara användbart för reproducerbarhet.
 
 Det här exemplet används [exempeldata crime](https://dprepdata.blob.core.windows.net/dataset-sample-files/crime.csv) och en datauppsättning som kallas `dataset_crime` skapats med hjälp av artikeln [”skapa och registrera datauppsättningar”](how-to-create-register-datasets.md).
 
 ```Python
-from azureml.core.dataset import Workspace, Dataset
+from azureml.core.workspace import Workspace
+from azureml.core.dataset import Dataset
 from azureml.data.dataset_snapshot import DatasetSnapshot
 import datetime
 
@@ -58,7 +59,7 @@ import datetime
 workspace = Workspace.from_config()
 
 # get existing, named dataset:
-dataset = workspace.Dataset['dataset_crime']
+dataset = workspace.datasets['dataset_crime']
 
 # assign name to snapshot
 snapshot_name = 'snapshot_' + datetime.datetime.today().strftime('%Y%m%d%H%M%S')
@@ -69,11 +70,10 @@ snapshot = dataset.create_snapshot(snapshot_name = snapshot_name,
                                    compute_target = remote_compute_target,
                                    create_data_snapshot = True)
 ```
- 
 
 Eftersom ögonblicksbilder skapas asynkront, använda den [ `wait_for_completion()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_snapshot.datasetsnapshot?view=azure-ml-py#wait-for-completion-show-output-true--status-update-frequency-10-) metod för att övervaka processen.
 
-```python
+```Python
 # monitor process every 10 seconds
 snapshot.wait_for_completion(show_output=True, status_update_frequency=10)
 
@@ -102,7 +102,7 @@ Använd [ `dataset.delete_snapshot()` ](https://docs.microsoft.com/python/api/az
 
 Använd för att hämta en befintlig ögonblicksbild [ `get_snapshot()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#get-snapshot-snapshot-name-).
 
-Hämta en lista över dina sparade ögonblicksbilder av den angivna datauppsättningen [ `get_all_snapshots()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#get-all-snapshots--). 
+Hämta en lista över dina sparade ögonblicksbilder av den angivna datauppsättningen [ `get_all_snapshots()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#get-all-snapshots--).
 
 ```Python
 # Get named snapshot for this dataset
@@ -141,12 +141,11 @@ Distrikt|FieldType.INTEGER|5|24|10.0|0.0|10.0|0.0|0.0|0.0|5|5|5|6|13|19|24|24|24
 Ward|FieldType.INTEGER|1|48|10.0|0.0|10.0|0.0|0.0|0,0|1|5|1|9|22.5|40|48|48|48|24.5|16.2635|264.5|0.173723|-1.51271
 Community-området|FieldType.INTEGER|4|77|10.0|0.0|10.0|0.0|0.0|0.0|4|8.5|4|24|37.5|71|77|77|77|41.2|26.6366|709.511|0.112157|-1.73379
 
-
 ### <a name="get-the-data-from-the-snapshot"></a>Hämta data från ögonblicksbilden
 
 För att få en kopia av data som sparas i en datauppsättning ögonblicksbild kan generera en pandas-DataFrame med den [ `to_pandas_dataframe()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#to-pandas-dataframe--) metod.
 
-Den här metoden misslyckas om en kopia av informationen som inte begärdes när ögonblicksbilder skapas. 
+Den här metoden misslyckas om en kopia av informationen som inte begärdes när ögonblicksbilder skapas.
 
 ```Python
 snapshot.to_pandas_dataframe().head(3)
@@ -157,7 +156,6 @@ snapshot.to_pandas_dataframe().head(3)
 0|10498554|HZ239907|2016-04-04 23:56:00|007XX E 111TH ST|1153|BEDRÄGERIFÖRSÖK|FINANSIELLA IDENTITETSSTÖLDER ÖVER 300 USD|ANDRA|False|False|...|9|50|11|1183356.0|1831503.0|2016|2016-05-11 15:48:00|41.692834|-87.604319|(41.692833841, -87.60431945)
 1|10516598|HZ258664|2016-04-15 17:00:00|082XX S MARSHFIELD AVE|890|STÖLD|FRÅN ATT BYGGA|BOSATT|False|False|...|21|71|6|1166776.0|1850053.0|2016|2016-05-12 15:48:00|41.744107|-87.664494|(41.744106973, -87.664494285)
 2|10519196|HZ261252|2016-04-15 10:00:00|104XX S SACRAMENTO PARA|1154|BEDRÄGERIFÖRSÖK|FINANSIELLA IDENTITETSSTÖLDER 300 USD OCH UNDER|BOSATT|False|False|...|19|74|11|NaN|NaN|2016|2016-05-12 15:50:00|NaN|NaN|
-
 
 ## <a name="next-steps"></a>Nästa steg
 

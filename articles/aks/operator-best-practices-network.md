@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: iainfou
-ms.openlocfilehash: 2bdc18ba4dc77178d5fcc5d2ba6d89aa109d923c
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: HT
+ms.openlocfilehash: b26af87de8a09f987d69f0441a817638e626b4af
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074145"
+ms.locfileid: "65192240"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Metodtips för nätverksanslutning och säkerhet i Azure Kubernetes Service (AKS)
 
@@ -47,7 +47,7 @@ När du använder Azure CNI nätverk är den virtuella nätverksresursen i en se
 
 Läs mer om AKS-tjänsten huvudnamn delegering [delegera åtkomst till andra Azure-resurser][sp-delegation].
 
-Som varje nod och pod få sin egen IP-adress kan du planera adressintervallen för AKS-undernät. Undernätet måste vara tillräckligt stor för att ange IP-adresser för varje nod, poddar och nätverksresurser som du distribuerar. Varje AKS-kluster måste placeras i ett eget undernät. Om du vill tillåta anslutning till lokala eller peer-kopplade nätverk i Azure, Använd inte IP-adressintervall som överlappar med befintliga nätverksresurser. Det finns standardbegränsningar att antalet poddar som varje nod som körs med både kubenet och CNI för Azure-nätverk. Om du vill hantera att skala upp händelser eller klusteruppgradering, måste du också ytterligare IP-adresser som är tillgängliga för användning i det tilldelade undernätet. Den här ytterligare adressutrymme är särskilt viktigt om du använder Windows Server-behållare (för närvarande i förhandsversion i AKS), eftersom dessa nodpooler kräver en uppgradering för att tillämpa de senaste säkerhetsuppdateringar. Mer information om Windows Server-noder finns i [uppgradera en nodpool i AKS][nodepool-upgrade].
+Som varje nod och pod få sin egen IP-adress kan du planera adressintervallen för AKS-undernät. Undernätet måste vara tillräckligt stor för att ange IP-adresser för varje nod, poddar och nätverksresurser som du distribuerar. Varje AKS-kluster måste placeras i ett eget undernät. Om du vill tillåta anslutning till lokala eller peer-kopplade nätverk i Azure, Använd inte IP-adressintervall som överlappar med befintliga nätverksresurser. Det finns standardbegränsningar att antalet poddar som varje nod som körs med både kubenet och CNI för Azure-nätverk. Om du vill hantera att skala upp händelser eller klusteruppgradering, måste du också ytterligare IP-adresser som är tillgängliga för användning i det tilldelade undernätet.
 
 Att beräkna IP-adress krävs, se [CNI konfigurera Azure-nätverk i AKS][advanced-networking].
 
@@ -101,8 +101,6 @@ spec:
 
 Ingress-kontrollant är en daemon som körs på ett AKS-noder och söker efter inkommande begäranden. Trafiken distribueras sedan baserat på de regler som definierats i ingress-resursen. Den vanligaste ingress-kontrollanten baseras på [NGINX]. AKS inte begränsa du till en specifik domänkontrollant, så du kan använda andra domänkontrollanter som [profil][contour], [HAProxy][haproxy], eller [ Traefik][traefik].
 
-Ingress-styrenheter måste schemaläggas på en Linux-nod. Windows Server-noder (för närvarande i förhandsversion i AKS) bör inte köra ingress-kontrollant. Använd en nod väljare i YAML-manifest eller Helm-diagram-distribution för att ange att resursen ska köras på en Linux-baserade nod. Mer information finns i [använda väljare för noden att kontroll där poddar schemaläggs i AKS][concepts-node-selectors].
-
 Det finns många scenarier för ingress, inklusive följande guider:
 
 * [Skapa en grundläggande ingress-kontrollant med extern nätverksanslutning][aks-ingress-basic]
@@ -128,7 +126,7 @@ Load balancer eller ingående resurser fortsätter att köras i AKS-klustret att
 
 Nätverksprincip är en Kubernetes-funktion som låter dig styra trafikflödet mellan poddar. Du kan välja att tillåta eller neka trafik baserat på inställningar, till exempel tilldelade etiketter, namnområde eller trafik port. Användning av nätverksprinciper ger ett molnbaserade sätt att styra flödet av trafik. Då poddar skapas dynamiskt i ett AKS-kluster, kan de nödvändiga nätverksprinciperna tillämpas automatiskt. Använd inte Azure nätverkssäkerhetsgrupper för att kontrollera pod-pod-trafik, använda nätverksprinciper.
 
-Om du vill använda principen för nätverk, måste funktionen aktiveras när du skapar ett AKS-kluster. Du kan inte aktivera principen för nätverk i ett befintligt AKS-kluster. Planera framåt och se till att du aktiverar nätverksprincip i kluster och använda dem vid behov. Nätverksprincip bör endast användas för Linux-baserade noder och poddar i AKS.
+Om du vill använda principen för nätverk, måste funktionen aktiveras när du skapar ett AKS-kluster. Du kan inte aktivera principen för nätverk i ett befintligt AKS-kluster. Planera framåt och se till att du aktiverar nätverksprincip i kluster och använda dem vid behov.
 
 En princip skapas som en Kubernetes-resurs med hjälp av en YAML-manifestet. Principerna tillämpas på definierade poddar och regler för inkommande eller utgående definiera hur trafiken kan flöda. I följande exempel gäller en princip för poddar med den *app: serverdel* etiketten tillämpas. Regel för inkommande sedan tillåter endast trafik från poddar med den *app: frontend* etikett:
 
@@ -188,5 +186,3 @@ Den här artikeln fokuserar på nätverksanslutning och säkerhet. Läs mer om g
 [use-network-policies]: use-network-policies.md
 [advanced-networking]: configure-azure-cni.md
 [aks-configure-kubenet-networking]: configure-kubenet.md
-[concepts-node-selectors]: concepts-clusters-workloads.md#node-selectors
-[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool

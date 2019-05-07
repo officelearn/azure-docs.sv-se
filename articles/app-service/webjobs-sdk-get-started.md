@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: b824c99a015cfa2c1d1c75e2a1257eff482e8dd6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a9e902a13071abefff71dc4db089380979c8d459
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60833308"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65198623"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Kom igång med Azure WebJobs-SDK för händelsedrivna Bakgrundsbearbetning
 
@@ -195,7 +195,7 @@ Från och med version 3.x, måste du uttryckligen installerar Storage bindningst
 
    Den `QueueTrigger` attributet anger körning för att anropa den här funktionen när ett nytt meddelande skrivs i en Azure Storage-kö som kallas `queue`. Innehållet i kömeddelandet tillhandahålls för att metoden koden i den `message` parametern. Brödtexten i metoden är där du bearbeta data för utlösaren. I det här exemplet loggar koden bara meddelandet.
 
-   Den `message` parametern behöver inte vara en sträng. Du kan också binda till en JSON-objekt, en bytematris eller en [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage) objekt. [Se användning av Replikeringskö utlösaren](../azure-functions/functions-bindings-storage-queue.md#trigger---usage). Varje bindningstyp (till exempel köer, blobbar och tabeller) har en annan uppsättning parametertyper som du kan bindas till.
+   Den `message` parametern behöver inte vara en sträng. Du kan också binda till en JSON-objekt, en bytematris eller en [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) objekt. [Se användning av Replikeringskö utlösaren](../azure-functions/functions-bindings-storage-queue.md#trigger---usage). Varje bindningstyp (till exempel köer, blobbar och tabeller) har en annan uppsättning parametertyper som du kan bindas till.
 
 ## <a name="create-a-storage-account"></a>skapar ett lagringskonto
 

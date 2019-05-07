@@ -1,19 +1,19 @@
 ---
-title: Övervaka och finjustera i Azure Database för PostgreSQL
-description: Den här artikeln beskriver övervakning och justering funktioner i Azure Database för PostgreSQL.
+title: Övervaka och finjustera i Azure Database för PostgreSQL – enskild Server
+description: Den här artikeln beskriver övervakar och justerar funktioner i Azure Database för PostgreSQL – enskild Server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 11/05/2018
-ms.openlocfilehash: 0d5508fe6b07bd5664bd0708960559537d8f6be1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 5e03a3e33d618c393241a649be50fe78632caafe
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61456231"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65069000"
 ---
-# <a name="monitor-and-tune"></a>Övervaka och finjustera
+# <a name="monitor-and-tune-azure-database-for-postgresql---single-server"></a>Övervaka och finjustera Azure Database för PostgreSQL – enskild Server
 Övervakning av data om dina servrar kan du felsöka och optimera din arbetsbelastning. Azure Database för PostgreSQL innehåller olika övervakningsalternativ att ge insikter i beteendet för din server.
 
 ## <a name="metrics"></a>Mått
@@ -33,8 +33,8 @@ De här måtten är tillgängliga för Azure Database för PostgreSQL:
 |serverlog_storage_percent|Procent för lagring av Server-loggen|Procent|Procentandelen av server logglagring som används av serverns maximala server log lagring.|
 |serverlog_storage_usage|Server logglagring som används|Byte|Mängden log-serverlagring används.|
 |serverlog_storage_limit|Log storage gränsen|Byte|Det maximala server log lagringsutrymmet för den här servern.|
-|active_connections|Aktiva anslutningar|Antal|Antal aktiva anslutningar till servern.|
-|connections_failed|Misslyckade anslutningar|Antal|Antal misslyckade anslutningar till servern.|
+|active_connections|Aktiva anslutningar|Count|Antal aktiva anslutningar till servern.|
+|connections_failed|Misslyckade anslutningar|Count|Antal misslyckade anslutningar till servern.|
 |network_bytes_egress|Nätverk ut|Byte|Nätverk ut över aktiva anslutningar.|
 |network_bytes_ingress|Nätverk in|Byte|Nätverk i över aktiva anslutningar.|
 |backup_storage_used|Används för lagring av säkerhetskopior|Byte|Mängden lagring av säkerhetskopior används.|

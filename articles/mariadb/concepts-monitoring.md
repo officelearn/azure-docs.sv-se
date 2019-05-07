@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.openlocfilehash: babe2ac55953940370daa0731463ed6ed8988502
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 05/06/2019
 ms.locfileid: "64925929"
 ---
 # <a name="monitoring-in-azure-database-for-mariadb"></a>Övervakning i Azure-databas för MariaDB
@@ -35,8 +35,8 @@ De här måtten är tillgängliga för Azure Database for MariaDB:
 |serverlog_storage_usage|Server logglagring som används|Byte|Mängden log-serverlagring används.|
 |serverlog_storage_limit|Log storage gränsen|Byte|Det maximala server log lagringsutrymmet för den här servern.|
 |storage_limit|Gränsen för lagring|Byte|Det maximala lagringsutrymmet för den här servern.|
-|active_connections|Aktiva anslutningar|Antal|Antal aktiva anslutningar till servern.|
-|connections_failed|Misslyckade anslutningar|Antal|Antal misslyckade anslutningar till servern.|
+|active_connections|Aktiva anslutningar|Count|Antal aktiva anslutningar till servern.|
+|connections_failed|Misslyckade anslutningar|Count|Antal misslyckade anslutningar till servern.|
 |network_bytes_egress|Nätverk ut|Byte|Nätverk ut över aktiva anslutningar.|
 |network_bytes_ingress|Nätverk in|Byte|Nätverk i över aktiva anslutningar.|
 

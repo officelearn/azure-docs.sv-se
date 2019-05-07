@@ -207,7 +207,7 @@ Styr loggning beteenden för funktionsappen, inklusive Application Insights.
 |console|Saknas| Den [konsolen](#console) inställning för aktivitetsloggning. |
 |applicationInsights|Saknas| Den [applicationInsights](#applicationinsights) inställningen. |
 
-## <a name="console"></a>konsol
+## <a name="console"></a>console
 
 Den här inställningen är underordnad [loggning](#logging). Den kontrollerar konsolen loggning när inte i felsökningsläge.
 

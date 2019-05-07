@@ -1,19 +1,19 @@
 ---
-title: Starta om Azure Database för PostgreSQL-server med Azure CLI
-description: Den här artikeln beskrivs hur du kan starta om en Azure Database for PostgreSQL-server med Azure CLI
+title: Starta om Azure Database för PostgreSQL – enskild Server med Azure CLI
+description: Den här artikeln beskrivs hur du kan starta om en Azure Database för PostgreSQL – enskild Server med Azure CLI
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 3/28/2019
-ms.openlocfilehash: 51b3011c040db8576c13868f9fac26cb1e431515
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 0a7cd815724fcebd6311860576e620eb9273523b
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60420333"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068982"
 ---
-# <a name="restart-azure-database-for-postgresql-server-using-the-azure-cli"></a>Starta om Azure Database for PostgreSQL-server med Azure CLI
+# <a name="restart-azure-database-for-postgresql---single-server-using-the-azure-cli"></a>Starta om Azure Database för PostgreSQL – enskild Server med Azure CLI
 Det här avsnittet beskrivs hur du kan starta om en Azure Database for PostgreSQL-server. Du kan behöva starta om servern för underhåll orsaker, vilket medför ett kort avbrott som servern utför åtgärden.
 
 Starta om servern kommer att blockeras om tjänsten är upptagen. Tjänsten kan till exempel behandlar tidigare åtgärden, till exempel skala virtuella kärnor.

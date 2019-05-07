@@ -5,22 +5,21 @@ services: virtual-machines
 author: axayjo
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/25/2019
+ms.date: 05/06/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: fd1dd1f8af8fee9b1fecb05405381dba879facde
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 0fe1de9bb674c66d1b665de25ee579bc86e42c75
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149790"
+ms.locfileid: "65192372"
 ---
 Delade bildgalleriet är en tjänst som hjälper dig att skapa struktur och organisation runt dina anpassade hanterade VM-avbildningar. Delade Image Galleries innehåller:
 
 - Hanterad global replikering av avbildningar.
 - Versionshantering och gruppering av avbildningar för enklare hantering.
-- Högre skala gränser. Anpassade avbildningar kan för 600 samtidiga virtuella datorer, medan delad Image Galleries tillåter 1000 samtidiga virtuella datorer.
-- Med hög tillgänglighet bilder med Zonredundant lagring. Även om ett datacenter slutar att fungera får åtkomst till avbildningar i den regionen.
+- Gör dina avbildningar med hög tillgänglighet med Zonredundant lagring (ZRS)-konton i regioner som har stöd för Tillgänglighetszoner. ZRS ger bättre återhämtning mot zonindelad fel.
 - Delning mellan prenumerationer och även mellan klienter, med hjälp av RBAC.
 
 Med hjälp av en delad bildgalleriet kan du dela dina avbildningar till olika användare, tjänstens huvudnamn eller AD-grupper i din organisation. Delade bilder kan replikeras till flera regioner, för snabbare skalning av dina distributioner.
@@ -92,12 +91,10 @@ Regioner visas i tabellen nedan. Alla offentliga regioner kan vara målregioner,
 
 ## <a name="limits"></a>Limits 
 
-Med hanterade avbildningar, kan du bara ha 600 samtidiga virtuella datorer per bild med delad Image Galleries, detta ökar till 1000 samtidiga virtuella datorer per versionsnumret för avbildningen.
-
 Det finns gränser för en prenumeration för att distribuera resurser med hjälp av delad Image Galleries:
-- 10 delade bildgallerier per prenumeration per region
-- 200 bild definitioner, per prenumeration per region
-- 2000 bild versioner, per prenumeration per region
+- 100 delade bildgallerier per prenumeration per region
+- 1 000 bild definitioner, per prenumeration per region
+- 10 000 bild-versioner, per prenumeration per region
 
 Mer information finns i [Kontrollera resursanvändningen mot gränser](https://docs.microsoft.com/azure/networking/check-usage-against-limits) för exempel på hur du kontrollerar din aktuella användning.
  

@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/27/2019
+ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: 921d154226862d822802562442f59bf1c37c4745
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: e64b18cef44a5fa6d63137f57fcada27adcd0299
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148913"
+ms.locfileid: "65205472"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Riktlinjer för att flytta från Media Services v2 till v3
 
@@ -71,7 +71,7 @@ Om du har en videotjänst som har utvecklats i dag ovanpå den [äldre Media Ser
     * Positionerare för direktuppspelning ersätter lokaliserare.
     * Live-händelse ersätter kanal.<br/>Live-händelser som fakturering baseras på livekanal mätare. Mer information finns i [fakturering](live-event-states-billing.md) och [priser](https://azure.microsoft.com/pricing/details/media-services/).
     * Live utdata ersätter programmet.
-* Live utdata behöver inte uttryckligen startas, de börjar vid skapandet och avbryts när tas bort. Program som fungerade inte på samma sätt i v2-API: er som de hade startas när du har skapat.
+* Liveutdata startar när de skapas och avbryts när de tas bort. Program som fungerade inte på samma sätt i v2-API: er som de hade startas när du har skapat.
 *  Om du vill ha information om ett jobb som du behöver veta Transform-namnet som har skapats för jobbet. 
 
 ## <a name="feature-gaps-with-respect-to-v2-apis"></a>Funktionen avstånd till v2 API: er

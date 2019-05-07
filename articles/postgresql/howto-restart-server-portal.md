@@ -1,19 +1,19 @@
 ---
-title: Starta om Azure Database for PostgreSQL-server med hjälp av Azure portal
-description: Den här artikeln beskrivs hur du kan starta om en Azure Database for PostgreSQL-server med Azure-portalen.
+title: Starta om Azure Database för PostgreSQL – enskild Server med hjälp av Azure portal
+description: Den här artikeln beskrivs hur du kan starta om en Azure Database för PostgreSQL – enskild Server med Azure portal.
 author: ajlam
 ms.author: andrela
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 3/18/2019
-ms.openlocfilehash: bf73120e462b740de5d2245f8a647896ac61f2c8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: fd92e27f53f52de3e9a7fd65d577c9dfea44991b
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60420505"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65066841"
 ---
-# <a name="restart-azure-database-for-postgresql-server-using-the-azure-portal"></a>Starta om Azure Database for PostgreSQL-server med Azure portal
+# <a name="restart-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Starta om Azure Database för PostgreSQL – enskild Server med Azure portal
 Det här avsnittet beskrivs hur du kan starta om en Azure Database for PostgreSQL-server. Du kan behöva starta om servern för underhåll orsaker, vilket medför ett kort avbrott som servern utför åtgärden.
 
 Starta om servern kommer att blockeras om tjänsten är upptagen. Tjänsten kan till exempel behandlar tidigare åtgärden, till exempel skala virtuella kärnor.

@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 7e4364a06a3d20edc7aafd54a4dcd86dfd039043
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8508dbecceb9984f53a133d9634882603549cdd1
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64573565"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65199643"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Skapa och använda en intern lastbalanserare med en App Service-miljö #
 
@@ -133,8 +133,8 @@ När du har skapat din ASE visar domännamnet den domän du angav. Ett nytt obje
 
 Din ILB ASE behöver ett giltigt SSL-certifikat. Använd interna certifikatutfärdare, köp ett certifikat från en extern utfärdare eller använd ett självsignerat certifikat. Följande certifikatattribut måste konfigureras korrekt oavsett källan för SSL-certifikat:
 
-* **Ämne**: Det här attributet måste vara inställt på *.your-root-domain-here.
-* **Alternativt namn för certifikatmottagare**: Det här attributet måste innehålla både **.your-root-domain-here* och **.scm.your-root-domain-here*. SSL-anslutningar till SCM-/Kudu-webbplatsen som associeras till varje app använder en adress i formatet *your-app-name.scm.your-root-domain-here*.
+* **Ämne**: Det här attributet måste anges till *\.your-root-domain-here.
+* **Alternativt namn för certifikatmottagare**: Det här attributet måste innehålla både *.your-root-domain-here* och *.SCM.Your-root-domain-här*. SSL-anslutningar till SCM-/Kudu-webbplatsen som associeras till varje app använder en adress i formatet *your-app-name.scm.your-root-domain-here*.
 
 Konvertera/spara SSL-certifikatet som en .pfx-fil. .pfx-filen måste innehålla alla mellanliggande rotcertifikat. Skydda den med ett lösenord.
 

@@ -9,151 +9,123 @@ ms.topic: conceptual
 ms.author: minxia
 author: mx-iao
 ms.reviewer: sgilley
-ms.date: 04/19/2019
+ms.date: 05/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: cedd45d4142633e48d0d9dd41870f57c16d860c8
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: c8865c851f394d73b5446ac159b5a7799c0c9ed2
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023845"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192357"
 ---
 # <a name="train-tensorflow-and-keras-models-with-azure-machine-learning-service"></a>Skapa TensorFlow och Keras modeller med Azure Machine Learning-tjänsten
 
-För djupa neurala (DNN) nätverksutbildning med TensorFlow, Azure Machine Learning ger en anpassad `TensorFlow` klassen för den `Estimator`. Azure SDK [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) kostnadsuppskattning (inte för att vara conflated med den [ `tf.estimator.Estimator` ](https://www.tensorflow.org/api_docs/python/tf/estimator/Estimator) klassen) kan du enkelt skicka TensorFlow-utbildningsjobb för både en nod och distribuerade körs på Azure beräkning.
+Du kan enkelt köra TensorFlow-utbildningsjobb på Azure compute med hjälp av den [ `TensorFlow` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) kostnadsuppskattning klass i SDK: N för Azure Machine Learning. Den `TensorFlow` kostnadsuppskattning dirigerar Azure Machine Learning-tjänsten att köra jobbet på en TensorFlow-aktiverade behållare för djupa Neurala nätverk (DNN) utbildning.
+
+Den `TensorFlow` kostnadsuppskattning innehåller också ett lager av abstraktion under körning, vilket innebär att du enkelt kan konfigurera parametriserade körs på olika beräkningsmål utan att ändra skripten utbildning.
+
+## <a name="getting-started"></a>Komma igång
+
+Skicka jobb med den `TensorFlow` kostnadsuppskattning är ungefär som att använda grundläggande [ `Estimator` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py). Så vi rekommenderar att börja med att läsa den [grundläggande kostnadsuppskattning artikel](how-to-train-ml-models.md) att förstå de övergripande begrepp först.
+
+Om du vill komma igång med Azure Machine Learning-tjänsten [Slutför Snabbstart](quickstart-run-cloud-notebook.md). Har du en arbetsmiljö med alla våra [exempel anteckningsböcker](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml).
 
 ## <a name="single-node-training"></a>Nod-utbildning
-Utbildning med den `TensorFlow` kostnadsuppskattning är ungefär som att använda den [grundläggande `Estimator` ](how-to-train-ml-models.md), så först läsa igenom artikeln och kontrollera att du förstår begreppen som förklaras det.
-  
-Om du vill köra ett TensorFlow-jobb, skapa en instans av en `TensorFlow` objekt. Du bör redan har skapat din [beräkningsmålet](how-to-set-up-training-targets.md#amlcompute) objektet `compute_target`.
+
+Om du vill köra ett TensorFlow-jobb, skapa en instans av en [ `TensorFlow` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) objekt och skickar det som ett experiment.
+
+Följande kod skapar en instans av en TensorFlow kostnadsuppskattning och skickar den som ett experiment. Skriptet utbildning `train.py` ska köras med hjälp av parametrarna givet skript. Jobbet ska köras på en GPU-aktiverade [beräkningsmålet](how-to-set-up-training-targets.md), och scikit-Läs kommer installeras som ett beroende för `train.py`.
 
 ```Python
 from azureml.train.dnn import TensorFlow
 
+# training script parameters passed as command-line arguments
 script_params = {
     '--batch-size': 50,
     '--learning-rate': 0.01,
 }
 
+# TensorFlow constructor
 tf_est = TensorFlow(source_directory='./my-tf-proj',
                     script_params=script_params,
                     compute_target=compute_target,
-                    entry_script='train.py',
-                    conda_packages=['scikit-learn'], # in case you need scikit-learn in train.py
+                    entry_script='train.py', # relative path to your TensorFlow job
+                    conda_packages=['scikit-learn'],
                     use_gpu=True)
-```
 
-Här anger vi följande parametrar till TensorFlow-konstruktorn:
-
-Parameter | Beskrivning
---|--
-`source_directory` | Lokal katalog som innehåller hela din kod som behövs för utbildningsjobbet. Den här mappen kopieras från din lokala dator till den fjärranslutna beräkningen
-`script_params` | Ordlista att ange kommandoradsargument för att dina utbildningsskript `entry_script`, i form av < kommandoradsargumentet, värde > par.  Ange en utförlig flagga i `script_params`, använda `<command-line argument, "">`.
-`compute_target` | Remote beräkningsmål som utbildning skriptet ska köras på, i det här fallet en Azure Machine Learning Compute ([AmlCompute](how-to-set-up-training-targets.md#amlcompute)) kluster
-`entry_script` | FilePath (relativt till den `source_directory`) för utbildning-skriptet som ska köras på den fjärranslutna databearbetning. Den här filen och eventuella ytterligare filer som den är beroende av, bör finnas i den här mappen
-`conda_packages` | Lista över Python-paket installeras via conda som krävs för dina utbildningsskript. I det här fallet inlärningsskript använder `sklearn` för att läsa in data, så ange det här paketet installeras.  Konstruktorn har en annan parameter med namnet `pip_packages` som du kan använda några pip-paket som behövs
-`use_gpu` | Anger denna flagga `True` utnyttja GPU för utbildning. Som standard `False`.
-
-Eftersom du använder TensorFlow-kostnadsuppskattning behållaren som används för utbildning som standard innehåller TensorFlow-paketet och relaterade beroenden som krävs för utbildning om processorer och GPU: er.
-
-Skicka TensorFlow-jobb:
-```Python
+# submit the TensorFlow job
 run = exp.submit(tf_est)
 ```
 
-## <a name="keras-support"></a>Stöd för Keras
-[Keras](https://keras.io/) är ett populärt övergripande DNN Python API som stöder TensorFlow, CNTK eller Theano som serverdelar. Om du använder TensorFlow som serverdel kan du enkelt använda TensFlow kostnadsuppskattning för att träna en modell för Keras. Här är ett exempel på en TensorFlow kostnadsuppskattning med Keras har lagts till:
-
-```Python
-from azureml.train.dnn import TensorFlow
-
-keras_est = TensorFlow(source_directory='./my-keras-proj',
-                       script_params=script_params,
-                       compute_target=compute_target,
-                       entry_script='keras_train.py',
-                       pip_packages=['keras'], # just add keras through pip
-                       use_gpu=True)
-```
-Konstruktorn kostnadsuppskattning ovan TensorFlow instruerar Azure Machine Learning-tjänsten för att installera Keras via pip att körningsmiljö. Och din `keras_train.py` kan sedan importera Keras-API för att träna en modell för Keras. Ett komplett exempel utforska [Jupyter-anteckningsbok](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb).
-
 ## <a name="distributed-training"></a>Distribuerad utbildning
-TensorFlow-Estimator kan du träna dina modeller i hög skala över processor- och GPU-kluster av virtuella Azure-datorer. Du kan enkelt köra distribuerad TensorFlow-utbildning med några API-anrop, medan Azure Machine Learning ska hantera i bakgrunden alla infrastruktur och dirigering som behövs för att utföra de här arbetsbelastningarna.
 
-Azure Machine Learning stöder två metoder för distribuerad utbildning i TensorFlow:
-* MPI-baserade distribuerade utbildning med hjälp av den [Horovod](https://github.com/uber/horovod) framework
-* interna [distribuerade TensorFlow](https://www.tensorflow.org/deploy/distributed) via metoden parametern server
+Den [ `TensorFlow` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) kostnadsuppskattning stöder också distribuerad utbildning i Processorn och GPU-kluster. Du kan enkelt köra distribuerade TensorFlow-jobb och Azure Machine Learning-tjänsten hanterar infrastrukturen och orchestration åt dig.
+
+Azure Machine Learning-tjänsten stöder två metoder för distribuerad utbildning i TensorFlow:
+
+* [MPI-baserade](https://www.open-mpi.org/) distribuerade utbildning med hjälp av den [Horovod](https://github.com/uber/horovod) framework
+* Interna [distribuerade TensorFlow](https://www.tensorflow.org/deploy/distributed) med metoden parametern server
 
 ### <a name="horovod"></a>Horovod
-[Horovod](https://github.com/uber/horovod) är ett ramverk för öppen källkod ring-allreduce för distribuerad utbildning har utvecklats av Uber.
 
-Om du vill köra distribuerade TensorFlow med Horovod framework, skapar du TensorFlow-objekt på följande sätt:
+[Horovod](https://github.com/uber/horovod) är ett ramverk för öppen källkod för distribuerad utbildning har utvecklats av Uber. Den erbjuder ett enkelt sätt att distribuerade GPU TensorFlow-jobb.
+
+I följande exempel körs ett distribuerade utbildningsjobb med hjälp av Horovod med två arbetsroller som distribueras över två noder.
 
 ```Python
 from azureml.train.dnn import TensorFlow
 
+# Tensorflow constructor
 tf_est = TensorFlow(source_directory='./my-tf-proj',
                     script_params={},
                     compute_target=compute_target,
-                    entry_script='train.py',
+                    entry_script='train.py', # relative path to your TensorFlow job
                     node_count=2,
                     process_count_per_node=1,
-                    distributed_backend='mpi',
+                    distributed_backend='mpi', # specifies Horovod backend
                     use_gpu=True)
+
+# submit the TensorFlow job
+run = exp.submit(tf_est)
 ```
 
-Koden ovan visar följande nya parametrar för TensorFlow-konstruktorn:
-
-Parameter | Beskrivning | Standard
---|--|--
-`node_count` | Antalet noder som ska användas för utbildning-jobbet. | `1`
-`process_count_per_node` | Antal processer (eller ”anställda”) för att köra på varje nod.|`1`
-`distributed_backend` | Serverdelen för att starta distribuerade utbildning som kostnadsuppskattning erbjuder via MPI. Om du vill utföra parallella eller distribuerade utbildning (till exempel `node_count`> 1 eller `process_count_per_node`> 1 eller båda) med MPI (och Horovod), ange `distributed_backend='mpi'`. MPI-implementering som används av Azure Machine Learning är [öppna MPI](https://www.open-mpi.org/). | `None`
-
-Exemplet ovan körs distribuerad utbildning med två arbetsroller en arbetare per nod.
-
-Horovod och dess beroenden kommer att installeras åt dig, så kan du importera det i dina utbildningsskript `train.py` på följande sätt:
+Horovod och dess beroenden kommer att installeras åt dig, så kan du importera det i din utbildningsskript.
 
 ```Python
 import tensorflow as tf
 import horovod
 ```
 
-Slutligen skicka TensorFlow-jobb:
-```Python
-run = exp.submit(tf_est)
-```
-
 ### <a name="parameter-server"></a>Parameterserver
+
 Du kan också köra [intern distribuerade TensorFlow](https://www.tensorflow.org/deploy/distributed), som använder parametern server-modell. I den här metoden kan träna du i ett kluster med parametern-servrar och arbetare. ”Arbetarna” beräkna toningar vid träning, även om parametern servrar aggregera på toningar.
 
-Konstruera TensorFlow-objekt:
+I följande exempel körs ett distribuerade utbildningsjobb med hjälp av parametern Servermetoden med fyra Worker som är distribuerade över två noder.
 
 ```Python
 from azureml.train.dnn import TensorFlow
 
+# Tensorflow constructor
 tf_est = TensorFlow(source_directory='./my-tf-proj',
                     script_params={},
                     compute_target=compute_target,
-                    entry_script='train.py',
+                    entry_script='train.py', # relative path to your TensorFlow job
                     node_count=2,
                     worker_count=2,
                     parameter_server_count=1,
-                    distributed_backend='ps',
+                    distributed_backend='ps', # specifies parameter server backend
                     use_gpu=True)
+
+# submit the TensorFlow job
+run = exp.submit(tf_est)
 ```
 
-Ta hänsyn till följande parametrar till TensorFlow-konstruktorn i koden ovan:
-
-Parameter | Beskrivning | Standard
---|--|--
-`worker_count` | Antal arbetare. | `1`
-`parameter_server_count` | Antal servrar för parametern. | `1`
-`distributed_backend` | Serverdel för distribuerad utbildning. Gör distribuerad utbildning via parameterserver, ange `distributed_backend='ps'` | `None`
-
 #### <a name="note-on-tfconfig"></a>Notera på `TF_CONFIG`
+
 Du måste också nätverksadresser och portar i klustret för den [ `tf.train.ClusterSpec` ](https://www.tensorflow.org/api_docs/python/tf/train/ClusterSpec), så att Azure Machine Learning anger den `TF_CONFIG` miljövariabeln åt dig.
 
 Den `TF_CONFIG` miljövariabeln är en JSON-sträng. Här är ett exempel på variabeln för en parameterserver:
+
 ```
 TF_CONFIG='{
     "cluster": {
@@ -165,9 +137,9 @@ TF_CONFIG='{
 }'
 ```
 
-Om du använder Tensorflows hög nivå [ `tf.estimator` ](https://www.tensorflow.org/api_docs/python/tf/estimator) API, TensorFlow parsa detta `TF_CONFIG` variabeln och skapa klustret-specifikationen för dig. 
+För hög nivå av Tensorflow's [ `tf.estimator` ](https://www.tensorflow.org/api_docs/python/tf/estimator) API, TensorFlow parsa detta `TF_CONFIG` variabeln och skapa klustret-specifikationen för dig.
 
-Om du i stället använder Tensorflows på lägre nivå core API: er för träning, måste du parsa den `TF_CONFIG` variabeln och skapa den `tf.train.ClusterSpec` själv i din utbildning-kod. I [det här exemplet](https://aka.ms/aml-notebook-tf-ps), gör du så i **dina utbildningsskript** på följande sätt:
+Tensorflows på lägre nivå core API: er för utbildning, parsa den `TF_CONFIG` variabeln och skapa den `tf.train.ClusterSpec` i koden utbildning. I [det här exemplet](https://aka.ms/aml-notebook-tf-ps), gör du så i **dina utbildningsskript** på följande sätt:
 
 ```Python
 import os, json
@@ -181,9 +153,21 @@ cluster_spec = tf.train.ClusterSpec(cluster)
 
 ```
 
-När du är klar utbildning skriptet och skapa TensorFlow-objektet, du kan skicka din utbildningsjobb:
+## <a name="keras-support"></a>Stöd för Keras
+
+[Keras](https://keras.io/) är populära övergripande DNN Python API som stöder TensorFlow, CNTK och Theano som serverdelar. Om du använder TensorFlow som serverdel, att lägga till Keras är lika enkelt som bland annat en `pip_package` konstruktorparametern.
+
+I följande exempel skapar en instans av en [ `TensorFlow` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) kostnadsuppskattning och skickar den som ett experiment. Kostnadsuppskattning kör utbildning-skript Keras `keras_train.py`. Jobbet ska köras på en gpu-aktiverade [beräkningsmålet](how-to-set-up-training-targets.md) med Keras installeras som ett beroende via pip.
+
 ```Python
-run = exp.submit(tf_est)
+from azureml.train.dnn import TensorFlow
+
+keras_est = TensorFlow(source_directory='./my-keras-proj',
+                       script_params=script_params,
+                       compute_target=compute_target,
+                       entry_script='keras_train.py', # relative path to your TensorFlow job
+                       pip_packages=['keras'], # add keras through pip
+                       use_gpu=True)
 ```
 
 ## <a name="export-to-onnx"></a>Exportera till ONNX
@@ -192,11 +176,10 @@ Att hämta optimerad inferensjobb med den [ONNX Runtime](concept-onnx.md), du ka
 
 ## <a name="examples"></a>Exempel
 
-Utforska olika [anteckningsböcker på distribuerade djupinlärning på Github](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning)
-
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
+Du hittar fungerande kodexempel för både en nod och distribuerad TensorFlow-körningar med olika ramverk på [vår GitHub-sida](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning).
 
 ## <a name="next-steps"></a>Nästa steg
+
 * [Spåra kör mått vid träning](how-to-track-experiments.md)
 * [Justering av hyperparametrar](how-to-tune-hyperparameters.md)
 * [Distribuera en tränad modell](how-to-deploy-and-where.md)

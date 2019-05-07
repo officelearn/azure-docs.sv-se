@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 55dff6cf073612e3e5473da3a5f1bf722b2ccdbd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 785cf5159615b4a81740e853f2b513f0e6d74aec
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60739354"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65198458"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Automatisera resurser i ditt datacenter eller i molnet med hjälp av Hybrid Runbook Worker
 
@@ -27,9 +27,6 @@ Följande bild illustrerar den här funktionen:
 Varje Hybrid Runbook Worker är medlem i en Hybrid Runbook Worker-grupp som du anger när du installerar agenten. En grupp kan innehålla en enda agent, men du kan installera flera agenter i en grupp för hög tillgänglighet.
 
 När du startar en runbook på en Hybrid Runbook Worker, anger du den grupp som den körs på. Varje arbetsroll i gruppen avsöker Azure Automation för att se om det finns några jobb. Om det finns ett jobb tar den första worker som klarar av den. Bearbetningstid köns jobb beror på Hybrid worker-maskinvaruprofilen och belastning. Du kan inte ange en viss worker. Hybrid Runbook Worker delar inte många av de gränser som har Azure sandbox-miljöer. De har inte samma begränsningar på diskutrymme, minne eller nätverket sockets. Hybrid Runbook Worker begränsas bara av resurser på den Hybrid Runbook Worker själva. Dessutom Hybrid Runbook Worker delar inte 180 minut [rättmätiga del](automation-runbook-execution.md#fair-share) tidsgränsen som gör Azure sandbox-miljöer. Läs mer om tjänstbegränsningar för Azure sandbox-miljöer och Hybrid Runbook Worker i jobbet [gränser](../azure-subscription-service-limits.md#automation-limits) sidan.
-
-> [!NOTE]
-> Hybrid Runbook Worker stöds inte i Azure Kina.
 
 ## <a name="install-a-hybrid-runbook-worker"></a>Installera en Hybrid Runbook Worker
 

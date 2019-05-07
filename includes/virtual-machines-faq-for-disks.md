@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/28/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 61f65340c3b683674be195f1d30788494b6855a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6cd0c72f94c020f9243a1a95faa799f1f798f36c
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60728759"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65199500"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Vanliga frågor och svar om virtuella Azure IaaS-datorer och hanterade och ohanterade premiumdiskar
 
@@ -140,6 +140,20 @@ För hanterade diskar du kan inte byta namn på dem. Du kan dock byta namn på e
 **Kan jag använda GPT partitionering på en Disk i Azure?**
 
 GPT partitionering kan användas på datadiskar, inte OS-diskar. OS-diskar måste använda partitionstypen MBR.
+
+## <a name="uploading-to-a-managed-disk"></a>Ladda upp till en hanterad disk
+
+**Kan jag överföra data till en befintlig hanterad disk?**
+
+Nej, ladda upp bara kan användas när du skapar en ny tom disk med den **ReadyToUpload** tillstånd.
+
+**Kan jag ansluta en disk till en virtuell dator när den är i tillståndet överföring?**
+
+Nej.
+
+**Kan jag ta en ögonblicksbild av en disk som hanteras i en Överföringsstatusen?**
+
+Nej.
 
 ## <a name="standard-ssd-disks"></a>Standard SSD-diskar
 

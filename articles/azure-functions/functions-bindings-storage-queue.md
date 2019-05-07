@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 8b9cc112f51840a6bf2cf659863f61ab5962f6e6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 72e51deb31ad2894ccfc0fc71884c99863184f5b
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60306857"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65203666"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure Queue storage-bindningar för Azure Functions
 
@@ -273,7 +273,7 @@ I JavaScript, använda `context.bindings.<name>` till nyttolasten för objekt i 
 
 ## <a name="trigger---message-metadata"></a>Utlösare - meddelande metadata
 
-Kö-utlösare innehåller flera [metadataegenskaper](./functions-bindings-expressions-patterns.md#trigger-metadata). De här egenskaperna kan användas som en del av bindning uttryck i andra bindningar eller som parametrar i din kod. Dessa är egenskaper för den [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage) klass.
+Kö-utlösare innehåller flera [metadataegenskaper](./functions-bindings-expressions-patterns.md#trigger-metadata). De här egenskaperna kan användas som en del av bindning uttryck i andra bindningar eller som parametrar i din kod. Dessa är egenskaper för den [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) klass.
 
 |Egenskap |Typ|Beskrivning|
 |--------|----|-----------|
@@ -526,7 +526,7 @@ Om du försöker binda till `CloudQueueMessage` och får ett felmeddelande, se t
 I C# och C#-skript, skriva flera Kömeddelanden med någon av följande typer: 
 
 * `ICollector<T>` eller `IAsyncCollector<T>`
-* [CloudQueue](/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue)
+* [CloudQueue](/dotnet/api/microsoft.azure.storage.queue.cloudqueue)
 
 I JavaScript-funktioner använder `context.bindings.<name>` att komma åt kömeddelandet utdata. Du kan använda en sträng eller ett JSON-serialiserbara objekt för nyttolasten för objekt i kö.
 
@@ -586,4 +586,4 @@ Det här avsnittet beskrivs de globala konfigurationsinställningarna som är ti
 
 <!-- LINKS -->
 
-[CloudQueueMessage]: /dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage
+[CloudQueueMessage]: /dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage

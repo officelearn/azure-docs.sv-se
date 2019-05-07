@@ -1,5 +1,5 @@
 ---
-title: Felsöka ett långsamt eller felaktigt HDInsight-kluster – Azure HDInsight
+title: Felsöka ett långsamt eller felaktigt jobb på ett HDInsight-kluster – Azure HDInsight
 description: Diagnostisera och felsöka ett långsamt eller felaktigt HDInsight-kluster.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/19/2019
-ms.openlocfilehash: 785eac065e10c64b99839ab8667e9b613f62aeb9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0f405f542a8408c290704f1707ca10a24b08f861
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708913"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65203631"
 ---
-# <a name="troubleshoot-a-slow-or-failing-hdinsight-cluster"></a>Felsöka ett långsamt eller felaktigt HDInsight-kluster
+# <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>Felsöka ett långsamt eller felaktigt jobb på ett HDInsight-kluster
 
-Om ett HDInsight-kluster långsam eller misslyckas med felkoden, har du flera alternativ för felsökning. Om dina jobb tar längre tid än förväntat eller om du ser långa svarstider i allmänhet, kan det finnas fel uppströms från ditt kluster, till exempel de tjänster som körs på klustret. Den vanligaste orsaken till dessa fördröjningar är dock inte tillräckligt med skalning. När du skapar ett nytt HDInsight-kluster väljer du lämplig [storlekar för virtuella datorer](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters).
+Om ett program som bearbetar data på ett HDInsight-kluster är antingen långsam eller misslyckas med felkoden, du har flera alternativ för felsökning. Om dina jobb tar längre tid än förväntat eller om du ser långa svarstider i allmänhet, kan det finnas fel uppströms från ditt kluster, till exempel de tjänster som körs på klustret. Den vanligaste orsaken till dessa fördröjningar är dock inte tillräckligt med skalning. När du skapar ett nytt HDInsight-kluster väljer du lämplig [storlekar för virtuella datorer](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters).
 
 Samla in information om alla aspekter av miljön, till exempel tillhörande Azure-tjänster och konfiguration av klustrets jobbinformation för körning för att diagnostisera ett långsamt eller felaktigt kluster. En bra diagnostik är att försöka återskapa feltillstånd i ett annat kluster.
 

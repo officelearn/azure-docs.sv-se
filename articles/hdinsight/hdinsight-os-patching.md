@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/24/2019
-ms.openlocfilehash: a887d6c69b9fa80f3144434e72a097e80d123a1b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5b8ed75863087e077d483c792ac4134a0c3e1eb0
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64722295"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65203639"
 ---
 # <a name="os-patching-for-hdinsight"></a>OS-korrigering för HDInsight 
 
@@ -23,29 +23,25 @@ ms.locfileid: "64722295"
 De virtuella datorerna i ett HDInsight-kluster måste startas om ibland så att viktiga säkerhetsuppdateringar kan installeras. 
 
 Med skriptåtgärd som beskrivs i den här artikeln kan ändra du den OS-korrigering schemat på följande sätt:
-1. Aktivera eller inaktivera automatiska omstarter
-2. Ange hur ofta startas om (dagar mellan olika omstarter)
-3. Ange vilken dag i veckan en omstart
+1. Installera fullständiga uppdateringar av Operativsystemet eller installera enbart säkerhetsuppdateringar
+2. Starta om den virtuella datorn
 
 > [!NOTE]  
-> Den här skriptåtgärden fungerar endast med Linux-baserade HDInsight-kluster som skapats efter den 1 augusti 2016. Korrigeringar träder endast när virtuella datorer startas om. 
+> Den här skriptåtgärden fungerar endast med Linux-baserade HDInsight-kluster som skapats efter den 1 augusti 2016. Korrigeringar träder endast när virtuella datorer startas om. Det här skriptet gäller inte automatiskt uppdateringar för alla kommande uppdatering cykler. Kör skriptet varje gång nya uppdateringar som ska tillämpas för att installera uppdateringar och starta om den virtuella datorn.
 
 ## <a name="how-to-use-the-script"></a>Hur du använder skriptet 
 
 När du använder det här skriptet kräver följande information:
-1. Skriptets placering: https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv01/os-patching-reboot-config.sh.  HDInsight använder den här URI: N för att hitta och köra skriptet på alla virtuella datorer i klustret.
+1. Skriptets placering: https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/os-patching-reboot-config.sh.  HDInsight använder den här URI: N för att hitta och köra skriptet på alla virtuella datorer i klustret.
   
-2. Kluster-nodtyper som skriptet tillämpas på: huvudnoden, workernode, zookeeper. Det här skriptet måste tillämpas på varje nod i klustret. Om det inte används för en nodtyp, fortsätter de virtuella datorerna för den nodtypen att använda föregående uppdateringsschemat.
+2. Kluster-nodtyper som skriptet tillämpas på: huvudnoden, workernode, zookeeper. Det här skriptet måste tillämpas på varje nod i klustret. Om det inte används för en nodtyp, kommer de virtuella datorerna för den nodtypen inte uppdateras.
 
 
-3.  Parameter: Det här skriptet tar tre numeriska parametrar:
+3.  Parameter: Det här skriptet accepterar en parameter med numeriska:
 
     | Parameter | Definition |
     | --- | --- |
-    | Aktivera/inaktivera automatiska omstarter |0 eller 1. Värdet 0 inaktiverar automatiska omstarter när 1 aktiverar automatiska omstarter. |
-    | Frekvens |7 till 90 (inklusivt). Antal dagar som ska gå innan omstartar de virtuella datorerna för korrigeringar som kräver en omstart. |
-    | Dag i veckan |1-7 (inklusivt). Värdet 1 visar omstarten sker på en måndag och 7 visar ett exempel på Sunday.For finns med parametrar av 1 60 2 resulterar i automatiskt startar om var 60: e dag (högst) tisdagen. |
-    | Bevarande |När du använder en skriptåtgärd i ett befintligt kluster, kan du markera skriptet som sparas. Bestående skript att tillämpas när nya workernodes läggs till i klustret via skalningsåtgärder. |
+    | Installera hela OS uppdateringar/installera enbart säkerhetsuppdateringar |0 eller 1. Värdet 0 installerar säkerhetsuppdateringar endast medan 1 installerar fullständiga uppdateringar av Operativsystemet. Om ingen parameter anges standardvärdet är 0. |
 
 > [!NOTE]  
 > Du måste markera det här skriptet som sparas när du använder i ett befintligt kluster. Annars kommer alla nya noder som skapats genom skalningsåtgärder använder standard uppdateringsschema.  Om du använder skriptet som en del av klustret skapas, bevaras det automatiskt.

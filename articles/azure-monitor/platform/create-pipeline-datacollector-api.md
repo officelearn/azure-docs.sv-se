@@ -1,5 +1,5 @@
 ---
-title: Skapa en datapipeline med Azure Azure Monitor Data Collector API | Microsoft Docs
+title: Skapa en datapipeline med Azure Monitor Data Collector API | Microsoft Docs
 description: Du kan använda Azure Monitor HTTP Data Collector API för att lägga till POST JSON-data till Log Analytics-arbetsytan från valfri klient som kan anropa REST-API. Den här artikeln beskriver hur du överför data som lagras i filer på ett automatiserat sätt.
 services: log-analytics
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: magoedte
-ms.openlocfilehash: d2736e397827373949da1634a99056420dc13b8a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 961ce4427c509142077c95a6569ad2c444ec0a52
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60200094"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205948"
 ---
 # <a name="create-a-data-pipeline-with-the-data-collector-api"></a>Skapa en datapipeline med Data Collector API
 

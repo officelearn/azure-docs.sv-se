@@ -1,6 +1,6 @@
 ---
-title: Migrera enskilda licensierade användare till gruppbaserad licensiering – Azure Active Directory | Microsoft Docs
-description: Växla från enskilda användarlicenser till gruppbaserad licensiering med Azure Active Directory
+title: Lägg till individuellt licensierade användare till gruppbaserad licensiering – Azure Active Directory | Microsoft Docs
+description: Hur du migrerar från enskilda användarlicenser till gruppbaserad licensiering med Azure Active Directory
 services: active-directory
 keywords: Azure AD-licensiering
 documentationcenter: ''
@@ -16,14 +16,14 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: seohack1;it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6fd2eb51c7178421b0656e3b1d0e0ea36176c16
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 333f0ae0153073b57740446ecf47e36a1f9ce590
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60471048"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192461"
 ---
-# <a name="how-to-add-migrate-users-with-individual-licenses-to-groups-for-licensing"></a>Hur du lägger till Migrera användare med enskilda licenser till grupper för licensiering
+# <a name="how-to-migrate-users-with-individual-licenses-to-groups-for-licensing"></a>Migrera användare med enskilda licenser till grupper för licensiering
 
 Du kan ha befintliga licenser som distribueras till användare i organisationer via ”direkttilldelning”; det vill säga med hjälp av PowerShell-skript eller andra verktyg för att tilldela användarlicenser för enskilda. Innan du börjar använda gruppbaserad licensiering för att hantera licenser i din organisation, kan du kan använda den här migreringsplan för att ersätta befintliga lösningar sömlöst med gruppbaserad licensiering.
 

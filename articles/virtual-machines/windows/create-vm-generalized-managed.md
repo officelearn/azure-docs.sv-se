@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 9157765afaa610d207a47e19b73f80ae3898fd68
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 57fbab4194f6cd232e1462ecea9a07d104c6cb51
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977566"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205739"
 ---
 # <a name="create-a-vm-from-a-managed-image"></a>Skapa en virtuell dator från en hanterad avbildning
 
 Du kan skapa flera virtuella datorer (VM) från en Azure-hanterade VM bild med hjälp av Azure portal eller PowerShell. En hanterad datoravbildning av virtuell innehåller informationen som krävs för att skapa en virtuell dator, inklusive operativsystem och datadiskar. De virtuella hårddiskarna (VHD) som utgör bilden, inklusive både OS-diskar och eventuella datadiskar lagras som hanterade diskar. 
 
-Innan du skapar en ny virtuell dator, måste du [skapa en hanterad virtuell datoravbildning](capture-image-resource.md) ska användas som Källavbildningen. 
+Innan du skapar en ny virtuell dator, måste du [skapa en hanterad virtuell datoravbildning](capture-image-resource.md) ska användas som käll-avbildning och bevilja läsåtkomst till avbildningen till alla användare som ska ha åtkomst till avbildningen. 
 
 
 ## <a name="use-the-portal"></a>Använda portalen
@@ -44,7 +44,7 @@ Innan du skapar en ny virtuell dator, måste du [skapa en hanterad virtuell dato
 
 Du kan använda PowerShell för att skapa en virtuell dator från en avbildning med hjälp av förenklad parameteruppsättning för den [New-AzVm](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) cmdlet. Avbildningen måste finnas i samma resursgrupp där du skapar den virtuella datorn.
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 En förenklad parameteruppsättning för [New-AzVm](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) endast kräver att du anger namn, resursgrupp och Avbildningsnamnet för att skapa en virtuell dator från en avbildning. Nya AzVm kommer att använda värdet för den **-namnet** parametern som namnet på alla resurser som skapas automatiskt. I det här exemplet vi ger mer detaljerad namnen för varje resurs men låta cmdleten skapa dem automatiskt. Du kan också skapa resurser i förväg, till exempel det virtuella nätverket, och skicka resursnamnet i cmdleten. Ny AzVm använder befintliga resurser om det hittar dem efter deras namn.
 

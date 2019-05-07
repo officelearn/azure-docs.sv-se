@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 56d91d7801c576064b941ac6089a52e74b4a3b7b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d1c1ed7388ff55e4f17559742054cea973f65ba7
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61031413"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192279"
 ---
 # <a name="aks-troubleshooting"></a>AKS felsökning
 
@@ -94,3 +94,27 @@ Klusteråtgärder begränsas när aktiva åtgärder för uppgradering sker eller
 ## <a name="can-i-move-my-cluster-to-a-different-subscription-or-my-subscription-with-my-cluster-to-a-new-tenant"></a>Kan jag flytta mitt kluster till en annan prenumeration eller min prenumeration med mitt kluster till en ny klient?
 
 Om du har flyttat AKS-klustret till en annan prenumeration eller klustret som äger prenumerationen till en ny klient, förlorar klustret funktionalitet på grund av att förlora rolltilldelningar och tjänstens huvudnamn rättigheter. **AKS har inte stöd för glidande kluster över prenumerationer eller klienter** på grund av den här begränsningen.
+
+## <a name="im-receiving-errors-trying-to-use-features-that-require-virtual-machine-scale-sets"></a>Jag får fel som försöker använda funktioner som kräver VM-skalningsuppsättningar
+
+*Den här hjälp med felsökning dirigeras från aka.ms/aks-vmss-aktivering*
+
+Du får fel som indikerar AKS-klustret inte finns på en skalningsuppsättning för virtuell dator, till exempel i följande exempel:
+
+**AgentPool 'agentpool' har ställt in automatisk skalning som aktiverad men finns inte på Virtual Machine Scale Sets**
+
+Använda funktioner, till exempel autoskalningen kluster eller flera noden pooler, AKS-kluster måste skapas med VM-skalningsuppsättningar. Fel returneras om du försöker använda funktioner som är beroende av VM-skalningsuppsättningar och du rikta en regelbundna, icke-VM scale set AKS-kluster. Stöd virtuella datorn är för närvarande i förhandsversion i AKS.
+
+Följ den *innan du börjar* stegen i lämplig webbplatsen för att registrera korrekt för VM-skalningsuppsättningen funktionen Förhandsgranska och skapa ett AKS-kluster:
+
+* [Använda kluster autoskalningen](cluster-autoscaler.md)
+* [Skapa och använda flera nodpooler](use-multiple-node-pools.md)
+ 
+## <a name="what-naming-restrictions-are-enforced-for-aks-resources-and-parameters"></a>Vilka namngivningsbegränsningar upprätthålls för AKS-resurser och parametrar?
+
+*Den här hjälp med felsökning dirigeras från aka.ms/aks-namngivning-regler*
+
+Namngivningsbegränsningar implementeras av både Azure-plattformen och AKS. Om ett Resursnamn eller parametern skadar något av dessa begränsningar, returneras ett fel som ombeds du ange en annan indata. Följande vanliga riktlinjerna för namngivning gäller:
+
+* AKS *MC_* resursgruppens namn kombinerar resursgruppens namn och resursnamn. Den automatisk genererade syntaxen för `MC_resourceGroupName_resourceName_AzureRegion` får inte vara större än 80 tecken. Om det behövs kan du minska längden på din resursgruppens namn eller ett AKS-klusternamnet.
+* Den *dnsPrefix* måste börja och sluta med alfanumeriska värden. Giltiga tecken är alfanumeriska värden och bindestreck (-). Den *dnsPrefix* får inte innehålla specialtecken, till exempel en punkt (.).

@@ -5,13 +5,13 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/12/2019
-ms.openlocfilehash: e4bbfdbcf7a295089570d4c8b77b07fd7270b3fd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/2/2019
+ms.openlocfilehash: c1b2875e6899d2301a4c4b564882214dc7bc4981
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60771705"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205460"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Kompatibilitetsnivån för Azure Stream Analytics-jobb
 
@@ -25,8 +25,8 @@ Kompatibilitetsnivån styr beteende under körning av ett stream analytics-jobb.
 
 Azure Stream Analytics stöder för närvarande tre kompatibilitetsnivåer:
 
-* 1.0 - Standardnivå
-* 1.1 - den aktuella versionen beteende
+* 1.0 - beteende för tidigare
+* 1.1 - standardbeteendet
 * 1.2 (förhandsversion) – senaste beteende med de senaste förbättringarna av utvärdering
 
 Ursprungliga 1.0 kompatibilitetsnivå introducerades vid den allmänna tillgängligheten av Azure Stream Analytics flera år sedan.
@@ -49,7 +49,7 @@ Så här uppdaterar kompatibilitetsnivån för jobbet i Azure portal:
 
 När du uppdaterar kompatibilitetsnivå, verifierar T-SQL-kompilatorn jobbet med den syntax som motsvarar den valda kompatibilitetsnivån.
 
-## <a name="compatibility-level-12"></a>Kompatibilitetsnivå 1.2
+## <a name="compatibility-level-12-preview"></a>Kompatibilitetsnivån 1.2 (förhandsversion)
 
 Följande viktiga ändringar har introducerats i kompatibilitetsnivå 1.2:
 

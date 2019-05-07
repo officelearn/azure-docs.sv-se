@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/15/2019
+ms.date: 05/01/2019
 ms.author: tomfitz
-ms.openlocfilehash: 84f2d82ba6103382d7f9ff850bb6f1930ebbeb9b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 05b68fde30587967f65ee362344eea9a258f89a7
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58904601"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205977"
 ---
 # <a name="deploy-more-than-one-instance-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Distribuera fler än en instans av en resurs eller egenskapen i Azure Resource Manager-mallar
 
@@ -148,6 +148,8 @@ Till exempel för att distribuera seriellt lagringskonton två i taget, använde
 ```
 
 Egenskapen läge också godkänner **parallella**, vilket är standardvärdet.
+
+Information om hur du använder kopiera med kapslade mallar finns i [med hjälp av kopiering](resource-group-linked-templates.md#using-copy).
 
 ## <a name="property-iteration"></a>Egenskapen iteration
 

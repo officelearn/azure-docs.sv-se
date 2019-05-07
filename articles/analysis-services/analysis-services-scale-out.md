@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 05/06/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 42cdf230379665c596761f9846e52454a3d99680
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 5524645153db0468076cc9b567965bff79d915cb
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939677"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192334"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services-utskalning
 
@@ -51,7 +51,7 @@ När du utför en efterföljande skalbara, till exempel är öka antalet replike
 
 ### <a name="separate-processing-from-query-pool"></a>Separata bearbetning från frågepool
 
-Du kan välja att dela din bearbetningsservern från frågepoolen för maximal prestanda för såväl bearbetning frågeåtgärder. När separerade kan tilldelas befintliga och nya klientanslutningar till frågerepliker i poolen fråga. Om bearbetningsåtgärder bara tar upp en kort tidsperiod, kan du avgränsa din bearbetningsservern från frågepoolen endast för den tid det tar att utföra åtgärder för bearbetning och synkronisering och Lägg sedan tillbaka till frågepoolen. 
+Du kan välja att dela din bearbetningsservern från frågepoolen för maximal prestanda för såväl bearbetning frågeåtgärder. När separerade kan tilldelas nya klientanslutningar till frågerepliker i poolen fråga. Om bearbetningsåtgärder bara tar upp en kort tidsperiod, kan du avgränsa din bearbetningsservern från frågepoolen endast för den tid det tar att utföra åtgärder för bearbetning och synkronisering och Lägg sedan tillbaka till frågepoolen. När att separera bearbetningsservern från frågepoolen eller lägga till den tillbaka till frågepoolen kan ta upp till fem minuter innan åtgärden har slutförts.
 
 ## <a name="monitor-qpu-usage"></a>Övervaka QPU-användning
 

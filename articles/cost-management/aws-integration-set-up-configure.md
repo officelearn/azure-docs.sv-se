@@ -5,23 +5,23 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2019
+ms.date: 06/06/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: ormaoz
 ms.custom: ''
-ms.openlocfilehash: 688bcc02b14d101008afc76662fd6548446cb329
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: a7a020284f44eda0da62f307866c74b0a8df493d
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64870289"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205704"
 ---
 # <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>Installera och konfigurera AWS kostnader och användning rapport-integrering
 
 Med Amazon Web Services kostnader och användning rapport-integrering kan du övervaka och styr dina AWS utgifter i Azure Cost Management. Integrationen kan en enda plats i Azure-portalen där du kan övervaka och styra utgifter för både Azure och AWS. Den här artikeln förklarar hur du ställer in integration och konfigurera den så att du använda Cost Management-funktioner för att analysera kostnaderna och granska din budget.
 
-Kostnadshantering läser rapporten AWS kostnader och användning lagras i en S3-bucket med hjälp av din AWS-autentiseringsuppgifter att hämta rapportdefinitioner och ladda ned rapporten GZIP CSV-filer.
+Kostnad processer för AWS-kostnader och användning rapporten som lagras i en S3-bucket med hjälp av din AWS-autentiseringsuppgifter att hämta rapportdefinitioner och ladda ned rapporten GZIP CSV-filer.
 
 ## <a name="create-a-cost-and-usage-report-in-aws"></a>Skapa en rapport för kostnader och användning i AWS
 
@@ -45,13 +45,15 @@ Använd den **rapporter** sidan i konsolen för fakturering och kostnadshanterin
 14. När du har granskat inställningarna för rapporten, klicka på **granska och slutför**.
     Obs den **rapportnamn**. Du kan använda den i senare steg.
 
-Det kan ta upp till 24 timmar för AWS att börja leverera rapporter till Amazon S3-bucket. När leverans har startat uppdaterar AWS rapportfiler AWS kostnader och användning på minst en gång om dagen.
+Det kan ta upp till 24 timmar för AWS att börja leverera rapporter till Amazon S3-bucket. När leverans har startat uppdaterar AWS rapportfiler AWS kostnader och användning på minst en gång om dagen. Du kan fortsätta konfigurera AWS-miljön utan att behöva vänta leverans att starta.
 
 ## <a name="create-a-role-and-policy-in-aws"></a>Skapa en roll och en princip i AWS
 
 Azure Cost Management får åtkomst till en S3-bucket där rapporten kostnader och användning finns flera gånger per dag. Kostnadshantering behöver åtkomst till autentiseringsuppgifter för att söka efter nya data. Du skapar en roll och principen i AWS att tillåta åtkomst av Cost Management.
 
 Om du vill aktivera rollbaserad åtkomst till ett AWS-konto i Azure Cost Management skapas rollen i AWS-konsolen. Du måste ha den _rollen ARN_ och _externt ID_ från AWS-konsolen. Senare kan använda du dem i avsnittet Skapa en anslutningsapp-sidan för AWS i Azure Cost Management.
+
+Använd guiden Skapa en ny roll:
 
 1. Logga in på din AWS-konsolen och välj **Services**.
 2. Välj i listan över tjänster, **IAM**.
@@ -64,30 +66,42 @@ Om du vill aktivera rollbaserad åtkomst till ett AWS-konto i Azure Cost Managem
 8. Klicka på **Nästa: Behörigheter**.
 9. Klicka på **skapa princip**. En ny webbläsarflik öppnas där du skapar en ny princip.
 10. Klicka på **väljer du en tjänst**.
-11. Typ **kostnaden och användningsrapporten**.
-12. Välj **åtkomstnivå**, **Läs** > **DescribeReportDefinitions**. På så sätt kan du kostnadshantering läsa vad utför den rapporterar definieras och avgöra om de matchar nödvändiga för definition av rapporten.
-13. Klicka på **lägga till ytterligare behörigheter**.
-14. Klicka på **väljer du en tjänst**.
-15. Typ _S3_.
-16. Välj **åtkomstnivå**, **lista** > **ListBucket**. Den här åtgärden hämtar listan över objekt i S3-Bucket.
-17. Välj **åtkomstnivå**, **Läs** > **GetObject**. Denna åtgärd kan fakturering hämtning av filer.
-18. Välj **resurser**.
-19. Välj **bucket – Lägg till ARN**.
-20. I **bucketnamnet**, ange en bucket som används för att lagra filerna som utför den.
-21. Välj **objekt – Lägg till ARN**.
-22. I **bucketnamnet**, ange en bucket som används för att lagra filerna som utför den.
-23. I **objektnamn**väljer **alla**.
-24. Klicka på **lägga till ytterligare behörigheter**.
-25. Klicka på **väljer du en tjänst**.
-26. Typ _kostnad Explorer Service_.
-27. Välj **alla Explorer tjänster åtgärder (ce:\*)**. Den här åtgärden verifierar att samlingen är korrekt.
-28. Klicka på **lägga till ytterligare behörigheter**.
-29. Typ **organisationer**.
-30. Välj **åtkomstnivån, listan** > **ListAccounts**. Den här åtgärden hämtar namnen på kontona.
-31. I **granska princip**, ange ett namn för den nya principen. Kontroll för att kontrollera att du har angett rätt information och klicka sedan på **skapa princip**.
-32. Gå tillbaka till den föregående fliken och uppdatera webbsidan i webbläsaren. I sökfältet söker du efter den nya principen.
-33. Välj **nästa: granska**.
-34. Ange ett namn för den nya rollen. Kontroll för att kontrollera att du har angett rätt information och klicka sedan på **skapa roll**.
+
+Konfigurera kostnaden och användningsrapporten behörighet:
+
+1. Typ **kostnaden och användningsrapporten**.
+2. Välj **åtkomstnivå**, **Läs** > **DescribeReportDefinitions**. På så sätt kan du kostnadshantering läsa vad utför den rapporterar definieras och avgöra om de matchar nödvändiga för definition av rapporten.
+3. Klicka på **lägga till ytterligare behörigheter**.
+
+Konfigurera ditt S3-bucket och objekt tillstånd:
+
+1. Klicka på **väljer du en tjänst**.
+2. Typ _S3_.
+3. Välj **åtkomstnivå**, **lista** > **ListBucket**. Den här åtgärden hämtar listan över objekt i S3-Bucket.
+4. Välj **åtkomstnivå**, **Läs** > **GetObject**. Denna åtgärd kan fakturering hämtning av filer.
+5. Välj **resurser**.
+6. Välj **bucket – Lägg till ARN**.
+7. I **bucketnamnet**, ange en bucket som används för att lagra filerna som utför den.
+8. Välj **objekt – Lägg till ARN**.
+9. I **bucketnamnet**, ange en bucket som används för att lagra filerna som utför den.
+10. I **objektnamn**väljer **alla**.
+11. Klicka på **lägga till ytterligare behörigheter**.
+
+Konfigurera kostnaden Explorer behörighet:
+
+1. Klicka på **väljer du en tjänst**.
+2. Typ _kostnad Explorer Service_.
+3. Välj **alla Explorer tjänster åtgärder (ce:\*)**. Den här åtgärden verifierar att samlingen är korrekt.
+4. Klicka på **lägga till ytterligare behörigheter**.
+
+Lägg till organisationer behörighet:
+
+1. Typ **organisationer**.
+2. Välj **åtkomstnivån, listan** > **ListAccounts**. Den här åtgärden hämtar namnen på kontona.
+3. I **granska princip**, ange ett namn för den nya principen. Kontroll för att kontrollera att du har angett rätt information och klicka sedan på **skapa princip**.
+4. Gå tillbaka till den föregående fliken och uppdatera webbsidan i webbläsaren. I sökfältet söker du efter den nya principen.
+5. Välj **nästa: granska**.
+6. Ange ett namn för den nya rollen. Kontroll för att kontrollera att du har angett rätt information och klicka sedan på **skapa roll**.
     Obs den **rollen ARN** och **externt ID** använde i föregående steg när du skapade rollen. Du kan använda dem senare när du ställer in Azure Cost Management-anslutningstjänsten.
 
 Princip-JSON bör likna följande exempel. Ersätt _bucketname_ med namnet på din S3-bucket.

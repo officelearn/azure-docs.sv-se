@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10a78df5169741371c122971afa47cb53ecc5a64
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eebb68218fd6f9cbda229aae3d9e544e87441562
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60471650"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192436"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regler för dynamiskt medlemskap för grupper i Azure Active Directory
 
@@ -346,8 +346,8 @@ Du kan använda följande enhetsattribut.
  Enhetsattributet  | Värden | Exempel
  ----- | ----- | ----------------
  accountEnabled | SANT FALSKT | (device.accountEnabled - eq SANT)
- displayName | ett värde |(device.displayName - eq ”Rob Iphone”)
- deviceOSType | ett värde | (device.deviceOSType - eq ”iPad”)- eller (device.deviceOSType - eq ”iPhone”)
+ displayName | ett värde |(device.displayName - eq ”Rob iPhone”)
+ deviceOSType | ett värde | (device.deviceOSType - eq ”iPad”)- eller (device.deviceOSType - eq ”iPhone”)<br>(device.deviceOSType-innehåller ”AndroidEnterprise”)<br>(device.deviceOSType -eq "AndroidForWork")
  deviceOSVersion | ett värde | (device.deviceOSVersion -eq "9.1")
  deviceCategory | ett giltigt enhetsnamn för kategori | (device.deviceCategory -eq "BYOD")
  deviceManufacturer | ett värde | (device.deviceManufacturer -eq "Samsung")

@@ -1,5 +1,5 @@
 ---
-title: Utforma högtillgängliga Aaplications med hjälp av read-access geo-redundant lagring (RA-GRS) | Microsoft Docs
+title: Utforma högtillgängliga program med hjälp av read-access geo-redundant lagring (RA-GRS) | Microsoft Docs
 description: Hur du använder Azure RA-GRS-lagring för att skapa ett program som är tillräckligt flexibelt för att hantera avbrott och som har med hög tillgänglighet.
 services: storage
 author: tamram
@@ -10,12 +10,12 @@ ms.date: 01/17/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 6dc497ac2afd54965485ff553bb25f47d7cf0491
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: c4d213a7c08162ef0b107572cfb79b6e96e271d6
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65139347"
+ms.locfileid: "65205490"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Utforma högtillgängliga program med hjälp av RA-GRS
 
@@ -148,7 +148,7 @@ Ett annat övervägande är hur du hanterar flera instanser av ett program, och 
 
 Har du tre huvudsakliga alternativ för att övervaka frekvensen för återförsök i den primära regionen för att avgöra när du växlar över till den sekundära regionen och ändra programmet att köras i skrivskyddat läge.
 
-*   Lägger till en hanterare för den [ **försöker igen** ](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.retrying.aspx) händelse på den [ **OperationContext** ](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.aspx) objekt som du skickar till lagringen begär – det här är metoden visas i den här artikeln och används i den medföljande exemplet. Dessa händelser utlöses varje gång klienten försöker en begäran, så att du kan spåra hur ofta klienten påträffar återförsökbart fel på en primär slutpunkt.
+*   Lägger till en hanterare för den [ **försöker igen** ](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.operationcontext.retrying) händelse på den [ **OperationContext** ](https://docs.microsoft.com/java/api/com.microsoft.applicationinsights.extensibility.context.operationcontext) objekt som du skickar till lagringen begär – det här är metoden visas i den här artikeln och används i den medföljande exemplet. Dessa händelser utlöses varje gång klienten försöker en begäran, så att du kan spåra hur ofta klienten påträffar återförsökbart fel på en primär slutpunkt.
 
     ```csharp 
     operationContext.Retrying += (sender, arguments) =>
@@ -159,7 +159,7 @@ Har du tre huvudsakliga alternativ för att övervaka frekvensen för återförs
     };
     ```
 
-*   I den [ **Evaluate** ](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.retrypolicies.iextendedretrypolicy.evaluate.aspx) -metod i en egen återförsöksprincip, du kan köra anpassad kod varje gång ett nytt försök utförs. Förutom att registrera när ett nytt försök sker, detta ger dig också en möjlighet att ändra beteende för återförsök.
+*   I den [ **Evaluate** ](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.iextendedretrypolicy.evaluate) -metod i en egen återförsöksprincip, du kan köra anpassad kod varje gång ett nytt försök utförs. Förutom att registrera när ett nytt försök sker, detta ger dig också en möjlighet att ändra beteende för återförsök.
 
     ```csharp 
     public RetryInfo Evaluate(RetryContext retryContext,

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2017
 ms.author: alkohli
-ms.openlocfilehash: be5719d2c383c838ef70c6862c1055c3374e05e5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 956cf45eb9e246f2e1f917f2bf487ac14deba90e
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60362500"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204253"
 ---
 # <a name="configure-web-proxy-for-your-storsimple-device"></a>Konfigurera webbproxy för din StorSimple-enhet
 
@@ -68,7 +68,7 @@ Använd installationsguiden för att guida dig genom stegen för webbproxykonfig
     `http://<IP address or FQDN of the web proxy server>:<TCP port number>`
    
     Som standard anges numret för TCP-port 8080.
-4. Välj autentiseringstypen som **NTLM**, **grundläggande**, eller **ingen**. Basic är den minst säkra autentiseringen för proxyserverkonfigurationen. NT LAN Manager (NTLM) är en mycket säker och komplexa autentiseringsprotokoll som använder ett trevägs meddelandesystem (ibland fyra om det krävs ytterligare integriteten) att autentisera en användare. Standardautentisering är NTLM. Mer information finns i [grundläggande](http://hc.apache.org/httpclient-3.x/authentication.html) och [NTLM-autentisering](http://hc.apache.org/httpclient-3.x/authentication.html). 
+4. Välj autentiseringstypen som **NTLM**, **grundläggande**, eller **ingen**. Basic är den minst säkra autentiseringen för proxyserverkonfigurationen. NT LAN Manager (NTLM) är en mycket säker och komplexa autentiseringsprotokoll som använder ett trevägs meddelandesystem (ibland fyra om det krävs ytterligare integriteten) att autentisera en användare. Standardautentisering är NTLM. Mer information finns i [grundläggande](https://hc.apache.org/httpclient-3.x/authentication.html) och [NTLM-autentisering](https://hc.apache.org/httpclient-3.x/authentication.html). 
    
    > [!IMPORTANT]
    > **Enheten Övervakningsdiagrammen fungerar inte när grundläggande eller NTLM-autentisering är aktiverat i proxyserverkonfiguration för enheten i StorSimple Device Manager-tjänsten. Du måste se till att autentiseringen är inställd på Ingen för Övervakningsdiagrammen ska fungera.**

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 768179f8569eac14166bcbb0a888e1cdbe41d497
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: b97fe5d638b5967f533e489a67d4235bbc5a3db1
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62128423"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65198581"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrera din app med Azure-nätverk
 Det här dokumentet beskriver funktionen Azure App Service-integrering för virtuellt nätverk och visar hur du konfigurerar den med appar i [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). [Azure-nätverk] [ VNETOverview] (Vnet) gör att du kan placera många av dina Azure-resurser i ett icke-internet-dirigerbara nätverk. Dessa nätverk kan sedan anslutas till ditt lokala nätverk med hjälp av VPN-tekniker. 
@@ -271,9 +271,9 @@ Den nya versionen är en förhandsversion och har följande egenskaper.
 * Du kan komma åt resurser över ExpressRoute-anslutningar utan någon ytterligare konfiguration utöver att integrera med ExpressRoute anslutna virtuella nätverk.
 * Appen och det virtuella nätverket måste finnas i samma region
 * Den nya funktionen kräver en oanvända undernät i ditt VNet i Resource Manager.
+* Din app måste vara i en Azure App Service-distribution som kan skala upp till Premium v2.
 * App Service-planen måste vara en Standard, Premium eller PremiumV2-plan
 * Produktionsarbetsbelastningar stöds inte på den nya funktionen när den är i förhandsversion
-* Din app måste vara i en Azure App Service-distribution som kan skala upp till Premium v2.
 * Den nya VNet-integrering-funktionen fungerar inte för appar i en App Service Environment.
 * Du kan inte ta bort ett virtuellt nätverk med en integrerad app.  
 * Routningstabeller och global peering är inte tillgängliga än med den nya VNet-integrering.  

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 01/24/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b3a4f3b37b0dc4d74b03ffcfa61c97fbb571d57f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eaaaa5c2fe87b419bf38d6e6522ef745476ac1ad
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61465600"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204944"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms"></a>Hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer
 
@@ -563,7 +563,7 @@ Du behöver klustret delad lagring för en SAP ASCS/SCS-instans med hög tillgä
 2. Kör SIOS DataKeeper Cluster Edition på båda noderna för virtuell dator.
 3. Konfigurera SIOS DataKeeper Cluster Edition så att det speglar innehållet i ytterligare virtuell Hårddisk ansluten-volym från den virtuella källdatorn till ytterligare virtuell Hårddisk ansluten volymen för den virtuella måldatorn. SIOS DataKeeper avlägsnar käll- och lokala volymer och visar dem sedan till Windows Server Failover Clustering som en delad disk.
 
-Hämta mer information om [SIOS DataKeeper](http://us.sios.com/products/datakeeper-cluster/).
+Hämta mer information om [SIOS DataKeeper](https://us.sios.com/products/datakeeper-cluster/).
 
 ![Bild 3: Windows Server Failover Clustering konfiguration i Azure med SIOS DataKeeper][sap-ha-guide-figure-1002]
 
@@ -1043,7 +1043,7 @@ Azure Load Balancer har en intern belastningsutjämnare att stängs anslutningar
 
 Om du vill lägga till registervärden på båda klusternoderna för SAP ASCS/SCS-instans, Lägg först till dessa registerposter i Windows på både Windows-klusternoder för SAP ASCS/SCS:
 
-| Sökväg | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
+| `Path` | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
 | --- | --- |
 | Variabelnamn |`KeepAliveTime` |
 | Variabeltyp |REG_DWORD (Decimal) |
@@ -1054,7 +1054,7 @@ _**Tabell 3:** Ändra den första parametern för TCP/IP_
 
 Lägg sedan till den här Windows-registerposter på både Windows-klusternoder för SAP ASCS/SCS:
 
-| Sökväg | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
+| `Path` | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
 | --- | --- |
 | Variabelnamn |`KeepAliveInterval` |
 | Variabeltyp |REG_DWORD (Decimal) |

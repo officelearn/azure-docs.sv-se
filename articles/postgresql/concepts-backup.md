@@ -1,19 +1,19 @@
 ---
-title: Säkerhetskopiering och återställning i Azure Database för PostgreSQL
-description: Läs mer om automatisk säkerhetskopiering och återställning av Azure Database för PostgreSQL-server.
+title: Säkerhetskopiering och återställning i Azure Database för PostgreSQL – enskild Server
+description: Läs mer om automatisk säkerhetskopiering och återställning av Azure Database för PostgreSQL-server – enskild Server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: b4086497375bb651f4c88411e3237b27740dfd07
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 08a061a76f1532441817e61d423533bcc0850227
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61456265"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068857"
 ---
-# <a name="backup-and-restore-in-azure-database-for-postgresql"></a>Säkerhetskopiering och återställning i Azure Database för PostgreSQL
+# <a name="backup-and-restore-in-azure-database-for-postgresql---single-server"></a>Säkerhetskopiering och återställning i Azure Database för PostgreSQL – enskild Server
 
 Azure Database för PostgreSQL skapar säkerhetskopiering av servrar och lagrar dem i Användarkonfigurerad lokalt redundant eller geo-redundant lagring automatiskt. Säkerhetskopieringar kan användas för att återställa servern till point-in-time. Säkerhetskopiering och återställning är en viktig del av alla strategi för affärskontinuitet eftersom de skyddar dina data från oavsiktliga skador eller tas bort.
 

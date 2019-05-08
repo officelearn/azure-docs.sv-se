@@ -55,10 +55,10 @@ Följande egenskaper har stöd för Cassandra länkade tjänsten:
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type |Type-egenskapen måste anges till: **Cassandra** |Ja |
-| värd |En eller flera IP-adresser eller värdnamn för Cassandra-servrar.<br/>Ange en kommaavgränsad lista med IP-adresser eller värdnamn för att ansluta till alla servrar samtidigt. |Ja |
+| host |En eller flera IP-adresser eller värdnamn för Cassandra-servrar.<br/>Ange en kommaavgränsad lista med IP-adresser eller värdnamn för att ansluta till alla servrar samtidigt. |Ja |
 | port |TCP-port som Cassandra-servern använder för att lyssna efter klientanslutningar. |Nej (standard är 9042) |
 | authenticationType | Typ av autentisering som används för att ansluta till Cassandra-databasen.<br/>Tillåtna värden är: **Grundläggande**, och **anonym**. |Ja |
-| användarnamn |Ange användarnamn för användarkontot. |Ja, om authenticationType anges till Basic. |
+| username |Ange användarnamn för användarkontot. |Ja, om authenticationType anges till Basic. |
 | password |Ange lösenordet för användarkontot. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja, om authenticationType anges till Basic. |
 | connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda lokal Integration Runtime eller Azure Integration Runtime (om ditt datalager är offentligt tillgänglig). Om den inte anges används standard Azure Integration Runtime. |Nej |
 
@@ -132,7 +132,7 @@ Om du vill kopiera data från Cassandra, ange typ av datakälla i kopieringsakti
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **CassandraSource** | Ja |
-| DocumentDB |Använd anpassad fråga för att läsa data. SQL-92 fråga eller CQL-fråga. Se [CQL referens](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>När du använder SQL-fråga, ange **keyspace name.table namn** som representerar den tabell som du vill fråga. |Nej (om ”tableName” och ”keyspace” i datauppsättningen har angetts). |
+| query |Använd anpassad fråga för att läsa data. SQL-92 fråga eller CQL-fråga. Se [CQL referens](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>När du använder SQL-fråga, ange **keyspace name.table namn** som representerar den tabell som du vill fråga. |Nej (om ”tableName” och ”keyspace” i datauppsättningen har angetts). |
 | consistencyLevel |Konsekvensnivån som anger hur många kopior måste svara på en läsbegäran innan det returneras data till klientprogrammet. Cassandra kontrollerar det angivna antalet repliker för data för att tillgodose läsförfrågan. Se [konfigurera datakonsekvens](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) mer information.<br/><br/>Tillåtna värden är: **EN**, **två**, **tre**, **KVORUM**, **alla**, **LOCAL_QUORUM**, **EACH_QUORUM**, och **LOCAL_ONE**. |Nej (standard är `ONE`) |
 
 **Exempel:**
@@ -176,14 +176,14 @@ När du kopierar data från Cassandra, används följande mappningar från Cassa
 | ASCII |String |
 | BIGINT |Int64 |
 | BLOB |Byte[] |
-| BOOLESKT VÄRDE |Boolean |
+| BOOLEAN |Boolean |
 | DECIMAL |Decimal |
-| DOUBLE-VÄRDE |Double |
-| FLYTTAL |Single |
+| DOUBLE |Double |
+| FLOAT |Single |
 | INET |String |
 | INT |Int32 |
 | TEXT |String |
-| TIDSSTÄMPEL |DateTime |
+| TIMESTAMP |DateTime |
 | TIMEUUID |Guid |
 | UUID |Guid |
 | VARCHAR |String |

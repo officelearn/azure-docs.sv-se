@@ -63,9 +63,9 @@ Följande egenskaper har stöd för DB2 länkade tjänsten:
 |:--- |:--- |:--- |
 | type | Type-egenskapen måste anges till: **Db2** | Ja |
 | server |Namn på DB2-servern. Du kan ange det portnummer som följer servernamnet avgränsat med kolon t.ex. `server:port`. |Ja |
-| databas |Namn på DB2-databas. |Ja |
+| database |Namn på DB2-databas. |Ja |
 | authenticationType |Typ av autentisering som används för att ansluta till DB2-databasen.<br/>Tillåtna värdet är: **Basic**. |Ja |
-| användarnamn |Ange användarnamn för att ansluta till DB2-databas. |Ja |
+| username |Ange användarnamn för att ansluta till DB2-databas. |Ja |
 | password |Ange lösenord för det användarkonto som du angav för användarnamnet. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
 | connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda lokal Integration Runtime eller Azure Integration Runtime (om ditt datalager är offentligt tillgänglig). Om den inte anges används standard Azure Integration Runtime. |Nej |
 
@@ -133,7 +133,7 @@ För att kopiera data från DB2, ange typ av datakälla i kopieringsaktiviteten 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **RelationalSource** | Ja |
-| DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""`. | Nej (om ”tableName” i datauppsättningen har angetts) |
+| query | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**
 
@@ -174,18 +174,18 @@ När du kopierar data från DB2, används följande mappningar från DB2-datatyp
 | Typ av DB2-databas | Data factory tillfälliga datatyp |
 |:--- |:--- |
 | BigInt |Int64 |
-| Binär |Byte[] |
+| Binary |Byte[] |
 | Blob |Byte[] |
-| char |String |
+| Char |String |
 | Clob |String |
-| Date |DateTime |
+| Date |Datetime |
 | DB2DynArray |String |
 | DbClob |String |
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
 | Double |Double |
 | Float |Double |
-| Bild |String |
+| Graphic |String |
 | Integer |Int32 |
 | LongVarBinary |Byte[] |
 | LongVarChar |String |
@@ -193,8 +193,8 @@ När du kopierar data från DB2, används följande mappningar från DB2-datatyp
 | Numeric |Decimal |
 | Real |Single |
 | SmallInt |Int16 |
-| Tid |TimeSpan |
-| Tidsstämpel |DateTime |
+| Time |TimeSpan |
+| Timestamp |DateTime |
 | VarBinary |Byte[] |
 | VarChar |String |
 | VarGraphic |String |

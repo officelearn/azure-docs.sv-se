@@ -56,11 +56,11 @@ Följande egenskaper stöds för Dynamics AX-länkad tjänst:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Den **typ** egenskapen måste anges till **DynamicsAX**. |Ja |
+| type | Den **typ** egenskapen måste anges till **DynamicsAX**. |Ja |
 | url | Dynamics AX (eller Dynamics 365 Finance and Operations) instans OData-slutpunkten. |Ja |
 | servicePrincipalId | Ange programmets klient-ID. | Ja |
 | servicePrincipalKey | Ange programmets nyckel. Markera det här fältet som en **SecureString** ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
-| klient | Ange klientinformation (domain name eller klient-ID) under där programmet finns. Hämta det håller musen i det övre högra hörnet i Azure Portal. | Ja |
+| tenant | Ange klientinformation (domain name eller klient-ID) under där programmet finns. Hämta det håller musen i det övre högra hörnet i Azure Portal. | Ja |
 | aadResourceId | Ange den AAD-resursen som du begär för auktorisering. Exempel: om din Dynamics-URL är `https://sampledynamics.sandbox.operations.dynamics.com/data/`, motsvarande AAD resurs är vanligtvis `https://sampledynamics.sandbox.operations.dynamics.com`. | Ja |
 | connectVia | Den [Integreringskörningen](concepts-integration-runtime.md) för att ansluta till datalagret. Du kan välja Azure Integration Runtime eller en lokal Integration Runtime (om ditt datalager finns i ett privat nätverk). Om den inte anges används standard Azure Integration Runtime. |Nej |
 
@@ -100,7 +100,7 @@ För att kopiera data från Dynamics AX, ange den **typ** egenskapen på dataupp
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Den **typ** egenskap måste anges till **DynamicsAXResource**. | Ja |
+| type | Den **typ** egenskap måste anges till **DynamicsAXResource**. | Ja |
 | path | Sökväg till Dynamics AX OData-entitet. | Ja |
 
 **Exempel**
@@ -133,8 +133,8 @@ För att kopiera data från Dynamics AX, ange den **källa** typ i Kopieringsakt
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Den **typ** egenskapen för Kopieringsaktiviteten källan måste anges till **DynamicsAXSource**. | Ja |
-| DocumentDB | OData-frågealternativ för filtrering av data. Exempel: `"?$select=Name,Description&$top=5"`.<br/><br/>**Obs!** Anslutningen kopierar data från den kombinerade URL: `[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]`. Mer information finns i [OData-URL komponenter](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Nej |
+| type | Den **typ** egenskapen för Kopieringsaktiviteten källan måste anges till **DynamicsAXSource**. | Ja |
+| query | OData-frågealternativ för filtrering av data. Exempel: `"?$select=Name,Description&$top=5"`.<br/><br/>**Obs!** Anslutningen kopierar data från den kombinerade URL: `[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]`. Mer information finns i [OData-URL komponenter](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Nej |
 
 **Exempel**
 

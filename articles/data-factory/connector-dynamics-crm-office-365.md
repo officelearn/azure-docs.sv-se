@@ -61,11 +61,11 @@ Följande egenskaper har stöd för den länkade tjänsten Dynamics.
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen måste anges till **Dynamics**. | Ja |
+| type | Type-egenskapen måste anges till **Dynamics**. | Ja |
 | deploymentType | Typen av distribution av Dynamics-instans. Det måste vara **”Online”** för Dynamics online. | Ja |
 | serviceUri | Tjänst-URL: en för din Dynamics instans, t.ex. `https://adfdynamics.crm.dynamics.com`. | Ja |
 | authenticationType | Autentiseringstyp för anslutning till en Dynamics-server. Ange **”Office365”** för Dynamics online. | Ja |
-| användarnamn | Ange användarnamn för anslutning till Dynamics. | Ja |
+| username | Ange användarnamn för anslutning till Dynamics. | Ja |
 | password | Ange lösenordet för det användarkonto som du angav för användarnamn. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | connectVia | Den [integreringskörningen](concepts-integration-runtime.md) som används för att ansluta till datalagret. Om den inte anges används standard Azure Integration Runtime. | Inte för källa har Ja för kanalmottagare om källan länkade tjänsten inte en integration runtime |
 
@@ -104,13 +104,13 @@ Följande egenskaper har stöd för den länkade tjänsten Dynamics.
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen måste anges till **Dynamics**. | Ja |
+| type | Type-egenskapen måste anges till **Dynamics**. | Ja |
 | deploymentType | Typen av distribution av Dynamics-instans. Det måste vara **”OnPremisesWithIfd”** för Dynamics lokalt med IFD.| Ja |
 | hostName | Värdnamnet för den lokala Dynamics-servern. | Ja |
 | port | Porten för den lokala Dynamics-servern. | Nej, standard är 443 |
-| Organisationsnamn | Organisationens namn på Dynamics-instans. | Ja |
+| organizationName | Organisationens namn på Dynamics-instans. | Ja |
 | authenticationType | Autentiseringstyp för anslutning till Dynamics-servern. Ange **”Ifd”** för Dynamics lokalt med IFD. | Ja |
-| användarnamn | Ange användarnamn för anslutning till Dynamics. | Ja |
+| username | Ange användarnamn för anslutning till Dynamics. | Ja |
 | password | Ange lösenordet för det användarkonto som du angav för användarnamn. Du kan välja att markera det här fältet som en SecureString att lagra den på ett säkert sätt i ADF eller lagra lösenord i Azure Key Vault och låta kopieringsaktiviteten hämta därifrån när du utför kopiering av data – Lär dig mer från [Store autentiseringsuppgifter i Key Vault](store-credentials-in-key-vault.md). | Ja |
 | connectVia | Den [integreringskörningen](concepts-integration-runtime.md) som används för att ansluta till datalagret. Om den inte anges används standard Azure Integration Runtime. | Nej för källa, Ja för mottagare |
 
@@ -150,7 +150,7 @@ För att kopiera data från och till Dynamics, ange typegenskapen på datauppsä
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för datauppsättningen måste anges till **DynamicsEntity**. |Ja |
+| type | Type-egenskapen för datauppsättningen måste anges till **DynamicsEntity**. |Ja |
 | entityName | Det logiska namnet för att hämta entiteten. | Nej för källa (om ”query” i källan för aktiviteten har angetts), Ja för mottagare |
 
 > [!IMPORTANT]
@@ -204,8 +204,8 @@ För att kopiera data från Dynamics, ange typ av datakälla i kopieringsaktivit
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för aktiviteten kopieringskälla måste anges till **DynamicsSource**. | Ja |
-| DocumentDB | FetchXML är en upphovsrättsskyddad frågespråk som används i Dynamics (online och on-premises). Se följande exempel. Mer information finns i [skapa frågor med FeachXML](https://msdn.microsoft.com/library/gg328332.aspx). | Nej (om ”entityName” i datauppsättningen har angetts) |
+| type | Type-egenskapen för aktiviteten kopieringskälla måste anges till **DynamicsSource**. | Ja |
+| query | FetchXML är en upphovsrättsskyddad frågespråk som används i Dynamics (online och on-premises). Se följande exempel. Mer information finns i [skapa frågor med FeachXML](https://msdn.microsoft.com/library/gg328332.aspx). | Nej (om ”entityName” i datauppsättningen har angetts) |
 
 >[!NOTE]
 >Kolumnen PK kopieras alltid även om kolumnen projektionen som du konfigurerar i FetchXML-fråga inte innehåller den.
@@ -268,7 +268,7 @@ För att kopiera data till Dynamics, ange Mottagartyp i kopieringsaktiviteten ti
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen type kopiera aktivitet komprimeringstyp måste anges till **DynamicsSink**. | Ja |
+| type | Egenskapen type kopiera aktivitet komprimeringstyp måste anges till **DynamicsSink**. | Ja |
 | writeBehavior | Åtgärden Skriv beteende.<br/>Tillåtna värde är **”Upsert”**. | Ja |
 | writeBatchSize | Antal rader för data som skrivs till Dynamics i varje batch. | Nej (standardvärdet är 10) |
 | ignoreNullValues | Anger om du vill ignorera null-värden från indata (utom nyckelfält) vid skrivning.<br/>Tillåtna värden är **SANT** och **FALSKT**.<br>- **True**: Lämna data i målobjektet oförändrade när du gör en upsert/uppdateringsåtgärd. Infoga ett definierat standardvärde när du gör en insert-åtgärd.<br/>- **False**: Uppdatera data i målobjektet till NULL när du gör en upsert/uppdateringsåtgärd. Infoga värdet NULL när du gör en insert-åtgärd. | Nej (standard är FALSKT) |

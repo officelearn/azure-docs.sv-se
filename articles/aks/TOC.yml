@@ -113,7 +113,7 @@
         - name: Ta bort ett AKS-kluster
           href: '/cli/azure/aks#az-aks-delete'
           maintainContext: true
-        - name: Skapa virtuella noder (förhandsversion)
+        - name: Skapa virtuella noder
           items:
             - name: Azure CLI
               href: virtual-nodes-cli.md
@@ -123,9 +123,13 @@
           href: virtual-kubelet.md
         - name: Använda klusterautoskalning (förhandsversion)
           href: cluster-autoscaler.md
+        - name: Använda flera nodpooler (förhandsversion)
+          href: use-multiple-node-pools.md
         - name: Distribuera AKS med Terraform
           href: ../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md
           maintainContext: true
+        - name: Använda Kubernetes-instrumentpanelen
+          href: kubernetes-dashboard.md
     - name: Konfigurera datavolymer
       items:
         - name: Azure-disk – dynamisk
@@ -173,12 +177,16 @@
           href: kubernetes-service-principal.md
         - name: Begränsa åtkomsten till klusterkonfigurationsfiler
           href: control-kubeconfig-access.md
-        - name: Skydda podtrafik med nätverksprinciper (förhandsversion)
+        - name: Skydda podtrafik med nätverksprinciper
           href: use-network-policies.md
         - name: Använda säkerhetsprinciper för poddar (förhandsversion)
           href: use-pod-security-policies.md
+        - name: Definiera API-serverauktoriserade IP-intervall (förhandsversion)
+          href: api-server-authorized-ip-ranges.md
         - name: Uppdatera autentiseringsuppgifterna för tjänstens huvudnamn i klustret
           href: update-credentials.md
+        - name: Begränsa och kontrollera utgående klustertrafik
+          href: limit-egress-traffic.md
         - name: Aktivera Azure Active Directory-integrering
           items:
             - name: Använda Azure CLI
@@ -285,10 +293,6 @@
         - name: Azure DevOps-projekt
           href: ../devops-project/azure-devops-project-aks.md
           maintainContext: true
-    - name: Grundläggande om Kubernetes
-      items:
-        - name: Använda Kubernetes-instrumentpanelen
-          href: kubernetes-dashboard.md
     - name: Felsöka
       items:
         - name: Vanliga problem

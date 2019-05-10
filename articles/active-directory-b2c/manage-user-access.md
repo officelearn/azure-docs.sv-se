@@ -1,6 +1,6 @@
 ---
 title: Hantera användarnas åtkomst i Azure Active Directory B2C | Microsoft Docs
-description: Lär dig att identifiera minderåriga, samla in datum födelsedatum och land data och få godkännande av villkor för användning i ditt program med hjälp av Azure AD B2C.
+description: Lär dig att identifiera minderåriga, samla in datum födelsedatum och land/region data och få godkännande av villkor för användning i ditt program med hjälp av Azure AD B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: celestedg
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/24/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: cddaf59a1202c9c19018427c06639686e905bb64
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 88123cc24359daaf1c6fc7e3ceeed8f77f717c9a
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64691090"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65228015"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Hantera användarnas åtkomst i Azure Active Directory B2C
 
@@ -23,7 +23,7 @@ Den här artikeln beskrivs hur du hanterar användarnas åtkomst till dina progr
 
 - Identifiera minderåriga och styra användarnas åtkomst till ditt program.
 - Kräver att medgivandenivå för minderåriga använda dina program.
-- Samla in födelsedatum och land data från användare.
+- Datainsamlingen födelsedatum och land/region från användare.
 - Samla in ett avtal för villkor för användning och hantera åtkomsten.
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -58,11 +58,11 @@ Följande är ett exempel på ett användarflöde för att samla in föräldrars
 
 Mer information om **legalAgeGroupClassification**, **consentProvidedForMinor**, och **ageGroup**, se [användarresurstyp](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/user). Läs mer om anpassade attribut, [Använd anpassade attribut för att samla in information om dina användare](active-directory-b2c-reference-custom-attr.md). När du har gått utökade attribut med hjälp av Azure AD Graph-API måste du använda den långa versionen av attributet, som *extension_18b70cf9bb834edd8f38521c2583cd86_dateOfBirth*: *2011-01-01T00:00:00Z*.
 
-## <a name="gather-date-of-birth-and-country-data"></a>Samla in datumet för födelsedatum och land
+## <a name="gather-date-of-birth-and-countryregion-data"></a>Samla in datumet för födelsedatum och land/region
 
-Program kan förlita sig på Azure AD B2C för att samla in födelsedatum (DOB) och landspecifik information från alla användare under registreringen. Om den här informationen inte redan finns, kan programmet begära den från användaren under nästa authentication (logga in) resan. Användare kan inte fortsätta utan att ange sina DOB och land. Azure AD B2C använder informationen för att avgöra om enskilda betraktas som minderårig enligt regelverk i det landet. 
+Program kan förlita sig på Azure AD B2C för att samla in födelsedatum (DOB) och land/region information från alla användare under registreringen. Om den här informationen inte redan finns, kan programmet begära den från användaren under nästa authentication (logga in) resan. Användare kan inte fortsätta utan att ange information om deras DOB och land/region. Azure AD B2C använder informationen för att avgöra om enskilda betraktas som minderårig enligt regelverk för den land/regionen. 
 
-En anpassad användarflödet kan samla in DOB och landspecifik information och använda Azure AD B2C anspråk omvandlingen att fastställa den **ageGroup** och spara resultatet (eller kvar DOB och landspecifik information direkt) i katalogen.
+En anpassad användarflödet kan samla in DOB och information om land/region och använda Azure AD B2C anspråk omvandlingen att fastställa den **ageGroup** och spara resultatet (eller spara DOB och land/region information direkt) i den katalogen.
 
 Följande steg visar logiken som används för att beräkna **ageGroup** från användarens Födelsedatum:
 
@@ -78,7 +78,7 @@ Följande steg visar logiken som används för att beräkna **ageGroup** från a
 
 4. Om varken beräkningen returneras true, beräkningen returnerar **vuxet**.
 
-Om ett program har på ett tillförlitligt sätt insamlade DOB eller landdata med andra metoder, kan programmet använda Graph API för att uppdatera användarposten med den här informationen. Exempel:
+Om ett program har på ett tillförlitligt sätt samlat in DOB eller land/region data med andra metoder, kan programmet använda Graph API för att uppdatera användarposten med den här informationen. Exempel:
 
 - Om en användare är känd måste vara vuxen, uppdatera attributet directory **ageGroup** med värdet **vuxet**.
 - Om en användare har visat sig vara minderårig, uppdatera attributet directory **ageGroup** med värdet **mindre** och ange **consentProvidedForMinor**efter behov.

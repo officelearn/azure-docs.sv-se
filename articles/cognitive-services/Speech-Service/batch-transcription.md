@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 2/20/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 1a2d24be00b0e1224b5f8d52105e2969d64e5f64
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 2148d1bd79a858bec37e6c574c2a6b6e2009fe46
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922478"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190403"
 ---
 # <a name="why-use-batch-transcription"></a>Varför använda Batch avskrift?
 
@@ -65,7 +65,7 @@ Konfigurationsparametrar tillhandahålls som JSON:
 ```json
 {
   "recordingsUrl": "<URL to the Azure blob to transcribe>",
-  "models": ["<optional acoustic model ID>, <optional language model ID>"],
+  "models": [{"Id":"<optional acoustic model ID>"},{"Id":"<optional language model ID>"}],
   "locale": "<local to us, for example en-US>",
   "name": "<user define name of the transcription batch>",
   "description": "<optional description of the transcription>",
@@ -86,15 +86,15 @@ Konfigurationsparametrar tillhandahålls som JSON:
 | Parameter | Beskrivning | Obligatoriskt / valfritt |
 |-----------|-------------|---------------------|
 | `ProfanityFilterMode` | Anger hur du hanterar svordomar i igenkänningsresultat. Godkända värden är `none` som inaktiverar svordomar filtrering, `masked` som ersätter svordomar med asterisker `removed` som tar bort alla svordomar från resultatet, eller `tags` som lägger till ”svordomar”-taggar. Standardinställningen är `masked`. | Valfri |
-| `PunctuationMode` | Anger hur du hanterar skiljetecken i igenkänningsresultat. Godkända värden är `none` som inaktiverar skiljetecken, `dictated` vilket medför att explicit skiljetecken `automatic` som gör att avkodaren handlar om skiljetecken, eller `dictatedandautomatic` vilket medför processens skiljetecken eller automatiskt. | Valfri |
- | `AddWordLevelTimestamps` | Anger om word på tidsstämplar ska läggas till utdata. Godkända värden är `true` vilket gör att word på tidsstämplar och `false` (standardvärdet) att inaktivera den. | Valfri |
- | `AddSentiment` | Anger sentiment ska läggas till i uttryck. Godkända värden är `true` vilket gör att sentiment per uttryck och `false` (standardvärdet) att inaktivera den. | Valfri |
+| `PunctuationMode` | Anger hur du hanterar skiljetecken i igenkänningsresultat. Godkända värden är `none` som inaktiverar skiljetecken, `dictated` vilket medför att explicit skiljetecken `automatic` som gör att avkodaren handlar om skiljetecken, eller `dictatedandautomatic` vilket medför processens skiljetecken eller automatiskt. | Valfritt |
+ | `AddWordLevelTimestamps` | Anger om word på tidsstämplar ska läggas till utdata. Godkända värden är `true` vilket gör att word på tidsstämplar och `false` (standardvärdet) att inaktivera den. | Valfritt |
+ | `AddSentiment` | Anger sentiment ska läggas till i uttryck. Godkända värden är `true` vilket gör att sentiment per uttryck och `false` (standardvärdet) att inaktivera den. | Valfritt |
 
 ### <a name="storage"></a>Storage
 
 Batch stöder avskrift [Azure Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) för att läsa in ljud och avskrifter för skrivning till lagring.
 
-## <a name="webhooks"></a>Webhooks 
+## <a name="webhooks"></a>Webhook-konfigurationer 
 
 Avsökning för transkription status kan inte de flesta prestanda eller ange den bästa användarupplevelsen. Om du vill söka efter status, kan du registrera återanrop som meddelar klienten när tidskrävande avskrift aktiviteterna har slutförts.
 

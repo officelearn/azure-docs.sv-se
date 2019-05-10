@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.custom: ''
 ms.date: 02/19/2019
 ms.author: juliako
-ms.openlocfilehash: a323cbe4188207fa77525648297b366c9c57121b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bd818135f289c430416909d16c8568208936a9f8
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61466920"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205409"
 ---
 # <a name="quickstart-stream-video-files---cli"></a>Snabbstart: Strömma videofiler – CLI
 
@@ -83,7 +83,7 @@ Du får ett svar som detta:
 
 ## <a name="start-the-streaming-endpoint"></a>Starta slutpunkten för direktuppspelning
 
-Följande Azure CLI-kommando startar standard **Sstreaming Endpoint**.
+Följande Azure CLI-kommando startar standard **Strömningsslutpunkt**.
 
 ```azurecli
 az ams streaming-endpoint start  -n default -a amsaccount -g amsResourceGroup
@@ -356,4 +356,4 @@ Se [Jobbfelkoder](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcod
 
 ## <a name="next-steps"></a>Nästa steg
 
-> [CLI-exempel](cli-samples.md)
+[Översikt över Media Services](media-services-overview.md)

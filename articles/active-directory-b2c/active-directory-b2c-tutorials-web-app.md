@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 243df4457263a3653c501c7a409d2c3a77ee07e1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: fc7f198299460faaf5e5df62fe4e167a3d595486
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64690154"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190350"
 ---
 # <a name="tutorial-enable-authentication-in-a-web-application-using-azure-active-directory-b2c"></a>Självstudier: Aktivera autentisering i en webbapp med hjälp av Azure Active Directory B2C
 
@@ -33,7 +33,7 @@ I den här guiden får du lära dig att:
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - [Skapa användarflöden](tutorial-create-user-flows.md) för att möjliggöra användarupplevelser i programmet. 
-- Installera [Visual Studio 2017](https://www.visualstudio.com/downloads/) med arbetsbelastningen **ASP.NET och webbutveckling**.
+- Installera [Visual Studio 2019](https://www.visualstudio.com/downloads/) med den **ASP.NET och webbutveckling** arbetsbelastning.
 
 ## <a name="update-the-application"></a>Uppdatera programmet
 

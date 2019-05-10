@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 892906089ae3538b3427d97165173fd82621f58a
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 5d8e7bba6d43ba1daa3173ce5d7e043e2310a482
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920003"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65229976"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>Använd en avisering för att utlösa en Azure Automation-runbook
 
@@ -33,7 +33,7 @@ Du kan använda automation-runbooks med fyra aviseringstyper:
 
 När en avisering anropar en runbook, är det faktiska anropet en HTTP POST-begäran till webhooken. Brödtexten i POST-begäran innehåller ett JSON-formaterad objekt som har användbara egenskaper som är relaterade till aviseringen. I följande tabell visas länkar till nyttolast-schemat för varje typ av avisering:
 
-|Varning  |Beskrivning|Nyttolast-schema  |
+|Avisering  |Beskrivning|Nyttolast-schema  |
 |---------|---------|---------|
 |[Vanliga avisering](../azure-monitor/platform/alerts-common-schema.md?toc=%2fazure%2fautomation%2ftoc.json)|Det gemensamma aviseringarna schemat som standardiserar förbrukning upplevelsen för aviseringar i Azure idag.|[Samma avisering nyttolast-schema](../azure-monitor/platform/alerts-common-schema-definitions.md?toc=%2fazure%2fautomation%2ftoc.json#sample-alert-payload)|
 |[Aktivitetsloggavisering](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    |Skickar ett meddelande när en ny händelse i aktivitetsloggen för Azure matchar specifika villkor. Till exempel när en `Delete VM` åtgärden sker i **myProductionResourceGroup** eller när en ny Azure Service Health-händelse med en **Active** status visas.| [Aviseringen nyttolast för aktivitetslogg](../azure-monitor/platform/activity-log-alerts-webhook.md)        |
@@ -60,6 +60,14 @@ Använd det här exemplet för att skapa en runbook med namnet **Stop-AzureVmInR
 5. Kopiera följande PowerShell-exempel i den **redigera** sidan.
 
     ```powershell-interactive
+    [OutputType("PSAzureOperationResponse")]
+    param
+    (
+        [Parameter (Mandatory=$false)]
+        [object] $WebhookData
+    )
+    $ErrorActionPreference = "stop"
+
     if ($WebhookData)
     {
         # Get the data object from WebhookData

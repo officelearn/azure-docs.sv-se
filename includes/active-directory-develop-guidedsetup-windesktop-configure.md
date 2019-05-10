@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 5eaee4f932c4e42f6fed3d839314346b3a93f360
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c4dc3d422e18d9ee41bf16ac3e6f22c3d7e466d7
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60297748"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65199510"
 ---
 ## <a name="register-your-application"></a>Registrera ditt program
 
@@ -43,7 +43,9 @@ Du registrerar programmet och lägger till programregistreringsinformationen i d
    - I avsnittet **Kontotyper som stöds** väljer du **Konton alla organisationskataloger och personliga Microsoft-konton (till exempel Skype, Xbox och Outlook.com)**.
    - Välj **Registrera** för att skapa programmet.
 1. I listan över sidor för appen väljer du **Autentisering**.
-1. I avsnittet **Omdirigerings-URI:er** letar du upp avsnittet **Föreslagna omdirigerings-URI:er för offentliga klienter (mobil, skrivbord)** och väljer **"urn:ietf:wg:oauth:2.0:oob**.
+   1. I den **omdirigerings-URI: er** avsnittet i listan över omdirigerings-URI: er:
+   1. I den **typ** kolumn väljer **offentlig klient (mobila och stationära)**.
+   1. Ange `urn:ietf:wg:oauth:2.0:oob` i den **OMDIRIGERINGS-URI** kolumn.
 1. Välj **Spara**.
 1. Gå till Visual Studio, öppna den *App.xaml.cs* filen och Ersätt sedan `Enter_the_Application_Id_here` med program-ID som du just registrerade och kopieras.
 

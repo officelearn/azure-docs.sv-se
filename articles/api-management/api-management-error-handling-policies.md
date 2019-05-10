@@ -79,9 +79,9 @@ Den `on-error` princip kan användas i alla omfånget. API-utgivare kan konfigur
   
 | Namn     | Typ   | Beskrivning                                                                                               | Krävs |
 |----------|--------|-----------------------------------------------------------------------------------------------------------|----------|
-| Källa   | string | Elementet där felet uppstod-namn. Kan vara antingen princip eller en inbyggd pipeline Stegnamn.     | Ja      |
-| Orsak   | string | Dator-vänlig felkoden som skulle kunna användas i felhantering.                                       | Nej       |
-| Meddelande  | string | Läsbart felbeskrivning.                                                                         | Ja      |
+| Source   | string | Elementet där felet uppstod-namn. Kan vara antingen princip eller en inbyggd pipeline Stegnamn.     | Ja      |
+| Reason   | string | Dator-vänlig felkoden som skulle kunna användas i felhantering.                                       | Nej       |
+| Message  | string | Läsbart felbeskrivning.                                                                         | Ja      |
 | Scope    | string | Namnet på området där felet uppstod och kan vara någon av ”global”, ”product”, ”-api” eller ”åtgärden” | Nej       |
 | Section  | string | Namn på avsnittet där felet uppstod. Möjliga värden: ”inkommande”, ”serverdel”, ”utgående” eller ”på fel”.       | Nej       |
 | `Path`     | string | Anger kapslade princip, till exempel ”Välj [3] / när [2]”.                                                        | Nej       |
@@ -96,7 +96,7 @@ Den `on-error` princip kan användas i alla omfånget. API-utgivare kan konfigur
 ## <a name="predefined-errors-for-built-in-steps"></a>Fördefinierade fel för inbyggda steg  
  Följande fel är fördefinierade för felvillkor som kan uppstå under utvärderingen av inbyggda bearbetningssteg.  
   
-| Källa        | Tillstånd                                 | Orsak                  | Meddelande                                                                                                                |
+| Source        | Tillstånd                                 | Reason                  | Message                                                                                                                |
 |---------------|-------------------------------------------|-------------------------|------------------------------------------------------------------------------------------------------------------------|
 | konfiguration | URI: N matchar inte till API: et eller åtgärden | OperationNotFound       | Det går inte att matcha inkommande begäran till en åtgärd.                                                                      |
 | Auktorisering | Prenumerationsnyckel som inte angetts             | SubscriptionKeyNotFound | Åtkomst nekad på grund av saknad prenumerationsnyckel. Se till att inkludera prenumerationsnyckel vid begäranden till den här API: et. |
@@ -105,7 +105,7 @@ Den `on-error` princip kan användas i alla omfånget. API-utgivare kan konfigur
 ## <a name="predefined-errors-for-policies"></a>Fördefinierade fel för principer  
  Följande fel är fördefinierade för feltillstånd som kan uppstå under utvärderingen.  
   
-| Källa       | Tillstånd                                                       | Orsak                    | Meddelande                                                                                                                              |
+| Source       | Tillstånd                                                       | Reason                    | Message                                                                                                                              |
 |--------------|-----------------------------------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
 | Hastighetsbegränsning   | Priset har överskridits                                             | RateLimitExceeded         | Hastighetsbegränsning överskriden                                                                                                               |
 | kvot        | Kvoten har överskridits                                                  | QuotaExceeded             | Slut på kvot för samtalsvolym. Kvot fylls i xx:xx:xx. - eller - elimineras bandbredd kvot. Kvot fylls i xx:xx:xx. |

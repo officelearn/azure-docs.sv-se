@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 59f5438bbedea2ff7793a5df95f1d3df58b9bba6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 77a2901ae2d81f42780110b1576c1f32c7ff397b
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64576992"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65209494"
 ---
 # <a name="cloudsimple-virtual-machines-overview"></a>Översikt över CloudSimple virtuella datorer
 
@@ -37,4 +37,4 @@ CloudSimple-datorer från Azure-portalen tillhandahåller en mekanism för själ
 ## <a name="next-steps"></a>Nästa steg
 
 * Lär dig hur du [förbrukar virtuella VMware-datorer på Azure](quickstart-create-vmware-virtual-machine.md)
-* Lär dig hur du [mappa din Azure-prenumeration](https://docs.azure.cloudsimple.com/azuresubscriptionmapping/)
+* Lär dig hur du [mappa din Azure-prenumeration](https://docs.azure.cloudsimple.com/azure-subscription-mapping/)

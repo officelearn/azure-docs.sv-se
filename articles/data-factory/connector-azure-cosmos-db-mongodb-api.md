@@ -48,7 +48,7 @@ Följande egenskaper har stöd för Azure Cosmos DB: s API för MongoDB länkade
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Den **typ** egenskapen måste anges till **CosmosDbMongoDbApi**. | Ja |
+| type | Den **typ** egenskapen måste anges till **CosmosDbMongoDbApi**. | Ja |
 | connectionString |Ange anslutningssträngen för ditt Azure Cosmos DB API för MongoDB. Du hittar den i Azure portal -> din Cosmos DB-bladet -> primär eller sekundär anslutningssträng med mönstret för `mongodb://<cosmosdb-name>:<password>@<cosmosdb-name>.documents.azure.com:10255/?ssl=true&replicaSet=globaldb`. <br/><br />Markera det här fältet som en **SecureString** Skriv för att lagra den på ett säkert sätt i Data Factory. Du kan också [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
 | database | Namnet på databasen som du vill komma åt. | Ja |
 | connectVia | Den [Integreringskörningen](concepts-integration-runtime.md) för att ansluta till datalagret. Du kan använda Azure Integration Runtime eller en lokal integration runtime (om ditt datalager finns i ett privat nätverk). Om egenskapen inte anges används standard Azure Integration Runtime. |Nej |

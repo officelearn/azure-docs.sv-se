@@ -2,18 +2,19 @@
 title: Övervaka, diagnostisera och felsöka Azure Storage | Microsoft Docs
 description: Använda funktioner som lagringsanalys, loggning på klientsidan och andra tredjepartsverktyg för att identifiera, diagnostisera och felsöka Azure Storage-relaterade problem.
 services: storage
-author: fhryo-msft
+author: normesta
 ms.service: storage
 ms.topic: article
 ms.date: 05/11/2017
-ms.author: fhryo-msft
+ms.author: normesta
+ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 6edb1abae91a675a3fe47b417a112f0951886aaf
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: b929d9d1acc217c291c5aa645ee2d8952f401cd1
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62103873"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192157"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Övervaka, diagnostisera och felsök Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -123,7 +124,7 @@ Resten av det här avsnittet beskriver vilka mått som bör du övervaka och var
 Du kan använda den [Azure-portalen](https://portal.azure.com) att visa hälsotillståndet för Storage-tjänsten (och andra Azure-tjänster) i alla Azure-regioner runtom i världen. Övervakning kan påverkar du direkt se om ett problem utanför din kontroll lagringstjänst i den region som du använder för ditt program.
 
 Den [Azure-portalen](https://portal.azure.com) kan också ge meddelanden om incidenter som påverkar olika Azure-tjänster.
-Obs! Den här informationen fanns tidigare, tillsammans med historiska data på den [Azure instrumentpanel](https://status.azure.com).
+Anteckning: Den här informationen fanns tidigare, tillsammans med historiska data på den [Azure instrumentpanel](https://status.azure.com).
 
 Medan den [Azure-portalen](https://portal.azure.com) samlar in hälsoinformation från inuti Azure datacenter (inom ut övervakning), du kan också fundera på att börja använda en utifrån metod för att generera syntetiska transaktioner som regelbundet använder ditt Azure-värdbaserade webbprogram från flera platser. Tjänster som erbjuds av [Dynatrace](https://www.dynatrace.com/en/synthetic-monitoring) och Application Insights för Azure DevOps är exempel på den här metoden. Mer information om Application Insights för Azure DevOps finns i bilagan ”[tillägg 5: Övervakning med Application Insights för Azure DevOps](#appendix-5)”.
 
@@ -425,7 +426,7 @@ Om den **PercentThrottlingError** mått visar en ökning i procent av begärande
 En ökning av **PercentThrottlingError** ofta inträffar samtidigt som en ökning av antalet lagringsbegäranden eller när du är inledningsvis belastningstester ditt program. Detta kan också visa sig i klienten som ”503 Server upptagen” eller ”tidsgräns för 500 åtgärd” HTTP statusmeddelanden från lagringsåtgärder.
 
 #### <a name="transient-increase-in-PercentThrottlingError"></a>Tillfällig ökning i PercentThrottlingError
-Om du ser toppar i värdet för **PercentThrottlingError** som sammanfaller med perioder med hög aktivitet för programmet, du implementerar en exponentiell (inte linjär) backoff-strategi för återförsök i din klient. Backoff försök minska omedelbar belastningen på partitionen och hjälpa till att jämna ut trafiktoppar i programmet. Mer information om hur du implementerar återförsöksprinciper med Storage-klientbiblioteket finns i [Microsoft.windowsazure.Storage.retrypolicies när Namespace](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.retrypolicies.aspx).
+Om du ser toppar i värdet för **PercentThrottlingError** som sammanfaller med perioder med hög aktivitet för programmet, du implementerar en exponentiell (inte linjär) backoff-strategi för återförsök i din klient. Backoff försök minska omedelbar belastningen på partitionen och hjälpa till att jämna ut trafiktoppar i programmet. Mer information om hur du implementerar återförsöksprinciper med Storage-klientbiblioteket finns i [Microsoft.windowsazure.Storage.retrypolicies när Namespace](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.retrypolicy).
 
 > [!NOTE]
 > Du kan också se toppar i värdet för **PercentThrottlingError** som inte krockar med perioder med hög aktivitet för programmet: den mest troliga orsaken är lagringstjänsten flytta partitioner för att förbättra belastningsutjämningen.
@@ -466,14 +467,14 @@ Den vanligaste orsaken till felet är en klient kopplar från innan tidsgränsen
 ### <a name="the-client-is-receiving-403-messages"></a>Klienten tar emot HTTP 403 (förbjudet) meddelanden
 Om klientprogrammet utfärdar HTTP 403-fel (förbjudet) beror det förmodligen på att klienten använder en SAS (signatur för delad åtkomst) som har upphört att gälla när den skickar förfrågningar om lagring (även om det finns andra orsaker, som klockförskjutning, ogiltiga nycklar eller tomma rubriker). Om orsaken är en SAS-nyckel som har upphört att gälla visas inte några poster i Storage Logging-loggdata på serversidan. I följande tabell visar ett exempel från klientsidan loggen genereras av Storage-klientbiblioteket som illustrerar det här problemet inträffar:
 
-| Källa | Utförlighet | Utförlighet | ID för klientförfrågan | Åtgärden text |
+| Källa | Utförlighet | Utförlighet | ID för klientbegäran | Åtgärden text |
 | --- | --- | --- | --- | --- |
 | Microsoft.WindowsAzure.Storage |Information |3 |85d077ab-... |Startar åtgärden med platsen primära per platsläget PrimaryOnly. |
 | Microsoft.WindowsAzure.Storage |Information |3 |85d077ab-... |Startar synkron begäran till <https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&sr=c&si=mypolicy&sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&api-version=2014-02-14> |
 | Microsoft.WindowsAzure.Storage |Information |3 |85d077ab-... |Väntar på svar. |
-| Microsoft.WindowsAzure.Storage |Varning |2 |85d077ab-... |Ett undantag uppstod under väntan på svar: Fjärrservern returnerade ett fel: (403) Förbjuden. |
+| Microsoft.WindowsAzure.Storage |Varning! |2 |85d077ab-... |Ett undantag uppstod under väntan på svar: Fjärrservern returnerade ett fel: (403) Förbjuden. |
 | Microsoft.WindowsAzure.Storage |Information |3 |85d077ab-... |Svaret togs emot. Status code = 403, Request ID = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, Content-MD5 = , ETag = . |
-| Microsoft.WindowsAzure.Storage |Varning |2 |85d077ab-... |Ett undantag uppstod under åtgärden: Fjärrservern returnerade ett fel: (403) Forbidden.. |
+| Microsoft.WindowsAzure.Storage |Varning! |2 |85d077ab-... |Ett undantag uppstod under åtgärden: Fjärrservern returnerade ett fel: (403) Forbidden.. |
 | Microsoft.WindowsAzure.Storage |Information |3 |85d077ab-... |Kontrollerar om åtgärden ska göras. Antal nya försök = 0, HTTP-statuskod = 403, undantag = fjärrservern returnerade ett fel: (403) Forbidden.. |
 | Microsoft.WindowsAzure.Storage |Information |3 |85d077ab-... |Nästa plats har angetts till primär, beroende på plats. |
 | Microsoft.WindowsAzure.Storage |Fel |1 |85d077ab-... |Återförsöksprincipen tillät inte för ett nytt försök. Misslyckas med fjärrservern returnerade ett fel: (403) Förbjuden. |
@@ -504,7 +505,7 @@ Du kan använda loggen på klientsidan från Storage-klientbiblioteket för att 
 
 Följande klientsidan loggen genereras av Storage-klientbiblioteket illustrerar problemet när klienten inte kan hitta behållaren för blob skapas. Den här loggfilen innehåller information om följande lagringsåtgärder:
 
-| ID för förfrågan | Åtgärd |
+| ID för förfrågan | Operation |
 | --- | --- |
 | 07b26a5d-... |**DeleteIfExists** metod för att ta bort blob-behållaren. Observera att den här åtgärden innehåller en **HEAD** begäran om att kontrollera om finns i behållaren. |
 | e2d06d78… |**CreateIfNotExists** metod för att skapa blob-behållaren. Observera att den här åtgärden innehåller en **HEAD** begäran som kontrollerar om finns i behållaren. Den **HEAD** returnerar ett 404 meddelande men fortsätter. |
@@ -568,10 +569,10 @@ I följande tabell visas ett exempel från serversidan loggmeddelande från logg
 | HTTP-statuskod   | 404                          |
 | Autentiseringstyp| SAS                          |
 | Typ av tjänst       | Blob                         |
-| URL för begäran        | https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt |
+| Fråge-URL        | https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt |
 | &nbsp;                 |   ?sv=2014-02-14&sr=c&si=mypolicy&sig=XXXXX&;api-version=2014-02-14 |
 | Rubrik för begäran-ID  | a1f348d5-8032-4912-93ef-b393e5252a3b |
-| ID för klientförfrågan  | 2d064953-8436-4ee0-aa0c-65cb874f7929 |
+| ID för klientbegäran  | 2d064953-8436-4ee0-aa0c-65cb874f7929 |
 
 
 Undersök varför ditt klientprogram försöker utföra en åtgärd som den inte har beviljats behörighet.
@@ -625,7 +626,7 @@ Om detta inträffar ofta bör du undersöka varför klienten kan inte ta emot be
 ### <a name="the-client-is-receiving-409-messages"></a>Klienten tar emot HTTP 409 (konflikt) meddelanden
 I följande tabell visas ett utdrag ur serversidan loggen för två Klientåtgärder: **DeleteIfExists** följt omedelbart av **CreateIfNotExists** med hjälp av samma blobbehållarens namn. Varje klientåtgärden resulterar i två begäranden som skickas till servern, först en **GetContainerProperties** begäran om att kontrollera om behållaren finns, följt av den **DeleteContainer** eller  **CreateContainer** begäran.
 
-| Tidsstämpel | Åtgärd | Resultat | Containerns namn | ID för klientförfrågan |
+| Tidsstämpel | Operation | Resultat | Behållarnamn | ID för klientbegäran |
 | --- | --- | --- | --- | --- |
 | 05:10:13.7167225 |GetContainerProperties |200 |mmcont |c9f52c89-... |
 | 05:10:13.8167325 |DeleteContainer |202 |mmcont |c9f52c89-... |
@@ -737,7 +738,7 @@ Följande procedur visar hur du kan få detaljerad paketinformationen för trafi
 4. Lägg till ett filter för att den **Capture Filter** textrutan. Till exempel **värd contosoemaildist.table.core.windows.net** konfigurerar Wireshark för att samla in endast paket som skickas till eller från table service-slutpunkt i den **contosoemaildist** storage-konto. Kolla in den [fullständig lista över avbilda filter](https://wiki.wireshark.org/CaptureFilters).
 
    ![][6]
-5. Klicka på **Starta**. Wireshark avbildar nu alla paketen skickar till eller från table service-slutpunkt som du använder klientprogrammet på den lokala datorn.
+5. Klicka på **Start**. Wireshark avbildar nu alla paketen skickar till eller från table service-slutpunkt som du använder klientprogrammet på den lokala datorn.
 6. När du är klar, klicka på huvudmenyn **avbilda** och sedan **stoppa**.
 7. Om du vill spara insamlade data i en Wireshark avbilda fil på huvudmenyn klickar du på **filen** och sedan **spara**.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 028f16b480ceb57598c6499739ab0e5745b4a132
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: f9f5b24a52ebfb8b87f1abaa3b60091d7f4690ab
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64870014"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230649"
 ---
 # <a name="azure-maps-routing-coverage"></a>Azure Maps routning täckning
 
@@ -27,9 +27,9 @@ Kolla in täckning för [ **rendera**](render-coverage.md).
 
 | Symbol             | Betydelse                                |
 |--------------------|----------------------------------------|
-| ✓                  | Land som medföljer detaljerade data.   |
-| Ø                  | Land som medföljer förenklad data. |
-| Land saknas | Landsspecifika data anges inte.          |
+| ✓                  | Land/region med detaljerade data.   |
+| Ø                  | Land/region med förenklad data. |
+| Land saknas | Land/region data anges inte.          |
 
 <br>  
 
@@ -60,9 +60,9 @@ Följande tabell innehåller information om täckning för Azure Maps routning.
 | Lesotho                        |        Ø        |         ✓            |             |
 | Malawi                         |        ✓       |                       |              |
 | Mali                           |        ✓       |                       |             |
-| Mauretanien                     |        ✓       |                       |             |
+| Mauritanien                     |        ✓       |                       |             |
 | Mauritius, Mayotte och Réunion |        ✓      |                       |             |
-| Marocko                        |        ✓       |                       |             |
+| Marokko                        |        ✓       |                       |             |
 | Moçambique                     |        ✓       |         ✓            |             |
 | Namibia                        |        ✓       |                       |             |
 | Niger                          |        ✓       |                       |             |
@@ -107,7 +107,7 @@ Följande tabell innehåller information om täckning för Azure Maps routning.
 | Haiti                          |        ✓       |                      |             |
 | Honduras                       |        ✓       |                      |             |
 | Jamaica                        |        ✓       |                      |             |
-| Mexiko                         |        ✓       |         ✓            |     ✓      | 
+| Mexico                         |        ✓       |         ✓            |     ✓      | 
 | Nicaragua                      |        ✓       |                      |             |
 | Panama                         |        ✓       |                      |             |
 | Paraguay                       |        ✓       |                      |             |
@@ -159,7 +159,7 @@ Följande tabell innehåller information om täckning för Azure Maps routning.
 | Albanien                        |        ✓       |                      |             |
 | Andorra                        |        ✓       |         ✓            |             |
 | Österrike                        |        ✓       |         ✓            |     ✓       | 
-| Vitryssland                        |        ✓       |                      |             |
+| Republiken Vitryssland                        |        ✓       |                      |             |
 | Belgien                        |        ✓       |         ✓            |     ✓      | 
 | Bolivia                        |        ✓       |                      |             |
 | Bosnien och Hercegovina             |        ✓       |                      |             |
@@ -177,7 +177,7 @@ Följande tabell innehåller information om täckning för Azure Maps routning.
 | + Saint-Barthélemy                |        ✓       |                      |             |
 | + Saint Martin                    |        ✓       |                      |             |
 | + Saint Pierre och Miquelon         |        ✓       |                      |             |
-| Georgien                        |        ✓       |                      |             |
+| Georgia                        |        ✓       |                      |             |
 | Tyskland                        |        ✓       |         ✓            |     ✓      | 
 | Grekland                         |        ✓       |         ✓            |     ✓      |  
 | Guernsey                       |        ✓       |                      |             |
@@ -199,14 +199,14 @@ Följande tabell innehåller information om täckning för Azure Maps routning.
 | +Aruba                         |        ✓       |                      |             | 
 | + Karibien Nederländerna         |        ✓       |                      |             |
 | +Curaçao                       |        ✓       |                      |             |
-| +Saint Maarten                  |        ✓       |                      |             |
+| +Sint Maarten                  |        ✓       |                      |             |
 | Norge                         |        ✓       |         ✓            |     ✓      | 
 | Polen                         |        ✓       |         ✓            |     ✓      | 
 | Portugal                       |        ✓       |         ✓            |     ✓      |  
 | Rumänien                        |        ✓       |         ✓            |     ✓      | 
 | Ryska federationen             |        ✓       |         ✓            |     ✓      | 
 | San Marino                     |        ✓       |         ✓            |             |
-| +Saint Maarten                  |        ✓       |                      |             |
+| +Sint Maarten                  |        ✓       |                      |             |
 | Serbien                         |        ✓       |                      |     ✓      | 
 | Slovakien                       |        ✓       |         ✓            |     ✓      | 
 | Slovenien                       |        ✓       |         ✓            |     ✓      |
@@ -215,14 +215,14 @@ Följande tabell innehåller information om täckning för Azure Maps routning.
 | Schweiz                    |        ✓       |         ✓            |     ✓      | 
 | Turkiet                         |        ✓       |         ✓            |     ✓      | 
 | Ukraina                        |        ✓       |         ✓            |             | 
-| Storbritannien                 |        ✓       |         ✓            |     ✓      | 
+| Storbritannien och Nordirland                 |        ✓       |         ✓            |     ✓      | 
 | +Anguilla                      |        ✓       |                      |             |
 | +Bermuda                       |        ✓       |                      |             |
 | + Brittiska Jungfruöarna        |        ✓       |                      |             |
 | + Caymanöarna                |        ✓       |                      |             |
-| +Gibraltar                      |        ✓       |         ✓            |             | 
+| +Gibraltar                     |        ✓       |         ✓            |             | 
 | +Montserrat                    |        ✓       |                      |             |
-| + Turks- och Caicosöarna        |        ✓       |                      |             |
+| + Turks och-Caicosöarna      |        ✓       |                      |             |
 | Vatikanstaten                   |        ✓       |         ✓            |             |
 | Isle of Man                    |        ✓       |                      |             |
 

@@ -17,12 +17,12 @@ ms.date: 03/20/2019
 ms.author: joflore
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81a9726b73226cd940a55e316ae434aeaad6ff4d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5f080e315430cba986642e4a24af776cc82062c0
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60354068"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190797"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Självstudier: Konfigurera en Azure Active Directory-hybridanslutning för hanterade domäner
 
@@ -52,7 +52,10 @@ I den här självstudien förutsätts att du känner till:
 -  [Så här planerar du Azure Active Directory Join-hybridimplementeringen](hybrid-azuread-join-plan.md)
 
 -  [Så här kontrollerar du Azure Active Directory Join-hybriden för dina enheter](hybrid-azuread-join-control.md)
-  
+
+> [!NOTE]
+> Azure AD stöder inte smartkort eller certifikat i hanterade domäner.
+
 
 För att kunna konfigurera scenariot i den här artikeln behöver du:
 

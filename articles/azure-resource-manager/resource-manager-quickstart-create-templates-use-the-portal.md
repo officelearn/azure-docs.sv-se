@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 03/04/2019
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: 4fe859b1343e2aea71bd41a3b7742a29bbff389f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: aea6f58c74d6e50e7936b949620912f3f587f004
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60464228"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205870"
 ---
 # <a name="quickstart-create-and-deploy-azure-resource-manager-templates-by-using-the-azure-portal"></a>Snabbstart: Skapa och distribuera Azure Resource Manager-mallar med hjälp av Azure-portalen
 
@@ -32,7 +32,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 ## <a name="generate-a-template-using-the-portal"></a>Generera en mall med hjälp av portalen
 
-Att skapa en Resource Manager-mall från grunden är inte helt enkelt, i synnerhet om du är ny på Azure-distribution och inte känner till JSON-formatet. Med hjälp av Azure-portalen kan du konfigurera en resurs, till exempel ett Azure Storage-konto. Innan du distribuerar resursen kan du exportera konfigurationen till en Resource Manager-mall. Du kan spara mallen och använda den igen senare.
+Skapa en Resource Manager-mall från början är inte en enkel åtgärd, särskilt om du är nybörjare på Azure-distribution och du inte är bekant med JSON-format. Med hjälp av Azure-portalen kan du konfigurera en resurs, till exempel ett Azure Storage-konto. Innan du distribuerar resursen kan du exportera konfigurationen till en Resource Manager-mall. Du kan spara mallen och använda den igen senare.
 
 Många mall för erfarna utvecklare använder den här metoden för att generera mallar när de försöker distribuera Azure-resurser som de inte är bekant med. Mer information om hur du exporterar mallar med hjälp av portalen finns i [exportera resursgrupper till mallar](./manage-resource-groups-portal.md#export-resource-groups-to-templates). Det andra sättet att hitta en fungerande mall är från [Azure-snabbstartmallar](https://azure.microsoft.com/resources/templates/).
 

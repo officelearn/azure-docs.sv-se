@@ -2,19 +2,19 @@
 title: 'Självstudier: Distribuera en maskininlärningsmodell med det visuella gränssnittet'
 titleSuffix: Azure Machine Learning service
 description: Lär dig hur du skapar en lösning för förutsägelseanalys i det visuella gränssnittet för Azure Machine Learning-tjänsten. Träna, poäng, och distribuera en modell för maskininlärning med dra och släppa moduler. Den här självstudien är del två i en serie med två delar om att förutsäga bilpriser med hjälp av linjär regression.
-author: peterlu
-ms.author: peterlu
+author: peterclu
+ms.author: peterclu
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/06/2019
-ms.openlocfilehash: e9ece81b1f663910fb3c051bd94c13c54ffa8470
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 5f29e3820416686b42167fa278c4b7d0f9a58f1f
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026867"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190922"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-visual-interface"></a>Självstudier: Distribuera en maskininlärningsmodell med det visuella gränssnittet
 
@@ -40,16 +40,16 @@ Hittills har du experimenterat med träna din modell. Nu är det dags att skapa 
 Förberedelse för distribution är en tvåstegsprocess:  
 
 1. Konvertera den *träningsexperiment* som du har skapat i en *förutsägbart experiment*
-1. Distribuera förutsägelseexperimentet som en webbtjänst
+1. Distribuera förutsägelseexperiment som en webbtjänst
 
 Du kanske vill göra en kopia av experimentet först genom att välja **Spara som** längst ned på arbetsytan för experimentet.
 
-### <a name="convert-the-training-experiment-to-a-predictive-experiment"></a>Konvertera träningsexperimentet till ett förutsägelseexperiment
+### <a name="convert-the-training-experiment-to-a-predictive-experiment"></a>Konvertera träningsexperimentet till ett förutsägbart experiment
 
 För att förbereda den här modellen för distribution måste du konvertera den här träningsexperiment till ett förutsägbart experiment. Detta omfattar vanligtvis tre steg:
 
 1. Spara modellen du har tränat och ersätter utbildningsmoduler
-1. Minska storleken på experimentet genom att ta bort moduler som endast behövdes till träningen
+1. Trimma experimentet för att ta bort moduler som behövdes endast för utbildning
 1. Definiera där webbtjänsten ska ta emot indata och där det genererar utdata
 
 Du kan utföra dessa steg manuellt eller så kan du välja **konfigurera Web Service** längst ned på arbetsytan för experimentet har gjort automatiskt.
@@ -59,14 +59,14 @@ Du kan utföra dessa steg manuellt eller så kan du välja **konfigurera Web Ser
 När du väljer **konfigurera Web Service**, flera saker:
 
 * Den tränade modellen konverteras till en enda **Trained Model** modulen. Den är lagrad på modulpaletten till vänster om arbetsytan för experimentet. Du hittar den under **tränade modeller**.
-* Moduler som har använts för träning tas bort, exempelvis:
-  * Träna modell
-  * Dela Data
-  * Utvärdera modellen
-* Den sparade tränade modellen har lagts tillbaka i experimentet
+* Moduler som har använts för utbildning tas bort; mer specifikt:
+  * Träningsmodell
+  * Dela data
+  * Utvärdera modell
+* Den sparade tränade modellen har lagts till i experimentet
 * **Web service indata** och **Web service utdata** moduler har lagts till. Dessa moduler identifiera där användarens data kommer att ange modellen och där data returneras.
 
-Du kan se att experimentet sparas i två delar under de nya flikarna högst upp på arbetsytan för experimentet. Det ursprungliga träningsexperimentet finns under fliken **Träningsexperiment** och det nyligen skapade förutsägelseexperiment finns i **Förutsägelseexperiment**. Du ska distribuera förutsägelseexperimentet som en webbtjänst.
+Du kan se att experimentet sparas i två delar under de nya flikarna högst upp på arbetsytan för experimentet. Det ursprungliga träningsexperimentet är under fliken **träningsexperiment**, och den nyligen skapade förutsägelseexperiment är **förutsägelseexperiment**. Du ska distribuera förutsägelseexperimentet som en webbtjänst.
 
 Experimentet bör nu se ut så här:  
 

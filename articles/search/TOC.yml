@@ -2,10 +2,8 @@
   href: index.yml
 - name: Översikt
   items:
-    - name: Vad är Azure Search
+    - name: Vad är Azure Search?
       href: search-what-is-azure-search.md
-    - name: Vad är kognitiv sökning
-      href: cognitive-search-concept-intro.md
 - name: Snabbstarter
   expanded: true
   items:
@@ -15,7 +13,7 @@
       items:
         - name: Läsa in och fråga ett index
           href: search-get-started-portal.md
-        - name: Förbättra med AI (kognitiv sökning)
+        - name: Berika med AI (Kognitiv sökning)
           href: cognitive-search-quickstart-blob.md
     - name: 'C#'
       items:
@@ -35,8 +33,12 @@
       href: search-indexer-tutorial.md
     - name: Indexera Azure JSON-blobar
       href: search-semi-structured-data.md
-    - name: Indexera med AI (Cognitive Services)
-      href: cognitive-search-tutorial-blob.md
+    - name: Berika med AI (Kognitiv sökning)
+      items:
+        - name: REST
+          href: cognitive-search-tutorial-blob.md
+        - name: 'C#'
+          href: cognitive-search-tutorial-blob-dotnet.md
 - name: Exempel
   items:
     - name: Azure-kodexempel
@@ -53,11 +55,15 @@
   items:
     - name: Fulltextsökning
       href: search-lucene-query-architecture.md
-    - name: Utveckla mönster för flera innehavare
-      href: search-modeling-multitenant-saas-applications.md
+    - name: Kognitiv sökning
+      href: cognitive-search-concept-intro.md
+    - name: Knowledge Store
+      href: knowledge-store-concept-intro.md
+    - name: Projektioner
+      href: knowledge-store-projection-overview.md
 - name: Instruktionsguider
   items:
-    - name: Kapacitetsplanering
+    - name: Planering
       items:
         - name: Välj en nivå
           href: search-sku-tier.md
@@ -67,6 +73,8 @@
           href: search-capacity-planning.md
         - name: Distributionsstrategier och metodtips
           href: search-performance-optimization.md
+        - name: Arkitektur för flera innehavare
+          href: search-modeling-multitenant-saas-applications.md
     - name: Säkerhet
       items:
         - name: Säkerhetsöversikt
@@ -79,6 +87,8 @@
           href: search-security-trimming-for-azure-search.md
         - name: Filtrera efter identiteter i AAD
           href: search-security-trimming-for-azure-search-with-aad.md
+        - name: Hantera krypteringsnycklar (förhandsversion)
+          href: search-security-manage-encryption-keys.md
     - name: Utveckling
       items:
         - name: API-versioner
@@ -169,26 +179,36 @@
           href: search-indexer-field-mappings.md
         - name: Felsöka vanliga problem
           href: search-indexer-troubleshooting.md
-    - name: AI-indexering (kognitiv sökning)
+    - name: Berika med AI
       items:
         - name: Bifoga en resurs för Cognitive Services
           href: cognitive-search-attach-cognitive-services.md
-        - name: Definiera en kunskapsuppsättning
-          href: cognitive-search-defining-skillset.md
-        - name: Referera till en anteckning
-          href: cognitive-search-concept-annotations-syntax.md
-        - name: Mappa till indexfält
-          href: cognitive-search-output-field-mapping.md
-        - name: Bearbeta och extrahera information från bilder
-          href: cognitive-search-concept-image-scenarios.md
-        - name: Integrera anpassade kunskaper
-          href: cognitive-search-custom-skill-interface.md
-        - name: Exempel – anpassade kunskaper
-          href: cognitive-search-create-custom-skill-example.md
+        - name: Kompetensuppsättningar
+          items:
+            - name: Definiera en kunskapsuppsättning
+              href: cognitive-search-defining-skillset.md
+            - name: Referera till en anteckning
+              href: cognitive-search-concept-annotations-syntax.md
+            - name: Mappa till indexfält
+              href: cognitive-search-output-field-mapping.md
+            - name: Bearbeta och extrahera information från bilder
+              href: cognitive-search-concept-image-scenarios.md
+        - name: Anpassade färdigheter
+          items:
+            - name: Integrera anpassade kunskaper
+              href: cognitive-search-custom-skill-interface.md
+            - name: Exempel – Azure Functions
+              href: cognitive-search-create-custom-skill-example.md
+            - name: Exempel – Containrar
+              href: 'https://go.microsoft.com/fwlink/?linkid=2089500'
         - name: Felsökningstips
           href: cognitive-search-concept-troubleshooting.md
         - name: Dokumentationslänkar
           href: cognitive-search-resources-documentation.md
+    - name: Knowledge Store (förhandsversion)
+      items:
+        - name: Så här kommer du igång
+          href: knowledge-store-howto.md
     - name: Söka i data
       items:
         - name: Skapa en grundläggande fråga
@@ -203,6 +223,8 @@
           href: search-query-simple-examples.md
         - name: Exempel (fullständig Lucene)
           href: search-query-lucene-examples.md
+        - name: moreLikeThis (förhandsversion)
+          href: search-more-like-this.md
     - name: Filtrera och sortera data
       items:
         - name: Översikt över filter
@@ -276,9 +298,11 @@
           href: cognitive-search-skill-ocr.md
         - name: Formaren
           href: cognitive-search-skill-shaper.md
+        - name: Villkorsstyrd
+          href: cognitive-search-skill-conditional.md
         - name: Inaktuella färdigheter
           href: cognitive-search-skill-deprecated.md
-    - name: Anpassade färdigheter (förhandsversion)
+    - name: Anpassade färdigheter
       items:
         - name: Anpassat webb-API
           href: cognitive-search-custom-skill-web-api.md

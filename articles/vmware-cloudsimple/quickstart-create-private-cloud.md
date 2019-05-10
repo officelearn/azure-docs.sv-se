@@ -8,18 +8,18 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: efeadd2e1600e5ee572c4a69dde0ff4c53a13cd7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e1fc7809ad94d589483b87c638d027a39098164e
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64577667"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65209543"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>Snabbstart – konfigurera en privat molnmiljö
 
 I den här artikeln lär du dig hur du skapar ett privat moln CloudSimple och konfigurera din miljö för privata moln.
 
-## <a name="sign-in-to-azure"></a>Logga in på Azure
+## <a name="sign-in-to-azure"></a>Logga in till Azure
 Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-private-cloud"></a>Skapa ett privat moln
@@ -104,7 +104,7 @@ VPN-klient krävs för att ansluta till CloudSimple från datorn.  Ladda ned [Op
 4. Välj **användare**.
 5. Klicka på **hämta min VPN-konfiguration**
 
-    ![Ladda ned VPN-konfiguration](media/download-p2s-vpn-configuration.png)
+    ![Ladda ned VPN-anslutning](media/download-p2s-vpn-configuration.png)
 
 6. Importera konfigurationen på VPN-klienten
 
@@ -135,7 +135,7 @@ VLAN/undernät kommer att skapas.  Du kan nu använda den här VLAN-ID för att 
 
 ## <a name="connect-your-environment-to-an-azure-virtual-network"></a>Anslut din miljö till en Azure-nätverk
 
-CloudSimple ger dig en ExpressRoute-krets för ditt privata moln. Du kan ansluta ditt virtuella nätverk på Azure till ExpressRoute-kretsen. Fullständig information om hur du konfigurerar anslutningen följer du stegen i [Azure virtuellt nätverksanslutning med ExpressRoute](https://docs.azure.cloudsimple.com/azure-er-connection)
+CloudSimple ger dig en ExpressRoute-krets för ditt privata moln. Du kan ansluta ditt virtuella nätverk på Azure till ExpressRoute-kretsen. Fullständig information om hur du konfigurerar anslutningen följer du stegen i [Azure virtuellt nätverksanslutning med ExpressRoute](https://docs.azure.cloudsimple.com/cloudsimple-azure-network-connection/)
 
 ## <a name="sign-in-to-vcenter"></a>Logga in till vCenter
 

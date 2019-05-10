@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: e5d04fd136848684e866fae9768b252e3b6ca77f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: d27adadc9720dd2ad6a0dd133524bfaf32e63045
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138009"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65227994"
 ---
 # <a name="action-rules-preview"></a>Åtgärdsregler (förhandsversion)
 
@@ -140,17 +140,17 @@ Du kan visa och hantera dina Åtgärdsregler från listvyn enligt nedan.
 
 Härifrån kan kan du aktivera/inaktivera/ta bort Åtgärdsregler i stor skala genom att markera kryssrutan bredvid dem. När du klickar på någon åtgärdsregel öppnas sidan dess konfiguration så att du kan uppdatera dess definition och aktivera/inaktivera den.
 
-## <a name="best-practices"></a>Bästa praxis
+## <a name="best-practices"></a>Regelverk
 
-Loggaviseringar som skapats med den ['antal resultat ”](https://docs.microsoft.com/azure-monitor/platform/alerts-unified-log) alternativ generera **en enda avisering instans** med hela sökresultatet (som kan vara på flera datorer till exempel). I det här scenariot, om en åtgärdsregel för använder 'Varningskontexten (nyttolast) ”-filter ska det riktas in på aviseringsinstansen så länge det finns en matchning. I scenario 2 som beskrivs ovan, om sökresultatet för log-avisering som genererats innehåller både dator-01 och ”dator-02” hela meddelandet undertrycks (dvs, det finns inget meddelande genereras för dator-02 alls).
+Loggaviseringar som skapats med den ['antal resultat ”](alerts-unified-log.md) alternativ generera **en enda avisering instans** med hela sökresultatet (som kan vara på flera datorer till exempel). I det här scenariot, om en åtgärdsregel för använder 'Varningskontexten (nyttolast) ”-filter ska det riktas in på aviseringsinstansen så länge det finns en matchning. I scenario 2 som beskrivs ovan, om sökresultatet för log-avisering som genererats innehåller både dator-01 och ”dator-02” hela meddelandet undertrycks (dvs, det finns inget meddelande genereras för dator-02 alls).
 
 ![Åtgärdsregler och aviseringar (antal resultat)](media/alerts-action-rules/action-rules-log-alert-number-of-results.png)
 
-Du bäst utnyttjar loggvarningar med Åtgärdsregler, rekommenderar vi att du att skapa aviseringar med de ['metriska måttenheter'](https://docs.microsoft.com/azure-monitor/platform/alerts-unified-log) alternativet. Med det här alternativet genereras separat aviseringsinstanser baserat på gruppfältet som definierats. I scenario 2, sedan genereras separat aviseringsinstanser för dator-01 och dator-02. Med åtgärdsregeln som beskrivs i scenariot, skulle endast meddelande för dator-01 förhindras medan aviseringen för dator-02 kan fortsätta att utlöses som vanligt.
+Du bäst utnyttjar loggvarningar med Åtgärdsregler, rekommenderar vi att du att skapa aviseringar med de ['metriska måttenheter'](alerts-unified-log.md) alternativet. Med det här alternativet genereras separat aviseringsinstanser baserat på gruppfältet som definierats. I scenario 2, sedan genereras separat aviseringsinstanser för dator-01 och dator-02. Med åtgärdsregeln som beskrivs i scenariot, skulle endast meddelande för dator-01 förhindras medan aviseringen för dator-02 kan fortsätta att utlöses som vanligt.
 
 ![Åtgärdsregler och aviseringar (antal resultat)](media/alerts-action-rules/action-rules-log-alert-metric-measurement.png)
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor
 
 * F. Jag skulle vilja se alla möjliga överlappande åtgärd regler så att jag undvika dubbla meddelanden när du konfigurerar en åtgärdsregel för. Är det möjligt att göra detta?
 

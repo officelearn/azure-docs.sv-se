@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/28/2019
+ms.date: 05/03/2019
 ms.author: jeedes
-ms.openlocfilehash: b9e1b98be55030c9936222aa66d204ab3abe3374
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: ada93903113cedd68e23ec66a36dceef99ec1233
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920220"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192097"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xaitporter"></a>Självstudier: Azure Active Directory-integrering med XaitPorter
 
@@ -29,7 +29,7 @@ Integrera XaitPorter med Azure AD ger dig följande fördelar:
 
 * Du kan styra i Azure AD som har åtkomst till XaitPorter.
 * Du kan aktivera användarna att vara automatiskt inloggad till XaitPorter (Single Sign-On) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure-portalen.
+* Du kan hantera dina konton på en central plats – Azure portal.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
@@ -61,7 +61,7 @@ För att konfigurera integrering av XaitPorter i Azure AD, som du behöver lägg
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
+3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
@@ -69,19 +69,19 @@ För att konfigurera integrering av XaitPorter i Azure AD, som du behöver lägg
 
      ![XaitPorter i resultatlistan](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
 I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med XaitPorter baserat på en testanvändare kallas **Britta Simon**.
 För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i XaitPorter upprättas.
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med XaitPorter, måste du utföra följande byggblock:
 
-1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
 2. **[Konfigurera XaitPorter Single Sign-On](#configure-xaitporter-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
-4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
 5. **[Skapa testanvändare XaitPorter](#create-xaitporter-test-user)**  – du har en motsvarighet för Britta Simon i XaitPorter som är länkad till en Azure AD-representation av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
+6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
@@ -91,7 +91,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med XaitPor
 
 1. I den [Azure-portalen](https://portal.azure.com/)på den **XaitPorter** application integration markerar **enkel inloggning**.
 
-    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
+    ![Konfigurera enkel inloggning för länken](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -114,23 +114,31 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med XaitPor
 
 5. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på kopieringsknappen för att kopiera **App Federation Metadata-URL** och spara den på datorn.
 
-    ![Länk för nedladdning av certifikatet](common/copy-metadataurl.png)
+    ![Länk för hämtning av certifikat](common/copy-metadataurl.png)
 
 6. Ange den **IP-adress** eller **Appfederationsmetadata** till den [SmartRecruiters supportteam](https://www.smartrecruiters.com/about-us/contact-us/), så att XaitPorter kan se till att IP-adressen kan nås från din Konfigurera listan över godkända på sin sida XaitPorter-instans. 
 
 ### <a name="configure-xaitporter-single-sign-on"></a>Konfigurera XaitPorter Single Sign-On
 
-1. I ett annat webbläsarfönster, loggar du in din XaitPorter företagets webbplats som administratör.
+1. Om du vill automatisera konfigurationen inom XaitPorter, måste du installera **Mina appar skyddat inloggning webbläsartillägget** genom att klicka på **installera tillägget**.
 
-2. Klicka på **Admin**.
+    ![Mina appar-tillägg](common/install-myappssecure-extension.png)
+
+2. När du lägger till tillägg till webbläsaren, klickar på **installationsprogrammet XaitPorter** omdirigerar dig till programmet XaitPorter. Ange administratörsautentiseringsuppgifter för att logga in på XaitPorter därifrån. Webbläsartillägget automatiskt att konfigurera program för dig. och automatisera steg 3 – 6.
+
+    ![Installationskonfiguration](common/setup-sso.png)
+
+3. Om du vill konfigurera XaitPorter manuellt, öppna ett nytt webbläsarfönster och logga till XaitPorter företagets webbplatsen som administratör och utför följande steg:
+
+4. Klicka på **Admin**.
 
     ![Konfigurera enkel inloggning](./media/xaitporter-tutorial/user1.png)
 
-3. Välj **hantera enkel inloggning** från den **systeminställningarna** listrutan.
+5. Välj **hantera enkel inloggning** från den **systeminställningarna** listrutan.
 
     ![Konfigurera enkel inloggning](./media/xaitporter-tutorial/user2.png)
 
-4. I den **hantera enkel inloggning** avsnittet, utför följande steg:
+6. I den **hantera enkel inloggning** avsnittet, utför följande steg:
 
     ![Konfigurera enkel inloggning](./media/xaitporter-tutorial/user3.png)
 

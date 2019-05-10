@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/01/2018
 ms.author: aschhab
-ms.openlocfilehash: 5edeebd9698384785082e5a441c24e136ed22481
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: abba0e15314387aed09e39f05d9127f346f9c799
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61317083"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65228392"
 ---
 # <a name="managed-identities-for-azure-resources-with-service-bus"></a>Hanterade identiteter för Azure-resurser med Service Bus 
 
@@ -29,7 +29,7 @@ Med hanterade identiteter hanterar den här identiteten för körning i Azure-pl
 
 ## <a name="service-bus-roles-and-permissions"></a>Service Bus-roller och behörigheter
 
-Du kan bara lägga till en hanterad identitet till ”ägare” eller ”bidragsgivare” roller av en Service Bus-namnrymd. Den ger fullständig kontrollen identitet i alla entiteter i namnområdet. Hantering av åtgärder som ändrar namnområde topologin är från början stöds dock bara om Azure Resource Manager. Det är inte via gränssnittet för hantering av interna Service Bus REST. Det här stödet innebär också att du inte kan använda .NET Framework-klienten [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) objekt i en hanterad identitet.
+Du kan bara lägga till en hanterad identitet till ”ägare” eller ”bidragsgivare” roller av en Service Bus-namnrymd. Den ger fullständig kontrollen identitet i alla entiteter i namnområdet. Hantering av åtgärder som ändrar namnområde topologin är från början stöds dock bara om Azure Resource Manager. Det är inte via gränssnittet för hantering av interna Service Bus REST. Det här stödet innebär också att du inte kan använda .NET Framework-klienten [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) eller .NET Standard-klienten [ManagementClient](/dotnet/api/microsoft.azure.servicebus.management.managementclient) objekt inom en hanterad identitet.
 
 ## <a name="use-service-bus-with-managed-identities-for-azure-resources"></a>Använda Service Bus med hanterade identiteter för Azure-resurser
 

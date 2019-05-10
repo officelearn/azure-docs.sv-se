@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: 1d874b9c8f14b1489ab5e5b8bbdddaff0669165e
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 186e0365ae8aee3b7f92fcc06142e4d0496ffd08
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65145183"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415460"
 ---
 # <a name="sql-language-reference-for-azure-cosmos-db"></a>SQL-Språkreferens för Azure Cosmos DB 
 
@@ -508,7 +508,7 @@ OFFSET <offset_amount> LIMIT <limit_amount>
 |**Kategori**|**Detaljer**|  
 |-|-|  
 |**Aritmetiska**|Operatorn förväntar sig indata ska vara sin. Utdata är också ett tal. Om någon av indata är **odefinierat** eller annan typ än antalet sedan resultatet är **odefinierat**.|  
-|**Bitvis**|Operatorn förväntar sig indata ska vara 32-bitars heltal sin. Utdata är också 32-bitars heltal tal.<br /><br /> Alla heltalsvärde ska avrundas. Positiv avrundas nedåt, negativa värden avrundas uppåt.<br /><br /> Ett värde som är utanför intervallet för 32-bitars heltal omvandlas med sista 32-bitar i dess två visas.<br /><br /> Om någon av indata är **odefinierat** eller annan typ än tal, och sedan resultatet är **odefinierat**.<br /><br /> **Obs!** Beteendet ovan är kompatibel med JavaScript bitvis operator-beteende.|  
+|**Bitvis**|Operatorn förväntar sig indata ska vara 32-bitars heltal sin. Utdata är också 32-bitars heltal tal.<br /><br /> Alla heltalsvärde ska avrundas. Positiv avrundas nedåt, negativa värden avrundas uppåt.<br /><br /> Ett värde som är utanför intervallet för 32-bitars heltal omvandlas med sista 32-bitar i dess två visas.<br /><br /> Om någon av indata är **odefinierat** eller annan typ än tal, och sedan resultatet är **odefinierat**.<br /><br /> **Obs:** Beteendet ovan är kompatibel med JavaScript bitvis operator-beteende.|  
 |**Logiska**|Operatorn förväntar sig indata ska vara Boolean(s). Utdata är också ett booleskt värde.<br />Om någon av indata är **odefinierat** eller annan typ än Boolean, så resultatet kommer att vara **odefinierat**.|  
 |**Jämförelse**|Operatorn förväntar sig indata ska ha samma typ och inte är odefinierad. Resultatet är ett booleskt värde.<br /><br /> Om någon av indata är **odefinierat** eller indata har olika typer och resultatet är **odefinierat**.<br /><br /> Se **gruppering av värden för jämförelse** tabellen för värdet ordning information.|  
 |**sträng**|Operatorn förväntar sig indata ska vara strängarna. Utdata är också en sträng.<br />Om någon av indata är **odefinierat** eller annan typ än sträng och sedan resultatet är **odefinierat**.|  
@@ -1307,7 +1307,7 @@ RADIANS (<numeric_expression>)
 SELECT RADIANS(-45.01) AS r1, RADIANS(-181.01) AS r2, RADIANS(0) AS r3, RADIANS(0.1472738) AS r4, RADIANS(197.1099392) AS r5  
 ```  
   
- Här är resultatuppsättningen.  
+  Här är resultatuppsättningen.  
   
 ```  
 [{  
@@ -1338,6 +1338,17 @@ ROUND(<numeric_expression>)
   
   Returnerar ett numeriskt uttryck.  
   
+  **Kommentarer**
+  
+  Avrundning åtgärden utförs följer mittpunkten avrundning från noll. Om indata är ett numeriskt uttryck som ligger exakt två heltal kommer resultatet att närmaste heltalsvärde från noll.  
+  
+  |<numeric_expression>|Avrundat|
+  |-|-|
+  |-6.5000|-7|
+  |-0.5|-1|
+  |0,5|1|
+  |6.5000|7||
+  
   **Exempel**  
   
   I följande exempel Avrundar följande positiva och negativa tal till närmaste heltal.  
@@ -1346,7 +1357,7 @@ ROUND(<numeric_expression>)
 SELECT ROUND(2.4) AS r1, ROUND(2.6) AS r2, ROUND(2.5) AS r3, ROUND(-2.4) AS r4, ROUND(-2.6) AS r5  
 ```  
   
- Här är resultatuppsättningen.  
+  Här är resultatuppsättningen.  
   
 ```  
 [{r1: 2, r2: 3, r3: 3, r4: -2, r5: -3}]  
@@ -3148,7 +3159,7 @@ GetCurrentDateTime ()
   |ÅÅÅÅ|fyrsiffrigt år|
   |MM|månad med två siffror (01 = januari, osv.)|
   |DD|tvåsiffrig dag i månaden (01 till 31)|
-  |T|signifier början av tidselement|
+  |t|signifier början av tidselement|
   |hh|två siffror timme (00-23)|
   |mm|två siffror minuter (00 till och med 59)|
   |ss|två siffror sekunder (00 till och med 59)|

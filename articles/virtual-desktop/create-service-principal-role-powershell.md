@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 04/12/2019
 ms.author: helohr
-ms.openlocfilehash: 93725fc9d77552d779378d0c14294a5bbb11c926
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: d3357cec426585ba8550301dfa703f583a930ad0
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65146148"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236943"
 ---
 # <a name="tutorial-create-service-principals-and-role-assignments-with-powershell"></a>Självstudier: Skapa tjänstens huvudnamn och rolltilldelningar med PowerShell
 
@@ -38,7 +38,7 @@ Innan du kan skapa tjänstens huvudnamn och rolltilldelningar, behöver du göra
     Install-Module AzureAD
     ```
 
-2. Kör följande cmdlets med värdena i citattecken ersättas med värdena som är relevanta för din session.
+2. Kör följande cmdlets med värdena i citattecken ersättas med värdena som är relevanta för din session. Om du precis skapat din virtuella skrivbordet i Windows-klient från den [skapar en klient i självstudien för virtuella Windows-skrivbordet](./tenant-setup-azure-active-directory.md), Använd sedan ”standard klient grupp” som ditt klientnamn för gruppen.
 
     ```powershell
     $myTenantGroupName = "<my-tenant-group-name>"
@@ -109,7 +109,7 @@ Här följer tre autentiseringsuppgifterna som du bör anteckna de cmdletar som 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien lärde du dig att skapa tjänstens huvudnamn och logga in på virtuella Windows-skrivbordet med den. Om du vill veta mer om hur du loggar in till virtuella Windows-skrivbordet kan fortsätta att ansluta till virtuella skrivbord instruktioner för Windows.
+När du har skapat tjänstens huvudnamn och tilldelats en roll i din klient för virtuella Windows-skrivbordet, kan du använda den för att skapa en pool med värden. Om du vill veta mer om värden pooler kan du fortsätta till självstudien för att skapa en pool med värden i virtuella Windows-skrivbordet.
 
-- [Ansluta från Windows 10 eller Windows 7](connect-windows-7-and-10.md)
-- [Ansluta från en webbläsare](connect-web.md)
+ > [!div class="nextstepaction"]
+ > [Virtuella Windows-skrivbordet värd pool självstudien](./create-host-pools-azure-marketplace.md)

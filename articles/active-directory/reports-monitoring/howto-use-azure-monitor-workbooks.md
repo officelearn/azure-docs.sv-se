@@ -1,6 +1,6 @@
 ---
 title: Använda Azure Monitor-arbetsböcker för Azure Active Directory-rapporter | Microsoft Docs
-description: Lär dig hur du använder Azure Monitor-arbetsböcker för Azure Active Directory-rapporter
+description: Lär dig hur du använder Azure Monitor-arbetsböcker för Azure Active Directory-rapporter.
 services: active-directory
 author: MarkusVi
 manager: daveba
@@ -14,145 +14,142 @@ ms.subservice: report-monitor
 ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 2c9b3d0ef110fea0629af345a71d0d7b7cce7313
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6ae14ec152975717af5d55780bcc39aa87c4b01a
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60287327"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406598"
 ---
-# <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Anvisningar: Använda Azure Monitor-arbetsböcker för Azure Active Directory-rapporter
+# <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Hur du använder Azure Monitor-arbetsböcker för Azure Active Directory-rapporter
 
 Vill du att:
 
 - Förstå effekten av din [principer för villkorlig åtkomst](../conditional-access/overview.md) på dina användares inloggning?
 
-- Felsöka inloggningar att få en bättre överblick över din organisation loggar in health och Lös problem snabbt?
+- Felsöka inloggningar att få en bättre överblick över din organisations inloggning hälsotillstånd och lösa problem snabbt?
 
-- Vet vem som använder äldre autentiseringar för att logga in på din miljö? Genom att [blockera äldre](../conditional-access/block-legacy-authentication.md), du kan förbättra din klient skydd.
+- Vet vem som använder äldre autentiseringar för att logga in på din miljö? (Av [blockera äldre](../conditional-access/block-legacy-authentication.md), du kan förbättra din klient skydd.)
 
-
-[Azure Monitor arbetsböcker](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks) kombinera text Analytics frågor, Azure-mått och parametrar i interaktiva rapporter. Azure Active Directory ger dig arbetsböcker för övervakning som hjälper dig att hitta svar på frågor som ovan.
+För att hjälpa dig att lösa dessa frågor, innehåller Active Directory arbetsböcker för övervakning. [Azure Monitor arbetsböcker](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks) kombinera text, analysfrågor, mått och parametrar i interaktiva rapporter. 
 
 Den här artikeln:
 
-- Förutsätts att du vet hur du [skapa interaktiva rapporter med Azure Monitor arbetsböcker](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks).
+- Förutsätter att du känner till hur du [skapa interaktiva rapporter med hjälp av övervakaren arbetsböcker](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks).
 
-- Beskriver hur du kan använda Azure Monitor arbetsböckerna om övervakning för att besvara frågor ovan.
+- Förklarar hur du använder Övervakaren arbetsböcker för att förstå effekten av principer för villkorlig åtkomst, felsöker inloggningar och för att identifiera äldre autentiseringar.
  
 
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Om du vill använda den här funktionen behöver du:
+Om du vill använda övervakaren arbetsböcker, behöver du:
 
-- En Azure Active Directory-klient, med en premiumlicens (P1/P2). Lär dig hur du [en premium-licens](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-get-started-premium).
+- En Active Directory-klient med en premium-licens (P1 eller P2). Lär dig hur du [en premium-licens](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-get-started-premium).
 
 - En [Log Analytics-arbetsyta](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
 
-## <a name="access-workbooks"></a>Åtkomst-arbetsböcker 
+## <a name="workbook-access"></a>Arbetsboken åtkomst 
 
 Öppna arbetsböcker:
 
-1. Logga in på din [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
-2. I det vänstra navigeringsfältet, klickar du på **Azure Active Directory**.
+2. I det vänstra navigeringsfönstret väljer **Azure Active Directory**.
 
-3. I den **övervakning** klickar du på **Insights**. 
+3. I den **övervakning** väljer **Insights**. 
 
-    ![Insikter](./media/howto-use-azure-monitor-workbooks/41.png)
+    ![Välj Insights](./media/howto-use-azure-monitor-workbooks/41.png)
 
-4. En rapport eller en mall eller klicka på **öppna** i verktygsfältet. 
+4. Välj en rapport eller en mall eller i verktygsfältet väljer du **öppna**. 
 
-    ![Galleri](./media/howto-use-azure-monitor-workbooks/42.png)
+    ![Välj Öppna](./media/howto-use-azure-monitor-workbooks/42.png)
 
 
 ## <a name="sign-in-analysis"></a>Logga in analys
 
-För att komma åt arbetsboken logga in analys, klickar du på **inloggningar** i den **användning** avsnittet. 
+Åtkomst till arbetsboken logga in analys på den **användning** väljer **inloggningar**. 
 
 Den här arbetsboken visar trender för följande loggar in:
 
 - Alla inloggningar
 
-- Lyckades
+- Klart
 
 - Väntande åtgärd från användare
 
 - Fel
 
-Du kan filtrera varje trend efter:
+Du kan filtrera varje trend av följande kategorier:
 
 - Tidsintervall
 
-- Program
+- Appar
 
 - Användare
 
-![Galleri](./media/howto-use-azure-monitor-workbooks/43.png)
+![Logga in analys](./media/howto-use-azure-monitor-workbooks/43.png)
 
 
-För varje trend få du en detaljerad analys:
+För varje trend få du en detaljerad analys av följande kategorier:
 
 - Location
 
-    ![Galleri](./media/howto-use-azure-monitor-workbooks/45.png)
+    ![Inloggningar efter plats](./media/howto-use-azure-monitor-workbooks/45.png)
 
 - Enhet
 
-    ![Galleri](./media/howto-use-azure-monitor-workbooks/46.png)
+    ![Inloggningar efter enhet](./media/howto-use-azure-monitor-workbooks/46.png)
 
 
 ## <a name="sign-ins-using-legacy-authentication"></a>Inloggningar med äldre autentisering 
 
 
-Att inloggningar med [äldre](../conditional-access/block-legacy-authentication.md) arbetsboken, klickar du på **inloggningar med hjälp av äldre** i den **användning** avsnittet. 
+Åtkomst till arbetsboken för inloggningar som använder [äldre](../conditional-access/block-legacy-authentication.md)i den **användning** väljer **inloggningar med hjälp av äldre**. 
 
 Den här arbetsboken visar trender för följande loggar in:
 
 - Alla inloggningar
 
-- Lyckades
+- Klart
 
 
-Du kan filtrera varje trend efter:
+Du kan filtrera varje trend av följande kategorier:
 
 - Tidsintervall
 
-- Program
+- Appar
 
 - Användare
 
-- Protokoll 
+- Protokoll
 
-![Galleri](./media/howto-use-azure-monitor-workbooks/47.png)
+![Inloggningar efter äldre autentisering](./media/howto-use-azure-monitor-workbooks/47.png)
 
 
 Få en detaljerad analys av appen och protokoll för varje trend.
 
-![Galleri](./media/howto-use-azure-monitor-workbooks/48.png)
+![Äldre autentisering inloggningar efter appen och protokoll](./media/howto-use-azure-monitor-workbooks/48.png)
 
 
 
 ## <a name="sign-ins-by-conditional-access"></a>Inloggningar efter villkorlig åtkomst 
 
 
-Komma åt inloggningar efter [principer för villkorlig åtkomst](../conditional-access/overview.md) arbetsboken, klickar du på **inloggningar genom villkorlig åtkomst** i den **villkorlig åtkomst** avsnittet. 
+Åtkomst till arbetsboken för inloggningar efter [principer för villkorlig åtkomst](../conditional-access/overview.md)i den **villkorlig åtkomst** väljer **inloggningar genom villkorlig åtkomst**. 
 
-Den här arbetsboken visar trenden för inaktiverad inloggningar.
-
-Du kan filtrera varje trend efter:
+Den här arbetsboken visar trender för inaktiverad inloggningar. Du kan filtrera varje trend av följande kategorier:
 
 - Tidsintervall
 
-- Program
+- Appar
 
 - Användare
 
-![Galleri](./media/howto-use-azure-monitor-workbooks/49.png)
+![Inloggningar med villkorlig åtkomst](./media/howto-use-azure-monitor-workbooks/49.png)
 
 
-För de inaktiverade inloggningarna få en detaljerad analys av statusen för villkorlig åtkomst.
+Få en detaljerad analys av statusen för villkorlig åtkomst för för inaktiverad inloggningar.
 
 ![Statusen för villkorlig åtkomst](./media/howto-use-azure-monitor-workbooks/conditional-access-status.png)
 
@@ -165,7 +162,7 @@ För de inaktiverade inloggningarna få en detaljerad analys av statusen för vi
 
 ## <a name="sign-ins-by-grant-controls"></a>Inloggningar efter bevilja kontroller
 
-Komma åt inloggningar efter [bevilja kontroller](../conditional-access/controls.md) arbetsboken, klickar du på **inloggningar genom att bevilja kontroller** i den **villkorlig åtkomst** avsnittet. 
+Åtkomst till arbetsboken för inloggningar efter [bevilja kontroller](../conditional-access/controls.md)i den **villkorlig åtkomst** väljer **inloggningar genom att bevilja kontroller**. 
 
 Den här arbetsboken visas följande inaktiverad inloggning trender:
 
@@ -175,69 +172,69 @@ Den här arbetsboken visas följande inaktiverad inloggning trender:
 
 - Kräv sekretesspolicy
 
-- Annat
+- Annat 
 
 
-Du kan filtrera varje trend efter:
+Du kan filtrera varje trend av följande kategorier:
 
 - Tidsintervall
 
-- Program
+- Appar
 
 - Användare
 
-![Galleri](./media/howto-use-azure-monitor-workbooks/50.png)
+![Inloggningar efter bevilja kontroller](./media/howto-use-azure-monitor-workbooks/50.png)
 
 
 Få en detaljerad analys av appen och protokoll för varje trend.
 
-![Galleri](./media/howto-use-azure-monitor-workbooks/51.png)
+![Analys av de senaste inloggningar](./media/howto-use-azure-monitor-workbooks/51.png)
 
 
 
 
 ## <a name="sign-ins-failure-analysis"></a>Inloggningar Felanalys
 
-Använd den **inloggningar Felanalys** arbetsboken för att felsöka fel med:
+Använd den **inloggningar Felanalys** arbetsboken för att felsöka fel med följande:
 
 - Inloggningar
-- Principer för villkorsstyrd åtkomst
-- Äldre autentisering. 
+- Principer för villkorlig åtkomst
+- Äldre autentisering 
 
 
-Om du vill komma åt inloggningar genom villkorlig åtkomst till data, klickar du på **inloggningar med äldre autentisering** i den **Felsök** avsnittet. 
+Komma åt inloggningar genom att data för villkorlig åtkomst i den **Felsök** väljer **inloggningar med äldre autentisering**. 
 
 Den här arbetsboken visar trender för följande loggar in:
 
 - Alla inloggningar
 
-- Lyckades
+- Klart
 
 - Väntande åtgärd
 
 - Fel
 
 
-Du kan filtrera varje trend efter:
+Du kan filtrera varje trend av följande kategorier:
 
 - Tidsintervall
 
-- Program
+- Appar
 
 - Användare
 
-![Galleri](./media/howto-use-azure-monitor-workbooks/52.png)
+![Felsökning av inloggningar](./media/howto-use-azure-monitor-workbooks/52.png)
 
 
-Om du vill felsöka inloggningar få en detaljerad analys:
+Azure Monitor ger en analys på detaljnivå för att hjälpa dig att felsöka inloggningar, av följande kategorier:
 
 - Viktigaste fel
 
-    ![Galleri](./media/howto-use-azure-monitor-workbooks/53.png)
+    ![Sammanfattning av viktigaste fel](./media/howto-use-azure-monitor-workbooks/53.png)
 
 - Inloggningar användaråtgärd
 
-    ![Galleri](./media/howto-use-azure-monitor-workbooks/54.png)
+    ![Sammanfattning av inloggningar användaråtgärd](./media/howto-use-azure-monitor-workbooks/54.png)
 
 
 
@@ -246,4 +243,4 @@ Om du vill felsöka inloggningar få en detaljerad analys:
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Skapa interaktiva rapporter med Azure Monitor-arbetsböcker](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks)
+[Skapa interaktiva rapporter med hjälp av övervakaren arbetsböcker](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks).

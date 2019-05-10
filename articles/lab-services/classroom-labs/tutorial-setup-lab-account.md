@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/24/2019
 ms.author: spelluru
-ms.openlocfilehash: 704ad915616e4f860204783462269ec68a6e4e28
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0977c4537e409b59be7f9031c488b3317f9f2f0f
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64730640"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415800"
 ---
 # <a name="tutorial-set-up-a-lab-account-with-azure-lab-services"></a>Självstudier: Konfigurera ett labbkonto med Azure Lab Services
 I Azure Lab Services, fungerar ett labbkonto som det centrala kontot där alla din organisations labbar hanteras. I ditt labbkonto, ger du behörighet till andra att skapa labbar och konfigurera principer som gäller för alla labbar under labbkontot. I den här självstudien, får du lära dig hur du skapar ett labbkonto som en labbadministratör. 
@@ -50,8 +50,9 @@ Följande steg visar hur du använder Azure Portal till att skapa ett labbkonto 
     4. Som **Plats** väljer du den plats/region där du vill att labbkontot ska skapas. 
     5. Välj en befintlig **delade bildgalleriet** eller skapa ett. Du kan spara mallen VM i delade galleriet för att det ska återanvändas av andra. Detaljerad information om delade bildgallerier finns [använder en delad bildgalleriet i Azure Lab Services](how-to-use-shared-image-gallery.md). 
     6. För **Peerkopplade virtuella nätverket**, välja ett peer virtuellt nätverk (VNet) i testlabbets nätverk. Labs som skapats i det här kontot är anslutna till det valda virtuella nätverket och har åtkomst till resurser i det valda virtuella nätverket. 
-    7. I fältet **Tillåt labbets skapare att välja plats för labbet** anger du om du vill att labbskaparna ska kunna välja en plats för labbet. Det här alternativet är inaktiverat som standard. När det är inaktiverat kan inte labbskaparna ange någon plats för labbet som de skapar. Labbarna skapas på den geografiska plats som är närmast labbkontot. När det är aktiverat kan en labbskapare välja en plats vid den tid då labbet skapas. 
-    8. Välj **Skapa**. 
+    7. Ange en **adressintervall** för virtuella datorer i labbet. Adressintervallet ska vara i classless Inter-Domain routing (CIDR)-format (exempel: 10.20.0.0/23). Virtuella datorer i labbet skapas i den här adressintervall. Mer information finns i [ange ett adressintervall för virtuella datorer i labbet](how-to-configure-lab-accounts.md#specify-an-address-range-for-vms-in-the-lab).
+    8. I fältet **Tillåt labbets skapare att välja plats för labbet** anger du om du vill att labbskaparna ska kunna välja en plats för labbet. Det här alternativet är inaktiverat som standard. När det är inaktiverat kan inte labbskaparna ange någon plats för labbet som de skapar. Labbarna skapas på den geografiska plats som är närmast labbkontot. När det är aktiverat kan en labbskapare välja en plats vid den tid då labbet skapas. 
+    9. Välj **Skapa**. 
 
         ![Fönstret Skapa ett labbkonto](../media/tutorial-setup-lab-account/lab-account-settings.png)
 5. Välj **klockikonen** i verktygsfältet (**meddelanden**), bekräfta att distributionen är klar och välj sedan **Gå till resurs**. 

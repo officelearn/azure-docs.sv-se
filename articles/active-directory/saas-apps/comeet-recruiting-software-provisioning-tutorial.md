@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2019
+ms.date: 05/07/2019
 ms.author: zchia
-ms.openlocfilehash: 0f1b5f424a71aeccd4b1e57129c0f5b22ff158af
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: e8414b9737e0ee7f847827a432dd9887931a2532
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65159397"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65470408"
 ---
 # <a name="tutorial-configure-comeet-recruiting-software-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Comeet rekrytering programvara för automatisk användaretablering
 
@@ -51,7 +51,7 @@ Du måste lägga till Comeet rekrytering programvara från Azure AD-programgalle
 
 2. Gå till **företagsprogram**, och välj sedan **alla program**.
 
-    ![Bladet Företagsprogram](common/enterprise-applications.png)
+    ![Bladet för Enterprise-program](common/enterprise-applications.png)
 
 3. Om du vill lägga till ett nytt program, Välj den **nytt program** längst upp i fönstret.
 
@@ -84,7 +84,7 @@ Det här avsnittet guider dig genom stegen för att konfigurera Azure AD etabler
 
 ### <a name="to-configure-automatic-user-provisioning-for-comeet-recruiting-software-in-azure-ad"></a>Konfigurera automatisk användaretablering för Comeet rekrytering programvara i Azure AD:
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com) och välj **företagsprogram**väljer **alla program**och välj sedan **Comeet rekrytering programvara**.
+1. Logga in på [Azure Portal](https://portal.azure.com). Välj **företagsprogram**och välj sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -104,8 +104,7 @@ Det här avsnittet guider dig genom stegen för att konfigurera Azure AD etabler
 
 6. I den [Comeet rekrytering programvara administratörskonsolen](https://app.comeet.co/), gå till **Comeet > Inställningar > autentisering > Microsoft Azure**, och kopiera den **hemlighet Token för ditt företag**värde till den **hemlighet Token** i Azure AD.
 
-    ![Comeet rekrytering tillhandahållande av programvara](./media/comeetrecruitingsoftware-provisioning-tutorial/secret-token-1.png)
-    
+    ![Comeet rekrytering tillhandahållande av programvara](./media/comeet-recruiting-software-provisioning-tutorial/secret-token-1.png)
 
 7. För att fylla i fälten som visas i steg 5, klickar du på **Testanslutningen** att se till att Azure AD kan ansluta till Comeet rekrytering programvara. Om anslutningen misslyckas, kontrollera Comeet rekrytering programvara-kontot har administratörsbehörighet och försök igen.
 
@@ -119,11 +118,11 @@ Det här avsnittet guider dig genom stegen för att konfigurera Azure AD etabler
 
 10. Under den **mappningar** väljer **synkronisera Azure Active Directory-användare till Comeet**.
 
-    ![Comeet rekrytering tillhandahållande av programvara](./media/comeetrecruitingsoftware-provisioning-tutorial/user-mappings.png)
+    ![Comeet rekrytering Användarmappningar för programvara](media/comeet-recruiting-software-provisioning-tutorial/user-mappings.png)
 
 11. Granska användarattribut som synkroniseras från Azure AD med Comeet rekrytering programvara i den **attributmappning** avsnittet. Attribut som har markerats som **matchande** egenskaper som används för att matcha användarkonton i Comeet rekrytering programvara för uppdateringsåtgärder. Välj den **spara** knappen för att genomföra ändringarna.
 
-    ![Comeet rekrytering tillhandahållande av programvara](./media/comeetrecruitingsoftware-provisioning-tutorial/user-mapping-attributes.png)
+    ![Comeet rekrytering Gruppattributen för programvara](media/comeet-recruiting-software-provisioning-tutorial/user-mapping-attributes.png)
 
 12. Om du vill konfigurera Omfångsfilter avser följande instruktionerna i den [Scoping filter självstudien](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -156,7 +155,3 @@ Mer information om hur du läser den Azure AD etablering loggar finns i [rapport
 
 * [Lär dig att granska loggarna och få rapporter om etablering aktivitet](../manage-apps/check-status-user-account-provisioning.md)
 
-<!--Image references-->
-[1]: ./media/atlassian-cloud-provisioning-tutorial/tutorial-general-01.png
-[2]: ./media/atlassian-cloud-provisioning-tutorial/tutorial-general-02.png
-[3]: ./media/atlassian-cloud-provisioning-tutorial/tutorial-general-03.png

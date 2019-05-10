@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 6d602491c66669007ae220c3b8143ce3e805246f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 2352594b168f5d37ddb6a46064f9ac5801fb035f
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65147995"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508395"
 ---
 # <a name="fine-tune-text-to-speech-output"></a>Finjustera text till tal-utdata
 
@@ -28,9 +28,9 @@ Justering av Voice-verktyget stöder Microsofts [standard](language-support.md#s
 Innan du kan börja finjustera text till tal-utdata med verktyget röst justering, behöver du att slutföra dessa steg:
 
 1. Skapa en [kostnadsfritt Microsoft-konto](https://account.microsoft.com/account) om du inte redan har ett.
-2. Skapa en [kostnadsfritt Azure-konto](https://azure.microsoft.com/en-us/free/) om du inte redan har ett. Klicka på **starta kostnadsfri**, och skapa en ny Azure-konto med ditt Microsoft-konto.
+2. Skapa en [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) om du inte redan har ett. Klicka på **starta kostnadsfri**, och skapa en ny Azure-konto med ditt Microsoft-konto.
 
-3. Skapa en Speech Services-prenumeration i Azure-portalen. Stegvisa instruktioner för [så här skapar du en tal-resurs](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure) är tillgängliga.
+3. Skapa en Speech Services-prenumeration i Azure-portalen. Stegvisa instruktioner för [så här skapar du en tal-resurs](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure) är tillgängliga.
    >[!NOTE]
    >När du skapar en tal-resurs i Azure portal, måste Azure platsinformationen matcha med text till tal-voice-region. Neural text till tal-röst stöder en sub uppsättning Azure-platser. En fullständig lista över support finns i [regioner](regions.md#text-to-speech).
 
@@ -70,6 +70,6 @@ Justering av neurala röst är något annorlunda än inställningen för Standar
 > Verktyget röst justering ger detaljerad information om funktioner och justering.
 
 ## <a name="next-steps"></a>Nästa steg
-* [Skapa en tal-resurs i Azure](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure)
+* [Skapa en tal-resurs i Azure](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure)
 * [Starta röst justering](https://speech.microsoft.com/app.html#/VoiceTuning)
 * [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md)

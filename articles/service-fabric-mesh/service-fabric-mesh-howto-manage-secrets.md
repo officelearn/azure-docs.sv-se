@@ -5,16 +5,16 @@ services: service-fabric-mesh
 keywords: secrets
 author: aljo-microsoft
 ms.author: aljo
-ms.date: 11/28/2018
+ms.date: 4/2/2019
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: chackdan
-ms.openlocfilehash: 36d0b49f1b9fb1ca5d13283146d134137a5cb028
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 251611e814f890e3cebf0fda2d33ab548a8ff213
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60419075"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506438"
 ---
 # <a name="manage-service-fabric-mesh-application-secrets"></a>Hantera Service Fabric Mesh-programhemligheter
 Service Fabric Mesh stöder hemligheter som Azure-resurser. En Service Fabric Mesh-hemlighet kan vara valfri känslig textinformation, till exempel lagringsanslutningssträngar, lösenord eller andra värden som bör lagras och överföras på ett säkert sätt. Den här artikeln visar hur du använder Säker lagringstjänst i Service Fabric för att distribuera och hantera hemligheter.
@@ -31,37 +31,42 @@ Hantering av hemligheter består av följande steg:
 5. Använd Azure ”az” CLI-kommandon för livscykelhantering i Säker lagringstjänst.
 
 ## <a name="declare-a-mesh-secrets-resource"></a>Deklarera en Mesh-hemlighetsresurs
-En nät hemligheter resurs har deklarerats i en Azure Resource Model JSON eller YAML-fil med hjälp av inlinedValue typ och SecretsStoreRef contentType definitioner. Mesh-hemlighetsresursen stöder ursprungshemligheter i Säker lagringstjänst. 
+En nät hemligheter resurs har deklarerats i en Azure Resource Model JSON eller YAML-fil med hjälp av inlinedValue typ definition. Mesh-hemlighetsresursen stöder ursprungshemligheter i Säker lagringstjänst. 
 >
 Följande är ett exempel på hur du deklarerar Mesh-hemlighetsresurser i en JSON-fil:
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "location": {
       "type": "string",
-      "defaultValue": "eastus",
+      "defaultValue": "WestUS",
       "metadata": {
-        "description": "Location of the resources."
+        "description": "Location of the resources (e.g. westus, eastus, westeurope)."
       }
-    },
+    }
+  },
+  "sfbpHttpsCertificate": {
+      "type": "string",
+      "metadata": {
+        "description": "Plain Text Secret Value that your container ingest"
+      }
   },
   "resources": [
     {
       "apiVersion": "2018-07-01-preview",
-      "name": "MySecret.txt",
+      "name": "sfbpHttpsCertificate.pfx",
       "type": "Microsoft.ServiceFabricMesh/secrets",
-      "location": "[parameters('location')]",
+      "location": "[parameters('location')]", 
       "dependsOn": [],
       "properties": {
         "kind": "inlinedValue",
-        "description": "My Mesh Application Secret",
-        "contentType": "SecretsStoreRef",
-        "value": "mysecret",
+        "description": "SFBP Application Secret",
+        "contentType": "text/plain",
       }
-    },
+    }
   ]
 }
 ```
@@ -103,49 +108,49 @@ Följande är ett exempel på hur du deklarerar Mesh-hemlighets-/värderesurser 
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "location": {
       "type": "string",
-      "defaultValue": "eastus",
+      "defaultValue": "WestUS",
       "metadata": {
-        "description": "Location of the resources."
-      }
-    },
-    "my-secret-value-v1": {
-      "type": "string",
-      "metadata": {
-        "description": "My Mesh Application Secret Value."
+        "description": "Location of the resources (e.g. westus, eastus, westeurope)."
       }
     }
+  },
+  "sfbpHttpsCertificate": {
+      "type": "string",
+      "metadata": {
+        "description": "Plain Text Secret Value that your container ingest"
+      }
   },
   "resources": [
     {
       "apiVersion": "2018-07-01-preview",
-      "name": "MySecret.txt",
+      "name": "sfbpHttpsCertificate.pfx",
       "type": "Microsoft.ServiceFabricMesh/secrets",
-      "location": "[parameters('location')]",
+      "location": "[parameters('location')]", 
+      "dependsOn": [],
       "properties": {
         "kind": "inlinedValue",
-        "description": "My Mesh Application Secret",
-        "contentType": "SecretsStoreRef",
-        "value": "mysecret",
+        "description": "SFBP Application Secret",
+        "contentType": "text/plain",
       }
     },
     {
       "apiVersion": "2018-07-01-preview",
-      "name": "mysecret:1.0",
+      "name": "sfbpHttpsCertificate.pfx/2019.02.28",
       "type": "Microsoft.ServiceFabricMesh/secrets/values",
       "location": "[parameters('location')]",
       "dependsOn": [
-        'Microsoft.ServiceFabricMesh/secrets/MySecret.txt'
+        "Microsoft.ServiceFabricMesh/secrets/sfbpHttpsCertificate.pfx"
       ],
       "properties": {
-        "value": "[parameters('my-secret-value-v1)]"
+        "value": "[parameters('sfbpHttpsCertificate')]"
       }
     }
-  ]
+  ],
 }
 ```
 Följande är ett exempel på hur du deklarerar Mesh-hemlighets-/värderesurser i en YAML-fil:

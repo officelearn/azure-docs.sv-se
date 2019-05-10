@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: c80a9ac30e79607d2a255debf73f6542df7c6498
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bed3402de83984cae9134fe44058980ec18861b3
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60310901"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413945"
 ---
 # <a name="on-demand-backup-in-azure-service-fabric"></a>Säkerhetskopiering på begäran i Azure Service Fabric
 
@@ -28,6 +28,22 @@ Du kan säkerhetskopiera data för tillståndskänsliga Reliable services och Re
 Azure Service Fabric har funktioner för den [regelbunden säkerhetskopiering av data](service-fabric-backuprestoreservice-quickstart-azurecluster.md) och säkerhetskopiering av data på basis av behov. Säkerhetskopiering på begäran är användbart eftersom det skyddar mot _dataförlust_/_skadade data_ på grund av planerade ändringar i den underliggande tjänsten eller dess miljö.
 
 Säkerhetskopiering på begäran-funktionerna är användbara för att samla in tillståndet för tjänsterna innan du utlöser manuellt en tjänst eller en tjänståtgärd för miljön. Exempel: Om du gör en ändring i binärfilerna för när du uppgraderar eller nedgraderar tjänsten. I detta fall är kan säkerhetskopiering på begäran skydda data mot korruption av programmet kod buggar.
+## <a name="prerequisites"></a>Nödvändiga komponenter
+
+- Installera Microsoft.ServiceFabric.Powershell.Http modulen [förhandsgranskning] för configuration anrop.
+
+```powershell
+    Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
+```
+
+- Se till att klustret är anslutna med hjälp av den `Connect-SFCluster` kommandot innan du gör några konfigurationsbegäran med Microsoft.ServiceFabric.Powershell.Http-modulen.
+
+```powershell
+
+    Connect-SFCluster -ConnectionEndpoint 'https://mysfcluster.southcentralus.cloudapp.azure.com:19080'   -X509Credential -FindType FindByThumbprint -FindValue '1b7ebe2174649c45474a4819dafae956712c31d3' -StoreLocation 'CurrentUser' -StoreName 'My' -ServerCertThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'  
+
+```
+
 
 ## <a name="triggering-on-demand-backup"></a>Aktiverar säkerhetskopiering på begäran
 
@@ -38,6 +54,16 @@ Säkerhetskopiering på begäran kräver lagringsinformation för att ladda upp 
 Du kan konfigurera principen för regelbunden säkerhetskopiering för att använda en partition av en tillförlitlig tillståndskänslig tjänst eller tillförlitliga aktörer för extra säkerhetskopiering på begäran till lagring.
 
 Nedan visas några exempel är fortsättningen på scenariot i [aktiverar regelbunden säkerhetskopiering för tillförlitlig tillståndskänslig tjänst och Reliable Actors](service-fabric-backuprestoreservice-quickstart-azurecluster.md#enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors). I detta fall använder du aktiverar en princip för säkerhetskopiering att använda en partition och en säkerhetskopia som uppstår på en set-frekvens i Azure Storage.
+
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell med Microsoft.ServiceFabric.Powershell.Http-modulen
+
+```powershell
+
+Backup-SFPartition -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22' 
+
+```
+
+#### <a name="rest-call-using-powershell"></a>REST-anrop med hjälp av Powershell
 
 Använd den [BackupPartition](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition) API för att ställa in utlösa för säkerhetskopiering på begäran för partitions-ID `974bd92a-b395-4631-8a7f-53bd4ae9cf22`.
 
@@ -52,6 +78,17 @@ Använd den [GetBackupProgress](https://docs.microsoft.com/rest/api/servicefabri
 ### <a name="on-demand-backup-to-specified-storage"></a>Säkerhetskopiering på begäran till angiven storage
 
 Du kan begära säkerhetskopiering på begäran för en partition av en tillförlitlig tillståndskänslig tjänst eller tillförlitliga aktörer. Ange information för lagring som en del av begäran om säkerhetskopiering på begäran.
+
+
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell med Microsoft.ServiceFabric.Powershell.Http-modulen
+
+```powershell
+
+Backup-SFPartition -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22' -AzureBlobStore -ConnectionString  'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net' -ContainerName 'backup-container'
+
+```
+
+#### <a name="rest-call-using-powershell"></a>REST-anrop med hjälp av Powershell
 
 Använd den [BackupPartition](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition) API för att ställa in utlösa för säkerhetskopiering på begäran för partitions-ID `974bd92a-b395-4631-8a7f-53bd4ae9cf22`. Inkludera följande information i Azure Storage:
 
@@ -80,6 +117,16 @@ En partition av en tillförlitlig tillståndskänslig tjänst eller en Reliable 
 
 Olika partitioner kan utlösa en säkerhetskopiering på begäran-begäranden på samma gång.
 
+
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell med Microsoft.ServiceFabric.Powershell.Http-modulen
+
+```powershell
+
+Get-SFPartitionBackupProgress -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22'
+
+```
+#### <a name="rest-call-using-powershell"></a>REST-anrop med hjälp av Powershell
+
 ```powershell
 $url = "https://mysfcluster-backup.southcentralus.cloudapp.azure.com:19080/Partitions/974bd92a-b395-4631-8a7f-53bd4ae9cf22/$/GetBackupProgress?api-version=6.4"
 
@@ -101,7 +148,7 @@ Säkerhetskopiering på begäran-begäranden kan ha följande tillstånd:
   FailureError            :
   ```
 - **Lyckade**, **fel**, eller **Timeout**: En begärda säkerhetskopiering på begäran kan utföras på något av följande tillstånd:
-  - **Success**: En _lyckades_ säkerhetskopiering tillstånd anger att partition tillståndet har säkerhetskopierats. Svaret innehåller _BackupEpoch_ och _BackupLSN_ för partitionen tillsammans med tiden i UTC.
+  - **Lyckade**: En _lyckades_ säkerhetskopiering tillstånd anger att partition tillståndet har säkerhetskopierats. Svaret innehåller _BackupEpoch_ och _BackupLSN_ för partitionen tillsammans med tiden i UTC.
     ```
     BackupState             : Success
     TimeStampUtc            : 2018-11-21T20:00:01Z

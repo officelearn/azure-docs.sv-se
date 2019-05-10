@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: helohr
-ms.openlocfilehash: c4ab209d63a01d9e1089eec351eff64fc116f403
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 21979f1dee50fa846fb7888cfc95908b9d833392
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924977"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236771"
 ---
 # <a name="tutorial-create-a-host-pool-with-azure-marketplace"></a>Självstudier: Skapa en värdpool med Azure Marketplace
 
@@ -22,7 +22,7 @@ Den här artikeln beskriver hur du skapar en pool för värden inom ett virtuell
 
 Innan du börjar [hämta och importera modulen Windows PowerShell för virtuella skrivbord](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) ska användas i PowerShell-sessionen om du inte redan har gjort.
 
-## <a name="sign-in-to-azure"></a>Logga in på Azure
+## <a name="sign-in-to-azure"></a>Logga in till Azure
 
 Logga in på Azure Portal på <https://portal.azure.com>.
 
@@ -36,7 +36,7 @@ Köra Azure Marketplace erbjuder att etablera en ny pool för värden:
 
 Följ anvisningarna för att ange information för lämpliga blad.
 
-### <a name="basics"></a>Grundläggande inställningar
+### <a name="basics"></a>Grundinställningar
 
 Här är vad du gör för bladet grundläggande inställningar:
 
@@ -70,7 +70,7 @@ För virtuella Windows-skrivbordet klient information bladet:
 
 1. Ange den **gruppnamn för virtuella Windows-skrivbordet klient** för klient-grupp som innehåller din klient. Om du inte har en specifik klient gruppnamn planerat kan du lämna den som standard.
 2. Ange den **klientnamnet för virtuella Windows-skrivbordet** för klienten ska du skapa den här poolen för värden i.
-3. Ange vilken typ av autentiseringsuppgifter som du vill använda för att autentisera som innehavare RDS ägare för virtuella Windows-skrivbordet. Om du väljer **tjänstens huvudnamn**, måste du även ange den **Azure AD-klient-ID** som är associerad med tjänstens huvudnamn.
+3. Ange vilken typ av autentiseringsuppgifter som du vill använda för att autentisera som innehavare RDS ägare för virtuella Windows-skrivbordet. Om du har slutfört den [skapa tjänstens huvudnamn och rolltilldelningar med PowerShell självstudiekursen](./create-service-principal-role-powershell.md)väljer **tjänstens huvudnamn**. Du kommer nu att behöva ange den **Azure AD-klient-ID** av Azure Active Directory som innehåller tjänstens huvudnamn.
 4. Ange antingen autentiseringsuppgifterna för klientorganisationens administratörskonto. Tjänstens huvudnamn med autentiseringsuppgifter för lösenord stöds.
 5. Välj **OK**.
 

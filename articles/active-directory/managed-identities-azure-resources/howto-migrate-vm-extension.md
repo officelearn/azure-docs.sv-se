@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/25/2018
 ms.author: markvi
-ms.openlocfilehash: 5b3c6c99b05320ee53c3ff49f5c299650c32e939
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6ee8891eae108256875660cc3f2256b65703a1aa
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60440839"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406777"
 ---
 # <a name="how-to-stop-using-the-virtual-machine-managed-identities-extension-and-start-using-the-azure-instance-metadata-service"></a>Hanterad identiteter tillägget och börja använda Azure Instance Metadata Service att sluta använda den virtuella datorn
 
@@ -35,7 +35,7 @@ På grund av flera begränsningar som beskrivs i nästa avsnitt, har hanterad id
 
 ### <a name="provision-the-extension"></a>Etablera tillägget 
 
-När du konfigurerar en virtuell dator eller en VM-skalningsuppsättning ha en hanterad identitet, du kan valfritt välja att du kan välja att etablera hanterade identiteter för Azure-resurser VM en tillägget med hjälp av den `-Type` parametern på [ Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) cmdlet. Du kan skicka antingen `ManagedIdentityExtensionForWindows` eller `ManagedIdentityExtensionForLinux`, beroende på vilken typ av virtuell dator och namnge den med hjälp av den `-Name` parametern. Den `-Settings` parametern anger den port som används av OAuth-token-slutpunkten för tokenförvärv:
+När du konfigurerar en virtuell dator eller en VM-skalningsuppsättning ha en hanterad identitet, du kan välja att etablera hanterade identiteter för Azure-resurser VM en tillägget med hjälp av den `-Type` parametern på den [ Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) cmdlet. Du kan skicka antingen `ManagedIdentityExtensionForWindows` eller `ManagedIdentityExtensionForLinux`, beroende på vilken typ av virtuell dator och namnge den med hjälp av den `-Name` parametern. Den `-Settings` parametern anger den port som används av OAuth-token-slutpunkten för tokenförvärv:
 
 ```powershell
    $settings = @{ "port" = 50342 }

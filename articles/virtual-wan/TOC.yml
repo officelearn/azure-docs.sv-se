@@ -16,8 +16,8 @@
   items:
     - name: Platser och partners
       href: virtual-wan-locations-partners.md
-    - name: Global arkitektur för nätverksöverföring
-      href: virtual-wan-global-transit-architecture.md
+    - name: Global Transit Network-arkitektur
+      href: virtual-wan-global-transit-network-architecture.md
     - name: Office 365-kontrollplanet i virtuellt WAN-nätverk
       href: virtual-wan-office365-overview.md
 - name: Instruktionsguider

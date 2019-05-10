@@ -1,32 +1,30 @@
 ---
-title: Ta med din egen nyckel för Apache Kafka på Azure HDInsight (förhandsversion)
+title: Ta med din egen nyckel för Apache Kafka på Azure HDInsight
 description: Den här artikeln beskriver hur du använder egna nycklar från Azure Key Vault för att kryptera data som lagras i Apache Kafka på Azure HDInsight.
 ms.service: hdinsight
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: hrasheed
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: ce9df58e9640cab2e6ba50fce772f1e30739dc5a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/06/2019
+ms.openlocfilehash: 6108bfd9e39b37507ec7e113bf2c489e890f0ca0
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64714849"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233560"
 ---
 # <a name="bring-your-own-key-for-apache-kafka-on-azure-hdinsight"></a>Ta med din egen nyckel för Apache Kafka på Azure HDInsight
 
-Azure HDInsight har stöd för ta med din egen nyckel (BYOK) för Apache Kafka. Den här funktionen kan du samla och hantera nycklar som används för att kryptera vilande data. 
+Azure HDInsight har stöd för ta med din egen nyckel (BYOK) för Apache Kafka. Den här funktionen kan du samla och hantera nycklar som används för att kryptera vilande data.
 
-Alla hanterade diskar i HDInsight är skyddade med Azure Storage Service Encryption (SSE). Som standard krypteras data på diskarna med Microsoft-hanterade nycklar. Om du aktiverar BYOK kan ange du krypteringsnyckeln för HDInsight att använda och hantera den med hjälp av Azure Key Vault. 
+Alla hanterade diskar i HDInsight är skyddade med Azure Storage Service Encryption (SSE). Som standard krypteras data på diskarna med Microsoft-hanterade nycklar. Om du aktiverar BYOK kan ange du krypteringsnyckeln för HDInsight att använda och hantera den med hjälp av Azure Key Vault.
 
 BYOK kryptering är en autentiseringsprocessen hanteras när klustret skapas utan extra kostnad. Allt du behöver göra är att registrera HDInsight som en hanterad identitet med Azure Key Vault och lägga till krypteringsnyckeln när du skapar klustret.
 
 Alla meddelanden till Kafka-klustret (inklusive repliker som underhålls av Kafka) krypteras med en symmetrisk Data Datakrypteringsnyckeln (DEK). DEK skyddas med hjälp av nyckeln kryptering nyckel (KEK) från ditt nyckelvalv. Kryptering och dekryptering processer hanteras helt av Azure HDInsight. 
 
 Du kan använda Azure portal eller Azure CLI för att på ett säkert sätt rotera nycklar i nyckelvalvet. När en nyckel roteras startar HDInsight Kafka-klustret med den nya nyckeln inom några minuter. Aktivera ”mjuk borttagning” nyckelskydd funktioner som skyddar mot utpressningstrojaner scenarier och oavsiktlig borttagning. Nyckelvalv utan den här funktionen för skydd inte stöds.
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="get-started-with-byok"></a>Kom igång med BYOK
 Skapa en BYOK aktiverad Kafka-kluster, vi går igenom följande steg:
@@ -121,9 +119,9 @@ Skapa en BYOK aktiverad Kafka-kluster, vi går igenom följande steg:
    No, all managed disks in the cluster are encrypted by the same key.
 
 **What happens if the cluster loses access to the key vault or the key?**
-   If the cluster loses access to the key, warnings will be shown in the Ambari portal. In this state, the **Change Key** operation will fail. Once key access is restored, ambari warnings will go away and operations such as key rotation can be successfully performed.
+   If the cluster loses access to the key, warnings will be shown in the Apache Ambari portal. In this state, the **Change Key** operation will fail. Once key access is restored, Ambari warnings will go away and operations such as key rotation can be successfully performed.
 
-   ![Kafka key access ambari alert](./media/apache-kafka-byok/kafka-byok-ambari-alert.png)
+   ![Kafka key access Ambari alert](./media/apache-kafka-byok/kafka-byok-ambari-alert.png)
 
 **How can I recover the cluster if the keys are deleted?**
 

@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/10/2018
+ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: a73be313daa3b45cabc2adb07bb3d2592c7d307e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: ce24fb8c62432e50fe04de23d2abbee1ec120c6c
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64725452"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471633"
 ---
 # <a name="provision-and-manage-azure-time-series-insights-preview"></a>Etablera och hantera Azure Time Series Insights Preview
 
@@ -33,7 +33,7 @@ När du etablerar en förhandsversion av Azure Time Series Insights-miljö kan s
 Lär dig [hur du planerar din miljö](./time-series-insights-update-plan.md).
 
 >[!IMPORTANT]
-> För förhandsversionen, kontrollera att du använder ett allmänt Azure Storage-v1 (GPv1)-konto.  Stöd för GPv2 och senare kommer att läggas till inom en snar framtid.  
+> För förhandsversionen, kontrollera att du använder ett allmänt Azure Storage-v1 (GPv1)-konto.
 
 Alternativt kan du associera varje förhandsversion av Azure Time Series Insights-miljö med en händelsekälla. Mer information finns i [lägga till en händelsekälla hub](./time-series-insights-how-to-add-an-event-source-eventhub.md) och [Lägg till en IoT hub-källa](./time-series-insights-how-to-add-an-event-source-iothub.md). Du anger en tidsstämpel-ID-egenskap och en unik konsumentgrupp under det här steget. På så sätt att miljön har åtkomst till lämplig händelserna.
 
@@ -45,7 +45,7 @@ Följande steg beskriver hur du skapar en förhandsversion av Azure Time Series 
 
 1. Välj den **PAYG** knappen den **SKU** menyn. Ange ett namn på miljö och välj vilken prenumerationsgrupp och vilken resursgrupp som du använder. Välj en plats som stöds för den miljö som ska köras i.
 
-   ![Skapa en Azure Time Series Insights-instans.][1]
+   [![Skapa en Azure Time Series Insights-instans.](media/v2-update-manage/manage_three.PNG)](media/v2-update-manage/manage_three.PNG#lightbox)
 
 1. Ange en tidsserie-ID.
 
@@ -56,7 +56,7 @@ Följande steg beskriver hur du skapar en förhandsversion av Azure Time Series 
 
 1. Skapa ett Azure storage-konto genom att välja ett lagringskontonamn och utse ett alternativ för replikering. Gör automatiskt skapar ett Azure Storage general-purpose v1-konto. Det kommer att skapas i samma region som förhandsversion av Azure Time Series Insights-miljö som du valde tidigare.
 
-    ![Skapa ett Azure storage-konto för din instans][5]
+    [![Skapa ett Azure storage-konto för din instans](media/v2-update-manage/manage_five.PNG)](media/v2-update-manage/manage_five.PNG#lightbox)
 
 1. Alternativt kan du lägga till en händelsekälla.
 
@@ -67,11 +67,11 @@ Följande steg beskriver hur du skapar en förhandsversion av Azure Time Series 
      > [!TIP]
      > Kötid meddelande kanske inte den bästa konfigurerade inställningen för att använda batch händelse eller historiska data överför scenarier. Se till att kontrollera ditt beslut att använda eller inte använda en tidsstämpel-egenskapen i sådana fall.
 
-     ![Händelse-flik för datakälla][2]
+     [![Händelse-flik för datakälla](media/v2-update-manage/manage_two.PNG)](media/v2-update-manage/manage_two.PNG#lightbox)
 
 1. Bekräfta att din miljö har etablerats med de önskade inställningarna.
 
-    ![Granska + skapa flik][3]
+    [![Granska + skapa flik](media/v2-update-manage/manage_three.PNG)](media/v2-update-manage/manage_three.PNG#lightbox)
 
 ## <a name="manage-the-environment"></a>Hantera miljön
 
@@ -88,7 +88,7 @@ Du kan hantera din förhandsversion av Azure Time Series Insights-miljö med hj�
 
 * Azure-portalens **referensdata** bladet har tagits bort i förhandsversionen av Azure Time Series Insights eftersom referensdata inte är en komponent i PAYG-miljöer.
 
-![Time Series Insights Preview-miljö i Azure portal][4]
+[![Time Series Insights Preview-miljö i Azure portal](media/v2-update-manage/manage_four.PNG)](media/v2-update-manage/manage_four.PNG#lightbox)
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -97,10 +97,3 @@ Du kan hantera din förhandsversion av Azure Time Series Insights-miljö med hj�
 - Lär dig hur du [lägga till en händelsekälla hub](./time-series-insights-how-to-add-an-event-source-eventhub.md).
 
 - Konfigurera [en IoT hub-källa](./time-series-insights-how-to-add-an-event-source-iothub.md).
-
-<!-- Images -->
-[1]: media/v2-update-manage/manage_one.PNG
-[2]: media/v2-update-manage/manage_two.PNG
-[3]: media/v2-update-manage/manage_three.PNG
-[4]: media/v2-update-manage/manage_four.PNG
-[5]: media/v2-update-manage/manage_five.PNG

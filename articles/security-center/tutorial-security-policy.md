@@ -3,7 +3,7 @@ title: Arbeta med säkerhetsprinciper | Microsoft Docs
 description: Den här artikeln beskrivs hur du arbetar med säkerhetsprinciper i Azure Security Center.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: 2d248817-ae97-4c10-8f5d-5c207a8019ea
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/28/2019
+ms.date: 5/05/2019
 ms.author: monhaber
-ms.openlocfilehash: 1931026869e930caef2ff2f92fb85dade15a9c8c
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 0465f12e3da6acc2ec8f7259ee9f040ccd3ce88e
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62111518"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236301"
 ---
 # <a name="working-with-security-policies"></a>Arbeta med säkerhetsprinciper
 
@@ -110,6 +110,9 @@ Mer information om rekommendationer finns [hantera säkerhetsrekommendationer](s
    ![hantering av Grupprincip](./media/tutorial-security-policy/policy-management.png)
 
 2. Klicka på prenumerations- eller gruppen som du vill inaktivera rekommendationen.
+
+   > [!Note]
+   > Kom ihåg att en hanteringsgrupp gäller dess principer för dess prenumerationer. Därför, om du inaktiverar en prenumeration principen och prenumerationen som hör till en hanteringsgrupp som fortfarande använder samma princip, sedan du fortsätter att ta emot rekommendationerna. Principen kommer fortfarande att användas från hanteringsnivå och rekommendationerna fortfarande genereras.
 
 1. Klicka på den tilldelade principen.
 
@@ -236,7 +239,7 @@ Det här exemplet visar hur du tar bort en tilldelning:
 |Slutpunktsskydd |Övervaka avsaknad av slutpunktsskydd i Azure Security Center |endpointProtectionMonitoringEffect |
 |Diskkryptering |Övervaka okrypterade virtuella datordiskar i Azure Security Center |diskEncryptionMonitoringEffect|
 |Sårbarhetsbedömning |Övervaka säkerhetsrisker i virtuella datorer i Azure Security Center |vulnerabilityAssessmentMonitoringEffect|
-|Brandvägg för webbaserade program |Övervaka oskyddat webbprogram i Azure Security Center |webApplicationFirewallMonitoringEffect |
+|Brandvägg för webbappar |Övervaka oskyddat webbprogram i Azure Security Center |webApplicationFirewallMonitoringEffect |
 |Nästa generations brandvägg |Övervaka oskyddade nätverksslutpunkter i Azure Security Center| |
 
 

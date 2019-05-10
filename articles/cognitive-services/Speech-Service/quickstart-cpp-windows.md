@@ -10,15 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 12/13/2018
 ms.author: wolfma
-ms.openlocfilehash: 956dfe54cec910a09ed16d7387bc3d32babd0876
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 672a691cdad5c83583ea840907fa7dd193c7ae3a
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64692398"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466971"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>Snabbstart: Taligenkänning i C++ på Windows med hjälp av Speech SDK
 
+Snabbstarter kan också användas för [text till tal](quickstart-text-to-speech-cpp-windows.md) och [talöversättning](quickstart-translate-speech-cpp-windows.md).
+
+Om du vill kan du välja olika programmeringsspråk och/eller miljön:<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 I den här artikeln får skapa du ett C++-konsolprogram för Windows. Du använder Cognitive Services [Speech SDK](speech-sdk.md) för att transkribera tal till text i realtid från datorns mikrofon. Programmet har skapats med [Speech SDK NuGet-paketet](https://aka.ms/csspeech/nuget) och Microsoft Visual Studio 2017 (alla versioner).

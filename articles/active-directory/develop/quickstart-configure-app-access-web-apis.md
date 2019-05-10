@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/30/2019
+ms.date: 05/08/2019
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e5adafc251735fd25b819921514bf6d1d3c3955
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 7b2f5331b22f6292b00c367c6abb8cd4f439a70c
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918871"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413969"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-web-apis"></a>Snabbstart: Konfigurera ett klientprogram för att komma åt webb-API:er
 
@@ -49,7 +49,6 @@ Innan du börjar kontrollerar du att följande krav är uppfyllda:
 * Lär dig mer om [behörigheter och medgivande](v2-permissions-and-consent.md) som stöds, vilket är viktigt att förstå när du skapar appar som måste användas av andra användare eller appar.
 * Ha en klientorganisation som har appar som är registrerade till den.
   * Om du inte har några registrerade appar kan du [få information om hur du registrerar appar på Microsoft Identity Platform](quickstart-register-app.md).
-* Registrera dig för förhandsversionsfunktionerna appregistreringar i Azure-portalen. Stegen i den här snabbstarten motsvarar det nya användargränssnittet och fungerar bara om du använder förhandsversionsfunktionerna.
 
 ## <a name="sign-in-to-the-azure-portal-and-select-the-app"></a>Logga in på Azure-portalen och välj appen
 
@@ -57,7 +56,7 @@ Innan du kan konfigurera appen gör du följande:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller en personligt Microsoft-konto.
 1. Om ditt konto ger dig tillgång till fler än en klientorganisation väljer du ditt konto i det övre högra hörnet och ställer in din portalsession på önskad Azure AD-klientorganisation.
-1. I det vänstra navigeringsfönstret väljer du **Azure Active Directory**-tjänsten och sedan **Appregistreringar (förhandsversion)**.
+1. I det vänstra navigeringsfönstret väljer du den **Azure Active Directory** tjänsten och väljer sedan **appregistreringar**.
 1. Leta reda på och välj den app du vill konfigurera. När du har valt appen ser du dess **översikt** eller huvudregistreringssida.
 1. Följ stegen för att konfigurera appen för åtkomst till webb-API:er: 
     * [Lägga till omdirigerings-URI:er för appen](#add-redirect-uris-to-your-application)

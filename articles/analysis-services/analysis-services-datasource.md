@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ed18fd985173a4d978edccedc8b6e5cf527f16dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2505ab5a9445256bd592dfa7f58a6dea79d25043
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60327147"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506822"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Datakällor som stöds i Azure Analysis Services
 
@@ -52,7 +52,7 @@ Ansluta till lokala datakällor från och Azure-AS-servern kräver en lokal gate
 |  --- | --- | --- |
 | SQL Server |SQL Server Native Client 11.0 Microsoft OLE DB Provider för SQLServer, .NET Framework-dataprovidern för SQLServer | .NET framework-dataprovidern för SQLServer |
 | SQL Server Data Warehouse |SQL Server Native Client 11.0 Microsoft OLE DB Provider för SQLServer, .NET Framework-dataprovidern för SQLServer | .NET framework-dataprovidern för SQLServer |
-| Oracle |Microsoft OLE DB Provider för Oracle, Oracle dataprovider för .NET |Oracle dataprovider för .NET |
+| Oracle | OLE DB Provider för Oracle, Oracle dataprovider för .NET |Oracle dataprovider för .NET |
 | Teradata |OLE DB Provider för Teradata och Teradata Data Provider för .NET |Teradata Data Provider för .NET |
 | | | |
 

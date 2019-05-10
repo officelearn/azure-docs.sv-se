@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: shlo
-ms.openlocfilehash: 183c6aea5aaf84c9d0ed635cac55074a5256851e
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.openlocfilehash: 93a83545699e3536eb0045d538225d01cd1a96a2
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64872548"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235639"
 ---
 # <a name="system-variables-supported-by-azure-data-factory"></a>Systemvariabler som stöds av Azure Data Factory
 Den här artikeln beskriver systemvariabler som stöds av Azure Data Factory. Du kan använda dessa variabler i uttryck när du definierar Data Factory-entiteter.
@@ -45,6 +45,7 @@ Dessa systemvariabler kan refereras var som helst i utlösaren JSON om utlösare
 
 ## <a name="tumbling-window-trigger-scope"></a>Rullande fönster omfång
 Dessa systemvariabler kan refereras var som helst i utlösaren JSON om utlösaren är av typen: ”TumblingWindowTrigger”.
+(Obs: Tidsstämpeln är som standard i ISO 8601-format)
 
 | Variabelnamn | Beskrivning |
 | --- | --- |

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: f25b0f2c7b5e3148bae778c4b50a3f0bd0c148da
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.openlocfilehash: a668bb2e0e3381abefaac93a0fb63f0d33bac5a1
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64875949"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65234061"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>Kopiera data från en HTTP-slutpunkt med hjälp av Azure Data Factory
 
@@ -68,7 +68,7 @@ Följande egenskaper har stöd för HTTP-länkade tjänsten:
 
 Ange den **authenticationType** egenskap **grundläggande**, **sammanfattad**, eller **Windows**. Förutom de allmänna egenskaper som beskrivs i föregående avsnitt, anger du följande egenskaper:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Obligatoriskt |
 |:--- |:--- |:--- |
 | userName | Användarnamnet du använder för att få åtkomst till HTTP-slutpunkt. | Ja |
 | password | Lösenordet för användaren (den **användarnamn** värde). Markera det här fältet som en **SecureString** Skriv för att lagra den på ett säkert sätt i Data Factory. Du kan också [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
@@ -101,7 +101,7 @@ Ange den **authenticationType** egenskap **grundläggande**, **sammanfattad**, e
 
 Om du vill använda ClientCertificate autentisering, ange den **authenticationType** egenskap **ClientCertificate**. Förutom de allmänna egenskaper som beskrivs i föregående avsnitt, anger du följande egenskaper:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Obligatoriskt |
 |:--- |:--- |:--- |
 | embeddedCertData | Base64-kodat certifikatdata. | Ange antingen **embeddedCertData** eller **certThumbprint**. |
 | certThumbprint | Tumavtrycket för certifikatet som är installerad på din egen värd Integration Runtime-datorns certifikatarkiv. Gäller endast när typen lokal installation av Integration Runtime har angetts i den **connectVia** egenskapen. | Ange antingen **embeddedCertData** eller **certThumbprint**. |
@@ -217,8 +217,8 @@ Att kopiera data från HTTP i **ORC/Avro/JSON/binära formatet**, stöds följan
 | requestMethod | HTTP-metoden. Tillåtna värden är **hämta** (standard) och **Post**. | Nej |
 | additionalHeaders | Ytterligare rubriker för HTTP-begäran. | Nej |
 | requestBody | Brödtexten för HTTP-begäran. | Nej |
-| Format | Om du vill hämta data från HTTP-slutpunkt som – är utan parsning och kopiera sedan data till ett filbaserade lager, hoppa över den **format** avsnittet i både inkommande och utgående datamängd definitionerna.<br/><br/>Om du vill parsa HTTP-svarsinnehåll vid kopiering stöds format för följande filtyper: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, och **ParquetFormat**. Under **format**, ange den **typ** egenskap enligt en av dessa värden. Mer information finns i [JSON-format](supported-file-formats-and-compression-codecs.md#json-format), [textformat](supported-file-formats-and-compression-codecs.md#text-format), [Avro-formatet](supported-file-formats-and-compression-codecs.md#avro-format), [Orc-format](supported-file-formats-and-compression-codecs.md#orc-format), och [Parquet-format](supported-file-formats-and-compression-codecs.md#parquet-format). |Nej |
-| Komprimering | Ange typ och komprimeringsnivå för data. Mer information finns i [stöds filformat och komprimering codec](supported-file-formats-and-compression-codecs.md#compression-support).<br/><br/>Typer som stöds: **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**.<br/>Stöds nivåer:  **Optimal** och **snabbaste**. |Nej |
+| format | Om du vill hämta data från HTTP-slutpunkt som – är utan parsning och kopiera sedan data till ett filbaserade lager, hoppa över den **format** avsnittet i både inkommande och utgående datamängd definitionerna.<br/><br/>Om du vill parsa HTTP-svarsinnehåll vid kopiering stöds format för följande filtyper: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, och **ParquetFormat**. Under **format**, ange den **typ** egenskap enligt en av dessa värden. Mer information finns i [JSON-format](supported-file-formats-and-compression-codecs.md#json-format), [textformat](supported-file-formats-and-compression-codecs.md#text-format), [Avro-formatet](supported-file-formats-and-compression-codecs.md#avro-format), [Orc-format](supported-file-formats-and-compression-codecs.md#orc-format), och [Parquet-format](supported-file-formats-and-compression-codecs.md#parquet-format). |Nej |
+| compression | Ange typ och komprimeringsnivå för data. Mer information finns i [stöds filformat och komprimering codec](supported-file-formats-and-compression-codecs.md#compression-support).<br/><br/>Typer som stöds: **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**.<br/>Stöds nivåer:  **Optimal** och **snabbaste**. |Nej |
 
 > [!NOTE]
 > Maxstorleken för HTTP-begäran nyttolasten är cirka 500 KB. Om den nyttolast som du vill skicka till din webbslutpunkt är större än 500 KB, Överväg batchbearbetning nyttolast i mindre segment.
@@ -287,7 +287,7 @@ Att kopiera data från HTTP i **Parquet eller avgränsat textformat**, referera 
 | maxConcurrentConnections | Antal anslutningar för att ansluta till storage store samtidigt. Ange bara när du vill begränsa samtidiga anslutningen till datalagret. | Nej       |
 
 > [!NOTE]
-> För Parquet/avgränsat textformat **HttpSource** typen kopiera aktivitetskälla som nämns i nästa avsnitt stöds fortfarande som-avser för bakåtkompatibilitet. Du rekommenderas för att använda den nya modellen framöver och ADF redigering Användargränssnittet har ändrats till att generera dessa nya typer.
+> För Parquet/avgränsat textformat **HttpSource** typen kopiera aktivitetskälla som nämns i nästa avsnitt stöds fortfarande som – är för bakåtkompatibilitet. Du rekommenderas för att använda den nya modellen framöver och ADF redigering Användargränssnittet har ändrats till att generera dessa nya typer.
 
 **Exempel:**
 

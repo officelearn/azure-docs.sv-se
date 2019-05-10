@@ -81,24 +81,28 @@
           href: data-box-edge-technical-specifications-compliance.md
     - name: Gör så här för att
       items:
-        - name: Hantera beräkning
-          href: data-box-edge-manage-compute.md
         - name: 'Utveckla en C#-modul'
           href: data-box-edge-create-iot-edge-module.md
-        - name: Hantera resurser
-          href: data-box-edge-manage-shares.md
-        - name: Hantera användare
-          href: data-box-edge-manage-users.md
-        - name: Hantera bandbreddsscheman
-          href: data-box-edge-manage-bandwidth-schedules.md
-        - name: 'Hantera energi, åtkomst och anslutning'
-          href: data-box-edge-manage-access-power-connectivity-mode.md
-        - name: Hantera via PowerShell
-          href: data-box-edge-connect-powershell-interface.md
+        - name: Hantera
+          items:
+            - name: Edge-beräkning
+              href: data-box-edge-manage-compute.md
+            - name: Resurser
+              href: data-box-edge-manage-shares.md
+            - name: Användare
+              href: data-box-edge-manage-users.md
+            - name: Bandwidth-scheman
+              href: data-box-edge-manage-bandwidth-schedules.md
+            - name: 'Kraft, åtkomst, anslutning'
+              href: data-box-edge-manage-access-power-connectivity-mode.md
+            - name: Via PowerShell
+              href: data-box-edge-connect-powershell-interface.md
         - name: Felsöka
           href: data-box-edge-troubleshoot.md
         - name: Övervaka
           href: data-box-edge-monitor.md
+        - name: Returnera enheten
+          href: data-box-edge-return-device.md
     - name: Viktig information
       items:
         - name: Allmän tillgänglighet

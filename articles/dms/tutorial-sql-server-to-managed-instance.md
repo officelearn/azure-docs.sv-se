@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 04/03/2019
-ms.openlocfilehash: cf285c18d2204da625c970a367177f86474149ab
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/08/2019
+ms.openlocfilehash: c768b7548b9759e85ebfb050f0ead2dfd3c1a6a6
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60791932"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415115"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-database-managed-instance-offline-using-dms"></a>Självstudier: Migrera SQL Server till en Azure SQL Database managed instance med DMS
 
@@ -40,7 +40,7 @@ Den här artikeln beskrivs en offline-migrering från SQL Server till en Azure S
 
 För att slutföra den här kursen behöver du:
 
-- Skapa ett virtuellt Azure-nätverk för Azure Database Migration Service genom att använda Azure Resource Manager-distributionsmodellen, som ger plats-till-plats-anslutning för dina lokala källservrar genom att använda [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) eller [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). [Lär dig nätverkstopologier för migreringar av hanterad instans av Azure SQL Database med Azure Database Migration Service](https://aka.ms/dmsnetworkformi).
+- Skapa ett Azure-nätverk (VNet) för Azure Database Migration Service med hjälp av Azure Resource Manager-distributionsmodellen, som tillhandahåller plats-till-plats-anslutning till dina lokala källservrar genom att använda antingen [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) eller [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). [Lär dig nätverkstopologier för migreringar av hanterad instans av Azure SQL Database med Azure Database Migration Service](https://aka.ms/dmsnetworkformi). Mer information om hur du skapar ett virtuellt nätverk finns i den [dokumentation om virtuella nätverk](https://docs.microsoft.com/azure/virtual-network/), och särskilt artiklarna i snabbstarten med stegvis information.
 
     > [!NOTE]
     > Under installationen av virtuellt nätverk, om du använder ExpressRoute med nätverks-peering till Microsoft, lägger du till följande tjänst [slutpunkter](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) till undernätet där tjänsten ska etableras:
@@ -50,7 +50,7 @@ För att slutföra den här kursen behöver du:
     >
     > Den här konfigurationen är nödvändigt eftersom Azure Database Migration Service saknar Internetanslutning.
 
-- Se till att dina regler för Nätverkssäkerhetsgrupp kopplad till virtuella nätverk inte blockerar följande portar för inkommande kommunikation till Azure Database Migration Service: 443, 53, 9354, 445, 12000. Mer information om trafikfiltrering för Azure VNET NSG finns i artikeln om att [filtrera nätverkstrafik med nätverkssäkerhetsgrupper](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
+- Se till att dina regler för Nätverkssäkerhetsgrupp kopplad till virtuella nätverk inte blockerar följande portar för inkommande kommunikation till Azure Database Migration Service: 443, 53, 9354, 445, 12000. Mer information om Azure VNet NSG-trafikfiltrering finns i artikeln [filtrera nätverkstrafik med nätverkssäkerhetsgrupper](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 - Konfigurera din [Windows-brandvägg för källdatabasmotoråtkomst](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 - Öppna Windows-brandväggen så att Azure Database Migration Service kommer åt käll-SQL Server, som har standardinställningen TCP-port 1433.
 - Om du kör flera namngivna SQL Server-instanser med dynamiska portar kan du vilja aktivera SQL Browser Service och tillåta åtkomst till UDP-port 1434 via dina brandväggar så att Azure Database Migration Service kan ansluta till en namngiven instans på källservern.
@@ -74,7 +74,7 @@ För att slutföra den här kursen behöver du:
 
 3. Sök efter migreringen och välj sedan **Registrera** till höger om **Microsoft.DataMigration**.
 
-    ![Registrera resursprovider](media/tutorial-sql-server-to-managed-instance/portal-register-resource-provider.png)   
+    ![Registrera resursprovider](media/tutorial-sql-server-to-managed-instance/portal-register-resource-provider.png)
 
 ## <a name="create-an-azure-database-migration-service-instance"></a>Skapa en Azure Database Migration Service-instans
 
@@ -90,11 +90,11 @@ För att slutföra den här kursen behöver du:
 
 4. Välj den plats där du vill skapa instansen av DMS.
 
-5. Välj ett befintligt virtuellt nätverk eller skapa ett.
+5. Välj ett befintligt virtuellt nätverk eller skapa en.
 
-    Det virtuella nätverket ger Azure Database Migration Service åtkomst till SQL Server-källan och den hanterade Azure SQL Database-målinstansen.
+    Det virtuella nätverket tillhandahåller Azure Database Migration Service åtkomst till SQL Server-källans och målets Azure SQL Database hanterad instans.
 
-    Mer information om hur du skapar ett virtuellt nätverk i Azure Portal finns i artikeln [Skapa ett virtuellt nätverk med hjälp av Azure Portal](https://aka.ms/DMSVnet).
+    Mer information om hur du skapar ett virtuellt nätverk i Azure-portalen finns i artikeln [skapa ett virtuellt nätverk med Azure portal](https://aka.ms/DMSVnet).
 
     Mer information finns i artikeln om [nätverkstopologier för migreringar av hanterade Azure SQL DB-instanser med Azure Database Migration Service](https://aka.ms/dmsnetworkformi).
 
@@ -215,7 +215,7 @@ När en instans av tjänsten har skapats letar du reda på den i Azure Portal, �
 ## <a name="monitor-the-migration"></a>Övervaka migreringen
 
 1. På migreringsaktivitetssidan väljer du **Uppdatera** för att uppdatera visningen.
- 
+
    ![Migreringsaktivitet pågår](media/tutorial-sql-server-to-managed-instance/dms-monitor-migration1.png)
 
     Du kan expandera databaserna och inloggningskategorierna ytterligare för att övervaka migreringsstatusen för respektive serverobjekt.

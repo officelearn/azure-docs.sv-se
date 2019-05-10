@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 87f86f861ffc036077b25a2514fbd2d0c57da735
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0783251eaeef188c49c5b3aa61b5ecaec48127b7
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64716763"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506699"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy-definitionsstruktur
 
@@ -46,7 +46,7 @@ Följande JSON visar exempelvis en princip som begränsar där resurser har dist
                     "strongType": "location",
                     "displayName": "Allowed locations"
                 },
-                "defaultValue": "westus2"
+                "defaultValue": [ "westus2" ]
             }
         },
         "displayName": "Allowed locations",
@@ -114,7 +114,7 @@ Exempelvis kan definiera du en principdefinition för att begränsa de platser d
             "displayName": "Allowed locations",
             "strongType": "location"
         },
-        "defaultValue": "westus2",
+        "defaultValue": [ "westus2" ],
         "allowedValues": [
             "eastus2",
             "westus2",
@@ -229,6 +229,10 @@ Ett villkor utvärderas om en **fältet** eller **värdet** accessor uppfyller v
 - `"notIn": ["value1","value2"]`
 - `"containsKey": "keyName"`
 - `"notContainsKey": "keyName"`
+- `"less": "value"`
+- `"lessOrEquals": "value"`
+- `"greater": "value"`
+- `"greaterOrEquals": "value"`
 - `"exists": "bool"`
 
 När du använder den **som** och **notLike** villkor du anger ett jokertecken `*` i värdet.
@@ -375,7 +379,7 @@ Använd i stället de [if()](../../../azure-resource-manager/resource-group-temp
 
 Med den ändrade principregeln `if()` kontrollerar längden på **namn** innan du försöker hämta en `substring()` på ett värde med färre än tre tecken. Om **namn** är för kort, värdet ”inte börjar med abc” returneras i stället och jämfört med **abc**. En resurs med ett kort namn som inte börjar med **abc** fortfarande misslyckas principregeln, men inte längre orsakar ett fel under utvärderingen.
 
-### <a name="effect"></a>Verkan
+### <a name="effect"></a>Effekt
 
 Azure Policy har stöd för följande typer av effekt:
 
@@ -416,15 +420,25 @@ Mer information om varje effekt ordningen för utvärdering, egenskaper och exem
 
 ### <a name="policy-functions"></a>Princip fungerar
 
-Alla [Resource Manager-Mallfunktioner](../../../azure-resource-manager/resource-group-template-functions.md) är tillgängliga för användning i en regel, förutom följande funktioner:
+Alla [Resource Manager-Mallfunktioner](../../../azure-resource-manager/resource-group-template-functions.md) är tillgängliga för användning i en regel, förutom följande funktioner och användardefinierade funktioner:
 
 - copyIndex()
 - deployment()
 - list*
+- newGuid()
+- pickZones()
 - providers()
 - reference()
 - resourceId()
 - variables()
+
+Följande funktioner är tillgängliga att använda i en regel, men skiljer sig från användning i en Azure Resource Manager-mall:
+
+- addDays(dateTime, numberOfDaysToAdd)
+  - **dateTime**: [krävs] sträng - sträng i Universal ISO 8601 datum/tid-formatet ”ÅÅÅÅ-MM-ddTHH:mm:ss.fffffffZ”
+  - **numberOfDaysToAdd**: [krävs] heltal - antal dagar att lägga till
+- utcNow() – till skillnad från en Resource Manager-mall, detta kan användas utanför standardvärde.
+  - Returnerar en sträng som har angetts till aktuellt datum och tid i Universal ISO 8601 DateTime-format ”åååå-MM-ddTHH:mm:ss.fffffffZ”
 
 Dessutom kan den `field` funktionen är tillgänglig för hanteringsprincipregler (MPR). `field` används främst med **AuditIfNotExists** och **DeployIfNotExists** till referensfält på resursen som utvärderas. Ett exempel på den här användningen visas på den [DeployIfNotExists exempel](effects.md#deployifnotexists-example).
 

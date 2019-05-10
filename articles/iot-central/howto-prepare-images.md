@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: c8444fd57fe939dfb212d88c22a071c13dac691e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a20662c2fc9b416fefce89a6ebe706307ee71bb7
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60519226"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236479"
 ---
 # <a name="prepare-and-upload-images-to-your-azure-iot-central-application"></a>Förbereda och ladda upp bilder till Azure IoT Central programmet
 
@@ -74,7 +74,7 @@ Ladda upp en bild som används på den **Mina program** sidan, gå till den **pr
 
 ![Ladda upp programavbildning](media/howto-prepare-images/uploadapplicationmanager.png)
 
-Välj panelen programavbildningen att ladda upp en förberedd bild (268 x 160 bpt) från din lokala dator.
+Välj den **programavbildningen** panelen för att ladda upp en bild (268 x 160 bpt) från din lokala dator.
 
 ### <a name="application-dashboard"></a>Instrumentpanel för program
 
@@ -82,7 +82,7 @@ Om du vill ladda upp en bild på instrumentpanelen för program, navigerar du ti
 
 ![Ladda upp instrumentpanelen bild](media/howto-prepare-images/uploadhomepage.png)
 
-Välj panelen bild att ladda upp en förberedd bild från din lokala dator under Konfigurera bild. Den minsta storlek panelen är 200 x 200 bildpunkter, större paneler kan vara antingen kvadratisk eller rektangulär multiplar av små paneler. Till exempel 200 x 400 bildpunkter, 400 x 200 bildpunkter eller 400 x 400 bildpunkter.
+Under **konfigurera bild**väljer den **bild** panelen för att ladda upp en bild från din lokala dator. Den minsta storlek panelen är 200 x 200 bildpunkter, större paneler kan vara antingen kvadratisk eller rektangulär multiplar av små paneler. Till exempel 200 x 400 bildpunkter, 400 x 200 bildpunkter eller 400 x 400 bildpunkter.
 
 **Spara** den uppladdade avbildningen. Du kan ändra storlek på den i redigeringsläget. Välj **klar** när du är klar.
 
@@ -92,7 +92,7 @@ Om du vill ladda upp en bild i en mall för enhet, gå till **enheten mallar** o
 
 ![Ladda upp enheten mall-bild](media/howto-prepare-images/uploaddevicetemplate.png)
 
-Välj panelen bild att ladda upp en förberedd bild (64 x 64 px) från din lokala dator.
+Välj panelen bild att ladda upp en bild (64 x 64 px) från din lokala dator.
 
 ### <a name="device-dashboard"></a>Instrumentpanel för enhet
 
@@ -100,7 +100,7 @@ Om du vill ladda upp en bild på en instrumentpanel för enhet, gå till **enhet
 
 ![Ladda upp enhetsavbildning för instrumentpanelen](media/howto-prepare-images/uploaddevicedashboard.png)
 
-Välj panelen avbildningen under Konfigurera bild och klicka på filen som ska överföras från din lokala dator. Den minsta storlek panelen är 200 x 200 bildpunkter, större paneler kan vara antingen kvadratisk eller rektangulär multiplar av små paneler. Till exempel 200 x 400 bildpunkter, 400 x 200 bildpunkter eller 400 x 400 bildpunkter.
+Under **konfigurera bild**väljer den **bild** panelen och välj sedan den fil som ska överföras från din lokala dator. Den minsta storlek panelen är 200 x 200 bildpunkter, större paneler kan vara antingen kvadratisk eller rektangulär multiplar av små paneler. Till exempel 200 x 400 bildpunkter, 400 x 200 bildpunkter eller 400 x 400 bildpunkter.
 
 **Spara** den uppladdade avbildningen. Du kan ändra storlek på och flytta den medan du är i redigeringsläget. Välj **klar** när du är klar.
 
@@ -110,7 +110,7 @@ Om du vill ladda upp en bild på en enhet set-instrumentpanel, gå till **enhets
 
 ![Ladda upp enhetsavbildning set instrumentpanel](media/howto-prepare-images/uploaddevicesetdashboard.png)
 
-Välj panelen bild att ladda upp en förberedd bild från din lokala dator under Konfigurera bild. Den minsta storlek panelen är 200 x 200 bildpunkter, större paneler kan vara antingen kvadratisk eller rektangulär multiplar av små paneler. Till exempel 200 x 400 bildpunkter, 400 x 200 bildpunkter eller 400 x 400 bildpunkter.
+Under **konfigurera bild**väljer den **bild** panelen för att ladda upp en bild från din lokala dator. Den minsta storlek panelen är 200 x 200 bildpunkter, större paneler kan vara antingen kvadratisk eller rektangulär multiplar av små paneler. Till exempel 200 x 400 bildpunkter, 400 x 200 bildpunkter eller 400 x 400 bildpunkter.
 
 **Spara** den uppladdade avbildningen. Du kan ändra storlek på och flytta den medan du är i redigeringsläget. Välj **klar** när du är klar.
 
@@ -118,5 +118,6 @@ Välj panelen bild att ladda upp en förberedd bild från din lokala dator under
 
 Nu när du har lärt dig hur du förbereder och ladda upp bilder till Azure IoT Central programmet, är här nästa föreslagna steg:
 
-> [!div class="nextstepaction"]
-> [Hantera enheter i ditt program med Azure IoT Central](howto-manage-devices.md)
+* [Anpassa Azure IoT Central UI](./howto-customize-ui.md)
+* [Konfigurera instrumentpanel för program](./howto-configure-homepage.md)
+* [Hantera enheter i ditt program med Azure IoT Central](howto-manage-devices.md)

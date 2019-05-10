@@ -6,15 +6,15 @@ author: mhopkins-msft
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 11/14/2018
+ms.date: 05/09/2019
 ms.author: mhopkins
 ms.reviewer: seguler
-ms.openlocfilehash: 0b7a7ac7b8a71f33871247a1117c16609bbbcd88
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 2728ac93abd18f929dc6e82cfb471ce33fe8866f
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65191046"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508029"
 ---
 # <a name="quickstart-use-net-to-create-a-blob-in-object-storage"></a>Snabbstart: Använda .NET för att skapa en blob i objektlagring
 
@@ -24,7 +24,7 @@ I den här snabbstarten får du lära dig använda Azure Storage-klientbibliotek
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-Härnäst laddar du ned och installerar .NET Core 2.0 för ditt operativsystem. Om du kör Windows kan du installera Visual Studio och använda .NET Framework om du så föredrar. Du kan också välja att installera en redigerare som ska användas med operativsystemet.
+Därefter ladda ned och installera .NET Core 2.1 för ditt operativsystem. Om du kör Windows kan du installera Visual Studio och använda .NET Framework om du så föredrar. Du kan också välja att installera en redigerare som ska användas med operativsystemet.
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
@@ -288,8 +288,8 @@ Se dessa ytterligare resurser för .NET-utveckling med Blob-lagring:
 
 ### <a name="binaries-and-source-code"></a>Binärfiler och källkod
 
-- Ladda ned NuGet-paketet för den senaste versionen av [.NET-klientbiblioteket](https://www.nuget.org/packages/WindowsAzure.Storage/) för Azure Storage.
-- Visa [källkoden för .NET-klientbiblioteket](https://github.com/Azure/azure-storage-net) på GitHub.
+- Ladda ned NuGet-paketet för den senaste versionen av den [.NET-klientbiblioteket](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/) för Azure Blob Storage.
+- Visa den [källkoden för Microsoft Azure Storage Blob SDK för .NET](https://github.com/Azure/azure-storage-net/tree/master/Blob) på GitHub.
 
 ### <a name="client-library-reference-and-samples"></a>Referens och exempel för klientbiblioteket
 
@@ -300,10 +300,10 @@ Se dessa ytterligare resurser för .NET-utveckling med Blob-lagring:
 
 I den här snabbstarten har du lärt dig att ladda upp, ladda ned och lista blobar med hjälp av .NET.
 
-Om du vill lära dig att skapa en webbapp som laddar upp en bild till Blob-lagringen fortsätter du med [Ladda upp bilddata till molnet med Azure Storage](storage-upload-process-images.md).
+Information om hur du skapar en webbapp som laddar upp en bild till Blob storage, fortsätter du till:
 
 > [!div class="nextstepaction"]
-> [Anvisningar för Blob Storage-åtgärder](storage-dotnet-how-to-use-blobs.md)
+> [Överföra och bearbeta en avbildning](storage-upload-process-images.md)
 
 - Mer information om .NET Core finns i [Kom igång med .NET på 10 minuter](https://www.microsoft.com/net/learn/get-started/).
 - Om du vill utforska ett exempelprogram som du kan distribuera från Visual Studio för Windows går du till [.NET Photo Gallery Web Application-exempel med Azure Blob Storage](https://azure.microsoft.com/resources/samples/storage-blobs-dotnet-webapp/).

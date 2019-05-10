@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7621b18f32a90b81dc075c534367981cf44f16e0
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: bb07fa00b9e1d917cb64df18fff6466dd5c0193d
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65076337"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406995"
 ---
 # <a name="xamarin-ios-specific-considerations-with-msalnet"></a>Xamarin iOS-specifika överväganden med MSAL.NET
 Det finns flera saker som du måste tänka på när du använder MSAL.NET på Xamarin iOS
@@ -108,7 +108,7 @@ Det här är *dessutom* aktivering av Nyckelhanterare i den `Entitlements.plist`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "https://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
   <key>keychain-access-groups</key>

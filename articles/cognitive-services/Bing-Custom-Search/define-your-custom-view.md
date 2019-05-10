@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: c4cb93e39a67e13646a339af6ac999a8fd96b383
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 83ae5f923130ecb46b7b94cd8112ee45ae13e3f4
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62129652"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236252"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Konfigurera din Bing Custom Search
 
@@ -27,7 +27,7 @@ Använd följande när du definierar din snitt av webben:
 
 | Sektorn namn | Beskrivning                                                                                                                                                                                                                                                                                                |
 |------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Domain     | En sektor i domänen innehåller allt innehåll i en internet-domän. Till exempel `www.microsoft.com`. Om du utesluter `www.` orsakar Bing för att även söka domänens underdomäner. Exempel: Om du anger `microsoft.com`, Bing också returnerar resultat från `support.microsoft.com` eller `technet.microsoft.com`. |
+| Domän     | En sektor i domänen innehåller allt innehåll i en internet-domän. Till exempel `www.microsoft.com`. Om du utesluter `www.` orsakar Bing för att även söka domänens underdomäner. Exempel: Om du anger `microsoft.com`, Bing också returnerar resultat från `support.microsoft.com` eller `technet.microsoft.com`. |
 | Underordnad sida    | En underordnad sida sektor innehåller allt innehåll i den underordnad sida och sökvägar under den. Du kan ange högst två underordnade sidor i sökvägen. Till exempel, `www.microsoft.com/en-us/windows/`                                                                                                                       |
 | Webbsida    | En webbsida sektor kan inkludera endast den webbsidan i en anpassad sökning. Du kan du ange om du vill inkludera underordnade sidor.                                                                                                                                                                                  |
 
@@ -118,9 +118,9 @@ Portalen kan du fästa URL: er längst upp i sökresultaten för specifika sökv
 
 Du kan fästa en webbsida högst upp på två sätt:
 
-* I den **fästa** ange Webbadressen till webbsidan för att fästa till högst upp och dess motsvarande fråga.
+* I den **fästa** ange Webbadressen till webbsidan för att fästa till högst upp och dess motsvarande fråga.
 
-* I den **förhandsversion** fönstret, ange en sökfråga och klicka på Sök. Hitta den webbsida som du vill fästa på din fråga och klicka på **PIN-kod till början**. webbsidan och frågan kommer att läggas till i **fästa** lista.
+* I den **förhandsversion** fönstret, ange en sökfråga och klicka på Sök. Hitta den webbsida som du vill fästa på din fråga och klicka på **PIN-kod till början**. webbsidan och frågan kommer att läggas till i **fästa** lista.
 
 ### <a name="specify-the-pins-match-condition"></a>Ange pin-kodens matchningsvillkor
 
@@ -133,7 +133,7 @@ Som standard webbsidor är endast fästa högst upp i sökresultaten när en anv
 |---------------|----------------------------------------------------------------------------------|
 | Börjar med | PIN-koden finns en matchning om användarens frågesträngen som börjar med pin-kodens frågesträng |
 | Slutar med   | PIN-koden är en matchning om användarens frågesträngen som slutar med pin-kodens frågesträngen.  |
-| Contains    | PIN-koden är en matchning om användarens frågesträngen innehåller frågesträngen för den PIN-kod.   |
+| Innehåller    | PIN-koden är en matchning om användarens frågesträngen innehåller frågesträngen för den PIN-kod.   |
 
 
 Klicka på fästikonen Redigera om du vill ändra pin-kodens matchningsvillkor. I den **fråga matchningsvillkor** kolumn, klicka på listrutan och välj det nya villkoret du vill använda. Klicka på Spara ikon för att spara ändringen.

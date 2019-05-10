@@ -1,6 +1,6 @@
 ---
-title: Skydda PaaS-distributioner | Microsoft Docs
-description: " Förstå fördelarna med PaaS jämfört med andra tjänstmodeller i molnet och lär dig rekommenderade metoder för att skydda din Azure PaaS-distribution. "
+title: Bästa praxis för säker PaaS-distributioner – Microsoft Azure
+description: Lär dig Metodtips för att designa, bygga, och hantera säkra molnprogram på Azure och förstå fördelarna med PaaS jämfört med andra cloud service-modeller.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/05/2019
+ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: e833317fa16576fa0006a774226d12974fd93ed8
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 9da7a3b91223b8a6fd25814a10a0cbafd645d132
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62107454"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231116"
 ---
 # <a name="securing-paas-deployments"></a>Skydda PaaS-distributioner
 
@@ -29,6 +29,8 @@ Den här artikeln innehåller information som hjälper dig att:
 - Utvärdera fördelarna med plattform som en tjänst (PaaS) jämfört med andra cloud service-modeller
 - Ändra fokus säkerhet från en nätverks-centric till en identity-centric perimeter security-metod
 - Implementera allmänna PaaS security rekommendationer om bästa praxis
+
+[Utveckla säkra program på Azure](abstract-develop-secure-apps.md) är en allmän vägledning till säkerhetsfrågor och kontroller som du bör i varje fas av livscykel när du utvecklar program för molnet.
 
 ## <a name="cloud-security-advantages"></a>Cloud security fördelar
 Det finns säkerhetsfördelar med att vara i molnet. I en lokal miljö organisationer sannolikt har motsvarar hittills ouppfyllda ansvarsområden och begränsade resurser som är tillgängliga att investera i säkerhet, vilket skapar en miljö där angripare kan utnyttja sårbarheter på alla nivåer.
@@ -155,6 +157,10 @@ Använd [Azure Application Insights](https://azure.microsoft.com/documentation/s
 
 Application Insights har omfattande verktyg för att interagera med de data som samlas in. Application Insights lagrar data i en gemensam databas. Det kan dra nytta av delade funktioner, till exempel aviseringar, instrumentpaneler och detaljerad analys med Kusto-frågespråket.
 
+## <a name="perform-security-penetration-testing"></a>Utföra security penetrationstester
+Verifiera säkerhetsskyddet är lika viktigt som testa några andra funktioner. Kontrollera [penetrationstester](azure-security-pen-testing.md) en del av din bygg- och distributionsprocessen. Schemalägga regelbundna säkerhetsuppdatering tester och granskar säkerhetsrisker på distribuerade program och övervaka för att öppna portar, slutpunkter och attacker.
+
+Fuzz testning är en metod för att hitta programmet fel (kodfel) genom att tillhandahålla felaktiga indata till program Interface (startpunkter) som parsa och använda dessa data. [Microsoft Security Riskidentifieringen](https://www.microsoft.com/en-us/security-risk-detection/) är en molnbaserad verktyg som du kan använda för att leta efter buggar och andra säkerhetsproblem i din programvara innan du distribuerar den till Azure. Verktyget är utformad för att fånga upp säkerhetsrisker innan du distribuerar programvara så att du inte behöver uppdatera en bugg, utan krascher eller svara på en attack när programvaran släpps.
 
 
 ## <a name="next-steps"></a>Nästa steg
@@ -166,6 +172,8 @@ I den här artikeln fokuserar vi på fördelarna med en Azure PaaS-distribution 
 - Azure Cache for Redis
 - Azure Service Bus
 - Brandväggar för webbprogram
+
+Se [utveckla säkra program på Azure](abstract-develop-secure-apps.md) för säkerhetsfrågor och kontroller som du bör i varje fas av livscykel när du utvecklar program för molnet.
 
 Se [säkerhet i Azure-metodtips och mönster](security-best-practices-and-patterns.md) för flera beprövade metoder för att använda när du utforma, distribuera och hantera dina molnlösningar med hjälp av Azure.
 

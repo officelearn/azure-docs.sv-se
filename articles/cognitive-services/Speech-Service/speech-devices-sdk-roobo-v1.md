@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 0e5dc73c1f24ccbc2032cecbb857587eb20c6806
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 7c1a13a44d9db8ed029ce798f0bb34944a1a65a7
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026214"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409062"
 ---
 # <a name="device-roobo-smart-audio-dev-kit"></a>Enhet: Roobo Smart ljud Dev-paket
 
@@ -69,7 +69,7 @@ Läs mer i utveckling, den [Roobo Utvecklingsguide](http://dwn.roo.bo/server_upl
 
 ## <a name="audio"></a>Ljud
 
-Roobo ger ett verktyg som samlar in alla ljud flash-minnet. Det kan hjälpa dig felsökning av problem med ljud. En version av verktyget har angetts för varje development kit-konfiguration. På den [Roobo plats](http://ddk.roobo.com/), Välj din enhet och välj sedan den **Roobo verktyg** länken längst ned på sidan.
+Roobo ger ett verktyg som samlar in alla ljud flash-minnet. Det kan hjälpa dig felsökning av problem med ljud. En version av verktyget har angetts för varje development kit-konfiguration. På den [Roobo plats](https://ddk.roobo.com/), Välj din enhet och välj sedan den **Roobo verktyg** länken längst ned på sidan.
 
 ## <a name="next-steps"></a>Nästa steg
 

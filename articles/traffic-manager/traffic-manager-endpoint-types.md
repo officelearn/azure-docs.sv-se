@@ -12,19 +12,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2017
 ms.author: kumud
-ms.openlocfilehash: b609a0ace0b428e1af81634c6a25485e3a5e89bb
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: dc76f56b6c05f22a380ff33715fe22e8c72e4891
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64916664"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508439"
 ---
 # <a name="traffic-manager-endpoints"></a>Traffic Manager-slutpunkter
 Microsoft Azure Traffic Manager kan du styra hur nätverkstrafiken distribueras till distribution av program som körs i olika datacenter. Du konfigurerar varje programdistribution som en slutpunkt i Traffic Manager. När Traffic Manager tar emot en DNS-begäran, väljer en slutpunkt som är tillgängliga för att returnera i DNS-svaret. Traffic manager baser valet aktuella statusen för slutpunkten och routning av nätverkstrafik-metoden. Mer information finns i [hur Traffic Manager fungerar](traffic-manager-how-it-works.md).
 
 Det finns tre typer av slutpunkten som stöds av Traffic Manager:
 * **Azure-slutpunkter** används för tjänsterna i Azure.
-* **Externa slutpunkter** används för IPv4/IPv6-adresser eller, för tjänster som hanteras utanför Azure kan antingen vara en lokal eller med en annan värdleverantör.
+* **Externa slutpunkter** används för IPv4/IPv6-adresser, fullständiga domännamn, eller för tjänster som hanteras utanför Azure kan antingen vara en lokal eller med en annan värdleverantör.
 * **Kapslade slutpunkter** används för att kombinera Traffic Manager-profiler om du vill skapa mer flexibel system för routning av nätverkstrafik som har stöd för större och mer komplexa distributioner.
 
 Det finns ingen begränsning för hur slutpunkter för olika typer kombineras i en enda Traffic Manager-profil. Varje profil kan innehålla alla olika typer av slutpunkter.
@@ -36,7 +36,7 @@ I följande avsnitt beskrivs varje typ av slutpunkt i större detalj.
 Azure-slutpunkter används för Azure-baserade tjänster i Traffic Manager. Följande typer av Azure-resurs stöds:
 
 * PaaS-molntjänster.
-* Web Apps
+* Webbappar
 * Webbappsplatser
 * PublicIPAddress-resurser (som kan anslutas till virtuella datorer direkt eller via en Azure Load Balancer). PublicIpAddress måste ha ett DNS-namn som tilldelats som ska användas i en Traffic Manager-profil.
 
@@ -46,7 +46,7 @@ När du använder Azure-slutpunkter, identifierar Traffic Manager när en ”kla
 
 ## <a name="external-endpoints"></a>Externa slutpunkter
 
-Externa slutpunkter som används för antingen IPv4/IPv6-adresser, eller, för tjänster utanför Azure. Användning av IPv4/IPv6-adress-slutpunkter kan traffic manager för att kontrollera hälsotillståndet för slutpunkter utan att ett DNS-namn för dessa. Traffic Manager kan därför kan svara på frågor med A/AAAA-poster när slutpunkten och returnerar ett svar. Tjänster utanför Azure är en tjänst som finns lokalt eller med en annan provider. Externa slutpunkter kan användas enskilt eller tillsammans med Azure-slutpunkter i samma Traffic Manager-profilen förutom slutpunkter som angetts som IPv4 eller IPv6-adresser som bara kan vara externa slutpunkter. Kombinera Azure-slutpunkter med externa slutpunkter kan olika scenarier:
+Externa slutpunkter som används för antingen IPv4/IPv6-adresser, fullständiga domännamn, eller för tjänster utanför Azure. Användning av IPv4/IPv6-adress-slutpunkter kan traffic manager för att kontrollera hälsotillståndet för slutpunkter utan att ett DNS-namn för dessa. Traffic Manager kan därför kan svara på frågor med A/AAAA-poster när slutpunkten och returnerar ett svar. Tjänster utanför Azure är en tjänst som finns lokalt eller med en annan provider. Externa slutpunkter kan användas enskilt eller tillsammans med Azure-slutpunkter i samma Traffic Manager-profilen förutom slutpunkter som angetts som IPv4 eller IPv6-adresser som bara kan vara externa slutpunkter. Kombinera Azure-slutpunkter med externa slutpunkter kan olika scenarier:
 
 * Ger ökad redundans för ett befintligt lokalt program i antingen en aktiv-aktiv eller aktiv-passiv redundans-modell som använder Azure. 
 * Dirigera trafik till slutpunkter som inte har ett DNS-namn som är kopplade till standardrisknivåer. Dessutom kan minska den övergripande svarstiden för DNS-sökning genom att ta bort behovet av att köra en andra DNS-fråga för att få en IP-adressen för en DNS-namn som returneras. 

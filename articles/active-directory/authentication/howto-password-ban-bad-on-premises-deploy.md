@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1c24ec49652cfe9105aa66fd1d5e26c81afcd14
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 256215b1976598b961ada7210e5ee92c9f72d440
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60414841"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506864"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Distribuera Azure AD-lösenordsskydd
 
@@ -39,6 +39,9 @@ När funktionen har körts i granskningsläge i rimlig tid, kan du byta konfigur
 * Alla domänkontrollanter som ta DC tjänst för Azure AD-lösenordsskydd installerad måste köra Windows Server 2012 eller senare. Det här kravet innebär inte att Active Directory-domän eller skog måste också vara på Windows Server 2012 domänens eller skogens funktionsnivå. Som vi nämnde i [designprinciper](concept-password-ban-bad-on-premises.md#design-principles), det finns ingen minsta DFL eller FFL som krävs för antingen DC-agenten eller proxy programvaran ska köras.
 * Alla datorer som får DC-agent-tjänsten installerad måste ha .NET 4.5 installerat.
 * Alla datorer som får proxyn tjänst för Azure AD-lösenordsskydd installerad måste köra Windows Server 2012 R2 eller senare.
+   > [!NOTE]
+   > Proxy-tjänstdistributionen är ett obligatoriskt krav för att distribuera Azure AD-lösenordsskydd även om domänkontrollanten har utgående direkt Internetanslutning. 
+   >
 * Alla datorer där Azure AD-lösenord Protection proxytjänsten installeras måste ha .NET 4.7 installerad.
   .NET 4.7 bör vara installerad på en helt uppdaterade Windows-Server. Om detta inte är fallet, hämta och kör installationsprogrammet som finns på [The .NET Framework 4.7 offline installationsprogrammet för Windows](https://support.microsoft.com/en-us/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
 * Alla datorer, inklusive domänkontrollanter, som får Azure AD lösenord protection komponenter som är installerade måste ha den universella C som är installerad. Du kan hämta körningen genom att kontrollera att du har alla uppdateringar från Windows Update. Eller du kan hämta den i ett uppdateringspaket för OS-specifika. Mer information finns i [uppdatering för Universal C-körning i Windows](https://support.microsoft.com/help/2999226/update-for-uniersal-c-runtime-in-windows).

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2019
 ms.author: shants
-ms.openlocfilehash: 76e0f496acf37d4220f57a599f0ce449ca130bba
-ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
+ms.openlocfilehash: fccc99f78d038a5f96b9dfe01b575dedcdcb4cdc
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "64992904"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65405616"
 ---
 # <a name="handling-planned-maintenance-notifications-for-windows-virtual-machines"></a>Hantera meddelanden planerat underhåll för Windows-datorer
 
@@ -27,13 +27,13 @@ Azure utför med jämna mellanrum uppdateringar för att förbättra värdinfras
 
 - Om underhållet inte kräver en omstart, använder Azure migrering på plats för att pausa den virtuella datorn när värden har uppdaterats. Dessa icke rebootful underhållsåtgärder är tillämpad feldomän av feldomän och förloppet stoppas om någon varning hälsotillstånd signaler tas emot. 
 
-- Om en omstart krävs för underhåll, får du ett meddelande om när det planerade underhållet. I dessa fall kan ges ett tidsfönster som där du kan starta underhållet själv när det passar dig.
+- Om en omstart krävs för underhåll, får du ett meddelande om när det planerade underhållet. I dessa fall kan ges ett tidsfönster som oftast är 30 dagar där du kan starta underhållet själv när det passar dig.
 
 
 Planerat underhåll som kräver en omstart schemaläggs i vågor. Varje våg har olika omfång (regioner).
 
 - En våg börjar med ett meddelande till kunderna. Som standard skickas meddelandet till Prenumerationens ägare och Medägare. Du kan lägga till fler mottagare och meddelandeinställningarna som e-post, SMS och Webhooks, till meddelanden med hjälp av Azure [Aktivitetsloggaviseringar](../../azure-monitor/platform/activity-logs-overview.md).  
-- Vid tidpunkten för anmälan, en *självbetjäning fönstret* är tillgänglig. Du kan hitta vilka av dina virtuella datorer som ingår i den här wave och proaktivt starta Underhåll enligt dina egna schemaläggning behov under den här perioden som oftast är fyra veckor.
+- Vid tidpunkten för anmälan, en *självbetjäning fönstret* är tillgänglig. Du kan hitta vilka av dina virtuella datorer som ingår i den här wave och proaktivt starta Underhåll enligt dina egna schemaläggning behov under den här perioden som oftast är 30 dagar.
 - När fönstret självbetjäning en *schemalagda underhållsperiod* börjar. Någon gång under det här fönstret Azure schemalägger och gäller det nödvändiga underhållet för den virtuella datorn. 
 
 Målet i att ha två windows är att ge dig tid att starta underhåll och starta om den virtuella datorn samtidigt som du vet när Azure startar automatiskt underhåll.
@@ -159,7 +159,7 @@ Restart-AzureVM -InitiateMaintenance -ServiceName <service name> -Name <VM name>
 ```
 
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor
 
 
 **F: Varför behöver du starta om Mina virtuella datorer nu?**

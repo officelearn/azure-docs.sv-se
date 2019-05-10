@@ -10,10 +10,6 @@
       maintainContext: true
 - name: Snabbstarter
   items:
-    - name: skapar ett lagringskonto
-      displayName: 'resource manager, resource manager template, template, ARM'
-      href: /azure/storage/common/storage-quickstart-create-account
-      maintainContext: true
     - name: Skapa en tabell i Azure Portal
       href: table-storage-quickstart-portal.md
 - name: Exempel
@@ -70,6 +66,10 @@
       href: table-storage-design-patterns.md
 - name: Instruktionsguider
   items:
+    - name: skapar ett lagringskonto
+      displayName: 'resource manager, resource manager template, template, ARM'
+      href: /azure/storage/common/storage-quickstart-create-account
+      maintainContext: true
     - name: Så här använder du lagringsemulatorn
       href: /azure/storage/common/storage-use-emulator
       maintainContext: true

@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 03/19/2019
-ms.openlocfilehash: aa9217251965b35dd90e09c619607c9421a9f6f4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 04/22/2019
+ms.openlocfilehash: 7dcbf2733ff23b0454208dbc789599cd372278ec
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64572645"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507843"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Azure SQL Database vCore-baserade köpa modellen gränser för en enskild databas
 
@@ -50,7 +50,7 @@ Du kan ange tjänstnivå, beräkningsstorleken och lagringsutrymmet för en enke
 |Lagringstyp|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|
 |I/o-svarstid (ungefärlig)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|
 |Mål-IOPS (64 KB)|500|1000|1500|2000|2500|3000|
-|Logga hastighetsbegränsningar (Mbit/s)|2.5|5|7.5|10|12.5|15|
+|Logga hastighetsbegränsningar (Mbit/s)|3.75|7.5|11.25|15|18.75|22.5|
 |Maximalt antal samtidiga arbetare (begäranden)|200|400|600|800|1000|1200|
 |Maximalt antal tillåtna sessioner|30000|30000|30000|30000|30000|30000|
 |Antal repliker|1|1|1|1|1|1|
@@ -73,7 +73,7 @@ Du kan ange tjänstnivå, beräkningsstorleken och lagringsutrymmet för en enke
 |Lagringstyp|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|
 |I/o-svarstid (ungefärlig)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)
 |Mål-IOPS (64 KB)|3500|4000|4500|5000|7000|7000|
-|Logga hastighetsbegränsningar (Mbit/s)|17.5|20|20|20|20|20|
+|Logga hastighetsbegränsningar (Mbit/s)|26.25|30|30|30|30|30|
 |Maximalt antal samtidiga arbetare (begäranden)|1400|1600|1800|2000|3200|4800|
 |Maximalt antal tillåtna sessioner|30000|30000|30000|30000|30000|30000|
 |Antal repliker|1|1|1|1|1|1|
@@ -95,8 +95,8 @@ Du kan ange tjänstnivå, beräkningsstorleken och lagringsutrymmet för en enke
 |TempDB-storlek (GB)|64|128|192|256|320|384|384|
 |Lagringstyp|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|
 |I/o-svarstid (ungefärlig)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|
-|Mål-IOPS (64 KB)|500|1000|1500|2000|2500|3000|3500|
-|Logga hastighetsbegränsningar (Mbit/s)|2.5|56|7.5|10|12.5|15|17.5|
+|Mål-IOPS (64 KB)|1000|2000|3000|4000|5000|6000|7000|
+|Logga hastighetsbegränsningar (Mbit/s)|3.75|7.5|11.25|15|18.75|22.5|26.25|
 |Maximalt antal samtidiga arbetare (begäranden)|200|400|600|800|1000|1200|1400|
 |Maximalt antal tillåtna sessioner|30000|30000|30000|30000|30000|30000|30000|
 |Antal repliker|1|1|1|1|1|1|1|
@@ -118,8 +118,8 @@ Du kan ange tjänstnivå, beräkningsstorleken och lagringsutrymmet för en enke
 |TempDB-storlek (GB)|384|384|384|384|384|384|384|
 |Lagringstyp|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|
 |I/o-svarstid (ungefärlig)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|
-|Mål-IOPS (64 KB)|4000|4500|5000|6000|7000|7000|7000|
-|Logga hastighetsbegränsningar (Mbit/s)|20|20|20|20|20|20|20|
+|Mål-IOPS (64 KB)|7000|7000|7000|7000|7000|7000|7000|
+|Logga hastighetsbegränsningar (Mbit/s)|30|30|30|30|30|30|30|
 |Maximalt antal samtidiga arbetare (begäranden)|1600|1800|2000|2400|3200|4000|8000|
 |Maximalt antal tillåtna sessioner|30000|30000|30000|30000|30000|30000|30000|
 |Antal repliker|1|1|1|1|1|1|1|
@@ -127,7 +127,35 @@ Du kan ange tjänstnivå, beräkningsstorleken och lagringsutrymmet för en enke
 |Lässkalbarhet|Gäller inte|Saknas|Saknas|Saknas|Saknas|Saknas|Gäller inte|
 |Inkluderad lagring av säkerhetskopior|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|
 
-## <a name="business-critical-service-tier-storage-sizes-and-compute-sizes"></a>Kritiska-affärsnivå: Lagringsstorlekar och storlekar
+### <a name="serverless-compute-tier"></a>Serverlös beräkningsnivå
+
+Den [serverlös Beräkningsnivån](sql-database-serverless.md) finns i offentlig förhandsversion och är endast för enkla databaser med hjälp av vCore köpa modell.
+
+#### <a name="generation-5-compute-platform"></a>Beräkningsplattform generation 5
+
+|Beräkna storlek|GP_S_Gen5_1|GP_S_Gen5_2|GP_S_Gen5_4|
+|:--- | --: |--: |--: |
+|Maskinvaran generation|5|5|5|
+|Min – max virtuella kärnor|0.5-1|0.5-2|0.5-4|
+|Min – max minne (GB)|2.02-3|2.05-6|2.10-12|
+|Min automatisk pausning fördröjning (timmar)|6|6|6|
+|Stöd för Columnstore|Ja|Ja|Ja|
+|InMemory-OLTP-lagring (GB)|Gäller inte|Saknas|Gäller inte|
+|Maximal datastorlek (GB)|512|1024|1024|
+|Maximal storlek (GB)|12|24|48|
+|TempDB-storlek (GB)|32|64|128|
+|Lagringstyp|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|
+|I/o-svarstid (ungefärlig)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|
+|Mål-IOPS (64 KB)|250|500|1000|
+|Logga hastighetsbegränsningar (Mbit/s)|2.5|5.6|10|
+|Maximalt antal samtidiga arbetare (begäranden)|75|150|300|
+|Maximalt antal tillåtna sessioner|30000|30000|30000|
+|Antal repliker|1|1|1|
+|Multi-AZ|Gäller inte|Saknas|Gäller inte|
+|Lässkalbarhet|Gäller inte|Saknas|Gäller inte|
+|Inkluderad lagring av säkerhetskopior|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|
+
+## <a name="business-critical-service-tier-for-provisioned-compute-tier"></a>Företag kritiska tjänstnivå för etablerade Beräkningsnivån
 
 ### <a name="business-critical-service-tier-generation-4-compute-platform-part-1"></a>Kritiska-affärsnivå: Generation 4-beräkningsplattformen (del 1)
 
@@ -144,7 +172,7 @@ Du kan ange tjänstnivå, beräkningsstorleken och lagringsutrymmet för en enke
 |TempDB-storlek (GB)|32|64|96|128|160|192|
 |I/o-svarstid (ungefärlig)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|
 |Mål-IOPS (64 KB)|5000|10000|15 000|20000|25000|30000|
-|Logga hastighetsbegränsningar (Mbit/s)|6|12|18|24|30|36|
+|Logga hastighetsbegränsningar (Mbit/s)|8|16|24|32|40|48|
 |Maximalt antal samtidiga arbetare (begäranden)|200|400|600|800|1000|1200|
 |Maximalt antal samtidiga inloggningar|200|400|600|800|1000|1200|
 |Maximalt antal tillåtna sessioner|30000|30000|30000|30000|30000|30000|
@@ -168,7 +196,7 @@ Du kan ange tjänstnivå, beräkningsstorleken och lagringsutrymmet för en enke
 |TempDB-storlek (GB)|224|256|288|320|384|384|
 |I/o-svarstid (ungefärlig)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|
 |Mål-IOPS (64 KB)|35000|40000|45000|50000|80000|120000|
-|Logga hastighetsbegränsningar (Mbit/s)|42|48|54|60|64|64|
+|Logga hastighetsbegränsningar (Mbit/s)|56|64|64|64|64|64|
 |Maximalt antal samtidiga arbetare (begäranden)|1400|1600|1800|2000|3200|4800|
 |Maximalt antal samtidiga inloggningar (begäranden)|1400|1600|1800|2000|3200|4800|
 |Maximalt antal tillåtna sessioner|30000|30000|30000|30000|30000|30000|
@@ -191,8 +219,8 @@ Du kan ange tjänstnivå, beräkningsstorleken och lagringsutrymmet för en enke
 |TempDB-storlek (GB)|64|128|192|256|320|384|384|
 |Lagringstyp|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|
 |I/o-svarstid (ungefärlig)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|
-|Mål-IOPS (64 KB)|5000|10000|15 000|20000|25000|30000|35000|
-|Logga hastighetsbegränsningar (Mbit/s)|6|12|18|24|30|36|42|
+|Mål-IOPS (64 KB)|8000|16000|24000|32000|40000|48000|56000|
+|Logga hastighetsbegränsningar (Mbit/s)|12|24|36|48|60|72|84|
 |Maximalt antal samtidiga arbetare (begäranden)|200|400|600|800|1000|1200|1400|
 |Maximalt antal samtidiga inloggningar|200|400|600|800|1000|1200|1400|
 |Maximalt antal tillåtna sessioner|30000|30000|30000|30000|30000|30000|30000|
@@ -215,8 +243,8 @@ Du kan ange tjänstnivå, beräkningsstorleken och lagringsutrymmet för en enke
 |TempDB-storlek (GB)|384|384|384|384|384|384|384|
 |Lagringstyp|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|
 |I/o-svarstid (ungefärlig)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|
-|Mål-IOPS (64 KB)|40000|45000|50000|60000|80000|100000|200000|
-|Logga hastighetsbegränsningar (Mbit/s)|48|54|60|72|96|96|96|
+|Mål-IOPS (64 KB)|64000|72000|80000|96000|128000|160000|320000|
+|Logga hastighetsbegränsningar (Mbit/s)|96|96|96|96|96|96|96|
 |Maximalt antal samtidiga arbetare (begäranden)|1600|1800|2000|2400|3200|4000|8000|
 |Maximalt antal samtidiga inloggningar|1600|1800|2000|2400|3200|4000|8000|
 |Maximalt antal tillåtna sessioner|30000|30000|30000|30000|30000|30000|30000|
@@ -225,30 +253,7 @@ Du kan ange tjänstnivå, beräkningsstorleken och lagringsutrymmet för en enke
 |Lässkalbarhet|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
 |Inkluderad lagring av säkerhetskopior|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|
 
-## <a name="hyperscale-service-tier-preview"></a>Hyperskala tjänstnivå (förhandsversion)
-
-### <a name="generation-4-compute-platform-storage-sizes-and-compute-sizes"></a>Generation 4-beräkningsplattformen: Lagringsstorlekar och storlekar
-
-|Prestandanivå|HS_Gen4_1|HS_Gen4_2|HS_Gen4_4|HS_Gen4_8|HS_Gen4_16|HS_Gen4_24|
-|:--- | --: |--: |--: |--: |--: |--: |
-|Maskinvaran generation|4|4|4|4|4|4|
-|vCores|1|2|4|8|16|24|
-|Minne (GB)|7|14|28|56|112|168|
-|Stöd för Columnstore|Ja|Ja|Ja|Ja|Ja|Ja|
-|InMemory-OLTP-lagring (GB)|Gäller inte|Saknas|Saknas|Saknas|Saknas|Gäller inte|
-|Maximal datastorlek (TB)|100 |100 |100 |100 |100 |100 |
-|Maximal storlek (TB)|1 |1 |1 |1 |1 |1 |
-|TempDB-storlek (GB)|32|64|128|256|384|384|
-|Lagringstyp|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|
-|Mål-IOPS (64 KB)|Fastställas|Fastställas|Fastställas|Fastställas|Fastställas|Fastställas|
-|I/o-svarstid (ungefärlig)|Fastställas|Fastställas|Fastställas|Fastställas|Fastställas|Fastställas|
-|Maximalt antal samtidiga arbetare (begäranden)|200|400|800|1600|3200|4800|
-|Maximalt antal tillåtna sessioner|30000|30000|30000|30000|30000|30000|
-|Antal repliker|2|2|2|2|2|2|
-|Multi-AZ|Gäller inte|Saknas|Saknas|Saknas|Saknas|Gäller inte|
-|Lässkalbarhet|Ja|Ja|Ja|Ja|Ja|Ja|
-|Inkluderad lagring av säkerhetskopior|7|7|7|7|7|7|
-|||
+## <a name="hyperscale-service-tier"></a>Hyperskalatjänstnivå
 
 ### <a name="generation-5-compute-platform"></a>Beräkningsplattform generation 5
 
@@ -270,7 +275,7 @@ Du kan ange tjänstnivå, beräkningsstorleken och lagringsutrymmet för en enke
 |Antal repliker|2|2|2|2|2|2|2|2|
 |Multi-AZ|Gäller inte|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|Gäller inte|
 |Lässkalbarhet|Ja|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
-|Inkluderad lagring av säkerhetskopior (förhandsversion gräns)|7|7|7|7|7|7|7|7|
+|Inkluderad lagring av säkerhetskopior |7|7|7|7|7|7|7|7|
 |||
 
 ## <a name="next-steps"></a>Nästa steg

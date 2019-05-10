@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6e13ec3d822ba8a8cd2484f42ea81e615bae268
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: d4b4c4cd4dbab10a9d4796a8393cc7f479b90cc4
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190991"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406772"
 ---
 # <a name="using-web-browsers-in-msalnet"></a>Med webbläsare i MSAL.NET
 Webbläsare krävs för interaktiv autentisering. Som standard MSAL.NET stöder den [system webbläsare](#system-web-browser-on-xamarinios-and-xamarinandroid) på Xamarin.iOS och [Xamarin.Android](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/system-browser). Men [du kan också aktivera Embedded webbläsarens](#enable-embedded-webviews) beroende på dina behov (UX behovet av enkel inloggning (SSO), säkerhet) i [Xamarin.iOS](#choosing-between-embedded-web-browser-or-system-browser-on-xamarinios) och [Xamarin.Android](#choosing-between-embedded-web-browser-or-system-browser-on-xamarinandroid) appar. Och du kan även [väljer dynamiskt](#detecting-the-presence-of-custom-tabs-on-xamarinandroid) vilken webbläsare du använder baserat på förekomsten av Chrome eller en webbläsare som stöder Chrome anpassade flikar i Android.
@@ -93,7 +93,7 @@ Som utvecklare med hjälp av MSAL.NET har du flera alternativ för att visa dial
 
 #### <a name="choosing-between-embedded-web-browser-or-system-browser-on-xamarinios"></a>Välja mellan embedded webbläsare eller system webbläsaren på Xamarin.iOS
 
-I din iOS-app i `AppDelegate.cs` kan du kan initiera den `ParentWindow` till `null`. Den används inte i iOS
+I din iOS-app i `AppDelegate.cs` du kan initiera den `ParentWindow` till `null`. Den används inte i iOS
 
 ```csharp
 App.ParentWindow = null; // no UI parent on iOS

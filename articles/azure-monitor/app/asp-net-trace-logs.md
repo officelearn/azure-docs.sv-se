@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 05/08/2019
 ms.author: mbullwin
-ms.openlocfilehash: 74cb1b3ec4e0570aa4316e6f45e99719f36815d1
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: d366f363b7bd1d5306d598c9b38258eb78076b7c
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150704"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472057"
 ---
 # <a name="explore-netnet-core-trace-logs-in-application-insights"></a>Utforska.NET/.NET Core spårningsloggar i Application Insights
 
@@ -177,8 +177,8 @@ Du kan till exempel:
 Använd den [Java log kort](../../azure-monitor/app/java-trace-logs.md).
 
 ### <a name="theres-no-application-insights-option-on-the-project-context-menu"></a>Det finns inget alternativ för Application Insights på snabbmenyn för projektet
-* Kontrollera att Application Insights Tools är installerat på utvecklingsdator. I Visual Studio **verktyg** > **tillägg och uppdateringar**, leta efter **Application Insights Tools**. Om den inte är på den **installerad** fliken, öppna den **Online** fliken och installera den.
-* Det kan vara en projekttyp av som Application Insights Tools inte stöder. Använd [manuell installation](#manual-installation).
+* Se till att Developer Analytics Tools är installerat på utvecklingsdator. I Visual Studio **verktyg** > **tillägg och uppdateringar**, leta efter **Developer Analytics Tools**. Om den inte är på den **installerad** fliken, öppna den **Online** fliken och installera den.
+* Det kan vara en projekttyp som inte stöder Devloper analysverktyg. Använd [manuell installation](#manual-installation).
 
 ### <a name="theres-no-log-adapter-option-in-the-configuration-tool"></a>Det finns inget log nätverkskort alternativ i konfigurationsverktyget
 * Installera vilket loggningsramverk först.

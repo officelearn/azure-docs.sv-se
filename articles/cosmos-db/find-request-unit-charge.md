@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 04/15/2019
 ms.author: thweiss
-ms.openlocfilehash: 73eaef1c9c8a9359ab931dbbe50496dc41a6f337
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 730f0604d0c292764aaee6e0ffb8ef95d90be5f2
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148966"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410295"
 ---
 # <a name="find-the-request-unit-charge-in-azure-cosmos-db"></a>Hitta kostnad för begäran-enhet i Azure Cosmos DB
 
@@ -199,7 +199,7 @@ Mer information finns i [ Snabbstart: Skapa en .NET-webbapp med hjälp av en Azu
 ### <a name="use-the-mongodb-java-driver"></a>Använd Mondodb Java-drivrutinen
 
 
-När du använder den [officiella Mondodb Java-drivrutinen](http://mongodb.github.io/mongo-java-driver/), du kan köra kommandon genom att anropa den `runCommand` metod på en `MongoDatabase` objekt:
+När du använder den [officiella Mondodb Java-drivrutinen](https://mongodb.github.io/mongo-java-driver/), du kan köra kommandon genom att anropa den `runCommand` metod på en `MongoDatabase` objekt:
 
 ```java
 Document stats = database.runCommand(new Document("getLastRequestStatistics", 1));

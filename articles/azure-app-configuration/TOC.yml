@@ -66,7 +66,7 @@
         - name: Konfigurationsprovider för Java Spring
           href: 'https://github.com/Microsoft/spring-cloud-azure/tree/azure-config/spring-cloud-azure-starters/spring-cloud-starter-azure-config'
         - name: Azure SDK för .NET
-          href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/src/SDKs/Azure.ApplicationModel.Configuration/data-plane'
+          href: 'https://go.microsoft.com/fwlink/?linkid=2092056'
         - name: REST
           href: 'https://go.microsoft.com/fwlink/?linkid=2078296'
     - name: Funktionshantering
@@ -74,7 +74,9 @@
         - name: .NET Core-bibliotek
           href: 'https://go.microsoft.com/fwlink/?linkid=2091700'
         - name: ASP.NET Core-bibliotek
-          href: 'https://go.microsoft.com/fwlink/?linkid=2091410'
+          href: 'https://go.microsoft.com/fwlink/?linkid=2091700'
+        - name: Biblioteket för .NET Core-filter
+          href: 'https://go.microsoft.com/fwlink/?linkid=2091601'
 - name: Resurser
   items:
     - name: Video för att komma igång

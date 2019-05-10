@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 9cbd924f87ff2f5b38f67a1bf7db34c36e9c264b
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 8ebd871c314d3ecbc0c89e6c9081926558b181fd
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65020436"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65237083"
 ---
 # <a name="text-to-speech-rest-api"></a>Text till tal REST-API
 
@@ -44,33 +44,33 @@ Den `voices/list` slutpunkt kan du få en fullständig lista över röster för 
 
 | Region | Slutpunkt |
 |--------|----------|
-| Östra Australien | https://australiaeast.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Södra Brasilien | https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Centrala Kanada | https://canadacentral.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Centrala USA | https://centralus.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Östasien | https://eastasia.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Östra USA | https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| USA, östra 2 | https://eastus2.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Frankrike, centrala | https://francecentral.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Centrala Indien | https://centralindia.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Östra Japan | https://japaneast.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Sydkorea, centrala | https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Norra centrala USA | https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Norra Europa | https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Södra centrala USA | https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Sydostasien | https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Storbritannien, södra | https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Västra Europa | https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Västra USA | https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Västra USA 2 | https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| Australien, östra | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Brasilien, södra | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Kanada, centrala | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Centrala USA | `https://centralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Asien, östra | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Östra USA | `https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| USA, östra 2 | `https://eastus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Centrala Frankrike | `https://francecentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Indien, centrala | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Japan, östra | `https://japaneast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Sydkorea, centrala | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| USA, norra centrala | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Europa, norra | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| USA, södra centrala | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Sydostasien | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Södra Storbritannien | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Europa, västra | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| USA, västra | `https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| USA, västra 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 
 ### <a name="request-headers"></a>Begärandehuvud
 
 Den här tabellen innehåller obligatoriska och valfria rubriker för text till tal-begäranden.
 
-| Huvud | Beskrivning | Obligatoriskt / valfritt |
+| Sidhuvud | Beskrivning | Obligatoriskt / valfritt |
 |--------|-------------|---------------------|
-| `Authorization` | En autentiseringstoken föregås av ordet `Bearer`. Mer information finns i [Autentisering](#authentication). | Krävs |
+| `Authorization` | En autentiseringstoken föregås av ordet `Bearer`. Mer information finns i [Autentisering](#authentication). | Obligatoriskt |
 
 ### <a name="request-body"></a>Begärandetext
 
@@ -159,12 +159,12 @@ Dessa regioner har stöd för text till tal med hjälp av REST-API. Kontrollera 
 
 Den här tabellen innehåller obligatoriska och valfria rubriker för text till tal-begäranden.
 
-| Huvud | Beskrivning | Obligatoriskt / valfritt |
+| Sidhuvud | Beskrivning | Obligatoriskt / valfritt |
 |--------|-------------|---------------------|
-| `Authorization` | En autentiseringstoken föregås av ordet `Bearer`. Mer information finns i [Autentisering](#authentication). | Krävs |
+| `Authorization` | En autentiseringstoken föregås av ordet `Bearer`. Mer information finns i [Autentisering](#authentication). | Obligatoriskt |
 | `Content-Type` | Anger innehållstypen för den angivna texten. Godkänt värde: `application/ssml+xml`. | Krävs |
 | `X-Microsoft-OutputFormat` | Anger formatet för ljuduppspelning. En fullständig lista över godkända värden, se [ljud utdata](#audio-outputs). | Krävs |
-| `User-Agent` | Programnamnet. Det angivna värdet måste vara mindre än 255 tecken. | Krävs |
+| `User-Agent` | Programnamnet. Det angivna värdet måste vara mindre än 255 tecken. | Obligatoriskt |
 
 ### <a name="audio-outputs"></a>Ljud utdata
 

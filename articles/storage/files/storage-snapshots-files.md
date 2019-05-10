@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/17/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7305c6a5047bd09f6c9bda018748643ff81fe893
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d83cf20c856d37d337f4eb22c30ee9b6823d096b
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708095"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235808"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Översikt över resursögonblicksbilder för Azure Files 
 Azure Files ger möjlighet att ta ögonblicksbilder av filresurser. Dela ögonblicksbilder in tillstånd för filresurs i det här läget i tid. I den här artikeln beskrivs vilka funktioner som ger resursögonblicksbilder och hur du kan dra nytta av dem i dina anpassade användningsfall.
@@ -29,7 +29,7 @@ Anta att du arbetar med en textfil i en filresurs. När filen har stängts kan d
 ### <a name="general-backup-purposes"></a>Allmän säkerhetskopiering
 När du har skapat en filresurs kan du skapa en ögonblicksbild för filresursen för att använda den för säkerhetskopiering av data med jämna mellanrum. En resurs som ögonblicksbild, när de tas med jämna mellanrum, hjälper till att upprätthålla tidigare versioner av data som kan användas för framtida granskningskrav eller katastrofåterställning.
 
-## <a name="capabilities"></a>Funktioner
+## <a name="capabilities"></a>FUNKTIONER
 En ögonblicksbild är en point-in-time, skrivskyddad kopia av dina data. Du kan skapa, ta bort och hantera ögonblicksbilder med hjälp av REST-API. Samma funktioner är också tillgängliga i-klientbiblioteket, Azure CLI och Azure-portalen. 
 
 Du kan visa ögonblicksbilder av en resurs med hjälp av REST API och ett SMB. Du kan hämta listan över versioner av katalogen eller filen och du kan montera en specifik version direkt som en enhet (endast tillgängligt på Windows - Se [gränser](#limits)). 
@@ -40,7 +40,7 @@ Kapaciteten för ögonblicksbild av filresurs finns i filresursen. Hämtning til
 
 En ögonblicksbild av en filresurs är identiskt med dess grundläggande filresurs. Den enda skillnaden är att en **DateTime** värde läggs till resurs-URI för att ange den tid då resursen ögonblicksbilden togs. Till exempel om en filresurs för URI: N är http://storagesample.core.file.windows.net/myshare, URI: N är liknar ögonblicksbilden för resursen:
 ```
-http://storagesample.file.core.windows.net/myshare?snapshot=2011-03-09T01:42:34.9360000Z
+http://storagesample.core.file.windows.net/myshare?snapshot=2011-03-09T01:42:34.9360000Z
 ```
 
 Ögonblicksbilder av filresurser kvar tills de uttryckligen tas bort. En ögonblicksbild av en resurs kan inte sträcker sig längre än dess grundläggande filresurs. Du kan räkna upp ögonblicksbilder som är associerade med grundläggande filresursen för att spåra din aktuella ögonblicksbilder. 

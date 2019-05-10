@@ -16,16 +16,16 @@ ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 24914cc3ff673d04e8c181082e13c087aeabe709
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 604a47ef73d50a2d127d1569b0b6a240a7a27d73
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60482053"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506830"
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Översikt över virtuella Windows-datorer i Azure
 
-Virtuella Azure-datorer (Virtual Machines, VM) är en av flera typer av [behovsbaserade och skalbara datorresurser](../../app-service/overview-compare.md) som Azure erbjuder. Normalt använder du en virtuell dator om du behöver mer kontroll över datormiljön än vad de andra alternativen erbjuder. Den här artikeln innehåller information om vad du bör tänka på innan du skapar en virtuell dator, hur du skapar den och hur du hanterar den.
+Virtuella Azure-datorer (Virtual Machines, VM) är en av flera typer av [behovsbaserade och skalbara datorresurser](/azure/architecture/guide/technology-choices/compute-decision-tree) som Azure erbjuder. Normalt använder du en virtuell dator om du behöver mer kontroll över datormiljön än vad de andra alternativen erbjuder. Den här artikeln innehåller information om vad du bör tänka på innan du skapar en virtuell dator, hur du skapar den och hur du hanterar den.
 
 En virtuell dator i Azure ger dig virtualiseringsflexibilitet utan att du behöver köpa och underhålla den fysiska maskinvara som den virtuella datorn körs på. Du behöver dock fortfarande underhålla den virtuella datorn genom att utföra uppgifter, som att konfigurera, korrigera och underhålla programvaran som körs på den virtuella datorn.
 
@@ -48,12 +48,12 @@ Det finns alltid en rad [överväganden vid utformning](/azure/architecture/refe
 * Konfigurationen av den virtuella datorn när den startats
 * Relaterade resurser som krävs för den virtuella datorn
 
-### <a name="naming"></a>Namngivning
+### <a name="naming"></a>Namnge
 En virtuell dator har ett tilldelat [namn](/azure/architecture/best-practices/naming-conventions) och ett datornamn som konfigurerats som en del av operativsystemet. En virtuell dators namn kan bestå av upp till 15 tecken.
 
 Om du använder Azure för att skapa operativsystemsdisken är datornamnet och namnet på den virtuella datorn detsamma. Om du [laddar upp och använder en egen avbildning](upload-generalized-managed.md) som innehåller ett tidigare konfigurerat operativsystem, och du använder den för att skapa en virtuell dator, kan namnen bli olika. Vi rekommenderar att du ger datorn samma namn i operativsystemet som i den virtuella datorn när du laddar upp en egen avbildningsfil.
 
-### <a name="locations"></a>Platser
+### <a name="locations"></a>Sökvägar
 Alla resurser som skapats i Azure fördelas på flera [geografiska områden](https://azure.microsoft.com/regions/) runtom i världen. Vanligtvis kallas regionen **plats** när du skapar en virtuell dator. För en virtuell dator anger platsen var de virtuella hårddiskarna lagras.
 
 I den här tabellen finns några exempel på hur du kan hämta en lista över tillgängliga platser.
@@ -62,7 +62,7 @@ I den här tabellen finns några exempel på hur du kan hämta en lista över ti
 | --- | --- |
 | Azure Portal |Välj en plats i listan när du skapar en virtuell dator. |
 | Azure PowerShell |Använd kommandot [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation). |
-| REST-API |Använd åtgärden [List locations](https://docs.microsoft.com/rest/api/resources/subscriptions) (Listplatser). |
+| REST API |Använd åtgärden [List locations](https://docs.microsoft.com/rest/api/resources/subscriptions) (Listplatser). |
 | Azure CLI |Använd åtgärden [az account list-locations](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest). |
 
 ### <a name="vm-size"></a>Storlek på virtuell dator
@@ -84,7 +84,7 @@ I den här tabellen hittar du några olika sätt för att hitta informationen om
 | --- | --- |
 | Azure Portal |Värdena anges automatiskt åt dig när du väljer en avbildning som du vill använda. |
 | Azure PowerShell |[Get-AzVMImagePublisher](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagepublisher) -Location *location*<BR>[Get-AzVMImageOffer](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimageoffer) -Location *location* -Publisher *publisherName*<BR>[Get-AzVMImageSku](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagesku) -Location *location* -Publisher *publisherName* -Offer *offerName* |
-| REST API:er |[Lista över avbildningsutgivare](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<BR>[Lista över avbildningserbjudanden](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<BR>[Lista över avbildnings-SKU:er](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) |
+| REST-API:er |[Lista över avbildningsutgivare](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<BR>[Lista över avbildningserbjudanden](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<BR>[Lista över avbildnings-SKU:er](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) |
 | Azure CLI |[az vm image list-publishers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest) --location *location*<BR>[az vm image list-offers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest) --location *location* --publisher *publisherName*<BR>[az vm image list-skus](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest) --location *location* --publisher *publisherName* --offer *offerName*|
 
 Du kan välja att [ladda upp och använda en egen avbildning](upload-generalized-managed.md#upload-the-vhd-to-your-storage-account). Om du gör det används inte utgivarnamn, erbjudande och sku.
@@ -121,7 +121,7 @@ Den här tabellen innehåller information som hjälper dig att komma igång med 
 | Mallar |[Skapa en virtuell Windows-dator med en Resource Manager-mall](ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | Azure PowerShell |[Skapa en virtuell Windows-dator med PowerShell](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | Klient-SDK: er |[Distribuera Azure-resurser med C#](csharp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
-| REST API:er |[Skapa eller uppdatera en virtuell dator](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-create-or-update) |
+| REST-API:er |[Skapa eller uppdatera en virtuell dator](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-create-or-update) |
 | Azure CLI |[Skapa en VM med Azure CLI](https://docs.microsoft.com/azure/virtual-machines/scripts/virtual-machines-windows-cli-sample-create-vm) |
 
 Man hoppas att det aldrig händer, men ibland går något fel. Om det händer kan du läsa informationen i [Felsöka distributionsproblem i Resource Manager när du skapar en virtuell Windows-dator i Azure](../troubleshooting/troubleshoot-deployment-new-vm-windows.md).
@@ -136,7 +136,7 @@ I den här tabellen visar vi några exempel på hur du kan få information om en
 | --- | --- |
 | Azure Portal |På hubbmenyn klickar du på **Virtuella datorer** och sedan väljer du den virtuella datorn från listan. På bladet för den virtuella datorn har du åtkomst till översikter med information, inställning av värden och övervakning av mått. |
 | Azure PowerShell |Information om hur du använder PowerShell för att hantera virtuella datorer finns i [Skapa och hantera virtuella Windows-datorer med Azure PowerShell-modulen](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). |
-| REST-API |Använd åtgärden [Get VM information](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-get) (Hämta information om virtuell dator) för att få information om en virtuell dator. |
+| REST API |Använd åtgärden [Get VM information](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-get) (Hämta information om virtuell dator) för att få information om en virtuell dator. |
 | Klient-SDK: er |Information om hur du använder C# för att hantera virtuella datorer finns i [Hantera Azure Virtual Machines med hjälp av Azure Resource Manager och C#](csharp-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). |
 | Azure CLI |Information om hur du använder Azure CLI till att hantera virtuella datorer finns i [Azure CLI-referensen](https://docs.microsoft.com/cli/azure/vm). |
 

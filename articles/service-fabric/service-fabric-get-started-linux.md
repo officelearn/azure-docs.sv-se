@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 49d06c05af085624a0d495a65e139d3857a13fc4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a063461d9da66d57a7bdc3311ae80dec7f2c98f1
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64712616"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65470235"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Förbereda utvecklingsmiljön i Linux
 > [!div class="op_single_selector"]
@@ -334,7 +334,6 @@ Kör följande kommandon om du vill ta bort Service Fabric SDK:erna.
 * [Förbereda en Linux-utvecklingsmiljö i Windows](service-fabric-local-linux-cluster-windows.md)
 * [Hantera program med hjälp av Service Fabric CLI](service-fabric-application-lifecycle-sfctl.md)
 * [Skillnader mellan Service Fabric i Windows och Linux](service-fabric-linux-windows-differences.md)
-* [Automatisera uppdatering av operativsystemet i Linux-klustret](service-fabric-patch-orchestration-application-linux.md)
 * [Kom igång med Service Fabric CLI](service-fabric-cli.md)
 
 <!-- Links -->

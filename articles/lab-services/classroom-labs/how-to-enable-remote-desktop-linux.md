@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: spelluru
-ms.openlocfilehash: 6985bd0bbae858ad258e723ef4d6d6d687b2c86e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9ad6f82d7b9bd7c4957df1dd37d0f2ddf7462e9e
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60695497"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410951"
 ---
 # <a name="enable-and-use-remote-desktop-for-linux-virtual-machines-in-a-lab-in-azure-lab-services"></a>Aktivera och använda Fjärrskrivbord för Linux-datorer i ett labb i Azure Lab Services
 Den här artikeln visar hur du gör följande:
@@ -64,7 +64,7 @@ Labbägare (lärare) kan ansluta till en student VM genom att växla till den **
 ## <a name="students-connecting-to-the-student-vm"></a>Studenter som ansluter till student VM
 Student kan RDP i sina virtuella Linux-datorer efter labbägare (lärare) **publicerar** mallen virtuell dator med RDP och GUI-paket som har installerats på datorn. Här är stegen: 
 
-1. När en student loggar in på portalen Labs direkt (`http://labs.azure.com`) eller genom att använda en registreringslänk (`http://labs.azure.com/register/<registrationCode>`), en panel för varje labb elevens har åtkomst till visas. 
+1. När en student loggar in på portalen Labs direkt (`https://labs.azure.com`) eller genom att använda en registreringslänk (`https://labs.azure.com/register/<registrationCode>`), en panel för varje labb elevens har åtkomst till visas. 
 2. På panelen, väljer **starta** om den virtuella datorn stoppas. 
 3. Välj **Anslut**. Den här åtgärden hämtar RDP-filen på din dator. Spara den och öppna för att ansluta till Linux-datorn via RDP. 
 

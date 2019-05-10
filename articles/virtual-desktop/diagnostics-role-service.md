@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 6b79a26d63c02dd06b62ea6ad09941f947704dc0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 747e177b0fbbfb9049959c3194ee39c3234bba50
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60870497"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65234027"
 ---
 # <a name="identify-issues-with-the-diagnostics-feature"></a>Identifiera problem med diagnostikfunktionen
 
@@ -118,7 +118,7 @@ Den **-resultatet** parametern kan också kombineras med andra valfria parametra
 
 Fel vid scenarier kategoriseras i interna till tjänsten och externa till virtuella Windows-skrivbordet.
 
-* Internt fel: Anger scenarier som inte kan hanteras av klientadministratören och måste lösas som supportärende. När höja en biljett Ange aktivitets-ID, klientnamn och ungefärliga tidsramen problemet uppstod.
+* Internt fel: Anger scenarier som inte kan hanteras av klientadministratören och måste lösas som ett supportärende. När du lämnar feedback via den [Windows Desktop Tech-Community virtuella](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop), inkludera aktivitets-ID och göra en uppskattning av tidsram på när problemet uppstod.
 * Externa problem: avse scenarier som kan undvikas av systemadministratören. Det här är externa för virtuella Windows-skrivbordet.
 
 I följande tabell listas vanliga fel som dina administratörer stöta på.

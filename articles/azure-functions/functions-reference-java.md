@@ -11,12 +11,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: routlaw
-ms.openlocfilehash: cc598afbbdf7f3a1b12089b50ba747c5220ba1fa
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: ce7eb546c342ffd20557a95d5293d83b39ec3afb
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922935"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507186"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Utvecklarguide för Azure Functions Java
 
@@ -113,6 +113,37 @@ Ladda ned och använda den [Azul Zulu Enterprise för Azure](https://assets.azul
 
 [Azure-supporten](https://azure.microsoft.com/support/) för problem med JDKs och funktionen appar är tillgängliga med en [kvalificerade supportavtal](https://azure.microsoft.com/support/plans/).
 
+## <a name="customize-jvm"></a>Anpassa JVM
+
+Functions kan du anpassa Java virtual machine (JVM) används för att köra Java-funktioner. Den [följande JVM-alternativ](https://github.com/Azure/azure-functions-java-worker/blob/master/worker.config.json#L7) används som standard:
+
+* `-XX:+TieredCompilation`
+* `-XX:TieredStopAtLevel=1`
+* `-noverify` 
+* `-Djava.net.preferIPv4Stack=true`
+* `-jar`
+
+Du kan ange ytterligare argument i en app som inställning med namnet `JAVA_OPTS`. Du kan lägga till app-inställningar till din funktionsapp som distribueras till Azure på ett av följande sätt:
+
+### <a name="azure-portal"></a>Azure Portal
+
+I den [Azure-portalen](https://portal.azure.com), använda den [programinställningar fliken](functions-how-to-use-azure-function-app-settings.md#settings) att lägga till den `JAVA_OPTS` inställningen.
+
+### <a name="azure-cli"></a>Azure CLI
+
+Den [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings) kommando kan användas för att ställa in `JAVA_OPTS`, som i följande exempel:
+
+    ```azurecli-interactive
+    az functionapp config appsettings set --name <APP_NAME> \
+    --resource-group <RESOURCE_GROUP> \
+    --settings "JAVA_OPTS=-Djava.awt.headless=true"
+    ```
+Det här exemplet aktiverar fjärradministrerad läge. Ersätt `<APP_NAME>` med namnet på funktionsappen och `<RESOURCE_GROUP> ` med resursgruppen.
+
+> [!WARNING]  
+> När du kör i en [förbrukningsplan](functions-scale.md#consumption-plan), måste du lägga till den `WEBSITE_USE_PLACEHOLDER` inställning med värdet `0`.  
+Den här inställningen ökar kallstart tiderna för Java-funktioner.
+
 ## <a name="third-party-libraries"></a>Bibliotek från tredje part 
 
 Azure Functions har stöd för användning av bibliotek från tredje part. Som standard alla beroenden som anges i ditt projekt `pom.xml` filen automatiskt ska ligga under den [ `mvn package` ](https://github.com/Microsoft/azure-maven-plugins/blob/master/azure-functions-maven-plugin/README.md#azure-functionspackage) mål. För bibliotek som inte har angetts som beroenden i den `pom.xml` filen, placera dem i en `lib` katalogen i funktionens rotkatalog. Beroendena placeras i den `lib` directory kommer att läggas till klassinläsare system vid körning.
@@ -189,7 +220,7 @@ Den här funktionen anropas med en HTTP-begäran.
 - Nyttolasten för HTTP-begäran skickas som en `String` för argumentet `inputReq`
 - En post som hämtas från Azure Table Storage och skickas som `TestInputData` till argumentet `inputData`.
 
-För att få en batch med indata, kan du binda till `String[]`, `POJO[]`, `List<String>` eller `List<POJO>`.
+För att få en batch med indata, kan du binda till `String[]`, `POJO[]`, `List<String>`, eller `List<POJO>`.
 
 ```java
 @FunctionName("ProcessIotMessages")
@@ -263,7 +294,7 @@ Använda för att skicka flera utdatavärden, `OutputBinding<T>` definieras i de
     }
 ```
 
-Ovan funktionen anropas på en HttpRequest och skriver flera värden till Azure-kö
+Den här funktionen anropas på en HttpRequest och skriver flera värden till Azure-kö.
 
 ## <a name="httprequestmessage-and-httpresponsemessage"></a>HttpRequestMessage och HttpResponseMessage
 
@@ -363,7 +394,7 @@ Den [az webapp log tail](/cli/azure/webapp/log) kommandot har alternativ för at
 az webapp log download --resource-group resourcegroupname --name functionappname
 ```
 
-Du måste ha aktiverat filsystemet loggning i Azure Portal eller Azure CLI innan du kör det här kommandot.
+Du måste ha aktiverat filsystemet loggning i Azure portal eller Azure CLI innan du kör det här kommandot.
 
 ## <a name="environment-variables"></a>Miljövariabler
 

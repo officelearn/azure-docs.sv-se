@@ -5,12 +5,12 @@ ms.date: 04/30/2019
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: jeconnoc
-ms.openlocfilehash: b9b2461d888f37b7ae72a3e097d77856255d7e2e
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: e1b3b5fe603072069cb3a19c7597fcc1872fefd7
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65160012"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65416369"
 ---
 Avbildningar av standardiserad virtuella datorer (VM) gör att organisationer kan migrera till molnet och säkerställa konsekvens i distributionen. -Avbildningar omfattar vanligtvis fördefinierade inställningar för säkerhet och konfiguration och programvara som krävs. Konfigurera en egen avbildning pipeline kräver tid, infrastruktur och konfiguration, men med Azure VM Image Builder innehåller bara en enkel konfiguration som beskriver din avbildning, skickar den till tjänsten och avbildningen har skapats och distribuerats.
  
@@ -37,9 +37,9 @@ För förhandsversionen av stöds dessa funktioner:
 Azure Image Builder Service blir tillgänglig som förhandsversion i dessa regioner. Bilder kan fördelas utanför dessa regioner.
 - Östra USA
 - USA, östra 2
-- Västra centrala USA
-- Västra USA
-- Västra USA 2
+- USA, västra centrala 
+- USA, västra
+- USA, västra 2
 
 ## <a name="os-support"></a>OS-support
 AIB har stöd för Azure Marketplace grundläggande OS-avbildningar:
@@ -95,7 +95,7 @@ Under skapandeprocessen bild filer laddas ned och lagras i den `IT_<DestinationR
  
 Image Builder skapar en virtuell dator med hjälp av en D1v2 VM-storlek och lagring och nätverk behövs för den virtuella datorn. De här resurserna varar under hela skapandeprocessen och kommer att tas bort när Image Builder har slutförts avbildningen skapas. 
  
-Azure Image Builder ska distribuera avbildningen till din valda regioner, vilket vilket kan innebära avgifter för utgående trafik via nätverket.
+Azure Image Builder ska distribuera avbildningen till din valda regioner, vilket kan innebära avgifter för utgående trafik via nätverket.
  
 ## <a name="next-steps"></a>Nästa steg 
  

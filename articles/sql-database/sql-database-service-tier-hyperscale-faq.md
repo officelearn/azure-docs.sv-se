@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/17/2018
-ms.openlocfilehash: 55b18051f2376a59fa79b11cccc9e71cad5debbc
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: HT
+ms.date: 05/06/2019
+ms.openlocfilehash: 4f0691dcc8a0c4b0ebbfe26a49b75b86fa50f597
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65067811"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236011"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Vanliga frågor och svar om Azure SQL hyperskala databaser
 
@@ -44,7 +44,7 @@ Tjänsten vCore-baserade nivåer är främst differentierade baserat på tillgä
 - Tjänstnivån hyperskala är optimerat för mycket stora arbetsbelastningar.
 - Affärskritisk tjänstnivån är lämpligt för arbetsbelastningar där i/o-svarstiden är en prioritet.
 
-| | Resurstyp | Generellt syfte |  Hyperskala | Affärskritisk |
+| | Resurstyp | Allmän |  Storskalig | Verksamhetskritisk |
 |:---|:---:|:---:|:---:|:---:|:---:|
 | **Bäst för** |Alla|  De flesta företags arbetsbelastningar. Erbjudanden budgetera objektorienterad belastningsutjämnade beräknings- och lagringsalternativ. | Dataprogram med kapacitetskrav för stora mängder data och möjligheten att automatiskt skala lagringsutrymme och skala databearbetningen smidigt sätt. | OLTP-program med höga transaktionsintervall och lägsta svarstid i/o. Erbjuder högsta återhämtning för fel som använder flera isolerade repliker.|
 |  **Resurstyp** ||Enkel databas / elastisk pool / hanterad instans | Enskild databas | Enkel databas / elastisk pool / hanterad instans |
@@ -73,11 +73,7 @@ Tjänstnivån hyperskala är främst avsett för kunder som har stora lokala SQL
 
 ### <a name="what-regions-currently-support-hyperscale"></a>Vilka regioner stöder för närvarande hyperskala
 
-Azure SQL Database hyperskala-nivån är nu tillgänglig i följande regioner:
-
-Australien, östra, Australien, sydöstra Australien, södra Brasilien, Kanada, centrala Kanada, centrala USA, östra Asien, östra USA, östra USA 2, östra för Frankrike centrala, Japan, västra Japan, norra centrala USA, Norra Europa, Sydafrika Nord, södra centrala USA, Sydostasien, Storbritannien, södra Storbritannien, västra Europa, västra , USA, västra, USA, västra 2
-
-Se [översikt över Azure SQL Database hyperskala](sql-database-service-tier-hyperscale-faq.md) för proceduren om du behöver tillgång i en annan region.
+Azure SQL Database hyperskala-nivån är nu tillgänglig i de regioner som anges [översikt över Azure SQL Database hyperskala](sql-database-service-tier-hyperscale.md#regions).
 
 ### <a name="can-i-create-multiple-hyperscale-databases-per-logical-server"></a>Jag kan skapa flera hyperskala databaser per logisk server
 

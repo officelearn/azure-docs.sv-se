@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f259d8438b7500d5d007bbb972f859e187ccd08a
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 9f1e9a48b114d328e0405a2f03764df4ce29b166
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65081033"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407064"
 ---
 # <a name="token-cache-serialization-in-msalnet"></a>Token-cache-serialisering i MSAL.NET
 När du har en [token förvärvas](msal-acquire-cache-tokens.md), cachelagras av Microsoft Authentication Library (MSAL).  Programkod bör försöka att hämta en token från cacheminnet innan du hämtar en token med en annan metod.  Den här artikeln beskrivs standard och anpassade serialisering av token i MSAL.NET cacheminnet.
@@ -290,5 +290,5 @@ Följande exempel illustrerar tokencache serialisering.
 
 | Exempel | Plattform | Beskrivning|
 | ------ | -------- | ----------- |
-|[active-directory-dotnet-desktop-msgraph-v2](http://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | Desktop (WPF) | Windows Desktop .NET (WPF) program anropa Microsoft Graph API. ![Topologi](media/msal-net-token-cache-serialization/topology.png)|
+|[active-directory-dotnet-desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | Desktop (WPF) | Windows Desktop .NET (WPF) program anropa Microsoft Graph API. ![Topologi](media/msal-net-token-cache-serialization/topology.png)|
 |[active-directory-dotnet-v1-to-v2](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2) | Fjärrskrivbord (konsol) | Visual Studio-lösningar som illustrerar migreringen av Azure AD v1.0-program (med ADAL.NET) till Azure AD v2.0-program som också kallas konvergerade program (med hjälp av MSAL.NET), i synnerhet [Token Cache-migrering](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2/blob/master/TokenCacheMigration/README.md)|

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martincoetzer
-ms.openlocfilehash: 92546e6aabdf43c2f9cb0339fb21dd2dfc641d44
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8e9101a1e23d361e66c5c30969069cbd4b971590
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60587871"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236762"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Fem steg för att skydda din infrastruktur för Identitetshantering
 
@@ -59,12 +59,12 @@ Angivna frekvensen för att gissa lösenord phished, blir stulen med skadlig kod
 
 Många organisationer använder traditionella komplexiteten (kräver särskilda tecken, siffror, versaler och gemener) och regler för lösenord upphör att gälla. [Microsofts research](https://aka.ms/passwordguidance) har visat dessa principer orsaka att välja lösenord som är lättare att gissa.
 
-Azure Active Directorys [dynamisk förbjudna lösenord](https://docs.microsoft.com/azure/active-directory/active-directory-secure-passwords) funktionen använder den aktuella angripare beteendet för att hindra användare från att ange lösenord som enkelt kan gissas. Den här funktionen är alltid aktiverat när användare skapas i molnet, men det finns nu även för hybridorganisationer när de distribuerar [Azure AD-lösenordsskydd för Windows Server Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises). Azure AD-lösenordsskydd blockerar användare från att välja dessa vanliga lösenord och kan utökas för att blockera lösenord med anpassade nyckelord som du anger. Exempelvis kan du förhindra att användarna väljer lösenord som innehåller ditt företags produktnamn eller en lokal sport-teamet.
+Azure Active Directorys [dynamisk förbjudna lösenord](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad) funktionen använder den aktuella angripare beteendet för att hindra användare från att ange lösenord som enkelt kan gissas. Den här funktionen är alltid aktiverat när användare skapas i molnet, men det finns nu även för hybridorganisationer när de distribuerar [Azure AD-lösenordsskydd för Windows Server Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises). Azure AD-lösenordsskydd blockerar användare från att välja dessa vanliga lösenord och kan utökas för att blockera lösenord med anpassade nyckelord som du anger. Exempelvis kan du förhindra att användarna väljer lösenord som innehåller ditt företags produktnamn eller en lokal sport-teamet.
 
 Microsoft rekommenderar att du använder följande moderna lösenordsprincipen utifrån [NIST: S vägledning](https://pages.nist.gov/800-63-3/sp800-63b.html):
 
 1. Kräv lösenord har minst 8 tecken. Längre är inte nödvändigtvis bättre, eftersom de orsakar användare att välja förutsägbara lösenord, spara lösenord i filer eller Skriv ned dem.
-2. Inaktivera upphör att gälla regler som få användarna att enkelt att gissa lösenord som **Summer2018!**
+2. Inaktivera upphör att gälla regler som få användarna att enkelt att gissa lösenord som **Spring2019!**
 3. Inaktivera tecken sammansättning krav och hindra användare från att välja ofta angripna lösenord, eftersom de orsakar användare att välja ersättningar för förutsägbar tecken i lösenord.
 
 Du kan använda [PowerShell för att förhindra att lösenord upphör att gälla](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-policy) för användare om du skapar identiteter i Azure AD direkt. Hybridorganisationer bör implementera dessa principer med hjälp av [domän grupprincipinställningar](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/hh994572(v%3dws.10)) eller [Windows PowerShell](https://docs.microsoft.com/powershell/module/addsadministration/set-addefaultdomainpasswordpolicy).
@@ -166,7 +166,7 @@ Azure AD Identity Protection ger två viktiga rapporter bör du övervaka varje 
 
 ### <a name="audit-apps-and-consented-permissions"></a>Granska appar och godkända behörigheter
 
-Användare kan vara att navigera till en komprometterad webbplats eller appar som får tillgång till deras profil och data, till exempel sin e-post. En skadlig aktören kan använda de godkända behörigheter togs emot för att kryptera innehållet postlåda och kräver en ransom för att få dina data för postlådan. [Administratörer bör granska och granska](https://blogs.technet.microsoft.com/office365security/defending-against-illicit-consent-grants/) de behörigheter som anges av användare.
+Användare kan vara att navigera till en komprometterad webbplats eller appar som får tillgång till deras profil och data, till exempel sin e-post. En skadlig aktören kan använda de godkända behörigheter togs emot för att kryptera innehållet postlåda och kräver en ransom för att få dina data för postlådan. [Administratörer bör granska och granska](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) de behörigheter som anges av användare.
 
 ## <a name="step-5---enable-end-user-self-help"></a>Steg 5: aktivera slutanvändarens självhjälp
 

@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/17/2019
+ms.date: 05/07/2019
 ms.author: juliako
-ms.openlocfilehash: 4f8851248c395a1f03c46490c8eb5e71221dd133
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7b2691f543cf38a56eefb1e8521169aeccbf3221
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60733308"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409289"
 ---
 # <a name="clouds-and-regions-in-which-azure-media-services-v3-exists"></a>Moln och regioner där Azure Media Services v3 finns
 
@@ -26,19 +26,16 @@ Azure Media Services v3 är tillgängligt via Azure Resource Manager-manifestet 
 
 | Funktion|Global Azure Regions | Azure Government|Azure Tyskland|Azure Kina 21Vianet|
 | --- | --- | --- | --- | --- |
-| [Azure EventGrid](reacting-to-media-services-events.md) | Tillgängligt | Inte tillgängligt | Inte tillgängligt | Inte tillgängligt |
-| [VideoAnalyzerPreset](analyzing-video-audio-files-concept.md) |  Tillgängligt | Inte tillgängligt | Inte tillgängligt | Inte tillgängligt |
-| [AudioAnalyzerPreset](analyzing-video-audio-files-concept.md) |  Tillgängligt | Inte tillgängligt | Inte tillgängligt | Inte tillgängligt |
-| [StandardEncoderPreset](encoding-concept.md) | Tillgängligt | Tillgängligt | Tillgängligt | Tillgängligt |
-| [LiveEvents](live-streaming-overview.md) | Tillgängligt | Tillgängligt | Tillgängligt | Tillgängligt |
-| [Strömningsslutpunkter](streaming-endpoint-concept.md) | Tillgängligt | Tillgängligt | Tillgängligt | Tillgängligt |
+| [Azure EventGrid](reacting-to-media-services-events.md) | Tillgänglig | Saknas | Saknas | Saknas |
+| [VideoAnalyzerPreset](analyzing-video-audio-files-concept.md) |  Tillgänglig | Saknas | Saknas | Saknas |
+| [AudioAnalyzerPreset](analyzing-video-audio-files-concept.md) |  Tillgänglig | Saknas | Saknas | Saknas |
+| [StandardEncoderPreset](encoding-concept.md) | Tillgänglig | Tillgänglig | Tillgänglig | Tillgänglig |
+| [LiveEvents](live-streaming-overview.md) | Tillgänglig | Tillgänglig | Tillgänglig | Tillgänglig |
+| [Strömningsslutpunkter](streaming-endpoint-concept.md) | Tillgänglig | Tillgänglig | Tillgänglig | Tillgänglig |
 
 ## <a name="regionsgeographieslocations"></a>Regioner-geografiska områden-platser
 
-* [Azure-regioner](https://azure.microsoft.com/global-infrastructure/regions/)
-* [Produkten efter region](https://azure.microsoft.com/global-infrastructure/services/)
-* [Geografiska Azure-områden](https://azure.microsoft.com/global-infrastructure/geographies/)
-* [Azure-platser](https://azure.microsoft.com/global-infrastructure/locations/)
+[Regioner som Azure Media Services-tjänsten har distribuerats](https://azure.microsoft.com/global-infrastructure/services/?products=media-services)
 
 ### <a name="region-code-name"></a>Kod Regionsnamn 
 
@@ -98,6 +95,12 @@ Följande slutpunkter är viktigt att veta när du ansluter till Media Services-
 | Azure Resource Manager | `https://management.chinacloudapi.cn/` |
 | Autentisering | `https://login.chinacloudapi.cn/` |
 | Tokenmålgruppen |  `https://management.core.chinacloudapi.cn/` |
+
+## <a name="see-also"></a>Se också
+
+* [Azure-regioner](https://azure.microsoft.com/global-infrastructure/regions/)
+* [Geografiska Azure-områden](https://azure.microsoft.com/global-infrastructure/geographies/)
+* [Azure-platser](https://azure.microsoft.com/global-infrastructure/locations/)
 
 ## <a name="next-steps"></a>Nästa steg
 

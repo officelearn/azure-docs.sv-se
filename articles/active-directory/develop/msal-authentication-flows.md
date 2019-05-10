@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7db73ff8bef553b36408cfae90e32014f875bd3
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 39f323c2ac86e8d42319b3d99221f6c20beff3e4
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65191013"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406661"
 ---
 # <a name="authentication-flows"></a>Autentiseringsflöden
 
@@ -126,11 +126,11 @@ Programmet hämtar token via en tvåstegsprocess som särskilt utformats för de
 
 ![Enhetskodflöde](media/msal-authentication-flows/device-code.png)
 
-1. När autentisering av användare krävs appen innehåller en kod och uppmanar användaren att använda en annan enhet (till exempel en internet-anslutna smartphone) för att navigera till en URL (till exempel http://microsoft.com/devicelogin), där användaren uppmanas att ange koden. Att klar sidan kommer att ge användaren genom en normal autentiseringsupplevelse, inklusive medgivande och multifaktorautentisering om det behövs.
+1. När autentisering av användare krävs appen innehåller en kod och uppmanar användaren att använda en annan enhet (till exempel en internet-anslutna smartphone) för att navigera till en URL (till exempel https://microsoft.com/devicelogin), där användaren uppmanas att ange koden. Att klar sidan kommer att ge användaren genom en normal autentiseringsupplevelse, inklusive medgivande och multifaktorautentisering om det behövs.
 
 2. Efter lyckad autentisering kommandoradsappen får de nödvändiga token via en tillbaka-kanal och använda den för att utföra webb-API-anrop som behövs.
 
-### <a name="constraints"></a>Villkor
+### <a name="constraints"></a>Begränsningar
 
 - Kodflöde för enheten är bara tillgängligt på offentliga klientprogram.
 - Utfärdaren skickas när konstruera offentliga klientprogrammet måste vara:
@@ -146,7 +146,7 @@ MSAL stöder integrerad Windows autentisering (IWA) för desktop eller mobila pr
 1. Hämtar en token som använder integrerad Windows-autentisering.
 2. Använder token för att göra förfrågningar från resursen.
 
-### <a name="constraints"></a>Villkor
+### <a name="constraints"></a>Begränsningar
 
 Har stöd för IWA **federerade** endast användare.  Användare skapas i en Active Directory och backas upp av Azure Active Directory. Användare som skapas direkt i Azure AD utan AD säkerhetskopiering (**hanteras** användare) kan inte använda det här autentiseringsflödet. Den här begränsningen inte påverkar den [användarnamn/lösenord flow](#usernamepassword).
 
@@ -190,7 +190,7 @@ Det här är inte kompatibel med lösenordslös.
 - användare som behöver du MFA kommer inte kunna logga in (eftersom det finns inga åtgärder från)
 - Användare kommer inte att kunna enkel inloggning
 
-### <a name="constraints"></a>Villkor
+### <a name="constraints"></a>Begränsningar
 
 Förutom den [integrerad Windows-autentisering begränsningar](#integrated-windows-authentication), gäller även följande begränsningar:
 

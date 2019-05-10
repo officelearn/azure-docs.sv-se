@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 05/07/2019
 ms.author: juliako
-ms.openlocfilehash: 3517a9c0aabf9e8ec029405f14461626d32335a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8c786f46308848c6b9182453510744942a8eb9e8
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322744"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472421"
 ---
 # <a name="create-filters-with-media-services-net-sdk"></a>Skapa filter med Media Services .NET SDK
 
@@ -76,6 +76,40 @@ Följande kod visar hur du använder .NET för att skapa ett filter för tillgå
 AssetFilter assetFilterParams = new AssetFilter(tracks: includedTracks);
 client.AssetFilters.CreateOrUpdate(config.ResourceGroup, config.AccountName, encodedOutputAsset.Name, "assetFilterName1", assetFilterParams);
 ```
+
+## <a name="associate-filters-with-streaming-locator"></a>Associera filter med Strömningspositionerare
+
+Du kan ange en lista över tillgång eller konto filter som skulle gälla för dina Strömningspositionerare. Den [dynamisk Paketeraren (slutpunkt för direktuppspelning)](dynamic-packaging-overview.md) gäller den här listan över filter tillsammans med de som klienten anger i URL: en. Den här kombinationen genererar en [dynamiska manifest](filters-dynamic-manifest-overview.md), som grundar sig på filter i URL: en + filter som du anger på Strömningspositionerare. Vi rekommenderar att du använder den här funktionen om du vill använda filter men inte vill exponera filternamn i URL: en.
+
+Följande C# kod visar hur du skapar en positionerare för direktuppspelning och ange `StreamingLocator.Filters`. Det här är en valfri egenskap som tar en `IList<string>` namn på filter.
+
+```csharp
+IList<string> filters = new List<string>();
+filters.Add("filterName");
+
+StreamingLocator locator = await client.StreamingLocators.CreateAsync(
+    resourceGroup,
+    accountName,
+    locatorName,
+    new StreamingLocator
+    {
+        AssetName = assetName,
+        StreamingPolicyName = PredefinedStreamingPolicy.ClearStreamingOnly,
+        Filters = filters
+    });
+```
+      
+## <a name="stream-using-filters"></a>Stream med hjälp av filter
+
+När du har definierat filter kan klienterna använda dem i strömnings-URL. Filter kan tillämpas på protokoll för direktuppspelning med anpassningsbar bithastighet: Apple HTTP Live Streaming (HLS), MPEG-DASH och Smooth Streaming.
+
+I följande tabell visas några exempel på URL: er med filter:
+
+|Protokoll|Exempel|
+|---|---|
+|HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`|
+|MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
+|Smooth Streaming|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
 
 ## <a name="next-steps"></a>Nästa steg
 

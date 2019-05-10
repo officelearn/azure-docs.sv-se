@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 797d0cdb8d164955991de321d8df22e43f5c6a40
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: c3b2134fae86b988fb21e993cd01b77a90bd2896
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024328"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467066"
 ---
 # <a name="what-is-azure-search"></a>Vad är Azure Search?
 Azure Search är en molnlösning för sökning som en tjänst 0som ger utvecklare API:er och verktyg för att lägga till omfattande sökfunktioner för privat heterogent innehåll i webb-, mobil- och företagsprogram. Frågor körs över ett användardefinierat index.
@@ -44,7 +44,7 @@ Funktionerna exponeras via en enkel [REST API](/rest/api/searchservice/) eller [
 | AI&nbsp;berikande&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       | Funktioner |
 |-------------------|----------|
 |AI som berikats dokument | [**Cognitive Search** ](cognitive-search-concept-intro.md) för bild- och analys kan tillämpas på en pipeline för fulltextindexering att extrahera textinformation från rådata innehåll. Några exempel på [inbyggda kunskaper](cognitive-search-predefined-skills.md) inkluderar optisk teckenläsning (att göra skannad JPEG sökbar), entitetsigenkänning (identifierar en organisation, namn eller plats) och nyckelfrasigenkänning. Du kan också [koda anpassade kunskaper](cognitive-search-create-custom-skill-example.md) att ansluta till pipelinen. |
-| Lagrade enrichments för analys och förbrukning| [**Knowledge Store** ](knowledge-store-concept-intro.md) är en utökning av AI-baserade indexering. Med Azure storage som serverdel kan spara du enrichments som skapades under indexering. Dessa artefakter kan användas för att hjälpa dig att utforma bättre kunskaper eller skapa form och struktur ut från amorft eller är tvetydig. Du kan skapa projektioner av dessa strukturer som mål specifika arbetsbelastningar eller användare. Du kan också direkt analysera extraherade data eller läsa in dem i andra appar.<br/><br/> |
+| Lagrade enrichments för analys och förbrukning| [**Knowledge Store (förhandsversion)** ](knowledge-store-concept-intro.md) är en utökning av AI-baserade indexering. Med Azure storage som serverdel kan spara du enrichments som skapades under indexering. Dessa artefakter kan användas för att hjälpa dig att utforma bättre kunskaper eller skapa form och struktur ut från amorft eller är tvetydig. Du kan skapa projektioner av dessa strukturer som mål specifika arbetsbelastningar eller användare. Du kan också direkt analysera extraherade data eller läsa in dem i andra appar.<br/><br/> |
 
 | Data&nbsp;import/indexering | Funktioner |
 |----------------------------------|----------|
@@ -57,7 +57,7 @@ Funktionerna exponeras via en enkel [REST API](/rest/api/searchservice/) eller [
 |-------------------|----------|
 | Verktyg för prototyper och inspektion | I portalen kan du använda [**guiden Importera data**](search-import-data-portal.md) för att konfigurera indexerare, indexdesignern för att sätta upp ett index och [**Sökutforskaren**](search-explorer.md) för att testa frågor och förfina bedömningsprofiler. Du kan också öppna ett index om du vill visa dess schema. |
 | Övervakning och diagnostik | [**Aktivera övervakningsfunktioner** ](search-monitor-usage.md) du gå bortom de mått-med ett ögonkast som alltid är synliga i portalen. Mått för frågor per sekund, svarstid och begränsning fångas in och rapporteras på portalsidor utan att ytterligare konfiguration krävs. <br/><br/>[**Söktrafikanalys** ](search-traffic-analytics.md) är ett annat alternativ för övervakning, där serversidan och klientsidan data samlas in och analyseras för att låsa upp insikter om vad användare skriver i sökrutan. |
-| Kryptering på serversidan | [**Microsoft-hanterade kryptering vid vila** ](search-security-overview.md#encrypted-transmission-and-storage) har skapats i det interna lagringsskiktet och är oåterkalleligt. Du kan också komplettera standard-kryptering med [ **kundhanterad krypteringsnycklar**](search-security-manage-encryption-keys.md). Nycklar som du skapar och hanterar i Azure Key Vault används för att kryptera index och synonymen mappar i Azure Search. |
+| Kryptering på serversidan | [**Microsoft-hanterade kryptering vid vila** ](search-security-overview.md#encrypted-transmission-and-storage) har skapats i det interna lagringsskiktet och är oåterkalleligt. Du kan också komplettera standard-kryptering med [ **kundhanterad krypteringsnycklar (förhandsversion)**](search-security-manage-encryption-keys.md). Nycklar som du skapar och hanterar i Azure Key Vault används för att kryptera index och synonymen mappar i Azure Search. |
 | Infrastruktur | **Plattformen med hög tillgänglighet** ger en mycket tillförlitlig söktjänst. När det skalas korrekt [erbjuder Azure Search ett serviceavtal på 99,9 %](https://azure.microsoft.com/support/legal/sla/search/v1_0/).<br/><br/> Azure Search är **fullständigt hanterat och skalbart** som en komplett lösning, och kräver ingen som helst infrastrukturhantering. Tjänsten kan skräddarsys efter dina behov genom att skala i två dimensioner för att hantera mer dokumentlagring, högre frågebelastningar eller båda.<br/><br/>|
 
 ## <a name="how-to-use-azure-search"></a>Använda Azure Search

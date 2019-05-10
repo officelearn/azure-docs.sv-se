@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2018
 ms.author: aljo
-ms.openlocfilehash: 3ddda89b19a04bdcd45f392f297ee5e930833538
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8fa461d8c3a70d4b0d2d9973a840ffc7d1ff6470
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60711611"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472772"
 ---
 # <a name="upgrading-and-updating-an-azure-service-fabric-cluster"></a>Uppgradera och uppdaterar ett Azure Service Fabric-kluster
 
@@ -99,7 +99,7 @@ Du kan ange anpassade hälsoprinciper eller granska de aktuella inställningarna
 Många olika konfigurationsinställningar kan anpassas i ett kluster, till exempel tillförlitlighetsnivån för egenskaperna kluster och nod. Mer information finns i [infrastrukturinställningarna för Service Fabric-kluster](service-fabric-cluster-fabric-settings.md).
 
 ## <a name="patch-the-os-in-the-cluster-nodes"></a>Uppdatera Operativsystemet på klusternoderna
-Patch orchestration application (POA) är ett Service Fabric-program som automatiserar operativsystemet uppdatering i Service Fabric-kluster utan avbrott. Den [Patch Orchestration Application för Windows](service-fabric-patch-orchestration-application.md) eller [Patch Orchestration-program för Linux](service-fabric-patch-orchestration-application-linux.md) kan distribueras på klustret för att installera uppdateringar på ett dirigerat sätt samtidigt som tjänsterna tillgänglig hela tiden. 
+Patch orchestration application (POA) är ett Service Fabric-program som automatiserar operativsystemet uppdatering i Service Fabric-kluster utan avbrott. Den [Patch Orchestration Application för Windows](service-fabric-patch-orchestration-application.md) kan distribueras på klustret för att installera uppdateringar på ett dirigerat sätt samtidigt som tjänsterna som är tillgänglig hela tiden.
 
 
 ## <a name="next-steps"></a>Nästa steg

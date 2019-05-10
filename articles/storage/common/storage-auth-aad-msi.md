@@ -9,12 +9,12 @@ ms.date: 04/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: daa3bd49fcb9970a4a4a026f764cc195423e83d1
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 4245c44ceaf907512187d7db4a9d6f087a855f70
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154368"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507896"
 ---
 # <a name="authenticate-access-to-blobs-and-queues-with-azure-active-directory-and-managed-identities-for-azure-resources"></a>Autentisera åtkomsten till blobbar och köer med Azure Active Directory och hanterade identiteter för Azure-resurser
 
@@ -48,7 +48,7 @@ För att godkänna förfrågningar mot Blob- och Queue storage med en hanterad i
 
 Klientbiblioteket Appautentisering hanterar autentisering automatiskt. Utvecklarens autentiseringsuppgifter använder för att autentisera under lokal utveckling. Med developer autentiseringsuppgifter under lokal utveckling är säkrare eftersom du inte behöver skapa autentiseringsuppgifter för Azure AD eller dela autentiseringsuppgifter mellan utvecklare. När lösningen distribueras senare till Azure, växlar biblioteket automatiskt till med hjälp av autentiseringsuppgifter för programmet.
 
-För att använda App-autentiseringsbiblioteket i ett Azure Storage-program, installera det senaste förhandsversionen-paketet från [Nuget]((https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication)), samt den senaste versionen av den [Azure Storage-klientbiblioteket för .NET](https://www.nuget.org/packages/WindowsAzure.Storage/). Lägg till följande **med** -uttryck för att din kod:
+För att använda App-autentiseringsbiblioteket i ett Azure Storage-program, installera det senaste förhandsversionen-paketet från [Nuget](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication), samt den senaste versionen av den [Azure Storage-klientbiblioteket för .NET](https://www.nuget.org/packages/WindowsAzure.Storage/). Lägg till följande **med** -uttryck för att din kod:
 
 ```csharp
 using Microsoft.Azure.Services.AppAuthentication;

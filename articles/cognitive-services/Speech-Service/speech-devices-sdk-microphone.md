@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: c8bc11b8f81fe034ceaa93c7bd8a49771d9407f9
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 63dd64e900cf68e708032569ca75ac2e8b221491
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025785"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65237003"
 ---
 # <a name="speech-devices-sdk-microphone-array-recommendations"></a>Tal enheter SDK mikrofon matris rekommendationer
 
@@ -29,9 +29,11 @@ Följande matris geometrier rekommenderas för användning med Microsoft ljud-st
 
 |          | Cirkulär matris    |       |  Linjär matris              |                |
 |----------|-------------------|-------------------|----------------|----------------|
-|          |![7 cirkulär mic-matris](media/speech-devices-sdk/7-mic-c.png)|![4 cirkulär mic-matris](media/speech-devices-sdk/4-mic-c.png)|![4 linjär mic-matris](media/speech-devices-sdk/4-mic-l.png)|![2 linjär mic-matris](media/speech-devices-sdk/2-mic-l.png)|
+|          |<img src="media/speech-devices-sdk/7-mic-c.png" alt="7 mic circular array" width="150"/>|<img src="media/speech-devices-sdk/4-mic-c.png" alt="4 mic circular array" width="150"/>|<img src="media/speech-devices-sdk/4-mic-l.png" alt="4 mic linear array" width="150"/>|<img src="media/speech-devices-sdk/2-mic-l.png" alt="2 mic linear array" width="150"/>|
 | \# Mikrofoner  | 7                 | 4                 | 4              | 2              |
 | geometri | 6 Outer, 1 Center, Radius = 42.5 mm, Evenly Spaced| 3 Outer, 1 Center, Radius = 42.5 mm, Evenly Spaced | Längd = 120 mm avstånd = 40 mm | Avstånd = 40 mm |
+
+Mikrofon kanaler ska sorteras enligt numreringen visas för varje ovan matris, vilket ökar från 0.  Microsoft ljud Stack kräver en ytterligare referens dataström för ljuduppspelning att utföra eko.
 
 ## <a name="component-selection"></a>Komponenturvalet
 
@@ -110,4 +112,4 @@ Snabba USB ljud klass 2.0 bör stödjas inom alla ljud MCU för att tillhandahå
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> Läs mer om den [tal Devices SDK](speech-devices-sdk.md)
+> [Läs mer om tal Devices SDK](speech-devices-sdk.md)

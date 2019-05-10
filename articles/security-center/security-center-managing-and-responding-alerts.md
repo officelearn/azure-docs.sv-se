@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/22/2018
 ms.author: rkarlin
-ms.openlocfilehash: 28a9b90e23d0d182197450e6449b8d3296fe99d6
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 582912160c8ed514401be3522e52dcc6eb45d263
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62111397"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235762"
 ---
 # <a name="managing-and-responding-to-security-alerts-in-azure-security-center"></a>Hantera och åtgärda säkerhetsaviseringar i Azure Security Center
 Det här dokumentet beskriver hur du använder Azure Security Center för att hantera och svara på säkerhetsvarningar.
@@ -67,16 +67,16 @@ Längst ned på sidan visas information om de olika aviseringarna. Du kan sorter
 
 ### <a name="alert-severity"></a>Allvarlighetsgrad för avisering
 
-> [!NOTE]
-> Allvarlighetsgrad för avisering visas på olika sätt i portalen och REST API, anges skillnaderna i listan nedan.
-
 -   **Hög**: Det finns en hög sannolikhet att resursen har komprometterats. Du bör se ut till den direkt. Security Center har hög exakthet i skadligt syfte och resultaten används för att utfärda aviseringen. Exempelvis kan en avisering som identifierar körningen av en känd skadlig, till exempel Mimikatz, ett vanliga verktyg som används för stöld av autentiseringsuppgifter. 
--   **Medel (låg i REST-API)**: Detta är förmodligen en misstänkt aktivitet som kan tyda på att en resurs har komprometterats.
+-   **Medel**: Detta är förmodligen en misstänkt aktivitet som kan tyda på att en resurs har komprometterats.
 Förtroende för Security Center analytiska eller söker är medium och säkerheten i skadligt syfte är mellan till hög. Dessa är vanligtvis machine learning eller avvikelseidentifiering baserat identifieringar. Till exempel ett tecken i försök från en avvikande plats.
--   **Låg (Information i REST-API)**: Det kan vara en ofarliga positiva eller en attack med blockerade. 
+-   **Låg**: Det kan vara en ofarliga positiva eller en attack med blockerade. 
     - Security Center är inte säker på nog att avsikten är skadlig och aktiviteten kan vara helt oskyldigt. Rensa logg är till exempel en åtgärd som kan inträffa när en angripare försöker att dölja ut sina spår, men i många fall en rutinmässig åtgärd utförs av administratörer.
     - Security Center berättar inte vanligtvis när blockerades attacker, såvida inte är ett intressant vi föreslår att du tittar närmare på. 
--   **Endast i informationssyfte (tyst i REST-API)**: Du ser bara informationsaviseringar när detaljnivån i en säkerhetsincident, eller om du använder REST-API med ett visst avisering-ID. En incident består vanligtvis av ett antal aviseringar, vilket kan visas på egen hand ska bara endast i informationssyfte, men i kontexten för de andra aviseringarna kan vara värt av en närmare titt. 
+-   **Endast i informationssyfte**: Du ser bara informationsaviseringar när detaljnivån i en säkerhetsincident, eller om du använder REST-API med ett visst avisering-ID. En incident består vanligtvis av ett antal aviseringar, vilket kan visas på egen hand ska bara endast i informationssyfte, men i kontexten för de andra aviseringarna kan vara värt av en närmare titt.  
+
+> [!NOTE]
+> Om du använder den **2015-06-01-preview** API-versionen och det finns skillnader i vilka larm allvarlighetsgrad typer tillämpas på vilka scenarier från som anges ovan.  
 
 ### <a name="filtering-alerts"></a>Filtrera varningar
 Aviseringarna kan filtreras efter datum, status och allvarlighetsgrad. Att filtrera kan vara bra när du vill begränsa hur många aviseringar du vill se. Kanske vill du till exempel se säkerhetsaviseringar från det senaste dygnet eftersom du undersöker ett potentiellt angrepp i systemet under den här tiden.

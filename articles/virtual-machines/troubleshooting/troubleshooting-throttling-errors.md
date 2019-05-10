@@ -13,12 +13,12 @@ ms.topic: troubleshooting
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: vashan, rajraj, changov
-ms.openlocfilehash: fa65b108f3aea79d4417e65d706d42f0bd819f54
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: efa10f5beae64105857b00b186683d491edb00f5
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60445391"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233784"
 ---
 # <a name="troubleshooting-api-throttling-errors"></a>Felsökning av API-begränsningsfel 
 
@@ -32,7 +32,7 @@ När en Azure API-klient hämtar en begränsning fel, är HTTP-status 429 för m
 
 ## <a name="call-rate-informational-response-headers"></a>Anropa rate informationsmeddelande svarshuvuden 
 
-| Huvud                            | Värdeformat                           | Exempel                               | Beskrivning                                                                                                                                                                                               |
+| Sidhuvud                            | Värdeformat                           | Exempel                               | Beskrivning                                                                                                                                                                                               |
 |-----------------------------------|----------------------------------------|---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | x-ms-ratelimit-remaining-resource |```<source RP>/<policy or bucket>;<count>```| Microsoft.Compute/HighCostGet3Min;159 | Återstående antalet för API-anrop för begränsningsprincipen som täcker bucket eller åtgärden resursgruppen, inklusive mål för den här begäran                                                                   |
 | x-ms-request-charge               | ```<count>```                             | 1                                     | Antalet antal ”debiteras” för den här HTTP-begäran mot principen gäller gränsen. Detta är normalt 1. Batch-begäranden, till exempel för att skala en skalningsuppsättning för virtuella datorer kan debitera flera antal. |
@@ -80,7 +80,7 @@ Enligt beskrivningen ovan, varje begränsning fel innehåller den `Retry-After` 
 ## <a name="api-call-rate-and-throttling-error-analyzer"></a>API-anrop pris och begränsning fel analyzer
 Det finns en förhandsversion av en felsökningsfunktion för Compute-resursprovidern API. Dessa PowerShell-cmdletar tillhandahåller statistik om API-begäran-pris per tidsintervall per åtgärd och begränsning överträdelser per åtgärd-grupp (principen):
 -   [Export-AzLogAnalyticRequestRateByInterval](https://docs.microsoft.com/powershell/module/az.compute/export-azloganalyticrequestratebyinterval)
--   [Export-AzLogAnalyticThrottledRequests](https://docs.microsoft.com/powershell/module/az.compute/export-azloganalyticthrottledrequests)
+-   [Export-AzLogAnalyticThrottledRequest](https://docs.microsoft.com/powershell/module/az.compute/export-azloganalyticthrottledrequest)
 
 Statistik för API-anrop kan ge bra insikter om beteendet för en prenumeration klienterna och aktivera enkel identifiering av anropet mönster som kan orsakar att begränsningar.
 
@@ -89,7 +89,7 @@ En begränsning av analyzer för tillfället är att inte räknas begäranden f�
 PowerShell-cmdletar använder ett REST-API, som enkelt kan anropas direkt av klienter (även om med inga formella stöd för ännu). Om du vill se format för HTTP-förfrågan, kör du cmdlets med - felsökning eller snoop på sina körning med Fiddler.
 
 
-## <a name="best-practices"></a>Bästa praxis 
+## <a name="best-practices"></a>Regelverk 
 
 - Försök inte Azure-tjänst-API-fel ovillkorligt och/eller omedelbart. Vanligt förekommande avser klientkod att få in i en snabb omförsöksslinga när den påträffar ett fel som inte kan och försök igen. Återförsök kommer så småningom få slut tillåtna anrop gränsen för mål-åtgärden grupp och påverka andra klienter för prenumerationen. 
 - Överväg att implementera proaktiv klientsidan automatisk begränsning när antalet tillgängliga anrop för en målgrupp för åtgärden sjunker under vissa lågtröskelövervakare i omfattande API automation fall. 

@@ -14,24 +14,25 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/22/2019
 ms.author: cynthn
-ms.openlocfilehash: f768582e8ef32bc654a2f797c5c7a481a26fb643
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 012f4e479a5b8ea2e3ddea1bfde70ab10ee4e834
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56734191"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467051"
 ---
 # <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>Hur du använder Packer för att skapa Windows-avbildningar i Azure
 Varje virtuell dator (VM) i Azure skapas från en avbildning som definierar den Windows-distribution och operativsystemsversion. Bilder kan innehålla förinstallerade program och konfigurationer. Azure Marketplace erbjuder många avbildningar av första och tredje part för de vanligaste OS och programmiljöer, eller skapa dina egna anpassade avbildningar som är specialanpassade utifrån dina behov. Den här artikeln beskriver hur du använder Verktyg för öppen källkod [Packer](https://www.packer.io/) att definiera och skapa anpassade avbildningar i Azure.
 
 Den här artikeln senast har testats på 2/21/2019 med hjälp av den [Az PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps) version 1.3.0 och [Packer](https://www.packer.io/docs/install/index.html) version 1.3.4.
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+> [!NOTE]
+> Azure har nu en tjänst, Azure Image Builder (förhandsversion) för att definiera och skapa dina egna anpassade avbildningar. Azure Image Builder är byggt på Packer, så du kan även använda din befintliga Packer provisioner kommandoskript med den. Kom igång med Azure Image Builder, se [skapa en virtuell Windows-dator med Azure Image Builder](image-builder.md).
 
 ## <a name="create-azure-resource-group"></a>Skapa Azure-resursgrupp
 När du skapar skapar Packer tillfällig Azure-resurser som den bygger den Virtuella källdatorn. För att avbilda den Virtuella källdatorn för användning som en avbildning måste du definiera en resursgrupp. Utdata från skapandeprocessen Packer lagras i den här resursgruppen.
 
-Skapa en resursgrupp med [New AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*:
+Skapa en resursgrupp med [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*:
 
 ```azurepowershell
 $rgName = "mypackerGroup"
@@ -248,6 +249,4 @@ Ange den offentliga IP-adressen i en webbläsare om du vill se den virtuella dat
 
 
 ## <a name="next-steps"></a>Nästa steg
-I det här exemplet används Packer för att skapa en VM-avbildning med IIS är redan installerad. Du kan använda den här Virtuella datorn tillsammans med befintliga arbetsflöden för distribution, till exempel att distribuera din app till virtuella datorer som skapats från avbildningen med Azure DevOps-tjänsterna, Ansible, Chef eller Puppet.
-
-Ytterligare exempel Packer på mallar för andra Windows-distributioner, se [denna GitHub-lagringsplats](https://github.com/hashicorp/packer/tree/master/examples/azure).
+Du kan också använda befintliga Packer provisioner skript med [Azure Image Builder](image-builder.md).

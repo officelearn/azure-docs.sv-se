@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/06/2019
+ms.date: 05/08/2019
 ms.author: pareshmu
-ms.openlocfilehash: 96839a42eb9dbd947b36522122a28ef81946a99c
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 63d6d1419b0a70a0bcf3532a13d6f7491b792593
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65191196"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467720"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute-partners och peeringplatser
 
@@ -52,7 +52,7 @@ Följande tabell innehåller en karta över Azures regioner till ExpressRoute-pl
 | **Sydkorea** | 2 |Sydkorea, centrala; Sydkorea, södra |Busan, Söul|
 | **UAE** | 3 | Förenade Arabemiraten, centrala, Förenade Arabemiraten, Norra | Dubai |
 | **Sydafrika** | 3 |Sydafrika, västra, Sydafrika, Norra |Kapstaden, Johannesburg |
-| **Sydamerika** | 3 |Södra Brasilien |Sao Paulo |
+| **Sydamerika** | 3 |Brasilien, södra |Sao Paulo |
 
 
 ### <a name="regions-and-geopolitical-boundaries-for-national-clouds"></a>Regioner och geopolitiska gränser för nationella moln
@@ -92,12 +92,12 @@ I följande tabell visas platser efter tjänstleverantör. Om du vill visa tillg
 | **[Colt](https://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** |Stöds |Stöds |Amsterdam, Dublin, London, Paris, Singapore2, Tokyo |
 | **[Comcast](https://business.comcast.com/landingpage/microsoft-azure)** |Stöds |Stöds |Chicago, Silicon Valley, Washington DC |
 | **[CoreSite](https://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** |Stöds |Stöds |Chicago, Denver, Los Angeles, New York, Silicon Valley, Silicon Valley2, Washington DC, Washington DC2 |
-| **[DE-CIX](https://www.de-cix.net/en/de-cix-service-world/directcloud/find-a-cloud-service/detail/microsoft-azure)** | Stöds |Stöds |Amsterdam2|
+| **[DE-CIX](https://www.de-cix.net/en/de-cix-service-world/directcloud/find-a-cloud-service/detail/microsoft-azure)** | Stöds |Stöds |Amsterdam2, Frankfurt|
 | **eir** |Stöds |Stöds |Dublin|
 | **Epsilon Global Communications** |Stöds |Stöds |Singapore, Singapore2 |
 | **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |Stöds |Stöds |Amsterdam, Atlanta, Chicago, Dallas, Dublin, Hongkong SAR, London, London2, Los Angeles, Melbourne, Miami, New York, Osaka, Paris, Sao Paulo, Seattle, Silicon Valley, Singapore, Sydney, Tokyo, Toronto, Washington DC |
 | **Etisalat Förenade Arabemiraten** |Stöds |Stöds |Dubai|
-| **euNetworks** |Stöds |Stöds |Amsterdam, Dublin, London |
+| **[euNetworks](https://eunetworks.com/services/solutions/cloud-connect/microsoft-azure-expressroute/)** |Stöds |Stöds |Amsterdam, Dublin, London |
 | **FarEasTone** |Stöds |Stöds |Taipei|
 | **GÉANT** |Stöds |Stöds |Amsterdam |
 | **[Global Cloud Xchange (GCX)](https://globalcloudxchange.com/cloud-platform/cloud-x-fusion/)** | Stöds| Stöds | Chennai, Mumbai |
@@ -107,8 +107,8 @@ I följande tabell visas platser efter tjänstleverantör. Om du vill visa tillg
 | **[Internet Solutions – Cloud Connect](https://www.is.co.za/solution/cloud-connect/)** |Stöds |Stöds |Kapstaden, Johannesburg, London |
 | **[Interxion](https://www.interxion.com/why-interxion/colocate-with-the-clouds/Microsoft-Azure/)** |Stöds |Stöds |Amsterdam, Amsterdam2, Dublin, Frankfurt, London, Marseille, Paris, Zurich |
 | **[IX Reach](https://www.ixreach.com/partners/cloud-partners/microsoft-azure/)**|Stöds |Stöds | Amsterdam, London2, Silicon Valley, Toronto |
-| **Jisc** |Stöds |Stöds |London |
-| **[KINX](https://www.kinx.net/service/network/cloudhub/ms-expressroute/?lang=en)** |Stöds |Stöds |Seoul |
+| **[Jisc](https://www.jisc.ac.uk/microsoft-azure-expressroute)** |Stöds |Stöds |London |
+| **[KINX](https://www.kinx.net/service/network/cloudhub/ms-expressroute/?lang=en)** |Stöds |Stöds |Söul |
 | **[Kordia](https://www.kordia.co.nz/cloudconnect)** | Stöds |Stöds |Sydney |
 | **[KPN](https://www.kpn.com/zakelijk/cloud/connect.htm)** | Stöds | Stöds | Amsterdam | 
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Stöds |Stöds |Amsterdam, Chicago, Dallas, London, Newport (Wales), Sao Paulo, Seattle, Silicon Valley, Singapore, Washington DC |
@@ -136,7 +136,7 @@ I följande tabell visas platser efter tjänstleverantör. Om du vill visa tillg
 | **[Telefonica](https://www.business-solutions.telefonica.com/es/enterprise/solutions/efficient-infrastructure/managed-voice-data-connectivity/)** |Stöds |Stöds |Amsterdam, Sao Paulo |
 | **[Telehouse – KDDI](https://www.telehouse.net/solutions/cloud-services/cloud-link)** |Stöds |Stöds |London |
 | **Telenor** |Stöds |Stöds |Amsterdam, London |
-| **[Telia-operatör](https://teliacarrier.com/our-services/connectivity/cloud-connect.html?title=Cloud%20Connect)** | Stöds | Stöds |Amsterdam, Chicago, Dallas, London, Washington DC |
+| **[Telia-operatör](https://teliacarrier.com/our-services/connectivity/cloud-connect.html?title=Cloud%20Connect)** | Stöds | Stöds |Amsterdam, Chicago, Dallas, London, Paris, Washington DC |
 | **Telmex Uninet**| Stöds | Stöds | Dallas |
 | **[Telstra Corporation](https://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** |Stöds |Stöds |Melbourne, Singapore, Sydney |
 | **[Telus](https://www.telus.com)** |Stöds |Stöds |Montreal, Toronto |

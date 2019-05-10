@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 3168bbbf70c1ffeb3827482459febbcea256eda6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b1edd4777839c947cf8f60bb6857f939553e2603
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60887008"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467640"
 ---
 # <a name="configure-the-application-dashboard"></a>Konfigurera instrumentpanel för program
 
@@ -26,19 +26,19 @@ Den **instrumentpanelen** är den sida som läses in när användare som har åt
 
 I följande skärmbild visas på instrumentpanelen i ett program som skapats från den **exempel Contoso** mall. Om du vill anpassa standardinstrumentpanelen för ditt program, Välj **redigera** längst upp höger på sidan.
 
-![Instrumentpanel för program baserat på mallen ”Contoso exemplet”](media/howto-configure-homepage/image1.png)
+![Instrumentpanel för program baserat på mallen ”Contoso exemplet”](media/howto-configure-homepage/image1a.png)
 
 Att välja **redigera**, öppnas panelen instrumentpanelen bibliotek. Biblioteket innehåller paneler och instrumentpanelen primitiver som du kan använda för att anpassa instrumentpanelen.
 
-![Instrumentpanelen bibliotek](media/howto-configure-homepage/image2.png)
+![Instrumentpanelen bibliotek](media/howto-configure-homepage/image2a.png)
 
 Du kan till exempel lägga till en **inställningar och egenskaper** rutan för att visa ett urval av de aktuella värdena för inställningar och egenskaper för en enhet. Om du vill göra det väljer du först en **enheten mallen** Välj sedan en **enhetsinstansen**. Efter som tillhandahåller panelen en rubrik och väljer en **inställningen** eller en **egenskapen** ska visas. I följande skärmbild visas inställningar och egenskaper som valts för att lägga till i panelen. Välj **klar** att spara ändringarna på instrumentpanelen.
 
-![”Konfigurera enhetsinformation” formuläret med information om inställningar och egenskaper](media/howto-configure-homepage/image3.png)
+![”Konfigurera enhetsinformation” formuläret med information om inställningar och egenskaper](media/howto-configure-homepage/image3a.png)
 
 Nu när en operatör visar instrumentpanelen för standard-program, visas den nya panelen med den **ange temperatur** för enheten:
 
-![Fliken ”instrumentpanel” med visas inställningar och egenskaper för panelen](media/howto-configure-homepage/image4.png)
+![Fliken ”instrumentpanel” med visas inställningar och egenskaper för panelen](media/howto-configure-homepage/image4a.png)
 
 Du kan utforska andra typer av paneler i biblioteket för att se hur att ytterligare anpassa standardinstrumentpanelen för programmet.
 

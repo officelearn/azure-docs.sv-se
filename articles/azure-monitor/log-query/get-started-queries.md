@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
-ms.openlocfilehash: 8c3ef3f115d37400eb72fdaca5df4f326382df5c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: a8da60850dae600129e0bc60fb574bfa4d3972db
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60519986"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415901"
 ---
 # <a name="get-started-with-azure-monitor-log-queries"></a>Kom igång med Azure Monitor log-frågor
 
@@ -138,7 +138,7 @@ SecurityEvent
 ### <a name="time-picker"></a>Tidsväljare
 Tidsväljare är bredvid knappen Kör och visar vi frågar endast poster från de senaste 24 timmarna. Det här är tidsintervallet standard tillämpas på alla frågor. Om du vill hämta bara poster från den senaste timmen, Välj _senaste timmen_ och kör frågan igen.
 
-![Tidväljaren](media/get-started-queries/timepicker.png)
+![Tidsväljare](media/get-started-queries/timepicker.png)
 
 
 ### <a name="time-filter-in-query"></a>Tidsfiltret i frågan
@@ -184,7 +184,7 @@ SecurityEvent
 ```Kusto
 SecurityEvent
 | top 10 by TimeGenerated
-| extend localtime = TimeGenerated-8h
+| extend localtime = TimeGenerated -8h
 ```
 
 ## <a name="summarize-aggregate-groups-of-rows"></a>Sammanfattningsvis: sammanställd grupper av rader
@@ -224,7 +224,7 @@ Perf
 ### <a name="summarize-by-a-time-column"></a>Summera efter en time-kolumn
 Gruppera resultat kan också baseras på en time-kolumn eller en annan kontinuerligt mervärde. Helt enkelt sammanfatta `by TimeGenerated` dock skulle skapa grupper för varje enskild millisekund under tidsintervallet, eftersom dessa är unika värden. 
 
-För att skapa grupper baserat på kontinuerlig värden, det är bäst att bryta intervallet i hanterbara enheter med hjälp av **bin**. Följande fråga analyserar *Perf* poster som mäter ledigt minne (*tillgängliga megabyte*) på en specifik dator. Den beräknar medelvärdet för varje om 1 timme under de senaste 7 dagarna:
+För att skapa grupper baserat på kontinuerlig värden, det är bäst att bryta intervallet i hanterbara enheter med hjälp av **bin**. Följande fråga analyserar *Perf* poster som mäter ledigt minne (*tillgängliga megabyte*) på en specifik dator. Den beräknar medelvärdet för varje 1-timmesperioden under de senaste 7 dagarna:
 
 ```Kusto
 Perf 

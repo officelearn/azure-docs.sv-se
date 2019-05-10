@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 05/08/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: bad64f439d45581f8f4b55ea1ac849db1e27cb76
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: b979609374afbd11bde0e15ce540e8930315482f
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024590"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472488"
 ---
 # <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Bifoga en Cognitive Services-resurs med en kompetens i Azure Search 
 
@@ -60,7 +60,7 @@ Du debiteras endast för färdigheter som anropar API: er för Cognitive Service
 
    ![Skapa en resurs för Cognitive Services](./media/cognitive-search-attach-cognitive-services/cog-services-create.png "skapa en resurs för Cognitive Services")
 
-1. I plats, väljer du samma region som Azure Search för att undvika kostnader för utgående bandbredd i olika regioner.
+1. Välj samma region som Azure Search på plats. Detta krävs av prestandaskäl, men den också annullerar avgifter för utgående bandbredd mellan regioner.
 
 1. I prisnivå, väljer **S0** att hämta allt-i-ett-samling för Cognitive Services-funktioner, inklusive funktioner för visuellt innehåll och språk som stöder de fördefinierade färdigheter som används av Azure Search. 
 

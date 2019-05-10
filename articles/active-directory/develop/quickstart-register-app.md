@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/30/2019
+ms.date: 05/09/2019
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2e78a837588ef177182f0c13db49e480845f772
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 6943ad460bb5d852220e704492f892961992a59f
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918754"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413594"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Snabbstart: Registrera ett program med Microsoft identity-plattformen
 
@@ -30,15 +30,11 @@ Företagsutvecklare och SaaS-leverantörer (software-as-a-service) kan utveckla 
 
 Den här snabbstarten visar hur du lägger till och registrera ett program med hjälp av den **appregistreringar** upplevelse i Azure portal så att din app kan integreras med Microsoft identity-plattformen. Mer information om nya funktioner och förbättringar i den nya upplevelsen för appregistreringar finns [det här blogginlägget](https://developer.microsoft.com/graph/blogs/new-app-registration/).
 
-## <a name="prerequisite"></a>Krav
-
-För att komma igång behöver du registrera dig för förhandsversionsfunktionerna för appregistreringar på Azure-portalen. Stegen i den här snabbstarten motsvarar det nya användargränssnittet och fungerar bara om du använder förhandsversionsfunktionerna.
-
 ## <a name="register-a-new-application-using-the-azure-portal"></a>Registrera ett nytt program med hjälp av Azure-portalen
 
 1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
 1. Om ditt konto ger dig tillgång till fler än en klientorganisation väljer du ditt konto i det övre högra hörnet och ställer in din portalsession på önskad Azure AD-klientorganisation.
-1. I det vänstra navigeringsfönstret väljer du **Azure Active Directory**-tjänsten och sedan **Appregistreringar (förhandsversion) > Ny registrering**.
+1. I det vänstra navigeringsfönstret väljer du den **Azure Active Directory** tjänsten och välj sedan **appregistreringar > Ny registrering**.
 1. När sidan **Registrera ett program** visas anger du programmets registreringsinformation:
 
    - **Namn** – ange ett beskrivande programnamn som ska visas för appens användare.

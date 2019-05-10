@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: crdun
-ms.openlocfilehash: 2e0a4b51e9140b9b3c0032980b7c6cd5a4d55638
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: b99513cad34bba1b050a24795ecb21d0357d19c1
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62128948"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65416083"
 ---
 # <a name="create-a-xamarinforms-app-with-azure"></a>Skapa en Xamarin.Forms-app med Azure
 
@@ -34,9 +34,9 @@ För att kunna genomföra den här kursen behöver du följande:
 
 * Ett aktivt Azure-konto. Om du inte har ett konto kan du registrera dig för en utvärderingsversion av Azure och få upp till tio mobilappar utan kostnad som du kan fortsätta att använda även efter utvärderingsperiodens slut. Mer information finns i [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* Visual Studio Tools för Xamarin i Visual Studio 2017 eller Visual Studio för Mac. Anvisningar finns på [installationssidan för Xamarin][Install Xamarin].
+* Visual Studio Tools for Xamarin, i Visual Studio 2017 eller senare, eller Visual Studio för Mac. Anvisningar finns på [installationssidan för Xamarin][Install Xamarin].
 
-* (valfritt) En Mac med Xcode 9.0 eller senare krävs för att skapa en iOS-app. Visual Studio för Mac kan användas för att utveckla iOS-appar: Du kan även använda Visual Studio 2017 (så länge Mac-enheten är tillgänglig i nätverket).
+* (valfritt) En Mac med Xcode 9.0 eller senare krävs för att skapa en iOS-app. Visual Studio för Mac kan användas för att utveckla iOS-appar eller Visual Studio 2017 eller senare kan användas (så länge Mac är tillgänglig i nätverket).
 
 ## <a name="create-a-new-mobile-apps-back-end"></a>Skapa en ny Mobile Apps-serverdel
 
@@ -64,7 +64,7 @@ Visual Studio Tools för Xamarin behövs för att öppna lösningen. Läs mer i 
 
    Ett projekt laddas ned med ett klientprogram som är kopplat till din mobilapp. Spara den komprimerade projektfilen lokalt på datorn och notera var du sparar den.
 
-3. Extrahera projektet som du laddade ned och öppna det i Visual Studio 2017.
+3. Extrahera projektet som du laddade ned och öppna den i Visual Studio.
 
    ![Extraherat projekt i Visual Studio][8]
 

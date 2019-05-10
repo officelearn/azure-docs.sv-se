@@ -12,14 +12,14 @@ ms.topic: article
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/14/2018
+ms.date: 05/07/2019
 ms.author: kumud
-ms.openlocfilehash: 913693e684ba8640a93f50d21dd3df6a6295e1c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e488a4a6438279270f3d86dafa16c45eda184059
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60884766"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415714"
 ---
 # <a name="load-balancer-health-probes"></a>Läsa in Belastningsutjämnarens hälsotillståndsavsökningar
 
@@ -30,7 +30,7 @@ Hälsoavsökningar stöder flera protokoll. Tillgängligheten för en viss typ a
 | | Standard-SKU | Grundläggande SKU |
 | --- | --- | --- |
 | [Avsökningen typer](#types) | TCP, HTTP, HTTPS | TCP, HTTP |
-| [Avsökning av beteende](#probedown) | Alla avsökningar ned alla TCP-flöden fortsätter. | Alla avsökningar av Avsluta för alla TCP-flöden. | 
+| [Avsökning av beteende](#probedown) | Alla avsökningar ned alla TCP-flöden fortsätter. | Alla avsökningar av alla TCP-flöden går ut. | 
 
 > [!IMPORTANT]
 > Belastningsutjämnarens hälsotillståndsavsökningar kommer från IP-adressen 168.63.129.16 och får inte vara blockerad vid avsökningar för att märka din instans.  Granska [avsökning källans IP-adress](#probesource) mer information.
@@ -178,7 +178,7 @@ Belastningsutjämnaren använder en distribuerad avsöknings tjänst för sin in
 
 Taggen AzureLoadBalancer tjänsten identifierar den här IP-källadressen i din [nätverkssäkerhetsgrupper](../virtual-network/security-overview.md) och tillåter hälsotillstånd avsökningen trafik som standard.
 
-Utöver Load Balancers hälsoavsökningar använda följande åtgärder den här IP-adress:
+Förutom hälsoavsökningar för belastningsutjämnaren, den [följande åtgärder använder denna IP-adress](../virtual-network/what-is-ip-address-168-63-129-16.md):
 
 - Gör det möjligt för VM-agenten till att kommunicera med plattformen att signalera att den är i tillståndet ”klar”
 - Möjliggör kommunikation med den virtuella DNS-servern att tillhandahålla filtrerade namnmatchning för kunder som inte definierar anpassade DNS-servrar.  Den här filtreringen garanterar att kunderna endast kan matcha värdnamnen för deras distribution.

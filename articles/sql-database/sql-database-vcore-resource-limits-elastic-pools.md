@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 03/15/2019
-ms.openlocfilehash: c11f52d2bbc55187a16227cf9553cc7ba6013e1e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 04/22/2019
+ms.openlocfilehash: 7f3afec0425033fba174e000195fa26b295aaef1
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60331102"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507941"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-based-purchasing-model-limits"></a>Resursgränser för elastiska pooler när gränserna vCore-baserade inköpschef modell
 
@@ -52,7 +52,7 @@ Du kan ange tjänstnivå, beräkningsstorleken och storage mycket med den [Azure
 |Lagringstyp|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|
 |I/o-svarstid (ungefärlig)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|
 |Mål-IOPS (64 KB)|500|1000|1500|2000|2500|3000|
-|Logga hastighetsbegränsningar (Mbit/s)|2.5|5|7.5|10|12.5|15|
+|Logga hastighetsbegränsningar (Mbit/s)|4.6875|9.375|14.0625|18.75|23.4375|28.125|
 |Maximalt antal samtidiga arbetare per pool (begäranden) * |210|420|630|840|1050|1260|
 |Maximalt antal samtidiga inloggningar per pool * |210|420|630|840|1050|1260|
 |Maximalt antal tillåtna sessioner|30000|30000|30000|30000|30000|30000|
@@ -80,7 +80,7 @@ Du kan ange tjänstnivå, beräkningsstorleken och storage mycket med den [Azure
 |Lagringstyp|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|
 |I/o-svarstid (ungefärlig)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|
 |Mål-IOPS (64 KB)|3500|4000|4500|5000|7000|7000|
-|Logga hastighetsbegränsningar (Mbit/s)|17.5|20|20|20|20|20|
+|Logga hastighetsbegränsningar (Mbit/s)|32.8125|37.5|37.5|37.5|37.5|37.5|
 |Maximalt antal samtidiga arbetare per pool (begäranden) *|1470|1680|1890|2 100|3360|5040|
 |Maximalt antal samtidiga inloggningar pool (begäranden) *|1470|1680|1890|2 100|3360|5040|
 |Maximalt antal tillåtna sessioner|30000|30000|30000|30000|30000|30000|
@@ -107,8 +107,8 @@ Du kan ange tjänstnivå, beräkningsstorleken och storage mycket med den [Azure
 |TempDB-storlek (GB)|64|128|192|256|320|384|384|
 |Lagringstyp|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|
 |I/o-svarstid (ungefärlig)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|
-|Mål-IOPS (64 KB)|500|1000|1500|2000|2500|3000|3500|
-|Logga hastighetsbegränsningar (Mbit/s)|2.5|5.6|7.5|10|12.5|15|17.5|
+|Mål-IOPS (64 KB)|1000|2000|3000|4000|5000|6000|7000|
+|Logga hastighetsbegränsningar (Mbit/s)|4.6875|9.375|14.0625|18.75|23.4375|28.125|32.8125|
 |Maximalt antal samtidiga arbetare per pool (begäranden) *|210|420|630|840|1050|1260|1470|
 |Maximalt antal samtidiga inloggningar per pool (begäranden) *|210|420|630|840|1050|1260|1470|
 |Maximalt antal tillåtna sessioner|30000|30000|30000|30000|30000|30000|30000|
@@ -135,8 +135,8 @@ Du kan ange tjänstnivå, beräkningsstorleken och storage mycket med den [Azure
 |TempDB-storlek (GB)|384|384|384|384|384|384|384|
 |Lagringstyp|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|
 |I/o-svarstid (ungefärlig)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|
-|Mål-IOPS (64 KB)|4000|4500|5000|6000|7000|7000|7000|
-|Logga hastighetsbegränsningar (Mbit/s)|20|20|20|20|20|20|20|
+|Mål-IOPS (64 KB)|7000|7000|7000|7000|7000|7000|7000|
+|Logga hastighetsbegränsningar (Mbit/s)|37.5|37.5|37.5|37.5|37.5|37.5|37.5|
 |Maximalt antal samtidiga arbetare per pool (begäranden) *|1680|1890|2 100|2520|33600|4200|8400|
 |Maximalt antal samtidiga inloggningar per pool (begäranden) *|1680|1890|2 100|2520|33600|4200|8400|
 |Maximalt antal databaser per pool|500|500|500|500|500|500|500|
@@ -165,7 +165,7 @@ Du kan ange tjänstnivå, beräkningsstorleken och storage mycket med den [Azure
 |TempDB-storlek (GB)|32|64|96|128|160|192|
 |I/o-svarstid (ungefärlig)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|
 |Mål-IOPS (64 KB)|5000|10000|15 000|20000|25000|30000|
-|Logga hastighetsbegränsningar (Mbit/s)|7.5|15|22.5|30|37.5|45|
+|Logga hastighetsbegränsningar (Mbit/s)|10|20|30|40|50|60|
 |Maximalt antal samtidiga arbetare per pool (begäranden) *|210|420|630|840|1050|1260|
 |Maximalt antal samtidiga inloggningar per pool (begäranden) *|210|420|630|840|1050|1260|
 |Maximalt antal tillåtna sessioner|30000|30000|30000|30000|30000|30000|
@@ -193,7 +193,7 @@ Du kan ange tjänstnivå, beräkningsstorleken och storage mycket med den [Azure
 |TempDB-storlek (GB)|224|256|288|320|384|384|
 |I/o-svarstid (ungefärlig)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|
 |Mål-IOPS (64 KB)|35000|40000|45000|50000|80000|120000|
-|Logga hastighetsbegränsningar (Mbit/s)|52.5|60|67.5|75|80|80|
+|Logga hastighetsbegränsningar (Mbit/s)|70|80|80|80|80|80|
 |Maximalt antal samtidiga arbetare per pool (begäranden) *|1470|1680|1890|2 100|3360|5040|
 |Maximalt antal samtidiga inloggningar per pool (begäranden) *|1470|1680|1890|2 100|3360|5040|
 |Maximalt antal tillåtna sessioner|30000|30000|30000|30000|30000|30000|
@@ -221,7 +221,7 @@ Du kan ange tjänstnivå, beräkningsstorleken och storage mycket med den [Azure
 |Lagringstyp|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|
 |I/o-svarstid (ungefärlig)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|
 |Mål-IOPS (64 KB)|5000|10000|15 000|20000|25000|30000|35000|
-|Logga hastighetsbegränsningar (Mbit/s)|7.5|15|22.5|30|37.5|45|52.5|
+|Logga hastighetsbegränsningar (Mbit/s)|15|30|45|60|75|90|105|
 |Maximalt antal samtidiga arbetare per pool (begäranden) *|210|420|630|840|1050|1260|1470|
 |Maximalt antal samtidiga inloggningar per pool (begäranden) *|210|420|630|840|1050|1260|1470|
 |Maximalt antal tillåtna sessioner|30000|30000|30000|30000|30000|30000|30000|
@@ -249,7 +249,7 @@ Du kan ange tjänstnivå, beräkningsstorleken och storage mycket med den [Azure
 |Lagringstyp|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|
 |I/o-svarstid (ungefärlig)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|
 |Mål-IOPS (64 KB)|40000|45000|50000|60000|80000|100000|200000|
-|Logga hastighetsbegränsningar (Mbit/s)|60|67.5|75|90|120|120|120|
+|Logga hastighetsbegränsningar (Mbit/s)|120|120|120|120|120|120|120|
 |Maximalt antal samtidiga arbetare per pool (begäranden) *|1680|1890|2 100|2520|3360|4200|8400|
 |Maximalt antal samtidiga inloggningar per pool (begäranden) *|1680|1890|2 100|2520|3360|4200|8400|
 |Maximalt antal tillåtna sessioner|30000|30000|30000|30000|30000|30000|30000|

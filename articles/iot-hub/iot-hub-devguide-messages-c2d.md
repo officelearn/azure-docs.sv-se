@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: c8424743f30ec1bbf8d8096f6630c7451bc910c8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b0c1b877a9468ce9c3b851bce62cb87c64c04260
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61363717"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472743"
 ---
 # <a name="send-cloud-to-device-messages-from-iot-hub"></a>Skicka meddelanden från moln till enhet från IoT Hub
 
@@ -71,10 +71,11 @@ Ett vanligt sätt att dra nytta av förfallodatum för meddelanden och undvika a
 
 ## <a name="message-feedback"></a>Meddelande-feedback
 
-När du skickar ett moln-till-enhet-meddelande, kan tjänsten begära leveransen av per meddelande feedback gällande sluttillstånd i meddelandet.
+När du skickar ett moln-till-enhet-meddelande, kan tjänsten begära leveransen av per meddelande feedback gällande sluttillstånd i meddelandet. Detta görs genom att ange den `iothub-ack` programegenskap i C2D-meddelandet som skickas till något av följande värden:
 
-| Ack-egenskapen | Beteende |
+| Ack-egenskapsvärdet | Beteende |
 | ------------ | -------- |
+| **Ingen**     | IoT Hub genererar inte ett feedback-meddelande (standardinställning). |
 | **positivt** | Om moln-till-enhet-meddelande når den **slutförd** tillstånd, IoT Hub genererar ett feedback-meddelande. |
 | **negative** | Om moln-till-enhet-meddelande når den **död lettered** tillstånd, IoT Hub genererar ett feedback-meddelande. |
 | **Fullständig**     | IoT Hub genererar ett feedback-meddelande i båda fallen. |

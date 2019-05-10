@@ -11,16 +11,16 @@ ms.author: MayMSFT
 ms.reviewer: trbye
 ms.date: 03/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: a717fa4191c57c21705d24884397ebb485726492
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 6e7aa231cabea9fbd76cd028f9fdc698a4dac5d6
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025092"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65470273"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>Självstudier: Förbereda data för regressionsmodellering
 
-I den här självstudien lär du dig hur du förbereder data för regressionsmodellering med hjälp av [Azure Machine Learning Data Prep SDK för Python](https://aka.ms/data-prep-sdk). Du kör olika transformeringar för att filtrera och kombinera två olika datauppsättningar för taxiresor i New York.
+I den här självstudien får du lära dig hur du förbereder data för regression modellering med hjälp av den [databearbetningspaketet för Azure Machine Learning](https://aka.ms/data-prep-sdk). Du kör olika transformeringar för att filtrera och kombinera två olika datauppsättningar för taxiresor i New York.
 
 Den här självstudien är **del ett i en självstudieserie i två delar**. När du har slutfört den här självstudieserien kan du förutsäga kostnaden för en taxiresa genom att träna en modell med datafunktioner. Exempel på dessa funktioner är dag och tidpunkt för upphämtning, antalet passagerare och upphämtningsplats.
 
@@ -179,7 +179,7 @@ green_df.head(5)
       <th>dropoff_latitude</th>
       <th>passengers</th>
       <th>avstånd</th>
-      <th>cost</th>
+      <th>kostnad</th>
     </tr>
   </thead>
   <tbody>
@@ -711,7 +711,7 @@ time_split_df.head(5)
       <th>dropoff_latitude</th>
       <th>passengers</th>
       <th>avstånd</th>
-      <th>cost</th>
+      <th>kostnad</th>
     </tr>
   </thead>
   <tbody>
@@ -909,7 +909,7 @@ transformed_features_df.head(5)
       <th>dropoff_latitude</th>
       <th>passengers</th>
       <th>avstånd</th>
-      <th>cost</th>
+      <th>kostnad</th>
     </tr>
   </thead>
   <tbody>

@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/25/2019
+ms.date: 05/07/2019
 ms.author: zchia
-ms.openlocfilehash: b7b096bd1ecf0a4df37ed4de0cf618216dccc2bc
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 445579eb780b49f536ef1a9e13e5ca43db6f98f6
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65159472"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508559"
 ---
 # <a name="tutorial-configure-keeper-password-manager--digital-vault-for-automatic-user-provisioning"></a>Självstudier: Konfigurera sköter Lösenordshanteraren & digitala valv för automatisk användaretablering
 
@@ -51,7 +51,7 @@ Innan du konfigurerar sköter Lösenordshanteraren & digitala valv för automati
 
 2. Gå till **företagsprogram**, och välj sedan **alla program**.
 
-    ![Bladet Företagsprogram](common/enterprise-applications.png)
+    ![Bladet för Enterprise-program](common/enterprise-applications.png)
 
 3. Om du vill lägga till ett nytt program, Välj den **nytt program** längst upp i fönstret.
 
@@ -84,7 +84,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD prov
 
 ### <a name="to-configure-automatic-user-provisioning-for-keeper-password-manager--digital-vault-in-azure-ad"></a>Konfigurera automatisk användaretablering för sköter Lösenordshanteraren & digitala valv i Azure AD:
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com) och välj **företagsprogram**väljer **alla program**och välj sedan **sköter Lösenordshanteraren & Digital Valvet**.
+1. Logga in på [Azure Portal](https://portal.azure.com). Välj **företagsprogram**och välj sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -104,19 +104,19 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD prov
 
 6. Logga in på din [sköter administratörskonsolen](https://keepersecurity.com/console/#login). Klicka på **Admin** och välj en befintlig nod eller skapa en ny. Navigera till den **etablering** fliken och markera **Lägg till metod**.
 
-    ![Sköter-administratörskonsolen](media/keeperpasswordmanagerdigitalvault-provisioning-tutorial/keeper-admin-console.png)
+    ![Sköter-administratörskonsolen](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-admin-console.png)
 
     Välj **SCIM (System för Identitetshantering i domänerna**.
 
-    ![Sköter Lägg till SCIM](media/keeperpasswordmanagerdigitalvault-provisioning-tutorial/keeper-add-scim.png)
+    ![Sköter Lägg till SCIM](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-add-scim.png)
 
     Klicka på **skapa etablering Token**.
 
-    ![Sköter skapa slutpunkt](media/keeperpasswordmanagerdigitalvault-provisioning-tutorial/keeper-create-endpoint.png)
+    ![Sköter skapa slutpunkt](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-create-endpoint.png)
 
     Kopiera värdena för **URL** och **Token** och klistrar in dem i **klient-URL** och **hemlighet Token** i Azure AD. Klicka på **spara** att slutföra etablering installationen på sköter.
 
-    ![Sköter skapa Token](media/keeperpasswordmanagerdigitalvault-provisioning-tutorial/keeper-create-token.png)
+    ![Sköter skapa Token](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-create-token.png)
 
 7. För att fylla i fälten som visas i steg 5, klickar du på **Testanslutningen** att se till att Azure AD kan ansluta till sköter Lösenordshanteraren & digitala valvet. Om anslutningen misslyckas, kontrollera din sköter Lösenordshanteraren & digitala Vault-kontot har administratörsbehörighet och försök igen.
 
@@ -130,19 +130,19 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD prov
 
 10. Under den **mappningar** väljer **synkronisera Azure Active Directory-användare till sköter Lösenordshanteraren & digitala Vault**.
 
-    ![Sköter Användarmappningar](media/keeperpasswordmanagerdigitalvault-provisioning-tutorial/keeper-user-mappings.png)
+    ![Sköter Användarmappningar](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-user-mappings.png)
 
 11. Granska användarattribut som synkroniseras från Azure AD sköter Lösenordshanteraren & digitala valv i den **attributmappning** avsnittet. Attribut som har markerats som **matchande** egenskaper som används för att matcha användarkonton i sköter Lösenordshanteraren & digitala valv för uppdateringsåtgärder. Välj den **spara** knappen för att genomföra ändringarna.
 
-    ![Sköter användarattribut](media/keeperpasswordmanagerdigitalvault-provisioning-tutorial/keeper-user-attributes.png)
+    ![Sköter användarattribut](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-user-attributes.png)
 
 12. Under den **mappningar** väljer **synkronisera Azure Active Directory-grupper som sköter Lösenordshanteraren & digitala Vault**.
 
-    ![Sköter grupp mappningar](media/keeperpasswordmanagerdigitalvault-provisioning-tutorial/keeper-group-mappings.png)
+    ![Sköter grupp mappningar](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-group-mappings.png)
 
 13. Granska Gruppattribut som synkroniseras från Azure AD sköter Lösenordshanteraren & digitala valv i den **attributmappning** avsnittet. Attribut som har markerats som **matchande** egenskaper som används för att matcha grupper i sköter Lösenordshanteraren & digitala valv för uppdateringsåtgärder. Välj den **spara** knappen för att genomföra ändringarna.
 
-    ![Attributen för sköter](media/keeperpasswordmanagerdigitalvault-provisioning-tutorial/keeper-group-attributes.png)
+    ![Attributen för sköter](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-group-attributes.png)
 
 14. Om du vill konfigurera Omfångsfilter avser följande instruktionerna i den [Scoping filter självstudien](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -176,7 +176,3 @@ Mer information om hur du läser den Azure AD etablering loggar finns i [rapport
 
 * [Lär dig att granska loggarna och få rapporter om etablering aktivitet](../manage-apps/check-status-user-account-provisioning.md)
 
-<!--Image references-->
-[1]: ./media/atlassian-cloud-provisioning-tutorial/tutorial-general-01.png
-[2]: ./media/atlassian-cloud-provisioning-tutorial/tutorial-general-02.png
-[3]: ./media/atlassian-cloud-provisioning-tutorial/tutorial-general-03.png

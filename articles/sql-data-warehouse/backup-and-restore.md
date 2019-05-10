@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 03/01/2019
+ms.date: 04/30/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: ebe45bf8f562b5be9ae2afda9d5940296396f155
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 914513bc19cc81da29efef12d50a6485233d169f
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60679315"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236569"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Säkerhetskopiering och återställning i Azure SQL Data Warehouse
 
@@ -83,7 +83,7 @@ Den totala kostnaden för din primära datalagret och sju dagar efter ögonblick
 
 Om du använder geo-redundant lagring, får du en separat lagringsfaktura. Geo-redundant lagring debiteras enligt standardavgifterna för läsåtkomst till geografiskt Redundant lagring (RA-GRS).
 
-Mer information om priser för SQL Data Warehouse finns i [priser för SQL Data Warehouse](https://azure.microsoft.com/pricing/details/sql-data-warehouse/) och [egress avgifter](https://azure.microsoft.com/pricing/details/bandwidth/) när du återställer mellan regioner.
+Mer information om priser för SQL Data Warehouse finns i [SQL Data Warehouse priser]. Du debiteras inte för utgående data när du återställer i olika regioner.
 
 ## <a name="restoring-from-restore-points"></a>Återställa från återställningspunkter
 

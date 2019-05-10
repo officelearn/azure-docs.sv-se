@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: 1a82b9256405e2cac12f4c5611ee3bdad459162b
-ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
+ms.openlocfilehash: e6a376803d8617e01ee279e40a33f6c1c3b748fd
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "64992928"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508203"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Azure Metadata Service: Schemalagda händelser för virtuella Windows-datorer
 
@@ -45,7 +45,7 @@ Många program kan dra nytta av tid för att förbereda för VM-underhåll. Tide
 Med schemalagda händelser ditt program kan identifiera när Underhåll ska inträffa och utlösa uppgifter för att begränsa dess inverkan. Aktivera schemalagda händelser ger din virtuella dator en minimal mängd tid innan aktiviteten underhåll utförs. Se avsnittet händelse schemaläggning nedan för information.
 
 Schemalagda händelser innehåller händelser i följande användningsfall:
-- [Plattformen initierade Underhåll](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/maintenance-and-updates) (till exempel VM omstart, Direktmigrering och minne som bevaras uppdateringar för värd)
+- [Plattformen initierade Underhåll](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates) (till exempel VM omstart, Direktmigrering och minne som bevaras uppdateringar för värd)
 - Degraderat maskinvara
 - Användarinitierad Underhåll (t.ex. användare startar om eller distribuerar om en virtuell dator)
 - [Borttagning har VM med låg prioritet](https://azure.microsoft.com/blog/low-priority-scale-sets) i skala
@@ -68,7 +68,7 @@ Tjänsten schemalagda händelser skapas. Versioner är obligatoriska och den akt
 | - | - | - | - |
 | 2017-11-01 | Allmän tillgänglighet | Alla | <li> Stöd har lagts till för borttagning har VM med låg prioritet händelsetyp 'Preempt'<br> | 
 | 2017-08-01 | Allmän tillgänglighet | Alla | <li> Bort föregås av ett anpassningsprefix understreck från resursnamn för virtuella IaaS-datorer<br><li>Metadatarubrik krav som gäller för alla begäranden | 
-| 2017-03-01 | Förhandsversion | Alla |<li>Första utgåvan
+| 2017-03-01 | Förhandsgranska | Alla |<li>Första utgåvan
 
 > [!NOTE] 
 > Föregående förhandsversionerna av schemalagda händelser stöds {senaste} som den api-versionen. Det här formatet stöds inte längre och kommer att bli inaktuella i framtiden.
@@ -85,13 +85,13 @@ Starta om en virtuell dator schemalägger en händelse med typen `Reboot`. Omdis
 
 ## <a name="using-the-api"></a>Med hjälp av API
 
-### <a name="headers"></a>Rubriker
+### <a name="headers"></a>Huvuden
 När du frågar Metadata Service måste du ange rubriken `Metadata:true` att se till att begäran inte har omdirigerats oavsiktligt. Den `Metadata:true` rubrik krävs för alla schemalagda händelser förfrågningar. Det gick inte att använda huvud i begäran resulterar i en felaktig begäran-svar från Metadata Service.
 
 ### <a name="query-for-events"></a>Fråga efter händelser
 Du kan fråga efter schemalagda händelser genom att göra följande anrop:
 
-#### <a name="powershell"></a>PowerShell
+#### <a name="powershell"></a>Powershell
 ```
 curl http://169.254.169.254/metadata/scheduledevents?api-version=2017-11-01 -H @{"Metadata"="true"}
 ```
@@ -120,7 +120,7 @@ DocumentIncarnation är en ETag och ger ett enkelt sätt att kontrollera om hän
 | - | - |
 | EventId | Globalt unik identifierare för den här händelsen. <br><br> Exempel: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
 | Händelsetyp | Påverkan som gör att den här händelsen. <br><br> Värden: <br><ul><li> `Freeze`: Den virtuella datorn är schemalagd att pausa under några sekunder. CPU och nätverksanslutningen kan stängas av, men det finns ingen inverkan på minne eller öppna filer. <li>`Reboot`: Den virtuella datorn är schemalagd för omstart (icke-beständiga minne är förlorad). <li>`Redeploy`: Den virtuella datorn kommer att flytta till en annan nod (differentierande diskar förloras). <li>`Preempt`: VM med låg prioritet tas bort (differentierande diskar förloras).|
-| ResourceType | Typ av resurs som påverkar den här händelsen. <br><br> Värden: <ul><li>`VirtualMachine`|
+| Resurstyp | Typ av resurs som påverkar den här händelsen. <br><br> Värden: <ul><li>`VirtualMachine`|
 | Resurser| Lista över resurser som påverkar den här händelsen. Detta garanterar att de innehåller datorerna från högst ett [Uppdateringsdomän](manage-availability.md), men får inte innehålla alla datorer i UD. <br><br> Exempel: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | Händelsestatus | Status för den här händelsen. <br><br> Värden: <ul><li>`Scheduled`: Den här händelsen är schemalagd att starta efter den tid som anges i den `NotBefore` egenskapen.<li>`Started`: Den här händelsen har startats.</ul> Inte `Completed` eller liknande status någonsin har angetts, kommer inte längre att returneras händelsen när händelsen har slutförts.
 | NotBefore| Tid efter vilken den här händelsen startar. <br><br> Exempel: <br><ul><li> Mån, 19 Sep 2016 18:29:47 GMT  |
@@ -130,9 +130,9 @@ Varje händelse schemaläggs en minimal mängd tidpunkt i framtiden utifrån hä
 
 |Händelsetyp  | Minsta meddelande |
 | - | - |
-| Lås| 15 minuter |
-| Starta om | 15 minuter |
-| Omdistribuera | 10 minuter |
+| Lås| 15 minuter |
+| Starta om | 15 minuter |
+| Omdistribuera | 10 minuter |
 | Förutse | 30 sekunder |
 
 ### <a name="event-scope"></a>Händelsen omfång     
@@ -159,7 +159,7 @@ Följande är den json som förväntas i den `POST` brödtext i begäran. Begär
 }
 ```
 
-#### <a name="powershell"></a>PowerShell
+#### <a name="powershell"></a>Powershell
 ```
 curl -H @{"Metadata"="true"} -Method POST -Body '{"StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' -Uri http://169.254.169.254/metadata/scheduledevents?api-version=2017-11-01
 ```

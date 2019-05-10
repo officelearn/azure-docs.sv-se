@@ -9,16 +9,19 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: shlo
-ms.openlocfilehash: 454899cd7cc592b87f96233d73ca8c4ed6ac333f
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: a825982532047f6e311c5508394df243310f02ab
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64935720"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233921"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>Förstå Data Factory priser med exemplen
 
 Den här artikeln förklarar och visar Azure Data Factory prissättningsmodellen med detaljerade exempel.
+
+> [!NOTE]
+> De priser som används i exemplen nedan är hypotetiska och är inte avsedda för en faktiska priser.
 
 ## <a name="copy-data-from-aws-s3-to-azure-blob-storage-hourly"></a>Kopiera data från AWS S3 till Azure Blob storage per timme
 
@@ -122,13 +125,13 @@ För att åstadkomma scenariot måste du skapa en pipeline med följande objekt:
   - Pipeline-aktiviteten = $0.00003 (linjärt för 1 minut körningstid. $ 0,002/timme på Azure Integration Runtime)
   - Externa Pipelineaktivitet = $0.000041 (linjärt i 10 minuter körningstid. $0.00025/timme på Azure Integration Runtime)
 
-## <a name="using-mapping-data-flow-debug-for-a-normal-workday"></a>Om du använder mappning data flödet för en normal arbetsdag
+## <a name="using-mapping-data-flow-debug-for-a-normal-workday-preview-pricing"></a>Om du använder mappning data flödet för en normal arbetsdag (pris för förhandsversion)
 
 Du är ansvarig för att utforma, bygga och testa mappning Data flödar varje dag som en Data-tekniker. Du kan logga in på den ADF UI på morgonen och aktivera felsökningsläget för Data flödar. Standard-TTL för Debug sessioner är 60 minuter. Du arbeta under dagen i 10 timmar, så din felsökningssessionen upphör aldrig att gälla. Därför blir din kostnad för dagen:
 
 **10 (timmar) x 8 (kärnor) x $0.112 = $8.96**
 
-## <a name="transform-data-in-blob-store-with-mapping-data-flows"></a>Transformera data i blob store med att mappa dataflöden
+## <a name="transform-data-in-blob-store-with-mapping-data-flows-preview-pricing"></a>Transformera data i blob store med att mappa dataflöden (pris för förhandsversion)
 
 I det här scenariot som du vill omvandla data i Blob Store visuellt i ADF mappning Data flödar på ett timschema.
 

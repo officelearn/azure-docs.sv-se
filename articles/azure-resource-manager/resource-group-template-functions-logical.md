@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: 2ccdd337d5c01a0ac0253fe1d1e131fa4e6d51a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4684c38fe506ed912c6827f1e60b94b847024347
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60782998"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65405658"
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Logiska funktioner för Azure Resource Manager-mallar
 
@@ -77,9 +77,9 @@ Utdata från föregående exempel är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| andExampleOutput | Booleskt | False |
+| andExampleOutput | Booleskt | Falskt |
 | orExampleOutput | Booleskt | True |
-| notExampleOutput | Booleskt | False |
+| notExampleOutput | Booleskt | Falskt |
 
 ## <a name="bool"></a>bool
 
@@ -131,9 +131,9 @@ Utdata från föregående exempel med standardvärdena är:
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | trueString | Booleskt | True |
-| falseString | Booleskt | False |
+| falseString | Booleskt | Falskt |
 | trueInt | Booleskt | True |
-| falseInt | Booleskt | False |
+| falseInt | Booleskt | Falskt |
 
 ## <a name="if"></a>if
 
@@ -145,7 +145,7 @@ Returnerar ett värde baserat på om ett villkor är SANT eller FALSKT.
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| villkor |Ja |boolesk |Värde att kontrollera om det är SANT eller FALSKT. |
+| condition |Ja |boolesk |Värde att kontrollera om det är SANT eller FALSKT. |
 | trueValue |Ja | sträng, int, objekt eller matris |Värdet som returneras när villkoret är sant. |
 | falseValue |Ja | sträng, int, objekt eller matris |Värdet som returneras om villkoret är FALSKT. |
 
@@ -196,7 +196,7 @@ Följande [exempelmall](https://github.com/krnese/AzureDeploy/blob/master/ARM/de
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "vmName": {
@@ -286,9 +286,9 @@ Utdata från föregående exempel är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| andExampleOutput | Booleskt | False |
+| andExampleOutput | Booleskt | Falskt |
 | orExampleOutput | Booleskt | True |
-| notExampleOutput | Booleskt | False |
+| notExampleOutput | Booleskt | Falskt |
 
 Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json) använder **inte** med [är lika med](resource-group-template-functions-comparison.md#equals).
 
@@ -360,9 +360,9 @@ Utdata från föregående exempel är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| andExampleOutput | Booleskt | False |
+| andExampleOutput | Booleskt | Falskt |
 | orExampleOutput | Booleskt | True |
-| notExampleOutput | Booleskt | False |
+| notExampleOutput | Booleskt | Falskt |
 
 ## <a name="next-steps"></a>Nästa steg
 

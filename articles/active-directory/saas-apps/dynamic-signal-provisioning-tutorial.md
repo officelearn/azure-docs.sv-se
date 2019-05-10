@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2019
+ms.date: 05/07/2019
 ms.author: zchia
-ms.openlocfilehash: fec6a7e3433eb5d657deac8c1b2ceb327f8d32e4
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: f79bc083105f997b08f7cfa6f8e08a8f4f455455
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65159412"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65470560"
 ---
 # <a name="tutorial-configure-dynamic-signal-for-automatic-user-provisioning"></a>Självstudier: Konfigurera dynamisk Signal för automatisk användaretablering
 
@@ -51,7 +51,7 @@ Du måste lägga till dynamiska signalen från Azure AD-programgalleriet i lista
 
 2. Gå till **företagsprogram**, och välj sedan **alla program**.
 
-    ![Bladet Företagsprogram](common/enterprise-applications.png)
+    ![Bladet för Enterprise-program](common/enterprise-applications.png)
 
 3. Om du vill lägga till ett nytt program, Välj den **nytt program** längst upp i fönstret.
 
@@ -84,7 +84,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD prov
 
 ### <a name="to-configure-automatic-user-provisioning-for-dynamic-signal-in-azure-ad"></a>Konfigurera automatisk användaretablering för dynamisk Signal i Azure AD:
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com) och välj **företagsprogram**väljer **alla program**och välj sedan **dynamisk Signal**.
+1. Logga in på [Azure Portal](https://portal.azure.com). Välj **företagsprogram**och välj sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -104,11 +104,11 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD prov
 
 6. I administrationskonsolen dynamisk signalen går du till **Admin > Avancerat > API**.
 
-    ![Dynamisk signalen etablering](./media/dynamicsignal-provisioning-tutorial/secret-token-1.png)
+    ![Dynamisk signalen etablering](./media/dynamic-signal-provisioning-tutorial/secret-token-1.png)
 
     Kopiera den **SCIM API-URL** till **klient-URL: en**. Klicka på **Generera ny Token** att generera en **ägar-Token** och kopiera värdet till **hemlighet Token**.
 
-    ![Dynamisk signalen etablering](./media/dynamicsignal-provisioning-tutorial/secret-token-2.png)
+    ![Dynamisk signalen etablering](./media/dynamic-signal-provisioning-tutorial/secret-token-2.png)
 
 7. För att fylla i fälten som visas i steg 5, klickar du på **Testanslutningen** att se till att Azure AD kan ansluta till dynamisk Signal. Om anslutningen misslyckas, kontrollera dynamisk Signal-kontot har administratörsbehörighet och försök igen.
 
@@ -122,11 +122,11 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD prov
 
 10. Under den **mappningar** väljer **synkronisera Azure Active Directory-användare till dynamisk Signal**.
 
-    ![Dynamisk signalen-Användarmappningar](media/dynamicsignal-provisioning-tutorial/user-mappings.png)
+    ![Dynamisk signalen-Användarmappningar](media/dynamic-signal-provisioning-tutorial/user-mappings.png)
 
 11. Granska användarattribut som synkroniseras från Azure AD till dynamisk signalen i den **attributmappning** avsnittet. Attribut som har markerats som **matchande** egenskaper som används för att matcha användarkonton i dynamiska Signal för uppdateringsåtgärder. Välj den **spara** knappen för att genomföra ändringarna.
 
-    ![Sköter användarattribut](media/dynamicsignal-provisioning-tutorial/user-mapping-attributes.png)
+    ![Dynamisk signalen användarattribut](media/dynamic-signal-provisioning-tutorial/user-mapping-attributes.png)
 
 12. Om du vill konfigurera Omfångsfilter avser följande instruktionerna i den [Scoping filter självstudien](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -160,7 +160,3 @@ Mer information om hur du läser den Azure AD etablering loggar finns i [rapport
 
 * [Lär dig att granska loggarna och få rapporter om etablering aktivitet](../manage-apps/check-status-user-account-provisioning.md)
 
-<!--Image references-->
-[1]: ./media/atlassian-cloud-provisioning-tutorial/tutorial-general-01.png
-[2]: ./media/atlassian-cloud-provisioning-tutorial/tutorial-general-02.png
-[3]: ./media/atlassian-cloud-provisioning-tutorial/tutorial-general-03.png

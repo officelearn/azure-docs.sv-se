@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: 209a91453875531e81ddbcead8c1ed2fb309a0a0
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 996111fbe23000182dab774ba3bbad0cc6435824
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65147454"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65412739"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---intellij"></a>Distribuera lösningsacceleratorn för fjärrövervakning lokalt - IntelliJ
 
@@ -100,9 +100,9 @@ Följande steg visar hur du kör fjärrövervakning-mikrotjänster i IntelliJ:
     * Webbtjänsten (services\iothub manager)
     * Webbtjänsten (services\storage-adapter)
 
-Som ett exempel på följande bild visar att lägga till konfigurationen för en tjänst:
+Exempelvis följande bild visar konfigurationen för en tjänst lades till:
 
-[![Lägg till konfiguration](./media/deploy-locally-intelliJ/run-configurations.png)](./media/deploy-locally-intelliJ/run-configurations.png#lightbox)
+[![Lägg till konfiguration](./media/deploy-locally-intellij/run-configurations.png)](./media/deploy-locally-intellij/run-configurations.png#lightbox)
 
 
 #### <a name="create-compound-configuration"></a>Skapa sammansatt konfiguration
@@ -111,14 +111,11 @@ Som ett exempel på följande bild visar att lägga till konfigurationen för en
 1. Ange den **namn** och **lägga till segregerade barlasttankar aktiviteter**
 1. Klicka på **tillämpa > Ok** att spara dina val.
 
-Visar att lägga till alla segregerade barlasttankar uppgifter i konfigurationen för enkel exempelvis följande bild:
+Följande bild visar till exempel att lägga till alla segregerade barlasttankar uppgifter i konfigurationen för enkel:
 
+[![Add-All-Services](./media/deploy-locally-intellij/all-services.png)](./media/deploy-locally-intellij/all-services.png#lightbox)
 
-[![Add-All-Services](./media/deploy-locally-intelliJ/all-services.png)](./media/deploy-locally-intelliJ/all-services.png#lightbox)
-
-
-
-1. Klicka på **kör** att skapa och köra webbtjänsterna på den lokala datorn.
+Klicka på **kör** att skapa och köra webbtjänsterna på den lokala datorn.
 
 Varje webbtjänst öppnas en kommandotolk och web webbläsarfönster. Du ser utdata från tjänsten som körs vid kommandotolken och webbläsarfönstret kan du övervaka status. Stäng inte kommandotolkar eller webbsidor, den här åtgärden stoppar webbtjänsten.
 

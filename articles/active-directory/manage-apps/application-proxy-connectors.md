@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a787e896016b3230d389b2ec140ae6c03477d875
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cb2a2aa8204ef442bbe3a0e6ff9018cd3f153910
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60293055"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406498"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Förstå Azure AD Application Proxy-anslutningar
 
@@ -29,9 +29,9 @@ Kopplingar är förenklad agenter som finns lokalt och underlätta den utgående
 
 ## <a name="requirements-and-deployment"></a>Krav och distribution
 
-Om du vill distribuera Application Proxy har du behöver minst en koppling, men vi rekommenderar två eller fler för större flexibilitet. Installera anslutningen på en Windows Server 2012 R2 eller 2016-dator. Anslutningen måste kommunicera med Application Proxy-tjänsten och lokala program som du publicerar. 
+Om du vill distribuera Application Proxy har du behöver minst en koppling, men vi rekommenderar två eller fler för större flexibilitet. Installera connector på en dator som kör Windows Server 2012 R2 eller senare. Anslutningen måste kommunicera med Application Proxy-tjänsten och lokala program som du publicerar. 
 
-### <a name="windows-server"></a>Windows-server
+### <a name="windows-server"></a>Windows server
 Du behöver en server som kör Windows Server 2012 R2 eller senare som du kan installera anslutningsappen för programproxyn. Servern måste ansluta till Application Proxy-tjänsterna i Azure och lokala program som du publicerar.
 
 Windows server måste ha aktiverats innan du installerar Application Proxy connector som TLS 1.2. Befintliga anslutningar med versioner under 1.5.612.0 fortsätter att fungera i tidigare versioner av TLS tills vidare. Aktivera TLS 1.2:
@@ -103,7 +103,7 @@ Det är viktigt att se till att du har planerat tillräckligt med kapacitet mell
 
 ## <a name="security-and-networking"></a>Säkerhet och nätverk
 
-Kopplingar kan installeras var som helst i nätverket som gör att de kan skicka begäranden till Application Proxy-tjänsten. Det är viktiga att den dator som kör anslutningstjänsten även har åtkomst till dina appar. Du kan installera kopplingar i företagets nätverk eller på en virtuell dator som körs i molnet. Kopplingar kan köras inom en demilitariserad zon (DMZ), men det är inte nödvändigt eftersom all trafik är utgående så att nätverket förblir säkert.
+Kopplingar kan installeras var som helst i nätverket som gör att de kan skicka begäranden till Application Proxy-tjänsten. Det är viktiga att den dator som kör anslutningstjänsten även har åtkomst till dina appar. Du kan installera kopplingar i företagets nätverk eller på en virtuell dator som körs i molnet. Kopplingar kan köra i ett perimeternätverk, även kallat en demilitariserad zon (DMZ), men det är inte nödvändigt eftersom all trafik är utgående så att nätverket förblir säkert.
 
 Kopplingar kan bara skicka utgående begäranden. Den utgående trafiken skickas till Application Proxy-tjänsten och till publicerade program. Du behöver att öppna ingående portar eftersom trafiken flödar båda riktningarna när en session har upprättats. Du behöver också att konfigurera inkommande åtkomst genom dina brandväggar. 
 

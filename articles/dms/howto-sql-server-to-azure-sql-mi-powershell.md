@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 04/29/2019
-ms.openlocfilehash: 96ee3f5e1b3cfe67cb75e50c6247e41f0d901393
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: d83410efd26f8c2078d3abdb01d061db0b83d33d
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64867923"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233735"
 ---
 # <a name="migrate-sql-server-on-premises-to-an-azure-sql-database-managed-instance-using-azure-powershell"></a>Migrera lokala SQL Server till en Azure SQL Database managed instance med Azure PowerShell
 I den här artikeln får du migrera den **Adventureworks2016** databasen återställas till en lokal instans av SQL Server 2005 eller senare till en Azure SQL Database-hanterad instans med hjälp av Microsoft Azure PowerShell. Du kan migrera databaser från en lokal SQL Server-instans till en hanterad Azure SQL Database-instans med hjälp av den `Az.DataMigration` modul i Microsoft Azure PowerShell.
@@ -86,7 +86,7 @@ I följande exempel skapas en tjänst med namnet *MyDMS* i resursgruppen *MyDMSR
 > Kodfragmentet nedan avser en offline-migrering, som inte kräver en instans av Azure Database Migration Service baserat på en Premium-SKU. Värdet för parametern - Sku måste innehålla en Premium-SKU för en online-migrering.
 
 ```powershell
- $vNet = Get-AzVirtualNetwork -ResourceGroupName MyDMSResourceGroup -Name MyVNET
+$vNet = Get-AzVirtualNetwork -ResourceGroupName MyDMSResourceGroup -Name MyVNET
 
 $vSubNet = Get-AzVirtualNetworkSubnetConfig -VirtualNetwork $vNet -Name MySubnet
 

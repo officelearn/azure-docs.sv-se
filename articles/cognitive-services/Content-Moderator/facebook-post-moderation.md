@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: tutorial
 ms.date: 01/18/2019
 ms.author: pafarley
-ms.openlocfilehash: 662eca2a727f3112f169ab8d669bf18c81700275
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5d31285ca305ba7fefdf31b4a97e3183f58b3e3b
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60699588"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233805"
 ---
 # <a name="tutorial-moderate-facebook-posts-and-commands-with-azure-content-moderator"></a>Självstudier: Måttlig Facebook-inlägg och kommandon med Azure Content Moderator
 
@@ -33,6 +33,9 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 Det här diagrammet visar varje komponent i det här scenariot:
 
 ![Diagram över Content Moderator skicka information via ”CMListener” och ta emot information från Facebook via ”FBListener”](images/tutorial-facebook-moderation.png)
+
+> [!IMPORTANT]
+> I 2018 implementerat Facebook en striktare veta Facebook-appar. Du kommer inte att kunna slutföra stegen i den här självstudien om din app inte har granskas och godkänns av granskningsteamet Facebook.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -62,65 +65,68 @@ Testa ditt arbetsflöde med hjälp av den **köra arbetsflödet** knappen.
 Logga in på den [Azure-portalen](https://portal.azure.com/) och gör följande:
 
 1. Skapa en Azure-funktionsapp enligt beskrivningen på sidan [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal).
-2. Gå till den nya Funktionsappen.
-3. I appen, går du till den **plattformsfunktioner** fliken och markera **programinställningar**. I den **programinställningar** avsnittet på nästa sida, bläddra längst ned i listan och klicka på **Lägg till ny inställning**. Lägg till följande nyckel/värde-par
+1. Gå till den nya Funktionsappen.
+1. I appen, går du till den **plattformsfunktioner** fliken och markera **Configuration**. I den **programinställningar** avsnittet på nästa sida väljer **nya programinställning** att lägga till följande nyckel/värde-par:
     
     | App inställningsnamn | value   | 
     | -------------------- |-------------|
     | cm:TeamId   | Ditt team-ID för Content Moderator  | 
-    | cm:SubscriptionKey | Prenumerationsnyckeln för Content Moderator – Se [Autentiseringsuppgifter](review-tool-user-guide/credentials.md) | 
-    | cm:Region | Regionnamnet i Content Moderator utan blanksteg. Se föregående kommentar. |
+    | cm:SubscriptionKey | Prenumerationsnyckeln för Content Moderator – Se [Autentiseringsuppgifter](review-tool-user-guide/credentials.md) |
+    | cm:Region | Regionnamnet i Content Moderator utan blanksteg. |
     | cm:ImageWorkflow | Namnet på arbetsflödet som ska köras på bilderna |
     | cm:TextWorkflow | Namnet på arbetsflödet som ska köras på texten |
-    | cm:CallbackEndpoint | URL:en för den CMListener-funktionsapp som du skapar senare i den här guiden |
-    | fb:VerificationToken | Hemlig token, som även används till att prenumerera på händelser i Facebook-feeden |
-    | fb:PageAccessToken | Din åtkomsttoken för Facebooks Graph API upphör inte att gälla och kan dölja/ta bort inlägg åt dig. |
+    | cm:CallbackEndpoint | URL: en för CMListener Funktionsappen som skapas senare i den här guiden |
+    | fb:VerificationToken | En hemlig token som du skapar, som används för att prenumerera på Facebook feed-händelser |
+    | fb:PageAccessToken | Din åtkomsttoken för Facebooks Graph API upphör inte att gälla och kan dölja/ta bort inlägg åt dig. Du får detta i ett senare skede. |
 
     Klicka på den **spara** längst upp på sidan.
 
-1. Med hjälp av den **+** knappen i det vänstra fönstret, visas den nya funktion-rutan.
+1. Gå tillbaka till den **plattformsfunktioner** fliken. Använd den **+** knappen i det vänstra fönstret för att ta fram den **ny funktion** fönstret. Du håller på att skapa funktionen visas händelser från Facebook.
 
     ![Azure Functions-rutan med knappen Lägg till funktion är markerad.](images/new-function.png)
-
-    Klicka sedan på **+ ny funktion** överst på sidan. Den här funktionen tar emot händelser från Facebook. Skapa funktionen genom att följa dessa steg:
 
     1. Klicka på panelen som säger **Http-utlösare**.
     1. Ange namnet **FBListener**. Fältet **Auktorisationsnivå** ska vara inställt på **Funktion**.
     1. Klicka på **Skapa**.
     1. Ersätt innehållet i den **run.csx** med innehållet från **FbListener/run.csx**
 
-    [!code-csharp[FBListener: csx file](~/samples-fbPageModeration/FbListener/run.csx?range=1-160)]
+    [!code-csharp[FBListener: csx file](~/samples-fbPageModeration/FbListener/run.csx?range=1-154)]
 
 1. Skapa en ny **Http-utlösare** funktion med namnet **CMListener**. Den här funktionen tar emot händelser från Content Moderator. Ersätt innehållet i den **run.csx** med innehållet från **CMListener/run.csx**
 
-    [!code-csharp[FBListener: csx file](~/samples-fbPageModeration/CmListener/run.csx?range=1-106)]
+    [!code-csharp[FBListener: csx file](~/samples-fbPageModeration/CmListener/run.csx?range=1-110)]
 
 ---
 
 ## <a name="configure-the-facebook-page-and-app"></a>Konfigurera Facebook-sidan och appen
+
 1. Skapa en Facebook-app.
 
     ![Facebook-sida för utvecklare](images/facebook-developer-app.png)
 
     1. Gå till [Facebooks webbplats för utvecklare](https://developers.facebook.com/)
-    2. Klicka på **Mina appar**.
-    3. Lägg till en ny app.
+    1. Klicka på **Mina appar**.
+    1. Lägg till en ny app.
     1. ger det något namn
     1. Välj **Webhooks -> Set upp**
     1. Välj **sidan** i den nedrullningsbara menyn och välj **prenumerera på det här objektet**
     1. Ange **FBListener Url** som motringnings-URL och den **verifieringstoken** som du konfigurerade i **Funktionsappinställningar**
     1. När prenumerationen är klar bläddrar du i flödet och väljer **prenumerera**.
+    1. Klicka på den **testa** knappen av den **feed** rad för att skicka ett testmeddelande till din FBListener Azure-funktion och välj sedan den **skicka till min Server** knappen. Du bör se begäran tas emot på din FBListener.
 
-2. Skapa en Facebook-sida.
+1. Skapa en Facebook-sida.
+
+    > [!IMPORTANT]
+    > I 2018 implementerat Facebook en striktare veta Facebook-appar. Du kommer inte att kunna köra avsnitt 2, 3 och 4 om din app inte har granskas och godkänns av granskningsteamet Facebook.
 
     1. Gå till [Facebook](https://www.facebook.com/bookmarks/pages) och skapa en **ny Facebook-sida**.
-    2. Ge Facebook-appen åtkomst till sidan genom att följa dessa steg:
+    1. Ge Facebook-appen åtkomst till sidan genom att följa dessa steg:
         1. Gå till [Graph API Explorer](https://developers.facebook.com/tools/explorer/) (Graph API-utforskaren).
-        2. Välj **Program**.
-        3. Välj **Page Access Token** (Åtkomsttoken för sida), skicka en **Get**-begäran.
-        4. Klicka på **Sid-ID** i svaret.
-        5. Lägg nu till **/subscribed_apps** i URL:en och skicka en **Get**-begäran (tomt svar).
-        6. Skicka en **Post**-begäran. Du får svaret **success: true**.
+        1. Välj **Program**.
+        1. Välj **Page Access Token** (Åtkomsttoken för sida), skicka en **Get**-begäran.
+        1. Klicka på **Sid-ID** i svaret.
+        1. Lägg nu till **/subscribed_apps** i URL:en och skicka en **Get**-begäran (tomt svar).
+        1. Skicka en **Post**-begäran. Du får svaret **success: true**.
 
 3. Skapa en åtkomsttoken för Graph API som inte upphör att gälla.
 

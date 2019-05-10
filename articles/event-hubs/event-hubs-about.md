@@ -10,12 +10,12 @@ ms.topic: overview
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 80c98bea08018780ba1d439e369ab42343d1e615
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 83a1026cd9426e1b1651e0ec4f556b8babccb107
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60822635"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236239"
 ---
 # <a name="azure-event-hubs--a-big-data-streaming-platform-and-event-ingestion-service"></a>Azure Event Hubs – en stordataströmningsplattform och händelseinmatningstjänst
 Azure Event Hubs är en stordataströmningsplattform och händelseinmatningstjänst. Den kan ta emot och behandla miljoner händelser per sekund. Data som skickas till en händelsehubb kan omvandlas och lagras med hjälp av valfri provider för realtidsanalys eller batchbearbetnings-/lagringsadaptrar.
@@ -70,7 +70,7 @@ Event Hubs innehåller följande [viktiga element](event-hubs-features.md):
 - **Genomflödesenheter**: Förköpta kapacitetsenheter som styr genomflödeskapaciteten i Event Hubs.
 - **Händelsemottagare**: Alla entiteter som läser händelsedata från en händelsehubb. Alla Event Hubs-konsumenter ansluter via AMQP 1.0-session. Event Hubs-tjänsten levererar händelserna via en session när de blir tillgängliga. Alla Kafka-konsumenter ansluter via protokollet Kafka 1.0 och senare.
 
-Följande bild visar strömhanteringsarkitekturen i Event Hubs:
+Följande bild visar strömhanteringsarkitekturen för händelsehubbar:
 
 ![Event Hubs](./media/event-hubs-about/event_hubs_architecture.png)
 
@@ -86,7 +86,8 @@ Kom igång med Event Hubs, se den **skicka och ta emot händelser** Självstudie
 - [Node.js](event-hubs-node-get-started-send.md)
 - [Go](event-hubs-go-get-started-send.md)
 - [C (skicka)](event-hubs-c-getstarted-send.md)
-- [Apache Storm (endast reecive)](event-hubs-storm-getstarted-receive.md)
+- [Apache Storm (får endast)](event-hubs-storm-getstarted-receive.md)
+
 
 Mer information om Event Hubs finns i följande artiklar:
 

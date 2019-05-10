@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: b6bcd8afe9bbf58addf3e41173cfd011eddb3ce0
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 1b760612d8d9a5ed0817ce662ed190f3477cd125
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64927169"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235848"
 ---
 # <a name="create-a-shared-image-gallery-using-the-azure-portal"></a>Skapa en delad bildgalleriet med Azure portal
 
@@ -33,7 +33,7 @@ Galleriet är en resurs på toppnivå som ger fullständig rollbaserad åtkomstk
 
 Delad bildgalleriet-funktionen har flera resurstyper. Vi ska använda eller att skapa dessa i den här artikeln:
 
-| Resurs | Beskrivning|
+| Resource | Beskrivning|
 |----------|------------|
 | **Hanterad avbildning** | Det här är en grundläggande avbildning som kan användas fristående eller används för att skapa en **Avbildningsversion** i ett galleri med avbildningar. Hanterade avbildningarna skapas från generaliserad virtuella datorer. En hanterad avbildning är en särskild typ av virtuell Hårddisk som kan användas för att göra flera virtuella datorer och kan nu användas för att skapa delade bild versioner. |
 | **Bildgalleri** | Som Azure Marketplace, en **bildgalleriet** är en lagringsplats för att hantera och dela bilder, men du bestämmer vem som har åtkomst. |
@@ -43,7 +43,9 @@ Delad bildgalleriet-funktionen har flera resurstyper. Vi ska använda eller att 
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Du måste ha en befintlig hanterad avbildning för att utföra exemplet i den här artikeln. Du kan följa [självstudien: Skapa en anpassad avbildning av en Azure-dator med Azure PowerShell](tutorial-custom-images.md) att skapa en om det behövs. När du börjar med den här artikeln, Ersätt namnges resursgrupp och virtuell dator där det behövs.
+Du måste ha en befintlig hanterad avbildning för att utföra exemplet i den här artikeln. Du kan följa [självstudien: Skapa en anpassad avbildning av en Azure-dator med Azure PowerShell](tutorial-custom-images.md) att skapa en om det behövs. Om hanterad avbildning innehåller en datadisk, får inte datadiskstorleken vara mer än 1 TB.
+
+När du börjar med den här artikeln, Ersätt namnges resursgrupp och virtuell dator där det behövs.
 
  
 [!INCLUDE [virtual-machines-common-shared-images-portal](../../../includes/virtual-machines-common-shared-images-portal.md)]

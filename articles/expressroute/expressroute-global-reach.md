@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 04/24/2019
+ms.date: 05/06/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 9875047ad74dd13d94ce9c498c3cad6153d24ca5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 28cfbc7183628b00c463f1c3a8a954ba4074409b
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64725380"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415967"
 ---
 # <a name="expressroute-global-reach"></a>ExpressRoute Global räckvidd
 ExpressRoute är en privat och flexibel sätt att ansluta ditt lokala nätverk till Microsoft Cloud. Du kan komma åt många Microsoft-molntjänster som Azure, Office 365 och Dynamics 365 från ditt privata Datacenter eller företagets nätverk. Du kan till exempel ha ett avdelningskontor i San Francisco med en ExpressRoute-krets i Silicon Valley och ett annat filialkontor i London med en ExpressRoute-krets i samma stad. Båda avdelningskontor kan ha höghastighetsanslutning till Azure-resurser i västra USA och Storbritannien, södra. Men det går inte att filialkontor utbyta data direkt med varandra. Med andra ord skicka 10.0.1.0/24 data till 10.0.3.0/24 och 10.0.4.0/24 men inte till 10.0.2.0/24.
@@ -35,12 +35,15 @@ ExpressRoute Global räckvidd stöds för närvarande på följande platser.
 * Australien
 * Kanada
 * Frankrike
+* Tyskland
 * Hongkong SAR
 * Irland
 * Japan
 * Korea
 * Nederländerna
-* Storbritannien
+* Singapore
+* Schweiz
+* Storbritannien och Nordirland
 * USA
 
 ExpressRoute-kretsarna måste skapas på den [ExpressRoute-peeringplatser](expressroute-locations.md) i ovanstående land eller region. Så här aktiverar du ExpressRoute Global räckvidd mellan [olika geopolitiska regioner](expressroute-locations.md), din kretsar måste vara Premium-SKU.

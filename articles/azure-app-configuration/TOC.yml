@@ -4,23 +4,35 @@
   items:
     - name: Om Azure App Configuration
       href: overview.md
+    - name: VANLIGA FRÅGOR OCH SVAR
+      href: faq.md
 - name: Snabbstarter
   expanded: true
   items:
-    - name: Skapa en ASP.NET Core-app
-      href: quickstart-aspnet-core-app.md
-    - name: Skapa en .NET Core-app
-      href: quickstart-dotnet-core-app.md
-    - name: Skapa en .NET Framework-app
-      href: quickstart-dotnet-app.md
-    - name: Skapa en Azure-funktion
-      href: quickstart-azure-function-csharp.md
-    - name: Skapa en Java Spring-app
-      href: quickstart-java-spring-app.md
+    - name: Konfiguration
+      items:
+        - name: ASP.NET Core
+          href: quickstart-aspnet-core-app.md
+        - name: .NET Core
+          href: quickstart-dotnet-core-app.md
+        - name: .NET Framework
+          href: quickstart-dotnet-app.md
+        - name: Azure-funktion i .NET Core
+          href: quickstart-azure-function-csharp.md
+        - name: Java Spring
+          href: quickstart-java-spring-app.md
+    - name: Funktionshantering
+      items:
+        - name: ASP.NET Core
+          href: quickstart-feature-flag-aspnet-core.md
 - name: Självstudier
   items:
     - name: Aktivera dynamisk konfiguration i ASP.NET Core
       href: enable-dynamic-configuration-aspnet-core.md
+    - name: Använda funktionsflaggor i en .NET Core-app
+      href: use-feature-flags-dotnet-core.md
+    - name: Hantera funktionsflaggor
+      href: manage-feature-flags.md
     - name: Integrera med en CI/CD-pipeline
       href: integrate-ci-cd-pipeline.md
 - name: Exempel
@@ -31,26 +43,38 @@
   items:
     - name: Nyckelvärdeslagring
       href: concept-key-value.md
-    - name: Ögonblicksbild av lagring vid olika tidpunkter
+    - name: Tidpunktsbaserad ögonblicksbild
       href: concept-point-time-snapshot.md
+    - name: Funktionshantering
+      href: concept-feature-management.md
 - name: Instruktionsguider
   items:
     - name: Integrera med Hanterad tjänstidentitet i Azure
       href: howto-integrate-azure-managed-service-identity.md
     - name: Importera eller exportera konfigurationsdata
       href: howto-import-export-data.md
+    - name: Bästa praxis
+      href: howto-best-practices.md
 - name: Referens
   items:
-    - name: Konfigurationsprovider för .NET Core
-      href: 'https://go.microsoft.com/fwlink/?linkid=2074664'
-    - name: Konfigurationsbyggare för .NET Framework
-      href: 'https://go.microsoft.com/fwlink/?linkid=2074663'
-    - name: Konfigurationsprovider för Java Spring
-      href: 'https://github.com/Microsoft/spring-cloud-azure/tree/azure-config/spring-cloud-azure-starters/spring-cloud-starter-azure-config'
-    - name: Azure SDK för .NET
-      href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/src/SDKs/Azure.ApplicationModel.Configuration/data-plane'
-    - name: REST
-      href: 'https://go.microsoft.com/fwlink/?linkid=2078296'
+    - name: Konfiguration
+      items:
+        - name: Konfigurationsprovider för .NET Core
+          href: 'https://go.microsoft.com/fwlink/?linkid=2074664'
+        - name: Konfigurationsbyggare för .NET Framework
+          href: 'https://go.microsoft.com/fwlink/?linkid=2074663'
+        - name: Konfigurationsprovider för Java Spring
+          href: 'https://github.com/Microsoft/spring-cloud-azure/tree/azure-config/spring-cloud-azure-starters/spring-cloud-starter-azure-config'
+        - name: Azure SDK för .NET
+          href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/src/SDKs/Azure.ApplicationModel.Configuration/data-plane'
+        - name: REST
+          href: 'https://go.microsoft.com/fwlink/?linkid=2078296'
+    - name: Funktionshantering
+      items:
+        - name: .NET Core-bibliotek
+          href: 'https://go.microsoft.com/fwlink/?linkid=2091700'
+        - name: ASP.NET Core-bibliotek
+          href: 'https://go.microsoft.com/fwlink/?linkid=2091410'
 - name: Resurser
   items:
     - name: Video för att komma igång

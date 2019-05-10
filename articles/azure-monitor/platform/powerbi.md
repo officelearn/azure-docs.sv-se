@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/19/2018
+ms.date: 05/01/219
 ms.author: bwren
-ms.openlocfilehash: 53e24a6874a1e43b0de07893a6ace3a44b81d373
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2db6ddf57802f6fcf38cfc3ad7094ed94eaca3d8
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60454225"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65234196"
 ---
 # <a name="import-azure-monitor-log-data-into-power-bi"></a>Importera Azure Monitor log-data till Power BI
 
@@ -60,7 +60,9 @@ Power BI Desktop är ett program som gör att du kan skapa datauppsättningar oc
 ## <a name="publish-to-power-bi"></a>Publicera till Powerbi
 När du publicerar till Power BI, skapas en datauppsättning och en rapport.  Om du skapar en rapport i Power BI Desktop, kommer sedan detta att publiceras med dina data.  Annars kan du sedan en tom rapport skapas.  Du kan ändra rapporten i Power BI eller skapa en ny baseras på datauppsättningen.
 
-1. Skapa en rapport som baseras på dina data.  Använd [Power BI Desktop-dokumentationen](https://docs.microsoft.com/power-bi/desktop-report-view) om du inte är bekant med den.  När du är redo att skicka den till Power BI, klickar du på **publicera**.  När du uppmanas, Välj ett mål i Power BI-kontot.  Om du inte har ett specifikt mål i åtanke, använda **Min arbetsyta**.
+1. Skapa en rapport som baseras på dina data.  Använd [Power BI Desktop-dokumentationen](https://docs.microsoft.com/power-bi/desktop-report-view) om du inte är bekant med den.  
+1. När du är redo att skicka den till Power BI, klickar du på **publicera**.  
+1. När du uppmanas, Välj ett mål i Power BI-kontot.  Om du inte har ett specifikt mål i åtanke, använda **Min arbetsyta**.
 
     ![Publicera Power BI Desktop](media/powerbi/desktop-publish.png)
 
@@ -70,7 +72,10 @@ När du publicerar till Power BI, skapas en datauppsättning och en rapport.  Om
 ### <a name="configure-scheduled-refresh"></a>Konfigurera schemalagd uppdatering
 Den datauppsättning som skapats i Power BI har samma data som du såg tidigare i Power BI Desktop.  Du måste uppdatera datauppsättningen regelbundet för att köra frågan igen och fyller den med den senaste informationen från Azure Monitor.  
 
-1. Klicka på arbetsytan där du laddade upp din rapport och välj den **datauppsättningar** menyn. Välj snabbmenyn bredvid din nya datauppsättningen och välj **inställningar**. Under **datakällans autentiseringsuppgifter** bör du ha ett meddelande att autentiseringsuppgifterna är ogiltiga.  Det beror på att du inte har angett autentiseringsuppgifterna ännu för datamängden som ska användas när den uppdaterar dess data.  Klicka på **redigera autentiseringsuppgifter** och ange autentiseringsuppgifter för åtkomst till Log Analytics-arbetsyta i Azure Monitor.
+1. Klicka på arbetsytan där du laddade upp din rapport och välj den **datauppsättningar** menyn. 
+1. Välj snabbmenyn bredvid din nya datauppsättningen och välj **inställningar**. 
+1. Under **datakällans autentiseringsuppgifter** bör du ha ett meddelande att autentiseringsuppgifterna är ogiltiga.  Det beror på att du inte har angett autentiseringsuppgifterna ännu för datamängden som ska användas när den uppdaterar dess data.  
+1. Klicka på **redigera autentiseringsuppgifter** och ange autentiseringsuppgifter för åtkomst till Log Analytics-arbetsyta i Azure Monitor. Om du kräver tvåfaktorsautentisering, Välj **OAuth2** för den **autentiseringsmetod** uppmanas att logga in med dina autentiseringsuppgifter.
 
     ![Power BI-schema](media/powerbi/powerbi-schedule.png)
 

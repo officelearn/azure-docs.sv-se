@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/01/2019
-ms.openlocfilehash: 67212986e0478a03ac2ef1b5f30488cc1c7f869d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.date: 05/08/2019
+ms.openlocfilehash: d7bd2555753df4c12404844c86be8f0339d88e23
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65137420"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415690"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>Självstudier: Migrera PostgreSQL till Azure Database for PostgreSQL online med DMS
 
@@ -24,7 +24,6 @@ Du kan använda Azure Database Migration Service för att migrera databaserna fr
 
 I den här guiden får du lära dig att:
 > [!div class="checklist"]
-
 > * Migrera exempel schemat med pg_dump-verktyget.
 > * Skapa en instans av Azure Database Migration Service.
 > * Skapa ett migreringsprojekt med hjälp av Azure Database Migration Service.
@@ -46,10 +45,10 @@ För att slutföra den här kursen behöver du:
     Dessutom måste den lokala PostgreSQL-version matcha Azure Database for PostgreSQL-versionen. Exempelvis kan PostgreSQL 9.5.11.5 endast migreras till Azure Database for PostgreSQL 9.5.11 och inte till version 9.6.7.
 
     > [!NOTE]
-    > För PostgreSQL version 10 stöder för närvarande DMS endast migrering av version 10.3 till Azure Database för PostgreSQL. Vi planerar att stödja nyare versioner av PostgreSQL snart.
+    > För PostgreSQL version 10 stöder för närvarande DMS endast migrering av version 10.3 till Azure Database för PostgreSQL.
 
 * [Skapa en instans i Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal).  
-* Skapa ett Azure-nätverk (VNet) för Azure Database Migration Service med hjälp av Azure Resource Manager-distributionsmodellen, som tillhandahåller plats-till-plats-anslutning till dina lokala källservrar genom att använda antingen [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) eller [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+* Skapa ett Azure-nätverk (VNet) för Azure Database Migration Service med hjälp av Azure Resource Manager-distributionsmodellen, som tillhandahåller plats-till-plats-anslutning till dina lokala källservrar genom att använda antingen [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) eller [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Mer information om hur du skapar ett virtuellt nätverk finns i den [dokumentation om virtuella nätverk](https://docs.microsoft.com/azure/virtual-network/), och särskilt artiklarna i snabbstarten med stegvis information.
 
     > [!NOTE]
     > Under installationen av virtuellt nätverk, om du använder ExpressRoute med nätverks-peering till Microsoft, lägger du till följande tjänst [slutpunkter](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) till undernätet där tjänsten ska etableras:
@@ -65,6 +64,7 @@ För att slutföra den här kursen behöver du:
 * När du använder en brandväggsinstallation framför dina källdatabaser kanske du måste lägga till brandväggsregler för att tillåta Azure Database Migration Service att komma åt källdatabaserna för migrering.
 * Skapa en servernivå [brandväggsregel](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) för Azure Database for PostgreSQL så att Azure Database Migration Service att få åtkomst till måldatabaserna. Ange undernätsintervallet för det virtuella nätverket som används för Azure Database Migration Service.
 * Det finns två metoder för att anropa CLI:
+
     * Välj knappen Cloud Shell längst upp till höger i Azure Portal:
 
        ![Cloud Shell-knappen i Azure Portal](media/tutorial-postgresql-to-azure-postgresql-online/cloud-shell-button.png)
@@ -210,6 +210,7 @@ För att slutföra alla databasobjekt som tabellscheman, index och lagrade proce
    ```
 
    Till exempel skapar följande kommando en tjänst i:
+
    * Plats: USA, östra 2
    * Prenumeration: 97181df2-909d-420b-ab93-1bff15acb6b7
    * Namn på resursgrupp: PostgresDemo
@@ -259,7 +260,7 @@ För att slutföra alla databasobjekt som tabellscheman, index och lagrade proce
 
     Till exempel skapar följande kommando ett projekt med dessa parametrar:
 
-   * Plats: Västra centrala USA
+   * Plats: USA, västra centrala 
    * Namn på resursgrupp: PostgresDemo
    * Tjänstnamn: PostgresCLI
    * Projektnamn: PGMigration

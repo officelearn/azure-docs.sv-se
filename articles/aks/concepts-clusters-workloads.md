@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: bababa723e70cdc5268fb04f1104cca9e254984d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: faac0f02d1a1b8927fa0c651f44f8b120a583d9a
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60467467"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230143"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Kubernetes grundläggande begrepp för Azure Kubernetes Service (AKS)
 
@@ -99,9 +99,11 @@ Associerade metodtips finns [bästa praxis för grundläggande scheduler funktio
 
 ### <a name="node-pools"></a>Nodpooler
 
-Noder i samma konfiguration grupperas tillsammans i *nodpooler*. Ett Kubernetes-kluster innehåller en eller flera nodpooler. Det inledande antalet noder och storleken som definieras när du skapar ett AKS-kluster, vilket skapar en *standard nodpool*. Den här noden standardadresspool i AKS innehåller de underliggande virtuella datorer som kör din agent noder.
+Noder i samma konfiguration grupperas tillsammans i *nodpooler*. Ett Kubernetes-kluster innehåller en eller flera nodpooler. Det inledande antalet noder och storleken som definieras när du skapar ett AKS-kluster, vilket skapar en *standard nodpool*. Den här noden standardadresspool i AKS innehåller de underliggande virtuella datorer som kör din agent noder. Stöd för flera noder poolen förhandsvisas just nu i AKS.
 
-När du skalar eller uppgradera ett AKS-kluster, utföra åtgärden mot standardpoolen för noden. För uppgradering schemaläggs behållare som körs på andra noder i nodpoolen tills alla noder har uppgraderats.
+När du skalar eller uppgradera ett AKS-kluster, utföra åtgärden mot standardpoolen för noden. Du kan också välja att skala eller uppgradera en viss nod-pool. För uppgradering schemaläggs behållare som körs på andra noder i nodpoolen tills alla noder har uppgraderats.
+
+Läs mer om hur du använder flera nodpooler i AKS [skapa och hantera flera nodpooler för ett kluster i AKS][use-multiple-node-pools].
 
 ## <a name="pods"></a>Poddar
 
@@ -245,3 +247,4 @@ Den här artikeln beskriver några av Kubernetes kärnkomponenter samt hur de an
 [aks-helm]: kubernetes-helm.md
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
 [operator-best-practices-scheduler]: operator-best-practices-scheduler.md
+[use-multiple-node-pools]: use-multiple-node-pools.md

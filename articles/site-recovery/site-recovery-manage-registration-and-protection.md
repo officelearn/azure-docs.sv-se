@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: c22acb1ae82e5c1e781598e8545c7f1625cc1c09
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1b4cd5bb020e73dc9045eb164ce49931f818f72d
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61277169"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415490"
 ---
 # <a name="remove-servers-and-disable-protection"></a>Ta bort servrar och inaktivera skydd
 
@@ -150,6 +150,12 @@ Hyper-V-värdar som inte hanteras av VMM har samlats i en Hyper-V-plats. Ta bort
 
 > [!NOTE]
 > I båda alternativen mobilitetstjänsten inte avinstalleras från de skyddade servrarna, måste du avinstallera den manuellt. Om du planerar att skydda servern igen med samma konfigurationsserver, kan du hoppa över avinstallera mobilitetstjänsten.
+
+## <a name="disable-protection-for-a-azure-vm-azure-to-azure"></a>Inaktivera skyddet för en Azure virtuell dator (Azure till Azure)
+
+-  I **skyddade objekt** > **replikerade objekt**, högerklicka på datorn > **inaktivera replikering**.
+> [!NOTE]
+> mobilitetstjänsten avinstalleras inte från de skyddade servrarna och du måste avinstallera den manuellt. Om du planerar att skydda servern igen, kan du hoppa över avinstallera mobilitetstjänsten.
 
 ## <a name="disable-protection-for-a-hyper-v-virtual-machine-hyper-v-to-azure"></a>Inaktivera skyddet för en Hyper-V virtuell dator (Hyper-V till Azure)
 

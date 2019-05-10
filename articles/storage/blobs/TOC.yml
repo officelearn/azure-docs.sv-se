@@ -13,9 +13,6 @@
           href: storage-blobs-introduction.md
     - name: Snabbstarter
       items:
-        - name: skapar ett lagringskonto
-          displayName: 'resource manager, resource manager template, template, ARM'
-          href: ../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Hantera blobar utan kod
           items:
             - name: Azure Portal
@@ -280,8 +277,11 @@
           href: storage-blob-pageblob-overview.md
     - name: Gör så här för att
       items:
-        - name: Hantera lagringskonton
+        - name: Skapa och hantera lagringskonton
           items:
+            - name: Skapa ett allmänt lagringskonto
+              displayName: 'resource manager, resource manager template, template, ARM'
+              href: ../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Skapa ett blockblobslagringskonto
               href: storage-blob-create-account-block-blob.md
             - name: Hantera ett lagringskonto
@@ -413,7 +413,7 @@
             - name: 'Blobar, köer, tabeller och filer'
               href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/client'
             - name: Dataförflyttning
-              href: 'https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.datamovement'
+              href: 'https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.datamovement'
             - name: Resource Manager
               href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/management'
         - name: Java
@@ -488,7 +488,7 @@
                 - name: 'Blobar, köer, tabeller och filer'
                   href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/client'
                 - name: Dataförflyttning
-                  href: 'https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.datamovement'
+                  href: 'https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.datamovement'
                 - name: Resource Manager
                   href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/management'
             - name: Java
@@ -563,6 +563,8 @@
               href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Åtkomstkontroll
               href: data-lake-storage-access-control.md
+        - name: Händelsehantering
+          href: storage-blob-event-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Gör så här för att
       items:
         - name: Mata in data

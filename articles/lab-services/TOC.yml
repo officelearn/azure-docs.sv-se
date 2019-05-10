@@ -64,26 +64,34 @@
   items:
     - name: Klassrumslabb
       items:
-        - name: Hantera labbkonton
-          href: classroom-labs/how-to-manage-lab-accounts.md
-        - name: Hantera klassrumslabb
-          href: classroom-labs/how-to-manage-classroom-labs.md
-        - name: Konfigurera och publicera mallar
-          href: classroom-labs/how-to-create-manage-template.md
-        - name: Konfigurera och kontrollera användning
-          href: classroom-labs/how-to-configure-student-usage.md
-        - name: Åtkomst till klassrumslabb
-          href: classroom-labs/how-to-use-classroom-lab.md
-        - name: Skapa och hantera scheman
-          href: classroom-labs/how-to-create-schedules.md
-        - name: Skapa en miljö med flera virtuella datorer i en mall för virtuella datorer
-          href: classroom-labs/how-to-enable-multi-vm-environment.md
-        - name: Anslut dina labb till ett peerkopplat virtuellt nätverk
-          href: classroom-labs/how-to-connect-peer-virtual-network.md
-        - name: Bifoga och använd ett delat bildgalleri
-          href: classroom-labs/how-to-use-shared-image-gallery.md
-        - name: Aktivera anslutning för fjärrskrivbord för Linux
-          href: classroom-labs/how-to-enable-remote-desktop-linux.md
+        - name: Skapa och konfigurera labbkonton
+          items:
+            - name: Skapa och hantera labbkonton
+              href: classroom-labs/how-to-manage-lab-accounts.md
+            - name: Konfigurera labbkonton
+              href: classroom-labs/how-to-configure-lab-accounts.md
+            - name: Anslut dina labb till ett peerkopplat virtuellt nätverk
+              href: classroom-labs/how-to-connect-peer-virtual-network.md
+            - name: Bifoga eller ta bort ett delat bildgalleri
+              href: classroom-labs/how-to-attach-detach-shared-image-gallery.md
+        - name: 'Skapa, konfigurera och använda klassrumslabb'
+          items:
+            - name: Skapa och hantera klassrumslabb
+              href: classroom-labs/how-to-manage-classroom-labs.md
+            - name: Konfigurera och publicera mallar
+              href: classroom-labs/how-to-create-manage-template.md
+            - name: Konfigurera och kontrollera användning
+              href: classroom-labs/how-to-configure-student-usage.md
+            - name: Åtkomst till klassrumslabb
+              href: classroom-labs/how-to-use-classroom-lab.md
+            - name: Skapa och hantera scheman
+              href: classroom-labs/how-to-create-schedules.md
+            - name: Skapa en miljö med flera virtuella datorer i en mall för virtuella datorer
+              href: classroom-labs/how-to-enable-multi-vm-environment.md
+            - name: Använda ett delat bildgalleri
+              href: classroom-labs/how-to-use-shared-image-gallery.md
+            - name: Aktivera anslutning för fjärrskrivbord för Linux
+              href: classroom-labs/how-to-enable-remote-desktop-linux.md
     - name: DevTest Labs
       items:
         - name: Ange resursgrupp för virtuella labbdatorer
@@ -166,12 +174,16 @@
               href: connect-environment-lab-virtual-network.md
             - name: Integrera miljöer i din Azure DevOps CI/CD-pipeline
               href: integrate-environments-devops-pipeline.md
+            - name: Använda PaaS-tjänster (Plattform som en tjänst)
+              href: use-paas-services.md
         - name: Säker åtkomst till labb
           items:
             - name: Lägg till labbägare och användare
               href: devtest-lab-add-devtest-user.md
             - name: Anpassa behörigheter med anpassade roller
               href: devtest-lab-grant-user-permissions-to-specific-lab-policies.md
+            - name: Lägga till labbanvändare automatiskt
+              href: automate-add-lab-user.md
         - name: Konfigurera ett labb
           items:
             - name: Ange principer och scheman

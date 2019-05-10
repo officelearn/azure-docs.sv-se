@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8eccc79969ce1a474fe0b22f2c250f8e31281550
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 443d6ca86f8ac40bd2df186fd189a333cb7b7425
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61066148"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65416028"
 ---
 # <a name="what-is-azure-analysis-services"></a>Vad är Azure Analysis Services?
 
@@ -200,7 +200,7 @@ Mer information om säkerhet i Azure finns på [Microsoft Trust Center](https://
 
 Utveckla och distribuera modeller med kostnadsfria [SQL Server Data Tools (SSDT) för Visual Studio](/sql/ssdt/download-sql-server-data-tools-ssdt). SSDT innehåller Analysis Services-projektmallar som du kommer igång med snabbare. SSDT innehåller nu den moderna Get Data-datakällfrågan och kombinationsfunktioner för 1400-tabellmodeller. Om du är bekant med Hämta data i Power BI Desktop och Excel 2016 vet du redan hur lätt det är att skapa välanpassade datakällfrågor. 
 
-Om du använder Visual Studio 2017 är Microsoft Analysis Services-projekt tillgängliga som ett kostnadsfritt installerbart VSIX-paket. [Ladda ned från Marketplace](https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftAnalysisServicesModelingProjects).
+Om du använder Visual Studio 2017 eller senare, Microsoft Analysis Services-projekt är tillgängliga som ett kostnadsfritt installerbara VSIX paket. [Ladda ned från Marketplace](https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftAnalysisServicesModelingProjects).
 
 ### <a name="sql-server-management-studio"></a>SQL Server Management Studio
 

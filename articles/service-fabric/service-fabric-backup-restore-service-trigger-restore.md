@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: a82004fdd6bbb4eda0842670f210f846f9446384
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e4ada412547360f97e869d3312b65d869fa3df48
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60310884"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413720"
 ---
 # <a name="restoring-backup-in-azure-service-fabric"></a>Återställning av säkerhetskopia i Azure Service Fabric
 
@@ -37,6 +37,20 @@ Du kan till exempel konfigurera en tjänst för att säkerhetskopiera data till 
 - Att aktivera en återställning på _fas (FAULT Analysis Service)_ måste vara aktiverat för klustret.
 - Den _säkerhetskopiering återställa Service (BRS)_ skapade säkerhetskopian.
 - Återställningen kan bara aktiveras på en partition.
+- Installera Microsoft.ServiceFabric.Powershell.Http modulen [förhandsgranskning] för configuration anrop.
+
+```powershell
+    Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
+```
+
+- Se till att klustret är anslutna med hjälp av den `Connect-SFCluster` kommandot innan du gör några konfigurationsbegäran med Microsoft.ServiceFabric.Powershell.Http-modulen.
+
+```powershell
+
+    Connect-SFCluster -ConnectionEndpoint 'https://mysfcluster.southcentralus.cloudapp.azure.com:19080'   -X509Credential -FindType FindByThumbprint -FindValue '1b7ebe2174649c45474a4819dafae956712c31d3' -StoreLocation 'CurrentUser' -StoreName 'My' -ServerCertThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'  
+
+```
+
 
 ## <a name="triggered-restore"></a>Utlösta återställning
 
@@ -50,6 +64,15 @@ En återställning kan aktiveras för någon av följande scenarier:
 Om ett helt Service Fabric-kluster har gått förlorade måste återställa du data för partitioner av tillförlitliga tillståndskänslig tjänst och Reliable Actors. Önskad säkerhetskopia kan väljas från listan över när du använder [GetBackupAPI med säkerhetskopiering lagringsinformation](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getbackupsfrombackuplocation). Uppräkningen säkerhetskopiering kan vara för ett program, en tjänst eller en partition.
 
 I följande exempel förutsätter att gå förlorade klustret är i samma kluster som refereras till i [aktiverar regelbunden säkerhetskopiering för tillförlitlig tillståndskänslig tjänst och Reliable Actors](service-fabric-backuprestoreservice-quickstart-azurecluster.md#enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors). I det här fallet `SampleApp` distribueras med säkerhetskopiering principen är aktiverad, och säkerhetskopiorna som är konfigurerade för Azure Storage.
+
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell med Microsoft.ServiceFabric.Powershell.Http-modulen
+
+```powershell
+Get-SFBackupsFromBackupLocation -Application -ApplicationName 'fabric:/SampleApp' -AzureBlobStore -ConnectionString 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net' -ContainerName 'backup-container'
+
+```
+
+#### <a name="rest-call-using-powershell"></a>REST-anrop med hjälp av Powershell
 
 Köra ett PowerShell.skript för att använda REST-API för att returnera en lista över säkerhetskopior som har skapats för alla partitioner i den `SampleApp` program. API: et kräver lagring av säkerhetskopior information att lista tillgängliga säkerhetskopior.
 
@@ -142,12 +165,30 @@ Om partitions-ID på alternativa klustret är `1c42c47f-439e-4e09-98b9-88b8f6080
 
 För _med namnet partitionering_, namnvärdet jämförs för att identifiera målpartitionen i alternativa kluster.
 
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell med Microsoft.ServiceFabric.Powershell.Http-modulen
+
+```powershell
+
+Restore-SFPartition  -PartitionId '1c42c47f-439e-4e09-98b9-88b8f60800c6' -BackupId 'b0035075-b327-41a5-a58f-3ea94b68faa4' -BackupLocation 'SampleApp\MyStatefulService\974bd92a-b395-4631-8a7f-53bd4ae9cf22\2018-04-06 21.10.27.zip' -AzureBlobStore -ConnectionString 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net' -ContainerName 'backup-container'
+
+```
+
+#### <a name="rest-call-using-powershell"></a>REST-anrop med hjälp av Powershell
+
 Du begär återställning mot säkerhetskopiering kluster partitionen med hjälp av följande [återställa API](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-restorepartition):
 
 ```powershell
+
+$StorageInfo = @{
+    ConnectionString = 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net'
+    ContainerName = 'backup-container'
+    StorageKind = 'AzureBlobStore'
+}
+
 $RestorePartitionReference = @{
     BackupId = 'b0035075-b327-41a5-a58f-3ea94b68faa4'
     BackupLocation = 'SampleApp\MyStatefulService\974bd92a-b395-4631-8a7f-53bd4ae9cf22\2018-04-06 21.10.27.zip'
+    BackupStorage  = $StorageInfo
 }
 
 $body = (ConvertTo-Json $RestorePartitionReference) 
@@ -184,6 +225,16 @@ FailureError            :
 
 Restore-API ger den _BackupId_ och _BackupLocation_ information. Klustret har säkerhetskopiering aktiverad så Service Fabric _säkerhetskopiering återställa Service (BRS)_ identifierar rätt lagringsplatsen från den tillhörande säkerhetskopieringsprincipen.
 
+
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell med Microsoft.ServiceFabric.Powershell.Http-modulen
+
+```powershell
+Restore-SFPartition  -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22' -BackupId 'b0035075-b327-41a5-a58f-3ea94b68faa4' -BackupLocation 'SampleApp\MyStatefulService\974bd92a-b395-4631-8a7f-53bd4ae9cf22\2018-04-06 21.10.27.zip'
+
+```
+
+#### <a name="rest-call-using-powershell"></a>REST-anrop med hjälp av Powershell
+
 ```powershell
 $RestorePartitionReference = @{
     BackupId = 'b0035075-b327-41a5-a58f-3ea94b68faa4',
@@ -201,6 +252,14 @@ Du kan spåra förloppet för återställning med hjälp av TrackRestoreProgress
 ## <a name="track-restore-progress"></a>Spåra återställning pågår
 
 En partition av en tillförlitlig tillståndskänslig tjänst eller en Reliable Actor accepterar endast en restore-förfrågan i taget. En partition accepterar endast en annan begäran när den aktuella restore-begäran har slutförts. Flera restore-begäranden kan aktiveras på olika partitioner på samma gång.
+
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell med Microsoft.ServiceFabric.Powershell.Http-modulen
+
+```powershell
+    Get-SFPartitionRestoreProgress -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22'
+```
+
+#### <a name="rest-call-using-powershell"></a>REST-anrop med hjälp av Powershell
 
 ```powershell
 $url = "https://mysfcluster-backup.southcentralus.cloudapp.azure.com:19080/Partitions/974bd92a-b395-4631-8a7f-53bd4ae9cf22/$/GetRestoreProgress?api-version=6.4"
@@ -229,7 +288,7 @@ $restoreResponse | Format-List
     ```
     
 3. **Lyckade**, **fel**, eller **Timeout**: En begärda återställning kan utföras på något av följande tillstånd. Varje tillstånd har följande information om betydelse och svar:
-    - **Success**: En _lyckades_ återställningstillstånd anger tillståndet återupprättats partition. Rapporter för partition _RestoredEpoch_ och _RestoredLSN_ tillstånd tillsammans med tiden i UTC.
+    - **Lyckade**: En _lyckades_ återställningstillstånd anger tillståndet återupprättats partition. Rapporter för partition _RestoredEpoch_ och _RestoredLSN_ tillstånd tillsammans med tiden i UTC.
 
         ```
         RestoreState  : Success

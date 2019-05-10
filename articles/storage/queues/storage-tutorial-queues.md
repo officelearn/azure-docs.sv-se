@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: tutorial
 ms.date: 04/24/2019
-ms.openlocfilehash: 81d7572f800f191791158f2c1f99e1f072980116
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 6b833ef56b890eb4ea0db6b48fe8c2622e211498
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65151058"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233875"
 ---
 # <a name="tutorial-work-with-azure-storage-queues"></a>Självstudier: Arbeta med Azure Storage-köer
 
@@ -206,7 +206,7 @@ Lägg till anslutningssträngen i appen så att den kan komma åt lagringskontot
 
 ## <a name="insert-messages-into-the-queue"></a>Infoga meddelanden i kön
 
-Skapa en ny metod för att skicka ett meddelande i kön. Lägg till följande metod för att din **programmet** klass. Den här metoden hämtar en referens för kön och sedan skapar en ny kö om den inte redan finns genom att anropa [CreateIfNotExistsAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.createifnotexistsasync?view=azure-dotnet). Sedan det lägger till meddelandet i kön genom att anropa [AddMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.addmessageasync?view=azure-dotnet).
+Skapa en ny metod för att skicka ett meddelande i kön. Lägg till följande metod för att din **programmet** klass. Den här metoden hämtar en referens för kön och sedan skapar en ny kö om den inte redan finns genom att anropa [CreateIfNotExistsAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.createifnotexistsasync?view=azure-dotnet). Sedan det lägger till meddelandet i kön genom att anropa [AddMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync?view=azure-dotnet).
 
 1. Lägg till följande **SendMessageAsync** metod för att din **programmet** klass.
 
@@ -229,7 +229,7 @@ Skapa en ny metod för att skicka ett meddelande i kön. Lägg till följande me
 
 ## <a name="dequeue-messages"></a>Ut meddelanden ur kön
 
-Skapa en ny metod som kallas **ReceiveMessageAsync**. Den här metoden tar emot ett meddelande från kön genom att anropa [GetMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.getmessageasync?view=azure-dotnet). När meddelandet har tagits emot, är det viktigt att ta bort det från kön så att den inte bearbetas mer än en gång. När meddelandet tas emot, ta bort det från kön genom att anropa [DeleteMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.deletemessageasync?view=azure-dotnet).
+Skapa en ny metod som kallas **ReceiveMessageAsync**. Den här metoden tar emot ett meddelande från kön genom att anropa [GetMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessageasync?view=azure-dotnet). När meddelandet har tagits emot, är det viktigt att ta bort det från kön så att den inte bearbetas mer än en gång. När meddelandet tas emot, ta bort det från kön genom att anropa [DeleteMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessageasync?view=azure-dotnet).
 
 1. Lägg till följande **ReceiveMessageAsync** metod för att din **programmet** klass.
 

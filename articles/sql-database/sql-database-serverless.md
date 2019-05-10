@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 05/07/2019
-ms.openlocfilehash: 2ab8f272fc264f153144803be772d381c1780512
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 7f850f309034d128efef89ea842db41d35b8491e
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65143270"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235739"
 ---
 # <a name="sql-database-serverless-preview"></a>SQL Database utan server (förhandsversion)
 
@@ -52,7 +52,7 @@ I följande tabell jämförs beräkning utan Server-nivå med etablerade-Beräkn
 |---|---|---|
 |**Typiskt Användarscenario**|Databaser med oregelbundna, oförutsägbar användning bland inaktiva perioder|Databaser eller elastiska pooler med mer normala användning|
 |**Prestanda hanteringsarbete**|Lägre|Högre|
-|**Compute skalning**|Automatisk|Manuellt|
+|**Compute skalning**|Automatiskt|Manuell|
 |**Compute svarstider**|Lägre efter inaktiva perioderna|Omedelbar|
 |**Fakturering kornighet**|Per sekund|Per timme|
 |
@@ -72,7 +72,7 @@ I följande tabell jämförs beräkning utan Server-nivå med etablerade-Beräkn
 
 ## <a name="purchasing-model-and-service-tier"></a>Köp av modeller och tjänstnivå
 
-SQL-databas utan Server är för närvarande stöds endast i nivån generell användning på Generation 5 maskinvara i vcore-köp av modellen.
+SQL-databas utan Server är för närvarande stöds endast i nivån generell användning på Generation 5 maskinvara i vCore-köp av modellen.
 
 ## <a name="autoscaling"></a>Automatisk skalning
 
@@ -111,10 +111,10 @@ Autoresume utlöses om något av följande villkor är uppfyllt när som helst:
 |Autotuning|Program- och verifiering av autotuning rekommendationer, till exempel automatisk indexering|
 |Databasen kopieras|Skapa databas som en kopia<br>Exportera till en BACPAC-fil|
 |SQL-datasynkronisering|Synkronisering mellan hub och medlemmen databaser som körs på ett schema som konfigureras eller utförs manuellt|
-|Ändra vissa databasmetadata|Att lägga till den nya databasen taggar<br>Ändra max vcores, min virtuella kärnor, autopause fördröjning|
+|Ändra vissa databasmetadata|Att lägga till den nya databasen taggar<br>Ändra max vCores, min virtuella kärnor, autopause fördröjning|
 |SQL Server Management Studio (SSMS)|Med hjälp av SSMS version 18 eller senare och öppna ett nytt frågefönster för alla databaser i servern fortsätter alla automatisk pausats databaser på samma server. Det här problemet uppstår inte om med hjälp av SSMS version 17.9.1 med IntelliSense stänga av.|
 
-### <a name="connectivity"></a>Anslutning
+### <a name="connectivity"></a>Anslutningar
 
 Om en serverlös databaser är pausad, kommer sedan den första inloggningen återuppta databasen och returnera ett felmeddelande om att databasen är inte tillgänglig. När databasen återupptas, måste inloggningen utföras igen om du vill upprätta en anslutning. Databas-klienter med logik behöver inte ändras.
 
@@ -137,11 +137,11 @@ Skapa en ny databas eller flytta en befintlig databas i en beräkning utan Serve
 
 1. Ange namn för tjänsten servicenivåmål. I följande tabell visar tillgängliga tjänstnivå och storlekar som är tillgängliga i den offentliga förhandsversionen.
 
-   |Tjänstenivå|Beräkna storlek|
+   |Tjänstnivå|Beräkna storlek|
    |---|---|
-   |Generellt syfte|GP_S_Gen5_1|
-   |Generellt syfte|GP_S_Gen5_2|
-   |Generellt syfte|GP_S_Gen5_4|
+   |Allmän|GP_S_Gen5_1|
+   |Allmän|GP_S_Gen5_2|
+   |Allmän|GP_S_Gen5_4|
 
 2. Du kan också ange den minsta virtuella kärnor och autopause fördröjningen om du vill ändra standardvärdena. I följande tabell visas de tillgängliga värdena för dessa parametrar.
 

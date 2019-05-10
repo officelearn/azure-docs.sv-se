@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 8fd73b1e0fcde6bcd69c7ce76b888d1adda37de4
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 0b8139f11f937ddae30e25f4153e35287289a4d1
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939549"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233986"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Åtkomstkontroll i Azure Data Lake Storage Gen2
 
@@ -37,7 +37,7 @@ Med RBAC-rolltilldelningar är en kraftfull mekanism för att styra åtkomstbeh�
 När ett säkerhetsobjekt beviljas RBAC databehörigheter via en [inbyggd roll](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues), eller via en anpassad roll behörigheterna utvärderas först vid en begäran om godkännande. Om den begärda åtgärden har beviljats behörighet av säkerhetsobjektets RBAC-uppgifter och sedan auktorisering är omedelbart löst och inga fler utförs ACL-kontroller. Du kan också om säkerhetsobjektet har inte en RBAC-tilldelning, eller i förfrågan matchar inte tilldelad behörighet, utförs sedan ACL kontroller för att fastställa om säkerhetsobjektet har behörighet att utföra den begärda åtgärden.
 
 > [!NOTE]
-> Om säkerhetsobjektet har tilldelats den [Storage Blob Data]() ägarrollstilldelning för inbyggda och sedan säkerhetsobjektet anses vara en *superanvändare* och beviljas fullständig åtkomst till alla mutera åtgärder, inklusive att ställa in ägaren av en katalog eller fil samt ACL: er för kataloger och filer som de inte är ägaren. Superanvändare åtkomst är bara auktoriserad sätt att ändra ägaren till en resurs.
+> Om säkerhetsobjektet har tilldelats inbyggda rolltilldelningen för Storage Blob Data ägare kommer säkerhetsobjektet anses vara en *superanvändare* och beviljas fullständig åtkomst till alla mutating åtgärder, inklusive inställning på ägare av en katalog eller fil samt ACL: er för kataloger och filer som de inte är ägaren. Superanvändare åtkomst är bara auktoriserad sätt att ändra ägaren till en resurs.
 
 ## <a name="shared-key-and-shared-access-signature-sas-authentication"></a>Autentisering med delad nyckel och signatur för delad åtkomst (SAS)
 
@@ -62,7 +62,7 @@ Om du vill ange fil- och behörigheter på kolumnnivå, ser du något av följan
 |Om du vill använda det här verktyget:    |Se den här artikeln:    |
 |--------|-----------|
 |Azure Lagringsutforskaren    |[Ange fil- och behörigheter på kolumnnivå med Azure Storage Explorer med Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-how-to-set-permissions-storage-explorer)|
-|REST-API    |[Sökväg - uppdatering](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update)|
+|REST API    |[Sökväg - uppdatering](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update)|
 
 > [!IMPORTANT]
 > Om säkerhetsobjektet är en *service* huvudnamn är det viktigt att använda objekt-ID för tjänstens huvudnamn och inte objekt-ID för relaterade appregistreringen. Att hämta objekt-ID för tjänstens huvudnamn öppna Azure CLI och sedan använda det här kommandot: `az ad sp show --id <Your App ID> --query objectId`. Ersätt den `<Your App ID>` med App-ID för din appregistrering.
@@ -101,7 +101,7 @@ Behörigheter för ett objekt i filsystemet är **Läs**, **skriva**, och **kör
 | 7            | `RWX`        | Läsa + skriva + köra |
 | 5            | `R-X`        | Läsa + köra         |
 | 4            | `R--`        | Läsa                   |
-| 0            | `---`        | Inga behörigheter         |
+| 0            | `---`        | Ingen behörighet         |
 
 #### <a name="permissions-inheritance"></a>Arv av behörigheter
 
@@ -111,7 +111,7 @@ I POSIX modellen som används av Data Lake Storage Gen2, förvaras behörigheter
 
 I följande tabell visas några vanliga scenarier för att hjälpa dig att förstå vilka behörigheter som krävs för att utföra vissa åtgärder på ett lagringskonto.
 
-|    Åtgärd             |    /    | Oregon / | Portland / | Data.txt     |
+|    Operation             |    /    | Oregon / | Portland / | Data.txt     |
 |--------------------------|---------|----------|-----------|--------------|
 | Läs Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
 | Lägga till i Data.txt       |   `--X`   |   `--X`    |  `--X`      | `RW-`          |

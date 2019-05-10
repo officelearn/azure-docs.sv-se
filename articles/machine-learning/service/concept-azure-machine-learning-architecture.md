@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: b06e3ff50eba4763403450a807aa90ef6335f1a9
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: cb716e0d9f97d3ea2e9584a9fc3d7a6f57da9179
+ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025227"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65502078"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Så här fungerar Azure Machine Learning-tjänsten: Arkitektur och begrepp
 
@@ -32,9 +32,7 @@ Machine learning-arbetsflöde Allmänt följer den här sekvensen:
 1. **Skicka skripten** till den konfigurerade beräkningsmål ska köras i den miljön. Vid träning, skripten kan läsa från eller skriva till **datalager**. Posterna i körningen sparas som **körs** i den **arbetsytan** och grupperade under **experiment**.
 1. **Fråga experimentet** för loggade mått från de aktuella och tidigare körningarna. Om mått som inte visar önskat utfall ska köras i slinga att gå tillbaka till steg 1 och iterera på dina skript.
 1. När du har hittat ett tillfredsställande kör registrera beständiga modellen i den **modellen registret**.
-1. Utveckla ett bedömningsskript.
-1. **Skapa en avbildning** och registrera den i den **avbildningsregister**.
-1. **Distribuera avbildningen** som en **webbtjänsten** i Azure.
+1. Utveckla ett bedömningsskript som använder modellen och **distribuera modellen** som en **webbtjänsten** i Azure eller till en **IoT Edge-enhet**.
 
 
 > [!NOTE]
@@ -46,7 +44,7 @@ Arbetsytan är den översta resursen för Azure Machine Learning-tjänsten. Det 
 
 Arbetsytan och ser en lista över beräkningsmål som du kan använda för att träna din modell. Det håller också en historik över träningskörningar, inklusive loggar, mått, utdata och en ögonblicksbild av dina skript. Du kan använda den här informationen för att avgöra vilka kör utbildning ger den bästa modellen.
 
-Du kan registrera modeller med arbetsytan. Du använder en modell som är registrerade och bedömnings-skript för att skapa en avbildning. Du kan sedan distribuera avbildningen till Azure Container Instances, Azure Kubernetes Service eller till en fält-programmable gate (FPGA) som en REST-baserade HTTP-slutpunkt. Du kan också distribuera avbildningen till en Azure IoT Edge-enhet som en modul.
+Du kan registrera modeller med arbetsytan. Du använder en registrerade modellen och bedömnings-skript för att distribuera en modell till Azure Container Instances, Azure Kubernetes Service eller till en fält-programmable gate (FPGA) som en REST-baserade HTTP-slutpunkt. Du kan också distribuera avbildningen till en Azure IoT Edge-enhet som en modul. Internt, skapas en docker-avbildning för att vara värd för den distribuerade avbildningen. Om det behövs kan du ange en egen avbildning.
 
 Du kan skapa flera arbetsytor och varje arbetsyta kan delas av flera personer. När du delar en arbetsyta, kan du styra åtkomsten till den genom att tilldela användare till följande roller:
 
@@ -94,7 +92,7 @@ Modeller identifieras av namn och version. Varje gång som du registrerar en mod
 
 När du registrerar modellen kan du ange ytterligare metadatataggar och sedan använda taggar när du söker efter modeller.
 
-Du kan inte ta bort modeller som används av en avbildning.
+Du kan inte ta bort modeller som används av en aktiv distribution.
 
 Ett exempel med att registrera en modell finns i [tränar en modell för klassificering av avbildning med Azure Machine Learning](tutorial-train-models-with-aml.md).
 
@@ -208,11 +206,11 @@ Avbildningsregister håller reda på avbildningar som skapats från dina modelle
 
 ## <a name="deployment"></a>Distribution
 
-En distribution är en instansiering bildens i antingen en webbtjänst som kan användas i molnet eller en IoT-modul för integrerad enhet distributioner.
+En distribution är en instansiering av modellen i antingen en webbtjänst som kan användas i molnet eller en IoT-modul för integrerad enhet distributioner.
 
 ### <a name="web-service"></a>Webbtjänst
 
-En distribuerad webbtjänst kan använda Azure Container Instances, Azure Kubernetes Service eller FPGA. Du har skapat tjänsten från en avbildning som innehåller din modell, skript och tillhörande filer. Avbildningen har en Utjämning av nätverksbelastning, HTTP-slutpunkt som tar emot bedömnings förfrågningar som skickas till webbtjänsten.
+En distribuerad webbtjänst kan använda Azure Container Instances, Azure Kubernetes Service eller FPGA. Du har skapat tjänsten från din modell, skript och tillhörande filer. Dessa är inkapslade i en bild, vilket ger körningsmiljö för webbtjänsten. Avbildningen har en Utjämning av nätverksbelastning, HTTP-slutpunkt som tar emot bedömnings förfrågningar som skickas till webbtjänsten.
 
 Azure hjälper dig att övervaka din distribution av webbtjänster genom att samla in Application Insights telemetry eller modell telemetri om du har valt att aktivera den här funktionen. Dessa data är tillgänglig endast för dig och lagras i dina Application Insights och storage-konto instanser.
 

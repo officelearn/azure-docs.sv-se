@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 7a327c963f32d6bf5b0cf7751557c61327fd26e9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cd91b83bc808d811fc50293fbf1726d609ad5b46
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60911552"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65234084"
 ---
 # <a name="azure-security-center-data-security"></a>Datasäkerhet i Azure Security Center
 Azure Security Center hjälper kunder att förhindra, upptäcka och svara på hot genom att samla in och bearbeta säkerhetsrelaterade data, inklusive konfigurationsinformation, metadata, händelseloggar, kraschdumpfiler och annat. Microsoft följer strikta riktlinjer för efterlevnad och säkerhet – från kodning till driften av en tjänst.
@@ -46,12 +46,18 @@ Azure Security Center analyserar data från följande källor för att ge dig in
 
 **Arbetsytor**: En arbetsyta definieras för följande regioner och data som samlas in från dina Azure-datorer, inklusive kraschdumpar och vissa typer av aviseringsdata, lagras i den närmaste arbetsytan.
 
-| Region för virtuell dator                        | Region för arbetsyta |
-|-------------------------------|---------------|
-| USA, Brasilien, Kanada | USA |
-| Europa, Storbritannien        | Europa        |
-| Asien och stillahavsområdet, Japan, Indien    | Asien och stillahavsområdet  |
-| Australien                     | Australien     |
+| Region för virtuell dator                              | Region för arbetsyta |
+|-------------------------------------|---------------|
+| USA, Brasilien, Sydafrika | USA |
+| Kanada                              | Kanada        |
+| Europa (exklusive Storbritannien)   | Europa        |
+| Storbritannien och Nordirland                      | Storbritannien och Nordirland |
+| Asien (exklusive Indien, Japan, Sydkorea, Kina)   | Asien och stillahavsområdet  |
+| Korea                              | Asien och stillahavsområdet  |
+| Indien                               | Indien         |
+| Japan                               | Japan         |
+| Kina                               | Kina         |
+| Australien                           | Australien     |
 
 
 Ögonblicksbilder av virtuella datordiskar lagras på samma lagringskonto som den virtuella datordisken.

@@ -14,16 +14,18 @@ ms.topic: overview
 ms.date: 11/15/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 2ed29f50278afe5bf7cd3daabe088cee55caae06
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3934dbb01c3b9f3219c5e649d97371850b8daadc
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60656616"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230620"
 ---
-# <a name="what-is-api-management"></a>Vad är API Management?
+# <a name="about-api-management"></a>Om API Management
 
-API Management (APIM) hjälper organisationer att publicera API:er till externa partner och interna utvecklare så att de kan få ut maximalt av sina data och tjänster. Företag överallt vill utöka sin närvaro som digital plattform, skapa nya kanaler, hitta nya kunder och fördjupa relationerna med befintliga kunder. API Management lägger grunden till ett effektivt API-program genom engagerade utvecklare, affärsinsikter, analyser, hög säkerhet och skydd. Med Azure API Management kan du välja valfri serverdel och köra ett fullvärdigt API-program baserat på den.
+API Management (APIM) är ett sätt att skapa konsekventa och moderna API-gatewayer för befintliga serverdelstjänster.
+
+API Management hjälper organisationer att publicera API: er till externa partner och interna utvecklare för att utnyttja potentialen i sina data och tjänster. Företag överallt vill utöka sin närvaro som digital plattform, skapa nya kanaler, hitta nya kunder och fördjupa relationerna med befintliga kunder. API Management lägger grunden till ett effektivt API-program genom engagerade utvecklare, affärsinsikter, analyser, hög säkerhet och skydd. Med Azure API Management kan du välja valfri serverdel och köra ett fullvärdigt API-program baserat på den.
 
 Den här artikeln innehåller en översikt över vanliga scenarier som innefattar APIM.  Det ger också en kort översikt över APIM-systemets huvudkomponenter. Artikeln ger sedan en detaljerad översikt över varje komponent.
 

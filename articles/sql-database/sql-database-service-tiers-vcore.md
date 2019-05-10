@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 manager: craigg
 ms.date: 05/06/2019
-ms.openlocfilehash: 981198063b8e0951d4a4a4c4627d4b7966f34154
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: c85ee31a54cdbbb09686a2d20200f65fdcd8994a
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148986"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235905"
 ---
 # <a name="choose-among-the-vcore-service-tiers-and-migrate-from-dtu-service-tiers"></a>Välj bland de vCore-servicenivåerna och migrera från DTU-tjänstnivåer
 
@@ -40,16 +40,16 @@ Tabellen nedan hjälper dig att förstå skillnaderna mellan de tre nivåerna:
 
 ||**Generell användning**|**Affärskritisk**|**Hyperskala**|
 |---|---|---|---|
-|Bäst för|De flesta företags arbetsbelastningar. Erbjudanden budgetera objektorienterad balanserade och skalbara beräknings- och lagringsalternativ.|Affärsprogram med höga I/O-krav. Erbjuder den högsta uthålligheten mot fel tack vare flera isolerade repliker.|De flesta företags arbetsbelastningar med mycket skalbar lagring och läs-och skalningskrav|
-|Compute|**Etablerad beräkning**:<br/>Gen4: 1-24 vCore<br/>Gen5: 2-80 vCore<br/>**Beräkning utan Server**<br/>Gen5: 0,5 – 4 vCore|**Etablerad beräkning**:<br/>Gen4: 1-24 vCore<br/>Gen5: 2-80 vCore|**Etablerad beräkning**:<br/>Gen4: 1-24 vCore<br/>Gen5: 2-80 vCore|
+|Passar bäst|De flesta företags arbetsbelastningar. Erbjudanden budgetera objektorienterad balanserade och skalbara beräknings- och lagringsalternativ.|Affärsprogram med höga I/O-krav. Erbjuder den högsta uthålligheten mot fel tack vare flera isolerade repliker.|De flesta företags arbetsbelastningar med mycket skalbar lagring och läs-och skalningskrav|
+|Beräkna|**Etablerad beräkning**:<br/>Gen4: 1-24 vCore<br/>Gen5: 2-80 vCore<br/>**Beräkning utan Server**<br/>Gen5: 0,5 – 4 vCore|**Etablerad beräkning**:<br/>Gen4: 1-24 vCore<br/>Gen5: 2-80 vCore|**Etablerad beräkning**:<br/>Gen4: 1-24 vCore<br/>Gen5: 2-80 vCore|
 |Minne|**Etablerad beräkning**:<br/>Gen4: 7 GB per vCore<br/>Gen5: 5.1 GB per vCore<br/>**Beräkning utan Server**<br/>Gen5: 3 GB per vCore|**Etablerad beräkning**:<br/>Gen4: 7 GB per vCore<br/>Gen5: 5.1 GB per vCore |**Etablerad beräkning**:<br/>Gen4: 7 GB per vCore<br/>Gen5: 5.1 GB per vCore|
 |Storage|Använder Fjärrlagring:<br/>**Enkel databas etablerad beräkning**:<br/>5 GB – 4 TB<br/>**Beräkning för enkel databas utan Server**:<br/>5 GB - 1 TB<br/>**Hanterad instans**: 32 GB - 8 TB |Använder lokal SSD-lagring:<br/>**Enkel databas etablerad beräkning**:<br/>5 GB – 4 TB<br/>**Hanterad instans**:<br/>32 GB - 4 TB |Flexibel, automatisk storleksökning av lagring vid behov. Har stöd för upp till 100 TB lagring och mycket mer. Lokal SSD-lagring för lokala buffertminne för poolen och lokal datalagring. Azure Fjärrlagring sista långsiktig datalagring. |
-|Minne|Gen4: 7 GB per kärna<br>Gen5: 5.1 GB per kärna | Gen4: 7 GB per kärna<br>Gen5: 5.1 GB per kärna |Gen5: 5.1 GB per kärna|
+|Minne|Gen4: 7 GB per kärna<br>Gen5: 5.1 GB per kärna | Gen4: 7 GB per kärna<br>Gen5: 5.1 GB per kärna |Gen4: 7 GB per kärna<br>Gen5: 5.1 GB per kärna|
 |Storage|Använder Fjärrlagring:<br/>Databas: 5 GB – 4 TB<br/>Hanterad instans: 32 GB - 8 TB |Använder lokal SSD-lagring:<br/>Databas: 5 GB – 4 TB<br/>Hanterad instans: 32 GB - 4 TB |Flexibel, automatisk storleksökning av lagring vid behov. Har stöd för upp till 100 TB lagring och mycket mer. Lokal SSD-lagring för lokala buffertminne för poolen och lokal datalagring. Azure Fjärrlagring sista långsiktig datalagring. |
 |I/o-genomströmning (ungefärlig)|Databas: 500 IOPS per vCore med 7000 högsta IOPS</br>Hanterad instans: Beror på [storleken på filen](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|5000 IOPS per kärna med 200 000 högsta IOPS|TBD|
 |Tillgänglighet|1 repliken, inga lässkala|3 repliker, 1 [lässkala repliken](sql-database-read-scale-out.md),<br/>zonen redundant hög tillgänglighet|1 skrivbar replik plus 0-4 [lässkala repliker](sql-database-read-scale-out.md)|
 |Säkerhetskopior|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 dagar (7 dagar som standard)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 dagar (7 dagar som standard)|ögonblicksbild-baserad säkerhetskopiering i Azure Fjärrlagring och återställningar kan du använda de här ögonblicksbilderna för snabb återställning. Säkerhetskopior är omedelbara och påverkar inte i/o-prestanda för databearbetning. Återställningar är mycket snabbt och är inte en storlek på data igen (tar några minuter i stället för timmar eller dagar).|
-|I minnet|Stöds inte|Stöds|Stöds inte|
+|I minnet|Stöds ej|Stöds|Stöds ej|
 |||
 
 > [!NOTE]
@@ -107,14 +107,14 @@ I följande tabell innehåller riktlinjer för specifika Migreringsscenarier:
 
 |Aktuella tjänstnivå|Måltjänstnivån|Migreringstyp|Användaråtgärder|
 |---|---|---|---|
-|Standard|Generellt syfte|Laterala|Kan migrera i valfri ordning, men måste se till att en lämplig vCore storlek *|
-|Premium|Affärskritisk|Laterala|Kan migrera i valfri ordning, men måste se till att lämpliga vCore storlek *|
-|Standard|Affärskritisk|Uppgradera|Måste migrera sekundära först|
-|Affärskritisk|Standard|Nedgradera|Måste migrera primära först|
-|Premium|Generellt syfte|Nedgradera|Måste migrera primära först|
-|Generellt syfte|Premium|Uppgradera|Måste migrera sekundära först|
-|Affärskritisk|Generellt syfte|Nedgradera|Måste migrera primära först|
-|Generellt syfte|Affärskritisk|Uppgradera|Måste migrera sekundära först|
+|Standard|Allmänt|Laterala|Kan migrera i valfri ordning, men måste se till att en lämplig vCore storlek *|
+|Premium|Verksamhetskritisk|Laterala|Kan migrera i valfri ordning, men måste se till att lämpliga vCore storlek *|
+|Standard|Verksamhetskritisk|Uppgradera|Måste migrera sekundära först|
+|Verksamhetskritisk|Standard|Nedgradera|Måste migrera primära först|
+|Premium|Allmänt|Nedgradera|Måste migrera primära först|
+|Allmänt|Premium|Uppgradera|Måste migrera sekundära först|
+|Verksamhetskritisk|Allmänt|Nedgradera|Måste migrera primära först|
+|Allmänt|Verksamhetskritisk|Uppgradera|Måste migrera sekundära först|
 ||||
 
 \* Varje 100 dtu: er i Standard-nivån kräver minst 1 virtuell kärna och varje 125 DTU på premiumnivån kräver minst 1 virtuell kärna

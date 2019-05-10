@@ -101,6 +101,8 @@
           href: search-get-started-java.md
         - name: Uppgradera SDK
           items:
+            - name: .NET SDK 9.0
+              href: search-dotnet-sdk-migration-version-9.md
             - name: .NET SDK 5.0
               href: search-dotnet-sdk-migration-version-5.md
             - name: .NET SDK 3.0
@@ -129,7 +131,7 @@
           items:
             - name: Skapa en förslagsställare
               href: index-add-suggesters.md
-            - name: 'Exempel (förslag, automatisk komplettering)'
+            - name: Lägga till förslag eller komplettera automatiskt
               href: search-autocomplete-tutorial.md
         - name: Synonymer
           items:

@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/02/2019
-ms.openlocfilehash: 9748e9706e1140f200458ba77f8b2fc424be3b14
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 2a4a9e74fa7f56b67f0f4a64f6619db1c5c69a2c
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65029107"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65442151"
 ---
 # <a name="sample-2---regression-predict-price-and-compare-algorithms"></a>Exempel 2 – Regression: Förutsäga pris och jämföra algoritmer
 
@@ -44,7 +44,7 @@ Vi kan använda de här stegen för att skapa experimentet:
 
 Här är det fullständiga diagrammet över experimentet:
 
-[ ![Diagram över experimentet](media/ui-sample-regression-predict-automobile-price-compare-algorithms/graph.png)](media/ui-sample-regression-predict-automobile-price-compare-algorithms/graph.png#lightbox)
+[![Diagram över experimentet](media/ui-sample-regression-predict-automobile-price-compare-algorithms/graph.png)](media/ui-sample-regression-predict-automobile-price-compare-algorithms/graph.png#lightbox)
 
 
 ## <a name="get-the-data"></a>Hämta data

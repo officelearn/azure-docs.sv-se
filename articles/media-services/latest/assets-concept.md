@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/19/2019
+ms.date: 05/02/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 2ec2ddbac5d0368aaf1b46208c9ebb44bf12a622
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0fc44bfdb98b81bf218cb2f1824f0f1bb14de4fa
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60734362"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235677"
 ---
 # <a name="assets"></a>Tillgångar
 
@@ -33,6 +33,9 @@ Den **Arkiv** lagringsnivå rekommenderas endast för mycket stora källfiler so
 ## <a name="upload-digital-files-into-assets"></a>Ladda upp digitala filer till tillgångar
 
 En av de vanliga arbetsflödena för Media Services är att överföra, koda och överföra en fil. Det här avsnittet beskrivs de allmänna stegen.
+
+> [!TIP]
+> Innan du börjar utveckla granska [utveckla med API: er för Media Services v3](media-services-apis-overview.md) (innehåller information om hur du använder API: er, namngivningskonventioner, osv.)
 
 1. Använd Media Services v3 API för att skapa en ny ”indataresurs”. Den här åtgärden skapar en container i det lagringskonto som associeras med ditt Media Services-konto. API: et returnerar behållarens namn (till exempel `"container": "asset-b8d8b68a-2d7f-4d8c-81bb-8c7bbbe67ee4"`).
    

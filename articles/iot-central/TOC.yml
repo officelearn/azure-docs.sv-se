@@ -99,6 +99,10 @@
           href: howto-administer.md
         - name: Förbereda och ladda upp avbildning
           href: howto-prepare-images.md
+        - name: Konfigurera instrumentpanelen för program
+          href: howto-configure-homepage.md
+        - name: Anpassa användargränssnitt i program
+          href: howto-customize-ui.md
         - name: Hantera från Azure-portalen
           href: howto-manage-iot-central-from-portal.md
         - name: Hantera från Azure CLI
@@ -106,9 +110,7 @@
         - name: Hantera från Azure PowerShell
           href: howto-manage-iot-central-from-powershell.md
         - name: Skapa och hantera ett program som molnlösningsleverantör
-          href: howto-create-and-manage-applications-as-CSP.md
-        - name: Konfigurera instrumentpanelen för program
-          href: howto-configure-homepage.md
+          href: howto-create-and-manage-applications-csp.md
     - name: Personanpassning
       items:
         - name: Skapa personliga instrumentpaneler

@@ -3,17 +3,17 @@ title: Koppla format som stöds i Azure Maps | Microsoft Docs
 description: Koppla format som stöds av Azure Maps
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/12/2019
+ms.date: 05/06/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 76ab49c7f28260249483bf3bc4387e8cbaca13b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: db396ad06bf46cbbaf486696b68393a6a4214c2f
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60767243"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230839"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Koppla format som stöds av Azure Maps
 Azure Maps stöder flera olika inbyggda Koppla format som beskrivs nedan.
@@ -56,6 +56,17 @@ Den här kartan format är en kombination av vägar och etiketter som aktivitete
 **Tillämpliga API: er:**
 * JS kartkontroll 
 * Android kartkontroll
+
+
+## <a name="grayscalelight"></a>grayscale_light
+**gråskala ljus** är en enkel version av formatmallen översikten.
+
+![gråskala ljus](./media/supported-map-styles/grayscale_light.png)
+
+**Tillämpliga API: er:**
+* JS kartkontroll
+* Android kartkontroll
+
 
 ## <a name="night"></a>natten
 **natten** är en mörk version av formatet vägkarta med färgade vägar och symboler.

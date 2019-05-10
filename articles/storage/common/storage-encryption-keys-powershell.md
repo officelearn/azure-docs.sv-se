@@ -9,12 +9,12 @@ ms.date: 04/16/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 0eeae1451e77d9000c87b1aff7ad73323e74f7ee
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: be876b370cd476bee2af7d90a9f0433fd80de3b4
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154128"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233693"
 ---
 # <a name="configure-customer-managed-keys-for-azure-storage-encryption-from-powershell"></a>Konfigurera Kundhanterade nycklar för kryptering av Azure Storage från PowerShell
 
@@ -75,7 +75,7 @@ $key = Add-AzKeyVaultKey -VaultName $keyVault.VaultName -Name <key> -Destination
 
 Som standard använder Azure Storage kryptering Microsoft-hanterade nycklar. I det här steget konfigurerar du ditt Azure Storage-konto om du vill använda Kundhanterade nycklar och ange nyckeln som ska associeras med lagringskontot.
 
-Anropa [Set-AzStorageAccount](/powershell/module/az.keyvault/set-azstorageaccount) att uppdatera krypteringsinställningar för storage-konto. Kom ihåg att ersätta platshållarvärdena inom hakparentes med dina egna värden och om du vill använda de variabler som definierats i föregående exempel.
+Anropa [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) att uppdatera krypteringsinställningar för storage-konto. Kom ihåg att ersätta platshållarvärdena inom hakparentes med dina egna värden och om du vill använda de variabler som definierats i föregående exempel.
 
 ```powershell
 Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
@@ -88,7 +88,7 @@ Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
 
 ## <a name="update-the-key-version"></a>Uppdatera nyckelns version
 
-När du skapar en ny version av en nyckel, måste du uppdatera lagringskontot för att använda den nya versionen. Först anropa [Get-AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey) att hämta den senaste versionen av nyckeln. Anropa sedan [Set-AzStorageAccount](/powershell/module/az.keyvault/set-azstorageaccount) att uppdatera krypteringsinställningar för storage-konto om du vill använda den nya versionen av nyckeln, som visas i föregående avsnitt.
+När du skapar en ny version av en nyckel, måste du uppdatera lagringskontot för att använda den nya versionen. Först anropa [Get-AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey) att hämta den senaste versionen av nyckeln. Anropa sedan [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) att uppdatera krypteringsinställningar för storage-konto om du vill använda den nya versionen av nyckeln, som visas i föregående avsnitt.
 
 ## <a name="next-steps"></a>Nästa steg
 

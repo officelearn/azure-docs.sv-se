@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 04/25/2019
+ms.date: 05/06/2019
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: a3c035715de736b816027b08a1e242e6a65d1f13
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 0a44f7d9c18e406850e2dbfb091088be0b8c2113
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148756"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235917"
 ---
 # <a name="create-a-shared-image-gallery-with-azure-powershell"></a>Skapa en delad bildgalleriet med Azure PowerShell 
 
@@ -44,7 +44,9 @@ Delad bildgalleriet-funktionen har flera resurstyper. Vi ska använda eller att 
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Du måste ha en befintlig hanterad avbildning för att utföra exemplet i den här artikeln. Du kan följa [självstudien: Skapa en anpassad avbildning av en Azure-dator med Azure PowerShell](tutorial-custom-images.md) att skapa en om det behövs. När du börjar med den här artikeln, Ersätt namnges resursgrupp och virtuell dator där det behövs.
+Du måste ha en befintlig hanterad avbildning för att utföra exemplet i den här artikeln. Du kan följa [självstudien: Skapa en anpassad avbildning av en Azure-dator med Azure PowerShell](tutorial-custom-images.md) att skapa en om det behövs. Om hanterad avbildning innehåller en datadisk, får inte datadiskstorleken vara mer än 1 TB.
+
+När du börjar med den här artikeln, Ersätt namnges resursgrupp och virtuell dator där det behövs.
 
 [!INCLUDE [virtual-machines-common-shared-images-powershell](../../../includes/virtual-machines-common-shared-images-powershell.md)]
  
@@ -72,6 +74,7 @@ New-AzVm `
 [!INCLUDE [virtual-machines-common-shared-images-update-delete-ps](../../../includes/virtual-machines-common-shared-images-update-delete-ps.md)]
 
 ## <a name="next-steps"></a>Nästa steg
+[Azure Image Builder (förhandsversion)](image-builder-overview.md) kan hjälpa dig att automatisera genereringen av avbildningen version, kan du även använda den för att uppdatera och [skapa en ny Avbildningsversion från en befintlig Avbildningsversion](image-builder-gallery-update-image-version.md). 
 
 Du kan också skapa delade bildgalleriet resursen med hjälp av mallar. Det finns flera Azure-Snabbstartsmallar: 
 

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: ea3bb551a32fdfb7e4a378c36858860808e27419
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 132ba922fa73c73d0e001e84659b5a24996d406b
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65072781"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235787"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Språkförståelse vanliga frågor (och svar FAQ)
 
@@ -294,7 +294,7 @@ Följande funktioner har släppts på 2019 Utvecklarkonferens:
 
 * [Förhandsgranskning av V3 API-Migreringsguide](luis-migration-api-v3.md)
 * [Förbättrad analysinstrumentpanel](luis-how-to-use-dashboard.md)
-* [Förbättrad fördefinierade domäner](luis-reference-prebuilt-domains.md) fungerar med V2 och V3-API: er
+* [Förbättrad fördefinierade domäner](luis-reference-prebuilt-domains.md) 
 
 ## <a name="next-steps"></a>Nästa steg
 

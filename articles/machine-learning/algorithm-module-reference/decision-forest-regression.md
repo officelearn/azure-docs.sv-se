@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 67016582149824c8deb83b54102190a57bd19383
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: d372adf75d46fdedb7a6f2b17e47822475d1f155
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65028807"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65442372"
 ---
 # <a name="decision-forest-regression-module"></a>Beslutsskog Regression modul
 
@@ -39,7 +39,7 @@ Beslutsträd har följande fördelar:
 
 Den här regressionsmodellen består av en ensemble för beslutsträd. Varje trädet i en regression beslutsskog matar ut en Gaussisk-distribution som en förutsägelse. En aggregering utförs över ensemble av träd för att hitta en Gaussisk distribution närmast kombinerade fördelningen för alla träd i modellen.
 
-Mer information om teoretisk framework för den här algoritmen och dess implementering finns i den här artikeln: [Beslutet skogar: Ett enhetligt ramverk för klassificering, Regression, densitet uppskattning inloppsrör Learning och delvis övervakad inlärning ](https://www.microsoft.com/en-us/research/publication/decision-forests-a-unified-framework-for-classification-regression-density-estimation-manifold-learning-and-semi-supervised-learning/?from=http%3A%2F%2Fresearch.microsoft.com%2Fapps%2Fpubs%2Fdefault.aspx%3Fid%3D158806#)
+Mer information om teoretisk framework för den här algoritmen och dess implementering finns i den här artikeln: [Beslutet skogar: Ett enhetligt ramverk för klassificering, Regression, densitet uppskattning inloppsrör Learning och delvis övervakad inlärning](https://www.microsoft.com/en-us/research/publication/decision-forests-a-unified-framework-for-classification-regression-density-estimation-manifold-learning-and-semi-supervised-learning/?from=http%3A%2F%2Fresearch.microsoft.com%2Fapps%2Fpubs%2Fdefault.aspx%3Fid%3D158806#)
 
 ## <a name="how-to-configure-decision-forest-regression-model"></a>Så här konfigurerar du beslut skog Regression-modellen
 
@@ -53,7 +53,7 @@ Mer information om teoretisk framework för den här algoritmen och dess impleme
 
     - **Replikera**: I replikering tränas varje träd på exakt samma inkommande data. Bestämning av vilka dela predikatet används för varje trädnod är slumpmässig och träd kommer att vara olika.
 
-         Mer information om hur utbildning med den **replikera** finns i [beslut skogar för visuellt innehåll och medicinska bildanalys. Criminisi och J. Shotton. Springer 2013. ](http://research.microsoft.com/projects/decisionforests/).
+         Mer information om hur utbildning med den **replikera** finns i [beslut skogar för visuellt innehåll och medicinska bildanalys. Criminisi och J. Shotton. Springer 2013. ](https://research.microsoft.com/projects/decisionforests/).
 
 3. Ange hur du vill att modellen ska tränas genom att ange den **skapande trainer läge** alternativet.
 

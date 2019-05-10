@@ -2,19 +2,19 @@
 title: Självstudie – Så här använder du Azure Key Vault med en virtuell Azure Linux-dator i .NET – Azure Key Vault | Microsoft Docs
 description: 'Självstudie: Konfigurera ett ASP.NET Core-program att läsa en hemlighet från Key Vault'
 services: key-vault
-author: mbaldwin
+author: msmbaldwin
 manager: rajvijan
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: 969213f4006aa842711459fed7a76d08a9d3ce37
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 88d06518c6cabe1f796dbdef6d954db83bc5ae28
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64707064"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65234017"
 ---
 # <a name="tutorial-how-to-use-azure-key-vault-with-azure-linux-virtual-machine-in-net"></a>Självstudier: Så här använder du Azure Key Vault med en virtuell Azure Linux-dator i .NET
 
@@ -52,7 +52,7 @@ Så här fungerar det. När du aktiverar MSI för en Azure-tjänst, till exempel
 Koden anropar sedan en lokal metadatatjänst som är tillgänglig på Azure-resursen för att hämta en åtkomsttoken.
 Koden använder den åtkomsttoken som den får från den lokala MSI_ENDPOINT för att autentisera till en Azure Key Vault-tjänst. 
 
-## <a name="sign-in-to-azure"></a>Logga in på Azure
+## <a name="sign-in-to-azure"></a>Logga in till Azure
 
 Om du vill logga in i Azure med hjälp av Azure CLI anger du:
 

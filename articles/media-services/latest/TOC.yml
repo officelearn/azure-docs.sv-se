@@ -24,18 +24,13 @@
     - name: Strömma live – .NET
       href: stream-live-tutorial-with-api.md
     - name: Analysera din video – .NET
-      displayName: 'job, transform'
+      displayName: 'job, transform, VideoAnalyzerPreset, AudioAnalyzerPreset'
       href: analyze-videos-tutorial-with-api.md
     - name: Kryptera dynamiskt med AES-128 – .NET
       href: protect-with-aes128.md
     - name: Kryptera dynamiskt med DRM – .NET
+      displayName: 'PlayReady, Widevine'
       href: protect-with-drm.md
-- name: Exempel
-  items:
-    - name: Azure-kodexempel
-      href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=media-services&term=v3'
-    - name: Azure CLI
-      href: cli-samples.md
 - name: Begrepp
   href: concepts-overview.md
   items:
@@ -52,6 +47,7 @@
           displayName: 'encoding, presets, jobs, adaptive, bitrate'
         - name: Transformeringar och jobb
           href: transforms-jobs-concept.md
+          displayName: 'preset, schema'
         - name: Media Encoder Standard-format
           displayName: 'containers, codecs'
           href: media-encoder-standard-formats.md
@@ -75,7 +71,7 @@
         - name: Paketering
           items:
             - name: Dynamisk paketering
-              displayName: packager
+              displayName: 'origin, packager'
               href: dynamic-packaging-overview.md
             - name: Dynamiska manifest
               href: filters-dynamic-manifest-overview.md
@@ -84,7 +80,7 @@
         - name: Innehållsskydd
           items:
             - name: Protokoll och krypteringstyper för direktuppspelning
-              displayName: Dynamic encryption
+              displayName: 'dynamic, encryption'
               href: content-protection-overview.md
             - name: Multi-DRM-system med åtkomstkontroll
               href: design-multi-drm-system-with-access-control.md
@@ -97,7 +93,7 @@
                 - name: Licenskrav för FairPlay
                   href: fairplay-license-overview.md
         - name: Slutpunkt/ursprung för direktuppspelning
-          displayName: 'origins, cdn'
+          displayName: 'origin, packager, cdn'
           href: streaming-endpoint-concept.md
         - name: Positionerare för direktuppspelning
           displayName: URLs
@@ -106,8 +102,8 @@
           href: streaming-policy-concept.md
         - name: Viktiga innehållsprinciper
           href: content-key-policy-concept.md
-        - name: Ursprungsfelkoder
-          href: origin-error-codes.md
+        - name: Felkoder för slutpunkter för direktuppspelning
+          href: streaming-endpoint-error-codes.md
     - name: Liveuppspelning
       items:
         - name: Översikt
@@ -141,6 +137,7 @@
           href: use-azure-media-player.md
     - name: 'Utveckla med API:er för v3'
       href: media-services-apis-overview.md
+      displayName: 'access, naming, long-running'
       items:
         - name: 'Sid-, filter- och orderentiteter'
           href: entities-overview.md
@@ -148,8 +145,8 @@
           href: rbac-overview.md
         - name: Felkoder
           items:
-            - name: Ursprungsfelkoder
-              href: origin-error-codes.md
+            - name: Felkoder för slutpunkter för direktuppspelning
+              href: streaming-endpoint-error-codes.md
             - name: Jobbfelkoder
               href: job-error-codes.md
     - name: Vägledning för migrering från v2 till v3
@@ -160,10 +157,14 @@
       items:
         - name: Skapa ett konto – CLI
           href: create-account-cli-how-to.md
+        - name: Återställa kontoautentiseringsuppgifter – CLI
+          href: cli-reset-account-credentials.md
         - name: 'Åtkomst till API:er – CLI'
           href: access-api-cli-how-to.md
         - name: Skala mediereserverade enheter – CLI
           href: media-reserved-units-cli-how-to.md
+        - name: Skapa en tillgång – CLI
+          href: cli-create-asset.md
         - name: Utveckla med REST
           items:
             - name: Ansluta med Postman
@@ -190,6 +191,14 @@
         - name: Från en lokal fil – REST
           displayName: upload
           href: upload-files-rest-how-to.md
+        - name: Från en lokal fil – CLI
+          href: cli-upload-file-asset.md
+    - name: Skapa transformeringar och jobb
+      items:
+        - name: Skapa transformeringar – CLI
+          href: cli-create-transform.md
+        - name: Skapa jobb – CLI
+          href: cli-create-jobs.md
     - name: Koda innehåll
       items:
         - name: HTTPS som jobbindata – .NET
@@ -230,10 +239,15 @@
           href: filters-dynamic-manifest-rest-howto.md
         - name: Med CLI
           href: filters-dynamic-manifest-cli-howto.md
+    - name: Leverera innehåll
+      items:
+        - name: Publicera en tillgång – CLI
+          href: cli-publish-asset.md
 - name: Referens
   items:
     - name: OpenAPI-specifikation (Swagger)
       href: 'https://aka.ms/ams-v3-rest-sdk'
+      displayName: schema
     - name: REST
       href: 'https://aka.ms/ams-v3-rest-ref'
     - name: Azure CLI
@@ -254,8 +268,8 @@
       href: /azure/templates/microsoft.media/allversions
     - name: Felkoder
       items:
-        - name: Ursprungsfelkoder
-          href: origin-error-codes.md
+        - name: Felkoder för slutpunkter för direktuppspelning
+          href: streaming-endpoint-error-codes.md
         - name: Jobbfelkoder
           href: job-error-codes.md
 - name: Resurser
@@ -285,7 +299,7 @@
           href: 'https://aka.ms/ams-v3-nodejs-sdk'
         - name: Ruby
           href: 'https://aka.ms/ams-v3-ruby-sdk'
-    - name: AMSE
+    - name: Azure Media Services Explorer
       href: 'https://github.com/Azure/Azure-Media-Services-Explorer'
     - name: Viktig information
       href: release-notes.md

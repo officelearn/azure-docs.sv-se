@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 05/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 465352af52cbc84773e52782233065b3000921e7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c9b305beae1b385d4714e3a80e6843c7e76a4f60
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60695421"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65411005"
 ---
 # <a name="connect-your-labs-network-with-a-peer-virtual-network-in-azure-lab-services"></a>Ansluta ditt labb nätverk med en peer virtuellt nätverk i Azure Lab Services 
 Den här artikeln innehåller information om peering labs nätverket med ett annat nätverk. 
@@ -33,7 +33,6 @@ Du kan behöva ansluta ditt labb nätverk med ett peer virtuellt nätverk i viss
 
 Vissa lokala nätverk är anslutna till Azure Virtual Network antingen via [ExpressRoute](../../expressroute/expressroute-introduction.md) eller [virtuell nätverksgateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md). De här tjänsterna måste ställas in utanför Azure Lab Services. Mer information om hur du ansluter ett lokalt nätverk till Azure med ExpressRoute, finns i [översikt över ExpressRoute]) (.. /expressroute/expressroute-Introduction.MD). För lokal anslutning med hjälp av en virtuell nätverksgateway, gateway, angivna virtuella nätverket och labb-kontot måste vara i samma region.
 
-
 ## <a name="configure-at-the-time-of-lab-account-creation"></a>Konfigurera vid tidpunkten för labb har skapats
 När nya lab kontot skapas kan du välja ett befintligt virtuellt nätverk som visas i den **Peerkopplade virtuella nätverket** listrutan. Det valda virtuella nätverket är connected(peered) till övningar som skapats under kontot labb. Alla virtuella datorer i labb som skapas efter att den här ändringen ha åtkomst till resurser i det peer-kopplade virtuella nätverket. 
 
@@ -44,15 +43,14 @@ När nya lab kontot skapas kan du välja ett befintligt virtuellt nätverk som v
 
 
 ## <a name="configure-after-the-lab-is-created"></a>Konfigurera när labbet har skapats
-Samma egenskap kan aktiveras från den **Labs configuration** fliken den **Labbkonto** sidan om du inte har ställt in en peer-nätverket vid tidpunkten för labb har skapats. Ändringar som gjorts i den här inställningen gäller enbart för labb som skapas efter ändringen.
+Samma egenskap kan aktiveras från den **Labs configuration** fliken den **Labbkonto** sidan om du inte har ställt in en peer-nätverket vid tidpunkten för labb har skapats. Ändringar som gjorts i den här inställningen gäller enbart för labb som skapas efter ändringen. Som du ser i bilden, du kan aktivera eller inaktivera **Peerkopplade virtuella nätverket** för labb i labbkonto. 
 
 ![Aktivera eller inaktivera VNet-peering när labbet har skapats](../media/how-to-connect-peer-virtual-network/select-vnet-to-peer-existing-lab.png) 
 
-Som du ser i bilden, du kan aktivera eller inaktivera **Peerkopplade virtuella nätverket** för labb i labbkonto. 
+När du väljer ett virtuellt nätverk för den **Peerkopplade virtuella nätverket** fält, de **Tillåt labbskaparen att välja lab platsen** alternativet är inaktiverat. Det beror på att labs i labb-kontot måste finnas i samma region som labbkonto att ansluta till resurser i det peerkopplade virtuella nätverket. 
 
 > [!IMPORTANT]
 > Den här ändringen gäller enbart för labb som skapas efter att ändringen görs inte till de befintliga övningarna. 
-
 
 
 ## <a name="next-steps"></a>Nästa steg

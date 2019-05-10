@@ -2,19 +2,19 @@
 title: 'Självstudier: Förutsäga bil pris med det visuella gränssnittet'
 titleSuffix: Azure Machine Learning service
 description: Lär dig hur du tränar poäng, och distribuerar en maskininlärningsmodell med en dra och släpp visuella gränssnittet. Den här självstudien är del i en serie i två delar om att förutsäga bilpriser med hjälp av linjär regression.
-author: peterlu
-ms.author: peterlu
+author: peterclu
+ms.author: peterclu
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/06/2019
-ms.openlocfilehash: 1dc905b2ac89667dcb5800b0f539cb3e9f3acdcd
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 352f695f186b656ad0f6471d8ede905d53ad5274
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026874"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65234116"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-visual-interface"></a>Självstudier: Förutsäga bil pris med det visuella gränssnittet
 
@@ -35,7 +35,7 @@ I [del två](ui-tutorial-automobile-price-deploy.md) av den här självstudieser
 > En fullständig version av den här självstudien är tillgänglig som en exempelexperimentet.
 > Gå till sidan experiment **Lägg till ny** > **exempel 1 – Regression: Bil pris Prediction(Basic)**
 
-> [!VIDEO https://www.youtube.com/embed/VDKpDNX96aA]
+> [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Build-zero-code-machine-learning-models-with-Azure-Machine-Learning-service/player]
 
 
 ## <a name="create-a-workspace"></a>Skapa en arbetsyta

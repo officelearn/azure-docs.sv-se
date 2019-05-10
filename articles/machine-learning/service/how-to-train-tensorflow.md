@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 05/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: c8865c851f394d73b5446ac159b5a7799c0c9ed2
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 0d5751ab96dc6b44229e2b18b832a570930058ca
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192357"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65442346"
 ---
 # <a name="train-tensorflow-and-keras-models-with-azure-machine-learning-service"></a>Skapa TensorFlow och Keras modeller med Azure Machine Learning-tjänsten
 
@@ -24,11 +24,11 @@ Du kan enkelt köra TensorFlow-utbildningsjobb på Azure compute med hjälp av d
 
 Den `TensorFlow` kostnadsuppskattning innehåller också ett lager av abstraktion under körning, vilket innebär att du enkelt kan konfigurera parametriserade körs på olika beräkningsmål utan att ändra skripten utbildning.
 
-## <a name="getting-started"></a>Komma igång
+## <a name="get-started"></a>Kom igång
 
-Skicka jobb med den `TensorFlow` kostnadsuppskattning är ungefär som att använda grundläggande [ `Estimator` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py). Så vi rekommenderar att börja med att läsa den [grundläggande kostnadsuppskattning artikel](how-to-train-ml-models.md) att förstå de övergripande begrepp först.
+Eftersom den `TensorFlow` kostnadsuppskattning klass liknar grundläggande [ `Estimator` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py), rekommenderar vi att du första Läs den [grundläggande kostnadsuppskattning artikel](how-to-train-ml-models.md) att förstå de övergripande begrepp.
 
-Om du vill komma igång med Azure Machine Learning-tjänsten [Slutför Snabbstart](quickstart-run-cloud-notebook.md). Har du en arbetsmiljö med alla våra [exempel anteckningsböcker](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml).
+Du kommer igång med Azure Machine Learning-tjänsten [Slutför Snabbstart](quickstart-run-cloud-notebook.md). När du är klar har du en [Azure Machine Learning-arbetsyta](concept-azure-machine-learning-architecture.md#workspace) och alla våra [exempel anteckningsböcker](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml) inklusive de för utbildning dnn: er med TensorFlow och Keras.
 
 ## <a name="single-node-training"></a>Nod-utbildning
 

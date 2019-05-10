@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: jgao
-ms.openlocfilehash: cb1eb5ac27c53f4c0d48fe3644febc62f848486d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 559c1874c119eabef2c35a954961c1e669df3c06
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60551318"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507228"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Hantera resursgrupper i Azure Resource Manager med hjälp av Azure-portalen
 
@@ -108,64 +108,7 @@ Du kan lägga till taggar till resursgrupper och resurser och organisera dem log
 
 ## <a name="export-resource-groups-to-templates"></a>Exportera resursgrupper till mallar
 
-När du har skapat en resursgrupp kan du visa Resource Manager-mallen för resursgruppen. Exportera mallen erbjuder två fördelar:
-
-- Automatisera framtida distributioner av lösningen eftersom mallen innehåller alla hela infrastrukturen.
-- Lär dig mer om mallsyntaxen genom att titta på den JavaScript Object Notation (JSON) som representerar din lösning.
-
-Det finns två sätt att exportera en mall:
-
-- Du kan exportera själva mallen som används för distribution. Den exporterade mallen innehåller alla parametrar och variabler exakt som de visas i den ursprungliga mallen. Den här metoden är användbar om du har distribuerat resurser via portalen och vill se mallen för att skapa dessa resurser. Mallen är enkel att använda. 
-- Du kan exportera en genererad mall som representerar det aktuella tillståndet för resursgruppen. Den exporterade mallen inte är baserad på en mall som du använde för distributionen. I stället skapar den en mall som är en ”ögonblicksbild” eller ”säkerhetskopiering” för resursgruppen. Den exporterade mallen har många hårdkodade värden och troligen inte så många parametrar som du vanligtvis definierar. Använd det här alternativet för att distribuera om resurser till samma resursgrupp. Du kan behöva ändra avsevärt den om du vill använda den här mallen för en annan resursgrupp.
-
-### <a name="export-templates-from-deployment-history"></a>Exportera mallar från distributionshistoriken
-
-Den här metoden exporterar mallar för vissa distributioner. Om du har ändrat resurserna från portalen eller resurs som har lagts till eller tas bort i flera distributioner kan du läsa [Exportera mallar från resursgrupper](#export-templates-from-resource-groups).
-
-1. Öppna resursgruppen som du vill exportera.  Se [öppna resursgrupper](#open-resource-groups).
-2. I den vänstra rutan väljer **distributioner**, eller klicka på länken under **distributioner**.  På följande skärmbild visas **4 lyckades** eftersom det fanns fyra avgränsas distributioner med fyra olika distributionsnamn. Du kan se **1 lyckades**.
-
-    ![Azure resource group export-mallar](./media/manage-resource-groups-portal/manage-resource-groups-export-templates-deployment-history.png)
-
-3. Välj en av distributionerna i listan.
-4. I den vänstra rutan väljer **mallen**. Resource Manager hämtar följande sex filer åt dig:
-
-   - **Mall**– Mallen som definierar infrastrukturen för lösningen. När du skapade lagringskontot på portalen använde Resource Manager en mall för att distribuera det och sparade mallen för framtida bruk.
-   - **Parametrar** – En parameterfil som du kan använda för att skicka in värden under distributionen. Den innehåller de värden som du angav under den första distributionen. Du kan ändra dessa värden när du distribuerar om mallen.
-   - **CLI** – en Azure-CLI-skriptfil som du kan använda för att distribuera mallen.
-   - **PowerShell** – En Azure PowerShell-skriptfil som du kan använda för att distribuera mallen.
-   - **.NET** – En .NET-klass som du kan använda för att distribuera mallen.
-   - **Ruby**– En Ruby-klass som du kan använda för att distribuera mallen.
-
-     Som standard visar portalen mallen.
-
-5. Välj **hämta** du exporterar en mall till den lokala datorn.
-
-    ![Azure resource group export-mallar](./media/manage-resource-groups-portal/manage-resource-groups-export-templates-deployment-history-download.png)
-
-<a name="export-templates-from-resource-groups"></a>
-### <a name="export-templates-from-resource-groups"></a>Exportera mallar från resursgrupper
-
-Om du har ändrat dina resurser från portalen eller lagts till/ta bort resurser i flera distributioner, motsvarar hämta en mall från distributionshistoriken inte det aktuella tillståndet för resursgruppen. I det här avsnittet visas hur du exporterar en mall som representerar resursgruppens aktuella tillstånd. Den är avsedd som en ögonblicksbild av resursgruppen som du kan använda för att distribuera om till samma resursgrupp. Om du vill använda den exporterade mallen andra lösningar, måste du avsevärt ändra den.
-
-1. Öppna resursgruppen som du vill exportera.  Se [öppna resursgrupper](#open-resource-groups).
-2. I den vänstra rutan väljer **exportmallen**. Resource Manager hämtar följande sex filer åt dig:
-
-   - **Mall**– Mallen som definierar infrastrukturen för lösningen. När du skapade lagringskontot på portalen använde Resource Manager en mall för att distribuera det och sparade mallen för framtida bruk.
-   - **Parametrar** – En parameterfil som du kan använda för att skicka in värden under distributionen. Den innehåller de värden som du angav under den första distributionen. Du kan ändra dessa värden när du distribuerar om mallen.
-   - **CLI** – en Azure-CLI-skriptfil som du kan använda för att distribuera mallen.
-   - **PowerShell** – En Azure PowerShell-skriptfil som du kan använda för att distribuera mallen.
-   - **.NET** – En .NET-klass som du kan använda för att distribuera mallen.
-   - **Ruby**– En Ruby-klass som du kan använda för att distribuera mallen.
-
-     Som standard visar portalen mallen.
-3. Välj **hämta** du exporterar en mall till den lokala datorn.
-
-Vissa exporterade mallar måste vissa ändringar innan de kan användas. Läs hur du utvecklar mallar i den [stegvisa självstudier](/azure/azure-resource-manager/).
-
-### <a name="export-template-before-deploying"></a>Exportera mallen innan du distribuerar
-
-Du kan använda portalen för att definiera en resurs.  Innan du distribuerar resursen, kan du visa och exportera en mall. Instruktionerna finns i [Snabbstart: Skapa och distribuera Azure Resource Manager-mallar med hjälp av Azure-portalen](./resource-manager-quickstart-create-templates-use-the-portal.md).
+Information om hur du exporterar mallar finns i [enstaka och flera resurs export till mall - Portal](export-template-portal.md).
 
 ### <a name="fix-export-issues"></a>Åtgärda exportproblem
 

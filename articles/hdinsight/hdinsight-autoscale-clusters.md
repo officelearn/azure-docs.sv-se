@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: hrasheed
-ms.openlocfilehash: 92f4616a415c4ddebd0d9b2e466536b2f30c486f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: f8803a498e62958a5488f2ac8830137c37533e54
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65146429"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413705"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters-preview"></a>Skala automatiskt Azure HDInsight-kluster (förhandsversion)
 
@@ -21,9 +21,12 @@ Azure HDInsight funktionen för automatisk skalning skalas automatiskt antalet a
 
 ## <a name="cluster-compatibility"></a>Kluster-kompatibilitet
 
+> [!Important]
+> Funktionen för automatisk skalning fungerar endast för kluster som skapats efter allmän tillgänglighet av funktionen i maj 2019. Det fungerar inte för befintliga kluster.
+
 I följande tabell beskrivs klustertyper och versioner som är kompatibla med funktionen för automatisk skalning.
 
-| Version | Spark | Hive | LLAP | HBase | Kafka | Storm | ML |
+| Version | Spark | Hive | LLAP | Hbase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
 | HDInsight 3.6 utan ESP | Ja | Ja | Nej | Nej | Nej | Nej | Nej |
 | HDInsight 4.0 utan ESP | Ja | Ja | Nej | Nej | Nej | Nej | Nej |

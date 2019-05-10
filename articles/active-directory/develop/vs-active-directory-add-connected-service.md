@@ -14,25 +14,25 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cbbef13d2e64a5d1b177d8232c5b6ef1e64a1da9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9bea0a870a6ef0685f4f4bce5ad3b0d1ff1f616a
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60250909"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65414016"
 ---
 # <a name="adding-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Att lägga till en Azure Active Directory med hjälp av Connected Services i Visual Studio
 
 Med hjälp av Azure Active Directory (AD Azure), kan du använda enkel inloggning (SSO) för ASP.NET MVC-webbprogram och Active Directory-autentisering i webb-API-tjänster. Med Azure AD-autentisering kan användarna använda sina konton från Azure Active Directory för att ansluta till dina webbprogram. Fördelarna med Azure AD-autentisering med webb-API är förbättrad datasäkerhet när exponerar ett API från ett webbprogram. Du behöver inte hantera en separat autentiseringssystem med sin egen konto och användare med Azure AD.
 
-Den här artikeln och dess tillhörande artiklar innehåller information för att använda Visual Studio Connected Service-funktionen för Active Directory. Funktionen är tillgänglig i både Visual Studio 2017 och Visual Studio 2015.
+Den här artikeln och dess tillhörande artiklar innehåller information för att använda Visual Studio Connected Service-funktionen för Active Directory. Funktionen är tillgänglig i Visual Studio 2015 och senare.
 
 För närvarande stöder inte tjänsten Active Directory-anslutna ASP.NET Core-program.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Azure-konto: Om du inte har ett Azure-konto, kan du [registrera dig för en kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) eller [aktivera Visual Studio-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
-- **Visual Studio 2015** eller senare. [Hämta Visual Studio 2017 nu](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+- **Visual Studio 2015** eller senare. [Ladda ned Visual Studio nu](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 
 ### <a name="connect-to-azure-active-directory-using-the-connected-services-dialog"></a>Ansluta till Azure Active Directory genom att använda dialogen Connected Services
 

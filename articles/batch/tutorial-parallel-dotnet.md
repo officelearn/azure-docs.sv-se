@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: a6fe5b0452771cd2e618d1a08cb2f4af52e3cc0d
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: c55839f7ec4e4c28086912c476a193e31561c3f4
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62127768"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65234124"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Självstudier: Köra en parallell arbetsbelastning med Azure Batch med hjälp av .NET API:et
 
@@ -43,7 +43,7 @@ I den här självstudien konverterar du MP4-mediefiler parallellt till MP3-forma
 
 * [Windows 64-bitarsversionen av ffmpeg 3.4](https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-3.4-win64-static.zip) (.zip). Ladda ned zip-filen till din lokala dator. I den här självstudien behöver du bara zip-filen. Du behöver inte packa upp filen eller installera den lokalt.
 
-## <a name="sign-in-to-azure"></a>Logga in på Azure
+## <a name="sign-in-to-azure"></a>Logga in till Azure
 
 Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 
@@ -140,7 +140,7 @@ I följande avsnitt bryter vi ned exempelprogrammet i de steg som utförs när e
 
 ### <a name="authenticate-blob-and-batch-clients"></a>Autentisera Blob- och Batch-klienter
 
-I interaktionen med det länkade lagringskontot använder appen Azure Storage Client Library för .NET. En referens till kontot skapas med [CloudStorageAccount](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount) och autentiseringen görs med hjälp av delad nyckel. Sedan skapas en [CloudBlobClient](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient).
+I interaktionen med det länkade lagringskontot använder appen Azure Storage Client Library för .NET. En referens till kontot skapas med [CloudStorageAccount](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount) och autentiseringen görs med hjälp av delad nyckel. Sedan skapas en [CloudBlobClient](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient).
 
 ```csharp
 // Construct the Storage account connection string

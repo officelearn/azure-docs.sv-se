@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 6/13/2018
 ms.author: erikre
-ms.openlocfilehash: 0d2b0f2d3fad318ac0152d92fe92614d8dadda1e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cb7a13d9abcf7c677d51f03df002ea06b543014e
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60615866"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65232475"
 ---
 # <a name="automation-scenarios-for-billing-and-cost-management"></a>Automatiseringsscenarier för hantering av fakturerings- och kostnad
 
@@ -85,9 +85,9 @@ Web Direct och Enterprise-kunder kan använda alla de följande API: er, utom d�
 -   [Oklassificerat användnings-API](/previous-versions/azure/reference/mt219003(v=azure.100)): Få information om rådata användningen innan Azure gör eventuella mätning/debitera.
 
 ### <a name="billing"></a>Fakturering
--   [Fakturering perioder API](https://docs.microsoft.com/rest/api/billing/billingperiods): Fastställa en faktureringsperiod att analysera, tillsammans med fakturan ID: N för den perioden. Du kan använda faktura ID: N med API för fakturor.
+-   [Fakturering perioder API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-billing-periods): Fastställa en faktureringsperiod att analysera, tillsammans med fakturan ID: N för den perioden. Du kan använda faktura ID: N med API för fakturor.
 
--   [API-fakturor](https://docs.microsoft.com/rest/api/billing/invoices): Hämta nedladdnings-URL för en faktura för en faktureringsperiod i PDF-format.
+-   [API-fakturor](https://docs.microsoft.com/rest/api/billing/2018-11-01-preview/invoices): Hämta nedladdnings-URL för en faktura för en faktureringsperiod i PDF-format.
 
 ### <a name="enterprise-consumption"></a>Enterprise-förbrukning
 Följande API: er är endast för företag:
@@ -126,7 +126,7 @@ Dessa API: er ger helt olika data:
 ### <a name="whats-the-difference-between-the-invoice-api-and-the-usage-details-api"></a>Vad är skillnaden mellan API: et faktura och användning information om API: et?
 Dessa API: er ger en annan vy av samma data:
 
-- Den [faktura API](https://docs.microsoft.com/rest/api/billing/invoices) för Web Direct kunder. Den innehåller månatliga fakturan utifrån sammanställd avgifterna för varje Mätartyp av. 
+- Den [faktura API](https://docs.microsoft.com/rest/api/billing/2018-11-01-preview/invoices) för Web Direct kunder. Den innehåller månatliga fakturan utifrån sammanställd avgifterna för varje Mätartyp av. 
 
 - Den [användning information API](https://docs.microsoft.com/rest/api/consumption/usagedetails) ger en detaljerad vy av förbrukningskostnad /-poster för varje dag. Både företagscertifikatutfärdare och Web Direct-kunder kan använda den.
 

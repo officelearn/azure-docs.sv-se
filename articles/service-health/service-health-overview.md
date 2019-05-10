@@ -9,12 +9,12 @@ ms.service: service-health
 ms.topic: article
 ms.workload: Supportability
 ms.date: 03/27/2018
-ms.openlocfilehash: 465e8751d02692648234a7a90b84b68f41522cb2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d5385777134b911aa08b751978c44597f79acbc7
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60620819"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65442398"
 ---
 # <a name="service-health"></a>Service Health
 Service Health ger dig en anpassningsbar instrumentpanel som spårar hälsotillståndet för dina Azure-tjänster i regioner där du använder. I den här instrumentpanelen kan du spåra aktiva händelser som pågående tjänstproblem, planerat underhåll eller relevanta hälsoråd. När händelser blir inaktiva, placeras de i din hälsotillståndshistoriken i upp till 90 dagar. Slutligen kan du använda Service Health-instrumentpanelen att skapa och hantera service health-aviseringar som proaktivt meddela dig när tjänstproblem påverkar dig.
@@ -60,5 +60,7 @@ Filtrera Tjänstehälsa för att visa dina affärskritiska prenumerationer, regi
 ## <a name="configure-service-health-alerts"></a>Konfigurera service health-aviseringar
 Tjänstehälsa kan integreras med Azure Monitor för att meddela dig via e-post, SMS och webhook-aviseringar när dina affärskritiska resurser påverkas. Ställ in en aktivitetsloggavisering för hälsohändelsen lämplig tjänst. Dirigera den här aviseringen till rätt personer i din organisation med åtgärdsgrupper. Mer information finns i [konfigurera aviseringar för Service Health](../azure-monitor/platform/alerts-activity-log-service-notifications.md)
 
-# <a name="next-steps"></a>Nästa steg
-Ställa in aviseringar så att du blir informerad om problem med hälsotillstånd. Mer information finns i [konfigurera aviseringar för Service Health](../azure-monitor/platform/alerts-activity-log-service-notifications.md). 
+>[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2OaXt]
+
+## <a name="next-steps"></a>Nästa steg
+Ställa in aviseringar så att du blir informerad om problem med hälsotillstånd. Mer information finns i [bästa praxis för att konfigurera Azure Service Health-aviseringar](https://www.youtube.com/watch?v=k5d5ca8K6tc&list=PLLasX02E8BPBBSqygdRvlTnHfp1POwE8K&index=6&t=0s). 

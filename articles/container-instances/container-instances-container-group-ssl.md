@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 10c015a9aee4ed8be54805f7adaae5bb4b5c422f
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 12de4ef31084d8ac8586c79ffe3d0a8e891727bf
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64870394"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65411388"
 ---
 # <a name="enable-an-ssl-endpoint-in-a-container-group"></a>Aktivera SSL-slutpunkten i en behållargrupp
 
@@ -66,7 +66,7 @@ I `location`, måste du ange `proxy_pass` med rätt port för appen. I det här 
 
 ```console
 # nginx Configuration File
-# http://wiki.nginx.org/Configuration
+# https://wiki.nginx.org/Configuration
 
 # Run as a less privileged user for security reasons.
 user nginx;
@@ -128,7 +128,7 @@ http {
 
 ### <a name="base64-encode-secrets-and-configuration-file"></a>Base64-koda hemligheter och konfigurationsfilen
 
-Base64-koda Nginx-konfigurationsfilen, SSL-certifikatet och nyckeln för SSL. Du kan använda kodade innehållet för att konfigurera Nginx-behållaren.
+Base64-koda Nginx-konfigurationsfilen, SSL-certifikatet och nyckeln för SSL. I nästa avsnitt anger du de kodade innehåll i en YAML-fil som används för att distribuera behållargruppen.
 
 ```console
 cat nginx.conf | base64 -w 0 > base64-nginx.conf
@@ -148,7 +148,7 @@ Kopiera följande YAML till en ny fil med namnet `deploy-aci.yaml`. Du kan anvä
 code deploy-aci.yaml
 ```
 
-Ange innehållet i base64-kodade filer där det anges `secret`. Under distributionen av dessa filer läggs till i en [hemlighetsvolymen](container-instances-volume-secret.md) i behållargruppen. I det här exemplet monteras hemlighetsvolymen Nginx-behållaren.
+Ange innehållet i base64-kodade filer där det anges `secret`. Till exempel `cat` base64-kodad-filer om du vill visa innehållet. Under distributionen av dessa filer läggs till i en [hemlighetsvolymen](container-instances-volume-secret.md) i behållargruppen. I det här exemplet monteras hemlighetsvolymen Nginx-behållaren.
 
 ```YAML
 api-version: 2018-10-01
@@ -181,9 +181,9 @@ properties:
           memoryInGB: 1.5
   volumes:
   - secret:
-      ssl.crt: <base64-ssl.crt>
-      ssl.key: <base64-ssl.key>
-      nginx.conf: <base64-nginx.conf>
+      ssl.crt: <Enter contents of base64-ssl.crt here>
+      ssl.key: <Enter contents of base64-ssl.key here>
+      nginx.conf: <Enter contents of base64-nginx.conf here>
     name: nginx-config
   ipAddress:
     ports:

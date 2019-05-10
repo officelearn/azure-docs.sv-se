@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 82a2330aeadb14bb421260a290a25581232293e5
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 82c0aa53fa8905e0e58cb784a478ade474ec5601
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073359"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65232774"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planera för distribution av Azure Files
 
@@ -94,7 +94,7 @@ Premium-filresurser (förhandsversion) har etablerats utifrån ett fast GiB/IOPS
 
 Efter bästa förmåga Utöka alla resurser upp till tre IOPS per GiB etablerad lagring i 60 minuter eller längre beroende på storleken på resursen. Nya resurser börjar med den fullständiga burst-krediten baserat på etablerad kapacitet.
 
-Filresurser måste etableras i steg om 1 GiB. Minsta storleken är 100 GiB, nästa storlek är 101 GIB och så vidare.
+Filresurser måste etableras i steg om 1 GiB. Minsta storleken är 100 GiB, nästa storlek är 101 GiB och så vidare.
 
 > [!TIP]
 > Baslinjen IOPS = 1 * etablerade GiB. (Upp till högst 100 000 IOPS).
@@ -120,7 +120,7 @@ I följande tabell visas några exempel på dessa produkter för de etablerade r
 |10,240      | 10,240  | Upp till 30 720  | 675 | 450   |
 |33,792      | 33,792  | Upp till 100 000 | 2,088 | 1,392   |
 |51,200      | 51,200  | Upp till 100 000 | 3,132 | 2,088   |
-|102,400     | 100 000 | Upp till 100 000 | 6,204 | 4,136   |
+|102,400     | 100,000 | Upp till 100 000 | 6,204 | 4,136   |
 
 ### <a name="bursting"></a>Bursting
 

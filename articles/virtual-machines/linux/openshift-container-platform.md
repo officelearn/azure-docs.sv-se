@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/18/2019
 ms.author: haroldw
-ms.openlocfilehash: 296bc42313ef80425004d3c9b43c6792cbaf97f4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 664099322bef3ac85d980fbe5e43dcc49cba862b
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64718255"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65411567"
 ---
 # <a name="deploy-openshift-container-platform-in-azure"></a>Distribuera OpenShift Container Platform i Azure
 
@@ -66,7 +66,7 @@ I följande exempel visas en parameterfil som heter azuredeploy.parameters.json 
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "_artifactsLocation": {
@@ -287,7 +287,7 @@ Olika versioner kan ha olika parametrar, så kontrollera de nödvändiga paramet
 | `masterClusterDns` | Det DNS-namnet du använder för att få åtkomst till webbkonsolen för OpenShift om du har valt 'custom' för `masterClusterDnsType` |  | console.contoso.com |
 | `routingSubDomainType` | Om inställd nipio, `routingSubDomain` använder nip.io.  Använda ”anpassad” om du har en egen domän som du vill använda för Routning | nipio <br> anpassad | nipio |
 | `routingSubDomain` | Jokertecken DNS-namn som du vill använda för routning om du har valt 'custom' för `routingSubDomainType` |  | apps.contoso.com |
-| `virtualNetworkNewOrExisting` | Välj om du vill använda ett befintligt virtuellt nätverk eller skapa ett nytt virtuellt nätverk | befintliga <br> nytt | nytt |
+| `virtualNetworkNewOrExisting` | Välj om du vill använda ett befintligt virtuellt nätverk eller skapa ett nytt virtuellt nätverk | befintliga <br> Nytt | Nytt |
 | `virtualNetworkResourceGroupName` | Namnet på resursgruppen för det nya virtuella nätverket om du har valt ”nytt” för `virtualNetworkNewOrExisting` |  | resourceGroup().name |
 | `virtualNetworkName` | Namnet på det nya virtuella nätverket för att skapa om du har valt ”nytt” för `virtualNetworkNewOrExisting` |  | openshiftvnet |
 | `addressPrefixes` | Adressprefix för det nya virtuella nätverket |  | 10.0.0.0/14 |

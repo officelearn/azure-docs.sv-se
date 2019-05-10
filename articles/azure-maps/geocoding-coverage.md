@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 2a2df8b47b60f29d8ecd3c040e8ef979ee23afa8
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b8caa5cd7476489a92ce97570794a1d397f32630
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64575396"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230906"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Täckning för geokodning för Azure Maps
 
 När du söker efter en plats med Azure Maps söktjänsten tar sökorden och returnerar latitud och longitud koordinater, en process som kallas geokodning. Maps har dock inte samma grad av information och Precision för alla regioner och länder/regioner. Använd den här artikeln för att avgöra vilken typ av platser som du kan på ett tillförlitligt sätt söka efter i varje region. 
 
-Möjligheten att geokoda i ett land är beroende av väg data täckning och geokodning precisionen för tjänsten geokodning. Följande kategoriseringar används anger geokodning supportnivå i varje land/region.
+Möjligheten att geokoda i ett land/region är beroende av väg data täckning och geokodning precisionen för tjänsten geokodning. Följande kategoriseringar används anger geokodning supportnivå i varje land/region.
 * **Upplysningar** -adresser data kan matchas mot en latitud/longitud koordinat inom adress kolli (egenskapen eller gränsen). Kallas ibland ”uttag' korrekt. Det här är den högsta nivån av precision som är tillgängliga för adresser. 
 * **Inhyser siffror** -adresser är interpolerade till en latitud/longitud koordinat på Gata.
 * **Gatuadress nivå** -adresser ska matchas med latitud/longitud-koordinaten för gata som innehåller adressen. Gatuadress kan inte bearbetas.
@@ -62,7 +62,7 @@ Möjligheten att geokoda i ett land är beroende av väg data täckning och geok
 | Honduras                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Jamaica                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Martinique                                          |                 |        ✓       |       ✓      |      ✓     |          ✓         |
-| Mexiko                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Mexico                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Montserrat                                          |                 |                |              |      ✓     |          ✓         |
 | Nicaragua                                           |                 |                |       ✓      |      ✓     |          ✓         |
 | Panama                                              |                 |                |       ✓      |      ✓     |          ✓         |
@@ -79,7 +79,7 @@ Möjligheten att geokoda i ett land är beroende av väg data täckning och geok
 | Sydgeorgien och Sydsandwichöarna        |                 |                |              |      ✓     |          ✓         |
 | Surinam                                            |                 |                |              |      ✓     |          ✓         |
 | Trinidad och Tobago                                 |                 |                |       ✓      |      ✓     |          ✓         |
-| Förenta staternas mindre öar                |                 |                |              |      ✓     |          ✓         |
+| USA:s yttre öar                |                 |                |              |      ✓     |          ✓         |
 | USA                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Uruguay                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Venezuela                                           |                 |                |       ✓      |      ✓     |          ✓         |
@@ -94,7 +94,7 @@ Möjligheten att geokoda i ett land är beroende av väg data täckning och geok
 | Australien                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Bangladesh                                          |                 |                |              |      ✓     |          ✓         |
 | Bhutan                                              |                 |                |              |      ✓     |          ✓         |
-| Brittiska territoriet i Indiska oceanen                      |                 |                |              |      ✓     |          ✓         |
+| Brittiska territoriet i Indiska Oceanen                      |                 |                |              |      ✓     |          ✓         |
 | Brunei                                              |        ✓        |                |       ✓      |      ✓     |          ✓         |
 | Kambodja                                            |                 |                |              |      ✓     |          ✓         |
 | Kina                                               |                 |                |              |      ✓     |          ✓         |
@@ -133,7 +133,7 @@ Möjligheten att geokoda i ett land är beroende av väg data täckning och geok
 | Samoaöarna                                               |                 |                |              |      ✓     |          ✓         |
 | Senkaku-öarna/Diaoyutai-öarna i Oceanien och Västindien                                     |        ✓        |                |              |      ✓     |          ✓         |
 | Singapore                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Salomonöarna                                     |                 |                |              |      ✓     |          ✓         |
+| Solomonöarna                                     |                 |                |              |      ✓     |          ✓         |
 | Södra Kurils                                     |        ✓        |                |              |      ✓     |          ✓         |
 | Spratlyöarna i Oceanien och Västindien                                     |                 |                |              |      ✓     |                    |
 | Sri Lanka                                           |                 |                |              |      ✓     |          ✓         |
@@ -159,7 +159,7 @@ Möjligheten att geokoda i ett land är beroende av väg data täckning och geok
 | Belgien                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Bosnien och Hercegovina                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Bulgarien                                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Vitryssland                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
+| Republiken Vitryssland                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Kroatien                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Cypern                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Tjeckien                                      |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -168,7 +168,7 @@ Möjligheten att geokoda i ett land är beroende av väg data täckning och geok
 | Färöarna                                       |                 |                |              |      ✓     |          ✓         |
 | Finland                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Frankrike                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Georgien                                             |        ✓        |        ✓       |              |      ✓     |          ✓         |
+| Georgia                                             |        ✓        |        ✓       |              |      ✓     |          ✓         |
 | Tyskland                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Gibraltar                                           |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Grekland                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -181,7 +181,7 @@ Möjligheten att geokoda i ett land är beroende av väg data täckning och geok
 | Italien                                               |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Jan Mayen                                           |        ✓        |                |              |      ✓     |          ✓         |
 | Jersey                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |
-| Kazakhstan                                          |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Kazakstan                                          |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Kosovo                                              |                 |                |       ✓      |      ✓     |          ✓         |
 | Kirgizistan                                          |                 |                |              |      ✓     |          ✓         |
 | Lettland                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -212,7 +212,7 @@ Möjligheten att geokoda i ett land är beroende av väg data täckning och geok
 | Turkiet                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Turkmenistan                                        |                 |                |              |      ✓     |          ✓         |
 | Ukraina                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Storbritannien                                      |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Storbritannien och Nordirland                                      |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Uzbekistan                                          |                 |                |              |      ✓     |          ✓         |
 | Vatikanstaten                                        |                 |                |       ✓      |      ✓     |          ✓         |
 
@@ -232,7 +232,7 @@ Möjligheten att geokoda i ett land är beroende av väg data täckning och geok
 | Burundi                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Kamerun                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Cabo Verde                                          |                 |                |       ✓      |      ✓     |          ✓         |
-| Centralafrikanska republiken                            |                 |                |       ✓      |      ✓     |          ✓         |
+| Centralafrikanska Republiken                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Tchad                                                |                 |                |       ✓      |      ✓     |          ✓         |
 | Republiken Kongo                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Côte d'Ivoire                                       |                 |                |       ✓      |      ✓     |          ✓         |
@@ -263,10 +263,10 @@ Möjligheten att geokoda i ett land är beroende av väg data täckning och geok
 | Maldiverna                                            |                 |                |              |      ✓     |          ✓         |
 | Mali                                                |                 |                |       ✓      |      ✓     |          ✓         |
 | Marshallöarna                                    |                 |                |              |      ✓     |          ✓         |
-| Mauretanien                                          |                 |                |       ✓      |      ✓     |          ✓         |
+| Mauritanien                                          |                 |                |       ✓      |      ✓     |          ✓         |
 | Mauritius                                           |                 |                |       ✓      |      ✓     |          ✓         |
 | Mayotte                                             |                 |                |       ✓      |      ✓     |          ✓         |
-| Marocko                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Marokko                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Moçambique                                          |                 |                |       ✓      |      ✓     |          ✓         |
 | Myanmar                                             |                 |                |              |      ✓     |          ✓         |
 | Namibia                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |

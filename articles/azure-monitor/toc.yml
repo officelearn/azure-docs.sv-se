@@ -131,6 +131,8 @@
           href: platform/alerts-common-schema.md
         - name: Åtgärdsregler
           href: platform/alerts-action-rules.md
+        - name: Ändra analys
+          href: app/change-analysis.md
     - name: Visualisera data
       href: visualizations.md
     - name: Partnerintegrering

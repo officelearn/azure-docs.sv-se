@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/30/2019
+ms.date: 05/08/2019
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e3a4d4293eeea06e30189e0bccce488a8f44b199
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: e2c52bd0bf6c1e385248bd379a8001756d28ac2d
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918816"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413589"
 ---
 # <a name="quickstart-modify-the-accounts-supported-by-an-application"></a>Snabbstart: Ändra de konton som stöds av ett program
 
@@ -37,7 +37,6 @@ Innan du börjar kontrollerar du att följande krav är uppfyllda:
 * Lär dig mer om [behörigheter och medgivande](v2-permissions-and-consent.md) som stöds, vilket är viktigt att förstå när du skapar appar som måste användas av andra användare eller appar.
 * Ha en klientorganisation som har appar som är registrerade till den.
   * Om du inte har några registrerade appar kan du [få information om hur du registrerar appar på Microsoft Identity Platform](quickstart-register-app.md).
-* Registrera dig för förhandsversionsfunktionerna appregistreringar i Azure-portalen. Stegen i den här snabbstarten motsvarar det nya användargränssnittet och fungerar bara om du använder förhandsversionsfunktionerna.
 
 ## <a name="sign-in-to-the-azure-portal-and-select-the-app"></a>Logga in på Azure-portalen och välj appen
 
@@ -45,7 +44,7 @@ Innan du kan konfigurera appen gör du följande:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller en personligt Microsoft-konto.
 1. Om ditt konto ger dig tillgång till fler än en klientorganisation väljer du ditt konto i det övre högra hörnet och ställer in din portalsession på önskad Azure AD-klientorganisation.
-1. I det vänstra navigeringsfönstret väljer du **Azure Active Directory**-tjänsten och sedan **Appregistreringar (förhandsversion)**.
+1. I det vänstra navigeringsfönstret väljer du den **Azure Active Directory** tjänsten och väljer sedan **appregistreringar**.
 1. Leta reda på och välj den app du vill konfigurera. När du har valt appen ser du dess **översikt** eller huvudregistreringssida.
 1. Följ stegen för att [ändra appregistreringen för att stödja olika konton](#change-the-application-registration-to-support-different-accounts).
 1. Om du har en ensidesapplikation [aktiverar du implicit OAuth 2.0-beviljande](#enable-oauth-20-implicit-grant-for-single-page-applications).

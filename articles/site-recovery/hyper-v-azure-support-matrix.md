@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 05/07/2019
 ms.author: raynew
-ms.openlocfilehash: ea9f6a65ae804d4d2e5004ff4e2c61a2a85b976d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e311a328c1c3d78fa8e5ba7065dcc6484006eaaf
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60748993"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235874"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Stöd matrix för haveriberedskap för lokala Hyper-V-datorer till Azure
 
@@ -33,8 +33,8 @@ Hyper-V utan att Virtual Machine Manager | Du kan utföra katastrofåterställni
 
 **Server** | **Krav** | **Detaljer**
 --- | --- | ---
-Hyper-V (som körs utan att Virtual Machine Manager) | Windows Server 2016 (inklusive server core-installation), Windows Server 2012 R2 med de senaste uppdateringarna | Om du redan har konfigurerat Windows Server 2012 R2 med / eller SCVMM 2012 R2 med Azure Site Recovery och planerar att uppgradera Operativsystemet, följer du riktlinjerna [dokumentation.](upgrade-2012R2-to-2016.md) 
-Hyper-V (som körs med Virtual Machine Manager) | Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 | Om du använder Virtual Machine Manager, ska Windows Server 2016-värdar hanteras i Virtual Machine Manager 2016.<br/><br/>
+Hyper-V (som körs utan att Virtual Machine Manager) |  Windows Server 2019, Windows Server 2016 (inklusive server core-installation), Windows Server 2012 R2 med de senaste uppdateringarna | Om du redan har konfigurerat Windows Server 2012 R2 med / eller SCVMM 2012 R2 med Azure Site Recovery och planerar att uppgradera Operativsystemet, följer du riktlinjerna [dokumentation.](upgrade-2012R2-to-2016.md) 
+Hyper-V (som körs med Virtual Machine Manager) | Virtual Machine Manager 2019, Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 | Om du använder Virtual Machine Manager, ska Windows Server 2019 värdar hanteras i Virtual Machine Manager 2019. På samma sätt ska Windows Server 2016-värdar hanteras i Virtual Machine Manager 2016.<br/><br/>
 
 
 ## <a name="replicated-vms"></a>Replikerade virtuella datorer
@@ -92,7 +92,7 @@ Accelererat nätverk | Nej | Nej
 
 **Storage** | **Hyper-V med Virtual Machine Manager** | **Hyper-V utan att Virtual Machine Manager**
 --- | --- | --- 
-NFS | Ej tillämpligt | Ej tillämpligt
+NFS | Saknas | Saknas
 SMB 3.0 | Ja | Ja
 SAN (ISCSI) | Ja | Ja
 Flera sökvägar (MPIO). Testats med:<br></br> Microsoft DSM, EMC PowerPath 5.7 SP4<br/><br/> EMC PowerPath DSM för CLARiiON | Ja | Ja
@@ -101,15 +101,15 @@ Flera sökvägar (MPIO). Testats med:<br></br> Microsoft DSM, EMC PowerPath 5.7 
 
 **Storage** | **Hyper-V med Virtual Machine Manager** | **Hyper-V utan att Virtual Machine Manager**
 --- | --- | ---
-VMDK | Ej tillämpligt | Ej tillämpligt
+VMDK | Saknas | Saknas
 VHD/VHDX | Ja | Ja
 Generation 2 VM | Ja | Ja
 EFI/UEFI| Ja | Ja
 Delad klusterdisk | Nej | Nej
 Krypterad disk | Nej | Nej
-NFS | Ej tillämpligt | Ej tillämpligt
+NFS | Saknas | Saknas
 SMB 3.0 | Nej | Nej
-RDM | Ej tillämpligt | Ej tillämpligt
+RDM | Saknas | Saknas
 Disk >1 TB | Ja, upp till 4095 GB | Ja, upp till 4095 GB
 Disk: 4K logisk och fysisk sektor | Stöds inte: Gen 1/Gen 2 | Stöds inte: Gen 1/Gen 2
 Disk: 4K logisk och fysisk 512 byte-sektor | Ja |  Ja
@@ -157,10 +157,10 @@ Antal operativsystemdiskar | 1 | Kravkontroll misslyckas om stöds inte.
 Datadiskar | 16 eller mindre  | Kravkontroll misslyckas om stöds inte.
 VHD för datadiskstorleken | Upp till 4095 GB | Kravkontroll misslyckas om stöds inte.
 Nätverkskort | Flera nätverkskort stöds |
-Delad VHD | Stöds inte | Kravkontroll misslyckas om stöds inte.
-FC-disk | Stöds inte | Kravkontroll misslyckas om stöds inte.
+Delad VHD | Stöds ej | Kravkontroll misslyckas om stöds inte.
+FC-disk | Stöds ej | Kravkontroll misslyckas om stöds inte.
 Format för hårddisk | VHD <br/><br/> VHDX | Konverterar site Recovery automatiskt VHDX till VHD när du redundansväxlar till Azure. När du växlar tillbaka till den lokala virtuella datorer att fortsätta att använda VHDX-formatet.
-BitLocker | Stöds inte | BitLocker måste inaktiveras innan du aktiverar replikering för en virtuell dator.
+BitLocker | Stöds ej | BitLocker måste inaktiveras innan du aktiverar replikering för en virtuell dator.
 VM-namn | Mellan 1 och 63 tecken. Begränsat till bokstäver, siffror och bindestreck. VM-namnet måste börja och sluta med en bokstav eller en siffra. | Uppdatera värdet i VM-egenskaperna i Site Recovery.
 Typ av virtuell dator | Generation 1<br/><br/> Generation 2--Windows | Virtuella datorer i generation 2 med en OS-disktyp Basic (som innehåller en eller två datavolymer som formaterats som VHDX) och mindre än 300 GB diskutrymme som stöds.<br></br>Virtuella datorer i Linux Generation 2 stöds inte. [Läs mer](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).|
 

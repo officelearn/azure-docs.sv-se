@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b729327187a52f36d50f8a754f5521527bb07ac6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ae3d1b36b89bb1bce1ff384bfa12a1bf643614fd
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60717925"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408782"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Förbereda Azure-infrastrukturen för SAP hög tillgänglighet med hjälp av en Windows-redundanskluster och delad disk för SAP ASCS/SCS
 
@@ -33,7 +33,7 @@ ms.locfileid: "60717925"
 [2243692]:https://launchpad.support.sap.com/#/notes/2243692
 
 [sap-installation-guides]:http://service.sap.com/instguides
-[tuning-failover-cluster-network-thresholds]:https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/
+[tuning-failover-cluster-network-thresholds]:https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834
 
 [azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
 [azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md
@@ -551,7 +551,7 @@ Azure Load Balancer har en intern belastningsutjämnare att stängs anslutningar
 
 Om du vill lägga till registervärden på båda klusternoderna för SAP ASCS/SCS-instans, Lägg först till dessa registerposter i Windows på både Windows-klusternoder för SAP ASCS/SCS:
 
-| Sökväg | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
+| `Path` | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
 | --- | --- |
 | Variabelnamn |`KeepAliveTime` |
 | Variabeltyp |REG_DWORD (Decimal) |
@@ -562,7 +562,7 @@ Om du vill lägga till registervärden på båda klusternoderna för SAP ASCS/SC
 
 Lägg sedan till den här Windows-registerposten på både Windows-klusternoder för SAP ASCS/SCS:
 
-| Sökväg | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
+| `Path` | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
 | --- | --- |
 | Variabelnamn |`KeepAliveInterval` |
 | Variabeltyp |REG_DWORD (Decimal) |
@@ -739,8 +739,9 @@ När du konfigurerar ett filresursvittne i kluster inkluderar dessa uppgifter:
 
 När du har installerat Windows-redundanskluster som du behöver ändra vissa tröskelvärden så att de kan anpassa redundans identifiering till villkoren i Azure. Parametrar som ska ändras finns dokumenterade i [justering failover-kluster nätverk tröskelvärden][tuning-failover-cluster-network-thresholds]. Förutsatt att de två virtuella datorerna som tillsammans bildar Windows klusterkonfigurationen för ASCS/SCS finns i samma undernät, ändra följande parametrar till dessa värden:
 
-- SameSubNetDelay = 2
+- SameSubNetDelay = 2000
 - SameSubNetThreshold = 15
+- RoutingHistoryLength = 30
 
 De här inställningarna har testats med kunder och erbjuder en bra kompromiss. De är tillräckligt flexibel, men du får även redundanskluster som är tillräckligt snabbt i verkliga felvillkor på ett SAP-program eller en nod eller en VM-fel.
 

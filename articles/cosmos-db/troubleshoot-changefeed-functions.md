@@ -7,12 +7,12 @@ ms.date: 04/16/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 40d9aba4ff8fd78f6369729ddc16238e65bfc169
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e8f0b9c8bf1bfb846f13306f58bcb1721ed6b422
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60404725"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510534"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-trigger-in-azure-functions"></a>Diagnostisera och felsöka problem när du använder Azure Cosmos DB-utlösare i Azure Functions
 
@@ -27,17 +27,19 @@ Azure Cosmos DB-utlösare och bindningar beror på tilläggspaket över den grun
 
 Den här artikeln kommer alltid att referera till Azure Functions V2 när körningen har vi redan nämnt om inget anges uttryckligen.
 
-## <a name="consuming-the-cosmos-db-sdk-separately-from-the-trigger-and-bindings"></a>Använda Cosmos DB SDK separat från utlösare och bindningar
+## <a name="consume-the-azure-cosmos-db-sdk-independently"></a>Använda Azure Cosmos DB SDK oberoende av varandra
 
 Viktiga funktioner för tillägget paketet är att ge stöd för Azure Cosmos DB-utlösare och bindningar. Den innehåller också de [Azure Cosmos DB .NET SDK](sql-api-sdk-dotnet-core.md), vilket är användbart om du vill interagera med Azure Cosmos DB programmässigt utan att använda utlösare och bindningar.
 
-Om vill använda Azure Cosmos DB SDK, se till att du inte lägger till ditt projekt en annan referens för NuGet-paketet. I stället **låta SDK-referens lösa via Azure Functions-tilläggspaket**.
+Om vill använda Azure Cosmos DB SDK, se till att du inte lägger till ditt projekt en annan referens för NuGet-paketet. I stället **låta SDK-referens lösa via Azure Functions-tilläggspaket**. Använda Azure Cosmos DB SDK separat från utlösare och bindningar
 
 Även om du manuellt skapar en egen instans av den [Azure Cosmos DB SDK-klienten](./sql-api-sdk-dotnet-core.md), bör du följa mönstret för att ha endast en instans av klienten [med hjälp av en metod för Singleton-mönster](../azure-functions/manage-connections.md#documentclient-code-example-c) . Den här processen undviker de potentiella socket problemen i din verksamhet.
 
-## <a name="common-known-scenarios-and-workarounds"></a>Vanliga scenarier för kända och lösningar
+## <a name="common-scenarios-and-workarounds"></a>Vanliga scenarier och lösningar
 
-### <a name="azure-function-fails-with-error-message-either-the-source-collection-collection-name-in-database-database-name-or-the-lease-collection-collection2-name-in-database-database2-name-does-not-exist-both-collections-must-exist-before-the-listener-starts-to-automatically-create-the-lease-collection-set-createleasecollectionifnotexists-to-true"></a>Azure-funktion misslyckas med felmeddelandet ”antingen källsamlingen 'samlingsnamn” (i databasen ”databas-name”) eller lånsamling ”samling2-name” (i databasen ”Databas2-name”) finns inte. Båda samlingarna måste finnas innan lyssnaren startar. Ange 'CreateLeaseCollectionIfNotExists' till 'true' för att automatiskt skapa samlingen lån ”
+### <a name="azure-function-fails-with-error-message-collection-doesnt-exist"></a>Azure Function misslyckas med fel meddelande samlingen finns inte
+
+Azure-funktion misslyckas med felmeddelandet ”antingen källsamlingen 'samlingsnamn” (i databasen ”databas-name”) eller lånsamling ”samling2-name” (i databasen ”Databas2-name”) finns inte. Båda samlingarna måste finnas innan lyssnaren startar. Ange 'CreateLeaseCollectionIfNotExists' till 'true' för att automatiskt skapa samlingen lån ”
 
 Detta innebär att en eller båda av Azure Cosmos-behållare som krävs för utlösaren ska fungera finns inte eller kan inte nås för Azure-funktionen. **Felet själva ange vilken Azure-Cosmos-databas och behållare är utlösaren söker** utifrån din konfiguration.
 
@@ -78,7 +80,8 @@ Om några ändringar saknas på målet, innebär det är något fel uppstod unde
 
 I det här scenariot är bästa åtgärden att lägga till `try/catch blocks` i din kod och inuti loopar som kanske kan behandla ändringar för att upptäcka eventuella fel för en delmängd av objekt och hantera dem enlighet med detta (skicka dem till en annan lagring för ytterligare analys eller försök igen). 
 
-> **Azure Cosmos DB-utlösare som standard inte gör en batch med ändringar om det uppstod ett ohanterat undantag** under körning av din kod. Det innebär att anledningen till att ändringarna inte når målet är att du inte kan bearbeta dem på.
+> [!NOTE]
+> Azure Cosmos DB-utlösare gör som standard inte en batch med ändringar om det uppstod ett ohanterat undantag vid körning av din kod. Det innebär att anledningen till att ändringarna inte når målet är att du inte kan bearbeta dem på.
 
 Om du upptäcker att vissa ändringar inte har tagits emot alls av utlösaren, det vanligaste scenariot är att det finns **ett annat Azure-funktion körs**. Det kan vara en annan Azure-funktion som distribueras i Azure eller en Azure-funktion som körs lokalt på en utvecklare dator som har **exakt samma konfiguration** (samma övervakas och låna ut behållare), och denna Azure Function stjäla en delmängd av de ändringar som du förväntar dig din Azure-funktion för att bearbeta.
 

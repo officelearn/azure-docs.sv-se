@@ -1,5 +1,5 @@
 ---
-title: Hur du ställer in aviseringar för Azure VPN Gateway diagnostiklogg händelser
+title: Konfigurera aviseringar för diagnostiklogg händelser från Azure VPN Gateway
 description: Steg för att konfigurera aviseringar för VPN-Gateway diagnostiklogg händelser
 services: vpn-gateway
 author: anzaman
@@ -7,61 +7,76 @@ ms.service: vpn-gateway
 ms.topic: conceptional
 ms.date: 04/22/2019
 ms.author: alzam
-ms.openlocfilehash: 39a6d2e6201dd0635149159cb3727fd3c40f710a
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.openlocfilehash: 3880c847c54136dfd3ba1ecfe0178565091e229f
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63769743"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510209"
 ---
-# <a name="setting-up-alerts-on-vpn-gateway-diagnostic-log-events"></a>Konfigurera aviseringar för VPN-Gateway diagnostiklogg händelser
+# <a name="set-up-alerts-on-diagnostic-log-events-from-vpn-gateway"></a>Konfigurera aviseringar för diagnostiklogg händelser från VPN-Gateway
 
-Den här artikeln kan du ställa in aviseringar baserat på VPN-Gateway diagnostiklogg händelser.
+Den här artikeln kan du ställa in aviseringar baserat på diagnostiklogg händelser från Azure VPN Gateway.
 
+## <a name="setup"></a>Ställa in aviseringar
 
-## <a name="setup"></a>Konfigurera Azure Monitor-aviseringar baserat på diagnostiklogg händelser med hjälp av portalen
-
-Exempel stegen nedan skapar en avisering för en plats-till-plats VPN-tunnel frånkoppling av händelse
-
+Följande exempel skapar en avisering för en frånkoppling av händelse som inbegriper en plats-till-plats VPN-tunnel:
 
 
-1. Sök efter ”Log Analytics” under alla tjänster och välj ”Log Analytics-arbetsytor” ![punkt-till-plats](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert0.png "skapa")
+1. I Azure-portalen, söker du efter **Log Analytics** under **alla tjänster** och välj **Log Analytics-arbetsytor**.
 
-2. Klicka på ”Skapa” på sidan Log Analytics.
-![punkt-till-plats](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert1.png  "Välj")
+   ![Val för att gå till Log Analytics-arbetsytor](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert0.png "skapa")
 
-3. Kontrollera ”Skapa ny” arbetsyta och Fyll i information.
-![punkt-till-plats](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert2.png  "Välj")
+2. Välj **skapa** på den **Log Analytics** sidan.
 
-4. Hitta din VPN-gateway under ”övervakaren” > ”diagnostikinställningar” bladet ![punkt-till-plats](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert3.png  "Välj")
+   ![Log Analytics-sida med knappen Skapa](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert1.png  "Välj")
 
-5. Om du vill slå på diagnostik, dubbelklicka på gatewayen och klicka sedan på ”Aktivera diagnostik” ![punkt-till-plats](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert4.png  "Välj")
+3. Välj **Skapa ny** och Fyll i information.
 
-6. Fyll i uppgifter och se till att ”skicka till Log Analytics” och ”TunnelDiagnosticLog” kontrolleras. Välj Log Analytics-arbetsyta som skapades i steg 3.
-![punkt-till-plats](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert5.png  "Välj")
+   ![Information för att skapa en Log Analytics-arbetsyta](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert2.png  "Välj")
 
-7. Navigera till Resursöversikt för vnet-gateway och välj ”aviseringar” på fliken övervakning och sedan skapa en ny varningsregel eller redigera en befintlig aviseringsregel.
-![punkt-till-plats](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert6.png  "Välj")
+4. Hitta din VPN-gateway på den **övervakaren** > **diagnostikinställningar** bladet.
 
+   ![Val för att hitta VPN-gatewayen i diagnostikinställningar](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert3.png  "Välj")
+
+5. Om du vill slå på diagnostik, dubbelklicka på gatewayen och välj sedan **slå på diagnostik**.
+
+   ![Val för att aktivera diagnostik](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert4.png  "Välj")
+
+6. Fyll i uppgifter och se till att **skicka till Log Analytics** och **TunnelDiagnosticLog** har valts. Välj Log Analytics-arbetsyta som du skapade i steg 3.
+
+   ![Markerade kryssrutor](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert5.png  "Välj")
+
+7. Gå till översikten för den virtuella gateway-nätverksresursen och välj **aviseringar** från den **övervakning** fliken. Sedan skapar en ny varningsregel eller redigera en befintlig aviseringsregel.
+
+   ![Val för att skapa en ny varningsregel](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert6.png  "Välj")
+
+   ![punkt-till-plats](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert6.png  "Välj")
 8. Välj Log Analytics-arbetsytan och resursen.
-![punkt-till-plats](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert7.png  "Välj")
 
-9. Välj ”anpassade log search” som signallogiken under ”Lägg till villkor” ![punkt-till-plats](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert8.png  "Välj")
+   ![Val för arbetsytan och resursen](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert7.png  "Välj")
 
-10. Ange följande fråga i textrutan ”sökfrågan” där du ersätter värdena i <> efter behov.
+9. Välj **anpassade loggsökning** som signallogiken under **Lägg till villkor**.
 
-    AzureDiagnostics | där kategori == ”TunnelDiagnosticLog” och ResourceId == toupper (”<RESOURCEID OF GATEWAY>”) och TimeGenerated > ago(5m) och remoteIP_s == ”<REMOTE IP OF TUNNEL>” och status_s == ”frånkopplad”
+   ![Val för en anpassad loggsökning](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert8.png  "Välj")
 
-    Ange tröskelvärdet på 0 och klicka på ”klar”
+10. Ange sedan följande fråga i textrutan **Sökfråga**. Ersätt värdena i <> efter behov.
 
-    ![punkt-till-plats](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert9.png  "Välj")
+     `AzureDiagnostics |
+     where Category  == "TunnelDiagnosticLog" and ResourceId == toupper("<RESOURCEID OF GATEWAY>") and TimeGenerated > ago(5m) and
+     remoteIP_s == "<REMOTE IP OF TUNNEL>" and status_s == "Disconnected"`
 
-11. Klicka på ”Skapa ny” på sidan ”Skapa regeln” under avsnittet ÅTGÄRDSGRUPPER. Fyll i informationen och klicka på OK
+    Ange tröskelvärdet till 0 och välj **klar**.
 
-![punkt-till-plats](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert10.png  "Välj")
+    ![Att ange en fråga och välja ett tröskelvärde](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert9.png  "Välj")
 
-12. På sidan ”Skapa regeln” Fyll sedan i informationen för ”Anpassa Action” och kontrollera att namnet på rätt åtgärd visas i avsnittet ”namn på åtgärdsgrupp”. Klicka på ”Skapa varningsregel” att skapa regeln.
-![punkt-till-plats](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert11.png  "Välj")
+11. På den **skapa regeln** väljer **Skapa ny** under den **ÅTGÄRDSGRUPPER** avsnittet. Fyll i information och välj **OK**.
+
+    ![Information om en ny åtgärdsgrupp](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert10.png  "Välj")
+
+12. På den **skapa regeln** fyller du i informationen för **anpassa åtgärder** och se till att rätt namn visas i den **namn på ÅTGÄRDSGRUPP** avsnittet. Välj **skapa varningsregel** att skapa regeln.
+
+    ![Val för att skapa en regel](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert11.png  "Välj")
 
 ## <a name="next-steps"></a>Nästa steg
 

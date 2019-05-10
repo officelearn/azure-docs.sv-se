@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-ms.openlocfilehash: 668862714b416bd89d3b5f82caf8b0305fccae54
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0a7927868a9a4bebc80ec995baefbae4c45d747f
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60363180"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410480"
 ---
 # <a name="example-3-build-a-perimeter-network-to-protect-networks-with-a-firewall-udr-and-nsgs"></a>Exempel 3: Skapa ett perimeternätverk för att skydda nätverk med en brandvägg, UDR och NSG: er
 
@@ -150,7 +150,7 @@ Det här exemplet används följande kommandon för att skapa routningstabellen,
        -RouteTableName $BERouteTableName
    ```
 
-## <a name="ip-forwarding"></a>IP-vidarebefordran
+## <a name="ip-forwarding"></a>IP-vidarebefordring
 
 IP-vidarebefordring är en tillhörande funktion till UDR. Den här inställningen på en virtuell installation kan det ta emot trafik som inte är adresserad till installationen och sedan vidarebefordra trafiken till destinationen ultimate.
 
@@ -356,7 +356,7 @@ Här följer information om varje regel som krävs för att slutföra det här e
 
     Skapa fyra regler för RDP:
 
-    | Regelnamn | Server | Tjänst | Mållistan |
+    | Regelnamn | Server  | Tjänst | Mållistan |
     | --- | --- | --- | --- |
     | RDP-to-IIS01 |IIS01 |IIS01 RDP |10.0.1.4:3389 |
     | RDP-to-DNS01 |DNS01 |DNS01 RDP |10.0.2.4:3389 |
@@ -989,7 +989,7 @@ Kör det här PowerShell ansluten-skript lokalt på en internet dator eller serv
 Spara den här XML-filen med uppdaterade plats. Ändra den `$NetworkConfigFile` variabel i fullständiga skriptet ovan att länka till konfigurationsfilen sparade nätverk.
 
 ```xml
-    <NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+    <NetworkConfiguration xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
       <VirtualNetworkConfiguration>
         <Dns>
           <DnsServers>

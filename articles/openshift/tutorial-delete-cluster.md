@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.topic: tutorial
 ms.service: openshift
 ms.date: 05/06/2019
-ms.openlocfilehash: ce4142bdcdfb7a9ab687bb60dca91d6aab00c7bd
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 679be645f3c97d30df65c9f410d286d243bca73b
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65080718"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466580"
 ---
 # <a name="tutorial-delete-an-azure-red-hat-openshift-cluster"></a>Självstudier: Ta bort ett kluster i Azure Red Hat OpenShift
 
@@ -36,7 +36,7 @@ Innan du börjar den här självstudien:
 
 * Skapa ett kluster genom att följa den [skapa ett kluster i Azure Red Hat OpenShift](tutorial-create-cluster.md) självstudien.
 
-## <a name="step-1-sign-in-to-azure"></a>Steg 1: Logga in på Azure
+## <a name="step-1-sign-in-to-azure"></a>Steg 1: Logga in till Azure
 
 Om du använder Azure CLI lokalt kan köra `az login` att logga in på Azure.
 
@@ -78,4 +78,4 @@ I den här självstudiedelen lärde du dig att:
 > [!div class="checklist"]
 > * Ta bort ett kluster i Azure Red Hat OpenShift
 
-Läs mer om hur du använder OpenShift med officiellt [Red Hat OpenShift-dokumentation](https://access.redhat.com/documentation/openshift_dedicated/3/)
+Läs mer om hur du använder OpenShift med officiellt [Red Hat OpenShift-dokumentation](https://docs.openshift.com/aro/welcome/index.html)

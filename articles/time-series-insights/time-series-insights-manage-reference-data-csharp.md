@@ -10,35 +10,40 @@ ms.reviewer: jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 03/23/2018
+ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: a9d0743e30c4ae32c052a9f27c9fa22b1036aead
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a8bd4e02b03a20e348feb2d6c9424f5eb6cf5f9e
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64681733"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510033"
 ---
-# <a name="manage-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>Hantera referensdata för en Azure Time Series Insights-miljö med C#
+# <a name="manage-ga-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>Hantera referensdata för allmän tillgänglighet för en Azure Time Series Insights-miljö med hjälp avC#
 
 Den här artikeln beskrivs ett exempel C#-projekt kan du sammanställa för att hantera referensdata för en Azure Time Series Insights-miljö.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
+
 Utför följande steg innan du kompilerar och kör exempelkoden:
+
 1. [Skapa en referensdatauppsättning](time-series-insights-add-reference-data-set.md).
 
-2. Konfigurera auktorisering åtkomst-token för programmet. Var noga med att token hämtas via Azure Active Directory API. Du bör vidarebefordra denna token i den `Authorization` huvudet i varje fråga API-begäran. 
- 
+1. Konfigurera auktorisering åtkomst-token för programmet. Var noga med att token hämtas via Azure Active Directory API. Du bör vidarebefordra denna token i den `Authorization` huvudet i varje fråga API-begäran.
+
    Information om hur du ställer in icke-interaktiva program finns i [autentisering och auktorisering](time-series-insights-authentication-and-authorization.md).
 
-3. Redigera exempelkod för att ersätta exempel-konstanterna som anges på **DUMMY #**, nära början av koden. 
+1. Redigera exempelkod för att ersätta exempel-konstanterna som anges på **DUMMY #**, nära början av koden.
 
-Den här exempelkod är också tillgängliga på [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights)
+> [!NOTE]
+> Visa GA-exempelkod på [ https://github.com/Azure-Samples/Azure-Time-Series-Insights ](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-ga-preview-sample).
 
-## <a name="project-references"></a>Projektreferenser
-Lägg till NuGet-paket `Microsoft.IdentityModel.Clients.ActiveDirectory` och `Newtonsoft.Json` i det här exemplet. 
+## <a name="project-dependencies"></a>Projektberoenden
 
-## <a name="c-sample-code"></a>C#-exempelkod 
+Lägg till NuGet-paket `Microsoft.IdentityModel.Clients.ActiveDirectory` och `Newtonsoft.Json` i det här exemplet.
+
+## <a name="c-sample-code"></a>C#-exempelkod
+
 ```csharp
 // Copyright (c) Microsoft Corporation.  All rights reserved.
 
@@ -134,7 +139,7 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
     ""deleteproperties"": [{
         ""key"": {
             ""DeviceId"": ""Fan1""
-        },
+    },
         ""properties"": [""BladeCount""]
     }]
 }";

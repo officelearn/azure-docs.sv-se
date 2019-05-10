@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/06/2019
-ms.openlocfilehash: af1e9df2e9afbd3b51736806fcd4bd8101d583df
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.date: 05/08/2019
+ms.openlocfilehash: 57b92400f81a3fac8d22c6522cde7eb3406a2e70
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153418"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415492"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-online-using-dms"></a>Självstudier: Migrera MongoDB till Azure Cosmos DB API för MongoDB online med DMS
 Du kan använda Azure Database Migration Service till att utföra en onlinemigrering (minimal avbrottstid) av databaser från en lokal instans eller en molninstans av MongoDB till Azure Cosmos DB:s API för MongoDB.

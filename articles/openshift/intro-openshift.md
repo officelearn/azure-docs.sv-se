@@ -7,14 +7,14 @@ ms.author: twhitney
 ms.service: container-service
 manager: jeconnoc
 ms.topic: overview
-ms.date: 05/06/2019
+ms.date: 05/08/2019
 ms.custom: mvc
-ms.openlocfilehash: 6121c0f654a61a147e84f0697f3ddb06b7c5db92
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: bfa3e63a433a6948f05ece7ec3c3a6180933510b
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65081047"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466171"
 ---
 # <a name="azure-red-hat-openshift"></a>Azure Red Hat OpenShift
 
@@ -38,9 +38,9 @@ Azure Red Hat OpenShift-noder kör på Azure virtual machines. Du kan ansluta la
 
 ## <a name="virtual-networks-and-ingress"></a>Virtuella nätverk och ingress
 
-Du kan distribuera en Azure Red Hat OpenShift-kluster till ett befintligt virtuellt nätverk. I den här konfigurationen varje pod i klustret tilldelas en IP-adress i det virtuella nätverket och kan kommunicera direkt med andra poddar i klustret och andra noder i det virtuella nätverket. Poddar kan också ansluta till andra tjänster i ett peer-kopplade virtuella nätverk och lokala nätverk via [ExpressRoute](https://docs.microsoft.com/azure/expressroute/) eller plats-till-plats (S2S) VPN-anslutningar.
+Du kan ansluta en Azure Red Hat OpenShift-kluster till ett befintligt virtuellt nätverk via peering. I den här konfigurationen poddar kan ansluta till andra tjänster i ett peer-kopplade virtuella nätverk och lokala nätverk via [ExpressRoute](https://docs.microsoft.com/azure/expressroute/) eller plats-till-plats (S2S) VPN-anslutningar.
 
-Mer information finns i [skapa ett kluster med Microsoft Red Hat OpenShift på Azure](tutorial-create-cluster.md).
+Se [ansluta virtuella nätverk i ett kluster till ett befintligt virtuellt nätverk](tutorial-create-cluster.md#optional-connect-the-clusters-virtual-network-to-an-existing-virtual-network) mer information.
 
 ## <a name="kubernetes-certification"></a>Kubernetes-certifiering
 

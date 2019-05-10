@@ -9,12 +9,12 @@ ms.subservice: ink-recognizer
 ms.topic: article
 ms.date: 05/02/2019
 ms.author: aahi
-ms.openlocfilehash: 43dc388c9f24e3975d6efddbeec6e096bf062548
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 6237253922544dc47bb11aec4dd58139f99eb0da
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026279"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518618"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-java"></a>Snabbstart: Identifiera digitala ink med Ink Igenkännande REST API och Java
 
@@ -30,13 +30,13 @@ Källkoden för den här snabbstarten finns på [GitHub](https://go.microsoft.co
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-- Den [Java&trade; utveckling Kit(JDK) 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) eller senare.
+- Den [Java&trade; utveckling Kit(JDK) 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) eller senare.
 
 - Importera dessa bibliotek från Maven-centrallagret
     - [JSON i Java](https://mvnrepository.com/artifact/org.json/json) paket
     - [Apache HttpClient](https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient) paket
 
-- Exempel ink linje data för den här snabbstarten finns på [GitHub](https://go.microsoft.com/fwlink/?linkid=2089904).
+- Exempel ink linje data för den här snabbstarten finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/InkRecognition/quickstart/example-ink-strokes.json).
 
 [!INCLUDE [cognitive-services-ink-recognizer-signup-requirements](../../../../includes/cognitive-services-ink-recognizer-signup-requirements.md)]
 
@@ -134,7 +134,7 @@ static void recognizeInk(String requestData) {
 
 ## <a name="run-the-application-and-view-the-response"></a>Kör programmet och visa svaret
 
-Kör appen. Ett lyckat svar returneras i JSON-format. Du kan också hitta JSON-svar på [GitHub](https://go.microsoft.com/fwlink/?linkid=2089904).
+Kör appen. Ett lyckat svar returneras i JSON-format. Du kan också hitta JSON-svar på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/InkRecognition/quickstart/example-response.json).
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -143,8 +143,8 @@ Kör appen. Ett lyckat svar returneras i JSON-format. Du kan också hitta JSON-s
 
 
 Om du vill se hur den Ink-API: T fungerar i en digital digital penna app, ta en titt på de följande exempelprogram på GitHub:
-* [C# and Universal Windows Platform(UWP)](https://go.microsoft.com/fwlink/?linkid=2089803)  
-* [C#och Windows Presentation Foundation(WPF)](https://go.microsoft.com/fwlink/?linkid=2089804)
-* [JavaScript web browser-appen](https://go.microsoft.com/fwlink/?linkid=2089908)       
-* [Java- och Android-mobilappen](https://go.microsoft.com/fwlink/?linkid=2089906)
-* [SWIFT- och iOS-mobilapp](https://go.microsoft.com/fwlink/?linkid=2089805)
+* [C# och Universal Windows-plattform (UWP)](https://go.microsoft.com/fwlink/?linkid=2089803)  
+* [C# och Windows Presentation Foundation(WPF)](https://go.microsoft.com/fwlink/?linkid=2089804)
+* [JavaScript-webbläsarappen](https://go.microsoft.com/fwlink/?linkid=2089908)       
+* [Java- och Android-mobilapp](https://go.microsoft.com/fwlink/?linkid=2089906)
+* [Swift- och iOS-mobilapp](https://go.microsoft.com/fwlink/?linkid=2089805)

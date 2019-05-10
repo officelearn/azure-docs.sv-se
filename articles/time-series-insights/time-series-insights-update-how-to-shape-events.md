@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/03/2018
+ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: 344f3a8b1bdfb789251479baffeb4df15bbf2842
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 38072d111d51cc2d2c6265643b69a870a679a454
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64718356"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466147"
 ---
 # <a name="shape-events-with-azure-time-series-insights-preview"></a>Formhändelser med förhandsversionen av Azure Time Series Insights
 
@@ -65,7 +65,7 @@ I följande exempel har ett enda meddelande på IoT Hub, där den yttersta matri
         "timestamp": "2018-01-17T01:18:00Z",
         "series": [
             {
-                "Flow Rate psi": 0.58015072345733643,
+                "Flow Rate ft3/s": 0.58015072345733643,
                 "Engine Oil Pressure psi ": 22.2
             }
         ]
@@ -112,8 +112,8 @@ Förhandsversionen av Time Series Insights ansluter till en tabell (efter att f�
 
 | deviceId  | Typ | L1 | L2 | tidsstämpel | serie. Flow hastighet ft3/s | serie. Motorn olja tryck psi |
 | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
-| `FXXX` | Default_Type | REVOLT SIMULATOR | Batteri System | 2018-01-17T01:17:00Z |    1.0172575712203979 |    34.7 |
-| `FXXX` | LINE_DATA REVOLT | SIMULATOR |    Batteri System |    2018-01-17T01:17:00Z | 2.445906400680542 |  49.2 |
+| `FXXX` | Default_Type | SIMULATOR | Batteri System | 2018-01-17T01:17:00Z |   1.0172575712203979 |    34.7 |
+| `FXXX` | Default_Type | SIMULATOR |   Batteri System |    2018-01-17T01:17:00Z | 2.445906400680542 |  49.2 |
 | `FYYY` | VANLIGA LINE_DATA | SIMULATOR |    Batteri System |    2018-01-17T01:18:00Z | 0.58015072345733643 |    22.2 |
 
 Observera följande punkter i föregående exempel:

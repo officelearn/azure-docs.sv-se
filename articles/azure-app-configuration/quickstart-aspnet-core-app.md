@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 90a39693778e01da76baf19765be8801f55813b7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e53f0bd1af3940b4d2f653b5ef43170212c09a43
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64683056"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408690"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Snabbstart: Skapa en ASP.NET Core-app med Azure App Configuration
 
@@ -41,7 +41,7 @@ Om du vill göra den här snabbstarten måste du installera den [.NET Core SDK](
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Välj **nyckel/värde-Explorer** > **+ skapa** att lägga till följande nyckel / värde-par:
+6. Välj **Configuration Explorer** > **+ skapa** att lägga till följande nyckel / värde-par:
 
     | Nyckel | Värde |
     |---|---|
@@ -66,7 +66,7 @@ Du använder den [.NET Core-kommandoradsgränssnittet (CLI)](https://docs.micros
 
 Lägg till den [Secret Manager verktyget](https://docs.microsoft.com/aspnet/core/security/app-secrets) i projektet. Verktyget Secret Manager lagrar känsliga uppgifter för utvecklingsarbete utanför projektträdet. Den här metoden hjälper till att förhindra oavsiktlig delning av apphemligheter i källkoden.
 
-- Öppna *.csproj*-filen. Lägg till en `UserSecretsId` element som visas här, och Ersätt värdet med dina egna, vilket vanligtvis är ett GUID. Spara filen.
+- Öppna den *.csproj* fil. Lägg till en `UserSecretsId` element som visas här, och Ersätt värdet med dina egna, vilket vanligtvis är ett GUID. Spara filen.
 
     ```xml
     <Project Sdk="Microsoft.NET.Sdk.Web">
@@ -88,7 +88,7 @@ Lägg till den [Secret Manager verktyget](https://docs.microsoft.com/aspnet/core
 
 1. Lägg till en referens till den `Microsoft.Extensions.Configuration.AzureAppConfiguration` NuGet-paketet genom att köra följande kommando:
 
-        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 1.0.0-preview-007830001
+        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 1.0.0-preview-008520001
 
 2. Kör följande kommando för att återställa paketen för ditt projekt:
 
@@ -102,7 +102,7 @@ Lägg till den [Secret Manager verktyget](https://docs.microsoft.com/aspnet/core
 
         dotnet user-secrets set ConnectionStrings:AppConfig <your_connection_string>
 
-    SECRET Manager används endast för att testa webbappen lokalt. När appen har distribuerats, till exempel till [Azure App Service](https://azure.microsoft.com/services/app-service/web), du kan använda ett program som inställningen, till exempel **anslutningssträngar** i App Service. Du kan använda den här inställningen istället för att lagra anslutningssträngen med Secret Manager.
+    SECRET Manager används endast för att testa webbappen lokalt. När appen har distribuerats till [Azure App Service](https://azure.microsoft.com/services/app-service/web), exempelvis kan du använda en programinställning **anslutningssträngar** i App Service i stället för med Secret Manager att lagra anslutningssträngen.
 
     Den här hemligheten nås med konfigurations-API. Ett kolon (:) fungerar i Konfigurationsnamnet med API-konfigurationen på alla plattformar som stöds. Se [konfigurationen av miljön](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0).
 

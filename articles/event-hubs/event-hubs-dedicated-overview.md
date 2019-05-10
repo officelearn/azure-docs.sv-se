@@ -15,12 +15,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: a5184b9980dd9f83764950445c10e8bdfea6d71a
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 4f721dc4fda5bef002c794d79dfd2f054f9eaf38
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65203955"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65511183"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Översikt över Event Hubs Dedicated
 
@@ -54,27 +54,18 @@ Event Hubs Dedicated erbjudandet debiteras enligt ett fast pris per månad, med 
 | --- |:---:|:---:|
 | Bandbredd | 20 Dataflödesenheter (upp till 40 Dataflödesenheter) | 20 Cu: er |
 | Namnområden |  1 | 50 per Kapacitetsenhet |
-| Event Hubs |  10 | Obegränsad |
-| Ingångshändelser | Betala per miljon händelser | Ingår |
+| Event Hubs |  10 | Ingen gräns event hubs/ämnen |
+| Ingresshändelser | Betala per miljon händelser | Inklusive |
 | Meddelandestorlek | 1 miljon byte | 1 miljon byte |
-| Partitioner | 40 per namnområde | 2000 per Kapacitetsenhet, 1024 per händelsehubb |
+| Partitioner | 40 per namnområde | 2000 per Kapacitetsenhet |
 | Konsumentgrupper | 20 per Händelsehubb | Ingen gräns per Kapacitetsenhet, 1 000 per händelsehubb |
-| Brokered Connections | 1 000 ingår | 100 K ingår |
-| Meddelandelagring | 7 dagar, 84 GB som ingår per Dataflödesenheter | 90 dagar, 10 TB som ingår per Kapacitetsenhet |
-| Capture | Betala per timme | Ingår |
+| Asynkrona anslutningar | 1 000 ingår | 100 K ingår |
+| Kvarhållning av meddelanden | 7 dagar, 84 GB som ingår per Dataflödesenheter | 90 dagar, 10 TB som ingår per Kapacitetsenhet |
+| Ta bild | Betala per timme | Inklusive |
 
 ## <a name="how-to-onboard"></a>Hur vill publicera
 
-Självbetjäning-upplevelsen för registrering för dedikerad är i förhandsversion, som du kan skapa 1 CU-kluster i följande regioner:
-  - Centrala Kanada
-  - Västra Europa
-  - USA, centrala
-  - USA, Östra
-  - USA, östra 2
-  - USA, norra centrala
-  - USA, Västra
-
-Vi aktivt lägger till nya regioner, men under tiden om din önskade region inte finns i listan skicka en supportbegäran om att den [Event Hubs-teamet](https://ms.portal.azure.com/#create/Microsoft.Support) under *teknisk > Händelsehubbar > kvot > begära för Dedikerad SKU*. Dedikerad planen är unikt eftersom du får en mer praktiska onboarding från Event Hubs-produktteamet att få flexibel distribution som passar dig. 
+Att publicera till Event Hubs Dedicated, kontakta den [Event Hubs-teamet](mailto:askeventhubs@microsoft.com). Dedikerad planen är unikt eftersom du får en mer praktiska onboarding från Event Hubs-produktteamet att få flexibel distribution som passar dig. 
 
 ## <a name="faqs"></a>Vanliga frågor och svar
 
@@ -96,10 +87,6 @@ I testet användes följande kriterier:
 - Den händelsehubb som används för datainmatning hade 200 partitioner. 
 - De data som har samlats in togs emot av två mottagare program tar emot från alla partitioner.
 
-#### <a name="how-do-i-create-a-cluster-larger-than-1-cu"></a>Hur skapar jag ett kluster större än 1 Kapacitetsenhet?
-
-I förhandsversionen av självbetjäning, kan du begära för att skala upp ditt kluster när du har skapat klustret. När du har skapat ett 1 CU kluster kontaktar du support för Event Hubs genom att skicka in en [supportförfrågan](https://ms.portal.azure.com/#create/Microsoft.Support) under *teknisk > kvot > begäran om att skala upp eller skala ned dedikerade kluster*. I vår GA-versionen kommer du att kunna skala upp din klustret direkt via portalen. 
-
 #### <a name="can-i-scale-down-my-cluster"></a>Kan jag skala ned mitt kluster?
 
 När du har skapat debiteras kluster för minst 4 timmars användning. I förhandsversionen av självbetjäning, kan du skicka en [supportförfrågan](https://ms.portal.azure.com/#create/Microsoft.Support) till Event Hubs-teamet under *teknisk > kvot > begäran om att skala upp eller skala ned dedikerade kluster*. Det kan ta upp till 7 dagar att slutföra förfrågan om att skala ned klustret. 
@@ -107,7 +94,6 @@ När du har skapat debiteras kluster för minst 4 timmars användning. I förhan
 #### <a name="how-will-geo-dr-work-with-my-cluster"></a>Hur fungerar Geo-DR med mitt kluster?
 
 Du kan geo-nyckelpar med en namnrymd under en dedikerad nivå-kluster med en annan namnrymd under en dedikerad nivå-kluster. Vi inte rekommenderar att para ihop en dedikerad nivå-namnområde med ett namnområde i våra Standard erbjudande, eftersom dataflödesgräns inte är kompatibel som leder till fel. 
-
 
 #### <a name="can-i-migrate-my-standard-namespaces-to-belong-to-a-dedicated-tier-cluster"></a>Kan jag migrera min standardnamnområden för att tillhör en dedikerad nivå-kluster?
 Vi stöder för närvarande inte en automatiserad migreringsprocessen för att migrera dina event hubs-data från en Standard-namnområdet till en dedikerad något. Om du vill migrera till ett kluster med dedikerad-nivå, rekommenderar vi tömmer alla meddelanden finns kvar i dina Standard-nivån event hubs och ersätta anslutningens slutpunkter med som dedikerade namnområdet.

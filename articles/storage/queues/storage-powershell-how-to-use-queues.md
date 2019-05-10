@@ -9,12 +9,12 @@ ms.date: 09/14/2017
 ms.author: mhopkins
 ms.reviewer: cbrooks
 ms.subservice: queues
-ms.openlocfilehash: db366fea96967559c65559864ff8e367fa12ad65
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: dbaaade278073613a62eaf350146360651350244
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142594"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510231"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Utföra åtgärder för Azure Queue storage med Azure PowerShell
 
@@ -34,7 +34,7 @@ Det finns ingen PowerShell-cmdletar för dataplanet för köer. Om du vill utfö
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="sign-in-to-azure"></a>Logga in på Azure
+## <a name="sign-in-to-azure"></a>Logga in till Azure
 
 Logga in på din Azure-prenumeration med kommandot `Connect-AzAccount` och följ anvisningarna på skärmen.
 
@@ -51,7 +51,7 @@ Get-AzLocation | select Location
 $location = "eastus"
 ```
 
-## <a name="create-resource-group"></a>Skapa resursgrupp
+## <a name="create-resource-group"></a>Skapa en resursgrupp
 
 Skapa en resursgrupp med kommandot [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). 
 
@@ -103,7 +103,7 @@ Get-AzStorageQueue -Context $ctx | select Name
 
 ## <a name="add-a-message-to-a-queue"></a>Lägg till ett meddelande till en kö
 
-Åtgärder som påverkar själva meddelandena i kön använda lagringsklientbiblioteket för .NET som visas i PowerShell. Om du vill lägga till ett meddelande till en kö, skapa en ny instans av meddelandeobjektet [Microsoft.Azure.Storage.Queue.CloudQueueMessage](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage.-ctor?redirectedfrom=MSDN&view=azure-dotnet#Microsoft_WindowsAzure_Storage_Queue_CloudQueueMessage__ctor_System_Byte___) klass. Därefter anropar du [AddMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.addmessage.aspx)-metoden. En CloudQueueMessage kan skapas från en sträng (i UTF-8-format) eller en bytematris.
+Åtgärder som påverkar själva meddelandena i kön använda lagringsklientbiblioteket för .NET som visas i PowerShell. Om du vill lägga till ett meddelande till en kö, skapa en ny instans av meddelandeobjektet [Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue._cloud_queue_message) klass. Därefter anropar du [AddMessage](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue._cloud_queue.addmessage)-metoden. En CloudQueueMessage kan skapas från en sträng (i UTF-8-format) eller en bytematris.
 
 I följande exempel visar hur du lägger till ett meddelande i kön.
 
@@ -131,7 +131,7 @@ Meddelanden läses i bästa Försök först-in-först-ut ordning. Detta är inte
 
 Detta **tidsgränsen för osynlighet** definierar hur länge meddelandet är osynlig innan den blir tillgänglig igen för bearbetning. Standardvärdet är 30 sekunder. 
 
-Din kod läser meddelandet från kön i två steg. När du anropar den [Microsoft.Azure.Storage.Queue.CloudQueue.GetMessage](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage?redirectedfrom=MSDN&view=azure-dotnet#Microsoft_WindowsAzure_Storage_Queue_CloudQueue_GetMessage_System_Nullable_System_TimeSpan__Microsoft_WindowsAzure_Storage_Queue_QueueRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) metoden du hämtas nästa meddelande i kön. Ett meddelande som returneras från **GetMessage** blir osynligt för andra meddelanden som läser kod i den här kön. Om du vill ta bort meddelandet från kön är klar kan du anropa den [Microsoft.Azure.Storage.Queue.CloudQueue.DeleteMessage](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage?redirectedfrom=MSDN&view=azure-dotnet#overloads) metod. 
+Din kod läser meddelandet från kön i två steg. När du anropar den [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.GetMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage) metoden du hämtas nästa meddelande i kön. Ett meddelande som returneras från **GetMessage** blir osynligt för andra meddelanden som läser kod i den här kön. Om du vill ta bort meddelandet från kön är klar kan du anropa den [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.DeleteMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage) metod. 
 
 I följande exempel du läsa igenom tre Kömeddelanden och vänta 10 sekunder (tidsgränsen för osynlighet). Och sedan läsa de tre meddelanden igen, ta bort meddelanden när du har läst dem genom att anropa **DeleteMessage**. Om du försöker läsa kön när meddelanden tas bort returneras $queueMessage som NULL.
 

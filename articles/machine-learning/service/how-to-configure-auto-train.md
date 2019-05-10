@@ -11,16 +11,16 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 72e43ac295fcb007dd58b2b7792a16c639ee9c08
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 64ba7096f181371a378708e024f46bce17449e98
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023706"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510592"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Konfigurera automatisk ML-experiment i Python
 
-I den här guiden lär du dig hur du definierar olika konfigurationsinställningar för dina automatiserade machine learning-experiment med den [Azure Machine Learning SDK](https://docs.microsoft.com/en-us/python/api/overview/azure/ml/intro?view=azure-ml-py). Automatiserad machine learning hämtar en algoritm och hyperparametrar för dig och genererar en modell som är klar för distribution. Det finns flera alternativ som du kan använda för att konfigurera automatiserade maskininlärningsexperiment.
+I den här guiden lär du dig hur du definierar olika konfigurationsinställningar för dina automatiserade machine learning-experiment med den [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Automatiserad machine learning hämtar en algoritm och hyperparametrar för dig och genererar en modell som är klar för distribution. Det finns flera alternativ som du kan använda för att konfigurera automatiserade maskininlärningsexperiment.
 
 Exempel på en automatiserad maskininlärningsexperiment finns [självstudien: Träna en modell för klassificering med automatiserade machine learning](tutorial-auto-train-models.md) eller [träna modeller med automatiserade maskininlärning i molnet](how-to-auto-train-remote.md).
 
@@ -418,7 +418,7 @@ Använd dessa 2 API: er på det första steget i anpassade modell som vill veta 
   
    Där:
    
-   |Resultat|Definition|
+   |Utdata|Definition|
    |----|--------|
    |RawFeatureName|Funktionen/indatakolumnen namn från den datauppsättning som angetts.| 
    |TypeDetected|Identifierade datatype av indata-funktionen.|

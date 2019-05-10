@@ -10,15 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 05/02/2019
 ms.author: fmegen
-ms.openlocfilehash: 771168a13d7192581aae2ff4128e979b6924484a
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 05475dbfb7dc1ee3f5de1a9b858eaf212b674eac
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65020687"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466379"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-java"></a>Snabbstart: Känna igen tal med Speech Service SDK för Java
 
+Snabbstarter kan också användas för [tal till speech translation](quickstart-translate-speech-java-jre.md) och [röst första virtuella assistenter](quickstart-virtual-assistant-java-jre.md).
+
+Om du vill kan du välja olika programmeringsspråk och/eller miljön:<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 I den här artikeln ska du skapa ett Java-konsolprogram med hjälp av [Speech SDK](speech-sdk.md). Du transkriberar tal till text i realtid från datorns mikrofon. Du har skapat programmet med tal SDK Maven-paketet och Eclipse Java IDE (v4.8) på 64-bitars Windows 64-bitars Linux (Ubuntu 16.04, 18.04 Ubuntu, Debian 9), eller i macOS 10.13 eller senare. Det körs i en 64-bitars Java 8-körningsmiljö (JRE).

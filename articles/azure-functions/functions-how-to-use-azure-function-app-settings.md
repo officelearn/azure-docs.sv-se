@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 096f39eeef54f3a4a1e3d8928dd13b7c22847c8d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 188c17b4e8ef84f3907b63fd62bf110ee94b4d7f
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65143193"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65511247"
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Så här hanterar du en funktionsapp i Azure portal 
 
@@ -26,15 +26,23 @@ Börja, gå till den [Azure-portalen](https://portal.azure.com) och logga in på
 
 ![Översikt över funktionen i Azure portal](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
 
-## <a name="manage-app-service-settings"></a>Fliken för funktionen app-inställningar
+Du kan navigera till allt du behöver för att hantera funktionsappen från översiktssidan i synnerhet de **[programinställningar](#settings)** och **[plattformsfunktioner](#platform-features)**.
 
-![Funktionen översikt över Azure-portalen.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-settings-tab.png)
+## <a name="settings"></a>programinställningar
 
-Den **inställningar** fliken är där du kan uppdatera Functions runtime-versionen som används av din funktionsapp. Det är också där du hanterar värdnycklar som används för att begränsa HTTP-åtkomst till alla funktioner som är värd för funktionsappen.
+Den **programinställningar** fliken har inställningar som används av din funktionsapp.
 
-Functions har stöd för både som är värd för förbrukning och App Service som är värd för planer. Mer information finns i [Välj korrekt tjänsteplan för Azure Functions](functions-scale.md). Funktioner för bättre förutse förbrukningsplanen kan du begränsa plattformsanvändningen genom att ange en kvot för daglig användning i gigabyte-sekunder. När dagskvoten uppnås stoppas funktionsappen. En funktionsapp som stoppats på grund av når utgiftsgränsen kvoten kan återaktiveras från samma kontext som upprättar dagliga utgiftskvot. Se den [Azure Functions sidan med priser](https://azure.microsoft.com/pricing/details/functions/) mer information om fakturering.   
+![Funktionsappinställningar i Azure-portalen.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-settings-tab.png)
 
-## <a name="platform-features-tab"></a>Plattformen funktioner fliken
+De här inställningarna lagras krypterat och du måste välja **visa värden** att se värdena i portalen.
+
+Om du vill lägga till en inställning, Välj **nya programinställning** och lägga till den nya nyckel / värde-par.
+
+[!INCLUDE [functions-environment-variables](../../includes/functions-environment-variables.md)]
+
+När du utvecklar en funktionsapp lokalt kan bevaras dessa värden i filen local.settings.json projekt.
+
+## <a name="platform-features"></a>Plattformsfunktioner
 
 ![Funktionen app-plattformen funktioner fliken.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-features-tab.png)
 
@@ -46,7 +54,6 @@ Funktionsappar körs i och hanteras av Azure App Service-plattformen. Dina funkt
 Resten av det här avsnittet fokuserar på de följande App Service-funktioner i Azure-portalen som är användbara för funktioner:
 
 + [App Service editor](#editor)
-+ [programinställningar](#settings) 
 + [Konsol](#console)
 + [Avancerade verktyg (Kudu)](#kudu)
 + [Distributionsalternativ](#deployment)
@@ -63,14 +70,6 @@ Mer information om hur du arbetar med App Service-inställningar finns i [konfig
 | ![Funktionsapp App Service editor.](./media/functions-how-to-use-azure-function-app-settings/function-app-appsvc-editor.png)  | App Service-redigeraren är en avancerad redigerare i portalen som du kan använda för att ändra JSON-konfigurationsfiler och kodfiler både. Det här alternativet startar en separat webbläsarflik med en grundläggande redigerare. På så sätt kan du integrera med Git-lagringsplats, köra och felsöka kod och ändra funktionsappinställningarna. Den här redigeraren ger en förbättrad utvecklingsmiljö för dina funktioner jämfört med standard-funktionen appbladet.    |
 
 ![App Service-redigeraren](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-appservice-editor.png)
-
-### <a name="settings"></a>programinställningar
-
-| | |
-|-|-|
-| ![Programinställningar för funktionen app.](./media/functions-how-to-use-azure-function-app-settings/function-app-application-settings.png) | App Service- **programinställningar** bladet kan du konfigurera och hantera framework-versioner, fjärrfelsökning, appinställningar och anslutningssträngar. När du integrerar din funktionsapp med andra Azure och tjänster från tredje part, kan du ändra dessa inställningar här. Ta bort en inställning genom att bläddra till höger och välj den **X** ikonen längst till höger på raden (visas inte i följande bild).
-
-![Konfigurera programinställningar](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-settings.png)
 
 ### <a name="console"></a>Konsolen
 

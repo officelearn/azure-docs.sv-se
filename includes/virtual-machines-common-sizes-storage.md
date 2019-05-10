@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/17/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 17806abe60236a9c9face1ee16e1d9982975fff6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: fb829cc5f1eef9c151a70a6479e419076e1c3b24
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64734689"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65509857"
 ---
 Lagring optimerad VM-storlekar ger högt diskgenomflöde och I/O och är perfekt för Stordata, SQL, NoSQL-databaser, informationslagerhantering och stora transaktionsdatabaser.  Exempel är Cassandra, MongoDB, Cloudera och Redis. Den här artikeln innehåller information om hur många virtuella processorer, diskar och nätverkskort samt lokal lagring dataflöde och nätverket bandbredden för varje optimerad storlek.
 
@@ -35,13 +35,13 @@ Premium-lagring: Stöds
 
 Premium Storage cachelagring: Stöds inte
 
-| Storlek          | Virtuell processor | Minne (GiB) | Temporär disk<sup>1</sup> (GiB) | NVMe Disks<sup>2</sup> | NVMe diskdataflöde<sup>3</sup> (Läs IOPS / Mbit/s) | Maximalt icke cachelagrat diskgenomflöde (IOPs/Mbit/s)<sup>4</sup> | Maximalt antal Datadiskar | Maximalt antal nätverkskort / förväntade nätverksbandbredd (Mbit/s) |
+| Storlek          | vCPU | Minne (GiB) | Temporär disk<sup>1</sup> (GiB) | NVMe Disks<sup>2</sup> | NVMe diskdataflöde<sup>3</sup> (Läs IOPS / Mbit/s) | Maximalt icke cachelagrat diskgenomflöde (IOPs/Mbit/s)<sup>4</sup> | Maximalt antal Datadiskar | Maximalt antal nätverkskort / förväntade nätverksbandbredd (Mbit/s) |
 |---------------|-----------|-------------|--------------------------|----------------|---------------------------------------------------|-------------------------------------------|------------------------------|------------------------------| 
 | Standard_L8s_v2   |  8 |  64 |  80 |  1x1.92 TB  | 400,000 / 2,000 | 8,000/160 | 16 | 2 / 3,200  | 
 | Standard_L16s_v2  | 16 | 128 | 160 |  2x1.92 TB  | 800,000 / 4,000 | 16,000/320 | 32 | 4 / 6,400  | 
 | Standard_L32s_v2  | 32 | 256 | 320 |  4x1.92 TB  | 1,5 MILJONER / 8 000    | 32,000/640 | 32 | 8 / 12,800 | 
-| Standard_L64s_v2  | 64 | 512 | 640 |  8x1.92 TB  | 2.9 M / 16 000   | 64,000/1,280 | 32 | 8 / 25,600 |
-| Standard_L80s_v2  | 80 | 640 | 800 | 10x1.92TB   | 3.8 M / 20 000   | 80,000/1,400 | 32 | 8 / 32,000 |
+| Standard_L64s_v2  | 64 | 512 | 640 |  8x1.92 TB  | 2.9 M / 16 000   | 64,000/1,280 | 32 | 8 / 16,600+ |
+| Standard_L80s_v2  | 80 | 640 | 800 | 10x1.92TB   | 3.8 M / 20 000   | 80,000/1,400 | 32 | 8 / 16,000+ |
 
 <sup>1</sup> Lsv2-serien virtuella datorer har standard SCSI-baserat temp resursdisk för OS sidindelning/swap-fil (D: på Windows, /dev/sdb på Linux). Den här disken innehåller 80 GiB lagringsutrymme, 4 000 IOPS och 80 Mbit/s överföringshastighet för varje 8 virtuella processorer (t.ex. Standard_L80s_v2 ger 800 GiB på 40 000 IOPS och 800 Mbit/s). Detta säkerställer att NVMe-enheter kan vara helt reserverad för användningen av. Den här disken är tillfälliga och alla data på Stoppa/Frigör förlorade.
 

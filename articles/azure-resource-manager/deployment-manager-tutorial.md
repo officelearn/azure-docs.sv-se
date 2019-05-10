@@ -13,19 +13,22 @@ ms.devlang: na
 ms.date: 04/02/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: a0730073a8d17e063ee3f1364d5914200259c10f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a4f14a1e68042704ca8e8c49f1bd76b722c90d4d
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58880057"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466307"
 ---
-# <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-private-preview"></a>Självstudier: Använda Azure Deployment Manager med Resource Manager-mallar (privat förhandsgranskning)
+# <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>Självstudier: Använda Distributionshanteraren för Azure med Resource Manager-mallar (offentlig förhandsversion)
 
 Lär dig hur du använder [Azure Deployment Manager](./deployment-manager-overview.md) för att distribuera dina program i flera regioner. För att använda Deployment Manager måste du skapa två mallar:
 
 * **En topologimall**: Beskriver de Azure-resurser som utgör dina program och var de ska distribueras.
 * **En distributionsmall**: Beskriver stegen för att distribuera dina program.
+
+> [!IMPORTANT]
+> Om din prenumeration har markerats för Kanarieöarna att testa nya Azure-funktioner, kan du bara använda Distributionshanteraren för Azure för att distribuera till kontrollvärde regioner. 
 
 Den här självstudien omfattar följande uppgifter:
 
@@ -432,4 +435,4 @@ När Azure-resurserna inte längre behövs rensar du de resurser som du har dist
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du lärt dig hur du använder Azure Deployment Manager. Mer information finns i [dokumentationen om Azure Resource Manager](/azure/azure-resource-manager/).
+I den här självstudien har du lärt dig hur du använder Azure Deployment Manager. Om du vill integrera övervakning av säkerhetshälsa i Azure Deployment Manager, se [självstudien: Använda hälsokontroll i Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).

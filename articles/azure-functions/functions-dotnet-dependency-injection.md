@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/22/2019
 ms.author: jehollan
-ms.openlocfilehash: 1ef688dff65dc11f875f76e2f9127bf89af2f2b9
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 2044718d2ec7a7acc58e1e7ba9ba04ec5caf16b3
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074597"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408451"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Använd beroendeinmatning i .NET Azure Functions
 
@@ -65,7 +65,7 @@ I en funktionsapp matchar en livslängd för begränsade tjänsten en livslängd
 
 Singleton-tjänsterna livslängd rekommenderas för anslutningar och klienter, till exempel en `SqlConnection`, `CloudBlobClient`, eller `HttpClient`.
 
-Visa eller ladda ned en [prov på olika service livslängd](http://aka.ms/functions/di-sample).
+Visa eller ladda ned en [prov på olika service livslängd](https://aka.ms/functions/di-sample).
 
 ## <a name="logging-services"></a>Loggningstjänster
 

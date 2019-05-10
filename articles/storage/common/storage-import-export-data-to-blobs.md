@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: e60a58a8d2f1c69728a2d049fe1414ca1997893e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 82672136d6f9af50a3d91da2044f6e0ced4b44a6
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61479311"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409368"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Använda Azure Import/Export-tjänsten för att importera data till Azure Blob Storage
 
@@ -114,7 +114,7 @@ Utför följande steg för att skapa ett importjobb i Azure-portalen.
 4. I **returnera leveransinformation**:
 
    - Välj vilken operatör i listrutan. Om du vill använda en operatör än FedEx/DHL väljer du ett befintligt alternativ i listrutan. Kontakta Azure Data Box Operations team på `adbops@microsoft.com` med information om vilken operatör du tänker använda.
-   - Ange en giltig transportföretagets kontonummer som du har skapat med den operatör. Microsoft använder kontot för att leverera enheter till dig när importjobbet har slutförts. Om du inte har ett kontonummer, skapar du en [FedEx](https://www.fedex.com/us/oadr/) eller [DHL](http://www.dhl.com/) transportföretagskonto.
+   - Ange en giltig transportföretagets kontonummer som du har skapat med den operatör. Microsoft använder kontot för att leverera enheter till dig när importjobbet har slutförts. Om du inte har ett kontonummer, skapar du en [FedEx](https://www.fedex.com/us/oadr/) eller [DHL](https://www.dhl.com/) transportföretagskonto.
    - Ange en fullständig och giltig kontaktperson, telefon, e-post, gatuadress, ort, zip, region och land/region. 
         
        > [!TIP] 

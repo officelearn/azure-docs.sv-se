@@ -54,6 +54,8 @@
       href: resource-network-topologies.md
     - name: Kända problem
       items:
+        - name: Felsöka vanliga problem och fel
+          href: known-issues-troubleshooting-dms.md
         - name: Kända problem – Onlinemigrering till Azure SQL DB
           href: known-issues-azure-sql-online.md
         - name: Kända problem – Onlinemigrering till Azure DB för MySQL

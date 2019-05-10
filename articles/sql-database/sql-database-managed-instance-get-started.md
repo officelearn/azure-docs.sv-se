@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 04/26/2019
-ms.openlocfilehash: f4f9ecec3876fa84abf420a2ef9b147132e7fe2a
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.date: 05/07/2019
+ms.openlocfilehash: 09ab4cd44515d90df0e36e2775f50ac33955fe75
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925190"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466267"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Snabbstart: Skapa en hanterad Azure SQL Database-instans
 
@@ -93,7 +93,7 @@ När distributionen har slutförts granskar de resurser som har skapats och häm
 
    ![Nätverkssäkerhetsgrupp](./media/sql-database-managed-instance-get-started/network-security-group.png)
 
-5. Granska inkommande och utgående säkerhetsregler. 
+5. Granska inkommande och utgående säkerhetsregler. Om du har konfigurerat offentliga slutpunkter för din hanterade instans kan du läsa artikeln [konfigurera offentliga slutpunkten](sql-database-managed-instance-public-endpoint-configure.md#allow-public-endpoint-traffic-on-the-network-security-group) för mer information.
 
    ![Säkerhetsregler](./media/sql-database-managed-instance-get-started/security-rules.png)
 

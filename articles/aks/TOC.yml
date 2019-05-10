@@ -140,6 +140,8 @@
           href: azure-files-dynamic-pv.md
         - name: Azure Files – statiska
           href: azure-files-volume.md
+        - name: NFS-server – statisk
+          href: azure-nfs-volume.md
     - name: Konfigurera nätverk
       items:
         - name: Skapa eller använda ett befintligt virtuellt nätverk

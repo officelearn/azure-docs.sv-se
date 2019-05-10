@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 84dddf5ed9c31e8585480319af189d31e39163e5
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: ff098ebd23d2ce5a8c9c39f154375be1dae6a262
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59998999"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408874"
 ---
-# <a name="tutorial-integrate-with-azure-managed-identities"></a>Självstudier: Integrera med Azure hanterade identiteter
+# <a name="integrate-with-azure-managed-identities"></a>Integrera med Azure hanterade identiteter
 
 Azure Active Directory [hanterade identiteter](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) att förenkla hanteringen av hemligheter för ditt molnprogram. Med en hanterad identitet kan du konfigurera din kod att använda tjänstens huvudnamn som skapades för den körs på Azure compute-tjänsten. Du kan använda en hanterad identitet i stället för en separat autentiseringen som lagras i Azure Key Vault eller en lokal anslutningssträng. 
 
@@ -61,7 +61,7 @@ Om du vill konfigurera en hanterad identitet i portalen du först skapa ett prog
 
 1. I den [Azure-portalen](https://aka.ms/azconfig/portal)väljer **alla resurser** och välj app-konfigurationsarkivet som du skapade i snabbstarten.
 
-2. Välj **Åtkomstkontroll (IAM)**.
+2. Välj **åtkomstkontroll (IAM)**.
 
 3. På den **Kontrollera åtkomst** fliken **Lägg till** i den **Lägg till rolltilldelning** kortet Användargränssnittet.
 

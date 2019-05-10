@@ -28,12 +28,12 @@ ms.author:
 - minale
 - btalb
 - prachank
-ms.openlocfilehash: 31ca0ee666ff37afa37fb9636860c557d92a52c7
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: d0124d6656167af3942e0d054b4e1fa7a2b48e8b
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924795"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410047"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>TCP/IP-prestandajustering för virtuella Azure-datorer
 
@@ -237,7 +237,7 @@ Dessa är de effektiva TCP-inställningarna för `AutoTuningLevel`:
 | | | | |
 |-|-|-|-|
 |**AutoTuningLevel**|**Skalningsfaktor**|**Skala multiplikatorn**|**Formeln till<br/>beräkna maximal fönsterstorlek**|
-|Disabled|Ingen|Ingen|Fönsterstorlek|
+|Har inaktiverats|Ingen|Ingen|Fönsterstorlek|
 |Begränsat|4|2^4|Fönsterstorlek * (2 ^ 4)|
 |Mycket begränsad|2|2^2|Fönsterstorlek * (2 ^ 2)|
 |Normal|8|2^8|Fönsterstorlek * (2 ^ 8)|
@@ -256,7 +256,7 @@ Eftersom en större MTU innebär en större MSS, kanske du undrar om ökar MTU k
 
 ### <a name="accelerated-networking-and-receive-side-scaling"></a>Accelererat nätverk och skalning på mottagarsidan
 
-#### <a name="accelerated-networking"></a>Snabbare nätverk
+#### <a name="accelerated-networking"></a>Accelererat nätverk
 
 Nätverksfunktioner för virtuell dator har historiskt Processorintensiva på både den Virtuella gästdatorn och hypervisor-/ värden. Varje paket som eltransit via värden bearbetas i programvara av CPU, inklusive alla inkapsling för virtuellt nätverk och avkapsling-värden. Så mer trafik som passerar värden, desto högre CPU-belastningen. Och om värdens CPU är upptagen med andra åtgärder, som även att påverka nätverkets dataflöde och svarstid. Azure löser problemet med accelererat nätverk.
 
@@ -276,7 +276,7 @@ Om du vill använda accelererat nätverk måste uttryckligen aktivera det på va
 
 Ta emot sida mottagarsidan (RSS) är en nätverksteknik för drivrutinen som distribuerar mottagande av nätverkstrafik effektivare genom att distribuera får bearbetning över flera processorer till processorer. Enkelt uttryckt innebär medför RSS att ett system att bearbeta fler mottagna trafik eftersom den använder alla tillgängliga processorer i stället för bara en. Läs mer teknisk information om RSS uppför [introduktion till skalning på mottagarsidan](https://docs.microsoft.com/windows-hardware/drivers/network/introduction-to-receive-side-scaling).
 
-För att få bästa möjliga prestanda när accelererat nätverk är aktiverat på en virtuell dator kan behöva du Aktivera RSS. RSS kan också ge fördelar på virtuella datorer som inte använder accelererat nätverk. En översikt över hur du avgör om RSS är aktiverat och hur du aktiverar det finns i [optimera nätverkets dataflöde för Azure virtual machines](http://aka.ms/FastVM).
+För att få bästa möjliga prestanda när accelererat nätverk är aktiverat på en virtuell dator kan behöva du Aktivera RSS. RSS kan också ge fördelar på virtuella datorer som inte använder accelererat nätverk. En översikt över hur du avgör om RSS är aktiverat och hur du aktiverar det finns i [optimera nätverkets dataflöde för Azure virtual machines](https://aka.ms/FastVM).
 
 ### <a name="tcp-timewait-and-timewait-assassination"></a>TCP TIME_WAIT och TIME_WAIT assassination
 
@@ -316,7 +316,7 @@ Dataflöde gränsen gäller för den virtuella datorn. Dataflödet påverkas int
 
 - **Protokoll**: All utgående trafik över alla protokoll räknas mot gränsen.
 
-Mer information finns i [VM nätverksbandbredd](http://aka.ms/AzureBandwidth).
+Mer information finns i [VM nätverksbandbredd](https://aka.ms/AzureBandwidth).
 
 ### <a name="internet-performance-considerations"></a>Prestandaöverväganden för Internet
 

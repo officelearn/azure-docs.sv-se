@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: f2441d5660ed84a8680c1861e2e20a1a17ee4762
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: ab33feb1ffdbced193afaba8f52719b3c215652f
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025837"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65511121"
 ---
 # <a name="what-is-custom-speech"></a>Vad är anpassade tal?
 
@@ -43,7 +43,7 @@ Det här diagrammet visar de delar som utgör portal för anpassat tal. Använd 
 
 ## <a name="set-up-your-azure-account"></a>Konfigurera ditt Azure-konto
 
-Det krävs en Speech Services-prenumeration innan du kan använda portal för anpassat tal för att skapa en anpassad modell. Följ dessa instruktioner för att skapa en standard Speech Services-prenumeration: [Skapa en prenumeration för tal](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started#new-azure-account).
+Det krävs en Speech Services-prenumeration innan du kan använda portal för anpassat tal för att skapa en anpassad modell. Följ dessa instruktioner för att skapa en standard Speech Services-prenumeration: [Skapa en prenumeration för tal](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#new-azure-account).
 
 > [!NOTE]
 > Var noga med att skapa standardprenumerationer (S0), kostnadsfria utvärderingsversioner (F0) stöds inte.

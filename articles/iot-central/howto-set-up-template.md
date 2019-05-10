@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: db8c8de7a8047f7aa6a81f6a3b372d161408f1be
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: d1704220a13b6d6b5a48b7167d7912a38057127d
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62097151"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466490"
 ---
 # <a name="set-up-a-device-template"></a>Konfigurera en enhetsmall
 
@@ -68,8 +68,7 @@ Om du vill lägga till ett nytt mått i telemetri, Välj **+ ny mätning**, Väl
 
 > [!NOTE]
 > Fältnamn i mallen enheten måste matcha egenskapsnamnen i motsvarande enhet koden för telemetri-mått som ska visas i programmet när en riktig enhet är ansluten. Göra detsamma när du konfigurerar inställningar och egenskaper för enhet kommandon när du fortsätter att definiera enhet-mall i följande avsnitt.
-
-Du kan exempelvis lägga till en ny temperatur telemetri mätning:
+.PNG exempel: du kan lägga till ett nytt temperatur telemetri mått:
 
 | Visningsnamn        | Fältnamn    |  Enheter    | Min   |Max|
 | --------------------| ------------- |-----------|-------|---|
@@ -161,7 +160,7 @@ Det finns två kategorier med egenskaper:
 
 Du kan till exempel lägga till datum för senaste underhållna för enheten som en ny **datum** egenskapen (en programegenskap) på den **egenskaper** fliken:
 
-| Visningsnamn  | Fältnamn | Initialt värde   |
+| Visningsnamn  | Fältnamn | Startvärde   |
 | --------------| -----------|-----------------|
 | Senaste service      | lastServiced        | 01/29/2019     |
 
@@ -190,7 +189,7 @@ Du kan skapa en plats-egenskap som en programegenskap med hjälp av Azure Maps i
 
 3. Konfigurera **visningsnamn**, **fältnamn**, och (frivilligt) **ursprungsvärdet** för platsen.
 
-    | Visningsnamn  | Fältnamn | Initialt värde |
+    | Visningsnamn  | Fältnamn | Startvärde |
     | --------------| -----------|---------| 
     | Installationen adress | installAddress | Microsoft, 1 Microsoft Way, Redmond, WA 98052   |
 
@@ -239,7 +238,7 @@ Exempel: du kan lägga till en ny **Echo** kommandot genom att välja den **komm
 | --------------| -----------|---------------- | --------- |
 | Ekokommando  | eko       |  30             | text      |
 
-![”Konfigurera kommandot” formuläret med information om echo](./media/howto-set-up-template/commandsecho.png)
+![”Konfigurera kommandot” formuläret med information om echo](./media/howto-set-up-template/commandsecho1.png)
 
 När du har valt **spara**, **Echo** kommandot visas som en panel och är redo att användas från den **Device Explorer** när verkliga enheten ansluts. Fältnamn för kommandot måste matcha egenskapsnamnen i motsvarande enhet koden för kommandon att kunna köras.
 
@@ -255,7 +254,7 @@ Instrumentpanelen är där en operatör kan gå för att se information om en en
 
 Du kan till exempel lägga till en **inställningar och egenskaper** rutan för att visa ett urval av de aktuella värdena för inställningar och egenskaper genom att välja den **instrumentpanelen** fliken och panel från biblioteket:
 
-![”Konfigurera enhetsinformation” formuläret med information om inställningar och egenskaper](./media/howto-set-up-template/dashboardsettingsandpropertiesform.png)
+![”Konfigurera enhetsinformation” formuläret med information om inställningar och egenskaper](./media/howto-set-up-template/dashboardsettingsandpropertiesform1.png)
 
 Nu när en operatör visar instrumentpanelen på den **Device Explorer**, de kan se panelen.
 

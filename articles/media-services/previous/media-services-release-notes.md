@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 25da9fd787c467bdddb7c8dcd68b9df518d018b7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 427ba2b386810749810397afed8ef3f62dcf9217
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728035"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506633"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services viktig information
 
@@ -36,7 +36,7 @@ Vi vill gärna höra från våra kunder så att vi kan fokusera på att åtgärd
 | --- | --- |
 | Flera vanliga HTTP-rubriker angetts inte i REST-API. |Om du utvecklar program för Media Services med hjälp av REST-API kan du upptäcka att vissa vanliga HTTP-huvudfält (inklusive CLIENT-REQUEST-ID, ID för FÖRFRÅGAN och RETUR-CLIENT-REQUEST-ID) stöds inte. Rubrikerna som läggs till i en kommande uppdatering. |
 | Procent-kodning är inte tillåten. |Media Services använder värdet för egenskapen IAssetFile.Name när du skapar URL: er för strömning innehållet (till exempel `http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters`). Därför är inte procent-kodning tillåten. Värdet för egenskapen Name får inte innehålla något av följande [procent-encoding-reserverade tecken](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):! *' ();: @& = + $, /? [] # % ”. Dessutom det kan bara finnas en ””. för filnamnstillägget. |
-| Metoden ListBlobs som ingår i Azure Storage SDK version 3.x misslyckas. |Media Services genererar SAS URL: er utifrån den [2012-02-12](https://docs.microsoft.com/rest/api/storageservices/Version-2012-02-12) version. Om du vill använda Storage SDK och lista blobar i en blobbehållare kan använda den [CloudBlobContainer.ListBlobs](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx) metod som är en del av Storage SDK-version 2.x. |
+| Metoden ListBlobs som ingår i Azure Storage SDK version 3.x misslyckas. |Media Services genererar SAS URL: er utifrån den [2012-02-12](https://docs.microsoft.com/rest/api/storageservices/Version-2012-02-12) version. Om du vill använda Storage SDK och lista blobar i en blobbehållare kan använda den [CloudBlobContainer.ListBlobs](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.listblobs) metod som är en del av Storage SDK-version 2.x. |
 | Medietjänster begränsning mekanism begränsar resursanvändningen för program som gör långa förfrågningar till tjänsten. Tjänsten kan returnera ”tjänst ej tillgänglig” 503 HTTP-statuskoden. |Mer information finns i beskrivningen av 503 HTTP-statuskod i [felkoder för Media Services](media-services-encoding-error-codes.md). |
 | När du frågar entiteter returneras en gräns på 1 000 entiteter i taget eftersom offentlig REST version 2 begränsar frågeresultaten till 1 000 resultat. |Använd hoppa över och ta (.NET) / viktigaste (REST) enligt beskrivningen i [exemplet .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) och [det här REST API-exemplet](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). |
 | Vissa klienter kan stöta på ett problem för upprepningar tagg i manifestet Smooth Streaming. |Mer information finns i [i det här avsnittet](media-services-deliver-content-overview.md#known-issues). |
@@ -534,7 +534,7 @@ Följande funktioner som är nytt i November-versionen av SDK:
   
     * Asynkront stöd har lagts till för alla metoder.
 
-## <a name="provide-feedback"></a>Ge feedback
+## <a name="provide-feedback"></a>Lämna feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 <!-- Anchors. -->

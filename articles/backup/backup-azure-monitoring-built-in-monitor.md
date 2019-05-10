@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/05/2019
 ms.author: pullabhk
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 8d3e3257f16fe4e0f846c2268bfefc2771387de6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ab7d2c0af4bc71733a7995b7e781f0facbfbb29f
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60809045"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236448"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Övervaka Azure Backup-arbetsbelastningar
 
@@ -49,7 +49,7 @@ Aviseringar är främst scenarier där användarna får en avisering så att de 
 Följande scenarier definieras av tjänsten som kanske scenarier.
 
   - Säkerhetskopiering/återställning fel
-  - Säkerhetskopieringen slutfördes med varningar
+  - Säkerhetskopieringen slutfördes med varningar för Azure Backup Agent (MAB)
   - Avbryt skyddet med Behåll data/Avbryt skyddet med ta borttagningsdata
 
 ### <a name="exceptions-when-an-alert-is-not-raised"></a>Undantag när en avisering inte aktiveras
@@ -92,7 +92,7 @@ När meddelandet har konfigurerats, får du ett e-postmeddelande med Välkommen 
 Om frekvensen ställdes in på en sammanställning per timme och en avisering har ut och löses inom en timme, kommer det inte vara en del av den kommande sammanställning per timme.
 
 > [!NOTE]
-> 
+>
 > * Om en destruktiv åtgärd som **stoppa skyddet med borttagningsdata** är utförs, en avisering genereras och ett e-postmeddelande skickas till prenumerationsägare, administratörer och medadministratörer även om meddelanden inte är konfigurerade för återställa tjänsten valvet.
 > * Konfigurera meddelande för lyckade jobb använder [Log Analytics](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-workspace).
 

@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: jeconnoc
-ms.openlocfilehash: a2eff2ca2e72ad263e3e23d0827e7603bca3fdcb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 68801f888df55924791188a3f4ff5b718798c9f3
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60521105"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510575"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Kom igång med Azure Cloud Services och ASP.NET
 
@@ -36,7 +36,7 @@ Programmet är en anslagstavla för annonser. Användare skapar en annons genom 
 Programmet använder det [köcentriska arbetsmönstret](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) för att avlasta det processorintensiva arbetet med att skapa miniatyrbilder till en serverdelsprocess.
 
 ## <a name="alternative-architecture-app-service-and-webjobs"></a>Alternativ arkitektur: App Service och WebJobs
-Under den här kursen får du lära dig hur du kör både klient- och serverdelen i en Azure-molntjänst. Ett alternativ är att köra klientdelen i en [Azure App Service](/azure/app-service/) och använda [WebJobs](https://go.microsoft.com/fwlink/?LinkId=390226)-funktionen för serverdelen. Om du vill följa en kurs som använder WebJobs går du till [Kom igång med Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki). Mer information om hur du väljer de tjänster som bäst passar din situation finns i [Jämförelse mellan Azure App Service, Cloud Services och Virtual Machines](../app-service/overview-compare.md).
+Under den här kursen får du lära dig hur du kör både klient- och serverdelen i en Azure-molntjänst. Ett alternativ är att köra klientdelen i en [Azure App Service](/azure/app-service/) och använda [WebJobs](https://go.microsoft.com/fwlink/?LinkId=390226)-funktionen för serverdelen. Om du vill följa en kurs som använder WebJobs går du till [Kom igång med Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki). Mer information om hur du väljer de tjänster som bäst passar din situation finns i [Jämförelse mellan Azure App Service, Cloud Services och Virtual Machines](/azure/architecture/guide/technology-choices/compute-decision-tree).
 
 ## <a name="what-youll-learn"></a>Detta får du får lära dig
 * Hur du aktiverar datorn för Azure-utveckling genom att installera Azure SDK.
@@ -391,7 +391,7 @@ I det här avsnittet konfigurerar du Azure Storage- och SQL-anslutningssträngar
 8. När du har egenskapsfönstret för **ContosoAdsWorker [roll]** öppet lägger du till ytterligare en anslutningssträng:
 
    * Namn: ContosoAdsDbConnectionString
-   * Ange: String
+   * Typ: String
    * Värde: Klistra in samma anslutningssträng som du använde för webbrollsprojektet. (Följande exempel gäller Visual Studio 2013. Glöm inte att ändra datakällan om du kopierar det här exemplet och använder Visual Studio 2015 eller högre.)
 
        ```

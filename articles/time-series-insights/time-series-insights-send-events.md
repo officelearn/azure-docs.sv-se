@@ -10,18 +10,18 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 12/03/2018
+ms.date: 05/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 55b19a6cf71730858fcf42880f71a2c9c07a3b31
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2842a365cdf25a6b19f655f6397d62ecb9a723b0
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64683966"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406912"
 ---
 # <a name="send-events-to-a-time-series-insights-environment-by-using-an-event-hub"></a>Skicka händelser till en Time Series Insights-miljö med hjälp av en event hub
 
-Den här artikeln förklarar hur du skapar och konfigurerar en event hub i Azure Event Hubs och sedan kör ett exempelprogram för push-händelser. Om du har en befintlig händelsehubb som innehåller händelser i JSON-format, hoppa över den här självstudien och visa din miljö i [Azure Time Series Insights](./time-series-insights-update-create-environment.md).
+Den här artikeln förklarar hur du skapar och konfigurerar en event hub i Azure Event Hubs. Det beskriver också hur du kör ett exempelprogram för push-händelser till Azure Time Series Insights från Händelsehubbar. Om du har en befintlig händelsehubb med händelser i JSON-format, hoppa över den här självstudien och visa din miljö i [Azure Time Series Insights](./time-series-insights-update-create-environment.md).
 
 ## <a name="configure-an-event-hub"></a>Skapa en Event Hub
 
@@ -30,14 +30,14 @@ Den här artikeln förklarar hur du skapar och konfigurerar en event hub i Azure
 1. Välj din event hub.
 1. När du skapar en event hub skapar du egentligen ett händelsehubbnamnområde. Om du inte har skapat en händelsehubb i namnområdet, på menyn, under **entiteter**, skapa en händelsehubb.  
 
-    ![Listan över händelsehubbar][1]
+    [![Listan över händelsehubbar](media/send-events/updated.png)](media/send-events/updated.png#lightbox)
 
 1. När du skapar en event hub, markerar du den i listan över händelsehubbar.
 1. I menyn, under **entiteter**väljer **Händelsehubbar**.
 1. Välj namnet på händelsehubben för att konfigurera den.
 1. Under **entiteter**väljer **konsumentgrupper**, och välj sedan **konsumentgrupp**.
 
-    ![Skapa en konsumentgrupp][2]
+    [![Skapa en konsumentgrupp](media/send-events/consumer-group.png)](media/send-events/consumer-group.png#lightbox)
 
 1. Se till att skapa en konsumentgrupp som enbart används av din Time Series Insights-händelsekälla.
 
@@ -46,17 +46,17 @@ Den här artikeln förklarar hur du skapar och konfigurerar en event hub i Azure
 
 1. I menyn, under **inställningar**väljer **principer för delad åtkomst**, och välj sedan **Lägg till**.
 
-    ![Välj principer för delad åtkomst och välj sedan knappen Lägg till][3]
+    [![Välj principer för delad åtkomst och välj sedan knappen Lägg till](media/send-events/shared-access-policy.png)](media/send-events/shared-access-policy.png#lightbox)
 
 1. I den **Lägg till ny princip för delad åtkomst** fönstret Skapa en delad åtkomst med namnet **MySendPolicy**. Du använder denna princip för delad åtkomst för att skicka händelser i den C# exemplen senare i den här artikeln.
 
-    ![I rutan princip ange MySendPolicy][4]
+    [![I rutan princip ange MySendPolicy](media/send-events/shared-access-policy-2.png)](media/send-events/shared-access-policy-2.png#lightbox)
 
 1. Under **anspråk**väljer den **skicka** kryssrutan.
 
 ## <a name="add-a-time-series-insights-instance"></a>Lägg till en Time Series Insights-instans
 
-Time Series Insights-uppdateringen använder instanser för att lägga till kontextuella data i inkommande telemetridata. Data är ansluten när en fråga körs med hjälp av en **Time Series-ID**. Den **Time Series-ID** för exemplet windmills projektet som vi använder senare i den här artikeln är **Id**. Mer information om Time Series Insight-instanser och **Time Series-ID**, se [Time Series modeller](./time-series-insights-update-tsm.md).
+Time Series Insights-uppdateringen använder instanser för att lägga till kontextuella data i inkommande telemetridata. Data är ansluten när en fråga körs med hjälp av en **Time Series-ID**. Den **Time Series-ID** för exemplet windmills projektet som vi använder senare i den här artikeln är `id`. Mer information om Time Series Insight-instanser och **Time Series-ID**, se [Time Series modeller](./time-series-insights-update-tsm.md).
 
 ### <a name="create-a-time-series-insights-event-source"></a>Skapa en händelsekälla för Time Series Insights
 
@@ -72,78 +72,44 @@ Time Series Insights-uppdateringen använder instanser för att lägga till kont
 
 1. Gå till **delade åtkomstprinciper** > **RootManageSharedAccessKey**. Kopiera värdet för **anslutning förekomster av textsträngen primär nyckel**.
 
-    ![Kopiera värdet för primärnyckelns anslutningssträng][5]
+    [![Kopiera värdet för primärnyckelns anslutningssträng](media/send-events/sample-code-connection-string.png)](media/send-events/sample-code-connection-string.png#lightbox)
 
 1. Gå till https://tsiclientsample.azurewebsites.net/windFarmGen.html. URL: en körs windmill simulerade enheter.
 1. I den **Händelsehubbens anslutningssträng** rutan på webbsidan, klistra in anslutningssträngen som du kopierade i [skicka händelser](#push-events).
   
-    ![Klistra in primärnyckelns anslutningssträng i Event Hub-anslutningssträngen][6]
+    [![Klistra in primärnyckelns anslutningssträng i Event Hub-anslutningssträngen](media/send-events/updated_two.png)](media/send-events/updated_two.png#lightbox)
 
 1. Välj **Klicka om du vill starta**. Simulatorn genererar instans JSON som du kan använda direkt.
 
-1. Gå tillbaka till din event hub i Azure-portalen. På den **översikt** bör du se de nya händelserna tas emot av event hub:
+1. Gå tillbaka till din event hub i Azure-portalen. På den **översikt** bör du se de nya händelserna tas emot av event hub.
 
-    ![En översikt översiktssidan händelsehubb som visar mått för event hub][7]
+    [![En översikt översiktssidan händelsehubb som visar mått för event hub](media/send-events/telemetry.png)](media/send-events/telemetry.png#lightbox)
 
-<a id="json"></a>
+## <a name="json"></a>JSON-former som stöds
 
-## <a name="supported-json-shapes"></a>JSON-former som stöds
+### <a name="example-one"></a>Exempel en
 
-### <a name="sample-1"></a>Exempel 1
+* **Indata**: Ett enda JSON-objekt.
 
-#### <a name="input"></a>Indata
-
-Ett enkelt JSON-objekt:
-
-```json
-{
-    "id":"device1",
-    "timestamp":"2016-01-08T01:08:00Z"
-}
-```
-
-#### <a name="output-one-event"></a>Utdata: En händelse
-
-|id|tidsstämpel|
-|--------|---------------|
-|device1|2016-01-08T01:08:00Z|
-
-### <a name="sample-2"></a>Exempel 2
-
-#### <a name="input"></a>Indata
-
-En JSON-matris med två JSON-objekt. Varje JSON-objekt konverteras till en händelse.
-
-```json
-[
+    ```JSON
     {
         "id":"device1",
         "timestamp":"2016-01-08T01:08:00Z"
-    },
-    {
-        "id":"device2",
-        "timestamp":"2016-01-17T01:17:00Z"
     }
-]
-```
+    ```
 
-#### <a name="output-two-events"></a>Utdata: Två händelser
+* **Utdata**: En händelse.
 
-|id|tidsstämpel|
-|--------|---------------|
-|device1|2016-01-08T01:08:00Z|
-|device2|2016-01-08T01:17:00Z|
+    |ID|tidsstämpel|
+    |--------|---------------|
+    |device1|2016-01-08T01:08:00Z|
 
-### <a name="sample-3"></a>Exempel 3
+### <a name="example-two"></a>Exempel två
 
-#### <a name="input"></a>Indata
+* **Indata**: En JSON-matris med två JSON-objekt. Varje JSON-objekt konverteras till en händelse.
 
-En JSON-objekt med en kapslad JSON-matris som innehåller två JSON-objekt:
-
-```json
-{
-    "location":"WestUs",
-    "events":[
+    ```JSON
+    [
         {
             "id":"device1",
             "timestamp":"2016-01-08T01:08:00Z"
@@ -153,70 +119,83 @@ En JSON-objekt med en kapslad JSON-matris som innehåller två JSON-objekt:
             "timestamp":"2016-01-17T01:17:00Z"
         }
     ]
-}
-```
+    ```
 
-#### <a name="output-two-events"></a>Utdata: Två händelser
+* **Utdata**: Två händelser.
 
-Egenskapen **plats** kopieras till varje händelse.
+    |ID|tidsstämpel|
+    |--------|---------------|
+    |device1|2016-01-08T01:08:00Z|
+    |device2|2016-01-08T01:17:00Z|
 
-|location|events.id|events.timestamp|
-|--------|---------------|----------------------|
-|WestUs|device1|2016-01-08T01:08:00Z|
-|WestUs|device2|2016-01-08T01:17:00Z|
+### <a name="example-three"></a>Exempel tre
 
-### <a name="sample-4"></a>Exempel 4
+* **Indata**: En JSON-objekt med en kapslad JSON-matris som innehåller två JSON-objekt.
 
-#### <a name="input"></a>Indata
-
-En JSON-objekt med en kapslad JSON-matris som innehåller två JSON-objekt. Denna indata visar att globala egenskaperna kan representeras av komplexa JSON-objekt.
-
-```json
-{
-    "location":"WestUs",
-    "manufacturer":{
-        "name":"manufacturer1",
-        "location":"EastUs"
-    },
-    "events":[
-        {
-            "id":"device1",
-            "timestamp":"2016-01-08T01:08:00Z",
-            "data":{
-                "type":"pressure",
-                "units":"psi",
-                "value":108.09
+    ```JSON
+    {
+        "location":"WestUs",
+        "events":[
+            {
+                "id":"device1",
+                "timestamp":"2016-01-08T01:08:00Z"
+            },
+            {
+                "id":"device2",
+                "timestamp":"2016-01-17T01:17:00Z"
             }
+        ]
+    }
+    ```
+
+* **Utdata**: Två händelser. Egenskapen **plats** kopieras till varje händelse.
+
+    |location|events.id|events.timestamp|
+    |--------|---------------|----------------------|
+    |WestUs|device1|2016-01-08T01:08:00Z|
+    |WestUs|device2|2016-01-08T01:17:00Z|
+
+### <a name="example-four"></a>Exempel fyra
+
+* **Indata**: En JSON-objekt med en kapslad JSON-matris som innehåller två JSON-objekt. Denna indata visar att globala egenskaperna kan representeras av komplexa JSON-objekt.
+
+    ```JSON
+    {
+        "location":"WestUs",
+        "manufacturer":{
+            "name":"manufacturer1",
+            "location":"EastUs"
         },
-        {
-            "id":"device2",
-            "timestamp":"2016-01-17T01:17:00Z",
-            "data":{
-                "type":"vibration",
-                "units":"abs G",
-                "value":217.09
+        "events":[
+            {
+                "id":"device1",
+                "timestamp":"2016-01-08T01:08:00Z",
+                "data":{
+                    "type":"pressure",
+                    "units":"psi",
+                    "value":108.09
+                }
+            },
+            {
+                "id":"device2",
+                "timestamp":"2016-01-17T01:17:00Z",
+                "data":{
+                    "type":"vibration",
+                    "units":"abs G",
+                    "value":217.09
+                }
             }
-        }
-    ]
-}
-```
+        ]
+    }
+    ```
 
-#### <a name="output-two-events"></a>Utdata: Två händelser
+* **Utdata**: Två händelser.
 
-|location|manufacturer.name|manufacturer.location|events.id|events.timestamp|events.data.type|events.data.units|events.data.value|
-|---|---|---|---|---|---|---|---|
-|WestUs|manufacturer1|EastUs|device1|2016-01-08T01:08:00Z|tryck|psi|108.09|
-|WestUs|manufacturer1|EastUs|device2|2016-01-08T01:17:00Z|vibration|abs G|217.09|
+    |location|manufacturer.name|manufacturer.location|events.id|events.timestamp|events.data.type|events.data.units|events.data.value|
+    |---|---|---|---|---|---|---|---|
+    |WestUs|manufacturer1|EastUs|device1|2016-01-08T01:08:00Z|tryck|psi|108.09|
+    |WestUs|manufacturer1|EastUs|device2|2016-01-08T01:17:00Z|vibration|abs G|217.09|
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Visa din miljö](https://insights.timeseries.azure.com) i Time Series Insights explorer.
-
-<!-- Images -->
-[1]: media/send-events/updated.png
-[2]: media/send-events/consumer-group.png
-[3]: media/send-events/shared-access-policy.png
-[4]: media/send-events/shared-access-policy-2.png
-[5]: media/send-events/sample-code-connection-string.png
-[6]: media/send-events/updated_two.png
-[7]: media/send-events/telemetry.png

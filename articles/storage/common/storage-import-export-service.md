@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 02/14/2019
+ms.date: 05/07/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 4850dd82ca52a060c921569433035256f5b74cce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5bb68f3f0139a98f10e28957209f8530a762b76c
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61478797"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413911"
 ---
 # <a name="what-is-azure-importexport-service"></a>Vad är tjänsten Azure Import/Export?
 
@@ -119,16 +119,16 @@ Azure Import/Export-tjänsten har stöd för kopiering av data till och från al
 ### <a name="supported-shipping-locations"></a>Endash platser som stöds
 
 
-|Land/region  |Land/region  |Land/region  |Land/region  |
+|Land  |Land  |Land  |Land  |
 |---------|---------|---------|---------|
-|Östra USA    | Norra Europa        | Indien, centrala        |US Gov, Iowa         |
-|Västra USA     |Västra Europa         | Södra Indien        | US DoD, östra        |
-|USA, östra 2    | Östasien        |  Indien, västra        | US DoD, centrala        |
-|Västra USA 2     | Sydostasien        | Centrala Kanada        | Östra Kina         |
-|Centrala USA     | Östra Australien        | Östra Kanada        | Norra Kina        |
-|Norra centrala USA     |  Sydöstra Australien       | Södra Brasilien        | Storbritannien, södra        |
-|Södra centrala USA     | Västra Japan        |Sydkorea, centrala         | Centrala Tyskland        |
-|Västra centrala USA     |  Östra Japan       | Virginia (USA-förvaltad region)        | Nordöstra Tyskland        |
+|Östra USA    | Europa, norra        | Indien, centrala        |US Gov, Iowa         |
+|USA, västra     |Europa, västra         | Indien, södra        | US DoD Östra        |
+|USA, östra 2    | Asien, östra        |  Indien, västra        | US DoD Centrala        |
+|USA, västra 2     | Sydostasien        | Kanada, centrala        | Kina, östra         |
+|Centrala USA     | Australien, östra        | Kanada, östra        | Kina, norra        |
+|USA, norra centrala     |  Australien, sydöstra       | Brasilien, södra        | Södra Storbritannien        |
+|USA, södra centrala     | Japan, västra        |Sydkorea, centrala         | Tyskland, centrala        |
+|USA, västra centrala      |  Japan, östra       | Virginia (USA-förvaltad region)        | Tyskland, nordöstra        |
 
 
 ## <a name="security-considerations"></a>Säkerhetsöverväganden
@@ -160,7 +160,7 @@ När du skickar enheter till Azure betalar du kostnaden för leverans till trans
 
 **Transaktionskostnader**
 
-Det finns inga transaktionskostnader förutom standardlagring transaktionskostnader när du importerar data till Azure Storage. Kostnader för standard utgående trafik gäller när data exporteras från Blob storage. Läs mer på transaktionskostnader [prisinformation om dataöverföring.](https://azure.microsoft.com/pricing/details/data-transfers/)
+[Kostnad för standardlagring transaktion](https://azure.microsoft.com/pricing/details/storage/) gäller under importen samt export av data. Kostnader för standard utgående trafik kan också användas tillsammans med lagringstransaktioner när data exporteras från Azure Storage. Mer information om kostnader för nätverksegress finns [prisinformation om dataöverföring.](https://azure.microsoft.com/pricing/details/data-transfers/).
 
 
 

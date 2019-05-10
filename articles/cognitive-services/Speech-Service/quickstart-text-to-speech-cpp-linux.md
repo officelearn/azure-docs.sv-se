@@ -10,14 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 05/02/2019
 ms.author: yinhew
-ms.openlocfilehash: 211394186fe8fc0fd1514a5ce1dbc1e0efc10b7e
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: b5db21d40f1e270fb6771ba47af28a9e90228ea4
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65020615"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65465595"
 ---
 # <a name="quickstart-synthesize-speech-in-c-on-linux-by-using-the-speech-sdk"></a>Snabbstart: Syntetisera tal i C++ i Linux med hjälp av tal-SDK
+
+Snabbstarter kan också användas för [taligenkänning](quickstart-cpp-linux.md).
 
 I den här artikeln skapar du en C++ konsolen program för Linux (Ubuntu 16.04, 18.04 Ubuntu, Debian 9). Du använder Cognitive Services [tal SDK](speech-sdk.md) att syntetisera tal från text i realtid och spela upp tal på datorns högtalare. Programmet har skapat med [Speech SDK för Linux](https://aka.ms/csspeech/linuxbinary) och Linux-distributionens C++-kompilerare (till exempel `g++`).
 

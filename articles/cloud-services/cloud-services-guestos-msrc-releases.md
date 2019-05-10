@@ -11,17 +11,47 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 3/26/2019
+ms.date: 5/8/2019
 ms.author: raiye
-ms.openlocfilehash: 42c241ce6b14eac2f76785b7b16b537d3e88bd8d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f63b707f72b6966615d09ef0b86ce3d056a39249
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60623076"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65465559"
 ---
 # <a name="azure-guest-os"></a>Azure gäst-OS
 Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringarna tillämpas på Gästoperativsystemet i Azure. Sök i den här artikeln för att avgöra om en viss uppdatering gäller för Gästoperativsystem som du använder. Uppdateringar alltid överför för speciellt [familj] [ family-explain] de introducerades i.
+
+## <a name="april-2019-guest-os"></a>April 2019 gäst-OS
+
+| Produktkategori | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
+| --- | --- | --- | --- | --- |
+| Rel 19-04 | [4493509] | Windows 10 Security | 6.6 | 9 april 2019 |
+| Rel 19-04 | [4493470] | Windows 10 Security | 5.30 | 9 april 2019 |
+| Rel 19-04 | [4493467] | Windows-säkerhet | 4.65 | 9 april 2019 |
+| Rel 19-04 | [4493450] | Windows-säkerhet | 3.72 | 9 april 2019 |
+| Rel 19-04 | [4493448] | Windows-säkerhet | 2.85 | 9 april 2019 |
+| Rel 19-04 | [4493478] | Flash | 3.72, 4.65, 5.30, 6.6 | 9 april 2019 |
+| Rel 19-04 | [4493435] | Internet Explorer | 2.85, 3.72, 4.65 | 9 april 2019 |
+| Rel 19-04 | [KB4490628] | Servicing Stack-uppdatering | 2.85 | Den 12 mars 2019 |
+| Rel 19-04 | [KB4474419] | SHA2-stöd | 2.85 | Den 12 mars 2019 |
+| Rel 19-04 | [KB4489878] | Insamling av mars icke-säkerhet | 2.85 | Den 12 mars 2019 |
+| Rel 19-04 | [KB4489891] | Insamling av mars icke-säkerhet | 3.72 | Den 12 mars 2019 |
+| Rel 19-04 | [KB4489881] | Insamling av mars icke-säkerhet | 4.65 | Den 12 mars 2019 |
+
+[4493509]: https://support.microsoft.com/kb/4493509
+[4493470]: https://support.microsoft.com/kb/4493470
+[4493467]: https://support.microsoft.com/kb/4493467
+[4493450]: https://support.microsoft.com/kb/4493450
+[4493448]: https://support.microsoft.com/kb/4493448
+[4493478]: https://support.microsoft.com/kb/4493478
+[4493435]: https://support.microsoft.com/kb/4493435
+[KB4490628]: https://support.microsoft.com/kb/KB4490628
+[KB4474419]: https://support.microsoft.com/kb/KB4474419
+[KB4489878]: https://support.microsoft.com/kb/KB4489878
+[KB4489891]: https://support.microsoft.com/kb/KB4489891
+[KB4489881]: https://support.microsoft.com/kb/KB4489881
 
 ## <a name="march-2019-guest-os"></a>Mars 2019 gäst-OS
 
@@ -890,7 +920,7 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 | MS15-075 |[3072633] |Säkerhetsproblem i OLE möjliggör utökade rättigheter |4.22, 3.29, 2.41 |Den 14 juli 2015 |
 | MS15-076 |[3067505] |Säkerhetsproblem i Windows Remote Procedure Call möjliggör rättighetsökning |4.22, 3.29, 2.41 |Den 14 juli 2015 |
 | MS15-077 |[3077657] |Säkerhetsproblem i ATM teckensnitt drivrutinen möjliggör rättighetsökning |4.22, 3.29, 2.41 |Den 14 juli 2015 |
-| Ej tillämpligt |[3057154] |Uppdatera om du vill begränsa användningen av DES-kryptering |4.22, 3.29, 2.41 |Den 14 juli 2015 |
+| Saknas |[3057154] |Uppdatera om du vill begränsa användningen av DES-kryptering |4.22, 3.29, 2.41 |Den 14 juli 2015 |
 
 ## <a name="june-2015-guest-os"></a>Juni 2015 gäst-OS
 | Anslags-ID | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
@@ -923,7 +953,7 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 | MS15-040 |[3045711] |Säkerhetsproblem i AD FS möjliggör avslöjande av Information |4.20, 3.27, 2.39 |17 april 2015 |
 | MS15-041 |[3048010] |Säkerhetsproblem i .NET Framework möjliggör avslöjande av Information |4.20, 3.27, 2.39 |17 april 2015 |
 | MS15-042 |[3047234] |Säkerhetsproblem i Windows Hyper-V möjliggör Denial of Service |4.20, 3.27, 2.39 |17 april 2015 |
-| Ej tillämpligt |[3045755] |Uppdatering för att förbättra PKU2U-autentisering |4.20, 3.27, 2.39 |17 april 2015 |
+| Saknas |[3045755] |Uppdatering för att förbättra PKU2U-autentisering |4.20, 3.27, 2.39 |17 april 2015 |
 
 ## <a name="april-2015-guest-os"></a>April 2015 gäst-OS
 | Anslags-ID | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |

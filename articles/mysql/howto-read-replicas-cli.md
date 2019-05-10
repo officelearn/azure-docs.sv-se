@@ -5,19 +5,22 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/26/2019
-ms.openlocfilehash: e291cb46b5f8cb8722348bd8fcd6031ed29beb9a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 04/29/2019
+ms.openlocfilehash: a9ca34953827c1f94e2696eb4f09163be335d2f4
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61423454"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510690"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-cli"></a>Hur du skapar och hanterar Läs repliker i Azure Database för MySQL med Azure CLI
 
 I den här artikeln får lära du dig att skapa och hantera skrivskyddade kopior på samma Azure-region som hanterare i tjänsten Azure Database for MySQL med Azure CLI.
 
-## <a name="prerequisites"></a>Förutsättningar
+> [!NOTE]
+> Azure CLI stöder ännu inte skapa repliker i en annan region än huvudservern. Du kan skapa en replik över flera regioner med den [Azure-portalen]( howto-read-replicas-portal.md) i stället.
+
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - [Installera Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 - En [Azure Database for MySQL-server](quickstart-create-mysql-server-database-using-azure-portal.md) som ska användas som huvudserver. 

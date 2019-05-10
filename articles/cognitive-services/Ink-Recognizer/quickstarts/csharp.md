@@ -9,12 +9,12 @@ ms.subservice: ink-recognizer
 ms.topic: article
 ms.date: 05/02/2019
 ms.author: aahi
-ms.openlocfilehash: f03593292289cbc093832667505da2738c2b1633
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 9bb9c23cc1f807cae1d0d22f1652e8f4408f1f91
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026292"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518675"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-c"></a>Snabbstart: Identifiera digitala ink med Ink Igenkännande REST API ochC#
 
@@ -36,9 +36,9 @@ Källkoden för den här snabbstarten finns på [GitHub](https://go.microsoft.co
         1. Högerklicka på den **lösningen Manager**
         2. Klicka på **hantera NuGet-paket...**
         3. Sök efter `Newtonsoft.Json` och installera paketet
-- Om du använder Linux/Mac OS, det här programmet kan kördes med [Mono](http://www.mono-project.com/).
+- Om du använder Linux/Mac OS, det här programmet kan kördes med [Mono](https://www.mono-project.com/).
 
-- Exempel ink linje data för den här snabbstarten finns på [GitHub](https://go.microsoft.com/fwlink/?linkid=2089502).
+- Exempel ink linje data för den här snabbstarten finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/InkRecognition/quickstart/example-ink-strokes.json).
 
 [!INCLUDE [cognitive-services-ink-recognizer-signup-requirements](../../../../includes/cognitive-services-ink-recognizer-signup-requirements.md)]
 
@@ -158,7 +158,7 @@ public static JObject LoadJson(string fileLocation){
 
 ## <a name="run-the-application-and-view-the-response"></a>Kör programmet och visa svaret
 
-Kör appen. Ett lyckat svar returneras i JSON-format. Du kan också hitta JSON-svar på [GitHub](https://go.microsoft.com/fwlink/?linkid=2089502).
+Kör appen. Ett lyckat svar returneras i JSON-format. Du kan också hitta JSON-svar på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/InkRecognition/quickstart/example-response.json).
 
 
 ## <a name="next-steps"></a>Nästa steg
@@ -168,8 +168,8 @@ Kör appen. Ett lyckat svar returneras i JSON-format. Du kan också hitta JSON-s
 
 
 Om du vill se hur den Ink-API: T fungerar i en digital digital penna app, ta en titt på de följande exempelprogram på GitHub:
-* [C# and Universal Windows Platform(UWP)](https://go.microsoft.com/fwlink/?linkid=2089803)  
-* [C#och Windows Presentation Foundation(WPF)](https://go.microsoft.com/fwlink/?linkid=2089804)
-* [JavaScript web browser-appen](https://go.microsoft.com/fwlink/?linkid=2089908)       
-* [Java- och Android-mobilappen](https://go.microsoft.com/fwlink/?linkid=2089906)
-* [SWIFT- och iOS-mobilapp](https://go.microsoft.com/fwlink/?linkid=2089805)
+* [C# och Universal Windows-plattform (UWP)](https://go.microsoft.com/fwlink/?linkid=2089803)  
+* [C# och Windows Presentation Foundation(WPF)](https://go.microsoft.com/fwlink/?linkid=2089804)
+* [JavaScript-webbläsarappen](https://go.microsoft.com/fwlink/?linkid=2089908)       
+* [Java- och Android-mobilapp](https://go.microsoft.com/fwlink/?linkid=2089906)
+* [Swift- och iOS-mobilapp](https://go.microsoft.com/fwlink/?linkid=2089805)

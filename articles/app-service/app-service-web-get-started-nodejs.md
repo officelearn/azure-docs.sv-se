@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 02/15/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 4dbd65a391bdc5726436ba461a34e1ca7cab87b0
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: c103e6cb3626750414ee5083dad3e34b6be4986c
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62129545"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408951"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Skapa en Node.js-webbapp i Azure
 
@@ -54,7 +54,7 @@ const port = process.env.PORT || 1337;
 
 App Service lägger in process.env.PORT i ditt program, så att koden använder variabeln för att veta vilken port som ska lyssna. 
 
-Navigera till rotkatalogen för Node.js-exempelprojektet i ett terminalfönster (det som innehåller _index.js_).
+I ett terminalfönster navigerar du till den **rotkatalogen** för Node.js-exempelprojektet (den katalog som innehåller _index.js_).
 
 ## <a name="run-the-app-locally"></a>Köra appen lokalt
 
@@ -75,7 +75,19 @@ Tryck på **Ctrl+C** i terminalfönstret för att avsluta webbservern.
 > [!NOTE]
 > I Azure App Service körs appen i IIS med [iisnode](https://github.com/Azure/iisnode). Om du vill att appen ska kunna köras med iisnode finns det en web.config-fil i appens rotkatalog. Filen kan läsas av IIS, och iisnode-relaterade inställningar dokumenteras i [iisnode GitHub-lagringsplatsen](https://github.com/Azure/iisnode/blob/master/src/samples/configuration/web.config).
 
-[!INCLUDE [Create ZIP file](../../includes/app-service-web-create-zip.md)]
+## <a name="create-a-project-zip-file"></a>Skapa en ZIP-fil av projektet
+
+Kontrollera att du är fortfarande i den **rotkatalogen** för exempelprojektet (den katalog som innehåller _index.js_). Skapa ett ZIP-arkiv med allt i projektet. Följande kommando använder standardverktyget i terminalen:
+
+```
+# Bash
+zip -r myAppFiles.zip .
+
+# PowerShell
+Compress-Archive -Path * -DestinationPath myAppFiles.zip
+```
+
+Senare kan du överföra den här ZIP-filen till Azure och distribuera den till App Service.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -153,7 +165,7 @@ Node.js-exempelkoden körs i en Azure App Service-webbapp.
 response.end("Hello Azure!");
 ```
 
-I det lokala terminalfönstret navigerar du till programmets rotkatalog och skapar en ny ZIP-fil för det uppdaterade projektet.
+I det lokala terminalfönstret navigerar du till ditt programs **rotkatalogen** (den katalog som innehåller _index.js_), skapa en ny ZIP-fil för det uppdaterade projektet.
 
 ```azurecli-interactive
 # Bash

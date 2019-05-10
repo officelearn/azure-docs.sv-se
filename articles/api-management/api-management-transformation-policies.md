@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: bf5126360140580282ebc1cb2bf73e1afa4d8829
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 565bcfa6c2f8a3da2ac16df0016b5adc54e27380
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920535"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407595"
 ---
 # <a name="api-management-transformation-policies"></a>API Management-principer för anspråksomvandling
 Det här avsnittet innehåller en referens för följande API Management-principer. Information om att lägga till och konfigurerar principer finns i [principer i API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -70,13 +70,13 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 
 ### <a name="elements"></a>Element
 
-|Namn|Beskrivning|Krävs|
+|Namn|Beskrivning|Obligatoriskt|
 |----------|-----------------|--------------|
 |json-to-xml|Rotelement.|Ja|
 
 ### <a name="attributes"></a>Attribut
 
-|Namn|Beskrivning|Krävs|Standard|
+|Namn|Beskrivning|Obligatoriskt|Standard|
 |----------|-----------------|--------------|-------------|
 |använd|Attributet måste anges till något av följande värden.<br /><br /> -alltid - alltid att gälla konvertering.<br />-innehåll-typ-json - convert endast om svar Content-Type-rubriken anger förekomsten av JSON.|Ja|Gäller inte|
 |consider-accept-header|Attributet måste anges till något av följande värden.<br /><br /> gäller - true - konvertering om JSON har begärts i begäran Accept-huvud.<br />-false - alltid att gälla konvertering.|Nej|true|
@@ -114,13 +114,13 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 
 ### <a name="elements"></a>Element
 
-|Namn|Beskrivning|Krävs|
+|Namn|Beskrivning|Obligatoriskt|
 |----------|-----------------|--------------|
 |xml-to-json|Rotelement.|Ja|
 
 ### <a name="attributes"></a>Attribut
 
-|Namn|Beskrivning|Krävs|Standard|
+|Namn|Beskrivning|Obligatoriskt|Standard|
 |----------|-----------------|--------------|-------------|
 |typ|Attributet måste anges till något av följande värden.<br /><br /> -javascript-vänlig - konverterade JSON har ett eget till JavaScript-utvecklare formulär.<br />– direkt - återspeglar konverterade JSON det ursprungliga XML-dokumentets struktur.|Ja|Gäller inte|
 |använd|Attributet måste anges till något av följande värden.<br /><br /> Konvertera - alltid - alltid.<br />-innehåll-typ-xml - convert endast om svar Content-Type-rubriken anger förekomsten av XML.|Ja|Gäller inte|
@@ -150,16 +150,16 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 
 ### <a name="elements"></a>Element
 
-|Namn|Beskrivning|Krävs|
+|Namn|Beskrivning|Obligatoriskt|
 |----------|-----------------|--------------|
 |find-and-replace|Rotelement.|Ja|
 
 ### <a name="attributes"></a>Attribut
 
-|Namn|Beskrivning|Krävs|Standard|
+|Namn|Beskrivning|Obligatoriskt|Standard|
 |----------|-----------------|--------------|-------------|
-|från|Sträng att söka efter.|Ja|Gäller inte|
-|till|Ersättningssträngen. Ange en tom ersättningssträng för att ta bort söksträngen.|Ja|Gäller inte|
+|from|Sträng att söka efter.|Ja|Gäller inte|
+|i|Ersättningssträngen. Ange en tom ersättningssträng för att ta bort söksträngen.|Ja|Gäller inte|
 
 ### <a name="usage"></a>Användning
  Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
@@ -188,7 +188,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 
 ### <a name="elements"></a>Element
 
-|Namn|Beskrivning|Krävs|
+|Namn|Beskrivning|Obligatoriskt|
 |----------|-----------------|--------------|
 |redirect-content-urls|Rotelement.|Ja|
 
@@ -261,13 +261,13 @@ I det här exemplet dirigerar principen begäran till en service fabric-serverde
 
 ### <a name="elements"></a>Element
 
-|Namn|Beskrivning|Krävs|
+|Namn|Beskrivning|Obligatoriskt|
 |----------|-----------------|--------------|
 |set-backend-service|Rotelement.|Ja|
 
 ### <a name="attributes"></a>Attribut
 
-|Namn|Beskrivning|Krävs|Standard|
+|Namn|Beskrivning|Obligatoriskt|Standard|
 |----------|-----------------|--------------|-------------|
 |bas-url|Ny backend-tjänsten bas-URL.|En av `base-url` eller `backend-id` måste finnas.|Gäller inte|
 |backend-id|Identifierare för att dirigera till serverdelen. (Serverdel entiteter hanteras via [API](https://docs.microsoft.com/rest/api/apimanagement/backend) och [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).)|En av `base-url` eller `backend-id` måste finnas.|Gäller inte|
@@ -375,7 +375,7 @@ Den `set-body` principen kan konfigureras för att använda den [flytande](https
 #### <a name="convert-json-to-soap-using-a-liquid-template"></a>Konvertera JSON till SOAP med en flytande mall
 ```xml
 <set-body template="liquid">
-    <soap:Envelope xmlns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+    <soap:Envelope xmlns="http://tempuri.org/" xmlns:soap="https://schemas.xmlsoap.org/soap/envelope/">
         <soap:Body>
             <GetOpenOrders>
                 <cust>{{body.getOpenOrders.cust}}</cust>
@@ -397,13 +397,13 @@ Den `set-body` principen kan konfigureras för att använda den [flytande](https
 
 ### <a name="elements"></a>Element
 
-|Namn|Beskrivning|Krävs|
+|Namn|Beskrivning|Obligatoriskt|
 |----------|-----------------|--------------|
 |Ställ in brödtext|Rotelement. Innehåller brödtexten eller ett uttryck som returnerar en brödtext.|Ja|
 
 ### <a name="properties"></a>Egenskaper
 
-|Namn|Beskrivning|Krävs|Standard|
+|Namn|Beskrivning|Obligatoriskt|Standard|
 |----------|-----------------|--------------|-------------|
 |mall|Används för att ändra läget mall som principen set brödtext ska köras i. För närvarande är det enda värdet som stöds:<br /><br />-flytande - ange brödtext princip kommer att använda den flytande mall-motorn |Nej|Liquid|
 
@@ -504,14 +504,14 @@ OriginalUrl.
 
 ### <a name="elements"></a>Element
 
-|Namn|Beskrivning|Krävs|
+|Namn|Beskrivning|Obligatoriskt|
 |----------|-----------------|--------------|
 |set-header|Rotelement.|Ja|
 |value|Anger värdet för rubriken anges. För flera rubriker med samma namn Lägg till ytterligare `value` element.|Ja|
 
 ### <a name="properties"></a>Egenskaper
 
-|Namn|Beskrivning|Krävs|Standard|
+|Namn|Beskrivning|Obligatoriskt|Standard|
 |----------|-----------------|--------------|-------------|
 |exists-action|Anger vilken åtgärd som ska vidtas när rubriken har redan angetts. Det här attributet måste ha något av följande värden.<br /><br /> -åsidosätt - ersätter värdet för befintlig rubrik.<br />-skip - ersätter inte befintliga huvudets värde.<br />-Tillägg - lägger till värdet till det befintliga värdet för sidhuvudet.<br />-delete - tar bort huvudet i begäran.<br /><br /> När värdet `override` ta med flera poster med samma namn resulterar i rubriken anges enligt alla poster (som visas flera gånger); endast listade värdena anges i resultatet.|Nej|åsidosättning|
 |namn|Anger namnet på rubriken anges.|Ja|Gäller inte|
@@ -564,14 +564,14 @@ OriginalUrl.
 
 ### <a name="elements"></a>Element
 
-|Namn|Beskrivning|Krävs|
+|Namn|Beskrivning|Obligatoriskt|
 |----------|-----------------|--------------|
 |set-query-parameter|Rotelement.|Ja|
 |value|Anger värdet för Frågeparametern anges. För flera frågeparametrar med samma namn Lägg till ytterligare `value` element.|Ja|
 
 ### <a name="properties"></a>Egenskaper
 
-|Namn|Beskrivning|Krävs|Standard|
+|Namn|Beskrivning|Obligatoriskt|Standard|
 |----------|-----------------|--------------|-------------|
 |exists-action|Anger vilken åtgärd som ska vidtas när Frågeparametern har redan angetts. Det här attributet måste ha något av följande värden.<br /><br /> -åsidosätt - ersätter värdet för parametern befintliga.<br />-skip - ersätter inte fråga befintlig parametervärdet.<br />-Tillägg - lägger till värdet till det befintliga frågan parametervärdet.<br />-ta bort – tar bort Frågeparametern från begäran.<br /><br /> När värdet `override` ta med flera poster med samma namn resulterar i Frågeparametern anges enligt alla poster (som visas flera gånger); endast listade värdena anges i resultatet.|Nej|åsidosättning|
 |namn|Anger namnet på parametern fråga att ställas in.|Ja|Gäller inte|
@@ -643,13 +643,13 @@ OriginalUrl.
 
 ### <a name="elements"></a>Element
 
-|Namn|Beskrivning|Krävs|
+|Namn|Beskrivning|Obligatoriskt|
 |----------|-----------------|--------------|
 |Skriv om-uri|Rotelement.|Ja|
 
 ### <a name="attributes"></a>Attribut
 
-|Attribut|Beskrivning|Krävs|Standard|
+|Attribut|Beskrivning|Obligatoriskt|Standard|
 |---------------|-----------------|--------------|-------------|
 |mall|Faktiska webbtjänstens URL med alla parametrar för frågesträngen. När du använder uttryck kan måste hela värdet vara ett uttryck.|Ja|Gäller inte|
 |copy-unmatched-params|Anger om Frågeparametrar i den inkommande begäranden finns inte i den ursprungliga mallen URL läggs till den URL som definierats av mallen skriva|Nej|true|
@@ -712,7 +712,7 @@ OriginalUrl.
 
 ### <a name="elements"></a>Element
 
-|Namn|Beskrivning|Krävs|
+|Namn|Beskrivning|Obligatoriskt|
 |----------|-----------------|--------------|
 |xsl-transform|Rotelement.|Ja|
 |Parameter|Används för att definiera variabler som används i listan i transformeringen|Nej|

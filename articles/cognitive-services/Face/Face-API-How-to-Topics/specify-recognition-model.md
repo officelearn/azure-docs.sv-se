@@ -10,12 +10,12 @@ ms.component: face-api
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: longl
-ms.openlocfilehash: 33348e637143b923719425b9674f99a475d848d9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 88b0ac853c64e1e32a2d1c429bdf8655158f030d
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60815820"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65411497"
 ---
 # <a name="specify-a-face-recognition-model"></a>Ange en ansiktsigenkänningsmodell
 
@@ -52,7 +52,7 @@ Om du använder klientbiblioteket, kan du tilldela värdet för `recognitionMode
 Om du lämnar den otilldelade, modell standardversionen (_recognition_01_) ska användas. Se följande kodexempel för .NET-klientbiblioteket.
 
 ```csharp
-string imageUrl = "http://news.microsoft.com/ceo/assets/photos/06_web.jpg";
+string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
 var faces = await faceServiceClient.Face.DetectWithUrlAsync(imageUrl, true, true, recognitionModel: "recognition_02", returnRecognitionModel: true);
 ```
 

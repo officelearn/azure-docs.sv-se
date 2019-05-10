@@ -342,6 +342,8 @@
               items:
                 - name: Hämta en token från cache
                   href: msal-net-acquire-token-silently.md
+                - name: Rensa tokencache
+                  href: msal-net-clear-token-cache.md
                 - name: Skapa en instans av en offentlig klient med alternativ
                   href: msal-net-instantiate-public-client-config-options.md
                 - name: Skapa en instans av en konfidentiell klient med alternativ

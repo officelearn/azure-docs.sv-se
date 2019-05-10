@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 1310ecd15498c4c319febc87cbc3b18e0a7ca524
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: fa722d749ec27a72a8be3bf8fcfd8097a1404458
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65020343"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65465605"
 ---
 # <a name="release-notes"></a>Viktig information
 
@@ -24,7 +24,7 @@ ms.locfileid: "65020343"
 
 **Nya funktioner**
 
-* Nyckelordet upptäcka funktioner (KWS) är tillgängligt för Windows och Linux. KWS funktioner fungerar med alla mikrofon typer officiella KWS stöder finns för närvarande begränsad till mikrofonen-matriser i Azure Kinect DK-maskinvara eller tal Devices SDK.
+* Wake word (nyckelordet upptäcka/KWS)-funktionen är nu tillgänglig för Windows och Linux. KWS funktioner fungerar med alla mikrofon typer officiella KWS stöder finns för närvarande begränsad till mikrofonen-matriser i Azure Kinect DK-maskinvara eller tal Devices SDK.
 * Fras tipset funktionen är tillgänglig via SDK. Mer information finns i [här](how-to-phrase-lists.md).
 * Konversationen avskrift funktionen är tillgänglig via SDK. Se [här](conversation-transcription-service.md).
 * Lägg till stöd för röst-första virtuella assistenter med tal för Direct Line-kanalen.
@@ -58,7 +58,7 @@ Det här är en version med endast JavaScript. Inga funktioner har lagts till. F
 **Nya funktioner** 
 
 * SDK: N stöder nu tjänsten text till tal som en beta-versionen. Den stöds på Windows och Linux-Desktop från C++ och C#. Mer information finns i [text till tal översikt](text-to-speech.md#get-started-with-text-to-speech).
-* SDK stöder nu MP3- och Opus/Ogg ljudfiler som stream indatafiler. Den här funktionen är bara tillgängliga på Linux från C++ och C# och håller på att beta (Mer information om [här](how-to-use-compressed-audio-input-streams.md)).
+* SDK stöder nu MP3- och Opus/OGG ljudfiler som stream indatafiler. Den här funktionen är bara tillgängliga på Linux från C++ och C# och håller på att beta (Mer information om [här](how-to-use-codec-compressed-audio-input-streams.md)).
 * Tal-SDK för Java, .NET core, C++ och Objective-C fått macOS support. Objective-C-stöd för macOS är för närvarande i beta.
 * iOS: Tal-SDK för iOS (Objective-C) är nu också att publiceras som en CocoaPod.
 * JavaScript: Stöd för icke-standard mikrofon som en enhet.
@@ -277,7 +277,7 @@ I vår [exempellagringsplatsen](https://aka.ms/csspeech/samples), ett nytt stick
 * Stöd för .NET Standard 2.0 på Windows. Kolla in den [Snabbstart för .NET Core](quickstart-csharp-dotnetcore-windows.md).
 * Experimentella: Stöder UWP på Windows (version 1709 eller senare).
   * Kolla in den [UWP snabbstarten](quickstart-csharp-uwp.md).
-  * Obs! UWP-appar som skapats med SDK: N för tal ännu skickar inte Windows App Certification Kit (WACK).
+  * Anteckning: UWP-appar som skapats med SDK: N för tal ännu skickar inte Windows App Certification Kit (WACK).
 * Stöd för tidskrävande erkännande med automatisk återanslutning.
 
 **Funktionella ändringar**

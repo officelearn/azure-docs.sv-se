@@ -2,18 +2,18 @@
 title: Felsök Azure File Sync | Microsoft Docs
 description: Felsök vanliga problem med Azure File Sync.
 services: storage
-author: roygara
+author: jeffpatt24
 ms.service: storage
 ms.topic: article
 ms.date: 01/31/2019
-ms.author: rogarana
+ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: e399566a67161219e1d778ba1c6f874f7cede251
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 2893960c3351b1f8a5caf0c69ca961851528007d
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190091"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510844"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Felsök Azure File Sync
 Använd Azure File Sync för att centralisera din organisations filresurser i Azure Files, samtidigt som den flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure File Sync omvandlar Windows Server till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -153,7 +153,7 @@ En serverslutpunkt kan inte logga synkronisering av följande skäl:
 > [!Note]  
 > Om servertillståndet på bladet registrerade servrar är ”visas Offline”, kan du utföra stegen i den [Serverslutpunkten har en hälsostatus ”ingen aktivitet” eller ”väntande” och Servertillstånd på bladet registrerade servrar är ”visas som offline” ](#server-endpoint-noactivity) avsnittet.
 
-## <a name="sync"></a>Sync
+## <a name="sync"></a>Synkronisera
 <a id="afs-change-detection"></a>**Om jag har skapat en fil direkt i min Azure-filresurs via SMB eller via portalen, hur lång tid tar det för den fil som ska synkroniseras till servrar i synkroniseringsgruppen?**  
 [!INCLUDE [storage-sync-files-change-detection](../../../includes/storage-sync-files-change-detection.md)]
 

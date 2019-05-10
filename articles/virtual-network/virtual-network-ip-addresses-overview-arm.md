@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: kumud
-ms.openlocfilehash: 30186d0f8197a35db409684775e2ec78288b8818
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 73b185eabc77d293328b1251a4af1aafffc5f319
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64726659"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236353"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>IP-adresstyper och allokeringsmetoder i Azure
 
@@ -57,7 +57,7 @@ Offentliga IP-adresser skapas med någon av följande SKU:er:
 >[!IMPORTANT]
 > Matchande SKU:er måste användas för lastbalanseraren och offentliga IP-resurser. Du kan inte blanda grundläggande SKU-resurser och standard-SKU-resurser. Du kan inte bifoga fristående virtuella datorer, virtuella datorer i en tillgänglighetsuppsättningsresurs eller en virtuell dators skalningsuppsättningsresurser till båda SKU:erna samtidigt.  Ny design bör överväga att använda standard-SKU-resurser.  Mer information finns i [Standard Load Balancer](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-#### <a name="basic"></a>Basic
+#### <a name="basic"></a>Grundläggande
 
 Alla offentliga IP-adresser som skapas före införandet av SKU:er är grundläggande offentliga IP-adresser för SKU. Genom att införa SKU:er kan du välja att ange vilken SKU du vill att den offentliga IP-adressen ska vara. Grundläggande SKU-adresser är:
 
@@ -105,11 +105,14 @@ Statiska offentliga IP-adresser används ofta i följande scenarier:
 >
 
 ### <a name="dns-hostname-resolution"></a>Matchning av DNS-värdnamn
-Du kan ange en DNS-domännamnsetikett för en offentlig IP-resurs, vilket skapar en mappning för *domainnamelabel*.*location*. cloudapp.azure.com till den offentliga IP-adressen på de Azure-hanterade DNS-servrarna. Om du till exempel skapar en offentlig IP-resurs med **contoso** som *domainnamelabel* och väljer *Azure-platsen* **USA, västra**, så matchas det fullständigt kvalificerade domännamnet (FQDN) **contoso.westus.cloudapp.azure.com** till resursens offentliga IP-adress. Du kan använda detta fullständiga domännamn för att skapa en anpassad CNAME-domänpost som pekar på den offentliga IP-adressen i Azure. Istället för att använda DNS-namnetiketten med standardsuffixet, eller som ett tillägg till det, kan du använda Azure DNS-tjänsten för att konfigurera ett DNS-namn med ett anpassat suffix som motsvarar den offentliga IP-adressen. Mer information finns i [Use Azure DNS with an Azure public IP address](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address) (Använda Azure DNS med en offentlig IP-adress för Azure).
+Du kan ange en DNS-domännamnsetikett för en offentlig IP-resurs, vilket skapar en mappning för *domainnamelabel*.*location*. cloudapp.azure.com till den offentliga IP-adressen på de Azure-hanterade DNS-servrarna. Om du till exempel skapar en offentlig IP-resurs med **contoso** som *domainnamelabel* och väljer *Azure-platsen* **USA, västra**, så matchas det fullständigt kvalificerade domännamnet (FQDN) **contoso.westus.cloudapp.azure.com** till resursens offentliga IP-adress.
 
 > [!IMPORTANT]
 > Varje domännamnsetikett som skapas måste vara unik inom dess Azure-plats.  
 >
+
+### <a name="dns-best-practices"></a>Metodtips för DNS
+Om du behöver migrera till en annan region, kan du inte migrera det fullständiga Domännamnet för din offentliga IP-adress. Du kan använda det fullständiga Domännamnet som bästa praxis för att skapa en anpassad domän CNAME-post som pekar på den offentliga IP-adressen i Azure. Om du vill flytta till en annan offentlig IP-adress för detta krävs en uppdatering av CNAME-post i stället för att manuellt uppdatera det fullständigt bestämda Domännamnet till den nya adressen. Du kan använda [Azure DNS](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address) eller en extern DNS-provider för din DNS-post. 
 
 ### <a name="virtual-machines"></a>Virtuella datorer
 
@@ -119,7 +122,7 @@ Du kan associera en offentlig IP-adress med en [Windows](../virtual-machines/win
 
 Du kan associera en offentlig IP-adress som skapas med en [SKU](#sku) till en [Azure Load Balancer](../load-balancer/load-balancer-overview.md) genom att tilldela den till lastbalanserarens konfiguration på **klientsidan**. Den offentliga IP-adressen fungerar som en belastningsutjämnad virtuell IP-adress (VIP). Du kan tilldela antingen en dynamisk eller en statisk offentlig IP-adress till klientsidan för en lastbalanserare. Du kan också tilldela flera offentliga IP-adresser till klientsidan för en lastbalanserare, t.ex. för scenarier med [flera virtuella IP-adresser](../load-balancer/load-balancer-multivip-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), exempelvis i en miljö med flera klientorganisationer med SSL-baserade webbplatser. Mer information om SKU:er för lastbalanserare i Azure finns i [Standard-SKU för Azure Load Balancer](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-### <a name="vpn-gateways"></a>VPN-gateways
+### <a name="vpn-gateways"></a>VPN-gatewayer
 
 [VPN Gateway i Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ansluter ett virtuellt Azure-nätverk (VNet) till andra virtuella Azure-nätverk eller till ett lokalt nätverk. En offentlig IP-adress tilldelas till VPN Gateway så att den kan kommunicera med fjärrnätverket. Du kan endast tilldela en *dynamisk* grundläggande offentlig IP-adress till en VPN-gateway.
 
@@ -134,7 +137,7 @@ Följande tabell visar den specifika egenskapen som kan användas för att assoc
 | --- | --- | --- | --- |
 | Virtuell dator |Nätverksgränssnitt |Ja |Ja |
 | Internetuppkopplad lastbalanserare |Konfiguration på klientsidan |Ja |Ja |
-| VPN gateway |IP-konfiguration för gateway |Ja |Ja |
+| VPN gateway |IP-konfiguration för gateway |Ja |Nej |
 | Programgateway |Konfiguration på klientsidan |Ja (endast V1) |Ja (endast V2) |
 
 ## <a name="private-ip-addresses"></a>Privata IP-adresser

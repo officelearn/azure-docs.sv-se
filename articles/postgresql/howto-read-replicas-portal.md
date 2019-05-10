@@ -1,22 +1,24 @@
 ---
-title: Hantera skrivskyddade repliker för Azure Database för PostgreSQL i Azure Portal
-description: Lär dig mer om att hantera Azure Database för PostgreSQL läsa repliker från Azure-portalen.
-author: WenJason
-ms.author: v-jay
+title: Hantera skrivskyddade repliker för Azure Database för PostgreSQL – enskild Server från Azure portal
+description: Lär dig hur du hanterar skrivskyddade repliker Azure Database för PostgreSQL – enskild Server från Azure-portalen.
+author: rachel-msft
+ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 04/01/2019
-ms.date: 04/22/2019
-ms.openlocfilehash: bf1fb1c1343173949ecb6348284cb537282b277b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 87371f91d9ea1f556d0f78beebd73b8a28977b71
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60420860"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510406"
 ---
-# <a name="create-and-manage-read-replicas-from-the-azure-portal"></a>Skapa och hantera skrivskyddade repliker från Azure portal
+# <a name="create-and-manage-read-replicas-in-azure-database-for-postgresql---single-server-from-the-azure-portal"></a>Skapa och hantera skrivskyddade repliker i Azure Database för PostgreSQL – enskild Server från Azure portal
 
 I den här artikeln får du lära dig hur du skapar och hanterar skrivskyddade repliker i Azure Database for PostgreSQL från Azure-portalen. Läs mer om skrivskyddade repliker i den [översikt](concepts-read-replicas.md).
+
+> [!IMPORTANT]
+> Du kan skapa en skrivskyddad replik i samma region som din huvudservern eller i alla andra Azure-regioner valfri. Replikering över flera regioner är för närvarande i offentlig förhandsversion.
 
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
@@ -59,9 +61,15 @@ Följ dessa steg om du vill skapa en skrivskyddad replik:
 
    ![Lägg till en replik](./media/howto-read-replicas-portal/add-replica.png)
 
-4. Ange ett namn för den skrivskyddade repliken. Välj **OK** att bekräfta skapandet av repliken.
+4. Ange ett namn för den skrivskyddade repliken. 
 
-   ![Namn på repliken](./media/howto-read-replicas-portal/name-replica.png) 
+    ![Namn på repliken](./media/howto-read-replicas-portal/name-replica.png)
+
+5. Välj en plats för repliken. Du kan skapa en replik i alla Azure-regioner. Standardplatsen är samma som den överordnade servern.
+
+    ![Välj en plats](./media/howto-read-replicas-portal/location-replica.png)
+
+6. Välj **OK** att bekräfta skapandet av repliken.
 
 En replik skapas med hjälp av samma serverkonfiguration som huvudserver. När en replik skapas flera inställningar kan ändras oberoende från huvudservern: compute-generering, vCores, lagring och säkerhetskopiering kvarhållningsperiod. Prisnivån kan också ändras oberoende av varandra, förutom till eller från Basic-nivån.
 

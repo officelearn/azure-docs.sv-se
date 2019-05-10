@@ -7,13 +7,13 @@ ms.author: twhitney
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 05/06/2019
-ms.openlocfilehash: 77e0e11582808901b10877d0d9284637145aa6f2
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.date: 05/08/2019
+ms.openlocfilehash: 881734caf855ccfc4f001693fe261b8448b49bc4
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65078677"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466202"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Azure Red Hat OpenShift vanliga frågor och svar
 
@@ -25,7 +25,7 @@ Se [de resurser som stöds](supported-resources.md#azure-regions) en lista över
 
 ## <a name="can-i-deploy-a-cluster-into-an-existing-virtual-network"></a>Kan jag distribuera ett kluster till ett befintligt virtuellt nätverk?
 
-Ja. Du kan distribuera en Azure Red Hat OpenShift-kluster till ett befintligt virtuellt nätverk när du skapar ett kluster. Se den [ansluta virtuella nätverk i ett kluster till ett befintligt virtuellt nätverk ](tutorial-create-cluster.md#optional-connect-the-clusters-virtual-network-to-an-existing-virtual-network) mer information.
+Nej. Men du kan ansluta en Azure Red Hat OpenShift-kluster till ett befintligt VNET via peering. Se [ansluta virtuella nätverk i ett kluster till ett befintligt virtuellt nätverk ](tutorial-create-cluster.md#optional-connect-the-clusters-virtual-network-to-an-existing-virtual-network) mer information.
 
 ## <a name="what-cluster-operations-are-available"></a>Vilka klusteråtgärder är tillgängliga?
 

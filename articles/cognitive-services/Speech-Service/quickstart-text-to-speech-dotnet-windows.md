@@ -10,14 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 4/03/2019
 ms.author: yinhew
-ms.openlocfilehash: a013189e45b1c1c8eeb88d62a718d495c0c415a2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3b7addd369d5e26554dd4300e65bee66b8a62768
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60620485"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65465563"
 ---
 # <a name="quickstart-synthesize-speech-with-the-speech-sdk-for-net-framework-windows"></a>Snabbstart: Syntetisera tal med Speech-SDK för .NET Framework (Windows)
+
+Snabbstarter kan också användas för [taligenkänning](quickstart-csharp-dotnet-windows.md) och [talöversättning](quickstart-translate-speech-dotnetframework-windows.md).
 
 Använd den här guiden för att skapa ett text till tal-konsolprogram med .NET framework för Windows och tal-SDK. När du är klar kan du syntetisera tal från text och höra tal på högtalaren i realtid.
 

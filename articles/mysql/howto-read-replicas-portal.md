@@ -5,17 +5,20 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/26/2019
-ms.openlocfilehash: 52f192a179c02e63c394401cce82b51fbe96e92d
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: HT
+ms.date: 04/29/2019
+ms.openlocfilehash: b422718a1eaec483acdc2c8ab37442b9aea78aaa
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "61425016"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510786"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-portal"></a>Hur du skapar och hanterar Läs repliker i Azure Database för MySQL med Azure portal
 
-I den här artikeln får lära du dig att skapa och hantera skrivskyddade kopior på samma Azure-region som hanterare i tjänsten Azure Database for MySQL med Azure portal. Funktionen är för närvarande i offentlig förhandsversion.
+I den här artikeln får lära du dig att skapa och hantera skrivskyddade repliker i tjänsten Azure Database for MySQL med Azure portal.
+
+> [!IMPORTANT]
+> Du kan skapa en skrivskyddad replik i samma region som din huvudservern eller i alla andra Azure-regioner valfri. Replikering över flera regioner är för närvarande i offentlig förhandsversion.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -38,9 +41,15 @@ En skrivskyddad replikserver kan skapas med följande steg:
 
    ![Azure Database för MySQL - replikering](./media/howto-read-replica-portal/add-replica.png)
 
-5. Ange ett namn för replikservern och klicka på **OK** att bekräfta skapandet av repliken.
+5. Ange ett namn för replikservern.
 
-   ![Azure Database for MySQL – Skapa replik](./media/howto-read-replica-portal/create-replica.png)
+    ![Azure Database för MySQL - namn](./media/howto-read-replica-portal/replica-name.png)
+
+6. Välj en plats för replikservern. Du kan skapa en replik i alla Azure-regioner. Standardplatsen är samma som huvudserver
+
+    ![Azure Database för MySQL - replikplatsen](./media/howto-read-replica-portal/replica-location.png)
+
+7. Välj **OK** att bekräfta att skapa en replik.
 
 > [!NOTE]
 > Läs repliker skapas med samma serverkonfiguration som huvudserver. Serverkonfigurationen repliken kan ändras när den har skapats. Du rekommenderas att repliken serverkonfigurationen bör hållas lika med eller större värden än huvudservern så repliken kan hålla jämna steg med huvudservern.
@@ -115,7 +124,7 @@ Använd följande steg för att ta bort en huvudserver från Azure portal:
 
 2. Under den **övervakning** avsnittet på sidopanelen, Välj **mått**:
 
-3. Välj **replikeringsfördröjning i sekunder** från den nedrullningsbara listan över tillgängliga mått. 
+3. Välj **replikeringsfördröjning i sekunder** från den nedrullningsbara listan över tillgängliga mått.
 
    ![Välj replikeringsfördröjning](./media/howto-read-replica-portal/monitor-select-replication-lag.png)
 

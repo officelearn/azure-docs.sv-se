@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: crdun
-ms.openlocfilehash: 289d50fc9d71ee5ea8960fd077e91ef6f68027cb
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 959c1ff8b199320105f650a7eb62a04bedb03b3b
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62127989"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65412789"
 ---
 # <a name="create-a-windows-app-with-an-azure-backend"></a>Skapa en Windows-app med en Azure-serverdel
 
@@ -39,7 +39,7 @@ För att kunna genomföra den här kursen behöver du följande:
 
 * Ett aktivt Azure-konto. Om du inte har ett konto kan du registrera dig för en utvärderingsversion av Azure och få upp till tio mobilappar utan kostnad som du kan fortsätta att använda även efter utvärderingsperiodens slut. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/).
 * Windows 10.
-* [Visual Studio Community 2017].
+* [Visual Studio Community].
 * Kunskap om UWP-apputveckling. Gå till [UWP-dokumentation](https://docs.microsoft.com/windows/uwp/) om du vill lära dig hur du [kommer igång](https://docs.microsoft.com/windows/uwp/get-started/get-set-up) med att skapa UWP-appar.
 
 ## <a name="create-a-new-azure-mobile-app-backend"></a>Skapa en ny mobilappsserverdel i Azure
@@ -70,7 +70,7 @@ När du har konfigurerat serverdelen för mobilappen kan du antingen skapa en ny
     En POST-begäran skickas till den nya appserverdelen som finns på Azure.
 
 > [!TIP]
-> Du kan lägga till UWP-approjektet i samma lösning som serverprojektet om du använder .NET-serverdelen. På så sätt blir det enklare att felsöka och testa både appen och serverdelen i samma Visual Studio-lösning. För att kunna lägga till ett UWP-approjekt i serverdelslösningen måste du ha Visual Studio 2017.
+> Du kan lägga till UWP-approjektet i samma lösning som serverprojektet om du använder .NET-serverdelen. På så sätt blir det enklare att felsöka och testa både appen och serverdelen i samma Visual Studio-lösning. Om du vill lägga till en UWP-appsprojekt i lösningen för serverdelen, måste du använda Visual Studio 2017 eller senare.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -86,4 +86,4 @@ När du har konfigurerat serverdelen för mobilappen kan du antingen skapa en ny
 <!-- URLs. -->
 [Mobile App SDK]: https://go.microsoft.com/fwlink/?LinkId=257545
 [Azure portal]: https://portal.azure.com/
-[Visual Studio Community 2017]: https://go.microsoft.com/fwLink/p/?LinkID=534203
+[Visual Studio Community]: https://go.microsoft.com/fwLink/p/?LinkID=534203

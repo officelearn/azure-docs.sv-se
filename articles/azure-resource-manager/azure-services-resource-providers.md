@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 04/25/2019
 ms.author: tomfitz
-ms.openlocfilehash: 057e8d78b531abc4ee6d1b16c25a1a6f3b382977
-ms.sourcegitcommit: 9ad75f83bbf0fc4623b7995794f33bbf823b31c0
+ms.openlocfilehash: 54493efdc0bffcbb4654b65676554f6707716968
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64537459"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235569"
 ---
 # <a name="resource-providers-for-azure-services"></a>Resursproviders för Azure-tjänster
 
@@ -115,7 +115,7 @@ Den här artikeln visar hur resource provider-namnområden som mappar till Azure
 | Microsoft.Migrate | [Azure Migrate](../migrate/migrate-overview.md) |
 | Microsoft.MixedReality | [Azure Spatial ankare](/azure/spatial-anchors/) |
 | Microsoft.NetApp | [Azure NetApp-filer](../azure-netapp-files/index.yml) |
-| Microsoft.Network | [Virtual Network](../virtual-network/index.yml)<br />[Lastbalanserare](../load-balancer/index.yml)<br />[Application Gateway](/application-gateway/index.yml)<br />[Azure DNS](../dns/index.yml)<br />[ExpressRoute](../expressroute/index.yml)<br />[VPN-Gateway](../vpn-gateway/index.yml)<br />[Traffic Manager](../traffic-manager/index.yml)<br />[Network Watcher](../network-watcher/index.yml)<br />[Azure-brandväggen](../firewall/index.yml)<br />[Azure Front Door Service](../frontdoor/index.yml) |
+| Microsoft.Network | [Virtual Network](../virtual-network/index.yml)<br />[Lastbalanserare](../load-balancer/index.yml)<br />[Application Gateway](../application-gateway/index.yml)<br />[Azure DNS](../dns/index.yml)<br />[ExpressRoute](../expressroute/index.yml)<br />[VPN-Gateway](../vpn-gateway/index.yml)<br />[Traffic Manager](../traffic-manager/index.yml)<br />[Network Watcher](../network-watcher/index.yml)<br />[Azure-brandväggen](../firewall/index.yml)<br />[Azure Front Door Service](../frontdoor/index.yml) |
 | Microsoft.NotificationHubs | [Notification Hubs](../notification-hubs/index.yml) |
 | Microsoft.OffAzure | [Azure Migrate](../migrate/migrate-overview.md) |
 | Microsoft.OperationalInsights | [Azure Monitor](../azure-monitor/index.yml) |

@@ -59,7 +59,7 @@ sections:
       - type: paragraph
         text: 'Du kan använda de här exempelprogrammen för att se hur kan integrera API:et för handskriftsigenkänning i dina program:'
       - type: paragraph
-        text: '<a href="https://go.microsoft.com/fwlink/?linkid=2089502">C# och Universal Windows-plattform (UWP)</a>'
+        text: '<a href="https://go.microsoft.com/fwlink/?linkid=2089503">C# och Universal Windows-plattform (UWP)</a>'
       - type: paragraph
         text: '<a href="https://go.microsoft.com/fwlink/?linkid=2089804">C# och Windows Presentation Foundation(WPF)</a>'
       - type: paragraph

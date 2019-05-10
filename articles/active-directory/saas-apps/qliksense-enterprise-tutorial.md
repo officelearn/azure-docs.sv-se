@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54690386b3654952cc2292963c9bf01dc65e4315
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 31df4cb9163e598bfde0c491d8088398c3204119
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57875224"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407996"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qlik-sense-enterprise"></a>Självstudier: Azure Active Directory-integrering med Qlik Sense Enterprise
 
@@ -29,12 +29,12 @@ Genom att integrera Qlik Sense Enterprise med Azure AD får du följande fördel
 
 * Du kan i Azure AD styra vem som har åtkomst till Qlik Sense Enterprise.
 * Du kan göra så att dina användare automatiskt loggas in på Qlik Sense Enterprise (enkel inloggning) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure-portalen.
+* Du kan hantera dina konton på en central plats – Azure portal.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Du behöver följande saker för att konfigurera Azure AD-integrering med Qlik Sense Enterprise:
 
@@ -61,7 +61,7 @@ För att konfigurera integreringen av Qlik Sense Enterprise med Azure AD behöve
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
+3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
@@ -69,19 +69,19 @@ För att konfigurera integreringen av Qlik Sense Enterprise med Azure AD behöve
 
      ![Qlik Sense Enterprise i resultatlistan](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
 I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD för Qlik Sense Enterprise baserat på en testanvändare med namnet **Britta Simon**.
 För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Qlik Sense Enterprise upprättas.
 
 Du behöver slutföra följande byggstenar för att konfigurera och testa enkel inloggning med Azure AD för Qlik Sense Enterprise:
 
-1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
 2. **[Konfigurera enkel inloggning för Qlik Sense Enterprise](#configure-qlik-sense-enterprise-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
-4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
 5. **[Skapa Qlik Sense Enterprise-testanvändare](#create-qlik-sense-enterprise-test-user)** – för att ha en motsvarighet till Britta Simon i Qlik Sense Enterprise som är länkad till Azure AD-representationen för användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
+6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
@@ -91,7 +91,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Ql
 
 1. På [Azure-portalen](https://portal.azure.com/) går du till programintegreringssidan för **Qlik Sense Enterprise** och väljer **Enkel inloggning**.
 
-    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
+    ![Konfigurera enkel inloggning för länken](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -105,7 +105,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Ql
 
     ![Qlik Sense Enterprise-domän och information om URL:er för enkel inloggning](common/sp-identifier-reply.png)
 
-    a. I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://<Qlik Sense Fully Qualifed Hostname>:4443/azure/hub`
+    a. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<Qlik Sense Fully Qualifed Hostname>:4443/azure/hub`
 
     b. I textrutan **Identifierare** anger du en URL med följande mönster:
 
@@ -124,7 +124,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Ql
 
 5. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och spara den på datorn.
 
-    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
+    ![Länk för hämtning av certifikat](common/metadataxml.png)
 
 ### <a name="configure-qlik-sense-enterprise-single-sign-on"></a>Konfigurera enkel inloggning för Qlik Sense Enterprise
 
@@ -183,7 +183,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Ql
 
     e. **IdP-metadata för SAML** är den fil som redigerades tidigare i avsnittet om att **redigera Federation Metadata från Azure AD-konfiguration**.  **Innan du laddar upp IdP-metadata måste filen redigeras** med informationsborttagning så att funktionen mellan Azure AD och Qlik Sense-servern fungerar korrekt.  **Se anvisningarna ovan om filen inte har redigerats ännu.**  Om filen har redigerats klickar du på knappen Bläddra och väljer den redigereade metadatafilen för att ladda upp den till konfigurationen för virtuell proxy.
 
-    f. Ange attributnamn eller schemareferens för det SAML-attribut som representerar det **Användar-ID** som Azure AD skickar till Qlik Sense-servern.  Information om schemareferens finns i på Azure-appens skärmar efter konfiguration.  För att använda namnattributet anger du `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+    f. Ange attributnamn eller schemareferens för det SAML-attribut som representerar det **Användar-ID** som Azure AD skickar till Qlik Sense-servern.  Information om schemareferens finns i på Azure-appens skärmar efter konfiguration.  För att använda namnattributet anger du `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
     g. Ange värdet för den **användarkatalog** som kommer att kopplas till användare när de autentiserar till Qlik Sense-servern via Azure AD.  Hårdkodade värden måste omges av **hakparenteser []**.  För att använda ett attribut som skickas i Azure AD SAML-försäkran anger du namnet på attributet i den här textrutan **utan** hakparenteser.
 

@@ -8,12 +8,12 @@ ms.date: 03/20/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: b0a34cd8eebdd816cb780b34de936a6cc56d0994
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 78edeb0c418f5c426771d241464d389f8a632e96
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64730227"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65463936"
 ---
 # <a name="export-your-data-in-azure-iot-central"></a>Exportera dina data i Azure IoT Central
 
@@ -64,14 +64,14 @@ Nu när du har ett Event Hubs/Service Bus-mål för att exportera data för att 
     > [!Note]
     > Om du inte ser löpande Export av Data på den vänstra menyn kan är du inte administratör i din app. Kontakta en administratör att ställa in export av data.
 
-    ![Skapa ny cde Event Hub](media/howto-export-data/export_menu.PNG)
+    ![Skapa ny cde Event Hub](media/howto-export-data/export_menu1.png)
 
 3. Välj den **+ ny** knappen uppe till höger. Välj något av **Azure Event Hubs** eller **Azure Service Bus** som mål för exporten. 
 
     > [!NOTE] 
     > Det maximala antalet exporter per app är fem. 
 
-    ![Skapa ny löpande dataexport](media/howto-export-data/export_new.PNG)
+    ![Skapa ny löpande dataexport](media/howto-export-data/export_new1.png)
 
 4. I den nedrullningsbara listrutan väljer du din **Event Hubs-namnområde/Service Bus-namnområde**. Du kan också välja alternativet sist i listan som **ange en anslutningssträng**. 
 
@@ -81,7 +81,7 @@ Nu när du har ett Event Hubs/Service Bus-mål för att exportera data för att 
     > [!NOTE] 
     > 7 dagars utvärderingsversion appar, det enda sättet att konfigurera kontinuerlig data exportera är i via en anslutningssträng. Det beror på att 7 dagars utvärderingsversion appar inte har en associerad Azure-prenumeration.
 
-    ![Skapa ny cde Event Hub](media/howto-export-data/export_create.PNG)
+    ![Skapa ny cde Event Hub](media/howto-export-data/export_create1.png)
 
 5. (Valfritt) Om du har valt **ange en anslutningssträng**, en ny ruta visas där du kan klistra in anslutningssträngen. Att hämta anslutningssträngen för din:
     - Event Hubs eller Azure Service Bus, går du till namnområdet i Azure-portalen.
@@ -95,7 +95,7 @@ Nu när du har ett Event Hubs/Service Bus-mål för att exportera data för att 
 
 6. Se till att aktivera löpande dataexport genom **dataexport** är **på**. Välj **Spara**.
 
-  ![Konfigurera löpande dataexport](media/howto-export-data/export_list.PNG)
+    ![Konfigurera löpande dataexport](media/howto-export-data/export_list1.png)
 
 7. Efter ett par minuter visas dina data i ditt valda mål.
 

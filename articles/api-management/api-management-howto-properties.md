@@ -28,15 +28,15 @@ Varje API Management-tjänstinstans har en egenskapssamling för nyckel/värde-p
 | Attribut | Typ | Beskrivning |
 | --- | --- | --- |
 | Visningsnamn |string |Alfanumerisk sträng som används för att hänvisa till egenskapen i principerna. |
-| Värde |string |Värdet på egenskapen. Den kan inte vara tomt eller enbart bestå av blanksteg. |
-|Hemlighet|boolesk|Anger om värdet är en hemlighet och ska krypteras eller inte.|
-| Taggar |strängmatris |Valfritt taggar som men som tillhandahålls kan användas för att filtrera egenskapslistan. |
+| Value |string |Värdet på egenskapen. Den kan inte vara tomt eller enbart bestå av blanksteg. |
+|Secret|boolesk|Anger om värdet är en hemlighet och ska krypteras eller inte.|
+| Tags |strängmatris |Valfritt taggar som men som tillhandahålls kan användas för att filtrera egenskapslistan. |
 
 ![Namngivna värden](./media/api-management-howto-properties/named-values.png)
 
 Egenskapsvärden kan innehålla literala strängar och [principuttryck](/azure/api-management/api-management-policy-expressions). Till exempel värdet för `ExpressionProperty` är ett principuttryck som returnerar en sträng som innehåller den aktuella datum och tid. Egenskapen `ContosoHeaderValue` är markerad som en hemlighet, så inte visas dess värde.
 
-| Namn | Värde | Hemlighet | Taggar |
+| Namn | Value | Secret | Tags |
 | --- | --- | --- | --- |
 | ContosoHeader |TrackingId |False |Contoso |
 | ContosoHeaderValue |•••••••••••••••••••••• |True |Contoso |

@@ -7,18 +7,18 @@ ms.date: 05/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: jeconnoc
-ms.openlocfilehash: d10ee8c1af85de5eb79cd4a4af6882c7a8f084f1
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b0a6c016b2be12ac6686b3748b4b16281899323e
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65159562"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65511066"
 ---
 # <a name="create-an-image-and-use-a-user-assigned-managed-identity-to-access-files-in-azure-storage"></a>Skapa en avbildning och använda en hanterad Användartilldelad identitet för att komma åt filer i Azure Storage 
 
 Azure Image Builder stöder med hjälp av skript eller kopiera filer från flera platser, t.ex GitHub och Azure storage osv. Om du vill använda dessa de blivit externt tillgänglig för Azure Image Builder, men du kan skydda Azure Storage-blobar med hjälp av SAS-token.
 
-Den här artikeln visar hur du skapar en anpassad avbildning med hjälp av Azure VM Image Builder, där tjänsten ska använda en [användartilldelade hanterade identiteter](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview) komma åt filer i Azure storage för bild-anpassning utan du behöver göra filer offentligt tillgänglig, eller ställa in SAS-token.
+Den här artikeln visar hur du skapar en anpassad avbildning med hjälp av Azure VM Image Builder, där tjänsten ska använda en [användartilldelade hanterade identiteter](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) komma åt filer i Azure storage för bild-anpassning utan du behöver göra filer offentligt tillgänglig, eller ställa in SAS-token.
 
 I exemplet nedan skapar du två resursgrupper som ska användas för den anpassade avbildningen och den andra ska vara värd för ett Azure Storage-konto, som innehåller en skriptfil. Det här simulerar ett verkligheten scenario, där du kan ha byggartefakter eller bildfiler i olika lagringskonton utanför Image Builder. Du skapar en Användartilldelad identitet och sedan bevilja som läsbehörighet på skriptfilen, men du anger inte någon offentlig åtkomst till filen. Du använder sedan Shell systemanpassare att hämta och köra skriptet från storage-kontot.
 
@@ -130,7 +130,7 @@ az role assignment create \
 
 ## <a name="create-user-assigned-managed-identity"></a>Skapa användartilldelade hanterad identitet
 
-Skapa identitet och tilldela behörigheter för skriptet storage-konto. Mer information finns i [User-Assigned hanterade identiteter](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity).
+Skapa identitet och tilldela behörigheter för skriptet storage-konto. Mer information finns i [User-Assigned hanterade identiteter](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity).
 
 ```azurecli-interactive
 # Create the user assigned identity 

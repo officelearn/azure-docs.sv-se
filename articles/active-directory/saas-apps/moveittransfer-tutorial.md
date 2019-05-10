@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: d7020299bbd52f5e7ba22809847815cb04048cb6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 2a491cd303cccd94cbb489654890d55c03912a63
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59259413"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408049"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-moveit-transfer---azure-ad-integration"></a>Självstudier: Azure Active Directory-integrering med MOVEit - överföring i Azure AD-integrering
 
@@ -28,7 +28,7 @@ Integrera MOVEit - överföring i Azure AD-integrering med Azure AD ger dig föl
 
 * Du kan styra i Azure AD som har åtkomst till MOVEit - överföring i Azure AD-integrering.
 * Du kan aktivera användarna att vara automatiskt inloggad MOVEit - överföring i Azure AD-integrering (Single Sign-On) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure-portalen.
+* Du kan hantera dina konton på en central plats – Azure portal.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
@@ -60,7 +60,7 @@ Om du vill konfigurera integreringen av MOVEit - överföring i Azure AD-integre
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
+3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
@@ -68,19 +68,19 @@ Om du vill konfigurera integreringen av MOVEit - överföring i Azure AD-integre
 
      ![MOVEit - överföring i Azure AD-integrering i resultatlistan](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
 I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med MOVEit - överföring i Azure AD-integrering baserat på en testanvändare kallas **Britta Simon**.
 För enkel inloggning till arbete, en länk förhållandet mellan en Azure AD-användare och den relaterade användaren i MOVEit överförings - måste Azure AD-integrering ska upprättas.
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med MOVEit överföring – Azure AD-integrering, måste du slutföra följande byggblock:
 
-1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
 2. **[Konfigurera MOVEit - överföring i Azure AD-integrering för enkel inloggning](#configure-moveit-transfer---azure-ad-integration-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
-4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
 5. **[Skapa MOVEit - överföring i Azure AD-integrering testanvändare](#create-moveit-transfer---azure-ad-integration-test-user)**  – du har en motsvarighet för Britta Simon i MOVEit överförings - Azure AD-integrering som är länkad till en Azure AD-representation av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
+6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
@@ -90,7 +90,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med MOVEit 
 
 1. I den [Azure-portalen](https://portal.azure.com/)på den **MOVEit - överföring i Azure AD-integrering** application integration markerar **enkel inloggning**.
 
-    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
+    ![Konfigurera enkel inloggning för länken](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -121,15 +121,15 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med MOVEit 
 
 4. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och spara den på datorn.
 
-    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
+    ![Länk för hämtning av certifikat](common/metadataxml.png)
 
 6. På den **konfigurera MOVEit - överföring i Azure AD-integrering** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    a. Inloggnings-URL
+    a. Inloggningswebbadress
 
-    b. Azure AD-identifierare
+    b. Microsoft Azure Active Directory-identifierare
 
     c. Utloggnings-URL
 
@@ -174,11 +174,11 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med MOVEit 
     
     b. Välj **andra** som **fullständigt namn** och i den **attributnamnet** textrutan anger du värdet: `http://schemas.microsoft.com/identity/claims/displayname`.
     
-    c. Välj **andra** som **e-post** och i den **attributnamnet** textrutan anger du värdet: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    c. Välj **andra** som **e-post** och i den **attributnamnet** textrutan anger du värdet: `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
     
     d. Välj **Ja** som **skapa automatiskt konto på inloggning**.
     
-    e. Klicka på knappen **Spara**.
+    e. Klicka på **spara** knappen.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
@@ -246,7 +246,7 @@ När du klickar på MOVEit överföringen - panelen för Azure AD-integrering i 
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

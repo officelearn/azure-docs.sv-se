@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 9d38e3caf3d835eaf73df90282157eed76c5ea25
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9d7fd41657394e006957392f37ec1a258b33c8c6
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61270055"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413869"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Distribution av vanliga frågor och svar för Web Apps i Azure
 
@@ -47,7 +47,7 @@ Lös felet genom att uppgradera till den [senaste SDK: N](https://azure.microsof
 ## <a name="how-do-i-deploy-an-aspnet-application-from-visual-studio-to-app-service"></a>Hur jag för att distribuera ett ASP.NET-program från Visual Studio till App Service?
 <a id="deployasp"></a>
 
-Självstudien [skapa din första ASP.NET-webbapp i Azure på fem minuter](app-service-web-get-started-dotnet.md) visar hur du distribuerar en ASP.NET-webbprogram till en webbapp i App Service med Visual Studio 2017.
+Självstudien [skapa din första ASP.NET-webbapp i Azure på fem minuter](app-service-web-get-started-dotnet.md) visar hur du distribuerar en ASP.NET-webbprogram till en webbapp i App Service med Visual Studio.
 
 ## <a name="what-are-the-different-types-of-deployment-credentials"></a>Vilka är de olika typerna av autentiseringsuppgifter för distribution?
 

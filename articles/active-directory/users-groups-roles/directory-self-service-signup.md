@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0cfc31705909710e6a60e0d2fd3963e74e9397ee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f7aee10780512e284faccadface0dc928ef8270e
+ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60472266"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65501902"
 ---
 # <a name="what-is-self-service-signup-for-azure-active-directory"></a>Vad är självbetjäningsregistrering för Azure Active Directory?
 
@@ -52,7 +52,7 @@ En administratör kan konfigurera de här funktionerna med följande cmdlet Set-
 AllowEmailVerifiedUsers och AllowAdHocSubscriptions är hela katalogen inställningar som kan tillämpas på en hanterad eller en ohanterad katalog. Här är ett exempel där:
 
 * Du administrerar en katalog med en verifierad domän, till exempel contoso.com
-* Du använder B2B-samarbete från en annan katalog för att bjuda in användare som inte redan finns (userdoesnotexist@contoso.com) i arbetskatalogen för constoso.com
+* Du använder B2B-samarbete från en annan katalog för att bjuda in användare som inte redan finns (userdoesnotexist@contoso.com) i arbetskatalogen för contoso.com
 * Arbetskatalogen har AllowEmailVerifiedUsers aktiverat
 
 Om föregående villkor är uppfyllda, sedan en medlemsanvändare skapas i arbetskatalogen och en B2B-gästanvändare skapas i katalogen bjuder in.

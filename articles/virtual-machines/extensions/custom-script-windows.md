@@ -8,14 +8,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/15/2019
+ms.date: 05/02/2019
 ms.author: gwallace
-ms.openlocfilehash: e2b36633996f961d100f0a98abb09135fd4393e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b71ba69bcf4965ea607e097c392573e77aab6865
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60869868"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408281"
 ---
 # <a name="custom-script-extension-for-windows"></a>Tillägget för anpassat skript för Windows
 
@@ -206,6 +206,16 @@ Om du vill köra det anpassade skripttillägget mer än en gång kan du bara utf
 
 * Tillägget **namn** parametern är samma som föregående distributionen av tillägget.
 * Uppdatera konfigurationen annars kommandot inte köras igen. Du kan lägga till i en dynamisk egenskap i kommandot, till exempel en tidsstämpel.
+
+Du kan också ange den [ForceUpdateTag](/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension.forceupdatetag) egenskap **SANT**.
+
+### <a name="using-invoke-webrequest"></a>Med hjälp av Invoke-WebRequest
+
+Om du använder [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest) i skriptet, måste du ange parametern `-UseBasicParsing` eller annan du får följande fel när kontrollerar detaljerad status:
+
+```error
+The response content cannot be parsed because the Internet Explorer engine is not available, or Internet Explorer's first-launch configuration is not complete. Specify the UseBasicParsing parameter and try again.
+```
 
 ## <a name="classic-vms"></a>Klassiska virtuella datorer
 

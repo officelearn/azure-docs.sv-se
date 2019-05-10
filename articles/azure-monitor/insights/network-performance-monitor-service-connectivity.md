@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 01410fb59135e9b1f54e4a3c75b206c7d30abeed
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 85a35207293f5afda40c78d105fc58732f06b626
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65145024"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65509805"
 ---
 # <a name="service-connectivity-monitor"></a>Övervakare av tjänstanslutning
 
@@ -64,7 +64,7 @@ Börja skapa dina tester för att övervaka nätverksanslutningar till Tjänstes
 
     * Välj **Web** att övervaka anslutningen till en tjänst som svarar på HTTP/S-begäranden, till exempel outlook.office365.com eller bing.com.<br>
     * Välj **nätverk** att övervaka anslutningen till en tjänst som svarar på förfrågningar TCP men inte svarar på HTTP/S-begäranden, till exempel en SQLServer, FTP-servern eller SSH-porten. 
-    * Exempel: Om du vill skapa ett webbtest till ett blob storage-konto, Välj **Web** och ange mål som <your storageaccount>. blob.core.windows.net. På samma sätt kan du skapa tester för andra tabellagring, kölagring och Azure Files med [den här länken.](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-overview#storage-account-endpoints)
+    * Exempel: Om du vill skapa ett webbtest till ett blob storage-konto, Välj **Web** och ange mål som *yourstorageaccount*. blob.core.windows.net. På samma sätt kan du skapa tester för andra tabellagring, kölagring och Azure Files med [den här länken.](https://docs.microsoft.com/azure/storage/common/storage-account-overview#storage-account-endpoints)
 4. Om du inte vill att utföra nätverksmätningar som Nätverksfördröjningen, paketförlust och identifiering av topologi, avmarkera de **utför nätverksmätningar** markerar du kryssrutan. Behåll den markerad för att få största möjliga nytta från funktionen. 
 5. I **Target**, ange URL-Adressen/FQDN/IP-adressen som du vill övervaka nätverksanslutningar.
 6. I **portnummer**, ange portnumret för Måltjänsten. 
@@ -128,6 +128,16 @@ Om du upptäcker en avvikelse, gör du följande:
 
 * Om programmet är långsamt, kan du avgöra om dålig programprestanda beror på att nätverket eller ett problem på leverantören programmet att göra.
 
+## <a name="gcc-office-urls-for-us-government-customers"></a>GCC Office URL: er för amerikanska myndigheter
+Endast DOD URL: er finns inbyggda NPM för US Government Virginia region. Kunder som använder GCC URL: er måste du skapa anpassade tester och Lägg till varje URL-inidividually.
+
+| Fält | GCC |
+|:---   |:--- |
+| Office 365-portalen och delade | portal.apps.mil |
+| Office 365-autentisering och identitet | * login.microsoftonline.us <br> * api.login.microsoftonline.com <br> * clientconfig.microsoftonline-p.net <br> * login.microsoftonline.com <br> * login.microsoftonline-p.com <br> * login.windows.net <br> * loginex.microsoftonline.com <br> * login-us.microsoftonline.com <br> * nexus.microsoftonline-p.com <br> * mscrl.microsoft.com <br> * secure.aadcdn.microsoftonline-p.com |
+| Office Online | * adminwebservice.gov.us.microsoftonline.com <br>  * adminwebservice-s1-bn1a.microsoftonline.com <br> * adminwebservice-s1-dm2a.microsoftonline.com <br> * becws.gov.us.microsoftonline.com <br> * provisioningapi.gov.us.microsoftonline.com <br> * officehome.msocdn.us <br> * prod.msocdn.us <br> * portal.office365.us <br> * webshell.suite.office365.us <br> * www .office365.us <br> * activation.sls.microsoft.com <br> * crl.microsoft.com <br> * go.microsoft.com <br> * insertmedia.bing.office.net <br> * ocsa.officeapps.live.com <br> * ocsredir.officeapps.live.com <br> * ocws.officeapps.live.com <br> * office15client.microsoft.com <br>* officecdn.microsoft.com <br> * officecdn.microsoft.com.edgesuite.net <br> * officepreviewredir.microsoft.com <br> * officeredir.microsoft.com <br> * ols.officeapps.live.com  <br> * r.office.microsoft.com <br> * cdn.odc.officeapps.live.com <br> * odc.officeapps.live.com <br> * officeclient.microsoft.com |
+| Exchange Online | * outlook.office365.us <br> * attachments.office365-net.us <br> * autodiscover-s.office365.us <br> * manage.office365.us <br> * scc.office365.us |
+| MS Teams | gov.teams.microsoft.us | 
 
 ## <a name="next-steps"></a>Nästa steg
 [Söka loggarna](../../azure-monitor/log-query/log-query-overview.md) att visa detaljerad nätverk prestanda dataposter.

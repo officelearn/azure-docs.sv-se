@@ -11,14 +11,16 @@ ms.topic: quickstart
 ms.date: 05/02/2019
 ms.author: travisw
 ms.custom: ''
-ms.openlocfilehash: ee7649dccf1ca50933e29cec9d40e4f5e16bd721
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: e2b25875a0dff12bba32b033bca0c35394d407aa
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074113"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65465633"
 ---
 # <a name="quickstart-create-a-voice-first-virtual-assistant-with-the-speech-sdk-uwp"></a>Snabbstart: Skapa en röst-första virtuella assistenter med tal SDK, UWP
+
+Snabbstarter kan också användas för [tal till text](quickstart-csharp-uwp.md) och [talöversättning](quickstart-translate-speech-uwp.md).
 
 I den här artikeln ska du utveckla en C# Universal Windows Platform (UWP)-program med hjälp av den [tal SDK](speech-sdk.md). Programmet ansluter till en tidigare skapade och konfigurerade robot att aktivera en röst-första virtuella assistenter upplevelse från klientprogrammet. Programmet skapas med [NuGet-paketet för Speech SDK](https://aka.ms/csspeech/nuget) och Microsoft Visual Studio 2017 (valfri version).
 
@@ -80,16 +82,16 @@ Den här snabbstarten visar steg för steg hur du gör ett enkelt klientprogram 
             <MediaElement x:Name="mediaElement"/>
         </Grid>
     </Page>
-        ```
+    ```
 
-1. Open the code-behind source file `MainPage.xaml.cs`. You'll find it grouped under `MainPage.xaml`. Replace the contents with the code below. Here's what this sample covers: 
+1. Öppna källfilen bakomliggande kod `MainPage.xaml.cs`. Du hittar det grupperade under `MainPage.xaml`. Ersätt innehållet med koden nedan. Här är vad som beskrivs i det här exemplet: 
 
-    * Using statements for the Speech and Speech.Dialog namespaces
-    * A simple implementation to ensure microphone access, wired to a button handler
-    * Basic UI helpers to present messages and errors in the application
-    * A landing point for the initialization code path that will be populated later
-    * A helper to play back text-to-speech (without streaming support)
-    * An empty button handler to start listening that will be populated later
+    * Med hjälp av uttryck för tal- och Speech.Dialog-namnområden
+    * En enkel implementeras, så att åtkomst till mikrofonen, anslutna till en knapp-hanterare
+    * Grundläggande Användargränssnittet inlärningsverktyg att visa meddelanden och fel i programmet
+    * En startsida tidpunkt för initiering kod sökvägen som fylls senare
+    * En hjälp att spela upp tillbaka text till tal (utan stöd för direktuppspelning)
+    * En tom knappen hanterare påbörja avlyssning som fylls senare
 
     ```csharp
     using Microsoft.CognitiveServices.Speech;
@@ -239,7 +241,7 @@ Den här snabbstarten visar steg för steg hur du gör ett enkelt klientprogram 
             }
         }
     }
-     ```
+    ```
 
 1. Därefter skapar du den `SpeechBotConnector` med din prenumerationsinformation. Lägg till följande metodbrödtexten i `InitializeBotConnector`, ersätta strängarna `YourChannelSecret`, `YourSpeechSubscriptionKey`, och `YourServiceRegion` med dina egna värden för din robot, tal-prenumeration och [region](regions.md).
 

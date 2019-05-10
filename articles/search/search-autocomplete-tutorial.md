@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: mcarter
 ms.custom: seodec2018
-ms.openlocfilehash: f5cb8d2fee706600251039d80232d9fc7f60d5fb
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: f3e7cc2ed71dda0eb34328432b26a4016b62be1c
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025140"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466419"
 ---
-# <a name="example-add-suggestions-or-autocomplete-to-your-azure-search-application"></a>Exempel: Lägg till förslag eller Komplettera automatiskt i ditt Azure Search-program
+# <a name="add-suggestions-or-autocomplete-to-your-azure-search-application"></a>Lägg till förslag eller Komplettera automatiskt i ditt Azure Search-program
 
 I den här artikeln lär du dig hur du använder [förslag](https://docs.microsoft.com/rest/api/searchservice/suggestions) och [automatisk komplettering](https://docs.microsoft.com/rest/api/searchservice/autocomplete) att skapa en kraftfull kryssruta som har stöd för sökning-som-du-type-beteenden.
 
@@ -123,7 +123,7 @@ Sök UX-koden har hittills har fokus på förslagen. Nästa kodblock visar jQuer
 
 ```javascript
 $(function () {
-    // using modified jQuery Autocomplete plugin v1.2.6 http://xdsoft.net/jqplugins/autocomplete/
+    // using modified jQuery Autocomplete plugin v1.2.6 https://xdsoft.net/jqplugins/autocomplete/
     // $.autocomplete -> $.autocompleteInline
     $("#example2").autocompleteInline({
         appendMethod: "replace",

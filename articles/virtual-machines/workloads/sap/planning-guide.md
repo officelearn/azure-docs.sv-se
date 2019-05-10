@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/05/2019
+ms.date: 05/07/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 097b5e8ee69d945e0a9e24ba1c62b0ae82dd896b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2ddcf1f38d3d92f9d9bdd12203ebf99f20600478
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64689405"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409772"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure virtuella datorer, planering och implementering av SAP NetWeaver
 
@@ -370,7 +370,7 @@ Startpunkten för SAP-arbetsbelastningar på Azure-dokumentationen finns [här](
 
 Följande SAP-information är relaterade till ämnet med SAP på Azure:
 
-| Nummer | Rubrik |
+| Nummer | Titel |
 | --- | --- |
 | [1928533] |SAP-program i Azure: Produkter som stöds och storlek |
 | [2015553] |SAP på Microsoft Azure: Supportkrav |
@@ -391,17 +391,10 @@ Allmän standardbegränsningar och högsta begränsningar i Azure-prenumeratione
 ## <a name="possible-scenarios"></a>Möjliga scenarier
 SAP ses ofta som en av de mest verksamhetskritiska program i företag. Arkitektur och driften av dessa program gäller mest komplexa och se till att du uppfyller kraven på tillgänglighet och prestanda är viktigt.
 
-Företag har därför att tänka noga om vilka program kan köras i en offentlig molnmiljö, oberoende av den valda molnleverantören.
+Företag har därför att tänka noga om vilken annan molnleverantör, vilket väljer för att köra dessa företag affärskritiska processer på. Azure är den perfekta offentliga molnplattformen för verksamhetskritiska SAP program och affärsprocesser. Med det breda utbudet av Azure-infrastrukturen kan kan nästan alla befintliga SAP NetWeaver och S/4HANA-system finnas i Azure idag. Azure tillhandahåller virtuella datorer med många terabyte minne och mer än 200 CPU: er. Utanför som Azure erbjuder [HANA stora instanser](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture), vilket tillåter skalbar HANA distributioner av upp till 24 TB och skalbar ANA distribuering av upp till 120 TB. 
 
-Möjliga typer för att distribuera SAP NetWeaver-baserade program i offentligt moln miljöer finns nedan:
 
-1. Medelstora produktionssystem
-2. Utvecklingssystem
-3. Testa system
-4. Skapa prototyper system
-5. Learning / Demonstration system
-
-För att distribuera SAP-system i Azure IaaS eller IaaS i allmänhet, är det viktigt att förstå de viktiga skillnaderna mellan erbjudandena för traditionella outsourcers eller värdar och IaaS-erbjudanden. Medan traditionella värden eller outsourcer behovsanpassad infrastruktur (nätverk, lagring och server-typ) på arbetsbelastningen som en kund vill vara värd för, men det är i stället kundens ansvar att välja rätt arbetsbelastningen för IaaS-distributioner.
+För att distribuera SAP-system i Azure IaaS eller IaaS i allmänhet, är det viktigt att förstå de viktiga skillnaderna mellan erbjudandena för traditionella outsourcers eller värdar och IaaS-erbjudanden. Traditionella värden eller outsourcer behovsanpassad infrastruktur (nätverk, lagring och server-typ) på arbetsbelastningen som en kund vill vara värd för, är det i stället kundens eller partnerns ansvar att beskriva arbetsbelastningen och välj rätt Azure komponenterna i virtuella datorer, lagring och nätverk för IaaS-distributioner.
 
 Som ett första steg måste kunder du kontrollera följande:
 
@@ -422,11 +415,13 @@ De flesta av dessa data kan hittas [här (Linux)] [ virtual-machines-sizes-linux
 
 Tänk på att gränserna som anges i länken ovan finns övre gräns. Det inte innebär som gränserna för någon av resurserna, kan till exempel IOPS anges i alla fall. Undantagen är dock processor- och resurser på en vald typ av virtuell dator. För VM-typer som stöds av SAP, är processor- och resurserna reserveras och är därför tillgängliga när som helst i tid för användning i den virtuella datorn.
 
-Microsoft Azure-plattformen som andra IaaS-plattformar är en plattform för flera innehavare. Därmed som lagring, nätverk och andra resurser delas mellan klienter. Intelligent begränsningar och kvoter logik används till att förhindra att en klient kan påverka prestanda för en annan klient (resursfördelningen) på ett drastiskt sätt. Även om logiken i Azure försöker hålla avvikelser i bandbredd stötte på brukar små, mycket delad plattformar introducera större avvikelser i resursen/bandbreddstillgänglighet än många kunder till i sina lokala distributioner. Därför kan uppleva du olika nivåer av bandbredd om nätverks- eller lagringsinställningarna i/o (den volym som svarstid) från en minut till en minut. Sannolikheten att ett SAP-system på Azure kan uppleva större avvikelser än i ett lokalt system måste beaktas.
+Microsoft Azure-plattformen är en plattform för flera innehavare. Därmed som lagring, nätverk och andra resurser delas mellan klienter. Intelligent begränsningar och kvoter logik används till att förhindra att en klient kan påverka prestanda för en annan klient (resursfördelningen) på ett drastiskt sätt. Microsoft behöver bevisa resursisolering i de fall där flera virtuella datorer kan köras på samma värd körs regelbundet på SAP särskilt för att certifiera Azure-plattformen för SAP HANA. Även om logiken i Azure försöker hålla avvikelser i bandbredd stötte på brukar små, mycket delad plattformar introducera större avvikelser i resursen/bandbreddstillgänglighet än kunder kan råka i sina lokala distributioner. Sannolikheten att ett SAP-system på Azure kan uppleva större avvikelser än i ett lokalt system måste beaktas.
 
-Sista steget är att utvärdera kraven på tillgänglighet. Det kan inträffa att de underliggande Azure-infrastrukturen behöver uppdateras och kräver värdar som kör virtuella datorer startas om. I dessa fall skulle virtuella datorer som körs på dessa värdar stängs och startas om samt. Tidsinställningen för sådana Underhåll görs under kontorstid för icke-kärnor för en viss region men fönstret potentiella på några timmar då en omstart utförs är relativt brett. Det finns olika tekniker i Azure-plattformen som kan konfigureras för att åtgärda vissa eller alla effekten av dessa uppdateringar. Framtida förbättringar av Azure-plattformen, DBMS och SAP program är utformade för att minimera effekten av sådana omstarter.
+Sista steget är att utvärdera kraven på tillgänglighet. Det kan inträffa att de underliggande Azure-infrastrukturen behöver uppdateras och kräver värdar som kör virtuella datorer startas om. Microsoft-dokument som de olika fallen i [Underhåll för virtuella datorer i Azure](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates). För att minimera de sällsynta fall där virtuella datorer tvingas att starta om, men ännu viktigare för fall du behöver patch-gästoperativsystem eller DBMS-komponenter, som du behöver utveckla en giltig hög tillgänglighet begrepp för dina SAP-system för produktion. Det här kravet är inte något annat sätt än de krav som du stöter på en lokal. Microsoft främjar stadigt Azure-plattformen för att minska stilleståndstiden som orsakats av plattformsändringar av. 
 
 För att kunna distribuera ett SAP-system till Azure, lokala SAP-system operativsystem, databas, och SAP-program måste visas på stödmatris SAP Azure passar med resurserna i Azure-infrastruktur kan ge och som fungerar med tillgänglighet serviceavtal i Microsoft Azure-erbjudanden. Eftersom dessa system identifieras måste du välja något av följande två scenarier.
+
+
 
 
 
@@ -1006,7 +1001,7 @@ Azure-infrastruktur som en tjänst är inte en enkelriktad gata endast att kunna
 
 Under tiden för hämtningen kan inte virtuella hårddiskar eller hanterade diskar aktiveras. Även vid hämtning av diskar som är monterade till virtuella datorer, måste den virtuella datorn stängs av och frigörs. Om du bara vill ladda ned databasinnehållet som ska användas för att ställa in ett nytt system på plats och om du accepterar den under tiden för hämtningen och installationen av det nya systemet som systemet i Azure kan fortfarande finnas operativa , du kan undvika ett långt avbrott genom att utföra en komprimerad databassäkerhetskopia till en disk och bara hämta disken istället för att också hämta den grundläggande OS-VM.
 
-#### <a name="powershell"></a>PowerShell
+#### <a name="powershell"></a>Powershell
 
 * Ladda ned en hanterad Disk  
   Du måste först få åtkomst till den underliggande blobben för den hanterade disken. Du kan sedan kopiera underliggande bloben till ett nytt lagringskonto och ladda ned bloben från det här lagringskontot.
@@ -1066,7 +1061,7 @@ Datadiskar kan sparas som VHD-filer i ett Azure Storage-konto och kan kopplas di
 
 Datadiskar kan också vara Managed Disks. I det här fallet används den hanterade disken för att skapa en ny hanterad Disk innan som kopplas till den virtuella datorn. Namnet på den hanterade disken måste vara unika inom en resursgrupp.
 
-##### <a name="powershell"></a>PowerShell
+##### <a name="powershell"></a>Powershell
 
 Du kan använda Azure PowerShell-cmdletar för att kopiera en virtuell Hårddisk som du ser i [i den här artikeln][storage-powershell-guide-full-copy-vhd]. Använda New-AzDiskConfig och New-AzDisk för att skapa en ny hanterad Disk, som visas i följande exempel.
 
@@ -1094,7 +1089,7 @@ Professionella utgåvor av Azure Storage-Utforskare finns här:
 
 Kopia av en virtuell Hårddisk själva i ett lagringskonto är en process som tar bara några sekunder (liknar SAN-maskinvaran skapa ögonblicksbilder med lazy kopia och kopiering vid skrivning). När du har en kopia av VHD-filen kan du koppla den till en virtuell dator eller använda den som en bild för att bifoga kopior av den virtuella Hårddisken till virtuella datorer.
 
-##### <a name="powershell"></a>PowerShell
+##### <a name="powershell"></a>Powershell
 
 ```powershell
 # attach a vhd to a vm
@@ -1140,7 +1135,7 @@ az vm disk attach --disk <new disk name or managed disk id> --resource-group <re
 #### <a name="9789b076-2011-4afa-b2fe-b07a8aba58a1"></a>Kopierar diskar mellan Azure Storage-konton
 Den här uppgiften kan inte utföras på Azure portal. Du kan använda Azure PowerShell-cmdletar, Azure CLI eller en webbläsare för lagringssystem från tredje part. PowerShell-cmdlets eller CLI-kommandon kan skapa och hantera blobbar, bland annat möjligheten att kopiera BLOB asynkront mellan Lagringskonton och mellan regioner inom samma Azure-prenumeration.
 
-##### <a name="powershell"></a>PowerShell
+##### <a name="powershell"></a>Powershell
 Du kan också kopiera virtuella hårddiskar mellan prenumerationer. Mer information finns i [i den här artikeln][storage-powershell-guide-full-copy-vhd].
 
 Det grundläggande flödet av logik för PS-cmdlet: en ut så här:
@@ -1379,7 +1374,7 @@ Antas att du skapat en VM-avbildning som beskrivs i vissa avsnitt i kapitel [fö
 
 En händelsesekvens att implementera scenariot ser ut så här:
 
-##### <a name="powershell"></a>PowerShell
+##### <a name="powershell"></a>Powershell
 
 * Skapa en ny resursgrupp för varje utbildning/demo liggande
 
@@ -1634,7 +1629,7 @@ I tabellen nedan vanliga SAP visas kommunikationsportar. Är tillräckliga för 
 
 <!-- sapms is prefix of a SAP service name and not a spelling error -->
 
-| Tjänst | Portnamn | Exempel `<nn`> = 01 | Standardintervall (min – max) | Kommentar |
+| Tjänst | Portnamn | Exempel `<nn`> = 01 | Standardintervall (min – max) | Kommentera |
 | --- | --- | --- | --- | --- |
 | Dispatchern |sapdp`<nn>` se * |3201 |3200 - 3299 |SAP-Dispatcher, används av SAP-Gränssnittet för Windows och Java |
 | Meddelande-server |sapms`<sid`> se ** |3600 |kostnadsfria sapms`<anySID`> |sid = SAP-System-ID |

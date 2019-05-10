@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b39d9788372fb0f682bc1e5b737542b400dd4035
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 43ca5bbfd789c1c41826c9a13a0030b80c72d4bc
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919689"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510660"
 ---
 # <a name="update-management-solution-in-azure"></a>Lösningen för uppdateringshantering i Azure
 
@@ -583,7 +583,7 @@ De här grupperna definieras av en fråga, när en uppdateringsdistribution bör
 
 * Prenumeration
 * Resursgrupper
-* Platser
+* Sökvägar
 * Taggar
 
 ![Välj grupper](./media/automation-update-management/select-groups.png)
@@ -634,7 +634,7 @@ Uppdateringshantering kan dock fortfarande att rapportera den datorn som icke-ko
 
 Distribuera uppdateringar med klassificeringen fungerar inte på CentOS direkt ur lådan. För att korrekt distribuera uppdateringar för CentOS, Välj alla klassificeringar för att se till att uppdateringar tillämpas. För SUSE, att välja *endast* andra uppdateringar som klassificeringen resultera i att vissa uppdateringar installeras även om säkerhetsuppdateringar rör zypper (package manager) eller dess beroenden krävs först. Det här beteendet är en begränsning av zypper. I vissa fall kan behöva du köra distributionen av uppdateringen. Du kan kontrollera genom att kontrollera update-loggen.
 
-## <a name="remove-a-vm-for-update-management"></a>Ta bort en virtuell dator för hantering av uppdateringar
+## <a name="remove-a-vm-from-update-management"></a>Ta bort en virtuell dator från hantering av uppdateringar
 
 Ta bort en virtuell dator från hantering av uppdateringar:
 

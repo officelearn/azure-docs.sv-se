@@ -2,18 +2,18 @@
 title: Azure Monitor - noll instrumentation programövervakning för Kubernetes värdbaserade appar | Microsoft Docs
 description: Noll instrumentation programövervakning för Kubernetes som värd för appar är en lösning för övervakning som gör det möjligt att samla in Application Insights telemetry som hör till inkommande och utgående förfrågningar till och från poddar som körs i Kubernetes-klustret genom att använda tjänsten nät teknik kallas Istio.
 services: application-insights
-author: rishabjolly
+author: tokaplan
 manager: carmonm
 ms.service: application-insights
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.author: rijolly
-ms.openlocfilehash: 73f95ab75b49fb8ec5b61f6e30080f8f6d474c16
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.author: alkaplan
+ms.openlocfilehash: 42b81ec0fa01841791a5b2651d1c1189db5e27ff
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149881"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408212"
 ---
 # <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-apps"></a>Noll instrumentering av program för Kubernetes-värdappar
 
@@ -34,7 +34,7 @@ Azure Monitor använder nu service nät teknisk på Kubernetes-kluster för att 
 - En [Application Insights-resurs](create-new-resource.md)
 - Ha ett tjänst-nät. Om klustret inte har distribuerats Istio, kan du lära dig hur du [installera och använda Istio i Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/istio-install).
 
-## <a name="capabilities"></a>Funktioner
+## <a name="capabilities"></a>FUNKTIONER
 
 Med hjälp av noll instrumentation programövervakning för Kubernetes värdbaserade appar, kommer du att kunna använda:
 
@@ -130,7 +130,7 @@ Nedan är felsökning flödet ska användas när telemetri inte visas i Azure-po
    ```
    Leta efter fel, särskilt om kommunikation med *applicationinsightsadapter* nätverkskort.
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor
 
 Den senaste informationen för status för det här projektet, finns det [Application Insights-adapter för Istio Mixer projektets GitHub](https://github.com/Microsoft/Application-Insights-Istio-Adapter/blob/master/SETUP.md#faq).
 

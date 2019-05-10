@@ -9,12 +9,12 @@ ms.date: 4/29/2019
 ms.author: mhopkins
 ms.reviewer: yzheng
 ms.subservice: common
-ms.openlocfilehash: 130eb9cc8bec4681f5c0d165735c6c3b2357576c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.openlocfilehash: 560f7eb8a8809cdd6ef410a610be9806f9709754
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148324"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409961"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Hantera livscykeln för Azure Blob-lagring
 
@@ -87,7 +87,7 @@ Du kan definiera och distribuera livscykelhantering som en del av distributionen
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {},
   "variables": {
@@ -154,10 +154,10 @@ En princip är en samling regler:
 
 Varje regel i principen har flera parametrar:
 
-| Parameternamn | Parametertyp | Anteckningar | Krävs |
+| Parameternamn | Parametertyp | Anteckningar | Obligatoriskt |
 |----------------|----------------|-------|----------|
 | namn           | String |Ett regelnamn kan innehålla upp till 256 alfanumeriska tecken. Regelnamnet är skiftlägeskänsligt.  Det måste vara unika inom en princip. | True |
-| enabled | Boolean | Ett valfritt booleskt värde att tillåta en regel för att vara tillfälligt inaktiverats. Standardvärdet är SANT om det inte har angetts. | False | 
+| enabled | Boolean | Ett valfritt booleskt värde att tillåta en regel för att vara tillfälligt inaktiverats. Standardvärdet är SANT om det inte har angetts. | Falskt | 
 | typ           | Ett uppräkningsvärde | Den aktuella giltiga typen är `Lifecycle`. | True |
 | definition     | Ett objekt som definierar regeln för livscykel | Varje definition består av ett filter och en åtgärd. | True |
 
@@ -221,9 +221,9 @@ Livscykelhantering stöder blobnivåindelning och borttagning av blobar och bort
 
 | Åtgärd        | Grundläggande Blob                                   | Ögonblicksbild      |
 |---------------|---------------------------------------------|---------------|
-| tierToCool    | Stöd för blobar för närvarande på frekvent nivå         | Stöds inte |
-| tierToArchive | Stöd för blobar för närvarande på frekvent eller lågfrekvent nivå | Stöds inte |
-| delete        | Stöds                                   | Stöds     |
+| tierToCool    | Stöd för blobar för närvarande på frekvent nivå         | Stöds ej |
+| tierToArchive | Stöd för blobar för närvarande på frekvent eller lågfrekvent nivå | Stöds ej |
+| radera        | Stöds                                   | Stöds     |
 
 >[!NOTE] 
 >Om du definierar mer än en åtgärd på samma blob gäller livscykelhantering den billigaste åtgärden blob. Till exempel åtgärden `delete` är billigare än åtgärd `tierToArchive`. Åtgärden `tierToArchive` är billigare än åtgärd `tierToCool`.
@@ -346,7 +346,7 @@ För data som ändras och komma åt regelbundet under hela dess livslängd, anv�
   ]
 }
 ```
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR 
+## <a name="faq"></a>Vanliga frågor 
 **Jag har skapat en ny princip, varför åtgärderna som inte körs direkt?**  
 Plattformen körs policyn för onlinelivscykeln en gång om dagen. När du konfigurerar en princip, kan det ta upp till 24 timmar för vissa åtgärder (till exempel lagringsnivåer och borttagning) körs för första gången.  
 

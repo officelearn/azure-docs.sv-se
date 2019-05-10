@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/09/2018
 ms.author: sngun
-ms.openlocfilehash: 83a866b20d2802b7d49363b7c6451356e938eac1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3c420882b734883039ec95d609c155617359fa25
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60626850"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510721"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK för SQL-API: Ladda ned och viktig information
 > [!div class="op_single_selector"]
@@ -47,6 +47,20 @@ ms.locfileid: "60626850"
 * Ny objektmodell med översta CosmosClient och metoder dela upp på relevanta CosmosDatabases, CosmosContainers och CosmosItems klasser. 
 * Stöd för strömmar. 
 * Uppdatera CosmosResponseMessage från servern för att returnera statuskod och utlöser undantag endast när inget svar returneras. 
+
+### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
+
+* SDK: er System.Net.Http versionen matchar det som definieras i NuGet-paketet
+* Ökat decimalprecision storleken för LINQ-frågor.
+* Har lagts till nya klasser CompositePath, CompositePathSortOrder, SpatialSpec, SpatialType och PartitionKeyDefinitionVersion
+* Har lagts till TimeToLivePropertyPath till dokumentsamling
+* Har lagts till CompositeIndexes och SpatialIndexes till IndexPolicy
+* Har lagts till versionen till PartitionKeyDefinition
+* Lagt till ingen till PartitionKey
+
+### <a name="a-name230230"></a><a name="2.3.0"/>2.3.0
+
+ * Har lagts till IdleTcpConnectionTimeout, OpenTcpConnectionTimeout, MaxRequestsPerTcpConnection och MaxTcpConnectionsPerEndpoint till ConnectionPolicy.
 
 ### <a name="a-name223223"></a><a name="2.2.3"/>2.2.3
 
@@ -361,6 +375,8 @@ Alla begäranden till Azure Cosmos DB med hjälp av en pensionerad SDK avvisas a
 
 | Version | Utgivningsdatum | Slutdatum |
 | --- | --- | --- |
+| [2.4.0](#2.4.0) |05 maj 2019 |--- |
+| [2.3.0](#2.3.0) |04 april 2019 |--- |
 | [2.2.3](#2.2.3) |11 februari 2019 |--- |
 | [2.2.2](#2.2.2) |06 februari 2019 |--- |
 | [2.2.1](#2.2.1) |24 december 2018 |--- |
@@ -418,7 +434,7 @@ Alla begäranden till Azure Cosmos DB med hjälp av en pensionerad SDK avvisas a
 | [1.0.0](#1.0.0) |08 april 2015 |--- |
 
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Se också

@@ -10,32 +10,34 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: ecb97860e70141a744833aa9b9a4fcea3f3688f0
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1a48f8620fb99f1cf8787dabc738d328a796d093
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149830"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510617"
 ---
 # <a name="quickstart-use-a-cloud-based-notebook-server-to-get-started-with-azure-machine-learning"></a>Snabbstart: Använd en molnbaserad notebook-server för att komma igång med Azure Machine Learning
 
 Skapa en molnbaserad notebook-server och sedan använda den.  I den här snabbstarten kör du Python-kod som loggar in värden i den [Azure Machine Learning-tjänstens arbetsyta](concept-azure-machine-learning-architecture.md). Den här arbetsytan är själva grunden i det moln som du använder för att experimentera, träna och distribuera maskininlärningsmodeller med Machine Learning. 
 
 Den här snabbstarten visar hur du skapar en molnresurs i Azure Machine Learning-arbetsytan som konfigurerats med Python-miljön krävs för att köra Azure Machine Learning. Om du vill använda din egen miljö i stället Se [snabbstarten: Använd din egen notebook-server för att komma igång med Azure Machine Learning](quickstart-run-local-notebook.md).  
- 
+
 I den här snabbstarten utför du följande åtgärder:
 
 * Skapa en ny molnbaserade notebook-server i din arbetsyta.
 * Starta Jupyter-webbgränssnittet.
 * Öppna en bärbar dator som innehåller kod för att beräkna pi och loggar fel vid varje iteration.
 * Köra anteckningsboken.
-* Visa loggade felvärdena i din arbetsyta. Det här exemplet visar hur arbetsytan kan hjälpa dig att hålla reda på information som genereras i ett skript. 
+* Visa loggade felvärdena i din arbetsyta. Det här exemplet visar hur arbetsytan kan hjälpa dig att hålla reda på information som genereras i ett skript.
 
-Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfria versionen eller betalversionen av Azure Machine Learning-tjänsten](https://aka.ms/AMLFree) i dag.
+Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfria eller betalversionen av Azure Machine Learning-tjänsten](https://aka.ms/AMLFree) idag.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="create-a-workspace"></a>Skapa en arbetsyta
 
-- En Azure Machine Learning-arbetsyta.  [Skapa din arbetsyta](setup-create-workspace.md#portal) nu om du inte har något.
+Om du har en arbetsyta för Azure Machine Learning-tjänsten kan gå vidare till den [nästa avsnitt](#create-a-cloud-based-notebook-server). Annars kan skapa en nu.
+
+[!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
 ## <a name="create-a-cloud-based-notebook-server"></a>Skapa en molnbaserad notebook-server
 
@@ -57,7 +59,6 @@ Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan
     ![Skapa en ny virtuell dator](media/quickstart-run-cloud-notebook/create-new-workstation.png)
 
 1. Väntar du cirka 4 – 5 minuter, tills status ändras till **kör**.
-
 
 ## <a name="launch-jupyter-web-interface"></a>Starta Jupyter webbgränssnitt
 
@@ -102,10 +103,9 @@ Kör en bärbar dator som beräknar pi och loggas felet i din arbetsyta.
 
     I den största kodcellen visas `run.log` på flera platser. Varje `run.log` lägger till dess värde till din arbetsyta.
 
-
 ## <a name="view-logged-values"></a>Visa loggade värden
 
-1. Utdata från `run`-cellen innehåller en länk tillbaka till Azure-portalen för att visa experimentresultatet på din arbetsyta. 
+1. Utdata från `run`-cellen innehåller en länk tillbaka till Azure-portalen för att visa experimentresultatet på din arbetsyta.
 
     ![Visa experiment](./media/quickstart-run-cloud-notebook/view-exp.png)
 
@@ -117,7 +117,7 @@ Kör en bärbar dator som beräknar pi och loggas felet i din arbetsyta.
 
 Eftersom koden för att göra en uppskattning av pi använder slumpmässiga värden visar dina diagram olika värden.  
 
-## <a name="clean-up-resources"></a>Rensa resurser 
+## <a name="clean-up-resources"></a>Rensa resurser
 
 ### <a name="stop-the-notebook-vm"></a>Stoppa anteckningsboken VM
 

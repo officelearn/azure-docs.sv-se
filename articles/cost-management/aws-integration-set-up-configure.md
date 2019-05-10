@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: ormaoz
 ms.custom: ''
-ms.openlocfilehash: a7a020284f44eda0da62f307866c74b0a8df493d
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: e87e95ec9e4e20ee4785c2b1f448a7ca5f442b8a
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205704"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409199"
 ---
 # <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>Installera och konfigurera AWS kostnader och användning rapport-integrering
 
@@ -38,7 +38,7 @@ Använd den **rapporter** sidan i konsolen för fakturering och kostnadshanterin
 7. För **aktivera stöd för**, ingen markering krävs.
 8. För **inställningar för datauppdatering**väljer **automatiskt uppdatera dina kostnader &amp; användningsrapporten när avgifter identifieras i föregående månader med stängd fakturor**.
 9. Klicka på **Nästa**.
-10. För **Amazon S3-bucket**, skriver du namnet på Amazon S3-bucket där du vill att rapporter som levereras till och klickar på **Kontrollera**. Bucket måste ha behörighet att vara giltigt. Läs mer om att lägga till behörigheter i bucketen [inställningen Bucket och åtkomstbehörigheter för objektet](http://docs.aws.amazon.com/AmazonS3/latest/user-guide/set-permissions.html).
+10. För **Amazon S3-bucket**, skriver du namnet på Amazon S3-bucket där du vill att rapporter som levereras till och klickar på **Kontrollera**. Bucket måste ha behörighet att vara giltigt. Läs mer om att lägga till behörigheter i bucketen [inställningen Bucket och åtkomstbehörigheter för objektet](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/set-permissions.html).
 11. För **rapporten sökvägsprefix**, ange det prefix för rapporten sökväg som ska läggas till i namnet på rapporten.
 12. För **komprimering**väljer **GZIP**.
 13. Klicka på **Nästa**.

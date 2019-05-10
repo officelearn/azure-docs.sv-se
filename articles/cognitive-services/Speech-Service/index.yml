@@ -18,7 +18,19 @@ metadata:
   ms.author: erhopf
   ms.custom: seodec18
 abstract:
-  description: 'Lär dig hur du använder Speech Services och Speech för att lägga till stöd för talfunktioner till dina appar. Du kan använda Speech SDK för att lägga till funktionerna <i>tal till text</i> (taligenkänning/SR) <i>avsikt</i>, <i>översättning</i> och <i>text till tal</i> (text till tal) i dina appar. Taltjänsterna har även REST-API:er som kan användas med alla programmeringsspråk som kan göra HTTP-begäranden.'
+  description: |
+    Lär dig hur du använder taltjänsterna med REST-API: er eller med vårt tal-SDK för att lägga till talaktiverade funktioner i dina appar. Du kan använda vårt tal-SDK för att lägga till följande funktioner (och fler) i dina appar&colon; 
+    <div class="row" style="font-size:16px"><div class="column"><ul>
+    <li><b><a href="speech-to-text.md">tal-till-text</a></b> (taligenkänning)</li>
+    <li><b><a href="speech-devices-sdk-create-kws.md">anpassade väckningsord</a></b> (nyckelordsidentifiering)</li>
+    <li><b><a href="how-to-recognize-intents-from-speech-csharp.md">avsikt</a></b></li>
+    <li><b><a href="speech-translation.md">översättning</a></b></li>
+    <li><b><a href="speech-container-howto.md">lokal container</a></b></li></ul></div><div class="column"><ul>
+    <li><b><a href="text-to-speech.md">text-till-tal</a></b> (TTS)</li>
+    <li><b><a href="conversation-transcription-service.md">samtalstranskription</a></b> (CTS)</li>
+    <li><b><a href="how-to-phrase-lists.md">anpassning av fraslista</a>/<a href="how-to-custom-speech.md">anpassning av anpassat tal</a></b></li>
+    <li><b><a href="voice-first-virtual-assistants.md">virtuell röstassistent</a></b></li>
+    <li><b><a href="call-center-transcription.md">kundtjänsttranskription</a></b></li></ul></div></div>
 sections:
   - items:
       - type: list
@@ -44,7 +56,7 @@ sections:
   - title: Snabbstarter på 5 minuter
     items:
       - type: paragraph
-        text: 'Lär dig hur du laddar ned, installerar och använd SDK:n genom att välja en länk <img src="media/index/link.jpg" height="15" width="15"></img>.'
+        text: 'Lär dig hur du laddar ned, installerar och använd SDK:n genom att välja en länk <img src="media/index/link.jpg" height="15" width="15"></img>.<br/><br/>Alla pillänkarna <img src="media/index/link.jpg" height="15" width="15"></img> leder som standard till en snabbstart om tal-till-text. Därifrån kan du välja andra snabbstarter (<a href="scenario-availability.md">om tillgängligt</a>) som text-till-tal eller virtuell röstassistent.'
       - type: table
         style: dataMatrix
         columns:

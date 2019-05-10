@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 05/02/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 113c894122fe2b0673dfb47f8a9c0cbecf4c6290
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 45421a249642abf37c89aa33e2e8a1b4a9e5e497
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205068"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507007"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Distribuera modeller med Azure Machine Learning-tjänsten
 
@@ -42,7 +42,7 @@ Mer information om begrepp som ingår i arbetsflödet finns i [hantera, distribu
 
 ## <a name="prerequisites-for-deployment"></a>Krav för distribution
 
-- En modell. Om du inte har en tränad modell, du kan använda modellen och beroendefiler som anges i [den här självstudien](http://aka.ms/azml-deploy-cloud).
+- En modell. Om du inte har en tränad modell, du kan använda modellen och beroendefiler som anges i [den här självstudien](https://aka.ms/azml-deploy-cloud).
 
 - Den [Azure CLI-tillägg för Machine Learning-tjänsten](reference-azure-machine-learning-cli.md), eller [Azure Machine Learning Python SDK](https://aka.ms/aml-sdk).
 
@@ -200,7 +200,7 @@ I det här exemplet innehåller konfigurationen följande objekt:
 
 Information om InferenceConfig funktioner finns i den [avancerad konfiguration](#advanced-config) avsnittet.
 
-### <a name="3-define-your-deployment-configuration"></a>3. Definiera din distributionskonfiguration
+### <a name="3-define-your-deployment-configuration"></a>3 Definiera din distributionskonfiguration
 
 Innan du distribuerar, måste du definiera distributionskonfigurationen. Distributionskonfigurationen är specifik för beräkningsmål som är värd för webbtjänsten. När du distribuerar lokalt måste du ange den port där tjänsten tar emot förfrågningar.
 
@@ -458,7 +458,7 @@ Azure Machine Learning Compute mål skapas och hanteras av Azure Machine Learnin
 En genomgång av batch inferens med beräkning av Azure Machine Learning finns det [hur du kör Batch-förutsägelser](how-to-run-batch-predictions.md) artikeln.
 
 ## <a id="iotedge"></a> Inferens på IoT Edge
-Stöd för att distribuera till edge genomgår förhandsgranskning. Mer information finns i den [distribuera Azure Machine Learning som en IoT Edge-modul](https://docs.microsoft.com/en-us/azure/iot-edge/tutorial-deploy-machine-learning) artikeln.
+Stöd för att distribuera till edge genomgår förhandsgranskning. Mer information finns i den [distribuera Azure Machine Learning som en IoT Edge-modul](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-machine-learning) artikeln.
 
 ## <a name="next-steps"></a>Nästa steg
 * [Felsökning av distribution](how-to-troubleshoot-deployment.md)

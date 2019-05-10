@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: normesta
-ms.openlocfilehash: 61d168a5f501923812db5945fa6df439ae7e70f9
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 27adc0eeeabed2b1f2e86f301a60604a3d358b82
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65145110"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65464728"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Kända problem med Azure Data Lake Storage Gen2
 
@@ -57,6 +57,7 @@ I följande tabell visas alla andra funktioner och verktyg som ännu inte stöds
 | **AzCopy** | Version supportavtal <br><br>Använd den senaste versionen av AzCopy ([AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)). Tidigare versioner av AzCopy, till exempel AzCopy v8.1 stöds inte.|
 | **Azure Blob storage-principer för hantering av livscykeln** | Stöds inte än |
 | **Azure Content Delivery Network (CDN)** | Stöds inte än|
+| **Azure Event Grid** | Stöds inte än |
 | **Azure search** |Stöds inte än|
 | **Azure Storage Explorer** | Version supportavtal <br><br>Använd endast version `1.6.0` eller högre. <br>Version `1.6.0` är tillgänglig som en [kostnadsfri nedladdning](https://azure.microsoft.com/features/storage-explorer/).|
 | **BLOB-behållare ACL: er** |Stöds inte än|

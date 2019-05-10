@@ -6,16 +6,19 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 1d75d01df74a239ba865d9a4e2b216a410e6069c
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: ce99e03cbd767b5e25871397ea9ae9a301132ab6
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65067423"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510980"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Läsa repliker i Azure Database för PostgreSQL – enskild Server
 
-Läs replica-funktionen kan du replikera data från en Azure Database for PostgreSQL-server till en skrivskyddad server. Du kan replikera från huvudservern till upp till fem kopior på samma Azure-region. Repliker uppdateras asynkront med PostgreSQL-motorn interna replikeringsteknik.
+Läs replica-funktionen kan du replikera data från en Azure Database for PostgreSQL-server till en skrivskyddad server. Du kan replikera från huvudservern till upp till fem repliker. Repliker uppdateras asynkront med PostgreSQL-motorn interna replikeringsteknik.
+
+> [!IMPORTANT]
+> Du kan skapa en skrivskyddad replik i samma region som din huvudservern eller i alla andra Azure-regioner valfri. Replikering över flera regioner är för närvarande i offentlig förhandsversion.
 
 Repliker är nya servrar som du hanterar liknar vanliga Azure Database for PostgreSQL-servrar. Var finns replik du faktureras för den etablerade beräkningen i virtuella kärnor och lagring i GB / månad.
 
@@ -29,6 +32,8 @@ Ett vanligt scenario är att ha BI och analytiska arbetsbelastningar använder d
 Eftersom repliker är skrivskyddade, minska inte de direkt behovet av write-kapacitet på huvudmålservern. Den här funktionen är inte riktad mot write-intensiva arbetsbelastningar.
 
 Läs replica-funktionen använder asynkron replikering för PostgreSQL. Funktionen är inte avsedd för synkron replikeringsscenarier. Det blir en mätbara fördröjning mellan huvudservern och repliken. Data på repliken blir så småningom konsekventa med data i bakgrunden. Använd denna funktion för arbetsbelastningar som kan hantera den här fördröjningen.
+
+Läs repliker kan förbättra din haveriberedskapsplan. Du måste först ha en replik i en annan Azure-region från huvuddatabasen. Om det finns en region katastrof kan du stoppa replikering till den repliken och omdirigera arbetsbelastningen till den. Stoppa replikering kan repliken för att börja ta emot skrivningar, samt läser. Läs mer i den [replikeringsstopp](#stop-replication) avsnittet. 
 
 ## <a name="create-a-replica"></a>Skapa en replik
 Huvudservern måste ha den `azure.replication_support` parameteruppsättning till **REPLIKEN**. När den här parametern har ändrats, krävs en omstart av servern för att ändringen ska börja gälla. (Den `azure.replication_support` parametern gäller för generell användning och Minnesoptimerad nivåer endast).
@@ -47,7 +52,7 @@ När du skapar en replik, ärver den inte brandväggsregler eller VNet-tjänstsl
 
 Repliken ärver administratörskontot som från huvudservern. Alla användarkonton på huvudservern replikeras till de skrivskyddade replikerna. Du kan bara ansluta till en skrivskyddad replik med hjälp av användarkonton som är tillgängliga på huvudservern.
 
-Du kan ansluta till repliken med hjälp av dess värdnamn och ett giltigt användarkonto, precis som på en vanlig Azure-databas för PostgreSQL-server. För en server med namnet **myreplica** med administratörsanvändarnamnet **myadmin**, du kan ansluta till repliken med hjälp av psql:
+Du kan ansluta till repliken med hjälp av dess värdnamn och ett giltigt användarkonto, precis som på en vanlig Azure-databas för PostgreSQL-server. För en server med namnet **repliken** med administratörsanvändarnamnet **myadmin**, du kan ansluta till repliken med hjälp av psql:
 
 ```
 psql -h myreplica.postgres.database.azure.com -U myadmin@myreplica -d postgres
@@ -63,7 +68,7 @@ Azure Database för PostgreSQL innehåller också de **repliken fördröjning** 
 Måttet beräknas från de `pg_stat_wal_receiver` vy:
 
 ```SQL
-EXTRACT (EPOCH FROM now() - pg_last_xact_replay_timestamp())
+EXTRACT (EPOCH FROM now() - pg_last_xact_replay_timestamp());
 ```
 
 Repliken fördröjning måttet visar tiden sedan den senaste uppspelat transaktionen. Om det finns inga transaktioner som inträffar på dina huvudservern, visar den här tidsförskjutningen i måttet.
@@ -96,6 +101,8 @@ Du kan stoppa replikering mellan en och en replik. Stoppa medför repliken att s
 > Den fristående servern kan inte göras i en replik igen.
 > Kontrollera att repliken har alla data som du behöver innan du stoppa replikering på en skrivskyddad replik.
 
+När du stoppar replikeringen förlorar repliken alla länkar till dess tidigare huvud- och andra repliker. Det finns ingen automatisk växling mellan huvud- och repliken. 
+
 Lär dig hur du [Stoppa replikering till en replik](howto-read-replicas-portal.md).
 
 
@@ -107,7 +114,7 @@ Det här avsnittet sammanfattas överväganden om skrivskyddade replica-funktion
 Innan du skapar en skrivskyddad replik i `azure.replication_support` parametern måste anges till **REPLIKEN** på huvudservern. När den här parametern har ändrats, krävs en omstart av servern för att ändringen ska börja gälla. Den `azure.replication_support` parametern gäller för generell användning och Minnesoptimerad nivåer endast.
 
 ### <a name="new-replicas"></a>Nya repliker
-En skrivskyddad replik skapas som en ny Azure Database for PostgreSQL-server. En befintlig server kan inte göras i en replik. En skrivskyddad replik kan bara skapas i samma Azure-region som huvudserver. Du kan inte skapa en replik av en annan skrivskyddade replik.
+En skrivskyddad replik skapas som en ny Azure Database for PostgreSQL-server. En befintlig server kan inte göras i en replik. Du kan inte skapa en replik av en annan skrivskyddade replik.
 
 ### <a name="replica-configuration"></a>Repliken konfiguration
 En replik skapas med hjälp av samma serverkonfiguration som huvudserver. När en replik skapas flera inställningar kan ändras oberoende från huvudservern: compute-generering, vCores, lagring och kvarhållningsperiod för säkerhetskopiering. Prisnivån kan också ändras oberoende av varandra, förutom till eller från Basic-nivån.

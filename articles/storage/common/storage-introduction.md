@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 175cc03dac21280a5e3ef3ec130cb94bc800f540
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 094c8d45f7f6099b169e25c89dbfc4a7d6522dfc
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153911"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510942"
 ---
 # <a name="introduction-to-azure-storage"></a>Introduktion till Azure Storage
 
@@ -36,7 +36,7 @@ I Azure Storage finns dessa datatjänster:
 
 Varje tjänst nås via ett lagringskonto. För att komma igång läser du [Skapa ett lagringskonto](storage-quickstart-create-account.md).
 
-## <a name="blob-storage"></a>Blob Storage
+## <a name="blob-storage"></a>Blobblagring
 
 Azure Blob Storage är Microsofts objektlagringslösning för molnet. Blob Storage är optimerat för att lagra stora mängder ostrukturerade data, exempelvis text eller binära data. 
 
@@ -77,7 +77,7 @@ Anta exempelvis att du vill att kunderna ska kunna ladda upp bilder och du vill 
 
 Mer information om Azure Queues finns i [introduktionen till Queues](../queues/storage-queues-introduction.md).
 
-## <a name="table-storage"></a>Table Storage
+## <a name="table-storage"></a>Tabellagring
 
 Azure Table Storage är nu en del av Azure Cosmos DB. Du hittar dokumentationen till Azure Table Storage i [Översikt över Azure Table Storage](../tables/table-storage-overview.md). Utöver den befintliga Azure Table Storage-tjänsten finns ett nytt tabell-API för Azure Cosmos DB som tillhandahåller genomströmningsoptimerade tabeller, global distribution och automatiska sekundärindex. Om du vill veta mer om och prova den nya premiumtjänsten går du till avsnittet [Tabell-API för Azure Cosmos DB](https://aka.ms/premiumtables).
 
@@ -158,7 +158,7 @@ Azure Storage-resurser kan nås med alla språk som kan skicka HTTP/HTTPS-förfr
 
 ### <a name="azure-storage-data-movement-api-and-library-references"></a>Referenser till Azure Storage-dataflyttnings-API och -bibliotek
 * [REST-API för Storage Import/Export Service](https://docs.microsoft.com/rest/api/storageimportexport/)
-* [Klientbibliotek för Storage Data Movement för .NET](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.datamovement)
+* [Klientbibliotek för Storage Data Movement för .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.datamovement)
 
 ### <a name="tools-and-utilities"></a>Verktyg och hjälpmedel
 * [Azure PowerShell-cmdletar för Storage](https://docs.microsoft.com/powershell/module/az.storage)

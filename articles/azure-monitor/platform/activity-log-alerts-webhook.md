@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: johnkem
 ms.subservice: alerts
-ms.openlocfilehash: 9b86df3d08ec6dfcb3100cff333c4dc5653ee1c7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8605e614574b7ebd45e9f18c4e5685a9c5450e64
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64688349"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409905"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhooks för aviseringar för Azure-aktivitetsloggar
 Som en del av definitionen av en åtgärdsgrupp kan konfigurera du webhook-slutpunkter för att få aviseringar för aktiviteten log. Du kan använda webhooks, för att vidarebefordra dessa meddelanden till andra system för efterbearbetning eller anpassade åtgärder. Den här artikeln visar hur nyttolast för HTTP-POST till en webhook som ser ut.
@@ -32,7 +32,7 @@ Webhooken kan du kan också använda tokenbaserad auktorisering för autentiseri
 ## <a name="payload-schema"></a>Nyttolast-schema
 JSON-nyttolasten i POST-åtgärden skiljer sig beroende på den nyttolast data.context.activityLog.eventSource fält.
 
-### <a name="common"></a>Common
+### <a name="common"></a>Delad
 ```json
 {
     "schemaId": "Microsoft.Insights/activityLogs",
@@ -156,7 +156,7 @@ JSON-nyttolasten i POST-åtgärden skiljer sig beroende på den nyttolast data.c
                 "resourceGroupName": "<resource group>",
                 "resourceProviderName": "Microsoft.Resourcehealth/healthevent/action",
                 "status": "Active",
-                "subscriptionId": "<subscription Id",
+                "subscriptionId": "<subscription Id>",
                 "submissionTimestamp": "2018-09-04T23:11:06.1607287+00:00",
                 "resourceType": "Microsoft.Compute/virtualMachines"
             }
@@ -176,7 +176,7 @@ Information om specifika schemat på alla andra aktivitetsloggaviseringar, se [�
 | resourceProviderName |Resursprovidern för resursen som påverkas. |
 | conditionType |Alltid ”händelse”. |
 | namn |Namnet på regeln. |
-| id |Resurs-ID för aviseringen. |
+| ID |Resurs-ID för aviseringen. |
 | description |Aviseringsbeskrivningen när aviseringen har skapats. |
 | subscriptionId |Azure-prenumerations-ID. |
 | tidsstämpel |Tid då händelsen genererades av Azure-tjänsten som bearbetade förfrågan. |

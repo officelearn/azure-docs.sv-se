@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/09/2018
 ms.author: shtabriz
-ms.openlocfilehash: 6b617ff99b9183c6b5008292dd3e5d11f2e69da9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3b3c967cd43745a4ae87fefc578282f5427a5f79
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60776922"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65405703"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>Skapa aviseringar för aktivitetsloggen för tjänstmeddelanden
 ## <a name="overview"></a>Översikt
@@ -36,6 +36,10 @@ Du kan också konfigurera som aviseringen ska skickas till:
 Läs mer om åtgärdsgrupper i [Skapa och hantera åtgärdsgrupper](../../azure-monitor/platform/action-groups.md).
 
 Information om hur du konfigurerar tjänsten hälsovarningar för meddelande med hjälp av Azure Resource Manager-mallar finns i [Resource Manager-mallar](alerts-activity-log.md).
+
+### <a name="watch-a-video-on-setting-up-your-first-azure-service-health-alert"></a>Se en video om hur du konfigurerar din första Azure Service Health-avisering
+
+>[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2OaXt]
 
 ## <a name="alert-and-new-action-group-using-azure-portal"></a>Aviseringar och ny åtgärdsgrupp med hjälp av Azure portal
 1. I den [portal](https://portal.azure.com)väljer **Tjänstehälsa**.
@@ -69,7 +73,7 @@ Information om hur du konfigurerar tjänsten hälsovarningar för meddelande med
 
 1. Definiera en lista över mottagare genom att tillhandahålla mottagarens:
 
-    a. **Namn**: Ange mottagarens namn, alias eller identifierare.
+    a. **Namn på**: Ange mottagarens namn, alias eller identifierare.
 
     b. **Åtgärdstyp**: Välj SMS, e-post, webhook, Azure-app med mera.
 
@@ -195,6 +199,8 @@ När du skapar en avisering, är det visas i den **aviseringar** delen av **öve
 * Inaktivera eller aktivera den, om du vill att tillfälligt stoppa eller återuppta tar emot meddelanden om aviseringen.
 
 ## <a name="next-steps"></a>Nästa steg
+- Lär dig mer om [bästa praxis för att konfigurera aviseringar för Azure Service Health](https://www.microsoft.com/en-us/videoplayer/embed/RE2OtUa).
+- Lär dig hur du [Konfigurera mobila push-meddelanden för Azure Service Health](https://www.microsoft.com/en-us/videoplayer/embed/RE2OtUw).
 - Lär dig hur du [konfigurera webhook-aviseringar för befintliga problem system](../../service-health/service-health-alert-webhook-guide.md).
 - Lär dig mer om [service health meddelanden](../../azure-monitor/platform/service-notifications.md).
 - Lär dig mer om [meddelande hastighetsbegränsning](../../azure-monitor/platform/alerts-rate-limiting.md).

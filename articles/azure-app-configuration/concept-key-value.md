@@ -12,14 +12,14 @@ ms.topic: overview
 ms.workload: tbd
 ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: 39367cbe6c001fc782fd899ee3a99b37ece70a77
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 4c741bb86242abfb03d01c902dbaa84d83491dd9
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64699908"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408746"
 ---
-# <a name="key-value-store"></a>Nyckelvärdeslagring
+# <a name="keys-and-values"></a>Nycklar och värden
 
 Konfiguration av Azure lagrar konfigurationsdata som nyckel / värde-par. Nyckel / värde-par är ett enkelt men flexibelt sätt som representerar olika typer av programinställningar som utvecklare är bekant med.
 
@@ -104,5 +104,5 @@ Som lagras i en appbutik för konfigurationen som innehåller alla nycklar och v
 
 ## <a name="next-steps"></a>Nästa steg
 
-> [!div class="nextstepaction"]
-> [Point-in-time-ögonblicksbild](./concept-point-time-snapshot.md)  
+* [Point-in-time-ögonblicksbild](./concept-point-time-snapshot.md)  
+* [Funktionen hantering](./concept-feature-management.md)  

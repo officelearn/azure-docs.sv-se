@@ -10,14 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 03/13/2019
 ms.author: erhopf
-ms.openlocfilehash: 34161989bf98f2605cbc2e238cb832523b2f23cb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: ba3529db07fcc3d92a8ca220dafbed9760a2b63a
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60619789"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65465526"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-net-framework"></a>Snabbstart: Översätta tal med Speech SDK för .NET Framework
+
+Snabbstarter kan också användas för [tal till text](quickstart-csharp-dotnet-windows.md) och och [text till tal](quickstart-text-to-speech-dotnet-windows.md).
 
 I den här snabbstarten skapar du ett enkelt .NET Framework-program som registrerar användarens tal från datorns mikrofon, översätter talet och transkriberar den översatta texten till kommandoraden i realtid. Det här programmet är utformat för att köras på 64-bitars Windows och är skapat med [Speech SDK NuGet-paketet](https://aka.ms/csspeech/nuget) och Microsoft Visual Studio 2017.
 

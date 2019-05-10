@@ -13,15 +13,15 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 04/18/2019
+ms.date: 05/07/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 91297a02966000899ab79dfb86446890e9c4439a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 4fb42014e2c5389cf2a849ddf5114ab1f59c9e28
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148704"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65414032"
 ---
 # <a name="azure-media-services-v3-overview"></a>Azure Media Services v3-översikt
 
@@ -48,7 +48,8 @@ Media Services hjälper dig att skapa en mängd olika mediearbetsflöden i molne
 
 Lär dig hur du kodar och paketerar innehåll, strömmar videor på begäran, sänder live och analyserar dina videoklipp med Media Services v3. Självstudier, API-referenser och annan dokumentation visar hur du säkert levererar ljud- eller videoströmmar på begäran och live, som kan skalas till miljontals användare.
 
-Innan du börjar utveckla granska [grundläggande begrepp](concepts-overview.md)<br/>
+> [!TIP]
+> Innan du börjar utveckla i:<br/>* [Grundläggande begrepp](concepts-overview.md) (incudes viktiga begrepp: paketering, kodning, skydda, osv.)<br/>* [Utveckla med API: er för Media Services v3](media-services-apis-overview.md) (innehåller information om hur du använder API: er, namngivningskonventioner, osv.)
 
 ### <a name="quickstarts"></a>Snabbstarter  
 
@@ -86,9 +87,5 @@ Kolla in den [Azure Media Services-community](media-services-community.md) artik
 
 ## <a name="next-steps"></a>Nästa steg
 
-Hur kan jag komma igång med v3? 
-
-> [!div class="nextstepaction"]
-> [Lär dig mer om grundläggande begrepp](concepts-overview.md)<br/>
-> [Utveckla med Media Services v3-API med SDK: er](developers-guide.md) 
+[Lär dig mer om grundläggande begrepp](concepts-overview.md)
 

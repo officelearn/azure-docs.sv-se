@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/12/2018
 ms.topic: conceptual
-ms.openlocfilehash: 693da06ce14a4854d5db49f588fa29d791060166
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fbb5f92258ff31dd7077bb1ade7fa7e5644c8bac
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61445709"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466886"
 ---
 # <a name="add-an-email-action"></a>Lägg till en e poståtgärd
 
@@ -102,11 +102,11 @@ Följande steg visar hur du ställer in och kontrollera e-poståtgärder manuell
 
 1. Klicka på den **Office 365-anslutningsappen**:
 
-    ![API-anslutning](./media/iot-accelerators-remote-monitoring-email-actions/apiconnector.png)
+    ![API-anslutning](./media/iot-accelerators-remote-monitoring-email-actions/apiconnector1.png)
 
 1. Klicka på banderollen för att påbörja auktoriseringsprocessen:
 
-    ![auktorisera](./media/iot-accelerators-remote-monitoring-email-actions/connector.png)
+    ![auktorisera](./media/iot-accelerators-remote-monitoring-email-actions/connector1.png)
 
 1. Klicka på **auktorisera**. Du uppmanas att logga in. Det konto som används för att logga in bör vara den e-postadressen programmet använder för att skicka e-postmeddelanden:
 
@@ -116,7 +116,7 @@ Följande steg visar hur du ställer in och kontrollera e-poståtgärder manuell
 
 1. Så här ändrar du den e-postadress som meddelanden skickas från **redigera API-anslutningen**.
 
-    ![ändra e-post](./media/iot-accelerators-remote-monitoring-email-actions/editemail.png)
+    ![ändra e-post](./media/iot-accelerators-remote-monitoring-email-actions/editemail1.png)
 
 ### <a name="owner-role-outlook-setup"></a>Installationen av ägare roll för Outlook
 
@@ -142,7 +142,7 @@ Följande steg hjälper dig att logga in och konfigurera e poståtgärder:
 
 Out-of the box, lösningsacceleratorn för fjärrövervakning innehåller en grundläggande HTML-mall för e-postmeddelanden för åtgärden. E-postmallen används värden från inställningarna för e-post-åtgärd. Här är ett exempel e-postmeddelande:
 
-![e-exempel](./media/iot-accelerators-remote-monitoring-email-actions/emailtemplate.png)
+![e-exempel](./media/iot-accelerators-remote-monitoring-email-actions/emailtemplate1.png)
 
 Följande steg visar hur du redigerar HTML-e-postmallen. Du kan till exempel ta med mer information eller lägga till anpassade avbildningar:
 

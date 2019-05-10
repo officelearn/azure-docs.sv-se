@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 1e3a27f953246ce29de419949362c23b8932b0d5
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 962e2b10136cf1cbab7cc5d3d06059922c363b15
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073494"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410276"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>PostgreSQL-tillägg i Azure Database för PostgreSQL – enskild Server
 PostgreSQL ger möjlighet att utöka funktionerna i din databas med tillägg. Tillägg kan paketera flera relaterade SQL-objekt tillsammans i ett enda paket som kan läsas in eller tas bort från databasen med ett enda kommando. Tillägg kan fungera som gör de inbyggda funktionerna för efter att läsas in i databasen. Läs mer på PostgreSQL-tillägg, [paketering relaterade objekt i ett tillägg](https://www.postgresql.org/docs/9.6/static/extend-extensions.html).
@@ -73,7 +73,6 @@ I tabellerna nedan listas de standard PostgreSQL-tillägg som för närvarande s
 > | **Tillägget** | **Beskrivning** |
 > |---|---|
 > | [plpgsql](https://www.postgresql.org/docs/9.6/static/plpgsql.html) | PL/pgSQL kan läsas in procedurmässig språk. |
-> | [plv8](https://plv8.github.io/) | Ett Javascript-språktillägg för PostgreSQL som kan användas för lagrade procedurer, utlösare, osv. |
 
 ### <a name="miscellaneous-extensions"></a>Diverse tillägg
 

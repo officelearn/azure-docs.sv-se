@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 43f783617c36d30aa1fd65cce580bb5e666afed1
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 5973cfc955cfce0ec1b073ac96bd68f07f093087
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65021484"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409111"
 ---
 # <a name="speech-devices-sdk-license-agreement"></a>Licensavtal för tal Devices SDK
 
@@ -32,7 +32,7 @@ Dessa licensvillkor utgör ett avtal mellan dig och Microsoft Corporation (eller
 
     (a) Allmänt. Du får installera och använda valfritt antal kopior av programvaran att utveckla och testa dina program, enbart för syftet anges ovan och i övrigt för din interna företagsändamål.
 
-    b) tredjepartsprogram. Programvaran kan innehålla program från tredje part som licensieras till dig enligt detta avtal eller med sina egna villkor. Licensiera villkor, meddelanden och bekräftelser, om sådant finns, för program från tredje part kan vara tillgängliga online på http://aka.ms/thirdpartynotices eller i en tillhörande fil. Även om sådana program styrs av andra avtal, friskrivning, begränsningar och undantag för skador nedan gäller även i den utsträckning som tillåts enligt gällande lagstiftning.
+    b) tredjepartsprogram. Programvaran kan innehålla program från tredje part som licensieras till dig enligt detta avtal eller med sina egna villkor. Licensiera villkor, meddelanden och bekräftelser, om sådant finns, för program från tredje part kan vara tillgängliga online på https://aka.ms/thirdpartynotices eller i en tillhörande fil. Även om sådana program styrs av andra avtal, friskrivning, begränsningar och undantag för skador nedan gäller även i den utsträckning som tillåts enligt gällande lagstiftning.
 
     c) konkurrenskraftiga prestandamätningar. Om du är en direkt konkurrent och komma åt eller använda programvaran för konkurrenskraftiga prestandamätningar, analys eller intelligence samla in kan du avstår mot Microsoft, dess dotterbolag och dess koncernbolag (inklusive avseende föruppdaterad) alla konkurrenskraftiga användning, åtkomst och prestandamätningar test begränsningar i villkoren som reglerar din programvara i den utsträckning som dina användningsvillkor är, eller att vara mer restriktiva än Microsofts villkoren. Om du inte avstå från sådana påstådd begränsningar i villkoren som reglerar din programvara, du tillåts inte att öppna eller använda den här programvaran och gör det inte.
 
@@ -74,13 +74,13 @@ Dessa licensvillkor utgör ett avtal mellan dig och Microsoft Corporation (eller
 
     (e) dela, publicera, distribuera, eller låna ut programvaran (förutom distribuerbar kod, omfattas av villkoren ovan), tillhandahålla programvaran som en fristående värdlösning för andra eller överföra programvaran eller detta avtal till tredje part.
 
-1. EXPORTRESTRIKTIONER. Du måste följa alla nationella och internationella exportlagar och förordningar som gäller för programvaran, inklusive restriktioner för destinationer, slutanvändare och slutanvändning. Ytterligare information om exportrestriktioner finns http://aka.ms/exporting.
+1. EXPORTRESTRIKTIONER. Du måste följa alla nationella och internationella exportlagar och förordningar som gäller för programvaran, inklusive restriktioner för destinationer, slutanvändare och slutanvändning. Ytterligare information om exportrestriktioner finns https://aka.ms/exporting.
 
 1. SUPPORTTJÄNSTER. Microsoft är inte skyldig enligt detta avtal att erbjuda några supporttjänster för programvaran. Support som ges är ”i befintligt skick”, ”med alla fel” och utan garanti av något slag.
 
 1. UPPDATERAR. Programvaran kan regelbundet söka efter uppdateringar, och ladda ned och installera dem åt dig. Du kan enbart hämta uppdateringar från Microsoft eller auktoriserade källor. Microsoft kan behöva uppdatera datorn så att du får uppdateringar. Du samtycker till att ta emot dessa automatiska uppdateringar utan någon ytterligare föregående meddelande. Uppdateringar kan inte innehålla eller stöd för alla befintliga funktioner, tjänster eller kringutrustning.
 
-1. BINDANDE SKILJEFÖRFARANDE OCH FRISKRIVNING FRÅN GRUPPTALAN. Det här avsnittet gäller om du bor (eller om ett företag har sin huvudsakliga verksamhet är i) USA.  Om du och Microsoft har en tvist, accepterar du och Microsoft att försöka lösa den informellt inom 60 dagar. Om du och Microsoft godkänner du och Microsoft bindande skiljeförfarande inför American Arbitration-Association under Federal Arbitration Act FAA (”) och att ingen stämning sker i domstol misslyckas med detta. I stället medlare en neutral. Klass åtgärd rättstvister, klass skiljedomsförfaranden, privata åtgärder och andra förfaranden där någon agerar i en representativ är inte tillåtna, inte heller kombinera enskilda åtal utan medgivande från alla parter. Det fullständiga Skiljedomsavtalet innehåller flera villkor och är på http://aka.ms/arb-agreement-1. Du och Microsoft godkänner villkoren.
+1. BINDANDE SKILJEFÖRFARANDE OCH FRISKRIVNING FRÅN GRUPPTALAN. Det här avsnittet gäller om du bor (eller om ett företag har sin huvudsakliga verksamhet är i) USA.  Om du och Microsoft har en tvist, accepterar du och Microsoft att försöka lösa den informellt inom 60 dagar. Om du och Microsoft godkänner du och Microsoft bindande skiljeförfarande inför American Arbitration-Association under Federal Arbitration Act FAA (”) och att ingen stämning sker i domstol misslyckas med detta. I stället medlare en neutral. Klass åtgärd rättstvister, klass skiljedomsförfaranden, privata åtgärder och andra förfaranden där någon agerar i en representativ är inte tillåtna, inte heller kombinera enskilda åtal utan medgivande från alla parter. Det fullständiga Skiljedomsavtalet innehåller flera villkor och är på https://aka.ms/arb-agreement-1. Du och Microsoft godkänner villkoren.
 
 1. UPPSÄGNING. Utan att det påverkar andra rättigheter, kan Microsoft säga upp detta avtal om du inte uppfyller något av dess villkor eller villkor. I dessa fall måste du förstöra alla exemplar av programvaran och alla dess komponenter.
 

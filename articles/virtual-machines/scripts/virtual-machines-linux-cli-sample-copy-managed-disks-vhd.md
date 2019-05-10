@@ -1,6 +1,6 @@
 ---
 title: Azure CLI-exempel – Kopiera en hanterad disk till ett lagringskonto
-description: Azure CLI-exempel – Exportera eller kopiera en hanterad disk till ett lagringskonto.
+description: Azure CLI exempel - Export eller kopiera hanterade diskar till ett lagringskonto.
 services: virtual-machines-linux
 documentationcenter: storage
 author: ramankumarlive
@@ -13,19 +13,19 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/17/2018
+ms.date: 05/09/2019
 ms.author: ramankum
 ms.custom: mvc,seodec18
-ms.openlocfilehash: 6252049c2258c391aa4483dd51ec0d9ee766bed0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c5055860df007d0f009bd08c2b211ffeeaad711f
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60302457"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510877"
 ---
 # <a name="exportcopy-a-managed-disk-to-a-storage-account-using-the-azure-cli"></a>Exportera/kopiera en hanterad disk till ett lagringskonto med hjälp av Azure CLI
 
-Det här skriptet exporterar den underliggande virtuella hårddisken från en hanterad disk till ett lagringskonto i samma eller i en annan region. Först genererar skriptet SAS-URI:n för den hanterade disken och använder den sedan för att kopiera den virtuella hårddisken till ett lagringskonto. Använd det här skriptet för att kopiera dina hanterade diskar för regional utökning. 
+Det här skriptet exporterar den underliggande virtuella hårddisken från en hanterad disk till ett lagringskonto i samma eller i en annan region. Först genererar skriptet SAS-URI:n för den hanterade disken och använder den sedan för att kopiera den virtuella hårddisken till ett lagringskonto. Använd det här skriptet för att kopiera hanterade diskar till en annan region för regional utökning. Du kan använda det här skriptet för att kopiera VHD-filen till ett lagringskonto och generera en SAS-URI för den kopierade VHD för att publicera i Marketplace om du vill publicera VHD-fil av en hanterad disk på Azure Marketplace.   
 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]

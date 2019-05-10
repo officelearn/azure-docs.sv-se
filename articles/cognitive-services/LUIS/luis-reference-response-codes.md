@@ -11,19 +11,19 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/04/2019
 ms.author: diberry
-ms.openlocfilehash: 18ec59200d3cf820794ac353e38106ad26aca697
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f6742bf64ce26e6cce93dfcdfd06756f3c340d9e
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60598036"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522974"
 ---
 # <a name="common-api-response-codes-and-their-meaning"></a>Vanliga API-svarskoder och deras innebörd
 
-Den [redigering](https://aka.ms/luis-authoring-apis) och [endpoint](https://aka.ms/luis-endpoint-apis) API: er returnera HTTP-svarskoder. Svarsmeddelanden innehåller information som är specifika för en begäran, är HTTP-svarsstatuskod allmän. 
+Den [redigering](https://go.microsoft.com/fwlink/?linkid=2092087) och [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) API: er returnera HTTP-svarskoder. Svarsmeddelanden innehåller information som är specifika för en begäran, är HTTP-svarsstatuskod allmän. 
 
 ## <a name="common-status-codes"></a>Vanliga statuskoder
-I följande tabell visas några av de vanligaste svar för HTTP-statuskoder för den [redigering](https://aka.ms/luis-authoring-apis) och [endpoint](https://aka.ms/luis-endpoint-apis) API: er:
+I följande tabell visas några av de vanligaste svar för HTTP-statuskoder för den [redigering](https://go.microsoft.com/fwlink/?linkid=2092087) och [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) API: er:
 
 |Kod|API|Förklaring|
 |:--|--|--|

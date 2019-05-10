@@ -11,12 +11,12 @@ ms.date: 05/08/2019
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 255a7c9d0b9da15176fca90c6934a84fa0f863ed
-ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
-ms.translationtype: HT
+ms.openlocfilehash: fc724e241849f4519a0e353cb6789d3f83eaf4b9
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/09/2019
-ms.locfileid: "65501861"
+ms.locfileid: "65510441"
 ---
 # <a name="create-an-openapi-definition-for-a-function-with-azure-api-management"></a>Skapa en OpenAPI-definition för en funktion med Azure API Management
 
@@ -30,6 +30,7 @@ I den här guiden får du lära dig att:
 > * skapar en funktion i Azure
 > * Generera en OpenAPI-definition med hjälp av Azure API Management
 > * testar definitionen genom att anropa funktionen.
+> * Ladda ned OpenAPI-definition
 
 ## <a name="create-a-function-app"></a>Skapa en funktionsapp
 
@@ -164,11 +165,11 @@ Nu är du redo att generera OpenAPI-definitionen.
 
 API: et har skapats för funktionen.
 
-## <a name="test-the-openapi-definition"></a>Testa OpenAPI-definitionen
+## <a name="test-the-api"></a>Testa API: et
 
-Innan du använder API-definition, bör du kontrollera att den fungerar.
+Innan du använder OpenAPI-definitionen, bör du kontrollera att API: et fungerar.
 
-1. På den **Test** i din funktion, väljer **POST** åtgärden
+1. På den **Test** i din funktion, väljer **POST** igen.
 
 1. Ange värden för **timmar** och **kapacitet**
 
@@ -183,9 +184,21 @@ Innan du använder API-definition, bör du kontrollera att den fungerar.
 
     ![Testa API-funktion](media/functions-openapi-definition/test-function-api-openapi.png)
 
+## <a name="download-the-openapi-definition"></a>Ladda ned OpenAPI-definition
+
+Om ditt API fungerar som förväntat, kan du ladda ned OpenAPI-definitionen.
+
+1. Välj **ladda ned OpenAPI-definition** överst på sidan.
+   
+   ![Ladda ned OpenAPI-definition](media/functions-openapi-definition/download-definition.png)
+
+2. Öppna den hämta JSON-filen och granska definitionen.
+
 [!INCLUDE [clean-up-section-portal](../../includes/clean-up-section-portal.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 
+Du har använt API Management-integrering för att generera en OpenAPI-definition av dina funktioner. Du kan nu redigera definition i API Management i portalen. Du kan också [mer information om API Management](../api-management/api-management-key-concepts.md).
+
 > [!div class="nextstepaction"]
-> [Mer information om API Management](../api-management/api-management-key-concepts.md)
+> [Redigera OpenAPI-definitionen i API Management](../api-management/edit-api.md)

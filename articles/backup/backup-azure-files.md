@@ -8,12 +8,12 @@ ms.date: 01/31/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: ac9a748742bda6b1e7a321a427090662542f1032
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f20cc1107476f8d65323d277a53086b8bd035a1b
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60643356"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518912"
 ---
 # <a name="back-up-azure-file-shares"></a>Säkerhetskopiera Azure-filresurser
 Den här artikeln förklarar hur du använder Azure Portal för att säkerhetskopiera och återställa [Azure-filresurser](../storage/files/storage-files-introduction.md).
@@ -56,7 +56,7 @@ Den här självstudien förutsätter att du redan har skapat en filresurs i Azur
 
     ![Välj Azure-filresursen som mål för säkerhetskopieringen](./media/backup-file-shares/choose-azure-fileshare-from-backup-goal.png)
 
-3. Klicka på **Säkerhetskopiering** för att konfigurera Azure-filresursen till Recovery Services-valvet. 
+3. Klicka på **Säkerhetskopiering** för att konfigurera Azure-filresursen till Recovery Services-valvet.
 
    ![klicka på säkerhetskopian för att associera Azure-filresursen med valvet](./media/backup-file-shares/set-backup-goal.png)
 
@@ -77,7 +77,7 @@ Den här självstudien förutsätter att du redan har skapat en filresurs i Azur
     När du har etablerat en säkerhetskopieringspolicy tas en ögonblicksbild av filresurserna vid den schemalagda tiden och en återställningspunkt sparas för den valda perioden.
 
 ## <a name="create-an-on-demand-backup"></a>Skapa en säkerhetskopiering på begäran
-Ibland kanske du vill skapa en ögonblicksbild eller återställningspunkt på en annan tid än de tider som schemalagts i säkerhetskopieringspolicyn. En vanlig tid att generera en säkerhetskopiering på begäran är direkt efter att du har konfigurerat säkerhetskopieringspolicyn. Baserat på schemat i säkerhetskopieringspolicyn kan det ta timmar eller dagar tills en ögonblicksbild tas. För att skydda dina data fram tills säkerhetskopieringspolicyn aktiveras, bör du starta en säkerhetskopiering på begäran. Du behöver ofta skapa en säkerhetskopiering på begäran innan du utför planerade ändringar i dina filresurser.
+Ibland kanske du vill skapa en ögonblicksbild eller återställningspunkt på en annan tid än de tider som schemalagts i säkerhetskopieringspolicyn. En vanlig tid att generera en säkerhetskopiering på begäran är direkt efter att du har konfigurerat säkerhetskopieringspolicyn. Baserat på schemat i säkerhetskopieringspolicyn kan det ta timmar eller dagar tills en ögonblicksbild tas. För att skydda dina data fram tills säkerhetskopieringspolicyn aktiveras, bör du starta en säkerhetskopiering på begäran. Skapa en säkerhetskopiering på begäran krävs ofta innan du utför planerade ändringar i dina filresurser.
 
 ### <a name="to-create-an-on-demand-backup"></a>Skapa en säkerhetskopiering på begäran
 
@@ -123,10 +123,12 @@ Du kan övervaka förloppet för alla jobb på sidan **Säkerhetskopieringsjobb*
 Öppna sidan **Säkerhetskopieringsjobb**:
 
 - Öppna Recovery Services-valvet som du vill övervaka. I menyn klickar du på **Jobb** och sedan på **Säkerhetskopieringsjobb**.
+
    ![Välj det jobb som du vill övervaka](./media/backup-file-shares/open-backup-jobs.png)
 
     Listan med säkerhetskopieringsjobb och status för dessa jobb visas.
-   ![Välj det jobb som du vill övervaka](./media/backup-file-shares/backup-jobs-progress-list.png)
+
+    ![Välj det jobb som du vill övervaka](./media/backup-file-shares/backup-jobs-progress-list.png)
 
 ### <a name="create-a-new-policy"></a>Skapa en ny policy
 

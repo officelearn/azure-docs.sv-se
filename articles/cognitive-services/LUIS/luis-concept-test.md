@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: c9f1cf80cd3a781e878daca2048f7c5dc9095a7c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 02c079e9cda88c969e5382b2c70c551cf9a88e14
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60710628"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522500"
 ---
 # <a name="testing-example-utterances-in-luis"></a>Testa exempel yttranden i LUIS
 
@@ -46,7 +46,7 @@ Alla endpoint testet räknas mot din kvot.
 Om du testa mot en slutpunkt och inte vill att de uttryck som loggas, Kom ihåg att använda den `logging=false` konfigurera frågesträngar.
 
 ## <a name="where-to-find-utterances"></a>Var du hittar yttranden
-LUIS lagrar alla loggade yttranden i loggfilen för frågor, tillgänglig för hämtning på den [LUIS](luis-reference-regions.md) webbplats **appar** listsidan, samt LUIS [redigera API: er](https://aka.ms/luis-authoring-apis). 
+LUIS lagrar alla loggade yttranden i loggfilen för frågor, tillgänglig för hämtning på den [LUIS](luis-reference-regions.md) webbplats **appar** listsidan, samt LUIS [redigera API: er](https://go.microsoft.com/fwlink/?linkid=2092087). 
 
 Yttranden LUIS är osäker på visas i den **[granska endpoint yttranden](luis-how-to-review-endpoint-utterances.md)** för den [LUIS](luis-reference-regions.md) webbplats. 
 

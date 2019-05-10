@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/05/2018
 ms.author: sharadag
-ms.openlocfilehash: b99132cceb8981a93a8f1c10ccc488d5806f7254
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: fc4db12f722d1330f0642e155c02a1936373e256
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59050985"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520495"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Självstudier: Konfigurera HTTPS på en anpassad Front Door-domän
 
@@ -82,7 +82,6 @@ Du kan använda ditt eget certifikat för att aktivera HTTPS. Detta görs via en
 
 > [!WARNING]
 > </br> – Azure Front Door Service stöder för närvarande endast Key Vault-konton i samma prenumeration som Front Door-konfiguration. Om du väljer ett Key Vault under en annan prenumeration än din Front Door inträffar ett fel.
-> </br> – Azure Front Door Service stöder för närvarande bara Key Vault-certifikat som lagras i avsnittet Hemligheter. Din certifikatimport misslyckas om du lagrar den under avsnittet Certifikat i stället för avsnittet Hemligheter.
 > </br> – Azure Front Door Service stöder för närvarande bara certifikat som laddats upp med en PFX **utan** ett lösenord.
 
 #### <a name="register-azure-front-door-service"></a>Registrera Azure Front Door Service
@@ -142,7 +141,7 @@ Domänverifiering krävs inte om du använder ett eget certifikat.
 
 CNAME-posten ska ha följande format, där *Namn* är namnet på ditt anpassade domännamn och *Värde* är din Front Doors .azurefd.net-standardvärdnamn:
 
-| Namn            | Typ  | Värde                 |
+| Namn            | Typ  | Value                 |
 |-----------------|-------|-----------------------|
 | <www.contoso.com> | CNAME | contoso.azurefd.net |
 
@@ -201,7 +200,7 @@ I följande tabell visas åtgärdsförloppet när du aktiverar HTTPS. När du ha
 | 3 Etablering av certifikat | Certifikatutfärdaren håller på att utfärda det certifikat som krävs för att aktivera HTTPS på din domän. |
 | | Certifikatet har utfärdats och håller på att distribueras till din Front Door. Den här processen kan ta upp till 1 timme. |
 | | Certifikatet har distribuerats för din Front Door. |
-| 4 Slutfört | HTTPS har aktiverats på din domän. |
+| 4 Slutfört | HTTPS har aktiverats på domänen. |
 
 \* Det här meddelandet visas bara om ett fel har uppstått. 
 

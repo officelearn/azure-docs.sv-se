@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 04/12/2019
 ms.author: helohr
-ms.openlocfilehash: d3357cec426585ba8550301dfa703f583a930ad0
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 1e53f76f564c0970ac1f291d2125807441500de6
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236943"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523321"
 ---
 # <a name="tutorial-create-service-principals-and-role-assignments-with-powershell"></a>Självstudier: Skapa tjänstens huvudnamn och rolltilldelningar med PowerShell
 
@@ -38,10 +38,9 @@ Innan du kan skapa tjänstens huvudnamn och rolltilldelningar, behöver du göra
     Install-Module AzureAD
     ```
 
-2. Kör följande cmdlets med värdena i citattecken ersättas med värdena som är relevanta för din session. Om du precis skapat din virtuella skrivbordet i Windows-klient från den [skapar en klient i självstudien för virtuella Windows-skrivbordet](./tenant-setup-azure-active-directory.md), Använd sedan ”standard klient grupp” som ditt klientnamn för gruppen.
+2. Kör följande cmdlets med värdena i citattecken ersättas med värdena som är relevanta för din session.
 
     ```powershell
-    $myTenantGroupName = "<my-tenant-group-name>"
     $myTenantName = "<my-tenant-name>"
     ```
 
@@ -68,8 +67,7 @@ Kör följande PowerShell-cmdletar för att ansluta till virtuella Windows-skriv
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-Set-RdsContext -TenantGroupName $myTenantGroupName
-New-RdsRoleAssignment -RoleDefinitionName "RDS Owner" -ApplicationId $svcPrincipal.AppId -TenantGroupName $myTenantGroupName -TenantName $myTenantName
+New-RdsRoleAssignment -RoleDefinitionName "RDS Owner" -ApplicationId $svcPrincipal.AppId -TenantName $myTenantName
 ```
 
 ## <a name="sign-in-with-the-service-principal"></a>Logga in med tjänstens huvudnamn

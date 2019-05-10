@@ -9,12 +9,12 @@ ms.subservice: language-understanding
 ms.topic: overview
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: c26f3d6c3b34ed90a5455bb94ea71d7556b47751
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2bb50f985b99a3fb62e7b8a61bb0f9ce2dd402e1
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60309470"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522011"
 ---
 # <a name="what-is-language-understanding-luis"></a>Vad är Language Understanding Intelligent Service (LUIS)?
 
@@ -53,7 +53,7 @@ En LUIS-app innehåller en domänspecifik modell för naturligt språk. Du kan s
 * LUIS med **anpassade entiteter** ger dig flera sätt att identifiera dina egna avsikter och entiteter, till exempel maskininlärda entiteter, specifika eller exakta entiteter, och en kombination av maskininlärda och exakta.
 
 ## <a name="build-the-luis-model"></a>Skapa LUIS-modellen
-Skapa modellerna med [redigerings](https://aka.ms/luis-authoring-apis)-API:er eller med LUIS-portalen.
+Skapa modellerna med [redigerings](https://go.microsoft.com/fwlink/?linkid=2092087)-API:er eller med LUIS-portalen.
 
 LUIS-modellen börjar med kategorier av användaravsikter som kallas för **[avsikter](luis-concept-intent.md)**. Varje avsikt behöver exempel på **[yttranden](luis-concept-utterance.md)** från användaren. Varje yttrande kan ge olika data som måste extraheras med **[entiteter](luis-concept-entity-types.md)**. 
 
@@ -65,7 +65,7 @@ LUIS-modellen börjar med kategorier av användaravsikter som kallas för **[avs
 
 ## <a name="query-prediction-endpoint"></a>Slutpunkt för frågeförutsägelse
 
-När modellen har skapats och publicerats på slutpunkten skickar klientprogrammet yttranden till den API:et för [slutpunkt](https://aka.ms/luis-endpoint-apis) för förutsägelse. API:et tillämpar modellen på texten som ska analyseras. API:et svarar med förutsägelseresultatet i JSON-format.  
+När modellen har skapats och publicerats på slutpunkten skickar klientprogrammet yttranden till den API:et för [slutpunkt](https://go.microsoft.com/fwlink/?linkid=2092356) för förutsägelse. API:et tillämpar modellen på texten som ska analyseras. API:et svarar med förutsägelseresultatet i JSON-format.  
 
 Det minsta JSON-slutpunktssvaret innehåller frågeyttrandet och avsikten med högsta poäng. Det kan även extrahera data, som följande **Kontakttyp**-entitet. 
 
@@ -126,6 +126,6 @@ Skapa en ny LUIS-app med en [fördefinierad](luis-get-started-create-app.md) ell
 
 [bot-framework]: https://docs.microsoft.com/bot-framework/
 [flow]: https://docs.microsoft.com/connectors/luis/
-[authoring-apis]: https://aka.ms/luis-authoring-api
-[endpoint-apis]: https://aka.ms/luis-endpoint-apis
+[authoring-apis]: https://go.microsoft.com/fwlink/?linkid=2092087
+[endpoint-apis]: https://go.microsoft.com/fwlink/?linkid=2092356
 [qnamaker]: https://qnamaker.ai/

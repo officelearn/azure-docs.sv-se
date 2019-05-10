@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: cae29fe045d1bdc17f414ff016642635b74320df
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
-ms.translationtype: HT
+ms.openlocfilehash: ee539b87c08dd00545060cb30d28ac7fcd01e61b
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408818"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518996"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>Självstudier: Använda dynamisk konfiguration i en ASP.NET Core-app
 
@@ -63,6 +63,9 @@ Om du vill göra den här självstudien måste du installera den [.NET Core SDK]
     ```
 
     Den andra parametern i den `.Watch` metoden är avsökningsintervallet som ASP.NET-klientbiblioteket frågar en appbutik konfiguration. Klientbiblioteket kontrollerar specifik Konfigurationsinställningen för att se om några ändringar har uppstått.
+    
+    > [!NOTE]
+    > Standard avsökningsintervallet för den `Watch` tilläggsmetod är 30 sekunder om inget anges.
 
 2. Lägg till en *Settings.cs*-fil som definierar och implementerar en ny `Settings`-klass.
 
@@ -168,7 +171,7 @@ Om du vill göra den här självstudien måste du installera den [.NET Core SDK]
 
 5. Välj **Configuration Explorer**, och uppdatera värdena för följande nycklar:
 
-    | Nyckel | Värde |
+    | Nyckel | Value |
     |---|---|
     | TestAppSettings:BackgroundColor | green |
     | TestAppSettings:FontColor | lightGray |

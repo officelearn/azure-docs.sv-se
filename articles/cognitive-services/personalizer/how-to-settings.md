@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: bce260d2a6b897d3e45b231df4eecd7ecb31ba31
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 4aeb9f924ba9af55485dce8babfacdbb0d0110f4
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65143249"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520287"
 ---
 # <a name="personalizer-settings"></a>Personalizer inställningar
 
@@ -25,7 +25,7 @@ Tjänstkonfigurationen innehåller hur tjänsten behandlar belöningar, hur ofta
 
 Skapa en Personalizer resurs för varje feedbackloop. 
 
-1. Logga in på [Azure-portalen](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer). Den föregående länken tar dig till den **skapa** för tjänsten Personlizer. 
+1. Logga in på [Azure-portalen](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer). Den föregående länken tar dig till den **skapa** för tjänsten Personalizer. 
 1. Ange tjänstnamnet, Välj en prenumeration, plats, prisnivå, och resursgruppen.
 1. Välj bekräftelsen och välj **skapa**.
 
@@ -35,7 +35,7 @@ Skapa en Personalizer resurs för varje feedbackloop.
 1. Hitta Personalizer-resursen. 
 1. I den **resurshantering** väljer **inställningar**.
 
-    Innan de lämnar Azure-portalen, kan du kopiera en av dina resursnycklar från den **nycklar** sidan. Du behöver detta för att använda den [Personalizer SDK](https://aka.ms/personalizer-dotnet-sdk-docs).
+    Innan de lämnar Azure-portalen, kan du kopiera en av dina resursnycklar från den **nycklar** sidan. Du behöver detta för att använda den [Personalizer SDK](https://go.microsoft.com/fwlink/?linkid=2092353).
 
 ### <a name="configure-reward-settings-for-the-feedback-loop-based-on-use-case"></a>Konfigurera inställningar för ersättning för feedbackloopen baserat på användningsfall
 

@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 3c62ad66a29943e26d1cb2f15ca71631d2feabe3
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: bba263b65344672808487ae6de4c3f475a871842
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65467434"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523945"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Självstudier: Logga nätverkstrafik till och från en virtuell dator med hjälp av Azure-portalen
 
@@ -95,7 +95,7 @@ Providern **Microsoft.Insights** krävs för NSG-flödesloggning. Registrera pro
     Det tar ungefär en minut att skapa lagringskontot. Fortsätt inte med de återstående stegen förrän lagringskontot har skapats. Om du använder ett befintligt lagringskonto i stället för att skapa ett nytt väljer du ett lagringskonto där **Alla nätverk** (standard) har valts för **Brandväggar och virtuella nätverk** under **Inställningar** för lagringskontot.
     
     > [!NOTE]
-    > Microsoft.Insight och Microsoft.Network-providers stöds för närvarande för Azure Storage och NSG-Flödesloggar loggar är fortfarande inte helt integrerat. Aktivera loggning för NSG-Flödesloggar **alla nätverk** måste fortfarande väljas innan den här funktionen är fullständigt integrerat. 
+    > Microsoft.Insight och Microsoft.Network-providers stöds för närvarande som betrodda Microsoft Services för Azure Storage och NSG-Flödesloggar loggar är fortfarande inte helt integrerat. Aktivera loggning för NSG-Flödesloggar **alla nätverk** måste fortfarande väljas innan den här funktionen är fullständigt integrerat. 
 4. Välj **Alla tjänster** längst upp till vänster på portalen. Skriv *Network Watcher* i **filterrutan**. När **Network Watcher** visas i sökresultatet väljer du posten.
 5. Välj **NSG-flödesloggar** under **LOGGAR**, som du ser i följande bild:
 

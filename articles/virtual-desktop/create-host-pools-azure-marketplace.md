@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: helohr
-ms.openlocfilehash: 21979f1dee50fa846fb7888cfc95908b9d833392
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 8e6991201b3cda5699849ac00cc92217c6b7bf72
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236771"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65524014"
 ---
 # <a name="tutorial-create-a-host-pool-with-azure-marketplace"></a>Självstudier: Skapa en värdpool med Azure Marketplace
 
@@ -68,7 +68,7 @@ För det virtuella datorn inställningar-bladet:
 
 För virtuella Windows-skrivbordet klient information bladet:
 
-1. Ange den **gruppnamn för virtuella Windows-skrivbordet klient** för klient-grupp som innehåller din klient. Om du inte har en specifik klient gruppnamn planerat kan du lämna den som standard.
+1. Ange den **gruppnamn för virtuella Windows-skrivbordet klient** för klient-grupp som innehåller din klient. Lämna den som standard såvida inte du har en specifik klient gruppnamn.
 2. Ange den **klientnamnet för virtuella Windows-skrivbordet** för klienten ska du skapa den här poolen för värden i.
 3. Ange vilken typ av autentiseringsuppgifter som du vill använda för att autentisera som innehavare RDS ägare för virtuella Windows-skrivbordet. Om du har slutfört den [skapa tjänstens huvudnamn och rolltilldelningar med PowerShell självstudiekursen](./create-service-principal-role-powershell.md)väljer **tjänstens huvudnamn**. Du kommer nu att behöva ange den **Azure AD-klient-ID** av Azure Active Directory som innehåller tjänstens huvudnamn.
 4. Ange antingen autentiseringsuppgifterna för klientorganisationens administratörskonto. Tjänstens huvudnamn med autentiseringsuppgifter för lösenord stöds.
@@ -94,12 +94,6 @@ Kör följande cmdlet för att logga in på den virtuella skrivbordet i Windows-
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-```
-
-Ange kontexten i virtuella Windows-skrivbordet klient gruppen som du angav i Azure Marketplace erbjuder följande cmdlet. Om du lämnar virtuellt skrivbord i Windows-klient gruppvärdet som standardvärde i Azure Marketplace erbjuder, kan du hoppa över det här steget.
-
-```powershell
-Set-RdsContext -TenantGroupName <tenantgroupname>
 ```
 
 När du har gjort dessa två saker du kan lägga till användare i gruppen skrivbordsprogram med denna cmdlet:

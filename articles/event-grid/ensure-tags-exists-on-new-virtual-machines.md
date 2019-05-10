@@ -8,14 +8,14 @@ manager: ''
 ms.service: automation
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 01/14/2019
+ms.date: 05/10/2019
 ms.author: eamono
-ms.openlocfilehash: d0764131f0e7e321a87ed383636606b2124ef7d9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9f99ce5862850c2453e9e72241fff77fe091616f
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60562770"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521434"
 ---
 # <a name="tutorial-integrate-azure-automation-with-event-grid-and-microsoft-teams"></a>Självstudie: Integrera Azure Automation med Event Grid och Microsoft Teams
 
@@ -52,10 +52,13 @@ För slutföra den här självstudien krävs ett [Azure Automation-konto](../aut
 
 4. Välj **Importera** och ge den namnet **Watch-VMWrite**.
 
-5. När den har importerats väljer du **Redigera** för att visa runbook-källan. Välj sedan knappen **Publicera**.
+5. När den har importerats väljer du **Redigera** för att visa runbook-källan. 
+6. Uppdatera raden 74 i skript om du vill använda `Tag` i stället för `Tags`.
 
-> [!NOTE]
-> Rad 74 i skriptet måste ha få raden ändrad till `Update-AzureRmVM -ResourceGroupName $VMResourceGroup -VM $VM -Tag $Tag | Write-Verbose`. Parametern `-Tags` är nu `-Tag`.
+    ```powershell
+    Update-AzureRmVM -ResourceGroupName $VMResourceGroup -VM $VM -Tag $Tag | Write-Verbose
+    ```
+7. Välj sedan knappen **Publicera**.
 
 ## <a name="create-an-optional-microsoft-teams-webhook"></a>Skapa en valfri Microsoft Teams-webhook
 
@@ -67,7 +70,7 @@ För slutföra den här självstudien krävs ett [Azure Automation-konto](../aut
 
 3. Ange **AzureAutomationIntegration** som namn och välj **Skapa**.
 
-4. Kopiera webhooken till Urklipp och spara den. Webhooks-URL:en används för att skicka information till Microsoft Teams.
+4. Kopiera en webhook-URL till Urklipp och spara den. Webhooks-URL:en används för att skicka information till Microsoft Teams.
 
 5. Välj **Klar** för att spara webhooken.
 
@@ -96,14 +99,16 @@ För slutföra den här självstudien krävs ett [Azure Automation-konto](../aut
 2. Klicka på **+ Händelseprenumeration**.
 
 3. Konfigurera prenumerationen med följande information:
+    1. Som **Typ av ämne** väljer du **Azure-prenumerationer**.
+    2. Avmarkera kryssrutan **Prenumerera på alla händelsetyper**.
+    3. Ange **AzureAutomation** som namn.
+    4. I listrutan **Definierade händelsetyper** avmarkerar du alla alternativ utom **Resource Write Success** (Resursskrivning lyckades).
 
-   * Som **Typ av ämne** väljer du **Azure-prenumerationer**.
-   * Avmarkera kryssrutan **Prenumerera på alla händelsetyper**.
-   * Ange **AzureAutomation** som namn.
-   * I listrutan **Definierade händelsetyper** avmarkerar du alla alternativ utom **Resource Write Success** (Resursskrivning lyckades).
-   * Som **Typ av slutpunkt** väljer du **Webhook**.
-   * Klicka på **Välj en slutpunkt**. På sidan **Välj webhook** som öppnas klistrar du in webhook-URL:en du har skapat för Watch-VMWrite-runbooken.
-   * Under **FILTER** anger du den prenumeration och den resursgrupp där du vill leta efter de nya virtuella datorerna som skapats. Det bör se ut så här: `/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Compute/virtualMachines`
+        > [!NOTE] 
+        > Azure Resource Manager görs inte för närvarande åtskillnad mellan skapa och uppdatera, så att implementera den här självstudien för alla Microsoft.Resources.ResourceWriteSuccess händelser i din Azure-prenumeration kan resultera i ett stort antal anrop.
+    1. Som **Typ av slutpunkt** väljer du **Webhook**.
+    2. Klicka på **Välj en slutpunkt**. På sidan **Välj webhook** som öppnas klistrar du in webhook-URL:en du har skapat för Watch-VMWrite-runbooken.
+    3. Under **FILTER** anger du den prenumeration och den resursgrupp där du vill leta efter de nya virtuella datorerna som skapats. Det bör se ut så här: `/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Compute/virtualMachines`
 
 4. Välj **Skapa** för att spara Event Grid-prenumerationen.
 

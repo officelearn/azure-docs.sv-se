@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: ced83b83c2d64ba5c4816f378c66dae9f4210391
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3fc14b821064719f39eb877aa2253f8084496a66
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60193636"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523504"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Language understanding ordlista med gemensam terminologi och begrepp
 Den Språkförståelse (LUIS) ordlista förklarar villkor som du kan stöta på när du arbetar med LUIS API Service.
@@ -26,7 +26,7 @@ Den aktiva LUIS-versionen är den version som tar emot alla ändringar i modelle
 
 ## <a name="authoring"></a>Redigering
 
-Redigera är möjligheten att skapa, hantera och distribuera en [LUIS-app](#luis-app), antingen med hjälp av den [LUIS](luis-reference-regions.md) webbplats eller [redigera API: er](https://aka.ms/luis-authoring-api).
+Redigera är möjligheten att skapa, hantera och distribuera en [LUIS-app](#luis-app), antingen med hjälp av den [LUIS](luis-reference-regions.md) webbplats eller [redigera API: er](https://go.microsoft.com/fwlink/?linkid=2092087).
 
 ## <a name="authoring-key"></a>Redigera nyckel
 
@@ -74,7 +74,7 @@ I kontexten LUIS en **domän** är en del av kunskaper. Din domän är specifik 
 
 ## <a name="endpoint"></a>Slutpunkt
 
-Den [LUIS endpoint](https://aka.ms/luis-endpoint-apis) URL: en är där du kan skicka LUIS frågor efter den [LUIS-app](#luis-app) har skapats och publicerats. Slutpunkts-URL innehåller regionen för den publicerade appen samt app-ID. Du hittar slutpunkten på den **[nycklar och slutpunkter](luis-how-to-azure-subscription.md)** i din app, eller du kan hämta slutpunkts-URL från den [hämta Appinfo](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API.
+Den [LUIS endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) URL: en är där du kan skicka LUIS frågor efter den [LUIS-app](#luis-app) har skapats och publicerats. Slutpunkts-URL innehåller regionen för den publicerade appen samt app-ID. Du hittar slutpunkten på den **[nycklar och slutpunkter](luis-how-to-azure-subscription.md)** i din app, eller du kan hämta slutpunkts-URL från den [hämta Appinfo](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API.
 
 Det ser ut som en exempel-slutpunkt:
 

@@ -11,15 +11,15 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/02/2019
 ms.author: diberry
-ms.openlocfilehash: 9eb73db6f641d3a5f5bb82901bd12ea291eada58
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a4e176552fcbab9d54da696439c7e46750be3944
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60196039"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522364"
 ---
 # <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>API v1 till v2-Migreringsguide för LUIS-appar
-Version 1 [endpoint](https://aka.ms/v1-endpoint-api-docs) och [redigering](https://aka.ms/v1-authoring-api-docs) API: er är inaktuella. Använd den här guiden för att förstå hur du migrerar till version 2 [endpoint](https://aka.ms/luis-endpoint-apis) och [redigering](https://aka.ms/luis-authoring-apis) API: er. 
+Version 1 [endpoint](https://aka.ms/v1-endpoint-api-docs) och [redigering](https://aka.ms/v1-authoring-api-docs) API: er är inaktuella. Använd den här guiden för att förstå hur du migrerar till version 2 [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) och [redigering](https://go.microsoft.com/fwlink/?linkid=2092087) API: er. 
 
 ## <a name="new-azure-regions"></a>Nya Azure-regioner
 LUIS har nya [regioner](https://aka.ms/LUIS-regions) för LUIS APIs. LUIS innehåller en annan portal för regionsgrupper. Programmet måste skrivas i samma region som du förväntar dig att fråga. Program migreras inte automatiskt regioner. Du kan exportera en app från en region och sedan importera till en annan för att vara tillgängligt i en ny region.
@@ -169,6 +169,6 @@ Se [LUIS-API-svarskoder](luis-reference-response-codes.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Använd v2 API-dokumentationen för att uppdatera befintliga REST-anrop till LUIS [endpoint](https://aka.ms/luis-endpoint-apis) och [redigering](https://aka.ms/luis-authoring-apis) API: er. 
+Använd v2 API-dokumentationen för att uppdatera befintliga REST-anrop till LUIS [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) och [redigering](https://go.microsoft.com/fwlink/?linkid=2092087) API: er. 
 
 [LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: travisw
 ms.custom: ''
-ms.openlocfilehash: c9ed6f898f4bcf8a5d4b2548cc1f3cf51f71bb2a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1344de526564ab623a51eb903951b6a2e866048d
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138168"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523478"
 ---
 # <a name="about-custom-voice-first-virtual-assistants-preview"></a>Om anpassade röst första virtuella assistenter förhandsversionen
 
@@ -24,7 +24,7 @@ Anpassade virtuella assistenter med hjälp av Azure Speech Services gör att utv
 
    ![Begreppsmässiga diagram över direktlinje tal orchestration service flödet](media/voice-first-virtual-assistants/overview.png "The tal kanal flöde")
 
-Direct Line tal och dess associerade funktioner för anpassad röst första virtuella assistenter är ett perfekt komplement till den [virtuella Assistant lösning](https://docs.microsoft.com/azure/bot-service/bot-builder-virtual-assistant-introduction) och [företagets mall](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview). Även om Direct Line-tal kan arbeta med valfri kompatibel bot, ange resurserna en återanvändbara baslinje för högkvalitativa konversationsanpassade upplevelser som vanliga stödjande kunskaper och modeller för att komma igång snabbt.
+Direct Line tal och dess associerade funktioner för anpassad röst första virtuella assistenter är ett perfekt komplement till den [virtuella Assistant lösning](https://docs.microsoft.com/azure/bot-service/bot-builder-virtual-assistant-introduction) och [företagets mall](https://docs.microsoft.com/azure/bot-service/bot-builder-virtual-assistant-introduction). Även om Direct Line-tal kan arbeta med valfri kompatibel bot, ange resurserna en återanvändbara baslinje för högkvalitativa konversationsanpassade upplevelser som vanliga stödjande kunskaper och modeller för att komma igång snabbt.
 
 ## <a name="core-features"></a>Kärnfunktioner
 

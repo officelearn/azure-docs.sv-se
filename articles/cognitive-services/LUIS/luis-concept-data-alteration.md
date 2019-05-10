@@ -11,18 +11,18 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: c43d3738b23037432ecdfe3aa872950f6a7b863e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3395283e6228d7203b2e835961914e2f167fa451
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60812796"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522403"
 ---
 # <a name="alter-utterance-data-before-or-during-prediction"></a>Ändra uttryck data före eller under förutsägelse
 LUIS innehåller olika sätt att manipulera uttryck före eller under förutsägelser. Dessa inkluderar åtgärda stavning och åtgärda problem med tidszonen för prebuild datetimeV2. 
 
 ## <a name="correct-spelling-errors-in-utterance"></a>Rätta stavfel i uttryck
-LUIS använder [Bing stavningskontroll kontrollera API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) att rätta stavfel i uttryck. LUIS måste den nyckel som associeras med den tjänsten. Skapa nyckeln och sedan lägga till nyckeln som en frågesträngsparameter på den [endpoint](https://aka.ms/luis-endpoint-apis). 
+LUIS använder [Bing stavningskontroll kontrollera API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) att rätta stavfel i uttryck. LUIS måste den nyckel som associeras med den tjänsten. Skapa nyckeln och sedan lägga till nyckeln som en frågesträngsparameter på den [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356). 
 
 Du kan också korrigera stavfel i den **Test** panelen av [att ange nyckeln](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel). Nyckeln sparas som en sessionsvariabel i webbläsaren till Test-panelen. Lägga till nyckeln i panelen Test i varje webbläsarsession som du vill att stavning korrigerats. 
 
@@ -56,14 +56,14 @@ Stavningskontroll i Bing API som används i LUIS inte stöder en lista över til
 När en LUIS-app använder fördefinierade datetimeV2 entiteten, kan ett datetime-värde returneras i svaret förutsägelse. Tidszonen för begäran används för att fastställa rätt datum/tid att returnera. Om förfrågan kommer från en bot eller ett annat centraliserad program innan du kommer till LUIS, korrigera tidszonen LUIS använder. 
 
 ### <a name="endpoint-querystring-parameter"></a>Frågeparametern slutpunkt
-Tidszonen korrigeras genom att lägga till användarens tidszon för den [endpoint](https://aka.ms/luis-endpoint-apis) med hjälp av den `timezoneOffset` param. Värdet för `timezoneOffset` ska vara positivt eller negativt tal, på bara några minuter att ändra tiden.  
+Tidszonen korrigeras genom att lägga till användarens tidszon för den [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) med hjälp av den `timezoneOffset` param. Värdet för `timezoneOffset` ska vara positivt eller negativt tal, på bara några minuter att ändra tiden.  
 
 |Param|Värde|
 |--|--|
 |`timezoneOffset`|positivt eller negativt tal på bara några minuter|
 
 ### <a name="daylight-savings-example"></a>Sommartid besparingar exempel
-Om du behöver den returnerade fördefinierade datetimeV2 att justera för sommartid, bör du använda den `timezoneOffset` Frågeparametern med en +/-värdet i minuter för den [endpoint](https://aka.ms/luis-endpoint-apis) fråga.
+Om du behöver den returnerade fördefinierade datetimeV2 att justera för sommartid, bör du använda den `timezoneOffset` Frågeparametern med en +/-värdet i minuter för den [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) fråga.
 
 Lägg till 60 minuter: 
 

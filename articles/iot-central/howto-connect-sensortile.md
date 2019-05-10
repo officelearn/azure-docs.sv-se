@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: sandeep.pujar
-ms.openlocfilehash: 580a8baa19e8ed4fc3f4449ead9d8aedbc4c039a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 8c1b4a4ab834b2203a7e0b6e4e9e366c3fc38774
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65160912"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472198"
 ---
 # <a name="connect-sensortilebox-device-to-your-azure-iot-central-application"></a>Anslut SensorTile.box enhet till Azure IoT Central programmet
 
@@ -23,14 +23,14 @@ Den här artikeln beskrivs hur du som utvecklare enheten att ansluta SensorTile.
 
 För att slutföra stegen i den här artikeln behöver du följande resurser:
 
-* En SensorTile.box-enhet, se [SensorTile.box](https://www.st.com/content/st_com/en/products/evaluation-tools/SensorTile.box) för mer information.
-* ST BLE Sensor appen är installerad på din Android-enhet, du kan [ladda ned den här] (https://play.google.com/store/apps/details?id=com.st.bluems). Mer information: () [ST BLE Sensor]http://www.st.com/stblesensor)
+* En SensorTile.box-enhet. Mer information finns i [SensorTile.box](https://www.st.com/content/st_com/en/products/evaluation-tools/product-evaluation-tools/mems-motion-sensor-eval-boards/steval-mksbox1v1.html).
+* ST BLE Sensor-appen är installerad på din Android-enhet kan du [ladda ned den här](https://play.google.com/store/apps/details?id=com.st.bluems). Mer information finns: [ST BLE Sensor](https://www.st.com/stblesensor)
 * Ett Azure IoT Central program som skapats från den **DevKits** programmall. Mer information finns i [snabbstarten om att skapa ett program](quick-deploy-iot-central.md).
-* Lägg till den **SensorTile.box** enheten mallen i ditt IoT Central-program genom att besöka den **enheten mallar** sidan, klickar på **+ ny**, och välja **SensorTile** mall.
+* Lägg till den **SensorTile.box** enheten mallen i ditt IoT Central-program genom att besöka den **enheten mallar** sidan, klickar på **+ ny**, och välja **SensorTile.box** mall.
 
 ### <a name="get-your-device-connection-details"></a>Hämta anslutningsinformationen för din enhet
 
-I Azure IoT Central programmet, lägger du till en riktig enhet från den **SensorTile.box** enheten mallen och gjort en notering enhetsinformation för anslutning: **Scope-ID, enhets-ID och primärnyckel**:
+I Azure IoT Central programmet, lägger du till en riktig enhet från den **SensorTile.box** enheten mallen och gjort en notering enhetsinformation för anslutning: **Scope-ID**, **enhets-ID**, och **primärnyckel**:
 
 1. Lägg till en enhet från Device Explorer. Välj **+ Ny > verkliga** att lägga till en riktig enhet.
 
@@ -47,7 +47,8 @@ I Azure IoT Central programmet, lägger du till en riktig enhet från den **Sens
 
 ## <a name="set-up-the-sensortilebox-with-the-mobile-application"></a>Konfigurera SensorTile.box med mobila program
 
-I det här avsnittet får lära du dig tryck programmet inbyggd programvara på enheten och skicka enhetens data till IoT Central via ST BLE Sensor mobilapp med hjälp av Bluetooth låg energiförbrukning (tabell)-anslutning.
+Du lär dig hur du push-programmet inbyggd programvara på enheten i det här avsnittet. Du sedan hur du skickar enhetens data till IoT Central via ST BLE Sensor-mobilapp med hjälp av Bluetooth låg energiförbrukning (tabell)-anslutning.
+
 1. Öppna ST BLE Sensor appen och tryck på den **skapar en ny app** knappen.
 
     ![Skapa app](media/howto-connect-sensortile/create-app.png)
@@ -58,11 +59,12 @@ I det här avsnittet får lära du dig tryck programmet inbyggd programvara på 
     ![Ladda upp utvärdering](media/howto-connect-sensortile/barometer-upload.png)
 
 1. Tryck på knappen Spela upp som är associerade med din SensorTile.box.
-1. När processen är klar, kommer SensorTile.box strömma temperatur och tryck och fuktighet över tillgängliga.
+1. När processen är klar, strömmas i SensorTile.box temperaturen, minnesbelastning och fuktigheten över tillgängliga.
 
 ## <a name="connect-the-sensortilebox-to-the-cloud"></a>Anslut SensorTile.box till molnet
 
-I det här avsnittet kommer du lära dig hur du ansluter SensorTile.box till mobilprogrammet och ansluter det mobila programmet till molnet.
+Du lär dig hur du ansluter SensorTile.box till mobilprogrammet och ansluter det mobila programmet till molnet i det här avsnittet.
+
 1. Den vänstra menyn, Välj den **molnet loggning** knappen.
 
     ![Cloud-loggning](media/howto-connect-sensortile/cloud-logging.png)
@@ -100,7 +102,6 @@ Ett program som har skapats med mallen SensorTile.box enhet med följande egensk
 | FFT_Y     |    |    |     |               |
 | FFT_Z     |    |    |     |               |
 
-
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig hur du ansluter en SensorTile.box till programmet Azure IoT Central, föreslagna nästa steg är att lära dig hur du [konfigurera en anpassad enhet mall](howto-set-up-template.md) för dina egna IoT-enheter.
+Nu när du har lärt dig hur du ansluter en SensorTile.box till programmet Azure IoT Central, föreslagna nästa steg är att lära dig [hur du ställer in en anpassad enhet mall](howto-set-up-template.md) för dina egna IoT-enheter.

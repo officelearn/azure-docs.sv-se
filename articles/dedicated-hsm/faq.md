@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 4/15/2019
+ms.date: 5/8/2019
 ms.author: barclayn
-ms.openlocfilehash: d432dc25a1995a2f0348c7626a051f46ffbf418b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: b73b6bdc0158591565281ca2e86a9a474c4196d9
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62118986"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467729"
 ---
 # <a name="frequently-asked-questions-faq"></a>Vanliga frågor och svar (FAQ)
 
@@ -69,17 +69,17 @@ Från och med mars-2019 sent är dedikerad HSM tillgänglig i 14 regioner visas 
 * Östra USA
 * USA, östra 2
 * Västra USA
-* Södra centrala USA
+* USA, södra centrala
 * Sydostasien
-* Östasien
+* Asien, östra
 * Norra Europa
-* Västra Europa
-* Storbritannien, södra
-* Storbritannien, västra
-* Centrala Kanada
-* Östra Kanada
-* Östra Australien
-* Sydöstra Australien
+* Europa, västra
+* Södra Storbritannien
+* Västra Storbritannien
+* Kanada, centrala
+* Kanada, östra
+* Australien, östra
+* Australien, sydöstra
 
 ## <a name="interoperability"></a>Samverkan
 
@@ -233,7 +233,7 @@ Microsoft har inte möjlighet att ansluta till HSM: er som allokerats till kunde
 
 ### <a name="q-what-if-i-need-to-reboot-my-hsm"></a>F: Vad händer om jag behöver starta om min HSM?
 
- HSM har en kommandorad för omstart och det bör noteras att alternativet ”hård omstart” måste användas. Om detta misslyckas av någon anledning, begär support med Microsoft och vi kan ha enheten fysiskt startas om. 
+HSM har en kommandorad för omstart, men vi har problem med omstart låser sig periodvis och därför rekommenderas för sättet att starta om du ökar en supportförfrågan med Microsoft så att enheten startas om fysiskt. 
 
 ## <a name="cryptography-and-standards"></a>Kryptering och standarder
 

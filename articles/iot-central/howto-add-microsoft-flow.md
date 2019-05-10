@@ -8,12 +8,12 @@ ms.date: 04/25/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: hegate
-ms.openlocfilehash: 5d1e9941244defbf84b20f95e9f2e0402bbe19f2
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c0a03b70c6e5e4742e03d4892b2b5f97c908ab9c
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64693598"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467906"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-microsoft-flow"></a>Skapa arbetsflöden med IoT Central-connector i Microsoft Flow
 
@@ -43,7 +43,7 @@ Det här avsnittet visar hur du utlöser ett mobilmeddelande i Flow-mobilappen n
 
 1. Du ser en lista över arbetsflöden tha du har åtkomst till och är kopplade till regeln IoT Central. Klicka på **utforska mallar** eller **New > Skapa från mall** och du kan välja från någon av de tillgängliga mallarna. 
 
-    ![Mall för Microsoft Flow](media/howto-add-microsoft-flow/flowtemplates.png)
+    ![Mall för Microsoft Flow](media/howto-add-microsoft-flow/flowtemplates1.png)
 
 1. Du uppmanas att logga in på anslutningar i den valda mallen. När anslutningarna har loggat in, hamnar i designer för att bygga ditt arbetsflöde. Arbetsflödet har en IoT Central-utlösare som har programmet och regeln har redan fyllt i.
 
@@ -52,7 +52,7 @@ Det här avsnittet visar hur du utlöser ett mobilmeddelande i Flow-mobilappen n
     > [!NOTE]
     > Välj den **mer** text i fönstret för dynamiskt innehåll för att hämta mått och egenskapen värden som utlöste regeln.
 
-    ![Flow Redigera åtgärd med dynamiska fönstret öppet](./media/howto-add-microsoft-flow/flowdynamicpane.png)
+    ![Flow Redigera åtgärd med dynamiska fönstret öppet](./media/howto-add-microsoft-flow/flowdynamicpane1.png)
 
 1. När du är klar redigera åtgärden Välj **spara**. Du omdirigeras till sidan med översikten över ditt arbetsflöde. Här kan du se körningshistoriken och dela den med andra kollegor.
 
@@ -79,7 +79,7 @@ Det här avsnittet visar hur du skapar en ny enhet i IoT Central vid push-instal
 
 1. Välj fältet enhetsnamn. Rutan med dynamiskt innehåll, Välj **enhetsnamn**. Det här värdet skickas från Indataposten användaren anger via mobilappen och är namnet på den nya enheten i IoT Central. I det här exemplet är det enda obligatoriska fältet namnet på enheten som anges med röd asterisk. Mall för en annan enhet kan ha flera obligatoriska fält som måste fyllas i för att skapa en ny enhet.
 
-    ![Flow skapar dynamiska Enhetsfönstret för åtgärden](./media/howto-add-microsoft-flow/flowcreatedevice.png)
+    ![Flow skapar dynamiska Enhetsfönstret för åtgärden](./media/howto-add-microsoft-flow/flowcreatedevice1.png)
 
 1. (Valfritt) Fyll i andra fält som du vill för skapa nya enheter.
 
@@ -110,7 +110,7 @@ Det här avsnittet beskrivs hur du uppdaterar inställningar och egenskaper i Io
 
 1. Du kan uppdatera namnet på enheten. Om du vill uppdatera någon av enhetens egenskaper och inställningar, måste du välja mallen enhet på den enhet som du vill uppdatera i den **enheten mallen** listrutan. Åtgärd-panelen expanderar för att visa alla egenskaper och inställningar som du kan uppdatera.
 
-    ![Flow arbetsflödet för enhet](./media/howto-add-microsoft-flow/flowupdatedevice.png)
+    ![Flow arbetsflödet för enhet](./media/howto-add-microsoft-flow/flowupdatedevice1.png)
 
 1. Välj var och en av de egenskaper och inställningar som du vill uppdatera. Rutan med dynamiskt innehåll, Välj den motsvarande indata från utlösaren. I det här exemplet sprids platsvärdet ned för att uppdatera enhetens Platsegenskapen.
 
@@ -126,7 +126,7 @@ Du kan få information om enhet med dess ID den **Azure IoT Central - hämta en 
 
 Du kan få information som enhetsnamn, enhetsnamn för mallen, egenskapsvärden och värden ska skickas till senare åtgärder i arbetsflödet. Här är ett exempel på ett arbetsflöde som skickar med kundnamn egenskapens värde från en enhet till Microsoft Teams.
 
-   ![Arbetsflöde för Flow get-enhet](./media/howto-add-microsoft-flow/flowgetdevice.png)
+   ![Arbetsflöde för Flow get-enhet](./media/howto-add-microsoft-flow/flowgetdevice1.png)
 
 
 ## <a name="run-a-command-on-a-device-in-a-workflow"></a>Köra ett kommando på en enhet i ett arbetsflöde
@@ -137,7 +137,7 @@ Du kan köra ett kommando på en enhet som anges av dess ID med hjälp av den **
     
 Du kan välja kommandot för att köra och skicka parametrar för kommandot via den här åtgärden. Här är ett exempel på ett arbetsflöde som kör ett kommando för omstart av enheten från en knapp i Microsoft Flow-mobilappen.
 
-   ![Arbetsflöde för Flow get-enhet](./media/howto-add-microsoft-flow/flowrunacommand.png)
+   ![Arbetsflöde för Flow get-enhet](./media/howto-add-microsoft-flow/flowrunacommand1.png)
 
 ## <a name="delete-a-device-in-a-workflow"></a>Ta bort en enhet i ett arbetsflöde
 

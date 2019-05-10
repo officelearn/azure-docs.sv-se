@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: janders
 manager: femila
-ms.openlocfilehash: 4416c30f57b469ee125400c696e8b34311a94926
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: a200649493354f1264afb0df4cf74acb4a274017
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65028192"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406410"
 ---
 # <a name="what-is-azure-blockchain-service"></a>Vad är Azure Blockchain Service?
 
@@ -65,7 +65,7 @@ Consortium hanteringsåtgärder som att lägga till och ta bort medlemmar i en c
 
 ## <a name="develop-using-familiar-development-tools"></a>Utveckla med välbekanta utvecklingsverktyg
 
-Baserat på öppen källkod kvorum Ethereum redovisningen, kan du utveckla program för Azure Blockchain-tjänsten på samma sätt som du gör med befintliga Ethereum-program. Arbeta med ledande branschpartners, kan Azure Blockchain Development Kit Visual Studio Code-tillägg utvecklare kan utnyttja bekanta verktyg som Truffle Suite för att skapa smarta kontrakt. Använd tillägget Azure Blockchain Development Kit och utvecklare kan skapa eller ansluta till och befintliga consortium så att du kan skapa och distribuera dina smarta kontrakt alla från en IDE. Med Azure Blockchain Visual Studio Code-tillägg kan du skapa eller ansluta till en befintlig consortium så att du kan skapa och distribuera dina smarta kontrakt allt från en IDE. Mer information finns i [Azure Blockchain Development Kit i VS Code marketplace](http://aka.ms/vscodebcextension) och [användarhandboken för Azure Blockchain Development Kit](http://aka.ms/vscodebcextensionwiki ).
+Baserat på öppen källkod kvorum Ethereum redovisningen, kan du utveckla program för Azure Blockchain-tjänsten på samma sätt som du gör med befintliga Ethereum-program. Arbeta med ledande branschpartners, kan Azure Blockchain Development Kit Visual Studio Code-tillägg utvecklare kan utnyttja bekanta verktyg som Truffle Suite för att skapa smarta kontrakt. Använd tillägget Azure Blockchain Development Kit och utvecklare kan skapa eller ansluta till och befintliga consortium så att du kan skapa och distribuera dina smarta kontrakt alla från en IDE. Med Azure Blockchain Visual Studio Code-tillägg kan du skapa eller ansluta till en befintlig consortium så att du kan skapa och distribuera dina smarta kontrakt allt från en IDE. Mer information finns i [Azure Blockchain Development Kit i VS Code marketplace](https://aka.ms/vscodebcextension) och [användarhandboken för Azure Blockchain Development Kit](https://aka.ms/vscodebcextensionwiki ).
 
 ## <a name="support-and-feedback"></a>Support och feedback
 

@@ -13,17 +13,20 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/03/2018
+ms.date: 05/07/2019
 ms.author: cynthn
-ms.openlocfilehash: 3a7ac2e7a86a135f20f46b03be2c38af330a5367
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c0ec2616d8bdcf3cfd6d649f12e9bfceea33690a
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60543106"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467750"
 ---
 # <a name="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure"></a>Hur du använder Packer för att skapa Linux-avbildningar i Azure
 Varje virtuell dator (VM) i Azure skapas från en avbildning som definierar Linux-distribution och operativsystemsversion. Bilder kan innehålla förinstallerade program och konfigurationer. Azure Marketplace innehåller många avbildningar av första och tredje part för de vanligaste distributioner och programmiljöer eller du kan skapa dina egna anpassade avbildningar som är specialanpassade utifrån dina behov. Den här artikeln beskriver hur du använder verktyg med öppen källkod [Packer](https://www.packer.io/) att definiera och skapa anpassade avbildningar i Azure.
+
+> [!NOTE]
+> Azure har nu en tjänst, Azure Image Builder (förhandsversion) för att definiera och skapa dina egna anpassade avbildningar. Azure Image Builder är byggt på Packer, så du kan även använda din befintliga Packer provisioner kommandoskript med den. Kom igång med Azure Image Builder, se [skapa en Linux-VM med Azure Image Builder](image-builder.md).
 
 
 ## <a name="create-azure-resource-group"></a>Skapa Azure-resursgrupp
@@ -232,6 +235,4 @@ Nu kan du öppna en webbläsare och ange `http://publicIpAddress` i adressfälte
 
 
 ## <a name="next-steps"></a>Nästa steg
-I det här exemplet används Packer för att skapa en VM-avbildning med NGINX är redan installerat. Du kan använda den här Virtuella datorn tillsammans med befintliga arbetsflöden för distribution, till exempel att distribuera din app till virtuella datorer som skapats från avbildningen med Ansible, Chef eller Puppet.
-
-Ytterligare exempel Packer på mallar för andra Linux-distributioner, se [denna GitHub-lagringsplats](https://github.com/hashicorp/packer/tree/master/examples/azure).
+Du kan också använda befintliga Packer provisioner skript med [Azure Image Builder](image-builder.md).

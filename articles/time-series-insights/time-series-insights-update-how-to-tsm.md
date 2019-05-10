@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/10/2018
+ms.date: 05/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: df94290c5e62b898b6490c78ef0ae1ee79437240
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1c8886cada80c02e99782159099aa626da35fc50
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64716960"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466670"
 ---
 # <a name="data-modeling-in-azure-time-series-insights-preview"></a>Datamodellering i förhandsversionen av Azure Time Series Insights
 
@@ -29,12 +29,12 @@ Mer information om hur du använder uppdateringen [förhandsversion av Azure Tim
 
 1. Gå till panelen väljare Time Series-modeller och välj **typer** på menyn. Dölj panelen för att fokusera på modeller för Time Series-typer.
 
-    ![Portal_one][1]
+    [![Skapa en enda typ](media/v2-update-how-to-tsm/portal_one.png)](media/v2-update-how-to-tsm/portal_one.png#lightbox)
 
 1. Välj **Lägg till**.
 1. Ange all information som rör typer och välj **skapa**. Den här åtgärden skapar typer i miljön.
 
-    ![Portal_two][2]
+    [![Lägga till en typ](media/v2-update-how-to-tsm/portal_two.png)](media/v2-update-how-to-tsm/portal_two.png#lightbox)
 
 ### <a name="bulk-upload-one-or-more-types"></a>Massöverför en eller flera typer
 
@@ -42,19 +42,21 @@ Mer information om hur du använder uppdateringen [förhandsversion av Azure Tim
 1. Välj den fil som innehåller typen nyttolasten.
 1. Välj **Överför**.
 
-    ![Portal_three][3]
+    [![Ladda upp JSON](media/v2-update-how-to-tsm/portal_three.png)](media/v2-update-how-to-tsm/portal_three.png#lightbox)
 
 ### <a name="edit-a-single-type"></a>Redigera en enda typ
 
-Välj typ och **redigera**. Gör nödvändiga ändringar och välj **spara**.
+1. Välj typ och **redigera**. 
+1. Gör nödvändiga ändringar och välj **spara**.
 
-![Portal_four][4]
+    [![Redigera en typ](media/v2-update-how-to-tsm/portal_four.png)](media/v2-update-how-to-tsm/portal_four.png#lightbox)
 
 ### <a name="delete-a-type"></a>Ta bort en typ
 
-Välj typ och **ta bort**. Om inga instanser är associerade med typerna, tas den bort.
+1. Välj typ och **ta bort**.
+1. Om inga instanser är associerade med typerna, tas den bort.
 
-![Portal_five][5]
+    [![Ta bort en typ](media/v2-update-how-to-tsm/portal_five.png)](media/v2-update-how-to-tsm/portal_five.png#lightbox)
 
 ## <a name="hierarchies"></a>Hierarkier
 
@@ -62,19 +64,19 @@ Välj typ och **ta bort**. Om inga instanser är associerade med typerna, tas de
 
 1. Gå till panelen väljare Time Series-modeller och välj **hierarkier** på menyn. Dölj panelen för att fokusera på modeller för Time Series-hierarkier.
 
-    ![Portal_six][6]
+    [![Välj hierarkier](media/v2-update-how-to-tsm/portal_six.png)](media/v2-update-how-to-tsm/portal_six.png#lightbox)
 
 1. Välj **Lägg till**.
 
-    ![Portal_seven][7]
+    [![Lägg till en hierarki](media/v2-update-how-to-tsm/portal_seven.png)](media/v2-update-how-to-tsm/portal_seven.png#lightbox)
 
 1. Välj **Lägg till nivå** i den högra rutan.
 
-    ![Portal_eight][8]
+    [![Lägga till en nivå](media/v2-update-how-to-tsm/portal_eight.png)](media/v2-update-how-to-tsm/portal_eight.png#lightbox)
 
 1. Ange information för hierarkin och välj **skapa**.
 
-    ![Portal_nine][9]
+    [![Skapa en nivå](media/v2-update-how-to-tsm/portal_nine.png)](media/v2-update-how-to-tsm/portal_nine.png#lightbox)
 
 ### <a name="bulk-upload-one-or-more-hierarchies"></a>Massöverför en eller flera hierarkier
 
@@ -82,19 +84,21 @@ Välj typ och **ta bort**. Om inga instanser är associerade med typerna, tas de
 1. Välj den fil som innehåller nyttolasten i hierarkin.
 1. Välj **Överför**.
 
-    ![Portal_ten][10]
+    [![Massinläsning uppladdning hierarkier](media/v2-update-how-to-tsm/portal_ten.png)](media/v2-update-how-to-tsm/portal_ten.png#lightbox)
 
 ### <a name="edit-a-single-hierarchy"></a>Redigera en hierarki
 
-Välj hierarkin och **redigera**. Gör nödvändiga ändringar och välj **spara**.
+1. Välj hierarkin och **redigera**.
+1. Gör nödvändiga ändringar och välj **spara**.
 
-![Portal_eleven][11]
+    [![Redigera en hierarki](media/v2-update-how-to-tsm/portal_eleven.png)](media/v2-update-how-to-tsm/portal_eleven.png#lightbox)
 
 ### <a name="delete-a-hierarchy"></a>Ta bort en hierarki
 
-Välj hierarkin och **ta bort**. Om inga instanser är associerade med hierarkin, tas den bort.
+1. Välj hierarkin och **ta bort**. 
+1. Om inga instanser är associerade med hierarkin, tas den bort.
 
-![Portal_twelve][12]
+    [![Ta bort en hierarki](media/v2-update-how-to-tsm/portal_twelve.png)](media/v2-update-how-to-tsm/portal_twelve.png#lightbox)
 
 ## <a name="instances"></a>Instanser
 
@@ -102,11 +106,11 @@ Välj hierarkin och **ta bort**. Om inga instanser är associerade med hierarkin
 
 1. Gå till panelen väljare Time Series-modeller och välj **instanser** på menyn. Dölj panelen för att fokusera på modeller för Time Series-instanser.
 
-    ![Portal_thirteen][13]
+    [![Skapa en enda instans](media/v2-update-how-to-tsm/portal_thirteen.png)](media/v2-update-how-to-tsm/portal_thirteen.png#lightbox)
 
 1. Välj **Lägg till**.
 
-    ![Portal_fourteen][14]
+    [![Lägga till en instans](media/v2-update-how-to-tsm/portal_fourteen.png)](media/v2-update-how-to-tsm/portal_fourteen.png#lightbox)
 
 1. Ange instansinformation, Välj typ och hierarki associationen och välj **skapa**.
 
@@ -115,19 +119,16 @@ Välj hierarkin och **ta bort**. Om inga instanser är associerade med hierarkin
 1. Välj **ladda upp JSON**.
 1. Välj den fil som innehåller nyttolasten instanser.
 
-    ![Portal_fifteen][15]
+    [![Massöverför en eller flera instanser](media/v2-update-how-to-tsm/portal_fifteen.png)](media/v2-update-how-to-tsm/portal_fifteen.png#lightbox)
 
 1. Välj **Överför**.
 
 ### <a name="edit-a-single-instance"></a>Redigera en enskild instans
 
-Välj instansen och välj **redigera**. Gör nödvändiga ändringar och välj **spara**.
+1. Välj instansen och välj **redigera**. 
+1. Gör nödvändiga ändringar och välj **spara**.
 
-![Portal_sixteen][16]
-
-### <a name="delete-an-instance"></a>Ta bort en instans
-
-Välj instansen och välj **ta bort**. Om inga händelser är associerade med förekomsterna, tas den bort.
+    [![Redigera en enskild instans](media/v2-update-how-to-tsm/portal_sixteen.png)](media/v2-update-how-to-tsm/portal_sixteen.png#lightbox)
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -136,21 +137,3 @@ Välj instansen och välj **ta bort**. Om inga händelser är associerade med f�
 - Mer information om förhandsversionen av [visualisera data i förhandsversionen av Azure Time Series Insights explorer](./time-series-insights-update-explorer.md).
 
 - Mer information om JSON-former som stöds, läsa [stöds JSON-former](./time-series-insights-send-events.md#json).
-
-<!-- Images -->
-[1]: media/v2-update-how-to-tsm/portal_one.png
-[2]: media/v2-update-how-to-tsm/portal_two.png
-[3]: media/v2-update-how-to-tsm/portal_three.png
-[4]: media/v2-update-how-to-tsm/portal_four.png
-[5]: media/v2-update-how-to-tsm/portal_five.png
-[6]: media/v2-update-how-to-tsm/portal_six.png
-[7]: media/v2-update-how-to-tsm/portal_seven.png
-[8]: media/v2-update-how-to-tsm/portal_eight.png
-[9]: media/v2-update-how-to-tsm/portal_nine.png
-[10]: media/v2-update-how-to-tsm/portal_ten.png
-[11]: media/v2-update-how-to-tsm/portal_eleven.png
-[12]: media/v2-update-how-to-tsm/portal_twelve.png
-[13]: media/v2-update-how-to-tsm/portal_thirteen.png
-[14]: media/v2-update-how-to-tsm/portal_fourteen.png
-[15]: media/v2-update-how-to-tsm/portal_fifteen.png
-[16]: media/v2-update-how-to-tsm/portal_sixteen.png

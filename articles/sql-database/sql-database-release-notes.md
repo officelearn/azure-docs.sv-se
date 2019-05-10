@@ -8,14 +8,14 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/23/2019
+ms.date: 05/07/2019
 ms.author: carlrab
-ms.openlocfilehash: e6d702c7a3194f07f9d04139acbc9b6101b296ea
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 923e475cd690902c61c2f89578c2c62effe4cd86
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64717426"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406586"
 ---
 # <a name="sql-database-release-notes"></a>Viktig information om SQL-databas
 
@@ -25,6 +25,7 @@ Den här artikeln innehåller nya funktioner och förbättringar i tjänsten SQL
 
 | Funktion | Information |
 | ---| --- |
+| Serverlös beräkningsnivå | Mer information finns i [SQL-databas utan server (förhandsversion)](sql-database-serverless.md).|
 | Elastic Database-jobb | Mer information finns i [skapa, konfigurera och hantera elastiska jobb](elastic-jobs-overview.md) |
 | Elastiska transaktioner | [Distribuerade transaktioner över molndatabaser](sql-database-elastic-transactions-overview.md) |
 | Elastiska frågor | Mer information finns i [elastisk fråga översikt](sql-database-elastic-query-overview.md) |
@@ -45,6 +46,16 @@ Den här artikeln innehåller nya funktioner och förbättringar i tjänsten SQL
 |SQL Analytics|Mer information finns i [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md)|
 | Tidszon stöd för hanterade instanser|Mer information finns i [tidszonen i Azure SQL Database Managed Instance](sql-database-managed-instance-timezone.md)|
 |||
+
+## <a name="may-2019"></a>Maj 2019
+
+### <a name="service-improvements"></a>Förbättringar av tjänsten
+
+| Förbättringar av tjänsten | Information |
+| --- | --- |
+|Hyperskalatjänstnivå| Mer information finns i [hyperskala tjänstnivå för upp till 100 TB](sql-database-service-tier-hyperscale.md).|
+|Serverlös beräkningsnivå| Mer information finns i [SQL-databas utan server (förhandsversion)](sql-database-serverless.md).|
+
 
 ## <a name="april-2019"></a>April 2019
 

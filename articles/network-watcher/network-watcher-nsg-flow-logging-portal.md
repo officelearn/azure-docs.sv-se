@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 550755b1215dd25045845d78ab3d6248ef840062
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 3c62ad66a29943e26d1cb2f15ca71631d2feabe3
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64705946"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467434"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Självstudier: Logga nätverkstrafik till och från en virtuell dator med hjälp av Azure-portalen
 
@@ -93,10 +93,13 @@ Providern **Microsoft.Insights** krävs för NSG-flödesloggning. Registrera pro
     | Resursgrupp | Välj **Använd befintlig** och sedan **myResourceGroup**. |
 
     Det tar ungefär en minut att skapa lagringskontot. Fortsätt inte med de återstående stegen förrän lagringskontot har skapats. Om du använder ett befintligt lagringskonto i stället för att skapa ett nytt väljer du ett lagringskonto där **Alla nätverk** (standard) har valts för **Brandväggar och virtuella nätverk** under **Inställningar** för lagringskontot.
+    
+    > [!NOTE]
+    > Microsoft.Insight och Microsoft.Network-providers stöds för närvarande för Azure Storage och NSG-Flödesloggar loggar är fortfarande inte helt integrerat. Aktivera loggning för NSG-Flödesloggar **alla nätverk** måste fortfarande väljas innan den här funktionen är fullständigt integrerat. 
 4. Välj **Alla tjänster** längst upp till vänster på portalen. Skriv *Network Watcher* i **filterrutan**. När **Network Watcher** visas i sökresultatet väljer du posten.
 5. Välj **NSG-flödesloggar** under **LOGGAR**, som du ser i följande bild:
 
-    ![NSG:er](./media/network-watcher-nsg-flow-logging-portal/nsgs.png)
+    ![Nätverkssäkerhetsgrupper (NSG)](./media/network-watcher-nsg-flow-logging-portal/nsgs.png)
 
 6. Välj nätverkssäkerhetsgruppen **myVm-nsg** i listan med nätverkssäkerhetsgrupper.
 7. Välj **På** under **Flödesloggsinställningar**.
@@ -200,11 +203,11 @@ Värdet för **mac** i föregående utdata är nätverksgränssnittets MAC-adres
 | Exempeldata | Vad data representerar   | Förklaring                                                                              |
 | ---          | ---                    | ---                                                                                      |
 | 1542110377   | Tidsstämpel             | Tidsstämpeln för när flödet uppstod, i UNIX EPOK-format. I föregående exempel konverterades datumet till 1 maj 2018 kl. 14:59:05 GMT.                                                                                    |
-| 10.0.0.4  | Källans IP-adress      | Käll-IP-adressen som flödet kom från. 10.0.0.4 är den privata IP-adressen för den virtuella datorn som du skapade i [Skapa en virtuell dator](#create-a-vm).
+| 10.0.0.4  | IP-källadress      | Käll-IP-adressen som flödet kom från. 10.0.0.4 är den privata IP-adressen för den virtuella datorn som du skapade i [Skapa en virtuell dator](#create-a-vm).
 | 13.67.143.118     | Mål-IP-adress | Mål-IP-adressen som flödet skickades till.                                                                                  |
 | 44931        | Källport            | Källporten som flödet kom från.                                           |
 | 443         | Målport       | Målporten som flödet skickades till. Eftersom trafiken skulle till port 443 bearbetades flödet av regeln med namnet **UserRule_default-allow-rdp** i loggfilen.                                                |
-| T            | Protokoll               | Anger om protokollet för flödet var TCP (T) eller UDP (U).                                  |
+| t            | Protokoll               | Anger om protokollet för flödet var TCP (T) eller UDP (U).                                  |
 | O            | Direction              | Anger om trafiken var inkommande (I) eller utgående (O).                                     |
 | A            | Åtgärd                 | Anger om trafiken tilläts (A) eller nekades (D).  
 | C            | Flödestillstånd **endast version 2** | Registrerad flödets tillstånd. Möjliga tillstånd är **B**: Början när ett flöde skapas. Statistik tillhandahålls inte. **C**: Fortsätter för ett pågående flöde. Statistik tillhandahålls med 5 minuters mellanrum. **E**: Slutet (End), när ett flöde avslutas. Statistik tillhandahålls. |

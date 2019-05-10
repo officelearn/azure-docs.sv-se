@@ -5,19 +5,18 @@ services: functions
 keywords: OpenAPI, Swagger, cloud apps, cloud services,
 author: ggailey777
 manager: jeconnoc
-ms.assetid: ''
 ms.service: azure-functions
 ms.topic: tutorial
-ms.date: 11/26/2018
+ms.date: 05/08/2019
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 3ad304bc8f038d4009352dae72d70079828c26ba
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.openlocfilehash: 255a7c9d0b9da15176fca90c6934a84fa0f863ed
+ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65141475"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65501861"
 ---
 # <a name="create-an-openapi-definition-for-a-function-with-azure-api-management"></a>Skapa en OpenAPI-definition för en funktion med Azure API Management
 
@@ -133,13 +132,9 @@ Nu har du en funktion som avgör om en nödreparation är kostnadseffektiv. Nu s
 
 Nu är du redo att generera OpenAPI-definitionen.
 
-1. Välj funktionsappen och välj sedan **plattformsfunktioner**, **alla inställningar**
+1. Välj funktionsappen sedan i **plattformsfunktioner**, Välj **API Management** och välj **Skapa nytt** under **API Management**.
 
-    ![Testa funktionen i Azure Portal](media/functions-openapi-definition/select-all-settings-openapi.png)
-
-1. Rulla nedåt och välj sedan **API Management** > **Skapa nytt** att skapa en ny API Management-instans.
-
-    ![Länk-funktion](media/functions-openapi-definition/link-apim-openapi.png)
+    ![Välj API Management i plattformsfunktioner](media/functions-openapi-definition/select-all-settings-openapi.png)
 
 1. Använd API Management-inställningar som anges i tabellen nedanför bilden.
 
@@ -150,11 +145,10 @@ Nu är du redo att generera OpenAPI-definitionen.
     | **Namn** | Globalt unikt namn | Ett namn genereras baserat på namnet på din funktionsapp. |
     | **Prenumeration** | Din prenumeration | Den prenumeration under vilken den här nya resursen skapas. |  
     | **[Resursgrupp](../azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | Samma resurs som din funktionsapp, som ska få in åt dig. |
-    | **Plats** | Västra USA | Välj USA, västra |
+    | **Plats** | USA, västra | Välj USA, västra. |
     | **Organisationens namn** | Contoso | Namnet på den organisation som används på utvecklarportalen och e-postmeddelanden. |
     | **E-postadress för administratör** | din e-post | E-postmeddelande som har fått systemmeddelanden från API Management. |
-    | **prisnivå** | Förbrukning (förhandsversion) | Fullständig prisinformation finns på [API Management-sidan med priser](https://azure.microsoft.com/pricing/details/api-management/) |
-    | **Application Insights** | Din instans | Använd samma Application Insights som används av din funktionsapp. |
+    | **prisnivå** | Förbrukning (förhandsversion) | Förbrukning nivån är en förhandsversion och är inte tillgängligt i alla regioner. Fullständig prisinformation finns på [API Management-sidan med priser](https://azure.microsoft.com/pricing/details/api-management/) |
 
 1. Välj **skapa** att skapa API Management-instans, vilket kan ta flera minuter.
 
@@ -178,27 +172,20 @@ Innan du använder API-definition, bör du kontrollera att den fungerar.
 
 1. Ange värden för **timmar** och **kapacitet**
 
-```json
-{
-"hours": "6",
-"capacity": "2500"
-}
-```
+    ```json
+    {
+    "hours": "6",
+    "capacity": "2500"
+    }
+    ```
 
 1. Klicka på **skicka**, visa HTTP-svaret.
 
     ![Testa API-funktion](media/functions-openapi-definition/test-function-api-openapi.png)
 
+[!INCLUDE [clean-up-section-portal](../../includes/clean-up-section-portal.md)]
+
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen lärde du dig att:
-
-> [!div class="checklist"]
-> * skapar en funktion i Azure
-> * Generera en OpenAPI-definition med hjälp av Azure API Management
-> * testar definitionen genom att anropa funktionen.
-
-Gå vidare till nästa avsnitt om du vill veta mer om API Management.
-
 > [!div class="nextstepaction"]
-> [API Management](../api-management/api-management-key-concepts.md)
+> [Mer information om API Management](../api-management/api-management-key-concepts.md)

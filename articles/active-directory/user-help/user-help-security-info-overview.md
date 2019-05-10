@@ -1,6 +1,6 @@
 ---
 title: Översikt över säkerhetsinformation (förhandsversion) – Azure Active Directory | Microsoft Docs
-description: En översikt på hög nivå över området med säkerhetsinformation, däribland länkar till andra artiklar om funktionen.
+description: En lista med länkar till artiklar om Security-informationssidan och funktionen.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -9,34 +9,36 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: overview
-ms.date: 02/11/2019
+ms.date: 05/08/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 234c7244f438926f43ddf31234a38c9034a6ca52
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1e471f447b0c50c9c65923d7135b2b48789728df
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60473241"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65470702"
 ---
 # <a name="security-info-preview-overview"></a>Översikt över säkerhetsinformation (förhandsversion)
-Du kan konfigurera säkerhetsinformation för tvåstegsverifiering och lösenordsåterställning på sidan **Säkerhetsinformation**. Du kan även redigera säkerhetsinformation och ändra standardmetod på den sidan
+
+Den **säkerhetsinformation** sidan hjälper dig att konfigurera din tvåstegsverifiering verifieringsmetoder och information för återställning av lösenord. Det hjälper dig också att uppdatera din personliga säkerhetsinformation och din standardmetod för verifiering.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 >[!Important]
 >Innehållet är avsett för användare. Om du är administratör hittar du mer information om hur du konfigurerar och hanterar en Azure Active Directory (Azure AD)-miljö i [dokumentationen om Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
 
-## <a name="in-this-section"></a>I det här avsnittet
-Du kan läsa mer om att lägga till, uppdatera och ta bort säkerhetsinformation, baserat på den metod som du vill använda, i följande artiklar.
+## <a name="security-info-articles"></a>Security info artiklar
+
+Detaljerad information och anvisningar om att lägga till, finns uppdatera eller ta bort din säkerhetsinformation i följande artiklar (baserat på vilken metod som du vill använda):
 
 |Artikel |Beskrivning |
 |------|------------|
-|[Konfigurera säkerhetsinformation under inloggning](security-info-setup-signin.md)|Beskriver hur du konfigurerar säkerhetsinformation om du uppmanas från inloggningssidan.|
-|[Konfigurera säkerhetsinformation för en autentiseringsapp](security-info-setup-auth-app.md)|Beskriver hur du konfigurerar säkerhetsinformation till att använda Microsoft Authenticator-appen som din metod.|
-|[Konfigurera säkerhetsinformation för SMS](security-info-setup-text-msg.md)|Beskriver hur du konfigurerar säkerhetsinformation till att använda SMS som metod.|
-|[Konfigurera säkerhetsinformation för att använda telefonsamtal](security-info-setup-phone-number.md)| Beskriver hur du konfigurerar ditt telefonnummer som din metod.|
-|[Konfigurera säkerhetsinformation för att använda e-post](security-info-setup-email.md)|Beskriver hur du konfigurerar din e-postadress för att hjälpa dig återställa lösenordet.|
-|[Konfigurera säkerhetsinformation för att använda fördefinierade säkerhetsfrågor](security-info-setup-questions.md)|Beskriver hur du använder säkerhetsfrågor för att hjälpa dig att återställa lösenorden.|
-|[Hantera lösenord för appar](security-info-app-passwords.md)|Beskriver hur du konfigurerar lösenord för appar med hjälp av säkerhetsinformation.|
-|[Så här loggar du in](user-help-sign-in.md)|Beskriver hur du loggar in med din angivna metod.|
+|[Lägg till en säkerhetsmetod från en kommandotolk på din inloggningssida](security-info-setup-signin.md)| Anvisningar om hur du ställer in din säkerhetsinformation när du uppmanas från din inloggningssida. Det här meddelandet visas bara om du inte redan har installerat den säkerhetsinformation som krävs av din organisation. Om du inte ser meddelandet, kan du fortfarande ändra och lägga till verifieringsmetoder med hjälp av de andra artiklarna i den här tabellen.|
+|[Lägg till Microsoft Authenticator-appen som en verifieringsmetod](security-info-setup-auth-app.md)| Anvisningar om hur du konfigurerar Microsoft Authenticator-appen som en verifieringsmetod.|
+|[Lägg till textmeddelanden som en verifieringsmetod](security-info-setup-text-msg.md)| Anvisningar om hur du ställer in textmeddelanden som en verifieringsmetod.|
+|[Lägg till telefonsamtal som en verifieringsmetod](security-info-setup-phone-number.md)| Anvisningar om hur du ställer in ditt telefonnummer som en verifieringsmetod.|
+|[Lägg till en e-postadress om du vill återställa ditt eget lösenord](security-info-setup-email.md)| Anvisningar om hur du lägger till din e-postadress så att du kan återställa ditt eget lösenord.|
+|[Lägg till säkerhetsfrågor för att återställa ditt eget lösenord](security-info-setup-questions.md)| Anvisningar om hur du lägger till fördefinierade säkerhetsfrågor, så att du kan återställa ditt eget lösenord.|
+|[Hantera applösenord för appar som inte stöder tvåstegsverifiering](security-info-app-passwords.md)| Anvisningar om hur du skapar applösenord för appar som inte stöder tvåstegsverifiering i en organisation som använder tvåstegsverifiering.|
+|[Så här loggar du in](user-help-sign-in.md)|Beskriver hur du loggar in med din angivna verifieringsmetod.|

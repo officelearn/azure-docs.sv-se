@@ -11,12 +11,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 01/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 61c5d60f0c2fab3786aa6adfa194c0716e621ea3
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 8081be7f411b38d2418d893654a5691bd1ad7cc1
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023653"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65470621"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>Vad hände med Azure Machine Learning Workbench?
 
@@ -62,13 +62,13 @@ Portalens instrumentpanel för arbetsytor stöds endast i webbläsarna Microsoft
 
 [![Online-portal](./media/overview-what-happened-to-workbench/image001.png)](./media/overview-what-happened-to-workbench/image001.png#lightbox)
 
-Börja träna dina modeller och spåra körhistorik med hjälp av nya CLI och SDK. Hur du gör visas i [Självstudie: träna modeller med Azure Machine Learning-tjänsten](tutorial-train-models-with-aml.md).
+Starta utbildning dina modeller och spåra körhistorik som använder den nya CLI och SDK. Hur du gör visas i [Självstudie: träna modeller med Azure Machine Learning-tjänsten](tutorial-train-models-with-aml.md).
 
 ## <a name="can-i-still-prep-data"></a>Går det fortfarande att förbereda data?
 
 Dina befintliga dataförberedelsefiler kan inte överföras till den senaste versionen eftersom vi inte längre har Machine Learning Workbench. Däremot kan du fortfarande förbereda datauppsättningar av valfri storlek för modellering.   
 
-Med datamängder oavsett storlek kan du använda [Azure Machine Learning-SDK för dataförberedelse](https://aka.ms/data-prep-sdk) för att snabbt förbereda dina data före modellering genom att skriva Python-kod. 
+Med datauppsättningar i alla storlekar, kan du använda den [databearbetningspaketet för Azure Machine Learning](https://aka.ms/data-prep-sdk) snabbt förbereda dina data för modellering genom att skriva kod för Python. 
 
 Du kan följa [den här självstudien](tutorial-data-prep.md) för att lära dig mer om hur du använder Azure Machine Learning SDK för dataförberedelse.
 

@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/28/2018
+ms.date: 05/08/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b4bf8df2374d373ad36eada8a7de08be76396a76
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 5f7219578932a259f48b0109d433dcba9ff28d1f
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190814"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508045"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Förhandskrav för Azure AD Connect
 Det här avsnittet beskriver kraven och maskinvarukrav för Azure AD Connect.
@@ -51,6 +51,9 @@ Innan du installerar Azure AD Connect, finns det några saker som du behöver.
 * Azure AD Connect kan inte installeras på Small Business Server eller Windows Server Essentials innan 2019 (Windows Server Essentials 2019 stöds). Servern måste använda Windows Server standard- eller bättre.
 * Installera Azure AD Connect på en domänkontrollant rekommenderas inte på grund av säkerhetsrutiner och mer restriktiva inställningar som kan förhindra att Azure AD Connect installerar korrekt
 * Azure AD Connect-servern måste ha ett fullständigt grafiskt användargränssnitt installerad. Det är **stöds inte** att installera på server core.
+>[!IMPORTANT]
+>Det går inte att installera Azure AD Connect på small business server, server essentials eller server core.
+
 * Azure AD Connect måste installeras på Windows Server 2008 R2 eller senare. Den här servern måste vara domänen ansluten och kan vara en domänkontrollant eller en medlemsserver.
 * Om du installerar Azure AD Connect på Windows Server 2008 R2, se till att tillämpa de senaste snabbkorrigeringarna från Windows Update. Installationen kan inte börja med en okorrigerad server.
 * Om du planerar att använda funktionen **Lösenordssynkronisering**, Azure AD Connect-servern måste vara i Windows Server 2008 R2 SP1 eller senare.
@@ -87,7 +90,7 @@ Du kan läsa mer här:
 * Om du använder standardinställningar eller uppgradera från DirSync, måste du ha ett Enterprise-administratörskonto för din lokala Active Directory.
 * [Konton i Active Directory](reference-connect-accounts-permissions.md) om du använder anpassade inställningar installationssökväg eller ett Enterprise-administratörskonto för din lokala Active Directory.
 
-### <a name="connectivity"></a>Anslutning
+### <a name="connectivity"></a>Anslutningar
 * Azure AD Connect-servern måste DNS-matchning för både intranät och internet. DNS-server måste kunna matcha namn både till din lokala Active Directory och Azure AD-slutpunkter.
 * Om du har brandväggar på intranätet och du måste öppna portarna mellan Azure AD Connect-servrar och domänkontrollanter och sedan se [Azure AD Connect portar](reference-connect-ports.md) för mer information.
 * Om proxyservern eller brandväggen begränsa vilka webbadresser som kan nås så URL: erna som beskrivs i [Office 365-URL: er och IP-adressintervall](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) måste öppnas.
@@ -127,7 +130,7 @@ Du kan läsa mer här:
 Mer information finns i MSDN den [standard proxy elementet](https://msdn.microsoft.com/library/kd3cf2ex.aspx).  
 Läs mer om när du har problem med anslutningen [Felsöka anslutningsproblem](tshoot-connect-connectivity.md).
 
-### <a name="other"></a>Annat
+### <a name="other"></a>Annat 
 * Valfritt: Ett test-användarkonto att verifiera synkronisering.
 
 ## <a name="component-prerequisites"></a>Komponent-krav
@@ -211,9 +214,9 @@ Tabellen nedan visar de lägsta kraven för Azure AD Connect sync-datorn.
 | 10,000–50,000 |1,6 GHz |4 GB |70 GB |
 | 50,000–100,000 |1,6 GHz |16 GB |100 GB |
 | För 100 000 eller fler objekt krävs den fullständiga versionen av SQL Server | | | |
-| 100,000–300,000 |1,6 GHz |32 GB |300 GB |
-| 300,000–600,000 |1,6 GHz |32 GB |450 GB |
-| Mer än 600 000 |1,6 GHz |32 GB |500 GB |
+| 100,000–300,000 |1,6 GHz |32 GB |300 GB |
+| 300,000–600,000 |1,6 GHz |32 GB |450 GB |
+| Mer än 600 000 |1,6 GHz |32 GB |500 GB |
 
 De lägsta kraven för datorer som kör AD FS eller Webbprogramservrarna är följande:
 

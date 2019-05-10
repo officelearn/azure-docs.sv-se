@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/06/2019
 ms.author: wolfma
-ms.openlocfilehash: 4f48fc0ad65984df42e2a85853f39e49d7481302
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: d5a4b3a07854c2664de7ec60f3677b666798a9bd
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65020446"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65237069"
 ---
 ### <a name="standard-and-neural-voices"></a>Standard- och neural röster
 
@@ -17,24 +17,24 @@ Använd den här tabellen för att avgöra tillgängligheten för standard- och 
 
 | Region | Slutpunkt | Standard röster | Neural Voices |
 |--------|----------|-----------------|---------------|
-| Östra Australien | https://australiaeast.tts.speech.microsoft.com/cognitiveservices/v1 | Ja | Ja |
-| Centrala Kanada | https://canadacentral.tts.speech.microsoft.com/cognitiveservices/v1 | Ja | Ja |
-| Centrala USA | https://centralus.tts.speech.microsoft.com/cognitiveservices/v1 | Ja | Nej |
-| Östasien | https://eastasia.tts.speech.microsoft.com/cognitiveservices/v1 | Ja | Nej |
-| Östra USA | https://eastus.tts.speech.microsoft.com/cognitiveservices/v1 | Ja | Ja |
-| USA, östra 2 | https://eastus2.tts.speech.microsoft.com/cognitiveservices/v1 | Ja | Nej |
-| Frankrike, centrala | https://francecentral.tts.speech.microsoft.com/cognitiveservices/v1 | Ja | Nej |
-| Centrala Indien | https://centralindia.tts.speech.microsoft.com/cognitiveservices/v1 | Ja | Ja |
-| Östra Japan | https://japaneast.tts.speech.microsoft.com/cognitiveservices/v1 | Ja | Nej |
-| Sydkorea, centrala | https://koreacentral.tts.speech.microsoft.com/cognitiveservices/v1 | Ja | Nej |
-| Norra centrala USA | https://northcentralus.tts.speech.microsoft.com/cognitiveservices/v1 | Ja | Nej |
-| Norra Europa | https://northeurope.tts.speech.microsoft.com/cognitiveservices/v1 | Ja | Nej |
-| Södra centrala USA | https://southcentralus.tts.speech.microsoft.com/cognitiveservices/v1 | Ja | Ja |
-| Sydostasien | https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1 | Ja | Ja |
-| Storbritannien, södra | https://uksouth.tts.speech.microsoft.com/cognitiveservices/v1 | Ja | Ja |
-| Västra Europa | https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1 | Ja | Ja |
-| Västra USA | https://westus.tts.speech.microsoft.com/cognitiveservices/v1 | Ja | Nej |
-| Västra USA 2 | https://westus2.tts.speech.microsoft.com/cognitiveservices/v1 | Ja | Ja |
+| Australien, östra | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Ja |
+| Kanada, centrala | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Ja |
+| Centrala USA | `https://centralus.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Nej |
+| Asien, östra | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Nej |
+| Östra USA | `https://eastus.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Ja |
+| USA, östra 2 | `https://eastus2.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Nej |
+| Centrala Frankrike | `https://francecentral.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Nej |
+| Indien, centrala | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Ja |
+| Japan, östra | `https://japaneast.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Nej |
+| Sydkorea, centrala | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Nej |
+| USA, norra centrala | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Nej |
+| Europa, norra | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Nej |
+| USA, södra centrala | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Ja |
+| Sydostasien | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Ja |
+| Södra Storbritannien | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Ja |
+| Europa, västra | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Ja |
+| USA, västra | `https://westus.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Nej |
+| USA, västra 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Ja |
 
 ### <a name="custom-voices"></a>Anpassade röster
 
@@ -42,21 +42,21 @@ Om du har skapat en anpassad rösttyp kan använda den slutpunkt som du har skap
 
 | Region | Slutpunkt |
 |--------|----------|
-| Östra Australien | https://australiaeast.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId} |
-| Centrala Kanada | https://canadacentral.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId} |
-| Centrala USA | https://centralus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId} |
-| Östasien | https://eastasia.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId} |
-| Östra USA | https://eastus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId} |
-| USA, östra 2 | https://eastus2.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId} |
-| Frankrike, centrala | https://francecentral.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId} |
-| Centrala Indien | https://centralindia.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId} |
-| Östra Japan | https://japaneast.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId} |
-| Sydkorea, centrala | https://koreacentral.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId} |
-| Norra centrala USA | https://northcentralus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId} |
-| Norra Europa | https://northeurope.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId} |
-| Södra centrala USA | https://southcentralus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId} |
-| Sydostasien | https://southeastasia.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId} |
-| Storbritannien, södra | https://uksouth.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId} |
-| Västra Europa | https://westeurope.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId} |
-| Västra USA | https://westus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId} |
-| Västra USA 2 | https://westus2.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId} |
+| Australien, östra | `https://australiaeast.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| Kanada, centrala | `https://canadacentral.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| Centrala USA | `https://centralus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| Asien, östra | `https://eastasia.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| Östra USA | `https://eastus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| USA, östra 2 | `https://eastus2.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| Centrala Frankrike | `https://francecentral.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| Indien, centrala | `https://centralindia.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| Japan, östra | `https://japaneast.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| Sydkorea, centrala | `https://koreacentral.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| USA, norra centrala | `https://northcentralus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| Europa, norra | `https://northeurope.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| USA, södra centrala | `https://southcentralus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| Sydostasien | `https://southeastasia.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| Södra Storbritannien | `https://uksouth.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| Europa, västra | `https://westeurope.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| USA, västra | `https://westus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| USA, västra 2 | `https://westus2.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |

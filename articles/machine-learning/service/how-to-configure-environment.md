@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: c8c0291997c1ce301083f7d5c19b5067a85cfd0f
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 4d588374c0195e7da373766f93f6829ac2160269
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024962"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471617"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Konfigurera en utvecklingsmiljö för Azure Machine Learning
 
@@ -299,7 +299,7 @@ När klustret körs [skapa ett bibliotek](https://docs.databricks.com/user-guide
 
 1. Välj **endast en** alternativet (inga andra SDK-installation stöds)
 
-   |SDK&nbsp;paketet&nbsp;tillägg|Källa|PyPi&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+   |SDK&nbsp;paketet&nbsp;tillägg|Source|PyPi&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
    |----|---|---|
    |För Databricks| Ladda upp Python ägg eller PyPI | azureml-sdk[databricks]|
    |För Databricks - med-<br> automatiserad ML-kapacitet| Ladda upp Python ägg eller PyPI | azureml-sdk[automl_databricks]|
@@ -396,5 +396,5 @@ Du kan skapa konfigurationsfilen på tre sätt:
 
 - [Träna en modell](tutorial-train-models-with-aml.md) i Azure Machine Learning med MNIST datauppsättningen
 - Visa den [Azure Machine Learning-SDK för Python](https://aka.ms/aml-sdk) referens
-- Lär dig mer om den [Azure Machine Learning Data Förbered SDK](https://aka.ms/data-prep-sdk)
+- Lär dig mer om den [databearbetningspaketet för Azure Machine Learning](https://aka.ms/data-prep-sdk)
 - 

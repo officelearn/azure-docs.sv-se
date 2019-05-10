@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/06/2019
 ms.author: akjosh; cynthn
 ms.custom: ''
-ms.openlocfilehash: 40ac8badfac3c004d3451c598d7cd2a17982a585
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: f69b1aff28165b9bf37c49fe62d1fb5aada91285
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138922"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236414"
 ---
 # <a name="create-a-shared-image-gallery-with-the-azure-cli"></a>Skapa en delad bildgalleriet med Azure CLI
 
@@ -61,7 +61,9 @@ az vm create\
 [!INCLUDE [virtual-machines-common-shared-images-update-delete-cli](../../../includes/virtual-machines-common-shared-images-update-delete-cli.md)]
 
 ## <a name="next-steps"></a>Nästa steg
-Du kan också skapa delade bildgalleriet resursen med hjälp av mallar. Det finns flera Azure-Snabbstartsmallar: 
+[Azure Image Builder (förhandsversion)](image-builder-overview.md) kan hjälpa dig att automatisera genereringen av avbildningen version, kan du även använda den för att uppdatera och [skapa en ny Avbildningsversion från en befintlig Avbildningsversion](image-builder-gallery-update-image-version.md). 
+
+Du kan också skapa bildgalleriet för delade resurser med hjälp av mallar. Det finns flera Azure-Snabbstartsmallar: 
 
 - [Skapa en delad bildgalleri](https://azure.microsoft.com/resources/templates/101-sig-create/)
 - [Skapa en Definition för bilden i en delad Avbildningsgalleri](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)

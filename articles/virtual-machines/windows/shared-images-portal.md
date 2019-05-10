@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 04/29/2019
+ms.date: 05/06/2019
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: 50714f3fe6d30b4b93a0b42383b6f4634c86eafa
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: d46c545db9e1950988b49cdb577d074b6d04380c
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148050"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236592"
 ---
 # <a name="create-a-shared-image-gallery-using-the-azure-portal"></a>Skapa en delad bildgalleriet med Azure portal
 
@@ -43,7 +43,9 @@ Delad bildgalleriet-funktionen har flera resurstyper. Vi ska använda eller att 
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Du måste ha en befintlig hanterad avbildning för att utföra exemplet i den här artikeln. Du kan följa [självstudien: Skapa en anpassad avbildning av en Azure-dator med Azure PowerShell](tutorial-custom-images.md) att skapa en om det behövs. När du börjar med den här artikeln, Ersätt namnges resursgrupp och virtuell dator där det behövs.
+Du måste ha en befintlig hanterad avbildning för att utföra exemplet i den här artikeln. Du kan följa [självstudien: Skapa en anpassad avbildning av en Azure-dator med Azure PowerShell](tutorial-custom-images.md) att skapa en om det behövs. Om hanterad avbildning innehåller en datadisk, får inte datadiskstorleken vara mer än 1 TB.
+
+När du börjar med den här artikeln, Ersätt namnges resursgrupp och virtuell dator där det behövs.
 
 
 [!INCLUDE [virtual-machines-common-shared-images-portal](../../../includes/virtual-machines-common-shared-images-portal.md)]

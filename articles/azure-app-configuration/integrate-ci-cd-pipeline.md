@@ -12,14 +12,22 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: a8b77cea34344062c981d8f452094cffabe1e568
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 26bd49af7245d6e6dde3162a2e1d95c54f13e35b
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64572503"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415955"
 ---
 # <a name="integrate-with-a-cicd-pipeline"></a>Integrera med en CI/CD-pipeline
+
+Den här artikeln beskrivs olika sätt att använda data från Azure-Appkonfiguration i en kontinuerlig integrering och kontinuerlig distribution.
+
+## <a name="use-app-configuration-in-your-azure-devops-pipeline"></a>Om du Använd Appkonfiguration i din Azure DevOps-Pipeline
+
+Om du har en Azure DevOps-Pipeline kan du hämta nyckel-värden från Appkonfiguration och ange dem som uppgiften variabler. Den [Azure App Configuration DevOps tillägget](https://go.microsoft.com/fwlink/?linkid=2091063) är ett tilläggsmodul som tillhandahåller den här funktionen. Följ bara dess instruktionerna för att använda tillägget i en version eller frigöra aktivitetssekvensen.
+
+## <a name="deploy-app-configuration-data-with-your-application"></a>Distribuera App konfigurationsdata med ditt program
 
 Programmet kanske inte körs om den är beroende av konfiguration av Azure och det går inte att nå den. Du kan förbättra återhämtning av ditt program behöver bry dig om sådan händelse, men inte troligt att inträffa. Du gör detta genom att paketera aktuella konfigurationsdata i en fil som har distribuerats med programmet och läsa in lokalt under start. Den här metoden garanterar att ditt program har inställningen standardvärden minst. De här värdena skrivs över av alla nyare ändringar i en appbutik konfiguration när den är tillgänglig.
 
@@ -29,13 +37,13 @@ I följande exempel visas hur du inkluderar konfiguration av data som en version
 
 Du kan använda valfri Kodredigerare för att utföra stegen i den här självstudien. [Visual Studio Code](https://code.visualstudio.com/) är ett utmärkt alternativ tillgängligt på Windows, macOS och Linux-plattformar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+### <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du bygger lokalt kan ladda ned och installera den [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) om du inte redan har gjort.
 
 Om du vill göra en cloud-version med Azure DevOps till exempel kontrollera att den [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) installeras i ditt system.
 
-## <a name="export-an-app-configuration-store"></a>Exportera konfiguration appbutik
+### <a name="export-an-app-configuration-store"></a>Exportera konfiguration appbutik
 
 1. Öppna din *.csproj* filen och Lägg till följande skript:
 
@@ -64,7 +72,7 @@ Om du vill göra en cloud-version med Azure DevOps till exempel kontrollera att 
             .UseStartup<Startup>();
     ```
 
-## <a name="build-and-run-the-app-locally"></a>Skapa och köra appen lokalt
+### <a name="build-and-run-the-app-locally"></a>Skapa och köra appen lokalt
 
 1. Ange en miljövariabel som heter **ConnectionString**, och ange att snabbtangent i din appbutik för konfiguration. Om du använder Windows-Kommandotolken kör du följande kommando och starta om Kommandotolken så att ändringen ska börja gälla:
 

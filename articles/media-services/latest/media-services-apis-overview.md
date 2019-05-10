@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 05/02/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: b80f11ef97a10728f07cebe1fe80b954e506da52
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 4c5b30ab075bbca22b6a58ccf65e55d332820937
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65147900"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406550"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>Utveckla med Media Services v3-API: er
 
@@ -25,7 +25,11 @@ Den här artikeln beskrivs regler som gäller för entiteter och API: er när du
 
 ## <a name="accessing-the-azure-media-services-api"></a>Åtkomst till Azure Media Services API
 
-Du kan använda tjänstobjektautentisering för Azure Active Directory (AD) för att få åtkomst till Azure Media Services-resurserna.
+Om du vill ha behörighet att komma åt Media Services-resurser och Media Services-API, måste du först autentiseras. Media Services stöder [Azure Active Directory (Azure AD)-baserade](../../active-directory/fundamentals/active-directory-whatis.md) autentisering. Det finns två vanliga alternativ för autentisering:
+ 
+* **Autentisering av tjänstens huvudnamn** – används för att autentisera en tjänst (till exempel: web apps, funktionsappar, logic apps, API och mikrotjänster). Program som ofta använder den här autentiseringsmetoden är appar som kör daemon-tjänster, mellannivå tjänster eller schemalagda jobb. För webben vara program det till exempel alltid ett medelnivån som ansluter till Media Services med ett huvudnamn för tjänsten.
+* **Användarautentisering** – används för att autentisera en person som använder appen för att interagera med Media Services-resurser. Interaktivt program bör först frågar användaren om användarens autentiseringsuppgifter. Ett exempel är en management-konsolapp som används av behöriga användare för att övervaka kodningsjobb eller liveuppspelning.
+
 Media Services-API kräver att användaren eller programmet att göra REST API-begäranden har åtkomst till resursen i Media Services-konto och använder en **deltagare** eller **ägare** roll. API: et kan användas med den **läsare** roll men endast **hämta** eller **lista**   operations blir tillgängliga. Mer information finns i [rollbaserad åtkomstkontroll för Media Services-konton](rbac-overview.md).
 
 Överväg att använda hanterade identiteter för Azure-resurser för att få åtkomst till Media Services-API via Azure Resource Manager istället för att skapa ett huvudnamn för tjänsten. Läs mer om hanterade identiteter för Azure-resurser i [vad är hanterade identiteter för Azure-resurser](../../active-directory/managed-identities-azure-resources/overview.md).
@@ -52,6 +56,16 @@ I följande bild representerar talen flödet av begäranden i kronologisk ordnin
 2. Azure AD-åtkomsttoken skickas till mellannivån.
 4. På mellannivå skickar begäran till Azure Media REST-API med Azure AD-token.
 5. Mellannivån får tillbaka data från Media Services.
+
+### <a name="samples"></a>Exempel
+
+Se följande exempel som visar hur du ansluter med Azure AD-tjänstens huvudnamn:
+
+* [Ansluta med REST](media-rest-apis-with-postman.md)  
+* [Ansluta med Java](configure-connect-java-howto.md)
+* [Ansluta med .NET](configure-connect-dotnet-howto.md)
+* [Ansluta med .Node.js](configure-connect-nodejs-howto.md)
+* [Ansluta med Python](configure-connect-python-howto.md)
 
 ## <a name="naming-conventions"></a>Namngivningskonventioner
 

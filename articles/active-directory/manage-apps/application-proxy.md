@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 05/09/2019
 ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac94574ac297da7b3555be8d92ba3c5b62a990c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e490ed9d104fc039a79083a94ddaebdeba766d2a
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60292612"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506643"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-active-directorys-application-proxy"></a>Fjärråtkomst till lokala program via Azure Active Directory Application Proxy 
 
@@ -43,6 +43,8 @@ Programproxy fungerar med:
 * Rich-klientprogram som är integrerade med Active Directory Authentication Library (ADAL)
 
 Programproxyn har stöd för enkel inloggning. Mer information om metoder som stöds finns i [välja en metod för enkel inloggning](what-is-single-sign-on.md#choosing-a-single-sign-on-method).
+
+Programproxy rekommenderas för att ge extern fjärranvändare åtkomst till interna resurser. Programproxy ersätter behovet av en VPN- eller omvänd proxy. Det är inte avsett för interna användare i företagsnätverket.  Intern användare som använder onödigt Application Proxy kan medföra oväntade och oönskade prestandaproblem.
 
 ## <a name="how-application-proxy-works"></a>Hur fungerar Application Proxy
 

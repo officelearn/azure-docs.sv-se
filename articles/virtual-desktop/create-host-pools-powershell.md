@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 04/05/2019
+ms.date: 05/06/2019
 ms.author: helohr
-ms.openlocfilehash: e550111e04ea77e35a4554bcc6e3bffaf4d543d2
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 165980da2b78e7514ea1938bdbeb6fda82dd123d
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924965"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236656"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>Skapa en värdpool med PowerShell
 
@@ -100,17 +100,6 @@ Gör följande på varje virtuell dator för att registrera virtuellt skrivbord 
    - Ladda ned den [Windows virtuella skrivbord agenten startprogrammet](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH).
    - Högerklicka på det nedladdade installationsprogrammet, Välj **egenskaper**väljer **avblockera**och välj sedan **OK**. Detta gör att systemet ska lita på installationsprogrammet.
    - Kör installationsprogrammet.
-4. Installera eller aktivera sida-vid-sida-stack virtuella Windows-skrivbordet. Stegen är olika beroende på vilken operativsystemversion som den virtuella datorn använder.
-   - Om den virtuella datorns operativsystem är Windows Server 2016:
-     - Ladda ned den [virtuella Windows-skrivbordet sida-vid-sida stack](https://go.microsoft.com/fwlink/?linkid=2084270).
-     - Högerklicka på det nedladdade installationsprogrammet, Välj **egenskaper**väljer **avblockera**och välj sedan **OK**. Detta gör att systemet ska lita på installationsprogrammet.
-     - Kör installationsprogrammet.
-   - Om den virtuella datorns OS är Windows 10 1809 eller senare eller Windows Server 2019 eller senare:
-     - Ladda ned den [skriptet](https://go.microsoft.com/fwlink/?linkid=2084268) att aktivera sida-vid-sida-stack.
-     - Högerklicka på det hämta skriptet, Välj **egenskaper**väljer **avblockera**och välj sedan **OK**. Detta gör att systemet ska lita på skriptet.
-     - Från den **starta** menyn, Sök efter Windows PowerShell ISE, högerklicka på den och välj sedan **kör som administratör**.
-     - Välj **filen**, sedan **öppen...** , och leta upp PowerShell-skriptet från hämtade filer och öppna den.
-     - Välj grön uppspelningsknappen för att köra skriptet.
 
 >[!IMPORTANT]
 >Om du vill att skydda din miljö för virtuella Windows-skrivbordet i Azure, rekommenderar vi du inte öppna inkommande port 3389 på dina virtuella datorer. Virtuella Windows-skrivbordet kräver inte en öppen inkommande port 3389 för användare att komma åt värden poolens virtuella datorer. Om du måste öppna port 3389 för felsökningsändamål kan vi rekommenderar att du använder [åtkomst till Virtuella just-in-time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time).

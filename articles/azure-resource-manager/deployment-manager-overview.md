@@ -12,14 +12,14 @@ ms.workload: na
 ms.date: 12/09/2018
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: a615ab26e4ea046ced70ce2c154a0c304b741986
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dd7e29f8f37572565e505aade97b964254b6d72c
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60550926"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466562"
 ---
-# <a name="enable-safe-deployment-practices-with-azure-deployment-manager-private-preview"></a>Aktivera säker distribution metoder med Azure Deployment Manager (privat förhandsversion)
+# <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Aktivera säker distribution metoder med Azure Deployment Manager (förhandsversion)
 
 För att distribuera tjänsten i många regioner och kontrollera att den körs som förväntat i varje region, kan du använda Distributionshanteraren för Azure för att samordna en stegvis distribution av tjänsten. Precis som för alla Azure-distribution, du definierar resurser för din tjänst i [Resource Manager-mallar](resource-group-authoring-templates.md). När du har skapat mallarna använda Deployment Manager för att beskriva topologin för din tjänst och hur den ska distribueras.
 
@@ -200,7 +200,9 @@ I mallen för distribution skapar du en artefakt källan för de binärfiler som
 
 ### <a name="steps"></a>Steg
 
-Du kan definiera ett steg för att utföra före eller efter distributionen igen. För närvarande endast den `wait` steg är tillgänglig. Vänta steg pausar distributionen innan du fortsätter. Det kan du kontrollera att tjänsten körs som förväntat innan du distribuerar den nästa service-enheten. I följande exempel visas det allmänna formatet för en wait-steg.
+Du kan definiera ett steg för att utföra före eller efter distributionen igen. För närvarande endast den `wait` steg och den ”hälsokontroller” är tillgängliga. 
+
+Vänta steg pausar distributionen innan du fortsätter. Det kan du kontrollera att tjänsten körs som förväntat innan du distribuerar den nästa service-enheten. I följande exempel visas det allmänna formatet för en wait-steg.
 
 ```json
 {
@@ -219,7 +221,7 @@ Du kan definiera ett steg för att utföra före eller efter distributionen igen
 
 Egenskapen varaktighet har [ISO 8601-standarden](https://en.wikipedia.org/wiki/ISO_8601#Durations). I föregående exempel anger en vänta en minut.
 
-Mer information finns i [steg mallreferensen](/azure/templates/Microsoft.DeploymentManager/steps).
+Mer information om hälsotillstånd Kontrollera steget finns i [ ]() och [ ]() mer information finns i [steg mallreferensen](/azure/templates/Microsoft.DeploymentManager/steps).
 
 ### <a name="rollouts"></a>Distributioner
 

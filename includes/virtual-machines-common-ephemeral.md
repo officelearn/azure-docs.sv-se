@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/02/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: d7737f73ee4eb9ae9dc8c4845020b7543a5b3495
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 47407df90a83501b8739a428789e20cddc59e83d
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65159172"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65468430"
 ---
 Tillfälliga operativsystemdiskar skapas i den lokala lagringen för virtuell dator (VM) och inte sparats till fjärranslutna Azure Storage. Tillfälliga operativsystemdiskar fungerar bra för tillståndslösa arbetsbelastningar där program är toleranta för enskilda VM-fel, men är mer orolig för den tid det tar för storskaliga distributioner eller tid att återställa avbildningen av de enskilda Virtuella datorinstanserna. Det är också lämpliga för program som distribueras med den klassiska distributionsmodellen för att flytta till Resource Manager-distributionsmodellen. Du skulle se lägre läsning och skrivning till OS-disken och snabbare återställa VM-avbildning med tillfälliga OS-disken. Dessutom kan tillfälliga OS-disken är kostnadsfria, du betalar inga lagringskostnaden för OS-disken. 
  
@@ -30,7 +30,7 @@ Viktiga skillnader mellan beständiga och tillfälliga OS-diskar:
 |                             | Permanent OS-Disk                          | Differentierande OS-disk                              |    |
 |-----------------------------|---------------------------------------------|------------------------------------------------|
 | Storleksgräns för OS-disk      | 2 TiB                                                                                        | Cache-storlek för den Virtuella datorstorleken eller 2TiB, beroende på vilket som är mindre - [DS](../articles/virtual-machines/linux/sizes-general.md), [ES](../articles/virtual-machines/linux/sizes-memory.md), [M](../articles/virtual-machines/linux/sizes-memory.md), [FS](../articles/virtual-machines/linux/sizes-compute.md), och [GS](../articles/virtual-machines/linux/sizes-memory.md)              |
-| VM-storlekar som stöds          | Alla                                                                                          | DSv1, DSv2, DSv3, Esv2, Fs, FsV2, GS, M                                               |
+| VM-storlekar som stöds          | Alla                                                                                          | DSv1, DSv2, DSv3, Esv3, Fs, FsV2, GS, M                                               |
 | Stöd för diskar-typ           | Hanterade och ohanterade OS-disk                                                                | Hanterad operativsystemsdisk                                                               |
 | Regionsstöd              | Alla regioner                                                                                  | Alla regioner                              |
 | Datapersistens            | OS-diskdata som skrivs till OS-disken lagras i Azure Storage                                  | Data som skrivs till OS-disken lagras till enhetens lokala lagring för virtuell dator och har sparats inte till Azure Storage. |
@@ -48,13 +48,13 @@ Registrera sig för förhandsversionen av tillfälliga OS-diskar med hjälp av d
 
 ```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
-Register-AzRmProviderFeature –FeatureName LocalDiffDiskPreview
+Register-AzProviderFeature –FeatureName LocalDiffDiskPreview -ProviderNamespace Microsoft.Compute
 ```
 
 Så här kontrollerar du om du är registrerad för förhandsversionen:
 
 ```azurepowershell-interactive
-Get-AzRmProviderFeature –FeatureName LocalDiffDiskPreview
+Get-AzProviderFeature –FeatureName LocalDiffDiskPreview -ProviderNamespace Microsoft.Compute
 ```
 
 ### <a name="cli"></a>CLI
@@ -67,7 +67,7 @@ az feature register --namespace Microsoft.Compute --name LocalDiffDiskPreview
 Så här kontrollerar du om du är registrerad för förhandsversionen:
  
 ```azurecli-interactive
-az provider show –namespace ‘Microsoft.Compute’
+az provider show --namespace Microsoft.Compute
 ```
 
 

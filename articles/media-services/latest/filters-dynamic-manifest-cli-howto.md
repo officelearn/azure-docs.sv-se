@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 05/07/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 2ba3de32f4ec3b9f6faf1d5a51da9c1c91e4a2e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8e1c031643fc3ce75d99ad619ce46b38c9cba82c
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60732441"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472702"
 ---
 # <a name="creating-filters-with-cli"></a>Skapa filter med CLI 
 
@@ -38,7 +38,8 @@ Det här avsnittet visar hur du konfigurerar ett filter för en Video på begär
 
 I följande exempel definierar spåra val av villkoren som läggs till sista manifestet. Det här filtret innehåller alla ljudspår som är EG-3 och alla video spår har bithastighet i 0-1000000 intervall.
 
-Filter som definieras i REST, innehålla ”egenskaper” wrapper JSON-objekt.  
+> [!TIP]
+> Om du planerar att definiera **filter** i REST, Lägg märke till att du behöver inkludera ”egenskaper” wrapper JSON-objekt.  
 
 ```json
 [
@@ -94,6 +95,33 @@ az ams asset-filter create -a amsAccount -g resourceGroup -n filterName --asset-
 ```
 
 Se även [JSON-exempel för filter](https://docs.microsoft.com/rest/api/media/assetfilters/createorupdate#create_an_asset_filter).
+
+
+## <a name="associate-filters-with-streaming-locator"></a>Associera filter med Strömningspositionerare
+
+Du kan ange en lista över tillgång eller konto filter som skulle gälla för dina Strömningspositionerare. Den [dynamisk Paketeraren (slutpunkt för direktuppspelning)](dynamic-packaging-overview.md) gäller den här listan över filter tillsammans med de som klienten anger i URL: en. Den här kombinationen genererar en [dynamiska manifest](filters-dynamic-manifest-overview.md), som grundar sig på filter i URL: en + filter som du anger på Strömningspositionerare. Vi rekommenderar att du använder den här funktionen om du vill använda filter men inte vill exponera filternamn i URL: en.
+
+Följande CLI-kod visar hur du skapar en positionerare för direktuppspelning och ange `filters`. Det här är en valfri egenskap som tar en blankstegsavgränsad lista med filtret resursnamn och/eller filter kontonamn.
+
+```azurecli
+az ams streaming-locator create -a amsAccount -g resourceGroup -n streamingLocatorName \
+                                --asset-name assetName \                               
+                                --streaming-policy-name policyName \
+                                --filters filterName1 filterName2
+                                
+```
+
+## <a name="stream-using-filters"></a>Stream med hjälp av filter
+
+När du har definierat filter kan klienterna använda dem i strömnings-URL. Filter kan tillämpas på protokoll för direktuppspelning med anpassningsbar bithastighet: Apple HTTP Live Streaming (HLS), MPEG-DASH och Smooth Streaming.
+
+I följande tabell visas några exempel på URL: er med filter:
+
+|Protokoll|Exempel|
+|---|---|
+|HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`|
+|MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
+|Smooth Streaming|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
 
 ## <a name="next-step"></a>Nästa steg
 

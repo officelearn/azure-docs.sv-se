@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: bd65b1479ace1a51087836eb8032f16fd10dc119
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eabb7d194a3ef65282befab1ae59e85ba56f2f5b
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60791257"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472163"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Återaktivering av skydd redundansväxlade virtuella Azure-datorer till den primära regionen
 
@@ -68,7 +68,7 @@ När du utlöser ett jobb för återaktivering av skydd och de mål som den virt
 1. Målsidan virtuella datorn stängs av om den körs.
 2. Om den virtuella datorn använder hanterade diskar, skapas en kopia av ursprungliga diskarna med ”-ASRReplica” suffix. De ursprungliga diskarna tas bort. Den ”-ASRReplica” kopior som används för replikering.
 3. Om den virtuella datorn använder ohanterade diskar, är oberoende av den Virtuella måldatorns datadiskar och används för replikering. En kopia av OS-disken skapas och kopplas på den virtuella datorn. Den ursprungliga OS-disken är oberoende och används för replikering.
-4. Endast ändringar mellan källdisken och måldisken är synkroniserade. Skillnader i beräknas genom att jämföra båda diskarna och sedan överföras. Detta tar några timmar att slutföra.
+4. Endast ändringar mellan källdisken och måldisken är synkroniserade. Skillnader i beräknas genom att jämföra båda diskarna och sedan överföras. Att hitta kontrollen beräknad tid.
 5. När synkroniseringen är klar börjar deltareplikeringen och skapar en återställningspunkt i enlighet med replikeringsprincipen.
 
 När du utlöser ett jobb för återaktivering av skydd och den Virtuella måldatorn och diskar finns inte, inträffar följande:
@@ -76,6 +76,21 @@ När du utlöser ett jobb för återaktivering av skydd och den Virtuella målda
 2. Om den virtuella datorn använder ohanterade diskar kan skapas replikeringsdiskar i mållagringskontot.
 3. Hela diskarna kopieras från den misslyckade över regionen till den nya målregionen.
 4. När synkroniseringen är klar börjar deltareplikeringen och skapar en återställningspunkt i enlighet med replikeringsprincipen.
+
+#### <a name="estimated-time--to-do-the-reprotection"></a>Beräknad tid för att göra återaktiveringen av skyddet 
+
+I de flesta fall replikerar inte Azure Site Recovery fullständiga data till källregionen. Här följer du de villkor som avgör hur mycket data skulle replikeras:
+
+1.  Om källan VM-data har tagits bort, skadad eller otillgänglig på grund av någon anledning som resursgruppen sker ändrar/tar bort sedan under återaktiveringen av skyddet fullständig IR eftersom det inte finns några data som är tillgängliga på käll-region som ska användas.
+2.  Om källan data för virtuell dator är tillgänglig sedan endast skillnader beräknas genom att jämföra båda diskarna och sedan överföras. Kontrollera den tabellen att hämta den beräknade tiden för nedan 
+
+|** Exempel situationen ** | ** Tid det tar att återaktivera skydd ** |
+|--- | --- |
+|Källregion har 1 virtuell dator med 1 TB standard Disk<br/>– Endast 127 GB data används och resten av disken är tom<br/>-Disktypen är standard med 60 MiB/S genomströmning<br/>– Ingen ändring av data efter en redundansväxling| Ungefärlig tid 45 minuter – 1,5 timmar<br/> -Under återaktiveringen av skyddet Site Recovery fylls kontrollsumman för hela data som tar 127 GB / 45 MB ~ 45 minuter<br/>-Administration tid som krävs för Site Recovery för att automatisk skalning som är 20 – 30 minuter<br/>– Inte för utgående trafik |
+|Källregion har 1 virtuell dator med 1 TB standard Disk<br/>– Endast 127 GB data används och resten av disken är tom<br/>-Disktypen är standard med 60 MiB/S genomströmning<br/>-45 GB data ändras efter redundans| Ungefärlig tid 1 timmar – 2 timmar<br/>-Under återaktiveringen av skyddet Site Recovery fylls kontrollsumman för hela data som tar 127 GB / 45 MB ~ 45 minuter<br/>-Överföra tid för att tillämpa ändringar på 45 GB är 45 GB / 45 Mbit/s ~ 17 minuter<br/>-Kostnader för utgående trafik är bara för 45 GB data inte för kontrollsumman|
+ 
+
+
 
 ## <a name="next-steps"></a>Nästa steg
 

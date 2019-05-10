@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 968bb5317e06b5cf9ac1f939eaf56288122a1ae0
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 00d40b9910f9b549443373c84b079c543037ce62
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64724400"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236314"
 ---
 # <a name="manage-your-application-preferences"></a>Hantera din programinställningar
 
@@ -23,13 +23,16 @@ IoT Central ger dig flexibilitet att anpassa dina program så att de passar dina
 
 ## <a name="changing-language"></a>Ändra språk
 
-IoT Central stöds på flera språk. Du kan växla språk du föredrar med hjälp av den **språkväljare** på inställningsikonen i det övre navigeringsfältet. När du har ändrat ditt språk, IoT Central ihåg ditt val och gäller för alla dina program. Observera att anpassning i programmet bilderna instrumentpanelen inte är lokaliserade.
+IoT Central stöds på flera språk. Du kan växla språk du föredrar med hjälp av den **språkväljare** på inställningsikonen i det övre navigeringsfältet. När du har ändrat ditt språk, IoT Central ihåg ditt val och gäller för alla dina program. Anpassning i programmet bilderna instrumentpanelen inte är lokaliserade.
 
 ## <a name="changing-theme"></a>Ändra tema
 
-Vi har stöd för både mörkt tema och ljusa temat. Det ljusa temat är standard, kan du ändra detta genom att välja ikonen för inställningar på det övre navigeringsfältet.
+Vi har stöd för både mörkt tema och ljusa temat. Det ljusa temat är standard, kan du ändra temat genom att välja ikonen för inställningar på det övre navigeringsfältet.
 
 ![Temaväljare IoT Central](media/howto-manage-preferences/settings.png)
+
+> [!NOTE]
+> Möjlighet att välja mellan ljusa och mörka teman är inte tillgängligt om din administratör har konfigurerat ett anpassat tema för programmet.
 
 ## <a name="next-steps"></a>Nästa steg
 

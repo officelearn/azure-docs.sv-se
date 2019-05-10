@@ -224,7 +224,8 @@
       items:
         - name: Skapa en ML-pipeline
           href: how-to-create-your-first-pipeline.md
-        - name: Träna och distribuera maskininlärningsmodeller med Azure Pipelines
+        - name: CI/CD för ML-arbetsflöden med Azure Pipelines
+          displayName: 'continuous, integration, delivery'
           href: /azure/devops/pipelines/targets/azure-machine-learning?view=azure-devop
           mainContext: true
     - name: Hantera resurskvoter
@@ -238,9 +239,6 @@
     - name: Maskininlärning SDK
       displayName: api core package python data prep
       href: 'https://aka.ms/aml-sdk'
-    - name: SDK för dataförberedelser
-      displayName: api core package python data prep
-      href: 'https://aka.ms/data-prep-sdk'
     - name: Övervaka SDK
       displayName: api package python monitor
       href: 'https://aka.ms/aml-monitoring-sdk'

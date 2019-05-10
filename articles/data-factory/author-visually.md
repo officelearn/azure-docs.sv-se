@@ -12,12 +12,12 @@ author: sharonlo101
 ms.author: shlo
 ms.reviewer: ''
 manager: craigg
-ms.openlocfilehash: d2e51551643e154714b9d2368e63d7af9ebfa204
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b32e4abebdfb93312c60a25ca8b483f071e5e73c
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60592903"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507801"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Visuell redigering i Azure Data Factory
 Azure Data Factory användargränssnittet användarupplevelsen (UX) kan du visuellt skapa och distribuera resurser för din datafabrik utan att behöva skriva någon kod. Du kan dra aktiviteter till en rityta för pipelinen, utför testkörningar, felsöker stegvis och distribuerar och övervakar dina pipelinekörningar. Det finns två metoder för att utföra visuell redigering med UX-Gränssnittet:
@@ -60,7 +60,7 @@ Fönstret visar följande kod i Azure-lagringsplatser inställningar för lagrin
 
 | Inställning | Beskrivning | Värde |
 |:--- |:--- |:--- |
-| **Typ av lagringsplats** | Typ av kodlagringsplatsen Azure lagringsplatser.<br/>**Obs!** GitHub stöds inte för närvarande. | Azure-lagringsplatser Git |
+| **Typ av lagringsplats** | Typ av kodlagringsplatsen Azure lagringsplatser.<br/> | Azure-lagringsplatser Git |
 | **Azure Active Directory** | Ditt klientnamn för Azure AD. | `<your tenant name>` |
 | **Azure-lagringsplatser organisation** | Organisationsnamnet Azure lagringsplatser. Du kan hitta Azure-lagringsplatser organisationens namn på `https://{organization name}.visualstudio.com`. Du kan [logga in på din Azure-lagringsplatser organisation](https://www.visualstudio.com/team-services/git/) att komma åt din Visual Studio-profil och se dina databaser och projekt. | `<your organization name>` |
 | **ProjectName** | Projektnamnet Azure lagringsplatser. Du kan hitta din Azure-lagringsplatser projektnamn på `https://{organization name}.visualstudio.com/{project name}`. | `<your Azure Repos project name>` |
@@ -266,7 +266,7 @@ Information om uttryck som stöds finns i [uttryck och funktioner i Azure Data F
 
 ![Add Dynamic Content](media/author-visually/dynamic-content-2.png)
 
-## <a name="provide-feedback"></a>Ge feedback
+## <a name="provide-feedback"></a>Lämna feedback
 Välj **Feedback** att kommentera om funktioner eller för att meddela Microsoft om problem med verktyget:
 
 ![Feedback](media/author-visually/provide-feedback.png)

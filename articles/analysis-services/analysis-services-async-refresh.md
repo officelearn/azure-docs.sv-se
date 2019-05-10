@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 05/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5e9558eae43b351aa198b64bb2a7903c756064c2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 63b64df457af5b7d3d2bd5901f73d89ccd3c913a
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61025329"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506980"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Asynkron uppdatering med REST API
 
@@ -201,42 +201,9 @@ Här är ett C#-kodexempel som hjälper dig igång, [RestApiSample på GitHub](h
 1.  Klona eller ladda ned lagringsplatsen. Öppna RestApiSample lösningen.
 2.  Leta reda på raden **klienten. BaseAddress =...** och ange din [bas-URL](#base-url).
 
-Kodexemplet kan använda interaktiv inloggning, användarnamn/lösenord eller [tjänstens huvudnamn](#service-principal).
+Kodexemplet använder [tjänstens huvudnamn](#service-principal) autentisering.
 
-#### <a name="interactive-login-or-usernamepassword"></a>Interaktiv inloggning eller användarnamn/lösenord
-
-Den här typen av autentisering kräver ett Azure-program skapas med nödvändiga API-behörigheter. 
-
-1.  I Azure-portalen klickar du på **skapa en resurs** > **Azure Active Directory** > **appregistreringar**  >   **Ny programregistrering**.
-
-    ![Ny programregistrering](./media/analysis-services-async-refresh/aas-async-app-reg.png)
-
-
-2.  I **skapa**, anger du ett namn, Välj **interna** programtypen. För **omdirigerings-URI**, ange **urn: ietf:wg:oauth:2.0:oob**, och klicka sedan på **skapa**.
-
-    ![Inställningar](./media/analysis-services-async-refresh/aas-async-app-reg-name.png)
-
-3.  Välj din app och sedan kopiera och spara den **program-ID**.
-
-    ![Kopiera program-ID](./media/analysis-services-async-refresh/aas-async-app-id.png)
-
-4.  I **inställningar**, klickar du på **nödvändiga behörigheter** > **Lägg till**.
-
-    ![Lägg till API-åtkomst](./media/analysis-services-async-refresh/aas-async-add.png)
-
-5.  I **Välj en API**, typ **Azure Analysis Services** i sökfältet och väljer den.
-
-    ![Välj API](./media/analysis-services-async-refresh/aas-async-select-api.png)
-
-6.  Välj **läsa och skriva alla modeller**, och klicka sedan på **Välj**. När båda alternativen är markerade, klickar du på **klar** att lägga till behörigheter. Det kan ta några minuter att sprida.
-
-    ![Välj läsa och skriva alla modeller](./media/analysis-services-async-refresh/aas-async-select-read.png)
-
-7.  I kodexemplet, hitta den **UpdateToken()** metod. Se innehållet i den här metoden.
-8.  Hitta **sträng clientID =...** , och ange sedan den **program-ID** du kopierade från steg 3.
-9.  Kör exemplet.
-
-#### <a name="service-principal"></a>Tjänstens huvudnamn
+### <a name="service-principal"></a>Tjänstens huvudnamn
 
 Se [skapa tjänstens huvudnamn – Azure-portalen](../active-directory/develop/howto-create-service-principal-portal.md) och [lägga till tjänstens huvudnamn till administratörsrollen för servern](analysis-services-addservprinc-admins.md) för mer information om hur du konfigurerar ett tjänstobjekt och tilldela nödvändiga behörigheter i Azure som . När du har slutfört stegen, utför följande åtgärder:
 

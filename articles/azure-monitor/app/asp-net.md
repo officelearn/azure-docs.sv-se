@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 03/14/2019
+ms.date: 05/08/2019
 ms.author: mbullwin
-ms.openlocfilehash: 719cbe1ec8962b320aa2850053d44cdef7f56a8c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 925ae2dd7b564eece4842cf25cc32b68d9e5c0b6
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60691688"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472044"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Konfigurera Application Insights för din ASP.NET-webbplats
 
@@ -29,7 +29,7 @@ Installationen kräver bara några klick i Visual Studio. Du har möjlighet att 
 När du ska lägga till Application Insights för din ASP.NET-webbplats måste du göra följande:
 
 - Installera [Visual Studio 2017 för Windows](https://www.visualstudio.com/downloads/) med följande arbetsbelastningar:
-    - ASP.NET och webbutveckling
+    - ASP.NET och webbutveckling (inte avmarkera valfria komponenter)
     - Azure Development
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
@@ -101,7 +101,7 @@ Klicka på valfri ikon eller valfritt diagram i portalen för att visa mer infor
 
 [Läs mer om hur du använder Application Insights på Azure Portal](../../azure-monitor/app/app-insights-dashboards.md).
 
-## <a name="step-4-publish-your-app"></a>Steg 4: Publicera appen
+## <a name="step-4-publish-your-app"></a>Steg 4: Publicera din app
 Publicera din app på din IIS-server eller i Azure. Bevaka [Live Metrics Stream](../../azure-monitor/app/metrics-explorer.md#live-metrics-stream) och se om allt fungerar som det ska.
 
 Du ser din telemetri byggas upp i Application Insights-portalen, där du kan övervaka mått, söka i telemetrin och konfigurera [instrumentpaneler](../../azure-monitor/app/app-insights-dashboards.md). Du kan också använda det kraftfulla [Kusto-frågespråket](/azure/kusto/query/) att analysera användning och prestanda eller söka efter specifika händelser.
@@ -115,7 +115,7 @@ Du kan också fortsätta att analysera din telemetri i [Visual Studio](../../azu
 
 ## <a name="land"></a> Då var allt klart
 
-Grattis! Du har installerat Application Insights-paketet i din app och konfigurerat det för att skicka telemetri till Application Insights-tjänsten på Azure.
+Gratulerar! Du har installerat Application Insights-paketet i din app och konfigurerat det för att skicka telemetri till Application Insights-tjänsten på Azure.
 
 Azure-resursen som tar emot din apps telemetri identifieras med en *instrumenteringsnyckel*. Du hittar den här nyckeln i filen ApplicationInsights.config.config.
 

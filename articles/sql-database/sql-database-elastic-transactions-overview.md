@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: d7865d394dfc955a7b24115e747dd77352d89e3d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7fc945a00360e4eea4a5cf1e3962da2390d3bfeb
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60331898"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506852"
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>Distribuerade transaktioner över molndatabaser
 
@@ -99,7 +99,7 @@ Transaktioner för elastiska databaser för SQL-databas har också stöd för sa
 
 ## <a name="net-installation-for-azure-cloud-services"></a>Installation av .NET för Azure Cloud Services
 
-Azure tillhandahåller flera erbjudanden som värd för .NET-program. En jämförelse av olika erbjudanden är tillgängliga i [jämförelse mellan Azure App Service, Cloud Services och virtuella datorer](../app-service/overview-compare.md). Om gästoperativsystemet av erbjudandet är mindre än .NET 4.6.1 som krävs för elastiska transaktioner, måste du uppgradera gästoperativsystemet till 4.6.1. 
+Azure tillhandahåller flera erbjudanden som värd för .NET-program. En jämförelse av olika erbjudanden är tillgängliga i [jämförelse mellan Azure App Service, Cloud Services och virtuella datorer](/azure/architecture/guide/technology-choices/compute-decision-tree). Om gästoperativsystemet av erbjudandet är mindre än .NET 4.6.1 som krävs för elastiska transaktioner, måste du uppgradera gästoperativsystemet till 4.6.1. 
 
 För Azure App Services stöds uppgraderingar av gästoperativsystemet för närvarande inte. För Azure Virtual Machines kan bara logga in på den virtuella datorn och kör installationsprogrammet för senaste .NET framework. För Azure Cloud Services måste du inkludera installation av en nyare version av .NET i startåtgärder för din distribution. Koncept och steg finns dokumenterade i [installera .NET på en Molntjänstroll](../cloud-services/cloud-services-dotnet-install-dotnet.md).  
 

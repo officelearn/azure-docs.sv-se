@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 01/24/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: eaaaa5c2fe87b419bf38d6e6522ef745476ac1ad
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 226986fb7c41c19b58f0163414628ad08ddeda15
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65204944"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409976"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms"></a>Hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer
 
@@ -470,7 +470,7 @@ De här artiklarna beskriver SAP-distributioner i Azure:
 
 Dessa SAP Notes är relaterade till avsnittet om SAP i Azure:
 
-| Nummer | Rubrik |
+| Nummer | Titel |
 | --- | --- |
 | [1928533] |SAP-program i Azure: Produkter som stöds och storlek |
 | [2015553] |SAP på Microsoft Azure: Supportkrav |
@@ -1229,9 +1229,10 @@ När du konfigurerar ett filresursvittne i kluster inkluderar dessa uppgifter:
 
    _**Bild 38:** Bekräfta att du har konfigurerat om klustret_
 
-När du har installerat Windows-redundanskluster har ändringar som behöver göras för vissa tröskelvärden för att anpassa redundans identifiering till villkoren i Azure. Parametrar som ska ändras finns dokumenterade i den här bloggen: https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/ . Om vi antar att dina två virtuella datorer som bygger Windows klusterkonfigurationen för ASCS/SCS finns i samma undernät, måste följande parametrar ändras till dessa värden:
-- SameSubNetDelay = 2
-- SameSubNetThreshold = 15
+När du har installerat Windows-redundanskluster har ändringar som behöver göras för vissa tröskelvärden för att anpassa redundans identifiering till villkoren i Azure. Parametrar som ska ändras finns dokumenterade i den här bloggen: [ https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834 ](https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834). Om vi antar att dina två virtuella datorer som bygger Windows klusterkonfigurationen för ASCS/SCS finns i samma undernät, måste följande parametrar ändras till dessa värden:  
+- SameSubNetDelay = 2000  
+- SameSubNetThreshold = 15  
+- RoutingHistoryLength = 30  
 
 Dessa inställningar har testats med kunder och tillhandahålls en bra kompromiss för att vara flexibel på ena sidan. Å andra sidan försåg dessa inställningar snabbt tillräckligt med redundans i verkliga fel vid SAP programvara eller nod och VM-fel. 
 

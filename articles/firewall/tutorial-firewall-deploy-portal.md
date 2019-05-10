@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 4/9/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: cd7797ae3b79fb874bafc89437943b084020d800
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9d7b9673101ed3b6ff85a9981ba061bc870762b1
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60194226"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65405673"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Självstudier: Distribuera och konfigurera Azure Firewall via Azure Portal
 
@@ -126,7 +126,7 @@ Använd informationen i följande tabell för att konfigurera en annan virtuell 
 |Inställning  |Värde  |
 |---------|---------|
 |Undernät|**Workload-SN**|
-|Offentlig IP-adress|**Ingen**|
+|Offentlig IP|**Ingen**|
 |Offentliga inkommande portar|**Ingen**|
 
 ## <a name="deploy-the-firewall"></a>Distribuera brandväggen
@@ -236,12 +236,12 @@ Testa nu brandväggen för att bekräfta att den fungerar som förväntat.
 1. Öppna Azure Portal, granska nätverksinställningarna för den virtuella datorn **Srv-Work** och anteckna den privata IP-adressen.
 2. Ansluta ett fjärrskrivbord till **Srv-Jump** virtuella datorn och logga in. Därifrån kan du öppna en fjärrskrivbordsanslutning till den **Srv-arbete** privat IP-adress.
 
-3. Öppna Internet Explorer och navigera till http://www.google.com.
+3. Öppna Internet Explorer och navigera till https://www.google.com.
 4. Välj **OK** > **Stäng** säkerhetsaviseringar Internet Explorer.
 
    Du bör se startsidan Google.
 
-5. Bläddra till http://www.microsoft.com.
+5. Bläddra till https://www.microsoft.com.
 
    Du bör blockeras av brandväggen.
 

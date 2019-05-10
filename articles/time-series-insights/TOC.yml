@@ -40,6 +40,16 @@
           href: time-series-insights-explorer.md
         - name: Förstå datakvarhållning
           href: time-series-insights-concepts-retention.md
+        - name: Utveckla
+          items:
+            - name: Autentisera och auktorisera
+              href: time-series-insights-authentication-and-authorization.md
+            - name: 'Fråga data med hjälp av C#'
+              href: time-series-insights-query-data-csharp.md
+            - name: 'Hantera referensdata med C#'
+              href: time-series-insights-manage-reference-data-csharp.md
+            - name: Dela en anpassad vy
+              href: time-series-insights-parameterized-urls.md
     - name: Förhandsversion av Azure Time Series Insights
       items:
         - name: Planera din miljö
@@ -54,16 +64,12 @@
           href: time-series-insights-update-tsq.md
         - name: Visualisera data i utforskaren (förhandsversion)
           href: time-series-insights-update-explorer.md
-    - name: Utveckla
-      items:
-        - name: Autentisera och auktorisera
-          href: time-series-insights-authentication-and-authorization.md
-        - name: 'Fråga data med hjälp av C#'
-          href: time-series-insights-query-data-csharp.md
-        - name: 'Hantera referensdata med C#'
-          href: time-series-insights-manage-reference-data-csharp.md
-        - name: Dela en anpassad vy
-          href: time-series-insights-parameterized-urls.md
+        - name: Utveckla
+          items:
+            - name: Autentisera och auktorisera
+              href: time-series-insights-authentication-and-authorization.md
+            - name: 'Fråga data med hjälp av C#'
+              href: time-series-insights-update-query-data-csharp.md
 - name: Instruktionsguider
   items:
     - name: Bevilja åtkomst till data

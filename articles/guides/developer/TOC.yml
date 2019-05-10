@@ -67,7 +67,7 @@
     - name: Fakturering och prenumerationer
       href: 'https://docs.microsoft.com/azure/billing/billing-getting-started'
     - name: Jämförelser av värdtjänster
-      href: 'https://docs.microsoft.com/azure/app-service/overview-compare'
+      href: /azure/architecture/guide/technology-choices/compute-decision-tree
     - name: Vad är App Service?
       href: 'https://docs.microsoft.com/azure/app-service/overview'
     - name: Virtuella datorer

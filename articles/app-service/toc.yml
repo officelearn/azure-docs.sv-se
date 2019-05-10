@@ -9,7 +9,7 @@
     - name: Om App Service-miljöer
       href: environment/intro.md
     - name: Jämför värdalternativ
-      href: overview-compare.md
+      href: /azure/architecture/guide/technology-choices/compute-decision-tree
 - name: Snabbstarter
   expanded: true
   items:

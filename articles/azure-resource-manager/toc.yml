@@ -124,6 +124,8 @@
         - name: Kontinuerlig integrering med Azure DevOps Services
           href: ../vs-azure-tools-resource-groups-ci-in-vsts.md
           maintainContext: true
+    - name: Exportera mall
+      href: export-template-portal.md
     - name: Hantera
       items:
         - name: Hantera resursgrupper

@@ -6,15 +6,15 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
-ms.date: 04/23/2019
+ms.date: 05/06/2019
 ms.author: anshan
 ms.custom: seodec18
-ms.openlocfilehash: a91afdbeaa2ced37b237b4f2b80a8dbbe2c4a05c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8cb1d06872f7eae04bac934220da9d58982d0f4b
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64717220"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233730"
 ---
 # <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>Självstudie: Utforska JavaScript-klientbiblioteket i Azure Time Series Insights
 
@@ -32,6 +32,7 @@ Mer specifikt får du lära dig om:
 > [!NOTE]
 > * I självstudiekursen använder vi en kostnadsfri, värdbaserad, [Time Series Insights web demo](https://insights.timeseries.azure.com/clientsample).
 > * Källfilerna för Time Series Insights exempel app finns i den [GitHub-exempellagringsplats](https://github.com/Microsoft/tsiclient/tree/tutorial/pages/tutorial).
+> * Läs den [TSI klienten referensdokumentation](https://github.com/microsoft/tsiclient/blob/master/docs/API.md).
 
 ## <a name="video"></a>Video
 
@@ -60,8 +61,6 @@ I den här självstudien används en kostnadsfri, värdbaserad, Time Series Insi
    [![TSI-klienten exempel huvudsidan efter inloggning](media/tutorial-explore-js-client-lib/tcs-main-after-signin.png)](media/tutorial-explore-js-client-lib/tcs-main-after-signin.png#lightbox)
 
 ### <a name="page-source-and-structure"></a>Sidkälla och struktur
-
-<div id="page-source-and-structure"></div>
 
 Först ska vi visa den [HTML och JavaScript-källkoden](https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/index.html) renderade webb-växlat minne:
 
@@ -119,6 +118,9 @@ Den [Time Series Insights exempelprogrammet](https://insights.timeseries.azure.c
 
    [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=147-204&highlight=3-7,34-37)]
 
+> [!TIP]
+> Läs mer om Microsoft-stöd ADA-biblioteken i de [ADAL referensdokumentation](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries#microsoft-supported-client-libraries).
+
 ### <a name="control-identification"></a>Kontrollidentifiering
 
 I exemplet angivna `<div>` element är ordnade i överordnat `<body>` element att tillhandahålla en användningstyperna layout för alla diagramkontroller återges på sidan.
@@ -163,7 +165,7 @@ Fylla och rendering diagramkontroller följer du allmänna mönster. Den här al
    | `splitByObject`   | Strängegenskapen som du vill dela med (valfritt – kan vara null). | `{property: 'Station', type: 'String'}` |
    | `color`         | Färgen på de objekt som du vill rendera. | `'pink'` |
    | `alias`           | Ett eget namn på mängduttrycket. | `'Factory3Temperature'` |
-   | `contextMenuActions` | En matris med åtgärder som ska bindas till tidsserieobjekten i en visualisering (valfritt). | Mer information finns i avsnittet [popup snabbmenyer](#contextMenu) |
+   | `contextMenuActions` | En matris med åtgärder som ska bindas till tidsserieobjekten i en visualisering (valfritt). | Mer information finns i avsnittet [popup snabbmenyer](#pop-up-context-menus) |
 
 1. Anropa en TSI-fråga med hjälp av `TsiClient.Server` API:er för att begära sammanställda data:
 
@@ -255,8 +257,6 @@ Visuellt, anger de rombformade markörerna/popup-fönstren som används för att
 
 ### <a name="pop-up-context-menus"></a>Popup-snabbmenyer
 
-<div id="contextMenu"></div>
-
 En annan avancerade funktioner är möjligheten att skapa anpassade snabbmenyer (Högerklicka på eventuella snabbmenyer). Anpassade snabbmenyer är användbara för att aktivera åtgärder och logiska nästa steg inom omfånget för ditt program.
 
 Letar du kod i `// Example 13/14/15` kommentar. Den här koden visas inledningsvis med ett linjediagram under rubriken `"Line Chart with Context Menu to Create Pie/Bar Chart"` och diagrammet är bunden till den `<div>` element med HTML `id` värdet `chart13`.
@@ -321,3 +321,8 @@ Eller visa TSI exempel appens källfiler:
 
 > [!div class="nextstepaction"]
 > [TSI databasen för exempelappen](https://github.com/Microsoft/tsiclient/tree/tutorial/pages/tutorial)
+
+Läs TSI-klient API: ns referensdokumentation:
+
+> [!div class="nextstepaction"]
+> [TSI-API-referensdokumentation](https://github.com/microsoft/tsiclient/blob/master/docs/API.md)

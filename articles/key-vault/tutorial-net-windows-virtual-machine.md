@@ -2,19 +2,19 @@
 title: Självstudiekurs – använda Azure Key Vault med en Windows-dator i .NET | Microsoft Docs
 description: I den här självstudien konfigurerar du ett ASP.NET core-program att läsa en hemlighet från ditt nyckelvalv.
 services: key-vault
-author: mbaldwin
+author: msmbaldwin
 manager: rajvijan
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: 7fdd2f1832995d279f58af52f96270f7aa3bb5a6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c88977f465de6d9b89bd2d9c4cf67402fe6f563f
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64686161"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65228165"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-windows-virtual-machine-in-net"></a>Självstudier: Använda Azure Key Vault med en Windows-dator i .NET
 
@@ -81,7 +81,7 @@ Du kan använda din resursgrupp du skapade i den här självstudien.
 Ange följande information för att skapa ett nyckelvalv i resursgruppen som du skapade i föregående steg:
 
 * Namn på Key vault: en sträng på 3 till 24 tecken som får endast innehålla siffror (0-9), bokstäver (a – z, A-Z) och bindestreck (-)
-* Namn på resursgrupp
+* Resursgruppsnamn
 * Plats: **USA, västra**
 
 ```azurecli

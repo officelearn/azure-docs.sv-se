@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: a723ca6d69d45613636c7659e6566cec19b31d65
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e4746620f083996bf64e77617ec472c3d3894d91
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60364178"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65464172"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Hantera enheter i ditt program med Azure IoT Central
 
@@ -66,7 +66,7 @@ Massinläsning registrerar enheter i ditt program:
 
 1. Välj **Import**.
 
-    ![Importera åtgärd](./media/howto-manage-devices/BulkImport1.png)
+    ![Importera åtgärd](./media/howto-manage-devices/bulkimport1a.png)
 
 1. Välj en CSV-fil med listan över enhets-ID som ska importeras.
 
@@ -74,7 +74,7 @@ Massinläsning registrerar enheter i ditt program:
 
 1. När importen är klar visas ett meddelande på enheten rutnätet.
 
-    ![Importresultat](./media/howto-manage-devices/BulkImport3.png)
+    ![Importresultat](./media/howto-manage-devices/bulkimport3a.png)
 
 Om enheten importerar misslyckas, visas ett felmeddelande på enheten rutnätet. En loggfil samla in alla fel genereras som du kan hämta.
 
@@ -86,13 +86,13 @@ Om du registrerar enheter genom att starta importen under **oassocierade enheter
 
 1. I den vänstra panelen, väljer **oassocierade enheter**:
 
-    ![Olänkade enheter](./media/howto-manage-devices/UnassociatedDevices1.png)
+    ![Olänkade enheter](./media/howto-manage-devices/unassociateddevices1a.png)
 
 1. Markera de enheter som du vill associera med en mall:
 
 1. Välj **associera**:
 
-    ![Koppla enheter](./media/howto-manage-devices/UnassociatedDevices2.png)
+    ![Koppla enheter](./media/howto-manage-devices/unassociateddevices2a.png)
 
 1. Välj mallen i listan över tillgängliga mallar och välj **associera**.
 
@@ -113,7 +113,7 @@ Massregistrera enheter för export från ditt program:
 
 1. Markera de enheter som du vill exportera och välj sedan den **exportera** åtgärd.
 
-    ![Exportera](./media/howto-manage-devices/Export1.png)
+    ![Exportera](./media/howto-manage-devices/export1a.png)
 
 1. Exportprocessen startar. Du kan spåra status överst i rutnätet.
 
@@ -121,7 +121,7 @@ Massregistrera enheter för export från ditt program:
 
 1. Välj den **meddelande** att ladda ned filen till en lokal mapp på disken.
 
-    ![Exporten lyckades](./media/howto-manage-devices/Export2.png)
+    ![Exporten lyckades](./media/howto-manage-devices/export2a.png)
 
 1. Den exporterade CSV-filen innehåller följande kolumner: enhets-ID, enhetsnamn, enhetsnycklar och X509 certifikattumavtryck:
 

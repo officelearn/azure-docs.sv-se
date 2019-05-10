@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 654528ed6137ee62ea22d552d36fda5ac5331adc
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8a0621d0261bfbc7ab396abf837ee7b1123352d1
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64688653"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233440"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui"></a>Ta en rundtur i Azure IoT Central-användargränssnittet
 
@@ -32,7 +32,6 @@ Som _operatör_ använder du Azure IoT Central-användargränssnittet till att h
 - konfigurera dina enheter
 - felsöka och åtgärda problem med dina enheter.
 - Etablera nya enheter.
-
 
 ## <a name="use-the-left-navigation-menu"></a>Använda den vänstra navigeringsmenyn
 
@@ -56,6 +55,9 @@ Den översta menyn visas på varje sida:
 Du kan välja mellan ett ljust eller ett mörkt tema för användargränssnittet:
 
 ![Välja ett tema för användargränssnittet](media/overview-iot-central-tour/themes.png)
+
+> [!NOTE]
+> Möjlighet att välja mellan ljusa och mörka teman är inte tillgängligt om din administratör har konfigurerat ett anpassat tema för programmet.
 
 ## <a name="dashboard"></a>Instrumentpanel
 

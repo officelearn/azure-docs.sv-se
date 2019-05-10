@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 02/06/2018
 ms.author: mhopkins
 ms.reviewer: cbrooks
-ms.openlocfilehash: c7edc64e6bacfc1ea9c2184e57a384152e02190a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b80ff38e2afb5e9da6227537ea9c483566d03e4d
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142492"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65232592"
 ---
 # <a name="quickstart-use-net-to-create-a-queue-in-azure-storage"></a>Snabbstart: Använda .NET för att skapa en kö i Azure Storage
 
@@ -145,7 +145,7 @@ Härnäst får du utforska exempelkoden så att du förstår hur den fungerar.
 
 ### <a name="try-parsing-the-connection-string"></a>Försök att parsa anslutningssträngen
 
-Exemplet kontrollera först att miljövariabeln innehåller en anslutningssträng som kan parsas för att skapa ett [CloudStorageAccount](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount)-objekt som pekar på lagringskontot. För att kontrollera att anslutningssträngen är giltig använder exemplet metoden [TryParse](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount.tryparse). Om **TryParse** lyckas, initieras variabeln *storageAccount* och **SANT** returneras.
+Exemplet kontrollera först att miljövariabeln innehåller en anslutningssträng som kan parsas för att skapa ett [CloudStorageAccount](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount)-objekt som pekar på lagringskontot. För att kontrollera att anslutningssträngen är giltig använder exemplet metoden [TryParse](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount.tryparse). Om **TryParse** lyckas, initieras variabeln *storageAccount* och **SANT** returneras.
 
 ```csharp
 // Retrieve the connection string for use with the application. The storage connection string is stored

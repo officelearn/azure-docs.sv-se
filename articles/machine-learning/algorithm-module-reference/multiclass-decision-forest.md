@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: d5ff1809886198f7f1e4f4b9c36f877ce61d512e
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 10364d014431a500e7c38a02d47f432cd464feb6
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65029437"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65411455"
 ---
 # <a name="multiclass-decision-forest-module"></a>Beslutsskog med multiclass modul
 
@@ -36,7 +36,7 @@ Beslutsträd har många fördelar:
 + De utför val av integrerade funktioner och klassificering.
 + De är flexibel när det finns störningar funktioner.
 
-Beslutet skog Klassificeraren i Azure Machine Learning består av en ensemble för beslutsträd. I allmänhet ger ensemble modeller bättre täckning och noggrannhet än enkel beslutsträd. Mer information finns i [Decision trees](http://go.microsoft.com/fwlink/?LinkId=403677).
+Beslutet skog Klassificeraren i Azure Machine Learning består av en ensemble för beslutsträd. I allmänhet ger ensemble modeller bättre täckning och noggrannhet än enkel beslutsträd. Mer information finns i [Decision trees](https://go.microsoft.com/fwlink/?LinkId=403677).
 
 ## <a name="how-to-configure-multiclass-decision-forest"></a>Så här konfigurerar du Multiclass Beslutsskog
 

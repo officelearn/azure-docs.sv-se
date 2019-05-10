@@ -7,12 +7,12 @@ ms.topic: sample
 author: cjgronlund
 ms.author: cgronlun
 ms.date: 05/02/2019
-ms.openlocfilehash: c1b86199f13454f4785a6737b25e489d45dd53f8
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: b62a2690e5879e45a14d0b06a38e8c5171dda14e
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026846"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65442328"
 ---
 # <a name="example-jupyter-notebooks-show-how-to-enrich-data-with-open-datasets"></a>Exempel Jupyter-anteckningsböcker visar hur du utöka data med öppna datauppsättningar 
 Exempel Jupyter-anteckningsböcker för Azure öppna datauppsättningar visar hur du hämtar öppna datauppsättningar och använda dem för att utöka demodata. Tekniken omfattar användning av Apache Spark och Pandas för att bearbeta data.
@@ -29,7 +29,7 @@ Exempel Jupyter-anteckningsböcker för Azure öppna datauppsättningar visar hu
 ## <a name="join-demo-data-with-noaa-isd-data"></a>Ansluta till demodata med NOAA ISD data 
 |Notebook-fil        | Beskrivning                                    |
 |----------------|------------------------------------------------|
-|[Ansluta till demodata med väderdata - Pandas ](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-join/02-weather-join-in-pandas.ipynb) | Ansluta till en datauppsättning för 1 månad demo av sensor platser med väder värdena i en Pandas-dataframe.  |
+|[Ansluta till demodata med väderdata - Pandas](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-join/02-weather-join-in-pandas.ipynb) | Ansluta till en datauppsättning för 1 månad demo av sensor platser med väder värdena i en Pandas-dataframe.  |
 |[Ansluta till demodata med weather-data – Spark](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-join/01-weather-join-in-spark.ipynb) | Ansluta till en datauppsättning för demonstration av sensor platser med väder värdena i en Spark dataframe. |
 
 ## <a name="join-nyc-taxi-data-with-noaa-isd-data"></a>Ansluta till NYC taxi-data med NOAA ISD data 

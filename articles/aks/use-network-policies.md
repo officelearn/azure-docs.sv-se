@@ -5,47 +5,33 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 05/06/2019
 ms.author: iainfou
-ms.openlocfilehash: 29180d6c1bb5f0991a4f33c3b7c9418f84d8260c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a0512806ec797f43fc54d8a28a7cbadf86faf1d9
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61027980"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230010"
 ---
-# <a name="preview---secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Förhandsgranskning – säker trafik mellan poddar med hjälp av principer för nätverk i Azure Kubernetes Service (AKS)
+# <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Säker trafik mellan poddar med hjälp av principer för nätverk i Azure Kubernetes Service (AKS)
 
 När du kör moderna, mikrotjänstbaserade program i Kubernetes kan vill du ofta styra vilka komponenter som kan kommunicera med varandra. Principen om lägsta behörighet ska tillämpas på hur trafiken kan flöda mellan poddar i ett kluster i Azure Kubernetes Service (AKS). Vi antar att du förmodligen vill blockera trafik direkt till backend-program. Den *nätverkspolicy* funktionen i Kubernetes kan du definiera regler för ingående och utgående trafik mellan poddar i ett kluster.
 
-Den här artikeln visar hur du installerar principmodulen för nätverket och skapa principer för Kubernetes-nätverk för att styra trafikflödet mellan poddar i AKS. Den här funktionen är för närvarande en förhandsversion.
-
-> [!IMPORTANT]
-> AKS-förhandsversionsfunktioner är självbetjäning och delta i. Förhandsversioner tillhandahålls för att samla in feedback och buggar från vår community. De stöds dock inte av teknisk support för Azure. Om du skapar ett kluster eller lägga till dessa funktioner i befintliga kluster, stöds klustret inte förrän funktionen är inte längre i förhandsversion och uppgraderas till allmän tillgänglighet (GA).
->
-> Om du stöter på problem med funktioner i förhandsversion [öppna ett ärende på AKS GitHub-lagringsplatsen] [ aks-github] med namnet på funktionen för förhandsgranskning i rubriken för bugg.
+Den här artikeln visar hur du installerar principmodulen för nätverket och skapa principer för Kubernetes-nätverk för att styra trafikflödet mellan poddar i AKS. Nätverksprincip bör endast användas för Linux-baserade noder och poddar i AKS.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
 Du behöver Azure CLI version 2.0.61 eller senare installerat och konfigurerat. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa  [Installera Azure CLI 2.0][install-azure-cli].
 
-Om du vill skapa ett AKS-kluster som kan använda nätverksprincip först aktivera en funktionsflagga i prenumerationen. Att registrera den *EnableNetworkPolicy* funktion flaggan, använda den [az funktionen registrera] [ az-feature-register] kommandot som visas i följande exempel:
-
-```azurecli-interactive
-az feature register --name EnableNetworkPolicy --namespace Microsoft.ContainerService
-```
-
-Det tar några minuter för statusen att visa *registrerad*. Du kan kontrollera registreringsstatus med hjälp av den [az funktionslistan] [ az-feature-list] kommando:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableNetworkPolicy')].{Name:name,State:properties.state}"
-```
-
-När du är klar kan du uppdatera registreringen av den *Microsoft.ContainerService* resursprovidern genom att använda den [az provider register] [ az-provider-register] kommando:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
+> [!TIP]
+> Om du har använt funktionen nätverk princip under förhandsversionen, rekommenderar vi att du [skapar ett nytt kluster](#create-an-aks-cluster-and-enable-network-policy).
+> 
+> Om du vill fortsätta att använda befintliga testkluster som använde nätverksprincip förhandsversionen uppgradera klustret till en ny Kubernetes-versioner för den senaste GA-versionen och sedan distribuera följande YAML-manifestet för att åtgärda kraschat mått server och Kubernetes instrumentpanelen. Den här snabbkorrigeringen är endast krävs för kluster som används för principmodulen Calico nätverk.
+>
+> Som en säkerhetsåtgärd [granska innehållet i den här YAML-manifest] [ calico-aks-cleanup] att förstå vad som har distribuerats i AKS-klustret.
+>
+> `kubectl delete -f https://raw.githubusercontent.com/Azure/aks-engine/master/docs/topics/calico-3.3.1-cleanup-after-upgrade.yaml`
 
 ## <a name="overview-of-network-policy"></a>Översikt över nätverksprincip
 
@@ -78,6 +64,7 @@ Nätverksprincip fungerar bara med alternativet Azure CNI (Avancerat). Implement
 | Kompatibilitet med Kubernetes-specifikation | Alla principtyper som stöds |  Alla principtyper som stöds |
 | Ytterligare funktioner                      | Ingen                       | Utökade modellen princip som består av globala nätverksprincip, globala nätverket inställt och värd-slutpunkten. Mer information om hur du använder den `calicoctl` CLI för att hantera dessa utökade funktioner, finns i [calicoctl användaren referens][calicoctl]. |
 | Support                                  | Stöds av Azure-supporten och teknikerteam | Calico community-support. Mer information om ytterligare betald support finns i [projekt Calico supportalternativ][calico-support]. |
+| Loggning                                  | Regler har lagts till eller tagits bort i IPTables loggas på varje värd under */var/log/azure-npm.log* | Mer information finns i [Calico komponent loggar][calico-logs] |
 
 ## <a name="create-an-aks-cluster-and-enable-network-policy"></a>Skapa ett AKS-kluster och aktivera principen för nätverk
 
@@ -140,7 +127,6 @@ az aks create \
     --resource-group $RESOURCE_GROUP_NAME \
     --name $CLUSTER_NAME \
     --node-count 1 \
-    --kubernetes-version 1.12.6 \
     --generate-ssh-keys \
     --network-plugin azure \
     --service-cidr 10.0.0.0/16 \
@@ -478,12 +464,13 @@ Mer information om principer finns [Kubernetes nätverksprinciper][kubernetes-ne
 [kubectl-delete]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete
 [kubernetes-network-policies]: https://kubernetes.io/docs/concepts/services-networking/network-policies/
 [azure-cni]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
-[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 [policy-rules]: https://kubernetes.io/docs/concepts/services-networking/network-policies/#behavior-of-to-and-from-selectors
-[aks-github]: https://github.com/azure/aks/issues]
+[aks-github]: https://github.com/azure/aks/issues
 [tigera]: https://www.tigera.io/
-[calicoctl]: https://docs.projectcalico.org/v3.5/reference/calicoctl/
+[calicoctl]: https://docs.projectcalico.org/v3.6/reference/calicoctl/
 [calico-support]: https://www.projectcalico.org/support
+[calico-logs]: https://docs.projectcalico.org/v3.6/maintenance/component-logs
+[calico-aks-cleanup]: https://github.com/Azure/aks-engine/blob/master/docs/topics/calico-3.3.1-cleanup-after-upgrade.yaml
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli

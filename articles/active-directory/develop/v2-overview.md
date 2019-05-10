@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 414200462d3575aa576b5ef2268a3ac0b01063ba
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 73d97b45217da4bbf4b8c0e857b817911484f29c
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190764"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231094"
 ---
 # <a name="microsoft-identity-platform-v20-overview"></a>Översikt över Microsoft identity-plattformen (v2.0)
 
@@ -43,7 +43,7 @@ Med Microsoft identity-plattformen, kan du skriver koden en gång och nå alla a
 
 ## <a name="getting-started"></a>Komma igång
 
-Arbeta med identity behöver inte vara svårt. Välj ett scenario som passar dig – varje scenario sökväg har en Snabbstart och en översiktssida för att komma igång på bara några minuter:
+Det behöver inte vara svårt att arbeta med identiteter. Välj ett scenario som passar dig – varje scenario sökväg har en Snabbstart och en översiktssida för att komma igång på bara några minuter:
 
 - [Skapa en ensidesapp](scenario-spa-overview.md)
 - [Skapa en webbapp som loggar in användare](scenario-web-app-sign-user-overview.md)
@@ -56,7 +56,7 @@ Arbeta med identity behöver inte vara svårt. Välj ett scenario som passar dig
 
 I följande tabell visas vanliga autentiseringsscenarier i appen – Använd den som referens när du integrerar Microsoft identity-plattformen med din app.
 
-[![Programscenarier i Microsoft identity-plattformen](./media/v2-overview/application-scenarios-identity-platform.png)](./media/v2-overview/application-scenarios-identity-platform.png#lightbox)
+[![Programscenarier i Microsoft identity-plattformen](./media/v2-overview/application-scenarios-identity-platform.png)](./media/v2-overview/application-scenarios-identity-platform.svg#lightbox)
 
 ## <a name="next-steps"></a>Nästa steg
 

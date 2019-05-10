@@ -205,6 +205,8 @@
           href: restore-sql-database-azure-vm.md
         - name: Hantera säkerhetskopierade SQL Server-databaser
           href: manage-monitor-sql-database-backup.md
+    - name: Säkerhetskopiera SAP HANA-databaser på virtuella Azure-datorer
+      href: backup-azure-sap-hana-database.md
     - name: Windows Server
       items:
         - name: Säkerhetskopiera Windows Server-filer och -mappar

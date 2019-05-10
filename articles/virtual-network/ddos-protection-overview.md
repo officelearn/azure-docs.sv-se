@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/13/2018
 ms.author: kumud
-ms.openlocfilehash: c639bc1edceba9c9da08ee6bcc54c860f857cd33
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 41e9d88df49d153089e6dc7a12c5873ccc167279
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64696026"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65209463"
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Översikt över Azure DDoS Protection Standard
 
@@ -29,7 +29,7 @@ Distribuerade överbelastningsattacker (DDoS) är några av de största tillgän
 Azure DDoS protection, tillsammans med programmet Metodtips för design, ger skydd mot DDoS-attacker. Azure DDoS protection får du med följande tjänstnivåer:
 
 - **Basic**: Aktiveras automatiskt som en del av Azure-plattformen. Ständigt aktiverad övervakning och i realtid minskning av vanliga attacker på nätverksnivå, ger samma försvar som används av Microsoft online services. Hela skalan för Azures globala nätverket kan användas för att distribuera och minimera attack trafik mellan regioner. Skydd tillhandahålls för IPv4 och IPv6 Azure [offentliga IP-adresser](virtual-network-public-ip-address.md).
-- **Standard**: Ger ytterligare skyddsfunktioner över grundläggande tjänstenivå som är finjusterade specifikt för Azure Virtual Network-resurser. DDoS Protection Standard är enkelt att använda, och kräver inga ändringar i programmet. Appskyddsprinciper är justerade via dedikerade övervaknings- och machine learning-algoritmer. Principer som används för den offentliga IP-adresser som är kopplade till resurser som har distribuerats i virtuella nätverk, till exempel Azure Load Balancer, Azure Application Gateway och Azure Service Fabric-instanser, men det här skyddet gäller inte för App Service-miljöer. I realtid telemetri är tillgängligt via Azure Monitor vyer under ett angrepp, och för historik. Omfattande attack minskning analyser är tillgängliga via diagnostikinställningar. Skydd på programnivå kan läggas till via den [Azure Application Gateway Web Application Firewall](../application-gateway//application-gateway-web-application-firewall-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) eller genom att installera en brandvägg för 3 från Azure Marketplace. Skydd tillhandahålls för IPv4 Azure [offentliga IP-adresser](virtual-network-public-ip-address.md).
+- **Standard**: Ger ytterligare skyddsfunktioner över grundläggande tjänstenivå som är finjusterade specifikt för Azure Virtual Network-resurser. DDoS Protection Standard är enkelt att använda, och kräver inga ändringar i programmet. Appskyddsprinciper är justerade via dedikerade övervaknings- och machine learning-algoritmer. Principer som används för den offentliga IP-adresser som är kopplade till resurser som har distribuerats i virtuella nätverk, till exempel Azure Load Balancer, Azure Application Gateway och Azure Service Fabric-instanser, men det här skyddet gäller inte för App Service-miljöer. I realtid telemetri är tillgängligt via Azure Monitor vyer under ett angrepp, och för historik. Omfattande attack minskning analyser är tillgängliga via diagnostikinställningar. Skydd på programnivå kan läggas till via den [Azure Application Gateway Web Application Firewall](../application-gateway//application-gateway-web-application-firewall-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) eller genom att installera en brandvägg för 3 från Azure Marketplace. Skydd tillhandahålls för IPv4 och IPv6 Azure [offentliga IP-adresser](virtual-network-public-ip-address.md).
 
 ![Azure DDoS Protection grundläggande mot. Standard](./media/ddos-protection-overview/ddoscomparison.png)
 
@@ -64,7 +64,7 @@ DDoS Protection standardfunktioner omfattar:
 
 DDoS Protection Standard övervakar faktiska trafik användning och ständigt jämför den med de tröskelvärden som definierats i DDoS-princip. När trafik tröskelvärdet överskrids initieras automatiskt DDoS-åtgärd. När trafik lämnar under tröskelvärdet, tas minskningen bort.
 
-![Åtgärd](./media/ddos-protection-overview/mitigation.png)
+![Minskning](./media/ddos-protection-overview/mitigation.png)
 
 Under migrering av trafik som skickas till den skyddade resursen omdirigeras av tjänsten DDoS protection och flera kontroller som utförs, till exempel följande kontroller:
 

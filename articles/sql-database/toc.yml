@@ -462,6 +462,8 @@
           href: sql-database-managed-instance-create-vnet-subnet.md
         - name: Konfigurera ett befintligt virtuellt nätverk och undernät för en hanterad instans
           href: sql-database-managed-instance-configure-vnet-subnet.md
+        - name: Ta bort undernätet efter att du tagit bort en hanterad instans
+          href: sql-database-managed-instance-delete-virtual-cluster.md
         - name: Konfigurera anpassad DNS
           href: sql-database-managed-instance-custom-dns.md
         - name: Synkronisera nätverkskonfiguration

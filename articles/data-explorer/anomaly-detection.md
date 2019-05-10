@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.openlocfilehash: 934dfd3334b6f433c7acdf9816a3fb5e24f0430f
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.openlocfilehash: f40350129a12c7865051bcae80b74b6f9c069179
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64871999"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233540"
 ---
 # <a name="anomaly-detection-and-forecasting-in-azure-data-explorer"></a>Identifiering av avvikelser och prognostisering i Datautforskaren i Azure
 
@@ -119,7 +119,7 @@ demo_make_series2
 
 ## <a name="summary"></a>Sammanfattning
 
-Det här dokumentet beskriver den ursprungliga Azure Data Explorer funktioner för time series-avvikelseidentifiering och prognoser, vilket avsevärt förbättrar den grundläggande uppdelning modellen som den är baserad. Varje ursprungliga tidsserier delas upp avvikelser som identifierats och prognostisering utförs. Time series avvikelseidentifiering identifiering och prognostisering funktionerna används för scenarier i nästan realtid övervakning, till exempel felinsamling, förebyggande underhåll och begäran och läsa in prognostisering.
+Det här dokumentet beskriver den ursprungliga Azure Data Explorer funktioner för time series-avvikelseidentifiering och prognostisering. Varje ursprungliga tidsserier delas upp i säsongens, trend och återstående komponenter för att kunna identifiera avvikelser och/eller prognostisering. Dessa funktioner kan användas för nästan i realtid övervakningsscenarier, till exempel felinsamling, förebyggande underhåll och begäran och läsa in prognostisering.
 
 ## <a name="next-steps"></a>Nästa steg
 

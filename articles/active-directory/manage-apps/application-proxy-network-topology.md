@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d80f58215b1a8f1b93db158cd2f47186ba6354a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f5b87e452b0c79ae9cdc1d7f9f391a611dceda2f
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60443457"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231512"
 ---
 # <a name="network-topology-considerations-when-using-azure-active-directory-application-proxy"></a>Topologiöverväganden för nätverk när du använder Azure Active Directory Application Proxy
 
@@ -39,7 +39,7 @@ När ett program publiceras via Azure AD Application Proxy, flödar trafiken fr�
 
 ## <a name="tenant-location-and-application-proxy-service"></a>Klientplats och Application Proxy-tjänsten
 
-När du registrerar dig för en Azure AD-klient bestäms regionen för din klient av det land som du anger. När du aktiverar programproxy valt tjänstinstanser Application Proxy för din klient eller skapats i samma region som din Azure AD-klient eller den närmaste regionen till den.
+När du registrerar dig för en Azure AD-klient, bestäms regionen för din klient efter land/region som du anger. När du aktiverar programproxy valt tjänstinstanser Application Proxy för din klient eller skapats i samma region som din Azure AD-klient eller den närmaste regionen till den.
 
 Till exempel, om din Azure AD-klient land eller region är Storbritannien, använda alla Application Proxy-kopplingar tjänstinstanser i datacenter för Europa. När dina användare åtkomst publicerat program, passerar trafiken tjänstinstanser Application Proxy på den här platsen.
 
@@ -78,7 +78,7 @@ Om du har en dedikerad VPN eller ExpressRoute-länk mellan Azure och företagets
 
 ## <a name="focus-your-optimization-strategy"></a>Fokusera din strategi för optimering
 
-Det finns lite som du kan göra för att kontrollera anslutningen mellan dina användare och programproxytjänsten. Användare kan komma åt dina appar från ett hemnätverk, ett kafé eller ett annat land. I stället kan du optimera anslutningar från Application Proxy-tjänsten till Application Proxy-kopplingar till appar. Överväg att använda följande mönster i din miljö.
+Det finns lite som du kan göra för att kontrollera anslutningen mellan dina användare och programproxytjänsten. Användare kan komma åt dina appar från ett hemnätverk, ett kafé eller ett annat land/region. I stället kan du optimera anslutningar från Application Proxy-tjänsten till Application Proxy-kopplingar till appar. Överväg att använda följande mönster i din miljö.
 
 ### <a name="pattern-1-put-the-connector-close-to-the-application"></a>Mönstret 1: Placera nära programmet-anslutningen
 

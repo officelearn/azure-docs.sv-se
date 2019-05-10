@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 59b390776a5e23c08d8793125747742cee4e473e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f010e7564f097f28269070d85e2895e73f454054
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60854208"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415587"
 ---
 # <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>Självstudie: Skapa en ASP.NET-app i Azure med SQL Database
 
@@ -44,7 +44,7 @@ I den här guiden får du lära dig att:
 
 För att slutföra den här självstudien behöver du:
 
-Installera <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> med arbetsbelastningen **ASP.NET och webbutveckling**.
+Installera <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> med den **ASP.NET och webbutveckling** arbetsbelastning.
 
 Om du redan har installerat Visual Studio lägger du till arbetsbelastningarna i Visual Studio genom att klicka på **Tools (Verktyg)** > **Get Tools and Features (Skaffa verktyg och funktioner)**.
 
@@ -79,7 +79,7 @@ Se till att **Microsoft Azure App Service** är markerat och klicka på **Public
 
 I dialogrutan **Skapa App Service** som öppnas efter publicering får du hjälp att skapa alla Azure-resurser som behövs för att köra ASP.NET-appen i Azure.
 
-### <a name="sign-in-to-azure"></a>Logga in på Azure
+### <a name="sign-in-to-azure"></a>Logga in till Azure
 
 I dialogrutan **Skapa App Service** klickar du på **Lägg till ett konto** och logga sedan in på din Azure-prenumeration. Om du redan är inloggad på ett Microsoft-konto kontrollerar du att kontot tillhör din Azure-prenumeration. Om kontot inte tillhör din Azure-prenumeration klickar du på den för att lägga till rätt konto. 
 
@@ -88,7 +88,7 @@ I dialogrutan **Skapa App Service** klickar du på **Lägg till ett konto** och 
 >
 >
    
-![Logga in på Azure](./media/app-service-web-tutorial-dotnet-sqldatabase/sign-in-azure.png)
+![Logga in till Azure](./media/app-service-web-tutorial-dotnet-sqldatabase/sign-in-azure.png)
 
 ### <a name="configure-the-web-app-name"></a>Konfigurera webbappnamnet
 
@@ -165,7 +165,7 @@ Lägg till några att-göra-uppgifter.
 
 ![Publicerat ASP.NET-program i Azure app](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
 
-Grattis! Din datadrivna ASP.NET-app körs live i Azure App Service.
+Gratulerar! Din datadrivna ASP.NET-app körs live i Azure App Service.
 
 ## <a name="access-the-sql-database-locally"></a>Lokal åtkomst till SQL Database
 

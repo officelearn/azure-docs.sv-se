@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Utföra åtgärder för avbildning – Java'
+title: Utföra åtgärder för avbildning – Java
 titlesuffix: Azure Cognitive Services
 description: Utforska en grundläggande Java Swing-app som använder API för visuellt innehåll i Azure Cognitive Services. Utför OCR, skapa miniatyrer och arbeta med visuella funktioner i en bild.
 services: cognitive-services
@@ -7,18 +7,18 @@ author: KellyDF
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
-ms.topic: tutorial
+ms.topic: conceptual
 ms.author: kefre
 ms.custom: seodec18
-ms.date: 09/21/2017
-ms.openlocfilehash: 4f6af31ba6b04ddbecb7cb42cebe345b6af720ac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 04/30/2019
+ms.openlocfilehash: a22308e0c7ff924205f715692d011a4572b2bdb8
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60201439"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65232626"
 ---
-# <a name="tutorial-computer-vision-api-java"></a>Självstudier: API för visuellt innehåll – Java
+# <a name="use-computer-vision-features-with-the-rest-api-and-java"></a>Använda funktionerna för visuellt innehåll med REST API och Java
 
 Den här självstudien visar funktionerna i Azure Cognitive Services REST API för visuellt innehåll.
 
@@ -34,7 +34,7 @@ Den här självstudien beskrivs hur du använder API för visuellt innehåll til
 > * Läs tryckt text i en bild
 > * Läs handskriven text i en bild
 
-Java Swing-formulärprogrammet har redan skrivits, men har inga funktioner. I den här självstudien får du lägga till den specifika koden för REST API för visuellt innehåll för att slutföra programmets funktioner.
+Java svänga formuläret programmet har redan skrivits men fungerar inte. I den här självstudien får du lägga till den specifika koden för REST API för visuellt innehåll för att slutföra programmets funktioner.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -42,13 +42,13 @@ Java Swing-formulärprogrammet har redan skrivits, men har inga funktioner. I de
 
 Den här självstudien har utvecklats med hjälp av NetBeans IDE. Mer specifikt den **Java SE**-version av NetBeans som du kan [hämta här](https://netbeans.org/downloads/index.html).
 
-### <a name="subscribe-to-computer-vision-api-and-get-a-subscription-key"></a>Prenumerera på API för visuellt innehåll och få en prenumerationsnyckel 
+### <a name="subscribe-to-computer-vision-api-and-get-a-subscription-key"></a>Prenumerera på API för visuellt innehåll och få en prenumerationsnyckel
 
-Innan du skapar exemplet, måste du prenumerera på API för visuellt innehåll som ingår i Azure Cognitive Services. Information om prenumeration och nyckelhantering finns i [Prenumerationer](https://azure.microsoft.com/try/cognitive-services/). Både de primära och sekundära nycklarna kan användas i den här självstudien. 
+Innan du skapar exemplet, måste du prenumerera API för visuellt innehåll som ingår i Azure Cognitive Services. Information om prenumeration och nyckelhantering finns i [Prenumerationer](https://azure.microsoft.com/try/cognitive-services/). Både de primära och sekundära nycklarna kan användas i den här självstudien.
 
-## <a name="acquire-the-incomplete-tutorial-project"></a>Hämta det ofullständiga självstudieprojektet
+## <a name="acquire-incomplete-tutorial-project"></a>Hämta ofullständig självstudieprojektet
 
-### <a name="download-the-tutorial-project"></a>Hämta självstudieprojektet
+### <a name="download-the-project"></a>Ladda ned projektet
 
 1. Gå till lagringsplatsen för [Cognitive Services Java-självstudien för visuellt innehåll ](https://github.com/Azure-Samples/cognitive-services-java-computer-vision-tutorial).
 1. Klicka på knappen **Klona eller hämta**.
@@ -78,7 +78,7 @@ Importera filen **cognitive-services-java-computer-vision-tutorial-master.zip** 
 
 1. Avsluta självstudieprogrammet.
 
-## <a name="add-the-tutorial-code-to-the-project"></a>Lägga till självstudiekursens kod i projektet
+## <a name="add-tutorial-code-to-the-project"></a>Lägg till självstudiekursen koden i projektet
 
 Java Swing-programmet konfigureras med sex flikar. Varje fil visar en annan funktion för API för visuellt innehåll (analysera, OCR, osv). De sex självstudiedelarna har inte beroenden så du kan lägga till ett avsnitt, alla sex delar eller valfri delmängd. Du kan lägga till delarna i valfri ordning.
 
@@ -88,7 +88,7 @@ Funktionen Analysera i API för visuellt innehåll genomsöker en bild efter fle
 
 Utför följande steg för att slutföra analyserafunktionen i självstudieprogrammet:
 
-#### <a name="add-the-event-handler-code-for-the-form-button"></a>Lägga till händelsehanterarkoden för formulär-knappen
+#### <a name="add-the-event-handler-code-for-the-analyze-button"></a>Lägg till händelsekod för hanteraren för knappen analysera
 
 Händelsehanterarfunktionen **analyzeImageButtonActionPerformed** rensar formuläret, visar den bild som angetts i URL:en och anropar sedan metoden **AnalyzeImage** för att analysera bilden. När **AnalyzeImage** returneras, visar metoden det formaterade JSON-svaret i textområdet **Svar**, extraherar den första texten från **JSONObject** och visar beskrivningen och konfidensnivån att texten är korrekt.
 
@@ -202,7 +202,7 @@ Kopiera och klistra in metoden **AnalyzeImage** under metoden **analyzeImageButt
     }
  ```
 
-#### <a name="run-the-application"></a>Köra programmet
+#### <a name="run-the-analyze-function"></a>Kör funktionen Analysera
 
 Tryck på **F6** för att köra programmet. Placera din prenumerationsnyckel i fältet **Prenumerationsnyckel** och kontrollera att du använder rätt region i **Prenumerationsregion**. Ange en URL för en bild som ska analyseras och klicka sedan på knappen **Analysera bild** för att analysera bilden och se resultatet.
 
@@ -326,7 +326,7 @@ Kopiera och klistra in metoden **LandmarkImage** under metoden **landmarkImageBu
     }
 ```
 
-#### <a name="run-the-application"></a>Köra programmet
+#### <a name="run-the-landmark-function"></a>Kör funktionen landmärken
 
 Tryck på **F6** för att köra programmet. Placera din prenumerationsnyckel i fältet **Prenumerationsnyckel** och kontrollera att du använder rätt region i **Prenumerationsregion**. Klicka på fliken **Landmärke**, ange en URL för en bild av ett landmärke och klicka sedan på knappen **Analysera bild** för att analysera bilden och se resultatet.
 
@@ -336,7 +336,7 @@ Funktionen kändisar i visuellt innehåll analyserar en bild efter kända person
 
 Utför följande steg för att slutföra funktionen Kändisar i självstudiekursen:
 
-#### <a name="add-the-event-handler-code-for-the-form-button"></a>Lägga till händelsehanterarkoden för formulär-knappen
+#### <a name="add-the-event-handler-code-for-the-celebrities-button"></a>Lägg till händelsekod för hanteraren för knappen kändisar
 
 Händelsehanterarmetoden **celebritiesImageButtonActionPerformed** rensar formuläret, visar den bild som angetts i URL:en och anropar sedan metoden **CelebritiesImage** för att analysera bilden. När **CelebritiesImage** returnerar, visar metoden det formaterade JSON-svaret i textområdet **Svar**, extraherar det första kändisnamnet från **JSONObject** och visar det i fönstret tillsammans med konfidensnivån att kändisen identifierades korrekt.
 
@@ -450,7 +450,7 @@ Kopiera och klistra in metoden **CelebritiesImage** under metoden **celebritiesI
     }
 ```
 
-#### <a name="run-the-application"></a>Köra programmet
+#### <a name="run-the-celebrities-function"></a>Kör funktionen kändisar
 
 Tryck på **F6** för att köra programmet. Placera din prenumerationsnyckel i fältet **Prenumerationsnyckel** och kontrollera att du använder rätt region i **Prenumerationsregion**. Klicka på fliken **Kändisar**, ange en URL för en bild av en kändis och klicka sedan på knappen **Analysera bild** för att analysera bilden och se resultatet.
 
@@ -460,7 +460,7 @@ Miniatyrfunktionen i visuellt innehåll skapar en miniatyrbild från en bild. Me
 
 Utför följande steg för att slutföra miniatyrfunktionen i självstudiekursen:
 
-#### <a name="add-the-event-handler-code-for-the-form-button"></a>Lägga till händelsehanterarkoden för formulär-knappen
+#### <a name="add-the-event-handler-code-for-the-thumbnail-button"></a>Lägg till händelsekod för hanteraren för knappen miniatyr
 
 Händelsehanterarmetoden **thumbnailImageButtonActionPerformed** rensar formuläret, visar den bild som angetts i URL:en och anropar sedan metoden **getThumbnailImage** för att skapa miniatyrbilden. När **getThumbnailImage** returnerar, visar metoden den skapade miniatyrbilden.
 
@@ -573,7 +573,7 @@ Kopiera och klistra in följande **getThumbnailImage**-metod under **thumbnailIm
     }
 ```
 
-#### <a name="run-the-application"></a>Köra programmet
+#### <a name="run-the-thumbnail-function"></a>Kör funktionen miniatyr
 
 Tryck på **F6** för att köra programmet. Placera din prenumerationsnyckel i fältet **Prenumerationsnyckel** och kontrollera att du använder rätt region i **Prenumerationsregion**. Klicka på fliken **Miniatyrer**, ange en URL för en bild och klicka sedan på knappen **Skapa miniatyrer** för att analysera bilden och se resultatet.
 
@@ -583,7 +583,7 @@ Optisk teckenigenkänning (OCR)-funktionen för visuellt innehåll analyserar en
 
 Utför följande steg för att slutföra OCR-funktionen i självstudien:
 
-#### <a name="add-the-event-handler-code-for-the-form-button"></a>Lägga till händelsehanterarkoden för formulär-knappen
+#### <a name="add-the-event-handler-code-for-the-ocr-button"></a>Lägg till händelsekod för hanteraren för OCR-knapp
 
 Händelsehanterarfunktionen **ocrImageButtonActionPerformed** rensar formuläret, visar den bild som angetts i URL:en och anropar sedan metoden **OcrImage** för att analysera bilden. När **OcrImage** returnerar, visar metoden den identifierade texten som formaterad JSON i textområdet **svar**.
 
@@ -684,7 +684,7 @@ Kopiera och klistra in metoden **OcrImage** under metoden **ocrImageButtonAction
     }
 ```
 
-#### <a name="run-the-application"></a>Köra programmet
+#### <a name="run-the-ocr-function"></a>Kör funktionen OCR
 
 Tryck på **F6** för att köra programmet. Placera din prenumerationsnyckel i fältet **Prenumerationsnyckel** och kontrollera att du använder rätt region i **Prenumerationsregion**. Klicka på fliken **OCR**, ange en URL till en bild av skriven text och klicka sedan på knappen **Läs bild** för att analysera en bild och se resultatet.
 
@@ -694,7 +694,7 @@ Funktionen handskriftsigenkänning i API för visuellt innehåll analyserar en b
 
 Utför följande steg för att slutföra funktionen handskriftsigenkänning i självstudieprogrammet:
 
-#### <a name="add-the-event-handler-code-for-the-form-button"></a>Lägga till händelsehanterarkoden för formulär-knappen
+#### <a name="add-the-event-handler-code-for-the-handwriting-button"></a>Lägg till händelsekod för hanteraren för knappen handskrift
 
 Händelsehanterarfunktionen **handwritingImageButtonActionPerformed** rensar formuläret, visar den bild som angetts i URL:en och anropar sedan metoden **HandwritingImage** för att analysera bilden. När **HandwritingImage** returnerar, visar metoden den identifierade texten som formaterad JSON i textområdet **Svar**.
 
@@ -842,11 +842,12 @@ Kopiera och klistra in metoden **HandwritingImage** under metoden **handwritingI
     }
 ```
 
-#### <a name="run-the-application"></a>Köra programmet
+#### <a name="run-the-handwriting-function"></a>Kör funktionen handskrift
 
 Tryck på **F6** för att köra programmet. Placera din prenumerationsnyckel i fältet **Prenumerationsnyckel** och kontrollera att du använder rätt region i **Prenumerationsregion**. Klicka på fliken **Läs handskriven text**, ange en URL till en bild av handskriven text och klicka sedan på knappen **Läs bild** för att analysera en bild och se resultatet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Självstudie: API för visuellt innehåll med C&#35;](CSharpTutorial.md)
-- [Självstudie: API för visuellt innehåll med Python](PythonTutorial.md)
+I den här guiden används du den REST API för visuellt innehåll med Java för att testa många av de tillgängliga bild analysis-funktionerna. Därefter finns i referensdokumentationen för att lära dig mer om API: er som ingår.
+
+- [REST API för visuellt](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)

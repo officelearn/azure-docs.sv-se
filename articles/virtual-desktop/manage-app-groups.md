@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: da653842b09c15a5fd42bae0ed45e7b31452b972
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f0cdd28be8c6e7390aa26fdc2dfbf32ec5542c2d
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60870157"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233901"
 ---
 # <a name="tutorial-manage-app-groups-for-windows-virtual-desktop-preview"></a>Självstudier: Hantera app-grupper för Windows Virtual Desktop-förhandsversion
 
@@ -73,7 +73,7 @@ Innan du börjar [hämta och importera modulen Windows PowerShell för virtuella
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har skapat din app-grupper kan du skapa tjänstens huvudnamn och tilldela roller till användare. Om du vill veta hur du gör detta finns i självstudiekursen om hur du skapar tjänstens huvudnamn och rolltilldelningar med PowerShell.
+I den här självstudien lärde du dig att skapa app-grupper, fyller den med RemoteApps och tilldela användare till app-gruppen. Om du vill veta mer om hur du loggar in till virtuella Windows-skrivbordet kan fortsätta att ansluta till virtuella skrivbord instruktioner för Windows.
 
-> [!div class="nextstepaction"]
-> [Skapa tjänstens huvudnamn och rolltilldelningar med PowerShell](create-service-principal-role-powershell.md)
+- [Ansluta till fjärrskrivbord-klienten på Windows 7 och Windows 10](connect-windows-7-and-10.md)
+- [Ansluta till webbklienten förhandsversion för virtuella skrivbord i Windows](connect-web.md)

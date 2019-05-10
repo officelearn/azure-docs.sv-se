@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ada4323b0e61c6dc9fb87af133c40ec9c35e3834
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 986e2e0f8a481d61dc870af2548290658b44d2d3
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074987"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231111"
 ---
 # <a name="web-api-that-calls-web-apis---acquire-a-token-for-the-app"></a>Webb-API som anropar webb-API: er – hämta en token för appen
 
@@ -49,7 +49,7 @@ private async Task GetTodoList(bool isAppStarting)
 }
 ```
 
-`BuildConfidentialClient()` liknar vad du har sett i artikeln [webb-API som anropar webb-API: er – appkonfiguration](scenario-web-api-call-api-app-configuration.md). `BuildConfidentialClient()` skapar en instans av `IConfidentialClientApplication` med ett cacheminne som innehåller endast information för ett konto. Kontot som är av den `GetAccountIdentifier` metoden.
+`BuildConfidentialClient()` liknar vad du har sett i artikeln [webb-API som anropar webb-API: er – appkonfiguration](scenario-web-api-call-api-app-configuration.md). `BuildConfidentialClient()` skapar en instans av `IConfidentialClientApplication` med ett cacheminne som innehåller endast information för ett konto. Konton som tillhandahålls av den `GetAccountIdentifier` metoden.
 
 Den `GetAccountIdentifier` metoden använder de anspråk som är associerade med identiteten för användaren som fick webb-API i JWT:
 

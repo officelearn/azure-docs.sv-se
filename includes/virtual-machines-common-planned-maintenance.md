@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 4/30/2019
 ms.author: shants
 ms.custom: include file
-ms.openlocfilehash: 747fb9a38cc0c27d162192f4f3ed928e8a968f27
-ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
+ms.openlocfilehash: adf99b941a775f105d8c65da3ac6c11dc7257120
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "64993119"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65416370"
 ---
 Azure uppdaterar regelbundet plattform för att förbättra tillförlitligheten, prestanda och säkerheten för infrastrukturen för värd för virtuella datorer. Dessa uppdateringar sträcker sig från korrigeringar programvarukomponenter i värdmiljön, uppgradera nätverkskomponenter, till maskinvara ta ur drift. Flesta av dessa uppdateringar har ingen inverkan på de virtuella datorerna. Men finns det fall där uppdateringar påverka och Azure väljer minst påverkar metoden efter uppdateringar:
 
 - Om en icke-rebootful uppdatering är möjligt, den virtuella datorn pausas medan värden uppdateras eller den är aktiv migreras till en värd som redan är uppdaterad.
 
-- Om en omstart krävs för underhåll, får du ett meddelande om när det planerade underhållet. Azure ger också ett tidsfönster som där du kan starta underhållet själv, samtidigt som passar dig. Självunderhåll tidsfönstret är vanligtvis fyra veckor om det inte brådskande att utföra underhåll. Azure också investeringar i att minska fall när de virtuella datorerna måste startas om för plattform för planerat underhåll. 
+- Om en omstart krävs för underhåll, får du ett meddelande om när det planerade underhållet. Azure ger också ett tidsfönster som där du kan starta underhållet själv, samtidigt som passar dig. Självunderhåll tidsfönstret är vanligtvis 30 dagar såvida den inte brådskande att utföra underhåll. Azure också investeringar i att minska fall när de virtuella datorerna måste startas om för plattform för planerat underhåll. 
 
 Den här sidan beskriver hur Azure utför båda typerna av underhåll. Mer information om oplanerade händelser (avbrott) finns i Hantera tillgängligheten för virtuella datorer för [Windows](../articles/virtual-machines/windows/manage-availability.md) eller [Linux](../articles/virtual-machines/linux/manage-availability.md).
 
@@ -29,13 +29,13 @@ Du kan hämta i VM-meddelande om kommande Underhåll med schemalagda händelser 
 
 ## <a name="maintenance-not-requiring-a-reboot"></a>Underhåll som inte kräver en omstart
 
-Målet för de flesta noll inverkan underhåll som inte kräver en omstart är mindre än 10 sekunder pausa för den virtuella datorn. Azure väljer uppdateringsmekanism som är minst påverkar kundernas virtuella datorer. I vissa fall används minne preserving Underhåll mekanismer, vilket pausar den virtuella datorn i upp till 30 sekunder och bevarar minnet i RAM-minne. Virtuellt datorn sedan återupptas och synkroniseras klockan automatiskt. Azure är allt med hjälp av Direktmigrering tekniker och förbättra minne bevarar Underhåll mekanism för att minska varaktighet för pausen.  
+Som nämnts ovan görs plattformsuppdateringar för de flesta utan påverkan på kundens virtuella datorer. Vid noll inverkan update inte är möjligt väljer uppdateringsmekanism som är minst impactful till kundens virtuella datorer i Azure. Merparten av de här inte är noll inverkan Underhåll leder till mindre än 10 sekunder pausa för den virtuella datorn. I vissa fall används minne preserving Underhåll mekanismer, vilket pausar den virtuella datorn i upp till 30 sekunder och bevarar minnet i RAM-minne. Virtuellt datorn sedan återupptas och synkroniseras klockan automatiskt. Bevarande Underhåll minne fungerar för mer än 90% virtuella Azure-datorer utom G, M, N och H-serien. Azure är allt med hjälp av Direktmigrering tekniker och förbättra minne bevarar Underhåll mekanism för att minska varaktighet för pausen.  
 
 Dessa icke rebootful underhållsåtgärder är tillämpad feldomän av feldomän och förloppet stoppas om någon varning hälsotillstånd signaler tas emot. 
 
 Vissa program kan påverkas av dessa typer av uppdateringar. Den virtuella datorn är live migreras till en annan värd, kanske vissa känsliga arbetsbelastningar märker en liten prestandaförsämring i några minuter ledde till VM-pausa. Sådana program kan dra nytta av schemalagda händelser för [Windows](../articles/virtual-machines/windows/scheduled-events.md) eller [Linux](../articles/virtual-machines/linux/scheduled-events.md) att förbereda för underhåll av virtuell dator och har ingen påverkan under Azure-underhåll. Azure fungerar även på Underhåll styr funktioner för sådana mycket känsliga program. 
 
-## <a name="live-migration"></a>Direktmigrering
+### <a name="live-migration"></a>Direktmigrering
 
 Direktmigrering är en icke-rebootful-åtgärd som bevarar minnet för den virtuella datorn och resulterar i en begränsad pausa eller lås, vanligtvis långvarigt mer än 5 sekunder. Idag är all infrastruktur som en tjänst (IaaS) virtuella datorer, förutom G, M, N och H-serien är berättigade för Direktmigrering. Detta motsvarar över 90% av IaaS-datorer som distribuerats i Azure-beståndet. 
 

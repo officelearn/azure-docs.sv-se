@@ -3,7 +3,7 @@ title: Förbättra din regelefterlevnad med hjälp av Azure Security Center | Mi
 description: 'Självstudier: Lär dig hur du kan förbättra din regelefterlevnad med hjälp av Azure Security Center.'
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: 5f50c4dc-ea42-418d-9ea8-158ffeb93706
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/15/2019
-ms.author: rkarlin
-ms.openlocfilehash: 2e73cbd1de4336a08e26a609dfe704da0a068860
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 4/30/2019
+ms.author: monhaber
+ms.openlocfilehash: 111a32983472d18c1435feaf2456e5b9416b5112
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60706031"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65442266"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>Självstudier: Förbättra regelefterlevnaden
 ---
@@ -47,8 +47,7 @@ Instrumentpanelens vy för efterlevnad hjälper dig att fokusera din uppmärksam
 
 >[!NOTE]
 > Regelverk som stöds för närvarande är: Azure CIS, PCI DSS 3.2, ISO 27001 och SOC TSP. Ytterligare standarder återspeglas i instrumentpanelen i takt med att de utvecklas.
-
-1.  På Security Center-huvudmenyn under **PRINCIP OCH EFTERLEVNAD** väljer du **instrumentpanelen för regelefterlevnad**. <br>
+1.  I Security Center-huvudmenyn under **princip och efterlevnad** Välj **regelefterlevnad**. <br>
 Överst på skärmen visas en instrumentpanel med en översikt över din efterlevnadsstatus med en uppsättning efterlevnadsföreskrifter som stöds. Du kan se din övergripande kompatibilitetspoäng och antalet godkända och icke godkända utvärderingar som är associerade med varje standard.
 
     ![hög exakthet för datorbeskrivning](./media/security-center-compliance-dashboard/compliance-dashboard.png)
@@ -58,12 +57,17 @@ Instrumentpanelens vy för efterlevnad hjälper dig att fokusera din uppmärksam
 
     ![efterlevnadsflik](./media/security-center-compliance-dashboard/compliance-pci.png)
 
-3.  Välj fliken **Alla** för att se en vy över alla relevanta rekommendationer i Security Center och deras tillhörande standarder. Den här vyn kan användas för att identifiera alla olika standarder som påverkas av en viss rekommendation. <br> Du kan eventuellt använda den här vyn för att prioritera rekommendationer som du måste åtgärda. Exempel: Om du ser att rekommendationen **Enable MFA for accounts with owner permissions on your subscription** (Aktivera MFA för konton med ägarbehörigheter för din prenumeration) misslyckas på flera resurser och är associerad med flera standarder får den rekommendationen hög inverkan på din övergripande kompatibilitetspoäng.
+3. Välj fliken **Alla** för att se en vy över alla relevanta rekommendationer i Security Center och deras tillhörande standarder. Den här vyn kan användas för att identifiera alla olika standarder som påverkas av en viss rekommendation. <br> Du kan eventuellt använda den här vyn för att prioritera rekommendationer som du måste åtgärda. Exempel: Om du ser att rekommendationen **Enable MFA for accounts with owner permissions on your subscription** (Aktivera MFA för konton med ägarbehörigheter för din prenumeration) misslyckas på flera resurser och är associerad med flera standarder får den rekommendationen hög inverkan på din övergripande kompatibilitetspoäng.
 
     ![kompatibilitetspoängpåverkan](./media/security-center-compliance-dashboard/compliance-all-tabs.png)
 
-## <a name="improve-your-compliance-posture"></a>Förbättra din efterlevnadsstatus
+1. Om du vill skapa och ladda ned en PDF-rapport som sammanfattar din aktuella efterlevnadsstatus för en viss standard, klickar du på **ladda ned rapporten**.
 
+    Rapporten innehåller en kort sammanfattning av kompatibilitetsstatus för för den valda standarden baserat på data för Security Center-utvärderingar och ordnas enligt kontroller av den specifika standarden. Rapporten kan delas med relevanta intressenter och kan användas för att bevisa att interna och externa granskare.
+
+    ![hämta](./media/security-center-compliance-dashboard/download-report.png)
+
+## <a name="improve-your-compliance-posture"></a>Förbättra din efterlevnadsstatus
 
 Med tanke på informationen i instrumentpanelen för regelefterlevnad kan du förbättra din efterlevnadsstatus genom att utföra rekommendationer direkt i instrumentpanelen.
 

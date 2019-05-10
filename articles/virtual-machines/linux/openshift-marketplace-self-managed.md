@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/18/2019
+ms.date: 05/7/2019
 ms.author: haroldw
-ms.openlocfilehash: 1228c770799de37c85b8a48b1dc923ac8294eeca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9b981924dcaf715dd1d05d452b756a40b63f8dac
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60773611"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233098"
 ---
 # <a name="configure-prerequisites"></a>Konfigurera krav
 
@@ -39,8 +39,8 @@ Det här alternativet är den enklaste, men det kan också har begränsade funkt
 - **Disktyp**: Hanterade diskar används.
 - **Nätverk**: Stöd för nya eller befintliga nätverk och anpassade CIDR-intervall.
 - **CNS**: CNS kan aktiveras.
-- **Mått**: Mått kan aktiveras.
-- **Loggning**: Du kan aktivera loggning.
+- **Mått**: Du kan aktivera hawkular mått.
+- **Loggning**: EFK loggning kan aktiveras.
 - **Azure Cloud Provider**: Aktiverad som standard kan inaktiveras.
 
 I det övre vänstra hörnet i Azure Portal klickar du på **skapa en resurs**anger 'openshift container platform ”i sökrutan och tryck på RETUR.
@@ -81,7 +81,7 @@ Ange värden för indataparametrarna och klicka på **OK**.
 
 | Indataparameter | Parameterbeskrivning |
 |-----------------------|-----------------|
-| Namnprefix för OCP-kluster | Administratörsanvändare som ska skapas på alla VM-instanser |
+| Namnprefix för OCP-kluster | Kluster-Prefix som används för att konfigurera värdnamnen för alla noder. Mellan 1 och 20 tecken |
 | Master nodstorlek | Acceptera standardstorleken för virtuella datorer eller klicka på **ändra storleken på** att välja en annan VM-storlek.  Välj lämplig virtuell datorstorlek för din arbetsbelastning |
 | Nodstorlek för infrastruktur | Acceptera standardstorleken för virtuella datorer eller klicka på **ändra storleken på** att välja en annan VM-storlek.  Välj lämplig virtuell datorstorlek för din arbetsbelastning |
 | Antalet noder som programmet | Acceptera standardstorleken för virtuella datorer eller klicka på **ändra storleken på** att välja en annan VM-storlek.  Välj lämplig virtuell datorstorlek för din arbetsbelastning |

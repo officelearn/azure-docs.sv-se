@@ -1,0 +1,30 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Dokumentation om förhandsversionen av Open Datasets
+metadata:
+  title: 'Dokumentation om förhandsversionen av Azure Open Datasets – självstudier, API-referens | Microsoft Docs'
+  description: 'Lär dig hur du använder Azure Open Datasets, hanterade och rensade data som du kan använda med minimal förberedelse. Open Datasets är offentliga data som information om exempelvis väder och semestrar som kan berika maskininlärningsmodeller. Du får hjälp av dokumentationen med självstudier, exempel och API-referenser.'
+  ms.service: open-datasets
+  ms.topic: landing-page
+  author: cjgronlund
+  ms.author: cgronlun
+  ms.date: 05/02/2019
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+abstract:
+  description: 'Lär dig hur du använder Azure Open Datasets, hanterade och rensade data som du kan använda med minimal förberedelse. Open Datasets omfattar offentliga data som information om exempelvis väder och semestrar som kan berika maskininlärningsmodeller. Du får hjälp av dokumentationen med självstudier, exempel och API-referenser.'
+sections:
+  - title: Självstudie steg-för-steg
+    items:
+      - type: paragraph
+        text: <a href="tutorial-opendatasets-automl">Skapa en regressionsmodell med automatiserad maskininlärning</a>
+  - title: Exempel
+    items:
+      - type: paragraph
+        text: <a href="samples">Notebook-filer för att berika datauppsättningar</a>
+  - title: Referens
+    items:
+      - type: list
+        style: unordered
+        items:
+          - html: '<a href="https://aka.ms/open-datasets-api">API-referens</a>'

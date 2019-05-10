@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6fe74852824c10d24729f785e5e33a17b793161
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b137b8cd4e3a2b7a308170904e9b3d09b11137f9
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60411342"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231345"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Anvisningar: Anpassa anspråk som utfärdats i SAML-token för företagsprogram
 
@@ -79,7 +79,7 @@ Välj önskad källa för den `NameIdentifier` (eller NameID) anspråk. Du kan v
 | userprincipalName | Användarens huvudnamn (UPN) för användaren |
 | onpremisessamaccount | SAM-kontonamn som har synkroniserats från den lokala Azure AD |
 | objekt-ID | objekt-ID för användaren i Azure AD |
-| employeeid | EmployeeID för användaren |
+| EmployeeID | EmployeeID för användaren |
 | Katalogtillägg | Katalogtillägg [synkroniseras från den lokala Active Directory med Azure AD Connect Sync](../hybrid/how-to-connect-sync-feature-directory-extensions.md) |
 | Tilläggsattribut 1 – 15 | Lokala tilläggsattribut som används för att utöka Azure AD-schema |
 
@@ -116,7 +116,7 @@ Du kan också använda funktionerna anspråk transformationer.
 | **ToUpper()** | Konverterar tecknen i det valda attributet till versaler. |
 | **Contains()** | Matar ut ett attribut eller konstant om indata matchar det angivna värdet. Annars kan du ange en annan utdata om det inte finns någon matchning.<br/>Exempel: Om du vill generera ett anspråk där värdet är användarens e-postadress om den innehåller domänen ”@contoso.com”, annars du vill spara användarens huvudnamn. Om du vill göra detta måste konfigurerar du följande värden:<br/>*Parametern 1(input)*: user.email<br/>*Värdet*”:@contoso.com”<br/>Parameter 2 (utdata): user.email<br/>Parameter 3 (utdata om det inte finns någon matchning): user.userprincipalname |
 | **EndWith()** | Matar ut ett attribut eller konstant om indata som slutar med det angivna värdet. Annars kan du ange en annan utdata om det inte finns någon matchning.<br/>Till exempel om du vill generera ett anspråk där värdet är användarens employeeid om employeeid slutar med ”000”, du annars att mata ut ett tilläggsattribut. Om du vill göra detta måste konfigurerar du följande värden:<br/>*Parametern 1(input)*: user.employeeid<br/>*Värde*: "000"<br/>Parameter 2 (utdata): user.employeeid<br/>Parameter 3 (utdata om det inte finns någon matchning): user.extensionattribute1 |
-| **StartWith()** | Matar ut ett attribut eller konstant om indata som börjar med det angivna värdet. Annars kan du ange en annan utdata om det inte finns någon matchning.<br/>Till exempel om du vill generera ett anspråk där värdet är användarens employeeid om landet som börjar med ”US”, du annars att mata ut ett tilläggsattribut. Om du vill göra detta måste konfigurerar du följande värden:<br/>*Parametern 1(input)*: User.Country.<br/>*Värde*: ”OSS”<br/>Parameter 2 (utdata): user.employeeid<br/>Parameter 3 (utdata om det inte finns någon matchning): user.extensionattribute1 |
+| **StartWith()** | Matar ut ett attribut eller konstant om indata som börjar med det angivna värdet. Annars kan du ange en annan utdata om det inte finns någon matchning.<br/>Till exempel om du vill generera ett anspråk där värdet är användarens employeeid om land/region som börjar med ”US”, du annars att mata ut ett tilläggsattribut. Om du vill göra detta måste konfigurerar du följande värden:<br/>*Parametern 1(input)*: User.Country.<br/>*Värde*: ”OSS”<br/>Parameter 2 (utdata): user.employeeid<br/>Parameter 3 (utdata om det inte finns någon matchning): user.extensionattribute1 |
 | **Extract() - efter matchande** | Returnerar delsträngen efter att det matchar det angivna värdet.<br/>Till exempel om den inkommande värdet är ”Finance_BSimon”, det matchande värdet är ”Finance_” och sedan anspråkets utdata är ”BSimon”. |
 | **Extract() - innan matchande** | Returnerar delsträngen tills det matchar det angivna värdet.<br/>Till exempel om den inkommande värdet är ”BSimon_US”, det matchande värdet är ”_US” och sedan anspråkets utdata är ”BSimon”. |
 | **Extract() - mellan matchande** | Returnerar delsträngen tills det matchar det angivna värdet.<br/>Till exempel den indata-värdet är ”Finance_BSimon_US” är det första matchande värdet är ”Finance_” andra matchande värdet är ”_US”, sedan anspråkets utdata är ”BSimon”. |

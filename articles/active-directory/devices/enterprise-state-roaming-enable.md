@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 10/25/2018
 ms.author: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97d0be1dfd77035a3522ef8a6b3f4ac93ae20741
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e7e665f3124296392c8138f4f2bd3632b56e53de
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60353871"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230940"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Aktivera enterprise tillståndsväxling i Azure Active Directory
 Enterprise State Roaming är tillgänglig för alla företag med en Azure AD Premium eller Enterprise Mobility + Security (EMS)-licens. Mer information om hur du hämtar en Azure AD-prenumeration finns i den [produktsidan för Azure AD](https://azure.microsoft.com/services/active-directory).
@@ -46,9 +46,9 @@ Enterprise State Roaming data finns i en eller flera [Azure-regioner](https://az
 
 Värdet för land/region | sina data har finns i
 ---------------------|-------------------------
-En EMEA land, till exempel Frankrike eller Zambia | En eller flera av Azure-regioner i Europa 
-Ett nordamerikanska land, till exempel USA eller Kanada | en eller flera av Azure-regioner i USA
-En APAC land, till exempel Australien eller Nya Zeeland | en eller flera av Azure-regioner i Asien
+En EMEA land/region, till exempel Frankrike eller Zambia | En eller flera av Azure-regioner i Europa 
+Nordamerika land/region, till exempel USA eller Kanada | en eller flera av Azure-regioner i USA
+En APAC land/region, till exempel Australien eller Nya Zeeland | en eller flera av Azure-regioner i Asien
 Sydamerika och Antarktis regioner | en eller flera Azure-regioner i USA
 
 Land/region-värdet har angetts som en del av processen för Azure AD-katalogen och kan inte ändras senare. Om du behöver mer information på din plats för lagring av data kan en supportbegäran [Azure-supporten](https://azure.microsoft.com/support/options/).

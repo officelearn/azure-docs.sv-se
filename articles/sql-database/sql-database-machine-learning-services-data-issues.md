@@ -13,12 +13,12 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
-ms.openlocfilehash: 069a2a5b3b26bf517b57034f05ab7080ab392319
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 01d3af14963e92393d34a952bddc8097b7b08f18
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60702528"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65232607"
 ---
 # <a name="work-with-r-and-sql-data-in-azure-sql-database-machine-learning-services-preview"></a>Arbeta med R och SQL-data i Azure SQL Database Machine Learning Services (förhandsversion)
 
@@ -194,7 +194,7 @@ R returnerar nu ett enda värde som ett resultat.
 |---|
 |1542|
 
-Varför? I det här fallet eftersom två argument kan hanteras som vektorer till samma längd returnerar R inre produkten som en matris.  Detta är förväntat beteende enligt reglerna för linjär algebra. Dock kan det orsaka problem om din nedströms program förväntar sig utdataschema aldrig ändra!
+Varför då? I det här fallet eftersom två argument kan hanteras som vektorer till samma längd returnerar R inre produkten som en matris.  Detta är förväntat beteende enligt reglerna för linjär algebra. Dock kan det orsaka problem om din nedströms program förväntar sig utdataschema aldrig ändra!
 
 ## <a name="merge-or-multiply-columns-of-different-length"></a>Sammanfoga eller multiplicera kolumner med olika längd
 
@@ -300,4 +300,4 @@ Från och med de här korta exempel ser du att behöva kontrollera effekterna av
 - Utför explicit sändningar efter behov när du förbereder dina indata för att undvika överraskningar.
 - Undvik att skicka kolumner med data (till exempel GUID eller rowguids) som orsakar fel och inte är användbart för modellering.
 
-Mer information om datatyper som stöds respektive R finns [R-bibliotek och datatyper](/sql/advanced-analytics/r/r-libraries-and-data-types.md).
+Mer information om datatyper som stöds respektive R finns [R-bibliotek och datatyper](/sql/advanced-analytics/r/r-libraries-and-data-types).

@@ -10,23 +10,24 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/14/2018
+ms.date: 05/07/2019
 ms.author: abnarain
-ms.openlocfilehash: d63ede800f7e60db44072234f5ec74910e4c70f2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6a7daae90254bb4192dbaf13e1c2f9202e2d2baa
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61262112"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65232425"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration Runtime i Azure Data Factory
 Integration Runtime (IR) är beräkningsinfrastrukturen som används av Azure Data Factory för att ge olika nätverksmiljöer integrationsfunktioner:
 
+- **Data Flow**: Köra en [dataflöde](concepts-data-flow-overview.md) i hanterade Azure-beräkningsmiljö.  
 - **Dataförflyttning**: Kopiera data mellan datalager i offentliga nätverk och datalager i privat nätverk (lokalt eller virtuellt privat nätverk). Den ger stöd åt inbyggda anslutningsappar, konvertering av format, kolumnmappning och bättre och skalbar dataöverföring.
-- **Aktivitetssändning**:  Skick och övervaka transformeringsaktiviteter som är som körs på en rad olika Beräkningstjänster som Azure HDInsight, Azure Machine Learning, Azure SQL Database, SQL Server och mycket mer.
+- **Aktivitetssändning**:  Skick och övervaka transformeringsaktiviteter som är som körs på en rad olika Beräkningstjänster som Azure Databricks, Azure HDInsight, Azure Machine Learning, Azure SQL Database, SQL Server och mer.
 - **SSIS paketkörning**: Internt köra SQL Server Integration Services (SSIS)-paket i en hanterad Azure-beräkningsmiljö.
 
-I Data Factory definierar en aktivitet åtgärden som ska utföras. En länkad tjänst definierar ett datalager som mål eller en beräkningstjänst. Integration Runtime utgör bryggan mellan aktiviteten och länkade tjänster.  Den refereras av den länkade tjänsten och tillhandahåller beräkningsmiljön där aktiviteten körs eller skickas från.  På så sätt kan aktiviteten utföras i regionen som är den närmaste möjliga till måldatalagret eller beräkningstjänsten på det bästa sättet samtidigt som den uppfyller säkerhets- och efterlevnadsbehoven.
+I Data Factory definierar en aktivitet åtgärden som ska utföras. En länkad tjänst definierar ett datalager som mål eller en beräkningstjänst. Integration Runtime utgör bryggan mellan aktiviteten och länkade tjänster.  Det refereras till av den länkade tjänsten eller aktivitet och tillhandahåller beräkningsmiljön där aktiviteten körs på eller skickas från. På så sätt kan aktiviteten utföras i regionen som är den närmaste möjliga till måldatalagret eller beräkningstjänsten på det bästa sättet samtidigt som den uppfyller säkerhets- och efterlevnadsbehoven.
 
 ## <a name="integration-runtime-types"></a>Integration Runtime
 Data Factory erbjuder tre typer av Integration Runtime och du bör välja den typ som fungerar bäst med dataintegreringstjänsterna och de nätverksmiljöbehov du har.  Dessa tre typer är:
@@ -39,8 +40,8 @@ I följande tabell beskrivs funktioner och nätverksstöd för varje Integration
 
 IR-typ | Offentligt nätverk | Privat nätverk
 ------- | -------------- | ---------------
-Azure | Dataförflyttning<br/>Aktivitetssändning | &nbsp;
-Egen värd | Dataförflyttning<br/>Aktivitetssändning | Dataförflyttning<br/>Aktivitetssändning
+Azure | Data Flow<br/>Dataflytt<br/>Aktivitetssändning | &nbsp;
+Egen värd | Dataflytt<br/>Aktivitetssändning | Dataflytt<br/>Aktivitetssändning
 Azure-SSIS | Körning av SSIS-paket | Körning av SSIS-paket
 
 Följande diagram visar hur olika IR-körningar kan användas i kombination för att ge omfattande dataintegrationsfunktioner och nätverksstöd:
@@ -50,20 +51,24 @@ Följande diagram visar hur olika IR-körningar kan användas i kombination för
 ## <a name="azure-integration-runtime"></a>Azure Integration Runtime
 En Azure Integration Runtime kan:
 
+- Köra dataflöden i Azure 
 - Köra kopieringsaktivitet mellan molndatalager
-- Skicka följande transformeringsaktiviteter i offentligt nätverk: HDInsight Hive-aktivitet, HDInsight Pig-aktivitet, HDInsight MapReduce-aktivitet, HDInsight Spark-aktivitet, HDInsight-strömningsaktivitet, Machine Learning-batchkörningsaktivitet, Machine Learning-resursuppdateringsaktiviteter, lagringsprocedur-aktivitet Data Lake Analytics U-SQL-aktivitet, .NET-anpassad aktivitet, Web-aktivitet, Lookup-aktivitet och GetMetaData-aktivitet.
+- Skicka följande transformeringsaktiviteter i offentligt nätverk: Databricks Notebook / Jar / Python-aktivitet, HDInsight Hive-aktivitet, HDInsight Pig-aktivitet, HDInsight MapReduce-aktivitet, HDInsight Spark-aktivitet, HDInsight-strömningsaktivitet, Machine Learning Batch Execution aktivitet, Machine Learning-resursuppdatering aktiviteter, lagringsprocedur-aktivitet, Data Lake Analytics U-SQL-aktivitet, .NET-anpassad aktivitet, Web-aktivitet, Lookup-aktivitet och GetMetaData-aktivitet.
 
 ### <a name="azure-ir-network-environment"></a>Azure IR-nätverksmiljö
-Azure Integration Runtime stöder anslutning till datalager och beräkningstjänster i offentligt nätverk med offentligt tillgängliga slutpunkter. Använd Integration Runtime med egen värd för Azure Virtual Network-miljön.
+Azure Integration Runtime stöder anslutning till datalager och Beräkningstjänster med offentligt tillgängliga slutpunkter. Använd Integration Runtime med egen värd för Azure Virtual Network-miljön.
 
 ### <a name="azure-ir-compute-resource-and-scaling"></a>Beräkningsresurs och skalning i Azure IR
 Med Azure Integration Runtime får du en helt hanterad, serverlös beräkning i Azure.  Du behöver inte bekymra dig om infrastrukturetablering, programvaruinstallation, uppdatering eller skalbarhet.  Dessutom betalar du bara för den faktiska användningen.
 
-Med Azure Integration Runtime får du interna beräkningsfunktioner för att flytta data mellan molndatalager på ett säkert, pålitligt sätt med höga prestanda.  Du kan ange hur många dataintegreringsenheter som ska användas för kopieringsaktiviteten, och beräkningsstorleken för Azure IR skalas elastiskt upp efter detta utan att du behöver justera storleken på Azure Integration Runtime.
+Med Azure Integration Runtime får du interna beräkningsfunktioner för att flytta data mellan molndatalager på ett säkert, pålitligt sätt med höga prestanda.  Du kan ange hur många dataintegreringsenheter som ska användas för kopieringsaktiviteten, och beräkningsstorleken för Azure IR skalas elastiskt upp efter detta utan att du behöver justera storleken på Azure Integration Runtime. 
 
 Aktivitetssändning är en enkel åtgärd för att dirigera aktiviteten till målberäkningstjänsten, så du behöver inte skala upp beräkningsstorleken för det här scenariot.
 
 Information om hur du skapar och konfigurerar Azure IR finns i How to create and configure Azure IR (Så här skapar och konfigurerar du Azure IR) och under ”så här gör du”-guiderna. 
+
+> [!NOTE] 
+> Azure Integration runtime har egenskaper som rör dataflöde körning, som definierar den underliggande beräkningsinfrastrukturen som används för att köra dataflöden på. 
 
 ## <a name="self-hosted-integration-runtime"></a>Integration Runtime med egen värd
 En IR med egen värd kan:
@@ -112,7 +117,13 @@ Du kan ställa in en vissa plats för en Azure IR varmed dataflytter eller aktiv
 Om du väljer att använda Azure IR med automatisk lösning som standard, 
 
 - För kopieringsaktivitet kommer ADF att försöka identifiera ditt mål- och källdatalager för att välja den bästa platsen, antingen i samma region om den är tillgänglig eller den närmaste inom samma geografiska område. Om det inte går att avgöra används datafabriksregionen.
+
 - För Lookup/GetMetadata-aktivitetskörning och sändning av omvandling av aktivitet använder ADF IR i datafabriksregionen.
+
+- För Data flöda använder ADF IR i data factory-region. 
+
+  > [!TIP] 
+  > Ett bra tips är att se till att dataflödet körs i samma region som dina motsvarande datalager (om möjligt). Du kan åstadkomma detta genom löses av Azure IR (om data store platsen är samma som Data Factory-platsen) eller genom att skapa en ny Azure IR-instans i samma region som dina datalager och sedan köra dataflödet på den. 
 
 Du kan övervaka vilken IR plats som börjar gälla under körning av aktiviteten i övervakningsvyn för pipeline-aktivitet i gränssnittet eller en aktivitetsövervakningsnyttolast.
 
@@ -137,7 +148,7 @@ I följande diagram visas platsinställningar för Data Factory och dess Integra
 
 ## <a name="determining-which-ir-to-use"></a>Bestämma vilken IR som ska användas
 
-### <a name="copy-activity"></a>Kopieringsaktivitet
+### <a name="copy-activity"></a>Kopiera aktivitet
 
 För kopieringsaktiviteten kräver den länkade tjänster-källa och länkade tjänster-mottagare för att definiera dataflödets riktning. Följande logik används till att bestämma vilken Integration Runtime-instans som används för att utföra kopieringen: 
 
@@ -153,8 +164,13 @@ Aktiviteterna Lookup och GetMetadata har körts på integreringskörningsmiljön
 
 Varje transformeringsaktivitet har en länkad målberäkningstjänst, som pekar på en Integration Runtime. Denna Integration Runtime-instans är där transformeringsaktiviteten skickas från.
 
+### <a name="data-flow-activity"></a>Data flödesaktivitet
+
+Data flödesaktivitet körs på integreringskörningen som är associerade med den. 
+
 ## <a name="next-steps"></a>Nästa steg
 Se följande artiklar:
 
+- [Skapa Azure integration runtime](create-azure-integration-runtime.md)
 - [Skapa Integration Runtime med egen värd](create-self-hosted-integration-runtime.md)
 - [Skapa en Azure-SSIS Integration Runtime](create-azure-ssis-integration-runtime.md). Den här artikeln utökas med självstudien och innehåller instruktioner för hur du använder Azure SQL Database Managed Instance och ansluter IR till ett virtuellt nätverk. 

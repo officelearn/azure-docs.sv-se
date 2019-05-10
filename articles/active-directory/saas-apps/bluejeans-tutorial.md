@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/31/2018
+ms.date: 04/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d1c10d9df85b04cf7b8ea7e0020bc8e802a0d5d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 39e9f52948d035c72a6a019558915d8c92ceebeb
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59698936"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65463543"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bluejeans"></a>Självstudier: Azure Active Directory-katalogintegrering med BlueJeans
 
@@ -30,7 +30,7 @@ När du integrerar BlueJeans med Azure AD får du följande fördelar:
 
 * Du kan styra i Azure AD vem som har åtkomst till BlueJeans.
 * Du kan göra så att dina användare automatiskt loggas in på BlueJeans (enkel inloggning) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure-portalen.
+* Du kan hantera dina konton på en central plats – Azure portal.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
@@ -64,7 +64,7 @@ För att konfigurera integreringen av BlueJeans i Azure AD måste du lägga till
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
+3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
@@ -72,19 +72,19 @@ För att konfigurera integreringen av BlueJeans i Azure AD måste du lägga till
 
      ![BlueJeans i resultatlistan](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
 I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med BlueJeans baserat på en testanvändare med namnet **Britta Simon**.
 För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i BlueJeans upprättas.
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med BlueJeans måste du utföra följande komponenter:
 
-1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
 2. **[Konfigurera enkel inloggning för BlueJeans](#configure-bluejeans-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
-4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
 5. **[Skapa testanvändare för BlueJeans](#create-bluejeans-test-user)** – för att få en motsvarighet till Britta Simon i BlueJeans som är länkad till en Azure AD-representation av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
+6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
@@ -94,7 +94,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med BlueJ
 
 1. På [Azure-portalen](https://portal.azure.com/) går du till sidan för programintegrering för **BlueJeans** och väljer **Enkel inloggning**.
 
-    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
+    ![Konfigurera enkel inloggning för länken](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -102,30 +102,29 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med BlueJ
 
 3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
+    ![Redigera grundläggande SAML-konfiguration](media/bluejeans-tutorial/edit-urls-bluejeans.png)
 
-4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
+4. I den **SAML grundkonfiguration** dialogrutan Ange följande värden:
 
-    ![BlueJeans-domän och URL:er med information om enkel inloggning](common/sp-identifier.png)
+    ![BlueJeans-domän och URL:er med information om enkel inloggning](media/bluejeans-tutorial/tutorial_bluejeans-basic-configuration.png)
 
-    a. I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `https://<companyname>.BlueJeans.com`
-
-    b. I textrutan **Identifierare** skriver du in en URL: `http://samlsp.bluejeans.com`
-
-    > [!NOTE]
-    > Inloggnings-URL-värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [BlueJeans-klientens supportteam](https://support.bluejeans.com/contact) för att hämta värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+   - I textrutan **Identifierare** skriver du följande: `https://samlsp.bluejeans.com`
+    
+   - I den **inloggnings-URL** text skriver startsida sid-URL du fått av BlueJeans (för att få det här värdet kan du kontakta den [BlueJeans klienten supportteamet](https://support.bluejeans.com/contact)): `https://<companyname>.bluejeans.com`
+    
+   - Klicka på **Spara**.
 
 5. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
-    ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
+    ![Länk för hämtning av certifikat](common/certificatebase64.png)
 
 6. I avsnittet **Konfigurera BlueJeans** kopierar du lämpliga URL:er enligt dina behov.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    a. Inloggnings-URL
+    a. Inloggningswebbadress
 
-    b. Azure AD-identifierare
+    b. Microsoft Azure Active Directory-identifierare
 
     c. Utloggnings-URL
 
@@ -161,9 +160,9 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med BlueJ
 
     ![Spara ändringar](./media/bluejeans-tutorial/ic785874.png "Spara ändringar")
 
-    a. I den **användar-Id** textrutan typ `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+    a. I den **användar-Id** textrutan typ `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
-    b. I textrutan **E-post** skriver du `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+    b. I textrutan **E-post** skriver du `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
     c. Klicka på **SPARA ÄNDRINGAR** för att spara ändringarna.
 

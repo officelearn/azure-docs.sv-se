@@ -9,16 +9,16 @@ ms.topic: quickstart
 author: sdgilley
 ms.author: sgilley
 ms.date: 05/02/2019
-ms.openlocfilehash: 985ad59a1ffa5bd68f97824f7f50af604174b543
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: d14ef4a59e65ba432b5d04d9f531e4ba639deb8a
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026979"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65440949"
 ---
-# <a name="quickstart-prepare-and-visualize-data-without-writing-code"></a>Snabbstart: Förbereda och visualisera data utan att skriva kod
+# <a name="quickstart-prepare-and-visualize-data-without-writing-code-in-azure-machine-learning"></a>Snabbstart: Förbereda och visualisera data utan att skriva kod i Azure Machine Learning
 
-Förbered och visualisera dina data med ett användargränssnitt med dra och släpp. Du kommer att använda innehåller poster för olika bilar, inklusive uppgifter om märke, modell, tekniska specifikationer och pris.  
+Förbered och visualisera dina data i det visuella dra och släpp-gränssnittet (förhandsversion) för Azure Machine Learning. Du kommer att använda innehåller poster för olika bilar, inklusive uppgifter om märke, modell, tekniska specifikationer och pris.  
 
 I den här snabbstarten du utforska och förbereda data:
 
@@ -172,7 +172,7 @@ Ta först bort de **normalized-losses** kolumn helt.
 
     Modulen visas nu en upp-pilen för att dölja kommentaren.
         
-    ![Kommentarer](./media/ui-quickstart-run-experiment/comments.png)
+    ![Kommentar](./media/ui-quickstart-run-experiment/comments.png)
 
 ### <a name="clean-missing-data"></a>Rensa data som saknas
 

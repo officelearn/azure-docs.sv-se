@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 2f0847e9dd90267d985b75be3c3a07ce8fae98a9
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: bff913efb38c9e5589c795386dfbbc480d799a37
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65029677"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65411448"
 ---
 # <a name="import-from-web-url-via-http-module"></a>Importera från URL: en för webbtjänst via HTTP-modul
 
@@ -56,7 +56,7 @@ Följande steg beskriver hur du konfigurerar manuellt importera källa.
 
     Följande sida innehåller till exempel Iris-datauppsättningen från de machine learning-databasen vid University of California, Irvine:
 
-    `http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data`
+    `https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data`
 
 4. För **dataformat**, Välj en av data som stöds format i listan.
 

@@ -7,12 +7,12 @@ ms.service: service-health
 ms.topic: landing-page
 ms.date: 03/4/2019
 ms.author: stbaron
-ms.openlocfilehash: cf7084b569e2c90337e475beb9f49563214941d2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: aa00d4b08725eaf4b667fc7b53b225198db95a02
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60506952"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65441653"
 ---
 # <a name="azure-service-health-documentation"></a>Azure Service Health-dokumentation
 
@@ -25,6 +25,11 @@ Du kanske känner till **[Azures statussida](https://status.azure.com)** som ger
 **[Azure Resource Health](resource-health-overview.md)** tillhandahåller information om hälsotillståndet för dina individuella molnresurser, t.ex. specifika virtuella datorinstanser. Med hjälp av Azure Monitor kan du även konfigurera aviseringar som informerar dig om förändringar för dina molnresursers tillgänglighet. Genom att använda Azure Resource Health och Azure Monitor-aviseringar kan du hålla dig informerad om dina resursers tillgänglighet minut för minut och snabbt utvärdera om ett problem beror på något i ditt eget system eller om det uppstått på grund av en händelse på Azure-plattformen.
 
 Sammantaget ger dessa upplevelser dig en heltäckande översikt över hälsotillståndet för Azure, med den precision som är mest relevant för dig.
+
+### <a name="watch-an-overview-of-the-azure-status-page-azure-service-health-and-azure-resource-health"></a>Titta på en översikt över Azure-Status-sidan, Azure Service Health och Azure Resource Health
+
+>[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2OgX6]
+
 
 <ul class="panelContent cardsFTitle">
     <li>

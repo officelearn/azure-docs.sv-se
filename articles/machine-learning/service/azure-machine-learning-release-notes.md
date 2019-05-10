@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 05/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: a355d18de875ad980e0c2b6c564d3379c2b90ee7
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 186ecf055cdf7b10690fdb4cbc574778a841b85a
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154294"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65464813"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Viktig information för Azure Machine Learning-tjänsten
 
@@ -42,6 +42,15 @@ I Azure-portalen kan du nu:
 + Möjlighet att hämta config.json-filen från sidan Översikt över arbetsytan Azure Machine Learning-tjänsten har lagts till.
 + Stöd för Machine Learning-tjänsten arbetsytan skapas från Azure Databricks-arbetsyta 
 
+## <a name="2019-04-26"></a>2019-04-26
+
+### <a name="azure-machine-learning-sdk-for-python-v1033"></a>Azure Machine Learning-SDK för Python v1.0.33
++ **Nya funktioner**
+  + Den _Workspace.create_ metoden godkänner nu standard klusterkonfigurationer för CPU- och GPU-kluster.
+  + Om det inte går att skapa arbetsyta, finns beroende resurser tillgängliga.
+  + Standard Azure Container Registry SKU: N har ändrats till basic.
+  + Azure Container Registry skapas lazily, när det behövs för att skapa en körs eller avbildning.
+  + Stöd för miljöer för träningskörningar.
 
 ### <a name="notebook-virtual-machine"></a>Anteckningsboken virtuell dator 
 
@@ -114,7 +123,7 @@ Den [ `PipelineEndpoint` ](https://docs.microsoft.com/python/api/azureml-pipelin
 
 ### <a name="azure-machine-learning-data-prep-sdk-v112"></a>Azure Machine Learning Data Förbered SDK v1.1.2
 
-Obs! Data Prep Python SDK: N kommer inte längre installera `numpy` och `pandas` paket. Se [uppdateras Installationsinstruktioner](https://aka.ms/aml-data-prep-installation).
+Anteckning: Data Prep Python SDK: N kommer inte längre installera `numpy` och `pandas` paket. Se [uppdateras Installationsinstruktioner](https://aka.ms/aml-data-prep-installation).
 
 + **Nya funktioner**
   + Du kan nu använda Pivot-transformeringen.

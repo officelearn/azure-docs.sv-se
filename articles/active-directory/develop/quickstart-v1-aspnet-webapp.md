@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: andret
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7aca42aa13ef78647b591eb0be7083f932ce0c35
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: f88643000b85965b2f275cc6e7494f427d0fe43e
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65191031"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231152"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Snabbstart: Lägga till inloggning med Microsoft till en ASP.NET-webbapp
 
@@ -38,7 +38,7 @@ När du är klar med den här snabbstarten kommer ditt program att acceptera inl
 
 Innan du börjar kontrollerar du att följande krav är uppfyllda:
 
-* Visual Studio 2015 Update 3 eller Visual Studio 2019 installerat. Saknas det? [Ladda ned Visual Studio 2019 utan kostnad](https://www.visualstudio.com/downloads/)
+* Visual Studio 2015 Update 3 eller senare installerat. Saknas det? [Ladda ned Visual Studio 2019 utan kostnad](https://www.visualstudio.com/downloads/)
 
 ## <a name="scenario-sign-in-users-from-work-and-school-accounts-in-your-aspnet-app"></a>Scenario: Logga in användare från arbets- och skolkonton i din ASP.NET-app
 
@@ -70,11 +70,12 @@ Om du i stället vill ladda ned Visual Studio-projektet för det här exemplet f
 ## <a name="step-2-create-your-aspnet-project"></a>Steg 2: Skapa ASP.NET-projektet
 
 1. I Visual Studio går du till **Fil > Nytt > Projekt**.
-2. Under **Visual C#\Web** väljer du **ASP.NET-webbprogram (.NET Framework)**.
-3. Namnge ditt program och välj **OK**.
-4. Välj **Tom** och markera sedan kryssrutan för att lägga till **MVC**-referenser.
+2. För **projektet typ**väljer **Web**och välj sedan **ASP.NET-Webbtillämpningsprogram (.NET Framework)**.
+3. Namnge ditt program och välj **skapa**.
+4. Välj **tom** och välj sedan **MVC** under **Lägg till mappar och viktiga referenser** att lägga till MVC-referenser.
+5. Välj **Skapa**.
 
-## <a name="step-3-add-authentication-components"></a>Step 3: Lägga till autentiseringskomponenter
+## <a name="step-3-add-authentication-components"></a>Steg 3: Lägga till autentiseringskomponenter
 
 1. Gå till **Verktyg > NuGet Package Manager > Package Manager Console** i Visual Studio.
 2. Lägg till **NuGet-paket för OWIN-mellanprogram** genom att skriva följande i Package Manager-konsolfönstret:
@@ -125,7 +126,7 @@ Så här skapar du en *startklass* för OWIN-mellanprogrammet:
 Skapa en ny kontrollant som exponerar in- och utloggningsmetoder.
 
 1.  Högerklicka på mappen **Controllers** och välj **Lägg till > Kontrollant**
-2.  Välj **MVC-kontrollant (.NET-version) – tom**.
+2.  Välj **MVC-kontrollant {version} – tom**.
 3.  Välj **Lägg till**.
 4.  Ge den namnet `HomeController` och välj **Lägg till**.
 5.  Lägg till **OWIN**-namnområden till klassen:

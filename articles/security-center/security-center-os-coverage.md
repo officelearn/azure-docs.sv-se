@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 4/17/2019
+ms.date: 5/02/2019
 ms.author: monhaber
-ms.openlocfilehash: b5eafd15344156965d0a191688f602ffe1b5a498
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4e334af353e1d9556641914056ab0a3071ca361e
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60703582"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233592"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Plattformar och funktioner som stöds av Azure Security Center
 
@@ -70,7 +70,7 @@ Virtuella datorer som körs i en molntjänst stöds också. Endast cloud service
 > [!div class="mx-tableFixed"]
 > 
 
-|Server|Windows||Linux||
+|Server |Windows||Linux||
 |----|----|----|----|----|
 |Miljö|Azure|Icke-Azure|Azure|Icke-Azure|
 |VMBA hotidentifieringsaviseringar|✔|✔|✔ (på versioner som stöds)|✔|
@@ -80,11 +80,11 @@ Virtuella datorer som körs i en molntjänst stöds också. Endast cloud service
 |Säkerhetskonfigurationer|✔|✔|✔|✔|
 |Slutpunktsskydd|✔|✔|X|X|
 |JIT VM-åtkomst|✔|X|✔|X|
-|Anpassningsbara programkontroller|✔|X|X|X|
+|Anpassningsbara programkontroller|✔|✔|✔|✔|
 |FIM|✔|✔|✔|✔|
 |Diskkryptering|✔|X|✔|X|
 |Tredjeparts-distribution|✔|X|✔|X|
-|NSG:er|✔|X|✔|X|
+|Nätverkssäkerhetsgrupper (NSG)|✔|X|✔|X|
 |Fileless hotidentifiering|✔|✔|X|X|
 |Nätverkskarta|✔|X|✔|X|
 |Anpassningsbar nätverkskontroller|✔|X|✔|X|
@@ -96,7 +96,7 @@ I följande tabell innehåller en matris med:
  - Om du kan använda Azure Security Center för att installera varje lösning för dig.
  - Som endpoint protection lösningar Security Center kan identifiera. Om någon av följande lösningar för endpoint protection upptäcks rekommenderar Security Center inte installera något.
 
-| Slutpunktsskydd| Plattformar | Installation av Security Center | Security Center Discovery |
+| Endpoint Protection| Plattformar | Installation av Security Center | Security Center Discovery |
 |------|------|-----|-----|
 | Windows Defender (Microsoft-programvara mot skadlig kod)| Windows Server 2016| Nej, inbyggd i OS| Ja |
 | System Center Endpoint Protection (Microsoft-programvara mot skadlig kod) | Windows Server 2012 R2, 2012, 2008 R2 (Se kommentaren nedan) | Via tillägg | Ja |
@@ -122,10 +122,10 @@ I följande tabell innehåller en matris med:
 |Azure Blob storage-konton *|✔| ✔|
 |App Services|✔| ✔|
 |Cloud Services|✔| X|
-|VNets|✔| Ej tillämpligt|
-|Undernät|✔| Ej tillämpligt|
+|VNets|✔| Saknas|
+|Undernät|✔| Saknas|
 |Nätverkskort|✔| ✔|
-|NSG:er|✔| Ej tillämpligt|
+|Nätverkssäkerhetsgrupper (NSG)|✔| Saknas|
 |Prenumeration|✔| ✔|
 
 \* Dessa funktioner stöds för närvarande i offentlig förhandsversion. 

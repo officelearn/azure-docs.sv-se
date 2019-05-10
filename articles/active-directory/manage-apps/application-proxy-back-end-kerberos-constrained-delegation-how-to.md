@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/24/2018
+ms.date: 04/23/2019
 ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b83b08c442a7f10d6b29122fe7959bedf8f3cff0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8413c75a683ff135b3442da6c6a94787ed0866ca
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60441248"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65441458"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Felsöka Kerberos-begränsad delegering konfigurationer för Application Proxy
 
@@ -177,7 +177,7 @@ Om du fortfarande inte göra förloppet kan Microsoft-supporten hjälpa dig. Ska
 
 ## <a name="other-scenarios"></a>Andra scenarier
 
-- Azure Application Proxy begär en Kerberos-biljett innan du skickar begäran till ett program. Vissa program från tredje part som Tableau Server gillar inte den här metoden för att autentisera. Dessa program förväntar sig mer konventionella förhandlingar ska kunna utföras. Den första begäran är anonyma, vilket gör att programmet att svara med autentiseringstyper som stöds via en 401.
+- Azure Application Proxy begär en Kerberos-biljett innan du skickar begäran till ett program. Vissa program från tredje part gillar inte den här metoden för att autentisera. Dessa program förväntar sig mer konventionella förhandlingar ska kunna utföras. Den första begäran är anonyma, vilket gör att programmet att svara med autentiseringstyper som stöds via en 401.
 
 - Multi-hop autentisering används ofta i scenarier där ett program är nivåer, med en backend-server och en klientdel, där båda kräver autentisering, till exempel SQL Server Reporting Services. För att konfigurera multihop scenariot, se supportartikeln [Kerberos-begränsad delegering kan kräva Protokollövergång i Multi-hop scenarier](https://support.microsoft.com/help/2005838/kerberos-constrained-delegation-may-require-protocol-transition-in-mul).
 

@@ -10,12 +10,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha, glenga
-ms.openlocfilehash: 554b7b7f401ec7cdb1ae08839550b81d797764f2
-ms.sourcegitcommit: 111a7b3e19d5515ce7036287cea00a7204ca8b56
+ms.openlocfilehash: b699379448863c8df84fda0e059fc10846c09931
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64530338"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230075"
 ---
 # <a name="debug-powershell-azure-functions-locally"></a>Felsök PowerShell Azure Functions lokalt
 
@@ -97,7 +97,7 @@ Med `Wait-Debugger` på plats, kan du nu felsöka funktioner med hjälp av Visua
 
 Du måste ha följande tillägg för Visual Studio Code för att felsöka dina PowerShell-funktioner i Visual Studio Code:
 
-* [PowerShell](/powershell/scripting/components/Visual Studio Code/using-Visual Studio Code)
+* [PowerShell](/powershell/scripting/components/vscode/using-vscode)
 * [Azure Functions](functions-create-first-function-vs-code.md)
 
 Läsa in en befintlig funktionsappsprojekt när du har installerat PowerShell och Azure Functions-tillägg. Du kan också [skapa ett funktionsprojekt](functions-create-first-function-vs-code.md).
@@ -189,7 +189,7 @@ Anteckna den `ProcessId` för objekt i tabellen med den `ProcessName` som `dotne
 Kör följande fragment:
 
 ```powershell
-# This enters into the the Azure Functions PowerShell process.
+# This enters into the Azure Functions PowerShell process.
 # Put your value of `ProcessId` here.
 Enter-PSHostProcess -Id $ProcessId
 

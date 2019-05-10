@@ -40,6 +40,9 @@
     - name: Använda säkra distributionsmetoder
       displayName: adm
       href: deployment-manager-tutorial.md
+    - name: Använda hälsokontrollen i Distributionshanteraren
+      displayName: adm
+      href: deployment-manager-tutorial-health-check.md
     - name: Felsöka malldistribution
       href: resource-manager-tutorial-troubleshoot.md
 - name: Exempel
@@ -62,6 +65,9 @@
     - name: Distributionshanteraren
       displayName: adm
       href: deployment-manager-overview.md
+    - name: Hälsokontroll av Distributionshanteraren
+      displayName: adm
+      href: deployment-manager-health-check.md
     - name: Distributionsmodeller
       href: deployment-modes.md
     - name: Resursborttagning

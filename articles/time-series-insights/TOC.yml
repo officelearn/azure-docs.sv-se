@@ -52,7 +52,7 @@
           href: time-series-insights-update-tsm.md
         - name: Fråga data
           href: time-series-insights-update-tsq.md
-        - name: Visualisera data i uppdateringen för Explorer
+        - name: Visualisera data i utforskaren (förhandsversion)
           href: time-series-insights-update-explorer.md
     - name: Utveckla
       items:

@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 58cd76e93b9d0888211e8339ae17170685e71e74
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e1c6b1d55a4fbc673980908a981a9a96c869bee9
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60637768"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409599"
 ---
 # <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>Förbereda Azure-infrastrukturen för hög tillgänglighet för SAP genom att använda en Windows failover-kluster och filresursen för SAP ASCS/SCS-instanser
 
@@ -36,6 +36,7 @@ ms.locfileid: "60637768"
 [arm-sofs-s2d-managed-disks]:https://github.com/robotechredmond/301-storage-spaces-direct-md
 [arm-sofs-s2d-non-managed-disks]:https://github.com/Azure/azure-quickstart-templates/tree/master/301-storage-spaces-direct
 [deploy-cloud-witness]:https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness
+[tuning-failover-cluster-network-thresholds]:https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834
 
 [sap-installation-guides]:http://service.sap.com/instguides
 
@@ -209,7 +210,7 @@ ms.locfileid: "60637768"
 
 Den här artikeln beskriver de steg för förberedelse av Azure-infrastrukturen som krävs för att installera och konfigurera SAP system med hög tillgänglighet i ett Windows Server Failover Clustering-kluster (WSFC), använder skalbar filresurs som ett alternativ för clustering SAP ASCS/SCS instanser.
 
-## <a name="prerequisite"></a>Krav
+## <a name="prerequisite"></a>Förutsättning
 
 Innan du påbörjar installationen finns i följande artikel:
 
@@ -230,7 +231,7 @@ Innan du påbörjar installationen finns i följande artikel:
 
 | SAP \<SID> | Antal instanser av SAP ASCS/SCS |
 | --- | --- |
-| PR1 | 00 |
+| PR1 | 0 |
 
 **Tabell 2**: Information om SAP ASCS/SCS-instans
 
@@ -341,6 +342,16 @@ Azure Resource Manager-mall för att distribuera skalbar filserver med Lagringsd
 _**Bild 2**: UI-skärmen på Scale-Out File Server Azure Resource Manager-mallen utan hanterade diskar_
 
 I den **Lagringskontotypen** väljer **Premiumlagring**. Alla andra inställningar är samma som inställningarna för hanterade diskar.
+
+## <a name="adjust-cluster-timeout-settings"></a>Justera inställningarna för timeout för kluster
+
+Anpassa tröskelvärden för timeout för växling vid fel till villkoren i Azure när du har installerat Windows Scale-Out File Server-klustret. Parametrar som ska ändras finns dokumenterade i [justering failover-kluster nätverk tröskelvärden][tuning-failover-cluster-network-thresholds]. Om vi antar att din klustrade virtuella datorer finns i samma undernät, kan du ändra följande parametrar till dessa värden:
+
+- SameSubNetDelay = 2000
+- SameSubNetThreshold = 15
+- RoutingHistoryLength = 30
+
+De här inställningarna har testats med kunder och erbjuder en bra kompromiss. De är tillräckligt flexibel, men du får även snabb tillräckligt med redundans i verkliga fel eller VM-fel.
 
 ## <a name="next-steps"></a>Nästa steg
 

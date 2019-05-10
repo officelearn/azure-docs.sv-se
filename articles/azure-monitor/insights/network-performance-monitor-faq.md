@@ -1,6 +1,6 @@
 ---
 title: Vanliga frågor och svar - Övervakare av nätverksprestanda lösning i Azure | Microsoft Docs
-description: Den här artikeln innehåller vanliga frågor om NPM i Azure. Nätverket prestanda Övervakare (NPM) hjälper dig att övervaka prestanda för dina nätverk i nära realtid för att identifiera och leta upp network flaskhalsar i prestanda.
+description: Den här artikeln innehåller vanliga frågor om Övervakare av nätverksprestanda i Azure. Nätverket prestanda Övervakare (NPM) hjälper dig att övervaka prestanda för dina nätverk i nära realtid och identifiera och leta upp network flaskhalsar i prestanda.
 services: log-analytics
 documentationcenter: ''
 author: vinynigam
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: vinynigam
-ms.openlocfilehash: d216a26dc01ae3a6946c57138bb124b41f50a151
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d573b7ad9edac6b1502744b61e85cba3402a6f68
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60401464"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65232671"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Vanliga frågor och svar Network Performance Monitor-lösningen
 
@@ -36,24 +36,24 @@ Mer information om de olika funktionerna som stöds av [Övervakare av nätverks
 ### <a name="what-are-the-platform-requirements-for-the-nodes-to-be-used-for-monitoring-by-npm"></a>Vilka är plattformskraven på för noder som ska användas för övervakning av NPM?
 Nedan visas Plattformskrav för NPM-olika funktioner:
 
-- NPM-Prestandaövervakaren och funktioner för övervakning av tjänstens anslutning har stöd för både Windows-server (2008 SP1 eller senare) och Windows skrivbord/client-operativsystem (Windows 10, Windows 8.1, Windows 8 och Windows 7). 
+- NPM-Prestandaövervakaren och funktioner för övervakning av tjänstens anslutning stöder både Windows server och Windows-skrivbord/klientoperativsystem. Windows server-OS-versioner som stöds är 2008 SP1 eller senare. Windows skrivbord/klient-versioner som stöds är Windows 10, Windows 8.1, Windows 8 och Windows 7. 
 - NPM-ExpressRoute-övervakning funktionen stöder endast Windows server (2008 SP1 eller senare) operativsystem.
 
 ### <a name="can-i-use-linux-machines-as-monitoring-nodes-in-npm"></a>Kan jag använda Linux-datorer som övervakning av noder i NPM?
-Möjlighet att övervaka nätverk med hjälp av Linux-baserade noder förhandsvisas just nu. Nå till din Kontoansvariga för vill veta mer. När du har angett arbetsyte-ID ska vi gå vidare och aktivera funktionen. Linux-agenter anger övervakningsfunktionen endast för NPM-Prestandaövervakaren kapaciteten och är inte tillgängliga för funktioner för övervakning av tjänstens anslutning och ExpressRoute-övervakning
+Möjlighet att övervaka nätverk med hjälp av Linux-baserade noder förhandsvisas just nu. Nå till din Kontoansvariga för vill veta mer. Linux-agenter anger övervakningsfunktionen endast för NPM-Prestandaövervakaren kapaciteten och är inte tillgängliga för funktioner för övervakning av tjänstens anslutning och ExpressRoute-övervakning
 
 ### <a name="what-are-the-size-requirements-of-the-nodes-to-be-used-for-monitoring-by-npm"></a>Vad är storlekskraven noder som ska användas för övervakning av NPM?
-För att köra NPM-lösningen på noden virtuella datorer för att övervaka nätverk, bör du vara minst 500 MB minne och kärna noder. Du behöver inte använda separata noder för att köra NPM. Lösningen kan köras på noder som har andra arbetsbelastningar som körs på den. Lösningen har möjlighet att stoppa övervakningsprocessen om det använder mer än 5% CPU.
+För att köra NPM-lösningen på noden virtuella datorer för att övervaka nätverk, bör du vara minst 500 MB minne och kärna noder. Du behöver inte använda separata noder för att köra NPM. Lösningen kan köras på noder som har andra arbetsbelastningar som körs på den. Lösningen har möjlighet att stoppa övervakningsprocessen om används mer än 5% CPU.
 
 ### <a name="to-use-npm-should-i-connect-my-nodes-as-direct-agent-or-through-system-center-operations-manager"></a>Om du vill använda NPM ska jag ansluta min noder som direktagent eller via System Center Operations Manager?
-Både prestanda och funktioner för övervakning av tjänstens anslutning stöder noder [ansluten som direkta agenter](../../azure-monitor/platform/agent-windows.md) samt [är anslutna via Operations Manager](../../azure-monitor/platform/om-agents.md).
+Både prestanda och funktioner för övervakning av tjänstens anslutning stöder noder [ansluten som direkta agenter](../../azure-monitor/platform/agent-windows.md) och [är anslutna via Operations Manager](../../azure-monitor/platform/om-agents.md).
 
-För ExpressRoute-övervakning funktionen måste Azure-noder vara anslutna som direkta agenter endast. Azure-noder som är anslutna via Operations Manager stöds inte. Noder som är anslutna som direkta agenter samt genom Operations Manager stöds för lokala noder för övervakning av en ExpressRoute-krets.
+För ExpressRoute-övervakning funktionen måste Azure-noder vara anslutna som direkta agenter endast. Azure-noder som är anslutna via Operations Manager stöds inte. Noder som är anslutna som direkta agenter och genom Operations Manager stöds för lokala noder för övervakning av en ExpressRoute-krets.
 
 ### <a name="which-protocol-among-tcp-and-icmp-should-be-chosen-for-monitoring"></a>Vilket protokoll bland TCP och ICMP bör väljas för övervakning av?
 Om du övervakar ditt nätverk med hjälp av Windows server-baserade noder, rekommenderar vi att du använder TCP som protokoll för övervakning, eftersom det ger bättre precision. 
 
-ICMP rekommenderas för Windows skrivbord/client systembaserad noder. Den här plattformen tillåter inte att TCP-data som ska skickas över råa sockets, NPM använder för att identifiera nätverkets topologi.
+ICMP rekommenderas för Windows skrivbord/client systembaserad noder. Den här plattformen does'nt tillåta TCP-data som ska skickas över råa sockets, NPM använder för att identifiera nätverkets topologi.
 
 Du kan visa mer information om de relativa fördelarna med varje protokoll [här](../../azure-monitor/insights/network-performance-monitor-performance-monitor.md#choose-the-protocol).
 
@@ -71,8 +71,8 @@ Skriptet konfigurerar bara Windows-brandväggen lokalt. Om du har nätverksbrand
 ### <a name="how-many-agents-should-i-use"></a>Hur många agenter ska jag använda?
 Du bör använda minst en agent för varje undernät som du vill övervaka.
 
-### <a name="what-is-the-maximum-number-of-agents-i-can-use-or-i-see-error--you-have-reached-your-configuration-limit"></a>Vad är det maximala antalet agenter som jag kan använda eller fel visas ”... du har nått konfigurationsgränsen”?
-NPM begränsar antalet IP-adresser till 5000 IP-adresser per arbetsyta. Om en nod har både IPv4 och IPv6-adresser, räknas det som 2 IP-adresser för noden. Den här gräns på 5000 IP-adresser skulle därför bestämma den övre gränsen för antalet agenter. Du kan ta bort inaktiva agenter från noder-fliken i NPM >> Konfigurera. NPM sparar också historik över alla IP-adresser som någonsin har tilldelats till den virtuella datorn som är värd för agenten och dessa också räknas som separata IP-adresser som bidrar till den övre gränsen på 5000 IP-adresser. Att frigöra IP-adresser för arbetsytan och du kan använda sidan noder att ta bort IP-adresser som inte används.
+### <a name="what-is-the-maximum-number-of-agents-i-can-use-or-i-see-error--youve-reached-your-configuration-limit"></a>Vad är det maximala antalet agenter som jag kan använda eller fel visas ”... du har nått konfigurationsgränsen ”?
+NPM begränsar antalet IP-adresser till 5000 IP-adresser per arbetsyta. Om en nod har både IPv4 och IPv6-adresser, räknas det som 2 IP-adresser för noden. Den här gräns på 5000 IP-adresser skulle därför bestämma den övre gränsen för antalet agenter. Du kan ta bort inaktiva agenter från noder-fliken i NPM >> Konfigurera. NPM sparar också historik över alla IP-adresser som någonsin har tilldelats till den virtuella datorn som är värd för agenten och var och en räknas som separata IP som bidrar till den övre gränsen på 5000 IP-adresser. Att frigöra IP-adresser för arbetsytan och du kan använda sidan noder att ta bort IP-adresser som inte används.
 
 ## <a name="monitoring"></a>Övervakning
 
@@ -139,13 +139,23 @@ NPM kan övervaka din ExpressRoute-kretsar som finns i alla Azure-regioner. Att 
 ## <a name="troubleshoot"></a>Felsöka
 
 ### <a name="why-are-some-of-the-hops-marked-as-unidentified-in-the-network-topology-view"></a>Varför är vissa av hopp som markerats som oidentifierade i nätverket topologiska vyn?
-NPM använder en modifierad version av traceroute för att identifiera topologin från agenten källan till målet. En oidentifierat hopp representerar nätverk hopp inte svarade på käll-agentens traceroute begäran. Om 3 på varandra följande nätverkssteg inte svarar på agentens traceroute, lösningen markerar inte svarar hopp som oidentifierade och försöker inte identifiera mer hopp.
+NPM använder en modifierad version av traceroute för att identifiera topologin från agenten källan till målet. En oidentifierat hopp representerar nätverk hopp inte svarade på käll-agentens traceroute begäran. Om tre på varandra följande nätverkssteg inte svarar på agentens traceroute, lösningen markerar inte svarar hopp som oidentifierade och försöker inte identifiera mer hopp.
 
 Ett hopp svarar inte på en traceroute i en eller flera av de nedan scenarier:
 
 * Routrarna har konfigurerats för att inte visa sin identitet.
 * Nätverksenheter som inte tillåter att ICMP_TTL_EXCEEDED trafik.
 * En brandvägg blockerar ICMP_TTL_EXCEEDED svaret från nätverksenheten.
+
+### <a name="why-does-my-link-show-unhealthy-but-the-topology-does-not"></a>Varför min länken Visa feltillstånd medan topologin inte 
+NPM övervakar slutpunkt till slutpunkt mot dataförlust, svarstid och topologi med olika intervall. Förlust och fördröjning mäts en gång var femte sekund och sammanställs var tredje minut (för Prestandaövervakaren och Express Route-övervakaren) medan topologi beräknas med hjälp av traceroute var tionde minut. Till exempel mellan 3:44 och 4:04 topologi kan uppdateras tre gånger (3:44, 3:54, 4:04), men förlust och fördröjning uppdateras ungefär sju gånger (3:44, 3:47 3:50 3:53, 3:56 3:59, 4:02). Topologi som genererats på 3:54 återges för förlust och fördröjning som hämtar beräknas på 3:56 3:59 och 4:02. Anta att du får en avisering som var ER kretsen skadad på 3:59. Du kan logga in på NPM och försöker ställa in tiden topologi 3:59. NPM renderas topologin som genererats på 3:54. För att förstå den senaste kända topologin för ditt nätverk, jämför fälten TimeProcessed (tid på vilken förlust och fördröjning beräknades) och TracerouteCompletedTime (tid på vilken topologi som beräknades). 
+
+### <a name="what-is-the-difference-between-the-fields-e2emedianlatency-and-avghoplatencylist-in-the-networkmonitoring-table"></a>Vad är skillnaden mellan fälten E2EMedianLatency och AvgHopLatencyList i tabellen NetworkMonitoring
+E2EMedianLatency är svarstiden uppdateras var tredje minut efter att sammanställa resultaten av tcp-Pingtest, AvgHopLatencyList är uppdateras var 10 minuter baserat på traceroute. Använd fältet TimeProcessed för att förstå den exakta tidpunkt då E2EMedianLatency beräknades. För att förstå den exakta tidpunkt på vilka traceroute slutfört och uppdaterade AvgHopLatencyList, använder du fältet TracerouteCompletedTime
+
+### <a name="why-does-hop-by-hop-latency-numbers-differ-from-hoplatencyvalues"></a>Varför skiljer hopp för hopp-fördröjning siffror från HopLatencyValues 
+HopLatencyValues är källa till slutpunkten.
+Till exempel: Hopp - A, B, C. AvgHopLatency - 10,15,20. Det innebär att källan till en fördröjning = 10, källa för B fördröjningen = 15 och källan för C fördröjningen är 20. Användargränssnittet beräknas A-B hopp-fördröjning som 5 i topologin
 
 ### <a name="the-solution-shows-100-loss-but-there-is-connectivity-between-the-source-and-destination"></a>Lösningen visar 100% förlust men det finns en anslutning mellan källa och mål
 Detta kan inträffa om av värdens brandvägg eller mellanliggande brandvägg (nätverksbrandvägg eller Azure NSG) blockerar kommunikation mellan agenten källan och målet via porten som används för övervakning av NPM (som standard porten är 8084, såvida inte den kunden har ändrats för detta).
@@ -199,7 +209,7 @@ Detta kan inträffa om en eller flera är sant:
 ### <a name="in-the-service-connectivity-monitor-capability-the-service-response-time-is-na-but-network-loss-as-well-as-latency-are-valid"></a>Tjänstens svarstid är NA i funktionen för övervakning av tjänstens anslutning, men nätverksförluster samt svarstid är giltiga
 Detta kan inträffa om Måltjänsten är inte ett webbprogram men testet har konfigurerats som ett webbtest. Redigera testkonfigurationen och välj testtypen som nätverk istället för webben.
 
-## <a name="miscellaneous"></a>Övrigt
+## <a name="miscellaneous"></a>Diverse
 
 ### <a name="is-there-a-performance-impact-on-the-node-being-used-for-monitoring"></a>Finns det en prestandapåverkan på noden som används för övervakning?
 NPM-processen har konfigurerats för att stoppa om det använder mer än 5% av processorresurserna värden. Detta är att säkerställa att du kan fortsätta att använda noderna för sina vanliga arbetsbelastningar utan att påverka prestanda.

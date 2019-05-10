@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.date: 12/03/2018
 ms.author: dobett
-ms.openlocfilehash: 173963470a77932186b3c51f17ccb406b32a13f3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f58eb05ed582cf18157a76f4d637d72a228f4e96
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61448502"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65464875"
 ---
 # <a name="device-simulation-solution-accelerator-overview"></a>Översikt över lösningsacceleratorn för enhetssimulering
 
@@ -38,7 +38,7 @@ Enhetssimulering är kostnadsfri. Enhetssimulering distribuerar på Azure-prenum
 
 När du distribuerar Enhetssimulering kan få du vissa exempel simuleringar och exempelenheter. Du kan använda de här exemplen för att lära dig hur du använder Enhetssimulering. Kom igång genom att köra en [exempel simulering som simulerar 10 lastbilar](quickstart-device-simulation-deploy.md). Du kan också [skapa dina egna simulering med någon av de många exempelenheter som tillhandahålls](iot-accelerators-device-simulation-create-simulation.md).
 
-![Simuleringskonfiguration](media/iot-accelerators-device-simulation-overview/SampleSimulation.png)
+![Simuleringskonfiguration](media/iot-accelerators-device-simulation-overview/samplesimulation1.png)
 
 ## <a name="custom-simulated-devices"></a>Anpassade simulerade enheter
 

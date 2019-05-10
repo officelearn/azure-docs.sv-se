@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: aahi
-ms.openlocfilehash: c179620d6858658dface5f706f7994d51f1a199b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c8319dbcb8cebe51dae2a4d7e8d9749c3ab7674f
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60829726"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231420"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Hur du använder med namnet Entitetsidentifiering i textanalys
 
@@ -33,7 +33,7 @@ Med namnet entitetsidentifiering är (NER) möjligheten att identifiera olika en
 
 I textanalys [Version 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634), både entitetslänkning och igenkänning av namngivna entiteter (NER) är tillgängliga.
 
-### <a name="language-support"></a>Stöd för språk
+### <a name="language-support"></a>Språkstöd
 
 Med hjälp av entitetslänkning på olika språk kräver en motsvarande kunskapsbas på varje språk. För entitetslänkning i Text Analytics, det innebär att alla språk som stöds av den `entities` endpoint länkar till motsvarande Wikipedia-Kristi på det språket. Eftersom storleken på korpus varierar mellan olika språk, förväntas varierar även funktionens återkallande för entitetslänkning.
 
@@ -44,26 +44,26 @@ Med hjälp av entitetslänkning på olika språk kräver en motsvarande kunskaps
 | Person        | EJ TILLÄMPLIGT\*         | "Jeff", "Bill Gates"     |
 | Location      | EJ TILLÄMPLIGT\*         | "Redmond, Washington", "Paris"  |
 | Organisation  | EJ TILLÄMPLIGT\*         | "Microsoft"   |
-| Kvantitet      | Tal        | "6", "six"     | 
-| Kvantitet      | Procent    | "50%", "fifty percent"| 
-| Kvantitet      | Ordinal       | "2nd", "second"     | 
-| Kvantitet      | NumberRange   | ”4 till 8”     | 
-| Kvantitet      | Ålder           | ”90 dagar gamla”, ”30 år”    | 
-| Kvantitet      | Valuta      | "$10.99"     | 
-| Kvantitet      | Dimension     | "10 miles", "40 cm"     | 
-| Kvantitet      | Temperatur   | "32 degrees"    |
-| Datetime      | EJ TILLÄMPLIGT\*         | ”18:30:00 den 4 februari 2012”      | 
-| Datetime      | Date          | "May 2nd, 2017", "05/02/2017"   | 
-| Datetime      | Tid          | "8am", "8:00"  | 
-| Datetime      | DateRange     | ”2 maj till 5 maj”    | 
-| Datetime      | TimeRange     | ”18: 00 till 19: 00”     | 
-| Datetime      | Varaktighet      | ”1 minut och 45 sekunder”   | 
-| Datetime      | Ange           | ”varje tisdag”     | 
-| Datetime      | TimeZone      |    | 
-| URL           | EJ TILLÄMPLIGT\*         | "https:\//www.bing.com"    |
+| Antal      | Tal        | "6", "six"     | 
+| Antal      | Procent    | "50%", "fifty percent"| 
+| Antal      | Ordinal       | "2nd", "second"     | 
+| Antal      | NumberRange   | ”4 till 8”     | 
+| Antal      | Ålder           | ”90 dagar gamla”, ”30 år”    | 
+| Antal      | Valuta      | "$10.99"     | 
+| Antal      | Dimension     | "10 miles", "40 cm"     | 
+| Antal      | Temperatur   | "32 degrees"    |
+| DateTime      | EJ TILLÄMPLIGT\*         | ”18:30:00 den 4 februari 2012”      | 
+| DateTime      | Date          | "May 2nd, 2017", "05/02/2017"   | 
+| DateTime      | Tid          | "8am", "8:00"  | 
+| DateTime      | DateRange     | ”2 maj till 5 maj”    | 
+| DateTime      | TimeRange     | ”18: 00 till 19: 00”     | 
+| DateTime      | Giltighetstid      | ”1 minut och 45 sekunder”   | 
+| DateTime      | Uppsättning           | ”varje tisdag”     | 
+| DateTime      | TimeZone      |    | 
+| Webbadress           | EJ TILLÄMPLIGT\*         | "https:\//www.bing.com"    |
 | E-post         | EJ TILLÄMPLIGT\*         | "support@contoso.com" |
 
-\* Beroende på indata- och extraherade entiteter, vissa entiteter kan utelämna den `SubType`.
+\* Beroende på indata- och extraherade entiteter, vissa entiteter kan utelämna den `SubType`.  Alla stöds entitetstyper som visas är endast tillgängliga för de engelska, förenklad kinesiska, franska, tyska och spanska språk.
 
 
 

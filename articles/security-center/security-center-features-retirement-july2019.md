@@ -8,12 +8,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/16/2019
 ms.author: yoafr
-ms.openlocfilehash: ac677a7f9586dbe893cbcbc480564aceac0149a0
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 614dabe842c7fe99da3ddb486c27003c79382ea1
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65147932"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231385"
 ---
 # <a name="retirement-of-security-center-features-july-2019"></a>Tillbakadragning av Security Center-funktioner (juli 2019)
 
@@ -81,6 +81,7 @@ Klicka på arbetsytan öppnar ”identitets- och åtkomsthantering” log analyt
 ![Sidan - instrumentpanel][8]
 
 Vi rekommenderar att alla tre skärmar ovan kommer att dras tillbaka. Dina data ska förblir tillgängliga i log analytics-säkerhetslösning och inte ändras eller tas bort.
+De ursprungliga Log Analytics-frågor som används för att fylla instrumentpanelen identitet och åtkomst finns i Security Center [GitHub-lagringsplatsen](https://github.com/Azure/Azure-Security-Center/tree/master/Legacy%20Log%20Analytics%20dashboards).
 
 ### <a name="classic-identity--access-preview---new-experience"></a>Klassisk identitet och åtkomst (förhandsversion), nya upplevelsen
 Även om Log analytics-instrumentpanelen har tillhandahållit insikter på en viss arbetsyta, de inbyggda funktionerna i Security Center tillhandahåller insyn i alla prenumerationer och alla arbetsytor som är associerade med dem, i ett enkelt sätt – att använda vy där du kan fokusera på vad viktigt, enligt den säkra poängen för din identitet och åtkomst rekommendationer.
@@ -96,13 +97,14 @@ Knappen, tillsammans med per arbetsyta-instrumentpanelen tas bort efter utfasnin
 
 När du klickar på ”Gå till händelser säkerhetskarta” öppnas idag instrumentpanelen för hotinformation. Instrumentpanelen för hotinformation kommer att dras tillbaka.  
 
-![Instrumentpanelen Hotinformation][11]
+![Instrumentpanelen för hotinformation][11]
 
 När du väljer en arbetsyta för att visa dess instrumentpanel för hotinformation säkerhetsvarningar map(Preview) skärmen *i Log Analytics* öppnas. Den här skärmen kommer att dras tillbaka.
 
 ![Säkerhetskarta för aviseringar i Log Analytics][12]
 
 Dina befintliga data ska förblir tillgängliga i log analytics-säkerhetslösning och inte ändras eller tas bort.
+De ursprungliga Log Analytics-frågor som används för att fylla i instrumentpanelen för Hotinformation som är tillgängliga i Security Center [GitHub-lagringsplatsen](https://github.com/Azure/Azure-Security-Center/tree/master/Legacy%20Log%20Analytics%20dashboards).
 
 ### <a name="security-events-map---new-experience"></a>Händelser säkerhetskarta - nya upplevelsen
 Vi rekommenderar våra kunder att använda funktionen aviseringar kartan är inbyggda i Security Center – ”säkerhetsaviseringar mappa (förhandsversion)”. Detta ger en optimerad upplevelse och fungerar över alla prenumerationer och associerade arbetsytor, så att ett makro visa hela din miljö och inte fokusera på en enda arbetsyta.
@@ -165,6 +167,8 @@ Security-instrumentpanelen i Log analytics innehåller en per arbetsyta-översik
 
 ### <a name="security--audit-dashboard---new-experience"></a>Säkerhet och granskning instrumentpanel – nya upplevelsen
 Våra kunder är bäst att använda Azure Security Center, som ger samma Säkerhetsöversikt över flera prenumerationer och arbetsytor som är associerade med dem, tillsammans med en mer omfattande funktionsuppsättning.
+
+De ursprungliga Log Analytics-frågor som används för att fylla i säkerheten och granska instrumentpanelen är tillgängliga i Security Center [GitHub-lagringsplatsen](https://github.com/Azure/Azure-Security-Center/tree/master/Legacy%20Log%20Analytics%20dashboards).
 
 ## <a name="next-steps"></a>Nästa steg
 - Läs mer om [Azure Security Center](https://docs.microsoft.com/azure/security-center/)

@@ -15,14 +15,17 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: fc248292e2323d44a353473be87c2b0f1be8ea12
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d125e0c0818efbc6ec8f317122859411a37a0d20
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60880170"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65232747"
 ---
-# <a name="tutorial-push-notification-to-specific-android-application-users-by-using-azure-notification-hubs"></a>Självstudier: Skicka push-meddelanden till specifika Android-programanvändare med hjälp av Azure Notification Hubs
+# <a name="tutorial-push-notification-to-specific-android-application-users-by-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>Självstudier: Push-meddelande till användare med specifika Android-program med hjälp av Azure Notification Hubs och Google Cloud Messaging (inaktuell)
+
+> [!WARNING]
+> Från och med 10 April 2018 har Google inaktuell Google Cloud Messaging (GCM). GCM-servern och klienten API: er är inaktuella och kommer att tas bort så snart den 29 maj 2019. Mer information finns i [GCM och FCM vanliga frågor och svar](https://developers.google.com/cloud-messaging/faq).
 
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
@@ -141,7 +144,7 @@ Nästa steg är att uppdatera den Android-app som skapas i [Självstudie: Skicka
     ```xml
     <string name="usernameHint">Username</string>
     <string name="passwordHint">Password</string>
-    <string name="loginButton">1. Log in</string>
+    <string name="loginButton">1. Sign in</string>
     <string name="send_button">2. Send Notification</string>
     <string name="notification_message_hint">Notification message</string>
     <string name="notification_message_tag_hint">Recipient username</string>
@@ -257,7 +260,7 @@ Nästa steg är att uppdatera den Android-app som skapas i [Självstudie: Skicka
     }
     ```
 
-    Den här komponenten implementerar de REST-anrop som krävs för att kontakta appens serverdel och registrera push-meddelanden. Den lagrar även lokalt de *registrationIds* som skapas av meddelandehubben som anges i [Registrering från din apps serverdel](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend). Den använder en autentiseringstoken som lagras lokalt när du klickar på knappen **Logga in**.
+    Den här komponenten implementerar de REST-anrop som krävs för att kontakta appens serverdel och registrera push-meddelanden. Den lagrar även lokalt de *registrationIds* som skapas av den meddelandehubb som anges i [Registrering från din apps serverdel](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend). Den använder en autentiseringstoken lagras i lokal lagring när du klickar på den **logga in** knappen.
 4. I klassen tar du bort eller kommenterar ut ditt privata fält för `NotificationHub`, samt lägger till ett fält för `RegisterClient`-klassen och en sträng för ASP.NET-serverdelens slutpunkt. Kom ihåg att ersätta `<Enter Your Backend Endpoint>` med din faktiska serverdelsslutpunkt som hämtades tidigare. Till exempel `http://mybackend.azurewebsites.net`.
 
     ```java
@@ -319,7 +322,7 @@ Nästa steg är att uppdatera den Android-app som skapas i [Självstudie: Skicka
     Button sendPush = (Button) findViewById(R.id.sendbutton);
     sendPush.setEnabled(false);
     ```
-9. Lägg sedan till följande metoder för att hantera vad som händer när man klickar på knappen **Logga in** och skickar push-meddelanden.
+9. Lägg sedan till följande metoder för att hantera den **logga in** knappen klickar du på händelsen och skicka push-meddelanden.
 
     ```java
     public void login(View view) throws UnsupportedEncodingException {
@@ -401,7 +404,7 @@ Nästa steg är att uppdatera den Android-app som skapas i [Självstudie: Skicka
     }
     ```
 
-    `login`-hanteraren för knappen **Logga in** genererar en grundläggande autentiseringstoken som använder inkommande användarnamn och lösenord (den representerar alla tokens i ditt autentiseringsschema). Den använder sedan `RegisterClient` för att anropa registreringens serverdel.
+    Den `login` hanterare för den **logga in** knappen genererar en grundläggande autentisering token med hjälp av på inkommande användarnamnet och lösenordet (representerar alla token schema för autentiseringsmetoder som använder) så används `RegisterClient` att anropa den serverdel för registrering.
 
     `sendPush`-metoden anropar serverdelen för att utlösa ett säkert meddelande till användaren baserat på användartaggen. Plattformens meddelandetjänst som `sendPush` har som mål är beroende av `pns`-strängen som skickats.
 
@@ -467,7 +470,7 @@ Nästa steg är att uppdatera den Android-app som skapas i [Självstudie: Skicka
 
 1. Kör programmet på en enhet eller i en emulator med Android Studio.
 2. Ange ett användarnamn och lösenord i Android-appen. De måste båda ha samma strängvärde och får inte innehålla blanksteg eller specialtecken.
-3. I Android-appen klickar du på **Logga in**. Vänta på ett popup-meddelande med texten **Inloggad och registrerad**. Detta aktiverar knappen **Skicka meddelande**.
+3. I Android-appen klickar du på **logga in**. Vänta på ett popup-meddelande med texten **Inloggad och registrerad**. Detta aktiverar knappen **Skicka meddelande**.
 
     ![][A2]
 4. Klicka på växlingsknapparna för att aktivera alla plattformar där du körde appen och registrerade en användare.

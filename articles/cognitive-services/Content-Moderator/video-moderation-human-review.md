@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 01/20/2018
+ms.date: 04/30/2019
 ms.author: sajagtap
-ms.openlocfilehash: 43a43ddcbfc656a3eb5a274e1bb63a473b7c89a2
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: a6c467d3153400815e37a5d461766140abd1fa32
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62098209"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65228124"
 ---
 # <a name="video-moderation-with-human-review"></a>Videomoderering med mänsklig granskning
 
@@ -28,52 +28,53 @@ Maskinassisterad video klassificering uppnås antingen med bild som tränas mode
 ## <a name="shot-detection"></a>Bildidentifiering
 
 När du genererar klassificering information kan ytterligare video intelligens mer flexibilitet att analysera videor. I stället för att mata ut bara bildrutor innehåller Microsofts videomodereringen på servernivå som visar information för. Du har nu möjlighet att analysera dina videoklipp på som nivå och RAM-nivå.
- 
+
 ## <a name="key-frame-detection"></a>Viktiga ramtyp
 
 I stället för att mata ut bildrutor med jämna mellanrum videomodereringen identifierar och visar endast potentiellt fullständiga (bra) bildrutor. Funktionen kan effektivt ramens generation för ramens på servernivå vuxet och vågat innehåll analys.
 
 Följande utdrag visar ett partiellt svar med potentiella skärmbilder och viktiga bildrutor vuxet och vågat innehåll poäng:
 
-    "fragments": [
-    {
-      "start": 0,
-      "duration": 18000
-    },
-    {
-      "start": 18000,
-      "duration": 3600,
-      "interval": 3600,
-      "events": [
-        [
-          {
-            "reviewRecommended": false,
-            "adultScore": 0.00001,
-            "racyScore": 0.03077,
-            "index": 5,
-            "timestamp": 18000,
-            "shotIndex": 0
-          }
-        ]
+```json
+"fragments":[  
+  {  
+    "start":0,
+    "duration":18000
+  },
+  {  
+    "start":18000,
+    "duration":3600,
+    "interval":3600,
+    "events":[  
+      [  
+        {  
+          "reviewRecommended":false,
+          "adultScore":0.00001,
+          "racyScore":0.03077,
+          "index":5,
+          "timestamp":18000,
+          "shotIndex":0
+        }
       ]
-    },
-    {
-      "start": 18386372,
-      "duration": 119149,
-      "interval": 119149,
-      "events": [
-        [
-          {
-            "reviewRecommended": true,
-            "adultScore": 0.00000,
-            "racyScore": 0.91902,
-            "index": 5085,
-            "timestamp": 18386372,
-            "shotIndex": 62
-          }
-        ]
+    ]
+  },
+  {  
+    "start":18386372,
+    "duration":119149,
+    "interval":119149,
+    "events":[  
+      [  
+        {  
+          "reviewRecommended":true,
+          "adultScore":0.00000,
+          "racyScore":0.91902,
+          "index":5085,
+          "timestamp":18386372,
+          "shotIndex":62
+        }
       ]
-
+    ]
+```
 
 ## <a name="visualization-for-human-reviews"></a>Visualisering för mänsklig granskning
 
@@ -101,10 +102,7 @@ Videor har vanligtvis Röst via som behöver moderering samt för stötande tal.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Kom igång med den [videomoderering snabbstarten](video-moderation-api.md). 
-
-Lär dig hur du skapar [videon går igenom](video-reviews-quickstart-dotnet.md) för din mänsklig granskare från dina kontrollerad utdata.
-
-Lägg till [videoavskriften granskar](video-transcript-reviews-quickstart-dotnet.md) på din video granskningar.
-
-Kolla in detaljerad genomgång om hur du utvecklar en [slutföra videomoderering lösning](video-transcript-moderation-review-tutorial-dotnet.md). 
+- Kom igång med den [videomoderering snabbstarten](video-moderation-api.md).
+- Lär dig hur du skapar [videon går igenom](video-reviews-quickstart-dotnet.md) för din mänsklig granskare från dina kontrollerad utdata.
+- Lägg till [videoavskriften granskar](video-transcript-reviews-quickstart-dotnet.md) på din video granskningar.
+- Kolla in detaljerad genomgång om hur du utvecklar en [slutföra videomoderering lösning](video-transcript-moderation-review-tutorial-dotnet.md).

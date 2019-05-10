@@ -12,12 +12,12 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: d8644c2c0d4ee5b6ee4dcf16e470e4f2fa478237
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 0275d27a0a27d0279886f6f7fd15b14d312a44ea
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023735"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472010"
 ---
 # <a name="write-and-configure-data--with-the-azure-machine-learning-data-prep-sdk"></a>Skriva och konfigurera data med Azure Machine Learning Data Prep SDK
 
@@ -25,6 +25,7 @@ I den här artikeln får du lära dig olika metoder för att skriva data med hj�
 
 > [!Important]
 > Om du skapar en ny lösning kan du prova den [Azure Machine Learning datauppsättningar](how-to-explore-prepare-data.md) (förhandsversion) för att omvandla dina data, ögonblicksbilddata och lagra version datauppsättning definitioner. Datauppsättningar är nästa version av dataförberedelser SDK, som erbjuder fler funktioner för att hantera datauppsättningar i AI-lösningar.
+> Om du använder den `azureml-dataprep` paketet för att skapa ett dataflöde med dina transformeringar istället för att använda den `azureml-datasets` Paketera om du vill skapa en datauppsättning, du kan använda ögonblicksbilder eller version datauppsättningar senare.
 
 Eftersom det finns inga begränsningar för hur många skriva steg finns i en pipeline, kan du enkelt lägga till ytterligare skrivning steg för att få resultat för felsökning eller andra pipeliner.
 

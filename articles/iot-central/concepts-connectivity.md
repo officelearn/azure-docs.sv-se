@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 9e1e85d1ab1c5e7ce0cbd96c64137309c2e2916a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f11d1c6b727799f2cc67c6f5012dc4d117556d2e
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60887510"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467816"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Enhetsanslutning i Azure IoT Central
 
@@ -107,7 +107,7 @@ Ett scenario med viktiga IoT Central kan är OEM-tillverkare kan vikt tillverkar
 
 Följande diagram illustrerar det här flödet:
 
-![Inställningar för anslutning](media/concepts-connectivity/device-connection-flow.png)
+![Inställningar för anslutning](media/concepts-connectivity/device-connection-flow1.png)
 
 Följande steg beskriver den här processen i större detalj. Stegen skiljer sig något beroende på om du använder SAS- eller X.509-certifikat för autentisering:
 

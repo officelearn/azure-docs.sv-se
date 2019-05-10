@@ -3,17 +3,17 @@ title: Administrera en Azure IoT Central program | Microsoft Docs
 description: Som administratör, hur du administrerar Azure IoT Central programmet
 author: viv-liu
 ms.author: viviali
-ms.date: 02/20/2019
+ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 29ded279e2a76940049c257b954b1dae75f14836
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 87ed31836fcda922b085ec951eb6d9d14542db6a
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62118909"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467567"
 ---
 # <a name="administer-your-iot-central-application"></a>Administrera ditt IoT Central-program
 
@@ -26,7 +26,10 @@ När du har skapat ett IoT Central-program går du till den **Administration** a
 - Konvertera din utvärderingsversion till betala per användning
 - Exportera data
 - Hantera enhetsanslutning
-- Använd åtkomsttoken
+- Använd åtkomsttoken för developer tools
+- Anpassa Användargränssnittet för ditt program
+- Anpassa hjälplänkar i programmet
+- Hantera IoT Central programmässigt
 
 Du använder den **Administration** avsnittet, måste du vara i den **administratör** för ett program med Azure IoT Central. Om du skapar ett Azure IoT Central program tilldelas du automatiskt till den **administratör** rollen för programmet. Den [hantera användare](#manage-users) i den här artikeln innehåller mer information om hur du tilldelar den **administratör** rollen till andra användare.
 
@@ -36,6 +39,8 @@ Du använder den **Administration** avsnittet, måste du vara i den **administra
 I den **programinställningar** kan du kan ändra namnet och URL: en för ditt program och sedan välja **spara**.
 
 ![Inställningssidan för program](media/howto-administer/image0-a.png)
+
+Om administratören skapar ett anpassat tema för ditt program, den här sidan innehåller ett alternativ för att dölja den **programnamn** i Användargränssnittet. Detta är användbart om programlogotyp i anpassat tema som innehåller programnamnet. Mer information finns i [anpassa Azure IoT Central Användargränssnittet](./howto-customize-ui.md).
 
 > [!Note]
 > Om du ändrar din URL måste kan din gamla URL utföras av en annan Azure IoT Central-kund. Om det sker så är det inte längre tillgängliga som du kan använda. När du ändrar din URL gammalt URL: en fungerar inte längre och du behöver att meddela användarna om den nya URL som ska användas.
@@ -50,9 +55,9 @@ Välj **kopiera**. I dialogrutan, ange information för det nya programmet betal
 
 ![Inställningssidan för program](media/howto-administer/appcopy2.png)
 
-När appen kopieringen lyckas, går du till det nya programmet som har skapats genom att kopiera ditt program med hjälp av länken som visas.
+När appen kopieringen lyckas, kan du navigera till det nya programmet med hjälp av länken.
 
-![Inställningssidan för program](media/howto-administer/appCopy3.png)
+![Inställningssidan för program](media/howto-administer/appcopy3a.png)
 
 > [!Note]
 > Kopiera ett program kopierar också definitionen av regler och åtgärder. Men eftersom användare som har åtkomst till den ursprungliga appen inte kopieras till den kopierade app, behöver du lägga till användare manuellt till åtgärder, till exempel e-post som användare är en förutsättning. I allmänhet är det en bra idé att kontrollera de regler och åtgärder för att se till att de är aktuella i den nya appen.
@@ -62,11 +67,11 @@ När appen kopieringen lyckas, går du till det nya programmet som har skapats g
 > [!Note]
 > Om du vill ta bort ett program, måste du också ha behörighet att ta bort resurser i Azure-prenumeration som du angav när du skapade programmet. Mer information finns i [använda rollbaserad åtkomstkontroll för att hantera åtkomst till din Azure-prenumerationsresurser](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure).
 
-Använd den **ta bort** för att permanent ta bort ditt IoT Central-program. Detta permanent tar bort alla data som är associerat med programmet.
+Använd den **ta bort** för att permanent ta bort ditt IoT Central-program. Den här åtgärden tar bort alla data som är associerat med programmet.
 
 ## <a name="manage-users"></a>Hantera användare
 
-### <a name="add-users"></a>Lägga till användare
+### <a name="add-users"></a>Lägg till användare
 
 Varje användare måste ha ett användarkonto innan de kan logga in och komma åt ett program med Azure IoT Central. Microsoft-Accounts (MSA: er) och Azure Active Directory (Azure AD)-konton stöds i Azure IoT Central. Azure Active Directory-grupper stöds inte för närvarande i Azure IoT Central.
 
@@ -105,11 +110,11 @@ Den användare som skapar ett program tilldelas automatiskt till den **administr
 
 ### <a name="application-builder"></a>Application Builder
 
-Användare i den **Application Builder** roll kan göra allt i ett program förutom administrera programmet. Det innebär builders kan skapa, redigera och ta bort enheten mallar och enheter, hantera enhetsuppsättningar och köra analyser och jobb. Builders har inte åtkomst till den **Administration** avsnittet av programmet.
+Användare i den **Application Builder** roll kan göra allt i ett program förutom administrera programmet. Builders kan skapa, redigera och ta bort enheten mallar och enheter, hantera enhetsuppsättningar och köra analyser och jobb. Builders har inte åtkomst till den **Administration** avsnittet av programmet.
 
 ### <a name="application-operator"></a>Application Operator
 
-Användare i den **program operatorn** rollen kan inte göra ändringar i mallarna för enheten och kan inte administrera programmet. Det innebär att operatörer kan lägga till och ta bort enheter, hantera enhetsuppsättningar och köra analyser och jobb. Operatörer har inte åtkomst till den **Application Builder** och **Administration** sidor.
+Användare i den **program operatorn** rollen kan inte göra ändringar i mallarna för enheten och kan inte administrera programmet. Operatörer kan lägga till och ta bort enheter, hantera enhetsuppsättningar och köra analyser och jobb. Operatörer har inte åtkomst till den **Application Builder** och **Administration** sidor.
 
 ## <a name="view-your-bill"></a>Visa din faktura
 
@@ -119,8 +124,8 @@ Om du vill visa din faktura, går du till den **fakturering** sidan i den **Admi
 
 Du kan konvertera din utvärderingsversion-program till betala per användning. Här är skillnaderna mellan dessa typer av program.
 
-- **Utvärderingsversioner** är kostnadsfria i 7 dagar innan de upphör att gälla. De kan konverteras till betala per användning när som helst innan de upphör att gälla.
-- **Betala per användning**-program debiteras per enhet, och de fem första enheterna är kostnadsfria.
+- **Utvärderingsversion** program är kostnadsfria under sju dagar innan de upphör att gälla. De kan konverteras till betala per användning när som helst innan de upphör att gälla.
+- **Betala per användning** debiteras programmen per enhet, där de första fem enheterna som är kostnadsfri.
 
 Läs mer om prissättning på [sidan med prisinformation för Azure IoT Central.](https://azure.microsoft.com/pricing/details/iot-central/)
 
@@ -148,24 +153,32 @@ Anslut enheter i stor skala i ditt program som använder nycklar och certifikat 
 
 ## <a name="use-access-tokens"></a>Använd åtkomsttoken
 
-Generera åtkomsttoken för att använda dem i utvecklarverktyg. Det finns för närvarande en utvecklarverktyget tillgängliga som är i IoT Central-Utforskaren för att övervaka meddelanden från enheten och ändringar i inställningar och egenskaper. Läs mer om den [IoT Central explorer](howto-use-iotc-explorer.md).
+Generera åtkomsttoken för att använda dem i utvecklarverktyg. Verktyget endast developer är för närvarande IoT Central-explorer för övervakning enhetsmeddelanden och ändringar i inställningar och egenskaper. Läs mer om den [IoT Central explorer](howto-use-iotc-explorer.md).
 
-## <a name="use-the-azure-sdks-for-control-plane-operations"></a>Använd Azure SDK för kontrollplanåtgärder
+## <a name="customize-your-application"></a>Anpassa ditt program
 
-IoT Central Azure Resource Manager SDK-paket är tillgängliga för Node, Python, C#, Ruby, Java och Go. Dessa bibliotek support kontrollplanåtgärder för IoT Central, vilket gör att du kan skapa, visa, uppdatera eller ta bort IoT Central-program. Du får även hjälp för att hantera autentisering och felhantering som är specifika för varje språk. 
+Mer information om hur du ändrar färg och ikoner i ditt program finns i [anpassa Azure IoT Central Användargränssnittet](./howto-customize-ui.md).
+
+## <a name="customize-help"></a>Anpassa hjälp
+
+Läs mer om att lägga till anpassade hjälplänkar i ditt program, [anpassa Azure IoT Central Användargränssnittet](./howto-customize-ui.md).
+
+## <a name="manage-programatically"></a>Hantera programmässigt
+
+IoT Central Azure Resource Manager SDK-paket är tillgängliga för Node, Python, C#, Ruby, Java och Go. Du kan använda dessa paket för att skapa, visa, uppdatera eller ta bort IoT Central-program. De ingår hjälp för att hantera autentisering och felhantering.
 
 Du hittar exempel på hur du använder Azure Resource Manager SDK: er på [ https://github.com/emgarten/iotcentral-arm-sdk-examples ](https://github.com/emgarten/iotcentral-arm-sdk-examples).
 
-Om du vill veta mer kan du ta en titt på dessa paket på GitHub.
+Mer information finns i följande GitHub-databaser och paket:
 
 | Språk | Lagringsplats | Paket |
 | ---------| ---------- | ------- |
-| Node | [https://github.com/Azure/azure-sdk-for-node](https://github.com/Azure/azure-sdk-for-node) | [https://www.npmjs.com/package/azure-arm-iotcentral](https://www.npmjs.com/package/azure-arm-iotcentral)
+| Nod | [https://github.com/Azure/azure-sdk-for-node](https://github.com/Azure/azure-sdk-for-node) | [https://www.npmjs.com/package/azure-arm-iotcentral](https://www.npmjs.com/package/azure-arm-iotcentral)
 | Python |[https://github.com/Azure/azure-sdk-for-python](https://github.com/Azure/azure-sdk-for-python) | [https://pypi.org/project/azure-mgmt-iotcentral](https://pypi.org/project/azure-mgmt-iotcentral)
 | C# | [https://github.com/Azure/azure-sdk-for-net](https://github.com/Azure/azure-sdk-for-net) | [https://www.nuget.org/packages/Microsoft.Azure.Management.IotCentral](https://www.nuget.org/packages/Microsoft.Azure.Management.IotCentral)
 | Ruby | [https://github.com/Azure/azure-sdk-for-ruby](https://github.com/Azure/azure-sdk-for-ruby) | [https://rubygems.org/gems/azure_mgmt_iot_central](https://rubygems.org/gems/azure_mgmt_iot_central)
 | Java | [https://github.com/Azure/azure-sdk-for-java](https://github.com/Azure/azure-sdk-for-java) | [https://search.maven.org/search?q=a:azure-mgmt-iotcentral](https://search.maven.org/search?q=a:azure-mgmt-iotcentral)
-| Go | [https://github.com/Azure/azure-sdk-for-go](https://github.com/Azure/azure-sdk-for-go) | [https://github.com/Azure/azure-sdk-for-go](https://github.com/Azure/azure-sdk-for-go)
+| Gå till | [https://github.com/Azure/azure-sdk-for-go](https://github.com/Azure/azure-sdk-for-go) | [https://github.com/Azure/azure-sdk-for-go](https://github.com/Azure/azure-sdk-for-go)
 
 ## <a name="next-steps"></a>Nästa steg
 

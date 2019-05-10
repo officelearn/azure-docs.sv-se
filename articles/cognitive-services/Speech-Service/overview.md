@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 2e82e033e56af10bd8e676570e9409941753eb38
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.openlocfilehash: db32124cb4262745bcb2217224124ec444ccc97e
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65020991"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236843"
 ---
 # <a name="what-are-the-speech-services"></a>Vad är Speech Services?
 
@@ -28,38 +28,42 @@ Dessa funktioner utgör Azure Speech Services. Använd länkarna i den här tabe
 
 | Tjänst | Funktion | Beskrivning | SDK | REST |
 |---------|---------|-------------|-----|------|
-| [Speech-to-Text](speech-to-text.md) | Tal till text | Tal till text transkriberar ljudströmmar till text i realtid som dina program, verktyg eller enheter kan använda eller visa. Använd tal till text med [Språkförståelse (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/) att härleda användaren avsikter från transkriberade tal och vidta åtgärder för röstkommandon. | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Speech-to-Text](speech-to-text.md) | Tal-till-text | Tal till text transkriberar ljudströmmar till text i realtid som dina program, verktyg eller enheter kan använda eller visa. Använd tal till text med [Språkförståelse (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/) att härleda användaren avsikter från transkriberade tal och vidta åtgärder för röstkommandon. | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | | [Batch avskrift](batch-transcription.md) | Batch avskrift gör det möjligt för asynkron tal till text transkription av stora mängder data. Det här är en REST-baserad tjänst som använder samma slutpunkt som anpassning och modellhantering. | Nej | [Ja](https://westus.cris.ai/swagger/ui/index) |
-| | [Konversationen avskrift Service](conversation-transcription-service.md) | Möjliggör i realtid taligenkänning, talaridentifiering och diarization. Det är perfekt för att skriva av personligen möten med möjlighet att skilja talare. | Ja | Nej |
-| | [Anpassning](#customize-your-speech-experience) | Om du använder tal till text för taligenkänning och taltranskription i en miljö kan du skapa och skapa anpassade akustiska, språk och uttal av modeller till adress omgivande ljuden eller branschspecifika ordförråd. | Nej | [Ja](https://westus.cris.ai/swagger/ui/index) |
-| [Text till tal](text-to-speech.md) | Text till tal | Text till tal konverterar indata-text till människoliknande syntetiskt tal. Välj mellan standard röster och neural röster (se [språkstöd](language-support.md)). | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-| | [Anpassning](#customize-your-speech-experience) | Skapa anpassade rösttyper unika för ditt varumärke eller din produkt. | Nej | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| | [Konversationen avskrift](conversation-transcription-service.md) | Möjliggör i realtid taligenkänning, talaridentifiering och diarization. Det är perfekt för att skriva av personligen möten med möjlighet att skilja talare. | Ja | Nej |
+| | [Skapa anpassade talmodeller](#customize-your-speech-experience) | Om du använder tal till text för taligenkänning och taltranskription i en miljö kan du skapa och skapa anpassade akustiska, språk och uttal av modeller till adress omgivande ljuden eller branschspecifika ordförråd. | Nej | [Ja](https://westus.cris.ai/swagger/ui/index) |
+| [Text till tal](text-to-speech.md) | Text-till-tal | Text till tal konverterar indata-text till människoliknande syntetiskt tal. Välj mellan standard röster och neural röster (se [språkstöd](language-support.md)). | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| | [Skapa anpassade röster](#customize-your-speech-experience) | Skapa anpassade rösttyper unika för ditt varumärke eller din produkt. | Nej | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | [Talöversättning](speech-translation.md) | Talöversättning | Talöversättning gör i realtid, flera språk översättning av tal till dina program, verktyg och enheter. Använd den här tjänsten för tal-till-tal- och tal till text. | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | Nej |
+| [Röst första virtuella assistenter](voice-first-virtual-assistants.md) | Röst första virtuella assistenter | Anpassade virtuella assistenter med hjälp av Azure Speech Services gör att utvecklare kan skapa naturlig, människoliknande konversationsanpassade gränssnitt för sina program och upplevelser. I Bot Framework Direct Line tal kanal förbättrar funktionerna genom att tillhandahålla en samordnad, dirigerad startpunkten till en kompatibel robot som gör det möjligt för röst i röst ut interaktion med låg fördröjning och hög tillförlitlighet. | [Ja](voice-first-virtual-assistants.md) | Nej |
 
 ## <a name="news-and-updates"></a>Nyheter och uppdateringar
 
 Läs mer om nyheterna med Azure Speech Services.
 
+* Maj 2019 - dokumentation finns nu tillgänglig för [konversationen avskrift](conversation-transcription-service.md), [anropa Center avskrift](call-center-transcription.md), och [röst första virtuella assistenter](voice-first-virtual-assistants.md).
 * Maj 2019 - släppte tal SDK 1.5.0. En fullständig lista över uppdateringar, förbättringar och kända problem finns i [viktig](releasenotes.md).
 * April 2019 - är tal SDK 1.4.0 med stöd för text till tal (Beta) för C++, C#, och Java i Windows och Linux. Dessutom SDK stöder nu MP3- och Opus/Ogg ljudformat för C++ och C# i Linux. En fullständig lista över uppdateringar, förbättringar och kända problem finns i [viktig](releasenotes.md).
 * Mars 2019 – är en ny slutpunkt för tal som returnerar en fullständig lista över röster som är tillgängliga i en viss region nu tillgänglig. Nya regioner stöds nu för text till tal. Mer information finns i [text till tal-API-referens (REST)](rest-text-to-speech.md).
-* Februari 2019 - är tal SDK 1.3.0 med stöd för [Unity (beta)](quickstart-csharp-unity.md). Lagt till stöd för den `AudioInput` klass, där du kan välja strömningskälla som ljud. En fullständig lista över förbättringar och kända problem finns i [viktig](releasenotes.md).
-* December 2018 - är tal SDK 1.2.0 med stöd för [Python](quickstart-python.md) och [Node.js](quickstart-js-node.md), samt Ubuntu 18.04 LTS. Mer information finns i [viktig](releasenotes.md).
 
 ## <a name="try-speech-services"></a>Försök Speech Services
 
 Vi erbjuder snabbstarterna i mest populära programmeringsspråk, alla har utformats för att se dig köra kod i mindre än 10 minuter. Den här tabellen innehåller de mest populära Snabbstart för varje funktion. Utforska ytterligare språk och plattformar med hjälp av det vänstra navigeringsfältet.
 
-| Tal till text (SDK) | Translation (SDK) | Text till tal (REST) | Text till tal (SDK) |
-|-------------------|-------------------|-----------------------|-----------------------|
-| [C#, .NET Core (Windows)](quickstart-csharp-dotnet-windows.md) | [Java (Windows, Linux)](quickstart-translate-speech-java-jre.md) | [Python (Windows, Linux, macOS)](quickstart-python-text-to-speech.md) | [C#, .NET Framework (Windows)](quickstart-text-to-speech-dotnet-windows.md) |
-| [JavaScript (Browser)](quickstart-js-browser.md) | [C#, .NET Core (Windows)](quickstart-translate-speech-dotnetcore-windows.md) | [C#, .NET Core (Windows, Linux, macOS)](quickstart-dotnet-text-to-speech.md) | [C++ (Windows)](quickstart-text-to-speech-cpp-windows.md) |
-| [Python (Windows, Linux, macOS)](quickstart-python.md) | [C#, .NET Framework (Windows)](quickstart-translate-speech-dotnetframework-windows.md) | [Node.js (Windows, Linux, macOS)](quickstart-nodejs-text-to-speech.md) | [C++ (Linux)](quickstart-text-to-speech-cpp-linux.md) |
-| [Java (Windows, Linux)](quickstart-java-jre.md) | [C++ (Windows)](quickstart-translate-speech-cpp-windows.md) | |
+| Tal till text (SDK) | Text till tal (SDK) | Translation (SDK) |
+|----------------------|----------------------|-------------------|
+| [C#, .NET Core (Windows)](quickstart-csharp-dotnet-windows.md) | [C#, .NET Framework (Windows)](quickstart-text-to-speech-dotnet-windows.md) | [Java (Windows, Linux)](quickstart-translate-speech-java-jre.md) |
+| [JavaScript (Browser)](quickstart-js-browser.md) | [C++ (Windows)](quickstart-text-to-speech-cpp-windows.md) | [C#, .NET Core (Windows)](quickstart-translate-speech-dotnetcore-windows.md) |
+| [Python (Windows, Linux, macOS)](quickstart-python.md) | [C++ (Linux)](quickstart-text-to-speech-cpp-linux.md) | [C#, .NET Framework (Windows)](quickstart-translate-speech-dotnetframework-windows.md) |
+| [Java (Windows, Linux)](quickstart-java-jre.md) | | [C++ (Windows)](quickstart-translate-speech-cpp-windows.md) |
+
+> [!NOTE]
+> Tal till text och text till tal har även REST-slutpunkter och associerade snabbstarter.
 
 När du har haft möjlighet att använda Speech Services, prova vår självstudie som Lär dig hur du identifierar intentioner från tal med hjälp av tal SDK och LUIS.
 
 * [Självstudie: Identifiera avsikter från tal med tal SDK och LUIS,C#](how-to-recognize-intents-from-speech-csharp.md)
+* [Självstudie: Skapa en Flask-app för att översätta text, analysera sentiment och syntetisera översatt text till tal, REST](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis?toc=%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json&bc=%2fazure%2fcognitive-services%2fspeech-service%2fbreadcrumb%2ftoc.json&toc=%2Fen-us%2Fazure%2Fcognitive-services%2Fspeech-service%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)
 
 ## <a name="get-sample-code"></a>Hämta exempelkod
 

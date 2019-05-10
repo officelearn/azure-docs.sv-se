@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 895fb0d83e383618818325263ac80c5919a0ee7b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5f2a3bb666e40f1aafd921d70d93133ca9139b38
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60429247"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406956"
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Integrera Azure Active Directory med E-försäljningschef Remix
 
@@ -47,7 +47,7 @@ Om du vill konfigurera Azure AD-integrering med E försäljning Manager REMIXA, 
 
 Följ dessa rekommendationer för att testa stegen i den här självstudien:
 
-- Använd inte din produktionsmiljö om det inte behövs.
+- Använd inte din produktionsmiljö, om det inte behövs.
 - Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -77,7 +77,7 @@ Om du vill konfigurera integreringen av Azure AD med E försäljning Manager REM
 
     ![E försäljning Manager REMIXA i resultatlistan](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
 I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med E försäljning Manager REMIXA, baserat på en testanvändare som kallas ”Britta Simon”.
 
@@ -85,7 +85,7 @@ För enkel inloggning att fungera, behöver Azure AD att identifiera användaren
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med E försäljning Manager REMIXA, slutför du byggblocken i nästa fem avsnitt:
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
 Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt E försäljning Manager REMIXA program genom att göra följande:
 
@@ -158,7 +158,7 @@ Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inlogg
     
     b. I den **samarbete objekt** , i listrutan, väljer du **e-post**.
 
-    c. I den **samarbete objekt** rutan, klistra in anspråksvärdet för som du kopierade tidigare från Azure-portalen (det vill säga **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**).
+    c. I den **samarbete objekt** rutan, klistra in anspråksvärdet för som du kopierade tidigare från Azure-portalen (det vill säga **https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**).
 
     d. I den **utfärdare (entitets-ID)** rutan, klistra in ID-värde som du kopierade tidigare från den **REMIXA E försäljning Manager-domän och URL: er** på Azure portal.
 
@@ -186,7 +186,7 @@ I det här avsnittet skapar du testanvändare Britta Simon i Azure portal genom 
 
 1. Om du vill visa en lista över aktuella användare, Välj **användare och grupper** > **alla användare**.
 
-    ![Länkarna ”Användare och grupper” och ”Alla grupper”](./media/paloaltoadmin-tutorial/create_aaduser_02.png)
+    ![”Användare och grupper” och ”alla användare”-länkar](./media/paloaltoadmin-tutorial/create_aaduser_02.png)
 
 1. Överst på den **alla användare** väljer **Lägg till**.
 
@@ -250,7 +250,7 @@ I det här avsnittet ska aktivera du användaren Britta Simon att använda Azure
 
 1. I den vänstra rutan väljer **användare och grupper**.
 
-    ![Länken ”Användare och grupper”][202]
+    ![Länken ”användare och grupper”][202]
 
 1. Välj **Lägg till** och klicka sedan på **Lägg till tilldelning** väljer **användare och grupper**.
 

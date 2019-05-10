@@ -5,19 +5,19 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/06/2019
+ms.date: 05/06/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 52226d07595120395909dd5f47d5d896f5cdaa75
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2eaf819870e2b70cc6238af6d1e9fa1dcb5caab8
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61483659"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236749"
 ---
 # <a name="azure-storage-account-overview"></a>Översikt över Azure storage-konto
 
-Ett Azure storage-konto innehåller alla dina Azure Storage-dataobjekt: blobar, filer, köer, tabeller och diskar. Data i Azure storage-kontot är hållbar och med hög tillgänglighet, säkra, mycket skalbar och kan nås från var som helst i världen via HTTP eller HTTPS.
+Ett Azure storage-konto innehåller alla dina Azure Storage-dataobjekt: blobar, filer, köer, tabeller och diskar. Storage-konto tillhandahåller ett unikt namnområde för dina Azure Storage-data som nås från var som helst i världen via HTTP eller HTTPS. Data i Azure storage-kontot är hållbar och högtillgänglig, säker och mycket skalbar.
 
 Läs hur du skapar ett Azure storage-konto i [skapa ett lagringskonto](storage-quickstart-create-account.md).
 

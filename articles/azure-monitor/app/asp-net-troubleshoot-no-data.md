@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 11d63889555d6899df07e83168813994907476af
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 467586fd23332469338dabd2feb6a42ce4b17af5
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60691209"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471855"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Felsökning utan data, Application Insights för .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Några av Mina telemetri saknas
@@ -42,7 +42,7 @@ ms.locfileid: "60691209"
 * Inte alla typer av .NET-projekt stöds av verktygen. Webb-och WCF stöds. För andra projekttyper av som skrivbord eller tjänsten kan du fortfarande [lägga till en Application Insights SDK i ditt projekt manuellt](../../azure-monitor/app/windows-desktop.md).
 * Kontrollera att du har [Visual Studio 2013 Update 3 eller senare](https://docs.microsoft.com/visualstudio/releasenotes/vs2013-update3-rtm-vs). Den levereras förinstallerad med Developer Analytics-verktyg som ger Application Insights SDK.
 * Välj **verktyg**, **tillägg och uppdateringar** och kontrollera att **Developer Analytics Tools** är installerat och aktiverat. I så, fall klickar du på **uppdateringar** att se om det finns en uppdatering.
-* Öppna dialogrutan Nytt projekt och välj ASP.NET-webbprogram. Om du ser det alternativet Application Insights är verktygen installerade. Om inte, avinstallera och sedan installera Application Insights Tools.
+* Öppna dialogrutan Nytt projekt och välj ASP.NET-webbprogram. Om du ser det alternativet Application Insights är verktygen installerade. Om inte, avinstallera och sedan installera om Developer Analytics Tools.
 
 ## <a name="q02"></a>Det gick inte att lägga till Application Insights
 *När jag försöker lägga till Application Insights till ett befintligt projekt, visas ett felmeddelande.*
@@ -85,7 +85,7 @@ Fix:
 * Välj **verktyg**, **tillägg och uppdateringar** och kontrollera att **Developer Analytics tools** är installerat och aktiverat. I så, fall klickar du på **uppdateringar** att se om det finns en uppdatering.
 * Högerklicka på projektet i Solution Explorer. Om du ser kommandot **Application Insights > Konfigurera Application Insights**, använda den för att ansluta ditt projekt till resursen i Application Insights-tjänsten.
 
-I annat fall stöds din projekttyp inte direkt av Application Insights-verktygen. Om du vill se din telemetri, logga in på den [Azure-portalen](https://portal.azure.com), Välj Application Insights i det vänstra navigeringsfältet och välj ditt program.
+I annat fall stöds din projekttyp inte direkt av Developer Analytics-verktyg. Om du vill se din telemetri, logga in på den [Azure-portalen](https://portal.azure.com), Välj Application Insights i det vänstra navigeringsfältet och välj ditt program.
 
 ## <a name="access-denied-on-opening-application-insights-from-visual-studio"></a>”Åtkomst nekad” på att öppna Application Insights från Visual Studio
 *Kommandot ”Öppna Application Insights” kommer jag till Azure-portalen, men jag får felmeddelandet ”åtkomst nekad”.*

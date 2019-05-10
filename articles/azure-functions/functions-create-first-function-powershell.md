@@ -10,12 +10,12 @@ ms.date: 04/25/2019
 ms.topic: quickstart
 ms.service: azure-functions
 ms.devlang: powershell
-ms.openlocfilehash: 21fe1d654b802cb2bcb1a1fd3d5ffc4d04112334
-ms.sourcegitcommit: 111a7b3e19d5515ce7036287cea00a7204ca8b56
+ms.openlocfilehash: 24640c9013f7a5b81cd5b1b6f45de49c5baad0e6
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64530470"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65473276"
 ---
 # <a name="create-your-first-powershell-function-in-azure-preview"></a>Skapa din första PowerShell-funktion i Azure (förhandsversion)
 
@@ -50,24 +50,7 @@ För att slutföra den här snabbstarten behöver du:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [functions-install-vs-code-extension](../../includes/functions-install-vs-code-extension.md)]
-
-## <a name="enable-powershell-in-the-extension"></a>Aktivera PowerShell i tillägget
-
-Använd följande steg för att aktivera PowerShell i Azure Functions-tillägg:
-
-1. Välj något av följande kommandon i menyn i Visual Studio Code:
-
-    * I Windows eller Linux, Välj **filen** > **inställningar** > **inställningar**.
-    * På macOS, väljer **kod** > **inställningar** > **inställningar**.
-
-1. Skriv i fältet Sök inställningar `powershell`.
-
-1. I den **användarinställningar** fliken, expandera **tillägg** > **Azure Functions**, sedan **aktivera förhandsversion av stöd för PowerShell**.
-
-    ![Azure Functions-kod i ett Visual Studio-projekt](./media/functions-create-first-function-powershell/enable-powershell-support-vs-code.png)
-
-Stäng inställningarna. PowerShell är nu aktiverad.  
+[!INCLUDE [functions-install-vs-code-extension](../../includes/functions-install-vs-code-extension.md)] 
 
 ## <a name="create-a-function-app-project"></a>Skapa ett funktionsapprojekt
 
@@ -120,6 +103,9 @@ När du har kontrollerat att funktionen körs korrekt på den lokala datorn är 
 
 > [!NOTE]
 > Kom ihåg att ta bort alla anrop till `Wait-Debugger` innan du publicerar dina funktioner till Azure. 
+
+> [!NOTE]
+> Skapa en Funktionsapp i Azure frågar endast efter namnet på funktionen. Ange azureFunctions.advancedCreation till true för att bli ombedd att ange alla andra värden.
 
 [!INCLUDE [functions-publish-project-vscode](../../includes/functions-publish-project-vscode.md)]
 

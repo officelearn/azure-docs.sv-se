@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: kumud
-ms.openlocfilehash: a6635b811dfa9c46facfffee1c57b2871cb4c738
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 4582f7be8e48e493a1adcb8ffc6c3a8bfe43a58e
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64719699"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506381"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Lägga till, ändra eller ta bort IP-adresser för ett gränssnitt för Azure-nätverk
 
@@ -51,7 +51,7 @@ Du kan lägga till så många [privata](#private) och [offentliga](#public) [IPv
 4. Under **IP-konfigurationer**väljer **+ Lägg till**.
 5. Anger du följande och välj sedan **OK**:
 
-   |Inställning|Krävs?|Information|
+   |Inställning|Obligatorisk?|Information|
    |---|---|---|
    |Namn|Ja|Måste vara unikt för nätverksgränssnittet|
    |Typ|Ja|Eftersom du lägger till en IP-konfiguration till en befintlig nätverksgränssnitt och varje nätverksgränssnitt måste ha en [primära](#primary) IP-konfiguration, det enda alternativet är **sekundära**.|
@@ -150,7 +150,7 @@ Genom att följa förblir de här stegen, privata IP-adress tilldelas till nätv
 
 Förutom att aktivera en virtuell dator ska kunna kommunicera med andra resurser i samma eller anslutna virtuella nätverk, kan en privat IP-adress också en virtuell dator kommunicera utgående till Internet. Utgående anslutningar är adress källnätverket översättas av Azure till en oförutsägbara offentliga IP-adress. Om du vill veta mer om Azure utgående Internet-anslutning kan du läsa den [Azure utgående Internet-anslutning](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json) artikeln. Du kan inte kommunicera inkommande från Internet till en virtuell dators privata IP-adress. Om din utgående anslutningar kräver en förutsägbar offentliga IP-adress kan du associera en offentlig IP-adressresurs till ett nätverksgränssnitt.
 
-### <a name="public"></a>Offentligt
+### <a name="public"></a>Offentlig
 
 Offentliga IP-adresser som tilldelats via en offentlig IP-adressresurs aktivera inkommande anslutningar till en virtuell dator från Internet. Utgående anslutningar till Internet använder en förutsägbar IP-adress. Se [förstå utgående anslutningar i Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json) mer information. Du kan tilldela en offentlig IP-adress till en IP-konfiguration, men inte behöver. Om du inte tilldelar en offentlig IP-adress till en virtuell dator genom att associera en offentlig IP-adressresurs, kan den virtuella datorn fortfarande kommunicera utgående till Internet. I det här fallet är den privata IP-adressen adress källnätverket översättas av Azure till en oförutsägbara offentliga IP-adress. Läs mer om offentliga IP-adressresurser i [offentliga IP-adressresurs](virtual-network-public-ip-address.md).
 
@@ -175,7 +175,7 @@ Dynamisk privat IPv4 och IPv6 (valfritt) adresser att tilldelas som standard.
 Du kan tilldela en offentlig eller privat statisk IPv4-adress (valfritt) till en IP-konfiguration. Du kan inte tilldela en statisk offentlig eller privat IPv6-adress till en IP-konfiguration. Läs mer om hur Azure tilldelar statiska offentliga IPv4-adresser i [offentliga IP-adresser](virtual-network-public-ip-address.md).
 
 - **Endast offentliga**: Azure tilldelar adress från ett intervall som är unika för varje Azure-region. Du kan ladda ned listan över intervall (prefix) för [offentliga](https://www.microsoft.com/download/details.aspx?id=56519) Azure-moln och för Azure-moln för [amerikanska myndigheter](https://www.microsoft.com/download/details.aspx?id=57063), [Kina](https://www.microsoft.com/download/details.aspx?id=57062) eller [Tyskland](https://www.microsoft.com/download/details.aspx?id=57064). Adressen ändras inte förrän den offentliga IP-adressresursen som den är tilldelad till har tagits bort eller tilldelningsmetoden ändras till dynamisk. Om den offentliga IP-adressresursen är kopplad till en IP-konfiguration, måste den kopplas bort från IP-konfiguration innan du ändrar dess tilldelningsmetod.
-- **Endast privat**: Du väljer och tilldelar en adress från undernätets adressintervall. Adressen som du tilldelar kan vara alla adresser i adressintervallet i undernätet som inte är någon av de fyra första adresserna i undernätets adressintervall och som inte är tilldelade till någon annan resurs i undernätet. Statiska adresser släpps endast om ett nätverksgränssnitt tas bort. Om du ändrar allokeringsmetoden till statisk tilldelar Azure dynamiskt de tidigare tilldelade statiska IP-adresserna som dynamiska adresser, även om adressen inte är nästa tillgängliga adress i undernätets adressintervall. Adressen ändras också om nätverksgränssnittet har tilldelats ett annat undernät i samma virtuella nätverk. För att tilldela nätverksgränssnittet till ett annat undernät måste du emellertid först ändra allokeringsmetoden från statisk till dynamisk. När nätverksgränssnittet har tilldelats ett annat undernät kan du ändra allokeringsmetod till statisk och tilldela en IP-adress från det nya undernätets adressintervall.
+- **Endast privat**: Du väljer och tilldelar en adress från undernätets adressintervall. Adressen som du tilldelar kan vara alla adresser i adressintervallet i undernätet som inte är någon av de fyra första adresserna i undernätets adressintervall och som inte är tilldelade till någon annan resurs i undernätet. Statiska adresser släpps endast om ett nätverksgränssnitt tas bort. Om du ändrar allokeringsmetoden till statisk tilldelar Azure dynamiskt de tidigare tilldelade dynamisk IP-adressen som statisk adress, även om adressen inte är nästa tillgängliga adress i undernätets adressintervall. Adressen ändras också om nätverksgränssnittet har tilldelats ett annat undernät i samma virtuella nätverk. För att tilldela nätverksgränssnittet till ett annat undernät måste du emellertid först ändra allokeringsmetoden från statisk till dynamisk. När nätverksgränssnittet har tilldelats ett annat undernät kan du ändra allokeringsmetod till statisk och tilldela en IP-adress från det nya undernätets adressintervall.
 
 ## <a name="ip-address-versions"></a>IP-adress versioner
 
@@ -204,7 +204,7 @@ En offentlig IP-adress har skapats med basic eller standard-SKU. Mer information
 ## <a name="next-steps"></a>Nästa steg
 Läs följande artiklar för att skapa en virtuell dator med olika IP-konfigurationer:
 
-|Aktivitet|Verktyg|
+|Uppgift|Verktyg|
 |---|---|
 |Skapa en virtuell dator med flera nätverksgränssnitt|[CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 |Skapa en enda NIC-VM med flera IPv4-adresser|[CLI](virtual-network-multiple-ip-addresses-cli.md), [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|

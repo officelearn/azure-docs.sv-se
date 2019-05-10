@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/24/2019
+ms.date: 05/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: eaff996f5d0ad9c2eac00c9306ef8808b43e25c2
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 017c2fd934f35a64f26687f4a58634dda9a821a3
+ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65146042"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65501966"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Starta/stoppa virtuella datorer vid låg belastning på nätverket lösning i Azure Automation
 
@@ -75,7 +75,7 @@ Att distribuera den Starta/stoppa virtuella datorer utanför timmar lösningen t
 | Microsoft.Resources/subscriptions/resourceGroups/read | Resursgrupp |
 | Microsoft.Resources/deployments/* | Resursgrupp |
 
-### <a name="new-automation-account-and-a-new-log-analytics-workspace"></a>Nytt Automation-konto och en ny Log Analytics-arbetsyta
+#### <a name="new-automation-account-and-a-new-log-analytics-workspace"></a>Nytt Automation-konto och en ny Log Analytics-arbetsyta
 
 Om du vill distribuera Starta/stoppa virtuella datorer under arbetstid, måste lösningen till en ny Automation-kontot och Log Analytics-arbetsyta användaren-lösningen distribueras de behörigheter som definierats i föregående avsnitt samt följande behörigheter:
 
@@ -91,6 +91,30 @@ Om du vill distribuera Starta/stoppa virtuella datorer under arbetstid, måste l
 | Microsoft.Automation/automationAccounts/write | Resursgrupp |
 | Microsoft.OperationalInsights/workspaces/write | Resursgrupp |
 
+### <a name="region-mappings"></a>Region-mappningar
+
+När du aktiverar Starta/Stoppa VM under kontorstid, stöds endast i vissa regioner för att länka en Log Analytics-arbetsyta och ett Automation-konto.
+
+I följande tabell visas mappningarna som stöds:
+
+|**Log Analytics arbetsytans Region**|**Azure Automation Region**|
+|---|---|
+|Sydöstra Australien|Sydöstra Australien|
+|CanadaCentral|CanadaCentral|
+|Indiencentrala|Indiencentrala|
+|EastUS<sup>1</sup>|EastUS2|
+|JapanEast|JapanEast|
+|SoutheastAsia|SoutheastAsia|
+|WestCentralUS<sup>2</sup>|WestCentralUS<sup>2</sup>|
+|Västeuropa|Västeuropa|
+|Södrastorbritannien|Södrastorbritannien|
+|USGovVirginia|USGovVirginia|
+|EastUS2EUAP<sup>1</sup>|CentralUSEUAP|
+
+<sup>1</sup> EastUS2EUAP och östra USA mappningar för Log Analytics-arbetsytor till Automation-konton är inte en exakt mappning för olika regioner, men är korrekt mappning.
+
+<sup>2</sup> på grund av begränsningar i kapaciteten regionen är inte tillgänglig när du skapar nya resurser. Detta inkluderar Automation-konton och Log Analytics-arbetsytor. Redan befintliga länkade resurser i regionen bör dock fortsätta att fungera.
+
 ## <a name="deploy-the-solution"></a>Distribuera lösningen
 
 Utför följande steg för att lägga till Starta/stoppa virtuella datorer vid låg belastning på nätverket lösning i Automation-konto och sedan konfigurera variabler för att anpassa lösningen.
@@ -101,6 +125,7 @@ Utför följande steg för att lägga till Starta/stoppa virtuella datorer vid l
 
    > [!NOTE]
    > Du kan också skapa den var som helst i Azure-portalen genom att klicka på **skapa en resurs**. Marketplace-sidan skriver du ett nyckelord som **starta** eller **Starta/Stoppa**. När du börjar skriva filtreras listan baserat på det du skriver. Du kan också Skriv en eller flera nyckelord från det fullständiga namnet på lösningen och tryck sedan på RETUR. Välj **Starta/Stoppa VM under kontorstid** från sökresultaten.
+
 2. I den **Starta/Stoppa VM under kontorstid** för den valda lösningen, granska informationen i sammanfattningen och klicka sedan på **skapa**.
 
    ![Azure Portal](media/automation-solution-vm-management/azure-portal-01.png)
@@ -301,11 +326,11 @@ Automation skapar två typer av poster i Log Analytics-arbetsyta: jobb-loggar oc
 |ResourceGroup | Anger resursgruppens namn på runbook-jobbet.|
 |ResourceProvider | Anger den Azure-tjänst som tillhandahåller de resurser som du kan distribuera och hantera. För Automation är värdet Azure Automation.|
 |ResourceType | Anger resurstypen i Azure. För Automation är värdet Automation-kontot som är kopplat till runbook.|
-|resultType | Status för runbookjobbet. Möjliga värden:<br>- Startad<br>- Stoppad<br>-Pausad<br>- Misslyckades<br>- Slutförd|
-|resultDescription | Beskriver jobbstatusen för runbook. Möjliga värden:<br>-Jobbet har startats<br>-Jobbet misslyckades<br>-Jobbet slutfördes|
+|resultType | Status för runbookjobbet. Möjliga värden är:<br>- Startad<br>- Stoppad<br>-Pausad<br>- Misslyckades<br>- Slutförd|
+|resultDescription | Beskriver jobbstatusen för runbook. Möjliga värden är:<br>-Jobbet har startats<br>-Jobbet misslyckades<br>-Jobbet slutfördes|
 |RunbookName | Anger namnet på runbooken.|
 |SourceSystem | Anger källsystemet för data som skickats. För Automation är värdet OpsManager|
-|StreamType | Anger händelsetypen. Möjliga värden:<br>- Verbose<br>- Utdata<br>- Fel<br>- Varning|
+|StreamType | Anger händelsetypen. Möjliga värden är:<br>- Verbose<br>- Utdata<br>- Fel<br>- Varning|
 |SubscriptionId | Anger prenumerations-ID för jobbet.
 |Tid | Datum och tid då runbook-jobbet körs.|
 
@@ -325,7 +350,7 @@ Automation skapar två typer av poster i Log Analytics-arbetsyta: jobb-loggar oc
 |resultDescription | Innehåller utdataströmmen från runbook.|
 |RunbookName | Anger namnet på runbooken.|
 |SourceSystem | Anger källsystemet för data som skickats. För Automation är värdet OpsManager.|
-|StreamType | Typ av jobbström. Möjliga värden:<br>-Förlopp<br>- Utdata<br>- Varning<br>- Fel<br>- Felsökning<br>- Verbose|
+|StreamType | Typ av jobbström. Möjliga värden är:<br>-Förlopp<br>- Utdata<br>- Varning<br>- Fel<br>- Felsökning<br>- Verbose|
 |Tid | Datum och tid då runbook-jobbet körs.|
 
 När du utför en loggsökning som returnerar poster kategori av **JobLogs** eller **JobStreams**, kan du välja den **JobLogs** eller **JobStreams**vy som visar en uppsättning paneler som sammanfattar de uppdateringar som returneras av sökningen.

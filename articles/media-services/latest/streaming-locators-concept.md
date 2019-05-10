@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 05/08/2019
 ms.author: juliako
-ms.openlocfilehash: 51aa33e4ff387a1030dac42bce8d12cf72343b35
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 24ee700e326ef61aa6a93aae725e85e7b4780edf
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61466739"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65465044"
 ---
 # <a name="streaming-locators"></a>Positionerare för direktuppspelning
 
@@ -34,7 +34,7 @@ Om du vill ange alternativ för kryptering på din stream skapar den [innehåll 
 
 ## <a name="associate-filters-with-streaming-locators"></a>Associera filter med positionerare för direktuppspelning
 
-Du kan ange en lista över [tillgång eller konto filter](filters-concept.md), vilket skulle gälla för dina [Strömningspositionerare](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body). Den [dynamisk Paketeraren](dynamic-packaging-overview.md) gäller den här listan över filter tillsammans med de som klienten anger i URL: en. Den här kombinationen genererar en [dyanamic manifest](filters-dynamic-manifest-overview.md), som grundar sig på filter i URL: en + filter som du anger på Strömningspositionerare. Vi rekommenderar att du använder den här funktionen om du vill använda filter men inte vill exponera filternamn i URL: en.
+Du kan ange en lista över [tillgång eller konto filter](filters-concept.md), vilket skulle gälla för dina [Strömningspositionerare](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body). Den [dynamisk Paketeraren](dynamic-packaging-overview.md) gäller den här listan över filter tillsammans med de som klienten anger i URL: en. Den här kombinationen genererar en [dynamiska manifest](filters-dynamic-manifest-overview.md), som grundar sig på filter i URL: en + filter som du anger på Strömningspositionerare. Vi rekommenderar att du använder den här funktionen om du vill använda filter men inte vill exponera filternamn i URL: en.
 
 ## <a name="filter-order-page-streaming-locator-entities"></a>Filtrera, ordning, sidan Strömningspositionerare entiteter
 
@@ -43,4 +43,4 @@ Se [filtrering, sortering, växling av Media Services entiteter](entities-overvi
 ## <a name="next-steps"></a>Nästa steg
 
 * [Självstudie: Ladda upp, koda och strömma videor med hjälp av .NET](stream-files-tutorial-with-api.md)
-* [Använda dynamisk DRM-kryptering och tjänsten för licensleverans](protect-with-drm.md)
+* [Använda DRM dynamisk kryptering och licens video-on-demand](protect-with-drm.md)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: bf36de1965a8c819af0ef5af98a2393d4cefa1b3
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: b072314bdbec1d5a6184e6f20e98c35a9135a5b7
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205723"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508411"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Vanliga frågor (och svar FAQ) om Azure-nätverk
 
@@ -67,7 +67,9 @@ Ja. Mer information om offentliga IP-adressintervall finns i [skapa ett virtuell
 Ja. Se [Azure-begränsningar](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) mer information. Adressutrymmen för undernätet får inte överlappa varandra.
 
 ### <a name="are-there-any-restrictions-on-using-ip-addresses-within-these-subnets"></a>Finns det några begränsningar med IP-adresser inom dessa undernät?
-Ja. Azure reserverar 5 IP-adresser i varje undernät. De första och sista IP-adresserna för varje undernät är reserverade för protokollöverensstämmelse, tillsammans med de x.x.x.1 x.x.x.3 adresserna i varje undernät som används för Azure-tjänster.
+Ja. Azure reserverar 5 IP-adresser i varje undernät. Det här är x.x.x.0 x.x.x.3 och den sista adressen i undernätet.    
+- x.x.x.0 och den sista adressen i undernätet är reserverade för protokollöverensstämmelse.
+- x.x.x.1 x.x.x.3 är reserverad i varje undernät för Azure-tjänster.
 
 ### <a name="how-small-and-how-large-can-vnets-and-subnets-be"></a>Hur små och hur stor kan vara virtuella nätverk och undernät?
 Minsta stöds undernätet är /29 och den största är/8 som (med CIDR-subnätsdefinitioner).
@@ -225,7 +227,7 @@ Ja. Lär dig mer om hur du använder:
 - PowerShell för att hantera virtuella nätverk som distribueras via den [Resource Manager](/powershell/module/az.network) och [klassiska](/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0) distributionsmodeller.
 - Azures kommandoradsgränssnitt (CLI) för att distribuera och hantera virtuella nätverk som distribueras via den [Resource Manager](/cli/azure/network/vnet) och [klassiska](../virtual-machines/azure-cli-arm-commands.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-commands-to-manage-network-resources) distributionsmodeller.  
 
-## <a name="vnet-peering"></a>VNET-peering
+## <a name="vnet-peering"></a>VNet-peering
 
 ### <a name="what-is-vnet-peering"></a>Vad är VNet-peering?
 VNet-peering (eller virtuell nätverkspeering) kan du ansluta virtuella nätverk. En VNet peering-anslutning mellan virtuella nätverk kan du dirigera trafik mellan dem privat via IPv4-adresser. Virtuella datorer i peerkopplade virtuella nätverk kan kommunicera med varandra som om de är i samma nätverk. Dessa virtuella nätverk kan vara i samma region eller i olika regioner (även kallat Global VNet-Peering). Också kan skapa VNet peering-anslutningar mellan Azure-prenumerationer.
@@ -238,17 +240,17 @@ Om de två virtuella nätverken är i olika regioner (Global VNet-Peering) kan a
 Följande resurser använder grundläggande belastningsutjämnare vilket innebär att du inte kan kommunicera till dem i Global VNet-Peering:
 - Virtuella datorer bakom grundläggande belastningsutjämnare
 - VM Scale Sets med grundläggande belastningsutjämnare 
-- Redis Cache 
+- Redis-cache 
 - Application Gateway (v1) SKU
 - Service Fabric
 - SQL MI
-- API Managemenet
+- API Management
 - Active Directory Domain Service (ADDS)
 - Logic Apps
 - HD Insight
 -   Azure Batch
 - AKS
-- App Service Environment
+- App Service-miljön
 
 Du kan ansluta till dessa resurser via ExpressRoute eller VNet-till-VNet via VNet-gatewayer.
 
@@ -281,6 +283,9 @@ Nej. Transitiva peering stöds inte. Du måste peer VNetA och VNetC för den hä
 
 ### <a name="are-there-any-bandwidth-limitations-for-peering-connections"></a>Finns det några begränsningar i nätverksbandbredd för peering-anslutningar?
 Nej. VNet-peering, lokal eller global, medför inte några bandbreddsbegränsningar. Bandbredd begränsas bara av den virtuella datorn eller beräkningsresursen.
+
+### <a name="how-can-i-troubleshoot-vnet-peering-issues"></a>Hur felsöker jag problem med VNet-Peering?
+Här är en [felsökare guide] (https://support.microsoft.com/en-us/help/4486956/troubleshooter-for-virtual-network-peering-issues) du.
 
 ## <a name="virtual-network-tap"></a>Virtual Network TAP
 

@@ -4,7 +4,7 @@ description: Översikt över de lösningar för haveriberedskap med hjälp av Az
 services: dns
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/08/2018
 ms.author: kumud
-ms.openlocfilehash: ec252c1f45e5c27f17b725f6ab68cc94f67897c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a560cc526e73f3ce7e851f2a545f9b16fa53b423
+ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60507801"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65501702"
 ---
 # <a name="disaster-recovery-using-azure-dns-and-traffic-manager"></a>Haveriberedskap med hjälp av Azure DNS och Traffic Manager
 
@@ -141,7 +141,8 @@ Det här scenariot är perfekt att använda i Azure Traffic Manager som har inby
 Skapa en ny Azure Traffic manager-profil med namnet contoso123 och välj routningsmetod som prioritet. Om du har en befintlig resursgrupp som du vill associera med, kan du markera en befintlig resursgrupp eller skapa en ny resursgrupp.
 
 ![Skapa Traffic Manager-profil](./media/disaster-recovery-dns-traffic-manager/create-traffic-manager-profile.png)
-*bild – skapa en Traffic Manager-profil*
+
+*Bild – skapa en Traffic Manager-profil*
 
 ### <a name="step-2-create-endpoints-within-the-traffic-manager-profile"></a>Steg 2: Skapa slutpunkter i Traffic Manager-profilen
 

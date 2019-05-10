@@ -67,27 +67,29 @@
                 - name: Diskkryptering med ordningsföljd för VMSS-tillägg
                   href: azure-security-disk-encryption-extension-sequencing.md
                 - name: Bilaga för diskkryptering
-              href: azure-security-disk-encryption-appendix.md
-            - name: Vanliga frågor och svar om diskkryptering
-              href: azure-security-disk-encryption-faq.md
-            - name: Felsökning
-              href: azure-security-disk-encryption-tsg.md
-            - name: Azure Disk Encryption med Azure AD-appen (tidigare version)
-              displayName: active directory
-              items:
-                - name: Förutsättningar för diskkryptering med Azure AD-appen
+                  href: azure-security-disk-encryption-appendix.md
+                - name: Vanliga frågor och svar om diskkryptering
+                  href: azure-security-disk-encryption-faq.md
+                - name: Felsökning
+                  href: azure-security-disk-encryption-tsg.md
+                - name: Azure Disk Encryption med Azure AD-appen (tidigare version)
                   displayName: active directory
-                  href: azure-security-disk-encryption-prerequisites-aad.md
-                - name: Diskkryptering med Azure AD-appen för virtuella Windows-datorer
-                  displayName: active directory
-                  href: azure-security-disk-encryption-windows-aad.md
-                - name: Diskkryptering med Azure AD-appen för virtuella Linux-datorer
-                  displayName: active directory
-                  href: azure-security-disk-encryption-linux-aad.md
+                  items:
+                    - name: Förutsättningar för diskkryptering med Azure AD-appen
+                      displayName: active directory
+                      href: azure-security-disk-encryption-prerequisites-aad.md
+                    - name: Diskkryptering med Azure AD-appen för virtuella Windows-datorer
+                      displayName: active directory
+                      href: azure-security-disk-encryption-windows-aad.md
+                    - name: Diskkryptering med Azure AD-appen för virtuella Linux-datorer
+                      displayName: active directory
+                      href: azure-security-disk-encryption-linux-aad.md
     - name: Azure Storage-säkerhet
       href: security-storage-overview.md
     - name: Lagringssäkerhetsguide
       href: ../storage/common/storage-security-guide.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - name: Customer Lockbox
+      href: azure-customer-lockbox-overview.md
 - name: Plattform och infrastruktur
   items:
     - name: Säkerhet för infrastruktur

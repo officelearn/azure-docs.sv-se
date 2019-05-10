@@ -7,13 +7,13 @@ ms.author: twhitney
 manager: jeconnoc
 ms.topic: tutorial
 ms.service: openshift
-ms.date: 05/06/2019
-ms.openlocfilehash: 5bc71a2d0f29fed163fb5c93ebd27df7f66a1325
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.date: 05/08/2019
+ms.openlocfilehash: baada8a5238725456ca4a2ec7e8257c229066115
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65080760"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466185"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-cluster"></a>Självstudier: Skapa ett Azure Red Hat OpenShift-kluster
 
@@ -28,19 +28,19 @@ I den här självstudieserien får du lära du dig att:
 > [!div class="checklist"]
 > * Skapa ett Azure Red Hat OpenShift-kluster
 > * [Skala ett Azure Red Hat OpenShift-kluster](tutorial-scale-cluster.md)
-> * [Ta bort ett kluster i Azure Red Hat OpenShift](tutorial-delete-cluster.md)
+> * [Ta bort ett Azure Red Hat OpenShift-kluster](tutorial-delete-cluster.md)
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Innan du börjar den här självstudien:
 
 Se till att du har [ställa in din utvecklingsmiljö](howto-setup-environment.md), vilket inkluderar:
-- Installera den senaste versionen av CLI
+- Installera den senaste versionen av CLI (version 2.0.64 eller senare)
 - Skapa en klient
 - Skapa ett programobjekt i Azure
 - Skapa en Active Directory-användare som används för att logga in på appar som körs i klustret.
 
-## <a name="step-1-sign-in-to-azure"></a>Steg 1: Logga in på Azure
+## <a name="step-1-sign-in-to-azure"></a>Steg 1: Logga in till Azure
 
 Om du använder Azure CLI lokalt kan du öppna ett Bash-kommando skal och kör `az login` att logga in på Azure.
 
@@ -101,7 +101,7 @@ az group create --name $CLUSTER_NAME --location $LOCATION
 
 ### <a name="optional-connect-the-clusters-virtual-network-to-an-existing-virtual-network"></a>Valfritt: Ansluta klustrets virtuella nätverk till ett befintligt virtuellt nätverk
 
-Om du inte behöver ansluta det virtuella nätverket (VNET) i klustret som du skapar i ett befintligt VNET kan du hoppa över det här steget.
+Om du inte behöver ansluta det virtuella nätverket (VNET) i klustret du skapar i ett befintligt VNET via peering kan du hoppa över det här steget.
 
 Först hämta identifierare för det befintliga virtuella nätverket. Identifieraren ska vara i formatet: `/subscriptions/{subscription id}/resourceGroups/{resource group of VNET}/providers/Microsoft.Network/virtualNetworks/{VNET name}`.
 
@@ -132,7 +132,7 @@ Efter ett par minuter `az openshift create` ska slutföras och returnerar ett JS
 
 ## <a name="step-3-sign-in-to-the-openshift-console"></a>Steg 3: Logga in på konsolen OpenShift
 
-Du är nu redo att logga in på konsolen OpenShift för det nya klustret. Den [OpenShift webbkonsolen](https://docs.openshift.com/dedicated/architecture/infrastructure_components/web_console.html) kan du visualisera, bläddra och hantera innehållet i dina OpenShift-projekt.
+Nu är du redo att logga in på konsolen OpenShift för det nya klustret. Den [OpenShift webbkonsolen](https://docs.openshift.com/aro/architecture/infrastructure_components/web_console.html) kan du visualisera, bläddra och hantera innehållet i dina OpenShift-projekt.
 
 Vi ska logga in som den [nya Azure AD-användare](howto-aad-app-configuration.md#create-a-new-active-directory-user) du skapade för testning. Om du vill göra detta måste en ny webbläsare-instans som inte har cachelagrade identiteten som du vanligtvis använder för att logga in på Azure-portalen.
 
@@ -147,13 +147,13 @@ Logga in med användare och lösenord som du skapade i [skapa en ny Active Direc
 
 Du är nu inloggad på kluster-konsolen.
 
-[Skärmbild av konsolen OpenShift-kluster](./media/aro-console.png)
+![Skärmbild av konsolen OpenShift-kluster](./media/aro-console.png)
 
- Du kan läsa mer om [med hjälp av konsolen OpenShift](https://docs.openshift.com/dedicated/getting_started/developers_console.html) att skapa och inbyggda avbildningar i den [Red Hat OpenShift](https://docs.openshift.com/dedicated/welcome/index.html) dokumentation.
+ Läs mer om [med hjälp av konsolen OpenShift](https://docs.openshift.com/aro/getting_started/developers_console.html) att skapa och inbyggda avbildningar i den [Red Hat OpenShift](https://docs.openshift.com/aro/welcome/index.html) dokumentation.
 
 ## <a name="step-4-install-the-openshift-cli"></a>Steg 4: Installera CLI OpenShift
 
-Den [OpenShift CLI](https://docs.openshift.com/dedicated/cli_reference/get_started_cli.html) (eller *OC verktyg*) ger kommandon för att hantera dina program och verktyg på lägre nivå för att interagera med olika komponenter i klustret OpenShift.
+Den [OpenShift CLI](https://docs.openshift.com/aro/cli_reference/get_started_cli.html) (eller *OC verktyg*) ger kommandon för att hantera dina program och verktyg på lägre nivå för att interagera med olika komponenter i klustret OpenShift.
 
 Klicka på frågetecknet i det övre högra hörnet av ditt inloggningsnamn i OpenShift-konsolen och välj **kommandoradsverktyg**.  Följ den **senaste versionen** länk för att hämta och installera stöds oc CLI för Linux, MacOS och Windows.
 

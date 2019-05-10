@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/28/2019
 ms.author: juliako
-ms.openlocfilehash: f10883ca89c048d384eff9bddaf7642e22941109
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 9443a50d130e6542672eb143bcb56d04d63959a4
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65160597"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235702"
 ---
 # <a name="media-services-job-error-codes"></a>Felkoder för Media Services-jobb
 
@@ -34,7 +34,7 @@ Kolla in den [Azure Media Services-community](media-services-community.md) artik
 
 ## <a name="see-also"></a>Se också
 
-- [Felkoder för ursprung](origin-error-codes.md)
+- [Felkoder för slutpunkten för direktuppspelning](streaming-endpoint-error-codes.md)
 - [Azure Media Services-begrepp](concepts-overview.md)
 - [Kvoter och begränsningar](limits-quotas-constraints.md)
 

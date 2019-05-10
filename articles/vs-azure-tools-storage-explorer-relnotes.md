@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: c6416e36d7d2723577ca0d2009fb7bbad24f3b6a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 18c52a47c291181547a9005c273dc1a329b8c207
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154704"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510951"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Viktig information om Microsoft Azure Lagringsutforskaren
 
@@ -44,7 +44,7 @@ Den här artikeln innehåller viktig information om Azure Storage Explorer 1.4.3
 * Flagga för att beräkna och ange MD5-hash har nu aktiverats för AzCopy uppladdningar. [#1223](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1223)
 
 
-### <a name="preview-features"></a>Förhandsversionsfunktioner
+### <a name="preview-features"></a>Förhandsvisningsfunktioner
 
 * Enheten kod flow inloggningen finns nu att förhandsgranska. Aktivera det genom att gå till ”förhandsversion” → ”Använd kod Flow enhetsinloggning”. Vi rekommenderar att alla användare som har haft problem med tomma inloggning-fönster för den här funktionen, eftersom det kan visa sig vara en mer tillförlitlig form av inloggning.
 * Lagringsutforskaren integrerat med AzCopy är nu tillgänglig för förhandsgranskning. Aktivera det genom att gå till ”förhandsversion” → ”Använd AzCopy för förbättrad Blob ladda upp och ladda ned”. BLOB-överföringar har slutförts med AzCopy ska vara snabbare och bättre.
@@ -82,7 +82,7 @@ Den här artikeln innehåller viktig information om Azure Storage Explorer 1.4.3
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* Om du kör Lagringsutforskaren i Linux måste vissa beroenden installeras först. Kontrollera Storage Explorer [felsökningsguide](https://docs.microsoft.com/en-us/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) för mer information.
+* Om du kör Lagringsutforskaren i Linux måste vissa beroenden installeras först. Kontrollera Storage Explorer [felsökningsguide](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) för mer information.
 
 ## <a name="previous-releases"></a>Tidigare versioner
 
@@ -135,7 +135,7 @@ Den här artikeln innehåller viktig information om Azure Storage Explorer 1.4.3
 * Du kan nu ändra ägare och ägande grupp vid hantering av åtkomst för en ADLS Gen2 behållare, fil eller mapp.
 * På Windows är uppdatering av Storage Explorer från inom produkten nu en inkrementell installation. Detta resulterar i en snabbare uppdatering-upplevelse. Om du föredrar en ren installation så du kan ladda ned den [installer](https://azure.microsoft.com/features/storage-explorer/) själv och sedan installera manuellt. #1089
 
-### <a name="preview-features"></a>Förhandsversionsfunktioner
+### <a name="preview-features"></a>Förhandsvisningsfunktioner
 
 * Enheten kod flow inloggningen finns nu att förhandsgranska. Aktivera det genom att gå till ”förhandsversion” → ”Använd kod Flow enhetsinloggning”. Vi rekommenderar att alla användare som har haft problem med tomma inloggning-fönster för den här funktionen, eftersom det kan visa sig vara en mer tillförlitlig form av inloggning. #938
 * Lagringsutforskaren integrerat med AzCopy är nu tillgänglig för förhandsgranskning. Aktivera det genom att gå till ”förhandsversion” → ”Använd AzCopy för förbättrad Blob ladda upp och ladda ned”. BLOB-överföringar har slutförts med AzCopy ska vara snabbare och bättre.

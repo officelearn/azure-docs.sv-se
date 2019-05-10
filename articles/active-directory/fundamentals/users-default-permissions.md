@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: vincesm
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1736b120b60ab6583a3c38bb13c985d312c021b
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: fb05ee4d6e05cb8b56756a761a519e5903b78bbd
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190947"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507097"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Vad är standardbehörigheterna för användare i Azure Active Directory?
 Alla användare beviljas en uppsättning standardbehörigheter i Azure Active Directory (AD Azure). En användares åtkomst består av typ av användare, deras [rolltilldelningar](active-directory-users-assign-role-azure-portal.md), och deras ägarskap för enskilda objekt. Den här artikeln beskriver dessa standardbehörigheter och innehåller en jämförelse av standardinställningar för medlem och gäst. Standard användarbehörigheter kan ändras endast i användarinställningarna i Azure AD.
@@ -50,7 +50,7 @@ Standardbehörigheter för medlemmsanvändare kan begränsas på följande sätt
 Behörighet | Förklaring av inställning
 ---------- | ------------
 Användare kan registrera program | Ange det här alternativet på Nej förhindrar användare från att skapa programregistreringar. Möjligheten kan sedan få tillbaka till specifika personer genom att lägga till dem till rollen programutvecklare.
-Tillåt att användare ansluter arbets-eller skolkonton med LinkedIn | Ange det här alternativet på Nej förhindrar användare från att ansluta sina arbets- eller skolkonto konto med sina LinkedIn-konto.  Se [LinkedIn konto anslutningar Datadelning och medgivande](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/linkedin-user-consent) för mer information.
+Tillåt att användare ansluter arbets-eller skolkonton med LinkedIn | Ange det här alternativet på Nej förhindrar användare från att ansluta sina arbets- eller skolkonto konto med sina LinkedIn-konto.  Se [LinkedIn konto anslutningar Datadelning och medgivande](https://docs.microsoft.com/azure/active-directory/users-groups-roles/linkedin-user-consent) för mer information.
 Möjlighet att skapa säkerhetsgrupper | När den här inställningen är inställd på Nej kan användare inte skapa säkerhetsgrupper. Globala administratörer och användaradministratörer kan du fortfarande skapa säkerhetsgrupper. Se [Azure Active Directory-cmdletar för att konfigurera gruppinställningar](../users-groups-roles/groups-settings-cmdlets.md) för att lära dig hur du ska gå tillväga.
 Får skapa Office 365-grupper | Om det här alternativet är Nej får användare inte skapa Office 365-grupper. Om det här alternativet är Vissa får en uppsättning användare skapa Office 365-grupper. Globala administratörer och användaradministratörer kommer fortfarande att kunna skapa Office 365-grupper. Se [Azure Active Directory-cmdletar för att konfigurera gruppinställningar](../users-groups-roles/groups-settings-cmdlets.md) för att lära dig hur du ska gå tillväga.
 Begränsa åtkomst till Azure AD-administrationsportalen | Ange det här alternativet på Nej förhindrar användare från att komma åt Azure Active Directory.

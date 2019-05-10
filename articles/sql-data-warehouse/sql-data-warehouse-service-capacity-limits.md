@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 11/14/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: a8512e128d757e2faf4c3f63c5ad113b1d67b4ee
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: ad285d71c2bb90f4b5a59eba25c6cc6a6d8588d6
+ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65204901"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65501852"
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>SQL Data Warehouse kapacitetsbegränsningar
 Högsta värden som tillåts för olika komponenter i Azure SQL Data Warehouse.
@@ -35,11 +35,11 @@ Högsta värden som tillåts för olika komponenter i Azure SQL Data Warehouse.
 |:--- |:--- |:--- |
 | Databas |Maxstorlek | Gen1: 240 TB komprimerat på disken. Här är oberoende av tempdb-eller log och därför tomrummet är dedikerad till permanent tabeller.  Grupperade columnstore-komprimering uppskattas till 5 X.  Den här komprimeringen låter databasen växa till cirka 1 PB när alla tabeller är grupperade (tabelltyp för standard). <br/><br/> Gen2: 240TB för rowstore och obegränsad lagring för columnstore-tabeller |
 | Tabell |Maxstorlek |60 TB komprimerat på disk |
-| Tabell |Tabeller per databas | 100 000 |
+| Tabell |Tabeller per databas | 100,000 |
 | Tabell |Kolumner per tabell |1 024 kolumner |
 | Tabell |Byte per kolumn |Beroende på kolumnen [datatypen](sql-data-warehouse-tables-data-types.md). Gränsen är 8000 för datatyperna char, 4000 för nvarchar eller 2 GB för MAX-datatyper. |
 | Tabell |Byte per rad, definierad storlek |8 060 byte<br/><br/>Antalet byte per rad beräknas på samma sätt som för SQL Server med sidan komprimering. Som SQL Server, SQL Data Warehouse stöder rad spill lagring, vilket gör att **variabel längd kolumner** att överföras utanför raden. När variabel längd rader skickas utanför raden, lagras endast 24 byte-roten i den huvudsakliga posten. Mer information finns i [rad spill Data överstiger 8 KB](https://msdn.microsoft.com/library/ms186981.aspx). |
-| Tabell |Partitioner per tabell |15 000<br/><br/>För hög prestanda, rekommenderar vi att minimera antalet partitioner måste du även ge stöd åt dina affärsbehov. När antalet partitioner växer, ökar CPU-användningen för Data Definition Language (DDL) och Data Manipulation Language (DML) och gör långsammare. |
+| Tabell |Partitioner per tabell |15,000<br/><br/>För hög prestanda, rekommenderar vi att minimera antalet partitioner måste du även ge stöd åt dina affärsbehov. När antalet partitioner växer, ökar CPU-användningen för Data Definition Language (DDL) och Data Manipulation Language (DML) och gör långsammare. |
 | Tabell |Tecken per partition gränsvärdet. |4000 |
 | Index |Icke-grupperade index per tabell. |50<br/><br/>Gäller endast rowstore-tabeller. |
 | Index |Grupperade index per tabell. |1<br><br/>Gäller för både rowstore och columnstore-tabeller. |
@@ -54,7 +54,7 @@ Högsta värden som tillåts för olika komponenter i Azure SQL Data Warehouse.
 ## <a name="loads"></a>Inläsningar
 | Category | Beskrivning | Maximal |
 |:--- |:--- |:--- |
-| Polybase-inläsningar |MB per rad |1<br/><br/>Polybase läser in rader som är mindre än 1 MB.<br/><br/> |
+| Polybase-inläsningar |MB per rad |1<br/><br/>Polybase läser in rader som är mindre än 1 MB. Läsa in LOB-datatyper i tabeller med en klustrad Columnstore Index (Kolumnlagringsindex) stöds inte.<br/><br/> |
 
 ## <a name="queries"></a>Frågor
 | Category | Beskrivning | Maximal |
@@ -65,10 +65,10 @@ Högsta värden som tillåts för olika komponenter i Azure SQL Data Warehouse.
 | Fråga |Maximal parametrar |2098 |
 | Batch |Maximal storlek |65,536*4096 |
 | Välj resultat |Kolumner per rad |4096<br/><br/>Du kan aldrig ha högst 4 096 kolumner per rad i väljer resultatet. Det är inte säkert att du alltid har 4096. Om frågeplanen kräver en tillfällig tabell, kan 1024 kolumner per tabell maximala gälla. |
-| VÄLJ |Kapslade underfrågor |32<br/><br/>Du kan aldrig ha fler än 32 kapslade underfrågor i en SELECT-instruktion. Det är inte säkert att du alltid har 32. Exempelvis kan kan en koppling medföra en underfråga i frågeplanen. Antalet underfrågor kan också begränsas av tillgängligt minne. |
-| VÄLJ |Kolumner per koppling |1 024 kolumner<br/><br/>Du kan aldrig ha högst 1 024 kolumner i KOPPLINGEN. Det är inte säkert att du alltid har 1024. Om koppling planen kräver en tillfällig tabell med fler kolumner än kopplingsresultatet, gäller 1024-gränsen för den temporära tabellen. |
-| VÄLJ |Byte per GROUP BY-kolumner. |8060<br/><br/>Kolumner i GROUP BY-satsen kan ha maximalt 8 060 byte. |
-| VÄLJ |Byte per ORDER BY kolumner |8 060 byte<br/><br/>Kolumner i ORDER BY-satsen kan ha maximalt 8 060 byte |
+| Välj |Kapslade underfrågor |32<br/><br/>Du kan aldrig ha fler än 32 kapslade underfrågor i en SELECT-instruktion. Det är inte säkert att du alltid har 32. Exempelvis kan kan en koppling medföra en underfråga i frågeplanen. Antalet underfrågor kan också begränsas av tillgängligt minne. |
+| Välj |Kolumner per koppling |1 024 kolumner<br/><br/>Du kan aldrig ha högst 1 024 kolumner i KOPPLINGEN. Det är inte säkert att du alltid har 1024. Om koppling planen kräver en tillfällig tabell med fler kolumner än kopplingsresultatet, gäller 1024-gränsen för den temporära tabellen. |
+| Välj |Byte per GROUP BY-kolumner. |8060<br/><br/>Kolumner i GROUP BY-satsen kan ha maximalt 8 060 byte. |
+| Välj |Byte per ORDER BY kolumner |8 060 byte<br/><br/>Kolumner i ORDER BY-satsen kan ha maximalt 8 060 byte |
 | Identifierare per instruktionen |Antal refererade identifierare |65,535<br/><br/>SQL Data Warehouse begränsar antalet identifierare som kan finnas i ett enda uttryck i en fråga. Som överstiger det här antalet resultatet i SQL Server-felet 8632. Mer information finns i [internt fel: En uttryckstjänstgräns har nåtts](https://support.microsoft.com/en-us/help/913050/error-message-when-you-run-a-query-in-sql-server-2005-internal-error-a). |
 | Stränglitteraler | Antal stränglitteraler i en instruktion | 20,000 <br/><br/>SQL Data Warehouse begränsar antalet strängkonstanter i ett enda uttryck i en fråga. Som överstiger det här antalet resultatet i SQL Server-felet 8632.|
 

@@ -643,8 +643,6 @@
                   href: service-fabric-cluster-config-upgrade-azure.md
                 - name: Korrigera klusternoder (Windows)
                   href: service-fabric-patch-orchestration-application.md
-                - name: Korrigera klusternoder (Linux)
-                  href: service-fabric-patch-orchestration-application-linux.md
                 - name: Aktivera diskkryptering (Windows)
                   href: service-fabric-enable-azure-disk-encryption-windows.md
                 - name: Aktivera diskkryptering (Linux)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/15/2018
 ms.author: genli
-ms.openlocfilehash: 032bc1b9c4b1b0e3bf8040ed52bf4db65ba7b6c7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1c97b1da094b759ccf85f310ceec4c7abfd91b9b
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60318990"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472299"
 ---
 # <a name="windows-reboot-loop-on-an-azure-vm"></a>Windows omstartningsloop på en Azure VM
 Den här artikeln beskriver omstartningsloop som kan uppstå på en Windows virtuell dator (VM) i Microsoft Azure.
@@ -102,6 +102,8 @@ Du löser problemet, [säkerhetskopiera OS-disken](../windows/snapshot-copy-mana
 Återställer den virtuella datorn till den senaste fungerande konfigurationen, följer du stegen i [hur du startar Azure Windows VM med senast fungerande konfiguration](https://support.microsoft.com/help/4016731/).
 
 ### <a name="solution-for-cause-3"></a>Lösning för orsak 3
+>[!NOTE]
+>Följande procedur bör bara användas som sista resursen. När du återställer från regback kan återställa åtkomst till datorn, anses Operativsystemet inte stabil eftersom det inte finns data som går förlorade i registret mellan tidsstämpel för hive och den aktuella dagen. Du måste skapa en ny virtuell dator och planera att migrera data.
 
 1. När disken är ansluten till en felsökning virtuell dator, se till att disken flaggas som **Online** i konsolen Diskhantering.
 
@@ -113,5 +115,4 @@ Du löser problemet, [säkerhetskopiera OS-disken](../windows/snapshot-copy-mana
 
 5. [Skapa en ny virtuell dator från OS-disken](../windows/create-vm-specialized.md).
 
->[!NOTE]
->Följande procedur bör bara användas som sista resursen. När du återställer från regback kan återställa åtkomst till datorn, anses Operativsystemet inte stabil eftersom det inte finns data som går förlorade i registret mellan tidsstämpel för hive och den aktuella dagen. Du måste skapa en ny virtuell dator och planera att migrera data.
+

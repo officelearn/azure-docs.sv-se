@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: b35a06fc4e100d71e787e183299825b61d342e69
-ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
+ms.openlocfilehash: 0831f08eaa3e8e6f6a0d3f68bc50cd927167b7ba
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "64993153"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507932"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure Metadata Service: Schemalagda händelser för virtuella Linux-datorer
 
@@ -46,7 +46,7 @@ Programmet kan identifiera när Underhåll ska inträffa och utlösa uppgifter f
 
 Schemalagda händelser innehåller händelser i följande användningsfall:
 
-- [Plattformen initierade Underhåll](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/maintenance-and-updates) (till exempel VM omstart, Direktmigrering och minne som bevaras uppdateringar för värd)
+- [Plattformen initierade Underhåll](https://docs.microsoft.com/azure/virtual-machines/linux/maintenance-and-updates) (till exempel VM omstart, Direktmigrering och minne som bevaras uppdateringar för värd)
 - Degraderat maskinvara
 - Användarinitierat Underhåll (till exempel en användare startar om eller distribuerar om en virtuell dator)
 - [Borttagning har VM med låg prioritet](https://azure.microsoft.com/blog/low-priority-scale-sets) i skala
@@ -79,7 +79,7 @@ Tjänsten Scheduled Events är en ny version. Versioner är obligatoriska. den a
 | - | - | - | - | 
 | 2017-11-01 | Allmän tillgänglighet | Alla | <li> Stöd har lagts till för borttagning har VM med låg prioritet händelsetyp 'Preempt'<br> | 
 | 2017-08-01 | Allmän tillgänglighet | Alla | <li> Bort föregås av ett anpassningsprefix understreck från resursnamn för virtuella IaaS-datorer<br><li>Metadata-huvud kravet gäller för alla begäranden | 
-| 2017-03-01 | Förhandsversion | Alla | <li>Första utgåvan
+| 2017-03-01 | Förhandsgranska | Alla | <li>Första utgåvan
 
 
 > [!NOTE] 
@@ -97,7 +97,7 @@ Om du startar om en virtuell dator, en händelse med typen `Reboot` har schemala
 
 ## <a name="use-the-api"></a>Använda API: et
 
-### <a name="headers"></a>Rubriker
+### <a name="headers"></a>Huvuden
 När du frågar Metadata Service måste du ange rubriken `Metadata:true` att se till att begäran inte oavsiktligt omdirigeras. Den `Metadata:true` rubrik krävs för alla schemalagda händelser förfrågningar. Det gick inte att använda huvud i begäran resulterar i ett ”felaktig begäran”-svar från Metadata Service.
 
 ### <a name="query-for-events"></a>Fråga efter händelser
@@ -131,7 +131,7 @@ I fall där det finns schemalagda händelser, svaret innehåller en matris med h
 | - | - |
 | EventId | Globalt unik identifierare för den här händelsen. <br><br> Exempel: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
 | Händelsetyp | Påverkan som gör att den här händelsen. <br><br> Värden: <br><ul><li> `Freeze`: Den virtuella datorn är schemalagd att pausa under några sekunder. CPU och nätverksanslutningen kan stängas av, men det finns ingen inverkan på minne eller öppna filer.<li>`Reboot`: Den virtuella datorn är schemalagd för omstart (icke-beständiga minne är förlorad). <li>`Redeploy`: Den virtuella datorn kommer att flytta till en annan nod (differentierande diskar förloras). <li>`Preempt`: VM med låg prioritet tas bort (differentierande diskar förloras).|
-| ResourceType | Typ av resurs som påverkar den här händelsen. <br><br> Värden: <ul><li>`VirtualMachine`|
+| Resurstyp | Typ av resurs som påverkar den här händelsen. <br><br> Värden: <ul><li>`VirtualMachine`|
 | Resurser| Lista över resurser som påverkar den här händelsen. Listan kommer att innehålla datorer från högst ett [uppdateringsdomän](manage-availability.md), men det kanske inte innehåller alla datorer i UD. <br><br> Exempel: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | EventStatus | Status för den här händelsen. <br><br> Värden: <ul><li>`Scheduled`: Den här händelsen är schemalagd att starta efter den tid som anges i den `NotBefore` egenskapen.<li>`Started`: Den här händelsen har startats.</ul> Inte `Completed` eller liknande status någonsin har angetts. Händelsen är inte längre returneras när händelsen är klar.
 | NotBefore| Tid efter vilken den här händelsen kan starta. <br><br> Exempel: <br><ul><li> Mån, 19 Sep 2016 18:29:47 GMT  |
@@ -141,9 +141,9 @@ Varje händelse schemaläggs en minimal mängd tidpunkt i framtiden baserat på 
 
 |Händelsetyp  | Minsta meddelande |
 | - | - |
-| Lås| 15 minuter |
-| Starta om | 15 minuter |
-| Omdistribuera | 10 minuter |
+| Lås| 15 minuter |
+| Starta om | 15 minuter |
+| Omdistribuera | 10 minuter |
 | Förutse | 30 sekunder |
 
 ### <a name="start-an-event"></a>Starta en händelse 

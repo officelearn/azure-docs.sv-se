@@ -10,14 +10,14 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 11/27/2017
+ms.date: 05/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6b5cdf8aebdf584216afef9f1d1421eea8c4ba4e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 4b2f73013b399dd2ca3d549e2ac2ec4ffba65b81
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64685153"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471728"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Övervaka och minimera begränsningar om du vill minska svarstiden i Azure Time Series Insights
 
@@ -34,21 +34,21 @@ Du är mest sannolika svarstid och begränsning när du:
 
 ## <a name="video"></a>Video
 
-### <a name="in-this-video-we-cover-time-series-insights-data-ingress-behavior-and-how-to-plan-for-itbr"></a>I den här videon beskriver vi beteende för Time Series Insights data ingångshändelser och hur du planerar för den.</br>
+### <a name="learn-about-time-series-insights-data-ingress-behavior-and-how-to-plan-for-itbr"></a>Läs om Time Series Insights data ingående beteende och hur du planerar för den.</br>
 
 > [!VIDEO https://www.youtube.com/embed/npeZLAd9lxo]
 
 ## <a name="monitor-latency-and-throttling-with-alerts"></a>Övervaka svarstid och begränsning med aviseringar
 
-Aviseringar kan hjälpa dig att diagnostisera och förebygga problem med nätverkssvarstiden på grund av din miljö. 
+Aviseringar kan hjälpa dig att diagnostisera och förebygga problem med nätverkssvarstiden på grund av din miljö.
 
-1. I Azure-portalen klickar du på **mått**. 
+1. I Azure-portalen klickar du på **mått**.
 
-   ![Mått](media/environment-mitigate-latency/add-metrics.png)
+   [![Mått](media/environment-mitigate-latency/add-metrics.png)](media/environment-mitigate-latency/add-metrics.png#lightbox)
 
-2. Klicka på **Lägg till måttavisering**.  
+1. Klicka på **Lägg till måttavisering**.  
 
-    ![Lägga till måttavisering](media/environment-mitigate-latency/add-metric-alert.png)
+   [![Lägg till måttavisering](media/environment-mitigate-latency/add-metric-alert.png)](media/environment-mitigate-latency/add-metric-alert.png#lightbox)
 
 Därifrån kan konfigurera du aviseringar med hjälp av följande mått:
 
@@ -64,19 +64,19 @@ Därifrån kan konfigurera du aviseringar med hjälp av följande mått:
 
 ![Svarstid](media/environment-mitigate-latency/latency.png)
 
-Om du har begränsats, ser du ett värde för den *ingående tog emot meddelande tidsförskjutningen*, informerar dig om hur många sekunder bakom TSI är från den faktiska tiden meddelandet når händelsekällan (exklusive indexering tidpunkten för appx. 30-60 sekunder).  *Fördröjning för inkommande antal meddelanden tas emot* bör även ha ett värde, så att du kan avgöra hur många meddelanden bakom dig som.  Det enklaste sättet att få uppdateringar är att öka kapaciteten för din miljö till en storlek som gör att du kan lösa skillnaden.  
+* Om du har begränsats, ser du ett värde för den *ingående tog emot meddelande tidsförskjutningen*, informerar dig om hur många sekunder bakom din TSI är från den faktiska tiden meddelandet når händelsekällan (exklusive indexering tidpunkten för appx. 30-60 sekunder).  *Fördröjning för inkommande antal meddelanden tas emot* bör även ha ett värde, så att du kan avgöra hur många meddelanden bakom dig som.  Det enklaste sättet att få uppdateringar är att öka kapaciteten för din miljö till en storlek som gör att du kan lösa skillnaden.  
 
-Om du har en enda enhet S1-miljö och att det finns en fördröjning i fem miljoner meddelandet, kan du öka storleken på din miljö till sex enheter för runt en dag för att få uppdateringar.  Du kan öka även ytterligare till catch dig snabbare.  Catch-up perioden är vanligt förekommande när du först etablerar en miljö, särskilt när du ansluter den till en händelsekälla som redan innehåller händelser i den eller när du massimportera ladda upp stora mängder historiska data.
+  Om du har en enda enhet S1-miljö och att det finns en fördröjning på 5 000 000 meddelandet, kan du öka storleken på din miljö till sex enheter för runt en dag för att få uppdateringar.  Du kan öka även ytterligare till catch dig snabbare. Catch-up perioden är vanligt förekommande när du först etablerar en miljö, särskilt när du ansluter den till en händelsekälla som redan innehåller händelser i den eller när du massimportera ladda upp stora mängder historiska data.
 
-En annan metod är att ställa in en **lagras Ingångshändelser** avisering > = ett tröskelvärde något nedanför din totala kapacitet under 2 timmar.  Den här aviseringen kan hjälpa dig att förstå om du hela tiden finns på kapacitet som anger en hög sannolikhet fördröjning.  
+* En annan metod är att ställa in en **lagras Ingångshändelser** avisering > = ett tröskelvärde något nedanför din totala kapacitet under 2 timmar.  Den här aviseringen kan hjälpa dig att förstå om du hela tiden finns på kapacitet som anger en hög sannolikhet fördröjning. 
 
-Kan till exempel, om du har tre S1-enheter som etablerats (eller 2100 händelser per minut ingress-kapacitet) kan du ange en **lagras Ingångshändelser** avisering för > = 1900 händelser i 2 timmar. Om du är ständigt som överskrider tröskelvärdet och därför kan utlösa aviseringen, är du förmodligen under allokerad.  
+  Kan till exempel, om du har tre S1-enheter som etablerats (eller 2100 händelser per minut ingress-kapacitet) kan du ange en **lagras Ingångshändelser** avisering för > = 1900 händelser i 2 timmar. Om du är ständigt som överskrider tröskelvärdet och därför kan utlösa aviseringen, är du förmodligen under allokerad.  
 
-Även om du misstänker att du har begränsats kan du jämföra din **ingående emot meddelanden** med din händelse är källan egressed meddelanden.  Om inkommande till din Event Hub är större än din **ingående emot meddelanden**, Time Series Insights är sannolikt begränsas.
+* Om du misstänker att du har begränsats, kan du jämföra din **ingående emot meddelanden** med din händelse är källan egressed meddelanden.  Om inkommande till din Event Hub är större än din **ingående emot meddelanden**, Time Series Insights är sannolikt begränsas.
 
 ## <a name="improving-performance"></a>Förbättra prestanda
 
-Om du vill minska begränsning eller upplever svarstid, är det bästa sättet att rätta till det att öka kapaciteten för din miljö. 
+Om du vill minska begränsning eller upplever svarstid, är det bästa sättet att rätta till det att öka kapaciteten för din miljö.
 
 Du kan undvika svarstid och begränsning genom att konfigurera din miljö den mängd data som du vill analysera. Läs mer om hur du lägger till kapacitet i miljön, [skala din miljö](time-series-insights-how-to-scale-your-environment.md).
 

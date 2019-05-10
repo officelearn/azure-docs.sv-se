@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/25/2019
+ms.date: 05/08/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fdf28418e7e1335dcb1f664964fa6ef03174aa1f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0986610007f5c470589eb94d6761b8d31dd79e72
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64709208"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65463501"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Felkoder för inloggningsaktivitet rapport 
 
@@ -177,6 +177,7 @@ Du kan även programmässigt komma åt inloggningsdata med hjälp av den [report
 |90051| Ogiltig Delegeringstoken. Ogiltig nationella moln-ID ({cloudId}) har angetts.|
 |90072| Kontot måste läggas till som en extern användare i klientorganisationen först. Logga ut och logga in igen med en annan Azure AD konto.|
 |90094| Beviljande måste ha administratörsbehörighet. Be klientorganisationens administratör att ge medgivande för det här programmet.|
+|500021|Innehavare är begränsat av företagets proxy. Neka åtkomst till resurser.|
 |500121| Autentiseringen misslyckades under stark autentiseringsbegäran.|
 |500133| Kontrollen är inte inom räckvidden giltig tid. Se till att den åtkomst-token inte har gått ut innan du använder den för användaren assertion eller begära en ny token.|
 |530021|Programmet uppfyller inte kraven för villkorlig åtkomst som godkänd app.|

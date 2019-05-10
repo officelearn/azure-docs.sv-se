@@ -7,18 +7,18 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: iainfou
-ms.openlocfilehash: d8e095303161002d10914ca7c3213ac0c6894e5d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d5a287a8da884290e94e9ac1c864abe28e47d53d
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60467138"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508148"
 ---
 # <a name="preview---automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Förhandsgranskning – automatiskt skala ett kluster för att uppfylla krav på program på Azure Kubernetes Service (AKS)
 
 Om du vill hålla jämna steg med behov i Azure Kubernetes Service (AKS), kan du behöva justera antalet noder som kör dina arbetsbelastningar. Komponenten kluster autoskalningen kan bevaka poddar i ditt kluster inte kan schemaläggas på grund av resursbegränsningar. När problem identifieras måste ökas antalet noder för att uppfylla programmets efterfrågan. Noder kontrolleras även regelbundet om bristande kör poddar, med antalet noder som sedan minskar efter behov. Den här möjligheten att automatiskt skala upp eller ned antalet noder i AKS-kluster kan du köra en effektiv och kostnadseffektiv kluster.
 
-Den här artikeln visar hur du aktiverar och hanterar klustret autoskalningen i ett AKS-kluster.
+Den här artikeln visar hur du aktiverar och hanterar klustret autoskalningen i ett AKS-kluster. Klustret autoskalningen bör endast testas i förhandsversionen av AKS-kluster med en enda nod-pool.
 
 > [!IMPORTANT]
 > AKS-förhandsversionsfunktioner är självbetjäning och delta i. Förhandsversioner tillhandahålls för att samla in feedback och buggar från vår community. De stöds dock inte av teknisk support för Azure. Om du skapar ett kluster eller lägga till dessa funktioner i befintliga kluster, stöds klustret inte förrän funktionen är inte längre i förhandsversion och uppgraderas till allmän tillgänglighet (GA).
@@ -59,6 +59,12 @@ När du är klar kan du uppdatera registreringen av den *Microsoft.ContainerServ
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
 ```
+
+## <a name="limitations"></a>Begränsningar
+
+Följande begränsningar gäller när du skapar och hanterar AKS-kluster som använder skalningsuppsättningar för virtuella datorer:
+
+* Tillägg till routning för HTTP-program kan inte användas.
 
 ## <a name="about-the-cluster-autoscaler"></a>Om klustret autoskalningen
 
@@ -101,7 +107,6 @@ az group create --name myResourceGroup --location canadaeast
 az aks create \
   --resource-group myResourceGroup \
   --name myAKSCluster \
-  --kubernetes-version 1.12.6 \
   --node-count 1 \
   --enable-vmss \
   --enable-cluster-autoscaler \

@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: cawa
-ms.openlocfilehash: 6b60e03c8888ad2c9726116f1f3b2e49d9a4e1e8
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9763a14e84d88be1d6f09fb9f16b6b7c9eeffd2d
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64722755"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506430"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>På ett säkert sätt spara hemliga programinställningar för ett webbprogram
 
@@ -49,14 +49,16 @@ Om du utvecklar ett projekt och behöver dela källkoden på ett säkert sätt a
 
     ![Lägga till Key Vault-hemlighet](./media/vs-secure-secret-appsettings/add-keyvault-secret.png)
 
-4. Installera den [autentisering för Azure-Services-tillägget för Visual Studio](https://go.microsoft.com/fwlink/?linkid=862354). Appen kan komma åt Key Vault med Visual Studio-inloggningen identitet via det här tillägget.
-
-5. Lägg till följande NuGet-paketen i projektet:
+    > [!NOTE] 
+    > Innan du Visual Studio 2017 V15.6 som vi rekommenderar att du installerar tillägget autentisering av Azure-tjänster för Visual Studio. Men den är föråldrad nu eftersom funcionality integrerats i Visual Studio. Därför om du använder en äldre version av visual Studio 2017, föreslår vi att du uppdaterar till minst VS 2017 15,6 eller upp så att du kan använda den här funktionen internt och få åtkomst till Key vault från att använda Visual Studio-inloggningen identiteten själva.
+    >
+ 
+4. Lägg till följande NuGet-paketen i projektet:
 
     ```
     Microsoft.Azure.Services.AppAuthentication
     ```
-6. Lägg till följande kod i filen Program.cs:
+5. Lägg till följande kod i filen Program.cs:
 
     ```csharp
     public static IWebHost BuildWebHost(string[] args) =>
@@ -79,11 +81,11 @@ Om du utvecklar ett projekt och behöver dela källkoden på ett säkert sätt a
 
         private static string GetKeyVaultEndpoint() => Environment.GetEnvironmentVariable("KEYVAULT_ENDPOINT");
     ```
-7. Lägg till Key Vault-Webbadressen launchsettings.json filen. Miljövariabeln *KEYVAULT_ENDPOINT* definieras i den kod som du lade till i steg 6.
+6. Lägg till Key Vault-Webbadressen launchsettings.json filen. Miljövariabeln *KEYVAULT_ENDPOINT* definieras i den kod som du lade till i steg 6.
 
     ![Lägg till Key Vault-Webbadressen som en miljövariabel för projektet](./media/vs-secure-secret-appsettings/add-keyvault-url.png)
 
-8. Starta felsökningen av projektet. Den bör köras.
+7. Starta felsökningen av projektet. Den bör köras.
 
 ## <a name="aspnet-and-net-applications"></a>ASP.NET och .NET-program
 

@@ -7,15 +7,15 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 05/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 3e813b8a1709675d0d870d64df83428ab82e25b3
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 5b9e0dfb88c979618ce4cc5ed56e372cb0f65608
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024299"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472724"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Välj en prisnivå för Azure Search
 
@@ -45,8 +45,8 @@ I följande tabell visas de tillgängliga nivåerna. Andra informationskällor n
 
 |Nivå | Kapacitet |
 |-----|-------------|
-|Kostnadsfri | Delas med andra prenumeranter. Icke-skalbart, begränsad till 3 index och 50 MB lagringsutrymme. |
-|Basic | Dedikerade resurser för produktionsarbetsbelastningar i mindre skala. En partition med 2 GB och upp till tre repliker. |
+|Kostnadsfritt | Delas med andra prenumeranter. Icke-skalbart, begränsad till 3 index och 50 MB lagringsutrymme. |
+|Grundläggande | Dedikerade resurser för produktionsarbetsbelastningar i mindre skala. En partition med 2 GB och upp till tre repliker. |
 |Standard 1 (S1) | Från S1 på dig dedikerade datorer med mer lagring och bearbetning av kapacitet på alla nivåer. Partitionsstorlek är 25 GB/partition (högst 300 GB per tjänst) för S1. |
 |Standard 2 (S2) | Liknar S1 men med 100 GB/partitioner (max 1,2 TB per tjänst) |
 |Standard 3 (S3) | 200 GB/partition (max 2,4 TB per tjänst) |
@@ -87,9 +87,9 @@ Användning av [Azure Search-indexerare](search-indexer-overview.md) kan resulte
 
 Gäller avgifterna för utgående data om tjänster finns i olika regioner. Sådana avgifter är inte en del av din Azure Search-faktura sig självt, men de nämns här om du använder data eller AI-berikats indexerare att hämta data från olika regioner, ser du de kostnader som visas i dina kostnader. 
 
-### <a name="3-ai-enriched-indexing-using-cognitive-services"></a>3. AI-utökad indexering med kognitiva tjänster
+### <a name="3-ai-enriched-indexing-using-cognitive-services"></a>3 AI-utökad indexering med kognitiva tjänster
 
-För [AI-indexering med kognitiva tjänster](cognitive-search-concept-intro.md), bör du vill koppla en fakturerbar resurs för Cognitive Services S0 prisnivån för användningsbaserad betalning bearbetning. Det kostar ingenting ”fast” som är associerade med koppla Cognitive Services. Du betalar bara för den bearbetning som du behöver.
+För [AI-indexering med kognitiva tjänster](cognitive-search-concept-intro.md), bör du vill koppla en fakturerbar Cognitive Services-resurs i samma region som Azure Search på S0 prisnivån för användningsbaserad betalning bearbetning. Det kostar ingenting ”fast” som är associerade med koppla Cognitive Services. Du betalar bara för den bearbetning som du behöver.
 
 Extrahering av avbildningen under dokumentknäckning är en Azure Search-avgift, som debiteras baserat på antalet avbildningar som extraheras från dina dokument. Textextrahering är för närvarande kostnadsfritt. 
 

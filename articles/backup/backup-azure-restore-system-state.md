@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/18/2017
 ms.author: saurse
-ms.openlocfilehash: 031b3096d919eb3faadf907f0d30e15d8d8fb5e5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6619611bee96089e465feb6f50d38caeada06dd9
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60246852"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472495"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Återställa systemtillståndet till Windows Server
 
@@ -27,7 +27,7 @@ Den här artikeln förklarar hur du återställer systemtillståndet i Windows S
 
 
 ## <a name="recover-system-state-files-to-the-same-server"></a>Återställ systemtillståndsfiler till samma server
-Följande steg beskriver hur du återställa din Windows Server-konfiguration till ett tidigare tillstånd. Kan vara bra att återställa din serverkonfiguration till kända, stabilt tillstånd. Följande steg återställer serverns systemtillstånd från Recovery Services-valvet. 
+Följande steg beskriver hur du återställa din Windows Server-konfiguration till ett tidigare tillstånd. Kan vara bra att återställa din serverkonfiguration till kända, stabilt tillstånd. Följande steg återställer serverns systemtillstånd från Recovery Services-valvet.
 
 1. Öppna snapin-modulen **Microsoft Azure Backup**. Om du inte vet där snapin-modulen har installerats, Sök dator eller server för **Microsoft Azure Backup**.
 
@@ -45,7 +45,7 @@ Följande steg beskriver hur du återställa din Windows Server-konfiguration ti
 
     ![Bläddra efter filer](./media/backup-azure-restore-system-state/recover-type-selection.png)
 
-5. I kalendern i **Välj volym och datum** peka fönstret väljer du en återställning. 
+5. I kalendern i **Välj volym och datum** peka fönstret väljer du en återställning.
 
     Du kan återställa från valfri återställningspunkt i tid. Datum i **fetstil** anger tillgängligheten för minst en återställningspunkt. När du har valt ett datum om flera återställningspunkter är tillgängliga, Välj den specifika återställningspunkten från den **tid** nedrullningsbara menyn.
 
@@ -91,11 +91,11 @@ De termer som används i de här stegen omfattar:
 5. Ange valvautentiseringsfilen som motsvarar den *exempel vault*. Om valvautentiseringsfilen är ogiltigt (eller har upphört att gälla) kan du ladda ned en ny valvautentiseringsfil från den *exempel vault* i Azure-portalen. När valvautentiseringsfilen har angetts visas Recovery Services-valvet som är associerade med valvautentiseringsfilen.
 
 6. I Välj Backup Server-rutan, väljer den *källdatorn* i listan visas datorer.
-7. I fönstret Välj återställningsläge väljer **systemtillstånd** och klicka på **nästa**. 
+7. I fönstret Välj återställningsläge väljer **systemtillstånd** och klicka på **nästa**.
 
-    ![Search](./media/backup-azure-restore-system-state/recover-type-selection.png)
+    ![Sökning](./media/backup-azure-restore-system-state/recover-type-selection.png)
 
-8. I kalendern i den **Välj volym och datum** peka fönstret väljer du en återställning. Du kan återställa från valfri återställningspunkt i tid. Datum i **fetstil** anger tillgängligheten för minst en återställningspunkt. När du har valt ett datum om flera återställningspunkter är tillgängliga, Välj den specifika återställningspunkten från den **tid** nedrullningsbara menyn. 
+8. I kalendern i den **Välj volym och datum** peka fönstret väljer du en återställning. Du kan återställa från valfri återställningspunkt i tid. Datum i **fetstil** anger tillgängligheten för minst en återställningspunkt. När du har valt ett datum om flera återställningspunkter är tillgängliga, Välj den specifika återställningspunkten från den **tid** nedrullningsbara menyn.
 
     ![Sökobjekt](./media/backup-azure-restore-system-state/select-date.png)
 
@@ -107,13 +107,13 @@ De termer som används i de här stegen omfattar:
 
     Alternativet **skapa kopior så att du har båda versionerna**, skapar kopior av enskilda filer i en befintlig systemtillstånd filarkiv istället för att skapa kopia av hela systemtillstånd arkivet.
 
-11. Kontrollera information för återställning i fönstret bekräftelse och klicka på **återställa**. 
+11. Kontrollera information för återställning i fönstret bekräftelse och klicka på **återställa**.
 
     ![Klicka på knappen Återställ för att bekräfta återställningsprocessen](./media/backup-azure-restore-system-state/confirm-recovery.png)
 
 12. Kopiera den *WindowsImageBackup* katalogen till en icke-kritisk volym på servern (till exempel D:\). Windows-operativsystemvolymen är vanligtvis den kritiska volymen.
 
-13. För att slutföra återställningen måste du använda följande avsnitt för att [gäller de återställda filerna i systemtillståndet på en Windows Server](backup-azure-restore-system-state.md#apply-restored-system-state-on-a-windows-server).
+13. För att slutföra återställningen måste du använda följande avsnitt för att [gäller de återställda filerna i systemtillståndet på en Windows Server](#apply-restored-system-state-on-a-windows-server).
 
 
 
@@ -143,7 +143,7 @@ När du har återställt systemtillstånd som filer med Azure Recovery Services-
 
    ![välja att återställa till en annan server](./media/backup-azure-restore-system-state/backup-stored-in-diff-location.png)
 
-6. När du anger platstypen, Välj **delad fjärrmapp** om säkerhetskopiering av systemtillstånd har återställts till en annan server. Om systemets tillstånd har återställts lokalt, väljer du **lokala enheter**. 
+6. När du anger platstypen, Välj **delad fjärrmapp** om säkerhetskopiering av systemtillstånd har återställts till en annan server. Om systemets tillstånd har återställts lokalt, väljer du **lokala enheter**.
 
     ![Välj om att återställning från lokal server eller en annan](./media/backup-azure-restore-system-state/ss-recovery-remote-shared-folder.png)
 
@@ -171,7 +171,7 @@ Säkerhetskopiering av systemtillstånd omfattar Active Directory-data. Använd 
 
 ## <a name="troubleshoot-failed-system-state-restore"></a>Felsöka misslyckade återställning av systemtillstånd
 
-Om en föregående process för tillämpning av systemtillståndet inte slutförs korrekt kan du använda Windows Recovery Environment (Win RE) för att återställa Windows Server. Följande steg beskriver hur du återställer med hjälp av vinna RE. Använd det här alternativet endast om Windows Server inte startas normalt efter en återställning av systemtillstånd. Följande process raderar andra data, var försiktig. 
+Om en föregående process för tillämpning av systemtillståndet inte slutförs korrekt kan du använda Windows Recovery Environment (Win RE) för att återställa Windows Server. Följande steg beskriver hur du återställer med hjälp av vinna RE. Använd det här alternativet endast om Windows Server inte startas normalt efter en återställning av systemtillstånd. Följande process raderar andra data, var försiktig.
 
 1. Starta Windows Server i Windows Återställningsmiljö (Windows RE).
 

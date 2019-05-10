@@ -134,7 +134,7 @@ Om du vill kopiera data från Greenplum, ange typ av datakälla i kopieringsakti
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **GreenplumSource** | Ja |
-| DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
+| query | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**
 

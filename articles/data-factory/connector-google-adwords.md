@@ -49,9 +49,9 @@ Följande egenskaper stöds för Google AdWords länkad tjänst:
 | developerToken | Developer token som är associerade med det konto som används för att ge åtkomst till AdWords-API.  Du kan välja att markera det här fältet som en SecureString att lagra den på ett säkert sätt i ADF eller lagra lösenord i Azure Key Vault och låt ADF kopiera aktivitet pull därifrån när du utför kopiering av data – Lär dig mer från [Store autentiseringsuppgifter i Key Vault](store-credentials-in-key-vault.md). | Ja |
 | authenticationType | OAuth 2.0 autentiseringsmekanism som används för autentisering. ServiceAuthentication kan bara användas på lokal IR. <br/>Tillåtna värden är: **ServiceAuthentication**, **UserAuthentication** | Ja |
 | refreshToken | Uppdateringstoken som hämtas från Google för att auktorisera åtkomst till AdWords för UserAuthentication. Du kan välja att markera det här fältet som en SecureString att lagra den på ett säkert sätt i ADF eller lagra lösenord i Azure Key Vault och låt ADF kopiera aktivitet pull därifrån när du utför kopiering av data – Lär dig mer från [Store autentiseringsuppgifter i Key Vault](store-credentials-in-key-vault.md). | Nej |
-| ClientId | Klient-id för google-programmet används för att få uppdateringstoken. Du kan välja att markera det här fältet som en SecureString att lagra den på ett säkert sätt i ADF eller lagra lösenord i Azure Key Vault och låt ADF kopiera aktivitet pull därifrån när du utför kopiering av data – Lär dig mer från [Store autentiseringsuppgifter i Key Vault](store-credentials-in-key-vault.md). | Nej |
-| ClientSecret | Klienthemlighet för google-programmet används för att få uppdateringstoken. Du kan välja att markera det här fältet som en SecureString att lagra den på ett säkert sätt i ADF eller lagra lösenord i Azure Key Vault och låt ADF kopiera aktivitet pull därifrån när du utför kopiering av data – Lär dig mer från [Store autentiseringsuppgifter i Key Vault](store-credentials-in-key-vault.md). | Nej |
-| e-post | Den servicekonto e-post-ID som används för ServiceAuthentication och kan bara användas på lokal IR.  | Nej |
+| clientId | Klient-id för google-programmet används för att få uppdateringstoken. Du kan välja att markera det här fältet som en SecureString att lagra den på ett säkert sätt i ADF eller lagra lösenord i Azure Key Vault och låt ADF kopiera aktivitet pull därifrån när du utför kopiering av data – Lär dig mer från [Store autentiseringsuppgifter i Key Vault](store-credentials-in-key-vault.md). | Nej |
+| clientSecret | Klienthemlighet för google-programmet används för att få uppdateringstoken. Du kan välja att markera det här fältet som en SecureString att lagra den på ett säkert sätt i ADF eller lagra lösenord i Azure Key Vault och låt ADF kopiera aktivitet pull därifrån när du utför kopiering av data – Lär dig mer från [Store autentiseringsuppgifter i Key Vault](store-credentials-in-key-vault.md). | Nej |
+| email | Den servicekonto e-post-ID som används för ServiceAuthentication och kan bara användas på lokal IR.  | Nej |
 | keyFilePath | Den fullständiga sökvägen till den .p12-nyckelfil som används för att autentisera den tjänst e-postadressen och kan bara användas på lokal IR.  | Nej |
 | trustedCertPath | Den fullständiga sökvägen till filen .pem som innehåller certifikat från betrodda Certifikatutfärdare för att verifiera servern när du ansluter via SSL. Den här egenskapen kan bara anges när du använder SSL på lokal IR. Standardvärdet är filen cacerts.pem installerad med i IR.  | Nej |
 | useSystemTrustStore | Anger om du vill använda ett CA-certifikat från arkivet med betrodda system eller från en angiven PEM-fil. Standardvärdet är FALSKT.  | Nej |
@@ -131,7 +131,7 @@ För att kopiera data från Google AdWords, ange typ av datakälla i kopieringsa
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **GoogleAdWordsSource** | Ja |
-| DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
+| query | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**
 

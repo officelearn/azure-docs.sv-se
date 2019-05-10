@@ -45,8 +45,8 @@ Följande egenskaper stöds för Google BigQuery länkad tjänst.
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen måste anges till **GoogleBigQuery**. | Ja |
-| Projekt | Projekt-ID för BigQuery standardprojekt att fråga mot.  | Ja |
+| type | Type-egenskapen måste anges till **GoogleBigQuery**. | Ja |
+| project | Projekt-ID för BigQuery standardprojekt att fråga mot.  | Ja |
 | additionalProjects | En kommaavgränsad lista över projekt-ID: N offentliga BigQuery projekt till åtkomst.  | Nej |
 | requestGoogleDriveScope | Om du vill begära åtkomst till Google Drive. Att tillåta åtkomst för Google Drive aktiverar stöd för externa tabeller som kombinerar BigQuery-data med data från Google Drive. Standardvärdet är **FALSKT**.  | Nej |
 | authenticationType | OAuth 2.0 autentiseringsmekanism som används för autentisering. ServiceAuthentication kan användas endast på lokal Integration Runtime. <br/>Tillåtna värden är **UserAuthentication** och **ServiceAuthentication**. Avse respektive avsnitt under den här tabellen på fler egenskaper och JSON-exempel för dessa typer av autentisering. | Ja |
@@ -57,8 +57,8 @@ Ange egenskapen ”authenticationType” som **UserAuthentication**, och ange f�
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| ClientId | ID för programmet som används för att generera uppdateringstoken. | Nej |
-| ClientSecret | Hemligheten för programmet som används för att generera uppdateringstoken. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Nej |
+| clientId | ID för programmet som används för att generera uppdateringstoken. | Nej |
+| clientSecret | Hemligheten för programmet som används för att generera uppdateringstoken. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Nej |
 | refreshToken | Uppdateringstoken som hämtas från Google som används för att auktorisera åtkomst till BigQuery. Lär dig hur du skaffa ett från [hämta OAuth 2.0-åtkomsttoken](https://developers.google.com/identity/protocols/OAuth2WebServer#obtainingaccesstokens) och [community-blogg](https://jpd.ms/getting-your-bigquery-refresh-token-for-azure-datafactory-f884ff815a59). Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Nej |
 
 **Exempel:**
@@ -93,7 +93,7 @@ Ange egenskapen ”authenticationType” som **ServiceAuthentication**, och ange
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| e-post | Tjänsten konto e-ID som används för ServiceAuthentication. Den kan användas enbart på lokal Integration Runtime.  | Nej |
+| email | Tjänsten konto e-ID som används för ServiceAuthentication. Den kan användas enbart på lokal Integration Runtime.  | Nej |
 | keyFilePath | Den fullständiga sökvägen till den .p12-nyckelfil som används för att autentisera den tjänst e-postadressen. | Nej |
 | trustedCertPath | Den fullständiga sökvägen till PEM-fil som innehåller certifikat från betrodda Certifikatutfärdare används för att verifiera servern när du ansluter via SSL. Den här egenskapen kan anges endast när du använder SSL på lokal Integration Runtime. Standardvärdet är filen cacerts.pem installerad med integration runtime.  | Nej |
 | useSystemTrustStore | Anger om du vill använda ett CA-certifikat från arkivet med betrodda system eller från en angiven .pem-fil. Standardvärdet är **FALSKT**.  | Nej |
@@ -157,8 +157,8 @@ Om du vill kopiera data från Google BigQuery, ange typ av datakälla i kopierin
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för aktiviteten kopieringskälla måste anges till **GoogleBigQuerySource**. | Ja |
-| DocumentDB | Använda anpassade SQL-frågan för att läsa data. Ett exempel är `"SELECT * FROM MyTable"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
+| type | Type-egenskapen för aktiviteten kopieringskälla måste anges till **GoogleBigQuerySource**. | Ja |
+| query | Använda anpassade SQL-frågan för att läsa data. Ett exempel är `"SELECT * FROM MyTable"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**
 

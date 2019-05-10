@@ -2,19 +2,19 @@
 title: Självstudiekurs – använda Azure Key Vault med en Windows-dator i Python | Microsoft Docs
 description: I den här självstudien konfigurerar du ett ASP.NET core-program att läsa en hemlighet från ditt nyckelvalv.
 services: key-vault
-author: mbaldwin
+author: msmbaldwin
 manager: rajvijan
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: 58d1b9d293e88612853aec9303f4c4110d6a5cd2
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 985380fd24e0db697f9dc9b1c5b2e5b8af2e6cbf
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64701953"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65228082"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-windows-virtual-machine-in-python"></a>Självstudier: Använda Azure Key Vault med en Windows-dator i Python
 
@@ -80,7 +80,7 @@ Du kan använda din resursgrupp du skapade i den här självstudien.
 Ange följande information för att skapa ett nyckelvalv i resursgruppen som du skapade i föregående steg:
 
 * Namn på Key vault: en sträng på 3 till 24 tecken som får endast innehålla siffror (0-9), bokstäver (a – z, A-Z) och bindestreck (-)
-* Namn på resursgrupp
+* Resursgruppsnamn
 * Plats: **USA, västra**
 
 ```azurecli

@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: bae180e2ceae6fe0768a5f7951c18dc5147870fa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4ec9d5e605a2319a04dac4cb52dbe49c77354479
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60626833"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510642"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK för SQL-API: Viktig information och resurser
 > [!div class="op_single_selector"]
@@ -50,6 +50,20 @@ Azure Cosmos DB .NET Core SDK har funktionsparitet med den senaste versionen av 
 * Stöd för strömmar.
 * Uppdatera CosmosResponseMessage från servern för att returnera statuskod och utlöser undantag endast när inget svar returneras.
 
+### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
+
+* SDK: er System.Net.Http versionen matchar det som definieras i NuGet-paketet
+* Ökat decimalprecision storleken för LINQ-frågor.
+* Har lagts till nya klasser CompositePath, CompositePathSortOrder, SpatialSpec, SpatialType och PartitionKeyDefinitionVersion
+* Har lagts till TimeToLivePropertyPath till dokumentsamling
+* Har lagts till CompositeIndexes och SpatialIndexes till IndexPolicy
+* Har lagts till versionen till PartitionKeyDefinition
+* Lagt till ingen till PartitionKey
+
+### <a name="a-name230230"></a><a name="2.3.0"/>2.3.0
+
+ * Har lagts till IdleTcpConnectionTimeout, OpenTcpConnectionTimeout, MaxRequestsPerTcpConnection och MaxTcpConnectionsPerEndpoint till ConnectionPolicy.
+ 
 ### <a name="a-name223223"></a><a name="2.2.3"/>2.2.3
 
 * Diagnostikförbättringar
@@ -237,6 +251,8 @@ Om du har frågor som rör detta SDK kan skicka till [StackOverflow](https://sta
 
 | Version | Utgivningsdatum | Slutdatum |
 | --- | --- | --- |
+| [2.4.0](#2.4.0) |05 maj 2019 |--- |
+| [2.3.0](#2.3.0) |04 april 2019 |--- |
 | [2.2.3](#2.2.3) |11 mars 2019 |--- |
 | [2.2.2](#2.2.2) |06 februari 2019 |--- |
 | [2.2.1](#2.2.1) |24 december 2018 |--- |

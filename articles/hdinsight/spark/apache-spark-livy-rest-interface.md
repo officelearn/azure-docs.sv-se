@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: c8504c6bf25b186a4bc87c4e7565444dd3e57209
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2c1497589153f1dc5a79cc1d3414966deaf11f21
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64570494"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65228098"
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Använda Apache Spark REST API för att skicka fjärrstyrda jobb till ett HDInsight Spark-kluster
 
@@ -153,13 +153,7 @@ Utför följande steg:
 
 ## <a name="updates-to-livy-configuration-starting-with-hdinsight-35-version"></a>Uppdateringar till Livy konfigurationen från och med HDInsight 3.5-version
 
-HDInsight 3.5-kluster och inaktivera användning av lokala sökvägar till åtkomst exempeldatafiler eller JAR-filer ovan, som standard. Vi rekommenderar att du kan använda den `wasb://` sökvägen i stället att komma åt JAR-filer eller exempeldata filer från klustret. Om du vill använda lokal sökväg, måste du uppdatera Ambari-konfigurationen i enlighet med detta. Gör så här:
-
-1. Gå till Ambari-portal för klustret. Ambari-Webbgränssnittet finns i ditt HDInsight-kluster på https://**CLUSTERNAME**. azurehdidnsight.net, där KLUSTERNAMN är namnet på klustret.
-
-2. I det vänstra navigeringsfönstret klickar du på **Livy**, och klicka sedan på **Peeringkonfigurationer**.
-
-3. Under **livy standard** Lägg till egenskapsnamnet på `livy.file.local-dir-whitelist` och ange dess värde **”/”** om du vill ge fullständig åtkomst till filsystemet. Om du vill tillåta åtkomst endast till en viss katalog kan du ange sökvägen till katalogen som värde.
+HDInsight 3.5-kluster och inaktivera användning av lokala sökvägar till åtkomst exempeldatafiler eller JAR-filer ovan, som standard. Vi rekommenderar att du kan använda den `wasb://` sökvägen i stället att komma åt JAR-filer eller exempeldata filer från klustret. 
 
 ## <a name="submitting-livy-jobs-for-a-cluster-within-an-azure-virtual-network"></a>Skicka Livy jobb för ett kluster i Azure-nätverk
 

@@ -67,7 +67,7 @@ HDInsight Spark-kluster har inte stöd för Spark-Phoenix-anslutning.
 
 **Lösning:**
 
-I stället måste du använda Spark-HBase-anslutningen. Anvisningar finns i [hur du använder Spark-HBase-anslutningen](https://web.archive.org/web/20190112153146/ https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/).
+I stället måste du använda Spark-HBase-anslutningen. Anvisningar finns i [hur du använder Spark-HBase-anslutningen](https://web.archive.org/web/20190112153146/https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/).
 
 ## <a name="issues-related-to-jupyter-notebooks"></a>Problem som rör Jupyter-anteckningsböcker
 Följande är några kända problem som rör Jupyter-anteckningsböcker.

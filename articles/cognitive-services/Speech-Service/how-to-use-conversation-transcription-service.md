@@ -1,21 +1,21 @@
 ---
 title: Transkribera flera deltagare konversationer med tal SDK - Speech Services
 titleSuffix: Azure Cognitive Services
-description: 'Lär dig mer om att använda konversationen avskrift-tjänsten med SDK: N för tal. Tillgänglig för C++, C#, och Java.'
+description: Lär dig mer om att använda konversationen avskrift med tal SDK. Tillgänglig för C++, C#, och Java.
 services: cognitive-services
 author: jhakulin
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 05/06/2019
 ms.author: jhakulin
-ms.openlocfilehash: 73ab4cfa92a1efc49dea16ba2941cf16b7a1cf3e
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: e9de4faf18c54f7c7582ef5a8ab0648629d4f48e
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025798"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190158"
 ---
 # <a name="transcribe-multi-participant-conversations-with-the-speech-sdk"></a>Transkribera flera deltagare konversationer med Speech-SDK
 
@@ -24,7 +24,7 @@ Tal-SDK **ConversationTranscriber** API kan du transkribera möten/konversatione
 ## <a name="limitations"></a>Begränsningar
 
 * Konversationen transkribering stöds för C++, C#, och Java på Windows, Linux och Android.
-* ROOBO DevKit är miljön för att skapa konversationer som ger cirkulär flera mikrofon matris som kan användas effektivt av tjänsten konversationen avskrift för talaridentifiering maskinvara som stöds. [Mer information finns i tal Devices SDK](speech-devices-sdk.md). 
+* ROOBO DevKit är miljön för att skapa konversationer som ger cirkulär flera mikrofon matris som kan användas effektivt av tjänsten konversationen avskrift för talaridentifiering maskinvara som stöds. [Mer information finns i tal Devices SDK](speech-devices-sdk.md).
 * Stöd för tal-SDK är begränsad till användning av ljud pull och push-läge strömmar med åtta kanaler med PCM ljud.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
@@ -78,7 +78,7 @@ class Program
 
 För att transkribera konversationer med flera deltagare, skapa den `ConversationTranscriber` objekt som är associerad med den `AudioConfig` objekt som skapats för konversationen sessionen och ljud med hjälp av `PullAudioInputStream` eller `PushAudioInputStream`.
 
-Anta att du har en ConversationTranscriber klass med namnet `MyConversationTranscriber`. Din kod kan se ut så här: 
+Anta att du har en ConversationTranscriber klass med namnet `MyConversationTranscriber`. Din kod kan se ut så här:
 
 ```csharp
 using Microsoft.CognitiveServices.Speech;
@@ -97,7 +97,7 @@ public class MyConversationTranscriber
         var stopTranscription = new TaskCompletionSource<int>();
 
         // Create an audio stream from a wav file.
-        // Replace with your own audio file name and Helper class which implements AudioConfig using PullAudioInputStreamCallback 
+        // Replace with your own audio file name and Helper class which implements AudioConfig using PullAudioInputStreamCallback
         using (var audioInput = Helper.OpenWavFile(@"8channelsOfRecordedPCMAudio.wav"))
         {
             // Creates a conversation transcriber using audio stream input.

@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
 ms.date: 03/11/2019
-ms.openlocfilehash: f2f207b62522ceef9fe72d47026f4c2f8ed02e3b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 0a329722b65e407f011016a1f55e86ef17b47d70
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62130441"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192406"
 ---
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>Komma igång med Azure Cosmos DB Table API och Azure Table storage med .NET SDK
 
@@ -135,7 +135,7 @@ Du kan hämta NuGet-paketet genom att följa dessa steg:
 
 ## <a name="create-a-table"></a>Skapa en tabell 
 
-Med klassen [CloudTableClient](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.table.cloudtableclient?redirectedfrom=MSDN&view=azure-dotnet) kan du hämta tabeller och de entiteter som lagras i Table Storage. Eftersom det inte finns några tabeller i Cosmos DB Table API-konto, ska vi lägga till den `CreateTableAsync` metod för att den **Common.cs** klassen för att skapa en tabell:
+Med klassen [CloudTableClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.cloudtableclient) kan du hämta tabeller och de entiteter som lagras i Table Storage. Eftersom det inte finns några tabeller i Cosmos DB Table API-konto, ska vi lägga till den `CreateTableAsync` metod för att den **Common.cs** klassen för att skapa en tabell:
 
 ```csharp
 public static async Task<CloudTable> CreateTableAsync(string tableName)
@@ -168,7 +168,7 @@ public static async Task<CloudTable> CreateTableAsync(string tableName)
 
 ## <a name="define-the-entity"></a>Definiera entiteten 
 
-Entiteter mappar till C# objekt med hjälp av en anpassad klass som härleds från [TableEntity](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tableentity.aspx). Om du vill lägga till en entitet i en tabell skapar du en klass som definierar egenskaperna för entiteten.
+Entiteter mappar till C# objekt med hjälp av en anpassad klass som härleds från [TableEntity](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableentity). Om du vill lägga till en entitet i en tabell skapar du en klass som definierar egenskaperna för entiteten.
 
 Högerklicka på projektet **CosmosTableSamples**. Välj **Lägg till**, **ny mapp** och ger den namnet **modellen**. Lägg till en klass med namnet i mappen modellen **CustomerEntity.cs** och Lägg till följande kod till den.
 
@@ -194,11 +194,11 @@ namespace CosmosTableSamples.Model
 }
 ```
 
-Den här koden definierar en entitetsklass som använder kundens förnamn som radnyckel och efternamn som partitionsnyckel. Tillsammans identifierar en entitets partition och radnyckel den unikt i tabellen. Entiteter med samma partitionsnyckel kan frågas snabbare än entiteter med olika partitionsnycklar, men med olika partitionsnycklar ger bättre skalbarhet parallella åtgärder. Enheter som ska lagras i tabeller måste vara av en typ som stöds, till exempel härledda från den [TableEntity](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.table.tableentity?redirectedfrom=MSDN&view=azure-dotnet) klass. Entitetsegenskaper som du vill lagra i en tabell måste vara offentliga egenskaper av den typen och ha stöd för att både hämta och ange värden. Dessutom måste entitetstypen exponera en parameterlös konstruktor.
+Den här koden definierar en entitetsklass som använder kundens förnamn som radnyckel och efternamn som partitionsnyckel. Tillsammans identifierar en entitets partition och radnyckel den unikt i tabellen. Entiteter med samma partitionsnyckel kan frågas snabbare än entiteter med olika partitionsnycklar, men med olika partitionsnycklar ger bättre skalbarhet parallella åtgärder. Enheter som ska lagras i tabeller måste vara av en typ som stöds, till exempel härledda från den [TableEntity](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableentity) klass. Entitetsegenskaper som du vill lagra i en tabell måste vara offentliga egenskaper av den typen och ha stöd för att både hämta och ange värden. Dessutom måste entitetstypen exponera en parameterlös konstruktor.
 
 ## <a name="insert-or-merge-an-entity"></a>Infoga eller slå samman en entitet
 
-Följande exempel skapar ett entitetsobjekt och lägger till den i tabellen. Metoden InsertOrMerge inom den [TableOperation](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.table.tableoperation?redirectedfrom=MSDN&view=azure-dotnet) klass används för att infoga eller slå samman en entitet. Den [CloudTable.ExecuteAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.table.cloudtable.executeasync?view=azure-dotnet) metoden anropas för att köra åtgärden. 
+Följande exempel skapar ett entitetsobjekt och lägger till den i tabellen. Metoden InsertOrMerge inom den [TableOperation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableoperation) klass används för att infoga eller slå samman en entitet. Den [CloudTable.ExecuteAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.cloudtable.executeasync?view=azure-dotnet) metoden anropas för att köra åtgärden. 
 
 Högerklicka på projektet **CosmosTableSamples**. Välj **Lägg till**, **nytt objekt** och lägga till en klass med namnet **SamplesUtils.cs**. Den här klassen lagrar all kod som krävs för att utföra CRUD-åtgärder på entiteter. 
 
@@ -237,7 +237,7 @@ public static async Task<CustomerEntity> InsertOrMergeEntityAsync(CloudTable tab
 
 ### <a name="get-an-entity-from-a-partition"></a>Hämta en entitet från en partition
 
-Du kan hämta entiteten från en partition med hjälp av metoden hämta under den [TableOperation](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.table.tableoperation?redirectedfrom=MSDN&view=azure-dotnet) klass. Följande exempel hämtar rad partitionsnyckel, e-post och telefon antal en kundentitet. Det här exemplet skriver också ut enheter för programbegäran som används för att fråga efter entiteten. Lägg till följande kod för att fråga efter en entitet, **SamplesUtils.cs** fil: 
+Du kan hämta entiteten från en partition med hjälp av metoden hämta under den [TableOperation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableoperation) klass. Följande exempel hämtar rad partitionsnyckel, e-post och telefon antal en kundentitet. Det här exemplet skriver också ut enheter för programbegäran som används för att fråga efter entiteten. Lägg till följande kod för att fråga efter en entitet, **SamplesUtils.cs** fil: 
 
 ```csharp
 public static async Task<CustomerEntity> RetrieveEntityUsingPointQueryAsync(CloudTable table, string partitionKey, string rowKey)

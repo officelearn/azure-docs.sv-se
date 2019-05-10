@@ -7,18 +7,17 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
-ms.workload: Active
-ms.date: 02/15/2019
-ms.openlocfilehash: e306245da2c76560ad447358fa1a57e491c370ee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/07/2019
+ms.openlocfilehash: e2110378d16ff5826b8ded4620276b784ef1d68e
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60239404"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65203354"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Självstudier: Extrahera, transformera och läsa in data med hjälp av Azure Databricks
 
-I den här självstudien utför du en ETL-åtgärd (extrahera, transformera och läsa in data) med hjälp av Azure Databricks. Du extraherar data från Azure Data Lake Storage Gen2 till Azure Databricks, kör transformationer av data i Azure Databricks och läser sedan in dessa transformerade data i Azure SQL Data Warehouse.
+I den här självstudien utför du en ETL-åtgärd (extrahera, transformera och läsa in data) med hjälp av Azure Databricks. Du extraherar data från Azure Data Lake Storage Gen2 till Azure Databricks, kör transformationer data i Azure Databricks och läsa in transformerade data i Azure SQL Data Warehouse.
 
 Stegen i den här självstudiekursen använder SQL Data Warehouse-anslutningsappen så att Azure Databricks kan överföra data till Azure Databricks. Den här anslutningsappen använder i sin tur Azure Blob Storage som temporär lagring för de data som överförs mellan ett Azure Databricks-kluster och Azure SQL Data Warehouse.
 
@@ -48,13 +47,13 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 Slutför de här uppgifterna innan du startar självstudien:
 
-* Skapa ett Azure SQL-informationslager, skapa en brandväggsregel på servernivå och anslut till servern som serveradministratör. Gå till [Snabbstart: Skapa ett Azure SQL-informationslager](../sql-data-warehouse/create-data-warehouse-portal.md).
+* Skapa ett Azure SQL-informationslager, skapa en brandväggsregel på servernivå och anslut till servern som serveradministratör. Gå till [Snabbstart: Skapa och fråga en Azure SQL data warehouse i Azure-portalen](../sql-data-warehouse/create-data-warehouse-portal.md).
 
 * Skapa en databashuvudnyckel för Azure SQL-informationslagret. Se [Skapa en databashuvudnyckel](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key).
 
-* Skapa ett Azure Blob Storage-konto och en container i det. Få dessutom åtkomst till lagringskontot genom att hämta åtkomstnyckeln. Gå till [Snabbstart: Skapa ett Azure Blob Storage-konto](../storage/blobs/storage-quickstart-blobs-portal.md).
+* Skapa ett Azure Blob Storage-konto och en container i det. Få dessutom åtkomst till lagringskontot genom att hämta åtkomstnyckeln. Gå till [Snabbstart: Ladda upp, ladda ned och lista blobar med Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md).
 
-* Skapa ett Azure Data Lake Storage Gen2-lagringskonto. Se [skapa ett konto för Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-quickstart-create-account.md).
+* Skapa ett Azure Data Lake Storage Gen2-lagringskonto. Gå till [Snabbstart: Skapa ett lagringskonto i Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-quickstart-create-account.md).
 
 *  Skapa ett huvudnamn för tjänsten. Se [Anvisningar: Använd portalen för att skapa ett Azure AD-program och huvudnamn för tjänsten som kan komma åt resurser](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
@@ -355,6 +354,11 @@ Som tidigare nämnts använder SQL Data Warehouse-anslutningen Azure Blob Storag
        .mode("overwrite")
        .save()
    ```
+
+   > [!NOTE]
+   > Det här exemplet används den `forward_spark_azure_storage_credentials` flagga som gör att SQL Data Warehouse att komma åt data från blob storage med en åtkomstnyckel. Det här är den enda metoden som stöds för autentisering.
+   >
+   > Om din Azure Blob Storage är begränsad för att välja virtuella nätverk, kräver SQL Data Warehouse [hanterad tjänstidentitet i stället för åtkomstnycklar](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Detta innebär att felet ”den här begäran har inte behörighet att utföra åtgärden”.
 
 6. Anslut till SQL-databasen och kontrollera att du ser en databas med namnet **SampleTable**.
 

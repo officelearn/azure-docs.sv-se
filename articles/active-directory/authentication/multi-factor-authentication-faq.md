@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bbebbeaad681618e8420ad842ec370ce62bc9eba
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b3517f90d97a19740f5be8c2a755532d305522d7
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64570829"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65228179"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Vanliga frågor och svar om Azure Multi-Factor Authentication
 
@@ -146,11 +146,11 @@ Om din organisation inte har äldre klienter, bör du inte tillåta användarna 
 
 **F: Mina användare säger att ibland de inte fått textmeddelandet, eller de svarar på dubbelriktade textmeddelanden men tidsgränsen uppnås för verifiering.**
 
-Leverans av textmeddelanden och mottagande av svar i dubbelriktad SMS garanteras inte eftersom det inte finns fungerar faktorer som kan påverka tillförlitligheten för tjänsten. Dessa faktorer omfattar mål-land, mobiltelefon-operatör och signalstyrka.
+Leverans av textmeddelanden och mottagande av svar i dubbelriktad SMS garanteras inte eftersom det inte finns fungerar faktorer som kan påverka tillförlitligheten för tjänsten. Dessa faktorer omfattar mål land/region, mobiltelefon-operatör och signalstyrka.
 
 Om användarna ofta har problem med att på ett tillförlitligt sätt ta emot textmeddelanden, berätta för dem att använda metoden mobila app eller telefonsamtal i stället. Den mobila appen kan ta emot meddelanden både över mobilnät och Wi-Fi-anslutningar. Dessutom kan den mobila appen generera verfieringskoder även om enheten inte har någon signal alls. Microsoft Authenticator-appen är tillgänglig för [Android](https://go.microsoft.com/fwlink/?Linkid=825072), [IOS](https://go.microsoft.com/fwlink/?Linkid=825073), och [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071).
 
-Om du måste använda textmeddelanden, bör du använda envägs-SMS i stället för dubbelriktad SMS när det är möjligt. Enkelriktad SMS är mer tillförlitlig och det förhindrar att användare ska globala SMS från besvarar ett textmeddelande som skickats från ett annat land.
+Om du måste använda textmeddelanden, bör du använda envägs-SMS i stället för dubbelriktad SMS när det är möjligt. Enkelriktad SMS är mer tillförlitlig och det förhindrar att användare ska globala SMS från besvarar ett textmeddelande som skickats från ett annat land/region.
 
 **F: Kan jag ändra Mina användare behöva ange verifieringskoden från ett textmeddelande innan tidsgränsen uppnås för systemet tiden?**
 

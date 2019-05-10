@@ -42,12 +42,12 @@ Följande egenskaper har stöd för HBase länkade tjänsten:
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen måste anges till: **HBase** | Ja |
-| värd | IP-adressen eller värdnamnet namnet på den HBase-servern. (dvs.)  `[clustername].azurehdinsight.net`, `192.168.222.160`)  | Ja |
+| host | IP-adressen eller värdnamnet namnet på den HBase-servern. (dvs.)  `[clustername].azurehdinsight.net`, `192.168.222.160`)  | Ja |
 | port | TCP-porten som HBase-instans som används för att lyssna efter klientanslutningar. Standardvärdet är 9090. Ange porten som 443 om du ansluter till Azure HDInsights. | Nej |
 | httpPath | Partiell URL: en motsvarar HBase-server, t.ex. `/hbaserest0` när du använder HDInsights kluster. | Nej |
 | authenticationType | Autentiseringsmekanismen för att ansluta till HBase-servern. <br/>Tillåtna värden är: **Anonymous**, **Basic** | Ja |
-| användarnamn | Användarnamnet som används för att ansluta till HBase-instans.  | Nej |
-| lösenord | Lösenordet för användarnamnet. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Nej |
+| username | Användarnamnet som används för att ansluta till HBase-instans.  | Nej |
+| password | Lösenordet för användarnamnet. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Nej |
 | enableSsl | Anger om anslutningar till servern krypteras med SSL. Standardvärdet är FALSKT.  | Nej |
 | trustedCertPath | Den fullständiga sökvägen till filen .pem som innehåller certifikat från betrodda Certifikatutfärdare för att verifiera servern när du ansluter via SSL. Den här egenskapen kan bara anges när du använder SSL på lokal IR. Standardvärdet är filen cacerts.pem installerad med i IR.  | Nej |
 | allowHostNameCNMismatch | Anger om en CA-utfärdade SSL-certifikatnamnet att matcha värdnamnet för servern när du ansluter via SSL. Standardvärdet är FALSKT.  | Nej |
@@ -152,7 +152,7 @@ För att kopiera data från HBase, ange typ av datakälla i kopieringsaktivitete
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **HBaseSource** | Ja |
-| DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
+| query | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**
 

@@ -10,14 +10,14 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: b24e3d7fd71ef60cf8ebe5ba2c33889ff518580c
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: e51ef9afd0e49b690a4f9cab09fdfbd3e86eee66
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65027112"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65441052"
 ---
-# <a name="where-can-you-use-personalizer"></a>Där kan du använda Personalizer?
+# <a name="where-can-you-use-personalizer"></a>Var kan du använda Personanpassning?
 
 Använd Personalizer i alla situationer där programmet behöver för att välja rätt artikeln, åtgärd eller produkt som ska visa – för att förbättra upplevelsen, uppnå bättre affärsresultat eller förbättra produktiviteten. 
 
@@ -58,7 +58,7 @@ Du kan övervaka effektiviteten i Personalizer regelbundet genom att utföra [of
 
 Många företag använder rekommendationsmotorer, marknadsföring och campaigning verktyg segmentering av målgruppen och klustring, samarbetsfunktioner filtrering och annat sätt för att rekommendera produkter från en stor katalog till kunder.
 
-Den [Microsoft Recommenders GitHub-lagringsplatsen ](https://github.com/Microsoft/Recommenders) innehåller exempel och bästa praxis för att skapa recommendation-system, tillhandahålls som Jupyter-anteckningsböcker. Den innehåller exempel för att förbereda data, skapa modeller, utvärderar, justering och operationalisera rekommendationsmotorer för många vanliga metoder för bland annat xDeepFM, SAR, Sensorn, Ringpärmsmekanismer, DKN.
+Den [Microsoft Recommenders GitHub-lagringsplatsen](https://github.com/Microsoft/Recommenders) innehåller exempel och bästa praxis för att skapa recommendation-system, tillhandahålls som Jupyter-anteckningsböcker. Den innehåller exempel för att förbereda data, skapa modeller, utvärderar, justering och operationalisera rekommendationsmotorer för många vanliga metoder för bland annat xDeepFM, SAR, Sensorn, Ringpärmsmekanismer, DKN.
 
 Personalizer kan arbeta med en rekommendationsmotor om den finns.
 

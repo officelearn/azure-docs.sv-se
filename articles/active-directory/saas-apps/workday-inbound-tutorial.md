@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/19/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d34bd9d7f80f72b3c6c0821ad48e6be1fd260be9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 267b6afd7cd3131dcd138dfb631335f58cec833a
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60386079"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407916"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Workday för automatisk användaretablering
 
@@ -87,7 +87,7 @@ Innan du börjar din Workday-integrering, kontrollera krav nedan och Läs följa
 
 Det här avsnittet beskriver följande aspekter av Planering:
 
-* [Förutsättningar](#prerequisites)
+* [Krav](#prerequisites)
 * [Att välja etablering connector-appar som kan distribueras](#selecting-provisioning-connector-apps-to-deploy)
 * [Planera distribution av Azure AD Connect etablering agenten](#planning-deployment-of-azure-ad-connect-provisioning-agent)
 * [Integrera med flera Active Directory-domäner](#integrating-with-multiple-active-directory-domains)
@@ -306,13 +306,13 @@ I det här steget ska du ge ”domain security” principbehörigheter för work
 
 6. Upprepa steg 3 – 5 ovan för var och en av dessa återstående säkerhetsprinciper:
 
-   | Åtgärd | Säkerhetsprincip för domän |
+   | Operation | Säkerhetsprincip för domän |
    | ---------- | ---------- |
    | Hämta och skicka | Worker Data: Offentliga Worker rapporter |
    | Hämta och skicka | Personliga Data: Arbeta kontaktinformation |
-   | Hämta | Worker Data: Alla positioner |
-   | Hämta | Worker Data: Aktuell Personal Information |
-   | Hämta | Worker Data: Företag titel på Worker profil |
+   | Hämta  | Worker Data: Alla positioner |
+   | Hämta  | Worker Data: Aktuell Personal Information |
+   | Hämta  | Worker Data: Företag titel på Worker profil |
 
 ### <a name="configuring-business-process-security-policy-permissions"></a>Konfigurera business process säkerhetsbehörigheter princip
 
@@ -530,10 +530,10 @@ I det här avsnittet konfigurerar du hur informationen flödar från Workday til
 | **Förnamn**   | givenName       |     |    Skapa och uppdatera |
 | **Efternamn**   |   SN   |     |  Skapa och uppdatera |
 | **PreferredNameData**  |  displayName |     |   Skapa och uppdatera |
-| **Företagets**         | company   |     |  Skapa och uppdatera |
-| **SupervisoryOrganization**  | avdelning  |     |  Skapa och uppdatera |
+| **Företagets**         | Företagets   |     |  Skapa och uppdatera |
+| **SupervisoryOrganization**  | Avdelning  |     |  Skapa och uppdatera |
 | **ManagerReference**   | ansvarig  |     |  Skapa och uppdatera |
-| **BusinessTitle**   |  title     |     |  Skapa och uppdatera | 
+| **BusinessTitle**   |  rubrik     |     |  Skapa och uppdatera | 
 | **AddressLineData**    |  streetAddress  |     |   Skapa och uppdatera |
 | **Kommuner**   |   L   |     | Skapa och uppdatera |
 | **CountryReferenceTwoLetter**      |   CO |     |   Skapa och uppdatera |
@@ -868,7 +868,7 @@ Ja, en etablering Agent kan konfigureras för att hantera flera AD-domäner som 
 
 * Från Azure-portalen får de *klient-ID* av Azure AD-klienten.
 * Logga in på den Windows-server som kör agenten etablering.
-* Öppna powershell som Windows-administratör.
+* Öppna PowerShell som Windows-administratör.
 * Ändra till den katalog som innehåller registrerings-skript och kör följande kommandon ersätter den \[klient-ID\] parametern med värdet för din klient-ID.
 
   ```powershell
@@ -878,7 +878,7 @@ Ja, en etablering Agent kan konfigureras för att hantera flera AD-domäner som 
   ```
 
 * I listan med agenter som visas – Kopiera värdet för ”id” fältet från den här resursen vars *resourceName* är lika med ditt AD-domännamn.
-* Klistra in ID: t i det här kommandot och kör det i Powershell.
+* Klistra in ID-värde i det här kommandot och kör kommandot i PowerShell.
 
   ```powershell
   Remove-PublishedResource -ResourceId "[resource ID]" -TenantId "[tenant ID]"
@@ -946,9 +946,9 @@ Lösningen för närvarande stöder inte binära attribut som *thumbnailPhoto* o
 
 #### <a name="how-do-i-format-display-names-in-ad-based-on-the-users-departmentcountrycity-attributes-and-handle-regional-variances"></a>Hur formaterar namn som visas i AD baserat på användarens avdelning/land/stad attribut och referensen regionala avvikelser?
 
-Det är ett vanligt krav du konfigurerar den *displayName* attribut i AD så att den innehåller även information om användarens avdelning och land. För t.ex. Om John Smith fungerar på marknadsföringsavdelningen i USA kan du sin *displayName* visas som *Smith, John (marknadsföring-US)*.
+Det är ett vanligt krav du konfigurerar den *displayName* attribut i AD så att den innehåller även information om användarens avdelning och land/region. För t.ex. Om John Smith fungerar på marknadsföringsavdelningen i USA kan du sin *displayName* visas som *Smith, John (marknadsföring-US)*.
 
-Här är hur du kan hantera sådana krav för att konstruera *CN* eller *displayName* att inkludera attribut, till exempel företag, affärsenhet, ort eller land.
+Här är hur du kan hantera sådana krav för att konstruera *CN* eller *displayName* att inkludera attribut, till exempel företag, affärsenhet, ort eller land/region.
 
 * Varje attribut för Workday hämtas med hjälp av en underliggande API XPATH-uttryck, som kan konfigureras i **attributmappning -> Avancerad -> Redigera attributlistan för Workday**. Här är standard API XPATH-uttrycket för Workday *PreferredFirstName*, *PreferredLastName*, *företagets* och *SupervisoryOrganization* attribut.
 
@@ -1087,7 +1087,7 @@ När du klickar på någon av loggen granskningsposter i **aktivitetsinformation
 
   Öppna Windows Loggboken för att hitta etablering agenten loggposter som motsvarar den här importåtgärden AD, och Använd den **hitta...** menyalternativet ta loggposter som innehåller matchande ID/ansluta attributet egenskapsvärdet (i det här fallet *21023*).
 
-  ![Hitta](media/workday-inbound-tutorial/wd_event_viewer_02.png)
+  ![Sök](media/workday-inbound-tutorial/wd_event_viewer_02.png)
 
   Söker efter posten med *händelse-ID = 9*, vilket ger du LDAP söka filter som används av agenten för att hämta AD-konto. Du kan kontrollera om det här är rätt sökfilter för att hämta unika användarposter.
 
@@ -1165,7 +1165,7 @@ Det här avsnittet beskrivs ofta upptäckta fel med Workday användaretablering 
 |--|---|---|---|
 |1.| Det gick inte att installera etableringsagenten med felmeddelandet:  *Tjänsten ”Microsoft Azure AD Connect etablering Agent” (AADConnectProvisioningAgent) kunde inte starta. Kontrollera att du har behörighet att starta systemet.* | Det här felet visas vanligtvis om du försöker installera etableringsagenten på en domänkontrollant och grupprinciper som förhindrar att tjänsten startar.  Den visas också om du har en tidigare version av agenten som körs och du inte har avinstallerat den innan du startar en ny installation.| Installera etableringsagenten på en icke-DC-servern. Se till att tidigare versioner av agenten avinstalleras innan du installerar den nya agenten.|
 |2.| Windows-tjänsten ”Microsoft Azure AD Connect etablering Agent” är i *startar* tillstånd och växlar inte till *kör* tillstånd. | Som en del av installationen, agenten guiden skapar ett lokalt konto (**NT-tjänst\\AADConnectProvisioningAgent**) på servern och detta är den **logga in** konto som används för att starta den tjänsten. Om en säkerhetsprincip på din Windows server förhindrar att lokala konton som kör tjänsterna, kommer du får det här felet. | Öppna den *tjänstekonsolen*. Högerklicka på Windows-tjänsten ”Microsoft Azure AD Connect etablering Agent' och fliken inloggning ange kontot för en domänadministratör att köra tjänsten. Starta om tjänsten. |
-|3.| När du konfigurerar etableringsagenten med din AD-domän i steget *Anslut Active Directory*, guiden tar lång tid vid inläsning av AD-schemat och slutligen når sin tidsgräns. | Det här felet visas vanligtvis om det inte går att kontakta AD-domänkontrollantservern på grund av problem med brandväggen. | På den *Anslut Active Directory* guiden kan du få tillgång till autentiseringsuppgifterna för din AD-domän, det finns ett alternativ som heter *Välj domain controller prioritet*. Använd det här alternativet för att välja en domänkontrollant som är på samma plats som agent-servern och se till att det finns inga brandväggsregler som blockerar kommunikationen. |
+|3| När du konfigurerar etableringsagenten med din AD-domän i steget *Anslut Active Directory*, guiden tar lång tid vid inläsning av AD-schemat och slutligen når sin tidsgräns. | Det här felet visas vanligtvis om det inte går att kontakta AD-domänkontrollantservern på grund av problem med brandväggen. | På den *Anslut Active Directory* guiden kan du få tillgång till autentiseringsuppgifterna för din AD-domän, det finns ett alternativ som heter *Välj domain controller prioritet*. Använd det här alternativet för att välja en domänkontrollant som är på samma plats som agent-servern och se till att det finns inga brandväggsregler som blockerar kommunikationen. |
 
 #### <a name="connectivity-errors"></a>Anslutningsfel
 
@@ -1236,7 +1236,7 @@ Om du vill göra den här ändringen, måste du använda [Workday Studio](https:
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
-    <env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="https://www.w3.org/2001/XMLSchema">
+    <env:Envelope xmlns:env="https://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="https://www.w3.org/2001/XMLSchema">
       <env:Body>
         <wd:Get_Workers_Request xmlns:wd="urn:com.workday/bsvc" wd:version="v21.1">
           <wd:Request_References wd:Skip_Non_Existing_Instances="true">
@@ -1349,7 +1349,7 @@ I Microsoft Graph-testaren kör du följande GET fråga ersätta [servicePrincip
 
 Du får ett svar som visas nedan. Kopiera attributet ”id” finns i svaret. Det här värdet är den **ProvisioningJobId** och används för att hämta schemametadata för det underliggande.
 
-   [![Etablering jobb-Id](./media/workday-inbound-tutorial/wd_export_03.png)](./media/workday-inbound-tutorial/wd_export_03.png#lightbox)
+   [![Etablering jobb-ID](./media/workday-inbound-tutorial/wd_export_03.png)](./media/workday-inbound-tutorial/wd_export_03.png#lightbox)
 
 #### <a name="step-4-download-the-provisioning-schema"></a>Steg 4: Hämta etablering schemat
 

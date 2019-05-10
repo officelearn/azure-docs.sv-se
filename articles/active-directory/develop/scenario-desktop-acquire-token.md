@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d4389af86e27ddb04f5a3e5f53c5509eeede005
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: e1fe9594471c6e8f723afff2def940bb675e04fb
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65075347"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407010"
 ---
 # <a name="desktop-app-that-calls-web-apis---acquire-a-token"></a>Skrivbordsappen som anropar webb-API: er – hämta en token
 
@@ -173,7 +173,7 @@ Om du vill att logga in en domänanvändare i en domän eller Azure AD ansluten 
 AcquireTokenByIntegratedWindowsAuth(IEnumerable<string> scopes)
 ```
 
-### <a name="constraints"></a>Villkor
+### <a name="constraints"></a>Begränsningar
 
 - AcquireTokenByIntegratedWindowsAuth (IWA) kan endast användas för **federerade** användare, som är, användare skapas i en Active Directory och backas upp av Azure Active Directory. Användare som skapas direkt i AAD, utan AD säkerhetskopiering - **hanteras** användare - kan inte använda det här autentiseringsflödet. Den här begränsningen påverkar inte flödet användarnamn/lösenord.
 - IWA är för appar som är skrivna för .NET Framework, .NET Core och UWP-plattformar
@@ -300,7 +300,7 @@ Det här flödet är **rekommenderas inte** eftersom ditt program som en använd
 > - användare som behöver du MFA kommer inte kunna logga in (eftersom det finns inga åtgärder från)
 > - Användare kommer inte att kunna enkel inloggning
 
-### <a name="constraints"></a>Villkor
+### <a name="constraints"></a>Begränsningar
 
 Det gäller även följande begränsningar:
 
@@ -502,7 +502,7 @@ static async Task GetATokenForGraph()
   catch (MsalClientException ex) when (ex.ErrorCode == "unknown_user")
   {
    // the username was probably empty
-   // ex.Message = "Could not identify the user logged into the OS. See http://aka.ms/msal-net-iwa for details."
+   // ex.Message = "Could not identify the user logged into the OS. See https://aka.ms/msal-net-iwa for details."
    throw new ArgumentException("U/P: Wrong username", ex);
   }
   catch (MsalClientException ex) when (ex.ErrorCode == "parsing_wstrust_response_failed")
@@ -529,7 +529,7 @@ Om du skriver ett kommandoradsverktyg (som inte har webbkontroller), och kan int
 
 Interaktiv autentisering med Azure AD kräver en webbläsare (Mer information finns i [användningen av webbläsare](https://aka.ms/msal-net-uses-web-browser)). För att autentisera användare på enheter eller operativsystem som inte har en webbläsare, kan kodflöde för enheten dock att användare kan använda en annan enhet (till exempel en annan dator eller en mobiltelefon) för att logga in interaktivt. Programmet hämtar token via en tvåstegsprocess som särskilt utformats för dessa enheter/OS med hjälp av kodflöde för enheten. Exempel på sådana program är program som körs på iOT- eller kommandoradsverktyg (CLI). Tanken är att:
 
-1. När autentisering av användare krävs appen innehåller en kod och uppmanar användaren att använda en annan enhet (till exempel en internet-anslutna smartphone) för att navigera till en URL (till exempel `http://microsoft.com/devicelogin`), där användaren uppmanas att ange koden. Att klar sidan kommer att ge användaren genom en normal autentiseringsupplevelse, inklusive medgivande och multifaktorautentisering om det behövs.
+1. När autentisering av användare krävs appen innehåller en kod och uppmanar användaren att använda en annan enhet (till exempel en internet-anslutna smartphone) för att navigera till en URL (till exempel `https://microsoft.com/devicelogin`), där användaren uppmanas att ange koden. Att klar sidan kommer att ge användaren genom en normal autentiseringsupplevelse, inklusive medgivande och multifaktorautentisering om det behövs.
 
 2. Efter lyckad autentisering kommandoradsappen får de nödvändiga token via en tillbaka-kanal och använda den för att utföra webb-API-anrop som behövs.
 

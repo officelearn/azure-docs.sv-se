@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: erhopf
-ms.openlocfilehash: fad69c4108d747c44eccf37b81adf2c7c615cb58
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 6189ea2866d1c16f994179df0179e29353e6c47d
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65156852"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410727"
 ---
 # <a name="create-a-custom-voice"></a>Skapa en anpassad röst
 
-I [förbereda data för anpassade röst](how-to-custom-voice-prepare-data.md), vi beskrivs de olika datatyper som du kan använda för att träna en anpassad röst och olika formatkraven. När du har förberett din data, kan du börja överföra dem till den [anpassad röst portal](http://aka.ms/custom-voice-portal), eller via API: et för anpassad röst utbildning. Här beskrivs hur du tränar en egen röst via portalen.
+I [förbereda data för anpassade röst](how-to-custom-voice-prepare-data.md), vi beskrivs de olika datatyper som du kan använda för att träna en anpassad röst och olika formatkraven. När du har förberett din data, kan du börja överföra dem till den [anpassad röst portal](https://aka.ms/custom-voice-portal), eller via API: et för anpassad röst utbildning. Här beskrivs hur du tränar en egen röst via portalen.
 
 > [!NOTE]
 > Den här sidan förutsätter att du har läst [Kom igång med anpassade röst](how-to-custom-voice.md) och [förbereda data för anpassad röst](how-to-custom-voice-prepare-data.md), och har skapat en anpassad Voice-projekt.
@@ -28,7 +28,7 @@ Kontrollera de språk som stöds för anpassade Röst: [språk för anpassning](
 
 ## <a name="upload-your-datasets"></a>Ladda upp dina datauppsättningar
 
-När du är redo att överföra dina data kan gå till den [anpassad röst portal](http://aka.ms/custom-voice-portal). Skapa eller välj ett anpassat Voice-projekt. Projektet måste dela rätt språk och nationella och egenskaper för kön som du avser använda för röst utbildning. Välj exempelvis `en-GB` om ljudinspelningar som du har gjort på engelska med en accent för Storbritannien.
+När du är redo att överföra dina data kan gå till den [anpassad röst portal](https://aka.ms/custom-voice-portal). Skapa eller välj ett anpassat Voice-projekt. Projektet måste dela rätt språk och nationella och egenskaper för kön som du avser använda för röst utbildning. Välj exempelvis `en-GB` om ljudinspelningar som du har gjort på engelska med en accent för Storbritannien.
 
 Gå till den **Data** fliken och klicka på **ladda upp data**. I guiden väljer du rätt datatyp som matchar vad du har förberett.
 
@@ -46,9 +46,9 @@ I följande tabell visas bearbetning tillstånden för importerade datauppsättn
 
 | Status | Betydelse |
 | ----- | ------- |
-| Bearbetar | Din datauppsättning har tagits emot och bearbetas. |
+| Bearbetning | Din datauppsättning har tagits emot och bearbetas. |
 | Lyckades | Din datauppsättning har verifierats och kan nu användas för att skapa en röst-modell. |
-| Misslyckad | Din datauppsättning misslyckades under bearbetning på grund av flera orsaker, till exempel filfel, data problem eller nätverksproblem. |
+| Fungerar inte | Din datauppsättning misslyckades under bearbetning på grund av flera orsaker, till exempel filfel, data problem eller nätverksproblem. |
 
 När verifieringen är klar kan du se det totala antalet matchande yttranden för var och en av dina datauppsättningar i den **yttranden** kolumn. Om den datatyp som du har valt kräver långa ljud segmentering, visar den här kolumnen endast talade vi har segmenterade antingen baserat på dina betyg eller via tjänsten tal avskrift. Ytterligare kan du hämta datauppsättningen verifieras för att visa information om resultatet av yttranden som har importerats och deras mappning avskrifter. Tips: långa ljud segmentering kan ta mer än en timme att slutföra databearbetning.
 
@@ -88,9 +88,9 @@ Den status som visas återspeglar att konvertera datauppsättningen till en rös
 
 | Status | Betydelse |
 | ----- | ------- |
-| Bearbetar | Din röst modell skapas. |
+| Bearbetning | Din röst modell skapas. |
 | Lyckades | Din röst-modellen har skapats och kan distribueras. |
-| Misslyckad | Din röst-modell misslyckades i utbildning på grund av flera orsaker, till exempel överblivna data problem eller nätverksproblem. |
+| Fungerar inte | Din röst-modell misslyckades i utbildning på grund av flera orsaker, till exempel överblivna data problem eller nätverksproblem. |
 
 Utbildning tiden varierar beroende på mängden bearbetade ljud data. Vanliga gånger mellan om 30 minuter för hundratals yttranden och 40 timmar för 20 000 yttranden. När din modellträning är slutfört kan du börja testa den.
 

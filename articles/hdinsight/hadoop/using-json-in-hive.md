@@ -142,7 +142,7 @@ Utdata från det här skriptet i Hive-konsolen:
 Json_tuple UDF använder den [lateral visa](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) syntax i Hive, vilket gör det möjligt json\_tuppel att skapa en virtuell tabell genom att använda funktionen UDT för varje rad i den ursprungliga tabellen. Komplexa för bli för svårhanterlig på grund av upprepad användning av **LATERAL visa**. Dessutom **JSON_TUPLE** kan inte hantera kapslad för.
 
 ### <a name="use-a-custom-serde"></a>Använda en anpassad SerDe
-SerDe är det bästa valet för parsning av kapslad JSON-dokument. Det kan du definiera JSON-schemat och du kan sedan använda schemat för att parsa dokumenten. Anvisningar finns i [hur du använder en anpassad JSON-SerDe med Microsoft Azure HDInsight](https://web.archive.org/web/20190217104719/ https://blogs.msdn.microsoft.com/bigdatasupport/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight/).
+SerDe är det bästa valet för parsning av kapslad JSON-dokument. Det kan du definiera JSON-schemat och du kan sedan använda schemat för att parsa dokumenten. Anvisningar finns i [hur du använder en anpassad JSON-SerDe med Microsoft Azure HDInsight](https://web.archive.org/web/20190217104719/https://blogs.msdn.microsoft.com/bigdatasupport/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight/).
 
 ## <a name="summary"></a>Sammanfattning
 Sammanfattningsvis beror typ av JSON-operator i Hive som du väljer på ditt scenario. Om du har ett enkelt JSON-dokument och du har bara ett fält att söka efter, kan du använda Hive UDF-get_json_object. Om du har fler än en nyckel ska sökas, kan du använda json_tuple. Om du har en kapslad dokument bör du använda JSON-SerDe.

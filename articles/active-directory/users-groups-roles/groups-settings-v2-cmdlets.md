@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7287616dbad1aa77a6e4aaa110ade39dcea4f195
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cb48d37e1cf552f9ad375906d8cd05301ac2dd0c
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60470063"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407876"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Azure Active Directory version 2-cmdletar för grupphantering
 
@@ -233,13 +233,13 @@ Om du vill lägga till ägare till en grupp, använder du Lägg till AzureADGrou
 
     PS C:\Windows\system32> Add-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -RefObjectId 72cd4bbd-2594-40a2-935c-016f3cfeeeea
 
-Parametern - ObjectId är ObjectID för gruppen som vi vill lägga till en ägare och RefObjectId - är ObjectID för den användare som vi vill lägga till som ägare av gruppen.
+Parametern - ObjectId är ObjectID för gruppen som vi vill lägga till en ägare och RefObjectId - är ObjectID för användaren eller tjänstens huvudnamn vi vill lägga till som ägare av gruppen.
 
 Använd cmdleten Get-AzureADGroupOwner för att hämta ägare för en grupp:
 
     PS C:\Windows\system32> Get-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df
 
-Cmdleten returnerar listan över ägare för den angivna gruppen:
+Cmdleten returnerar listan över ägare (användare och tjänstens huvudnamn) för den angivna gruppen:
 
     DeletionTimeStamp ObjectId                             ObjectType
     ----------------- --------                             ----------
@@ -260,7 +260,7 @@ När en grupp skapas vissa slutpunkter gör det möjligt för användaren att an
 * postmaster 
 * rot 
 * skydda 
-* security 
+* säkerhet 
 * ssl-admin 
 * webbadministratör 
 

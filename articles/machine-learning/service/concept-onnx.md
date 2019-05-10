@@ -11,12 +11,12 @@ ms.author: prasantp
 author: prasanthpul
 ms.date: 04/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6bda1af8095e7026c79b7d8ffe45b39f6cbb3508
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: a8bc46011b00a0c63eddd2799ac1309b5754472e
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65028702"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65442413"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-accelerate-ml-models"></a>ONNX och Azure Machine Learning: Skapa och påskynda ML-modeller
 
@@ -30,7 +30,7 @@ Microsoft och en community med partner skapade ONNX som en öppen standard för 
 
 ONNX-Runtime används i hög skala Microsoft-tjänster som Bing, Office och Cognitive Services. Prestandavinster är beroende av ett antal faktorer, men dessa Microsoft-tjänster har sett en __genomsnittlig 2 x prestandaökning på processor__. ONNX Runtime används också som en del av Windows-ML på hundratals miljoner enheter. Du kan använda körningen med Azure Machine Learning-tjänster. Med ONNX-körning kan dra du nytta av omfattande produktionsnivå optimeringar, testning och pågående förbättringar.
 
-[![ONNX flow diagram som visar utbildning, konverterare och distribution](media/concept-onnx/onnx.png) ](./media/concept-onnx/onnx.png#lightbox)
+[![ONNX flow diagram som visar utbildning, konverterare och distribution](media/concept-onnx/onnx.png)](./media/concept-onnx/onnx.png#lightbox)
 
 ## <a name="get-onnx-models"></a>Hämta ONNX-modeller
 

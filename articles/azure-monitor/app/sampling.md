@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.reviewer: vitalyg
 ms.author: cithomas
-ms.openlocfilehash: b35b0c66c29805d9cd7ecd00ffaad4fc1cfe253b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d88de2bf660165022b39aaa0321ff5c62ea81cd3
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60653809"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231843"
 ---
 # <a name="sampling-in-application-insights"></a>Sampling i Application Insights
 
@@ -61,7 +61,7 @@ Mått räknar, till exempel förfrågningar och antal undantag justeras för att
 
 ## <a name="configuring-adaptive-sampling-for-aspnet-applications"></a>Konfigurera Adaptiv sampling för ASP.NET-program
 
-[Lär dig](../../azure-monitor/app/sampling.md#configuring-adaptive-sampling-for-aspnet-core-applications) om hur du konfigurerar Adaptiv sampling för för ASP.NET Core-program. 
+[Lär dig](../../azure-monitor/app/sampling.md#configuring-adaptive-sampling-for-aspnet-core-applications) om hur du konfigurerar Adaptiv sampling för ASP.NET Core-program. 
 
 I [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md), du kan justera flera parametrar i den `AdaptiveSamplingTelemetryProcessor` noden. Siffrorna som visas är standardvärden:
 

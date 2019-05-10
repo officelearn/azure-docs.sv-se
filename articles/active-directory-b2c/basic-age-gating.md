@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 083ed7209efd88d3d221b55cfb53fe3998dd2987
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b594dc6eadce5093c58d693492f8e86eb92ae4e3
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64703273"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65227998"
 ---
 # <a name="enable-age-gating-in-azure-active-directory-b2c"></a>Aktivera Åldershantering i Azure Active Directory B2C
 
@@ -25,14 +25,14 @@ ms.locfileid: "64703273"
 
 Åldershantering i Azure Active Directory (Azure AD) B2C kan du identifiera minderåriga som vill använda ditt program. Du kan välja att blockera mindre från att logga in i programmet. Användare kan också gå tillbaka till programmet och identifiera deras åldersgrupp och deras medgivandenivå status. Azure AD B2C kan blockera minderåriga utan föräldrars tillstånd. Azure AD B2C kan också konfigureras att tillåta program att avgöra vad du gör med minderåriga.
 
-När du har aktiverat åldershantering i din [användarflödet](active-directory-b2c-reference-policies.md), användarna uppmanas när de föddes och vilka land de finnas i. Om en användare loggar in som tidigare inte har angett information, måste de ange den nästa gång de loggar in. Reglerna tillämpas varje gång en användare loggar in.
+När du har aktiverat åldershantering i din [användarflödet](active-directory-b2c-reference-policies.md), användarna uppmanas när de föddes och vilka land/region de finnas i. Om en användare loggar in som tidigare inte har angett information, måste de ange den nästa gång de loggar in. Reglerna tillämpas varje gång en användare loggar in.
 
 Azure AD B2C använder informationen som användaren anger för att identifiera om de är minderårig. Den **ageGroup** uppdateras sedan fältet i sina konton. Värdet kan vara `null`, `Undefined`, `Minor`, `Adult`, och `NotAdult`.  Den **ageGroup** och **consentProvidedForMinor** fält används sedan för att beräkna värdet för **legalAgeGroupClassification**.
 
 Åldershantering omfattar två ålder värden: ålder som någon inte längre anses vara minderårig och ålder då minderårig måste ha föräldrars tillstånd. I följande tabell visas de ålder regler som används för att definiera en mindre och en mindre kräver godkännande.
 
-| Land/region | Landsnamn | Mindre medgivande ålder | Mindre ålder |
-| ------- | ------------ | ----------------- | --------- |
+| Land/region | Namn på Land/Region | Mindre medgivande ålder | Mindre ålder |
+| -------------- | ------------------- | ----------------- | --------- |
 | Standard | Ingen | Ingen | 18 |
 | AE | Förenade Arabemiraten | Ingen | 21 |
 | AT | Österrike | 14 | 18 |
@@ -48,18 +48,18 @@ Azure AD B2C använder informationen som användaren anger för att identifiera 
 | EG | Egypten | Ingen | 21 |
 | ES | Spanien | 13 | 18 |
 | FR | Frankrike | 16 | 18 |
-| GB | Storbritannien | 13 | 18 |
+| GB | Storbritannien och Nordirland | 13 | 18 |
 | GR | Grekland | 16 | 18 |
 | HR | Kroatien | 16 | 18 |
 | HU | Ungern | 16 | 18 |
 | IE | Irland | 13 | 18 |
-| IT | Italien | 16 | 18 |
+| it | Italien | 16 | 18 |
 | KR | Sydkorea | 14 | 18 |
 | LT | Litauen | 16 | 18 |
 | LU | Luxemburg | 16 | 18 |
 | LV | Lettland | 16 | 18 |
 | MT | Malta | 16 | 18 |
-| Ej tillämpligt | Namibia | Ingen | 21 |
+| Saknas | Namibia | Ingen | 21 |
 | NL | Nederländerna | 16 | 18 |
 | PL | Polen | 13 | 18 |
 | PT | Portugal | 16 | 18 |

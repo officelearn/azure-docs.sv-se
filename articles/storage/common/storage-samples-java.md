@@ -6,16 +6,15 @@ author: mhopkins-msft
 ms.service: storage
 ms.devlang: java
 ms.topic: article
-ms.date: 01/12/2017
+ms.date: 05/03/2019
 ms.author: mhopkins
-ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: ae734215a7a8efe10f33cfbc338d09071d603232
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 3d241f1905244d3a8039372262f84ba0fd25220d
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150008"
+ms.locfileid: "65209782"
 ---
 # <a name="azure-storage-samples-using-java"></a>Azure Storage-exempel med hjälp av Java
 
@@ -23,172 +22,172 @@ ms.locfileid: "65150008"
 
 Följande tabell innehåller en översikt över vår lagringsplats med exempel och scenarier som tas upp i varje exempel. Klicka på länkar för att visa motsvarande kod i GitHub.
 
-<table style="font-size:90%"><thead><tr><th style="font-size:110%">Slutpunkt</th><th style="font-size:110%">Scenario</th><th style="font-size:110%">Exempelkod</th></tr></thead><tbody> 
-<tr> 
+<table style="font-size:90%"><thead><tr><th style="font-size:110%">Slutpunkt</th><th style="font-size:110%">Scenario</th><th style="font-size:110%">Exempelkod</th></tr></thead><tbody>
+<tr>
 <td rowspan="16"><b>Blob</b></td>
-<td>Bifoga blob</td> 
-<td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Komma igång med Azure Blob Service i Java</a></td> 
-</tr> 
-<tr> 
+<td>Bifoga blob</td>
+<td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Komma igång med Azure Blob Service i Java</a></td>
+</tr>
+<tr>
 <td>Blockblob</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Komma igång med Azure Blob Service i Java</a></td>
-</tr> 
-<tr> 
+</tr>
+<tr>
 <td>Kryptering av klientsidan</td>
 <td><a href="https://github.com/Azure-Samples/storage-java-client-side-encryption">Komma igång med Azure Client Side Encryption i Java</a></td>
-</tr> 
-<tr> 
+</tr>
+<tr>
 <td>Kopiera Blob</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Komma igång med Azure Blob Service i Java</a></td>
-</tr> 
-<tr> 
+</tr>
+<tr>
 <td>Skapa behållare</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Komma igång med Azure Blob Service i Java</a></td>
-</tr> 
-<tr> 
+</tr>
+<tr>
 <td>Ta bort Blob</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Komma igång med Azure Blob Service i Java</a></td>
-</tr> 
-<tr> 
+</tr>
+<tr>
 <td>Ta bort behållare</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Komma igång med Azure Blob Service i Java</a></td>
-</tr> 
-<tr> 
+</tr>
+<tr>
 <td>BLOB-Metadata/egenskaper/Stats</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobAdvanced.java">Komma igång med Azure Blob Service i Java</a></td>
-</tr> 
-<tr> 
+</tr>
+<tr>
 <td>Behållare-ACL/metadataegenskaper</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobAdvanced.java">Komma igång med Azure Blob Service i Java</a></td>
-</tr> 
-<tr> 
+</tr>
+<tr>
 <td>Get Page Ranges</td>
-<td><a href="https://github.com/Azure/azure-storage-java/blob/master/microsoft-azure-storage-test/src/com/microsoft/azure/storage/blob/CloudPageBlobTests.java">Sidblob testar exemplet</a></td>
-</tr> 
-<tr> 
+<td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java#L399">Komma igång med Azure Blob Service i Java</a></td>
+</tr>
+<tr>
 <td>Leasa Blobbehållare</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Komma igång med Azure Blob Service i Java</a></td>
-</tr> 
-<tr> 
+</tr>
+<tr>
 <td>Lista/Blobbehållare</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Komma igång med Azure Blob Service i Java</a></td>
-</tr> 
-<tr> 
+</tr>
+<tr>
 <td>Sidblob</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Komma igång med Azure Blob Service i Java</a></td>
 </tr>
-<tr> 
+<tr>
 <td>SAS</td>
 <td><a href="https://github.com/Azure/azure-storage-java/blob/89540f018f1160ce55619c6fe7b5f5ff57d0ce10/src/test/java/com/microsoft/azure/storage/Samples.java#L513">Exempel för SAS-tester</a></td>
 </tr>   
-<tr> 
+<tr>
 <td>Tjänstegenskaper</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobAdvanced.java">Komma igång med Azure Blob Service i Java</a></td>
-</tr>           
-<tr> 
+</tr>
+<tr>
 <td>Ta ögonblicksbild av Blob</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Komma igång med Azure Blob Service i Java</a></td>
-</tr> 
-<tr> 
+</tr>
+<tr>
 <td rowspan="9"><b>Fil</b></td>
-<td>Skapa filer/kataloger/resurser</td> 
-<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileBasics.java">Komma igång med Azure File Service i Java</a></td> 
+<td>Skapa filer/kataloger/resurser</td>
+<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileBasics.java">Komma igång med Azure File Service i Java</a></td>
 </tr>
-<tr> 
-<td>Ta bort filer/kataloger/resurser</td> 
-<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileBasics.java">Komma igång med Azure File Service i Java</a></td> 
-</tr> 
-<tr> 
-<td>Directory-egenskaper /-Metadata</td> 
-<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileAdvanced.java">Komma igång med Azure File Service i Java</a></td> 
-</tr> 
-<tr> 
-<td>Ladda ned filer</td> 
-<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileBasics.java">Komma igång med Azure File Service i Java</a></td> 
-</tr> 
-<tr> 
-<td>Filen egenskaper-Metadata-mått</td> 
-<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileAdvanced.java">Komma igång med Azure File Service i Java</a></td> 
-</tr> 
-<tr> 
-<td>Egenskaper</td> 
-<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileAdvanced.java">Komma igång med Azure File Service i Java</a></td> 
-</tr> 
-<tr> 
-<td>Listan kataloger och filer</td> 
-<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileBasics.java">Komma igång med Azure File Service i Java</a></td> 
+<tr>
+<td>Ta bort filer/kataloger/resurser</td>
+<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileBasics.java">Komma igång med Azure File Service i Java</a></td>
 </tr>
-<tr> 
-<td>Lista över resurser</td> 
-<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileBasics.java">Komma igång med Azure File Service i Java</a></td> 
+<tr>
+<td>Directory-egenskaper /-Metadata</td>
+<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileAdvanced.java">Komma igång med Azure File Service i Java</a></td>
 </tr>
-<tr> 
-<td>Dela egenskaper/Metadata/Stats</td> 
-<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileAdvanced.java">Komma igång med Azure File Service i Java</a></td> 
+<tr>
+<td>Ladda ned filer</td>
+<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileBasics.java">Komma igång med Azure File Service i Java</a></td>
 </tr>
-<tr> 
+<tr>
+<td>Filen egenskaper-Metadata-mått</td>
+<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileAdvanced.java">Komma igång med Azure File Service i Java</a></td>
+</tr>
+<tr>
+<td>Egenskaper</td>
+<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileAdvanced.java">Komma igång med Azure File Service i Java</a></td>
+</tr>
+<tr>
+<td>Listan kataloger och filer</td>
+<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileBasics.java">Komma igång med Azure File Service i Java</a></td>
+</tr>
+<tr>
+<td>Lista över resurser</td>
+<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileBasics.java">Komma igång med Azure File Service i Java</a></td>
+</tr>
+<tr>
+<td>Dela egenskaper/Metadata/Stats</td>
+<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileAdvanced.java">Komma igång med Azure File Service i Java</a></td>
+</tr>
+<tr>
 <td rowspan="8"><b>kön</b></td>
-<td>Lägg till meddelande</td> 
-<td><a href="https://github.com/Azure/azure-storage-java/blob/master/microsoft-azure-storage-samples/src/com/microsoft/azure/storage/queue/gettingstarted/QueueBasics.java">Biblioteket Lagringsexempel Java-klienten</a></td> 
-</tr> 
-<tr> 
-<td>Kryptering av klientsidan</td> 
-<td><a href="https://github.com/Azure/azure-storage-java/blob/master/microsoft-azure-storage-samples/src/com/microsoft/azure/storage/encryption/queue/gettingstarted/QueueGettingStarted.java">Biblioteket Lagringsexempel Java-klienten</a></td> 
-</tr> 
-<tr> 
-<td>Skapa köer</td> 
-<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueBasics.java">Komma igång med Azure Queue Service i Java</a></td> 
-</tr> 
-<tr> 
-<td>Ta bort meddelandekö /</td> 
-<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueBasics.java">Komma igång med Azure Queue Service i Java</a></td> 
-</tr> 
-<tr> 
-<td>Granska meddelande</td> 
-<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueBasics.java">Komma igång med Azure Queue Service i Java</a></td> 
-</tr> 
-<tr> 
-<td>Kön ACL/Metadata/Stats</td> 
-<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueAdvanced.java">Komma igång med Azure Queue Service i Java</a></td> 
-</tr> 
-<tr> 
-<td>Egenskaper för kötjänst</td> 
-<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueAdvanced.java">Komma igång med Azure Queue Service i Java</a></td> 
-</tr> 
-<tr> 
-<td>Uppdatera meddelande</td> 
-<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueBasics.java">Komma igång med Azure Queue Service i Java</a></td> 
-</tr> 
-<tr> 
+<td>Lägg till meddelande</td>
+<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueBasics.java#L63">Komma igång med Azure Queue Service i Java</a></td>
+</tr>
+<tr>
+<td>Kryptering av klientsidan</td>
+<td><a href="https://github.com/Azure-Samples/storage-java-client-side-encryption/blob/master/src/gettingstarted/KeyVaultGettingStarted.java">Komma igång med Azure Client Side Encryption i Java</a></td>
+</tr>
+<tr>
+<td>Skapa köer</td>
+<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueBasics.java">Komma igång med Azure Queue Service i Java</a></td>
+</tr>
+<tr>
+<td>Ta bort meddelandekö /</td>
+<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueBasics.java">Komma igång med Azure Queue Service i Java</a></td>
+</tr>
+<tr>
+<td>Granska meddelande</td>
+<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueBasics.java">Komma igång med Azure Queue Service i Java</a></td>
+</tr>
+<tr>
+<td>Kön ACL/Metadata/Stats</td>
+<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueAdvanced.java">Komma igång med Azure Queue Service i Java</a></td>
+</tr>
+<tr>
+<td>Egenskaper för kötjänst</td>
+<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueAdvanced.java">Komma igång med Azure Queue Service i Java</a></td>
+</tr>
+<tr>
+<td>Uppdatera meddelande</td>
+<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueBasics.java">Komma igång med Azure Queue Service i Java</a></td>
+</tr>
+<tr>
 <td rowspan="7"><b>Tabell</b></td>
-<td>Skapa tabell</td> 
-<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Komma igång med Azure Table Service i Java</a></td> 
-</tr> 
-<tr> 
-<td>Ta bort entitet eller-tabell</td> 
-<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Komma igång med Azure Table Service i Java</a></td> 
-</tr> 
-<tr> 
-<td>Infoga/Merge/Ersätt entitet</td> 
-<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Komma igång med Azure Table Service i Java</a></td> 
-</tr> 
-<tr> 
-<td>Kör frågor mot entiteter</td> 
-<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Komma igång med Azure Table Service i Java</a></td> 
-</tr> 
-<tr> 
-<td>Frågetabeller</td> 
-<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Komma igång med Azure Table Service i Java</a></td> 
-</tr> 
-<tr> 
-<td>ACL/Tabellegenskaper</td> 
-<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableAdvanced.java">Komma igång med Azure Table Service i Java</a></td> 
-</tr> 
-<tr> 
-<td>Uppdatera entitet</td> 
-<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Komma igång med Azure Table Service i Java</a></td> 
-</tr> 
-</tbody> 
+<td>Skapa tabell</td>
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Komma igång med Azure Table Service i Java</a></td>
+</tr>
+<tr>
+<td>Ta bort entitet eller-tabell</td>
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Komma igång med Azure Table Service i Java</a></td>
+</tr>
+<tr>
+<td>Infoga/Merge/Ersätt entitet</td>
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Komma igång med Azure Table Service i Java</a></td>
+</tr>
+<tr>
+<td>Kör frågor mot entiteter</td>
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Komma igång med Azure Table Service i Java</a></td>
+</tr>
+<tr>
+<td>Frågetabeller</td>
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Komma igång med Azure Table Service i Java</a></td>
+</tr>
+<tr>
+<td>ACL/Tabellegenskaper</td>
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableAdvanced.java">Komma igång med Azure Table Service i Java</a></td>
+</tr>
+<tr>
+<td>Uppdatera entitet</td>
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Komma igång med Azure Table Service i Java</a></td>
+</tr>
+</tbody>
 </table>
 <br/>
 

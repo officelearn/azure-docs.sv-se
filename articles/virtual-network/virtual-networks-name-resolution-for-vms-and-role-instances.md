@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/25/2019
 ms.author: rohink
-ms.openlocfilehash: 763fc2952d7a1e2eac209cc9df53713c58ad83c9
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: e0f3de95cfd4a18294e5e8e2adcf3b52a7487dbb
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925239"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65411362"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Namnmatchning för resurser i Azure-nätverk
 
@@ -43,8 +43,8 @@ Typ av namnmatchning som du använder beror på hur dina resurser behöver kommu
 | Namnet lösningen från App Service Web Apps i ett virtuellt nätverk till virtuella datorer i ett annat virtuellt nätverk. |Kundhanterad DNS-servrar som vidarebefordrar frågor mellan virtuella nätverk för matchning av Azure (DNS-proxy). Se namnmatchning med hjälp av DNS-servern. |Endast FQDN |
 | Upplösning på lokal dator- och tjänstnamn från virtuella datorer eller rollinstanser i Azure. |Kundhanterad DNS-servrar (den lokala domänkontrollanten, lokala skrivskyddade domänkontrollanten eller en sekundär DNS har synkroniserats med zonöverföringar, till exempel). Se [namnmatchning med hjälp av DNS-servern](#name-resolution-that-uses-your-own-dns-server). |Endast FQDN |
 | Lösning av Azure värdnamn från lokala datorer. |Vidarebefordra frågor till en kundhanterad DNS-proxyserver i motsvarande virtuella nätverk proxyservern vidarebefordrar frågor till Azure för matchning. Se [namnmatchning med hjälp av DNS-servern](#name-resolution-that-uses-your-own-dns-server). |Endast FQDN |
-| Omvänd DNS för interna IP-adresser. |[Namnmatchning med hjälp av DNS-servern](#name-resolution-that-uses-your-own-dns-server). |Inte tillämpligt |
-| Namnmatchning mellan virtuella datorer eller rollinstanser i olika molntjänster, inte i ett virtuellt nätverk. |Inte tillämpligt. Anslutning mellan virtuella datorer och rollinstanser i olika molntjänster stöds inte utanför ett virtuellt nätverk. |Inte tillämpligt|
+| Omvänd DNS för interna IP-adresser. |[Namnmatchning med hjälp av DNS-servern](#name-resolution-that-uses-your-own-dns-server). |Saknas |
+| Namnmatchning mellan virtuella datorer eller rollinstanser i olika molntjänster, inte i ett virtuellt nätverk. |Ej tillämpligt. Anslutning mellan virtuella datorer och rollinstanser i olika molntjänster stöds inte utanför ett virtuellt nätverk. |Saknas|
 
 ## <a name="azure-provided-name-resolution"></a>Azure-tillhandahållen namnmatchning
 
@@ -169,11 +169,11 @@ Om vidarebefordran av frågor till Azure inte passar dina behov, bör du ange en
 * Skyddas mot åtkomst från internet, för att identifiera hot som externa agenter.
 
 > [!NOTE]
-> För bästa prestanda när du använder virtuella Azure-datorer som DNS-servrar, ska IPv6 vara inaktiverat. En [offentliga IP-adressen](virtual-network-public-ip-address.md) ska tilldelas till varje virtuell dator för DNS-server. För ytterligare analys och optimeringar när du använder Windows Server som din DNS-server finns i [Name resolution prestanda för en rekursiv Windows DNS-Server 2012 R2](http://blogs.technet.com/b/networking/archive/2015/08/19/name-resolution-performance-of-a-recursive-windows-dns-server-2012-r2.aspx).
+> För bästa prestanda när du använder virtuella Azure-datorer som DNS-servrar, ska IPv6 vara inaktiverat. En [offentliga IP-adressen](virtual-network-public-ip-address.md) ska tilldelas till varje virtuell dator för DNS-server. För ytterligare analys och optimeringar när du använder Windows Server som din DNS-server finns i [Name resolution prestanda för en rekursiv Windows DNS-Server 2012 R2](https://blogs.technet.com/b/networking/archive/2015/08/19/name-resolution-performance-of-a-recursive-windows-dns-server-2012-r2.aspx).
 > 
 > 
 
-### <a name="web-apps"></a>Webbappar
+### <a name="web-apps"></a>Webbprogram
 Anta att du behöver utföra namnmatchning från ditt program skapas med hjälp av App Service är länkad till ett virtuellt nätverk för virtuella datorer i samma virtuella nätverk. Förutom att konfigurera en anpassad DNS-server som har en DNS-vidarebefordrare som vidarebefordrar frågor till Azure (virtuell IP-adressen 168.63.129.16), utför följande steg:
 1. Aktivera virtual network-integration för din webbapp, om inte redan har gjort, enligt beskrivningen i [integrera din app med ett virtuellt nätverk](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. I Azure-portalen för App Service-plan som är värd för webbapp väljer **synkronisera nätverk** under **nätverk**, **virtuell nätverksintegrering**.

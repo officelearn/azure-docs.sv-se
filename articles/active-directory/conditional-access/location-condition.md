@@ -12,12 +12,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7b12f5c7736307f0b62b6f6c2b526eb0108569c
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 27309c08fe4419197faa17dcceb3645b00387e93
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190188"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65227917"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>Vad är platsvillkoret för villkorlig åtkomst i Azure Active Directory? 
 
@@ -25,7 +25,7 @@ Med [villkorlig åtkomst i Azure Active Directory (Azure AD)](../active-director
 
 Den här artikeln ger dig den information du behöver att konfigurera platsvillkoret.
 
-## <a name="locations"></a>Platser
+## <a name="locations"></a>Sökvägar
 
 Azure AD aktiverar enkel inloggning till enheter, appar och tjänster från var som helst på internet. Du kan styra åtkomsten till dina molnappar baserat på nätverksplats för en användare med platsvillkor. Vanliga användningsområden för platsvillkoret är:
 
@@ -54,7 +54,7 @@ En namngiven plats har följande komponenter:
 
 - **Markera som betrodd plats** – en flagga som du kan ange för en namngiven plats att ange en betrodd plats. Betrodda platser är oftast nätverksområden som kontrolleras av IT-avdelningen. Förutom villkorlig åtkomst, betrodda namngivna platser används också av Azure Identity Protection och Azure AD-säkerhetsrapporter för att minska [falska positiva identifieringar](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations-1).
 - **Länder/regioner** – det här alternativet kan du välja en eller flera land eller region för att definiera en namngiven plats.
-- **Inkludera okända områden** -vissa IP-adresser mappas inte till ett visst land. Det här alternativet kan du välja om dessa IP-adresser ska ingå i den namngivna platsen. Använd den här inställningen när principen med hjälp av den namngivna platsen ska gälla för okända platser.
+- **Inkludera okända områden** -vissa IP-adresser mappas inte till ett visst land eller region. Det här alternativet kan du välja om dessa IP-adresser ska ingå i den namngivna platsen. Använd den här inställningen när principen med hjälp av den namngivna platsen ska gälla för okända platser.
 
 Antalet namngivna platser som du kan konfigurera begränsas av storleken på det relaterade objektet i Azure AD. Organisationer kan konfigurera upp till 90 namngivna platser, var och en konfigurerad med upp till 12000 IP-intervall.
 
@@ -69,7 +69,7 @@ Om en princip är konfigurerad för att tillämpa ”var som helst”, gäller d
 
 Du kan också konfigurera IP-adressintervall som motsvarar din organisations lokalt intranät i den [multifaktorautentisering tjänstinställningar](https://account.activedirectory.windowsazure.com/usermanagement/mfasettings.aspx). Den här funktionen kan du konfigurera upp till 50 IP-adressintervall. Det är de IP-adressintervall i CIDR-format. Mer information finns i [tillförlitliga IP-adresser](../authentication/howto-mfa-mfasettings.md#trusted-ips).  
 
-Om du har tillförlitliga IP-adresser konfigureras, de visas som **MFA tillförlitliga IP-adresser** i listan över platser för platsvillkoret.
+Om du har tillförlitliga IP-adresser konfigureras de visas som **MFA tillförlitliga IP-adresser** i listan över platser för platsvillkoret.
 
 ### <a name="skipping-multi-factor-authentication"></a>Hoppar över multifaktorautentisering
 

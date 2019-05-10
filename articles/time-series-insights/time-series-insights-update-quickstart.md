@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
 ms.date: 04/22/2019
-ms.openlocfilehash: 604603a145ab360af18ce74748707da9f5f93427
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: dbdbfc797d37ed38936d6cfd354383d412c6b52d
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64726393"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205824"
 ---
 # <a name="quickstart-explore-the-azure-time-series-insights-preview-demo-environment"></a>Snabbstart: Utforska demomiljön för förhandsversionen av Azure Time Series Insights
 
@@ -43,49 +43,49 @@ Förhandsversionen av Time Series Insights explorer visar historiska data och an
     * Uppdatera vyn intervallet till **1/1/17 20:00 till 17/10/3 20:00 (UTC)**.
     * Välj den **Contoso anläggning 1** > **W7** > **Generator System** > **GeneratorSpeed** sensorn. Granska sedan de resulterande värdena.
 
-      [![Snabbstarten något](media/v2-update-quickstart/quickstart-one.png)](media/v2-update-quickstart/quickstart-one.png#lightbox)
+      [![W7 på Contoso anläggningen 1](media/v2-update-quickstart/quickstart-one.png)](media/v2-update-quickstart/quickstart-one.png#lightbox)
 
 1. Contoso upptäckte nyligen en brand i vindturbin **W7**. Yttranden variera om närbelägen orsaken till fire har. Vid närmare granskning ser vi att fire avisering sensorn har aktiverats vid fire.
 
     * Uppdatera vyn intervallet till **3/9/17 20:00 till 17/10/3 20:00 (UTC)**.
     * Välj den **säkerhetssystem** > **FireAlert** sensorn.
 
-      [![Snabbstart för två](media/v2-update-quickstart/quickstart-two.png)](media/v2-update-quickstart/quickstart-two.png#lightbox)
+      [![Contoso finns fire i vindturbin W7](media/v2-update-quickstart/quickstart-two.png)](media/v2-update-quickstart/quickstart-two.png#lightbox)
 
 1. Granska andra händelser ungefär samma tidpunkt som fire att förstå vad som hänt. Både olja hög belastning och aktiva varningar som högst nådde precis före fire.
 
     * Välj den **försäljningsargument System** > **HydraulicOilPressure** sensorn.
     * Välj den **försäljningsargument System** > **ActiveWarning** sensorn.
 
-      [![Snabbstart för tre](media/v2-update-quickstart/quickstart-three.png)](media/v2-update-quickstart/quickstart-three.png#lightbox)
+      [![Granska andra händelser ungefär samma tidpunkt](media/v2-update-quickstart/quickstart-three.png)](media/v2-update-quickstart/quickstart-three.png#lightbox)
 
 1. Olja hög belastning och aktiva varningen sensorer som högst nådde strax innan startar. Expandera den visade tidsserien om du vill se andra tecken närvarande leder fram till fire. Båda sensorer växlade konsekvent under tiden som indikerar ett permanent eller lite nervöst mönster.
 
     * Uppdatera vyn intervallet till **2/24/17 20:00 till 17/10/3 20:00 (UTC)**.
 
-      [![Snabbstart för fyra](media/v2-update-quickstart/quickstart-four.png)](media/v2-update-quickstart/quickstart-four.png#lightbox)
+      [![Tryck för olja och den aktiva varningen sensorer också högst nådde](media/v2-update-quickstart/quickstart-four.png)](media/v2-update-quickstart/quickstart-four.png#lightbox)
 
-1. Undersöka två års Historik visar en annan fire-händelse med samma sensor förändringar.
+1. Undersöka två år av historiska data visar en annan fire-händelse med samma sensor förändringar.
 
     * Uppdatera vyn intervallet till **1/1/16 till 12/31/17** (alla data).
 
-      [![Snabbstart fem](media/v2-update-quickstart/quickstart-five.png)](media/v2-update-quickstart/quickstart-five.png#lightbox)
+      [![Leta efter historiska mönster](media/v2-update-quickstart/quickstart-five.png)](media/v2-update-quickstart/quickstart-five.png#lightbox)
 
-Med hjälp av Azure Time Series Insights och våra sensor telemetri, har vi upptäckt en långsiktig och problematiska trend som är dolda i våra historiska data. Med dessa nya insikter kan vi förklara:
+Med hjälp av Azure Time Series Insights och våra sensor telemetri, har vi upptäckt en långsiktig och problematiska trend som är dolda i våra historiska data. Med dessa nya insikter kan vi:
 
 > [!div class="checklist"]
-> * Vad som verkligen inträffade
-> * Åtgärda problemet
+> * Beskriver vad som verkligen inträffade.
+> * Rätta till problemet.
 > * Placera överlägsen avisering om system på plats.
 
 ## <a name="root-cause-analysis"></a>Rotorsaksanalys
 
 1. Vissa scenarier kräver avancerad analys för att få fram diskret ledtrådar i data. Välj windmill **W6** på datum **6/25**
 
-    * Uppdatera vyn intervallet till **6/1/17 20:00-7/1/17 20:00 (UTC)**
+    * Uppdatera vyn intervallet till **6/1/17 20:00-7/1/17 20:00 (UTC)**.
     * Välj sedan den **Contoso anläggning 1** > **W6** > **säkerhetssystem** > **VoltageActuatorSwitchWarning**  sensorn.
 
-      [![Snabbstart sex](media/v2-update-quickstart/quickstart-six.png)](media/v2-update-quickstart/quickstart-six.png#lightbox)
+      [![Uppdatera vyn intervallet och välj W6](media/v2-update-quickstart/quickstart-six.png)](media/v2-update-quickstart/quickstart-six.png#lightbox)
 
 1. Varningen anger ett problem med spänningen från generatorn. Totala effekt av generatorn arbetar inom normal parametrar får våra aktuellt intervall. Genom att öka våra intervall, en annan mönstret växer: det finns en bestämd Samlingsbibliotek.
 
@@ -93,20 +93,20 @@ Med hjälp av Azure Time Series Insights och våra sensor telemetri, har vi uppt
     * Välj den **Generator System** > **ActivePower** sensorn.
     * Uppdatera intervallet **3d**.
 
-      [![Snabbstart sju](media/v2-update-quickstart/quickstart-seven.png)](media/v2-update-quickstart/quickstart-seven.png#lightbox)
+      [![Uppdatera intervallet till 3d](media/v2-update-quickstart/quickstart-seven.png)](media/v2-update-quickstart/quickstart-seven.png#lightbox)
 
 1. Genom att expandera tidsintervallet kan vi fastställa om problemet är stoppad eller om det fortsätter.
 
     * Utöka tidsintervallet till 60 dagar.
 
-      [![Snabbstart åtta](media/v2-update-quickstart/quickstart-eight.png)](media/v2-update-quickstart/quickstart-eight.png#lightbox)
+      [![Utöka tidsintervallet till 60 dagar](media/v2-update-quickstart/quickstart-eight.png)](media/v2-update-quickstart/quickstart-eight.png#lightbox)
 
 1. Andra sensorn datapunkter kan läggas till att ge överlägsen sammanhang. Flera sensorer som vi kan visa, desto mer fullständig vår förståelse för problemet. Vi släpper en markör för att se de faktiska värdena. 
 
     * Välj den **Generator System** > **GridVoltagePhase1**, **GridVoltagePhase2**, och **GridVoltagePhase3** sensorer .
     * Släpp en markör på den sista datapunkten i det synliga området.
 
-      [![Snabbstart nio](media/v2-update-quickstart/quickstart-nine.png)](media/v2-update-quickstart/quickstart-nine.png#lightbox)
+      [![Ta bort en markör](media/v2-update-quickstart/quickstart-nine.png)](media/v2-update-quickstart/quickstart-nine.png#lightbox)
 
     De tre spänningssensorer fungerar samma prestanda och inom normal parametrar. Det ser ut som den **GridVoltagePhase3** sensorn är orsaken.
 
@@ -114,7 +114,7 @@ Med hjälp av Azure Time Series Insights och våra sensor telemetri, har vi uppt
 
     * Uppdatera skärmen för att täcka över alla **Generator System** sensorer på samma diagram skala.
 
-       [![Snabbstart tio](media/v2-update-quickstart/quickstart-ten.png)](media/v2-update-quickstart/quickstart-ten.png#lightbox)
+       [![Uppdatera visningen med allt](media/v2-update-quickstart/quickstart-ten.png)](media/v2-update-quickstart/quickstart-ten.png#lightbox)
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -122,3 +122,8 @@ Du är redo att skapa en egen förhandsversion av Time Series Insights-miljön:
 
 > [!div class="nextstepaction"]
 > [Planera en förhandsversion av Time Series Insights-miljön](time-series-insights-update-plan.md)
+
+Lär dig att navigera demon och dess funktioner:
+
+> [!div class="nextstepaction"]
+> [I förhandsversionen av Time Series Insights-Utforskaren](time-series-insights-update-explorer.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: hrushib
-ms.openlocfilehash: 1a1c1bafd0a575b01e9774e79a98515d34646f7c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 28378b4b769e0d0e70a82a45baac0872d1476036
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61471812"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413625"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>Regelbunden säkerhetskopiering och återställning i Azure Service Fabric
 > [!div class="op_single_selector"]
@@ -56,7 +56,21 @@ Service Fabric tillhandahåller en uppsättning API: er för att uppnå följand
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 * Service Fabric-kluster med Fabric version 6.2 och senare. Klustret ska ställas in på Windows Server. Referera till denna [artikeln](service-fabric-cluster-creation-for-windows-server.md) steg att ladda ned paket som krävs.
 * X.509-certifikat för kryptering av hemligheter som behövs för att ansluta till storage för lagring av säkerhetskopior. Se [artikeln](service-fabric-windows-cluster-x509-security.md) kunskaper om att hämta eller skapa ett självsignerat X.509-certifikat.
-* Service Fabric tillförlitliga tillståndskänsliga program som skapats med hjälp av Service Fabric SDK version 3.0 eller senare. För program som riktar in sig på .NET Core 2.0, bör programmet skapas med hjälp av Service Fabric SDK version 3.1 eller senare.
+
+* Service Fabric tillförlitliga tillståndskänsliga program som skapats med hjälp av Service Fabric SDK version 3.0 eller senare. För program som riktar in sig på .net Core 2.0, bör skapat programmet med hjälp av Service Fabric SDK version 3.1 eller senare.
+* Installera Microsoft.ServiceFabric.Powershell.Http modulen [förhandsgranskning] för configuration anrop.
+
+```powershell
+    Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
+```
+
+* Se till att klustret är anslutna med hjälp av den `Connect-SFCluster` kommandot innan du gör några konfigurationsbegäran med Microsoft.ServiceFabric.Powershell.Http-modulen.
+
+```powershell
+
+    Connect-SFCluster -ConnectionEndpoint 'https://mysfcluster.southcentralus.cloudapp.azure.com:19080'   -X509Credential -FindType FindByThumbprint -FindValue '1b7ebe2174649c45474a4819dafae956712c31d3' -StoreLocation 'CurrentUser' -StoreName 'My' -ServerCertThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'  
+
+```
 
 ## <a name="enabling-backup-and-restore-service"></a>Aktivera säkerhetskopiera och återställa tjänsten
 Först måste du aktivera den _säkerhetskopiera och återställa tjänsten_ i klustret. Hämta mallen för det kluster som du vill distribuera. Du kan använda den [exempel på mallar](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples). Aktivera den _säkerhetskopiera och återställa tjänsten_ med följande steg:
@@ -114,6 +128,16 @@ Första steget är att skapa princip för säkerhetskopiering som beskriver sche
 
 Skapa filresurs för lagring av säkerhetskopior, och ge ReadWrite-åtkomst till den här filresursen för alla datorer i Service Fabric-noden. Det här exemplet förutsätter resursen med namnet `BackupStore` finns på `StorageServer`.
 
+
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell med Microsoft.ServiceFabric.Powershell.Http-modulen
+
+```powershell
+
+New-SFBackupPolicy -Name 'BackupPolicy1' -AutoRestoreOnDataLoss $true -MaxIncrementalBackups 20 -FrequencyBased -Interval 00:15:00 -FileShare -Path '\\StorageServer\BackupStore' -Basic -RetentionDuration '10.00:00:00'
+
+```
+#### <a name="rest-call-using-powershell"></a>REST-anrop med hjälp av Powershell
+
 Kör följande PowerShell-skript för att anropa den nödvändiga REST API för att skapa ny princip.
 
 ```powershell
@@ -152,6 +176,14 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 ### <a name="enable-periodic-backup"></a>Aktivera regelbunden säkerhetskopiering
 Principen för säkerhetskopiering ska vara associerat med programmet när du har definierat principen för att uppfylla kraven på dataskydd för programmet. Beroende på krav, kan säkerhetskopieringspolicyn som associeras med ett program, tjänst eller en partition.
 
+
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell med Microsoft.ServiceFabric.Powershell.Http-modulen
+
+```powershell
+Enable-SFApplicationBackup -ApplicationId 'SampleApp' -BackupPolicyName 'BackupPolicy1'
+```
+
+#### <a name="rest-call-using-powershell"></a>REST-anrop med hjälp av Powershell
 Kör följande PowerShell-skript för att anropa den nödvändiga REST API för att associera säkerhetskopieringspolicyn med namnet `BackupPolicy1` i ovanstående steg med programmet `SampleApp`.
 
 ```powershell
@@ -167,13 +199,21 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 
 ### <a name="verify-that-periodic-backups-are-working"></a>Kontrollera att regelbundna säkerhetskopieringar fungerar
 
-När du har aktiverat säkerhetskopiering för programmet, startas alla partitioner som hör till Reliable Stateful services och Reliable Actors under programmet komma säkerhetskopieras regelbundet enligt den tillhörande säkerhetskopieringsprincipen. 
+När du har aktiverat säkerhetskopiering för programmet, startas alla partitioner som hör till Reliable Stateful services och Reliable Actors under programmet komma säkerhetskopieras regelbundet enligt den tillhörande säkerhetskopieringsprincipen.
 
 ![Partition säkerhetskopierade Hälsotillståndshändelse][0]
 
 ### <a name="list-backups"></a>Lista över säkerhetskopior
 
 Säkerhetskopieringar som är associerade med alla partitioner som hör till Reliable Stateful services och Reliable Actors för programmet kan att räkna upp med hjälp av _GetBackups_ API. Beroende på krav, kan du räkna upp säkerhetskopiorna för program, tjänst eller en partition.
+
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell med Microsoft.ServiceFabric.Powershell.Http-modulen
+
+```powershell
+    Get-SFApplicationBackupList -ApplicationId WordCount     
+```
+
+#### <a name="rest-call-using-powershell"></a>REST-anrop med hjälp av Powershell
 
 Kör följande PowerShell-skript för att anropa HTTP-API för att räkna upp de säkerhetskopior som har skapats för alla partitioner i den `SampleApp` program.
 
@@ -185,6 +225,7 @@ $response = Invoke-WebRequest -Uri $url -Method Get
 $BackupPoints = (ConvertFrom-Json $response.Content)
 $BackupPoints.Items
 ```
+
 Exempel på utdata för ovanstående kör:
 
 ```
@@ -231,7 +272,7 @@ FailureError            :
 - Backup Restore-tjänsten inte kan hamna på kluster som skyddas med gMSA baserad säkerhet.
 
 ## <a name="limitation-caveats"></a>Begränsningen / varningar
-- Inga Service Fabric inbyggd PowerShell-cmdletar.
+- Service Fabric PowerShell-cmdlet: ar är i förhandsgranskningsläge.
 - Inget stöd för Service Fabric-kluster på Linux.
 
 ## <a name="next-steps"></a>Nästa steg

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d87a60ef196ee319b630d5713c593cfaa9cf8158
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 2ea2ead29ba1945213871ab76a65e33a4d7b27cc
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65158170"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65441502"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-templafy"></a>Självstudier: Azure Active Directory-integrering med Templafy
 
@@ -30,7 +30,7 @@ Integrera Templafy med Azure AD ger dig följande fördelar:
 
 * Du kan styra i Azure AD som har åtkomst till Templafy.
 * Du kan aktivera användarna att vara automatiskt inloggad till Templafy (Single Sign-On) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure-portalen.
+* Du kan hantera dina konton på en central plats – Azure portal.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
@@ -63,7 +63,7 @@ För att konfigurera integrering av Templafy i Azure AD, som du behöver lägga 
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
+3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
@@ -71,19 +71,19 @@ För att konfigurera integrering av Templafy i Azure AD, som du behöver lägga 
 
     ![Templafy i resultatlistan](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
 I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Templafy baserat på en testanvändare kallas **Britta Simon**.
 För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i Templafy upprättas.
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med Templafy, måste du utföra följande byggblock:
 
-1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
 2. **[Konfigurera Templafy Single Sign-On](#configure-templafy-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
-4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
 5. **[Skapa testanvändare Templafy](#create-templafy-test-user)**  – du har en motsvarighet för Britta Simon i Templafy som är länkad till en Azure AD-representation av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
+6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
@@ -93,7 +93,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Templaf
 
 1. I den [Azure-portalen](https://portal.azure.com/)på den **Templafy** application integration markerar **enkel inloggning**.
 
-    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
+    ![Konfigurera enkel inloggning för länken](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -120,20 +120,20 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Templaf
 
     | Namn | Källattribut| Namnområde  |
     | ---------------| --------------- | --------- |
-    | givenname | user.givenname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
-    | surname | user.surname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
-    | emailaddress | user.mail | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`
-    | streetaddress | user.streetaddress | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
-    | city | User.City | `http://schemas.templafy.com/2016/06/identity/claims`|
-    | Postnummer | user.postalcode | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
-    | region/område | User.state | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
-    | Land | user.country | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
-    | jobtitle | user.jobtitle | `http://schemas.templafy.com/2016/06/identity/claims`|
-    | avdelning | user.department | `http://schemas.templafy.com/2016/06/identity/claims`|
-    | Telefonnummer | user.telephonenumber | `http://schemas.templafy.com/2016/06/identity/claims` |
-    | facsimilenumber | User.facsimiletelephonenumber | `http://schemas.templafy.com/2016/06/identity/claims`|
-    | UPN | user.userprincipalname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
-    | nameidentifier | user.mail | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
+    | givenName | user.givenname | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
+    | surname | user.surname | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
+    | emailaddress | user.mail | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims`
+    | streetaddress | user.streetaddress | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
+    | city | User.City | `https://schemas.templafy.com/2016/06/identity/claims`|
+    | Postnummer | user.postalcode | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
+    | region/område | User.state | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
+    | Land | user.country | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
+    | jobtitle | user.jobtitle | `https://schemas.templafy.com/2016/06/identity/claims`|
+    | Avdelning | user.department | `https://schemas.templafy.com/2016/06/identity/claims`|
+    | Telefonnummer | user.telephonenumber | `https://schemas.templafy.com/2016/06/identity/claims` |
+    | facsimilenumber | User.facsimiletelephonenumber | `https://schemas.templafy.com/2016/06/identity/claims`|
+    | UPN | user.userprincipalname | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
+    | nameidentifier | user.mail | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
     | | |
 
     a. Klicka på **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
@@ -156,11 +156,11 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Templaf
 
 7. Klicka på kopieringsknappen i avsnittet **SAML-signeringscertifikat** på sidan **Konfigurera enkel inloggning med SAML** om du vill kopiera **URL:en för federationsmetadata** och spara den på datorn.
 
-    ![Länk för nedladdning av certifikatet](common/copy-metadataurl.png)
+    ![Länk för hämtning av certifikat](common/copy-metadataurl.png)
 
 ### <a name="configure-templafy-single-sign-on"></a>Konfigurera Templafy Single Sign-On
 
-Att konfigurera enkel inloggning på **Templafy** sida, som du behöver skicka den **Appfederationsmetadata** till [Templafy supportteamet](mailto:support@templafy.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+Att konfigurera enkel inloggning på **Templafy** sida, som du behöver skicka den **Appfederationsmetadata** till [Templafy supportteamet](mailto:support@templafy.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -178,7 +178,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Dialogrutan Användare](common/user-properties.png)
 
-    a. I fältet **Namn** anger du **BrittaSimon**.
+    a. I den **namn** anger **BrittaSimon**.
   
     b. I den **användarnamn** skriver `brittasimon@yourcompanydomain.extension`. Till exempel, BrittaSimon@contoso.com
 
@@ -224,8 +224,8 @@ När du klickar på panelen Templafy i åtkomstpanelen, bör det vara loggas in 
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

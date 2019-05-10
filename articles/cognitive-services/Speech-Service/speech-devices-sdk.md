@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: ca3f537ed52da547f64aa1fb98eb82c4ea73d81d
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 5f3b0094834b1ca547ba5ddf9726068c9ea36079
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65021425"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409092"
 ---
 # <a name="about-the-speech-devices-sdk"></a>Om enheterna som tal SDK
 
@@ -32,7 +32,7 @@ SDK: N för tal enheter förbrukar den [tal SDK](speech-sdk.md). Den använder t
 
 Du kan också använda tal Devices SDK för att skapa omgivande enheter som har en egen [anpassade wake word](speech-devices-sdk-create-kws.md) så Låt dig ledas som initierar någon interaktion från användaren är unikt för ditt varumärke.
 
-Tal Devices SDK som underlättar en mängd olika scenarier för röst-aktiverade [anpassad röst första virtuella assistenter](https://aka.ms/sdsdk-assistant), enhet – till och ordning system, [konversationen avskrift](conversation-transcription-service.md), och smart talare. Du kan svara på användare med text, tala tillbaka till dem i en standard eller [anpassade röst](how-to-customize-voice-font.md), ange sökresultaten [översätta](speech-translation.md) till andra språk och mycket mer. Vi ser fram emot att se vad du skapa!
+Tal Devices SDK som underlättar en mängd olika scenarier för röst-aktiverade [anpassad röst första virtuella assistenter](https://aka.ms/bots/speech/va), enhet – till och ordning system, [konversationen avskrift](conversation-transcription-service.md), och smart talare. Du kan svara på användare med text, tala tillbaka till dem i en standard eller [anpassade röst](how-to-customize-voice-font.md), ange sökresultaten [översätta](speech-translation.md) till andra språk och mycket mer. Vi ser fram emot att se vad du skapa!
 
 ## <a name="next-steps"></a>Nästa steg
 

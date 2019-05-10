@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 04/02/2019
+ms.date: 05/08/2019
 ms.author: alkohli
-ms.openlocfilehash: cac451634bfa357784f9fd3d3a24e06ef3a4ee19
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e8932097bcdef782b1a551d386c2872e02d8abfd
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60754695"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65442379"
 ---
 # <a name="azure-data-box-gateway-system-requirements"></a>Azure Data Box Gateway-systemkrav
 
@@ -34,7 +34,7 @@ Underliggande värdsystemet för Data Box-Gateway är att dedikera följande res
 | Virtuella processorer (kärnor)   | Minst 4 |
 | Minne  | Minst 8 GB|
 | Tillgänglighet|Enkel nod|
-| Diskar| OS-disk: 250 GB <br> Datadisk: minst 2 TB, tunt allokerad och måste backas upp av SSD-enheter|
+| Diskar| OS-disk: 250 GB <br> Datadisk: minst 2 TB, tunt allokerad och måste backas upp av SSD-enheter|
 | Nätverksgränssnitt|Minst 1 virtuellt nätverksgränssnitt|
 
 
@@ -50,7 +50,7 @@ Underliggande värdsystemet för Data Box-Gateway är att dedikera följande res
 
 | **Operativsystem/plattform**  |**Versioner**   |**Anteckningar**  |
 |---------|---------|---------|
-|Hyper-V  |  2012 R2 <br> 2016  |         |
+|Hyper-V  |  2012 R2 <br> 2016 <br> 2019 |         |
 |VMware ESXi     | 6.0 <br> 6.5 <br> 6.7       |VMware-verktyg stöds inte.         |
 
 

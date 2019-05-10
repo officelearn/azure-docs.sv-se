@@ -7,12 +7,12 @@ ms.date: 04/15/2019
 ms.topic: reference
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 0de3e0add804290cdfe27e2e97d8b1a0f240e0a6
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.openlocfilehash: dc72113a8f5ed978d64d35c43e94dc9e19e4cdb1
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63769308"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65209405"
 ---
 # <a name="functions-for-use-with-azure-blueprints"></a>Funktioner för användning med Azure skisser
 
@@ -41,11 +41,11 @@ Returnerar ett objekt av egenskaper som fyllts med de skissartefakter utdata.
 
 ### <a name="return-value"></a>Returvärde
 
-Ett objekt av output-egenskaper. Output-egenskaper är beroende på vilken typ av skissartefakten som refereras. Alla typer av följer formatet:
+Ett objekt av output-egenskaper. Den **matar ut** egenskaper är beroende på vilken typ av skissartefakten som refereras. Alla typer av följer formatet:
 
 ```json
 {
-  "output": {collectionOfOutputProperties}
+  "outputs": {collectionOfOutputProperties}
 }
 ```
 
@@ -53,7 +53,7 @@ Ett objekt av output-egenskaper. Output-egenskaper är beroende på vilken typ a
 
 ```json
 {
-    "output": {
+    "outputs": {
         "policyAssignmentId": "{resourceId-of-policy-assignment}",
         "policyAssignmentName": "{name-of-policy-assignment}",
         "policyDefinitionId": "{resourceId-of-policy-definition}",
@@ -63,13 +63,13 @@ Ett objekt av output-egenskaper. Output-egenskaper är beroende på vilken typ a
 
 #### <a name="resource-manager-template-artifact"></a>Artefakten för Resource Manager-mall
 
-Den **utdata** egenskaperna för det returnerade objektet definieras i Resource Manager-mallen och returneras av distributionen.
+Den **matar ut** egenskaperna för det returnerade objektet definieras i Resource Manager-mallen och returneras av distributionen.
 
 #### <a name="role-assignment-artifact"></a>Rolltilldelningsartefakten
 
 ```json
 {
-    "output": {
+    "outputs": {
         "roleAssignmentId": "{resourceId-of-role-assignment}",
         "roleDefinitionId": "{resourceId-of-role-definition}",
         "principalId": "{principalId-role-is-being-assigned-to}",
@@ -109,12 +109,12 @@ Några exempel på hämtning av data från den _myTemplateArtifact_ exempel är:
 
 | Uttryck | Typ | Värde |
 |:---|:---|:---|
-|`[artifacts("myTemplateArtifact").output.myArray]` | Matris | \["first", "second"\] |
-|`[artifacts("myTemplateArtifact").output.myArray[0]]` | String | ”första” |
-|`[artifacts("myTemplateArtifact").output.myString]` | String | ”Min sträng-value” |
-|`[artifacts("myTemplateArtifact").output.myObject]` | Object | {”myproperty”: ”min value”, ”anotherProperty”: true} |
-|`[artifacts("myTemplateArtifact").output.myObject.myProperty]` | String | ”Min value” |
-|`[artifacts("myTemplateArtifact").output.myObject.anotherProperty]` | Booleskt | True |
+|`[artifacts("myTemplateArtifact").outputs.myArray]` | Matris | \["first", "second"\] |
+|`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | String | ”första” |
+|`[artifacts("myTemplateArtifact").outputs.myString]` | String | ”Min sträng-value” |
+|`[artifacts("myTemplateArtifact").outputs.myObject]` | Object | {”myproperty”: ”min value”, ”anotherProperty”: true} |
+|`[artifacts("myTemplateArtifact").outputs.myObject.myProperty]` | String | ”Min value” |
+|`[artifacts("myTemplateArtifact").outputs.myObject.anotherProperty]` | Booleskt | True |
 
 ## <a name="concat"></a>concat
 

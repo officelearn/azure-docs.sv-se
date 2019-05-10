@@ -12,19 +12,19 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: bwren
-ms.openlocfilehash: 1496bf21ed1a81eedb44ca9cc9db777632e2a5cd
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.openlocfilehash: b4d67b64d8fc7c5063e96ed2a2502e9cbecd6065
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64876015"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65229882"
 ---
 # <a name="oms-portal-moving-to-azure"></a>OMS-portalen som flyttar till Azure
 
 > [!NOTE]
 > Den här artikeln gäller för både offentliga Azure-molnet och government-molnet utom om inget annat anges.
 
-**OMS-portalen för det offentliga Azure-molnet har dragits officiellt. OMS-portalen för Azure Azure US Government-molnet kommer officiellt dras tillbaka den 15 maj 2019.** Vi är glada över att flytta till Azure-portalen och räknar med övergången är enkelt att hantera. Men vi är medvetna om ändringarna är svåra och kan vara störande. Skicka frågor, feedback eller frågor till **LAUpgradeFeedback\@microsoft.com**. Resten av den här artikeln går över viktiga scenarier och vägledning för den här ändringen.
+**OMS-portalen för det offentliga Azure-molnet har dragits officiellt. OMS-portalen för Azure US Government-molnet kommer officiellt dras tillbaka den 15 maj 2019.** Vi är glada över att flytta till Azure-portalen och räknar med övergången är enkelt att hantera. Men vi är medvetna om ändringarna är svåra och kan vara störande. Skicka frågor, feedback eller frågor till **LAUpgradeFeedback\@microsoft.com**. Resten av den här artikeln går över viktiga scenarier och vägledning för den här ändringen.
 
 Azure-portalen är en hubb för alla Azure-tjänster och erbjuder en omfattande hanteringsupplevelse med funktioner som instrumentpaneler för att fästa resurser, intelligenta sökfunktioner för att hitta resurser och tagga för resurshantering. För att konsolidera och förenkla övervakning och hantering av arbetsflödet, börjar vi lägga till OMS portalfunktioner till Azure-portalen. Alla funktioner i OMS-portalen är nu en del av Azure-portalen. Några av de nya funktionerna, till exempel trafikanalys är i själva verket bara tillgängliga i Azure-portalen. Du kommer att kunna göra allt du gjorde i OMS-portalen med Azure-portalen och mycket mer. Om du inte redan gjort det, bör du börja använda Azure-portalen redan idag!
 
@@ -64,7 +64,7 @@ I båda dessa fall måste administratören manuellt tilldela dig rätt roll i f�
 
 | OMS behörighet | Azure Role |
 |:---|:---|
-| ReadOnly | Log Analytics Reader |
+| Skrivskyddad | Log Analytics Reader |
 | Deltagare | Log Analytics Contributor |
 | Administratör | Ägare | 
  

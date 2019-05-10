@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: fc02e830953f8612a077fb219c7fef4e86bc3827
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e542ad59f6fd64b52aef9438ed0f646e9e36fc4a
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61479288"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65209630"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Använda Azure Import/Export-tjänsten för att exportera data från Azure Blob storage
 Den här artikeln innehåller stegvisa instruktioner om hur du använder Azure Import/Export-tjänsten för att exportera stora mängder data på ett säkert sätt från Azure Blob storage. Tjänsten kräver att du kan leverera tomma enheter till Azure-datacentret. Tjänsten exporterar data från ditt lagringskonto till enheterna och sedan levereras enheter tillbaka.
@@ -55,7 +55,7 @@ Utför följande steg för att skapa ett exportjobb i Azure-portalen.
     - Välj en prenumeration.
     - Ange eller välj en resursgrupp.
 
-        ![Grundläggande inställningar](./media/storage-import-export-data-from-blobs/export-from-blob3.png) 
+        ![Grundinställningar](./media/storage-import-export-data-from-blobs/export-from-blob3.png) 
     
 3. I **Jobbdetaljer**:
 
@@ -83,7 +83,7 @@ Utför följande steg för att skapa ett exportjobb i Azure-portalen.
 4. I **returnera leveransinformation**:
 
     - Välj vilken operatör i listrutan. Om du vill använda en operatör än FedEx/DHL väljer du ett befintligt alternativ i listrutan. Kontakta Azure Data Box Operations team på `adbops@microsoft.com` med information om vilken operatör du tänker använda.
-    - Ange en giltig transportföretagets kontonummer som du har skapat med den operatör. Microsoft använder kontot för att leverera enheter till dig när importjobbet har slutförts. 
+    - Ange en giltig transportföretagets kontonummer som du har skapat med den operatör. Microsoft använder kontot för att leverera enheter till dig när din export-jobbet har slutförts. 
     - Ange en fullständig och giltig kontaktperson, telefon, e-post, gatuadress, ort, zip, region och land/region.
 
         > [!TIP] 

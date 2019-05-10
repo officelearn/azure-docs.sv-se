@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/29/2019
 ms.author: msangapu
-ms.openlocfilehash: 4b3dc019b8d5a31986f4145d9dd2f7bd86bbb467
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: d4a93bbd823db59d688f77a626b1225519fb7b44
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920062"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407619"
 ---
 # <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>Självstudier: Skapa en app med flera containrar (förhandsversion) med Web App for Containers
 
@@ -268,7 +268,7 @@ Följande ändringar har gjorts för Redis (används i ett senare avsnitt):
 * [Lägger till WordPress-pluginprogrammet Redis Object Cache 1.3.8.](https://github.com/Azure-Samples/multicontainerwordpress/blob/5669a89e0ee8599285f0e2e6f7e935c16e539b92/docker-entrypoint.sh#L74)
 * [Använder appinställningen för Redis-värdnamnet i WordPress wp-config.php.](https://github.com/Azure-Samples/multicontainerwordpress/blob/5669a89e0ee8599285f0e2e6f7e935c16e539b92/docker-entrypoint.sh#L162)
 
-Om du vill använda den anpassade avbildningen uppdaterar du filen docker-compose-wordpress.yml. I Cloud Shell skriver du `nano docker-compose-wordpress.yml` för att öppna nanotextredigerare. Ändra `image: wordpress` för att använda `image: mcr.microsoft.com/azuredocs/multicontainerwordpress`. Du behöver inte längre databascontainern. Ta bort avsnittet  `db`, `environment`, `depends_on` och `volumes` från konfigurationsfilen. Din fil ska se ut som följande kod:
+Om du vill använda den anpassade avbildningen uppdaterar du filen docker-compose-wordpress.yml. I Cloud Shell skriver du `nano docker-compose-wordpress.yml` för att öppna nanotextredigerare. Ändra `image: wordpress` för att använda `image: microsoft/multicontainerwordpress`. Du behöver inte längre databascontainern. Ta bort avsnittet  `db`, `environment`, `depends_on` och `volumes` från konfigurationsfilen. Din fil ska se ut som följande kod:
 
 ```yaml
 version: '3.3'

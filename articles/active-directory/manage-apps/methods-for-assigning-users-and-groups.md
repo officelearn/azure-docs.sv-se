@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/01/2018
+ms.date: 04/26/2019
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1cbd40f2ab91f854f46dc3e62bccbc8a3264f97f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bdf19d2001f84fab6978bfc34ef14a361b89edea
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60291287"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65441417"
 ---
 # <a name="assign-users-and-groups-to-an-application-in-azure-active-directory"></a>Tilldela användare och grupper till ett program i Azure Active Directory
 Den här artikeln visar hur du tilldelar användare eller grupper till ett program i Azure Active Directory (AD Azure). Användare måste först tilldelas till ett program innan en administratör kan ge dem åtkomst för att göra följande:
@@ -31,6 +31,8 @@ Den här artikeln visar hur du tilldelar användare eller grupper till ett progr
 -   Finns i ett program som visas på deras [Programåtkomstpanelen](https://myapps.microsoft.com/) eller mobila program.
 
 -   Finns i ett program som visas på deras [startprogrammet för Office 365](https://support.office.com/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a).
+
+Tillgängligheten för gruppbaserad tilldelning bestäms av ditt licensavtal. Gruppbaserad tilldelning stöds för enbart säkerhetsgrupper och kapslade gruppmedlemskap stöds inte för närvarande.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 Innan du kan tilldela användare och grupper till ett program, måste du kräva Användartilldelning. Att kräva Användartilldelning:

@@ -3,15 +3,15 @@ title: Utveckla lokalt med Azure Cosmos-emulatorn
 description: Med Azure Cosmos-emulatorn kan du utveckla och testa ditt program lokalt för kostnad, utan att skapa en Azure-prenumeration.
 ms.service: cosmos-db
 ms.topic: tutorial
-ms.date: 04/20/2018
 author: deborahc
 ms.author: dech
-ms.openlocfilehash: ac2510b97e083cbbcd6529feb6f02fa17455fcb8
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.date: 03/14/2019
+ms.openlocfilehash: c83cc8dce5978798d86d2fc2e314161765a2fb2d
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925505"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205792"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Använda Azure Cosmos-emulatorn för lokal utveckling och testning
 
@@ -41,7 +41,7 @@ Eftersom Azure Cosmos-emulatorn är en emulerade miljö som körs på den lokala
 * Eftersom din kopia av Azure Cosmos-emulatorn inte kanske alltid är uppdaterade med de senaste ändringarna i Azure Cosmos DB-tjänsten, du bör använda den [kapacitetsplaneringsverktyget för Azure Cosmos DB](https://www.documentdb.com/capacityplanner) till att beräkna produktionen programmets (ru) dataflödesbehov.
 * När du använder Azure Cosmos-Emulator, som standard, kan du skapa upp till 25 fast storlek behållare (stöds bara med Azure Cosmos DB SDK: er) eller 5 obegränsad behållare med hjälp av Azure Cosmos-emulatorn. Mer information om att ändra värdet finns i [Setting the PartitionCount value](#set-partitioncount) (Ange PartitionCount-värdet).
 
-## <a name="system-requirements"></a>Systemkrav
+## <a name="system-requirements"></a>Systemkraven
 
 Azure Cosmos-emulatorn har följande krav för maskinvara och programvara:
 

@@ -8,7 +8,7 @@ metadata:
   author: mamccrea
   ms.service: azure-databricks
   ms.topic: landing-page
-  ms.date: 03/19/2018
+  ms.date: 05/07/2019
   ms.author: mamccrea
 abstract:
   description: 'Lär dig använda den Apache Spark-baserade analysplattformen Azure Databricks med enkel konfiguration, smidiga arbetsflöden och en interaktiv arbetsyta där datatekniker, dataingenjörer och affärsanalytiker kan samarbeta. Snabbstarter och självstudier visar hur du kommer igång med Azure Databricks och integrerar andra Azure-tjänster.'
@@ -37,6 +37,10 @@ sections:
               src: /azure/azure-databricks/media/index/logo_azure_resource_manager.svg
             text: Resource Manager-mall
             href: /azure/azure-databricks/quickstart-create-databricks-workspace-resource-manager-template
+          - image:
+              src: /azure/azure-databricks/media/index/virtualnetwork.svg
+            text: Virtuellt nätverk
+            href: /azure/azure-databricks/quickstart-create-databricks-workspace-vnet-injection
   - title: Steg för steg-självstudier
     items:
       - type: paragraph
@@ -44,6 +48,8 @@ sections:
       - type: list
         style: ordered
         items:
+          - html: <a href="/azure/azure-databricks/vnet-injection-sql-server">Fråga SQL Server som körs i en Docker-container</a>
+          - html: <a href="/azure/azure-databricks/service-endpoint-cosmosdb">Använda en Cosmos DB-tjänstslutpunkt</a>
           - html: '<a href="/azure/azure-databricks/databricks-extract-load-sql-data-warehouse">Extrahera, transformera och läsa in data</a>'
           - html: <a href="/azure/azure-databricks/databricks-stream-from-eventhubs">Strömma data med Event Hubs</a>
           - html: <a href="/azure/azure-databricks/databricks-sentiment-analysis-cognitive-services">Attitydanalys med Cognitive Services</a>
@@ -56,3 +62,5 @@ sections:
         items:
           - title: REST
             html: <p><a href="/rest/api/databricks">REST-API</a></p>
+          - title: Resource Manager
+            html: <p><a href="/azure/templates/microsoft.databricks/workspaces">Mall</a></p>

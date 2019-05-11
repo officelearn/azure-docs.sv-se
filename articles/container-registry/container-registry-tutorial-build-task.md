@@ -5,21 +5,23 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 05/04/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 5aa637938433eb1f906f0a4d81038cec0d6c6dcc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 7a9a1e3d3c92f43d19a75e7cd0e10b3fd395a9b5
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58893018"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544953"
 ---
 # <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>Självstudie: Automatisera containeravbildningar i molnet när du checkar in källkod
 
-Utöver en [snabbuppgift](container-registry-tutorial-quick-task.md) har ACR Tasks även stöd för automatiserade Docker-containeravbildningsversioner med *versionsuppgiften*. I självstudien använder du Azure CLI till att skapa en uppgift som utlöser avbildningsversioner i molnet automatiskt när du checkar in källkod på en Git-lagringsplats.
+Förutom en [snabb uppgiften](container-registry-tutorial-quick-task.md), ACR uppgifter stöd för automatiska Docker behållaravbildning bygger i molnet när du har checkat källkoden till en Git-lagringsplats.
 
-Den här självstudien är del två i serien:
+I de här självstudierna din ACR-uppgift skapar och skickar en enda behållaravbildning som anges i en Dockerfile när du har checkat källkoden till en Git-lagringsplats. Skapa en [flerstegstest uppgift](container-registry-tasks-multi-step.md) som använder en YAML-fil för att definiera steg för att skapa, skicka, och du kan också testa flera behållare på kodgenomförande, finns i [självstudien: Köra ett arbetsflöde med flera steg behållare i molnet när du har checkat källkoden](container-registry-tutorial-multistep-task.md). En översikt över ACR uppgifter finns i [framework uppdatering med ACR uppgifter och automatisera OS](container-registry-tasks-overview.md)
+
+I den här självstudien:
 
 > [!div class="checklist"]
 > * Skapa en uppgift
@@ -33,51 +35,13 @@ Självstudien förutsätter att du redan har slutfört stegen i den [föregåend
 
 Om du vill använda Azure CLI lokalt måste du ha Azure CLI version **2.0.46** eller senare installerat och vara inloggad med [az-inloggning][az-login]. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera CLI kan du läsa mer i [Installera Azure CLI][azure-cli].
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+[!INCLUDE [container-registry-task-tutorial-prereq.md](../../includes/container-registry-task-tutorial-prereq.md)]
 
-### <a name="get-sample-code"></a>Hämta exempelkod
-
-Självstudien förutsätter att du redan har slutfört stegen i [föregående självstudie](container-registry-tutorial-quick-task.md), samt att du har förgrenat och klonat exempellagringsplatsen. Om du inte har gjort det, slutför du stegen i avsnittet [Krav](container-registry-tutorial-quick-task.md#prerequisites) i föregående självstudie innan du fortsätter.
-
-### <a name="container-registry"></a>Containerregister
-
-Du måste ha ett Azure-containerregister i din Azure-prenumeration för att kunna slutföra den här självstudien. Om du behöver ett register kan du titta på en [tidigare självstudie](container-registry-tutorial-quick-task.md) eller på [Snabbstart: Skapa ett containerregister med hjälp av Azure CLI](container-registry-get-started-azure-cli.md).
-
-## <a name="overview-of-acr-tasks"></a>Översikt över ACR Tasks
-
-En uppgift definierar egenskaperna för en automatisk version, inklusive platsen för källkoden för containeravbildningen och den händelse som utlöser versionen. När en händelse som definierats i denna uppgift inträffar, till exempel en incheckning till en Git-lagringsplats, initierar ACR Tasks en containeravbildningsversion i molnet. Som standard skickar den sedan en skapad avbildning till det Azure-containerregister som anges i uppgiften.
-
-ACR Tasks stöder för närvarande följande utlösare:
-
-* Checka in på en Git-lagringsplats
-* Basavbildningsuppdatering
-
-I den här självstudien skapar och skickar din ACR-uppgift en enskild containeravbildning som anges i en Dockerfile. ACR-aktiviteter kan också köra [flerstegstest uppgifter](container-registry-tasks-multi-step.md), med en YAML-fil för att definiera stegen för att skapa, skicka och du kan också testa flera behållare.
-
-## <a name="create-a-build-task"></a>Skapa en versionsuppgift
-
-I det här avsnittet skapar du först en personlig åtkomsttoken för GitHub som ska användas med ACR Tasks. Därefter skapar du en uppgift som utlöser en version när koden checkar in på din förgrening av lagringsplatsen.
-
-### <a name="create-a-github-personal-access-token"></a>Skapa en personlig åtkomsttoken för GitHub
-
-För att kunna utlösa en version för en incheckning på en Git-lagringsplats, behöver ACR Tasks ha en personlig åtkomsttoken för att komma åt lagringsplatsen. Följ dessa steg för att generera en personlig åtkomsttoken i GitHub:
-
-1. Gå till sidan där personliga åtkomsttokens skapas i GitHub på https://github.com/settings/tokens/new
-1. Ange en kort **beskrivning** för din token, till exempel ”ACR Tasks Demo”
-1. Under **repo** aktiverar du **repo:status** och **public_repo**
-
-   ![Skärmbild av sidan Personlig åtkomsttoken i GitHub][build-task-01-new-token]
-
-1. Välj knappen **Generera token** (du kan behöva bekräfta lösenordet)
-1. Kopiera och spara din genererade token på en **säker plats** (du använder denna token när du definierar en uppgift i följande avsnitt)
-
-   ![Skärmbild av genererad personlig åtkomsttoken i GitHub][build-task-02-generated-token]
-
-### <a name="create-the-build-task"></a>Skapa versionsuppgiften
+## <a name="create-the-build-task"></a>Skapa versionsuppgiften
 
 Nu när du har slutfört de steg som krävs för att göra så att ACR Tasks kan läsa incheckningsstatus och skapa webhooks på en lagringsplats kan du skapa en uppgift som utlöser en containeravbildningsversion på incheckningar till lagringsplatsen.
 
-Fyll först i de här gränssnittsmiljövariablerna med värden som är lämpliga för din miljö. Det här steget är inte obligatoriskt, men det gör det lite enklare att köra de flerradiga Azure CLI-kommandona i den här självstudien. Om du inte fyller dessa miljövariabler måste du manuellt ersätta alla värden oavsett var de visas i exempelkommandona.
+Fyll först i de här gränssnittsmiljövariablerna med värden som är lämpliga för din miljö. Det här steget är inte obligatoriskt, men det gör det lite enklare att köra de flerradiga Azure CLI-kommandona i den här självstudien. Om du inte fyller dessa miljövariabler, måste du manuellt ersätta alla värden där det visas i exempelkommandon.
 
 ```azurecli-interactive
 ACR_NAME=<registry-name>        # The name of your Azure container registry
@@ -85,7 +49,7 @@ GIT_USER=<github-username>      # Your GitHub user account name
 GIT_PAT=<personal-access-token> # The PAT you generated in the previous section
 ```
 
-Nu skapar du uppgiften genom att köra kommandot [az acr task create][az-acr-task-create]:
+Nu ska du skapa uppgiften genom att köra följande [az acr uppgift skapa] [ az-acr-task-create] kommando:
 
 ```azurecli-interactive
 az acr task create \
@@ -106,14 +70,6 @@ Uppgiften anger att varje gång en tidskod checkas in på *huvudförgreningen* i
 Utdata från kommandot [az acr task create][az-acr-task-create] liknar följande:
 
 ```console
-$ az acr task create \
->     --registry $ACR_NAME \
->     --name taskhelloworld \
->     --image helloworld:{{.Run.ID}} \
->     --context https://github.com/$GIT_USER/acr-build-helloworld-node.git \
->     --branch master \
->     --file Dockerfile \
->     --git-access-token $GIT_PAT
 {
   "agentConfiguration": {
     "cpu": 2
@@ -326,12 +282,11 @@ I självstudien har du lärt dig att använda en uppgift för att utlösa contai
 
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli
-[az-acr-task]: /cli/azure/acr
-[az-acr-task-create]: /cli/azure/acr
-[az-acr-task-run]: /cli/azure/acr
-[az-acr-task-list-runs]: /cli/azure/acr
+[az-acr-task]: /cli/azure/acr/task
+[az-acr-task-create]: /cli/azure/acr/task#az-acr-task-create
+[az-acr-task-run]: /cli/azure/acr/task#az-acr-task-run
+[az-acr-task-list-runs]: /cli/azure/acr/task#az-acr-task-list-runs
 [az-login]: /cli/azure/reference-index#az-login
 
-<!-- IMAGES -->
-[build-task-01-new-token]: ./media/container-registry-tutorial-build-tasks/build-task-01-new-token.png
-[build-task-02-generated-token]: ./media/container-registry-tutorial-build-tasks/build-task-02-generated-token.png
+
+

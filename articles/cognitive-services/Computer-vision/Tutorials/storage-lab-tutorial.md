@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: tutorial
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: a755a0bada0dbf6797465ea40ddbb30a84e3f289
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 75e52398386e7ef1b338d13a8cfe8f20c06abcc6
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60202094"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65541532"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>Självstudier: Använda Visuellt innehåll för att generera bildmetadata i Azure Storage
 
@@ -40,17 +40,11 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="create-a-computer-vision-resource"></a>Skapa en resurs för Visuellt innehåll
 
-Du behöver skapa en resurs för Visuellt innehåll för ditt Azure-konto. Den här resursen hanterar din åtkomst till Azure-tjänsten Visuellt innehåll.
+Du behöver skapa en resurs för Visuellt innehåll för ditt Azure-konto. Den här resursen hanterar din åtkomst till Azure-tjänsten Visuellt innehåll. 
 
-1. Logga in på [Azure-portalen](https://ms.portal.azure.com) och klicka på **Skapa en resurs** följt av **AI + maskininlärning** och **Visuellt innehåll**.
+1. Följ instruktionerna i [skapa en Azure Cognitive Services-resurs](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#single-service-subscription) att skapa en resurs för visuellt innehåll.
 
-    ![Skapa en ny prenumeration på API för visuellt innehåll](../Images/new-vision-api.png)
-
-1. I dialogrutan anger du ”vision-api-key” i fältet **Namn** och väljer **F0** som **Prisnivå**. Välj samma **Plats** som du valde när du konfigurerade Azure Storage-kontot. Under **Resursgrupp** väljer du **Använd befintlig** och väljer samma resurs också. Markera rutan **I confirm** (Jag bekräftar) och klicka sedan på **Skapa**.
-
-    ![Prenumerera på API för visuellt](../Images/create-vision-api.png)
-
-1. Gå tillbaka till menyn för din resursgrupp och klicka på den prenumeration på API för visuellt innehåll som du nyss skapade. Kopiera URL:en under **Slutpunkt** till en plats där du enkelt kan hämta den om en stund. Klicka sedan på **Visa åtkomstnycklar**.
+1. Sedan går du till menyn för din resursgrupp och klicka på den prenumeration för API för visuellt innehåll som du nyss skapade. Kopiera URL:en under **Slutpunkt** till en plats där du enkelt kan hämta den om en stund. Klicka sedan på **Visa åtkomstnycklar**.
 
     ![Azure-portalsidan med slutpunkt-URL och åtkomst till nycklar länken som beskrivs](../Images/copy-vision-endpoint.png)
 

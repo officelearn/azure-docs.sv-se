@@ -9,12 +9,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/09/2019
 ms.author: edjez
-ms.openlocfilehash: a197531a7c78823271c0a5fa5413b76746f63a9a
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: b591a8b5c738fd7a23e95fd04af3cc92b6d7d226
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65507018"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65538344"
 ---
 # <a name="install-and-run-personalizer-containers"></a>Installera och köra Personalizer behållare
 
@@ -40,9 +40,9 @@ Du måste uppfylla följande krav innan du använder Personalizer-behållaren:
 
 Den **värden** är den dator som kör docker-behållaren. Det kan vara en dator i din lokala enhet eller en docker som är värd för tjänsten i Azure, inklusive:
 
-* [Azure Kubernetes Service](https://docs.microsoft.com/aks/index.yml)
-* [Azure Container Instances](https://docs.microsoft.com/container-instances/index.yml)
-* [Kubernetes](https://kubernetes.io/) kluster som distribueras till [Azure Stack](https://docs.microsoft.com/azure-stack/index.yml). Mer information finns i [distribuera Kubernetes i Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md).
+* [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/)
+* [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/index)
+* [Kubernetes](https://kubernetes.io/) kluster som distribueras till [Azure Stack](https://docs.microsoft.com/azure-stack/operator/). Mer information finns i [distribuera Kubernetes i Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
 
 ### <a name="container-requirements-and-recommendations"></a>Behållarkrav och rekommendationer
 

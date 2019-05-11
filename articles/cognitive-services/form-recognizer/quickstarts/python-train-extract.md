@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/24/2019
 ms.author: pafarley
-ms.openlocfilehash: 98d1870105038c4314a6b038ec198342bb2ca1d0
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: bbc285c35c010c9c0a38e9b3d6938c5dd3b76fe4
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65027189"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544858"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-using-rest-api-with-python"></a>Snabbstart: Träna en modell för formuläret Igenkännande och extrahera formulärdata med hjälp av REST-API med Python
 
@@ -24,9 +24,9 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
--  Du måste få åtkomst till förhandsversionen av formuläret Igenkännande begränsad åtkomst. För att få åtkomst till förhandsversionen kan du fylla i och skicka den [Cognitive Services formuläret Igenkännande åtkomstbegäran](https://aka.ms/FormRecognizerRequestAccess) formuläret. 
+- Du måste få åtkomst till förhandsversionen av formuläret Igenkännande begränsad åtkomst. För att få åtkomst till förhandsversionen kan du fylla i och skicka den [Cognitive Services formuläret Igenkännande åtkomstbegäran](https://aka.ms/FormRecognizerRequestAccess) formuläret. 
 - Du måste ha [Python](https://www.python.org/downloads/) installerat om du vill köra exemplet lokalt.
-- Du måste ha en prenumerationsnyckel för formuläret Igenkännande. Du kan skaffa en prenumerationsnyckel genom att följa anvisningarna i [Skaffa prenumerationsnycklar](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
+- Du måste ha en prenumerationsnyckel för formuläret Igenkännande. Följ instruktionerna i en tjänst prenumeration [skapa ett Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#single-service-subscription) att prenumerera på formuläret Igenkännande och få din nyckel. Använd inte flera tjänster prenumerationen, eftersom detta inte inkluderar formuläret Igenkännande-tjänsten.
 - Du måste ha en minimiuppsättning fem typer av samma typ. Du kan använda en [exempeldatauppsättning](https://go.microsoft.com/fwlink/?linkid=2090451) för den här snabbstarten.
 
 ## <a name="create-and-run-the-sample"></a>Skapa och köra exemplet

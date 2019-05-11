@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 05/10/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 0f94a1fdc01825b5bf78644f84c72e6b031109c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 78c445e70fcf972be81ef6dfd5d675f8e4843621
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61379240"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65541512"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Bästa praxis för en kunskapsbas med QnA Maker
 Den [kunskapsbas för säkerhetsutveckling](../Concepts/development-lifecycle-knowledge-base.md) guidar dig om hur du hanterar din Kunskapsbas från början till slut. Använda dessa bästa metoder för att förbättra din kunskapsbas och ge bättre resultat för din robot program/chatt slutanvändare.
@@ -39,18 +39,20 @@ Lägg till så många alternativa frågor som du behöver men att ändringar som
 De bästa svaren är enkel svar men inte för enkelt, till exempel Ja och inga svar. Om ditt svar bör länka till andra källor eller ger en rik upplevelse med media och länkar, [taggning](../how-to/metadata-generateanswer-usage.md) för att skilja vilken typ av svar som du förväntar dig, skicka taggen med frågan för att hämta rätt svar-version.
 
 ## <a name="chit-chat"></a>Chit-chatt
-Lägg till chit-chatt i din robot att göra din robot konversationsanpassade och mer engagerande, med låg insats. Du kan enkelt lägga till chit-chatt datauppsättningar för 3 fördefinierade personligheter när du skapar din Kunskapsbas och ändra dem när som helst. Lär dig hur du [lägga till chit-chatt i din Kunskapsbas](../How-To/chit-chat-knowledge-base.md). 
+Lägg till chit-chatt i din robot att göra din robot konversationsanpassade och mer engagerande, med låg insats. Du kan enkelt lägga till chit-chatt datauppsättningar från fördefinierade personligheter när du skapar din Kunskapsbas och ändra dem när som helst. Lär dig hur du [lägga till chit-chatt i din Kunskapsbas](../How-To/chit-chat-knowledge-base.md). 
 
 ### <a name="choosing-a-personality"></a>Välja en personlighet
-Chit-chatt stöds för 3 fördefinierade personligheter: 
+Chit-chatt stöds för flera fördefinierade personligheter: 
 
-|Personligheter|
-|--|
-|Professional|
-|Vän|
-|Serien|
+|Personlighet |QnA Maker datamängdfil |
+|---------|-----|
+|Professionell |[qna_chitchat_professional.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_professional.tsv) |
+|Eget |[qna_chitchat_friendly.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_friendly.tsv) |
+|Spirituell |[qna_chitchat_witty.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_witty.tsv) |
+|Sköta |[qna_chitchat_caring.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_caring.tsv) |
+|Entusiastisk |[qna_chitchat_enthusiastic.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_enthusiastic.tsv) |
 
-Svar mellan formell och informell och ditt eget. Du bör välja den person som är närmast justerad efter tonen som du vill använda för din robot. Du kan visa datauppsättningar, och välj ett namn som används som bas för din robot och sedan anpassa svaren. 
+Svar mellan formell och informell och ditt eget. Du bör välja den person som är närmast justerad efter tonen som du vill använda för din robot. Du kan visa den [datauppsättningar](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp/Datasets), en som används som bas för din robot, och välj sedan anpassa svaren. 
 
 ### <a name="edit-bot-specific-questions"></a>Redigera bot-specifika frågor
 Det finns några bot-specifika frågor som är en del av datauppsättningen chit-chatt och har fyllts i med allmänna svar. Ändra dessa frågor för att återspegla din bot information bäst. 

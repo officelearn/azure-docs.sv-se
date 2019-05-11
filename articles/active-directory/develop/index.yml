@@ -6,7 +6,7 @@ metadata:
   description: 'Lär diganvända Microsoft Identity-plattformen för att skapa appar som på ett säkert sätt loggar in användare i alla Microsoft-identiteter, hämtar tokens för att anropa Microsoft Graph, andra Microsoft-API:er eller API: er som utvecklare har byggt.'
   services: active-directory
   author: CelesteDG
-  manager: mtillman
+  manager: CelesteDG
   ms.service: active-directory
   ms.subservice: develop
   ms.tgt_pltfrm: na

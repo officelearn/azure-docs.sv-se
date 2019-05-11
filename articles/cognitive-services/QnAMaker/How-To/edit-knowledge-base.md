@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/26/2019
+ms.date: 05/10/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 22d408204b69e0a564103efd29468c6f0d68d93a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c9add80b7494ae2a8e671967a96dc5d3c7307f51
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61374634"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65541539"
 ---
 # <a name="edit-a-knowledge-base-in-qna-maker"></a>Redigera en kunskapsbas i QnA Maker
 
@@ -72,8 +72,7 @@ Lägg till alternativa frågor i ett befintligt nyckelpar med frågor och svar o
 
 ## <a name="add-metadata"></a>lägga till metadata
 
-
-Lägg till metadata par genom att välja ikonen metadata. Ett par metadata består av en nyckel och ett värde.
+Lägg till metadata par genom att först välja **Visningsalternativ**, sedan välja **visa metadata**. Då visas metadata-kolumn. Välj sedan den **+** logga för att lägga till ett metadata-par. Den här par består av en nyckel och ett värde.
 
 ![Lägga till Metadata](../media/qnamaker-how-to-edit-kb/add-metadata.png)
 

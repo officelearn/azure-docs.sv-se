@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/10/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 08d09680ee1797e73666c185f4430c7ef3079477
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 5d410e1015b751743c171adabda1d5bcbe68b491
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153688"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65541006"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>Lägg till Chit-chatt i en kunskapsbas
 
@@ -24,17 +24,19 @@ Att lägga till chit-chatt i din robot gör det mer konversationsanpassade och e
 
 Den här datauppsättningen innehåller cirka 100 scenarier av chit chat i form av flera personer som Professional, vänlig och Witty. Välj den person som närmast liknar din robot röst. Får en användarfråga paras QnA Maker ihop med frågor och svar för närmaste kända chit-chatt.  
 
-Några exempel på olika personligheter finns nedan. Du kan se alla personlighet datauppsättningar tillsammans med information om personligheter [här](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp/Datasets).
+Några exempel på olika personligheter finns nedan. Du kan se alla personlighet [datauppsättningar](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp/Datasets) tillsammans med information om personligheter.
+
+För användarfråga av `When is your birthday?`, varje person har en formaterad svaret:
 
 <!-- added quotes so acrolinx doesn't score these sentences -->
-|Användarfråga|Professionell|Eget|Spirituell|
-|--|--|--|--|
-|`You are awesome`|`I aim to serve.`|`Aw, I'm blushing.`|`Flattery. I like it.`|
-|`Are you hungry?`|`I don't need to eat.`|`I only do food for thought.`|`Eating would require a lot of things I don't have. Like a digestive system. And silverware.`|
-|`Sing a song`|`I'm afraid I'm not musically inclined.`|`La la la, tra la la. I'm awesome at this.`|`Those who can, do. Those who can't, don't sing.`|
-|`Will you marry me?`|`I think it's best if we stick to a professional relationship.`|`Definitely didn't see that coming!`|`Sure. Take me to city hall. See what happens.`|
-
-
+|Personlighet|Exempel|
+|--|--|
+|Professionell|Ålder verkligen avser inte mig.|
+|Eget|Jag har verkligen inte en ålder.|
+|Spirituell|Jag är ålder är kostnadsfria.|
+|Sköta|Jag har inte en ålder.|
+|Entusiastisk|Jag är en robot, så att du inte har en ålder.|
+||
 
 > [!NOTE]
 > Chit chat-supporten är endast tillgänglig på engelska. 

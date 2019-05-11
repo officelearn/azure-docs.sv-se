@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 4/08/2019
+ms.date: 05/10/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 9e8f450825b7b4ad0402b8976d68bc23c18ce855
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e3c645ea748834340a2e6cfb8d3e7e1b1e876dcf
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60565673"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540839"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Konfigurera katastrofåterställning till Azure för lokala virtuella VMware-datorer
 
@@ -180,7 +180,7 @@ Aktivera replikering för virtuella datorer på följande sätt:
 1. I **Källa**väljer du **Lokalt** och väljer konfigurationsservern i **källplats**.
 1. I **Datortyp** väljer du **Virtual Machines**.
 1. I **vCenter/vSphere Hypervisor** väljer du vSphere-värden eller den vCenter-server som hanterar värden.
-1. Välj processerver (installeras som standard på konfigurationsserverns virtuella dator). Välj sedan **OK**.
+1. Välj processerver (installeras som standard på konfigurationsserverns virtuella dator). Välj sedan **OK**. Hälsostatus för varje processerver anges enligt rekommenderade gränser och andra parametrar. Välj en felfri processerver. En [kritiska](vmware-physical-azure-monitor-process-server.md#process-server-alerts) processervern kan inte väljas. Du kan antingen [felsöka och lösa](vmware-physical-azure-troubleshoot-process-server.md) felen **eller** ställa in en [skalbar processerver](vmware-azure-set-up-process-server-scale.md).
 1. I **Mål** väljer du den prenumeration och resursgrupp där du vill skapa de redundansväxlade virtuella datorerna. Vi använder Resource Manager-distributionsmodellen. 
 1. Välj det Azure-nätverk och undernät som virtuella Azure-datorer ska ansluta till efter en redundansväxling.
 1. Välj **Konfigurera nu för valda datorer** om du vill använda nätverksinställningen på alla virtuella datorer som du aktiverat replikering för. Välj **Konfigurera senare** om du vill välja Azure-nätverket för varje dator.

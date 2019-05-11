@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: garye
-ms.openlocfilehash: 6950cba5ac958233e7ea77c8dc783ca86cc5a386
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b5adb5b8bddd0f379ac581f3268f0121791cf0bc
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60829505"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546376"
 ---
 # <a name="quickstart-create-a-cognitive-services-account-in-the-azure-portal"></a>Snabbstart: Skapa ett Cognitive Services-konto i Azure portal
 
@@ -56,7 +56,7 @@ I nästa avsnitt vägleder dig genom att skapa en enda eller flera tjänster pre
     | **Prenumeration** | Välj en av dina tillgängliga Azure-prenumerationer. |
     | **Plats** | Platsen för din cognitive service-instans. Olika platser kan introducera svarstid, men har ingen inverkan på runtime tillgängligheten för din resurs. |
     | **prisnivå** | Kostnaden för Cognitive Services-kontot beror på de alternativ du väljer och din användning. Mer information finns i API: et [prisinformation](https://azure.microsoft.com/pricing/details/cognitive-services/).
-    | **Resursgrupp** | Den [Azure-resursgrupp](https://docs.microsoft.com/azure/architecture/cloud-adoption/getting-started/azure-resource-access#what-is-an-azure-resource-group) som innehåller din resurs för Cognitive Services. Du kan skapa en ny grupp eller lägga till den i en befintlig grupp. |
+    | **Resursgrupp** | Den [Azure-resursgrupp](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access#what-is-an-azure-resource-group) som innehåller din resurs för Cognitive Services. Du kan skapa en ny grupp eller lägga till den i en befintlig grupp. |
 
     ![Resursen skapa-skärmen](media/cognitive-services-apis-create-account/resource_create_screen_multi.png)
 
@@ -78,7 +78,7 @@ I nästa avsnitt vägleder dig genom att skapa en enda eller flera tjänster pre
     | **Prenumeration** | Välj en av dina tillgängliga Azure-prenumerationer. |
     | **Plats** | Platsen för din cognitive service-instans. Olika platser kan introducera svarstid, men har ingen inverkan på runtime tillgängligheten för din resurs. |
     | **prisnivå** | Kostnaden för Cognitive Services-kontot beror på de alternativ du väljer och din användning. Mer information finns i API: et [prisinformation](https://azure.microsoft.com/pricing/details/cognitive-services/).
-    | **Resursgrupp** | Den [Azure-resursgrupp](https://docs.microsoft.com/azure/architecture/cloud-adoption/getting-started/azure-resource-access#what-is-an-azure-resource-group) som innehåller din resurs för Cognitive Services. Du kan skapa en ny grupp eller lägga till den i en befintlig grupp. |
+    | **Resursgrupp** | Den [Azure-resursgrupp](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access#what-is-an-azure-resource-group) som innehåller din resurs för Cognitive Services. Du kan skapa en ny grupp eller lägga till den i en befintlig grupp. |
 
     ![Resursen skapa-skärmen](media/cognitive-services-apis-create-account/resource_create_screen.png)
 

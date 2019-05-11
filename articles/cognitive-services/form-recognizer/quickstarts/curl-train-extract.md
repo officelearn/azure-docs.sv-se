@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: pafarley
-ms.openlocfilehash: 36f98a8dea2a732a7f8504b160da895637366fc8
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: f5c87457f5d19b107f5722bc8c6a95174555332a
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471908"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546353"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-using-rest-api-with-curl"></a>Snabbstart: Träna en modell för formuläret Igenkännande och extrahera formulärdata med hjälp av REST-API med cURL
 
@@ -24,10 +24,10 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-* Du har fått tillgång till förhandsversionen av formuläret Igenkännande begränsad åtkomst. För att få åtkomst till förhandsversionen kan du fylla i och skicka den [Cognitive Services formuläret Igenkännande åtkomstbegäran](https://aka.ms/FormRecognizerRequestAccess) formuläret. 
-* Du måste ha [cURL](https://curl.haxx.se/windows/).
-* Du måste ha en prenumerationsnyckel för formuläret Igenkännande. Följ instruktionerna i [skapa ett Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) att prenumerera på formuläret Igenkännande och få din nyckel.
-* Du måste ha en minimiuppsättning fem typer av samma typ. Du kan använda en [exempeldatauppsättning](https://go.microsoft.com/fwlink/?linkid=2090451) för den här snabbstarten.
+- Du har fått tillgång till förhandsversionen av formuläret Igenkännande begränsad åtkomst. För att få åtkomst till förhandsversionen kan du fylla i och skicka den [Cognitive Services formuläret Igenkännande åtkomstbegäran](https://aka.ms/FormRecognizerRequestAccess) formuläret.
+- Du måste ha [cURL](https://curl.haxx.se/windows/).
+- Du måste ha en prenumerationsnyckel för formuläret Igenkännande. Följ instruktionerna i en tjänst prenumeration [skapa ett Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#single-service-subscription) att prenumerera på formuläret Igenkännande och få din nyckel. Använd inte flera tjänster prenumerationen, eftersom detta inte inkluderar formuläret Igenkännande-tjänsten.
+- Du måste ha en minimiuppsättning fem typer av samma typ. Du kan använda en [exempeldatauppsättning](https://go.microsoft.com/fwlink/?linkid=2090451) för den här snabbstarten.
 
 ## <a name="train-a-form-recognizer-model"></a>Träna en modell för formuläret Igenkännande
 

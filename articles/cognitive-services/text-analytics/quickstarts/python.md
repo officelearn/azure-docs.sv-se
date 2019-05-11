@@ -10,21 +10,17 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 05/09/2019
 ms.author: aahi
-ms.openlocfilehash: 9d6dfb79d02df3eebe33e67743ceaf97fc0a2a77
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.openlocfilehash: fb411b7e36d8658c5f46294a3b7025c3e93928e7
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65519357"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540120"
 ---
 # <a name="quickstart-using-the-python-rest-api-to-call-the-text-analytics-cognitive-service"></a>Snabbstart: Med hjälp av Python REST-API för att anropa tjänsten Text Analytics Cognitive 
 <a name="HOLTop"></a>
 
 Använd den här snabbstarten om du vill analysera språk med REST API för textanalys och Python. Den här artikeln visar hur du [identifiera språk](#Detect), [analysera sentiment](#SentimentAnalysis), [extrahera nyckelfraser](#KeyPhraseExtraction), och [identifiera länkade entiteter](#Entities).
-
-Du kan köra det här exemplet från kommandoraden eller som en Jupyter-anteckningsbok på [MyBinder](https://mybinder.org) genom att klicka på Starta Binder ge en skylt:
-
-[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=TextAnalytics.ipynb)
 
 Se [API-definitionerna](//go.microsoft.com/fwlink/?LinkID=759346) för teknisk dokumentation för API:erna.
 
@@ -42,13 +38,7 @@ Se [API-definitionerna](//go.microsoft.com/fwlink/?LinkID=759346) för teknisk d
     pip install --upgrade requests
     ```
 
-* Om du använder anteckningsboken Binder lokalt kan du behöva uppdatera [IPython](https://ipython.org/install.html):
-    
-    ```console
-    pip install --upgrade IPython
-    ```
-
-* [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
+[!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
 
 ## <a name="create-a-new-python-application"></a>Skapa ett nytt Python-program

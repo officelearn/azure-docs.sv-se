@@ -1,5 +1,5 @@
 ---
-title: Skapa kunskapsbas
+title: Skapa en kunskapsbas
 titleSuffix: QnA Maker API - Azure Cognitive Services
 description: Använd QnA Maker API-tjänstportalen måste du lägger till kan du skapa en kunskapsbas med chit-chatt. Detta gör att din app engagerande. Lägg till en i förväg uppsättning övre chit-chatt i din Kunskapsbas som utgångspunkt för din robot chit-chatt och spara tid och pengar på att skriva dem från grunden.
 services: cognitive-services
@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 05/10/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: ae278ac3e0fd9f93e080da8f52b9728e9c22a436
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6b64315d8639cf8a7204ee809598567ec76fd188
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61373572"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65541804"
 ---
 # <a name="quickstart-create-a-knowledge-base-using-the-qna-maker-api-service-portal"></a>Snabbstart: Skapa en kunskapsbas med QnA Maker API service-portalen
 
@@ -50,7 +50,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
     - Ladda upp filer för data som du vill extrahera. Se den [prisinformation](https://aka.ms/qnamaker-pricing) att se hur många dokument som du kan lägga till.
     - Om du vill lägga till kunskapsbaser manuellt kan du hoppa över **steg 4** visas i föregående bild.
 
-1. Lägg till **Chit-chatt** till din KB. Välja att lägga till chit chat-supporten för din robot genom att välja någon av de 3 personligheter. 
+1. Lägg till **Chit-chatt** till din KB. Välja att lägga till chit chat-supporten för din robot genom att välja någon av personer. 
 
     ![Lägg till chit-chatt i KB](../media/qnamaker-how-to-create-kb/create-kb-chit-chat.png)
 

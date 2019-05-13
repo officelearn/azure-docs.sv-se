@@ -59,7 +59,7 @@ Följande egenskaper har stöd för MongoDB-länkade tjänsten:
 | port |TCP-port som MongoDB-servern använder för att lyssna efter klientanslutningar. |Nej (standard är 27017) |
 | databaseName |Namnet på MongoDB-databasen som du vill komma åt. |Ja |
 | authenticationType | Typ av autentisering som används för att ansluta till MongoDB-databasen.<br/>Tillåtna värden är: **Grundläggande**, och **anonym**. |Ja |
-| användarnamn |Användarkonto för att få åtkomst till MongoDB. |Ja (om du använder grundläggande autentisering). |
+| username |Användarkonto för att få åtkomst till MongoDB. |Ja (om du använder grundläggande autentisering). |
 | password |Lösenordet för användaren. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja (om du använder grundläggande autentisering). |
 | authSource |Namnet på MongoDB-databasen som du vill använda för att kontrollera dina autentiseringsuppgifter för autentisering. |Nej. Standardinställningen är att använda administratörskontot och databasen som anges med egenskapen databaseName för grundläggande autentisering. |
 | enableSsl | Anger om anslutningar till servern krypteras med SSL. Standardvärdet är FALSKT.  | Nej |
@@ -98,7 +98,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för datauppsättningen måste anges till: **MongoDbCollection** | Ja |
-| Samlingsnamn |Namnet på samlingen i MongoDB-databas. |Ja |
+| collectionName |Namnet på samlingen i MongoDB-databas. |Ja |
 
 **Exempel:**
 
@@ -129,7 +129,7 @@ Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnittet:
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **MongoDbSource** | Ja |
-| DocumentDB |Använd anpassade SQL-92 fråga för att läsa data. Till exempel: Välj * från MyTable. |Nej (om ”collectionName” i datauppsättningen har angetts) |
+| query |Använd anpassade SQL-92 fråga för att läsa data. Till exempel: Välj * från MyTable. |Nej (om ”collectionName” i datauppsättningen har angetts) |
 
 **Exempel:**
 
@@ -176,14 +176,14 @@ När du kopierar data från MongoDB, används följande mappningar från MongoDB
 
 | Datatypen för MongoDB | Data factory tillfälliga datatyp |
 |:--- |:--- |
-| Binär |Byte[] |
+| Binary |Byte[] |
 | Boolean |Boolean |
 | Date |DateTime |
 | NumberDouble |Double |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
-| ObjectId |String |
-| Sträng |String |
+| ObjectID |String |
+| String |String |
 | UUID |Guid |
 | Object |Renormalized till att platta ut kolumner med ”_” som kapslade avgränsare |
 

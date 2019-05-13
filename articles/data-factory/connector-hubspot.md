@@ -45,8 +45,8 @@ Följande egenskaper har stöd för HubSpot länkade tjänsten:
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen måste anges till: **Hubspot** | Ja |
-| ClientId | Klient-ID som är associerade med ditt Hubspot program.  | Ja |
-| ClientSecret | Klienthemlighet som är kopplad till Hubspot programmet. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| clientId | Klient-ID som är associerade med ditt Hubspot program.  | Ja |
+| clientSecret | Klienthemlighet som är kopplad till Hubspot programmet. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | accessToken | Den åtkomst-token som erhölls när först autentisera din OAuth-integrering. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | refreshToken | Uppdateringstoken fick när du först autentisera din OAuth-integrering. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | useEncryptedEndpoints | Anger om käll-slutpunkter data krypteras med HTTPS. Standardvärdet är sant.  | Nej |
@@ -117,7 +117,7 @@ Om du vill kopiera data från HubSpot, ange typ av datakälla i kopieringsaktivi
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **HubspotSource** | Ja |
-| DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM Companies where Company_Id = xxx"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
+| query | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM Companies where Company_Id = xxx"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**
 

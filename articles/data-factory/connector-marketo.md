@@ -48,9 +48,9 @@ Följande egenskaper har stöd för Marketo länkade tjänsten:
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen måste anges till: **Marketo** | Ja |
-| slutpunkt | Slutpunkten för Marketo-server. (i.e. 123-ABC-321.mktorest.com)  | Ja |
-| ClientId | Klient-Id för din Marketo-tjänst.  | Ja |
-| ClientSecret | Klienthemlighet för din Marketo-tjänst. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| endpoint | Slutpunkten för Marketo-server. (i.e. 123-ABC-321.mktorest.com)  | Ja |
+| clientId | Klient-Id för din Marketo-tjänst.  | Ja |
+| clientSecret | Klienthemlighet för din Marketo-tjänst. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | useEncryptedEndpoints | Anger om käll-slutpunkter data krypteras med HTTPS. Standardvärdet är sant.  | Nej |
 | useHostVerification | Anger om värdnamnet i servercertifikatet så att de matchar värdnamnet för servern när du ansluter via SSL. Standardvärdet är sant.  | Nej |
 | usePeerVerification | Anger om du vill kontrollera identiteten på servern när du ansluter via SSL. Standardvärdet är sant.  | Nej |
@@ -112,7 +112,7 @@ För att kopiera data från Marketo, ange typ av datakälla i kopieringsaktivite
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **MarketoSource** | Ja |
-| DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM Activitiy_Types"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
+| query | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM Activitiy_Types"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**
 

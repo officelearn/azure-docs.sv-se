@@ -58,7 +58,7 @@ Följande egenskaper har stöd för HTTP-länkade tjänsten:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Den **typ** egenskapen måste anges till **HTTP-servern**. | Ja |
+| type | Den **typ** egenskapen måste anges till **HTTP-servern**. | Ja |
 | url | Den grundläggande Webbadressen till webbservern. | Ja |
 | enableServerCertificateValidation | Ange om du vill aktivera serververifiering SSL-certifikat när du ansluter till en HTTP-slutpunkt. Om din HTTPS-servern använder ett självsignerat certifikat, ange egenskapen till **FALSKT**. | Nej<br /> (standardvärdet är **SANT**) |
 | authenticationType | Anger autentiseringstypen. Tillåtna värden är **anonym**, **grundläggande**, **sammanfattad**, **Windows**, och **ClientCertificate**. <br><br> Se avsnitten som följer den här tabellen för mer egenskaper och JSON-exempel för dessa typer av autentisering. | Ja |
@@ -171,7 +171,7 @@ Att kopiera data från HTTP i **Parquet eller avgränsat textformat**, referera 
 
 | Egenskap     | Beskrivning                                                  | Krävs |
 | ----------- | ------------------------------------------------------------ | -------- |
-| typ        | Egenskapen type under `location` i datauppsättningen måste anges till **HttpServerLocation**. | Ja      |
+| type        | Egenskapen type under `location` i datauppsättningen måste anges till **HttpServerLocation**. | Ja      |
 | relativeUrl | En relativ URL till den resurs som innehåller data.       | Nej       |
 
 > [!NOTE]
@@ -212,7 +212,7 @@ Att kopiera data från HTTP i **ORC/Avro/JSON/binära formatet**, stöds följan
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Den **typ** egenskap måste anges till **HttpFile**. | Ja |
+| type | Den **typ** egenskap måste anges till **HttpFile**. | Ja |
 | relativeUrl | En relativ URL till den resurs som innehåller data. När den här egenskapen har inte angetts används bara den URL som anges i länkade tjänstedefinition. | Nej |
 | requestMethod | HTTP-metoden. Tillåtna värden är **hämta** (standard) och **Post**. | Nej |
 | additionalHeaders | Ytterligare rubriker för HTTP-begäran. | Nej |
@@ -279,7 +279,7 @@ Att kopiera data från HTTP i **Parquet eller avgränsat textformat**, referera 
 
 | Egenskap                  | Beskrivning                                                  | Krävs |
 | ------------------------ | ------------------------------------------------------------ | -------- |
-| typ                     | Egenskapen type under `storeSettings` måste anges till **HttpReadSetting**. | Ja      |
+| type                     | Egenskapen type under `storeSettings` måste anges till **HttpReadSetting**. | Ja      |
 | requestMethod            | HTTP-metoden. <br>Tillåtna värden är **hämta** (standard) och **Post**. | Nej       |
 | addtionalHeaders         | Ytterligare rubriker för HTTP-begäran.                             | Nej       |
 | requestBody              | Brödtexten för HTTP-begäran.                               | Nej       |
@@ -336,7 +336,7 @@ Att kopiera data från HTTP i **ORC/Avro/JSON/binära formatet**, följande egen
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Den **typ** egenskapen för aktiviteten kopieringskälla måste anges till **HttpSource**. | Ja |
+| type | Den **typ** egenskapen för aktiviteten kopieringskälla måste anges till **HttpSource**. | Ja |
 | httpRequestTimeout | Timeout (i **TimeSpan** värde) för HTTP-begäran att få svar. Det här värdet är tidsgränsen för att få svar timeout inte att läsa svarsdata. Standardvärdet är **00:01:40**.  | Nej |
 
 **Exempel**

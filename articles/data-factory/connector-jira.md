@@ -45,10 +45,10 @@ Följande egenskaper har stöd för Jira länkade tjänsten:
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen måste anges till: **Jira** | Ja |
-| värd | IP-adressen eller värdnamnet namnet på Jira-tjänsten. (till exempel jira.example.com)  | Ja |
+| host | IP-adressen eller värdnamnet namnet på Jira-tjänsten. (till exempel jira.example.com)  | Ja |
 | port | TCP-porten som Jira-servern använder för att lyssna efter klientanslutningar. Standardvärdet är 443 om ansluter via HTTPS eller 8080 om ansluter via HTTP.  | Nej |
-| användarnamn | Användarnamnet som används för att komma åt Jira Service.  | Ja |
-| lösenord | Lösenordet för det användarnamn som du angav i fältet för användarnamn. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| username | Användarnamnet som används för att komma åt Jira Service.  | Ja |
+| password | Lösenordet för det användarnamn som du angav i fältet för användarnamn. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | useEncryptedEndpoints | Anger om käll-slutpunkter data krypteras med HTTPS. Standardvärdet är sant.  | Nej |
 | useHostVerification | Anger om värdnamnet i servercertifikatet så att de matchar värdnamnet för servern när du ansluter via SSL. Standardvärdet är sant.  | Nej |
 | usePeerVerification | Anger om du vill kontrollera identiteten på servern när du ansluter via SSL. Standardvärdet är sant.  | Nej |
@@ -111,7 +111,7 @@ Om du vill kopiera data från Jira, ange typ av datakälla i kopieringsaktivitet
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **JiraSource** | Ja |
-| DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
+| query | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**
 

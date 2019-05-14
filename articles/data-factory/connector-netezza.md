@@ -42,7 +42,7 @@ Följande egenskaper har stöd för Netezza länkade tjänsten:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Den **typ** egenskapen måste anges till **Netezza**. | Ja |
+| type | Den **typ** egenskapen måste anges till **Netezza**. | Ja |
 | connectionString | En ODBC-anslutningssträng att ansluta till Netezza. <br/>Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory. Du kan också publicera lösenord i Azure Key Vault och använda pull i `pwd` konfiguration av anslutningssträngen. Följande exempel finns och [Store autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) artikel med mer information. | Ja |
 | connectVia | Den [Integreringskörningen](concepts-integration-runtime.md) för att ansluta till datalagret. Du kan välja en lokal Integration Runtime eller Azure Integration Runtime (om ditt datalager är offentligt tillgänglig). Om den inte anges används standard Azure Integration Runtime. |Nej |
 
@@ -51,7 +51,7 @@ En typisk anslutningssträng är `Server=<server>;Port=<port>;Database=<database
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | SecurityLevel | Nivån på security (SSL/TLS) som drivrutinen använder för anslutning till datalagret. Exempel: `SecurityLevel=preferredSecured`. Värden som stöds är:<br/>- **Endast oskyddad** (**onlyUnSecured**): Drivrutinen använder inte SSL.<br/>- **Önskad oskyddat (preferredUnSecured) (standard)**: Om servern innehåller ett val, använder drivrutinen inte SSL. <br/>- **Önskad säker (preferredSecured)**: Om servern innehåller ett val, använder drivrutinen SSL. <br/>- **Endast skyddas (onlySecured)**: Drivrutinen inte går att ansluta såvida inte en SSL-anslutning är tillgänglig. | Nej |
-| CUCertfil | Den fullständiga sökvägen till SSL-certifikatet som används av servern. Exempel: `CaCertFile=<cert path>;`| Ja, om SSL är aktiverat |
+| CaCertFile | Den fullständiga sökvägen till SSL-certifikatet som används av servern. Exempel: `CaCertFile=<cert path>;`| Ja, om SSL är aktiverat |
 
 **Exempel**
 
@@ -144,8 +144,8 @@ Om du vill kopiera data från Netezza, ange den **källa** typ i Kopieringsaktiv
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Den **typ** egenskapen för Kopieringsaktiviteten källan måste anges till **NetezzaSource**. | Ja |
-| DocumentDB | Använda anpassade SQL-frågan för att läsa data. Exempel: `"SELECT * FROM MyTable"` | Nej (om ”tableName” i datauppsättningen har angetts) |
+| type | Den **typ** egenskapen för Kopieringsaktiviteten källan måste anges till **NetezzaSource**. | Ja |
+| query | Använda anpassade SQL-frågan för att läsa data. Exempel: `"SELECT * FROM MyTable"` | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**
 

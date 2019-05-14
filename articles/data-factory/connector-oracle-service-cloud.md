@@ -45,9 +45,9 @@ Följande egenskaper har stöd för Oracle-Tjänstmoln länkade tjänsten:
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen måste anges till: **OracleServiceCloud** | Ja |
-| värd | URL till molninstans för Oracle-tjänsten.  | Ja |
-| användarnamn | Användarnamnet som används för att komma åt servern för Oracle-Tjänstmoln.  | Ja |
-| lösenord | Lösenordet för det användarnamn som du angav i nyckeln användarnamn. Du kan välja att markera det här fältet som en SecureString att lagra den på ett säkert sätt i ADF eller lagra lösenord i Azure Key Vault och låt ADF kopiera aktivitet pull därifrån när du utför kopiering av data – Lär dig mer från [Store autentiseringsuppgifter i Key Vault](store-credentials-in-key-vault.md). | Ja |
+| host | URL till molninstans för Oracle-tjänsten.  | Ja |
+| username | Användarnamnet som används för att komma åt servern för Oracle-Tjänstmoln.  | Ja |
+| password | Lösenordet för det användarnamn som du angav i nyckeln användarnamn. Du kan välja att markera det här fältet som en SecureString att lagra den på ett säkert sätt i ADF eller lagra lösenord i Azure Key Vault och låt ADF kopiera aktivitet pull därifrån när du utför kopiering av data – Lär dig mer från [Store autentiseringsuppgifter i Key Vault](store-credentials-in-key-vault.md). | Ja |
 | useEncryptedEndpoints | Anger om käll-slutpunkter data krypteras med HTTPS. Standardvärdet är sant.  | Nej |
 | useHostVerification | Anger om värdnamnet i servercertifikatet så att de matchar värdnamnet för servern när du ansluter via SSL. Standardvärdet är sant.  | Nej |
 | usePeerVerification | Anger om du vill kontrollera identiteten på servern när du ansluter via SSL. Standardvärdet är sant.  | Nej |
@@ -114,7 +114,7 @@ För att kopiera data från molnet för Oracle-tjänsten, ange typ av datakälla
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **OracleServiceCloudSource** | Ja |
-| DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
+| query | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**
 

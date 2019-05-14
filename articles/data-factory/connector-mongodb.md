@@ -83,7 +83,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för datauppsättningen måste anges till: **MongoDbV2Collection** | Ja |
-| Samlingsnamn |Namnet på samlingen i MongoDB-databas. |Ja |
+| collectionName |Namnet på samlingen i MongoDB-databas. |Ja |
 
 **Exempel:**
 

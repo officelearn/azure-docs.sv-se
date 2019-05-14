@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/06/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 023542dbc22234fc57e4ce8b662a9760be4efe04
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 8df9c2a5e45cf222debc733b3e051c3f707715c5
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150752"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603085"
 ---
 # <a name="tutorial-return-azure-data-box-disk-and-verify-data-upload-to-azure"></a>Självstudier: Skicka tillbaka Azure Data Box-disken och verifiera datauppladdning till Azure
 
@@ -56,7 +56,7 @@ Gör följande om Returnerar enheten i USA eller Kanada.
 2. Försegla fraktlådan och se till att adressetiketten är väl synlig.
 3. Schemalägga en upphämtning med Avbrottsfria. Så här schemalägger en hämtning:
 
-    - Anropa den lokala UPS (landsspecifika kostnadsfritt nummer).
+    - Anropa den lokala UPS (land/region-specifika kostnadsfritt nummer).
     - Citera omvänd leveransen spårnings-ID som visas i din utskrivna etikett i dina anrop.
     - Om du inte är av citattecken Spårningsnumret, kräver UPS att betala en extra avgift under hämtning.
     - I stället för schemaläggning för upphämtningen släpper du ut den närmaste samlingsplats Data Box-Disk.
@@ -78,13 +78,13 @@ Gör följande om enheten och returnerar Europa.
 
 2. Försegla fraktlådan och se till att adressetiketten är väl synlig.
 3. Om du returnerar enheten i Europa via DHL bokar du upphämtning på DHL:s webbplats.
-4. Navigera till DHL-webbplatsen för ditt land. Under Våra divisioner klickar du på DHL Express. Välj **Skicka > Skicka online**.
+4. Gå till webbplatsen DHL Express land/region och välj **boka en bud samling > eReturn leverans**.
 
     ![DHL returleverans](media/data-box-disk-deploy-picked-up/dhl-ship-1.png)
     
 3. Identifiera ditt fraktsedelsnummer och klicka på **Boka upphämtning**.
 
-      ![Boka upphämtning](media/data-box-disk-deploy-picked-up/dhl-ship-2.png)
+      ![Schemalägg hämtning](media/data-box-disk-deploy-picked-up/dhl-ship-2.png)
 
 ### <a name="pick-up-in-asia-pacific-region"></a>Hämta i Asien / Stillahavsområdet
 
@@ -157,7 +157,7 @@ När kopieringen är slutförd uppdateras statusen till **slutförd**.
 
 ![Datakopiering slutförd](media/data-box-disk-deploy-picked-up/data-box-portal-completed.png)
 
-Kontrollera att alla data finns på lagringskontot innan du tar bort dem från källan. Dina data kan ha:
+Kontrollera att dina data finns på lagringskontot innan du tar bort dem från källan. Dina data kan ha:
 
 - Dina Azure Storage-konton. När du kopierar data till Data Box laddas data beroende på typ upp till någon av följande sökvägar i ditt Azure Storage-konto.
 

@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: tutorial
 ms.date: 01/13/2019
 ms.author: spelluru
-ms.openlocfilehash: c2c49563bf505ce70c4900c6c0a8e41c0f6ac9c5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1ae7a18660d2a7324bc5897d6b3952da42b6c4b2
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58176624"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603439"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>Självstudie: Strömma stordata till ett datalager
 Azure [Event Grid](overview.md) är en intelligent tjänst för händelsedirigering som innebär att du kan agera på aviseringar (händelser) från appar och tjänster. Tjänsten kan till exempel utlösa en Azure-funktion som bearbetar Event Hubs-data som har hämtats till en Azure-blobblagring eller Azure Data Lake Storage och som migrerar datan till andra lagringsplatser. Det här [integrationsexemplet med Event Hubs och Event Grid](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) visar hur du använder Event Hubs med Event Grid för att sömlöst migrera hämtade Event Hubs-data från blobblagring till SQL Data Warehouse.
@@ -38,14 +38,14 @@ I den här självstudien gör du följande:
 > * Kör appen som skickar data till händelsehubben.
 > * Visar migrerade data i informationslagret.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Du behöver följande för att kunna slutföra den här självstudiekursen:
 
 * En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
-* [Visual studio 2017 version 15.3.2 eller senare](https://www.visualstudio.com/vs/) med arbetsbelastningar för .NET-skrivbordsutveckling, Azure-utveckling, ASP.NET- och webbutveckling, Node.js-utveckling och Python-utveckling.
+* [Visual studio 2019](https://www.visualstudio.com/vs/) med arbetsbelastningar för: .NET-skrivbordsutveckling, Azure-utveckling, ASP.NET och webbutveckling, utveckling av Node.js och Python-utveckling.
 * Ladda ned [exempelprojektet EventHubsCaptureEventGridDemo](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) till din dator.
 
 ## <a name="deploy-the-infrastructure"></a>Distribuera infrastrukturen
@@ -196,7 +196,7 @@ Skapa en tabell i informationslagret genom att köra skriptet [CreateDataWarehou
 
 ## <a name="publish-the-azure-functions-app"></a>Publicera Azure Functions-appen
 
-1. Starta Visual Studio 2017. 
+1. Starta Visual Studio.
 2. Öppna lösningen **EventHubsCaptureEventGridDemo.sln** som du laddade ned från [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) som en del av förutsättningarna.
 3. Högerklicka på **FunctionEGDWDumper** i Solution Explorer och välj **Publicera**.
 

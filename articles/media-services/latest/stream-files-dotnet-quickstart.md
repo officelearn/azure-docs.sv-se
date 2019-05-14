@@ -1,6 +1,6 @@
 ---
 title: Strömma videofiler med Azure Media Services – .NET | Microsoft Docs
-description: Följ stegen i den här snabbstarten för att skapa ett nytt Azure Media Services-konto, koda en fil och strömma den till Azure Media Player.
+description: Följ stegen i den här självstudien för att skapa ett nytt Azure Media Services-konto, koda en fil och strömma det till Azure Media Player.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -9,23 +9,23 @@ editor: ''
 keywords: azure media services, strömma
 ms.service: media-services
 ms.workload: media
-ms.topic: quickstart
+ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/20/2019
 ms.author: juliako
-ms.openlocfilehash: 3a50d78645630e499b11f012da122b12b026ae6b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3834b4f07f6450f498831accfa6640f55bc5855a
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61466875"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550185"
 ---
-# <a name="quickstart-stream-video-files---net"></a>Snabbstart: Strömma videofiler – .NET
+# <a name="tutorial-stream-video-files---net"></a>Självstudier: Strömma videofiler – .NET
 
-Den här snabbstarten visar hur lätt det är att koda och börja strömma video på en mängd olika webbläsare och enheter med Azure Media Services. Ett indatainnehåll kan anges med HTTP-URL:er, SAS-URL:er eller sökvägar till filer i Azure Blob Storage.
+Den här självstudien visar hur enkelt det är att koda och starta direktuppspelning av videor på en mängd olika webbläsare och enheter med Azure Media Services. Ett indatainnehåll kan anges med HTTP-URL:er, SAS-URL:er eller sökvägar till filer i Azure Blob Storage.
 Exemplet i det här ämnet kodar innehåll som du gör tillgängligt via en HTTPS-URL. Observera att AMS v3 för närvarande inte stöder segmentvis överföringskodning över HTTPS-URL:er.
 
-I slutet av snabbstarten kommer du att kunna strömma en video.  
+I slutet av självstudien kommer du att kunna strömma en video.  
 
 ![Spela upp videon](./media/stream-files-dotnet-quickstart/final-video.png)
 
@@ -68,7 +68,7 @@ När du kör appen visas URL:er som kan användas för uppspelning av video med 
 1. Tryck på Ctrl+F5 för att köra programmet *EncodeAndStreamFiles*.
 2. Välj Apples **HLS**-protokoll (slutar med *manifest(format=m3u8-aapl)*) och kopiera strömnings-URL:en från konsolen.
 
-![Resultat](./media/stream-files-tutorial-with-api/output.png)
+![Utdata](./media/stream-files-tutorial-with-api/output.png)
 
 I exemplets [källkod](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs), kan du se hur URL:en är byggd. För att skapa den, måste du sammanfoga strömningsslutpunktens värdnamn och sökvägen för strömningslokaliseraren.  
 
@@ -89,7 +89,7 @@ Azure Media Player kan användas vid testning, men bör inte användas i en prod
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du inte längre behöver någon av resurserna i resursgruppen, inklusive Media Services och lagringskontona som du skapade för snabbstarten, tar du bort resursgruppen.
+Om du inte längre behöver någon av resurserna i resursgruppen, inklusive medietjänster och storage-konton som du skapade i den här självstudien tar du bort resursgruppen.
 
 Kör följande CLI-kommando:
 

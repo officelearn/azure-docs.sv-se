@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 267e790cec3c915330f8f72053458527ee7bfead
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 19455998ca13b9abf48bb1cb3856e38b5c47ef52
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60637491"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595602"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Hitta och diagnostisera körningsundantag med Azure Application Insights
 
@@ -34,7 +34,7 @@ Azure Application Insights samlar in telemetri från ditt program för att ident
 
 För att slutföra den här självstudien behöver du:
 
-- Installera [Visual Studio 2017](https://www.visualstudio.com/downloads/) med följande arbetsbelastningar:
+- Installera [Visual Studio 2019](https://www.visualstudio.com/downloads/) med följande arbetsbelastningar:
     - ASP.NET och webbutveckling
     - Azure Development
 - Ladda ned och installera [Visual Studio Snapshot Debugger](https://aka.ms/snapshotdebugger).
@@ -75,7 +75,7 @@ Application Insights samlar in eventuella fel i programmet, och du kan se frekve
     ![Undantagsinformation](media/tutorial-runtime-exceptions/failed-requests-exception.png)
 
 ## <a name="identify-failing-code"></a>Identifiera felaktig kod
-Snapshot Debugger samlar in ögonblicksbilder av de vanligaste undantagen i ditt program, som är till hjälp när du ska diagnostisera grundorsaken i produktion.  Du kan visa debug ögonblicksbilder i portalen för att se anropet stacken och inspektera variabler vid varje anropsstacken. Efteråt kan du felsöka källkoden genom att ladda ned ögonblicksbilden och öppna den i Visual Studio 2017 Enterprise.
+Snapshot Debugger samlar in ögonblicksbilder av de vanligaste undantagen i ditt program, som är till hjälp när du ska diagnostisera grundorsaken i produktion.  Du kan visa debug ögonblicksbilder i portalen för att se anropet stacken och inspektera variabler vid varje anropsstacken. Därefter har möjlighet att felsöka källkoden genom att ladda ned ögonblicksbilden och öppna den i Visual Studio 2019 Enterprise.
 
 1. Klicka på **Open debug snapshot** (Öppna ögonblicksbild för felsökning) i egenskaperna för undantaget.
 2. Panelen **Debug Snapshot** (Ögonblicksbild för felsökning) öppnas med anropsstacken för förfrågningen.  Om du klickar på en metod visas värdena för alla lokala variabler vid tidpunkten för förfrågningen.  Om du börjar med den översta metoden i det här exemplet ser vi att det finns lokala variabler som inte har något värde.
@@ -84,7 +84,7 @@ Snapshot Debugger samlar in ögonblicksbilder av de vanligaste undantagen i ditt
 
 3. Det första anropet som har giltiga värden är **ValidZipCode**, och vi kan se att ett postnummer angavs tillsammans med bokstäver som inte kan översättas till ett heltal.  Det här verkar vara felet i koden som måste åtgärdas.
 
-    ![Ögonblicksbild för felsökning](media/tutorial-runtime-exceptions/debug-snapshot-02.png)
+    ![Felsök ögonblicksbilden](media/tutorial-runtime-exceptions/debug-snapshot-02.png)
 
 4. Sedan kan du ladda ned den här ögonblicksbilden till Visual Studio och leta rätt på den faktiska kod som behöver åtgärdas. Det gör du genom att klicka på **Ladda ned ögonblicksbild**.
 5. Ögonblicksbilden läses in i Visual Studio.
@@ -109,7 +109,7 @@ Om du ansluter Application Insights till ett spårningssystem som Azure DevOps e
 2. Klicka på **Nytt arbetsobjekt**.
 3. Panelen **Nytt arbetsobjekt** öppnas med detaljer om undantaget ifyllda.  Du kan lägga till ytterligare information innan du sparar objektet.
 
-    ![Nytt arbetsobjekt](media/tutorial-runtime-exceptions/new-work-item.png)
+    ![Ny arbetsuppgift](media/tutorial-runtime-exceptions/new-work-item.png)
 
 ## <a name="next-steps"></a>Nästa steg
 Nu när du har lärt dig hur du identifierar körningsundantag går du vidare till nästa självstudie, där du får lära dig hur du identifierar och diagnostiserar prestandaproblem.

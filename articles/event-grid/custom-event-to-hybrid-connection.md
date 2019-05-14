@@ -9,12 +9,12 @@ ms.date: 02/02/2019
 ms.topic: tutorial
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: 2a050f8bc5d2437c7cdbadcf3296c2ef6d4659dc
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: 270059537fc8d06648c86088b22aef5b78ff00ec
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55728647"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606295"
 ---
 # <a name="tutorial-route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>Självstudie: Dirigera anpassade händelser till Azure Relay hybridanslutning med Azure CLI och Event Grid
 
@@ -80,7 +80,7 @@ Observera att ett [förfallodatum](concepts.md#event-subscription-expiration) ha
 
 Du behöver ett program som kan hämta händelser från hybridanslutningen. [Microsoft Azure Event Grid Hybrid Connection Consumer sample for C#](https://github.com/Azure-Samples/event-grid-dotnet-hybridconnection-destination) utför den här åtgärden. Du har redan slutfört förutsättningsstegen.
 
-1. Se till att du har Visual Studio 2017 Version 15.5 eller senare.
+1. Kontrollera att du har Visual Studio 2019 eller senare.
 
 1. Klona lagringsplatsen till din lokala dator.
 

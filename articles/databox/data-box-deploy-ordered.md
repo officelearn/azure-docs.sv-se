@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 04/23/2019
 ms.author: alkohli
-ms.openlocfilehash: 05d522550b96813c6b8326d83f09d7028466c835
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: b0204673c0706403c8c5a7367be19e590d9cb134
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926217"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604087"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Självstudier: Beställa Azure Data Box
 
@@ -62,11 +62,11 @@ Utför följande steg på Azure-portalen för att beställa en enhet.
 
 4. Kontrollera om Data Box-tjänsten är tillgänglig i din region. Ange eller välj följande information och klicka på **Tillämpa**. 
 
-    |Inställning  |Värde  |
+    |Inställning  |Value  |
     |---------|---------|
     |Prenumeration     | Välj en prenumeration för EA, CSP eller Azure-sponsring för Data Box-tjänsten. <br> Prenumerationen är kopplad till ditt faktureringskonto.       |
     |Överföringstyp     | Välj **Importera till Azure**.        |
-    |Källand     |   Välj landet där dina data finns.         |
+    |Källand     |   Välj land/region där dina data finns.         |
     |Azure-målregion     |     Välj den Azure-region dit du vill överföra data.        |
 
 5. Välj **Data Box**. Den maximala kapaciteten som kan användas för en enskild beställning är 80 TB. Du kan skapa flera beställningar för större datamängder.
@@ -88,7 +88,7 @@ Utför följande steg på Azure-portalen för att beställa en enhet.
 
     Om du använder Data Box för att skapa hanterade diskar från de lokala virtuella hårddiskarna, behöver du också ange följande information:
 
-    |Inställning  |Värde  |
+    |Inställning  |Value  |
     |---------|---------|
     |Resursgrupper     | Skapa nya resursgrupper om du planerar att skapa hanterade diskar från en lokal virtuell hårddisk. Du kan använda en befintlig resursgrupp endast om resursgruppen har skapats tidigare när du skapar en Data Box-beställning för hanterad disk av Data Box-tjänsten. <br> Ange flera resursgrupper, avgränsade med semikolon. Högst 10 resursgrupper stöds.|
 

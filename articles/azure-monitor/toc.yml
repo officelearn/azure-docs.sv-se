@@ -314,8 +314,9 @@
                 - name: Statusövervakare
                   href: app/monitor-performance-live-website-now.md
                 - name: Statusövervakare v2
-                  href: app/status-monitor-v2-overview.md
                   items:
+                    - name: Översikt
+                      href: app/status-monitor-v2-overview.md
                     - name: Komma igång
                       href: app/status-monitor-v2-get-started.md
                     - name: Detaljerade anvisningar
@@ -557,7 +558,7 @@
                   href: app/usage-workbooks.md
             - name: Lösning för webbappsanalys
               href: insights/azure-web-apps-analytics.md
-            - name: Appar i Kubernetes
+            - name: Övervaka Kubernetes-program
               href: app/kubernetes.md
         - name: Övervaka containrar
           items:
@@ -631,8 +632,18 @@
                   href: insights/vminsights-known-issues.md
                 - name: VANLIGA FRÅGOR OCH SVAR
                   href: insights/vminsights-faq.md
-                - name: Publicera
-                  href: insights/vminsights-onboard.md
+                - name: Aktivera övervakning
+                  items:
+                    - name: Aktivera övervakningsöversikt
+                      href: insights/vminsights-enable-overview.md
+                    - name: Aktivera för enskild virtuell Azure-dator
+                      href: insights/vminsights-enable-single-vm.md
+                    - name: Aktivera med hjälp av Azure Policy
+                      href: insights/vminsights-enable-at-scale-policy.md
+                    - name: Aktivera med hjälp av Azure PowerShell
+                      href: insights/vminsights-enable-at-scale-powershell.md
+                    - name: Aktivera för hybridmiljö
+                      href: insights/vminsights-enable-hybrid-cloud.md
                 - name: Övervaka hälsa
                   href: insights/vminsights-health.md
                 - name: Mappa beroenden

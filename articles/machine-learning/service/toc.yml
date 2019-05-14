@@ -89,8 +89,6 @@
     - name: Modelltolkning
       displayName: explainability
       href: machine-learning-interpretability-explainability.md
-    - name: 'Accelerera med GPU:er'
-      href: concept-accelerate-inferencing-with-gpus.md
     - name: Accelerera med FPGA
       href: concept-accelerate-with-fpgas.md
     - name: Optimera med ONNX- och ONNX-körning
@@ -197,6 +195,8 @@
         - name: Var och hur du distribuerar
           displayName: publish azure kubernetes azure container instances
           href: how-to-deploy-and-where.md
+        - name: 'GPU: er'
+          href: how-to-deploy-inferencing-gpus.md
         - name: 'FPGA:er'
           href: how-to-deploy-fpga-web-service.md
         - name: IoT Edge
@@ -226,7 +226,7 @@
           href: how-to-create-your-first-pipeline.md
         - name: CI/CD för ML-arbetsflöden med Azure Pipelines
           displayName: 'continuous, integration, delivery'
-          href: /azure/devops/pipelines/targets/azure-machine-learning?view=azure-devop
+          href: /azure/devops/pipelines/targets/azure-machine-learning
           mainContext: true
     - name: Hantera resurskvoter
       displayName: limits

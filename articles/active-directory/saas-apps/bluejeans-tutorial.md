@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39e9f52948d035c72a6a019558915d8c92ceebeb
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 2830e95f042d5c83d91d6c026d2fa2e70eb3e3b2
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65463543"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65601640"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bluejeans"></a>Självstudier: Azure Active Directory-katalogintegrering med BlueJeans
 
@@ -108,7 +108,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med BlueJ
 
     ![BlueJeans-domän och URL:er med information om enkel inloggning](media/bluejeans-tutorial/tutorial_bluejeans-basic-configuration.png)
 
-   - I textrutan **Identifierare** skriver du följande: `https://samlsp.bluejeans.com`
+   - I textrutan **Identifierare** skriver du följande: `http://samlsp.bluejeans.com`
     
    - I den **inloggnings-URL** text skriver startsida sid-URL du fått av BlueJeans (för att få det här värdet kan du kontakta den [BlueJeans klienten supportteamet](https://support.bluejeans.com/contact)): `https://<companyname>.bluejeans.com`
     
@@ -160,9 +160,9 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med BlueJ
 
     ![Spara ändringar](./media/bluejeans-tutorial/ic785874.png "Spara ändringar")
 
-    a. I den **användar-Id** textrutan typ `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+    a. I den **användar-Id** textrutan typ `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
-    b. I textrutan **E-post** skriver du `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+    b. I textrutan **E-post** skriver du `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
     c. Klicka på **SPARA ÄNDRINGAR** för att spara ändringarna.
 

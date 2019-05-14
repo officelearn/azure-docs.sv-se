@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 11/13/2018
 ms.author: jafreebe
 ms.custom: seodec18
-ms.openlocfilehash: 472ff85adaf72f91948c4072b12cca3ff8e59f37
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6b9c9500423392ec07482f049697d9b49dc060bf
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60769997"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603183"
 ---
 # <a name="tutorial-build-a-java-ee-and-postgres-web-app-in-azure"></a>Självstudie: Skapa en Java EE- och Postgres-webbapp i Azure
 
@@ -158,7 +158,7 @@ Därefter behöver vi redigera vår API för JPA-konfiguration för Java-transak
 
 ## <a name="configure-the-wildfly-application-server"></a>Konfigurera programservern WildFly
 
-Innan du distribuerar vårt omkonfigurerade program måste vi uppdatera programservern WildFly med Postgres-modulen och dess beroenden. Mer konfigurationsinformation finns på [konfigurera WildFly server](configure-language-java.md#configure-wildfly-server).
+Innan du distribuerar vårt omkonfigurerade program måste vi uppdatera programservern WildFly med Postgres-modulen och dess beroenden. Mer konfigurationsinformation finns på [konfigurera WildFly server](configure-language-java.md#configure-java-ee-wildfly).
 
 För att konfigurera servern måste de fyra filerna vara i katalogen `wildfly_config/`:
 
@@ -189,7 +189,7 @@ Slutligen startar du om din App Service. Knappen finns i panelen ”Översikt”
 mvn clean install -DskipTests azure-webapp:deploy
 ```
 
-Grattis! Programmet använder nu en Postgres-databas och alla poster som skapats i programmet kommer att lagras i Postgres i stället för den föregående H3 InMemory-databasen. För att bekräfta detta kan du göra en post och starta om App Service. Posterna kommer dock att finnas kvar när programmet startas om.
+Gratulerar! Programmet använder nu en Postgres-databas och alla poster som skapats i programmet kommer att lagras i Postgres i stället för den föregående H3 InMemory-databasen. För att bekräfta detta kan du göra en post och starta om App Service. Posterna kommer dock att finnas kvar när programmet startas om.
 
 ## <a name="clean-up"></a>Rensa
 

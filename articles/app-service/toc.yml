@@ -76,6 +76,8 @@
           href: overview-authentication-authorization.md
         - name: Uppdatering av operativsystem och körning
           href: overview-patch-os-runtime.md
+        - name: Säkerhetsattribut
+          href: app-service-security-attributes.md
     - name: Inkommande och utgående IP-adresser
       href: overview-inbound-outbound-ips.md
     - name: Hybridanslutningar

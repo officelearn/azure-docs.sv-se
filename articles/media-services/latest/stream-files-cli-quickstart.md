@@ -1,6 +1,6 @@
 ---
 title: Stream videofiler med Azure Media Services och Azure CLI | Microsoft Docs
-description: Följ stegen i den här snabbstarten för att skapa ett nytt Azure Media Services-konto, koda en fil och strömma den till Azure Media Player.
+description: Följ stegen i den här självstudien för att skapa ett nytt Azure Media Services-konto, koda en fil och strömma det till Azure Media Player.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -9,24 +9,24 @@ editor: ''
 keywords: azure media services, strömma
 ms.service: media-services
 ms.workload: media
-ms.topic: quickstart
+ms.topic: tutorial
 ms.custom: ''
 ms.date: 02/19/2019
 ms.author: juliako
-ms.openlocfilehash: bd818135f289c430416909d16c8568208936a9f8
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: cce424b11cc4cd587c6e7c50bc8bdf988004a43a
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205409"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550205"
 ---
-# <a name="quickstart-stream-video-files---cli"></a>Snabbstart: Strömma videofiler – CLI
+# <a name="tutorial-stream-video-files---cli"></a>Självstudier: Strömma videofiler – CLI
 
-Den här snabbstarten visar hur du enkelt koda och strömma videor på en rad olika webbläsare och enheter med hjälp av Azure Media Services och Azure CLI. Du kan ange datainnehållet med hjälp av HTTPS eller SAS URL: er eller sökvägar för filer i Azure Blob storage.
+Den här självstudien visar hur du enkelt koda och strömma videor på en rad olika webbläsare och enheter med hjälp av Azure Media Services och Azure CLI. Du kan ange datainnehållet med hjälp av HTTPS eller SAS URL: er eller sökvägar för filer i Azure Blob storage.
 
 I exemplet i den här artikeln kodar innehåll som du gör tillgängliga via en HTTPS-URL. Media Services v3 stöder inte för närvarande Chunked-kodning över HTTPS-adresser.
 
-I slutet av den här snabbstarten kommer du att kunna strömma en video.  
+I slutet av den här självstudiekursen kommer du att kunna strömma en video.  
 
 ![Spela upp videon](./media/stream-files-dotnet-quickstart/final-video.png)
 
@@ -342,7 +342,7 @@ Här är ett exempel:
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du inte längre behöver någon av resurserna i resursgruppen, inklusive medietjänster och storage-konton som du skapade för den här snabbstarten får du ta bort resursgruppen.
+Om du inte längre behöver någon av resurserna i resursgruppen, inklusive medietjänster och storage-konton som du skapade i den här självstudien tar du bort resursgruppen.
 
 Kör följande CLI-kommando:
 
@@ -350,10 +350,7 @@ Kör följande CLI-kommando:
 az group delete --name amsResourceGroup
 ```
 
-## <a name="see-also"></a>Se också
-
-Se [Jobbfelkoder](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
-
 ## <a name="next-steps"></a>Nästa steg
 
 [Översikt över Media Services](media-services-overview.md)
+

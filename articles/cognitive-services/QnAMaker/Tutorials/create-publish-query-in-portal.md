@@ -11,12 +11,12 @@ ms.subservice: qna-maker
 ms.topic: tutorial
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 85f8643a0936209c8f280498df92555a7b40c533
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: a80a815d4a1a892b5258aef1c1fc7ef4ab881fe7
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149973"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65594164"
 ---
 # <a name="tutorial-from-qna-maker-portal-create-a-knowledge-base"></a>Självstudier: Med QnA Maker portal kan du skapa en kunskapsbas
 
@@ -66,9 +66,9 @@ Den här självstudien kräver en befintlig [QnA Maker-tjänst](../How-To/set-up
 
     |Inställningsnamn|Inställningsvärde|Syfte|
     |--|--|--|
-    |URL|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs` |Innehållet i vanliga frågor och svar på den URL:en är formaterad med en fråga som följs av ett svar. QnA Maker kan tolka det här formatet för att extrahera frågor och tillhörande svar.|
+    |Webbadress|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs` |Innehållet i vanliga frågor och svar på den URL:en är formaterad med en fråga som följs av ett svar. QnA Maker kan tolka det här formatet för att extrahera frågor och tillhörande svar.|
     |Fil |_används inte i den här självstudien_|Det här laddar upp filer för frågor och svar. |
-    |Kommunikationspersonlighet|Eget|Detta ger en informell och avslappnad personlighet för vanliga frågor och svar. Du kan redigera dessa frågor och svar senare. |
+    |Kommunikationspersonlighet|Eget|Detta ger en vänlig och en Vardaglig [personlighet](../Concepts/best-practices.md#chit-chat) till vanliga frågor och svar. Du kan redigera dessa frågor och svar senare. |
 
     ![Steg 4 i skapandeprocessen för kunskapsbas](../media/qnamaker-tutorial-create-publish-query-in-portal/create-kb-step-4.png)
 

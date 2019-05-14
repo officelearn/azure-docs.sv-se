@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 26a9aa4c32cff17dd157d65dce062309e73eb41f
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 36773fce18abe5e91f393e2e82e0fb5eb44bb3b4
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65407884"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65601715"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workday"></a>Självstudier: Azure Active Directory-integrering med Workday
 
@@ -116,7 +116,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Workday
 
     > [!NOTE]
     > De här värdena är inte verkliga. Uppdatera dessa värden med de faktiska inloggnings-URL och svars-URL. Svars-URL måste ha en underdomän till exempel: www, wd2, wd3, wd3 impl, wd5, wd5 impl).
-    > Med något som `http://www.myworkday.com` fungerar men `https://myworkday.com` inte. Kontakta [Workday klienten supportteamet](https://www.workday.com/en-us/partners-services/services/support.html) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Med något som `https://www.myworkday.com` fungerar men `https://myworkday.com` inte. Kontakta [Workday klienten supportteamet](https://www.workday.com/en-us/partners-services/services/support.html) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 6. Dina Workday-programmet förväntar sig SAML-intyg i ett visst format, vilket kräver att du kan lägga till anpassade attributmappningar i SAML-tokenattribut konfigurationen. Följande skärmbild visar en lista över standardattribut, där **nameidentifier** mappas med **user.userprincipalname**. Workday program som förväntar **nameidentifier** mappas med **user.mail**, **UPN** osv, så du behöver redigera attribut mappar genom att klicka på **redigera**  ikon och ändra attributet mappningen.
 

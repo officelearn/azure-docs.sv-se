@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: tutorial
-ms.date: 01/12/2019
-ms.openlocfilehash: e735c9773971a4c594c32e9ae29eeb295c32810c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/14/2019
+ms.openlocfilehash: 791e38f3d15801166f07234648909e03d800f5c0
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60824814"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604906"
 ---
 # <a name="tutorial-monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Självstudie: Övervaka ändringar på virtuella maskiner med Azure Event Grid och Logic Apps
 
@@ -27,7 +27,7 @@ Här är exempel på händelser som utgivare kan skicka till prenumeranter via t
 * Händelser som är kopplade till en viss åtgärd som utförs av din app.
 * Händelser som visar ett nytt meddelande i en kö.
 
-I den här självstudiekursen skapas en logikapp som övervakar ändringar på en virtuell dator och som skickar e-postmeddelanden om dessa ändringar. När du skapar en logikapp med en händelseprenumeration för en Azure-resurs flödar händelser från den resursen via ett rutnät till logikappen. Självstudiekursen beskriver steg för steg hur du skapar den här logikappen:
+Den här självstudiekursen skapar en logikapp som övervakar ändringar till en virtuell dator och skickar e-postmeddelanden om dessa ändringar. När du skapar en logikapp med en händelseprenumeration för en Azure-resurs flödar händelser från den resursen via ett rutnät till logikappen. Självstudiekursen beskriver steg för steg hur du skapar den här logikappen:
 
 ![Översikt – övervaka virtuella datorer med ett händelserutnät och en logikapp](./media/monitor-virtual-machine-changes-event-grid-logic-app/monitor-virtual-machine-event-grid-logic-app-overview.png)
 
@@ -40,75 +40,79 @@ I den här guiden får du lära dig att:
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-* Ett e-postkonto från [valfri e-postleverantör som stöds av Azure Logic Apps](../connectors/apis-list.md), till exempel Office 365 Outlook, Outlook.com eller Gmail, för att skicka meddelanden. Den här självstudien använder Office 365 Outlook.
+* En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
-* En [virtuell dator](https://azure.microsoft.com/services/virtual-machines). Om du inte redan gjort det skapar du en virtuell dator. Följ bara anvisningarna i en självstudiekurs [som beskriver hur du skapar en virtuell dator](https://docs.microsoft.com/azure/virtual-machines/). [Du behöver inte göra något mer](../event-grid/overview.md) för att den virtuella datorn ska publicera händelser.
+* Ett e-postkonto från en e-postleverantör som stöds av Logic Apps för att skicka meddelanden, som Office 365 Outlook, Outlook.com eller Gmail. För andra providrar [läser du listan med anslutningsappar här](/connectors/). 
 
-## <a name="create-a-logic-app-that-monitors-events-from-an-event-grid"></a>Skapa en logikapp som övervakar händelser från ett händelserutnät
+  Den här självstudien används ett Office 365 Outlook-konto. Om du använder ett annat e-postkonto är stegen desamma, men användargränssnittet kan vara lite annorlunda.
 
-Börja med att skapa en logikapp och lägg till en utlösare för händelserutnät som övervakar resursgruppen för den virtuella datorn. 
+* En [virtuell dator](https://azure.microsoft.com/services/virtual-machines). Om du inte redan gjort det, skapar du en virtuell dator via den [skapa en VM-självstudie](../virtual-machines/windows/quick-create-portal.md). [Du behöver inte göra något mer](../event-grid/overview.md) för att den virtuella datorn ska publicera händelser.
 
-1. Logga in på [Azure Portal](https://portal.azure.com). 
+## <a name="create-blank-logic-app"></a>Skapa en tom logikapp
 
-2. Längst upp till vänster på huvudmenyn i Azure väljer du **Skapa en resurs** > **Enterprise-integration** > **Logikapp**.
+1. Logga in på [Azure Portal](https://portal.azure.com) med autentiseringsuppgifterna för ditt Azure-konto. 
+
+1. Välj den Azure-huvudmenyn **skapa en resurs** > **integrering** > **Logikapp**.
 
    ![Skapa en logikapp](./media/monitor-virtual-machine-changes-event-grid-logic-app/azure-portal-create-logic-app.png)
 
-3. Skapa logikappen med inställningarna som anges i följande tabell:
+1. Under **Logikapp**, ange information om din logikapp. När du är klar väljer du **Skapa**.
 
    ![Tillhandahålla information om logikappar](./media/monitor-virtual-machine-changes-event-grid-logic-app/create-logic-app-for-event-grid.png)
 
-   | Inställning | Föreslaget värde | Beskrivning | 
-   | ------- | --------------- | ----------- | 
-   | **Namn** | *{logikappens-namn}* | Ange ett unikt namn för logikappen. | 
-   | **Prenumeration** | *{din-Azure-prenumeration}* | Välj samma Azure-prenumeration för alla tjänster i den här självstudiekursen. | 
-   | **Resursgrupp** | *{din-Azure-resursgrupp}* | Välj samma Azure-resursgrupp för alla tjänster i den här självstudiekursen. | 
-   | **Plats** | *{din-Azure-region}* | Välj samma region för alla tjänster i den här självstudiekursen. | 
-   | | | 
-
-4. När du är klar väljer du **Fäst på instrumentpanelen** och sedan **Skapa**.
+   | Egenskap  | Föreslaget värde | Beskrivning |
+   | -------- | --------------- | ----------- |
+   | **Namn** | <*logic-app-name*> | Ange ett unikt namn för din logikapp. |
+   | **Prenumeration** | <*Azure-prenumerationsnamn*> | Välj samma Azure-prenumeration för alla tjänster i den här självstudiekursen. |
+   | **Resursgrupp** | <*Azure-resource-group*> | Välj samma Azure-resursgrupp för alla tjänster i den här självstudiekursen. |
+   | **Plats** | <*Azure-datacenter-region*> | Välj samma region för alla tjänster i den här självstudiekursen. |
+   |||
 
    Du har nu skapat en Azure-resurs för din logikapp. 
-   När Azure distribuerar din logikapp visar Logic Apps Designer mallar för vanliga mönster så kan du sätta igång snabbare.
 
-   > [!NOTE] 
-   > När du väljer **Fäst på instrumentpanelen** öppnas logikappen automatiskt i Logic Apps-designern. Om inte kan du leta upp och öppna logikappen manuellt.
+1. När Azure har distribuerat din logikapp, Logic Apps Designer visar en sida med en introduktionsvideo video och vanliga utlösare. Rulla förbi videon och utlösarna. 
 
-5. Välj en mall för logikappar. Under **Mallar** väljer du **Tom logikapp**, så att du kan skapa logikappen från grunden.
+1. Under **Mallar** väljer du **Tom logikapp**.
 
    ![Välja mall för logikapp](./media/monitor-virtual-machine-changes-event-grid-logic-app/choose-logic-app-template.png)
 
-   Nu visas [*anslutningsprogram*](../connectors/apis-list.md) och [*utlösare*](../logic-apps/logic-apps-overview.md#logic-app-concepts) i Logic Apps-designern som du kan använda för att börja skapa logikappen, samt åtgärder som du kan lägga till efter en utlösare för att utföra åtgärder. En utlösare är en händelse som skapar en instans av en logikapp och som startar logikappens arbetsflöde. 
-   Din logikapp måste ha en utlösare som det första objektet.
+   Logic Apps Designer visar dig nu [ *utlösare* ](../logic-apps/logic-apps-overview.md#logic-app-concepts) som du kan använda för att starta logikappen. Varje logikapp måste börja med en utlösare som utlöses när en specifik händelse sker eller när ett särskilt villkor uppfylls. 
+   Varje gång utlösaren utlöses skapar Azure Logic Apps skapar en arbetsflödesinstans som körs din logikapp.
 
-6. Skriv ”event grid” (händelserutnät) som filter i sökrutan. Välj den här utlösaren: **Azure Event Grid - On a resource event** (vid en resurshändelse)
+## <a name="add-event-grid-trigger"></a>Lägg till Event Grid-utlösare 
 
-   ![Välj den här utlösaren: "Azure Event Grid - On a resource event" (vid en resurshändelse)](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger.png)
+Lägg nu till Event Grid-utlösare som övervakar resursgruppen för den virtuella datorn. 
 
-7. När du uppmanas att göra det loggar du in i Azure Event Grid med dina autentiseringsuppgifter för Azure.
+1. På designern i sökrutan anger du ”event grid” som filter. Välj den här utlösaren från listan över utlösare: **När en resurshändelse inträffar – Azure Event Grid**
+
+   ![Välj den här utlösaren: ”På en resurshändelse”](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger.png)
+
+1. När du uppmanas logga in Azure Event Grid med dina Azure-autentiseringsuppgifter. I den **klient** lista som visar Azure Active Directory-klient som är associerat med din Azure-prenumeration, kontrollera att rätt klient visas.
 
    ![Logga in med dina autentiseringsuppgifter för Azure](./media/monitor-virtual-machine-changes-event-grid-logic-app/sign-in-event-grid.png)
 
    > [!NOTE]
    > Om du är inloggad med ett personligt Microsoft-konto som @outlook.com eller @hotmail.com kanske Event Grid-utlösaren inte visas korrekt. Du kan komma runt det här problemet genom att välja [Anslut med tjänstens huvudnamn](../active-directory/develop/howto-create-service-principal-portal.md) eller genom att autentisera som en Azure Active Directory-medlem som är associerad med din Azure-prenumeration, t.ex. *user-name*@emailoutlook.onmicrosoft.com.
 
-8. Registrera logikappen för händelser från utgivaren. Ange information om händelseprenumerationen enligt följande tabell:
+1. Registrera logikappen för händelser från utgivaren. Ange information om händelseprenumerationen enligt följande tabell:
 
    ![Ange information om händelseprenumeration](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger-details-generic.png)
 
-   | Inställning | Föreslaget värde | Beskrivning | 
-   | ------- | --------------- | ----------- | 
-   | **Prenumeration** | *{prenumeration-på-virtuell-Azure-dator}* | Välj händelseutfärdarens Azure-prenumeration. I den här självstudiekursen väljer du Azure-prenumerationen för din virtuella dator. | 
-   | **Resurstyp** | Microsoft.Resources.resourceGroups | Välj händelseutfärdarens resurstyp. I den här självstudiekursen väljer du det angivna värdet så att logikappen endast övervakar resursgrupper. | 
-   | **Resursnamn** | *{namn-på-resursgrupp-för-virtuell-dator}* | Välj utgivarens resursnamn. I den här självstudiekursen väljer du namnet på resursgruppen för din virtuella dator. | 
-   | Välj **Visa avancerade alternativ** om du vill visa valfria inställningar. | *{se beskrivningar}* | * **Prefixfilter**: I den här självstudien lämnar du den här inställningen tom. Standardbeteendet matchar alla värden. Du kan dock ange en prefixsträng som ett filter, till exempel en sökväg och en parameter för en specifik resurs. <p>* **Suffixfilter**: I den här självstudien lämnar du den här inställningen tom. Standardbeteendet matchar alla värden. Du kan dock ange en suffixsträng som ett filter, till exempel ett filnamnstillägg, om du bara vill använda specifika filtyper.<p>* **Prenumerationsnamn**: Ange ett unikt namn för din händelseprenumeration. |
-   | | | 
+   | Egenskap  | Krävs | Value | Beskrivning |
+   | -------- | -------- | ----- | ----------- |
+   | **Prenumeration** | Ja | <*event-publisher-Azure-subscription-name*> | Välj namnet på den Azure-prenumeration som är associerade med händelseutfärdaren. Välj Azure-prenumeration-namnet för den virtuella datorn i den här självstudien. |
+   | **Resurstyp** | Ja | <*event-publisher-Azure-resource-type*> | Välj resurstypen för händelseutfärdaren. Välj det här värdet för den här självstudiekursen, så att logikappen övervakar endast resursgrupper: <p><p>**Microsoft.Resources.resourceGroups** |
+   | **Resursnamn** |  Ja | <*event-publisher-Azure-resource-name*> | Välj namnet på Azure-resursen som är associerade med händelseutfärdaren. Den här resursen kan exempelvis vara en Event Grid-ämne. Välj namnet på Azure-resursgrupp som är associerade med den virtuella datorn i den här självstudien. |
+   | **Händelsen typobjekt** |  Nej | <*typer av händelser*> | Välj en eller flera specifika händelsetyper som du vill övervaka. Lämna den här egenskapen tomt i den här självstudien. |
+   | **Prenumerationsnamn** | Nej | <*event-subscription-name*> | Ange ett unikt namn för din händelseprenumeration. |
+   | Valfria inställningar, Välj **Lägg till ny parameter**. | Nej | {Se beskrivningar} | * **Prefixfilter**: Lämna den här egenskapen tomt i den här självstudien. Standardbeteendet matchar alla värden. Du kan dock ange en prefixsträng som ett filter, till exempel en sökväg och en parameter för en specifik resurs. <p>* **Suffixfilter**: Lämna den här egenskapen tomt i den här självstudien. Standardbeteendet matchar alla värden. Du kan dock ange en suffixsträng som ett filter, till exempel ett filnamnstillägg, om du bara vill använda specifika filtyper. |
+   |||
 
-   När du är klar bör utlösaren för händelserutnätet se ut ungefär som i det här exemplet:
-   
-   ![Information om exempelutlösare för händelserutnät](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger-details.png)
+   När du är klar Event Grid-utlösare kan se ut som i följande exempel:
 
-9. Spara din logikapp. Välj **Spara** i designerverktygsfältet. Om du vill komprimera och dölja informationen om en åtgärd i logikappen väljer du åtgärdens namnlist.
+   ![Information om exempel Event Grid-utlösare](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger-details.png)
+
+1. Spara din logikapp. Välj **Spara** i designerverktygsfältet. Om du vill komprimera och dölja informationen om en åtgärd i logikappen väljer du åtgärdens namnlist.
 
    ![Spara din logikapp](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-save.png)
 
@@ -116,75 +120,90 @@ Börja med att skapa en logikapp och lägg till en utlösare för händelserutn�
 
 Nu är logikappen aktiv och lyssnar på händelser från händelserutnätet, men den gör inget förrän du lägger till åtgärder i arbetsflödet. 
 
-## <a name="add-a-condition-that-checks-for-virtual-machine-changes"></a>Lägga till ett villkor som söker efter ändringar på en virtuell dator
+## <a name="add-condition"></a>Lägg till villkor
 
 Om du bara vill köra logikappens arbetsflöde när en viss händelse inträffar, lägger du till ett villkor som letar efter ”write”-åtgärder på den virtuella datorn. När det här villkoret är sant skickar logikappen ett e-postmeddelande till dig med information om den uppdaterade virtuella datorn.
 
-1. Välj **Nytt steg** > **Lägg till ett villkor** under utlösaren för händelserutnätet i Logic Apps-designern.
+1. I Logic App Designer under event grid-utlösare väljer **nytt steg**.
 
-   ![Lägg till ett villkor till logikappen](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-add-condition-step.png)
+   ![Välj ”nytt steg”](./media/monitor-virtual-machine-changes-event-grid-logic-app/choose-new-step-condition.png)
+
+1. I sökrutan anger du ”villkor” som filter. Välj den här åtgärden från åtgärdslistan över: **villkor**
+
+   ![Lägg till ett villkor](./media/monitor-virtual-machine-changes-event-grid-logic-app/select-condition.png)
 
    Logic Apps-designern lägger till ett tomt villkor till arbetsflödet, inklusive åtgärdssökvägar som ska följas beroende på om villkoret är sant eller falskt.
 
-   ![Tomt villkor](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-add-empty-condition.png)
+   ![Tomt villkor](./media/monitor-virtual-machine-changes-event-grid-logic-app/empty-condition.png)
 
-2. Välj **Redigera i avancerat läge** i rutan **Villkor**.
-Ange det här uttrycket:
+1. Byt namn på villkoret rubriken till `If a virtual machine in your resource group has changed`. På den villkorets rubriklist väljer du ellipserna (**...** ) och välj **Byt namn på**.
 
-   `@equals(triggerBody()?['data']['operationName'], 'Microsoft.Compute/virtualMachines/write')`
+   ![Byt namn på villkor](./media/monitor-virtual-machine-changes-event-grid-logic-app/rename-condition.png)
 
-   Villkoret nu ser ut som i det här exemplet:
+1. Skapa ett villkor som kontrollerar händelsen `body` för en `data` objekt där den `operationName` egenskapen är lika med den `Microsoft.Compute/virtualMachines/write` igen. Lär dig mer om [händelsescheman i Event Grid](../event-grid/event-schema.md).
 
-   ![Tomt villkor](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-condition-expression.png)
+   1. På den första raden under **And** (och) klickar du i den vänstra rutan. I den dynamiska innehållslistan som visas, väljer **uttryck**.
 
-   Det här uttrycket söker efter ett `data`-objekt i händelsen `body`, där egenskapen `operationName` är åtgärden `Microsoft.Compute/virtualMachines/write`. 
-   Lär dig mer om [händelsescheman i Event Grid](../event-grid/event-schema.md).
+      ![Välj ”uttryck”](./media/monitor-virtual-machine-changes-event-grid-logic-app/condition-choose-expression.png)
 
-3. Om du vill lägga till en beskrivning av villkoret väljer du **ellipsen** (knappen **...** ) i villkorsformen och väljer sedan **Byt namn**.
+   1. Ange det här uttrycket i uttrycksredigeraren och välj **OK**: 
 
-   > [!NOTE] 
-   > Exemplen längre fram i den här självstudiekursen innehåller även beskrivningar av steg i logikappens arbetsflöde.
+      `triggerBody()?['data']['operationName']`
 
-4. Välj **Redigera standardläge** så att uttrycket körs som i bilden nedan:
+      Exempel:
 
-   ![Villkor för logikapp](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-condition-1.png)
+      ![Välj ”uttryck”](./media/monitor-virtual-machine-changes-event-grid-logic-app/condition-add-data-operation-name.png)
 
-5. Spara din logikapp.
+   1. I den mellersta rutan behåller du operatorn **is equal to** (är lika med).
 
-## <a name="send-email-when-your-virtual-machine-changes"></a>Skicka ett e-postmeddelande när den virtuella datorn ändras
+   1. I den högra rutan anger du det här värdet:
+
+      `Microsoft.Compute/virtualMachines/write`
+
+   Klar villkoret nu ser ut som i följande exempel:
+
+   ![Slutförda villkor](./media/monitor-virtual-machine-changes-event-grid-logic-app/complete-condition.png)
+
+1. Spara din logikapp.
+
+## <a name="send-email-notifications"></a>Skicka e-postmeddelanden
 
 Nu ska du lägga till en [*åtgärd*](../logic-apps/logic-apps-overview.md#logic-app-concepts) så att du får ett e-postmeddelanden när det angivna villkoret är sant.
 
 1. Välj **Lägg till en åtgärd** i rutan **Om sant** för villkoret.
 
-   ![Lägg till en åtgärd för när villkoret är sant](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-condition-2.png)
+   ![Lägg till en åtgärd för när villkoret är sant](./media/monitor-virtual-machine-changes-event-grid-logic-app/condition-true-add-action.png)
 
-2. Skriv ”email” (e-post) som filter i sökrutan. Baserat på din e-leverantör söker du och väljer matchande anslutningsapp. Välj sedan åtgärden "send email" (skicka e-post) för anslutningsappen. Exempel: 
+1. I sökrutan anger du ”skicka ett e-postmeddelande” som filter. Baserat på din e-leverantör söker du och väljer matchande anslutningsapp. Välj sedan åtgärden "send email" (skicka e-post) för anslutningsappen. Exempel: 
 
    * För ett arbets- eller skolkonto i Azure väljer du anslutningsappen Office 365 Outlook. 
+
    * För personliga Microsoft-konton väljer du anslutningsappen Outlook.com. 
+
    * För Gmail-konton väljer du Gmail-anslutningsappen. 
 
-   Vi kommer att fortsätta med anslutingsappen Office 365 Outlook. 
-   Om du använder en annan leverantör förblir stegen desamma, men användargränssnittet kan vara annorlunda. 
+   Den här självstudien fortsätter med Office 365 Outlook-anslutningen. 
+   Om du använder en annan leverantör förblir stegen desamma, men Användargränssnittet kan vara lite annorlunda. 
 
    ![Välj åtgärden ”send email” (skicka e-post)](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-send-email.png)
 
-3. Om du inte redan är ansluten till din e-postleverantör loggar du in på ditt e-postkonto när du uppmanas att autentisera.
+1. Om du inte redan är ansluten till din e-postleverantör loggar du in på ditt e-postkonto när du uppmanas att autentisera.
 
-4. Ange e-postinformationen som i tabellen nedan:
+1. Byt namn på rubriken skicka e-post till den här rubriken: `Send email when virtual machine updated`. 
+
+1. Ange e-postinformationen som i tabellen nedan:
 
    ![Tom e-poståtgärd](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-empty-email-action.png)
 
    > [!TIP]
-   > Välj bland de tillgängliga fälten i arbetsflödet genom att klicka i en redigeringsruta så att listan **Dynamiskt innehåll** öppnas eller välj **Lägg till dynamiskt innehåll**. Om du vill visa fler fält väljer du **Visa mer** för varje avsnitt i listan. Om du vill stänga listan **Dynamiskt innehåll** väljer du **Lägg till dynamiskt innehåll**.
+   > Om du vill markera resultaten från föregående steg i arbetsflödet, klickar du på i en redigeringsruta så att den dynamiska innehållslistan visas, eller välj **Lägg till dynamiskt innehåll**. Fler resultat väljer **mer** för varje avsnitt i listan. Välj för att stänga den dynamiska innehållslistan **Lägg till dynamiskt innehåll** igen.
 
-   | Inställning | Föreslaget värde | Beskrivning | 
-   | ------- | --------------- | ----------- | 
-   | **Till** | *{mottagarens-e-postadress}* |Ange mottagarens e-postadress. I testsyfte kan du använda din egen e-postadress. | 
-   | **Ämne** | Uppdaterad resurs: **Ämne**| Ange innehållet för e-postmeddelandets ämne. I den här självstudiekursen lägger du till den föreslagna texten och väljer fältet **Ämne** för händelsen. Här innehåller e-postmeddelandets ämne namnet på den uppdaterade resursen (virtuell dator). | 
-   | **Brödtext** | Resursgrupp: **Ämne** <p>Händelsetyp: **Händelsetyp**<p>Händelse-ID: **ID**<p>Tid: **Händelsetid** | Ange innehållet för e-postmeddelandets ämne. I den här självstudiekursen lägger du till den föreslagna texten och väljer fälten **Ämne**, **Händelsetyp**, **ID**, och **Händelsetid** för händelsen så att resursgruppens namn, händelsetypen, händelsens tidsstämpel och händelse-ID:t för uppdateringen tas med i e-postmeddelandet. <p>Tryck på Skift+Retur om du vill lägga till tomma rader i innehållet. | 
-   | | | 
+   | Egenskap  | Krävs | Value | Beskrivning |
+   | -------- | -------- | ----- | ----------- |
+   | **Till** | Ja | <*mottagaren\@domän*> | Ange mottagarens e-postadress. I testsyfte kan du använda din egen e-postadress. |
+   | **Ämne** | Ja | Uppdaterad resurs: **Ämne** | Ange innehållet för e-postmeddelandets ämne. Den här självstudien anger du den angivna texten och väljer du händelsen **ämne** fält. Här innehåller e-postmeddelandets ämne namnet på den uppdaterade resursen (virtuell dator). |
+   | **Brödtext** | Ja | Resursgrupp: **Ämne** <p>Händelsetyp: **Händelsetyp**<p>Händelse-ID: **ID**<p>Tid: **Händelsetid** | Ange innehållet för e-postmeddelandets ämne. För den här självstudiekursen anger du den angivna texten och väljer du händelsen **avsnittet**, **händelsetyp**, **ID**, och **Händelsetid** fält så att din e-postmeddelandet innehåller resursgruppens namn, händelsetyp, händelsetidsstämpel och händelse-ID för uppdateringen. <p>Tryck på Skift+Retur om du vill lägga till tomma rader i innehållet. |
+   ||||
 
    > [!NOTE] 
    > Om du väljer ett fält som representerar en matris lägger designverktyget automatiskt till en **For each**-loop runt åtgärden som refererar till matrisen. På så sätt kan din logikappsåtgärd utförs på varje element i matrisen.
@@ -197,29 +216,27 @@ Nu ska du lägga till en [*åtgärd*](../logic-apps/logic-apps-overview.md#logic
 
    ![Färdig logikapp](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-completed.png)
 
-5. Spara din logikapp. Om du vill komprimera och dölja informationen om en åtgärd i logikappen väljer du åtgärdens namnlist.
-
-   ![Spara din logikapp](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-save-completed.png)
+1. Spara din logikapp. Om du vill komprimera och dölja informationen om en åtgärd i logikappen väljer du åtgärdens namnlist.
 
    Nu är logikappen aktiv, men den väntar på att den virtuella datorn ska ändras innan den gör något. 
    Om du vill testa din logikapp nu kan du fortsätta till nästa avsnitt.
 
 ## <a name="test-your-logic-app-workflow"></a>Testa logikappens arbetsflöde
 
-1. Kontrollera att logikappen tar emot de angivna händelserna genom att uppdatera den virtuella datorn. 
+1. Kontrollera att logikappen tar emot de angivna händelserna genom att uppdatera den virtuella datorn.
 
-   Du kan till exempel ändra storlek på den virtuella datorn på Azure Portal eller [ändra storlek på den virtuella datorn med Azure PowerShell](../virtual-machines/windows/resize-vm.md). 
+   Du kan till exempel ändra storlek på den virtuella datorn på Azure Portal eller [ändra storlek på den virtuella datorn med Azure PowerShell](../virtual-machines/windows/resize-vm.md).
 
    Du bör få ett e-postmeddelande efter en liten stund. Exempel:
 
    ![E-postmeddelande om uppdatering av den virtuella datorn](./media/monitor-virtual-machine-changes-event-grid-logic-app/email.png)
 
-2. Om du vill granska körningarna och visa historik för logikappen väljer du **Översikt** på logikappens meny. Om du vill visa mer information om en körning väljer du körningens rad.
+1. Om du vill granska körningar och utlösningshistorik för din logikapp på logikappmenyn, Välj **översikt**. Om du vill visa mer information om en körning väljer du körningens rad.
 
    ![Logikappens körningshistorik](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-run-history.png)
 
-3. Expandera det steg som du vill granska för att visa indata och utdata för varje steg. Den här informationen kan hjälpa dig att diagnostisera och felsöka problem i din logikapp.
- 
+1. Expandera det steg som du vill granska för att visa indata och utdata för varje steg. Den här informationen kan hjälpa dig att diagnostisera och felsöka problem i din logikapp.
+
    ![Information om logikappens körningshistorik](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-run-history-details.png)
 
 Grattis, du har skapat och kört en logikapp som övervakar resurshändelser via ett händelserutnät och som skickar e-postmeddelanden när dessa händelser inträffar. Du har också lärt dig hur du enkelt kan skapa arbetsflöden som automatiserar processer och integrerar system och molntjänster.
@@ -235,14 +252,14 @@ Du kan övervaka andra konfigurationsändringar med händelserutnät och logikap
 
 Den här självstudien använder resurser och utför åtgärder som medför avgifter i din Azure-prenumeration. När du är klar med självstudiekursen och testningen bör du därför inaktivera eller ta bort resurser som du inte vill betala för.
 
-* Om du vill sluta köra din logikapp utan att ta bort ditt arbete inaktiverar du appen. På logikappmenyn väljer du **Översikt**. I verktygsfältet väljer du **Inaktivera**.
+* Om du vill sluta köra din logikapp utan att ta bort ditt arbete inaktiverar du appen. På logikappmenyn, väljer **översikt**. I verktygsfältet väljer du **Inaktivera**.
 
   ![Stänga av din logikapp](./media/monitor-virtual-machine-changes-event-grid-logic-app/turn-off-disable-logic-app.png)
 
   > [!TIP]
   > Om du inte ser logikappmenyn kan du försöka återgå till Azure-instrumentpanelen och öppna logikappen på nytt.
 
-* Om du vill ta bort logikappen permanent börjar du med att välja **Översikt** på logikappens meny. I verktygsfältet väljer du **Ta bort**. Bekräfta att du vill ta bort din logikapp och välj **Ta bort**.
+* För att permanent ta bort din logikapp på logikappens meny, Välj **översikt**. I verktygsfältet väljer du **Ta bort**. Bekräfta att du vill ta bort din logikapp och välj **ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 04/15/2019
+ms.date: 05/14/2019
 ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: d9f736b0b976ac6ec0da45a672d2e992405625cd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 92a37133d84833c43fff5b1a6c31e003ef53f7de
+ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60829709"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65619765"
 ---
 # <a name="tutorial-create-a-blockchain-application-in-azure-blockchain-workbench"></a>Självstudier: Skapa ett blockkedjeprogram i Azure Blockchain Workbench
 
@@ -271,7 +271,7 @@ Lägg till tillståndsvariablerna i ditt kontrakt i filen `HelloBlockchain.sol` 
 
 ### <a name="constructor"></a>Konstruktor
 
-Konstruktorn definierar indataparametrar för en ny instans med smart kontrakt för ett arbetsflöde. Konstruktorn deklareras som en funktion med samma namn som kontraktet. Obligatoriska parametrar för konstruktorn definieras som konstruktorparametrar i konfigurationsfilen. Antalet, ordningen och typen av parametrar måste stämma överens i båda filerna.
+Konstruktorn definierar indataparametrar för en ny instans med smart kontrakt för ett arbetsflöde. Obligatoriska parametrar för konstruktorn definieras som konstruktorparametrar i konfigurationsfilen. Antalet, ordningen och typen av parametrar måste stämma överens i båda filerna.
 
 I konstruktorfunktionen skriver du eventuell affärslogik som du vill utföra innan du skapar kontraktet. Till exempel initierar du tillståndsvariablerna med startvärden.
 
@@ -287,7 +287,7 @@ Lägg till konstruktorfunktionen i ditt kontrakt i filen `HelloBlockchain.sol` m
     }
 ```
 
-### <a name="functions"></a>Functions
+### <a name="functions"></a>Funktioner
 
 Funktioner är körbara enheter med affärslogik i ett kontrakt. Obligatoriska parametrar för funktionen definieras som funktionsparametrar i konfigurationsfilen. Antalet, ordningen och typen av parametrar måste stämma överens i båda filerna. Funktioner är associerade med övergångar i ett Blockchain Workbench-arbetsflöde i konfigurationsfilen. En övergång är en åtgärd som utförs för en flytt till nästa steg i ett programs arbetsflöde enligt vad som bestäms av kontraktet.
 

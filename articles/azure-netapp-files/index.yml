@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   ms.date: 04/10/2019
 abstract:
-  description: 'Lär dig att med hjälp av Azure NetApp Files skapa och hantera NetApp-konton, kapacitetspooler och volymer, konfigurera exportprinciper, montera en volym för en virtuell dator och hantera ögonblicksbilder. <p>För att kunna använda Azure NetApp Files måste du delta i programmet för den allmänt tillgängliga förhandsversionen. Du måste även vara godkänd för att få åtkomst till Microsoft.NetApp Azure Resource Provider. Om du vill gå med i programmet för den allmänt tillgängliga förhandsversionen kan du <a href="azure-netapp-files-register">registrera dig för Azure NetApp Files</a>.</p>'
+  description: 'Lär dig att med hjälp av Azure NetApp Files skapa och hantera NetApp-konton, kapacitetspooler och volymer, konfigurera exportprinciper, montera en volym för en virtuell dator och hantera ögonblicksbilder. <p>För att kunna använda Azure NetApp Files måste du ha åtkomst till Azure NetApp Files-tjänsten. Läs om hur du begär åtkomst i <a href="azure-netapp-files-register#waitlist">Submit a waitlist request</a> (Skicka en begäran om väntelista).</p>'
 sections:
   - title: Snabbstarter på fem minuter
     items:

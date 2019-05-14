@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 03/12/2019
 ms.author: aahi
-ms.openlocfilehash: d31be245d906ba0405a44d4482272051982c943c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 211f33d5b217714b26dc39ad63f9d1427950589a
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61473390"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595773"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-c"></a>Snabbstart: Skicka en sökbegäran till REST API för entitetssökning i Bing med hjälp av C#
 
@@ -26,14 +26,15 @@ Använd den här snabbstarten för att göra ditt första anrop till API för en
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-* Valfri version av [Visual Studio 2017](https://www.visualstudio.com/downloads/).
-* [Json.NET](https://www.newtonsoft.com/json) framework, tillgänglig som ett NuGet-paket.
-    * Installera NuGet-paketet i Visual studio:
-        1. Högerklicka i Solution Explorer
-        2. Klicka på **hantera NuGet-paket...**
-        3. Sök efter **newtonsoft.json** och installera paketet
+- En utgåva av [Visual Studio 2017 eller senare](https://www.visualstudio.com/downloads/).
 
-* Om du använder Linux/Mac OS kan det här programmet köras med [Mono](https://www.mono-project.com/).
+- [Json.NET](https://www.newtonsoft.com/json) framework, tillgänglig som ett NuGet-paket. Installera NuGet-paketet i Visual Studio:
+
+   1. Högerklicka på projektet i **Solution Explorer**.
+   2. Välj **hantera NuGet-paket**.
+   3. Sök efter *Newtonsoft.Json* och installera paketet.
+
+- Om du använder Linux/Mac OS, det här programmet kan köras med hjälp av [Mono](https://www.mono-project.com/).
 
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]

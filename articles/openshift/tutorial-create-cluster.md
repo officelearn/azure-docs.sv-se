@@ -7,13 +7,13 @@ ms.author: twhitney
 manager: jeconnoc
 ms.topic: tutorial
 ms.service: openshift
-ms.date: 05/08/2019
-ms.openlocfilehash: baada8a5238725456ca4a2ec7e8257c229066115
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.date: 05/13/2019
+ms.openlocfilehash: dda5df0e5b9b9509482cb6dcdcda242b4daa230f
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466185"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596344"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-cluster"></a>Självstudier: Skapa ett Azure Red Hat OpenShift-kluster
 
@@ -32,13 +32,17 @@ I den här självstudieserien får du lära du dig att:
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
+> [!IMPORTANT]
+> Den här självstudien kräver version 2.0.65 av Azure CLI
+
 Innan du börjar den här självstudien:
 
 Se till att du har [ställa in din utvecklingsmiljö](howto-setup-environment.md), vilket inkluderar:
-- Installera den senaste versionen av CLI (version 2.0.64 eller senare)
-- Skapa en klient
-- Skapa ett programobjekt i Azure
-- Skapa en Active Directory-användare som används för att logga in på appar som körs i klustret.
+- Installera den senaste versionen av CLI (version 2.0.65 eller senare)
+- Skapa en klient om du inte redan har ett
+- Skapa ett Azure-program-objekt om du inte redan har ett
+- Skapa en säkerhetsgrupp
+- Skapa en Active Directory-användare att logga in på klustret.
 
 ## <a name="step-1-sign-in-to-azure"></a>Steg 1: Logga in till Azure
 
@@ -52,36 +56,34 @@ az login
 
 ## <a name="step-2-create-an-azure-red-hat-openshift-cluster"></a>Steg 2: Skapa ett Azure Red Hat OpenShift-kluster
 
-I ett Bash-kommando ställer in följande variabler:
+I ett Bash-kommando ställer du in följande variabler:
 
 > [!IMPORTANT]
-> Namnet på klustret måste skrivas med små bokstäver eller skapa ett kluster kommer att misslyckas.
+> Välj ett namn för du klustret som är unik och alla gemener eller ett kluster skapas kommer att misslyckas.
 
 ```bash
 CLUSTER_NAME=<cluster name in lowercase>
 ```
 
- Använd samma namn för det kluster som du valde i steg 6 i [Skapa ny appregistrering](howto-aad-app-configuration.md#create-a-new-app-registration).
+Välj en plats för att skapa klustret. En lista över azure-regioner som har stöd för OpenShift på Azure finns i [stöds regioner](supported-resources.md#azure-regions). Till exempel: `LOCATION=eastus`.
 
 ```bash
 LOCATION=<location>
 ```
 
-Välj en plats för att skapa klustret. En lista över azure-regioner som har stöd för OpenShift på Azure finns i [stöds regioner](supported-resources.md#azure-regions). Till exempel: `LOCATION=eastus`.
-
-Ange `FQDN` till det fullständigt kvalificerade namnet på klustret. Det här namnet består av klustrets namn, plats, och `.cloudapp.azure.com` läggas till i slutet. Det här är samma som inloggnings-URL som du skapade i steg 6 i [Skapa ny appregistrering](howto-aad-app-configuration.md#create-a-new-app-registration). Exempel:  
-
-```bash
-FQDN=$CLUSTER_NAME.$LOCATION.cloudapp.azure.com
-```
-
-Ange `APPID` till det värde som du sparade i steg 9 av [skapa en ny appregistrering](howto-aad-app-configuration.md#create-a-new-app-registration).  
+Ange `APPID` till det värde som du sparade i steg 5 i [skapa en Azure AD-appregistrering](howto-aad-app-configuration.md#create-an-azure-ad-app-registration).  
 
 ```bash
 APPID=<app ID value>
 ```
 
-Ange `SECRET` till det värde som du sparade i steg 6 i [skapa en klienthemlighet](howto-aad-app-configuration.md#create-a-client-secret).  
+Inställd på värdet som du sparade i steg 10 i ”GROUPID' [skapa en Azure AD-säkerhetsgrupp](howto-aad-app-configuration.md#create-an-azure-ad-security-group).
+
+```bash
+GROUPID=<group ID value>
+```
+
+Ange `SECRET` till det värde som du sparade i steg 8 i [skapa en klienthemlighet](howto-aad-app-configuration.md#create-a-client-secret).  
 
 ```bash
 SECRET=<secret value>
@@ -93,7 +95,7 @@ Ange `TENANT` till klient-ID-värdet som du sparade i steg 7 i [skapar en ny kli
 TENANT=<tenant ID>
 ```
 
-Skapa resursgrupp för klustret. Kör följande kommando från Bash-gränssnitt som du använde för att definiera variabler ovan:
+Skapa resursgrupp för klustret. Kör följande kommando från samma Bash-gränssnittet som du använde för att definiera variabler ovan:
 
 ```bash
 az group create --name $CLUSTER_NAME --location $LOCATION
@@ -117,33 +119,59 @@ Exempel: `VNET_ID=$(az network vnet show -n MyVirtualNetwork -g MyResourceGroup 
 
 ### <a name="create-the-cluster"></a>Skapa klustret
 
-Du är nu redo att skapa ett kluster.
+Du är nu redo att skapa ett kluster. Följande kommer skapa klustret i den angivna Azure AD-klientorganisation, ange Azure AD app-objekt och hemligheten ska användas som ett säkerhetsobjekt och den säkerhetsgrupp som innehåller de medlemmar som har administratörsåtkomst till klustret.
 
- Om du inte ansluter det virtuella nätverket i klustret till ett befintligt virtuellt nätverk, utelämnar avslutande `--vnet-peer-id $VNET_ID` parameter i följande exempel.
+Om du är **inte** peering ditt kluster till ett virtuellt nätverk, använder du följande kommando:
 
 ```bash
-az openshift create --resource-group $CLUSTER_NAME --name $CLUSTER_NAME -l $LOCATION --fqdn $FQDN --aad-client-app-id $APPID --aad-client-app-secret $SECRET --aad-tenant-id $TENANT --vnet-peer-id $VNET_ID
+az openshift create --resource-group $CLUSTER_NAME --name $CLUSTER_NAME -l $LOCATION --aad-client-app-id $APPID --aad-client-app-secret $SECRET --aad-tenant-id $TENANT --customer-admin-group-id $GROUPID
 ```
 
-Efter ett par minuter `az openshift create` ska slutföras och returnerar ett JSON-svar som innehåller information om ditt kluster.
+Om du **är** peering ditt kluster till ett virtuellt nätverk, använder du följande kommando som lägger till den `--vnet-peer` flaggan:
+ 
+```bash
+az openshift create --resource-group $CLUSTER_NAME --name $CLUSTER_NAME -l $LOCATION --aad-client-app-id $APPID --aad-client-app-secret $SECRET --aad-tenant-id $TENANT --customer-admin-group-id $GROUPID --vnet-peer $VNET_ID
+```
 
 > [!NOTE]
-> Om du får ett felmeddelande att värdnamnet inte är tillgänglig kan bero det klusternamnet inte är unikt. Försök ta bort din ursprungliga appregistrering och göra om stegen i [skapa en ny appregistrering] (howto-aad-app-configuration.md#create-a-new-app-registration) (utan det sista steget för att skapa en ny användare, eftersom du redan skapat en) med en annat klusternamn.
+> Om du får ett felmeddelande att värdnamnet inte är tillgänglig kan bero det klusternamnet inte är unikt. Försök ta bort din ursprungliga appregistrering och göra om steg med ett annat klusternamn i [skapa en ny appregistrering] (howto-aad-app-configuration.md#create-a-new-app-registration), om du utesluter steg för att skapa en ny grupp för användare och säkerhetsgrupper.
 
-## <a name="step-3-sign-in-to-the-openshift-console"></a>Steg 3: Logga in på konsolen OpenShift
+Efter ett par minuter `az openshift create` slutförs.
+
+### <a name="get-the-sign-in-url-for-your-cluster"></a>Hämta tecken i URL: en för ditt kluster
+
+Hämta URL: en för att logga in på ditt kluster genom att köra följande kommando:
+
+```bash
+az openshift show -n $CLUSTER_NAME -g $CLUSTER_NAME
+```
+
+Leta efter den `publicHostName` i utdata, till exempel: `"publicHostname": "openshift.xxxxxxxxxxxxxxxxxxxx.eastus.azmosa.io"`
+
+Logga in URL: en för klustret kommer att `https://` följt av den `publicHostName` värde.  Till exempel: `https://openshift.xxxxxxxxxxxxxxxxxxxx.eastus.azmosa.io`.  Du använder den här URI: N i nästa steg som en del av appen registrering omdirigerings-URI.
+
+## <a name="step-3-update-your-app-registration-redirect-uri"></a>Steg 3: Uppdatera din app registrering omdirigerings-URI
+
+Nu när du har tecken i URL: en för klustret, ange app registrering omdirigering Användargränssnittet:
+
+1. Öppna den [registreringar appbladet](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview).
+2. Klicka på ditt app-objekt för registrering.
+3. Klicka på **lägga till en omdirigerings-URI**.
+4. Se till att **typ** är **Web** och ange den **OMDIRIGERINGS-URI** med hjälp av följande mönster: `https://<public host name>/oauth2callback/Azure%20AD`. Exempel: `https://openshift.xxxxxxxxxxxxxxxxxxxx.eastus.azmosa.io/oauth2callback/Azure%20AD`
+5. Klicka på **Spara**
+
+## <a name="step-4-sign-in-to-the-openshift-console"></a>Steg 4: Logga in på konsolen OpenShift
 
 Nu är du redo att logga in på konsolen OpenShift för det nya klustret. Den [OpenShift webbkonsolen](https://docs.openshift.com/aro/architecture/infrastructure_components/web_console.html) kan du visualisera, bläddra och hantera innehållet i dina OpenShift-projekt.
 
-Vi ska logga in som den [nya Azure AD-användare](howto-aad-app-configuration.md#create-a-new-active-directory-user) du skapade för testning. Om du vill göra detta måste en ny webbläsare-instans som inte har cachelagrade identiteten som du vanligtvis använder för att logga in på Azure-portalen.
+Du behöver en ny webbläsare-instans som inte har cachelagrade identiteten som du vanligtvis använder för att logga in på Azure-portalen.
 
 1. Öppna en *incognito* fönstret (Chrome) eller *InPrivate* fönstret (Microsoft Edge).
-2. Gå till inloggnings-URL som du skapade i steg 6 i [skapa en ny appregistrering](howto-aad-app-configuration.md#create-a-new-app-registration). Till exempel, https://constoso.eastus.cloudapp.azure.com
+2. Gå till inloggnings-URL: en som du fick ovan, till exempel: `https://openshift.xxxxxxxxxxxxxxxxxxxx.eastus.azmosa.io`
 
-> [!NOTE]
-> OpenShift-konsolen använder ett självsignerat certifikat.
-> När du uppmanas till detta i din webbläsare kringgå varningen och godkänna ”ej betrodd” certifikatet.
+Logga in med användarnamnet som du skapade i steg 3 i [skapa en ny Azure Active Directory-användare](howto-aad-app-configuration.md#create-a-new-azure-active-directory-user).
 
-Logga in med användare och lösenord som du skapade i [skapa en ny Active Directory-användare](howto-aad-app-configuration.md#create-a-new-active-directory-user) när den **behörigheter som begärdes** dialogrutan visas, väljer **ge samtycke åt din organisation**  och sedan **acceptera**.
+En **behörigheter som begärdes** dialogrutan visas. Klicka på **ge samtycke åt din organisation** och klicka sedan på **acceptera**.
 
 Du är nu inloggad på kluster-konsolen.
 
@@ -151,7 +179,7 @@ Du är nu inloggad på kluster-konsolen.
 
  Läs mer om [med hjälp av konsolen OpenShift](https://docs.openshift.com/aro/getting_started/developers_console.html) att skapa och inbyggda avbildningar i den [Red Hat OpenShift](https://docs.openshift.com/aro/welcome/index.html) dokumentation.
 
-## <a name="step-4-install-the-openshift-cli"></a>Steg 4: Installera CLI OpenShift
+## <a name="step-5-install-the-openshift-cli"></a>Steg 5: Installera CLI OpenShift
 
 Den [OpenShift CLI](https://docs.openshift.com/aro/cli_reference/get_started_cli.html) (eller *OC verktyg*) ger kommandon för att hantera dina program och verktyg på lägre nivå för att interagera med olika komponenter i klustret OpenShift.
 

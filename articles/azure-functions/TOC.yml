@@ -118,8 +118,8 @@
       href: functions-networking-options.md
     - name: IP-adresser
       href: ip-addresses.md
-    - name: Lokala funktioner
-      href: functions-runtime-overview.md
+    - name: Funktioner i Kubernetes
+      href: functions-kubernetes-keda.md
 - name: Instruktionsguider
   items:
     - name: Utveckla
@@ -142,6 +142,8 @@
           href: create-function-app-linux-app-service-plan.md
         - name: Felsöka lokala PowerShell-funktioner
           href: functions-debug-powershell-local.md
+        - name: Beroendeinmatning
+          href: functions-dotnet-dependency-injection.md
         - name: Hantera anslutningar
           href: manage-connections.md
         - name: Felhantering
@@ -173,6 +175,7 @@
       items:
         - name: Hantera en funktionsapp
           href: functions-how-to-use-azure-function-app-settings.md
+          displayName: 'app setting, application setting'
         - name: Ange körningsversion
           href: set-runtime-version.md
         - name: Registrera ett tillägg manuellt

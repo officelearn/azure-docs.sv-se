@@ -1,12 +1,17 @@
 - name: Dokumentation om Azure HDInsight
   href: /azure/hdinsight
-- name: Interaktiv fråga på HDInsight
+- name: Översikt
   items:
     - name: Apache Hadoop-komponenter på HDInsight
       href: ../hdinsight-component-versioning.md
       maintainContext: true
     - name: HDInsight 4.0
       href: ../hdinsight-version-release.md
+      maintainContext: true
+- name: Snabbstarter
+  items:
+    - name: Köra Apache Hive-frågor – Apache Zeppelin
+      href: ../hdinsight-connect-hive-zeppelin.md
       maintainContext: true
 - name: Kom igång
   items:
@@ -37,9 +42,6 @@
           href: ../hadoop/hdinsight-use-hive.md
           maintainContext: true
           items:
-            - name: Använda Apache Zeppelin
-              href: ../hdinsight-connect-hive-zeppelin.md
-              maintainContext: true
             - name: Verktyg för Visual Studio
               href: ../hadoop/apache-hadoop-visual-studio-tools-get-started.md
               maintainContext: true
@@ -180,7 +182,7 @@
             - name: Använda cURL och Azure REST API
               href: ../hdinsight-hadoop-create-linux-clusters-curl-rest.md
               maintainContext: true
-            - name: Använda Azure Classic CLI
+            - name: Använda Azure CLI
               href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
               maintainContext: true
             - name: Skapa kluster på begäran

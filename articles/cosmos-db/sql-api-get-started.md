@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: sngun
-ms.openlocfilehash: 64aef17663fdc28a467172bbe8954fc06fdb7ff0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7574985dbcc502d03bc886c7651c859b22968c5f
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60686512"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596103"
 ---
 # <a name="build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>Skapa en .NET-konsolapp för att hantera data i Azure Cosmos DB SQL API-konto
 
@@ -145,6 +145,20 @@ Kom igång nu skriva kod. Den fullständiga *Project.cs* -fil för den här sjä
       {
         client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey);
       }
+   ```
+
+   Om du använder en proxy-objektet för att ansluta till Azure Cosmos DB, bör du istället använda följande kodblock DocumentClient-objektet skapas. Exemplet i det här dokumentet använder inte ett proxyobjekt, så i exemplet nedan används bara som referens:
+
+   ```csharp
+   HttpClientHandler handler = new HttpClientHandler()
+   {
+     Proxy = proxyObject
+     UseProxy = true,
+   };
+
+   //Pass handler to the constructor of DocumentClient.
+   DocumentClient client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey, handler);
+   
    ```
    
 1. Lägg till följande kod till den `Main` metoden för att köra den `GetStartedDemo` uppgift. Den `Main` metoden fångar undantag och skriver dem till konsolen.
@@ -529,7 +543,7 @@ Press any key to continue ...
 End of demo, press any key to exit.
 ```
 
-Grattis! Du har slutfört självstudiekursen och har en fungerande C# konsolapp som skapar frågor, uppdaterar och tar bort Azure Cosmos DB-resurser.  
+Gratulerar! Du har slutfört självstudiekursen och har en fungerande C# konsolapp som skapar frågor, uppdaterar och tar bort Azure Cosmos DB-resurser.  
 
 ## <a name="next-steps"></a>Nästa steg
 * Läs mer om Azure Cosmos DB i [Välkommen till Azure Cosmos DB](introduction.md).

@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: alkohli
-ms.openlocfilehash: 659dfbec1f73ca713cf03a2945361b794b8aaea6
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 5b43241be4e161cd6051dce02a3574fbdb580f28
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924945"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606246"
 ---
 # <a name="tutorial-return-azure-data-box-and-verify-data-upload-to-azure"></a>Självstudier: Skicka tillbaka Azure Data Box och verifiera datauppladdning till Azure
 
@@ -23,7 +23,7 @@ I den här självstudien får du lära dig om ämnen som:
 
 > [!div class="checklist"]
 > * Nödvändiga komponenter
-> * Förbereda för att skicka
+> * Förbered för att skicka
 > * Skicka Data Box till Microsoft
 > * Kontrollera datauppladdning till Azure
 > * Radera data från Data Box
@@ -35,7 +35,7 @@ Innan du börjar ska du kontrollera att:
 - Du har slutfört självstudien [: Kopiera data till Azure Data Box och verifiera](data-box-deploy-copy-data.md). 
 - Kopieringsjobben har slutförts. Förbered för att skicka kan inte köras om kopieringsjobb pågår.
 
-## <a name="prepare-to-ship"></a>Förbereda för att skicka
+## <a name="prepare-to-ship"></a>Förbered för att skicka
 
 [!INCLUDE [data-box-prepare-to-ship](../../includes/data-box-prepare-to-ship.md)]
 
@@ -45,7 +45,7 @@ Innan du börjar ska du kontrollera att:
 2. Kontrollera att adressetiketten visas på E-ink-skärmen och boka hämtning hos ett transportföretag. Om etiketten är skadad, tappas bort eller inte visas på skärmen för E-ink kontaktar du Microsoft-supporten. Om Support föreslår så går du till **översikt > ladda ned adressetikett** i Azure-portalen. Ladda ned en adressetikett och fäst den på enheten. 
 3. Om du returnerar enheten bokar du upphämtning med UPS. Så här schemalägger en hämtning:
 
-    - Anropa den lokala UPS (landsspecifika kostnadsfritt nummer).
+    - Anropa den lokala UPS (land/region-specifika kostnadsfritt nummer).
     - Citera omvänd leveransen spårnings-ID som visas i E-ink-skärmen eller din utskrivna etikett i dina anrop.
     - Om du inte är av citattecken Spårningsnumret, kräver UPS att betala en extra avgift under hämtning.
 
@@ -91,7 +91,7 @@ I den här kursen har du lärt dig om Azure Data Box-ämnen som att:
 
 > [!div class="checklist"]
 > * Nödvändiga komponenter
-> * Förbereda för att skicka
+> * Förbered för att skicka
 > * Skicka Data Box till Microsoft
 > * Kontrollera datauppladdning till Azure
 > * Radera data från Data Box

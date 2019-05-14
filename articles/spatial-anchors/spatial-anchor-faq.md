@@ -17,7 +17,7 @@ ms.locfileid: "60303303"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Vanliga frågor om Azure Spatial Anchors
 
-Azure Spatial Anchors är en hanterad molntjänst och utvecklarplattform som möjliggör spatialt medvetna upplevelser med mixad verklighet med flera användare på HoloLens-, iOS- och Android-enheter.
+Azure Spatial Anchors är en hanterad molntjänst och utvecklarplattform som möjliggör rumsligt medvetna upplevelser med mixad verklighet med flera användare på HoloLens-, iOS- och Android-enheter.
 
 Mer information finns i [Översikt över Azure Spatial Anchors](overview.md).
 
@@ -45,7 +45,7 @@ Mer information finns i [Översikt över Azure Spatial Anchors](overview.md).
 
 ## <a name="privacy-faq"></a>Vanliga frågor och svar om sekretess
 
-**F: Får alla mina appar åtkomst till en spatial fästpunkt när mitt program placerar en sådan någonstans?**
+**F: Får alla mina appar åtkomst till en rumslig fästpunkt när mitt program placerar en sådan någonstans?**
 
 **S:** Fästpunkter isoleras per Azure-konto. Endast appar som du ger åtkomst till ditt konto får åtkomst till fästpunkter i kontot.
 
@@ -69,7 +69,7 @@ Azure Spatial Anchors följer [villkoren i serviceavtalet för Azure](https://go
 
 **F: Tillhandahåller ni ett serviceavtal?**
 
-**S:** Enligt vad som är standard för Azure-tjänster har vi en tillgänglighet som är större än 99,9 % som mål. Observera att Azure Spatial Anchors för närvarande är i förhandsversion och att [tilläggsvillkoren för förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) därför gäller.
+**S:** Standard för Azure-tjänster är ett tillgänglighetsmål på över 99,9 %. Observera att Azure Spatial Anchors för närvarande är i förhandsversion och att [tilläggsvillkoren för förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) därför gäller.
 
 **F: Kan jag publicera min appar till appbutiker med hjälp av Azure Spatial Anchors? Får jag använda Azure Spatial Anchors för verksamhetskritiska produktionsscenarier?**
 
@@ -85,7 +85,7 @@ Datum för allmän tillgänglighet (GA) tillkännages snart.
 
 **S:** Du kan skapa ett Azure Spatial Anchors-konto i dag i Azure-regionen USA, östra 2. Det innebär att både beräkning och lagring som driver den här tjänsten finns i den här regionen. Dock finns det inga begränsningar för var klienterna kan finnas. I framtiden kommer att vi utöka regional tillgänglighet för tjänsten till alla primära Azure-regioner.
 
-**F: Kostar Azure Spatial Anchors att använda? Kommer det någon att kosta?**
+**F: Kostar Azure Spatial Anchors att använda? Kommer det någonsin att kosta något?**
 
 **S:** Information om priser under förhandsversionen finns på [prissättningssidan](https://azure.microsoft.com/pricing/details/spatial-anchors/).
 

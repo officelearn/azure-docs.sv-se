@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/06/2019
 ms.author: thweiss
-ms.openlocfilehash: 48d67c765a8a76a6058592f59eb61770e2f23df5
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 0b47ffd77ee23f997bb7de2ea41f83c2854cba72
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65068679"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550890"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Hantera principer för indexering i Azure Cosmos DB
 
@@ -22,6 +22,9 @@ I Azure Cosmos DB data har indexerats följa [indexeringsprinciper](index-policy
 - med någon av de SDK: er
 
 En [indexering principuppdatering](index-policy.md#modifying-the-indexing-policy) utlöser ett index omvandling. Det går också att spåra förloppet för den här omvandlingen från SDK: erna.
+
+> [!NOTE]
+> Som en del av uppgraderingen SDK och -portalen kan utvecklas vi index principen för att anpassas till en ny indexlayout som vi har distribuerat till nya behållare. Med den här nya layout indexeras alla primitiva datatyper som intervall med full precision (-1). Därför exponeras index typer och precision inte för användaren längre. I framtiden, behöver användarna du bara lägga till sökvägar i avsnittet includedPaths och ignorera indexKinds och precision. Den här ändringen har ingen inverkan på prestanda och du kan fortsätta att uppdatera indexeringsprincip med samma syntax. Du kan fortsätta att använda alla exempel i vår befintliga dokumentation för att uppdatera index.
 
 ## <a name="use-the-azure-portal"></a>Använda Azure-portalen
 
@@ -227,7 +230,7 @@ Här följer några exempel på indexering principer som visas i deras JSON-form
     }
 ```
 
-Obs! Allmänt rekommenderar vi att du använder en **avstår** indexeringspolicy så att Azure Cosmos DB proaktivt Indexera nya egenskaper som kan läggas till i din modell.
+Anteckning: Allmänt rekommenderar vi att du använder en **avstår** indexeringspolicy så att Azure Cosmos DB proaktivt Indexera nya egenskaper som kan läggas till i din modell.
 
 ### <a name="using-a-spatial-index-on-a-specific-property-path-only"></a>Med hjälp av en spatialindexet på en specifik egenskapssökväg
 ```

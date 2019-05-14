@@ -1,6 +1,6 @@
 ---
 title: Stream videofiler med Azure Media Services - Node.js | Microsoft Docs
-description: Följ stegen i den här snabbstarten för att skapa ett nytt Azure Media Services-konto, koda en fil och strömma den till Azure Media Player.
+description: Följ stegen i den här självstudien för att skapa ett nytt Azure Media Services-konto, koda en fil och strömma det till Azure Media Player.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -9,23 +9,24 @@ editor: ''
 keywords: azure media services, strömma
 ms.service: media-services
 ms.workload: media
-ms.topic: quickstart
+ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/26/2019
 ms.author: juliako
-ms.openlocfilehash: 22b7f2380b509daa4cb9931d6fc57c1297628e3d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3e4172cd149726e28e0c7dff435ec1f7a59ee169
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61233184"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550159"
 ---
-# <a name="quickstart-stream-video-files---nodejs"></a>Snabbstart: Strömma videofiler – Node.js
+# <a name="tutorial-stream-video-files---nodejs"></a>Självstudier: Strömma videofiler – Node.js
 
-Den här snabbstarten visar hur lätt det är att koda och börja strömma video på en mängd olika webbläsare och enheter med Azure Media Services. Ett indatainnehåll kan anges med HTTP-URL:er, SAS-URL:er eller sökvägar till filer i Azure Blob Storage.
-Exemplet i det här ämnet kodar innehåll som du gör tillgängligt via en HTTPS-URL. Observera att AMS v3 för närvarande inte stöder segmentvis överföringskodning över HTTPS-URL:er.
+Den här självstudien visar hur enkelt det är att koda och starta direktuppspelning av videor på en mängd olika webbläsare och enheter med Azure Media Services. Ett indatainnehåll kan anges med HTTP-URL:er, SAS-URL:er eller sökvägar till filer i Azure Blob Storage.
 
-I slutet av snabbstarten kommer du att kunna strömma en video.  
+Exemplet i den här artikeln kodar innehåll som du gör tillgängliga via en HTTPS-URL. Observera att AMS v3 för närvarande inte stöder segmentvis överföringskodning över HTTPS-URL:er.
+
+I slutet av självstudien kommer du att kunna strömma en video.  
 
 ![Spela upp videon](./media/stream-files-nodejs-quickstart/final-video.png)
 
@@ -90,7 +91,7 @@ Azure Media Player kan användas vid testning, men bör inte användas i en prod
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du inte längre behöver någon av resurserna i resursgruppen, inklusive Media Services och lagringskontona som du skapade för snabbstarten, tar du bort resursgruppen.
+Om du inte längre behöver någon av resurserna i resursgruppen, inklusive medietjänster och storage-konton som du skapade i den här självstudien tar du bort resursgruppen.
 
 Kör följande CLI-kommando:
 

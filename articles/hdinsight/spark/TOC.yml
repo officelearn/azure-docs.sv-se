@@ -16,6 +16,8 @@
       href: apache-spark-jupyter-spark-sql-use-portal.md
     - name: Skapa ett Apache Spark-kluster – PowerShell
       href: apache-spark-jupyter-spark-sql-use-powershell.md
+    - name: Skapa ett Apache Spark-kluster – Azure CLI
+      href: apache-spark-create-cluster-cli.md
     - name: Skapa ett Apache Spark-kluster – Resource Manager-mall
       displayName: 'resource manager template, arm template, resource manager group'
       href: apache-spark-jupyter-spark-sql.md
@@ -250,7 +252,7 @@
             - name: Använda cURL och Azure REST API
               href: ../hdinsight-hadoop-create-linux-clusters-curl-rest.md
               maintainContext: true
-            - name: Använda Azure Classic CLI
+            - name: Använda Azure CLI
               href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
               maintainContext: true
             - name: Skapa kluster på begäran

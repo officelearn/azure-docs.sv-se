@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: v-gedod
-ms.openlocfilehash: 99b7f05304b48b7d885a80705d05fbe24854150f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0390ef5b9364aaa54c4d46abf3164728b3a4126a
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60708416"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595816"
 ---
 # <a name="send-a-search-request-with-the-bing-entity-search-sdk-for-c"></a>Skicka en sökbegäran med SDK för entitetssökning i Bing för C#
 
@@ -24,7 +24,7 @@ Använd den här snabbstarten om du vill börja söka efter entiteter med SDK f�
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-* Valfri version av [Visual Studio 2017](https://www.visualstudio.com/downloads/).
+* En utgåva av [Visual Studio 2017 eller senare](https://www.visualstudio.com/downloads/).
 * [Json.NET](https://www.newtonsoft.com/json) framework, tillgänglig som ett NuGet-paket.
 * Om du använder Linux/Mac OS kan det här programmet köras med [Mono](https://www.mono-project.com/).
 * [NuGet-paket för SDK för Nyhetssökning i Bing](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.EntitySearch/1.2.0). Installering av det här paketet installerar även följande:
@@ -32,7 +32,7 @@ Använd den här snabbstarten om du vill börja söka efter entiteter med SDK f�
     * Microsoft.Rest.ClientRuntime.Azure
     * Newtonsoft.Json
 
-Om du vill lägga till SDK för entitetssökning i Bing i ditt Visual Studio-projekt använder du alternativet `Manage NuGet Packages` från Solution Explorer och lägger till paketet `Microsoft.Azure.CognitiveServices.Search.EntitySearch`.
+Lägg till Bing entitet Search SDK i Visual Studio-projektet genom att använda den **hantera NuGet-paket** alternativet från **Solution Explorer**, och Lägg till den `Microsoft.Azure.CognitiveServices.Search.EntitySearch` paketet.
 
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]

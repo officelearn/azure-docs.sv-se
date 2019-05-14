@@ -7,12 +7,12 @@ ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 9290609136d1314762d9f716531464ad2496fb63
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c40efca9abd418c8b48f931d327b1f81805b38fb
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60876033"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520408"
 ---
 # <a name="control-mapping-of-the-iso-27001-shared-services-blueprint-sample"></a>Mappning av kontroll av ISO 27001 delade tjänster skissen exemplet
 
@@ -24,7 +24,7 @@ Följande mappningar avser den **ISO 27001: 2013** kontroller. Använd navigerin
 
 Med bara en Azure-prenumerationsägare kan inte för administrativa redundans. Däremot kan har för många Azure-prenumerationsägare öka risken för ett intrång via en komprometterad ägare-konto. Den här skissen hjälper dig att bibehålla ett lämpligt antal Azure-prenumerationsägare genom att tilldela två [Azure Policy](../../../policy/overview.md) definitioner som granska antalet ägare för Azure-prenumerationer. Hantera prenumeration ägarbehörighet kan hjälpa dig att implementera lämpliga uppdelning av uppgifter.
 
-- [Förhandsversion]: Audit minimum number of owners for subscription
+- [Förhandsversion]: Audit minimum number of owners for a subscription
 - [Förhandsversion]: Audit maximum number of owners for a subscription
 
 ## <a name="a821-classification-of-information"></a>A.8.2.1 klassificering av information

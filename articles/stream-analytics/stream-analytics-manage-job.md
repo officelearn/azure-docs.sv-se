@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seodec18
 ms.date: 12/07/2018
-ms.openlocfilehash: 261b55f722fdc3c1e8f4b45debc664f49db3f898
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e7bd97d6ab197a061a33620b590e41acb486d934
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61480480"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606836"
 ---
 # <a name="analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Analysera telefonsamtalsdata med Stream Analytics och visualisera resultat på en Power BI-instrumentpanel
 
@@ -118,7 +118,7 @@ Innan du startar appen TelcoGenerator ska du konfigurera den så att den skickar
    |**Spela in**  |**Definition**  |
    |---------|---------|
    |CallrecTime    |  Tidsstämpeln för samtalets starttid.       |
-   |SwitchNum     |  Telefonväxeln används för att ansluta samtalet. För det här exemplet är växlarna strängar som representerar ursprungslandet (USA, Kina, Storbritannien, Tyskland eller Australien).       |
+   |SwitchNum     |  Telefonväxeln används för att ansluta samtalet. I det här exemplet är växlarna strängar som representerar land/region för ursprung (USA, Kina, Storbritannien, Tyskland eller Australien).       |
    |CallingNum     |  Uppringarens telefonnummer.       |
    |CallingIMSI     |  International Mobile Subscriber Identity (IMSI). Det är en unik identifierare för uppringaren.       |
    |CalledNum     |   Telefonnumret till mottagaren.      |
@@ -140,7 +140,7 @@ Nu nr du har en ström av anropshändelser kan du skapa ett Stream Analytics-job
    |Prenumeration    |  \<Din prenumeration\>   |   Välj en Azure-prenumeration där du vill skapa jobbet.       |
    |Resursgrupp   |   MyASADemoRG      |   Välj **Använd befintlig** och ange ett nytt resursgruppsnamn för ditt konto.      |
    |Location   |    USA, västra 2     |      Plats där jobbet kan distribueras. Vi rekommenderar att du placerar jobbet och händelsehubben i samma region för bästa prestanda och så att du inte ska betala för att överföra data mellan regioner.      |
-   |Värdmiljö    | Molnet        |     Stream Analytics-jobb kan distribueras till molnet eller edge. Med molnet kan du distribuera till Azure Cloud, och med Edge kan du distribuera till en IoT edge-enhet.    |
+   |Värdmiljö    | Moln        |     Stream Analytics-jobb kan distribueras till molnet eller edge. Med molnet kan du distribuera till Azure Cloud, och med Edge kan du distribuera till en IoT edge-enhet.    |
    |Strömningsenheter     |    1       |      Strömningsenheter representerar de bearbetningsresurser som krävs för att köra ett jobb. Standardvärdet är inställt på 1. Mer information om skalning av strömningsenheter finns i artikeln om att [förstå och justera strömningsenheter](stream-analytics-streaming-unit-consumption.md).      |
 
 4. Använd standardalternativen för återstående inställningar, välj **Skapa** och vänta på att distributionen genomförs.
@@ -212,7 +212,7 @@ I det här exemplet görs bedrägliga samtal från samma användare inom fem sek
    GROUP BY TumblingWindow(Duration(second, 1))
    ```
 
-   Om du vill söka efter bedrägliga samtal kan du upprätta en självkoppling för strömmande data baserat på värdet `CallRecTime`. Du kan sedan leta efter anropsposter där värdet `CallingIMSI` (det ursprungliga numret) är samma, men värdet `SwitchNum` (ursprungsland) är olika. När du använder en JOIN-åtgärd med strömmande data måste kopplingen tillhandahålla samma begränsningar för hur långt matchningsraderna kan delas upp i tid. Eftersom strömmande data är oändliga anges tidsgränserna för relationen inom **ON**-satsen för kopplingen med hjälp av funktionen [DATEDIFF](https://msdn.microsoft.com/azure/stream-analytics/reference/datediff-azure-stream-analytics).
+   Om du vill söka efter bedrägliga samtal kan du upprätta en självkoppling för strömmande data baserat på värdet `CallRecTime`. Du kan sedan leta efter poster där den `CallingIMSI` värdet (det ursprungliga numret) är detsamma, men `SwitchNum` värdet (land/region för ursprung) är olika. När du använder en JOIN-åtgärd med strömmande data måste kopplingen tillhandahålla samma begränsningar för hur långt matchningsraderna kan delas upp i tid. Eftersom strömmande data är oändliga anges tidsgränserna för relationen inom **ON**-satsen för kopplingen med hjälp av funktionen [DATEDIFF](https://msdn.microsoft.com/azure/stream-analytics/reference/datediff-azure-stream-analytics).
 
    Frågan är som en vanlig SQL-koppling förutom funktionen **DATEDIFF**. Den **DATEDIFF**-funktion som används i den här frågan är specifik för Streaming Analytics och måste visas i `ON...BETWEEN`-satsen.
 

@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Träna en modell och extrahera formulärdata med cURL - formuläret Igenkännande'
+title: 'Snabbstart: Träna en modell och extrahera formulärdata med hjälp av cURL - formuläret Igenkännande'
 titleSuffix: Azure Cognitive Services
-description: I den här snabbstarten använder du formuläret Igenkännande REST-API med cURL att tränar en modell och extrahera data från formulär.
+description: I den här snabbstarten ska du använda formatet Igenkännande REST-API med cURL tränar en modell och extrahera data från formulär.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
@@ -9,35 +9,35 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: pafarley
-ms.openlocfilehash: f5c87457f5d19b107f5722bc8c6a95174555332a
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 4a030e1bf35f38b6aba859eb538eb7d7580d255d
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546353"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603117"
 ---
-# <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-using-rest-api-with-curl"></a>Snabbstart: Träna en modell för formuläret Igenkännande och extrahera formulärdata med hjälp av REST-API med cURL
+# <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-curl"></a>Snabbstart: Träna en modell för formuläret Igenkännande och extrahera formulärdata med hjälp av REST-API med cURL
 
-I den här snabbstarten använder du formuläret-Igenkännande REST-API med cURL för att träna och betygsätta formulär för att extrahera nyckel / värde-par och tabeller.
+I den här snabbstarten ska du använda Azure formuläret Igenkännande REST-API med cURL för att träna och betygsätta formulär för att extrahera nyckel / värde-par och tabeller.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
-
-- Du har fått tillgång till förhandsversionen av formuläret Igenkännande begränsad åtkomst. För att få åtkomst till förhandsversionen kan du fylla i och skicka den [Cognitive Services formuläret Igenkännande åtkomstbegäran](https://aka.ms/FormRecognizerRequestAccess) formuläret.
-- Du måste ha [cURL](https://curl.haxx.se/windows/).
-- Du måste ha en prenumerationsnyckel för formuläret Igenkännande. Följ instruktionerna i en tjänst prenumeration [skapa ett Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#single-service-subscription) att prenumerera på formuläret Igenkännande och få din nyckel. Använd inte flera tjänster prenumerationen, eftersom detta inte inkluderar formuläret Igenkännande-tjänsten.
-- Du måste ha en minimiuppsättning fem typer av samma typ. Du kan använda en [exempeldatauppsättning](https://go.microsoft.com/fwlink/?linkid=2090451) för den här snabbstarten.
+För att slutföra den här snabbstarten måste du ha:
+- Åtkomst till förhandsversionen av formuläret Igenkännande begränsad åtkomst. För att få åtkomst till förhandsversionen kan fylla i och skicka den [formuläret Igenkännande åtkomstbegäran](https://aka.ms/FormRecognizerRequestAccess) formuläret.
+- [cURL](https://curl.haxx.se/windows/) installerad.
+- En prenumerationsnyckel för formuläret Igenkännande. Följ instruktionerna i en tjänst prenumeration [skapa ett Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#single-service-subscription) att prenumerera på formuläret Igenkännande och få din nyckel. Använd inte flera tjänster prenumeration, eftersom den inte innehåller formuläret Igenkännande-tjänsten.
+- En uppsättning minst fem typer av samma typ. Du kan använda en [exempeldatauppsättning](https://go.microsoft.com/fwlink/?linkid=2090451) för den här snabbstarten.
 
 ## <a name="train-a-form-recognizer-model"></a>Träna en modell för formuläret Igenkännande
 
-Först behöver du en uppsättning träningsdata. Du kan använda data i en Azure Blob eller dina egna lokala träningsdata. Du bör ha minst fem exempelformulär (PDF-dokument och/eller avbildningar) av samma typ/struktur som dina huvudsakliga indata. Du kan också använda ett tomt formulär. formulärets filnamnet innehåller ordet ”Töm”.
+Först behöver du en uppsättning träningsdata. Du kan använda data i en Azure-blob eller dina egna lokala träningsdata. Du bör ha minst fem exempelformulär (PDF-dokument och/eller avbildningar) av samma typ/struktur som dina huvudsakliga indata. Du kan också använda ett tomt formulär. Formulärets filnamnet måste innehålla ordet ”Töm”.
 
-För att träna en modell för formuläret Igenkännande med hjälp av dokument i Azure Blob-behållare, anropa den **träna** API genom att köra cURL-kommandot nedan. Innan du kör kommandot måste du göra följande ändringar:
+För att träna en modell för formuläret Igenkännande med hjälp av dokument i Azure blob-behållare, anropa den **träna** API genom att köra cURL-kommando som följer. Innan du kör kommandot gör dessa ändringar:
 
-* Ersätt `<Endpoint>` till slutpunkten som du fick från din prenumerationsnyckel för formuläret Igenkännande. Du hittar den i formuläret Igenkännande resource översikt-fliken.
-* Ersätt `<SAS URL>` med en Azure Blob Storage-behållare som delad åtkomst (signatur) URL där träningsdata finns.  
-* Ersätt `<subscription key>` med din prenumerationsnyckel.
+1. Ersätt `<Endpoint>` med slutpunkten som du fick från din prenumerationsnyckel för formuläret Igenkännande. Du hittar den på formuläret Igenkännande resursen **översikt** fliken.
+1. Ersätt `<SAS URL>` med en Azure Blob storage-behållare som delad åtkomst (signatur) URL: en för platsen för träningsdata.  
+1. Ersätt `<subscription key>` med din prenumerationsnyckel.
 
 ```bash
 curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/train" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{ \"source\": \""<SAS URL>"\"}"
@@ -84,17 +84,18 @@ Du får en `200 (Success)` svar med följande JSON-utdata:
 }
 ```
 
-Anteckna den `"modelId"` value; du behöver för följande steg.
+Obs den `"modelId"` värde. Du behöver det i följande steg.
   
 ## <a name="extract-key-value-pairs-and-tables-from-forms"></a>Extrahera nyckel / värde-par och tabeller från formulär
 
-Nu ska du analysera ett dokument och extrahera nyckel / värde-par och tabeller från den. Anropa den **modellera – analysera** API genom att köra cURL-kommandot nedan. Innan du kör kommandot måste du göra följande ändringar:
+Nu ska du analysera ett dokument och extrahera nyckel / värde-par och tabeller från den. Anropa den **modellera – analysera** API genom att köra cURL-kommando som följer. Innan du kör kommandot gör dessa ändringar:
 
-* Ersätt `<Endpoint>` till slutpunkten som du fick från din prenumerationsnyckel för formuläret Igenkännande. Du hittar i formuläret Igenkännande resursen **översikt** fliken.
-* Ersätt `<modelID>` med modell-ID som du fick i det föregående steget för att träna modellen.
-* Ersätt `<path to your form>` med sökväg i formuläret.
-* Ersätt `<subscription key>` med din prenumerationsnyckel.
-* Ersätt `<file type>` med filtypen - typer som stöds, pdf, bild/jpeg, bild/png.
+1. Ersätt `<Endpoint>` med slutpunkten som du fick från din prenumerationsnyckel för formuläret Igenkännande. Du hittar den på formuläret Igenkännande resursen **översikt** fliken.
+1. Ersätt `<modelID>` med modell-ID som du fick i föregående avsnitt.
+1. Ersätt `<path to your form>` med sökväg av formuläret.
+1. Ersätt `<file type>` med filtypen. Typer som stöds: pdf, bild/jpeg, bild/png.
+1. Ersätt `<subscription key>` med din prenumerationsnyckel.
+
 
 ```bash
 curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/models/<modelID>/analyze" -H "Content-Type: multipart/form-data" -F "form=@\"<path to your form>\";type=application/<file type>" -H "Ocp-Apim-Subscription-Key: <subscription key>"
@@ -102,7 +103,7 @@ curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/models/<mode
 
 ### <a name="examine-the-response"></a>Granska svaret
 
-Ett lyckat svar returneras i JSON och representerar extraherade nyckel / värde-par och tabeller i formuläret.
+Ett lyckat svar returneras i JSON. Nyckel / värde-par och tabeller som extraheras från formuläret representerar:
 
 ```bash
 {
@@ -427,7 +428,7 @@ Ett lyckat svar returneras i JSON och representerar extraherade nyckel / värde-
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här guiden används formatet Igenkännande REST-API: er med cURL du tränar en modell och kör den i exemplet fall. Därefter finns i referensdokumentationen för att utforska formuläret Igenkännande API: et i mer detalj.
+I den här snabbstarten använde du formuläret Igenkännande REST API med cURL du tränar en modell och kör den i ett exempelscenario. Därefter finns i referensdokumentationen för att utforska formuläret Igenkännande API: et i mer detalj.
 
 > [!div class="nextstepaction"]
 > [Referensdokumentation för REST API](https://aka.ms/form-recognizer/api)

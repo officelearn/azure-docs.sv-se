@@ -1,33 +1,33 @@
 ---
 title: Så implementerar du anpassad synkronisering för att optimera för högre tillgänglighet och prestanda i Azure Cosmos DB
-description: Lär dig att implementera anpassad synkronisering för att optimera för högre tillgänglighet och prestanda i Azure Cosmos DB
+description: Lär dig mer om att implementera anpassade synkronisering för att optimera för högre tillgänglighet och prestanda i Azure Cosmos DB.
 author: rimman
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 04/15/2019
 ms.author: rimman
-ms.openlocfilehash: d948798f161eb36578cb679b6d96409917424fd4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f10e260432a93a0413d65d6f5814d00a50e9465a
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61056154"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65560273"
 ---
-# <a name="how-to-implement-custom-synchronization-to-optimize-for-higher-availability-and-performance"></a>Så implementerar du anpassad synkronisering för att optimera för högre tillgänglighet och prestanda
+# <a name="implement-custom-synchronization-to-optimize-for-higher-availability-and-performance"></a>Implementera anpassade synkronisering för att optimera för högre tillgänglighet och prestanda
 
-Azure Cosmos DB erbjuder [fem väldefinierade konsekvensnivåer](consistency-levels.md) som du kan välja mellan att balansera förhållandet mellan konsekvens, prestanda och tillgänglighet. Stark konsekvens säkerställer att data replikeras synkront och varaktigt sparas i varje region där Azure Cosmos-konto är tillgänglig. Den här konfigurationen ger den högsta nivån av tillförlitlighet men påverkar prestanda och tillgänglighet. Om ett program vill kontroll/lätta tillförlitlighet som passar programmet behov utan att kompromissa med tillgängligheten, den kan använda *anpassade synkronisering* på programnivå att uppnå det önskade tillförlitlighet.
+Azure Cosmos DB erbjuder [fem väldefinierade konsekvensnivåer](consistency-levels.md) som du kan välja mellan att balansera förhållandet mellan konsekvens, prestanda och tillgänglighet. Stark konsekvens hjälper till att säkerställa att data replikeras synkront och varaktigt sparas i varje region där Azure Cosmos-konto är tillgänglig. Den här konfigurationen ger den högsta nivån av tillförlitlighet men man bekostnad av prestanda och tillgänglighet. Om du vill att programmet ska kunna övervaka eller lätta tålighet som passar programmet behöver utan att kompromissa med tillgänglighet kan du använda *anpassade synkronisering* på programnivå att uppnå nivån av tillförlitlighet du vill.
 
-Diagrammet nedan ger en visuell illustration av modellen för anpassad synkronisering.
+Följande bild visar visuellt synkronisering av anpassade modellen:
 
-![Anpassad synkronisering](./media/how-to-custom-synchronization/custom-synchronization.png)
+![Anpassade synkronisering](./media/how-to-custom-synchronization/custom-synchronization.png)
 
-I det här scenariot replikeras en Azure Cosmos-container globalt över flera regioner på flera kontinenter. Med stark konsekvens för alla regioner i det här scenariot skulle påverka prestandan. För att säkerställa en högre nivå av tillförlitlighet utan att kompromissa med skrivfördröjningen programmet kan använda två klienter som delar samma [sessionstoken](how-to-manage-consistency.md#utilize-session-tokens).
+I det här scenariot är en behållare i Azure Cosmos replikeras globalt över flera regioner på flera kontinenter. Stark konsekvens påverkar för alla regioner i det här scenariot prestandan. För att säkerställa en högre nivå av tillförlitlighet utan att kompromissa med skrivfördröjning, programmet kan använda två klienter som delar samma [sessionstoken](how-to-manage-consistency.md#utilize-session-tokens).
 
-Den första klienten kan skriva data till den lokala regionen (till exempel USA, västra). Den andra klienten (till exempel USA, östra) är en läsningsklient som används för att säkerställa synkroniseringen. Genom att flöda sessionstoken från write-svar på följande Läs garanterar läsningen synkronisering av skrivningar till östra USA. Azure Cosmos DB säkerställer att skrivningar ses av minst en region och garanterat tål ett regionalt strömavbrott om den ursprungliga skrivregionen skulle sluta fungera. I det här scenariot synkroniseras varje skrivning till USA, östra, vilket minskar den svarstid som är förknippad med användning av stark latens mellan alla regioner. I ett scenario med flera original, där skrivningar sker i varje region, kan den här modellen utökas för synkronisering till flera regioner parallellt.
+Den första klienten kan skriva data till den lokala regionen (till exempel USA, västra). Andra klienten (till exempel i östra USA) är en skrivskyddad klient som används för att se till att synkronisering. Med flödar sessionstoken från write-svar på följande Läs säkerställer läsningen synkronisering av skrivningar till östra USA. Azure Cosmos DB garanterar att visas skrivningar för minst en region. De garanteras att överleva ett regionalt strömavbrott om den ursprungliga skrivregionen stängs av. I det här scenariot synkroniseras varje skrivning till östra USA, minskar fördröjningen för att använda stark konsekvens i alla regioner. Du kan utöka den här modellen för att synkronisera till flera regioner parallellt i ett scenario med flera huvudservrar, där skrivningar uppstår i varje region.
 
 ## <a name="configure-the-clients"></a>Konfigurera klienterna
 
-Exemplet nedan visar hur dataåtkomstlagret instansierar två klienter för det här ändamålet.
+I följande exempel visas en dataåtkomstlagret som instantierar två klienter för anpassade synkronisering:
 
 ```csharp
 class MyDataAccessLayer
@@ -66,7 +66,7 @@ class MyDataAccessLayer
 
 ## <a name="implement-custom-synchronization"></a>Implementera anpassad synkronisering
 
-När klienterna har initierats kan programmet utföra skrivningar till en lokal region (USA, västra) och kan framtvinga synkronisering av skrivningarna till USA, östra enligt nedan.
+När klienterna initieras utföra programmet skrivningar till den lokala region (USA, västra) och Framtvinga synkronisering skrivningar till östra USA på följande sätt.
 
 ```csharp
 class MyDataAccessLayer
@@ -82,13 +82,13 @@ class MyDataAccessLayer
 }
 ```
 
-Den här modellen kan utökas för synkronisering till flera regioner parallellt.
+Du kan utöka modellen för att synkronisera till flera regioner parallellt.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om flera global distribution och konsekvens i Azure Cosmos DB i följande artiklar:
+Om du vill veta mer om global distribution och konsekvens i Azure Cosmos DB kan du läsa de här artiklarna:
 
-* [Välja rätt konsekvensnivå i Azure Cosmos DB](consistency-levels-choosing.md)
+* [Välj rätt konsekvensnivå i Azure Cosmos DB](consistency-levels-choosing.md)
 * [Avvägningar gällande konsekvens, tillgänglighet och prestanda i Azure Cosmos DB](consistency-levels-tradeoffs.md)
-* [Så hanterar du konsekvens i Azure Cosmos DB](how-to-manage-consistency.md)
+* [Hantera konsekvens i Azure Cosmos DB](how-to-manage-consistency.md)
 * [Partitionering och datadistribution i Azure Cosmos DB](partition-data.md)

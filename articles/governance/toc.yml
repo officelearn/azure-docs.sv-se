@@ -22,25 +22,12 @@
       href: policy/overview.md
     - name: Skisser
       href: blueprints/overview.md
-- name: Implementeringar
-  expanded: true
+- name: Cloud Adoption Framework
   items:
-    - name: Molnimplementering för företag
-      items:
-        - name: Vad är styrning av molnresurser?
-          href: /azure/architecture/cloud-adoption/getting-started/what-is-governance?toc=/azure/governance/toc.json
-        - name: Styrning av resursåtkomst i Azure
-          href: /azure/architecture/cloud-adoption/getting-started/azure-resource-access?toc=/azure/governance/toc.json
-        - name: Styrningsdesign för ett enskilt team
-          href: /azure/architecture/cloud-adoption/governance/governance-single-team?toc=/azure/governance/toc.json
-        - name: Styrningsdesign för flera team
-          href: /azure/architecture/cloud-adoption/governance/governance-multiple-teams?toc=/azure/governance/toc.json
-    - name: Azure Enterprise-kodskelett
-      items:
-        - name: Förebyggande prenumerationsåtgärder
-          href: /azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=/azure/governance/toc.json
-        - name: Implementera Azure Enterprise-kodskelett
-          href: /azure/architecture/cloud-adoption/appendix/azure-scaffold-examples?toc=/azure/governance/toc.json
+    - name: Översikt
+      href: /azure/architecture/cloud-adoption/index?toc=/azure/governance/toc.json
+    - name: Översikt över styrning
+      href: /azure/architecture/cloud-adoption/governance/index?toc=/azure/governance/toc.json
 - name: Resurser
   items:
     - name: Azure-översikt

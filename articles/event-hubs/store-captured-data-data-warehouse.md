@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.topic: tutorial
 ms.service: event-hubs
-ms.openlocfilehash: 234febe92727e5a47d4cfc5b836cd5593e99b5b5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 90a17839afdddb4d6ad8abfa57963b4c76b100ed
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60369104"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604290"
 ---
 # <a name="migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>Migrera insamlade Event Hubs-data till ett SQL Data Warehouse med hjälp av Event Grid och Azure Functions
 
@@ -39,7 +39,7 @@ I de här självstudierna gör du följande:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-- [Visual Studio 2017 version 15.3.2 eller senare](https://www.visualstudio.com/vs/). Vid installationen kontrollerar du att du installerar följande arbetsbelastningar: .NET-skrivbordsutveckling, Azure-utveckling, ASP.NET- och webbutveckling, Node.js-utveckling och Python-utveckling
+- [Visual studio 2019](https://www.visualstudio.com/vs/). Vid installationen kontrollerar du att du installerar följande arbetsbelastningar: .NET-skrivbordsutveckling, Azure-utveckling, ASP.NET- och webbutveckling, Node.js-utveckling och Python-utveckling
 - Ladda ned [Git-exemplet](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo). Lösningsexemplet innehåller följande komponenter:
     - *WindTurbineDataGenerator* – en enkel utgivare som skickar exempeldata från en vindturbin till en Capture-aktiverad händelsehubb
     - *FunctionDWDumper* – en Azure-funktion som tar emot ett Event Grid-meddelande när en Avro-fil hämtas till blob-lagring i Azure Storage. Den tar emot blobbens URI-sökväg, läser innehållet och skickar data till ett SQL Data Warehouse.
@@ -106,7 +106,7 @@ WITH (CLUSTERED COLUMNSTORE INDEX, DISTRIBUTION = ROUND_ROBIN);
 
 ## <a name="publish-code-to-the-functions-app"></a>Publicera kod till Functions-appen
 
-1. Öppna lösningen *EventHubsCaptureEventGridDemo.sln* i Visual Studio 2017 (15.3.2 eller senare). 
+1. Öppna lösningen *EventHubsCaptureEventGridDemo.sln* i Visual Studio 2019.
 
 1. Högerklicka på *FunctionEGDWDumper* i Solution Explorer och välj **Publicera**.
 
@@ -139,11 +139,11 @@ När du har publicerat funktionen är du klar att prenumerera på insamlingshän
 
 1. Välj **Lägg till Event Grid-prenumeration**.
 
-   ![Lägg till en prenumeration](./media/store-captured-data-data-warehouse/add-event-grid-subscription.png)
+   ![Lägg till prenumeration](./media/store-captured-data-data-warehouse/add-event-grid-subscription.png)
 
 1. Ge Event Grid-prenumerationen ett namn. Använd **Event Hubs-namnområden** som händelsetyp. Ange värden för att välja din instans av Event Hubs-namnområdet. Lämna prenumerantens slutpunkt som det angivna värdet. Välj **Skapa**.
 
-   ![Skapa en prenumeration](./media/store-captured-data-data-warehouse/set-subscription-values.png)
+   ![Skapa prenumeration](./media/store-captured-data-data-warehouse/set-subscription-values.png)
 
 ## <a name="generate-sample-data"></a>Generera exempeldata  
 Nu har du konfigurerat Event Hub, SQL-informationslagret, Azure-funktionsappen och Event Grid-prenumerationen. Du kan köra WindTurbineDataGenerator.exe för att generera dataströmmar till Event Hub när du har uppdaterat anslutningssträngen och namnet på din händelsehubb i källkoden. 

@@ -11,12 +11,12 @@ ms.author: MayMSFT
 ms.reviewer: trbye
 ms.date: 03/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6e7aa231cabea9fbd76cd028f9fdc698a4dac5d6
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 67f3a0d10490c5c63dfe262d07985f51bb384e34
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65470273"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604488"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>Självstudier: Förbereda data för regressionsmodellering
 
@@ -38,7 +38,7 @@ I den här kursen för du göra följande:
 Gå vidare till [Ställ in din utvecklingsmiljö](#start) och läs igenom stegen för notebook eller följ instruktionerna nedan för att hämta din notebook och kör den på Azure Notebooks eller din egen Notebook-server. För att köra anteckningsboken behöver du:
 
 * En notebook-server för Python 3.6 med följande installerat:
-    * Azure Machine Learning-SDK för dataförberedelse för Python
+    *  paket för azureml-förberedelse av data från Azure Machine Learning-SDK för Python
 * Anteckningsboken för självstudie
 
 * Använd en [molnet notebook-server i din arbetsyta](#azure) 
@@ -56,8 +56,8 @@ Det är enkelt att komma igång med din egen molnbaserad notebook-server. Den [A
 
 Skapa en lokal Jupyter Notebook-server på datorn enligt nedan.  När du har slutfört stegen kan du köra anteckningsboken **tutorials/regression-part1-data-prep.ipynb**.
 
-1. Slutför installationen av stegen i [ [Snabbstart för Azure Machine Learning Python](quickstart-run-local-notebook.md) ](setup-create-workspace.md#python) att skapa en Miniconda-miljö.  Passa på att hoppa över avsnittet **Skapa en arbetsyta** om du vill, men du behöver det för [del 2](tutorial-auto-train-models.md) i den här självstudieserien.
-1. Installera SDK för dataförberedelser i din miljö med `pip install azureml-dataprep`.
+1. Slutför installationen av stegen i [Snabbstart för Azure Machine Learning Python](setup-create-workspace.md#sdk) att skapa en Miniconda-miljö.  Passa på att hoppa över avsnittet **Skapa en arbetsyta** om du vill, men du behöver det för [del 2](tutorial-auto-train-models.md) i den här självstudieserien.
+1. Installera den azureml-förberedelse av data i din miljö genom `pip install azureml-dataprep`.
 1. Klona [github-lagringsplatsen](https://aka.ms/aml-notebooks).
 
     ```

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 04/02/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: 7b7adcc85b9274af45ddab653e875377e959e40c
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.openlocfilehash: 3e6ab347a86aa8d04c8ebd0382178b873c987300
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63766734"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65605439"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan-preview"></a>Självstudier: Skapa en ExpressRoute-association med hjälp av Azure Virtual WAN (förhandsversion)
 
@@ -47,7 +47,7 @@ Du måste registrera din prenumeration i förhandsversionen innan du kan konfigu
 
 **Överväganden för förhandsversion:**
 
-ExpressRoute-kretsen måste vara aktiverat i ett land som stöder [ExpressRoute Global räckvidd](https://docs.microsoft.com/azure/expressroute/expressroute-faqs#where-is-expressroute-global-reach-supported).
+ExpressRoute-kretsen måste vara aktiverat i ett land/en region som har stöd för [ExpressRoute Global räckvidd](https://docs.microsoft.com/azure/expressroute/expressroute-faqs#where-is-expressroute-global-reach-supported).
 
 ## <a name="vnet"></a>1. Skapa ett virtuellt nätverk
 

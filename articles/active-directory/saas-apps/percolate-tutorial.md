@@ -1,6 +1,6 @@
 ---
 title: 'Självstudier: Azure Active Directory-integrering med Percolate | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Percolate.
+description: I de här självstudierna lär du dig att konfigurera enkel inloggning mellan Azure Active Directory och Percolate.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,227 +15,223 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 2110b1ec7d5d6b317341855ff19acf7975733e71
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.openlocfilehash: 83027e9fbc1826de727f123afe4507c2858c49ff
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617877"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65560555"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-percolate"></a>Självstudier: Azure Active Directory-integrering med Percolate
 
-I den här självstudien får du lära dig hur du integrerar Percolate med Azure Active Directory (AD Azure).
-Integrera Percolate med Azure AD ger dig följande fördelar:
+I de här självstudierna lär du dig att integrera Percolate med Azure Active Directory (AD Azure).
 
-* Du kan styra i Azure AD som har åtkomst till Percolate.
-* Du kan aktivera användarna att vara automatiskt inloggad till Percolate (Single Sign-On) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure-portalen.
+Den här integrationen har följande fördelar:
 
-Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+* Du kan använda Azure AD för att kontrollera vem som har åtkomst till Percolate.
+* Du kan aktivera användarna att logga in automatiskt till Percolate (enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats: Azure-portalen.
+
+Läs mer om SaaS-appintegrering med Azure AD i [Enkel inloggning till program i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+
+Om du inte har någon Azure-prenumeration [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Om du vill konfigurera Azure AD-integrering med Percolate, behöver du följande objekt:
+Om du vill konfigurera Azure AD-integrering med Percolate, måste du ha:
 
 * En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en [kostnadsfritt konto](https://azure.microsoft.com/free/).
-* Percolate enkel inloggning aktiverad prenumeration
+* En Percolate-prenumeration som har enkel inloggning aktiverat.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
+I den här självstudien får du konfigurera och testa Azure AD enkel inloggning i en testmiljö.
 
-* Percolate stöder **SP** och **IDP** -initierad SSO
+* Percolate stöder SP-initierat och IdP-initierad SSO.
 
-## <a name="adding-percolate-from-the-gallery"></a>Att lägga till Percolate från galleriet
+## <a name="add-percolate-from-the-gallery"></a>Lägg till Percolate från galleriet
 
 För att konfigurera integrering av Percolate i Azure AD, som du behöver lägga till Percolate från galleriet i din lista över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till Percolate från galleriet:**
+1. I den [Azure-portalen](https://portal.azure.com), i den vänstra rutan väljer **Azure Active Directory**:
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+    ![Välj Azure Active Directory](common/select-azuread.png)
 
-    ![Azure Active Directory-knappen](common/select-azuread.png)
+2. Gå till **företagsprogram** > **alla program**:
 
-2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
+    ![Bladet för Enterprise-program](common/enterprise-applications.png)
 
-    ![Bladet Företagsprogram](common/enterprise-applications.png)
+3. Om du vill lägga till ett program, Välj **nytt program** överst i fönstret:
 
-3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
+    ![Välj nytt program](common/add-new-app.png)
 
-    ![Knappen Nytt program](common/add-new-app.png)
+4. I sökrutan anger **Percolate**. Välj **Percolate** i sökresultatet och välj sedan **Lägg till**.
 
-4. I sökrutan skriver **Percolate**väljer **Percolate** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+     ![Sökresultat](common/search-new-app.png)
 
-     ![Percolate i resultatlistan](common/search-new-app.png)
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
+I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Percolate med hjälp av en användare med namnet Britta Simon.
+Om du vill aktivera enkel inloggning, måste du upprätta en relation mellan en Azure AD-användare och motsvarande användare i Percolate.
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Percolate baserat på en testanvändare kallas **Britta Simon**.
-För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i Percolate upprättas.
+Om du vill konfigurera och testa Azure AD enkel inloggning med Percolate, måste du slutföra de här stegen:
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med Percolate, måste du utföra följande byggblock:
+1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  att aktivera funktionen för dina användare.
+2. **[Konfigurera Percolate enkel inloggning](#configure-percolate-single-sign-on)**  på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  att testa Azure AD enkel inloggning.
+4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  att aktivera Azure AD enkel inloggning för användaren.
+5. **[Skapa en testanvändare Percolate](#create-a-percolate-test-user)**  som är länkad till en Azure AD-representation av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)**  att kontrollera att konfigurationen fungerar.
 
-1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera Percolate enkel inloggning](#configure-percolate-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
-4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Skapa testanvändare Percolate](#create-percolate-test-user)**  – du har en motsvarighet för Britta Simon i Percolate som är länkad till en Azure AD-representation av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
+I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen.
 
-I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
+Konfigurera Azure AD enkel inloggning med Percolate genom att göra följande:
 
-Utför följande steg för att konfigurera Azure AD enkel inloggning med Percolate:
+1. I den [Azure-portalen](https://portal.azure.com/)på den **Percolate** application integration markerar **enkel inloggning**:
 
-1. I den [Azure-portalen](https://portal.azure.com/)på den **Percolate** application integration markerar **enkel inloggning**.
+    ![Välj enkel inloggning](common/select-sso.png)
 
-    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
+2. I den **väljer du en metod för enkel inloggning** dialogrutan **SAML/WS-Fed** läge för att aktivera enkel inloggning:
 
-2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
+    ![Välj en metod för enkel inloggning](common/select-saml-option.png)
 
-    ![Välja läge för enkel inloggning](common/select-saml-option.png)
+3. På den **ange in enkel inloggning med SAML** väljer den **redigera** ikonen för att öppna den **SAML grundkonfiguration** dialogrutan:
 
-3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
+    ![Ikonen Redigera](common/edit-urls.png)
 
-    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
-
-4. På den **SAML grundkonfiguration** om du vill konfigurera programmet i **IDP** initierad läge som användaren inte behöver utföra några steg som appen är redan förintegrerade med Azure.
+4. I den **SAML grundkonfiguration** dialogrutan du behöver inte vidta några åtgärder för att konfigurera programmet i IdP-initierad läge. Appen är redan integrerat med Azure.
 
     ![Percolate domän och URL: er enkel inloggning för information](common/preintegrated.png)
 
-5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
+5. Om du vill konfigurera programmet i SP-initierat läge väljer **ange ytterligare webbadresser** och i den **inloggnings-URL** anger **https://percolate.com/app/login**:
 
-    ![Percolate domän och URL: er enkel inloggning för information](common/metadata-upload-additional-signon.png)
+   ![Percolate domän och URL: er enkel inloggning för information](common/metadata-upload-additional-signon.png)
+6. På den **ange in enkel inloggning med SAML** sidan den **SAML-signeringscertifikat** väljer den **kopia** ikon för att kopiera den **Appfederationsmetadata** . Spara den här URL: en.
 
-    I rutan **Inloggnings-URL** anger du en URL: `https://percolate.com/app/login`
+    ![Kopiera Appfederationsmetadata](common/copy-metadataurl.png)
 
-6. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på kopieringsknappen för att kopiera **App Federation Metadata-URL** och spara den på datorn.
+7. I den **konfigurera Percolate** avsnittet, kopiera de lämpliga URL: er, baserat på dina krav.
 
-    ![Länk för nedladdning av certifikatet](common/copy-metadataurl.png)
+    ![Kopiera URL: er för konfiguration](common/copy-configuration-urls.png)
 
-7. På den **konfigurera Percolate** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
+    1. **Inloggnings-URL**.
 
-    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
+    1. **Azure AD-identifierare**.
 
-    a. Inloggnings-URL
-
-    b. Azure AD-identifierare
-
-    c. Utloggnings-URL
+    1. **URL för utloggning**.
 
 ### <a name="configure-percolate-single-sign-on"></a>Konfigurera Percolate enkel inloggning
 
-1. I ett annat webbläsarfönster, loggar du in Percolate som administratör.
+1. I ett nytt webbläsarfönster, loggar du in Percolate som en administratör.
 
-2. Till vänster på startsidan klickar du på **inställningar**.
+2. Till vänster på sidan Välj **inställningar**:
     
-    ![Konfigurera enkel inloggning](./media/percolate-tutorial/configure01.png)
+    ![Välj inställningar](./media/percolate-tutorial/configure01.png)
 
-3. Från vänster sida av menyraden klickar du på **SSO** under **organisation**.
+3. I den vänstra rutan väljer **SSO** under **organisation**:
 
-    ![Konfigurera enkel inloggning](./media/percolate-tutorial/configure02.png)
+    ![Välj enkel inloggning under organisation](./media/percolate-tutorial/configure02.png)
 
-    a. I textrutan för **inloggnings-URL** klistrar du in värdet för **inloggnings-URL:en** som du har kopierat från Azure-portalen.
+    1. I den **inloggnings-URL** rutan, klistra in den **inloggnings-URL** värde som du kopierade från Azure-portalen.
 
-    b. I den **entitets-ID** textrutan klistra in värdet för **Azure AD-identifierare** som du har kopierat från Azure-portalen.
+    1. I den **entitets-ID** rutan, klistra in den **Azure AD-identifierare** värde som du kopierade från Azure-portalen.
 
-    c. I anteckningar, öppna Base64-kodade certifikatet som du laddade ned från Azure-portalen, kopiera innehållet och klistra in den i den **x509 certifikat** box.
+    1. Öppna Base64-kodade certifikatet som du laddade ned från Azure-portalen i anteckningar. Kopiera innehållet och klistra in den i den **x509 certifikat** box.
 
-    d. I den **e-attributet** textrutan typ **e-postadress**.
+    1. I den **e-attributet** anger **e-postadress**.
 
-    e. **Metadata-URL för identitetsprovider** fältet är valfritt och om du har **appfederationsmetadata** som du har kopierat från Azure-portalen, klistra in den i den **metadata-URL för identitetsprovider** textrutan.
+    1. Den **metadata-URL för identitetsprovider** rutan är ett valfritt fält. Om du har kopierat en **Appfederationsmetadata** från Azure-portalen, du kan klistra in den i den här rutan.
 
-    f. Välj **nr** som **bör AuthNRequests signeras?**.
+    1. I den **bör AuthNRequests signeras?** väljer **nr**.
 
-    g. Välj **nr** som **aktivera SSO Automatisk etablering**.
+    1. I den **aktivera SSO Automatisk etablering** väljer **nr**.
 
-    h. Klicka på **Spara**.
+    1. Välj **Spara**.
 
-### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
+I det här avsnittet skapar du en användare med namnet Britta Simon i Azure-portalen.
 
-1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
+1. I Azure-portalen väljer du **Azure Active Directory** i den vänstra rutan väljer **användare**, och välj sedan **alla användare**:
 
-    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
+    ![Välj alla användare](common/users.png)
 
-2. Välj **Ny användare** överst på skärmen.
+2. Välj **ny användare** överst på skärmen:
 
-    ![Knappen Ny användare](common/new-user.png)
+    ![Välj ny användare](common/new-user.png)
 
-3. Genomför följande steg i Användaregenskaper.
+3. I den **användaren** dialogrutan rutan, vidta följande steg.
 
-    ![Dialogrutan Användare](common/user-properties.png)
+    ![Användardialogrutan](common/user-properties.png)
 
-    a. I fältet **Namn** anger du **BrittaSimon**.
+    1. I rutan **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** fälttyp brittasimon@yourcompanydomain.extension. Till exempel, BrittaSimon@contoso.com
+    1. I den **användarnamn** anger **BrittaSimon @\<företagsdomänen >.\< tillägget >**. (Till exempel BrittaSimon@contoso.com.)
 
-    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
+    1. Välj **visa lösenord**, och sedan skriva ned det värde som är i den **lösenord** box.
 
-    d. Klicka på **Skapa**.
+    1. Välj **Skapa**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Percolate.
+I det här avsnittet ska du aktivera Britta Simon att använda Azure AD enkel inloggning ger användarens företagsidentitet åtkomst Percolate.
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **Percolate**.
+1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**, och välj sedan **Percolate**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
 2. I listan med program väljer **Percolate**.
 
-    ![Länken Percolate i listan med program](common/all-applications.png)
+    ![Lista över program](common/all-applications.png)
 
-3. På menyn till vänster väljer du **Användare och grupper**.
+3. I den vänstra rutan väljer **användare och grupper**:
 
-    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
+    ![Välj Användare och grupper](common/users-groups-blade.png)
 
-4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
+4. Välj **Lägg till användare** och sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
 
-    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
+    ![Välj Användare och grupper](common/add-assign-user.png)
 
-5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
+5. I den **användare och grupper** dialogrutan **Britta Simon** i listan och klicka sedan på den **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig ett rollvärde i SAML-försäkran i den **Välj roll** dialogrutan väljer du rätt roll för användaren i listan. Klicka på den **Välj** längst ned på skärmen.
 
-7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+7. I dialogrutan **Lägg till tilldelning** väljer du **Tilldela**.
 
-### <a name="create-percolate-test-user"></a>Skapa Percolate testanvändare
+### <a name="create-a-percolate-test-user"></a>Skapa en Percolate testanvändare
 
-Om du vill aktivera Azure AD-användare att logga in på Percolate, måste de etableras i Percolate. I Percolate är etablering en manuell aktivitet.
+Om du vill aktivera Azure AD-användare att logga in på Percolate som du behöver lägga till dem i Percolate. Du måste lägga till dem manuellt.
 
-**Utför följande steg för att etablera ett användarkonto:**
+Skapa ett användarkonto genom att göra följande:
 
-1. Logga in på Percolate som administratör.
+1. Logga in på Percolate som en administratör.
 
-2. Från vänster sida av menyraden klickar du på **användare** under **organisation** och gå till **nya användare**.
+2. I den vänstra rutan väljer **användare** under **organisation**. Välj **nya användare**:
 
-    ![Konfigurera enkel inloggning](./media/percolate-tutorial/configure03.png)
+    ![Välj nya användare](./media/percolate-tutorial/configure03.png)
 
-3. På den **skapa användare** utför följande steg:
+3. På den **skapa användare** utför följande steg.
 
-    ![Konfigurera enkel inloggning](./media/percolate-tutorial/configure04.png)
+    ![Skapa användarsidan](./media/percolate-tutorial/configure04.png)
 
-    a. I **e-post** text, ange den e-postadressen för användaren som brittasimon@contoso.com.
+    1. I den **e-post** anger du e-postadressen för användaren. Till exempel brittasimon@contoso.com.
 
-    b. I **Fullname** text, ange namnet på användaren som **Brittasimon**.
+    1. I den **fullständigt namn** anger du namnet på användaren. Till exempel **Brittasimon**.
 
-    c. Klicka på **skapa användare**.
+    1. Välj **skapa användare**.
 
-### <a name="test-single-sign-on"></a>Testa enkel inloggning 
+### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+Nu ska du testa Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Percolate i åtkomstpanelen, bör det vara loggas in automatiskt till Percolate som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du väljer panelen Percolate i åtkomstpanelen, bör det vara loggas in automatiskt till Percolate-instansen som du ställer in enkel inloggning. Mer information finns i [öppna och använda appar på portalen Mina appar](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Självstudier för att integrera SaaS-program med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

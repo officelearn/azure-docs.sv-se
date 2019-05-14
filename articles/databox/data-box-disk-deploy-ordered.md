@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/27/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: ad11dba43e7e1561a74e04cd4f05b26569cc10d9
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 1d25ea2ce6e365e0d04fab325f9c13bb37382758
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924923"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603179"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk"></a>Självstudier: Beställa en Azure Data Box Disk
 
@@ -61,11 +61,11 @@ Utför följande steg på [Azure-portalen](https://aka.ms/azuredataboxfromdiskdo
 
     ![Välj Data Box Disk-alternativ](media/data-box-disk-deploy-ordered/select-data-box-sku-1.png)
 
-    |Inställning|Värde|
+    |Inställning|Value|
     |---|---|
     |Prenumeration|Välj den prenumeration för vilken Data Box-tjänsten är aktiverad.<br> Prenumerationen är kopplad till ditt faktureringskonto. |
     |Överföringstyp| Importera till Azure|
-    |Källand | Välj landet där dina data finns.|
+    |Källand | Välj land/region där dina data finns.|
     |Azure-målregion|Välj den Azure-region dit du vill överföra data.|
 
   
@@ -90,7 +90,7 @@ Utför följande steg på [Azure-portalen](https://aka.ms/azuredataboxfromdiskdo
 
     Om du använder Data Box-diskar för att skapa hanterade diskar från de lokala virtuella hårddiskarna, måste du också ange följande information:
 
-    |Inställning  |Värde  |
+    |Inställning  |Value  |
     |---------|---------|
     |Resursgrupp     | Skapa en ny resursgrupp om du planerar att skapa hanterade diskar från en lokal virtuell hårddisk. Använd en befintlig resursgrupp bara om den har skapats för Data Box-diskbeställning för hanterad disk av Data Box-tjänsten. <br> Endast en resursgrupp stöds.|
 

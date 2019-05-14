@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Anropa API:et för textanalys med hjälp av C#'
+title: 'Snabbstart: Anropa Text Analytics-tjänsten med hjälp av Azure SDK för .NET ochC#'
 titleSuffix: Azure Cognitive Services
-description: Hämta information och kodexempel som hjälper dig att snabbt komma igång med API för textanalys.
+description: Information och exempel på kod för att börja använda tjänsten Text Analytics och C#.
 services: cognitive-services
 author: raymondl
 manager: nitinme
@@ -10,42 +10,45 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 04/29/2019
 ms.author: assafi
-ms.openlocfilehash: c521be03f884227116a21c8c5396d47cdd1ae253
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 44d4a9427fcf6b582d44707127b87c262781520f
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466539"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602360"
 ---
-# <a name="quickstart-using-c-to-call-the-text-analytics-cognitive-service"></a>Snabbstart: Anropa den kognitiva tjänsten för textanalys med hjälp av C#
+# <a name="quickstart-use-the-net-sdk-and-c-to-call-the-text-analytics-service"></a>Snabbstart: Använda .NET SDK och C# att anropa Text Analytics-tjänsten
 <a name="HOLTop"></a>
 
-Använd den här snabbstarten för att börja analysera språk med Text Analytics SDK för C#. Medan den [textanalys](//go.microsoft.com/fwlink/?LinkID=759711) REST API är kompatibelt med de flesta programmeringsspråk, SDK innehåller ett enkelt sätt att integrera tjänsten i dina program. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/samples/TextAnalytics).
+Den här snabbstarten hjälper dig att komma igång med Azure SDK för .NET och C# att analysera språk. Även om den [textanalys](//go.microsoft.com/fwlink/?LinkID=759711) REST API är kompatibelt med de flesta programmeringsspråk, SDK innehåller ett enkelt sätt att integrera tjänsten i dina program.
 
-Se [API-definitionerna](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) för teknisk dokumentation för API:erna.
+> [!NOTE]
+> Källkoden till det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/samples/TextAnalytics).
+
+Teknisk information finns i SDK för .NET [Text Analytics-referens](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-dotnet).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
-Du måste även ha [slutpunkten och åtkomstnyckeln](../How-tos/text-analytics-how-to-access-key.md) som genererades åt dig vid registreringen.
+Du måste också den [slutpunkt och åtkomstnyckel](../How-tos/text-analytics-how-to-access-key.md) som genererades för dig under registreringen.
 
 > [!Tip]
->  Du skulle kunna anropa [HTTP-slutpunkterna](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) direkt från C#, men Microsoft.Azure.CognitiveServices.Language SDK gör det mycket enklare att anropa tjänsten utan att behöva bry sig om serialisering och avserialisering av JSON.
+>  Medan du kan anropa den [HTTP-slutpunkter](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) direkt från C#, Microsoft.Azure.CognitiveServices.Language SDK gör det enklare att anropa tjänsten utan att serialisera och deserialisera JSON.
 >
 > Några användbara länkar:
-> - [SDK Nuget-sidan](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics)
+> - [SDK NuGet-sidan](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics)
 > - [SDK-kod](https://github.com/Azure/azure-sdk-for-net/tree/master/src/SDKs/CognitiveServices/dataPlane/Language/TextAnalytics)
 
 ## <a name="create-the-visual-studio-solution-and-install-the-sdk"></a>Skapa Visual Studio-lösningen och installera SDK
 
-1. Skapa ett nytt konsolprogram (.NET Core)-projekt [Visual Studio](https://visualstudio.microsoft.com/vs/).
-1. Högerklicka på lösningen och klicka på **Hantera NuGet-paket för lösningen**
-1. Välj fliken **Bläddra** sök efter **Microsoft.Azure.CognitiveServices.Language.TextAnalytics**
+1. Skapa ett nytt projekt i konsolen app (.NET Core). [Access Visual Studio](https://visualstudio.microsoft.com/vs/).
+1. Högerklicka på lösningen och välj **hantera NuGet-paket för lösningen**.
+1. Välj fliken **Bläddra**. Sök efter **Microsoft.Azure.CognitiveServices.Language.TextAnalytics**.
 
 ## <a name="authenticate-your-credentials"></a>Autentisera dina autentiseringsuppgifter
 
-1. Lägg till följande `using` instruktioner i filen för main-klass (`Program.cs` som standard).
+1. Lägg till följande `using` instruktioner i filen för main-klass (som standard är Program.cs).
 
     ```csharp
     using System;
@@ -63,7 +66,7 @@ Du måste även ha [slutpunkten och åtkomstnyckeln](../How-tos/text-analytics-h
 
     ```csharp
     /// <summary>
-    /// Allows authentication to the API using a basic apiKey mechanism
+    /// Allows authentication to the API by using a basic apiKey mechanism
     /// </summary>
     class ApiKeyServiceClientCredentials : ServiceClientCredentials
     {
@@ -96,7 +99,7 @@ Du måste även ha [slutpunkten och åtkomstnyckeln](../How-tos/text-analytics-h
     }
     ```
 
-3. Uppdatera den `Program` klassen och Lägg till medlem konstant för din prenumerationsnyckel för textanalys och en annan för tjänsteslutpunkt. Kom ihåg att använda rätt Azure-regionen för din Text Analytics-prenumeration.
+3. Uppdatera den `Program` klass. Lägg till medlem konstant för din prenumerationsnyckel för textanalys och en annan för tjänsteslutpunkt. Kom ihåg att använda rätt Azure-regionen för din Text Analytics-prenumeration.
 
     ```csharp
     private const string SubscriptionKey = "enter-your-key-here";
@@ -104,12 +107,12 @@ Du måste även ha [slutpunkten och åtkomstnyckeln](../How-tos/text-analytics-h
     private const string Endpoint = "enter-your-service-endpoint-here"; // For example: "https://westus.api.cognitive.microsoft.com";
     ```
 > [!Tip]
-> För säker distribution av hemligheter i produktionssystem bör du använda [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-net)
+> Vi rekommenderar att du använder för att höja säkerheten för hemligheter i produktionssystem [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-net).
 >
 
 ## <a name="create-a-text-analytics-client"></a>Skapa en Text Analytics-klient
 
-I den `Main` funktion i ditt projekt, anropa metoden exemplet som du vill anropa och skicka den `Endpoint` och `SubscriptionKey` parametrar som angetts.
+I den `Main` funktionen i ditt projekt, anropa metoden exemplet som du vill anropa. Skicka den `Endpoint` och `SubscriptionKey` parametrar som du har definierat.
 
 ```csharp
     public static void Main(string[] args)
@@ -117,11 +120,11 @@ I den `Main` funktion i ditt projekt, anropa metoden exemplet som du vill anropa
         var credentials = new ApiKeyServiceClientCredentials(SubscriptionKey);
         var client = new TextAnalyticsClient(credentials)
         {
-            //Replace 'westus' with the correct region for your Text Analytics subscription
+            //Replace 'westus' with the correct region for your Text Analytics subscription.
             Endpoint = "https://westus.api.cognitive.microsoft.com"
         };
 
-        // Change console encoding to display non-ASCII characters
+        // Change the console encoding to display non-ASCII characters.
         Console.OutputEncoding = System.Text.Encoding.UTF8;
         SentimentAnalysisExample(client).Wait();
         // DetectLanguageExample(client).Wait();
@@ -131,12 +134,12 @@ I den `Main` funktion i ditt projekt, anropa metoden exemplet som du vill anropa
     }
 ```
 
-Nästa avsnitt beskriver hur du anropar var och en av API-funktioner.
+I följande avsnitt beskrivs hur du anropar varje tjänst-funktion.
 
-## <a name="sentiment-analysis"></a>Sentimentanalys
+## <a name="perform-sentiment-analysis"></a>Utföra attitydanalys
 
-1. Skapa en ny funktion som kallas `SentimentAnalysisExample()` som tar klienten som skapade tidigare.
-2. Generera en lista med `MultiLanguageInput` objekt, som innehåller de dokument som du vill analysera.
+1. Skapa en ny funktion `SentimentAnalysisExample()` som tar klienten som du skapade tidigare.
+2. Generera en lista med `MultiLanguageInput` objekt som innehåller de dokument som du vill analysera.
 
     ```csharp
     public static async Task SentimentAnalysisExample(TextAnalyticsClient client)
@@ -154,7 +157,7 @@ Nästa avsnitt beskriver hur du anropar var och en av API-funktioner.
     }
     ```
 
-3. I samma funktion, anropa `client.SentimentAsync()` och få resultatet. Sedan gå igenom resultat och skriva ut varje dokument-ID och attitydsresultatet. Ett värde närmare 0 anger negativ känsla, medan en poäng närmare 1 anger positiv känsla.
+3. I samma funktion, anropa `client.SentimentAsync()` och få resultatet. Gå sedan igenom resultat. Skriva ut poängen för varje dokument-ID och sentiment. Ett värde som ligger nära 0 indikerar negativ attityd, medan en poäng ligger närmare 1 anger positiv känsla.
 
     ```csharp
     var result = await client.SentimentAsync(false, inputDocuments);
@@ -175,10 +178,10 @@ Document ID: 3 , Sentiment Score: 0.44
 Document ID: 4 , Sentiment Score: 1.00
 ```
 
-## <a name="language-detection"></a>Språkspårning
+## <a name="perform-language-detection"></a>Utför språkidentifiering
 
-1. Skapa en ny funktion som kallas `DetectLanguageExample()` som tar klienten som skapade tidigare.
-2. Generera en lista med `LanguageInput` objekt, som innehåller dina dokument.
+1. Skapa en ny funktion `DetectLanguageExample()` som tar klienten som du skapade tidigare.
+2. Generera en lista med `LanguageInput` objekt som innehåller dina dokument.
 
     ```csharp
     public static async Task DetectLanguageExample(TextAnalyticsClient client)
@@ -196,7 +199,7 @@ Document ID: 4 , Sentiment Score: 1.00
     }
     ```
 
-3. I samma funktion, anropa `client.DetectLanguageAsync()` och få resultatet. Sedan gå igenom resultat och skriva ut varje dokument-ID och det första språket som returneras.
+3. I samma funktion, anropa `client.DetectLanguageAsync()` och få resultatet. Gå sedan igenom resultat. Skriva ut varje dokument-ID och det första språket som returneras.
 
     ```csharp
     var langResults = await client.DetectLanguageAsync(false, inputDocuments);
@@ -217,10 +220,10 @@ Document ID: 2 , Language: Spanish
 Document ID: 3 , Language: Chinese_Simplified
 ```
 
-## <a name="entity-recognition"></a>Igenkänning av entiteter
+## <a name="perform-entity-recognition"></a>Utföra entitetsidentifiering
 
-1. Skapa en ny funktion som kallas `RecognizeEntitiesExample()` som tar klienten som skapade tidigare.
-2. Generera en lista med `MultiLanguageBatchInput` objekt, som innehåller dina dokument.
+1. Skapa en ny funktion `RecognizeEntitiesExample()` som tar klienten som du skapade tidigare.
+2. Generera en lista med `MultiLanguageBatchInput` objekt som innehåller dina dokument.
 
     ```csharp
     public static async Task RecognizeEntitiesExample(TextAnalyticsClient client)
@@ -237,7 +240,7 @@ Document ID: 3 , Language: Chinese_Simplified
     }
     ```
 
-3. I samma funktion, anropa `client.EntitiesAsync()` och få resultatet. Sedan gå igenom resultat och skriva ut varje dokument-ID. För varje identifierad entitet, skriva ut dess wikipedia namn, typ och undertyper (om det finns) samt platser i den ursprungliga texten.
+3. I samma funktion, anropa `client.EntitiesAsync()` och få resultatet. Gå sedan igenom resultat. Skriva ut varje dokument-ID. För varje identifierad entitet ut dess Wikipedia-namn, typ och undertyper (om de finns) samt platser i den ursprungliga texten.
 
     ```csharp
     var entitiesResult = await client.EntitiesAsync(false, inputDocuments);
@@ -290,10 +293,10 @@ Document ID: 2
                         Offset: 88,     Length: 7,      Score: 1.000
 ```
 
-## <a name="key-phrase-extraction"></a>Extrahering av nyckelfraser
+## <a name="perform-key-phrase-extraction"></a>Utföra extrahering av diskussionsämne
 
-1. Skapa en ny funktion som kallas `KeyPhraseExtractionExample()` som tar klienten som skapade tidigare.
-2. Generera en lista med `MultiLanguageBatchInput` objekt, som innehåller dina dokument.
+1. Skapa en ny funktion `KeyPhraseExtractionExample()` som tar klienten som du skapade tidigare.
+2. Generera en lista med `MultiLanguageBatchInput` objekt som innehåller dina dokument.
 
     ```csharp
     public static async Task KeyPhraseExtractionExample(TextAnalyticsClient client)
@@ -310,7 +313,7 @@ Document ID: 2
     }
     ```
 
-3. I samma funktion, anropa `client.KeyPhrasesAsync()` och få resultatet. Sedan gå igenom resultat och skriva ut varje dokument-ID och alla identifierade viktiga fraser.
+3. I samma funktion, anropa `client.KeyPhrasesAsync()` och få resultatet. Gå sedan igenom resultat. Skriva ut varje dokument-ID och alla identifierade viktiga fraser.
 
     ```csharp
     var kpResults = await client.KeyPhrasesAsync(false, inputDocuments);
@@ -358,4 +361,3 @@ Document ID: 4
 
 * [Översikt över Textanalys](../overview.md)
 * [Vanliga frågor och svar (FAQ)](../text-analytics-resource-faq.md)
-

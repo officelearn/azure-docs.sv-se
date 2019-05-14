@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 7eae71411a1a3772dbdbaa289a32cbc69fca0e5a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f906ab5db35ce8b239eceac9cdc8244f230f5a77
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61365187"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596021"
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Hitta och diagnostisera prestandaproblem med Azure Application Insights
 
@@ -32,7 +32,7 @@ Azure Application Insights samlar in telemetri från ditt program för att analy
 
 För att slutföra den här självstudien behöver du:
 
-- Installera [Visual Studio 2017](https://www.visualstudio.com/downloads/) med följande arbetsbelastningar:
+- Installera [Visual Studio 2019](https://www.visualstudio.com/downloads/) med följande arbetsbelastningar:
     - ASP.NET och webbutveckling
     - Azure Development
 - Distribuera ett .NET-program till Azure och [aktivera Application Insights SDK](../../azure-monitor/app/asp-net.md).
@@ -87,7 +87,7 @@ Application Insights Analytics har ett funktionsrikt frågespråk som gör att d
 
 2. Application Insights Analytics öppnas med en fråga för var och en av vyerna i panelen.  Du kan köra dessa frågor som de är eller ändra dem efter dina behov.  Den första frågan visar åtgärdens varaktighet över tid.
 
-    ![Analytics](media/tutorial-performance/server-analytics.png)
+    ![Analys](media/tutorial-performance/server-analytics.png)
 
 
 ## <a name="identify-slow-client-operations"></a>Identifiera långsamma klientåtgärder
@@ -115,7 +115,7 @@ Precis som de data som samlas in kring serverprestanda så gör Application Insi
 
 2. Application Insights Analytics öppnas med en fråga för var och en av vyerna i panelen. Den första frågan visar varaktigheten för olika sidvisningar över tid.
 
-    ![Analytics](media/tutorial-performance/client-analytics.png)
+    ![Analys](media/tutorial-performance/client-analytics.png)
 
 3.  Smart Diagnostics är en funktion i Application Insights Analytics som identifierar unika mönster i data.  När du klickar på punkten Smart Diagnostics i linjediagrammet körs samma fråga utan de poster som orsakade avvikelsen.  Information om de posterna visas i frågans kommentarsavsnitt så att du kan identifiera egenskaperna för de sidvisningar som orsakar den långa varaktigheten.
 

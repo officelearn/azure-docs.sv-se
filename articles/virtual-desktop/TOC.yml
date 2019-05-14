@@ -34,6 +34,8 @@
       href: diagnostics-role-service.md
     - name: Förbereda och anpassa en VHD-huvudavbildning
       href: set-up-customize-master-image.md
+    - name: Installera Office på en VHD-huvudavbildning
+      href: install-office-on-wvd-master-image.md
     - name: Konfigurera GPU för Windows Virtual Desktop
       href: configure-vm-gpu.md
     - name: Skala sessionsvärdar automatiskt

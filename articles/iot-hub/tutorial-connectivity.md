@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.date: 02/22/2019
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: cd60129e2da0b0c2130b300159953bd81c4aeb82
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: caa249dda4215dfcef13df96d2dd4245cae49efd
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58077572"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595752"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Självstudier: Använda en simulerad enhet för att testa anslutningen med din IoT-hubb
 
@@ -31,7 +31,7 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 CLI-skript som du kör i den här självstudiekursen använder [Microsoft Azure IoT-tillägg för Azure CLI](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md). Kör följande CLI-kommando om du vill installera tillägget:
 
@@ -39,7 +39,7 @@ CLI-skript som du kör i den här självstudiekursen använder [Microsoft Azure 
 az extension add --name azure-cli-iot-ext
 ```
 
-Enhetssimulatorprogrammet som körs i den här självstudiekursen har skrivits med Node.js. Du behöver ha Node.js v4.x.x eller senare installerat på utvecklingsdatorn.
+Enhetssimulatorprogrammet som körs i den här självstudiekursen har skrivits med Node.js. Du behöver Node.js v10.x.x eller senare på utvecklingsdatorn.
 
 Du kan ladda ned Node.js för flera plattformar från [nodejs.org](https://nodejs.org).
 
@@ -154,7 +154,7 @@ Du har nu autentiserats från en enhet med en test-SAS-token som har genererats 
 
 En enhet kan använda något av följande protokoll för att ansluta till din IoT-hubb:
 
-| Protokoll | Utgående port |
+| Protocol | Utgående port |
 | --- | --- |
 | MQTT |8883 |
 | MQTT över WebSockets |443 |

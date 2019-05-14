@@ -28,9 +28,10 @@
       href: user-help-auth-app-overview.md
     - name: Ladda ned och installera appen
       href: user-help-auth-app-download-install.md
-    - name: Översikt över att lägga till konton
-      href: user-help-auth-app-add-account-overview.md
+    - name: Lägga till konton
       items:
+        - name: Översikt
+          href: user-help-auth-app-add-account-overview.md
         - name: Lägga till ett arbets- eller skolkonto
           href: user-help-auth-app-add-work-school-account.md
         - name: Lägga till ett personligt Microsoft-konto
@@ -63,9 +64,10 @@
       href: user-help-security-info-overview.md
     - name: Lägga till säkerhetsinformation under inloggning
       href: security-info-setup-signin.md
-    - name: Översikt över att lägga till eller uppdatera säkerhetsinformationsmetoder
-      href: security-info-add-update-methods-overview.md
+    - name: Lägga till eller uppdatera säkerhetsinformationsmetoder
       items:
+        - name: Översikt
+          href: security-info-add-update-methods-overview.md
         - name: Konfigurera en autentiseringsapp
           href: security-info-setup-auth-app.md
         - name: Konfigurera textmeddelanden

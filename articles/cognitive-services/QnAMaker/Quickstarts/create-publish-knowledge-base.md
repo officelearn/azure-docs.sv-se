@@ -8,20 +8,20 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 04/05/2019
+ms.date: 05/10/2019
 ms.author: diberry
-ms.openlocfilehash: cf6b0cd99254d5b034687598c588ce5ef13dbd53
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1411576d078115921cb04b41347264bccdc390f4
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60914544"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65593965"
 ---
 # <a name="create-train-and-publish-your-qna-maker-knowledge-base"></a>Skapa, träna och publicera en QnA Maker-kunskapsbas
 
 Du kan skapa en QnA Maker-kunskapsbas (KB) av eget innehåll, till exempel vanliga frågor eller produkthandböcker. QnA Maker kunskapsbasen i det här exemplet skapas från en enkel vanliga frågor och svar-webbsida att besvara frågor om återställning av BitLocker-nyckel.
 
-## <a name="prerequisite"></a>Krav
+## <a name="prerequisite"></a>Förutsättning
 
 > [!div class="checklist"]
 > * Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
@@ -66,7 +66,7 @@ Du kan skapa en QnA Maker-kunskapsbas (KB) av eget innehåll, till exempel vanli
 
 1. Välj **Granska** för att undersöka svaret i detalj. Testfönstret används för att testa ändringarna i kunskapsbasen innan de publiceras.
 
-    ![Testpanel](../media/qnamaker-quickstart-kb/inspect-panel.png)
+    ![Testpanel](../media/qnamaker-quickstart-kb/inspect.png)
 
 1. Välj **Test** igen för att dölja popup-fönstret **Test**.
 

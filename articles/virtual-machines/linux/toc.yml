@@ -66,6 +66,8 @@
     - name: VM-typer och storlekar
       href: sizes.md
       items:
+        - name: 'Virtuella datorer, generation 2'
+          href: generation-2.md
         - name: Generellt syfte
           href: sizes-general.md
           items:

@@ -45,9 +45,9 @@ Följande egenskaper har stöd för Oracle Eloqua länkade tjänsten:
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen måste anges till: **Eloqua** | Ja |
-| slutpunkt | Slutpunkten för Eloqua-server. Eloqua har stöd för flera Datacenter för att fastställa din slutpunkt, logga in på https://login.eloqua.com med dina autentiseringsuppgifter, kopiera den **bas-URL** delen från den omdirigerade platsen med mönstret för `xxx.xxx.eloqua.com`. | Ja |
-| användarnamn | Platsnamn och användarnamn för kontot Eloqua i formatet: `SiteName\Username` t.ex. `Eloqua\Alice`.  | Ja |
-| lösenord | Lösenordet för användarnamnet. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| endpoint | Slutpunkten för Eloqua-server. Eloqua har stöd för flera Datacenter för att fastställa din slutpunkt, logga in på https://login.eloqua.com med dina autentiseringsuppgifter, kopiera den **bas-URL** delen från den omdirigerade platsen med mönstret för `xxx.xxx.eloqua.com`. | Ja |
+| username | Platsnamn och användarnamn för kontot Eloqua i formatet: `SiteName\Username` t.ex. `Eloqua\Alice`.  | Ja |
+| password | Lösenordet för användarnamnet. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | useEncryptedEndpoints | Anger om käll-slutpunkter data krypteras med HTTPS. Standardvärdet är sant.  | Nej |
 | useHostVerification | Anger om värdnamnet i servercertifikatet så att de matchar värdnamnet för servern när du ansluter via SSL. Standardvärdet är sant.  | Nej |
 | usePeerVerification | Anger om du vill kontrollera identiteten på servern när du ansluter via SSL. Standardvärdet är sant.  | Nej |
@@ -109,7 +109,7 @@ Om du vill kopiera data från Oracle Eloqua, ange typ av datakälla i kopierings
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **EloquaSource** | Ja |
-| DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM Accounts"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
+| query | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM Accounts"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**
 

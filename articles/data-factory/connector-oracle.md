@@ -57,7 +57,7 @@ Följande egenskaper har stöd för Oracle-länkade tjänsten.
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen måste anges till **Oracle**. | Ja |
+| type | Type-egenskapen måste anges till **Oracle**. | Ja |
 | connectionString | Anger information som behövs för att ansluta till Oracle Database-instans. <br/>Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory. Du kan också publicera lösenord i Azure Key Vault och använda pull i `password` konfiguration av anslutningssträngen. Följande exempel finns och [Store autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) artikel med mer information. <br><br>**Stöd för anslutningstypen**: Du kan använda **Oracle-SID** eller **Oracle-tjänstnamn** att identifiera din databas:<br>– Om du använder SID: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>– Om du använder tjänstens namn: `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | Ja |
 | connectVia | Den [integreringskörningen](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda lokal Integration Runtime eller Azure Integration Runtime (om ditt datalager är offentligt tillgänglig). Om den inte anges används standard Azure Integration Runtime. |Nej |
 
@@ -162,7 +162,7 @@ För att kopiera data från och till Oracle, ange typegenskapen på datauppsätt
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för datauppsättningen måste anges till **OracleTable**. | Ja |
+| type | Type-egenskapen för datauppsättningen måste anges till **OracleTable**. | Ja |
 | tableName |Namnet på tabellen i Oracle-databas som den länkade tjänsten refererar till. | Ja |
 
 **Exempel:**
@@ -194,7 +194,7 @@ För att kopiera data från Oracle, ange typ av datakälla i kopieringsaktivitet
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för aktiviteten kopieringskälla måste anges till **OracleSource**. | Ja |
+| type | Type-egenskapen för aktiviteten kopieringskälla måste anges till **OracleSource**. | Ja |
 | oracleReaderQuery | Använda anpassade SQL-frågan för att läsa data. Ett exempel är `"SELECT * FROM MyTable"`. | Nej |
 
 Om du inte anger ”oracleReaderQuery”, de kolumner som definierats i avsnittet ”struktur” av datauppsättningen som används för att skapa en fråga (`select column1, column2 from mytable`) ska köras på Oracle-databasen. Om definitionen för datauppsättningen inte har ”struktur”, markeras alla kolumner från tabellen.
@@ -237,7 +237,7 @@ Om du vill kopiera data till Oracle, ange Mottagartyp i kopieringsaktiviteten ti
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen type kopiera aktivitet komprimeringstyp måste anges till **OracleSink**. | Ja |
+| type | Egenskapen type kopiera aktivitet komprimeringstyp måste anges till **OracleSink**. | Ja |
 | writeBatchSize | Infogar data i SQL-tabell när buffertstorleken når writeBatchSize.<br/>Tillåtna värden är heltal (antal rader). |Nej (standardvärdet är 10 000) |
 | writeBatchTimeout | Väntetid för batch insert-åtgärden ska slutföras innan tidsgränsen uppnås.<br/>Tillåtna värden är tidsintervallet. Ett exempel är 00:30:00 (30 minuter). | Nej |
 | preCopyScript | Ange en SQL-fråga för kopieringsaktiviteten ska köras innan du skriver data till Oracle i varje körning. Du kan använda den här egenskapen för att rensa upp de förinstallerade data. | Nej |
@@ -283,21 +283,21 @@ När du kopierar data från och till Oracle, används följande mappningar från
 | BLOB |Byte[]<br/>(endast kan användas på Oracle 10g och senare) |
 | CHAR |String |
 | CLOB |String |
-| DATE |Datetime |
-| FLYTTAL |Decimal, sträng (om precision > 28) |
-| HELTAL |Decimal, sträng (om precision > 28) |
+| DATE |DateTime |
+| FLOAT |Decimal, String (om precision > 28) |
+| INTEGER |Decimal, String (om precision > 28) |
 | LONG |String |
-| LÄNGE RÅDATA |Byte[] |
+| LONG RAW |Byte[] |
 | NCHAR |String |
 | NCLOB |String |
-| NUMBER |Decimal, sträng (om precision > 28) |
+| NUMBER |Decimal, String (om precision > 28) |
 | NVARCHAR2 |String |
-| RÅDATA |Byte[] |
-| RAD-ID |String |
-| TIDSSTÄMPEL |Datetime |
-| TIDSSTÄMPEL MED LOKALA TIDSZON |String |
-| TIDSSTÄMPEL MED TIDSZON |String |
-| HELTALET |Tal |
+| RAW |Byte[] |
+| ROWID |String |
+| TIMESTAMP |DateTime |
+| TIMESTAMP WITH LOCAL TIME ZONE |String |
+| TIMESTAMP WITH TIME ZONE |String |
+| UNSIGNED INTEGER |Number |
 | VARCHAR2 |String |
 | XML |String |
 

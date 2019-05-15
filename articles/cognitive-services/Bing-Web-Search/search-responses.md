@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 07fb655af25fe590effcb885e7b366346724b50a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 85087ce5a4fa3dd733f47a35bc18d76f1f4bc652
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60642834"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606686"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Webbsökning i Bing struktur och svaret svarstyper  
 
@@ -330,7 +330,7 @@ Om användaren anger en tids- eller fråga, svaret kan innehålla en [tidszon](h
 
 Den `timeZone` svaret innehåller namnet på platsen, aktuella UTC-datum och tid på den angivna platsen och UTC-förskjutning. Om gränsen för platsen är inom olika tidszoner, innehåller svaret den aktuella UTC-datum och tid för alla tidszoner inom gränsen. Eftersom Florida tillstånd faller inom två tidszoner, innehåller till exempel svaret lokalt datum och tid för båda tidszoner.  
 
-Om frågan begär tidpunkten för en region eller land, Bing avgör primära staden inom platsens geografisk gräns och returnerar den i den `primaryCityTime` fält. Om gränsen innehåller flera tidszoner, återstående tidszoner returneras i de `otherCityTimes` fält.
+Om frågan begär ett tillstånd eller land/region, Bing avgör primära staden inom platsens geografisk gräns och returnerar den i den `primaryCityTime` fält. Om gränsen innehåller flera tidszoner, återstående tidszoner returneras i de `otherCityTimes` fält.
 
 Exemplet nedan visar frågor som returnerar de `timeZone` svar.
 

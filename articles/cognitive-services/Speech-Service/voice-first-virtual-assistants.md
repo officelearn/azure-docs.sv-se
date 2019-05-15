@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: travisw
 ms.custom: ''
-ms.openlocfilehash: 1344de526564ab623a51eb903951b6a2e866048d
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 1c5712fa8bbdb158992127f8f48d810a0a9b6f79
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523478"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603474"
 ---
 # <a name="about-custom-voice-first-virtual-assistants-preview"></a>Om anpassade röst första virtuella assistenter förhandsversionen
 
@@ -24,7 +24,9 @@ Anpassade virtuella assistenter med hjälp av Azure Speech Services gör att utv
 
    ![Begreppsmässiga diagram över direktlinje tal orchestration service flödet](media/voice-first-virtual-assistants/overview.png "The tal kanal flöde")
 
-Direct Line tal och dess associerade funktioner för anpassad röst första virtuella assistenter är ett perfekt komplement till den [virtuella Assistant lösning](https://docs.microsoft.com/azure/bot-service/bot-builder-virtual-assistant-introduction) och [företagets mall](https://docs.microsoft.com/azure/bot-service/bot-builder-virtual-assistant-introduction). Även om Direct Line-tal kan arbeta med valfri kompatibel bot, ange resurserna en återanvändbara baslinje för högkvalitativa konversationsanpassade upplevelser som vanliga stödjande kunskaper och modeller för att komma igång snabbt.
+
+Direct Line tal och dess associerade funktioner för anpassad röst första virtuella assistenter är ett perfekt komplement till den [virtuella Assistant lösningen och företagets mall](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview). Även om Direct Line-tal kan arbeta med valfri kompatibel bot, ange resurserna en återanvändbara baslinje för högkvalitativa konversationsanpassade upplevelser som vanliga stödjande kunskaper och modeller för att komma igång snabbt.
+
 
 ## <a name="core-features"></a>Kärnfunktioner
 

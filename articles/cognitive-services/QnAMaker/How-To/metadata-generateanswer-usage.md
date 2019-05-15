@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 05/10/2019
 ms.author: tulasim
-ms.openlocfilehash: b634467381dc97e4a733e862e86632a089bf5f67
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 278040cb487df6731df1ad3e18435f6e12ca9d50
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64727326"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65594046"
 ---
 # <a name="get-a-knowledge-answer-with-the-generateanswer-api-and-metadata"></a>Hämta ett knowledge svar med GenerateAnswer API och metadata
 
@@ -71,14 +71,14 @@ https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
 |--|--|--|--|
 |URL-parameter för väg|Kunskapsbas-ID|string|GUID för kunskapsbasen.|
 |URL-parameter för väg|QnAMaker slutpunktsvärd|string|Värdnamnet för den slutpunkt som distribuerats i din Azure-prenumeration. Detta är tillgängligt på sidan inställningar när du har publicerat i knowledge base. |
-|Huvud|Content-Type|string|Medietyp i texten som skickas till API: et. Standardvärdet är: ''|
-|Huvud|Auktorisering|string|Din slutpunktsnyckeln (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
+|Sidhuvud|Innehållstyp|string|Medietyp i texten som skickas till API: et. Standardvärdet är: ''|
+|Sidhuvud|Auktorisering|string|Din slutpunktsnyckeln (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
 |Publicera brödtext|JSON-objekt|JSON|Fråga med inställningar|
 
 
 JSON-texten har flera inställningar:
 
-|Brödtext JSON-egenskap|Krävs|Typ|Syfte|
+|Brödtext JSON-egenskap|Obligatoriskt|Typ|Syfte|
 |--|--|--|--|
 |`question`|obligatorisk|string|En användare-fråga som ska skickas till din kunskapsbas.|
 |`top`|valfri|heltal|Antal översta resultat ska ingå i utdata. Standardvärdet är 1.|
@@ -113,10 +113,10 @@ Ett lyckat svar returneras statusen 200 och ett JSON-svar.
 |Svar-egenskap (sorterat efter bedömning)|Syfte|
 |--|--|
 |poäng|En rangordning mellan 0 och 100.|
-|Id|Ett unikt ID för svaret.|
+|ID|Ett unikt ID för svaret.|
 |Frågor|Frågor som anges av användaren.|
 |Svar|Svaret på frågan.|
-|källa|Namnet på källan svaret har extraherats, eller sparats i knowledge base.|
+|source|Namnet på källan svaret har extraherats, eller sparats i knowledge base.|
 |metadata|Metadata som associeras med svaret.|
 |metadata.name|Namn på metadata. (string, maximal längd: 100 krävs)|
 |metadata.value: Metadata-värde. (string, maximal längd: 100 krävs)|
@@ -148,7 +148,7 @@ Ett lyckat svar returneras statusen 200 och ett JSON-svar.
 
 ## <a name="using-metadata-allows-you-to-filter-answers-by-custom-metadata-tags"></a>Med metadata kan du filtrera svar efter anpassade metadatataggar
 
-Att lägga till metadata kan du filtrera svar efter dessa metadatataggar. Överväg att den nedanför data för vanliga frågor och svar. Lägga till metadata i kunskapsbasen genom att klicka på ikonen för metadata.
+Att lägga till metadata kan du filtrera svar efter dessa metadatataggar. Lägga till metadatakolumnen från den **Visningsalternativ** menyn. Lägga till metadata i kunskapsbasen genom att klicka på metadata **+** ikon för att lägga till ett metadata-par. Den här par består av en nyckel och ett värde.
 
 ![lägga till metadata](../media/qnamaker-how-to-metadata-usage/add-metadata.png)
 

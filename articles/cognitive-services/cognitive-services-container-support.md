@@ -8,14 +8,14 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/13/2019
 ms.author: diberry
-ms.openlocfilehash: 241bda5c684197a43cc5564e950e924fed668b89
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 87599817ba7b50b941612c13c07842644f979fb7
+ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65147572"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65619705"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Stöd för behållare i Azure Cognitive Services
 
@@ -53,7 +53,7 @@ Azure Cognitive Services-behållare ger följande uppsättning Docker-behållare
 | Tjänst | Prisnivå som stöds | Container | Beskrivning |
 |---------|----------|----------|-------------|
 |[Avvikelseidentifiering detektor](https://go.microsoft.com/fwlink/?linkid=2083925&clcid=0x409) |F0, S0|**Avvikelseidentifiering detektor** |Avvikelseidentifiering detektor API kan du övervaka och identifiera avvikelser i tidsseriedata med machine learning.<br>[Begär åtkomst](https://aka.ms/adcontainer)|
-|[Visuellt innehåll](Computer-vision/computer-vision-how-to-install-containers.md) |F0, S1|**Identifiera Text** |Extraherar ut text från bilder för olika objekt med olika ytor och bakgrunder, till exempel kvitton och affischer visitkort.<br/><br/>**Viktigt!** Behållaren identifiera Text fungerar för närvarande bara på engelska.<br>[Begär åtkomst](Computer-vision/computer-vision-how-to-install-containers.md#request-access-to-the-private-container-registry)|
+|[Visuellt innehåll](Computer-vision/computer-vision-how-to-install-containers.md) |F0, S1|**Identifiera Text** |Extraherar ut text från bilder för olika objekt med olika ytor och bakgrunder, till exempel kvitton och affischer visitkort.<br/><br/>**Viktigt:** Behållaren identifiera Text fungerar för närvarande bara på engelska.<br>[Begär åtkomst](Computer-vision/computer-vision-how-to-install-containers.md#request-access-to-the-private-container-registry)|
 |[Ansikte](Face/face-how-to-install-containers.md) |F0, S0|**Ansikte** |Identifierar ansikten i bilder och identifierar attribut, inklusive ansiktslandmärken (till exempel och rörliga och ögon), kön, ålder och andra dator-förväntad ansiktsdrag. Förutom identifiering Kontrollera ansikte om två ansikten i samma bild eller olika bilder är samma med hjälp av ett förtroenderesultat eller jämföra ansikten mot en databas för att se om en likartade eller identiska ansikte finns redan. Det kan även sortera liknande ansikten i grupper, med hjälp av delade visual egenskaper.<br>[Begär åtkomst](Face/face-how-to-install-containers.md#request-access-to-the-private-container-registry) |
 |[Formuläret Igenkännande](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409) |F0, S0|**Form Recognizer** |Förstå formulär gäller maskininlärningsteknik för att identifiera och extrahera nyckel / värde-par och tabeller från formulär.<br>[Begär åtkomst](https://aka.ms/FormRecognizerContainerRequestAccess)|
 |[LUIS](LUIS/luis-container-howto.md) |F0, S0|**LUIS** ([bild](https://go.microsoft.com/fwlink/?linkid=2043204&clcid=0x409))|Läser in en tränad eller publicerade Language Understanding modell, även kallat en LUIS-app, i en docker-behållare och ger tillgång till fråga förutsägelser från behållarens API-slutpunkter. Du kan samla in fråga loggar från behållaren och ladda upp dessa tillbaka till den [LUIS portal](https://www.luis.ai) förbättra appens prognosens noggrannhet.|
@@ -76,9 +76,14 @@ Dessutom kan vissa behållare stöds i Cognitive Services [ **allt-i-ett erbjuda
 Azure Cognitive Services-behållare är tillgängliga för allmänheten via din Azure-prenumeration och Docker-behållaravbildningar kan hämtas från Microsoft Container Registry eller Docker Hub. Du kan använda den [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) för att ladda ned en behållaravbildning från lämplig registret.
 
 > [!IMPORTANT]
-> För närvarande måste du slutföra registreringsprocessen att komma åt den [ansikte](Face/face-how-to-install-containers.md) och [identifiera Text](Computer-vision/computer-vision-how-to-install-containers.md) behållare, som du kan fylla i och skicka en enkät med frågor om dig, ditt företag och användningsfallet som du vill implementera behållarna. När du har beviljat åtkomst och angett autentiseringsuppgifter kan hämta du sedan behållaravbildningarna för behållarna ansikte och identifiera Text från ett privat behållarregister med Azure Container Registry.
+> För närvarande måste du slutföra registreringsprocessen för att komma åt följande behållare som du kan fylla i och skicka en enkät med frågor om dig, ditt företag och användningsfall som du vill implementera behållarna. När du har beviljat åtkomst och angett autentiseringsuppgifter kan hämta du sedan behållaravbildningarna för behållarna ansikte och identifiera Text från ett privat behållarregister med Azure Container Registry.
+> * [Avvikelseidentifiering dectector](Anomaly-Detector/anomaly-detector-container-howto.md#request-access-to-the-container-registry)
+> * [Ansikte](Face/face-how-to-install-containers.md)
+> * [Form Recognizer](form-recognizer/form-recognizer-container-howto.md#request-access-to-the-container-registry)
+> * [Identifiera Text](Computer-vision/computer-vision-how-to-install-containers.md)
+> * [Tal till text och text till tal](Speech-Service/speech-container-howto.md#request-access-to-the-container-registry)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Du måste uppfylla följande krav innan du använder Azure Cognitive Services-behållare:
 
@@ -92,7 +97,7 @@ Få en genomgång om grunderna för Docker och behållare finns i den [översikt
 
 Enskilda behållare kan ha sina egna krav, samt, inklusive server och minneskrav för allokering.
 
-## <a name="developer-samples"></a>Utvecklarexempel
+## <a name="developer-samples"></a>Utvecklingsexempel
 
 Developer-exempel finns på vår [GitHub-lagringsplatsen](https://github.com/Azure-Samples/cognitive-services-containers-samples).
 

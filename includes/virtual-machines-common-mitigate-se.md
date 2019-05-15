@@ -5,17 +5,17 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 08/14/2018
+ms.date: 05/14/2019
 ms.author: cynthn;kareni
 ms.custom: include file
-ms.openlocfilehash: cbd86571cbdcd600ef3acdea3833568a34657931
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: be8c3d3be4410d15ba132a24a417e7a7b0418352
+ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60337957"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65620261"
 ---
-**Senast dokumentera uppdatering**: 14 augusti 2018 10:00 FM PST.
+**Senast dokumentera uppdatering**: 14 maj 2019 10:00 FM PST.
 
 Utlämnande av en [ny klass av processorsäkerhetsproblem](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) kallas spekulativ körning sidokanal attacker har lett till frågor från kunder som vill ha mer tydligare.  
 
@@ -28,11 +28,17 @@ Mer information om hur säkerheten är integrerad i alla aspekter av Azure är t
 > [!NOTE] 
 > Eftersom det här dokumentet publicerades först, har flera varianter av den här klassen säkerhetsproblem lämnats. Microsoft fortsätter att vara mycket har investerat i skydda våra kunder och ge vägledning. Den här sidan kommer att uppdateras när vi fortsätter att släppa ytterligare korrigeringar. 
 > 
-> Den 14 augusti 2018 branschen uppges en ny spekulativ körning sida kanal sårbarhet kallas [L1 Terminal fel](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180018) (L1TF) som har tilldelats flera CVEs ([CVE-2018-3615, CVE 2018 3620, och CVE-2018-3646](https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00161.html)). Denna säkerhetsrisk påverkar Intel® Core®-processorer och Intel® Xeon®-processorer. Microsoft har distribuerat åtgärder i alla sina molntjänster som förstärker isolering mellan kunderna. Läs nedan för ytterligare vägledning för att skydda mot L1TF och föregående sårbarheter ([Spectre Variant 2 CVE-2017-5715 och Meltdown Variant 3 CVE-2017-5754](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution)).
->  
-
-
-
+> Den 14 maj 2019 [Intel uppges](https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00233.html) en ny uppsättning spekulativ körning sida kanal säkerhetsproblem kallas mikroarkitekturstruktur Datasampling (MDS finns i Microsofts säkerhetsvägledning [ADV190013](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV190013)), som har tilldelats flera CVEs: 
+> - CVE-2018-11091 - mikroarkitekturstruktur Data Sampling Uncacheable minne (MDSUM)
+> - CVE-2018-12126 - mikroarkitekturstruktur Store bufferten Data Sampling (MSBDS) 
+> - CVE-2018-12127 - mikroarkitekturstruktur belastningen Port Data Sampling (MLPDS)
+> - CVE-2018-12130 - mikroarkitekturstruktur fyllning bufferten Data Sampling (MFBDS)
+>
+> Denna säkerhetsrisk påverkar Intel® Core®-processorer och Intel® Xeon®-processorer.  Microsoft Azure har släppt uppdateringar av operativsystemet och är att distribuera nya microcode som det tillgängliggörs av Intel i hela vår flotta att skydda våra kunder mot dessa nya problem.   Azure fungerar nära samarbete med Intel att testa och validera den nya microcode innan dess officiella versionen på plattformen. 
+>
+> **Kunder som använder inte är betrodd kod i sina Virtuella** måste du vidta åtgärder för att skydda mot dessa problem genom att läsa nedan för mer information om alla spekulativ körning sidokanal sårbarheter (Microsoft rådgivning ADV [180002](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002), [180018](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/adv180018), och [190013](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV190013)).
+>
+> Andra kunder bör utvärdera dessa problem från skydd på djupet perspektiv och överväga konsekvenserna för säkerhet och prestanda för den valda konfigurationen.
 
 
 
@@ -64,56 +70,115 @@ Kunder som inte implementerar ett scenario som rör icke betrodd kod behöver in
 
 ## <a name="enabling-additional-security"></a>Aktivera ytterligare säkerhet 
 
-Du kan aktivera ytterligare säkerhetsfunktioner inuti den virtuella datorn eller Molntjänsten.
+Du kan aktivera ytterligare säkerhetsfunktioner i din virtuella dator eller molntjänst om du använder en icke betrodd kod. Parallellt, se till att operativsystemet är uppdaterad för att aktivera säkerhetsfunktionerna i din virtuella dator eller molntjänst
 
 ### <a name="windows"></a>Windows 
 
 Måloperativsystemets måste vara uppdaterade för att aktivera de här ytterligare säkerhetsfunktioner. Även om ett stort antal spekulativ körning sida kanal åtgärder är aktiverade som standard, ytterligare funktioner som beskrivs här måste vara aktiverat manuellt och kan orsaka en prestandapåverkan. 
 
-**Steg 1**: [Kontakta Azure-supporten](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) till exponerar uppdaterad inbyggd programvara (microcode) till dina virtuella datorer. 
 
-**Steg 2**: Aktivera stöd för Kernel virtuella adress skuggning (KVAS) och grenen Target inmatning (BTI) OS. Följ instruktionerna i [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) att aktivera skydd via den `Session Manager` registernycklar. En omstart krävs. 
+**Steg 1: Inaktivera hypertrådning på den virtuella datorn** - kunder som kör icke betrodd kod på en hyperthreaded VM kommer att behöva inaktivera hypertrådning eller flytta till en icke-hyperthreaded VM-storlek. Om du vill kontrollera om den virtuella datorn har hypertrådning aktiverat, finns det med hjälp av Windows-kommandoraden från den virtuella datorn-skriptet nedan.
 
-**Steg 3**: För distributioner som använder [kapslad virtualisering](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization) (D3 och endast E3): Dessa anvisningar gäller inuti den virtuella datorn som du använder som en Hyper-V-värd. 
+Typ `wmic` att ange det interaktiva gränssnittet. Skriv sedan nedan för att visa mängden fysiska och logiska processorer på den virtuella datorn.
 
-1. Följ instruktionerna i [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) att aktivera skydd via den `MinVmVersionForCpuBasedMitigations` registernycklar.  
- 
-1. Ange vilket hypervisor scheduler **Core** genom att följa anvisningarna [här](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types). 
+```console
+CPU Get NumberOfCores,NumberOfLogicalProcessors /Format:List
+```
 
-**Steg 4**: Följ instruktionerna i [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) att verifiera skydd aktiveras med hjälp av den [SpeculationControl](https://aka.ms/SpeculationControlPS) PowerShell-modulen. 
+Om antalet logiska processorer är större än fysiska processorer (kärnor), är hypertrådning aktiverat.  Om du kör en hyperthreaded VM [kontakta Azure-supporten](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) att hämta hypertrådning inaktiverat.  När hypertrådning är inaktiverat **supporten behöver en fullständig VM-omstart**. 
+
+
+**Steg 2**: Parallellt till steg 1, följer du anvisningarna i [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) att verifiera skydd aktiveras med hjälp av den [SpeculationControl](https://aka.ms/SpeculationControlPS) PowerShell-modulen.
 
 > [!NOTE]
 > Om du tidigare har hämtat den här modulen kommer du behöva installera den senaste versionen.
 >
 
-Alla virtuella datorer ska visa:
+
+Utdata från PowerShell-skriptet ska ha den under värden att validera aktiverat skydd mot dessa problem:
 
 ```
-branch target injection mitigation is enabled: True
-
-kernel VA shadow is enabled: True  
-
-L1TFWindowsSupportEnabled: True
+Windows OS support for branch target injection mitigation is enabled: True
+Windows OS support for kernel VA shadow is enabled: True
+Windows OS support for speculative store bypass disable is enabled system-wide: False
+Windows OS support for L1 terminal fault mitigation is enabled: True
+Windows OS support for MDS mitigation is enabled: True
 ```
+
+Om utdata visar `MDS mitigation is enabled: False`så kan du [kontakta Azure-supporten](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) för minskning av tillgängliga alternativ.
+
+
+
+**Steg 3**: Om du vill aktivera Kernel virtuella adress skuggning (KVAS) och grenen Target inmatning (BTI) OS-support, följer du anvisningarna i [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) att aktivera skydd med hjälp av den `Session Manager` registernycklar. En omstart krävs.
+
+
+**Steg 4**: För distributioner som använder [kapslad virtualisering](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization) (D3 och endast E3): Dessa anvisningar gäller inuti den virtuella datorn som du använder som en Hyper-V-värd.
+
+1.  Följ instruktionerna i [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) att aktivera skydd med hjälp av den `MinVmVersionForCpuBasedMitigations` registernycklar.
+2.  Ange vilket hypervisor scheduler `Core` genom att följa anvisningarna [här](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types).
 
 
 ### <a name="linux"></a>Linux
 
 <a name="linux"></a>Aktivera ytterligare säkerhetsfunktioner i uppsättningen kräver att måloperativsystemet är fullständigt uppdaterad. Vissa åtgärder kommer att aktiveras som standard. I följande avsnitt beskrivs de funktioner som är inaktiverade som standard och/eller beroende maskinvarustöd (microcode). Aktivera dessa funktioner kan det orsaka en prestandapåverkan. Referera till ditt operativsystem leverantörens dokumentation för ytterligare instruktioner
- 
-**Steg 1**: [Kontakta Azure-supporten](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) till exponerar uppdaterad inbyggd programvara (microcode) till dina virtuella datorer.
- 
-**Steg 2**: Aktivera stöd för grenen Target inmatning (BTI) OS minimera CVE 2017 5715 (Spectre Variant 2) genom att följa operativsystemet leverantörens dokumentation. 
- 
-**Steg 3**: Aktivera Kernel sidan tabell isolering (KPTI) för att minimera CVE 2017 5754 (Meltdown Variant 3) genom att följa operativsystemet leverantörens dokumentation. 
- 
-Mer information finns tillgängliga från providern för ditt operativsystem:  
- 
-- [RedHat och CentOS](https://access.redhat.com/security/vulnerabilities/speculativeexecution) 
-- [SUSE](https://www.suse.com/support/kb/doc/?id=7022512) 
-- [Ubuntu](https://wiki.ubuntu.com/SecurityTeam/KnowledgeBase/SpectreAndMeltdown) 
 
+
+**Steg 1: Inaktivera hypertrådning på den virtuella datorn** - kunder som kör icke betrodd kod på en hyperthreaded virtuell dator måste du inaktivera hypertrådning eller flyttar till en icke-hyperthreaded virtuell dator.  Kontrollera om du kör en hyperthreaded VM, köra den `lspcu` i Linux VM. 
+
+Om `Thread(s) per core = 2`, och sedan hypertrådning har aktiverats. 
+
+Om `Thread(s) per core = 1`, och sedan hypertrådning har inaktiverats. 
+
+ 
+Exempel som utdata för en virtuell dator med hypertrådar aktiverade: 
+
+```console
+CPU Architecture:      x86_64
+CPU op-mode(s):        32-bit, 64-bit
+Byte Order:            Little Endian
+CPU(s):                8
+On-line CPU(s) list:   0,2,4,6
+Off-line CPU(s) list:  1,3,5,7
+Thread(s) per core:    2
+Core(s) per socket:    4
+Socket(s):             1
+NUMA node(s):          1
+
+```
+
+Om du kör en hyperthreaded VM [kontakta Azure-supporten](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) att hämta hypertrådning inaktiverat.  Anteckning: När hypertrådning är inaktiverat **supporten behöver en fullständig VM-omstart**.
+
+
+**Steg 2**: Skyddar mot någon av de nedan spekulativ körning sidokanal sårbarheter, referera till operativsystemet leverantörens dokumentation:   
+ 
+- [RedHat och CentOS](https://access.redhat.com/security/vulnerabilities) 
+- [SUSE](https://www.suse.com/support/kb/?doctype%5B%5D=DT_SUSESDB_PSDB_1_1&startIndex=1&maxIndex=0) 
+- [Ubuntu](https://wiki.ubuntu.com/SecurityTeam/KnowledgeBase/) 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information finns i [skydda Azure-kunder från processorproblem](https://azure.microsoft.com/blog/securing-azure-customers-from-cpu-vulnerability/).
+Den här artikeln innehåller vägledning om hur du den nedan spekulativ körning sidokanal attacker som påverkar många moderna processorer:
+
+[Spectre Meltdown](https://portal.msrc.microsoft.com/security-guidance/advisory/ADV180002):
+- CVE-2017-5715 - gren Target inmatning (BTI)  
+- CVE-2017-5754 - Kernel sidan tabell isolering (KPTI)
+- CVE-2018-3639 – Speculative Store Bypass (KPTI) 
+ 
+[L1 Terminal fel (L1TF)](https://portal.msrc.microsoft.com/security-guidance/advisory/ADV180018):
+- CVE-2018-3615 - Intel Software Guard Extensions (Intel SGX)
+- CVE-2018-3620 - operativsystem (OS) och System Management-läge (SMM)
+- CVE 2018 3646 – påverkar Virtual Machine Manager (VMM)
+
+[Mikroarkitekturstruktur Datasampling](https://portal.msrc.microsoft.com/security-guidance/advisory/ADV190013): 
+- CVE-2018-11091 - mikroarkitekturstruktur Data Sampling Uncacheable minne (MDSUM)
+- CVE-2018-12126 - mikroarkitekturstruktur Store bufferten Data Sampling (MSBDS)
+- CVE-2018-12127 - mikroarkitekturstruktur belastningen Port Data Sampling (MLPDS)
+- CVE-2018-12130 - mikroarkitekturstruktur fyllning bufferten Data Sampling (MFBDS)
+
+
+
+
+
+
+
+

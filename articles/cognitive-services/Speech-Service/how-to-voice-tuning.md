@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 2352594b168f5d37ddb6a46064f9ac5801fb035f
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 8d3e25f8217f3cc8772de9fbbb06a407008ca6f6
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65508395"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65593884"
 ---
 # <a name="fine-tune-text-to-speech-output"></a>Finjustera text till tal-utdata
 
@@ -35,7 +35,7 @@ Innan du kan börja finjustera text till tal-utdata med verktyget röst justerin
    >När du skapar en tal-resurs i Azure portal, måste Azure platsinformationen matcha med text till tal-voice-region. Neural text till tal-röst stöder en sub uppsättning Azure-platser. En fullständig lista över support finns i [regioner](regions.md#text-to-speech).
 
    >[!NOTE]
-   >Du måste ha en F0 eller en S0-nyckel som skapats i Azure-portalen innan du kan använda tjänsten. Röst justering **inte** stöder den [30-dagars kostnadsfri utvärderingsversion nyckeln](https://review.docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started?branch=release-build-cogserv-speech-services#free-trial).
+   >Du måste ha en F0 eller en S0-nyckel som skapats i Azure-portalen innan du kan använda tjänsten. Röst justering **inte** stöder den [30-dagars kostnadsfri utvärderingsversion nyckeln](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started?branch=release-build-cogserv-speech-services#free-trial).
 
 4. Logga in på den [röst justering](https://aka.ms/voicetuning) -portalen och ansluta din Speech Services-prenumeration. Välj en enda Speech Services-prenumeration och sedan skapa ett projekt.
 5. Välj **nya justering**. Följ dessa steg:
@@ -43,7 +43,7 @@ Innan du kan börja finjustera text till tal-utdata med verktyget röst justerin
    * Leta upp och välj **alla prenumerationer**.  
    * Välj **ansluta befintliga prenumeration**.  
      ![Ansluta en befintlig prenumeration](./media/custom-voice/custom-voice-connect-subscription.png).
-   * Ange din prenumerationsnyckel för Azure Speech Services och välj sedan **Lägg till**. Dina prenumerationsnycklar är tillgängliga i tal anpassning av portalen från den [prenumerationssidan](https://go.microsoft.com/fwlink/?linkid=2090458). Du kan också få nycklarna från fönstret resurshantering i den [Azure-portalen](https://portal.azure.com/). 
+   * Ange din prenumerationsnyckel för Azure Speech Services och välj sedan **Lägg till**. Dina prenumerationsnycklar är tillgängliga i tal anpassning av portalen från den [prenumerationssidan](https://go.microsoft.com/fwlink/?linkid=2090458). Du kan också få nycklarna från fönstret resurshantering i den [Azure-portalen](https://portal.azure.com/).
    * Om du har mer än en Speech Services-prenumeration som du planerar att använda kan du upprepa dessa steg för varje prenumeration.
 
 ## <a name="customize-the-text-to-speech-output"></a>Anpassa text till tal-utdata

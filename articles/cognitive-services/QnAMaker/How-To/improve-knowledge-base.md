@@ -8,14 +8,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 05/13/2019
 ms.author: diberry
-ms.openlocfilehash: 3e54e8dcb6efa9251262c651730376a0d04edcf9
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: f80e6a765cc165033a548ba6a5ee7bead0de872e
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65144979"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65594070"
 ---
 # <a name="use-active-learning-to-improve-your-knowledge-base"></a>Använda active learning för att förbättra din kunskapsbas
 
@@ -46,7 +46,7 @@ När frågor föreslås i QnA Maker-portalen, måste du granska och godkänna el
 
 Aktiv inlärning stöds i körningsversion 4.4.0 och senare. Om din kunskapsbas skapades på en tidigare version [uppgradera din runtime](troubleshooting-runtime.md#how-to-get-latest-qnamaker-runtime-updates) att använda den här funktionen. 
 
-## <a name="best-practices"></a>Bästa praxis
+## <a name="best-practices"></a>Regelverk
 
 Metodtips när du använder aktiv inlärning finns [bästa praxis](../Concepts/best-practices.md#active-learning).
 
@@ -60,9 +60,9 @@ Algoritm och fastställa närhet är inte en enkel beräkning. Intervall i före
 
 Aktiv inlärning är inaktiverat som standard. Aktivera den föreslagna frågor. 
 
-1. Välj **publicera** att publicera i knowledge base. Aktiv inlärning frågor samlas in från GenerateAnswer API förutsägelse slutpunkten endast. Frågorna till rutan i Qna Maker portal inverkar inte aktiv inlärning.
+1. Välj **publicera** att publicera i knowledge base. Aktiv inlärning frågor samlas in från GenerateAnswer API förutsägelse slutpunkten endast. Frågorna till rutan i QnA Maker portal inverkar inte aktiv inlärning.
 
-1. Om du vill aktivera active learning på, klicka på din **namn**går du till [ **tjänstinställningar** ](https://www.qnamaker.ai/UserSettings) i QnA Maker-portalen i det övre högra hörnet.  
+1. Om du vill aktivera active learning på, klicka på din **namn**går du till [ **tjänstinställningar** ](https://www.qnamaker.ai/UserSettings) i QnA Maker-portalen i övre högra hörnet.  
 
     ![Aktivera aktiv inlärning föreslagna fråga alternativ från tjänstinställningssidan. Välj användarnamnet i den övre högra menyn och välj sedan inställningarna för tjänsten.](../media/improve-knowledge-base/Endpoint-Keys.png)
 
@@ -173,8 +173,8 @@ Content-Type: application/json
 |--|--|--|--|
 |URL-parameter för väg|Kunskapsbas-ID|string|GUID för kunskapsbasen.|
 |Host subdomain|Resursnamnet för QnAMaker|string|Värdnamnet för din QnA Maker i Azure-prenumerationen. Detta är tillgängligt på sidan inställningar när du har publicerat i knowledge base. |
-|Huvud|Content-Type|string|Medietyp i texten som skickas till API: et. Standardvärdet är: `application/json`|
-|Huvud|Auktorisering|string|Din slutpunktsnyckeln (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
+|Sidhuvud|Innehållstyp|string|Medietyp i texten som skickas till API: et. Standardvärdet är: `application/json`|
+|Sidhuvud|Auktorisering|string|Din slutpunktsnyckeln (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
 |Publicera brödtext|JSON-objekt|JSON|Utbildning feedback|
 
 JSON-texten har flera inställningar:
@@ -208,7 +208,7 @@ Ett lyckat svar returneras statusen 204 och inget JSON-svarstexten.
 
 När din app har aktiv inlärning aktiverat, och du exportera en app i `SuggestedQuestions` kolumnen i filen tsv behåller data aktiv inlärning. 
 
-Den `SuggestedQuestions` kolumnen är ett JSON-objekt av information om implicit (`autosuggested`) och explicit (`usersuggested`) feedback. Ett exempel på JSON-objektet för en enda Användarinitierat fråga om `help` är:
+Den `SuggestedQuestions` kolumnen är ett JSON-objekt av information om implicit, `autosuggested`, och explicit, `usersuggested` feedback. Ett exempel på JSON-objektet för en enda Användarinitierat fråga om `help` är:
 
 ```JSON
 [

@@ -45,13 +45,13 @@ Följande egenskaper har stöd för Presto länkade tjänsten:
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen måste anges till: **Presto** | Ja |
-| värd | IP-adressen eller värdnamnet namnet på Presto servern. (d.v.s. 192.168.222.160)  | Ja |
+| host | IP-adressen eller värdnamnet namnet på Presto servern. (d.v.s. 192.168.222.160)  | Ja |
 | serverVersion | Versionen av Presto server. (d.v.s. 0.148-t)  | Ja |
-| katalog | Katalogen kontext för alla begäranden mot servern.  | Ja |
+| catalog | Katalogen kontext för alla begäranden mot servern.  | Ja |
 | port | TCP-porten som Presto servern använder för att lyssna efter klientanslutningar. Standardvärdet är 8080.  | Nej |
 | authenticationType | Den autentiseringsmetod som används för att ansluta till Presto-servern. <br/>Tillåtna värden är: **Anonym**, **LDAP** | Ja |
-| användarnamn | Användarnamnet som används för att ansluta till Presto-servern.  | Nej |
-| lösenord | Lösenordet för användarnamnet. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Nej |
+| username | Användarnamnet som används för att ansluta till Presto-servern.  | Nej |
+| password | Lösenordet för användarnamnet. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Nej |
 | enableSsl | Anger om anslutningar till servern krypteras med SSL. Standardvärdet är FALSKT.  | Nej |
 | trustedCertPath | Den fullständiga sökvägen till filen .pem som innehåller certifikat från betrodda Certifikatutfärdare för att verifiera servern när du ansluter via SSL. Den här egenskapen kan bara anges när du använder SSL på lokal IR. Standardvärdet är filen cacerts.pem installerad med i IR.  | Nej |
 | useSystemTrustStore | Anger om du vill använda ett CA-certifikat från arkivet med betrodda system eller från en angiven PEM-fil. Standardvärdet är FALSKT.  | Nej |
@@ -121,7 +121,7 @@ Om du vill kopiera data från Presto, ange typ av datakälla i kopieringsaktivit
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **PrestoSource** | Ja |
-| DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
+| query | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**
 

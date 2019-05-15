@@ -176,7 +176,7 @@ Om du vill kopiera data från PostgreSQL, ange typ av datakälla i kopieringsakt
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **RelationalSource** | Ja |
-| DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"query": "SELECT * FROM \"MySchema\".\"MyTable\""`. | Nej (om ”tableName” i datauppsättningen har angetts) |
+| query | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"query": "SELECT * FROM \"MySchema\".\"MyTable\""`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 > [!NOTE]
 > Schema och tabellnamn är skiftlägeskänsliga. Sätter dem inom `""` (dubbla citattecken) i frågan.

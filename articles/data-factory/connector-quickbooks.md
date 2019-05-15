@@ -47,7 +47,7 @@ Följande egenskaper har stöd för QuickBooks länkade tjänsten:
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen måste anges till: **QuickBooks** | Ja |
-| slutpunkt | Slutpunkt för QuickBooks Online-servern. (det vill säga quickbooks.api.intuit.com)  | Ja |
+| endpoint | Slutpunkt för QuickBooks Online-servern. (det vill säga quickbooks.api.intuit.com)  | Ja |
 | companyId | ID för företag på QuickBooks företaget att godkänna. Information om hur du hittar ID för företag finns i [hur hittar jag mitt företags-ID?](https://quickbooks.intuit.com/community/Getting-Started/How-do-I-find-my-Company-ID/m-p/185551). | Ja |
 | consumerKey | Konsumentnyckel för autentisering för OAuth 1.0. | Ja |
 | consumerSecret | Konsumenthemligheten för OAuth 1.0-autentisering. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
@@ -122,7 +122,7 @@ För att kopiera data från QuickBooks Online, ange typ av datakälla i kopierin
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **QuickBooksSource** | Ja |
-| DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM "Bill" WHERE Id = '123'"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
+| query | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM "Bill" WHERE Id = '123'"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**
 

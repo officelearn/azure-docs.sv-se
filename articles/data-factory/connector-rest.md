@@ -55,7 +55,7 @@ Följande egenskaper har stöd för REST-länkade tjänsten:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Den **typ** egenskapen måste anges till **RestService**. | Ja |
+| type | Den **typ** egenskapen måste anges till **RestService**. | Ja |
 | url | Bas-URL REST-tjänst. | Ja |
 | enableServerCertificateValidation | Om du vill verifiera SSL-certifikat för server-sida när du ansluter till slutpunkten. | Nej<br /> (standardvärdet är **SANT**) |
 | authenticationType | Typ av autentisering som används för att ansluta till REST-tjänst. Tillåtna värden är **anonym**, **grundläggande**, **AadServicePrincipal** och **ManagedServiceIdentity**. Se motsvarande avsnitt nedan på flera egenskaper och exempel respektive. | Ja |
@@ -102,7 +102,7 @@ Ange den **authenticationType** egenskap **AadServicePrincipal**. Förutom de al
 |:--- |:--- |:--- |
 | servicePrincipalId | Ange Azure Active Directory-programmets klient-ID. | Ja |
 | servicePrincipalKey | Ange nyckel för Azure Active Directory-programmet. Markera det här fältet som en **SecureString** ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
-| klient | Ange klientinformation (domain name eller klient-ID) under där programmet finns. Hämta det håller musen i det övre högra hörnet i Azure Portal. | Ja |
+| tenant | Ange klientinformation (domain name eller klient-ID) under där programmet finns. Hämta det håller musen i det övre högra hörnet i Azure Portal. | Ja |
 | aadResourceId | Ange AAD-resurs som du begär om tillstånd, t.ex. `https://management.core.windows.net`.| Ja |
 
 **Exempel**
@@ -169,7 +169,7 @@ Om du vill kopiera data från REST, stöds följande egenskaper:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Den **typ** egenskap måste anges till **RestResource**. | Ja |
+| type | Den **typ** egenskap måste anges till **RestResource**. | Ja |
 | relativeUrl | En relativ URL till den resurs som innehåller data. När den här egenskapen har inte angetts används bara den URL som anges i länkade tjänstedefinition. | Nej |
 | requestMethod | HTTP-metoden. Tillåtna värden är **hämta** (standard) och **Post**. | Nej |
 | additionalHeaders | Ytterligare rubriker för HTTP-begäran. | Nej |
@@ -232,7 +232,7 @@ Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnittet:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Den **typ** egenskapen för aktiviteten kopieringskälla måste anges till **RestSource**. | Ja |
+| type | Den **typ** egenskapen för aktiviteten kopieringskälla måste anges till **RestSource**. | Ja |
 | httpRequestTimeout | Timeout (i **TimeSpan** värde) för HTTP-begäran att få svar. Det här värdet är tidsgränsen för att få svar timeout inte att läsa svarsdata. Standardvärdet är **00:01:40**.  | Nej |
 | requestInterval | Tiden att vänta innan du skickar en begäran för nästa sida. Standardvärdet är **00:00:01** |  Nej |
 

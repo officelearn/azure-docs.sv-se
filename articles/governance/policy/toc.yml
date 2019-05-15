@@ -280,6 +280,9 @@
     - name: Åtgärda icke-kompatibla resurser
       displayName: 'managed identity, task, definition, roleDefinitionIds'
       href: ./how-to/remediate-resources.md
+    - name: Aktivera Azure Monitor for VMs (förhandsversion)
+      displayName: 'insights, log analytics, builtin'
+      href: ../../azure-monitor/insights/vminsights-enable-at-scale-policy.md?toc=/azure/governance/policy/toc.json
 - name: Referens
   items:
     - name: Azure CLI

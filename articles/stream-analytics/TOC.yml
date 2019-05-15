@@ -175,6 +175,8 @@
           href: stream-analytics-troubleshoot-query.md
         - name: Aktivitets- och diagnostikloggar
           href: stream-analytics-job-diagnostic-logs.md
+        - name: Datafel
+          href: data-errors.md
     - name: Integrera med Machine Learning
       items:
         - name: Attitydanalys med maskininlärningsmodeller

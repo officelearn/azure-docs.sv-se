@@ -512,6 +512,8 @@
           href: data-explorer.md
         - name: Hantera indexeringsprinciper
           href: how-to-manage-indexing-policy.md
+        - name: Definiera unika nycklar
+          href: how-to-define-unique-keys.md
         - name: Exempel på SQL-underfråga
           displayName: 'subquery, exists'
           href: how-to-sql-subquery.md

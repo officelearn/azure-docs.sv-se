@@ -165,7 +165,7 @@
           href: grant-access-to-create-subscription.md
         - name: Autentisera mellan klienter
           href: authenticate-multi-tenant.md
-    - name: Granska distributioner
+    - name: Granska ändringar
       items:
         - name: Visa aktivitetsloggar
           href: resource-group-audit.md

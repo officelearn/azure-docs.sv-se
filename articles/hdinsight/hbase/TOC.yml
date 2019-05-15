@@ -12,6 +12,8 @@
       maintainContext: true
 - name: Snabbstarter
   items:
+    - name: Fråga Apache HBase – Apache Phoenix
+      href: apache-hbase-phoenix-squirrel-linux.md
     - name: Fråga Apache HBase – HBase Shell
       href: ./query-hbase-with-hbase-shell.md
 - name: Kom igång
@@ -52,8 +54,6 @@
         - name: Apache Phoenix i HDInsight
           href: ../hdinsight-phoenix-in-hdinsight.md
           maintainContext: true
-        - name: Använda Apache Phoenix och SQLLine
-          href: apache-hbase-phoenix-squirrel-linux.md
         - name: Använda REST SDK för Apache Phoenix Query Server
           href: apache-hbase-using-phoenix-query-server-rest-sdk.md
     - name: Analysera stordata
@@ -115,7 +115,7 @@
             - name: Använda cURL och Azure REST API
               href: ../hdinsight-hadoop-create-linux-clusters-curl-rest.md
               maintainContext: true
-            - name: Använda Azure Classic CLI
+            - name: Använda Azure CLI
               href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
               maintainContext: true
             - name: Skapa kluster på begäran

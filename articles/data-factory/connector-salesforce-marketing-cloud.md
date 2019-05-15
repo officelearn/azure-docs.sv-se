@@ -48,8 +48,8 @@ Följande egenskaper har stöd för Salesforce Marketing Cloud länkade tjänste
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen måste anges till: **SalesforceMarketingCloud** | Ja |
-| ClientId | Klient-ID som är associerade med Salesforce Marketing Cloud-programmet.  | Ja |
-| ClientSecret | Klienthemlighet som är kopplade till Salesforce Marketing Cloud-programmet. Du kan välja att markera det här fältet som en SecureString att lagra den på ett säkert sätt i ADF eller lagra lösenord i Azure Key Vault och låt ADF kopiera aktivitet pull därifrån när du utför kopiering av data – Lär dig mer från [Store autentiseringsuppgifter i Key Vault](store-credentials-in-key-vault.md). | Ja |
+| clientId | Klient-ID som är associerade med Salesforce Marketing Cloud-programmet.  | Ja |
+| clientSecret | Klienthemlighet som är kopplade till Salesforce Marketing Cloud-programmet. Du kan välja att markera det här fältet som en SecureString att lagra den på ett säkert sätt i ADF eller lagra lösenord i Azure Key Vault och låt ADF kopiera aktivitet pull därifrån när du utför kopiering av data – Lär dig mer från [Store autentiseringsuppgifter i Key Vault](store-credentials-in-key-vault.md). | Ja |
 | useEncryptedEndpoints | Anger om käll-slutpunkter data krypteras med HTTPS. Standardvärdet är sant.  | Nej |
 | useHostVerification | Anger om värdnamnet i servercertifikatet så att de matchar värdnamnet för servern när du ansluter via SSL. Standardvärdet är sant.  | Nej |
 | usePeerVerification | Anger om du vill kontrollera identiteten på servern när du ansluter via SSL. Standardvärdet är sant.  | Nej |
@@ -114,7 +114,7 @@ Om du vill kopiera data från Salesforce Marketing Cloud, ange typ av datakälla
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **SalesforceMarketingCloudSource** | Ja |
-| DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
+| query | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**
 

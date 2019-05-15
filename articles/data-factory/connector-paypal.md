@@ -45,9 +45,9 @@ Följande egenskaper har stöd för PayPal länkade tjänsten:
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen måste anges till: **PayPal** | Ja |
-| värd | URL till PayPal-instans. (det vill säga api.sandbox.paypal.com)  | Ja |
-| ClientId | Klient-ID som är associerade med PayPal programmet.  | Ja |
-| ClientSecret | Klienthemlighet som är kopplad till PayPal programmet. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| host | URL till PayPal-instans. (det vill säga api.sandbox.paypal.com)  | Ja |
+| clientId | Klient-ID som är associerade med PayPal programmet.  | Ja |
+| clientSecret | Klienthemlighet som är kopplad till PayPal programmet. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | useEncryptedEndpoints | Anger om käll-slutpunkter data krypteras med HTTPS. Standardvärdet är sant.  | Nej |
 | useHostVerification | Anger om värdnamnet i servercertifikatet så att de matchar värdnamnet för servern när du ansluter via SSL. Standardvärdet är sant.  | Nej |
 | usePeerVerification | Anger om du vill kontrollera identiteten på servern när du ansluter via SSL. Standardvärdet är sant.  | Nej |
@@ -109,7 +109,7 @@ Om du vill kopiera data från PayPal, ange typ av datakälla i kopieringsaktivit
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **PayPalSource** | Ja |
-| DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM Payment_Experience"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
+| query | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM Payment_Experience"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**
 

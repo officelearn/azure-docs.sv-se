@@ -13,12 +13,12 @@ keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, 
 manager: jeconnoc
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.openlocfilehash: 9afca253bd188556ad6a3f6e081fb2eccc4c81cb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 74bf83626ffcbf1625ab24cd9a4b8151b1cce8b0
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60707216"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65597020"
 ---
 # <a name="quickstart-develop-with-net-core-on-kubernetes-with-azure-dev-spaces-visual-studio-2017"></a>Snabbstart: Utveckla med .NET Core på Kubernetes med Azure Dev blanksteg (Visual Studio 2017)
 
@@ -97,6 +97,8 @@ Completed warmup for project 'webfrontend' in 125 seconds.
 
 I exemplet ovan är en offentlig URL http://webfrontend.1234567890abcdef1234.eus.azds.io/. Gå till din tjänsts offentliga URL och interagera med tjänsten som körs i ditt dev-adressutrymme.
 
+Den här processen kan ha inaktiverat offentlig åtkomst till din tjänst. Om du vill aktivera offentlig åtkomst, kan du uppdatera den [ingress-värde i den *values.yaml*][ingress-update].
+
 ## <a name="update-code"></a>Uppdatera kod
 
 Om Visual Studio 2017 fortfarande är ansluten till ditt dev adressutrymme klickar du på stopp-knappen. Ändra rad 20 i `Controllers/HomeController.cs` till:
@@ -131,3 +133,5 @@ az group delete --name MyResourceGroup --yes --no-wait
 
 > [!div class="nextstepaction"]
 > [Arbeta med flera containrar och utveckling i team](multi-service-netcore-visualstudio.md)
+
+[ingress-update]: how-dev-spaces-works.md#how-running-your-code-is-configured

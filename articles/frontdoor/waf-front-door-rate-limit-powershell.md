@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/16/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: e0ad1e85a4cd47de823bc4f224b5a8834b1068b9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3701a69ab72abf20a4f1608a1cee56c9cea38aca
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61459325"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523642"
 ---
 # <a name="configure-a-web-application-firewall-rate-limit-rule-using-azure-powershell"></a>Konfigurera en web application rate gränsen brandväggsregel med hjälp av Azure PowerShell
 Azure web application firewall (WAF) hastighet gränsen regel för Azure ytterdörren styr antalet begäranden som tillåts från en enskild klient-IP-adress under en tid för en minut.
@@ -55,17 +55,17 @@ Install-Module -Name Az.FrontDoor
 Skapa en profil för åtkomsten genom att följa anvisningarna som beskrivs i [snabbstarten: Skapa en ytterdörren-profil](quickstart-create-front-door.md)
 
 ## <a name="define-url-match-conditions"></a>Definiera url matchningsvillkor
-Definiera ett villkor för matchning av Webbadress (URL: en innehåller /promo) med hjälp av [New AzFrontDoorMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoormatchconditionobject).
+Definiera ett villkor för matchning av Webbadress (URL: en innehåller /promo) med hjälp av [New AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject).
 I följande exempel matchar */promo* som värde för den *RequestUri* variabeln:
 
 ```powershell-interactive
-   $promoMatchCondition = New-AzFrontDoorMatchConditionObject `
+   $promoMatchCondition = New-AzFrontDoorWafMatchConditionObject `
      -MatchVariable RequestUri `
      -OperatorProperty Contains `
      -MatchValue "/promo"
 ```
 ## <a name="create-a-custom-rate-limit-rule"></a>Skapa en regel för anpassade rate-gräns
-Ange en frekvens gränsen med [New AzFrontDoorCustomRuleObject](/powershell/module/Az.FrontDoor/New-AzFrontDoorCustomRuleObject). I följande exempel anges gränsen på 1000. Begäranden från klienter till sidan kampanj som överstiger 1000 under en minut blockeras tills nästa minut startar.
+Ange en frekvens gränsen med [New AzFrontDoorCustomRuleObject](/powershell/module/az.frontdoor/new-azfrontdoorwafcustomruleobject). I följande exempel anges gränsen på 1000. Begäranden från klienter till sidan kampanj som överstiger 1000 under en minut blockeras tills nästa minut startar.
 
 ```powershell-interactive
    $promoRateLimitRule = New-AzFrontDoorCustomRuleObject `
@@ -79,14 +79,14 @@ Ange en frekvens gränsen med [New AzFrontDoorCustomRuleObject](/powershell/modu
 
 ## <a name="configure-a-security-policy"></a>Konfigurera en säkerhetsprincip
 
-Hitta namnet på resursgruppen som innehåller ytterdörren profil med `Get-AzureRmResourceGroup`. Konfigurera en säkerhetsprincip med en anpassad rate gränsen med [New AzFrontDoorFireWallPolicy](/powershell/module/az.frontdoor/new-azfrontdoorfirewallPolicy) i den angivna resursgruppen som innehåller ytterdörren profilen.
+Hitta namnet på resursgruppen som innehåller ytterdörren profil med `Get-AzureRmResourceGroup`. Konfigurera en säkerhetsprincip med en anpassad rate gränsen med [New AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy) i den angivna resursgruppen som innehåller ytterdörren profilen.
 
 I exemplet nedan använder Resursgruppnamnet *myResourceGroupFD1* profilen med antagandet att du har skapat åtkomsten med hjälp av instruktionerna i den [snabbstarten: Skapa en ytterdörren](quickstart-create-front-door.md) artikeln.
 
- using [New-AzFrontDoorFireWallPolicy](/powershell/module/Az.FrontDoor/New-AzFrontDoorFireWallPolicy).
+ med hjälp av [New AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy).
 
 ```powershell-interactive
-   $ratePolicy = New-AzFrontDoorFireWallPolicy `
+   $ratePolicy = New-AzFrontDoorWafPolicy `
      -Name "RateLimitPolicyExamplePS" `
      -resourceGroupName myResourceGroupFD1 `
      -Customrule $promoRateLimitRule `

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: b6107211f49978bbacd1a827a9adc37ccef60a5b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 7562d720b200e127fbfd56c403f0e29e28b3b5d8
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60196206"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65759327"
 ---
 # <a name="move-azure-vms-into-availability-zones"></a>Flytta virtuella Azure-datorer till tillgänglighetszoner
 Tillgänglighetszoner i Azure att skydda dina program och data från datacenter havererar. Varje tillgänglighetszon utgörs av ett eller flera datacenter som är utrustade med oberoende kraft, kylning och nätverk. För att säkerställa återhämtning finns det minst tre separata zoner i alla aktiverade regioner. Fysisk avgränsning av Tillgänglighetszoner inom en region skyddar program och data från datacenter havererar. Azure erbjuder ett servicenivåavtal (SLA) med 99,99% tillgänglighet för virtuella datorer (VM) med Tillgänglighetszoner. Tillgänglighetszoner stöds i utvalda regioner som anges i [vad är Tillgänglighetszoner i Azure?](https://docs.microsoft.com/azure/availability-zones/az-overview#regions-that-support-availability-zones).
@@ -50,7 +50,7 @@ I ett scenario där dina virtuella datorer distribueras som *instans* i en viss 
 4. För virtuella Linux-datorer följer du de riktlinjer som tillhandahålls av Linux-distributören för att få de senaste betrodda rotcertifikaten och listan över återkallade certifikat på den virtuella datorn.
 5. Kontrollera att du inte använder en autentiseringsproxy för att kontrollera nätverksanslutningen för virtuella datorer som du vill flytta.
 
-6. Om den virtuella datorn som du försöker flytta har inte åtkomst till internet och använder en brandväggsproxy för att styra utgående åtkomst kontrollerar kraven på [ Konfigurera utgående nätverksanslutning](azure-to-azure-tutorial-enable-replication.md#configure-outbound-network-connectivity).
+6. Om den virtuella datorn som du försöker flytta har inte åtkomst till internet och använder en brandväggsproxy för att styra utgående åtkomst kontrollerar kraven på [Konfigurera utgående nätverksanslutning](azure-to-azure-tutorial-enable-replication.md#set-up-outbound-network-connectivity-for-vms).
 
 7. Identifiera källan nätverk layout och de resurser du för närvarande använder för verifiering, inklusive belastningsutjämnare, NSG: er och offentlig IP-adress.
 

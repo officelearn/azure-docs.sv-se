@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1a48f8620fb99f1cf8787dabc738d328a796d093
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
-ms.translationtype: MT
+ms.openlocfilehash: 4c15b9aa0bde704ad3665375d1c1a5bb8a1d32cf
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510617"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604124"
 ---
 # <a name="quickstart-use-a-cloud-based-notebook-server-to-get-started-with-azure-machine-learning"></a>Snabbstart: Använd en molnbaserad notebook-server för att komma igång med Azure Machine Learning
 
@@ -131,7 +131,7 @@ Stoppa anteckningsboken virtuell dator när du inte använder den för att minsk
 
 1. Välj **stoppa**.
 
-1. När du är redo att användaren servern igen, väljer **starta**.
+1. När du är redo att använda servern igen, Välj **starta**.
 
 ### <a name="delete-everything"></a>Tar bort allt
 

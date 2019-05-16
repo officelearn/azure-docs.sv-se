@@ -7,18 +7,18 @@ ms.service: virtual-desktop
 ms.topic: troubleshoot
 ms.date: 04/08/2019
 ms.author: v-chjenk
-ms.openlocfilehash: c5a67e22c301a2afc73a46a6def9a514426c497f
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 99295fd4581cd81751f7d64b694c853efe51a106
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64928054"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522932"
 ---
-# <a name="remote-desktop-client-connections"></a>Fjärrskrivbordsklienten anslutningar
+# <a name="remote-desktop-client-connections"></a>Anslutningar för fjärrskrivbordsklienten
 
 Använd den här artikeln för att lösa problem med virtuella skrivbord i Windows-klientanslutningar.
 
-## <a name="provide-feedback"></a>Ge feedback
+## <a name="provide-feedback"></a>Lämna feedback
 
 Vi inte är för närvarande tar supportärenden när virtuella Windows-skrivbordet är i förhandsversionen. Gå till den [Windows Desktop Tech-Community virtuella](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) att diskutera virtuellt skrivbord i Windows-tjänsten med produktteamet och aktiva community-medlemmar.
 
@@ -108,22 +108,21 @@ De här instruktionerna allmän felsökning för klienten felkoder för anslutni
 1. Kontrollera användarnamnet och tid när problemet uppstod i samband med.
 2. Öppna **PowerShell** och upprätta anslutning till virtuella skrivbord i Windows-klient där problemet har rapporterats.
 3. Bekräfta anslutningen till rätt klient med **Get-RdsTenant.**
-4. Om det behövs, ange klienten grupp kontext med **Set-RdsContext – TenantGroupt\<TenantGroup\>**.
-5. Med hjälp av **Get-RdsHostPool** och **Get-RdsSessionHost** cmdlet: ar, bekräfta att felsöka görs på rätt värden poolen.
-6. Kör kommandot nedan för att hämta en lista över alla misslyckade aktiviteter av typen anslutning för det angivna tidsfönstret:
+4. Med hjälp av **Get-RdsHostPool** och **Get-RdsSessionHost** cmdlet: ar, bekräfta att felsöka görs på rätt värden poolen.
+5. Kör kommandot nedan för att hämta en lista över alla misslyckade aktiviteter av typen anslutning för det angivna tidsfönstret:
 
     ```cmd
      Get-RdsDiagnosticActivities -TenantName <TenantName> -username <UPN> -StartTime
      "11/21/2018 1:07:03 PM" -EndTime "11/21/2018 1:27:03 PM" -Outcome Failure -ActivityType Connection
     ```
 
-7. Med hjälp av den **ActivityId** från föregående cmdlet-utdatan, kör du kommandot nedan:
+6. Med hjälp av den **ActivityId** från föregående cmdlet-utdatan, kör du kommandot nedan:
 
     ```
     (Get-RdsDiagnosticActivities -TenantName $tenant -ActivityId <ActivityId> -Detailed).Errors
     ```
 
-8. Kommandot producerar utdata som liknar de utdata som visas nedan. Använd **ErrorCodeSymbolic** och **ErrorMessage** att felsöka rotorsaken.
+7. Kommandot producerar utdata som liknar de utdata som visas nedan. Använd **ErrorCodeSymbolic** och **ErrorMessage** att felsöka rotorsaken.
 
     ```
     ErrorSource       : <Source>

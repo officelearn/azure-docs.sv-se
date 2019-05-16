@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 02/06/2018
 ms.author: mhopkins
 ms.reviewer: cbrooks
-ms.openlocfilehash: b80ff38e2afb5e9da6227537ea9c483566d03e4d
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.openlocfilehash: 7b80394fbad403be93413069b8f88be6041743d4
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65232592"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65758879"
 ---
 # <a name="quickstart-use-net-to-create-a-queue-in-azure-storage"></a>Snabbstart: Använda .NET för att skapa en kö i Azure Storage
 
@@ -257,7 +257,9 @@ Se dessa ytterligare resurser för .NET-utveckling med Azure Queues:
 
 ### <a name="binaries-and-source-code"></a>Binärfiler och källkod
 
-- Ladda ned NuGet-paketet för den senaste versionen av [.NET-klientbiblioteket](https://www.nuget.org/packages/WindowsAzure.Storage/) för Azure Storage. 
+- Ladda ned NuGet-paket för den senaste versionen av den [Azure Storage-klientbiblioteket för .NET](/dotnet/api/overview/azure/storage/client)
+    - [Common](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
+    - [köer](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queues/)
 - Visa [källkoden för .NET-klientbiblioteket](https://github.com/Azure/azure-storage-net) på GitHub.
 
 ### <a name="client-library-reference-and-samples"></a>Referens och exempel för klientbiblioteket

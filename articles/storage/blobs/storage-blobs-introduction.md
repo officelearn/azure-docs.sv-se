@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 01/03/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 093f749ac29dc2bd341712d87b404de769d0b7bc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 498dd3be75cb27263c811d9db541b2e040599156
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61427217"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65752208"
 ---
 # <a name="introduction-to-azure-blob-storage"></a>Introduktion till Azure Blob storage
 
@@ -65,7 +65,7 @@ Mer information om de olika typerna av blobbar finns i [Förstå blockblobbar, s
 Det finns flera olika lösningar för att migrera befintliga data till blobblagring:
 
 - **AzCopy** är ett lättanvänt kommandoradsverktyg för Windows och Linux som kopierar data till och från blobblagringen, mellan containrar eller mellan lagringskonton. Mer information om AzCopy finns i [Överföra data med AzCopy v10 (förhandsversion)](../common/storage-use-azcopy-v10.md). 
-- **Azure Storages dataflyttbibliotek** är ett .NET-bibliotek som används till att flytta data mellan Azure Storage-tjänster. AzCopy-verktyget skapas med dataflyttbiblioteket. Mer information finns i [referensdokumentationen](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.datamovement) för dataflyttbiblioteket. 
+- **Azure Storages dataflyttbibliotek** är ett .NET-bibliotek som används till att flytta data mellan Azure Storage-tjänster. AzCopy-verktyget skapas med dataflyttbiblioteket. Mer information finns i [referensdokumentationen](/dotnet/api/microsoft.azure.storage.datamovement) för dataflyttbiblioteket. 
 - **Azure Data Factory** stöder kopiering av data till och från blobblagring med hjälp av kontonyckel, signatur för delad åtkomst, tjänstens huvudnamn eller hanterade identiteter för Azure-resursernas autentiseringar. Mer information finns i [Kopiera data till och från Azure-blobblagring med hjälp av Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). 
 - **Blobfuse** är en virtuell filsystemsdrivrutin för Azure-blobblagring. Du kan använda blobfuse för att få åtkomst till dina befintliga blockblobbdata på ditt lagringskonto via filsystemet Linux. Mer information finns i [Montera blobblagring som ett filsystem med blobfuse](storage-how-to-mount-container-linux.md).
 - **Azure Data Box Disk** är en tjänst för överföring av lokala data till blobblagring när stora datamängder eller nätverksbegränsningar gör överföring av data via kabel orealistisk. Du kan använda [Azure Data Box Disk](../../databox/data-box-disk-overview.md) för att begära SSD-diskar från Microsoft. Sedan kan du kopiera dina data till diskarna och skicka tillbaka dem till Microsoft för uppladdning till Blob Storage.

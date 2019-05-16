@@ -10,19 +10,21 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/08/2019
-ms.openlocfilehash: ad0d990554d9ff49bed3e9da7097c87c06c7152f
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
-ms.translationtype: MT
+ms.date: 05/16/2019
+ms.openlocfilehash: 3260ffaba2ab91ee561a0430310883bda8f65269
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415555"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65740390"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-offline-using-dms"></a>Självstudier: Migrera MongoDB till Azure Cosmos DB:s API för MongoDB offline med DMS
+
 Du kan använda Azure Database Migration Service till att utföra en offlinemigrering (en gång) av databaser från en lokal instans eller en molninstans av MongoDB till Azure Cosmos DB:s API för MongoDB.
 
 I den här guiden får du lära dig att:
 > [!div class="checklist"]
+>
 > * Skapa en instans av Azure Database Migration Service.
 > * Skapa ett migreringsprojekt med hjälp av Azure Database Migration Service.
 > * Köra migreringen.
@@ -40,7 +42,7 @@ För att slutföra den här kursen behöver du:
 
     > [!NOTE]
     > Under installationen av virtuellt nätverk, om du använder ExpressRoute med nätverks-peering till Microsoft, lägger du till följande tjänst [slutpunkter](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) till undernätet där tjänsten ska etableras:
-
+    >
     > * Mål-database-slutpunkten (till exempel SQL-slutpunkten och Cosmos DB-slutpunkt)
     > * Slutpunkt för lagring
     > * Service bus-slutpunkt
@@ -115,10 +117,22 @@ När tjänsten har skapats letar du reda på den i Azure Portal, öppnar den och
 
 1. På sidan **Källinformation** anger du anslutningsinformationen för MongoDB-källservern.
 
-   Du kan också använda anslutningssträngsläget och ange en plats för en container till bloblagerfilen, där du har säkerhetskopierade samlingsdata som du planerar att migrera.
+    Det finns tre lägen för att ansluta till en datakälla:
+   * **Standardläge** som accepterar ett fullständigt kvalificerat domännamn eller en IP-adress, portnummer och autentiseringsuppgifter för anslutningen.
+   * **Anslutningssträngsläge** som tar emot en MongoDB-anslutningssträng som beskrivs i artikeln [URI-anslutningssträngens format](https://docs.mongodb.com/manual/reference/connection-string/).
+   * **Data från Azure-lagring** som tar emot en blobcontainers SAS-URL. Välj **Bloben innehåller BSON-dumpar** om blobcontainern innehåller BSON-dumpar som producerats av MongoDB:s [bsondump-verktyg](https://docs.mongodb.com/manual/reference/program/bsondump/) och avmarkera den om containern innehåller JSON-filer.
 
-   > [!NOTE]
-   > Azure Database Migration Service kan även migrera bson-dokument eller json-dokument till Azure Cosmos DB:s API för MongoDB-samlingar.
+    Om du väljer det här alternativet ska du se till att anslutningssträngen för lagringskontot har följande format:
+
+     ```
+     https://blobnameurl/container?SASKEY
+     ```
+
+     Baserat på typdumpsinformationen i Azure Storage bör du även beakta följande detalj.
+
+     * För BSON-dumpar måste data i blob-containern vara i bsondump-format, så att datafilerna placeras i mappar som namnges efter de innehållande databaserna i formatet collection.bson. Metadatafiler (om sådana finns) bör namnges med formatet *samling*.metadata.json.
+
+     * För JSON-dumpar måste filerna i blob-containern placeras i mappar som namnges efter de innehållande databaserna. I varje databasmapp måste datafiler placeras i en undermapp som heter ”data” och namnges med formatet *samling*.json. Metadatafiler (om sådana finns) måste placeras i en undermapp som heter ”metadata” och namnges med samma format, *samling*.json. Metadatafilerna måste vara i samma format som det som skapas av verktyget MongoDB bsondump.
 
    Du kan även använda IP-adressen i situationer då DNS-namnmatchning inte är möjlig.
 

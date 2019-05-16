@@ -15,14 +15,14 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: 0a5b7f93f9ac6cc5b1076881727a42fd5b95ff4b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 780a50d9d470e8904e066459f97aa00d34ba1d3c
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60306197"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603495"
 ---
-# <a name="what-is-azure-data-box-heavy-preview"></a>Vad är Azure Data Box – tung? (Förhandsversion)
+# <a name="what-is-azure-data-box-heavy-preview"></a>Vad är Azure Data Box – tung? (Förhandsgranskning)
 
 Med Microsoft Azure Data Box-hybridlösningen kan du skicka hundratals terabyte data till Azure på ett snabbt, prisvärt och tillförlitligt sätt. Den säkra dataöverföringen påskyndas genom att skicka en upphovsrättsskyddad lagringsenhet med 1 PB lagringskapacitet via frakt. Enheten har ett robust hölje för att skydda data under överföringen.
 
@@ -109,7 +109,7 @@ Under den här processen meddelas du via e-post om alla statusändringar.
 
 ## <a name="region-availability"></a>Regional tillgänglighet
 
-Data Box – tung kan överföra data baserat på den region där tjänsten har distribuerats, det land som enheten levereras till och målkontot för lagring i Azure dit du överför data. 
+Data Box tung kan överföra data baserat på den region där tjänsten distribueras, land/region som enheten levereras och mål-Azure storage-konto där du kan överföra data. 
 
 - **Tjänstens tillgänglighet** – För den här versionen är Data Box – tung tillgänglig i följande regioner:
     - Alla offentliga molnregioner i USA – USA, västra centrala, USA, västra 2, USA, västra, USA, södra centrala, USA, centrala, USA, norra centrala, USA, östra och USA, östra 2.
@@ -136,7 +136,7 @@ Data Box – tung är en förhandsversion och du måste registrera dig. Registre
 
    <!--![The Data Box Heavy sign up 3]()-->
 
-5. Svara på frågor om datahemland, tidsperiod, Azure-måltjänst för dataöverföring, nätverkets bandbredd och dataöverföringsfrekvens. Granska sekretess och villkor och markera kryssrutan mot att Microsoft kan använda din e-postadress för att kontakta dig.
+5. Svara på frågor om data bosatt land/region, tidsperiod, target Azure-tjänsten för dataöverföring, nätverkets bandbredd och data transfer frekvens. Granska sekretess och villkor och markera kryssrutan mot att Microsoft kan använda din e-postadress för att kontakta dig.
 
     <!--![The Data Box Heavy sign up 4]()-->
 

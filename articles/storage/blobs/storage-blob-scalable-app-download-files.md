@@ -10,12 +10,12 @@ ms.date: 02/20/2018
 ms.author: rogarana
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: 1a3d1325edeac098b04ce0e25d4a545cb885761e
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.openlocfilehash: 541d406d7416ff5f50fdcca7e85b8f87f6f377df
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65187735"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65752528"
 ---
 # <a name="download-large-amounts-of-random-data-from-azure-storage"></a>Ladda ned stora mängder slumpmässiga data från Azure Storage
 
@@ -98,13 +98,13 @@ Skriv `dotnet run` för att köra programmet.
 dotnet run
 ```
 
-Programmet läser de containrar i lagringskontot som anges i **storageconnectionstring**. Den går igenom 10 blobar åt gången med hjälp av metoden [ListBlobsSegmented](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.listblobssegmented?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlobContainer_ListBlobsSegmented_System_String_System_Boolean_Microsoft_WindowsAzure_Storage_Blob_BlobListingDetails_System_Nullable_System_Int32__Microsoft_WindowsAzure_Storage_Blob_BlobContinuationToken_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) i containrarna och laddar ned dem till den lokala datorn med hjälp av metoden [DownloadToFileAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadToFileAsync_System_String_System_IO_FileMode_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_).
-I följande tabell visas de [BlobRequestOptions](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions?view=azure-dotnet) som har definierats för varje blob när den hämtas.
+Programmet läser de containrar i lagringskontot som anges i **storageconnectionstring**. Den går igenom 10 blobar åt gången med hjälp av metoden [ListBlobsSegmented](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer) i containrarna och laddar ned dem till den lokala datorn med hjälp av metoden [DownloadToFileAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadtofileasync).
+I följande tabell visas de [BlobRequestOptions](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions) som har definierats för varje blob när den hämtas.
 
-|Egenskap |Värde|Beskrivning|
+|Egenskap |Value|Beskrivning|
 |---|---|---|
-|[DisableContentMD5Validation](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.disablecontentmd5validation?view=azure-dotnet)| true| Den här egenskapen inaktiverar kontrollen av MD5-hashen för innehållet som har överförts. Överföringen går snabbare om MD5-verifieringen inaktiveras. Däremot bekräftas inte giltigheten eller integriteten för de filer som överförs. |
-|[StoreBlobContentMD5](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.storeblobcontentmd5?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_StoreBlobContentMD5)| false| Den här egenskapen anger om en MD5-hash beräknas och sparas.   |
+|[DisableContentMD5Validation](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.disablecontentmd5validation)| true| Den här egenskapen inaktiverar kontrollen av MD5-hashen för innehållet som har överförts. Överföringen går snabbare om MD5-verifieringen inaktiveras. Däremot bekräftas inte giltigheten eller integriteten för de filer som överförs. |
+|[StoreBlobContentMD5](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.storeblobcontentmd5)| false| Den här egenskapen anger om en MD5-hash beräknas och sparas.   |
 
 Aktiviteten `DownloadFilesAsync` visas i följande exempel:
 

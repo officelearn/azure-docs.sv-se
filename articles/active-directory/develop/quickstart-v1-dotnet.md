@@ -3,8 +3,8 @@ title: Logga in användare och anropa Microsoft Graph API från en .NET Desktop 
 description: Lär dig hur du skapar ett .NET Windows Desktop-program som integreras med Azure AD för inloggning och anropar Azure AD-skyddade API:er med hjälp av OAuth 2.0.
 services: active-directory
 documentationcenter: .net
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: ed33574f-6fa3-402c-b030-fae76fba84e1
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b55f7e615f2c2edb604d5b9433db6cc48d9f36f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: beccd3f28cd3f5de3ef777b80c53651c76017619
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60298986"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545639"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-a-net-desktop-wpf-app"></a>Snabbstart: Logga in användare och anropa Microsoft Graph API från en .NET Desktop (WPF)-app
 
@@ -182,7 +182,7 @@ Grundprincipen bakom ADAL är att när appen behöver en åtkomsttoken anropar d
     }
     ```
 
-Grattis! Nu har du en fungerande .NET WPF-app som kan autentisera användare, på ett säkert sätt anropa webb-API:er med hjälp av OAuth 2.0 och få grundläggande information om användaren. Om du inte redan har gjort det är det dags att fylla i klientorganisationen med några användare. Kör din DirectorySearcher-app och logga in med någon av dessa användare. Sök efter andra användare utifrån deras UPN. Stäng appen och kör den igen. Observera att användarens session förblir intakt. Logga ut och logga in igen som en annan användare.
+Gratulerar! Nu har du en fungerande .NET WPF-app som kan autentisera användare, på ett säkert sätt anropa webb-API:er med hjälp av OAuth 2.0 och få grundläggande information om användaren. Om du inte redan har gjort det är det dags att fylla i klientorganisationen med några användare. Kör din DirectorySearcher-app och logga in med någon av dessa användare. Sök efter andra användare utifrån deras UPN. Stäng appen och kör den igen. Observera att användarens session förblir intakt. Logga ut och logga in igen som en annan användare.
 
 ADAL gör det enkelt att inkorporera dessa vanliga identitetsfunktioner i appen. Det tar hand om grovjobbet åt dig, som cachehantering, stöd för OAuth-protokoll, visa användaren ett användargränssnitt för inloggning, uppdatera token som gått ut och mer. Allt du verkligen behöver veta är ett enda API-anrop, `authContext.AcquireTokenAsync(...)`.
 

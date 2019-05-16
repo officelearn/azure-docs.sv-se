@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
 ms.openlocfilehash: 7d811cd69185e77f50749fc48974dee684fb7cfa
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59256370"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65744717"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-smartdraw"></a>Självstudier: Azure Active Directory-integrering med SmartDraw
 
@@ -118,7 +118,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med SmartDr
 
 6. SmartDraw program som förväntar SAML-intyg i ett visst format, vilket kräver att du kan lägga till anpassade attributmappningar i SAML-tokenattribut konfigurationen. I följande skärmbild visas listan över standardattribut. Klicka på ikonen  **Redigera** för att öppna dialogrutan **Användarattribut** .
 
-    ![mallar](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
 7. Förutom ovanstående SmartDraw program som förväntar få fler attribut som ska skickas tillbaka i SAML-svar. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** utför du följande steg för att lägga till SAML-tokenattributet enligt det som visas i tabellen nedan: 
 

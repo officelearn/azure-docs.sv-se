@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 0d606a489a069c4265088d8e07301693dc2f1c83
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b3192d848e77c59d0ff6950e647d1faf172484b5
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64694274"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606406"
 ---
 # <a name="what-is-windows-virtual-desktop-preview"></a>Vad är Windows Virtual Desktop förhandsversionen? 
 
@@ -90,10 +90,10 @@ Virtuella Windows-skrivbordet består av Windows-skrivbord och appar som du leve
 För bästa prestanda bör du kontrollera nätverket uppfyller följande krav:
 
 * Tidszonsbevarande (RTT) svarstid från klientens nätverk till Azure-region där värden pooler har distribuerats bör vara mindre än 150 ms.
-* Nätverkstrafik kan flöda utanför land kantlinjer när virtuella datorer som är värdar för skrivbord och appar som ansluter till management-tjänsten.
+* Nätverkstrafik kan flöda utanför landet/regionen kantlinjer när virtuella datorer som är värdar för skrivbord och appar som ansluter till management-tjänsten.
 * Optimera nätverksprestanda, rekommenderar vi att värd för fjärrskrivbordssession virtuella datorer är samordnad i samma Azure-region som management-tjänsten.
 
-## <a name="provide-feedback"></a>Ge feedback
+## <a name="provide-feedback"></a>Lämna feedback
 
 Gå till den [Windows Desktop Tech-Community virtuella](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) att diskutera virtuellt skrivbord i Windows-tjänsten med produktteamet och aktiva community-medlemmar. Vi inte är för närvarande tar supportärenden när virtuella Windows-skrivbordet är i förhandsversionen.
 

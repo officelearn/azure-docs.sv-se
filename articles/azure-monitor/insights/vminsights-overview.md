@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2019
 ms.author: magoedte
-ms.openlocfilehash: a60413ee6614b638db58748ee2c0aea5d7ea32ea
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7d86b3fe9aeddd603d0c40b1c760cabdee42e396
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60199921"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522110"
 ---
 # <a name="what-is-azure-monitor-for-vms-preview"></a>Vad är Azure Monitor för virtuella datorer (förhandsversion)?
 
@@ -64,4 +64,4 @@ När du distribuerar Azure Monitor för virtuella datorer är de data som samlas
 Loggstorleken varierar beroende på sträng längder av prestandaräknare och det kan öka med antalet logiska diskar och nätverkskort tilldelas den virtuella datorn. Om du redan har en arbetsyta och samlar in dessa räknare, tillämpas inga dubbla avgifter. Om du redan använder Tjänstkarta, är den enda ändringen visas ytterligare data som skickas till Azure Monitor.
 
 ## <a name="next-steps"></a>Nästa steg
-För att förstå de krav och metoder som hjälper dig att övervaka dina virtuella datorer, granska [distribuera Azure Monitor för virtuella datorer](vminsights-onboard.md).
+För att förstå de krav och metoder som hjälper dig att övervaka dina virtuella datorer, granska [distribuera Azure Monitor för virtuella datorer](vminsights-enable-overview.md).

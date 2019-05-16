@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: a94fe86cd9c2a6e775be1ec4b3d14798e4cac693
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b9215cac6fe4e4ec8bac3fac773c919c6e13cf05
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59795875"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65752645"
 ---
-# <a name="run-your-first-resource-graph-query-using-azure-powershell"></a>Köra din första Resource Graph-fråga med hjälp av Azure PowerShell
+# <a name="quickstart-run-your-first-resource-graph-query-using-azure-powershell"></a>Snabbstart: Köra din första Resource Graph-fråga med hjälp av Azure PowerShell
 
 Det första steget till att använda Azure Resource Graph är att kontrollera att modulen för Azure PowerShell är installerad. Denna snabbstart vägleder dig genom processen för att lägga till modulen i Azure PowerShell-installationen.
 
@@ -90,7 +90,7 @@ Nu när Azure PowerShell-modulen har lagts till i din valda miljö är det dags 
 
 När den sista frågan har körts flera gånger, och förutsatt att ingenting i din miljö ändras, kommer resultaten som returneras bli konsekventa och som förväntade – sorterade efter **Namn**-egenskapen men fortfarande begränsade till de fem främsta resultaten.
 
-## <a name="cleanup"></a>Rensa
+## <a name="cleanup-resources"></a>Rensa resurser
 
 Om du vill ta bort Resource Graph-modulen från din Azure PowerShell-miljö, kan du göra det med hjälp av följande kommando:
 

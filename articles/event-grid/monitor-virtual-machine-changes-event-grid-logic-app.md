@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.date: 05/14/2019
-ms.openlocfilehash: 791e38f3d15801166f07234648909e03d800f5c0
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: MT
+ms.openlocfilehash: 33634773b436114f4a5f2942028710ae50e0e703
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65604906"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65737119"
 ---
 # <a name="tutorial-monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Självstudie: Övervaka ändringar på virtuella maskiner med Azure Event Grid och Logic Apps
 
@@ -101,9 +101,9 @@ Lägg nu till Event Grid-utlösare som övervakar resursgruppen för den virtuel
    | Egenskap  | Krävs | Value | Beskrivning |
    | -------- | -------- | ----- | ----------- |
    | **Prenumeration** | Ja | <*event-publisher-Azure-subscription-name*> | Välj namnet på den Azure-prenumeration som är associerade med händelseutfärdaren. Välj Azure-prenumeration-namnet för den virtuella datorn i den här självstudien. |
-   | **Resurstyp** | Ja | <*event-publisher-Azure-resource-type*> | Välj resurstypen för händelseutfärdaren. Välj det här värdet för den här självstudiekursen, så att logikappen övervakar endast resursgrupper: <p><p>**Microsoft.Resources.resourceGroups** |
-   | **Resursnamn** |  Ja | <*event-publisher-Azure-resource-name*> | Välj namnet på Azure-resursen som är associerade med händelseutfärdaren. Den här resursen kan exempelvis vara en Event Grid-ämne. Välj namnet på Azure-resursgrupp som är associerade med den virtuella datorn i den här självstudien. |
-   | **Händelsen typobjekt** |  Nej | <*typer av händelser*> | Välj en eller flera specifika händelsetyper som du vill övervaka. Lämna den här egenskapen tomt i den här självstudien. |
+   | **Resurstyp** | Ja | <*event-publisher-Azure-resource-type*> | Välj Azure-resurs-typ för händelseutfärdaren. Välj det här värdet för att övervaka Azure-resursgrupper i den här självstudien: <p><p>**Microsoft.Resources.ResourceGroups** |
+   | **Resursnamn** |  Ja | <*event-publisher-Azure-resource-name*> | Välj namnet på Azure-resursen för händelseutfärdaren. Den här listan varierar beroende på den resurstyp som du har valt. Välj namnet på Azure-resursgrupp för den virtuella datorn i den här självstudien. |
+   | **Händelsen typobjekt** |  Nej | <*typer av händelser*> | Välj en eller flera specifika händelsetyper att filtrera och skicka till event grid. Du kan exempelvis kan du lägga till dessa händelsetyper att upptäcka när resurser har ändrats eller tagits bort: <p><p>- **Microsoft.Resources.ResourceActionSuccess** <br>- **Microsoft.Resources.ResourceDeleteSuccess** <br>- **Microsoft.Resources.ResourceWriteSuccess** <p>Mer information finns i följande avsnitt: <p><p>- [Förstå händelsefiltrering](../event-grid/event-filtering.md) <br>- [Filtrera händelser för Event Grid](../event-grid/how-to-filter-events.md) <br>- [Azure Event Grid-Händelseschema för resursgrupper](../event-grid/event-schema-resource-groups.md) |
    | **Prenumerationsnamn** | Nej | <*event-subscription-name*> | Ange ett unikt namn för din händelseprenumeration. |
    | Valfria inställningar, Välj **Lägg till ny parameter**. | Nej | {Se beskrivningar} | * **Prefixfilter**: Lämna den här egenskapen tomt i den här självstudien. Standardbeteendet matchar alla värden. Du kan dock ange en prefixsträng som ett filter, till exempel en sökväg och en parameter för en specifik resurs. <p>* **Suffixfilter**: Lämna den här egenskapen tomt i den här självstudien. Standardbeteendet matchar alla värden. Du kan dock ange en suffixsträng som ett filter, till exempel ett filnamnstillägg, om du bara vill använda specifika filtyper. |
    |||
@@ -164,6 +164,10 @@ Om du bara vill köra logikappens arbetsflöde när en viss händelse inträffar
 
    ![Slutförda villkor](./media/monitor-virtual-machine-changes-event-grid-logic-app/complete-condition.png)
 
+   Om du växlar från designvyn och visa och tillbaka till designvyn det uttryck som du angav i villkoret som motsvarar den **data.operationName** token:
+
+   ![Löst villkor](./media/monitor-virtual-machine-changes-event-grid-logic-app/resolved-condition.png)
+
 1. Spara din logikapp.
 
 ## <a name="send-email-notifications"></a>Skicka e-postmeddelanden
@@ -189,7 +193,7 @@ Nu ska du lägga till en [*åtgärd*](../logic-apps/logic-apps-overview.md#logic
 
 1. Om du inte redan är ansluten till din e-postleverantör loggar du in på ditt e-postkonto när du uppmanas att autentisera.
 
-1. Byt namn på rubriken skicka e-post till den här rubriken: `Send email when virtual machine updated`. 
+1. Byt namn på rubriken skicka e-post till den här rubriken: `Send email when virtual machine updated`
 
 1. Ange e-postinformationen som i tabellen nedan:
 
@@ -202,10 +206,10 @@ Nu ska du lägga till en [*åtgärd*](../logic-apps/logic-apps-overview.md#logic
    | -------- | -------- | ----- | ----------- |
    | **Till** | Ja | <*mottagaren\@domän*> | Ange mottagarens e-postadress. I testsyfte kan du använda din egen e-postadress. |
    | **Ämne** | Ja | Uppdaterad resurs: **Ämne** | Ange innehållet för e-postmeddelandets ämne. Den här självstudien anger du den angivna texten och väljer du händelsen **ämne** fält. Här innehåller e-postmeddelandets ämne namnet på den uppdaterade resursen (virtuell dator). |
-   | **Brödtext** | Ja | Resursgrupp: **Ämne** <p>Händelsetyp: **Händelsetyp**<p>Händelse-ID: **ID**<p>Tid: **Händelsetid** | Ange innehållet för e-postmeddelandets ämne. För den här självstudiekursen anger du den angivna texten och väljer du händelsen **avsnittet**, **händelsetyp**, **ID**, och **Händelsetid** fält så att din e-postmeddelandet innehåller resursgruppens namn, händelsetyp, händelsetidsstämpel och händelse-ID för uppdateringen. <p>Tryck på Skift+Retur om du vill lägga till tomma rader i innehållet. |
+   | **Brödtext** | Ja | Resurs: **Avsnittet** <p>Händelsetyp: **Händelsetyp**<p>Händelse-ID: **ID**<p>Tid: **Händelsetid** | Ange innehållet för e-postmeddelandets ämne. För den här självstudiekursen anger du den angivna texten och väljer du händelsen **avsnittet**, **händelsetyp**, **ID**, och **Händelsetid** fält så att din e-postmeddelandet innehåller den resurs som utlöst händelsen, händelsetyp, händelsetidsstämpel och händelse-ID för uppdateringen. Den här självstudien är resursen Azure-resursgrupp som valts i utlösaren. <p>Tryck på Skift+Retur om du vill lägga till tomma rader i innehållet. |
    ||||
 
-   > [!NOTE] 
+   > [!NOTE]
    > Om du väljer ett fält som representerar en matris lägger designverktyget automatiskt till en **For each**-loop runt åtgärden som refererar till matrisen. På så sätt kan din logikappsåtgärd utförs på varje element i matrisen.
 
    Nu bör din e-poståtgärd se ut ungefär som i det här exemplet:

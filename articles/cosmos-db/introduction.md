@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: overview
 ms.date: 04/08/2019
 ms.author: rimman
-ms.openlocfilehash: a965db4334e88d032f767bd7b855dea6f3ff174f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bc14f654af80cf599a797b8f16b0e98fe4b3a209
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61042977"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65551008"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Välkommen till Azure Cosmos DB
 
@@ -44,7 +44,7 @@ Cosmos DB är utformat med transparent horisontell partitionering och replikerin
 
 ### <a name="guaranteed-low-latency-at-99th-percentile-worldwide"></a>Garanterad kort svarstid vid 99:e percentil, runt om i världen
 
-Med Cosmos DB kan du skapa mycket responsiva och världsomfattande program. Med sitt nya protokoll för replikering av flera original och [skrivoptimerad databasmotor utan spärr](index-policy.md) garanterar Cosmos DB mindre än 10 ms svarstid för både läsning och (indexerad) skrivning på den 99:e percentilen världen över. Den här funktionen möjliggör kontinuerlig inmatning av data och blixtsnabba frågor för mycket responsiva appar.
+Med Cosmos DB kan du skapa mycket responsiva och världsomfattande program. Med den nya Multi-Master-replikering protokoll och oreglerad och [skrivoptimerad databasmotor](index-policy.md), Cosmos DB garanterar mindre än 10 ms fördröjning för båda läser (indexerade) och skriver den 99: e percentilen över hela världen . Den här funktionen möjliggör kontinuerlig inmatning av data och blixtsnabba frågor för mycket responsiva appar.
 
 ### <a name="precisely-defined-multiple-consistency-choices"></a>Ett flertal exakt definierade konsekvensval
 

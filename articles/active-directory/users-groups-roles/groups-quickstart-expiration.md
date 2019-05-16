@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: quickstart
-ms.date: 03/18/2019
+ms.date: 05/06/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0573448c753c763e818d641216033dbeacb9e9a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 01cedadc115496fcf00df986b4ad4b9c5aab5139
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60471496"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606205"
 ---
 # <a name="quickstart-set-office-365-groups-to-expire-in-azure-active-directory"></a>Snabbstart: Konfigurera Office 365-grupper att upphöra att gälla i Azure Active Directory
 
@@ -33,13 +33,13 @@ Förfalloprinciper är enkla:
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisite"></a>Krav
+## <a name="prerequisite"></a>Förutsättning
 
-Du måste vara en Global administratör eller Användaradministratör i organisationen för att ställa in förfallodatum.
+ Rollen lägsta behörighet som krävs för att ställa in förfallodatum är administratören i organisationen.
 
 ## <a name="turn-on-user-creation-for-groups"></a>Aktivera användarskapande för grupper
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com) med ett konto som är en Global administratör eller Användaradministratör för organisationen.
+1. Logga in på den [Azure-portalen](https://portal.azure.com) användare med ett administratörskonto.
 
 2. Välj **Grupper** och välj sedan **Allmänt**.
   
@@ -80,7 +80,7 @@ Klart! I den här snabbstarten ställde du in en förfalloprincip för de valda 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om förfallotid inklusive tekniska begränsningar, att lägga till en lista med egna blockerade ord samt slutanvändarupplevelser i Office 365-appar finns i följande artikel med information om förfalloprinciper:
+Mer information om förfallodatum, inklusive PowerShell-instruktioner och tekniska begränsningar finns i följande artikel:
 
 > [!div class="nextstepaction"]
-> [All information om förfalloprinciper](groups-lifecycle.md)
+> [Förfalloprincip PowerShell](groups-lifecycle.md)

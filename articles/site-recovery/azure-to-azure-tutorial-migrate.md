@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 636993879422edaf08051be61b9d4770effdcae0
-ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
-ms.translationtype: MT
+ms.openlocfilehash: 0d446be664d695af946d46abc48389d4f7be92cd
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65556077"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65751113"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Migrera virtuella Azure-datorer till en annan region
 
@@ -56,7 +56,7 @@ I den här kursen ska du:
     - I virtuella datorer med Windows installerar du alla de senaste uppdateringarna så att alla betrodda rotcertifikat finns på datorn. I en frånkopplad miljö använder du organisationens vanliga processer för Windows Update och certifikatuppdatering.
     - För virtuella Linux-datorer följer du de riktlinjer som tillhandahålls av Linux-distributören för att få de senaste betrodda rotcertifikaten och listan över återkallade certifikat på den virtuella datorn.
 1. Se till att du inte använder en autentiseringsproxy för att styra nätverksanslutningar för virtuella datorer som du vill flytta.
-1. Om den virtuella datorn som du försöker flytta har inte åtkomst till internet, eller om den använder en brandväggsproxy för att styra utgående åtkomst [Kontrollera kraven](azure-to-azure-tutorial-enable-replication.md#configure-outbound-network-connectivity).
+1. Om den virtuella datorn som du försöker flytta har inte åtkomst till internet, eller om den använder en brandväggsproxy för att styra utgående åtkomst [Kontrollera kraven](azure-to-azure-tutorial-enable-replication.md#set-up-outbound-network-connectivity-for-vms).
 1. Identifiera källan nätverk layouten och alla resurser som du använder. Detta omfattar men är inte begränsat till belastningsutjämnare, nätverkssäkerhetsgrupper (NSG) och offentliga IP-adresser.
 
 ## <a name="prepare-the-target-region"></a>Förbereda målregionen

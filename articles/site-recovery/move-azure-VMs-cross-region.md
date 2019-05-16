@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 0f73e68fd0c01d4323e8675d3fa12f7ca1051cdb
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.openlocfilehash: 10966a7e658e02f04137b594fc12ec09cb676cf8
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62119885"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65739605"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Migrera virtuella Azure-datorer till en annan region
 
@@ -53,7 +53,7 @@ Du kanske vill flytta Azure-infrastruktur som en tjänst (IaaS) virtuella datore
     - Installera de senaste Windows-uppdateringarna för Windows-datorer så att alla betrodda rotcertifikat finns på datorn. I en frånkopplad miljö, följer du standardprocedurerna för Windows Update och certifikat-update för din organisation.
     - Virtuella datorer med Linux följer du anvisningarna från Linux-distributören för att få de senaste betrodda rotcertifikaten och listan över återkallade certifikat.
 2. Se till att du inte använder en autentiseringsproxy för att styra nätverksanslutningar för virtuella datorer som du planerar att flytta.
-3. När en virtuell dator som du vill flytta har inte åtkomst till internet och använder en brandväggsproxy för att styra utgående åtkomst, kontrollera den [krav](azure-to-azure-tutorial-enable-replication.md#configure-outbound-network-connectivity).
+3. När en virtuell dator som du vill flytta har inte åtkomst till internet och använder en brandväggsproxy för att styra utgående åtkomst, kontrollera den [krav](azure-to-azure-tutorial-enable-replication.md#set-up-outbound-network-connectivity-for-vms).
 4. Dokumentera källa nätverk layouten och alla resurser som du använder, inklusive (men inte begränsat till) belastningsutjämnare, nätverkssäkerhetsgrupper och offentliga IP-adresser för verifiering.
 
 ## <a name="prepare-the-target-region"></a>Förbereda målregionen

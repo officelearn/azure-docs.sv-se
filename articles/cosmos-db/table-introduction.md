@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-table
 ms.topic: overview
 ms.date: 11/20/2017
 ms.author: sngun
-ms.openlocfilehash: 68190ad15ed70ac831c21582d60bc54da5d3c14b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 48c83dd77e12df86ebb68f183ad694bf8439d365
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60913488"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606363"
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Introduktion till Azure Cosmos DB: Tabell-API
 
@@ -25,6 +25,9 @@ ms.locfileid: "60913488"
 * [Automatisk sekundär indexering](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf).
 
 Program som är skrivna för Azure Table Storage kan migrera till Azure Cosmos DB med hjälp av ett tabell-API och på så sätt dra nytta av premiumfunktioner, utan kodändringar. Tabell-API:t har tillgängliga klient-SDK:er för .NET, Java, Python och Node.js.
+
+> [!IMPORTANT]
+> .NET Framework SDK [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) är i underhållsläge läge och det upphör att gälla snart. Uppgradera till det nya .NET Standard-biblioteket [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) fortsätta att få de senaste funktionerna som stöds av tabell-API.
 
 ## <a name="table-offerings"></a>Tabellerbjudanden
 Om du använder Azure Table Storage får du följande fördelar genom att byta till Azure Cosmos DB:s tabell-API:

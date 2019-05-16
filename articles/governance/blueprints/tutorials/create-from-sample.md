@@ -7,14 +7,14 @@ ms.date: 03/05/2019
 ms.topic: tutorial
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 4f400e45d8defc304cf58c4bd05fa19f16d0501b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: b0d5d96ff897ac1710206eb49bca785e8809cb7d
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60874673"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65758856"
 ---
-# <a name="create-an-environment-from-a-blueprint-sample"></a>Skapa en miljö från ett exempel på skiss
+# <a name="tutorial-create-an-environment-from-a-blueprint-sample"></a>Självstudier: Skapa en miljö från ett exempel på skiss
 
 Exemplet skisser innehåller exempel på vad du kan göra med hjälp av Azure skisser. Var och en är ett exempel med ett specifikt syfte eller syfte, men skapa inte en fullständig miljö med själva. Var och en är avsedd som utgångspunkt för att börja använda Azure skisser med olika kombinationer av inkluderade artefakter, utformning och parametrar.
 
@@ -82,7 +82,7 @@ När kopian av exemplet skissen har installerats utan **publicerad**, så kan de
 
 1. Ange parametervärden för skisstilldelningen:
 
-   - Grundläggande inställningar
+   - Grundinställningar
 
      - **Prenumerationer**: Välj en eller flera av de prenumerationer som är i hanteringsgruppen som du sparade din kopia av exemplet skissen till. Om du väljer mer än en prenumeration skapas en tilldelning för att använda de parametrar som anges.
      - **Tilldelningsnamn**: Namnet är förifyllda baserat på namnet på skissdefinitionen.
@@ -102,13 +102,13 @@ När kopian av exemplet skissen har installerats utan **publicerad**, så kan de
 
      De parametrar som definierats i det här avsnittet gäller för artefakten som den definieras. De här parametrarna kan [dynamiska parametrar](../concepts/parameters.md#dynamic-parameters) eftersom de definierades vid tilldelning av skissen. Ange parametervärdet för varje artefakt enligt definitionen i den **värdet** kolumn. För `{Your ID}`, Välj ditt Azure-konto.
 
-     |Namn på artefakt|Artefakttyp|Parameternamn|Värde|Beskrivning|
+     |Namn på artefakt|Artefakttyp|Parameternamn|Value|Beskrivning|
      |-|-|-|-|-|
      |ProdRG resursgrupp|Resursgrupp|Namn|ProductionRG|Definierar namnet på den första resursgruppen.|
-     |ProdRG resursgrupp|Resursgrupp|Location|Västra USA 2|Anger platsen för den första resursgruppen.|
+     |ProdRG resursgrupp|Resursgrupp|Location|USA, västra 2|Anger platsen för den första resursgruppen.|
      |Deltagare|Rolltilldelning|Användare eller grupp|{Ditt ID}|Definierar vilka användare eller grupp för att bevilja den _deltagare_ rolltilldelning i den första resursgruppen.|
      |PreProdRG resursgrupp|Resursgrupp|Namn|PreProductionRG|Definierar namnet på resursgruppen som andra.|
-     |PreProdRG resursgrupp|Resursgrupp|Location|Västra USA|Anger platsen för andra resursgruppen.|
+     |PreProdRG resursgrupp|Resursgrupp|Location|USA, västra|Anger platsen för andra resursgruppen.|
      |Ägare|Rolltilldelning|Användare eller grupp|{Ditt ID}|Definierar vilka användare eller grupp för att bevilja den _ägare_ rolltilldelning i andra resursgruppen.|
      |Läsare|Rolltilldelning|Användare eller grupp|{Ditt ID}|Definierar vilka användare eller grupp för att bevilja den _läsare_ rolltilldelning i andra resursgruppen.|
 

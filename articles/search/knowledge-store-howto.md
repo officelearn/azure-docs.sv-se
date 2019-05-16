@@ -1,5 +1,5 @@
 ---
-title: Hur du kommer igång med Knowledge Store (förhandsversion) – Azure Search
+title: Hur du kommer igång med knowledge store (förhandsversion) – Azure Search
 description: Läs om stegen för att skicka avancerad och dokument som skapats i AI indexering pipelines i Azure Search i ett knowledge lager i Azure storage-kontot. Därifrån kan du visa, omformar och använda avancerad och dokument i Azure Search och i andra program.
 manager: cgronlun
 author: HeidiSteen
@@ -8,16 +8,20 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 05/08/2019
 ms.author: heidist
-ms.openlocfilehash: d9006e3fcfc9691b9f3eec4b86c545fd3fea9f8a
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: e7be2dfc811caa087726339846a1de2516f1e2b2
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471742"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540727"
 ---
-# <a name="how-to-get-started-with-knowledge-store"></a>Hur du kommer igång med Knowledge Store
+# <a name="how-to-get-started-with-knowledge-store-in-azure-search"></a>Hur du kommer igång med knowledge store i Azure Search
 
-[Knowledge Store](knowledge-store-concept-intro.md) är en ny förhandsgranskningsfunktion i Azure Search som sparar AI enrichments som skapats i en pipeline för fulltextindexering för knowledge utvinning i andra appar. Du kan också använda sparade enrichments för att förstå och förfina en pipeline för fulltextindexering av Azure Search.
+> [!Note]
+> Knowledge store är i förhandsversion och inte är avsett för användning i produktion. Den [REST API-version 2019-05-06-Preview](search-api-preview.md) ger den här funktionen. Det finns inget stöd för .NET SDK just nu.
+>
+
+[Knowledge store](knowledge-store-concept-intro.md) sparar AI enrichments som skapades under indexering till Azure storage-kontot för underordnade knowledge utvinning i andra appar. Du kan också använda sparade enrichments för att förstå och förfina en pipeline för fulltextindexering av Azure Search.
 
 En knowledge store definieras av en kompetens. För vanliga scenarier för Azure Search-fulltextsökning, är syftet med en kompetens att tillhandahålla AI enrichments för att göra innehåll mer sökbara. Knowledge utvinningsstrukturen scenarier kan är rollen för en kompetens skapar, fylla, och lagra flera datastrukturer för analys eller modellering i andra appar och processer.
 

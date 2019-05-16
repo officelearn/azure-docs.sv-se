@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 04/09/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 99be0cee9c939ed200bd74c94e88c3fcd989e25b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 15885137b9559bf34fb2b985398401af09caa629
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64722891"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602992"
 ---
 # <a name="configure-the-log-analytics-agent-for-windows-computers-in-a-hybrid-environment"></a>Konfigurera Log Analytics-agenten för Windows-datorer i en hybridmiljö
 [Azure Log Analytics](../../azure-monitor/platform/agent-windows.md) kan samla in data direkt från fysiska eller virtuella Windows-datorer till en enda lagringsplats för detaljerad analys och korrelation. Log Analytics kan samla in data från ett datacenter eller andra moln. Den här snabbstarten visar hur du konfigurerar och samlar in data från Windows-datorer med några enkla steg.  Information om virtuella Azure Windows-datorer finns i [samla in data om Azure virtual machines](../../azure-monitor/learn/quick-collect-azurevm.md).  
@@ -107,8 +107,8 @@ Log Analytics kan samla in händelser som du anger från Windows-händelseloggen
 ## <a name="view-collected-data"></a>Visa insamlade data
 Nu när du har aktiverat insamling av data kan vi köra en enkel loggsökning för att se vissa data från måldatorn.  
 
-1. I Azure-portalen, i den valda arbetsytan väljer du den **Loggsökning** panelen.  
-2. På den **Loggsökning** fönstret i rutan fråga ange **Perf** och tryck på RETUR eller välj på sökknappen till höger om rutan fråga:
+1. I Azure-portalen, i den valda arbetsytan väljer du den **loggar** panelen.  
+2. På den **Loggsökning** fönstret i rutan fråga ange **Perf** och klicka på **kör** överst Frågeruta:
  
     ![Log Analytics-loggsökning](media/quick-collect-windows-computer/log-analytics-portal-queryexample.png)
 

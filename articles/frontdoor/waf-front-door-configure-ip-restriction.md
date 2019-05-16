@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: 514c034c23eed3a87111331724f3a33104651a43
-ms.sourcegitcommit: e729629331ae10097a081a03029398525f4147a4
+ms.openlocfilehash: b129579916330a34a2a78d98f2c7653f129d3319
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64514911"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523697"
 ---
 # <a name="configure-an-ip-restriction-rule-with-web-application-firewall-for-azure-front-door-preview"></a>Konfigurera en regel för IP-begränsning med Brandvägg för webbaserade program för Azure ytterdörren (förhandsversion)
  Den här artikeln visar hur du konfigurerar regler för IP-begränsning i Azure web application firewall (WAF) för åtkomsten med hjälp av Azure CLI, Azure PowerShell eller Azure Resource Manager-mall.
@@ -137,24 +137,24 @@ Install-Module -Name Az.FrontDoor
 Skapa en profil för åtkomsten genom att följa anvisningarna som beskrivs i [snabbstarten: Skapa en ytterdörren-profil](quickstart-create-front-door.md)
 
 ### <a name="define-ip-match-condition"></a>Definiera IP matchningsvillkor
-Använd den [New AzFrontDoorMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoormatchconditionobject) kommando för att definiera en IP-matchningsvillkor. I det exemplet nedan ersätter *ip-adress-intervallet-1*, *ip-adress-intervallet-2* med en egen rad.
+Använd den [New AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject) kommando för att definiera en IP-matchningsvillkor. I det exemplet nedan ersätter *ip-adress-intervallet-1*, *ip-adress-intervallet-2* med en egen rad.
 
 ```powershell
-  $IPMatchCondition = New-AzFrontDoorMatchConditionObject `
+  $IPMatchCondition = New-AzFrontDoorWafMatchConditionObject `
     -MatchVariable  RemoteAddr `
     -OperatorProperty IPMatch `
     -MatchValue ["ip-address-range-1", "ip-address-range-2"]
 ```
 Skapa en IP-matchning alla villkor-regel
 ```powershell
-  $IPMatchALlCondition = New-AzFrontDoorMatchConditionObject `
+  $IPMatchALlCondition = New-AzFrontDoorWafMatchConditionObject `
     -MatchVariable  RemoteAddr `
     -OperatorProperty Any
     
 ```
 
 ### <a name="create-a-custom-ip-allow-rule"></a>Skapa en anpassad regel för att tillåta IP
-   Använd den [New AzFrontDoorCustomRuleObject](/powershell/module/Az.FrontDoor/New-AzFrontDoorCustomRuleObject) kommando för att definiera en åtgärd och ange prioritet. I följande exempel får förfrågningar från klienten IP-adresser som matchar listan. 
+   Använd den [New AzFrontDoorCustomRuleObject](/powershell/module/Az.FrontDoor/New-azfrontdoorwafcustomruleobject) kommando för att definiera en åtgärd och ange prioritet. I följande exempel får förfrågningar från klienten IP-adresser som matchar listan. 
 
 ```powershell
   $IPAllowRule = New-AzFrontDoorCustomRuleObject `
@@ -175,10 +175,10 @@ Skapa ett Block alla IP-regel med lägre prioritet än den tidigare IP-Adressen 
    ```
 
 ### <a name="configure-waf-policy"></a>Konfigurera WAF-princip
-Hitta namnet på resursgruppen som innehåller ytterdörren profil med `Get-AzResourceGroup`. Konfigurera en WAF-policyn med de IP-block med [New AzFrontDoorFireWallPolicy](/powershell/module/Az.FrontDoor/New-AzFrontDoorFireWallPolicy).
+Hitta namnet på resursgruppen som innehåller ytterdörren profil med `Get-AzResourceGroup`. Konfigurera en WAF-policyn med de IP-block med [New AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy).
 
 ```powershell
-  $IPAllowPolicyExamplePS = New-AzFrontDoorFireWallPolicy `
+  $IPAllowPolicyExamplePS = New-AzFrontDoorWafPolicy `
     -Name "IPRestrictionExamplePS" `
     -resourceGroupName <resource-group-name> `
     -Customrule $IPAllowRule $IPBlockAll `

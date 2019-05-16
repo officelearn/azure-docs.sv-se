@@ -3,8 +3,8 @@ title: Skydda ett webb-API med Azure AD | Microsoft Docs
 description: Lär dig hur du skapar ett Node.js REST-webb-API som integreras med Azure AD för autentisering.
 services: active-directory
 documentationcenter: nodejs
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 ms.assetid: 7654ab4c-4489-4ea5-aba9-d7cdc256e42a
 ms.service: active-directory
 ms.subservice: develop
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f72cbd719cea585144be3757f0791a74bde452ab
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7dcbe10c08d581e2ec01e1616da49b7a1b31018d
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60299200"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545980"
 ---
 # <a name="quickstart-secure-a-web-api-with-azure-active-directory"></a>Snabbstart: Skydda ett webb-API med Azure Active Directory
 

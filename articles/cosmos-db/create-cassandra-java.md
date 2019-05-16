@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-cassandra
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 7f6108a5d1e8ee386641c6d1f7c09ea96e12458c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c3bfcffacee7df8a5abf59676a1c47fa283dee7b
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60892428"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65519021"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-java-sdk-and-azure-cosmos-db"></a>Snabbstart: Skapa en Cassandra-app med SDK Java och Azure Cosmos DB
 
@@ -34,8 +34,7 @@ Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera d
 
 Dessutom behöver du:
 
-* [Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks)
-    * I Ubuntu kör du `apt-get install default-jdk` för att installera JDK-paketet.
+* [Java Development Kit (JDK) version 8](https://aka.ms/azure-jdks)
     * Tänk på att ställa in miljövariabeln JAVA_HOME så att den pekar på den mapp där JDK-paketet är installerat.
 * [Ladda ned](https://maven.apache.org/download.cgi) och [installera](https://maven.apache.org/install.html) ett [Maven](https://maven.apache.org/)-binärarkiv
     * I Ubuntu kan du köra `apt-get install maven` för att installera Maven.
@@ -154,7 +153,7 @@ Gå nu tillbaka till Azure-portalen för att hämta information om din anslutnin
 
     ![Visa och kopiera ett användarnamn från Azure-portalen, sidan Anslutningssträng](./media/create-cassandra-java/keys.png)
 
-2. Använd ![Knappen Kopiera](./media/create-cassandra-java/copy.png) knappen på höger sida av skärmen för att kopiera värdet KONTAKTPUNKT.
+2. Använd ![Kopieringsknapp](./media/create-cassandra-java/copy.png) knappen på höger sida av skärmen för att kopiera värdet KONTAKTPUNKT.
 
 3. Öppna filen `config.properties` i mappen `C:\git-samples\azure-cosmosdb-cassandra-java-getting-started\java-examples\src\main\resources`. 
 

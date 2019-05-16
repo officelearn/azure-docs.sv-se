@@ -11,13 +11,13 @@ ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: erhopf
 ms.openlocfilehash: 0ed1a72a5dc61458200b72c768ad722656b820d8
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 05/16/2019
 ms.locfileid: "65027231"
 ---
-# <a name="what-is-the-ink-recognizer-api"></a>Vad är Ink Igenkännande API?
+# <a name="what-is-the-ink-recognizer-api"></a>Vad är API för handskriftsigenkänning?
 
 
 Ink Igenkännande Cognitive Service tillhandahåller en molnbaserad REST API för att analysera och känna igen digitala ink-innehåll. Till skillnad från tjänster som använder optisk teckenläsning (OCR), kräver API: et digitala ink linje data som indata. Digitala ink linjer är en tidsordnad uppsättning 2D punkter (X, Y-koordinaterna) som representerar indata verktyg, till exempel digitala pennor eller fingrar rörelse. Den identifierar former och handskriven innehåll från indata och returnerar ett JSON-svar som innehåller alla identifierade entiteter.
@@ -55,8 +55,8 @@ Testa en Snabbstart på följande språk att börja anrop till API: et för penn
 * [JavaScript](quickstarts/csharp.md)
 
 Om du vill se hur den Ink-API: T fungerar i en digital digital penna app, ta en titt på de följande exempelprogram på GitHub:
-* [C# and Universal Windows Platform(UWP)](https://go.microsoft.com/fwlink/?linkid=2089803)  
-* [C#och Windows Presentation Foundation(WPF)](https://go.microsoft.com/fwlink/?linkid=2089804)
-* [JavaScript web browser-appen](https://go.microsoft.com/fwlink/?linkid=2089908)       
-* [Java- och Android-mobilappen](https://go.microsoft.com/fwlink/?linkid=2089906)
-* [SWIFT- och iOS-mobilapp](https://go.microsoft.com/fwlink/?linkid=2089805)
+* [C# och Universal Windows-plattform (UWP)](https://go.microsoft.com/fwlink/?linkid=2089803)  
+* [C# och Windows Presentation Foundation(WPF)](https://go.microsoft.com/fwlink/?linkid=2089804)
+* [JavaScript-webbläsarappen](https://go.microsoft.com/fwlink/?linkid=2089908)       
+* [Java- och Android-mobilapp](https://go.microsoft.com/fwlink/?linkid=2089906)
+* [Swift- och iOS-mobilapp](https://go.microsoft.com/fwlink/?linkid=2089805)

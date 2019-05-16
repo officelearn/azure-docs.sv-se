@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8201b4089759fb55fae12820f7495664c502837e
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 24c6df6a06d08249f236fc36d64b4204b0103b3c
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023636"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540903"
 ---
 # <a name="what-is-cognitive-search-in-azure-search"></a>Vad är ”cognitive search” i Azure Search?
 
@@ -61,7 +61,7 @@ Internt genererar pipelinen en samling avancerad och dokument. Du kan bestämma 
 
 [Sök service REST api-version = 2019-05-06](search-api-preview.md) utökar kompetens med en definition som knowledgeStore som tillhandahåller en Azure storage-anslutning och projektioner som beskriver hur enrichments lagras. 
 
-Att lägga till en butik kunskap till en kompetens ger dig möjlighet att projicera en representation av ditt enrichments för scenarier än fulltextsökning. Mer information finns i [vad är Knowledge Store](knowledge-store-concept-intro.md).
+Att lägga till en butik kunskap till en kompetens ger dig möjlighet att projicera en representation av ditt enrichments för scenarier än fulltextsökning. Mer information finns i [vad är knowledge store](knowledge-store-concept-intro.md).
 
 ### <a name="step-3-search-index-and-query-based-access"></a>Steg 3: Search-index och frågebaserade åtkomst
 
@@ -111,7 +111,7 @@ Du kan använda REST `api-version=2019-05-06` på begäranden eller .NET SDK.
 
 Det här steget använder REST-API: er för att skapa en lösning för kognitiv sökning. Endast två API: er läggs till eller utökats för kognitiv sökning. API: er har samma syntax som är allmänt tillgängliga versioner.
 
-| REST-API | Beskrivning |
+| REST API | Beskrivning |
 |-----|-------------|
 | [Skapa datakälla](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | En resurs som identifierar en extern datakälla att tillhandahålla källdata som används för att skapa avancerad och dokument.  |
 | [Skapa kompetens (api-version = 2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | En resurs som samordna användningen av [fördefinierade kunskaper](cognitive-search-predefined-skills.md) och [anpassade kognitiva kunskaper](cognitive-search-custom-skill-interface.md) används i en pipeline för berikande under indexering. |
@@ -145,5 +145,5 @@ Mer information om specifika frågor eller problem finns i [felsökningstips](co
 + [Dokumentation om cognitive search](cognitive-search-resources-documentation.md)
 + [Snabbstart: Prova cognitive search i en genomgång av portalen](cognitive-search-quickstart-blob.md)
 + [Självstudie: Lär dig kognitiv sökning API: er](cognitive-search-tutorial-blob.md)
-+ [Knowledge Store översikt](knowledge-store-concept-intro.md)
-+ [Knowledge Store genomgång](knowledge-store-howto.md)
++ [Översikt över Knowledge](knowledge-store-concept-intro.md)
++ [Knowledge store genomgång](knowledge-store-howto.md)

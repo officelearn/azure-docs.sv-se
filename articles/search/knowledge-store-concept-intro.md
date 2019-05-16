@@ -1,5 +1,5 @@
 ---
-title: Knowledge Store introduktion och översikt – Azure Search
+title: Knowledge store introduktion och översikt (förhandsversion) – Azure Search
 description: Skicka avancerad och dokument till Azure storage där du kan visa, omformar och använda avancerad och dokument i Azure Search och i andra program.
 manager: cgronlun
 author: HeidiSteen
@@ -9,32 +9,36 @@ ms.devlang: NA
 ms.topic: overview
 ms.date: 05/02/2019
 ms.author: heidist
-ms.openlocfilehash: 3000016de934aaa3faab96821f9747ea4b571ef7
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 4a27e4d8f2fbaafe6d27a3e3cabd31aa715b9d80
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65027000"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540737"
 ---
-# <a name="what-is-knowledge-store-in-azure-search"></a>Vad är Knowledge Store i Azure Search?
+# <a name="what-is-knowledge-store-in-azure-search"></a>Vad är knowledge store i Azure Search?
 
-Knowledge Store är en valfri funktion i Azure Search, för närvarande i förhandsversion, som sparar avancerad och dokument och metadata som skapats av en AI-baserade pipeline för fulltextindexering [(kognitiv sökning)](cognitive-search-concept-intro.md). Knowledge Store backas upp av ett Azure storage-konto som du konfigurerar som en del av pipelinen. När aktiverad använder söktjänsten det här lagringskontot för att cachelagra en representation av varje avancerad och dokument. 
+> [!Note]
+> Knowledge store är i förhandsversion och inte är avsett för användning i produktion. Den [REST API-version 2019-05-06-Preview](search-api-preview.md) ger den här funktionen. Det finns inget stöd för .NET SDK just nu.
+>
+
+Knowledge store är en valfri funktion i Azure Search som sparar avancerad och dokument och metadata som skapats av en AI-baserade pipeline för fulltextindexering [(kognitiv sökning)](cognitive-search-concept-intro.md). Knowledge store backas upp av ett Azure storage-konto som du konfigurerar som en del av pipelinen. När aktiverad använder söktjänsten det här lagringskontot för att cachelagra en representation av varje avancerad och dokument. 
 
 Om du har använt kognitiv sökning tidigare vet du redan att kompetens kan användas för att flytta ett dokument via en sekvens av enrichments. Resultatet kan vara ett Azure Search-index eller (ny i den här förhandsversionen) projektioner i ett Arkiv för kunskap.
 
 Projektioner är din mekanism för att strukturera data för användning i en underordnad app. Du kan använda [Lagringsutforskaren](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) byggd för Azure storage eller appar som ansluter till Azure storage, vilket öppnar nya möjligheter för att använda utökad dokument. Några exempel är data science-pipelines och anpassad analys.
 
-![Knowledge Store i diagram med datapipeline](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "Knowledge Store i pipeline-diagram")
+![Knowledge store i diagram med datapipeline](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "Knowledge store i pipeline-diagram")
 
-Om du vill använda Knowledge Store, lägger du till en `knowledgeStore` elementet så att en kompetens som definierar stegvis åtgärder i en pipeline för fulltextindexering. Under körningen Azure Search i Azure storage-kontot skapas ett blanksteg och fyller den med definitioner och innehåll som har skapats av pipelinen.
+Om du vill använda knowledge store, lägger du till en `knowledgeStore` elementet så att en kompetens som definierar stegvis åtgärder i en pipeline för fulltextindexering. Under körningen Azure Search i Azure storage-kontot skapas ett blanksteg och fyller den med definitioner och innehåll som har skapats av pipelinen.
 
-## <a name="benefits-of-knowledge-store"></a>Fördelarna med Knowledge Store
+## <a name="benefits-of-knowledge-store"></a>Fördelarna med knowledge store
 
 En knowledge store får du struktur, kontext och själva innehållet - finns i Ostrukturerade och delvis strukturerade datafiler så blobbar, bildfiler som har genomgått analys, eller även strukturerade data som har ändrat storlek i nya formulär. I en [stegvis beskrivning av](knowledge-store-howto.md) skrivna för den här förhandsversionen du kan se själv hur ett kompakt JSON-dokument är utpartitionerad till underordnade strukturer, färdigställts i nya strukturer och annars görs tillgängliga för nedströms processer som machine learning och data science-arbetsbelastningar.
 
-Även om det är användbart för att se vad en AI-baserade indexering av pipeline kan ge är den verkliga kraften i Knowledge Store möjligheten att omformar dina data. Du kan börja med en grundläggande kompetens och sedan iterera över den för att lägga till ökande kontrollnivåer struktur som sedan kan du kombinera i nya strukturer, använda i andra appar utöver Azure Search.
+Även om det är användbart för att se vad en AI-baserade indexering av pipeline kan ge är den verkliga kraften i knowledge store möjligheten att omformar dina data. Du kan börja med en grundläggande kompetens och sedan iterera över den för att lägga till ökande kontrollnivåer struktur som sedan kan du kombinera i nya strukturer, använda i andra appar utöver Azure Search.
 
-Räkna upp, är fördelarna med Knowledge Store följande:
+Räkna upp, inkluderar fördelarna med knowledge store följande:
 
 + Använda avancerad och dokument i [analyser och rapporter verktyg](#tools-and-apps) än sökning. Powerbi med Power Query är ett intressant alternativ, men alla verktyg eller en app som kan ansluta till Azure storage kan hämta från en butik med kunskaper som du skapar.
 
@@ -134,7 +138,7 @@ Du behöver också en Azure Search-tjänst och REST-API för att skapa och konfi
 
 Azure Search har funktionen indexeraren och indexerare som används för att driva den hela processen slutpunkt till slutpunkt, vilket resulterar i beständiga, avancerad och dokument i Azure storage. Indexerare använder en datakälla, ett index och en kompetens - som krävs för att skapa och fylla ett knowledge Arkiv.
 
-| Object | REST-API | Beskrivning |
+| Object | REST API | Beskrivning |
 |--------|----------|-------------|
 | datakälla | [Skapa datakälla](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | En resurs som identifierar en extern Azure datakälla att tillhandahålla källdata som används för att skapa avancerad och dokument.  |
 | Kompetens | [Skapa kompetens (api-version = 2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | En resurs som samordna användningen av [inbyggda kunskaper](cognitive-search-predefined-skills.md) och [anpassade kognitiva kunskaper](cognitive-search-custom-skill-interface.md) används i en pipeline för berikande under indexering. |
@@ -235,11 +239,11 @@ När du använder flera tjänster kan du skapa alla dina tjänster i samma regio
 
 **Steg 4: [Kom igång med portalen](cognitive-search-quickstart-blob.md) - eller - [Kom igång med exempeldata med hjälp av REST och Postman](knowledge-store-howto.md)** 
 
-Du kan använda REST `api-version=2019-05-06-Preview` att konstruera en AI-baserade-pipeline som innehåller Knowledge Store. I den senaste förhandsversionen API kompetens-objektet innehåller de `knowledgeStore` definition.
+Du kan använda REST `api-version=2019-05-06-Preview` att konstruera en AI-baserade-pipeline som innehåller knowledge store. I den senaste förhandsversionen API kompetens-objektet innehåller de `knowledgeStore` definition.
 
 ## <a name="takeaways"></a>Lärdomar
 
-Knowledge Store erbjuder en mängd fördelar, inklusive men inte begränsat till att aktivera användning av avancerad och dokument i scenarier än sökning, kostnad kontroller och hantera drift i berikande-processen. Dessa funktioner är tillgängliga att använda enkelt genom att lägga till ett lagringskonto i din kompetens och med den uppdaterade Uttrycksspråk enligt beskrivningen i [hur du kommer igång med Knowledge Store](knowledge-store-howto.md). 
+Knowledge store erbjuder en mängd fördelar, inklusive men inte begränsat till att aktivera användning av avancerad och dokument i scenarier än sökning, kostnad kontroller och hantera drift i berikande-processen. Dessa funktioner är tillgängliga att använda enkelt genom att lägga till ett lagringskonto i din kompetens och med den uppdaterade Uttrycksspråk enligt beskrivningen i [hur du kommer igång med knowledge store](knowledge-store-howto.md). 
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/08/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: 7d024dd958e6b29b52f095a9a55a67154bf6cde6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 414869833b894e2688505a91fed8fafe0c912b73
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61459801"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523742"
 ---
 # <a name="configure-a-web-application-firewall-policy-using-azure-powershell"></a>Konfigurera en web application-brandväggsprincip med Azure PowerShell
 Princip för Azure web application firewall (WAF) definierar inspektioner krävs när en begäran kommer till ytterdörren.
@@ -31,7 +31,7 @@ Azure PowerShell tillhandahåller en uppsättning cmdletar som använder [Azure 
 
 Du kan installera [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) på en lokal dator och använda det i alla PowerShell-sessioner. Följ anvisningarna på sidan, för att logga in med dina autentiseringsuppgifter för Azure, och installerar Az PowerShell-modulen.
 
-#### <a name="sign-in-to-azure"></a>Logga in på Azure
+#### <a name="sign-in-to-azure"></a>Logga in till Azure
 ```
 Connect-AzAccount
 
@@ -52,19 +52,19 @@ Skapa en profil för åtkomsten genom att följa anvisningarna som beskrivs i [s
 
 ## <a name="custom-rule-based-on-http-parameters"></a>Anpassad regel baserat på http-parametrar
 
-I följande exempel visas hur du konfigurerar en anpassad regel med två matchningsvillkor med [New AzFrontDoorMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoormatchconditionobject). Begäranden som kommer från en angiven plats som definieras av referent och frågesträngen innehåller inte ”lösenord”. 
+I följande exempel visas hur du konfigurerar en anpassad regel med två matchningsvillkor med [New AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject). Begäranden som kommer från en angiven plats som definieras av referent och frågesträngen innehåller inte ”lösenord”. 
 
 ```powershell-interactive
-$referer = New-AzFrontDoorMatchConditionObject -MatchVariable RequestHeader -OperatorProperty Equal -Selector "Referer" -MatchValue "www.mytrustedsites.com/referpage.html"
-$password = New-AzFrontDoorMatchConditionObject -MatchVariable QueryString -OperatorProperty Contains -MatchValue "password"
+$referer = New-AzFrontDoorWafMatchConditionObject -MatchVariable RequestHeader -OperatorProperty Equal -Selector "Referer" -MatchValue "www.mytrustedsites.com/referpage.html"
+$password = New-AzFrontDoorWafMatchConditionObject -MatchVariable QueryString -OperatorProperty Contains -MatchValue "password"
 $AllowFromTrustedSites = New-AzFrontDoorCustomRuleObject -Name "AllowFromTrustedSites" -RuleType MatchRule -MatchCondition $referer,$password -Action Allow -Priority 1
 ```
 
 ## <a name="custom-rule-based-on-http-request-method"></a>Anpassad regel baserat på http-frågemetoden
-Skapa en regel som blockerar ”PLACERA” metod använda [New AzFrontDoorCustomRuleObject](/powershell/module/Az.FrontDoor/New-AzFrontDoorCustomRuleObject) på följande sätt:
+Skapa en regel som blockerar ”PLACERA” metod använda [New AzFrontDoorCustomRuleObject](/powershell/module/az.frontdoor/new-azfrontdoorwafcustomruleobject) på följande sätt:
 
 ```powershell-interactive
-$put = New-AzFrontDoorMatchConditionObject -MatchVariable RequestMethod -OperatorProperty Equal -MatchValue PUT
+$put = New-AzFrontDoorWafMatchConditionObject -MatchVariable RequestMethod -OperatorProperty Equal -MatchValue PUT
 $BlockPUT = New-AzFrontDoorCustomRuleObject -Name "BlockPUT" -RuleType MatchRule -MatchCondition $put -Action Block -Priority 2
 ```
 
@@ -72,7 +72,7 @@ $BlockPUT = New-AzFrontDoorCustomRuleObject -Name "BlockPUT" -RuleType MatchRule
 
 I följande exempel skapas en regel som blockerar begäranden med URL: en som är längre än 100 tecken med Azure PowerShell:
 ```powershell-interactive
-$url = New-AzFrontDoorMatchConditionObject -MatchVariable RequestUri -OperatorProperty GreaterThanOrEqual -MatchValue 100
+$url = New-AzFrontDoorWafMatchConditionObject -MatchVariable RequestUri -OperatorProperty GreaterThanOrEqual -MatchValue 100
 $URLOver100 = New-AzFrontDoorCustomRuleObject -Name "URLOver100" -RuleType MatchRule -MatchCondition $url -Action Block -Priority 3
 ```
 ## <a name="add-managed-default-rule-set"></a>Lägg till hanterade standard regeluppsättning
@@ -83,10 +83,10 @@ $managedRules = New-AzFrontDoorManagedRuleObject -Type DefaultRuleSet -Version "
 ```
 ## <a name="configure-a-security-policy"></a>Konfigurera en säkerhetsprincip
 
-Hitta namnet på resursgruppen som innehåller ytterdörren profil med `Get-AzResourceGroup`. Konfigurera en säkerhetsprincip med regler som skapats i föregående steg med [New AzFrontDoorFireWallPolicy](/powershell/module/az.frontdoor/new-azfrontdoorfirewallPolicy) i den angivna resursgruppen som innehåller ytterdörren profilen.
+Hitta namnet på resursgruppen som innehåller ytterdörren profil med `Get-AzResourceGroup`. Konfigurera en säkerhetsprincip med regler som skapats i föregående steg med [New AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy) i den angivna resursgruppen som innehåller ytterdörren profilen.
 
 ```powershell-interactive
-$myWAFPolicy=New-AzFrontDoorFireWallPolicy -Name $policyName -ResourceGroupName $resourceGroupName -Customrule $AllowFromTrustedSites,$BlockPUT,$URLOver100 -ManagedRule $managedRules -EnabledState Enabled -Mode Prevention
+$myWAFPolicy=New-AzFrontDoorWafPolicy -Name $policyName -ResourceGroupName $resourceGroupName -Customrule $AllowFromTrustedSites,$BlockPUT,$URLOver100 -ManagedRule $managedRules -EnabledState Enabled -Mode Prevention
 ```
 
 ## <a name="link-policy-to-a-front-door-front-end-host"></a>Länk-princip till en ytterdörren frontend-värd

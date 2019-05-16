@@ -9,12 +9,12 @@ ms.topic: quickstart
 author: sdgilley
 ms.author: sgilley
 ms.date: 05/02/2019
-ms.openlocfilehash: d14ef4a59e65ba432b5d04d9f531e4ba639deb8a
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.openlocfilehash: 0c492424e67853f7cb4a017fb4215d38a555a8a4
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65440949"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545043"
 ---
 # <a name="quickstart-prepare-and-visualize-data-without-writing-code-in-azure-machine-learning"></a>Snabbstart: Förbereda och visualisera data utan att skriva kod i Azure Machine Learning
 
@@ -99,13 +99,13 @@ Välj vilka kolumner med data du arbetar med.  Konfigurera att börja med module
    
 1. Välj den **Välj kolumner i datauppsättning** modulen.
 
-1. I den **egenskaper** rutan till höger om arbetsytan, väljer **starta kolumnväljaren**.
+1. I den **egenskaper** rutan till höger om arbetsytan, väljer **Redigera kolumner**.
 
     I den **Markera kolumner** dialogrutan Välj **alla kolumner** och inkludera **alla funktioner**. Dialogrutan bör se ut så här:
 
      ![column-selector](./media/ui-quickstart-run-experiment/select-all.png)
 
-1. Klicka på bockmarkeringen (OK) längst ned till höger, att Stäng kolumnväljaren.
+1. Längst ned till höger, Välj **OK** att Stäng kolumnväljaren.
 
 ## <a name="run-the-experiment"></a>Kör experimentet
 
@@ -146,13 +146,13 @@ Ta först bort de **normalized-losses** kolumn helt.
 
 1. Välj den **Välj kolumner i datauppsättning** modulen.
 
-1. I den **egenskaper** rutan till höger om arbetsytan, väljer **starta kolumnväljaren**.
+1. I den **egenskaper** rutan till höger om arbetsytan, väljer **Redigera kolumner**.
 
     * Lämna **med regler** och **alla kolumner** valda.
 
     * I listrutorna väljer du **Exkludera** och **kolumnnamn** och klickar sedan i textrutan. Typ **normalized-losses**.
 
-    * Klicka på bockmarkeringen (OK) längst ned till höger, att Stäng kolumnväljaren.
+    * Längst ned till höger, Välj **OK** att Stäng kolumnväljaren.
 
     ![Undanta en kolumn](./media/ui-quickstart-run-experiment/exclude-column.png)
         
@@ -172,7 +172,7 @@ Ta först bort de **normalized-losses** kolumn helt.
 
     Modulen visas nu en upp-pilen för att dölja kommentaren.
         
-    ![Kommentar](./media/ui-quickstart-run-experiment/comments.png)
+    ![Kommentarer](./media/ui-quickstart-run-experiment/comments.png)
 
 ### <a name="clean-missing-data"></a>Rensa data som saknas
 

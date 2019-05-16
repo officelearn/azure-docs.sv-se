@@ -9,19 +9,20 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 04/08/2019
-ms.openlocfilehash: 83842893e0ffc6bb954832cd65b6312b59bbcaa3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 05/16/2019
+ms.openlocfilehash: 8d186ae83e1016de9c4548d4b1c39303025a5270
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60516562"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65758466"
 ---
 # <a name="quickstart-1---create-an-azure-search-index-in-c"></a>Snabbstart: 1 – skapa ett Azure Search-index iC#
 > [!div class="op_single_selector"]
 > * [C#](search-create-index-dotnet.md)
 > * [Portal](search-get-started-portal.md)
 > * [PowerShell](search-howto-dotnet-sdk.md)
+> * [Python](search-get-started-python.md)
 > * [Postman](search-fiddler.md)
 >*
 
@@ -36,11 +37,11 @@ Den här artikeln vägleder dig genom processen för att skapa [ett Azure Search
 
 Följande tjänster, verktyg och data som används i den här snabbstarten. 
 
-[Skapa en Azure Search-tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under din aktuella prenumeration. Du kan använda en kostnadsfri tjänst för den här snabbstarten.
++ [Skapa en Azure Search-tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under din aktuella prenumeration. Du kan använda en kostnadsfri tjänst för den här snabbstarten.
 
-[Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), alla versioner. Exempelkod och instruktioner har testats på den kostnadsfria Community-versionen.
++ [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), alla versioner. Exempelkod och instruktioner har testats på den kostnadsfria Community-versionen.
 
-[DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) ger exempellösningen är en .NET Core-konsolprogram som skrivits C#, som finns i GitHub-lagringsplatsen Azure-exempel. Hämta och extrahera lösningen. Som standard är lösningar skrivskyddad. Högerklicka på lösningen och ta bort attributet skrivskyddad så att du kan ändra filer. Data som ingår i lösningen.
++ [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) ger exempellösningen är en .NET Core-konsolprogram som skrivits C#, som finns i GitHub-lagringsplatsen Azure-exempel. Hämta och extrahera lösningen. Som standard är lösningar skrivskyddad. Högerklicka på lösningen och ta bort attributet skrivskyddad så att du kan ändra filer. Data som ingår i lösningen.
 
 ## <a name="get-a-key-and-url"></a>Hämta en nyckel och URL: en
 

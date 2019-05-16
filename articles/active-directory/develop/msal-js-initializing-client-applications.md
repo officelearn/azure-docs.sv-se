@@ -4,7 +4,7 @@ description: Läs mer om initiering av klientprogram som använder Microsoft Aut
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,12 +17,12 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7990566ca9cd93e79b8356cfd15fda03a7469695
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: cd26f36356affbc8c272bd093757a8482773baf2
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138307"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544028"
 ---
 # <a name="initialize-client-applications-using-msaljs"></a>Initiera klientprogram som använder MSAL.js
 Den här artikeln beskriver initiering av Microsoft Authentication Library för JavaScript (MSAL.js) med en instans av ett användar-agent-program. Användaragent-programmet är en typ av offentliga klientprogram som klientkoden körs i en användaragent till exempel en webbläsare. Dessa klienter lagrar inte hemligheter, eftersom webbläsaren kontexten är öppet tillgängliga. Mer information om klienten programtyper och programmets konfigurationsalternativ i [översikt](msal-client-applications.md).

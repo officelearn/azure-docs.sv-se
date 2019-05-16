@@ -2,20 +2,20 @@
 title: Vad är Azure SQL Data Warehouse? | Microsoft Docs
 description: En distribuerad databas i företagsklass som kan bearbeta petabytevolymer med relationella och icke-relationella data. Den är branschens första informationslager i molnet som kan växa, krympa och pausa på sekunden.
 services: sql-data-warehouse
-author: igorstanko
+author: happynicolle
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: overview
 ms.subservice: design
 ms.date: 04/17/2018
-ms.author: igorstan
+ms.author: nicw
 ms.reviewer: igorstan
-ms.openlocfilehash: 1937d96db96c00af7f004ef4c22c4985499e393e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 29296d703e59cb234177349ca477c3fdab74ee61
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61476106"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65758957"
 ---
 # <a name="what-is-azure-sql-data-warehouse"></a>Vad är Azure SQL Data Warehouse?
 

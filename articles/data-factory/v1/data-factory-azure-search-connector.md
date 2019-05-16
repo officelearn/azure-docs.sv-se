@@ -68,7 +68,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 | Egenskap  | Beskrivning | Krävs |
 | -------- | ----------- | -------- |
-| typ | Type-egenskapen måste anges till **AzureSearchIndex**.| Ja |
+| type | Type-egenskapen måste anges till **AzureSearchIndex**.| Ja |
 | indexName | Namnet på Azure Search-index. Data Factory skapar inte indexet. Indexet måste finnas i Azure Search. | Ja |
 
 

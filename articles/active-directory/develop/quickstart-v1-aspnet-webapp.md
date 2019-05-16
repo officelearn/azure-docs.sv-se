@@ -4,7 +4,7 @@ description: Lär dig hur du lägger till Microsoft logga in på en ASP.NET-lös
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: andret
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f88643000b85965b2f275cc6e7494f427d0fe43e
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 6c99125d1d17f85e9767dca6d108005e598561cc
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65231152"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545667"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Snabbstart: Lägga till inloggning med Microsoft till en ASP.NET-webbapp
 
@@ -289,7 +289,7 @@ Välj hyperlänken för att se användarens anspråk. Den här åtgärden leder 
 
  Du bör se en tabell som innehåller de grundläggande egenskaperna för den inloggade användaren:
 
-| Egenskap  | Värde | Beskrivning |
+| Egenskap  | Value | Beskrivning |
 |---|---|---|
 | Namn | {User Full Name} | Användarens förnamn och efternamn |
 | Användarnamn | <span>user@domain.com</span> | Användarnamnet som används för att identifiera den inloggade användaren |

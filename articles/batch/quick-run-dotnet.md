@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 11/29/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 6c332861bcaf228e4c1e0a619cf4f84e3be0ba15
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: b8d7556607cdb73c3e3ae19109bcbf34b72b0915
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65204166"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595341"
 ---
 # <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>Snabbstart: Kör ditt första Azure Batch-jobb med .NET API
 
@@ -27,7 +27,7 @@ Denna snabbstart kör ett Azure Batch-jobb från ett C#-program som bygger på A
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-* [Visual Studio 2017](https://www.visualstudio.com/vs) eller [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1) för Linux, macOS eller Windows. 
+* [Visual Studio 2017 eller senare](https://www.visualstudio.com/vs), eller [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1) för Linux, macOS och Windows. 
 
 * Ett Batch-konto och ett länkat Azure Storage-konto. För att skapa dessa konton finns Batch-snabbstart med hjälp av [Azure-portalen](quick-create-portal.md) eller [Azure CLI](quick-create-cli.md). 
 

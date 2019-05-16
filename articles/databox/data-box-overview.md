@@ -9,12 +9,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 01/18/2019
 ms.author: alkohli
-ms.openlocfilehash: a81eef9e3f7892afa1d64befec35852381ffe17b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ddbb535d386fb90ccb2042e0908e66146e854f00
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60930839"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603459"
 ---
 # <a name="what-is-azure-data-box"></a>Vad är Azure Data Box?
 
@@ -59,7 +59,7 @@ Den Data Box-enheten har följande funktioner i den här versionen.
 | Specifikationer                                          | Beskrivning              |
 |---------------------------------------------------------|--------------------------|
 | Vikt                                                  | < 23 kg                |
-| Dimensioner                                              | Enhet – Bredd: 309,0 mm Höjd: 430,4 mm Djup: 502,0 mm |            
+| Mått                                              | Enhet – Bredd: 309,0 mm Höjd: 430,4 mm Djup: 502,0 mm |            
 | Rackutrymme                                              | 7 U när den placeras i rack på sidan (kan inte rackmonteras)|
 | Kablar som krävs                                         | 1 x strömkabel (ingår) <br> 2 RJ45-kablar <br> 2 x SFP + Twinax-kopparkablar|
 | Lagringskapacitet                                        | 100 TB-enheten har 80 TB användbar kapacitet efter RAID 5-skydd|
@@ -109,7 +109,7 @@ Under den här processen meddelas du via e-post om alla statusändringar. Mer in
 
 ## <a name="region-availability"></a>Regional tillgänglighet
 
-Data Box kan överföra data baserat på den region där tjänsten har distribuerats, det land som enheten levereras till och det målkonto för lagring i Azure dit du överför data. 
+Data Box kan överföra data baserat på den region där tjänsten distribueras, land/region som enheten levereras och mål-Azure storage-konto där du kan överföra data. 
 
 - **Tjänstens tillgänglighet** – för den här versionen är Data Box-tjänsten tillgänglig i följande regioner:
     - Alla regioner i USA – USA, västra centrala, USA, västra 2, USA, västra, USA, södra centrala, USA, centrala, USA, norra centrala, USA, östra samt USA, östra 2.

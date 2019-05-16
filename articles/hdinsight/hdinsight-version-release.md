@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.topic: overview
 ms.date: 04/15/2019
-ms.openlocfilehash: 553f50897afaaf9c677e84f9cfffbff7d2c1e607
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: aa0d01bfbebd5279b5268bae9d161492f30b81de
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60484912"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546280"
 ---
 # <a name="hdinsight-40-overview"></a>Översikt över HDInsight 4.0
 
@@ -90,7 +90,7 @@ Det finns inga uppgraderingsvägen som stöds från tidigare versioner av HDInsi
 
 ## <a name="limitations"></a>Begränsningar
 
-* HDInsight 4.0 har inte stöd för MapReduce. Använd Apache Tez i stället. Läs mer om [Apache Tez](https://tez.apache.org/).
+* HDInsight 4.0 stöder inte MapReduce för Apache Hive. Använd Apache Tez i stället. Läs mer om [Apache Tez](https://tez.apache.org/).
 * HDInsight 4.0 har inte stöd för Apache Storm. 
 * Hive-vyn finns inte längre i HDInsight 4.0. 
 * Shell-tolken i Apache Zeppelin stöds inte i Spark och i Interaktiva frågekluster.

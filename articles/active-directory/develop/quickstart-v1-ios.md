@@ -3,8 +3,8 @@ title: Skapa en iOS-app som integreras med Azure för inloggning och anropar sky
 description: Lär dig hur du loggar in användare och anropar Microsoft Graph API från iOS-appen.
 services: active-directory
 documentationcenter: ios
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 42303177-9566-48ed-8abb-279fcf1e6ddb
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: brandwe
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d986ccbf92192c1fb7375e9db1fb398ed86a829
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 01a0f30063b5d98d23bb25fdc7f610158b92cd78
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60299047"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545630"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-app"></a>Snabbstart: Logga in användare och anropa Microsoft Graph API från en iOS-app
 
@@ -243,7 +243,7 @@ Grundprincipen bakom ADAL är att när appen behöver en åtkomsttoken anropar d
 
 ## <a name="step-5-build-and-run-the-application"></a>Steg 5: Skapa och kör appen
 
-Grattis! Nu har du en fungerande iOS-app som kan autentisera användare, på ett säkert sätt anropa webb-API:er med hjälp av OAuth 2.0 och få grundläggande information om användaren.
+Gratulerar! Nu har du en fungerande iOS-app som kan autentisera användare, på ett säkert sätt anropa webb-API:er med hjälp av OAuth 2.0 och få grundläggande information om användaren.
 
 Om du inte redan har gjort det är det dags att fylla i klientorganisationen med några användaren.
 

@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: rezas
-ms.openlocfilehash: 4b546b91634e153fa0074adfb863596a1bf36242
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 0ad9986c2d4d9e44d13f37fe2aa1629373f4841a
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59006430"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595147"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-nodejs-via-iot-hub-device-streams-preview"></a>Snabbstart: Kommunicera med ett enhetsprogram i Node.js via IoT Hub-enhetsströmmar (förhandsversion)
 
@@ -44,7 +44,7 @@ Förhandsgranskning av enheten strömmar är för närvarande stöds endast för
   - **USA, centrala**
   - **USA, centrala – EUAP**
 
-För att kunna köra programmet på tjänstsidan i den här snabbstarten behöver du ha Node.js v4.x.x eller senare på utvecklingsdatorn.
+Om du vill köra programmet på tjänstsidan i den här snabbstarten behöver du Node.js v10.x.x eller senare på utvecklingsdatorn.
 
 Du kan ladda ned Node.js för flera plattformar från [Node.js.org](https://nodejs.org).
 

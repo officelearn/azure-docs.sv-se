@@ -7,14 +7,14 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: e808bd18e2b23c211f1c5257881fc8a8b72271fc
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: f9dc6e98e184e6eeeca3a56ff4a28739369a3d24
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64705909"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65736305"
 ---
-# <a name="create-a-custom-policy-definition"></a>Skapa en anpassad principdefinition
+# <a name="tutorial-create-a-custom-policy-definition"></a>Självstudier: Skapa en anpassad principdefinition
 
 Med en anpassad principdefinition kan kunderna definiera egna regler för att använda Azure. De här reglerna framtvingar ofta:
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 04/16/2019
 ms.author: b-juche
-ms.openlocfilehash: fec9e22b15eca3f95be606776066cf573046b5fd
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c2984e012ae83a8bc17d72ed4eac0c5c469c2694
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64687484"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522871"
 ---
 # <a name="what-is-the-storage-hierarchy-of-azure-netapp-files"></a>Vad är Azure NetApp Files storage hierarki
 
@@ -40,14 +40,16 @@ Innan du skapar en volym i Azure NetApp Files måste du köpa och konfigurera en
 - Varje kapacitetspool kan endast tillhör ett NetApp-konto. Du kan dock ha flera kapacitetspooler inom ett NetApp-konto.  
 - Det går inte att flytta kapacitetspooler mellan NetApp-konton.   
   I [Konceptdiagram över lagringshierarki](#conceptual_diagram_of_storage_hierarchy) nedan kan exempelvis Capacity Pool 1 inte flyttas från NetApp-kontot USA, östra till NetApp-kontot USA, västra 2.  
+- Poolen kapacitet kan inte tas bort förrän alla volymer i kapacitet poolen har tagits bort.
 
 ## <a name="volumes"></a>Volymer
 
 - En volym mäts efter logisk kapacitetsförbrukning och är skalbar. 
 - En volyms kapacitetsförbrukning mäts mot dess pools etablerade kapacitet.
 - Varje volym hör till endast en pool, men en pool kan innehålla flera volymer. 
-- Du kan flytta en volym mellan pooler inom samma NetApp-konto.    
-  I [Konceptdiagram över lagringshierarki](#conceptual_diagram_of_storage_hierarchy) nedan kan du till exempel flytta volymerna från Kapacitetspool 1 till Kapacitetspool 2.
+- En volym kan inte flyttas över kapacitet pooler. <!--Within the same NetApp account, you can move a volume across pools.  -->   
+  Till exempel i den [begreppsmässiga diagram över storage hierarkin](#conceptual_diagram_of_storage_hierarchy) nedan, du kan inte flytta volymerna från kapacitet Pool 1 till Pool 2 för kapacitet.
+- En volym kan inte tas bort förrän alla ögonblicksbilder har tagits bort.
 
 ## <a name="conceptual_diagram_of_storage_hierarchy"></a>Konceptdiagram över lagringshierarki 
 I följande exempel visar vi sambanden mellan Azure-prenumeration, NetApp-konton, kapacitetspooler och volymer.   

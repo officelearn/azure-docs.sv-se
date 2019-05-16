@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 6deb3ac0869ba7d8dfb41cc6fac8c30fb035b5a6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7700efb7bfdb60c8f8f82b442cf01aae691f2fc3
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64572721"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595570"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>Börja övervaka din ASP.NET Core-webbapp
 
@@ -27,7 +27,7 @@ Den här snabbstarten hjälper dig att lägga till Application Insights SDK i en
 
 För att slutföra den här snabbstarten behöver du:
 
-- [Installera Visual Studio 2017](https://www.visualstudio.com/downloads/) med följande arbetsbelastningar:
+- [Installera Visual Studio 2019](https://www.visualstudio.com/downloads/) med följande arbetsbelastningar:
   - ASP.NET och webbutveckling
   - Azure Development
 - [Installera .NET Core 2.0 SDK](https://www.microsoft.com/net/core)
@@ -51,7 +51,7 @@ Application Insights kan samla in telemetridata från alla internetanslutna appa
 
     En konfigurationsruta visas. Använd följande tabell när du ska fylla i indatafälten.
 
-    | Inställningar        |  Värde           | Beskrivning  |
+    | Inställningar        |  Value           | Beskrivning  |
    | ------------- |:-------------|:-----|
    | **Namn**      | Globalt unikt värde | Namn som identifierar appen du övervakar |
    | **Programtyp** | ASP.NET-webbapp | Typen av app du övervakar |

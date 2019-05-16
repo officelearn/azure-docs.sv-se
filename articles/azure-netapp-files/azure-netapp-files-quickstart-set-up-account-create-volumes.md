@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 4/16/2019
 ms.author: b-juche
-ms.openlocfilehash: f0f3dea1c30790bb109d7cb7af07abd8fbb1ace4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2bcd8163cb3c6071812d4d247b5b333edcfc89e5
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64702884"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523032"
 ---
-# <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Snabbstart: Konfigurera Azure NetApp filer och skapa en NFS-volym 
+# <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Snabbstart: Konfigurera Azure NetApp Files och skapa en NFS-volym 
 
 Den här artikeln visar hur du snabbt ställa in Azure NetApp filer och skapa en volym. 
 
@@ -36,7 +36,8 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="before-you-begin"></a>Innan du börjar 
 
-Du behöver delta i programmet för allmänt tillgängliga förhandsversioner och vara med i listan över tillåtna för att få åtkomst till Azure-resursprovidern för Microsoft.NetApp. Mer information om att gå med i programmet för allmänt tillgängliga förhandsversioner finns på [registreringssidan för allmänt tillgängliga förhandsversioner för Azure NetApp Files](https://aka.ms/nfspublicpreview). 
+> [!IMPORTANT] 
+> Du måste ha åtkomst till tjänsten Azure NetApp-filer.  Om du vill begära åtkomst till tjänsten, se den [Azure NetApp Files Väntelista överföringssidan](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR8cq17Xv9yVBtRCSlcD_gdVUNUpUWEpLNERIM1NOVzA5MzczQ0dQR1ZTSS4u).  Du måste vänta tills en officiell bekräftelsemeddelandet från teamet för Azure NetApp filer innan du fortsätter. 
 
 ## <a name="register-for-azure-netapp-files-and-netapp-resource-provider"></a>Registrera dig för Azure NetApp filer och NetApp-Resursprovidern
 

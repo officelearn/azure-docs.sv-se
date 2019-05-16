@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 42e8e7bdd52dcb8f236d94e7f931c91cd21605fd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: b691b7fc05b4a68b917fc882e9bc2fa43bb3d3c1
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60499043"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65756567"
 ---
-# <a name="create-a-policy-assignment-to-identify-non-compliant-resources"></a>Skapa en principtilldelning för att identifiera icke-kompatibla resurser
+# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources"></a>Snabbstart: Skapa en principtilldelning för att identifiera icke-kompatibla resurser
 
 Det första steget mot att förstå kompatibilitet i Azure är att identifiera dina resursers status.
 Denna snabbstart vägleder dig genom processen för att skapa en principtilldelning som identifierar virtuella datorer som inte använder hanterade diskar.
@@ -48,7 +48,7 @@ I den här snabbstarten skapar du en principtilldelning och tilldelar policydefi
 
 1. Välj ellipsen **Principdefinition** för att öppna listan med tillgängliga definitioner. Azure Policy har inbyggda principdefinitioner som du kan använda. Många är tillgängliga, till exempel:
 
-   - Framtvinga tagg och dess värde
+   - Lägg till tagg och dess värde
    - Använd tagg och dess värde
    - Kräv SQL Server version 12.0
 
@@ -78,9 +78,9 @@ När ett villkor utvärderas mot de befintliga resurserna och visas vara korrekt
 
 | **Resurstillstånd** | **Effekt** | **Principutvärdering** | **Kompatibilitetstillstånd** |
 | --- | --- | --- | --- |
-| Finns | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True | Icke-kompatibel |
+| Finns | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True | Inkompatibel |
 | Finns | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | False | Kompatibel |
-| Ny | Audit, AuditIfNotExist\* | True | Icke-kompatibel |
+| Ny | Audit, AuditIfNotExist\* | True | Inkompatibel |
 | Ny | Audit, AuditIfNotExist\* | False | Kompatibel |
 
 \* För åtgärderna Append, DeployIfNotExist och AuditIfNotExist måste IF-instruktionen är TRUE. Åtgärderna kräver också att villkoret Finns är FALSE för att vara icke-kompatibla. När det är TRUE utlöser IF-villkoret utvärdering av villkoret Finns för de relaterade resurserna.

@@ -10,12 +10,12 @@ ms.topic: quickstart
 description: Kubernetes-utveckling i grupp med behållare och mikrotjänster på Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, Helm, tjänsten nät, tjänsten nät routning, kubectl, k8s
 manager: jeconnoc
-ms.openlocfilehash: 1414cc56809263a90a4bfea16db332e2f6a5e0bc
-ms.sourcegitcommit: e729629331ae10097a081a03029398525f4147a4
-ms.translationtype: MT
+ms.openlocfilehash: 437c6284c563f85e25d2c5b81734ea3bc0507701
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64514084"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596994"
 ---
 # <a name="quickstart-team-development-on-kubernetes-using-azure-dev-spaces"></a>Snabbstart: Grupputveckling på Kubernetes med Azure Dev blanksteg
 
@@ -25,7 +25,7 @@ I den här guiden får du lära dig hur du:
 - Distribuera ett stort program med flera mikrotjänster en dev-adressutrymme.
 - Testa en enda mikrotjänst i en isolerad dev utrymme inom ramen för den kompletta appen.
 
-![Azure Dev blanksteg cykel delning exempelprogrammet](media/quickstart-team-development/bikeshare.png)
+![Azure Dev blanksteg Grupputveckling](media/azure-dev-spaces/collaborate-graphic.gif)
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -125,7 +125,9 @@ http://dev.bikesharingweb.fedcab0987.eus.azds.io/  Available
 http://dev.gateway.fedcab0987.eus.azds.io/         Available
 ```
 
-Navigera till den *bikesharingweb* tjänsten genom att öppna en offentlig URL från den `azds list-uris` kommando. I exemplet ovan, en offentlig URL för den *bikesharingweb* tjänsten är *http://dev.bikesharingweb.fedcab0987.eus.azds.io/*. Välj *Aurelia Briggs (kund)* som användaren. Kontrollera att du ser texten *Hej Aurelia Briggs | Logga ut* högst upp.
+Navigera till den *bikesharingweb* tjänsten genom att öppna en offentlig URL från den `azds list-uris` kommando. I exemplet ovan, en offentlig URL för den *bikesharingweb* tjänsten är `http://dev.bikesharingweb.fedcab0987.eus.azds.io/`. Välj *Aurelia Briggs (kund)* som användaren. Kontrollera att du ser texten *Hej Aurelia Briggs | Logga ut* högst upp.
+
+![Azure Dev blanksteg cykel delning exempelprogrammet](media/quickstart-team-development/bikeshare.png)
 
 ## <a name="create-child-dev-spaces"></a>Skapa underordnade dev blanksteg
 
@@ -162,7 +164,7 @@ http://azureuser2.s.dev.gateway.fedcab0987.eus.azds.io/         Available
 
 Kontrollera att URL: er som visas av den `azds list-uris` kommando har den *azureuser2.s.dev* prefix. Det här prefixet bekräftar att det utrymme som valts är *azureuser2*, vilket är en underordnad *dev*.
 
-Navigera till den *bikesharingweb* för den *dev/azureuser2* dev utrymme genom att öppna en offentlig URL från den `azds list-uris` kommando. I exemplet ovan, en offentlig URL för den *bikesharingweb* tjänsten är *http://azureuser2.s.dev.bikesharingweb.fedcab0987.eus.azds.io/*. Välj *Aurelia Briggs (kund)* som användaren. Kontrollera att du ser texten *Hej Aurelia Briggs | Logga ut* högst upp.
+Navigera till den *bikesharingweb* för den *dev/azureuser2* dev utrymme genom att öppna en offentlig URL från den `azds list-uris` kommando. I exemplet ovan, en offentlig URL för den *bikesharingweb* tjänsten är `http://azureuser2.s.dev.bikesharingweb.fedcab0987.eus.azds.io/`. Välj *Aurelia Briggs (kund)* som användaren. Kontrollera att du ser texten *Hej Aurelia Briggs | Logga ut* högst upp.
 
 ## <a name="update-code"></a>Uppdatera kod
 

@@ -13,22 +13,22 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 05/07/2019
+ms.date: 05/13/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 4fb42014e2c5389cf2a849ddf5114ab1f59c9e28
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: b07675e25c0380921e24059ff0107fcfe1bb3873
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65414032"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602108"
 ---
 # <a name="azure-media-services-v3-overview"></a>Azure Media Services v3-översikt
 
 Azure Media Services är en molnbaserad plattform för att skapa lösningar för videor i sändningskvalitet för direktuppspelning, förbättra tillgängligheten och distributionen, analysera innehållet och mycket mer. Om du är en programutvecklare, ett callcenter, en myndighet eller ett underhållningsföretag kan Media Services hjälpa dig att skapa program som levererar medieupplevelser med fantastisk kvalitet för stora målgrupper på dagens populäraste mobila enheter och webbläsare. 
 
 > [!NOTE]
-> För närvarande kan du inte hantera v3-resurser med Azure-portalen. Använd [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) eller en av [SDK:erna som stöds](developers-guide.md).
+> För närvarande kan du inte hantera v3-resurser med Azure-portalen. Använd [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) eller en av [SDK:erna som stöds](media-services-apis-overview.md#sdks).
 
 ## <a name="what-can-i-do-with-media-services"></a>Vad kan jag göra med Media Services?
 
@@ -75,7 +75,6 @@ Artiklar innehåller exempel som visar hur du utför en uppgift. I det här avsn
 
 * [Skapa ett konto – CLI](create-account-cli-how-to.md)
 * [Använd API:er – CLI](access-api-cli-how-to.md)
-* [Börja utveckla med SDK:er](developers-guide.md)
 * [Koda med HTTPS som indata - jobb .NET](job-input-from-http-how-to.md)  
 * [Övervaka händelser – Portal](monitor-events-portal-how-to.md)
 * [Kryptera dynamiskt med multi-DRM - .NET](protect-with-drm.md) 

@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 03/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: fd5c47bb3c7bc3dfc9c0e140531ff832e7e6ef56
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6510099f9fb145951cbce1ea168b36dba5f76e07
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60344962"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540908"
 ---
 # <a name="what-is-role-based-access-control-rbac-for-azure-resources"></a>Vad är rollbaserad åtkomstkontroll (RBAC) för Azure-resurser?
 
@@ -106,7 +106,7 @@ Så vad händer om du har flera överlappande rolltilldelningar? RBAC är en add
 
 ![Flera rolltilldelningar](./media/overview/rbac-multiple-roles.png)
 
-## <a name="deny-assignments"></a>Avvisa tilldelning
+## <a name="deny-assignments"></a>Neka tilldelningar
 
 Tidigare var RBAC en tillåt endast-modell med inga nekanden, men nu har RBAC stöd för tilldelningsnekanden begränsad utsträckning. På samma sätt som en rolltilldelning kopplar ett *tilldelningsnekande* en uppsättning nekandeåtgärder till en användare, grupp, tjänstens huvudnamn eller hanterad identitet i ett visst omfång för att neka åtkomst. En rolltilldelning definierar en uppsättning åtgärder som är *tillåtna*, medan en nekandetilldelning definierar en uppsättning åtgärder som *inte är tillåtna*. Med andra ord blockerar tilldelningsnekanden användare från att utföra angivna åtgärder, även om en rolltilldelning ger dem åtkomst. Tilldelningsnekanden åsidosätter rolltilldelningar. Mer information finns i [Förstå nekandetilldelningar för Azure-resurser](deny-assignments.md) och [Visa nekandetilldelningar för Azure-resurser med hjälp av Azure-portalen](deny-assignments-portal.md).
 
@@ -138,4 +138,4 @@ Följande är de övergripande stegen som RBAC använder för att avgöra om du 
 - [Snabbstart: Visa den åtkomst en användare har till Azure-resurser med Azure-portalen](check-access.md)
 - [Hantera åtkomst till Azure-resurser med hjälp av RBAC och Azure-portalen](role-assignments-portal.md)
 - [Förstå de olika rollerna i Azure](rbac-and-directory-admin-roles.md)
-- [Molnimplementering för företag: Åtkomsthantering av resurser i Azure](/azure/architecture/cloud-adoption/getting-started/azure-resource-access)
+- [Molnimplementering för företag: Åtkomsthantering av resurser i Azure](/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access)

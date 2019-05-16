@@ -7,13 +7,13 @@ ms.author: twhitney
 manager: jeconnoc
 ms.topic: tutorial
 ms.service: openshift
-ms.date: 05/13/2019
-ms.openlocfilehash: dda5df0e5b9b9509482cb6dcdcda242b4daa230f
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
-ms.translationtype: MT
+ms.date: 05/14/2019
+ms.openlocfilehash: a85397dae67eb06fecbf5e2410f56e2aad808dc8
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65596344"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65750084"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-cluster"></a>Självstudier: Skapa ett Azure Red Hat OpenShift-kluster
 
@@ -33,7 +33,9 @@ I den här självstudieserien får du lära du dig att:
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 > [!IMPORTANT]
-> Den här självstudien kräver version 2.0.65 av Azure CLI
+> Den här självstudien kräver version 2.0.65 av Azure CLI.
+>    
+> Innan du kan använda Azure Red Hat Openshift, måste du köpa Azure-dator som är reserverade instanser enligt beskrivningen i [ställa in din utvecklingsmiljö för Azure Red Hat Openshift](howto-setup-environment.md#purchase-azure-virtual-machine-reserved-instances).
 
 Innan du börjar den här självstudien:
 

@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 08/10/2018
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 287cab034079c54c027e0dc7b84564458d31fc31
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d9f1cbff0dd79d6c2932428708eb1d097b6d9d63
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64696163"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65601482"
 ---
 # <a name="create-your-first-function-with-java-and-maven"></a>Skapa din första funktion med Java och Maven
 
@@ -29,7 +29,7 @@ Den här artikeln vägleder dig med att använda Maven-kommandoradsverktyget fö
 
 För att kunna utveckla funktioner med hjälp av Java måste du ha följande installerat:
 
-- [Java Development Kit](https://www.azul.com/downloads/zulu/), version 8
+- [Java Development Kit](https://aka.ms/azure-jdks), version 8
 - [Apache Maven](https://maven.apache.org), version 3.0 eller senare
 - [Azure CLI](https://docs.microsoft.com/cli/azure)
 - [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.6.666 eller senare
@@ -202,7 +202,7 @@ Till följande:
 return request.createResponse(200, "Hi, " + name);
 ```
 
-Spara ändringarna och distribuera om genom att köra `azure-functions:deploy` från terminalen som tidigare. Funktionsappen uppdateras och den här begäran:
+Spara ändringarna. Kör mvn ren paket och distribuera om genom att köra `azure-functions:deploy` från terminalen som tidigare. Funktionsappen uppdateras och den här begäran:
 
 ```bash
 curl -w '\n' -d AzureFunctionsTest https://fabrikam-functions-20170920120101928.azurewebsites.net/api/HttpTrigger-Java

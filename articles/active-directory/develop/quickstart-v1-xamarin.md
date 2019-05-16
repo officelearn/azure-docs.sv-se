@@ -3,8 +3,8 @@ title: Komma igång med Azure AD Xamarin | Microsoft Docs
 description: Skapa Xamarin-program som integreras med Azure AD för inloggning och anrop till Azure AD-skyddade API:er med hjälp av OAuth.
 services: active-directory
 documentationcenter: xamarin
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 198cd2c3-f7c8-4ec2-b59d-dfdea9fe7d95
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0a20c2e6524b0c466f5c45578e0ba8eaad351ea
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fdb3de88fde2fbc7ec2aaffdb7d82433845db34b
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60298860"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545947"
 ---
 # <a name="quickstart-build-a-xamarin-app-that-integrates-microsoft-sign-in"></a>Snabbstart: Skapa en Xamarin-app som integrerar Microsoft-inloggning
 

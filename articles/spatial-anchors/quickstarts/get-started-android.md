@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 003e9beb3a319802754397efae3b636f51de9e52
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 03589745e6e9b40b937c49162e99035ce6c81423
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60234344"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65757837"
 ---
 # <a name="quickstart-create-an-android-app-with-azure-spatial-anchors"></a>Snabbstart: Skapa en Android-app med Azure Spatial Anchors
 
@@ -73,7 +73,7 @@ Leta upp fältet `SpatialAnchorsAccountId` och ersätt `Set me` med kontoidentif
 
 # <a name="ndktabopenproject-ndk"></a>[NDK](#tab/openproject-ndk)
 
-Öppna `Android/NDK/app/src/main/cpp/spatial_services_application.cc`.
+Öppna `Android/NDK/app/src/main/cpp/AzureSpatialAnchorsApplication.cpp`.
 
 Leta upp fältet `SpatialAnchorsAccountKey` och ersätt `Set me` med kontonyckeln.
 

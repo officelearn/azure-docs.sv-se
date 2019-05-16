@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: c3b2134fae86b988fb21e993cd01b77a90bd2896
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 23754a1184f89d1fb563b2d73109f3a10c48920c
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65467066"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65539325"
 ---
 # <a name="what-is-azure-search"></a>Vad är Azure Search?
 Azure Search är en molnlösning för sökning som en tjänst 0som ger utvecklare API:er och verktyg för att lägga till omfattande sökfunktioner för privat heterogent innehåll i webb-, mobil- och företagsprogram. Frågor körs över ett användardefinierat index.
@@ -43,8 +43,8 @@ Funktionerna exponeras via en enkel [REST API](/rest/api/searchservice/) eller [
 
 | AI&nbsp;berikande&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       | Funktioner |
 |-------------------|----------|
-|AI som berikats dokument | [**Cognitive Search** ](cognitive-search-concept-intro.md) för bild- och analys kan tillämpas på en pipeline för fulltextindexering att extrahera textinformation från rådata innehåll. Några exempel på [inbyggda kunskaper](cognitive-search-predefined-skills.md) inkluderar optisk teckenläsning (att göra skannad JPEG sökbar), entitetsigenkänning (identifierar en organisation, namn eller plats) och nyckelfrasigenkänning. Du kan också [koda anpassade kunskaper](cognitive-search-create-custom-skill-example.md) att ansluta till pipelinen. |
-| Lagrade enrichments för analys och förbrukning| [**Knowledge Store (förhandsversion)** ](knowledge-store-concept-intro.md) är en utökning av AI-baserade indexering. Med Azure storage som serverdel kan spara du enrichments som skapades under indexering. Dessa artefakter kan användas för att hjälpa dig att utforma bättre kunskaper eller skapa form och struktur ut från amorft eller är tvetydig. Du kan skapa projektioner av dessa strukturer som mål specifika arbetsbelastningar eller användare. Du kan också direkt analysera extraherade data eller läsa in dem i andra appar.<br/><br/> |
+|AI som berikats dokument | [**Kognitiv sökning** ](cognitive-search-concept-intro.md) för bild- och analys kan tillämpas på en pipeline för fulltextindexering att extrahera textinformation från rådata innehåll. Några exempel på [inbyggda kunskaper](cognitive-search-predefined-skills.md) inkluderar optisk teckenläsning (att göra skannad JPEG sökbar), entitetsigenkänning (identifierar en organisation, namn eller plats) och nyckelfrasigenkänning. Du kan också [koda anpassade kunskaper](cognitive-search-create-custom-skill-example.md) att ansluta till pipelinen. |
+| Lagrade enrichments för analys och förbrukning| [**Knowledge store (förhandsversion)** ](knowledge-store-concept-intro.md) är en utökning av AI-baserade indexering. Med Azure storage som serverdel kan spara du enrichments som skapades under indexering. Dessa artefakter kan användas för att hjälpa dig att utforma bättre kunskaper eller skapa form och struktur ut från amorft eller är tvetydig. Du kan skapa projektioner av dessa strukturer som mål specifika arbetsbelastningar eller användare. Du kan också direkt analysera extraherade data eller läsa in dem i andra appar.<br/><br/> |
 
 | Data&nbsp;import/indexering | Funktioner |
 |----------------------------------|----------|
@@ -81,7 +81,7 @@ Med pull-modellen hämtas data från externa datakällor. Den stöds med hjälp 
 
 Push-modellen tillhandahålls via SDK eller REST API:er, som används för att skicka uppdaterade dokument till ett index. Du kan skicka data från i princip valfri datamängd med JSON-format. Mer information om hur du läser in data finns i [Lägga till, uppdatera och ta bort dokument](/rest/api/searchservice/addupdate-or-delete-documents) och [Använda .NET-SDK](search-howto-dotnet-sdk.md).
 
-### <a name="step-4-search"></a>Steg 4: Search
+### <a name="step-4-search"></a>Steg 4: Sökning
 När du har fyllt i ett index kan du [utfärda sökfrågor](/rest/api/searchservice/Search-Documents) till tjänstens slutpunkt med hjälp av enkla HTTP-begäranden med REST API eller .NET-SDK.
 
 ## <a name="how-it-compares"></a>Jämförelse

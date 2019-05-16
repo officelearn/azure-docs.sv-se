@@ -8,31 +8,31 @@ ms.topic: include
 ms.date: 04/17/2018
 ms.author: wesmc
 ms.custom: include file
-ms.openlocfilehash: 57407606214d8d3a305476cfbfdabca9eee937e8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 28d003e123069c47d87d81570b4a5b69b3b9d64b
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60690322"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65560711"
 ---
-1. Om du vill skapa en ny Azure SignalR Service-resurs loggar du först in på [Azure Portal](https://portal.azure.com). Klicka på **+ Skapa en resurs** uppe till vänster på sidan. I textrutan **Sök på marknadsplatsen** skriver du **SignalR Service** och trycker på **Enter**.
+1. Om du vill skapa en Azure SignalR Service-resurs, loggar du först in den [Azure-portalen](https://portal.azure.com). I den övre vänstra sidan, väljer **+ skapa en resurs**. I den **Sök på Marketplace** text anger **SignalR Service**.
 
-2. Klicka på **SignalR Service** i resultatet och klicka på **Skapa**.
+2. Välj **SignalR Service** i resultaten och välj **skapa**.
 
-3. På den nya inställningssidan för **SignalR** lägger du till följande inställningar för din nya SignalR-resurs:
+3. På den nya **SignalR** inställningssidan, Lägg till följande inställningar för din nya SignalR-resurs:
 
     | Namn | Rekommenderat värde | Beskrivning |
     | ---- | ----------------- | ----------- |
-    | Resursnamn | *testsignalr* | Ange ett unikt resursnamn för SignalR-resursen. Namnet måste vara en sträng mellan 1 och 63 tecken och får endast innehålla siffror, bokstäver och `-`-tecknet. Namnet får inte inledas eller avslutas med `-`-tecknet eller ha flera `-`-tecken i följd.|
-    | Prenumeration | Välj din prenumeration |  Välj den Azure-prenumeration du vill använda när du testar SignalR. Om ditt konto bara har en prenumeration väljs den automatiskt och listrutan **Prenumeration** visas inte.|
-    | Resursgrupp | Skapa en ny resursgrupp med namnet *SignalRTestResources*.| Välj eller skapa en resursgrupp för SignalR-resursen. Den här gruppen är användbar när du vill ta bort flera resurser samtidigt genom att ta bort resursgruppen. Mer information finns i [Använda resursgrupper för att hantera Azure-resurser](../articles/azure-resource-manager/resource-group-overview.md). |
+    | Resursnamn | *testsignalr* | Ange ett unikt resursnamn för SignalR-resursen. Namnet måste vara en sträng på 1 till 63 tecken och innehålla endast siffror, bokstäver och bindestreck (`-`) tecken. Namnet får inte börja eller sluta med bindestreck och bindestreck i följd är inte giltiga.|
+    | Prenumeration | Välj din prenumeration |  Välj den Azure-prenumeration du vill använda när du testar SignalR. Om ditt konto bara har en prenumeration, det väljs automatiskt och **prenumeration** inte visas i listrutan.|
+    | Resursgrupp | Skapa en resursgrupp med namnet *SignalRTestResources*| Välj eller skapa en resursgrupp för SignalR-resursen. Den här gruppen är användbart för att ordna flera resurser som du kanske vill ta bort samtidigt genom att ta bort resursgruppen. Mer information finns i [Hantera Azure-resurser med hjälp av resursgrupper](../articles/azure-resource-manager/resource-group-overview.md). |
     | Location | *Östra USA* | Använd **Plats** till att ange den geografiska plats där SignalR-resursen finns. Du får bästa prestanda om du skapar resursen i samma region som de andra komponenterna i appen. |
-    | Prisnivå | *Kostnadsfri* | För närvarande är alternativen **Kostnadsfri** och **Standard** tillgängliga. |
-    | Fäst vid instrumentpanelen | ✔ | Markera den här kryssrutan om du vill fästa resursen på instrumentpanelen så att du enkelt kan hitta den. |
+    | Prisnivå | *Kostnadsfri* | För närvarande **kostnadsfri** och **Standard** alternativ är tillgängliga. |
+    | Fäst på instrumentpanelen | ✔ | Välj den här rutan ha fästas på instrumentpanelen så att det är lättare att hitta resursen. |
 
-4. Klicka på **Skapa**. Det kan ta några minuter att slutföra distributionen.
+4. Välj **Skapa**. Distributionen kan ta några minuter att slutföra.
 
-5. När distributionen är färdig klickar du på **Nycklar** under **INSTÄLLNINGAR**. Kopiera anslutningssträngen för din primära nyckel. Du kommer att använda den senare när du ska konfigurera appen så att Azure SignalR Service-resursen används.
+5. När distributionen är klar, väljer **nycklar** under **inställningar**. Kopiera anslutningssträngen för den primära nyckeln. Du kommer att använda den här strängen senare för att konfigurera din app för att använda Azure SignalR Service-resurs.
 
     Den här anslutningssträngen har följande format:
     

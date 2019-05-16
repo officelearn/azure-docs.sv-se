@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: tutorial
 ms.date: 04/24/2019
-ms.openlocfilehash: 6b833ef56b890eb4ea0db6b48fe8c2622e211498
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.openlocfilehash: 8d108e1683be03a79e87990b983f2eda3eadba90
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233875"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65759214"
 ---
 # <a name="tutorial-work-with-azure-storage-queues"></a>Självstudier: Arbeta med Azure Storage-köer
 
@@ -129,18 +129,19 @@ Eftersom appen använder molnresurser måste körs koden asynkront. Dock C#'s **
 
 ## <a name="create-a-queue"></a>Skapa en kö
 
-1. Installera den **Azure visade sig vara. Storage** paketet i projektet med den `dotnet add package` kommando. Kör följande kommando för dotnet från projektmappen i konsolfönstret.
+1. Installera den **Microsoft.Azure.Storage.Common** och **Microsoft.Azure.Storage.Queue** paket i projektet med den `dotnet add package` kommando. Kör följande kommandon för dotnet från projektmappen i konsolfönstret.
 
    ```console
-   dotnet add package WindowsAzure.Storage
+   dotnet add package Microsoft.Azure.Storage.Common
+   dotnet add package Microsoft.Azure.Storage.Queue
    ```
 
 2. Överst på den **Program.cs** Lägg till följande namnrymder direkt efter den `using System;` instruktionen. Den här appen använder typer från dessa för att ansluta till Azure Storage och arbeta med köer.
 
    ```csharp
    using System.Threading.Tasks;
-   using Microsoft.WindowsAzure.Storage;
-   using Microsoft.WindowsAzure.Storage.Queue;
+   using Microsoft.Azure.Storage;
+   using Microsoft.Azure.Storage.Queue;
    ```
 
 3. Spara den **Program.cs** fil.
@@ -206,7 +207,7 @@ Lägg till anslutningssträngen i appen så att den kan komma åt lagringskontot
 
 ## <a name="insert-messages-into-the-queue"></a>Infoga meddelanden i kön
 
-Skapa en ny metod för att skicka ett meddelande i kön. Lägg till följande metod för att din **programmet** klass. Den här metoden hämtar en referens för kön och sedan skapar en ny kö om den inte redan finns genom att anropa [CreateIfNotExistsAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.createifnotexistsasync?view=azure-dotnet). Sedan det lägger till meddelandet i kön genom att anropa [AddMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync?view=azure-dotnet).
+Skapa en ny metod för att skicka ett meddelande i kön. Lägg till följande metod för att din **programmet** klass. Den här metoden hämtar en referens för kön och sedan skapar en ny kö om den inte redan finns genom att anropa [CreateIfNotExistsAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.createifnotexistsasync). Sedan det lägger till meddelandet i kön genom att anropa [AddMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync).
 
 1. Lägg till följande **SendMessageAsync** metod för att din **programmet** klass.
 
@@ -229,7 +230,7 @@ Skapa en ny metod för att skicka ett meddelande i kön. Lägg till följande me
 
 ## <a name="dequeue-messages"></a>Ut meddelanden ur kön
 
-Skapa en ny metod som kallas **ReceiveMessageAsync**. Den här metoden tar emot ett meddelande från kön genom att anropa [GetMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessageasync?view=azure-dotnet). När meddelandet har tagits emot, är det viktigt att ta bort det från kön så att den inte bearbetas mer än en gång. När meddelandet tas emot, ta bort det från kön genom att anropa [DeleteMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessageasync?view=azure-dotnet).
+Skapa en ny metod som kallas **ReceiveMessageAsync**. Den här metoden tar emot ett meddelande från kön genom att anropa [GetMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessageasync). När meddelandet har tagits emot, är det viktigt att ta bort det från kön så att den inte bearbetas mer än en gång. När meddelandet tas emot, ta bort det från kön genom att anropa [DeleteMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessageasync).
 
 1. Lägg till följande **ReceiveMessageAsync** metod för att din **programmet** klass.
 
@@ -343,8 +344,8 @@ Här är den fullständiga koden för det här projektet.
    ```csharp
    using System;
    using System.Threading.Tasks;
-   using Microsoft.WindowsAzure.Storage;
-   using Microsoft.WindowsAzure.Storage.Queue;
+   using Microsoft.Azure.Storage;
+   using Microsoft.Azure.Storage.Queue;
 
    namespace QueueApp
    {

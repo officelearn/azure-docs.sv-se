@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 400b1613a87d4de65879a512642e16884c7d03b4
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: eb6667a1429382ed566826de64ad7ffbe83183cf
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65021884"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521891"
 ---
 # <a name="add-suggesters-to-an-index-for-typeahead-in-azure-search"></a>Lägg till förslagsställare till ett index för typeahead i Azure Search
 
@@ -119,7 +119,7 @@ Som vi nämnde tidigare kan använda du en förslagsställare för föreslagna f
 
 En förslagsställare refereras på begäran tillsammans med åtgärden. Ange till exempel antingen på ett GET REST-anrop `suggest` eller `autocomplete` på samlingen dokument. REST, när en förslagsställare har skapats kan använda den [förslag API](https://docs.microsoft.com/rest/api/searchservice/suggestions) eller [automatisk komplettering API](https://docs.microsoft.com/rest/api/searchservice/autocomplete) i frågans logik.
 
-.NET, använda [SuggestWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?view=azure-dotnet-preview) eller [AutocompleteWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync?view=azure-dotnet-preview&viewFallbackFrom=azure-dotnet).
+.NET, använda [SuggestWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?view=azure-dotnet) eller [AutocompleteWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync?view=azure-dotnet&viewFallbackFrom=azure-dotnet).
 
 Ett exempel som visar båda förfrågningarna finns i [exempel för att lägga till automatisk komplettering och förslag i Azure Search](search-autocomplete-tutorial.md).
 

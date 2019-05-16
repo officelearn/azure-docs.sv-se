@@ -4,7 +4,7 @@ description: 'Microsoft Authentication Library (MSAL) gör det möjligt för app
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2198a5efe276ce872487cde7b2ddb5cb00c58c50
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: bf7aaa0de87ffa8280a6db34c5497779a5ded41c
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65080900"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545886"
 ---
 # <a name="overview-of-microsoft-authentication-library-msal"></a>Översikt över Microsoft Authentication Library (MSAL)
 Microsoft Authentication Library (MSAL) gör det möjligt för utvecklare att hämta [token](developer-glossary.md#security-token) från Microsoft identity-plattformen slutpunkt för att komma åt skyddade webb-API: er. Dessa webb-API: er kan vara Microsoft Graph, andra Microsoft-APIS, från tredje part webb-API: er eller Web API. MSAL är tillgänglig för .NET, JavaScript, Android och iOS, som stöder många olika arkitekturer och plattformar.

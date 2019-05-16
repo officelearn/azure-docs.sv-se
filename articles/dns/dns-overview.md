@@ -6,12 +6,12 @@ ms.service: dns
 ms.topic: overview
 ms.date: 3/21/2019
 ms.author: victorh
-ms.openlocfilehash: cea19ad2ba03d3e71df32912a1d7ee9e6171689a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 530730dcf303a54803816e6f2af8787298c1c658
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60926132"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65753738"
 ---
 # <a name="what-is-azure-dns"></a>Vad är Azure DNS?
 

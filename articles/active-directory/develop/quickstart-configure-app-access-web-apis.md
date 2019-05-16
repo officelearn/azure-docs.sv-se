@@ -3,8 +3,8 @@ title: 'Konfigurera ett program att ha åtkomst till webb-API: er – Microsoft 
 description: Lär dig hur du konfigurerar en app som har registrerats på Microsoft Identity Platform att inkludera omdirigerings-URI, autentiseringsuppgifter eller behörigheter för åtkomst till webb-API:er.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,16 +13,16 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/08/2019
-ms.author: celested
+ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b2f5331b22f6292b00c367c6abb8cd4f439a70c
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 3b434e5b0c4524af642eb1255597cd3e7674571c
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65413969"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545807"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-web-apis"></a>Snabbstart: Konfigurera ett klientprogram för att komma åt webb-API:er
 

@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: a43ad92181415593b309b9fafb20f9934a997924
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 08745c3ef3d4996340ec40af496f8f0a5e0201c3
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60539909"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595731"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>Börja övervaka din ASP.NET-webbapp
 
@@ -26,7 +26,7 @@ Den här snabbstarten visar hur du lägger till Application Insights till en bef
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 För att slutföra den här snabbstarten behöver du:
 
-- Installera [Visual Studio 2017](https://www.visualstudio.com/downloads/) med följande arbetsbelastningar:
+- Installera [Visual Studio 2019](https://www.visualstudio.com/downloads/) med följande arbetsbelastningar:
     - ASP.NET och webbutveckling
     - Azure Development
 
@@ -35,7 +35,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 ## <a name="enable-application-insights"></a>Aktivera Application Insights
 
-1. Öppna projektet i Visual Studio 2017.
+1. Öppna projektet i Visual Studio 2019.
 2. Välj **Configure Application Insights** (Konfigurera Application Insights) på projektmenyn. Visual Studio lägger till Application Insights SDK för programmet.
 
     > [!IMPORTANT]
@@ -71,7 +71,7 @@ Nu kan du öppna Application Insights i Azure-portalen för att visa olika detal
 
 3. Klicka på den **Appanalys** ikonen ![Programkartan](media/quick-monitor-portal/app-analytics-icon.png) **visa i analys** på en av programkomponenterna. Då öppnas **Application Insights Analytics**, med ett funktionsrikt frågespråk för att analysera alla data som samlas in av Application Insights.  I det här fallet skapas en fråga som återger antalet begäranden som ett diagram. Du kan skriva egna frågor för att analysera andra data.
 
-    ![Analytics](media/quick-monitor-portal/6viewanalytics.png)
+    ![Analys](media/quick-monitor-portal/6viewanalytics.png)
 
 4. Klicka på **Live Metrics Stream** till vänster under undersöka. Här ser du livestatistik om programmet när medan det körs. Det innehåller information som antalet inkommande begäranden, varaktigheten för dessa begäranden och fel som inträffar. Du kan även granska kritiska prestandavärden, till exempel processor och minne.
 

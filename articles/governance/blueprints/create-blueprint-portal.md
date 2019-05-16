@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 28fef394ee400949f9911983bdbca41d6bfcb458
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: acee2aabe94f5d015562bd697d08f657895d3b02
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60683518"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65755940"
 ---
-# <a name="define-and-assign-a-blueprint-in-the-portal"></a>Definiera och tilldela en skiss i portalen
+# <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>Snabbstart: Definiera och tilldela en skiss i portalen
 
 När du lär dig hur du skapar och tilldelar skisser kan du definiera vanliga mönster för att utveckla återanvändbara och som snabbt kan konfigurationer baserat på Azure Resource Manager-mallar, principer, säkerhet och mer. I den här självstudien får du lära dig att använda Azure skisser utföra några av de vanliga uppgifter som rör skapa, publicera och tilldela en skiss inom din organisation. Dessa åtgärder omfattar:
 

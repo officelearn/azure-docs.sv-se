@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/11/2019
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: 02cff1be85f4489a9529383d90694581f2599cba
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.openlocfilehash: ba198cbe0c362055f36cb4bdecf34a0dbad477a8
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939180"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65745161"
 ---
 # <a name="tutorial-access-data-lake-storage-gen2-data-with-azure-databricks-using-spark"></a>Självstudier: Få åtkomst till Data Lake Storage Gen2-data med Azure Databricks med hjälp av Spark
 
@@ -110,6 +110,32 @@ I det här avsnittet skapar du en Azure Databricks-tjänst i Azure Portal.
 
     * Välj **Skapa kluster**. När klustret körs kan du ansluta anteckningsböcker till klustret och köra Spark-jobb.
 
+## <a name="ingest-data"></a>Mata in data
+
+### <a name="copy-source-data-into-the-storage-account"></a>Kopiera källdata till lagringskontot
+
+Använd AzCopy till att kopiera data från *.csv*-filen till Data Lake Storage Gen2-kontot.
+
+1. Öppna en kommandotolk och ange följande kommandon för att logga in på lagringskontot.
+
+   ```bash
+   azcopy login
+   ```
+
+   Följ anvisningarna som visas i kommandotolksfönstret för att autentisera ditt konto.
+
+2. Kopiera data från *.csv*-filen med följande kommando.
+
+   ```bash
+   azcopy cp "<csv-folder-path>" https://<storage-account-name>.dfs.core.windows.net/<file-system-name>/folder1/On_Time.csv
+   ```
+
+   * Ersätt den `<csv-folder-path>` platshållarvärdet med sökvägen till den *.csv* fil.
+
+   * Ersätt platshållarvärdet `<storage-account-name>` med namnet på ditt lagringskonto.
+
+   * Ersätt platshållaren `<file-system-name>` med ett namn som du vill ge ditt filsystem.
+
 ## <a name="create-a-file-system-and-mount-it"></a>Skapa ett filsystem och montera det
 
 I det här avsnittet skapar du ett filsystem och en mapp i lagringskontot.
@@ -129,9 +155,9 @@ I det här avsnittet skapar du ett filsystem och en mapp i lagringskontot.
     ```Python
     configs = {"fs.azure.account.auth.type": "OAuth",
            "fs.azure.account.oauth.provider.type": "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
-           "fs.azure.account.oauth2.client.id": "<application-id>",
-           "fs.azure.account.oauth2.client.secret": "<authentication-id>",
-           "fs.azure.account.oauth2.client.endpoint": "https://login.microsoftonline.com/<tenant-id>/oauth2/token",
+           "fs.azure.account.oauth2.client.id": "<appId>",
+           "fs.azure.account.oauth2.client.secret": "<password>",
+           "fs.azure.account.oauth2.client.endpoint": "https://login.microsoftonline.com/<tenant>/oauth2/token",
            "fs.azure.createRemoteFileSystemDuringInitialization": "true"}
 
     dbutils.fs.mount(
@@ -140,13 +166,17 @@ I det här avsnittet skapar du ett filsystem och en mapp i lagringskontot.
     extra_configs = configs)
     ```
 
-18. I det här kodblocket ersätter du platshållarvärdena `application-id`, `authentication-id`, `tenant-id` och `storage-account-name` i det här kodblocket med de värden som du hämtade när du slutförde förutsättningarna för den här självstudien. Ersätt platshållarvärdet `file-system-name` med det namn som du vill ge filsystemet.
+18. I det här kodblocket ersätter du platshållarvärdena `appId`, `password`, `tenant` och `storage-account-name` i det här kodblocket med de värden som du hämtade när du slutförde förutsättningarna för den här självstudien. Ersätt den `file-system-name` platshållarvärdet med namnet som du gav till filsystemet ADLS i föregående steg.
 
-   * `application-id` och `authentication-id` kommer från den app som du registrerade med Active Directory som en del av skapandet av ett tjänsthuvudnamn.
+Du kan använda dessa värden för att ersätta nämnda platshållarna.
+
+   * `appId` och `password` kommer från den app som du registrerade med Active Directory som en del av skapandet av ett tjänsthuvudnamn.
 
    * `tenant-id` kommer från din prenumeration.
 
    * `storage-account-name` är namnet på ditt Azure Data Lake Storage Gen2-lagringskonto.
+
+   * Ersätt platshållaren `file-system-name` med ett namn som du vill ge ditt filsystem.
 
    > [!NOTE]
    > I en produktionsinställning bör du överväga att lagra din autentiseringsnyckel i Azure Databricks. Sedan lägger du till en lookup-nyckel i kodblocket i stället för autentiseringsnyckeln. När du har slutfört den här snabbstarten kan du läsa artikeln [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) på Azure Databricks-webbplatsen för att se exemplen för den här metoden.
@@ -154,32 +184,6 @@ I det här avsnittet skapar du ett filsystem och en mapp i lagringskontot.
 19. Tryck på **SKIFT + RETUR** för att köra koden i det här blocket.
 
    Lämna den här anteckningsboken öppen eftersom du ska lägga till kommandon i den senare.
-
-## <a name="ingest-data"></a>Mata in data
-
-### <a name="copy-source-data-into-the-storage-account"></a>Kopiera källdata till lagringskontot
-
-Använd AzCopy till att kopiera data från *.csv*-filen till Data Lake Storage Gen2-kontot.
-
-1. Öppna en kommandotolk och ange följande kommandon för att logga in på lagringskontot.
-
-   ```bash
-   azcopy login
-   ```
-
-   Följ anvisningarna som visas i kommandotolken för att autentisera kontot.
-
-2. Kopiera data från *.csv*-filen med följande kommando.
-
-   ```bash
-   azcopy cp "<csv-folder-path>" https://<storage-account-name>.dfs.core.windows.net/<file-system-name>/folder1/On_Time.csv
-   ```
-
-   * Ersätt den `<csv-folder-path>` platshållarvärdet med sökvägen till den *.csv* fil.
-
-   * Ersätt platshållarvärdet `storage-account-name` med namnet på ditt lagringskonto.
-
-   * Ersätt platshållaren `file-system-name` med ett namn som du vill ge ditt filsystem.
 
 ### <a name="use-databricks-notebook-to-convert-csv-to-parquet"></a>Använda Databricks-anteckningsboken för att konvertera CSV till Parquet
 

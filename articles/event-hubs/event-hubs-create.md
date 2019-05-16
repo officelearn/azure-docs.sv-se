@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/23/2019
 ms.author: shvija
-ms.openlocfilehash: 9cd7a207a76ddfbeeb3b2e6b46abbc6423825093
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 83e33ffa2854b92718828ae870b82431993fac24
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60823129"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603530"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-portal"></a>Snabbstart: Skapa en händelsehubb med Azure Portal
 Azure Event Hubs är en strömningstjänst för stordata och händelseinmatningstjänst som kan ta emot och bearbeta flera miljoner händelser per sekund. Azure Event Hubs kan bearbeta och lagra händelser, data eller telemetri som produceras av distribuerade program och enheter. Data som skickas till en händelsehubb kan omvandlas och lagras med valfri provider för realtidsanalys eller batchbearbetnings-/lagringsadaptrar. En detaljerad översikt över Event Hubs finns i [Översikt över Event Hubs](event-hubs-about.md) och [Event Hubs-funktioner](event-hubs-features.md).
@@ -27,7 +27,7 @@ I den här snabbstarten skapar du en händelsehubb med hjälp av [Azure-portalen
 För att slutföra den här snabbstarten behöver du följande:
 
 - En Azure-prenumeration. Om du inte har ett konto kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
-- [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](https://www.visualstudio.com/vs) eller senare.
+- [Visual Studio 2019)](https://www.visualstudio.com/vs) eller senare.
 - [SDK för .NET Standard](https://www.microsoft.com/net/download/windows) version 2.0 eller senare.
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
@@ -88,7 +88,7 @@ Gör följande om du vill skapa en händelsehubb i namnområdet:
 
     ![Händelsehubben har skapats](./media/event-hubs-quickstart-portal/event-hub-created.png)
 
-Grattis! Du har skapat ett Event Hubs-namnområde och en händelsehubb i namnområdet med Portal. 
+Gratulerar! Du har skapat ett Event Hubs-namnområde och en händelsehubb i namnområdet med Portal. 
 
 ## <a name="next-steps"></a>Nästa steg
 

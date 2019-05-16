@@ -7,14 +7,14 @@ ms.date: 02/04/2019
 ms.topic: tutorial
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 1641a88a95d4c056cdd1be8d855482c80b1430cc
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.openlocfilehash: 1a00d237ef94f73ebf59070d8160a7e5144b0ac8
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62113754"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65736571"
 ---
-# <a name="create-and-manage-policies-to-enforce-compliance"></a>Skapa och hantera principer för att använda kompatibilitet
+# <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>Självstudier: Skapa och hantera principer för att använda kompatibilitet
 
 Det är viktigt att du förstår hur du skapar och hanterar principer i Azure för att du ska fortsätta att efterleva företagets standarder och servicenivåavtal. I den här självstudien lär du dig att använda Azure Policy för att utföra några av de vanligaste uppgifterna som att skapa, tilldela och hantera principer i organisationen, exempelvis:
 

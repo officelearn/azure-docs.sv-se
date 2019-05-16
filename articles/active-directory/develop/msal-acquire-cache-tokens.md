@@ -4,7 +4,7 @@ description: Läs mer om införskaffa och cachelagring token med Microsoft Authe
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d32b56b28d9ce7425e782fc10fa9ffb67047ce0
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 7ca011ec7185b084de6d1d346556c1c270c7aee3
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65139137"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546077"
 ---
 # <a name="acquiring-and-caching-tokens-using-msal"></a>Hämtar och cachelagring token med MSAL
 [Åtkomsttoken](access-tokens.md) att klienterna på ett säkert sätt anropa webb-API: er som skyddas av Azure. Det finns många sätt att hämta en token med hjälp av Microsoft Authentication Library (MSAL). Några sätt kräver användarinteraktioner via en webbläsare. Vissa kräver inte någon användarinteraktioner. I allmänhet beror sätt att hämta en token på om programmet är en offentlig klient (desktop eller mobile app) eller en konfidentiell klientprogram (Web App, webb-API eller daemon-program som en Windows-tjänst).

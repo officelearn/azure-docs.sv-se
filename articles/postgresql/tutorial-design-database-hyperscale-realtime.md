@@ -7,13 +7,13 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 05/06/2019
-ms.openlocfilehash: 9f3473d83678ffea888dad736a9620006b2961f7
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
-ms.translationtype: MT
+ms.date: 05/14/2019
+ms.openlocfilehash: a5e4b2073a29785ee851b2733c12d6331afe59d8
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406396"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65757556"
 ---
 # <a name="tutorial-design-a-real-time-analytics-dashboard-by-using-azure-database-for-postgresql--hyperscale-citus-preview"></a>Självstudier: Utforma en instrumentpanel för analys i realtid med hjälp av Azure Database för PostgreSQL – hyperskala (Citus) (förhandsversion)
 
@@ -30,72 +30,7 @@ I den här självstudien använder du Azure Database för PostgreSQL – hypersk
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
-
-## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
-
-Logga in på [Azure Portal](https://portal.azure.com).
-
-## <a name="create-an-azure-database-for-postgresql"></a>Skapa en Azure Database för PostgreSQL
-
-Följ de här stegen för att skapa en Azure Database för PostgreSQL-server:
-1. Klicka på **Skapa en resurs** längst upp till vänster i Azure-portalen.
-2. Välj **databaser** från sidan **Nytt** och välj **Azure Database för PostgreSQL** från sidan **databaser**.
-3. För alternativ för distribution, klickar du på den **skapa** knappen **hyperskala (Citus) servergrupp - FÖRHANDSVERSION.**
-4. Fyll i formuläret om den nya servern och uppge följande information:
-   - Resursgrupp: Klicka på den **Skapa nytt** länken under textrutan för det här fältet. Ange ett namn som **myresourcegroup**.
-   - Servergruppnamn: **mydemoserver** (namn på en server, som mappar till DNS-namn och måste vara globalt unikt).
-   - Administratörens användarnamn: **myadmin** (det används senare att ansluta till databasen).
-   - Lösenord: måste vara minst åtta tecken långt och måste innehålla tecken från tre av följande kategorier-engelska versala bokstäver, engelska gemena bokstäver, siffror (0-9) och icke-alfanumeriska tecken (!, $, #, % osv.)
-   - Plats: Använd den plats som är närmast dina användare att ge dem snabbast åtkomst till data.
-
-   > [!IMPORTANT]
-   > Det användarnamn och lösenord för serveradministration du anger här krävs för inloggning på servern och databaserna senare i den här självstudien. Kom ihåg eller skriv ned den här informationen så att du kan använda den senare.
-
-5. Klicka på **konfigurera servergrupp**. Lämna inställningarna i den avsnittet oförändrade och klicka på **spara**.
-6. Klicka på **granska + skapa** och sedan **skapa** att etablera servern. Etableringen tar några minuter.
-7. Sidan omdirigerar för att övervaka distributionen. Då live status ändras från **distributionen pågår** till **distributionen är klar**, klickar du på den **utdata** menyalternativ till vänster på sidan.
-8. Sidan utdata innehåller ett coordinator värdnamn med en knapp bredvid den att kopiera värdet till Urklipp. Registrera den här informationen för senare användning.
-
-## <a name="configure-a-server-level-firewall-rule"></a>Konfigurera en brandväggsregel på servernivå
-
-Azure Database for PostgreSQL-tjänsten använder en brandvägg på servernivå. Som standard förhindrar brandväggen alla externa program och verktyg ansluter till servern eller databaser på servern. Vi måste lägga till en regel som öppnar brandväggen för ett specifikt IP-adressintervall.
-
-1. Från den **utdata** avsnitt där du tidigare kopierade coordinator noden värdnamn, klickar du på tillbaka till den **översikt** menyalternativ.
-
-2. Hitta gruppen skalning för din distribution i listan över resurser och klicka på den. (Namnet inleds med ”sg-”.)
-
-3. Klicka på **brandväggen** under **Security** på den vänstra menyn.
-
-4. Klicka på länken **+ Lägg till brandväggsregel för aktuella klientens IP-adress**. Klicka slutligen på den **spara** knappen.
-
-5. Klicka på **Spara**.
-
-   > [!NOTE]
-   > Azure PostgreSQL-servern kommunicerar via port 5432. Om du försöker ansluta inifrån ett företagsnätverk, kan utgående trafik via port 5432 bli nekad av nätverkets brandvägg. I så fall kommer du inte att kunna ansluta till din Azure SQL Database-server om inte din IT-avdelning öppnar port 5432.
-   >
-
-## <a name="connect-to-the-database-using-psql-in-cloud-shell"></a>Ansluta till databasen med psql i Cloud Shell
-
-Nu använder vi [psql](https://www.postgresql.org/docs/current/app-psql.html)-kommandoradsverktyget för att ansluta till Azure Database for PostgreSQL-servern.
-1. Starta Azure Cloud Shell via terminalikonen överst i navigeringsfönstret.
-
-   ![Azure Database för PostgreSQL – Azure Cloud Shell-terminalikonen](./media/tutorial-design-database-hyperscale-realtime/psql-cloud-shell.png)
-
-2. Azure Cloud Shell öppnas i din webbläsare så att du kan skriva bash-kommandon.
-
-   ![Azure Database för PostgreSQL – Azure Shell Bash-prompten](./media/tutorial-design-database-hyperscale-realtime/psql-bash.png)
-
-3. I Cloud Shell-prompten ansluter du till din Azure Database för PostgreSQL-server med psql-kommandona. Följande format används för att ansluta till en Azure Database för PostgreSQL-server med [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html)-verktyget:
-   ```bash
-   psql --host=<myserver> --username=myadmin --dbname=citus
-   ```
-
-   Till exempel följande kommando ansluter till standarddatabasen som heter **citus** på din PostgreSQL-server **mydemoserver.postgres.database.azure.com** med hjälp av autentiseringsuppgifter. Ange ditt lösenord för serveradministratören när du uppmanas till detta.
-
-   ```bash
-   psql --host=mydemoserver.postgres.database.azure.com --username=myadmin --dbname=citus
-   ```
+[!INCLUDE [azure-postgresql-hyperscale-create-db](../../includes/azure-postgresql-hyperscale-create-db.md)]
 
 ## <a name="use-psql-utility-to-create-a-schema"></a>Använd psql-verktyget för att skapa ett schema
 
@@ -117,7 +52,7 @@ CREATE TABLE http_request (
 );
 ```
 
-Vi ska också skapa en tabell som ska innehålla vårt aggregeringar per minut och en tabell som underhåller positionen för vår senaste samlade uppdateringen. Kör följande i psql samt:
+Vi ska också skapa en tabell som ska innehålla vårt aggregeringar per minut och en tabell som underhåller positionen för vår senaste samlade uppdateringen. Kör följande kommandon i psql samt:
 
 ```sql
 CREATE TABLE http_request_1min (
@@ -170,7 +105,7 @@ DO $$
       ip_address, status_code, response_time_msec
     ) VALUES (
       trunc(random()*32), clock_timestamp(),
-      concat('https://example.com/', md5(random()::text)),
+      concat('http://example.com/', md5(random()::text)),
       ('{China,India,USA,Indonesia}'::text[])[ceil(random()*4)],
       concat(
         trunc(random()*250 + 2), '.',
@@ -181,12 +116,13 @@ DO $$
       ('{200,404}'::int[])[ceil(random()*2)],
       5+trunc(random()*150)
     );
+    COMMIT;
     PERFORM pg_sleep(random() * 0.25);
   END LOOP;
 END $$;
 ```
 
-Frågan lägger till en rad ungefär varje kvartal sekund. Rader som är lagrade på olika arbetsnoder enligt anvisningarna från kolumnen distribution `site_id`.
+Frågan infogar cirka åtta rader per sekund. Rader som är lagrade på olika arbetsnoder enligt anvisningarna från kolumnen distribution `site_id`.
 
    > [!NOTE]
    > Lämna data generation frågan som körs och öppna en andra psql-anslutning för de resterande kommandona i den här självstudien.
@@ -213,13 +149,13 @@ GROUP BY site_id, minute
 ORDER BY minute ASC;
 ```
 
-## <a name="performing-rollups"></a>Utför uppdateringar
+## <a name="rolling-up-data"></a>Samlar in data
 
-Frågan ovan fungerar bra i de tidiga stadierna, men dess prestanda kommer att sänkas med ditt data. Även med distribuerad bearbetning av det går snabbare att förväg compute dessa data än beräkna om flera gånger.
+Den föregående frågan fungerar bra i de tidiga stadierna, men dess prestanda försämras med ditt data. Även med distribuerad bearbetning går det snabbare för att beräkna förväg data än om du vill beräkna om det upprepade gånger.
 
-Vi kan se till att vår instrumentpanel håller sig kvar snabbt genom att regelbundet samlar in rådata till en sammanställd tabell. I det här fallet vi ska slås samman till vår sammansättningstabellen för en minut, men du kan också ha aggregeringar på 5 minuter, 15 minuter, en timme, och så vidare.
+Vi kan se till att vår instrumentpanel håller sig kvar snabbt genom att regelbundet samlar in rådata till en sammanställd tabell. Du kan experimentera med aggregering varaktighet. Vi har använt en per minut sammansättningstabellen, men du kan dela upp data i 5, 15 eller 60 minuter i stället.
 
-Eftersom vi ständigt körs den här samlad ska vi skapa en funktion för att utföra den. Kör följande kommandon i psql att skapa den `rollup_http_request` funktion.
+Om du vill köra den här samlad enklare vi att placera den i en plpgsql-funktion. Kör följande kommandon i psql att skapa den `rollup_http_request` funktion.
 
 ```sql
 -- initialize to a time long ago
@@ -260,7 +196,7 @@ Kör den samlar in data med vår funktion på plats:
 SELECT rollup_http_request();
 ```
 
-Och med våra data i form av en preaggregeras vi frågar Upplyft för att få samma rapport som tidigare. Kör följande:
+Och med våra data i form av en preaggregeras vi frågar Upplyft för att få samma rapport som tidigare. Kör följande fråga:
 
 ```sql
 SELECT site_id, ingest_time as minute, request_count,
@@ -271,7 +207,7 @@ SELECT site_id, ingest_time as minute, request_count,
 
 ## <a name="expiring-old-data"></a>Upphör att gälla gamla data
 
-Uppdateringar göra frågor snabbare, men vi behöver att ta bort gamla data för att undvika obundna lagringskostnader. Bara bestämma hur länge du vill behålla data för varje granularitet och använda standard frågor för att ta bort utgångna data. I följande exempel beslutat att hålla rådata under en dag och per minut aggregeringar i en månad:
+Uppdateringar göra frågor snabbare, men vi behöver att ta bort gamla data för att undvika obundna lagringskostnader. Bestäm hur länge du vill behålla data för varje granularitet och använda standard frågor för att ta bort utgångna data. I följande exempel beslutat att hålla rådata under en dag och per minut aggregeringar i en månad:
 
 ```sql
 DELETE FROM http_request WHERE ingest_time < now() - interval '1 day';

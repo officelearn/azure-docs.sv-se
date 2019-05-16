@@ -3,8 +3,8 @@ title: Utvecklingen av Microsoft identity-plattformen – Azure
 description: Läs mer om Microsoft identity-plattformen, en utveckling av Azure Active Directory (Azure AD)-tjänsten och utvecklare identitetsplattformen.
 services: active-directory
 documentationcenter: dev-center-name
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,18 +13,18 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0b912b6f3fe42c724468347f9b3a7f0b4efa054
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 03a4702ac0f70e3fc280501cd9524ccbfb528678
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65067956"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546257"
 ---
-# <a name="evolution-of-microsoft-identity-platform"></a>Utvecklingen av Microsoft identity-plattformen
+# <a name="evolution-of-microsoft-identity-platform"></a>Utvecklingen av Microsofts identitetsplattform
 
 Microsoft Identity-plattformen är en utveckling av identitetstjänsten och utvecklingsplattformen Azure Active Directory (Azure AD). Det hjälper utvecklare att bygga program som loggar du in användare och hämta token för att anropa API: er, till exempel Microsoft Graph eller API: er som utvecklare har byggt. Det består av en autentiseringstjänst, bibliotek med öppen källkod, programregistrering och konfiguration (via en developer-portalen och API-program), fullständig utvecklardokumentation, Snabbstart exempel, kodexempel, självstudier, guider, och andra developer-innehåll. Microsoft Identity-plattformen stöder branschstandardprotokoll som OAuth 2.0 och OpenID Connect.
 

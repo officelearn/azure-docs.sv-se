@@ -13,14 +13,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 10/27/2017
+ms.date: 02/22/2019
 ms.author: gokuma
-ms.openlocfilehash: 74fe2345af5d1249d6704c7560b42323561bc623
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1534bc65a369254802973d6c3b91ed8b76ed44e0
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60578444"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596548"
 ---
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>Introduktion till Azure Data Science Virtual Machine för Linux och Windows
 
@@ -45,6 +45,10 @@ Företagsutbildare och lärare som undervisar i datavetenskap erbjuder normalt e
 
 ### <a name="on-demand-elastic-capacity-for-large-scale-projects"></a>Elastisk kapacitet på begäran för storskaliga projekt
 Datavetenskapstävlingar/”hackathons” eller storskalig datamodellering och -utforskning kräver utskalad maskinvarukapacitet, vanligtvis under kort tid. Den virtuella datorn för datavetenskap kan bidra till att replikera datavetenskapsmiljön snabbt på begäran, på utskalade servrar där experiment som kräver kraftfulla beräkningsresurser kan köras.
+
+### <a name="custom-compute-power-for-azure-notebooks"></a>Anpassad beräkningskraft för Azure-anteckningsböcker
+
+[Azure anteckningsböcker](/azure/notebooks/azure-notebooks-overview.md) är en kostnadsfri värdbaserade tjänst att utveckla, köra och dela Jupyter notebooks i molnet där inte har installerats. Kostnadsfri tjänst-nivå, men är begränsad till 4GB minne och 1GB data. Om du vill frigöra alla gränser kopplar du sedan ett anteckningsböcker projekt till en virtuell dator för datavetenskap eller andra virtuella datorer som kör Jupyter-server. Om du loggar in på Azure-anteckningsböcker med ett konto med Azure Active Directory (till exempel ett företagskonto) visar anteckningsböcker automatiskt virtuella datorer för datavetenskap i alla prenumerationer som är kopplade till kontot. Mer information finns i avsnittet om att [hantera och konfigurera projekt på beräkningsnivån](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
 
 ### <a name="short-term-experimentation-and-evaluation"></a>Kortsiktig experimentering och utvärdering
 Den virtuella datorn för datavetenskap kan användas för att utvärdera och lära sig verktyg, till exempel Microsoft ML Server, SQL Server, Visual Studio-verktyg, Jupyter, deep learning-/ML-verktyg och nya verktyg som är populära i communityn, med minimal konfiguration. Eftersom den virtuella datorn för datavetenskap kan konfigureras snabbt kan den användas i andra kortsiktiga användningsscenarier, till exempel för att replikera publicerade experiment, köra demonstrationer, följa genomgångar under onlinesessioner och konferenssjälvstudier.

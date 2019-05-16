@@ -4,7 +4,7 @@ description: Lär dig att hantera fel och undantag, villkorlig åtkomst och ansp
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -16,12 +16,12 @@ ms.date: 04/10/2019
 ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 43c98181c926410bea2acf64bf1ed4d588c12616
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: f1972a870ac15e1ca8dde963eef6cf7f1caf3039
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138974"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544190"
 ---
 # <a name="handling-exceptions-and-errors-using-msal"></a>Hantering av undantag och fel med MSAL
 Undantag i Microsoft Authentication Library (MSAL) är avsedda för apputvecklare att felsöka och inte för att visa för slutanvändare. Undantag meddelanden är inte lokaliserade.
@@ -38,7 +38,7 @@ Om [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexcep
 ### <a name="common-exceptions"></a>Vanliga undantag
 Här följer vanliga undantag som kan uppkomma och vissa möjliga åtgärder.
 
-| Undantag | Felkod | Åtgärd|
+| Undantag | Felkod | Minskning|
 | --- | --- | --- |
 | [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet) | AADSTS65001: Användaren eller administratören har inte godkänt att använda programmet med ID {appId} med namnet {appName}. Skicka en interaktiv auktoriseringsbegäran för den här användaren och resursen.| Du måste hämta användargodkännande första. Om du inte använder .NET Core (som inte har någon Webbgränssnittet) kan anropa (endast en gång) `AcquireTokeninteractive`. Om du använder .NET core eller inte vill göra en `AcquireTokenInteractive`, användaren kan navigera till en URL för att ge ditt medgivande: https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id={clientId}&response_type=code&scope=user.read . Att anropa `AcquireTokenInteractive`: `app.AcquireTokenInteractive(scopes).WithAccount(account).WithClaims(ex.Claims).ExecuteAsync();`|
 | [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet) | AADSTS50079: Användaren måste använda multifaktorautentisering.| Det finns ingen minskning - om MFA har konfigurerats för din klient och AAD bestämmer sig för att använda den, måste du återgå till ett flöde för interaktiva som `AcquireTokenInteractive` eller `AcquireTokenByDeviceCode`.|

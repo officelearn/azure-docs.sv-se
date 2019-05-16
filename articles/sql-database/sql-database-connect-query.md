@@ -7,17 +7,17 @@ ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 1bf9c0b1393abfcad6646624301c4f131c8790a6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: a8513344c35c14ebf06f3693da618ed20047d07b
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60320949"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65752686"
 ---
 # <a name="quickstarts-azure-sql-database-connect-and-query"></a>Snabbstarter: Azure SQL Database-anslutning och fråga
 
@@ -59,7 +59,7 @@ Du kan använda olika bibliotek och ramverk för att ansluta till Azure SQL Data
 
 I följande tabell ser du vilka anslutningsbibliotek eller *drivrutiner* som klientprogram kan använda i olika språk för att ansluta till och använda SQL Server lokalt eller i molnet. Du kan använda dem i Linux, Windows och Docker när du vill ansluta till Azure SQL Database eller Azure SQL Data Warehouse. 
 
-| Språk | Plattform | Ytterligare resurser | Ladda ned | Kom igång |
+| Språk | Plattform | Ytterligare resurser | Ladda ner | Kom igång |
 | :-- | :-- | :-- | :-- | :-- |
 | C# | Windows, Linux, macOS | [Microsoft ADO.NET för SQL Server](https://docs.microsoft.com/sql/connect/ado-net/microsoft-ado-net-for-sql-server) | [Ladda ned](https://www.microsoft.com/net/download/) | [Kom igång](https://www.microsoft.com/sql-server/developer-get-started/csharp/ubuntu)
 | Java | Windows, Linux, macOS | [Microsoft JDBC-drivrutin för SQL Server](https://msdn.microsoft.com/library/mt484311.aspx) | [Ladda ned](https://go.microsoft.com/fwlink/?linkid=852460) |  [Kom igång](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu)

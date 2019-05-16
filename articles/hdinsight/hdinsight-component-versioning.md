@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: overview
 ms.date: 03/26/2019
-ms.openlocfilehash: d1f4996bd389a1c792f8dd7966dde6ccdfddbcc1
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
-ms.translationtype: MT
+ms.openlocfilehash: 0b3343a9635fe4120f03e56c41797591d2f25815
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64872994"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65755083"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>Vad är Apache Hadoop-komponenter och versioner som är tillgängliga med HDInsight?
 
@@ -83,7 +83,6 @@ I följande tabell visas de versioner av HDInsight som är tillgängliga i Azure
 | HDInsight 4.0 |HDP 3.0 |Ubuntu 16.0.4 LTS |24 september 2018 | | |Ja |Ja |
 | HDInsight 3.6 |HDP 2.6 |Ubuntu 16.0.4 LTS |4 april 2017 | | |Ja |Ja |
 
-*&ast; Stöd för HDInsight 3.5 utökades endast för Spark klustertyper*
 
 > [!NOTE]  
 > När du har stöd för en version har upphört att gälla, kanske den inte tillgänglig via Microsoft Azure-portalen. Dock klusterversioner fortsätta att vara tillgängliga med den `Version` parameter i Windows PowerShell [New AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) kommando- och .NET SDK tills versionen slutdatum.

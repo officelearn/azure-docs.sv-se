@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: rezas
-ms.openlocfilehash: a459473e04f9cbf3b11b75f3b9dbea2732455084
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 8c323475bd5d1633feee45191a16d5af438ebc82
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59005442"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595224"
 ---
 # <a name="quickstart-sshrdp-over-iot-hub-device-streams-using-nodejs-proxy-application-preview"></a>Snabbstart: SSH/RDP över IoT Hub-enhetsströmmar med hjälp av Node.js-proxyprogram (förhandsversion)
 
@@ -38,7 +38,7 @@ Förhandsgranskning av enheten strömmar är för närvarande stöds endast för
   - **USA, centrala**
   - **USA, centrala – EUAP**
 
-För att kunna köra det tjänstlokala programmet i den här snabbstarten behöver du ha Node.js v4.x.x eller senare på utvecklingsdatorn.
+För att köra service-lokal-program i den här snabbstarten behöver du Node.js v10.x.x eller senare på utvecklingsdatorn.
 
 Du kan ladda ned Node.js för flera plattformar från [nodejs.org](https://nodejs.org).
 

@@ -3,8 +3,8 @@ title: Microsoft identity-plattformen (v2.0) översikt – Azure
 description: Läs mer om Microsoft identity-plattformen (v2.0) slutpunkt och plattform.
 services: active-directory
 documentationcenter: dev-center-name
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,16 +13,16 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73d97b45217da4bbf4b8c0e857b817911484f29c
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: dd3a1525d7b1f9c0a0b6516014ea83fb8abd0376
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65231094"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544830"
 ---
 # <a name="microsoft-identity-platform-v20-overview"></a>Översikt över Microsoft identity-plattformen (v2.0)
 
@@ -77,6 +77,6 @@ När du är redo att starta appen i en **produktionsmiljö**, granska dessa meto
 - Aktivera [proxyservrar och anpassa HTTP-klienter](msal-net-provide-httpclient.md).
 - Testa din integrering genom att följa den [Microsoft identity-plattformen integration checklista](identity-platform-integration-checklist.md).
 
-## <a name="learn-more"></a>Läs mer
+## <a name="learn-more"></a>Lär dig mer
 
 Om du planerar att skapa en kundinriktad program som loggar in sociala och lokala identiteter måste du ta en titt på de [översikt över Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-add-identity-providers).

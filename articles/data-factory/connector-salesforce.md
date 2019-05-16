@@ -62,9 +62,9 @@ Följande egenskaper har stöd för Salesforce-länkade tjänsten.
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ |Type-egenskapen måste anges till **Salesforce**. |Ja |
+| type |Type-egenskapen måste anges till **Salesforce**. |Ja |
 | environmentUrl | Ange URL: en för Salesforce-instans. <br> – Standardvärdet är `"https://login.salesforce.com"`. <br> – Om du vill kopiera data från sandbox, ange `"https://test.salesforce.com"`. <br> – Om du vill kopiera data från anpassad domän, ange, till exempel `"https://[domain].my.salesforce.com"`. |Nej |
-| användarnamn |Ange ett användarnamn för användarkontot. |Ja |
+| username |Ange ett användarnamn för användarkontot. |Ja |
 | password |Ange ett lösenord för användarkontot.<br/><br/>Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
 | securityToken |Ange en säkerhetstoken för användarkontot. Instruktioner om hur du återställer och hämta en säkerhetstoken finns [hämta en säkerhetstoken](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm). Läs mer om säkerhetstoken i allmänhet i [säkerhets- och API: et](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm).<br/><br/>Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
 | connectVia | Den [integreringskörningen](concepts-integration-runtime.md) som används för att ansluta till datalagret. Om den inte anges används standard Azure Integration Runtime. | Inte för källa har Ja för kanalmottagare om källan länkade tjänsten inte integreringskörning |
@@ -140,7 +140,7 @@ För att kopiera data från och till Salesforce, ange typegenskapen på dataupps
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen måste anges till **SalesforceObject**.  | Ja |
+| type | Type-egenskapen måste anges till **SalesforceObject**.  | Ja |
 | objectApiName | Salesforce-objektnamn att hämta data från. | Nej för källa, Ja för mottagare |
 
 > [!IMPORTANT]
@@ -171,7 +171,7 @@ För att kopiera data från och till Salesforce, ange typegenskapen på dataupps
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för datauppsättningen måste anges till **RelationalTable**. | Ja |
+| type | Type-egenskapen för datauppsättningen måste anges till **RelationalTable**. | Ja |
 | tableName | Namnet på tabellen i Salesforce. | Nej (om ”query” i källan för aktiviteten har angetts) |
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
@@ -184,8 +184,8 @@ För att kopiera data från Salesforce, ange typ av datakälla i kopieringsaktiv
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för aktiviteten kopieringskälla måste anges till **SalesforceSource**. | Ja |
-| DocumentDB |Använd anpassad fråga för att läsa data. Du kan använda [Salesforce objektet Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) fråge- eller SQL-92 fråga. Se fler tips i [fråga tips](#query-tips) avsnittet. Om frågan inte anges, hämtas alla data i Salesforce-objekt som angetts i ”objectApiName” i datauppsättningen. | Nej (om ”objectApiName” i datauppsättningen har angetts) |
+| type | Type-egenskapen för aktiviteten kopieringskälla måste anges till **SalesforceSource**. | Ja |
+| query |Använd anpassad fråga för att läsa data. Du kan använda [Salesforce objektet Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) fråge- eller SQL-92 fråga. Se fler tips i [fråga tips](#query-tips) avsnittet. Om frågan inte anges, hämtas alla data i Salesforce-objekt som angetts i ”objectApiName” i datauppsättningen. | Nej (om ”objectApiName” i datauppsättningen har angetts) |
 | readBehavior | Anger om du vill fråga efter befintliga poster eller fråga efter alla poster, inklusive de har tagits bort. Om inte anges är standardbeteendet för den tidigare versionen. <br>Tillåtna värden: **fråga** (standard), **queryAll**.  | Nej |
 
 > [!IMPORTANT]
@@ -234,7 +234,7 @@ För att kopiera data till Salesforce, ange Mottagartyp i kopieringsaktiviteten 
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen type kopiera aktivitet komprimeringstyp måste anges till **SalesforceSink**. | Ja |
+| type | Egenskapen type kopiera aktivitet komprimeringstyp måste anges till **SalesforceSink**. | Ja |
 | writeBehavior | Skriv beteendet för åtgärden.<br/>Tillåtna värden är **infoga** och **Upsert**. | Nej (standard är Insert) |
 | externalIdFieldName | Namnet på det externa ID-fältet för upsert-åtgärden. Det angivna fältet måste definieras som ”externa Id-fältet” i Salesforce-objekt. Det kan inte ha NULL-värden i motsvarande indata. | Ja för ”Upsert” |
 | writeBatchSize | Antal rader för data som skrivs till Salesforce i varje batch. | Nej (standardvärdet är 5 000) |
@@ -315,24 +315,24 @@ När du kopierar data från Salesforce, används följande mappningar från Sale
 
 | Salesforce-datatypen | Data Factory tillfälliga datatyp |
 |:--- |:--- |
-| Automatisk numrering |String |
-| Kryssrutan |Boolean |
-| Valuta |Decimal |
+| Auto Number |String |
+| Checkbox |Boolean |
+| Currency |Decimal |
 | Date |DateTime |
-| Datum/tid |DateTime |
-| E-post |String |
+| Date/Time |DateTime |
+| Email |String |
 | Id |String |
-| Uppslagsrelation |String |
-| Flervalsplocklista |String |
-| Tal |Decimal |
-| Procent |Decimal |
-| Telefon |String |
-| Listruta |String |
+| Lookup Relationship |String |
+| Multi-Select Picklist |String |
+| Number |Decimal |
+| Percent |Decimal |
+| Phone |String |
+| Picklist |String |
 | Text |String |
-| Textområde |String |
-| Textområde (Long) |String |
-| Textområde (Rich) |String |
-| Text (krypterad) |String |
+| Text Area |String |
+| Text Area (Long) |String |
+| Text Area (Rich) |String |
+| Text (Encrypted) |String |
 | URL |String |
 
 ## <a name="next-steps"></a>Nästa steg

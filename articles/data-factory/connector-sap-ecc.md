@@ -56,7 +56,7 @@ Följande egenskaper har stöd för SAP ECC länkade tjänsten:
 |:--- |:--- |:--- |
 | type | Type-egenskapen måste anges till: **SapEcc** | Ja |
 | url | Url till SAP ECC OData-tjänsten. | Ja |
-| användarnamn | Användarnamnet som används för att ansluta till SAP ECC. | Nej |
+| username | Användarnamnet som används för att ansluta till SAP ECC. | Nej |
 | password | Används för att ansluta till SAP ECC lösenordet i klartext. | Nej |
 | connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda lokal Integration Runtime eller Azure Integration Runtime (om ditt datalager är offentligt tillgänglig). Om den inte anges används standard Azure Integration Runtime. |Nej |
 
@@ -122,7 +122,7 @@ För att kopiera data från SAP ECC, ange typ av datakälla i kopieringsaktivite
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **SapEccSource** | Ja |
-| DocumentDB | OData-frågealternativ att filtrera data. Exempel ”: $select = namn, beskrivning och $top = 10”.<br/><br/>SAP ECC connector kopierar data från den kombinerade URL: (URL: en som anges i den länkade tjänsten) / (sökväg som anges i datauppsättningen)? (fråga som anges i kopieringskälla för aktiviteten). Referera till [OData-URL komponenter](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Nej |
+| query | OData-frågealternativ att filtrera data. Exempel ”: $select = namn, beskrivning och $top = 10”.<br/><br/>SAP ECC connector kopierar data från den kombinerade URL: (URL: en som anges i den länkade tjänsten) / (sökväg som anges i datauppsättningen)? (fråga som anges i kopieringskälla för aktiviteten). Referera till [OData-URL komponenter](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Nej |
 
 **Exempel:**
 
@@ -163,7 +163,7 @@ När du kopierar data från SAP ECC används följande mappningar från OData-da
 | OData-datatypen | Data factory tillfälliga datatyp |
 |:--- |:--- |
 | Edm.Binary | String |
-| Edm.Boolean | Booleskt |
+| Edm.Boolean | Bool |
 | Edm.Byte | String |
 | Edm.DateTime | DateTime |
 | Edm.Decimal | Decimal |
@@ -176,7 +176,7 @@ När du kopierar data från SAP ECC används följande mappningar från OData-da
 | Edm.SByte | Int16 |
 | Edm.String | String |
 | Edm.Time | TimeSpan |
-| Edm.DateTimeOffset | Datetimeoffset |
+| Edm.DateTimeOffset | DateTimeOffset |
 
 > [!NOTE]
 > Komplexa datatyper stöds inte nu.

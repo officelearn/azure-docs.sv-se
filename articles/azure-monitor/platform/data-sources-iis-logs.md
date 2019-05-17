@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
-ms.openlocfilehash: 402cd4723791c0bc33db22c8857d1b785862f596
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5843ee11a615a2780e9fea2d89f7b18fb45706d8
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60614522"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604358"
 ---
 # <a name="collect-iis-logs-in-azure-monitor"></a>Samla in IIS-loggar i Azure Monitor
 Internet Information Services (IIS) lagrar användaraktivitet i loggfilerna som kan samlas in av Azure Monitor och lagras som [logga data över](data-platform.md).
@@ -51,7 +51,7 @@ IIS-loggposter har en typ av **W3CIISLog** och har egenskaperna i följande tabe
 | csUriStem |Mål för begäran, till exempel en webbsida. |
 | csUriQuery |Fråga, om sådana finns, som klienten försökte utföra. |
 | ManagementGroupName |Namnet på hanteringsgruppen för Operations Manager-agenter.  För andra agenter är detta AOI -\<arbetsyte-ID\> |
-| RemoteIPCountry |Land där IP-adressen för klienten. |
+| RemoteIPCountry |Land/region för IP-adressen för klienten. |
 | RemoteIPLatitude |Latitud för klientens IP-adress. |
 | RemoteIPLongitude |Longitud för klientens IP-adress. |
 | scStatus |HTTP-statuskod. |

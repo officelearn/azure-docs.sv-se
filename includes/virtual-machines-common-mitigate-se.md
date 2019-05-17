@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/14/2019
 ms.author: cynthn;kareni
 ms.custom: include file
-ms.openlocfilehash: be8c3d3be4410d15ba132a24a417e7a7b0418352
-ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
+ms.openlocfilehash: ba41f6cce5233491020a0b42f4fd40dac060be57
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65620261"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65815544"
 ---
 **Senast dokumentera uppdatering**: 14 maj 2019 10:00 FM PST.
 
@@ -29,7 +29,7 @@ Mer information om hur säkerheten är integrerad i alla aspekter av Azure är t
 > Eftersom det här dokumentet publicerades först, har flera varianter av den här klassen säkerhetsproblem lämnats. Microsoft fortsätter att vara mycket har investerat i skydda våra kunder och ge vägledning. Den här sidan kommer att uppdateras när vi fortsätter att släppa ytterligare korrigeringar. 
 > 
 > Den 14 maj 2019 [Intel uppges](https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00233.html) en ny uppsättning spekulativ körning sida kanal säkerhetsproblem kallas mikroarkitekturstruktur Datasampling (MDS finns i Microsofts säkerhetsvägledning [ADV190013](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV190013)), som har tilldelats flera CVEs: 
-> - CVE-2018-11091 - mikroarkitekturstruktur Data Sampling Uncacheable minne (MDSUM)
+> - CVE-2019-11091 - mikroarkitekturstruktur Data Sampling Uncacheable minne (MDSUM)
 > - CVE-2018-12126 - mikroarkitekturstruktur Store bufferten Data Sampling (MSBDS) 
 > - CVE-2018-12127 - mikroarkitekturstruktur belastningen Port Data Sampling (MLPDS)
 > - CVE-2018-12130 - mikroarkitekturstruktur fyllning bufferten Data Sampling (MFBDS)
@@ -123,7 +123,7 @@ Om utdata visar `MDS mitigation is enabled: False`så kan du [kontakta Azure-sup
 <a name="linux"></a>Aktivera ytterligare säkerhetsfunktioner i uppsättningen kräver att måloperativsystemet är fullständigt uppdaterad. Vissa åtgärder kommer att aktiveras som standard. I följande avsnitt beskrivs de funktioner som är inaktiverade som standard och/eller beroende maskinvarustöd (microcode). Aktivera dessa funktioner kan det orsaka en prestandapåverkan. Referera till ditt operativsystem leverantörens dokumentation för ytterligare instruktioner
 
 
-**Steg 1: Inaktivera hypertrådning på den virtuella datorn** - kunder som kör icke betrodd kod på en hyperthreaded virtuell dator måste du inaktivera hypertrådning eller flyttar till en icke-hyperthreaded virtuell dator.  Kontrollera om du kör en hyperthreaded VM, köra den `lspcu` i Linux VM. 
+**Steg 1: Inaktivera hypertrådning på den virtuella datorn** - kunder som kör icke betrodd kod på en hyperthreaded virtuell dator måste du inaktivera hypertrådning eller flyttar till en icke-hyperthreaded virtuell dator.  Kontrollera om du kör en hyperthreaded VM, köra den `lscpu` i Linux VM. 
 
 Om `Thread(s) per core = 2`, och sedan hypertrådning har aktiverats. 
 
@@ -146,7 +146,7 @@ NUMA node(s):          1
 
 ```
 
-Om du kör en hyperthreaded VM [kontakta Azure-supporten](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) att hämta hypertrådning inaktiverat.  Anteckning: När hypertrådning är inaktiverat **supporten behöver en fullständig VM-omstart**.
+Om du kör en hyperthreaded VM [kontakta Azure-supporten](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) att hämta hypertrådning inaktiverat.  När hypertrådning är inaktiverat **supporten behöver en fullständig VM-omstart**.
 
 
 **Steg 2**: Skyddar mot någon av de nedan spekulativ körning sidokanal sårbarheter, referera till operativsystemet leverantörens dokumentation:   
@@ -159,18 +159,18 @@ Om du kör en hyperthreaded VM [kontakta Azure-supporten](https://aka.ms/Microco
 
 Den här artikeln innehåller vägledning om hur du den nedan spekulativ körning sidokanal attacker som påverkar många moderna processorer:
 
-[Spectre Meltdown](https://portal.msrc.microsoft.com/security-guidance/advisory/ADV180002):
+[Spectre Meltdown](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV180002):
 - CVE-2017-5715 - gren Target inmatning (BTI)  
 - CVE-2017-5754 - Kernel sidan tabell isolering (KPTI)
 - CVE-2018-3639 – Speculative Store Bypass (KPTI) 
  
-[L1 Terminal fel (L1TF)](https://portal.msrc.microsoft.com/security-guidance/advisory/ADV180018):
+[L1 Terminal fel (L1TF)](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV180018):
 - CVE-2018-3615 - Intel Software Guard Extensions (Intel SGX)
 - CVE-2018-3620 - operativsystem (OS) och System Management-läge (SMM)
 - CVE 2018 3646 – påverkar Virtual Machine Manager (VMM)
 
-[Mikroarkitekturstruktur Datasampling](https://portal.msrc.microsoft.com/security-guidance/advisory/ADV190013): 
-- CVE-2018-11091 - mikroarkitekturstruktur Data Sampling Uncacheable minne (MDSUM)
+[Mikroarkitekturstruktur Datasampling](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190013): 
+- CVE-2019-11091 - mikroarkitekturstruktur Data Sampling Uncacheable minne (MDSUM)
 - CVE-2018-12126 - mikroarkitekturstruktur Store bufferten Data Sampling (MSBDS)
 - CVE-2018-12127 - mikroarkitekturstruktur belastningen Port Data Sampling (MLPDS)
 - CVE-2018-12130 - mikroarkitekturstruktur fyllning bufferten Data Sampling (MFBDS)

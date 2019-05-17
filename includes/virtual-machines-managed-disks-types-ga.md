@@ -5,40 +5,54 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 03/13/2019
+ms.date: 05/14/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 885bc1c627626ee7ba4f391be31131b18fa1ab39
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 30df480eb314594cbc4d949302aff11e6d764b6f
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65212047"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65815587"
 ---
 ## <a name="premium-ssd"></a>Premium SSD
 
-Azure premium SSD leverera diskar med höga prestanda och låg fördröjning som stöd för virtuella datorer (VM) med indata/utdata (I/O)-intensiva arbetsbelastningar. Om du vill dra nytta av hastighet och prestanda för premium-lagringsdiskar, kan du migrera befintliga Virtuella datordiskar till Premium SSD: er. Premium SSD: er är lämpliga för verksamhetskritiska produktionsprogram.
+Azure premium SSD leverera diskar med höga prestanda och låg fördröjning som stöd för virtuella datorer (VM) med indata/utdata (I/O)-intensiva arbetsbelastningar. Om du vill dra nytta av hastighet och prestanda för premium-lagringsdiskar, kan du migrera befintliga Virtuella datordiskar till Premium SSD: er. Premium SSD: er är lämpliga för verksamhetskritiska produktionsprogram. Premium SSD: er kan bara användas med VM-serie premium storage-kompatibel.
+
+Mer information om enskilda VM-typer och storlekar i Azure för Windows, inklusive storlekarna är premium storage-kompatibel i [Windows VM-storlekar](../articles/virtual-machines/windows/sizes.md). Mer information om enskilda VM-typer och storlekar i Azure för Linux, inklusive storlekarna är premium storage-kompatibel i [Linux VM-storlekar](../articles/virtual-machines/linux/sizes.md).
 
 ### <a name="disk-size"></a>Diskstorlek
 [!INCLUDE [disk-storage-premium-ssd-sizes](disk-storage-premium-ssd-sizes.md)]
 
 När du etablerar en disk för premium storage, till skillnad från standardlagring, garanterat kapacitet, IOPS och dataflöde på disken. Exempelvis kan etablerar du skapa en P50-disk Azure 4 095 GB lagringskapacitet, 7 500 IOPS och 250 MBIT/s genomströmning för disken. Ditt program kan använda hela eller delar av kapacitet och prestanda. Premium SSD-diskar är utformade för att leverera målet prestanda 99,9% av tiden.
 
+### <a name="transactions"></a>Transaktioner
+
+För premium SSD varje i/o-åtgärden har mindre än eller lika med 256 KiB dataflödets anses vara en enda i/o-åtgärd. I/o-åtgärder större än 256 KiB dataflödets anses flera I/o med storleken 256 KiB.
+
 ## <a name="standard-ssd"></a>Standard SSD
 
-Azure standard SSD: er är ett alternativ för kostnadseffektiv lagring som optimerats för arbetsbelastningar som behöver konsekvent prestanda på lägre nivåer av IOPS. Standard SSD erbjuder en bra enklare upplevelse för dem som vill flytta till molnet, särskilt om det uppstår problem med variansen för arbetsbelastningar som körs på dina HDD-lösningar lokalt. Standard SSD: er ger bättre tillgänglighet, konsekvens, tillförlitlighet och svarstid jämfört med HDD-diskar. Standard SSD: er är lämpliga för webbservrar, programservrar för låg IOPS, används företagsprogram och arbetsbelastningar för utveckling och testning.
+Azure standard SSD: er är ett alternativ för kostnadseffektiv lagring som optimerats för arbetsbelastningar som behöver konsekvent prestanda på lägre nivåer av IOPS. Standard SSD erbjuder en bra enklare upplevelse för dem som vill flytta till molnet, särskilt om det uppstår problem med variansen för arbetsbelastningar som körs på dina HDD-lösningar lokalt. Standard SSD-enheter leverera jämfört med standardhårddiskar, bättre tillgänglighet, konsekvens, tillförlitlighet och svarstid. Standard SSD: er är lämpliga för webbservrar, programservrar för låg IOPS, används företagsprogram och arbetsbelastningar för utveckling och testning. Standard SSD-enheter är tillgängliga på alla virtuella Azure-datorer som standard hårddiskar.
 
 ### <a name="disk-size"></a>Diskstorlek
 [!INCLUDE [disk-storage-standard-ssd-sizes](disk-storage-standard-ssd-sizes.md)]
 
 Standard SSD-enheter är utformade för att tillhandahålla ensiffrig svarstid för de flesta i/o-åtgärder och leverera IOPS och dataflöde upp till de gränser som beskrivs i föregående tabell 99% av tiden. Faktiska IOPS och dataflöden varierar ibland beroende på trafikmönster. Standard SSD-enheter ger mer konsekventa prestanda än HDD-diskar med kortare svarstider.
 
+### <a name="transactions"></a>Transaktioner
+
+För standard SSD: er varje i/o-åtgärden har mindre än eller lika med 256 KiB dataflödets betraktas som en enda i/o-åtgärd. I/o-åtgärder större än 256 KiB dataflödets anses flera I/o med storleken 256 KiB. De här transaktionerna påverka faktureringen.
+
 ## <a name="standard-hdd"></a>Standard HDD
 
-Azure standardhårddiskar leverera tillförlitlig, billig disksupport för virtuella datorer som kör latens-okänslig arbetsbelastningar. Den stöder även blobar, tabeller, köer och filer. Med standard-lagring lagras data på hårddiskar (HDD). När du arbetar med virtuella datorer kan använda du standarddiskar för SSD och HDD för utveckling och testning och mindre kritiska arbetsbelastningar. Standard-lagring är tillgängligt i alla Azure-regioner.
+Azure standardhårddiskar leverera tillförlitlig, billig disksupport för virtuella datorer som kör latens-okänslig arbetsbelastningar. Den stöder även blobar, tabeller, köer och filer. Med standard-lagring lagras data på hårddiskar (HDD). När du arbetar med virtuella datorer kan använda du standarddiskar för SSD och HDD för utveckling och testning och mindre kritiska arbetsbelastningar. Standardhårddiskar är tillgängliga i alla Azure-regioner och kan användas med alla virtuella Azure-datorer.
 
 ### <a name="disk-size"></a>Diskstorlek
 [!INCLUDE [disk-storage-standard-hdd-sizes](disk-storage-standard-hdd-sizes.md)]
+
+### <a name="transactions"></a>Transaktioner
+
+För standardhårddiskar anses varje i/o-åtgärd som en enda transaktion, oavsett i/o-storlek. De här transaktionerna påverka faktureringen.
 
 ## <a name="billing"></a>Fakturering
 

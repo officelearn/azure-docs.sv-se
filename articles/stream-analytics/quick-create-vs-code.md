@@ -7,12 +7,12 @@ ms.author: mamccrea
 ms.date: 05/06/2019
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: 511dab7090f6114c7769d504166f3e2c137d43ca
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 894f43a7da0abd129123d5c4ddf2bb95347c42c5
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65071840"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65825382"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-cloud-job-in-visual-studio-code-preview"></a>Snabbstart: Skapa cloud Azure Stream Analytics-jobb i Visual Studio Code (förhandsversion)
 
@@ -103,7 +103,7 @@ Innan du definierar Stream Analytics-jobbet bör du förbereda de data som senar
 
 1. I Visual Studio Code trycker du på **Ctrl + Skift + P** att öppna kommandopaletten. Skriv sedan **ASA** och välj **ASA: Skapa nytt projekt**.
 
-   ![Skapa nytt projekt](./media/quick-create-vs-code/create-new-project.png)
+   ![Skapa ett nytt projekt](./media/quick-create-vs-code/create-new-project.png)
 
 2. Ange ditt projektnamn som **myASAproj** och välj en mapp för ditt projekt.
 
@@ -142,7 +142,7 @@ Innan du definierar Stream Analytics-jobbet bör du förbereda de data som senar
    |-------|---------------|-----------|
    |Namn|Indata|Ange ett namn som identifierar jobbets indata.|
    |IotHubNamespace|MyASAIoTHub|Välj eller ange namnet på IoT-hubben. IoT-hubbnamn identifieras automatiskt om de skapas i samma prenumeration.|
-   |Slutpunkt|Meddelandetjänster| |
+   |Slutpunkt|Meddelanden| |
    |SharedAccessPolicyName|iothubowner| |
 
 ## <a name="define-an-output"></a>Definiera utdata
@@ -161,7 +161,7 @@ Innan du definierar Stream Analytics-jobbet bör du förbereda de data som senar
 
    |Inställning|Föreslaget värde|Beskrivning|
    |-------|---------------|-----------|
-   |Namn|Resultat| Ange ett namn som identifierar jobbets utdata.|
+   |Namn|Utdata| Ange ett namn som identifierar jobbets utdata.|
    |Lagringskonto|asaquickstartstorage|Välj eller ange namnet på ditt lagringskonto. Lagringskontonamn identifieras automatiskt om de skapas i samma prenumeration.|
    |Container|container1|Välj en befintlig container som du skapade i ditt lagringskonto.|
    |Sökvägsmönster|utdata|Ange namnet för en sökväg som ska skapas i containern.|
@@ -229,7 +229,7 @@ Det finns två sätt att utlösa kompilering av skriptet:
 
 2. Högerklicka på jobbnamnet. Välj **starta** på snabbmenyn.
 
-![Starta Stream Analytics-jobbet i VS Code](./media/quick-create-vs-code/start-asa-job-vs-code.png)
+   ![Starta Stream Analytics-jobbet i VS Code](./media/quick-create-vs-code/start-asa-job-vs-code.png)
 
 3. Välj **nu** i popup-fönster för att starta jobbet.
 

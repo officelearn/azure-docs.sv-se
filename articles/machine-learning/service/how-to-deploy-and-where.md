@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 05/02/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 45421a249642abf37c89aa33e2e8a1b4a9e5e497
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: f38f9889ca057f2981774edfb8a67bb986fdd8d7
+ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65507007"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65619865"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Distribuera modeller med Azure Machine Learning-tjänsten
 
@@ -63,6 +63,9 @@ print(model.name, model.id, model.version, sep='\t')
 ```
 
 ### <a name="register-an-externally-created-model"></a>Registrera ett externt skapade modellen
+
+[!INCLUDE [trusted models](../../../includes/machine-learning-service-trusted-model.md)]
+
 Du kan registrera ett externt skapade modellen genom att tillhandahålla en **lokal sökväg** i modellen. Du kan ange en mapp eller en enskild fil.
 
 **Exempel på ONNX med Python-SDK:**
@@ -123,7 +126,7 @@ dependencies:
   - python=3.6.2
   - pip:
     - azureml-defaults
-    - scikit-learn
+    - scikit-learn==0.20.0
     - inference-schema[numpy-support]
 ```
 

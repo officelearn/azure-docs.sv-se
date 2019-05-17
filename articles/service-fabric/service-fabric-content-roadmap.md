@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: atsenthi
-ms.openlocfilehash: dfe08152f986ccac3dabe7b3bb21e7653ee812a4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a95baeb60ddff38e2aa1e36e7728c012d9d44930
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60394412"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540710"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Så att du vill lära dig om Service Fabric?
 Azure Service Fabric är en distribuerad systemplattform som gör det enkelt att paketera, distribuera och hantera skalbara och tillförlitliga mikrotjänster.  Service Fabric har ett stort utsatt område för dock och det är mycket mer.  Den här artikeln innehåller en sammanfattning av Service Fabric och beskriver grundläggande begrepp, programmeringsmodeller, programmets hela livscykel, testning, kluster och övervakning av hälsotillstånd. Läs den [översikt](service-fabric-overview.md) och [vad är mikrotjänster?](service-fabric-overview-microservices.md) för en introduktion och hur Service Fabric kan användas för att skapa mikrotjänster. Den här artikeln innehåller inte en omfattande innehållslistan, men länka till översikt och komma igång artiklar för alla områden i Service Fabric. 
@@ -30,7 +30,7 @@ Azure Service Fabric är en distribuerad systemplattform som gör det enkelt att
 ### <a name="design-time-application-type-service-type-application-package-and-manifest-service-package-and-manifest"></a>Utforma tid: programtyp, typ av tjänst, programpaket och manifest, servicepaket och manifest
 Programtyp är namn/version som tilldelats till en samling av tjänsttyper. Det här är definierat i en *ApplicationManifest.xml* -fil som är inbäddad i ett paket för programkatalogen. Programpaketet kopieras sedan till Service Fabric-klustrets avbildningsarkiv. Du kan sedan skapa en namngiven programmet från den här programtypen som körs i klustret. 
 
-En tjänst är namn/version som tilldelats till en tjänst kodpaket data paket och konfigurationspaket. Det här är definierat i servicemanifest.XML som är inbäddade i en tjänstkatalog för paketet. Tjänsten paketkatalogen sedan refererar till ett programpaket *ApplicationManifest.xml* fil. Inom klustret, kan när du har skapat en namngiven program, du skapa en namngiven tjänst från en av de programtyp tjänsttyper. En tjänsttyp beskrivs av dess *ServiceManifest.xml* fil. Tjänsttypen består av körbar kod service konfigurationsinställningar, som har lästs in vid körning och statiska data som används av tjänsten.
+En tjänst är namn/version som tilldelats till en tjänst kodpaket data paket och konfigurationspaket. Det här är definierat i servicemanifest.XML som är inbäddade i en tjänstkatalog för paketet. Tjänsten paketkatalogen sedan refererar till ett programpaket *ApplicationManifest.xml* fil. Inom klustret, kan när du har skapat en namngiven program, du skapa en namngiven tjänst från en av de programtyp tjänsttyper. En tjänsttyp beskrivs av dess *ServiceManifest.xml* fil. Tjänsttypen består av körbar kod och konfigurationsinställningarna för tjänsten som har lästs in vid körning och statiska data som används av tjänsten.
 
 ![Service Fabric programtyper och tjänsttyper][cluster-imagestore-apptypes]
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 6179086c6a2cf187c976ff23bf24180257023d28
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: e5acb8e0f8805da7f14bbce58b4bfd2acdc24f23
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289180"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65815650"
 ---
 # <a name="secure-your-internet-of-things-iot-deployment"></a>Skydda distributionen av Internet of Things (IoT)
 
@@ -21,11 +21,11 @@ Den här artikeln innehåller nästa detaljnivå för att skydda Azure IoT-baser
 
 Skydda Azure-IoT-distributionen kan delas in i följande tre områden:
 
-* **Enhetssäkerhet**: skydda IoT-enhet när den har distribuerats i naturen.
+* **Enhetssäkerhet**: Skydda IoT-enhet när den har distribuerats i naturen.
 
-* **Anslutningssäkerhet**: att se till att alla data som överförs mellan IoT-enheter och IoT Hub är konfidentiellt och manipuleringssäker.
+* **Anslutningssäkerhet**: Att se till att alla data som överförs mellan IoT-enheter och IoT Hub är konfidentiell och manipuleringssäker.
 
-* **Cloud Security**: att skapa ett sätt att skydda data medan den går genom och lagras i molnet.
+* **Cloud Security**: Att skapa ett sätt att skydda data medan den går genom och lagras i molnet.
 
 ![Tre säkerhetsområden](./media/iot-secure-your-deployment/overview.png)
 
@@ -35,7 +35,7 @@ IoT-Lösningsacceleratorer säker IoT-enheter med hjälp av följande två metod
 
 * Genom att tillhandahålla en unik identitet nyckel (säkerhetstoken) för varje enhet som kan användas av enheten för att kommunicera med IoT Hub.
 
-* Med hjälp av en på enhet [X.509-certifikat](http://www.itu.int/rec/T-REC-X.509-201210-I/en) och den privata nyckeln som ett sätt att autentisera enheten till IoT Hub. Den här autentiseringsmetoden säkerställer att den privata nyckeln på enheten inte är känd utanför enheten när som helst, vilket ger en högre säkerhetsnivå.
+* Med hjälp av en på enhet [X.509-certifikat](https://www.itu.int/rec/T-REC-X.509-201210-S) och den privata nyckeln som ett sätt att autentisera enheten till IoT Hub. Den här autentiseringsmetoden säkerställer att den privata nyckeln på enheten inte är känd utanför enheten när som helst, vilket ger en högre säkerhetsnivå.
 
 Token säkerhetsmetod ger autentisering för varje anrop som görs av enheten till IoT Hub genom att associera den symmetriska nyckeln för varje anrop. X.509-baserad autentisering möjliggör autentisering av en IoT-enheter på det fysiska skiktet som en del av TLS anslutningen upprättas. Security-tokenbaserad-metoden kan användas utan X.509-autentisering, vilket är ett mindre säkert mönster. Valet mellan de två metoderna beror främst hur säker autentisering enheten måste vara och tillgänglighet för säker lagring på enheten (för att lagra den privata nyckeln på ett säkert sätt).
 
@@ -53,11 +53,11 @@ Varje IoT-hubben har en [identitetsregistret](../articles/iot-hub/iot-hub-devgui
 
 [IoT-hubb har stöd för protokoll, till exempel MQTT, AMQP och HTTP-](../articles//iot-hub/iot-hub-devguide-security.md). Var och en av dessa protokoll använder säkerhetstoken från IoT-enhet till IoT Hub på olika sätt:
 
-* AMQP: SASL vanlig och AMQP anspråksbaserad säkerhet (`{policyName}@sas.root.{iothubName}` med IoT hub på servernivå tokens. `{deviceId}` med enheten-omfattande token).
+* AMQP: SASL OFORMATERAD och AMQP anspråksbaserade (`{policyName}@sas.root.{iothubName}` med IoT hub på servernivå tokens. `{deviceId}` med enheten-omfattande token).
 
-* MQTT: Ansluta paket använder `{deviceId}` som den `{ClientId}`, `{IoThubhostname}/{deviceId}` i den **användarnamn** fält och en SAS-token i den **lösenord** fält.
+* MQTT: Anslut paket använder `{deviceId}` som den `{ClientId}`, `{IoThubhostname}/{deviceId}` i den **användarnamn** fält och en SAS-token i den **lösenord** fält.
 
-* HTTP: Är giltig token i auktoriseringshuvudet för begäran.
+* HTTP: Det är giltig token i auktoriseringshuvudet för begäran.
 
 IoT Hub-identitetsregistret kan användas för att konfigurera autentiseringsuppgifter för varje enhet och åtkomstkontroll. Men om en IoT-lösning har redan en betydande investering i en [anpassad enhet identitet registret och/eller autentisering schema](../articles/iot-hub/iot-hub-devguide-security.md#custom-device-and-module-authentication), den kan integreras i en befintlig infrastruktur med IoT Hub genom att skapa en token tjänst.
 
@@ -101,15 +101,15 @@ Azure IoT Hub och andra tjänster som kan vara en del av lösningen kan du hante
 
 Data som matas in i Azure IoT Hub kan användas av en mängd olika tjänster, till exempel Azure Stream Analytics och Azure blob storage. Dessa tjänster kan åtkomst. Läs mer om dessa tjänster och de tillgängliga alternativen:
 
-* [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/): en skalbar och fullständigt indexerade databastjänst för halvstrukturerade data som hanterar metadata för enheterna som du etablerar, till exempel attribut, konfiguration och säkerhetsegenskaper för. Azure Cosmos DB erbjuder hög prestanda och hög genomströmning bearbetning, schemaoberoende indexering av data och ett omfattande SQL-gränssnitt.
+* [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/): En skalbar och fullständigt indexerade databastjänst för halvstrukturerade data som hanterar metadata för de enheter som du etablerar, till exempel attribut, konfiguration och säkerhetsegenskaper för. Azure Cosmos DB erbjuder hög prestanda och hög genomströmning bearbetning, schemaoberoende indexering av data och ett omfattande SQL-gränssnitt.
 
-* [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/): strömningsbearbetning i molnet som hjälper dig att snabbt utveckla och distribuera en analyslösning med låg kostnad för att hämta information i realtid från enheter, sensorer, infrastruktur och program. Data från den här fullständigt hanterade tjänsten kan skalas till alla volymer samtidigt som du får hög genomströmning, Låg fördröjning och återhämtning.
+* [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/): Strömningsbearbetning i molnet som hjälper dig att snabbt utveckla och distribuera en analyslösning med låg kostnad för att hämta information i realtid från enheter, sensorer, infrastruktur och program. Data från den här fullständigt hanterade tjänsten kan skalas till alla volymer samtidigt som du får hög genomströmning, Låg fördröjning och återhämtning.
 
-* [Azure App Services](https://azure.microsoft.com/services/app-service/): en plattform för att skapa avancerade webb- och mobilappar som ansluter till data överallt; i molnet eller lokalt. Skapa spännande mobilappar för iOS, Android och Windows. Integrera med programvara som en tjänst (SaaS) och företagsprogram med out-of the box anslutningen till massor av molnbaserade tjänster och företagsprogram. Koda på önskat språk och IDE (.NET, Node.js, PHP, Python eller Java) att skapa webbappar och API: er snabbare än någonsin.
+* [Azure App Services](https://azure.microsoft.com/services/app-service/): En plattform för att skapa avancerade webb- och mobilappar som ansluter till data överallt; i molnet eller lokalt. Skapa spännande mobilappar för iOS, Android och Windows. Integrera med programvara som en tjänst (SaaS) och företagsprogram med out-of the box anslutningen till massor av molnbaserade tjänster och företagsprogram. Koda på önskat språk och IDE (.NET, Node.js, PHP, Python eller Java) att skapa webbappar och API: er snabbare än någonsin.
 
-* [Logic Apps](https://azure.microsoft.com/services/app-service/logic/): Logic Apps-funktionen i Azure App Service hjälper dig att integrera din IoT-lösning till dina befintliga line-of-business-system och automatisera arbetsflödesprocesser. Logic Apps kan utvecklare utforma arbetsflöden som startar från en utlösare och sedan köra en serie steg, regler och åtgärder som använder kraftfulla kopplingar för att integrera med dina affärsprocesser. Logic Apps ger ut nyckelfärdig anslutning till ett enormt ekosystem med SaaS, molnbaserade och lokala program.
+* [Logikappar](https://azure.microsoft.com/services/app-service/logic/): Logic Apps-funktionen i Azure App Service hjälper dig att integrera din IoT-lösning till dina befintliga line-of-business-system och automatisera arbetsflödesprocesser. Logic Apps kan utvecklare utforma arbetsflöden som startar från en utlösare och sedan köra en serie steg, regler och åtgärder som använder kraftfulla kopplingar för att integrera med dina affärsprocesser. Logic Apps ger ut nyckelfärdig anslutning till ett enormt ekosystem med SaaS, molnbaserade och lokala program.
 
-* [Azure Blob storage](https://azure.microsoft.com/services/storage/): pålitlig, ekonomisk molnlagring för de data som enheterna skickar till molnet.
+* [Azure Blob storage](https://azure.microsoft.com/services/storage/): Pålitlig, ekonomisk molnlagring för de data som enheterna skickar till molnet.
 
 ## <a name="conclusion"></a>Sammanfattning
 

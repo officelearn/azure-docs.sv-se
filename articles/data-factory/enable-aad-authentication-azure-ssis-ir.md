@@ -8,16 +8,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 3/11/2019
+ms.date: 5/14/2019
 author: swinarko
 ms.author: sawinark
 manager: craigg
-ms.openlocfilehash: 58bdc0e698fc28929c2080b1737770275b1164ad
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a67436f09d6e28db8d19679e446ac4cf98383709
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57848736"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65593797"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>Aktivera Azure Active Directory-autentisering för Azure-SSIS Integration Runtime
 
@@ -60,7 +60,7 @@ Du kan använda en befintlig Azure AD-grupp eller skapa en ny med hjälp av Azur
     6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 SSISIrGroup
     ```
 
-3.  Lägg till hanterad identitet för din ADF i gruppen. Du kan följa artikeln [hanterade identiy för Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) att hämta den huvudsakliga TJÄNSTIDENTITETS-ID (t.ex. 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc, men Använd inte tjänsten IDENTITETSPROGRAM-ID för detta ändamål).
+3.  Lägg till hanterad identitet för din ADF i gruppen. Du kan följa artikeln [hanterade identiy för Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) att hämta huvudnamn hanterad identitet objekt-ID (t.ex. 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc, men inte använder hanterade Identitetsprogram-ID för detta ändamål).
 
     ```powershell
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
@@ -170,12 +170,12 @@ För den här nästa steg behöver du [Microsoft SQL Server Management Studio](
 
 4.  Högerklicka på **master** databasen och välj **ny fråga**.
 
-5.  Hämta den hanterade identitet för din ADF. Du kan följa artikeln [hanterade identiy för Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) att hämta huvudnamn SERVICE IDENTITY program-ID (men inte använder TJÄNSTIDENTITETS-ID för detta ändamål).
+5.  Hämta den hanterade identitet för din ADF. Du kan följa artikeln [hanterade identiy för Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) att hämta huvudnamn hanterad identitet program-ID (men inte använder hanterade identitet objekt-ID för detta ändamål).
 
 6.  I frågefönstret kör du följande T-SQL-skript för att konvertera den hanterade identitet för din ADF till typen binary:
 
     ```sql
-    DECLARE @applicationId uniqueidentifier = '{your SERVICE IDENTITY APPLICATION ID}'
+    DECLARE @applicationId uniqueidentifier = '{your Managed Identity Application ID}'
     select CAST(@applicationId AS varbinary)
     ```
     
@@ -184,7 +184,7 @@ För den här nästa steg behöver du [Microsoft SQL Server Management Studio](
 7.  Rensa frågefönstret och kör följande T-SQL-skript för att lägga till den hanterade identitet för din ADF som en användare
 
     ```sql
-    CREATE LOGIN [{a name for the managed identity}] FROM EXTERNAL PROVIDER with SID = {your SERVICE IDENTITY APPLICATION ID as binary}, TYPE = E
+    CREATE LOGIN [{a name for the managed identity}] FROM EXTERNAL PROVIDER with SID = {your Managed Identity Application ID as binary}, TYPE = E
     ALTER SERVER ROLE [dbcreator] ADD MEMBER [{the managed identity name}]
     ALTER SERVER ROLE [securityadmin] ADD MEMBER [{the managed identity name}]
     ```

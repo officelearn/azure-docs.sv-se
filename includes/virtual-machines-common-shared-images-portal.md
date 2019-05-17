@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 04/29/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 9b9b6d08fd14a850838590ce003e889e8e652c7c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 66ec923f12c59d606056d48c09f1ba346e9a4d32
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148049"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827079"
 ---
-## <a name="sign-in-to-azure"></a>Logga in på Azure 
+## <a name="sign-in-to-azure"></a>Logga in till Azure 
 
 Logga in på Azure Portal på https://portal.azure.com.
 
@@ -51,7 +51,7 @@ Skapa definitionen för galleriet bilden i galleriet. I det här exemplet heter 
 1. För **Publisher**, typ *myPublisher*. 
 1. För **erbjuder**, typ *myOffer*.
 1. För **SKU**, typ *mySKU*.
-1. Se till att **Ja** oss valts för **aktivera** och välj sedan **granska + skapa**.
+1. När du är klar väljer **granska + skapa**.
 1. När avbildningsdefinitionen har klarat verifieringen väljer **skapa**.
 1. När distributionen är klar väljer du **gå till resurs**.
 

@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 42ab8be45d4086589f0793531003700e7552a440
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 268467796e67caf2d20fedb44d83fd455a09b83e
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64744610"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65538403"
 ---
 **Utgående dataöverföringar**: [Utgående dataöverföringar](https://azure.microsoft.com/pricing/details/bandwidth/) (data som går ut från Azures datacenter) debiteras för bandbreddsanvändning.
 
-**Transaktioner**: Du faktureras för antalet transaktioner som du kan utföra på en hanterad disk som standard. Storleken för i/o-enhet på 256 KiB används för redovisning antalet transaktioner för standard SSD-enheter. Större i/o-storlekar räknas som flera I/o med storleken 256 KiB. För standardhårddiskar anses varje i/o-åtgärd som en enda transaktion, oavsett i/o-storlek.
+**Transaktioner**: Du faktureras för antalet transaktioner som du kan utföra på en hanterad disk som standard. För standard SSD: er varje i/o-åtgärden har mindre än eller lika med 256 KiB dataflödets betraktas som en enda i/o-åtgärd. I/o-åtgärder större än 256 KiB dataflödets anses flera I/o med storleken 256 KiB. För standardhårddiskar anses varje i/o-åtgärd som en enda transaktion, oavsett i/o-storlek.
 
 Detaljerad information om priser för Managed Disks, inklusive transaktionskostnader, finns i [hanterade diskar priser](https://azure.microsoft.com/pricing/details/managed-disks).
 

@@ -2,9 +2,9 @@
 title: Lär dig att ange valfria anspråk till din Azure AD-program | Microsoft Docs
 description: En guide för att lägga till anpassade eller ytterligare anspråk till SAML 2.0 och JSON Web token (JWT) token som utfärdas av Azure Active Directory.
 documentationcenter: na
-author: CelesteDG
+author: rwike77
 services: active-directory
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,16 +13,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/27/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fd7b05a5411c03e1324871fbff3c29061ce7b3d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 593289e64c0f9cd13251a0f7b47b860158100b36
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65139246"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544568"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Anvisningar: Ange valfria anspråk till din Azure AD-app
 
@@ -91,7 +91,7 @@ De här anspråken är alltid är inkluderad i v1.0 Azure AD-token, men inte ing
 | `nickname`    | Smeknamn                        | Ytterligare ett namn för användaren, separat från förnamn eller efternamn. | 
 | `family_name` | Efternamn                       | Innehåller den senaste namn, efternamn eller namn för användaren som definierats i användarobjektet. <br>"family_name":"Miller" | Stöds i MSA och AAD   |
 | `given_name`  | Förnamn                      | Innehåller först eller ”förnamn” för användaren som angetts på användarobjektet.<br>"given_name": ”Frank”                   | Stöds i MSA och AAD  |
-| `upn`         | User Principal Name | En identifierare för den användare som kan användas med parametern username_hint.  Inte en varaktigt ID för användaren och bör inte användas till att viktiga data. | Se [ytterligare egenskaper](#additional-properties-of-optional-claims) nedan för att konfigurera anspråket. |
+| `upn`         | Användarens huvudnamn | En identifierare för den användare som kan användas med parametern username_hint.  Inte en varaktigt ID för användaren och bör inte användas till att viktiga data. | Se [ytterligare egenskaper](#additional-properties-of-optional-claims) nedan för att konfigurera anspråket. |
 
 ### <a name="additional-properties-of-optional-claims"></a>Ytterligare egenskaper för valfria anspråk
 
@@ -247,7 +247,7 @@ Det här avsnittet beskrivs konfigurationsalternativ under valfria anspråk för
    }
    ```
 
-   | Valfria anspråk Schema | Värde |
+   | Valfria anspråk Schema | Value |
    |----------|-------------|
    | **Namn:** | Måste vara ”grupper” |
    | **Källa:** | Används inte. Utelämna eller ange null |

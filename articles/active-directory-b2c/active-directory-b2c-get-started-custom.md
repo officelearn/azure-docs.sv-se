@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: e9ad91967b5423539f28089bbf2da22edcf8f9a6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 6a66d45028b9fbf9c421b10ffb7863fcb9be5bec
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64714960"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65779850"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Kom igång med anpassade principer i Azure Active Directory B2C
 
@@ -33,7 +33,7 @@ ms.locfileid: "64714960"
 1. Logga in på [Azure Portal](https://portal.azure.com/) som global administratör för din Azure AD B2C-klientorganisationen.
 2. Kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient. Klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller din klient. 
 3. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
-4. På sidan Översikt väljer **Identitetsupplevelse – FÖRHANDSVERSION**.
+4. På sidan Översikt väljer **Identitetsramverk**.
 
 ### <a name="create-the-signing-key"></a>Skapa signeringsnyckeln
 

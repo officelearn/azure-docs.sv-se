@@ -2,21 +2,21 @@
 title: Lägga till en app i din Azure Active Directory-klientorganisation | Microsoft Docs
 description: I den här snabbstarten använder du Azure Portal för att lägga till ett galleriprogram i din Azure Active Directory-klientorganisation (Azure AD).
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 04/09/2019
-ms.author: celested
+ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b15842d7157e8e5a691f37f846dd424bf308eae3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8d3e79b00545f76dff9442a11864701d6d61f057
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60294174"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65784571"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-tenant"></a>Snabbstart: Lägga till ett program i din Azure Active Directory-klientorganisation
 
@@ -58,7 +58,7 @@ Så här lägger du till ett galleriprogram i din Azure AD-klientorganisation:
 
 1. Att söka efter ett program under **Lägg till från galleriet**, anger du namnet på programmet som du vill lägga till. Markera programmet i resultaten och välj **Lägg till**. I följande exempel visas formuläret **Lägg till app**, som visas när du har sökt efter github.com.
 
-    ![Lägga till ett program](media/add-application-portal/add-an-application.png)
+    ![Lägg till ett program](media/add-application-portal/add-an-application.png)
 
 1. I det programspecifika formuläret kan du ändra egenskapsinformation. Till exempel kan du redigera namnet på programmet så att det matchar behoven i din organisation. I det här exemplet används namnet **GitHub-test**.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/10/2019
 ms.author: aljo
-ms.openlocfilehash: 46c9b37e9bb8613b34dea6705320f5689eeb51d8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e992aae17f1217803b411a49c5d942efc501fbdc
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60386830"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606974"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Anpassa inställningar för Service Fabric-kluster
 Den här artikeln beskrivs de olika fabric-inställningarna för Service Fabric-kluster som du kan anpassa. För kluster i Azure kan du anpassa inställningar via den [Azure-portalen](https://portal.azure.com) eller genom att använda en Azure Resource Manager-mall. Mer information finns i [uppgradera konfigurationen av ett Azure-kluster](service-fabric-cluster-config-upgrade-azure.md). Fristående kluster kan du anpassa inställningar genom att uppdatera den *ClusterConfig.json* fil- och utför en konfiguration som uppgraderar på ditt kluster. Mer information finns i [uppgradera konfigurationen av ett fristående kluster](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -41,14 +41,14 @@ Följande är en lista över Fabric inställningar som du kan anpassa, ordnade e
 |CrlCheckingFlag|uint, standard är 0x40000000 |Dynamisk| Flaggor för program/tjänst verifiering av certifikatkedjan; t.ex. CRL-kontroll 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY inställningen till 0 inaktiverar CRL kontrollerar fullständig lista över värden som stöds är dokumenterats av dwFlags av CertGetCertificateChain: https://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx  |
 |DefaultHttpRequestTimeout |Tid i sekunder. Standardvärdet är 120 |Dynamisk|Ange tidsintervall i sekunder.  Ger timeout för standard-begäranden för http-begäranden som bearbetas i app-gateway http. |
 |ForwardClientCertificate|bool, standard är FALSKT|Dynamisk|När begär inte inställd på FALSKT, omvänd proxy för klientcertifikatet. Om inställd på true, använda omvänd proxy ska begära för klientcertifikatet under SSL-handskakningen och vidarebefordra den base64-kodad kan PEM formatsträng till tjänsten i en rubrik med namnet X-klient-Certificate.The tjänst misslyckas på begäran med lämplig statuskod efter att ha inspekterat certifikatdata. Om detta är SANT och ett certifikat finns inte i klienten, vidarebefordra ett tomt huvud omvänd proxy och fjärrhantering av tjänsten som hanterar fallet. Omvänd proxy fungerar som ett transparent lager. Mer information finns i [konfigurera autentisering med klientcertifikat](service-fabric-reverseproxy-configure-secure-communication.md#setting-up-client-certificate-authentication-through-the-reverse-proxy). |
-|GatewayAuthCredentialType |sträng, standard är ”ingen” |Statisk| Anger de autentiseringsuppgifter du använder på http-app gateway-slutpunkten giltiga värden är ”ingen / X 509. |
+|GatewayAuthCredentialType |sträng, standard är ”ingen” |Statisk| Anger de autentiseringsuppgifter du använder på http-app gateway-slutpunkten giltiga värden är None / X 509. |
 |GatewayX509CertificateFindType |sträng, standard är ”FindByThumbprint” |Dynamisk| Anger hur du söker efter certifikat i arkivet som anges av GatewayX509CertificateStoreName stöds värde: FindByThumbprint; FindBySubjectName. |
 |GatewayX509CertificateFindValue | sträng, standardvärdet är ”” |Dynamisk| Sök filtervärdet som används för att hitta http app gateway-certifikatet. Det här certifikatet har konfigurerats på https-slutpunkten och kan också användas för att verifiera identiteten för appen vid behov av tjänsterna. Först; söks FindValue och om som inte finns; FindValueSecondary slås upp. |
 |GatewayX509CertificateFindValueSecondary | sträng, standardvärdet är ”” |Dynamisk|Sök filtervärdet som används för att hitta http app gateway-certifikatet. Det här certifikatet har konfigurerats på https-slutpunkten och kan också användas för att verifiera identiteten för appen vid behov av tjänsterna. Först; söks FindValue och om som inte finns; FindValueSecondary slås upp.|
 |GatewayX509CertificateStoreName |sträng, standardvärdet är ”My” |Dynamisk| Namnet på X.509-certifikatarkiv som innehåller certifikat för HTTP-app gateway. |
 |HttpRequestConnectTimeout|TimeSpan, standardvärdet är Common::TimeSpan::FromSeconds(5)|Dynamisk|Ange tidsintervall i sekunder.  Ger connect timeout-värdet för http-begäranden som skickas från app-gateway http.  |
 |IgnoreCrlOfflineError|bool, standard är SANT|Dynamisk|Om du vill ignorera CRL offline fel för program/tjänst certifikatverifiering. |
-|IsEnabled |Bool, standard är FALSKT |Statisk| Aktiverar eller inaktiverar HttpApplicationGateway. HttpApplicationGateway är inaktiverad som standard och den här konfigurationen måste anges för att aktivera den. |
+|isEnabled |Bool, standard är FALSKT |Statisk| Aktiverar eller inaktiverar HttpApplicationGateway. HttpApplicationGateway är inaktiverad som standard och den här konfigurationen måste anges för att aktivera den. |
 |NumberOfParallelOperations | Uint, standardvärdet är 5000 |Statisk|Antalet läsningar att publicera till kön för http-server. Detta styr antalet samtidiga begäranden som kan betjänas av HttpGateway. |
 |RemoveServiceResponseHeaders|sträng, standard är ”datum. Server ”|Statisk|Semikolonseparerade / kommaavgränsad lista över svarshuvuden som tas bort från tjänstsvaret; innan den vidarebefordrar det till klienten. Om detta är inställt på tom sträng; Skicka alla rubriker som returneras av tjänsten som – är. i.e Skriv inte över datum och Server |
 |ResolveServiceBackoffInterval |Tid i sekunder, standardvärdet är 5 |Dynamisk|Ange tidsintervall i sekunder.  Ger lösa backoff standardintervallet innan du försöker utföra en tjänståtgärd. |
@@ -100,7 +100,7 @@ Följande är en lista över Fabric inställningar som du kan anpassa, ordnade e
 |UpgradeHealthCheckInterval |Tid i sekunder, standardvärdet är 60 |Dynamisk|Frekvensen för hälsostatus kontrollerar under en övervakad programuppgraderingar |
 |UpgradeStatusPollInterval |Tid i sekunder, standardvärdet är 60 |Dynamisk|Frekvensen av avsökningen för status för uppgraderingen. Det här värdet fastställer mängden uppdatering för ett GetApplicationUpgradeProgress-anrop |
 
-## <a name="common"></a>Common
+## <a name="common"></a>Delad
 
 | **Parametern** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller en kort beskrivning** |
 | --- | --- | --- | --- |
@@ -141,7 +141,7 @@ Följande är en lista över Fabric inställningar som du kan anpassa, ordnade e
 | --- | --- | --- | --- |
 |EnablePartitionedQuery|bool, standard är FALSKT|Statisk|Flagga för att aktivera stöd för DNS-frågor för tjänster som är partitionerad. Funktionen är inaktiverat som standard. Mer information finns i [Service Fabric DNS-tjänst.](service-fabric-dnsservice.md)|
 |InstanceCount|int, standard är-1|Statisk|Standardvärdet är -1, vilket innebär att DnsService körs på varje nod. OneBox måste det anges till 1 eftersom DnsService använder välkända port 53, så att den inte kan ha flera instanser på samma dator.|
-|IsEnabled|bool, standard är FALSKT|Statisk|Aktiverar eller inaktiverar DnsService. DnsService är inaktiverad som standard och den här konfigurationen måste anges för att aktivera den. |
+|isEnabled|bool, standard är FALSKT|Statisk|Aktiverar eller inaktiverar DnsService. DnsService är inaktiverad som standard och den här konfigurationen måste anges för att aktivera den. |
 |PartitionPrefix|sträng, standardvärdet är ”--”|Statisk|Styr strängvärdet partition prefix i DNS-frågor för tjänster som är partitionerad. Värde: <ul><li>Ska vara RFC-kompatibel eftersom det är en del av en DNS-fråga.</li><li>Får inte innehålla en punkt '.', som punkt stör DNS-suffix beteende.</li><li>Får inte vara längre än 5 tecken.</li><li>Det går inte att vara en tom sträng.</li><li>Om inställningen PartitionPrefix åsidosätts kommer PartitionSuffix måste åsidosättas, och vice versa.</li></ul>Mer information finns i [Service Fabric DNS-tjänst.](service-fabric-dnsservice.md).|
 |PartitionSuffix|sträng, standardvärdet är ””|Statisk|Styr strängvärdet partition suffix i DNS-frågor för tjänster som är partitionerad. Värde: <ul><li>Ska vara RFC-kompatibel eftersom det är en del av en DNS-fråga.</li><li>Får inte innehålla en punkt '.', som punkt stör DNS-suffix beteende.</li><li>Får inte vara längre än 5 tecken.</li><li>Om inställningen PartitionPrefix åsidosätts kommer PartitionSuffix måste åsidosättas, och vice versa.</li></ul>Mer information finns i [Service Fabric DNS-tjänst.](service-fabric-dnsservice.md). |
 
@@ -371,7 +371,7 @@ Följande är en lista över Fabric inställningar som du kan anpassa, ordnade e
 |ActiveListeners |Uint, standardvärdet är 50 |Statisk| Antalet läsningar att publicera till kön för http-server. Detta styr antalet samtidiga begäranden som kan betjänas av HttpGateway. |
 |HttpGatewayHealthReportSendInterval |Tid i sekunder, standardvärdet är 30 |Statisk|Ange tidsintervall i sekunder. Intervallet som Http-Gateway skickar ackumulerade hälsotillstånd rapporterar till Health Manager. |
 |HttpStrictTransportSecurityHeader|sträng, standardvärdet är ””|Dynamisk| Ange HTTP strikt transportsäkerhet huvudets värde som ska ingå i varje svar som skickas av HttpGateway. Om värdet är tom sträng; den här rubriken inkluderas inte i gateway-svaret.|
-|IsEnabled|Bool, standard är FALSKT |Statisk| Aktiverar eller inaktiverar HttpGateway. HttpGateway är inaktiverad som standard. |
+|isEnabled|Bool, standard är FALSKT |Statisk| Aktiverar eller inaktiverar HttpGateway. HttpGateway är inaktiverad som standard. |
 |MaxEntityBodySize |Uint, standardvärdet är 4194304 |Dynamisk|Ger den maximala storleken för brödtexten som kan förväntas från en http-begäran. Standardvärdet är 4MB. Httpgateway misslyckas en begäran om den har en mängd storlek > det här värdet. Minsta Läs segmentstorleken är 4096 byte. Så här måste vara > = 4096. |
 
 ## <a name="imagestoreservice"></a>ImageStoreService
@@ -485,7 +485,7 @@ Följande är en lista över Fabric inställningar som du kan anpassa, ordnade e
 | **Parametern** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller en kort beskrivning** |
 | --- | --- | --- | --- |
 |Räknare |String | Dynamisk |Kommaavgränsad lista över prestandaräknare för att samla in. |
-|IsEnabled |Bool, standard är SANT | Dynamisk |Flagga som anger om samling med prestandaräknare på lokal nod har aktiverats. |
+|isEnabled |Bool, standard är SANT | Dynamisk |Flagga som anger om samling med prestandaräknare på lokal nod har aktiverats. |
 |MaxCounterBinaryFileSizeInMB |int, standard är 1 | Dynamisk |Maximal storlek (i MB) för varje prestandaräknaren binär fil. |
 |NewCounterBinaryFileCreationIntervalInMinutes |Int, standarden är 10 | Dynamisk |Maximalt intervall (i sekunder) efter vilken en ny prestandaräknaren binär fil har skapats. |
 |SamplingIntervalInSeconds |Int, standardvärdet är 60 | Dynamisk |Exempelintervall för prestandaräknare som samlas in. |
@@ -581,7 +581,7 @@ Följande är en lista över Fabric inställningar som du kan anpassa, ordnade e
 ## <a name="resourcemonitorservice"></a>ResourceMonitorService
 | **Parametern** | **Tillåtna värden** | **Uppgradera princip**| **Vägledning eller en kort beskrivning** |
 | --- | --- | --- | --- |
-|IsEnabled|bool, standard är FALSKT |Statisk|Styr om tjänsten är aktiverad i klustret eller inte. |
+|isEnabled|bool, standard är FALSKT |Statisk|Styr om tjänsten är aktiverad i klustret eller inte. |
 
 ## <a name="runas"></a>RunAs
 
@@ -677,7 +677,7 @@ Följande är en lista över Fabric inställningar som du kan anpassa, ordnade e
 |CreateVolume|sträng, standard är ”Admin”|Dynamisk|Skapar en volym |
 |DeactivateNode |sträng, standard är ”Admin” |Dynamisk| Säkerhetskonfiguration för en nod. |
 |DeactivateNodesBatch |sträng, standard är ”Admin” |Dynamisk| Säkerhetskonfiguration för inaktivering av flera noder. |
-|Ta bort |sträng, standard är ”Admin” |Dynamisk| Säkerhetskonfigurationer för avbildningen lagra ta bort klientåtgärden. |
+|Radera |sträng, standard är ”Admin” |Dynamisk| Säkerhetskonfigurationer för avbildningen lagra ta bort klientåtgärden. |
 |DeleteApplication |sträng, standard är ”Admin” |Dynamisk| Säkerhetskonfiguration för borttagning av programmet. |
 |DeleteComposeDeployment|sträng, standard är ”Admin”| Dynamisk|Tar bort compose-distributionen |
 |DeleteGatewayResource|sträng, standard är ”Admin”| Dynamisk|Tar bort en resurs för gatewayen |
@@ -717,7 +717,7 @@ Följande är en lista över Fabric inställningar som du kan anpassa, ordnade e
 |NameExists |sträng, standardvärdet är ”Admin\|\|användare” | Dynamisk|Säkerhetskonfiguration om namngivnings-URI finns kontrollerar. |
 |NodeControl |sträng, standard är ”Admin” |Dynamisk| Konfiguration för att starta; Stoppa; och starta om noderna. |
 |NodeStateRemoved |sträng, standard är ”Admin” |Dynamisk| Säkerhetskonfiguration för rapportering Nodtillstånd tas bort. |
-|Pinga |sträng, standardvärdet är ”Admin\|\|användare” |Dynamisk| Säkerhetskonfiguration för klienten ping. |
+|Ping |sträng, standardvärdet är ”Admin\|\|användare” |Dynamisk| Säkerhetskonfiguration för klienten ping. |
 |PredeployPackageToNode |sträng, standard är ”Admin” |Dynamisk| Fördistribution api. |
 |PrefixResolveService |sträng, standardvärdet är ”Admin\|\|användare” |Dynamisk| Säkerhetskonfiguration för matchning av klagomål-baserad tjänst prefix. |
 |PropertyReadBatch |sträng, standardvärdet är ”Admin\|\|användare” |Dynamisk| Säkerhetskonfiguration för namngivning av egenskapen läsåtgärder. |
@@ -798,7 +798,7 @@ Följande är en lista över Fabric inställningar som du kan anpassa, ordnade e
 | --- | --- | --- | --- |
 |PropertyGroup|X509NameMap, standardvärdet är ingen|Dynamisk|Det här är en lista över ”Name” och ”värde”-par. Varje ”Name” är vanliga namn på certifikatmottagare eller DnsName av X509 certifikat som är godkänd för åtgärder. För en viss ”Name”, ”Value” är en separat lista med kommatecken för certifikattumavtryck för utfärdaren fästa, om inte tomt, den direkta utfärdaren av servercertifikat måste vara i listan.|
 
-## <a name="setup"></a>Konfiguration
+## <a name="setup"></a>Inställningar
 
 | **Parametern** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller en kort beskrivning** |
 | --- | --- | --- | --- |
@@ -815,7 +815,7 @@ Följande är en lista över Fabric inställningar som du kan anpassa, ordnade e
 
 | **Parametern** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller en kort beskrivning** |
 | --- | --- | --- | --- |
-|Leverantörer |sträng, standard är ”DSTS” |Statisk|Kommaavgränsad lista över tokenvalidering leverantörer att aktivera (giltigt providers är: DSTS; AAD). För närvarande endast en enskild provider kan aktiveras när som helst. |
+|Providers |sträng, standard är ”DSTS” |Statisk|Kommaavgränsad lista över tokenvalidering leverantörer att aktivera (giltigt providers är: DSTS; AAD). För närvarande endast en enskild provider kan aktiveras när som helst. |
 
 ## <a name="traceetw"></a>Spårningen/Etw
 

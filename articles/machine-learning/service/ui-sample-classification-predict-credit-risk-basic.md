@@ -1,7 +1,7 @@
 ---
 title: 'Klassificering: Förutsäga kreditrisk'
 titleSuffix: Azure Machine Learning service
-description: Detta visuella gränssnittet exempelexperiment visar hur du utför binär klassificering för att förutsäga kreditrisk baserat på informationen i en kreditansökan.
+description: Lär dig mer om att skapa en machine learning klassificerare utan att behöva skriva en enda rad kod med hjälp av det visuella gränssnittet.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,17 +9,23 @@ ms.topic: article
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
-ms.date: 05/02/2019
-ms.openlocfilehash: 3d4ec3c71aaed6bddb012fb17ee5bb96da00cd76
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.date: 05/10/2019
+ms.openlocfilehash: f37c945758cfbd03889d79acf764e7f67022267a
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65028537"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65789404"
 ---
 # <a name="sample-3---classification-predict-credit-risk"></a>Exempel 3 – klassificering: Förutsäga kreditrisk
 
-Detta visuella gränssnittet exempelexperiment visar hur du utför binär klassificering för att förutsäga kreditrisk baserat på informationen i en kreditansökan. Den visar hur du kan utföra grundläggande klassificering, inklusive åtgärder för databearbetning, dela upp datauppsättningen i uppsättningar för träning och testning, träna modellen, bedöma test-datauppsättning och utvärdera förutsägelserna.
+Lär dig mer om att skapa en machine learning klassificerare utan att behöva skriva en enda rad kod med hjälp av det visuella gränssnittet. Det här exemplet träna en **tvåklassförhöjt beslutsträd** för att förutsäga kredit risken (hög eller låg) baserad på kredit programinformation som kredithistorik, ålder och antalet kreditkort.
+
+Eftersom vi försöker besvara frågan ”vilken jag”? Detta kallas en klassificeringsproblem. Du kan dock använda samma grundläggande processen för att hantera alla typer av problem med machine learning, oavsett om det är regression, klassificering, klustring och så vidare.
+
+Här är färdiga diagrammet det här experimentet:
+
+![Diagram över experimentet](media/ui-sample-classification-predict-credit-risk-basic/overall-graph.png)
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -40,7 +46,6 @@ Datauppsättningen innehåller 1 000 exempel med 20 funktioner och 1 etikett. Va
 
 ## <a name="experiment-summary"></a>Sammanfattning för experiment
 
-
 Vi följer du stegen nedan för att skapa experimentet:
 
 1. Dra modulen tyska UCI kreditkortsdata datauppsättning till den experimentets arbetsyta.
@@ -50,11 +55,10 @@ Vi följer du stegen nedan för att skapa experimentet:
 1. Lägg till en **Träningsmodell** modulen. Anslut klassificeraren från föregående steg till den vänstra indataporten för den **Träningsmodell**. Lägg till träningsmängden (vänster utgående port på den **dela Data**) till den högra indataporten för den **Träningsmodell**. Den **träna modell** kommer träna klassificeraren.
 1. Lägg till en **Poängmodell** modulen och ansluta den **Träningsmodell** modul till den. Lägga till uppsättningen test (högra porten för den **dela Data**) till den **Poängmodell**. Den **Poängmodell** blir förutsägelserna. Du kan välja dess utdataporten för att se förutsägelserna och troliga positivt klass.
 1. Lägg till en **utvärdera modell** modulen och Anslut poängsatta datauppsättningen till dess vänstra indataporten. Välj om du vill se utvärderingsresultaten utdataporten för den **utvärdera modell** modul och välj **visualisera**.
-    
+
 Här är den klar experimentdiagram:
 
 ![Diagram över experimentet](media/ui-sample-classification-predict-credit-risk-basic/overall-graph.png)
-
 
 ## <a name="results"></a>Resultat
 

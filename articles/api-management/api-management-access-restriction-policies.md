@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: apimpm
-ms.openlocfilehash: acc9f83923c8fdaae98cc55bc6baf62f56f2116b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b8c564ef2de22555930f998ccd9918b252d35f17
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60798599"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65541700"
 ---
 # <a name="api-management-access-restriction-policies"></a>API Management-principer för begränsning av åtkomst
 
@@ -58,14 +58,14 @@ Använd den `check-header` princip för att genomdriva att en begäran har ett a
 
 ### <a name="elements"></a>Element
 
-| Namn         | Beskrivning                                                                                                                                   | Krävs |
+| Namn         | Beskrivning                                                                                                                                   | Obligatoriskt |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | Kontrollera rubrik | Rotelement.                                                                                                                                 | Ja      |
 | value        | Tillåtna värde för HTTP-huvud. När flera värde anges är, betraktas kontrollen lyckas om något av värdena finns en matchning. | Nej       |
 
 ### <a name="attributes"></a>Attribut
 
-| Namn                       | Beskrivning                                                                                                                                                            | Krävs | Standard |
+| Namn                       | Beskrivning                                                                                                                                                            | Obligatoriskt | Standard |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | failed-check-error-message | Felmeddelande att returnera i HTTP-svarstext om huvudet finns inte eller har ett ogiltigt värde. Det här meddelandet måste ha några specialtecken som korrekt undantaget. | Ja      | Gäller inte     |
 | Det gick inte-kontroll-httpcode      | HTTP-statuskod ska returneras om huvudet finns inte eller har ett ogiltigt värde.                                                                                        | Ja      | Gäller inte     |
@@ -88,6 +88,9 @@ Den `rate-limit` princip förhindrar API-användningstoppar på basis av per pre
 > Den här principen kan användas endast en gång per dokument.
 >
 > [Principuttryck](api-management-policy-expressions.md) kan inte användas i något av principen attribut för den här principen.
+
+> [!CAUTION]
+> På grund av den distribuerade natur begränsning arkitektur, är hastighetsbegränsning aldrig helt korrekt. Skillnaden mellan konfigurerats och det verkliga antalet tillåtna begäranden kan variera beroende på begäran volym och frekvens, serverdelslatens och andra faktorer.
 
 ### <a name="policy-statement"></a>Principframställning
 
@@ -145,6 +148,9 @@ Den här principen kan användas i följande princip [avsnitt](https://azure.mic
 Den `rate-limit-by-key` princip förhindrar API-användningstoppar på basis av per nyckel genom att begränsa anropsfrekvensen till ett angivet antal per angiven tidsperiod. Nyckeln kan ha en godtycklig sträng-värde och anges vanligtvis med en principuttryck. Valfritt steg villkor kan läggas till ange vilka begäranden som ska räknas mot gränsen. När den här principen aktiveras anroparen får en `429 Too Many Requests` Svarets statuskod.
 
 Mer information och exempel på den här principen kan du se [avancerad begränsning av förfrågningar med Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).
+
+> [!CAUTION]
+> På grund av den distribuerade natur begränsning arkitektur, är hastighetsbegränsning aldrig helt korrekt. Skillnaden mellan konfigurerats och det verkliga antalet tillåtna begäranden kan variera beroende på begäran volym och frekvens, serverdelslatens och andra faktorer.
 
 ### <a name="policy-statement"></a>Principframställning
 
@@ -279,7 +285,7 @@ Den `quota` principen tvingar fram en förnyas eller livslängd anrop volym och/
 
 ### <a name="elements"></a>Element
 
-| Namn      | Beskrivning                                                                                                                                                                                                                                                                                  | Krävs |
+| Namn      | Beskrivning                                                                                                                                                                                                                                                                                  | Obligatoriskt |
 | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | kvot     | Rotelement.                                                                                                                                                                                                                                                                                | Ja      |
 | api       | Lägg till en eller flera av dessa element att införa anrop kvot på API: er i produkten. Produkt- och API-anrop kvoter tillämpas oberoende av varandra. API: et kan vara refereras via `name` eller `id`. Om båda attributen har angetts, `id` ska användas och `name` kommer att ignoreras.                    | Nej       |
@@ -343,7 +349,7 @@ I exemplet nedan ställs in kvoten med anropares IP-adress.
 
 ### <a name="elements"></a>Element
 
-| Namn  | Beskrivning   | Krävs |
+| Namn  | Beskrivning   | Obligatoriskt |
 | ----- | ------------- | -------- |
 | kvot | Rotelement. | Ja      |
 
@@ -514,7 +520,7 @@ Det här exemplet visar hur du använder den [verifiera JWT](api-management-acce
 
 ### <a name="elements"></a>Element
 
-| Element             | Beskrivning                                                                                                                                                                                                                                                                                                                                           | Krävs |
+| Element             | Beskrivning                                                                                                                                                                                                                                                                                                                                           | Obligatoriskt |
 | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | validate-jwt        | Rotelement.                                                                                                                                                                                                                                                                                                                                         | Ja      |
 | målgrupper           | Innehåller en lista över godkända målgrupp anspråk som kan finnas i token. Om det finns flera målgruppsvärden så testas varje värde förrän antingen alla tömts (i så fall verifieringen misslyckas) eller tills ett lyckas. Du måste ange minst en målgrupp.                                                                     | Nej       |
@@ -535,8 +541,8 @@ Det här exemplet visar hur du använder den [verifiera JWT](api-management-acce
 | header-name                     | Namnet på det HTTP-huvud som denna token.                                                                                                                                                                                                                                                                                                                                                                                                         | En av `header-name`, `query-parameter-name` eller `token-value` måste anges. | Gäller inte                                                                               |
 | query-parameter-name            | Namnet på Frågeparametern denna token.                                                                                                                                                                                                                                                                                                                                                                                                     | En av `header-name`, `query-parameter-name` eller `token-value` måste anges. | Gäller inte                                                                               |
 | token-värde                     | Uttryck som returnerar en sträng som innehåller JWT-token                                                                                                                                                                                                                                                                                                                                                                                                     | En av `header-name`, `query-parameter-name` eller `token-value` måste anges. | Gäller inte                                                                               |
-| id                              | Den `id` attribut på den `key` element kan du ange den sträng som matchas mot `kid` anspråk i token (om sådan finns) att ta reda på lämplig nyckeln som ska användas för att verifiera signaturen.                                                                                                                                                                                                                                           | Nej                                                                               | Gäller inte                                                                               |
-| matchning                           | Den `match` attribut på den `claim` elementet anger om varje anspråksvärde i principen måste finnas i en token för verifiering ska lyckas. Möjliga värden:<br /><br /> - `all` -varje anspråksvärde i principen måste finnas i en token för verifiering ska lyckas.<br /><br /> - `any` -minst en anspråksvärdet måste finnas i en token för verifiering ska lyckas.                                                       | Nej                                                                               | all                                                                               |
+| ID                              | Den `id` attribut på den `key` element kan du ange den sträng som matchas mot `kid` anspråk i token (om sådan finns) att ta reda på lämplig nyckeln som ska användas för att verifiera signaturen.                                                                                                                                                                                                                                           | Nej                                                                               | Gäller inte                                                                               |
+| matchning                           | Den `match` attribut på den `claim` elementet anger om varje anspråksvärde i principen måste finnas i en token för verifiering ska lyckas. Möjliga värden är:<br /><br /> - `all` -varje anspråksvärde i principen måste finnas i en token för verifiering ska lyckas.<br /><br /> - `any` -minst en anspråksvärdet måste finnas i en token för verifiering ska lyckas.                                                       | Nej                                                                               | alla                                                                               |
 | require-expiration-time         | Booleskt värde. Anger om ett anspråk för förfallodatum krävs i token.                                                                                                                                                                                                                                                                                                                                                                               | Nej                                                                               | true                                                                              |
 | require-scheme                  | Namnet på token system, t.ex. ”Ägar”. När det här attributet anges garanterar principen som att det angivna schemat finns i värdet för auktoriseringsrubriken.                                                                                                                                                                                                                                                                                    | Nej                                                                               | Gäller inte                                                                               |
 | Kräv-signerade-token           | Booleskt värde. Anger om det krävs en token signeras.                                                                                                                                                                                                                                                                                                                                                                                           | Nej                                                                               | true                                                                              |

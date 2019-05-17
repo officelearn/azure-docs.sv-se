@@ -3,8 +3,8 @@ title: Problem som loggar in på en galleriprogram som konfigurerats för federe
 description: Riktlinjer för de specifika felen när du loggar in i ett program som du har konfigurerat för SAML-baserad federerad enkel inloggning med Azure AD
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/18/2019
-ms.author: celested
+ms.author: mimart
 ms.reviewer: luleon, asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 623d684f701df8b1a7c4b84a2bd3840f039ad174
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1985b7bbcfdaab2aa303f67a9b1d090c85eedd5d
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60292222"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65825195"
 ---
 # <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>Problem som loggar in på en galleriprogram som konfigurerats för federerad enkel inloggning
 
@@ -57,7 +57,7 @@ Se till att den `Issuer` attribut i SAML-begäran matchar identifierarvärde som
 
 1.  Välj det program som du vill konfigurera för enkel inloggning.
 
-1.  När programmet läses in, öppnar du **grundläggande SAML-konfiguration**. Kontrollera att värdet i textrutan identifierare som matchar värdet för ID-värde som visas i felet.
+1.  När programmet läses in öppnar du **Grundläggande SAML-konfiguration**. Kontrollera att värdet i textrutan identifierare som matchar värdet för ID-värde som visas i felet.
 
 
 
@@ -87,7 +87,7 @@ Se till att den `AssertionConsumerServiceURL` värdet i SAML-begäran matchar sv
 
 1.  Välj det program som du vill konfigurera för enkel inloggning.
 
-1.  När programmet läses in, öppnar du **grundläggande SAML-konfiguration**. Kontrollera eller uppdatera värdet i textrutan svars-URL så att den matchar den `AssertionConsumerServiceURL` värdet i SAML-begäran.    
+1.  När programmet läses in öppnar du **Grundläggande SAML-konfiguration**. Kontrollera eller uppdatera värdet i textrutan svars-URL så att den matchar den `AssertionConsumerServiceURL` värdet i SAML-begäran.    
     
 När du har uppdaterat svars-URL-värdet i Azure AD och den matchar det värde som skickas av programmet i SAML-begäran, bör du kunna logga in till programmet.
 
@@ -123,7 +123,7 @@ Följ stegen nedan om du vill tilldela en eller flera användare till ett progra
 
 1.  Välj den **användare och grupper** selector från den **Lägg till tilldelning** fönstret.
 
-1. I den **Sök efter namn eller e-postadress** sökrutan skriver du det fullständiga namnet eller e-postadress för den användare som du vill lägga till.
+1. I sökrutan **Sök efter namn eller e-postadress** skriver du det fullständiga namnet eller e-postadressen för användaren du vill lägga till.
 
 1. Hovra över den **användaren** i listan för att visa en **kryssrutan**. Klicka på kryssrutan bredvid användarens profilfoto eller logotyp för att lägga till användare i den **valda** lista.
 
@@ -186,7 +186,7 @@ Se till att den `Issuer` attribut i SAML-begäran matchar identifierarvärde som
 
 1.  Välj det program som du vill konfigurera för enkel inloggning.
 
-1.  När programmet läses in, öppnar du **grundläggande SAML-konfiguration**. Kontrollera att värdet i textrutan identifierare som matchar värdet för ID-värde som visas i felet.
+1.  När programmet läses in öppnar du **Grundläggande SAML-konfiguration**. Kontrollera att värdet i textrutan identifierare som matchar värdet för ID-värde som visas i felet.
 
 
 ## <a name="certificate-or-key-not-configured"></a>Certifikat eller nyckel har inte angetts
@@ -221,7 +221,7 @@ Ta bort och skapa ett nytt certifikat genom att följa stegen nedan:
 
 1. Välj utgångsdatum och klicka sedan på **spara**.
 
-1. Kontrollera **gör nytt certifikat aktivt** att åsidosätta det aktiva certifikatet. Klicka sedan på **spara** överst i fönstret och acceptera för att aktivera förnyelsecertifikatet.
+1. Kontrollera **gör nytt certifikat aktivt** att åsidosätta det aktiva certifikatet. Klicka sedan på **Spara** överst i fönstret och acceptera för att aktivera förnyelsecertifikatet.
 
 1. Under den **SAML-signeringscertifikat** klickar du på **ta bort** att ta bort den **används inte** certifikat.
 
@@ -235,7 +235,7 @@ Azure AD inte kan identifiera SAML-begäran i URL-parametrar i HTTP-begäran. De
 
 **Lösning**
 
-Programmet måste skicka SAML-begäranskodad i location-huvudet med HTTP omdirigera bindning. Mer information om hur du implementerar den, finns i avsnittet HTTP omdirigera bindning i den [SAML-protokollet specifikationsdokument](https://docs.oasis-open.org/security/saml/v2.0/saml-bindings-2.0-os.pdf).
+Programmet måste skicka SAML-begäranskodad i location-huvudet med HTTP omdirigera bindning. Mer information om hur du implementerar det finns i avsnittet om HTTP-omdirigeringsbindning i [dokumentet om SAML-protokollets specifikationer](https://docs.oasis-open.org/security/saml/v2.0/saml-bindings-2.0-os.pdf).
 
 ## <a name="azure-ad-is-sending-the-token-to-an-incorrect-endpoint"></a>Azure AD skickar token till en felaktig slutpunkt
 
@@ -263,7 +263,7 @@ Ta bort oanvända svars-URL som konfigurerats för programmet.
 
 6.  Välj det program som du vill konfigurera för enkel inloggning.
 
-7.  När programmet läses in, öppnar du **grundläggande SAML-konfiguration**. I den **svars-URL (försäkran URL för Konsumenttjänst)**, ta bort oanvända eller standard svars-URL: er som skapats av systemet. Till exempel `https://127.0.0.1:444/applications/default.aspx`.
+7.  När programmet läses in öppnar du **Grundläggande SAML-konfiguration**. I den **svars-URL (försäkran URL för Konsumenttjänst)**, ta bort oanvända eller standard svars-URL: er som skapats av systemet. Till exempel `https://127.0.0.1:444/applications/default.aspx`.
 
 ## <a name="problem-when-customizing-the-saml-claims-sent-to-an-application"></a>Problem när du anpassar SAML-anspråk som skickas till ett program
 

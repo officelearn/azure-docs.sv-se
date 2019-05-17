@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c0811ce1509b7886bf0061cba955ca5e18990cd1
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 3593324523340300279232e0e63392c9c127991d
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920505"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823571"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Behörigheter för administratör i Azure Active Directory
 
@@ -69,7 +69,7 @@ Följande administratörsroller är tillgängliga:
 
 * **[Administratör för B2C IEF princip](#b2c-ief-policy-administrator)**: Användare i den här rollen har möjlighet att skapa, läsa, uppdatera och ta bort alla anpassade principer i Azure AD B2C och därför har fullständig kontroll över den Identitetsramverk i relevanta Azure AD B2C-klienten. Genom att redigera principer för kan den här användaren upprätta direkt federation med externa indentitetsprovidrar, ändra katalogschemat, ändra alla användarinriktade innehåll (HTML, CSS, JavaScript), ändra kraven för att slutföra en autentisering, skapa nya användare, skicka användardata till externa system, inklusive fullständig migrering och redigera information om alla användare, inklusive tidskritiska fält som lösenord och telefonnummer. Omvänt kan kan inte den här rollen ändra krypteringsnycklarna eller redigera hemligheter som används för federation i klienten.
 
-  <b>Viktigt!</b> B2 IEF princip administratör är en mycket känslig roll som ska tilldelas en mycket begränsad för klienter i produktion. Aktiviteter med hjälp av dessa användare bör granskas noggrant, särskilt för klienter i produktion.
+  <b>Viktigt:</b> B2 IEF princip administratör är en mycket känslig roll som ska tilldelas en mycket begränsad för klienter i produktion. Aktiviteter med hjälp av dessa användare bör granskas noggrant, särskilt för klienter i produktion.
 
 * **[Faktureringsadministratör](#billing-administrator)**: Gör inköp, hanterar prenumerationer, hanterar supportbegäranden och övervakar tjänstens hälsotillstånd.
 
@@ -163,10 +163,15 @@ Följande administratörsroller är tillgängliga:
   * Administratörer i andra tjänster utanför Azure AD som Exchange Online, Office-säkerhet och efterlevnad Center och personal system.
   * Icke-administratörer som chefer, juridiska ombud och Personal anställda som kan ha åtkomst till känslig eller privat information.
 
+
+  > [!NOTE]
+  > Delegera administrativa behörigheter över delmängder av användare och tillämpa principer på en delmängd användare kan göra med [administrativa enheter (förhandsversion)](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-administrative-units).
+
+
   > [!NOTE]
   > Den här rollen kallades tidigare ”Lösenordsadministratör” [Azure-portalen](https://portal.azure.com/). Vi ändrar dess namn till ”Supportavdelningsadministratör” som matchar dess namn i Azure AD PowerShell, Azure AD Graph API och Microsoft Graph API. För en kort stund kommer vi ändra namnet till ”(lösenord) Supportavdelningsadministratör” i Azure-portalen innan ändringen ”Supportavdelningsadministratör”.
-  >
-  
+
+
 * **[Power BI-administratör](#power-bi-service-administrator)**: Användare med den här rollen har globala behörigheter inom Microsoft Power BI när tjänsten finns närvarande, liksom möjlighet att hantera supportbegäranden och kontrollera tjänstens hälsotillstånd. Mer information på [förstå administratörsrollen för Power BI](https://docs.microsoft.com/power-bi/service-admin-role).
   > [!NOTE]
   > I Microsoft Graph API, Azure AD Graph API och Azure AD PowerShell identifieras rollen som ”Power BI-tjänstadministratör”. Det är ”Power BI-administratör” i den [Azure-portalen](https://portal.azure.com).
@@ -214,7 +219,7 @@ Följande administratörsroller är tillgängliga:
   I | Kan göra
   --- | ---
   [Microsoft 365 Säkerhetscenter](https://protection.office.com) | Visa säkerhetsrelaterade principer för Microsoft 365-tjänster<br>Visa säkerhetshot och aviseringar<br>Visa rapporter
-  Identity Protection Center  | Läsa alla säkerhetsrapporter och inställningsinformation för säkerhetsfunktioner<br><ul><li>Skydd mot skräppost<li>Kryptering<li>Skydd mot dataförlust<li>Mot skadlig kod<li>Advanced Threat Protection<li>Mot nätfiske<li>Mailflow regler
+  Identity Protection Center  | Läsa alla säkerhetsrapporter och inställningsinformation för säkerhetsfunktioner<br><ul><li>Skydd mot skräppost<li>Kryptering<li>Skydd mot dataförlust<li>Mot skadlig kod<li>Avancerat skydd<li>Mot nätfiske<li>Mailflow regler
   [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) | Har skrivskyddad åtkomst till all information som visas i Azure AD PIM: Principer och rapporter för Azure AD-rolltilldelningar security granskar och i framtiden skrivskyddad åtkomst till principdata och rapporter för scenarier utöver Azure AD-rolltilldelning.<br>**Det går inte att** registrera dig för Azure AD PIM eller göra några ändringar. PIM-portalen eller via PowerShell kan någon i den här rollen aktivera ytterligare roller (till exempel Global administratör eller privilegierad Rolladministratör), om användaren är berättigad till dem.
   [Och Efterlevnadscenter för Office 365-säkerhet](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Visa säkerhetsprinciper<br>Visa och undersöka hot<br>Visa rapporter
   Windows Defender ATP och EDR | Visa och undersöka aviseringar
@@ -252,7 +257,7 @@ Följande administratörsroller är tillgängliga:
   | --- | --- |
   |Allmänna behörigheter|<p>Skapa användare och grupper</p><p>Skapa och hantera användarvyer</p><p>Hantera supportärenden för Office<p>Uppdatera lösenordets upphörande|
   |<p>På alla användare, inklusive alla administratörer</p>|<p>Hantera licenser</p><p>Hantera alla användaregenskaper utom User Principal Name</p>
-  |Endast på användare som är icke-administratörer eller begränsade administrativa roller i något av följande:<ul><li>Katalogläsare<li>Gästinbjudare<li>Supportavdelningsadministratör<li>Meddelandecenterläsare<li>Rapportläsare<li>Användaradministratör|<p>Ta bort och återställning</p><p>Inaktivera och aktivera</p><p>Ogiltigförklara uppdatera token</p><p>Hantera egenskaper för alla användare, inklusive användarens huvudnamn</p><p>Återställa lösenord</p><p>Uppdatera (FIDO) enhetsnycklar</p>
+  |Endast på användare som är icke-administratörer eller begränsade administrativa roller i något av följande:<ul><li>Katalogläsare<li>Gästinbjudare<li>Supportavdelningsadministratör<li>Meddelandecenterläsare<li>Rapportläsare<li>Användaradministratör|<p>Ta bort och återställning</p><p>Inaktivera och aktivera</p><p>Ogiltigförklara uppdatera token</p><p>Hantera egenskaper för alla användare, inklusive användarens huvudnamn</p><p>Återställ mitt lösenord</p><p>Uppdatera (FIDO) enhetsnycklar</p>
   
   <b>Viktiga</b>: Användare med den här rollen kan ändra lösenord för personer som kan ha åtkomst till känslig eller privat information eller kritiska konfiguration i och utanför Azure Active Directory. Ändra lösenordet för en användare kan det innebära att möjlighet att anta användarens identitet och behörigheter. Exempel:
   * Programregistrering och företagsprogram ägare, som kan hantera autentiseringsuppgifterna för appar som de äger. Apparna kan ha privilegierad behörigheter i Azure AD och någon annanstans inte beviljas till administratörer. Den här sökvägen som en användare med rollen kanske kan anta identiteten av ett programmets ägare och sedan ytterligare anta identiteten av ett privilegierat program genom att uppdatera autentiseringsuppgifterna för programmet.
@@ -772,7 +777,7 @@ Kan hantera alla aspekter av Azure Information Protection-produkten.
 | microsoft.office365.serviceHealth/allEntities/allTasks | Läsa och konfigurera Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Skapa och hantera Office 365-supportbegäranden. |
 
-### <a name="intune-service-administrator"></a>Administratör för Intune-tjänsten
+### <a name="intune-service-administrator"></a>Tjänstadministratör för Intune
 Kan hantera alla aspekter av Intune-produkten.
 
   > [!NOTE]
@@ -1198,7 +1203,7 @@ Exchange Service-administratör | Exchange-administratör | 29232cdf-9323-42fd-a
 Gästinbjudare | Gästinbjudare | 95e79109-95c0-4d8e-aee3-d01accf2d47b
 Supportavdelningsadministratör | Lösenordsadminitratör | 729827e3-9c14-49f7-bb1b-9608f156bbb8
 Information Protection-administratör | Information Protection-administratör | 7495fdc4-34c4-4d15-a289-98788ce399fd
-Administratör för Intune-tjänsten | Intune-administratör | 3a2c62db-5318-420d-8d74-23affee5d9d5
+Tjänstadministratör för Intune | Intune-administratör | 3a2c62db-5318-420d-8d74-23affee5d9d5
 Licensadministratör | Licensadministratör | 4d6ac14f-3453-41d0-bef9-a3e0c569773a
 Lync-tjänstadministratör | Skype for Business-administratör | 75941009-915a-4869-abe7-691bff18279e
 Meddelandecenterläsare | Meddelandecenterläsare | 790c1fb9-7f7d-4f88-86a1-ef1f95c05c1b

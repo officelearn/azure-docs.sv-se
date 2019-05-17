@@ -3,15 +3,15 @@ author: yashesvi
 ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 04/13/2019
-ms.openlocfilehash: d9b9aae8bea323e5aac74a2e317b82d4cb43568f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/14/2019
+ms.openlocfilehash: c7ff7ab0800449c2a3aa9d58bd036981caccaa1c
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60406880"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65815623"
 ---
-# <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Förskottsbetala för virtuella datorer med Azure reserverade VM-instanser
+# <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances-ri"></a>Förskottsbetala för virtuella datorer med Azure reserverade VM-instanser (RI)
 
 Förskottsbetala för virtuella datorer och spara pengar med Azure reserverade virtuella datorn (VM)-instanser. Mer information finns i [Azure Reserved VM Instances erbjudande](https://azure.microsoft.com/pricing/reserved-vm-instances/).
 
@@ -79,7 +79,7 @@ Reserverade VM-instanser är tillgängliga för de flesta storlekar för Virtuel
     |Storlek på virtuell dator     |Storleken på de Virtuella datorinstanserna.|
     |Optimera för     |Flexibilitet för Virtuella datorinstanser storlek tillämpas reservationsrabatten på andra virtuella datorer i samma [VM storleksgruppen](https://aka.ms/RIVMGroups). Prioritet för datacenterkapacitet prioriterar datacentrets kapacitet för dina distributioner. Det ger ytterligare förtroende i din möjlighet att starta VM-instanser när så behövs. Kapacitetsprioritet är bara tillgänglig när reservationsomfånget är enstaka prenumeration. |
     |Period        |Ett eller tre år.|
-    |Kvantitet    |Antalet instanser som köpts i reservationen. Antalet är antalet VM-instanser som kan få fakturering rabatten som körs. Till exempel om du kör 10 Standard_D2 virtuella datorer i östra USA, skulle du ange antalet som 10 om du vill maximera förmån för alla datorer som körs. |
+    |Antal    |Antalet instanser som köpts i reservationen. Antalet är antalet VM-instanser som kan få fakturering rabatten som körs. Till exempel om du kör 10 Standard_D2 virtuella datorer i östra USA, skulle du ange antalet som 10 om du vill maximera förmån för alla datorer som körs. |
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2PjmT]
 
@@ -97,8 +97,8 @@ Du kan inte ändra följande typer av ändringar efter köpet direkt:
 
 - En befintlig reservation region
 - SKU
-- Kvantitet
-- Varaktighet
+- Antal
+- Giltighetstid
 
 Du kan dock *exchange* en reservation om du vill göra ändringar.
 

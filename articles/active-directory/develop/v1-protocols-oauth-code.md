@@ -3,8 +3,8 @@ title: Förstå OAuth 2.0-auktoriseringskodflödet i Azure AD
 description: 'Den här artikeln beskriver hur du använder HTTP-meddelanden för att bevilja åtkomst till webbprogram och webb-API: er i din klient med Azure Active Directory och OAuth 2.0.'
 services: active-directory
 documentationcenter: .net
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/5/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2598bb4deef0c7dae9f5df558ec1054ad02fb2f7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d2e9177f91f016ffc64d542b9fad89d147b96f6d
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60297061"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545152"
 ---
 # <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>Bevilja åtkomst till Azure Active Directory-webbprogram med hjälp av kod grant-flöde för OAuth 2.0
 
@@ -61,9 +61,9 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | response_type |obligatorisk |Måste innehålla `code` för auktoriseringskodsflödet. |
 | redirect_uri |Rekommenderas |Redirect_uri för din app, där autentiseringssvar kan skickas och tas emot av din app. Det måste exakt matcha en av redirect_uris som du registrerade i portalen, men det måste vara url-kodas. För interna & mobila appar, bör du använda standardvärdet för `urn:ietf:wg:oauth:2.0:oob`. |
 | response_mode |valfri |Anger den metod som ska användas för att skicka den resulterande token tillbaka till din app. Kan vara `query`, `fragment`, eller `form_post`. `query` innehåller koden som en frågesträngsparameter på din omdirigerings-URI. Om du ska få en ID-token med hjälp av det implicita flödet, du kan inte använda `query` som angetts på den [OpenID-specifikationen](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations). Om du ska få enbart koden, kan du använda `query`, `fragment`, eller `form_post`. `form_post` Kör ett INLÄGG som innehåller koden omdirigerings-URI. Standardvärdet är `query` för ett kodflöde.  |
-| state |Rekommenderas |Ett värde i begäran som returneras också i token-svaret. Ett slumpmässigt genererat unikt värde som normalt används för [att förhindra attacker med förfalskning av begäran](https://tools.ietf.org/html/rfc6749#section-10.12). Tillstånd används också för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffat, till exempel sidan eller vyn som de befann sig i. |
+| tillstånd |Rekommenderas |Ett värde i begäran som returneras också i token-svaret. Ett slumpmässigt genererat unikt värde som normalt används för [att förhindra attacker med förfalskning av begäran](https://tools.ietf.org/html/rfc6749#section-10.12). Tillstånd används också för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffat, till exempel sidan eller vyn som de befann sig i. |
 | resurs | Rekommenderas |App-ID URI för mål-webb-API (säker resurs). För att hitta URI: N för App-ID i Azure Portal, klickar du på **Azure Active Directory**, klickar du på **programregistreringar**, Öppna programmets **inställningar** sidan och klicka sedan på  **Egenskaper för**. Det kan också vara en extern resurs som `https://graph.microsoft.com`. Detta är nödvändigt i en av auktorisering eller tokenbegäranden. Om du vill kontrollera att färre authentication placeras anvisningarna den begäran om godkännande för att kontrollera medgivande tas emot från användaren. |
-| omfång | **ignoreras** | För v1 Azure AD-appar, scope statiskt konfigureras i Azure Portal under programmen **inställningar**, **nödvändiga behörigheter**. |
+| scope | **ignoreras** | För v1 Azure AD-appar, scope statiskt konfigureras i Azure Portal under programmen **inställningar**, **nödvändiga behörigheter**. |
 | fråga |valfri |Ange vilken typ av interaktion från användaren som krävs.<p> Giltiga värden är: <p> *login*: Användaren ska uppmanas att autentiseras på nytt. <p> *select_account*: Användaren uppmanas att välja ett konto att avbryta enkel inloggning på. Användaren kan välja ett befintligt inloggade konto, ange sina autentiseringsuppgifter för ett konto som är sparade eller välja att använda ett annat konto helt och hållet. <p> *godkänna*: Användargodkännande har beviljats, men behöver uppdateras. Användaren ska uppmanas att godkänna. <p> *admin_consent*: En administratör ska uppmanas att ge samtycke åt alla användare i organisationen |
 | login_hint |valfri |Kan användas för att fylla förväg adressfältet användarnamn/e-post i inloggningssidan för användaren, om du känner till sina användarnamn i tid. Appar som ofta använda den här parametern under omautentisering som redan har extraherats användarnamnet från en tidigare logga in med den `preferred_username` anspråk. |
 | domain_hint |valfri |Anger ett tips om klient eller domän som användaren ska använda för att logga in. Värdet för domain_hint är en registrerad domän för klienten. Om klienten är federerat till en lokal katalog, omdirigerar AAD till den angivna innehavare federationsservern. |
@@ -90,7 +90,7 @@ Location: http://localhost:12345/?code= AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLE
 | admin_consent |Värdet är SANT om en administratör har godkänt att medgivandetext för begäran. |
 | Kod |Auktoriseringskod som programmet har begärt. Programmet kan använda Auktoriseringskoden för att begära en åtkomsttoken för målresursen. |
 | session_state |Ett unikt värde som identifierar den aktuella användarsessionen. Det här värdet är ett GUID, men ska behandlas som ett täckande värde som har skickats utan undersökning. |
-| state |Om en parametern state ingår i begäran, samma värde som ska visas i svaret. Det är bra för programmet för att kontrollera att värdena i begäran och svar är identiska innan du använder svaret. Detta hjälper dig för att identifiera [skriptkörning begär förfalskning (CSRF)-attacker](https://tools.ietf.org/html/rfc6749#section-10.12) mot klienten. |
+| tillstånd |Om en parametern state ingår i begäran, samma värde som ska visas i svaret. Det är bra för programmet för att kontrollera att värdena i begäran och svar är identiska innan du använder svaret. Detta hjälper dig för att identifiera [skriptkörning begär förfalskning (CSRF)-attacker](https://tools.ietf.org/html/rfc6749#section-10.12) mot klienten. |
 
 ### <a name="error-response"></a>Felsvar
 Felsvar kan också skickas till den `redirect_uri` så att programmet kan hantera dem på lämpligt sätt.
@@ -105,7 +105,7 @@ error=access_denied
 | --- | --- |
 | fel |Ett felvärde kod som definierats i avsnittet 5.2 av den [OAuth 2.0 auktorisering Framework](https://tools.ietf.org/html/rfc6749). I nästa tabell beskrivs felkoder som returnerar Azure AD. |
 | error_description |En mer detaljerad beskrivning av felet. Det här meddelandet är inte avsedd att vara slutanvändarens eget. |
-| state |Statusvärdet är ett slumpmässigt genererat, icke återanvändas värde som skickas i begäran och returnerades i svaret att förhindra attacker med förfalskning (CSRF) av begäran. |
+| tillstånd |Statusvärdet är ett slumpmässigt genererat, icke återanvändas värde som skickas i begäran och returnerades i svaret att förhindra attacker med förfalskning (CSRF) av begäran. |
 
 #### <a name="error-codes-for-authorization-endpoint-errors"></a>Felkoder för slutpunkt-auktoriseringsfel
 I följande tabell beskrivs olika felkoder som kan returneras i de `error` -parametern för felsvaret.
@@ -180,7 +180,7 @@ Ett lyckat svar kan se ut så här:
 | expires_in |Hur länge den åtkomst-token är giltig (i sekunder). |
 | expires_on |Den tid då den åtkomst-token upphör att gälla. Datumet visas som hur många sekunder en från 1970-01-01T0:0:0Z UTC tills de upphör att gälla. Det här värdet används för att fastställa livslängd för cachelagrade token. |
 | resurs |App-ID URI för webb-API (säker resurs). |
-| omfång |Personifiering behörigheter till klientprogrammet. Standardbehörigheten är `user_impersonation`. Ägaren till den skyddade resursen kan registrera ytterligare värden i Azure AD. |
+| scope |Personifiering behörigheter till klientprogrammet. Standardbehörigheten är `user_impersonation`. Ägaren till den skyddade resursen kan registrera ytterligare värden i Azure AD. |
 | refresh_token |OAuth 2.0-uppdateringstoken. Appen kan använda den här token för att hämta ytterligare åtkomst-token när den aktuella åtkomst-token upphör att gälla. Uppdatera token är långlivade och kan användas för att behålla åtkomst till resurser i längre tid. |
 | id_token |En osignerad JSON Web Token (JWT) som representerar en [ID-token](id-tokens.md). Appen kan base64Url avkoda segmenten i den här token för att begäraninformation om den användare som loggat in. Appen kan cachelagra värdena och visa dem, men det bör inte förlita dig på dem för auktorisering eller säkerhetsgränser. |
 
@@ -316,7 +316,7 @@ Ett lyckat svar för token kommer att se ut:
 | expires_in |Den återstående livslängden för token på några sekunder. Ett vanligt värde är 3 600 (en timme). |
 | expires_on |Datum och tid då token upphör att gälla. Datumet visas som hur många sekunder en från 1970-01-01T0:0:0Z UTC tills de upphör att gälla. |
 | resurs |Identifierar den skyddade resursen som åtkomsttoken kan vara används för att åtkomst. |
-| omfång |Personifiering behörigheter till native client-program. Standardbehörigheten är **user_impersonation**. Ägaren av målresursen kan registrera alternativa värden i Azure AD. |
+| scope |Personifiering behörigheter till native client-program. Standardbehörigheten är **user_impersonation**. Ägaren av målresursen kan registrera alternativa värden i Azure AD. |
 | access_token |Den nya åtkomst-token som begärdes. |
 | refresh_token |En ny OAuth 2.0-refresh_token som kan användas för att begära en ny åtkomsttoken när det i det här svaret upphör att gälla. |
 

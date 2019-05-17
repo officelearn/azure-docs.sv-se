@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: magoedte
-ms.openlocfilehash: aa1bb62e762925dcb5a0ee37b71602094e768137
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c7c0d2e3fb818f74a65502674188c523d23729e8
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60346859"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606739"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Lösning för Application Insights-Anslutningsapp (inaktuell)
 
@@ -181,7 +181,7 @@ En post med en *typ* av *ApplicationInsights* skapas för varje typ av indata. A
 
 ### <a name="generic-fields"></a>Allmän fält
 
-| Egenskap  | Beskrivning |
+| Egenskap  | Description |
 | --- | --- |
 | Typ | ApplicationInsights |
 | ClientIP |   |
@@ -192,7 +192,7 @@ En post med en *typ* av *ApplicationInsights* skapas för varje typ av indata. A
 | Enhetstyp | Klientenheten |
 | ScreenResolution |   |
 | Kontinent | Kontinent som begäran kom från |
-| Land/region | Land där begäran har sitt ursprung |
+| Land | Land/region som begäran kom från |
 | Län | Provins, tillstånd eller nationella inställningar som begäran kom från |
 | Ort | Stad som begäran kom från |
 | isSynthetic | Anger om begäran har skapats av en användare eller med automatiserad metod. = Användargenererat TRUE eller false = automatiserad metod |
@@ -249,7 +249,7 @@ En post med en *typ* av *ApplicationInsights* skapas för varje typ av indata. A
 
 ### <a name="request-specific-fields"></a>Begäran-specifika fält
 
-| Egenskap  | Beskrivning |
+| Egenskap  | Description |
 | --- | --- |
 | Typ | ApplicationInsights |
 | TelemetryType | Förfrågan |

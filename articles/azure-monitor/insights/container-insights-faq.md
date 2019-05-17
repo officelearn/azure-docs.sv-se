@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 04/17/2019
 ms.author: magoedte
-ms.openlocfilehash: 70712b68cc26a461f702850dbf6064b65b4ff130
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: afa332b40884a79b5114b3b8093cd27108c39984
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60494682"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65780008"
 ---
 # <a name="azure-monitor-for-containers-frequently-asked-questions"></a>Azure Monitor för behållare vanliga frågor och svar
 
@@ -76,6 +76,12 @@ Du kan se följande fel: **Svaret från URL: en som anges i begäran överensst�
 ## <a name="why-cant-i-upgrade-cluster-after-onboarding"></a>Varför kan jag inte uppgradera klustret efter?
 
 Om när du aktiverar Azure Monitor för behållare för ett AKS-kluster kan du ta bort Log Analytics-arbetsytan i klustret har skickat data, när du försöker uppgradera klustret kommer att misslyckas. Undvik detta genom kommer du behöva inaktivera övervakning och sedan återaktivera det refererar till en annan giltig arbetsyta i din prenumeration. Den ska bearbeta och slutförs när du försöker uppgradera klustret igen.  
+
+## <a name="which-ports-and-domains-do-i-need-to-openwhitelist-for-the-agent"></a>Vilka portar och domäner behöver jag öppen/godkänna för agenten?
+- *.ods.opinsights.azure.com   443
+- *.oms.opinsights.azure.com   443
+- *.blob.core.windows.net      443
+- dc.services.visualstudio.com 443
 
 ## <a name="next-steps"></a>Nästa steg
 

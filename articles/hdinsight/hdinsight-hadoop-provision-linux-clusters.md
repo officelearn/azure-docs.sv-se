@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 01/28/2019
-ms.openlocfilehash: 3ccff4409dde92a23ccdbb1c31af687449bf9d48
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2f8c3aa0a5d37327ba49aebb1def94e90751b7cc
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64700807"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65597567"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Konfigurera kluster i HDInsight med Apache Hadoop, Apache Spark, Apache Kafka med mera
 
@@ -30,11 +30,11 @@ Ett Hadoop-kluster består av flera virtuella datorer (noder) som används för 
 ## <a name="cluster-setup-methods"></a>Metoder för installation av kluster
 I följande tabell visas de olika metoderna som du kan använda för att konfigurera ett HDInsight-kluster.
 
-| Kluster som skapas med | Webbläsare | Kommandorad | REST-API | SDK | 
+| Kluster som skapas med | Webbläsare | Kommandorad | REST API | SDK | 
 | --- |:---:|:---:|:---:|:---:|
 | [Azure Portal](hdinsight-hadoop-create-linux-clusters-portal.md) |✔ |&nbsp; |&nbsp; |&nbsp; |
 | [Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md) |✔ |✔ |✔ |✔ |
-| [Azure Classic CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
+| [Azure CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 | [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 | [cURL](hdinsight-hadoop-create-linux-clusters-curl-rest.md) |&nbsp; |✔ |✔ |&nbsp; |
 | [.NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md) |&nbsp; |&nbsp; |&nbsp; |✔ |
@@ -56,7 +56,7 @@ Följ instruktionerna på skärmen för att göra en grundläggande konfiguratio
 > Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight 3.3 tillbakadragande](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 >
 
-## <a name="resource-group-name"></a>Namn på resursgrupp 
+## <a name="resource-group-name"></a>Resursgruppsnamn 
 
 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) hjälper dig att arbeta med resurserna i ditt program som en grupp som kallas en Azure-resursgrupp. Du kan distribuera, uppdatera, övervaka eller ta bort alla resurser för ditt program i en enda samordnad åtgärd.
 
@@ -158,10 +158,10 @@ Du debiteras för användning av noden för så länge klustret finns. Debiterin
 ### <a name="number-of-nodes-for-each-cluster-type"></a>Antalet noder för varje typ av kluster
 Varje typ av kluster har en egen antal noder, terminologi för noder och standardstorleken för virtuella datorer. I följande tabell är antalet noder för varje nodtyp inom parentes.
 
-| Typ | Noder | Diagram |
+| Type | Noder | Diagram |
 | --- | --- | --- |
 | Hadoop |Huvudnod (2), datanod (1 +) |![HDInsight Hadoop-klusternoder](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png) |
-| HBase |Huvud-server (2), regionsserver (1 +), master-/ ZooKeeper-noder (3) |![HDInsight HBase-klusternoder](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hbase-cluster-type-setup.png) |
+| Hbase |Huvud-server (2), regionsserver (1 +), master-/ ZooKeeper-noder (3) |![HDInsight HBase-klusternoder](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hbase-cluster-type-setup.png) |
 | Storm |Nimbus-nod (2), övervakaren server (1 +), ZooKeeper-nod (3) |![Storm för HDInsight-klusternoder](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-storm-cluster-type-setup.png) |
 | Spark |Huvudnod (2), arbetsnod (1 +), ZooKeeper-nod (3) (kostnadsfritt för A1 ZooKeeper VM-storlek) |![Noder i HDInsight Spark](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-spark-cluster-type-setup.png) |
 

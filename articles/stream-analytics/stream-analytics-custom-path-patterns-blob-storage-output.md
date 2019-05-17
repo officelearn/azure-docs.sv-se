@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9cdf99884845a9cb83ac26723c3ea0e7a779ebff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e06313cf83768421bedc6c7baddd30c2ef2e4846
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60771861"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65789428"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Azure Stream Analytics anpassade blob-utdata partitionering
 
@@ -26,7 +26,7 @@ Anpassat fält eller indataattribut förbättra nedströms databearbetning och r
 
 ### <a name="partition-key-options"></a>Alternativen för partition
 
-Partitionsnyckel eller kolumnnamn som används för att partitionera indata får innehålla alfanumeriska tecken med bindestreck, understreck och blanksteg. Det går inte att använda kapslade fält som en partitionsnyckel såvida används tillsammans med alias.
+Partitionsnyckel eller kolumnnamn som används för att partitionera indata får innehålla alfanumeriska tecken med bindestreck, understreck och blanksteg. Det går inte att använda kapslade fält som en partitionsnyckel såvida används tillsammans med alias. Partitionsnyckeln måste vara NVARCHAR(MAX).
 
 ### <a name="example"></a>Exempel
 
@@ -58,11 +58,11 @@ Observera att varje post i blob har en **client_id** matchar mappen kolumnnamnet
    * cluster1/{date}/{aFieldInMyData}  
    * cluster1/{time}/{aFieldInMyData}  
    * cluster1/{aFieldInMyData}  
-   * cluster1/{date}/{time}/{aFieldInMyData}  
-
+   * cluster1/{date}/{time}/{aFieldInMyData} 
+   
 2. Partitionsnycklar är skiftlägeskänsligt, så partitionsnycklar som ”John” och ”john” är likvärdiga. Uttryck kan inte användas som partitionsnycklar. Till exempel **{columnA + columnB}** fungerar inte.  
 
-3. När en indataström som består av poster med en partition viktiga kardinalitet under 8000, poster läggs till befintliga blobar och bara skapa nya blobbar när det behövs. Om Kardinaliteten är över 8000 som det finns ingen garanti för befintliga blobbar ska skrivas till och nya blobbar skapas inte för ett valfritt antal poster med samma partitionsnyckel.  
+3. När en indataström som består av poster med en partition viktiga kardinalitet under 8000, poster läggs till befintliga blobar och bara skapa nya blobbar när det behövs. Om Kardinaliteten är över 8000 som det finns ingen garanti för befintliga blobbar ska skrivas till och nya blobbar skapas inte för ett valfritt antal poster med samma partitionsnyckel.
 
 ## <a name="custom-datetime-path-patterns"></a>Anpassat datum/tid-sökvägsmönster
 

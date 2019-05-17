@@ -16,12 +16,12 @@ ms.date: 05/07/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev
-ms.openlocfilehash: e9070127780659142ab8f956a8016622ecfea144
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 0d44e5d9f0d1ed893a16c318e3cfa0ee1bfc123b
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540166"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823353"
 ---
 # <a name="microsoft-identity-platform-integration-checklist"></a>Checklista för Microsoft identity-plattformen integration
 
@@ -31,13 +31,13 @@ Om du precis har kommit igång, ta en titt på [dokumentation](index.yml) vill v
 
 ## <a name="testing-your-integration"></a>Testa din integrering
 
-Använd följande checklista för att säkerställa att ditt program effektivt är integrerat med den [Microsoft identity-plattformen](https://docs.microsoft.com/legal/mdsa).
+Använd följande checklista för att säkerställa att ditt program effektivt är integrerat med den [Microsoft identity-plattformen](https://docs.microsoft.com/azure/active-directory/develop/).
 
 ### <a name="basics"></a>Grundinställningar
 
 |   |   |
 |---|---|
-| ![Kryssrutan](./media/active-directory-integration-checklist/checkbox-two.svg) | Läsa och förstå den [principer för Microsoft-plattformen](https://docs.microsoft.com/legal/mdsa). Se till att ditt program följer villkoren som de har skapats för att skydda användarna och plattformen. |
+| ![Kryssrutan](./media/active-directory-integration-checklist/checkbox-two.svg) | Läsa och förstå den [principer för Microsoft-plattformen](https://go.microsoft.com/fwlink/?linkid=2090497&clcid=0x409). Se till att ditt program följer villkoren som de har skapats för att skydda användarna och plattformen. |
 
 ### <a name="ownership"></a>Ägarskap
 

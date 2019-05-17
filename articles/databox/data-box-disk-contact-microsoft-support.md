@@ -8,12 +8,12 @@ ms.subservice: ''
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: alkohli
-ms.openlocfilehash: d62ad37e6bbe9c89ef803cefc43f373e287a7af7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5b392fecd75f5c18793a6122b8d5d967a2e54afa
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60462393"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604453"
 ---
 # <a name="open-a-support-ticket-for-azure-data-box"></a>Öppna ett supportärende för Azure Data Box 
 
@@ -28,7 +28,7 @@ Utför följande steg för att skapa en supportbegäran om:
 
 1. Gå till din Data Box eller Data Box-Disk-beställning. Gå till **stöd + felsökning** avsnittet och klicka sedan på **ny supportbegäran**.
      
-    ![Ny supportbegäran](./media/data-box-disk-contact-microsoft-support/data-box-disk-support-request.png)
+    ![Ny supportförfrågan](./media/data-box-disk-contact-microsoft-support/data-box-disk-support-request.png)
    
 2. I **ny supportbegäran**väljer **grunderna**. I **grunderna**, gör följande:
     
@@ -38,7 +38,7 @@ Utför följande steg för att skapa en supportbegäran om:
     4. Ange din **supportavtal**.
     5. Klicka på **Nästa**.
 
-        ![Grundläggande inställningar](./media/data-box-disk-contact-microsoft-support/data-box-disk-support1.png)
+        ![Grundinställningar](./media/data-box-disk-contact-microsoft-support/data-box-disk-support1.png)
 
 3. I **ny supportbegäran**väljer **steg 2 problemet**. I **problemet**, gör följande:
     
@@ -56,7 +56,7 @@ Utför följande steg för att skapa en supportbegäran om:
 4. I **ny supportbegäran**, klickar du på **steg 3 kontaktinformation**. I **kontaktinformation**, gör följande:
 
    1. I den **Kontaktalternativ**, ange önskad kontaktmetod (telefon eller e-post) och språk. Svarstiden väljs automatiskt baserat på ditt prenumerationsavtal.
-   2. I den **kontaktinformation**, ange ditt namn, e-post, valfritt kontakt, land. Välj **spara kontaktändringar för framtida supportförfrågningar**.
+   2. I den **kontaktinformation**, ange ditt namn, e-post, valfritt kontakt, land/region. Välj **spara kontaktändringar för framtida supportförfrågningar**.
    3. Klicka på **Skapa**.
    
        ![Kontaktinformation](./media/data-box-disk-contact-microsoft-support/data-box-disk-support3.png)   

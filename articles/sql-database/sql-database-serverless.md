@@ -11,22 +11,21 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 05/07/2019
-ms.openlocfilehash: 7f850f309034d128efef89ea842db41d35b8491e
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.date: 05/11/2019
+ms.openlocfilehash: 7ab22a1d1b44327b28264ec5bd6ba0c44b1d65a7
+ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65235739"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65620147"
 ---
 # <a name="sql-database-serverless-preview"></a>SQL Database utan server (förhandsversion)
 
 ## <a name="what-is-the-serverless-compute-tier"></a>Vad är på nivån för beräkning utan Server
 
-SQL-databas utan server (förhandsversion) är en Beräkningsnivån fakturor för ett belopp av compute används av en enskild databas per sekund. Serverlös är priset perf-optimerade för enskilda databaser med oregelbundna användningsmönstren som har råd med en fördröjning i beräkning värma upp efter inaktiva användning perioder.
-Offentligt tillgängliga erbjudanden i SQL Database idag faktura för ett belopp av compute däremot etablerade per timme. Den här etablerade Beräkningsnivån är priset perf-optimerad för enskilda databaser eller elastiska pooler med högre genomsnittlig användning som inte har råd eventuell fördröjning av beräkning värma upp.
+SQL-databas utan server (förhandsversion) är en Beräkningsnivån fakturor för ett belopp av compute används av en enskild databas per sekund. Serverlös är prisprestanda som optimerats för enskilda databaser med återkommande, oförutsägbara användningsmönster som har råd med en fördröjning i beräkning värma upp efter inaktiva användning perioder.
 
-En databas på serverlös datornivå parametriserade av compute-intervallet som kan användas och en autopause fördröjning.
+En databas på nivån för beräkning utan Server parametriserade av compute-intervallet som kan användas och en autopause fördröjning.
 
 ![serverlös fakturering](./media/sql-database-serverless/serverless-billing.png)
 
@@ -44,22 +43,11 @@ Fakturering för beräkningen baseras på mängden virtuella kärnor som använd
 
 ## <a name="scenarios"></a>Scenarier
 
-Serverlös är prisprestanda som optimerats för enskilda databaser med oregelbundna användningsmönstren som har råd med en fördröjning i beräkning värma upp efter inaktiva användning perioder. Den etablerade beräkning-nivån är prisprestanda som optimerats för enkel eller grupperade databaser med högre genomsnittlig användning som inte har råd eventuell fördröjning av beräkning värma upp.
-
-I följande tabell jämförs beräkning utan Server-nivå med etablerade-Beräkningsnivån:
-
-||Serverlös databearbetning|Etablerad beräkning|
-|---|---|---|
-|**Typiskt Användarscenario**|Databaser med oregelbundna, oförutsägbar användning bland inaktiva perioder|Databaser eller elastiska pooler med mer normala användning|
-|**Prestanda hanteringsarbete**|Lägre|Högre|
-|**Compute skalning**|Automatiskt|Manuell|
-|**Compute svarstider**|Lägre efter inaktiva perioderna|Omedelbar|
-|**Fakturering kornighet**|Per sekund|Per timme|
-|
+Serverlös är prisprestanda som optimerats för enskilda databaser med återkommande, oförutsägbara användningsmönster som har råd med en fördröjning i beräkning värma upp efter inaktiva användning perioder. Den etablerade beräkning-nivån är däremot prisprestanda som optimerats för enkel eller grupperade databaser med högre genomsnittlig användning som inte har råd eventuell fördröjning av beräkning värma upp.
 
 ### <a name="scenarios-well-suited-for-serverless-compute"></a>Scenarier som passar bra för beräkning utan Server
 
-- Enskilda databaser med oregelbundna användningsmönstren bland perioder av inaktivitet kan dra nytta av betalas utifrån fakturering per sekund för den beräkning som används.
+- Enskilda databaser med återkommande, oförutsägbar användning mönster bland perioder av inaktivitet kan dra nytta av betalas utifrån fakturering per sekund för den beräkning som används.
 - Enskilda databaser med resursbehov som är svårt att förutse och kunder som vill delegera compute storlek till tjänsten.
 - Enskilda databaser i den etablerade Beräkningsnivån ändras så ofta prestandanivåer.
 
@@ -67,8 +55,19 @@ I följande tabell jämförs beräkning utan Server-nivå med etablerade-Beräkn
 
 - Enskilda databaser med flera vanliga samt mer betydande compute användning över tid.
 - Databaser som inte tolererar prestanda med de härrör från mer frekventa minne trimmar eller fördröjning i autoresuming från ett pausat tillstånd.
-- Flera databaser med oregelbundna användningsmönstren som kan sammanställas till en enskild server och använder elastiska pooler för bättre prisoptimering.
+- Flera databaser med återkommande, oförutsägbara användningsmönster som kan sammanställas till en enskild server och använder elastiska pooler för bättre prisoptimering.
 
+## <a name="comparison-with-provisioned-compute-tier"></a>Jämförelse med etablerade Beräkningsnivån
+
+I följande tabell sammanfattas skillnader mellan den beräkning utan server och den etablerade Beräkningsnivån:
+
+| | **Beräkning utan Server** | **Etablerad beräkning** |
+|:---|:---|:---|
+|**Typiskt Användarscenario**| Databaser med återkommande, oförutsägbar användning bland inaktiva perioder. | Databaser eller elastiska pooler med mer normala användning.|
+| **Prestanda hanteringsarbete** |Lägre|Högre|
+|**Compute skalning**|Automatiskt|Manuell|
+|**Compute svarstider**|Lägre efter inaktiva perioderna|Omedelbar|
+|**Fakturering kornighet**|Per sekund|Per timme|
 
 ## <a name="purchasing-model-and-service-tier"></a>Köp av modeller och tjänstnivå
 
@@ -116,7 +115,7 @@ Autoresume utlöses om något av följande villkor är uppfyllt när som helst:
 
 ### <a name="connectivity"></a>Anslutningar
 
-Om en serverlös databaser är pausad, kommer sedan den första inloggningen återuppta databasen och returnera ett felmeddelande om att databasen är inte tillgänglig. När databasen återupptas, måste inloggningen utföras igen om du vill upprätta en anslutning. Databas-klienter med logik behöver inte ändras.
+Om en serverlös databaser är pausad, kommer sedan den första inloggningen återuppta databasen och returnera ett felmeddelande om att databasen är inte tillgänglig med felkod 40613. När databasen återupptas, måste inloggningen utföras igen om du vill upprätta en anslutning. Databas-klienter med logik behöver inte ändras.
 
 ### <a name="latency"></a>Svarstid
 
@@ -135,13 +134,13 @@ Följande funktioner stöder inte autopausing och autoresuming. Det vill säga o
 
 Skapa en ny databas eller flytta en befintlig databas i en beräkning utan Server-nivå följer samma mönster som du skapar en ny databas i etablerats Beräkningsnivån och omfattar följande två steg:
 
-1. Ange namn för tjänsten servicenivåmål. I följande tabell visar tillgängliga tjänstnivå och storlekar som är tillgängliga i den offentliga förhandsversionen.
+1. Ange namn för tjänsten servicenivåmål. Tjänstmålet behandlar den tjänstnivå och maskinvara generation maximala virtuella kärnor. I följande tabell visar service objektiva alternativen:
 
-   |Tjänstnivå|Beräkna storlek|
-   |---|---|
-   |Allmän|GP_S_Gen5_1|
-   |Allmän|GP_S_Gen5_2|
-   |Allmän|GP_S_Gen5_4|
+   |Namn på servicenivåmål för tjänsten|Tjänstnivå|Maskinvara-generering|Max virtuella kärnor|
+   |---|---|---|---|
+   |GP_S_Gen5_1|Allmän|Gen5|1|
+   |GP_S_Gen5_2|Allmän|Gen5|2|
+   |GP_S_Gen5_4|Allmän|Gen5|4|
 
 2. Du kan också ange den minsta virtuella kärnor och autopause fördröjningen om du vill ändra standardvärdena. I följande tabell visas de tillgängliga värdena för dessa parametrar.
 
@@ -178,7 +177,7 @@ New-AzSqlDatabase `
 
 ### <a name="move-existing-database-into-the-serverless-compute-tier"></a>Flytta befintlig databas till nivån för beräkning utan Server
 
-I följande exempel flyttas en befintlig enskild databas från den etablerade Beräkningsnivån till nivån för beräkning utan server. Det här exemplet används standardvärden för min virtuella kärnor, maximal virtuella kärnor och autopause fördröjning.
+I följande exempel flyttas en befintlig enskild databas från den etablerade Beräkningsnivån till nivån för beräkning utan server. Det här exemplet anger uttryckligen virtuella kärnor min, max virtuella kärnor och autopause fördröjning.
 
 ```powershell
 Set-AzSqlDatabase
@@ -205,11 +204,11 @@ En databas utan Server kan flyttas till en etablerad Beräkningsnivån på samma
 
 ### <a name="minimum-vcores"></a>Lägsta antal virtuella kärnor
 
-Ändra den maximala vCores utförs med hjälp av den [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) i PowerShell med hjälp av den `MinVcore` argumentet.
+Ändra den minsta virtuella kärnor utförs med hjälp av den [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) i PowerShell med hjälp av den `MinVcore` argumentet.
 
 ### <a name="autopause-delay"></a>Autopause fördröjning
 
-Ändra den maximala vCores utförs med hjälp av den [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) i PowerShell med hjälp av den `AutoPauseDelay` argumentet.
+Ändra autopause fördröjningen utförs med hjälp av den [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) i PowerShell med hjälp av den `AutoPauseDelay` argumentet.
 
 ## <a name="monitor-serverless-database"></a>Övervaka utan Server-databas
 
@@ -230,7 +229,7 @@ Resurspoolen användare är inre de flesta resource management-gränsen för en 
 |Entitet|Mått|Beskrivning|Enheter|
 |---|---|---|---|
 |App-paket|app_cpu_percent|Procentandel virtuella kärnor som används av appen i förhållande till max virtuella kärnor tillåts för appen.|Procent|
-|App-paket|app_cpu_billed|Mängden beräkning som faktureras för appen under rapporteringsperioden. Beloppet betalats under den här perioden är produkten av det här måttet och vCore per enhet.<br>Värdena för det här måttet bestäms genom att sammanställa över tid som används för det maximala antalet på CPU och minne som används varje sekund.<br>Om den mängd som används är mindre än den minsta mängden som etablerats som angetts av min virtuella kärnor och minsta minnesmängd, debiteras det minsta etablerade.  För att kunna jämföra CPU med minne för fakturering, normaliserade minne i enheter för virtuella kärnor av rescaling mängden minne i GB som 3 GB per vCore.|vCore-sekunder|
+|App-paket|app_cpu_billed|Mängden beräkning som faktureras för appen under rapporteringsperioden. Beloppet betalats under den här perioden är produkten av det här måttet och vCore per enhet. <br><br>Värdena för det här måttet bestäms genom att sammanställa över tid som används för det maximala antalet på CPU och minne som används varje sekund. Om den mängd som används är mindre än den minsta mängden som etablerats som angetts av min virtuella kärnor och minsta minnesmängd, debiteras det minsta etablerade. För att kunna jämföra CPU med minne för fakturering, normaliserade minne i enheter för virtuella kärnor av rescaling mängden minne i GB som 3 GB per vCore.|vCore-sekunder|
 |App-paket|app_memory_percent|Procentandelen minne som används av appen i förhållande till högsta mängd minne som tillåts för appen.|Procent|
 |Användare-pool|cpu_percent|Procentandel virtuella kärnor som används av arbetsbelastning för användare i förhållande till max virtuella kärnor tillåts för arbetsbelastning per användare.|Procent|
 |Användare-pool|data_IO_percent|Procentandel av data IOPS som används av arbetsbelastning för användare i förhållande till max data IOPS tillåten för arbetsbelastning per användare.|Procent|
@@ -262,20 +261,21 @@ Resursbegränsningar, se [beräkning utan Server-nivå](sql-database-vCore-resou
 
 ## <a name="billing"></a>Fakturering
 
-Mängden beräkning som faktureras varje sekund är det maximala antalet på Processorn som används och minne som används varje sekund. Om används för hur mycket Processorkraft och minne som används är mindre än den minsta mängden som tillhandahållits för var och en, debiteras den allokerade mängden. För att kunna jämföra CPU med minne för fakturering, normaliserade minne i enheter för virtuella kärnor av rescaling mängden minne i GB som 3 GB per vCore.
+Mängden beräkning som faktureras är det maximala antalet på Processorn som används och minne som används varje sekund. Om används för hur mycket Processorkraft och minne som används är mindre än den minsta mängden som tillhandahållits för var och en, debiteras den allokerade mängden. För att kunna jämföra CPU med minne för fakturering, normaliserade minne i enheter för virtuella kärnor av rescaling mängden minne i GB som 3 GB per vCore.
 
 - **Resurs som faktureras**: CPU och minne
 - **Mängden debiteras ($)**: vCore enhetspriset * max (min virtuella kärnor, virtuella kärnor som används, minsta minnesmängd GB * 1/3 minne GB används * 1/3) 
 - **Fakturering frekvens**: Per sekund
 
+Enhetspriset vcore i kostnaden per vcore per sekund. Referera till den [sidan med priser för Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/single/) för specifika a-priserna i en viss region.
+
 Mängden beräkning som faktureras exponeras av följande mått:
 
 - **Mått**: app_cpu_billed (vCore sekunder)
-- **Definition**: max (min virtuella kärnor, virtuella kärnor som används, minsta minnesmängd GB * 1/3 minne GB används * 1/3) *
+- **Definition**: max (min virtuella kärnor, virtuella kärnor som används, minsta minnesmängd GB * 1/3 minne GB används * 1/3)
 - **Telemetrirapportering**: Per minut
 
-> [!NOTE]
-> \* Den här datamängden beräknas varje sekund och aggregerat över 1 minut.
+Den här datamängden beräknas varje sekund och aggregerat över 1 minut.
 
 **Exempel**: Överväg en databas med GP_S_Gen5_4 med följande användning över en timme:
 
@@ -289,7 +289,7 @@ Mängden beräkning som faktureras exponeras av följande mått:
 |0:06 - 1:00|1255|
 ||Totalt: 1631|
 
-Anta att enhetspriset beräkning är $0.2609/vCore/hour. Sedan beräkningarna debiteras du för den här perioden för en timme bestäms med hjälp av följande formel: **$0.2609/vCore/hour * 1631 vCore sekunder * 1 timme/3 600 sekunder = $0.1232**
+Anta att enhetspriset beräkning är $0.000073/vCore/second. Sedan beräkningarna debiteras du för den här perioden för en timme bestäms med hjälp av följande formel: **$0.000073/vCore/second * 1631 vCore sekunder = $0.1191**
 
 ## <a name="available-regions"></a>Tillgängliga regioner
 
@@ -297,4 +297,5 @@ Nivå för beräkning utan Server är tillgänglig i alla regioner förutom föl
 
 ## <a name="next-steps"></a>Nästa steg
 
-Resursbegränsningar, se [serverlösa compute nivån resursbegränsningar](sql-database-vCore-resource-limits-single-databases.md#serverless-compute-tier).
+- Kom igång genom att se [snabbstarten: Skapa en enskild databas i Azure SQL Database med Azure portal](sql-database-single-database-get-started.md).
+- Resursbegränsningar, se [serverlösa compute nivån resursbegränsningar](sql-database-vCore-resource-limits-single-databases.md#serverless-compute-tier).

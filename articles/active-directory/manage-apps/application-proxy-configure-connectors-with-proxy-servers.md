@@ -2,22 +2,22 @@
 title: Arbeta med befintliga lokala proxyservrar och Azure AD | Microsoft Docs
 description: Beskriver hur du arbetar med befintliga lokala proxyservrar.
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/12/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b4cb1f6cc3da5230f510f57a56c7297341f82f3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 25b8669e5ca2abe2d763d9bc14f27ed9c4460886
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60293689"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65825956"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Arbeta med befintliga lokala proxyservrar
 
@@ -106,7 +106,7 @@ Det finns fyra aspekter att tänka på vid utgående proxy:
 #### <a name="proxy-outbound-rules"></a>Proxy utgående regler
 Tillåt åtkomst till följande webbadresser:
 
-| URL | Hur den används |
+| Webbadress | Hur den används |
 | --- | --- |
 | \*.msappproxy.net<br>\*.servicebus.windows.net | Kommunikation mellan anslutningsprogrammet och molntjänsten för programproxy |
 | mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | Azure använder dessa webbadresser för att verifiera certifikat |

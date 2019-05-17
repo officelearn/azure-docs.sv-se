@@ -10,19 +10,19 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: janders
 manager: femila
-ms.openlocfilehash: a200649493354f1264afb0df4cf74acb4a274017
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: e370916d420a7bc4cd16d021c69a2f8609093d30
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406410"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544704"
 ---
 # <a name="what-is-azure-blockchain-service"></a>Vad är Azure Blockchain Service?
 
 Azure Blockchain-Service är en fullständigt hanterad ledger-tjänst som ger användare möjlighet att bygga och driva blockchain nätverk i stor skala i Azure. Genom att tillhandahålla enhetlig kontroll för både infrastruktur samt blockchain nätverk styrning tillhandahåller Azure Blockchain-tjänsten:
 
 * Enkelt nätverksdistribution och drift
-* Inbyggda consortium management
+* Inbyggd konsortiumhantering
 * Utveckla smarta kontrakt med välbekanta utvecklingsverktyg
 
 Azure Blockchain Service har utformats för att stödja flera transaktionsregister protokoll. För närvarande den har stöd för Ethereum [kvorum](https://www.jpmorgan.com/Quorum) transaktionsregister med hjälp av den [IBFT](https://github.com/jpmorganchase/quorum/wiki/Quorum-Consensus) konsensus mekanism.
@@ -55,7 +55,7 @@ Azure Blockchain Service tillhandahåller även omfattande mått via Azure Monit
 
 Användare kan visa loggar som rör kvorum redovisningen eller andra viktig information som försökt anslutningar till transaktion noder via Azure Log Analytics.
 
-## <a name="built-in-consortium-management"></a>Inbyggda consortium management
+## <a name="built-in-consortium-management"></a>Inbyggd konsortiumhantering
 
 När du distribuerar din första blockchain-medlemmen kan antingen ansluta till eller skapa en ny consortium.  Ett konsortium är en logisk grupp som används för att hantera styrning och anslutning mellan blockchain-medlemmar som transact i en flerparti process.  Azure Blockchain Service tillhandahåller inbyggd styrning kontroller genom fördefinierade smarta kontrakt, som avgör vilka åtgärder som medlemmar i consortium kan vidta.  Kontrollerna styrning kan anpassas efter behov av administratör för consortium. När du skapar en ny consortium är din blockchain-medlemmen administratör av consortium, aktivera möjligheten att bjuda in andra parter att ansluta till din consortium.  Du kan ansluta till ett konsortium endast om du har bjudits in tidigare.  När du ansluter ett konsortium lyder blockchain-medlemmen under styrning-kontroller som införts av den consortium administratör.
 
@@ -77,7 +77,7 @@ Behöver hjälp eller har du feedback?
 ## <a name="next-steps"></a>Nästa steg
 
 Kom igång genom att testa en Snabbstart eller ta reda på mer information från dessa resurser.
-* [Skapa en blockchain-medlem med Azure portal](create-member.md) eller [skapa medlem blockchain med Azure CLI]()
+* [Skapa en blockchain-medlem med Azure portal](create-member.md) eller [skapa medlem blockchain med Azure CLI](create-member-cli.md)
 * Kostnadsjämförelse och Kostnadsberäknare, finns i den [prissättningssidan](https://azure.microsoft.com/pricing/details/blockchain-service).
 * Skapa din första app med den [Azure Blockchain Development Kit](https://github.com/Azure-Samples/blockchain-devkit)
 * Azure Blockchain VSCode-tillägg [Användarhandbok](https://github.com/Microsoft/vscode-azure-blockchain-ethereum/wiki)

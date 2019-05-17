@@ -6,22 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/26/2019
+ms.date: 05/15/2019
 ms.author: alkohli
-ms.openlocfilehash: 58c4f42859f735a81a3e3edc801daff5d26194a0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a90475cfd1d166b8fae1c2b872cbbb9d48b50392
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60757998"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785799"
 ---
 # <a name="manage-compute-on-your-azure-data-box-edge"></a>Hantera beräkning på Azure Data Box-Edge
 
 Den här artikeln beskriver hur du hanterar databearbetning på din Azure Data Box Edge. Du kan hantera beräkning via Azure portal eller via lokalt webbgränssnitt. Använda Azure-portalen för att hantera moduler, utlösare, och konfiguration och det lokala webbgränssnittet att hantera inställningar för beräkning.
-
-> [!IMPORTANT]
-> Data Box Edge är i förhandsversion. Granska [Azures användningsvillkor för förhandsversionen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) innan du beställer och distribuerar den här lösningen.
-
 
 I den här artikeln kan du se hur du:
 

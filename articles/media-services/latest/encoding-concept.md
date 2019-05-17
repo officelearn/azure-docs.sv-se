@@ -9,31 +9,34 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/08/2019
+ms.date: 05/10/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 937a032bffbad4e8a7d737360aa140e59760f8e2
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 25b3209bed98ea217db9e414caa6f08cee6d8c89
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65472438"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65761895"
 ---
 # <a name="encoding-with-media-services"></a>Encoding med Media Services
 
-Azure Media Services kan du koda din digitala mediefiler med hög kvalitet till MP4-filer så att ditt innehåll kan spelas upp på en mängd olika webbläsare och enheter. En lyckad kodningsjobb för Media Services skapar utdata tillgång med en uppsättning med anpassningsbar bithastighet MP4s och konfigurationsfiler för direktuppspelning. Konfigurationsfilerna omfattar .ism, .ismc, .mpi och andra filer som du inte bör ändra. När kodningsjobbet är klar kan du dra nytta av [dynamisk paketering](dynamic-packaging-overview.md) och starta direktuppspelning.
+Termen kodning i Media Services gäller för att konvertera filer som innehåller digital video och/eller ljud från ett format som standard till en annan, att (a) minska storleken på filerna och/eller (b) producera ett format som är kompatibel med en brett utbud av enheter och program. Den här processen kallas också video komprimering och medieomkodning nätverk. Se den [datakomprimering](https://en.wikipedia.org/wiki/Data_compression) och [vad är kodning och Transkodning?](https://www.streamingmedia.com/Articles/Editorial/What-Is-/What-Is-Encoding-and-Transcoding-75025.aspx) ytterligare beskrivning av begrepp.
 
-Att göra videor i utdata tillgången som är tillgängliga för klienter för uppspelning, måste du skapa en **Strömningspositionerare** och skapa strömmande URL: er. Sedan, baserat på formatet som anges i manifestet, klienterna får dataströmmen i protokollet som de har valt.
+Videor levereras vanligtvis till enheter och program genom att [Progressiv nedladdning](https://en.wikipedia.org/wiki/Progressive_download) eller via [strömning med anpassad bithastighet](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming). 
 
-Följande diagram visar strömning på begäran med dynamisk paketering arbetsflöde.
+* För att leverera progressiv hämtning, kan du använda Azure Media Services för att omvandla en din digitala media-fil (mezzanine) till en [MP4](https://en.wikipedia.org/wiki/MPEG-4_Part_14) -filen som innehåller video som har kodats med den [H.264](https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC) codec, och ljud som har kodats med den [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) codec. Den här MP4-filen skrivs till en tillgång i ditt storage-konto. Du kan använda Azure Storage API: er eller SDK: er (till exempel [Storage REST API](../../storage/common/storage-rest-api-auth.md), [JAVA SDK](../../storage/blobs/storage-quickstart-blobs-java-v10.md), eller [.NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md)) att hämta filen direkt. Om du har skapat utdata tillgång med ett specifikt behållarnamn i lagring, använda den platsen. Annars kan du använda Media Services för att [lista över URL: er för tillgången behållare](https://docs.microsoft.com/rest/api/media/assets/listcontainersas). 
+* För att förbereda innehåll för leverans av strömning med anpassad bithastighet, måste av mezzaninfilen kodas på flera olika bithastigheter (högt till lågt). För att säkerställa rätt övergång av kvalitet, eftersom bithastigheten sjunker, så är lösning av videon. Detta resulterar i en s.k. kodning ladder – en tabell med upplösningar och bithastigheter för utdata (se [automatiskt genererade anpassningsbar bithastighetsstege](autogen-bitrate-ladder.md)). Du kan använda Media Services för att koda ditt mezzanine-filer på flera olika bithastigheter – gör det, du får en uppsättning MP4-filer och tillhörande strömmande konfigurationsfiler som skrivs till en tillgång i ditt storage-konto. Du kan sedan använda den [dynamisk paketering](dynamic-packaging-overview.md) kapaciteten i Media Services för att leverera video via direktuppspelning protokoll som [MPEG-DASH](https://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP) och [HLS](https://en.wikipedia.org/wiki/HTTP_Live_Streaming). Detta måste du skapa en [Strömningspositionerare](streaming-locators-concept.md) och skapa strömmande URL: er som motsvarar de protokoll som stöds, som kan sedan lämnas till enheter/program baserat på deras funktioner.
 
-![Dynamisk paketering](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
+Följande diagram visar arbetsflödet för på begäran kodning med dynamisk paketering.
+
+![Dynamisk paketering](./media/dynamic-packaging-overview/media-services-dynamic-packaging.png)
 
 Det här avsnittet ger vägledning om att koda ditt innehåll med Media Services v3.
 
 ## <a name="transforms-and-jobs"></a>Transformeringar och jobb
 
-Om du vill koda med Media Services v3, måste du skapa en [transformera](https://docs.microsoft.com/rest/api/media/transforms) och en [jobbet](https://docs.microsoft.com/rest/api/media/jobs). En transformering definierar receptet för kodning inställningar och utdata och jobbet är en instans av receptet. Mer information finns i [transformeringar och jobb](transforms-jobs-concept.md)
+Om du vill koda med Media Services v3, måste du skapa en [transformera](https://docs.microsoft.com/rest/api/media/transforms) och en [jobbet](https://docs.microsoft.com/rest/api/media/jobs). Vi definierar ett recept för kodning inställningar och utdata; jobbet har en instans av receptet. Mer information finns i [transformeringar och jobb](transforms-jobs-concept.md)
 
 När encoding med Media Services, använder du förinställningar som talar om kodaren hur inkommande mediefiler ska bearbetas. Du kan till exempel ange video upplösning och/eller antalet ljud kanaler som du vill i det kodade innehållet. 
 

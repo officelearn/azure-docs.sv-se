@@ -4,7 +4,7 @@ description: Läs mer om konfigurationsalternativen för offentlig klient och ko
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a48eea9fedd2d82f44693d58b31ee0d5c8c288d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 4d731a8153dc6a70382c0d87cc20d8c961d9fe24
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138542"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546015"
 ---
 # <a name="application-configuration-options"></a>Programmets konfigurationsalternativ
 
@@ -95,7 +95,7 @@ För närvarande är det enda sättet att få ett program för att logga in anv�
 - inställd ”arbete och skola konton och personliga konton” app registrering målgrupp och,
 - och ange målgruppen i din kod / konfigurationen `AadAuthorityAudience.PersonalMicrosoftAccount` (eller `TenantID `= ”användare”)
 
-## <a name="client-id"></a>Klientorganisations-ID
+## <a name="client-id"></a>Klient-ID
 Det unika program (klient)-ID som din app tilldelats av Azure AD när appen har registrerats.
 
 ## <a name="redirect-uri"></a>Omdirigerings-URI

@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 05/13/2019
 ms.author: kraigb
-ms.openlocfilehash: d1f94c5fd774b51f57da2885d1ccd8eb909cd3c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0440e498451ee141fa03851b78418caf911d0e32
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60234845"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596738"
 ---
 # <a name="manage-and-configure-projects"></a>Hantera och konfigurera projekt
 
@@ -37,38 +37,7 @@ Azure-datorer startar den underliggande virtuella datorn när du kör en bärbar
 
 ## <a name="compute-tier"></a>Compute-nivå
 
-Den **kör** listrutan på instrumentpanelen för projektet är här du väljer Beräkningsnivån som projektet körs. Projekt körs som standard den **kostnadsfria Compute** åtkomstnivå, vilket är begränsad till 4 GB minne och 1 GB data för att förhindra missbruk:
-
-![Compute nivån listrutan på instrumentpanelen för projektet](media/project-compute-tier-list.png)
-
-Du kan kringgå dessa begränsningar med hjälp av en annan virtuell dator som du har etablerat i en Azure-prenumeration. Du måste installera och köra JupyterHub på den virtuella datorn. Data Science Virtual Machine-bilder (alla operativsystem) är bra val eftersom de inkluderar JupyterHub som standard.
-
-När du har en lämpligt konfigurerade Azure-dator, väljer den **direkt Compute** alternativ i listrutan, där du uppmanas ange ett namn (som visas i listan), Virtuellt datorns IP-adress och port (vanligtvis 8000, standardporten som JupyterHub lyssnar), och VM-autentiseringsuppgifter:
-
-![Uppmaning om att samla in informationen för direkta beräkningsalternativet i server](media/project-compute-tier-direct.png)
-
-Om följande villkor är uppfyllda, visar den nedrullningsbara listan även [Data Science Virtual Machine (DSVM)](/azure/machine-learning/data-science-virtual-machine) instanser. (Om någon av dessa villkor inte uppfylls, du kan fortfarande ansluta till DSVM använda Direct Compute-alternativet och ange de värden som erhålls från Azure-portalen.)
-
-- Du har loggat in Azure-anteckningsböcker med ett konto som använder Azure Active Directory (AAD), till exempel ett företagskonto.
-- Ditt konto är ansluten till en Azure-prenumeration.
-- Du har en eller flera virtuella datorer i prenumerationen, med minst läsåtkomst som använder den virtuella datorn för datavetenskap för Linux (Ubuntu)-avbildning.)
-
-![Data Science Virtual Machine-instanser i listrutan på instrumentpanelen för projektet](media/project-compute-tier-dsvm.png)
-
-När du väljer en DSVM-instans, kan Azure-datorer efterfrågas specifik dator-autentiseringsuppgifterna som används när du skapade den virtuella datorn.
-
-Följ anvisningarna för att skapa en ny instans av DSVM på [skapa en Ubuntu virtuell dator för datavetenskap](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Använd den **Data Science Virtual Machine för Linux (Ubuntu)** bild om du vill att DSVM ska visas i listrutan i Azure-anteckningsböcker.  Om av andra skäl måste du använda Windows- eller CentOS-avbildning, kan du använda den **direkt Compute** alternativet för att ansluta till DSVM manuellt.
-
-> [!IMPORTANT]
-> När du använder direkta Compute eller Data Science virtuella datorer, måste anteckningsböcker som du kör på dem vara helt fristående. För närvarande Azure anteckningsböcker kopierar endast de *.ipynb* filen till den virtuella datorn men inte kopiera andra filer i projektet. Därför bärbara datorer som körs på andra virtuella datorer inte att hitta andra projektfiler.
->
-> Du kan lösa problemet på två sätt:
->
-> 1. Kopiera projektfilerna manuellt till den virtuella datorn.
->
-> 2. Bädda in filer i en anteckningsbok installationen att du kör innan primära anteckningsboken. Skapa en kodcell för varje fil där cellen innehåller filinnehållet i installationsprogrammet-anteckningsboken. Infoga sedan kommandot högst upp i varje cell, `%%writefile <filename>`, där `<filename>` är namnet på filen för att ta emot innehållet. När du kör anteckningsboken skapar dessa filer på den virtuella datorn. Ett exempel finns i den [setup.ipynb filen i Microsoft husdjur detektor demon](https://github.com/Microsoft/connect-petdetector/blob/master/setup.ipynb) (GitHub).
->
->     ![Med hjälp av en %% writefile kommandot i början av en kodcell](media/setup-notebook-writefile-command.png)
+Projekt körs som standard den **kostnadsfria Compute** åtkomstnivå, vilket är begränsad till 4 GB minne och 1 GB data för att förhindra missbruk. Du kan kringgå dessa begränsningar och öka beräkningskraft med hjälp av en annan virtuell dator som du har etablerat i en Azure-prenumeration. Mer information finns i [hur du använder virtuella datorer för datavetenskap](use-data-science-virtual-machine.md).
 
 ## <a name="edit-project-metadata"></a>Redigera projekt metadata
 
@@ -100,7 +69,7 @@ Den **+ ny** kommando (kortkommandot: n) skapar nya filer eller mappar. När du 
 | **Tom fil** | En fil som du kan lagra innehåll, till exempel text, data, osv. | Skapar ett redigerbart fält i projektets fillistan som du anger namnet på filen. |
 | **Markdown** | En markdownfil. | Skapar ett redigerbart fält i projektets fillistan som du anger namnet på filen. |
 
-### <a name="upload-files"></a>Överföra filer
+### <a name="upload-files"></a>Ladda upp filer
 
 Den **överför** kommandot ger två alternativ för att importera data från andra platser: **Från URL: en** och **från datorn**. Mer information finns i [arbeta med datafiler i Azure-anteckningsbok projekt](work-with-project-data-files.md).
 

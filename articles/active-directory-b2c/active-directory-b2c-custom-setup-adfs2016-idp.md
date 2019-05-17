@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 91db42a003bdbb7614faba2122c30826b62ee20f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: df4acf72a1a6ea134e1192512fda1d8cf1e92f0a
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64698649"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65767998"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Lägg till AD FS som en SAML-identitetsprovider med anpassade principer i Azure Active Directory B2C
 
@@ -35,7 +35,7 @@ Du behöver lagra certifikatet i din Azure AD B2C-klient.
 1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. Kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient. Välj den **katalog- och prenumerationsfilter** på den översta menyn och välj den katalog som innehåller din klient.
 3. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
-4. På sidan Översikt väljer **Identitetsupplevelse – FÖRHANDSVERSION**.
+4. På sidan Översikt väljer **Identitetsramverk**.
 5. Välj **Principnycklar** och välj sedan **Lägg till**.
 6. För **alternativ**, Välj `Upload`.
 7. Ange en **namn** för principnyckeln. Till exempel `SamlCert`. Prefixet `B2C_1A_` läggs automatiskt till namnet på din nyckel.
@@ -172,7 +172,7 @@ Ersätt följande värden:
     | User-Principal-Name | userPrincipalName |
     | Efternamn | family_name |
     | Angivna namn | given_name |
-    | E-Mail-Address | e-post |
+    | E-Mail-Address | email |
     | Visningsnamn | namn |
     
 12.  Baserat på din typ av certifikat kan behöva du ange HASH-algoritmen. I egenskapsfönstret förlitande part förtroende (B2C Demo) väljer den **Avancerat** fliken och ändra den **säkra hash-algoritm** till `SHA-256`, och klicka på **Ok**.  

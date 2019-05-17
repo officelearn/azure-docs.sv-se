@@ -7,18 +7,17 @@ ms.author: jeanb
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/19/2019
-ms.custom: seodec18
-ms.openlocfilehash: cc62a6b9f03bdd6dc8671a6cf96113a2234fc092
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/15/2019
+ms.openlocfilehash: e784cfd2956479327cff9c97a09dd0ada6a154c2
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61480241"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65826582"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>Felsöka Azure Stream Analytics med hjälp av diagnostikloggar
 
-Ibland kan slutar Azure Stream Analytics-jobb oväntat bearbetning. Det är viktigt att kunna felsöka den här typen av händelse. Fel kan inträffa på grund av ett oväntat frågeresultat, enhetsanslutningar eller ett oväntat tjänstavbrott. Diagnostikloggar i Stream Analytics kan du identifiera orsaken till problem när de inträffar och minska tiden för återställning.
+Ibland kan slutar Azure Stream Analytics-jobb oväntat bearbetning. Det är viktigt för att kunna felsöka den här typen av händelse. Fel kan inträffa på grund av ett oväntat frågeresultat, enhetsanslutningar eller ett oväntat tjänstavbrott. Diagnostikloggar i Stream Analytics kan du identifiera orsaken till problem när de inträffar och minska tiden för återställning.
 
 ## <a name="log-types"></a>Loggtyper
 
@@ -83,7 +82,7 @@ Aktivera diagnostikloggar och skicka dem till Azure Monitor-loggar rekommenderas
 
 ## <a name="diagnostics-log-categories"></a>Diagnostiklogg för kategorier
 
-För närvarande kan vi samla in två typer av diagnostikloggar:
+Azure Stream Analytics samlar in två typer av diagnostikloggar:
 
 * **Redigera**: Samlar in händelser som är relaterade till jobbet redigering åtgärder, till exempel jobbskapande, att lägga till och ta bort indata och utdata, att lägga till och uppdatera frågan, och startar eller stoppar jobbet.
 
@@ -110,7 +109,7 @@ properties | Logga post-specifik information om serialiserad som en JSON-sträng
 
 ### <a name="execution-log-properties-schema"></a>Schema för körning log-egenskaper
 
-Loggarna för jobbkörning har information om händelser som inträffade under jobbkörningen för Stream Analytics. Schemat för egenskaper varierar beroende på vilken typ av händelse. Vi har för närvarande följande typer av loggarna för jobbkörning:
+Loggarna för jobbkörning har information om händelser som inträffade under jobbkörningen för Stream Analytics. Schemat för egenskaper varierar beroende på om händelsen är ett datafel eller en allmän händelse.
 
 ### <a name="data-errors"></a>Datafel
 
@@ -124,10 +123,14 @@ Typ | Typ av fel. Till exempel **DataConversionError**, **CsvParserError**, elle
 Data | Innehåller data som är användbar korrekt hitta orsaken till felet. Omfattas av trunkering, beroende på storlek.
 
 Beroende på den **operationName** värde, datafel har följande schema:
-* **Serialisera händelser**. Serialisera händelser inträffar när händelser läsåtgärder. De inträffar när data på indata inte uppfyller fråga schemat för något av följande skäl:
-    * *Typmatchningsfel när händelser (de) serialisera*: Identifierar det fält som orsakar felet.
-    * *Det går inte att läsa en händelse, ogiltig serialisering*: Visar information om plats i indatan där felet uppstod. Innehåller blob-namnet för blob-indata, förskjutning och ett exempel på data.
-* **Skicka händelser**. Skicka händelser som inträffar under skrivåtgärder. De identifiera strömningshändelsen som orsakade felet.
+
+* **Serialisera händelser** ske under händelsen läsåtgärder. De inträffar när data på indata inte uppfyller fråga schemat för något av följande skäl:
+
+   * *Typmatchningsfel när händelser (de) serialisera*: Identifierar det fält som orsakar felet.
+
+   * *Det går inte att läsa en händelse, ogiltig serialisering*: Visar information om plats i indatan där felet uppstod. Innehåller blob-namnet för blob-indata, förskjutning och ett exempel på data.
+
+* **Skicka händelser** uppstå under skrivåtgärder. De identifiera strömningshändelsen som orsakade felet.
 
 ### <a name="generic-events"></a>Allmänna händelser
 
@@ -136,7 +139,7 @@ Allmänna händelser täcker allt annat.
 Namn | Beskrivning
 -------- | --------
 Fel | (valfritt) Information om fel. Detta är vanligtvis, undantagsinformation om den är tillgänglig.
-Meddelande| Loggmeddelande.
+Message| Loggmeddelande.
 Typ | Typ av meddelande. Mappas till interna kategorisering av fel. Till exempel **JobValidationError** eller **BlobOutputAdapterInitializationFailure**.
 Korrelations-ID | [GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) som unikt identifierar jobbkörningen. Alla körningsloggsposter från tidpunkten då jobbet startar tills jobbet stoppas har samma **Korrelations-ID** värde.
 

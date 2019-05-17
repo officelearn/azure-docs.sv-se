@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 0c59e892c8fd5a8bcc74d23e16eaabf1dc1a08f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 06337fef1a9d9b41fd41ff7c67611581639adc0a
+ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61273094"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65619717"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Köp ett anpassat domännamn för Azure App Service
 
-App Service-domäner (förhandsversion) är toppnivådomäner som hanteras direkt i Azure. De gör det enkelt att hantera anpassade domäner för [Azure App Service](overview.md). Den här självstudien visar hur du köper en App Service-domän och kopplar DNS-namn till Azure App Service.
+App Service-domäner är toppnivådomäner som hanteras direkt i Azure. De gör det enkelt att hantera anpassade domäner för [Azure App Service](overview.md). Den här självstudien visar hur du köper en App Service-domän och kopplar DNS-namn till Azure App Service.
 
 Virtuell dator i Azure eller Azure Storage finns i [tilldela App Service-domän till Azure-VM eller Azure Storage](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/31/assign-app-service-domain-to-azure-vm-or-azure-storage/). Cloud Services, se [konfigurera ett anpassat domännamn för en Azure cloud Services](../cloud-services/cloud-services-custom-domain-name-portal.md).
 
@@ -41,7 +41,7 @@ För att slutföra den här självstudien behöver du:
 
 Använda anpassade domäner i Azure App Service, din app [apptjänstplan](https://azure.microsoft.com/pricing/details/app-service/) måste vara en betald nivå (**delad**, **grundläggande**, **Standard**, eller  **Premium**). I det här steget ska se du till att appen är stöds prisnivå.
 
-### <a name="sign-in-to-azure"></a>Logga in på Azure
+### <a name="sign-in-to-azure"></a>Logga in till Azure
 
 Öppna [Azure Portal](https://portal.azure.com) och logga in med ditt Azure-konto.
 
@@ -80,9 +80,9 @@ När du ser följande meddelande har skalningsåtgärden slutförts.
 ## <a name="buy-the-domain"></a>Köp domänen
 
 ### <a name="pricing-information"></a>Prisinformation
-Information på Azure App Service-domäner om prissättning finns på den [prissättning för App Service](https://azure.microsoft.com/pricing/details/app-service/windows/) och rullar ned till App Service-domänen.
+Prissättning information om Azure App Service-domäner finns i [prissättning för App Service](https://azure.microsoft.com/pricing/details/app-service/windows/) och rullar ned till App Service-domänen.
 
-### <a name="sign-in-to-azure"></a>Logga in på Azure
+### <a name="sign-in-to-azure"></a>Logga in till Azure
 Öppna [Azure Portal](https://portal.azure.com/) och logga in med ditt Azure-konto.
 
 ### <a name="launch-buy-domains"></a>Starta köp domäner
@@ -150,7 +150,7 @@ Om du vill testa värdnamnen, navigerar du till listan värdnamn i webbläsaren.
 
 ## <a name="assign-hostnames-to-app"></a>Tilldela värdnamn till appen
 
-Om du väljer att inte tilldela en eller flera standard-värdnamn till appen under inköpsprocessen, eller om du måste tilldela ett värdnamn som inte visas, kan du tilldela ett värdnamn på när som helst.
+Om du väljer att inte tilldela en eller flera standard-värdnamn till appen under inköpsprocessen, eller om du måste tilldela ett värdnamn som inte visas, kan du tilldela ett värdnamn när som helst.
 
 Du kan också tilldela värdnamn i App Service-domänen till andra appar. Stegen är beroende av om App Service-domänen och appen hör till samma prenumeration.
 
@@ -278,7 +278,3 @@ När åtgärden har slutförts, är domänen utgivna från din prenumeration och
 ## <a name="direct-default-url-to-a-custom-directory"></a>Dirigera standard-URL:en till en anpassad katalog
 
 Som standard dirigerar App Service webbegäranden till rotkatalogen för din appkod. Att dirigera dem till en underkatalog, till exempel `public`, se [dirigera standard-URL till en anpassad katalog](app-service-web-tutorial-custom-domain.md#virtualdir).
-
-## <a name="more-resources"></a>Fler resurser
-
-[VANLIGA FRÅGOR OCH SVAR: App Service-domänen (förhandsversion) och anpassade domäner](https://blogs.msdn.microsoft.com/appserviceteam/2017/08/08/faq-app-service-domain-preview-and-custom-domains/)

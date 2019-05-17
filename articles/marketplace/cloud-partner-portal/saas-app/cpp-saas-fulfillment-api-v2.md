@@ -1,23 +1,22 @@
 ---
 title: SaaS betjäna API V2 | Azure Marketplace
-description: 'Beskriver hur du skapar ett SaaS-erbjudande på Azure Marketplace med associerade uppfyllandet V2 API: er.'
+description: 'Beskriver hur du skapar ett SaaS-erbjudande på Azure Marketplace med associerade uppfyllandet V2 API: er och AppSource.'
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: pabutler
-ms.openlocfilehash: 433059dc1b1567c5cbcb1091f2d616001d1dbf44
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 551f3be2ca23bc18224d28faeea6a6df80eba1db
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65762274"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823542"
 ---
 # <a name="saas-fulfillment-apis-version-2"></a>SaaS Techtrends API: er för Version 2 
 
-Den här artikeln beskriver API som gör det möjligt för oberoende programvaruleverantörer (ISV) för att integrera sina SaaS-program med Azure Marketplace. Detta API kan ISV-program att delta i alla commerce aktiverat kanaler: direct partnerledd (återförsäljare) ledde till fältet.  Detta API är ett krav för lista transactable SaaS-erbjudanden på Azure Marketplace.
-
+Den här artikeln beskriver API som ger oberoende programvaruleverantörer (ISV) att sälja sina SaaS-program i Azure Marketplace och AppSource. Detta API är ett krav för att visa en lista över SaaS-erbjudanden på Azure Marketplace och AppSource.
 
 ## <a name="managing-the-saas-subscription-lifecycle"></a>Hanterar livscykeln för SaaS-prenumeration
 

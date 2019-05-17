@@ -8,25 +8,28 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: d27adadc9720dd2ad6a0dd133524bfaf32e63045
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: f8d7b00de24c566cab204c66371dac9b569c42c9
+ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65227994"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65619996"
 ---
 # <a name="action-rules-preview"></a>Åtgärdsregler (förhandsversion)
 
-Den här artikeln beskriver vad Åtgärdsregler är och hur du konfigurerar och hanterar dem.
-
-## <a name="what-are-action-rules"></a>Vad är Åtgärdsregler?
-
 Åtgärdsregler kan du definiera åtgärder (eller Undertryckning av åtgärder) i alla Resource Manager-omfattningen (prenumeration, resursgrupp eller resurs). De har en mängd olika filter som gör det möjligt att begränsa till viss del av de aviseringsinstanser som du vill arbeta med. 
 
-Med Åtgärdsregler kan du:
+## <a name="why-and-when-should-you-use-action-rules"></a>När och varför ska du använda Åtgärdsregler?
 
-* Förhindra åtgärder och meddelanden om du har planerat underhållsfönster eller för helgen/helgdagar, i stället för att inaktivera var och en varningsregel för individuellt.
-* Definiera åtgärder och meddelanden i hög skala: I stället att definiera en åtgärdsgrupp separat för varje regel för varning, kan du nu definiera en åtgärdsgrupp att utlösa för aviseringar som genereras på ett scope. Jag kan till exempel välja att ha åtgärdsutlösare grupp 'ContosoActionGroup' för varje avisering som genererats i min prenumeration.
+### <a name="suppression-of-alerts"></a>Undertryckning av aviseringar
+
+Det finns ofta många scenarier där det kan vara användbart att utelämna de meddelanden som skapas av aviseringar som kan vara allt från Undertryckning ett planerat underhållsfönster till Undertryckning under tider utanför kontorstid. Till exempel vill teamet som ansvarar för 'ContosoVM' utelämna aviseringar för kommande helgen eftersom 'ContosoVM' genomgår en planerat underhåll. Även om de kan inaktivera varje avisering regeln som konfigurerats på 'ContosoVM' manuellt (och återaktivera det efter underhållet), det är inte en enkel upplevelse. Åtgärdsregler kan du definiera Undertryckning av aviseringar i stor skala med möjlighet att konfigurera ett flexibelt Undertryckning. Gå tillbaka till föregående exempel, kan teamet nu definiera en åtgärdsregel på 'ContosoVM' som visas inte alla aviseringar för det är helgen.
+
+
+### <a name="actions-at-scale"></a>Åtgärder i stor skala
+
+Även om aviseringsregler kan du definiera åtgärdsgruppen som utlöser när aviseringen genereras, brukar kunder ofta ha en gemensam åtgärdsgrupp över deras omfång av åtgärder. Till exempel definiera en grupp som ansvarar för resursgruppen ”ContosoRG' förmodligen samma åtgärdsgruppen för alla Varningsregler som definierats i” ContosoRG ”. Åtgärdsregler kan du förenkla den här processen genom att du kan definiera åtgärder i skala, så att en åtgärdsgrupp kan aktiveras för en avisering genereras på det konfigurerade omfånget. Gå tillbaka till föregående exempel, kan teamet nu definiera en åtgärdsregel på 'ContosoRG ”som ska utlösa samma åtgärdsgruppen för alla varningar som genererats i den.
+
 
 ## <a name="configuring-an-action-rule"></a>Konfigurera en åtgärdsregel för
 

@@ -3,8 +3,8 @@ title: Använd Microsoft identity-plattformen för att logga in på webbläsare 
 description: Skapa inbäddad och ge webbläsaren utan autentiseringsflöden med hjälp av kod för enheten.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/20/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 703416788d123798774802613d71b30e8fbdaa9b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 86e875108e0349c0ab08a7217074e2afe23bcacc
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60299417"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544928"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-device-code-flow"></a>Microsoft identity-plattformen och kodflöde för OAuth 2.0-enhet
 
@@ -63,10 +63,10 @@ scope=user.read%20openid%20profile
 
 ```
 
-| Parameter | Tillstånd | Beskrivning |
+| Parameter | Villkor | Beskrivning |
 | --- | --- | --- |
 | `tenant` | Obligatoriskt |Directory-klient som du vill begära behörighet från. Detta kan vara i GUID eller eget namnformat.  |
-| `client_id` | Obligatoriskt | Den **(klient)-ID: T** som den [Azure-portalen – appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) upplevelse som tilldelats din app. |
+| `client_id` | Krävs | Den **(klient)-ID: T** som den [Azure-portalen – appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) upplevelse som tilldelats din app. |
 | `scope` | Rekommenderas | En blankstegsavgränsad lista över [scope](v2-permissions-and-consent.md) som du vill att användaren att godkänna.  |
 
 ### <a name="device-authorization-response"></a>Svaret för auktorisering av enheten
@@ -98,11 +98,11 @@ client_id: 6731de76-14a6-49ae-97bc-6eba6914391e
 device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8
 ```
 
-| Parameter | Obligatoriskt | Beskrivning|
+| Parameter | Krävs | Beskrivning|
 | -------- | -------- | ---------- |
 | `grant_type` | Obligatoriskt | Måste vara `urn:ietf:params:oauth:grant-type:device_code`|
-| `client_id`  | Obligatoriskt | Måste matcha den `client_id` används i den första begäran. |
-| `device_code`| Obligatoriskt | Den `device_code` returneras i auktoriseringsbegäran för enheten.  |
+| `client_id`  | Krävs | Måste matcha den `client_id` används i den första begäran. |
+| `device_code`| Krävs | Den `device_code` returneras i auktoriseringsbegäran för enheten.  |
 
 ### <a name="expected-errors"></a>Förväntat fel
 

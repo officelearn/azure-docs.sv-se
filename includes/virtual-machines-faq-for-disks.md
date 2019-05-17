@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 03/28/2018
+ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 6cd0c72f94c020f9243a1a95faa799f1f798f36c
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 0ad006ca966cfcc2c817ae4e8bfd3dc2d477259e
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65199500"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65607065"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Vanliga frågor och svar om virtuella Azure IaaS-datorer och hanterade och ohanterade premiumdiskar
 
@@ -365,7 +365,7 @@ Du kan antingen stoppa och starta den virtuella datorn som disken är ansluten t
 
 **Vilka regioner är hanterade diskstorlekar 8 TiB, 16 TiB och 32 TiB som stöds i?**
 
-8 TiB och 16 TiB 32 TiB disk SKU: er stöds i alla regioner under global Azure. Stöd för Microsoft Azure Government och Azure Kina 21Vianet är inte tillgänglig ännu.
+8 TiB och 16 TiB 32 TiB disk SKU: er stöds i alla regioner under global Azure, Microsoft Azure Government och Azure Kina 21Vianet.
 
 **Vi har stöd för att aktivera cachelagring av värden på alla diskstorlekar?**
 

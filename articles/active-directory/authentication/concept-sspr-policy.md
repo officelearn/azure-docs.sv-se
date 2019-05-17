@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/31/2018
+ms.date: 05/16/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 728d961961250aad1d06067e0264c6b90aca4915
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: f32952dff8f09db5b790818a5f98c527a04c2ef5
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65593827"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823396"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Lösenordsprinciper och begränsningar i Azure Active Directory
 
@@ -81,8 +81,8 @@ I följande tabell beskrivs de lösenordsprincip som tillämpas på konton som s
 
 | Egenskap  | Krav |
 | --- | --- |
-| Tecken som tillåts |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / \` ~ " ( ) ;</li></ul> tomt utrymme |
-| Tecken som tillåts inte |<ul><li>Unicode-tecken.</li><li>Blanksteg.</li><li> Får inte innehålla en punkttecknet ””. omedelbart före den ”\@ \" symbolen”.</li></ul> |
+| Tecken som tillåts |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / \` ~ " ( ) ;</li> <li>tomt utrymme</li></ul> |
+| Tecken som tillåts inte |<ul><li>Unicode-tecken.</li><li> Får inte innehålla en punkttecknet ””. omedelbart före den ”\@ \" symbolen”.</li></ul> |
 | Begränsningar för lösenord |<ul><li>Minst 8 tecken och högst 256 tecken.</li><li>Kräver tre av fyra av följande:<ul><li>Gemener.</li><li>Versaler.</li><li>Numbers (0-9).</li><li>Symboler (se föregående begränsningar för lösenord).</li></ul></li></ul> |
 | Lösenordet upphör att gälla varaktighet |<ul><li>Standardvärde: **90** dagar.</li><li>Värdet kan konfigureras med hjälp av den `Set-MsolPasswordPolicy` cmdlet från Azure Active Directory-modulen för Windows PowerShell.</li></ul> |
 | Förfallodatum lösenordsmeddelande |<ul><li>Standardvärde: **14** dagar (tills lösenordet upphör att gälla).</li><li>Värdet kan konfigureras med hjälp av den `Set-MsolPasswordPolicy` cmdlet.</li></ul> |
@@ -99,7 +99,6 @@ Den här vägledningen gäller för andra leverantörer, till exempel Intune och
 
 > [!NOTE]
 > Endast lösenord för användarkonton som inte synkroniseras via katalogsynkronisering kan konfigureras för att inte upphör för att gälla. Läs mer om katalogsynkronisering [Connect AD med Azure AD](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect).
->
 
 ## <a name="set-or-check-the-password-policies-by-using-powershell"></a>Ange eller kontrollera principer för lösenord med hjälp av PowerShell
 
@@ -157,7 +156,7 @@ Om du vill komma igång kan du behöva [ladda ned och installera Azure AD PowerS
    ```
 
    > [!WARNING]
-   > Lösenord har angetts till `-PasswordPolicies DisablePasswordExpiration` fortfarande ålder baserat på den `pwdLastSet` attribut. Om du ställer in användarlösenord aldrig upphör att gälla och sedan 90 dagar sedan genom att lösenorden går ut. Utifrån den `pwdLastSet` attributet, om du ändrar förfallotiden att `-PasswordPolicies None`, alla lösenord som har en `pwdLastSet` äldre än 90 dagar kräver att användaren ändrar dem nästa gång de loggar in. Den här ändringen kan påverka ett stort antal användare. 
+   > Lösenord har angetts till `-PasswordPolicies DisablePasswordExpiration` fortfarande ålder baserat på den `pwdLastSet` attribut. Om du ställer in användarlösenord aldrig upphör att gälla och sedan 90 dagar sedan genom att lösenorden går ut. Utifrån den `pwdLastSet` attributet, om du ändrar förfallotiden att `-PasswordPolicies None`, alla lösenord som har en `pwdLastSet` äldre än 90 dagar kräver att användaren ändrar dem nästa gång de loggar in. Den här ändringen kan påverka ett stort antal användare.
 
 ## <a name="next-steps"></a>Nästa steg
 

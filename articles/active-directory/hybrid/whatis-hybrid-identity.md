@@ -13,12 +13,12 @@ ms.date: 11/28/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 536edcf74bff6f89dade4a713c40c9bef12e18af
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6393d363c85fd22b28a3bc2ac5ef02047ebaacf0
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60454712"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65784355"
 ---
 # <a name="what-is-hybrid-identity"></a>Vad är hybrididentitet?
 
@@ -60,6 +60,10 @@ Här följer några vanliga scenarier med hybrididentitet och åtkomsthantering 
 >  
 > <sup>4</sup> AD FS kan integreras med din företags-PKI för att tillåta inloggning med certifikat. Dessa certifikat kan vara mjuka certifikat som distribueras via betrodda etableringskanaler, till exempel MDM, GPO eller smartkortscertifikat (inklusive PIV/CAC-kort) eller Hello för företag (cert-förtroende). Mer information om stöd för smartkortsautentisering finns på [den här bloggen](https://blogs.msdn.microsoft.com/samueld/2016/07/19/adfs-certauth-aad-o365/). 
 > 
+
+## <a name="license-requirements-for-using-azure-ad-connect"></a>Licenskrav för att använda Azure AD Connect
+
+[!INCLUDE [active-directory-free-license.md](../../../includes/active-directory-free-license.md)]
 
 ## <a name="next-steps"></a>Nästa steg 
 

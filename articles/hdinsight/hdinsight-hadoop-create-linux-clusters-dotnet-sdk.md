@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: mamccrea
-ms.openlocfilehash: 04760ab570ffc213950c28c22c499d8e9252d574
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 42c3f0ce70467c6a90bcc4e2e6b8a21d7570edc4
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64690201"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606184"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>Skapa Linux-baserade kluster i HDInsight med .NET SDK
 
@@ -33,11 +33,11 @@ Lär dig hur du skapar en [Apache Hadoop](https://hadoop.apache.org/) kluster i 
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Ett Azure storage-konto**. Se [skapa ett lagringskonto](../storage/common/storage-quickstart-create-account.md).
-* **Visual Studio 2013, Visual Studio 2015 eller Visual Studio 2017**.
+* **Visual Studio**.
 
 ## <a name="create-clusters"></a>Skapa kluster
 
-1. Öppna Visual Studio 2017.
+1. Öppna Visual Studio.
 2. Skapa ett nytt Visual C#-konsolprogram.
 3. Från den **verktyg** -menyn klickar du på **NuGet-Pakethanteraren**, och klicka sedan på **Pakethanterarkonsolen**.
 4. Kör följande kommando i konsolen för att installera paket:

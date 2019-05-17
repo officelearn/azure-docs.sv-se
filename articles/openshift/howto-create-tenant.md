@@ -6,13 +6,13 @@ ms.author: twhitney
 ms.service: container-service
 manager: jeconnoc
 ms.topic: conceptual
-ms.date: 05/06/2019
-ms.openlocfilehash: 3c7f0b263cc775b7f9fec62e4d5388250e5124fb
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.date: 05/13/2019
+ms.openlocfilehash: 04d710f4d60b776f8059d87ea4d009bed6f7f8ba
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65079127"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65551691"
 ---
 # <a name="create-an-azure-ad-tenant-for-azure-red-hat-openshift"></a>Skapa en Azure AD-klient för Azure Red Hat OpenShift
 
@@ -34,7 +34,7 @@ Skapa en klient:
 
     ![Skärmbild av portalen som visar innehavarens namn i det övre högra hörnet][tenantcallout]  
 
-8. Anteckna den *klient-ID* så att du senare kan ange var du vill skapa klustret Azure Red Hat OpenShift. Du bör nu se Azure Active Directory-översiktsbladet för den nya klientorganisationen i portalen. Välj **egenskaper** och kopiera värdet för din **katalog-ID**. Vi kommer att referera till det här värdet som den `tenant id` i den [skapa ett kluster i Azure Red Hat OpenShift](tutorial-create-cluster.md) självstudien.
+8. Anteckna den *klient-ID* så att du senare kan ange var du vill skapa klustret Azure Red Hat OpenShift. Du bör nu se Azure Active Directory-översiktsbladet för den nya klientorganisationen i portalen. Välj **egenskaper** och kopiera värdet för din **katalog-ID**. Vi kommer att referera till det här värdet som `TENANT` i den [skapa ett kluster i Azure Red Hat OpenShift](tutorial-create-cluster.md) självstudien.
 
 [tenantcallout]: ./media/howto-create-tenant/tenant-callout.png
 

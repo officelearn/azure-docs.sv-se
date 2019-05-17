@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e87a4c7ebafd8ddcfa54c87b189316b0ce98b0f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fae09b5aeed05dfb09f2b998de805ef0607e7f39
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60301316"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823553"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Inställningsreferens för villkorlig åtkomst till Azure Active Directory
 
@@ -33,7 +33,7 @@ Om det inte är den information du söker efter, lämna en kommentar i slutet av
 
 ## <a name="cloud-apps-assignments"></a>Tilldelningar för moln-appar
 
-Med principer för villkorlig åtkomst kan du styra hur dina användare kommer åt din [molnappar](conditions.md#cloud-apps). När du konfigurerar en princip för villkorlig åtkomst, måste du välja minst en molnapp. 
+Med principer för villkorlig åtkomst kan du styra hur dina användare kommer åt din [molnappar](conditions.md#cloud-apps-and-actions). När du konfigurerar en princip för villkorlig åtkomst, måste du välja minst en molnapp. 
 
 ![Välj vilka molnappar för principen](./media/technical-reference/09.png)
 
@@ -48,7 +48,6 @@ Du kan tilldela en princip för villkorlig åtkomst till följande moln-appar fr
 - Microsoft Application Insights Analytics
 - Microsoft Azure Information Protection - [Läs mer](https://docs.microsoft.com/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
 - Microsoft Azure Management - [Läs mer](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
-- Microsoft Azure RemoteApp
 - Microsoft Azure-prenumerationshantering
 - Microsoft Cloud App Security
 - Microsoft Commerce Access Control Portal-verktyg
@@ -141,18 +140,18 @@ För att automatiskt distribuera det här tillägget till Chrome webbläsare, sk
 
 |    |    |
 | --- | --- |
-| Sökväg | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
+| `Path` | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
 | Namn | 1 |
-| Typ | REG_SZ (String) |
+| Type | REG_SZ (String) |
 | Data | ppnbnpeolgkicgegkbkbjmhlideopiji; https://clients2.google.com/service/update2/crx |
 
 Chrome stöd i **Windows 8.1 och 7**, skapa följande registernyckel:
 
 |    |    |
 | --- | --- |
-| Sökväg | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
+| `Path` | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
 | Namn | 1 |
-| Typ | REG_SZ (String) |
+| Type | REG_SZ (String) |
 | Data | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}} |
 
 Dessa webbläsare har stöd för autentisering, vilket gör att enheten har identifierats och verifieras mot en princip. Enhet-kontrollen misslyckas om webbläsaren körs i privat läge.
@@ -167,7 +166,6 @@ Den här inställningen påverkar åtkomstförsök från följande mobilappar oc
 
 | Klientappar | Måltjänsten | Plattform |
 | --- | --- | --- |
-| Azure RemoteApp | Azure RemoteApp-tjänsten | Windows 10, Windows 8.1, Windows 7, iOS, Android och macOS |
 | Dynamics CRM-app | Dynamics CRM | Windows 10, Windows 8.1, iOS och Android |
 | E-post/kalender/personer app, Outlook 2016 Outlook 2013 (med modern autentisering)| Office 365 Exchange Online | Windows 10 |
 | MFA- och platspolicy för appar. Enhetsbaserade principer stöds inte.| Alla Mina appar apptjänst| Android och iOS |
@@ -203,13 +201,14 @@ Du kan kräva att en försöka valda moln-appar måste göras från en godkänd 
 Den här inställningen gäller för klientappar som följande:
 
 - Microsoft Azure Information Protection
+- Microsoft Bookings
 - Microsoft Edge
 - Microsoft Excel
 - Microsoft Flow
 - Microsoft Intune Managed Browser
-- Microsoft Invoicing
+- Microsoft fakturering
 - Microsoft Kaizala
-- Microsoft Launcher
+- Startprogram för Microsoft
 - Microsoft OneDrive
 - Microsoft OneNote
 - Microsoft Outlook

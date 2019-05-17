@@ -7,14 +7,14 @@ ms.author: heidist
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 05/13/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 7ed675e4c6988cf4c1340613323440de55a36843
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 95f5dde12ad9e34a0a04c988a816538ac30e01e6
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024474"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595974"
 ---
 # <a name="how-to-compose-a-query-in-azure-search"></a>Hur du skriver en fråga i Azure Search
 
@@ -122,7 +122,7 @@ Azure Search har stöd för ett brett utbud av frågetyper.
 | Filtrerade sökning | [OData-filteruttryck](query-odata-filter-orderby-syntax.md) och antingen parser | Filterfrågor utvärderar ett booleskt uttryck över alla *filtrerbara* fält i ett index. Till skillnad från sökning matchar en filterfråga det exakta innehållet i ett fält, inklusive skiftlägeskänslighet på strängfält. En annan skillnaden är att filterfrågor uttrycks i OData-syntax. <br/>[Uttryck-filter, exempel](search-query-simple-examples.md#example-3-filter-queries) |
 | Geo-sökning | [Typ av Edm.GeographyPoint](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) på fältet och filteruttrycket antingen parser | Koordinaterna som lagras i ett fält med en Edm.GeographyPoint är används för ”hitta en nära mig” eller kartbaserade Genomsök kontroller. <br/>[Exempel på GEO-sökning](search-query-simple-examples.md#example-5-geo-search)|
 | Sök efter intervall | filteruttrycket och enkel parser | I Azure Search skapas intervallfrågor med hjälp av Filterparametern. <br/>[Intervallet filter, exempel](search-query-simple-examples.md#example-4-range-filters) | 
-| [Trafik fältet filtrering](query-lucene-syntax.md#bkmk_fields) | Sökparameter och fullständig parser | Skapa ett sammansatt frågeuttryck som riktar in sig på ett fält. <br/>[Trafik fältet filtrering exempel](search-query-lucene-examples.md#example-2-intra-field-filtering) |
+| [Fielded sökning](query-lucene-syntax.md#bkmk_fields) | Sökparameter och fullständig parser | Skapa ett sammansatt frågeuttryck som riktar in sig på ett fält. <br/>[Fielded search-exempel](search-query-lucene-examples.md#example-2-fielded-search) |
 | [Fuzzy-sökning](query-lucene-syntax.md#bkmk_fuzzy) | Sökparameter och fullständig parser | Matchningar på villkor att ha en liknande konstruktion eller stavning. <br/>[Fuzzy-sökning-exempel](search-query-lucene-examples.md#example-3-fuzzy-search) |
 | [närhetssökning](query-lucene-syntax.md#bkmk_proximity) | Sökparameter och fullständig parser | Söker efter termer som är nära varandra i ett dokument. <br/>[Närhet search-exempel](search-query-lucene-examples.md#example-4-proximity-search) |
 | [termförstärkning](query-lucene-syntax.md#bkmk_termboost) | Sökparameter och fullständig parser | Rangordnar ett dokument som är högre om den innehåller förbättrat termen, i förhållande till andra inte stöds. <br/>[Termen boosting-exempel](search-query-lucene-examples.md#example-5-term-boosting) |

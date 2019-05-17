@@ -3,8 +3,8 @@ title: Alternativ för support och hjälp för utvecklare för Azure AD-appar | 
 description: Vet hur man få hjälp och support för utveckling frågor och problem när du skapar program som integreras med Microsoft-identiteter (Azure Active Directory och Microsoft-konto)
 services: active-directory
 documentationcenter: dev-center-name
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/14/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: jmprieur, dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0de9b3e3535253724d068f806b219736f6889477
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6c4882e991045b4a79c0ea0a19ad8fedc2fb8892
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60299744"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540367"
 ---
 # <a name="support-and-help-options-for-developers"></a>Support och hjälper dig att alternativ för utvecklare
 
@@ -36,7 +36,7 @@ Om du precis har börjat integrera med Azure Active Directory (AD Azure), Micros
 > * Om du upptäcker ett problem med en av våra autentiseringsbibliotek, generera en *GitHub* problemet
 > * Slutligen, om du vill tala med någon kan du kanske vill öppna en supportbegäran
 
-## <a name="search"></a>Search
+## <a name="search"></a>Sökning
 
 Om du har en utvecklings-relaterad fråga kan du kanske kan hitta svaret i dokumentationen, [GitHub-exempel](https://github.com/azure-samples), eller svar på [Stack Overflow](https://www.stackoverflow.com) frågor.
 
@@ -63,7 +63,7 @@ Stack Overflow är prioriterade kanalen för utveckling-relaterade frågor. Medl
 
 Om du inte hittar svar på din fråga via sökning kan skicka en ny fråga att Stack Overflow. Använd någon av följande taggar när du ställer frågor så att communityn identifiera och svara snabbare på din fråga:
 
-|Komponenten/område  | Taggar |
+|Komponenten/område  | Tags |
 |---------|---------|
 | ADAL-biblioteket | [[adal]](https://stackoverflow.com/questions/tagged/adal) |
 | MSAL bibliotek     | [[msal]](https://stackoverflow.com/questions/tagged/msal) |

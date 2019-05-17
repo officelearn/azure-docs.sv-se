@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2019
 ms.author: magoedte
-ms.openlocfilehash: f2a0d64da5a88e82c0ae1fd893af52f2070268f8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 45c9a8da8344aa6aaaa19b534451a7276e96911a
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60402249"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522194"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines"></a>Förstå hälsotillståndet för virtuella datorer i Azure
 
@@ -28,7 +28,7 @@ Visa det övergripande hälsotillståndet för Azure VM och underliggande operat
 
 Den här artikeln hjälper dig att snabbt utvärdera, undersöka och lösa problem med hälsotillstånd har identifierats.
 
-Information om hur du konfigurerar Azure Monitor för virtuella datorer finns i [aktivera Azure Monitor för virtuella datorer](vminsights-onboard.md).
+Information om hur du konfigurerar Azure Monitor för virtuella datorer finns i [aktivera Azure Monitor för virtuella datorer](vminsights-enable-overview.md).
 
 ## <a name="monitoring-configuration-details"></a>Information om övervakning
 
@@ -98,8 +98,8 @@ Hälsotillstånden som definierats för en virtuell dator beskrivs i följande t
 |Ikon |Hälsotillstånd |Betydelse |
 |-----|-------------|------------|
 | |Felfri |Hälsotillståndet är felfri om det är inom de definierade hälsovillkoren, som anger inga problem hittades för den virtuella datorn och den fungerar som krävs. Med en överordnad Övervakare för insamling visar hälsotillstånd samlar in och du det bästa eller sämsta tillståndet för underordnat.|
-| |Kritisk |Hälsotillståndet är kritiskt om den inte är inom definierad hälsostatus, som anger att en eller flera kritiska problem har identifierats som behöver åtgärdas om du vill återställa normal drift. Med en överordnad Övervakare för insamling visar hälsotillstånd samlar in och du det bästa eller sämsta tillståndet för underordnat.|
-| |Varning |Hälsotillståndet är en varning om det är mellan två tröskelvärden för definierade hälsostatus, där en anger en *varning* tillstånd och den andra anger en *kritisk* tillstånd (tre hälsotillstånd tillstånd tröskelvärden kan kan konfigureras), eller när ett icke-kritiska problem har identifierats som kan orsaka problem om inte lösas. Med en överordnad samlad Övervakare, om en eller flera av de underordnade objekten är i varningstillstånd så kommer att användas i överordnat *varning* tillstånd. Om det finns en underordnad som tillhör en *kritisk* och en annan underordnade i en *varning* tillstånd, den överordnade samlade visar ett hälsotillstånd *kritisk*.|
+| |Kritiska |Hälsotillståndet är kritiskt om den inte är inom definierad hälsostatus, som anger att en eller flera kritiska problem har identifierats som behöver åtgärdas om du vill återställa normal drift. Med en överordnad Övervakare för insamling visar hälsotillstånd samlar in och du det bästa eller sämsta tillståndet för underordnat.|
+| |Varning! |Hälsotillståndet är en varning om det är mellan två tröskelvärden för definierade hälsostatus, där en anger en *varning* tillstånd och den andra anger en *kritisk* tillstånd (tre hälsotillstånd tillstånd tröskelvärden kan kan konfigureras), eller när ett icke-kritiska problem har identifierats som kan orsaka problem om inte lösas. Med en överordnad samlad Övervakare, om en eller flera av de underordnade objekten är i varningstillstånd så kommer att användas i överordnat *varning* tillstånd. Om det finns en underordnad som tillhör en *kritisk* och en annan underordnade i en *varning* tillstånd, den överordnade samlade visar ett hälsotillstånd *kritisk*.|
 | |Inte tillgängligt |Hälsotillståndet är i ett *okänd* tillstånd när hälsotillståndet inte kan beräknas av flera skäl, till exempel inte kunna samla in data, tjänsten som ej initierad, osv. Den här hälsotillstånd kan inte konfigureras.| 
 
 Att välja **visa hälsotillstånd diagnostik** öppnas en sida som visar alla komponenter i den virtuella datorn, tillhörande hälsostatus kriterier, tillståndsändringar och andra problem som uppstod genom att övervaka komponenter som hör till den virtuella datorn. Mer information finns i [hälsotillstånd diagnostik](#health-diagnostics). 

@@ -3,8 +3,8 @@ title: Problem med att skapa ett program med Application Proxy | Microsoft Docs
 description: Så här felsöker du problem med att skapa Application Proxy-program på Azure AD-administrationsportalen
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/21/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7aad73331d06828a4bfe909dbb3b98350b1d0d6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 104b98cba0948ec5d0896877e54eab1e7cd4049f
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60293604"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65825807"
 ---
 # <a name="problem-creating-an-application-proxy-application"></a>Problem med att skapa ett programproxy-program 
 

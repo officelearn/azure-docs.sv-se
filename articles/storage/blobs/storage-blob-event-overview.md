@@ -9,18 +9,18 @@ ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
 ms.subservice: blobs
-ms.openlocfilehash: b03d7d98fe43eacab63f45ccacd7d8dea9598c8e
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 146b33c1a52838279f000a7f793902e2f35dbfaa
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142167"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65826519"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reagera på Blob storage-händelser
 
 Azure Storage-händelser tillåta program att reagera på skapandet och borttagningen av blobar med moderna arkitekturer utan server. Detta sker utan behov av komplicerade kod eller dyrt och ineffektiv avsökningen tjänster.  I stället händelser skickas [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) till prenumeranter som [Azure Functions](https://azure.microsoft.com/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/), eller till och med dina egna anpassade http-lyssnare och du bara betala för det du använder.
 
-BLOB storage-händelser skickas på ett tillförlitligt sätt till Event grid-tjänsten som tillhandahåller pålitlig leverans till dina program via omfattande återförsöksprinciper och förlorade leverans.
+BLOB storage-händelser skickas på ett tillförlitligt sätt till Event grid-tjänsten som tillhandahåller pålitlig leverans till dina program via omfattande återförsöksprinciper och förlorade leverans. Mer information finns i [Event Grid meddelandeleverans och försök igen](https://docs.microsoft.com/azure/event-grid/delivery-and-retry).
 
 Vanliga händelse scenarier för Blob storage är bild eller video bearbetning, sökindexering eller något arbetsflöde för filen indatavärdena.  Asynkrona filöverföringar är passade bra för händelser.  När ändringarna är ovanliga, men din situation kräver omedelbar svarstider, kan händelsebaserad arkitektur vara särskilt effektivt.
 
@@ -48,7 +48,7 @@ BLOB storage-händelser innehåller all information du behöver för att svara p
 > |ämne|string|Relativ resurssökväg till objektet som omfattas av händelsen, med samma utökade Azure Resource Manager-format som vi använder för att beskriva storage-konton, tjänster och behållare för Azure RBAC.  Det här formatet innehåller ett bevara blobnamn.|
 > |eventTime|string|Datum/tid som händelsen har genererats i ISO 8601-format|
 > |Händelsetyp|string|"Microsoft.Storage.BlobCreated" or "Microsoft.Storage.BlobDeleted"|
-> |Id|string|Unik identifierare om den här händelsen|
+> |ID|string|Unik identifierare om den här händelsen|
 > |dataVersion|string|Dataobjektets schemaversion.|
 > |metadataVersion|string|Schemaversion för översta egenskaper.|
 > |data|objekt|Insamling av data för blob storage-händelse|

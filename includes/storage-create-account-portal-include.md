@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 842201ee20ef2e13c5179ccb5992a1ed98d36a3e
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 56545b02c35d68455497c93582073c73d6c75da5
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65237874"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65815465"
 ---
 Följ de här stegen för att skapa ett GPv2-konto för generell användning i Azure-portalen:
 
@@ -28,12 +28,12 @@ Följ de här stegen för att skapa ett GPv2-konto för generell användning i A
 1. Välj en plats för ditt lagringskonto eller använd standardplatsen.
 1. Lämna dessa fält med respektive standardvärde:
 
-   |Fält  |Värde  |
+   |Fält  |Value  |
    |---------|---------|
    |Distributionsmodell     |Resource Manager         |
    |Prestanda     |Standard         |
    |Typ av konto     |StorageV2 (generell användning v2)         |
-   |Replikering     |Läsåtkomst till geografiskt redundant lagring (LRS)         |
+   |Replikering     |Read-Access Geo-Redundant Storage (RA-GRS)         |
    |Åtkomstnivå     |Frekvent         |
 
 1. Välj **Granska + skapa** för att granska inställningarna för ditt lagringskonto och skapa kontot.

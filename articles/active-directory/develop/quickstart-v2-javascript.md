@@ -16,12 +16,12 @@ ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23003186aa413e313578c57616ae03c435f140e1
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 9deaf610696f676610f589168426ac24be692c99
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785401"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823525"
 ---
 # <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-single-page-application-spa"></a>Snabbstart: Logga in användare och hämta en åtkomsttoken från ett JavaScript ensidesapplikation (SPA)
 
@@ -183,7 +183,7 @@ var myMSALObj = new Msal.UserAgentApplication(msalConfig);
 > |`cacheLocation`  | (Valfritt) Detta anger webbläsare lagringen för auth-tillstånd. Standardvärdet är sessionStorage.   |
 > |`storeAuthStateInCookie`  | (Valfritt) Biblioteket lagrar tillståndet autentisering som krävs för verifiering av auth-flöden i cookies. Detta är inställt för IE och Edge-webbläsare att åtgärda vissa [kända problem](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues). |
 
- Se den [wiki](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/MSAL-basics#configuration-options) för mer information om de konfigurerbara alternativ som är tillgängliga.
+ Mer information om de konfigurerbara alternativ som är tillgängliga [initiera klientprogram](msal-js-initializing-client-applications.md).
 
 ### <a name="sign-in-users"></a>Logga in användare
 
@@ -256,6 +256,7 @@ myMSALObj.acquireTokenPopup(requestObj).then(function (tokenResponse) {
     console.log(error);
 });
 ```
+
 > [!NOTE]
 > Den här snabbstarten används de `loginRedirect` och `acquireTokenRedirect` metoder när webbläsaren som används är Internet Explorer på grund av en [känt problem](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues) rör hantering av popup-fönster genom att webbläsaren Internet Explorer.
 

@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/03/2018
+ms.date: 05/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 81877ad23728ad76cb5d4dc5084990511257c6df
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 4b2f538831ee9410eaf1a2d272f01fd30a9236e6
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64695083"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65519437"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>Metodtips för att välja en Time-ID
 
@@ -29,6 +29,7 @@ Välja en Time-ID är som en partitionsnyckel för en databas. Det är ett vikti
 > Time Series-ID är skiftlägeskänsliga och kan ändras (det kan inte ändras efter att det angetts).
 
 Med det i åtanke är det viktigt att välja tillämpligt Time Series-ID. Tänk efter dessa bästa metoder när du väljer en tid-ID:
+
 * Välj ett egenskapsnamn som har ett stort antal värden och har även mönster i databasåtkomst. Det är en bra idé att ha en partitionsnyckel med många distinkta värden (till exempel hundratals eller tusentals). För många kunder, det här är något som DeviceID eller SensorID i din JSON.
 * Time Series-ID: T måste vara unika den lägsta nivån för din [Tidsseriemodell](./time-series-insights-update-tsm.md).
 * En teckensträng för Time Series-ID-egenskapen namn kan ha upp till 128 tecken och egenskapsvärden för Time Series-ID kan ha högst 1024 tecken.
@@ -41,13 +42,13 @@ Du kan också välja upp till *tre* (3) nyckelegenskaper som din Time Series-ide
 
 Följande scenarier beskriver välja fler än en nyckelegenskap som din Time Series-ID:  
 
-### <a name="scenario-1"></a>Scenario 1
+### <a name="scenario-one"></a>Scenario ett
 
-* Du har äldre fjärranläggning tillgångar, var och en med en unik nyckel. 
-* Till exempel en flotta identifieras unikt med egenskapen *deviceId* och en annan där egenskapen unika är *objectId*. Varken flotta innehåller andra vagnparkens unik egenskap. I det här exemplet markerar du två nycklar, deviceId och objekt-ID som unika nycklar. 
+* Du har äldre fjärranläggning tillgångar, var och en med en unik nyckel.
+* Till exempel en flotta identifieras unikt med egenskapen *deviceId* och en annan där egenskapen unika är *objectId*. Varken flotta innehåller andra vagnparkens unik egenskap. I det här exemplet markerar du två nycklar, deviceId och objekt-ID som unika nycklar.
 * Vi accepterar null-värden och bristen på en egenskap närvaro i händelsenyttolasten som räknas som en `null` värde. Det är också det korrekta sättet att hantera Skicka data till två olika händelsekällor där data i varje händelsekälla har ett unikt Time Series-ID.
 
-### <a name="scenario-2"></a>Scenario 2
+### <a name="scenario-two"></a>Scenario två
 
 * Du behöver flera egenskaper som ska vara unikt inom samma flottan av tillgångar. 
 * Exempel: Anta att du är en smart byggnad tillverkare och distribuera sensorer i varje rum. I varje rum du vanligtvis har samma värden för *sensorId*, till exempel *sensor1*, *sensor2*, och *sensor3*.

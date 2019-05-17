@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/03/2019
+ms.date: 05/15/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1f03cd518a15d08971968e04fa69954951c77e0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8659ecab649216650403f3a992cc6e356e5de5d0
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60357126"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823585"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Användningsvillkorsfunktion för Azure Active Directory
 Användningsvillkoren för Azure AD tillhandahåller en enkel metod som organisationer kan använda för att presentera information för slutanvändare. Den här presentationen gör att användare kan se relevanta ansvarsfriskrivningar för juridiska krav eller efterlevnadskrav. Den här artikeln beskriver hur du kommer igång med användningsvillkoren.
@@ -383,6 +383,9 @@ S: Du kan [granska tidigare godkända användningsvillkor](#how-users-can-review
 
 **F: Vad händer om jag använder också Intune villkoren?**<br />
 S: Om du har konfigurerat båda Azure AD-användningsvillkor och [Intune villkor](/intune/terms-and-conditions-create), användaren uppmanas att godkänna båda. Mer information finns i den [välja rätt villkor lösning för din organisation blogginlägget](https://go.microsoft.com/fwlink/?linkid=2010506&clcid=0x409).
+
+**F: Vilka slutpunkter använder villkoren används för autentisering?**<br />
+S: Användningsvillkor använder följande slutpunkter för autentisering: https://tokenprovider.termsofuse.identitygovernance.azure.com och https://account.activedirectory.windowsazure.com. Om din organisation har en lista över tillåtna över URL: er för registrering, behöver du lägga till dessa slutpunkter till i listan över tillåtna, tillsammans med Azure AD-slutpunkter för inloggning.
 
 ## <a name="next-steps"></a>Nästa steg
 

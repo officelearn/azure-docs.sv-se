@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/23/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 6b3b49049ea1ed36a08fad9619183017b0f07d99
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 8ceb84ab9e9c41ff6a9cbde62571fb12ae67d790
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65077747"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596075"
 ---
 # <a name="durable-functions-20-preview-azure-functions"></a>Varaktiga funktioner 2.0 preview (Azure Functions)
 
@@ -36,7 +36,7 @@ Stöd för .NET Framework (och därför Functions 1.0) har släppts för varakti
 
 ### <a name="hostjson-schema"></a>Host.json schema
 
-Följande utdrag visar det nya schemat för host.json. Viktigaste ändringen känna till oss nya `"storageProvider"` avsnittet och `"azureStorage"` avsnittet under den. Den här ändringen gjordes för att stödja [alternativ lagringsprovidrar](durable-functions-preview.md#alternate-storage-providers).
+Följande utdrag visar det nya schemat för host.json. Den huvudsakliga ändringen vara medvetna om är den nya `"storageProvider"` avsnittet och `"azureStorage"` avsnittet under den. Den här ändringen gjordes för att stödja [alternativ lagringsprovidrar](durable-functions-preview.md#alternate-storage-providers).
 
 ```json
 {
@@ -93,11 +93,12 @@ I fall där virtuella metoder finns i en abstrakt basklass metoderna virtuella h
 
 Funktioner för entitet definierar åtgärder för att läsa och uppdatera små delar av tillstånd, kallas *varaktiga entiteter*. Som orchestrator-funktioner, funktioner för entiteten är funktioner med en särskild Utlösartyp *entitet utlösaren*. Till skillnad från orchestrator-funktioner har entiteten funktioner inte några begränsningar för specifik kod. Entiteten funktioner också hantera tillstånd uttryckligen i stället för implicit som representerar tillstånd via Kontrollflöde.
 
-Följande kod är ett exempel på en enkel enhet-funktion som definierar en *räknaren* entitet. Funktionen definierar tre åtgärder, `add`, `remove`, och `reset`, och var av som uppdaterar ett heltalsvärde `currentValue`.
+Följande kod är ett exempel på en enkel enhet-funktion som definierar en *räknaren* entitet. Funktionen definierar tre åtgärder, `add`, `subtract`, och `reset`, och var av som uppdaterar ett heltalsvärde `currentValue`.
 
 ```csharp
+[FunctionName("Counter")]
 public static async Task Counter(
-    [EntityTrigger(EntityName = "Counter")] IDurableEntityContext ctx)
+    [EntityTrigger] IDurableEntityContext ctx)
 {
     int currentValue = ctx.GetState<int>();
     int operand = ctx.GetInput<int>();
@@ -200,21 +201,25 @@ Avsnittet kritiska avslutas och alla låsen släpps, när orchestration slutar. 
 Till exempel överväga en orkestrering som krävs för att testa om det finns två spelare och tilldela dem båda till ett spel. Den här uppgiften kan implementeras med hjälp av ett kritiskt avsnitt på följande sätt:
 
 ```csharp
-
-EntityId player1 = /* ... */;
-EntityId player2 = /* ... */;
-
-using (await ctx.LockAsync(player1, player2))
+[FunctionName("Orchestrator")]
+public static async Task RunOrchestrator(
+    [OrchestrationTrigger] IDurableOrchestrationContext ctx)
 {
-    bool available1 = await ctx.CallEntityAsync<bool>(player1, "is-available");
-    bool available2 = await ctx.CallEntityAsync<bool>(player2, "is-available");
+    EntityId player1 = /* ... */;
+    EntityId player2 = /* ... */;
 
-    if (available1 && available2)
+    using (await ctx.LockAsync(player1, player2))
     {
-        Guid gameId = ctx.NewGuid();
+        bool available1 = await ctx.CallEntityAsync<bool>(player1, "is-available");
+        bool available2 = await ctx.CallEntityAsync<bool>(player2, "is-available");
 
-        await ctx.CallEntityAsync(player1, "assign-game", gameId);
-        await ctx.CallEntityAsync(player2, "assign-game", gameId);
+        if (available1 && available2)
+        {
+            Guid gameId = ctx.NewGuid();
+
+            await ctx.CallEntityAsync(player1, "assign-game", gameId);
+            await ctx.CallEntityAsync(player2, "assign-game", gameId);
+        }
     }
 }
 ```

@@ -2,22 +2,22 @@
 title: Hantera klientprogram med Azure Active Directory | Microsoft Docs
 description: Den här artikeln presenterar fördelarna med att integrera Azure Active Directory med dina lokala program samt med moln- och SaaS-program.
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: overview
 ms.workload: identity
 ms.date: 10/30/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a65c42ff2d03946c021497e350836623a408ce7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 657527272ccf8b5f69764052a2385ceec57ddc03
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60291065"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65826040"
 ---
 # <a name="application-management-with-azure-active-directory"></a>Programhantering med Azure Active Directory
 

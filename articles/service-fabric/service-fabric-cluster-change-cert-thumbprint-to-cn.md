@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/01/2019
 ms.author: aljo
-ms.openlocfilehash: d6860cdfb2e453a2151b4c5e425cfe0b12d88f8b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c199bd7314cb076def497bc18030f783eb23f4be
+ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60387201"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65620236"
 ---
 # <a name="change-cluster-from-certificate-thumbprint-to-common-name"></a>Ändra kluster från tumavtrycket för certifikatet till unika namn
 Inga två certifikat kan ha samma tumavtryck, vilket gör förnya certifikatet för klustret eller management svårt. Flera certifikat kan dock ha samma namn eller ämne.  Om ett distribuerat kluster växlas från att använda certifikattumavtryck till att använda vanliga certifikatnamn blir certifikathanteringen mycket enklare. Den här artikeln beskriver hur du uppdaterar en Service Fabric-kluster för certifikatets unika namn istället för certifikatets tumavtryck.
@@ -127,7 +127,7 @@ Ladda ned mall och parametrar JSON-filerna till den lokala datorn.
     },
     ```
 
-    Överväg även att ta bort den *certificateThumbprint*, den kan inte längre behövs.
+    Överväg även att ta bort den *certificateThumbprint*, kan den inte längre att referera till i Resource Manager-mallen.
 
 2. I den **Microsoft.Compute/virtualMachineScaleSets** resurs, uppdatera tillägg för virtuell dator om du vill använda det gemensamma namnet i certifikatinställningarna i stället för tumavtrycket för.  I **virtualMachineProfile**->**extensionProfile**->**tillägg**->**egenskaper** -> **inställningar**->**certifikat**, lägga till `"commonNames": ["[parameters('certificateCommonName')]"],` och ta bort `"thumbprint": "[parameters('certificateThumbprint')]",`.
     ```json

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 4/8/2019
 ms.author: victorh
-ms.openlocfilehash: a4ce1ad347742886e7d89a32bbeb60c2e0281409
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 8c715cb84dff6e2e739de59aba33041ec1b8db52
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65198567"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786289"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>Konfigurera SSL från slutpunkt till slutpunkt med hjälp av Application Gateway med PowerShell
 
@@ -231,6 +231,69 @@ Med alla steg ovan kan skapa programgatewayen. Skapandet av gatewayen är en pro
 $appgw = New-AzApplicationGateway -Name appgateway -SSLCertificates $cert -ResourceGroupName "appgw-rg" -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SSLPolicy $SSLPolicy -AuthenticationCertificates $authcert -Verbose
 ```
 
+## <a name="apply-a-new-certificate-if-the-back-end-certificate-is-expired"></a>Tillämpa ett nytt certifikat om backend-certifikatet har upphört att gälla
+
+Använd den här proceduren för att tillämpa ett nytt certifikat om backend-certifikatet har upphört att gälla.
+
+1. Hämta application-gateway för att uppdatera.
+
+   ```powershell
+   $gw = Get-AzApplicationGateway -Name AdatumAppGateway -ResourceGroupName AdatumAppGatewayRG
+   ```
+   
+2. Lägg till den nya certifikatresursen från den .cer-fil som innehåller den offentliga nyckeln för certifikatet och kan också vara samma certifikat läggs till lyssnaren för SSL-avslutning på application gateway.
+
+   ```powershell
+   Add-AzApplicationGatewayAuthenticationCertificate -ApplicationGateway $gw -Name 'NewCert' -CertificateFile "appgw_NewCert.cer" 
+   ```
+    
+3. Hämta det nya certifikat-objektet för autentisering i en variabel (TypeName: Microsoft.Azure.Commands.Network.Models.PSApplicationGatewayAuthenticationCertificate).
+
+   ```powershell
+   $AuthCert = Get-AzApplicationGatewayAuthenticationCertificate -ApplicationGateway $gw -Name NewCert
+   ```
+ 
+ 4. Tilldela det nya certifikatet till den **BackendHttp** inställningen och referera till variabeln $AuthCert. (Ange namn för HTTP-inställning som du vill ändra.)
+ 
+   ```powershell
+   $out= Set-AzApplicationGatewayBackendHttpSetting -ApplicationGateway $gw -Name "HTTP1" -Port 443 -Protocol "Https" -CookieBasedAffinity Disabled -AuthenticationCertificates $Authcert
+   ```
+    
+ 5. Spara ändringen i application gateway och skicka den nya konfigurationen som ingår i $out-variabel.
+ 
+   ```powershell
+   Set-AzApplicationGateway -ApplicationGateway $gw  
+   ```
+
+## <a name="remove-an-unused-expired-certificate-from-http-settings"></a>Ta bort ett oanvända utgånget certifikat från HTTP-inställningar
+
+Ta bort ett oanvända utgånget certifikat från HTTP-inställningar med hjälp av den här proceduren.
+
+1. Hämta application-gateway för att uppdatera.
+
+   ```powershell
+   $gw = Get-AzApplicationGateway -Name AdatumAppGateway -ResourceGroupName AdatumAppGatewayRG
+   ```
+   
+2. Ange namnen på certifikat för serverautentisering som du vill ta bort.
+
+   ```powershell
+   Get-AzApplicationGatewayAuthenticationCertificate -ApplicationGateway $gw | select name
+   ```
+    
+3. Ta bort certifikat för serverautentisering från en Programgateway.
+
+   ```powershell
+   $gw=Remove-AzApplicationGatewayAuthenticationCertificate -ApplicationGateway $gw -Name ExpiredCert
+   ```
+ 
+ 4. Bekräfta ändringen.
+ 
+   ```powershell
+   Set-AzApplicationGateway -ApplicationGateway $gw
+   ```
+
+   
 ## <a name="limit-ssl-protocol-versions-on-an-existing-application-gateway"></a>Begränsa SSL-protokollsversioner på en befintlig Programgateway
 
 Föregående steg tog du skapar ett program med slutpunkt-till-slutpunkt SSL och inaktiverar vissa SSL-protokollsversioner. I följande exempel inaktiverar vissa SSL-principer på en befintlig application gateway.

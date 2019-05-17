@@ -4,7 +4,7 @@ description: Den här artikeln visar en lista över alla versioner av Azure AD A
 services: active-directory
 documentationcenter: ''
 author: msmimart
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.assetid: ''
 ms.service: active-directory
@@ -16,19 +16,19 @@ ms.date: 04/05/2019
 ms.subservice: manage-apps
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf9ee43c6c6b332c05286da8e330812d7e0db6c2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7af05769861f98ec192789d90f8a61f5b6638d1d
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60441669"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65783290"
 ---
 # <a name="azure-ad-application-proxy-version-release-history"></a>Azure AD Application Proxy: Versionshistorik
 Den här artikeln visas de versioner och funktioner för Azure Active Directory (Azure AD) Application Proxy som har frisläppts. Azure AD-teamet uppdaterar regelbundet programproxy med nya funktioner. Anslutningar för programproxy som uppdateras automatiskt när en ny version har släppts.
 
 Här är en lista över relaterade resurser:
 
-Resurs |  Information
+Resource |  Information
 --------- | --------- |
 Så här aktiverar du Application Proxy | Förutsättningar för att aktivera Application Proxy och installera och registrera en koppling beskrivs i det här [självstudien](application-proxy-add-on-premises-application.md).
 Förstå Azure AD Application Proxy-anslutningar | Lär dig mer om [-kopplingens](application-proxy-connectors.md) och hur kopplingar [automatiska uppgraderingar](application-proxy-connectors.md#automatic-updates).

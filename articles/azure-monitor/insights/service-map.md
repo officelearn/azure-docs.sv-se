@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 0c654070e2bbeb8ee5dbc64fe9b4f58ee97f2e47
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 09755922da78a3e856c491c01ce9f34f50063d71
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60404644"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606502"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Med lösningen Tjänstkarta i Azure
 Tjänstkarta identifierar automatiskt programkomponenter i Windows- och Linux-system och mappar kommunikationen mellan olika tjänster. Med Tjänstkarta kan du visa dina servrar på samma sätt som du ser på dem: som sammankopplade system som levererar kritiska tjänster. Tjänstkarta visar anslutningar mellan servrar, processer, inkommande och utgående anslutningssvarstid, samt portar i valfri TCP-ansluten arkitektur, utan att det krävs någon konfiguration förutom installationen av en agent.
@@ -29,7 +29,7 @@ Den här artikeln innehåller information om onboarding och med hjälp av Tjäns
 >Om du redan har distribuerat Service Map kan du nu också se dina kartor i Azure Monitor för virtuella datorer, som innehåller ytterligare funktioner för att övervaka VM-hälsa och prestanda. Mer information finns i [Azure Monitor för virtuella datorer översikt](../../azure-monitor/insights/vminsights-overview.md).
 
 
-## <a name="sign-in-to-azure"></a>Logga in på Azure
+## <a name="sign-in-to-azure"></a>Logga in till Azure
 Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="enable-service-map"></a>Aktivera Tjänstkarta
@@ -348,7 +348,7 @@ För att underlätta för som IP-adressen för den fjärranslutna datorn för en
 
 | Egenskap  | Beskrivning |
 |:--|:--|
-| `RemoteCountry` |Namnet på det land som är värd för RemoteIp.  Till exempel *USA* |
+| `RemoteCountry` |Namnet på det land/region som är värd för RemoteIp.  Till exempel *USA* |
 | `RemoteLatitude` |Geoplats latitud.  Till exempel *47.68* |
 | `RemoteLongitude` |Geoplats longitud.  Till exempel *-122.12* |
 
@@ -493,7 +493,7 @@ let remoteMachines = remote | summarize by RemoteMachine;
 | summarize Remote=makeset(iff(isempty(RemoteMachine), todynamic('{}'), pack('Machine', RemoteMachine, 'Process', Process1, 'ProcessName', ProcessName1))) by ConnectionId, Direction, Machine, Process, ProcessName, SourceIp, DestinationIp, DestinationPort, Protocol
 ```
 
-## <a name="rest-api"></a>REST-API
+## <a name="rest-api"></a>REST API
 Alla data för server, process och beroenden i Tjänstkarta är tillgängligt via den [REST-API för Service Map](https://docs.microsoft.com/rest/api/servicemap/).
 
 ## <a name="diagnostic-and-usage-data"></a>Diagnostik- och användningsdata

@@ -3,8 +3,8 @@ title: Kodexempel för Microsoft identity-plattformen | Microsoft Docs
 description: Innehåller ett index över tillgänglig Microsoft identity platform (V2-slutpunkt) kodexempel ordnas efter scenario.
 services: active-directory
 documentationcenter: dev-center-name
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: a242a5ff-7300-40c2-ba83-fb6035707433
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/26/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09c5bd217f852f7130888d03e3368278af8abce5
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: e3dc8bda4e3ffb667d12342cf451591113ea9dc0
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190883"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545414"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Kodexempel för Microsoft identity-plattformen (v2.0-slutpunkt)
 
@@ -87,7 +87,7 @@ Följande exempel visar ett program som ansluter till Microsoft Graph API med id
 
 | Klientprogram | Plattform | Flow/bevilja | Anropar Microsoft Graph |
 | ------------------ | -------- | ---------- | -------------------- |
-| Konsolen | ![.NET Core](media/sample-v2-code/logo_NETcore.png)</p> ASP.NET  | [Klientautentiseringsuppgifter](msal-authentication-flows.md#client-credentials) | [dotnetcore-daemon-v2](https://github.com/azure-samples/active-directory-dotnetcore-daemon-v2) |
+| Konsol | ![.NET Core](media/sample-v2-code/logo_NETcore.png)</p> ASP.NET  | [Klientautentiseringsuppgifter](msal-authentication-flows.md#client-credentials) | [dotnetcore-daemon-v2](https://github.com/azure-samples/active-directory-dotnetcore-daemon-v2) |
 | Webbapp | ![ASP.NET](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET  | [Klientautentiseringsuppgifter](msal-authentication-flows.md#client-credentials) | [dotnet-daemon-v2](https://github.com/azure-samples/active-directory-dotnet-daemon-v2) |
 
 ## <a name="headless-applications"></a>Fjärradministrerad program

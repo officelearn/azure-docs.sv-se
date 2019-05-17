@@ -1,5 +1,5 @@
 ---
-title: Arbeta med projektioner i ett Arkiv för kunskap – Azure Search
+title: Arbeta med projektioner i en knowledge store (förhandsversion) – Azure Search
 description: Spara och utforma dina avancerad och data från AI-pipeline för fulltextindexering i situationer än sökning
 manager: eladz
 author: vkurpad
@@ -10,18 +10,22 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: vikurpad
 ms.custom: seomay2019
-ms.openlocfilehash: 3ab5ffafd1b20eb0e3e453d3e730840baf9233e1
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: f1c7278909557dc92f86c5dfc1f190fddf33f607
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65028372"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540813"
 ---
 # <a name="working-with-projections-in-a-knowledge-store-in-azure-search"></a>Arbeta med projektioner i ett knowledge Arkiv i Azure Search
 
+> [!Note]
+> Knowledge store är i förhandsversion och inte är avsett för användning i produktion. Den [REST API-version 2019-05-06-Preview](search-api-preview.md) ger den här funktionen. Det finns inget stöd för .NET SDK just nu.
+>
+
 Azure Search kan innehåll berikande via AI kognitiva kunskaper och anpassade funktioner som en del av indexering. Enrichments ge struktur till dina dokument och göra sökningen mer effektivt. I många fall är avancerad och dokumenten användbart för scenarier än sökning, till exempel för knowledge utvinningsstrukturen.
 
-Projektioner, en komponent i [knowledge store (förhandsversion)](knowledge-store-concept-intro.md), är vyer för avancerad och dokument som kan sparas till fysiska lagringsplatsen för knowledge utvinningsstrukturen syften. En projektion kan du ”project” dina data till en form som överensstämmer med dina behov, bevarar relationer så att verktyg som Power BI kan läsa in data med inget extra arbete. 
+Projektioner, en komponent i [knowledge store](knowledge-store-concept-intro.md), är vyer för avancerad och dokument som kan sparas till fysiska lagringsplatsen för knowledge utvinningsstrukturen syften. En projektion kan du ”project” dina data till en form som överensstämmer med dina behov, bevarar relationer så att verktyg som Power BI kan läsa in data med inget extra arbete. 
 
 Projektioner kan vara tabular, med data som lagras i rader och kolumner i Azure Table storage eller JSON-objekt som lagras i Azure Blob storage. Du kan definiera flera projektioner av data som den berikas. Detta är användbart när du vill att samma data utformas på olika sätt för enskilda användningsfall. 
 

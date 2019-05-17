@@ -15,12 +15,12 @@ ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a310770f26a1c40682791582a05a9bb4c47a42d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: aee8ac3c2638ede559f8a1f9c51f2d6e62604998
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65141030"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602284"
 ---
 # <a name="complete-an-access-review-of-azure-resource-roles-in-pim"></a>Slutför en åtkomstgranskning i Azure-resursroller i PIM
 Privilegierade rolladministratörer kan granska privilegierad åtkomst efter en [åtkomstgranskning har startats](pim-resource-roles-start-access-review.md). Azure Active Directory (Azure AD) Privileged Identity Management (PIM) skickar automatiskt ett e-postmeddelande som uppmanar användaren att granska åtkomsten. Om en användare inte får ett e-postmeddelande, kan du skicka dem instruktionerna [så här utför du en åtkomstgranskning](pim-resource-roles-perform-access-review.md).
@@ -33,13 +33,13 @@ När åtkomstgranskningsperiod är slut, eller när alla användare är klar med
 2. Välj din resurs.
 
 3. Välj den **Åtkomstgranskningar** på instrumentpanelen.
-![Åtkomstgranskningar](media/azure-pim-resource-rbac/rbac-access-review-home-list.png)
+![Åtkomstgranskningar](media/pim-resource-roles-complete-access-review/rbac-access-review-home-list.png)
 
 4. Välj åtkomstgranskning som du vill hantera.
 
 På bladet detalj i åtkomstgranskningen finns ett antal alternativ för att hantera granskningen. Alternativen är följande:
 
-![Alternativ för att hantera en granskning](media/azure-pim-resource-rbac/rbac-access-review-menu.png)
+![Alternativ för att hantera en granskning](media/pim-resource-roles-complete-access-review/rbac-access-review-menu.png)
 
 ### <a name="stop"></a>Stoppa
 Alla åtkomstgranskningar har ett slutdatum, men du kan använda den **stoppa** för att slutföra den tidigt. Alla användare som inte har slutfört sina granskningar av den här tiden kan inte slutför du det när du stoppa granskningen. Du kan inte starta om en granskning när den har stoppats.
@@ -47,19 +47,19 @@ Alla åtkomstgranskningar har ett slutdatum, men du kan använda den **stoppa** 
 ### <a name="reset"></a>Återställ
 Du kan återställa en åtkomstgranskning för att ta bort alla beslut som görs på den. När du har återställt en åtkomstgranskning, alla användare är markerade som ej granskade igen. 
 
-### <a name="apply"></a>Använd
+### <a name="apply"></a>Tillämpa
 När en åtkomstgranskning är klar kan du använda den **tillämpa** knappen för att implementera resultatet av granskningen. Om en användares åtkomst nekades i granskningen, det här steget tar du bort deras rolltilldelning.  
 
-### <a name="delete"></a>Ta bort
+### <a name="delete"></a>Radera
 Om du inte är intresserad av granskningen längre, kan du ta bort den. Den **ta bort** knappen tar bort granskningen från PIM-programmet.
 
 ## <a name="results"></a>Resultat
 På den **resultat** fliken, visa och hämta en lista över granskningsresultaten. 
-![Fliken resultat](media/azure-pim-resource-rbac/rbac-access-review-results.png)
+![Fliken resultat](media/pim-resource-roles-complete-access-review/rbac-access-review-results.png)
 
 ## <a name="reviewers"></a>Granskare
 Visa och Lägg till granskare till din befintliga åtkomstgranskning. Påminn granskare att slutföra sina granskningar.
-![Lägg till granskare](media/azure-pim-resource-rbac/rbac-access-review-reviewers.png)
+![Lägg till granskare](media/pim-resource-roles-complete-access-review/rbac-access-review-reviewers.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

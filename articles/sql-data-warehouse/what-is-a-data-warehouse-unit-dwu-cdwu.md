@@ -2,20 +2,20 @@
 title: 'Informationslagerenheter (dwu: er, cDWUs) i Azure SQL Data Warehouse | Microsoft Docs'
 description: 'Rekommendationer om hur du väljer perfekt antalet informationslagerenheter (dwu: er, cDWUs) för att optimera pris och prestanda och hur du ändrar antalet enheter.'
 services: sql-data-warehouse
-author: ronortloff
+author: happynicolle
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: design
 ms.date: 04/17/2018
-ms.author: rortloff
+ms.author: nicw
 ms.reviewer: igorstan
-ms.openlocfilehash: 5f6e24dfa1b5c4ea4f0748af81104edfe88ceeae
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d71594e745fdd57ba383b98b547cceb0be1b61bc
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58099111"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65797842"
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Informationslagerenheter (dwu: er) och beräkning Informationslagerenheter (cDWUs)
 Rekommendationer om hur du väljer perfekt antalet informationslagerenheter (dwu: er, cDWUs) för att optimera pris och prestanda och hur du ändrar antalet enheter. 
@@ -149,7 +149,7 @@ MODIFY (SERVICE_OBJECTIVE = 'DW1000')
 ;
 ```
 
-### <a name="rest-apis"></a>REST API:er
+### <a name="rest-apis"></a>REST-API:er
 
 Du kan ändra dwu-enheterna med den [skapa eller uppdatera databasen](/rest/api/sql/databases/createorupdate) REST API. I följande exempel anger servicenivåmålet till DW1000 för MySQLDW som finns på servern minserver-databasen. Servern är i ett Azure-resursgrupp med namnet ResourceGroup1.
 

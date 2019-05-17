@@ -9,15 +9,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/09/2018
+ms.date: 05/13/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: dd7e29f8f37572565e505aade97b964254b6d72c
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: d93d9999c407e64658b88025feda48d33e1a5ad1
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466562"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595796"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Aktivera säker distribution metoder med Azure Deployment Manager (förhandsversion)
 
@@ -38,15 +38,11 @@ Du kan distribuera mallen topologin innan du distribuerar mallen distributionen.
 
 Azure Deployment Manager REST API-referensen finns [här](https://docs.microsoft.com/rest/api/deploymentmanager/).
 
-## <a name="supported-locations"></a>Platser som stöds
-
-För förhandsversionen stöds Deployment Manager-resurser i centrala USA och östra USA 2. När du definierar resurser i din topologi och distribuera mallar, som serviceenheter, artefaktkällor och distributioner som beskrivs i den här artikeln måste du ange en av dessa regioner för platsen. De resurser som du distribuerar för att skapa din tjänst, till exempel virtuella datorer, lagringskonton och webbappar, stöds dock i alla sina [standardplatserna](https://azure.microsoft.com/global-infrastructure/services/?products=all).  
-
 ## <a name="identity-and-access"></a>Identitet och åtkomst
 
 Med Deployment Manager, en [användartilldelade hanterad identitet](../active-directory/managed-identities-azure-resources/overview.md) utför distributionsåtgärder för. Du kan skapa den här identiteten för innan du påbörjar distributionen. Den måste ha åtkomst till den prenumerationen som du distribuerar tjänsten och tillräcklig behörighet för att slutföra distributionen. Information om de åtgärder som beviljas genom roller finns i [inbyggda roller för Azure-resurser](../role-based-access-control/built-in-roles.md).
 
-Identiteten måste finnas i något av platserna som stöds för distribution Manager och den måste finnas på samma plats som distributionen.
+Identiteten måste finnas på samma plats som distributionen.
 
 ## <a name="topology-template"></a>Topologi mall
 
@@ -221,7 +217,9 @@ Vänta steg pausar distributionen innan du fortsätter. Det kan du kontrollera a
 
 Egenskapen varaktighet har [ISO 8601-standarden](https://en.wikipedia.org/wiki/ISO_8601#Durations). I föregående exempel anger en vänta en minut.
 
-Mer information om hälsotillstånd Kontrollera steget finns i [ ]() och [ ]() mer information finns i [steg mallreferensen](/azure/templates/Microsoft.DeploymentManager/steps).
+Mer information om hälsotillstånd Kontrollera steget finns i [introducera hälsotillstånd integration distribution till Azure Deployment Manager](./deployment-manager-health-check.md) och [självstudien: Använda hälsokontroll i Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
+
+Mer information finns i [steg mallreferensen](/azure/templates/Microsoft.DeploymentManager/steps).
 
 ### <a name="rollouts"></a>Distributioner
 

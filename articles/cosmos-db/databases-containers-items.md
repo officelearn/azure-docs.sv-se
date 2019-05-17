@@ -1,41 +1,43 @@
 ---
-title: Arbeta med Azure Cosmos DB-databaser, behållare och objekt
-description: Den här artikeln beskriver hur du skapar och använder Azure Cosmos DB-databaser, behållare och objekt
+title: Arbeta med databaser, behållare och objekt i Azure Cosmos DB
+description: Den här artikeln beskriver hur du skapar och använder databaser, behållare och objekt i Azure Cosmos DB.
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 215ae29c571e56b7e3af589149123083223023c7
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: ea3ba91859bbfb1a7c589cdb36e9fb87b52a89b8
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153465"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65560293"
 ---
-# <a name="work-with-databases-containers-and-items"></a>Arbeta med databaser, containrar och objekt
+# <a name="work-with-databases-containers-and-items-in-azure-cosmos-db"></a>Arbeta med databaser, behållare och objekt i Azure Cosmos DB
 
-När du har skapat en [Azure Cosmos-konto](account-overview.md) under din Azure-prenumeration kan du hantera data i ditt konto genom att skapa databaser, behållare och objekt. Den här artikeln beskrivs var och en av dessa entiteter: databaser, behållare och objekt. Följande bild visar hierarkin för olika enheter i ett Azure Cosmos-konto:
+När du har skapat en [Azure Cosmos DB-konto](account-overview.md) under din Azure-prenumeration kan du hantera data i ditt konto genom att skapa databaser, behållare och objekt. Den här artikeln beskrivs var och en av dessa entiteter. 
+
+Följande bild visar hierarkin för olika enheter i ett Azure Cosmos DB-konto:
 
 ![Azure Cosmos-konto-entiteter](./media/databases-containers-items/cosmos-entities.png)
 
 ## <a name="azure-cosmos-databases"></a>Azure Cosmos-databaser
 
-Du kan skapa en eller flera Azure-Cosmos-databaser under ditt konto. En databas är detsamma som ett namnområde. Det är hanteringsenheten för en uppsättning Azure Cosmos-behållare. I följande tabell visas hur en Azure Cosmos-databas är mappad till olika API-specifika entiteter:
+Du kan skapa en eller flera Azure-Cosmos-databaser under ditt konto. En databas är detsamma som ett namnområde. En databas är hanteringsenheten för en uppsättning Azure Cosmos-behållare. I följande tabell visas hur en Azure Cosmos-databas är mappad till olika API-specifika entiteter:
 
-| **Azure Cosmos-enhet** | **SQL-API** | **API för Cassandra** | **Azure Cosmos DB: s API för MongoDB** | **Gremlin-API** | **Table API** |
+| Azure Cosmos entity | API för SQL | Cassandra-API | API för Azure Cosmos DB för MongoDB | Gremlin-API | Tabell-API |
 | --- | --- | --- | --- | --- | --- |
-|Azure Cosmos-databas | Databas | Nyckelutrymme | Databas | Databas | Ej tillämpligt |
+|Azure Cosmos-databas | Databas | Nyckelutrymme | Databas | Databas | Saknas |
 
 > [!NOTE]
 > När du skapar din första tabellen med tabell-API-konton kan skapas en standarddatabas automatiskt i ditt Azure Cosmos-konto.
 
 ### <a name="operations-on-an-azure-cosmos-database"></a>Åtgärder på en Azure Cosmos-databas
 
-Du kan interagera med en Azure Cosmos-databas med Azure Cosmos-API: er på följande sätt:
+Du kan interagera med en Azure Cosmos-databas med Azure Cosmos-API: er enligt beskrivningen i följande tabell:
 
-| **Åtgärd** | **Azure CLI**|**SQL-API** | **API för Cassandra** | **Azure Cosmos DB: s API för MongoDB** | **Gremlin-API** | **Table API** |
+| Operation | Azure CLI | API för SQL | Cassandra-API | API för Azure Cosmos DB för MongoDB | Gremlin-API | Tabell-API |
 | --- | --- | --- | --- | --- | --- | --- |
 |Räkna upp alla databaser| Ja | Ja | Ja (database mappas till ett keyspace) | Ja | Ej tillämpligt | Ej tillämpligt |
 |Läsa databas| Ja | Ja | Ja (database mappas till ett keyspace) | Ja | Ej tillämpligt | Ej tillämpligt |
@@ -45,96 +47,96 @@ Du kan interagera med en Azure Cosmos-databas med Azure Cosmos-API: er på följ
 
 ## <a name="azure-cosmos-containers"></a>Azure Cosmos-behållare
 
-En Azure Cosmos-behållare är Faktureringsenhet skalbarhet för både etablerat dataflöde och lagring. En behållare är horisontellt partitionerade och replikeras sedan över flera regioner. De objekt som du lägger till behållaren och det dataflöde som du etablerar på den distribueras automatiskt i en uppsättning logiska partitioner baserat på partitionsnyckel. Mer information om partitionering och partitionsnycklar finns [detta](partition-data.md) artikeln. 
+En Azure Cosmos-behållare är Faktureringsenhet skalbarhet både för etablerat dataflöde och lagring. En behållare är horisontellt partitionerade och replikeras sedan över flera regioner. De objekt som du lägger till behållaren och det dataflöde som du etablerar på den distribueras automatiskt i en uppsättning logiska partitioner baserat på partitionsnyckel. Mer information om partitionering och partitionsnycklar finns [partitionera data](partition-data.md). 
 
 När du skapar en Azure Cosmos-behållare kan konfigurera du dataflöde på något av följande lägen:
 
-* **Dedikerat dataflöde** läge: Dataflödet som tillhandahållits i en behållare enbart för behållaren och den backas upp av att serviceavtalen. Mer information finns i [hur du etablera dataflöde för en Azure Cosmos-behållare](how-to-provision-container-throughput.md).
+* **Dedikerat dataflöde läge**: Dataflödet som tillhandahållits i en behållare enbart för behållaren och den backas upp av att serviceavtalen. Mer information finns i [hur du etablera dataflöde för en Azure Cosmos-behållare](how-to-provision-container-throughput.md).
 
-* **Delade etablerat dataflöde** läge: De här behållarna dela det etablerade dataflödet som med andra behållare i samma databas (förutom de här behållarna som har konfigurerats med dedikerad etablerat dataflöde). Med andra ord delas dataflöde i databasen mellan alla ”delade dataflöde”-behållare. Mer information finns i [så här konfigurerar du etablerat dataflöde på en Azure Cosmos-databas](how-to-provision-database-throughput.md).
+* **Delade etablerat dataflöde läge**: De här behållarna dela det etablerade dataflödet som med andra behållare i samma databas (exklusive behållare som har konfigurerats med dedikerad etablerat dataflöde). Med andra ord delas dataflöde i databasen mellan alla ”delade dataflöde”-behållare. Mer information finns i [hur du etablera dataflöde för en Azure Cosmos-databas](how-to-provision-database-throughput.md).
 
-En Azure Cosmos-behållare kan Elastiskt skala, oavsett om du skapar behållare med antingen ”delade” eller ”dedikerad” etablerat dataflöde lägen.
+En Azure Cosmos-behållare kan skala Elastiskt, om du skapar behållare med etablerat dataflöde för dedikerade eller delade lägen.
 
-En Azure Cosmos-behållare är en schemaoberoende behållare för objekt. Objekt i en behållare kan ha valfri scheman. Till exempel ett objekt som representerar en person, ett objekt som representerar en bil kan placeras i den *samma behållare*. Som standard indexera alla objekt som du lägger till en behållare automatiskt utan att kräva något explicit index eller schemahantering. Du kan anpassa beteendet indexering genom att konfigurera den [indexeringspolicy](index-overview.md) i en behållare. 
+En Azure Cosmos-behållare är en schemaoberoende behållare för objekt. Objekt i en behållare kan ha valfri scheman. Till exempel ett objekt som representerar en person och ett objekt som representerar en bil kan placeras i den *samma behållare*. Som standard indexeras automatiskt alla objekt som du lägger till en behållare utan explicita index eller schemahantering. Du kan anpassa beteendet indexering genom att konfigurera den [indexeringspolicy](index-overview.md) i en behållare. 
 
-Du kan ange [Time To Live (TTL)](time-to-live.md) för markerade objekt i en Azure Cosmos-behållare eller för hela behållaren att smidigt rensa de objekt från systemet. Azure Cosmos DB kommer automatiskt att ta bort objekten när de går ut. Det garanterar även att inte returnerar en fråga som utförs på behållaren har upphört att gälla objekt i en fast gräns. Mer information finns i [hur du konfigurerar TTL på din behållare](how-to-time-to-live.md).
+Du kan ange [Time to Live (TTL)](time-to-live.md) för markerade objekt i en Azure Cosmos-behållare eller för hela behållaren smidigt rensa de objekt från systemet. Azure Cosmos DB tar automatiskt bort objekten när de går ut. Det garanterar även att en fråga som utförs på behållaren inte returnerar objekt som har upphört att gälla inom en fast gräns. Mer information finns i [konfigurera TTL-värdet från din behållare](how-to-time-to-live.md).
 
-Med hjälp av [Change Feed](change-feed.md), du kan prenumerera åtgärdsloggen som hanteras för var och en av de logiska partitionerna för dina behållare. Change Feed innehåller en logg för alla uppdateringar som utförs på behållaren tillsammans med de före och efter-bilder av objekten. Se [skapa reaktiva program med hjälp av Change Feed](serverless-computing-database.md). Du kan också konfigurera kvarhållning varaktigheten för ändra Feed med ändringsflödet i principen för behållaren. 
+Du kan använda [ändringsflödet](change-feed.md) prenumererar du till åtgärdsloggen som hanteras för varje logisk partition för din behållare. Ändringsfeed ger en logg för alla uppdateringar som utförs på behållare, tillsammans med de före och efter-bilder av objekten. Mer information finns i [skapa reaktiva program med hjälp av ändringsflödet](serverless-computing-database.md). Du kan också konfigurera kvarhållningsvaraktighetens för ändringsflödet med ändringsflödet i principen för behållaren. 
 
-Du kan registrera [lagrade procedurer, utlösare, användardefinierade funktioner (UDF)](stored-procedures-triggers-udfs.md) och [sammanfoga procedurer](how-to-manage-conflicts.md) med din Azure Cosmos-behållare. 
+Du kan registrera [lagrade procedurer, utlösare, användardefinierade funktioner (UDF)](stored-procedures-triggers-udfs.md), och [sammanfoga procedurer](how-to-manage-conflicts.md) för din Azure Cosmos-behållare. 
 
-Du kan ange en [unika nyckelvillkor](unique-keys.md) på din Azure Cosmos-behållare. Genom att skapa en unik nyckel princip kan kontrollera du unikhet för ett eller flera värden per logisk partitionsnyckel. När du har skapat en behållare med en unik nyckel princip förhindrar skapande av alla nya eller uppdaterade objekt med värden som duplicerar värdena som anges av den unika key-begränsningen. Mer information finns i [unika nyckelvillkor](unique-keys.md).
+Du kan ange en [unika nyckelvillkor](unique-keys.md) på din Azure Cosmos-behållare. Genom att skapa en unik nyckel princip kan kontrollera du unikhet för ett eller flera värden per logisk partitionsnyckel. Om du skapar en behållare med hjälp av en unik nyckel princip kan kan inga nya eller uppdaterade objekt med värden som duplicerar värdena som anges av den unika key-begränsningen skapas. Mer information finns i [unika nyckelvillkor](unique-keys.md).
 
-En Azure Cosmos-behållare är specialiserat till API-specifika entiteter på följande sätt:
+En Azure Cosmos-behållare är specialiserat till API-specifika entiteter som du ser i följande tabell:
 
-| **Azure Cosmos-enhet** | **SQL-API** | **API för Cassandra** | **Azure Cosmos DB: s API för MongoDB** | **Gremlin-API** | **Table API** |
+| Azure Cosmos entity | API för SQL | Cassandra-API | API för Azure Cosmos DB för MongoDB | Gremlin-API | Tabell-API |
 | --- | --- | --- | --- | --- | --- |
 |Azure Cosmos-behållare | Samling | Tabell | Samling | Graph | Tabell |
 
 ### <a name="properties-of-an-azure-cosmos-container"></a>Egenskaperna för en Azure Cosmos-behållare
 
-En Azure Cosmos-behållare har en uppsättning systemdefinierade egenskaper. Beroende på valet av API: et, kan några av dem inte exponeras direkt. I följande tabell beskrivs i listan över systemdefinierade egenskaper:
+En Azure Cosmos-behållare har en uppsättning systemdefinierade egenskaper. Beroende på vilken API som du använder kanske vissa egenskaper inte exponeras direkt. I följande tabell beskrivs i listan över systemdefinierade egenskaper:
 
-| **Systemdefinierade egenskapen** | **Datorer som genererade eller användarangiven** | **Syfte** | **SQL-API** | **API för Cassandra** | **Azure Cosmos DB: s API för MongoDB** | **Gremlin-API** | **Table API** |
+| Systemdefinierade egenskapen | Systemgenererade eller användarangiven | Syfte | API för SQL | Cassandra-API | API för Azure Cosmos DB för MongoDB | Gremlin-API | Tabell-API |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|_id | Systemgenererad | Unik identifierare för behållare | Ja | Nej | Nej | Nej | Nej |
-|_etag | Systemgenererad | Enhetstagg som används för optimistisk samtidighetskontroll | Ja | Nej | Nej | Nej | Nej |
-|_ts | Systemgenererad | Senast uppdaterade tidsstämpeln i behållaren | Ja | Nej | Nej | Nej | Nej |
-|_self | Systemgenererad | Adresserbara URI: N för behållaren | Ja | Nej | Nej | Nej | Nej |
-|id | Konfigureras av användaren | Användardefinierade unika namnet på behållaren | Ja | Ja | Ja | Ja | Ja |
-|indexingPolicy | Konfigureras av användaren | Ger möjlighet att ändra index sökväg, Indextyp och indexläge. | Ja | Nej | Nej | Nej | Ja |
-|TimeToLive | Konfigureras av användaren | Ger möjlighet att ta bort objekt automatiskt från en behållare efter en viss tidsperiod. Mer information finns i den [Time To Live](time-to-live.md) artikeln. | Ja | Nej | Nej | Nej | Ja |
-|changeFeedPolicy | Konfigureras av användaren | Används för att läsa ändrade objekt i en behållare. Mer information finns i den [Change Feed](change-feed.md) artikeln. | Ja | Nej | Nej | Nej | Ja |
-|uniqueKeyPolicy | Konfigureras av användaren | Används för att se till att en eller flera värden i en logisk partition är unikt. Mer information finns i den [unika Key-begränsningar](unique-keys.md) artikeln. | Ja | Nej | Nej | Nej | Ja |
+|\_ID | System-generated | Unik identifierare för behållare | Ja | Nej | Nej | Nej | Nej |
+|\_ETag | System-generated | Enhetstagg som används för optimistisk samtidighetskontroll | Ja | Nej | Nej | Nej | Nej |
+|\_TS | System-generated | Senast uppdaterade tidsstämpeln i behållaren | Ja | Nej | Nej | Nej | Nej |
+|\_Self | System-generated | Adresserbara URI: N för behållaren | Ja | Nej | Nej | Nej | Nej |
+|ID | Användarangiven | Användardefinierade unika namnet på behållaren | Ja | Ja | Ja | Ja | Ja |
+|indexingPolicy | Användarangiven | Ger möjlighet att ändra index sökväg, Indextyp och indexläge | Ja | Nej | Nej | Nej | Ja |
+|TimeToLive | Användarangiven | Ger möjlighet att ta bort objekt automatiskt från en behållare efter en viss tidsperiod. Mer information finns i [Time to Live](time-to-live.md). | Ja | Nej | Nej | Nej | Ja |
+|changeFeedPolicy | Användarangiven | Används för att läsa ändrade objekt i en behållare. Mer information finns i [Ändringsflödet](change-feed.md). | Ja | Nej | Nej | Nej | Ja |
+|uniqueKeyPolicy | Användarangiven | Används för att se till att ett eller flera värden i en logisk partition är unikt. Mer information finns i [unika nyckelvillkor](unique-keys.md). | Ja | Nej | Nej | Nej | Ja |
 
 ### <a name="operations-on-an-azure-cosmos-container"></a>Åtgärder på en Azure Cosmos-behållare
 
-En Azure Cosmos-behållare har stöd för följande åtgärder med hjälp av någon av Azure Cosmos-API: er.
+En Azure Cosmos-behållare stöder följande åtgärder när du använder någon av Azure Cosmos-API: er:
 
-| **Åtgärd** | **Azure CLI** | **SQL-API** | **API för Cassandra** | **Azure Cosmos DB: s API för MongoDB** | **Gremlin-API** | **Table API** |
+| Operation | Azure CLI | API för SQL | Cassandra-API | API för Azure Cosmos DB för MongoDB | Gremlin-API | Tabell-API |
 | --- | --- | --- | --- | --- | --- | --- |
 | Räkna upp behållare i en databas | Ja | Ja | Ja | Ja | Ej tillämpligt | Ej tillämpligt |
-| Läsa en behållare | Ja | Ja | Ja | Ja | Ej tillämpligt | Ej tillämpligt |
-| Skapa ny behållare | Ja | Ja | Ja | Ja | Ej tillämpligt | Ej tillämpligt |
-| Uppdatera behållare | Ja | Ja | Ja | Ja | Ej tillämpligt | Ej tillämpligt |
-| Ta bort behållare | Ja | Ja | Ja | Ja | Ej tillämpligt | Ej tillämpligt |
+| Läsa en behållare | Ja | Ja | Ja | Ja | Ej tillämpligt | Saknas |
+| Skapa en ny container | Ja | Ja | Ja | Ja | Ej tillämpligt | Saknas |
+| Uppdatera en behållare | Ja | Ja | Ja | Ja | Ej tillämpligt | Saknas |
+| Ta bort en container | Ja | Ja | Ja | Ja | Ej tillämpligt | Ej tillämpligt |
 
 ## <a name="azure-cosmos-items"></a>Azure Cosmos-objekt
 
-Beroende på valet av API: et, kan ett Azure Cosmos-objekt representera antingen ett dokument i en samling, en rad i en tabell eller en nod/edge i ett diagram. I följande tabell visar mappningen mellan API-specifika entiteter till ett Azure Cosmos-objekt:
+Beroende på vilken API som du använder representerar en Azure Cosmos-objektet antingen ett dokument i en samling, en rad i en tabell, eller en nod eller kanttabell i ett diagram. I följande tabell visas mappningen av API-specifika entiteter till ett Azure Cosmos-objekt:
 
-| **Cosmos-entitet** | **SQL-API** | **API för Cassandra** | **Azure Cosmos DB: s API för MongoDB** | **Gremlin-API** | **Table API** |
+| Cosmos-entitet | API för SQL | Cassandra-API | API för Azure Cosmos DB för MongoDB | Gremlin-API | Tabell-API |
 | --- | --- | --- | --- | --- | --- |
-|Azure Cosmos-objekt | Dokument | Rad | Dokument | Nod eller Kanttabell | Objekt |
+|Azure Cosmos-objekt | Dokument | Rad | Dokument | Nod eller kanttabell | Objekt |
 
 ### <a name="properties-of-an-item"></a>Egenskaper för ett objekt
 
-Varje Azure Cosmos-objekt har följande systemdefinierade egenskaper. Beroende på valet av API: et, kan några av dem inte exponeras direkt.
+Varje Azure Cosmos-objekt har följande systemdefinierade egenskaper. Beroende på vilken API som du använder kan några av dem inte exponeras direkt.
 
-|**Systemdefinierade egenskapen** | **Datorer som genererade eller användarangiven**| **Syfte** | **SQL-API** | **API för Cassandra** | **Azure Cosmos DB: s API för MongoDB** | **Gremlin-API** | **Table API** |
+| Systemdefinierade egenskapen | Systemgenererade eller användarangiven| Syfte | API för SQL | Cassandra-API | API för Azure Cosmos DB för MongoDB | Gremlin-API | Tabell-API |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|_id | Systemgenererad | Unik identifierare för objektet | Ja | Nej | Nej | Nej | Nej |
-|_etag | Systemgenererad | Enhetstagg som används för optimistisk samtidighetskontroll | Ja | Nej | Nej | Nej | Nej |
-|_ts | Systemgenererad | Tidsstämpel för senaste uppdateringen av objektet | Ja | Nej | Nej | Nej | Nej |
-|_self | Systemgenererad | Adresserbara URI: N för objektet | Ja | Nej | Nej | Nej | Nej |
-|id | Antingen | Användardefinierade unikt namn inom en logisk partition. Om användaren inte anger ID, systemet automatiskt att generera en. | Ja | Ja | Ja | Ja | Ja |
-|Godtycklig användardefinierade egenskaper | Användardefinierade | Användardefinierade egenskaper som visas i API-intern representation (JSON, BSON, CQL osv.) | Ja | Ja | Ja | Ja | Ja |
+|\_ID | System-generated | Unik identifierare för objektet | Ja | Nej | Nej | Nej | Nej |
+|\_ETag | System-generated | Enhetstagg som används för optimistisk samtidighetskontroll | Ja | Nej | Nej | Nej | Nej |
+|\_TS | System-generated | Tidsstämpel för senaste uppdateringen av objektet | Ja | Nej | Nej | Nej | Nej |
+|\_Self | System-generated | Adresserbara URI: N för objektet | Ja | Nej | Nej | Nej | Nej |
+|id | Antingen | Användardefinierade unikt namn i en logisk partition. Om användaren inte anger ID, genererar systemet automatiskt en. | Ja | Ja | Ja | Ja | Ja |
+|Godtycklig användardefinierade egenskaper | Användardefinierade | Användardefinierade egenskaper som visas i API-intern representation (inklusive JSON, BSON och CQL) | Ja | Ja | Ja | Ja | Ja |
 
 ### <a name="operations-on-items"></a>Åtgärder på objekt
 
-Azure Cosmos-objektet har stöd för följande åtgärder som kan utföras med hjälp av någon av Azure Cosmos-API: er.
+Azure Cosmos-objekt stöd för följande åtgärder. Du kan använda någon av de API: erna för Azure Cosmos för att utföra åtgärder.
 
-| **Åtgärd** | **Azure CLI** | **SQL-API** | **API för Cassandra** | **Azure Cosmos DB: s API för MongoDB** | **Gremlin-API** | **Table API** |
+| Operation | Azure CLI | API för SQL | Cassandra-API | API för Azure Cosmos DB för MongoDB | Gremlin-API | Tabell-API |
 | --- | --- | --- | --- | --- | --- | --- |
 | Infoga, Ersätt, ta bort, Upsert, Läs | Nej | Ja | Ja | Ja | Ja | Ja |
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du kan nu fortsätta att lära dig följande begrepp:
+Läs mer om dessa uppgifter och begrepp:
 
-* [Så här konfigurerar du etablerat dataflöde på en Azure Cosmos-databas](how-to-provision-database-throughput.md)
-* [Så här konfigurerar du etablerat dataflöde på en Azure Cosmos-behållare](how-to-provision-container-throughput.md)
-* [Logiska partitioner](partition-data.md)
-* [Så här konfigurerar du TTL för Azure Cosmos-behållare](how-to-time-to-live.md)
-* [Skapa reaktiva program med hjälp av Change Feed](change-feed.md)
-* [Så här konfigurerar du unika nyckelrestriktion i din Azure Cosmos-behållare](unique-keys.md)
+* [Etablera dataflöde i en Azure Cosmos-databas](how-to-provision-database-throughput.md)
+* [Etablera dataflöde på en Azure Cosmos-behållare](how-to-provision-container-throughput.md)
+* [Arbeta med logiska partitioner](partition-data.md)
+* [Konfigurera TTL-värde på en Azure Cosmos-behållare](how-to-time-to-live.md)
+* [Skapa reaktiva program med hjälp av ändringsfeed](change-feed.md)
+* [Konfigurera en unik nyckel begränsning på din Azure Cosmos-behållare](unique-keys.md)

@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 3/21/2019
+ms.date: 5/13/2019
 ms.author: victorh
-ms.openlocfilehash: 87ca7cae8e9170c8c437d0961cb1acb2e0dd0eb1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 847ad271dac4afc8c8baa2faa8702b3a3ab6cefa
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60790546"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596715"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Azure DNS alias poster översikt
 
@@ -25,9 +25,9 @@ En alias-postuppsättning stöds för följande typer av poster i en Azure DNS-z
 - CNAME
 
 > [!NOTE]
-> Om du planerar att använda en aliasresurspost för posttyper A eller AAAA för att peka mot en [Azure Traffic Manager-profil](../traffic-manager/quickstart-create-traffic-manager-profile.md) måste du se till att Traffic Manager-profilen har bara [externa slutpunkter](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints). Du måste ange IPv4 eller IPv6-adress för externa slutpunkter i Traffic Manager. Vi rekommenderar använda statiska IP-adresser.
+> Om du planerar att använda en aliasresurspost för posttyper A eller AAAA för att peka mot en [Azure Traffic Manager-profil](../traffic-manager/quickstart-create-traffic-manager-profile.md) måste du se till att Traffic Manager-profilen har bara [externa slutpunkter](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints). Du måste ange IPv4 eller IPv6-adress för externa slutpunkter i Traffic Manager. Du kan inte använda fullständigt kvalificerade domännamn (FQDN) i slutpunkter. Vi rekommenderar använda statiska IP-adresser.
 
-## <a name="capabilities"></a>Funktioner
+## <a name="capabilities"></a>FUNKTIONER
 
 - **Peka på en offentlig IP-adressresurs från DNS A/AAAA-postuppsättning.** Du kan skapa en A/AAAA-postuppsättning och gör det till ett alias postuppsättningen så att den pekar till en offentlig IP-resurs. DNS-postuppsättning är automatiskt om den offentliga IP-adressen ändras eller har tagits bort. Överflödiga DNS undviks-poster som pekar på felaktig IP-adresser.
 

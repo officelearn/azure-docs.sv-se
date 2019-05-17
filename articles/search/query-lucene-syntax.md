@@ -4,7 +4,7 @@ description: Referens för fullständig Lucene-syntaxen, som används med Azure 
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 04/25/2019
+ms.date: 05/13/2019
 author: brjohnstmsft
 ms.author: brjohnst
 ms.manager: cgronlun
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: b37961f96aca95c0aeaec511411a309d40e990f5
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: b051f844b8c221e2e53c5fcf204878f80447cfe8
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024222"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596564"
 ---
 # <a name="lucene-query-syntax-in-azure-search"></a>Lucene-frågesyntax i Azure Search
 Du kan skriva frågor mot Azure Search baserat på omfattande [frågeparser (Lucene)](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) syntaxen för specialiserade fråga formulär: jokertecken, fuzzy-sökning, närhetssökning, reguljära uttryck är några exempel. Mycket av frågeparser (Lucene)-syntax är [intakta implementeras i Azure Search](search-lucene-query-architecture.md), med undantag för *intervall sökningar* som skapas i Azure Search via `$filter` uttryck. 
@@ -121,16 +121,19 @@ Med hjälp av `searchMode=all` ökar precisionen för frågor genom att inkluder
 ##  <a name="bkmk_searchscoreforwildcardandregexqueries"></a> Bedömning av jokertecken och regex-frågor
  Använder Azure Search frekvensbaserad bedömning ([TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)) för textfrågor. För jokertecken och regex frågor där omfattning villkor kan vara bred ignoreras dock faktorn frekvens för att förhindra rangordning från börvärdessignalerna mot matchningar från sällsynta villkor. Alla matchningar behandlas på samma sätt för jokertecken och regex sökningar.
 
-##  <a name="bkmk_fields"></a> Fältbegränsade frågor  
- Du kan ange en `fieldname:searchterm` konstruktion att definiera en fielded frågeåtgärden där fältet är ett enstaka ord och söktermen är också ett enstaka ord eller en fras, eventuellt med booleska operatorer. Följande är några exempel:  
+##  <a name="bkmk_fields"></a> Fielded sökning  
+Du kan definiera en fielded Sökåtgärd med den `fieldName:searchExpression` syntax, där sökuttrycket kan vara ett enstaka ord eller en fras eller ett mer komplext uttryck inom parenteser alternativt med booleska operatorer. Följande är några exempel:  
 
 - genre: jazz inte historiken  
 
 - artists:("Miles Davis" "John Coltrane")
 
-  Se till att placera flera strängar inom citattecken om du vill att båda strängar som ska utvärderas som en enda enhet, i det här fallet söker efter två distinkta konstnärer i den `artists` fält.  
+Se till att placera flera strängar inom citattecken om du vill att båda strängar som ska utvärderas som en enda enhet, i det här fallet söker efter två distinkta konstnärer i den `artists` fält.  
 
-  Fält som anges i `fieldname:searchterm` måste vara en `searchable` fält.  Se [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) mer information om hur indexattribut används i fältdefinitioner.  
+Fält som anges i `fieldName:searchExpression` måste vara en `searchable` fält.  Se [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) mer information om hur indexattribut används i fältdefinitioner.  
+
+> [!NOTE]
+> När du använder fielded sökuttryck, behöver du inte använda den `searchFields` parametern eftersom var och en fielded sökuttryck har ett fältnamn som uttryckligen anges. Men du kan fortfarande använda den `searchFields` parametern om du vill köra en fråga där vissa delar är begränsade till ett visst fält, och resten kan tillämpas på flera fält. Till exempel frågan `search=genre:jazz NOT history&searchFields=description` matchar `jazz` endast den `genre` fältet, även om det matchar `NOT history` med den `description` fält. Fältnamnet i `fieldName:searchExpression` alltid företräde framför den `searchFields` parameter, vilket är anledningen till att i det här exemplet vi behöver inte inkludera `genre` i den `searchFields` parametern.
 
 ##  <a name="bkmk_fuzzy"></a> Fuzzy-sökning  
  En fuzzy-sökning söker efter matchningar i termer som har en liknande konstruktion. Per [Lucene dokumentation](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), fuzzy sökningar baseras på [Damerau Levenshtein avståndet](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance). Fuzzy sökningar kan expandera en term upp till högst 50 termer som uppfyller villkoren för avståndet. 

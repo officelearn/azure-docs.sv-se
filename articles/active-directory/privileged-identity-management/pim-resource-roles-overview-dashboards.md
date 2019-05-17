@@ -16,12 +16,12 @@ ms.date: 03/30/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37057e531ea8387fbed84c9b03bbfb9c14d160ea
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e5404d1b85821458aedef64b72ae635ea49aa1ff
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60287582"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602495"
 ---
 # <a name="use-a-resource-dashboard-to-perform-an-access-review-in-pim"></a>Använd en resurs-instrumentpanel för att utföra en åtkomstgranskning i PIM
 
@@ -31,9 +31,9 @@ Du kan använda en resurs-instrumentpanel för att utföra en åtkomstgranskning
 - Två diagram som visar fördelningen av rolltilldelningar som Tilldelningstyp.
 - Ett dataområde som hör till nya rolltilldelningar.
 
-![Skärmbild av instrumentpanelen Admin-Visa diagram](media/azure-pim-resource-rbac/rbac-overview-top.png)
+![Skärmbild av instrumentpanelen Admin-Visa diagram](media/pim-resource-roles-overview-dashboards/rbac-overview-top.png)
 
-![Skärmbild av Admin-visa instrumentpanelen som visar data som visas](media/azure-pim-resource-rbac/role-settings.png)
+![Skärmbild av Admin-visa instrumentpanelen som visar data som visas](media/pim-resource-roles-overview-dashboards/role-settings.png)
 
 Grafisk representation av resursen rollaktiveringar omfattar de senaste sju dagarna. Dessa data är begränsad till den valda resursen och visar aktiveringar för de vanligaste rollerna (ägare, deltagare, administratör för användaråtkomst) och för alla roller som kombineras.
 

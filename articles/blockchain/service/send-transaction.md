@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: jackyhsu
 manager: femila
-ms.openlocfilehash: d3ad4cdfe33948c04c278ed3dfef7aa6fda637ab
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 0b5e39e9cf2fc3ffe91db6587bc1ed1bab079e93
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026811"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65777332"
 ---
 # <a name="tutorial-send-transactions-using-azure-blockchain-service"></a>Självstudier: Skicka transaktioner med Azure Blockchain-tjänsten
 
@@ -82,7 +82,7 @@ Du kan fortsätta med självstudiekursen medan noderna har etablerats. När etab
 
     Truffle skapar en lokal utveckling blockchain och en interaktiv konsol.
 
-## <a name="connect-to-transaction-node"></a>Ansluta till noden för transaktion
+## <a name="connect-to-transaction-node"></a>Ansluta till transaktionsnod
 
 Använd Web3 för att ansluta till noden standard transaktion och skapa ett konto. Du kan hämta Web3 anslutningssträngen från Azure-portalen.
 
@@ -128,7 +128,7 @@ Du kan hämta den offentliga nyckeln från transaktionslistan för noden. Kopier
 ### <a name="transaction-node-endpoint-addresses"></a>Slutpunktsadresser för transaktionen nod
 
 1. Gå till varje transaktion nod i Azure-portalen och välj **transaktion noder > anslutningssträngar**.
-1. Kopiera och spara slutpunkts-URL från ** HTTPS (åtkomstnyckel 1) för varje transaktion-nod. Du behöver slutpunktsadresser för konfigurationsfilen smarta kontrakt senare under kursen.
+1. Kopiera och spara slutpunkts-URL från **HTTPS (åtkomstnyckel 1)** för varje transaktion-nod. Du behöver slutpunktsadresser för konfigurationsfilen smarta kontrakt senare under kursen.
 
     ![Slutpunktsadress för transaktion](./media/send-transaction/endpoint.png)
 
@@ -223,7 +223,7 @@ module.exports = function(deployer) {
 
 Ersätt värdena i hakparenteser.
 
-| Värde | Beskrivning
+| Value | Beskrivning
 |-------|-------------
 | \<Alpha noden offentlig nyckel\> | Offentlig nyckel för noden alpha
 | \<Kontoadress\> | Kontoadress som skapats i transaktionen standardnoden.
@@ -395,7 +395,7 @@ module.exports = function(done) {
 
 Ersätt värdena i hakparenteser och spara sedan filen.
 
-| Värde | Beskrivning
+| Value | Beskrivning
 |-------|-------------
 | \<Alpha noden offentlig nyckel\> | Offentlig nyckel för noden alpha
 | \<Kontoadress\> | Kontoadress som skapats i transaktionen standardnoden.

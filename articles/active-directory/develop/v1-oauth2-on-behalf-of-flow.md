@@ -4,7 +4,7 @@ description: Den här artikeln beskriver hur du använder HTTP-meddelanden för 
 services: active-directory
 documentationcenter: .net
 author: navyasric
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.assetid: 09f6f318-e88b-4024-9ee1-e7f09fb19a82
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2017
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53f8ec8a6833446663d7f142deefd595eed13136
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a2983980786fc706d103c0147a0776f2ff8c2d4f
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60250851"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545473"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Tjänst-till-tjänst anropar den användning som delegerad användaridentiteten i On-Behalf-Of-flöde
 
@@ -116,7 +116,7 @@ När du använder en delad hemlighet, innehåller en tjänst-till-tjänst begär
 | client_secret |obligatorisk | Nyckeln som har registrerats för den anropande tjänsten i Azure AD. Det här värdet ska ha har antecknat vid tidpunkten för registrering. |
 | resurs |obligatorisk | App-ID-URI för den mottagande tjänsten (säker resurs). För att hitta ID-URI: n i Azure portal, Välj **Active Directory** och välj katalogen. Välj namnet på programmet, Välj **alla inställningar**, och välj sedan **egenskaper**. |
 | requested_token_use |obligatorisk | Anger hur begäran ska bearbetas. Värdet måste vara i On-Behalf-Of-flöde **on_behalf_of**. |
-| omfång |obligatorisk | Ett blanksteg avgränsade lista med omfattningar för token-begäran. För OpenID Connect, omfånget **openid** måste anges.|
+| scope |obligatorisk | Ett blanksteg avgränsade lista med omfattningar för token-begäran. För OpenID Connect, omfånget **openid** måste anges.|
 
 #### <a name="example"></a>Exempel
 
@@ -151,7 +151,7 @@ En begäran för tjänst-till-tjänst åtkomst-token med ett certifikat innehål
 | client_assertion |obligatorisk | En JSON Web Token som du skapar och logga in med certifikatet du registrerade dig som autentiseringsuppgifter för ditt program. Se [certifikat autentiseringsuppgifter](active-directory-certificate-credentials.md) att lära dig om assertion format och om hur du registrerar ditt certifikat.|
 | resurs |obligatorisk | App-ID-URI för den mottagande tjänsten (säker resurs). För att hitta ID-URI: n i Azure portal, Välj **Active Directory** och välj katalogen. Välj namnet på programmet, Välj **alla inställningar**, och välj sedan **egenskaper**. |
 | requested_token_use |obligatorisk | Anger hur begäran ska bearbetas. Värdet måste vara i On-Behalf-Of-flöde **on_behalf_of**. |
-| omfång |obligatorisk | Ett blanksteg avgränsade lista med omfattningar för token-begäran. För OpenID Connect, omfånget **openid** måste anges.|
+| scope |obligatorisk | Ett blanksteg avgränsade lista med omfattningar för token-begäran. För OpenID Connect, omfånget **openid** måste anges.|
 
 Dessa parametrar är nästan samma sätt som med begäran från delad hemlighet förutom som det `client_secret parameter` ersatts av två parametrar: `client_assertion_type` och `client_assertion`.
 
@@ -183,7 +183,7 @@ Ett lyckat svar är ett JSON OAuth 2.0-svar med följande parametrar:
 | Parameter | Beskrivning |
 | --- | --- |
 | token_type |Anger typ tokenu värdet. Den enda typen som har stöd för Azure AD är **ägar**. Läs mer om ägar-token i [Framework för OAuth 2.0-auktorisering: Ägar-Token användning (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
-| omfång |Omfattning åtkomst beviljas i token. |
+| scope |Omfattning åtkomst beviljas i token. |
 | expires_in |Hur lång tid den åtkomst-token är giltig (i sekunder). |
 | expires_on |Den tid då den åtkomst-token upphör att gälla. Datumet visas som hur många sekunder en från 1970-01-01T0:0:0Z UTC tills de upphör att gälla. Det här värdet används för att fastställa livslängd för cachelagrade token. |
 | resurs |App-ID-URI för den mottagande tjänsten (säker resurs). |
@@ -274,7 +274,7 @@ Svaret innehåller en SAML-token som kodats i UTF8 och Base64url.
 | Parameter | Beskrivning |
 | --- | --- |
 | token_type |Anger typ tokenu värdet. Den enda typen som har stöd för Azure AD är **ägar**. Läs mer om ägar-token, [Framework för OAuth 2.0-auktorisering: Ägar-Token användning (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
-| omfång |Omfattning åtkomst beviljas i token. |
+| scope |Omfattning åtkomst beviljas i token. |
 | expires_in |Hur lång tid den åtkomst-token är giltig (i sekunder). |
 | expires_on |Den tid då den åtkomst-token upphör att gälla. Datumet visas som hur många sekunder en från 1970-01-01T0:0:0Z UTC tills de upphör att gälla. Det här värdet används för att fastställa livslängd för cachelagrade token. |
 | resurs |App-ID-URI för den mottagande tjänsten (säker resurs). |

@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: 6dcec5b72be8868a83a5760ef95117d3e751bcc3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e9100a764ba3922e0254b7fa5cd03b18e204925f
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60399434"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596013"
 ---
 # <a name="get-started-with-device-management-java"></a>Kom igång med enhetshantering (Java)
 
@@ -57,7 +57,7 @@ För att slutföra den här kursen behöver du:
 
 * Maven 3.  <br/> [Förbereda utvecklingsmiljön](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md) beskriver hur du installerar [Maven](https://maven.apache.org/what-is-maven.html) för den här självstudiekursen i Windows eller Linux.
 
-* [Node.js-version 0.10.0 eller senare](https://nodejs.org).
+* Ett aktivt Azure-konto. (Om du inte har ett konto kan du skapa en [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) på bara några minuter.)
 
 ## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 

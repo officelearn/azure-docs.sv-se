@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 49615dcb2f077d2e1d8b93a4bb900b435e4c87bf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 04163d1fa2a46a2de877702d479f439a5e8711d7
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60589080"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603145"
 ---
 # <a name="azure-customer-data-protection"></a>Dataskydd för Azure-kund   
 Åtkomst till kunddata för Microsofts drift- och supportpersonal nekas som standard. När åtkomst till kunddata beviljas ledarskap godkännande krävs och sedan åtkomst hanteras och noggrant loggas. Åtkomstkontroll kraven som upprättas av följande Azure-säkerhetsprincipen:
@@ -48,8 +48,8 @@ Azure tillhandahåller kunder med stark datasäkerhet, både som standard som ku
 
 **Dataredundans**: Microsoft hjälper till att säkerställa att data är skyddade om det finns en cyberattack eller fysisk skada på ett datacenter. Kunder kan välja:
 
-- I landet lagring för efterlevnad eller latens överväganden.
-- Tidsgräns för land lagring för säkerhets- eller disaster recovery-syften.
+- Land/i-regional lagring för efterlevnad eller latens överväganden.
+- Out-för-out-för-land lagring för säkerhets- eller disaster recovery-syften.
 
 Data kan replikeras inom en vald geografiska område för redundans men kan inte överföras utanför den. Kunder har flera alternativ för att replikera data, inklusive antalet kopior och antal och plats replikering datacenter.
 

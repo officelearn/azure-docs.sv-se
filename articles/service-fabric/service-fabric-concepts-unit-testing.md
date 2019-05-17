@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/04/2018
 ms.author: atsenthi
-ms.openlocfilehash: ca473b9947a9b0df610a9c3dac66914b06cc9217
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ad7cf3a1dfcef8795ceb378a59a1cf0b2010293e
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60881461"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595497"
 ---
 # <a name="unit-testing-stateful-services-in-service-fabric"></a>Enhetstestning tillståndskänsliga tjänster i Service Fabric
 
@@ -36,7 +36,7 @@ Enhetstestning tillståndskänsliga tjänster kan bidra till att avslöja vanlig
 
 ## <a name="common-practices"></a>Vanliga metoder
 
-Följande avsnitt om de vanligaste metoderna för en tillståndskänslig tjänst för Enhetstestning. Även om vad ett simulerade lager måste ha för att justera nära till Service Fabric orchestration och tillståndshantering finns. Simulering bibliotek finns bibliotek som tillhandahåller den här funktionen. [ServiceFabric.Mocks](https://www.nuget.org/packages/ServiceFabric.Mocks/) från och med 3.3.0 eller senare är ett bibliotek som tillhandahåller simulerade funktionen rekommenderas och följer de metoder som beskrivs nedan.
+Följande avsnitt om de vanligaste metoderna för en tillståndskänslig tjänst för Enhetstestning. Även om vad ett simulerade lager måste ha för att justera nära till Service Fabric orchestration och tillståndshantering finns. [ServiceFabric.Mocks](https://www.nuget.org/packages/ServiceFabric.Mocks/) från och med 3.3.0 eller senare är ett bibliotek som tillhandahåller simulerade funktionen rekommenderas och följer de metoder som beskrivs nedan.
 
 ### <a name="arrangement"></a>Placering
 

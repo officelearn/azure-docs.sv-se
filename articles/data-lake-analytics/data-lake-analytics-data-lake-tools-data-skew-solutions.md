@@ -8,12 +8,12 @@ ms.reviewer: jasonwhowell
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 12/16/2016
-ms.openlocfilehash: af55c161944447f2e6e2245fbb920803779984ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 611439802c200b30586b73b82d0a4bbbc857e114
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61399904"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606707"
 ---
 # <a name="resolve-data-skew-problems-by-using-azure-data-lake-tools-for-visual-studio"></a>Lösa datasnedställning problem med hjälp av Azure Data Lake Tools för Visual Studio
 
@@ -36,7 +36,7 @@ Om den inte påverkar din affärslogik, kan du filtrera högre frekvens värdena
 
 ### <a name="option-2-pick-a-different-partition-or-distribution-key"></a>Alternativ 2: Välj en annan partition eller distribution nyckel
 
-I föregående exempel, om du vill bara kontrollera skatt granskning arbetsbelastningen över hela landet kan du förbättra Datadistribution genom att välja ID-numret som din nyckel. Välja en annan partition eller distributionsnyckeln kan ibland distribuera data jämnare, men du måste se till att det här valet inte påverkar din affärslogik. Till exempel för att beräkna moms summan för respektive tillstånd, kanske du vill ange _tillstånd_ som partitionsnyckel. Om du fortsätter att det här problemet uppstår kan du använda alternativ 3.
+I föregående exempel, om du vill bara kontrollera skatt granskning arbetsbelastningen över hela landet/regionen, kan du förbättra Datadistribution genom att välja ID-numret som din nyckel. Välja en annan partition eller distributionsnyckeln kan ibland distribuera data jämnare, men du måste se till att det här valet inte påverkar din affärslogik. Till exempel för att beräkna moms summan för respektive tillstånd, kanske du vill ange _tillstånd_ som partitionsnyckel. Om du fortsätter att det här problemet uppstår kan du använda alternativ 3.
 
 ### <a name="option-3-add-more-partition-or-distribution-keys"></a>Alternativ 3: Lägg till flera nycklar för partition eller distribution
 

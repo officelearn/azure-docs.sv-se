@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 4f4f22628d2c2a6beb7974aa9b776a2148a3fee0
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 80843abe130f1388a5d4081adab7b9128446763b
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65238069"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65761982"
 ---
 # <a name="azure-stream-analytics-solution-patterns"></a>Azure Stream Analytics-lösningsmönster
 
@@ -58,7 +58,7 @@ Du kan skapa anpassade realtidsvisualiseringar, till exempel instrumentpanelen e
 
 De flesta webbtjänster och webbprogram använder idag ett begäran/svar-mönster för att betjäna presentationslagret. Begäran/svar-mönstret är enkelt att bygga och skalas enkelt med låg svarstid med hjälp av en tillståndslösa klientdelen och skalbar Arkiv som Cosmos DB.
 
-Hög datavolym skapar ofta flaskhalsar i prestanda i en CRUD-dator. Den [lösning mönstret händelsekällor](/azure/architecture/patterns/event-sourcing.md) används för att lösa flaskhalsar för prestandan. Den temporala mönster och insikter är också svårt och ineffektivt att extrahera från en traditionell datalager. Moderna omfattande datadrivna program ofta anta en arkitektur som bygger på dataflöde. Azure Stream Analytics som databearbetningsmotor för data i rörelse är en linchpin i arkitekturen.
+Hög datavolym skapar ofta flaskhalsar i prestanda i en CRUD-dator. Den [lösning mönstret händelsekällor](/azure/architecture/patterns/event-sourcing) används för att lösa flaskhalsar för prestandan. Den temporala mönster och insikter är också svårt och ineffektivt att extrahera från en traditionell datalager. Moderna omfattande datadrivna program ofta anta en arkitektur som bygger på dataflöde. Azure Stream Analytics som databearbetningsmotor för data i rörelse är en linchpin i arkitekturen.
 
 ![ASA event sourcing app](media/stream-analytics-solution-patterns/eventsourcingapp.png)
 

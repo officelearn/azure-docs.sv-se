@@ -9,20 +9,20 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 05/13/2019
 ms.author: jingwang
-ms.openlocfilehash: 8e3a23b38dc95f05ed9a6d99d303f3d86eac60ad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f8af34207eddb613f7a59bd3e3d300555e10f985
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60547734"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65560737"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen2-with-azure-data-factory"></a>Läs in data till Azure Data Lake Storage Gen2 med Azure Data Factory
 
 Azure Data Lake Storage Gen2 är en uppsättning funktioner för analys av stordata, inbyggda i [Azure Blob storage](../storage/blobs/storage-blobs-introduction.md). Det kan du samverka med dina data med paradigm för lagring av system- och båda fil.
 
-Azure Data Factory är en fullständigt hanterad molnbaserad dataintegreringstjänst. Du kan använda tjänsten för att fylla i sjön med data från ett stort utbud av lokala och molnbaserade datalager och spara tid när du skapar Analyslösningar. En detaljerad lista över kopplingar som stöds finns i tabellen med [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
+Azure Data Factory (ADF) är en fullständigt hanterad molnbaserad dataintegreringstjänst. Du kan använda tjänsten för att fylla i sjön med data från ett stort utbud av lokala och molnbaserade datalager och spara tid när du skapar Analyslösningar. En detaljerad lista över kopplingar som stöds finns i tabellen med [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
 
 Azure Data Factory är en lösning för flytt av skalbara, hanterade data. På grund av ADF skalbar arkitektur, kan det mata in data med ett högt dataflöde. Mer information finns i [kopiera aktivitet prestanda](copy-activity-performance.md).
 
@@ -47,7 +47,7 @@ Den här artikeln visar hur du använder verktyget kopieringsdata i Data Factory
       
    ![Sida för ny datafabrik](./media/load-azure-data-lake-storage-gen2//new-azure-data-factory.png)
  
-    * **Namn**: Ange ett globalt unikt namn för din Azure data factory. Om du får felet ”datafabriksnamnet \"LoadADLSDemo\" är inte tillgänglig”, ange ett annat namn för data factory. Du kan till exempel använda namnet  _**dittnamn**_**ADFTutorialDataFactory**. Försök att skapa datafabriken igen. Se artikeln [Data Factory – namnregler](naming-rules.md) för namnregler för Data Factory-artefakter.
+    * **Namn på**: Ange ett globalt unikt namn för din Azure data factory. Om du får felet ”datafabriksnamnet \"LoadADLSDemo\" är inte tillgänglig”, ange ett annat namn för data factory. Du kan till exempel använda namnet  _**dittnamn**_**ADFTutorialDataFactory**. Försök att skapa datafabriken igen. Se artikeln [Data Factory – namnregler](naming-rules.md) för namnregler för Data Factory-artefakter.
     * **Prenumeration**: Välj din Azure-prenumeration där du vill skapa data factory. 
     * **Resursgrupp**: Välj en befintlig resursgrupp från den nedrullningsbara listan eller Välj den **Skapa nytt** och ange namnet på en resursgrupp. Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../azure-resource-manager/resource-group-overview.md).  
     * **Version**: Välj **V2**.
@@ -130,13 +130,6 @@ Den här artikeln visar hur du använder verktyget kopieringsdata i Data Factory
     ![Övervaka aktivitetskörningsinformation](./media/load-azure-data-lake-storage-gen2/monitor-activity-run-details.png)
 
 16. Kontrollera att data har kopierats till ditt Data Lake Storage Gen2-konto.
-
-## <a name="best-practices"></a>Bästa praxis
-
-Kopiera när stora volymer av data från filbaserat datalager, är föreslagna till:
-
-- Partitionera filerna i 10TB till 30TB filuppsättning.
-- Utlöses inte av för många samtidiga kopia körs för att undvika begränsning från källan eller mottagaren datalager. Du kan börja med en kopia som kör och övervaka dataflödet och sedan gradvis lägga till fler efter behov.
 
 ## <a name="next-steps"></a>Nästa steg
 

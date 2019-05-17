@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: mbullwin
-ms.openlocfilehash: 6e2803590740d84bc99327ce78886f41f3c600df
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d0a4180a3ea28427b8d82c6f5cf86ef9fa51d580
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60794431"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785887"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Application Insights API för anpassade händelser och mått
 
@@ -633,12 +633,16 @@ try
 {
     success = dependency.Call();
 }
+catch(Exception ex) 
+{
+    success = false;
+    telemetry.TrackException(ex);
+    throw new Exception("Operation went wrong", ex);
+}
 finally
 {
     timer.Stop();
-    telemetry.TrackDependency("myDependency", "myCall", startTime, timer.Elapsed, success);
-     // The call above has been made obsolete in the latest SDK. The updated call follows this format:
-     // TrackDependency (string dependencyTypeName, string dependencyName, string data, DateTimeOffset startTime, TimeSpan duration, bool success);
+    telemetry.TrackDependency("DependencyType", "myDependency", "myCall", startTime, timer.Elapsed, success);
 }
 ```
 
@@ -1165,7 +1169,7 @@ Om du ställer in några av värdena själv, Överväg att ta bort den aktuella 
 * **Plats**: Enhetens geografiska plats.
 * **Åtgärden**: I web apps, den aktuella HTTP-begäran. I andra typer av appar, kan du ange Gruppera händelser tillsammans.
   * **ID**: Ett genererat värde kopplat till olika händelser, så att när du undersöker en händelse i Diagnostiksökning kan du hitta relaterade objekt.
-  * **Namn**: En identifierare vanligtvis URL: en för HTTP-begäran.
+  * **Namn på**: En identifierare vanligtvis URL: en för HTTP-begäran.
   * **SyntheticSource**: Om inte null eller tom, en sträng som anger att källan för begäran har identifierats som en robot eller testa. Som standard är det inte beräkningar i Metrics Explorer.
 * **Egenskaper för**: Egenskaper som skickas med alla telemetridata. Den kan åsidosättas i enskilda spåra * anrop.
 * **Sessionen**: Användarens session. ID har angetts ett genererat värde som ändras när användaren inte har varit aktiva under en tid.

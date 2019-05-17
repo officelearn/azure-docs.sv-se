@@ -1,5 +1,5 @@
 ---
-title: Hur du distribuerar en modell med djupinlärning för inferensjobb med GPU
+title: Distribuera modell för inferensjobb med GPU
 titleSuffix: Azure Machine Learning service
 description: Lär dig hur du distribuerar en deep learning-modell som en webbtjänst som använder en GPU för inferensjobb. I den här artikeln distribueras en Tensorflow-modell till en Azure Kubernetes Service-kluster. Klustret använder en GPU-aktiverad dator till värden webbtjänsten och poäng inferensjobb begäranden.
 services: machine-learning
@@ -10,33 +10,30 @@ ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
 ms.date: 05/02/2019
-ms.openlocfilehash: 5cc0fe0526937245d3ca913afc477f0259e2afd4
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 7796e8dc07889c9816e4227f3b38904d91a24da3
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65515181"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595659"
 ---
-# <a name="how-to-do-gpu-inferencing"></a>Hur du gör GPU inferensjobb
+# <a name="deploy-a-deep-learning-model-for-inferencing-with-gpu"></a>Distribuera en modell för djupinlärning för inferensjobb med GPU
 
 Lär dig hur du använder GPU inferensjobb för en maskininlärningsmodell som distribueras som en webbtjänst. I den här artikeln får du lära dig hur du använder Azure Machine Learning-tjänsten för att distribuera ett exempel Tensorflow deep learning-modell. Modellen har distribuerats till ett kluster i Azure Kubernetes Service (AKS) som använder en GPU-aktiverad virtuell dator som värd för tjänsten. Modellen använder GPU för att utföra inferensjobb när begäranden skickas till tjänsten.
 
 GPU: er erbjuder prestandafördelar jämfört med processorer på mycket kan beräkning. Utbildnings- och inferensjobb deep learning-modeller (särskilt för stora batchar av begäranden) är utmärkt användningsområden för GPU: er.  
 
-Det här exemplet visas hur du distribuerar en modell för TensorFlow som sparats till Azure Machine Learning. 
-
-## <a name="goals-and-prerequisites"></a>Mål och krav
-
-Följ anvisningarna för att:
-* Skapa en GPU aktiverat AKS-kluster
+Det här exemplet visas hur du distribuerar en modell för TensorFlow som sparats till Azure Machine Learning genom att:
+* Skapar en GPU-aktiverade AKS-kluster
 * Distribuera en modell med Tensorflow-GPU
 
-Krav:
+## <a name="prerequisites"></a>Nödvändiga komponenter
+
 * Azure Machine Learning services-arbetsyta
 * Python
 * Tensorflow SavedModel registrerad. Lär dig hur du registrerar modeller finns i [distribuera modeller](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where#registermodel)
 
-Den här artikeln är baserad på [Tensorflow distribuera modeller till AKS](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/production-deploy-to-aks-gpu/production-deploy-to-aks-gpu.ipynb), som använder TensorFlow sparade modeller och distribuerar till ett AKS-kluster. Men med små ändringar av bedömningsfilen och miljöfil är det gäller för alla machine learning-ramverk som stöd för GPU: er.  
+Den här artikeln är baserad på Jupyter-anteckningsbok [Tensorflow distribuera modeller till AKS](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/production-deploy-to-aks-gpu/production-deploy-to-aks-gpu.ipynb), som använder TensorFlow sparade modeller och distribuerar till ett AKS-kluster. Men med små ändringar av bedömningsfilen och miljöfil är det gäller för alla machine learning-ramverk som stöd för GPU: er.  
 
 ## <a name="provision-aks-cluster-with-gpus"></a>Etablera AKS-kluster med GPU: er
 Azure har många olika alternativ i GPU, som kan användas för Inferensjobb. Se [listan med N-serien](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#n-series) för en fullständig uppdelning av funktioner och kostnader. 

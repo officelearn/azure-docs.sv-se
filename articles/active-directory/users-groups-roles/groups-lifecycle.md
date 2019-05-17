@@ -10,21 +10,21 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 04/24/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1be88f0938a16302be4cf2308ba463900c067104
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 1de17429dfe89506445b2d47999b102f3becb15b
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920157"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604394"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Konfigurera en princip för Office 365-grupper
 
-Genom att ange en princip för dem kan du nu hantera livscykeln för Office 365-grupper. Du kan ange princip för endast Office 365-grupper i Azure Active Directory (AD Azure). 
+Genom att ange en princip för dem kan du nu hantera livscykeln för Office 365-grupper. Du kan ange princip för endast Office 365-grupper i Azure Active Directory (AD Azure).
 
 När du har en grupp att upphöra att gälla:
 
@@ -66,8 +66,8 @@ Läs mer om behörigheter för att återställa en borttagen grupp [återställa
   * Spara dina inställningar när du är klar genom att välja **spara**.
 
 > [!NOTE]
-> * När du först konfigurerar upphör att gälla är grupper som är äldre än giltighetsintervallet inställda på 30 dagar kvar till förfallodatum. Första förnyelse-e-postmeddelandet skickas ut inom en dag. Till exempel grupp A skapades 400 dagar sedan och giltighetsintervallet är inställd på 180 dagar. När du tillämpar inställningar för giltighetstid har 30 dagar innan de tas bort i grupp A Om inte ägaren förnyar den.
-> * När en dynamisk grupp tagits bort och återställts visas den som en ny grupp och fylls i baserat på regeln. Den här processen kan ta upp till 24 timmar.
+> När du först konfigurerar upphör att gälla är grupper som är äldre än giltighetsintervallet inställda på 30 dagar kvar till förfallodatum. Första förnyelse-e-postmeddelandet skickas ut inom en dag. Till exempel grupp A skapades 400 dagar sedan och giltighetsintervallet är inställd på 180 dagar. När du använder principer som har 30 dagar innan de tas bort i grupp A Om inte ägaren förnyar den.
+> När en dynamisk grupp tas bort och återställs, har den används som en ny grupp och nytt fylls enligt regeln. Den här processen kan ta upp till 24 timmar.
 
 ## <a name="email-notifications"></a>E-postmeddelanden
 

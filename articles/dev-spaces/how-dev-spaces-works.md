@@ -10,12 +10,12 @@ ms.date: 03/04/2019
 ms.topic: conceptual
 description: Beskriver processerna som power Azure Dev blanksteg och hur de konfigureras i konfigurationsfilen azds.yaml
 keywords: azds.yaml Azure Dev blanksteg, Dev blanksteg, Docker, Kubernetes, Azure, AKS, Azure Kubernetes-tjänst, behållare
-ms.openlocfilehash: 494dd3774ec47598a95c6e20de6283abc2e4ff94
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f7cf5ae875fa0fb87322052df036d35e8e5e89a4
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60687221"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65605428"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Hur Azure Dev blanksteg fungerar och är konfigurerad
 
@@ -29,7 +29,7 @@ Den här artikeln beskrivs processerna som power Azure Dev blanksteg och hur des
 
 * [Java med CLI och Visual Studio Code](quickstart-java.md)
 * [.NET core med CLI och Visual Studio Code](quickstart-netcore.md)
-* [.NET core med Visual Studio 2017](quickstart-netcore-visualstudio.md)
+* [.NET core med Visual Studio](quickstart-netcore-visualstudio.md)
 * [Node.js med CLI och Visual Studio Code](quickstart-nodejs.md)
 
 ## <a name="how-azure-dev-spaces-works"></a>Hur fungerar Azure Dev blanksteg
@@ -66,7 +66,7 @@ När programmet körs, klientsidan verktyg också:
 Du kan använda klientsidan verktyg från kommandoraden som en del av den `azds` kommando. Du kan också använda klientsidan verktyg med:
 
 * Visual Studio Code med hjälp av den [Azure Dev blanksteg tillägget](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds).
-* Visual Studio 2017 med [Visual Studio Tools för Kubernetes](https://aka.ms/get-vsk8stools).
+* Visual Studio med [Visual Studio Tools för Kubernetes](https://aka.ms/get-vsk8stools).
 
 Här är det grundläggande flödet för att konfigurera och använda Azure Dev blanksteg:
 1. Förbered ditt AKS-kluster för Azure Dev blanksteg
@@ -337,7 +337,7 @@ Den *install.set* egenskapen kan du konfigurera ett eller flera värden som du v
 
 I exemplet ovan den *install.set.replicaCount* egenskapen talar om för kontrollanten hur många instanser av programmet att köras i ditt dev-adressutrymme. Du kan öka det här värdet beroende på ditt scenario, men den har en inverkan på Koppla en felsökare till din programpodden. Mer information finns i den [felsökningsartikeln](troubleshooting.md).
 
-I den genererade Helm-diagrammet behållaravbildningen anges till *{{. Values.Image.Repository}} :{{. Values.Image.tag}}*. Den `azds.yaml` fil definierar *install.set.image.tag* egenskapen som *$(tag)* som standard som används som värde för *{{. Values.Image.tag}}*. Genom att ange den *install.set.image.tag* egenskapen i det här sättet tillåter behållaravbildningen för ditt program taggas på olika sätt när du kör Azure Dev blanksteg. I det specifika fallet, avbildningen har märkts som  *<value from image.repository>: $(tag)*. Du måste använda den *$(tag)* variabeln som värde för *install.set.image.tag* för Dev blanksteg känner igen och leta rätt på behållaren i AKS-kluster.
+I den genererade Helm-diagrammet behållaravbildningen anges till *{{. Values.Image.Repository}} :{{. Values.Image.tag}}*. Den `azds.yaml` fil definierar *install.set.image.tag* egenskapen som *$(tag)* som standard som används som värde för *{{. Values.Image.tag}}*. Genom att ange den *install.set.image.tag* egenskapen i det här sättet tillåter behållaravbildningen för ditt program taggas på olika sätt när du kör Azure Dev blanksteg. I det specifika fallet, avbildningen har märkts som  *\<värdet från image.repository >: $(tag)*. Du måste använda den *$(tag)* variabeln som värde för *install.set.image.tag* för Dev blanksteg känner igen och leta rätt på behållaren i AKS-kluster.
 
 I exemplet ovan `azds.yaml` definierar *install.set.ingress.hosts*. Den *install.set.ingress.hosts* egenskapen definierar en värdnamnsformat för offentliga slutpunkter. Den här egenskapen används också *$(spacePrefix)*, *$(rootSpacePrefix)*, och *$(hostSuffix)*, vilket är värden som tillhandahålls av kontrollanten. 
 
@@ -404,11 +404,11 @@ ingress:
 
 ## <a name="debug-your-code"></a>Felsöka kod
 
-Du kan felsöka ditt program som körs direkt i ditt dev-adressutrymmet med hjälp av Visual Studio Code eller Visual Studio 2017 för Java, .NET och Node.js-program. Visual Studio Code och Visual Studio 2017 ger verktyg för att ansluta till ditt dev adressutrymme, starta programmet och koppla en felsökare. Efter körning `azds prep`, kan du öppna projektet i Visual Studio Code eller Visual Studio 2017. Visual Studio Code eller Visual Studio 2017 genererar sina egna konfigurationsfiler för att ansluta som skiljer sig från att köras `azds prep`. Från inom Visual Studio Code eller Visual Studio 2017, kan du ange brytpunkter och starta programmet ditt dev-adressutrymme.
+Du kan felsöka ditt program som körs direkt i ditt dev-adressutrymmet med hjälp av Visual Studio Code eller Visual Studio för Java, .NET och Node.js-program. Visual Studio Code och Visual Studio tillhandahåller verktyg för att ansluta till ditt dev adressutrymme, starta programmet och koppla en felsökare. Efter körning `azds prep`, kan du öppna projektet i Visual Studio Code eller Visual Studio. Visual Studio Code eller Visual Studio skapar sina egna konfigurationsfiler för att ansluta som skiljer sig från att köras `azds prep`. Visual Studio Code eller Visual Studio kan du ange brytpunkter och starta programmet ditt dev-adressutrymme.
 
 ![Felsöka din kod](media/get-started-node/debug-configuration-nodejs2.png)
 
-När du startar ditt program med Visual Studio Code eller Visual Studio 2017 för felsökning, de hanterar starta och ansluta till ditt dev-utrymme på samma sätt som att köra `azds up`. Klientsidan verktygsuppsättningen i Visual Studio Code och Visual Studio 2017 tillhandahåller även en extra parameter med specifik information för felsökning. Parametern innehåller namnet på felsökare avbildning, platsen för felsökningsprogrammet i felsökning bild och målplatsen i programmets behållaren att montera mappen felsökare. 
+När du startar ditt program med Visual Studio Code eller Visual Studio för felsökning, de hanterar starta och ansluta till ditt dev-utrymme på samma sätt som att köra `azds up`. Klientsidan verktygsuppsättningen i Visual Studio Code och Visual Studio tillhandahåller även en extra parameter med specifik information för felsökning. Parametern innehåller namnet på felsökare avbildning, platsen för felsökningsprogrammet i felsökning bild och målplatsen i programmets behållaren att montera mappen felsökare. 
 
 Felsökare avbildningen bestäms automatiskt av verktyg för klientsidan. Den använder en metod som liknar den som används under Dockerfile och Helm-diagrammet generera när du kör `azds prep`. När felsökningen är monterad i programmets bild, körs det med hjälp av `azds exec`.
 
@@ -433,12 +433,12 @@ Kom igång med Azure Dev blanksteg, se följande snabbstarter:
 
 * [Java med CLI och Visual Studio Code](quickstart-java.md)
 * [.NET core med CLI och Visual Studio Code](quickstart-netcore.md)
-* [.NET core med Visual Studio 2017](quickstart-netcore-visualstudio.md)
+* [.NET core med Visual Studio](quickstart-netcore-visualstudio.md)
 * [Node.js med CLI och Visual Studio Code](quickstart-nodejs.md)
 
 Kom igång med utveckling i grupp, se följande instruktionsartiklar:
 
 * [Grupputveckling – Java med CLI och Visual Studio Code](team-development-java.md)
 * [Grupputveckling - .NET Core med CLI och Visual Studio Code](team-development-netcore.md)
-* [Grupputveckling - .NET Core med Visual Studio 2017](team-development-netcore-visualstudio.md)
+* [Grupputveckling - .NET Core med Visual Studio](team-development-netcore-visualstudio.md)
 * [Grupputveckling – Node.js med CLI och Visual Studio Code](team-development-nodejs.md)

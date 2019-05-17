@@ -10,12 +10,12 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: a5d93a77652f540fde44b33963b13df04b45ecee
-ms.sourcegitcommit: 60606c5e9a20b2906f6b6e3a3ddbcb6c826962d6
+ms.openlocfilehash: 999c75d07ef7e24d4d75587b6b42a4ab1b2192cf
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64987948"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596107"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Uppgradera ditt informationslager till Gen2
 
@@ -32,38 +32,38 @@ I följande tabell sammanfattas per region när lägre Gen2-Beräkningsnivån ä
 
 | **Region** | **Lägre Gen2 som är tillgängliga** | **Automatiska uppgraderingar börjar** |
 |:--- |:--- |:--- |
-| Östra Australien |Tillgängligt |Den 1 juni 2019 |
-| Sydöstra Australien |Tillgängligt |Den 1 maj 2019 |
-| Södra Brasilien |Tillgängligt |Den 1 juni 2019 |
-| Centrala Kanada |Tillgängligt |Den 1 juni 2019 |
-| Östra Kanada |\* |\* |
-| Centrala USA |Tillgängligt |Den 1 juni 2019 |
-| Östra Kina |\* |\* |
-| Kina, östra 2 |\* |\* |
-| Norra Kina |\* |\* |
-| Kina, norra 2 |\* |\* |
-| Östasien |Tillgängligt |Den 1 juni 2019 |
-| Östra USA |Tillgängligt |Den 1 juni 2019 |
-| USA, östra 2 |Tillgängligt |Den 1 juni 2019 |
-| Frankrike, centrala |\* |Den 1 juni 2019 |
-| Centrala Tyskland |\* |\* |
+| Australien, östra |Tillgänglig |Den 1 juni 2019 |
+| Australien, sydöstra |Tillgänglig |Den 1 maj 2019 |
+| Brasilien, södra |Tillgänglig |Den 1 juni 2019 |
+| Kanada, centrala |Tillgänglig |Den 1 juni 2019 |
+| Kanada, östra |\* |\* |
+| Centrala USA |Tillgänglig |Den 1 juni 2019 |
+| Kina, östra |\* |\* |
+| Kina, östra 2 |\* |Endast Gen2 |
+| Kina, norra |\* |\* |
+| Kina, norra 2 |Tillgänglig |Endast Gen2 |
+| Asien, östra |Tillgänglig |Den 1 juni 2019 |
+| Östra USA |Tillgänglig |Den 1 juni 2019 |
+| USA, östra 2 |Tillgänglig |Den 1 juni 2019 |
+| Centrala Frankrike |\* |Den 1 juni 2019 |
+| Tyskland, centrala |\* |\* |
 | Tyskland, västra centrala |Den 1 september 2019|Den 2 januari 2020 |
-| Centrala Indien |Tillgängligt |Den 1 juni 2019 |
-| Södra Indien |Tillgängligt |Den 1 juni 2019 |
-| Östra Japan |Tillgängligt |Den 1 juni 2019 |
-| Västra Japan |Tillgängligt |Den 1 maj 2019 |
-| Sydkorea, centrala |Tillgängligt |Den 1 juni 2019 |
-| Sydkorea, södra |Tillgängligt |Den 1 maj 2019 |
-| Norra centrala USA |Tillgängligt |Den 1 maj 2019 |
-| Norra Europa |Tillgängligt |Den 1 juni 2019 |
-| Södra centrala USA |Tillgängligt |Den 1 juni 2019 |
-| Sydostasien |Tillgängligt |Den 1 juni 2019 |
-| Storbritannien, södra |Tillgänglig, 2019 |Den 1 juni 2019 |
-| Storbritannien, västra |\*|\* |
-| Västra centrala USA |2 september 2019 |Den 2 januari 2020|
-| Västra Europa |Tillgängligt |Den 1 juni 2019 |
-| Västra USA |Tillgängligt |Den 1 juni 2019 |
-| Västra USA 2 |Tillgängligt |Den 1 juni 2019 |
+| Indien, centrala |Tillgänglig |Den 1 juni 2019 |
+| Indien, södra |Tillgänglig |Den 1 juni 2019 |
+| Japan, östra |Tillgänglig |Den 1 juni 2019 |
+| Japan, västra |Tillgänglig |Den 1 maj 2019 |
+| Sydkorea, centrala |Tillgänglig |Den 1 juni 2019 |
+| Sydkorea, södra |Tillgänglig |Den 1 maj 2019 |
+| USA, norra centrala |Tillgänglig |Den 1 maj 2019 |
+| Europa, norra |Tillgänglig |Den 1 juni 2019 |
+| USA, södra centrala |Tillgänglig |Den 1 juni 2019 |
+| Asien, sydöstra |Tillgänglig |Den 1 juni 2019 |
+| Södra Storbritannien |Tillgänglig, 2019 |Den 1 juni 2019 |
+| Västra Storbritannien |\*|\* |
+| USA, västra centrala  |2 september 2019 |Den 2 januari 2020|
+| Europa, västra |Tillgänglig |Den 1 juni 2019 |
+| USA, västra |Tillgänglig |Den 1 juni 2019 |
+| USA, västra 2 |Tillgänglig |Den 1 juni 2019 |
 
 ## <a name="automatic-upgrade-process"></a>Automatisk uppgraderingsprocessen
 

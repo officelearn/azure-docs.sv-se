@@ -13,16 +13,16 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 05/13/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64bd2247a3437a2cc960da1820d9be417eedff8e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8d4d02f9e99acb68db126ccde465f73cc2294e06
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60285186"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65594016"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Azure Active Directory-rapporteringssvarstider
 
@@ -41,10 +41,10 @@ I följande tabell visas latensinformation för aktivitetsrapporter.
 > **Svarstid (95: e percentilen)** refererar till den tid som 95% av loggarna rapporteras, och **svarstid (99: e percentilen)** refererar till den tid som 99% av loggarna rapporteras. 
 >
 
-| Rapport | Svarstid (95: e percentilen) |Svarstid (99: e percentilen)|Tidsintervall inom vilket loggar rapporteras|
-| :-- | --- | --- | --- |
-| Granskningsloggar | 2 min  | 5 min  | 2 – 60 minuter |
-| Inloggningar | 2 min  | 5 min | 2-120 minuter |
+| Rapportera | Svarstid (95: e percentilen) |Svarstid (99: e percentilen)|
+| :-- | --- | --- |
+| Granskningsloggar | 2 min  | 5 min  |
+| Inloggningar | 2 min  | 5 min |
 
 ### <a name="how-soon-can-i-see-activities-data-after-getting-a-premium-license"></a>Hur snart ser aktiviteter data när du har fått en premiumlicens?
 
@@ -59,10 +59,10 @@ Det finns två typer av säkerhetsrapporter:
 
 I följande tabell visas latensinformation för säkerhetsrapporter.
 
-| Rapport | Minimum | Medel | Maximal |
+| Rapportera | Minimum | Medel | Maximal |
 | :-- | --- | --- | --- |
-| Användare i riskzonen          | 5 minuter   | 15 minuter  | 2 timmar  |
-| Riskfyllda inloggningar         | 5 minuter   | 15 minuter  | 2 timmar  |
+| Användare i farozonen          | 5 minuter   | 15 minuter  | 2 timmar  |
+| Riskfyllda inloggningar         | 5 minuter   | 15 minuter  | 2 timmar  |
 
 ## <a name="risk-events"></a>Riskhändelser
 
@@ -70,12 +70,12 @@ Azure AD använder anpassningsbar machine learning-algoritmer och heuristik för
 
 I följande tabell visas latensinformation för riskhändelser.
 
-| Rapport | Minimum | Medel | Maximal |
+| Rapportera | Minimum | Medel | Maximal |
 | :-- | --- | --- | --- |
-| Inloggningar från anonyma IP-adresser |5 minuter |15 minuter |2 timmar |
-| Inloggningar från okända platser |5 minuter |15 minuter |2 timmar |
-| Användare med läckta autentiseringsuppgifter |2 timmar |4 timmar |8 timmar |
-| Omöjliga resor till ovanliga platser |5 minuter |1 timme |8 timmar  |
+| Inloggningar från anonyma IP-adresser |5 minuter |15 minuter |2 timmar |
+| Inloggningar från okända platser |5 minuter |15 minuter |2 timmar |
+| Används med läckta autentiseringsuppgifter |2 timmar |4 timmar |8 timmar |
+| Omöjligt att resa till ovanliga platser |5 minuter |1 timme |8 timmar  |
 | Inloggningar från angripna enheter |2 timmar |4 timmar |8 timmar  |
 | Inloggningar från IP-adresser med misstänkt aktivitet |2 timmar |4 timmar |8 timmar  |
 

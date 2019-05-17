@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f9a33b6bce8cef5bf790efeb43259dfb8013487
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b32ef37c6d61c88a18acd5ddc80cc6154369ca29
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60472489"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65780527"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Ta över en ohanterad katalog som administratör i Azure Active Directory
 
@@ -37,7 +37,7 @@ Under administratörsövertagandet kan du bevisa ägarskapet enligt instruktione
 
 Vissa produkter som innehåller SharePoint och OneDrive, till exempel Office 365 har inte stöd för extern övertagning. Om det är ditt scenario, eller om du är administratör och vill ta över en ohanterad eller ”shadow” klient skapa av användare som har använt självbetjäningsregistrering, kan du göra detta med en intern adminövertagande.
 
-1. Skapa en användarkontext i ohanterad klient genom registreringen med till exempel Power BI. Dessa instruktioner förutsätter att sökvägen för att underlätta för till exempel.
+1. Skapa en användarkontext i ohanterad klient genom att registrera dig för Power BI. Dessa instruktioner förutsätter att sökvägen för att underlätta för till exempel.
 
 2. Öppna den [Power BI-webbplatsen](https://powerbi.com) och välj **starta kostnadsfri**. Ange ett användarkonto som använder domännamnet för organisationen, till exempel `admin@fourthcoffee.xyz`. Kontrollera din e-post för bekräftelsekoden när du har angett i verifieringskoden.
 
@@ -90,7 +90,7 @@ Externa adminövertagande stöds av följande onlinetjänster:
 
 - Power BI
 - Azure Rights Management
-- exchange online
+- Exchange Online
 
 Stöds service-planerna inkluderar:
 

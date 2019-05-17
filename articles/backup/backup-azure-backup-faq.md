@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: 0981f4d5d9d5fcb243fc7ead6f4b529c096935d0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 479edc11604670189b0accba67aa8f345f6260cd
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60646744"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65551369"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup – vanliga frågor och svar
 Den här artikeln innehåller vanliga frågor och svar om Azure Backup-tjänsten.
@@ -100,7 +100,7 @@ Windows 10 64-bitars | Enterprise, Pro, Home | Datorer ska köra den senaste ser
 Windows 8.1 64-bitars | Enterprise, Pro | Datorer ska köra den senaste services Pack och uppdateringar.
 Windows 8 64-bitars | Enterprise, Pro | Datorer ska köra den senaste services Pack och uppdateringar.
 Windows 7 64-bitars | Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter | Datorer ska köra den senaste services Pack och uppdateringar.
-Server | |
+Server  | |
 Windows Server 2019 64-bitars | Standard, Datacenter, Essentials | Med de senaste service Pack/uppdateringarna.
 Windows Server 2016 64-bitars | Standard, Datacenter, Essentials | Med de senaste service Pack/uppdateringarna.
 Windows Server 2012 R2 64 bit | Standard, Datacenter, Foundation | Med de senaste service Pack/uppdateringarna.
@@ -174,8 +174,8 @@ Nej. Är det dags att återställa den äldsta och den senaste punkten. Varje å
 ### <a name="if-each-recovery-point-is-like-a-full-point-does-it-impact-the-total-billable-backup-storage"></a>Om varje återställningspunkt fungerar som en fullständig punkt, påverkas i så fall den totalt fakturerbara lagringen av säkerhetskopior?
 Typiska produkter för långsiktiga kvarhållningspunkter lagrar säkerhetskopierade data som fullständiga punkter.
 
-    - De fullständiga punkterna är *ineffektiva* ur lagringssynvinkel men är enklare och snabbare att återställa.
-    - Inkrementella kopior är *effektiv* men kräver att du återställer en kedja med data som påverkar återställningstiden
+- De fullständiga punkterna är *ineffektiva* ur lagringssynvinkel men är enklare och snabbare att återställa.
+- Inkrementella kopior är *effektiv* men kräver att du återställer en kedja med data som påverkar återställningstiden
 
 Azure Backup-lagringsarkitekturen ger dig det bästa av två världar genom att lagra data för snabb återställning till låga lagringskostnader. Detta säkerställer att ingående och utgående bandbredden används effektivt. Mängden datalagring och tiden som krävs för att återställa data sparas till ett minimum. Läs mer om [inkrementella säkerhetskopieringar](https://azure.microsoft.com/blog/microsoft-azure-backup-save-on-long-term-storage/).
 

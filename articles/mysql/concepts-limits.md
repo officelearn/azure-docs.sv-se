@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/6/2018
-ms.openlocfilehash: 55106f855d1f2cab82b751b306a3a289bd740e9e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9088e9ad98633b46dc3a7f0ee9002a0dd9fc5a55
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60525419"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65551884"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Begränsningar i Azure Database for MySQL
 I följande avsnitt beskrivs kapacitet, stödet för lagring, privilegier support, manipulering av instruktionen stöd och funktionella begränsningar i databastjänsten. Se även [allmänna begränsningar](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) gäller för MySQL-databasmotorn.
@@ -80,6 +80,9 @@ När anslutningar överskrider gränsen, kan följande felmeddelande visas:
 
 ### <a name="vnet-service-endpoints"></a>VNet-tjänstslutpunkter
 - Stöd för VNet-tjänstslutpunkter är endast för generell användning och Minnesoptimerad servrar.
+
+### <a name="storage-size"></a>Lagringsstorlek
+- Se [prisnivåer](concepts-pricing-tiers.md) för storleksgränser för storage per prisnivå.
 
 ## <a name="current-known-issues"></a>Aktuella kända problem
 - MySQL-serverinstans visar fel serverversionen när anslutningen har upprättats. För att få rätt server instans Motorversion kan använda den `select version();` kommando.

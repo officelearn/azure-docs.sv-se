@@ -5,15 +5,15 @@ author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 4/12/2019
+ms.date: 5/10/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 1c772756a90c3eee4e2b3fb4fd4a0ec9e98fa0da
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: fba5119feb1ff7a0170a573371e479caa5fc33eb
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919073"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544482"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Skapa och hantera åtgärdsgrupper i Azure portal
 ## <a name="overview"></a>Översikt ##
@@ -25,9 +25,9 @@ Den här artikeln visar hur du skapar och hanterar åtgärdsgrupper i Azure-port
 
 Varje åtgärd består av följande egenskaper:
 
-* **Namn**: En unik identifierare i åtgärdsgruppen.  
-* **Åtgärdstyp**: Utföra åtgärden. Exempel är att skicka en röst-anrop, SMS, e-postmeddelandet, eller utlösa olika typer av automatiska åtgärder. Se typer senare i den här artikeln. 
-* **Information om**: Den motsvarande information som varierar beroende på *åtgärdstyp*. 
+* **Namn på**: En unik identifierare i åtgärdsgruppen.  
+* **Åtgärdstyp**: Utföra åtgärden. Exempel är att skicka en röst-anrop, SMS, e-postmeddelandet, eller utlösa olika typer av automatiska åtgärder. Se typer senare i den här artikeln.
+* **Information om**: Den motsvarande information som varierar beroende på *åtgärdstyp*.
 
 Information om hur du använder Azure Resource Manager-mallar för att konfigurera åtgärdsgrupper finns i [åtgärd grupp Resource Manager-mallar](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
 
@@ -51,7 +51,7 @@ Information om hur du använder Azure Resource Manager-mallar för att konfigure
 
 1. Definiera en lista med åtgärder. Ange följande för varje åtgärd:
 
-    a. **Namn**: Ange en unik identifierare för den här åtgärden.
+    a. **Namn på**: Ange en unik identifierare för den här åtgärden.
 
     b. **Åtgärdstyp**: Välj e-post/SMS/Push/röst, Logikapp, Webhook, ITSM eller Automation-Runbook.
 
@@ -69,7 +69,7 @@ När du har skapat en åtgärdsgrupp den syns i den **åtgärdsgrupper** delen a
 > [!NOTE]
 > Se [prenumerationstjänsten för övervakning](https://docs.microsoft.com/azure/azure-subscription-service-limits#monitor-limits) för numeriska gränser för vart och ett av objekten nedan.  
 
-**Azure-app Push** – du kan ha ett begränsat antal åtgärder för Azure i en åtgärdsgrupp. För tillfället stöder Azure-app-åtgärden endast ServiceHealth aviseringar. Någon annan typ av avisering ignoreras. Se [konfigurera aviseringar när en avisering om tjänstens hälsa publiceras](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
+**Azure-app Push** – du kan ha ett begränsat antal åtgärder för Azure i en åtgärdsgrupp.
 
 **E-post** -e-postmeddelanden ska skickas från följande e-postadresser. Kontrollera att din e-filtrering har konfigurerats på rätt sätt
 - azure-noreply@microsoft.com
@@ -101,6 +101,7 @@ Käll-IP-adressintervall
  - 13.106.38.148
  - 13.106.57.196
  - 52.244.68.117
+ - 52.244.65.137
  - 51.4.138.199
  - 51.5.148.86
  - 51.5.149.19

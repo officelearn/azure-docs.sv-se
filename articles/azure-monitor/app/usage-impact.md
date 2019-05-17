@@ -13,12 +13,12 @@ ms.date: 01/08/2019
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 8efab173f464b67c0c88c87ee28ea7fa19980501
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a1ff700bece2d64451294e72ebdf3c771ee644f8
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60373240"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604193"
 ---
 # <a name="impact-analysis-with-application-insights"></a>Konsekvensanalys med Application Insights
 
@@ -63,7 +63,7 @@ Påverkan har stöd för både standardentiteter och anpassade egenskaper och m�
 2. Välj ”land eller region” i **analysera hur dess** listrutan
 3. För den **påverkar användningen av** listrutan en anpassad händelse som motsvarar ett UI-element på sidan vyn du valde i steg 1.
 
-I det här fallet resultatet inte längre får plats i en kontinuerlig x-axel-modell som de gjorde i det första exemplet. I stället visas en visualisering som liknar en segmenterade tratt. Sortera efter **användning** att visa variationen för konvertering till din anpassade händelse baserat på land.
+I det här fallet resultatet inte längre får plats i en kontinuerlig x-axel-modell som de gjorde i det första exemplet. I stället visas en visualisering som liknar en segmenterade tratt. Sortera efter **användning** att visa variationen för konvertering till din anpassade händelse baserat på land/region.
 
 
 ## <a name="how-does-the-impact-tool-calculate-these-conversion-rates"></a>Hur beräknas priserna konvertering av verktyget inverkan?

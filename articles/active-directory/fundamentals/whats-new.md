@@ -16,12 +16,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a50dadb7ae401a5655745a799e6e9fcebb8bb886
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 455be9ba95975ba5c3bd870cbe01ca916d85ef41
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64935931"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544410"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Vad är nytt i Azure Active Directory?
 
@@ -44,8 +44,8 @@ Den här sidan uppdateras varje månad, så gå tillbaka till den regelbundet. O
 ### <a name="azure-active-directory-azure-ad-entitlement-management-is-now-available-public-preview"></a>Azure Active Directory (Azure AD) rättigheten management är nu tillgängliga (offentlig förhandsversion)
 
 **Typ:** Ny funktion  
-**Tjänstekategori:** Identitetshantering  
-**Produkten kapacitet:** Identitetshantering
+**Tjänstekategori:** Identity Governance  
+**Produkten kapacitet:** Identity Governance
 
 Azure AD rättigheten management nu hjälper i offentlig förhandsversion, kunder att delegera hanteringen av åtkomst-paket, som definierar hur anställda och affärspartner kan begära åtkomst, som måste godkänna och hur länge de har åtkomst. Åtkomst-paket kan hantera medlemskap i Azure AD och Office 365-grupper, rolltilldelningar i enterprise-program och rolltilldelningar för SharePoint Online-platser. Läs mer om rätt management på den [översikt över Azure AD rättigheten management](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview). Mer information om dessa nyheter Identitetsstyrning för Azure AD-funktioner, inklusive Privileged Identity Management, åtkomstgranskningar och användningsvillkor, finns i [vad är Azure AD Identity styrning?](../governance/identity-governance-overview.md).
 
@@ -97,7 +97,7 @@ Mer information finns i [hur du använder Azure Monitor-arbetsböcker för Azure
 
 I April 2019 har vi lagt till stöd för dessa 21 nya appar med Federation i app-galleriet:
 
-[SAP Fiori](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-fiori-tutorial), [HRworks Single Sign-On](https://docs.microsoft.com/azure/active-directory/saas-apps/hrworks-single-sign-on-tutorial), [Percolate](https://docs.microsoft.com/azure/active-directory/saas-apps/percolate-tutorial), [MobiControl](https://docs.microsoft.com/azure/active-directory/saas-apps/mobicontrol--tutorial), [Citrix NetScaler](https://docs.microsoft.com/azure/active-directory/saas-apps/citrix-netscaler-tutorial), [ Shibumi](https://docs.microsoft.com/azure/active-directory/saas-apps/shibumi-tutorial), [Benchling](https://docs.microsoft.com/azure/active-directory/saas-apps/benchling-tutorial), [MileIQ](https://mileiq.onelink.me/991934284/7e980085), [PageDNA](https://docs.microsoft.com/azure/active-directory/saas-apps/pagedna-tutorial), [EduBrite LMS](https://docs.microsoft.com/azure/active-directory/saas-apps/edubrite-lms-tutorial), [RStudio Ansluta](https://docs.microsoft.com/azure/active-directory/saas-apps/rstudio-connect-tutorial), [AMMS](https://docs.microsoft.com/azure/active-directory/saas-apps/amms-tutorial), [Mitel ansluta](https://docs.microsoft.com/azure/active-directory/saas-apps/mitel-connect-tutorial), [Alibaba Cloud (Role-based SSO)](https://docs.microsoft.com/azure/active-directory/saas-apps/alibaba-cloud-service-role-based-sso-tutorial), [Certent kapital Management](https://docs.microsoft.com/azure/active-directory/saas-apps/certent-equity-management-tutorial), [Sectigo Certifikathanteraren](https://docs.microsoft.com/azure/active-directory/saas-apps/sectigo-certificate-manager-tutorial), [GreenOrbit](https://docs.microsoft.com/azure/active-directory/saas-apps/greenorbit-tutorial), [Workgrid](https://docs.microsoft.com/azure/active-directory/saas-apps/workgrid-tutorial), [monday.com](https://docs.microsoft.com/azure/active-directory/saas-apps/mondaycom-tutorial), [ SurveyMonkey Enterprise](https://docs.microsoft.com/azure/active-directory/saas-apps/surveymonkey-enterprise-tutorial), [Indiggo](https://indiggolead.com/)
+[SAP Fiori](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-fiori-tutorial), [HRworks Single Sign-On](https://docs.microsoft.com/azure/active-directory/saas-apps/hrworks-single-sign-on-tutorial), [Percolate](https://docs.microsoft.com/azure/active-directory/saas-apps/percolate-tutorial), [MobiControl](https://docs.microsoft.com/azure/active-directory/saas-apps/mobicontrol-tutorial), [Citrix NetScaler](https://docs.microsoft.com/azure/active-directory/saas-apps/citrix-netscaler-tutorial), [ Shibumi](https://docs.microsoft.com/azure/active-directory/saas-apps/shibumi-tutorial), [Benchling](https://docs.microsoft.com/azure/active-directory/saas-apps/benchling-tutorial), [MileIQ](https://mileiq.onelink.me/991934284/7e980085), [PageDNA](https://docs.microsoft.com/azure/active-directory/saas-apps/pagedna-tutorial), [EduBrite LMS](https://docs.microsoft.com/azure/active-directory/saas-apps/edubrite-lms-tutorial), [RStudio Ansluta](https://docs.microsoft.com/azure/active-directory/saas-apps/rstudio-connect-tutorial), [AMMS](https://docs.microsoft.com/azure/active-directory/saas-apps/amms-tutorial), [Mitel ansluta](https://docs.microsoft.com/azure/active-directory/saas-apps/mitel-connect-tutorial), [Alibaba Cloud (Role-based SSO)](https://docs.microsoft.com/azure/active-directory/saas-apps/alibaba-cloud-service-role-based-sso-tutorial), [Certent kapital Management](https://docs.microsoft.com/azure/active-directory/saas-apps/certent-equity-management-tutorial), [Sectigo Certifikathanteraren](https://docs.microsoft.com/azure/active-directory/saas-apps/sectigo-certificate-manager-tutorial), [GreenOrbit](https://docs.microsoft.com/azure/active-directory/saas-apps/greenorbit-tutorial), [Workgrid](https://docs.microsoft.com/azure/active-directory/saas-apps/workgrid-tutorial), [monday.com](https://docs.microsoft.com/azure/active-directory/saas-apps/mondaycom-tutorial), [ SurveyMonkey Enterprise](https://docs.microsoft.com/azure/active-directory/saas-apps/surveymonkey-enterprise-tutorial), [Indiggo](https://indiggolead.com/)
 
 Mer information om apparna som finns i [SaaS-programintegration med Azure Active Directory](https://aka.ms/appstutorial). Läs mer om att lista ditt program i Azure AD-appgalleri [lista ditt program i Azure Active Directory-programgalleriet](https://aka.ms/azureadapprequest).
 
@@ -107,7 +107,7 @@ Mer information om apparna som finns i [SaaS-programintegration med Azure Active
 
 **Typ:** Ny funktion  
 **Tjänstekategori:** Åtkomstgranskningar  
-**Produkten kapacitet:** Identitetshantering
+**Produkten kapacitet:** Identity Governance
 
 Nya uppdateringar i Azure AD-åtkomstgranskningar kan du:
 
@@ -144,7 +144,7 @@ Mer information finns i [felsöka fel under synkronisering](https://docs.microso
 ### <a name="increased-security-using-the-app-protection-based-conditional-access-policy-in-azure-ad-public-preview"></a>Ökad säkerhet med hjälp av principen för app-protection-baserad villkorlig åtkomst i Azure AD (förhandsversion)
 
 **Typ:** Ny funktion  
-**Tjänstekategori:** Villkorlig åtkomst  
+**Tjänstekategori:** Villkorad åtkomst  
 **Produkten kapacitet:** Identitetssäkerhet och skydd
 
 App protection-baserad villkorlig åtkomst är nu tillgänglig med hjälp av den **kräver appskydd** princip. Den här nya principen som hjälper dig för att öka säkerheten för din organisation genom att hjälpa att förhindra att:
@@ -162,7 +162,7 @@ Mer information finns i [kräva appens skyddsprincip för åtkomst till molnet a
 ### <a name="new-support-for-azure-ad-single-sign-on-and-conditional-access-in-microsoft-edge-public-preview"></a>Nya stödet för Azure AD enkel inloggning och villkorlig åtkomst i Microsoft Edge (förhandsversion)
 
 **Typ:** Ny funktion  
-**Tjänstekategori:** Villkorlig åtkomst  
+**Tjänstekategori:** Villkorad åtkomst  
 **Produkten kapacitet:** Identitetssäkerhet och skydd
 
 Vi har utökat vår Azure AD-stöd för Microsoft Edge, inklusive att tillhandahålla nya stödet för Azure AD enkel inloggning och villkorlig åtkomst. Om du tidigare har använt Microsoft Intune Managed Browser, kan du nu använda Microsoft Edge i stället.
@@ -276,7 +276,7 @@ Mer information om den nya **granskningsloggar** sidan ser [granska aktivitetsra
 ### <a name="new-warnings-and-guidance-to-help-prevent-accidental-administrator-lockout-from-misconfigured-conditional-access-policies"></a>Nya varningar och vägledning för att förhindra oavsiktlig administratör utelåsning från felkonfigurerad principer för villkorlig åtkomst
 
 **Typ:** Ändrad funktion  
-**Tjänstekategori:** Villkorlig åtkomst  
+**Tjänstekategori:** Villkorad åtkomst  
 **Produkten kapacitet:** Identitetssäkerhet och skydd
 
 För att förhindra att administratörer av misstag låser sig av sina egna klienter via felkonfigurerad principer för villkorlig åtkomst, har vi skapat nya varningar och uppdaterade riktlinjer i Azure-portalen. Mer information om nya vägledning finns i [vad är tjänstens beroenden i Azure Active Directory villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/conditional-access/service-dependencies).
@@ -316,7 +316,7 @@ Mer information om den här funktionen finns i [snabbstarten: Ladda ned en grans
 ### <a name="breaking-change-updates-to-condition-evaluation-by-exchange-activesync-eas"></a>Icke-bakåtkompatibel ändring: Uppdateringar till villkorsutvärdering av Exchange ActiveSync (EAS)
 
 **Typ:** Förändringsplan  
-**Tjänstekategori:** Villkorlig åtkomst  
+**Tjänstekategori:** Villkorad åtkomst  
 **Produkten kapacitet:** Åtkomstkontroll
 
 Vi håller på att uppdatera hur Exchange ActiveSync (EAS) utvärderar följande villkor:
@@ -584,17 +584,17 @@ Följande fält ändras Audit schemat:
 |----------|------------|----------|----------|
 |Category|Det var den **tjänstnamn** fält. Nu är det den **Audit kategorier** fält. **Tjänstnamnet** har bytt namn till den **loggedByService** fält.|<ul><li>Kontoetablering</li><li>Kärnkatalog</li><li>Lösenordsåterställning via självbetjäning</li></ul>|<ul><li>Användarhantering</li><li>Grupphantering</li><li>Apphantering</li></ul>|
 |targetResources|Innehåller **TargetResourceType** på den översta nivån.|&nbsp;|<ul><li>Princip</li><li>App</li><li>Användare</li><li>Grupp</li></ul>|
-|loggedByService|Innehåller namnet på tjänsten som genererade granskningsloggen.|Null|<ul><li>Kontoetablering</li><li>Kärnkatalog</li><li>Återställning av lösenord för självbetjäning</li></ul>|
-|Resultat|Ger resultatet för granskningsloggar. Tidigare var detta räknades upp, men vi nu visar det faktiska värdet.|<ul><li>0</li><li>1</li></ul>|<ul><li>Lyckades</li><li>Fel</li></ul>|
+|loggedByService|Innehåller namnet på tjänsten som genererade granskningsloggen.|Null|<ul><li>Kontoetablering</li><li>Kärnkatalog</li><li>Självåterställning av lösenord</li></ul>|
+|Resultat|Ger resultatet för granskningsloggar. Tidigare var detta räknades upp, men vi nu visar det faktiska värdet.|<ul><li>0</li><li>1</li></ul>|<ul><li>Klart</li><li>Fel</li></ul>|
 
 #### <a name="changed-fields-in-the-sign-in-schema"></a>Ändrade fält i inloggning-schema
 Logga in schemat ändras följande fält:
 
 |Fältnamn|Vad som ändrats|Gamla värden|Nya värden|
 |----------|------------|----------|----------|
-|appliedConditionalAccessPolicies|Det var den **conditionalaccessPolicies** fält. Nu är det den **appliedConditionalAccessPolicies** fält.|Ingen förändring|Ingen förändring|
-|conditionalAccessStatus|Ger resultatet för villkorlig åtkomst Principstatusen vid inloggning. Tidigare var detta räknades upp, men vi nu visar det faktiska värdet.|<ul><li>0</li><li>1</li><li>2</li><li>3</li></ul>|<ul><li>Lyckades</li><li>Fel</li><li>Används inte</li><li>Disabled</li></ul>|
-|appliedConditionalAccessPolicies: result|Ger resultatet för enskilda villkorlig åtkomst Principstatus vid inloggning. Tidigare var detta räknades upp, men vi nu visar det faktiska värdet.|<ul><li>0</li><li>1</li><li>2</li><li>3</li></ul>|<ul><li>Lyckades</li><li>Fel</li><li>Används inte</li><li>Disabled</li></ul>|
+|appliedConditionalAccessPolicies|Det var den **conditionalaccessPolicies** fält. Nu är det den **appliedConditionalAccessPolicies** fält.|Ingen ändring|Ingen ändring|
+|conditionalAccessStatus|Ger resultatet för villkorlig åtkomst Principstatusen vid inloggning. Tidigare var detta räknades upp, men vi nu visar det faktiska värdet.|<ul><li>0</li><li>1</li><li>2</li><li>3</li></ul>|<ul><li>Klart</li><li>Fel</li><li>Används inte</li><li>Har inaktiverats</li></ul>|
+|appliedConditionalAccessPolicies: result|Ger resultatet för enskilda villkorlig åtkomst Principstatus vid inloggning. Tidigare var detta räknades upp, men vi nu visar det faktiska värdet.|<ul><li>0</li><li>1</li><li>2</li><li>3</li></ul>|<ul><li>Klart</li><li>Fel</li><li>Används inte</li><li>Har inaktiverats</li></ul>|
 
 Mer information om schemat finns i [tolkningar Azure AD granskningsloggar schemat i Azure Monitor (förhandsversion)](https://docs.microsoft.com/azure/active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema)
 
@@ -720,7 +720,7 @@ Läs mer om PIM och de tillgängliga e-postmeddelanden, [e-postmeddelanden i PIM
 ### <a name="group-based-licensing-is-now-generally-available"></a>Gruppbaserad licensiering är nu allmänt tillgänglig
 
 **Typ:** Ändrad funktion  
-**Tjänstekategori:** Annat  
+**Tjänstekategori:** Annat   
 **Produkten kapacitet:** Katalog
 
 Gruppbaserad licensiering är utanför offentlig förhandsversion och är nu allmänt tillgänglig. Som en del av den här kommersiella utgåvan blir tillgänglig, vi har gjort den här funktionen mer skalbart och har lagt till möjligheten att Ombearbeta gruppbaserad licensiering tilldelningar för en enskild användare och möjligheten att använda gruppbaserad licensiering med Office 365 E3/A3-licenser.

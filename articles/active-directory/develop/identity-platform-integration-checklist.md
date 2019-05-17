@@ -3,8 +3,8 @@ title: Integrera med Microsoft identity-plattformen | Azure
 description: Läs mer om bästa praxis och vanliga förbiseende när du integrerar med Microsoft identity-plattformen (v2.0).
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev
-ms.openlocfilehash: 1f5a6d7501fd387548b111fcb0888515c8f8db25
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: e9070127780659142ab8f956a8016622ecfea144
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65076412"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540166"
 ---
 # <a name="microsoft-identity-platform-integration-checklist"></a>Checklista för Microsoft identity-plattformen integration
 
@@ -33,7 +33,7 @@ Om du precis har kommit igång, ta en titt på [dokumentation](index.yml) vill v
 
 Använd följande checklista för att säkerställa att ditt program effektivt är integrerat med den [Microsoft identity-plattformen](https://docs.microsoft.com/legal/mdsa).
 
-### <a name="basics"></a>Grundläggande inställningar
+### <a name="basics"></a>Grundinställningar
 
 |   |   |
 |---|---|

@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 05/13/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 8a4ffdc09cb12f7a16173c86bd3d0e3aee78d46d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1e76569c7f5157dce681d15ec8d499b90e080102
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65152651"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65762312"
 ---
 # <a name="media-services-concepts"></a>Media Services-koncepten
 
@@ -26,7 +26,7 @@ Det här avsnittet ger en kort översikt över Azure Media Services-termer och b
 De grundläggande begrepp som beskrivs i de här ämnena bör granskas innan utveckling påbörjas.
 
 > [!NOTE]
-> För närvarande kan du inte hantera v3-resurser med Azure-portalen. Använd [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) eller en av [SDK:erna som stöds](developers-guide.md).
+> För närvarande kan du inte hantera v3-resurser med Azure-portalen. Använd [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) eller en av [SDK:erna som stöds](media-services-apis-overview.md#sdks).
 
 ## <a name="terminology"></a>Terminologi
 
@@ -62,7 +62,7 @@ Om du vill koda med Media Services v3, måste du skapa **omvandlar** och **jobb*
 - [Transformeringar och jobb](transforms-jobs-concept.md)
 - [Encoding med Media Services](encoding-concept.md)
 
-## <a name="media-analytics"></a>Medieanalys
+## <a name="media-analytics"></a>Mediaanalys
 
 För att analysera din video och ljud filer kan du även behöva skapa **omvandlar** och **jobb**.
 
@@ -76,7 +76,7 @@ När du skapar den **Strömningspositionerare**, förutom Tillgångsnamn, måste
 
 Dynamisk paketering används om du strömma ditt innehåll live eller på begäran. Följande diagram visar strömning på begäran med dynamisk paketering arbetsflöde.
 
-![Dynamisk paketering](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
+![Dynamisk paketering](./media/dynamic-packaging-overview/media-services-dynamic-packaging.png)
 
 Med medietjänster kan du leverera live och på begäran innehåll dynamiskt krypterad med Advanced Encryption Standard (AES-128) eller / och några av de tre största digital rights management (DRM) system: Microsoft PlayReady, Google Widevine och FairPlay för Apple. Media Services tillhandahåller också en tjänst för att leverera AES-nycklar och DRM (PlayReady, Widevine och FairPlay) licenser till auktoriserade klienter.
 
@@ -114,7 +114,7 @@ Följande bild illustrerar arbetsflödet direkt typ:
 
 ## <a name="monitoring"></a>Övervakning
 
-### <a name="event-grid"></a>Event Grid
+### <a name="event-grid"></a>Händelserutnät
 
 Om du vill se förloppet för jobbet, bör du använda **Event Grid**. Media Services genererar även Live-händelse-typer. Med Event Grid kan dina appar lyssna efter och reagera på händelser från i princip alla Azure-tjänster, samt även från anpassade källor. 
 

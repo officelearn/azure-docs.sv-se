@@ -7,17 +7,17 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 05/10/2019
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: f540bc304920073bcd823adcf6c9dd47cb2cf93b
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: a59deed4ac0cec669ddc5e0335f7274586c702e8
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65159757"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65541769"
 ---
-# <a name="upgrading-to-the-azure-search-net-sdk-version-9"></a>Uppgradera till Azure Search .NET SDK version 9
+# <a name="upgrade-to-the-azure-search-net-sdk-version-9"></a>Uppgradera till Azure Search .NET SDK version 9
 
 Om du använder version 7.0-förhandsversion eller äldre av den [Azure Search .NET SDK](https://aka.ms/search-sdk), den här artikeln hjälper dig att uppgradera programmet att använda version 9.
 
@@ -38,7 +38,7 @@ Azure Search .NET SDK-version 9 innehåller många ändringar från tidigare ver
 ## <a name="whats-new-in-version-9"></a>Vad är nytt i version 9
 Azure Search .NET SDK version 9 riktar sig mot senast allmänt tillgängliga versionen av Azure Search-REST-API, särskilt 2019-05-06. Detta gör det möjligt att använda nya funktioner i Azure Search från .NET-program, inklusive följande:
 
-* [Cognitive Search](cognitive-search-concept-intro.md) är en AI-funktion i Azure Search används för att extrahera text från bilder, blobbar och andra Ostrukturerade datakällor - berikas innehållet så att de blir mer sökbara i ett Azure Search-index.
+* [Kognitiv sökning](cognitive-search-concept-intro.md) är en AI-funktion i Azure Search används för att extrahera text från bilder, blobbar och andra Ostrukturerade datakällor - berikas innehållet så att de blir mer sökbara i ett Azure Search-index.
 * Stöd för [komplexa typer](search-howto-complex-data-types.md) kan du modellera nästan alla kapslad JSON-strukturen i ett Azure Search-index.
 * [Automatisk komplettering](search-autocomplete-tutorial.md) är ett alternativ till den **föreslå** API för att implementera sökning-som-du-type-beteende. Automatisk komplettering ”är klar” ord eller fraser som en användare är för närvarande för att skriva.
 * [JsonLines parsningsläge](search-howto-index-json-blobs.md)är en del av Azure Blob indexering, skapar ett Sök-dokument per JSON-entitet som avgränsas med en ny rad.
@@ -70,7 +70,7 @@ Det finns flera ändringar i version 9 som kan kräva ändringar i koden föruto
 > [!NOTE]
 > En lista över ändringar nedan är inte komplett. Vissa ändringar kommer troligen inte resulterar i build-fel, men tekniskt bryter ned eftersom de bryter binär kompatibilitet med paket som beror på tidigare versioner av Azure Search .NET SDK-sammansättningar. Ändringarna visas inte nedan. Återskapa ditt program när du uppgraderar till version 9 för att undvika eventuella binära kompatibilitetsproblem.
 
-### <a name="making-properties-immutable"></a>Gör egenskaper inte kan ändras
+### <a name="immutable-properties"></a>Oföränderliga egenskaper
 
 Offentliga egenskaper för flera modellklasser är nu inte kan ändras. Om du vill skapa anpassade instanser av dessa klasser för testning kan kan du använda nya parametriserade konstruktorer:
 
@@ -103,7 +103,7 @@ Det beror på att de här egenskaperna måste nu vara `null` när det gäller ko
 
 Parameterlös konstruktor av `Field` har gjorts `internal`. Hädanefter kan varje `Field` kräver en explicit och datatyp vid tidpunkten för konstruktion.
 
-### <a name="simplification-of-batch-and-results-types"></a>Förenkling av distribution av batch-och resultat
+### <a name="simplified-batch-and-results-types"></a>Förenklad typer för batch och resultat
 
 I version 7.0-preview och tidigare, har de olika klasser som kapslar in grupper av dokument strukturerade i parallella klasshierarkier:
 
@@ -118,7 +118,7 @@ Härledda typer utan en parameter av generisk typ. har avsett att användas i �
 
 Från och med version 8.0-preview, har basklasser och härledda klasser för icke-generisk alla tagits bort. Du kan använda för dynamiskt typifierade scenarier `IndexBatch<Document>`, `DocumentSearchResult<Document>`och så vidare.
  
-### <a name="removal-of-extensibleenum"></a>Borttagning av ExtensibleEnum
+### <a name="removed-extensibleenum"></a>Borttagna ExtensibleEnum
 
 Den `ExtensibleEnum` basklass har tagits bort. Alla klasser som är härledda därifrån finns nu strukturer, till exempel `AnalyzerName`, `DataType`, och `DataSourceType` till exempel. Deras `Create` metoder har också tagits bort. Du kan bara ta bort anrop till `Create` eftersom dessa typer är implicit konverteras från strängar. Om som resulterar i Kompilatorfel anropa du explicit operatorn konvertering via omvandling för att disambiguate typer. Du kan till exempel ändra kod så här:
 
@@ -150,7 +150,7 @@ var index = new Index()
 
 Egenskaper som hålls valfria värden av typerna är nu uttryckligen har angett som kan ha värdet null så att de fortsätter att vara valfri.
 
-### <a name="removal-of-facetresults-and-hithighlights"></a>Ta bort FacetResults och HitHighlights
+### <a name="removed-facetresults-and-hithighlights"></a>Borttagna FacetResults och HitHighlights
 
 Den `FacetResults` och `HitHighlights` klasser har tagits bort. Aspekten resultat nu har skrivits som `IDictionary<string, IList<FacetResult>>` och trycker på markeras som `IDictionary<string, IList<string>>`. Ett snabbt sätt att lösa build felen i den här ändringen är att lägga till `using` alias högst upp på varje fil som använder de borttagna typerna. Exempel:
 

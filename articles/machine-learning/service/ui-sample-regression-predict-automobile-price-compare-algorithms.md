@@ -1,7 +1,7 @@
 ---
 title: 'Regression: Förutsäga pris och jämföra algoritmer'
 titleSuffix: Azure Machine Learning service
-description: Detta visuella gränssnittet exempelexperiment visar hur du jämföra prestanda för två regressionsmodeller som förutsäga priset på en bil. Processen omfattar utbildning, testning och utvärdering av modellen på Automobile price data (Raw) datauppsättningen.
+description: Den här artikeln visar hur du skapar en komplexa machine learning-experiment utan att behöva skriva en enda rad kod med hjälp av det visuella gränssnittet. Lär dig hur du finjustera och jämföra flera regressionsmodeller för att förutsäga priset för en bil baserat på tekniska funktioner
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,17 +9,23 @@ ms.topic: article
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
-ms.date: 05/02/2019
-ms.openlocfilehash: 2a4a9e74fa7f56b67f0f4a64f6619db1c5c69a2c
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.date: 05/10/2019
+ms.openlocfilehash: c8c813a2304797e71499a916e29c18f8bec2b389
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65442151"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787801"
 ---
 # <a name="sample-2---regression-predict-price-and-compare-algorithms"></a>Exempel 2 – Regression: Förutsäga pris och jämföra algoritmer
 
-Detta visuella gränssnittet exempelexperiment visar hur du jämföra prestanda för två regressionsmodeller som förutsäga priset på en bil. Processen omfattar utbildning, testning och utvärdering av modellen med hjälp av den **Automobile price data (Raw)** datauppsättning.
+Lär dig hur du skapar en komplexa machine learning-experiment utan att behöva skriva en enda rad kod med hjälp av det visuella gränssnittet. Det här exemplet träna och jämför flera regressionsmodeller för att förutsäga priset för en bil baserat på dess tekniska funktioner. Anledningen tillhandahåller vi för valen som gjorts i det här experimentet så att du kan hantera din egen machine learning problem.
+
+Om du precis har kommit igång med machine learning, kan du ta en titt på de [grundläggande version](ui-sample-regression-predict-automobile-price-basic.md) med det här experimentet för att se en grundläggande regression experimentera.
+
+Här är färdiga diagrammet det här experimentet:
+
+[![Diagram över experimentet](media/ui-sample-regression-predict-automobile-price-compare-algorithms/graph.png)](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -29,10 +35,6 @@ Detta visuella gränssnittet exempelexperiment visar hur du jämföra prestanda 
 
     ![Öppna experimentet](media/ui-sample-regression-predict-automobile-price-compare-algorithms/open-sample2.png)
 
-## <a name="related-sample"></a>Relaterade exemplet
-
-[Exempel 1 – Regression: Bil pris förutsägelse (grundläggande)](ui-sample-regression-predict-automobile-price-basic.md) ger en enklare experiment som löser samma problem som det här experimentet men som använder bara en regressionsmodell. Referera till det om du letar efter ett grundläggande exempel på regression.
-
 ## <a name="experiment-summary"></a>Sammanfattning för experiment
 
 Vi kan använda de här stegen för att skapa experimentet:
@@ -41,11 +43,6 @@ Vi kan använda de här stegen för att skapa experimentet:
 1. Förbearbeta data.
 1. Träna modellen.
 1. Testa, utvärdera och jämför modeller.
-
-Här är det fullständiga diagrammet över experimentet:
-
-[![Diagram över experimentet](media/ui-sample-regression-predict-automobile-price-compare-algorithms/graph.png)](media/ui-sample-regression-predict-automobile-price-compare-algorithms/graph.png#lightbox)
-
 
 ## <a name="get-the-data"></a>Hämta data
 

@@ -3,8 +3,8 @@ title: Programtyper för Microsoft identity-plattformen | Azure
 description: Typer av appar och scenarier som stöds av Microsoft identity-plattformen (v2.0) slutpunkt.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 494a06b8-0f9b-44e1-a7a2-d728cf2077ae
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/06/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 562b45f30bf057feba38a716e040ab2efc15da90
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3ec10359c6f684b1d7fb008946b7ceca2ed626ba
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60297158"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545364"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Programtyper för Microsoft identity-plattformen
 
@@ -59,7 +59,7 @@ I det här flödet appen tar emot token direkt från Microsoft identity-plattfor
 
 Om du vill se det här scenariot fungerar i praktiken kan du prova någon av ensidesapp kodexemplen i den [Microsoft identity-plattformen har börjat](v2-overview.md#getting-started) avsnittet.
 
-## <a name="web-apps"></a>Webbappar
+## <a name="web-apps"></a>Webbprogram
 
 Du kan använda för web apps (.NET, PHP, Java, Ruby, Python, Node) som användaren har åtkomst via en webbläsare, [OpenID Connect](active-directory-v2-protocols.md) för användarinloggning. Webbappen tar emot ett ID-token i OpenID Connect. Ett ID-token är en säkerhetstoken som verifierar användarens identitet och innehåller information om användaren i form av anspråk:
 

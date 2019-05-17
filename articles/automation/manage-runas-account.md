@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/26/2019
+ms.date: 05/03/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: af67109fb7f55f365cd71714a3eefab2336b636a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2a104c9e41ef1843c377b0406b499ffae504db97
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61301175"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595657"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Hantera Azure Automation kör som-konton
 
@@ -38,11 +38,14 @@ Det finns två typer av kör som-konton:
   > [!NOTE]
   > Azure Cloud Solution Provider (Azure CSP)-prenumerationer stöder endast Azure Resource Manager-modellen, icke - Azure Resource Manager-tjänster är inte tillgängliga i programmet. När du använder en CSP-prenumeration inte Azure klassiska kör som-kontot skapas. Azure kör som-kontot skapades fortfarande. Läs mer om CSP-prenumerationer i [tillgängliga tjänster i CSP-prenumerationer](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments).
 
+  > [!NOTE]
+  > Tjänstens huvudnamn för ett kör som-kontot har inte behörighet att läsa Azure Active Directory som standard. Om du vill lägga till behörigheter att läsa eller hantera Azure Active directory, du måste du bevilja den behörigheten på tjänstens huvudnamn under **API-behörigheter**. Mer information finns i [Lägg till behörigheter för att få åtkomst till webb-API: er](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis).
+
 ## <a name="permissions"></a>Behörigheter för att konfigurera kör som-konton
 
 Om du vill skapa eller uppdatera en Kör som-konto, måste du ha specifika privilegier och behörigheter. En Global administratör/Medadministratör kan utföra alla aktiviteter. I en situation där du har uppdelning av uppgifter, visas i följande tabell en lista över aktiviteterna, motsvarande cmdlet och behörigheter som krävs:
 
-|Aktivitet|Cmdlet  |Minsta möjliga behörigheter  |Där du kan ange behörigheter|
+|Uppgift|Cmdlet  |Minsta möjliga behörigheter  |Där du kan ange behörigheter|
 |---|---------|---------|---|
 |Skapa Azure AD-program|[New-AzureRmADApplication](/powershell/module/azurerm.resources/new-azurermadapplication)     | Developer Programroll<sup>1</sup>        |[Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Start > Azure Active Directory > App-registreringar |
 |Lägg till autentiseringsuppgift för programmet.|[New-AzureRmADAppCredential](/powershell/module/AzureRM.Resources/New-AzureRmADAppCredential)     | Programadministratör eller GLOBAL administratör<sup>1</sup>         |[Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Start > Azure Active Directory > App-registreringar|

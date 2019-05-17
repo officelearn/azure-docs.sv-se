@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: c8a74df19c012613807d39fb3ee529173e82d5ba
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: bbfc31e5eab2c2beb232a9ec2e0d5e11e4107be5
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62128829"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606282"
 ---
 # <a name="compliance-in-azure-cosmos-db"></a>Efterlevnad i Azure Cosmos DB 
 
@@ -28,7 +28,7 @@ Azure Cosmos DB är tillgängligt i alla Azure-regioner. Microsoft gör fem olik
 
 * **Azure Government för avdelning Defense** finns i två regioner i USA till oss Försvarsmyndighet.
 
-För att hjälpa kunder att uppfylla sina egna efterlevnad skyldigheter i reglerade branscher och marknader världen över, underhåller Azure den största efterlevnadsportföljen i branschen när det gäller både (totalt antal erbjudanden) och visualiseringsanvändning (antal kunder tjänster i utvärderingen omfattning).  Azures efterlevnadserbjudanden grupperas i fyra segment - globalt tillämpliga, US Government, specifikt, bransch och land specifika.  Efterlevnadserbjudanden baseras på olika typer av säkerhet, inklusive formella certifieringar, attesteringar, verifieringar, tillstånd och utvärderingar som produceras av fristående från tredje part granskning företag, samt avtalsenliga ändringar självutvärderingar, och kunden vägledning dokument kommer från Microsoft.
+För att hjälpa kunder att uppfylla sina egna efterlevnad skyldigheter i reglerade branscher och marknader världen över, underhåller Azure den största efterlevnadsportföljen i branschen när det gäller både (totalt antal erbjudanden) och visualiseringsanvändning (antal kunder tjänster i utvärderingen omfattning).  Azures efterlevnadserbjudanden grupperas i fyra segment - globalt tillämpliga, US Government, bransch som är specifika, och region eller land/region specifika.  Efterlevnadserbjudanden baseras på olika typer av säkerhet, inklusive formella certifieringar, attesteringar, verifieringar, tillstånd och utvärderingar som produceras av fristående från tredje part granskning företag, samt avtalsenliga ändringar självutvärderingar, och kunden vägledning dokument kommer från Microsoft.
 
 ## <a name="azure-cosmos-db-certifications"></a>Azure Cosmos DB-certifieringar  
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: bwren
-ms.openlocfilehash: ecbea91cef69c80975dd105c35f526b357033a6b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6fae245e4d72f7f6f7809d85da17023deb1518e5
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61425970"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65560857"
 ---
 # <a name="azure-monitor-log-queries"></a>Azure Monitor log-frågor
 Azure Monitor-loggar bygger på Azure Data Explorer och Azure Monitor log-frågor använder en version av samma Kusto-frågespråket. Den [Kusto-fråga språkdokumentation](/azure/kusto/query) har alla detaljer för språket och ska vara din primära resurs för att skriva Azure Monitor log-frågor. Den här sidan innehåller länkar till andra resurser för att lära dig hur du skriver frågor och på skillnader med Azure Monitor-implementering för språket.
@@ -61,7 +61,7 @@ Azure Monitor-loggar bygger på Azure Data Explorer och Azure Monitor log-frågo
 ## <a name="cheatsheets"></a>Översiktsblad
 
 -  [SQL Azure Monitor log-frågan](sql-cheatsheet.md) hjälper användare som redan är bekant med SQL.
--  [Splunk till Azure Monitor loggfråga](sql-cheatsheet.md) hjälper användare som redan är bekant med Splunk.
+-  [Splunk till Azure Monitor loggfråga](splunk-cheatsheet.md) hjälper användare som redan är bekant med Splunk.
  
 ## <a name="next-steps"></a>Nästa steg
 

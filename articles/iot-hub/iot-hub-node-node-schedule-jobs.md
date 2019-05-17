@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 10/06/2017
-ms.openlocfilehash: 1f357ed60e9d9f020d5a80ac9349eb65577521e7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1a42b590fc83b89cd9f90998f835fc58f84ea960
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61442757"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65597398"
 ---
 # <a name="schedule-and-broadcast-jobs-node"></a>Schemalägg och Sänd jobb (Node)
 
@@ -50,7 +50,7 @@ I slutet av den här självstudien har du två Node.js-appar:
 
 För att kunna genomföra den här kursen behöver du följande:
 
-* Node.js version 4.0.x eller senare [Förbered din utvecklingsmiljö](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) beskriver hur du installerar Node.js för den här självstudiekursen i Windows eller Linux.
+* Node.js-version 10.0.x eller senare [Förbered din utvecklingsmiljö](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) beskriver hur du installerar Node.js för den här självstudiekursen i Windows eller Linux.
 
 * Ett aktivt Azure-konto. (Om du inte har ett konto kan du skapa en [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) på bara några minuter.)
 

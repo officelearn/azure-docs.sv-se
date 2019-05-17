@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 5267f81c9886e2d1d8d62c134156aedb3b2b8763
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 058b6c979346d9dcce36940432d0e222e919dba9
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023692"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540835"
 ---
 #   <a name="shaper-cognitive-skill"></a>Formaren kognitiva kunskaper
 
@@ -29,7 +29,7 @@ API-versionen avgör djup vi att du kan uppnå.
 | 2019-05-06-preview REST-API-versionen (.NET SDK stöds inte) | Komplexa objekt flera nivåer djup, i en **formaren** färdighet definition. |
 | 2019-05-06 ** (allmänt tillgänglig), 2017-11-11-förhandsversion| Komplexa objekt, en nivå. Formen med flera nivåer kräver länkning av flera formaren steg.|
 
-Förhandsversionen av **formaren** färdigheter som illustreras i [scenario 3](#nested-complex-types), lägger till en ny valfri *sourceContext* som indata. Den *källa* och *sourceContext* egenskaper kan inte anges samtidigt. Om indata är i samband med kunskaper kan bara använda *källa*. Om indata är på en *olika* kontext än färdighet kontext, Använd den *sourceContext*. Den *sourceContext* måste du definiera en kapslad indata med specifika elementet håller på att åtgärdas som källa. 
+Som tillhandahålls av `api-version=2019-05-06-Preview`, **formaren** färdighet illustreras i [scenario 3](#nested-complex-types) lägger till en ny valfri *sourceContext* som indata. Den *källa* och *sourceContext* egenskaper kan inte anges samtidigt. Om indata är i samband med kunskaper kan bara använda *källa*. Om indata är på en *olika* kontext än färdighet kontext, Använd den *sourceContext*. Den *sourceContext* måste du definiera en kapslad indata med specifika elementet håller på att åtgärdas som källa. 
 
 I svaret, för alla API-versioner, är utdatanamnet alltid ”utdata”. Internt pipelinen kan mappa ett annat namn, till exempel ”analyzedText” som du ser i exemplen nedan, men **formaren** färdighet själva returnerar ”utdata” i svaret. Det kan vara viktigt om du felsöker avancerad och dokument och notera avvikelsen namngivning, eller om du bygger en anpassad kunskap och strukturerar svaret själv.
 
@@ -196,7 +196,7 @@ I det här fallet den **formaren** plattar ut alla kapitelrubriker för att skap
 ## <a name="scenario-3-input-consolidation-from-nested-contexts"></a>Scenario 3: inkommande konsolidering från kapslade kontexter
 
 > [!NOTE]
-> Kapslade strukturer som stöds i api-version = 2019-05-06-Preview kan användas i en [knowledge store](knowledge-store-concept-intro.md) eller i ett Azure Search-index.
+> Kapslade strukturer som stöds i den [REST API-version 2019-05-06-Preview](search-api-preview.md) kan användas i en [knowledge store](knowledge-store-concept-intro.md) eller i ett Azure Search-index.
 
 Anta att du har den rubrik, kapitel och innehållet i en bok och har kört entitet erkännande och nyckeln fraser på innehållet och nu måste du aggregera resultat från olika färdigheter till en enda form med KAPITELNAMN, entiteter och viktiga fraser.
 
@@ -265,4 +265,4 @@ I det här fallet den **formaren** skapar en komplex typ. Den här strukturen fi
 + [Hur du definierar en kompetens](cognitive-search-defining-skillset.md)
 + [Hur du använder komplexa typer](search-howto-complex-data-types.md)
 + [Översikt över Knowledge](knowledge-store-concept-intro.md)
-+ [Hur du kommer igång med Knowledge Store](knowledge-store-howto.md)
++ [Hur du kommer igång med knowledge store](knowledge-store-howto.md)

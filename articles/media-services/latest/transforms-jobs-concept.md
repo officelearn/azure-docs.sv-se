@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 05/08/2019
 ms.author: juliako
-ms.openlocfilehash: e64e980d42086603c9eb8ce39a96a9766a78afcb
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 01b386c820a09af0e616698aabc58a886c30bb09
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65472466"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550933"
 ---
 # <a name="transforms-and-jobs"></a>Transformeringar och jobb
 
@@ -55,9 +55,15 @@ En **transformera** hjälper dig att skapa receptet en gång (steg 1) och skicka
 
 Använd **omvandlar** att konfigurera vanliga uppgifter för kodning eller analysera videor. Varje **transformera** beskriver ett recept eller ett arbetsflöde med uppgifter för att bearbeta video- eller ljudinnehåll filer. En enda transformering kan använda mer än en regel. En transformering kan till exempel ange att varje videon kodas till en MP4-fil på en viss bithastighet och att en miniatyrbild genereras från den första bildrutan i videon. Du skulle lägga till en TransformOutput post för varje regel som du vill ska ingå i din transformeringen. Du kan använda förinställningar för att berätta för transformering hur inkommande mediefiler ska bearbetas.
 
+### <a name="viewing-schema"></a>Visa schemat
+
 Förinställningar finns i Media Services v3, starkt typifierad entiteter i själva API: T. Du kan hitta ”schema” definitionen för dessa objekt i [Open API Specification (eller Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). Du kan också visa de förinställda definitionerna (t.ex. **StandardEncoderPreset**) i den [REST API](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset), [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet) (eller andra Media Services v3 SDK referensdokumentation).
 
+### <a name="creating-transforms"></a>Skapar transformeringar
+
 Du kan skapa transformeringar med hjälp av REST, CLI, eller använda någon av de publicerade SDK: er. Media Services-v3 API drivs av Azure Resource Manager, så du kan också använda Resource Manager-mallar för att skapa och distribuera transformeringar i Media Services-kontot. Rollbaserad åtkomstkontroll kan användas för att låsa åtkomsten till transformeringar.
+
+### <a name="updating-transforms"></a>Uppdaterar transformeringar
 
 Om du behöver uppdatera din [transformera](https://docs.microsoft.com/rest/api/media/transforms), använda den **uppdatera** igen. Den är avsedd för att göra ändringarna för beskrivningen eller prioriteringarna för underliggande TransformOutputs. Vi rekommenderar att dessa uppdateringar ska utföras när alla pågående jobb har slutförts. Om du vill skriva om receptet, måste du skapa en ny omvandling.
 
@@ -71,11 +77,19 @@ Följande diagram visar den **transformera** objekt och de objekt som den refere
 
 En **jobbet** är den faktiska begäran till Azure Media Services att tillämpa den **omvandla** till en given video- eller ljudinnehåll datainnehållet. När vi har skapats, kan du skicka jobb med hjälp av API: er för Media Services eller någon av de publicerade SDK: er. Den **jobbet** anger information som platsen för indatavideo och platsen för utdata. Du kan ange platsen för dina indata video med: HTTPS-adresser, SAS URL: er eller [tillgångar](https://docs.microsoft.com/rest/api/media/assets).  
 
+### <a name="job-input-from-https"></a>Jobbindata från HTTPS
+
 Använd [jobbet indata från HTTPS](job-input-from-http-how-to.md) om innehållet är redan nås via en URL och du behöver inte lagra källfilen i Azure (till exempel importera från S3). Den här metoden passar också om du har innehållet i Azure Blob storage, men inte har behov av att filen finns i en tillgång. Den här metoden stöder för närvarande bara en enda fil för indata.
- 
+
+### <a name="asset-as-job-input"></a>Tillgången som indata för jobbet
+
 Använd [tillgången som jobbindata](job-input-from-local-file-how-to.md) om inkommande innehållet är redan i en tillgång eller innehållet lagras i lokal fil. Det är också ett bra alternativ om du planerar att publicera indatatillgången för direktuppspelning eller ladda ned (anta att du vill publicera mp4 för nedladdning men vill också tal till text eller ansikte identifiering). Den här metoden har stöd för flera filtillgångar (till exempel MBR strömmande datauppsättningar som kodats lokalt).
- 
+
+### <a name="checking-job-progress"></a>Kontrollera jobbförlopp
+
 Förlopp och status för jobben kan hämtas genom att övervaka händelser med Event Grid. Mer information finns i [övervaka händelser med hjälp av EventGrid](job-state-events-cli-how-to.md).
+
+### <a name="updating-jobs"></a>Uppdatera jobb
 
 Uppdateringsåtgärden på den [jobbet](https://docs.microsoft.com/rest/api/media/jobs) entiteten kan användas för att ändra den *beskrivning*, och *prioritet* egenskaper när jobbet har skickats. En ändring av den *prioritet* egenskap gäller endast om jobbet är fortfarande i en kö. Om jobbet har startat bearbetning eller har slutförts, har ändra prioritet ingen effekt.
 

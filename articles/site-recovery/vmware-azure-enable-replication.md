@@ -3,15 +3,15 @@ title: Aktivera replikering av virtuella VMware-datorer på haveriberedskap till
 description: Den här artikeln beskriver hur du aktiverar virtuella VMware-datorer för replikering till Azure för haveriberedskap med hjälp av Azure Site Recovery.
 author: Rajeswari-Mamilla
 ms.service: site-recovery
-ms.date: 4/18/2019
+ms.date: 05/10/2019
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: ba55afbd62bbbc2290d1daaebf77becc249c1d8b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: add0f8252bdae6857b28deeb7de4c1d09973e452
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60922822"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540767"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Aktivera replikering till Azure för virtuella VMware-datorer
 
@@ -43,16 +43,17 @@ Observera följande innan du följer stegen i det här avsnittet:
 * Replikering till storage-konton för en ny virtuell dator är bara tillgängligt via en REST Representational State Transfer () API och Powershell. Använd Azure REST-API version 2016-08-10 eller 2018-01-10 för att replikera till storage-konton.
 
 1. Gå till **steg 2: Replikera program** > **källa**. När du aktiverar replikering för första gången väljer **+ replikera** i valvet för att aktivera replikering för ytterligare virtuella datorer.
-1. I den **källa** sidan > **källa**, Välj configuration server.
-1. För **datortyp**väljer **virtuella datorer** eller **fysiska datorer**.
-1. I **vCenter/vSphere Hypervisor** väljer du den vCenter-server som hanterar vSphere-värden, eller så väljer du värden. Den här inställningen gäller inte om du replikerar fysiska datorer.
-1. Välj den processerver som kommer att konfigurationsservern om du inte har skapat några ytterligare processervrar. Välj sedan **OK**.
+2. I den **källa** sidan > **källa**, Välj configuration server.
+3. För **datortyp**väljer **virtuella datorer** eller **fysiska datorer**.
+4. I **vCenter/vSphere Hypervisor** väljer du den vCenter-server som hanterar vSphere-värden, eller så väljer du värden. Den här inställningen gäller inte om du replikerar fysiska datorer.
+5. Välj processerver. Om det finns inga ytterligare processervrar som har skapats, blir inbyggd processerver av konfigurationsservern tillgänglig i listrutan. Hälsostatus för varje processerver anges enligt rekommenderade gränser och andra parametrar. Välj en felfri processerver. En [kritiska](vmware-physical-azure-monitor-process-server.md#process-server-alerts) processervern kan inte väljas. Du kan antingen [felsöka och lösa](vmware-physical-azure-troubleshoot-process-server.md) felen **eller** ställa in en [skalbar processerver](vmware-azure-set-up-process-server-scale.md).
+    ![Aktivera replikering fönstret för datakälla](media/vmware-azure-enable-replication/ps-selection.png)
 
-    ![Aktivera replikering fönstret för datakälla](./media/vmware-azure-enable-replication/enable-replication2.png)
+> [!NOTE]
+> Från [9.24 versioner](service-updates-how-to.md#links-to-currently-supported-update-rollups), ytterligare aviseringar introduceras för att förbättra hälsovarningar för processervern. Uppgradera Site Recovery-komponenter till 9.24 versioner eller senare för alla aviseringar ska genereras.
 
-1. För **Target**, Välj gruppen prenumeration och resursgrupp där du vill skapa de redundansväxlade virtuella datorerna. Välj den distributionsmodell som du vill använda i Azure för de redundansväxlade virtuella datorerna.
-
-1. Välj det Azure-nätverk och undernät som virtuella Azure-datorer ska ansluta till efter redundansväxlingen. Nätverket måste finnas i samma region som Site Recovery service-valv.
+6. För **Target**, Välj gruppen prenumeration och resursgrupp där du vill skapa de redundansväxlade virtuella datorerna. Välj den distributionsmodell som du vill använda i Azure för de redundansväxlade virtuella datorerna.
+2. Välj det Azure-nätverk och undernät som virtuella Azure-datorer ska ansluta till efter redundansväxlingen. Nätverket måste finnas i samma region som Site Recovery service-valv.
 
    Välj **konfigurera nu för valda datorer** att tillämpa nätverksinställningen på alla virtuella datorer som du väljer för skydd. Välj **konfigurera senare** att välja Azure-nätverket per virtuell dator. Om du inte har ett nätverk kan behöva du skapa en. Om du vill skapa ett nätverk med hjälp av Azure Resource Manager, Välj **Skapa ny**. Välj ett undernät om det är tillämpligt, och välj sedan **OK**.
    

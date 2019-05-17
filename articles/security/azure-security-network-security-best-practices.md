@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/05/2019
 ms.author: TomSh
-ms.openlocfilehash: 78402d3e388f08eae6652859a71c93ff408a5b0d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: f36658d57fb514ff279c39e9cb1644cf56341ec4
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65152978"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65761836"
 ---
 # <a name="azure-best-practices-for-network-security"></a>Bästa praxis för nätverkssäkerhet för Azure
 Den här artikeln beskriver en uppsättning Metodtips för Azure att förbättra nätverkssäkerheten. Dessa metodtips härleds från vår erfarenhet av Azure-nätverk och erfarenheter från kunder som dig själv.
@@ -129,7 +129,7 @@ Många organisationer har valt hybrid IT-vägen. Med hybrid-IT, några av föret
 
 I en hybrid IT-scenariot finns vanligtvis någon typ av anslutning mellan olika platser. Anslutning mellan olika platser gör det möjligt för företag att ansluta sina lokala nätverk till Azure-nätverk. Det finns två olika platser anslutningslösningar:
 
-* [Plats-till-plats VPN](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md). Det är en betrodda och tillförlitliga etablerad teknik, men anslutningen sker över internet. Bandbredd är begränsad till högst 200 Mbit/s. Plats-till-plats-VPN är ett önskvärt alternativ i vissa situationer.
+* [Plats-till-plats VPN](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md). Det är en betrodda och tillförlitliga etablerad teknik, men anslutningen sker över internet. Bandbredd är begränsad till högst cirka 1,25 Gbit/s. Plats-till-plats-VPN är ett önskvärt alternativ i vissa situationer.
 * **Azure ExpressRoute**. Vi rekommenderar att du använder [ExpressRoute](../expressroute/expressroute-introduction.md) för dina korsanslutningar. Med ExpressRoute kan du utöka ditt lokala nätverk till Microsoft-molnet över en privat anslutning som tillhandahålls av en anslutningsprovider. Med ExpressRoute kan upprätta du anslutningar till Microsofts molntjänster som Azure, Office 365 och Dynamics 365. ExpressRoute är en dedikerad WAN länken mellan din lokala plats eller en värdleverantör för Microsoft Exchange. Eftersom detta är en telco-anslutning kan överföras inte dina data via internet, så det inte är visas de potentiella risker för internet-kommunikation.
 
 Platsen för ExpressRoute-anslutningen kan påverka brandväggen kapacitet, skalbarhet, tillförlitlighet och nätverket trafik synlighet. Du behöver identifiera var du vill avsluta ExpressRoute i nätverk (lokalt). Du kan:

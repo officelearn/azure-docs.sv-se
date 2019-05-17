@@ -3,8 +3,8 @@ title: Azure för enkel inloggning SAML-protokoll | Microsoft Docs
 description: Den här artikeln beskriver enkel inloggning på SAML-protokoll i Azure Active Directory
 services: active-directory
 documentationcenter: .net
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: ad8437f5-b887-41ff-bd77-779ddafc33fb
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
-ms.author: celested
+ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 033740d1ae75bb6f6fe8509d9ad123d55d9c6770
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 593f07b27fec16c3df90a073479effb130bc5721
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64705003"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545283"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Enkel inloggning SAML-protokoll
 
@@ -50,11 +50,11 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 | Parameter |  | Beskrivning |
 | --- | --- | --- |
 | ID | Krävs | Azure AD använder det här attributet för att fylla i `InResponseTo` attribut för returnerade svaret. ID: T kan inte börja med ett tal, så en gemensam strategi är att åtkomstgruppen liknande ”id” till strängrepresentation av ett GUID. Till exempel `id6c1c178c166d486687be4aaf5e482730` är ett giltigt-ID. |
-| Version | Krävs | Den här parametern anges till **2.0**. |
+| Version | Obligatoriskt | Den här parametern anges till **2.0**. |
 | IssueInstant | Krävs | Det här är ett DateTime-sträng med ett UTC-värde och [fram och åter format (”o”)](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD måste ha ett DateTime-värde av samma typ, men inte utvärdera eller använda värdet. |
-| AssertionConsumerServiceUrl | Valfri | Om den här parametern måste matcha den `RedirectUri` av Molntjänsten i Azure AD. |
-| ForceAuthn | Valfri | Det här är ett booleskt värde. Om värdet är SANT innebär det att användaren tvingas att autentisera igen, även om de har en giltig session med Azure AD. |
-| IsPassive | Valfri | Det här är ett booleskt värde som anger om Azure AD ska autentisera användaren tyst, utan användarinteraktion, med hjälp av sessions-cookie om en sådan finns. Om det stämmer, försöker Azure AD autentiserar användaren med sessions-cookie. |
+| AssertionConsumerServiceUrl | Valfritt | Om den här parametern måste matcha den `RedirectUri` av Molntjänsten i Azure AD. |
+| ForceAuthn | Valfritt | Det här är ett booleskt värde. Om värdet är SANT innebär det att användaren tvingas att autentisera igen, även om de har en giltig session med Azure AD. |
+| IsPassive | Valfritt | Det här är ett booleskt värde som anger om Azure AD ska autentisera användaren tyst, utan användarinteraktion, med hjälp av sessions-cookie om en sådan finns. Om det stämmer, försöker Azure AD autentiserar användaren med sessions-cookie. |
 
 Alla andra `AuthnRequest` attribut, t.ex. godkännande, mål, AssertionConsumerServiceIndex, AttributeConsumerServiceIndex och ProviderName är **ignoreras**.
 

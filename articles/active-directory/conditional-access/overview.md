@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eeb1289ba615fea6e6c43b256da6978534d9edc7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 23c88857c877440be724ddea0bdb239768621c8c
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60354602"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65764790"
 ---
 # <a name="what-is-conditional-access-in-azure-active-directory"></a>Vad är villkorsstyrd åtkomst i Azure Active Directory?
 
@@ -64,7 +64,7 @@ En principer för villkorsstyrd åtkomst är en definition av ett åtkomstscenar
 
 - **[Användare](conditions.md#users-and-groups)**: Den användare som utför ett åtkomstförsök (**Vem**).
 
-- **[Molnappar](conditions.md#cloud-apps)**: Målet för ett åtkomstförsök (**Vad**).
+- **[Molnappar](conditions.md#cloud-apps-and-actions)**: Målet för ett åtkomstförsök (**Vad**).
 
 De här två villkoren är obligatoriska i en princip för villkorsstyrd åtkomst. Utöver de två obligatoriska villkoren kan du även inkludera ytterligare villkor som beskriver hur åtkomstförsök utförs. Vanliga exempel använder mobila enheter eller platser som ligger utanför företagets nätverk. Mer information finns på sidan om [villkor i villkorsstyrd åtkomst med Azure Active Directory](conditions.md).
 

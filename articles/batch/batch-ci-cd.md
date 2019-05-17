@@ -7,12 +7,12 @@ ms.date: 03/28/2019
 ms.topic: conceptual
 ms.custom: fasttrack-new
 services: batch
-ms.openlocfilehash: 5b7c44d3ea3394ff728adfb9d9fd72293138fb2e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a811a9cb1b124aff7c64d25cf71a1b84bff0c173
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60880954"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65541750"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Använd Azure Pipelines för att skapa och distribuera HPC-lösningar
 
@@ -26,7 +26,7 @@ I det här exemplet ska vi skapa en version och släppa pipeline för att distri
 
 ![Diagram över flödet av distribution i vår Pipeline](media/batch-ci-cd/DeploymentFlow.png)
 
-### <a name="setup"></a>Konfiguration
+### <a name="setup"></a>Inställningar
 
 Om du vill följa stegen i den här artikeln behöver du en Azure DevOps-organisation och ett teamprojekt.
 
@@ -363,7 +363,7 @@ I det här exemplet ska vi fokusera på den **hpc-program** mapp. Den **hpc-prog
 
 ## <a name="continuous-deployment"></a>Kontinuerlig distribution
 
-Azure Pipelines används också för att distribuera dina program och den underliggande infrastrukturen. [Släppa pipelines](https://docs.microsoft.com/azure/devops/pipelines/release/what-is-release-management?view=azure-devops) är den komponent som möjliggör kontinuerlig distribution och automatiserar dina lanseringsprocessen.
+Azure Pipelines används också för att distribuera dina program och den underliggande infrastrukturen. [Släppa pipelines](https://docs.microsoft.com/azure/devops/pipelines/release) är den komponent som möjliggör kontinuerlig distribution och automatiserar dina lanseringsprocessen.
 
 ### <a name="deploying-your-application-and-underlying-infrastructure"></a>Distribuera programmet och underliggande infrastruktur
 

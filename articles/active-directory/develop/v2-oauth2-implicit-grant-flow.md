@@ -3,8 +3,8 @@ title: Skydda enkelsidigt program med hjälp av det implicita flödet för Micro
 description: Skapa webbprogram med Microsoft identity-plattformen implementeringen av det implicita flödet för enkelsidiga appar.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 3605931f-dc24-4910-bb50-5375defec6a8
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/12/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d517828b30629cd9dfba5459b1d90913d8bc4f77
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 512c3245407fd33aa1d67025df25ba9b667f84b4
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62112156"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545355"
 ---
 # <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Microsoft identity-plattformen och Implicit beviljat flöde
 
@@ -112,7 +112,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 | `token_type` |Inkluderade om `response_type` innehåller `token`. Kommer alltid att `Bearer`. |
 | `expires_in`|Inkluderade om `response_type` innehåller `token`. Anger antalet sekunder som token är giltig för cachelagring. |
 | `scope` |Inkluderade om `response_type` innehåller `token`. Anger område(n) som access_token ska gälla. Får inte innehålla alla omfattningar som begärts, om de inte gäller för användaren (när det gäller Azure AD endast scope som begärs när ett personligt konto används för att logga in). |
-| `id_token` | En signerad JSON Web Token (JWT). Appen kan avkoda segmenten i den här token för att begäraninformation om den användare som loggat in. Appen kan cachelagra värdena och visa dem, men det bör inte förlita dig på dem för auktorisering eller säkerhetsgränser. Mer information om id_tokens finns i den [ `id_token reference` ](id-tokens.md). <br> **Obs!** Endast angivna om `openid` omfång begärdes. |
+| `id_token` | En signerad JSON Web Token (JWT). Appen kan avkoda segmenten i den här token för att begäraninformation om den användare som loggat in. Appen kan cachelagra värdena och visa dem, men det bör inte förlita dig på dem för auktorisering eller säkerhetsgränser. Mer information om id_tokens finns i den [ `id_token reference` ](id-tokens.md). <br> **Obs:** Endast angivna om `openid` omfång begärdes. |
 | `state` |Om en parametern state ingår i begäran, samma värde som ska visas i svaret. Appen bör kontrollera att värdena i begäran och svar är identiska. |
 
 #### <a name="error-response"></a>Felsvar
@@ -194,7 +194,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 | `token_type` | Kommer alltid att `Bearer`. |
 | `expires_in` | Anger antalet sekunder som token är giltig för cachelagring. |
 | `scope` | Anger område(n) som access_token ska gälla. Får inte innehålla alla omfattningar som begärts, om de inte gäller för användaren (när det gäller Azure AD endast scope som begärs när ett personligt konto används för att logga in). |
-| `id_token` | En signerad JSON Web Token (JWT). Inkluderade om `response_type` innehåller `id_token`. Appen kan avkoda segmenten i den här token för att begäraninformation om den användare som loggat in. Appen kan cachelagra värdena och visa dem, men det bör inte förlita dig på dem för auktorisering eller säkerhetsgränser. Mer information om id_tokens finns i den [ `id_token` referens](id-tokens.md). <br> **Obs!** Endast angivna om `openid` omfång begärdes. |
+| `id_token` | En signerad JSON Web Token (JWT). Inkluderade om `response_type` innehåller `id_token`. Appen kan avkoda segmenten i den här token för att begäraninformation om den användare som loggat in. Appen kan cachelagra värdena och visa dem, men det bör inte förlita dig på dem för auktorisering eller säkerhetsgränser. Mer information om id_tokens finns i den [ `id_token` referens](id-tokens.md). <br> **Obs:** Endast angivna om `openid` omfång begärdes. |
 | `state` |Om en parametern state ingår i begäran, samma värde som ska visas i svaret. Appen bör kontrollera att värdena i begäran och svar är identiska. |
 
 #### <a name="error-response"></a>Felsvar

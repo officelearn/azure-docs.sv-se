@@ -6,12 +6,12 @@ ms.author: stbaron
 ms.topic: conceptual
 ms.service: service-health
 ms.date: 9/4/2018
-ms.openlocfilehash: 71856f9de3d67590d524fa8bb1119a384d156d2e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 3d9a5ebb2e25cfbabf8cfdbd94c2d1d04ae1bbee
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64700149"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65788457"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Konfigurera resource health-aviseringar med hjälp av Resource Manager-mallar
 
@@ -31,7 +31,7 @@ Om du vill följa anvisningarna på den här sidan måste du konfigurera några 
 1. Du måste installera den [Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-Az-ps)
 2. Du behöver [skapa eller återanvända en åtgärdsgrupp](../azure-monitor/platform/action-groups.md) konfigurerad för att meddela dig
 
-## <a name="instructions"></a>Instruktioner
+## <a name="instructions"></a>Anvisningar
 1. Med hjälp av PowerShell, logga in på Azure med ditt konto och välj den prenumeration som du vill interagera med
 
         Login-AzAccount
@@ -43,7 +43,7 @@ Om du vill följa anvisningarna på den här sidan måste du konfigurera några 
 
         (Get-AzActionGroup -ResourceGroupName <resourceGroup> -Name <actionGroup>).Id
 
-3. Skapa och spara en Resource Manager-mall för Resource Health-aviseringar som `resourcehealthalert.json` ([se information nedan](#resource-manager-template-for-resource-health-alerts))
+3. Skapa och spara en Resource Manager-mall för Resource Health-aviseringar som `resourcehealthalert.json` ([se information nedan](#resource-manager-template-options-for-resource-health-alerts))
 
 4. Skapa en ny Azure Resource Manager-distribution med hjälp av den här mallen
 
@@ -76,7 +76,7 @@ Om du vill följa anvisningarna på den här sidan måste du konfigurera några 
 
 Observera att om du planerar att den här processen automatiseras helt, behöver du bara redigera Resource Manager-mall för att fråga inte om värdena i steg 5.
 
-## <a name="resource-manager-template-for-resource-health-alerts"></a>Resource Manager-mall för Resource Health-aviseringar
+## <a name="resource-manager-template-options-for-resource-health-alerts"></a>Alternativ för resurshanteraren för Resource Health-aviseringar
 
 Du kan använda den här grundläggande mallen som utgångspunkt för att skapa Resource Health-aviseringar. Den här mallen fungerar likadant som och kommer att registrera dig att ta emot aviseringar för alla nyligen aktiverade resurshälsotillståndshändelser över alla resurser i en prenumeration.
 
@@ -284,7 +284,9 @@ När en resurs rapporterar ”okänt”, är det dock sannolikt att dess hälsos
 },
 ```
 
-I det här exemplet vi bara meddela på händelser där aktuella och tidigare hälsostatus inte har ”okänt”. Den här ändringen kan vara ett användbart tillägg om dina aviseringar skickas direkt till din mobiltelefon eller e-post.
+I det här exemplet vi bara meddela på händelser där aktuella och tidigare hälsostatus inte har ”okänt”. Den här ändringen kan vara ett användbart tillägg om dina aviseringar skickas direkt till din mobiltelefon eller e-post. 
+
+Observera att det är möjligt för egenskaperna currentHealthStatus och previousHealthStatus vara null i vissa händelser. Till exempel när en uppdaterad händelse inträffar är det troligt att resursen hälsostatus inte har ändrats sedan den senaste rapporten endast denna ytterligare händelseinformation är tillgänglig (t.ex. ge). Därför använda satsen ovan kan resultera i vissa aviseringar som aktiveras inte, eftersom de properties.currentHealthStatus och properties.previousHealthStatus värdena anges till null.
 
 ### <a name="adjusting-the-alert-to-avoid-user-initiated-events"></a>Justera aviseringen för att undvika användarinitierad händelser
 
@@ -304,12 +306,12 @@ Det är enkelt att konfigurera aviseringen för att filtrera för dessa typer av
     ]
 }
 ```
+Observera att det är möjligt för fältet Orsak att vara null i vissa händelser. Det vill säga en hälsotillstånd övergång äger rum (t.ex. tillgänglig för otillgänglig) och händelsen loggas omedelbart att förhindra meddelande fördröjningar. Därför använda satsen ovan kan resultera i en avisering som aktiveras inte, eftersom egenskapsvärdet properties.clause anges till null.
 
-## <a name="recommended-resource-health-alert-template"></a>Rekommenderade aviseringar Resource Health-mall
+## <a name="complete-resource-health-alert-template"></a>Fullständiga Resource Health avisering mallen
 
-Med de olika justeringar som beskrivs i föregående avsnitt kan skapa vi en omfattande avisering mall som är konfigurerad för att maximera signalen-brus-förhållande.
+Med hjälp av de olika justeringar som beskrivs i föregående avsnitt, är här en exempelmall som är konfigurerad för att maximera signalen-brus-förhållande. Ha i åtanke varningar som anges ovan där de currentHealthStatus, previousHealthStatus och egenskapsvärden för orsak kan vara null i vissa händelser.
 
-Här är vad vi föreslår att du använder:
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",

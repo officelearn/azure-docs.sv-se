@@ -7,15 +7,13 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: ellacroi
-ms.openlocfilehash: 886bd96b78edc704e53d5b7a3460bfa0f522e05e
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 225ed171599e3f822fc869c97a1c7d91f9107b1d
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64937820"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65779798"
 ---
 # <a name="preferred-solutions-in-azure-marketplace-and-appsource"></a>Önskade lösningar i Azure Marketplace och AppSource
 
-En Microsoft rekommenderat lösningen är ett molnprogram som valts för dess kvalitet, prestanda och möjligheten att adressen kundernas behov i ett visst bransch lodrätt eller lösning område. Ett expertteam Microsoft bransch- och väljer lösningar från partner som har en [guldkompetens](https://partner.microsoft.com/membership/competencies) i Microsoft Partner Network. Dessa lösningar finns med i vår molnbutiker: Azure Marketplace och AppSource. Prioriterade AppSource-lösningar kan identifieras av vertikala branscher, medan på Azure Marketplace kan du klicka i lösningen området kategorier.
-
-Microsoft kommer att kontakta lösningsleverantörer om en eller flera av sina lösningar har valts till den bästa lösningen.
+En Microsoft rekommenderat lösningen är ett molnprogram som valts för dess kvalitet, prestanda och möjligheten att adressen kundernas behov i ett visst bransch lodrätt eller lösning område. Ett team med Microsoft-experter verifierar lösningar från partner med specifika beprövade kompetenser och funktioner. Dessa lösningar finns med i vår molnbutiker, Azure Marketplace och AppSource, samt i Azure-portalen. Prioriterade AppSource-lösningar kan identifieras av vertikala branscher. Önskade lösningar på Azure Marketplace och Azure-portalen kan identifieras i horisontell Lösningskategorier.

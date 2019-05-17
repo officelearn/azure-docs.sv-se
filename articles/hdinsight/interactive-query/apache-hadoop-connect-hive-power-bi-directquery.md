@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/25/2018
-ms.openlocfilehash: 657f8df959ccda5d51748ef5fbfc2e280f7d2c2e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: fb4e16c8be5344c5b9947758b6a09845b470196d
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64714811"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800999"
 ---
 # <a name="visualize-interactive-query-apache-hive-data-with-microsoft-power-bi-using-direct-query-in-azure-hdinsight"></a>Visualisera Interactive Query Apache Hive-data med Microsoft Power BI med direct query i Azure HDInsight
 
@@ -49,7 +49,7 @@ Den `hivesampletable` Hive-tabell som medföljer alla HDInsight-kluster.
 
     |Egenskap  | Värde |
     |---|---|
-    |Server |Ange klustrets namn, till exempel *myiqcluster.azurehdinsight.net*.|
+    |Server  |Ange klustrets namn, till exempel *myiqcluster.azurehdinsight.net*.|
     |Databas |Ange **standard** för den här artikeln.|
     |Läge för dataanslutning |Välj **DirectQuery** för den här artikeln.|
 
@@ -79,7 +79,7 @@ Fortsätt från föregående procedur.
 I den här artikeln lärde du dig att visualisera data från HDInsight med hjälp av Microsoft Power BI.  Mer information om datavisualisering finns i följande artiklar:
 
 * [Visualisera Apache Hive-data med Microsoft Power BI med hjälp av ODBC i Azure HDInsight](../hadoop/apache-hadoop-connect-hive-power-bi.md). 
-* [Använda Apache Zeppelin för att köra Apache Hive-frågor i Azure HDInsight](./../hdinsight-connect-hive-zeppelin.md).
+* [Använda Apache Zeppelin för att köra Apache Hive-frågor i Azure HDInsight](../interactive-query/hdinsight-connect-hive-zeppelin.md).
 * [Ansluta Excel till HDInsight med Microsoft Hive ODBC-drivrutin](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md).
 * [Ansluta Excel till Apache Hadoop med Power Query](../hadoop/apache-hadoop-connect-excel-power-query.md).
 * [Ansluta till Azure HDInsight och kör Apache Hive-frågor med Data Lake Tools för Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).

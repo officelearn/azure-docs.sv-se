@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ff9ad850b111cf080447b699d35b4ef8205e006
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 45ea34a673b46dda2ec9606952c707a13d1b72d9
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190227"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65766876"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Konfigurera autentisering sessionshantering med villkorlig åtkomst
 
@@ -80,7 +80,7 @@ Om du har konfigurerat annan inloggning frekvens för olika web apps som körs i
 1. Välj alla nödvändiga villkor.
 
    > [!NOTE]
-   > Observera att den här kontrollen kräver för att välja ”alla Molnappar” som ett villkor
+   > Observera att den här kontrollen kräver för att välja ”alla Molnappar” som ett villkor. Webbläsaren sessionernas beständighet styrs av Autentiseringstoken för sessionen. Alla flikar i en webbläsarsession dela en enda session-token och därför alla måste dela permanent tillstånd.
 
 1. Gå till **åtkomstkontroller** > **Session** och klicka på **beständiga webbläsarsession**
 1. Välj ett värde från listrutan

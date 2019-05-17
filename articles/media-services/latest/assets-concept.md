@@ -9,30 +9,27 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/02/2019
+ms.date: 05/11/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 0fc44bfdb98b81bf218cb2f1824f0f1bb14de4fa
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 2afcf2066238414cd08e32901ffccf2a44718b6d
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65235677"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65551764"
 ---
 # <a name="assets"></a>Tillgångar
 
-I Azure Media Services, en [tillgången](https://docs.microsoft.com/rest/api/media/assets) innehåller digitala filer (inklusive video, ljud, bilder, miniatyrsamlingar, textspår och filer med dold textning) och metadata om dessa filer. När de digitala filerna överförs till en tillgång, kan de användas i Media Services encoding, strömning, analysera innehållet arbetsflöden. Mer information finns i den [ladda upp digitala filer till tillgångar](#upload-digital-files-into-assets) nedan.
+I Azure Media Services, en [tillgången](https://docs.microsoft.com/rest/api/media/assets) innehåller information om digitala filer som lagras i Azure Storage (inklusive video, ljud, bilder, miniatyrsamlingar, textspår och filer med dold textning). 
 
 En tillgång är mappad till en blobbehållare i den [Azure Storage-konto](storage-account-concept.md) och filer i tillgången lagras som blockblobar i den behållaren. Media Services stöder Blob nivåerna när kontot använder för generell användning v2 (GPv2) lagring. Med GPv2, kan du flytta filer till [lågfrekvent lagring eller Arkivlagring](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers). **Arkivera** lagring är lämplig för arkivering av källfilerna när det inte längre behövs (till exempel när de har kodats).
 
 Den **Arkiv** lagringsnivå rekommenderas endast för mycket stora källfiler som redan har kodats och kodning jobbutdata placerades i en utdata-blob-behållare. Blobar i behållaren för utdata som du vill associera med en tillgång och Använd för att strömma eller analysera ditt innehåll måste finnas i en **frekvent** eller **lågfrekvent** lagringsnivå.
 
-> [!NOTE]
-> Tillgångs-egenskaper av typen Datetime är alltid i UTC-format.
-
 ## <a name="upload-digital-files-into-assets"></a>Ladda upp digitala filer till tillgångar
 
-En av de vanliga arbetsflödena för Media Services är att överföra, koda och överföra en fil. Det här avsnittet beskrivs de allmänna stegen.
+När de digitala filerna har överförts till lagring och som är associerade med en tillgång, kan de användas i Media Services encoding, strömning, analysera innehållet arbetsflöden. En av de vanliga arbetsflödena för Media Services är att överföra, koda och överföra en fil. Det här avsnittet beskrivs de allmänna stegen.
 
 > [!TIP]
 > Innan du börjar utveckla granska [utveckla med API: er för Media Services v3](media-services-apis-overview.md) (innehåller information om hur du använder API: er, namngivningskonventioner, osv.)
@@ -54,6 +51,9 @@ En av de vanliga arbetsflödena för Media Services är att överföra, koda och
 För en fullständig .NET-exempel som visar hur du: skapa tillgången, få en skrivbar SAS-URL till den tillgången behållare i storage, ladda upp filen till behållaren i storage med SAS-Webbadressen, se [skapa en jobbindata från en lokal fil](job-input-from-local-file-how-to.md).
 
 ### <a name="create-a-new-asset"></a>Skapa en ny tillgång
+
+> [!NOTE]
+> Tillgångs-egenskaper av typen Datetime är alltid i UTC-format.
 
 #### <a name="rest"></a>REST
 

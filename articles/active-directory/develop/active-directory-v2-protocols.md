@@ -3,8 +3,8 @@ title: Lär dig mer om auktoriseringsprotokoll som stöds av Microsoft identity-
 description: En guide till OAuth 2.0 och OpenID Connect-protokoll som stöds av Microsoft identity-plattformen slutpunkten.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 5fb4fa1b-8fc4-438e-b3b0-258d8c145f22
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d509e9f3cabcd588d539d42b8cce022e17a1222
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 536210922d13f66aaa5a09bd87bd2d92da8d416c
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65139197"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546117"
 ---
 # <a name="microsoft-identity-platform-protocols"></a>Microsoft identity-plattformen protokoll
 
@@ -64,7 +64,7 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
 
 Där den `{tenant}` kan ha något av fyra olika värden:
 
-| Värde | Beskrivning |
+| Value | Beskrivning |
 | --- | --- |
 | `common` | Gör att användare med både personliga Microsoft-konton och arbets-/ skolkonton från Azure AD för att logga in i programmet. |
 | `organizations` | Tillåter endast användare med arbets-/ skolkonton från Azure AD för att logga in i programmet. |

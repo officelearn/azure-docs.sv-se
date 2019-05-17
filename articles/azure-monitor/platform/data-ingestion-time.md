@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/24/2019
 ms.author: bwren
-ms.openlocfilehash: ba9a0ab775e062f21a058b537e289fe3ea2b40bb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d508ce217e3a97b3399435cb63295eb28965359a
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61093973"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65605599"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Inloggningstid datainmatning i Azure Monitor
 Azure Monitor är en hög skala tjänst som hanterar tusentals kunder skickar terabyte data varje månad i en växande takt. Det finns ofta frågor om den tid det tar för loggdata som ska bli tillgänglig när den har samlats in. Den här artikeln beskrivs de olika faktorer som påverkar den här fördröjningen.
@@ -104,7 +104,7 @@ Heartbeat
 | render timechart  
 ```
  
-Använd följande fråga för att visa datortiden för inmatning av land de befinner sig i som baseras på deras IP-adress: 
+Använd följande fråga för att visa inmatning datortiden efter land/region de befinner sig i som baseras på deras IP-adress: 
 
 ``` Kusto
 Heartbeat 

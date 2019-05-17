@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 4a5bed67252c3b87233c8d2e677e3c620adb8a17
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b59e4d574264f82a5875edad65e99bfb57150197
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60605250"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796867"
 ---
 # <a name="translator-text-api-v30"></a>Translator Text API v3.0
 
@@ -55,7 +55,7 @@ Prenumererar på Translator Text API eller [flera-tjänsten för Cognitive Servi
 
 Det finns tre rubriker som du kan använda för att autentisera din prenumeration. Den här tabellen innehåller beskriver hur var och en används:
 
-|Rubriker|Beskrivning|
+|Huvuden|Beskrivning|
 |:----|:----|
 |OCP-Apim-Subscription-Key|*Använd med Cognitive Services-prenumeration om du skickar din hemliga nyckel*.<br/>Värdet är Azure hemlig nyckel för din prenumeration till Translator Text API.|
 |Auktorisering|*Använd med Cognitive Services-prenumeration om du skickar en autentiseringstoken.*<br/>Värdet är ägartoken: `Bearer <token>`.|
@@ -161,7 +161,7 @@ Felkoden är en 6-siffrig nummer kombinera 3-siffriga HTTP-statuskoden följt av
 | 405000| Begärandemetoden stöds inte för den begärda resursen.|
 | 408001| Den anpassade översättningssystemet begärt är inte tillgänglig ännu. Försök igen om några minuter.|
 | 415000| Content-Type-huvud är ogiltig eller saknas.|
-| 429000, 429001, 429002| Servern avvisade begäran eftersom klienten skickar för många förfrågningar. Minska frekvensen av begäranden för att undvika begränsning.|
+| 429000, 429001, 429002| Servern avvisade begäran eftersom klienten har överskridit begärandebegränsningar.|
 | 500000| Det uppstod ett oväntat fel. Om felet kvarstår kan du rapportera det med datum/tid för fel, begär identifierare från svarshuvud X-RequestId och klient-ID från begärandehuvudet X-ClientTraceId.|
 | 503000| Tjänsten är otillgänglig. Försök igen. Om felet kvarstår kan du rapportera det med datum/tid för fel, begär identifierare från svarshuvud X-RequestId och klient-ID från begärandehuvudet X-ClientTraceId.|
 

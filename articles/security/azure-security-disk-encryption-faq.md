@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 04/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3de444d509684f0b4227abe91ec3c967f2bf8f03
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 6fd9ce1947b8207aced44204fc2989622a1998f2
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926288"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65761909"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Azure Disk Encryption för virtuella IaaS-datorer: vanliga frågor och svar
 
@@ -59,12 +59,7 @@ Linux-server-distributioner som inte godkänts av Azure stöder inte Azure Disk 
 | CentOS | 7.4 | OS- och disk |
 | CentOS | 7.3 | OS- och disk |
 | CentOS | 7.2n | OS- och disk |
-| CentOS | 6.8 | OS- och disk |
-| CentOS | 7.1 | Datadisk |
-| CentOS | 7.0 | Datadisk |
-| CentOS | 6.7 | Datadisk |
-| CentOS | 6.6 | Datadisk |
-| CentOS | 6.5 | Datadisk |
+| CentOS | 6.8 | Datadisk |
 | openSUSE | 42.3 | Datadisk |
 | SLES | 12-SP4 | Datadisk |
 | SLES | 12-SP3 | Datadisk |
@@ -158,7 +153,7 @@ På Windows, ADE använder BitLocker AES256 krypteringsmetod (AES256WithDiffuser
 Nej, inte data raderas från enheter som redan är krypterade med Azure Disk Encryption. Liknande hur EncryptFormatAll inte kryptera operativsystemenheten, den kommer inte att kryptera enheten redan krypterade data. Mer information finns i den [EncryptFormatAll kriterier](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).        
 
 ## <a name="is-xfs-filesystem-supported"></a>Stöds XFS filsystem?
-XFS volymer stöds för data hårddiskkryptering endast med EncryptFormalAll. Detta formateras volymen, radera alla data som tidigare det. Mer information finns i den [EncryptFormatAll kriterier](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).
+XFS volymer stöds för data hårddiskkryptering endast med EncryptFormatAll. Detta formateras volymen, radera alla data som tidigare det. Mer information finns i den [EncryptFormatAll kriterier](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).
 
 ## <a name="can-i-backup-and-restore-an-encrypted-vm"></a>Kan jag säkerhetskopiera och återställa en krypterad virtuell dator? 
 

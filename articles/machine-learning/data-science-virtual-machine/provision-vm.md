@@ -13,14 +13,14 @@ ms.subservice: data-science-vm
 ms.workload: data-services
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 02/22/2019
 ms.author: gokuma
-ms.openlocfilehash: 1f9ee5cf28de8fdb824bebf222e5e8d80e22c34f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 03bf0833bdc1bda24b9d435dafe329e9a3c8e4b2
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64712429"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596503"
 ---
 # <a name="provision-a-windows-data-science-virtual-machine-on-azure"></a>Etablera en Windows Data Science-dator på Azure
 
@@ -96,7 +96,7 @@ Skapa en DSVM-instans:
    1. **Inställningar för**:  
       * **Använda hanterade diskar**. Välj **hanterade** om du vill att Azure för att hantera diskar för den virtuella datorn. Om inte, måste du ange ett nytt eller befintligt lagringskonto.  
       * **Andra parametrar**. Du kan använda standardvärdena. Om du vill använda icke-standardvärden hovra över informationsmeddelande länken Hjälp om specifika fält.
-   1. **Sammanfattning**: Kontrollera att all information som du angett är korrekt. Välj **Skapa**.
+   1. **Sammanfattning av**: Kontrollera att all information som du angett är korrekt. Välj **Skapa**.
 
 > [!NOTE]
 > * Den virtuella datorn inte några ytterligare avgifter utöver beräkningskostnaden för serverstorlek som du valde i den **storlek** steg.
@@ -105,6 +105,8 @@ Skapa en DSVM-instans:
 ## <a name="how-to-access-the-dsvm"></a>Hur du kommer åt DSVM
 
 När den virtuella datorn skapas och etableras, kan du fjärrskrivbord till den med hjälp av autentiseringsuppgifter som administratör-konto som du konfigurerade i föregående **grunderna** avsnittet. Du är redo att börja använda verktygen som installeras och konfigureras på den virtuella datorn. Många av verktygen kan nås via start-menyn paneler och ikoner på skrivbordet.
+
+Du kan även bifoga en virtuell dator för datavetenskap i Azure-anteckningsböcker för att köra Jupyter-anteckningsböcker på den virtuella datorn och kringgå begränsningar av kostnadsfria tjänstnivån. Mer information finns i [hantera och konfigurera anteckningsböcker projekt - Beräkningsnivån](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
 
 ## <a name="tools-installed-on-the-microsoft-data-science-virtual-machine"></a>Verktygen som installeras på Microsoft Data Science Virtual Machine
 
@@ -157,7 +159,7 @@ Det finns också ett plugin-program kallas **Azure Machine Learning för Visual 
 > [!NOTE]
 > Du kan få ett meddelande om att utvärderingsperioden har upphört att gälla. Ange autentiseringsuppgifterna för ditt Microsoft-konto. Eller skapa ett nytt kostnadsfritt konto för att få åtkomst till Visual Studio Community.
 
-### <a name="sql-server-2017-developer-edition"></a>SQL Server 2017 Developer Edition
+### <a name="sql-server-2017-developer-edition"></a>SQL Server 2017 Developer edition
 
 DSVM levereras med en Utvecklarversionen av SQL Server 2017 med Machine Learning Services. Den här versionen av SQL Server finns i R eller Python och kan köra analyser i databasen. Machine Learning Services tillhandahåller en plattform för utveckling och distribution intelligenta program. Du kan använda dessa språk och många paket från communityn för att skapa modeller och genererar förutsägelser för SQL Server-data. Du kan behålla analytics nära data eftersom Machine Learning Services, i databasen, integrerar både R och Python språk i SQL Server. Den här integreringen slipper du kostnaderna och säkerhetsrisker som förknippas med dataförflyttning.
 

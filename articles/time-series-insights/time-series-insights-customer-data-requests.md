@@ -4,17 +4,17 @@ description: Sammanfattning av Azure Time Series Insights-kund datafunktioner.
 author: ashannon7
 ms.author: anshan
 manager: cshankar
-ms.date: 05/17/2018
+ms.date: 05/08/2019
 ms.topic: conceptual
 ms.service: time-series-insights
 services: time-series-insights
 ms.custom: seodec18
-ms.openlocfilehash: 30f6b1fd953f89170a18d56bf0353c643853074e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 67aea6b3d535eeb0838da4ac6990c50e607617bf
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60880716"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546395"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Sammanfattning av kundens datafunktioner
 
@@ -65,3 +65,11 @@ Mer information finns i [Azure Time Series Insights explorer](time-series-insigh
 Time Series Insights stöder för närvarande inte detaljerade borttagning av data. Time Series Insights ger dock möjlighet att ta bort kunddata lagras i Time Series Insights genom att konfigurera principer för kvarhållning. Du kan justera kvarhållningsperioden i hela Time Series Insights-miljön till valfritt antal dagar för dina krav för borttagning.
 
 Mer information finns i [konfigurera kvarhållning i Time Series Insights](time-series-insights-how-to-configure-retention.md).
+
+## <a name="next-steps"></a>Nästa steg
+
+* Läs mer om [beviljar åtkomst till miljön TSI](./time-series-insights-data-access.md).
+
+* Visa den [Azure Time Series Insights explorer](time-series-insights-explorer.md).
+
+* Lär dig mer om [konfigurera kvarhållning i Time Series Insights](time-series-insights-how-to-configure-retention.md).

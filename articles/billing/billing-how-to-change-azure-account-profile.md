@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 74afb98387172f6c58398673862274c7b1880d86
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 6280068303e66ca9a930f94d9a754afe1f88f4f2
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922945"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604261"
 ---
 # <a name="change-your-azure-account-profile-information"></a>Ändra profilinformationen Azure-konto
 
@@ -51,9 +51,9 @@ Uppdaterar profilen e-postadressen uppdateras inte din inloggning e-postadress. 
 
 Läs hur du uppdaterar din faktureringsinformation i [ändra det kreditkort som används för att betala för en Azure-prenumeration](billing-how-to-change-credit-card.md).
 
-### <a name="you-cant-update-your-country"></a>Du kan inte uppdatera ditt land
+### <a name="you-cant-update-your-countryregion"></a>Du kan inte uppdatera land/region
 
-Vi kan inte ändra land för ett befintligt konto på grund av tekniska begränsningar. Du kan dock skapa ett konto i det önskade landet och sedan kontakta Azures support och migrera dina tjänster till det kontot.
+Vi kan inte ändra land/region för ett befintligt konto på grund av tekniska begränsningar. Du kan dock skapa ett konto i den önskade land/regionen och sedan kontakta Azures support och migrera dina tjänster till det kontot.
 
 ## <a name="service-and-marketing-emails"></a>Tjänsten och marknadsföring e-postmeddelanden
 
@@ -62,7 +62,7 @@ Microsoft Azure-teamet skickar tjänstrelaterade e-postmeddelanden som informera
 Uppmanas du i den [Azure-portalen](https://portal.azure.com) att kontrollera eller uppdatera din e-postadress var 90: e dag. Meddelande syftet är att se till att Microsoft har uppdaterat kontaktinformation om de brådskande tjänstrelaterade meddelanden. Microsoft skickar e-postmeddelanden till din e-postadress för profilen med Azure-konto-relaterad information för:
 
 - Tjänstmeddelanden
-- Säkerhetsaviseringar
+- Säkerhetsvarningar
 - Fakturering syften
 - Support
 - Marknadsföring kommunikation

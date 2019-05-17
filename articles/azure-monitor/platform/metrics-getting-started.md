@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: e611f1564896cfdecb3ce34ab7c5361e5200b48a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3306e888970d99132d17d4ccf967f074302412ca
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60254077"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595446"
 ---
 # <a name="getting-started-with-azure-metrics-explorer"></a>Komma igång med Azure Metrics Explorer
 
@@ -24,7 +24,7 @@ Azure Monitor metrics explorer är en komponent i Microsoft Azure-portalen som t
 
 1. Försök [de dimension filtren har använts och dela](#apply-dimension-filters-and-splitting). Filtren och dela kan du analysera vilka segment av måttet bidra till det övergripande måttvärdet och identifiera möjliga extremvärden.
 
-1. Använd [avancerade inställningar](#advanced-chart-settings-and-next-steps) att anpassa diagrammet innan du fäster till instrumentpaneler. [Konfigurera aviseringar](alerts-metric-overview.md) att ta emot meddelanden när måttet överskrider eller sjunker under ett tröskelvärde.
+1. Använd [avancerade inställningar](#advanced-chart-settings) att anpassa diagrammet innan du fäster till instrumentpaneler. [Konfigurera aviseringar](alerts-metric-overview.md) att ta emot meddelanden när måttet överskrider eller sjunker under ett tröskelvärde.
 
 ## <a name="create-your-first-metric-chart"></a>Skapa din första måttdiagram
 
@@ -61,12 +61,13 @@ Diagrammet visar de senaste 24 timmarna av mätvärden som standard. Använd den
 
 Se [exempel på diagrammen](metric-chart-samples.md) att filtrera och dela ansökt. Artikeln beskriver steg som användes för att konfigurera diagrammen.
 
-## <a name="advanced-chart-settings-and-next-steps"></a>Avancerade inställningar och nästa steg
+## <a name="advanced-chart-settings"></a>Avancerade inställningar
 
 Du kan anpassa organisationsstruktur, titel, och ändra avancerade inställningar. När du är klar med anpassningen kan du fästa den på en instrumentpanel för att spara ditt arbete. Du kan också konfigurera aviseringar för mått. Följ [produktdokumentationen](metrics-charts.md) Lär dig mer om dessa och andra avancerade funktioner i Azure Monitor metrics explorer.
 
 ## <a name="next-steps"></a>Nästa steg
 
+* [Lär dig mer om de avancerade funktionerna i Metrics Explorer](metrics-charts.md)
+* [Felsökning av Metrics Explorer](metrics-troubleshoot.md)
 * [Visa en lista över tillgängliga mått för Azure-tjänster](metrics-supported.md)
-* [Lär dig mer om de avancerade funktionerna i Metric Explorer](metrics-charts.md)
 * [Se exempel på konfigurerade diagram](metric-chart-samples.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-ms.openlocfilehash: e0271c9212b093bd803518ebeaa4b7d9682cc773
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c1c64945aaa0bc4cd83cc769dab1c2a755896c01
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60868373"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603419"
 ---
 # <a name="example-2-build-a-perimeter-network-to-protect-applications-with-a-firewall-and-nsgs"></a>Exempel 2: Skapa ett perimeternätverk för att skydda program med en brandvägg och NSG: er
 [Gå tillbaka till Microsofts molntjänster och security-sidan för nätverk][HOME]
@@ -64,7 +64,7 @@ När skriptet har körts, kan du utföra dessa steg:
 
 Nästa avsnitt beskrivs de flesta av skriptets instruktioner som är relaterade till NSG: er.
 
-## <a name="nsgs"></a>NSG:er
+## <a name="nsgs"></a>Nätverkssäkerhetsgrupper (NSG)
 I det här exemplet bygger en NSG-grupp och sedan läsa in med sex regler.
 
 > [!TIP]
@@ -550,7 +550,7 @@ Du bör köra detta PowerShell-skript lokalt på en Internetansluten dator eller
 Spara den här XML-filen med uppdaterade platser och sedan lägga till en länk till den här filen i variabeln $NetworkConfigFile i föregående skript.
 
 ```xml
-    <NetworkConfiguration xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+    <NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
       <VirtualNetworkConfiguration>
         <Dns>
           <DnsServers>

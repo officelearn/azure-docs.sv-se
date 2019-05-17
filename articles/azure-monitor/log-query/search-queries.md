@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
-ms.openlocfilehash: 2df4cf994e118fef9048504daf40fabc1625c375
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b5860243b6b605288aaf8d6dffe2260bc031a592
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61425919"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65560831"
 ---
 # <a name="search-queries-in-azure-monitor-logs"></a>Sökfrågor i Azure Monitor-loggar
 
@@ -64,7 +64,7 @@ search in (Event) Source:"error"
 ```
 
 > [!TIP]
-> Om du använder `==` i stället för `:`, resultatet skulle innehålla poster där den *källa* kolumnen har det exakta värdet ”fel”, och i den här skiftlägeskänsligt. Med hjälp av ””: kommer inte innehåller poster där *källa* har värden som ”felkoden 404” eller ”Error”.
+> Om du använder `==` i stället för `:`, resultatet skulle innehålla poster där den *källa* kolumnen har det exakta värdet ”fel”, och i den här skiftlägeskänsligt. Med hjälp av ':' innehåller poster där *källa* har värden som ”felkoden 404” eller ”Error”.
 
 ## <a name="case-sensitivity"></a>Skiftlägeskänslighet
 Termen search är skiftlägeskänslig som standard, så söker ”dns” kan ge resultat som DNS-”,” dns ”eller” Dns ”. För att göra sökningen skiftlägeskänsliga, använda den `kind` alternativet:

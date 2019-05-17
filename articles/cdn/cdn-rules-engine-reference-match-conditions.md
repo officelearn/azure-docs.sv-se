@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
-ms.openlocfilehash: 75fe965a04bd02a1086551053c28d2072eae6468
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: f87667516d6c76bc1c21ba5e175b3b2a7ebc3f39
+ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64869512"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65556318"
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Azure CDN-regelmotor matchar de villkor 
 Den här artikeln innehåller detaljerade beskrivningar av tillgängliga matchningsvillkor för Azure Content Delivery Network (CDN) [regelmotor](cdn-rules-engine.md).
@@ -101,8 +101,11 @@ Namn | Syfte
 
 
 ## <a name="reference-for-rules-engine-match-conditions"></a>Referens för regelmotor – matchningsvillkor
+
 <a name="main"></a>
+
 ---
+
 ### <a name="always"></a>Alltid
 
 Matchningsvillkor alltid gäller en standarduppsättning med funktioner för alla begäranden.
@@ -234,7 +237,7 @@ Viktig information:
 </br>
 
 ---
-### <a name="country"></a>Land/region
+### <a name="country"></a>Land
 Du kan ange ett land/region via dess landskod. 
 
 Den **matchningar**/**matchar inte** anger de villkor som matchar landet villkor uppfylls:
@@ -306,7 +309,7 @@ Viktig information:
 #### <a name="string-type"></a>Strängtyp
 En WURFL funktion accepterar vanligtvis en kombination av siffror, bokstäver och symboler. På grund av flexibla typen av den här funktionen måste du välja hur tolkas det värdet som är associerade med den här matchningsvillkor. I följande tabell beskrivs de tillgängliga uppsättningen alternativ:
 
-Typ     | Beskrivning
+Type     | Beskrivning
 ---------|------------
 Literal  | Välj det här alternativet för att förhindra att de flesta tecken tar på särskild innebörd med hjälp av deras [literalvärde](cdn-rules-engine-reference.md#literal-values).
 Wildcard | Välj det här alternativet för att dra nytta av alla [jokertecken] ([jokertecken värden](cdn-rules-engine-reference.md#wildcard-values).
@@ -467,7 +470,7 @@ Viktig information:
 ---
 ### <a name="request-method"></a>Begärandemetod
 Metod för begäran matchar villkoret är uppfyllt endast när tillgångar begärs via metoden för valda begäran. Begäran om tillgängliga metoderna är:
-- HÄMTA
+- GET
 - HEAD 
 - POST 
 - ALTERNATIV 
@@ -752,7 +755,7 @@ Viktig information:
 
 Exempel-konfigurationer i tabellen nedan förutsätter att den här matchar villkoret är uppfyllt när en begäran matchar det angivna URL-mönstret:
 
-Värde                   | I förhållande till    | Resultat 
+Value                   | I förhållande till    | Resultat 
 ------------------------|----------------|-------
 */test.html */test.php  | Rot- eller ursprung | Det här mönstret matchas av begäranden för tillgångar med namnet ”test.html” eller ”test.php” i valfri mapp.
 /80ABCD/origin/text/*   | Rot           | Det här mönstret matchas när den begärda tillgången uppfyller följande kriterier: <br />-Det måste finnas på en kund ursprung som kallas ”ursprung”. <br />-Den relativa sökvägen måste börja med en mapp med namnet ”text”. Den begärda tillgången kan det vill säga antingen finnas i mappen ”text” eller en av dess rekursiv undermappar.
@@ -784,7 +787,7 @@ Viktig information:
 
    Tecken | URL-kodning
    ----------|---------
-   Rymd     | %20
+   Blanksteg     | %20
    &         | %25
 
 - På grund av det sätt som i vilket cacheminne inställningar spåras, är den här matchningsvillkor inte kompatibel med följande funktioner:
@@ -820,7 +823,7 @@ Viktig information:
 
        Tecken | URL-kodning
        ----------|---------
-       Rymd     | %20
+       Blanksteg     | %20
        &         | %25
 
 - Ange parametern flera frågesträngsvärden genom att avgränsa dem med ett enda blanksteg. Den här matchar villkoret är uppfyllt när en begäran innehåller ett av de angivna namn/värde-kombinationerna.
@@ -868,7 +871,7 @@ Viktig information:
 #### <a name="sample-scenarios"></a>Exempelscenarier
 I följande exempel visar hur det här alternativet fungerar i vissa situationer:
 
-Namn  | Värde |  Resultat
+Namn  | Value |  Resultat
 ------|-------|--------
 Användare  | Joe   | Det här mönstret matchas när frågesträngen för en begärd URL är ”? user = joe”.
 Användare  | *     | Det här mönstret matchas när frågesträngen för en begärd URL innehåller en parameter för användaren.
@@ -895,9 +898,9 @@ Viktig information:
     
 - Vissa tecken kräver URL-kodning. Använd symbolen procent till URL: en koda följande tecken:
 
-   Tecken | URL-kodning | Värde
+   Tecken | URL-kodning | Value
    ----------|--------------|------
-   Rymd     | %20          | \%20
+   Blanksteg     | %20          | \%20
    &         | %25          | \%25
 
    Observera att procent symboler måste undantas.
@@ -906,7 +909,7 @@ Viktig information:
 
    Exempel:
 
-   Värde | Tolkas som 
+   Value | Tolkas som 
    ------|---------------
    \\+    | +
    \\\\+   | \\+
@@ -939,7 +942,7 @@ Viktig information:
 
      Tecken | URL-kodning
      ----------|---------
-     Rymd     | %20
+     Blanksteg     | %20
      &         | %25
 
 - Ange flera värden genom att avgränsa dem med ett enda blanksteg.

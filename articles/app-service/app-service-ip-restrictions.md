@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/22/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 558b67b5b0e1ce4f452ce2ca2e97dd7e785c80b6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: de898a7ebb9611f469f42bb23774b3b0a0c2410d
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728696"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65541675"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Åtkomstbegränsningar för Azure App Service #
 
@@ -32,7 +32,7 @@ När en begäran skickas till din app, ska från-adressen utvärderas mot IP-adr
 
 Funktion för åtkomst-begränsningar har införts i App Service frontend roller, som är överordnad worker-värd där koden körs. Därför är åtkomstbegränsningar i själva verket nätverk ACL: er.
 
-Möjligheten att begränsa åtkomsten till din webbapp från Azure Virtual Network (VNet) anropas [tjänstslutpunkter][serviceendpoints]. Tjänstslutpunkter kan du begränsa åtkomsten till en multiklienttjänst från valda undernät. Den måste aktiveras på såväl nätverk sida som den tjänst som aktiveras med. 
+Möjligheten att begränsa åtkomsten till din webbapp från Azure Virtual Network (VNet) anropas [tjänstslutpunkter][serviceendpoints]. Tjänstslutpunkter kan du begränsa åtkomsten till en multiklienttjänst från valda undernät. Den måste aktiveras på såväl nätverk sida som den tjänst som aktiveras med. Det fungerar inte för att begränsa trafik till appar som finns i en App Service Environment.  Om du använder en App Service Environment kan styra du åtkomsten till din app med regler för IP-adress.
 
 ![åtkomstflöde för begränsningar](media/app-service-ip-restrictions/access-restrictions-flow.png)
 
@@ -59,6 +59,8 @@ Om du vill ange en IP-adress baserat regeln, Välj en typ av IPv4 eller IPv6. IP
 ![Lägg till Begränsningsregel för åtkomst till ett virtuellt nätverk](media/app-service-ip-restrictions/access-restrictions-vnet-add.png)
 
 Välj en typ av virtuellt nätverk för att begränsa åtkomsten till valda undernät. Nedan som du kan välja prenumeration, VNet och undernät som du vill tillåta eller neka åtkomst med. Om Tjänsteslutpunkter inte redan har aktiverats med Microsoft.Web för det undernät som du har valt, aktiveras den automatiskt åt dig, såvida inte kryssrutan där du ombeds inte att göra det. Situationen där du vill aktivera det på appen men inte i undernätet beror huvudsakligen på om du har behörighet att aktivera Tjänsteslutpunkter i undernät eller inte. Om du behöver hämta någon annan att aktivera Tjänsteslutpunkter i undernät kan du markera kryssrutan och har din app har konfigurerats för tjänstslutpunkter i avvaktan på att den aktiveras senare i undernät. 
+
+Tjänstslutpunkter kan inte användas för att begränsa åtkomsten till appar som körs i en App Service Environment. När appen är i en App Service Environment, kan du styra åtkomsten till din app med regler för IP-åtkomst. 
 
 Du kan klicka på en rad för att redigera en befintlig Begränsningsregel för åtkomst. Redigeringar är effektiva omedelbart med ändringar av prioritet ordning.
 

@@ -3,8 +3,8 @@ title: Azure Active Directory-större ändringar referens | Microsoft Docs
 description: Läs mer om ändringar som gjorts i Azure AD-protokoll som kan påverka ditt program.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 68517c83-1279-4cc7-a7c1-c7ccc3dbe146
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/02/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fcc400f952cc89f5fb4bf6e8d6f0f331483868e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4ea3ec9024e4ea6a254fb6fe80f93886dc31a0ff
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60298282"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545792"
 ---
 # <a name="whats-new-for-authentication"></a>Vad är nytt för autentisering? 
 
@@ -63,7 +63,7 @@ De flesta klienter behöver inte att ändra beteende för att undvika det här f
 
 * Scope- eller resursen som efterfrågades
 
-* Klientorganisations-ID
+* Klient-ID
 
 * Omdirigerings-URI
 

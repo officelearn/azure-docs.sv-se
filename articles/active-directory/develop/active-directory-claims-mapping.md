@@ -2,23 +2,23 @@
 title: Anpassa anspråk som släpps i token för en viss app i en Azure AD-klient (offentlig förhandsversion)
 description: Den här sidan beskriver Anspråksmappning för Azure Active Directory.
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2076aec1585ff8b60ee2b593621b75abfaeaa1ac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8b770ee476fc5c1c334f53904539cc34cf962c62
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60300486"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546209"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Anvisningar: Anpassa anspråk som släpps i token för en viss app i en klient (förhandsversion)
 
@@ -97,15 +97,15 @@ Det finns vissa typer av anspråk som definierar hur och när de används i toke
 | domain_dns_name |
 | domain_netbios_name |
 | e_exp |
-| e-post |
-| slutpunkt |
+| email |
+| endpoint |
 | enfpolids |
 | EXP |
 | expires_on |
 | _typ av beviljande |
 | graf |
 | group_sids |
-| grupper |
+| Grupper |
 | hasgroups |
 | hash_alg |
 | home_oid |
@@ -158,8 +158,8 @@ Det finns vissa typer av anspråk som definierar hur och när de används i toke
 | request_nonce |
 | resurs |
 | roll |
-| roles |
-| omfång |
+| roller |
+| scope |
 | scp |
 | SID |
 | signatur |
@@ -177,7 +177,7 @@ Det finns vissa typer av anspråk som definierar hur och när de används i toke
 | unique_name |
 | UPN |
 | user_setting_sync_url |
-| användarnamn |
+| username |
 | uti |
 | ver |
 | verified_primary_email |
@@ -284,20 +284,20 @@ ID-element som identifierar vilken egenskap på källan innehåller värdet för
 
 #### <a name="table-3-valid-id-values-per-source"></a>Tabell 3: Giltiga värden för ID per källa
 
-| Källa | ID | Beskrivning |
+| Source | ID | Beskrivning |
 |-----|-----|-----|
-| Användare | surname | Produktfamilj |
-| Användare | givenname | Förnamn |
+| Användare | Efternamn | Produktfamilj |
+| Användare | givenName | Förnamn |
 | Användare | displayname (visningsnamn) | Visningsnamn |
-| Användare | objekt-ID | ObjectId |
+| Användare | objekt-ID | ObjectID |
 | Användare | e-post | E-postadress |
-| Användare | userprincipalname | User Principal Name |
-| Användare | avdelning|Avdelning|
+| Användare | userprincipalname | Användarens huvudnamn |
+| Användare | Avdelning|Avdelning|
 | Användare | onpremisessamaccountname | Den lokala SAM-kontonamn |
 | Användare | netbiosname| NetBios-namn |
 | Användare | DNS-domännamn | DNS-domännamn |
 | Användare | onpremisesecurityidentifier | lokala säkerhetsidentifierare |
-| Användare | Företagsnamn| Organisationens namn |
+| Användare | Företagsnamn| Organisationsnamn |
 | Användare | streetaddress | Gatuadress |
 | Användare | Postnummer | Postnummer |
 | Användare | preferredlanguange | Önskat språk |
@@ -319,15 +319,15 @@ ID-element som identifierar vilken egenskap på källan innehåller värdet för
 | Användare | extensionattribute14 | Tilläggsattribut 14 |
 | Användare | extensionattribute15 | Tilläggsattribut 15 |
 | Användare | othermail | Andra e-post |
-| Användare | Land | Land/region |
-| Användare | city | Ort |
-| Användare | state | Status |
-| Användare | jobtitle | Befattning |
-| Användare | employeeid | Anställnings-ID |
+| Användare | Land | Land |
+| Användare | city | Stad |
+| Användare | tillstånd | Status |
+| Användare | jobtitle | Jobbtitel |
+| Användare | EmployeeID | Anställnings-ID |
 | Användare | facsimiletelephonenumber | Telefonnummer för fax |
 | program, resurs, målgrupp | displayname (visningsnamn) | Visningsnamn |
-| program, resurs, målgrupp | objekt | ObjectId |
-| program, resurs, målgrupp | tags | Service Principal Tag |
+| program, resurs, målgrupp | objekt | ObjectID |
+| program, resurs, målgrupp | taggar | Service Principal Tag |
 | Företag | tenantcountry | Klientens land/region |
 
 **TransformationID:** TransformationID-element måste anges bara om käll-elementet är inställt på ”omvandling”.
@@ -360,7 +360,7 @@ Baserat på vilken metod som valts, förväntas en uppsättning indata och utdat
 
 |TransformationMethod|Förväntade indata|Utdata som förväntas|Beskrivning|
 |-----|-----|-----|-----|
-|Slå ihop|sträng1, sträng2, avgränsare|outputClaim|Kopplingar kan du ange strängar med hjälp av en avgränsare mellan. Till exempel: sträng1 ”:foo@bar.com”, sträng2: ”sandlåda”, avgränsare ”:”. resulterar i outputClaim ”:foo@bar.com.sandbox”|
+|Anslut|sträng1, sträng2, avgränsare|outputClaim|Kopplingar kan du ange strängar med hjälp av en avgränsare mellan. Till exempel: sträng1 ”:foo@bar.com”, sträng2: ”sandlåda”, avgränsare ”:”. resulterar i outputClaim ”:foo@bar.com.sandbox”|
 |ExtractMailPrefix|e-post|outputClaim|Extraherar den lokala delen av en e-postadress. Till exempel: e-post ”:foo@bar.com” resulterar i outputClaim: ”foo”. Om ingen \@ logga finns sedan ursprungliga Indatasträngen returneras skick.|
 
 **InputClaims:** Använd ett InputClaims-element för att skicka data från en post för anspråk schemat till en omvandling. Den har två attribut: **ClaimTypeReferenceId** och **TransformationClaimType**.
@@ -384,12 +384,12 @@ Baserat på vilken metod som valts, förväntas en uppsättning indata och utdat
 
 #### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>Tabell 5: Attribut användas som en datakälla för SAML NameID
 
-|Källa|ID|Beskrivning|
+|Source|ID|Beskrivning|
 |-----|-----|-----|
 | Användare | e-post|E-postadress|
-| Användare | userprincipalname|User Principal Name|
+| Användare | userprincipalname|Användarens huvudnamn|
 | Användare | onpremisessamaccountname|På lokala Sam-kontonamn|
-| Användare | employeeid|Anställnings-ID|
+| Användare | EmployeeID|Anställnings-ID|
 | Användare | extensionattribute1 | Tilläggsattribut 1 |
 | Användare | extensionattribute2 | Tilläggsattribut 2 |
 | Användare | extensionattribute3 | Tilläggsattribut 3 |
@@ -411,7 +411,7 @@ Baserat på vilken metod som valts, förväntas en uppsättning indata och utdat
 | TransformationMethod | Begränsningar |
 | ----- | ----- |
 | ExtractMailPrefix | Ingen |
-| Slå ihop | Suffixet är ansluten måste vara en verifierad domän för resurs-klienten. |
+| Anslut | Suffixet är ansluten måste vara en verifierad domän för resurs-klienten. |
 
 ### <a name="custom-signing-key"></a>Anpassad nyckel för signeringscertifikatet
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: yegu
-ms.openlocfilehash: 6757a038a945bf153cb62662bee8c715c87baf19
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6960c21091e0bc01c198e713c0c276984566ac41
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60829828"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786080"
 ---
 # <a name="introduction-to-the-azure-cache-for-redis-premium-tier"></a>Introduktion till Azure Cache Redis Premium-nivån
 Azure Cache för Redis är ett distribuerat och hanterat cache som hjälper dig att bygga skalbara och tillgängliga program med Supersnabb åtkomst till dina data. 
@@ -33,7 +33,7 @@ Den nya Premium-nivån är en företagsklar nivå, som omfattar alla funktioner 
 
 Mer information om storlek, dataflöde och bandbredd med premium-cache finns i [Azure Cache för Redis vanliga frågor och svar](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)
 
-## <a name="redis-data-persistence"></a>Redis-datapersistens
+## <a name="redis-data-persistence"></a>Redis datapersistence
 Premium-nivån kan du spara Cachedata i ett Azure Storage-konto. Alla data lagras endast i minnet i en Basic-och Standard-cache. När det gäller underliggande infrastruktur kan problem det vara potentiell dataförlust. Vi rekommenderar att du använder Redis-datapersistensfunktionen på Premium-nivån för att öka skyddet mot dataförlust. Azure Cache för Redis erbjuder RDB och AOF (kommer snart) alternativ i [Redis persistence](https://redis.io/topics/persistence). 
 
 Anvisningar om hur du konfigurerar persistence finns i [så här konfigurerar du persistence för Premium Azure Cache för Redis](cache-how-to-premium-persistence.md).
@@ -50,7 +50,7 @@ Cacheminnen som skapats i Basic eller Standard-nivån är tillgängliga på inte
 
 Mer information finns i [så här konfigurerar du Virtual Network-stöd för Premium Azure Cache för Redis](cache-how-to-premium-vnet.md).
 
-## <a name="importexport"></a>Import/Export
+## <a name="importexport"></a>Importera/exportera
 Import/Export är en Azure-Cache för Redis data management-åtgärd där du kan importera data till Azure Cache för Redis eller exportera data från Azure Cache för Redis genom att importera och exportera en Azure-Cache för Redis-databasen (RDB) ögonblicksbild från en premium-cache för en sidblob i ett Azure Storage-konto. På så sätt kan du migrera mellan olika Azure-Cache för Redis-instanser eller fylla i cachen med data före användning.
 
 Import kan användas för att hämta Redis kompatibla RDB-fil(er) från en Redis-server som kör i valfritt moln eller en miljö, inklusive Redis som körs på Linux, Windows eller någon annan molnleverantör, till exempel Amazon Web Services och andra. Importera data är ett enkelt sätt att skapa ett cacheminne med fyllda. Under importen, Azure Cache för Redis läser in RDB-filer från Azure storage i minnet och sedan infogar nycklarna i cachen.
@@ -63,9 +63,9 @@ Mer information finns i [importera data till och exportera data från Azure Cach
 Premium-nivån kan du starta om en eller flera noder i din cache på begäran. På så sätt kan du testa ditt program för återhämtning i händelse av ett fel. Du kan starta om följande noder.
 
 * Huvudnoden för din cachelagring
-* Underordnad nod för din cachelagring
-* Huvud- och underordnade noder för din cachelagring
-* När du använder en premium-cache med klustring, du kan starta om huvudservern, underordnad server eller båda noderna för enskilda fragment i cacheminnet
+* Sekundär nod för din cachelagring
+* Både den primära och sekundära noder för din cachelagring
+* När du använder en premium-cache med klustring, du kan starta om primärt eller sekundära båda noderna för enskilda fragment i cacheminnet
 
 Mer information finns i [omstart](cache-administration.md#reboot) och [starta om vanliga frågor och svar](cache-administration.md#reboot-faq).
 
@@ -74,7 +74,7 @@ Mer information finns i [omstart](cache-administration.md#reboot) och [starta om
 >
 >
 
-## <a name="schedule-updates"></a>Schemauppdateringar
+## <a name="schedule-updates"></a>Schemalägg uppdateringar
 Funktionen för schemalagda uppdateringar kan du ange en underhållsperiod för cacheminnet. När underhållsfönstret har angetts görs alla uppdateringar för Redis-servern under det här fönstret. Om du vill ange en underhållsperiod, välja önskade dagar och ange underhållet starta fönstret timme för varje dag. Observera att underhållsfönstertiden är i UTC. 
 
 Mer information finns i [Schemalägg uppdateringar](cache-administration.md#schedule-updates) och [Schemalägg uppdateringar vanliga frågor och svar](cache-administration.md#schedule-updates-faq).

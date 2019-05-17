@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/23/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: da796f8eeb6b24dfbbe8418cc728f09b424228cf
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 7b75e24e5d59206ee8330c3ca9eaf86eacbad13d
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528500"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65751537"
 ---
 ### <a name="premium-performance-block-blob-storage"></a>Premium-prestanda block blob-lagring
 
@@ -25,9 +25,9 @@ Premium-filerna använder ett unikt lagringskonto med namnet **FileStorage (för
 
 |Område  |Mål  |
 |---------|---------|
-|Max etablerad storlek     |5 TiB (offentlig förhandsversion), 100 TiB (begränsad offentlig förhandsversion)     |
-|Resurser   |Obegränsat  |
-|IOPS     |100 000 (begränsad offentlig förhandsversion)    |
+|Max etablerad storlek     |100 TiB     |
+|Resurser   |Obegränsad  |
+|IOPS     |100,000    |
 |Ingress|4,136 MiB/s     |
 |Egress|6,204 MiB/s |
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: c9d707d1a76b3b5913d66745767df8e84362a192
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 578f7a01c22bd5aafd4e4ac08c9f5ab78e340a34
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61045804"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606528"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Team Data Science Process i praktiken: med SQL Server
 I den här självstudien får du går igenom processen för att skapa och distribuera en maskininlärningsmodell med SQL Server och en datauppsättning som är allmänt tillgängliga – [NYC Taxi kommunikation](https://www.andresmh.com/nyctaxitrips/) datauppsättning. Proceduren följer en standard arbetsflöde för datavetenskap: mata in och utforska data, bygg funktioner för att förenkla inlärningen, och sedan skapa och distribuera en modell.
@@ -515,7 +515,7 @@ Det här exemplet omvandlar en kontinuerlig numeriskt fält till förinställda 
     cursor.commit()
 
 #### <a name="feature-engineering-extract-location-features-from-decimal-latitudelongitude"></a>Funktionsframställning: Extrahera plats funktioner från Decimal latitud/longitud
-Det här exemplet eliminerar formatet för ett latitud/longitud eller fält i flera regioner fält av olika kornighet som, land, stad, stad, blockera, osv. Observera att de nya geo-fält inte är mappade till faktiska platser. Information om mappning geocode platser finns i [Bing Maps REST-tjänster](https://msdn.microsoft.com/library/ff701710.aspx).
+Det här exemplet eliminerar formatet för ett latitud/longitud eller fält i flera regioner fält av olika kornighet som, land/region, stad, stad, blockera, osv. Observera att de nya geo-fält inte är mappade till faktiska platser. Information om mappning geocode platser finns i [Bing Maps REST-tjänster](https://msdn.microsoft.com/library/ff701710.aspx).
 
     nyctaxi_one_percent_insert_col = '''
         ALTER TABLE nyctaxi_one_percent

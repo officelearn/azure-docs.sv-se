@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: v-erkell
-ms.openlocfilehash: 69921300163bd9a326f3baedd3182da887ad02c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 47a4b38d39c52992b51284776ec34cb9491020e7
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60409959"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595423"
 ---
 # <a name="avere-vfxt-for-azure-faq"></a>Vanliga frågor och svar om Avere vFXT för Azure
 
@@ -80,7 +80,7 @@ Ja, kunder kan använda mer än en molnleverantör med Avere vFXT klustret. Den 
 > [!NOTE] 
 > En avgift för programvara gäller om du vill använda Avere vFXT i AWS och Google Cloud, men inte med Azure.
 
-## <a name="technical-compute"></a>Teknisk: Compute
+## <a name="technical-compute"></a>Teknisk: Beräkna
 
 ### <a name="can-you-describe-what-an-avere-vfxt-environment-looks-like"></a>Kan du beskriva vad en Avere vFXT miljö ”ut”?
 
@@ -204,7 +204,7 @@ Nej, Avere vFXT är avsedd att köras i en nätverksmiljö skyddas genom bästa 
 
 I allmänhet kan du konfigurera ytterligare säkerhet för dina virtuella nätverk efter behov, men vissa begränsningar kan störa driften av klustret.
 
-Till exempel orsakar att begränsa utgående Internetåtkomst från ditt vnet problem för klustret såvida inte du också lägga till regler som uttryckligen tillåter åtkomst till AzureConnectors och AzureCloud. Den här situationen beskrivs i [kompletterande dokumentation på GitHub](https://github.com/Azure/Avere/tree/master/src/vfxt/internet_access.md).
+Till exempel orsakar att begränsa utgående Internetåtkomst från ditt vnet problem för klustret såvida inte du också lägga till en regel som tillåter åtkomst till AzureCloud uttryckligen. Den här situationen beskrivs i [kompletterande dokumentation på GitHub](https://github.com/Azure/Avere/tree/master/src/vfxt/internet_access.md).
 
 Kontakta supporten för hjälp med anpassade säkerhet, enligt beskrivningen i [få hjälp med ditt system](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt).
 

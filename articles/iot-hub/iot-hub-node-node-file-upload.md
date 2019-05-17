@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 06/28/2017
-ms.openlocfilehash: 7ad2c9dd89843a36a786eeefee8403d32027e11c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f60236163cd88822c384bd356a1770d616639174
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61444394"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596624"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Ladda upp filer från din enhet till molnet med IoT Hub
 
@@ -29,7 +29,7 @@ Den här självstudien bygger på koden i den [skicka meddelanden från moln til
 Den [Kom igång med IoT Hub](quickstart-send-telemetry-node.md) självstudiekursen demonstrerar de grundläggande meddelanden funktionerna med enheten till molnet i IoT Hub. Men i vissa fall kan inte du enkelt mappa enheterna skickar till relativt liten enhet-till-moln-meddelanden som IoT-hubb tar emot data. Exempel:
 
 *  Stora filer som innehåller bilder
-*  Videoklipp
+*  Videor
 *  Vibrationer data samplas med hög frekvens
 *  Någon form av förbearbetade data.
 
@@ -46,7 +46,7 @@ I slutet av den här kursen kan du köra två Node.js-konsolappar:
 
 För att kunna genomföra den här kursen behöver du följande:
 
-* Node.js version 4.0.x eller senare.
+* Node.js-version 10.0.x eller senare.
 
 * Ett aktivt Azure-konto. (Om du inte har ett konto kan du skapa en [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) på bara några minuter.)
 

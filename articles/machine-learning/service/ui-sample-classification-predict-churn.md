@@ -9,17 +9,25 @@ ms.topic: article
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
-ms.date: 05/02/2019
-ms.openlocfilehash: 1cb533348236905b7c4e9b58968041745af0e71b
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.date: 05/10/2019
+ms.openlocfilehash: 42724f5fcb3101015cef0d218a3d548f349646be
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65028447"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785826"
 ---
 # <a name="sample-5---classification-predict-churn-appetency-and-up-selling"></a>Exempel 5 - klassificering: Förutsäga kundomsättning, begär och ökad försäljning 
 
-Detta visuella gränssnittet exempelexperiment visar binär klassificerare förutsägelse av omsättning, begär och ökad försäljning, vanliga åtgärder för hantering av kundrelationer (CRM).
+Lär dig hur du skapar en komplexa machine learning-experiment utan att behöva skriva en enda rad kod med hjälp av det visuella gränssnittet.
+
+Det här experimentet träna tre, **tvåklassförhöjt beslutsträd** klassificerare att förutsäga vanliga uppgifter för CRM (CRM)-system: omsättning, begär och ökad försäljning. Datavärden och etiketter delas mellan flera datakällor och skrev ner texten att maskera kundinformation, vi kan dock fortfarande använda det visuella gränssnittet att kombinera datauppsättningar och tränar en modell med värdena som förvrängt.
+
+Eftersom vi försöker besvara frågan ”vilken jag”? Detta kallas en klassificeringsproblem. Du kan dock använda samma steg i det här experimentet för att hantera alla typer av problem med machine learning, oavsett om det är regression, klassificering, klustring och så vidare.
+
+Här är färdiga diagrammet det här experimentet:
+
+![Experimentdiagram](./media/ui-sample-classification-predict-churn/experiment-graph.png)
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -31,13 +39,11 @@ Detta visuella gränssnittet exempelexperiment visar binär klassificerare föru
 
 ## <a name="data"></a>Data
 
-Informationen som vi använder det här experimentet är från KDD Cup 2009. Datauppsättningen har 50 000 rader och kolumner för 230 funktionen. Uppgiften är att förutsäga kundomsättning, begär och ökad försäljning för kunder som använder dessa funktioner. Se den [KDD webbplats](https://www.kdd.org/kdd-cup/view/kdd-cup-2009) för mer information om data och uppgiften.
+Informationen som vi använder det här experimentet är från KDD Cup 2009. Datauppsättningen har 50 000 rader och kolumner för 230 funktionen. Uppgiften är att förutsäga kundomsättning, begär och ökad försäljning för kunder som använder dessa funktioner. Mer information om data och aktiviteten finns i den [KDD webbplats](https://www.kdd.org/kdd-cup/view/kdd-cup-2009).
 
 ## <a name="experiment-summary"></a>Sammanfattning för experiment
 
-Här är den klar experimentdiagram:
-
-![Experimentdiagram](./media/ui-sample-classification-predict-churn/experiment-graph.png)
+Detta visuella gränssnittet exempelexperiment visar binär klassificerare förutsägelse av omsättning, begär och ökad försäljning, vanliga åtgärder för hantering av kundrelationer (CRM).
 
 Först måste göra vi några enkla databearbetning.
 
@@ -46,11 +52,10 @@ Först måste göra vi några enkla databearbetning.
     ![Rensa datauppsättningen](./media/ui-sample-classification-predict-churn/cleaned-dataset.png)
 
 - Funktionerna och motsvarande omsättning, begär, och ökad försäljning etiketter finns i olika datauppsättningar. Vi använder den **Lägg till kolumner** modulen att lägga till etikettkolumner till kolumner för funktionen. Den första kolumnen **Kol1**, är etikettkolumnen. Resten av kolumn, **Var1**, **Var2**och så vidare är funktionen kolumner.
- 
+
     ![Lägg till kolumn-datauppsättning](./media/ui-sample-classification-predict-churn/added-column1.png)
 
 - Vi använder den **dela Data** modul för att dela upp datauppsättningen i träna och testa uppsättningar.
-
 
     Vi använder sedan den binär klassificeraren för beslutsträd med standardparametrarna för att skapa förutsägande modeller. Vi bygger en modell per aktivitet, det vill säga en modell varje att förutsäga ökad försäljning, begär och omsättning.
 

@@ -1,7 +1,7 @@
 ---
 title: Automatiserad ML remote beräkningsmål
 titleSuffix: Azure Machine Learning service
-description: Lär dig att bygga modeller med automatiserade maskininlärning på Data Science Virtual machine (DSVM) remote beräkningsmål med Azure Machine Learning-tjänsten
+description: Lär dig att bygga modeller med automatiserade maskininlärning på en Azure Machine Learning remote beräkningsmål med Azure Machine Learning-tjänsten
 services: machine-learning
 author: nacharya1
 ms.author: nilesha
@@ -12,26 +12,26 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 6f2d71abeacee531b21a8276f621367dd39a39d9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6a18bdf3a2a1ccd60ff20d21ebd99f4f6e15e38f
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60820334"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65551340"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Träna modeller med automatiserade maskininlärning i molnet
 
 I Azure Machine Learning träna din modell på olika typer av beräkningsresurser som du hanterar. Compute-mål kan vara en lokal dator eller en dator i molnet.
 
-Du kan enkelt skala upp eller skala ut din machine learning-experiment genom att lägga till ytterligare beräkningsmål. Beräkningsalternativ för mål är Ubuntu-baserad Data Science Virtual Machine (DSVM) eller beräkning av Azure Machine Learning. DSVM är en anpassad VM-avbildning på Microsoft Azure-molnet som skapats specifikt för datavetenskap. Det har många populära datavetenskaps och andra verktyg som förinstallerade och förkonfigurerade.  
+Du kan enkelt skala upp eller skala ut din machine learning-experiment genom att lägga till ytterligare beräkningsmål, till exempel Azure Machine Learning Compute (AmlCompute). AmlCompute är en infrastruktur för hanterade beräkning som gör att du enkelt kan skapa en beräkning för en eller flera noder.
 
-I den här artikeln lär du dig att skapa en modell med automatiserade ML på DSVM.
+I den här artikeln får du lära dig hur du skapar en modell med AmlCompute automatiserade ML.
 
 ## <a name="how-does-remote-differ-from-local"></a>Hur skiljer sig remote från lokal?
 
-Självstudien ”[tränar en modell för klassificering med automatiserade machine learning](tutorial-auto-train-models.md)” Lär dig hur du använder en lokal dator för att träna modellen med automatiserade ML.  Arbetsflödet när utbildning lokalt gäller även för samt fjärranslutna mål. Men med remote beräkning körs automatiserade iterationer av experiment ML asynkront. Den här funktionen kan du avbryta en viss iteration, se status för körning eller fortsätta att arbeta med andra celler i Jupyter-anteckningsboken. För att träna via fjärranslutning skapa du först fjärransluten beräkningsmål, till exempel en Azure-DSVM.  Sedan konfigurerar om fjärresursen och skicka koden där.
+Självstudien ”[tränar en modell för klassificering med automatiserade machine learning](tutorial-auto-train-models.md)” Lär dig hur du använder en lokal dator för att träna modellen med automatiserade ML.  Arbetsflödet när utbildning lokalt gäller även för samt fjärranslutna mål. Men med remote beräkning körs automatiserade iterationer av experiment ML asynkront. Den här funktionen kan du avbryta en viss iteration, se status för körning eller fortsätta att arbeta med andra celler i Jupyter-anteckningsboken. För att träna via fjärranslutning skapa du först fjärransluten beräkningsmål, till exempel AmlCompute. Sedan konfigurerar om fjärresursen och skicka koden där.
 
-Den här artikeln visar de extra stegen som behövs för att köra ett automatiserat ML-experiment på en fjärransluten DSVM.  Objektet arbetsytan `ws`, från självstudierna används i hela koden här.
+Den här artikeln visar de extra steg som behövs för att köra ett automatiserat ML-experiment på en fjärransluten AmlCompute mål. Objektet arbetsytan `ws`, från självstudierna används i hela koden här.
 
 ```python
 ws = Workspace.from_config()
@@ -39,67 +39,32 @@ ws = Workspace.from_config()
 
 ## <a name="create-resource"></a>Skapa resurs
 
-Skapa DSVM i din arbetsyta (`ws`) om den inte redan finns. Om DSVM skapades tidigare finns den här koden hoppar över skapandeprocessen och läser in befintliga resurs-information till den `dsvm_compute` objekt.  
+Skapa AmlCompute målet i din arbetsyta (`ws`) om den inte redan finns.  
 
-**Uppskattad tidsåtgång**: Skapandet av den virtuella datorn tar cirka 5 minuter.
-
-```python
-from azureml.core.compute import DsvmCompute
-
-dsvm_name = 'mydsvm' #Name your DSVM
-try:
-    dsvm_compute = DsvmCompute(ws, dsvm_name)
-    print('found existing dsvm.')
-except:
-    print('creating new dsvm.')
-    # Below is using a VM of SKU Standard_D2_v2 which is 2 core machine. You can check Azure virtual machines documentation for additional SKUs of VMs.
-    dsvm_config = DsvmCompute.provisioning_configuration(vm_size = "Standard_D2_v2")
-    dsvm_compute = DsvmCompute.create(ws, name = dsvm_name, provisioning_configuration = dsvm_config)
-    dsvm_compute.wait_for_completion(show_output = True)
-```
-
-Du kan nu använda den `dsvm_compute` -objektet som den fjärranslutna beräkningsmål.
-
-Begränsningar för DSVM är:
-+ Måste vara kortare än 64 tecken.  
-+ Får inte innehålla följande tecken: `\` ~! @ # $ % ^ & * () = + _ [] {} \\ \\ |;: \' \\”, < > /?. `
-
->[!Warning]
->Om det inte går att skapa ett meddelande om Marketplace-köp behörighet:
->    1. Gå till [Azure Portal](https://portal.azure.com)
->    1. Börja skapa en DSVM 
->    1. Välj ”vill skapa programmässigt” att skapa ett programmässig
->    1. Avsluta utan att faktiskt skapa den virtuella datorn
->    1. Kör koden skapas
-
-Den här koden skapar inte något användarnamn eller lösenord för DSVM som tillhandahålls. Om du vill ansluta direkt till den virtuella datorn går du till den [Azure-portalen](https://portal.azure.com) att skapa autentiseringsuppgifter.  
-
-### <a name="attach-existing-linux-dsvm"></a>Bifoga befintlig Linux DSVM
-
-Du kan också bifoga en befintlig Linux DSVM som beräkningsmål. Det här exemplet använder en befintlig DSVM, men skapa inte en ny resurs.
-
-> [!NOTE]
->
-> I följande kod används den [RemoteCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.remote.remotecompute?view=azure-ml-py) målklassen att bifoga en befintlig virtuell dator som din beräkningsmål.
-> Den [DsvmCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.dsvmcompute?view=azure-ml-py) klassen kommer att inaktualiseras i framtida versioner av det här designmönstret.
-
-Kör följande kod för att skapa beräkningsmål från en befintlig Linux DSVM.
+**Uppskattad tidsåtgång**: Skapandet av AmlCompute målet tar cirka 5 minuter.
 
 ```python
-from azureml.core.compute import ComputeTarget, RemoteCompute 
+from azureml.core.compute import AmlCompute
+from azureml.core.compute import ComputeTarget
 
-attach_config = RemoteCompute.attach_configuration(username='<username>',
-                                                   address='<ip_address_or_fqdn>',
-                                                   ssh_port=22,
-                                                   private_key_file='./.ssh/id_rsa')
-compute_target = ComputeTarget.attach(workspace=ws,
-                                      name='attached-vm',
-                                      attach_configuration=attach_config)
+amlcompute_cluster_name = "automlcl" #Name your cluster
+provisioning_config = AmlCompute.provisioning_configuration(vm_size = "STANDARD_D2_V2", 
+                                                            # for GPU, use "STANDARD_NC6"
+                                                            #vm_priority = 'lowpriority', # optional
+                                                            max_nodes = 6)
 
-compute_target.wait_for_completion(show_output=True)
+compute_target = ComputeTarget.create(ws, amlcompute_cluster_name, provisioning_config)
+    
+# Can poll for a minimum number of nodes and for a specific timeout.
+# If no min_node_count is provided, it will use the scale settings for the cluster.
+compute_target.wait_for_completion(show_output = True, min_node_count = None, timeout_in_minutes = 20)
 ```
 
 Du kan nu använda den `compute_target` -objektet som den fjärranslutna beräkningsmål.
+
+Begränsningar för klustret är:
++ Måste vara kortare än 64 tecken.  
++ Får inte innehålla följande tecken: `\` ~! @ # $ % ^ & * () = + _ [] {} \\ \\ |;: \' \\”, < > /?. `
 
 ## <a name="access-data-using-getdata-file"></a>Åtkomst till data med hjälp av get_data fil
 
@@ -161,7 +126,7 @@ automl_settings = {
 automl_config = AutoMLConfig(task='classification',
                              debug_log='automl_errors.log',
                              path=project_folder,
-                             compute_target = dsvm_compute,
+                             compute_target = compute_target,
                              data_script=project_folder + "/get_data.py",
                              **automl_settings,
                             )
@@ -175,7 +140,7 @@ Ange den valfria `model_explainability` parametern i den `AutoMLConfig` konstruk
 automl_config = AutoMLConfig(task='classification',
                              debug_log='automl_errors.log',
                              path=project_folder,
-                             compute_target = dsvm_compute,
+                             compute_target = compute_target,
                              data_script=project_folder + "/get_data.py",
                              **automl_settings,
                              model_explainability=True,
@@ -250,12 +215,12 @@ Finns det loggar på DSVM under `/tmp/azureml_run/{iterationid}/azureml-logs`.
 
 Hämtning av modellen förklaring data kan du se detaljerad information om modeller för att öka transparens för program som körs på serverdelen. I det här exemplet kör du modellen förklaringar endast för den bästa anpassa modellen. Om du kör för alla modeller i pipelinen, resulterar det i betydande körningstid. Förklaring modellinformation innehåller:
 
-* shap_values: Förklaring-information som genereras av formdata lib
+* shap_values: Förklaring-information som genereras av formdata lib.
 * expected_values: Det förväntade värdet av modellen som används för att ställa in X_train data.
-* overall_summary: Modellen på funktionen vikten värden sorteras i fallande ordning
-* overall_imp: Funktionsnamn sorteras i samma ordning som i overall_summary
-* per_class_summary: Klass på funktionen vikten värden sorteras i fallande ordning. Endast tillgängligt för klassificering
-* per_class_imp: Funktionsnamnen sorteras i samma ordning som i per_class_summary. Endast tillgängligt för klassificering
+* overall_summary: De modellen på funktionen vikten värden sorteras i fallande ordning.
+* overall_imp: Funktionsnamnen sorteras i samma ordning som i overall_summary.
+* per_class_summary: Klass på funktionen vikten värden sorteras i fallande ordning. Endast tillgängligt för klassificering.
+* per_class_imp: Funktionsnamnen sorteras i samma ordning som i per_class_summary. Endast tillgängligt för klassificering.
 
 Använd följande kod för att välja den bästa pipelinen från din iterationer. Den `get_output` metoden returnerar den bästa körningen och den anpassade modellen för senaste passar anrop.
 
@@ -291,7 +256,7 @@ Du också visualisera funktionen vikten via widget Användargränssnittet, samt 
 
 ## <a name="example"></a>Exempel
 
-Den [how-to-use-azureml/automated-machine-learning/remote-execution/auto-ml-remote-execution.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/remote-execution/auto-ml-remote-execution.ipynb) notebook demonstrerar begreppen i den här artikeln. 
+Den [how-to-use-azureml/automated-machine-learning/remote-amlcompute/auto-ml-remote-amlcompute.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/remote-amlcompute/auto-ml-remote-amlcompute.ipynb) notebook demonstrerar begreppen i den här artikeln. 
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

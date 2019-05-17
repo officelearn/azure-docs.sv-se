@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 05/11/2019
 ms.author: juliako
-ms.openlocfilehash: 96c3a3eb5e4c07ad9cad8ea5060a27c0c33eec5f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9cbb995eb3310a2263185d6fd6dba20efce37f38
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61466824"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550147"
 ---
 # <a name="cloud-upload-and-storage"></a>Uppladdning till och lagring i molnet
 
@@ -51,6 +51,17 @@ Resurserna som ska krypteras av kryptering för lagring på serversidan för att
 |[Storage Client Side Encryption](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Client side encryption som erbjuds av Azure storage, nyckel som hanteras av kunden i Key Vault|Stöds inte|
 
 <sup>1</sup> i Media Services v3 lagringskryptering (AES-256-kryptering) är bara stöds för bakåtkompatibilitet när dina tillgångar skapades med Media Services v2. Vilket innebär att v3 fungerar med befintliga lagring krypteras tillgångar, men tillåter inte skapandet av nya.
+
+## <a name="storage-account-errors"></a>Lagringskonton
+
+”Frånkopplad”-tillstånd för ett Media Services-konto anger att kontot inte längre har åtkomst till en eller flera av de anslutna lagringskontona på grund av en ändring i åtkomstnycklar för lagring. Uppdaterade lagringsåtkomstnycklar krävs av Media Services för att utföra många aktiviteter i kontot.
+
+Följande är de primära scenarier som skulle leda till ett Media Services-konto som inte har åtkomst till anslutna lagringskonton. 
+
+|Problem|Lösning|
+|---|---|
+|Media Services-konto eller direktansluten lagring eller konton har migrerats till separata prenumerationer. |Du kan migrera lagringskonton eller Media Services-konto så att de finns på samma prenumeration. |
+|Media Services-kontot använder ett konto för direktansluten lagring i en annan prenumeration som den var ett tidigt Media Services-konto där detta stöd. Tidig Media Services-konton har omvandlats till moderna Azure resurser Manager (ARM) baserade konton och har frånkopplat läge. |Migrera storage-konto eller Media Services-konto så att de finns på samma prenumeration.|
 
 ## <a name="next-steps"></a>Nästa steg
 

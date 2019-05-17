@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli;
-ms.openlocfilehash: fb8cfd4767f6bb9afe1b5731d3b4db1c68a73056
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 77050ad37862394785cf348a242f585cc089ba26
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60362631"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606864"
 ---
-# <a name="contact-microsoft-support"></a>Kontakta Microsofts support
+# <a name="contact-microsoft-support"></a>Kontakta Microsoft Support
 
 StorSimple Device Manager ger möjlighet att **logga en ny supportbegäran** inom sammanfattningsbladet för tjänsten. Om du får problem med din StorSimple-lösning kan du skapa en tjänstbegäran för teknisk support. I en online-session med supportpersonalen, kan du också behöva starta en supportsession på StorSimple-enheten. Den här artikeln beskriver hur du:
 
@@ -64,7 +64,7 @@ Beroende på din [supportavtal](https://azure.microsoft.com/support/plans/), kan
 4. I den **ny supportbegäran** bladet klickar du på **steg 3 kontaktinformation**. I den **kontaktinformation** bladet gör följande:
 
    1. I den **Kontaktalternativ**, ange önskad kontaktmetod (telefon eller e-post) och språk. Svarstiden väljs automatiskt baserat på ditt prenumerationsavtal.
-   2. Ange ditt namn, e-post, valfritt kontakt, land i kontaktinformationen. Välj den **spara kontaktändringar för framtida supportförfrågningar** markerar du kryssrutan.
+   2. Ange ditt namn, e-post, valfritt kontakt, land/region i kontaktinformationen. Välj den **spara kontaktändringar för framtida supportförfrågningar** markerar du kryssrutan.
    3. Klicka på **Skapa**.
    
        ![Kontakta supporten för MS via nya portalen](./media/storsimple-8000-contact-microsoft-support/contactsupport5.png)   

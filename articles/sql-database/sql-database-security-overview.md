@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
-ms.date: 04/26/2019
-ms.openlocfilehash: 584f30cc12aee722aed1079d5cefaee06d403cba
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.date: 05/14/2019
+ms.openlocfilehash: 7916e9493a5d572f844bca23a1dd7806e5fbe572
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64867655"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790163"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>En översikt över säkerhetsfunktionerna i Azure SQL Database
 
@@ -86,7 +86,7 @@ SQL Database skyddar kundernas data genom att tillhandahålla granskning och fun
 
 SQL Database-granskning spårar databasaktiviteter och hjälper dig upprätthålla överensstämmelse med säkerhetsstandarder genom att registrera databashändelser till en granskningslogg i ett kundägda Azure storage-konto. Granskning kan du övervaka pågående databasaktiviteter, samt analysera och undersöka historiska aktiviteter för att identifiera potentiella hot eller misstänkt missbruk och säkerhetsöverträdelser. Mer information finns i Kom igång med [SQL Database Auditing](sql-database-auditing.md).  
 
-### <a name="advanced-threat-protection"></a>Advanced Threat Protection
+### <a name="advanced-threat-protection"></a>Avancerat skydd
 
 Avancerat skydd analys av dina SQL Server-loggar för att identifiera avvikelser och potentiellt skadliga försök att komma åt eller utnyttja databaser. Aviseringar skapas för misstänkta aktiviteter som SQL-inmatning, potentiella data intrång och brute force angrepp eller efter avvikelser i access mönster för att fånga upp privilegieutökningar och haft intrång autentiseringsuppgifter använder. Aviseringar visas från den [Azure Security Center](https://azure.microsoft.com/services/security-center/), där finns information om misstänkta aktiviteter och rekommendationer för ytterligare undersökningar anges tillsammans med åtgärder för att minska risken. Avancerat skydd kan aktiveras per server för en ytterligare avgift. Mer information finns i [Kom igång med SQL Database Advanced Threat Protection](sql-database-threat-detection.md).
 
@@ -125,17 +125,11 @@ Alla nyligen skapade SQL-databaser är krypterad som standard i Azure, och datab
 
 [Alltid krypterad](/sql/relational-databases/security/encryption/always-encrypted-database-engine) är en funktion som utformats för att skydda känsliga data som lagras i specifika kolumner från åtkomst (till exempel kreditkortsnummer, nationella identifikationsnummer eller data på en _behöver veta_ dag). Detta inkluderar databasadministratörer eller andra Privilegierade användare som har behörighet att komma åt databasen för att utföra administrativa uppgifter, men inte finns några affärsmässiga som behöver åtkomst till viss data i de krypterade kolumnerna. Data krypteras alltid, vilket innebär att krypterade data dekrypteras endast för bearbetning av klientprogram med åtkomst till krypteringsnyckeln.  Krypteringsnyckeln exponeras aldrig till SQL och kan lagras antingen i den [Windows Certificate Store](sql-database-always-encrypted.md) eller i [Azure Key Vault](sql-database-always-encrypted-azure-key-vault.md).
 
-### <a name="masking"></a>Maskera
+### <a name="dynamic-data-masking"></a>Dynamisk datamaskning
 
 ![azure-database-ddm.png](media/sql-database-security-overview/azure-database-ddm.png)
 
-#### <a name="dynamic-data-masking"></a>Dynamisk datamaskning
-
 SQL Database dynamisk datamaskning begränsar exponering av känsliga data genom att maskera den för icke-privilegierade användare. Dynamisk datamaskning automatiskt identifierar potentiellt känsliga data i Azure SQL Database och ger handlingsbara rekommendationer att maskera fälten, med minimal påverkan på programnivån. Det fungerar genom att dölja känslig data i resultatuppsättningen för en fråga över angivna databasfält, medan data i databasen förblir oförändrad. Mer information finns i [Kom igång med SQL Database dynamisk datamaskning](sql-database-dynamic-data-masking-get-started.md).
-
-#### <a name="static-data-masking"></a>Statisk datamaskning
-
-[Statisk Datamaskning](/sql/relational-databases/security/static-data-masking) är ett verktyg för klientsidan som är tillgängliga i [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) 18,0 preview 5 och högre.  Statisk Datamaskning tillåter användare att skapa en kopia av en databas där data i de markerade kolumnerna har varit permanent maskeras. Maskning-funktionerna inkluderar NULL Maskning, enskilt värde maskning, shuffle och grupp shuffle maskera sträng sammansatta Maskning. Med den maskerade kopian av databasen kan organisationer separera produktions- och testmiljöer genom att dela den maskerade kopian. Känsliga data skyddas tillräckligt och alla andra egenskaper för databasen upprätthållits. Maskera databaser bör där från tredje part åtkomst till databaser krävs.
 
 ## <a name="security-management"></a>Säkerhetshantering
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: mbullwin
-ms.openlocfilehash: 46c387ab175bfd3613e00be8e7b3a899aa025a7f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ab1327b42a76a6e76183d84cb1750cce8b85228f
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60373325"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604276"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Vanliga frågor och svar
 
@@ -132,7 +132,7 @@ Ja, i den server som du kan skriva:
 
 Lär dig mer om [ASP.NET](api-filtering-sampling.md) eller [Java](java-filter-telemetry.md).
 
-## <a name="how-are-city-country-and-other-geo-location-data-calculated"></a>Hur beräknas ort, land och andra data för geo-plats?
+## <a name="how-are-city-countryregion-and-other-geo-location-data-calculated"></a>Hur beräknas ort, land/region och andra data för geo-plats?
 
 Vi ser IP-adress (IPv4 eller IPv6) för webbklienten med [GeoLite2](https://dev.maxmind.com/geoip/geoip2/geolite2/).
 
@@ -195,7 +195,7 @@ Använda en enskild resurs för alla komponenter eller roller i en enda affärss
 | Beroendetelemetri |[Installera AI Status Monitor på servern](monitor-performance-live-website-now.md) |Diagnostisera problem med databaser eller andra externa komponenter |
 | Få stackspårningar från undantag |[Infoga TrackException anrop i din kod](asp-net-exceptions.md) (men vissa rapporteras automatiskt) |Identifiera och diagnostisera undantag |
 | Sök loggspårningar |[Lägg till ett kort för loggning](asp-net-trace-logs.md) |Diagnostisera undantag, perf-problem |
-| Grunderna för användning av klienten: sidvisningar, sessioner,... |[Initierare JavaScript i webbsidor](javascript.md) |Användningsanalys |
+| Grunderna för användning av klienten: sidvisningar, sessioner,... |[Initierare JavaScript i webbsidor](javascript.md) |Användninganalys |
 | Klienten anpassade mått |[Spåra anrop i webbsidor](api-custom-events-metrics.md) |Förbättra användarupplevelsen |
 | Anpassade mått för Server |[Spårningsanrop i server](api-custom-events-metrics.md) |Business Intelligence |
 

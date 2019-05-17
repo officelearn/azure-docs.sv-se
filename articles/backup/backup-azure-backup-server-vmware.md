@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: raynew
-ms.openlocfilehash: 6fb95d43bff79ca91988549114daa91e5d41f358
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f034f31f2c8c49bbdfb88e2ba0a009ff5b795fa2
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60650155"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65789609"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Säkerhetskopiera virtuella VMware-datorer med Azure Backup Server
 
@@ -39,7 +39,7 @@ Som standard kommunicerar Azure Backup Server med VMware-servrar via HTTPS. Om d
 
 ### <a name="before-you-start"></a>Innan du börjar
 
-- Om du inte vill använda HTTPS kan du [inaktivera standardinställningen](backup-azure-backup-server-vmware.md).
+- Om du inte vill använda HTTPS kan du [inaktivera validering av HTTPS för alla VMware-servrar](backup-azure-backup-server-vmware.md#disable-https-certificate-validation).
 - Du ansluter vanligtvis från en webbläsare på Azure Backup Server-datorn till vCenter/ESXi-servern med vSphere-webbklienten. Första gången du gör detta anslutningen är inte säker och visar följande.
 - Det är viktigt att förstå hur Azure Backup Server hanterar säkerhetskopior.
     - Som ett första steg säkerhetskopierar Azure Backup Server data till lokalt diskutrymme. Azure Backup Server använder en lagringspool, en uppsättning diskar och volymer där Azure Backup Server lagrar diskåterställningspunkter för skyddade data. Lagringspoolen kan vara direktansluten lagring (DAS), en fiber channel SAN- eller iSCSI-lagringsenhet eller SAN. Det är viktigt att se till att du har tillräckligt med lagringsutrymme för lokala tillbaka dina VMware VM-data.
@@ -101,7 +101,7 @@ Konfigurera en säker kanal enligt följande:
 
 
 
-### <a name="disable-default-https"></a>Inaktivera standard HTTPS
+### <a name="disable-https-certificate-validation"></a>Inaktivera validering av HTTPS
 
 Om du har säkert gränser i din organisation och inte vill använda HTTPS-protokollet mellan VMware-servrar och Azure Backup Server-datorn, inaktivera HTTPS på följande sätt: u
 1. Kopiera och klistra in följande text i en txt-fil.

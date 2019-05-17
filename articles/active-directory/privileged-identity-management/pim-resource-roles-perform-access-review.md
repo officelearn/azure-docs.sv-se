@@ -16,12 +16,12 @@ ms.date: 03/30/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e49f0077444f86eabeed22cc7cecf5e0ac7f8b5
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: ede412292caf682c3078002d23e1956bd68d1378
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65141189"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602187"
 ---
 # <a name="review-access-to-azure-resource-roles-in-pim"></a>Granska åtkomst till Azure-resursroller i PIM
 Azure Active Directory (Azure AD) Privileged Identity Management (PIM) förenklar hur företag hantera privilegierad åtkomst till resurser i Azure. 
@@ -45,12 +45,12 @@ Följ dessa steg för att hitta och slutföra åtkomstgranskningen:
 1. Bläddra till Azure AD PIM-programmet.
 2. Välj den **granska åtkomst** bladet.
 
-   ![Skärmbild av PIM-program med valt att bladet granska åtkomst](media/azure-pim-resource-rbac/rbac-access-review-complete.png)
+   ![Skärmbild av PIM-program med valt att bladet granska åtkomst](media/pim-resource-roles-perform-access-review/rbac-access-review-complete.png)
 
 3. Välj den granskningen som du vill slutföra. 
 4. Välj antingen **godkänna** eller **neka**. I den **ge en orsak ruta**, du kan behöva ta en orsak till ditt beslut.
 
-   ![Skärmbild av granska informationssida](media/azure-pim-resource-rbac/rbac-access-review-choice.png)
+   ![Skärmbild av granska informationssida](media/pim-resource-roles-perform-access-review/rbac-access-review-choice.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

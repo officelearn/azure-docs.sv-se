@@ -12,10 +12,10 @@ ms.custom: mvc
 ms.subservice: blobs
 ms.openlocfilehash: 541d406d7416ff5f50fdcca7e85b8f87f6f377df
 ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2019
-ms.locfileid: "65752528"
+ms.locfileid: "65794584"
 ---
 # <a name="download-large-amounts-of-random-data-from-azure-storage"></a>Ladda ned stora mängder slumpmässiga data från Azure Storage
 

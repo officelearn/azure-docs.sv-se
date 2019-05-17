@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/24/2017
 ms.author: dekapur
-ms.openlocfilehash: 394ba3b3b8189bbe96137e920745f7b8cdd1cd95
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ccc726f54821d316c745f6af9c63d7ed13986d79
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60863971"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65761935"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-windows-security"></a>Skydda ett fristående kluster i Windows med hjälp av Windows-säkerhet
 För att förhindra obehörig åtkomst till Service Fabric-kluster, måste du skydda klustret. Säkerhet är särskilt viktigt när klustret kör produktionsarbetsbelastningar. Den här artikeln beskriver hur du konfigurerar säkerheten för nod-till-nod och klient-till-nod med hjälp av Windows-säkerhet i den *ClusterConfig.JSON* fil.  Processen motsvarar konfigurera säkerhetssteg av [skapa ett fristående kluster som körs på Windows](service-fabric-cluster-creation-for-windows-server.md). Mer information om hur Service Fabric använder Windows-säkerhet finns i [Klustersäkerhetsscenarier](service-fabric-cluster-security.md).
@@ -61,7 +61,7 @@ Exemplet *ClusterConfig.gMSA.Windows.MultiMachine.JSON* konfigurationsfilen som 
 | IsAdmin |Ange som SANT för att ange att domänanvändaren har administratörsåtkomst för klienten eller false för klientåtkomst för användaren. |
 
 > [!NOTE]
-> ClustergMSAIdentity värdet får inte innehålla domännamnet och får bara innehålla grupp hanterade namnet på tjänstkontot. I.E. ”mysfgmsa” är korrekt, och både ”mydomain / / mysfgmsa” eller ”mysfgmsa@mydomain” är ogiltigt; när domänen är underförstått av värddatorn.
+> ClustergMSAIdentity värdet vara i formatet ”mysfgmsa@mydomain”.
 
 [Nod till nod-säkerhet](service-fabric-cluster-security.md#node-to-node-security) konfigureras genom att ange **ClustergMSAIdentity** när service fabric måste köras under gMSA. För att skapa betrodda relationer mellan noder, måste de bli meddelad från varandra. Detta kan åstadkommas på två olika sätt: Anger den Grupphanterat tjänstkonto som innehåller alla noder i klustret eller datorn domängrupp som innehåller alla noder i klustret. Vi rekommenderar starkt med hjälp av den [Grupphanterat tjänstkonto (gMSA)](https://technet.microsoft.com/library/hh831782.aspx) metoden, särskilt för större kluster (fler än 10 noder) eller för kluster som sannolikt kommer att öka eller minska.  
 Den här metoden kräver inte att skapa en domängrupp som klusteradministratörer har gett behörigheter att lägga till och ta bort medlemmar. Dessa konton är också användbara för automatisk lösenordshantering. Mer information finns i [komma igång med Grupphanterade tjänstkonton](https://technet.microsoft.com/library/jj128431.aspx).  

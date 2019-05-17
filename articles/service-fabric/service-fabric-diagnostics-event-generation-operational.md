@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/25/2019
 ms.author: srrengar
-ms.openlocfilehash: 7a4cccf774d89229810c1668f38e4e2ef99fa79d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cde0464985f756132c60453c4e79ffefd4a1dd2c
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60393047"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65788603"
 ---
 # <a name="list-of-service-fabric-events"></a>Lista över Service Fabric-händelser 
 
@@ -44,8 +44,8 @@ Mer information om klusteruppgradering finns [här](service-fabric-cluster-upgra
 | --- | --- | --- | --- | --- | --- | 
 | 29627 | ClusterUpgradeStarted | Uppgradera | En uppgradering av klustret har startats | CM | Information |
 | 29628 | ClusterUpgradeCompleted | Uppgradera | En uppgradering av klustret har slutförts | CM | Information | 
-| 29629 | ClusterUpgradeRollbackStarted | Uppgradera | En uppgradering av klustret har startats för att återställa  | CM | Varning | 
-| 29630 | ClusterUpgradeRollbackCompleted | Uppgradera | En uppgradering av klustret har slutförts återtagning | CM | Varning | 
+| 29629 | ClusterUpgradeRollbackStarted | Uppgradera | En uppgradering av klustret har startats för att återställa  | CM | Varning! | 
+| 29630 | ClusterUpgradeRollbackCompleted | Uppgradera | En uppgradering av klustret har slutförts återtagning | CM | Varning! | 
 | 29631 | ClusterUpgradeDomainCompleted | Uppgradera | En uppgraderingsdomän har uppgraderats under en uppgradering av klustret | CM | Information | 
 
 ## <a name="node-events"></a>Noden händelser
@@ -83,8 +83,8 @@ Mer information om programuppgraderingar finns [här](service-fabric-application
 | --- | --- | ---| --- | --- | --- | 
 | 29621 | ApplicationUpgradeStarted | Uppgradera | En uppgradering av programmet har startats | CM | Information | 
 | 29622 | ApplicationUpgradeCompleted | Uppgradera | En uppgradering av programmet har slutförts | CM | Information | 
-| 29623 | ApplicationUpgradeRollbackStarted | Uppgradera | En uppgradering av programmet har startats för att återställa |CM | Varning | 
-| 29624 | ApplicationUpgradeRollbackCompleted | Uppgradera | En uppgradering av programmet har slutförts återtagning | CM | Varning | 
+| 29623 | ApplicationUpgradeRollbackStarted | Uppgradera | En uppgradering av programmet har startats för att återställa |CM | Varning! | 
+| 29624 | ApplicationUpgradeRollbackCompleted | Uppgradera | En uppgradering av programmet har slutförts återtagning | CM | Varning! | 
 | 29626 | ApplicationUpgradeDomainCompleted | Uppgradera | En uppgraderingsdomän har uppgraderats under en uppgradering av programmet | CM | Information | 
 
 ## <a name="service-events"></a>Tjänsten-händelser
@@ -103,6 +103,40 @@ Mer information om programuppgraderingar finns [här](service-fabric-application
 | EventId | Namn | Category | Beskrivning |Källa (aktivitet) | Nivå | 
 | --- | --- | ---| --- | --- | --- |
 | 18940 | PartitionReconfigured | LifeCycle | En omkonfiguration av partitionen har slutförts | RA | Information | 
+
+## <a name="replica-events"></a>Replica-händelser
+
+**Livscykelhändelser för replik**
+
+| EventId | Namn | Category | Beskrivning |Källa (aktivitet) | Nivå |
+| --- | --- | ---| --- | --- | --- |
+| 61701 | ReliableDictionaryOpened | LifeCycle | Tillförlitlig ordlista har öppnats | DistributedDictionary | Information |
+| 61702 | ReliableDictionaryClosed | LifeCycle | Tillförlitlig ordlista har stängt | DistributedDictionary | Information |
+| 61703 | ReliableDictionaryCheckpointRecovered | LifeCycle | Tillförlitlig ordlista har återställts kontrollpunkten | DistributedDictionary | Information |
+| 61704 | ReliableDictionaryCheckpointFilesSent | LifeCycle | Repliken har skickat en tillförlitlig ordlista kontrollpunktsfilerna | DistributedDictionary | Information |
+| 61705 | ReliableDictionaryCheckpointFilesReceived | LifeCycle | Repliken har tagit emot kontrollpunktsfiler för tillförlitlig ordlista | DistributedDictionary | Information |
+| 61963 | ReliableQueueOpened | LifeCycle | Tillförlitlig kön har öppnats | DistributedQueue | Information |
+| 61964 | ReliableQueueClosed | LifeCycle | Tillförlitlig kön har stängt | DistributedQueue | Information |
+| 61965 | ReliableQueueCheckpointRecovered | LifeCycle | Tillförlitlig kön har återställts kontrollpunkten | DistributedQueue | Information |
+| 61966 | ReliableQueueCheckpointFilesSent | LifeCycle | Repliken har skickat kontrollpunktsfiler för tillförlitlig kö | DistributedQueue | Information |
+| 63647 | ReliableQueueCheckpointFilesReceived | LifeCycle | Repliken har tagit emot kontrollpunktsfiler för tillförlitlig kö | DistributedQueue | Information |
+| 63648 | ReliableConcurrentQueueOpened | LifeCycle | Tillförlitlig samtidiga kön har öppnats | ReliableConcurrentQueue | Information |
+| 63649 | ReliableConcurrentQueueClosed | LifeCycle | Tillförlitlig samtidiga kön har stängt | ReliableConcurrentQueue | Information |
+| 63650 | ReliableConcurrentQueueCheckpointRecovered | LifeCycle | Tillförlitlig samtidiga kön har återställts kontrollpunkten | ReliableConcurrentQueue | Information |
+| 61687 | TStoreError | Fel | Tillförlitlig samling har tagit emot ett oväntat fel | TStore | Fel |
+| 63831 | PrimaryFullCopyInitiated | LifeCycle | Primära repliken har initierat en fullständig kopia | TReplicator | Information |
+| 63832 | PrimaryPartialCopyInitiated | LifeCycle | Primära repliken har initierat en partiell kopia | TReplicator | Information |
+| 16831 | BuildIdleReplicaStarted | LifeCycle | Primära repliken har startats för att skapa inaktiv replik | Replikering | Information |
+| 16832 | BuildIdleReplicaCompleted | LifeCycle | Primära repliken har byggt färdigt inaktiv replik | Replikering | Information |
+| 16833 | BuildIdleReplicaFailed | LifeCycle | Primära repliken har misslyckats med att skapa inaktiv replik | Replikering | Varning! |
+| 16834 | PrimaryReplicationQueueFull | Hälsa | Primära repliken Replikeringskön är full | Replikering | Varning! |
+| 16835 | PrimaryReplicationQueueWarning | Hälsa | Primära repliken Replikeringskön är nästan full | Replikering | Varning! |
+| 16836 | PrimaryReplicationQueueWarningMitigated | Hälsa | Primära repliken Replikeringskön är OK | Replikering | Information |
+| 16837 | SecondaryReplicationQueueFull | Hälsa | Sekundär replik Replikeringskön är full | Replikering | Varning! |
+| 16838 | SecondaryReplicationQueueWarning | Hälsa | Sekundär replik Replikeringskön är nästan full | Replikering | Varning! |
+| 16839 | SecondaryReplicationQueueWarningMitigated | Hälsa | Sekundär replik Replikeringskön är OK | Replikering | Information |
+| 16840 | PrimaryFaultedSlowSecondary | Hälsa | Primära repliken fel har uppstått en långsam sekundär replik | Replikering | Varning! |
+| 16841 | ReplicatorFaulted | Hälsa | Repliken har stött på fel | Replikering | Varning! |
 
 ## <a name="container-events"></a>Behållarhändelser
 

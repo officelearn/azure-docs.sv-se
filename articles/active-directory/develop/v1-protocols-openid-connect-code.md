@@ -3,8 +3,8 @@ title: Förstå kodflöde för OpenID Connect-autentisering i Azure AD | Microso
 description: 'Den här artikeln beskriver hur du använder HTTP-meddelanden för att bevilja åtkomst till webbprogram och webb-API: er i din klient med Azure Active Directory och OpenID Connect.'
 services: active-directory
 documentationcenter: .net
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 29142f7e-d862-4076-9a1a-ecae5bcd9d9b
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/4/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06639f943542e322e79e137e31be7b8954566a0f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 051d3faf5cea24e33f1e6560abc2d039c1059c91
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60251676"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65784966"
 ---
 # <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>Bevilja åtkomst till webbprogram med hjälp av OpenID Connect och Azure Active Directory
 
@@ -95,11 +95,11 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | tenant |obligatorisk |Den `{tenant}` värdet i sökvägen för begäran som kan användas för att styra vem som kan logga in i programmet. Tillåtna värden är klient-ID: n, till exempel `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` eller `contoso.onmicrosoft.com` eller `common` för klient-oberoende token |
 | client_id |obligatorisk |Program-ID som tilldelats din app när du registrerade med Azure AD. Du hittar du i Azure-portalen. Klicka på **Azure Active Directory**, klickar du på **Appregistreringar**, Välj programmet och leta upp det program-ID på programsidan. |
 | response_type |obligatorisk |Måste innehålla `id_token` för OpenID Connect-inloggning. De kan också innehålla andra response_types som `code` eller `token`. |
-| omfång | Rekommenderas | OpenID Connect-specifikationen kräver omfånget `openid`, vilket innebär att behörigheten ”logga du in” i godkännande-UI. Detta och andra OIDC-scope ignoreras på v1.0-slutpunkt, men är fortfarande bästa praxis för standardkompatibel klienter. |
+| scope | Rekommenderas | OpenID Connect-specifikationen kräver omfånget `openid`, vilket innebär att behörigheten ”logga du in” i godkännande-UI. Detta och andra OIDC-scope ignoreras på v1.0-slutpunkt, men är fortfarande bästa praxis för standardkompatibel klienter. |
 | nonce |obligatorisk |Ett värde som ingår i den begäran som skapats av appen, som ingår i den resulterande `id_token` som ett anspråk. Appen kan sedan att verifiera det här värdet om du vill lösa token repetitionsattacker. Värdet är vanligtvis en slumpmässig, unik sträng eller ett GUID som kan användas för att fastställa ursprunget för begäran. |
 | redirect_uri | Rekommenderas |Redirect_uri för din app, där autentiseringssvar kan skickas och tas emot av din app. Det måste exakt matcha en av redirect_uris som du registrerade i portalen, men det måste vara url-kodas. Om det saknas, skickas användaragenten tillbaka till en av omdirigerings-URI: er har registrerats för appen, slumpmässigt. Maximal längd är 255 byte |
 | response_mode |valfri |Anger den metod som ska användas för att skicka den resulterande authorization_code tillbaka till din app. Värden som stöds är `form_post` för *HTTP formuläret post* och `fragment` för *URL fragment*. För webbprogram, bör du använda `response_mode=form_post` så säkraste överföringen av token för ditt program. Standardvärdet för alla flöden, inklusive en id_token är `fragment`.|
-| state |Rekommenderas |Ett värde i begäran som returneras i token-svaret. Det kan vara en sträng med innehåll som du önskar. Ett slumpmässigt genererat unikt värde som normalt används för [att förhindra attacker med förfalskning av begäran](https://tools.ietf.org/html/rfc6749#section-10.12). Tillstånd används också för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffat, till exempel sidan eller vyn som de befann sig i. |
+| tillstånd |Rekommenderas |Ett värde i begäran som returneras i token-svaret. Det kan vara en sträng med innehåll som du önskar. Ett slumpmässigt genererat unikt värde som normalt används för [att förhindra attacker med förfalskning av begäran](https://tools.ietf.org/html/rfc6749#section-10.12). Tillstånd används också för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffat, till exempel sidan eller vyn som de befann sig i. |
 | fråga |valfri |Anger vilken typ av interaktion från användaren som krävs. De enda giltiga värdena är för närvarande ”inloggning”, ”ingen” och ”godkänna”. `prompt=login` Tvingar användaren att ange sina autentiseringsuppgifter på begäran, vilket eliminerar enkel inloggning. `prompt=none` är motsatsen - ser till att användaren inte visas med den interaktiva prompten alls. Om begäran inte kan slutföras tyst via enkel inloggning, returnerar slutpunkten ett fel. `prompt=consent` utlösare OAuth godkänner dialogrutan när användaren loggar in, ber användaren att bevilja behörigheter till appen. |
 | login_hint |valfri |Kan användas för att fylla förväg adressfältet användarnamn/e-post i inloggningssidan för användaren, om du känner till sina användarnamn i tid. Appar som ofta använda den här parametern under omautentisering som redan har extraherats användarnamnet från en tidigare logga in med den `preferred_username` anspråk. |
 
@@ -107,7 +107,7 @@ Nu uppmanas användaren att ange sina autentiseringsuppgifter och slutför auten
 
 ### <a name="sample-response"></a>Exempelsvar
 
-En exempelsvaret när användaren har autentiserats kan se ut så här:
+En exempelsvar som skickas till den `redirect_uri` anges i begäran för inloggning när användaren har autentiserats kan se ut så här:
 
 ```
 POST / HTTP/1.1
@@ -120,7 +120,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&state=12345
 | Parameter | Beskrivning |
 | --- | --- |
 | id_token |Den `id_token` som appen har begärt. Du kan använda den `id_token` att verifiera användarens identitet och starta en session med användaren. |
-| state |Ett värde i begäran som returneras också i token-svaret. Ett slumpmässigt genererat unikt värde som normalt används för [att förhindra attacker med förfalskning av begäran](https://tools.ietf.org/html/rfc6749#section-10.12). Tillstånd används också för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffat, till exempel sidan eller vyn som de befann sig i. |
+| tillstånd |Ett värde i begäran som returneras också i token-svaret. Ett slumpmässigt genererat unikt värde som normalt används för [att förhindra attacker med förfalskning av begäran](https://tools.ietf.org/html/rfc6749#section-10.12). Tillstånd används också för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffat, till exempel sidan eller vyn som de befann sig i. |
 
 ### <a name="error-response"></a>Felsvar
 
@@ -216,7 +216,7 @@ Genom att inkludera behörighetsomfattningar i begäran och med hjälp av `respo
 
 ### <a name="successful-response"></a>Lyckat svar
 
-Ett lyckat svar med `response_mode=form_post` ser ut som:
+Ett lyckat svar som skickas till den `redirect_uri` med `response_mode=form_post`, ser ut som:
 
 ```
 POST /myapp/ HTTP/1.1
@@ -230,7 +230,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&code=AwABAA
 | --- | --- |
 | id_token |Den `id_token` som appen har begärt. Du kan använda den `id_token` att verifiera användarens identitet och starta en session med användaren. |
 | Kod |Authorization_code som appen har begärt. Appen kan använda Auktoriseringskoden för att begära en åtkomsttoken för målresursen. Authorization_codes är korta bott och vanligtvis upphör att gälla efter cirka 10 minuter. |
-| state |Om en parametern state ingår i begäran, samma värde som ska visas i svaret. Appen bör kontrollera att värdena i begäran och svar är identiska. |
+| tillstånd |Om en parametern state ingår i begäran, samma värde som ska visas i svaret. Appen bör kontrollera att värdena i begäran och svar är identiska. |
 
 ### <a name="error-response"></a>Felsvar
 

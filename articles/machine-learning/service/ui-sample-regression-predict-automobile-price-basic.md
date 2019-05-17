@@ -1,7 +1,7 @@
 ---
 title: 'Regression: Förutsäga pris'
 titleSuffix: Azure Machine Learning service
-description: Detta visuella gränssnittet exempelexperiment visar hur du skapar en regressionsmodell för att förutsäga priset på en bil. Processen omfattar utbildning, testning och utvärdering av modellen på Automobile price data (Raw) datauppsättningen.
+description: Lär dig mer om att skapa en machine learning-modell för att förutsäga priset på en bil utan att behöva skriva en enda rad kod.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,17 +9,30 @@ ms.topic: article
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
-ms.date: 05/02/2019
-ms.openlocfilehash: fa9b9179cda767d69d08dcd357a03123bde901cb
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.date: 05/10/2019
+ms.openlocfilehash: 9dfa4b62f5cb79a5716f6f29651e85d0f8a3a409
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65028897"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787849"
 ---
 # <a name="sample-1---regression-predict-price"></a>Exempel 1 – Regression: Förutsäga pris
 
-Detta visuella gränssnittet exempelexperiment visar hur du skapar en regressionsmodell för att förutsäga priset på en bil. Processen omfattar utbildning, testning och utvärdering av modellen med hjälp av den **Automobile price data (Raw)** datauppsättning.
+Lär dig mer om att skapa en machine learning regressionsmodell utan att behöva skriva en enda rad kod med hjälp av det visuella gränssnittet.
+
+Detta experimentera tåg en **beslut skog regressor** för att förutsäga en bil är priset baserat på tekniska funktioner, till exempel märke, modell, hästkrafter och storlek. Eftersom vi försöker besvara frågan ”hur mycket”? Detta kallas ett regressionsproblem. Du kan dock använda samma grundläggande steg i det här experimentet för att hantera alla typer av problem med machine learning, oavsett om det är regression, klassificering, klustring och så vidare.
+
+De grundläggande stegen för en maskininlärningsmodell för utbildning är:
+
+1. Hämta data
+1. Förbearbeta data
+1. Träna modellen
+1. Utvärdera modellen
+
+Här är det sista, slutförda diagrammet över experimentet som vi kommer att arbeta med. Vi ger anledningen för alla moduler så att du kan göra liknande beslut på egen hand.
+
+![Diagram över experimentet](media/ui-sample-regression-predict-automobile-price-basic/overall-graph.png)
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -28,23 +41,6 @@ Detta visuella gränssnittet exempelexperiment visar hur du skapar en regression
 4. Välj den **öppna** knappen för experimentet exempel 1:
 
     ![Öppna experimentet](media/ui-sample-regression-predict-automobile-price-basic/open-sample1.png)
-
-## <a name="related-sample"></a>Relaterade exemplet
-
-[Exempel 2 – Regression: Bil pris förutsägelse (jämför algoritmer)](ui-sample-regression-predict-automobile-price-compare-algorithms.md) ger en mer komplicerad exempelexperimentet som löser samma problem som det här experimentet genom att använda två olika regressionsmodeller. Den visar hur du snabbt jämföra olika algoritmer. Kolla in om du letar efter ett mer avancerat exempel.
-
-## <a name="experiment-summary"></a>Sammanfattning för experiment
-
-Vi kan använda de här stegen för att skapa experimentet:
-
-1. Hämta data.
-1. Förbearbeta data.
-1. Träna modellen.
-1. Testa, utvärdera och jämför modeller.
-
-Här är det fullständiga diagrammet över experimentet:
-
-![Diagram över experimentet](media/ui-sample-regression-predict-automobile-price-basic/overall-graph.png)
 
 ## <a name="get-the-data"></a>Hämta data
 
@@ -59,6 +55,7 @@ Vi använder den **Välj kolumner i datauppsättning** modul för att exkludera 
 ![Förbearbetning av data](./media/ui-sample-regression-predict-automobile-price-basic/data-processing.png)
 
 ## <a name="train-the-model"></a>Träna modellen
+
 Machine learning problem variera. Vanliga inkluderar klassificering och klustring, regression och rekommenderare system, som kan kräva en annan algoritm. Ditt val av algoritmen beror ofta på kraven för användningsfallet. När du väljer en algoritm, måste du justera dess parametrar för att träna en modell för exaktare. Sedan måste du utvärdera alla modeller som är baserat på mått som noggrannhet, uppfattbarheten avsevärt och effektivitet.
 
 Eftersom målet med det här experimentet är att förutsäga bilpriser och eftersom etikettkolumnen (pris) innehåller reella tal, en regressionsmodell är ett bra val. Överväger att antalet funktioner som är relativt liten (mindre än 100) och dessa funktioner inte är null-optimerade troligen beslut gränsen kommer att vara icke-linjära. Så vi använder **beslut skog Regression** för det här experimentet.

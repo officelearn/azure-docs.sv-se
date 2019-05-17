@@ -13,12 +13,12 @@ ms.date: 04/10/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: a575161be0a339973f9c59cc13c2320b38939d04
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 263316028e7b35a1a515322dddc4ee867011dcac
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60785124"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604113"
 ---
 # <a name="application-insights-cohorts"></a>Application Insights kohorter
 
@@ -123,20 +123,20 @@ Föregående två kohorter definierades med hjälp av listrutorna. Men du kan oc
     | where client_CountryOrRegion == "United Kingdom"
     ```
 
-3. Välj **Kör fråga**. Om du inte ser användar-ID som visas i tabellen, ändra till ett land där ditt program har användare.
+3. Välj **Kör fråga**. Om du inte ser användar-ID som visas i tabellen, ändra till ett land/en region där ditt program har användare.
 
 4. Spara och namnge kohorten.
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
-_Jag har definierat en kohort användare från ett visst land. När jag jämföra den här kohorten i verktyget användare för att bara definiera filter för landet i fråga, visas olika resultat. Varför?_
+_Jag har definierat en kohort användare från ett visst land/region. När jag jämföra den här kohorten i verktyget användare för att bara ange ett filter på den land/regionen, visas olika resultat. Varför?_
 
 Kohorter och filter är olika. Anta att du har en kohort användare från Storbritannien (definieras som i föregående exempel), och du jämför resultaten till att ange filtret ”land = Förenade kungariket”.
 
 * Kohort-versionen innehåller alla händelser från användare som skickade en eller flera händelser från Storbritannien i det aktuella tidsintervallet. Om du dela upp efter land eller region, ser du antagligen många länder och regioner till.
 * Filter-versionen visas endast händelser från Storbritannien. Men om du dela upp efter land eller region, visas endast Storbritannien.
 
-## <a name="learn-more"></a>Läs mer
+## <a name="learn-more"></a>Lär dig mer
 
 * [Analytics-frågespråket](https://go.microsoft.com/fwlink/?linkid=856587)
 * [Användare, sessioner, händelser](usage-segmentation.md)

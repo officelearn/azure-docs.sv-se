@@ -9,12 +9,12 @@ ms.author: heidist
 manager: cgronlun
 author: HeidiSteen
 ms.custom: seodec2018
-ms.openlocfilehash: e3738980206277587ca367339d75da4f3faa643a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f76d944f614f07a4428d4e4100f6a08a375d96dc
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61316837"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65795802"
 ---
 # <a name="analyzers-for-text-processing-in-azure-search"></a>Analysverktyg för textbearbetning i Azure Search
 
@@ -92,10 +92,6 @@ En allmän regel är att använda samma analysatorn för indexering och frågar,
 ### <a name="inspect-tokenized-terms"></a>Inspektera principfilerna villkor
 
 Om en sökning inte returnerar förväntade resultat, är det mest sannolika scenariot token avvikelser mellan termen indata på frågan och principfilerna termer i indexet. Om token som inte är samma, matchar inte Materialisera. Om du vill kontrollera tokenizer utdata, bör du använda den [analysera API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) som ett verktyg. Svaret består av token, som genererats av en specifik analyzer.
-
-### <a name="compare-english-analyzers"></a>Jämför engelska analysverktyg
-
-Den [Sökanalysverktyg](https://alice.unearth.ai/) är en tredjeparts-demonstrationsapp som visar en sida-vid-sida-jämförelse av analysverktyget från Lucene Lucenes engelska analyzer och Microsofts engelska naturligt språk processor. Indexet är oförändrade. den innehåller text från en populära historia. För varje sökinmatning anger du, visas resultaten från varje analyzer i intilliggande fönster, vilket ger dig en uppfattning om hur varje analyzer bearbetar samma sträng. 
 
 <a name="examples"></a>
 
@@ -348,8 +344,6 @@ Skapa en [CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.
 + Lär dig hur du använder [språkspecifika Lexikalisk](index-add-language-analyzers.md).
 
 + [Konfigurera anpassade analysverktyg](index-add-custom-analyzers.md) för minimal bearbetning eller särskild bearbetning för enskilda fält.
-
-+ [Jämför standard- och engelska analysverktyg](https://alice.unearth.ai/) i intilliggande fönster på den här demo-webbplatsen. 
 
 ## <a name="see-also"></a>Se också
 

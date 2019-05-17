@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 02/25/2018
 ms.author: glenga
-ms.openlocfilehash: 4e9bd4e9ea467446c2814cdb8956a40b1503b027
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e15d6ad445c3fdde0632c3ad468eee7da836a394
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61020493"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785968"
 ---
 # <a name="manage-connections-in-azure-functions"></a>Hantera anslutningar i Azure Functions
 
@@ -21,7 +21,7 @@ Funktioner i en funktionsapp delar resurser. Bland dessa delade resurser finns i
 
 ## <a name="connection-limit"></a>Anslutningsbegränsning
 
-Antalet tillgängliga anslutningar är begränsat delvis eftersom en funktionsapp som körs i en [testmiljö](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox). En av de begränsningar som sandbox-miljön inför din kod är en [gräns för antalet anslutningar (för närvarande på 600 aktiva anslutningar och 1 200 Totalt antal anslutningar)](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#numerical-sandbox-limits) per instans. När du når den här gränsen kan funktionskörningen skapar en logg med följande meddelande: `Host thresholds exceeded: Connections`.
+Antalet tillgängliga anslutningar är begränsat delvis eftersom en funktionsapp som körs i en [testmiljö](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox). En av de begränsningar som sandbox-miljön inför din kod är en begränsning på antalet anslutningar (för närvarande på 600 aktiva anslutningar och 1 200 Totalt antal anslutningar) per instans. När du når den här gränsen kan funktionskörningen skapar en logg med följande meddelande: `Host thresholds exceeded: Connections`.
 
 Den här gränsen är per instans.  När den [skala controller lägger till funktionen app-instanserna](functions-scale.md#how-the-consumption-and-premium-plans-work) för att hantera fler begäranden varje instans har ett oberoende anslutningsgräns. Det innebär att det finns ingen gräns för global anslutning och du kan ha mycket mer än 600 aktiva anslutningar över alla aktiva instanser.
 

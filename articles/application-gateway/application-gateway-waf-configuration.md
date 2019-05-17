@@ -4,16 +4,15 @@ description: Den här artikeln innehåller information om storleksgränser för 
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.workload: infrastructure-services
-ms.date: 1/29/2019
+ms.date: 5/15/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: a814fc6e9a72ba92d915821bd1e1694366844555
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 5ddcdeca41e2f21fa27db25f7e0721c7ef87e491
+ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791768"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65620289"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Storleksgränser för Web application firewall begäran och undantagslistor
 
@@ -25,10 +24,10 @@ Azure Application Gateway brandväggen för webbaserade program (WAF) ger skydd 
 
 Brandvägg för webbaserade program kan du konfigurera storleksbegränsningar för begäran i lägre och övre gränser. Följande två storlek gränser konfigurationer finns:
 
-- Fältet tillåtna brödtext storleken anges i KB-artiklar och kontroller övergripande storleksgränsen för begäran exkludera en fil laddas upp. Det här fältet kan variera mellan 1 KB minst 128 KB maximala värdet. Standardvärdet för textstorleken för begäran är 128 KB.
+- Fältet tillåtna brödtext storleken anges i kilobyte och kontroller övergripande storleksgränsen för begäran exkludera en fil laddas upp. Det här fältet kan variera mellan 1 KB minst 128 KB maximala värdet. Standardvärdet för textstorleken för begäran är 128 KB.
 - Fältet Spara uppladdning gränsen anges i MB och styr den maximalt tillåtna storleken för filöverföring. Det här fältet kan ha ett minsta värde på 1 MB och högst 500 MB för stora SKU-instanser även medel SKU har högst 100 MB. Standardvärdet för överföring filgränsen är 100 MB.
 
-WAF erbjuder även en konfigurerbar ratten om du vill aktivera begäran brödtext inspektion eller inaktivera. Begäran brödtext granskning är aktiverat som standard. Om begäran brödtext-kontroll är inaktiverad, utvärderar WAF inte innehållet i meddelandetexten för HTTP. I sådana fall kan fortsätter WAF WAF-regler på rubriker, cookies och URI: N. Om begäran brödtext-kontroll är inaktiverad fältet för tillåtna brödtext storlek som inte är tillämplig och kan inte anges. Stänga av begäran brödtext inspektion större än 128 KB skickas till WAF gör för meddelanden, men meddelandetexten kontrolleras inte sårbarheter.
+WAF erbjuder även en konfigurerbar ratten om du vill aktivera begäran brödtext inspektion eller inaktivera. Begäran brödtext granskning är aktiverat som standard. Om begäran brödtext inspektion är avstängd, utvärdera inte WAF innehållet i meddelandetexten för HTTP. I sådana fall kan fortsätter WAF WAF-regler på rubriker, cookies och URI: N. Om begäran brödtext-kontroll är inaktiverad fältet för tillåtna brödtext storlek som inte är tillämplig och kan inte anges. Stänga av begäran brödtext inspektion större än 128 KB skickas till WAF gör för meddelanden, men meddelandetexten kontrolleras inte sårbarheter.
 
 ## <a name="waf-exclusion-lists"></a>WAF-undantagslistor
 
@@ -40,11 +39,12 @@ Följande attribut kan läggas till undantagslistor:
 
 * Begärandehuvuden
 * Begäran om Cookies
-* Begärandetext
+* Begäran attributnamn (argument)
 
    * Flera delar formulärdata
    * XML
    * JSON
+   * URL: en fråga argument
 
 Du kan ange en exakt begärandehuvudet, brödtext, cookie eller fråga strängmatchning för attributet.  Eller alternativt kan du ange delmatchningar. Undantaget är alltid på ett fält med rubriken, aldrig på dess värde. Undantagsregler är globala omfång och gäller för alla sidor och alla regler.
 
@@ -62,37 +62,36 @@ I samtliga fall matchar är skiftlägeskänsligt och reguljära uttryck tillåts
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Följande Azure PowerShell-kodavsnitt visar användning av undantag:
+I följande exempel demonstrerar användningen av undantag.
+
+### <a name="example-1"></a>Exempel 1
+
+I det här exemplet som du vill undanta användar-agent-huvudet. Användaragent rubriken innehåller en karakteristisk sträng som gör att nätverket protokollet peer-datorer att identifiera programtyp, operativsystem, programvaruleverantör eller programvaruversion av den begärande användaren programvaruagenten. Mer information finns i [användaragent](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent).
+
+Det kan finnas en mängd skäl att inaktivera utvärdering av den här rubriken. Det kan vara en sträng som WAF ser och antas den vara skadlig. Till exempel klassiska SQL-angrepp ”x = x” i en sträng. I vissa fall kan vara detta legitima trafik. Så kan du behöva undanta den här rubriken från WAF utvärdering.
+
+Följande Azure PowerShell-cmdlet utesluter Användaragent-rubriken från utvärdering:
 
 ```azurepowershell
-// exclusion 1: exclude request head start with xyz
-// exclusion 2: exclude request args equals a
-
-$exclusion1 = New-AzApplicationGatewayFirewallExclusionConfig -MatchVariable "RequestHeaderNames" -SelectorMatchOperator "StartsWith" -Selector "xyz"
-
-$exclusion2 = New-AzApplicationGatewayFirewallExclusionConfig -MatchVariable "RequestArgNames" -SelectorMatchOperator "Equals" -Selector "a"
-
-// add exclusion lists to the firewall config
-
-$firewallConfig = New-AzApplicationGatewayWebApplicationFirewallConfiguration -Enabled $true -FirewallMode Prevention -RuleSetType "OWASP" -RuleSetVersion "2.2.9" -DisabledRuleGroups $disabledRuleGroup1,$disabledRuleGroup2 -RequestBodyCheck $true -MaxRequestBodySizeInKb 80 -FileUploadLimitInMb 70 -Exclusions $exclusion1,$exclusion2
+$exclusion1 = New-AzApplicationGatewayFirewallExclusionConfig `
+   -MatchVariable "RequestHeaderNames" `
+   -SelectorMatchOperator "Equals" `
+   -Selector "User-Agent"
 ```
 
-Följande json-kodfragmentet visar användning av undantag:
+### <a name="example-2"></a>Exempel 2
 
-```json
-"webApplicationFirewallConfiguration": {
-          "enabled": "[parameters('wafEnabled')]",
-          "firewallMode": "[parameters('wafMode')]",
-          "ruleSetType": "[parameters('wafRuleSetType')]",
-          "ruleSetVersion": "[parameters('wafRuleSetVersion')]",
-          "disabledRuleGroups": [],
-          "exclusions": [
-            {
-                "matchVariable": "RequestArgNames",
-                "selectorMatchOperator": "StartsWith",
-                "selector": "a^bc"
-            }
+Det här exemplet omfattar inte värdet i den *användaren* parameter som anges i begäran via URL: en. Anta exempelvis att det är vanligt i din miljö för användarfältet ska innehålla en sträng som WAF-vyer som skadligt, så att den blockerar den.  Du kan utesluta användarparametern i det här fallet så att WAF inte utvärdera vad som helst i fältet.
+
+Följande Azure PowerShell-cmdlet utesluter user-parameter från utvärdering:
+
+```azurepowershell
+$exclusion2 = New-AzApplicationGatewayFirewallExclusionConfig `
+   -MatchVariable "RequestArgNames" `
+   -SelectorMatchOperator "Equals" `
+   -Selector "user"
 ```
+Om URL: en **http://www.contoso.com/?user=fdafdasfda** skickas till WAF, inte den utvärdera strängen **fdafdasfda**.
 
 ## <a name="next-steps"></a>Nästa steg
 

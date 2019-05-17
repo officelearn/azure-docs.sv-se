@@ -3,25 +3,25 @@ title: Skapa för Azure-app i portalen | Microsoft Docs
 description: Beskriver hur du skapar en ny Azure Active Directory-program och tjänstens huvudnamn som kan användas med rollbaserad åtkomstkontroll i Azure Resource Manager för att hantera åtkomst till resurser.
 services: active-directory
 documentationcenter: na
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/08/2019
-ms.author: celested
+ms.date: 05/14/2019
+ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9affec9ccc1b87f36d6f30aff4795d85532be8c1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d0208d25e4583672ad2110d959f8e255affbf3e0
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60300996"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65764920"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Anvisningar: Använda portalen för att skapa en Azure AD-program och tjänstens huvudnamn som kan komma åt resurser
 
@@ -66,14 +66,14 @@ Du kan ange omfånget för den prenumerationen, resursgruppen eller resursen. Be
 
    Om du inte ser den prenumeration som du letar efter, väljer **globala prenumerationer filter**. Kontrollera att den prenumeration du vill har valts för portalen. 
 
-1. Välj **Åtkomstkontroll (IAM)**.
+1. Välj **åtkomstkontroll (IAM)**.
 1. Välj **Lägg till rolltilldelning**.
 
    ![Välj Lägg till rolltilldelning](./media/howto-create-service-principal-portal/select-add.png)
 
 1. Välj den roll som du vill tilldela till programmet. Att tillåta program att köra åtgärder som att **omstart**, **starta** och **stoppa** instanser, väljer den **deltagare** roll. Som standard visas inte Azure AD-program i de tillgängliga alternativen. Sök efter namnet för att hitta ditt program, och markera den.
 
-   ![Välja en roll](./media/howto-create-service-principal-portal/select-role.png)
+   ![Välj roll](./media/howto-create-service-principal-portal/select-role.png)
 
 1. Välj **spara** Slutför tilldela rollen. Du ser ditt program i listan över användare som har tilldelats en roll för detta omfång.
 
@@ -104,20 +104,20 @@ Du måste också ID: T för ditt program och en autentiseringsnyckel. Hämta des
 
 1. Kopiera **Program-ID:t** och lagra det i din programkod.
 
-   ![Klientorganisations-ID](./media/howto-create-service-principal-portal/copy-app-id.png)
+   ![Klient-ID](./media/howto-create-service-principal-portal/copy-app-id.png)
 
-1. Välj **inställningar**.
+1. Välj **certifikat och hemligheter**.
 
-   ![Välj inställningar](./media/howto-create-service-principal-portal/select-settings.png)
+   ![Välj inställningar](./media/howto-create-service-principal-portal/select-certs-secrets.png)
 
-1. Välj **Nycklar**.
-1. Tillhandahåll beskrivning av och varaktighet för nyckeln. Välj **Spara** när du är klar.
+1. Välj **klienten hemligheter -> nya klienthemligheten**.
+1. Ange en beskrivning av hemligheten och varaktighet. När du är klar, Välj **Lägg till**.
 
-   ![Spara nyckel](./media/howto-create-service-principal-portal/save-key.png)
+   ![Spara hemlighet](./media/howto-create-service-principal-portal/save-secret.png)
 
-   När du har sparat nyckeln visas nyckelns värde. Kopiera det här värdet eftersom du inte kan komma att hämta nyckeln senare. Du kan ange nyckelvärdet med program-ID för inloggning som programmet. Lagra nyckelvärdet där programmet kan hämta det.
+   När du har sparat klienthemligheten visas värdet för klienthemligheten. Kopiera det här värdet eftersom du inte kan komma att hämta nyckeln senare. Du kan ange nyckelvärdet med program-ID för inloggning som programmet. Lagra nyckelvärdet där programmet kan hämta det.
 
-   ![sparad nyckel](./media/howto-create-service-principal-portal/copy-key.png)
+   ![Kopiera hemlighet](./media/howto-create-service-principal-portal/copy-secret.png)
 
 ## <a name="required-permissions"></a>Nödvändiga behörigheter
 
@@ -146,7 +146,7 @@ I Azure-prenumerationen, måste kontot ha `Microsoft.Authorization/*/Write` åtk
 
 Att kontrollera dina Prenumerationsbehörigheter:
 
-1. Välj ditt konto i det övre högra hörnet och välj **Mina behörigheter**.
+1. Välj ditt konto i det övre högra hörnet och välj **... -> Mina behörigheter**.
 
    ![Välj användarbehörigheter](./media/howto-create-service-principal-portal/select-my-permissions.png)
 
@@ -154,7 +154,7 @@ Att kontrollera dina Prenumerationsbehörigheter:
 
    ![Sök efter användare](./media/howto-create-service-principal-portal/view-details.png)
 
-1. Visa dina tilldelade roller och avgör om du har tillräcklig behörighet för att tilldela en AD-app till en roll. Annars kan du be systemadministratören att lägga till dig till rollen Administratör för användaråtkomst. I följande bild tilldelas användaren rollen ägare, vilket innebär att användaren har tillräcklig behörighet.
+1. Välj **rolltilldelningar** att visa dina tilldelade roller och avgöra om du har tillräcklig behörighet för att tilldela en AD-app till en roll. Annars kan du be systemadministratören att lägga till dig till rollen Administratör för användaråtkomst. I följande bild tilldelas användaren rollen ägare, vilket innebär att användaren har tillräcklig behörighet.
 
    ![Visa behörigheter](./media/howto-create-service-principal-portal/view-user-role.png)
 

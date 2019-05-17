@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95a5e1ed89b6330a0b6a49cb20d8bf0ef3587d48
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: bd7f393f889facf147cf25625d5c3b20f886ddf5
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074747"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65784947"
 ---
 # <a name="web-app-that-calls-web-apis---code-configuration"></a>Webbapp att anrop webb-API: er – kod konfiguration
 
@@ -184,7 +184,7 @@ private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotifica
 
 ### <a name="msalnet-token-cache-for-a-aspnet-core-web-app"></a>MSAL.NET Token-cache för en webbapp med ASP.NET (kärnor)
 
-I web apps (eller webb-API: er som en följd av fakta) token-cache-implementeringen skiljer sig från token-cache-implementeringar skrivbordsprogram (vilket är ofta [filbaserad](scenario-desktop-acquire-token.md#file-based-token-cache). Det kan använda ASP.NET/ASP.NET Core-session eller en Redis-cache eller en databas eller även Azure BLOB-lagring. I koden är kodfragmentet ovan detta objekt av den `EnablePersistence(HttpContext, clientApp.UserTokenCache, clientApp.AppTokenCache);` metodanrop som binder en cachetjänst. Informationen om vad som händer här ligger utanför omfånget för den här guiden för scenariot, men länkar finns nedan.
+I web apps (eller webb-API: er som en följd av fakta) token-cache-implementeringen skiljer sig från token-cache-implementeringar skrivbordsprogram (vilket är ofta [filbaserad](scenario-desktop-acquire-token.md#file-based-token-cache). Det kan använda ASP.NET/ASP.NET Core-session eller en Redis-cache eller en databas eller även Azure Blob storage. I koden är kodfragmentet ovan detta objekt av den `EnablePersistence(HttpContext, clientApp.UserTokenCache, clientApp.AppTokenCache);` metodanrop som binder en cachetjänst. Informationen om vad som händer här ligger utanför omfånget för den här guiden för scenariot, men länkar finns nedan.
 
 > [!IMPORTANT]
 > En mycket viktiga för att upptäcka är att för Webbappar och webb-API: er, det ska vara en token-cache per användare (per konto). Du behöver att serialisera tokens cacheminne för varje konto.

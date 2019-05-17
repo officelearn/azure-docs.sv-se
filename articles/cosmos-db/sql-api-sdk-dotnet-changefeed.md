@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 01/30/2019
 ms.author: maquaran
-ms.openlocfilehash: a878ab1937b06f06a27b18f793fc1bfa190969ed
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 56ec4d867abd5f2767c64b0800eeb017c0fb9923
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60627054"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792992"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET change Feed Processor SDK: Ladda ned och viktig information
 > [!div class="op_single_selector"]
@@ -40,6 +40,11 @@ ms.locfileid: "60627054"
 ## <a name="release-notes"></a>Viktig information
 
 ### <a name="v2-builds"></a>v2-versioner
+
+### <a name="a-name227227"></a><a name="2.2.7"/>2.2.7
+* Förbättrad belastningsutjämning strategi för scenariot när du hämtar alla lån tar längre tid än giltighetsintervallet för lånet, t.ex. på grund av nätverksproblem:
+  * I det här scenariot belastningsutjämningsalgoritm används för att överväga att lån som upphört att gälla, orsakar stjäla lån från aktiva ägare. Detta kan utlösa onödiga igen belastningsutjämning mycket lån.
+  * Det här problemet löses i den här versionen genom att undvika återförsök vid konflikter medan hämtar har upphört att gälla lån som ägaren inte har ändrats och posponing hämtar upphört att gälla lån till nästa iteration av nätverksbelastning.
 
 ### <a name="a-name226226"></a><a name="2.2.6"/>2.2.6
 * Förbättrad hantering av Övervakare undantag.
@@ -163,6 +168,7 @@ Varje begäran till Cosmos DB med hjälp av en pensionerad SDK avvisas av tjäns
 
 | Version | Utgivningsdatum | Slutdatum |
 | --- | --- | --- |
+| [2.2.7](#2.2.7) |Den 14 maj 2019 |--- |
 | [2.2.6](#2.2.6) |Den 29 januari 2019 |--- |
 | [2.2.5](#2.2.5) |13 december 2018 |--- |
 | [2.2.4](#2.2.4) |Den 29 november 2018 |--- |
@@ -178,7 +184,7 @@ Varje begäran till Cosmos DB med hjälp av en pensionerad SDK avvisas av tjäns
 | [1.0.0](#1.0.0) |07 juli 2017 |--- |
 
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Se också

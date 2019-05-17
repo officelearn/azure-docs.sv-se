@@ -1,31 +1,25 @@
 ---
 title: Flytta Azure-resurser till ny prenumeration eller resursgrupp grupp | Microsoft Docs
 description: Använd Azure Resource Manager för att flytta resurser till en ny resursgrupp eller prenumeration.
-services: azure-resource-manager
-documentationcenter: ''
 author: tfitzmac
-ms.assetid: ab7d42bd-8434-4026-a892-df4a97b60a9b
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/25/2019
+ms.date: 05/16/2019
 ms.author: tomfitz
-ms.openlocfilehash: 4e94bc7686203bfbcd93200e5a1fb65b43ceeb91
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 076d120d9c02b15837e92b71bc2a015377f54594
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64698495"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792688"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Flytta resurser till ny resursgrupp eller prenumeration
 
 Den här artikeln visar hur du flyttar Azure-resurser till en annan Azure-prenumeration eller en annan resursgrupp i samma prenumeration. Du kan använda Azure-portalen, Azure PowerShell, Azure CLI eller REST API för att flytta resurser.
 
-Både källgruppen och målgruppen är låsta vid flytt. Skriv- och borttagningsåtgärder blockeras för resursgrupperna tills flytten är klar. Låset innebär att du inte kan lägga till, uppdatera eller ta bort resurser i resursgrupper, men det innebär inte att resurserna är låsta. Om du till exempel flyttar en SQL Server och dess databas till en ny resursgrupp sker inga avbrott för programmet som använder databasen. Det kan fortfarande läsa och skriva till databasen.
+Både källgruppen och målgruppen är låsta vid flytt. Skriva och ta bort blockeras på resursgrupper tills flyttningen är klar. Låset innebär att du kan inte lägga till, uppdatera eller ta bort resurser i resursgrupper, men det innebär inte att resurserna som är låsta. Om du flyttar en SQL Server och dess databas till en ny resursgrupp, inträffar ett program som använder databasen utan avbrott. Det kan fortfarande läsa och skriva till databasen.
 
-Att flytta resurs innebär bara att den flyttas till en ny resursgrupp. Flyttåtgärden kan inte ändra resursens plats. Den nya resursgruppen kan ha en annan plats, men som ändra inte platsen för resursen.
+En resurs flyttas bara flyttar det till en ny resursgrupp. Flyttåtgärden kan inte ändra resursens plats. Den nya resursgruppen kan ha en annan plats, men som ändra inte platsen för resursen.
 
 > [!NOTE]
 > Den här artikeln beskriver hur du flytta resurser mellan befintliga Azure-prenumerationer. Om du verkligen vill uppgradera din Azure-prenumeration (till exempel byta från kostnadsfritt till betala per användning) måste konvertera din prenumeration.
@@ -60,7 +54,7 @@ Följande lista innehåller en allmän översikt över Azure-tjänster som kan f
 * Azure Cache för Redis - om Azure Cache för Redis-instans som är konfigurerad med ett virtuellt nätverk, instansen kan inte flyttas till en annan prenumeration. Se [virtuella nätverk begränsningar](#virtual-networks-limitations).
 * Azure Cosmos DB
 * Azure-datautforskaren
-* Azure-databas för MariaDB
+* Azure Database for MariaDB
 * Azure Database for MySQL
 * Azure Database for PostgreSQL
 * Azure DevOps - Följ stegen för att [ändra Azure-prenumerationen används för fakturering](/azure/devops/organizations/billing/change-azure-subscription?view=azure-devops).
@@ -74,7 +68,7 @@ Följande lista innehåller en allmän översikt över Azure-tjänster som kan f
 * CDN
 * Molntjänster – Se [begränsningar för klassisk distribution](#classic-deployment-limitations)
 * Cognitive Services
-* Container Registry
+* Containerregister
 * Content Moderator
 * Cost Management
 * Customer Insights
@@ -97,7 +91,7 @@ Följande lista innehåller en allmän översikt över Azure-tjänster som kan f
 * Hanterad identitet - användartilldelade
 * Media Services
 * Övervaka – Se till att flytta till ny prenumeration inte överstiger [prenumerationskvoter](../azure-subscription-service-limits.md#monitor-limits)
-* Notification Hubs
+* Meddelandehubbar
 * Operational Insights
 * Operations Management
 * Portalen instrumentpaneler
@@ -113,6 +107,7 @@ Följande lista innehåller en allmän översikt över Azure-tjänster som kan f
 * SignalR Service
 * Storage - konton i olika regioner kan inte flyttas på samma gång. Använd i stället separata åtgärder för varje region.
 * Storage (klassisk) – Se [begränsningar för klassisk distribution](#classic-deployment-limitations)
+* Tjänst för synkronisering av lagring
 * Stream Analytics - tillstånd för Stream Analytics-jobb inte kan flyttas när du kör i.
 * SQL Database-server - databas och server måste vara i samma resursgrupp. Om du flyttar en SQLServer, flyttas även alla dess databaser. Det här beteendet gäller för Azure SQL Database och Azure SQL Data Warehouse-databaser.
 * Time Series Insights
@@ -138,14 +133,14 @@ Följande lista innehåller en allmän översikt över Azure-tjänster som inte 
 * Azure NetApp Files
 * Certifikat - App Service-certifikat kan flyttas, men uppladdade certifikat har [begränsningar](#app-service-limitations).
 * Klassiska program
-* Container Instances
+* Containerinstanser
 * Container Service
 * Data Box
 * Dev blanksteg
 * Dynamics LCS
 * ExpressRoute
 * Lab Services – klassrum Labs kan inte flyttas till en ny resursgrupp eller prenumeration. DevTest Labs kan flyttas till en ny resursgrupp i samma prenumeration, men inte mellan prenumerationer.
-* Managed Applications
+* Hanterade program
 * Microsoft Genomics
 * Säkerhet
 * Site Recovery
@@ -353,7 +348,7 @@ Du kan flytta HDInsight-kluster till en ny prenumeration eller resursgrupp. Men 
 
 När du flyttar ett HDInsight-kluster till en ny prenumeration först flytta andra resurser (t.ex. storage-konto). Flytta sedan HDInsight-klustret ensamt.
 
-## <a name="checklist-before-moving-resources"></a>Checklista för att flytta resurser
+## <a name="checklist-before-moving-resources"></a>Checklistan innan du flyttar resurser
 
 Några viktiga steg måste utföras innan en resurs flyttas. Du kan undvika fel genom att verifiera dessa villkor.
 

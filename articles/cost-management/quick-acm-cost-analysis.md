@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/13/2019
+ms.date: 05/14/2019
 ms.topic: quickstart
 ms.service: cost-management
 manager: micflan
 ms.custom: seodec18
-ms.openlocfilehash: 881abf48a1dda3b008e5946096cdcadb1f157d25
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b4302713188237b97ffbe8473f6a37edd6741b36
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64682627"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65793095"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Snabbstart: Utforska och analysera kostnader med kostnadsanalys
 
@@ -45,7 +45,7 @@ För [EA-kunder (Enterprise Agreement)](https://azure.microsoft.com/pricing/ente
 
 Mer information om hur du får åtkomst till Cost Management finns i [Tilldela åtkomst till data](assign-access-acm-data.md).
 
-## <a name="sign-in-to-azure"></a>Logga in på Azure
+## <a name="sign-in-to-azure"></a>Logga in till Azure
 
 - Logga in på Azure Portal på https://portal.azure.com.
 
@@ -69,7 +69,7 @@ Den initiala kostnadsanalysvyn innehåller följande områden:
 
 ## <a name="customize-cost-views"></a>Anpassa kostnadsvyer
 
-Kostnadsanalys har fyra inbyggda vyer, optimerat för de flesta vanliga mål: 
+Kostnadsanalys har fyra inbyggda vyer, optimerat för de flesta vanliga mål:
 
 Visa | Svara på frågor som...
 --- | ---
@@ -96,7 +96,7 @@ I allmänhet bör du kan förvänta dig att se data eller meddelanden för förb
 
 **Gruppera efter** gemensamma egenskaper att bryta ned kostnader och identifiera de främsta deltagare. Om du vill gruppera efter resurstaggar, Välj taggnyckeln som du vill gruppera efter. Kostnaderna är uppdelade efter varje tagg-värde med ett extra segment för resurser som inte har den tagg som tillämpas.
 
-De flesta [Azure-resurser stöder taggning](../azure-resource-manager/tag-support.md), men vissa taggar är inte tillgängliga inom Cost Management (kostnadshantering) och fakturering. Dessutom stöds inte resursgrupptaggar. Cost Management stöder endast resurstaggar från det datum då taggarna tillämpas direkt på resursen.
+De flesta [Azure-resurser stöder taggning](../azure-resource-manager/tag-support.md), men vissa taggar är inte tillgängliga inom Cost Management (kostnadshantering) och fakturering. Dessutom stöds inte resursgrupptaggar. Cost Management stöder endast resurstaggar från det datum då taggarna tillämpas direkt på resursen. Titta på den [granska taggprinciper med Azure Cost Management](https://www.youtube.com/watch?v=nHQYcYGKuyw) video och lär dig använda Azure taggen principer för att förbättra synligheten för kostnad för data.
 
 Här är en vy över Azure-tjänstkostnaderna för en vy över föregående månad.
 

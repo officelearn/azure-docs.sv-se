@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: mayg
-ms.openlocfilehash: 98718709038d7fd753e5eb3d45c130085c5accd9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: bcfeca34eb11caaddac06971fe7f825a142586a2
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60599851"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602062"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Installera en Linux-huvudmålserver för återställning efter fel
 När du växlar över dina virtuella datorer till Azure kan du återställa dit de virtuella datorerna till den lokala platsen. För att återställa, måste du återaktivera skyddet för den virtuella datorn från Azure till den lokala platsen. För den här processen behöver du ett lokala huvudmålservern tar emot trafiken. 
@@ -83,7 +83,7 @@ Håll en Ubuntu 16.04.2 minimal 64-bitars ISO i DVD-enheten och startas.
 1. Välj **nr** (standardalternativet) och välj sedan **RETUR**.
 
      ![Konfigurera tangentbordet](./media/vmware-azure-install-linux-master-target/image5.png)
-1. Välj **engelska (US)** som ursprungslandet tangentbord och välj sedan **RETUR**.
+1. Välj **engelska (US)** som land/region för ursprung tangentbord och välj sedan **RETUR**.
 
 1. Välj **engelska (US)** som tangentbordslayout och välj sedan **RETUR**.
 
@@ -262,7 +262,7 @@ Använd följande steg för att skapa en kvarhållningsdisken:
     
     Välj **infoga** att börja redigera filen. Skapa en ny rad och Lägg till följande text. Redigera diskens multipath ID baserat på det markerade multipath ID från föregående kommando.
 
-     **/dev/mapper/ <Retention disks multipath id> /mnt/kvarhållning ext4 rw 0 0**
+    **/dev/mapper/\<kvarhållning diskar multipath id >/mnt/kvarhållning ext4 rw 0 0**
 
     Välj **Esc**, och skriv sedan **: wq** (skriva och avsluta) att Stäng editor-fönstret.
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: d1783890ba1b304ab658e827bfd24091e208fda4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7c1167a6170cdc0b897c57a51c417a9312b6f41a
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64699258"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794160"
 ---
 # <a name="convert-a-linux-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Konvertera en virtuell Linux-dator från ohanterade diskar till managed disks
 
@@ -98,5 +98,18 @@ Alla virtuella datorer i tillgänglighetsuppsättningen måste frigöras innan d
     az vm start --resource-group myResourceGroup --name myVM
     ```
 
+## <a name="convert-using-the-azure-portal"></a>Konvertera med hjälp av Azure portal
+
+Du kan också konvertera ohanterade diskar till hanterade diskar med Azure portal.
+
+1. Logga in på [Azure Portal](https://portal.azure.com).
+2. Välj den virtuella datorn från listan över virtuella datorer i portalen.
+3. I bladet för den virtuella datorn, väljer **diskar** på menyn.
+4. Överst på den **diskar** bladet väljer **migrera till managed disks**.
+5. Om den virtuella datorn är i en tillgänglighetsuppsättning, är en varning på den **migrera till managed disks** bladet som du vill omvandla tillgänglighetsuppsättningen först. Varningen ska ha en länk som du kan klicka på för att omvandla tillgänglighetsuppsättningen. När tillgänglighetsuppsättningen har omvandlats eller om den virtuella datorn inte är i en tillgänglighetsuppsättning klickar du på **migrera** att starta processen med att migrera dina diskar till hanterade diskar.
+
+Den virtuella datorn stoppas och startas om när migreringen är klar.
+
 ## <a name="next-steps"></a>Nästa steg
+
 Mer information om lagringsalternativ finns i [översikt över Azure Managed Disks](../windows/managed-disks-overview.md).

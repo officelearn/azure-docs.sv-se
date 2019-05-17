@@ -15,18 +15,18 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3dedef2d22df9c8c81410296bdb0c4814bd98b80
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: f62cf65e275d8a9b909bf60103ccbd84e91e4574
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65507120"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785060"
 ---
 # <a name="web-api-that-calls-web-apis---code-configuration"></a>Webb-API att anrop webb-API: er – kod konfiguration
 
 När du har registrerat ditt webb-API, kan du konfigurera koden för programmet.
 
-Koden för att konfigurera ditt webb-API så att den anropar underordnade webb-API: er som bygger på den kod som används för att projicera ett webb-API. Mer information finns i [skyddade webb-API - appkonfiguration](scenario-protected-web-api-app-configuration.md).
+Koden för att konfigurera ditt webb-API så att den anropar underordnade webb-API: er som bygger på den kod som används för att skydda ett webb-API. Mer information finns i [skyddade webb-API - appkonfiguration](scenario-protected-web-api-app-configuration.md).
 
 ## <a name="code-subscribed-to-ontokenvalidated"></a>Felkod som prenumererar på OnTokenValidated
 
@@ -74,7 +74,7 @@ Metoden AddAccountToCacheFromJwt() måste:
 
 ### <a name="instantiate-a-confidential-client-application"></a>Skapa en instans av ett konfidentiellt klientprogram
 
-Det här flödet är endast tillgänglig i konfidentiell klientflödet så skyddade webb-API ger klientens autentiseringsuppgifter (klienthemlighet eller certifikat) till den [ConfidentialClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.appconfig.confidentialclientapplicationbuilder?view=azure-dotnet-preview) via den `WithClientSecret` eller `WithCertificate`metoder, respektive.
+Det här flödet är endast tillgänglig i konfidentiell klientflödet så skyddade webb-API ger klientens autentiseringsuppgifter (klienthemlighet eller certifikat) till den [ConfidentialClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplicationbuilder) via den `WithClientSecret` eller `WithCertificate`metoder, respektive.
 
 ![image](https://user-images.githubusercontent.com/13203188/55967244-3d8e1d00-5c7a-11e9-8285-a54b05597ec9.png)
 
@@ -96,7 +96,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 
 ### <a name="how-to-call-on-behalf-of"></a>Hur du anropar on-behalf-of
 
-On-behalf-of (OBO)-anrop görs genom att anropa den [AcquireTokenOnBehalf](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.apiconfig.acquiretokenonbehalfofparameterbuilder?view=azure-dotnet-preview) metoden på den `IConfidentialClientApplication` gränssnitt.
+On-behalf-of (OBO)-anrop görs genom att anropa den [AcquireTokenOnBehalf](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.acquiretokenonbehalfofparameterbuilder) metoden på den `IConfidentialClientApplication` gränssnitt.
 
 Den `ClientAssertion` är byggd från ägartoken som tagits emot av webb-API från sina egna klienter. Det finns [två konstruktorer](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientcredential.-ctor?view=azure-dotnet), en som tar en JWT-ägarautentisering token och en som tar alla slags användaren försäkran (en annan typ av säkerhetstoken, vilka sedan har angetts i en extra parameter med namnet `assertionType`).
 
@@ -138,7 +138,7 @@ private void AddAccountToCacheFromJwt(IEnumerable<string> scopes, JwtSecurityTok
 }
 ```
 
-## <a name="protocol"></a>Protokoll
+## <a name="protocol"></a>Protocol
 
 Läs mer om on-behalf-of-protokollet, [Microsoft identity-plattformen och OAuth 2.0 Behalf flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow)
 

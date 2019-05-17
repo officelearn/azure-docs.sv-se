@@ -18,12 +18,12 @@ ms.date: 12/07/2017
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 482b69752cc889ff99c3d9082d3bc20a7caa6d76
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0065ec03695ee977133ae2ec43aafba7d5bfff78
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60294533"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65784347"
 ---
 # <a name="azure-active-directory-identity-protection-notifications"></a>Azure Active Directory Identity Protection-aviseringar
 
@@ -39,6 +39,8 @@ Den här artikeln ger en översikt över både e-postaviseringar.
 
 Som svar på ett konto som har identifierats i fara, Azure AD Identity Protection genererar en e-postavisering med **användare i farozonen har identifierats** som ämne. E-postmeddelandet innehåller en länk till den **[användare som har flaggats för risk](../reports-monitoring/concept-user-at-risk.md)** rapporten. Som bästa praxis bör du omedelbart undersöka användare i riskzonen.
 
+Konfigurationen för den här aviseringen kan du ange på vilken nivå för användarrisk du vill att aviseringen ska genereras. E-postmeddelandet kommer att genereras när användarens risknivå når vad du har angett; men får du inte nya användare på identifierad risk e-postaviseringar för den här användaren när de flyttar till den här risknivån. Om du anger principen att Avisera om medelstora användarrisk och dina användare John flyttas till Medelrisk får du till exempel användare i e-post för identifierad risk för John. Men får du inte en andra användare i identifierad risk avisering om John sedan flyttas till hög risk eller har ytterligare riskhändelser.
+
 ![Användare i farozonen har identifierats e-post](./media/notifications/01.png)
 
 
@@ -46,7 +48,7 @@ Som svar på ett konto som har identifierats i fara, Azure AD Identity Protectio
 
 Som administratör kan ange du:
 
-- **Den risknivå som utlöser generering av det här e-** -risknivån är som standard ”hög” risker.
+- **Risknivån som utlöser generering av det här e-** -risknivån är som standard ”hög” risker.
 - **Mottagare av e-postmeddelandet** -mottagare ingår som standard alla globala administratörer. Globala administratörer kan också lägga till andra globala administratörer, säkerhetsadministratörer, Säkerhetsläsare som mottagare.  
 
 
@@ -60,7 +62,7 @@ Klicka för att öppna dialogrutan relaterade **aviseringar** i den **inställni
 Sammanfattad veckovis e-postmeddelandet innehåller en sammanfattning av nya riskhändelser.  
 Det innehåller:
 
-- Användare i riskzonen
+- Användare i farozonen
 
 - Misstänkta aktiviteter
 

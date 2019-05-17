@@ -18,12 +18,12 @@ ms.date: 12/14/2018
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f95fd85b5a0fd9e905b93b9b90f18f963dbf1690
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9da23b0c0b0b0c0bfc238b1504811a9c1c55a9ef
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60355784"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785385"
 ---
 # <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Vad är villkor i Azure Active Directory villkorlig åtkomst? 
 
@@ -57,29 +57,23 @@ När du **Välj användare och grupper**, du kan ange följande alternativ:
 
 * **Användare och grupper** riktar sig mot specifika uppsättningar med användare. Du kan till exempel välja en grupp som innehåller alla medlemmar i personalavdelningen när en HR-app har valts som molnappen. En grupp kan vara någon typ av grupp i Azure AD, inklusive dynamiskt eller tilldelat säkerhets- och distributionsgrupper grupper.
 
-Du kan också utesluta specifika användare eller grupper från en princip. Ett vanligt användningsfall är tjänstkonton om principen framtvingar multifaktorautentisering (MFA). 
+Du kan också utesluta specifika användare eller grupper från en princip. Ett vanligt användningsfall är tjänstkonton om principen framtvingar multifaktorautentisering (MFA).
 
-Det är användbart för distributionen av en ny princip riktar in sig på specifika uppsättningar med användare. I en ny princip, bör du rikta en grunduppsättning med användare att verifiera funktionen. 
+Det är användbart för distributionen av en ny princip riktar in sig på specifika uppsättningar med användare. I en ny princip, bör du rikta en grunduppsättning med användare att verifiera funktionen.
 
+## <a name="cloud-apps-and-actions"></a>Molnappar och åtgärder
 
+En molnapp är en webbplats, en tjänst eller en slutpunkt som skyddas av Azure AD-programproxy. En detaljerad beskrivning av stöds molnappar finns i [molnbaserade appar tilldelningar](technical-reference.md#cloud-apps-assignments). Den **molnbaserade appar eller åtgärder** villkor är obligatoriskt i en princip för villkorlig åtkomst. I din princip kan du antingen välja **alla molnappar** eller ange appar med **Välj appar**.
 
-## <a name="cloud-apps"></a>Molnappar 
+Organisationer kan välja mellan följande:
 
-En molnapp är en webbplats eller tjänst. Webbplatser som skyddas av Azure AD Application Proxy är också molnappar. En detaljerad beskrivning av stöds molnappar finns i [molnbaserade appar tilldelningar](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#cloud-apps-assignments). 
+* **Alla molnappar** när du tillämpar grundläggande principer för hela organisationen. Använd detta alternativ för principer som kräver multifaktorautentisering när inloggningsrisk har identifierats för alla appar i molnet. En princip som tillämpas på alla molnappar som gäller för åtkomst till alla webbplatser och tjänster. Den här inställningen är inte begränsat till de molnappar som visas i listan Välj appar.
+* **Välj appar** till målet specifika tjänster i din princip. Du kan till exempel kräva att användare har en kompatibel enhet får åtkomst till SharePoint Online. Den här principen tillämpas också till andra tjänster när de ansluter till SharePoint-innehåll. Ett exempel är Microsoft Teams.
 
-Den **molnappar** villkor är obligatoriskt i en princip för villkorlig åtkomst. I din princip kan du antingen välja **alla molnappar** eller Välj specifika appar.
+> [!NOTE]
+> Du kan utesluta specifika appar från en princip. De här apparna är dock fortfarande omfattas av principer som tillämpas på de tjänster som de har åtkomst till.
 
-![Inkludera molnappar](./media/conditions/03.png)
-
-Välj:
-
-- **Alla molnappar** till baslinje-principerna ska gälla för hela organisationen. Använd detta alternativ för principer som kräver multifaktorautentisering när inloggningsrisk har identifierats för alla appar i molnet. En princip som tillämpas på **alla molnappar** gäller för åtkomst till alla webbplatser och tjänster. Den här inställningen är inte begränsat till de molnappar som visas på den **Välj appar** lista. 
-
-- **Välj appar** till målet specifika tjänster i din princip. Du kan till exempel kräva att användarna ha en [kompatibel enhet](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online) åtkomst till SharePoint Online. Den här principen tillämpas också till andra tjänster när de ansluter till SharePoint-innehåll. Ett exempel är Microsoft Teams. 
-
-Du kan utesluta specifika appar från en princip. De här apparna är dock fortfarande omfattas av principer som tillämpas på de tjänster som de har åtkomst till. 
-
-
+**Användaråtgärder** uppgifter som kan utföras av en användare. Den enda åtgärden som stöds för närvarande **registrera säkerhetsinformation (förhandsversion)**, vilket gör att principen för villkorlig åtkomst att tvinga när en användare registrerar sina säkerhetsinformation.
 
 ## <a name="sign-in-risk"></a>Inloggningsrisk
 
@@ -119,7 +113,7 @@ Enhetstillståndsvillkor utesluter hybrid Azure AD-anslutna enheter och enheter 
 
 Det här villkoret är användbart när en princip för endast ska tillämpas på en ohanterad enhet att tillhandahålla ytterligare sessionssäkerhet. Endast tillämpa exempelvis sessionskontroll för Microsoft Cloud App Security när en enhet är hanterad. 
 
-## <a name="locations"></a>Platser
+## <a name="locations"></a>Sökvägar
 
 Du kan definiera villkor baserat på var ett fel med hjälp av platser. 
 

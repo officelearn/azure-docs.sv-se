@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 05/15/2019
 ms.author: apimpm
-ms.openlocfilehash: 8e3f34210627fbb455a1eca0b415cdd6de9b3681
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e2362d06fa0ef795122a2d47a7a621b66fdd9470
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60527802"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65780347"
 ---
 # <a name="use-an-external-azure-cache-for-redis-in-azure-api-management"></a>Använda en extern Azure Cache for Redis i Azure API Management
 
@@ -40,11 +40,6 @@ Detta får du får lära dig:
 
 > [!div class="checklist"]
 > * Lägga till en extern cache i API Management
-
-## <a name="availability"></a>Tillgänglighet
-
-> [!NOTE]
-> Den här funktionen är för närvarande endast tillgänglig på nivån **Förbrukning** för Azure API Management.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -94,6 +89,7 @@ Följ stegen nedan om du vill lägga till en extern Azure Cache for Redis i Azur
 När den externa cachen har konfigurerats i Azure API Management kan den användas via cachelagringsprinciper. Detaljerade steg finns i avsnittet om att [lägga till cachelagring för att förbättra prestanda i Azure API Management](api-management-howto-cache.md).
 
 ## <a name="next-steps"> </a>Nästa steg
+
 * Mer information om cachelagringsprinciper finns i [Cachelagringsprinciper][Caching policies] i [Principreferens för API Management][API Management policy reference].
 * Mer information om hur du cachelagrar objekt med nycklar med hjälp av principuttryck finns i [Anpassad cachelagring i Azure API Management](api-management-sample-cache-by-key.md).
 

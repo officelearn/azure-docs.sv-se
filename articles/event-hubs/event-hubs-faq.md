@@ -8,14 +8,14 @@ manager: timlt
 ms.service: event-hubs
 ms.topic: article
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 05/15/2019
 ms.author: shvija
-ms.openlocfilehash: ce9c6a83d664bc9ad1798792f7762556c9a0d541
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: acc756ac04e5127d07760746bd0178f0f6cb1d6f
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64690277"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65789251"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Vanliga och frågor svar om Event Hubs
 
@@ -23,6 +23,15 @@ ms.locfileid: "64690277"
 
 ### <a name="what-is-an-event-hubs-namespace"></a>Vad är ett namnområde för Event Hubs?
 Ett namnområde är en gemensam behållare för Event Hub/Kafka-ämnen. Då får du ett unikt [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name). Ett namnområde fungerar som en programbehållare som kan innehålla flera Event Hub/Kafka-ämnen. 
+
+### <a name="when-do-i-create-a-new-namespace-vs-use-an-existing-namespace"></a>När jag skapar ett nytt namnområde eller Använd ett befintligt namnområde?
+Kapacitet-allokeringar ([dataflödesenheter (Dataflödesenheter)](#throughput-units)), faktureras på namnområdesnivå. Ett namnområde är även associerat med en region.
+
+Du kanske vill skapa ett nytt namnområde istället för att använda en i en befintlig av följande scenarier: 
+
+- Du behöver en Event Hub som är associerade med en ny region.
+- Du behöver en Event Hub som är associerade med en annan prenumeration.
+- Du behöver en Händelsehubb med en distinkt kapacitetstilldelning (det vill säga kapaciteten måste för namnområdet med har lagts till händelsehubben skulle överskrida 40 Dataflödesenheter tröskelvärdet och du inte vill få dedicated-kluster)  
 
 ### <a name="what-is-the-difference-between-event-hubs-basic-and-standard-tiers"></a>Vad är skillnaden mellan Event Hubs Basic och Standard-nivån?
 
@@ -60,7 +69,7 @@ Du kan använda följande protokoll med Azure Service Bus för att skicka och ta
 
 Se tabellen nedan för de utgående portar som du behöver öppna om du vill använda dessa protokoll ska kunna kommunicera med Azure Event Hubs. 
 
-| Protokoll | Portar | Information | 
+| Protocol | Portar | Information | 
 | -------- | ----- | ------- | 
 | AMQP | 5671 och 5672 | Se [AMQP-protokollguide](../service-bus-messaging/service-bus-amqp-protocol-guide.md) | 
 | HTTP, HTTPS | 80, 443 |  |
@@ -106,7 +115,7 @@ Exempel:
 
 bootstrap.Servers=dummynamespace.servicebus.Windows.NET:9093 request.timeout.ms=60000 security.protocol=SASL_SSL sasl.mechanism=PLAIN sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule krävs användarnamn = ”$ ConnectionString ”password="Endpoint=sb://dummynamespace.servicebus.windows.net/; SharedAccessKeyName = DummyAccessKeyName; SharedAccessKey = 5dOntTRytoC24opYThisAsit3is2B + OGY1US/fuL3ly = ”;
 
-Obs! Hitta de konfigurationer som används för att ange SASL-användarnamn och lösenord och använda dem i stället om sasl.jaas.config inte är en konfiguration som stöds i ditt ramverk. Ange användarnamnet till $ConnectionString och lösenord för att anslutningssträngen för Event Hubs.
+Anteckning: Hitta de konfigurationer som används för att ange SASL-användarnamn och lösenord och använda dem i stället om sasl.jaas.config inte är en konfiguration som stöds i ditt ramverk. Ange användarnamnet till $ConnectionString och lösenord för att anslutningssträngen för Event Hubs.
 
 ### <a name="what-is-the-messageevent-size-for-kafka-enabled-event-hubs"></a>Vad är meddelandehändelse/storleken för Kafka-aktiverade Event Hubs?
 Den maximala tillåtna storleken för Kafka-aktiverade Händelsehubbar är 1MB.

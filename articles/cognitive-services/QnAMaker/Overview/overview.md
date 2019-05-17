@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: overview
 ms.date: 04/05/2019
 ms.author: tulasim
-ms.openlocfilehash: bafc39e7d9237fc7dd8469e5f9e97adb30355c8f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 963769315302ba4e7d1600253b617c7cb0f02bc5
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60736945"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794248"
 ---
 # <a name="what-is-qna-maker"></a>Vad är QnA Maker?
 
@@ -57,7 +57,7 @@ Med en QnA Maker får du två nyckeltjänster för data:
 
 QnA Maker-arkitekturen består av följande två komponenter:
 
-1. **QnA Maker-hanteringstjänster**: Hanteringsfunktionerna för QnA Maker-kunskapsbasen, vilket omfattar den ursprungliga genereringen, uppdateringen, träningen och publiceringen. Des här aktiviteterna kan utföras via [portalen](https://qnamaker.ai) eller [hanterings-API:erna](https://aka.ms/qnamaker-v4-apis). 
+1. **QnA Maker-hanteringstjänster**: Hanteringsfunktionerna för QnA Maker-kunskapsbasen, vilket omfattar den ursprungliga genereringen, uppdateringen, träningen och publiceringen. Des här aktiviteterna kan utföras via [portalen](https://qnamaker.ai) eller [hanterings-API:erna](https://go.microsoft.com/fwlink/?linkid=2092179). 
 
 2. **Data och körning för QnA Maker**: Detta distribueras i din Azure-prenumeration i din angivna region. Ditt KB-innehåll lagras i [Azure Search](https://azure.microsoft.com/services/search/), och slutpunkten distribueras som en [apptjänst](https://azure.microsoft.com/services/app-service/). Du kan även välja att distribuera en [Application Insights](https://azure.microsoft.com/services/application-insights/)-resurs för analys.
 

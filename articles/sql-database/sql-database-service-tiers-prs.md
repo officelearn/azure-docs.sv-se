@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: e12b89d0469587d7d7326bbee30f6467ada06bd5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7f184178343f69f522148777752c51afc5c5dcb6
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64574078"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790411"
 ---
 # <a name="azure-sql-database-premium-rs-service-tier-preview-is-being-retired---options-for-migration"></a>Tjänstnivå för Azure SQL Database Premium RS (förhandsversion) tas ur - alternativ för migrering
 
@@ -27,7 +27,7 @@ Följande är mål för migrering och prisalternativ som är lämpligt för Prem
 
 - vCore-tjänstnivåer
 
-  Den **generella** och **affärskritisk** tjänstnivåer i den [vCore-baserad inköpsmodell](sql-database-service-tiers-vcore.md). Dessa två tjänstnivåer är allmänt tillgängliga. Den vCore-baserade inköpsmodellen erbjuder även den **hyperskala** tjänstnivå (i allmänt tillgänglig förhandsversion) som kan anpassas efter på begäran till din arbetsbelastning behov med automatisk skalning upp till 100 TB per databas. Tjänstnivån hyperskala ger IO-prestanda som är jämförbar med Premium-tjänstnivån i den [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md) till ett pris som närmare på Premium RS-tjänstnivån.
+  Den **generella** och **affärskritisk** tjänstnivåer i den [vCore-baserad inköpsmodell](sql-database-service-tiers-vcore.md). Dessa två tjänstnivåer är allmänt tillgängliga. Den vCore-baserade inköpsmodellen erbjuder även den **hyperskala** tjänstnivå som kan anpassas efter på begäran till din arbetsbelastning behov med automatisk skalning upp till 100 TB per databas. Tjänstnivån hyperskala ger IO-prestanda som är jämförbar med Premium-tjänstnivån i den [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md) till ett pris som närmare på Premium RS-tjänstnivån.
 - Priser för Dev/Test
 
   [Priser för utveckling/testning](https://azure.microsoft.com/pricing/dev-test/) ger besparingar upp till 55% rabatt jämfört med priserna för licensinkluderade med Visual Studio-prenumerationen.
@@ -70,10 +70,10 @@ Vi rekommenderar att du migrerar dina i/o-intensiva enskilda databaser till vår
 
 |**Om du är på...**|**Migrera till jämförbara vCore-baserade...**|**Migrera till jämförbara DTU-baserade...**|
 |---|---|---|
-|Premium RS 1|(Förhandsversion) Hyperskala 1 vCore (Gen4) eller företag kritiska 1 vCore (Gen4)|Premium 1|
-|Premium RS 2|(Förhandsversion) Hyperskala 2 virtuella kärnor (Gen4) eller Business kritiska 2 virtuella kärnor (Gen4|Premium 2|
-|Premium RS 4|(Förhandsversion) Hyperskala 4 virtuella kärnor (Gen4) eller företag kritiska 4 virtuella kärnor (Gen4)|Premium 4
-|Premium RS 6|(Förhandsversion) Hyperskala 6 virtuella kärnor (Gen4) eller företag kritiska 6 virtuella kärnor (Gen4)|Premium 6|
+|Premium RS 1| Hyperskala 1 vCore (Gen4) eller företag kritiska 1 vCore (Gen4)|Premium 1|
+|Premium RS 2| Hyperskala 2 virtuella kärnor (Gen4) eller Business kritiska 2 virtuella kärnor (Gen4|Premium 2|
+|Premium RS 4| Hyperskala 4 virtuella kärnor (Gen4) eller företag kritiska 4 virtuella kärnor (Gen4)|Premium 4
+|Premium RS 6| Hyperskala 6 virtuella kärnor (Gen4) eller företag kritiska 6 virtuella kärnor (Gen4)|Premium 6|
 
 |**Om du är på...**|**Migrera till jämförbara vCore-baserade...**|**Migrera till jämförbara DTU-baserade...**|
 |---|---|---|

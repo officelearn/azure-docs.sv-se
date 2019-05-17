@@ -16,16 +16,14 @@ ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 605206682cb70d430773cdbf9ff746eabf594103
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 23003186aa413e313578c57616ae03c435f140e1
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190848"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785401"
 ---
 # <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-single-page-application-spa"></a>Snabbstart: Logga in användare och hämta en åtkomsttoken från ett JavaScript ensidesapplikation (SPA)
-
-[!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
 I den här snabbstarten får du lära dig hur du använder ett kodexempel som visar hur en JavaScript ensidesapplikation (SPA) kan logga in personliga konton, fungerar och skolkonton och få en åtkomsttoken att anropa Microsoft Graph API eller alla webb-API.
 
@@ -178,7 +176,7 @@ var msalConfig = {
 var myMSALObj = new Msal.UserAgentApplication(msalConfig);
 ```
 
-> |Var  |  |
+> |Där  |  |
 > |---------|---------|
 > |`ClientId`     |Program-ID från appen som registrerats i Azure-portalen|
 > |`authority`    | (Valfritt) Det är utfärdarens URL enligt beskrivningen i konfigurationsavsnittet ovan för kontotyper. Standard-utfärdare är `https://login.microsoftonline.com/common`. |
@@ -203,7 +201,7 @@ myMSALObj.loginPopup(requestObj).then(function (loginResponse) {
 });
 ```
 
-> |Var  |  |
+> |Där  |  |
 > |---------|---------|
 > | `scopes`   | (Valfritt) Innehåller omfång som begärs för användarmedgivande vid tiden för inloggning. Till exempel `[ "user.read" ]` för Microsoft Graph eller `[ "<Application ID URL>/scope" ]` för anpassade webb-API:er (det vill säga `api://<Application ID>/access_as_user`). |
 
@@ -231,7 +229,7 @@ myMSALObj.acquireTokenSilent(requestObj).then(function (tokenResponse) {
 });
 ```
 
-> |Var  |  |
+> |Där  |  |
 > |---------|---------|
 > | `scopes`   | Innehåller omfång som begärs att returneras i åtkomsttoken för API. Till exempel `[ "user.read" ]` för Microsoft Graph eller `[ "<Application ID URL>/scope" ]` för anpassade webb-API:er (det vill säga `api://<Application ID>/access_as_user`).|
 

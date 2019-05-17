@@ -63,9 +63,9 @@ Följande egenskaper har stöd för SAP Business Warehouse (BW) länkade tjänst
 | type | Type-egenskapen måste anges till: **SapBw** | Ja |
 | server | Namnet på den server som SAP BW-instansen finns. | Ja |
 | systemNumber | Systemnummer för SAP BW-system.<br/>Tillåtna värdet: tvåsiffrig decimaltal representeras som en sträng. | Ja |
-| ClientId | Klient-ID för klienten i SAP W systemet.<br/>Tillåtna värdet: tresiffrig decimaltal representeras som en sträng. | Ja |
-| Användarnamn | Namnet på den användare som har åtkomst till SAP-server. | Ja |
-| lösenord | Lösenordet för användaren. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| clientId | Klient-ID för klienten i SAP W systemet.<br/>Tillåtna värdet: tresiffrig decimaltal representeras som en sträng. | Ja |
+| userName | Namnet på den användare som har åtkomst till SAP-server. | Ja |
+| password | Lösenordet för användaren. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. En lokal Integration Runtime krävs enligt [krav](#prerequisites). |Ja |
 
 **Exempel:**
@@ -126,7 +126,7 @@ Om du vill kopiera data från SAP BW, ange typ av datakälla i kopieringsaktivit
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **RelationalSource** | Ja |
-| DocumentDB | Anger MDX-fråga för att läsa data från SAP BW-instans. | Ja |
+| query | Anger MDX-fråga för att läsa data från SAP BW-instans. | Ja |
 
 **Exempel:**
 
@@ -181,10 +181,10 @@ När du kopierar data från SAP BW, används följande mappningar från SAP BW-d
 | LRAW | Byte[] |
 | PREC | Int16 |
 | QUAN | Decimal |
-| RÅDATA | Byte[] |
+| RAW | Byte[] |
 | RAWSTRING | Byte[] |
-| STRÄNG | String |
-| ENHET | String |
+| STRING | String |
+| UNIT | String |
 | DATS | String |
 | NUMC | String |
 | TIMS | String |

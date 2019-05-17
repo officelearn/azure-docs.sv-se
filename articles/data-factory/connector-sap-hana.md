@@ -61,8 +61,8 @@ Följande egenskaper har stöd för SAP HANA-länkade tjänsten:
 | type | Type-egenskapen måste anges till: **SapHana** | Ja |
 | server | Namnet på den server som SAP HANA-instans finns. Om servern använder en anpassad port, ange `server:port`. | Ja |
 | authenticationType | Typ av autentisering som används för att ansluta till SAP HANA-databas.<br/>Tillåtna värden är: **Grundläggande**, och **Windows** | Ja |
-| Användarnamn | Namnet på den användare som har åtkomst till SAP-server. | Ja |
-| lösenord | Lösenordet för användaren. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| userName | Namnet på den användare som har åtkomst till SAP-server. | Ja |
+| password | Lösenordet för användaren. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. En lokal Integration Runtime krävs enligt [krav](#prerequisites). |Ja |
 
 **Exempel:**
@@ -122,7 +122,7 @@ För att kopiera data från SAP HANA, ange typ av datakälla i kopieringsaktivit
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **RelationalSource** | Ja |
-| DocumentDB | Anger SQL-frågan som läser data från SAP HANA-instans. | Ja |
+| query | Anger SQL-frågan som läser data från SAP HANA-instans. | Ja |
 
 **Exempel:**
 
@@ -165,18 +165,18 @@ När du kopierar data från SAP HANA, används följande mappningar från SAP HA
 | ALPHANUM | String |
 | BIGINT | Int64 |
 | BLOB | Byte[] |
-| BOOLESKT VÄRDE | Byte |
+| BOOLEAN | Byte |
 | CLOB | Byte[] |
-| DATE | Datetime |
+| DATE | DateTime |
 | DECIMAL | Decimal |
-| DOUBLE-VÄRDE | Single |
+| DOUBLE | Single |
 | INT | Int32 |
 | NVARCHAR | String |
-| VERKLIGA | Single |
-| SECONDDATE | Datetime |
+| REAL | Single |
+| SECONDDATE | DateTime |
 | SMALLINT | Int16 |
 | TIME | TimeSpan |
-| TIDSSTÄMPEL | Datetime |
+| TIMESTAMP | DateTime |
 | TINYINT | Byte |
 | VARCHAR | String |
 

@@ -44,7 +44,7 @@ Följande egenskaper har stöd för SAP-moln för länkade tjänsten:
 |:--- |:--- |:--- |
 | type | Type-egenskapen måste anges till: **SapCloudForCustomer**. | Ja |
 | url | URL till SAP C4C OData-tjänsten. | Ja |
-| användarnamn | Ange användarnamn för anslutning till SAP-C4C. | Ja |
+| username | Ange användarnamn för anslutning till SAP-C4C. | Ja |
 | password | Ange lösenordet för det användarkonto som du angav för användarnamnet. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Om den inte anges används standard Azure Integration Runtime. | Nej för källa, Ja för mottagare |
 
@@ -114,7 +114,7 @@ Om du vill kopiera data från SAP-moln för kunden, ange typ av datakälla i kop
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen måste anges till: **SapCloudForCustomerSource**  | Ja |
-| DocumentDB | Ange den anpassa OData-frågan för att läsa data. | Nej |
+| query | Ange den anpassa OData-frågan för att läsa data. | Nej |
 
 Exempelfråga att hämta data för en viss dag: `"query": "$filter=CreatedOn ge datetimeoffset'2017-07-31T10:02:06.4202620Z' and CreatedOn le datetimeoffset'2017-08-01T10:02:06.4202620Z'"`
 

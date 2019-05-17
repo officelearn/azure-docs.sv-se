@@ -3,8 +3,8 @@ title: Microsoft identity-plattformen och OAuth Authorization Code Flow | Azure
 description: Skapa webbprogram med hjälp av Microsoft identity-plattformen implementeringen av OAuth 2.0-protokollet för autentisering.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: ae1d7d86-7098-468c-aa32-20df0a10ee3d
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/12/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79e0ebce5704e7b61956568f5ebbce6ea6cbc3af
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0d3ab6f53fdb11b0b8d643868d0692667c8672f9
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60299267"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545187"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Microsoft identity-plattformen och OAuth 2.0-auktoriseringskodflöde
 
@@ -181,8 +181,8 @@ Ett lyckat svar för token kommer att se ut:
 | `token_type`    | Anger typ tokenu värdet. Den enda typen som har stöd för Azure AD är ägar |
 | `expires_in`    | Hur länge den åtkomst-token är giltig (i sekunder). |
 | `scope`         | Scope som gäller för access_token. |
-| `refresh_token` | OAuth 2.0-uppdateringstoken. Appen kan använda den här token skaffa ytterligare åtkomsttoken när den aktuella åtkomst-token upphör att gälla. Refresh_tokens är långlivade och kan användas för att behålla åtkomst till resurser i längre tid. Mer information om att uppdatera en åtkomsttoken som avser den [nedan](#refresh-the-access-token). <br> **Obs!** Endast angivna om `offline_access` omfång begärdes. |
-| `id_token`      | En JSON-Webbtoken (JWT). Appen kan avkoda segmenten i den här token för att begäraninformation om den användare som loggat in. Appen kan cachelagra värdena och visa dem, men det bör inte förlita dig på dem för auktorisering eller säkerhetsgränser. Mer information om id_tokens finns i den [ `id_token reference` ](id-tokens.md). <br> **Obs!** Endast angivna om `openid` omfång begärdes. |
+| `refresh_token` | OAuth 2.0-uppdateringstoken. Appen kan använda den här token skaffa ytterligare åtkomsttoken när den aktuella åtkomst-token upphör att gälla. Refresh_tokens är långlivade och kan användas för att behålla åtkomst till resurser i längre tid. Mer information om att uppdatera en åtkomsttoken som avser den [nedan](#refresh-the-access-token). <br> **Obs:** Endast angivna om `offline_access` omfång begärdes. |
+| `id_token`      | En JSON-Webbtoken (JWT). Appen kan avkoda segmenten i den här token för att begäraninformation om den användare som loggat in. Appen kan cachelagra värdena och visa dem, men det bör inte förlita dig på dem för auktorisering eller säkerhetsgränser. Mer information om id_tokens finns i den [ `id_token reference` ](id-tokens.md). <br> **Obs:** Endast angivna om `openid` omfång begärdes. |
 
 ### <a name="error-response"></a>Felsvar
 
@@ -291,8 +291,8 @@ Ett lyckat svar för token kommer att se ut:
 | `token_type`    | Anger typ tokenu värdet. Den enda typen som har stöd för Azure AD är ägar |
 | `expires_in`    | Hur länge den åtkomst-token är giltig (i sekunder).   |
 | `scope`         | Scope som gäller för access_token.    |
-| `refresh_token` | En ny OAuth 2.0-uppdateringstoken. Med den här nyligen förvärvade uppdateringstoken för att säkerställa uppdaterings-tokens är giltig så länge som möjligt bör du ersätta den gamla uppdateringstoken. <br> **Obs!** Endast angivna om `offline_access` omfång begärdes.|
-| `id_token`      | En osignerad JSON Web Token (JWT). Appen kan avkoda segmenten i den här token för att begäraninformation om den användare som loggat in. Appen kan cachelagra värdena och visa dem, men det bör inte förlita dig på dem för auktorisering eller säkerhetsgränser. Mer information om id_tokens finns i den [ `id_token reference` ](id-tokens.md). <br> **Obs!** Endast angivna om `openid` omfång begärdes. |
+| `refresh_token` | En ny OAuth 2.0-uppdateringstoken. Med den här nyligen förvärvade uppdateringstoken för att säkerställa uppdaterings-tokens är giltig så länge som möjligt bör du ersätta den gamla uppdateringstoken. <br> **Obs:** Endast angivna om `offline_access` omfång begärdes.|
+| `id_token`      | En osignerad JSON Web Token (JWT). Appen kan avkoda segmenten i den här token för att begäraninformation om den användare som loggat in. Appen kan cachelagra värdena och visa dem, men det bör inte förlita dig på dem för auktorisering eller säkerhetsgränser. Mer information om id_tokens finns i den [ `id_token reference` ](id-tokens.md). <br> **Obs:** Endast angivna om `openid` omfång begärdes. |
 
 #### <a name="error-response"></a>Felsvar
 

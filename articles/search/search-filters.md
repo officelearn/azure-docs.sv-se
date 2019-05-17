@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 05/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 49f971fb50d0a8a6a0dab09158f780206a4d32f1
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 1871fee2734d347ff54d6aa70d90d1c28bd1f6f1
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024834"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65597278"
 ---
 # <a name="filters-in-azure-search"></a>Filter i Azure Search 
 
@@ -50,24 +50,24 @@ Om du vill ha en begränsad inverkan i sökresultaten är filter inte ditt enda 
 
  + `searchFields` Frågeparametern heller sökningen till specifika fält. Om ditt index tillhandahåller olika fält för engelska och spanska beskrivningar, kan du till exempel använda searchFields och ange vilka fält som ska användas för textsökning. 
 
-+ `$select` Parametern används för att ange vilka fält som ska ingå i en resultatuppsättning, effektivt trimmar svaret innan det skickas till det anropande programmet. Den här parametern inte förfina frågan eller minska mängden dokumentet, men om en detaljerad svar är vad den här parametern är ett alternativ för att tänka på. 
++ `$select` Parametern används för att ange vilka fält som ska ingå i en resultatuppsättning, effektivt trimmar svaret innan det skickas till det anropande programmet. Den här parametern inte förfina frågan eller minska mängden dokumentet, men om ett mindre svar är vad den här parametern är ett alternativ för att tänka på. 
 
 Läs mer om antingen parametern [söka efter dokument > begär > frågeparametrar](https://docs.microsoft.com/rest/api/searchservice/search-documents#request).
 
 
-## <a name="filters-in-the-query-pipeline"></a>Filter i sökfrågans pipeline
+## <a name="how-filters-are-executed"></a>Hur filter körs
 
-När en fråga körs en filter-parser accepterar villkor som indata, konverterar uttrycket till atomiska booleska uttryck och skapar ett filterträd utvärderas sedan filtrerbara fält i ett index.  
+När en fråga körs en filter-parser accepterar villkor som indata, konverterar uttrycket till atomiska booleska uttryck som visas som ett träd och sedan utvärderar filterträdet över filtrerbara fält i ett index.
 
-Filtrering utförs innan sökning, kvalificera dig för vilka dokument som ska ingå i bearbetningen nedströms för dokumentet hämtning och relevans bedömning. Tillsammans med en söksträng, minskar filtret effektivt ytan på senare sökåtgärden. Om du använder enbart (till exempel när frågesträngen är tom där `search=*`), filtervillkoren är den enda inmatningen. 
+Filtrering utförs på tillsammans med sökning, kvalificera dig för vilka dokument som ska ingå i bearbetningen nedströms för dokumentet hämtning och relevans bedömning. Tillsammans med en söksträng, minskar filtret effektivt återkallande uppsättning senare sökåtgärden. Om du använder enbart (till exempel när frågesträngen är tom där `search=*`), filtervillkoren är den enda inmatningen. 
 
-## <a name="filter-definition"></a>Filterdefinitionen
+## <a name="defining-filters"></a>Definiera filter
 
 Filter är OData-uttryck har uppvisat med hjälp av en [delmängd av OData V4-syntaxen stöds i Azure Search](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search). 
 
-Du kan ange ett filter för varje **search** igen, men själva filtret kan innehålla flera fält, flera villkor och om du använder en **ismatch** funktion, flera uttryck. Du kan ange predikat i valfri ordning i ett filteruttryck i flera delar. Det finns någon märkbar fördel prestanda om du försöker ändra predikat i en viss sekvens.
+Du kan ange ett filter för varje **search** igen, men själva filtret kan innehålla flera fält, flera villkor och om du använder en **ismatch** funktion, flera uttryck i fulltextsökning. Du kan ange predikat i valfri ordning (beroende på regler för operatorer) i ett filteruttryck i flera delar. Det finns någon märkbar fördel prestanda om du försöker ändra predikat i en viss sekvens.
 
-Hård gräns på ett filteruttryck är den maximala gränsen på begäran. Hela begäran, inklusive filter, kan vara högst 16 MB för INLÄGG eller 8 KB för GET. Mjuka gränser stämmer med antalet satser i filteruttrycket. En bra tumregel är att om du har hundratals satser du riskerar körs till gränsen. Vi rekommenderar att du designa programmet så att den inte genererar filter med obegränsad storlek.
+En av begränsningar i ett filteruttryck är den maximala storleksgränsen för begäran. Hela begäran, inklusive filter, kan vara högst 16 MB för INLÄGG eller 8 KB för GET. Det finns också en gräns för antalet satser i filteruttrycket. En bra tumregel är att om du har hundratals satser du riskerar körs till gränsen. Vi rekommenderar att du designa programmet så att den inte genererar filter med obegränsad storlek.
 
 I följande exempel representerar prototypical filterdefinitioner i flera API: er.
 
@@ -75,7 +75,7 @@ I följande exempel representerar prototypical filterdefinitioner i flera API: e
 # Option 1:  Use $filter for GET
 GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$filter=baseRate lt 150&$select=hotelId,description&api-version=2019-05-06
 
-# Option 2: Use filter for POST and pass it in the header
+# Option 2: Use filter for POST and pass it in the request body
 POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2019-05-06
 {
     "search": "*",
@@ -92,25 +92,26 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
             Select = new[] { "hotelId", "description" }
         };
 
+    var results = searchIndexClient.Documents.Search("*", parameters);
 ```
 
-## <a name="filter-design-patterns"></a>Filtrera designmönster
+## <a name="filter-usage-patterns"></a>Filtrera användningsmönster
 
-I följande exempel visas flera designmönster för filter scenarier. Fler idéer finns [OData-uttryckssyntax > exempel](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples).
+I följande exempel visas flera användningsmönster för filter scenarier. Fler idéer finns [OData-uttryckssyntax > exempel](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples).
 
-+ Fristående **$filter**, utan en frågesträng, användbart när filteruttrycket kan att kvalificera dokument av intresse. Utan en frågesträng finns det inga lexikal eller språklig analys, ingen bedömning och inga rangordning. Observera att strängen är tom.
++ Fristående **$filter**, utan en frågesträng, användbart när filteruttrycket kan att kvalificera dokument av intresse. Utan en frågesträng finns det inga lexikal eller språklig analys, ingen bedömning och inga rangordning. Observera att strängen är bara en asterisk, vilket innebär att ”matcha alla dokument”.
 
    ```
    search=*&$filter=(baseRate ge 60 and baseRate lt 300) and accommodation eq 'Hotel' and city eq 'Nogales'
    ```
 
-+ Kombinationen av frågesträngen och **$filter**, där filtret skapar delmängden och frågesträngen innehåller termen indata för fulltextsökning över filtrerade delmängd. Med hjälp av ett filter med en frågesträng är det vanligaste kod-mönstret.
++ Kombinationen av frågesträngen och **$filter**, där filtret skapar delmängden och frågesträngen innehåller termen indata för fulltextsökning över filtrerade delmängd. Använda ett filter med en frågesträng är det vanligaste användningsmönstret.
 
    ```
    search=hotels ocean$filter=(baseRate ge 60 and baseRate lt 300) and city eq 'Los Angeles'
    ```
 
-+ Sammansatt frågor, avgränsade med ”eller”, var och en med sin egen villkor (till exempel ”beagles” i ”hund”) eller ”siamese” i ”kategori”. ELLER hade uttryck utvärderas individuellt, med svar från var och en kombinerade till ett svar som skickas tillbaka till det anropande programmet. Det här designmönstret uppnås via search.ismatch-funktion. Du kan använda icke-bedömning-versionen (search.ismatch) eller bedömnings-versionen (search.ismatchscoring).
++ Sammansatt frågor, avgränsade med ”eller”, var och en med sin egen villkor (till exempel ”beagles” i ”hund”) eller ”siamese” i ”kategori”. Uttryck i kombination med `or` utvärderas individuellt med summan av dokument som matchar varje uttryck som skickas tillbaka i svaret. Det här användningsmönstret uppnås via den `search.ismatchscoring` funktion. Du kan också använda icke-bedömning-version `search.ismatch`.
 
    ```
    # Match on hostels rated higher than 4 OR 5-star motels.
@@ -120,6 +121,14 @@ I följande exempel visas flera designmönster för filter scenarier. Fler idée
    $filter=search.ismatchscoring('luxury | high-end', 'description') or category eq 'Luxury'
    ```
 
+  Det är också möjligt att kombinera fulltextsökning via `search.ismatchscoring` med filter med `and` i stället för `or`, men detta har samma funktioner med hjälp av den `search` och `$filter` parametrar i en sökbegäran. Till exempel ger följande två frågor samma resultat:
+
+  ```
+  $filter=search.ismatchscoring('pool') and rating ge 4
+
+  search=pool&$filter=rating ge 4
+  ```
+
 Följ upp med de här artiklarna för heltäckande vägledning på specifika användningsfall:
 
 + [Facet-filter](search-filters-facets.md)
@@ -128,36 +137,32 @@ Följ upp med de här artiklarna för heltäckande vägledning på specifika anv
 
 ## <a name="field-requirements-for-filtering"></a>Krav för fältet för filtrering
 
-I REST API, Filtrerbart är *på* som standard. Filtrerbara fält öka indexstorleken på; Se till att ange `filterable=FALSE` för fält som du inte planerar att använda i ett filter. Läs mer om inställningar för fältdefinitioner [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index).
+I REST API, Filtrerbart är *på* som standard för enkel fält. Filtrerbara fält öka indexstorleken på; Se till att ange `"filterable": false` för fält som du inte planerar att använda i ett filter. Läs mer om inställningar för fältdefinitioner [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
-I .NET-SDK på filtrerbara är *av* som standard. API för att ställa in egenskapen filtrerbara är [IsFilterable](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.isfilterableattribute). I exemplet nedan dess uppsättning på fältdefinition BaseRate.
+I .NET-SDK på filtrerbara är *av* som standard. Du kan göra ett fält filtrerbara genom att ange den [IsFilterable egenskapen](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.isfilterable?view=azure-dotnet) av motsvarande [fältet](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field?view=azure-dotnet) objekt till `true`. Du kan också göra detta deklarativt med hjälp av den [IsFilterable attributet](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.isfilterableattribute). I exemplet nedan attributet är inställt på den `BaseRate` egenskapen för en modellklass som mappar till indexdefinitionen.
 
 ```csharp
     [IsFilterable, IsSortable, IsFacetable]
     public double? BaseRate { get; set; }
 ```
 
-### <a name="reindexing-requirements"></a>Omindexering krav
+### <a name="making-an-existing-field-filterable"></a>Gör ett befintligt fält filtrerbara
 
-Om ett fält är icke-filtrerbara och du vill göra det filtrerbara, måste du lägga till ett nytt fält eller återskapa det befintliga fältet. Ändra en fältdefinition ändrar den fysiska strukturen i indexet. I Azure Search indexeras alla kunna komma sökvägar för snabba frågor hastighet, vilket kräver återskapning av en av datastrukturerna när fältdefinitioner ändras. 
-
-Återskapa enskilda fält kan vara en låg inverkan åtgärd som kräver en sammanfogning som skickar befintliga dokumentnyckeln och associerade värden till indexet, lämna resten av varje dokument intakta. Om det uppstår ett återskapning krav, se [indexering åtgärder (ladda upp, sammanfoga, mergeOrUpload, ta bort)](search-what-is-data-import.md#indexing-actions) för en lista med alternativ.
-
+Du kan inte ändra befintliga fält så att de blir filtrerbara. I stället måste du lägga till ett nytt fält eller återskapa indexet. Mer information om när ett index eller sedan hämtar nytt fält finns i [återskapar ett Azure Search-index](search-howto-reindex.md).
 
 ## <a name="text-filter-fundamentals"></a>Grunderna i text-filter
 
-Textfilter är giltiga för strängfält som du vill att hämta vissa godtycklig samling av dokument baserat på värdena i search-index.
-
-För Textfilter som består av strängar, finns det ingen lexikal analys eller ordseparation, så jämförelserna gäller för exakta matchningar. Anta exempelvis att ett fält *f* innehåller ”solig dag” `$filter=f eq 'Sunny'`matchar inte, men `$filter=f eq 'Sunny day'` kommer. 
+Textfilter matcha strängfält mot literala strängar som du anger i filtret. Till skillnad från fulltextsökning finns det ingen lexikal analys eller radbrytningar för Textfilter, så jämförelserna gäller för exakta matchningar. Anta exempelvis att ett fält *f* innehåller ”solig dag” `$filter=f eq 'Sunny'` matchar inte, men `$filter=f eq 'sunny day'` kommer. 
 
 Språk-ID är skiftlägeskänsliga. Det finns inga lägre skiftläge alltid i övre ord: `$filter=f eq 'Sunny day'` kommer inte att hitta ”solig dag”.
 
+### <a name="approaches-for-filtering-on-text"></a>Metoder för att filtrera efter text
 
-| Metoden | Beskrivning | 
-|----------|-------------|
-| [search.in()](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | En funktion som tillhandahåller kommaavgränsad lista med strängar för ett visst fält. Strängarna utgör filtervillkoren som används på varje fält i omfånget för frågan. <br/><br/>`search.in(f, ‘a, b, c’)` semantiskt motsvarar `f eq ‘a’ or f eq ‘b’ or f eq ‘c’`, förutom att det körs mycket snabbare när listan över värden är stor.<br/><br/>Vi rekommenderar den **search.in** fungerar för [säkerhetsfilter](search-security-trimming-for-azure-search.md) och för eventuella filter som består av rå text som ska matchas på värden i ett visst fält. Den här metoden är utformat för hastighet. Du kan förvänta dig subsecond svarstiden för hundratusentals värden. Även om det finns ingen explicit gräns för hur många objekt som du kan skicka till funktionen, ökar svarstiden i proportion till antalet strängar som du anger. | 
-| [search.ismatch()](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | En funktion som gör att du kan blanda fulltextsökning åtgärder med strikt booleska åtgärder i samma filteruttrycket. Det gör att flera kombinationer av fråga filter i en begäran. Du kan också använda den för en *innehåller* och filtrerar på en partiell sträng i en större sträng. |  
-| [$filter = fältet operatorsträng](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | Ett uttryck för användardefinierade består av fält, operatorer och värden. | 
+| Metoden | Beskrivning | När du ska använda detta | 
+|----------|-------------|-------------|
+| [search.in](query-odata-filter-orderby-syntax.md) | En funktion som matchar ett fält mot en avgränsad lista med strängar. | Rekommenderas för [säkerhetsfilter](search-security-trimming-for-azure-search.md) och eventuella filter som där många rå text-värden måste matchas med ett strängfält. Den **search.in** funktionen är avsedd för hastighet och är mycket snabbare än att uttryckligen jämföra fältet mot varje sträng med hjälp av `eq` och `or`. | 
+| [search.ismatch](query-odata-filter-orderby-syntax.md) | En funktion som gör att du kan blanda fulltextsökning åtgärder med strikt booleska åtgärder i samma filteruttrycket. | Använd **search.ismatch** (eller motsvarande bedömnings, **search.ismatchscoring**) när du vill att flera kombinationer av Sök-filter i en begäran. Du kan också använda den för en *innehåller* och filtrerar på en partiell sträng i en större sträng. |
+| [$filter = fältet operatorsträng](query-odata-filter-orderby-syntax.md) | Ett uttryck för användardefinierade består av fält, operatorer och värden. | Använd det här alternativet när du vill hitta exakta matchningar mellan ett strängfält och ett strängvärde. |
 
 ## <a name="numeric-filter-fundamentals"></a>Numeriska filter grunderna
 

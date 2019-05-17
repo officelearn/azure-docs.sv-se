@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 262ccc311b2b7ec634183eb4f914902048ba2c3b
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.openlocfilehash: 74c24e05d974c4b3bb15a242185b645231f74580
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64872046"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792784"
 ---
 # <a name="azure-storage-security-overview"></a>Säkerhetsöversikt för Azure Storage
 
@@ -34,7 +34,7 @@ Den här artikeln innehåller en översikt över säkerheten i Azure-funktioner 
 
 Mer detaljerad information om säkerhet i Azure Storage, finns det [säkerhetsguiden för Azure Storage](../storage/common/storage-security-guide.md). Den här guiden innehåller en djupdykning i säkerhetsfunktionerna i Azure Storage. Dessa funktioner innefattar lagringskontonycklar, datakryptering vid överföring och på rest- och storage analytics.
 
-## <a name="role-based-access-control"></a>Rollbaserad Access Control
+## <a name="role-based-access-control"></a>Rollbaserad åtkomstkontroll
 
 Du kan skydda ditt lagringskonto med hjälp av rollbaserad åtkomstkontroll. Begränsa åtkomst baserat på den [behöver veta](https://en.wikipedia.org/wiki/Need_to_know) och [lägsta behörighet](https://en.wikipedia.org/wiki/Principle_of_least_privilege) säkerhetsprinciper är mycket viktigt för organisationer som vill tillämpa säkerhetsprinciper för dataåtkomst. Dessa behörigheter beviljas genom att tilldela lämpliga RBAC-roll till grupper och program för ett visst omfång. Du kan använda [inbyggda RBAC-roller](../role-based-access-control/built-in-roles.md), till exempel Lagringskontodeltagare att tilldela behörigheter till användare.
 
@@ -51,7 +51,7 @@ Signaturen för delad åtkomst är en URI som omfattar all information som behö
 Läs mer:
 
 * [Förstå SAS-modellen](../storage/common/storage-dotnet-shared-access-signature-part-1.md)
-* [Skapa och använda en SAS med Blob storage](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md)
+* [Skapa och använda en SAS med Blob storage](../storage/common/storage-dotnet-shared-access-signature-part-1.md)
 
 ## <a name="encryption-in-transit"></a>Kryptering under överföring
 
@@ -85,7 +85,7 @@ Azure Disk Encryption för virtuella datorer hjälper dig att uppfylla organisat
 
 Diskkryptering för virtuella datorer fungerar för Linux och Windows-operativsystem. Key Vault används också för att skydda, hantera och granska användning av diskkrypteringsnycklar. Alla data på dina VM-diskar krypteras i viloläge med hjälp av branschstandard krypteringsteknik på dina Azure storage-konton. Disk Encryption-lösningen för Windows är baserad på [Microsoft BitLocker-diskkryptering](https://technet.microsoft.com/library/cc732774.aspx), och Linux-lösningen baseras på [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt).
 
-Läs mer
+Lär dig mer
 
 * [Azure Disk Encryption för Windows och Linux IaaS-datorer](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0)
 
@@ -109,7 +109,7 @@ Läs mer:
 * [Azure Data Box Edge](../databox-online/data-box-edge-overview.md)
 * [Azure Data Box Gateway](..//databox-online/data-box-gateway-overview.md)
 
-## <a name="advanced-threat-protection"></a>Advanced Threat Protection
+## <a name="advanced-threat-protection"></a>Avancerat skydd
 
 Azure Storage tillhandahåller Avancerat skydd för ett extra lager säkerhetsintelligens som identifierar onormala och potentiellt skadliga försök att komma åt eller utnyttja ditt storage-konto. Advanced Threat Protection övervakar diagnostikloggar för Azure Storage för misstänkt Läs, skriva eller ta bort begäranden till bloblagring.
 
@@ -123,6 +123,6 @@ Läs mer:
 
 Azure Disk Encryption används [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) för att styra och hantera diskkrypteringsnycklarna och hemligheter i key vault-prenumeration. Det innebär också att alla data på diskar i virtuella datorer krypteras i vila i Azure Storage. Du bör använda Key Vault för att granska nycklar och användning av principen.
 
-Läs mer
+Lär dig mer
 
 * [Vad är Azure Key Vault?](../key-vault/key-vault-overview.md)

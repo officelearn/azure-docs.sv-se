@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 4a4677b5db730001df75d201d8e6d3149cb928e6
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 0418d325f3b3719549181a48fc0432a677f695d5
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65409852"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65795892"
 ---
 # <a name="azure-operational-security-best-practices"></a>Metodtips för Azure driftsäkerhet
 Den här artikeln innehåller en uppsättning Metodtips för fortlöpande för att skydda dina data, program och andra resurser i Azure.
@@ -153,7 +153,7 @@ Du kan använda [Azure Resource Manager](https://azure.microsoft.com/documentati
 **Information om**: [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/index?azure-devops) är en lösning för att automatisera distribution av flera steg och hantera lanseringsprocessen. Skapa hanterade kontinuerlig distribution pipelines Frigör snabbt, enkelt och ofta. Med Azure Pipelines, kan du automatisera din lanseringsprocessen och du kan ha fördefinierade godkännandearbetsflöden. Distribuera lokalt till molnet, utöka och anpassa efter behov.
 
 **Bästa praxis**: Kontrollera din Apps prestanda innan du startar den eller distribuera uppdateringar till produktion.  
-**Information om**: Kör molnbaserade [belastningstester](https://docs.microsoft.com/azure/devops/test/load-test/overview.md?view=azure-devops#alternatives) till:
+**Information om**: Kör molnbaserade [belastningstester](/azure/devops/test/load-test/overview#alternatives) till:
 
 - Hitta prestandaproblem i din app.
 - Förbättra kvaliteten i distributionen.

@@ -3,8 +3,8 @@ title: Återaktivera inaktiverade namnområden som Azure Access Control Service 
 description: Lär dig hur du hittar och aktivera dina Azure Access Control Service (ACS)-namnområden och begära en förlängning så att de aktiverade tills 4 februari 2019.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/21/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: jlu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 534c0463cd8aee9fccfa183586b946032dada722
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6fe1517cce8a1f9b1024085340ffb927b282f0fb
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60299726"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540287"
 ---
 # <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>Anvisningar: Återaktivera inaktiverade Access Control Service-namnområden
 
@@ -93,7 +93,7 @@ Ytterligare tillägg kommer inte längre att godkännas automatiskt. Om du behö
 1. Logga in på Azure-portalen och skapa en [ny supportbegäran](https://portal.azure.com/#create/Microsoft.Support).
 1. Fyll i formuläret för begäran av nytt stöd som du ser i följande exempel.
 
-    | Stöd för begäran fält | Värde |
+    | Stöd för begäran fält | Value |
     |-----------------------|--------------------|
     | **Typ av problem** | `Technical` |
     | **Prenumeration** | Ställ in till din prenumeration |

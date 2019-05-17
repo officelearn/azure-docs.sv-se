@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: cfe9b469cfac848c9e57f1fc10193208722be109
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: dcab4d24ca948980f28483fd09f29588e0329b63
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64935710"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800975"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Spårning av kundanvändning för Azure-partner
 
@@ -245,9 +245,9 @@ foreach ($deployment in $deployments){
 }
 ```
 
-## <a name="report"></a>Rapport
+## <a name="report"></a>Rapportera
 
-Du hittar i rapporten för kundens användning attribution på Partner Center analysera instrumentpanelen. ([https://partner.microsoft.com/en-us/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)).
+Du hittar i rapporten för kundens användning attribution på Partner Center analysera instrumentpanelen. ([https://partner.microsoft.com/en-us/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)). Du måste använda din Partner Center-autentiseringsuppgifter för att logga in om du vill se rapporten. Om du får problem med rapporten eller logga in, kan du skapa en supportbegäran som följa anvisningarna i avsnittet få stöd för.
 
 Välj spåras mall i den nedrullningsbara listan med Partner associationstypen vill visa rapporten.
 
@@ -266,6 +266,10 @@ När du distribuerar den här mallen kan Microsoft kan identifiera installatione
 När du distribuerar \<PARTNER > programvara, Microsoft kan identifiera installationen av \<PARTNER > programvara med Azure-resurser som har distribuerats. Microsoft kan kombinera Azure-resurser som används för att stödja programvaran. Microsoft samlar in den här informationen för att tillhandahålla de bästa upplevelserna med sina produkter och att driva sin verksamhet. Data samlas in och styrs av Microsofts sekretessprinciper, som finns på https://www.microsoft.com/trustcenter.
 
 ## <a name="get-support"></a>Få support
+
+Om du får problem med rapporten eller logga in på Partner Center skapa en supportförfrågan med Partner Center supportteamet här: [https://partner.microsoft.com/en-US/support](https://partner.microsoft.com/support)
+
+![](./media/marketplace-publishers-guide/partner-center-log-in-support.png)
 
 Följ dessa steg om du behöver hjälp för Marketplace Onboarding och/eller attribution för användning av kunden.
 
@@ -312,7 +316,7 @@ Visa instruktioner med skärmdumpar på [ https://aka.ms/TechConsultInstructions
 
 Du kommer att kontaktas av en Microsoft-Partner teknisk konsult för att ställa in ett anrop till omfång för dina behov.
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor
 
 **Vad är fördelen med att lägga till GUID för mallen?**
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 0fe1de9bb674c66d1b665de25ee579bc86e42c75
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 4063e79a9415ac35b09cc77d0110c04e191b49c7
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192372"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546707"
 ---
 Delade bildgalleriet är en tjänst som hjälper dig att skapa struktur och organisation runt dina anpassade hanterade VM-avbildningar. Delade Image Galleries innehåller:
 
@@ -49,11 +49,11 @@ Definitionerna för avbildning är en logisk gruppering för versioner av en avb
 
 Det finns tre parametrar för varje avbildningsdefinitionen som används i kombination - **Publisher**, **erbjuder** och **SKU**. De används för att hitta en viss avbildning definition. Du kan ha bild-versioner som delar en eller två, men inte alla tre värden.  Här är till exempel tre definitioner som avbildning och deras värden:
 
-|Bilddefinition|Utgivare|Erbjudande|Sku|
+|Bilddefinition|Utgivare|Erbjudande|SKU|
 |---|---|---|---|
-|myImage1|Contoso|Ekonomi|Serverdel|
-|myImage2|Contoso|Ekonomi|Klientdel|
-|myImage3|Testning|Ekonomi|Klientdel|
+|myImage1|Contoso|Finans|Serverdel|
+|myImage2|Contoso|Finans|Klientdel|
+|myImage3|Testning|Finans|Klientdel|
 
 Alla tre av dessa ha unika värden. Formatet är liknar hur du kan för närvarande ange utgivare, erbjudande och SKU för [Azure Marketplace-avbildningar](../articles/virtual-machines/windows/cli-ps-findimage.md) i Azure PowerShell för att hämta den senaste versionen av en Marketplace-avbildning. Varje avbildningsdefinitionen måste ha en unik uppsättning dessa värden.
 
@@ -77,15 +77,15 @@ Regioner visas i tabellen nedan. Alla offentliga regioner kan vara målregioner,
 
 | Regioner |
 |---------------------|-----------------|------------------|-----------------|
-| Australien, centrala   | USA, centrala – EUAP | Sydkorea, centrala    | Storbritannien, södra 2      |
-| Australien, centrala 2 | Östasien       | Sydkorea, södra      | Storbritannien, västra         |
-| Östra Australien      | Östra USA         | Norra centrala USA | Västra centrala USA |
-| Sydöstra Australien | USA, östra 2       | Norra Europa     | Västra Europa     |
-| Södra Brasilien        | USA, östra 2 – EUAP  | Södra centrala USA | Indien, västra      |
-| Centrala Kanada      | Frankrike, centrala  | Södra Indien      | Västra USA         |
-| Östra Kanada         | Frankrike, södra    | Sydostasien   | Västra USA         |
-| Indien, centrala       | Östra Japan      | Storbritannien, norra         | Västra USA 2       |
-| Centrala USA          | Västra Japan      | Storbritannien, södra         |                 |
+| Australien, centrala   | USA, centrala – EUAP | Sydkorea, centrala    | Södra Storbritannien 2      |
+| Australien, centrala 2 | Asien, östra       | Sydkorea, södra      | Västra Storbritannien         |
+| Australien, östra      | Östra USA         | USA, norra centrala | USA, västra centrala  |
+| Australien, sydöstra | USA, östra 2       | Europa, norra     | Europa, västra     |
+| Brasilien, södra        | USA, östra 2 – EUAP  | USA, södra centrala | Indien, västra      |
+| Kanada, centrala      | Centrala Frankrike  | Indien, södra      | USA, västra         |
+| Kanada, östra         | Frankrike, södra    | Sydostasien   | USA, västra         |
+| Indien, centrala       | Japan, östra      | Norra Storbritannien         | USA, västra 2       |
+| Centrala USA          | Japan, västra      | Södra Storbritannien         |                 |
 
 
 
@@ -113,13 +113,13 @@ De regioner som en delad Avbildningsversion replikeras till kan uppdateras efter
 ![Bild som visar hur du kan replikera avbildningar](./media/shared-image-galleries/replication.png)
 
 
-## <a name="access"></a>Access
+## <a name="access"></a>Åtkomst
 
 Eftersom bildgalleriet för delade, delade avbildningen och delade Avbildningsversion alla resurser, kan de delas med hjälp av den inbyggda interna Azure RBAC styr. Med RBAC kan du dela dessa resurser till andra användare, tjänstens huvudnamn och grupper. Du kan också dela åtkomst till personer utanför den klient som de skapades i. När en användare har åtkomst till delade avbildningsversionen, kan de distribuera en virtuell dator eller en Virtual Machine Scale Sets.  Här är delningsapplikationen matrisen som hjälper dig att förstå vad användaren får åtkomst till:
 
-| Delade med användaren     | Delat bildgalleri | Delade bild | Delade Avbildningsversion |
+| Delade med användaren     | Delat avbildningsgalleri | Delade bild | Delade Avbildningsversion |
 |----------------------|----------------------|--------------|----------------------|
-| Delat bildgalleri | Ja                  | Ja          | Ja                  |
+| Delat avbildningsgalleri | Ja                  | Ja          | Ja                  |
 | Delade bild         | Nej                   | Ja          | Ja                  |
 | Delade Avbildningsversion | Nej                   | Nej           | Ja                  |
 
@@ -266,4 +266,4 @@ Om du vill ange vanliga replikantalet i CLI använder den **--replikantal** argu
 
 **F.** Vilka API-version ska jag använda för att skapa delade bildgalleriet, Avbildningsdefinitionen, versionsnumret för avbildningen och VM/VMSS utanför versionsnumret för avbildningen?
 
- A. För virtuell dator och Virtual Machine Scale Sets distributioner som använder en Avbildningsversion av, rekommenderar vi du använder API-versionen 2018-04-01 eller högre. Om du vill arbeta med delade bildgallerier, bild-definitioner och avbildningsversioner, rekommenderar vi att du använder API-versionen 2018-06-01. 
+ A. För virtuell dator och Virtual Machine Scale Sets distributioner som använder en Avbildningsversion av, rekommenderar vi du använder API-versionen 2018-04-01 eller högre. Om du vill arbeta med delade bildgallerier, bild-definitioner och avbildningsversioner, rekommenderar vi att du använder API-versionen 2018-06-01. Zonredundant lagring (ZRS) kräver version 2019-03-01 eller senare.

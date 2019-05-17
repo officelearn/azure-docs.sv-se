@@ -3,19 +3,19 @@ title: 'Snabbstart: Sök efter videor med SDK för videosökning i Bing för C#'
 titleSuffix: Azure Cognitive Services
 description: Använd den här snabbstarten för att skicka videosökningsbegäranden med SDK för videosökning i Bing för C#.
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 01/31/2019
-ms.author: rosh
-ms.openlocfilehash: f94db7a29827a80307f4a081d93744c5edc59edb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: aahi
+ms.openlocfilehash: e10d9088f6de3b7a3a638cdbe18f51425d206b7b
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61473288"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65798171"
 ---
 # <a name="quickstart-perform-a-video-search-with-the-bing-video-search-sdk-for-c"></a>Snabbstart: Utför en videosökning med SDK för videosökning i Bing för C#
 
@@ -23,10 +23,10 @@ Använd den här snabbstarten om du vill börja söka efter nyheter med SDK för
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-* Valfri version av [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/).
+* En utgåva av [Visual Studio 2017 eller senare](https://visualstudio.microsoft.com/downloads/).
 * Json.NET framework, tillgänglig som ett [NuGet-paket](https://www.nuget.org/packages/Newtonsoft.Json/).
 
-Om du vill lägga till SDK för videosökning i Bing i ditt projekt bläddrar du till alternativet `Manage NuGet Packages` från Solution Explorer i Visual Studio.  Lägg till paketet `Microsoft.Azure.CognitiveServices.Search.VideoSearch`.
+Om du vill lägga till Search SDK för Bing-Video i projektet, Välj **hantera NuGet-paket** från **Solution Explorer** i Visual Studio. Lägg till paketet `Microsoft.Azure.CognitiveServices.Search.VideoSearch`.
 
 När du installerar [[SDK-paketet för NuGet-videosökning]](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.VideoSearch/1.2.0) installeras även följande beroenden:
 

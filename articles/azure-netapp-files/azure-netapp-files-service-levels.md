@@ -12,27 +12,50 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/14/2019
+ms.date: 04/22/2019
 ms.author: b-juche
-ms.openlocfilehash: c2086eb0c5529d8e570a545e35fc716f70c7541f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1f9c427045c9d42f6a11cc4bcc798cfc47a4428c
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60691061"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523109"
 ---
 # <a name="service-levels-for-azure-netapp-files"></a>Tjänstnivåer för Azure NetApp Files
-Azure NetApp-filer stöder två tjänstnivåer: Premium och Standard. 
+Servicenivåer är ett attribut för en pool kapacitet. Servicenivåer definieras och differentierade av tillåtna maximalt dataflöde för en volym i kapacitet poolen baserat på den kvot som har tilldelats till volymen.
 
-## <a name="Premium"></a>Premium-lagring
+## <a name="supported-service-levels"></a>Stöds servicenivåer
 
-Den *Premium* storage tillhandahåller upp till 64 MiB/s per TiB dataflöde. Dataflödesprestanda indexeras mot kvot för samtalsvolym. En volym från Premium-lagring med 2 TiB etablerade kvot (oavsett faktisk förbrukning) har exempelvis ett dataflöde på 128 MiB/s.
+Azure NetApp-filer stöder tre tjänstnivåer: *Ultra*, *Premium*, och *Standard*. 
 
-## <a name="Standard"></a>Standardlagring
+* <a name="Ultra"></a>Ultra lagring
 
-Den *Standard* storage tillhandahåller upp till 16 MiB/s per TiB dataflöde. Dataflödesprestanda indexeras mot kvot för samtalsvolym. En volym från standardlagring med 2 TiB etablerade kvot (oavsett faktisk förbrukning) har exempelvis ett dataflöde på 32 MiB/s.
+    Ultra lagringsnivå tillhandahåller upp till 128 MiB/s genomströmning per 1 TiB tilldelad kvot för samtalsvolym. 
+
+* <a name="Premium"></a>Premium-lagring
+
+    Premium storage-nivå ger upp till 64 MiB/s genomströmning per 1 TiB tilldelad kvot för samtalsvolym. 
+
+* <a name="Standard"></a>Standardlagring
+
+    Standard storage-nivån ger upp till 16 MiB/s genomströmning per 1 TiB tilldelad kvot för samtalsvolym.
+
+## <a name="throughput-limits"></a>Dataflödesbegränsningar
+
+Dataflödesgräns för en volym bestäms av kombinationen av följande faktorer:
+* Servicenivå på poolen kapacitet som volymen tillhör
+* Kvoten för volymen  
+
+Detta begrepp visas i diagrammet nedan:
+
+![Service på bild](../media/azure-netapp-files/azure-netapp-files-service-levels.png)
+
+I ovanstående exempel 1, en volym från en kapacitet pool med Premium storage-nivå som är tilldelad 2 TiB kvot kommer att tilldelas ett dataflöde på högst 128 MiB/s (2 TiB * 64 MiB/s). Det här scenariot gäller oavsett poolstorlek kapacitet eller faktiska förbrukningen.
+
+I ovanstående exempel 2, kommer en volym från en kapacitet pool med Premium storage-nivå som är tilldelad kvot 100 GiB tilldelas en dataflödesgräns på 6.25 MiB/s (0.09765625 TiB * 64 MiB/s). Det här scenariot gäller oavsett poolstorlek kapacitet eller faktiska förbrukningen.
 
 ## <a name="next-steps"></a>Nästa steg
 
 - Priserna för olika tjänstnivåer finns på [prissättningssidan för Azure NetApp Files](https://azure.microsoft.com/pricing/details/storage/netapp/)
+- Se [kostnadsmodell för Azure NetApp Files](azure-netapp-files-cost-model.md) för beräkning av användningen av kapacitet i poolen kapacitet 
 - [Konfigurera en kapacitetspool](azure-netapp-files-set-up-capacity-pool.md)

@@ -3,18 +3,18 @@ title: Bing Search API-referens lokala företag v7 | Microsoft Docs
 description: Beskriver programmering elementen i den lokala företag i Bing.
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: mikedodaro
-manager: rosh
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: c3628670d2393d7b6921c60317719ccf8e72a451
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 82b2f5ca70927856aeac889675b5ec4a54ae034f
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64866351"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796750"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Lokala företag i Bing v7-referens
 
@@ -46,10 +46,10 @@ Begäran måste använda HTTPS-protokollet.
 > Maximal URL-längd är 2 048 tecken. För att säkerställa att din URL-längd inte överskrider gränsen, ska den maximala längden på dina frågeparametrar vara mindre än 1 500 tecken. Om URL: en överskrider 2 048 tecken, returnerar servern 404 hittades inte.  
   
   
-## <a name="headers"></a>Rubriker  
+## <a name="headers"></a>Huvuden  
 Följande är de rubriker som en begäran och svaret kan innehålla.  
   
-|Huvud|Beskrivning|  
+|Sidhuvud|Beskrivning|  
 |------------|-----------------|  
 |Godkänn|Valfritt begärandehuvud.<br /><br /> Typ av media är application/json. Ange att svaret använda [JSON-LD](https://json-ld.org/), inställd program/ld + json Accept-huvud.|  
 |<a name="acceptlanguage" />Accept-Language|Valfritt begärandehuvud.<br /><br /> En kommaavgränsad lista över språk som ska användas för användargränssnittssträngar. Listan är i fallande prioritetsordning. Mer information, bland annat om det förväntade formatet, finns i [RFC2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).<br /><br /> Det är huvudet och [setLang](#setlang)-frågeparametern utesluter varandra&mdash;ange inte båda två.<br /><br /> Om du ställer in den här rubriken, måste du även ange Frågeparametern kopia. För att fastställa vilken marknad som resultat ska returneras för använder Bing det första språk som stöds på listan och kombinerar det med parametervärdet `cc`. Om listan inte innehåller något språk som stöds hittar Bing det närmaste språket och marknaden som har stöd för begäran, eller så använder Bing en aggregerad eller standardmarknad för resultatet. För att avgöra vilken marknad som används i Bing kan du gå till BingAPIs-Market-huvudet.<br /><br /> Använd enbart det här huvudet och `cc`-frågeparametern om du anger flera språk. Annars kan du använda frågeparametrarna [mkt](#mkt) och [setLang](#setlang).<br /><br /> En användargränssnittssträng är en sträng som används som en etikett i ett användargränssnitt. Det finns några användargränssnittssträngar i JSON-svarsobjekt. Alla länkar till Bing.com-egenskaper i svarsobjekten använder det angivna språket.|  
@@ -70,7 +70,7 @@ Följande är de rubriker som en begäran och svaret kan innehålla.
 Begäran kan innehålla följande Frågeparametrar. Se kolumnen krävs för obligatoriska parametrar. Du måste URL: en koda Frågeparametrar.  
   
   
-|Namn|Värde|Typ|Krävs|  
+|Namn|Value|Type|Obligatoriskt|  
 |----------|-----------|----------|--------------|
 |<a name="count" />Antal|Antalet resultat som ska returneras från och med indexet anges av den `offset` parametern.|String|Nej|   
 |<a name="localCategories" />localCategories|Lista med alternativ som definierar sökning efter kategori för företag.  Se [lokala företag kategorier Sök](local-categories.md)|String|Nej|  
@@ -94,7 +94,7 @@ Här följer några svar JSON-objekt som svaret kan innehålla. Om begäran lyck
 ### <a name="error"></a>Fel  
 Definierar de fel som inträffat.  
   
-|Element|Beskrivning|Typ|  
+|Element|Beskrivning|Type|  
 |-------------|-----------------|----------|  
 |<a name="error-code" />Kod|Felkoden som identifierar kategorin för fel. Läs en lista över möjliga koder [felkoder](#error-codes).|String|  
 |<a name="error-message" />meddelande|En beskrivning av felet.|String|  
@@ -107,26 +107,26 @@ Definierar de fel som inträffat.
 ### <a name="errorresponse"></a>ErrorResponse  
 Det översta objekt som svaret innehåller när begäran misslyckas.  
   
-|Namn|Värde|Typ|  
+|Namn|Value|Type|  
 |----------|-----------|----------|  
 |_typ|Typ-tipset.|String|  
 |<a name="errors" />Fel|En lista över fel som beskriver orsaker varför begäran misslyckades.|[Fel](#error)]|  
 
   
   
-### <a name="license"></a>Licens  
+### <a name="license"></a>Licensvillkor  
 Definierar den licens som text eller foto kan användas.  
   
-|Namn|Värde|Typ|  
+|Namn|Value|Type|  
 |----------|-----------|----------|  
 |namn|Namnet på licensen.|String|  
 |url|URL till en webbplats där användaren kan få mer information om licensen.<br /><br /> Använd namn och Webbadress för att skapa en hyperlänk.|String|  
 
 
-### <a name="link"></a>Länk  
+### <a name="link"></a>Länka  
 Definierar komponenterna i en hyperlänk.  
   
-|Namn|Värde|Typ|  
+|Namn|Value|Type|  
 |----------|-----------|----------|  
 |_typ|Typ-tipset.|String|  
 |text|Texten som visas.|String|  
@@ -140,7 +140,7 @@ Definierar en utgivare.
   
 Observera att en utgivare kan deras namn eller sin webbplats, eller bådadera.  
   
-|Namn|Värde|Typ|  
+|Namn|Value|Type|  
 |----------|-----------|----------|  
 |namn|Utgivarens namn.|String|  
 |url|URL till utgivarens webbplats.<br /><br /> Observera att utgivaren inte kan innehålla en webbplats.|String|  
@@ -150,7 +150,7 @@ Observera att en utgivare kan deras namn eller sin webbplats, eller bådadera.
 ### <a name="place"></a>Plats  
 Definierar information om en lokal företag, till exempel en restaurang eller hotell.  
   
-|Namn|Värde|Typ|  
+|Namn|Value|Type|  
 |----------|-----------|----------|  
 |_typ|Typ-tips som kan anges till något av följande:<br /><br /><ul><li>Hotell</li><li>LocalBusiness<br /></li><li>Restaurang</ul><li>|String|  
 |adress|Postadress av där enheten är belägen.|PostalAddress|  
@@ -164,7 +164,7 @@ Definierar information om en lokal företag, till exempel en restaurang eller ho
 ### <a name="querycontext"></a>QueryContext  
 Definierar frågekontexten som Bing används för begäran.  
   
-|Element|Beskrivning|Typ|  
+|Element|Beskrivning|Type|  
 |-------------|-----------------|----------|  
 |adultIntent|Ett booleskt värde som anger om den angivna frågan innehåller vuxna. Värdet är **SANT** om frågan har vuxna; annars **FALSKT**.|Boolean|  
 |alterationOverrideQuery|Frågesträngen du använder för att tvinga Bing för att använda den ursprungliga strängen. Om frågesträngen är till exempel *saling downwind*, frågesträng åsidosättning blir *+ saling downwind*. Kom ihåg att koda frågesträngen vilket resulterar i *% 2Bsaling + downwind*.<br /><br /> Det här fältet ingår endast om den ursprungliga frågesträngen innehåller en felstavning.|String|  
@@ -174,21 +174,21 @@ Definierar frågekontexten som Bing används för begäran.
 
 ### <a name="identifiable"></a>Identifierbar
 
-|Namn|Värde|Typ|  
+|Namn|Value|Type|  
 |-------------|-----------------|----------|
-|id|Resurs-ID|String|
+|ID|Resurs-ID|String|
  
 ### <a name="rankinggroup"></a>RankingGroup
 Definierar en sökresultat grupp, till exempel mainline.
 
-|Namn|Värde|Typ|  
+|Namn|Value|Type|  
 |-------------|-----------------|----------|
-|objekt|En lista över sökresultaten till att visa i gruppen.|RankingItem|
+|items|En lista över sökresultaten till att visa i gruppen.|RankingItem|
 
 ### <a name="rankingitem"></a>RankingItem
 Definierar ett objekt med Sök resultat att visa.
 
-|Namn|Värde|Typ|  
+|Namn|Value|Type|  
 |-------------|-----------------|----------|
 |resultIndex|Ett Nollbaserat index för objekt i svaret ska visas. Om objektet inte innehåller det här fältet kan du visa alla objekt i svaret. Till exempel visa alla artiklar i Nyheter svaret.|Integer|
 |answerType|Svaret som innehåller objekt att visa. Till exempel nyheter.<br /><br />Använd typen för att hitta svaret i SearchResponse-objektet. Typen är namnet på ett SearchResponse fält.<br /><br /> Dock använda svarstypen endast om det här objektet innehåller värdefältet. Annars kan du ignorera det.|String|
@@ -198,7 +198,7 @@ Definierar ett objekt med Sök resultat att visa.
 ### <a name="rankingresponse"></a>RankingResponse  
 Definierar där resultaten innehåll ska placeras på sökningen och i vilken ordning.  
   
-|Namn|Värde|  
+|Namn|Value|  
 |----------|-----------|  
 |<a name="ranking-mainline" />mainline|Sökresultaten ska visas i den likriktade.|  
 |<a name="ranking-pole" />pol|Sökresultat som ska ges mest synliga behandling (till exempel visas ovanför den likriktade och sidopanelen).|  
@@ -209,7 +209,7 @@ Definierar det översta objektet som svaret innehåller när begäran lyckas.
   
 Observera att om tjänsten misstänker ett DoS-angrepp, lyckas begäran (HTTP-statuskoden är 200 OK); brödtexten i svaret ska dock vara tom.  
   
-|Namn|Värde|Typ|  
+|Namn|Value|Type|  
 |----------|-----------|----------|  
 |_typ|Typ-tipset som har angetts till SearchResponse.|String|  
 |Platser|En lista över entiteter som är relevanta för sökfrågan.|JSON-objekt|  

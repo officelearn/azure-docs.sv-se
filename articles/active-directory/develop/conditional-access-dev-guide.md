@@ -3,9 +3,9 @@ title: Vägledning för utvecklare för villkorlig åtkomst i Azure Active Direc
 description: Vägledning för utvecklare och scenarier för villkorlig åtkomst i Azure AD
 services: active-directory
 keywords: ''
-author: CelesteDG
-manager: mtillman
-ms.author: celested
+author: rwike77
+manager: CelesteDG
+ms.author: ryanwi
 ms.reviewer: dadobali
 ms.date: 02/28/2019
 ms.service: active-directory
@@ -15,18 +15,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3346f7a5af2a22cb7b7ece312fc367a874095668
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 071acb5ae24cff3e07fe9d4a6d35cdc93348d60f
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60410764"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544558"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Vägledning för utvecklare för villkorlig åtkomst i Azure Active Directory
 
 Funktionen för villkorlig åtkomst i Azure Active Directory (Azure AD) erbjuder på flera olika sätt som du kan använda för att skydda din app och en tjänst. Villkorlig åtkomst gör det möjligt för utvecklare och enterprise-kunder för att skydda tjänster i en mängd olika sätt, t.ex.:
 
-* Multi-Factor Authentication
+* Multifaktorautentisering
 * Så att bara Intune-registrerade enheter att få åtkomst till specifika tjänster
 * Begränsa användarplatser och IP-intervall
 

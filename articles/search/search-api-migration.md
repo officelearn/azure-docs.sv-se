@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: brjohnst
-ms.openlocfilehash: 286d8bbc01b5916e842c196aed5a49ef1c76bc3c
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 85a8ddf4ce87d7ac8ce460c0aff56311a2ea4578
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025205"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540700"
 ---
 # <a name="upgrade-to-the-latest-azure-search-service-rest-api-version"></a>Uppgradera till den senaste versionen av Azure Search Service REST API
 Om du använder en tidigare version av den [Azure Search Service REST API](https://docs.microsoft.com/rest/api/searchservice/), den här artikeln hjälper dig att uppgradera programmet så att den senaste allmänt tillgängliga API-versionen 2019-05-06.
@@ -35,7 +35,7 @@ Version 2019-05-06 är den senaste allmänt tillgängliga versionen av Azure Sea
 
 * [JsonLines parsning lägen](search-howto-index-json-blobs.md)är en del av Azure Blob indexering, skapar ett Sök-dokument per JSON-entitet som avgränsas med en ny rad.
 
-* [Cognitive Search](cognitive-search-concept-intro.md) ger indexering som utnyttjar AI berikande motorerna i Cognitive Services.
+* [Kognitiv sökning](cognitive-search-concept-intro.md) ger indexering som utnyttjar AI berikande motorerna i Cognitive Services.
 
 Flera förhandsversioner funktionen sammanfalla med den här allmänt tillgängliga uppdateringen. Om du vill granska listan över nya funktioner i förhandsversion, se [Search REST api-versionen 2019-05-06-Preview](search-api-preview.md).
 
@@ -72,7 +72,9 @@ Om något av dessa fall gäller dig kan sedan du behöva ändras din kod. I anna
 
 Om du uppgraderar från en API-förhandsversion ovanstående gäller också, men du måste också vara medveten om att vissa funktioner i förhandsversion inte är tillgängliga i version 2019-05-06:
 
-* [”Mer som detta” frågor](search-more-like-this.md) fortsätter att vara en funktion som skrivskyddade.
+* [”Mer så här”-frågor](search-more-like-this.md)
+* [CSV-blob-indexering](search-howto-index-csv-blobs.md)
+* [MongoDB API-stöd för Cosmos DB-indexerare](search-howto-index-cosmosdb.md)
 
 Om din kod använder dessa funktioner kan du inte uppgradera till API-versionen 2019-05-06 utan att ta bort din användning av dem.
 

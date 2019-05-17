@@ -6,20 +6,20 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/27/2019
+ms.date: 05/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 43c072cb72935a80da0e48e6b8343f38ee08876b
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: c032dbc528ed5034280d0ecb4c95700b51869991
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023963"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65793627"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Implementera aspektbaserad navigering i Azure Search
 Aspektbaserad navigering är en filtreringsmekanism som tillhandahåller självriktad detaljgranska navigering i sökprogram. Termen ”aspektbaserad navigering” kan vara bekant, men du har förmodligen använt den tidigare. Som i följande exempel visas är aspektbaserad navigering helt enkelt de kategorier som används för att filtrera resultaten.
 
- ![Azure Search jobbet Portal Demo][1]
+ ![Azure Search jobbet Portal Demo](media/search-faceted-navigation/azure-search-faceting-example.png "Portal Demo för Azure Search-jobb")
 
 Aspektbaserad navigering är en annan startpunkt för att söka. Det är ett praktiskt alternativ till att skriva komplexa sökuttryck manuellt. Fasetter kan hjälpa dig att hitta det du letar efter, samtidigt som man säkerställer att du inte blir noll. Som utvecklare kan fasetter du exponera mest användbara sökvillkoren för att navigera ditt sökindex. I onlinebutiker program skapas aspektbaserad navigering ofta över varumärken, avdelningar (barnens skor), storlek, pris, popularitet och betyg. 
 
@@ -341,7 +341,7 @@ Om du vill ange pris fasetter i $10 steg om du anger: `&facet=price,interval:10`
 **Metod 2: Använd en värdelista**  
 Du kan använda en värdelista för numeriska data.  Överväg att aspekten intervallet för en `listPrice` fält, renderas på följande sätt:
 
-  ![Exemplet värdelistan][5]
+  ![Exemplet värdelistan](media/search-faceted-navigation/Facet-5-Prices.PNG "exempel värdelistan")
 
 Om du vill ange ett intervall för aspekten som i föregående skärmbild, använder du en värdelista:
 
@@ -352,7 +352,7 @@ Varje intervall skapas med hjälp av 0 som en startpunkt, ett värde i listan so
 ### <a name="build-a-filter-for-a-range"></a>Skapa ett filter för ett intervall
 Du kan använda för att filtrera dokument baserat på ett intervall som du väljer den `"ge"` och `"lt"` filtrera operatorer i ett tvådelat-uttryck som definierar slutpunkterna för intervallet. Exempel: Om du väljer intervallet 10-25 för en `listPrice` fältet, filtret är `$filter=listPrice ge 10 and listPrice lt 25`. I exempelkoden filteruttrycket använder **priceFrom** och **priceTo** parametrar för att konfigurera slutpunkter. 
 
-  ![Fråga för ett intervall med värden][6]
+  ![Fråga för ett intervall med värden](media/search-faceted-navigation/Facet-6-buildfilter.PNG "frågan för ett intervall med värden")
 
 <a name="geofacets"></a> 
 
@@ -385,57 +385,21 @@ Titta på URL: en för ändringar i frågekonstruktion när du arbetar med sökr
    
    En aspektbaserad navigeringsstruktur också returneras med sökresultaten. På sidan sökning resultatet innehåller aspektbaserad navigeringsstruktur antalet för varje aspekten resultat. Inga fasetter markeras, så alla matchande resultat returneras.
    
-   ![Sökresultaten innan du väljer fasetter][11]
+   ![Sökresultat innan du väljer fasetter](media/search-faceted-navigation/faceted-search-before-facets.png "sökresultat innan du väljer fasetter")
 
 4. Klicka på en rubrik för företag, plats eller minsta lön. Fasetter var null för den första sökningen, men precis de med värden, tas bort av objekt som inte längre matchar sökresultatet.
    
-   ![Sökresultat när du har valt fasetter][12]
+   ![Sökresultat när du har valt fasetter](media/search-faceted-navigation/faceted-search-after-facets.png "sökresultat när du har valt fasetter")
 
 5. Om du vill ta bort aspektbaserad frågan så att du kan prova olika fråga beteenden, klickar du på den `[X]` efter valda fasetterna att rensa fasetterna.
    
 <a name="nextstep"></a>
 
-## <a name="learn-more"></a>Läs mer
+## <a name="learn-more"></a>Lär dig mer
 Titta på [djupdykning i Azure Search](https://channel9.msdn.com/Events/TechEd/Europe/2014/DBI-B410). Vid 45:25 finns det en demo om hur du implementerar fasetter.
 
 För mer information om designprinciper för aspektbaserad navigering rekommenderar vi följande länkar:
 
-* [Designa för Aspektbaserad sökning](http://www.uie.com/articles/faceted_search/)
 * [Designmönster: Aspektbaserad navigering](https://alistapart.com/article/design-patterns-faceted-navigation)
-
-
-<!--Anchors-->
-[How to build it]: #howtobuildit
-[Build the presentation layer]: #presentationlayer
-[Build the index]: #buildindex
-[Check for data quality]: #checkdata
-[Build the query]: #buildquery
-[Tips on how to control faceted navigation]: #tips
-[Faceted navigation based on range values]: #rangefacets
-[Faceted navigation based on GeoPoints]: #geofacets
-[Try it out]: #tryitout
-
-<!--Image references-->
-[1]: ./media/search-faceted-navigation/azure-search-faceting-example.PNG
-[2]: ./media/search-faceted-navigation/Facet-2-CSHTML.PNG
-[3]: ./media/search-faceted-navigation/Facet-3-schema.PNG
-[4]: ./media/search-faceted-navigation/Facet-4-SearchMethod.PNG
-[5]: ./media/search-faceted-navigation/Facet-5-Prices.PNG
-[6]: ./media/search-faceted-navigation/Facet-6-buildfilter.PNG
-[7]: ./media/search-faceted-navigation/Facet-7-appstart.png
-[8]: ./media/search-faceted-navigation/Facet-8-appbike.png
-[9]: ./media/search-faceted-navigation/Facet-9-appbikefaceted.png
-[10]: ./media/search-faceted-navigation/Facet-10-appTitle.png
-[11]: ./media/search-faceted-navigation/faceted-search-before-facets.png
-[12]: ./media/search-faceted-navigation/faceted-search-after-facets.png
-
-<!--Link references-->
-[Designing for Faceted Search]: http://www.uie.com/articles/faceted_search/
-[Design Patterns: Faceted Navigation]: https://alistapart.com/article/design-patterns-faceted-navigation
-[Create your first application]: search-create-first-solution.md
-[OData expression syntax (Azure Search)]: https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search
-[Azure Search Adventure Works Demo]: https://azuresearchadventureworksdemo.codeplex.com/
-[https://www.odata.org/documentation/odata-version-2-0/overview/]: https://www.odata.org/documentation/odata-version-2-0/overview/ 
-[Faceting on Azure Search forum post]: ../faceting-on-azure-search.md?forum=azuresearch
-[Search Documents (Azure Search API)]: https://docs.microsoft.com/rest/api/searchservice/Search-Documents
+* [Klientdelen frågor när du implementerar Aspektbaserad sökning – del 1 ](https://articles.uie.com/faceted_search2/)
 

@@ -10,18 +10,18 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 1713a05590f389a6de70d72e8d62237c7521d808
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6e0342d876db424454526637322d67d55c0432a8
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60605118"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65797298"
 ---
 # <a name="translator-text-api-30-languages"></a>Translator Text API 3.0: Språk
 
 Hämtar antal språk som stöds för närvarande av andra åtgärder för Translator Text API. 
 
-## <a name="request-url"></a>URL för begäran
+## <a name="request-url"></a>Fråge-URL
 
 Skicka en `GET` begäran om att:
 ```HTTP
@@ -40,7 +40,7 @@ Parametrarna som skickades mot frågesträngen är:
     <td><em>Obligatoriska parametern</em>.<br/>Versionen av API: et som begärs av klienten. Värdet måste vara `3.0`.</td>
   </tr>
   <tr>
-    <td>omfång</td>
+    <td>scope</td>
     <td>*Valfri parameter*.<br/>En kommaavgränsad lista med namn som definierar gruppen med språk som ska returneras. Tillåtna namn är: `translation`, `transliteration` och `dictionary`. Om ingen omfattning ges så returneras alla grupper, vilket motsvarar skicka `scope=translation,transliteration,dictionary`. För att bestämma vilken uppsättning språk som stöds är lämpliga för ditt scenario, finns i beskrivningen av den [svarsobjekt](#response-body).</td>
   </tr>
 </table> 
@@ -48,7 +48,7 @@ Parametrarna som skickades mot frågesträngen är:
 Begärandehuvuden är:
 
 <table width="100%">
-  <th width="20%">Rubriker</th>
+  <th width="20%">Huvuden</th>
   <th>Beskrivning</th>
   <tr>
     <td>Accept-Language</td>
@@ -229,7 +229,7 @@ Listan över språk som stöds kommer inte ändras ofta. Spara nätverksbandbred
 ## <a name="response-headers"></a>Svarshuvud
 
 <table width="100%">
-  <th width="20%">Rubriker</th>
+  <th width="20%">Huvuden</th>
   <th>Beskrivning</th>
   <tr>
     <td>ETag</td>
@@ -263,7 +263,7 @@ Här följer möjliga HTTP-statuskoder som returnerar en begäran.
   </tr>
   <tr>
     <td>429</td>
-    <td>Anroparen skickar för många förfrågningar.</td>
+    <td>Servern avvisade begäran eftersom klienten har överskridit begärandebegränsningar.</td>
   </tr>
   <tr>
     <td>500</td>

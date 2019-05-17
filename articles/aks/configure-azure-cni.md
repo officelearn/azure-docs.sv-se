@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/11/2018
 ms.author: iainfou
-ms.openlocfilehash: 61968265670c53ebc4187c983996caa8c94a4cde
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 9006590583f0ef52bbce716529534f8bce6f47c5
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65508008"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65780373"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Konfigurera Azure CNI nätverk i Azure Kubernetes Service (AKS)
 
@@ -58,7 +58,7 @@ Plan för IP-adress för ett AKS-kluster består av en virtuell nätverks-, mins
 
 ## <a name="maximum-pods-per-node"></a>Maximal poddar per nod
 
-Det maximala antalet poddar per nod i ett AKS-kluster är 110. Den *standard* maximala antalet poddar per nod varierar mellan *kubenet* och *Azure CNI* nätverks- och metoden för klusterdistribution.
+Det maximala antalet poddar per nod i ett AKS-kluster är 250. Den *standard* maximala antalet poddar per nod varierar mellan *kubenet* och *Azure CNI* nätverks- och metoden för klusterdistribution.
 
 | Distributionsmetod | Kubenet standard | Azure CNI standard | Kan konfigureras vid distribution |
 | -- | :--: | :--: | -- |

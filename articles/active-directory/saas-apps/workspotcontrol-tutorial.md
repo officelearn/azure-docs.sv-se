@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 3/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 92173e760cf8207a15c643ca75913145ed343b55
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.openlocfilehash: 41d8d05cf5f900c7fcd5640f8896c715640ebcab
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65517754"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65772803"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workspot-control"></a>Självstudier: Azure Active Directory-integrering med Workspot kontroll
 
@@ -240,12 +240,12 @@ Om du vill aktivera Azure AD-användare att logga in på Workspot kontroll, mås
 
 I det här avsnittet ska vi testa våra Azure AD enkel inloggning för konfiguration via *åtkomstpanelen*.
 
-När du klickar på den **Workspot kontroll** panelen i åtkomstpanelen, det bör vara loggas in automatiskt till Workspot kontrollen som du ställer in enkel inloggning. Mer information finns i [Introduktion till åtkomstpanelen](https://docs.microsoft.com/en-us/azure/active-directory/user-help/my-apps-portal-end-user-access).
+När du klickar på den **Workspot kontroll** panelen i åtkomstpanelen, det bör vara loggas in automatiskt till Workspot kontrollen som du ställer in enkel inloggning. Mer information finns i [Introduktion till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Självstudier för att integrera SaaS-program med Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/tutorial-list)
+- [Självstudier för att integrera SaaS-program med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)
 
-- [Enkel inloggning till program i Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Enkel inloggning till program i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

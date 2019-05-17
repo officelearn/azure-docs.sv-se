@@ -15,368 +15,363 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/11/2019
 ms.author: jeedes
-ms.openlocfilehash: e94fe3156677a507eab91eee339ed29bf7b4ad2e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 9e7993ee1cb439ebeaa9f64bee55429aa54f9cee
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59257645"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65776176"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-fiori"></a>Självstudier: Azure Active Directory-integrering med SAP Fiori
 
 I den här självstudien får du lära dig hur du integrerar SAP Fiori med Azure Active Directory (AD Azure).
+
 Integrera SAP Fiori med Azure AD ger dig följande fördelar:
 
-* Du kan styra i Azure AD som har åtkomst till SAP Fiori.
-* Du kan aktivera användarna att vara automatiskt loggat in till SAP Fiori (Single Sign-On) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure-portalen.
+* Du kan använda Azure AD för att kontrollera vem som har åtkomst till SAP Fiori.
+* Användare kan vara loggas in automatiskt till SAP Fiori med sina Azure AD-konton (enkel inloggning).
+* Du kan hantera dina konton på en central plats, Azure-portalen.
 
-Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+Mer information om programvara som en tjänst (SaaS) app-integrering med Azure AD finns i [enkel inloggning till program i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill konfigurera Azure AD-integrering med SAP Fiori, behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en [kostnadsfritt konto](https://azure.microsoft.com/free/)
-* SAP Fiori enkel inloggning aktiverat prenumeration
-* SAP Fiori V7.20 krävs minst
+* En Azure AD-prenumeration. Om du inte har en Azure AD-prenumeration kan du skapa en [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+* En SAP Fiori-prenumeration med enkel inloggning aktiverat.
+* SAP Fiori 7.20 eller senare krävs.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
+I den här självstudien konfigurerar du och testa Azure AD enkel inloggning i en testmiljö och integrera SAP Fiori med Azure AD.
 
-* Har stöd för SAP Fiori **SP** -initierad SSO
+SAP Fiori stöder följande funktioner:
 
-## <a name="adding-sap-fiori-from-the-gallery"></a>Att lägga till SAP Fiori från galleriet
+* **SP-initierad enkel inloggning**
 
-För att konfigurera integrering av SAP Fiori i Azure AD, som du behöver lägga till SAP Fiori från galleriet i din lista över hanterade SaaS-appar.
+## <a name="add-sap-fiori-in-the-azure-portal"></a>Lägg till SAP Fiori i Azure portal
 
-**Utför följande steg för att lägga till SAP Fiori från galleriet:**
+Om du vill integrera SAP Fiori med Azure AD, måste du lägga till SAP Fiori i din lista över hanterade SaaS-appar.
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
-    ![Azure Active Directory-knappen](common/select-azuread.png)
+1. I den vänstra menyn väljer du **Azure Active Directory**.
 
-2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
+    ![Azure Active Directory-alternativet](common/select-azuread.png)
 
-    ![Bladet Företagsprogram](common/enterprise-applications.png)
+1. Välj **Företagsprogram** > **Alla program**.
 
-3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
+    ![Fönstret Företagsprogram](common/enterprise-applications.png)
 
-    ![Knappen Nytt program](common/add-new-app.png)
+1. Om du vill lägga till ett program, Välj **nytt program**.
 
-4. I sökrutan skriver **SAP Fiori**väljer **SAP Fiori** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+    ![Alternativet nytt program](common/add-new-app.png)
 
-     ![SAP Fiori i resultatlistan](common/search-new-app.png)
+1. I sökrutan anger **SAP Fiori**. I sökresultaten väljer **SAP Fiori**, och välj sedan **Lägg till**.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
+    ![SAP Fiori i resultatlistan](common/search-new-app.png)
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med SAP Fiori baserat på en testanvändare kallas **Britta Simon**.
-För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i SAP Fiori upprättas.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+
+I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med SAP Fiori baserat på en användare med namnet **Britta Simon**. För enkel inloggning ska fungera, måste du upprätta ett länkat förhållande mellan en Azure AD-användare och relaterade användaren i SAP Fiori.
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med SAP Fiori, måste du utföra följande byggblock:
 
-1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera enkel inloggning för SAP-Fiori](#configure-sap-fiori-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
-4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Skapa SAP Fiori testanvändare](#create-sap-fiori-test-user)**  – du har en motsvarighet för Britta Simon i SAP Fiori som är länkad till en Azure AD-representation av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
+| Uppgift | Beskrivning |
+| --- | --- |
+| **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)** | Gör det möjligt för användarna att använda den här funktionen. |
+| **[Konfigurera SAP Fiori enkel inloggning](#configure-sap-fiori-single-sign-on)** | Konfigurerar inställningar för enkel inloggning i programmet. |
+| **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** | Med namnet Britta Simon tester Azure AD enkel inloggning för en användare. |
+| **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)** | Gör det möjligt för Britta Simon att använda Azure AD enkel inloggning. |
+| **[Skapa en SAP Fiori-testanvändare](#create-an-sap-fiori-test-user)** | Skapar en motsvarighet för Britta Simon i SAP Fiori som är länkad till en Azure AD-representation av användaren. |
+| **[Testa enkel inloggning](#test-single-sign-on)** | Kontrollerar att konfigurationen fungerar. |
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
-I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
+I det här avsnittet konfigurerar du Azure AD enkel inloggning med SAP Fiori i Azure-portalen.
 
-Utför följande steg för att konfigurera Azure AD enkel inloggning med SAP Fiori:
+1. Öppna ett nytt webbläsarfönster och logga in till SAP Fiori företagets platsen som en administratör.
 
-1. Öppna ett nytt webbläsarfönster och logga in till SAP Fiori företagets platsen som en administratör
+1. Se till att **http** och **https** tjänster är aktiva och att de relevanta portarna har tilldelats transaktionskod **SMICM**.
 
-2. Se till att tjänsterna **http** och **https** är aktiva och att lämpliga portar tilldelas i transaktionskoden **SMICM**.
+1. Logga in till SAP Business-klienten för SAP-system **T01**, där enkel inloggning krävs. Aktivera HTTP-Session säkerhetshantering.
 
-3. Logga in på företag klienter SAP-System (T01), där enkel inloggning krävs och aktivera HTTP-säkerhet session Management.
+    1. Gå till transaktionskod **SICF_SESSIONS**. Alla relevanta profil parametrar med aktuella värden visas. De ser ut som i följande exempel:
 
-    a. Gå till transaktionskod **SICF_SESSIONS**. Den visar alla relevanta profilparametrar med aktuella värden. De ser ut så här:-
-    ```
-    login/create_sso2_ticket = 2
-    login/accept_sso2_ticket = 1
-    login/ticketcache_entries_max = 1000
-    login/ticketcache_off = 0  login/ticket_only_by_https = 0 
-    icf/set_HTTPonly_flag_on_cookies = 3
-    icf/user_recheck = 0  http/security_session_timeout = 1800
-    http/security_context_cache_size = 2500
-    rdisp/plugin_auto_logout = 1800
-    rdisp/autothtime = 60
-    ```
-    >[!NOTE]
-    > Justera parametrarna ovan enligt organisationens krav. Parametrarna ovan anges här endast som indikation.
+        ```
+        login/create_sso2_ticket = 2
+        login/accept_sso2_ticket = 1
+        login/ticketcache_entries_max = 1000
+        login/ticketcache_off = 0  login/ticket_only_by_https = 0 
+        icf/set_HTTPonly_flag_on_cookies = 3
+        icf/user_recheck = 0  http/security_session_timeout = 1800
+        http/security_context_cache_size = 2500
+        rdisp/plugin_auto_logout = 1800
+        rdisp/autothtime = 60
+        ```
 
-    b. Om det behövs justerar du parametrarna i instansen/standardprofilen för SAP-systemet och startar om SAP-systemet.
+        >[!NOTE]
+        > Justera de parametrar utifrån organisationens krav. Föregående parametrarna anges endast som ett exempel.
 
-    c. Dubbelklicka på relevant klient för att aktivera HTTP-säkerhetssessionen.
+    1. Om det behövs justera parametrarna i profilen instans (standard) för SAP-system och starta om SAP-system.
 
-    ![Länk för nedladdning av certifikatet](./media/sapfiori-tutorial/tutorial-sapnetweaver-profileparameter.png)
+    1. Dubbelklicka på relevanta klienten om du vill aktivera en HTTP-security-session.
 
-    d. Aktivera nedan SICF-tjänsterna nedan:
-    ```
-    /sap/public/bc/sec/saml2
-    /sap/public/bc/sec/cdc_ext_service
-    /sap/bc/webdynpro/sap/saml2
-    /sap/bc/webdynpro/sap/sec_diag_tool (This is only to enable / disable trace)
-    ```
-4. Gå till transaktionskod **SAML2** i SAP-systemets företagsklient [T01/122]. Ett användargränssnitt öppnas i en webbläsare. I det här exemplet antog vi att SAP-företagsklienten är 122.
+        ![Sidan aktuella värden för relevanta profil parametrar i SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-profileparameter.png)
 
-    ![Länk för nedladdning av certifikatet](./media/sapfiori-tutorial/tutorial-sapnetweaver-sapbusinessclient.png)
+    1. Aktivera följande SICF tjänster:
 
-5. Ange ditt användarnamn och lösenord som ska anges i användargränssnittet och klicka på **Redigera**.
+        ```
+        /sap/public/bc/sec/saml2
+        /sap/public/bc/sec/cdc_ext_service
+        /sap/bc/webdynpro/sap/saml2
+        /sap/bc/webdynpro/sap/sec_diag_tool (This is only to enable / disable trace)
+        ```
 
-    ![Länk för nedladdning av certifikatet](./media/sapfiori-tutorial/tutorial-sapnetweaver-userpwd.png)
+1. Gå till transaktionskod **SAML2** i Business-klienten för SAP-system [**T01/122**]. Konfigurationen Användargränssnittet öppnas i ett nytt webbläsarfönster. I det här exemplet använder vi Business Client för SAP-system 122.
 
-6. Ersätt **providernamn** från T01122 till `http://T01122` och klicka på **Spara**.
+    ![SAP Fiori Business Client på inloggningssidan](./media/sapfiori-tutorial/tutorial-sapnetweaver-sapbusinessclient.png)
+
+1. Ange ditt användarnamn och lösenord och välj sedan **inloggning**.
+
+    ![Sidan SAML 2.0 konfiguration av ABAP System T01/122 i SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-userpwd.png)
+
+1. I den **providernamn** rutan ersätter **T01122** med **http:\//T01122**, och välj sedan **spara**.
 
     > [!NOTE]
-    > Som standard providernamn medföljer som <sid> <client> formatet, men Azure AD förväntar sig namnet i formatet <protocol>://<name>rekommendationer att underhålla providernamn som https://<sid> <client> så att flera SAP Fiori ABAP-motorer för att konfigurera i Azure AD.
+    > Som standard leverantörens namn är i formatet \<sid >\<klienten >. Azure AD förväntar sig namnet i formatet \<protokollet > ://\<namn >. Vi rekommenderar att du behåller providernamn som https\://\<sid >\<klienten > så att du kan konfigurera flera SAP Fiori ABAP-motorer i Azure AD.
 
-    ![Länk för nedladdning av certifikatet](./media/sapfiori-tutorial/tutorial-sapnetweaver-providername.png)
+    ![Uppdaterade Providernamnet på sidan SAML 2.0 konfiguration av ABAP System T01/122 i SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-providername.png)
 
-7. **Generera metadata för tjänstleverantör**: – När vi är klara med att konfigurera inställningarna för den **lokala leverantören** och **betrodda leverantörer** i användargränssnittet för SAML 2.0 är nästa steg att generera tjänstleverantörens metadatafil (som innehåller alla inställningar, när det gäller autentisering och andra konfigurationer i SAP). När den här filen har genererats måste vi ladda upp den i Azure AD.
+1. Välj **fliken lokala Provider** > **Metadata**.
 
-    ![Länk för nedladdning av certifikatet](./media/sapfiori-tutorial/tutorial-sapnetweaver-generatesp.png)
+1. I den **SAML 2.0-Metadata** dialogrutan rutan, ladda ned den genererade XML-fil och spara filen på datorn.
 
-    a. Gå till **fliken Local Provider** (Lokal provider).
+    ![Hämta Metadata länken i dialogrutan SAP SAML 2.0-Metadata](./media/sapfiori-tutorial/tutorial-sapnetweaver-generatesp.png)
 
-    b. Klicka på **Metadata**.
+1. I den [Azure-portalen](https://portal.azure.com/)i den **SAP Fiori** application integration väljer **enkel inloggning**.
 
-    c. Spara den genererade **Metadata-XML-filen** på datorn och ladda upp den i **SAML grundkonfiguration** avsnitt för att automatiskt fylla i den **identifierare** och  **Svars-URL** värdena i Azure-portalen.
+    ![Alternativet för enkel inloggning](common/select-sso.png)
 
-8. I den [Azure-portalen](https://portal.azure.com/)på den **SAP Fiori** application integration markerar **enkel inloggning**.
-
-    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
-
-9. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
+1. I den **väljer du en metod för enkel inloggning** fönstret Välj **SAML** eller **SAML/WS-Fed** läge för att aktivera enkel inloggning.
 
     ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-10. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
+1. I den **ange in enkel inloggning med SAML** väljer **redigera** (på pennikonen) att öppna den **SAML grundkonfiguration** fönstret.
 
     ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-11. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
+1. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    a. Klicka på **Ladda upp metadatafil** för att ladda upp **tjänstleverantörens metadatafil** som du fått tidigare.
+    1. Välj **ladda upp metadatafilen**.
 
-    ![Ladda upp metadatafil](common/upload-metadata.png)
+        ![Alternativet ladda upp metadata för fil](common/upload-metadata.png)
 
-    b. Klicka på **mappikonen** för att välja metadatafilen och klicka på **Ladda upp**.
+   1. Välj mappikonen för att välja metadatafilen, och välj sedan **överför**.
 
-    ![välj metadatafil](common/browse-upload-metadata.png)
+       ![Välj metadatafilen och välj sedan knappen ladda upp](common/browse-upload-metadata.png)
 
-    c. När metadatafilen har laddats upp fylls värdena för **Identifierare** och **Svars-URL** i automatiskt i textrutan i avsnittet **Grundläggande SAML-konfiguration** enligt följande:
+1. När metadatafilen har överförts, den **identifierare** och **svars-URL** värden fylls i automatiskt i den **SAML grundkonfiguration** fönstret. I den **inloggnings-URL** anger en URL som har följande mönster: https:\//\<din företags-instans av SAP Fiori\>.
 
     ![SAP Fiori-domän och URL: er med enkel inloggning för information](common/sp-identifier-reply.png)
 
-    d. I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `https://<your company instance of SAP Fiori>`
-
     > [!NOTE]
-    > Vi har fått rapporter från några kunder om ett fel med felaktig svars-URL som har konfigurerats för deras instans. Om du får ett sådant fel kan du använda följande PowerShell-skript som en tillfällig åtgärd för att ange rätt svars-URL för din instans:
-    ```
-    Set-AzureADServicePrincipal -ObjectId $ServicePrincipalObjectId -ReplyUrls "<Your Correct Reply URL(s)>"
-    ``` 
-    > ServicePrincipal Object ID ska anges av dig först, eller så kan du skicka det också här.
+    > Ett fåtal kunder rapportera fel som rör felkonfigurerad **svars-URL** värden. Om du ser det här felet kan använda du följande PowerShell-skript för att ange rätt svars-URL för din instans:
+    >
+    > ```
+    > Set-AzureADServicePrincipal -ObjectId $ServicePrincipalObjectId -ReplyUrls "<Your Correct Reply URL(s)>"
+    > ``` 
+    > 
+    > Du kan ange den `ServicePrincipal` objekt-ID själv innan du kör skriptet eller du kan skicka.
 
-12. SAP Fiori-programmet förväntar sig SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut i avsnittet **Användarattribut** på sidan för programintegrering. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialogrutan **Användarattribut**.
+1. SAP Fiori-program som förväntar SAML-intyg kan på ett specifikt format. Konfigurera följande anspråk för det här programmet. Att hantera dessa attributvärden i den **ange in enkel inloggning med SAML** väljer **redigera**.
 
-    ![image](common/edit-attribute.png)
+    ![Fönstret attribut för användare](common/edit-attribute.png)
 
-13. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** konfigurerar du SAML-tokenattributet på det sätt som visas i bilden ovan och utför följande steg:
+1. I den **användarattribut och anspråk** fönstret Konfigurera SAML-tokenattribut som visas i föregående bild. Utför sedan följande steg:
 
-    a. Öppna dialogrutan **Hantera användaranspråk** genom att klicka på **redigeringsikonen**.
+    1. Välj **redigera** att öppna den **hantera användaranspråk** fönstret.
 
-    ![image](./media/sapfiori-tutorial/nameidattribute.png)
+    1. I den **omvandling** väljer **ExtractMailPrefix()**.
 
-    ![image](./media/sapfiori-tutorial/nameidattribute1.png)
+    1. I den **Parameter 1** väljer **user.userprinicipalname**.
 
-    b. Välj **ExtractMailPrefix()** i listan **Transformering**.
+    1. Välj **Spara**.
 
-    c. Välj **user.userprinicipalname** i listan **Parameter 1**.
+       ![Fönstret hantera användarens anspråk](./media/sapfiori-tutorial/nameidattribute.png)
 
-    d. Klicka på **Spara**.
+       ![Transformationsavsnittet i fönstret hantera användarens anspråk](./media/sapfiori-tutorial/nameidattribute1.png)
 
-14. Klicka på **Ladda ned** i avsnittet **SAML-signeringscertifikat** på sidan **Konfigurera enkel inloggning med SAML** när du ska ladda ned **Federation Metadata XML** från de angivna alternativen enligt dina behov och spara det på datorn.
 
-    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
+1. I den **ange in enkel inloggning med SAML** fönstret i den **SAML-signeringscertifikat** väljer **hämta** bredvid **Federation Metadata XML**. Markera ett nedladdningsalternativ baserat på dina krav. Spara certifikatet på datorn.
 
-15. På den **konfigurera SAP Fiori** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
+    ![Hämtningsalternativet certifikat](common/metadataxml.png)
+
+1. I den **konfigurera SAP Fiori** avsnittet, kopiera följande URL: er utifrån dina behov:
+
+    * Inloggningswebbadress
+    * Microsoft Azure Active Directory-identifierare
+    * Utloggnings-URL
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    a. Inloggnings-URL
+### <a name="configure-sap-fiori-single-sign-on"></a>Konfigurera SAP Fiori enkel inloggning
 
-    b. Azure AD-identifierare
+1. Logga in till SAP-system och gå till transaktionskod **SAML2**. Ett nytt webbläsarfönster öppnas med SAML-konfigurationssidan.
 
-    c. Utloggnings-URL
+1. För att konfigurera slutpunkter för en betrodd identitetsleverantör (Azure AD), Välj den **betrodda Providers** fliken.
 
-### <a name="configure-sap-fiori-single-sign-on"></a>Konfigurera SAP Fiori Single Sign-On
+    ![Fliken Betrodda Providers i SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-samlconfig.png)
 
-1. Logga in till SAP-system och gå till transaktionskod SAML2. Ett nytt webbläsarfönster öppnas med en skärm för konfiguration av SAML.
+1. Välj **Lägg till**, och välj sedan **ladda upp metadatafilen** på snabbmenyn.
 
-2. För att konfigurera slutpunkter för betrodda identitetsproviders (Azure AD) går du till fliken **Trusted Providers** (Betrodda providers).
+    ![Lägg till och ladda upp metadatafilen alternativen i SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-uploadmetadata.png)
 
-    ![Konfigurera enkel inloggning](./media/sapfiori-tutorial/tutorial-sapnetweaver-samlconfig.png)
+1. Ladda upp metadatafilen som du hämtade i Azure-portalen. Välj **Nästa**.
 
-3. Tryck på **Lägg till** och välj **Ladda upp metadatafil** på snabbmenyn.
+    ![Välj metadatafil att överföra i SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-metadatafile.png)
 
-    ![Konfigurera enkel inloggning](./media/sapfiori-tutorial/tutorial-sapnetweaver-uploadmetadata.png)
+1. På nästa sida i den **Alias** anger aliasnamnet. Till exempel **aadsts**. Välj **Nästa**.
 
-4. Ladda upp metadatafilen som du har laddat ned från Azure-portalen.
+    ![Rutan Alias i SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-aliasname.png)
 
-    ![Konfigurera enkel inloggning](./media/sapfiori-tutorial/tutorial-sapnetweaver-metadatafile.png)
+1. Se till att värdet i den **Sammandragsalgoritmen** rutan är **SHA-256**. Välj **Nästa**.
 
-5. Ange aliasnamnet på nästa skärm, till exempel aadsts, och tryck på **Nästa** för att fortsätta.
+    ![Kontrollera Digest Algorithm värdet i SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-identityprovider.png)
 
-    ![Konfigurera enkel inloggning](./media/sapfiori-tutorial/tutorial-sapnetweaver-aliasname.png)
+1. Under **slutpunkter för enkel inloggning**väljer **HTTP POST**, och välj sedan **nästa**.
 
-6. Se till att din **sammandragsalgoritm** ska vara **SHA-256** och att den inte kräver några ändringar och tryck på **Nästa**.
+    ![Alternativ för enkel inloggning slutpunkter i SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-httpredirect.png)
 
-    ![Konfigurera enkel inloggning](./media/sapfiori-tutorial/tutorial-sapnetweaver-identityprovider.png)
+1. Under **enkel utloggning slutpunkter**väljer **omdirigering för HTTP**, och välj sedan **nästa**.
 
-7. På **Single Sign-On Endpoints** (Slutpunkter för enkel inloggning) använder du **HTTP POST** och klickar på **Nästa** för att fortsätta.
+    ![Alternativ för enkel utloggning slutpunkter i SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-httpredirect1.png)
 
-    ![Konfigurera enkel inloggning](./media/sapfiori-tutorial/tutorial-sapnetweaver-httpredirect.png)
+1. Under **artefakt slutpunkter**väljer **nästa** att fortsätta.
 
-8. På **Single Logout Endpoints** (Slutpunkter för enkel utloggning) använder du **HTTP POST** och klickar på **Nästa** för att fortsätta.
+    ![Alternativ för slutpunkter av artefakt i SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-artifactendpoint.png)
 
-    ![Konfigurera enkel inloggning](./media/sapfiori-tutorial/tutorial-sapnetweaver-httpredirect1.png)
+1. Under **autentiseringskrav**väljer **Slutför**.
 
-9. På **Artifact Endpoints** (Slutpunkter för artefakter) trycker du på **Nästa** för att fortsätta.
+    ![Krav för autentiseringsalternativ och slutför alternativet i SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-authentication.png)
 
-    ![Konfigurera enkel inloggning](./media/sapfiori-tutorial/tutorial-sapnetweaver-artifactendpoint.png)
+1. Välj **Trusted Provider** > **identitetsfederation** (längst ned på sidan). Välj **Redigera**.
 
-10. Vid **Autentiseringskrav** klickar du på **Slutför**.
+    ![Flikarna Trusted Provider och identitetsfederation i SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-trustedprovider.png)
 
-    ![Konfigurera enkel inloggning](./media/sapfiori-tutorial/tutorial-sapnetweaver-authentication.png)
+1. Välj **Lägg till**.
 
-11. Gå till fliken **Trusted Provider** (Betrodd provider) > **Identitetsfederation** (längst ned på skärmen). Klicka på **Redigera**.
+    ![Alternativet Lägg till på fliken identitetsfederation](./media/sapfiori-tutorial/tutorial-sapnetweaver-addidentityprovider.png)
 
-    ![Konfigurera enkel inloggning](./media/sapfiori-tutorial/tutorial-sapnetweaver-trustedprovider.png)
+1. I den **stöds NameID formaterar** dialogrutan **Ospecificerad**. Välj **OK**.
 
-12. Klicka på **Lägg till** under fliken **Identitetsfederation** (det nedre fönstret).
+    ![Dialogrutan stöds NameID-format och alternativ i SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-nameid.png)
 
-    ![Konfigurera enkel inloggning](./media/sapfiori-tutorial/tutorial-sapnetweaver-addidentityprovider.png)
+    Värdena för **användar-ID: T källa** och **ID mappning användarläge** fastställa länken mellan SAP-användare och Azure AD-anspråk.  
 
-13. I popup-fönstret väljer du **Ospecificerad** från **Supported NameID formats** (NameID-format som stöds) och klickar på OK.
+    **Scenario 1**: SAP-användare till Azure AD-mappning
 
-    ![Konfigurera enkel inloggning](./media/sapfiori-tutorial/tutorial-sapnetweaver-nameid.png)
+    1. I SAP, under **information av NameID-Format ”Ospecificerad”**, notera detaljerna:
 
-14. Observera att **användar-ID: T källa** och **användarläge ID-mappning** värden bestämmer länken mellan SAP-användare och Azure AD-anspråk.  
+        ![Den information för NameID-Format ”okänt” dialogrutan i SAP](./media/sapfiori-tutorial/nameiddetails.png)
 
-    #### <a name="scenario-sap-user-to-azure-ad-user-mapping"></a>Scenario: SAP-användare till Azure AD-mappning.
+    1. I Azure-portalen under **användarattribut och anspråk**, notera de begärda anspråk från Azure AD.
 
-    a. Skärmbild med NameID-information från SAP.
+        ![Dialogrutan användarattribut och anspråk i Azure portal](./media/sapfiori-tutorial/claimsaad1.png)
 
-    ![Konfigurera enkel inloggning](./media/sapfiori-tutorial/nameiddetails.png)
+    **Scenario 2**: Välj det användar-ID för SAP som baseras på den Konfigurera e-postadressen i SU01. I det här fallet bör du konfigurerat e-post-ID i SU01 för varje användare som kräver enkel inloggning.
 
-    b. Skärmbild som nämner nödvändiga anspråk från Azure AD.
+    1.  I SAP, under **information av NameID-Format ”Ospecificerad”**, notera detaljerna:
 
-    ![Konfigurera enkel inloggning](./media/sapfiori-tutorial/claimsaad1.png)
+        ![Den information för NameID-Format ”okänt” dialogrutan i SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-nameiddetails1.png)
 
-    #### <a name="scenario-select-sap-user-id-based-on-configured-email-address-in-su01-in-this-case-email-id-should-be-configured-in-su01-for-each-user-who-requires-sso"></a>Scenario: Välj SAP användar-ID som baseras på konfigurerade e-postadress i SU01. I det här fallet konfigureras e-post-ID i su01 för varje användare som kräver enkel inloggning.
+    1. I Azure-portalen under **användarattribut och anspråk**, notera de begärda anspråk från Azure AD.
 
-    a.  Skärmbild med NameID-information från SAP.
+       ![Dialogrutan användarattribut och anspråk i Azure portal](./media/sapfiori-tutorial/claimsaad2.png)
 
-    ![Konfigurera enkel inloggning](./media/sapfiori-tutorial/tutorial-sapnetweaver-nameiddetails1.png)
+1. Välj **spara**, och välj sedan **aktivera** att aktivera identitetsprovidern.
 
-    b. skärmbild som nämner nödvändiga anspråk från Azure AD.
+    ![Spara och aktivera alternativen i SAP](./media/sapfiori-tutorial/configuration1.png)
 
-    ![Konfigurera enkel inloggning](./media/sapfiori-tutorial/claimsaad2.png)
+1. Välj **OK** när du tillfrågas.
 
-15. Klicka på **Spara** och klicka sedan på **Aktivera** för att aktivera identitetsprovider.
-
-    ![Konfigurera enkel inloggning](./media/sapfiori-tutorial/configuration1.png)
-
-16. Klicka på **OK** när du uppmanas till detta.
-
-    ![Konfigurera enkel inloggning](./media/sapfiori-tutorial/configuration2.png)
+    ![Alternativet OK i dialogrutan för SAML 2.0-konfiguration i SAP](./media/sapfiori-tutorial/configuration2.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
+I det här avsnittet skapar du en testanvändare med namnet Britta Simon i Azure-portalen.
 
-1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
+1. I Azure-portalen väljer du **Azure Active Directory** > **Användare** > **Alla användare**.
 
-    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
+    ![Användarna och alternativ för alla användare](common/users.png)
 
-2. Välj **Ny användare** överst på skärmen.
+1. Välj **Ny användare**.
 
-    ![Knappen Ny användare](common/new-user.png)
+    ![Alternativet ny användare](common/new-user.png)
 
-3. Genomför följande steg i Användaregenskaper.
+1. I fönstret **Användare** utför du följande steg:
 
-    ![Dialogrutan Användare](common/user-properties.png)
-
-    a. I fältet **Namn** anger du **BrittaSimon**.
+    1. I rutan **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** fälttyp `brittasimon@yourcompanydomain.extension`. Till exempel BrittaSimon@contoso.com.
+    1. I den **användarnamn** anger **brittasimon\@\<din företagsdomän >.\< tillägget >**. Till exempel **brittasimon\@contoso.com**.
 
-    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
+    1. Välj den **Show lösenord** markerar du kryssrutan. Skriv ned värdet som visas i den **lösenord** box.
 
-    d. Klicka på **Skapa**.
+    1. Välj **Skapa**.
+
+    ![Fönstret användare](common/user-properties.png)
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till SAP Fiori.
+I det här avsnittet ska ge du Britta Simon åtkomst till SAP Fiori så att hon kan använda Azure enkel inloggning.
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **SAP Fiori**.
+1. I Azure-portalen väljer du **företagsprogram** > **alla program** > **SAP Fiori**.
 
-    ![Bladet Företagsprogram](common/enterprise-applications.png)
+    ![Fönstret Företagsprogram](common/enterprise-applications.png)
 
-2. I listan med program väljer **SAP Fiori**.
+1. I listan med program väljer **SAP Fiori**.
 
-    ![SAP Fiori-länk i listan med program](common/all-applications.png)
+    ![SAP Fiori i programlistan](common/all-applications.png)
 
-3. På menyn till vänster väljer du **Användare och grupper**.
+1. På menyn väljer du **Användare och grupper**.
 
-    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
+    ![Alternativet användare och grupper](common/users-groups-blade.png)
 
-4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
+1. Välj **Lägg till användare**. I fönstret **Lägg till tilldelning** väljer du **Användare och grupper**.
 
     ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
+1. I den **användare och grupper** väljer **Britta Simon** i listan över användare. Välj **Välj**.
 
-6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Om du förväntar dig ett rollvärde i SAML-försäkran i den **Välj roll** fönstret Välj rollen relevant för användaren i listan. Välj **Välj**.
 
-7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+1. I den **Lägg till tilldelning** väljer **tilldela**.
 
-### <a name="create-sap-fiori-test-user"></a>Skapa SAP Fiori testanvändare
+### <a name="create-an-sap-fiori-test-user"></a>Skapa en SAP Fiori-testanvändare
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i SAP Fiori. Fungerar din internt experten SAP-team eller arbeta med din organisation SAP-partner och lägga till användare i SAP Fiori-plattformen.
+I det här avsnittet skapar du en användare med namnet Britta Simon i SAP Fiori. Arbeta med ditt interna SAP-team av experter eller din organisation SAP-partner för att lägga till användaren i SAP Fiori-plattformen.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-1. När identitetsprovidern Azure AD aktiverades försöker du öppna nedanstående URL för att kontrollera SSO (det kommer ingen uppmaning för användarnamn och lösenord)
+1. När identitetsprovidern Azure AD har aktiverats i SAP Fiori försök komma åt någon av följande webbadresser att testa enkel inloggning (du inte bör ange ett användarnamn och lösenord):
 
-    `https://<sapurl>/sap/bc/bsp/sap/it00/default.htm`
-
-    (eller) använd webbadressen nedan
-
-    `https://<sapurl>/sap/bc/bsp/sap/it00/default.htm`
+    * https:\//\<sapurl\>/sap/bc/bsp/sap/it00/default.htm
+    * https:\//\<sapurl\>/sap/bc/bsp/sap/it00/default.htm
 
     > [!NOTE]
-    > Ersätt sapurl med själva SAP-värdnamnet.
+    > Ersätt *sapurl* med det faktiska värdnamnet för SAP.
 
-2. Webbadressen ovan bör ta dig under den nämnda skärmen. Om du kan komma till sidan nedan är Azure AD SSO-installationen klar.
+1. Testa URL bör ta dig till följande test-programsidan i SAP. Om du öppnar sidan har Azure AD enkel inloggning har ställts in.
 
-    ![Konfigurera enkel inloggning](./media/sapfiori-tutorial/testingsso.png)
+    ![Standard testa programsidan i SAP](./media/sapfiori-tutorial/testingsso.png)
 
-3. Om du ser en uppmaning för användarnamn och lösenord ska du diagnostisera problemet genom att aktivera spårning med hjälp av nedanstående URL
+1. Om du uppmanas ange ett användarnamn och lösenord, aktivera spårning för att diagnostisera problemet. Använd följande URL för spårningen: https:\//\<sapurl\>/sap/bc/webdynpro/sap/sec_diag_tool? sap-client = 122 & sap-language = SV #.
 
-    `https://<sapurl>/sap/bc/webdynpro/sap/sec_diag_tool?sap-client=122&sap-language=EN#`
+## <a name="next-steps"></a>Nästa steg
 
-## <a name="additional-resources"></a>Ytterligare resurser
+Om du vill veta mer kan du granska dessa artiklar:
 
-- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-
+- [Lista över självstudier för att integrera SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Enkel inloggning till program i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

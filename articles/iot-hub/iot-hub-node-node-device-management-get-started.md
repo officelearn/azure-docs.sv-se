@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/25/2017
-ms.openlocfilehash: 15166d3943bc72a2eeff3580cefdd264ecaba61d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9bc34110b85119c7b8b303774b585d03ce9d3a0f
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60346287"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596640"
 ---
 # <a name="get-started-with-device-management-node"></a>Kom igång med enhetshantering (Node)
 
@@ -35,7 +35,7 @@ I slutet av den här självstudien har du två Node.js-konsolappar:
 
 För att kunna genomföra den här kursen behöver du följande:
 
-* Node.js version 4.0.x eller senare. [Förbereda utvecklingsmiljön](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) beskriver hur du installerar Node.js för den här självstudiekursen i Windows eller Linux.
+* Node.js-version 10.0.x eller senare. [Förbereda utvecklingsmiljön](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) beskriver hur du installerar Node.js för den här självstudiekursen i Windows eller Linux.
 
 * Ett aktivt Azure-konto. (Om du inte har ett konto kan du skapa en [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) på bara några minuter.)
 

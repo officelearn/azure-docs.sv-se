@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: design
-ms.date: 04/12/2019
+ms.date: 05/10/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 2e65c1a33a60e19538a26e0f47f205235dd1695c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: db397ae43d1c134823abfc7004f1f3490addeb06
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60731778"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550617"
 ---
 # <a name="designing-a-polybase-data-loading-strategy-for-azure-sql-data-warehouse"></a>Designa en PolyBase för datainläsning strategi för Azure SQL Data Warehouse
 
@@ -49,8 +49,32 @@ Hämta data från källsystemet beror på lagringsplatsen.  Målet är att flytt
 
 ### <a name="polybase-external-file-formats"></a>PolyBase externa filformaten
 
-PolyBase läser in data från UTF-8 och UTF-16-kodade textfiler. Förutom avgränsade textfiler laddas från Hadoop-filformat RC-filen, ORC och Parquet. PolyBase kan också läsa in data från Gzip och Snappy komprimerade filer. PolyBase stöder för närvarande inte utökade ASCII, fast bredd format och kapslade format, till exempel WinZip, JSON och XML. Om du exporterar från SQL Server, kan du använda [kommandoradsverktyget bcp](/sql/tools/bcp-utility) att exportera data till avgränsade textfiler.
+PolyBase läser in data från UTF-8 och UTF-16-kodade textfiler. Förutom avgränsade textfiler laddas från Hadoop-filformat RC-filen, ORC och Parquet. PolyBase kan också läsa in data från Gzip och Snappy komprimerade filer. PolyBase stöder för närvarande inte utökade ASCII, fast bredd format och kapslade format, till exempel WinZip, JSON och XML. Om du exporterar från SQL Server, kan du använda [kommandoradsverktyget bcp](/sql/tools/bcp-utility) att exportera data till avgränsade textfiler. Parquet till SQL DW datatypsmappningen är följande:
 
+| **Parquet-datatypen** |                      **SQL-datatypen**                       |
+| :-------------------: | :----------------------------------------------------------: |
+|        tinyint        |                           tinyint                            |
+|       smallint        |                           smallint                           |
+|          int          |                             int                              |
+|        bigint         |                            bigint                            |
+|        boolesk        |                             bit                              |
+|        double         |                            flyt                             |
+|         flyt         |                             real                             |
+|        double         |                            money                             |
+|        double         |                          smallmoney                          |
+|        string         |                            nchar                             |
+|        string         |                           nvarchar                           |
+|        string         |                             char                             |
+|        string         |                           varchar                            |
+|        binary         |                            binary                            |
+|        binary         |                          Varbinary                           |
+|       tidsstämpel       |                             date                             |
+|       tidsstämpel       |                        smalldatetime                         |
+|       tidsstämpel       |                          datetime2                           |
+|       tidsstämpel       |                           datetime                           |
+|       tidsstämpel       |                             time                             |
+|       date        | (1) Läs in som int och konvertera till datum </br> 2) [använder Azure Databricks SQL DW-anslutningen](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse#load-data-into-azure-sql-data-warehouse) med </br> spark.conf.set( "spark.sql.parquet.writeLegacyFormat", "true" ) </br> (**uppdatera kommer snart**) |
+|        decimal        | [Använda Azure Databricks SQL DW-koppling](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse#load-data-into-azure-sql-data-warehouse) med </br> spark.conf.set( "spark.sql.parquet.writeLegacyFormat", "true" ) </br> (**uppdatera kommer snart**) |
 
 ## <a name="2-land-the-data-into-azure-blob-storage-or-azure-data-lake-store"></a>2. Få data till Azure Blob storage eller Azure Data Lake Store
 
@@ -63,7 +87,7 @@ Verktyg och tjänster som du kan använda för att flytta data till Azure Storag
 - [Azure Data Factory (ADF)](../data-factory/introduction.md) har en gateway som du kan installera på den lokala servern. Du kan skapa en pipeline som flyttar data från din lokala server upp till Azure Storage. Om du vill använda Data Factory med SQL Data Warehouse, se [läser in data i SQL Data Warehouse](/azure/data-factory/load-azure-sql-data-warehouse).
 
 
-## <a name="3-prepare-the-data-for-loading"></a>3. Förbereda data för inläsning
+## <a name="3-prepare-the-data-for-loading"></a>3 Förbereda data för inläsning
 
 Du kan behöva förbereda och rensa data i ditt storage-konto innan du läser in dem i SQL Data Warehouse. Förberedelse av data kan utföras medan dina data finns i källan, eftersom du exportera data till textfiler, eller när data är i Azure Storage.  Det är enklast att arbeta med data så tidigt i processen som möjligt.  
 
@@ -106,7 +130,7 @@ Du kan använda något av dessa inläsning av alternativ för att läsa in data 
 Om dina data inte är kompatibelt med PolyBase kan du använda [bcp](/sql/tools/bcp-utility) eller [SqlBulkCopy körs API](https://msdn.microsoft.com/library/system.data.sqlclient.sqlbulkcopy.aspx). BCP läser in direkt till SQL Data Warehouse utan att gå via Azure Blob storage och är endast avsett för små belastning. Observera att inläsningsprestanda av dessa alternativ är avsevärt långsammare än PolyBase. 
 
 
-## <a name="5-transform-the-data"></a>5. Transformera data
+## <a name="5-transform-the-data"></a>5. Omvandla data
 
 När data är i mellanlagringstabellen kan utföra omvandlingar som kräver att din arbetsbelastning. Flytta data i en produktionstabell.
 

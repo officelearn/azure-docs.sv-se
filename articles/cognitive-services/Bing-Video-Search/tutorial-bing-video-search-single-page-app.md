@@ -3,19 +3,19 @@ title: 'Självstudier: Skapa en enkelsidig app med videosökning i Bing'
 titlesuffix: Azure Cognitive Services
 description: Förklarar hur du använder API:et för videosökning i Bing i webbprogram med en enda sida.
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: tutorial
 ms.date: 01/31/2019
-ms.author: rosh
-ms.openlocfilehash: 182783576c8b47db8dd1c60ed2d5c5948fb98672
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: aahi
+ms.openlocfilehash: 6ba777754990560526d7981ef497ea7f0441e1b0
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61431981"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65798460"
 ---
 # <a name="tutorial-single-page-video-search-app"></a>Självstudier: Enkelsidig app med videosökning
 Med API för videosökning i Bing kan du söka på webben och få videoresultat som är relevanta för en sökfråga. I de här självstudierna skapar vi ett enkelsidigt program som använder API för sökning i Bing för att visa sökresultat på sidan. Programmet innehåller komponenterna HTML, CSS och JavaScript.

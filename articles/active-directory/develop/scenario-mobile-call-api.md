@@ -15,36 +15,37 @@ ms.date: 05/07/2019
 ms.author: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fd65b9f97c373c55a3486e06e83fca7cf824cad
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 46d8b138a566727f9172b627b8df3353e7216fa5
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65075122"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550326"
 ---
 # <a name="mobile-app-that-calls-web-apis---call-a-web-api"></a>Mobila appar som anropar webb-API: er – anropa ett webb-API
 
-När din app har loggat in en användare och emot token, visar MSAL flera olika typer av information om användare, deras miljö och de token som utfärdas. Din app kan använda dessa värden för att anropa en webb-API eller visa ett välkomstmeddelande till en användare.
+När din app har loggat in en användare och emot token, visar MSAL flera olika typer av information om användare, användarens miljö och de token som utfärdas. Din app kan använda dessa värden för att anropa en webb-API eller visa ett välkomstmeddelande till användaren.
 
-Först ska vi utforska MSAL resultatet och sedan hur du använder en åtkomsttoken från den `AuthenticationResult` eller `result` att anropa ett skyddat webb-API.
+Först ska vi titta på MSAL resultatet. Sedan ska vi titta på hur du använder en åtkomsttoken från den `AuthenticationResult` eller `result` att anropa ett skyddat webb-API.
 
 ## <a name="msal-result"></a>MSAL resultat
+MSAL innehåller följande värden: 
 
 - `AccessToken`: Används för att anropa skyddade webb-API: er i en HTTP-ägar-begäran.
-- `IdToken`: Innehåller användbar anspråk om den inloggade användaren som deras namn, startklientorganisation och unik identifierare för lagring.
-- `ExpiresOn`: förfallotid för token. MSAL hanterar automatisk uppdatering för appar.
-- `TenantId`: Identifierare för användarens klient används för att logga in. Detta är den klient som användaren har loggat in med inte sina startklientorganisation för gästanvändare (Azure AD B2B).  
-- `Scopes`: de omfång som har beviljats med din token. Detta kan vara en delmängd av vad du har begärt.
+- `IdToken`: Innehåller användbar information om den inloggade användaren, som användarnamn, hem-klient och en unik identifierare för lagring.
+- `ExpiresOn`: Förfallotid för token. MSAL hanterar automatisk uppdatering för appar.
+- `TenantId`: Identifierare för den klient som användaren har loggat in med. Det här värdet kommer för gästanvändare (Azure Active Directory B2B) identifiera den klient som användaren har loggat in med inte användarens startklientorganisation.  
+- `Scopes`: Scope som har beviljats med din token. Beviljade scope kan vara en delmängd av omfång som du har begärt.
 
-Dessutom MSAL också tillhandahåller en abstraktion för en `Account`. Ett konto representerar den aktuella användaren loggat in konto.
+MSAL innehåller också en abstraktion för en `Account`. En `Account` representerar det aktuella inloggade användarkontot.
 
 - `HomeAccountIdentifier`: Identifierare för användarens startklientorganisation.
-- `UserName`: Användarens primära användarnamn. Detta kan vara tom för Azure AD B2C-användare.
-- `AccountIdentifier`: Identifierare för den inloggade användaren. Det här är samma som den `HomeAccountIdentifier` i de flesta fall om inte användaren är gäst i en annan klient.
+- `UserName`: Användarens primära användarnamn. Det kan vara tom för Azure Active Directory B2C-användare.
+- `AccountIdentifier`: Identifierare för den inloggade användaren. Det här värdet ska vara samma som den `HomeAccountIdentifier` värdet i de flesta fall, om inte användaren är gäst i en annan klient.
 
-## <a name="calling-an-api"></a>Anropar en API
+## <a name="call-an-api"></a>Anropa ett API
 
-När du har den åtkomst-token som är klara är det enkelt att anropa ett webb-API. Din app tar detta token, skapa en HTTP-begäran och köra den.
+När du har den åtkomst-token, är det enkelt att anropa ett webb-API. Din app använder token för att skapa en HTTP-begäran och kör sedan begäran.
 
 ### <a name="android"></a>Android
 
@@ -55,25 +56,25 @@ När du har den åtkomst-token som är klara är det enkelt att anropa ett webb-
         try {
             parameters.put("key", "value");
         } catch (Exception e) {
-            // Error when constructing
+            // Error when constructing.
         }
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, MSGRAPH_URL,
                 parameters,new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                // Successfully called graph, process data and send to UI 
+                // Successfully called Graph. Process data and send to UI.
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                // Error
+                // Error.
             }
         }) {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 Map<String, String> headers = new HashMap<>();
                 
-                // Put Access Token in HTTP request 
+                // Put access token in HTTP request.
                 headers.put("Authorization", "Bearer " + authResult.getAccessToken());
                 return headers;
             }
@@ -92,7 +93,7 @@ När du har den åtkomst-token som är klara är det enkelt att anropa ett webb-
         let url = URL(string: kGraphURI)
         var request = URLRequest(url: url!)
 
-        // Put Access token in HTTP Request
+        // Put access token in HTTP request.
         request.setValue("Bearer \(self.accessToken)", forHTTPHeaderField: "Authorization")
 
         URLSession.shared.dataTask(with: request) { data, response, error in
@@ -105,7 +106,7 @@ När du har den åtkomst-token som är klara är det enkelt att anropa ett webb-
                 return
             }
 
-            // Successfully got data from Graph
+            // Successfully got data from Graph.
             self.updateLogging(text: "Result from Graph: \(result))")
         }.resume()
 ```
@@ -115,10 +116,10 @@ När du har den åtkomst-token som är klara är det enkelt att anropa ett webb-
 ```CSharp
 httpClient = new HttpClient();
 
-// Put Access token in HTTP request 
+// Put access token in HTTP request.
 httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.AccessToken);
 
-// Call Graph
+// Call Graph.
 HttpResponseMessage response = await _httpClient.GetAsync(apiUri);
 ...
 }
@@ -126,10 +127,10 @@ HttpResponseMessage response = await _httpClient.GetAsync(apiUri);
 
 ## <a name="making-several-api-requests"></a>Flera API-förfrågningar
 
-Om du behöver att anropa flera gånger för samma API eller flera API: er, det finns fler överväganden när du skapar din app:
+Om du vill anropa flera gånger för samma API eller om du vill anropa flera API: er, ta hänsyn till följande när du skapar din app:
 
-- ***Inkrementell medgivande***: Microsoft identity-plattformen kan appar för att hämta användarens medgivande som behörighet är obligatoriska, i stället för alla startkostnader. Varje gång som din app är redo att anropa ett API som den ska begära de omfång som den har för avsikt att använda.
-- ***Villkorlig åtkomst***: I vissa fall, kan du få ytterligare krav för villkorlig åtkomst vid flera API-begäranden. För att hantera det här scenariot måste du fånga upp fel från tyst begäranden och vara beredd på att göra en interaktiv begäran. Detta kan inträffa om den första begäran har inga principer för villkorlig åtkomst tillämpas och din app försöker komma åt tyst ett nytt API som kräver villkorlig åtkomst. Mer information finns i [vägledning för villkorlig åtkomst](conditional-access-dev-guide.md).
+- **Inkrementell medgivande**: Microsoft identity-plattformen kan appar för att hämta användarens medgivande som krävs i stället alla i början. Varje gång som din app är redo att anropa ett API, bör det begära de omfång som måste användas.
+- **Villkorlig åtkomst**: I vissa fall, kan du få ytterligare villkorlig åtkomstkrav när du gör flera API-begäranden. Detta kan inträffa om den första begäran har inga principer för villkorlig åtkomst tillämpas och din app försöker komma åt tyst ett nytt API som kräver villkorlig åtkomst. För att hantera det här scenariot måste du fånga upp fel från tyst begäranden och vara beredd på att göra en interaktiv begäran.  Mer information finns i [vägledning för villkorlig åtkomst](conditional-access-dev-guide.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

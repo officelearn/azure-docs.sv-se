@@ -4,7 +4,7 @@ description: Läs mer om offentlig klient och konfidentiell klient program i Mic
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f21aa62bae7599cf586ccf6f885ad9f58c148d1f
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 9e0300ec0ef4ee67b06acb85514ae898bbd0a830
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65077147"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544280"
 ---
 # <a name="public-client-and-confidential-client-applications"></a>Offentlig klient och konfidentiella klientprogram
 Microsoft Authentication Library (MSAL) definierar två typer av klienter: offentliga klienter och konfidentiella klienter. Två klienttyper särskiljs från varandra med sina möjlighet att autentisera på ett säkert sätt med auktoriseringsservern och upprätthålla sekretessen för sina klientautentiseringsuppgifter.  Azure AD Authentication Library (ADAL) har däremot begreppet autentiseringskontext (vilket är en anslutning till Azure AD).

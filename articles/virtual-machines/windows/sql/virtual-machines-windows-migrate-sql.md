@@ -16,18 +16,22 @@ ms.topic: article
 ms.date: 08/18/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 95acda60935e82b226a1a0e860b5fa8effb8e47e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8e5a7bfc243fc8c797ffc66b2130756567ddc0fb
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60325706"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65795780"
 ---
 # <a name="migrate-a-sql-server-database-to-sql-server-in-an-azure-vm"></a>Migrera en SQL Server-databas till SQL Server i en Azure VM
 
 Det finns ett antal metoder för att migrera en användardatabas för en lokal SQL Server till SQL Server i en Azure VM. Den här artikeln beskrivs olika metoder kort och rekommenderar den bästa metoden för olika scenarier.
 
+
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
+
+  > [!NOTE]
+  > SQL Server 2008 och SQL Server 2008 R2 närmar sig den [slutet av sin livscykel för support](https://www.microsoft.com/sql-server/sql-server-2008) för lokala instanser. Om du vill utöka support, kan du migrera dina SQL Server-instansen till en Azure-dator eller köpa utökade säkerhetsuppdateringar så att den lokala. Mer information finns i [utöka stöd för SQL Server 2008 och 2008 R2 med Azure](virtual-machines-windows-sql-server-2008-eos-extend-support.md)
 
 ## <a name="what-are-the-primary-migration-methods"></a>Vad är de primära metoderna?
 De första migreringen metoderna är:

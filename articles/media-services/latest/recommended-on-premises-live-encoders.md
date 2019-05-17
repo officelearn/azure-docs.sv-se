@@ -9,12 +9,12 @@ ms.author: johndeu
 ms.date: 01/17/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: c7d895cd87122374a79a520643580a179961fba3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 50b22cefccf620d7b79202a5c432e2e6a4e3e3be
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60405366"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550042"
 ---
 # <a name="recommended-live-streaming-encoders"></a>Rekommenderade livekodare för direktuppspelning
 
@@ -59,6 +59,9 @@ Media Services rekommenderar att du använder något av följande livekodare som
 - Envivio 4Caster C4 Gen III
 - Imagine Communications Selenio MCP3
 - Media Excel Hero Live och Hero 4K (UHD/HEVC)
+
+> [!TIP]
+>  Om du strömma liveevenemang på flera språk (till exempel ett engelska ljudspår och ett ljudspår spanska), kan du göra detta med Media Excel livekodaren konfigurerat för att skicka live feed till en direkt Live-händelse.
 
 ## <a name="configuring-on-premises-live-encoder-settings"></a>Konfigurera en lokal livekodare inställningar
 

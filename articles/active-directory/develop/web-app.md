@@ -3,8 +3,8 @@ title: Web apps i Azure Active Directory
 description: Beskriver vilka webbappar är och grunderna på protocol flow, registrering och token upphör att gälla för den här apptypen.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea3e1b951a683d7ee1def09024e531e94dd905b4
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: d15d76f4c16fa89b41ebfc10c9617c4709203d38
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918534"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544728"
 ---
-# <a name="web-apps"></a>Webbappar
+# <a name="web-apps"></a>Webbprogram
 
 Webbappar är program som autentiserar en användare i en webbläsare till ett webbprogram. I det här scenariot uppmanar webbprogrammet användarens webbläsare att logga in dem till Azure AD. Azure AD returnerar ett svar via användarens webbläsare, som innehåller anspråk om användaren i en säkerhetstoken. Det här scenariot stöder inloggning med OpenID Connect, SAML 2.0 och WS-Federation-protokoll.
 

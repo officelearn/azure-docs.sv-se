@@ -17,12 +17,12 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d9af3b1b9c267bc09b370717913722a6c53ad5a1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2ffebdd5b88603113dd7624e97dcf7353ab5d1ba
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60371163"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65605565"
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Överföra ägarskapet för en Azure-prenumeration till ett annat konto
 
@@ -64,7 +64,7 @@ ms.locfileid: "60371163"
    ![Första prenumeration överföring-webbsida](./media/billing-subscription-transfer/image4.png)
 
    ![Webbsida för överföring till andra prenumeration](./media/billing-subscription-transfer/image5.png)
-1. Lyckades! Prenumerationen överförs nu.
+1. Klart! Prenumerationen överförs nu.
 
 <a id="EA"></a>
 
@@ -87,7 +87,7 @@ Enterprise-administratören kan överföra ägarskapet för prenumerationer i en
 
 Prenumerationsöverföring med självbetjäning är tillgänglig för erbjudanden och prenumerationstyper som visas i följande tabell. För närvarande du kan inte överföra en kostnadsfri utvärderingsversion eller [Azure i Open (AIO)](https://azure.microsoft.com/offers/ms-azr-0111p/) prenumerationer. Du hittar en lösning i [flytta resurser till ny resursgrupp eller prenumeration](../azure-resource-manager/resource-group-move-resources.md). Om du vill överföra andra prenumerationer, som [sponsring](https://azure.microsoft.com/offers/ms-azr-0036p/) eller supportavtal, [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-| Erbjudandets namn                                                                             | Erbjudandets nummer |
+| Erbjudande                                                                             | Erbjudandets nummer |
 |----------------------------------------------------------------------------------------|--------------|
 | [Enterprise-avtal (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)\*|MS-AZR-0017P        |
 | [Microsoft Partner Network](https://azure.microsoft.com/offers/ms-azr-0025p/)          | MS-AZR-0025P        |
@@ -119,7 +119,7 @@ Alla resurser som virtuella datorer, diskar och webbplatser överföring till de
 
 ### <a id="no-button"></a> Varför visas inte knappen ”överföra prenumerationen”?
 
-Prenumerationsöverföring med självbetjäning är tyvärr inte tillgängligt för ditt erbjudande eller ditt land. Att överföra din prenumeration [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Prenumerationsöverföring med självbetjäning är tyvärr inte tillgängligt för ditt erbjudande eller land/region. Att överföra din prenumeration [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ### <a name="does-a-subscription-transfer-result-in-any-service-downtime"></a>Resulterar en överföring av prenumeration i något avbrott av tjänsten?
 
@@ -156,9 +156,9 @@ Avsändaren ansvarar för betalningen för eventuell användning som rapporterad
 
 Erbjudandet måste vara samma. Om du vill ändra ditt erbjudande, se [växla din Azure-prenumeration till ett annat erbjudande](billing-how-to-switch-azure-offer.md).
 
-### <a name="can-i-transfer-a-subscription-to-a-user-account-in-another-country"></a>Kan jag överföra en prenumeration till ett användarkonto i ett annat land?
+### <a name="can-i-transfer-a-subscription-to-a-user-account-in-another-countryregion"></a>Kan jag överföra en prenumeration till ett användarkonto i ett annat land/region?
 
-Nej, överföra en prenumeration till ett användarkonto i ett annat land stöds inte. Mottagarens konto måste vara i samma land.
+Nej, överföra en prenumeration till ett användarkonto i ett annat land/region stöds inte. Mottagarens konto måste vara i samma land/region.
 
 ### <a name="can-the-recipient-use-a-different-payment-method"></a>Mottagaren kan använda en annan betalningsmetod?
 

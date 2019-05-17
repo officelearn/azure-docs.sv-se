@@ -7,17 +7,17 @@ ms.subservice: single-database
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/08/2019
-ms.openlocfilehash: 4406789e3f9a10ff814aca0c2fd114de8a2abb69
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 36b1fb96ac1dd89375588a65063ce729f6ac825d
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64572663"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794396"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>Vad är en enskild databas i Azure SQL Database
 
@@ -30,7 +30,7 @@ Alternativ för distribution av enskild databas skapar en databas i Azure SQL Da
 
 ## <a name="dynamic-scalability"></a>Dynamisk skalbarhet
 
-Du kan skapa din första app på en liten, enkel databas till en låg kostnad per månad på tjänstnivå för lågt pris/prestanda och sedan [ändra dess tjänstnivå](sql-database-single-database-scale.md) manuellt eller programmässigt när som helst till thehigher pris/prestanda-tjänsten nivå för att uppfylla behoven i din lösning. Du kan justera prestandan utan driftavbrott för din app eller dina kunder. Dynamisk skalbarhet gör att databasen transparent kan svara på snabbt förändrade resurskrav och gör det möjligt för dig att endast betala för de resurser som du behöver, när du behöver dem.
+Du kan skapa din första app på en liten, enkel databas för låg kostnad i Beräkningsnivån utan server (förhandsversion) eller en liten storlek på den etablerade beräkning-nivån. Du ändrar den [beräkning eller service-nivån](sql-database-single-database-scale.md) manuellt eller programmässigt när som helst för att uppfylla behoven i din lösning. Du kan justera prestandan utan driftavbrott för din app eller dina kunder. Dynamisk skalbarhet gör att databasen transparent kan svara på snabbt förändrade resurskrav och gör det möjligt för dig att endast betala för de resurser som du behöver, när du behöver dem.
 
 ## <a name="single-databases-and-elastic-pools"></a>Enkla databaser och elastiska pooler
 

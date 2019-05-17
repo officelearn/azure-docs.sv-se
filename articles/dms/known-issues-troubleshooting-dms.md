@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 05/09/2019
-ms.openlocfilehash: 7b470c20397aac456d34d5e3b877c7d4126d8279
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.date: 05/14/2019
+ms.openlocfilehash: dc8ba315d08f3a130ff0adf91afc90f545baf4e4
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65465116"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604436"
 ---
 # <a name="troubleshoot-common-azure-database-migration-service-issues-and-errors"></a>Felsöka vanliga Azure Database Migration Service problem och fel
 
@@ -24,7 +24,7 @@ Den här artikeln beskriver några vanliga problem och fel som Azure Database Mi
 
 ## <a name="migration-activity-in-queued-state"></a>Migreringsaktivitet i kö
 
-När du skapar nya aktiviteter i Azure Database Migration Service-projekt, förblir aktiviteterna i kö.
+När du skapar nya aktiviteter i ett projekt med Azure Database Migration Service förblir aktiviteter i en kö.
 
 | Orsak         | Matchning |
 | ------------- | ------------- |
@@ -44,13 +44,13 @@ Följande fel inträffar när du skapar en aktivitet för en database migration-
 
 När du migrerar från MySQL till Azure Database for MySQL med Azure Database Migration Service misslyckas migreringsaktiviteten med följande fel:
 
-* **Fel**: Fel: Databasmigreringsfel - uppgiften ”TaskID' pausades på grund av [n] efterföljande Återställningsfel.
+* **Fel**: Databasmigreringsfel - uppgiften ”TaskID' pausades på grund av [n] efterföljande Återställningsfel.
 
 | Orsak         | Matchning |
 | ------------- | ------------- |
-| Det här felet kan inträffa när användaren som utför migreringen saknar ReplicationAdmin-rollen och/eller behörighet av REPLIKERINGSKLIENT och REPLIKERINGSREPLIK SUPER (tidigare versioner än MySQL 5.6.6).<br> <br><br><br> <br> <br> <br> <br> <br> <br> | Kontrollera att den [krävs behörighet](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online#prerequisites) användarens konto har konfigurerats korrekt på Azure MySQL-instans. Till exempel kan följande steg följas för att skapa en användare med namnet 'migrateuser' med de behörigheter som krävs:<br>1. Skapa användare migrateuser@'%' identifieras av hemlighet; <br>2. bevilja alla privilegier på db_name.* till 'migrateuser'@'%' identifieras av hemlighet; Upprepa det här steget för att bevilja åtkomst på fler databaser <br>3. bevilja replikering underordnad på *.* att 'migrateuser'@'%' identifieras av hemlighet;<br>4. bevilja replikeringsklient på *.* att 'migrateuser'@'%' identifieras av hemlighet;<br>5. tömma rättigheter. |
+| Det här felet kan inträffa när användaren som utför migreringen saknar ReplicationAdmin-rollen och/eller behörighet av REPLIKERINGSKLIENT och REPLIKERINGSREPLIK SUPER (tidigare versioner än MySQL 5.6.6).<br> <br><br><br> <br> <br> <br> <br> <br> <br> | Kontrollera att den [krävs behörighet](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online#prerequisites) användarens konto har konfigurerats korrekt på Azure Database for MySQL-instans. Till exempel kan följande steg följas för att skapa en användare med namnet 'migrateuser' med de behörigheter som krävs:<br>1. Skapa användare migrateuser@'%' identifieras av hemlighet; <br>2. Ge alla behörigheter på db_name.* till 'migrateuser'@'%' identifieras av hemlighet; Upprepa det här steget för att bevilja åtkomst på fler databaser <br>3 Bevilja replikering underordnad på *.* att 'migrateuser'@'%' identifieras av hemlighet;<br>4. Bevilja replikeringsklient på *.* att 'migrateuser'@'%' identifieras av hemlighet;<br>5. Tömma rättigheter. |
 
-## <a name="error-when-attempting-to-stop-the-azure-database-migration-service-instance"></a>Fel vid försök att stoppa Azure Database Migration Service-instans
+## <a name="error-when-attempting-to-stop-azure-database-migration-service"></a>Fel vid försök att stoppa Azure Database Migration Service
 
 Du får följande fel när stoppar Azure Database Migration Service-instans:
 
@@ -60,7 +60,7 @@ Du får följande fel när stoppar Azure Database Migration Service-instans:
 | ------------- | ------------- |
 | Det här felet visas när den tjänstinstans som du försöker att stoppa innehåller aktiviteter som körs fortfarande eller finns i migreringsprojekt. <br><br><br><br><br><br> | Se till att det finns inga aktiviteter som körs i instansen av Azure Database Migration Service som du försöker att stoppa. Du kan också ta bort aktiviteter eller projekt innan du försöker att stoppa tjänsten. Följande steg illustrerar hur du tar bort projekt att rensa tjänstinstansen migreringen genom att ta bort alla aktiviteter som körs:<br>1. Install-Module -Name AzureRM.DataMigration <br>2. Login-AzureRmAccount <br>3 Select-AzureRmSubscription -SubscriptionName "<subName>" <br> 4. Remove-AzureRmDataMigrationProject -Name <projectName> -ResourceGroupName <rgName> -ServiceName <serviceName> -DeleteRunningTask |
 
-## <a name="error-restoring-database-while-migrating-from-sql-server-to-an-azure-sql-database-managed-instance"></a>Ett fel uppstod när databasen medan migreringen från SQL Server till en Azure SQL Database-hanterad instans
+## <a name="error-restoring-database-while-migrating-sql-to-azure-sql-db-managed-instance"></a>Ett fel uppstod när databasen medan migrera SQL till Azure SQL DB-hanterad instans
 
 När du utför en online-migrering från SQL Server till en Azure SQL Database managed instance misslyckas den startpunkt med följande fel:
 
@@ -88,11 +88,11 @@ När du försöker ansluta till datakällan i guiden Azure Database Migration se
 | ------------- | ------------- |
 | När du använder [ExpressRoute](https://azure.microsoft.com/services/expressroute/), Azure Database Migration Service [kräver](https://docs.microsoft.com/azure/dms/tutorial-sql-server-azure-sql-online) etablering tre tjänstslutpunkter i virtuella nätverkets undernät som är kopplade till tjänsten:<br> --Service Bus-slutpunkt<br> --Slutpunkt för lagring av<br> --Rikta database-slutpunkten (t.ex. SQL-slutpunkt, Cosmos DB-slutpunkt)<br><br><br><br> | [Aktivera](https://docs.microsoft.com/azure/dms/tutorial-sql-server-azure-sql-online) krävs Tjänsteslutpunkter för ExpressRoute-anslutning mellan käll- och Azure Database Migration Service. <br><br><br><br><br><br><br><br> |
 
-## <a name="timeout-error-when-migrating-a-mysql-database-to-azure-database-for-mysql"></a>Tidsgränsfel när du migrerar en MySQL-databas till Azure Database for MySQL
+## <a name="timeout-error-when-migrating-a-mysql-database-to-azure-mysql"></a>Tidsgränsfel när du migrerar en MySQL-databas till Azure MySQL
 
 När du migrerar en MySQL-databas till en Azure Database for MySQL-instans via Azure Database Migration Service, misslyckas migreringen med följande fel:
 
-    * **Fel**: Fel: Det gick inte att starta inläsningen för filen databasmigreringsfel - det gick inte att läsa in filen - n RetCode: SQL_ERROR SqlState: HY000 NativeError: 1205 meddelande: [MySQL] [ODBC-drivrutinen] [mysqld] Lås vänta tidsgräns har överskridits; Försök att starta om transaktionen
+* **Fel**: Det gick inte att starta inläsningen för filen databasmigreringsfel - det gick inte att läsa in filen - n RetCode: SQL_ERROR SqlState: HY000 NativeError: 1205 meddelande: [MySQL] [ODBC-drivrutinen] [mysqld] Lås vänta tidsgräns har överskridits; Försök att starta om transaktionen
 
 | Orsak         | Matchning    |
 | ------------- | ------------- |
@@ -100,13 +100,13 @@ När du migrerar en MySQL-databas till en Azure Database for MySQL-instans via A
 
 ## <a name="additional-known-issues"></a>Ytterligare kända problem
 
-* [Kända problem/migreringsbegränsningar med onlinemigrering till Azure SQL DB](https://docs.microsoft.com/azure/dms/known-issues-azure-sql-online)
-* [Begränsningar för kända problem/migrering med online migreringar till Azure DB för MySQL](https://docs.microsoft.com/azure/dms/known-issues-azure-mysql-online)
-* [Begränsningar för kända problem/migrering med online migreringar till Azure DB för PostgreSQL](https://docs.microsoft.com/azure/dms/known-issues-azure-postgresql-online)
+* [Begränsningar för kända problem/migrering med online migrering till Azure SQL Database](https://docs.microsoft.com/azure/dms/known-issues-azure-sql-online)
+* [Begränsningar för kända problem/migrering med online migrering till Azure Database for MySQL](https://docs.microsoft.com/azure/dms/known-issues-azure-mysql-online)
+* [Begränsningar för kända problem/migrering med online migrering till Azure Database för PostgreSQL](https://docs.microsoft.com/azure/dms/known-issues-azure-postgresql-online)
 
-## <a name="additional-resources"></a>Ytterligare resurser
+## <a name="next-steps"></a>Nästa steg
 
-* [Azure Database Migration Service PowerShell](https://docs.microsoft.com/powershell/module/azurerm.datamigration/?view=azurermps-6.13.0#data_migration)
-* [Hur du konfigurerar serverparametrar i Azure Database för MySQL med hjälp av Azure portal](https://docs.microsoft.com/azure/mysql/howto-server-parameters)
-* [Översikt över krav för att använda Azure Database Migration Service](https://docs.microsoft.com/azure/dms/pre-reqs)
-* [Vanliga frågor och svar om hur du använder Azure Database Migration Service](https://docs.microsoft.com/azure/dms/faq)
+* Visa artikeln [Azure Database Migration Service PowerShell](https://docs.microsoft.com/powershell/module/azurerm.datamigration/?view=azurermps-6.13.0#data_migration).
+* Visa artikeln [hur du konfigurerar serverparametrar i Azure Database för MySQL med hjälp av Azure portal](https://docs.microsoft.com/azure/mysql/howto-server-parameters).
+* Visa artikeln [översikt över krav för att använda Azure Database Migration Service](https://docs.microsoft.com/azure/dms/pre-reqs).
+* Se den [vanliga frågor och svar om hur du använder Azure Database Migration Service](https://docs.microsoft.com/azure/dms/faq).

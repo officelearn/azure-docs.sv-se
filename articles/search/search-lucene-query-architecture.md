@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: jlembicz
 ms.custom: seodec2018
-ms.openlocfilehash: cb8e42400847ba9fb13568d05dffac86d9cec85f
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: bc183cb8ac2155b8dd31dc603d70506ad3d5e20a
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024624"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65797489"
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>Hur Fullständig textsökning fungerar i Azure Search
 
@@ -288,8 +288,8 @@ För den **beskrivning** fält, indexet är följande:
 | land | 2
 | stora | 1
 | den | 1, 2
-| till | 1
-| vy | 1, 2, 3
+| i | 1
+| visa | 1, 2, 3
 | walking | 1
 | med  | 3
 
@@ -392,8 +392,6 @@ Den här artikeln utforskat fulltextsökning i samband med Azure Search. Vi hopp
 + Lär dig hur du använder [språkspecifika Lexikalisk](https://docs.microsoft.com/rest/api/searchservice/language-support).
 
 + [Konfigurera anpassade analysverktyg](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) för minimal bearbetning eller specialiserade bearbetning på specifika fält.
-
-+ [Jämför standard- och engelska analysverktyg](https://alice.unearth.ai/)) sida vid sida på den här demo-webbplatsen. 
 
 ## <a name="see-also"></a>Se också
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 2893960c3351b1f8a5caf0c69ca961851528007d
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 26055727e308f8c05aece31746434d7e9a0a5abd
+ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510844"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65555952"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Felsök Azure File Sync
 Använd Azure File Sync för att centralisera din organisations filresurser i Azure Files, samtidigt som den flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure File Sync omvandlar Windows Server till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -300,6 +300,17 @@ Synkroniseringssessioner kan misslyckas av olika anledningar, inklusive den serv
 | **Reparation krävs** | Nej |
 
 Ingen åtgärd krävs. servern kommer att försöka igen. Om felet kvarstår under längre tid än ett par timmar, skapa en supportbegäran.
+
+<a id="-2134364043"></a>**Synkronisering är blockerat tills identifiering av ändring av har slutförts efter återställning**  
+
+| | |
+|-|-|
+| **HRESULT** | 0x80c83075 |
+| **HRESULT (decimal)** | -2134364043 |
+| **Felsträng** | ECS_E_SYNC_BLOCKED_ON_CHANGE_DETECTION_POST_RESTORE |
+| **Reparation krävs** | Nej |
+
+Ingen åtgärd krävs. När en fil eller en fil delar (molnslutpunkt) har återställts med Azure Backup, synkronisering är blockerat tills identifiering av ändring av har slutförts på Azure-filresursen. Identifiering av ändring av körs omedelbart när återställningen är klar och varaktighet baserat på antalet filer i filresursen.
 
 <a id="-2134364065"></a>**Synkronisering kan inte komma åt Azure-filresursen som anges i molnslutpunkten.**  
 

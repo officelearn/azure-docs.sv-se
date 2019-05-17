@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 04/26/2019
+ms.date: 05/10/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 22d3bdf8c60e6682c360395b44fe6f1dcc1207b0
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 767f087910136ce558d71602a1c4c632090168cd
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925520"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540628"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Vanliga frågor – VMware till Azure replikering
 
@@ -251,13 +251,13 @@ I Recovery Services-valvet klickar du på **Konfigurationsservrar** i **Site Rec
 
 ## <a name="process-server"></a>Process Server
 
-### <a name="unable-to-select-process-server-during-enable-replication"></a>Det går inte att välja processerver under Aktivera replikering
+### <a name="why-am-i-unable-to-select-process-server-during-enable-replication"></a>Varför kan jag inte välja processerver under för att aktivera replikeringen?
 
-Från 9.24 version förbättringar har gjorts att tillhandahålla [bearbeta serveraviseringar](vmware-physical-azure-monitor-process-server.md#process-server-alerts) på när du skapar en skalbar processerver. Det här är att undvika process server begränsning och undvika användningen av defekta processervern.
+Från 9.24 version förbättringar har gjorts att visa [hälsotillståndet för processervern under Aktivera replikering](vmware-azure-enable-replication.md#enable-replication). Detta är att undvika process server begränsning och minimera användningen av defekta processervrar.
 
-### <a name="what-should-i-do-to-obtain-accurate-health-status-of-process-server"></a>Vad gör jag för att få korrekt hälsostatus för processervern?
+### <a name="what-is-meant-by-upgrading-process-server-to-924-or-higher-versions-for-accurate-health"></a>Vad är avsikten med genom att uppgradera processervern till 9.24 eller senare versioner för korrekt health?
 
-Uppgradera Site Recovery-komponenter till den [senaste versionerna](service-updates-how-to.md#links-to-currently-supported-update-rollups) (minst 9.24 eller senare).
+Från [9.24 versioner](service-updates-how-to.md#links-to-currently-supported-update-rollups), ytterligare aviseringar introduceras för att förbättra hälsovarningar för processervern. Uppgradera Site Recovery-komponenter till 9.24 versioner eller senare för alla aviseringar ska genereras.
 
 ## <a name="failover-and-failback"></a>Redundans och återställning efter fel
 ### <a name="can-i-use-the-process-server-at-on-premises-for-failback"></a>Kan jag använda processervern på den lokala för återställning efter fel?

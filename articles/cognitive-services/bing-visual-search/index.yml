@@ -7,7 +7,7 @@ metadata:
   description: 'Lär dig att använda API:et för visuell sökning i Bing för att få insikter om en bild.'
   services: cognitive-services
   author: swhite-msft
-  manager: rosh
+  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: bing-visual-search
   ms.tgt_pltfrm: na

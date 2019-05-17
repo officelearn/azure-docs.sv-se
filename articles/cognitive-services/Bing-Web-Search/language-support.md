@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 05/15/2019
 ms.author: aahi
-ms.openlocfilehash: f5e75b30a7c196bb238c7bcb9c4704c1aec5e771
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e657c4678c76e8ff667c1a3f30409fc157f52d16
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61430927"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65798249"
 ---
 # <a name="language-and-region-support-for-the-bing-web-search-api"></a>Stöd för språk och din region för Bing Web Search API
 
@@ -43,14 +43,14 @@ Du kan också ange på marknaden med den `mkt` Frågeparametern och en kod från
 |Hongkong SAR|HK|
 |Indien|IN|
 |Indonesien|ID|
-|Italien|IT|
+|Italien|it|
 |Japan|JP|
 |Korea|KR|
 |Malaysia|MY|
-|Mexiko|MX|
+|Mexico|MX|
 |Nederländerna|NL|
 |Nya Zeeland|NZ|
-|Norge|NO|
+|Norge|NEJ|
 |Kina|CN|
 |Polen|PL|
 |Portugal|PT|
@@ -63,7 +63,7 @@ Du kan också ange på marknaden med den `mkt` Frågeparametern och en kod från
 |Schweiz|CH|
 |Taiwan|TW|
 |Turkiet|TR|
-|Storbritannien|GB|
+|Storbritannien och Nordirland|GB|
 |USA|USA|
 
 ## <a name="markets"></a>Marknader
@@ -71,12 +71,12 @@ Du kan också ange på marknaden med den `mkt` Frågeparametern och en kod från
 |Land/region|Språk|Marknaden kod|
 |-------|--------|-----------|
 |Argentina|Spanska|es-AR|
-|Australien|Svenska|SV-Australien|
+|Australien|Engelska|SV-Australien|
 |Österrike|Tyska|Tyskland-AT|
 |Belgien|Nederländska|nl-BE|
 |Belgien|Franska|fr-BE|
 |Brasilien|Portugisiska|pt-BR|
-|Kanada|Svenska|en CA: N|
+|Kanada|Engelska|en CA: N|
 |Kanada|Franska|fr-CA|
 |Chile|Spanska|es-CL|
 |Danmark|Danska|da-DK|
@@ -84,29 +84,33 @@ Du kan också ange på marknaden med den `mkt` Frågeparametern och en kod från
 |Frankrike|Franska|fr-FR|
 |Tyskland|Tyska|de-DE|
 |Hongkong SAR|Traditionell kinesiska|zh-HK|
-|Indien|Svenska|en Indien|
-|Indonesien|Svenska|en-ID|
+|Indien|Engelska|en Indien|
+|Indonesien|Engelska|en-ID|
 |Italien|Italienska|IT-IT|
-|Japan|Japanska|ja-JP|
+|Japan|japanska|ja-JP|
 |Korea|Koreanska|ko-KR|
-|Malaysia|Svenska|en-MY|
-|Mexiko|Spanska|es-MX|
+|Malaysia|Engelska|en-MY|
+|Mexico|Spanska|es-MX|
 |Nederländerna|Nederländska|NL-NL|
-|Nya Zeeland|Svenska|en NZ|
-|Norge|Norska|no-NO|
+|Nya Zeeland|Engelska|en NZ|
+|Norge|Norska (bokmål)|no-NO|
 |Kina|Kinesiska|zh-CN|
 |Polen|Polska|pl-PL|
 |Portugal|Portugisiska|PT-PT|
-|Filippinerna|Svenska|en-PH|
+|Filippinerna|Engelska|en-PH|
 |Ryssland|Ryska|ru-RU|
 |Saudiarabien|Arabiska|ar-SA|
-|Sydafrika|Svenska|en ZA|
+|Sydafrika|Engelska|en ZA|
 |Spanien|Spanska|es-ES|
 |Sverige|Svenska|SV-SE|
 |Schweiz|Franska|fr CH|
 |Schweiz|Tyska|Tyskland – CH|
 |Taiwan|Traditionell kinesiska|zh-TW|
 |Turkiet|Turkiska|TR-TR|
-|Storbritannien|Svenska|en-GB|
-|USA|Svenska|en-US|
+|Storbritannien och Nordirland|Engelska|en-GB|
+|USA|Engelska|en-US|
 |USA|Spanska|es-US|
+
+## <a name="next-steps"></a>Nästa steg
+
+* [API-referens för bildsökning i Bing](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

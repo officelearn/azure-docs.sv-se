@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/09/2018
+ms.date: 05/03/2019
 ms.author: celested
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e00ecde5550b5ef4f1698fa879a039dee8aad12
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3880a62d58b15ef07e524d69c38ba723ea56178f
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60441733"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65781078"
 ---
 # <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Upplevelse för slutanvändare för program i Azure Active Directory
 Azure Active Directory (Azure AD) erbjuder anpassningsbara sätt att distribuera program för slutanvändare i din organisation:
@@ -53,7 +53,9 @@ Mest federerade program som stöder SAML 2.0, WS-Federation och OpenID connect o
 ## <a name="direct-sign-on-links"></a>Inloggnings-länkar
 Azure AD stöder också enkel inloggning Direktlänkar till enskilda program som har stöd för lösenordsbaserad enkel inloggning, länkade enkel inloggning och någon form av federerad enkel inloggning.
 
-Dessa länkar är särskilt utformad URL: er som skickar en användare via Azure AD logga in igen för ett visst program utan att användaren lanseringen dem från Azure AD åtkomst till panelen eller Office 365. Dessa **användaren åtkomst till URL: er** finns i egenskaperna för tillgängliga program under Azure Active Directory i Azure-portalen.
+Dessa länkar är särskilt utformad URL: er som skickar en användare via Azure AD logga in igen för ett visst program utan att användaren lanseringen dem från Azure AD åtkomst till panelen eller Office 365. Dessa **användaren åtkomst till URL: er** finns i egenskaperna för tillgängliga program. I Azure-portalen väljer du **Azure Active Directory** > **företagsprogram**. Välj programmet och välj sedan **egenskaper**.
+
+![Exempel på URL för användaråtkomst i egenskaperna för Twitter](media/end-user-experiences/direct-sign-on-link.png)
 
 Dessa länkar kan kopieras och klistras in var du vill att ange en länk till det valda programmet. Det kan i ett e-postmeddelande eller i valfri anpassad webbaserad portal som du har konfigurerat för programåtkomst för användare. Här är ett exempel på en Azure AD direkt inloggnings-URL för enkel för Twitter:
 

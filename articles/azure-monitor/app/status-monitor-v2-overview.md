@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 77c2cd9e0eac6717d91a73a6fc033dcaa2390444
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 976545f588895421e7c2be7e18b844d7994bc1ff
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65145033"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65779983"
 ---
 # <a name="status-monitor-v2"></a>Statusövervakare v2
 
@@ -34,7 +34,7 @@ Telemetri kommer att skickas till Azure-portalen där du kan [övervakaren](http
 https://www.powershellgallery.com/packages/Az.ApplicationMonitor
 
 
-## <a name="instructions"></a>Instruktioner
+## <a name="instructions"></a>Anvisningar
 - Granska våra [komma igång instruktioner](status-monitor-v2-get-started.md) och kom igång nu med kortfattade kodexempel.
 - Granska våra [detaljerade instruktioner](status-monitor-v2-detailed-instructions.md) för djupgående information om hur du kommer igång.
 
@@ -52,7 +52,7 @@ https://www.powershellgallery.com/packages/Az.ApplicationMonitor
 - [Kända problem](status-monitor-v2-troubleshoot.md#known-issues)
 
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor
 
 - Stöder statusövervakaren v2 proxy installationer?
 
@@ -61,6 +61,11 @@ https://www.powershellgallery.com/packages/Az.ApplicationMonitor
 - Så här verifierar du operatörshanterad lyckades?
 
    Vi har inte en cmdlet för att verifiera att aktivering lyckades. Vi rekommenderar att du använder [Live Metrics](https://docs.microsoft.com/azure/azure-monitor/app/live-stream) att snabbt se om ditt program skickar oss telemetri.
+
+   Du kan också använda [Analytics](../log-query/get-started-portal.md) att lista alla molnroller som skickar telemetri.
+   ```Kusto
+   union * | summarize count() by cloud_RoleName, cloud_RoleInstance
+   ```
 
 ## <a name="next-steps"></a>Nästa steg
 

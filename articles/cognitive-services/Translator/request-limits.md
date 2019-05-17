@@ -10,36 +10,47 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: 97b0b6256b7aaf7b42565fe9453fb87a0c414569
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 91cc002f373318e5124fc21f76edbfd000d17238
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60605220"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796898"
 ---
 # <a name="request-limits-for-translator-text"></a>Gränser för begäran för textöversättning
 
 Den här artikeln innehåller begränsningar gränser för Translator Text API. Tjänsterna omfattar översättning, transkriberingsspråk, mening längd identifiering, språkidentifiering och alternativa översättningar.
 
-## <a name="character-limits-per-request"></a>Tecknet gränserna per begäran
+## <a name="character-and-array-limits-per-request"></a>Tecken och matrisen gränserna per begäran
 
-Varje begäran är begränsad till 5 000 tecken. Du debiteras per tecken, inte av antalet begäranden. Vi rekommenderar att kortare sändningsförfrågningar och har några förfrågningar utestående vid en given tidpunkt.
+Varje Översätt-begäran är begränsad till 5 000 tecken. Du debiteras per tecken, inte av antalet begäranden. Vi rekommenderar att du skickar kortare begäranden.
 
-Det finns ingen gräns för antalet väntande förfrågningar till Translator Text API.
+Följande tabell visar matris element och tecknet begränsningar för varje åtgärd av Translator Text API.
+
+| Operation | Maximal storlek för matriselement |   Maxantalet matriselement |  Begär maxstorleken (tecken) |
+|:----|:----|:----|:----|
+| Translate | 5,000 | 100   | 5,000 |
+| Transliterate | 5,000 | 10    | 5,000 |
+| Detect | 10 000 | 100 |   50,000 |
+| BreakSentence | 10 000    | 100 | 5,0000 |
+| Slå upp i ordlista| 100 |  10  | 1,000 |
+| Ordlisteexempel | 100 för text och 100 för översättning (200 totalt)| 10|   2,000 |
 
 ## <a name="character-limits-per-hour"></a>Tecknet gränserna per timme
 
-Din teckengränsen per timme baserat på textöversättning prenumeration nivå. Om du når eller överskrider gränserna, får du sannolikt en out of kvot svaret:
+Din teckengränsen per timme baserat på textöversättning prenumeration nivå. Timvis kvot ska förbrukas jämnt under hela timmen. Om du når eller överskrider gränserna eller skicka för stor del av en del av kvoten i en kort tidsperiod, får du sannolikt en out of kvot svar. 
 
 | Nivå | Maximalt antal tillåtna tecken |
 |------|-----------------|
 | F0 | 2 miljoner tecken per timme |
 | S1 | 40 miljoner tecken per timme |
-| S2 | 40 miljoner tecken per timme |
-| S3 | 120 miljoner tecken per timme |
-| S4 | 200 miljoner tecken per timme |
+| S2 / C2 | 40 miljoner tecken per timme |
+| S3 / C3 | 120 miljoner tecken per timme |
+| S4 / C4 | 200 miljoner tecken per timme |
 
-Dessa gränser är begränsade till Microsofts allmänna system. Anpassade översättningssystem som använder Microsoft Translator hubb är begränsade till 1 800 tecken per sekund.
+Nätverksgränser [flera tjänster prenumerationer](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication) är samma som på nivån S1.
+
+Dessa gränser är begränsade till Microsofts standard översättningsmodeller. Anpassade översättningsmodeller som använder anpassade Translator är begränsade till 1 800 tecken per sekund.
 
 ## <a name="latency"></a>Svarstid
 
@@ -54,7 +65,7 @@ När du använder den [BreakSentence](https://docs.microsoft.com/azure/cognitive
 | Kinesiska | zh | 132 |
 | Tyska | de | 290 |
 | Italienska | it | 280 |
-| Japanska | ja | 150 |
+| japanska | ja | 150 |
 | Portugisiska | pt | 290 |
 | Spanska | es | 280 |
 | Italienska | it | 280 |

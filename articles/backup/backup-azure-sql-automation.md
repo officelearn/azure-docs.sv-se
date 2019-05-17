@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: pullabhk
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: 3a424335a1e7d7775f6be0980e7009669e354ea7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 6d17d5c2c0eaebc694abe820318f6ac0c70b0be8
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64717899"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544596"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure--vms-with-powershell"></a>Säkerhetskopiera och återställa SQL-databaser i Azure virtuella datorer med PowerShell
 
@@ -110,7 +110,7 @@ Recovery Services-valvet är en Resource Manager-resurs, så måste du placera d
 3. Ange vilken typ av redundans för lagring för valvet.
 
     * Du kan använda [lokalt redundant lagring](../storage/common/storage-redundancy-lrs.md) eller [geo-redundant lagring](../storage/common/storage-redundancy-grs.md).
-    * I följande exempel anges den **- BackupStorageRedundancy** för den[Set-AzRecoveryServicesBackupProperties](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperties?view=azps-1.4.0) cmd för **testvault** inställd  **GeoRedundant**.
+    * I följande exempel anges den **- BackupStorageRedundancy** för den[Set-AzRecoveryServicesBackupProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) cmd för **testvault** inställd  **GeoRedundant**.
 
     ```powershell
     $vault1 = Get-AzRecoveryServicesVault -Name "testvault"
@@ -530,7 +530,7 @@ $SQLContainer = Get-AzRecoveryServicesBackupContainer -ContainerType AzureVMAppC
 
 Det är viktigt att notera att Azure Backup endast spårar användaren utlöses jobb i SQL-säkerhetskopiering. Schemalagda säkerhetskopieringar (inklusive säkerhetskopior) visas inte i portal/powershell. Men om alla schemalagda jobb misslyckas, en [avisering om bandsäkerhetskopiering](backup-azure-monitoring-built-in-monitor.md#backup-alerts-in-recovery-services-vault) genereras och visas i portalen. [Använda Azure Monitor](backup-azure-monitoring-use-azuremonitor.md) att spåra alla schemalagda uppgifter och annan relevant information.
 
-Användare kan spåra ad hoc/användare som utlöste åtgärder med jobb-ID som returneras i de [utdata](#on-demand-backup) asynkrona jobb som säkerhetskopiering. Använd [Get-AzRecoveryServicesBackupJobDetails](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupJobDetails?view=azps-1.5.0) PS-cmdlet för att spåra jobb och dess egenskaper.
+Användare kan spåra ad hoc/användare som utlöste åtgärder med jobb-ID som returneras i de [utdata](#on-demand-backup) asynkrona jobb som säkerhetskopiering. Använd [Get-AzRecoveryServicesBackupJobDetail](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupJobDetail) PS-cmdlet för att spåra jobb och dess egenskaper.
 
 ````powershell
  Get-AzRecoveryServicesBackupJobDetails -JobId 2516bb1a-d3ef-4841-97a3-9ba455fb0637 -VaultId $targetVault.ID

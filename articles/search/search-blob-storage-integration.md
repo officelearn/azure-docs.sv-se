@@ -9,12 +9,12 @@ author: mgottein
 manager: cgronlun
 ms.author: magottei
 ms.custom: seodec2018
-ms.openlocfilehash: b7e7ecd2a82a8d64967288def9c6ede7a292f72a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b6bb70e4c56adb162006d2597d301c73b12d2a8a
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61127597"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540872"
 ---
 # <a name="searching-blob-storage-with-azure-search"></a>Söka i Blob Storage med Azure Search
 
@@ -38,7 +38,7 @@ Ett vanligt scenario som gör det enkelt att gå igenom blobar från alla inneh�
 ## <a name="image-search"></a>Bildsökning
 Azure Search fulltextsökning, fasetterad navigering och sortering funktioner kan nu tillämpas på metadata för bilder som lagras i blobbar.
 
-Cognitive Search omfattar bild bearbetning färdigheter som [optisk teckenläsning (OCR)](cognitive-search-skill-ocr.md) och identifiering av [visuella funktioner](cognitive-search-skill-image-analysis.md) som gör det möjligt att indexera den visuellt innehåll som hittas i varje bild.
+Kognitiv sökning omfattar bild bearbetning färdigheter som [optisk teckenläsning (OCR)](cognitive-search-skill-ocr.md) och identifiering av [visuella funktioner](cognitive-search-skill-image-analysis.md) som gör det möjligt att indexera den visuellt innehåll som hittas i varje bild.
 
 ## <a name="index-and-search-through-json-blobs"></a>Index och Sök igenom JSON-blobar
 Azure Search kan konfigureras för att extrahera strukturerad innehåll som hittas i BLOB-objekt som innehåller JSON. Azure Search kan läsa JSON-blobar och parsa strukturerade innehållet i lämpliga fält i ett Azure Search-dokument. Azure Search kan även dra BLOB-objekt som innehåller en matris av JSON-objekt och mappa varje element till ett separat Azure Search-dokument.

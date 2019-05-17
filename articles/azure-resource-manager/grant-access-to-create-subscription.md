@@ -2,8 +2,8 @@
 title: Bevilja åtkomst till att skapa Azure Enterprise-prenumerationer | Microsoft Docs
 description: Lär dig att ge en användare eller tjänstens huvudnamn möjlighet att skapa Azure Enterprise-prenumerationer programmässigt.
 services: azure-resource-manager
-author: adpick
-manager: adpick
+author: jureid
+manager: jureid
 editor: ''
 ms.assetid: ''
 ms.service: azure-resource-manager
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/05/2018
-ms.author: adpick
-ms.openlocfilehash: 7a2397328f715dbf63246e8d4aaa789b5986b3b4
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.date: 04/09/2019
+ms.author: jureid
+ms.openlocfilehash: 742658e36da956c46bd932b59903e68786c65b93
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112571"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794567"
 ---
 # <a name="grant-access-to-create-azure-enterprise-subscriptions-preview"></a>Bevilja åtkomst till att skapa Azure Enterprise-prenumerationer (förhandsversion)
 
@@ -26,14 +26,118 @@ Azure-kund på [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/e
 
 För att skapa en prenumeration, se [programmässigt skapa Azure Enterprise-prenumerationer (förhandsversion)](programmatically-create-subscription.md).
 
-## <a name="delegate-access-to-an-enrollment-account-using-rbac"></a>Delegera åtkomst till ett konto för enhetsregistreringshanterare med RBAC
+## <a name="grant-subscription-creation-access-to-a-user-or-group"></a>Bevilja prenumeration skapa åtkomst till en användare eller grupp
 
-Ge en annan användare eller tjänstens huvudnamn möjligheten att skapa prenumerationer mot ett specifikt konto [ge dem en RBAC ägarrollen definitionsområdet registreringskontot](../active-directory/role-based-access-control-manage-access-rest.md). I följande exempel ger en användare i klientorganisationen med `principalId` av `<userObjectId>` (för SignUpEngineering@contoso.com) en ägarrollen på registreringskontot. Du hittar registrering konto-ID och ägar-ID [programmässigt skapa Azure Enterprise-prenumerationer (förhandsversion)](programmatically-create-subscription.md).
+Om du vill skapa prenumerationer i ett konto för registrering, användarna måste ha den [RBAC ägarrollen](../role-based-access-control/built-in-roles.md#owner) på det kontot. Du kan ge en användare eller en grupp användare RBAC ägarrollen för ett konto för registrering genom att följa dessa steg:
 
-# <a name="resttabrest"></a>[REST](#tab/rest)
+### <a name="1-get-the-object-id-of-the-enrollment-account-you-want-to-grant-access-to"></a>1. Hämta objekt-ID för konto för enhetsregistreringshanterare som du vill bevilja åtkomst till
+
+Om du vill bevilja andra RBAC ägarrollen för ett konto för registrering, måste antingen vara ägare eller en RBAC-ägare till kontot.
+
+### <a name="resttabrest"></a>[REST](#tab/rest)
+
+Begäran att lista alla registreringskonton som du har åtkomst till:
 
 ```json
-PUT  https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/Microsoft.Authorization/roleAssignments/<roleAssignmentGuid>?api-version=2015-07-01
+GET https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts?api-version=2018-03-01-preview
+```
+
+Azure svarar med en lista över alla registreringskonton som du har åtkomst till:
+
+```json
+{
+  "value": [
+    {
+      "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "name": "747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "type": "Microsoft.Billing/enrollmentAccounts",
+      "properties": {
+        "principalName": "SignUpEngineering@contoso.com"
+      }
+    },
+    {
+      "id": "/providers/Microsoft.Billing/enrollmentAccounts/4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "name": "4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "type": "Microsoft.Billing/enrollmentAccounts",
+      "properties": {
+        "principalName": "BillingPlatformTeam@contoso.com"
+      }
+    }
+  ]
+}
+```
+
+Använd den `principalName` egenskapen att identifiera det konto som du vill ge RBAC-ägaråtkomst till. Kopiera den `name` på det kontot. Exempel: Om du vill ge RBAC-ägaråtkomst till den SignUpEngineering@contoso.com konto för enhetsregistreringshanterare som du vill kopiera ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Det här är objekt-ID för registreringskontot. Klistra in det här värdet någonstans så att du kan använda den i nästa steg som `enrollmentAccountObjectId`.
+
+### <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
+Öppna [Azure Cloud Shell](https://shell.azure.com/) och välj PowerShell.
+
+Använd den [Get-AzEnrollmentAccount](/powershell/module/az.billing/get-azenrollmentaccount) cmdlet för att lista alla registreringskonton som du har åtkomst till.
+
+```azurepowershell-interactive
+Get-AzEnrollmentAccount
+```
+
+Azure svarar med en lista över registreringskonton som du har åtkomst till:
+
+```azurepowershell
+ObjectId                               | PrincipalName
+747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | SignUpEngineering@contoso.com
+4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | BillingPlatformTeam@contoso.com
+```
+
+Använd den `principalName` egenskapen att identifiera det konto som du vill ge RBAC-ägaråtkomst till. Kopiera den `ObjectId` på det kontot. Exempel: Om du vill ge RBAC-ägaråtkomst till den SignUpEngineering@contoso.com konto för enhetsregistreringshanterare som du vill kopiera ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Klistra in den här objekt-ID någonstans så att du kan använda den i nästa steg som den `enrollmentAccountObjectId`.
+
+### <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Använd den [az fakturering konto för enhetsregistreringshanterare lista](https://aka.ms/EASubCreationPublicPreviewCLI) kommando för att lista alla registreringskonton som du har åtkomst till.
+
+```azurecli-interactive 
+az billing enrollment-account list
+```
+
+Azure svarar med en lista över registreringskonton som du har åtkomst till:
+
+```json
+[
+  {
+    "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "name": "747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "principalName": "SignUpEngineering@contoso.com",
+    "type": "Microsoft.Billing/enrollmentAccounts",
+  },
+  {
+    "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "name": "4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "principalName": "BillingPlatformTeam@contoso.com",
+    "type": "Microsoft.Billing/enrollmentAccounts",
+  }
+]
+
+```
+
+Använd den `principalName` egenskapen att identifiera det konto som du vill ge RBAC-ägaråtkomst till. Kopiera den `name` på det kontot. Exempel: Om du vill ge RBAC-ägaråtkomst till den SignUpEngineering@contoso.com konto för enhetsregistreringshanterare som du vill kopiera ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Det här är objekt-ID för registreringskontot. Klistra in det här värdet någonstans så att du kan använda den i nästa steg som `enrollmentAccountObjectId`.
+
+<a id="userObjectId"></a>
+
+### <a name="2-get-object-id-of-the-user-or-group-you-want-to-give-the-rbac-owner-role-to"></a>2. Hämta objekt-ID för användaren eller gruppen som du vill ge rollen RBAC-ägare till
+
+1. Sök i Azure-portalen på **Azure Active Directory**.
+1. Om du vill ge en användaråtkomst, klickar du på **användare** i menyn till vänster. Om du vill bevilja åtkomst till en grupp klickar du på **grupper**.
+1. Välj den användare eller grupp som du vill ge rollen RBAC-ägare till.
+1. Om du har valt en användare hittar objekt-ID på profilsidan. Om du har valt en grupp ska objekt-ID vara på översiktssidan. Kopiera den **ObjectID** genom att klicka på ikonen till höger om rutan. Klistra in den här någonstans så att du kan använda den i nästa steg som `userObjectId`.
+
+### <a name="3-grant-the-user-or-group-the-rbac-owner-role-on-the-enrollment-account"></a>3 Bevilja användaren eller gruppen RBAC ägarrollen på konto för enhetsregistreringshanterare
+
+Med de värden som du samlade in i de två första stegen, användaren eller gruppen RBAC ägarrollen på registreringskontot.
+
+### <a name="resttabrest-2"></a>[REST](#tab/rest-2)
+
+Kör följande kommando ersätter ```<enrollmentAccountObjectId>``` med den `name` du kopierade i det första steget (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Ersätt ```<userObjectId>``` med objekt-ID som du kopierade från det andra steget.
+
+```json
+PUT  https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>/providers/Microsoft.Authorization/roleAssignments/<roleAssignmentGuid>?api-version=2015-07-01
 
 {
   "properties": {
@@ -62,27 +166,27 @@ När rollen ägare har tilldelats på kontoomfånget registrering Azure svarar m
 }
 ```
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+### <a name="powershelltabazure-powershell-2"></a>[PowerShell](#tab/azure-powershell-2)
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Använd den [New AzRoleAssignment](../active-directory/role-based-access-control-manage-access-powershell.md) att ge en annan användare ägaråtkomst till ditt konto för registrering.
+Kör följande [New-AzRoleAssignment](../active-directory/role-based-access-control-manage-access-powershell.md) kommando, ersätta ```<enrollmentAccountObjectId>``` med den `ObjectId` som samlas in i det första steget (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Ersätt ```<userObjectId>``` med objektet ID har samlats in i det andra steget.
 
 ```azurepowershell-interactive
-New-AzRoleAssignment -RoleDefinitionName Owner -ObjectId <userObjectId> -Scope /providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+New-AzRoleAssignment -RoleDefinitionName Owner -ObjectId <userObjectId> -Scope /providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+### <a name="azure-clitabazure-cli-2"></a>[Azure CLI](#tab/azure-cli-2)
 
-Använd den [az-rolltilldelning skapa](../active-directory/role-based-access-control-manage-access-azure-cli.md) att ge en annan användare ägaråtkomst till ditt konto för registrering.
+Kör följande [az-rolltilldelning skapa](../active-directory/role-based-access-control-manage-access-azure-cli.md) kommando, ersätta ```<enrollmentAccountObjectId>``` med den `name` du kopierade i det första steget (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Ersätt ```<userObjectId>``` med objektet ID har samlats in i det andra steget.
 
-```azurecli-interactive 
-az role assignment create --role Owner --assignee-object-id <userObjectId> --scope /providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+```azurecli-interactive
+az role assignment create --role Owner --assignee-object-id <userObjectId> --scope /providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>
 ```
 
 ----
 
-När en användare blir ägare RBAC för ditt konto för enhetsregistreringshanterare, kan de programmässigt skapa prenumerationer under den. En prenumeration som skapats av en delegerad användare har fortfarande ursprungliga ägare som tjänstadministratören, men det har även den delegerade användaren som ägare som standard. 
+När en användare blir ägare RBAC för ditt konto för enhetsregistreringshanterare, kan de [programmässigt skapa prenumerationer](programmatically-create-subscription.md) under den. En prenumeration som skapats av en delegerad användare har fortfarande ursprungliga ägare som tjänstadministratören, men det har även den delegerade användaren som ägare RBAC som standard.
 
 ## <a name="audit-who-created-subscriptions-using-activity-logs"></a>Granska som skapade prenumerationer med hjälp av aktivitetsloggar
 
@@ -95,7 +199,6 @@ För att spåra de prenumerationer som skapats via den här API: et måste anvä
 GET "/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '{greaterThanTimeStamp}' and eventTimestamp le '{lessThanTimestamp}' and eventChannels eq 'Operation' and resourceProvider eq 'Microsoft.Subscription'" 
 ```
 
-> [!NOTE]
 > Du kan anropa det här API:et från kommandoraden med hjälp av [ARMClient](https://github.com/projectkudu/ARMClient).
 
 ## <a name="next-steps"></a>Nästa steg

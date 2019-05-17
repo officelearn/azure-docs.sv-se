@@ -182,7 +182,6 @@
             - name: Ansluta med Postman
               href: media-rest-apis-with-postman.md
         - name: 'Utveckla med SDK:er'
-          href: developers-guide.md
           items:
             - name: Ansluta med Java
               href: configure-connect-java-howto.md
@@ -222,10 +221,13 @@
         - name: Koda med en anpassad transformering
           items:
             - name: Med .NET
+              displayName: 'encode, encoding, custom, transform'
               href: customize-encoder-presets-how-to.md
             - name: Med CLI
+              displayName: 'encode, encoding, custom, transform'
               href: custom-preset-cli-howto.md
             - name: Med REST
+              displayName: 'encode, encoding, custom, transform'
               href: custom-preset-rest-howto.md
     - name: Använda Event Grid
       items:

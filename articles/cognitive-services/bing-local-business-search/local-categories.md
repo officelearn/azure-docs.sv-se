@@ -3,18 +3,18 @@ title: Sök efter kategorier för den lokala företag i Bing | Microsoft Docs
 titleSuffix: Azure Cognitive Services
 description: Använd den här artikeln för att lära dig hur du anger search kategorier för den lokala företag i Bing search API-slutpunkten.
 services: cognitive-services
-author: mikedodaro
-manager: rosh
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: b96c4e0ebfb12f48917febcc8ad623de18758935
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 61bd230ffdb79b31390e96179e5beb3646902142
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60583408"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796734"
 ---
 # <a name="search-categories-for-the-bing-local-business-search-api"></a>Sök i kategorier för den lokala företag i Bing
 

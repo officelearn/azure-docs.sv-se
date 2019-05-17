@@ -3,8 +3,8 @@ title: Rapportering om Azure Active Directory Automatisk etablering av användar
 description: Lär dig hur du kontrollerar status för automatisk användarkonto Etableringsjobb och hur du felsöker etableringen av enskilda användare.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: app-mgmt
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/09/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: asmalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e293eb555269a1f8beeeccd74000358abe1ef5c8
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 71816c8c7e4213ddea4f08e046dc9224eb52b5fd
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64721061"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65781000"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Självstudier: Rapportering om automatisk användarens kontoetablering
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/19/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 551b1d4924c354eb6fd501c1b82ed306a7ea4822
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 317a480c13c5c6e00653fd61878a379df3f65ac4
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58305100"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "65753965"
 ---
 ### <a name="what-is-expressroute-global-reach"></a>Vad är ExpressRoute Global räckvidd?
 
@@ -29,19 +29,19 @@ Om din ExpressRoute-kretsar finns i samma geopolitiska region, behöver du inte 
 
 ### <a name="how-will-i-be-charged-for-expressroute-global-reach"></a>Hur kommer jag att debiteras för Global räckvidd för ExpressRoute?
 
-Med ExpressRoute kan anslutningar från ditt lokala nätverk till Microsofts molntjänster. ExpressRoute Global räckvidd möjliggör anslutningar mellan dina egna lokala nätverk via din befintliga ExpressRoute-kretsar, att utnyttja Microsofts globala nätverk. ExpressRoute Global räckvidd faktureras separat från den befintliga ExpressRoute-tjänsten. Det finns en avgift för tillägg för att aktivera den här funktionen på varje ExpressRoute-krets. Trafik mellan ditt lokala nätverk som aktiveras med Global räckvidd för ExpressRoute debiteras för en utgående hastighet vid källan och för en inkommande hastighet vid målet. Priserna baseras på zonen där kretsarna som är placerade. Se <pricing page>
+Med ExpressRoute kan anslutningar från ditt lokala nätverk till Microsofts molntjänster. ExpressRoute Global räckvidd möjliggör anslutningar mellan dina egna lokala nätverk via din befintliga ExpressRoute-kretsar, att utnyttja Microsofts globala nätverk. ExpressRoute Global räckvidd faktureras separat från den befintliga ExpressRoute-tjänsten. Det finns en avgift för tillägg för att aktivera den här funktionen på varje ExpressRoute-krets. Trafik mellan ditt lokala nätverk som aktiveras med Global räckvidd för ExpressRoute debiteras för en utgående hastighet vid källan och för en inkommande hastighet vid målet. Priserna baseras på zonen där kretsarna som är placerade.
 
 ### <a name="where-is-expressroute-global-reach-supported"></a>Där stöds ExpressRoute Global räckvidd?
 
-ExpressRoute Global räckvidd stöds i [Välj länder eller platser](../articles/expressroute/expressroute-global-reach.md). ExpressRoute-kretsar måste skapas på peering-platser i dessa länder eller platser.
+ExpressRoute Global räckvidd stöds i [Välj länder/regioner eller platser](../articles/expressroute/expressroute-global-reach.md). ExpressRoute-kretsar måste skapas på peering-platser i dessa länder/regioner eller platser.
 
 ### <a name="i-have-more-than-two-on-premises-networks-each-connected-to-an-expressroute-circuit-can-i-enable-expressroute-global-reach-to-connect-all-of-my-on-premises-networks-together"></a>Jag har fler än två lokala nätverk, som är anslutna till en ExpressRoute-krets. Kan jag aktivera ExpressRoute Global räckvidd att koppla ihop alla mitt lokala nätverk?
 
-Ja, du kan, så länge som kretsarna som finns i de länder/regioner som stöds. Du måste ansluta två ExpressRoute-kretsar i taget. Om du vill skapa ett fullständigt sluten nätverk, måste du räkna upp alla kretspar och upprepa konfigurationen. 
+Ja, du kan, så länge som kretsarna som finns i de länder/regionerna. Du måste ansluta två ExpressRoute-kretsar i taget. Om du vill skapa ett fullständigt sluten nätverk, måste du räkna upp alla kretspar och upprepa konfigurationen. 
 
 ### <a name="can-i-enable-expressroute-global-reach-between-two-expressroute-circuits-at-the-same-peering-location"></a>Kan jag aktivera ExpressRoute Global räckvidd mellan två ExpressRoute-kretsar på samma peering plats?
 
-Nej. De två kretsarna måste komma från olika peering-platser. Om en App i metro i ett land som stöds har mer än en ExpressRoute-peering plats, kan du ansluta tillsammans ExpressRoute-kretsar som skapas vid en annan peering-platser i den metro. 
+Nej. De två kretsarna måste komma från olika peering-platser. Om en App i metro i ett land/region som stöds har mer än en ExpressRoute-peering plats, kan du ansluta tillsammans ExpressRoute-kretsar som skapas vid en annan peering-platser i den metro. 
 
 ### <a name="if-expressroute-global-reach-is-enabled-between-circuit-x-and-circuit-y-and-between-circuit-y-and-circuit-z-will-my-on-premises-networks-connected-to-circuit-x-and-circuit-z-talk-to-each-other-via-microsofts-network"></a>Om ExpressRoute Global räckvidd har aktiverats mellan krets X och Y-kretsen och mellan krets Y och Z-kretsen, kommer mitt lokala nätverk som är anslutna till krets X och krets Z kommunicera med varandra via Microsofts nätverk?
 

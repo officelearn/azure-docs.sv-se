@@ -3,10 +3,10 @@ documentType: LandingData
 title: Dokumentation om Azure SQL Database
 metadata:
   document_id: 36d89c48-3646-380e-34a0-ae3ac62e2641
-  title: 'Dokumentation om SQL Database – självstudier, API-referens'
+  title: 'Dokumentation om Azure SQL Database – självstudier, API-referens'
   meta.description: Learn how to use Azure SQL databases.
   services: sql-database
-  author: CarlRabeler
+  author: stevestein
   manager: craigg
   ms.service: sql-database
   ms.subservice: service
@@ -14,7 +14,7 @@ metadata:
   ms.devlang: null
   ms.topic: overview
   ms.date: 03/04/2019
-  ms.author: carlrab
+  ms.author: sstein
 abstract:
   description: 'Azure SQL Database är en relationsdatabas-som-en-tjänst (DBaaS) för generell användning som bygger på den senaste stabila versionen av Microsoft SQL Server Database-motorn. SQL Database är en högpresterande, tillförlitlig och säker molndatabas som du kan använda för att skapa datadrivna program och webbplatser i valfritt programmeringsspråk, utan att behöva hantera infrastrukturen. Lär dig hur du använder SQL Database med våra snabbstarter, självstudier och exempel.'
   aside:
@@ -81,7 +81,7 @@ sections:
   - title: Snabbstarter på 5 minuter
     items:
       - type: paragraph
-        text: 'Med Azure SQL Database kan du enkelt utföra grundläggande hanteringsuppgifter med hjälp av Azure Portal, Azure CLI och Azure PowerShell. Lär dig utföra grundläggande hanteringsuppgifter med följande snabbstartsexempel:'
+        text: 'Med Azure SQL Database kan du enkelt utföra grundläggande hanteringsuppgifter med hjälp av Azure-portalen, Azure CLI och Azure PowerShell. Lär dig utföra grundläggande hanteringsuppgifter med följande snabbstartsexempel:'
       - type: table
         style: dataMatrix
         columns:

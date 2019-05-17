@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/08/19
 ms.author: jgao
-ms.openlocfilehash: 1006cc902cf4b6f763d86165a039a1fec5dc97a1
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 41b16498fb79166b2c77c77a517ee5c443ebec75
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65467090"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796261"
 ---
 # <a name="introduce-health-integration-rollout-to-azure-deployment-manager-public-preview"></a>Introducera hälsotillstånd integration distribution till Azure Deployment Manager (förhandsversion)
 
@@ -32,7 +32,7 @@ Microsoft har arbetat med några av företag så att du får en enkel kopiera oc
 
 ## <a name="how-service-health-is-determined"></a>Hur tjänstehälsa bestäms
 
-[Providers för hälsoövervakning](#health-monitoring-providers) erbjuder flera metoder för att övervaka tjänster och varnar dig om eventuella problem för service health. [Azure Monitor](/services/monitor/) är ett exempel på ett erbjudande. Azure Monitor kan användas för att skapa aviseringar när vissa tröskelvärden överskrids. Till exempel ökar minnes- och CPU-belastningen utöver förväntade nivåer när du distribuerar en ny uppdatering till din tjänst. När ett meddelande om, kan du vidta åtgärder.
+[Providers för hälsoövervakning](#health-monitoring-providers) erbjuder flera metoder för att övervaka tjänster och varnar dig om eventuella problem för service health. [Azure Monitor](../azure-monitor/overview.md) är ett exempel på ett erbjudande. Azure Monitor kan användas för att skapa aviseringar när vissa tröskelvärden överskrids. Till exempel ökar minnes- och CPU-belastningen utöver förväntade nivåer när du distribuerar en ny uppdatering till din tjänst. När ett meddelande om, kan du vidta åtgärder.
 
 Dessa hälsovårdsleverantörer vanligen REST API: er så att statusen för din tjänst Övervakare kan undersökas programmässigt. REST-API: er kan antingen komma tillbaka med en enkel felfri/feltillstånd signal (bestäms av HTTP-svarskoden) och/eller med detaljerad information om signalerna som den tar emot.
 

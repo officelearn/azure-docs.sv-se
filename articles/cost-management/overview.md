@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/13/2019
+ms.date: 05/14/2019
 ms.topic: overview
 ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 0bdf47991435a9a28a4db12f3aa89478b18bb9f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8b989e5cf5b66d21c19d58f2f64fbba1927f5d69
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61020275"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792790"
 ---
 # <a name="what-is-the-cloudyn-service"></a>Vad är tjänsten Cloudyn?
 
@@ -24,6 +24,10 @@ Cloudyn, ett dotterbolag till Microsoft, gör det möjligt att spåra molnanvän
 En introduktionsvideo finns i [Introduction to Azure Cloudyn ](https://azure.microsoft.com/resources/videos/azure-cost-management-overview-and-demo) (Introduktion till Azure Cloudyn).
 
 Azure Cost Management innehåller liknande funktioner som Cloudyn. Azure Cost Management är en lösning för intern kostnadshantering i Azure. Du får hjälp att analysera kostnader, skapa och hantera budgetar, exportera data samt granska och arbeta med optimeringsrekommendationer för att spara pengar. Mer information finns i [Azure Cost Management](overview-cost-mgt.md).
+
+Titta på den [Azure Cost Management och Cloudyn video](https://www.youtube.com/watch?v=PmwFWwSluh8) att se rekommendationer när du ska använda Azure Cost Management eller Cloudyn, baserat på dina affärsbehov.
+
+>[!VIDEO https://www.youtube.com/embed/PmwFWwSluh8]
 
 ## <a name="cloudyn-features-moving-to-azure-cost-management"></a>Cloudyn-funktioner som flyttar till Azure Cost Management
 

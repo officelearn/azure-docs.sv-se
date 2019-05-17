@@ -7,19 +7,19 @@ ms.subservice: single-database
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/22/2019
-ms.openlocfilehash: 7dcbf2733ff23b0454208dbc789599cd372278ec
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 15aedaa7eedad4940945e9b1e7eff0e1780da796
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65507843"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790385"
 ---
-# <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Azure SQL Database vCore-baserade köpa modellen gränser för en enskild databas
+# <a name="resource-limits-for-single-databases-using-the-vcore-based-purchasing-model"></a>Resursgränser för enskilda databaser med hjälp av den vCore-baserade inköpsmodellen
 
 Den här artikeln innehåller detaljerade resursgränser för enskilda databaser i Azure SQL Database med hjälp av den vCore-baserade inköpsmodellen.
 
@@ -129,7 +129,7 @@ Du kan ange tjänstnivå, beräkningsstorleken och lagringsutrymmet för en enke
 
 ### <a name="serverless-compute-tier"></a>Serverlös beräkningsnivå
 
-Den [serverlös Beräkningsnivån](sql-database-serverless.md) finns i offentlig förhandsversion och är endast för enkla databaser med hjälp av vCore köpa modell.
+Den [serverlös Beräkningsnivån](sql-database-serverless.md) är en förhandsversion och är endast för enkla databaser med hjälp av vCore köpa modell.
 
 #### <a name="generation-5-compute-platform"></a>Beräkningsplattform generation 5
 

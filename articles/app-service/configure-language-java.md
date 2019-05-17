@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 04/12/2019
 ms.author: jafreebe;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: efeab014c7d92a6c19d516a121fbc4436925be75
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 82e8936a888cbc99088ab18423e55dd57a3c2e77
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60850996"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604138"
 ---
 # <a name="configure-a-windows-java-app-for-azure-app-service"></a>Konfigurera en Windows Java-app för Azure App Service
 
@@ -27,7 +27,7 @@ Azure App Service kan Java-utvecklare för att snabbt bygga, distribuera och ska
 Den här guiden innehåller viktiga begrepp och instruktioner för Java-utvecklare som använder i App Service. Om du aldrig har använt Azure App Service, bör du läsa den [Java-quickstart](app-service-web-get-started-java.md) första. Allmänna frågor om hur du använder App Service som inte är specifika för Java-utveckling besvaras inom den [App Service Windows vanliga frågor och svar](faq-configuration-and-management.md).
 
 > [!NOTE]
-> Hittar du inte det du letar efter? Finns det [Windows OSS vanliga frågor och svar](faq-configuration-and-management.md) eller [Java Linux konfigurationsguide](containers/app-service-linux-java.md) information om distribution och skydda din Java-app.
+> Hittar du inte det du letar efter? Finns det [Windows OSS vanliga frågor och svar](faq-configuration-and-management.md) eller [Java Linux konfigurationsguide](containers/configure-language-java.md) information om distribution och skydda din Java-app.
 
 ## <a name="configuring-tomcat"></a>Konfigurera Tomcat
 

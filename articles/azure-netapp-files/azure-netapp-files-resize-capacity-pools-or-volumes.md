@@ -12,21 +12,21 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/03/2018
+ms.date: 05/14/2019
 ms.author: b-juche
-ms.openlocfilehash: f08eaee038ad18c600826dea6fe0fd85935de59a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c58ceef57b984f46b86bb2a8577c53b75082b78b
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60452916"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794618"
 ---
 # <a name="resize-a-capacity-pool-or-a-volume"></a>Ändra storlek på en kapacitetspool eller en volym
 Du kan ändra storleken på poolen kapacitet eller en volym som behövs. 
 
 ## <a name="resize-the-capacity-pool"></a>Ändra storlek på poolen kapacitet 
 
-Du kan ändra kapacitetsstorlek för poolen i 4 TiB ökar eller minskar. Ändrar storlek på poolen kapacitet ändras den köpta Azure NetApp Files-kapaciteten.
+Du kan ändra kapacitetsstorlek för poolen i 1 TiB ökar eller minskar. Dock får inte kapacitetsstorlek för poolen vara mindre än 4 TiB. Ändrar storlek på poolen kapacitet ändras den köpta Azure NetApp Files-kapaciteten.
 
 1. Från bladet hantera NetApp-konto klickar du på poolen kapacitet som du vill ändra storlek på. 
 2. Högerklicka på kapacitetsnamnet för pool eller klicka på ikonen ”...” i slutet av kapacitet poolens rad för att öppna snabbmenyn. 

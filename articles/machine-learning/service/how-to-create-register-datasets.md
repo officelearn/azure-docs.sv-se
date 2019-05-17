@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/02/19
-ms.openlocfilehash: 938f13524b22f34f4becc936885d1611cb854df1
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: d3502219f03d4ad076a693ab990f2fadb0b5d558
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510496"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800835"
 ---
 # <a name="create-and-register-azure-machine-learning-datasets-preview"></a>Skapa och registrera Azure Machine Learning datauppsättningar (förhandsversion)
 
@@ -33,6 +33,9 @@ Skapa och registrera datauppsättningar som du behöver:
 * En arbetsyta för Azure Machine Learning-tjänsten. Se [skapa en arbetsyta för Azure Machine Learning-tjänsten](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace).
 
 * Azure Machine Learning SDK för Python. Om du vill installera eller uppdatera till den senaste versionen av SDK, se [installera eller uppdatera SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
+
+> [!Note]
+> Vissa klasser för datauppsättningen (förhandsversion) är beroende av den [azureml-förberedelse av data](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) paketet (GA). De här klasserna stöds endast på följande distributioner för Linux-användare:  Red Hat Enterprise Linux, Ubuntu, Fedora och CentOS.
 
 ## <a name="create-datasets-from-local-files"></a>Skapa datauppsättningar från lokala filer
 

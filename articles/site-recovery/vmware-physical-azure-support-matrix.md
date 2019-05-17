@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 05/10/2019
 ms.author: raynew
-ms.openlocfilehash: 8be028d11d0778c2b67788029aa400ffd3b98cb4
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.openlocfilehash: 2d1999077f6315658dbfd69473ddf5561bd76e0b
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64872922"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540592"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Stöd matrix för haveriberedskap för virtuella VMware-datorer och fysiska servrar till Azure
 
@@ -64,7 +64,7 @@ Site Recovery har stöd för replikering av alla arbetsbelastningar som körs p�
 --- | ---
 Datorinställningar | Datorer som replikeras till Azure måste uppfylla [krav för Azure](#azure-vm-requirements).
 Datorns arbetsbelastning | Site Recovery har stöd för replikering av alla arbetsbelastningar (exempelvis Active Directory, SQLServer osv.) som körs på en dator som stöds. [Läs mer](https://aka.ms/asr_workload).
-Windows-operativsystem | 64-bitars Windows Server 2016 (Server Core, Server med Skrivbordsmiljö), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 med på minst SP1. </br></br>  [Windows Server 2008 med på minst SP2 - 32-bitars och 64-bitars](migrate-tutorial-windows-server-2008.md) (migrering). </br></br> Windows 2016 Nano Server stöds inte.
+Windows-operativsystem | Windows Server 2019 (från [9.22 versioner](service-updates-how-to.md#links-to-currently-supported-update-rollups)), 64-bitars Windows Server 2016 (Server Core, Server med Skrivbordsmiljö), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 med på minst SP1. </br> Från, [9.24 versioner](https://support.microsoft.com/en-in/help/4503156)64- bitars Windows 10, Windows 8.1 för 64-bitars, 64-bitars Windows 8, 64-bitars Windows 7 (Windows 7 RTM stöds inte)</br>  [Windows Server 2008 med på minst SP2 - 32-bitars och 64-bitars](migrate-tutorial-windows-server-2008.md) (migrering). </br></br> Windows 2016 Nano Server stöds inte.
 Arkitektur för Linux-operativsystem | Endast 64-bitars system stöds. 32-bitars systemfiler stöds inte
 Linux-operativsystem | Red Hat Enterprise Linux: 5.2 5.11<b>\*\*</b>, 6.1 6.10<b>\*\*</b>, 7.0 7.6 <br/><br/>CentOS: 5.2 5.11<b>\*\*</b>, 6.1 6.10<b>\*\*</b>, 7.0 7.6 <br/><br/>Ubuntu 14.04 LTS server [(kernel-versioner som stöds)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 LTS server [(kernel-versioner som stöds)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8 [(kernel-versioner som stöds)](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1, SP2, SP3, SP4 [(kernel-versioner som stöds)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3<b>\*\*</b>, SUSE Linux Enterprise Server 11 SP4 * </br></br>Oracle Linux 6.4, 6.5, 6.6, 6.7, 6.8, 6,9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6 som kör Red Hat kompatibla kernel eller Unbreakable Enterprise Kernel version 3, 4 och 5 (UEK3, UEK4, UEK5) <br/><br/></br>– Uppgradera replikerade datorer från SUSE Linux Enterprise Server 11 SP3 till SP4 stöds inte. Om du vill uppgradera, inaktiverar du replikering och aktivera det igen efter uppgraderingen.</br></br> - [Läs mer](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) om stöd för Linux och teknik med öppen källkod i Azure. Site Recovery dirigerar redundans för att köra Linux-servrar i Azure. Linux-leverantörer kan dock begränsa stöd för att endast distribution-versioner som inte har nått slutet på sin livscykel.<br/><br/> -På Linux-distributioner stöds endast lagerartiklar kernlar som är en del av distributionen delversion versionen/uppdatera.<br/><br/> – Uppgradera skyddade datorer i större Linux distribution versioner inte stöds. Om du vill uppgradera, inaktiverar du replikering, uppgradera operativsystemet och aktiverar sedan replikeringen igen.<br/><br/> -Servrar som kör Red Hat Enterprise Linux 5.2 5.11 eller CentOS 5.2 5.11 ska ha den [Linux Integration Services (LIS) komponenter](https://www.microsoft.com/download/details.aspx?id=55106) installerat att starta i Azure virtuella datorer.
 
@@ -110,7 +110,7 @@ SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | [9.21][9.21 UR] | SP1 3.12.49-11
 **Komponent** | **Stöds**
 --- | ---
 Filsystem | ext3, ext4, XFS
-Volymhanterare | Innan du [9.20 version](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), <br/> 1. LVM stöds. <br/> 2. / Boot på LVM-volym stöds inte. <br/> 3. Flera operativsystemdiskar stöds inte.<br/><br/>Från [9.20 version](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery) och senare kan/Boot på LVM stöds. Flera operativsystemdiskar stöds inte.
+Volymhanterare | Innan du [9.20 version](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), <br/> 1. LVM stöds. <br/> 2. / Boot på LVM-volym stöds inte. <br/> 3 Flera operativsystemdiskar stöds inte.<br/><br/>Från [9.20 version](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery) och senare kan/Boot på LVM stöds. Flera operativsystemdiskar stöds inte.
 Paravirtualiserade lagringsenheter | Enheter som exporteras av paravirtualiserade drivrutiner stöds inte.
 Flera kö blockera-i/o-enheter | Stöds ej.
 Fysiska servrar med lagringsstyrenhet HP CCISS | Stöds ej.
@@ -173,6 +173,7 @@ Guest/server VMDK | Ja
 Gäst/server delad klusterdisk | Nej
 Gäst/server krypterad disk | Nej
 Gäst/server NFS | Nej
+Gäst/server iSCSI | Nej
 Gäst/server SMB 3.0 | Nej
 Gäst/server RDM | Ja<br/><br/> Ej tillämpligt för fysiska servrar
 Gäst/server disk > 1 TB | Ja<br/><br/>Upp till 4095 GB<br/><br/> Disken måste vara större än 1 024 MB.
@@ -194,7 +195,7 @@ Gäst/server EFI/UEFI-Startmetod | Stöd när du migrerar virtuella VMware-dator
 | Azure Data Box | Nej
 
 
-## <a name="azure-storage"></a>Azure-lagring
+## <a name="azure-storage"></a>Azure Storage
 
 **Komponent** | **Stöds**
 --- | ---

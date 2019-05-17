@@ -5,21 +5,23 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/10/2019
+ms.date: 05/14/2019
 ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 6975bb872e67650b8b5729a4ac66f0825fb9a80f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 521a5f2543b9a4a84d50f8f0e53a6ae5108f760b
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61021563"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792878"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Självstudier: Skapa och hantera exporterade data
 
 Om du har läst självstudien om kostnadsanalys är du bekant med att manuellt ladda ned Cost Management-data. Du kan dock skapa en återkommande uppgift som automatiskt exporterar Cost Management-data till Azure Storage varje dag, vecka eller månad. Exporterade data är i CSV-format och innehåller all information som samlas in av Cost Management. Du kan sedan använda exporterade data i Azure Storage med externa system och kombinera dem med dina egna anpassade data. Och du kan använda din exporterade data i ett externt system, till exempel en instrumentpanel eller något annat ekonomisystem.
+
+Titta på den [så här schemalägger du exporterar till storage med Azure Cost Management](https://www.youtube.com/watch?v=rWa_xI1aRzo) video om hur du skapar en schemalagd export av din Azure kostnadsdata till Azure Storage.
 
 Exemplen i den här självstudien vägleder dig genom export av Cost Management-data och kontrollerar sedan att data har exporterats.
 
@@ -40,7 +42,7 @@ För Azure Storage-konton:
 - Det krävs skrivbehörigheter för att ändra det konfigurerade lagringskontot, oavsett behörigheter för exporten.
 - Ditt Azure Storage-konto måste konfigureras för blob- eller fillagring.
 
-## <a name="sign-in-to-azure"></a>Logga in på Azure
+## <a name="sign-in-to-azure"></a>Logga in till Azure
 Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com/).
 
 ## <a name="create-a-daily-export"></a>Skapa en daglig export
@@ -49,8 +51,8 @@ Att skapa eller visa en export av data eller för att schemalägga en export, ö
 
 > [!NOTE]
 > Förutom prenumerationer, kan du skapa export på resursgrupper, konton, avdelningar och registreringar. Mer information om scope finns [förstå och arbeta med omfattningar](understand-work-scopes.md).
-> 
-> 
+>
+>
 
 
 Klicka på **Lägg till**, Skriv ett namn för exporten och välj sedan den **dagliga export av månad hittills kostnader** alternativet. Klicka på **Nästa**.

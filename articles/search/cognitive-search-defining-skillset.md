@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 9eedf0be6089764c8111ae81d558f7e65af0a66d
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 010880304c5011bd5a767650aa0ae6b6103bdde2
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65021774"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540862"
 ---
 # <a name="how-to-create-a-skillset-in-an-enrichment-pipeline"></a>Så här skapar du en kompetens i en pipeline för berikande
 
@@ -249,7 +249,7 @@ Fram till nu har den här strukturen interna endast minne och används endast i 
 
 ## <a name="add-a-knowledge-store"></a>Lägg till en knowledge store
 
-[Knowledge Store](knowledge-store-concept-intro.md) är en förhandsgranskningsfunktion i Azure Search för att spara dokumentet avancerad och. Ett arkiv med kunskaper som du skapar, är backas upp av ett Azure storage-konto lagringsplatsen där dina avancerad och data finns. 
+[Knowledge store](knowledge-store-concept-intro.md) är en förhandsgranskningsfunktion i Azure Search för att spara dokumentet avancerad och. Ett arkiv med kunskaper som du skapar, är backas upp av ett Azure storage-konto lagringsplatsen där dina avancerad och data finns. 
 
 En definition av knowledge store har lagts till i en kompetens. En genomgång av processen finns i [hur du kommer igång med knowledge store](knowledge-store-howto.md).
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/29/2019
 ms.author: roiyz
-ms.openlocfilehash: 2287a0c39a82509e21ff35d8c3786cf1c85b1b24
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 270b3ae49a815c9e12fce9377c8298192237f28a
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142884"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790377"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-windows"></a>Azure Monitor VM-tillägget för Windows
 
@@ -36,6 +36,19 @@ Log Analytics-agenttillägg för Windows stöder följande versioner av Windows-
 
 - Windows Server 2019
 - Windows Server 2008 R2, 2012, 2012 R2, 2016, version 1709 och 1803
+
+### <a name="agent-and-vm-extension-version"></a>Version av agenten och tillägg för virtuell dator
+Följande tabell innehåller en mappning av versionen av Azure Monitor VM-tillägg och Log Analytics-agenten paket för varje version. 
+
+| Azure Monitor Linux VM-tilläggsversion | Paketversion för log Analytics-agenten | Utgivningsdatum | Viktig information |
+|--------------------------------|--------------------------|--------------------------|--------------------------|
+| 8.0.11049.0 | 1.0.11049.1 | Februari 2017 | |
+| 8.0.11072.0 | 1.0.11072.1 | September 2017 | |
+| 8.0.11081.0 | 1.0.11081.5 | Nov 2017 | | 
+| 8.0.11103.0 | Saknas |  April 2018 | |
+| 8.0.11136.0 | Saknas | September 2018 |  <ul><li> Stöd har lagts till för identifiering av ändring av resurs-ID på virtuell dator fot </li><li> Stöd har lagts till för rapportering resurs-ID när du använder icke-tillägget installera </li></ul>| 
+| 10.19.10006.0 | Saknas | December 2018 | <ul><li> Mindre stabiliserade korrigeringar </li></ul> | 
+| 10.19.13515.0 | 1.0.13515.1 | Mars 2019 | <ul><li>Mindre stabiliserade korrigeringar </li></ul> |
 
 ### <a name="azure-security-center"></a>Azure Security Center
 

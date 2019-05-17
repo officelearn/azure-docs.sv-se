@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 05/16/2019
 ms.openlocfilehash: 3260ffaba2ab91ee561a0430310883bda8f65269
 ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2019
-ms.locfileid: "65740390"
+ms.locfileid: "65794082"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-offline-using-dms"></a>Självstudier: Migrera MongoDB till Azure Cosmos DB:s API för MongoDB offline med DMS
 

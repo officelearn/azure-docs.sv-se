@@ -5,15 +5,15 @@ metadata:
   title: 'Dokumentation om API för videosökning i Bing – Självstudier, snabbstarter, API-referenser | Microsoft Docs'
   description: 'Lär dig hur du använder API:et för videosökning i Bing och hitta videor på webben.'
   services: cognitive-services
-  author: mikedodaro
-  manager: rosh
+  author: aahill
+  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: bing-video-search
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 01/31/2019
-  ms.author: v-gedod
+  ms.author: aahi
 abstract:
   description: 'Med API:et för videosökning i Bing kan du integrera Bings videosökningsfunktioner i dina program. Genom att skicka sökfrågor till API:et kan du hämta och visa relevanta och högkvalitativa videor på samma sätt som på bing.com/videos.'
 sections:

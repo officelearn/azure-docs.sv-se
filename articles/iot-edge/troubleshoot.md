@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 02d50b81cb91a74e2cdb039c56195e2a15858ca1
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 00147002317f15345f01c88e81973837d16e6669
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142866"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65797611"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Vanliga problem och lösningar för Azure IoT Edge
 
@@ -243,7 +243,7 @@ En behållare kan inte köras och edgeAgent loggarna visar ett 403-fel.
 ### <a name="root-cause"></a>Rotorsak
 Iot Edge-agenten har inte behörighet att få åtkomst till en moduls avbildning. 
 
-### <a name="resolution"></a>Lösning
+### <a name="resolution"></a>Matchning
 Se till att dina autentiseringsuppgifter för registret har angetts korrekt i ditt manifest för distribution
 
 ## <a name="iot-edge-security-daemon-fails-with-an-invalid-hostname"></a>IoT Edge security daemon misslyckas med ett ogiltigt värdnamn
@@ -287,7 +287,7 @@ Du kan stöta på instabilitet begränsad t.ex. för enheter Raspberry Pi, särs
 ### <a name="root-cause"></a>Rotorsak
 IoT Edge-hubben, som är en del av IoT Edge-körningen, optimeras för prestanda som standard och att allokera stora mängder minne. Denna optimering är inte idealiskt för begränsad edge-enheter och kan orsaka stabilitetsproblem med.
 
-### <a name="resolution"></a>Lösning
+### <a name="resolution"></a>Matchning
 Ange en miljövariabel för IoT Edge-hubben **OptimizeForPerformance** till **FALSKT**. Det finns två sätt att göra detta:
 
 I Användargränssnittet: 
@@ -351,7 +351,7 @@ Azure IoT Edge kan kommunikation från en lokal server till Azure-molnet med IoT
 
 IoT Edge innehåller förbättrad konfigurationen för att skydda Azure IoT Edge-körningen och distribuerade moduler, men det är fortfarande beroende av underliggande datorn och nätverket. Därför det är viktigt att se till att rätt nätverk och brandväggsreglerna har ställts in för säker edge till molnet kommunikation. I följande tabell kan användas som en riktlinje när konfigurationen brandväggsregler för de underliggande servrarna där Azure IoT Edge-körningen finns upp:
 
-|Protokoll|Port|inkommande|Utgående|Riktlinjer|
+|Protocol|Port|inkommande|Utgående|Riktlinjer|
 |--|--|--|--|--|
 |MQTT|8883|BLOCKERADE (standard)|BLOCKERADE (standard)|<ul> <li>Konfigurera utgående (utgående) för att vara öppen när du använder MQTT som kommunikationsprotokoll.<li>1883 för MQTT stöds inte av IoT Edge. <li>Inkommande (inkommande) anslutningar ska blockeras.</ul>|
 |AMQP|5671|BLOCKERADE (standard)|ÖPPEN (standard)|<ul> <li>Standard kommunikationsprotokoll för IoT Edge. <li> Måste konfigureras för att vara öppen om Azure IoT Edge inte är konfigurerad för andra protokoll som stöds eller AMQP är det önskade kommunikationsprotokollet.<li>5672 för AMQP stöds inte av IoT Edge.<li>Blockera den här porten när protokoll som stöds av Azure IoT Edge använder en annan IoT-hubb.<li>Inkommande (inkommande) anslutningar ska blockeras.</ul></ul>|
@@ -364,7 +364,7 @@ Enheten har problem med att starta moduler som anges i distributionen. Endast ed
 ### <a name="potential-root-cause"></a>Eventuella grundorsaken
 Som standard startar IoT Edge moduler i sin egen isolerad behållare nätverk. Enheten kan ha problem med DNS-namnmatchning i det här privata nätverket.
 
-### <a name="resolution"></a>Lösning
+### <a name="resolution"></a>Matchning
 
 **Alternativ 1: Ange DNS-server i behållaren motorn inställningarna**
 
@@ -383,7 +383,7 @@ Plats `daemon.json` på rätt plats för din plattform:
 | Plattform | Location |
 | --------- | -------- |
 | Linux | `/etc/docker` |
-| Windows-värd med Windows-behållare | `C:\ProgramData\iotedge-moby-data\config` |
+| Windows-värd med Windows-behållare | `C:\ProgramData\iotedge-moby\config` |
 
 Om platsen innehåller redan `daemon.json` Lägg till den **dns** nyckeln till den och spara filen.
 

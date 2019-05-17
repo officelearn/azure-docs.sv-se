@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/06/2018
+ms.date: 05/09/2019
 ms.author: bwren
-ms.openlocfilehash: a8da60850dae600129e0bc60fb574bfa4d3972db
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
-ms.translationtype: HT
+ms.openlocfilehash: 105454205c0fe3a0020693a1289a65cecd2bf57b
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415901"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65519005"
 ---
 # <a name="get-started-with-azure-monitor-log-queries"></a>Kom igång med Azure Monitor log-frågor
 
@@ -179,12 +179,12 @@ SecurityEvent
 | project Computer, TimeGenerated, EventDetails=Activity, EventCode=substring(Activity, 0, 4)
 ```
 
-**utöka** behålls alla ursprungliga kolumner i resultatuppsättningen och definierar fler håller på att. Följande fråga använder **utöka** att lägga till en *lokal tid* kolumn som innehåller ett lokaliserat TimeGenerated-värde.
+**utöka** behålls alla ursprungliga kolumner i resultatuppsättningen och definierar fler håller på att. Följande fråga använder **utöka** att lägga till den *EventCode* kolumn. Observera att den här kolumnen inte visas i slutet av tabellen resultaten i vilket fall du skulle behöva expandera information om en post för att visa den.
 
 ```Kusto
 SecurityEvent
 | top 10 by TimeGenerated
-| extend localtime = TimeGenerated -8h
+| extend EventCode=substring(Activity, 0, 4)
 ```
 
 ## <a name="summarize-aggregate-groups-of-rows"></a>Sammanfattningsvis: sammanställd grupper av rader

@@ -8,15 +8,15 @@ services: search
 ms.service: search
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 05/16/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: bf78cd9b70aa4a82ef96fdd529d3ee5b1641038c
-ms.sourcegitcommit: eea74d11a6d6ea6d187e90e368e70e46b76cd2aa
+ms.openlocfilehash: 3fa463cb7178fa5cc2108383047a7ca94ffb48a3
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65035350"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65797384"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Övervaka resource förbrukning och fråga i Azure Search
 
@@ -58,7 +58,7 @@ Azure Search lagrar inte några data utöver de objekt som den hanterar, vilket 
 
 I följande tabell jämförs alternativen för att lagra loggar och lägger till djupgående övervakning av tjänståtgärder och frågearbetsbelastningar via Application Insights.
 
-| Resurs | Används för |
+| Resource | Används för |
 |----------|----------|
 | [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) | Loggade händelser och mätvärden för fråga, baserat på scheman som nedan, ihop med användarhändelser i din app. Det här är den enda lösningen som tar användaråtgärder eller signaler i beräkningen, mappning av händelser från användarinitierad sökning, till skillnad från filtrera begäranden som skickas av programkoden. Om du vill använda den här metoden, kopiera och klistra in instrumentation kod till källfilerna vägen begära information till Application Insights. Mer information finns i [Söktrafikanalys](search-traffic-analytics.md). |
 | [Azure Monitor-loggar](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) | Loggade händelser och mätvärden för fråga, baserat på scheman som nedan. Händelser loggas en Log Analytics-arbetsyta. Du kan köra frågor mot en arbetsyta som returnerar detaljerad information från loggen. Mer information finns i [Kom igång med Azure Monitor-loggar](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
@@ -77,13 +77,15 @@ I det här avsnittet lär du dig att använda Blob storage kan lagra loggade hä
 
 1. [Skapa ett lagringskonto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) om du inte redan har ett. Du kan placera det i samma resursgrupp som Azure Search för att förenkla Rensa senare om du vill ta bort alla resurser som används i den här övningen.
 
+   Lagringskontot måste finnas i samma region som Azure Search.
+
 2. Öppna din översiktssidan för söktjänsten. I det vänstra navigeringsfönstret, rulla ned till **övervakning** och klicka på **aktivera övervakning**.
 
    ![Aktivera övervakning](./media/search-monitor-usage/enable-monitoring.png "aktivera övervakning")
 
 3. Välj de data som du vill exportera: Loggar, mått eller båda. Du kan kopiera den till ett lagringskonto, skickar den till en event hub eller exportera den till Azure Monitor-loggar.
 
-   För arkivering till Blob storage, endast lagringskontot måste finnas. Behållare och blobbar skapas när loggdata exporteras.
+   För arkivering till Blob storage, endast lagringskontot måste finnas. Behållare och blobbar skapas när det behövs när loggdata exporteras.
 
    ![Konfigurera blob storage Arkiv](./media/search-monitor-usage/configure-blob-storage-archive.png "konfigurera blob storage-Arkiv")
 

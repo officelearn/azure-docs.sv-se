@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 5/7/2019
+ms.date: 5/16/2019
 ms.author: victorh
-ms.openlocfilehash: dfb5b8b69b2ca9bea118603406f4747036d2641c
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 0da5d8a3eec0faa4001ccf229c6748c253f1b6e5
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510824"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827429"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway"></a>Automatisk skalning och zonredundant Application Gateway 
 
@@ -62,7 +62,7 @@ Compute a vägledning:
 | Standard_v2                                       |    0.20             | 0.0080                          |
 | WAF_v2                                            |    0.36             | 0.0144                          |
 
-Den [prissättningssidan](https://azure.microsoft.com/pricing/details/application-gateway/) kommer att uppdateras för att återspegla regionala priserna på den 14 maj 2019. Fakturering är schemalagd att starta den 1 juni 2019.
+Mer information om priser finns i den [prissättningssidan](https://azure.microsoft.com/pricing/details/application-gateway/). Fakturering är schemalagd att starta den 1 juli 2019.
 
 **Exempel 1**
 
@@ -100,7 +100,7 @@ Den [prissättningssidan](https://azure.microsoft.com/pricing/details/applicatio
 Application Gateway och WAF kan konfigureras att skala i två lägen:
 
 - **Automatisk skalning** – med automatisk skalning aktiverat, Application Gateway och v2 för WAF SKU: er skala upp eller ned baserat på trafik programkrav. Det här läget ger bättre flexibilitet när det gäller att ditt program och eliminerar behovet av att gissa application gateway-storlek eller instansantal. Det här läget kan du spara kostnader genom att inte kräva att köra gateways på högsta etablerad kapacitet för förväntade maximala belastningen. Kunder måste ange en lägsta och du kan också högsta instansantal. Minimikapacitet säkerställer att Application Gateway och WAF v2 inte faller under det lägsta instansantalet anges även i frånvaron av trafik. Du kommer att faktureras för den här minimikapacitet även i frånvaron av all trafik. Du kan även ange ett maximalt instansantal, vilket garanterar att Application Gateway inte kan skalas bortom det angivna antalet instanser. Fortsätter du att debiteras den mängd trafik som hanteras av gatewayen. Antalet instanser kan vara mellan 0 och 125. Standardvärdet för maximalt instansantal är 20 om inget anges.
-- **Manuell** – du kan även välja manuellt läge där gatewayen inte automatisk skalning. I det här läget, om det finns mer trafik än vilka Application Gateway eller WAF som kan hantera, kan det resultera i dataförlust trafik. Med manuell läge är det obligatoriskt att ange instansantal. Instansantal kan skilja sig från 1 till 125 instanser.
+- **Manuell** – du kan även välja manuellt läge där gatewayen inte automatisk skalning. I det här läget, om det finns mer trafik än vad Application Gateway eller WAF kan hantera, kan det resultera i dataförlust trafik. Med manuell läge är det obligatoriskt att ange instansantal. Instansantal kan skilja sig från 1 till 125 instanser.
 
 ## <a name="feature-comparison-between-v1-sku-and-v2-sku"></a>Jämförelse mellan SKU: N v1 och v2-SKU
 

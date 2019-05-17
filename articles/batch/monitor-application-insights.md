@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: lahugh
-ms.openlocfilehash: 42ea8398fa1a8b1fbc42108d1165dc17da2c34d7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c527b0b10a2b9a351b242d0858fdbe64687970a7
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60618598"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595299"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Övervaka och felsöka ett Azure Batch .NET-program med Application Insights
 
@@ -31,7 +31,7 @@ Ett exempel C#-lösning med kod som medföljer den här artikeln är tillgängli
 >
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
-* [Visual Studio 2017](https://www.visualstudio.com/vs)
+* [Visual Studio 2017 eller senare](https://www.visualstudio.com/vs)
 
 * [Batch-konto och ett länkat storage-konto](batch-account-create-portal.md)
 

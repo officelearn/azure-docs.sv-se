@@ -7,14 +7,14 @@ ms.date: 03/28/2019
 ms.topic: tutorial
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: d315fb5fe3ce7844946e6a9405a9a5f6a0be8b9d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b885a90728df8cb15c75141b7bce81aec3968359
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60874537"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65779574"
 ---
-# <a name="protect-new-resources-with-azure-blueprints-resource-locks"></a>Skydda nya resurser med Azure skisser resurslås
+# <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>Självstudier: Skydda nya resurser med Azure skisser resurslås
 
 Azure skisser [resurslås](../concepts/resource-locking.md) gör det möjligt att skydda nyligen distribuerade resurser från intrång, även med ett konto med den _ägare_ roll. Det här skyddet kan läggas till resurser som skapats av en Resource Manager mall artefakter i skissdefinitionen.
 
@@ -129,7 +129,7 @@ När skissdefinitionen har installerats utan **publicerad**, så kan de tilldela
 
 1. Ange parametervärden för skisstilldelningen:
 
-   - Grundläggande inställningar
+   - Grundinställningar
 
      - **Prenumerationer**: Välj en eller flera av de prenumerationer som är i hanteringsgruppen som du sparade din skissdefinitionen till. Om du väljer mer än en prenumeration skapas en tilldelning för att använda de parametrar som anges.
      - **Tilldelningsnamn**: Namnet är förifyllda baserat på namnet på skissdefinitionen. Vi vill att tilldelningen för att representera låser den nya resursgruppen, så ändra namnet på tilldelningen till _tilldelning-låst-storageaccount-TestingBPLocks_.
@@ -149,10 +149,10 @@ När skissdefinitionen har installerats utan **publicerad**, så kan de tilldela
 
      De parametrar som definierats i det här avsnittet gäller för artefakten som den definieras. De här parametrarna kan [dynamiska parametrar](../concepts/parameters.md#dynamic-parameters) eftersom de definierades vid tilldelning av skissen. Ange parametervärdet för varje artefakt enligt definitionen i den **värdet** kolumn.
 
-     |Namn på artefakt|Artefakttyp|Parameternamn|Värde|Beskrivning|
+     |Namn på artefakt|Artefakttyp|Parameternamn|Value|Beskrivning|
      |-|-|-|-|-|
      |RGtoLock resursgrupp|Resursgrupp|Namn|TestingBPLocks|Definierar namnet på den nya resursgruppen för att tillämpa skissen Lås till.|
-     |RGtoLock resursgrupp|Resursgrupp|Location|Västra USA 2|Definierar platsen för den nya resursgruppen för att tillämpa skissen Lås till.|
+     |RGtoLock resursgrupp|Resursgrupp|Location|USA, västra 2|Definierar platsen för den nya resursgruppen för att tillämpa skissen Lås till.|
      |StorageAccount|Resource Manager-mall|storageAccountType (StorageAccount)|Standard_GRS|Välj lagrings-SKU. Standardvärdet är _Standard_LRS_.|
 
 1. När alla parametrar har angetts, väljer **tilldela** längst ned på sidan.

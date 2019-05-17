@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: ca893670e01f4bccc211cd08064b6638e9224a9a
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.openlocfilehash: 6d91f5e61dfd7c3cb4d1869edf0c6cb8c2c85190
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59606794"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827521"
 ---
 # <a name="create-an-iot-hub-using-the-resource-provider-rest-api-net"></a>Skapa en IoT hub med resource provider REST API (.NET)
 
@@ -26,7 +26,7 @@ Du kan använda den [IoT Hub REST API för resursprovider](https://docs.microsof
 
 För att kunna genomföra den här kursen behöver du följande:
 
-* Visual Studio 2015 eller Visual Studio 2017.
+* Visual Studio.
 
 * Ett aktivt Azure-konto. Om du inte har ett konto kan du skapa en [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) på bara några minuter.
 

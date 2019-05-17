@@ -10,12 +10,12 @@ ms.subservice: anomaly-detection
 ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: 64183ea09203ea965bb889fe4741fdaf4dbd1e02
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 42b7b6fac8f99d78e4a7460ad8753f48b0a3c0ba
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60709945"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823427"
 ---
 # <a name="tutorial-anomaly-detection-with-c-application"></a>Självstudie: Avvikelseidentifiering med C#-program
 
@@ -27,7 +27,7 @@ Utforska ett grundläggande Windows-program som använder API:et för avvikelsei
 
 ### <a name="platform-requirements"></a>Plattformskrav
 
-Exemplet har utvecklats för .NET Framework med hjälp av [Visual Studio 2017, Community Edition](https://www.visualstudio.com/products/visual-studio-community-vs). 
+Exemplet har utvecklats för .NET Framework med hjälp av [Visual Studio 2019, Community Edition](https://www.visualstudio.com/products/visual-studio-community-vs). 
 
 ### <a name="subscribe-to-anomaly-detection-and-get-a-subscription-key"></a>Prenumerera på avvikelseidentifiering och få en prenumerationsnyckel 
 

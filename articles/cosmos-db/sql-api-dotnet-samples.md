@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 04/04/2019
 ms.author: sngun
-ms.openlocfilehash: cb132c8e36797e4ae089420e48d75271cddb5c04
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a54c7493dd40d26151311a4211a791a99b0a265e
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60685857"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833556"
 ---
 # <a name="azure-cosmos-db-net-examples-for-the-sql-api"></a>Azure Cosmos DB: .NET-exempel för SQL API
 > [!div class="op_single_selector"]
@@ -34,8 +34,8 @@ Kodexempel för .NET SDK Version 3.0 (förhandsversion), finns i de senaste exem
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Visual Studio 2017 med Azure-utveckling arbetsflödet installerad
-- Du kan hämta och använda den **kostnadsfria** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Se till att du aktiverar **Azure-utveckling** under installationen av Visual Studio. 
+Visual Studio 2019 med Azure-utveckling arbetsflödet installerad
+- Du kan hämta och använda den **kostnadsfria** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Se till att du aktiverar **Azure-utveckling** under installationen av Visual Studio. 
 
 Den [Microsoft.Azure.DocumentDB NuGet-paketet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) 
 
@@ -52,7 +52,7 @@ En Azure-prenumeration eller ett kostnadsfritt utvärderingskonto för Cosmos DB
 ## <a name="database-examples"></a>Databasexempel
 Den [RunDatabaseDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/DatabaseManagement/Program.cs#L72-L121) -metoden för exemplet *DatabaseManagement* projektet visas hur du gör följande uppgifter. Läs om Azure Cosmos-databaser innan du kör följande exempel i [arbeta med databaser, behållare och objekt](databases-containers-items.md). 
 
-| Aktivitet | API-referens |
+| Uppgift | API-referens |
 | --- | --- |
 | [Skapa en databas](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/DatabaseManagement/Program.cs#L90) |[DocumentClient.CreateDatabaseAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.createdatabaseasync) |
 | [Fråga en databas](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/DatabaseManagement/Program.cs#L81) |[DocumentQueryable.CreateDatabaseQuery](/previous-versions/azure/dn850286(v=azure.100)) |
@@ -63,7 +63,7 @@ Den [RunDatabaseDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/530c
 ## <a name="collection-examples"></a>Samlingsexempel
 Den [RunCollectionDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/CollectionManagement/Program.cs#L96-L185) -metoden för exemplet *CollectionManagement* projektet visas hur du gör följande uppgifter. Läs om Azure Cosmos-samlingar innan du kör följande exempel i [arbeta med databaser, behållare och objekt](databases-containers-items.md). 
 
-| Aktivitet | API-referens |
+| Uppgift | API-referens |
 | --- | --- |
 | [Skapa en samling](https://github.com/Azure/azure-documentdb-dotnet/blob/89670bc8aefd9bdd932db7f9b6d2fcb9b6acf35e/samples/code-samples/CollectionManagement/Program.cs#L101) |[DocumentClient.CreateDocumentCollectionAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync) |
 | [Hämta konfigurerade prestanda i en samling](https://github.com/Azure/azure-documentdb-dotnet/blob/95521ff51ade486bb899d6913880995beaff58ce/samples/code-samples/CollectionManagement/Program.cs#L198) |[DocumentQueryable.CreateOfferQuery](/previous-versions/azure/dn975114(v=azure.100)) |
@@ -75,7 +75,7 @@ Den [RunCollectionDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/53
 ## <a name="document-examples"></a>Exempel på dokument
 Den [RunDocumentsDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/f374cc601f4cf08d11c88f0c3fa7dcefaf7ecfe8/samples/code-samples/DocumentManagement/Program.cs#L97-L102) -metoden för exemplet *DocumentManagement* projektet visas hur du gör följande uppgifter. Läs mer om Azure Cosmos-dokument innan du kör följande exempel, i [arbeta med databaser, behållare och objekt](databases-containers-items.md). 
 
-| Aktivitet | API-referens |
+| Uppgift | API-referens |
 | --- | --- |
 | [Skapa ett dokument](https://github.com/Azure/azure-documentdb-dotnet/blob/f374cc601f4cf08d11c88f0c3fa7dcefaf7ecfe8/samples/code-samples/DocumentManagement/Program.cs#L198) |[DocumentClient.CreateDocumentAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.createdocumentasync) |
 | [Läsa ett dokument via ID](https://github.com/Azure/azure-documentdb-dotnet/blob/f374cc601f4cf08d11c88f0c3fa7dcefaf7ecfe8/samples/code-samples/DocumentManagement/Program.cs#L211) |[DocumentClient.ReadDocumentAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.readdocumentasync) |
@@ -91,7 +91,7 @@ Den [RunDocumentsDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/f37
 ## <a name="indexing-examples"></a>Indexeringsexempel
 Den [RunIndexDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/ea8c977b9c2f37ddc2894911ec239907ab60e40a/samples/code-samples/IndexManagement/Program.cs#L89-L117) -metoden för exemplet *IndexManagement* projektet visas hur du gör följande uppgifter. Läs mer om indexering i Azure Cosmos DB innan du kör följande exempel, i [index principer](index-policy.md), [indexera typer](index-types.md), och [index sökvägar](index-paths.md). 
 
-| Aktivitet | API-referens |
+| Uppgift | API-referens |
 | --- | --- |
 | [Undanta ett dokument från indexet](https://github.com/Azure/azure-documentdb-dotnet/blob/2e9a48b6a446b47dd6182606c8608d439b88b683/samples/code-samples/IndexManagement/Program.cs#L125-L163) |[IndexingDirective.Exclude](/dotnet/api/microsoft.azure.documents.indexingdirective) |
 | [Använda manuell (istället för automatisk) indexering](https://github.com/Azure/azure-documentdb-dotnet/blob/2e9a48b6a446b47dd6182606c8608d439b88b683/samples/code-samples/IndexManagement/Program.cs#L171-L209) |[IndexingPolicy.Automatic](/dotnet/api/microsoft.azure.documents.indexingpolicy.automatic) |
@@ -103,7 +103,7 @@ Den [RunIndexDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/ea8c977
 ## <a name="geospatial-examples"></a>Geospatiala exempel
 Den geospatiala exempelfilen, [azure-documentdb-dotnet/samples/code-samples/Geospatial/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs), visar hur du utför följande uppgifter.  Mer information om GeoJSON och geospatiala data innan du kör följande exempel finns [använda geospatiala och GeoJSON platsdata](geospatial.md). 
 
-| Aktivitet | API-referens |
+| Uppgift | API-referens |
 | --- | --- |
 | [Aktivera geospatial indexering på en ny samling](https://github.com/Azure/azure-documentdb-dotnet/blob/7b09c085817e850d683bc59bd864c2f6b552d275/samples/code-samples/Geospatial/Program.cs#L45-L63) |[IndexingPolicy](/dotnet/api/microsoft.azure.documents.indexingpolicy) <br> [IndexKind.Spatial](/dotnet/api/microsoft.azure.documents.indexkind) <br>[DataType.Point](/dotnet/api/microsoft.azure.documents.datatype) |
 | [Infoga dokument med GeoJSON-punkter](https://github.com/Azure/azure-documentdb-dotnet/blob/7b09c085817e850d683bc59bd864c2f6b552d275/samples/code-samples/Geospatial/Program.cs#L116-L126) |[DocumentClient.CreateDocumentAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.createdocumentasync) </br> [DataType.Point](/dotnet/api/microsoft.azure.documents.datatype) |
@@ -115,7 +115,7 @@ Den geospatiala exempelfilen, [azure-documentdb-dotnet/samples/code-samples/Geos
 ## <a name="query-examples"></a>Exempelfrågor
 Dokumentfilen fråga [azure-documentdb-dotnet/samples/code-samples/Queries/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs), visar hur du gör var och en av följande uppgifter med hjälp av SQL-frågegrammatik, LINQ-provider med frågor och Lambda. Mer information om SQL-referens för frågor i Azure Cosmos DB innan du kör följande exempel finns [SQL-fråga exempel för Azure Cosmos DB](how-to-sql-query.md). 
 
-| Aktivitet | API-referens |
+| Uppgift | API-referens |
 | --- | --- |
 | [Fråga för alla dokument](https://github.com/Azure/azure-documentdb-dotnet/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/Queries/Program.cs#L122-L138) |[DocumentQueryable.CreateDocumentQuery](/previous-versions/azure/dn850285(v=azure.100)) |
 | [Fråga för likhet med ==](https://github.com/Azure/azure-documentdb-dotnet/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/Queries/Program.cs#L251-L268) |[DocumentQueryable.CreateDocumentQuery](/previous-versions/azure/dn850285(v=azure.100)) |
@@ -135,7 +135,7 @@ Dokumentfilen fråga [azure-documentdb-dotnet/samples/code-samples/Queries/Progr
 ## <a name="change-feed-examples"></a>Exempel på ändringsflöde 
 Ändringsfeed exemplet [azure-documentdb-dotnet/samples/code-samples/ChangeFeed/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/ServerSideScripts/Program.cs), visar hur du utföra följande uppgifter. Läs mer om ändringsflödet i Azure Cosmos DB innan du kör följande exempel, i [läsa Azure Cosmos DB-ändringsflödet](read-change-feed.md) och [Change feed processor](change-feed-processor.md). 
 
-| Aktivitet | API-referens |
+| Uppgift | API-referens |
 | --- | --- |
 | [Läsa ändringsflöde](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/ChangeFeed/Program.cs#L132) |[DocumentClient.CreateDocumentChangeFeedQuery](/dotnet/api/microsoft.azure.documents.client.documentclient.createdocumentchangefeedquery) | 
 | [Läsa partitionsnyckelintervall](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/ChangeFeed/Program.cs#L118) |[DocumentClient.ReadPartitionKeyRangeFeedAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.readpartitionkeyrangefeedasync) | 
@@ -145,7 +145,7 @@ Dokumentfilen fråga [azure-documentdb-dotnet/samples/code-samples/Queries/Progr
 ## <a name="server-side-programming-examples"></a>Programmeringsexempel på serversidan
 Programmeringsfilen på serversidan, [azure-documentdb-dotnet/samples/code-samples/ServerSideScripts/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/ServerSideScripts/Program.cs), visar hur du utför följande uppgifter. Mer information om programmering av serversidan i Azure Cosmos DB innan du kör följande exempel finns [lagrade procedurer, utlösare och användardefinierade funktioner](stored-procedures-triggers-udfs.md). 
 
-| Aktivitet | API-referens |
+| Uppgift | API-referens |
 | --- | --- |
 | [Skapa en lagrad procedur](https://github.com/Azure/azure-documentdb-net/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/ServerSideScripts/Program.cs#L112) |[DocumentClient.CreateStoredProcedureAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.createstoredprocedureasync) |
 | [Köra en lagrad procedur](https://github.com/Azure/azure-documentdb-net/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/ServerSideScripts/Program.cs#L127) |[DocumentClient.ExecuteStoredProcedureAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.executestoredprocedureasync) |
@@ -158,7 +158,7 @@ Programmeringsfilen på serversidan, [azure-documentdb-dotnet/samples/code-sampl
 ## <a name="user-management-examples"></a>Exempel för användarhantering
 Filen user management [azure-documentdb-dotnet/samples/code-samples/UserManagement/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/UserManagement/Program.cs), visar hur du utföra följande uppgifter:
 
-| Aktivitet | API-referens |
+| Uppgift | API-referens |
 | --- | --- |
 | [Skapa en användare](https://github.com/Azure/azure-documentdb-net/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/UserManagement/Program.cs#L81) |[DocumentClient.CreateUserAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.createuserasync) |
 | [Ange behörigheter för en samling eller dokument](https://github.com/Azure/azure-documentdb-net/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/UserManagement/Program.cs#L85) |[DocumentClient.CreatePermissionAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.createpermissionasync) |

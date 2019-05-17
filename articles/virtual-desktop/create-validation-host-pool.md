@@ -7,20 +7,20 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 05/08/2019
 ms.author: v-chjenk
-ms.openlocfilehash: b654c177accb92d5b9a861f14874e795f4525a43
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 91dd716a595dd56c14b3be0bf11a7b69eeb470d6
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65793825"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65834126"
 ---
-# <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>Självstudier: Skapa en pool med värden för att verifiera tjänstuppdateringar
+# <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>Självstudier: Skapa en värdpool för att verifiera tjänstuppdateringar
 
 Värd-pooler är en samling av en eller flera identiska virtuella datorer i förhandsversion för virtuella skrivbord i Windows klient-miljöer. Vi rekommenderar du skapar en pool för verifiering värden innan du distribuerar värden pooler i din produktionsmiljö. Uppdateringar tillämpas först verifiering värd pooler, så att du kan övervaka uppdateringar av tjänsten innan du distribuerar dem till produktionsmiljön. Du kan inte identifiera ändringar som orsakar fel, vilket kan leda till stilleståndstid för användare i din produktionsmiljö utan poolen verifiering värden.
 
 Om du vill se till att dina appar fungerar med de senaste uppdateringarna, bör verifiering värd poolen likna som värd-pooler i produktionsmiljön som möjligt. Användare bör ansluta så ofta till poolen verifiering värden som de gör i produktion värd-poolen. Om du har automatiserad testning på din värd-pool, bör du inkludera automatiserade tester för verifiering värd-poolen.
 
-Du kan felsöka problem i poolen verifiering värden med diagnostiktjänsten eller [Windows virtuellt skrivbord felsökningsartiklar](https://docs.microsoft.com/Azure/virtual-desktop/troubleshoot-set-up-overview).
+Du kan felsöka problem i poolen verifiering värden med antingen [funktionen diagnostik](diagnostics-role-service.md) eller [Windows virtuellt skrivbord felsökningsartiklar](https://docs.microsoft.com/Azure/virtual-desktop/troubleshoot-set-up-overview).
 
 >[!NOTE]
 > Vi rekommenderar att du lämnar poolen verifiering värden att testa alla framtida uppdateringar.

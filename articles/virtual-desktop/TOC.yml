@@ -32,8 +32,6 @@
       href: create-host-pools-user-profile.md
     - name: Konfigurera metoden för belastningsutjämning för Windows Virtual Desktop
       href: configure-host-pool-load-balancing.md
-    - name: Identifiera problem med diagnostikfunktionen
-      href: diagnostics-role-service.md
     - name: Förbereda och anpassa en VHD-huvudavbildning
       href: set-up-customize-master-image.md
     - name: Installera Office på en VHD-huvudavbildning
@@ -54,6 +52,8 @@
   items:
     - name: 'Översikt, feedback och support för felsökning'
       href: troubleshoot-set-up-overview.md
+    - name: Identifiera problem med diagnostikfunktionen
+      href: diagnostics-role-service.md
     - name: Skapa klient- och värdpool
       href: troubleshoot-set-up-issues.md
     - name: Session för konfiguration av virtuell värddator

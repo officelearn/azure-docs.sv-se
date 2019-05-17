@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 05/01/2019
 ms.author: ghogen
 ms.custom: seodec18
-ms.openlocfilehash: 148f94410f6acb421d352b68b6f1ecb305a6b16a
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 24d9a5fa1e9c2f44ef32ac1fc05ad09f8a550f12
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65235942"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827758"
 ---
 # <a name="use-connected-services-in-visual-studio-to-connect-to-the-computer-vision-api"></a>Använda Connected Services i Visual Studio för att ansluta till API för visuellt innehåll
 
@@ -24,8 +24,8 @@ Den här artikeln, och dess relaterade artiklar, innehåller information om hur 
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-- **En Azure-prenumeration**. Om du inte har en prenumeration kan du registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).
-- **Visual Studio 2017 version 15.7** med arbetsbelastningen **Webbutveckling** installerad. [Ladda ned det nu](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+- En Azure-prenumeration. Om du inte har en prenumeration kan du registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).
+- Visual Studio 2017 version 15.7 eller senare med den **webbutveckling** arbetsbelastning som är installerad. [Ladda ned det nu](https://visualstudio.microsoft.com/downloads/).
 
 [!INCLUDE [vs-install-cognitive-services-vsix](../../../includes/vs-install-cognitive-services-vsix.md)]
 

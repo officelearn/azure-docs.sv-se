@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 02/22/2019
 ms.author: dech
-ms.openlocfilehash: 023b344d796ea5297cda202e7baa2f0e0ef5eebd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 366a5512179136987a8fc984136c3c039a5b079d
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61058358"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827277"
 ---
 # <a name="use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>Migrera data till Azure Cosmos DB med hjälp av migreringsverktyget
 
@@ -63,7 +63,7 @@ Källkoden för migreringsverktyget finns i GitHub på [den här lagringsplatsen
 * **Dtui.exe**: Grafisk gränssnittsversion av verktyget
 * **Dt.exe**: Kommandoradsversion av verktyget
 
-## <a name="select-data-source"></a>Välja datakälla
+## <a name="select-data-source"></a>Välj datakälla
 
 När du har installerat verktyget är det dags att importera dina data. Vilken typ av data vill du importera?
 
@@ -85,6 +85,19 @@ När du har installerat verktyget är det dags att importera dina data. Vilken t
 Med importverktygets alternativ för JSON-filkällor kan du importera ett eller flera dokument med JSON-filer, eller flera JSON-filer som var och en har en matris med JSON-dokument. När du lägger till mappar som har JSON-filer som ska importeras har du möjlighet att rekursivt söka efter filerna i undermappar.
 
 ![Skärmbild av alternativ för JSON-filkällor – Verktyg för databasmigrering](./media/import-data/jsonsource.png)
+
+Anslutningssträngen har följande format:
+
+`AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>`
+
+* Den `<CosmosDB Endpoint>` är URI-slutpunkten. Du kan få det här värdet från Azure-portalen. Navigera till ditt Azure Cosmos-konto. Öppna den **översikt** fönstret och kopiera den **URI** värde.
+* Den `<AccountKey>` är ”Password” eller **PRIMÄRNYCKEL**. Du kan få det här värdet från Azure-portalen. Navigera till ditt Azure Cosmos-konto. Öppna den **anslutningssträngar** eller **nycklar** fönstret och kopiera ”Password” eller **PRIMÄRNYCKEL** värde.
+* Den `<CosmosDB Database>` är namnet på CosmosDB-databasen.
+
+Exempel: `AccountEndpoint=https://myCosmosDBName.documents.azure.com:443/;AccountKey=wJmFRYna6ttQ79ATmrTMKql8vPri84QBiHTt6oinFkZRvoe7Vv81x9sn6zlVlBY10bEPMgGM982wfYXpWXWB9w==;Database=myDatabaseName`
+
+> [!NOTE]
+> Använd kommandot Kontrollera så att Cosmos DB-kontot som angetts i strängfält anslutning är tillgänglig.
 
 Här följer några kommandoradsexempel för import av JSON-filer:
 

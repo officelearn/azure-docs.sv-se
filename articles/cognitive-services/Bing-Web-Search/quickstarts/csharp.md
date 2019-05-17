@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 03/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 871cca9fe2b3ff50202feb4925a267b93d432700
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 20cb5f65ed33bc3e737bbba902ed2d891eaf83be
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60648548"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823363"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-c"></a>Snabbstart: Söka på webben med hjälp av REST-API:et för webbsökning i Bing och C#
 
@@ -26,7 +26,7 @@ Använd den här snabbstarten för att göra ditt första anrop till API:et för
 
 Här följer några saker som du behöver innan du kör den här snabbstarten:
 
-* Windows: [Visual Studio 2017](https://www.visualstudio.com/downloads/)
+* Windows: [Visual Studio 2017 eller senare](https://www.visualstudio.com/downloads/)
 * Linux/macOS: [Mono](https://www.mono-project.com/)  
 * En prenumerationsnyckel
 

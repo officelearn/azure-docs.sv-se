@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: helohr
-ms.openlocfilehash: 8e6991201b3cda5699849ac00cc92217c6b7bf72
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: e19523834c0ddb517fa9d15853411c1b58024b43
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65524014"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833996"
 ---
 # <a name="tutorial-create-a-host-pool-with-azure-marketplace"></a>Självstudier: Skapa en värdpool med Azure Marketplace
 
@@ -58,6 +58,9 @@ För bladet Konfigurera virtuella datorer:
 ### <a name="virtual-machine-settings"></a>Inställningar för virtuella datorer
 
 För det virtuella datorn inställningar-bladet:
+
+>[!NOTE]
+> Om du ska ansluta dina virtuella datorer till en Azure AD DS-miljö, kontrollera att din anslutning till domänanvändare även är medlem i den [AAD DC-administratörsgruppen](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-admingroup#task-3-configure-administrative-group).
 
 1. Välj den **Bildkälla** och ange information om hur du hittar det och hur du lagrar den. Om du väljer att inte använda hanterade diskar, väljer du det lagringskonto som innehåller VHD-filen.
 2. Ange användarens huvudnamn och lösenordet för domänkontot som ansluter till de virtuella datorerna till Active Directory-domän. Det här samma användarnamn och lösenord kommer att skapas på de virtuella datorerna som ett lokalt konto. Senare kan du återställa dessa lokala konton.

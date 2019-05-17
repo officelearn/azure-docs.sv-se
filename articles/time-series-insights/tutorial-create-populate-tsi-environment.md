@@ -9,22 +9,22 @@ ms.date: 04/26/2019
 ms.author: anshan
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: 42a7ba0c66bd603b19d60c7b3407ae5ca80db28e
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 3c097ec74f45248a41c6dd4df80cbbd927a9b5ed
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65210176"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827444"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-environment"></a>Självstudie: Skapa en Azure Time Series Insights-miljö
 
-Den här självstudien vägleder dig genom processen att skapa en Time Series Insight-miljö (TSI) med data från simulerade enheter. I den här guiden får du lära dig att:
+Den här självstudien vägleder dig genom processen att skapa en Time Series Insight-miljö har fyllts med data från simulerade enheter. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * Skapa en TSI-miljö 
+> * Skapa en Time Series Insights-miljö 
 > * Skapa en lösning för enhetssimulering som innehåller en IoT Hub
-> * Anslut TSI-miljön till IoT Hub
-> * Kör en enhetssimulering för att strömma data till TSI-miljön
+> * Ansluta Time Series Insights-miljö till IoT hub
+> * Kör en enhetssimulering att sända data till Time Series Insights-miljö
 > * Kontrollera simulerade telemetridata
 
 ## <a name="video"></a>Video
@@ -41,14 +41,14 @@ Den här självstudien vägleder dig genom processen att skapa en Time Series In
 
 ## <a name="overview"></a>Översikt
 
-TSI-miljön är var enhetsdata samlas in och lagras. Lagras en gång i TSI-miljö den [TSI-Utforskaren](time-series-quickstart.md) och [TSI fråge-API](/rest/api/time-series-insights/ga-query-api) kan användas för att fråga efter och analysera data. IoT Hub är den kopplingspunkt som används av alla enheter (simulerade eller fysiska) på ett säkert sätt ansluta och överföra data till Azure-molnet. Den [TSI översikt](time-series-insights-overview.md) lägger märke till att Azure IoT Hub även fungerar som en händelsekälla för att strömma data till en TSI-miljö. Den här självstudien används en [IoT lösningsaccelerator](/azure/iot-accelerators/) att generera och strömma exempeltelemetridata som IoT Hub.
+Time Series Insights-miljö är där enhetsdata som samlas in och lagras. Lagras en gång i Time Series Insights-miljö den [Time Series Insights Explorer](time-series-quickstart.md) och [Time Series Insights fråge-API](/rest/api/time-series-insights/ga-query-api) kan användas för att fråga efter och analysera data. IoT Hub är den kopplingspunkt som används av alla enheter (simulerade eller fysiska) på ett säkert sätt ansluta och överföra data till Azure-molnet. Den [Time Series Insights, översikt](time-series-insights-overview.md) lägger märke till att Azure IoT Hub även fungerar som en händelsekälla för att strömma data till en Time Series Insights-miljö. Den här självstudien används en [IoT lösningsaccelerator](/azure/iot-accelerators/) att generera och strömma exempeltelemetridata som IoT Hub.
 
 >[!TIP]
 > IoT-Lösningsacceleratorer tillhandahåller företagsklass förkonfigurerade lösningar som hjälper dig att påskynda utvecklingen av anpassade IoT-lösningar.
 
-## <a name="create-a-tsi-environment"></a>Skapa en TSI-miljö
+## <a name="create-an-environment"></a>Skapa en miljö
 
-Skapa först en TSI-miljö i din Azure-prenumeration:
+Skapa först en Time Series Insights-miljö i Azure-prenumerationen:
 
 1. Logga in på [Azure Portal](https://portal.azure.com) med ditt Azure-prenumerationskonto.  
 1. Välj **+ skapa en resurs** i det övre vänstra hörnet.  
@@ -60,10 +60,10 @@ Skapa först en TSI-miljö i din Azure-prenumeration:
 
    Parameter|Beskrivning
    ---|---
-   **Miljönamn** | Välj ett unikt namn för TSI-miljön. Namnet är används av TSI-Utforskaren och fråga API: er.
-   **Prenumeration** | Prenumerationer är containrar för Azure-resurser. Välj en prenumeration för att skapa TSI-miljö för.
-   **Resursgrupp** | En resursgrupp är en container för Azure-resurser. Välj en befintlig resursgrupp eller skapa ett nytt lösenord för miljöresurs TSI.
-   **Plats** | Välj ett datacenterområde för TSI-miljön. För att undvika kostnader för tillagd bandbredd och fördröjning, är det bäst att hålla TSI-miljön i samma region som andra IoT-resurser.
+   **Miljönamn** | Välj ett unikt namn för Time Series Insights-miljö. Namnet är används av Time Series Insights Explorer och fråga API: er.
+   **Prenumeration** | Prenumerationer är containrar för Azure-resurser. Välj en prenumeration för att skapa Time Series Insights-miljö för.
+   **Resursgrupp** | En resursgrupp är en container för Azure-resurser. Välj en befintlig resursgrupp eller skapa ett nytt lösenord för resursen för Time Series Insights-miljö.
+   **Plats** | Välj ett dataområde center för din Time Series Insights-miljö. Om du vill undvika kostnader för extra bandbredd och latens, är det bäst att hålla Time Series Insights-miljö i samma region som andra IoT-resurser.
    **Priser för SKU** | Välj det genomflöde som behövs. Lägsta kostnad och starter kapacitet, väljer `S1`.
    **Kapacitet** | Kapacitet är den multiplikator som appliceras på ingångshastigheten, lagringskapaciteten och de kostnader som är associerade med den valda SKU:n.  Du kan ändra kapaciteten när du har skapat. Välj en kapacitet på 1 för lägsta kostnad.
 
@@ -77,7 +77,7 @@ Skapa först en TSI-miljö i din Azure-prenumeration:
 
 ## <a name="create-a-device-simulation"></a>Skapa en enhetssimulering
 
-Skapa sedan enhetssimuleringslösningen som genererar testdata för att fylla i TSI-miljön:
+Skapa sedan enheten simuleringslösning som genererar testdata för att fylla i din Time Series Insights-miljö:
 
 1. I ett separat fönster/flik, går du till [azureiotsolutions.com](https://www.azureiotsolutions.com). Logga in med samma konto som Azure-prenumeration och välj den **Enhetssimulering** accelerator.
 
@@ -88,8 +88,8 @@ Skapa sedan enhetssimuleringslösningen som genererar testdata för att fylla i 
    Parameter|Beskrivning
    ---|---
    **Namn på lösning** | Ett unikt värde som används för att skapa en ny resursgrupp. Angivna Azure-resurser skapas och tilldelas till resursgruppen.
-   **Prenumeration** | Ange samma prenumeration som användes för att skapa TSI-miljön i föregående avsnitt.
-   **Region** | Ange samma region som användes för att skapa TSI-miljön i föregående avsnitt.
+   **Prenumeration** | Ange samma prenumeration som används för att skapa din Time Series Insights-miljö i föregående avsnitt.
+   **Region** | Ange samma region som används för att skapa din Time Series Insights-miljö i föregående avsnitt.
    **Distribuera valfria Azure-resurser** | Lämna **IoT Hub** markerad, eftersom de simulerade enheterna kommer att använda den för att ansluta/streama data.
 
    När du är klar klickar du på **skapa lösning** att etablera lösningen Azure-resurser. Det kan ta 6 – 7 minuter att slutföra den här processen.
@@ -107,14 +107,14 @@ Skapa sedan enhetssimuleringslösningen som genererar testdata för att fylla i 
 
    [![Resurser för enhetssimuleringslösning](media/tutorial-create-populate-tsi-environment/ap-device-sim-solution-resources.png)](media/tutorial-create-populate-tsi-environment/ap-device-sim-solution-resources.png#lightbox)
 
-## <a name="connect-the-tsi-environment-to-the-iot-hub"></a>Anslut TSI-miljön till IoT Hub
+## <a name="connect-the-environment-to-the-iot-hub"></a>Ansluta miljön till IoT hub
 
 Nu har du lärt dig hur du skapar två uppsättningar med resurser, var och en i sin egen resursgrupp:
 
-- En tom TSI-miljö.
+- En tom Time Series Insights-miljö.
 - Enheten simulering lösningsresurser, inklusive en IoT-hubb som genererats av en lösningsaccelerator.
 
-Kom ihåg att simulerade enheter behöver ansluta till en IoT Hub för att strömma enhetsdata. För att flöda data in i TSI-miljön, måste du göra konfigurationsändringar i både din IoT Hub och TSI-miljö.
+Kom ihåg att simulerade enheter behöver ansluta till en IoT Hub för att strömma enhetsdata. Du måste göra konfigurationsändringar i både din IoT-hubb och Time Series Insights-miljö för att flöda data i Time Series Insights-miljön.
 
 ### <a name="iot-hub-configuration-define-a-consumer-group"></a>Konfiguration av IoT Hub: definiera en konsumentgrupp
 
@@ -132,17 +132,17 @@ Sedan definierar du en ny **konsumentgrupp** egenskapen på enheten simulering l
 
    [![IoT Hub-slutpunkter för enhetssimuleringslösning](media/tutorial-create-populate-tsi-environment/ap-add-iot-hub-consumer-group-create.png)](media/tutorial-create-populate-tsi-environment/ap-add-iot-hub-consumer-group-create.png#lightbox)
 
-### <a name="tsi-configuration-define-an-event-source"></a>TSI-konfiguration: definiera en händelsekälla
+### <a name="environment-configuration-define-an-event-source"></a>Miljökonfiguration: definiera en händelsekälla
 
-Nu ansluta den nya IoT-hubben **konsumentgrupp** händelse slutpunkten till TSI-miljön, som en **händelsekälla**.
+Nu ansluta den nya IoT-hubben **konsumentgrupp** händelse slutpunkten till Time Series Insights-miljön, som en **händelsekälla**.
 
-1. Gå till sidan **Översikt** i resursgruppen du skapade för TSI-miljön och välj sedan TSI-miljön:
+1. Gå till den **översikt** sidan i resursgruppen du skapade för Time Series Insights-miljö och sedan väljer du Time Series Insights-miljön:
 
-   [![Resursgrupp och miljö för TSI-miljö](media/tutorial-create-populate-tsi-environment/ap-add-env-event-source-view-rg.png)](media/tutorial-create-populate-tsi-environment/ap-add-env-event-source-view-rg.png#lightbox)
+   [![Resursgrupp för Time Series Insights-miljö och miljö](media/tutorial-create-populate-tsi-environment/ap-add-env-event-source-view-rg.png)](media/tutorial-create-populate-tsi-environment/ap-add-env-event-source-view-rg.png#lightbox)
 
-1. På sidan TSI-miljö väljer **händelsekällor**, klicka sedan på **+ Lägg till**.
+1. På sidan Time Series Insights-miljö väljer **händelsekällor**, klicka sedan på **+ Lägg till**.
 
-   [![Översikt över TSI-miljö](media/tutorial-create-populate-tsi-environment/ap-add-env-event-source-add.png)](media/tutorial-create-populate-tsi-environment/ap-add-env-event-source-add.png#lightbox)
+   [![Översikt över Time Series Insights-miljö](media/tutorial-create-populate-tsi-environment/ap-add-env-event-source-add.png)](media/tutorial-create-populate-tsi-environment/ap-add-env-event-source-add.png#lightbox)
 
 1. Ange de obligatoriska parametrarna på den **ny händelsekälla** sidan.
 
@@ -151,20 +151,20 @@ Nu ansluta den nya IoT-hubben **konsumentgrupp** händelse slutpunkten till TSI-
    **Händelsekällans namn** | Kräver ett unikt värde som används för att namnge händelsekällan.
    **Källa** | Välj **IoT-hubb**.
    **Importalternativ** | Välj standard `Use IoT hub from available subscriptions`. Det här alternativet kommer att leda till att nästa listruta fylls i med tillgängliga prenumerationer.
-   **Prenumeration** | Välj samma prenumeration som du skapade TSI-miljön och enhetssimuleringens resurser i.
+   **Prenumeration** | Välj samma prenumeration där du skapade Time Series Insights-miljön och Enhetssimulering resurser.
    **IoT Hub-namn** | Bör som standard vara namnet på den IoT Hub som du noterade tidigare. Om inte, välj rätt IoT Hub.
    **Principnamn för IoT Hub** | Välj **iothubowner**.
    **IoT Hub-konsumentgrupp** | Bör som standard vara namnet på IoT Hub:ens konsumentgrupp som du skapade tidigare. Annars väljer du rätt konsumentgruppnamn.
    **Händelseserialiseringsformat** | Lämna som återbetalats värde för `JSON`.
    **Egenskapsnamn för tidsstämpel** | Ange som `timestamp`.
 
-   När du är klar klickar du på **Skapa** för att lägga till händelsekällan. När du kommer tillbaka till resursgruppens sida **Översikt** ser du, tillsammans med din TSI-miljöresurs, en ny resurs ”Time Series Insights-händelsekälla”.
+   När du är klar klickar du på **Skapa** för att lägga till händelsekällan. När du återgår till resursgruppen **översikt** sidan, tillsammans med din miljö Time Series Insights-resurs som du ser en ny ”Time Series Insights-händelsekälla”-resurs.
 
-   [![TSI miljö ny händelsekälla](media/tutorial-create-populate-tsi-environment/ap-add-env-event-source-add-event-source.png)](media/tutorial-create-populate-tsi-environment/ap-add-env-event-source-add-event-source.png#lightbox)
+   [![Time Series Insights-miljö ny händelsekälla](media/tutorial-create-populate-tsi-environment/ap-add-env-event-source-add-event-source.png)](media/tutorial-create-populate-tsi-environment/ap-add-env-event-source-add-event-source.png#lightbox)
 
-## <a name="run-device-simulation-to-stream-data-into-tsi"></a>Stöter TSI enhetssimulering att sända data
+## <a name="run-device-simulation-to-stream-data"></a>Kör enhetssimulering att sända data
 
-Nu när allt konfigurationsarbete har slutförts, är det dags att fylla i TSI-miljön med exempeldata från de simulerade enheterna.
+Nu när allt konfigurationsarbete som är klar, är det dags att fylla i Time Series Insights-miljö med exempeldata från simulerade enheter.
 
 Från avsnittet [Skapa en enhetssimulering](#create-a-device-simulation) kan du återställa flera Azure-resurser som har skapats av acceleratorn som stöd för lösningen. Tillsammans med IoT Hub som beskrivits tidigare har ett webbprogram i Azure App Service genererats för att skapa och överföra simulerad enhetstelemetri.
 
@@ -196,35 +196,35 @@ Från avsnittet [Skapa en enhetssimulering](#create-a-device-simulation) kan du 
 
 ## <a name="verify-the-telemetry-data"></a>Kontrollera telemetridata
 
-I det här sista avsnittet verifierar du att telemetridata skapats och lagrats i TSI-miljön. För att verifiera data, kan du använda Time Series Insights-utforskaren som används för att fråga och analysera telemetridata.
+I det här sista delen kan kontrollera du att dessa data har genererats och lagras i Time Series Insights-miljö. För att verifiera data, kan du använda Time Series Insights-utforskaren som används för att fråga och analysera telemetridata.
 
-1. Gå tillbaka till miljön TSI resursgrupp **översikt** sidan. Välj TSI-miljön.
+1. Gå tillbaka till Time Series Insights-miljön resursgrupp **översikt** sidan. Välj Time Series Insights-miljön.
 
-   [![Resursgrupp och miljö för TSI-miljö](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-rg.png)](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-rg.png#lightbox)
+   [![Resursgrupp för Time Series Insights-miljö och miljö](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-rg.png)](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-rg.png#lightbox)
 
-1. I miljön med en TSI **översikt** klickar du på den **Webbadressen för Time Series Insights explorer** att öppna TSI-Utforskaren.
+1. På Time Series Insights-miljön **översikt** klickar du på den **Webbadressen för Time Series Insights explorer** att öppna Time Series Insights explorer.
 
-   [![TSI-utforskaren](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-explorer-url.png)](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-explorer-url.png#lightbox)
+   [![Time Series Insights-Utforskaren](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-explorer-url.png)](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-explorer-url.png#lightbox)
 
-1. TSI-utforskaren kommer att läsa in och autentisera med ditt Azure Portal-konto. Vid första vyn ser du i diagramområdet att TSI-miljön verkligen har fyllts i med simulerade telemetridata. Välj listrutan längst upp till vänster om du vill filtrera ett smalare tidsintervall. Ange ett tidsintervall som är tillräckligt stort för att sträcka sig över hela enhetssimuleringen. Klicka på knappen förstora klass.
+1. Time Series Insights explorer ska läsa in och autentisera med ditt Azure portal. Vid inledande vy kan visas i diagramområdet att Time Series Insights-miljö verkligen har fyllts med data för simulerad telemetri. Välj listrutan längst upp till vänster om du vill filtrera ett smalare tidsintervall. Ange ett tidsintervall som är tillräckligt stort för att sträcka sig över hela enhetssimuleringen. Klicka på knappen förstora klass.
 
-   [![Tidsintervallfilter för TSI-utforskaren](media/tutorial-create-populate-tsi-environment/tsie-filter-time-range.png)](media/tutorial-create-populate-tsi-environment/tsie-filter-time-range.png#lightbox)
+   [![Time Series Insights explorer intervallet tidsfiltret](media/tutorial-create-populate-tsi-environment/tsie-filter-time-range.png)](media/tutorial-create-populate-tsi-environment/tsie-filter-time-range.png#lightbox)
 
-1. Genom att begränsa tidsintervallet kan diagrammet zooma in till distinkta belastningar för dataöverföring, till IoT Hub och TSI-miljön. Observera också texten **Strömning klar** längst upp till höger som visar det totala antalet händelser som hittades. Du kan också dra den **intervallstorlek** skjutreglaget för att styra ritytans precisionen i diagrammet.
+1. Begränsa tidsintervallet kan diagrammet för att zooma in på olika ökningar av dataöverföring till IoT hub och Time Series Insights-miljö. Observera också texten **Strömning klar** längst upp till höger som visar det totala antalet händelser som hittades. Du kan också dra den **intervallstorlek** skjutreglaget för att styra ritytans precisionen i diagrammet.
 
-   [![Filtrerad vy över tidsintervallet för TSI-utforskaren](media/tutorial-create-populate-tsi-environment/tsie-view-time-range.png)](media/tutorial-create-populate-tsi-environment/tsie-view-time-range.png#lightbox)
+   [![Tidsintervallet för Time Series Insights explorer filtrerad vy](media/tutorial-create-populate-tsi-environment/tsie-view-time-range.png)](media/tutorial-create-populate-tsi-environment/tsie-view-time-range.png#lightbox)
 
 1. Slutligen kan du även klickar en region för att filtrera ett område, högerklicka och använda **utforska händelser** att visa händelseinformation i den tabular **händelser** vy.
 
-   [![Filtrerad vy och händelser över tidsintervallet för TSI-utforskaren](media/tutorial-create-populate-tsi-environment/tsie-view-time-range-events.png)](media/tutorial-create-populate-tsi-environment/tsie-view-time-range-events.png#lightbox)
+   [![Tidsintervallet för Time Series Insights explorer filtrerad vy och händelser](media/tutorial-create-populate-tsi-environment/tsie-view-time-range-events.png)](media/tutorial-create-populate-tsi-environment/tsie-view-time-range-events.png#lightbox)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Den här självstudiekursen skapar flera körande Azure-tjänster, för att stödja TSI-miljön och enhetssimuleringslösningen. Om du vill avbryta och/eller fördröja slutförandet av den här serien av självstudiekurser rekommenderar vi att du tar bort alla resurser för att undvika onödiga kostnader.
+Den här självstudiekursen skapar flera aktiva Azure-tjänster, för att stödja lösningen för Time Series Insights-miljö och enheten simulering. Om du vill avbryta och/eller fördröja slutförandet av den här serien av självstudiekurser rekommenderar vi att du tar bort alla resurser för att undvika onödiga kostnader.
 
 Klicka på den vänstra menyn i Azure Portal:
 
-1. Klicka på ikonen **Resursgrupper** välj sedan den resursgrupp som du skapade för TSI-miljön. Överst på sidan, klickar du på **Ta bort resursgrupp**, anger namnet på resursgruppen och klickar sedan på **Ta bort**.
+1. Klicka på den **resursgrupper** ikonen och välj den resursgrupp som du skapade för Time Series Insights-miljö. Överst på sidan, klickar du på **Ta bort resursgrupp**, anger namnet på resursgruppen och klickar sedan på **Ta bort**.
 
 1. Klicka på ikonen **Resursgrupper** välj sedan den resursgrupp som har skapats av enhetssimuleringens lösningsaccelerator. Överst på sidan klickar du på **ta bort resursgrupp**, ange namnet på resursgruppen och sedan på **ta bort**
 
@@ -233,13 +233,13 @@ Klicka på den vänstra menyn i Azure Portal:
 I den här självstudiekursen lärde du dig att:
 
 > [!div class="checklist"]
-> * Skapa en TSI-miljö 
+> * Skapa en Time Series Insights-miljö 
 > * Skapa en lösning för enhetssimulering som innehåller en IoT Hub
-> * Anslut TSI-miljön till IoT Hub
-> * Kör en enhetssimulering för att strömma data till TSI-miljön
+> * Ansluta Time Series Insights-miljö till IoT hub
+> * Kör en enhetssimulering att sända data till Time Series Insights-miljö
 > * Kontrollera simulerade telemetridata
 
-Nu när du kan skapa dina egna TSI-miljöer kan du lära dig att bygga en webbapp som konsumerar data från en TSI-miljö:
+Nu när du vet hur du skapar en egen Time Series Insights-miljö, lär du dig hur du skapar ett webbprogram som använder data från en Time Series Insights-miljö:
 
 > [!div class="nextstepaction"]
 > [Skapa en enkelsidig Azure Time Series Insights-webbapp](tutorial-create-tsi-sample-spa.md)

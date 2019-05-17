@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: cb7cf932433927d4ead853952ff74d55c55b9cf7
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 499aeccdf00980eeb66ac6ee06e45267fd515143
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65160027"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546796"
 ---
 Delade Image Galleries kan du dela bilder med hjälp av RBAC. Du kan använda RBAC för att dela bilder i din klient, och även till personer utanför din klientorganisation. Men om du vill dela avbildningar utanför din Azure-klient i skala, bör du skapa en appregistrering för att underlätta delning.  Med hjälp av en appregistrering kan möjliggöra mer komplexa delning, t.ex.: 
 
@@ -44,7 +44,9 @@ Ge appen registrering behörighet att använda delade bildgalleriet.
 1. Under **Välj**, typ *myGalleryApp* och välja certifikatet när det visas i listan. När du är klar väljer du **spara**.
 
 
-Skapa ett huvudnamn för tjänsten för klient 2 ska användas för åtkomst till programmet genom att begära en inloggning med en webbläsare. Ersätt *<Tenant2 ID>* med klient-ID för den klient som du vill dela bildgalleriet med. Ersätt *< program (klient)-ID >* med program-ID för registreringen du skapade. När du är klar att göra ersättningarna klistra in URL: en i en webbläsare och följ anvisningarna för inloggning att logga in på klienten 2.
+## <a name="give-tenant-2-access"></a>Ge åtkomst-klient 2
+
+Ge klient 2 åtkomst till programmet genom att begära en inloggning med en webbläsare. Ersätt *<Tenant2 ID>* med klient-ID för den klient som du vill dela bildgalleriet med. Ersätt *< program (klient)-ID >* med program-ID för registreringen du skapade. När du är klar att göra ersättningarna klistra in URL: en i en webbläsare och följ anvisningarna för inloggning att logga in på klienten 2.
 
 ```
 https://login.microsoftonline.com/<Tenant 2 ID>/oauth2/authorize?client_id=<Application (client) ID>&response_type=code&redirect_uri=https%3A%2F%2Fwww.microsoft.com%2F 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: d323a93773a8459d097c1fe3502d2ccd88ae9695
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9ad4a1a9fff8e011638eb7c532bf7619c87c1996
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64687913"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785195"
 ---
 # <a name="set-up-sign-in-with-an-azure-active-directory-account-using-custom-policies-in-azure-active-directory-b2c"></a>Ställ in logga in med ett Azure Active Directory-konto med hjälp av anpassade principer i Azure Active Directory B2C 
 
@@ -53,9 +53,9 @@ Aktivera inloggning för användare från en viss Azure AD-organisation kan du b
 
 Du behöver lagra programnyckeln som du skapade i din Azure AD B2C-klient.
 
-1. Se till att du använder den katalog som innehåller din Azure AD B2C-klientorganisation genom att klicka på **katalog- och prenumerationsfiltret** på den översta menyn och välja katalogen som innehåller din klientorganisation.
+1. Kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient genom att klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller din klient.
 2. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
-3. På sidan Översikt väljer **Identitetsupplevelse – FÖRHANDSVERSION**.
+3. På sidan Översikt väljer **Identitetsramverk**.
 4. Välj **Principnycklar** och välj sedan **Lägg till**.
 5. För **alternativ**, Välj `Manual`.
 6. Ange en **namn** för principnyckeln. Till exempel `ContosoAppSecret`.  Prefixet `B2C_1A_` läggs automatiskt till namnet på din nyckel.

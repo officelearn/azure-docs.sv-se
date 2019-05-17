@@ -15,13 +15,22 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 000495ab84990f15885c254b472be7863c75da58
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bd5c16d755ef9b71f36b3d499838b12e6099ba6d
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60549860"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595375"
 ---
+> [!NOTE] 
+> Användarkonton som beskrivs i den här artikeln skiljer sig från användare konton som används för Remote Desktop Protocol (RDP) eller Secure Shell (SSH), av säkerhetsskäl. 
+>
+> Om du vill ansluta till en nod som kör Linux VM-konfiguration via SSH, se [Använd Fjärrskrivbord till en Linux-VM i Azure](../virtual-machines/virtual-machines-linux-use-remote-desktop.md). Om du vill ansluta till noder som kör Windows via RDP, se [Anslut till en Windows Server VM](../virtual-machines/windows/connect-logon.md).<br /><br />
+> Om du vill ansluta till en nod som kör molntjänstkonfigurationen via RDP, se [aktivera anslutning till fjärrskrivbord för en roll i Azure Cloud Services](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md).
+>
+>
+
+
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Kör aktiviteter på användarkonton i Batch
 
 En aktivitet i Azure Batch körs alltid under ett användarkonto. Uppgifter som körs under standardanvändarkonton utan administratörsbehörighet som standard. De här standardinställningarna är vanligtvis tillräckliga. För vissa scenarier, men är det användbart för att kunna konfigurera användarkonto under vilket du vill att en uppgift ska köras. Den här artikeln beskrivs vilka typer av användarkonton och hur du kan konfigurera dem för ditt scenario.
@@ -36,14 +45,6 @@ Azure Batch får du två typer av användarkonton för att köra uppgifter:
 
 > [!IMPORTANT] 
 > Batch service-versionen 2017-01-01.4.0 introducerar en stor förändring som kräver att du uppdaterar din kod för att anropa den här versionen. Om du migrerar kod från en äldre version av Batch, Observera att den **runElevated** egenskapen stöds inte längre i REST API eller Batch-klientbibliotek. Använd den nya **userIdentity** egenskapen för en uppgift att ange höjning. Se avsnittet [uppdatera din kod till det senaste Batch-klientbiblioteket](#update-your-code-to-the-latest-batch-client-library) snabb riktlinjer för att uppdatera din Batch-kod om du använder en av klientbiblioteken.
->
->
-
-> [!NOTE] 
-> Användarkonton som beskrivs i den här artikeln stöder inte Remote Desktop Protocol (RDP) eller Secure Shell (SSH), av säkerhetsskäl. 
->
-> Om du vill ansluta till en nod som kör Linux VM-konfiguration via SSH, se [Använd Fjärrskrivbord till en Linux-VM i Azure](../virtual-machines/virtual-machines-linux-use-remote-desktop.md). Om du vill ansluta till noder som kör Windows via RDP, se [Anslut till en Windows Server VM](../virtual-machines/windows/connect-logon.md).<br /><br />
-> Om du vill ansluta till en nod som kör molntjänstkonfigurationen via RDP, se [aktivera anslutning till fjärrskrivbord för en roll i Azure Cloud Services](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md).
 >
 >
 

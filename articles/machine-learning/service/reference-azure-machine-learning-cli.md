@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 35e57dfcc7b1fd6f8de265ab75de29dedd8fdfc2
-ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
+ms.openlocfilehash: 163b8e1f68b8d5a102465022c67f7d0da57a7215
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65501653"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596955"
 ---
 # <a name="use-the-cli-extension-for-azure-machine-learning-service"></a>Använda CLI-tillägg för Azure Machine Learning-tjänsten
 
@@ -192,4 +192,4 @@ Följande kommandon visar hur du kan registrera en träningsmodell och sedan dis
 
 * [Kommandot referens för Machine Learning CLI-tillägg för](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest).
 
-* [Träna och distribuera machine learning-modeller med hjälp av Azure-Pipelines](/azure/devops/pipelines/targets/azure-machine-learning?view=azure-devops)
+* [Träna och distribuera machine learning-modeller med hjälp av Azure-Pipelines](/azure/devops/pipelines/targets/azure-machine-learning)

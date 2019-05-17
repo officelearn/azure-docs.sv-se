@@ -3,8 +3,8 @@ title: Skriva uttryck för attributmappningar i Azure Active Directory | Microso
 description: Lär dig hur du använder uttrycksmappningar för att omvandla attributvärden till ett acceptabelt format vid automatisk etablering av objekt för SaaS-app i Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/21/2019
-ms.author: chmutali
+ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed081b32fd8ac464f7ec66f97c6867708a6f8533
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ec1994169891d5256436ac4de741339c865bb268
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60291440"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65824645"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Skriva uttryck för attributmappningar i Azure Active Directory
 När du konfigurerar etablering till ett SaaS-program, är en av typerna av attributmappningar som du kan ange mappningen för en uttryck. För dessa, måste du skriva ett skript-liknande uttryck som hjälper dig att omvandla dina användares data till format som kan användas mer för SaaS-program.
@@ -194,7 +194,7 @@ Ersätter värden i en sträng. Den fungerar på olika sätt beroende på parame
 | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
 | --- | --- | --- | --- |
 | **Källa** |Krävs |Sträng |**källan** värde att uppdatera. |
-| **delimiter** |Obligatoriskt |String |Anger vilket tecken som används för att dela upp strängen (exempel: ””,) |
+| **delimiter** |Krävs |String |Anger vilket tecken som används för att dela upp strängen (exempel: ””,) |
 
 - - -
 ### <a name="stripspaces"></a>StripSpaces
@@ -234,7 +234,7 @@ Ersätter värden i en sträng. Den fungerar på olika sätt beroende på parame
 | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
 | --- | --- | --- | --- |
 | **Källa** |Krävs |Sträng |Vanligtvis namnet på attributet från källobjektet |
-| **kultur** |Valfri |String |Formatet för kulturnamn baserat på RFC 4646 är *languagecode2-land/regioncode2*, där *languagecode2* är språkkod för två bokstäver och *land/regioncode2*är två bokstäver subkultur koden. Exempel är ja-JP för japanska (Japan) och en-US för engelska (USA). I fall där en språkkod för två bokstäver inte är tillgänglig används en kod med tre bokstäver härleds från ISO 639-2.|
+| **kultur** |Valfritt |String |Formatet för kulturnamn baserat på RFC 4646 är *languagecode2-land/regioncode2*, där *languagecode2* är språkkod för två bokstäver och *land/regioncode2*är två bokstäver subkultur koden. Exempel är ja-JP för japanska (Japan) och en-US för engelska (USA). I fall där en språkkod för två bokstäver inte är tillgänglig används en kod med tre bokstäver härleds från ISO 639-2.|
 
 - - -
 ### <a name="toupper"></a>ToUpper
@@ -247,7 +247,7 @@ Ersätter värden i en sträng. Den fungerar på olika sätt beroende på parame
 | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
 | --- | --- | --- | --- |
 | **Källa** |Krävs |Sträng |Vanligtvis namnet på attributet från källobjektet. |
-| **kultur** |Valfri |String |Formatet för kulturnamn baserat på RFC 4646 är *languagecode2-land/regioncode2*, där *languagecode2* är språkkod för två bokstäver och *land/regioncode2*är två bokstäver subkultur koden. Exempel är ja-JP för japanska (Japan) och en-US för engelska (USA). I fall där en språkkod för två bokstäver inte är tillgänglig används en kod med tre bokstäver härleds från ISO 639-2.|
+| **kultur** |Valfritt |String |Formatet för kulturnamn baserat på RFC 4646 är *languagecode2-land/regioncode2*, där *languagecode2* är språkkod för två bokstäver och *land/regioncode2*är två bokstäver subkultur koden. Exempel är ja-JP för japanska (Japan) och en-US för engelska (USA). I fall där en språkkod för två bokstäver inte är tillgänglig används en kod med tre bokstäver härleds från ISO 639-2.|
 
 ## <a name="examples"></a>Exempel
 ### <a name="strip-known-domain-name"></a>Remsans kända domännamn

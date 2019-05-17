@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: b9215cac6fe4e4ec8bac3fac773c919c6e13cf05
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 17003864c7bcc5f8be6acf17d40ce2039f031313
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65790015"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823251"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-powershell"></a>Snabbstart: Köra din första Resource Graph-fråga med hjälp av Azure PowerShell
 
@@ -90,7 +90,7 @@ Nu när Azure PowerShell-modulen har lagts till i din valda miljö är det dags 
 
 När den sista frågan har körts flera gånger, och förutsatt att ingenting i din miljö ändras, kommer resultaten som returneras bli konsekventa och som förväntade – sorterade efter **Namn**-egenskapen men fortfarande begränsade till de fem främsta resultaten.
 
-## <a name="cleanup-resources"></a>Rensa resurser
+## <a name="clean-up-resources"></a>Rensa resurser
 
 Om du vill ta bort Resource Graph-modulen från din Azure PowerShell-miljö, kan du göra det med hjälp av följande kommando:
 

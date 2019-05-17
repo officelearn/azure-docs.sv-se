@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.topic: article
 ms.date: 03/25/2019
-ms.openlocfilehash: 7e1868dd5ce62c28c9a8aac724862c58a5e0e1da
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c3d06d3c0f9c86b4fe6495632b48051fd69dc663
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60598464"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544560"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Prismodellen för Azure Logic Apps
 
@@ -25,7 +25,7 @@ ms.locfileid: "60598464"
 
 ## <a name="consumption-pricing-model"></a>Prismodellen för förbrukning
 
-För nya logic apps som körs i den offentliga eller ”global” Azure Logic Apps-tjänsten, betalar du bara för det du använder. Dessa logikappar använder en förbrukningsbaserad plan och prismodell. I logic app-definition är varje steg en åtgärd. Till exempel åtgärderna är bland annat: 
+För nya logic apps som körs i den offentliga eller ”global” Azure Logic Apps-tjänsten, betalar du bara för det du använder. Dessa logikappar använder en förbrukningsbaserad plan och prismodell. I logic app-definition är varje steg en åtgärd. Till exempel åtgärderna är bland annat:
 
 * Utlösare, som är särskilda åtgärder. Alla logikappar kräver en utlösare som det första steget.
 * ”Inbyggd” eller inbyggda åtgärder som HTTP, anrop till Azure Functions och API Management och så vidare
@@ -38,12 +38,16 @@ Med Azure Logic Apps-mätare alla åtgärder som körs i din logikapp. Mer infor
 
 ## <a name="fixed-pricing-model"></a>Fast prismodellen
 
-En [ *integreringstjänstmiljön* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) är ett privat, isolerad och dedikerad sätt för dig att skapa och köra logikappar som kan komma åt resurser i Azure-nätverk. För nya logic apps som körs i en ISE kan betalar du ett fast månadspris för inbyggda åtgärder och anslutningsappar av standardtyp. Din ISE innehåller också en kostnadsfria anslutningstjänsten, som innehåller antalet anslutningar som du vill. Användningen av ytterligare Enterprise-anslutningar debiteras baserat på priset för Enterprise-förbrukning. 
+En [ *integreringstjänstmiljön* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) är ett privat, isolerad och dedikerad sätt för dig att skapa och köra logikappar som kan komma åt resurser i Azure-nätverk. För nya logic apps som körs i en ISE kan betalar du ett fast månadspris för inbyggda åtgärder och utlösare och för anslutningsappar av standardtyp.
 
-Basenheten ISE har fast kapacitet, så om du behöver större dataflöde, kan du [lägga till fler skalningsenheter](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity), antingen under skapandet eller efteråt.
+Din ISE innehåller också en kostnadsfria anslutningstjänsten, som innehåller antalet anslutningar som du vill. Användningen av ytterligare Enterprise-anslutningar debiteras baserat på priset för Enterprise-förbrukning.
 
 > [!NOTE]
-> ISE är i [ *förhandsversion*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Mer specifik prisinformation finns i [Azure Logic Apps-priser](https://azure.microsoft.com/pricing/details/logic-apps).
+> Inom en ISE, inbyggda utlösare och åtgärder visas den **Core** etikettera och kör i samma ISE som dina logic apps. Standard- och Enterprise-anslutningsappar som visar den **ISE** etikett som körs i samma ISE som dina logic apps. Kopplingar som inte visar etiketten ISE kör i tjänsten för global Logic Apps.
+
+Basenheten ISE har fast kapacitet, så om du behöver större dataflöde, kan du [lägga till fler skalningsenheter](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity), antingen under skapandet eller efteråt. 
+
+Mer specifik prisinformation finns i [Azure Logic Apps-priser](https://azure.microsoft.com/pricing/details/logic-apps).
 
 <a name="connectors"></a>
 

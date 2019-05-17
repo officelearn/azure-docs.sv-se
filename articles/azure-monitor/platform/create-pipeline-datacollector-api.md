@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: magoedte
-ms.openlocfilehash: 961ce4427c509142077c95a6569ad2c444ec0a52
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 53457a044f5c69af7bf68561f24732e8f02219d8
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205948"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603247"
 ---
 # <a name="create-a-data-pipeline-with-the-data-collector-api"></a>Skapa en datapipeline med Data Collector API
 
@@ -27,7 +27,7 @@ Den [Azure Monitor Data Collector API](data-collector-api.md) kan du importera d
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="example-problem"></a>Exempel-problem
-Under resten av den här artikeln ska vi granska data om sidvisningar i Application Insights. I vår hypotetiska scenario som vi vill att korrelera geografisk information som samlas in som standard av Application Insights SDK till anpassade data som innehåller befolkningen i alla länder i världen, med målet att identifiera där ska vi ägna mest pengar. 
+Under resten av den här artikeln ska vi granska data om sidvisningar i Application Insights. I vår hypotetiska scenario som vi vill att korrelera geografisk information som samlas in som standard av Application Insights SDK till anpassade data som innehåller befolkningen i varje land/region i världen, med målet att identifiera där vi ska utgifter de mest pengar. 
 
 Vi använder en allmän datakälla som den [Avregistrera världen Population prospekt](https://esa.un.org/unpd/wpp/) för detta ändamål. Data har följande enkla schema:
 

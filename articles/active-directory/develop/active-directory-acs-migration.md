@@ -3,8 +3,8 @@ title: Migrera från Azure Access Control Service | Microsoft Docs
 description: Läs mer om alternativ för att flytta appar och tjänster från Azure Access Control Service (ACS).
 services: active-directory
 documentationcenter: dev-center-name
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/03/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f9fd062d445fb738842667cab0c24332c0e4cc8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 84a8c2954473401a9e57cba045907c60862ed61f
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60301080"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546239"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Anvisningar: Migrera från Azure Access Control Service
 
@@ -129,7 +129,7 @@ I följande avsnitt beskrivs på hög nivå rekommendationer för att migrera fr
 
 Varje Microsoft-molntjänst som accepterar token som utfärdas av Access Control nu stöder minst en alternativ form av autentisering. Rätt autentiseringsmekanismen varierar för varje tjänst. Vi rekommenderar att du refererar till den specifika dokumentationen för respektive tjänst officiella vägledning. För att underlätta för finns varje uppsättning dokumentation här:
 
-| Tjänst | Riktlinjer |
+| Tjänst | Vägledning |
 | ------- | -------- |
 | Azure Service Bus | [Migrera till signaturer för delad åtkomst](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-migrate-acs-sas) |
 | Azure Service Bus Relay | [Migrera till signaturer för delad åtkomst](https://docs.microsoft.com/azure/service-bus-relay/relay-migrate-acs-sas) |
@@ -150,7 +150,7 @@ Varje Microsoft-molntjänst som accepterar token som utfärdas av Access Control
 
 SharePoint 2013, 2016 och SharePoint Online-kunder har länge använt ACS för autentisering i molnet, lokalt och hybridscenarier. Vissa funktioner i SharePoint och användningsfall kommer att påverkas av ACS dras tillbaka medan inte. I tabellen nedan sammanfattas riktlinjer för några av de mest populära SharePoint funktion som utnyttjar ACS:
 
-| Funktion | Riktlinjer |
+| Funktion | Vägledning |
 | ------- | -------- |
 | Autentisera användare från Azure AD | Tidigare Azure AD har stöd inte för SAML 1.1-tokens som krävs för SharePoint för autentisering och ACS användes som en mellanhand som gjorts SharePoint kompatibelt med Azure AD-token format. Nu kan du [ansluta SharePoint direkt till Azure AD med Azure AD-Appgalleriet SharePoint på plats app](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial). |
 | [Appautentisering & server-till-server-autentisering i SharePoint lokalt](https://technet.microsoft.com/library/jj219571(v=office.16).aspx) | Inte påverkas av ACS tillbakadragande; Inga ändringar som behövs. | 
@@ -201,14 +201,14 @@ På en hög nivå *Azure Active Directory är antagligen det bästa valet för m
 | WIF | Stöds | Stöds men begränsade instruktioner finns |
 | WS-Federation | Stöds | Stöds |
 | OAuth 2.0 | Stöd för utkast 13 | Stöd för RFC 6749, i de flesta moderna specifikationen |
-| WS-Trust | Stöds | Stöds inte |
+| WS-Trust | Stöds | Stöds ej |
 | **Token-format** | | |
 | JWT | Stöds i Beta | Stöds |
-| SAML 1.1 | Stöds | Förhandsversion |
+| SAML 1.1 | Stöds | Förhandsgranska |
 | SAML 2.0 | Stöds | Stöds |
-| SWT | Stöds | Stöds inte |
+| SWT | Stöds | Stöds ej |
 | **Anpassningar** | | |
-| Anpassningsbara startsfär identifiering/konto-välja UI | Nedladdningsbara kod som kan införlivas i appar | Stöds inte |
+| Anpassningsbara startsfär identifiering/konto-välja UI | Nedladdningsbara kod som kan införlivas i appar | Stöds ej |
 | Ladda upp anpassade certifikat för tokensignering | Stöds | Stöds |
 | Anpassa anspråk i token |-Passera inkommande anspråk från identitetsleverantörer<br />-Hämta åtkomsttoken från identitetsprovider som ett anspråk<br />-Utfärda utgående anspråk baserat på värdena för inkommande anspråk<br />-Utfärda utgående anspråk med fasta värden |-Det går inte att passera anspråk från federerad identitetsleverantörer<br />-Det går inte att hämta åtkomsttoken från identitetsprovider som ett anspråk<br />-Det går inte att utfärda utgående anspråk baserat på värdena för inkommande anspråk<br />-Kan utfärda utgående anspråk med fasta värden<br />-Kan utfärda utgående anspråk baserat på egenskaperna för användare som synkroniseras till Azure AD |
 | **Automation** | | |
@@ -249,15 +249,15 @@ I följande tabell jämförs de funktioner för åtkomstkontroll som är relevan
 | Microsoft-konton för personligt bruk | Stöds | Stöds | 
 | Facebook, Google, Yahoo konton | Stöds | Facebook och Google stöds internt, Yahoo stöds via OpenID Connect federation med hjälp av anpassade principer |
 | **Protokoll och SDK-kompatibilitet** | | |
-| Windows Identity Foundation (WIF) | Stöds | Stöds inte |
-| WS-Federation | Stöds | Stöds inte |
+| Windows Identity Foundation (WIF) | Stöds | Stöds ej |
+| WS-Federation | Stöds | Stöds ej |
 | OAuth 2.0 | Stöd för utkast 13 | Stöd för RFC 6749, i de flesta moderna specifikationen |
-| WS-Trust | Stöds | Stöds inte |
+| WS-Trust | Stöds | Stöds ej |
 | **Token-format** | | |
 | JWT | Stöds i Beta | Stöds |
-| SAML 1.1 | Stöds | Stöds inte |
-| SAML 2.0 | Stöds | Stöds inte |
-| SWT | Stöds | Stöds inte |
+| SAML 1.1 | Stöds | Stöds ej |
+| SAML 2.0 | Stöds | Stöds ej |
+| SWT | Stöds | Stöds ej |
 | **Anpassningar** | | |
 | Anpassningsbara startsfär identifiering/konto-välja UI | Nedladdningsbara kod som kan införlivas i appar | Helt anpassningsbara Gränssnittet via anpassade CSS |
 | Ladda upp anpassade certifikat för tokensignering | Stöds | Anpassade Signeringsnycklar, inte certifikat stöds via anpassade principer |
@@ -286,7 +286,7 @@ I dessa fall kan vilja du bör du migrera ditt webbprogram till en annan molntj�
 |     |     | 
 | --- | --- |
 | ![Auth0](./media/active-directory-acs-migration/rsz_auth0.png) | [Auth0](https://auth0.com/acs) är en flexibel molnidentitetstjänst som har skapat [övergripande riktlinjer för kunder för åtkomstkontroll](https://auth0.com/acs), och har stöd för nästan alla funktioner som ACS. |
-| ![Pinga](./media/active-directory-acs-migration/rsz_ping.png) | [Ping Identity](https://www.pingidentity.com) erbjuder två lösningar som liknar ACS. PingOne är en molnbaserad identitetstjänst som har stöd för många av samma funktioner som ACS och PingFederate är liknande på lokala identitet produkt som erbjuder mer flexibilitet. Referera till [Ping's ACS tillbakadragande vägledning](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) för mer information om hur du använder dessa produkter. |
+| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Ping Identity](https://www.pingidentity.com) erbjuder två lösningar som liknar ACS. PingOne är en molnbaserad identitetstjänst som har stöd för många av samma funktioner som ACS och PingFederate är liknande på lokala identitet produkt som erbjuder mer flexibilitet. Referera till [Ping's ACS tillbakadragande vägledning](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) för mer information om hur du använder dessa produkter. |
 
 Vårt syfte i att arbeta med Ping Identity och Auth0 är att säkerställa att alla Access Control-kunder har en migreringsvägen för sina appar och tjänster som minimerar mängden arbete som krävs för att flytta från Access Control.
 
@@ -348,7 +348,7 @@ I dessa fall kan du migrera ditt webbprogram till en annan molntjänst för aute
 |     |     | 
 | --- | --- |
 | ![Auth0](./media/active-directory-acs-migration/rsz_auth0.png) | [Auth0](https://auth0.com/acs) är en flexibel molnidentitetstjänst som har skapat [övergripande riktlinjer för kunder för åtkomstkontroll](https://auth0.com/acs), och har stöd för nästan alla funktioner som ACS. |
-| ![Pinga](./media/active-directory-acs-migration/rsz_ping.png) | [Ping Identity](https://www.pingidentity.com) erbjuder två lösningar som liknar ACS. PingOne är en molnbaserad identitetstjänst som har stöd för många av samma funktioner som ACS och PingFederate är liknande på lokala identitet produkt som erbjuder mer flexibilitet. Referera till [Ping's ACS tillbakadragande vägledning](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) för mer information om hur du använder dessa produkter. |
+| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Ping Identity](https://www.pingidentity.com) erbjuder två lösningar som liknar ACS. PingOne är en molnbaserad identitetstjänst som har stöd för många av samma funktioner som ACS och PingFederate är liknande på lokala identitet produkt som erbjuder mer flexibilitet. Referera till [Ping's ACS tillbakadragande vägledning](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) för mer information om hur du använder dessa produkter. |
 
 Vårt syfte i att arbeta med Ping Identity och Auth0 är att säkerställa att alla Access Control-kunder har en migreringsvägen för sina appar och tjänster som minimerar mängden arbete som krävs för att flytta från Access Control.
 

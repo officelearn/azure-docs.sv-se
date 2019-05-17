@@ -3,8 +3,8 @@ title: Hantera åtkomst till appar med hjälp av Azure AD | Microsoft Docs
 description: Beskriver hur Azure Active Directory kan organisationer att ange de appar som varje användare har åtkomst till.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2017
-ms.author: celested
+ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70513675d09a663c65c6f5b3e18059467a8ba388
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 851b9ab3604e851bcaf4f22d031c51558b15e0e6
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60440738"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65826007"
 ---
 # <a name="managing-access-to-apps"></a>Hantera åtkomst till appar
 Pågående hantering, användning utvärdering och rapportering fortsätta att vara en utmaning att när en app har integrerats i din organisations identitetssystem. I många fall kan måste IT-administratörer eller supportavdelningen vidta en pågående aktiv roll i hanteringen av åtkomst till dina appar. Ibland utförs tilldelning av en allmän eller avdelningar IT-team. Ofta tilldelning beslutet är avsedd att delegeras till beslutsfattare företag som kräver godkännande innan IT gör tilldelningen.  Andra organisationer investera i integrering med ett befintligt automatiserade identitets- och -system, som rollbaserad åtkomstkontroll (RBAC) eller attributbaserad åtkomstkontroll (ABAC). Både integrering och utveckling av regeln brukar vara särskilda och dyra. Övervakning eller rapporter på antingen hanteringsstrategi är en egen separat, kostsamma och komplexa investering.

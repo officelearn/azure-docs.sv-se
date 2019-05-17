@@ -2,28 +2,28 @@
 title: Resurser för att migrera appar till Azure Active Directory | Microsoft Docs
 description: Resurser som hjälper dig att migrera programåtkomst och autentisering till Azure Active Directory (AD Azure).
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 09/19/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 92ce62d745bfb0299dc8f3eb401f5a66e38580f2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 12370d54500dbc1fcd6f812206fdfea3e5298112
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60440670"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65826084"
 ---
 # <a name="resources-for-migrating-applications-to-azure-active-directory"></a>Resurser för att migrera program till Azure Active Directory
 
 Resurser som hjälper dig att migrera programåtkomst och autentisering till Azure Active Directory (AD Azure). Den här korta undersökningen (https://aka.ms/AppsMigrationFeedback) att ge feedback om din upplevelse migrera appar till Azure AD (inklusive blockeringar för migrering behöver du för verktyg / hjälp eller skäl för att bevara den lokala IDP: N). 
 
-| Resurs  | Beskrivning  |
+| Resource  | Beskrivning  |
 |:-----------|:-------------|
 |[Migrera dina appar till Azure AD](https://aka.ms/migrateapps/whitepaper) | Detta white paper visar fördelarna med migreringen och beskriver hur du planerar för migrering i fyra faser som tydligt beskrivs: identifiering, klassificering, migrering och kontinuerlig hantering. Du får guidas genom hur du tycker om processen och dela upp ditt projekt i lätt att förstå delar. Är länkar till viktiga resurser som hjälper dig på vägen i hela dokumentet. |
 |[Lösningsguiden: Migrera appar från Active Directory Federation Services (AD FS) i Azure AD](https://aka.ms/migrateapps/adfssolutionguide) | Den här lösningsguiden vägleder dig genom de samma fyra stegen för planering och körning av ett programprojekt migrering som beskrivs på en högre nivå i faktabladet migrering. I den här guiden får du lära dig hur du använder dessa faser för den specifika mål för att flytta ett program från Azure Directory Federation Services (AD FS) till Azure AD.|

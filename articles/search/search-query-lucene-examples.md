@@ -7,15 +7,15 @@ tags: Lucene query analyzer syntax
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 05/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 108dd80aa90772eb01fe3c7f0176ddd37e27acaa
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 467c323a0b669e70e12f801fd8fdd6df119e793d
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024459"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595912"
 ---
 # <a name="query-examples-using-full-lucene-search-syntax-advanced-queries-in-azure-search"></a>Fråga exempel med ”full” Lucene Söksyntaxen (avancerade frågor i Azure Search)
 
@@ -81,11 +81,11 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 
 Alla exemplen i den här artikeln anger de **queryType = full** sökparametern, som anger att den fullständiga syntaxen hanteras av den frågeparser (Lucene). 
 
-## <a name="example-1-field-scoped-query"></a>Exempel 1: Fältbegränsade frågor
+## <a name="example-1-query-scoped-to-a-list-of-fields"></a>Exempel 1: Frågan som är begränsade till en lista med fält
 
-Det här första exemplet är inte Lucene-specifika, men vi leda med den till introducerar begreppet första grundläggande fråga: inneslutning. Det här exemplet anger omfattningen för frågekörning och svaret på bara några specifika fält. Det är viktigt att att känna till hur du ska strukturera ett läsbara JSON-svar när ditt verktyg är Postman eller Search explorer. 
+Det här första exemplet är inte Lucene-specifika, men vi leda med den till introducerar begreppet första grundläggande fråga: fältet omfång. Det här exemplet definierar hela frågor och svar på bara några specifika fält. Det är viktigt att att känna till hur du ska strukturera ett läsbara JSON-svar när ditt verktyg är Postman eller Search explorer. 
 
-Av utrymmesskäl, frågan riktar sig till endast de *business_title* fältet och anger endast företag rubriker som returneras. Syntaxen är **searchFields** att begränsa Frågekörningen bara till business_title fältet, och **Välj** att ange vilka fält som ska ingå i svaret.
+Av utrymmesskäl, frågan riktar sig till endast de *business_title* fältet och anger endast företag rubriker som returneras. Den **searchFields** parametern begränsar Frågekörningen bara till business_title fältet, och **Välj** anger vilka fält som ska ingå i svaret.
 
 ### <a name="partial-query-string"></a>Partiell frågesträng
 
@@ -99,6 +99,11 @@ Här är samma fråga med flera fält i en kommaavgränsad lista.
 search=*&searchFields=business_title, posting_type&$select=business_title, posting_type
 ```
 
+Blanksteg efter kommatecken är valfria.
+
+> [!Tip]
+> När du använder REST-API från din programkod Glöm inte att URL-koda parametrar som `$select` och `searchFields`.
+
 ### <a name="full-url"></a>Fullständiga URL: en
 
 ```http
@@ -109,41 +114,44 @@ Svar för den här frågan bör likna följande skärmbild.
 
   ![Postman exempelsvar](media/search-query-lucene-examples/postman-sample-results.png)
 
-Du kanske har märkt sökpoängen i svaret. Enhetlig poäng 1 inträffa när det finns inga rankning, antingen eftersom sökningen inte var fulltextsökning, eller eftersom inga kriterier har tillämpats. För null search med några villkor gå rader tillbaka i valfri ordning. När du inkluderar aktuella visas search poäng utvecklas till meningsfulla värden.
+Du kanske har märkt sökpoängen i svaret. Enhetlig poäng 1 inträffa när det finns inga rankning, antingen eftersom sökningen inte var fulltextsökning, eller eftersom inga kriterier har tillämpats. För null search med några villkor gå rader tillbaka i valfri ordning. När du inkluderar faktiska sökvillkoren visas search poäng utvecklas till meningsfulla värden.
 
-## <a name="example-2-intra-field-filtering"></a>Exempel 2: Trafik fältet filtrering
+## <a name="example-2-fielded-search"></a>Exempel 2: Fielded sökning
 
-Fullständig Lucene-syntax stöder uttryck i ett fält. Det här exemplet söker för företag med termen senior i dem, men inte unga.
+Fullständig Lucene-syntax stöder målgrupp enskilda sökuttryck till ett visst fält. Det här exemplet söker för företag med termen senior i dem, men inte unga.
 
 ### <a name="partial-query-string"></a>Partiell frågesträng
 
 ```http
-searchFields=business_title&$select=business_title&search=business_title:senior+NOT+junior
+$select=business_title&search=business_title:(senior NOT junior)
 ```
 
 Här är samma fråga med flera fält.
 
 ```http
-searchFields=business_title, posting_type&$select=business_title, posting_type&search=business_title:senior+NOT+junior AND posting_type:external
+$select=business_title, posting_type&search=business_title:(senior NOT junior) AND posting_type:external
 ```
 
 ### <a name="full-url"></a>Fullständiga URL: en
 
 ```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:senior+NOT+junior
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&queryType=full&$count=true&$select=business_title&search=business_title:(senior NOT junior)
 ```
 
   ![Postman exempelsvar](media/search-query-lucene-examples/intrafieldfilter.png)
 
-Genom att ange en **fieldname:searchterm** konstruktion, kan du definiera en fielded frågeåtgärden där fältet är ett enstaka ord och söktermen är också ett enstaka ord eller en fras, eventuellt med booleska operatorer. Följande är några exempel:
+Du kan definiera en fielded Sökåtgärd med den **fieldName:searchExpression** syntax, där sökuttrycket kan vara ett enstaka ord eller en fras eller ett mer komplext uttryck inom parenteser alternativt med booleska operatorer. Följande är några exempel:
 
-* business_title:(senior NOT junior)
-* tillstånd: (”New York” och ”ny Jersey”)
-* business_title:(senior NOT junior) och posting_type:external
+- `business_title:(senior NOT junior)`
+- `state:("New York" OR "New Jersey")`
+- `business_title:(senior NOT junior) AND posting_type:external`
 
-Glöm inte att placera flera strängar inom citattecken om du vill att båda strängar som ska utvärderas som en enda enhet, som i det här fallet söker efter två olika städer i Platsfältet. Kontrollera också att operatören blir versal som du ser med inte och och.
+Se till att placera flera strängar inom citattecken om du vill att båda strängar som ska utvärderas som en enda enhet, som i det här fallet söker efter två olika platser i den `state` fält. Kontrollera också att operatören blir versal som du ser med inte och och.
 
-Fält som anges i **fieldname:searchterm** måste vara ett sökbart fält. Se [Create Index (Azure Search Service REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index) mer information om hur indexattribut används i fältdefinitioner.
+Fält som anges i **fieldName:searchExpression** måste vara ett sökbart fält. Se [Create Index (Azure Search Service REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index) mer information om hur indexattribut används i fältdefinitioner.
+
+> [!NOTE]
+> I exemplet ovan kan vi inte behövde använder den `searchFields` parametern eftersom varje del av frågan har ett fältnamn som uttryckligen anges. Men du kan fortfarande använda den `searchFields` parametern om du vill köra en fråga där vissa delar är begränsade till ett visst fält, och resten kan tillämpas på flera fält. Till exempel frågan `search=business_title:(senior NOT junior) AND external&searchFields=posting_type` matchar `senior NOT junior` endast den `business_title` fältet, även om det matchar ”external” med den `posting_type` fält. Fältnamnet i **fieldName:searchExpression** alltid företräde framför den `searchFields` parameter, vilket är anledningen till att i det här exemplet vi behöver inte inkludera `business_title` i den `searchFields` parametern.
 
 ## <a name="example-3-fuzzy-search"></a>Exempel 3: Fuzzy-sökning
 

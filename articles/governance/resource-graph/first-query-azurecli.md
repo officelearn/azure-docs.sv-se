@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: d51eaf71e449301415195e409bec9e944d16e0b9
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 592b2c611888623c2753d7c4abc9fe57c28af30e
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65800478"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823172"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-cli"></a>Snabbstart: Köra din första Resource Graph-fråga med hjälp av Azure CLI
 
@@ -81,7 +81,7 @@ Nu när Azure CLI-tillägget har lagts till i din valda miljö är det dags att 
 
 När den sista frågan har körts flera gånger, och förutsatt att ingenting i din miljö ändras, kommer resultaten som returneras bli konsekventa och som förväntade – sorterade efter **Namn**-egenskapen men fortfarande begränsade till de fem främsta resultaten.
 
-## <a name="cleanup-resources"></a>Rensa resurser
+## <a name="clean-up-resources"></a>Rensa resurser
 
 Om du vill ta bort Resource Graph-tillägget från din Azure CLI-miljö, kan göra du det med hjälp av följande kommando:
 

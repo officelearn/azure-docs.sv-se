@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 5bb68f3f0139a98f10e28957209f8530a762b76c
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 97a3ac275613b644dfd90144039e4f3127186997
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65413911"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603103"
 ---
 # <a name="what-is-azure-importexport-service"></a>Vad är tjänsten Azure Import/Export?
 
@@ -74,9 +74,9 @@ Ett importjobb omfattar följande steg på hög nivå:
 8. Enheterna levereras med ditt operatör till avsändaradressen i importjobbet.
 
 > [!NOTE]
-> Lokal (inom data center land) leveranser dela en inrikes transportföretagskonto 
+> Lokal (inom data center land/region) leveranser dela en inrikes transportföretagskonto 
 >
-> Utomlands (utanför data center land) leveranser dela en internationell transportföretagskonto
+> Utomlands (utanför data center land/region) leveranser dela en internationell transportföretagskonto
 
  ![Bild 1:Import jobbet flöde](./media/storage-import-export-service/importjob.png)
 
@@ -104,9 +104,9 @@ På hög nivå omfattar ett exportjobb följande steg:
 10. Enheterna levereras med ditt operatör till avsändaradressen i importjobbet.
 
 > [!NOTE]
-> Lokal (inom data center land) leveranser dela en inrikes transportföretagskonto 
+> Lokal (inom data center land/region) leveranser dela en inrikes transportföretagskonto 
 >
-> Utomlands (utanför data center land) leveranser dela en internationell transportföretagskonto
+> Utomlands (utanför data center land/region) leveranser dela en internationell transportföretagskonto
   
  ![Bild 2:Export jobbet flöde](./media/storage-import-export-service/exportjob.png)
 
@@ -119,7 +119,7 @@ Azure Import/Export-tjänsten har stöd för kopiering av data till och från al
 ### <a name="supported-shipping-locations"></a>Endash platser som stöds
 
 
-|Land  |Land  |Land  |Land  |
+|Land/region  |Land/region  |Land/region  |Land/region  |
 |---------|---------|---------|---------|
 |Östra USA    | Europa, norra        | Indien, centrala        |US Gov, Iowa         |
 |USA, västra     |Europa, västra         | Indien, södra        | US DoD Östra        |

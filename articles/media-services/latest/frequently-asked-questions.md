@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/24/2019
 ms.author: juliako
-ms.openlocfilehash: d99e3661fd51b481a20404cfeb55157ac803c220
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 98e8c0ccd150776341e644f7565696e8fbd63e99
+ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64706162"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65556273"
 ---
 # <a name="azure-media-services-v3-frequently-asked-questions"></a>Vanliga och frågor svar om Azure Media Services v3
 
@@ -30,7 +30,7 @@ Se [rollbaserad åtkomstkontroll (RBAC) för Media Services-konton](rbac-overvie
 
 ### <a name="how-do-i-configure-media-reserved-units"></a>Hur konfigurerar jag Mediereserverade enheter?
 
-För ljudanalys- och videoanalysjobb som utlöses av Media Services v3 eller Video Indexer rekommenderar vi starkt att du etablerar ditt konto med 10 S3-MRU:er. Om du behöver fler än 10 S3 MRUs kan öppna en stöd biljett med den [Azure-portalen](https://portal.azure.com/).
+För analys av ljud och Video Analysis jobb som utlöses av Media Services v3 eller Video Indexer kan rekommenderar vi starkt att etablera ditt konto med 10 S3 MRUs. Om du behöver fler än 10 S3 MRUs kan öppna en stöd biljett med den [Azure-portalen](https://portal.azure.com/).
 
 Mer information finns i [skala mediebearbetning med CLI](media-reserved-units-cli-how-to.md).
 
@@ -81,7 +81,7 @@ Mer information finns i:
 
 ### <a name="can-i-use-the-azure-portal-to-manage-v3-resources"></a>Kan jag använda Azure-portalen för att hantera v3-resurser?
 
-För närvarande kan du inte hantera v3-resurser med Azure-portalen. Använd [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) eller en av [SDK:erna som stöds](developers-guide.md).
+För närvarande kan du inte hantera v3-resurser med Azure-portalen. Använd [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) eller en av [SDK:erna som stöds](media-services-apis-overview.md#sdks).
 
 ### <a name="is-there-an-assetfile-concept-in-v3"></a>Finns det ett AssetFile begrepp i v3?
 

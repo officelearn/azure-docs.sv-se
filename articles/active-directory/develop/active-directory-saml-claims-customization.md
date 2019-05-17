@@ -3,8 +3,8 @@ title: Anpassa anspråk som utfärdats i SAML-token för företagsprogram i Azur
 description: Lär dig hur du anpassar de anspråk som utfärdats i SAML-token för företagsprogram i Azure AD.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: f1daad62-ac8a-44cd-ac76-e97455e47803
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b137b8cd4e3a2b7a308170904e9b3d09b11137f9
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 4c1f8640918d433956935e9428e23aac59e36334
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65231345"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65764655"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Anvisningar: Anpassa anspråk som utfärdats i SAML-token för företagsprogram
 
@@ -121,7 +121,7 @@ Du kan också använda funktionerna anspråk transformationer.
 | **Extract() - innan matchande** | Returnerar delsträngen tills det matchar det angivna värdet.<br/>Till exempel om den inkommande värdet är ”BSimon_US”, det matchande värdet är ”_US” och sedan anspråkets utdata är ”BSimon”. |
 | **Extract() - mellan matchande** | Returnerar delsträngen tills det matchar det angivna värdet.<br/>Till exempel den indata-värdet är ”Finance_BSimon_US” är det första matchande värdet är ”Finance_” andra matchande värdet är ”_US”, sedan anspråkets utdata är ”BSimon”. |
 | **ExtractAlpha() - Prefix** | Returnerar prefix alfabetisk delen av strängen.<br/>Till exempel om den inkommande värdet är ”BSimon_123”, returnerar sedan den ”BSimon”. |
-| **ExtractAlpha() - Suffix** | Returnerar suffix alfabetisk delen av strängen.<br/>Till exempel om den inkommande värdet är ”123_Simon”, returnerar sedan den ”BSimon”. |
+| **ExtractAlpha() - Suffix** | Returnerar suffix alfabetisk delen av strängen.<br/>Till exempel om den inkommande värdet är ”123_Simon”, returneras sedan ”Simon”. |
 | **ExtractNumeric() - Prefix** | Returnerar prefix numeriska delen av strängen.<br/>Till exempel om den inkommande värdet är ”123_BSimon”, returneras sedan ”123”. |
 | **ExtractNumeric() - Suffix** | Returnerar suffix numeriska delen av strängen.<br/>Till exempel om den inkommande värdet är ”BSimon_123”, returneras sedan ”123”. |
 | **IfEmpty()** | Matar ut ett attribut eller konstant om indata är null eller tomt.<br/>Exempel: Om du vill spara ett attribut som lagras i en extensionattribute om employeeid för en viss användare är tom. Om du vill göra detta måste konfigurerar du följande värden:<br/>Parametern 1(input): user.employeeid<br/>Parameter 2 (utdata): user.extensionattribute1<br/>Parameter 3 (utdata om det inte finns någon matchning): user.employeeid |

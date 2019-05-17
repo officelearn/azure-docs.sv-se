@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 05/11/2019
-ms.openlocfilehash: 7ab22a1d1b44327b28264ec5bd6ba0c44b1d65a7
-ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
-ms.translationtype: HT
+ms.openlocfilehash: 72552f6335f3ad6742679708a639634362c49c0b
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65620147"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823322"
 ---
 # <a name="sql-database-serverless-preview"></a>SQL Database utan server (förhandsversion)
 
@@ -277,19 +277,21 @@ Mängden beräkning som faktureras exponeras av följande mått:
 
 Den här datamängden beräknas varje sekund och aggregerat över 1 minut.
 
-**Exempel**: Överväg en databas med GP_S_Gen5_4 med följande användning över en timme:
+Överväg en serverlös databas som har konfigurerats med 1 min vcore och 4 max virtuella kärnor.  Detta motsvarar cirka 3 GB minne för min och max 12 GB-minne.  Anta att automatisk pausning fördröjningen är inställd på 6 timmar och databas-arbetsbelastning är aktiv under de första 2 timmarna på en 24-timmarsperiod och annars inaktiva.    
 
-|Tid (timmar: minuter)|app_cpu_billed (vCore seconds)|
-|---|---|
-|0:01|63|
-|0:02|123|
-|0:03|95|
-|0:04|54|
-|0:05|41|
-|0:06 - 1:00|1255|
-||Totalt: 1631|
+I det här fallet debiteras databasen för beräkning och lagring under de första 8 timmarna.  Även om databasen är inaktiv startar efter 2: a timme, debiteras det fortfarande för beräkning i de efterföljande 6 timmar baserat på minsta compute etableras när databasen är online.  När databasen är pausat debiteras endast lagring under resten av 24-timmarsperiod.
 
-Anta att enhetspriset beräkning är $0.000073/vCore/second. Sedan beräkningarna debiteras du för den här perioden för en timme bestäms med hjälp av följande formel: **$0.000073/vCore/second * 1631 vCore sekunder = $0.1191**
+Mer exakt beräknas beräkning fakturan i det här exemplet enligt följande:
+
+|Tidsintervall|virtuella kärnor som används för varje sekund|GB används varje sekund|Compute-dimension som faktureras|vCore-sekunder debiteras under tidsintervall|
+|---|---|---|---|---|
+|0:00-1:00|4|9|virtuella kärnor som används|4 virtuella kärnor * 3600 sekunder = 14400 vCore sekunder|
+|1:00-2:00|1|12|Använt minne|12 Gb * 1/3 * 3 600 sekunder = 14400 vCore sekunder|
+|2:00-8:00|0|0|Minsta-minnesmängd som etablerats|3 Gb * 1/3 * 21600 sekunder = 21600 vCore sekunder|
+|8:00-24:00|0|0|Ingen beräkning debiteras medan pausats|0 vCore sekunder|
+|Totalt antal vCore sekunder debiteras under 24 timmar||||50400 vCore sekunder|
+
+Anta att enhetspriset beräkning är $0.000073/vCore/second.  Beräkningarna debiteras du för den här 24-timmarsperiod är produkten av beräkning pris- och vcore enhetssekunder faktureras: $0.000073/vCore/second * 50400 vCore sekunder = $3.68
 
 ## <a name="available-regions"></a>Tillgängliga regioner
 

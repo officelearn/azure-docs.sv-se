@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: ff291bda87ca4b2b4055e36989b035cf410b3b0f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 082abd89cd84fc34180f333b54664d7dddfa0ccf
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60744338"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65561217"
 ---
 # <a name="describing-a-service-fabric-cluster"></a>Som beskriver ett service fabric-kluster
 Service Fabric Cluster Resource Manager tillhandahåller flera mekanismer för att beskriva ett kluster. Under körning använder den här informationen i Cluster Resource Manager för att garantera hög tillgänglighet för de tjänster som körs i klustret. Samtidigt framtvinga dessa viktiga regler, försöker den också optimera resursförbrukning i klustret.
@@ -33,7 +33,7 @@ Cluster Resource Manager stöder flera funktioner som beskriver ett kluster:
 * Nodkapaciteterna
 
 ## <a name="fault-domains"></a>Feldomäner
-En Feldomän är alla delar av samordnad fel. En enda dator är en Feldomän (eftersom det kan misslyckas på en egen för olika anledningar, av strömavbrott tillgång till enhetsfel till felaktig NIC firmware). Datorer som är anslutna till samma Ethernet-växel finns i samma Feldomän, som är datorer som delar en enda källa ström eller på en enda plats. Eftersom det är naturligt för maskinvarufel att överlappa Feldomäner är sin natur hierarkisk och visas i form av URI: er i Service Fabric.
+En Feldomän är alla delar av samordnad fel. En enda dator är en Feldomän (eftersom det kan misslyckas på en egen för olika anledningar, av strömavbrott tillgång till enhetsfel till felaktig NIC firmware). Datorer som är anslutna till samma Ethernet-växel finns i samma Feldomän, som är datorer som delar en enda källa ström eller på en enda plats. Eftersom det är naturligt för maskinvarufel att överlappa Feldomäner är sin natur hierarkiska och visas i form av URI: er i Service Fabric.
 
 Det är viktigt att Feldomäner har ställts in korrekt eftersom Service Fabric använder denna information för att placera tjänster på ett säkert sätt. Service Fabric vill inte placera tjänster så att förlust av en Feldomän (orsakas av fel på vissa komponent) gör att en tjänst att gå nedåt. I Azure använder Service Fabric-miljön Feldomän informationen i miljön till korrekt konfigurera noderna i klustret för din räkning. För Service Fabric fristående definieras Feldomäner när klustret har ställts in 
 
@@ -95,13 +95,17 @@ Det finns ingen verklig gräns för totala antalet fel eller uppgradera domäner
 ![Fel- och layouter för Uppgraderingsdomän][Image4]
 </center>
 
-Det finns inga bästa besvara vilken layout du vill välja, var och en har vissa- och nackdelar. Till exempel är 1FD:1UD modellen enkelt att konfigurera. 1 Uppgraderingsdomänen per nod modell är de flesta som vilka personer som används för att. Under uppgraderingar uppdateras varje nod oberoende av varandra. Detta liknar hur små uppsättningar datorer har uppgraderats manuellt i förflutna. 
+Det finns inga bästa besvara vilken layout du vill välja, var och en har vissa- och nackdelar. Till exempel är 1FD:1UD modellen enkelt att konfigurera. 1 Uppgraderingsdomänen per nod modell är de flesta som vilka personer som används för att. Under uppgraderingar uppdateras varje nod oberoende av varandra. Detta liknar hur små uppsättningar datorer har uppgraderats manuellt i förflutna.
 
 Den vanligaste modellen är FD/UD matrisen där FD och ud utgör en tabell och noder placeras från och med diagonalt. Det här är den modell som används som standard i Service Fabric-kluster i Azure. Allt identisk ser ut som mönstret kompakta matris för kluster med många noder.
 
+> [!NOTE]
+> Service Fabric-kluster i Azure har inte stöd för att ändra standardstrategi. Endast fristående kluster erbjuder den anpassningen.
+>
+
 ## <a name="fault-and-upgrade-domain-constraints-and-resulting-behavior"></a>Fel- och Uppgraderingsdomänen begränsningar och resulterande beteende
 ### <a name="default-approach"></a>*Standard-metod*
-Som standard sparas Klusterresurshanteraren tjänster balanserade över fel- och uppgradera domäner. Detta är utformat som en [begränsningen](service-fabric-cluster-resource-manager-management-integration.md). Fel- och Uppgraderingsdomänen begränsningen status: ”För en viss tjänst-partition det ska aldrig vara någon skillnad större än ett av antalet service-objekt (tillståndslös tjänstinstanser eller tillståndskänslig tjänst repliker) mellan två domäner på samma nivå i hierarkin”. Vi antar att det här villkoret erbjuder en garanti för ”högsta skillnaden”. Fel- och Uppgraderingsdomänen begränsningen förhindrar vissa flyttar eller arrangemang som bryter mot regeln som anges ovan. 
+Som standard sparas Klusterresurshanteraren tjänster balanserade över fel- och uppgradera domäner. Detta är utformat som en [begränsningen](service-fabric-cluster-resource-manager-management-integration.md). Fel- och Uppgraderingsdomänen begränsningen status: ”För en viss tjänst-partition det ska aldrig vara någon skillnad större än ett av antalet service-objekt (tillståndslös tjänstinstanser eller tillståndskänslig tjänst repliker) mellan två domäner på samma nivå i hierarkin”. Vi antar att det här villkoret erbjuder en garanti för ”högsta skillnaden”. Fel- och Uppgraderingsdomänen begränsningen förhindrar vissa flyttar eller arrangemang som bryter mot regeln som anges ovan.
 
 Nu ska vi titta på ett exempel. Anta att vi har ett kluster med sex noder som konfigurerats med fem Feldomäner och fem uppgradera domäner.
 

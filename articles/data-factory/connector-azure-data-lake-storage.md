@@ -8,14 +8,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 05/13/2019
 ms.author: jingwang
-ms.openlocfilehash: 3fcedc74cde9e26ea53d2475f0e9805788787f2d
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 355f61d6282c822e18cf4752044c1e1a5cbbc6a0
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65228613"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65560763"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Kopiera data till och från Azure Data Lake Storage Gen2 med Azure Data Factory
 
@@ -516,6 +516,66 @@ Det här avsnittet beskrivs kopieringsåtgärden för olika kombinationer av vä
 | false |preserveHierarchy | Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fil3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | målmappen Mapp1 skapas med följande struktur: <br/><br/>Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/><br/>Subfolder1 med fil3, File4 och File5 hämtas inte. |
 | false |flattenHierarchy | Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fil3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | målmappen Mapp1 skapas med följande struktur: <br/><br/>Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt skapade namn på File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererade namnet för fil2<br/><br/>Subfolder1 med fil3, File4 och File5 hämtas inte. |
 | false |mergeFiles | Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fil3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | Målmappen Mapp1 skapas med följande struktur<br/><br/>Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1 + fil2 innehållet slås samman i en fil med ett automatiskt genererade namnet. automatiskt skapade namn på File1<br/><br/>Subfolder1 med fil3, File4 och File5 hämtas inte. |
+
+## <a name="preserve-acls-from-data-lake-storage-gen1"></a>Bevara ACL: er från Data Lake Storage Gen1
+
+>[!TIP]
+>Kopiera data från Azure Data Lake Storage Gen1 till Gen2 i allmänhet finns i [kopiera data från Azure Data Lake Storage Gen1 till Gen2 med Azure Data Factory](load-azure-data-lake-storage-gen2-from-gen1.md) med genomgången och bästa praxis.
+
+När kopiera filer från Azure Data Lake Storage (ADLS) Gen1 till Gen2, kan du välja att bevara de POSIX åtkomstkontrollistor (ACL) tillsammans med data. Access control i information finns i [åtkomstkontroll i Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md) och [åtkomstkontroll i Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-access-control.md).
+
+Följande typer av ACL: er kan bevaras med hjälp av Azure Data Factory kopiera aktivitet kan du välja en eller flera typer:
+
+- **ACL**: Kopiera och bevara **POSIX-åtkomstkontrollistor** för filer och kataloger. Fullständig befintliga ACL: er kopieras från källan till mottagare. 
+- **Ägare**: Kopiera och bevara **ägande användare** över filer och kataloger. En användaråtkomst till mottagare ADLS Gen2 krävs.
+- **Grupp**: Kopiera och bevara **den ägande gruppen** över filer och kataloger. En användaråtkomst till mottagare ADLS Gen2 eller ägande användare (om den ägande användaren också är medlem i målgruppen) krävs.
+
+Om du anger för att kopiera från en mapp, Data Factory replikerar ACL: er för den angivna mappen samt filer och kataloger under den (om `recursive` har angetts till true). Om du anger för att kopiera från en enda fil ACL: er på kopieras filen.
+
+>[!IMPORTANT]
+>När du väljer att bevara ACL: er kan du kontrollera att du hög beviljar tillräcklig behörighet för ADF om du vill arbeta mot dina mottagare Gen2 ADLS-konto. Till exempel använder kontot nyckelautentisering eller tilldela ägarrollen för Storage Blob Data till huvudnamn/hanterade tjänstidentiteten.
+
+När du konfigurerar källa som ADLS Gen1 med binär kopia alternativet/binära formatet och mottagare som ADLS Gen2 med binär kopia alternativet/binärt format, du kan hitta **bevara** alternativet i **inställningssidan för kopiera Data verktyget** eller i **Kopieringsaktiviteten Inställningar ->** fliken för redigering av aktivitet.
+
+![ADLS Gen1 till Gen2 bevara ACL](./media/connector-azure-data-lake-storage/adls-gen2-preserve-acl.png)
+
+Här är ett exempel på JSON-konfiguration (se `preserve`): 
+
+```json
+"activities":[
+    {
+        "name": "CopyFromGen1ToGen2",
+        "type": "Copy",
+        "typeProperties": {
+            "source": {
+                "type": "AzureDataLakeStoreSource",
+                "recursive": true
+            },
+            "sink": {
+                "type": "AzureBlobFSSink",
+                "copyBehavior": "PreserveHierarchy"
+            },
+            "preserve": [
+                "ACL",
+                "Owner",
+                "Group"
+            ]
+        },
+        "inputs": [
+            {
+                "referenceName": "<Azure Data Lake Storage Gen1 input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<Azure Data Lake Storage Gen2 output dataset name>",
+                "type": "DatasetReference"
+            }
+        ]
+    }
+]
+```
 
 ## <a name="mapping-data-flow-properties"></a>Egenskaper för mappning av dataflöde
 

@@ -1,19 +1,18 @@
 ---
 title: Skala klusterstorlekar - Azure HDInsight
-description: Skala ett HDInsight-kluster för din arbetsbelastning.
+description: Skala ett Azure HDInsight-kluster Elastiskt för att matcha din arbetsbelastning.
 author: ashishthaps
+ms.author: ashish
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/26/2019
-ms.author: ashish
-ms.openlocfilehash: a172024e4662e647b39fe999f1be3cfcef04b5ce
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/13/2019
+ms.openlocfilehash: 59b9c2bf6e17dadc0d084d3e3f257f8ad91073ca
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64698253"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595863"
 ---
 # <a name="scale-hdinsight-clusters"></a>Skala HDInsight-kluster
 
@@ -21,6 +20,7 @@ HDInsight ger flexibilitet när det gäller genom att ge dig möjlighet att skal
 
 Till exempel om du har några batchbearbetning som inträffar en gång om dagen eller en gång i månaden, HDInsight-kluster kan skalas upp ett par minuter före den schemalagda händelsen så att det ska finnas tillräckligt med minne och CPU-beräkningskraft.  Senare, när bearbetningen är klar och användning som kraschar igen, kan du skala ned HDInsight-klustret till färre arbetarnoder.
 
+Du kan skala ett kluster manuellt med hjälp av någon av metoderna som beskrivs nedan eller använda [Autoskala](hdinsight-autoscale-clusters.md) alternativ för att låta systemet automatiskt skalar upp och ned som svar på processor, minne och andra mått.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -32,11 +32,11 @@ Microsoft tillhandahåller följande verktyg för att skala kluster:
 |---|---|
 |[PowerShell Az](https://docs.microsoft.com/powershell/azure)|[Set-AzHDInsightClusterSize](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) -ClusterName \<Cluster Name> -TargetInstanceCount \<NewSize>|
 |[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm) |[Set-AzureRmHDInsightClusterSize](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) -ClusterName \<Cluster Name> -TargetInstanceCount \<NewSize>|
-|[Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)|[AZ hdinsight ändra storlek på](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) --resursgrupp \<resursgrupp >--name \<klustrets namn >--target instansantalet \<NewSize >|
-|[Azure Classic CLI](hdinsight-administer-use-command-line.md)|Azure hdinsight-kluster storleksändring \<klusternamn > \<Instansantalet för mål >|
+|[Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)| [AZ hdinsight ändra storlek på](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) --resursgrupp \<resursgrupp >--name \<klustrets namn >--target instansantalet \<NewSize >|
+|[Azure Classic CLI](hdinsight-administer-use-command-line.md)|Azure hdinsight-kluster storleksändring \<klusternamn > \<Instansantalet för mål > |
 |[Azure Portal](https://portal.azure.com)|Öppna fönstret ditt HDInsight-kluster, Välj **klusterstorlek** i den vänstra menyn och sedan i fönstret kluster storlek, Skriv i antalet arbetarnoder och klicka på Spara.|  
 
-![Skala ett kluster](./media/hdinsight-scaling-best-practices/scale-cluster-blade.png)
+![Skala kluster](./media/hdinsight-scaling-best-practices/scale-cluster-blade.png)
 
 Med hjälp av någon av dessa metoder kan du skala ditt HDInsight-kluster upp eller ned inom några minuter.
 
@@ -326,6 +326,6 @@ Det sista alternativet är att bevaka sällsynta fall där HDFS försätts i fel
     
 ## <a name="next-steps"></a>Nästa steg
 
+* [Skala automatiskt Azure HDInsight-kluster](hdinsight-autoscale-clusters.md)
 * [Introduktion till Azure HDInsight](hadoop/apache-hadoop-introduction.md)
 * [Skala kluster](hdinsight-administer-use-portal-linux.md#scale-clusters)
-* [Hantera HDInsight-kluster med hjälp av Apache Ambari-webbgränssnittet](hdinsight-hadoop-manage-ambari.md)

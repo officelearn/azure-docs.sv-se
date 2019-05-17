@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: e23297d8cd6cab5abeedc1a12fa1a37c93e94283
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 8b3447b8094eb95bd2f61baed7371bf718fdf730
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64943607"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606888"
 ---
 <a name="seller-insights-definitions"></a>Säljaren insikter definitioner
 =======================
@@ -37,7 +37,7 @@ Följande tabell innehåller definitioner för många av de termer som används 
 | **Kunden stad**  | Ortnamn som tillhandahålls av kunden. Detta kan vara annorlunda än ort i en kunds Azure-prenumeration.  |
 | **Kunden Kommunikationsspråk**        | Det språk som föredras av kunden för kommunikation.                                  |
 | **Kundföretaget namn**                  | Företagsnamnet som tillhandahålls av kunden. Detta kan vara annorlunda än ort i en kunds Azure-prenumeration.                                  |
-| **Kundens land**                       | Landsnamn som tillhandahålls av kunden.  Detta kan vara annorlunda än land i en kunds Azure-prenumeration.                               |
+| **Kundens land**                       | Land/region-namnet som tillhandahålls av kunden.  Detta kan vara annorlunda än land/region i en kunds Azure-prenumeration.                               |
 | **Kundens valuta (kopia)**                 | Den valuta som kunden föredrar för priser och fakturering.                            |
 | **Kunden e-post**                         | E-postadress som tillhandahålls av slutkunden.  Detta kan vara annorlunda än den e-postadressen i en kunds Azure-prenumeration.                   |
 | **Kundens förnamn**                              | Det första namnet som tillhandahålls av kunden.  Detta kan vara annorlunda än det namn som i en kunds Azure-prenumeration.                    |

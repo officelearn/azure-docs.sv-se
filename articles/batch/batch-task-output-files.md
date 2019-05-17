@@ -13,12 +13,12 @@ ms.workload: big-compute
 ms.date: 03/05/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 1d2d53213af34377d23c9ea140bab15822fc1b2e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 982fe5cea633d9fd1bbbe7dc862b69d89f5f1c1c
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60554719"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595274"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Spara aktivitetsdata till Azure Storage med API: et för Batch-tjänsten
 
@@ -180,7 +180,7 @@ Om du utvecklar i ett annat språk än C#, behöver du implementera File Convent
 
 Den [PersistOutputs] [ github_persistoutputs] exempelprojektet är en av de [Azure Batch-kodexempel] [ github_samples] på GitHub. Visual Studio-lösningen visar hur du använder Batch-klientbiblioteket för .NET för att spara uppgiftsutdata till beständig lagring. Följ dessa steg om du vill köra exemplet:
 
-1. Öppna projektet i **Visual Studio 2017**.
+1. Öppna projektet i **Visual Studio 2019**.
 2. Lägg till ditt Batch- och Storage **kontoautentiseringsuppgifter** till **AccountSettings.settings** i Microsoft.Azure.Batch.Samples.Common-projektet.
 3. **Skapa** (men inte kör) lösningen. Återställ NuGet-paket om du tillfrågas.
 4. Använda Azure-portalen för att överföra en [programpaket](batch-application-packages.md) för **PersistOutputsTask**. Inkludera den `PersistOutputsTask.exe` och dess beroende sammansättningar i ZIP-paketet, Ställ in program-ID till ”PersistOutputsTask” och paketversionen som programmet ska ”1.0”.

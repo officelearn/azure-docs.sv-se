@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 10/13/2017
+ms.date: 5/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: ec87bdadc0e7f77cdeebb16403758026fd956c30
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 8dffc5b87aefe23953d3a74f1d96b5ee03e0315d
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939862"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65597389"
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-search"></a>Hur du skapar ett facet-filter i Azure Search 
 
@@ -37,50 +37,48 @@ Nya för aspektbaserad navigering och vill ha mer information? Se [implementera 
 
 Fasetter kan beräknas över enskilt värdefält samt samlingar. Fält som fungerar bäst i aspektbaserad navigering har låg kardinalitet: ett litet antal distinkta värden som upprepas under hela dokument i din sökkorpus (till exempel en lista över färger, länder/regioner eller varumärken). 
 
-Fasettering är aktiverat på basis av fält i taget när du skapar index, genom att ange följande attribut till TRUE: `filterable`, `facetable`. Endast filtrerbara fält kan fasetteras.
+Fasettering är aktiverat på basis av fält i taget när du skapar indexet genom att ange den `facetable` attributet `true`. Bör Allmänt också ange den `filterable` attributet `true` för, till exempel fält så att ditt sökprogram kan filtrera på dessa fält baserat på fasetterna som användaren väljer. 
 
-Alla [fälttyp](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) som eventuellt skulle kunna användas i aspektbaserad navigering har markerats som ”fasettbar”:
+När du skapar ett index med hjälp av REST API, valfri [fälttyp](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) som eventuellt skulle kunna användas i aspektbaserad navigering är markerad som `facetable` som standard:
 
-+ Edm.String
-+ Edm.DateTimeOffset
-+ Edm.Boolean
-+ Edm.Collections
-+ Numeriskt fälttyper: Edm.Int32, Edm.Int64, Edm.Double
++ `Edm.String`
++ `Edm.DateTimeOffset`
++ `Edm.Boolean`
++ Numeriskt fälttyper: `Edm.Int32`, `Edm.Int64`, `Edm.Double`
++ Samlingar av ovanstående typer (till exempel `Collection(Edm.String)` eller `Collection(Edm.Double)`)
 
-Du kan inte använda Edm.GeographyPoint i aspektbaserad navigering. Fasetter skapas från läsbar text eller siffror. Fasetter har därför inte stöd för geo-koordinater. Du behöver ett fält för ort eller region i aspekten efter plats.
+Du kan inte använda `Edm.GeographyPoint` eller `Collection(Edm.GeographyPoint)` fält i aspektbaserad navigering. Fasetter fungerar bäst på fält med låg kardinalitet. Det är ovanligt att alla två uppsättningar koordinater är lika med i den angivna datauppsättningen på grund av av lösningen på geo-koordinater. Fasetter har därför inte stöd för geo-koordinater. Du behöver ett fält för ort eller region i aspekten efter plats.
 
 ## <a name="set-attributes"></a>Ange attribut
 
-Indexattribut som styr hur ett fält används läggs till enskilda fältdefinitioner i indexet. I följande exempel fält med låg kardinalitet, användbara för aspekter, som består av: kategori (hotell, motel, hostel), bekvämligheterna och betyg. 
-
-I .NET-API har attribut som filtrerande anges uttryckligen. Fasettering och filtrering är aktiverat som standard, vilket innebär att du behöver bara att uttryckligen ange attribut när du vill inaktivera dem i REST-API. Även om du inte behöver tekniskt, visar vi uppgift i exemplet nedan REST för instruktioner. 
+Indexattribut som styr hur ett fält används läggs till enskilda fältdefinitioner i indexet. I följande exempel fält med låg kardinalitet, användbara för aspekter, som består av: `category` (hotell, motel, hostel), `tags`, och `rating`. Dessa fält har den `filterable` och `facetable` attribut set uttryckligen i följande exempel som illustration. 
 
 > [!Tip]
-> Som bästa praxis för prestanda och lagringsoptimering, inaktivera fasettering för fält som ska aldrig användas som ett fasettvärde. I synnerhet strängfält för singleton-värden, till exempel ett ID eller produkt-namn ska vara inställd på ”Fasettbar”: false för att förhindra att deras oavsiktliga (och ineffektiv) använda i aspektbaserad navigering.
+> Som bästa praxis för prestanda och lagringsoptimering, inaktivera fasettering för fält som ska aldrig användas som ett fasettvärde. I synnerhet strängfält för unika värden, till exempel ett ID eller produkt-namn ska vara inställd på `"facetable": false` att förhindra användningen oavsiktlig (och ineffektiv) i aspektbaserad navigering.
 
 
-```http
+```json
 {
-    "name": "hotels",  
-    "fields": [
-        {"name": "hotelId", "type": "Edm.String", "key": true, "searchable": false, "sortable": false, "facetable": false},
-        {"name": "baseRate", "type": "Edm.Double"},
-        {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
-        {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "analyzer": "fr.lucene"},
-        {"name": "hotelName", "type": "Edm.String", "facetable": false},
-        {"name": "category", "type": "Edm.String", "filterable": true, "facetable": true},
-        {"name": "tags", "type": "Collection(Edm.String)", "filterable": true, "facetable": true},
-        {"name": "parkingIncluded", "type": "Edm.Boolean",  "filterable": true, "facetable": true, "sortable": false},
-        {"name": "smokingAllowed", "type": "Edm.Boolean", "filterable": true, "facetable": true, "sortable": false},
-        {"name": "lastRenovationDate", "type": "Edm.DateTimeOffset"},
-        {"name": "rating", "type": "Edm.Int32", "filterable": true, "facetable": true},
-        {"name": "location", "type": "Edm.GeographyPoint"}
-    ]
+  "name": "hotels",  
+  "fields": [
+    { "name": "hotelId", "type": "Edm.String", "key": true, "searchable": false, "sortable": false, "facetable": false },
+    { "name": "baseRate", "type": "Edm.Double" },
+    { "name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false },
+    { "name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "analyzer": "fr.lucene" },
+    { "name": "hotelName", "type": "Edm.String", "facetable": false },
+    { "name": "category", "type": "Edm.String", "filterable": true, "facetable": true },
+    { "name": "tags", "type": "Collection(Edm.String)", "filterable": true, "facetable": true },
+    { "name": "parkingIncluded", "type": "Edm.Boolean",  "filterable": true, "facetable": true, "sortable": false },
+    { "name": "smokingAllowed", "type": "Edm.Boolean", "filterable": true, "facetable": true, "sortable": false },
+    { "name": "lastRenovationDate", "type": "Edm.DateTimeOffset" },
+    { "name": "rating", "type": "Edm.Int32", "filterable": true, "facetable": true },
+    { "name": "location", "type": "Edm.GeographyPoint" }
+  ]
 }
 ```
 
 > [!Note]
-> Den här indexdefinitionen kopieras från [skapa ett Azure Search-index med REST API](https://docs.microsoft.com/azure/search/search-create-index-rest-api). Det är identiska förutom ytlig skillnader i fältdefinitioner. Attribut för Filtrerbart och fasettbart fält läggs till explicit på kategori, taggar, parkingIncluded, smokingAllowed och klassificering fält. Du får Filtrerbart och fasettbart fält för ledig på Edm.String och Edm.Boolean Edm.Int32 fälttyper i praktiken. 
+> Den här indexdefinitionen kopieras från [skapa ett Azure Search-index med REST API](https://docs.microsoft.com/azure/search/search-create-index-rest-api). Det är identiska förutom ytlig skillnader i fältdefinitioner. Den `filterable` och `facetable` attribut läggs till explicit på `category`, `tags`, `parkingIncluded`, `smokingAllowed`, och `rating` fält. I praktiken `filterable` och `facetable` aktiveras som standard på dessa fält när du använder REST-API. När du använder .NET SDK, måste dessa attribut aktiveras explicit.
 
 ## <a name="build-and-load-an-index"></a>Skapa och läsa in ett index
 
@@ -91,25 +89,26 @@ Ett mellanliggande (och kanske uppenbara) steg är att du behöver [skapa och Fy
 I programkoden, skapar du en fråga som anger alla delar av en giltig fråga, inklusive sökuttryck, fasetter, filter, bedömning profiler – allt används för att formulera en begäran. I följande exempel skapas en begäran som skapar aspekten navigering beroende på vilken typ av logi, klassificering och andra bekvämligheterna.
 
 ```csharp
-SearchParameters sp = new SearchParameters()
+var sp = new SearchParameters()
 {
-  ...
-  // Add facets
-  Facets = new List<String>() { "category", "rating", "parkingIncluded", "smokingAllowed" },
+    ...
+    // Add facets
+    Facets = new[] { "category", "rating", "parkingIncluded", "smokingAllowed" }.ToList()
 };
 ```
 
 ### <a name="return-filtered-results-on-click-events"></a>Returnera filtrerade resultat på klickar du på händelser
 
-Filteruttrycket hanterar click-händelse på aspektvärdet. Klicka på kategorin ”motel” med en kategori aspekten kan implementeras via en `$filter` som väljer boende av den typen. När en användare klickar på ”motell” för att indikera att endast motell ska visas i nästa fråga som programmet skickar innehåller $filter = kategori eq 'motell'.
+När användaren klickar på ett fasettvärde, bör hanteraren för click-händelse använda ett filteruttryck för att upptäcka användarens avsikt. Får en `category` aspekten, klicka på kategorin ”motel” implementeras med en `$filter` som väljer boende av den typen. När en användare klickar på ”motel” för att indikera att endast motell ska visas i nästa fråga som programmet skickar innehåller `$filter=category eq 'motel'`.
 
 Följande kodavsnitt lägger till kategorin filtret om användaren väljer ett värde från kategori-aspekten.
 
 ```csharp
-if (categoryFacet != "")
-  filter = "category eq '" + categoryFacet + "'";
+if (!String.IsNullOrEmpty(categoryFacet))
+    filter = $"category eq '{categoryFacet}'";
 ```
-Med hjälp av REST-API, begäran skulle vara uppvisat som `$filter=category eq 'c1'`. Om du vill göra en flervärdesfält för kategori, använder du följande syntax: `$filter=category/any(c: c eq 'c1')`
+
+Om användaren klickar på ett fasettvärde för en samling fält som `tags`, till exempel värdet ”pool” ditt program bör använda följande filter syntax: `$filter=tags/any(t: t eq 'pool')`
 
 ## <a name="tips-and-workarounds"></a>Tips och tillfälliga lösningar
 

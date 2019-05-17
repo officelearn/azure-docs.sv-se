@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 05/06/2019
-ms.openlocfilehash: 8809a2fed5a44910e3a353d9dc5bc41ea964a1ce
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b452485ccf235d1f245989e40840f2f0b3b2ae45
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150573"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544512"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Ansluta till Azure-nätverk från Azure Logic Apps med hjälp av en integration service-miljö (ISE)
 
@@ -39,7 +39,7 @@ Läs mer om integreringstjänstmiljöer [åtkomst till Azure Virtual Network-res
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.microsoft.com/free/" target="_blank">registrera ett kostnadsfritt Azure-konto</a>.
 
   > [!IMPORTANT]
-  > Logic apps, inbyggda åtgärder och kopplingar som körs i din ISE kan du använda en annan prisplanen inte förbrukningsbaserad prisplanen. Mer information finns i [Logic Apps-priser](../logic-apps/logic-apps-pricing.md).
+  > Logic apps, inbyggda utlösare, inbyggda åtgärder och kopplingar som körs i ISE-användning av en prisplanen skiljer sig från förbrukningsbaserad prisplanen. Mer information finns i [Logic Apps-priser](../logic-apps/logic-apps-pricing.md).
 
 * En [Azure-nätverk](../virtual-network/virtual-networks-overview.md). Om du inte har ett virtuellt nätverk kan du lära dig hur du [skapa en Azure-nätverk](../virtual-network/quick-create-portal.md). 
 
@@ -154,11 +154,11 @@ I sökrutan anger du ”integreringstjänstmiljön” som filter.
 
    1. På den **undernät** fönstret Välj **undernät**.
 
-      ![Lägga till undernät](./media/connect-virtual-network-vnet-isolated-environment/add-subnet.png)
+      ![Lägg till undernät](./media/connect-virtual-network-vnet-isolated-environment/add-subnet.png)
 
    1. På den **Lägg till undernät** fönstret anger den här informationen.
 
-      * **Namn**: Namn för ditt undernät
+      * **Namn på**: Namn för ditt undernät
       * **Adressintervall (CIDR-block)**: Intervall för ditt undernät i det virtuella nätverket och i CIDR-format
 
       ![Lägg till information om undernät](./media/connect-virtual-network-vnet-isolated-environment/subnet-details.png)
@@ -199,33 +199,19 @@ Läs mer om hur du skapar undernät, [lägga till ett virtuellt nätverksundern�
 
 ## <a name="create-logic-app---ise"></a>Skapa logikapp – ISE
 
-För att skapa logikappar som använder din integration service-environment (ISE), följer du stegen i [så här skapar du en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md) men med följande skillnader: 
-
-* När du skapar din logikapp under den **plats** egenskapen, Välj din ISE från den **integreringstjänstmiljöer** avsnittet, till exempel:
+Att skapa logikappar som körs i din integration service-environment (ISE) [skapa logikappar som vanligt](../logic-apps/quickstart-create-first-logic-app-workflow.md) utom när du ställer in den **plats** egenskapen, Välj din ISE från den  **Integreringstjänstmiljöer** avsnittet, till exempel:
 
   ![Välj integreringstjänstmiljö](./media/connect-virtual-network-vnet-isolated-environment/create-logic-app-with-integration-service-environment.png)
 
-* Du kan använda samma inbyggda utlösare och åtgärder, till exempel HTTP, som körs i samma ISE som din logikapp. Kopplingar med den **ISE** märka också köras i samma ISE som din logikapp. Anslutningar utan den **ISE** etikett som körs i tjänsten för global Logic Apps.
-
-  ![Välj ISE-tjänster](./media/connect-virtual-network-vnet-isolated-environment/select-ise-connectors.png)
-
-* När du mata in din ISE i Azure-nätverk, logikappar i din ISE direkt åtkomst till resurser i det virtuella nätverket. För lokala system som är anslutna till ett virtuellt nätverk, att mata in en ISE i nätverket så att dina logikappar har direkt åtkomst dessa system med någon av dessa objekt: 
-
-  * ISE-anslutning för systemet, till exempel SQL Server
-  
-  * HTTP-åtgärd 
-  
-  * Anpassad anslutningsapp
-
-  För lokala system som inte är i ett virtuellt nätverk eller inte har ISE kopplingar först [konfigurera den lokala datagatewayen](../logic-apps/logic-apps-gateway-install.md).
+För skillnader i hur utlösare och åtgärder fungerar och hur de är märkta när du använder en ISE jämfört med globala Logic Apps-tjänsten finns i [isolerade jämfört med globala i ISE-översikt](connect-virtual-network-vnet-isolated-environment-overview.md#difference).
 
 <a name="create-integration-account-environment"></a>
 
 ## <a name="create-integration-account---ise"></a>Skapa integrationskonto – ISE
 
-Om du vill använda en integrering med logic apps i en integreringstjänstmiljö (ISE) måste det integrationskontot måste använda den *samma miljö* som logic apps. Logic apps i en ISE kan referera till integrationskonton i samma ISE. 
+Om du vill använda ett konto för integrering med logic apps i en integreringstjänstmiljö (ISE) som integrationskontot måste använda den *samma miljö* som logic apps. Logic apps i en ISE kan referera till integrationskonton i samma ISE.
 
-Om du vill skapa ett integrationskonto som använder en ISE, följer du stegen i [hur du skapar konton för logikappsintegration](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) undantag för den **plats** egenskapen där den **integreringstjänstmiljöer**  avsnittet visas nu. Välj i stället dina ISE i stället för en region, till exempel:
+Du skapar ett integrationskonto som använder en ISE [skapa ditt integrationskonto som vanligt](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) utom när du ställer in den **plats** egenskapen, Välj din ISE från den **integrering tjänsten miljöer** avsnittet, till exempel:
 
 ![Välj integreringstjänstmiljö](./media/connect-virtual-network-vnet-isolated-environment/create-integration-account-with-integration-service-environment.png)
 

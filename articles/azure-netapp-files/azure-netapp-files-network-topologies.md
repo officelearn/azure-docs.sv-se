@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: b-juche
-ms.openlocfilehash: 2afd5f0a574fd15c4327b141901d2651dbe2b9e5
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: fa2de14ada5d24531dfecc7f2f709a87f39ea6cb
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65524242"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65826462"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Riktlinjer för Azure NetApp Files-nätverksplanering
 
@@ -42,7 +42,7 @@ Nedanstående funktioner finns för närvarande inte stöd för Azure NetApp-fil
 
 Det gäller följande nätverksbegränsningar till Azure NetApp-filer:
 
-* Hur många av IP-adresser från ett virtuellt nätverk (inklusive peerkopplade virtuella nätverk) och ansluta till en volym i ett virtuellt nätverk får inte överskrida 1000.
+* Hur många virtuella datorer som kan ansluta till en volym (med ett virtuellt nätverk eller mellan peerkopplade virtuella nätverk) får inte överskrida 1000.
 * Endast ett undernät kan delegeras till Azure NetApp Files i varje Azure Virtual Network (VNet).
 
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 2d01b74e7db275f4b2e3933415bbae40911b114b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7bc44d8e755af3d212d616425c6a1fd925172298
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60399305"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602937"
 ---
 # <a name="create-features-for-data-in-sql-server-using-sql-and-python"></a>Skapa funktioner för data i SQL Server med SQL och Python
 Det här dokumentet visar hur du skapar funktioner för data som lagras i en SQL Server-VM på Azure som hjälper algoritmer som Lär dig mer effektivt från data. Du kan använda SQL-databaser eller ett programmeringsspråk som Python för att åstadkomma detta. Båda metoderna är visas här.
@@ -68,7 +68,7 @@ Här är en kort introduktion på latitud/longitud platsdata (resurstilldelas fr
 * Inloggningssidan anger om vi är norr eller söder, östra eller Väst i världen.
 * Ett annat värde än noll hundratals siffra anger longitud, latitud inte används.
 * Tio siffror ger möjlighet att cirka 1 000 kilometer. Det ger användbar information om vilka kontinent eller miljöer är vi på.
-* Enheter siffra (en decimal grad) ger en position upp till 111 kilometer (60 sjömil, ungefär 69 miles). Den visar ungefär, vilka stora eller det land som det är en.
+* Enheter siffra (en decimal grad) ger en position upp till 111 kilometer (60 sjömil, ungefär 69 miles). Den visar ungefär, vilka stora eller land/region som det är en.
 * En decimal är värt att upp till 11.1 km: Det kan skilja positionen för en stor stad från en närliggande stora stad.
 * Andra decimal är värt att upp till 1.1 km: Det kan skilja ett village från nästa.
 * Den tredje decimalen är värt att upp till 110 m: kan identifiera ett stort agricultural fält eller institutionella campus.

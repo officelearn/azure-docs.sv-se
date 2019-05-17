@@ -8,26 +8,33 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: article
-ms.date: 08/23/2018
-ms.openlocfilehash: e008d9fd2734af6a355771c321ecaea9150bcc33
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/08/2019
+ms.openlocfilehash: c02361cf69b98da61a0f551ac037e6d35ea42efc
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64722985"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65551869"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Anslutningsappar för Azure Logic Apps
 
 Anslutnings appar ger snabb åtkomst från Azure Logic Apps till händelser, data och åtgärder i andra appar, tjänster, system, protokoll och plattformar. Genom att använda anslutningsappar i logic apps kan utöka du funktionerna för molnet och lokala appar du utför uppgifter med de data som du skapar och redan har.
 
-Medan Logic Apps-erbjudanden [~ 200 + anslutningsappar](https://docs.microsoft.com/connectors), den här artikeln beskriver populära och vanliga kopplingar som har används av tusentals appar och miljontals körningar för bearbetning av data och information. Du hittar en fullständig lista över kopplingar och referensinformation för varje anslutning, som utlösare, åtgärder och gränser, granska referenssidor för anslutningen under [översikt över Anslutningsappar](https://docs.microsoft.com/connectors). Dessutom lär dig mer om [utlösare och åtgärder](#triggers-actions).
+Medan Logic Apps-erbjudanden [~ 200 + anslutningsappar](https://docs.microsoft.com/connectors), den här artikeln beskriver populära och vanliga kopplingar som har används av tusentals appar och miljontals körningar för bearbetning av data och information. Du hittar en fullständig lista över kopplingar och referensinformation för varje anslutning, som utlösare, åtgärder och gränser, granska referenssidor för anslutningen under [översikt över Anslutningsappar](https://docs.microsoft.com/connectors). Dessutom lär dig mer om [utlösare och åtgärder](#triggers-actions), [Logikappar prissättningsmodellen](../logic-apps/logic-apps-pricing.md), och [Logic Apps prisinformation](https://azure.microsoft.com/pricing/details/logic-apps/). 
 
 > [!NOTE]
 > Om du vill integrera med en tjänst eller ett API som inte har anslutningen, du kan antingen direkt anropa tjänsten via ett protokoll som HTTP eller skapa en [anslutningsapp](#custom).
 
 Anslutningsapparna finns antingen som inbyggda utlösare och åtgärder eller hanterade anslutningsappar:
 
-* [**Built-INS**](#built-ins): Dessa inbyggda åtgärder och utlösare är ”interna” Azure Logic Apps och hjälper dig att skapa logikappar som körs på anpassade scheman, kommunicera med andra slutpunkter, ta emot och svara på förfrågningar och anropa Azure functions, Azure API Apps (Webbappar), egna API: er hanterade och publicerade med Azure API Management och kapslade logic apps som kan ta emot begäranden. Du kan också använda inbyggda åtgärder som hjälper dig att ordna och styra logikappens arbetsflöde och också arbeta med data.
+* [**Built-INS**](#built-ins): Dessa inbyggda utlösare och åtgärder är ”interna” Azure Logic Apps och hjälper dig att skapa logikappar som körs på anpassade scheman, kommunicera med andra slutpunkter, ta emot och svara på förfrågningar och anropa Azure functions, Azure API Apps (Webbappar), egna API: er hanterade och publicerade med Azure API Management och kapslade logic apps som kan ta emot begäranden. Du kan också använda inbyggda åtgärder som hjälper dig att ordna och styra logikappens arbetsflöde och också arbeta med data.
+
+  > [!NOTE]
+  > Logikappar inom en [integreringstjänstmiljön (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) direkt komma åt resurser i Azure-nätverk.
+  > När du använder en ISE inbyggda utlösare och åtgärder som visas i **Core** etikett som körs i samma ISE som dina logic apps. Logic apps, inbyggda utlösare och inbyggda åtgärder som körs i ISE-användning av en prisplanen skiljer sig från förbrukningsbaserad prisplanen.
+  >
+  > Läs mer om hur du skapar ISEs [Anslut till Azure-nätverk från Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment). 
+  > Mer information om priser finns i [Logic Apps prismodellen](../logic-apps/logic-apps-pricing.md).
 
 * **Hanterade anslutningsappar**: Distribueras och hanteras av Microsoft, innehåller dessa anslutningsappar utlösare och åtgärder för att komma åt cloud services, lokala system eller båda, inklusive Office 365, Azure Blob Storage, SQL Server, Dynamics, Salesforce, SharePoint och mycket mer. Vissa anslutningsappar mer specifikt stöd för scenarier för business-to-business (B2B)-kommunikation och kräver en [integrationskontot](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) som är länkad till din logikapp. Innan du använder vissa kopplingar kan kanske du först skapa anslutningar som hanteras av Azure Logic Apps. 
 
@@ -36,7 +43,7 @@ Anslutningsapparna finns antingen som inbyggda utlösare och åtgärder eller ha
 
   Kopplingar klassificeras som Standard eller Enterprise. 
   [Företagsanslutningarna](#enterprise-connectors) ger åtkomst till företagssystem som SAP, IBM MQ och IBM 3270 mot en extra kostnad. För att avgöra om en anslutning är Standard eller Enterprise, finns i de tekniska detaljerna i varje anslutningsapp-referenssida under [översikt över Anslutningsappar](https://docs.microsoft.com/connectors). 
-  
+
   Du kan även identifiera kopplingar med hjälp av dessa kategorier, även om vissa anslutningsappar kan passera flera kategorier. 
   Till exempel är SAP en Enterprise-anslutning och en lokal anslutning:
 
@@ -47,8 +54,15 @@ Anslutningsapparna finns antingen som inbyggda utlösare och åtgärder eller ha
   | [**Integrationskonton**](#integration-account-connectors) | Tillgängliga när du skapar och betala för ett integrationskonto, transformera dessa kopplingar och validera XML, koda och avkoda flata filer och bearbeta business-to-business (B2B) meddelanden med AS2 och EDIFACT X12 protokoll. |
   |||
 
-> [!NOTE]
-> För en fullständig lista över kopplingar och referensinformation för varje anslutning, till exempel åtgärder och utlösare, som definieras av en OpenAPI (tidigare Swagger) beskrivning, plus eventuella gränser du hittar en fullständig lista under den [översikt över Anslutningsappar ](/connectors/). Information om priser finns i [Logic Apps prisinformation](https://azure.microsoft.com/pricing/details/logic-apps/) och [Logic Apps prismodellen](../logic-apps/logic-apps-pricing.md). 
+  > [!NOTE]
+  > Logikappar inom en [integreringstjänstmiljön (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) direkt komma åt resurser i Azure-nätverk. När du använder en ISE, Standard och Enterprise-anslutningsappar som visar den **ISE** etikett som körs i samma ISE som dina logic apps. Kopplingar som inte visar etiketten ISE kör i tjänsten för global Logic Apps.
+  >
+  > För lokala system som är anslutna till ett Azure-nätverk, mata in din ISE i nätverket så att dina logikappar har direkt åtkomst dessa system med hjälp av antingen en anslutning som har en **ISE** etikett, en HTTP-åtgärd eller en [anslutningsapp](#custom). Planera skiljer sig från förbrukningsbaserad prisplanen Logic apps och kopplingar som kör ISE när du använder en prisnivå. 
+  >
+  > Läs mer om hur du skapar ISEs [Anslut till Azure-nätverk från Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment).
+  > Mer information om priser finns i [Logic Apps prismodellen](../logic-apps/logic-apps-pricing.md).
+
+  För en fullständig lista över kopplingar och referensinformation för varje anslutning, till exempel åtgärder och utlösare, som definieras av en OpenAPI (tidigare Swagger) beskrivning, plus eventuella gränser du hittar en fullständig lista under den [översikt över Anslutningsappar ](/connectors/). Information om priser finns i [Logikappar prissättningsmodellen](../logic-apps/logic-apps-pricing.md), och [Logic Apps prisinformation](https://azure.microsoft.com/pricing/details/logic-apps/). 
 
 <a name="built-ins"></a>
 
@@ -66,7 +80,7 @@ Logic Apps tillhandahåller inbyggd utlösare och åtgärder så att du kan skap
 
 ### <a name="control-workflow"></a>Kontrollen arbetsflöde
 
-Här är inbyggda åtgärder för att strukturera och kontrollera åtgärder i logikappens arbetsflöde:
+Logikappar innehåller inbyggda åtgärder för att strukturera och kontrollera åtgärder i logikappens arbetsflöde:
 
 |   |   |   |   | 
 |---|---|---|---| 
@@ -77,7 +91,7 @@ Här är inbyggda åtgärder för att strukturera och kontrollera åtgärder i l
 
 ### <a name="manage-or-manipulate-data"></a>Hantera eller ändra data
 
-Här är inbyggda åtgärder för att arbeta med data utdata och deras format:  
+Logikappar innehåller inbyggda åtgärder för att arbeta med data utdata och deras format:  
 
 |   |   | 
 |---|---| 
@@ -90,7 +104,7 @@ Här är inbyggda åtgärder för att arbeta med data utdata och deras format:
 
 ## <a name="managed-api-connectors"></a>Hanterade API-kopplingar
 
-Här följer mer populära anslutningsappar för att automatisera uppgifter, processer och arbetsflöden med dessa tjänster eller system:
+Logic Apps tillhandahåller dessa populära Standardanslutningar för att automatisera uppgifter, processer och arbetsflöden med dessa tjänster eller system.
 
 |   |   |   |   | 
 |---|---|---|---| 
@@ -100,25 +114,25 @@ Här följer mer populära anslutningsappar för att automatisera uppgifter, pro
 | [![API-ikon][dynamics-365-icon]<br/>**Dynamics 365<br/>CRM Online**][dynamics-365-doc] | Anslut till Dynamics 365-konto så att du kan skapa och hantera poster och objekt. | [![API-ikon][ftp-icon]<br/>**FTP**][ftp-doc] | Ansluta till FTP-servrar som du kan komma åt från internet så att du kan arbeta med filer och mappar. | 
 | [![API-ikon][salesforce-icon]<br/>**Salesforce**][salesforce-doc] | Anslut till ditt Salesforce-konto så att du kan skapa och hantera objekt, till exempel poster, jobb, objekt med mera. | [![API-ikon][twitter-icon]<br/>**Twitter**][twitter-doc] | Anslut till ditt Twitter-konto så att du kan hantera tweets, följare, din tidslinje och mer. Spara dina tweets till SQL-, Excel- eller SharePoint. | 
 | [![API-ikon][azure-event-hubs-icon]<br/>**Azure Event Hubs**][azure-event-hubs-doc] | Använda och publicera händelser via en Händelsehubb. Till exempel hämta utdata från din logikapp med Event Hubs och sedan skicka som utdata till en leverantör av realtidsanalys. | [![API-ikon][azure-event-grid-icon]<br/>**Azure Event**</br>**rutnät**][azure-event-grid-doc] | Övervaka händelser som publicerats av en Event Grid, till exempel när ändrar Azure-resurser eller resurser från tredje part. | 
-||||| 
+|||||
 
 <a name="on-premises-connectors"></a>
 
 ## <a name="on-premises-connectors"></a>Lokala anslutningsappar 
 
-Här följer några vanliga kopplingar som ger åtkomst till data och resurser i lokala system. Innan du kan skapa en anslutning till ett lokalt system, måste du först [hämta, installera och konfigurera en lokal datagateway][gateway-doc]. Den här gatewayen tillhandahåller en säker kommunikationskanal utan att behöva ställa in nödvändiga nätverkets infrastruktur. 
+Här följer några vanliga Standardanslutningar som Logic Apps tillhandahåller för att komma åt data och resurser i lokala system. Innan du kan skapa en anslutning till ett lokalt system, måste du först [hämta, installera och konfigurera en lokal datagateway][gateway-doc]. Den här gatewayen tillhandahåller en säker kommunikationskanal utan att behöva ställa in nödvändiga nätverkets infrastruktur. 
 
 |   |   |   |   |   | 
 |---|---|---|---|---| 
 | ![API-ikon][biztalk-server-icon]<br/>**BizTalk**</br> **Server** | [![API-ikon][file-system-icon]<br/>**filen</br> System**][file-system-doc] | [![API-ikon][ibm-db2-icon]<br/>**IBM DB2**][ibm-db2-doc] | [![API-ikon][ibm-informix-icon]<br/>**IBM** </br> **Informix**][ibm-informix-doc] | ![API-ikon][mysql-icon]<br/>**MySQL** | 
 | [![API-ikon][oracle-db-icon]<br/>**Oracle DB**][oracle-db-doc] | ![API-ikon][postgre-sql-icon]<br/>**PostgreSQL** | [![API-ikon][sharepoint-server-icon]<br/>**SharePoint</br> Server**][sharepoint-server-doc] | [![API-ikon][sql-server-icon]<br/>**SQL</br> Server**][sql-server-doc] | ![API-ikon][teradata-icon]<br/>**Teradata** | 
-||||| 
+|||||
 
 <a name="integration-account-connectors"></a>
 
-## <a name="integration-account-connectors"></a>Anslutningar för integrationskonton 
+## <a name="integration-account-connectors"></a>Anslutningar för integrationskonton
 
-Här är kopplingar för att skapa lösningar för business-to-business (B2B) med dina logikappar när du skapar och betala för en [integrationskontot](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md), som är tillgängligt via den Enterprise-Integrationspaket (EIP) i Azure. Med det här kontot kan du skapa och lagra B2B-artefakter, till exempel samarbetspartner, avtal, kartor, scheman, certifikat och så vidare. Om du vill använda dessa artefakter, koppla dina logikappar till ditt integrationskonto. Om du använder BizTalk Server, verka anslutningsapparna välbekanta redan.
+Logic Apps tillhandahåller standardanslutningsappar för att skapa lösningar för business-to-business (B2B) med dina logikappar när du skapar och betala för en [integrationskontot](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md), som är tillgängligt via den Enterprise-Integrationspaket (EIP) i Azure. Med det här kontot kan du skapa och lagra B2B-artefakter, till exempel samarbetspartner, avtal, kartor, scheman, certifikat och så vidare. Om du vill använda dessa artefakter, koppla dina logikappar till ditt integrationskonto. Om du använder BizTalk Server, verka anslutningsapparna välbekanta redan.
 
 |   |   |   |   | 
 |---|---|---|---| 
@@ -131,7 +145,7 @@ Här är kopplingar för att skapa lösningar för business-to-business (B2B) me
 
 ## <a name="enterprise-connectors"></a>Enterprise-anslutningsappar
 
-Dina logic apps kan komma åt företagssystem som SAP och IBM MQ:
+Logic Apps tillhandahåller dessa företagsanslutningsappar för att komma åt företagssystem som SAP och IBM MQ:
 
 |   |   |   | 
 |---|---|---| 
@@ -172,11 +186,13 @@ Anslutningar kan komma åt Måltjänsten eller system för så länge som den tj
 För att anropa API: er som kör anpassad kod eller som inte är tillgängliga som kopplingar kan du utöka plattformen Logic Apps genom [skapa anpassade API Apps](../logic-apps/logic-apps-create-api-app.md). Du kan också [skapa anpassade anslutningsappar](../logic-apps/custom-connector-overview.md) för *alla* REST eller SOAP-baserat API: er som tillgängliggör dessa API: er för alla logikappar i Azure-prenumerationen.
 Om du vill göra anpassade API Apps eller kopplingar offentliga för allmän användning i Azure, kan du [skicka in anslutningsappar för Microsoft-certifiering](../logic-apps/custom-connector-submit-certification.md).
 
-## <a name="get-support"></a>Få support
-
-* Om du har frågor kan du besöka [forumet för Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-
-* Du kan skicka eller rösta på idéer för Azure Logic Apps och anslutningsapparna genom att gå till den [webbplatsen för Logic Apps-Användarfeedback](https://aka.ms/logicapps-wish).
+> [!NOTE]
+> Logikappar inom en [integreringstjänstmiljön (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) direkt komma åt resurser i Azure-nätverk.
+> Om du har anpassade anslutningar som kräver en lokal datagateway och du har skapat dessa anslutningar utanför en ISE, kan logic apps i en ISE också använda dessa anslutningar.
+>
+> Anpassade anslutningsappar som skapats i en ISE fungerar inte med den lokala datagatewayen. Dessa anslutningar kan dock direkt åtkomst till lokala datakällor som är anslutna till ett Azure-nätverk som är värd för ISE. Därför behöver logic apps i en ISE troligen inte datagateway vid kommunikation med dessa resurser.
+>
+> Läs mer om hur du skapar ISEs [Anslut till Azure-nätverk från Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment).
 
 ## <a name="next-steps"></a>Nästa steg
 

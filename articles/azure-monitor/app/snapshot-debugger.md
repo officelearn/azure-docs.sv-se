@@ -12,17 +12,17 @@ ms.topic: conceptual
 ms.reviewer: brahmnes
 ms.date: 03/07/2019
 ms.author: mbullwin
-ms.openlocfilehash: 074b701422f32f4cd18fd2eb05e3453e139e17ae
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 4157285e8af67acd1dc3627bebc12076d7fe072c
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205591"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595588"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Felsök ögonblicksbilder på undantag i .NET-appar
 Om ett undantag inträffar, kan du automatiskt samla in en felsökning för ögonblicksbilder från ditt webbprogram. Ögonblicksbilden visar tillståndet för källkoden och variabler för tillfället som undantaget uppstod. Felsökning av ögonblicksbild (förhandsversion) i [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) övervakar undantagstelemetri från din webbapp. Den samlar in ögonblicksbilder i din upp utlöser undantag så att du har den information du behöver att diagnostisera problem i produktionsmiljön. Inkludera den [Snapshot collector NuGet-paketet](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) i ditt program och om du vill konfigurera insamlingsparametrarna i [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). Ögonblicksbilder som visas på [undantag](../../azure-monitor/app/asp-net-exceptions.md) i Application Insights-portalen.
 
-Du kan visa debug ögonblicksbilder i portalen för att se anropet stacken och inspektera variabler vid varje anropsstacken. För att få en mer kraftfullt felsökningsverktyg som fungerar med källkoden kan du öppna ögonblicksbilder med Visual Studio 2017 Enterprise. I Visual Studio kan du också [ange Snappoints att interaktivt ta ögonblicksbilder](https://aka.ms/snappoint) utan att behöva vänta ett undantag.
+Du kan visa debug ögonblicksbilder i portalen för att se anropet stacken och inspektera variabler vid varje anropsstacken. För att få en mer kraftfullt felsökningsverktyg som fungerar med källkoden kan du öppna ögonblicksbilder med Visual Studio 2019 Enterprise. I Visual Studio kan du också [ange Snappoints att interaktivt ta ögonblicksbilder](https://aka.ms/snappoint) utan att behöva vänta ett undantag.
 
 Felsök ögonblicksbilder lagras i sju dagar. Den här bevarandeprincipen är inställd på basis av per program. Om du vill öka det här värdet kan du begära en ökning genom att öppna ett supportärende i Azure-portalen.
 
@@ -81,9 +81,9 @@ I vyn Felsök ögonblicksbild visas en anropsstack och en variabler-fönstret. N
 Ögonblicksbilder kan innehålla känslig information och som standard de inte kan visas. Om du vill visa ögonblicksbilder, måste du ha den `Application Insights Snapshot Debugger` roll som tilldelats dig.
 
 ## <a name="view-snapshots-in-visual-studio-2017-enterprise-or-above"></a>Visa ögonblicksbilder i Visual Studio 2017 Enterprise eller senare
-1. Klicka på den **ladda ned ögonblicksbild** för att ladda ned en `.diagsession` -fil som kan öppnas av Visual Studio 2017 Enterprise.
+1. Klicka på den **ladda ned ögonblicksbild** för att ladda ned en `.diagsession` -fil som kan öppnas av Visual Studio Enterprise.
 
-2. Öppna den `.diagsession` filen, måste du ha installerat komponenten Snapshot Debugger VS. Snapshot Debugger-komponenten är en obligatorisk del av arbetsbelastningen ASP.net i VS och kan väljas från listan över enskilda komponenter i VS-installationsprogrammet. Om du använder en version av Visual Studio 2017 innan 15.5 måste du installera tillägget från den [VS marketplace](https://aka.ms/snapshotdebugger).
+2. Öppna den `.diagsession` filen, måste du ha installerat komponenten Snapshot Debugger Visual Studio. Snapshot Debugger-komponenten är en obligatorisk del av arbetsbelastningen ASP.net i Visual Studio och kan väljas från listan över enskilda komponenter i installationsprogrammet för Visual Studio. Om du använder en version av Visual Studio innan Visual Studio 2017 version 15.5, måste du installerar tillägget från den [Visual Studio Marketplace](https://aka.ms/snapshotdebugger).
 
 3. När du har öppnat ögonblicksbildfilen visas sidan Minidump felsökning i Visual Studio. Klicka på **felsöka förvaltad kod** att starta felsökningen ögonblicksbilden. Ögonblicksbilden öppnar rad med kod som undantaget uppstod där så att du kan felsöka det aktuella tillståndet för processen.
 

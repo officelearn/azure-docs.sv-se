@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: jehollan
-ms.openlocfilehash: d327146c4a1fa61e55bb904308038c1ce717123d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 75987e7cba9f373af5a434de9f273948c3c9ae75
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61031248"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544770"
 ---
 # <a name="azure-functions-premium-plan-preview"></a>Azure Functions Premium-prenumeration (förhandsversion)
 
@@ -44,7 +44,7 @@ Om inga händelser och körningar genomförs idag i förbrukningsplanen kan din 
 
 Du kan ha en app i förväg värmas på ett angivet antal instanser, upp till storleken på din minsta plan i Premium-plan.  Före uppvärmning instanser kan du skala före en app innan hög belastning. När appen skalas ut, skalas den först i förväg uppvärmning instanser. Ytterligare instanser fortsätta att buffra ut och varma omedelbart som förberedelse inför nästa skalningsåtgärden. Genom att ha en buffert med förväg uppvärmning instanser undviker effektivt kallstart svarstider.  Före uppvärmning instanser är en funktion i Premium-plan och du behöver minst en instans som körs och tillgänglig hela tiden planen för är aktiv.
 
-Du kan konfigurera antalet förväg uppvärmning instanser i Azure portal genom att välja **skala ut** i den **plattformsfunktioner** fliken.
+Du kan konfigurera antalet förväg uppvärmning instanser i Azure portal valts av din **Funktionsapp**, går till den **plattformsfunktioner** fliken och välja den **skala ut**alternativ. I fönstret funktionen app redigera förväg uppvärmning instanser är specifik för appen, men de lägsta och högsta instanserna gäller för hela planen.
 
 ![Inställningar för elastisk skalning](./media/functions-premium-plan/scale-out.png)
 
@@ -105,23 +105,24 @@ Nedan visas regionerna som stöds för tillfället för den offentliga förhands
 
 |Region|
 |--|
-|Östra Australien|
-|Sydöstra Australien|
-|Centrala Kanada|
+|Australien, östra|
+|Australien, sydöstra|
+|Kanada, centrala|
 |Centrala USA|
-|Östasien|
+|Asien, östra|
 |USA, östra 2|
-|Frankrike, centrala|
-|Västra Japan|
+|Centrala Frankrike|
+|Japan, västra|
 |Sydkorea, centrala|
-|Norra Europa|
-|Södra centrala USA|
-|Södra Indien|
+|USA, norra centrala|
+|Europa, norra|
+|USA, södra centrala|
+|Indien, södra|
 |Sydostasien|
-|Storbritannien, västra|
-|Västra Europa|
+|Västra Storbritannien|
+|Europa, västra|
 |Indien, västra|
-|Västra USA|
+|USA, västra|
 
 ## <a name="known-issues"></a>Kända problem
 

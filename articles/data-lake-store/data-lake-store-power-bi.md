@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: b873d90dbc33aff27cd2fc3b5099b08eacf929b6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d8717b8f365e692b5f27bf8a04d65c5147b8f31b
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60195715"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603206"
 ---
 # <a name="analyze-data-in-azure-data-lake-storage-gen1-by-using-power-bi"></a>Analysera data i Azure Data Lake Storage Gen1 med hjälp av Power BI
 I den här artikeln får du lära dig hur du använder Power BI Desktop att analysera och visualisera data som lagras i Azure Data Lake Storage Gen1.
@@ -74,23 +74,23 @@ Innan du påbörjar de här självstudierna måste du ha:
 14. När frågan har uppdaterats kan den **fält** fliken visas de nya fält som är tillgängliga för visualisering.
     
     ![Uppdatera fält](./media/data-lake-store-power-bi/updated-query-fields.png "uppdatera fält")
-15. Låt oss skapa ett cirkeldiagram för att representera drivrutinerna i varje stad för ett visst land. Om du vill göra det, gör du följande val.
+15. Låt oss skapa ett cirkeldiagram för att representera drivrutinerna i varje stad för respektive land/region. Om du vill göra det, gör du följande val.
     
     1. Klicka på symbolen för ett cirkeldiagram från fliken visualiseringar.
        
         ![Skapa cirkeldiagram](./media/data-lake-store-power-bi/create-pie-chart.png "skapa cirkeldiagram")
-    2. De kolumner som vi ska använda är **kolumn 4** (namn på ort) och **kolumnen 7** (namnet på landet). Dra dessa kolumner från **fält** fliken **visualiseringar** fliken enligt nedan.
+    2. De kolumner som vi ska använda är **kolumn 4** (namn på ort) och **kolumnen 7** (namn på land/region). Dra dessa kolumner från **fält** fliken **visualiseringar** fliken enligt nedan.
        
         ![Skapa visualiseringar](./media/data-lake-store-power-bi/create-visualizations.png "skapa visualiseringar")
     3. Cirkeldiagrammet bör nu se ut ungefär som den som visas nedan.
        
         ![Cirkeldiagram](./media/data-lake-store-power-bi/pie-chart.png "skapa visualiseringar")
-16. Genom att välja ett visst land på sidnivå, kan du nu se antalet drivrutiner i varje stad för det valda landet. Under exempelvis den **visualiseringar** fliken, under **på sidnivå**väljer **Brasilien**.
+16. Genom att välja ett visst land/region på sidnivå, kan du nu se antalet drivrutiner i varje stad för den valda land/regionen. Under exempelvis den **visualiseringar** fliken, under **på sidnivå**väljer **Brasilien**.
     
-    ![Välj ett land](./media/data-lake-store-power-bi/select-country.png "Välj ett land")
+    ![Välj ett land](./media/data-lake-store-power-bi/select-country.png "Välj land/region")
 17. Cirkeldiagrammet uppdateras automatiskt för att visa drivrutinerna i Brasilien städerna.
     
-    ![Drivrutiner i ett land](./media/data-lake-store-power-bi/driver-per-country.png "drivrutiner per land")
+    ![Drivrutiner i ett land](./media/data-lake-store-power-bi/driver-per-country.png "drivrutiner per land/region")
 18. Från den **filen** -menyn klickar du på **spara** att spara visualiseringen som en Power BI Desktop-fil.
 
 ## <a name="publish-report-to-power-bi-service"></a>Publicera rapporten till Power BI-tjänsten

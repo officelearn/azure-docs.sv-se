@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ''
 ms.date: 03/13/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7fe75dabe098cf98f0c3c04d592a32d6a44cebf8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7a4184fa361ba863cdaf916ef4853eda8b6e8188
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60775324"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595938"
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>Använda aktiviteter med flera instanser för att köra Message Passing Interface (MPI) program i Batch
 
@@ -281,7 +281,7 @@ Den [MultiInstanceTasks] [ github_mpi] kodexempel på GitHub visar hur du använ
 
 ### <a name="execution"></a>Körnings-
 1. Ladda ned den [azure-batch-samples] [ github_samples_zip] från GitHub.
-2. Öppna MultiInstanceTasks **lösning** i Visual Studio 2017. Den `MultiInstanceTasks.sln` lösningsfilen finns i:
+2. Öppna MultiInstanceTasks **lösning** i Visual Studio 2019. Den `MultiInstanceTasks.sln` lösningsfilen finns i:
 
     `azure-batch-samples\CSharp\ArticleProjects\MultiInstanceTasks\`
 3. Ange dina autentiseringsuppgifter för Batch och Storage-konto i `AccountSettings.settings` i den **Microsoft.Azure.Batch.Samples.Common** projekt.

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 491545aabd3415850eb1b1d712a46401b73ad845
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 749216d3fe9164857bd4abce7ba7c766e466e7d3
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190735"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823303"
 ---
 # <a name="what-is-password-writeback"></a>Vad är tillbakaskrivning av lösenord?
 
@@ -42,9 +42,8 @@ Tillbakaskrivning av lösenord innehåller:
 * **Har stöd för tillbakaskrivning av lösenord när en administratör återställer dem från Azure portal**: När en administratör återställer en användares lösenord i den [Azure-portalen](https://portal.azure.com)om användaren är federerat eller lösenords-hash har synkroniserats lösenordet skrivs tillbaka till den lokala. Den här funktionen stöds för närvarande inte i administrationsportalen för Office.
 * **Kräver inte några ingående brandväggsreglerna**: Tillbakaskrivning av lösenord använder ett Azure Service Bus-relä som en underliggande kommunikationskanalen. All kommunikation är utgående via port 443.
 
-> [!Note]
+> [!NOTE]
 > Användarkonton som finns i skyddade grupper i den lokala Active Directory kan inte användas med tillbakaskrivning av lösenord. Administratörskonton som finns i skyddade grupper i den lokala AD kan användas med tillbakaskrivning av lösenord. Mer information om skyddade grupper finns i [skyddade konton och grupper i Active Directory](https://technet.microsoft.com/library/dn535499.aspx).
->
 
 ## <a name="licensing-requirements-for-password-writeback"></a>Licensieringskrav för tillbakaskrivning av lösenord
 
@@ -63,7 +62,6 @@ Om du vill använda tillbakaskrivning av lösenord, måste du ha en av de följa
 
 > [!WARNING]
 > Fristående Office 365 licensiering planer *stöder inte ”Self Service lösenord återställning/ändring/upplåsning med lokal tillbakaskrivning”* och kräver att du har en av de föregående prenumerationerna för den här funktionen ska fungera.
->
 
 ## <a name="how-password-writeback-works"></a>Hur fungerar tillbakaskrivning av lösenord
 
@@ -90,7 +88,6 @@ När en federerad eller lösenord hash synkroniserade användare försöker åte
 1. Om uppsättningsåtgärd som lösenord lyckas användaren är ett meddelande om att deras lösenord har ändrats.
    > [!NOTE]
    > Om användarens lösenords-hash synkroniseras till Azure AD med hjälp av synkronisering av lösenordshash, finns det en risk att lokala lösenordsprincip är lägre än lösenordsprincipen som molnet. I det här fallet tillämpas den lokala principen. Den här principen säkerställer att dina lokala principer tillämpas i molnet, oavsett om du använder hash Lösenordssynkronisering eller federation för att tillhandahålla enkel inloggning.
-   >
 
 1. Om lösenordet har angetts för åtgärden misslyckas uppmanar användaren att försöka igen i ett fel. Åtgärden kan misslyckas eftersom:
     * Tjänsten är inaktiv.
@@ -155,6 +152,7 @@ Lösenord skrivs tillbaka i följande situationer:
    * Alla administratör självbetjäning force ändra lösenord, exempelvis utgångsdatum för lösenord
    * Alla självbetjäning lösenordsåterställning för administratörer som kommer från den [portal för lösenordsåterställning](https://passwordreset.microsoftonline.com)
    * Alla administratörsinitierad slutanvändarens lösenord med självbetjäning från den [Azure-portalen](https://portal.azure.com)
+   * Alla administratörsinitierad slutanvändarens lösenord med självbetjäning från den [Microsoft 365 Administrationscenter](https://admin.microsoft.com)
 
 ## <a name="unsupported-writeback-operations"></a>Stöds inte tillbakaskrivningar
 
@@ -163,11 +161,10 @@ Lösenord är *inte* skrivas tillbaka i någon av följande situationer:
 * **Stöds inte slutanvändaråtgärder**
    * Slutanvändare återställa sina egna lösenord med hjälp av PowerShell version 1, version 2 eller Azure AD Graph API
 * **Åtgärder som inte stöds**
-   * Alla administratörsinitierad slutanvändarens lösenord med självbetjäning från den [hanteringsportalen för Office](https://portal.office.com)
    * Alla administratörsinitierad slutanvändarens lösenord med självbetjäning från PowerShell version 1, version 2 eller Azure AD Graph API
 
 > [!WARNING]
-> Det går inte att använda för kryssrutan ”användaren måste ändra lösenord vid nästa inloggning” i den lokala Active Directory-administrationsverktyg som Active Directory-användare och datorer eller Active Directory Administrationscenter. När du ändrar ett lösenord Markera lokala inte det här alternativet. 
+> Det går inte att använda för kryssrutan ”användaren måste ändra lösenord vid nästa inloggning” i den lokala Active Directory-administrationsverktyg som Active Directory-användare och datorer eller Active Directory Administrationscenter. När du ändrar ett lösenord Markera lokala inte det här alternativet.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 12ce37579a6f93ba600c39416c7566ac673e9560
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 6bcb8e8d5b8b6ef1ebac8141dd13964ecf62af6f
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64723341"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65601700"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Självstudier: Skapa en Azure Active Directory B2C-klient
 
@@ -24,14 +24,14 @@ Innan dina program kan interagera med Azure Active Directory (Azure AD) B2C, må
 I den här artikeln kan du se hur du:
 
 > [!div class="checklist"]
-> * Skapa en Azure AD B2C-klient
+> * Skapa en Azure AD B2C-klientorganisation
 > * Länka din klient till din prenumeration
 
 Du lär dig hur du registrerar ett program i nästa självstudie.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="create-an-azure-ad-b2c-tenant"></a>Skapa en Azure AD B2C-klient
+## <a name="create-an-azure-ad-b2c-tenant"></a>Skapa en Azure AD B2C-klientorganisation
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. Se till att du använder den katalog som innehåller din prenumeration genom att klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller den. Den här katalogen är annorlunda än det som innehåller din Azure AD B2C-klient.
@@ -40,7 +40,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 3. Välj **skapa en resurs** i det övre vänstra hörnet i Azure Portal.
 4. Sök efter och välj **Active Directory B2C**, och klicka sedan på **skapa**.
-5. Välj **skapar en ny Azure AD B2C-klient**, ange ett organisationsnamn och ett första domännamn som används i innehavarens namn, Välj land (inte kan ändras senare) och klicka sedan på **skapa**.
+5. Välj **skapar en ny Azure AD B2C-klient**, ange ett organisationsnamn och ett första domännamn som används i innehavarens namn, Välj land/region (inte kan ändras senare) och klicka sedan på **skapa** .
 
     ![Skapa en klient](./media/tutorial-create-tenant/create-tenant.png)
 
@@ -57,7 +57,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 I den här artikeln lärde du dig att:
 
 > [!div class="checklist"]
-> * Skapa en Azure AD B2C-klient
+> * Skapa en Azure AD B2C-klientorganisation
 > * Länka din klient till din prenumeration
 
 > [!div class="nextstepaction"]

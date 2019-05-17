@@ -12,27 +12,31 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/22/2018
+ms.date: 05/13/2019
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 08d6d0c31e1cff799e952c50bae3446e41477aba
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 824abbdfd1b3980b419e6d6c46814bb0318adf13
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56104577"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602323"
 ---
 # <a name="high-density-hosting-on-azure-app-service-using-per-app-scaling"></a>Högdensitetsvärd på Azure App Service med per app skalning
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Som standard skalas App Service-appar genom att skala den [App Service-plan](overview-hosting-plans.md) de körs på. När flera appar körs i samma App Service-planen, körs varje instans som skalats ut alla appar i planen.
+När du använder App Service kan du skala dina appar genom att skala den [App Service-plan](overview-hosting-plans.md) de körs på. När flera appar körs i samma App Service-planen, körs varje instans som skalats ut alla appar i planen.
 
-Du kan aktivera *per app skalning* på App Service plan nivå. Skalningen av en app oberoende av App Service-planen som är värd för den. På så sätt kan en App Service plan kan skalas till 10 instanser, men en app kan ställas in att använda endast fem.
+*Per app skalning* kan aktiveras på nivån för App Service-planen så att för att skala en app oberoende av App Service-planen som är värd för den. På så sätt kan en App Service plan kan skalas till 10 instanser, men en app kan ställas in att använda endast fem.
 
 > [!NOTE]
 > Per app-skalning är endast tillgänglig för **Standard**, **Premium**, **Premium V2** och **isolerad** prisnivåer.
 >
+
+Appar tilldelas tillgänglig App Service-plan med en metod för bästa prestanda för en jämn fördelning mellan instanser. När en jämn fördelning inte garanteras, kontrollerar plattformen att två instanser av samma app inte ska finnas på samma App Service-plan-instans.
+
+Plattformen beroende är inte mått för att fatta beslut om worker allokering. Program är ombalanseras bara instanser läggs till eller tas bort från App Service-planen.
 
 ## <a name="per-app-scaling-using-powershell"></a>Per app skalning med hjälp av PowerShell
 
@@ -60,10 +64,10 @@ Appen är begränsad till två instanser, oavsett hur många instanser som den u
 ```powershell
 # Get the app we want to configure to use "PerSiteScaling"
 $newapp = Get-AzWebApp -ResourceGroupName $ResourceGroup -Name $webapp
-    
+
 # Modify the NumberOfWorkers setting to the desired value.
 $newapp.SiteConfig.NumberOfWorkers = 2
-    
+
 # Post updated app back to azure
 Set-AzWebApp $newapp
 ```
@@ -128,17 +132,18 @@ App Service-planen kan du ställa den **PerSiteScaling** egenskap till true `"pe
 ```
 
 ## <a name="recommended-configuration-for-high-density-hosting"></a>Rekommenderade konfigurationen för högdensitetsvärd
-Per app-skalning är en funktion som är aktiverad i både Azure-regioner globalt och [App Service-miljöer](environment/app-service-app-service-environment-intro.md). Den rekommenderade strategin är dock att använda App Service-miljöer för att dra nytta av de avancerade funktionerna och större pooler med kapacitet.  
 
-Följ dessa steg om du vill konfigurera hög densitet som är värd för dina appar:
+Per app-skalning är en funktion som är aktiverad i både Azure-regioner globalt och [App Service-miljöer](environment/app-service-app-service-environment-intro.md). Den rekommenderade strategin är dock att använda App Service-miljöer för att dra nytta av de avancerade funktionerna och kapacitet för större App Service-plan.  
 
-1. Konfigurera App Service Environment och välj en arbetarpool som är dedikerad till hög densitet värdscenario.
-2. Skapa en enkel App Service-plan och skala den att använda all tillgänglig kapacitet på arbetarpoolen.
-3. Ange den `PerSiteScaling` flaggan TRUE på App Service-planen.
-4. Nya appar skapas och tilldelas till den App Service-planen med den **numberOfWorkers** egenskapen **1**. Med den här konfigurationen ger det högsta densitet som är möjliga i den här arbetarpool.
-5. Antal arbetare kan konfigureras separat per app för att ge ytterligare resurser efter behov. Exempel:
-    - En app med hög användning kan ställa in **numberOfWorkers** till **3** ha flera bearbetningskapacitet för appen. 
-    - Låg användning appar skulle ange **numberOfWorkers** till **1**.
+Följ dessa steg om du vill konfigurera högdensitetsvärd för dina appar:
+
+1. Ange en App Service plan som Högdensitet plan och skala ut till önskad kapacitet.
+1. Ange den `PerSiteScaling` flaggan TRUE på App Service-planen.
+1. Nya appar skapas och tilldelas till den App Service-planen med den **numberOfWorkers** egenskapen **1**.
+   - Med den här konfigurationen ger högsta möjliga densiteten.
+1. Antal arbetare kan konfigureras separat per app för att ge ytterligare resurser efter behov. Exempel:
+   - En app med hög användning kan ställa in **numberOfWorkers** till **3** ha flera bearbetningskapacitet för appen.
+   - Låg användning appar skulle ange **numberOfWorkers** till **1**.
 
 ## <a name="next-steps"></a>Nästa steg
 

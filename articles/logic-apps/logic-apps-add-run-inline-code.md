@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: derek1ee, LADocs
 ms.topic: article
-ms.date: 05/06/2019
-ms.openlocfilehash: 9ef11eb2099ff617fb4da4b9a924dc3f0550f226
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.date: 05/14/2019
+ms.openlocfilehash: 0bfa98396ee3afb80b486a5a17959664dfbe603c
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65160552"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602116"
 ---
 # <a name="add-and-run-code-snippets-by-using-inline-code-in-azure-logic-apps"></a>Lägga till och köra kodfragment med infogad kod i Azure Logic Apps
 
@@ -23,7 +23,10 @@ När du vill köra en del av koden i din logikapp kan du lägga till inbyggt **i
 * Körs i JavaScript. Fler språk kommer snart.
 * Har slutförts körs i fem sekunder eller färre.
 * Hanterar data upp till 50 MB i storlek.
-* Använder Node.js version 8.11.1. Mer information finns i [inbyggda standardobjekt](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects).
+* Använder Node.js version 8.11.1. Mer information finns i [inbyggda standardobjekt](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects). 
+
+  > [!NOTE]
+  > Funktionen require() stöds inte av den **infogad kod** för att köra JavaScript.
 
 Den här åtgärden kör kodfragmentet och returnerar resultatet från det kodfragmentet som en token med namnet **resultatet**, som du kan använda i efterföljande åtgärder i din logikapp. Andra scenarier där du vill skapa en funktion för din kod, försök [skapa och anropa en Azure-funktion](../logic-apps/logic-apps-azure-functions.md) i din logikapp.
 

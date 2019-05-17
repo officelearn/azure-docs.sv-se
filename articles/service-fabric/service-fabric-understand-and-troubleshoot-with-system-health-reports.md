@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: caeef04a27cec7bbeda5dd96335d9b7bd1a8eca0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d5cfe91cfcc124ef3073cfb6bbeda683505ff8e1
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60716276"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65561371"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Felsök med hjälp av systemhälsorapporter
 Azure Service Fabric-komponenter a. systemtillståndsrapporter på alla entiteter i klustret kompletta Den [hälsoarkivet](service-fabric-health-introduction.md#health-store) skapar och tar bort enheter baserat på systemrapporter. Även ordnar dem i en hierarki som samlar in entiteten interaktioner.
@@ -632,7 +632,7 @@ Egenskapen och text kan du ange vilken API har fastnat. Nästa steg ska vidtas f
 
 - **IStatefulServiceReplica.Close** och **IStatefulServiceReplica.Abort**: I de flesta fall är en tjänst som inte respekterar annullering token som skickas till `RunAsync`. Det kan också vara som `ICommunicationListener.CloseAsync`, eller om åsidosatts gäller `OnCloseAsync` har fastnat.
 
-- **IStatefulServiceReplica.ChangeRole (S)** och **IStatefulServiceReplica.ChangeRole(N)**: I de flesta fall är en tjänst som inte respekterar annullering token som skickas till `RunAsync`.
+- **IStatefulServiceReplica.ChangeRole (S)** och **IStatefulServiceReplica.ChangeRole(N)**: I de flesta fall är en tjänst som inte respekterar annullering token som skickas till `RunAsync`. I det här scenariot är den bästa lösningen att starta om repliken.
 
 - **IStatefulServiceReplica.ChangeRole(P)**: I de flesta fall är att tjänsten inte har returnerat en uppgift från `RunAsync`.
 
@@ -762,7 +762,7 @@ HealthEvents                       :
                                      Transitions           : Error->Ok = 7/14/2017 4:55:14 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-### <a name="download"></a>Ladda ned
+### <a name="download"></a>Ladda ner
 System.Hosting rapporterar ett fel om inte paketet ned program.
 
 * **SourceId**: System.Hosting
@@ -840,7 +840,7 @@ HealthEvents               :
                              Transitions           : Error->Ok = 7/14/2017 4:55:14 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-### <a name="download"></a>Ladda ned
+### <a name="download"></a>Ladda ner
 System.Hosting rapporterar ett fel om inte paketet ned service.
 
 * **SourceId**: System.Hosting

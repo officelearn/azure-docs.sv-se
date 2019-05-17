@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2017
 ms.author: kasing
-ms.openlocfilehash: a8c29f015b6b3652361a886585cb4ccc3f3b7293
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f4344be1ef13daa85477b22aa0434347873aec40
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60563459"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65826137"
 ---
 # <a name="set-up-key-vault-for-virtual-machines-in-azure-resource-manager"></a>Konfigurera Key Vault för virtuella datorer i Azure Resource Manager
 
@@ -50,7 +50,7 @@ För att skapa ett nyckelvalv med hjälp av kommandoradsgränssnittet (CLI), se 
 
 Du måste skapa nyckelvalvet innan du tilldelar distributionsprincipen CLI. Det kan du göra med hjälp av följande kommando:
 
-    az keyvault set-policy ContosoKeyVault –enabled-for-deployment true
+    az keyvault update --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --enabled-for-deployment "true"
 
 ## <a name="use-templates-to-set-up-key-vault"></a>Använd mallar för att konfigurera Key Vault
 När du använder en mall kan du behöva ange den `enabledForDeployment` egenskap `true` för Key Vault-resursen.

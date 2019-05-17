@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: e191c656c5485377f62073f52dec0b3dbee7537b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b78671cc61a4fe755b908ed9f71052cbd0a70b38
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61041283"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550511"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>Begränsningar i Azure-databas för MariaDB
 I följande avsnitt beskrivs kapacitet, stödet för lagring, privilegier support, manipulering av instruktionen stöd och funktionella begränsningar i databastjänsten.
@@ -82,6 +82,9 @@ När anslutningar överskrider gränsen, kan följande felmeddelande visas:
 
 ### <a name="vnet-service-endpoints"></a>VNet-tjänstslutpunkter
 - Stöd för VNet-tjänstslutpunkter är endast för generell användning och Minnesoptimerad servrar.
+
+### <a name="storage-size"></a>Lagringsstorlek
+- Se [prisnivåer](concepts-pricing-tiers.md) för storleksgränser för storage per prisnivå.
 
 ## <a name="current-known-issues"></a>Aktuella kända problem
 - MariaDB-serverinstans visar felaktig serverversionen när anslutningen har upprättats. För att få rätt server instans Motorversion kan använda den `select version();` kommando.

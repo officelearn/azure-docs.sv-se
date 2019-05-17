@@ -8,12 +8,12 @@ ms.service: time-series-insights
 author: kingdomofends
 ms.author: adgera
 ms.date: 04/29/2019
-ms.openlocfilehash: cf07d19966c08a63b9aa50475622aa0a1e5e1600
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: e87a82e985ed1d1794f9da00546f167ef01e1779
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236510"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65815572"
 ---
 ## <a name="business-disaster-recovery"></a>Haveriberedskap för företag
 
@@ -48,10 +48,10 @@ Integrera Time Series Insights med följande tjänster tillhandahåller ytterlig
 
 Det finns flera sätt att hålla din Time Series Insights-data, appar och tjänster som körs även om de är störs. Du kan även bestämma att det krävs en fullständig, dubbla, säkerhetskopiering kopia av din Azure Time Series-miljö.
 
-1. Som en TSI-specifika **redundans instans** att omdirigera data och trafik till.
+1. Som en Time Series Insights-specifika **redundans instans** att omdirigera data och trafik till.
 1. För granskning och data bevaras.
 
-I allmänhet är det bästa sättet att duplicera en TSI-miljö att skapa en andra TSI-miljö i en säkerhetskopia av Azure-region. Händelser skickas också till den här sekundära miljön från din primära händelsekälla. Se till att använda en andra, dedikerad konsumentgrupp och följer den här källan företag disaster recovery (ovan).
+I allmänhet är det bästa sättet att duplicera en Time Series Insights-miljö att skapa en andra Time Series Insights-miljö i en säkerhetskopia av Azure-region. Händelser skickas också till den här sekundära miljön från din primära händelsekälla. Se till att använda en andra, dedikerad konsumentgrupp och följer den här källan företag disaster recovery (ovan).
 
 Mer specifikt att skapa en duplicerad miljö:
 
@@ -63,7 +63,7 @@ Mer specifikt att skapa en duplicerad miljö:
 Slutligen:
 
 * Om din primära region påverkas vid en katastrof incident, kan du dirigera om åtgärder för att säkerhetskopiera Time Series Insights-miljön.
-* Använd din andra region för att säkerhetskopiera och Återställ alla TSI telemetri och fråga data.
+* Använd din andra region för att säkerhetskopiera och återställa alla Time Series Insights-telemetri och fråga data.
 
 > [!IMPORTANT]
 > * Observera att du kan uppstått en fördröjning i händelse av redundans.

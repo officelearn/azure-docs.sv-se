@@ -13,17 +13,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 12/13/2018
+ms.date: 05/11/2019
 ms.author: genli
-ms.openlocfilehash: 0988902e0a2154f2935a01ddcfb6a460be693df3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5ae0e7855db6bec9f48d2b9511f0d0626d883111
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60460059"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65561344"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Förbereda en Windows-VHD eller VHDX för att överföra till Azure
-Innan du överför en Windows-dator (VM) från en lokal plats till Microsoft Azure, måste du förbereda den virtuella hårddisken (VHD eller VHDX). Azure stöder **endast 1 virtuella datorer i generation** som är i VHD-format och har en fast storlek disk. Den maximala storleken som tillåts för den virtuella Hårddisken är 1,023 GB. Du kan konvertera en generation 1 VM från VHDX filsystemet till virtuell Hårddisk och från en dynamiskt expanderande disk till fast storlek. Men du kan inte ändra en virtuell dator generation. Mer information finns i [bör jag skapa en generation 1 eller 2 virtuella datorer i Hyper-V](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
+
+Innan du överför en Windows-dator (VM) från en lokal plats till Microsoft Azure, måste du förbereda den virtuella hårddisken (VHD eller VHDX). Azure stöder både generation 1 och generation 2 virtuella datorer i VHD-format och har en fast storlek disk. Den maximala storleken som tillåts för den virtuella Hårddisken är 1,023 GB. Du kan konvertera en generation 1 VM från VHDX filsystemet till virtuell Hårddisk och från en dynamiskt expanderande disk till fast storlek. Men du kan inte ändra en virtuell dator generation. Mer information finns i [bör jag skapa en generation 1 eller 2 virtuella datorer i Hyper-V](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v) och [Generation 2 virtuella datorer på Azure](generation-2.md).
 
 Läs mer om principen för support för Azure VM, [Microsofts serverprogramsupport för Microsoft Azure Virtual Machines](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines).
 
@@ -198,7 +199,7 @@ Kontrollera att följande inställningar är korrekt konfigurerade för anslutni
 
 9. Om den virtuella datorn kommer att ingå i en domän, kontrollerar du alla följande inställningar för att se till att de tidigare inställningarna inte återställs. De principer som måste vara markerad är följande:
     
-    | Mål                                     | Princip                                                                                                                                                       | Värde                                                                                    |
+    | Mål                                     | Princip                                                                                                                                                       | Value                                                                                    |
     |------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|
     | RDP har aktiverats                           | Datorkonfiguration\Principer\Windows Settings\Administrative Templates\Components\Remote för fjärrskrivbordssession\Anslutningar         | Tillåt användare att ansluta via en fjärranslutning med hjälp av fjärrskrivbord                                  |
     | NLA Grupprincip                         | Settings\Administrative Templates\Components\Remote för skrivbordssession fjärrskrivbordssession\Säkerhet                                                    | Kräv användaren autentisering för fjärranslutningar med autentisering på nätverksnivå |
@@ -232,7 +233,7 @@ Kontrollera att följande inställningar är korrekt konfigurerade för anslutni
    ``` 
 5. Om den virtuella datorn kommer att ingå i en domän, kontrollerar du följande inställningar för att se till att de tidigare inställningarna inte återställs. AD-principer som måste vara markerad är följande:
 
-    | Mål                                 | Princip                                                                                                                                                  | Värde                                   |
+    | Mål                                 | Princip                                                                                                                                                  | Value                                   |
     |--------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------|
     | Aktivera Windows-brandväggen-profiler | Datorkonfiguration\Principer\Windows Settings\Administrative mallar\Nätverk\Nätverksanslutningar\Förhindra Connection\Windows Firewall\Domain Profile\Windows brandvägg   | Skydda alla nätverksanslutningar         |
     | Aktiverar du RDP                           | Datorkonfiguration\Principer\Windows Settings\Administrative mallar\Nätverk\Nätverksanslutningar\Förhindra Connection\Windows Firewall\Domain Profile\Windows brandvägg   | Tillåt inkommande undantag för fjärrskrivbord |
@@ -338,7 +339,7 @@ Kontrollera att följande inställningar är korrekt konfigurerade för anslutni
 ### <a name="install-windows-updates"></a>Installera Windows-uppdateringar
 Konfigurationen som är bäst är att **har korrigeringsnivån för datorn senast**. Om det inte är möjligt, kontrollerar du att följande uppdateringar är installerade:
 
-| Komponent               | Binär         | Windows 7 SP1,Windows Server 2008 R2  SP1 | Windows 8,Windows Server 2012               | Windows 8.1,Windows Server 2012 R2 | Windows 10 Version 1607 Windows Server 2016 Version 1607 | Windows 10, version 1703    | Windows 10 1709 Windows Server 2016 Version 1709 | Windows 10 1803 Windows Server 2016 Version 1803 |
+| Komponent               | Binary         | Windows 7 SP1,Windows Server 2008 R2  SP1 | Windows 8,Windows Server 2012               | Windows 8.1,Windows Server 2012 R2 | Windows 10 Version 1607 Windows Server 2016 Version 1607 | Windows 10, version 1703    | Windows 10 1709 Windows Server 2016 Version 1709 | Windows 10 1803 Windows Server 2016 Version 1803 |
 |-------------------------|----------------|-------------------------------------------|---------------------------------------------|------------------------------------|---------------------------------------------------------|----------------------------|-------------------------------------------------|-------------------------------------------------|
 | Storage                 | disk.sys       | 6.1.7601.23403 - KB3125574                | 6.2.9200.17638 / 6.2.9200.21757 - KB3137061 | 6.3.9600.18203 - KB3137061         | -                                                       | -                          | -                                               | -                                               |
 |                         | storport.sys   | 6.1.7601.23403 - KB3125574                | 6.2.9200.17188 / 6.2.9200.21306 - KB3018489 | 6.3.9600.18573 - KB4022726         | 10.0.14393.1358 - KB4022715                             | 10.0.15063.332             | -                                               | -                                               |

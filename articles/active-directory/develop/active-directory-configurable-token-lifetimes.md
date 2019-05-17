@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/13/2019
+ms.date: 05/15/2019
 ms.author: ryanwi
 ms.custom: aaddev, annaba
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0657057ceb3aca674e49a705c52c3b86dda73d98
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: cc81f0a5c75d9aeee39f0633521d692c8d30c474
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545391"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823472"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Konfigurerbara tokenlivslängder i Azure Active Directory (förhandsversion)
 
@@ -65,11 +65,11 @@ Offentliga klienter kan inte på ett säkert sätt lagra ett klientlösenord (he
 ID-token som skickas till webbplatser och ursprungliga klienter. ID-token innehåller profilinformation om en användare. Ett ID-token som är kopplad till en specifik kombination av användar- och klienten. ID-token anses giltiga till deras utgångsdatum. Vanligtvis är ett webbprogram matchar en användare är sessionens livstid i programmet till livslängden för ID-token som utfärdats för användaren. Du kan justera livslängden för en ID-token för att styra hur ofta webbprogrammet upphör att gälla den program-sessionen och hur ofta det krävs att användaren autentiseras med Azure AD (tyst eller interaktivt).
 
 ### <a name="single-sign-on-session-tokens"></a>Sessionen för enkel inloggning för token
-När en användare autentiseras med Azure AD upprättas en enkel inloggning (SSO) session med användarens webbläsare och Azure AD. SSO-token i form av en cookie representerar den här sessionen. Observera att sessionstoken SSO inte är bunden till en specifik resurs/client-program. SSO-session token kan återkallas och valideras kontrolleras varje gång de används.
+När en användare autentiseras med Azure AD upprättas en enkel inloggning (SSO) session med användarens webbläsare och Azure AD. SSO-token i form av en cookie representerar den här sessionen. Sessionstoken SSO är inte bunden till en specifik resurs/client-program. SSO-session token kan återkallas och valideras kontrolleras varje gång de används.
 
 Azure AD använder två typer av token för SSO-session: permanent eller ickebeständig. Beständiga session token lagras som beständiga cookies i webbläsaren. Ickebeständig session token lagras som sessionscookies. (Sessionscookies förstörs när webbläsaren stängs.) Vanligtvis lagras en ickebeständig sessionstoken. Men när användaren väljer den **vill förbli inloggad** kryssrutan under autentiseringen en beständig sessionstoken lagras.
 
-Ickebeständig session token har en livslängd på 24 timmar. Beständiga token har en livslängd på 180 dagar. Helst en SSO-sessionstoken används inom sin giltighetstid förlängs giltighetsperioden en annan 24 timmar eller 180 dagar, beroende på typen av token. Om en SSO-sessionstoken inte används inom sin giltighetstid, betraktas den upphört att gälla och accepteras inte längre.
+Ickebeständig session token har en livslängd på 24 timmar. Beständiga token har en livslängd på 180 dagar. Varje gång en SSO-sessionstoken används inom sin giltighetstid förlängs giltighetsperioden en annan 24 timmar eller 180 dagar, beroende på typen av token. Om en SSO-sessionstoken inte används inom sin giltighetstid, betraktas den upphört att gälla och accepteras inte längre.
 
 Du kan använda en princip för att ställa in efter första sessionstoken utfärdades utöver som sessionstoken längre accepteras. (Gör du genom att använda egenskapen Session Token Max-Age.) Du kan justera livslängden för en sessionstoken för att styra när och hur ofta en användare krävs för att ange autentiseringsuppgifter, i stället för som tyst autentiseras, när du använder ett webbprogram igen.
 
@@ -109,7 +109,7 @@ Mer information om relationen mellan programobjekt och tjänstobjekt finns [prog
 
 En token giltigheten utvärderas när används aktuellt token. Principen med den högsta prioriteten på det program som används börjar gälla.
 
-Alla tidsintervallen som används här formateras enligt C# [TimeSpan](https://msdn.microsoft.com/library/system.timespan) objekt – D.HH:MM:SS.  Så 80 dagar och 30 minuter blir `80.00:30:00`.  Ledande D kan släppas om noll, så 90 minuter skulle vara `00:90:00`.  
+Alla tidsintervallen som används här formateras enligt C# [TimeSpan](/dotnet/api/system.timespan) objekt – D.HH:MM:SS.  Så 80 dagar och 30 minuter blir `80.00:30:00`.  Ledande D kan släppas om noll, så 90 minuter skulle vara `00:90:00`.  
 
 > [!NOTE]
 > Här är ett exempelscenario.
@@ -220,11 +220,11 @@ Utför följande steg för att komma igång:
     ```
 
 ### <a name="example-manage-an-organizations-default-policy"></a>Exempel: Hantera en organisations standardprincipen
-I det här exemplet skapar du en princip som gör att användare kan logga in mer sällan i hela organisationen. Gör detta genom att skapa en livslängd för token-princip för enda faktor uppdatera token, som används i hela organisationen. Principen tillämpas för varje program i din organisation och varje tjänstens huvudnamn som inte redan har en princip.
+I det här exemplet skapar du en princip som gör att dina användares inloggning mindre ofta i hela organisationen. Gör detta genom att skapa en livslängd för token-princip för enda faktor uppdatera token, som används i hela organisationen. Principen tillämpas för varje program i din organisation och varje tjänstens huvudnamn som inte redan har en princip.
 
 1. Skapa en princip för livslängd för token.
 
-    1.  Ange den enda faktor Uppdateringstoken till ”tills-återkallas”. Token inte upphör att gälla förrän åtkomst har återkallats. Skapa principdefinitionen för följande:
+    1. Ange den enda faktor Uppdateringstoken till ”tills-återkallas”. Token inte upphör att gälla förrän åtkomst har återkallats. Skapa principdefinitionen för följande:
 
         ```powershell
         @('{
@@ -236,16 +236,16 @@ I det här exemplet skapar du en princip som gör att användare kan logga in me
         }')
         ```
 
-    2.  Om du vill skapa principen, kör du följande kommando:
+    2. Om du vill skapa principen, kör du följande kommando:
 
         ```powershell
-        New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1, "MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "OrganizationDefaultPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
+        $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1, "MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "OrganizationDefaultPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
         ```
 
-    3.  Se din nya princip och för att få principens **ObjectId**, kör du följande kommando:
+    3. Se din nya princip och för att få principens **ObjectId**, kör du följande kommando:
 
         ```powershell
-        Get-AzureADPolicy
+        Get-AzureADPolicy -Id $policy.Id
         ```
 
 2. Uppdatera principen.
@@ -253,7 +253,7 @@ I det här exemplet skapar du en princip som gör att användare kan logga in me
     Du kan välja den första principen som du anger i det här exemplet inte är så strikta som din tjänst kräver. Ange din enda faktor uppdatera Token upphör att gälla om två dagar genom att köra följande kommando:
 
     ```powershell
-    Set-AzureADPolicy -Id <ObjectId FROM GET COMMAND> -DisplayName "OrganizationDefaultPolicyUpdatedScenario" -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"2.00:00:00"}}')
+    Set-AzureADPolicy -Id $policy.Id -DisplayName $policy.DisplayName -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"2.00:00:00"}}')
     ```
 
 ### <a name="example-create-a-policy-for-web-sign-in"></a>Exempel: Skapa en princip för webbinloggning
@@ -264,88 +264,98 @@ I det här exemplet skapar du en princip som kräver att användarna ska autenti
 
     Den här principen för webbinloggning, anger den åtkomst/ID livslängd för uppdateringstoken och token ålder max single-factor-session till två timmar.
 
-    1.  Om du vill skapa principen, kör du följande kommando:
+    1. Om du vill skapa principen, kör du följande kommando:
 
         ```powershell
-        New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"AccessTokenLifetime":"02:00:00","MaxAgeSessionSingleFactor":"02:00:00"}}') -DisplayName "WebPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
+        $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"AccessTokenLifetime":"02:00:00","MaxAgeSessionSingleFactor":"02:00:00"}}') -DisplayName "WebPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
         ```
 
-    2.  Se din nya princip och för att få principen **ObjectId**, kör du följande kommando:
+    2. Se din nya princip och för att få principen **ObjectId**, kör du följande kommando:
 
         ```powershell
-        Get-AzureADPolicy
+        Get-AzureADPolicy -Id $policy.Id
         ```
 
-2.  Tilldela principen till tjänstens huvudnamn. Du måste också hämta den **ObjectId** för tjänstens huvudnamn. 
+2. Tilldela principen till tjänstens huvudnamn. Du måste också hämta den **ObjectId** för tjänstens huvudnamn.
 
-    1.  Om du vill se din organisations tjänstens huvudnamn, kan du fråga antingen den [Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/serviceprincipal#properties) eller [Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Du kan också testa detta i den [Azure AD Graph-testaren](https://graphexplorer.azurewebsites.net/), och [Microsoft Graph-testaren](https://developer.microsoft.com/graph/graph-explorer) med hjälp av Azure AD-konto.
-
-    2.  När du har den **ObjectId** för tjänstens huvudnamn, kör du följande kommando:
-
+    1. Använd den [Get-AzureADServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal) cmdlet för att se din organisations tjänstens huvudnamn eller en enda tjänstens huvudnamn.
         ```powershell
-        Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
+        # Get ID of the service principal
+        $sp = Get-AzureADServicePrincipal -Filter "DisplayName eq '<service principal display name>'"
         ```
 
+    2. När du har tjänstens huvudnamn, kör du följande kommando:
+        ```powershell
+        # Assign policy to a service principal
+        Add-AzureADServicePrincipalPolicy -Id $sp.ObjectId -RefObjectId $policy.Id
+        ```
 
 ### <a name="example-create-a-policy-for-a-native-app-that-calls-a-web-api"></a>Exempel: Skapa en princip för en inbyggd app som anropar ett webb-API
 I det här exemplet skapar du en princip som kräver att användarna ska autentisera mindre ofta. Principen förlängs också hur lång tid som en användare kan vara inaktiv innan användaren måste autentiseras på nytt. Principen tillämpas på webb-API. När den inbyggda appen begär webb-API som en resurs, används den här principen.
 
 1. Skapa en princip för livslängd för token.
 
-    1.  Om du vill skapa en strikt princip för ett webb-API, kör du följande kommando:
+    1. Om du vill skapa en strikt princip för ett webb-API, kör du följande kommando:
 
         ```powershell
-        New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"30.00:00:00","MaxAgeMultiFactor":"until-revoked","MaxAgeSingleFactor":"180.00:00:00"}}') -DisplayName "WebApiDefaultPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
+        $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"30.00:00:00","MaxAgeMultiFactor":"until-revoked","MaxAgeSingleFactor":"180.00:00:00"}}') -DisplayName "WebApiDefaultPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
         ```
 
-    2.  Se din nya princip och för att få principen **ObjectId**, kör du följande kommando:
+    2. Du kan se den nya principen genom att köra följande kommando:
 
         ```powershell
-        Get-AzureADPolicy
+        Get-AzureADPolicy -Id $policy.Id
         ```
 
-2. Tilldela principen till din webb-API. Du måste också hämta den **ObjectId** av ditt program. Det bästa sättet att hitta din app **ObjectId** är att använda den [Azure-portalen](https://portal.azure.com/).
+2. Tilldela principen till din webb-API. Du måste också hämta den **ObjectId** av ditt program. Använd den [Get-AzureADApplication](/powershell/module/azuread/get-azureadapplication) cmdlet för att hitta din app **ObjectId**, eller Använd den [Azure-portalen](https://portal.azure.com/).
 
-   När du har den **ObjectId** för din app, kör du följande kommando:
+    Hämta den **ObjectId** av din app och tilldela principen:
 
-        ```powershell
-        Add-AzureADApplicationPolicy -Id <ObjectId of the Application> -RefObjectId <ObjectId of the Policy>
-        ```
+    ```powershell
+    # Get the application
+    $app = Get-AzureADApplication -Filter "DisplayName eq 'Fourth Coffee Web API'"
 
+    # Assign the policy to your web API.
+    Add-AzureADApplicationPolicy -Id $app.ObjectId -RefObjectId $policy.Id
+    ```
 
 ### <a name="example-manage-an-advanced-policy"></a>Exempel: Hantera en avancerad princip
-I det här exemplet skapar du några principer, om du vill veta hur prioritet systemet fungerar. Du kan också lära dig hur du hanterar flera principer som tillämpas på flera objekt.
+I det här exemplet skapar du några principer för att lära dig hur prioritet systemet fungerar. Du också lära dig hur du hanterar flera principer som tillämpas på flera objekt.
 
 1. Skapa en princip för livslängd för token.
 
-    1.  Om du vill skapa en standardprincip för organisationen som anger livslängd för en faktor uppdatera Token till 30 dagar, kör du följande kommando:
+    1. Om du vill skapa en standardprincip för organisationen som anger livslängd för en faktor uppdatera Token till 30 dagar, kör du följande kommando:
 
         ```powershell
-        New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"30.00:00:00"}}') -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
+        $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"30.00:00:00"}}') -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
         ```
 
-    2.  Se din nya princip och för att få principens **ObjectId**, kör du följande kommando:
+    2. Du kan se den nya principen genom att köra följande kommando:
 
         ```powershell
-        Get-AzureADPolicy
+        Get-AzureADPolicy -Id $policy.Id
         ```
 
 2. Tilldela principen till ett huvudnamn för tjänsten.
 
     Nu kan ha du en princip som gäller för hela organisationen. Du kanske vill bevara den här 30-dagars-principen för en specifik huvudtjänst, men ändra standardprincipen för organisationen och den övre gränsen för ”tills-återkallas”.
 
-    1.  Om du vill se din organisations tjänstens huvudnamn, kan du fråga antingen den [Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/serviceprincipal#properties) eller [Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Du kan också testa detta i den [Azure AD Graph-testaren](https://graphexplorer.azurewebsites.net/), och [Microsoft Graph-testaren](https://developer.microsoft.com/graph/graph-explorer) med hjälp av Azure AD-konto.
+    1. Om du vill se din organisations tjänstens huvudnamn kan du använda den [Get-AzureADServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal) cmdlet.
 
-    2.  När du har den **ObjectId** för tjänstens huvudnamn, kör du följande kommando:
+    2. När du har tjänstens huvudnamn, kör du följande kommando:
 
-            ```powershell
-            Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
-            ```
-        
+        ```powershell
+        # Get ID of the service principal
+        $sp = Get-AzureADServicePrincipal -Filter "DisplayName eq '<service principal display name>'"
+
+        # Assign policy to a service principal
+        Add-AzureADServicePrincipalPolicy -Id $sp.ObjectId -RefObjectId $policy.Id
+        ```
+
 3. Ange den `IsOrganizationDefault` flaggan till false:
 
     ```powershell
-    Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $false
+    Set-AzureADPolicy -Id $policy.Id -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $false
     ```
 
 4. Skapa en ny organisation standardprincip:
@@ -389,7 +399,7 @@ Get-AzureADPolicy
 
 | Parametrar | Beskrivning | Exempel |
 | --- | --- | --- |
-| <code>&#8209;Id</code> [Valfritt] |**ObjectId (Id)** för den princip som du vill. |`-Id <ObjectId of Policy>` |
+| <code>&#8209;Id</code> [Valfritt] |**ObjectId (ID)** för den princip som du vill. |`-Id <ObjectId of Policy>` |
 
 </br></br>
 
@@ -402,7 +412,7 @@ Get-AzureADPolicyAppliedObject -Id <ObjectId of Policy>
 
 | Parametrar | Beskrivning | Exempel |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectId (Id)** för den princip som du vill. |`-Id <ObjectId of Policy>` |
+| <code>&#8209;Id</code> |**ObjectId (ID)** för den princip som du vill. |`-Id <ObjectId of Policy>` |
 
 </br></br>
 
@@ -415,7 +425,7 @@ Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName <string>
 
 | Parametrar | Beskrivning | Exempel |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectId (Id)** för den princip som du vill. |`-Id <ObjectId of Policy>` |
+| <code>&#8209;Id</code> |**ObjectId (ID)** för den princip som du vill. |`-Id <ObjectId of Policy>` |
 | <code>&#8209;DisplayName</code> |Sträng med namnet på principen. |`-DisplayName "MyTokenPolicy"` |
 | <code>&#8209;Definition</code> [Valfritt] |Matris med Stringified.json som innehåller alla hanteringsprincipregler (MPR). |`-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
 | <code>&#8209;IsOrganizationDefault</code> [Valfritt] |Om värdet är true anger du principen som organisationens standardprincipen. Om värdet är false ingenting. |`-IsOrganizationDefault $true` |
@@ -433,7 +443,7 @@ Tar bort den angivna principen.
 
 | Parametrar | Beskrivning | Exempel |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectId (Id)** för den princip som du vill. | `-Id <ObjectId of Policy>` |
+| <code>&#8209;Id</code> |**ObjectId (ID)** för den princip som du vill. | `-Id <ObjectId of Policy>` |
 
 </br></br>
 
@@ -449,7 +459,7 @@ Add-AzureADApplicationPolicy -Id <ObjectId of Application> -RefObjectId <ObjectI
 
 | Parametrar | Beskrivning | Exempel |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectId (Id)** av programmet. | `-Id <ObjectId of Application>` |
+| <code>&#8209;Id</code> |**ObjectId (ID)** av programmet. | `-Id <ObjectId of Application>` |
 | <code>&#8209;RefObjectId</code> |**ObjectId** av principen. | `-RefObjectId <ObjectId of Policy>` |
 
 </br></br>
@@ -463,7 +473,7 @@ Get-AzureADApplicationPolicy -Id <ObjectId of Application>
 
 | Parametrar | Beskrivning | Exempel |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectId (Id)** av programmet. | `-Id <ObjectId of Application>` |
+| <code>&#8209;Id</code> |**ObjectId (ID)** av programmet. | `-Id <ObjectId of Application>` |
 
 </br></br>
 
@@ -476,7 +486,7 @@ Remove-AzureADApplicationPolicy -Id <ObjectId of Application> -PolicyId <ObjectI
 
 | Parametrar | Beskrivning | Exempel |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectId (Id)** av programmet. | `-Id <ObjectId of Application>` |
+| <code>&#8209;Id</code> |**ObjectId (ID)** av programmet. | `-Id <ObjectId of Application>` |
 | <code>&#8209;PolicyId</code> |**ObjectId** av principen. | `-PolicyId <ObjectId of Policy>` |
 
 </br></br>
@@ -493,7 +503,7 @@ Add-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal> -RefObjectI
 
 | Parametrar | Beskrivning | Exempel |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectId (Id)** av programmet. | `-Id <ObjectId of Application>` |
+| <code>&#8209;Id</code> |**ObjectId (ID)** av programmet. | `-Id <ObjectId of Application>` |
 | <code>&#8209;RefObjectId</code> |**ObjectId** av principen. | `-RefObjectId <ObjectId of Policy>` |
 
 </br></br>
@@ -507,7 +517,7 @@ Get-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>
 
 | Parametrar | Beskrivning | Exempel |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectId (Id)** av programmet. | `-Id <ObjectId of Application>` |
+| <code>&#8209;Id</code> |**ObjectId (ID)** av programmet. | `-Id <ObjectId of Application>` |
 
 </br></br>
 
@@ -520,5 +530,5 @@ Remove-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>  -Policy
 
 | Parametrar | Beskrivning | Exempel |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectId (Id)** av programmet. | `-Id <ObjectId of Application>` |
+| <code>&#8209;Id</code> |**ObjectId (ID)** av programmet. | `-Id <ObjectId of Application>` |
 | <code>&#8209;PolicyId</code> |**ObjectId** av principen. | `-PolicyId <ObjectId of Policy>` |

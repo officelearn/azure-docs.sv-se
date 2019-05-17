@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/19/2019
+ms.date: 05/16/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 267b6afd7cd3131dcd138dfb631335f58cec833a
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 31cf1f6da515aa9b453987383e78f466c5ba4fb9
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65407916"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827299"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Workday för automatisk användaretablering
 
-Målet med den här självstudien är att visa steg du måste utföra för att importera worker profiler från Workday till både Active Directory och Azure Active Directory, med valfritt tillbakaskrivning av e-postadress till Workday.
+Målet med den här självstudien är att visa steg du måste utföra för att importera worker profiler från Workday till både Active Directory och Azure Active Directory, med valfritt tillbakaskrivning av e-postadress och användarnamn för Workday.
 
 ## <a name="overview"></a>Översikt
 
@@ -34,7 +34,7 @@ Den [tjänst Azure Active Directory för användaretablering](../manage-apps/use
 
 * **Etablera endast molnbaserade användare till Azure Active Directory** – i scenarier där lokala Active Directory inte används, användare kan etableras direkt från Workday till Azure Active Directory med Azure AD-tjänst för användaretablering.
 
-* **Skriva baksidan av e-postadresser till Workday** -Azure AD-tjänst för användaretablering kan skriva e-postadresserna för Azure AD-användare tillbaka till Workday.
+* **Skriva in e-postadress och användarnamn i Workday** -Azure AD-tjänst för användaretablering kan skriva e-postadresser och användarnamn från Azure AD tillbaka till Workday.
 
 ### <a name="what-human-resources-scenarios-does-it-cover"></a>Vilka personalfrågor scenarier täcker den?
 
@@ -67,7 +67,7 @@ Den här lösningen för Workday av användaretablering är idealisk för:
 Det här avsnittet beskrivs slutpunkt till slutpunkt-arkitektur för vanliga hybridmiljöer för användaretablering. Det finns två relaterade flöden:
 
 * **Flöde för auktoritativ HR Data – från Workday till en lokal Active Directory:** I det här flödet worker (till exempel nyanställda, dataöverföringar, uppsägningar) först sker i molnet Workday HR-klient och sedan av data flödar till den lokala Active Directory via Azure AD och agenten etablering. Beroende på händelsen, kan det leda till skapa/uppdatera/aktivera/inaktivera operations i AD.
-* **Flöde för e-tillbakaskrivning – från en lokal Active Directory till Workday:** När kontot datafabriken har skapats i Active Directory, den är synkroniserad med Azure AD via Azure AD Connect och e-postadressattribut som hämtas från Active Directory kan skrivas tillbaka till Workday.
+* **E-post och användarnamn tillbakaskrivning av Flow – från en lokal Active Directory till Workday:** När kontot datafabriken har skapats i Active Directory, den är synkroniserad med Azure AD via Azure AD Connect och e-post och username-attributet kan skrivas tillbaka till Workday.
 
 ![Översikt](./media/workday-inbound-tutorial/wd_overview.png)
 
@@ -79,7 +79,7 @@ Det här avsnittet beskrivs slutpunkt till slutpunkt-arkitektur för vanliga hyb
 4. Azure AD Connect etablering agenten använder ett tjänstkonto för att lägga till/uppdatera AD-kontodata.
 5. Azure AD Connect / AD-Synkroniseringsmotorn körs Deltasynkronisering för att hämta uppdateringar i AD.
 6. Active Directory-uppdateringarna har synkroniserats med Azure Active Directory.
-7. Om anslutningen för tillbakaskrivning av Workday har konfigurerats är det skrivning hakar e-attributet till Workday, baserat på det matchande attribut som används.
+7. Om anslutningen för tillbakaskrivning av Workday har konfigurerats är skriver den tillbaka e-attribut och användarnamn till Workday, baserat på det matchande attribut som används.
 
 ## <a name="planning-your-deployment"></a>Planera distributionen
 
@@ -285,7 +285,8 @@ I det här steget ska du ge ”domain security” principbehörigheter för work
    * *Worker Data: Alla positioner*
    * *Worker Data: Aktuell Personal Information*
    * *Worker Data: Företag titel på Worker profil*
-
+   * *Workday-konton*
+   
      ![Domän-säkerhetsprinciper](./media/workday-inbound-tutorial/wd_isu_07.png "domän säkerhetsprinciper")  
 
      ![Domän-säkerhetsprinciper](./media/workday-inbound-tutorial/wd_isu_08.png "domän säkerhetsprinciper") 
@@ -313,6 +314,7 @@ I det här steget ska du ge ”domain security” principbehörigheter för work
    | Hämta  | Worker Data: Alla positioner |
    | Hämta  | Worker Data: Aktuell Personal Information |
    | Hämta  | Worker Data: Företag titel på Worker profil |
+   | Hämta och skicka | Workday-konton |
 
 ### <a name="configuring-business-process-security-policy-permissions"></a>Konfigurera business process säkerhetsbehörigheter princip
 
@@ -369,18 +371,21 @@ Om du vill distribuera till Active Directory lokalt, måste en agent installeras
 När du har distribuerat .NET 4.7.1+ kan du ladda ned den **[lokala etableringsagenten här](https://go.microsoft.com/fwlink/?linkid=847801)** och följ anvisningarna nedan för att slutföra agentkonfigurationen.
 
 1. Logga in på Windows Server där du vill installera den nya agenten.
-2. Starta installationsprogrammet för etablering agenten, Godkänn villkoren och klicka på den **installera** knappen.
+
+1. Starta installationsprogrammet för etablering agenten, Godkänn villkoren och klicka på den **installera** knappen.
 
    ![Installera skärmen](./media/workday-inbound-tutorial/pa_install_screen_1.png "installera skärmen")
-3. När installationen är klar, startar guiden och du ser den **Anslut Azure AD** skärmen. Klicka på den **autentisera** knapp för att ansluta till din Azure AD-instans.
+   
+1. När installationen är klar, startar guiden och du ser den **Anslut Azure AD** skärmen. Klicka på den **autentisera** knapp för att ansluta till din Azure AD-instans.
 
    ![Ansluter Azure AD](./media/workday-inbound-tutorial/pa_install_screen_2.png "ansluter Azure AD")
+   
 1. Autentisera till din Azure AD-instans med hjälp av autentiseringsuppgifter som Global administratör.
 
    ![Administratören Auth](./media/workday-inbound-tutorial/pa_install_screen_3.png "Admin Auth")
 
-> [!NOTE]
-> Azure AD-administratörsautentiseringsuppgifter används bara för att ansluta till Azure AD-klienten. Agenten lagrar inte autentiseringsuppgifterna lokalt på servern.
+   > [!NOTE]
+   > Azure AD-administratörsautentiseringsuppgifter används bara för att ansluta till Azure AD-klienten. Agenten lagrar inte autentiseringsuppgifterna lokalt på servern.
 
 1. Efter en lyckad autentisering med Azure AD, visas den **Anslut Active Directory** skärmen. I det här steget anger du ditt AD-domännamn och klicka på den **Lägg till katalog** knappen.
 
@@ -389,21 +394,27 @@ När du har distribuerat .NET 4.7.1+ kan du ladda ned den **[lokala etableringsa
 1. Nu uppmanas du att ange de autentiseringsuppgifter som krävs för att ansluta till AD-domänen. På samma skärm, kan du använda den **Välj domain controller prioritet** ange domänkontrollanter som agenten ska använda för att skicka etableringsbegäranden.
 
    ![Domain Credentials](./media/workday-inbound-tutorial/pa_install_screen_5.png)
+   
 1. När du har konfigurerat domänen visar installationsprogrammet en lista över konfigurerade domäner. På den här skärmen kan du upprepa steg #5 och 6 för # att lägga till fler domäner eller klicka på **nästa** att fortsätta till registreringen.
 
    ![Konfigurerade domäner](./media/workday-inbound-tutorial/pa_install_screen_6.png "konfigurerats domäner")
 
    > [!NOTE]
-   > Om du har flera AD-domäner (t.ex. na.contoso.com, emea.contoso.com) och sedan Lägg till varje domän individuellt i listan. Det räcker inte att bara att lägga till den överordnade domänen (t.ex. contoso.com). Du måste registrera varje underordnad domän med agenten.
+   > Om du har flera AD-domäner (t.ex. na.contoso.com, emea.contoso.com) och sedan Lägg till varje domän individuellt i listan.
+   > Det räcker inte att bara att lägga till den överordnade domänen (t.ex. contoso.com). Du måste registrera varje underordnad domän med agenten.
+   
 1. Granska konfigurationsinformationen och klicka på **Bekräfta** att registrera agenten.
   
    ![Bekräfta skärmen](./media/workday-inbound-tutorial/pa_install_screen_7.png "bekräfta skärmen")
+   
 1. Guiden visar förloppet för registreringen av.
   
    ![Agentregistreringen](./media/workday-inbound-tutorial/pa_install_screen_8.png "Agentregistreringen")
+   
 1. När agentregistreringen är klar, kan du klicka på **avsluta** vill avsluta guiden.
   
    ![Avsluta skärmen](./media/workday-inbound-tutorial/pa_install_screen_9.png "avsluta skärmen")
+   
 1. Verifiera installationen av agenten och kontrollera att den körs genom att öppna snapin-modulen ”Tjänster” och leta efter tjänsten med namnet ”Microsoft Azure AD Connect etablering Agent”
   
    ![Tjänster](./media/workday-inbound-tutorial/services.png)
@@ -438,13 +449,14 @@ När du har distribuerat .NET 4.7.1+ kan du ladda ned den **[lokala etableringsa
 
    * **Active Directory-behållare –** ange behållaren DN där agenten ska skapa användarkonton som standard.
         Exempel: *OU = standardanvändare, OU = Users, DC = contoso, DC = test*
+        
      > [!NOTE]
      > Den här inställningen kommer endast betydelse för användaren kontoskapningar om den *parentDistinguishedName* attributet har inte konfigurerats på attributmappningarna. Den här inställningen används inte för användarsökning eller uppdaterar åtgärder. Hela domänen sub trädet ingår i omfånget för search-åtgärd.
 
    * **E-postmeddelande –** ange din e-postadress och markera kryssrutan ”Skicka e-post om fel uppstår”.
 
-> [!NOTE]
-> Azure AD Provisioning-tjänsten skickar e-postmeddelande om Etableringsjobbet hamnar i en [karantän](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#quarantine) tillstånd.
+     > [!NOTE]
+     > Azure AD Provisioning-tjänsten skickar e-postmeddelande om Etableringsjobbet hamnar i en [karantän](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#quarantine) tillstånd.
 
    * Klicka på den **Testanslutningen** knappen. Om Anslutningstestet lyckas klickar du på den **spara** längst upp. Om det misslyckas kontrollerar du att Workday-autentiseringsuppgifter och AD konfigurerat på agentinställningen är giltiga.
 
@@ -458,7 +470,7 @@ I det här avsnittet konfigurerar du hur informationen flödar från Workday til
 
 1. På fliken etablering under **mappningar**, klickar du på **synkronisera Workday arbetare till på lokala Active Directory**.
 
-2. I den **omfång för källobjekt** fältet, kan du välja vilka uppsättningar med användare i Workday ska vara i omfånget för etablering i AD, genom att definiera en uppsättning attributbaserade filter. Standardvärde är ”alla användare i Workday”. Exempel filter:
+1. I den **omfång för källobjekt** fältet, kan du välja vilka uppsättningar med användare i Workday ska vara i omfånget för etablering i AD, genom att definiera en uppsättning attributbaserade filter. Standardvärde är ”alla användare i Workday”. Exempel filter:
 
    * Exempel: Omfång för användare med Worker-ID: N mellan 1000000 och 2000000 (exklusive 2000000)
 
@@ -474,8 +486,8 @@ I det här avsnittet konfigurerar du hur informationen flödar från Workday til
 
       * Operator: INTE ÄR NULL
 
-> [!TIP]
-> När du konfigurerar appen etablering för första gången behöver du testa och verifiera dina attributmappningar och uttryck för att se till att den ger du det önskade resultatet. Microsoft rekommenderar att du använder omfånget filtrerar **omfång för källobjekt** att testa din mappningar med några få testa användare från Workday. När du har verifierat att mappningarna fungerar och du kan ta bort filtret eller gradvis expanderas för att inkludera fler användare.
+   > [!TIP]
+   > När du konfigurerar appen etablering för första gången behöver du testa och verifiera dina attributmappningar och uttryck för att se till att den ger du det önskade resultatet. Microsoft rekommenderar att du använder omfånget filtrerar **omfång för källobjekt** att testa din mappningar med några få testa användare från Workday. När du har verifierat att mappningarna fungerar och du kan ta bort filtret eller gradvis expanderas för att inkludera fler användare.
 
 1. I den **åtgärder för målobjekt** fältet du globalt filtrera vilka åtgärder som utförs på Active Directory. **Skapa** och **uppdatering** är de vanligaste.
 
@@ -649,9 +661,9 @@ I det här avsnittet konfigurerar du hur informationen flödar från Workday til
 
 När attributet mappningskonfigurationen är klar kan du nu [aktivera och starta tjänst för användaretablering](#enable-and-launch-user-provisioning).
 
-## <a name="configuring-writeback-of-email-addresses-to-workday"></a>Konfigurera tillbakaskrivning av e-postadresser till Workday
+## <a name="configuring-azure-ad-attribute-writeback-to-workday"></a>Konfigurera Azure AD-attributet tillbakaskrivning till Workday
 
-Följ dessa instruktioner för att konfigurera tillbakaskrivning av användare e-postadresser från Azure Active Directory till Workday.
+Följ dessa instruktioner för att konfigurera tillbakaskrivning av användare e-postadresser och användarnamn från Azure Active Directory till Workday.
 
 * [Att lägga till appen tillbakaskrivning av anslutningen och skapa anslutning till Workday](#part-1-adding-the-writeback-connector-app-and-creating-the-connection-to-workday)
 * [Konfigurera tillbakaskrivning av attributmappningar](#part-2-configure-writeback-attribute-mappings)
@@ -689,7 +701,7 @@ Följ dessa instruktioner för att konfigurera tillbakaskrivning av användare e
 
 ### <a name="part-2-configure-writeback-attribute-mappings"></a>Del 2: Konfigurera tillbakaskrivning av attributmappningar
 
-I det här avsnittet konfigurerar du hur tillbakaskrivning av attribut som flödar från Azure AD till Workday.
+I det här avsnittet konfigurerar du hur tillbakaskrivning av attribut som flödar från Azure AD till Workday. För närvarande stöder bara anslutningen tillbakaskrivning av e-postadress och användarnamn för Workday.
 
 1. På fliken etablering under **mappningar**, klickar du på **synkronisera Azure Active Directory-användare till Workday**.
 
@@ -697,9 +709,9 @@ I det här avsnittet konfigurerar du hur tillbakaskrivning av attribut som flöd
 
 3. I den **attributmappningar** avsnittet, uppdatera matchande-ID för att ange attributet i Azure Active Directory där Workday arbetar-ID eller anställnings-ID lagras. En populär matchande metod är att synkronisera Workday arbetar-ID eller anställnings-ID till extensionAttribute1-15 i Azure AD och sedan använda det här attributet i Azure AD för att matcha användare tillbaka i Workday.
 
-4. Om du vill spara din mappningar, klickar du på **spara** överst i avsnittet attribut mappar.
+4. Vanligtvis du mappa den Azure AD *userPrincipalName* attributet Workday *användar-ID* attributet och mappa Azure AD *e* attributet arbetsdagen  *E-postadress* attribut. Om du vill spara din mappningar, klickar du på **spara** överst i avsnittet attribut mappar.
 
-När attributet mappningskonfigurationen är klar kan du nu [aktivera och starta tjänst för användaretablering](#enable-and-launch-user-provisioning). 
+När attributet mappningskonfigurationen är klar kan du nu [aktivera och starta tjänst för användaretablering](#enable-and-launch-user-provisioning).
 
 ## <a name="enable-and-launch-user-provisioning"></a>Aktivera och starta etableringen av användare
 
@@ -782,6 +794,7 @@ Lösningen använder för närvarande följande Workday API: er:
 
 * Get_Workers (v21.1) för att hämta information om arbetare
 * Maintain_Contact_Information (v26.1) för funktionen för tillbakaskrivning av arbets-e-post
+* Update_Workday_Account (v31.2) för funktionen Username Writeback
 
 #### <a name="can-i-configure-my-workday-hcm-tenant-with-two-azure-ad-tenants"></a>Kan jag konfigurera min Workday HCM-klient med två Azure AD-klienter?
 
@@ -952,7 +965,6 @@ Här är hur du kan hantera sådana krav för att konstruera *CN* eller *display
 
 * Varje attribut för Workday hämtas med hjälp av en underliggande API XPATH-uttryck, som kan konfigureras i **attributmappning -> Avancerad -> Redigera attributlistan för Workday**. Här är standard API XPATH-uttrycket för Workday *PreferredFirstName*, *PreferredLastName*, *företagets* och *SupervisoryOrganization* attribut.
 
-     [!div class="mx-tdCol2BreakAll"]
      | Workday attribut | API-XPATH-uttryck |
      | ----------------- | -------------------- |
      | PreferredFirstName | wd:Worker/wd:Worker_Data/wd:Personal_Data/wd:Name_Data/wd:Preferred_Name_Data/wd:Name_Detail_Data/wd:First_Name/text() |
@@ -1008,7 +1020,7 @@ Anta att du vill generera unika värden för *samAccountName* attributet med hj�
 SelectUniqueValue(
     Replace(Mid(Replace(NormalizeDiacritics(StripSpaces(Join("",  Mid([FirstName],1,1), [LastName]))), , "([\\/\\\\\\[\\]\\:\\;\\|\\=\\,\\+\\*\\?\\<\\>])", , "", , ), 1, 20), , "(\\.)*$", , "", , ),
     Replace(Mid(Replace(NormalizeDiacritics(StripSpaces(Join("",  Mid([FirstName],1,2), [LastName]))), , "([\\/\\\\\\[\\]\\:\\;\\|\\=\\,\\+\\*\\?\\<\\>])", , "", , ), 1, 20), , "(\\.)*$", , "", , ),
-    Replace(Mid(Replace(NormalizeDiacritics(StripSpaces(Join("",  Mid([FirstName],1,3), [LastName]))), , "([\\/\\\\\\[\\]\\:\\;\\|\\=\\,\\+\\*\\?\\<\\>])", , "", , ), 1, 20), , "(\\.)*$", , "", , ),
+    Replace(Mid(Replace(NormalizeDiacritics(StripSpaces(Join("",  Mid([FirstName],1,3), [LastName]))), , "([\\/\\\\\\[\\]\\:\\;\\|\\=\\,\\+\\*\\?\\<\\>])", , "", , ), 1, 20), , "(\\.)*$", , "", , )
 )
 ```
 
@@ -1236,7 +1248,7 @@ Om du vill göra den här ändringen, måste du använda [Workday Studio](https:
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
-    <env:Envelope xmlns:env="https://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="https://www.w3.org/2001/XMLSchema">
+    <env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="https://www.w3.org/2001/XMLSchema">
       <env:Body>
         <wd:Get_Workers_Request xmlns:wd="urn:com.workday/bsvc" wd:version="v21.1">
           <wd:Request_References wd:Skip_Non_Existing_Instances="true">

@@ -3,8 +3,8 @@ title: Microsoft identity-plattformen och OpenID Connect-protokollet | Azure
 description: Skapa webbprogram med hjälp av Microsoft identity-plattformen implementeringen av autentiseringsprotokollet OpenID Connect.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: a4875997-3aac-4e4c-b7fe-2b4b829151ce
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/12/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bfac577d7582caa5b538f05273a02e4c3baf71ff
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 23a8eaaf095be1d59944791bd793047886dda40c
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918466"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544799"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Microsoft identity-plattformen och OpenID Connect-protokoll
 
@@ -34,11 +34,11 @@ OpenID Connect är ett autentiseringsprotokoll som bygger på OAuth 2.0 som du k
 
 [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) utökar OAuth 2.0 *auktorisering* protokoll som ska användas som en *autentisering* protokoll, så att du kan göra med enkel inloggning med OAuth. OpenID Connect introducerar konceptet för en *ID-token*, vilket är en säkerhetstoken som gör att klienten att verifiera användarens identitet. ID-token får du också grundläggande profilinformation om användaren. Eftersom OpenID Connect utökar OAuth 2.0, appar på ett säkert sätt kan hämta *åtkomsttoken*, som kan användas för att komma åt resurser som skyddas av en [auktoriseringsservern](active-directory-v2-protocols.md#the-basics). Microsoft identity-plattformen endpoint kan också appar från tredje part som är registrerade i Azure AD för att utfärda åtkomsttoken för skyddade resurser, till exempel webb-API: er. Läs mer om hur du konfigurerar ett program att utfärda åtkomsttoken [hur du registrerar en app med Microsoft identity-plattformen endpoint](quickstart-register-app.md). Vi rekommenderar att du använder att OpenID Connect om du skapar en [webbprogram](v2-app-types.md#web-apps) som är finns på en server och kan nås via en webbläsare.
 
-## <a name="protocol-diagram-sign-in"></a>Protokollet diagram: logga in
+## <a name="protocol-diagram-sign-in"></a>Protokollet diagram: Logga in
 
 Mest grundläggande inloggning flödet har de steg som visas i nästa diagram. Varje steg beskrivs i detalj i den här artikeln.
 
-![OpenID Connect-protokoll: logga in](./media/v2-protocols-oidc/convergence-scenarios-webapp.svg)
+![OpenID Connect-protokoll: Logga in](./media/v2-protocols-oidc/convergence-scenarios-webapp.svg)
 
 ## <a name="fetch-the-openid-connect-metadata-document"></a>Hämta metadatadokument OpenID Connect
 
@@ -48,11 +48,11 @@ OpenID Connect beskriver ett metadatadokument som innehåller de flesta av infor
 https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 ```
 > [!TIP]
-> Prova! Klicka på [ https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration ](https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration) att se den `common` konfiguration för klienter.
+> Testa det! Klicka på [ https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration ](https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration) att se den `common` konfiguration för klienter.
 
 Den `{tenant}` kan ha något av fyra värden:
 
-| Värde | Beskrivning |
+| Value | Beskrivning |
 | --- | --- |
 | `common` |Användare med både ett personligt microsoftkonto och ett arbets- eller skolkonto konto från Azure AD kan logga in till programmet. |
 | `organizations` |Endast användare med arbets- eller skolkonton från Azure AD kan logga in till programmet. |
@@ -110,19 +110,19 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 > Klicka på länken nedan för att köra den här begäran. När du har loggat in webbläsaren kommer att omdirigeras till `https://localhost/myapp/`, med en ID-token i adressfältet. Observera att denna begäran använder `response_mode=fragment` (endast i demonstrationssyfte). Vi rekommenderar att du använder `response_mode=form_post`.
 > <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=fragment&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 
-| Parameter | Tillstånd | Beskrivning |
+| Parameter | Villkor | Beskrivning |
 | --- | --- | --- |
 | `tenant` | Krävs | Du kan använda den `{tenant}` värdet i sökvägen för begäran om att kontrollera vem som kan logga in till programmet. Tillåtna värden är `common`, `organizations`, `consumers`, och klient-ID: n. Mer information finns i [protokollet grunderna](active-directory-v2-protocols.md#endpoints). |
-| `client_id` | Krävs | Den **(klient)-ID: T** som den [Azure-portalen – appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) upplevelse som tilldelats din app. |
-| `response_type` | Krävs | Måste innehålla `id_token` för OpenID Connect-inloggning. Det kan även innehålla andra `response_type` värden, till exempel `code`. |
+| `client_id` | Obligatoriskt | Den **(klient)-ID: T** som den [Azure-portalen – appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) upplevelse som tilldelats din app. |
+| `response_type` | Obligatoriskt | Måste innehålla `id_token` för OpenID Connect-inloggning. Det kan även innehålla andra `response_type` värden, till exempel `code`. |
 | `redirect_uri` | Rekommenderas | Omdirigerings-URI för din app, där autentiseringssvar kan skickas och tas emot av din app. Det måste exakt matcha en av omdirigerings-URI: er som du registrerade i portalen, förutom att det måste vara URL-kodas. Om inte finns, slutpunkten ska välja en registrerad redirect_uri slumpmässigt för att skicka användaren tillbaka till. |
 | `scope` | Krävs | En blankstegsavgränsad lista med omfattningar. Det måste innehålla omfånget för OpenID Connect, `openid`, vilket innebär att behörigheten ”logga du in” i godkännande-UI. Du kan även innehålla andra scope i den här begäran för att begära godkännande. |
 | `nonce` | Krävs | Ett värde som ingår i den begäran som skapats av appen, som ska tas med i det resulterande id_token-värdet som ett anspråk. Appen kan kontrollera det här värdet om du vill lösa token repetitionsattacker. Värdet är vanligtvis en slumpmässig, unik sträng som kan användas för att fastställa ursprunget för begäran. |
 | `response_mode` | Rekommenderas | Anger den metod som ska användas för att skicka resulterande Auktoriseringskoden tillbaka till din app. Det kan vara `form_post` eller `fragment`. För webbprogram, bör du använda `response_mode=form_post`, för att kontrollera den säkraste överföringen av token för ditt program. |
 | `state` | Rekommenderas | Ett värde som ingår i den begäran som också kommer att returneras i token-svaret. Det kan vara en sträng med innehåll. Ett slumpmässigt genererat unikt värde används normalt till [förhindra attacker med förfalskning av begäran](https://tools.ietf.org/html/rfc6749#section-10.12). Tillståndet också används för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffat, till exempel sidan eller vyn som användaren har på. |
-| `prompt` | Valfri | Anger vilken typ av interaktion från användaren som krävs. De enda giltiga värdena just nu är `login`, `none`, och `consent`. Den `prompt=login` anspråk Tvingar användaren att ange sina autentiseringsuppgifter i begäran, vilket eliminerar enkel inloggning. Den `prompt=none` anspråk är motsatsen. Det här kravet garanterar att användaren inte visas den interaktiva prompten på. Om begäran inte kan slutföras tyst via enkel inloggning, returneras ett fel i Microsoft identity-plattformen slutpunkten. Den `prompt=consent` anspråk utlöser OAuth godkännande i dialogrutan när användaren loggar in. Dialogrutan ombeds användaren att bevilja behörigheter till appen. |
-| `login_hint` | Valfri | Du kan använda den här parametern förifylld i fälten användarnamn och e-post adressfältet i inloggningssidan för användaren, om du känner till användarnamnet förbereds i förväg. Ofta appar att använda den här parametern under omautentisering när du har redan extraherar användarnamnet från en tidigare logga in med hjälp av den `preferred_username` anspråk. |
-| `domain_hint` | Valfri | Området för användaren i en federerad katalog.  Det här hoppar över e-postbaserad identifieringsprocessen som användaren som passerar på sidan logga in för en något mer effektiv användarupplevelse. För klienter som är externa via en lokal katalog som AD FS kan resulterar det ofta i en sömlös inloggning på grund av befintliga inloggningssession. |
+| `prompt` | Valfritt | Anger vilken typ av interaktion från användaren som krävs. De enda giltiga värdena just nu är `login`, `none`, och `consent`. Den `prompt=login` anspråk Tvingar användaren att ange sina autentiseringsuppgifter i begäran, vilket eliminerar enkel inloggning. Den `prompt=none` anspråk är motsatsen. Det här kravet garanterar att användaren inte visas den interaktiva prompten på. Om begäran inte kan slutföras tyst via enkel inloggning, returneras ett fel i Microsoft identity-plattformen slutpunkten. Den `prompt=consent` anspråk utlöser OAuth godkännande i dialogrutan när användaren loggar in. Dialogrutan ombeds användaren att bevilja behörigheter till appen. |
+| `login_hint` | Valfritt | Du kan använda den här parametern förifylld i fälten användarnamn och e-post adressfältet i inloggningssidan för användaren, om du känner till användarnamnet förbereds i förväg. Ofta appar att använda den här parametern under omautentisering när du har redan extraherar användarnamnet från en tidigare logga in med hjälp av den `preferred_username` anspråk. |
+| `domain_hint` | Valfritt | Området för användaren i en federerad katalog.  Det här hoppar över e-postbaserad identifieringsprocessen som användaren som passerar på sidan logga in för en något mer effektiv användarupplevelse. För klienter som är externa via en lokal katalog som AD FS kan resulterar det ofta i en sömlös inloggning på grund av befintliga inloggningssession. |
 
 Nu uppmanas användaren att ange sina autentiseringsuppgifter och slutföra autentiseringen. Microsoft identity-plattformen endpoint kontrollerar att användaren har samtyckt till behörigheterna som anges i den `scope` frågeparameter. Om användaren inte har samtyckt till någon av dessa behörigheter, uppmanas användaren att godkänna behörigheterna som krävs i Microsoft identity-plattformen slutpunkten. Du kan läsa mer om [behörigheter och samtycke appar för flera klienter](v2-permissions-and-consent.md).
 
@@ -201,7 +201,7 @@ GET https://login.microsoftonline.com/common/oauth2/v2.0/logout?
 post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 ```
 
-| Parameter | Tillstånd | Beskrivning |
+| Parameter | Villkor | Beskrivning |
 | ----------------------- | ------------------------------- | ------------ |
 | `post_logout_redirect_uri` | Rekommenderas | Den URL som användaren omdirigeras till när du har loggat ut. Om parametern inte är inkluderat visas användaren ett allmänt meddelande som genereras av Microsoft identity-plattformen slutpunkten. Den här URL: en måste matcha en av omdirigerings-URI: er som har registrerats för ditt program i portalen för registrering av appen. |
 

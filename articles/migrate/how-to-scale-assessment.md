@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: raynew
-ms.openlocfilehash: 1b03cf648ad65960cce4ffc874cf32ad91ef7dc1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fe86c758dbf05f91d53cb918b7794c12ab3f39bc
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60596743"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518763"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Upptäck och utvärdera en stor VMware-miljö
 
@@ -52,13 +52,13 @@ Baserat på antalet virtuella datorer som du planerar att identifiera, kan du sk
 Du kan använda samma insamlaren för att samla in data från en annan vCenter-Server eller skicka den till en annan migreringsprojekt om av enstaka identifiering (inaktuellt nu), identifieringen fungerar i fire och Glöm modellen när identifiering är klart.
 
 > [!NOTE]
-> Installationen för engångsidentifiering är nu inaktuell eftersom den här metoden förlitade sig på vCenter Servers statistikinställningarna för tillgänglighet av prestandadatapunkt och samlade in räknare för genomsnittlig prestanda, vilket resulterade i för små VM-storlekar för migrering till Azure. Vi rekommenderar att flytta till den enstaka discovery-installationen.
+> Installationen för engångsidentifiering är nu inaktuell eftersom den här metoden förlitade sig på vCenter Servers statistikinställningarna för tillgänglighet av prestandadatapunkt och samlade in räknare för genomsnittlig prestanda, vilket resulterade i för små VM-storlekar för migrering till Azure. Vi rekommenderar att flytta till den kontinuerliga discovery-installationen.
 
 Planera dina upptäckter och utvärderingar som baseras på följande begränsningar:
 
 | **Entitet** | **Gränsen för datorn** |
 | ---------- | ----------------- |
-| Project    | 1,500             |
+| Projekt    | 1,500             |
 | Identifiering  | 1,500             |
 | Utvärdering | 1,500             |
 

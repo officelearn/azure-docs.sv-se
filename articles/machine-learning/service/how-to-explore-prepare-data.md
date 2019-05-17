@@ -11,19 +11,19 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/02/19
-ms.openlocfilehash: f4e7fcbe403017a6d957a60a8e5664f2e6c5ba26
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 70712605cc97670b625d32052bb79b4a666e4281
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65409828"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603151"
 ---
 # <a name="explore-and-prepare-data-with-the-dataset-class-preview"></a>Utforska och förbereda data med klassen datauppsättning (förhandsgranskning)
 
 Lär dig att utforska och förbereda data med den [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Den [datauppsättning](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) klass (förhandsversion) kan du utforska och förbereda dina data genom att tillhandahålla funktioner som: sampling, sammanfattande statistik och intelligent transformationer. Transformeringssteg sparas i [datauppsättning definitioner](how-to-manage-dataset-definitions.md) möjlighet att hantera flera stora filer med olika scheman i en mycket skalbar.
 
 > [!Important]
-> Vissa datauppsättning (förhandsversion) som har beroenden på Data Prep SDK (GA). Även om omvandlingen funktioner kan göras direkt med GA'ed [Data Prep SDK-funktioner](how-to-transform-data.md), rekommenderar vi datauppsättning paketet omslutningar som beskrivs i den här artikeln om du skapar en ny lösning. Azure Machine Learning datauppsättningar (förhandsversion) kan du inte bara omvandla data, utan även [domänögonblicksdata](how-to-create-dataset-snapshots.md) och lagra [version datauppsättning definitioner](how-to-manage-dataset-definitions.md). Datauppsättningar är nästa version av Data Prep-SDK, som erbjuder fler funktioner för att hantera datauppsättningar i AI-lösningar.
+> Vissa klasser för datauppsättningen (förhandsversion) är beroende av den [azureml-förberedelse av data](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) paketet (GA). Även om omvandlingen funktioner kan göras direkt med GA'ed [Dataförberedelser funktioner](how-to-transform-data.md), rekommenderar vi datauppsättning paketet omslutningar som beskrivs i den här artikeln om du skapar en ny lösning. Azure Machine Learning datauppsättningar (förhandsversion) kan du inte bara omvandla data, utan även [domänögonblicksdata](how-to-create-dataset-snapshots.md) och lagra [version datauppsättning definitioner](how-to-manage-dataset-definitions.md). Datauppsättningar är nästa version av Data Prep-SDK, som erbjuder fler funktioner för att hantera datauppsättningar i AI-lösningar.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -117,7 +117,7 @@ sample_dataset.to_pandas_dataframe()
 dataset.get_profile()
 ```
 
-||Typ|Min|Max|Antal|Antal saknas|Antal saknas inte|Procent saknas|Antal fel|Tomt antal|0,1 % kvantil|1 % kvantil|5 % kvantil|25 % kvantil|50 % kvantil|75 % kvantil|95 % kvantil|99 % kvantil|99,9 % kvantil|Medelvärde|Standardavvikelse|Varians|Snedhet|Toppighet
+||Type|Min|Max|Antal|Antal saknas|Antal saknas inte|Procent saknas|Antal fel|Tomt antal|0,1 % kvantil|1 % kvantil|5 % kvantil|25 % kvantil|50 % kvantil|75 % kvantil|95 % kvantil|99 % kvantil|99,9 % kvantil|Medelvärde|Standardavvikelse|Varians|Snedhet|Toppighet
 -|----|---|---|-----|-------------|-----------------|---------------|-----------|-----------|-------------|-----------|-----------|------------|------------|------------|------------|------------|--------------|----|------------------|--------|--------|--------
 ID|FieldType.INTEGER|1.04986e + 07|1.05351e + 07|10.0|0.0|10.0|0.0|0.0|0.0|1.04986e + 07|1.04992e+07|1.04986e + 07|1.05166e + 07|1.05209e + 07|1.05259e + 07|1.05351e + 07|1.05351e + 07|1.05351e + 07|1.05195e + 07|12302.7|1.51358e + 08|-0.495701|-1.02814
 Ärendenummer|FieldType.STRING|HZ239907|HZ278872|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
@@ -256,7 +256,7 @@ ds_def = ds_def.assert_value('Longitude', (value <= 180) & (value >= -87), error
 ds_def.get_profile()
 ```
 
-||Typ|Min|Max|Antal|Antal saknas|Antal saknas inte|Procent saknas|Antal fel|Tomt antal|0,1 % kvantil|1 % kvantil|5 % kvantil|25 % kvantil|50 % kvantil|75 % kvantil|95 % kvantil|99 % kvantil|99,9 % kvantil|Medelvärde|Standardavvikelse|Varians|Snedhet|Toppighet
+||Type|Min|Max|Antal|Antal saknas|Antal saknas inte|Procent saknas|Antal fel|Tomt antal|0,1 % kvantil|1 % kvantil|5 % kvantil|25 % kvantil|50 % kvantil|75 % kvantil|95 % kvantil|99 % kvantil|99,9 % kvantil|Medelvärde|Standardavvikelse|Varians|Snedhet|Toppighet
 -|----|---|---|-----|-------------|-----------------|---------------|-----------|-----------|-------------|-----------|-----------|------------|------------|------------|------------|------------|--------------|----|------------------|--------|--------|--------
 ID|FieldType.INTEGER|1.04986e + 07|1.05351e + 07|10.0|0.0|10.0|0.0|0.0|0.0|1.04986e + 07|1.04992e+07|1.04986e + 07|1.05166e + 07|1.05209e + 07|1.05259e + 07|1.05351e + 07|1.05351e + 07|1.05351e + 07|1.05195e + 07|12302.7|1.51358e + 08|-0.495701|-1.02814
 Kvarhållande|FieldType.BOOLEAN|Falskt|Falskt|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||

@@ -7,12 +7,12 @@ ms.author: tacox
 ms.reviewer: jasonh
 ms.topic: howto
 ms.date: 04/24/2019
-ms.openlocfilehash: b181edc08c51a5afa8682858b330acc84da7d73d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b39279e560cb1738ff9b33ec587562efd2ed4e8d
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64707009"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800957"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>Migrera Azure HDInsight 3.6 Hive-arbetsbelastningar till HDInsight 4.0
 
@@ -29,8 +29,8 @@ Den här artikeln innehåller följande ämnen:
 
 En fördel med Hive är möjligheten att exportera metadata till en extern databas (kallas Hive-Metaarkiv). Den **Hive-Metaarkiv** ansvarar för att lagra tabellstatistik, inklusive tabell lagringsplats, kolumnnamn och tabellinformation för indexet. Databasschemat metaarkiv skiljer sig mellan Hive-versioner. Gör följande om du vill uppgradera en Hive-Metaarkiv på HDInsight 3.6 så att den är kompatibel med HDInsight 4.0.
 
-1. Skapa en ny kopia av din extern metastore. HDInsight 3.6 och 4.0 för HDInsight kräver olika metaarkiv scheman och kan inte dela ett enda metaarkiv.
-1. Koppla den nya kopian av metaarkiv till a) ett befintligt kluster för HDInsight 4.0 eller (b) ett kluster som du skapar för första gången. Se [använda extern metadatalagring i Azure HDInsight](../hdinsight-use-external-metadata-stores.md) vill veta mer om att koppla en extern metastore till ett HDInsight-kluster. När Metaarkiv är att den automatiskt konverteras till ett metaarkiv 4.0-kompatibel.
+1. Skapa en ny kopia av din extern metastore. HDInsight 3.6 och 4.0 för HDInsight kräver olika metaarkiv scheman och kan inte dela ett enda metaarkiv. Se [använda extern metadatalagring i Azure HDInsight](../hdinsight-use-external-metadata-stores.md) vill veta mer om att koppla en extern metastore till ett HDInsight-kluster. 
+2. Starta en skriptåtgärd mot din HDI 3.6-klustret med ”huvudnoder” som nodtyp av för körning. Klistra in följande URI: N i textrutan markeras ”Bash-skript-URI”: https://hdiconfigactions.blob.core.windows.net/hivemetastoreschemaupgrade/launch-schema-upgrade.sh. I textrutan markeras ”argument”, ange servernamn, databas, användarnamn och lösenord för den **kopieras** Hive-metaarkiv, avgränsade med blanksteg. Inkludera inte ”. database.windows.net” när du anger servernamnet.
 
 > [!Warning]
 > Uppgraderingen som konverterar metadataschema HDInsight 3.6 HDInsight 4.0-schemat kan inte ångras.

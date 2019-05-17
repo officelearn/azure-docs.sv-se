@@ -14,18 +14,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: jeconnoc
-ms.openlocfilehash: b20fa7a1f43369cde85c2535637eec7ceb1d3c29
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 13a855c5770281e2578523bfc1813b2e03df6651
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60337311"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65539233"
 ---
 # <a name="enable-diagnostics-in-azure-cloud-services-using-powershell"></a>Aktivera diagnostik i Azure Cloud Services med hjälp av PowerShell
 Du kan samla in diagnostikdata som Programloggar, prestandaräknare osv från en molntjänst med Azure Diagnostics-tillägget. Den här artikeln beskriver hur du aktiverar Azure Diagnostics-tillägget för en molntjänst med hjälp av PowerShell.  Se [hur du installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview) för kraven för den här artikeln.
 
 ## <a name="enable-diagnostics-extension-as-part-of-deploying-a-cloud-service"></a>Aktivera diagnostiktillägget som en del av distributionen av en molntjänst
-Den här metoden kan användas för kontinuerlig integrering typ av scenarier, där du kan aktivera diagnostiktillägget som en del av distributionen av Molntjänsten. När du skapar en ny molntjänst-distribution kan du aktivera diagnostics-tillägg genom att skicka in den *ExtensionConfiguration* parametern till den [New AzureDeployment](/powershell/module/servicemanagement/azure/new-azuredeployment?view=azuresmps-3.7.0) cmdlet. Den *ExtensionConfiguration* parametern tar en rad diagnostikkonfigurationer som kan skapas med hjälp av den [New AzureServiceDiagnosticsExtensionConfig](/powershell/module/servicemanagement/azure/new-azureservicediagnosticsextensionconfig?view=azuresmps-3.7.0) cmdlet.
+Den här metoden kan användas för kontinuerlig integrering typ av scenarier, där du kan aktivera diagnostiktillägget som en del av distributionen av Molntjänsten. När du skapar en ny molntjänst-distribution kan du kan aktivera diagnostiktillägget genom att skicka in den *ExtensionConfiguration* parametern till den [New AzureDeployment](/powershell/module/servicemanagement/azure/new-azuredeployment?view=azuresmps-3.7.0) cmdlet. Den *ExtensionConfiguration* parametern tar en rad diagnostikkonfigurationer som kan skapas med hjälp av den [New AzureServiceDiagnosticsExtensionConfig](/powershell/module/servicemanagement/azure/new-azureservicediagnosticsextensionconfig?view=azuresmps-3.7.0) cmdlet.
 
 I följande exempel visas hur du kan aktivera diagnostik för en molntjänst med en WebRole och WorkerRole, var och en med en annan diagnostik-konfiguration.
 
@@ -85,7 +85,7 @@ foreach ($extPath in $diagnosticsExtensions)
 New-AzureDeployment -ServiceName $service_name -Slot Production -Package $service_package -Configuration $service_config -ExtensionConfiguration $diagnosticsConfigurations
 ```
 
-Visual Studio Online använder ett liknande tillvägagångssätt för automatiserade distributioner av Cloud Services med diagnostics-tillägg. Se [publicera AzureCloudDeployment.ps1](https://github.com/Microsoft/vso-agent-tasks/blob/master/Tasks/AzureCloudPowerShellDeployment/Publish-AzureCloudDeployment.ps1) exempel.
+Visual Studio Online använder ett liknande tillvägagångssätt för automatiserade distributioner av Cloud Services med diagnostics-tillägg. Se [publicera AzureCloudDeployment.ps1](https://github.com/Microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureCloudPowerShellDeploymentV1/Publish-AzureCloudDeployment.ps1) exempel.
 
 Om ingen `StorageAccount` har angetts i diagnostikkonfigurationen måste du skicka in den *StorageAccountName* parameter till cmdleten. Om den *StorageAccountName* parametern anges, kommer cmdleten använder alltid det lagringskonto som anges i parametern och inte det som har angetts i konfigurationsfilen för diagnostik.
 
@@ -120,13 +120,13 @@ Get-AzureServiceDiagnosticsExtension -ServiceName "MyService"
 ```
 
 ## <a name="remove-diagnostics-extension"></a>Ta bort diagnostiktillägg
-Inaktivera diagnostik på en molnbaserad tjänst som du kan använda den [Remove-AzureServiceDiagnosticsExtension](/powershell/module/servicemanagement/azure/remove-azureservicediagnosticsextension?view=azuresmps-3.7.0) cmdlet.
+Om du vill inaktivera diagnostik på en molnbaserad tjänst som du kan använda den [Remove-AzureServiceDiagnosticsExtension](/powershell/module/servicemanagement/azure/remove-azureservicediagnosticsextension?view=azuresmps-3.7.0) cmdlet.
 
 ```powershell
 Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService"
 ```
 
-Om du har aktiverat diagnostiktillägget med *Set-AzureServiceDiagnosticsExtension* eller *New-AzureServiceDiagnosticsExtensionConfig* utan den *rollen*parametern och du kan ta bort tillägget med hjälp av *Remove-AzureServiceDiagnosticsExtension* utan den *rollen* parametern. Om den *rollen* parametern användes för att aktivera tillägget och det måste också användas när du tar bort tillägget.
+Om du har aktiverat diagnostiktillägget med *Set-AzureServiceDiagnosticsExtension* eller *New-AzureServiceDiagnosticsExtensionConfig* utan den *rollen*parametern och sedan ta bort tillägget med hjälp av *Remove-AzureServiceDiagnosticsExtension* utan den *rollen* parametern. Om den *rollen* parametern användes när du aktiverar tillägget och det måste också användas när du tar bort tillägget.
 
 Så här tar du bort diagnostiktillägget från varje enskild roll:
 

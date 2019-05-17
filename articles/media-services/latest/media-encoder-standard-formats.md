@@ -1,6 +1,6 @@
 ---
-title: Media Encoder Standard format och -codec - Azure
-description: Det här avsnittet ger en översikt över Media Encoder Standard format och -codec.
+title: Standardformat för Encoder och codec - Azure
+description: Det här avsnittet ger en översikt över Standard-kodare format och -codec.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: 4c7e0e091aeecb205c63b8fa7e97d7592f15b856
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 730ff68e70999307417eea276761d56f4a44046a
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322275"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520017"
 ---
-# <a name="media-encoder-standard-formats-and-codecs"></a>Media Encoder Standard format och -codec
+# <a name="standard-encoder-formats-and-codecs"></a>Standard Encoder-format och -codec
 
 Den här artikeln innehåller en lista med de vanligaste import- och exportfilformat som du kan använda med [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset). Information om hur du skapar anpassade förinställningar med **StandardEncoderPreset**, se [skapa en transformering med en anpassad förinställning](customize-encoder-presets-how-to.md).
 
@@ -41,12 +41,12 @@ Den här artikeln innehåller en lista med de vanligaste import- och exportfilfo
 | QuickTime (.mov) |Ja |
 
 > [!NOTE]
-> Är en lista över de vanligaste filnamnstilläggen. Media Encoder Standard stöder många andra (till exempel: .m2ts, .mpeg2video, .qt). Om du försöker koda en fil och du får ett felmeddelande om formatet inte stöds, ge feedback [här](https://feedback.azure.com/forums/169396-media-services/category/144411-encoding-and-processing/).
 > 
 > 
 
 ### <a name="audio-formats-in-input-containers"></a>Ljudformat i indata-behållare
-Media Encoder Standard stöder medför följande ljudformat i indata behållare:
+
+Standard-kodare stöder medför följande ljudformat i indata behållare:
 
 * MXF-, GXF- och QuickTime-filer, som har ljudspår med överlagrad stereo eller 5.1-exempel
 

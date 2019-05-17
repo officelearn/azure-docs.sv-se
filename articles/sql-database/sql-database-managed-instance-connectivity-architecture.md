@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 04/16/2019
-ms.openlocfilehash: 399e2585f541f28b3880e69b508cfd643b2f2263
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: dbb5ee122e715aeaa66d786f02966beedd2447c3
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64686293"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522320"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Anslutningsarkitektur för en hanterad instans i Azure SQL Database
 
@@ -86,7 +86,7 @@ När anslutningar starta i den hanterade instansen (precis som med säkerhetskop
 
 Distribuera en hanterad instans i ett dedikerat undernät i virtuella nätverk. Undernätet måste ha följande egenskaper:
 
-- **Dedikerat undernät:** Undernät för den hanterade instansen får inte innehålla andra molntjänst som är associerat med det och den kan inte vara ett gateway-undernät. Undernätet får inte innehålla någon resurs men den hanterade instansen och du senare lägga till inte resurser i undernätet.
+- **Dedikerat undernät:** Undernät för den hanterade instansen får inte innehålla andra molntjänst som är associerat med det och den kan inte vara ett gateway-undernät. Undernätet får inte innehålla någon resurs men den hanterade instansen och du senare lägga till inte andra typer av resurser i undernätet.
 - **Nätverkssäkerhetsgrupp (NSG):** En NSG som är associerat med det virtuella nätverket måste definiera [ingående säkerhetsregler](#mandatory-inbound-security-rules) och [utgående säkerhetsregler](#mandatory-outbound-security-rules) innan andra regler. Du kan använda en NSG för att styra åtkomsten till slutpunkten för den hanterade instansen data genom att filtrera trafik på port 1433 och portar 11000 11999 när hanterade instansen har konfigurerats för omdirigera anslutningar.
 - **Användartabell användardefinierad väg (UDR):** En UDR-tabell som är associerat med det virtuella nätverket måste innehålla specifika [poster](#user-defined-routes).
 - **Tjänsten har inga slutpunkter:** Ingen tjänstslutpunkt ska vara associerat med den hanterade instansen undernät. Kontrollera att tjänsten slutpunkter alternativet inaktiveras när du skapar det virtuella nätverket.
@@ -97,18 +97,18 @@ Distribuera en hanterad instans i ett dedikerat undernät i virtuella nätverk. 
 
 ### <a name="mandatory-inbound-security-rules"></a>Obligatorisk inkommande säkerhetsregler
 
-| Namn       |Port                        |Protokoll|Källa           |Mål|Åtgärd|
+| Namn       |Port                        |Protocol|Källa           |Mål|Åtgärd|
 |------------|----------------------------|--------|-----------------|-----------|------|
-|hantering  |9000, 9003, 1438, 1440, 1452|TCP     |Alla              |MI – UNDERNÄT  |Tillåt |
-|mi_subnet   |Alla                         |Alla     |MI – UNDERNÄT        |MI – UNDERNÄT  |Tillåt |
-|health_probe|Alla                         |Alla     |AzureLoadBalancer|MI – UNDERNÄT  |Tillåt |
+|hantering  |9000, 9003, 1438, 1440, 1452|TCP     |Valfri              |MI – UNDERNÄT  |Tillåt |
+|mi_subnet   |Valfri                         |Valfri     |MI – UNDERNÄT        |MI – UNDERNÄT  |Tillåt |
+|health_probe|Valfri                         |Valfri     |AzureLoadBalancer|MI – UNDERNÄT  |Tillåt |
 
 ### <a name="mandatory-outbound-security-rules"></a>Obligatorisk utgående säkerhetsregler
 
-| Namn       |Port          |Protokoll|Källa           |Mål|Åtgärd|
+| Namn       |Port          |Protocol|Källa           |Mål|Åtgärd|
 |------------|--------------|--------|-----------------|-----------|------|
 |hantering  |80, 443, 12000|TCP     |MI – UNDERNÄT        |AzureCloud |Tillåt |
-|mi_subnet   |Alla           |Alla     |MI – UNDERNÄT        |MI – UNDERNÄT  |Tillåt |
+|mi_subnet   |Valfri           |Valfri     |MI – UNDERNÄT        |MI – UNDERNÄT  |Tillåt |
 
 > [!IMPORTANT]
 > Se till att det finns bara en inkommande regel för portar 9000, 9003, 1438, 1440, 1452 och en regel för utgående portarna 80, 443, 12000. Hanterade instans etablering via Azure Resource Manager distributioner kommer att misslyckas om inkommande och utgående regler konfigureras separat för varje port. Om dessa portar finns i separata regler kan misslyckas distributionen med felkoden `VnetSubnetConflictWithIntendedPolicy`

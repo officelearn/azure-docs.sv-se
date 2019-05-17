@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 028c7f5d42587a6b2129bba07831b0e799d607f4
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: HT
+ms.openlocfilehash: f9be13ac22e6eda32668d635032ebcccf417b6c7
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544219"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785207"
 ---
 # <a name="migrating-applications-to-msalnet"></a>Migrerar program till MSAL.NET
 
@@ -192,7 +192,7 @@ Detta beror på att Resource Manager API: et förväntar sig ett snedstreck i si
 Den logik som används av Azure AD är följande:
 - För ADAL (v1.0) slutpunkten med en v1.0 åtkomsttoken (endast möjliga), aud = resurs
 - För MSAL (v2.0-slutpunkt) frågar en åtkomsttoken för en resurs som tar emot v2.0 token, aud = resurs. AppId
-- För MSAL (v2.0-slutpunkt) frågar en åtkomsttoken för en resurs som tar emot en token för åtkomst av v1.0 (vilket är fallet ovan), tolkar målgrupp från det begärda omfånget genom att ta allt innan det senaste snedstrecket och använda det som resurs-ID i Azure AD. Därför om https://database.windows.net förväntar sig en målgrupp ”https://database.windows.net/”, måste du begära en omfattning https://database.windows.net//.default. Se också utfärda #[747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747): Resurs-url avslutande snedstreck utelämnas, vilket orsakade sql auth fel #747
+- För MSAL (v2.0-slutpunkt) frågar en åtkomsttoken för en resurs som tar emot en token för åtkomst av v1.0 (vilket är fallet ovan), tolkar målgrupp från det begärda omfånget genom att ta allt innan det senaste snedstrecket och använda det som resurs-ID i Azure AD. Därför om https:\//database.windows.net förväntar sig en målgrupp ”https://database.windows.net/”, måste du begära en omfattning https:\//database.windows.net//.default. Se också utfärda #[747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747): Resurs-url avslutande snedstreck utelämnas, vilket orsakade sql auth fel #747
 
 
 ### <a name="scopes-to-request-access-to-all-the-permissions-of-a-v10-application"></a>Sökomfång för att begära åtkomst till alla behörigheter för ett v1.0-program

@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2016
 ms.author: narayan;aglick
-ms.openlocfilehash: f8068524a33c6d29056af456a26b8bd87fc3e3d6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 68a9523dcc9c4dd84399c68fc7e31a692c011487
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60742722"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523262"
 ---
 # <a name="virtual-network--business-continuity"></a>Virtuellt nätverk – kontinuitet för företag
 
 ## <a name="overview"></a>Översikt
 Ett virtuellt nätverk (VNet) är en logisk representation av ditt nätverk i molnet. Det kan du definiera egna privata IP-adressutrymme och segmentera nätverket i undernät. Virtuella nätverk fungerar som en förtroendegräns som värd för dina beräkningsresurser som Azure Virtual Machines och Cloud Services (web/worker-roller). Ett virtuellt nätverk kan direkt privata IP-kommunikation mellan de resurser som finns i den. Du kan länka ett virtuellt nätverk till ett lokalt nätverk via en VPN-Gateway eller ExpressRoute.
 
-Ett virtuellt nätverk skapas inom omfånget för en region. Du kan skapa virtuella nätverk med samma adressutrymme i två olika regioner (till exempel USA, östra och USA, Väst), men det går inte att ansluta dem tillsammans. 
+Ett virtuellt nätverk skapas inom omfånget för en region. Du kan *skapa* virtuella nätverk med samma adressutrymme i två olika regioner (till exempel USA, östra och USA, Väst), men eftersom de har samma-adressutrymme kan du inte kan ansluta dem tillsammans. 
 
 ## <a name="business-continuity"></a>Verksamhetskontinuitet
 

@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 05/14/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 76585f91358ad4744dd5ae1f426afda0650d9a8f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: bae5759beb6a817c411ee52d7eb27dbff4cfe01c
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64704020"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785251"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Konfigurera inloggning för en viss Azure Active Directory-organisation i Azure Active Directory B2C
 
@@ -29,38 +29,40 @@ Att använda en Azure Active Directory (Azure AD) som en [identitetsprovider](ac
 Aktivera inloggning för användare från en viss Azure AD-organisation kan du behöva registrera ett program i organisationen Azure AD-klient som inte är samma som din Azure AD B2C-klient.
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Kontrollera att du använder den katalog som innehåller Azure AD-klienten genom att klicka på katalog- och prenumerationsfilter i menyn längst upp till den katalog som innehåller din Azure AD-klient.
+2. Kontrollera att du använder den katalog som innehåller din Azure AD-klient. Välj den **katalog- och prenumerationsfilter** på den översta menyn och välj den katalog som innehåller din Azure AD-klient. Detta är inte samma klient som din Azure AD B2C-klient.
 3. Välj **alla tjänster** i det övre vänstra hörnet av Azure-portalen och Sök efter och välj **appregistreringar**.
-4. Välj **Ny programregistrering**.
+4. Välj **ny registrering**.
 5. Ange ett namn för ditt program. Till exempel `Azure AD B2C App`.
-6. För den **programtyp**väljer `Web app / API`.
-7. För den **inloggnings-URL**, ange följande URL i alla gemener, där `your-B2C-tenant-name` ersätts med namnet på din Azure AD B2C-klient. Till exempel `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`:
+6. Acceptera valet av **konton i den här organisationens katalogen** för det här programmet.
+7. För den **omdirigerings-URI**, acceptera värdet för **Web**, och ange följande URL i alla gemener, där `your-B2C-tenant-name` ersätts med namnet på din Azure AD B2C-klient. Till exempel `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`:
 
     ```
-    https://your-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
+    https://your--B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
     ```
 
     Alla URL: er bör nu använda [b2clogin.com](b2clogin.md).
 
-8. Klicka på **Skapa**. Kopiera den **program-ID** som ska användas senare.
-9. Välj programmet och välj sedan **inställningar**.
-10. Välj **nycklar**, ange nyckelbeskrivningen, Välj en varaktighet och klicka sedan på **spara**. Kopiera värdet för den nyckel som visas för att användas senare.
+8. Klicka på **registrera**. Kopiera den **(klient)-ID: T** som ska användas senare.
+9. Välj **certifikat och hemligheter** i program-menyn och välj sedan **nya klienthemligheten**.
+10. Ange ett namn för klienthemligheten. Till exempel `Azure AD B2C App Secret`.
+11. Välj giltighetsperiod. Det här programmet accepterar valet av **i 1 år**.
+12. Välj **Lägg till** och kopiera värdet för den nya klienthemligheten som visas för att användas senare.
 
 ## <a name="configure-azure-ad-as-an-identity-provider"></a>Konfigurera Azure AD som identitetsprovider
 
-1. Kontrollera att du använder den katalog som innehåller Azure AD B2C-klient genom att klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller din Azure AD B2C-klient.
+1. Kontrollera att du använder den katalog som innehåller Azure AD B2C-klient. Välj den **katalog- och prenumerationsfilter** på den översta menyn och välj den katalog som innehåller din Azure AD B2C-klient.
 2. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
 3. Välj **identitetsprovidrar**, och välj sedan **Lägg till**.
-4. Ange en **namn**. Ange till exempel ”Contoso Azure AD”.
+4. Ange en **namn**. Ange till exempel `Contoso Azure AD`.
 5. Välj **identifiera providertyp**väljer **öppna ID Connect (förhandsversion)**, och klicka sedan på **OK**.
-6. Klicka på **ställa in den här identitetsprovidern**
+6. Välj **ställa in den här identitetsprovidern**
 7. För **metadata_url**, ange följande URL ersätter `your-AD-tenant-domain` med domännamnet för din Azure AD-klient. Till exempel `https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration`:
 
     ```
     https://login.microsoftonline.com/your-AD-tenant-domain/.well-known/openid-configuration
     ```
 
-8. För **klient-id**, ange program-ID som du sparade tidigare och för **klienthemlighet**, Ange nyckelvärdet som du antecknade tidigare.
+8. För **klient-ID**, ange program-ID som du sparade tidigare och för **klienthemlighet**, ange klienthemligheten som du antecknade tidigare.
 9. Alternativt kan du ange ett värde för **Domain_hint**. Till exempel `ContosoAD`. Det här är värdet som ska användas när du refererar till den här identitetsprovider som använder *domain_hint* i begäran. 
 10. Klicka på **OK**.
 11. Välj **mappa den här identitetsproviderns anspråk** och ange följande anspråk:

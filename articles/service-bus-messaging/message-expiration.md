@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 1ea645ee53f91a62bd49fb1da0d44e2962708b88
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fdfd7794961b0254526b124525c6e978d13b0114
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60402776"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800263"
 ---
 # <a name="message-expiration-time-to-live"></a>Förfallodatum för meddelanden (Time to Live)
 
@@ -35,6 +35,11 @@ Meddelandet är under lås, kanske programmet tillgång ett meddelande som har u
 ## <a name="entity-level-expiration"></a>På entitetsnivå upphör att gälla
 
 Alla meddelanden som skickas till en kö eller ämne som är föremål för en standard-utgångsdatum som anges på entiteten med det [defaultMessageTimeToLive](/azure/templates/microsoft.servicebus/namespaces/queues) egenskap och som kan också ange i portalen när du skapar och justeras senare. Standard-förfallodatum används för alla meddelanden som skickas till enheten där [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) anges inte uttryckligen. Standard-giltighetstid fungerar också som ett tak för den **TimeToLive** värde. Meddelanden som har en längre **TimeToLive** giltighetstid än standardvärdet tyst justeras efter den **defaultMessageTimeToLive** värdet innan du kan i kön.
+
+> [!NOTE]
+> Standard [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) för asynkrona meddelanden är [TimeSpan.Max](https://docs.microsoft.com/dotnet/api/system.timespan.maxvalue) om inte annat anges.
+>
+> För meddelandeentiteter (köer och ämnen), standard-förfallotid är också [TimeSpan.Max](https://docs.microsoft.com/dotnet/api/system.timespan.maxvalue) för Service Bus standard och premium-nivåerna.  Förfallotid för standard är 14 dagar för basic-nivån.
 
 Utgångna meddelanden kan du kan också flyttas till en [obeställbara meddelanden](service-bus-dead-letter-queues.md) genom att ange den [EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enabledeadletteringonmessageexpiration#Microsoft_ServiceBus_Messaging_QueueDescription_EnableDeadLetteringOnMessageExpiration) egenskap eller respektive kryssruta i portalen. Om alternativet är inaktiverat, ignoreras utgångna meddelanden. Utgångna meddelanden i kön för obeställbara meddelanden kan särskiljas från andra lettered förlorade meddelanden genom att utvärdera den [DeadletterReason](service-bus-dead-letter-queues.md#moving-messages-to-the-dlq) egenskap som den asynkrona meddelandekön lagrar i avsnittet användare egenskaper; värdet är [TTLExpiredException](service-bus-dead-letter-queues.md#moving-messages-to-the-dlq) i det här fallet.
 

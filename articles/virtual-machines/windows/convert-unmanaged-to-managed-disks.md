@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2018
 ms.author: rogarana
-ms.openlocfilehash: 21505da414b29f2ae9eeea7f9fcad9db2e57c4fe
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 3c45c8587e3ca19b32ccd8dc66575333622b3cf1
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64702816"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796573"
 ---
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Konvertera en Windows-dator från ohanterade diskar till managed disks
 
@@ -99,7 +99,6 @@ Om de virtuella datorer som du vill konvertera till hanterade diskar är i en ti
 Om det finns ett fel under konverteringen, eller om en virtuell dator är i ett felaktigt tillstånd på grund av problem i en föregående konvertering, kör den `ConvertTo-AzVMManagedDisk` cmdlet igen. Ett enkelt återförsök avblockeras vanligtvis situationen.
 Innan du konverterar, kontrollera att alla VM-tillägg finns i ”lyckades” Etableringsstatus eller konverteringen misslyckas med felkoden 409.
 
-
 ## <a name="convert-using-the-azure-portal"></a>Konvertera med hjälp av Azure portal
 
 Du kan också konvertera ohanterade diskar till hanterade diskar med Azure portal.
@@ -108,7 +107,7 @@ Du kan också konvertera ohanterade diskar till hanterade diskar med Azure porta
 2. Välj den virtuella datorn från listan över virtuella datorer i portalen.
 3. I bladet för den virtuella datorn, väljer **diskar** på menyn.
 4. Överst på den **diskar** bladet väljer **migrera till managed disks**.
-5. Om den virtuella datorn är i en tillgänglighetsuppsättning, är en varning på den **migrera till managed disks** bladet som du vill omvandla tillgänglighetsuppsättningen först. Varningen ska ha en länk som du kan klicka på för att omvandla tillgänglighetsuppsättningen. När tillgänglighetsuppsättningen har omvandlats eller om den virtuella datorn inte är i en tillgänglighetsuppsättning klickar du på **migrera** att starta processen med att migrera dina diskar till hanterade diskar. 
+5. Om den virtuella datorn är i en tillgänglighetsuppsättning, är en varning på den **migrera till managed disks** bladet som du vill omvandla tillgänglighetsuppsättningen först. Varningen ska ha en länk som du kan klicka på för att omvandla tillgänglighetsuppsättningen. När tillgänglighetsuppsättningen har omvandlats eller om den virtuella datorn inte är i en tillgänglighetsuppsättning klickar du på **migrera** att starta processen med att migrera dina diskar till hanterade diskar.
 
 Den virtuella datorn stoppas och startas om när migreringen är klar.
 

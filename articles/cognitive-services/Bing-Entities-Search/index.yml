@@ -5,15 +5,15 @@ metadata:
   title: 'Dokumentation om API för entitetssökning i Bing – självstudier, snabbstarter, API-referenser | Microsoft Docs'
   description: 'Hur du använder API för entitetssökning i Bing för att hämta information om personer, platser eller andra definierade ämnen. Självstudier visar hur du skapar appar som använder tjänsten.'
   services: cognitive-services
-  author: mikedodaro
-  manager: rosh
+  author: aahill
+  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: bing-entity-search
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 02/01/2019
-  ms.author: v-gedod
+  ms.author: aahi
 abstract:
   description: 'Med API:et för entitetssökning i Bing kan dina program få information om identifierade entiteter i sökfrågor. Entiteter kan vara personer, platser, medietitlar med mera.'
 sections:

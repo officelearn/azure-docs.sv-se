@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 05/10/2019
 ms.author: tulasim
-ms.openlocfilehash: 278040cb487df6731df1ad3e18435f6e12ca9d50
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 2454e07e4fc4600f846acc7afbcc19cc0b677450
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65594046"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792242"
 ---
 # <a name="get-a-knowledge-answer-with-the-generateanswer-api-and-metadata"></a>Hämta ett knowledge svar med GenerateAnswer API och metadata
 
@@ -43,7 +43,7 @@ Du kan använda GenerateAnswer-API: er i din robot eller ditt program för att f
 
 ## <a name="publish-to-get-generateanswer-endpoint"></a>Publicera för att hämta GenerateAnswer slutpunkten 
 
-När du publicerar din kunskapsbas, antingen från den [QnA Maker portal](https://www.qnamaker.ai), eller med hjälp av den [API](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff), du kan hämta information om din GenerateAnswer slutpunkt.
+När du publicerar din kunskapsbas, antingen från den [QnA Maker portal](https://www.qnamaker.ai), eller med hjälp av den [API](https://go.microsoft.com/fwlink/?linkid=2092179), du kan hämta information om din GenerateAnswer slutpunkt.
 
 Hämta information om din slutpunkt:
 1. Logga in på [https://www.qnamaker.ai](https://www.qnamaker.ai).
@@ -67,7 +67,7 @@ Den **URL för begäran** har följande format:
 https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
 ```
 
-|Egenskapen för HTTP-begäran|Namn|Typ|Syfte|
+|Egenskapen för HTTP-begäran|Namn|Type|Syfte|
 |--|--|--|--|
 |URL-parameter för väg|Kunskapsbas-ID|string|GUID för kunskapsbasen.|
 |URL-parameter för väg|QnAMaker slutpunktsvärd|string|Värdnamnet för den slutpunkt som distribuerats i din Azure-prenumeration. Detta är tillgängligt på sidan inställningar när du har publicerat i knowledge base. |
@@ -78,7 +78,7 @@ https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
 
 JSON-texten har flera inställningar:
 
-|Brödtext JSON-egenskap|Obligatoriskt|Typ|Syfte|
+|Brödtext JSON-egenskap|Krävs|Type|Syfte|
 |--|--|--|--|
 |`question`|obligatorisk|string|En användare-fråga som ska skickas till din kunskapsbas.|
 |`top`|valfri|heltal|Antal översta resultat ska ingå i utdata. Standardvärdet är 1.|

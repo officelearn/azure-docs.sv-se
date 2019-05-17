@@ -6,21 +6,22 @@ services: media-services
 author: anikaz
 manager: johndeu
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 05/15/2019
 ms.author: anzaman
-ms.openlocfilehash: 8c1d51c2bb6062f1360c831549e523a5821ff14b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 404aaf91c0cb30df0a83353ef7397987ec3f8e80
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60532178"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799420"
 ---
 # <a name="azure-regions-in-which-video-indexer-exists"></a>Azure-regioner där Video Indexer finns
 
 Video Indexer API: er innehåller en **plats** parameter som du bör ange till Azure-region som anropet ska dirigeras. Det här måste vara en [Azure-region som Video Indexer är tillgängligt](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services&regions=all).
 
-## <a name="locations"></a>Platser
+## <a name="locations"></a>Sökvägar
 
 Den **plats** parametern måste anges kodnamnet Azure-region som sitt värde. Om du använder Video Indexer i förhandsgranskningsläge, bör du placera *”utvärderingsversion”* som värde. I annat fall för att få kodnamnet för Azure-region som ditt konto tillhör och att ditt samtal ska vidarebefordras till, du kan köra följande rad i [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest):
 

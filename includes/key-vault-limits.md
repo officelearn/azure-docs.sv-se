@@ -4,14 +4,14 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: 0e55c372c6f5dc3484bd64cf4f328479d2d0b245
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0b9d87fd7929607da8407ae5bbfb2f6dd6d69dab
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60461330"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65212053"
 ---
-## <a name="key-transactions-maximum-transactions-allowed-in-10-seconds-per-vault-per-regionsup1sup"></a>Transaktioner-nyckeln (maximalt antal transaktioner tillåts om 10 sekunder per valv per region<sup>1</sup>):
+#### <a name="key-transactions-maximum-transactions-allowed-in-10-seconds-per-vault-per-regionsup1sup"></a>Transaktioner-nyckeln (maximalt antal transaktioner tillåts om 10 sekunder per valv per region<sup>1</sup>):
 
 |Nyckeltyp|HSM-nyckel<br>SKAPA nyckel|HSM-nyckel<br>Alla andra transaktioner|Programnyckel<br>SKAPA nyckel|Programnyckel<br>Alla andra transaktioner|
 |:---|---:|---:|---:|---:|
@@ -34,7 +34,7 @@ ms.locfileid: "60461330"
 > - 125 RSA 4 096-bitars HSM-nyckel GET-transaktioner
 > - 124 RSA 4 096-bitars HSM-nyckel GET-transaktioner och 8 RSA 2 048-bitars HSM-nyckel GET-transaktioner
 
-## <a name="secrets-managed-storage-account-keys-and-vault-transactions"></a>Hemligheter, hanterade nycklar för lagringskonton och vault-transaktioner:
+#### <a name="secrets-managed-storage-account-keys-and-vault-transactions"></a>Hemligheter, hanterade nycklar för lagringskonton och vault-transaktioner:
 | Transaktioner-typ | Maximalt antal transaktioner tillåts om 10 sekunder per valv per region<sup>1</sup> |
 | --- | --- |
 | Alla transaktioner |2,000 |

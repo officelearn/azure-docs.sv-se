@@ -9,18 +9,18 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 48ebbabca8d38db3a7c1344981f79991de29df80
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 3d5bfa2426d58fa5a09d2203272536eec7fa9c55
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154399"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65789948"
 ---
 # <a name="azure-storage-security-guide"></a>Säkerhetsguiden för Azure Storage
 
 Azure Storage tillhandahåller en omfattande uppsättning funktioner för säkerhet som tillsammans att utvecklare kan skapa säkra program:
 
-- Alla data som skrivs till Azure Storage krypteras automatiskt med [Storage Service Encryption (SSE)](storage-service-encryption.md). Mer information finns i [presenterar standard kryptering för Azure-Blobar, filer, tabeller och Queue Storage](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/).
+- Alla data (inklusive metadata) skrivs till Azure Storage krypteras automatiskt med [Storage Service Encryption (SSE)](storage-service-encryption.md). Mer information finns i [presenterar standard kryptering för Azure-Blobar, filer, tabeller och Queue Storage](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/).
 - Azure Active Directory (Azure AD) och rollbaserad åtkomstkontroll (RBAC) stöds för Azure Storage för både resource management-åtgärder och åtgärder, enligt följande:   
     - Du kan tilldela RBAC-roller som är begränsade till storage-konto till säkerhetsobjekt och Använd Azure AD för att auktorisera resource management-åtgärder, till exempel nyckelhantering.
     - Azure AD-integrering stöds för åtgärder för blob och kö. Du kan tilldela RBAC-roller som är begränsade till en prenumeration, resursgrupp, storage-konto, eller en enskild behållare eller kön på ett säkerhetsobjekt eller en hanterad identitet för Azure-resurser. Mer information finns i [autentisera åtkomsten till Azure Storage med Azure Active Directory](storage-auth-aad.md).   
@@ -238,10 +238,9 @@ Mer detaljerad information om hur du använder signaturer för delad åtkomst oc
     Den här artikeln innehåller exempel på användning av en tjänstnivå SAS med BLOB-objekt, Kömeddelanden, tabell-intervall och filer.
   * [Skapa en tjänst-SAS](https://msdn.microsoft.com/library/dn140255.aspx)
   * [Skapa en konto-SAS](https://msdn.microsoft.com/library/mt584140.aspx)
-* Det här är självstudier för att använda .NET-klientbiblioteket för att skapa signaturer för delad åtkomst och lagrade åtkomstprinciper.
 
+* Det här är en självstudie för att använda .NET-klientbiblioteket för att skapa signaturer för delad åtkomst och lagrade åtkomstprinciper.
   * [Använda signaturer för delad åtkomst (SAS)](../storage-dotnet-shared-access-signature-part-1.md)
-  * [Signaturer för delad åtkomst, del 2: Skapa och använda en SAS med Blob Service](../blobs/storage-dotnet-shared-access-signature-part-2.md)
 
     Den här artikeln innehåller en förklaring av den SAS-modellen, exempel på signaturer för delad åtkomst och rekommendationer för bästa praxis använder SAS. Vi beskriver även återkallande av vilken behörighet.
 

@@ -144,7 +144,7 @@
 - name: Referens
   items:
     - name: Referens för REST API
-      href: 'https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff'
+      href: 'https://go.microsoft.com/fwlink/?linkid=2092179'
     - name: VANLIGA FRÅGOR OCH SVAR
       href: faqs.md
     - name: Begränsningar

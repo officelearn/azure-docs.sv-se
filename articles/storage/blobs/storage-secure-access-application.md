@@ -11,10 +11,10 @@ ms.reviewer: cbrooks
 ms.custom: mvc
 ms.openlocfilehash: 8e56b02b84c0324f723ead1bbf156c847edbbeb5
 ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2019
-ms.locfileid: "65743298"
+ms.locfileid: "65787994"
 ---
 # <a name="secure-access-to-an-applications-data-in-the-cloud"></a>Skydda åtkomsten till ett programs data i molnet
 

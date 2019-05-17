@@ -9,10 +9,10 @@ ms.service: azure-policy
 manager: carmonm
 ms.openlocfilehash: 03d15d30deabbc2bd34fbb4fba108be382f94fa1
 ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2019
-ms.locfileid: "65756514"
+ms.locfileid: "65787350"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-a-resource-manager-template"></a>Snabbstart: Skapa en principtilldelning som identifierar icke-kompatibla resurser med hjälp av Resource Manager-mall
 

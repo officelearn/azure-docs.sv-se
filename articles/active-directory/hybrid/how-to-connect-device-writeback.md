@@ -16,12 +16,12 @@ ms.date: 05/08/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64e3e7928d9f39b9ed2a681eb8ec9a63f73ea54a
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 977b599c26e8bb586cc47bd2f0aac80034f22834
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65507944"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785719"
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: Aktivera tillbakaskrivning av enheter
 > [!NOTE]
@@ -31,7 +31,7 @@ ms.locfileid: "65507944"
 
 Följande dokumentation innehåller information om hur du aktiverar funktionen för tillbakaskrivning av enhet i Azure AD Connect. Tillbakaskrivning av enheter används i följande scenarier:
 
-* Aktivera [Windows Hello för företag med hjälp av hybriddistribution certifikat förtroende](https://docs.microsoft.com/en-us/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust-prereqs#device-registration)
+* Aktivera [Windows Hello för företag med hjälp av hybriddistribution certifikat förtroende](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust-prereqs#device-registration)
 * Aktivera villkorlig åtkomst baserat på enheter för att AD FS (2012 R2 eller senare) skyddade applikationer (förtroenden för förlitande part).
 
 Detta ger ytterligare säkerhet och kontroll som ges åtkomst till program bara till betrodda enheter. Mer information om villkorlig åtkomst finns i [hantera risker med villkorlig åtkomst](../active-directory-conditional-access-azure-portal.md) och [konfigurera lokal villkorlig åtkomst med hjälp av Azure Active Directory Device Registration](../../active-directory/active-directory-device-registration-on-premises-setup.md).

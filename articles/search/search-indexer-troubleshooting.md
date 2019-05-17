@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: magottei
 ms.custom: seodec2018
-ms.openlocfilehash: 81987115ba0406e704f2198061c6ee3cae8a72df
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 256a38320c9b3ca826ee9c12ac0a437957f988e2
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024697"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65539296"
 ---
 # <a name="troubleshooting-common-indexer-issues-in-azure-search"></a>Felsökning av vanliga problem med indexerare i Azure Search
 
@@ -27,7 +27,7 @@ Indexerare kan hamna i ett antal problem vid indexering av data till Azure Searc
 
 ## <a name="data-source-connection-errors"></a>Anslutningsfel för data källan
 
-### <a name="blob-storage"></a>Blob Storage
+### <a name="blob-storage"></a>Blobblagring
 
 #### <a name="storage-account-firewall"></a>Brandvägg för Storage-konto
 

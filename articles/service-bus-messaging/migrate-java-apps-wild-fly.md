@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2019
 ms.author: asirveda
-ms.openlocfilehash: a103526ef63c02913862510c01e9fde6570d89c0
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 2392d0ef9d6257b93b76f13a5354eeba57d78ddd
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65515451"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800286"
 ---
 # <a name="migrate-java-enterprise-edition-ee-apps-to-azure"></a>Migrera Java enterprise edition (EE) appar till Azure
 Den här artikeln vägleder dig genom processen att migrera befintliga Java EE-arbetsbelastningar till Azure:
@@ -67,7 +67,7 @@ Du ska migrera WildFly/JBoss exempelappar till Azure. De här apparna använda:
 Efter migreringen kör du de appar som använder Azure Service Bus.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
-Om du vill distribuera en Java-webbapp till Azure måste behöver du en Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du aktivera dina [MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) eller registrera dig för ett [kostnadsfritt Azure-konto]((https://azure.microsoft.com/pricing/free-trial/)).
+Om du vill distribuera en Java-webbapp till Azure måste behöver du en Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du aktivera dina [MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) eller registrera dig för ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/en-us/free/).
 
 Dessutom måste följande krav:
 
@@ -936,7 +936,7 @@ Picked up _JAVA_OPTIONS: -Djava.net.preferIPv4Stack=true
 
 För ytterligare information, se: 
  
- - [Distribuera allmänna JMS RA kortet i JBoss/WildFly](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.1/html/configuring_messaging/resource_adapters#deploy_configure_generic_jms_resource_adapter)
+ - [Distribuera allmänna JMS RA kortet i JBoss/WildFly](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.1/html/configuring_messaging/resource_adapters#deploy_configure_generic_jms_resource_adapter)
  - [JBoss/WildFly CLI-guiden](https://docs.jboss.org/author/display/WFLY/Command+Line+Interface)
  - [Öppna SSH-session från utvecklingsdatorn till App Service på Linux](../app-service/containers/app-service-linux-ssh-support.md#open-ssh-session-from-remote-shell)
 

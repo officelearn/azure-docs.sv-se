@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 12/26/2018
-ms.openlocfilehash: 35159a1630c7f1268119cd55cc6e0ac99dfd7b5f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3a95ee065b25f936f08e1c775dc9c42e75a0f67e
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60890653"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65793859"
 ---
 # <a name="quickstart-build-a-python-app-using-azure-cosmos-dbs-api-for-mongodb"></a>Snabbstart: Skapa en Python-app med hjälp av Azure Cosmos DB:s API för MongoDB
 
@@ -104,7 +104,7 @@ Följande kodavsnitt hämtas från filen app.py och använder anslutningssträng
 
 2. Öppna ett terminalfönster och `cd` till den katalog där appen sparas.
 
-3. Ange sedan miljövariabeln för Flask-appen med `set FLASK_APP=app.py` eller `export FLASK_APP=app.py` om du använder en Mac.
+3. Ange sedan miljövariabeln för Flask-app med `set FLASK_APP=app.py`, `$env:FLASK_APP = app.py` för PowerShell-redigerare eller `export FLASK_APP=app.py` om du använder en Mac. 
 
 4. Kör appen med `flask run` och bläddra till [http://127.0.0.1:5000/](http://127.0.0.1:5000/).
 

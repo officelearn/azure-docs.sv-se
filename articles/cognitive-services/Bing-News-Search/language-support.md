@@ -3,19 +3,19 @@ title: Stöd för språk - nyhetssökning i Bing
 titleSuffix: Azure Cognitive Services
 description: En lista över naturligt språk, länder och regioner som stöds av den nyhetssökning i Bing.
 services: cognitive-services
-author: MikeDodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 1/10/2019
-ms.author: v-gedod
-ms.openlocfilehash: f94ebb9b46ade0c03f65fdeb78bc7be96794a3d2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: aahi
+ms.openlocfilehash: e8a7f6d20ed36c4b3e900602fb52e31dceefae88
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60201422"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799333"
 ---
 # <a name="language-and-region-support-for-the-bing-news-search-api"></a>Stöd för språk och din region för den nyhetssökning i Bing
 
@@ -37,24 +37,24 @@ För en lista över land/region koder som du kan ange i den `cc` frågeparameter
 |Österrike|Tyska|Tyskland-AT|
 |Schweiz|Tyska|Tyskland – CH|
 |Tyskland|Tyska|de-DE|
-|Australien|Svenska|SV-Australien|
-|Kanada|Svenska|en CA: N|
-|Storbritannien|Svenska|en-GB|
-|Indonesien|Svenska|en-ID|
-|Irland|Svenska|en IE|
-|Indien|Svenska|en Indien|
-|Malaysia|Svenska|en-MY|
-|Nya Zeeland|Svenska|en NZ|
-|Filippinerna|Svenska|en-PH|
-|Singapore|Svenska|en-SG|
-|USA|Svenska|en-US|
-|Svenska|Allmänt|en WW|
-|Svenska|Allmänt|en-XA|
-|Sydafrika|Svenska|en ZA|
+|Australien|Engelska|SV-Australien|
+|Kanada|Engelska|en CA: N|
+|Storbritannien och Nordirland|Engelska|en-GB|
+|Indonesien|Engelska|en-ID|
+|Irland|Engelska|en IE|
+|Indien|Engelska|en Indien|
+|Malaysia|Engelska|en-MY|
+|Nya Zeeland|Engelska|en NZ|
+|Filippinerna|Engelska|en-PH|
+|Singapore|Engelska|en-SG|
+|USA|Engelska|en-US|
+|Engelska|Allmänt|en WW|
+|Engelska|Allmänt|en-XA|
+|Sydafrika|Engelska|en ZA|
 |Argentina|Spanska|es-AR|
 |Chile|Spanska|es-CL|
 |Spanien|Spanska|es-ES|
-|Mexiko|Spanska|es-MX|
+|Mexico|Spanska|es-MX|
 |USA|Spanska|es-US|
 |Spanska|Allmänt|es-XL|
 |Finland|Finska|fi-FI|  
@@ -66,7 +66,7 @@ För en lista över land/region koder som du kan ange i den `cc` frågeparameter
 |Italien|Italienska|IT-IT|
 |Hongkong SAR|Traditionell kinesiska|zh-HK|  
 |Taiwan|Traditionell kinesiska|zh-TW|
-|Japan|Japanska|ja-JP|  
+|Japan|japanska|ja-JP|  
 |Korea|Koreanska|ko-KR|  
 |Nederländerna|Nederländska|NL-NL|  
 |Folkrepubliken Kina|Kinesiska|zh-CN|  
@@ -84,12 +84,12 @@ För en lista över land/region koder som du kan ange i den `cc` frågeparameter
 |---------------------|--------------|-----------------|
 |Danmark|Danska|da-DK|
 |Tyskland|Tyska|de-DE|
-|Australien|Svenska|SV-Australien|
-|Storbritannien|Svenska|en-GB|
-|USA|Svenska|en-US|
-|Svenska|Allmänt|en WW|
+|Australien|Engelska|SV-Australien|
+|Storbritannien och Nordirland|Engelska|en-GB|
+|USA|Engelska|en-US|
+|Engelska|Allmänt|en WW|
 |Chile|Spanska|es-CL|
-|Mexiko|Spanska|es-MX|
+|Mexico|Spanska|es-MX|
 |USA|Spanska|es-US|
 |Finland|Finska|fi-FI|  
 |Kanada|Franska|fr-CA|
@@ -106,11 +106,11 @@ För en lista över land/region koder som du kan ange i den `cc` frågeparameter
 |Land/region|Språk|Marknaden kod|  
 |---------------------|--------------|-----------------|
 |Tyskland|Tyska|de-DE|
-|Australien|Svenska|SV-Australien|
-|Storbritannien|Svenska|en-GB|
-|USA|Svenska|en-US|
-|Kanada|Svenska|en CA: N|
-|Indien|Svenska|en Indien|
+|Australien|Engelska|SV-Australien|
+|Storbritannien och Nordirland|Engelska|en-GB|
+|USA|Engelska|en-US|
+|Kanada|Engelska|en CA: N|
+|Indien|Engelska|en Indien|
 |Frankrike|Franska|fr-FR|
 |Kanada|Franska|fr-CA|
 |Brasilien|Portugisiska|pt-BR|
@@ -138,14 +138,14 @@ Följande är de koder för land/region som du kan ange i den `cc` frågeparamet
 |Hongkong SAR|HK|  
 |Indien|IN|  
 |Indonesien|ID|  
-|Italien|IT|  
+|Italien|it|  
 |Japan|JP|  
 |Korea|KR|  
 |Malaysia|MY|  
-|Mexiko|MX|  
+|Mexico|MX|  
 |Nederländerna|NL|  
 |Nya Zeeland|NZ|  
-|Norge|NO|  
+|Norge|NEJ|  
 |Folkrepubliken Kina|CN|  
 |Polen|PL|  
 |Portugal|PT|  
@@ -158,7 +158,7 @@ Följande är de koder för land/region som du kan ange i den `cc` frågeparamet
 |Schweiz|CH|  
 |Taiwan|TW|  
 |Turkiet|TR|  
-|Storbritannien|GB|  
+|Storbritannien och Nordirland|GB|  
 |USA|USA|
 
 ## <a name="next-steps"></a>Nästa steg

@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 04/19/2018
 ms.author: mimart
 author: msmimart
-manager: daveba
+manager: celestedg
 ms.reviewer: sasubram
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f1121b72bf631cbcee4c8d9502fd8a439c26fbf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b302ec0265473e09b3960660b10661faa1960442
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60357247"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65812966"
 ---
 # <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>Tillåt eller blockera inbjudningar till B2B-användare från specifika organisationer
 
@@ -79,7 +79,7 @@ Om du växlar från en princip till en annan ignorerar detta i befintliga konfig
 
 ## <a name="set-the-allow-or-deny-list-policy-using-powershell"></a>Ange listan Tillåt eller neka lista princip med hjälp av PowerShell
 
-### <a name="prerequisite"></a>Krav
+### <a name="prerequisite"></a>Förutsättning
 
 För att välja listan Tillåt eller neka listan med hjälp av PowerShell, måste du installera förhandsversionen av Azure Active Directory-modulen för Windows PowerShell. Mer specifikt installera AzureADPreview Modulversion 2.0.0.98 eller senare.
 

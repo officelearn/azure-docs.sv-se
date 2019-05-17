@@ -12,12 +12,12 @@ ms.workload: search
 ms.date: 05/02/2019
 ms.author: HeidiSteen
 ms.custom: seodec2018
-ms.openlocfilehash: 91c58507d8758a65772110afba71354deecd3b12
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 5374ff896613dd8f8563a2054be8a92103e63fbb
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024274"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523909"
 ---
 # <a name="azure-search-service-rest-api-version-2019-05-06-preview"></a>Azure Search Service REST api-versionen 2019-05-06-förhandsversion
 Den här artikeln beskriver den `api-version=2019-05-06-Preview` versionen av Azure Search service REST API, erbjuder experimentella funktioner som inte ännu är allmänt tillgänglig.
@@ -37,6 +37,8 @@ Den här artikeln beskriver den `api-version=2019-05-06-Preview` versionen av Az
 Funktioner som vi tillkännagav i tidigare förhandsversioner är fortfarande i offentlig förhandsversion. Om du anropar ett API med en tidigare förhandsversion api-version, kan du fortsätta att använda den här versionen eller växla till `2019-05-06-Preview` utan ändringar i förväntat beteende.
 
 + [moreLikeThis frågeparameter](search-more-like-this.md) söker efter dokument som är relevanta för ett visst dokument. Den här funktionen har varit i tidigare förhandsversioner. 
+* [CSV-blob-indexering](search-howto-index-csv-blobs.md) skapar ett dokument per rad, till skillnad från ett dokument per text blob.
+* [MongoDB API-stöd för Cosmos DB-indexerare](search-howto-index-cosmosdb.md) är en förhandsversion.
 
 
 ## <a name="how-to-call-a-preview-api"></a>Hur du anropar en förhandsversionen av API

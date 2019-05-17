@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fba0a9bc0886b9487b0c61b6091bd122fe6e370d
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 04dde608f5885cdafe18b49a388de8dbb596cbfe
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65191549"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65539361"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Med hjälp av System för domänerna Identity Management (SCIM) att automatiskt etablera användare och grupper från Azure Active Directory till program
 
@@ -202,7 +202,7 @@ Det här avsnittet innehåller exempel SCIM begäranden som orsakats av Azure AD
 
 #### <a name="create-user"></a>Skapa användare
 
-###### <a name="request"></a>Förfrågan
+###### <a name="request"></a>Begäran
 *POST/användare*
 ```json
 {
@@ -259,7 +259,7 @@ Det här avsnittet innehåller exempel SCIM begäranden som orsakats av Azure AD
 
 #### <a name="get-user"></a>Hämta användare
 
-###### <a name="request"></a>Förfrågan
+###### <a name="request"></a>Begäran
 *GET /Users/5d48a0a8e9f04aa38008* 
 
 ###### <a name="response"></a>Svar
@@ -290,7 +290,7 @@ Det här avsnittet innehåller exempel SCIM begäranden som orsakats av Azure AD
 ```
 #### <a name="get-user-by-query"></a>Hämta användare av frågan
 
-##### <a name="request"></a>Förfrågan
+##### <a name="request"></a>Begäran
 *GET /Users?filter=userName eq "Test_User_dfeef4c5-5681-4387-b016-bdf221e82081"*
 
 ##### <a name="response"></a>Svar
@@ -329,7 +329,7 @@ Det här avsnittet innehåller exempel SCIM begäranden som orsakats av Azure AD
 
 #### <a name="get-user-by-query---zero-results"></a>Hämta användare av frågan - resultat
 
-##### <a name="request"></a>Förfrågan
+##### <a name="request"></a>Begäran
 *GET /Users?filter=userName eq "non-existent user"*
 
 ##### <a name="response"></a>Svar
@@ -347,7 +347,7 @@ Det här avsnittet innehåller exempel SCIM begäranden som orsakats av Azure AD
 
 #### <a name="update-user-multi-valued-properties"></a>Uppdatera användare [med flera värden egenskaper]
 
-##### <a name="request"></a>Förfrågan
+##### <a name="request"></a>Begäran
 *PATCH /Users/6764549bef60420686bc HTTP/1.1*
 ```json
 {
@@ -396,7 +396,7 @@ Det här avsnittet innehåller exempel SCIM begäranden som orsakats av Azure AD
 
 #### <a name="update-user-single-valued-properties"></a>Uppdatera användare [enkelvärdesattribut egenskaper]
 
-##### <a name="request"></a>Förfrågan
+##### <a name="request"></a>Begäran
 *KORRIGERA/användare/5171a35d82074e068ce2 HTTP/1.1*
 ```json
 {
@@ -439,7 +439,7 @@ Det här avsnittet innehåller exempel SCIM begäranden som orsakats av Azure AD
 
 #### <a name="delete-user"></a>Ta bort användare
 
-##### <a name="request"></a>Förfrågan
+##### <a name="request"></a>Begäran
 *Ta bort /Users/5171a35d82074e068ce2 HTTP/1.1*
 
 ##### <a name="response"></a>Svar
@@ -454,13 +454,12 @@ Det här avsnittet innehåller exempel SCIM begäranden som orsakats av Azure AD
 
 #### <a name="create-group"></a>Skapa grupp
 
-##### <a name="request"></a>Förfrågan
+##### <a name="request"></a>Begäran
 *POST/groups HTTP/1.1*
 ```json
 {
     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:Group", "http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/2.0/Group"],
     "externalId": "8aa1a0c0-c4c3-4bc0-b4a5-2ef676900159",
-    "id": "c4d56c3c-bf3b-4e96-9b64-837018d6060e",
     "displayName": "displayName",
     "members": [],
     "meta": {
@@ -489,7 +488,7 @@ Det här avsnittet innehåller exempel SCIM begäranden som orsakats av Azure AD
 
 #### <a name="get-group"></a>Hämta grupp
 
-##### <a name="request"></a>Förfrågan
+##### <a name="request"></a>Begäran
 *GET /Groups/40734ae655284ad3abcc?excludedAttributes=members HTTP/1.1*
 
 ##### <a name="response"></a>Svar
@@ -510,7 +509,7 @@ Det här avsnittet innehåller exempel SCIM begäranden som orsakats av Azure AD
 
 #### <a name="get-group-by-displayname"></a>Hämta grupp av displayName
 
-##### <a name="request"></a>Förfrågan
+##### <a name="request"></a>Begäran
 */ Groups GET? excludedAttributes = medlemmar & filter = displayName eq ”displayName” HTTP/1.1*
 
 ##### <a name="response"></a>Svar
@@ -537,7 +536,7 @@ Det här avsnittet innehåller exempel SCIM begäranden som orsakats av Azure AD
 ```
 #### <a name="update-group-non-member-attributes"></a>Uppdatera grupp [icke-Medlemsattribut]
 
-##### <a name="request"></a>Förfrågan
+##### <a name="request"></a>Begäran
 *KORRIGERA/grupper/fa2ce26709934589afc5 HTTP/1.1*
 ```json
 {
@@ -555,7 +554,7 @@ Det här avsnittet innehåller exempel SCIM begäranden som orsakats av Azure AD
 
 ### <a name="update-group-add-members"></a>Uppdatera grupp [Lägg till medlemmar]
 
-##### <a name="request"></a>Förfrågan
+##### <a name="request"></a>Begäran
 *PATCH /Groups/a99962b9f99d4c4fac67 HTTP/1.1*
 ```json
 {
@@ -576,7 +575,7 @@ Det här avsnittet innehåller exempel SCIM begäranden som orsakats av Azure AD
 
 #### <a name="update-group-remove-members"></a>Uppdatera grupp [ta bort medlemmar]
 
-##### <a name="request"></a>Förfrågan
+##### <a name="request"></a>Begäran
 *PATCH /Groups/a99962b9f99d4c4fac67 HTTP/1.1*
 ```json
 {
@@ -597,7 +596,7 @@ Det här avsnittet innehåller exempel SCIM begäranden som orsakats av Azure AD
 
 #### <a name="delete-group"></a>Ta bort grupp
 
-##### <a name="request"></a>Förfrågan
+##### <a name="request"></a>Begäran
 *DELETE /Groups/cdb1ce18f65944079d37 HTTP/1.1*
 
 ##### <a name="response"></a>Svar
@@ -617,7 +616,7 @@ Så fungerar här det:
 ### <a name="code-samples"></a>Kodexempel
 Att göra den här processen enklare, [kodexempel](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master) har angett, vilket skapar en SCIM web service-slutpunkt och visa Automatisk etablering. I exemplet är av en leverantör som underhåller en fil med rader med kommaavgränsade värden som representerar användare och grupper.    
 
-**Förutsättningar**
+**Krav**
 
 * Visual Studio 2013 eller senare
 * [Azure SDK för .NET](https://azure.microsoft.com/downloads/)

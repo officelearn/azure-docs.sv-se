@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/28/2019
+ms.date: 05/15/2019
 ms.author: alkohli
-ms.openlocfilehash: 55c880d0e795873a759ba121b6de0c98c5249061
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 2b4825770d8220e24c0d981af19313f265806d84
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924474"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800446"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-nfs"></a>Självstudier: Kopiera data till Azure Data Box via NFS
 
@@ -130,7 +130,9 @@ Om du använder rsync-alternativet för en flertrådig kopia följer du dessa ri
 > [!IMPORTANT]
 > Följande Linux-filtyper stöds inte: symboliska länkar, filer, filer, sockets och pipes. De här filtyperna leder till fel under den **Förbered för att skicka** steg.
 
-- För att säkerställa dataintegriteten beräknas kontrollsumman infogat när data kopieras. När kopieringen är klar kontrollerar du det använda utrymmet och det lediga utrymmet på enheten.
+Öppna målmappen för att visa och verifiera de kopierade filerna. Om det uppstod fel under kopieringsprocessen laddar du ned felfilerna för felsökning. Mer information finns i [visa felloggarna under Datakopieringen till Data Box](data-box-logs.md#view-error-log-during-data-copy-to-data-box). En detaljerad lista över fel vid kopiering av data finns i [felsöka Data Box utfärdar](data-box-troubleshoot.md).
+
+För att säkerställa dataintegriteten beräknas kontrollsumman infogat när data kopieras. När kopieringen är klar kontrollerar du det använda utrymmet och det lediga utrymmet på enheten.
     
    ![Kontrollera ledigt och använt utrymme på instrumentpanelen](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
 

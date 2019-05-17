@@ -14,12 +14,12 @@ ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: decba8f46432891a44a2b231890da4214bd5b1bb
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 0a7fa3bfe159620130bc0962b470cea8e7422646
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65140998"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602153"
 ---
 # <a name="complete-an-access-review-of-azure-ad-roles-in-pim"></a>Slutför en åtkomstgranskning i Azure AD-roller i PIM
 Privilegierade rolladministratörer kan granska privilegierad åtkomst när en [åtkomstgranskning har startats](pim-how-to-start-security-review.md). Azure Active Directory (Azure AD) Privileged Identity Management (PIM) skickas automatiskt ett e-postmeddelande som uppmanar användarna att granska åtkomsten. Om en användare inte fått ett e-postmeddelande, kan du skicka dem instruktionerna [så här utför du en åtkomstgranskning](pim-how-to-perform-security-review.md).
@@ -33,7 +33,7 @@ När åtkomstgranskningsperiod är över, eller alla användare är klar med sin
 
 På bladet för den åtkomstgranskning information om finns det ett antal alternativ för att hantera granskningen.
 
-![PIM-knappar för granskning av åtkomst – skärmbild](./media/pim-how-to-complete-review/PIM_review_buttons.png)
+![PIM-knappar för granskning av åtkomst – skärmbild](./media/pim-how-to-complete-review/review-buttons.png)
 
 ### <a name="remind"></a>Påminn
 Om en åtkomstgranskning har konfigurerats så att användarna granska själva den **Påminn** knappen skickar ut ett meddelande. 
@@ -41,13 +41,13 @@ Om en åtkomstgranskning har konfigurerats så att användarna granska själva d
 ### <a name="stop"></a>Stoppa
 Alla åtkomstgranskningar har ett slutdatum, men du kan använda den **stoppa** för att slutföra den tidigt. Om användare inte har granskats av den här tiden, kommer inte de att kunna när du stoppa granskningen. Du kan inte starta om en granskning när den har stoppats.
 
-### <a name="apply"></a>Använd
+### <a name="apply"></a>Tillämpa
 När en åtkomstgranskning är klar, antingen eftersom du har nått slutdatum eller stoppade den manuellt, den **tillämpa** knappen implementerar resultatet av granskningen. Om en användares åtkomst nekades i granskningen, är detta det steg som tar bort sina rolltilldelning.  
 
 ### <a name="export"></a>Exportera
 Om du vill använda resultatet av åtkomstgranskningen manuellt kan du exportera granskningen. Den **exportera** knappen startar hämta en CSV-fil. Du kan hantera resultaten i Excel och andra program som öppna CSV-filer.
 
-### <a name="delete"></a>Ta bort
+### <a name="delete"></a>Radera
 Om du inte är intresserad av att granska ytterligare kan du ta bort den. Den **ta bort** knappen tar bort granskningen från PIM-programmet.
 
 > [!IMPORTANT]

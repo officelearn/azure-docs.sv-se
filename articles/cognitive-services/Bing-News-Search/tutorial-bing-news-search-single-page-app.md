@@ -3,20 +3,20 @@ title: 'Självstudie: Skapa en enkelsidig webbapp – API för nyhetssökning i 
 titlesuffix: Azure Cognitive Services
 description: Använd den här självstudien för att skapa ett enkelsidigt program som kan skicka sökfrågor till API:et för nyhetssökning i Bing och visa resultaten på webbsidan.
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: tutorial
 ms.date: 01/10/2019
-ms.author: v-gedod
+ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 29539ba39e724208093910f8fb6fa2d3bc309bda
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 78a985180fb2b665aed75b39acfc4d39ccd04132
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60685961"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65798568"
 ---
 # <a name="tutorial-create-a-single-page-web-app"></a>Självstudie: Skapa en enkelsidig webbapp
 

@@ -14,10 +14,10 @@ manager: craigg
 ms.date: 03/25/2019
 ms.openlocfilehash: 3959eb789102cd3d54fc7bab32e585b3c09d897b
 ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2019
-ms.locfileid: "65754963"
+ms.locfileid: "65792142"
 ---
 # <a name="quickstart-use-net-and-c-in-visual-studio-to-connect-to-and-query-an-azure-sql-database"></a>Snabbstart: Använda .NET och C# i Visual Studio för att ansluta till och köra frågor mot en Azure SQL-databas
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 570330f47d2c610032c9c6646231c2320b2257be
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d242b2815d59676432beb878bbc955a9f39de0f1
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64732670"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65535862"
 ---
 # <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Återställning för säkerhetskopiering och haveriberedskap för Azure IaaS-diskar
 
@@ -123,7 +123,7 @@ Dina val för hög tillgänglighet, säkerhetskopiering och Katastrofåterställ
 
 | Nivå |   Hög tillgänglighet   | Säkerhetskopiering eller DR |
 | --- | --- | --- |
-| Program | SQL Server AlwaysOn | Azure Backup |
+| Tillämpningsprogram | SQL Server AlwaysOn | Azure Backup |
 | Infrastruktur    | Tillgänglighetsuppsättning  | GEO-redundant lagring med programkonsekventa ögonblicksbilder |
 
 ### <a name="using-azure-backup"></a>Med hjälp av Azure Backup 
@@ -148,7 +148,7 @@ Använd följande steg för att aktivera säkerhetskopiering för dina virtuella
 
     b. På den **Recovery Services-valv** -menyn klickar du på **Lägg till** och följ stegen för att skapa ett nytt valv i samma region som den virtuella datorn. Om den virtuella datorn är i regionen USA, västra, väljer du exempelvis USA, västra för valvet.
 
-1.  Kontrollera lagringsreplikering för valvet du skapade. Komma åt valvet under **Recovery Services-valv** och gå till **inställningar** > **Säkerhetskopieringskonfigurationen**. Se till att den **geo-redundant lagring** alternativet är markerat som standard. Det här alternativet innebär att ditt valv replikeras automatiskt till ett sekundärt datacenter. Exempelvis replikeras automatiskt ditt valv i västra USA till östra USA.
+1.  Kontrollera lagringsreplikering för valvet du skapade. Komma åt valvet under **Recovery Services-valv** och gå till **egenskaper** > **Säkerhetskopieringskonfigurationen** > **Update** . Se till att den **geo-redundant lagring** alternativet är markerat som standard. Det här alternativet innebär att ditt valv replikeras automatiskt till ett sekundärt datacenter. Exempelvis replikeras automatiskt ditt valv i västra USA till östra USA.
 
 1.  Konfigurera principen för säkerhetskopiering och välj den virtuella datorn från samma användargränssnitt.
 

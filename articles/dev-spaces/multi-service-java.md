@@ -12,10 +12,10 @@ keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare,
 manager: yuvalm
 ms.openlocfilehash: a5afd093e0f961d048681465850419c5e8712557
 ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2019
-ms.locfileid: "65752132"
+ms.locfileid: "65800395"
 ---
 # <a name="multi-service-development-with-azure-dev-spaces"></a>Utveckling av flera tjänster med Azure Dev Spaces
 

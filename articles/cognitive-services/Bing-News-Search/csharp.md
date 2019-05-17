@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 1/10/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: f7c5ce2ce4725277fc08634a021d2b38d11abc1c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 87e328230b346deaa25a1d83ca46c1698dd84882
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61384968"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65798353"
 ---
 # <a name="quickstart-search-for-news-using-c-and-the-bing-news-search-rest-api"></a>Snabbstart: Söka efter nyheter med hjälp av C# och REST-API:et för nyhetssökning i Bing
 
@@ -26,7 +26,7 @@ Använd den här snabbstarten för att göra ditt första anrop till API för ny
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-* Valfri version av [Visual Studio 2017](https://www.visualstudio.com/downloads/).
+* En utgåva av [Visual Studio 2017 eller senare](https://www.visualstudio.com/downloads/).
 * [Json.NET](https://www.newtonsoft.com/json) framework, tillgänglig som ett NuGet-paket.
 * Om du använder Linux/Mac OS kan det här programmet köras med [Mono](https://www.mono-project.com/).
 

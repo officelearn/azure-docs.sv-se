@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 30cb6e49782b97d28b0d999f585d630477e8572f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1a3382e560287502ae8afccae556bc5f56245904
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64684135"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65812951"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
 
@@ -43,7 +43,7 @@ Den **TrustFrameworkPolicy** elementet innehåller följande attribut:
 | PolicySchemaVersion | Ja | Schemaversion som ska användas för att köra principen. Värdet måste vara `0.3.0.0` |
 | TenantObjectId | Nej | Unikt objekt-ID för Azure Active Directory (Azure AD) B2C-klient. |
 | TenantId | Ja | Den unika identifieraren för den klient som den här principen tillhör. |
-| PolicyId | Ja | Den unika identifieraren för principen. Den här identifieraren måste föregås av *B2C_1A_* |
+| `PolicyId` | Ja | Den unika identifieraren för principen. Den här identifieraren måste föregås av *B2C_1A_* |
 | PublicPolicyUri | Ja | URI för principen som är kombination av klient-ID och princip-ID. |
 | DeploymentMode | Nej | Möjliga värden: `Production`, `Debugging`, eller `Development`. `Production` används som standard. Använd den här egenskapen för att felsöka din princip. Mer information finns i [samla in loggar](active-directory-b2c-troubleshoot-custom.md). |
 | UserJourneyRecorderEndpoint | Nej | Den slutpunkt som används när **DeploymentMode** är inställd på `Development`. Värdet måste vara `urn:journeyrecorder:applicationinsights`. Mer information finns i [samla in loggar](active-directory-b2c-troubleshoot-custom.md). |
@@ -91,7 +91,7 @@ Den **BasePolicy** elementet innehåller följande element:
 | Element | Förekomster | Beskrivning |
 | ------- | ----------- | --------|
 | TenantId | 1:1 | Identifierare för din Azure AD B2C-klient. |
-| PolicyId | 1:1 | Identifierare för den överordnade principen. |
+| `PolicyId` | 1:1 | Identifierare för den överordnade principen. |
 
 
 I följande exempel visas hur du anger en grundläggande princip. Detta **B2C_1A_TrustFrameworkExtensions** princip härleds från den **B2C_1A_TrustFrameworkBase** princip. 
@@ -138,7 +138,7 @@ B2C_1A_TrustFrameWorkBase eller B2C_1A_TrustFrameworkExtensionPolicy:
 
 En användarresa definierar vad en användare går igenom affärslogik. Varje användarresan är en uppsättning orchestration-steg som utför en rad åtgärder, i följd i information om autentisering och samling. 
 
-Den **SocialAndLocalAccounts** principfil i den [startpaket](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom#download-starter-pack-and-modify-policies) innehåller SignUpOrSignIn, ProfileEdit, PasswordReset användaren resor. Du kan lägga till fler användare utbildning för en annan scenarier, till exempel ändra en e-postadress, länka och ta bort länken ett socialt konto eller återställa ett lösenord. 
+Den **SocialAndLocalAccounts** principfil i den [startpaket](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom#download-starter-pack-and-modify-policies) innehåller SignUpOrSignIn, ProfileEdit, PasswordReset användaren resor. Du kan lägga till fler användare utbildning för andra scenarier, till exempel ändrar en e-postadress eller länka och tar bort länken ett socialt konto. 
 
 Orchestration-steg kan anropa en [tekniska profilen](technicalprofiles.md). Tekniska profilen ger ett ramverk med en inbyggd mekanism för att kommunicera med olika typer av parter. Tekniska profilen kan exempelvis utföra följande åtgärder bland annat:
 
@@ -157,4 +157,3 @@ Orchestration-steg kan anropa en [tekniska profilen](technicalprofiles.md). Tekn
 - [ClaimsProviders](claimsproviders.md)
 - [UserJourneys](userjourneys.md)
 - [RelyingParty](relyingparty.md)
-

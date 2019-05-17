@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2019
-ms.openlocfilehash: 9636157182e8b40914bde2515c5b295d0480255a
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: db36bbf6e20f9fab2f9a99f59be7a088e8f208e1
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510986"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800915"
 ---
 # <a name="use-interactive-query-with-hdinsight"></a>Använda interaktiv fråga med HDInsight
 Interaktiv fråga (kallas även Apache Hive-LLAP eller [med låg latens Analytical Processing](https://cwiki.apache.org/confluence/display/Hive/LLAP)) är ett Azure HDInsight [klustertyp](../hdinsight-hadoop-provision-linux-clusters.md#cluster-types). Interaktiv fråga har stöd för cachelagring i minnet, vilket gör Apache Hive-frågor snabbare och mycket mer interaktivt.
@@ -67,7 +67,7 @@ Hitta anslutningssträngen Java Database Connectivity (JDBC):
 
 * Lär dig hur du [skapa interaktiva frågekluster i HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 * Lär dig hur du [visualisera big data med Power BI i Azure HDInsight](../hadoop/apache-hadoop-connect-hive-power-bi.md).
-* Lär dig hur du [använder Apache Zeppelin för att köra Apache Hive-frågor i Azure HDInsight](../hdinsight-connect-hive-zeppelin.md).
+* Lär dig hur du [använder Apache Zeppelin för att köra Apache Hive-frågor i Azure HDInsight](../interactive-query/hdinsight-connect-hive-zeppelin.md).
 * Lär dig hur du [kör Apache Hive-frågor med Data Lake Tools för Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md#run-interactive-apache-hive-queries).
 * Lär dig hur du [använder HDInsight Tools för Visual Studio Code](../hdinsight-for-vscode.md).
 * Lär dig hur du [använda Apache Hive-vy med Apache Hadoop i HDInsight](../hadoop/apache-hadoop-use-hive-ambari-view.md)

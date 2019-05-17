@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 05/1/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: sahenry
+ms.reviewer: sahenry, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3baf2690ae07b87bb4d5dba30fcd20f62a1a4506
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: abe9cba604100a42a4cd29ccd5af47e8898ea409
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60358097"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65812938"
 ---
 # <a name="enable-combined-security-information-registration-preview"></a>Aktivera kombineras security information registrering (förhandsversion)
 
@@ -51,6 +51,37 @@ Om du har konfigurerat platser till zoner tilldelning i Internet Explorer, måst
 * [https://mysignins.microsoft.com](https://mysignins.microsoft.com)
 * [https://account.activedirectory.windowsazure.com](https://account.activedirectory.windowsazure.com)
 
+## <a name="conditional-access-policies-for-combined-registration"></a>Principer för villkorlig åtkomst för kombinerade registrering
+
+Säkra när och hur användare registrera dig för Azure Multi-Factor Authentication och lösenordsåterställning via självbetjäning är nu möjligt med användaråtgärder i principen för villkorlig åtkomst. Den här funktionen för förhandsgranskning är tillgänglig för organisationer som har aktiverat den [kombineras registrering förhandsversion](../authentication/concept-registration-mfa-sspr-combined.md). Den här funktionen kan aktiveras i organisationer där de vill att användare registrerar sig för Azure Multi-Factor Authentication och SSPR från en central plats, till exempel en betrodd nätverksplats under HR-integrering. Mer information om hur du skapar betrodda platser i villkorlig åtkomst finns i artikeln [vad är platsvillkoret för villkorlig åtkomst i Azure Active Directory?](../conditional-access/location-condition.md#named-locations)
+
+### <a name="create-a-policy-to-require-registration-from-a-trusted-location"></a>Skapa en princip för att kräva registrering från en betrodd plats
+
+Följande principen gäller för alla markerade användare som försöker registrera dig med den kombinerade registrerings-upplevelse och blockerar åtkomsten om de ansluter från en plats som markerats som betrott nätverk.
+
+![Skapa en princip för CA: N för att styra security info registrering](media/howto-registration-mfa-sspr-combined/conditional-access-register-security-info.png)
+
+1. I den **Azure-portalen**, bläddra till **Azure Active Directory** > **villkorlig åtkomst**
+1. Välj **Ny princip**
+1. Ange ett namn för den här principen i namn. Till exempel **kombineras Security Info registreringen på betrodda nätverk**
+1. Under **tilldelningar**, klickar du på **användare och grupper**, och välj de användare och grupper som du vill att den här principen ska tillämpas på
+
+   > [!WARNING]
+   > Användare måste aktiveras för den [kombineras registrering förhandsversion](../authentication/howto-registration-mfa-sspr-combined.md).
+
+1. Under **molnbaserade appar eller åtgärder**väljer **användaråtgärder**, kontrollera **registrera säkerhetsinformation (förhandsversion)**
+1. Under **villkor** > **platser**
+   1. Konfigurera **Ja**
+   1. Inkludera **valfri plats**
+   1. Exkludera **alla betrodda platser**
+   1. Klicka på **klar** på bladet platser
+   1. Klicka på **klar** på bladet villkor
+1. Under **åtkomstkontroller** > **bevilja**
+   1. Klicka på **blockera åtkomst**
+   1. Klicka sedan på **Välj**
+1. Ange **aktiverar principen** till **på**
+1. Klicka sedan på **skapa**
+
 ## <a name="next-steps"></a>Nästa steg
 
 [Tillgängliga metoder för Multifaktorautentisering och SSPR](concept-authentication-methods.md)
@@ -60,3 +91,5 @@ Om du har konfigurerat platser till zoner tilldelning i Internet Explorer, måst
 [Konfigurera Azure Multi-Factor Authentication](howto-mfa-getstarted.md)
 
 [Felsöka kombineras security info registrering](howto-registration-mfa-sspr-combined-troubleshoot.md)
+
+[Vad är platsvillkoret för villkorlig åtkomst i Azure Active Directory?](../conditional-access/location-condition.md)

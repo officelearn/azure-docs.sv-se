@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 7c462971f7ac02e35ab8df5b651da7d0a3f39e1f
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: e6a7d4bb7452ff8f6b3c2536a5aa100a15a6ec78
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65022265"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65539265"
 ---
 #    <a name="named-entity-recognition-cognitive-skill"></a>Namngivna Entitetsidentifiering kognitiva kunskaper
 
 Den **med namnet Entitetsidentifiering** färdighet extraherar namngivna enheter från text. Tillgängliga entiteter omfattar typer `person`, `location` och `organization`.
 
 > [!IMPORTANT]
-> Igenkänning av namngivna entiteter färdighet har nu upphört ersättas med [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md). Support stoppas den 15 februari 2019 och API: et togs bort från produkten i den 2 maj 2019. Följ rekommendationerna i [inaktuell kognitiva Search funktioner](cognitive-search-skill-deprecated.md) att migrera till en färdighet som stöds.
+> Igenkänning av namngivna entiteter färdighet har nu upphört ersättas med [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md). Support stoppas den 15 februari 2019 och API: et togs bort från produkten i den 2 maj 2019. Följ rekommendationerna i [inaktuell kognitiv sökning kunskaper](cognitive-search-skill-deprecated.md) att migrera till en färdighet som stöds.
 
 > [!NOTE]
 > När du utökar omfattningen genom att öka frekvensen för bearbetning, att lägga till fler dokument eller att lägga till fler AI-algoritmer, måste du [bifoga en fakturerbar resurs för Cognitive Services](cognitive-search-attach-cognitive-services.md). Avgifter tillkommer när du anropar API: er i Cognitive Services och extrahering av avbildningen som en del av det dokumentknäckning steget i Azure Search. Det finns inga avgifter för textextrahering från dokument.

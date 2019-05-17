@@ -1,7 +1,7 @@
 ---
 title: 'Klassificering: Förutsäga kreditrisken (kostnad känsliga)'
 titleSuffix: Azure Machine Learning service
-description: Detta visuella gränssnittet exempelexperiment visar hur du använder en anpassad Python-skriptet för att utföra kostnadskänslig binär klassificering. Du kan förutsäga kreditrisk baserat på informationen i en kreditansökan.
+description: Den här artikeln visar hur du skapar komplexa machine learning-experiment med det visuella gränssnittet. Du lär dig att implementera anpassad Python-skript och jämföra flera modeller för att välja det bästa alternativet.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,26 +9,25 @@ ms.topic: article
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
-ms.date: 05/02/2019
-ms.openlocfilehash: 433c258f86705f66e0163100407be7996d68bc6b
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.date: 05/10/2019
+ms.openlocfilehash: d714756c19b94eafc40cc0dbeffbc07704e8f94e
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65440951"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787820"
 ---
 # <a name="sample-4---classification-predict-credit-risk-cost-sensitive"></a>Exempel 4 - klassificering: Förutsäga kreditrisken (kostnad känsliga)
 
-Detta visuella gränssnittet exempelexperiment visar hur du använder en anpassad Python-skriptet för att utföra kostnadskänslig binär klassificering. Kostnaden för misclassifying positivt exemplen är fem gånger kostnaden för misclassifying negativt exemplen.
+Den här artikeln visar hur du skapar komplexa machine learning-experiment med det visuella gränssnittet. Du lär dig att implementera anpassad logik med hjälp av Python-skript och jämföra flera modeller för att välja det bästa alternativet.
 
-Det här exemplet kan du förutsäga kreditrisk baserat på information som anges i en kreditansökan, med hänsyn till felklassificering kostnaderna.
+Det här exemplet träna en klassificerare att förutsäga kreditrisk med kredit programinformation som kredithistorik, ålder och antalet kreditkort. Du kan dock använda begreppen i den här artikeln för att hantera din egen machine learning problem.
 
-I det här experimentet jämför vi två olika metoder för att skapa modeller för att lösa problemet:
+Om du precis har kommit igång med machine learning, kan du ta en titt på de [grundläggande klassificerare exempel](ui-sample-classification-predict-credit-risk-basic.md) första.
 
-- Utbildning med den ursprungliga datauppsättningen.
-- Utbildning med en replikerad datauppsättning.
+Här är färdiga diagrammet det här experimentet:
 
-Med båda metoderna utvärdera det modeller med hjälp av test-datauppsättning med replikering så att resultat ligger i linje med funktionen kostnaden. Testar vi två klassificerare med båda metoderna: **Två-Class Support Vector Machine** och **Tvåklassförhöjt beslutsträd**.
+[![Diagram över experimentet](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -38,15 +37,18 @@ Med båda metoderna utvärdera det modeller med hjälp av test-datauppsättning 
 
     ![Öppna experimentet](media/ui-sample-classification-predict-credit-risk-cost-sensitive/open-sample4.png)
 
-## <a name="related-sample"></a>Relaterade exemplet
-
-Se [exempel 3 – klassificering: Kreditriskförutsägelse (grundläggande)](ui-sample-classification-predict-churn.md) för ett grundläggande experiment som löser samma problem som det här experimentet utan justera för felklassificering kostnader.
-
 ## <a name="data"></a>Data
 
 Vi använder den tyska kreditkort datauppsättningen från UC Irvine-databasen. Den här datauppsättningen innehåller 1 000 exempel med 20 funktioner och 1 etikett. Varje exempel representerar en person. De 20 funktionerna inkluderar numeriska och kategoriska funktioner. Se den [UCI webbplatsen](https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29) för mer information om datauppsättningen. Den sista kolumnen är den etiketten, som anger kreditrisken och har bara två möjliga värden: hög kreditrisk = 2 och låg kreditrisk = 1.
 
 ## <a name="experiment-summary"></a>Sammanfattning för experiment
+
+I det här experimentet jämför vi två olika metoder för att skapa modeller för att lösa problemet:
+
+- Utbildning med den ursprungliga datauppsättningen.
+- Utbildning med en replikerad datauppsättning.
+
+Med båda metoderna utvärdera det modeller med hjälp av test-datauppsättning med replikering så att resultat ligger i linje med funktionen kostnaden. Testar vi två klassificerare med båda metoderna: **Två-Class Support Vector Machine** och **Tvåklassförhöjt beslutsträd**.
 
 Kostnaden för misclassifying ett exempel på låg risk som hög är 1 och kostnaden för misclassifying ett med hög risk exempel så låga är 5. Vi använder en **kör Python-skript** modulen att kompensera för den här felklassificering kostnad.
 
@@ -71,7 +73,7 @@ För att återspegla den här kostnaden funktionen vi för att generera en ny da
 
 Om du vill replikera data med hög risk, låter vi den här Python-koden i en **kör Python-skript** modulen:
 
-```
+```Python
 import pandas as pd
 
 def azureml_main(dataframe1 = None, dataframe2 = None):
@@ -104,12 +106,11 @@ Vi kan använda standard experimentella arbetsflödet för att skapa, träna och
 
 1. Initiera learning-algoritmer, använda **två-Class Support Vector Machine** och **Tvåklassförhöjt beslutsträd**.
 1. Använd **Träningsmodell** att använda algoritmen för data och skapa den faktiska modellen.
-3. Använd **Poängmodell** frambringa resultat med hjälp av test-exemplen.
+1. Använd **Poängmodell** frambringa resultat med hjälp av test-exemplen.
 
 I följande diagram visas en del av det här experimentet där de ursprungliga och replikerade utbildning som används för att träna två olika SVM modeller. **Träna modellen** är ansluten till träningsmängden, och **Poängmodell** är ansluten till test-uppsättningen.
 
 ![Experimentdiagram](media/ui-sample-classification-predict-credit-risk-cost-sensitive/score-part.png)
-
 
 I steget utvärdering av experimentet compute vi noggrannheten för var och en av de fyra modellerna. Det här experimentet som vi använder **utvärdera modell** att jämföra exempel som har samma felklassificering kostnad.
 
@@ -121,7 +122,7 @@ Observera att det replikerade testdata används som indata för **Poängmodell**
 
 Den **utvärdera modell** modulen genererar en tabell med en enskild rad som innehåller olika mått. Om du vill skapa en enda uppsättning resultatens noggrannhet först använder vi **Lägg till rader** att kombinera resultaten till en enda tabell. Vi använder sedan följande skript i Python i den **kör Python-skript** modulen lägger du till modellnamnet och utbildning metod för varje rad i tabellen med resultat:
 
-```
+```Python
 import pandas as pd
 
 def azureml_main(dataframe1 = None, dataframe2 = None):
@@ -138,7 +139,6 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
     result = pd.concat([new_cols, dataframe1], axis=1)
     return result,
 ```
-
 
 ## <a name="results"></a>Resultat
 

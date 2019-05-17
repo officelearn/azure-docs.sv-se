@@ -3,8 +3,8 @@ title: Inga användare etableras till en Azure AD-galleriprogram | Microsoft Doc
 description: Så här felsöker du vanliga problem som kan stöta på när du inte ser användarna som visas i ett Azure AD-Galleriprogram som du har konfigurerat för etableringen av användare med Azure AD
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/20/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6e74ad04f10865a830d27c1814be10eeff3ad59
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eaeb97f88c2482cb9d091afb1c205e9b09a85ce0
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60443223"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65784576"
 ---
 # <a name="no-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>Inga användare etableras till en Azure AD-galleriprogram
 När automatisk etablering har konfigurerats för ett program (inklusive verifierar att app-autentiseringsuppgifterna till Azure AD för att ansluta till appen är giltiga), som sedan/användare eller grupper tilldelas appen. Etablering bestäms av följande saker:

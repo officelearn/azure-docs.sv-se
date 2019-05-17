@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/22/2019
+ms.date: 05/07/2019
 ms.author: magoedte
-ms.openlocfilehash: 4fa2553622d5ef2d08ec148b6a70aab6de257407
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c83a862a37dbf28c6933877bf4a0aecc4364e6c5
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61385957"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522093"
 ---
 # <a name="how-to-chart-performance-with-azure-monitor-for-vms-preview"></a>Hur du diagrammet prestanda med Azure Monitor för virtuella datorer (förhandsversion)
 Azure Monitor för virtuella datorer innehåller en uppsättning prestandadiagram som är inriktade på flera nyckeltal (KPI: er) för att bestämma hur bra en virtuell dator fungerar. Diagrammen visar Resursanvändning under en viss tid så att du kan identifiera flaskhalsar, avvikelser, eller växla till ett perspektiv som lista varje dator om du vill visa resursanvändningen baserat på mått som har valts. Det finns ett stort antal element att överväga när du hanterar prestanda, rör Azure Monitor för nyckeltal för virtuella datorer Övervakare viktiga operativsystemet processor, minne, nätverkskort och diskanvändning. Prestanda kompletterar hälsotillstånd övervakningsfunktionen och hjälper till att exponera problem som indikerar ett möjligt system komponentfel, support justering och optimering för att uppnå effektivitet eller stöd för kapacitetsplanering.  
@@ -105,6 +105,21 @@ Följande kapacitet användning diagrammen tillhandahålls:
 Klicka på ikonen PIN-kod i det övre högra hörnet i någon av PIN-koder för diagram det markerade diagrammet till senaste Azure-instrumentpanelen visade du. Du kan ändra storlek på och flytta diagrammet på instrumentpanelen. Markerat diagrammet från instrumentpanelen omdirigeras du till Azure Monitor för virtuella datorer och läser in detaljvy prestanda för den virtuella datorn.  
 
 ![VM insikter prestanda direkt visa från virtuella datorn](./media/vminsights-performance/vminsights-performance-directvm-01.png)
+
+## <a name="view-performance-directly-from-an-azure-virtual-machine-scale-set"></a>Visa prestanda direkt från en Azure VM-skalningsuppsättning
+Utför följande steg för att komma åt direkt från en Azure VM-skalningsuppsättning.
+
+1. I Azure-portalen väljer du **VM-skalningsuppsättningar**.
+2. I listan, väljer en virtuell dator och i den **övervakning** i avsnittet **Insights (förhandsversion)** att visa den **prestanda** fliken.
+
+Den här sidan läses in i Azure Monitor prestandavyn begränsade till valda skalningsuppsättningen. Detta gör att du kan se de översta N instanserna i skalningsuppsättningen över uppsättningen övervakade mått, visa sammanställda prestanda över skalningsuppsättningen och se trender för valda mått på enskilda instanser n skalan ange. Att välja en instans i listvyn kan du läsa in dess kartan eller navigera till en detaljerad prestandavy för instansen.
+
+Klicka på ikonen PIN-kod i det övre högra hörnet i någon av PIN-koder för diagram det markerade diagrammet till senaste Azure-instrumentpanelen visade du. Du kan ändra storlek på och flytta diagrammet på instrumentpanelen. Markerat diagrammet från instrumentpanelen omdirigeras du till Azure Monitor för virtuella datorer och läser in detaljvy prestanda för den virtuella datorn.  
+
+![VM insikter prestanda direkt från virtuella datorer ställer du in vyn](./media/vminsights-performance/vminsights-performance-directvmss-01.png)
+
+>[!NOTE]
+>Du kan också komma åt en detaljerad prestandavy för en specifik instans från vyn instanser för din skalningsuppsättning. Gå till **instanser** under den **inställningar** och sedan välja **Insights (förhandsversion)**.
 
 ## <a name="alerts"></a>Aviseringar  
 Prestandamått aktiverad som en del av Azure Monitor för virtuella datorer inkluderar inte förkonfigurerade Varningsregler. Det finns [hälsovarningar](vminsights-health.md#alerts) motsvarar prestandaproblem som har identifierats på den virtuella Azure-datorn, till exempel hög processoranvändning, minnesbrist diskutrymme tillgängligt, låg, osv.  Dock gäller endast dessa hälsovarningar för alla virtuella datorer som aktiverats för Azure Monitor för virtuella datorer. 

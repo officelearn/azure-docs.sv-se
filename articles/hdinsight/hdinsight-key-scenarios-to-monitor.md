@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: arindamc
-ms.openlocfilehash: 22484885663a4f9a908ae988882b87612129251a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9a6a63748ef36bbbceb00bc815616f2cb12692a7
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64693226"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799798"
 ---
 # <a name="monitor-cluster-performance"></a>Övervaka klusterprestanda
 
@@ -30,7 +30,7 @@ Om du vill titta på hög nivå på noderna i klustret och deras läser in, logg
 | Färg | Beskrivning |
 | --- | --- |
 | Röd | Minst en master komponent på värden har stoppats. Hovra om du vill se en knappbeskrivning som visar komponenter som påverkas. |
-| Orange | Minst en underordnad komponent på värden har stoppats. Hovra om du vill se en knappbeskrivning som visar komponenter som påverkas. |
+| Orange | Minst en sekundär komponent på värden har stoppats. Hovra om du vill se en knappbeskrivning som visar komponenter som påverkas. |
 | Gul | Ambari-servern har inte tagit emot ett pulsslag från värden under mer än 3 minuter. |
 | Grön | Normal körs tillstånd. |
 

@@ -3,18 +3,18 @@ title: Använda geografiska gränser för att filtrera resultaten från den loka
 titleSuffix: Azure Cognitive Services
 description: Använd den här artikeln om du vill lära dig att filtrera sökresultaten från den lokala företag i Bing.
 services: cognitive-services
-author: mikedodaro
-manager: rosh
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 193d0b25276b90f6047943ded83f2000dd4d3436
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e87ef96184974d10f99028be13399d1422a1c774
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60336005"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796602"
 ---
 # <a name="use-geographic-boundaries-to-filter-results-from-the-bing-local-business-search-api"></a>Använda geografiska gränser för att filtrera resultaten från den lokala företag i Bing
 

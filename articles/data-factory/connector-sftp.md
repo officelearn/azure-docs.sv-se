@@ -55,7 +55,7 @@ Följande egenskaper har stöd för SFTP länkade tjänsten:
 | host | Namn eller IP-adressen för SFTP-servern. |Ja |
 | port | Porten som SFTP-servern lyssnar.<br/>Tillåtna värden är: heltal, standardvärdet är **22**. |Nej |
 | skipHostKeyValidation | Ange om du vill hoppa över nyckelvalidering för värden.<br/>Tillåtna värden är: **SANT**, **FALSKT** (standard).  | Nej |
-| ska hostKeyFingerprint | Ange fingeravtryck av serverns värdnyckel. | Ja om ”skipHostKeyValidation” är inställt på FALSKT.  |
+| hostKeyFingerprint | Ange fingeravtryck av serverns värdnyckel. | Ja om ”skipHostKeyValidation” är inställt på FALSKT.  |
 | authenticationType | Ange autentiseringstyp.<br/>Tillåtna värden är: **Basic**, **SshPublicKey**. Referera till [använder grundläggande autentisering](#using-basic-authentication) och [med hjälp av SSH autentisering med offentlig nyckel](#using-ssh-public-key-authentication) respektive avsnitt på fler egenskaper och JSON-exempel. |Ja |
 | connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Azure Integration Runtime eller lokal Integration Runtime (om ditt datalager finns i privat nätverk). Om den inte anges används standard Azure Integration Runtime. |Nej |
 
@@ -105,7 +105,7 @@ Om du vill använda autentisering med SSH offentlig nyckel, egenskapen ”authen
 | userName | Användare som har åtkomst till SFTP-server |Ja |
 | privateKeyPath | Ange absolut sökväg till filen för privat nyckel som Integration Runtime kan komma åt. Gäller bara när lokal Integration Runtime har angetts i ”connectVia”. | Ange antingen den `privateKeyPath` eller `privateKeyContent`.  |
 | privateKeyContent | Base64-kodade innehåll för SSH privat nyckel. SSH-privata nyckeln ska vara OpenSSH-format. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ange antingen den `privateKeyPath` eller `privateKeyContent`. |
-| Lösenfras | Ange pass frasen/lösenord för att dekryptera den privata nyckeln om nyckelfilen skyddas av en godkänd fras. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja om filen för privata nyckeln skyddas av en godkänd fras. |
+| passPhrase | Ange pass frasen/lösenord för att dekryptera den privata nyckeln om nyckelfilen skyddas av en godkänd fras. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja om filen för privata nyckeln skyddas av en godkänd fras. |
 
 > [!NOTE]
 > SFTP-anslutningsappen har stöd för RSA/DSA OpenSSH-nyckel. Kontrollera att innehållet nyckelfil som börjar med ”---BEGIN [RSA/DSA] privata NYCKELN---”. Om den privata nyckelfilen är en fil för ppk-format, Använd Putty verktyget för att konvertera från .ppk till OpenSSH-format. 
@@ -182,7 +182,7 @@ Att kopiera data från SFTP i **Parquet eller avgränsat textformat**, referera 
 
 | Egenskap    | Beskrivning                                                  | Krävs |
 | ---------- | ------------------------------------------------------------ | -------- |
-| typ       | Egenskapen type under `location` i datauppsättningen måste anges till **SftpLocation**. | Ja      |
+| type       | Egenskapen type under `location` i datauppsättningen måste anges till **SftpLocation**. | Ja      |
 | folderPath | Sökvägen till mappen. Om du vill använda jokertecken för att filtrera mappar hoppa över den här inställningen och ange i källinställningar för aktiviteten. | Nej       |
 | fileName   | Filnamnet under den angivna folderPath. Om du vill använda jokertecken för att filtrera filerna hoppa över den här inställningen och ange i källinställningar för aktiviteten. | Nej       |
 
@@ -281,7 +281,7 @@ Att kopiera data från SFTP i **Parquet eller avgränsat textformat**, referera 
 
 | Egenskap                  | Beskrivning                                                  | Krävs                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
-| typ                     | Egenskapen type under `storeSettings` måste anges till **SftpReadSetting**. | Ja                                           |
+| type                     | Egenskapen type under `storeSettings` måste anges till **SftpReadSetting**. | Ja                                           |
 | recursive                | Anger om data läses rekursivt från undermapparna eller endast från den angivna mappen. Observera att när rekursiv har angetts till true och mottagaren är en filbaserad store, en tom mapp eller undermapp inte kopieras eller skapat i mottagaren. Tillåtna värden är **SANT** (standard) och **FALSKT**. | Nej                                            |
 | wildcardFolderPath       | Sökvägen till mappen med jokertecken för att filtrera källa mappar. <br>Tillåtna jokertecken är: `*` (matchar noll eller flera tecken) och `?` (matchar noll eller valfritt tecken); Använd `^` att undvika om din faktiska mappnamn har jokertecken eller den här escape-tecken i. <br>Se fler exempel i [mapp och fil Filterexempel](#folder-and-file-filter-examples). | Nej                                            |
 | wildcardFileName         | Filnamn med jokertecken under den angivna folderPath/wildcardFolderPath filter källfilerna för. <br>Tillåtna jokertecken är: `*` (matchar noll eller flera tecken) och `?` (matchar noll eller valfritt tecken); Använd `^` att undvika om din faktiska mappnamn har jokertecken eller den här escape-tecken i.  Se fler exempel i [mapp och fil Filterexempel](#folder-and-file-filter-examples). | Ja om `fileName` har inte angetts i datauppsättningen |

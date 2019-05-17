@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 01/09/2019
+ms.date: 05/15/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand what Data Box Disk is and how it works so I can use it to import on-premises data into Azure.
-ms.openlocfilehash: 20b8d7a6a7d6da639481045d9462c484b820a4df
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 194f2b80e9cbf3a69fef6ce382e6755934f1d5bd
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64575821"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787441"
 ---
 # <a name="what-is-azure-data-box-disk"></a>Vad är Azure Data Box Disk?
 
@@ -77,7 +77,7 @@ Mer information finns i [Säkerhet och dataskydd i Azure Data Box Disk](data-box
 | Specifikationer                                          | Beskrivning              |
 |---------------------------------------------------------|--------------------------|
 | Vikt                                                  | < 1 kg per låda. Upp till 5 diskar i lådan                |
-| Dimensioner                                              | Disk – 2,5-tums SSD |            
+| Mått                                              | Disk – 2,5-tums SSD |            
 | Kablar                                                  | 1 USB 3.1-kabel per disk|
 | Lagringskapacitet per beställning                              | 40 TB (ca 35 TB användbart)|
 | Disklagringskapacitet                                   | 8 TB (ca 7 TB användbart)|
@@ -89,22 +89,7 @@ Mer information finns i [Säkerhet och dataskydd i Azure Data Box Disk](data-box
 
 ## <a name="region-availability"></a>Regional tillgänglighet
 
-Data Box Disk kan för närvarande överföra data till följande Azure-regioner:
-
-
-|Azure-region  |Azure-region  |
-|---------|---------|
-|Västra centrala USA     |Centrala Kanada       |        
-|USA, västra 2     |Östra Kanada         |     
-|Västra USA     | Västra Europa        |      
-|Södra centrala USA   |Norra Europa     |         
-|Centrala USA     |Östra Australien|
-|Norra centrala USA  |Sydöstra Australien   |
-|Östra USA      |Australien, centrala |
-|USA, östra 2     |Australien, centrala 2|
-|Östra Japan     |Sydkorea, centrala |
-|Västra Japan     |Sydkorea, södra |
-|Sydostasien |
+Information om regiontillgänglighet går du till [Azure produkttillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all).
 
 
 ## <a name="pricing"></a>Prissättning

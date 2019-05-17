@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: 622b1f6f6a852251c07c5576ed10cd76adbf5231
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: f2605ee5688a86de0a8e7d036aa63edd604c6538
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59795023"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787187"
 ---
 # <a name="how-to-use-service-bus-queues-with-python"></a>Hur du använder Service Bus-köer med Python
 
@@ -60,11 +60,7 @@ sb_client.create_queue("taskqueue")
 Den `create_queue` metoden har stöd för ytterligare alternativ som gör att du kan åsidosätta standardinställningarna för kön som meddelandet tiden till live (TTL) eller största köstorlek också. I följande exempel anger den största köstorleken till 5 GB och TTL-värdet till 1 minut:
 
 ```python
-queue_options = Queue()
-queue_options.max_size_in_megabytes = '5120'
-queue_options.default_message_time_to_live = 'PT1M'
-
-sb_client.create_queue("taskqueue", queue_options)
+sb_client.create_queue("taskqueue", max_size_in_megabytes=5120, default_message_time_to_live=datetime.timedelta(minutes=1))
 ```
 
 Mer information finns i [dokumentation om Azure Service Bus Python](/python/api/overview/azure/servicebus?view=azure-python).
@@ -82,7 +78,7 @@ queue_client = QueueClient.from_connection_string("<CONNECTION STRING>", "<QUEUE
 
 # Send a test message to the queue
 msg = Message(b'Test Message')
-queue_client.send(Message("Message"))
+queue_client.send(msg)
 ```
 
 Service Bus-köerna stöder en maximal meddelandestorlek på 256 kB på [standardnivån](service-bus-premium-messaging.md) och 1 MB på [premiumnivån](service-bus-premium-messaging.md). Rubriken, som inkluderar standardprogramegenskaperna och de anpassade programegenskaperna, kan ha en maximal storlek på 64 kB. Det finns ingen gräns för antalet meddelanden som kan finnas i en kö men det finns ett tak för den totala storleken för de meddelanden som ligger i en kö. Den här köstorleken definieras när kön skapas, med en övre gräns på 5 GB. Mer information om kvoter finns i [Service Bus-kvoter][Service Bus quotas].

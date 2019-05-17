@@ -46,8 +46,6 @@
       href: video-indexer-view-edit.md
     - name: Skapa projekt med redigeringsprogram
       href: use-editor-create-project.md
-    - name: Skapa videoinsikter utifrån befintliga videor
-      href: video-indexer-create-new.md
     - name: Bädda in widgetar i programmet
       href: video-indexer-embed-widgets.md
     - name: Anpassa innehållsmodeller

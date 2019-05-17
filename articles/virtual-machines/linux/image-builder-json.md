@@ -3,16 +3,16 @@ title: Skapa en Azure Image Builder-mall (förhandsversion)
 description: Lär dig hur du skapar en mall som ska användas med Azure Image Builder.
 author: cynthn
 ms.author: cynthn
-ms.date: 05/02/2019
+ms.date: 05/10/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: jeconnoc
-ms.openlocfilehash: b4646879eb7eeecf41852baab7ab64e4053b05e1
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: cf8264cbad3c5c88c58cff3b95cb5c68adf0686c
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65159607"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65538301"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Förhandsversion: Skapa en Azure Image Builder-mall 
 
@@ -32,7 +32,7 @@ Det här är den grundläggande mallformat:
     "identity":{},           
     "dependsOn": [], 
     "properties": { 
-        "<build timeout in minutes>": {}, 
+        "buildTimeoutInMinutes": <minutes>, 
         "build": {}, 
         "customize": {}, 
         "distribute": {} 
@@ -57,9 +57,9 @@ Platsen är den region där den anpassade avbildningen skapas. För Image Builde
 
 - Östra USA
 - USA, östra 2
-- Västra centrala USA
-- Västra USA
-- Västra USA 2
+- USA, västra centrala 
+- USA, västra
+- USA, västra 2
 
 
 ```json

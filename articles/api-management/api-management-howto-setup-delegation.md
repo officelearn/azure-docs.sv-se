@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 796bea3c64ef7fc03367707461d13e0ea2514b8b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4db99f23019b34e7361e3ead4096939b9499320d
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60657750"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518097"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Hur du delegerar användarregistrering och produktprenumeration användarprenumeration
 
@@ -130,7 +130,7 @@ Kontrollera sedan delegering slutpunkten har följande åtgärder:
      > 
    * Jämför ovan beräknad hash till värdet för den **sig** frågeparameter. Om två hash-värdena matchar gå vidare till nästa steg, annars neka begäran.
 3. Bearbeta produktprenumeration baserat på vilken typ av åtgärd som efterfrågas i **åtgärden** – till exempel, fakturering, ytterligare frågor.
-4. På har prenumererar användaren att produkten på din sida ska lägga till användaren till API Management-produkten av [anropa REST API för produktprenumeration].
+4. På har prenumererar användaren att produkten på din sida ska lägga till användaren till API Management-produkten av [anropa REST API för prenumerationer].
 
 ## <a name="delegate-example-code"> </a> Exempelkod
 
@@ -186,7 +186,7 @@ Mer information om delegering finns i följande video:
 [Delegating product subscription]: #delegate-product-subscription
 [begära en single-sign-on (SSO) token]: https://docs.microsoft.com/rest/api/apimanagement/User/GenerateSsoUrl
 [Skapa en användare]: https://docs.microsoft.com/rest/api/apimanagement/user/createorupdate
-[anropa REST API för produktprenumeration]: https://docs.microsoft.com/rest/api/apimanagement/productsubscriptions
+[anropa REST API för prenumerationer]: https://docs.microsoft.com/rest/api/apimanagement/subscription/createorupdate
 [Next steps]: #next-steps
 [exempelkoden nedan]: #delegate-example-code
 

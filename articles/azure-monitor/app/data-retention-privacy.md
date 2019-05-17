@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 05/09/2019
 ms.author: mbullwin
-ms.openlocfilehash: c6a5ec8685de53d7a611328025d5da8e5ce698a3
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 38723a5dd306c2a4b594d95e5cc660d117966bc4
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65204877"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518846"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Datainsamling, kvarhållning och lagring i Application Insights
 
@@ -86,6 +86,9 @@ Detta är möjligt genom att skriva en [processor-plugin-programmet för telemet
 Rådatapunkterna (det vill säga objekt som du kan fråga i Analytics och inspektera i Search) kvarhålls i upp till 90 dagar. Om du vill behålla data längre än den som du kan använda [löpande export](../../azure-monitor/app/export-telemetry.md) att kopiera den till ett lagringskonto.
 
 Sammanställda data (dvs, antal, genomsnitt och andra statistiska data som du ser i Metric Explorer) finns kvar på en grain på 1 minut under 90 dagar.
+
+> [!NOTE]
+> Variabeln kvarhållning för Application Insights är nu i förhandsversion. Lär dig mer [här](https://feedback.azure.com/forums/357324-application-insights/suggestions/17454031). 
 
 [Felsök ögonblicksbilder](../../azure-monitor/app/snapshot-debugger.md) lagras i 15 dagar. Den här bevarandeprincipen är inställd på basis av per program. Om du vill öka det här värdet kan du begära en ökning genom att öppna ett supportärende i Azure-portalen.
 
@@ -237,10 +240,10 @@ SDK: erna kan variera mellan plattformar och det finns flera komponenter som du 
 
 | Åtgärden | Dataklasser som samlas in (se nästa tabell) |
 | --- | --- |
-| [Lägg till Application Insights SDK till en .NET-webbprojekt][greenbrown] |ServerContext<br/>Härledd<br/>Prestandaräknare<br/>Begäranden<br/>**Undantag**<br/>Session<br/>användare |
+| [Lägg till Application Insights SDK till en .NET-webbprojekt][greenbrown] |ServerContext<br/>Härledd<br/>Prestandaräknare<br/>Begäranden<br/>**Undantag**<br/>Session<br/>Användare |
 | [Installera Status Monitor på IIS][redfield] |Beroenden<br/>ServerContext<br/>Härledd<br/>Prestandaräknare |
-| [Lägg till Application Insights SDK i en Java-webbapp][java] |ServerContext<br/>Härledd<br/>Förfrågan<br/>Session<br/>användare |
-| [Lägg till JavaScript SDK till webbsidan][client] |ClientContext <br/>Härledd<br/>Sidan<br/>ClientPerf<br/>Ajax |
+| [Lägg till Application Insights SDK i en Java-webbapp][java] |ServerContext<br/>Härledd<br/>Begäran<br/>Session<br/>Användare |
+| [Lägg till JavaScript SDK till webbsidan][client] |ClientContext <br/>Härledd<br/>Sida<br/>ClientPerf<br/>Ajax |
 | [Definiera standardegenskaper][apiproperties] |**Egenskaper för** på alla standardentiteter och anpassade händelser |
 | [Anropa TrackMetric][api] |Numeriska värden<br/>**Egenskaper** |
 | [Anropa spåra *][api] |Händelsenamn<br/>**Egenskaper** |

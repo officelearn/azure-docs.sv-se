@@ -10,39 +10,39 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: magoedte
-ms.openlocfilehash: ade12225a470b64278b9d27676ceab768f64d904
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 420ba9d74532095c2d028fef8f549d532e5dfa05
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60596594"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522214"
 ---
 # <a name="azure-monitor-for-vms-preview-frequently-asked-questions"></a>Azure Monitor för virtuella datorer (förhandsversion) vanliga frågor och svar
 Den här Microsoft-FAQ är en lista över vanliga frågor om Azure Monitor för virtuella datorer. Om du har ytterligare frågor om lösningen går du till den [diskussionsforum](https://feedback.azure.com/forums/34192--general-feedback) och ställa frågor. När en fråga är vanliga vi lägga till det i den här artikeln så att den finns snabbt och enkelt.
 
 ## <a name="can-i-onboard-to-an-existing-workspace"></a>Kan jag lägga till en befintlig arbetsyta?
-Om dina virtuella datorer är redan ansluten till en Log Analytics-arbetsyta, du kan fortsätta att använda arbetsytan när Kom igång med Azure Monitor för virtuella datorer, under förutsättning att den är i något av de regioner som stöds visas [här](vminsights-onboard.md#prerequisites).
+Om dina virtuella datorer är redan ansluten till en Log Analytics-arbetsyta, du kan fortsätta att använda arbetsytan när Kom igång med Azure Monitor för virtuella datorer, under förutsättning att den är i något av de regioner som stöds visas [här](vminsights-enable-overview.md#prerequisites).
 
 När onboarding, vi konfigurerar prestandaräknare för den arbetsyta som gör att alla virtuella datorer rapporterar data till arbetsytan för att börja samla in den här informationen för visning och analys i Azure Monitor för virtuella datorer.  Därför visas data från alla de virtuella datorerna är anslutna till den valda arbetsytan.  Hälsa och kartan funktioner aktiveras endast för de virtuella datorerna som du har angett att komma igång.
 
-Mer information på vilka räknare aktiveras finns i vår [onboarding](vminsights-onboard.md) artikeln.
+Mer information på vilka räknare aktiveras finns i vår [aktivera översikt](vminsights-enable-overview.md#performance-counters-enabled) artikeln.
 
 ## <a name="can-i-onboard-to-a-new-workspace"></a>Kan jag registrera en ny arbetsyta? 
-Om dina virtuella datorer inte är anslutna till en befintlig Log Analytics-arbetsyta, måste du skapa en ny arbetsyta för att lagra dina data.  Skapa en ny standardarbetsyta görs automatiskt om du konfigurerar en virtuell Azure-dator för Azure Monitor för virtuella datorer via Azure portal.
+Om dina virtuella datorer inte är anslutna till en befintlig Log Analytics-arbetsyta, måste du skapa en ny arbetsyta för att lagra dina data. Skapa en ny standardarbetsyta görs automatiskt om du konfigurerar en virtuell Azure-dator för Azure Monitor för virtuella datorer via Azure portal.
 
-Om du väljer att använda metoden skriptbaserade stegen beskrivs i den [onboarding](vminsights-onboard.md) artikeln. 
+Om du väljer att använda metoden skriptbaserade stegen beskrivs i den [aktivera Azure Monitor för virtuella datorer (förhandsversion) med hjälp av Azure PowerShell eller Resource Manager-mall](vminsights-enable-at-scale-powershell.md) artikeln. 
 
 ## <a name="what-do-i-do-if-my-vm-is-already-reporting-to-an-existing-workspace"></a>Vad gör jag om min virtuella dator redan rapporterar till en befintlig arbetsyta?
 Om du redan samlar in data från dina virtuella datorer, kan du redan ha konfigurerat det till rapportdata till en befintlig Log Analytics-arbetsyta.  Så länge arbetsytan är i något av våra regioner som stöds, kan du aktivera Azure Monitor för virtuella datorer till den befintliga arbetsytan.  Om arbetsytan som du redan använder inte är i något av våra regioner som stöds måste du inte att publicera till Azure Monitor för virtuella datorer just nu.  Vi arbetar aktivt för att stödja fler regioner.
 
 >[!NOTE]
->Vi konfigurerar prestandaräknare för den arbetsyta som påverkar alla virtuella datorer som rapporterar till arbetsytan, oavsett om du har valt att publicera dem till Azure Monitor för virtuella datorer. Mer information om hur prestandaräknare är konfigurerade för arbetsytan finns i vår [dokumentation](../../azure-monitor/platform/data-sources-performance-counters.md). Information om de räknare som konfigurerats för Azure Monitor för virtuella datorer finns i vår [dokumentation om](vminsights-onboard.md#performance-counters-enabled).  
+>Vi konfigurerar prestandaräknare för den arbetsyta som påverkar alla virtuella datorer som rapporterar till arbetsytan, oavsett om du har valt att publicera dem till Azure Monitor för virtuella datorer. Mer information om hur prestandaräknare är konfigurerade för arbetsytan finns i vår [dokumentation](../../azure-monitor/platform/data-sources-performance-counters.md). Information om de räknare som konfigurerats för Azure Monitor för virtuella datorer finns i vår [aktivera Azure Monitor för virtuella datorer](vminsights-enable-overview.md#performance-counters-enabled) artikeln.  
 
 ## <a name="why-did-my-vm-fail-to-onboard"></a>Varför min virtuella dator kunde inte publicera?
 När onboarding en Azure-dator från Azure-portalen, genomförs följande steg:
 
 * Standard Log Analytics-arbetsytan skapas, om som har valts.
-* Prestandaräknarna har konfigurerats för den valda arbetsytan. Om det här steget misslyckas kan du se att inte några av de prestandadiagram och tabeller som visar data för den virtuella datorn du publicerat. Du kan åtgärda detta genom att köra PowerShell-skriptet som beskrivs [här](vminsights-onboard.md#enable-with-powershell).
+* Prestandaräknarna har konfigurerats för den valda arbetsytan. Om det här steget misslyckas kan du se att inte några av de prestandadiagram och tabeller som visar data för den virtuella datorn du publicerat. Du kan åtgärda detta genom att köra PowerShell-skriptet som beskrivs [här](vminsights-enable-at-scale-powershell.md#enable-performance-counters).
 * Log Analytics-agenten installeras på virtuella Azure-datorer med hjälp av en VM-tillägg, om det krävs.  
 * I Azure Monitor för virtuella datorer kartan beroendeagenten installeras på virtuella Azure-datorer med hjälp av ett tillägg, om det krävs.  
 * Azure Monitor-komponenter som stöder funktionen hälsotillstånd har konfigurerats, om det behövs och den virtuella datorn är konfigurerad för att rapportera hälsa data.
@@ -89,7 +89,7 @@ Tröskelvärden för följande kriterier för Linux-hälsotillstånd inte kan ä
 Varningsregler som har definierats för varje hälsotillstånd kriterium visas inte i Azure-portalen. Du kan aktivera eller inaktivera en hälsovarning regel bara i den [arbetsbelastning övervakaren API](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components). Du kan också tilldela en [Azure Monitor åtgärdsgrupp](../../azure-monitor/platform/action-groups.md) för health-aviseringar i Azure-portalen. Du kan bara använda API: et för meddelande inställningen för att konfigurera en åtgärdsgrupp som utlöses när en hälsovarning aktiveras. För närvarande kan du tilldela åtgärdsgrupper mot en virtuell dator så att alla *hälsovarningar* utlösta mot VM-utlösaren samma åtgärdsgrupper. Till skillnad från traditionella Azure-aviseringar finns det ingen i en separat åtgärdsgrupp för varje health-aviseringsregel. Dessutom stöds endast åtgärdsgrupper som är konfigurerade för att tillhandahålla e-post eller SMS-meddelanden när hälsovarningar utlöses. 
 
 ## <a name="i-dont-see-some-or-any-data-in-the-performance-charts-for-my-vm"></a>Jag ser inte vissa eller alla data i prestandadiagram för den virtuella datorn
-Om du inte ser prestandadata i tabellen disk eller en del av prestandadiagram kan dina prestandaräknare inte konfigureras på arbetsytan. För att lösa, kör du följande [PowerShell-skript](vminsights-onboard.md#enable-with-powershell).
+Om du inte ser prestandadata i tabellen disk eller en del av prestandadiagram kan dina prestandaräknare inte konfigureras på arbetsytan. För att lösa, kör du följande [PowerShell-skript](vminsights-enable-at-scale-powershell.md#enable-with-powershell).
 
 ## <a name="how-is-azure-monitor-for-vms-map-feature-different-from-service-map"></a>Hur skiljer sig Azure Monitor för virtuella datorer kartan funktion från Service Map?
 I Azure Monitor för virtuella datorer kartan funktionen är baserad på Tjänstkartan, men har följande skillnader:
@@ -138,4 +138,4 @@ Om du har konfigurerat Azure Monitor med en Log Analytics-arbetsytan med den *ko
 Under det här tillståndet uppmanas du att med den **Testa nu** när du öppnar den virtuella datorn och välj **Insights (förhandsversion)** i den vänstra rutan, även när den har redan installerats på den virtuella datorn.  Men ange du inte med alternativ som normalt skulle inträffa om den här virtuella datorn inte har integrerats i Azure Monitor för virtuella datorer. 
 
 ## <a name="next-steps"></a>Nästa steg
-Granska [publicera Azure Monitor för virtuella datorer](vminsights-onboard.md) att förstå kraven och metoder för att övervaka dina virtuella datorer.
+Granska [aktivera Azure Monitor för virtuella datorer](vminsights-enable-overview.md) att förstå kraven och metoder för att övervaka dina virtuella datorer.

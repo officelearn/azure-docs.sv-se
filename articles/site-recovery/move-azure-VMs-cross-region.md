@@ -10,10 +10,10 @@ ms.author: rajanaki
 ms.custom: MVC
 ms.openlocfilehash: 10966a7e658e02f04137b594fc12ec09cb676cf8
 ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2019
-ms.locfileid: "65739605"
+ms.locfileid: "65793729"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Migrera virtuella Azure-datorer till en annan region
 

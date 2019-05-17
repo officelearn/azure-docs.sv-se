@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/27/2018
 ms.author: magoedte
-ms.openlocfilehash: 5f9fc128af4e89788e648fcfc238da300ff91724
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 2e3e39ef24d82393d981c0ce276b3338419e0b2d
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65068757"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521759"
 ---
 # <a name="troubleshooting-azure-monitor-for-containers"></a>Felsökning Azure Monitor för behållare
 
@@ -80,7 +80,7 @@ Om Azure Monitor för behållare har aktiverats och konfigurerats, men du kan in
 
 4. Loggarna för agenten. När behållare agenten distribueras, kör en snabb kontroll genom att köra OMI kommandon och visar versionen av agenten och providern. 
 
-5. Kontrollera att agenten har integrerats har genom att köra kommandot: `kubectl logs omsagent-484hw --namespace=kube-system`
+5. Kontrollera att agenten har distribuerats korrekt genom att köra kommandot: `kubectl logs omsagent-484hw --namespace=kube-system`
 
     Statusen bör likna följande exempel:
 
@@ -113,7 +113,7 @@ I tabellen nedan sammanfattas kända fel kan uppstå när du använder Azure Mon
 | ---- | --- |  
 | Felmeddelande `No data for selected filters`  | Det kan ta lite tid att upprätta övervakning dataflöde för nyligen skapade kluster. Tillåt minst 10 – 15 minuter innan data visas för klustret. |   
 | Felmeddelande `Error retrieving data` | Medan Azure Kubenetes Service-kluster att konfigurera för hälso- och prestandaövervakning, upprättas en anslutning mellan kluster och Azure Log Analytics-arbetsyta. En Log Analytics-arbetsyta används för att lagra alla övervakningsdata för klustret. Det här felet kan uppstå när Log Analytics-arbetsytan har tagits bort eller tappas bort. Kontrollera om din arbetsyta är tillgänglig genom att granska [hantera åtkomst](../platform/manage-access.md#view-workspace-details). Om arbetsytan saknas, måste du återaktivera övervakning av ditt kluster med Azure Monitor för behållare. Om du vill återaktivera, behöver du [inaktivera](container-insights-optout.md) övervakning för klustret och [aktivera](container-insights-enable-new-cluster.md) Azure Monitor för behållare igen. |  
-| `Error retrieving data` När du lägger till Azure Monitor för behållare via az aks cli | När aktiverar övervakning med hjälp av `az aks cli`, Azure Monitor för behållare kanske inte korrekt integrerats. Kontrollera om lösningen har publicerats. Gör detta genom att gå till Log Analytics-arbetsytan och se om lösningen är tillgänglig genom att välja **lösningar** från fönstret till vänster. För att lösa problemet måste du distribuera lösningen igen genom att följa anvisningarna [så här distribuerar du Azure Monitor för behållare](container-insights-onboard.md) |  
+| `Error retrieving data` När du lägger till Azure Monitor för behållare via az aks cli | När aktiverar övervakning med hjälp av `az aks cli`, Azure Monitor för behållare kan inte distribueras korrekt. Kontrollera om lösningen har distribuerats. Gör detta genom att gå till Log Analytics-arbetsytan och se om lösningen är tillgänglig genom att välja **lösningar** från fönstret till vänster. För att lösa problemet måste du distribuera lösningen igen genom att följa anvisningarna [så här distribuerar du Azure Monitor för behållare](container-insights-onboard.md) |  
 
 För att diagnosticera problemet, har vi lagt till ett felsökning skript som är tillgängliga [här](https://github.com/Microsoft/OMS-docker/tree/ci_feature_prod/Troubleshoot#troubleshooting-script).  
 

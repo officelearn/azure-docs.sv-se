@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/02/2019
-ms.openlocfilehash: e67e41d5e423e07371fbce06066076ab809f60df
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 63f81c331db619323f74b77e48627fd8b432565f
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545339"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518891"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Anpassa Azure HDInsight-kluster med skriptåtgärder
 
@@ -45,23 +45,21 @@ Få mer information om arbete med åtkomsthantering:
 En skriptåtgärder är Bash-skript som körs på noderna i ett HDInsight-kluster. Egenskaper och funktioner i skriptåtgärder är följande:
 
 * Måste vara lagrade på en URI som kan nås från HDInsight-kluster. Följande är möjliga storage-platser:
+    
+    * För vanliga kluster:
+    
+      * ADLS Gen1: Tjänstens huvudnamn HDInsight använder för att få åtkomst till Data Lake Storage måste ha läsbehörighet till skriptet. URI-format för skript som lagras i Data Lake Storage Gen1 är `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`.
+      
+      * En blob i ett Azure Storage-konto som antingen primära eller ytterligare lagringskontot för HDInsight-klustret. HDInsight beviljas åtkomst till båda typerna av lagringskonton när klustret skapas.
 
-    * Ett Azure Data Lake Storage-konto som är tillgänglig för HDInsight-klustret. Information om hur du använder Azure Data Lake Storage med HDInsight finns i [snabbstarten: Konfigurera kluster i HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
-
-        URI-format för skript som lagras i Data Lake Storage Gen1 är `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`.
-
-        > [!NOTE]  
-        > Tjänstens huvudnamn HDInsight använder för att få åtkomst till Data Lake Storage måste ha läsbehörighet till skriptet.
-
-    * En blob i ett Azure Storage-konto som antingen primära eller ytterligare lagringskontot för HDInsight-klustret. HDInsight beviljas åtkomst till båda typerna av lagringskonton när klustret skapas.
-
-    * En offentlig tjänst fildelning. Exempel är Azure Blob, GitHub, OneDrive och Dropbox.
+      * En offentlig fildelning tjänst som är tillgängliga via http:// sökvägar. Exempel är Azure Blob, GitHub, OneDrive.
 
         Till exempel URI: er, se [exempelskript skriptet åtgärd](#example-script-action-scripts).
 
-        > [!WARNING]  
-        > HDInsight stöder endast Blob i Azure Storage-konton med en standard-prestandanivån. 
-
+     * För kluster med ESP:
+         
+         * Wasb [s] :// eller http [s] :// URI: er som stöds.
+            
 * Kan begränsas för att köras på vissa nodtyper. Exempel är huvud- eller arbetsnoder.
 
 * Kan vara beständiga eller ad hoc.
@@ -173,7 +171,7 @@ Det här avsnittet beskrivs olika sätt du kan använda skriptåtgärder när du
 
     I följande tabell beskriver elementen i formuläret:
 
-    | Egenskap  | Värde |
+    | Egenskap  | Value |
     | --- | --- |
     | Välj ett skript | Om du vill använda ett eget skript, Välj __anpassad__. Annars väljer du något av skript som tillhandahålls. |
     | Namn |Ange ett namn för skriptåtgärden. |
@@ -255,7 +253,7 @@ Gå till den [Azure-portalen](https://portal.azure.com):
 
     I följande tabell beskriver elementen i formuläret:
 
-    | Egenskap  | Värde |
+    | Egenskap  | Value |
     | --- | --- |
     | Välj ett skript | Om du vill använda ett eget skript, Välj __anpassade__. Annars väljer du en medföljande skriptet. |
     | Namn |Ange ett namn för skriptåtgärden. |

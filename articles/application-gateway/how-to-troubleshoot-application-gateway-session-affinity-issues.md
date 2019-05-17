@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/22/2019
 ms.author: absha
-ms.openlocfilehash: 90a57483fc7a530f214d34bf619a718b4c196e79
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 07165a497e75934a65719e48a9af7d8d6906ee7b
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59683167"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65538351"
 ---
 # <a name="troubleshoot-azure-application-gateway-session-affinity-issues"></a>Felsöka Azure Application Gateway problem med Sessionstillhörighet
 
@@ -53,7 +53,7 @@ De problem med sessionstillhörighet kan ibland uppstå när du glömmer att akt
 
 Du kan också kontrollera värdet för den ”**CookieBasedAffinity**” är inställt på *aktiverad*under ”**backendHttpSettingsCollection**” med någon av följande metoder:
 
-- Kör [Get-AzApplicationGatewayBackendHttpSettings](https://docs.microsoft.com/powershell/module/az.network/get-azapplicationgatewaybackendhttpsettings) i PowerShell
+- Kör [Get-AzApplicationGatewayBackendHttpSetting](https://docs.microsoft.com/powershell/module/az.network/get-azapplicationgatewaybackendhttpsetting) i PowerShell
 - Titta igenom JSON-fil med hjälp av Azure Resource Manager-mall
 
 ```
@@ -66,7 +66,7 @@ Du kan också kontrollera värdet för den ”**CookieBasedAffinity**” är ins
 
 Application gateway kan bara utföra session-baserad tillhörighet genom att använda en cookie.
 
-#### <a name="workaround"></a>Lösning
+#### <a name="workaround"></a>Lösning:
 
 Om programmet inte kan hantera cookie-baserad tillhörighet, måste du använda en extern eller intern azure belastningsutjämnare eller en annan tredjepartslösning.
 
@@ -94,7 +94,7 @@ Programmet fortsätter att försök att ange cookien för varje begäran tills d
 
 Det här problemet uppstår eftersom Internet Explorer och andra webbläsare inte kan lagra eller använda cookien med en URL för kort namn.
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Matchning
 
 För att åtgärda problemet, bör du komma åt Application Gateway med hjälp av ett fullständigt domännamn. Till exempel använda [ http://website.com ](https://website.com/) eller [ http://appgw.website.com ](http://appgw.website.com/) .
 

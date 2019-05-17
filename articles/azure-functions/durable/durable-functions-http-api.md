@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 5bd977826f489ca8452432babe6126b8553450fb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2f0b01601dfb28b2b6b8ee8ca53398ec3dccb803
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60730715"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787287"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>HTTP-API: er i varaktiga funktioner (Azure Functions)
 
@@ -104,7 +104,7 @@ Följande avsnitt beskriver den specifika HTTP APIs stöds av tillägget och inn
 
 Hämtar status för en angiven orchestration-instans.
 
-#### <a name="request"></a>Förfrågan
+#### <a name="request"></a>Begäran
 
 För version 1.x av funktionskörningen begäran är formaterad på följande sätt (flera rader visas för tydlighetens skull):
 
@@ -134,7 +134,7 @@ Parametrar för detta API innehåller en standarduppsättning som tidigare nämn
 
 | Fält                   | Parametertyp  | Beskrivning |
 |-------------------------|-----------------|-------------|
-| **`instanceId`**        | URL             | ID för orchestration-instans. |
+| **`instanceId`**        | Webbadress             | ID för orchestration-instans. |
 | **`showInput`**         | Frågesträng    | Valfri parameter. Om inställd `false`, funktionen indata inte tas med i svarets nyttolast.|
 | **`showHistory`**       | Frågesträng    | Valfri parameter. Om inställd `true`, orchestration-körningshistorik tas med i svarets nyttolast.|
 | **`showHistoryOutput`** | Frågesträng    | Valfri parameter. Om inställd `true`, funktionen matar ut tas med i orchestration-körningshistorik.|
@@ -228,7 +228,7 @@ Du kan också fråga status för alla instanser genom att ta bort den `instanceI
 En sak som att komma ihåg är att `connection` och `code` är valfria. Om du har anonym autentisering om funktionen inte kod krävs.
 Om du inte vill använda en annan lagringsanslutningssträng än definieras i appinställningen AzureWebJobsStorage, kan sedan du ignorera frågesträngparametern för anslutningen.
 
-#### <a name="request"></a>Förfrågan
+#### <a name="request"></a>Begäran
 
 För version 1.x av funktionskörningen begäran är formaterad på följande sätt (flera rader visas för tydlighetens skull):
 
@@ -262,7 +262,7 @@ Parametrar för detta API innehåller en standarduppsättning som tidigare nämn
 
 | Fält                   | Parametertyp  | Beskrivning |
 |-------------------------|-----------------|-------------|
-| **`instanceId`**        | URL             | ID för orchestration-instans. |
+| **`instanceId`**        | Webbadress             | ID för orchestration-instans. |
 | **`showInput`**         | Frågesträng    | Valfri parameter. Om inställd `false`, funktionen indata inte tas med i svarets nyttolast.|
 | **`showHistory`**       | Frågesträng    | Valfri parameter. Om inställd `true`, orchestration-körningshistorik tas med i svarets nyttolast.|
 | **`showHistoryOutput`** | Frågesträng    | Valfri parameter. Om inställd `true`, funktionen matar ut tas med i orchestration-körningshistorik.|
@@ -336,7 +336,7 @@ Om du ställer in fortsättning token värde i nästa rubriken får nästa sida 
 
 Tar bort historik och relaterade artefakter för en angiven orchestration-instans.
 
-#### <a name="request"></a>Förfrågan
+#### <a name="request"></a>Begäran
 
 För version 1.x av funktionskörningen begäran är formaterad på följande sätt (flera rader visas för tydlighetens skull):
 
@@ -360,7 +360,7 @@ Parametrar för detta API innehåller en standarduppsättning som tidigare nämn
 
 | Fält             | Parametertyp  | Beskrivning |
 |-------------------|-----------------|-------------|
-| **`instanceId`**  | URL             | ID för orchestration-instans. |
+| **`instanceId`**  | Webbadress             | ID för orchestration-instans. |
 
 #### <a name="response"></a>Svar
 
@@ -387,7 +387,7 @@ Här är ett exempel svarsnyttolasten (formaterad för läsbarhet):
 
 Du kan också ta bort historik och relaterade artefakter för flera instanser inom en uppgift hubb genom att ta bort den `{instanceId}` i ”rensa historiken för enskild instans-begäran. För att selektivt Rensa instansen historik, använder du samma filter som beskrivs i ”Hämta status för alla instanser'-begäran.
 
-#### <a name="request"></a>Förfrågan
+#### <a name="request"></a>Begäran
 
 För version 1.x av funktionskörningen begäran är formaterad på följande sätt (flera rader visas för tydlighetens skull):
 
@@ -417,11 +417,9 @@ Parametrar för detta API innehåller en standarduppsättning som tidigare nämn
 
 | Fält                 | Parametertyp  | Beskrivning |
 |-----------------------|-----------------|-------------|
-| **`createdTimeFrom`** | Frågesträng    | Valfri parameter. När du filtrerar listan över borttagna instanser som har skapats på eller efter den givna tidsstämpeln ISO8601.|
+| **`createdTimeFrom`** | Frågesträng    | Filtrerar listan över borttagna instanser som har skapats på eller efter den givna tidsstämpeln ISO8601.|
 | **`createdTimeTo`**   | Frågesträng    | Valfri parameter. När du filtrerar listan över borttagna instanser som har skapats från och med den givna tidsstämpeln ISO8601.|
 | **`runtimeStatus`**   | Frågesträng    | Valfri parameter. När du filtrerar listan över borttagna instanser baserat på deras Körningsstatus. Listan över möjliga runtime statusvärden finns i den [fråga instanser](durable-functions-instance-management.md) avsnittet. |
-
-Om inga parametrar har angetts ska alla instanser i hubben aktiviteten rensas.
 
 > [!NOTE]
 > Den här åtgärden kan vara väldigt kostsamt när det gäller i/o för Azure-lagring om det finns mycket av rader i instanser och/eller historik tabeller. Mer information om dessa tabeller finns i den [prestanda och skalning i varaktiga funktioner (Azure Functions)](durable-functions-perf-and-scale.md#instances-table) dokumentation.
@@ -451,7 +449,7 @@ Här är ett exempel svarsnyttolasten (formaterad för läsbarhet):
 
 Skickar en händelse-meddelande till en orchestration-instans som körs.
 
-#### <a name="request"></a>Förfrågan
+#### <a name="request"></a>Begäran
 
 För version 1.x av funktionskörningen begäran är formaterad på följande sätt (flera rader visas för tydlighetens skull):
 
@@ -475,8 +473,8 @@ Parametrar för detta API innehåller en standarduppsättning som tidigare nämn
 
 | Fält             | Parametertyp  | Beskrivning |
 |-------------------|-----------------|-------------|
-| **`instanceId`**  | URL             | ID för orchestration-instans. |
-| **`eventName`**   | URL             | Namnet på den händelse som orchestration målinstansen väntar på. |
+| **`instanceId`**  | Webbadress             | ID för orchestration-instans. |
+| **`eventName`**   | Webbadress             | Namnet på den händelse som orchestration målinstansen väntar på. |
 | **`{content}`**   | Begära innehåll | JSON-formaterad händelsenyttolast. |
 
 #### <a name="response"></a>Svar
@@ -504,7 +502,7 @@ Svar för detta API innehåller inte något innehåll.
 
 Avbryter en orchestration-instans som körs.
 
-#### <a name="request"></a>Förfrågan
+#### <a name="request"></a>Begäran
 
 För version 1.x av funktionskörningen begäran är formaterad på följande sätt (flera rader visas för tydlighetens skull):
 
@@ -530,7 +528,7 @@ Begära parametrar för detta API innehåller en standarduppsättning som tidiga
 
 | Fält             | Parametertyp  | Beskrivning |
 |-------------------|-----------------|-------------|
-| **`instanceId`**  | URL             | ID för orchestration-instans. |
+| **`instanceId`**  | Webbadress             | ID för orchestration-instans. |
 | **`reason`**      | Frågesträng    | Valfri. Orsak för att avsluta orchestration-instans. |
 
 #### <a name="response"></a>Svar
@@ -553,7 +551,7 @@ Svar för detta API innehåller inte något innehåll.
 
 Återställer en misslyckad orchestration-instans till ett körningsläge genom att spela upp de senaste misslyckade åtgärderna.
 
-### <a name="request"></a>Förfrågan
+### <a name="request"></a>Begäran
 
 För version 1.x av funktionskörningen begäran är formaterad på följande sätt (flera rader visas för tydlighetens skull):
 
@@ -579,7 +577,7 @@ Begära parametrar för detta API innehåller en standarduppsättning som tidiga
 
 | Fält             | Parametertyp  | Beskrivning |
 |-------------------|-----------------|-------------|
-| **`instanceId`**  | URL             | ID för orchestration-instans. |
+| **`instanceId`**  | Webbadress             | ID för orchestration-instans. |
 | **`reason`**      | Frågesträng    | Valfri. Orsaken till spola tillbaka orchestration-instans. |
 
 ### <a name="response"></a>Svar

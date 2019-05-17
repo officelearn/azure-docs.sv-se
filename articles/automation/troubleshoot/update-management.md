@@ -4,16 +4,16 @@ description: Lär dig att felsöka problem med hantering av uppdateringar
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/05/2019
+ms.date: 05/07/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 22e3ea1c90946902fc2a16d947ff2884e5e0a44b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f286877c6a9e787c06a8a846efaf94668c04fc4e
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60597626"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787698"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Felsökning av problem med hantering av uppdateringar
 
@@ -40,7 +40,7 @@ Det här felet kan orsakas av följande orsaker:
 1. Kommunikation till Automation-kontot blockeras.
 2. Den virtuella datorn som det gäller kanske har kommit från en klonad dator som inte är Sysprep med Microsoft Monitoring Agent installerad.
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Matchning
 
 1. Besök, [nätverksplanering](../automation-hybrid-runbook-worker.md#network-planning) att lära dig om vilka adresser och portar måste vara tillgängliga för hantering av uppdateringar ska fungera.
 2. Om du använder en klonade avbildningen:
@@ -63,7 +63,7 @@ The client has permission to perform action 'Microsoft.Compute/virtualMachines/w
 
 Det här felet uppstår när du skapar en distribution som har Azure-datorer i en annan klient som ingår i en uppdateringsdistribution.
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Matchning
 
 Du måste använda följande lösning för att få dem schemalagda. Du kan använda den [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) cmdlet med växeln `-ForUpdate` att skapa ett schema och använda den [New AzureRmAutomationSoftwareUpdateConfiguration](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration
 ) cmdlet och skicka den datorer i den andra klienten till den `-NonAzureComputer` parametern. I följande exempel visar ett exempel på hur du gör detta:
@@ -88,7 +88,7 @@ Du har datorer som visas som **ej utvärderat** under **efterlevnad**, men du ka
 
 Hybrid Runbook Worker kan behöva registreras igen och ominstalleras.
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Matchning
 
 Följ stegen i [distribuera en Windows Hybrid Runbook Worker](../automation-windows-hrw-install.md) att installera om Hybrid Worker för Windows eller [distribuera en Linux Hybrid Runbook Worker](../automation-linux-hrw-install.md) för Linux.
 
@@ -112,7 +112,7 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 
 Datorn har redan publicerats till en annan arbetsyta för uppdateringshantering.
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Matchning
 
 Rensa gamla artefakter på datorn genom att [tar bort hybridrunbookgruppen](../automation-hybrid-runbook-worker.md#remove-a-hybrid-worker-group) och försök igen.
 
@@ -138,7 +138,7 @@ The certificate presented by the service <wsid>.oms.opinsights.azure.com was not
 
 Det kan finnas en gateway, en proxy eller en brandvägg som blockerar nätverkskommunikation.
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Matchning
 
 Granska dina nätverk och se till att lämpliga portar och adresser tillåts. Se [krav på](../automation-hybrid-runbook-worker.md#network-planning), en lista över portar och adresser som krävs av hantering av uppdateringar och Hybrid Runbook Worker.
 
@@ -156,9 +156,41 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 
 Hybrid Runbook Worker gick inte att generera ett självsignerat certifikat
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Matchning
 
 Kontrollera system-kontot har läsbehörighet till mappen **C:\ProgramData\Microsoft\Crypto\RSA** och försök igen.
+
+### <a name="failed-to-start"></a>Scenario: En dator visar det gick inte att starta i en uppdateringsdistribution
+
+#### <a name="issue"></a>Problem
+
+En dator har statusen **kunde inte starta** för en dator. När du visar specifika detaljer för datorn kan du se följande fel:
+
+```error
+Failed to start the runbook. Check the parameters passed. RunbookName Patch-MicrosoftOMSComputer. Exception You have requested to create a runbook job on a hybrid worker group that does not exist.
+```
+
+#### <a name="cause"></a>Orsak
+
+Det här felet kan bero på något av följande orsaker:
+
+* Datorn finns inte längre.
+* Datorn stängs av och kan inte nås.
+* Datorn har ett problem med nätverksanslutningen och hybrid worker på datorn kan inte nås.
+* Det uppstod en uppdatering av Microsoft Monitoring Agent som ändrats i SourceComputerId
+* Uppdateringskörningen kanske har begränsats om du har nått gränsen för 2 000 samtidiga jobb i ett Automation-konto. Varje distributionen betraktas som ett jobb och varje dator i ett uppdateringsvärde för distribution som ett jobb. Alla andra automation-jobb eller uppdatera distributioner för närvarande körs i ditt Automation-konto antal mot gränsen för antal samtidiga jobb.
+
+#### <a name="resolution"></a>Matchning
+
+När tillämpligt Använd [dynamiska grupper](../automation-update-management.md#using-dynamic-groups) för dina distributioner.
+
+* Kontrollera datorn fortfarande finns och kan nås. Om det inte finns, redigera distributionen och ta bort datorn.
+* Se avsnittet om [nätverksplanering](../automation-update-management.md#ports) en lista över portar och adresser som krävs för hantering av uppdateringar och kontrollera att datorn uppfyller dessa krav.
+* Kör följande fråga i Log Analytics för att hitta datorer i din miljö vars `SourceComputerId` ändras. Leta efter datorer som har samma `Computer` värde, men ett annat `SourceComputerId` värde. När du har hittat de berörda datorerna måste du redigera uppdateringsdistributioner som mål dessa datorer och ta bort och sedan lägga till datorer så `SourceComputerId` återspeglar det korrekta värdet.
+
+   ```loganalytics
+   Heartbeat | where TimeGenerated > ago(30d) | distinct SourceComputerId, Computer, ComputerIP
+   ```
 
 ### <a name="hresult"></a>Scenario: Datorn visas som ej utvärderat och visar ett HResult-undantag
 
@@ -170,14 +202,16 @@ Du har datorer som visas som **ej utvärderat** under **efterlevnad**, och du se
 
 Windows Update eller WSUS är inte korrekt konfigurerad på datorn. Uppdateringshantering förlitar sig av Windows Update eller WSUS för att tillhandahålla uppdateringar som behövs, status för uppdateringen och resultatet av korrigeringar som distribueras. Utan den här informationen kan hantering av uppdateringar inte korrekt rapport om de korrigeringar som krävs eller installerad.
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Matchning
 
 Dubbelklicka på undantaget som visas i rött att se hela Undantagsmeddelandet. Kontrollera i följande tabell för möjliga lösningar eller åtgärder som ska vidtas:
 
 |Undantag  |Lösning eller åtgärd  |
 |---------|---------|
 |`Exception from HRESULT: 0x……C`     | Sök efter den relevanta felkoden i [Windows uppdatera kod fellistan](https://support.microsoft.com/help/938205/windows-update-error-code-list) att ha ytterligare information om orsaken till undantaget.        |
-|`0x8024402C` eller `0x8024401C`     | Felen är problem med nätverksanslutningen. Se till att datorn har rätt nätverksanslutningen till hantering av uppdateringar. Se avsnittet om [nätverksplanering](../automation-update-management.md#ports) en lista över portar och adresser som krävs.        |
+|`0x8024402C`</br>`0x8024401C`</br>`0x8024402F`      | Felen är problem med nätverksanslutningen. Se till att datorn har rätt nätverksanslutningen till hantering av uppdateringar. Se avsnittet om [nätverksplanering](../automation-update-management.md#ports) en lista över portar och adresser som krävs.        |
+|`0x8024001E`| Uppdateringen slutfördes inte eftersom tjänsten eller datorn har stängs av.|
+|`0x8024002E`| Windows Update-tjänsten är inaktiverad.|
 |`0x8024402C`     | Om du använder en WSUS-server kontrollerar du registervärdena `WUServer` och `WUStatusServer` under registernyckeln `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` har korrekt WSUS-servern.        |
 |`The service cannot be started, either because it is disabled or because it has no enabled devices associated with it. (Exception from HRESULT: 0x80070422)`     | Kontrollera att Windows Update-tjänsten (wuauserv) körs och har inte inaktiverats.        |
 |Allmänt undantag     | Gör en sökning efter möjliga lösningar på internet och arbeta med den lokala IT-supporten.         |
@@ -201,7 +235,7 @@ En uppdatering körs kunde inte starta på en Linux-dator.
 
 Linux Hybrid Worker är felfri.
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Matchning
 
 Skapa en kopia av följande loggfiler och bevara i felsökningssyfte:
 
@@ -223,7 +257,7 @@ Möjliga orsaker kan vara följande:
 * Specifika paket kan störa molnbaserad korrigeringar
 * Andra orsaker
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Matchning
 
 Om fel uppstår under en uppdatering som körs när den har startats på Linux loggen det utdata från den berörda datorn i körningen. Du kanske felmeddelanden från din dator Pakethanteraren som du kan undersöka och vidta åtgärder för. Hantering av uppdateringar kräver Pakethanteraren felfria för lyckade distributioner.
 

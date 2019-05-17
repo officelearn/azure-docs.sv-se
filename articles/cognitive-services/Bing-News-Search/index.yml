@@ -6,15 +6,15 @@ metadata:
   title: 'Dokumentation om API för nyhetssökning i Bing – självstudier, snabbstarter, API-referenser | Microsoft Docs'
   description: 'Lär dig hur du använder API:et för nyhetssökning i Bing för att söka efter nyheter på webben.'
   services: cognitive-services
-  author: mikedodaro
-  manager: rosh
+  author: aahill
+  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: bing-video-search
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 01/16/2019
-  ms.author: v-gedod
+  ms.author: aahi
 abstract:
   description: 'Med API:et för nyhetssökning i Bing kan du integrera Bings nyhetssökningsfunktioner i dina program. Du kan söka efter relevanta nyhetsartiklar från flera kategorier och källor genom att skicka sökfrågor med API:et, på samma sätt som på bing.com/news.'
 sections:

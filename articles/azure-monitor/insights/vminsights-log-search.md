@@ -15,7 +15,7 @@ ms.date: 04/10/2019
 ms.author: magoedte
 ms.openlocfilehash: bca1b96e7dc5673cabef26fe6b2cfb8daa41fbf5
 ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2019
 ms.locfileid: "64702509"
@@ -50,19 +50,19 @@ Följande fält och konventioner gäller både VMConnection och VMBoundPort:
 
 För att hantera kostnaden och komplexiteten, utgör anslutningen poster inte enskilda fysiska nätverksanslutningar. Flera fysiska nätverksanslutningar är grupperade i en logisk anslutning, som sedan visas i respektive tabell.  Betydelse, registrerar i *VMConnection* tabell representerar en logisk gruppering och inte de enskilda fysiska anslutningar som är som observeras. Fysiska nätverksanslutningen som delar samma värde för följande attribut under ett givet intervall för en minut, slås ihop till en enskild logisk post i *VMConnection*. 
 
-| Egenskap  | Beskrivning |
+| Egenskap  | Description |
 |:--|:--|
 |Direction |Riktning för anslutningen värdet är *inkommande* eller *utgående* |
-|Dator |Datorn FQDN |
+|Machine |Datorn FQDN |
 |Process |Identiteten för processen eller grupper av processer, initierar/godkänna anslutningen |
 |SourceIp |IP-adressen för källan |
 |DestinationIp |IP-adressen för målet |
 |DestinationPort |Portnumret för mål |
-|Protokoll |Protokoll som används för anslutningen.  Värden är *tcp*. |
+|Protocol |Protokoll som används för anslutningen.  Värden är *tcp*. |
 
 Information om antalet grupperade fysiska anslutningar finns i följande egenskaper för posten för att redovisa effekten av gruppering:
 
-| Egenskap  | Beskrivning |
+| Egenskap  | Description |
 |:--|:--|
 |LinksEstablished |Antal fysiska nätverksanslutningar som har upprättats under tidsperioden för rapportering |
 |LinksTerminated |Antal fysiska nätverksanslutningar som har avslutats under tidsperioden för rapportering |
@@ -73,11 +73,11 @@ Information om antalet grupperade fysiska anslutningar finns i följande egenska
 
 Förutom antalet anslutningsmått, information om mängden data som skickas och tas emot på en viss logisk anslutning eller nätverksport ingår även i följande egenskaper för posten:
 
-| Egenskap  | Beskrivning |
+| Egenskap  | Description |
 |:--|:--|
 |BytesSent |Sammanlagt antal byte som har skickats under tidsperioden för rapportering |
 |BytesReceived |Sammanlagt antal byte som tagits emot under tidsperioden för rapportering |
-|Svar |Antal svar som observerats under tidsperioden för rapportering. 
+|Responses |Antal svar som observerats under tidsperioden för rapportering. 
 |ResponseTimeMax |Den största svarstid (millisekunder) observerats under tidsperioden för rapportering. Egenskapen är tomt om inget värde.|
 |ResponseTimeMin |Den minsta svarstid (millisekunder) observerats under tidsperioden för rapportering. Egenskapen är tomt om inget värde.|
 |ResponseTimeSum |Summan av alla svarstider (millisekunder) som observerats under tidsperioden för rapportering. Egenskapen är tomt om inget värde.|
@@ -99,7 +99,7 @@ För att underlätta för som IP-adressen för den fjärranslutna datorn för en
 #### <a name="geolocation"></a>Geoplats
 *VMConnection* innehåller även geoplats information för den fjärranslutna datorn för varje post för anslutning av följande egenskaper för posten: 
 
-| Egenskap  | Beskrivning |
+| Egenskap  | Description |
 |:--|:--|
 |RemoteCountry |Namnet på det land som är värd för RemoteIp.  Till exempel *USA* |
 |RemoteLatitude |Geoplats latitud. Till exempel *47.68* |
@@ -108,13 +108,13 @@ För att underlätta för som IP-adressen för den fjärranslutna datorn för en
 #### <a name="malicious-ip"></a>Skadlig IP
 Varje RemoteIp-egenskapen i *VMConnection* tabell kontrolleras mot en uppsättning IP-adresser med känd skadlig aktivitet. Om RemoteIp identifieras som skadlig följande egenskaper är ifyllda (de är tom, när den IP-Adressen inte anses vara skadlig) i följande egenskaper för posten:
 
-| Egenskap  | Beskrivning |
+| Egenskap  | Description |
 |:--|:--|
 |MaliciousIp |RemoteIp-adress |
 |IndicatorThreadType |Threat indikatorn har identifierats är något av följande värden *Botnät*, *C2*, *CryptoMining*, *Darknet*, *DDos* , *MaliciousUrl*, *skadlig kod*, *nätfiske*, *Proxy*, *oönskade program*, *Visningslista*.   |
-|Beskrivning |Beskrivning av observerade hotet. |
+|Description |Beskrivning av observerade hotet. |
 |TLPLevel |Trafikljus Protocol (TLP) är en av de definierade värdena *White*, *grönt*, *gul*, *Red*. |
-|Konfidensbedömning |Värden är *0 – 100*. |
+|Confidence |Värden är *0 – 100*. |
 |Severity |Värden är *0 – 5*, där *5* är den mest allvarliga och *0* inte är allvarligt alls. Standardvärdet är *3*.  |
 |FirstReportedDateTime |Första gången providern rapporterade indikatorn. |
 |LastReportedDateTime |Senast indikatorn har setts av Interflow. |
@@ -134,12 +134,12 @@ Portar på en dator som aktivt acceptera inkommande trafik eller potentiellt kan
 
 Varje post i VMBoundPort identifieras med följande fält: 
 
-| Egenskap  | Beskrivning |
+| Egenskap  | Description |
 |:--|:--|
 |Process | Identiteten för processen (eller grupper av processer) som porten som är associerad med.|
-|IP | Port IP-adress (kan vara IP-adress med jokertecken *0.0.0.0*) |
+|Ip | Port IP-adress (kan vara IP-adress med jokertecken *0.0.0.0*) |
 |Port |Portnumret |
-|Protokoll | Protokollet.  Exempelvis *tcp* eller *udp* (endast *tcp* stöds för närvarande).|
+|Protocol | Protokollet.  Exempelvis *tcp* eller *udp* (endast *tcp* stöds för närvarande).|
  
 Identiteten en port härleds från ovanstående fem fält och lagras i egenskapen PortId. Den här egenskapen kan användas för att snabbt hitta poster för en viss port över tid. 
 
@@ -160,9 +160,9 @@ Här följer några viktiga saker att tänka på:
 ### <a name="servicemapcomputercl-records"></a>ServiceMapComputer_CL poster
 Poster med en typ av *ServiceMapComputer_CL* har inventeringsdata för servrar med beroendeagenten. Dessa poster har egenskaper i följande tabell:
 
-| Egenskap  | Beskrivning |
+| Egenskap  | Description |
 |:--|:--|
-| Typ | *ServiceMapComputer_CL* |
+| Type | *ServiceMapComputer_CL* |
 | SourceSystem | *OpsManager* |
 | ResourceId | Den unika identifieraren för en dator i arbetsytan |
 | ResourceName_s | Den unika identifieraren för en dator i arbetsytan |
@@ -185,9 +185,9 @@ Poster med en typ av *ServiceMapComputer_CL* har inventeringsdata för servrar m
 ### <a name="servicemapprocesscl-type-records"></a>ServiceMapProcess_CL poster
 Poster med en typ av *ServiceMapProcess_CL* har inventeringsdata för TCP-anslutna processer på servrar med beroendeagenten. Dessa poster har egenskaper i följande tabell:
 
-| Egenskap  | Beskrivning |
+| Egenskap  | Description |
 |:--|:--|
-| Typ | *ServiceMapProcess_CL* |
+| Type | *ServiceMapProcess_CL* |
 | SourceSystem | *OpsManager* |
 | ResourceId | Den unika identifieraren för en process i arbetsytan |
 | ResourceName_s | Den unika identifieraren för en process på datorn där den körs|
@@ -204,7 +204,7 @@ Poster med en typ av *ServiceMapProcess_CL* har inventeringsdata för TCP-anslut
 | CommandLine_s | Från kommandoraden |
 | ExecutablePath_s | Sökvägen till den körbara filen |
 | WorkingDirectory_s | Arbetskatalogen |
-| Användarnamn | Det konto som processen körs |
+| UserName | Det konto som processen körs |
 | UserDomain | Den domän där processen körs |
 
 ## <a name="sample-log-searches"></a>Exempel på loggsökningar

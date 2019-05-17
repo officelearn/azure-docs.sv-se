@@ -1,23 +1,17 @@
 ---
 title: Låsa Azure-resurser ska kunna ändras | Microsoft Docs
 description: Hindra användare från uppdatering eller radering viktiga Azure-resurser genom att använda ett lås för alla användare och roller.
-services: azure-resource-manager
-documentationcenter: ''
 author: tfitzmac
-ms.assetid: 53c57e8f-741c-4026-80e0-f4c02638c98b
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 05/14/2019
 ms.author: tomfitz
-ms.openlocfilehash: 8942ae9a24613f7b7896cf7124b344d9d9315954
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a6c7983d22eed4a4232fbb2db490c1743684a04c
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59360438"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65813392"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Låsresurser för att förhindra oväntade ändringar 
 
@@ -36,7 +30,13 @@ Till skillnad från rollbaserad åtkomstkontroll använder du hanteringslås fö
 
 Resource Manager-Lås gäller endast för åtgärder som sker i Hanteringsplanet, som består av åtgärder som skickas till `https://management.azure.com`. Låsen begränsa inte hur resurser utföra egna funktioner. Resursändringar är begränsade men resursåtgärder är inte begränsade. Till exempel gör ett ReadOnly-lås på en SQL Database att du inte tar bort eller ändrar databasen. Den hindra inte dig från att skapa, uppdatera eller ta bort data i databasen. Datatransaktioner tillåts eftersom dessa åtgärder inte skickas till `https://management.azure.com`.
 
-Tillämpa **ReadOnly** kan leda till oväntade resultat eftersom vissa åtgärder som verkar vara läsa åtgärder faktiskt kräver ytterligare åtgärder. Till exempel placera en **ReadOnly** låset på ett lagringskonto som förhindrar att alla användare lista nycklarna. Listan med nycklar åtgärden hanteras via en POST-begäran eftersom de returnerade nycklarna är tillgängliga för skrivåtgärder. För ett annat exempel är att placera en **ReadOnly** lås på en App Service-resurs som förhindrar att Visual Studio Server Explorer visar filer för resursen eftersom den interaktionen kräver skrivbehörighet.
+Tillämpa **ReadOnly** kan leda till oväntade resultat eftersom vissa åtgärder som inte verkar ändra resursen faktiskt kräver åtgärder som blockerats av låset. Den **ReadOnly** Lås kan användas till resursen eller resursgruppen som innehåller resursen. Några vanliga exempel på åtgärder som blockeras av en **ReadOnly** Lås är:
+
+* En **ReadOnly** låset på ett lagringskonto som förhindrar att alla användare lista nycklarna. Listan med nycklar åtgärden hanteras via en POST-begäran eftersom de returnerade nycklarna är tillgängliga för skrivåtgärder.
+
+* En **ReadOnly** lås på en App Service-resurs som förhindrar att Visual Studio Server Explorer visar filer för resursen eftersom den interaktionen kräver skrivbehörighet.
+
+* En **ReadOnly** låset på en resursgrupp som innehåller en virtuell dator förhindrar alla användare från att starta eller starta om den virtuella datorn. Dessa åtgärder kräver en POST-begäran.
 
 ## <a name="who-can-create-or-delete-locks"></a>Vem som kan skapa eller ta bort lås
 För att skapa eller ta bort hanteringslås, måste du ha åtkomst till `Microsoft.Authorization/*` eller `Microsoft.Authorization/locks/*` åtgärder. Av de inbyggda rollerna har endast **Ägare** och **Administratör för användaråtkomst** åtkomst till dessa åtgärder.
@@ -61,7 +61,7 @@ Om du vill ta bort allt innehåll för tjänsten, inklusive den låsta infrastru
 
 ![Ta bort tjänst](./media/resource-group-lock-resources/delete-service.png)
 
-## <a name="portal"></a>Portalen
+## <a name="portal"></a>Portal
 [!INCLUDE [resource-manager-lock-resources](../../includes/resource-manager-lock-resources.md)]
 
 ## <a name="template"></a>Mall
@@ -218,7 +218,7 @@ lockid=$(az lock show --name LockSite --resource-group exampleresourcegroup --re
 az lock delete --ids $lockid
 ```
 
-## <a name="rest-api"></a>REST-API
+## <a name="rest-api"></a>REST API
 Du kan låsa distribuerade resurser med den [REST API för hanteringslås](https://docs.microsoft.com/rest/api/resources/managementlocks). REST API kan du skapa och ta bort lås och hämta information om befintliga Lås.
 
 Om du vill skapa ett lås, kör du:

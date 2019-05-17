@@ -1,5 +1,5 @@
 ---
-title: Kryptering i vila med Kundhanterade nycklar i Azure Key Vault - Azure Search
+title: Kryptering i vila med Kundhanterade nycklar i Azure Key Vault (förhandsversion) – Azure Search
 description: Tillägg server side encryption över index och synonymmappningar i Azure Search via nycklar som du skapar och hanterar i Azure Key Vault.
 author: NatiNimni
 manager: jlembicz
@@ -9,14 +9,19 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: ''
-ms.openlocfilehash: 987b56a9571fd50f605dbe6fb4112ef857021530
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 9d2cd2a2f4b3143d58d0ef03d67de094ea03303e
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65029182"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523098"
 ---
 # <a name="azure-search-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Azure Search-kryptering med Kundhanterade nycklar i Azure Key Vault
+
+> [!Note]
+> Kryptering med Kundhanterade nycklar finns i förhandsversion som inte är avsett för användning i produktion. Den [REST API-version 2019-05-06-Preview](search-api-preview.md) ger den här funktionen. Du kan också använda .NET SDK version 8.0-förhandsversion.
+>
+> Den här funktionen är inte tillgänglig för kostnadsfria tjänster. Du måste använda en fakturerbar söktjänst som skapats på eller efter 2019-01-01. Det finns inget portal stöd just nu.
 
 Som standard krypterar Azure Search användarinnehåll i vila med [service-hanterade nycklar](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest#data-encryption-models). Du kan komplettera standard kryptering med ett lager för ytterligare kryptering med nycklar som du skapar och hanterar i Azure Key Vault. Den här artikeln vägleder dig genom stegen.
 
@@ -26,20 +31,17 @@ Kryptering med Kundhanterade nycklar har konfigurerats på index eller synonymen
 
 Du kan använda olika nycklar från olika nyckelvalv. Det innebär att en enda söktjänst kan vara värd för flera krypterade indexes\synonym kartor, var och en krypterad potentiellt med hjälp av en annan kundhanterad nyckel, tillsammans med indexes\synonym maps som inte är krypterade med Kundhanterade nycklar. 
 
->[!Note]
-> **Funktionen tillgänglighet**: Kryptering med Kundhanterade nycklar är en förhandsgranskningsfunktion som inte är tillgänglig för kostnadsfria tjänster. För betaltjänster, det är endast tillgängligt för söktjänster som skapats på eller efter 2019-01-01, med hjälp av den senaste api-versionen (api-version = 2019-05-06-förhandsversion). Det finns för närvarande inget portal stöd för den här funktionen.
-
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Följande tjänster används i det här exemplet. 
 
-[Skapa en Azure Search-tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under din aktuella prenumeration. Du kan använda en kostnadsfri tjänst för den här självstudiekursen.
++ [Skapa en Azure Search-tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under din aktuella prenumeration. Du kan använda en kostnadsfri tjänst för den här självstudiekursen.
 
-[Skapa en Azure Key Vault-resurs](https://docs.microsoft.com/azure/key-vault/quick-create-portal#create-a-vault) eller hitta ett befintligt valv i din prenumeration.
++ [Skapa en Azure Key Vault-resurs](https://docs.microsoft.com/azure/key-vault/quick-create-portal#create-a-vault) eller hitta ett befintligt valv i din prenumeration.
 
-[Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) eller [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) används för konfigurationsåtgärder.
++ [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) eller [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) används för konfigurationsåtgärder.
 
-[Postman](search-fiddler.md), [Azure PowerShell](search-create-index-rest-api.md) och [Azure Search SDK](https://aka.ms/search-sdk-preview) kan användas för att anropa förhandsversionen av REST API. Det finns ingen portal eller .NET SDK-stöd för Kundhanterade kryptering just nu.
++ [Postman](search-fiddler.md), [Azure PowerShell](search-create-index-rest-api.md) och [Azure Search SDK](https://aka.ms/search-sdk-preview) kan användas för att anropa förhandsversionen av REST API. Det finns ingen portal eller .NET SDK-stöd för Kundhanterade kryptering just nu.
 
 ## <a name="1---enable-key-recovery"></a>1 – Aktivera återställning av nyckel
 

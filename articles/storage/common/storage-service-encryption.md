@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 04/30/2019
+ms.date: 05/15/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 6eb7de7810ce23aed4031cca9f038da7149a6f9c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1e95adbd1a564fb34d3f0506ac1cc25bc5a63c62
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153090"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790057"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Azure Storage-kryptering av vilande data
 
@@ -51,6 +51,9 @@ Läs hur du använder Kundhanterade nycklar med Azure Storage i någon av följa
 - [Konfigurera Kundhanterade nycklar för kryptering av Azure Storage från Azure portal](storage-encryption-keys-portal.md)
 - [Konfigurera Kundhanterade nycklar för kryptering av Azure Storage från PowerShell](storage-encryption-keys-powershell.md)
 - [Använda Kundhanterade nycklar med Azure Storage kryptering från Azure CLI](storage-encryption-keys-cli.md)
+
+> [!IMPORTANT]
+> Kundhanterade nycklar beroende av hanterade identiteter för Azure-resurser, en funktion i Azure Active Directory (AD Azure). När du överför en prenumeration från en Azure AD-katalog till en annan, hanterade identiteter uppdateras inte och fungerar kanske inte längre Kundhanterade nycklar. Mer information finns i **överföra en prenumeration mellan Azure AD-kataloger** i [vanliga frågor och kända problem med hanterade identiteter för Azure-resurser](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).  
 
 > [!NOTE]  
 > Kundhanterade nycklar stöds inte för [Azure hanterade diskar](../../virtual-machines/windows/managed-disks-overview.md).

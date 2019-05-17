@@ -12,28 +12,66 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/14/2019
+ms.date: 05/02/2019
 ms.author: b-juche
-ms.openlocfilehash: 897ca26bcbb05287d33a4fb8e731ca959e39e271
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d55e11ace4ca306c3d3ec8c0094a751966289db6
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60452644"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523052"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Resursbegränsningar för Azure NetApp Files
 
 Så här fungerar resursgränser för Azure NetApp Files kan du hantera dina volymer.
 
-- Varje Azure-prenumeration kan ha högst 10 NetApp-konton.
-- Varje NetApp-konto kan ha högst 25 kapacitet pooler.
-- Varje kapacitetspool kan endast tillhör ett NetApp-konto.  
-- Den minsta storleken för en enda kapacitetspool är 4 TiB och maxstorleken är 500 TiB. 
-- Varje kapacitet pool kan ha högst 500 volymer.
-- Den minsta storleken är 100 TiB och maxstorleken är 92 TiB.
-- Varje volym kan ha högst 255 ögonblicksbilder.
-- Varje virtuellt Azure-nätverk (Vnet) kan ha endast ett undernät som delegerats till Azure NetApp-filer.
+## <a name="resource-limits"></a>Resursbegränsningar
 
-**Nästa steg**
+I följande tabell beskrivs resursgränser för Azure NetApp-filer:
 
-[Förstå lagringshierarkin för Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
+|  Resource  |  Standardgräns  |  Inställbara genom en supportförfrågan  |
+|----------------|---------------------|--------------------------------------|
+|  Antal NetApp-konton per Azure-prenumeration   |  10    |  Ja   |
+|  Antal kapacitet pooler per NetApp-konto   |    25     |   Ja   |
+|  Antalet volymer per pool kapacitet     |    500   |    Ja     |
+|  Antalet ögonblicksbilder per volym       |    255     |    Nej        |
+|  Antalet undernät som har delegerats till Azure NetApp-filer (Microsoft.NetApp/volumes) per Azure-nätverk    |   1   |    Nej    |
+|  Minsta storlek på en enda kapacitet-pool   |  4 TiB     |    Nej  |
+|  Maximal storlek på en enda kapacitet-pool    |  500 TiB   |   Nej   |
+|  Minsta storlek på en enskild volym    |    100 giB    |    Nej    |
+|  Högsta tilldelade kvot på en enda volym *   |   92 TiB   |    Nej   |
+|  Maximal storlek på en enda volym *     |    100 TiB    |    Nej       |
+
+* En volym kan skapas manuellt eller ändra storlek till högst 92 TiB. Men kan en volym växa upp till 100 TiB i ett scenario för överförbrukning. Se [kostnadsmodell för Azure NetApp Files](azure-netapp-files-cost-model.md) mer information om kapacitet överförbrukning. 
+
+## <a name="request-limit-increase"></a>Gräns för begäran 
+
+Du kan skapa en Azure-supportbegäran öka justerbara gränserna från tabellen ovan. 
+
+Från Azure portalnavigering plan: 
+
+1. Klicka på **hjälp + support**.
+2. Klicka på **+ ny supportbegäran**.
+3. Ange följande information på fliken grunderna: 
+    1. Typ av problem: Välj **begränsningar för tjänsten och -prenumeration (kvoter)**.
+    2. Prenumerationer: Välj prenumerationen för den resurs som du behöver kvoten.
+    3. Typ av kvot: Välj **lagring: Azure NetApp filer begränsar**.
+    4. Klicka på **Nästa: Lösningar**.
+4. På fliken information:
+    1. Ange följande information för den motsvarande resurstypen i rutan Beskrivning:
+
+        |  Resource  |    Överordnad resurser      |    Begärda nya gränserna     |    Orsaken till kvot       |
+        |----------------|------------------------------|---------------------------------|------------------------------------------|
+        |  Konto |  *Prenumerations-ID*   |  *Begärda nya maximalt **konto** tal*    |  *Vilka scenario eller Använd om du uppmanas att göra begäran?*  |
+        |  Pool    |  *Prenumerations-ID, konto URI*  |  *Begärda nya maximalt **pool** tal*   |  *Vilka scenario eller Använd om du uppmanas att göra begäran?*  |
+        |  Volym  |  *Prenumerations-ID, konto URI, Pool URI*   |  *Begärda nya maximalt **volym** tal*     |  *Vilka scenario eller Använd om du uppmanas att göra begäran?*  |
+
+    2. Ange rätt stöd för metoden och ange ditt kontraktsinformation.
+
+    3. Klicka på **Nästa: Granska + skapa** skapa begäran. 
+
+
+## <a name="next-steps"></a>Nästa steg  
+
+- [Förstå lagringshierarkin för Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
+- [Kostnad modell för Azure NetApp-filer](azure-netapp-files-cost-model.md)

@@ -6,14 +6,14 @@ manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 07/03/2017
+ms.date: 05/11/2019
 ms.author: robinsh
-ms.openlocfilehash: 274b77644326cbf73696aae77b48afcbc63aa4c2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5dd93af7deec2b0c8c90f6a8586de905207ad0a6
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61322805"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796365"
 ---
 # <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>Importera och exportera IoT Hub-enhetsidentiteter i grupp
 
@@ -84,6 +84,10 @@ while(true)
   await Task.Delay(TimeSpan.FromSeconds(5));
 }
 ```
+
+## <a name="device-importexport-job-limits"></a>Enhetsgränser import/export-jobb
+
+Importera endast 1 aktiv enhet eller export-jobbet tillåts vid en tidpunkt för alla nivåer för IoT Hub. IoT Hub har även gränser för jobbåtgärder. Mer information finns i [referens – IoT Hub-kvoter och begränsningar](iot-hub-devguide-quotas-throttling.md).
 
 ## <a name="export-devices"></a>Exportera enheter
 
@@ -390,7 +394,7 @@ while(true)
 
 ## <a name="get-the-container-sas-uri"></a>Hämta SAS-URI
 
-Följande kodexempel visar hur du skapar en [SAS-URI](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md) med läsa, skriva och ta bort behörigheter för en blob-behållare:
+Följande kodexempel visar hur du skapar en [SAS-URI](../storage/common/storage-dotnet-shared-access-signature-part-1.md) med läsa, skriva och ta bort behörigheter för en blob-behållare:
 
 ```csharp
 static string GetContainerSasUri(CloudBlobContainer container)
@@ -420,7 +424,7 @@ static string GetContainerSasUri(CloudBlobContainer container)
 I den här artikeln lärde du dig att utföra massåtgärder mot identitetsregistret i IoT-hubb. Du kan följa dessa länkar om du vill veta mer om hur du hanterar Azure IoT Hub:
 
 * [IoT Hub-mått](iot-hub-metrics.md)
-* [Övervakning av åtgärder](iot-hub-operations-monitoring.md)
+* [IoT Hub-loggarna](iot-hub-monitor-resource-health.md)
 
 Om du vill fortsätta för att utforska funktionerna för IoT Hub, se:
 

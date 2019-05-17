@@ -14,22 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: brkhande
-ms.openlocfilehash: ef2b1bd9cfe9aed1e82335d62bb09b5ffcbe1016
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: aca34ee40bfe10c55c478d9aaeb01a65d139e1e2
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471767"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522378"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Uppdatera Windows-operativsystemet i Service Fabric-klustret
 
 > 
 > [!IMPORTANT]
 > Programmet version 1.2. * kommer från stöd på 30 April 2019. Uppgradera till den senaste versionen.
-
-> 
-> [!IMPORTANT]
-> Patch Orchestration-programmet på linux är inaktuell. Besök [automatisk operativsystemuppgradering avbildning för Azure VM-skalningsuppsättningen](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) för att samordna uppdateringar på linux.
 
 
 [Azure VM-skalningsuppsättningen automatisk operativsystemuppgradering bild](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) är den bästa metoden för att se till att ditt operativsystem korrigerade i Azure och Patch Orchestration Application (POA) är en omslutning runt Service Fabrics RepairManager system service som gör configuration baserade OS patch schemaläggning för icke-Azure-värdbaserade kluster. POA krävs inte för icke-Azure-värdbaserade kluster, men schemaläggning patch-installationen genom att uppgradera domäner som krävs för att korrigera värdar för Service Fabric-kluster utan avbrott.
@@ -263,7 +259,7 @@ Om du vill aktivera omvänd proxy i klustret, följer du stegen i [omvänd proxy
 
 Patch orchestration-appen loggar samlas in som en del av loggar för Service Fabric runtime.
 
-Om du vill samla in loggar via diagnostiska verktyg/pipeline valfri. Patch orchestration application använder nedan fast provider-ID: N för att logga händelser via [eventsource](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1)
+Om du vill samla in loggar via diagnostiska verktyg/pipeline valfri. Patch orchestration application använder nedan fast provider-ID: N för att logga händelser via [händelsekälla](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1)
 
 - e39b723c-590c-4090-abb0-11e3e6616346
 - fc0028ff-bfdc-499f-80dc-ed922c52c5e9
@@ -312,7 +308,7 @@ F. **Vad kan jag göra om mitt kluster är i feltillstånd och jag behöver du e
 
 A. Patch orchestration appen installeras inte uppdateringar medan klustret är i feltillstånd. Försök att ta med ditt kluster till ett felfritt tillstånd att avblockera patch orchestration app-arbetsflöde.
 
-F. **Bör ange i TaskApprovalPolicy som 'NodeWise' eller 'UpgradeDomainWise' för mitt kluster?**
+F. **Bör jag ställa TaskApprovalPolicy som NodeWise' eller 'UpgradeDomainWise' för mitt kluster?**
 
 A. 'UpgradeDomainWise' gör övergripande klustret korrigeringar snabbare genom att åtgärda alla noder som tillhör en uppgraderingsdomän parallellt. Det innebär att noder som tillhör en hela uppgraderingsdomän skulle vara otillgänglig (i [inaktiverad](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabled) tillstånd) under korrigeringsprocessen.
 
@@ -346,6 +342,10 @@ A. Vissa produktuppdateringar endast visas i deras respektive uppdateringar/korr
 F. **Dirigering app användas för att korrigera mitt dev-kluster (kluster med en nod)?**
 
 A. Nej, Patch orchestration appen kan inte användas till patch kluster med en nod. Den här begränsningen är avsiktligt, som [service fabric-systemtjänster](https://docs.microsoft.com/azure/service-fabric/service-fabric-technical-overview#system-services) eller kundappar kommer att stöta på avbrott och reparation jobb för uppdatering skulle därför aldrig godkännas av reparationshanteraren.
+
+F. **Hur jag för att korrigera klusternoder på Linux?**
+
+A. Se [automatisk operativsystemuppgradering avbildning för Azure VM-skalningsuppsättningen](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) för att samordna uppdateringar på linux.
 
 ## <a name="disclaimers"></a>Ansvarsfriskrivningar
 
@@ -413,7 +413,7 @@ En administratör måste ingripa och avgöra varför programmet eller kluster fi
 
 - Ange InstallWindowsOSOnlyUpdates till false nu installerar alla tillgängliga uppdateringar.
 - Ändra logiken för att inaktivera automatiska uppdateringar. Det löser en bugg där automatiska uppdateringar har inte ska inaktiveras på Server 2016 och senare.
-- Parametriserade placering begränsningen för båda mikrotjänster av POA för avancerade usecases.
+- Parametriserade placering begränsningen för båda mikrotjänster av POA för avancerade användningsfall.
 
 ### <a name="version-131"></a>Version 1.3.1
 - Åtgärda regression där POA 1.3.0 fungerar inte på Windows Server 2012 R2 eller lägre på grund av fel i inaktivera automatiska uppdateringar. 
@@ -421,4 +421,4 @@ En administratör måste ingripa och avgöra varför programmet eller kluster fi
 - Ändra standardvärdet för InstallWindowsOSOnlyUpdates till FALSKT.
 
 ### <a name="version-132"></a>Version 1.3.2
-- Åtgärda ett problem som berörs uppdatering liv-cyle på en nod om det finns noder med namn som är del av namnet på aktuella noden. För sådana noder, möjliga korrigeringar saknas eller omstart väntar. 
+- Åtgärda ett problem som berörs uppdatering livscykeln på en nod om det finns noder med namn som är del av namnet på aktuella noden. För sådana noder, möjliga korrigeringar saknas eller omstart väntar. 

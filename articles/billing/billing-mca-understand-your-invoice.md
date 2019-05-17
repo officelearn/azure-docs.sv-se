@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: ee6317f61f95b19effd64308b88f53c027582b63
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: aee51793c66ae57f740300797b8fdc1799e685cd
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60371425"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604032"
 ---
 # <a name="understand-terms-on-your-microsoft-customer-agreement-invoice"></a>Förstå villkoren på din faktura för Microsoft kundavtal
 
@@ -63,7 +63,7 @@ Den **fakturering sammanfattning** visar avgifter avseende fakturering profilen 
 | Eftertexter |Krediter som du har fått från returnerar |
 | Azure-krediter tillämpas | Azure-krediter som automatiskt tillämpas på Azure-avgifter varje faktureringsperiod |
 | Delsumma |Före skatt beloppet |
-| Moms |Typ och skatt du betalar, beroende på landet där din faktureringsinformation profil. Om du inte betala skatt kan se du inte skatt på din faktura. |
+| Moms |Typ och skatt du betalar, beroende på land/region för fakturering-profilen. Om du inte betala skatt kan se du inte skatt på din faktura. |
 | Uppskattade totala besparingar |Det uppskattade totala beloppet som du sparade från effektiva rabatter. Om så är tillämpligt, visas effektiva rabatterna nedanför köp posterna i informationen om faktura-avsnittet. |
 
 ### <a name="invoice-sections"></a>Fakturaavsnitt
@@ -88,7 +88,7 @@ Totalsumman för varje tjänst-familjen beräknas genom att subtrahera *Azure-kr
 | Antal | Kvantitet som har köpt eller förbrukats under fakturaperioden |
 | Avgifter/krediter | Summan av kostnader när krediter/återbetalningar tillämpas |
 | Azure-kredit | Mängden Azure krediter som tillämpats på avgifter/krediter|
-| Skattesats | Skattesatser beroende på land |
+| Skattesats | Skattesatser beroende på land/region |
 | Skattebelopp | Skatt tillämpas om du vill köpa utifrån skattesats |
 | Totalt | Totalsumman för inköp |
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: anavin
-ms.openlocfilehash: 18d913339556c0d4b0a06bd62f4495da6a4d4223
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: ee7ffba182cdbc2a77df5edf112e29c49cd610ad
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925906"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65519661"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Skapa, ändra eller ta bort en virtuell nätverkspeering
 
@@ -146,7 +146,7 @@ Om ditt konto inte har tilldelats till en av rollerna som tidigare, så måste d
 |---                                                              |---   |
 | Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write  | Krävs för att skapa en peering från virtuella nätverket A till virtuellt nätverk B. virtuella måste nätverket A vara ett virtuellt nätverk (Resource Manager)          |
 | Microsoft.Network/virtualNetworks/peer/action                   | Krävs för att skapa en peering från virtuella nätverket B (Resource Manager) till virtuella nätverket A                                                       |
-| Microsoft.ClassicNetwork/virtualNetworks/peer                   | Krävs för att skapa en peering från virtuella nätverket B (klassisk) till virtuella nätverket A                                                                |
+| Microsoft.ClassicNetwork/virtualNetworks/peer/action                   | Krävs för att skapa en peering från virtuella nätverket B (klassisk) till virtuella nätverket A                                                                |
 | Microsoft.Network/virtualNetworks/virtualNetworkPeerings/read   | Läsa en virtuell nätverkspeering   |
 | Microsoft.Network/virtualNetworks/virtualNetworkPeerings/delete | Ta bort en virtuell nätverkspeering |
 

@@ -17,16 +17,14 @@ ms.date: 04/12/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c45cd1627eb1eb98b2fc19f6663d5635b001ce0c
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: fd4b6dd31d620603b765fd33494f399f97915af3
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65067793"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65784923"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Snabbstart: Anropa Microsoft Graph API från en UWP-app (universell Windows-plattform)
-
-[!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
 Den här snabbstarten innehåller ett kodexempel som visar hur ett program för Universal Windows Platform (UWP) kan logga in användare med personliga konton eller och skolkonton, få en åtkomsttoken och anropa Microsoft Graph API.
 
@@ -92,7 +90,7 @@ Den här snabbstarten innehåller ett kodexempel som visar hur ett program för 
 > > [!TIP]
 > > Hitta värdet för *program-ID*går du till den **översikt** avsnitt i portalen
 
-#### <a name="step-4-run-your-application"></a>Steg 4: Köra ditt program
+#### <a name="step-4-run-your-application"></a>Steg 4: Kör programmet
 
 Om du vill prova snabbstarten på din Windows-dator:
 

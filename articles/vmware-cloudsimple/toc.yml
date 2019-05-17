@@ -138,18 +138,16 @@
               href: 'https://docs.azure.cloudsimple.com/set-vcenter-identity/'
             - name: Azure Application Gateway med virtuella VMware-datorer
               href: 'https://docs.azure.cloudsimple.com/azure-application-gateway/'
-            - name: Azure Public Load Balancer med virtuella VMware-datorer
-              href: 'https://docs.azure.cloudsimple.com/load-balancers/'
             - name: Konfigurera vCenter-server för privat moln som vRealize-automatiseringsslutpunkt
               href: 'https://docs.azure.cloudsimple.com/configure-server-vra-endpoint/'
             - name: Migrera arbetsbelastning för virtuella datorer till ett privat moln
               href: 'https://docs.azure.cloudsimple.com/migrate-workloads/'
             - name: Säkerställa hög tillgänglighet för program i VMware på Azure
-              href: 'https://docs.azure.cloudsimple.com/ha-ensuring/'
+              href: 'https://docs.azure.cloudsimple.com/ensuring-high-availability/'
         - name: VMware-ekosystem
           items:
             - name: Säkerhetskopiering av arbetsbelastning för virtuella datorer
-              href: 'https://docs.azure.cloudsimple.com/veeam/'
+              href: 'https://docs.azure.cloudsimple.com/backup-workloads-veeam/'
             - name: Lösningsguide för VMware Horizon
               href: 'https://docs.azure.cloudsimple.com/horizon-guide/'
             - name: Konfigurera vSAN-kryptering för ditt privata moln
@@ -161,6 +159,6 @@
             - name: Azure AD-identitetskälla på privat moln i vCenter
               href: 'https://docs.azure.cloudsimple.com/azure-ad/'
             - name: Lokal nätverksanslutning med ExpressRoute
-              href: 'https://docs.azure.cloudsimple.com/er-connection/'
+              href: 'https://docs.azure.cloudsimple.com/on-premises-connection/'
             - name: Lokal nätverksanslutning med ExpressRoute
-              href: 'https://docs.azure.cloudsimple.com/azure-er-connection/'
+              href: 'https://docs.azure.cloudsimple.com/azure-expressroute-connection/'

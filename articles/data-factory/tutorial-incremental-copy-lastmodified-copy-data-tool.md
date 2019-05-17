@@ -13,16 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 1/24/2019
-ms.openlocfilehash: 8308190e0e68365343fb50ca33f9bea75c3e4e66
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3865bb10346c4a55adbf94a7df225eacf2c11252
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61099045"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65519136"
 ---
 # <a name="incrementally-copy-new-and-changed-files-based-on-lastmodifieddate-by-using-the-copy-data-tool"></a>Kopiera nya och ändrade filer baserat på LastModifiedDate med hjälp av verktyget kopieringsdata stegvis
 
 I den här självstudien ska du använda Azure-portalen för att skapa en datafabrik. Sedan använder du verktyget kopieringsdata för att skapa en pipeline som kopierar stegvis nya och ändrade filer, baserat på deras **LastModifiedDate** från Azure Blob storage till Azure Blob storage.
+
+Genom att göra detta kommer ADF söka igenom alla filer från arkivet för källa, tillämpa filtret genom sina LastModifiedDate och kopiera filen nya och uppdaterade endast sedan senaste gången till målarkiv.  Observera att om du Låt ADF genomsökning enorma mängder filer men bara kopiera filer till mål kan du fortfarande förväntar långsamma på grund av sökning är tidskrävande samt.   
 
 > [!NOTE]
 > Om du inte har använt Azure Data Factory tidigare kan du läsa [Introduktion till Azure Data Factory](introduction.md).

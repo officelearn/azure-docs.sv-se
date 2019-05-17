@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/10/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 78c445e70fcf972be81ef6dfd5d675f8e4843621
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 2677c993b759988b0a9906b357bcd352b243b5a7
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65541512"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792680"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Bästa praxis för en kunskapsbas med QnA Maker
 Den [kunskapsbas för säkerhetsutveckling](../Concepts/development-lifecycle-knowledge-base.md) guidar dig om hur du hanterar din Kunskapsbas från början till slut. Använda dessa bästa metoder för att förbättra din kunskapsbas och ge bättre resultat för din robot program/chatt slutanvändare.
@@ -87,7 +87,7 @@ Standard-förtroendepoäng som används som ett tröskelvärde är 50, men du ka
 [Metadata](../How-To/edit-knowledge-base.md) lägger till möjligheten att begränsa resultatet av en användarfråga baserat på metadatataggar. Kunskapsbas-svar kan variera beroende på metadatataggen, även om frågan är samma. Till exempel *”var är parkering finns”* kan ha olika svar om grenen restaurang finns olika – det vill säga metadata är *plats: Seattle* jämfört med *plats: Redmond*.
 
 ### <a name="use-synonyms"></a>Använda synonymer
-Även om det finns vissa stöd för synonymer i på engelska, använder skiftlägeskänsliga [word förändras](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd) att lägga till synonymer i nyckelord som tar olika format. Synonymer bör läggas på QnA Maker-tjänstnivå och delas av alla kunskapsbaser i tjänsten.
+Även om det finns vissa stöd för synonymer i på engelska, använder skiftlägeskänsliga [word förändras](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) att lägga till synonymer i nyckelord som tar olika format. Synonymer bör läggas på QnA Maker-tjänstnivå och delas av alla kunskapsbaser i tjänsten.
 
 |Ursprungliga word|Synonymer|
 |--|--|

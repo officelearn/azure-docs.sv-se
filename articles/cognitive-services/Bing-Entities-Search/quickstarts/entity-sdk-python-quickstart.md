@@ -3,19 +3,19 @@ title: 'Snabbstart: SDK för entitetssökning i Bing, Python'
 titlesuffix: Azure Cognitive Services
 description: Konfiguration av konsolprogrammet för SDK för entitetssökning i Bing.
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
-ms.author: v-gedod
-ms.openlocfilehash: a2d901c1cec4556e4061c21548d7a695c06e8cf8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: aahi
+ms.openlocfilehash: 9a66df03ceb03885ba5f61b4adeb54cb1876338d
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60737099"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65813614"
 ---
 # <a name="quickstart-bing-entity-search-sdk-with-python"></a>Snabbstart: SDK för entitetssökning i Bing med Python
 

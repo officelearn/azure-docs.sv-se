@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: e24c5b2be1df41d84fa4461250f51cb009f77529
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: ddd3b0889eedd55f809dbb57b2ef41a2ae3f9c94
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60737217"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521398"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Host.JSON-referens för Azure Functions 2.x  
 
@@ -35,7 +35,6 @@ Vissa host.json-inställningarna används bara när du kör lokalt i den [local.
 ## <a name="sample-hostjson-file"></a>Exempelfilen för host.json
 
 I följande exempel *host.json* filer har alla möjliga alternativ som har angetts.
-
 
 ```json
 {
@@ -82,7 +81,10 @@ I följande exempel *host.json* filer har alla möjliga alternativ som har anget
       "lockAcquisitionTimeout": "00:01:00",
       "lockAcquisitionPollingInterval": "00:00:03"
     },
-    "watchDirectories": [ "Shared", "Test" ]
+    "watchDirectories": [ "Shared", "Test" ],
+    "managedDependency": {
+        "enabled": true
+    }
 }
 ```
 
@@ -194,6 +196,9 @@ Styr loggning beteenden för funktionsappen, inklusive Application Insights.
       "Function.MyFunction": "Information",
       "default": "None"
     },
+    "console": {
+        ...
+    },
     "applicationInsights": {
         ...
     }
@@ -274,6 +279,18 @@ En uppsättning [delad kod kataloger](functions-reference-csharp.md#watched-dire
 ```json
 {
     "watchDirectories": [ "Shared" ]
+}
+```
+
+## <a name="manageddependency"></a>managedDependency
+
+Hanterade beroende är en förhandsgranskningsfunktion som för närvarande stöds med endast PowerShell baserat funktioner. Det gör att beroenden hanteras automatiskt av tjänsten. När egenskapen aktiverat har angetts till SANT, den [requirements.psd1](functions-reference-powershell.md#dependency-management) filen kommer att bearbetas. Beroenden uppdateras när någon mindre version släpps.
+
+```json
+{
+    "managedDependency": {
+        "enabled": true
+    }
 }
 ```
 

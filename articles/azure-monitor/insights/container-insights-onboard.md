@@ -1,6 +1,6 @@
 ---
-title: Hur du integrera Azure Monitor för behållare | Microsoft Docs
-description: Den här artikeln beskrivs hur du publicerar och konfigurera Azure Monitor för behållare så att du kan förstå hur din behållare fungerar och vilka prestanda-relaterade problem har identifierats.
+title: Så här aktiverar du Azure Monitor för behållare | Microsoft Docs
+description: Den här artikeln beskrivs hur du aktiverar och konfigurerar Azure Monitor för behållare så att du kan förstå hur din behållare fungerar och vilka prestanda-relaterade problem har identifierats.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: magoedte
-ms.openlocfilehash: 10b80a9749c5698195ac5d3493ac3b07fd6e24e1
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 5e149fa96e0a62656804906b52adf10273321d17
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073316"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521899"
 ---
-# <a name="how-to-onboard-azure-monitor-for-containers"></a>Hur du integrera Azure Monitor för behållare  
+# <a name="how-to-enable-azure-monitor-for-containers"></a>Så här aktiverar du Azure Monitor för behållare  
 
 Den här artikeln innehåller en översikt över de tillgängliga alternativ för att konfigurera Azure Monitor för behållare för att övervaka prestanda för arbetsbelastningar som distribueras till Kubernetes-miljöer och finns på [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/).
 

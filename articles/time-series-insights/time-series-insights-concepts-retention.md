@@ -11,16 +11,16 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: ec62639988dca4b216087e8235be6053140644ee
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 443599e1b2876012bcbdf720bef7762a24e1ff90
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406361"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790430"
 ---
-# <a name="understand-data-retention-in-time-series-insights"></a>Förstå datakvarhållning i Time Series Insights
+# <a name="understand-data-retention-in-azure-time-series-insights"></a>Förstå datakvarhållning i Azure Time Series Insights
 
-Den här artikeln beskrivs två inställningar som påverkar datalagring i miljön för Time Series Insights (TSI).
+Den här artikeln beskrivs två inställningar som påverkar datalagring i din Azure Time Series Insights-miljö.
 
 ## <a name="video"></a>Video
 
@@ -36,7 +36,7 @@ Dessutom kan din Azure Time Series-miljö har en **lagringsgräns överskred bet
 - **Pausa ingress**
 
 > [!NOTE]
-> Som standard när du skapar en ny miljö, kvarhållning är konfigurerad för att **Radera gamla data**. Den här inställningen kan du ange vid behov efter Skapandetid med hjälp av Azure-portalen på den **konfigurera** sidan i TSI-miljö.
+> Som standard när du skapar en ny miljö, kvarhållning är konfigurerad för att **Radera gamla data**. Den här inställningen kan du ange vid behov efter Skapandetid med hjälp av Azure-portalen på den **konfigurera** för Time Series Insights-miljö.
 
 Information om hur du växlar kvarhållning beteenden finns [konfigurera kvarhållning i Time Series Insights](time-series-insights-how-to-configure-retention.md).
 
@@ -44,8 +44,8 @@ Jämför beteende för kvarhållning av data:
 
 ## <a name="purge-old-data"></a>Rensa gamla data
 
-- Detta är standardbeteendet för TSI-miljöer och utställningarna samma beteende TSI miljöer har en eftersom den lanserades som offentlig Preview.  
-- Det här beteendet är att föredra när användare vill alltid se deras *senaste data* i sin TSI-miljö. 
+- Detta är standardbeteendet för Time Series Insights-miljöer.  
+- Det här beteendet är att föredra när användare vill alltid se deras *senaste data* i sin Time Series Insights-miljö.
 - Det här beteendet *rensar* data en gång i miljön (kvarhållningstid, ändra storlek på eller count, beroende på vilket som inträffar först) har nått. Kvarhållning av säkerhetskopior är inställd på 30 dagar som standard.
 - De äldsta inmatade data tas bort först (FIFO-metoden).
 
@@ -75,7 +75,7 @@ När den här miljön dagliga ingångshändelser överskrider 0.166 GB per dag, 
 
 ### <a name="example-three"></a>Exempel tre
 
-Beakta en miljö med kvarhållning funktionen har konfigurerats att **pausa ingående**. I det här exemplet på **Datalagringsperiod** konfigureras till 60 dagar. **Kapacitet** är inställd på 3 enheter av S1. Anta att den här miljön har ingångshändelser på 2 GB data per dag. I den här miljön pausas ingående när den maximala kapaciteten har nåtts.
+Beakta en miljö med kvarhållning funktionen har konfigurerats att **pausa ingående**. I det här exemplet på **Datalagringsperiod** konfigureras till 60 dagar. **Kapacitet** är inställd på tre (3) enheter av S1. Anta att den här miljön har ingångshändelser på 2 GB data per dag. I den här miljön pausas ingående när den maximala kapaciteten har nåtts.
 
 Då visar samma datauppsättning i miljön fram till ingående återupptar eller **fortsätta ingående** är aktiverad (som skulle ta bort äldre data att göra plats för nya data).
 
@@ -91,7 +91,7 @@ I den berörda Event Hubs, bör du justera den **meddelandelagring** egenskapen 
 
 [![Meddelandelagring för Event hub.](media/time-series-insights-contepts-retention/event-hub-retention.png)](media/time-series-insights-contepts-retention/event-hub-retention.png#lightbox)
 
-Om inga egenskaper har konfigurerats på händelsekällan (`timeStampPropertyName`), TSI standardvärdet är tidsstämpeln för ankomst till händelsehubben som x-axeln. Om `timeStampPropertyName` är konfigurerad för att vara något annat, miljö ser ut för den konfigurerade `timeStampPropertyName` i datapaketet när händelser parsas.
+Om inga egenskaper har konfigurerats på händelsekällan (`timeStampPropertyName`), Time Series Insights som standard är tidsstämpeln för ankomst till händelsehubben som x-axeln. Om `timeStampPropertyName` är konfigurerad för att vara något annat, miljö ser ut för den konfigurerade `timeStampPropertyName` i datapaketet när händelser parsas.
 
 Om du behöver kan du utöka din miljö till hantera ytterligare kapacitet eller att öka lång kvarhållning, se [så här skalar du din Time Series Insights-miljö](time-series-insights-how-to-scale-your-environment.md) för mer information.  
 

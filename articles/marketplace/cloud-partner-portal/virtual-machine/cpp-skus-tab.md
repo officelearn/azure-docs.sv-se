@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 04/25/2019
 ms.author: pabutler
-ms.openlocfilehash: e8148e3a26a236039736dede5a7fbc79075731ce
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: e1a110abf8e057034043da34455bf678277c6cb4
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64938131"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799951"
 ---
 # <a name="virtual-machine-skus-tab"></a>Fliken för VM-SKU: er
 
@@ -55,7 +55,7 @@ I följande tabell beskrivs syftet, innehåll, och formatering av de här fälte
 | **Operativsystemets familj\*** | Anger om lösningen VM är Windows - eller Linux-baserade. |
 | **Välj typ av operativsystem** | Viss leverantör eller version av den angivna Operativsystemet. |
 | **Eget namn\*** | Operativsystemets namn som ska visas för kunder.  |
-| **Rekommenderade storlekar för Virtuella datorer\*** | Gör det möjligt för val av upp till sex storlekar som rekommenderas i en standardiserad lista.  Även om de här rekommendationerna visas på en framträdande plats för potentiella kunder, kan de ange vilken storlek som är kompatibel med lösningen avbildningen. | 
+| **Rekommenderade storlekar för Virtuella datorer\*** | Gör det möjligt för val av upp till sex storlekar som rekommenderas i en standardiserad lista.  Den här listan skickas vidare till Azure-portalen och Microsofts marknadsplatser.  Den första VM-storleken i den här listan är giltigt (för den kundprenumeration, region, zonen, o.s.v.) har angetts som standard för den potentiella kunden.  Användaren kan ändra den här storleken till valfri kompatibel med lösningen avbildningen. | 
 | **Öppna portar**| Portar öppna och protokoll för att ge stöd för SKU.  Dessa konfigurationer måste matcha det virtuella nätverket som du har konfigurerat för det virtuella nätverket av VM-lösningen. De här inställningarna ska börja gälla under distribution av virtuella datorer. Portinställningar kan dock ändras när du har publicerat en SKU. Mer information finns i [hur du öppnar portar till en virtuell dator med Azure portal](https://docs.microsoft.com/azure/virtual-machines/windows/nsg-quickstart-portal). <br/>Följande nätverk standardmappningar läggs till i alla virtuella datorer. &emsp; Windows: 3389 -> 3389 TCP, 5986 -> 5986 TCP; &emsp; Linux: 22 -> 22, TCP (SSH). |
 | **Disk-Version**  | Associerade lösning VM, anges av disk versionsnummer och Webbadress till disk. Disken måste vara i [sémantickou verzi](https://semver.org/) format: `<major>.<minor>.<patch>`.  URL: en är signaturen för delad åtkomst URI: N som skapats för det virtuella Hårddisken för operativsystemet.  Även om du kan lägga till upp till åtta versioner per SKU, visas endast det högsta disk versionsnumret för en SKU: N på Azure Marketplace. De andra versionerna kommer endast att vara synliga via API: er.  <!--TD: Add more specific link to API --> <br/> Den **ny datadisk** accordion avsnittet kan du ansluta upp till 15 datadiskar till den virtuella datorn.  När du publicerar en SKU med en viss VM-version och associerade datadiskar, kan inte den här konfigurationen ändras.  Om ytterligare VM-versioner läggs till i SKU: N, måste de också stöder samma antal datadiskar. <br/> Om du inte har skapat din Azure-baserad VM-avbildningar kan du lägga till uppdatera det här fältet senare.  Information om hur du skapar den associerade VM-resursen finns i avsnittet [Create VM för tekniska resurser](./cpp-create-technical-assets.md).  
 |  |  |

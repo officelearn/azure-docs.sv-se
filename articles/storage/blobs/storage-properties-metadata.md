@@ -7,16 +7,16 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: tamram
-ms.openlocfilehash: e85cfb6d7b44924ce7f17fdedb7f1b52350ab598
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e8a85319a12f04a11e3914716d9ff84cdb6de8d8
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60392406"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787868"
 ---
 # <a name="set-and-retrieve-properties-and-metadata"></a>Ange och hämta egenskaper och metadata
 
-Objekt i Azure Storage support Systemegenskaper och användardefinierade metadata, förutom de data de innehåller. Den här artikeln beskriver hantera Systemegenskaper och användardefinierade metadata med den [Azure Storage-klientbiblioteket för .NET](https://www.nuget.org/packages/WindowsAzure.Storage/).
+Objekt i Azure Storage support Systemegenskaper och användardefinierade metadata, förutom de data de innehåller. Den här artikeln beskriver hantera Systemegenskaper och användardefinierade metadata med den [Azure Storage-klientbiblioteket för .NET](/dotnet/api/overview/azure/storage/client).
 
 * **Systemegenskaper**: Systemegenskaper finns på varje resurs för lagring. Vissa av dem kan läsas eller ange, medan andra är skrivskyddade. Under försättsbladen motsvarar vissa Systemegenskaper vissa standard HTTP-huvuden. Azure Storage-klientbibliotek underhålla dessa egenskaper åt dig.
 
@@ -99,5 +99,8 @@ public static async Task ListContainerMetadataAsync(CloudBlobContainer container
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-* [Azure Storage-klientbiblioteket för .NET-referens](/dotnet/api/?term=Microsoft.WindowsAzure.Storage)
-* [Azure Storage-klientbiblioteket för .NET NuGet-paket](https://www.nuget.org/packages/WindowsAzure.Storage/)
+* [Azure Storage-klientbiblioteket för .NET-referens](/dotnet/api/?term=Microsoft.Azure.Storage)
+* [Azure Blob storage-klientbiblioteket för .NET-paket](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/)
+* [Azure Queue storage-klientbiblioteket för .NET-paket](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/)
+* [Azure File storage-klientbiblioteket för .NET-paket](https://www.nuget.org/packages/Microsoft.Azure.Storage.File/)
+

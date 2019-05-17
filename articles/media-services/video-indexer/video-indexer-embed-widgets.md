@@ -6,15 +6,16 @@ services: media-services
 author: Juliako
 manager: femila
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 04/01/2019
+ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: fe3466dcccf6381f26c823ce3deb2126c9534548
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5acd9b68368f56000a0a32d1ade310cf30143950
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60560441"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799388"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>Bädda in Video Indexer widgetar i dina program
 
@@ -30,7 +31,7 @@ En **insikts**widget innehåller alla visuella insikter som extraherades från v
 
 |Namn|Definition|Beskrivning|
 |---|---|---|
-|widgets|Strängar avgränsade med kommatecken|Gör att du kan styra vilka insikter du vill rendera. <br/>Exempel: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` renderar endast insikter om personer och varumärken<br/>Tillgängliga alternativ: people, keywords, annotations, brands, sentiments, transcript, search.<br/>stöds inte via URL för version = 2<br/><br/>**Obs!** URL-param widgetar stöds inte i version 2. |
+|widgets|Strängar avgränsade med kommatecken|Gör att du kan styra vilka insikter du vill rendera. <br/>Exempel: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` renderar endast insikter om personer och varumärken<br/>Tillgängliga alternativ: people, keywords, annotations, brands, sentiments, transcript, search.<br/>stöds inte via URL för version = 2<br/><br/>**Obs:** URL-param widgetar stöds inte i version 2. |
 
 ### <a name="player-widget"></a>Spelarwidget
 

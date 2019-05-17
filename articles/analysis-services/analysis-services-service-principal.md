@@ -8,18 +8,20 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a440494b183d18c1d888b5d39836eb4317190d02
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c034ed7164e67183b9a848d5210dcaf377476c6a
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708313"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518169"
 ---
 # <a name="automation-with-service-principals"></a>Automatisering med tjänstens huvudnamn
 
 Tjänstens huvudnamn är en programresurs för Azure Active Directory som du skapar i din klient för att utföra obevakade åtgärder på resurs- och tjänstnivå. De är en unik form av *användaridentitet* med en program-ID och lösenord eller certifikat. Ett huvudnamn för tjänsten har endast de behörigheterna som krävs för att utföra uppgifter som definieras av roller och behörigheter som den är tilldelad. 
 
 I Analysis Services används tjänstens huvudnamn med Azure Automation, PowerShell obevakat läge, anpassade klientprogram och web apps för att automatisera vanliga uppgifter. Till exempel etablering servrar, distribuerar modeller, datauppdatering, skala upp/ned och pausa/återuppta kan alla automatiseras med hjälp av tjänstens huvudnamn. Behörigheter har tilldelats till tjänstens huvudnamn via rollmedlemskap, ungefär som vanliga Azure AD UPN-konton.
+
+Analysis Services stöder också åtgärder som utförs av hanterade identiteter med tjänstens huvudnamn. Mer information finns i [hanterade identiteter för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md) och [Azure-tjänster som stöder Azure AD-autentisering](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-analysis-services).
 
 ## <a name="create-service-principals"></a>Skapa tjänsthuvudnamn
  

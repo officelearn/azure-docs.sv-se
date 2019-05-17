@@ -6,15 +6,16 @@ services: media-services
 author: anikaz
 manager: johndeu
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 05/15/2019
 ms.author: anzaman
-ms.openlocfilehash: df77a745ef6508b15b5a8bcde5eede0e06eb1afc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8d0806bc0262cd45a49e4f97ea629683ac239aa8
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60583731"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799645"
 ---
 # <a name="customize-a-brands-model-with-the-video-indexer-api"></a>Anpassa en varumärken modell med Video Indexer API
 
@@ -28,7 +29,7 @@ Du kan använda API: er för Video Indexer för att skapa, använda och redigera
 
 Detta skapar en ny anpassad varumärke och lägger till den anpassade varumärken modellen för det angivna kontot.
 
-### <a name="request-url"></a>URL för begäran
+### <a name="request-url"></a>Fråge-URL
 
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands?accessToken={accessToken}
@@ -90,7 +91,7 @@ Svaret innehåller information om varumärket som du nyss skapade följande form
 
 Tar bort ett varumärke från varumärken anpassade modellen för det angivna kontot. Konton som har angetts i den **accountId** parametern. När namnet har varumärket inte längre i den *inkludera* eller *undanta* anpassar listor.
 
-### <a name="request-url"></a>URL för begäran
+### <a name="request-url"></a>Fråge-URL
 
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands/{id}?accessToken={accessToken}
@@ -104,7 +105,7 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 |---|---|---|---|
 |location|string|Ja|Azure-regionen som anropet ska dirigeras. Mer information finns i [Azure-regioner och Video Indexer](regions.md).|
 |accountId|string|Ja|Globalt unik identifierare för kontot|
-|id|heltal|Ja|Märkes-id (genereras när varumärket skapades)|
+|ID|heltal|Ja|Märkes-id (genereras när varumärket skapades)|
 |accessToken|string|Ja|Åtkomst-token (måste vara av omfång [konto åtkomsttoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) att autentisera mot anropet. Åtkomsttoken upphör att gälla inom 1 timme.|
 
 ### <a name="request-body"></a>Begärandetext
@@ -119,7 +120,7 @@ Det finns inget returnerade innehåll när varumärket har tagits bort.
 
 På så sätt kan du söka efter information om ett varumärke i anpassade varumärken modellen för det angivna kontot med hjälp av märkes-id.
 
-### <a name="request-url"></a>URL för begäran
+### <a name="request-url"></a>Fråge-URL
 
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands?accessToken={accessToken}
@@ -133,7 +134,7 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 |---|---|---|---|
 |location|string|Ja|Azure-regionen som anropet ska dirigeras. Mer information finns i [Azure-regioner och Video Indexer](regions.md).|
 |accountId|string|Ja|Globalt unik identifierare för kontot|
-|id|heltal|Ja|Märkes-ID (genereras när varumärket skapades)|
+|ID|heltal|Ja|Märkes-ID (genereras när varumärket skapades)|
 |accessToken|string|Ja|Åtkomst-token (måste vara av omfång [konto åtkomsttoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) att autentisera mot anropet. Åtkomsttoken upphör att gälla inom 1 timme.|
 
 ### <a name="request-body"></a>Begärandetext
@@ -169,7 +170,7 @@ Svaret innehåller information om varumärket du sökte (med märkes-ID) följa 
 
 På så sätt kan du söka efter information om ett varumärke i anpassade varumärken modellen för det angivna kontot med varumärke-ID.
 
-### <a name="request-url"></a>URL för begäran
+### <a name="request-url"></a>Fråge-URL
 
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands/{id}?accessToken={accessToken}
@@ -183,7 +184,7 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 |---|---|---|---|
 |location|string|Ja|Azure-regionen som anropet ska dirigeras. Mer information finns i [Azure-regioner och Video Indexer](regions.md).|
 |accountId|string|Ja|Globalt unik identifierare för kontot|
-|id|heltal|Ja|Märkes-ID (genereras när varumärket skapades)|
+|ID|heltal|Ja|Märkes-ID (genereras när varumärket skapades)|
 |accessToken|string|Ja|Åtkomst-token (måste vara av omfång [konto åtkomsttoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) att autentisera mot anropet. Åtkomsttoken upphör att gälla inom 1 timme.|
 
 ### <a name="request-body"></a>Begärandetext
@@ -232,7 +233,7 @@ Svaret innehåller den uppdaterade informationen om varumärket som du har uppda
 
 Det här returnerar alla de varumärken i anpassade varumärken modellen för det angivna kontot, oavsett om varumärket är avsedd att vara i den *inkludera* eller *undanta* varumärken lista.
 
-### <a name="request-url"></a>URL för begäran
+### <a name="request-url"></a>Fråge-URL
 
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands?accessToken={accessToken}
@@ -292,7 +293,7 @@ Svaret innehåller en lista över alla varumärken i ditt konto och var och en a
 
 Det här returnerar modellinställningarna varumärken i det angivna kontot. Varumärken modellinställningarna representerar om identifiering från Bing varumärken databasen har aktiverats eller inte. Om Bing varumärken inte är aktiverad, identifierar Video Indexer endast varumärken från varumärken anpassade modellen för det angivna kontot.
 
-### <a name="request-url"></a>URL för begäran
+### <a name="request-url"></a>Fråge-URL
 
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands?accessToken={accessToken}

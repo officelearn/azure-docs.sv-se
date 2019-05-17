@@ -10,14 +10,19 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 193ed7099293fb1ee4c056abcc5c2f34d78627b7
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: e7d959e77d27fb04b18f402e4056d4dea1607039
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024717"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522901"
 ---
 # <a name="indexing-csv-blobs-with-azure-search-blob-indexer"></a>Indexera CSV-blobar med Azure Search blob-indexeraren
+
+> [!Note]
+> delimitedText parsningsläge är i förhandsversion och inte är avsett för användning i produktion. Den [REST API-version 2019-05-06-Preview](search-api-preview.md) ger den här funktionen. Det finns inget stöd för .NET SDK just nu.
+>
+
 Som standard [Azure Search blob-indexeraren](search-howto-indexing-azure-blob-storage.md) Parsar avgränsad text blobbar som ett enda segment med text. Men med BLOB-objekt som innehåller CSV-data, du ofta behandlar varje rad i bloben som ett separat dokument. Till exempel med följande avgränsad text kan du parsa den till två dokument, som var och en som innehåller ”id”, ”datePublished” och ”taggar” fält: 
 
     id, datePublished, tags
@@ -26,21 +31,17 @@ Som standard [Azure Search blob-indexeraren](search-howto-indexing-azure-blob-st
 
 I den här artikeln får du lära dig hur du Parsar CSV-blobar med ett Azure Search blob indexerby den `delimitedText` parsningsläge. 
 
-Den `delimitedText` parsningsläge är för närvarande i offentlig förhandsversion och rekommenderas inte för produktionsarbetsbelastningar.
-
 > [!NOTE]
 > Följ rekommendationerna indexeraren konfiguration i [indexering en-till-många](search-howto-index-one-to-many-blobs.md) att mata ut flera söka efter dokument från en Azure-blob.
 
 ## <a name="setting-up-csv-indexing"></a>Konfigurera CSV-indexering
-Att indexera CSV-blobar, skapa eller uppdatera en indexerardefinition med den `delimitedText` parsningsläge:  
+Att indexera CSV-blobar, skapa eller uppdatera en indexerardefinition med den `delimitedText` parsningsläge på en [skapa et indexerare](https://docs.microsoft.com/rest/api/searchservice/create-indexer) begäran:
 
     {
       "name" : "my-csv-indexer",
       ... other indexer properties
       "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "firstLineContainsHeaders" : true } }
     }
-
-Mer information om API: et för skapa indexerare finns [skapa et indexerare](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
 `firstLineContainsHeaders` Anger att den första raden (icke-tomma) för varje blob innehåller rubriker.
 Om blobbarna inte innehåller ett inledande rubrikrad, anges sidhuvuden i indexeraren konfigurationen: 

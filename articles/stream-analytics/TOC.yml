@@ -34,6 +34,8 @@
       href: 'https://azure.microsoft.com/resources/samples/?service=stream-analytics'
 - name: Begrepp
   items:
+    - name: Välja en strömningsanalysteknik
+      href: streaming-technologies.md
     - name: Indatatyper för ett jobb
       items:
         - name: Översikt över indata

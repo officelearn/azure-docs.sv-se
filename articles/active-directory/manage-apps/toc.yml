@@ -167,6 +167,8 @@
           href: application-provisioning-config-problem.md
         - name: Problem med att spara autentiseringsuppgifterna för administratören när användaretablering konfigureras – galleriapp
           href: application-provisioning-config-problem-storage-limit.md
+        - name: Synkronisera ett attribut för mappning – galleriappen
+          href: user-provisioning-sync-attributes-for-mapping.md
         - name: Användare har inte etablerats – galleriapp
           href: application-provisioning-config-problem-no-users-provisioned.md
         - name: Fel användare har etablerats – galleriapp

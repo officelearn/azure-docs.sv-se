@@ -36,6 +36,8 @@
           items:
             - name: Läsa riktlinjer för säkerhet
               href: data-box-safety.md
+            - name: Spårning och loggning
+              href: data-box-logs.md
             - name: Granska krav
               items:
                 - name: För Data Box

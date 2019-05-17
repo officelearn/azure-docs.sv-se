@@ -21,7 +21,7 @@ sections:
   - title: Stegvisa självstudier
     items:
       - type: paragraph
-        text: Se hur du integrerar dina lokala AD-anslutna enheter med Azure AD.
+        text: Lär dig hur du integrerar dina lokala AD-anslutna enheter med Azure AD.
       - type: list
         style: icon48
         items:

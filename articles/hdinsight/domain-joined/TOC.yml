@@ -1,62 +1,51 @@
 - name: Dokumentation om Azure HDInsight
   href: /azure/hdinsight
-- name: Företagssäkerhet
+- name: Översikt
   items:
-    - name: Översikt
+    - name: Vad är Enterprise Security Package i HDInsight?
       href: apache-domain-joined-introduction.md
+- name: Begrepp
+  items:
     - name: Planera för ESP-kluster
       href: apache-domain-joined-architecture.md
     - name: Konfigurera ESP-kluster med Azure AD DS
       href: apache-domain-joined-configure-using-azure-adds.md
     - name: Synkronisera Azure AD-användare till ett HDInsight-kluster
       href: ../hdinsight-sync-aad-users-to-cluster.md
-      maintainContext: true
     - name: Konfigurera Apache Hive-principer
       href: apache-domain-joined-run-hive.md
     - name: Apache HBase RBAC med Apache Ranger
       href: apache-domain-joined-run-hbase.md
     - name: Apache Kafka RBAC med Apache Ranger
       href: apache-domain-joined-run-kafka.md
-      maintainContext: true
     - name: Använda VSCode för att länka till ESP-kluster
       href: ../hdinsight-for-vscode.md
-      maintainContext: true
     - name: Använda IntelliJ för att länka till ESP-kluster
       href: ../spark/apache-spark-intellij-tool-plugin.md
-      maintainContext: true
     - name: Använda Eclipse för att länka till ESP-kluster
       href: ../spark/apache-spark-eclipse-tool-plugin.md
-      maintainContext: true
     - name: Använda Apache Oozie i ESP-kluster
       href: hdinsight-use-oozie-domain-joined-clusters.md
 - name: Skydda data
   href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
-  maintainContext: true
 - name: Nätverksåtkomst
   items:
     - name: HDInsight i ett virtuellt Azure-nätverk
       href: ../hdinsight-extend-hadoop-virtual-network.md
-      maintainContext: true
     - name: Ansluta HDInsight till det lokala nätverket
       href: ../connect-on-premises-network.md
-      maintainContext: true
     - name: Skapa Apache HBase-kluster i ett virtuellt Azure-nätverk
       href: ../hbase/apache-hbase-provision-vnet.md
-      maintainContext: true
     - name: Replikering av Apache HBase-kluster i ett virtuellt Azure-nätverk
       href: ../hbase/apache-hbase-replication.md
-      maintainContext: true
 - name: Övervaka med hjälp av Azure Monitor-loggar
   items:
     - name: Använda Azure Monitor-loggar
       href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
-      maintainContext: true
     - name: Använda frågor med Azure Monitor-loggar
       href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
-      maintainContext: true
     - name: Övervaka klusterprestanda
       href: ../hdinsight-key-scenarios-to-monitor.md
-      maintainContext: true
 - name: Referens
   items:
     - name: Kodexempel
@@ -86,10 +75,8 @@
       items:
         - name: Aktuell viktig information
           href: ../hdinsight-release-notes.md
-          maintainContext: true
         - name: Arkiverad viktig information
           href: ../hdinsight-release-notes-archive.md
-          maintainContext: true
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/?category=intelligence-analytics'
     - name: Få hjälp i forumet
@@ -102,4 +89,3 @@
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Windows-verktyg för HDInsight
       href: ../hdinsight-hadoop-windows-tools.md
-      maintainContext: true

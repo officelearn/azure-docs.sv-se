@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 864e9586082ed95bf17135414ec4b879e3034ace
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fd8e886a78d0689ca60d8ea7c4d16639c81d5733
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60589645"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602726"
 ---
 # <a name="aggregations-in-azure-monitor-log-queries"></a>Aggregeringar i Azure Monitor log-frågor
 
@@ -31,7 +31,7 @@ Den här artikeln beskriver aggregeringsfunktioner i Azure Monitor log-frågor s
 
 ## <a name="counts"></a>Antal
 
-### <a name="count"></a>count
+### <a name="count"></a> antal
 Räkna antalet rader i resultatmängden efter eventuella filter har använts. I följande exempel returneras det totala antalet rader i den _Perf_ tabell från de senaste 30 minuterna. Resultatet returneras i en kolumn med namnet *count_* om du inte tilldelar den ett visst namn:
 
 
@@ -92,7 +92,7 @@ Heartbeat
 |USA    | 19                  |
 |Kanada           | 3                   |
 |Irland          | 0                   |
-|Storbritannien   | 0                   |
+|Storbritannien och Nordirland   | 0                   |
 |Nederländerna      | 2                   |
 
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/01/2017
 ms.author: sngun
-ms.openlocfilehash: 9c6ea982d9a605696dad0c943aa6dd2ae155d6bd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 26eb43060a0a2b564a7274bb1579151e66b2bfee
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60888677"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604210"
 ---
 # <a name="use-geospatial-and-geojson-location-data-with-azure-cosmos-db-sql-api-account"></a>Använda geospatiala och GeoJSON platsdata med Azure Cosmos DB SQL API-konto
 
@@ -142,7 +142,7 @@ await client.CreateDocumentAsync(
     });
 ```
 
-Om du inte har nödvändig information för latitud och longitud, men har fysiska adresser eller platsnamnet som ort eller land, kan du söka efter de faktiska koordinaterna med hjälp av en geokodningstjänst som Bing Maps REST-tjänster. Läs mer om Bing Maps-geokodning [här](https://msdn.microsoft.com/library/ff701713.aspx).
+Om du inte har nödvändig information för latitud och longitud, men har fysiska adresser eller platsnamnet som ort eller land/region, kan du söka efter de faktiska koordinaterna med hjälp av en geokodningstjänst som Bing Maps REST-tjänster. Läs mer om Bing Maps-geokodning [här](https://msdn.microsoft.com/library/ff701713.aspx).
 
 ## <a name="querying-spatial-types"></a>Frågar rumsliga typer
 Nu när vi har tagit en titt på hur du infogar geospatiala data, låt oss ta en titt på hur du frågar efter dessa data med Azure Cosmos DB med SQL och LINQ.

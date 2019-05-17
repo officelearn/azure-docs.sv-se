@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/01/2019
+ms.date: 05/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: fc26c0357dcb071c4c75e8684fe47144a04177e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0ac34f1d1e7fc2a967c7608f31f3b943f9380d01
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60880272"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786198"
 ---
 # <a name="variable-assets-in-azure-automation"></a>Variabler för tillgångar i Azure Automation
 
@@ -135,45 +135,6 @@ for ($i = 1; $i -le $NumberOfIterations; $i++) {
     Write-Output "$i`: $SampleMessage"
 }
 Set-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" –Name NumberOfRunnings –Value ($NumberOfRunnings += 1)
-```
-
-#### <a name="setting-and-retrieving-a-complex-object-in-a-variable"></a>Ange och läsa ett komplext objekt i en variabel
-
-Följande exempelkod visar hur du uppdaterar en variabel med ett komplext värde i en text runbook. I det här exemplet hämtas en Azure virtuell dator med **Get-AzureVM** och sparas på en befintlig Automation-variabel.  Enligt beskrivningen i [variabeltyper](#variable-types), detta lagras som en PSCustomObject.
-
-```powershell
-$vm = Get-AzureVM -ServiceName "MyVM" -Name "MyVM"
-Set-AutomationVariable -Name "MyComplexVariable" -Value $vm
-```
-
-I följande kod hämtas från variabeln värdet och används för att starta den virtuella datorn.
-
-```powershell
-$vmObject = Get-AutomationVariable -Name "MyComplexVariable"
-if ($vmObject.PowerState -eq 'Stopped') {
-    Start-AzureVM -ServiceName $vmObject.ServiceName -Name $vmObject.Name
-}
-```
-
-#### <a name="setting-and-retrieving-a-collection-in-a-variable"></a>Ange och läsa en samling i en variabel
-
-Följande exempelkod visar hur du använder en variabel med en samling med komplexa värden i en text runbook. I det här exemplet hämtas flera virtuella Azure-datorer med **Get-AzureVM** och sparas på en befintlig Automation-variabel. Enligt beskrivningen i [variabeltyper](#variable-types), detta lagras som en uppsättning PSCustomObjects.
-
-```powershell
-$vms = Get-AzureVM | Where -FilterScript {$_.Name -match "my"}
-Set-AutomationVariable -Name 'MyComplexVariable' -Value $vms
-```
-
-I följande kod hämtas från variabeln samlingen och används för att starta varje virtuell dator.
-
-```powershell
-$vmValues = Get-AutomationVariable -Name "MyComplexVariable"
-ForEach ($vmValue in $vmValues)
-{
-    if ($vmValue.PowerState -eq 'Stopped') {
-        Start-AzureVM -ServiceName $vmValue.ServiceName -Name $vmValue.Name
-    }
-}
 ```
 
 #### <a name="setting-and-retrieving-a-variable-in-python2"></a>Ange och läsa en variabel i Python2

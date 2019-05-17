@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, Helm, tjänsten nät, tjänsten nät routning, kubectl, k8s '
-ms.openlocfilehash: 508fe597a494ed89b4c2f406337c6b565943387a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d5b08a22aa3896fb7158ef3535b115e3e0189142
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728828"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596978"
 ---
 # <a name="troubleshooting-guide"></a>Felsökningsguide
 
@@ -236,7 +236,7 @@ Uppdatera den `launch.json` filen under den `.vscode` underkatalog i projektmapp
 
 ## <a name="the-type-or-namespace-name-mylibrary-could-not-be-found"></a>Det gick inte att hitta typen eller namnrymd namnet ”MyLibrary”
 
-### <a name="reason"></a>Orsak 
+### <a name="reason"></a>Reason 
 Build-kontexten är på projekt/tjänstnivå som standard, kan därför ett biblioteksprojekt som du använder inte hittas.
 
 ### <a name="try"></a>Prova:
@@ -251,7 +251,7 @@ Du kan se ett exempel på https://github.com/sgreenmsft/buildcontextsample
 Du behöver *ägare* eller *deltagare* åtkomst i Azure-prenumerationen du hanterar Azure Dev blanksteg. Du kan se det här felet om du försöker hantera Dev blanksteg och du inte har *ägare* eller *deltagare* åtkomst till den associera Azure-prenumerationen.
 `The client '<User email/Id>' with object id '<Guid>' does not have authorization to perform action 'Microsoft.DevSpaces/register/action' over scope '/subscriptions/<Subscription Id>'.`
 
-### <a name="reason"></a>Orsak
+### <a name="reason"></a>Reason
 Den valda Azure-prenumerationen har inte registrerats i `Microsoft.DevSpaces` namnområde.
 
 ### <a name="try"></a>Prova:
@@ -263,7 +263,7 @@ az provider register --namespace Microsoft.DevSpaces
 
 ## <a name="dev-spaces-times-out-at-waiting-for-container-image-build-step-with-aks-virtual-nodes"></a>Dev blanksteg tidsgränsen uppnås vid *väntar på behållaren bild build...*  steg med AKS virtuella noder
 
-### <a name="reason"></a>Orsak
+### <a name="reason"></a>Reason
 Den här timeout uppstår när du försöker använda Dev blanksteg för att köra en tjänst som är konfigurerad för att köras en [AKS virtuell nod](https://docs.microsoft.com/azure/aks/virtual-nodes-portal). Dev blanksteg stöder för närvarande inte att skapa eller felsöker tjänster i virtuella noder.
 
 Om du kör `azds up` med den `--verbose` växel eller aktivera utförlig loggning i Visual Studio visas ytterligare information:
@@ -295,7 +295,7 @@ Starta om agentnoder i klustret vanligtvis löser problemet.
 
 ## <a name="error-release-azds-identifier-spacename-servicename-failed-services-servicename-already-exists-or-pull-access-denied-for-servicename-repository-does-not-exist-or-may-require-docker-login"></a>”Fel: versionen azds -\<identifierare\>-\<spacename\>-\<servicename\> misslyckades: tjänsters\<servicename\>' finns redan ”eller” hämta åtkomst nekades för \<servicename\>, databasen finns inte eller kan kräva ”docker-inloggning” ”
 
-### <a name="reason"></a>Orsak
+### <a name="reason"></a>Reason
 Dessa fel kan inträffa om du blandar direkt Helm-kommandon (till exempel `helm install`, `helm upgrade`, eller `helm delete`) med utveckling blanksteg kommandon (som `azds up` och `azds down`) i samma dev adressutrymme. De inträffar eftersom Dev blanksteg har en egen Tiller-instans som står i konflikt med din egen Tiller-instans som körs i samma dev adressutrymme.
 
 ### <a name="try"></a>Prova:
@@ -329,7 +329,7 @@ configurations:
 
 ## <a name="error-internal-watch-failed-watch-enospc-when-attaching-debugging-to-a-nodejs-application"></a>Fel ”intern watch misslyckades: Se ENOSPC” när du ansluter till ett Node.js-program-felsökning
 
-### <a name="reason"></a>Orsak
+### <a name="reason"></a>Reason
 
 Noden som kör en pod med Node.js-program som du försöker ansluta till med en felsökare har överskridit den *fs.inotify.max_user_watches* värde. I vissa fall kan [standardvärdet *fs.inotify.max_user_watches* kanske för liten för att hantera koppla en felsökare direkt till en pod](https://github.com/Azure/AKS/issues/772).
 
@@ -338,7 +338,7 @@ En tillfällig lösning för det här problemet är att öka värdet för *fs.in
 
 ## <a name="new-pods-are-not-starting"></a>Nya poddarna startar inte
 
-### <a name="reason"></a>Orsak
+### <a name="reason"></a>Reason
 
 Kubernetes-initieraren kan inte använda PodSpec för nya poddarna på grund av ändringar av RBAC-behörighet till den *kluster admin* roll i klustret. De nya pod även har en ogiltig PodSpec, till exempel kontot som är associerade med en pod finns inte längre. Se poddarna som finns i en *väntande* tillstånd på grund av initieraren problemet, Använd den `kubectl get pods` kommando:
 
@@ -370,7 +370,7 @@ När din kontrollant har installerats om måste du distribuera om poddarna.
 
 ## <a name="incorrect-rbac-permissions-for-calling-dev-spaces-controller-and-apis"></a>Felaktig RBAC-behörigheter för att anropa Dev blanksteg styrenhet och API: er
 
-### <a name="reason"></a>Orsak
+### <a name="reason"></a>Reason
 Användaren kommer åt Azure Dev blanksteg kontrollanten måste ha åtkomst till Läs administratören *kubeconfig* på AKS-klustret. Exempelvis kan den här behörigheten finns i den [inbyggda Azure Kubernetes Service-kluster-administratörsrollen](../aks/control-kubeconfig-access.md#available-cluster-roles-permissions). Användaren kommer åt Azure Dev blanksteg kontrollanten måste också ha den *deltagare* eller *ägare* RBAC-roll för styrenheten.
 
 ### <a name="try"></a>Testa
@@ -389,3 +389,18 @@ Så här uppdaterar användarens RBAC-roll för styrenheten:
     * För *tilldela åtkomst till* Välj *Azure AD-användare, grupp eller tjänstens huvudnamn*.
     * För *Välj* söker efter användaren som du vill ge behörighet.
 1. Klicka på *Spara*.
+
+## <a name="controller-create-failing-due-to-controller-name-length"></a>Skapa domänkontrollanten misslyckas på grund av domänkontrollant namnlängd
+
+### <a name="reason"></a>Reason
+Ett Azure Dev blanksteg domänkontrollantens namn får inte vara längre än 31 tecken. Om din Kontrollnamn överskrider 31 tecken när du aktiverar Dev blanksteg på ett AKS-kluster eller skapar en domänkontrollant, får du felet:
+
+*Kunde inte skapa en Dev blanksteg styrenhet för klustret 'a-controller-name-that-is-way-too-long-aks-east-us': Azure Dev blanksteg Kontrollnamn 'a-controller-name-that-is-way-too-long-aks-east-us' är ogiltig. Villkor som bröt mot: Azure Dev blanksteg Controller namn får bara vara högst 31 tecken*
+
+### <a name="try"></a>Testa
+
+Skapa en domänkontrollant med ett alternativt namn:
+
+```cmd
+azds controller create --name my-controller --target-name MyAKS --resource-group MyResourceGroup
+```

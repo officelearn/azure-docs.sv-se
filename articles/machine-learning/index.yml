@@ -7,7 +7,7 @@ metadata:
   description: 'Lär dig hur du skapar intelligenta algoritmer med dina appar, webbplatser och robotar så att de kan se, höra, tala och förstå användarnas behov genom naturlig kommunikation. Självstudier, snabbstarter, API-referenser och exempel med anvisningar.'
   ms.author: jmartens
   ms.subservice: core
-  ms.date: 12/04/2018
+  ms.date: 5/14/2019
   ms.devlang: na
   ms.service: machine-learning
   ms.tgt_pltfrm: na
@@ -34,20 +34,28 @@ sections:
       - items:
           - html: <a href="service/quickstart-run-cloud-notebook">Köra ett experiment i molnet</a> (ingen installation krävs)
           - html: <a href="service/quickstart-run-local-notebook">Köra ett experiment med hjälp av en lokal notebook-server</a> (installation av lokal SDK)
+          - html: <a href="service/ui-quickstart-run-experiment">Köra ett experiment i det visuella gränssnittet</a> (utan kod)
         style: unordered
         type: list
-      - text: '<b>Självstudie för avbildningsklassificering med MNIST-data:</b>'
+      - text: '<b>Självstudier: Avbildningsklassificering av MNIST-data med SDK:</b>'
         type: paragraph
       - items:
           - html: 'Del 1: <a href="service/tutorial-train-models-with-aml">Träna din modell</a>'
           - html: 'Del 2: <a href="service/tutorial-deploy-models-with-aml">Distribuera modellen</a>'
         style: unordered
         type: list
-      - text: '<b>Självstudie för regressionsmodellering med data från taxibilar i New York:</b>'
+      - text: '<b>Självstudier: Förutse priset för taxiresor med hjälp av SDK:</b>'
         type: paragraph
       - items:
           - html: 'Del 1: <a href="service/tutorial-data-prep">Förbereda data för modellering</a>'
           - html: 'Del 2: <a href="service/tutorial-auto-train-models">Använd automatiserad maskininlärning för att träna modeller</a>'
+        style: unordered
+        type: list
+      - text: '<b>Självstudier: Förutse bilpriser med hjälp av det visuella gränssnittet:</b>'
+        type: paragraph
+      - items:
+          - html: 'Del 1: <a href="service/ui-tutorial-automobile-price-train-score">Förutse bilpriser</a>'
+          - html: 'Del 2: <a href="service/ui-tutorial-automobile-price-deploy">Distribuera regressionsmodellen</a>'
         style: unordered
         type: list
       - text: '<b>Förbruka dina modeller:</b>'

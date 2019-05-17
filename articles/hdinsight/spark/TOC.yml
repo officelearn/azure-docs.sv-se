@@ -2,15 +2,10 @@
   href: /azure/hdinsight
 - name: Översikt
   items:
-    - name: Om Apache Spark i HDInsight
+    - name: Vad är Apache Spark i HDInsight?
       href: apache-spark-overview.md
-    - name: Apache Hadoop-komponenter på HDInsight
-      href: ../hdinsight-component-versioning.md
-      maintainContext: true
-    - name: HDInsight 4.0
-      href: ../hdinsight-version-release.md
-      maintainContext: true
 - name: Snabbstarter
+  expanded: true
   items:
     - name: Skapa ett Apache Spark-kluster – portalen
       href: apache-spark-jupyter-spark-sql-use-portal.md
@@ -27,7 +22,6 @@
       href: apache-spark-load-data-run-query.md
     - name: Använda VSCode för att köra Apache Spark-frågor
       href: ../hdinsight-for-vscode.md
-      maintainContext: true
     - name: Använda IntelliJ för att köra Apache Spark-frågor
       href: apache-spark-intellij-tool-plugin.md
     - name: Analysera data med BI-verktyg
@@ -40,31 +34,30 @@
       href: apache-spark-create-standalone-application.md
     - name: Övervaka klustertillgänglighet med Ambari- och Azure Monitor-loggar
       href: ../hdinsight-cluster-availability.md
-      maintainContext: true
 - name: Exempel
   items:
     - name: .NET-exempel
       href: ../hdinsight-sdk-dotnet-samples.md
-      maintainContext: true
     - name: Java-exempel
       href: ../hdinsight-sdk-java-samples.md
-      maintainContext: true
     - name: Python-exempel
       href: ../hdinsight-sdk-python-samples.md
-      maintainContext: true
+- name: Begrepp
+  items:
+    - name: Apache Hadoop-komponenter på HDInsight
+      href: ../hdinsight-component-versioning.md
+    - name: HDInsight 4.0
+      href: ../hdinsight-version-release.md
 - name: Gör så här för att
   items:
     - name: Använda klusterlagring
       items:
         - name: Använda Azure Storage
           href: ../hdinsight-hadoop-use-blob-storage.md
-          maintainContext: true
         - name: Använda Azure Data Lake Storage Gen2
           href: ../hdinsight-hadoop-use-data-lake-storage-gen2.md
-          maintainContext: true
         - name: Använda Azure Data Lake Storage Gen1
           href: ../hdinsight-hadoop-use-data-lake-store.md
-          maintainContext: true
     - name: Utveckla
       items:
         - name: Använda ett interaktivt Apache Spark-gränssnitt
@@ -81,22 +74,18 @@
           href: apache-spark-intellij-tool-plugin-debug-jobs-remotely.md
         - name: Skapa .NET HDInsight-program med icke-interaktiv autentisering
           href: ../hdinsight-create-non-interactive-authentication-dotnet-applications.md
-          maintainContext: true
     - name: Använda HDInsight-verktyg
       items:
         - name: Verktyg för Visual Studio
           href: ../hadoop/apache-hadoop-visual-studio-tools-get-started.md
-          maintainContext: true
         - name: Verktyg för VSCode
           href: ../hdinsight-for-vscode.md
-          maintainContext: true
         - name: Verktyg för IntelliJ
           href: apache-spark-intellij-tool-plugin.md
         - name: Verktyg för Eclipse
           href: apache-spark-eclipse-tool-plugin.md
         - name: PySpark för VSCode
           href: ../set-up-pyspark-interactive-environment.md
-          maintainContext: true
         - name: Felsöka Apache Spark i IntelliJ
           href: apache-spark-intellij-tool-debug-remotely-through-ssh.md
     - name: Använda anteckningsböcker med Apache Spark
@@ -119,10 +108,8 @@
           href: apache-spark-connect-to-sql-database.md
         - name: Implementera en lambda-arkitektur med Apache Spark och Cosmos DB
           href: ../../cosmos-db/lambda-architecture.md
-          maintainContext: true
         - name: Köra Azure ML-arbetsbelastningar med AutoML
           href: apache-spark-run-machine-learning-automl.md
-          maintainContext: true
     - name: Apache Spark-direktuppspelning
       items:
         - name: Översikt över direktuppspelning
@@ -133,13 +120,10 @@
           href: apache-spark-streaming-high-availability.md
         - name: Strukturerad direktuppspelning med Apache Kafka
           href: ../hdinsight-apache-kafka-spark-structured-streaming.md
-          maintainContext: true
         - name: Strukturerad direktuppspelning från Apache Kafka till CosmosDB
           href: ../apache-kafka-spark-structured-streaming-cosmosdb.md
-          maintainContext: true
         - name: Spark-direktuppspelning (DStream) med Apache Kafka
           href: ../hdinsight-apache-spark-with-kafka.md
-          maintainContext: true
         - name: Skapa Apache Spark-direktuppspelningsjobb med händelsebearbetning exakt en gång
           href: apache-spark-streaming-exactly-once.md
     - name: Apache Spark och Machine Learning
@@ -158,62 +142,46 @@
       items:
         - name: Apache Hive med Apache Spark
           href: ../interactive-query/apache-hive-warehouse-connector.md
-          maintainContext: true
         - name: Använda Apache Spark för att läsa och skriva Apache HBase-data
           href: ../hdinsight-using-spark-query-hbase.md
-          maintainContext: true
         - name: Analysera loggar i Application Insights Telemetry
           href: apache-spark-analyze-application-insight-logs.md
     - name: Utöka kluster
       items:
         - name: Anpassa kluster med Bootstrap
           href: ../hdinsight-hadoop-customize-cluster-bootstrap.md
-          maintainContext: true
         - name: Anpassa kluster med skriptåtgärd
           href: ../hdinsight-hadoop-customize-cluster-linux.md
-          maintainContext: true
         - name: Utveckla skriptåtgärder
           href: ../hdinsight-hadoop-script-actions-linux.md
-          maintainContext: true
         - name: Installera och använda Presto
           href: ../hdinsight-hadoop-install-presto.md
-          maintainContext: true
         - name: Lägga till Apache Hive-bibliotek
           href: ../hdinsight-hadoop-add-hive-libraries.md
-          maintainContext: true
         - name: Använda Apache Giraph
           href: ../hdinsight-hadoop-giraph-install-linux.md
-          maintainContext: true
         - name: Använd Hue
           href: ../hdinsight-hadoop-hue-linux.md
-          maintainContext: true
         - name: Använda tomma kantnoder
           href: ../hdinsight-apps-use-edge-node.md
-          maintainContext: true
         - name: Skapa HDInsight-program
           items:
             - name: Installera anpassade appar
               href: ../hdinsight-apps-install-custom-applications.md
-              maintainContext: true
             - name: Installera appar med hjälp av REST
               href: 'https://msdn.microsoft.com/library/mt706515.aspx'
             - name: Publicera HDInsight-appar till Azure Marketplace
               href: ../hdinsight-apps-publish-applications.md
-              maintainContext: true
     - name: Skydda
       items:
         - name: Använda SSH med HDInsight
           href: ../hdinsight-hadoop-linux-use-ssh-unix.md
-          maintainContext: true
         - name: Använd SSH-tunnel
           href: ../hdinsight-linux-ambari-ssh-tunnel.md
-          maintainContext: true
         - name: Begränsa åtkomst till data
           href: ../hdinsight-storage-sharedaccesssignature-permissions.md
-          maintainContext: true
         - name: Auktorisera användare för Apache Ambari Views
           href: ../hdinsight-authorize-users-to-ambari.md
-          maintainContext: true
     - name: Hantera
       items:
         - name: Hantera klusterresurser
@@ -228,18 +196,14 @@
           href: apache-spark-improve-performance-iocache.md
         - name: Kapacitetsplanering för kluster
           href: ../hdinsight-capacity-planning.md
-          maintainContext: true
         - name: Skapa HDInsight-kluster
           href: ../hdinsight-hadoop-provision-linux-clusters.md
-          maintainContext: true
           items:
             - name: Använda Azure-portalen
               href: ../hdinsight-hadoop-create-linux-clusters-portal.md
-              maintainContext: true
             - name: Använda Azure Resource Manager-mallar
               displayName: 'resource manager template, arm template, resource manager group'
               href: ../hdinsight-hadoop-create-linux-clusters-arm-templates.md
-              maintainContext: true
             - name: Använda SDK för .NET
               href: 'https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet#create-a-cluster'
             - name: Använda SDK för Python
@@ -248,19 +212,14 @@
               href: 'https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable#create-a-cluster'
             - name: Använda Azure PowerShell
               href: ../hdinsight-hadoop-create-linux-clusters-azure-powershell.md
-              maintainContext: true
             - name: Använda cURL och Azure REST API
               href: ../hdinsight-hadoop-create-linux-clusters-curl-rest.md
-              maintainContext: true
             - name: Använda Azure CLI
               href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
-              maintainContext: true
             - name: Skapa kluster på begäran
               href: ../hdinsight-hadoop-create-linux-clusters-adf.md
-              maintainContext: true
         - name: Hantera HDInsight-kluster
           href: ../hdinsight-administer-use-portal-linux.md
-          maintainContext: true
           items:
             - name: Använda SDK för .NET
               href: 'https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet#management'
@@ -272,66 +231,46 @@
               href: 'https://docs.microsoft.com/azure/hdinsight/hdinsight-go-sdk-overview'
             - name: Använda Azure PowerShell
               href: ../hdinsight-administer-use-powershell.md
-              maintainContext: true
             - name: Använda Azure Classic CLI
               href: ../hdinsight-administer-use-command-line.md
-              maintainContext: true
         - name: Hantera kluster med Apache Ambari-webbgränssnittet
           href: ../hdinsight-hadoop-manage-ambari.md
-          maintainContext: true
           items:
             - name: Optimera kluster med Apache Ambari-webbgränssnittet
               href: ../hdinsight-changing-configs-via-ambari.md
-              maintainContext: true
             - name: Använda Apache Ambari REST API
               href: ../hdinsight-hadoop-manage-ambari-rest-api.md
-              maintainContext: true
         - name: Hantera loggar för ett HDInsight-kluster
           href: ../hdinsight-log-management.md
-          maintainContext: true
         - name: Lägga till lagringskonton
           href: ../hdinsight-hadoop-add-storage.md
-          maintainContext: true
         - name: Ladda upp data för Apache Hadoop-jobb
           href: ../hdinsight-upload-data.md
-          maintainContext: true
         - name: Flera HDInsight-kluster med Data Lake Storage
           href: ../hdinsight-multiple-clusters-data-lake-store.md
-          maintainContext: true
         - name: Importera och exportera data med Apache Sqoop
           href: ../hadoop/hdinsight-use-sqoop.md
-          maintainContext: true
           items:
             - name: Anslut med SSH
               href: ../hadoop/apache-hadoop-use-sqoop-mac-linux.md
-              maintainContext: true
             - name: Kör med cURL
               href: ../hadoop/apache-hadoop-use-sqoop-curl.md
-              maintainContext: true
             - name: Köra med hjälp av SDK för .NET
               href: ../hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md
-              maintainContext: true
             - name: Köra med Azure PowerShell
               href: ../hadoop/apache-hadoop-use-sqoop-powershell.md
-              maintainContext: true
         - name: Använda Apache Oozie för arbetsflöden
           href: ../hdinsight-use-oozie-linux-mac.md
-          maintainContext: true
         - name: 'Kluster- och tjänstportar samt URI:er'
           href: ../hdinsight-hadoop-port-settings-for-services.md
-          maintainContext: true
         - name: Migrera till Resource Managers utvecklingsverktyg
           href: ../hdinsight-hadoop-development-using-azure-resource-manager.md
-          maintainContext: true
         - name: Tillgänglighet och tillförlitlighet
           href: ../hdinsight-high-availability-linux.md
-          maintainContext: true
         - name: Uppgradera HDInsight-kluster till nyare version
           href: ../hdinsight-upgrade-cluster.md
-          maintainContext: true
         - name: OS-korrigering för HDInsight-kluster
           href: ../hdinsight-os-patching.md
-          maintainContext: true
     - name: Felsöka
       items:
         - name: Felsöka Apache Spark-jobb
@@ -342,84 +281,30 @@
           href: apache-spark-intellij-tool-debug-remotely-through-ssh.md
         - name: Felsöka ett långsamt eller felaktigt HDInsight-kluster
           href: ../hdinsight-troubleshoot-failed-cluster.md
-          maintainContext: true
         - name: Felsökning för Apache Spark
           href: apache-troubleshoot-spark.md
         - name: Felsökning för Hadoop Distributed File System i Apache Hadoop
           href: ../hdinsight-troubleshoot-hdfs.md
-          maintainContext: true
         - name: Felsökning för Apache Hadoop YARN
           href: ../hdinsight-troubleshoot-yarn.md
-          maintainContext: true
         - name: Kända problem
           href: apache-spark-known-issues.md
         - name: Resurser
           items:
             - name: Information om hur du använder HDInsight på Linux
               href: ../hdinsight-hadoop-linux-information.md
-              maintainContext: true
             - name: Minne och prestanda för Apache Hadoop
               href: ../hdinsight-hadoop-stack-trace-error-messages.md
-              maintainContext: true
             - name: Få åtkomst till Apache Hadoop YARN-programloggar på Linux
               href: ../hdinsight-hadoop-access-yarn-app-logs-linux.md
-              maintainContext: true
             - name: Aktivera heap dumps för Apache Hadoop-tjänster
               href: ../hdinsight-hadoop-collect-debug-heap-dump-linux.md
-              maintainContext: true
             - name: Förstå och lösa fel med WebHCat
               href: ../hdinsight-hadoop-templeton-webhcat-debug-errors.md
-              maintainContext: true
             - name: Apache Hive-inställningar för att lösa fel där minnet är slut
               href: ../hdinsight-hadoop-hive-out-of-memory-error-oom.md
-              maintainContext: true
             - name: Optimera Apache Hive-frågor
               href: ../hdinsight-hadoop-optimize-hive-query.md
-              maintainContext: true
-- name: Företagsberedskap
-  items:
-    - name: Företagssäkerhet
-      items:
-        - name: Översikt
-          href: ../domain-joined/apache-domain-joined-introduction.md
-          maintainContext: true
-        - name: Planera för företagssäkerhet
-          href: ../domain-joined/apache-domain-joined-architecture.md
-          maintainContext: true
-        - name: Konfigurera företagssäkerhet i HDInsight
-          href: ../domain-joined/apache-domain-joined-configure.md
-          maintainContext: true
-        - name: Konfigurera företagssäkerhet i HDInsight med Azure AD DS
-          href: ../domain-joined/apache-domain-joined-configure-using-azure-adds.md
-          maintainContext: true
-        - name: Konfigurera Apache Hive-principer
-          href: ../domain-joined/apache-domain-joined-run-hive.md
-          maintainContext: true
-        - name: Hantera kluster med företagssäkerhet
-          href: ../domain-joined/apache-domain-joined-manage.md
-          maintainContext: true
-    - name: Skydda data
-      href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
-      maintainContext: true
-    - name: Nätverksåtkomst
-      items:
-        - name: HDInsight i ett virtuellt Azure-nätverk
-          href: ../hdinsight-extend-hadoop-virtual-network.md
-          maintainContext: true
-        - name: Ansluta HDInsight till det lokala nätverket
-          href: ../connect-on-premises-network.md
-          maintainContext: true
-    - name: Övervaka med hjälp av Azure Monitor-loggar
-      items:
-        - name: Använda Azure Monitor-loggar
-          href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
-          maintainContext: true
-        - name: Använda frågor med Azure Monitor-loggar
-          href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
-          maintainContext: true
-        - name: Övervaka klusterprestanda
-          href: ../hdinsight-key-scenarios-to-monitor.md
-          maintainContext: true
 - name: Referens
   items:
     - name: Kodexempel
@@ -449,11 +334,9 @@
       items:
         - name: Aktuell viktig information
           href: ../hdinsight-release-notes.md
-          maintainContext: true
           items:
             - name: Arkiverad viktig information
               href: ../hdinsight-release-notes-archive.md
-              maintainContext: true
             - name: Migrera till detaljerad rollbaserad åtkomst för klusterkonfigurationer
               href: ../hdinsight-migrate-granular-access-cluster-configurations.md
         - name: Azure-översikt
@@ -468,4 +351,35 @@
           href: 'https://azure.microsoft.com/pricing/calculator/'
         - name: Windows-verktyg för HDInsight
           href: ../hdinsight-hadoop-windows-tools.md
-          maintainContext: true
+- name: Företagsberedskap
+  items:
+    - name: Företagssäkerhet
+      items:
+        - name: Översikt
+          href: ../domain-joined/apache-domain-joined-introduction.md
+        - name: Planera för företagssäkerhet
+          href: ../domain-joined/apache-domain-joined-architecture.md
+        - name: Konfigurera företagssäkerhet i HDInsight
+          href: ../domain-joined/apache-domain-joined-configure.md
+        - name: Konfigurera företagssäkerhet i HDInsight med Azure AD DS
+          href: ../domain-joined/apache-domain-joined-configure-using-azure-adds.md
+        - name: Konfigurera Apache Hive-principer
+          href: ../domain-joined/apache-domain-joined-run-hive.md
+        - name: Hantera kluster med företagssäkerhet
+          href: ../domain-joined/apache-domain-joined-manage.md
+    - name: Skydda data
+      href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
+    - name: Nätverksåtkomst
+      items:
+        - name: HDInsight i ett virtuellt Azure-nätverk
+          href: ../hdinsight-extend-hadoop-virtual-network.md
+        - name: Ansluta HDInsight till det lokala nätverket
+          href: ../connect-on-premises-network.md
+    - name: Övervaka med hjälp av Azure Monitor-loggar
+      items:
+        - name: Använda Azure Monitor-loggar
+          href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
+        - name: Använda frågor med Azure Monitor-loggar
+          href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
+        - name: Övervaka klusterprestanda
+          href: ../hdinsight-key-scenarios-to-monitor.md

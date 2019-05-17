@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/10/2019
 ms.author: magoedte
-ms.openlocfilehash: bca1b96e7dc5673cabef26fe6b2cfb8daa41fbf5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: HT
+ms.openlocfilehash: 38979aa5cbb7eff0a949dfb77d6a29b2cdb5c67b
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64702509"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602092"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Hur du frågar loggar från Azure Monitor för virtuella datorer (förhandsversion)
 Azure Monitor för virtuella datorer samlar in prestanda och anslutningsmått, datorn och processen inventeringsdata och hälsotillståndsinformation och vidarebefordrar det till arbetsytan Log Analytics i Azure Monitor.  Informationen är tillgänglig för [fråga](../../azure-monitor/log-query/log-query-overview.md) i Azure Monitor. Du kan använda dessa data för scenarier som omfattar planering av migreringsaktiviteter, kapacitetsanalys, identifiering och prestandafelsökning för på begäran.
@@ -101,7 +101,7 @@ För att underlätta för som IP-adressen för den fjärranslutna datorn för en
 
 | Egenskap  | Description |
 |:--|:--|
-|RemoteCountry |Namnet på det land som är värd för RemoteIp.  Till exempel *USA* |
+|RemoteCountry |Namnet på det land/region som är värd för RemoteIp.  Till exempel *USA* |
 |RemoteLatitude |Geoplats latitud. Till exempel *47.68* |
 |RemoteLongitude |Geoplats longitud. Till exempel *-122.12* |
 
@@ -128,9 +128,9 @@ Portar på en dator som aktivt acceptera inkommande trafik eller potentiellt kan
 >[!NOTE]
 >Azure Monitor för virtuella datorer stöder inte samla in och registrera portdata i Log Analytics-arbetsytan i följande regioner:  
 >- Östra USA  
->- Västra Europa
+>- Europa, västra
 >
-> Data samlas in är aktiverad i den andra [regioner som stöds](vminsights-onboard.md#log-analytics) för Azure Monitor för virtuella datorer. 
+> Data samlas in är aktiverad i den andra [regioner som stöds](vminsights-enable-overview.md#log-analytics) för Azure Monitor för virtuella datorer. 
 
 Varje post i VMBoundPort identifieras med följande fält: 
 

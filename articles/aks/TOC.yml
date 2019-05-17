@@ -187,7 +187,7 @@
           href: api-server-authorized-ip-ranges.md
         - name: Uppdatera autentiseringsuppgifterna för tjänstens huvudnamn i klustret
           href: update-credentials.md
-        - name: Begränsa och kontrollera utgående klustertrafik
+        - name: Begränsa och kontrollera utgående klustertrafik (förhandsversion)
           href: limit-egress-traffic.md
         - name: Aktivera Azure Active Directory-integrering
           items:

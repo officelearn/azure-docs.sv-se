@@ -17,6 +17,9 @@
       href: quickstart-assign-role-user-portal.md
     - name: Bevilja en användare åtkomst – PowerShell
       href: tutorial-role-assignments-user-powershell.md
+    - name: Bevilja en användare åtkomst – Resource Manager-mall
+      displayName: 'ARM, resource manager template'
+      href: tutorial-role-assignments-user-template.md
     - name: Bevilja en grupp åtkomst – PowerShell
       href: tutorial-role-assignments-group-powershell.md
     - name: Skapa en anpassad roll – PowerShell
@@ -88,6 +91,7 @@
     - name: REST-API
       href: /rest/api/authorization/
     - name: Mallar för Resurshanteraren
+      displayName: ARM
       items:
         - name: Rolltilldelningar
           href: /azure/templates/microsoft.authorization/roleassignments

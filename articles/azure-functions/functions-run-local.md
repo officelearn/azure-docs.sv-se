@@ -9,20 +9,32 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 03/13/2019
 ms.author: glenga
-ms.openlocfilehash: 55c5a61be8dadd538b73bd6378c030b98d837341
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.custom: 80e4ff38-5174-43
+ms.openlocfilehash: 7c6e7d8bb407b0ffeb320ebfe9e2639feb303800
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65508233"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603410"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Arbeta med Azure Functions Core Tools
 
 Azure Functions Core Tools kan du utveckla och testa dina funktioner på den lokala datorn från Kommandotolken eller terminal. Din lokala funktioner kan ansluta levande Azure-tjänster och du kan felsöka dina funktioner på den lokala datorn med hjälp av den fullständiga Functions-körningen. Du kan även distribuera en funktionsapp till din Azure-prenumeration.
 
 [!INCLUDE [Don't mix development environments](../../includes/functions-mixed-dev-environments.md)]
+
+Utveckla funktioner på din lokala dator och publicera dem på Azure med hjälp av Core Tools följer du de här stegen:
+
+> [!div class="checklist"]
+> * [Installera de viktigaste verktygen och beroenden.](#v2)
+> * [Skapa ett funktionsapprojekt från en mall för vissa språk.](#create-a-local-functions-project)
+> * [Registrera utlösare och bindningen tillägg.](#register-extensions)
+> * [Definiera lagring och andra anslutningar.](#local-settings-file)
+> * [Skapa en funktion från en utlösare och språkspecifika mall.](#create-func)
+> * [Kör funktionen lokalt](#start)
+> * [Publicera projektet på Azure](#publish)
 
 ## <a name="core-tools-versions"></a>Core Tools versioner
 
@@ -41,9 +53,6 @@ Om inget annat anges i exemplen i den här artikeln gäller för version 2.x.
 ### <a name="v2"></a>Version 2.x
 
 Version 2.x av verktygen använder Azure Functions-runtime 2.x som bygger på .NET Core. Den här versionen stöds för alla plattformar som .NET Core 2.x stöder, inklusive [Windows](#windows-npm), [macOS](#brew), och [Linux](#linux). Du måste först installera .NET Core 2.x SDK.
-
-> [!IMPORTANT]
-> När du aktiverar tillägget paket i projektfilen host.json, behöver du inte installera .NET Core 2.x SDK. Mer information finns i [lokal utveckling med Azure Functions Core Tools och tillägget buntar ](functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles). Tillägget paket kräver version 2.6.1071 av de viktigaste verktygen eller en senare version.
 
 #### <a name="windows-npm"></a>Windows
 
@@ -186,14 +195,20 @@ Filen local.settings.json lagrar appinställningar, anslutningssträngar och ins
 
 | Inställning      | Beskrivning                            |
 | ------------ | -------------------------------------- |
-| **`IsEncrypted`** | När värdet `true`, alla värden som krypteras med hjälp av en lokal dator-nyckel. Används med `func settings` kommandon. Standardvärdet är `true`. När `true`, alla inställningar har lagts till med hjälp av `func settings add` krypteras med hjälp av den lokala datornyckeln. Detta speglar hur funktionsappinställningar lagras i programinställningarna i Azure. Kryptera lokala inställningsvärden ger extra skydd för värdefulla data bör exponeras offentligt i local.settings.json.  |
+| **`IsEncrypted`** | När värdet `true`, alla värden som krypteras med hjälp av en lokal dator-nyckel. Används med `func settings` kommandon. Standardvärdet är `false`. |
 | **`Values`** | Samling av programinställningar och anslutningssträngar som används när du kör lokalt. Dessa värden motsvarar appinställningar i din funktionsapp i Azure, till exempel [ `AzureWebJobsStorage` ]. Många utlösare och bindningar har en egenskap som refererar till en appinställning för anslutningssträngen, till exempel `Connection` för den [Blob storage-utlösare](functions-bindings-storage-blob.md#trigger---configuration). För egenskaper, behöver du en programinställning som definierats i den `Values` matris. <br/>[`AzureWebJobsStorage`] är en obligatorisk app inställning för utlösare än HTTP. <br/>Version 2.x av funktionskörningen kräver den [ `FUNCTIONS_WORKER_RUNTIME` ] som genereras för ditt projekt med Core Tools. <br/> När du har den [Azure storage-emulatorn](../storage/common/storage-use-emulator.md) installerat lokalt kan du ange [ `AzureWebJobsStorage` ] till `UseDevelopmentStorage=true` och Core Tools använder emulatorn. Detta är användbart under utvecklingen, men du bör testa med en faktisk lagringsanslutning före distributionen. |
 | **`Host`** | Inställningarna i det här avsnittet Anpassa värdprocessen funktioner när du kör lokalt. |
 | **`LocalHttpPort`** | Anger standardporten som används när du kör den lokala Functions-värden (`func host start` och `func run`). Den `--port` kommandoradsalternativet har företräde framför det här värdet. |
 | **`CORS`** | Definierar de ursprung som får för [cross-origin resource sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Ursprung tillhandahålls som en kommaavgränsad lista med utan blanksteg. Jokertecknet (\*) stöds, vilket gör att begäranden från valfri origin. |
 | **`ConnectionStrings`** | Använd inte den här samlingen för anslutningssträngar som används av din funktionsbindning. Den här samlingen används endast av ramverk som kommer vanligtvis anslutningssträngar från den `ConnectionStrings` avsnitt i en konfiguration av fil, som [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx). Anslutningssträngar i det här objektet läggs till i miljön med providertyp av [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx). Objekt i den här samlingen inte har publicerats till Azure med andra appinställningar. Du måste uttryckligen lägga till dessa värden till den `Connection strings` insamling av din funktionsappinställningarna. Om du skapar en [ `SqlConnection` ](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx) i Funktionskoden, bör du lagra Anslutningssträngens värde i **programinställningar** i portalen med dina andra anslutningar. |
 
-[!INCLUDE [functions-environment-variables](../../includes/functions-environment-variables.md)]
+Funktionen appen inställningsvärden kan också läsa i koden som miljövariabler. Mer information finns i avsnittet miljö variabler i dessa språkspecifika referensämnen:
+
+* [C#-förkompilerad version](functions-dotnet-class-library.md#environment-variables)
+* [C#-skript (.csx)](functions-reference-csharp.md#environment-variables)
+* [F#skript (.fsx)](functions-reference-fsharp.md#environment-variables)
+* [Java](functions-reference-java.md#environment-variables)
+* [JavaScript](functions-reference-node.md#environment-variables)
 
 När ingen giltig lagringsanslutningssträng har angetts för [ `AzureWebJobsStorage` ] och emulatorn inte används, visas följande felmeddelande visas:
 
@@ -307,7 +322,6 @@ Den `host` kommando krävs endast i version 1.x.
 | **`--script-root --prefix`** | Används för att ange sökvägen till roten för funktionsappen som ska köras eller distribueras. Det här används för kompilerade projekt som genererar av projektfiler till en undermapp. Till exempel när du skapar en C#-klassbibliotek projekt, host.json, local.settings.json och function.json filer skapas i en *rot* undermapp med en sökväg som `MyProject/bin/Debug/netstandard2.0`. I så fall, Ange prefixet som `--script-root MyProject/bin/Debug/netstandard2.0`. Det här är roten av funktionsappen vid körning i Azure. |
 | **`--timeout -t`** | Tidsgränsen för Functions värden startas, i sekunder. Standard: 20 sekunder.|
 | **`--useHttps`** | Binda till `https://localhost:{port}` snarare än till `http://localhost:{port}`. Det här alternativet skapar som standard ett betrott certifikat på datorn.|
-| **`--enableAuth`** | Aktivera fullständig hantering av pipeline-autentisering.|
 
 För en C# klassbiblioteksprojektet (.csproj), måste du inkludera den `--build` alternativet för att generera DLL-filen för biblioteket.
 
@@ -474,7 +488,6 @@ Aktivera Application Insights för din funktionsapp:
 [!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
 
 Mer information finns i [övervaka Azure Functions](functions-monitoring.md).
-
 ## <a name="next-steps"></a>Nästa steg
 
 Azure Functions Core Tools är [öppen källkod och finns på GitHub](https://github.com/azure/azure-functions-cli).  

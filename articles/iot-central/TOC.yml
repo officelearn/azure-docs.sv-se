@@ -89,6 +89,8 @@
               href: howto-export-data-event-hubs-service-bus.md
             - name: Exportera till Blob Storage
               href: howto-export-data-blob-storage.md
+        - name: Skapa anpassade roller
+          href: howto-create-custom-rules.md
         - name: Visualisera dina data i Power BI
           href: howto-connect-powerbi.md
         - name: Ansluta andra IoT-moln

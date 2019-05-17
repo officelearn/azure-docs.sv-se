@@ -11,7 +11,7 @@ metadata:
   manager: jhubbard
   author: j-martens
   ms.author: jmartens
-  ms.date: 05/06/2019
+  ms.date: 05/14/2019
   ms.custom: seodec18
   ms.tgt_pltfrm: na
   ms.devlang: na
@@ -36,6 +36,7 @@ sections:
         items:
           - html: <a href="quickstart-run-cloud-notebook">Köra ett experiment i molnet</a> (ingen installation krävs).
           - html: <a href="quickstart-run-local-notebook">Köra ett experiment med hjälp av en lokal notebook-server</a> (installation av lokal SDK).
+          - html: <a href="ui-quickstart-run-experiment">Förbereda och visualisera data utan att skriva kod</a> i det visuella gränssnittet.
   - title: Steg för steg-självstudier
     items:
       - type: paragraph
@@ -45,6 +46,7 @@ sections:
         items:
           - html: <a href="tutorial-train-models-with-aml">Träna</a> och <a href="tutorial-deploy-models-with-aml">distribuera</a> avbildningsklassificeringsmodeller (<b>serie i två delar</b>).
           - html: <a href="tutorial-data-prep">Förbereda data</a> och <a href="tutorial-auto-train-models">använda automatiserad maskininlärning</a> för att träna och justera regressionsmodeller (<b>serie i två delar</b>).
+          - html: <a href="ui-tutorial-automobile-price-train-score">Förutse bilpriser</a> med det visuella gränssnittet och <a href="ui-tutorial-automobile-price-deploy">distribuera</a> regressionsmodellen.
   - title: Exempel
     items:
       - type: paragraph

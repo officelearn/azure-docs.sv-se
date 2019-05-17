@@ -368,7 +368,7 @@
   items:
     - name: Översikt
       href: sql-database-howto.md
-    - name: Enskild databas
+    - name: Enkla databaser och elastiska pooler
       items:
         - name: Översikt
           href: sql-database-howto-single-database.md
@@ -448,7 +448,7 @@
               href: elastic-jobs-tsql.md
             - name: Migrera (från gamla elastiska jobb)
               href: elastic-jobs-migrate.md
-    - name: Hanterad instans
+    - name: Hanterade instanser
       items:
         - name: Översikt
           href: sql-database-howto-managed-instance.md
@@ -720,6 +720,10 @@
       href: sql-database-glossary-terms.md
     - name: Utveckla dina färdigheter med Microsoft Learn
       href: /learn/browse/?products=azure-sql-database
+    - name: SQL Server-bloggen
+      href: 'https://cloudblogs.microsoft.com/sqlserver/?product=azure-sql-database'
+    - name: Microsoft Azure-bloggen
+      href: 'https://azure.microsoft.com/blog/'
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Offentliga datauppsättningar

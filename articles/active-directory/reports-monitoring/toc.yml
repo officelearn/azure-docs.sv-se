@@ -31,6 +31,8 @@
       href: concept-audit-logs.md
     - name: Inloggningsloggar
       href: concept-sign-ins.md
+    - name: Rapport om användning och insikter
+      href: concept-usage-insights-report.md
     - name: Riskfyllda inloggningar
       href: concept-risky-sign-ins.md
     - name: Riskhändelser

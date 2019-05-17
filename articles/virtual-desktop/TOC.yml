@@ -14,6 +14,8 @@
       href: create-host-pools-azure-marketplace.md
     - name: 4. Hantera appgrupper
       href: manage-app-groups.md
+    - name: 5. Skapa en värdpool för att verifiera tjänstuppdateringar
+      href: create-validation-host-pool.md
 - name: Så här gör du
   items:
     - name: Ansluta till Windows Virtual Desktop-resurser

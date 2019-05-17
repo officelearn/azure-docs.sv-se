@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/26/2019
+ms.date: 05/14/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2e783a7c34216624126946eef84f56977d4c049
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 60453c320a66a8eebd7460b3930241f9e81b8a1b
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64572409"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65784332"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Versionshistorik
 Azure Active Directory (Azure AD)-teamet uppdaterar regelbundet Azure AD Connect med nya funktioner. Inte alla tillägg gäller för alla målgrupper.
@@ -31,7 +31,7 @@ Den här artikeln är utformad för att hålla reda på de versioner som har lan
 
 Den här tabellen är en lista över närliggande ämnen:
 
-Avsnitt |  Information
+Ämne |  Information
 --------- | --------- |
 Steg för att uppgradera från Azure AD Connect | Olika metoder för att [uppgradera från en tidigare version till senast](how-to-upgrade-previous-version.md) Azure AD Connect-versionen.
 Nödvändiga behörigheter | Behörigheter som krävs för att tillämpa en uppdatering, se [konton och behörigheter](reference-connect-accounts-permissions.md#upgrade).
@@ -42,6 +42,17 @@ Ladda ned | [Hämta Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=61
 >Lanserar en ny version av Azure AD Connect är en process som kräver flera kvalitetskontroll steg så att åtgärden-funktionen för tjänsten och när vi går igenom den här processen versionsnumret för en ny version, samt status för versionen kommer att uppdateras att visa det senaste tillståndet.
 Även om vi går igenom den här processen kan visas det lägre versionsnumret för versionen med ett ”X” i den lägre version nummer positionen, som i ”1.3.X.0” - Detta anger att den viktiga informationen i det här dokumentet är giltiga för alla versioner som börjar med ”1.3”. När vi har skapat lanseringsprocessen versionsnumret vid lansering kommer att uppdateras till den nyligen utgivna versionen och kommer att uppdateras release-status till ”släppt om hämtning och automatisk uppgradering”.
 Inte alla versioner av Azure AD Connect kommer att göras tillgängliga för automatisk uppgradering. Release-status anger om en version är tillgänglig för automatisk uppgradering eller endast för hämtning. Om automatisk uppgradering har aktiverats på din Azure AD Connect-server uppgraderar automatiskt den här servern till den senaste versionen av Azure AD Connect som släpps för automatisk uppgradering. Observera att alla konfigurationer för Azure AD Connect är tillämpliga för automatisk uppgradering. Följ den här länken om du vill veta mer om [automatisk uppgradering](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
+
+## <a name="13210"></a>1.3.21.0
+
+### <a name="release-status"></a>Versionsstatus 
+
+05/14/2019: TBD
+
+
+### <a name="fixed-issues"></a>Åtgärdade problem 
+
+- Fast en säkerhets för privilegier som finns i Microsoft Azure Active Directory Connect bygger 1.3.20.0.  Denna säkerhetsrisk under vissa förhållanden kan gör det möjligt att köra två powershell-cmdlets i samband med ett konto med privilegier och utföra Privilegierade åtgärder.  Den här säkerhetsuppdateringen åtgärdar problemet genom att inaktivera dessa cmdletar. Mer information finns i [säkerhetsuppdateringen](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-1000).
 
 ## <a name="13200"></a>1.3.20.0 
 
@@ -387,7 +398,7 @@ Låsa åtkomsten till AD DS-kontot genom att implementera följande behörighets
 *   Ta bort alla åtkomstkontrollposter på specifika objekt, utom åtkomstkontrollposter som är specifika för SJÄLVBETJÄNINGSPORTALEN. Vi vill hålla standardbehörigheterna intakt när det gäller att själv.
 *   Tilldela specifika behörigheter:
 
-Typ     | Namn                          | Access               | Gäller
+Type     | Namn                          | Åtkomst               | Gäller
 ---------|-------------------------------|----------------------|--------------|
 Tillåt    | SYSTEM                        | Fullständig behörighet         | Det här objektet  |
 Tillåt    | Företagsadministratörer             | Fullständig behörighet         | Det här objektet  |
@@ -412,7 +423,7 @@ Du använder PowerShell-skript för att tillämpa de här inställningarna till 
 Set-ADSyncRestrictedPermissions -ObjectDN <$ObjectDN> -Credential <$Credential>
 ```
 
-Var 
+Där 
 
 **$ObjectDN** = Active Directory-konto vars behörigheter måste höjas.
 
@@ -487,7 +498,7 @@ Status: Oktober 19-2017
 
 ### <a name="azure-ad-connect-sync"></a>Azure AD Connect Sync
 > [!NOTE]
-> Obs! Synkroniseringstjänsten har ett WMI-gränssnitt som du kan utveckla din egen anpassade scheduler. Det här gränssnittet är nu inaktuellt och kommer att tas bort från framtida versioner av Azure AD Connect levererats efter den 30 juni 2018. Kunder som vill anpassa synkroniseringsschema ska använda den [inbyggda scheduler (https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-scheduler).
+> Anteckning: Synkroniseringstjänsten har ett WMI-gränssnitt som du kan utveckla din egen anpassade scheduler. Det här gränssnittet är nu inaktuellt och kommer att tas bort från framtida versioner av Azure AD Connect levererats efter den 30 juni 2018. Kunder som vill anpassa synkroniseringsschema ska använda den [inbyggda scheduler (https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-scheduler).
 
 #### <a name="fixed-issues"></a>Åtgärdade problem
 * När Azure AD Connect-guiden skapar AD Connector-kontot som krävs för att synkronisera ändringar från lokala Active Directory kan tilldelar den korrekt inte kontot behörighet att läsa PublicFolder objekt. Det här problemet påverkar både snabbinstallationen och anpassad installation. Den här ändringen åtgärdar problemet.
@@ -730,9 +741,9 @@ CBool(
     |CertFriendlyName|CertThumbprint|CertExtensionOids|
     |CertFormat|CertNotAfter|CertPublicKeyOid|
     |CertSerialNumber|CertNotBefore|CertPublicKeyParametersOid|
-    |CertVersion|CertSignatureAlgorithmOid|Välj|
-    |CertKeyAlgorithmParams|CertHashString|Var|
-    |||Med|
+    |CertVersion|CertSignatureAlgorithmOid|Markera|
+    |CertKeyAlgorithmParams|CertHashString|Där|
+    |||Med |
 
 * Följande schemaändringar har införts för att kunder kan skapa anpassade Synkroniseringsregler för att flöda sAMAccountName, domainNetBios och domainFQDN för grupp-objekt, samt distinguishedName för objekt:
 
@@ -811,7 +822,7 @@ Azure AD Connect-synkronisering
 * Azure AD Connect nu stöder synkronisering brevlåda offentlig mapp objekt från en lokal AD till Azure AD. Du kan aktivera funktionen med hjälp av Azure AD Connect-guiden under valfria funktioner. Om du vill veta mer om den här funktionen finns i artikeln [Office 365 Directory baserad Edge Blocking stöd för lokala mappar e-post aktiverad offentliga](https://blogs.technet.microsoft.com/exchange/2017/05/19/office-365-directory-based-edge-blocking-support-for-on-premises-mail-enabled-public-folders).
 * Azure AD Connect kräver en AD DS-konto synkroniseras från lokala AD. Tidigare, om du har installerat Azure AD Connect med Express-läge kan du ange autentiseringsuppgifterna för ett Enterprise-administratör-konto och Azure AD Connect skapar AD DS-konto krävs. Men för en anpassad installation och att lägga till skogar i en befintlig distribution kan tvungen du att i stället ange AD DS-kontot. Nu kan möjlighet du också att ange autentiseringsuppgifterna för ett Enterprise-administratör-konto under en anpassad installation och låta Azure AD Connect skapa AD DS-kontot som krävs.
 * Azure AD Connect har nu stöd för SQL AOA. Innan du installerar Azure AD Connect måste du aktivera SQL AOA. Under installationen identifierar Azure AD Connect om den angivna SQL-instansen är aktiverat för SQL AOA eller inte. Om SQL AOA är aktiverad, räknat Azure AD Connect ytterligare ut om SQL AOA har konfigurerats för att använda synkron replikering eller asynkron replikering. När du konfigurerar tillgänglighetsgruppens lyssnare, rekommenderas att du ställer in egenskapen RegisterAllProvidersIP till 0. Denna rekommendation beror på att Azure AD Connect för närvarande använder SQL Native Client för att ansluta till SQL och SQL Native Client stöder inte användning av egenskapen MultiSubNetFailover.
-* Om du använder LocalDB som databas för din Azure AD Connect-servern och har nått storleksgränsen 10 GB, startar inte längre synkroniseringstjänsten. Tidigare var behöver du utföra ShrinkDatabase åtgärden på en LocalDB att frigöra tillräckligt med utrymme för DB att starta synkroniseringstjänsten. Då och du kan använda hanteraren för synkroniseringstjänsten för att ta bort körningshistorik för att frigöra mer DB-utrymme. Du kan nu använda Start-ADSyncPurgeRunHistory cmdlet att rensa köra historikdata från LocalDB frigöra DB-utrymme. Dessutom denna cmdlet har stöd för en offline-läge (genom att ange parametern - offline) som kan användas när synkroniseringstjänsten inte körs. Obs! Offline-läge kan endast användas om synkroniseringstjänsten körs inte och den databas som används är LocalDB.
+* Om du använder LocalDB som databas för din Azure AD Connect-servern och har nått storleksgränsen 10 GB, startar inte längre synkroniseringstjänsten. Tidigare var behöver du utföra ShrinkDatabase åtgärden på en LocalDB att frigöra tillräckligt med utrymme för DB att starta synkroniseringstjänsten. Då och du kan använda hanteraren för synkroniseringstjänsten för att ta bort körningshistorik för att frigöra mer DB-utrymme. Du kan nu använda Start-ADSyncPurgeRunHistory cmdlet att rensa köra historikdata från LocalDB frigöra DB-utrymme. Dessutom denna cmdlet har stöd för en offline-läge (genom att ange parametern - offline) som kan användas när synkroniseringstjänsten inte körs. Anteckning: Offline-läge kan endast användas om synkroniseringstjänsten körs inte och den databas som används är LocalDB.
 * Om du vill minska mängden lagringsutrymme som krävs, Azure AD komprimerar Connect nu synkronisering felinformation innan du lagrar dem i LocalDB/SQL-databaser. När du uppgraderar från en äldre version av Azure AD Connect till den här versionen, utför Azure AD Connect ett enstaka komprimering på befintliga sync-felinformation.
 * Tidigare, när du har uppdaterat OU-filtrering konfigurationen, måste du manuellt köra fullständig import för att säkerställa att befintliga objekt är korrekt inkluderad/exkluderad från katalogsynkronisering. Nu kan Azure AD Connect automatiskt utlöser fullständig import vid nästa synkronisering migreringscykel. Ytterligare, fullständig import tillämpas endast på de AD-anslutningsappar som påverkas av uppdateringen. Obs: den här förbättringen gäller för OU-filtrering uppdateringar som görs med hjälp av guiden Azure AD Connect. Den gäller inte för OU-filtrering uppdatering som gjorts med hjälp av hanteraren för synkroniseringstjänsten.
 * Tidigare gruppbaserad filtrering har stöd för användare, grupper och kontakta endast objekt. Gruppbaserad filtrering stöder nu även datorobjekt.
@@ -894,7 +905,7 @@ Direktautentisering
 * Ett problem som gör att Azure AD Connect-guiden att misslyckas om skicka via autentisering har valts men registreringen av dess anslutningen misslyckas har åtgärdats.
 * Ett problem som orsakar Azure AD Connect-guiden för att kringgå verifiering kontrollerar på inloggningsmetod valt när skrivbords-SSO-funktionen är aktiverad har åtgärdats.
 
-Lösenordsåterställning
+Återställning av lösenord
 * Ett problem som kan orsaka Azure AAD Connect-servern för att försöka ansluta igen om anslutningen avbröts av en brandvägg eller proxyserver inte har åtgärdats.
 
 **Nya funktioner/förbättringar:**
@@ -909,7 +920,7 @@ AD FS-hantering
 * Du kan nu ange befintliga gMSA (Grupphanterat tjänstkonto) under installationen av AD FS.
 * Du kan nu konfigurera SHA-256 som signaturens hashalgoritm för Azure AD-förtroende för förlitande part.
 
-Lösenordsåterställning
+Återställning av lösenord
 * Introducerade förbättringar så att produkten ska fungera i miljöer med strängare brandväggsregler.
 * Förbättrad anslutning tillförlitlighet till Azure Service Bus.
 

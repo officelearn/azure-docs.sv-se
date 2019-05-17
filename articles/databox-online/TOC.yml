@@ -67,8 +67,10 @@
           href: data-box-edge-deploy-connect-setup-activate.md
         - name: 4 – Lägga till och ansluta till resurs
           href: data-box-edge-deploy-add-shares.md
-        - name: 5 – Konfigurera beräkning
+        - name: 5A – Konfigurera beräkning (enkel)
           href: data-box-edge-deploy-configure-compute.md
+        - name: 5B – Konfigurera beräkning (avancerad)
+          href: data-box-edge-deploy-configure-compute-advanced.md
     - name: Begrepp
       items:
         - name: Granska krav

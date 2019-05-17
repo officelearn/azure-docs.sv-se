@@ -7,115 +7,147 @@
 - name: Snabbstarter
   expanded: true
   items:
-    - name: Skapa DB – Portal
-      href: quickstart-create-server-database-portal.md
-    - name: Skapa DB – Azure CLI
-      href: quickstart-create-server-database-azure-cli.md
-    - name: Skapa DB – Azure CLI up-kommando
-      href: quickstart-create-server-up-azure-cli.md
-    - name: Ansluta och fråga
+    - name: Enskild server
       items:
-        - name: Python
-          href: connect-python.md
-        - name: Node.js
-          href: connect-nodejs.md
-        - name: Java
-          href: connect-java.md
-        - name: Ruby
-          href: connect-ruby.md
-        - name: PHP
-          href: connect-php.md
-        - name: .NET
-          href: connect-csharp.md
-        - name: Go
-          href: connect-go.md
+        - name: Skapa DB – Portal
+          href: quickstart-create-server-database-portal.md
+        - name: Skapa DB – Azure CLI
+          href: quickstart-create-server-database-azure-cli.md
+        - name: Skapa DB – Azure CLI up-kommando
+          href: quickstart-create-server-up-azure-cli.md
+        - name: Ansluta och fråga
+          items:
+            - name: Python
+              href: connect-python.md
+            - name: Node.js
+              href: connect-nodejs.md
+            - name: Java
+              href: connect-java.md
+            - name: Ruby
+              href: connect-ruby.md
+            - name: PHP
+              href: connect-php.md
+            - name: .NET
+              href: connect-csharp.md
+            - name: Go
+              href: connect-go.md
+    - name: Hyperskala (Citus)
+      items:
+        - name: Skapa DB – Portal
+          href: quickstart-create-hyperscale-portal.md
 - name: Självstudier
   items:
-    - name: 1 – Utforma en databas
+    - name: Enskild server
       items:
-        - name: Azure Portal
-          href: tutorial-design-database-using-azure-portal.md
-        - name: Azure CLI
-          href: tutorial-design-database-using-azure-cli.md
-    - name: '2 – Utforma webbapp: Python'
-      href: ../app-service/containers/tutorial-python-postgresql-app.md
-      maintainContext: true
-    - name: 3 – Övervaka och finjustera
-      href: tutorial-monitor-and-tune.md
+        - name: 1 – Utforma en databas
+          items:
+            - name: Azure Portal
+              href: tutorial-design-database-using-azure-portal.md
+            - name: Azure CLI
+              href: tutorial-design-database-using-azure-cli.md
+        - name: '2 – Utforma webbapp: Python'
+          href: ../app-service/containers/tutorial-python-postgresql-app.md
+          maintainContext: true
+        - name: 3 – Övervaka och finjustera
+          href: tutorial-monitor-and-tune.md
+    - name: Hyperskala (Citus)
+      items:
+        - name: Utforma en databas för flera innehavare
+          href: tutorial-design-database-hyperscale-multi-tenant.md
+        - name: Utforma en instrumentpanel i realtid
+          href: tutorial-design-database-hyperscale-realtime.md
 - name: Exempel
   items:
     - name: Azure CLI
       href: sample-scripts-azure-cli.md
 - name: Begrepp
   items:
-    - name: Databas och servrar
+    - name: Enskild server
       items:
-        - name: Servrar
-          href: concepts-servers.md
-        - name: Versioner som stöds
-          href: concepts-supported-versions.md
-        - name: PostgreSQL-tillägg
-          href: concepts-extensions.md
-        - name: Hög tillgänglighet
-          href: concepts-high-availability.md
-    - name: Resurser
-      items:
-        - name: Prisnivåer
-          href: concepts-pricing-tiers.md
-        - name: Begränsningar
-          href: concepts-limits.md
-    - name: Dataåtkomst och säkerhet
-      items:
-        - name: Brandväggsregler
-          href: concepts-firewall-rules.md
-        - name: Konfigurera SSL
-          href: concepts-ssl-connection-security.md
-        - name: Advanced Threat Protection
-          href: concepts-data-access-and-security-threat-protection.md
-        - name: VNet
-          href: concepts-data-access-and-security-vnet.md
-    - name: Verksamhetskontinuitet
-      items:
-        - name: Översikt
-          href: concepts-business-continuity.md
-        - name: Säkerhetskopiering och återställning
-          href: concepts-backup.md
-    - name: Övervaka och finjustera
-      items:
+        - name: Databaser och servrar
+          items:
+            - name: Servrar
+              href: concepts-servers.md
+            - name: Versioner som stöds
+              href: concepts-supported-versions.md
+            - name: PostgreSQL-tillägg
+              href: concepts-extensions.md
+            - name: Hög tillgänglighet
+              href: concepts-high-availability.md
+        - name: Resurser
+          items:
+            - name: Prisnivåer
+              href: concepts-pricing-tiers.md
+            - name: Begränsningar
+              href: concepts-limits.md
+        - name: Dataåtkomst och säkerhet
+          items:
+            - name: Brandväggsregler
+              href: concepts-firewall-rules.md
+            - name: Konfigurera SSL
+              href: concepts-ssl-connection-security.md
+            - name: Advanced Threat Protection
+              href: concepts-data-access-and-security-threat-protection.md
+            - name: Virtuellt nätverk
+              href: concepts-data-access-and-security-vnet.md
+        - name: Verksamhetskontinuitet
+          items:
+            - name: Översikt
+              href: concepts-business-continuity.md
+            - name: Säkerhetskopiering och återställning
+              href: concepts-backup.md
         - name: Övervaka och finjustera
-          href: concepts-monitoring.md
-        - name: Serverloggar
-          href: concepts-server-logs.md
-        - name: Query Store
           items:
+            - name: Övervaka och finjustera
+              href: concepts-monitoring.md
+            - name: Serverloggar
+              href: concepts-server-logs.md
             - name: Query Store
-              href: concepts-query-store.md
-            - name: Query Store-användningsscenarier
-              href: concepts-query-store-scenarios.md
-            - name: Metodtips för Query Store
-              href: concepts-query-store-best-practices.md
-        - name: Query Performance Insight
-          href: concepts-query-performance-insight.md
-        - name: Prestandarekommendationer
-          href: concepts-performance-recommendations.md
-    - name: Utveckling
-      items:
-        - name: Anslutningsbibliotek
-          href: concepts-connection-libraries.md
-        - name: Anslutningsåterhämtning
-          href: concepts-connectivity.md
-        - name: Utveckla med Azure Kubernetes Service (AKS)
-          href: concepts-aks.md
-        - name: Java
+              items:
+                - name: Query Store
+                  href: concepts-query-store.md
+                - name: Query Store-användningsscenarier
+                  href: concepts-query-store-scenarios.md
+                - name: Metodtips för Query Store
+                  href: concepts-query-store-best-practices.md
+            - name: Query Performance Insight
+              href: concepts-query-performance-insight.md
+            - name: Prestandarekommendationer
+              href: concepts-performance-recommendations.md
+        - name: Utveckling
           items:
-            - name: Konfigurera Spring Data JDBC
-              href: /java/azure/spring-framework/configure-spring-data-jdbc-with-azure-postgresql
-            - name: Konfigurera Spring Data JPA
-              href: /java/azure/spring-framework/configure-spring-data-jpa-with-azure-postgresql
-    - name: Replikering
+            - name: Anslutningsbibliotek
+              href: concepts-connection-libraries.md
+            - name: Anslutningsåterhämtning
+              href: concepts-connectivity.md
+            - name: Utveckla med Azure Kubernetes Service (AKS)
+              href: concepts-aks.md
+            - name: Java
+              items:
+                - name: Konfigurera Spring Data JDBC
+                  href: /java/azure/spring-framework/configure-spring-data-jdbc-with-azure-postgresql
+                - name: Konfigurera Spring Data JPA
+                  href: /java/azure/spring-framework/configure-spring-data-jpa-with-azure-postgresql
+        - name: Replikering
+          items:
+            - name: Skrivskyddade repliker
+              href: concepts-read-replicas.md
+    - name: Hyperskala (Citus)
       items:
-        - name: Skrivskyddade repliker
-          href: concepts-read-replicas.md
+        - name: Noder
+          href: concepts-hyperscale-nodes.md
+        - name: Distribuerad data
+          href: concepts-hyperscale-distributed-data.md
+        - name: Välja en distributionskolumn
+          href: concepts-hyperscale-choose-distribution-column.md
+        - name: Tabellsamlokalisering
+          href: concepts-hyperscale-colocation.md
+        - name: PostgreSQL-tillägg
+          href: concepts-hyperscale-extensions.md
+        - name: Resurser
+          items:
+            - name: Konfigurationsalternativ
+              href: concepts-hyperscale-configuration-options.md
 - name: Instruktionsguider
   items:
     - name: Skapa användare

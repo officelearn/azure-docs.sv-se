@@ -50,6 +50,8 @@
       href: app-protection-based-conditional-access.md
     - name: Kräv hanterade enheter
       href: require-managed-devices.md
+    - name: Kräva betrodda nätverk för MFA-registrering
+      href: '../authentication/howto-registration-mfa-sspr-combined.md#conditional-access-policies-for-combined-registration'
     - name: Kräva MFA för åtkomstförsök från ej betrodda nätverk
       href: untrusted-networks.md
     - name: Kräva användningsvillkor

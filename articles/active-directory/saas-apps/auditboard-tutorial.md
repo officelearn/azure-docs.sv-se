@@ -16,11 +16,11 @@ ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b5a54fb179b9baac9e72e003b1f9b0c6697ae74b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59258801"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65858765"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-auditboard"></a>Självstudier: Azure Active Directory-integrering med AuditBoard
 
@@ -29,7 +29,7 @@ Genom att integrera AuditBoard med Azure AD får du följande fördelar:
 
 * Du kan via Azure AD styra vem som har åtkomst till AuditBoard.
 * Du kan göra så att dina användare automatiskt loggas in på AuditBoard (enkel inloggning) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure-portalen.
+* Du kan hantera dina konton på en central plats – Azure portal.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
@@ -61,7 +61,7 @@ Om du vill konfigurera integrering av AuditBoard i Azure AD måste du lägga til
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
+3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
@@ -69,19 +69,19 @@ Om du vill konfigurera integrering av AuditBoard i Azure AD måste du lägga til
 
     ![AuditBoard i resultatlistan](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
 I det här avsnittet får du konfigurera och testa enkel inloggning i Azure AD med AuditBoard baserat på testanvändaren **Britta Simon**.
 För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i AuditBoard upprättas.
 
 Om du vill konfigurera och testa enkel inloggning i Azure AD med AuditBoard måste du slutföra följande byggblock:
 
-1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
 2. **[Konfigurera enkel inloggning för AuditBoard](#configure-auditboard-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
-4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
 5. **[Skapa AuditBoard-testanvändare](#create-auditboard-test-user)**  – för att få en motsvarighet till Britta Simon i AuditBoard som är länkad till användarens Azure AD-representation.
-6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
+6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
@@ -91,7 +91,7 @@ Konfigurera enkel inloggning i Azure AD med AuditBoard genom att göra följande
 
 1. Gå till sidan för **AuditBoard**-programintegrering och välj **Enkel inloggning** i [Azure Portal](https://portal.azure.com/).
 
-    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
+    ![Konfigurera enkel inloggning för länken](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -120,11 +120,11 @@ Konfigurera enkel inloggning i Azure AD med AuditBoard genom att göra följande
 
 5. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på kopieringsknappen för att kopiera **App Federation Metadata-URL** och spara den på datorn.
 
-    ![Länk för nedladdning av certifikatet](common/copy-metadataurl.png)
+    ![Länk för hämtning av certifikat](common/copy-metadataurl.png)
 
 ### <a name="configure-auditboard-single-sign-on"></a>Konfigurera enkel inloggning för AuditBoard
 
-Om du ska konfigurera enkel inloggning på **AuditBoard**-sidan måste du skicka **URL:en för appfederationsmetadata** till [AuditBoard-supportteamet](mailto:support@auditboard.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+Om du ska konfigurera enkel inloggning på **AuditBoard**-sidan måste du skicka **URL:en för appfederationsmetadata** till [AuditBoard-supportteamet](mailto:support@auditboard.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 

@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f8e0b79d5aebd1e92dd71bba72efa7430aa475b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: acd100ccc3aafc2de1f2c7970ff9437c92156b17
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60357458"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65861520"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Självstudie: Azure AD-lösenordsåterställning från inloggningsskärmen
 
-I den här självstudien gör du så att användare kan återställa sina lösenord från Windows 10-inloggningsskärmen. Med den nya April 2018-uppdateringen för Windows 10 kan användare med **Azure AD-anslutna** eller **Hybrid Azure AD-anslutna** enheter använda länken ”Återställ lösenord” på sin inloggningsskärm. När användarna klickar på den här länken kommer de till samma lösenordsåterställning via självbetjäning (SSPR) som de är vana vid.
+I den här självstudien gör du så att användare kan återställa sina lösenord från Windows 10-inloggningsskärmen. Med den nya April 2018-uppdateringen för Windows 10 kan användare med **Azure AD-anslutna** eller **Hybrid Azure AD-anslutna** enheter använda länken ”Återställ lösenord” på sin inloggningsskärm. När användarna klickar på den här länken kommer de till samma lösenordsåterställning via självbetjäning (SSPR) som de är vana vid. Om en användare har låsts ute låsa konton i den lokala Active Directory inte upp av den här processen.
 
 > [!div class="checklist"]
 > * Konfigurera länken Återställ lösenord med Intune

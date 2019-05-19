@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: jeedes
 ms.openlocfilehash: 01877e4d982433608dd10fb44f2506b8bf71aff6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57858846"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65858926"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bugsnag"></a>Självstudier: Azure Active Directory-integrering med Bugsnag
 
@@ -28,12 +28,12 @@ Integreringen av Bugsnag med Azure AD medför följande fördelar:
 
 * Du kan i Azure AD styra vem som har åtkomst till Bugsnag.
 * Du kan göra så att dina användare loggas in automatiskt på Bugsnag (enkel inloggning) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure-portalen.
+* Du kan hantera dina konton på en central plats – Azure portal.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att konfigurera Azure AD-integrering med Bugsnag behöver du följande:
 
@@ -61,7 +61,7 @@ För att konfigurera integreringen av Bugsnag i Azure AD måste du lägga till B
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
+3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
@@ -69,19 +69,19 @@ För att konfigurera integreringen av Bugsnag i Azure AD måste du lägga till B
 
      ![Bugsnag i resultatlistan](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
 I det här avsnittet konfigurerar och testar du enkel inloggning i Azure AD med Bugsnag baserat på en testanvändare med namnet **Britta Simon**.
 För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Bugsnag upprättas.
 
 För att konfigurera och testa enkel inloggning för Azure AD med Bugsnag behöver du slutföra följande byggstenar:
 
-1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
 2. **[Konfigurera enkel inloggning för Bugsnag](#configure-bugsnag-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
-4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
 5. **[Skapa Bugsnag-testanvändare](#create-bugsnag-test-user)** – för att ha en motsvarighet för Britta Simon i Bugsnag som är länkad till Azure AD-representationen av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
+6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
@@ -91,7 +91,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Bu
 
 1. I [Azure-portalen](https://portal.azure.com/) går du till programintegreringssidan för **Bugsnag** och väljer **Enkel inloggning**.
 
-    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
+    ![Konfigurera enkel inloggning för länken](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -118,11 +118,11 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Bu
 
 6. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på kopieringsknappen för att kopiera **App Federation Metadata-URL** och spara den på datorn.
 
-    ![Länk för nedladdning av certifikatet](common/copy-metadataurl.png)
+    ![Länk för hämtning av certifikat](common/copy-metadataurl.png)
 
 ### <a name="configure-bugsnag-single-sign-on"></a>Konfigurera enkel inloggning för Bugsnag
 
-För att konfigurera enkel inloggning på **Bugsnag**-sidan behöver du skicka **URL:en med appfederationsmetadata** till [supportteamet för Bugsnag](mailto:support@bugsnag.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+För att konfigurera enkel inloggning på **Bugsnag**-sidan behöver du skicka **URL:en med appfederationsmetadata** till [supportteamet för Bugsnag](mailto:support@bugsnag.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 

@@ -231,7 +231,7 @@
               href: 'https://docs.microsoft.com/azure/hdinsight/hdinsight-go-sdk-overview'
             - name: Använda Azure PowerShell
               href: ../hdinsight-administer-use-powershell.md
-            - name: Använda Azure Classic CLI
+            - name: Använda Azure CLI
               href: ../hdinsight-administer-use-command-line.md
         - name: Hantera kluster med Apache Ambari-webbgränssnittet
           href: ../hdinsight-hadoop-manage-ambari.md

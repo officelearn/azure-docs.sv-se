@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 05/07/2019
-ms.openlocfilehash: e87c5defaa26830d0962527b65affbae734aff55
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
-ms.translationtype: HT
+ms.date: 05/17/2019
+ms.openlocfilehash: 7c60b2ae3d403584822e694daf3357b86cba34d7
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/17/2019
-ms.locfileid: "65849909"
+ms.locfileid: "65864755"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Självstudier: Extrahera, transformera och läsa in data med hjälp av Azure Databricks
 
@@ -55,14 +55,13 @@ Slutför de här uppgifterna innan du startar självstudien:
 
 * Skapa ett Azure Data Lake Storage Gen2-lagringskonto. Gå till [Snabbstart: Skapa ett lagringskonto i Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-quickstart-create-account.md).
 
-*  Skapa ett huvudnamn för tjänsten. Se [Anvisningar: Använd portalen för att skapa ett Azure AD-program och huvudnamn för tjänsten som kan komma åt resurser](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+* Skapa ett huvudnamn för tjänsten. Se [Anvisningar: Använd portalen för att skapa ett Azure AD-program och huvudnamn för tjänsten som kan komma åt resurser](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
    Det finns några saker som du måste göra när du utför stegen i den här artikeln.
 
-   * När du utför stegen i avsnittet [Tilldela programmet till en roll](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) i artikeln ska du tilldela rollen **Storage Blob Data-deltagare** till tjänstens huvudnamn.
+   * När du utför stegen i den [tilldela programmet till en roll](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) avsnittet av artikeln, se till att tilldela den **Storage Blob Data-deltagare** roll till tjänstens huvudnamn i omfånget för Data Lake Lagringskonto för Gen2. Om du tilldelar rollen till den överordnade resursgrupp eller prenumeration får du behörigheter-relaterade fel tills de rolltilldelningar spridas till lagringskontot.
 
-     > [!IMPORTANT]
-     > Se till att tilldela rollen i omfånget för Data Lake Storage Gen2-lagringskontot. Du kan tilldela en roll till den överordnade resursgruppen eller prenumerationen, men du får behörighetsrelaterade fel tills de rolltilldelningarna propageras till lagringskontot.
+      Om du föredrar att använda en åtkomstkontrollista (ACL) för att associera tjänstens huvudnamn med en specifik fil eller katalog, referens [åtkomstkontroll i Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-access-control.md).
 
    * När du utför stegen i avsnittet [Hämta värden för att logga in](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) i artikeln klistrar du in värdena för klient-ID, program-ID och autentiseringsnyckel i en textfil. Du kommer att behöva dem snart.
 
@@ -148,7 +147,9 @@ I det här avsnittet skapar du en anteckningsbok på Azure Databricks-arbetsytan
 
 4. Välj **Skapa**.
 
-5. Kopiera och klistra in följande kodblock i den första cellen.
+5. Följande kodblock anger standardautentiseringsuppgifter för tjänstens huvudnamn för ADLS Gen 2 konton öppnas i Spark-session. Andra kodblocket lägger till namnet på inställningen för att ange autentiseringsuppgifter för ett specifikt ADLS Gen 2-konto.  Kopiera och klistra in antingen kodblock i den första cellen i anteckningsboken Azure Databricks.
+
+   **Sessionskonfigurationen**
 
    ```scala
    spark.conf.set("fs.azure.account.auth.type", "OAuth")
@@ -156,6 +157,19 @@ I det här avsnittet skapar du en anteckningsbok på Azure Databricks-arbetsytan
    spark.conf.set("fs.azure.account.oauth2.client.id", "<application-id>")
    spark.conf.set("fs.azure.account.oauth2.client.secret", "<authentication-key>")
    spark.conf.set("fs.azure.account.oauth2.client.endpoint", "https://login.microsoftonline.com/<tenant-id>/oauth2/token")
+   spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
+   dbutils.fs.ls("abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/")
+   spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false")
+   ```
+
+   **Kontokonfigurationen**
+
+   ```scala
+   spark.conf.set("fs.azure.account.auth.type.<storage-account-name>.dfs.core.windows.net", "OAuth")
+   spark.conf.set("fs.azure.account.oauth.provider.type.<storage-account-name>.dfs.core.windows.net", "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider")
+   spark.conf.set("fs.azure.account.oauth2.client.id.<storage-account-name>.dfs.core.windows.net", "<application-id>")
+   spark.conf.set("fs.azure.account.oauth2.client.secret.<storage-account-name>.dfs.core.windows.net", "<authentication-key>")
+   spark.conf.set("fs.azure.account.oauth2.client.endpoint.<storage-account-name>.dfs.core.windows.net", "https://login.microsoftonline.com/<tenant-id>/oauth2/token")
    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
    dbutils.fs.ls("abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/")
    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false")

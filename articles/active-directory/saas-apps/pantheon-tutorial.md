@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 30f431c1806c6a0697a6b74b43f1cc35660fc85e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59261742"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65869730"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pantheon"></a>Självstudier: Azure Active Directory-integrering med Pantheon
 
@@ -114,7 +114,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Pantheo
 
 5. Pantheon program som förväntar SAML-intyg i ett visst format, vilket kräver att du kan lägga till anpassade attributmappningar i SAML-tokenattribut konfigurationen. Följande skärmbild visar en lista över standardattribut, där **nameidentifier** mappas med **user.userprincipalname**. Pantheon program som förväntar **nameidentifier** mappas med **user.mail**, så måste du redigera attribut mappar genom att klicka på **redigera** ikon och ändra den attributmappning.
 
-    ![mallar](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
 6. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 

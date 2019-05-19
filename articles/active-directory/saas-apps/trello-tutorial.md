@@ -16,11 +16,11 @@ ms.date: 01/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 453827b42d12333fd4f27761e7f73484fb749532
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578432"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65865795"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trello"></a>Självstudier: Azure Active Directory-integrering med Trello
 
@@ -61,7 +61,7 @@ Om du vill lägga till Trello från galleriet, gör du följande:
 
 2. Välj **företagsprogram**, och välj sedan **alla program**.
 
-    ![Bladet Företagsprogram](common/enterprise-applications.png)
+    ![Bladet för Enterprise-program](common/enterprise-applications.png)
 
 3. Om du vill lägga till ett nytt program, Välj den **nytt program** längst upp i dialogrutan.
 
@@ -73,7 +73,7 @@ Om du vill lägga till Trello från galleriet, gör du följande:
 
      ![Trello i resultatlistan](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
 I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Trello baserat på en testanvändare kallas **Britta Simon**.
 
@@ -88,7 +88,7 @@ Om du vill konfigurera och testa Azure AD enkel inloggning med Trello, måste du
 5. [Skapa en Trello-testanvändare](#create-a-trello-test-user) har en motsvarighet för Britta Simon i Trello som är länkad till en Azure AD-representation av användaren.
 6. [Testa enkel inloggning](#test-single-sign-on) för att verifiera att konfigurationen fungerar.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
@@ -99,7 +99,7 @@ Om du vill konfigurera Azure AD enkel inloggning med Trello, gör du följande:
 
 1. På [Azure-portalen](https://portal.azure.com/) går du till sidan för **Trello**-programintegrering och väljer **Enkel inloggning**.
 
-    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
+    ![Konfigurera enkel inloggning för länken](common/select-sso.png)
 
 2. I den **väljer du en metod för enkel inloggning** dialogrutan **SAML** att aktivera enkel inloggning.
 
@@ -158,13 +158,13 @@ Om du vill konfigurera Azure AD enkel inloggning med Trello, gör du följande:
 
 8. På den **ange in enkel inloggning med SAML** sidan den **SAML-signeringscertifikat** väljer **hämta** att ladda ned den **certifikat (Base64)**  från de angivna alternativen efter behov. Spara den på din dator.
 
-    ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
+    ![Länk för hämtning av certifikat](common/certificatebase64.png)
 
 9. På den **konfigurera Trello** avsnittet, kopiera den lämpliga URL: er baserat på dina krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    a. Inloggnings-URL
+    a. Inloggningswebbadress
 
     b. Azure AD-ID
 
@@ -182,15 +182,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** överst på skärmen.
+2. Välj **ny användare** överst på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
 3. I den **användaren** dialogrutan rutan, vidta följande steg.
 
-    ![Dialogrutan Användare](common/user-properties.png)
+    ![Dialogrutan användare](common/user-properties.png)
 
-    a. I fältet **Namn** anger du **BrittaSimon**.
+    a. I den **namn** anger **BrittaSimon**.
   
     b. I den **användarnamn** fältet, anger du ”brittasimon@yourcompanydomain.extension”. Exempel: i det här fallet, du kan ange ”BrittaSimon@contoso.com”.
 
@@ -212,7 +212,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
-    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
+    ![Länken ”användare och grupper”](common/users-groups-blade.png)
 
 4. Välj den **Lägg till användare** knappen. I den **Lägg till tilldelning** dialogrutan **användare och grupper**.
 

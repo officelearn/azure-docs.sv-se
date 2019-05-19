@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/30/2018
 ms.author: yegu
-ms.openlocfilehash: 9cfb320f0623f5a93527a4dc0e8d82096980cc2c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bf4eb817bb1705c6af6d4e7e9e28e5789f49a906
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60831017"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873038"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>Självstudie: Skapa en cache-aside-resultattavla för ASP.NET
 
@@ -41,7 +41,7 @@ I den här guiden får du lära dig att:
 För att kunna slutföra den här självstudien behöver du följande:
 
 * Självstudien fortsätter där du slutade i [ASP.NET-snabbstarten för Azure Cache for Redis](cache-web-app-howto.md). Följ snabbstarten först, om du inte redan har gjort det.
-* Installera [Visual Studio 2017](https://www.visualstudio.com/downloads/) med följande arbetsbelastningar:
+* Installera [Visual Studio 2019](https://www.visualstudio.com/downloads/) med följande arbetsbelastningar:
     * ASP.NET och webbutveckling
     * Azure Development
     * .NET Desktop Development med SQL Server Express LocalDB eller [SQL Server 2017 Express Edition](https://www.microsoft.com/sql-server/sql-server-editions-express).
@@ -156,7 +156,7 @@ Mer information om det här paketet finns i NuGet-paketet [EntityFramework](http
 
 1. Lägg till följande `connectionStrings`-avsnitt inuti avsnittet `configuration`. Namnet på anslutningssträngen måste matcha namnet på klassen för Entity Framework-databasens kontext som är `TeamContext`.
 
-    Den här anslutningssträngen förutsätter att du har uppfyllt [kraven](#prerequisites) och installerat SQL Server Express LocalDB, som är en del av *.NET Desktop Development*-arbetsbelastningen som installerats med Visual Studio 2017.
+    Den här anslutningssträngen förutsätter att du har uppfyllt de [krav](#prerequisites) och installerade SQL Server Express LocalDB, som är en del av den *.NET-skrivbordsutveckling* arbetsbelastning som installeras med Visual Studio 2019.
 
     ```xml
     <connectionStrings>
@@ -735,7 +735,7 @@ När du är klar med självstudiens exempelprogram kan du ta bort Azure-resurser
 2. Skriv namnet på din resursgrupp i textrutan **Filtrera objekt...**.
 3. Klicka på **...** till höger om resursgruppen och klicka på **Ta bort resursgrupp**.
 
-    ![Ta bort](./media/cache-web-app-cache-aside-leaderboard/cache-delete-resource-group.png)
+    ![Radera](./media/cache-web-app-cache-aside-leaderboard/cache-delete-resource-group.png)
 
 4. Du blir ombedd att bekräfta borttagningen av resursgruppen. Skriv namnet på din resursgrupp för att bekräfta och klicka på **Ta bort**.
 

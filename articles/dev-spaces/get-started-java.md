@@ -10,12 +10,12 @@ ms.topic: tutorial
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, Helm, tjänsten nät, tjänsten nät routning, kubectl, k8s
 manager: mmontwil
-ms.openlocfilehash: 713f5b7bd58373f51b385a94d4af5c58ed632391
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 10f85ea697ad0ffae181112ae51eac928424ccc3
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65779842"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65861735"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-java"></a>Komma igång med Azure Dev Spaces med Java
 
@@ -65,7 +65,7 @@ az group create --name MyResourceGroup --location <region>
 Skapa ett Kubernetes-kluster med följande kommando:
 
 ```cmd
-az aks create -g MyResourceGroup -n MyAKS --location <region> --generate-ssh-keys
+az aks create -g MyResourceGroup -n MyAKS --location <region> --disable-rbac --generate-ssh-keys
 ```
 
 Det tar några minuter att skapa klustret.

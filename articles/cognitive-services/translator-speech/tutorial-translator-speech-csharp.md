@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 3/5/2018
 ms.author: v-jerkin
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 81ee3c7da43aa4d81838c90f4e8f41d114da72b5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 68457367987305b6926f8f885a226cfcedd23873
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60537044"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65860324"
 ---
 # <a name="tutorial-translator-speech-application-in-c"></a>Självstudier: Translator Speech-program i C#
 
@@ -34,7 +34,7 @@ En Visual Studio-lösningsfil för det här programmet [finns på GitHub](https:
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-För den här kursen behöver du valfri utgåva av Visual Studio 2017 (detta innefattar även Community Edition).
+Den här självstudien behöver du en utgåva av Visual Studio-2019, inklusive Community-utgåvan av.
 
 Visual Studio-lösningen skapar också ett installationsprogram för programmet. Du behöver [WiX Toolset](http://wixtoolset.org/) och [WiX Toolset Visual Studio Extension](https://marketplace.visualstudio.com/items?itemName=RobMensching.WixToolsetVisualStudio2017Extension) för att kunna använda den här funktionen.
 

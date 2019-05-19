@@ -16,11 +16,11 @@ ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6752a2474f3629ad79f6a652bba475691b6a53e5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57897522"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65866303"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-talent-palette"></a>Självstudier: Azure Active Directory-integrering med Talent Palette
 
@@ -62,7 +62,7 @@ För att kunna konfigurera integreringen av Talent Palette i Azure AD måste du 
 
     ![Bladet Företagsprogram](common/enterprise_applications.png)
 
-3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
+3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Knappen Nytt program](common/add_new_app.png)
 
@@ -79,10 +79,10 @@ Om du vill konfigurera och testa enkel inloggning med Azure AD med Talent Palett
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
 2. **[Konfigurera enkel inloggning för Talent Palette ](#configure-talent-palette-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
-4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
 5. **[Skapa en Talent Palette-testanvändare](#create-talent-palette-test-user)** – för att ha en motsvarighet till Britta Simon i Talent Palette som är länkad till Azure AD-representationen av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
+6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
@@ -125,7 +125,7 @@ Gör följande för att konfigurera enkel inloggning med Azure AD med Talent Pal
 
     ![Kopiera konfigurations-URL:er](common/copy_configuration_urls.png)
 
-    a. Inloggnings-URL
+    a. Inloggningswebbadress
 
     b. Azure AD-identifierare
 

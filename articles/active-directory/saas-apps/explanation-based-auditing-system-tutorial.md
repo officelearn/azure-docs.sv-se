@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 02/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 01d39cfd5b87f9547659c79f3b748c7b23a87c77
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59278504"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65862684"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-explanation-based-auditing-system"></a>Självstudier: Azure Active Directory-integrering med förklaring-baserat System för granskning
 
@@ -28,7 +28,7 @@ Integrera förklaring-granskning dator med Azure AD ger dig följande fördelar:
 
 * Du kan styra i Azure AD som har åtkomst till förklaring-baserat System för granskning.
 * Du kan aktivera användarna att vara automatiskt inloggad till förklaring granskning prissystem (Single Sign-On) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure-portalen.
+* Du kan hantera dina konton på en central plats – Azure portal.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
@@ -62,7 +62,7 @@ För att konfigurera integrering av förklaring-granskning dator i Azure AD, som
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
+3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
@@ -70,19 +70,19 @@ För att konfigurera integrering av förklaring-granskning dator i Azure AD, som
 
      ![Förklaring-granskning dator i listan med resultat](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
 I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med förklaring-granskning dator utifrån en testanvändare kallas **Britta Simon**.
 För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i förklaring granskning prissystem upprättas.
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med förklaring-granskning dator, måste du utföra följande byggblock:
 
-1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
 2. **[Konfigurera förklaring-baserade granskning System enkel inloggning](#configure-explanation-based-auditing-system-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
-4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
 5. **[Skapa förklaring granskning prissystem testanvändare](#create-explanation-based-auditing-system-test-user)**  – du har en motsvarighet för Britta Simon i förklaring-granskning dator som är länkad till en Azure AD-representation av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
+6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
@@ -92,7 +92,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med förkla
 
 1. I den [Azure-portalen](https://portal.azure.com/)på den **förklaring granskning prissystem** application integration markerar **enkel inloggning**.
 
-    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
+    ![Konfigurera enkel inloggning för länken](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -110,11 +110,11 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med förkla
 
 5. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på kopieringsknappen för att kopiera **App Federation Metadata-URL** och spara den på datorn.
 
-    ![Länk för nedladdning av certifikatet](common/copy-metadataurl.png)
+    ![Länk för hämtning av certifikat](common/copy-metadataurl.png)
 
 ### <a name="configure-explanation-based-auditing-system-single-sign-on"></a>Konfigurera förklaring-baserade granskning System enkel inloggning
 
-Att konfigurera enkel inloggning på **förklaring granskning prissystem** sida, som du behöver skicka den **Appfederationsmetadata** till [förklaring granskning prissystem supportteamet](mailto:support@maizeanalytics.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+Att konfigurera enkel inloggning på **förklaring granskning prissystem** sida, som du behöver skicka den **Appfederationsmetadata** till [förklaring granskning prissystem supportteamet](mailto:support@maizeanalytics.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 

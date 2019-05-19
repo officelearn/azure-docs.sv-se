@@ -16,11 +16,11 @@ ms.date: 01/24/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e5330d398a75105b78cb2caa0373b78fa2e32a99
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57878065"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65863152"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-compliance-elf"></a>Självstudier: Azure Active Directory-integrering med Compliance ELF
 
@@ -29,12 +29,12 @@ När du integrerar Compliance ELF med Azure AD får du följande fördelar:
 
 * Du kan styra i Azure AD vem som ska ha åtkomst till Compliance ELF.
 * Du kan se till att dina användare loggas in automatiskt på Compliance ELF (enkel inloggning) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure-portalen.
+* Du kan hantera dina konton på en central plats – Azure portal.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill konfigurera Azure AD-integrering med Compliance ELF, behöver du följande objekt:
 
@@ -61,7 +61,7 @@ Om du vill konfigurera integreringen av Compliance ELF i Azure AD, måste du lä
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
+3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
@@ -69,19 +69,19 @@ Om du vill konfigurera integreringen av Compliance ELF i Azure AD, måste du lä
 
      ![Compliance ELF i listan med resultat](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
 I det här avsnittet konfigurerar och testar du enkel inloggning i Azure AD med Compliance ELF, baserat på en testanvändare med namnet **Britta Simon**.
 För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Compliance ELF upprättas.
 
 Om du vill konfigurera och testa enkel inloggning i Azure AD med Compliance ELF, måste du slutföra följande byggblock:
 
-1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
 2. **[Konfigurera enkel inloggning för Compliance ELF](#configure-compliance-elf-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
-4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
 5. **[Skapa testanvändare i Compliance ELF](#create-compliance-elf-test-user)** – för att ha en motsvarighet till Britta Simon i Compliance ELF som är länkad till Azure AD-representationen av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
+6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
@@ -91,7 +91,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Compl
 
 1. Välj **Enkel inloggning** på sidan för programintegrering av **Compliance ELF** i [Azure-portalen](https://portal.azure.com/).
 
-    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
+    ![Konfigurera enkel inloggning för länken](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -118,11 +118,11 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Compl
 
 6. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på kopieringsknappen för att kopiera **App Federation Metadata-URL** och spara den på datorn.
 
-    ![Länk för nedladdning av certifikatet](common/copy-metadataurl.png)
+    ![Länk för hämtning av certifikat](common/copy-metadataurl.png)
 
 ### <a name="configure-compliance-elf-single-sign-on"></a>Konfigurera enkel inloggning i Compliance ELF
 
-För att konfigurera enkel inloggning på **Compliance ELF**-sidan måste du skicka **URL:en med appfederationsmetadata** till [supportteamet för Compliance ELF](mailto:support@complianceelf.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+För att konfigurera enkel inloggning på **Compliance ELF**-sidan måste du skicka **URL:en med appfederationsmetadata** till [supportteamet för Compliance ELF](mailto:support@complianceelf.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 

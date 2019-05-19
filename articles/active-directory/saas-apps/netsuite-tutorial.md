@@ -16,11 +16,11 @@ ms.date: 12/17/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ab329574ef425e8133ac746c185050efcc8bc15a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59261453"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65871105"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netsuite"></a>Självstudier: Azure Active Directory-katalogintegrering med NetSuite
 
@@ -126,7 +126,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med NetSu
 
 5. NetSuite-programmet förväntar sig SAML-intyget i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut i avsnittet **Användarattribut** på sidan för programintegrering. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialogrutan **Användarattribut**.
 
-    ![mallar](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
 6. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** så redigerar du anspråken genom att använda **Redigera-ikonen** eller lägga till anspråken genom att använda **Lägg till nytt anspråk** för att konfigurera SAML-tokenattribut som det visas i bilden ovan och utföra följande steg:
     

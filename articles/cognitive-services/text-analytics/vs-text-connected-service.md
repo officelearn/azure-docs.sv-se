@@ -10,23 +10,23 @@ ms.subservice: text-analytics
 ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 4e1c03085d6b1d0099ac66dd3d1dadd981a561aa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 75228b8c939cb5b8dd04471662ba86b46cfc808c
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60829266"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65860482"
 ---
 # <a name="tutorial-connect-to-the-text-analytics-service-with-connected-services-in-visual-studio"></a>Självstudier: Ansluta till tjänsten Textanalys med hjälp av Anslutna tjänster i Visual Studio
 
 Genom att använda textanalystjänsten kan du extrahera information att kategorisera och bearbeta visuella data, utföra datorstödd moderering av bilder som hjälper dig att moderera dina tjänster.
 
-Den här artikeln, och andra med den sammanhängande artiklar, innehåller information om hur man använder Visual Studio Connected Service-funktionen för textanalystjänsten. Funktionen är tillgänglig i Visual Studio 2017 15.7 och senare med Cognitive Services-tillägget installerat.
+Den här artikeln, och andra med den sammanhängande artiklar, innehåller information om hur man använder Visual Studio Connected Service-funktionen för textanalystjänsten. Funktionen är tillgänglig i både Visual Studio-2019 eller senare, med Cognitive Services-tillägget installerat.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - En Azure-prenumeration. Om du inte har en prenumeration kan du registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).
-- Visual Studio 2017 version 15.7 med arbetsbelastningen webbutveckling installerad. [Ladda ned det nu](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+- Visual Studio 2019, med arbetsbelastningen webbutveckling installerad. [Ladda ned det nu](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 
 [!INCLUDE [vs-install-cognitive-services-vsix](../../../includes/vs-install-cognitive-services-vsix.md)]
 

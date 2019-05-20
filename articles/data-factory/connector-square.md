@@ -45,9 +45,9 @@ Följande egenskaper har stöd för kvadratisk länkade tjänsten:
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen måste anges till: **Ruta** | Ja |
-| värd | URL till kvadratisk instansen. (d.v.s. mystore.mysquare.com)  | Ja |
-| ClientId | Klient-ID som är associerade med ditt kvadratisk program.  | Ja |
-| ClientSecret | Klienthemlighet som är kopplad till kvadratisk programmet. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| host | URL till kvadratisk instansen. (d.v.s. mystore.mysquare.com)  | Ja |
+| clientId | Klient-ID som är associerade med ditt kvadratisk program.  | Ja |
+| clientSecret | Klienthemlighet som är kopplad till kvadratisk programmet. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | RedirectUri | Omdirigerings-URL som tilldelats i instrumentpanelen för kvadratisk program. (d.v.s. http:\//localhost:2500)  | Ja |
 | useEncryptedEndpoints | Anger om käll-slutpunkter data krypteras med HTTPS. Standardvärdet är sant.  | Nej |
 | useHostVerification | Anger om värdnamnet i servercertifikatet så att de matchar värdnamnet för servern när du ansluter via SSL. Standardvärdet är sant.  | Nej |
@@ -111,7 +111,7 @@ För att kopiera data från ruta, ange typ av datakälla i kopieringsaktiviteten
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **SquareSource** | Ja |
-| DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM Business"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
+| query | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM Business"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**
 

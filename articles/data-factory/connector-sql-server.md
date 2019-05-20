@@ -516,32 +516,32 @@ När du kopierar data från/till SQL Server, används följande mappningar från
 | binary |Byte[] |
 | bit |Boolean |
 | char |String, Char[] |
-| date |Datetime |
-| Datetime |Datetime |
-| datetime2 |Datetime |
-| Datetimeoffset |Datetimeoffset |
+| date |DateTime |
+| Datetime |DateTime |
+| datetime2 |DateTime |
+| Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
-| FILESTREAM-attributet (varbinary(max)) |Byte[] |
+| FILESTREAM attribute (varbinary(max)) |Byte[] |
 | Float |Double |
 | image |Byte[] |
 | int |Int32 |
 | money |Decimal |
 | nchar |String, Char[] |
 | ntext |String, Char[] |
-| numeriskt |Decimal |
+| numeric |Decimal |
 | nvarchar |String, Char[] |
 | real |Single |
-| ROWVERSION |Byte[] |
-| smalldatetime |Datetime |
+| rowversion |Byte[] |
+| smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |Decimal |
 | sql_variant |Object |
 | text |String, Char[] |
 | time |TimeSpan |
-| tidsstämpel |Byte[] |
+| timestamp |Byte[] |
 | tinyint |Int16 |
 | uniqueidentifier |Guid |
-| Varbinary |Byte[] |
+| varbinary |Byte[] |
 | varchar |String, Char[] |
 | xml |Xml |
 

@@ -45,7 +45,7 @@ Följande egenskaper har stöd för Shopify länkade tjänsten:
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen måste anges till: **Shopify** | Ja |
-| värd | Slutpunkten för Shopify-server. (det vill säga mystore.myshopify.com)  | Ja |
+| host | Slutpunkten för Shopify-server. (det vill säga mystore.myshopify.com)  | Ja |
 | accessToken | API-åtkomsttoken som kan användas för att komma åt Shopify's data. Token upphör inte om den är offline-läge. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | useEncryptedEndpoints | Anger om käll-slutpunkter data krypteras med HTTPS. Standardvärdet är sant.  | Nej |
 | useHostVerification | Anger om värdnamnet i servercertifikatet så att de matchar värdnamnet för servern när du ansluter via SSL. Standardvärdet är sant.  | Nej |
@@ -107,7 +107,7 @@ Om du vill kopiera data från Shopify, ange typ av datakälla i kopieringsaktivi
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **ShopifySource** | Ja |
-| DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM "Products" WHERE Product_Id = '123'"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
+| query | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM "Products" WHERE Product_Id = '123'"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**
 

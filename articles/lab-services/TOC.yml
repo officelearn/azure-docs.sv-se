@@ -176,6 +176,8 @@
               href: integrate-environments-devops-pipeline.md
             - name: Använda PaaS-tjänster (Plattform som en tjänst)
               href: use-paas-services.md
+            - name: Distribuera kapslade mallar
+              href: deploy-nested-template-environments.md
         - name: Säker åtkomst till labb
           items:
             - name: Lägg till labbägare och användare
@@ -188,6 +190,8 @@
           items:
             - name: Ange principer och scheman
               href: devtest-lab-set-lab-policy.md
+            - name: Skicka meddelanden om automatisk avstängning
+              href: devtest-lab-auto-shutdown.md
             - name: Konfigurera kostnadshantering
               href: devtest-lab-configure-cost-management.md
             - name: Konfigurera Azure Marketplace-avbildningar

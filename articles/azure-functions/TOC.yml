@@ -53,6 +53,8 @@
       href: functions-create-serverless-api.md
     - name: Skapa en OpenAPI-definition
       href: functions-openapi-definition.md
+    - name: Ansluta till ett virtuellt nätverk
+      href: functions-create-vnet.md
     - name: Ändra storlek på avbildning med Event Grid
       href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json
     - name: Skapa en webbapp utan server
@@ -213,7 +215,7 @@
         - name: Ansluta SQL Database
           href: functions-scenario-database-table-cleanup.md
         - name: Ansluta till ett virtuellt nätverk
-          href: functions-create-vnet.md
+          href: functions-create-vnet-old.md
         - name: Skapa en definition för Open API 2.0
           href: functions-api-definition-getting-started.md
         - name: Exportera till PowerApps och Microsoft Flow
@@ -297,6 +299,8 @@
       href: 'https://azure.microsoft.com/pricing/details/functions/'
     - name: Priskalkylator
       href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Kvotinformation
+      href: 'functions-scale.md#service-limits'
     - name: Regional tillgänglighet
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Videoklipp

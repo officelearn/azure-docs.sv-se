@@ -46,6 +46,8 @@
           href: security-overview.md
         - name: Undersöka riskfyllda användare och inloggningar
           href: howto-investigate-risky-users-signins.md
+        - name: Ge feedback om riskhändelser
+          href: howto-provide-risk-event-feedback.md
         - name: Konfigurera riskprinciper
           href: howto-configure-risk-policies.md
         - name: Förbättra noggrannheten för identifiering

@@ -239,20 +239,30 @@
               href: msal-net-provide-httpclient.md
             - name: Integrera med Azure AD B2C
               href: msal-b2c-overview.md
-            - name: Plattformsspecifika överväganden (.NET)
+            - name: Överväganden och kända problem
               items:
-                - name: Webbläsare
-                  href: msal-net-web-browsers.md
-                - name: Xamarin Android
-                  href: msal-net-xamarin-android-considerations.md
-                - name: Systemwebbläsare på Android
-                  href: msal-net-system-browser-android-considerations.md
-                - name: Xamarin iOS
-                  href: msal-net-xamarin-ios-considerations.md
-                - name: Universell Windows-plattform
-                  href: msal-net-uwp-considerations.md
-                - name: Tillämpa en AAD B2C-princip
-                  href: msal-net-aad-b2c-considerations.md
+                - name: MSAL.NET
+                  items:
+                    - name: Webbläsare
+                      href: msal-net-web-browsers.md
+                    - name: Xamarin Android
+                      href: msal-net-xamarin-android-considerations.md
+                    - name: Systemwebbläsare på Android
+                      href: msal-net-system-browser-android-considerations.md
+                    - name: Xamarin iOS
+                      href: msal-net-xamarin-ios-considerations.md
+                    - name: Universell Windows-plattform
+                      href: msal-net-uwp-considerations.md
+                    - name: Tillämpa en AAD B2C-princip
+                      href: msal-net-aad-b2c-considerations.md
+                - name: MSAL.js
+                  items:
+                    - name: Överväganden vid användning av IE
+                      href: msal-js-use-ie-browser.md
+                    - name: Kända problem –IE och Microsoft Edge
+                      href: msal-js-known-issues-ie-edge-browsers.md
+                    - name: Kända problem – Safari
+                      href: msal-js-known-issues-safari-browser.md
         - name: Autentisering
           items:
             - name: Grundläggande om autentisering

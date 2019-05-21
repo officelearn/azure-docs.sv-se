@@ -174,7 +174,7 @@
       items:
         - name: Etablera entiteter med Azure PowerShell
           href: service-bus-manage-with-ps.md
-        - name: Övervaka Service Bus med Azure-övervakning
+        - name: Övervaka Service Bus med Azure Monitor
           href: service-bus-metrics-azure-monitor.md
         - name: Service Bus-hanteringsbibliotek
           href: service-bus-management-libraries.md

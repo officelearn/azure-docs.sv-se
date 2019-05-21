@@ -89,6 +89,8 @@
           items:
             - name: Edge-beräkning
               href: data-box-edge-manage-compute.md
+            - name: Nätverk för databehandling på gränsenheter
+              href: data-box-edge-extend-compute-access-modules.md
             - name: Resurser
               href: data-box-edge-manage-shares.md
             - name: Användare

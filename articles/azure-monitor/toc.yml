@@ -819,53 +819,47 @@
       items:
         - name: Aviseringar
           items:
-            - name: Använda måttaviseringar
-              items:
-                - name: 'Skapa, visa och hantera måttaviseringar i Azure Monitor'
-                  href: platform/alerts-metric.md
-                - name: 'Skapa, visa och hantera klassiska måttaviseringar i Azure Monitor'
-                  href: platform/alerts-classic-portal.md
-                - name: Måttaviseringar med dynamiska tröskelvärden
-                  href: platform/alerts-dynamic-thresholds.md
-                - name: Konfigurera måttaviseringar för loggar
-                  href: platform/alerts-metric-logs.md
-                - name: Skapa en nyare måttavisering med en Resource Manager-mall
-                  href: platform/alerts-metric-create-templates.md
-                - name: Skapa en klassisk måttavisering med en Resource Manager-mall
-                  href: platform/alerts-enable-template.md
-                - name: Få en klassisk måttavisering att anropa en webhook
-                  href: platform/alerts-webhooks.md
-            - name: Använda loggaviseringar
-              items:
-                - name: Konfigurera aviseringar för analysfråga
-                  href: platform/alerts-log.md
-                - name: Loggaviseringsfrågor
-                  href: platform/alerts-log-query.md
-                - name: Webhook-åtgärder för loggaviseringar
-                  href: platform/alerts-log-webhook.md
-                - name: Felsöka loggaviseringar
-                  href: platform/alert-log-troubleshoot.md
-            - name: Använda aktivitetsloggaviseringar
-              items:
-                - name: Konfigurera aviseringar i en händelse i aktivitetsloggen
-                  href: platform/alerts-activity-log.md
-                - name: Migrera till aktivitetsloggsaviseringar
-                  href: platform/migrate-management-alerts.md
-                - name: Konfigurera aviseringar för tjänstmeddelanden
-                  href: platform/alerts-activity-log-service-notifications.md
-            - name: Använda programaviseringar
+            - name: Aviseringsregler för program
               items:
                 - name: Tillgänglighet
                   href: app/monitor-web-app-availability.md
                 - name: Måttaviseringar
                   href: app/alerts.md
-            - name: Använda åtgärdsgrupper med aviseringar
+            - name: Aviseringsregler för plattformsmått
               items:
-                - name: Skapa åtgärdsgrupper
+                - name: Hantera måttaviseringar
+                  href: platform/alerts-metric.md
+                - name: Använda dynamiska tröskelvärden
+                  href: platform/alerts-dynamic-thresholds.md
+                - name: Måttaviseringar på loggar
+                  href: platform/alerts-metric-logs.md
+                - name: Använda Resource Manager-mallen
+                  href: platform/alerts-metric-create-templates.md
+            - name: Logga aviseringsregler
+              items:
+                - name: Konfigurera aviseringar för analysfråga
+                  href: platform/alerts-log.md
+                - name: Frågor
+                  href: platform/alerts-log-query.md
+                - name: Webhook-åtgärder
+                  href: platform/alerts-log-webhook.md
+                - name: Felsökning
+                  href: platform/alert-log-troubleshoot.md
+            - name: Aviseringsregler för aktivitetsloggar
+              items:
+                - name: Avisera om en händelse i aktivitetsloggen
+                  href: platform/alerts-activity-log.md
+                - name: Migrera hanteringshändelser till aktivitetsloggaviseringar
+                  href: platform/migrate-management-alerts.md
+                - name: Avisera om Service Health-aviseringar
+                  href: platform/alerts-activity-log-service-notifications.md
+            - name: Använda åtgärdsgrupper
+              items:
+                - name: Skapa åtgärdsgrupp
                   href: platform/action-groups.md
-                - name: Lär dig mer om webhook-schemat
+                - name: Webhook-schema
                   href: platform/activity-log-alerts-webhook.md
-                - name: Vanliga aviseringsschemadefinitioner
+                - name: Vanliga definitioner för aviseringsscheman
                   href: platform/alerts-common-schema-definitions.md
                 - name: Beteende för SMS-aviseringar
                   href: platform/alerts-sms-behavior.md
@@ -875,9 +869,9 @@
                   href: platform/action-groups-create-resource-manager-template.md
                 - name: Implementera en Logikapp-åtgärd
                   href: platform/action-groups-logic-app.md
-            - name: Aviseringar från Operations Manager
+            - name: Lösning för aviseringshantering
               href: platform/alert-management-solution.md
-            - name: Hantera aviseringar
+            - name: Avisera i användargränssnitt
               items:
                 - name: Hantera aviseringsinstanser
                   href: platform/alerts-managing-alert-instances.md
@@ -887,19 +881,31 @@
                   href: platform/alerts-managing-alert-states.md
                 - name: Hantera aviseringar från andra övervakningstjänster
                   href: platform/alerts-managing-nagios-zabbix-scom.md
-            - name: Migrera klassiska aviseringar
+            - name: Migrera klassiska aviseringsregler
               items:
-                - name: Använda migreringsverktyget
-                  href: platform/alerts-using-migration-tool.md
-                - name: Förbereda för migreringen
+                - name: Förbereda för migrering
                   href: platform/alerts-prepare-migration.md
                 - name: Lär dig migreringsverktyget
                   href: platform/alerts-understand-migration.md
+                - name: Använda migreringsverktyget
+                  href: platform/alerts-using-migration-tool.md
+                - name: Hantera klassiska måttaviseringar
+                  href: platform/alerts-classic-portal.md
+                - name: Klassisk måttavisering med en Resource Manager-mall
+                  href: platform/alerts-enable-template.md
+                - name: Anropa en webhook med en klassisk måttavisering
+                  href: platform/alerts-webhooks.md
+        - name: Service Health-aviseringar i aktivitetsloggen
+          items:
+            - name: Visa aviseringar
+              href: platform/service-notifications.md
+            - name: Konfigurera aviseringar i aviseringshändelser
+              href: platform/alerts-activity-log-service-notifications.md
         - name: Automatisk skalning
           items:
-            - name: Genomgång av automatisk skalning
+            - name: Genomgång
               href: platform/autoscale-get-started.md
-            - name: Förstå inställningarna för automatisk skalning
+            - name: Inställningar
               href: platform/autoscale-understanding-settings.md
             - name: Bästa praxis
               href: platform/autoscale-best-practices.md
@@ -907,20 +913,14 @@
               href: platform/autoscale-common-metrics.md
             - name: Vanliga mönster
               href: platform/autoscale-common-scale-patterns.md
-            - name: Skala automatiskt med anpassat mått
+            - name: Skala med anpassade mått
               href: platform/autoscale-custom-metric.md
-            - name: Autoskala VM-skalningsuppsättningar med hjälp av Resource Manager-mallar
-              href: platform/autoscale-virtual-machine-scale-sets.md
-            - name: Skala automatiskt datorer i en VM-skalningsuppsättning
+            - name: Skala VM-skalningsuppsättningar
               href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=/azure/azure-monitor/toc.json
-            - name: Konfigurera webhooks och e-postaviseringar med automatisk skalning
+            - name: Skala VM-skalningsuppsättningar med hjälp av Resource Manager-mallar
+              href: platform/autoscale-virtual-machine-scale-sets.md
+            - name: Använda webhook-konfigurationer och e-postaviseringar
               href: platform/autoscale-webhook-email.md
-        - name: Tjänstmeddelanden
-          items:
-            - name: Visa tjänstmeddelanden
-              href: platform/service-notifications.md
-            - name: Konfigurera aviseringar för tjänstmeddelanden
-              href: platform/alerts-activity-log-service-notifications.md
         - name: IT Service Management
           items:
             - name: IT Service Management Connector

@@ -8,14 +8,14 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/14/2019
 ms.author: diberry
-ms.openlocfilehash: 24158d5949c0a31e5444c609cbfced970bdeca07
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: f12b55e9b00e933e13f84832b8cc36267a1da05f
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471934"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954854"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Använd uppföljning uppmanas du för att skapa flera varv en konversation
 
@@ -52,7 +52,7 @@ När du importerar PDF-dokumentet, anger QnA Maker Uppföljnings anvisningarna f
 
 ![! [När du importerar PDF-dokumentet, anger Uppföljnings anvisningarna från struktur att skapa konversationsanpassade flöde med QnA Maker. ](../media/conversational-context/surface-manual-pdf-follow-up-prompt.png)](../media/conversational-context/surface-manual-pdf-follow-up-prompt.png#lightbox)
 
-## <a name="filter-questions-and-answers-by-context"></a>Filtrera frågor och svar av kontext
+## <a name="show-questions-and-answers-with-context"></a>Visa frågor och svar med kontext
 
 1. Minska frågor och svar-par som visas för bara de med sammanhangsberoende konversationer. Välj **Visningsalternativ**och välj sedan **Show kontext (FÖRHANDSVERSION)**. Listan ska vara tom tills du lägger till det första nyckelparet med frågor och svar med en uppföljning uppmaning. 
 
@@ -64,22 +64,36 @@ När du importerar PDF-dokumentet, anger QnA Maker Uppföljnings anvisningarna f
 1. Ange ny text för fråga, `Give feedback.` med ett svar av `What kind of feedback do you have?`.
 
 1. I den **svar** kolumnen för den här frågan väljer **Lägg till Uppföljnings prompten**. 
-1. Den **uppföljning prompten** standardarbetsytan i dialogrutan kan du söka efter en befintlig fråga eller ange en ny fråga. Ange texten i den här proceduren `Feedback on an QnA Maker service`, för den **visa text**. 
-1. Kontrollera **endast kontext**. Den **endast kontext** alternativet anger att den här användaren texten är att förstå _endast_ om svar till föregående fråga. Texten tjänar inte något som en fristående fråga i det här scenariot, det finns ingen anledning från kontexten för den föregående frågan.
-1. I den **länk att besvara** text anger svaret, `How would you rate QnA Maker?`.
-1. Välj **Skapa nytt** därefter **spara**. 
+1. Den **uppföljning fråga (FÖRHANDSVERSION)** popup-fönstret kan du söka efter en befintlig fråga eller ange en ny fråga. Skapa en ny kommandotolk genom att ange följande värden: 
+
+    |Textfält|Value|
+    |--|--|
+    |**Visa Text**|`Feedback on an QnA Maker service`|
+    |**Länk för att besvara**|`How would you rate QnA Maker??`|
+    |||
 
     ![Skapa ny fråga frågor och svar](../media/conversational-context/create-child-prompt-from-parent.png)
 
-    Detta skapas ett nytt par frågor och svar och länka den valda frågan som en Uppföljnings-kommandotolk. Den **kontext** kolumnen båda frågor kan indikera en uppföljning fråga relation. 
+1. Kontrollera **endast kontext**. Den **endast kontext** alternativet anger att den här användaren texten är att förstå _endast_ om svar till föregående fråga. Texten tjänar inte något som en fristående fråga i det här scenariot, det finns ingen anledning från kontexten för den föregående frågan.
+1. Välj **Skapa nytt** därefter **spara**. 
+
+    Detta skapas ett nytt par frågor och svar och länka den valda frågan som en Uppföljnings-kommandotolk. Den **kontext** kolumn för båda frågor, visar en uppföljning fråga relation. 
 
     ![! [Kolumnen kontext för båda frågor, anger en uppföljning fråga relation.] (.. / media/conversational-context/child-prompt-created.png)](../media/conversational-context/child-prompt-created.png#lightbox)
 
-1. Välj **Lägg till Uppföljnings prompten** för den `Give feedback` fråga att lägga till en annan Uppföljnings prompten. 
-1. Skapa en ny fråga genom att ange `Feedback on an existing feature`, med svaret `Which feature would you like to give feedback on?`.  
+1. Välj **Lägg till Uppföljnings prompten** för den `Give feedback` fråga att lägga till en annan Uppföljnings prompten. Då öppnas det **uppföljning fråga (FÖRHANDSVERSION)** popup-fönstret.
 
-1.  Kontrollera **endast kontext**. Den **endast kontext** alternativet anger att den här användaren texten är att förstå _endast_ om svar till föregående fråga. Texten tjänar inte något som en fristående fråga i det här scenariot, det finns ingen anledning från kontexten för den föregående frågan.
-1.  Välj **Spara**. 
+1. Skapa en ny kommandotolk genom att ange följande värden:
+
+    |Textfält|Value|
+    |--|--|
+    |**Visa Text**|`Feedback on an existing feature`|
+    |**Länk för att besvara**|`Which feature would you like to give feedback on?`|
+    |||
+
+1. Kontrollera **endast kontext**. Den **endast kontext** alternativet anger att den här användaren texten är att förstå _endast_ om svar till föregående fråga. Texten tjänar inte något som en fristående fråga i det här scenariot, det finns ingen anledning från kontexten för den föregående frågan.
+
+1. Välj **Spara**. 
 
     Detta skapas en ny fråga och länkade frågan som en uppföljning fråga fråga till den `Give feedback` fråga.
     
@@ -93,26 +107,34 @@ När du importerar PDF-dokumentet, anger QnA Maker Uppföljnings anvisningarna f
 
 1. Om du vill länka en befintlig QnA-par som Kommandotolken Uppföljnings väljer du raden för frågor och svar-par.
 1. Välj **Lägg till Uppföljnings prompten** på den raden.
-1. Ange frågetexten i sökrutan i popup-dialogrutan. Alla matchningar returneras. Välj den fråga du vill ha som uppföljningen och kontrollera **endast kontext**och välj sedan **spara**. 
+1. I den **uppföljning fråga (FÖRHANDSVERSION)** popup-fönstret, Ange svarstexten i sökrutan. Alla matchningar returneras. Välj det svar du vill ha som uppföljningen och kontrollera **endast kontext**och välj sedan **spara**. 
 
-    När ou har lagt till Uppföljnings prompten, Kom ihåg att välja **spara och träna**.
+    ![Sök prompten uppföljning länken till svar dialogrutan för ett befintligt svar med texten i svaret.](../media/conversational-context/search-follow-up-prompt-for-existing-answer.png)
+
+    När du har lagt till Uppföljnings prompten, Kom ihåg att välja **spara och träna**.
   
-## <a name="add-metadata-to-follow-up-prompts"></a>Lägga till metadata Uppföljnings anvisningarna 
+<!--
 
-I kunskapsbasen, när ett par frågor och svar är länkad till uppföljning uppmanar, filter för filmetadata tillämpas först och sedan de uppföljning, så returneras.
+## To find best prompt answer, add metadata to follow-up prompts 
 
-1. Lägg till metadata till var och en för de två Uppföljnings QnA-par:
+If you have several follow-up prompts for a given QnA pair, but you know as the knowledge base manager, that not all prompts should be returned, use metadata to categorize the prompts in the knowledge base, then send the metadata from the client application as part of the GenerateAnswer request.
 
-    |Fråga|lägga till metadata|
+In the knowledge base, when a question-and-answer pair is linked to follow-up prompts, the metadata filters are applied first, then the follow-ups are returned.
+
+1. For the two follow-up QnA pairs, add metadata to each one:
+
+    |Question|Add metadata|
     |--|--|
-    |`Feedback on an QnA Maker service`|”Funktionen”: ”alla”|
-    |`Feedback on an existing feature`|”Funktionen”: ”en”|
+    |`Feedback on an QnA Maker service`|"Feature":"all"|
+    |`Feedback on an existing feature`|"Feature":"one"|
     
-    ![Lägger till metadata Uppföljnings fråga så att den kan filtreras i konversationen svaret från tjänsten](../media/conversational-context/add-metadata-feature-to-follow-up-prompt.png) 
+    ![Add metadata to follow-up prompt so it can be filtered in conversation response from service](../media/conversational-context/add-metadata-feature-to-follow-up-prompt.png) 
 
-1. Spara och träna. 
+1. Save and train. 
 
-    När du skickar frågan `Give feedback` med filtret metadata `Feature` med värdet `all`, frågor och svar om paret med dessa metadata kommer att returneras. Frågor och svar om paren returneras inte eftersom de båda inte matchar filtret. 
+    When you send the question `Give feedback` with the metadata filter `Feature` with a value of `all`, only the QnA pair with that metadata will be returned. Both QnA pairs are not returned because they both do not match the filter. 
+
+-->
 
 ## <a name="test-the-qna-set-to-get-all-the-follow-up-prompts"></a>Testa QnA ange för att hämta alla uppföljning uppmanar
 
@@ -145,7 +167,7 @@ Föregående avsnitt begärt svar och eventuella Uppföljnings uppmaningar att `
             "questions": [
                 "Accounts and signing in"
             ],
-            "answer": "**Accounts and signing in**\n\nWhen you set up your Surface, an account is set up for you. You can create additional accounts later for family and friends, so each person using your Surface can set it up just the way he or she likes. For more info, see All about accounts on Surface.com. \n\nThere are several ways to sign in to your Surface Pro 4: ",
+            "answer": "**Accounts and signing in**\n\nWhen you set up your Surface, an account is set up for you. You can create additional accounts later for family and friends, so each person using your Surface can set it up just the way they like. For more info, see All about accounts on Surface.com. \n\nThere are several ways to sign in to your Surface Pro 4: ",
             "score": 86.96,
             "id": 37,
             "source": "surface-pro-4-user-guide-EN .pdf",
@@ -269,15 +291,11 @@ QnA Maker _GenerateAnswer_ JSON-svaret innehåller Uppföljnings anvisningarna i
 
 ## <a name="displaying-prompts-and-sending-context-in-the-client-application"></a>Visa meddelanden och skicka kontexten i klientprogrammet 
 
-Det visar alla frågor med ett alternativ för användare att visa anvisningarna som föreslagna åtgärder eller knappar i klientprogrammet.
-Klientprogrammet sedan lagrar den aktuella frågor och svar om ett nyckelpar och användaren frågan som skickas vidare med nästa användarfråga-kontexten. 
+Om du har lagt till anvisningarna i kunskapsbasen och har testat flödet i rutan startar anvisningarna automatiskt inte visas i klientprogram. Du kan visa anvisningarna som föreslagna åtgärder eller knappar som en del av svaret på användarens fråga i klienten program genom att inkludera detta [Bot Framework exempel](https://aka.ms/qnamakermultiturnsample) i din kod. Klientprogrammet lagra det aktuella frågor och svar-ID och användarfrågan och skicka dem i den [context-objektet GenerateAnswer API](#json-request-to-return-non-initial-answer-and-follow-up-prompts) för nästa användarfråga.
 
-Använd det här [Bot Framework exempel](https://aka.ms/qnamakermultiturnsample) att se flera Stäng dialogrutan fungerande slutpunkt till slutpunkt i en QnA Maker-robot.
+## <a name="display-order-supported-in-api"></a>Visningsordningen som stöds i API: et
 
-
-## <a name="prompt-order-supported-in-api"></a>Stöds i API: et för promptfrågor
-
-Fråga ordern, returneras i JSON-svar finns stöd för redigering av API: et endast. 
+Visningsordningen, returneras i JSON-svar finns stöd för redigering av API: et endast. 
 
 ## <a name="next-steps"></a>Nästa steg
 

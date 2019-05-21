@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: b4360150064d2f42cc2dc2cc3ef9f7783a5cb175
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: a4a8212906f384494a9e2e005eee8c4dbdfa14a3
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64866550"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954635"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Post voice-exempel för att skapa en anpassad röst
 
@@ -53,7 +53,7 @@ Välj röst personal vars naturligt röst du gillar. Det är möjligt att skapa 
 
 Den enda viktigaste faktorn för att välja röst personal är konsekvens. Inspelningar bör alla ljud som de har gjorts på samma dag i samma rum. Du kan itu med den här perfekt via bra inspelning metoder och tekniker.
 
-Din röst personal är den andra halvan av formeln. Han eller hon att prata med konstanta, volymnivå, försäljningsargument och ton. Rensa diction är ett måste. Personal måste också kunna ha en strikt kontroll hans eller hennes försäljningsargument variation känslomässig påverkar och maner tal, ovanor.
+Din röst personal är den andra halvan av formeln. De måste kunna tala med konstanta, volymnivå, försäljningsargument och ton. Rensa diction är ett måste. Personal måste också kunna ha en strikt kontroll sina försäljningsargument variation och känslomässig påverkar maner tal, ovanor.
 
 Spela in anpassade röst exempel kan vara mer tröttande än andra typer av röst arbete. De flesta röst personal registrera för två eller tre timmar per dag. Begränsa sessioner till tre eller fyra en vecka, med en dag av emellan om möjligt.
 
@@ -117,7 +117,7 @@ Som tur är kan går det att undvika de här problemen helt och hållet. Det fin
 
 Registrera din skriptet i en professionell inspelning studio som specialiserar sig i röst arbete. De har en inspelning monter rätt utrustning och rätt personer att driva den. Det lönar sig inte för att spela in ändå.
 
-Diskutera dina projekt med i studio inspelning tekniker och lyssna på hans eller hennes råd. Inspelningen bör ha lite eller ingen dynamiskt omfång komprimering (högst 4:1). Det är viktigt att ljudet har konsekventa volym och signal brus högt förhållande, samtidigt som det är kostnadsfritt oönskade ljud.
+Diskutera dina projekt med i studio inspelning tekniker och lyssna på sina råd. Inspelningen bör ha lite eller ingen dynamiskt omfång komprimering (högst 4:1). Det är viktigt att ljudet har konsekventa volym och signal brus högt förhållande, samtidigt som det är kostnadsfritt oönskade ljud.
 
 ### <a name="do-it-yourself"></a>Göra det själv
 
@@ -131,7 +131,7 @@ Du kan också använda en analog mikrofon. Många hyra datahus erbjuder ”vinta
 
 Installera mikrofonen på en fristående eller sådär och installera ett pop filter framför mikrofonen att eliminera brus från ”plosive” konsonanter som ”p” och ”b”. En del mikrofoner levereras med en inaktivering montering som isolerar dem från vibrationer i den fristående, vilket är användbart.
 
-Röst-personal måste hålla sig i ett konsekvent avstånd från mikrofonen. Använd bandet på våning för att markera var han eller hon bör stå. Om personal föredrar att vara, var särskilt noga med att övervaka mic avståndet och undvika chair bruset.
+Röst-personal måste hålla sig i ett konsekvent avstånd från mikrofonen. Använd bandet på våning för att markera där de ska använda. Om personal föredrar att vara, var särskilt noga med att övervaka mic avståndet och undvika chair bruset.
 
 Använd en FRIS för skriptet. Undvik nöjesfiske fristående så att den kan återspegla ljud till mikrofonen.
 
@@ -158,12 +158,12 @@ Vi rekommenderar har olika personer som hanterar i rollerna för director, tekni
 
 ### <a name="before-the-session"></a>Innan sessionen
 
-Undvik att ha lagt tid studio, kör du via skript med din röst personal före inspelning sessionen. Medan voice-personal blir van texten kan kan han eller hon tydliggöra uttal för alla okända ord.
+Undvik att ha lagt tid studio, kör du via skript med din röst personal före inspelning sessionen. De kan tydliggöra uttal för alla okända ord medan voice-personal blir van texten.
 
 > [!NOTE]
 > De flesta inspelning studios erbjuder elektronisk visning av skript i monter för inspelning. I det här fallet Skriv anteckningarna snabbgenomgång direkt i skriptets dokumentet. Papper för anteckningar under sessionen, men fortfarande vill. De flesta tekniker kan en utskrift för. Och du fortfarande vill kopiera tredje ut som en säkerhetskopiering för personal om datorn inte är igång.
 
-Din röst-personal kan be vilka ord som du vill att framhållit i ett uttryck (”avgörande ordet”). Be honom eller henne att du vill att en naturlig läsning med ingen särskild vikt. Fokus kan läggas till när tal syntetiskt; Det får inte vara en del av den ursprungliga inspelningen.
+Din röst-personal kan be vilka ord som du vill att framhållit i ett uttryck (”avgörande ordet”). Berätta för dem som du vill att en naturlig läsning med ingen särskild vikt. Fokus kan läggas till när tal syntetiskt; Det får inte vara en del av den ursprungliga inspelningen.
 
 Dirigera personal att uttala orden tydligt. Varje ord i skriptet bör vara markant som skrivits. Ljud bör inte utelämnas eller slurred tillsammans, som är vanligt i avslappnat tal, *om de har skrivits på så sätt i skriptet*.
 
@@ -196,7 +196,7 @@ Lyssna noggrant, använda hörlurar voice-personal-prestanda. Du letar efter bra
 
 Observera take-nummer eller tid-kod på ditt skript för varje uttryck. Be tekniker för att markera varje uttryck i den inspelningen metadata eller låt dig ledas-blad.
 
-Ta regelbundna radbrytningar och ger en dryck för att hjälpa din röst personal behålla sin röst i god form.
+Ta regelbundna radbrytningar och ger en dryck för att hjälpa din röst personal Tänk leveransprocessen rösten.
 
 ### <a name="after-the-session"></a>Efter sessionen
 

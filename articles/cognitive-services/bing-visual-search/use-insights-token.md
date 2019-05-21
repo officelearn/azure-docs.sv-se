@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: conceptual
-ms.date: 4/05/2019
+ms.date: 4/26/2019
 ms.author: scottwhi
-ms.openlocfilehash: e42e56e6361b1fde7ab13655d3c57a90d7235938
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1860b788b9f33a6a2ec806be68a67aa2df10cbd4
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60831936"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65914266"
 ---
 # <a name="use-an-insights-token-to-get-insights-for-an-image"></a>Använd en insights-token för att få insikter för en avbildning
 
@@ -64,7 +64,7 @@ Exempel som använder token insights finns [C#](#use-with-c) | [Java](#use-with-
 
 ### <a name="c-prerequisites"></a>C#nödvändiga komponenter
 
-- En version av [Visual Studio 2017](https://www.visualstudio.com/downloads/) att hämta den här koden som körs på Windows.
+- En version av [Visual Studio 2019](https://www.visualstudio.com/downloads/) att hämta den här koden som körs på Windows.
 - En Azure-prenumeration. Den här snabbstarten kan du använda en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) prenumerationsnyckel eller en betald prenumeration-nyckel.
 
 ## <a name="run-the-application"></a>Köra programmet

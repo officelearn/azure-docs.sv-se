@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: c114c726bea34465972a282acac6b8acbbf9a80f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1cbf1514ac5eba4e288ecb78944878217fc5ba3e
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60514990"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954517"
 ---
 # <a name="basic-concepts"></a>Grundläggande begrepp
 
@@ -32,7 +32,7 @@ Om det här är första gången du skapar ett tal-aktiverat program, eller om de
 
 Främsta bland de grundläggande principerna för tal är den *ljudström*. Till skillnad från en tangenttryckning som uppstår på en enda punkt i tiden och innehåller en enda typ av information, en talat begäran är utspridd på hundratals millisekunder och innehåller många kilobyte information. Varaktigheten för talat yttranden anger vissa problem för utvecklare som vill tillhandahålla en smidig och elegant tal-upplevelse för sina program. Dagens datorer och algoritmer utför du taltranskription i cirka hälften av varaktigheten för uttryck, så att ett uttryck i 2 sekunder kan vara transkriberas i ungefär 1 sekund, men alla program som inträffar i en 1 sekund fördröjning av bearbetningen användaren är varken effektiviserad eller elegant.
 
-Som tur är kan det finns sätt att ”dölja” avskrift tid genom att utföra avskrift på en del av uttryck medan användaren pratar en annan del. Är till exempel genom att dela upp en 1 sekund uttryck i 10 segment på 100 millisekunder och genom att utföra avskrift på varje segment i sin tur över 450 totala 500 millisekunder som krävs för avskrift kan vara ”dolda” så att användaren är inte medveten om avskrift som utförs när han talar. När tänker på hur det här exemplet kan du komma ihåg att tjänsten fungerar avskrift på föregående 100 millisekunder för ljud medan användaren pratar nästa 100, så när användaren slutar sett tjänsten behöver bara transkribera ungefär 100 millisekunder för ljud för att producera ett resultat.
+Som tur är kan det finns sätt att ”dölja” avskrift tid genom att utföra avskrift på en del av uttryck medan användaren pratar en annan del. Är till exempel genom att dela upp en 1 sekund uttryck i 10 segment på 100 millisekunder och genom att utföra avskrift på varje segment i sin tur över 450 totala 500 millisekunder som krävs för avskrift kan vara ”dolda” så att användaren är inte medveten om avskrift som utförs när de talar. När tänker på hur det här exemplet kan du komma ihåg att tjänsten fungerar avskrift på föregående 100 millisekunder för ljud medan användaren pratar nästa 100, så när användaren slutar sett tjänsten behöver bara transkribera ungefär 100 millisekunder för ljud för att producera ett resultat.
 
 För att uppnå den här användarupplevelse, talat ljud information samlas in i segment och transkriberas som användaren upp. Dessa ljud segment sammantaget från den *ljudström*, och skicka dessa ljud segment till tjänsten kallas *strömning av ljud.* Direktuppspelning av ljud är en viktig del av något tal-aktiverade program. Anpassa segmentstorleken och optimera strömning implementeringen är några av mest kraftfulla metoder för att förbättra användarupplevelsen för ditt program.
 
@@ -162,7 +162,7 @@ Svaren avskrift returnera den konvertera texten från ljud till klienter. En avs
 
 | Status | Beskrivning |
 | ------------- | ---------------- |
-| Lyckades | Erkännande lyckades och fältet text finns |
+| Klart | Erkännande lyckades och fältet text finns |
 | NoMatch | Tal påträffades i ljudströmmen, men inga ord från målspråket som kunde matchas. Se [NoMatch erkännande Status(#nomatch-recognition-status) för mer information  |
 | InitialSilenceTimeout | Början av ljudströmmen ingår endast tystnad och tjänsten tidsgränsen för tal |
 | BabbleTimeout | Början av ljudströmmen ingår endast bruset och tjänsten tidsgränsen för tal |

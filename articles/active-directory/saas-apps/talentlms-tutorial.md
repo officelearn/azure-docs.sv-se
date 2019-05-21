@@ -17,11 +17,11 @@ ms.date: 04/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c17c055b79b8b90bd56a1dcd6472cf74d2512137
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922322"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65901771"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-talentlms"></a>Självstudier: Azure Active Directory-integrering med TalentLMS
 
@@ -30,7 +30,7 @@ Integrera TalentLMS med Azure AD ger dig följande fördelar:
 
 * Du kan styra i Azure AD som har åtkomst till TalentLMS.
 * Du kan aktivera användarna att vara automatiskt inloggad till TalentLMS (Single Sign-On) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure-portalen.
+* Du kan hantera dina konton på en central plats – Azure portal.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
@@ -62,7 +62,7 @@ För att konfigurera integrering av TalentLMS i Azure AD, som du behöver lägga
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
+3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
@@ -70,19 +70,19 @@ För att konfigurera integrering av TalentLMS i Azure AD, som du behöver lägga
 
     ![TalentLMS i resultatlistan](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
 I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med TalentLMS baserat på en testanvändare kallas **Britta Simon**.
 För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i TalentLMS upprättas.
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med TalentLMS, måste du utföra följande byggblock:
 
-1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
 2. **[Konfigurera TalentLMS Single Sign-On](#configure-talentlms-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
-4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
 5. **[Skapa testanvändare TalentLMS](#create-talentlms-test-user)**  – du har en motsvarighet för Britta Simon i TalentLMS som är länkad till en Azure AD-representation av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
+6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
@@ -92,7 +92,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med TalentL
 
 1. I den [Azure-portalen](https://portal.azure.com/)på den **TalentLMS** application integration markerar **enkel inloggning**.
 
-    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
+    ![Konfigurera enkel inloggning för länken](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -125,9 +125,9 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med TalentL
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    a. Inloggnings-URL
+    a. Inloggningswebbadress
 
-    b. Azure AD-identifierare
+    b. Microsoft Azure Active Directory-identifierare
 
     c. Utloggnings-URL
 
@@ -237,7 +237,7 @@ Om du vill aktivera Azure AD-användare att logga in på TalentLMS, måste de et
  
     c. I den **e-postadress** textrutan Ange e-postadress för användaren som `brittasimon\@contoso.com`.
 
-    d. Klicka på **Lägg till användare**.
+    d. Klicka på **lägga till användare**.
 
 > [!NOTE]
 > Du kan använda alla andra TalentLMS användare konto verktyg för att skapa eller API: er som tillhandahålls av TalentLMS att etablera AAD-användarkonton.

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2016
 ms.author: lesun
 ROBOTS: NOINDEX
-ms.openlocfilehash: b2e956b099022751712f96ab0b15aa57c752b458
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c989f1115bc5a85bf09270c553ac1cb51bb4f170
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60405264"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954703"
 ---
 # <a name="analyzer-names"></a>Analyzer-namn
 
@@ -43,10 +43,10 @@ Det finns tre olika typer:
 Inom en viss typ, men olika experter kan inte samtycka på hur ett visst fenomen bör analyseras.
 Till skillnad från programmeringsspråk finns det ingen klar och exakt definition av hur detta ska göras.
 
-Anta exempelvis att vi försöker hitta token i engelska meningen ”han inte gå”.
+Anta exempelvis att vi försöker hitta token i engelska meningen ”de inte gå”.
 Tänk särskilt strängen ”inte”.
 En möjlig tolkning är att detta ska delas upp i två token: ”gjorde” och ”not”.
-Sedan skulle den alternativa meningen ”han inte gå” ha samma uppsättning token.
+Sedan skulle den alternativa meningen ”de inte gå” ha samma uppsättning token.
 En annan möjlighet är att säga att det ska delas upp i token ”gjorde” och ””.
 Denna token kan inte normalt betraktas som ett ord, men den här metoden innehåller mer information om surface strängen, som ibland kan vara användbara.
 Eller kanske den minskningen av ska betraktas som ett enstaka ord.

@@ -303,9 +303,9 @@
         - name: Om
           href: speech-devices-sdk.md
         - name: Licens
-          href: speech-devices-sdk-license.md
+          href: 'https://aka.ms/sdsdk-license'
         - name: Meddelanden från tredje part
-          href: devices-sdk-third-party-notices.md
+          href: 'https://aka.ms/sdsdk-toctpn'
     - name: Felsöka Speech SDK
       href: troubleshooting.md
     - name: Felsöka Speech Devices SDK

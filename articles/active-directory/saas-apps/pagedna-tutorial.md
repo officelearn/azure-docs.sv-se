@@ -17,11 +17,11 @@ ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 11cb309e6c49ed36247398909e5e1b7ad9f7bc42
-ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62736434"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65891198"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pagedna"></a>Självstudier: Azure Active Directory-integrering med PageDNA
 
@@ -73,7 +73,7 @@ Om du vill konfigurera integrering av PageDNA i Azure AD måste du lägga till P
 
     ![PageDNA i resultatlistan](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
 I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med PageDNA baserat på en användare med namnet **Britta Simon**. För enkel inloggning ska fungera, måste du upprätta en länk mellan en Azure AD-användare och relaterade användaren i PageDNA.
 
@@ -86,7 +86,7 @@ Om du vill konfigurera och testa Azure AD enkel inloggning med PageDNA, måste d
 1. **[Skapa en testanvändare PageDNA](#create-a-pagedna-test-user)**  så att det finns en användare med namnet Britta Simon i PageDNA som är kopplad till Azure AD-användare med namnet Britta Simon.
 1. **[Testa enkel inloggning](#test-single-sign-on)**  att kontrollera om konfigurationen fungerar.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 

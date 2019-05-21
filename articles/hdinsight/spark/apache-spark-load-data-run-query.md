@@ -7,18 +7,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.author: hrasheed
-ms.date: 04/03/2019
-ms.openlocfilehash: f480aeb7e126cb6ab8286bbfbfb8441fefeb07ef
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/16/2019
+ms.openlocfilehash: 09509b32320fb10b8ab3d563442b6d0fb44ad34e
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64716078"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65909229"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>Självstudier: Läsa in data och köra frågor i ett Apache Spark-kluster i Azure HDInsight
 
 I den här självstudien lär du dig hur du skapar en dataram från en csv-fil och kör interaktiva Spark SQL-frågor mot ett [Apache Spark](https://spark.apache.org/)-kluster i Azure HDInsight. I Spark är en dataram en distribuerad datasamling som har ordnats i namngivna kolumner. Begreppsmässigt motsvarar dataramen en tabell i en relationsdatabas eller en dataram i R/Python.
- 
+
 I den här guiden får du lära dig att:
 > [!div class="checklist"]
 > * Skapa en dataram från en csv-fil
@@ -26,7 +26,22 @@ I den här guiden får du lära dig att:
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-* Slutför [Skapa ett Apache Spark-kluster i Azure HDInsight](apache-spark-jupyter-spark-sql.md).
+Ett Apache Spark-kluster i HDInsight. Se [skapar ett Apache Spark-kluster](./apache-spark-jupyter-spark-sql-use-portal.md).
+
+## <a name="create-a-jupyter-notebook"></a>Skapa en Jupyter-anteckningsbok
+
+Jupyter Notebook är en interaktiv anteckningsboksmiljö som stöder flera olika datorspråk. Du kan använda anteckningsboken för att interagera med dina data, kombinera kod med markdown-text och utföra enkla visualiseringar. 
+
+1. Redigera URL: en `https://SPARKCLUSTER.azurehdinsight.net/jupyter` genom att ersätta `SPARKCLUSTER` med namnet på ditt Spark-kluster. Ange den redigerade URL i en webbläsare. Ange autentiseringsuppgifterna för klustret om du uppmanas att göra det.
+
+2. Välj webbsida Jupyter **New** > **PySpark** att skapa en anteckningsbok. 
+
+   ![Skapa en Jupyter-anteckningsbok för att köra en interaktiv Spark SQL-fråga](./media/apache-spark-load-data-run-query/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "Skapa en Jupyter-anteckningsbok för att köra en interaktiv Spark SQL-fråga")
+
+   En ny anteckningsbok skapas och öppnas med namnet Namnlös (`Untitled.ipynb`).
+
+    > [!NOTE]  
+    > Genom att använda PySpark-kärnan för att skapa en anteckningsbok skapas automatiskt sessionen `spark` för dig när du kör den första kodcellen. Du behöver inte uttryckligen skapa sessionen.
 
 ## <a name="create-a-dataframe-from-a-csv-file"></a>Skapa en dataram från en csv-fil
 
@@ -34,13 +49,7 @@ Program kan skapa dataramar direkt från filer eller mappar via fjärrlagring, t
     
 ![Ögonblicksbild av data för en interaktiv Spark SQL-fråga](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "Ögonblicksbild av data för en interaktiv Spark SQL-fråga")
 
-
-1. Öppna Jupyter-anteckningsboken som du skapade i kravavsnittet och skapa en ny anteckningsbok med PySpark.
-
-    > [!NOTE]  
-    > Genom att använda PySpark-kärnan för att skapa en anteckningsbok skapas automatiskt sessionen `spark` för dig när du kör den första kodcellen. Du behöver inte uttryckligen skapa sessionen.
-
-2. Klistra in följande kod i en tom cell i anteckningsboken och tryck sedan på **SKIFT+RETUR** för att köra koden. Koden importerar de typer som krävs för det här scenariot:
+1. Klistra in följande kod i en tom cell i Jupyter-anteckningsboken och tryck sedan på **SKIFT + RETUR** att köra koden. Koden importerar de typer som krävs för det här scenariot:
 
     ```python
     from pyspark.sql import *
@@ -51,7 +60,7 @@ Program kan skapa dataramar direkt från filer eller mappar via fjärrlagring, t
 
     ![Status för interaktiv Spark SQL-fråga](./media/apache-spark-load-data-run-query/hdinsight-spark-interactive-spark-query-status.png "Status för interaktiv Spark SQL-fråga")
 
-3. Kör följande kod för att skapa en dataram och en tillfällig tabell (**hvac**). 
+2. Kör följande kod för att skapa en dataram och en tillfällig tabell (**hvac**). 
 
     ```python
     # Create a dataframe and table from sample data
@@ -94,11 +103,7 @@ Du kan också välja resursgruppnamnet för att öppna resursgruppsidan. Välj s
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen lärde du dig att:
-> [!div class="checklist"]
-> * Skapa en Apache Spark-dataram.
-> * Kör Spark SQL mot dataramen.
+I den här självstudien beskrivs hur du skapar en dataram från en csv-fil och hur du kör interaktiva Spark SQL-frågor mot ett Apache Spark-kluster i Azure HDInsight. Gå vidare till nästa artikel för att se hur de data som du har registrerat i Apache Spark kan hämtas till ett BI-analysverktyg såsom Power BI.
 
-Gå vidare till nästa artikel för att se hur de data som du har registrerat i Apache Spark kan hämtas till ett BI-analysverktyg såsom Power BI. 
 > [!div class="nextstepaction"]
 > [Analysera data med BI-verktyg](apache-spark-use-bi-tools.md)

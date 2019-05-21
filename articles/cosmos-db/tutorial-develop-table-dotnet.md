@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
 ms.date: 03/11/2019
-ms.openlocfilehash: ce1af9c88bbdad96a22eb96abc26026abcad56cc
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.openlocfilehash: cda9c4c914e4ec955d2009ce3f015bf7807027f6
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65793044"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65922196"
 ---
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>Komma igång med Azure Cosmos DB Table API och Azure Table storage med .NET SDK
 
@@ -41,15 +41,15 @@ Du behöver följande för att kunna följa med i det här exemplet:
 
 ## <a name="create-a-net-console-project"></a>Skapa ett projekt för .NET-konsolen
 
-Skapa ett nytt .NET-konsolprogram i Visual Studio. Följande steg visar hur du skapar ett konsolprogram i Visual Studio 2017. Stegen är ungefär som i andra versioner av Visual Studio. Du kan använda Azure Cosmos DB tabell-klientbiblioteket i alla typer av .NET-program, inklusive en Azure-molnet tjänsten eller web app, och stationära och mobila program. I den här guiden använder vi oss av en konsolapp för enkelhetens skull.
+Skapa ett nytt .NET-konsolprogram i Visual Studio. Följande steg visar hur du skapar ett konsolprogram i Visual Studio 2019. Du kan använda Azure Cosmos DB tabell-klientbiblioteket i alla typer av .NET-program, inklusive en Azure-molnet tjänsten eller web app, och stationära och mobila program. I den här guiden använder vi oss av en konsolapp för enkelhetens skull.
 
 1. Välj **Arkiv** > **Nytt** > **Projekt**.
 
-1. Välj **installerat** > **Visual C#**   >  **konsolprogram (.NET Core)**.
+1. Välj **Konsolapp (.NET Core)**, och välj sedan **nästa**.
 
-1. I den **namn** fältet, anger du ett namn för ditt program, till exempel **CosmosTableSamples** (du kan ange ett annat namn efter behov).
+1. I den **projektnamn** fältet, anger du ett namn för ditt program, till exempel **CosmosTableSamples**. (Du kan ange ett annat namn efter behov.)
 
-1. Välj **OK**.
+1. Välj **Skapa**.
 
 Alla kodexempel i det här exemplet kan läggas till Main()-metoden i konsolprogrammets **Program.cs** fil.
 

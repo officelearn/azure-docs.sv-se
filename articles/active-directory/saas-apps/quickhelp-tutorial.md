@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 33fd6b8b7423f8640910e02383bba8397d2f8336
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 45ffcaa1d5bccb0746ce86ec0f98342ce5e9bcc9
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408082"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65903962"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-quickhelp"></a>Självstudier: Azure Active Directory-integrering med QuickHelp
 
@@ -150,11 +150,11 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med QuickHe
    
     b. Om du vill ladda upp din hämtade Azure metadatafilen, klickar du på **Bläddra**genom att navigera till filen, end klickar **överföra Metadata**.
    
-    c. I textrutan **E-post** skriver du `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    c. I textrutan **E-post** skriver du `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
    
-    d. I den **Förnamn** textrutan `type https://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
+    d. I den **Förnamn** textrutan `type http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
    
-    e. I den **efternamn** textrutan `type https://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
+    e. I den **efternamn** textrutan `type http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
    
     f. I den **åtgärdsfält**, klickar du på **spara**.
 

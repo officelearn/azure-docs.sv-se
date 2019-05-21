@@ -16,11 +16,11 @@ ms.date: 1/2/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d0095a825f5582dc795f5bebdcf08be07a92946e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60280766"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65900396"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-coralogix"></a>Självstudier: Azure Active Directory-katalogintegrering med Coralogix
 
@@ -59,7 +59,7 @@ Om du vill lägga till Coralogix från galleriet, gör du följande:
 
 2. Gå till **Företagsprogram** och välj sedan **Alla program**.
 
-    ![Bladet Företagsprogram](common/enterprise-applications.png)
+    ![Bladet för Enterprise-program](common/enterprise-applications.png)
 
 3. Om du vill lägga till ett nytt program, Välj den **nytt program** längst upp i dialogrutan.
 
@@ -69,7 +69,7 @@ Om du vill lägga till Coralogix från galleriet, gör du följande:
 
      ![Coralogix i resultatlistan](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
 I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Coralogix baserat på en testanvändare kallas Britta Simon.
 För enkel inloggning ska fungera, måste du upprätta en länk mellan en Azure AD-användare och relaterade användaren i Coralogix.
@@ -83,7 +83,7 @@ Om du vill konfigurera och testa Azure AD enkel inloggning med Coralogix, slutf�
 5. [Skapa en testanvändare Coralogix](#create-a-coralogix-test-user) har en motsvarighet för Britta Simon i Coralogix som är länkad till en Azure AD-representation av användaren.
 6. [Testa enkel inloggning](#test-single-sign-on) för att verifiera att konfigurationen fungerar.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
@@ -91,7 +91,7 @@ Om du vill konfigurera Azure AD enkel inloggning med Coralogix, gör du följand
 
 1. På [Azure-portalen](https://portal.azure.com/) går du till sidan för programintegrering för **Coralogix** och väljer **Enkel inloggning**.
 
-    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
+    ![Konfigurera enkel inloggning för länken](common/select-sso.png)
 
 2. I den **väljer du en metod för enkel inloggning** dialogrutan **SAML** att aktivera enkel inloggning.
 
@@ -136,15 +136,15 @@ Om du vill konfigurera Azure AD enkel inloggning med Coralogix, gör du följand
 
 7. På den **ange in enkel inloggning med SAML** sidan den **SAML-signeringscertifikat** väljer **hämta** att ladda ned den **Federation Metadata-XML**  från de angivna alternativen beroende på dina krav. Spara den på din dator.
 
-    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
+    ![Länk för hämtning av certifikat](common/metadataxml.png)
 
 8. I den **konfigurera Coralogix** avsnittet, kopiera den lämpliga URL: er.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    a. Inloggnings-URL
+    a. Inloggningswebbadress
 
-    b. Azure AD-identifierare
+    b. Microsoft Azure Active Directory-identifierare
 
     c. Utloggnings-URL
 
@@ -158,7 +158,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
+    ![”Användare och grupper” och ”alla användare”-länkar](common/users.png)
 
 2. Överst på skärmen väljer **ny användare**.
 
@@ -166,9 +166,9 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 3. I den **användaren** dialogrutan rutan, vidta följande steg.
 
-    ![Dialogrutan Användare](common/user-properties.png)
+    ![Dialogrutan användare](common/user-properties.png)
 
-    a. I fältet **Namn** anger du **BrittaSimon**.
+    a. I den **namn** anger **BrittaSimon**.
   
     b. I den **användarnamn** fältet, anger du ”brittasimon@yourcompanydomain.extension”. Exempel: i det här fallet, du kan ange ”brittasimon@contoso.com”.
 
@@ -190,7 +190,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
-    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
+    ![Länken ”användare och grupper”](common/users-groups-blade.png)
 
 4. Välj den **Lägg till användare** knappen. Välj sedan **användare och grupper** i den **Lägg till tilldelning** dialogrutan.
 

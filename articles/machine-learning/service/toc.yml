@@ -80,6 +80,12 @@
     - name: Så här fungerar tjänsten
       displayName: architecture concepts definitions
       href: concept-azure-machine-learning-architecture.md
+    - name: Arbetsyta
+      displayName: concept definitions architecture
+      href: concept-workspace.md
+    - name: Visuellt gränssnitt
+      displayName: concept
+      href: ui-concept-visual-interface.md
     - name: Automatiserad maskininlärning
       displayName: 'automl, auto ml'
       href: concept-automated-ml.md

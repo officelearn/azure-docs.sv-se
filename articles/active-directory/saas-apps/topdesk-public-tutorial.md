@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: jeedes
-ms.openlocfilehash: d5ecfcd249dd07dc94b3b17ea0a7a7de3559c681
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: c4052dd3b4c8f49b19193109eb5e8d2306646960
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65407944"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65888531"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---public"></a>Självstudier: Azure Active Directory-integrering med TOPdesk – offentlig
 
@@ -193,7 +193,7 @@ Konfigurera Azure AD enkel inloggning med TOPdesk - offentlig, utför följande 
 
     c. Ladda upp den logotypfil som du fick från TOPdesk-supportteamet genom att gå till **logotypikonen** och klicka på **Bläddra**.
 
-    d. I textrutan **Användarnamnsattribut** skriver du `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    d. I textrutan **Användarnamnsattribut** skriver du `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
     e. I textrutan **Visningsnamn** skriver du ett namn för konfigurationen.
 

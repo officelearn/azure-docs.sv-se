@@ -16,11 +16,11 @@ ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 52c49bdd51bda7876d19a681bde79c9dbeeb4ea7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60284629"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65901279"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-answerhub"></a>Självstudier: Azure Active Directory-integrering med AnswerHub
 
@@ -83,7 +83,7 @@ Du behöver utföra följande uppgifter för att konfigurera och testa enkel inl
 5. Skapa en testanvändare i AnswerHub som motsvarar och länkas till Azure AD-testanvändare.
 6. [Testa enkel inloggning](#test-single-sign-on) för att verifiera att konfigurationen fungerar.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
 I det här avsnittet konfigurerar du enkel inloggning med Azure AD i Azure-portalen.
 
@@ -121,9 +121,9 @@ I det här avsnittet konfigurerar du enkel inloggning med Azure AD i Azure-porta
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
    Du kan kopiera dessa URL:er:
-    - Inloggnings-URL
+    - Inloggningswebbadress
 
-    - Azure AD-identifierare
+    - Microsoft Azure Active Directory-identifierare
 
     - Utloggnings-URL
 
@@ -170,11 +170,11 @@ I det här avsnittet skapar du en testanvändare med namnet Britta Simon i Azure
 
 **Så här skapar du en Azure AD-testanvändare:**
 
-1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
+1. I Azure-portalen, i den vänstra rutan väljer **Azure Active Directory**väljer **användare**, och välj sedan **alla användare**.
 
     ![Välj Azure Active Directory, Användare, Alla användare](common/users.png)
 
-2. Välj **Ny användare** överst på skärmen.
+2. Välj **ny användare** överst på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech
 ms.topic: quickstart
-ms.date: 3/5/2018
+ms.date: 04/26/2019
 ms.author: v-jaswel
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: a76c11341d0e145e6d2e9f86a7300ddb9319f6f5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b4fe4f651340ef54c2907192f3a96e9a017ab1dd
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60827501"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65910508"
 ---
 # <a name="quickstart-translator-speech-api-with-c"></a>Snabbstart: Translator Speech API med C#
 <a name="HOLTop"></a>
@@ -27,7 +27,7 @@ Den här artikeln visar hur du använder Translator Speech API för att översä
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Du behöver [Visual Studio 2017](https://www.visualstudio.com/downloads/) för att köra den här koden på Windows. (Den kostnadsfria Community Edition fungerar.) Om du använder Mac OS eller Linux kan du även använda textredigeraren [Visual Studio Code](https://code.visualstudio.com/Download) som ett alternativ.
+Du behöver [Visual Studio 2019](https://www.visualstudio.com/downloads/) att köra den här koden på Windows. (Den kostnadsfria Community Edition fungerar.) Om du använder Mac OS eller Linux kan du även använda textredigeraren [Visual Studio Code](https://code.visualstudio.com/Download) som ett alternativ.
 
 Du behöver en WAV-fil med namnet ”speak.wav” i samma mapp som den körbara filen som du kompilerar från koden nedan. Den här .wav-filen ska vara i 16-bitars, 16 kHz PCM-standardformat.
 

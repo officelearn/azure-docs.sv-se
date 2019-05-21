@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 05/17/2019
-ms.openlocfilehash: 7c60b2ae3d403584822e694daf3357b86cba34d7
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: a6a681ace95f9bab3c77e4a0f9982a2281c778b8
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65864755"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65966441"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Självstudier: Extrahera, transformera och läsa in data med hjälp av Azure Databricks
 
@@ -63,7 +63,7 @@ Slutför de här uppgifterna innan du startar självstudien:
 
       Om du föredrar att använda en åtkomstkontrollista (ACL) för att associera tjänstens huvudnamn med en specifik fil eller katalog, referens [åtkomstkontroll i Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-access-control.md).
 
-   * När du utför stegen i avsnittet [Hämta värden för att logga in](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) i artikeln klistrar du in värdena för klient-ID, program-ID och autentiseringsnyckel i en textfil. Du kommer att behöva dem snart.
+   * När du utför stegen i den [få värden för att logga in](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) avsnittet av artikeln, klistra in klient-ID, app-ID och lösenord för värden i en textfil. Du kommer att behöva dem snart.
 
 * Logga in på [Azure Portal](https://portal.azure.com/).
 
@@ -103,11 +103,9 @@ I det här avsnittet skapar du en Azure Databricks-tjänst i Azure Portal.
     |**Plats**     | Välj **USA, västra 2**.  För andra tillgängliga regioner läser du informationen om [Azure-tjänsttillgänglighet per region](https://azure.microsoft.com/regions/services/).      |
     |**Prisnivå**     |  Välj **standard**.     |
 
-3. Välj **Fäst på instrumentpanelen** och välj sedan **Skapa**.
+3. Det tar några minuter att skapa kontot. Du kan övervaka åtgärdsstatusen i förloppsindikatorn längst upp.
 
-4. Det tar några minuter att skapa kontot. När kontot skapas visas panelen **Skicka distribution för Azure Databricks** till höger på portalen. Du kan övervaka åtgärdsstatusen i förloppsindikatorn längst upp.
-
-    ![Distributionspanel för Databricks](./media/databricks-extract-load-sql-data-warehouse/databricks-deployment-tile.png "Distributionspanel för Databricks")
+4. Välj **Fäst på instrumentpanelen** och välj sedan **Skapa**.
 
 ## <a name="create-a-spark-cluster-in-azure-databricks"></a>Skapa ett Spark-kluster i Azure Databricks
 
@@ -154,8 +152,8 @@ I det här avsnittet skapar du en anteckningsbok på Azure Databricks-arbetsytan
    ```scala
    spark.conf.set("fs.azure.account.auth.type", "OAuth")
    spark.conf.set("fs.azure.account.oauth.provider.type", "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider")
-   spark.conf.set("fs.azure.account.oauth2.client.id", "<application-id>")
-   spark.conf.set("fs.azure.account.oauth2.client.secret", "<authentication-key>")
+   spark.conf.set("fs.azure.account.oauth2.client.id", "<appID>")
+   spark.conf.set("fs.azure.account.oauth2.client.secret", "<password>")
    spark.conf.set("fs.azure.account.oauth2.client.endpoint", "https://login.microsoftonline.com/<tenant-id>/oauth2/token")
    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
    dbutils.fs.ls("abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/")
@@ -167,17 +165,17 @@ I det här avsnittet skapar du en anteckningsbok på Azure Databricks-arbetsytan
    ```scala
    spark.conf.set("fs.azure.account.auth.type.<storage-account-name>.dfs.core.windows.net", "OAuth")
    spark.conf.set("fs.azure.account.oauth.provider.type.<storage-account-name>.dfs.core.windows.net", "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider")
-   spark.conf.set("fs.azure.account.oauth2.client.id.<storage-account-name>.dfs.core.windows.net", "<application-id>")
-   spark.conf.set("fs.azure.account.oauth2.client.secret.<storage-account-name>.dfs.core.windows.net", "<authentication-key>")
+   spark.conf.set("fs.azure.account.oauth2.client.id.<storage-account-name>.dfs.core.windows.net", "<appID>")
+   spark.conf.set("fs.azure.account.oauth2.client.secret.<storage-account-name>.dfs.core.windows.net", "<password>")
    spark.conf.set("fs.azure.account.oauth2.client.endpoint.<storage-account-name>.dfs.core.windows.net", "https://login.microsoftonline.com/<tenant-id>/oauth2/token")
    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
    dbutils.fs.ls("abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/")
    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false")
    ```
 
-6. I det här kodblocket ersätter du platshållarvärdena `application-id`, `authentication-id`, `tenant-id` och `storage-account-name` i det här kodblocket med de värden som du hämtade när du slutförde förutsättningarna för den här självstudien. Ersätt platshållarvärdet `file-system-name` med det namn som du vill ge filsystemet.
+6. I det här kodblocket ersätter du platshållarvärdena `appID`, `password`, `tenant-id` och `storage-account-name` i det här kodblocket med de värden som du hämtade när du slutförde förutsättningarna för den här självstudien. Ersätt platshållarvärdet `file-system-name` med det namn som du vill ge filsystemet.
 
-   * `application-id` och `authentication-id` kommer från den app som du registrerade med Active Directory som en del av skapandet av ett tjänsthuvudnamn.
+   * `appID` och `password` kommer från den app som du registrerade med Active Directory som en del av skapandet av ett tjänsthuvudnamn.
 
    * `tenant-id` kommer från din prenumeration.
 
@@ -338,7 +336,7 @@ Som tidigare nämnts använder SQL Data Warehouse-anslutningen Azure Blob Storag
    sc.hadoopConfiguration.set(acntInfo, blobAccessKey)
    ```
 
-4. Ange värdena för att ansluta till Azure SQL Data Warehouse-instansen. Innan du börjar måste du skapa ett SQL-informationslager.
+4. Ange värdena för att ansluta till Azure SQL Data Warehouse-instansen. Innan du börjar måste du skapa ett SQL-informationslager. Använda det fullständigt kvalificerade servernamnet för **dwServer**. Till exempel `<servername>.database.windows.net`.
 
    ```scala
    //SQL Data Warehouse related settings

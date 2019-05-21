@@ -3,33 +3,23 @@ title: Aktivera brandvägg för webbaserade program – Azure CLI
 description: Lär dig hur du begränsar webbtrafik med en brandvägg för webbaserade program på en programgateway med Azure CLI.
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
 ms.topic: tutorial
-ms.workload: infrastructure-services
-ms.date: 7/14/2018
+ms.date: 5/20/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 1387dc5bb2cabf9a3078474564aadc81b28fd9a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1822fe032a7c7a6382dbae2cb9f7095d1d076008
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60407175"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955486"
 ---
 # <a name="enable-web-application-firewall-using-the-azure-cli"></a>Aktivera brandvägg för webbaserade program med hjälp av Azure CLI
 
-> [!div class="op_single_selector"]
->
-> - [Azure Portal](application-gateway-web-application-firewall-portal.md)
-> - [PowerShell](tutorial-restrict-web-traffic-powershell.md)
-> - [Azure CLI](tutorial-restrict-web-traffic-cli.md)
->
-> 
+Du kan begränsa webbtrafiken för en [programgateway](overview.md) med hjälp av en [brandvägg för webbaserade program](waf-overview.md) (WAF). I brandväggen används [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project)-regler till att skydda programmet. De här reglerna kan exempelvis skydda mot attacker som SQL-inmatning, skriptattacker mellan webbplatser och sessionskapningar.
 
-Du kan begränsa webbtrafiken för en [programgateway](overview.md) med hjälp av en [brandvägg för webbaserade program](waf-overview.md) (WAF). I brandväggen används [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project)-regler till att skydda programmet. De här reglerna kan exempelvis skydda mot attacker som SQL-inmatning, skriptattacker mellan webbplatser och sessionskapningar. 
-
-I den här guiden får du lära dig att:
+I den här artikeln kan du se hur du:
 
 > [!div class="checklist"]
 > * Konfigurera nätverket
@@ -39,13 +29,13 @@ I den här guiden får du lära dig att:
 
 ![Exempel på brandvägg för webbaserade program](./media/tutorial-restrict-web-traffic-cli/scenario-waf.png)
 
-Om du vill kan du utföra den här självstudien med [Azure PowerShell](tutorial-restrict-web-traffic-powershell.md).
+Om du vill kan du slutföra den här proceduren med [Azure PowerShell](tutorial-restrict-web-traffic-powershell.md).
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt kräver de här självstudierna att du kör Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
+Om du väljer att installera och använda CLI lokalt krävs Azure CLI version 2.0.4 eller senare för att du ska kunna följa anvisningarna i den här artikeln. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
@@ -148,7 +138,7 @@ az vmss extension set \
 
 ## <a name="create-a-storage-account-and-configure-diagnostics"></a>Skapa ett lagringskonto och konfigurera diagnostik
 
-I den här självstudien används ett lagringskonto till att lagra data för identifiering och förebyggande åtgärder. Du kan även använda Azure Monitor-loggar eller Event Hub till att registrera data. 
+I den här artikeln använder ett lagringskonto i application gateway för att lagra data för identifiering och skydd. Du kan även använda Azure Monitor-loggar eller Event Hub till att registrera data. 
 
 ### <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
@@ -196,18 +186,9 @@ az network public-ip show \
 När du inte behöver dem längre tar du bort resursgruppen, programgatewayen och alla relaterade resurser.
 
 ```azurecli-interactive
-az group delete --name myResourceGroupAG --location eastus
+az group delete --name myResourceGroupAG 
 ```
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen lärde du dig att:
-
-> [!div class="checklist"]
-> * Konfigurera nätverket
-> * Skapa en programgateway med WAF aktiverat
-> * Skapa en VM-skalningsuppsättning
-> * Skapa ett lagringskonto och konfigurera diagnostik
-
-> [!div class="nextstepaction"]
-> [Skapa en programgateway med SSL-avslutning](./tutorial-ssl-cli.md)
+* [Skapa en programgateway med SSL-avslutning](./tutorial-ssl-cli.md)

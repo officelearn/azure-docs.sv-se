@@ -49,6 +49,7 @@
       items:
         - name: Storage
           href: storage-account-concept.md
+          displayName: Storage side encryption
         - name: Tillgångs-API
           href: assets-concept.md
     - name: Kodning
@@ -169,6 +170,7 @@
       items:
         - name: Skapa ett konto – CLI
           href: create-account-cli-how-to.md
+          displayName: storage
         - name: Återställa kontoautentiseringsuppgifter – CLI
           href: cli-reset-account-credentials.md
         - name: 'Åtkomst till API:er – CLI'

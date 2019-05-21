@@ -7,21 +7,21 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 7/14/2018
+ms.date: 5/20/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 8689918bf33b0efdd9bbfabc6d3751672959c6bb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d9007b3f1d4eee436452a3fa75b2880b9e5be461
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60233247"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955698"
 ---
-# <a name="tutorial-create-an-application-gateway-with-ssl-termination-using-the-azure-cli"></a>Självstudier: Skapa en programgateway med SSL-avslutning med hjälp av Azure CLI
+# <a name="create-an-application-gateway-with-ssl-termination-using-the-azure-cli"></a>Skapa en programgateway med SSL-avslutning med hjälp av Azure CLI
 
 Du kan använda Azure CLI till att skapa en [programgateway](overview.md) med ett certifikat för [SSL-avslutning](ssl-overview.md) som använder en [VM-skalningsuppsättning](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) för hantering av webbtrafik på servrarna i serverdelen. I det här exemplet innehåller skalningsuppsättningen två virtuella datorinstanser i serverdelens standardpool i programgatewayen.
 
-I den här guiden får du lära dig att:
+I den här artikeln kan du se hur du:
 
 > [!div class="checklist"]
 > * Skapa ett självsignerat certifikat
@@ -29,17 +29,17 @@ I den här guiden får du lära dig att:
 > * Skapa en programgateway med certifikatet
 > * Skapa en VM-skalningsuppsättning med serverdelens standardpool
 
-Om du vill kan du utföra den här självstudien med [Azure PowerShell](tutorial-ssl-powershell.md).
+Om du vill kan du slutföra den här proceduren med [Azure PowerShell](tutorial-ssl-powershell.md).
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt måste du ha Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
+Om du väljer att installera och använda CLI lokalt, i den här artikeln måste du köra Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-self-signed-certificate"></a>Skapa ett självsignerat certifikat
 
-I produktion bör du importera ett giltigt certifikat som är signerat av en betrodd provider. I den här självstudiekursen skapar du ett självsignerat certifikat och en pfx-fil med kommandot openssl.
+I produktion bör du importera ett giltigt certifikat som är signerat av en betrodd provider. I den här artikeln skapar du ett självsignerat certifikat och pfx-fil med hjälp av kommandot openssl.
 
 ```azurecli-interactive
 openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout privateKey.key -out appgwcert.crt
@@ -183,5 +183,4 @@ az group delete --name myResourceGroupAG --location eastus
 
 ## <a name="next-steps"></a>Nästa steg
 
-> [!div class="nextstepaction"]
-> [Skapa en programgateway som är värd för flera webbplatser](./tutorial-multiple-sites-cli.md)
+* [Skapa en programgateway som är värd för flera webbplatser](./tutorial-multiple-sites-cli.md)

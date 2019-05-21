@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 3/8/2019
 ms.author: jeedes
-ms.openlocfilehash: 0c279a224a7692a64621e24cc8fe2213b78b54ce
-ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
+ms.openlocfilehash: 1e67f3c7f9413382d169837eaba50d6af18552e6
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62735626"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956685"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-turborater"></a>Självstudier: Azure Active Directory-integrering med TurboRater
 
@@ -68,20 +68,20 @@ Om du vill konfigurera integrering av TurboRater i Azure AD måste du lägga til
 
     ![TurboRater i resultatlistan](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med TurboRater baserat på en användare med namnet **Britta Simon**. För enkel inloggning ska fungera, måste du upprätta en länk mellan en Azure AD-användare och relaterade användaren i TurboRater.
+I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med TurboRater baserat på en användare med namnet **B Simon**. För enkel inloggning ska fungera, måste du upprätta en länk mellan en Azure AD-användare och relaterade användaren i TurboRater.
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med TurboRater, måste du utföra följande byggblock:
 
 1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  vill tillåta att användarna använda den här funktionen.
 1. **[Konfigurera TurboRater enkel inloggning](#configure-turborater-single-sign-on)**  att konfigurera inställningar för enkel inloggning på programsidan.
-1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  att testa Azure AD enkel inloggning med Britta Simon.
-1. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  att aktivera Britta Simon att använda Azure AD enkel inloggning.
-1. **[Skapa en testanvändare TurboRater](#create-a-turborater-test-user)**  så att det finns en användare med namnet Britta Simon i TurboRater som är kopplad till Azure AD-användare med namnet Britta Simon.
+1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  att testa Azure AD enkel inloggning med B. Simon.
+1. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  att aktivera B. Simon att använda Azure AD enkel inloggning.
+1. **[Skapa en testanvändare TurboRater](#create-a-turborater-test-user)**  så att det finns en användare med namnet B. Simon i TurboRater som är kopplad till Azure AD-användare med namnet B. Simon.
 1. **[Testa enkel inloggning](#test-single-sign-on)**  att kontrollera om konfigurationen fungerar.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
@@ -109,9 +109,9 @@ Om du vill konfigurera Azure AD enkel inloggning med TurboRater, gör du följan
 
     1. I den **svars-URL (försäkran URL för Konsumenttjänst)** anger en URL med hjälp av följande mönster:
 
-       | Miljö | URL |
+       | Miljö | Webbadress |
        | ---------------| --------------- |
-       | Testa  | `https://ratingqa.itcdataservices.com/webservices/imp/saml/login` |
+       | Test  | `https://ratingqa.itcdataservices.com/webservices/imp/saml/login` |
        | Live  | `https://www.itcratingservices.com/webservices/imp/saml/login` |
 
     > [!NOTE]
@@ -149,9 +149,9 @@ I det här avsnittet skapar du en testanvändare med namnet Britta Simon i Azure
 
     ![Fönstret användare](common/user-properties.png)
 
-    1. I rutan **Namn** anger du **BrittaSimon**.
+    1. I den **namn** anger **BSimon**.
   
-    1. I den **användarnamn** anger **BrittaSimon\@\<företagsdomänen >.\< tillägget >**. Till exempel **BrittaSimon\@contoso.com**.
+    1. I den **användarnamn** anger **BSimon\@\<företagsdomänen >.\< tillägget >**. Till exempel **BSimon\@contoso.com**.
 
     1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
 
@@ -159,7 +159,7 @@ I det här avsnittet skapar du en testanvändare med namnet Britta Simon i Azure
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning ger användarens företagsidentitet åtkomst TurboRater.
+I det här avsnittet ska aktivera du B. Simon att använda Azure enkel inloggning genom att bevilja åtkomst till TurboRater.
 
 1. I Azure-portalen väljer du **företagsprogram** > **alla program** > **TurboRater**.
 
@@ -177,7 +177,7 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
     ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-1. I den **användare och grupper** väljer **Britta Simon** i den **användare** och välj sedan **Välj** längst ned i fönstret.
+1. I den **användare och grupper** väljer **B. Simon** i den **användare** och välj sedan **Välj** längst ned i fönstret.
 
 1. Om du förväntar dig ett rollvärde i SAML-försäkran sedan i den **Välj roll** fönstret Välj rätt roll för användaren i listan. Längst ned i fönstret Välj **Välj**.
 
@@ -185,7 +185,7 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 ### <a name="create-a-turborater-test-user"></a>Skapa en TurboRater testanvändare
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i TurboRater. Arbeta med den [TurboRater supportteamet](https://www.getitc.com/support) att lägga till Britta Simon som en användare i TurboRater. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som kallas B. Simon i TurboRater. Arbeta med den [TurboRater supportteamet](https://www.getitc.com/support) att lägga till B. Simon som en användare i TurboRater. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 

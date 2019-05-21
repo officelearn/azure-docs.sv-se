@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: f69b3f2c8de4cf137583ad7a33e8edfe31373096
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f9746dae4cdf10a10922be41602f4ecd7f032f5b
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61461191"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65949791"
 ---
 # <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio"></a>Självstudie 1: Förutsäga kreditrisk – Azure Machine Learning Studio
 
@@ -57,12 +57,12 @@ För att kunna använda Machine Learning Studio behöver du ha en Microsoft Azur
 
 Information om hur du skapar en arbetsyta finns i [Skapa och dela en Azure Machine Learning Studio-arbetsyta](create-workspace.md).
 
-När arbetsytan har skapats öppnar du Machine Learning Studio ([https://studio.azureml.net/Home](https://studio.azureml.net/Home)). Om du har fler än en arbetsyta kan du välja arbetsytan i verktygsfältet i det övre högra hörnet i fönstret.
+När arbetsytan har skapats kan du öppna Machine Learning Studio ([https://studio.azureml.net/Home](https://studio.azureml.net/Home)). Om du har fler än en arbetsyta kan du välja arbetsytan i verktygsfältet i det övre högra hörnet i fönstret.
 
 ![Välja arbetsyta i Studio](./media/tutorial-part1-credit-risk/open-workspace.png)
 
 > [!TIP]
-> Om du är arbetsytans ägare kan du dela de experiment som du arbetar med genom att bjuda in andra till arbetsytan. Du kan göra detta i Machine Learning Studio på sidan **SETTINGS** (Inställningar). Du behöver bara Microsoft-kontot eller organisationskontot för varje användare.
+> Om du är arbetsytans ägare kan du dela de experiment som du arbetar med genom att bjuda in andra till arbetsytan. Du kan göra detta i Machine Learning Studio på sidan **SETTINGS** (Inställningar). Du behöver bara det Microsoft-konto eller organisationskonto för varje användare.
 > 
 > På sidan **SETTINGS** (Inställningar) klickar du på **USERS** (Användare) och sedan på **INVITE MORE USERS** (Bjud in fler användare) längst ned i fönstret.
 > 
@@ -78,7 +78,7 @@ Datamängden **german.data** innehåller rader med 20 variabler för 1000 tidiga
 
 UCI-webbplatsen innehåller en beskrivning av attributen för funktionsvektor för dessa data. Dessa data innehåller ekonomisk information, kredithistorik, anställningsstatus och personlig information. Varje sökande har getts en binär klassificering som anger om sökanden utgör en låg eller hög kreditrisk. 
 
-Du använder dessa data för att träna en modell för förutsägelseanalys. När du är klar ska din modell kunna acceptera en funktionsvektor för en ny person och förutsäga huruvida personen utgör en låg eller hög kreditrisk.  
+Du använder dessa data för att träna en modell för förutsägelseanalys. När du är klar, ska din modell kunna acceptera en funktionen vektor för en ny person och förutsäga om de är en låg eller hög kreditrisk.  
 
 Här är en intressant problemvariant.
 

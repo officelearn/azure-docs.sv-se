@@ -1,27 +1,27 @@
 ---
-title: Självstudie – Dirigera webbtrafik baserat på webbadressen – Azure CLI
-description: I den här självstudien får du lära dig hur du dirigerar webbtrafik baserat på webbadressen till specifika och skalbara serverpooler med Azure CLI.
+title: Dirigera webbtrafik baserat på URL – Azure CLI
+description: 'I den här artikeln lär du dig hur du dirigerar Internet-trafik baserat på URL: en till specifika skalbar pooler för servrar med hjälp av Azure CLI.'
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 10/25/2018
+ms.date: 5/20/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 4f0c93c41a468b62baf1ec50d030f235d36a8dd2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c0954d1010a6cf5ef6f8edab1470588df9fba559
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58006470"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955518"
 ---
-# <a name="tutorial-route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Självstudier: Dirigera webbtrafik baserat på URL: en med hjälp av Azure CLI
+# <a name="route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Dirigera webbtrafik baserat på URL: en med hjälp av Azure CLI
 
-Som en IT-administratör som hanterar webbtrafik vill du hjälpa dina kunder eller användare att få den information de behöver så snabbt som möjligt. Ett sätt som du kan optimera deras erfarenheter är genom att dirigera olika typer av Internet-trafik till olika serverresurser. Den här självstudien visar hur du använder Azure CLI för att installera och konfigurera Application Gateway-routning för olika typer av trafik från ditt program. Routningen dirigerar sedan trafiken till olika serverpooler baserat på webbadressen.
+Som en IT-administratör som hanterar webbtrafik vill du hjälpa dina kunder eller användare att få den information de behöver så snabbt som möjligt. Ett sätt som du kan optimera deras erfarenheter är genom att dirigera olika typer av Internet-trafik till olika serverresurser. Den här artikeln visar hur du använder Azure CLI för att installera och konfigurera Application Gateway-routning för olika typer av trafik från ditt program. Routningen dirigerar sedan trafiken till olika serverpooler baserat på webbadressen.
 
 ![URL-routningsexempel](./media/tutorial-url-route-cli/scenario.png)
 
-I den här guiden får du lära dig att:
+I den här artikeln kan du se hur du:
 
 > [!div class="checklist"]
 > * Skapa en resursgrupp för nätverksresurserna som du behöver
@@ -31,13 +31,13 @@ I den här guiden får du lära dig att:
 > * Skapa en skalningsuppsättning för varje pool så att poolen kan skalas automatiskt
 > * Kör ett test så att du kan kontrollera att de olika typerna av trafik går till rätt pool
 
-Om du vill kan du slutföra den här självstudien med [Azure PowerShell](tutorial-url-route-powershell.md) eller [Azure-portalen](create-url-route-portal.md).
+Om du vill kan du slutföra den här proceduren med [Azure PowerShell](tutorial-url-route-powershell.md) eller [Azure-portalen](create-url-route-portal.md).
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt måste du ha Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
+Om du väljer att installera och använda CLI lokalt, i den här artikeln måste du köra Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
@@ -165,7 +165,7 @@ az network application-gateway url-path-map rule create \
   --address-pool videoBackendPool
 ```
 
-### <a name="add-a-routing-rule"></a>Lägga till en hanteringsregel
+### <a name="add-a-routing-rule"></a>Lägg till en hanteringsregel
 
 Routningsregeln associerar adressmappningarna med den lyssnare du skapade. Lägg till en regel med namnet *rule2* med `az network application-gateway rule create`.
 
@@ -182,7 +182,7 @@ az network application-gateway rule create \
 
 ## <a name="create-vm-scale-sets"></a>Skapa skalningsuppsättningar för virtuella datorer
 
-I den här självstudien skapar du tre VM-skalningsuppsättningar för de tre serverdelspooler du har skapat. Skalningsuppsättningarna du skapar har namnen *myvmss1*, *myvmss2* och *myvmss3*. Varje skalningsuppsättning innehåller två virtuella datorinstanser där du installerar NGINX.
+I den här artikeln skapar du tre skalningsuppsättningar för virtuella datorer som har stöd för tre serverdelspooler som du skapade. Skalningsuppsättningarna du skapar har namnen *myvmss1*, *myvmss2* och *myvmss3*. Varje skalningsuppsättning innehåller två virtuella datorinstanser där du installerar NGINX.
 
 ```azurecli-interactive
 for i in `seq 1 3`; do
@@ -264,5 +264,4 @@ az group delete --name myResourceGroupAG --location eastus
 
 ## <a name="next-steps"></a>Nästa steg
 
-> [!div class="nextstepaction"]
-> [Skapa en programgateway med webbadressbaserad omdirigering](./tutorial-url-redirect-cli.md)
+* [Skapa en programgateway med webbadressbaserad omdirigering](./tutorial-url-redirect-cli.md)

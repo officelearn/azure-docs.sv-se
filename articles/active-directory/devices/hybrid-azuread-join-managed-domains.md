@@ -17,12 +17,12 @@ ms.date: 03/20/2019
 ms.author: joflore
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f080e315430cba986642e4a24af776cc82062c0
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 94fbcc1c29c1860642dda0afab6a1f10e719a05a
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190797"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65962202"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Självstudier: Konfigurera en Azure Active Directory-hybridanslutning för hanterade domäner
 
@@ -178,12 +178,12 @@ Dessutom kan du behöva aktivera **Tillåt uppdateringar i statusfältet via skr
 
 ### <a name="configure-seamless-sso"></a>Konfigurera sömlös enkel inloggning
 
-För att slutföra fullständig Azure AD-anslutning för dina äldre Windows-enheter i en hanterad domän som använder direktautentisering (PTA) eller synkronisering av lösenordshash (PHS) som Azure AD-molnautentiseringsmetod måste du även [konfigurera sömlös enkel inloggning](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso-quick-start#step-2-enable-the-feature). 
+För att slutföra fullständig Azure AD-anslutning för dina äldre Windows-enheter i en hanterad domän som använder direktautentisering (PTA) eller synkronisering av lösenordshash (PHS) som Azure AD-molnautentiseringsmetod måste du även [konfigurera sömlös enkel inloggning](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso-quick-start#step-2-enable-the-feature). Om du har problem med att konfigurera sömlös enkel inloggning kan du läsa artikeln [felsöka Azure Active Directory sömlös enkel inloggning](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/tshoot-connect-sso).
 
 
 ### <a name="control-windows-down-level-devices"></a>Kontrollera äldre Windows-enheter 
 
-För att registrera äldre Windows-enheter måste du ladda ned och installera ett Windows Installer-paket (.msi) från Download Center. Klicka [här](hybrid-azuread-join-control.md#control-windows-down-level-devices) om du vill ha mer information. 
+För att registrera äldre Windows-enheter måste du ladda ned och installera ett Windows Installer-paket (.msi) från Download Center. Mer information finns i artikeln [styra hybrid Azure AD-anslutning av dina enheter](hybrid-azuread-join-control.md#control-windows-down-level-devices). 
 
 
 ## <a name="verify-the-registration"></a>Verifiera registreringen

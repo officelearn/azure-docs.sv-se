@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/10/2018
 ms.custom: seodec18
-ms.openlocfilehash: f86949c196507080b32771a1b5470e9911e3e5b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 069bc213695de813ad6b878db54f38a909efd1df
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60768755"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956031"
 ---
 # <a name="tutorial-build-a-java-web-app-using-spring-and-azure-cosmos-db"></a>Självstudie: Skapa ett Java-webbprogram med Spring och Azure Cosmos DB
 
@@ -79,7 +79,7 @@ Följ dessa steg för att skapa en Azure Cosmos DB-databas i din prenumeration. 
         -n <your-azure-COSMOS-DB-name-in-lower-case-letters>
     ```
 
-4. Hämta din Azure Cosmos DB-nyckel för att ansluta till appen. Behåll `primaryMasterKey`, `documentEndpoint` i närheten eftersom du behöver dem i nästa steg.
+4. Hämta din Azure Cosmos DB-nyckel för att ansluta till appen. Behåll den `primaryMasterKey`, `documentEndpoint` tillhands eftersom du behöver dem i nästa steg.
 
     ```bash
     az cosmosdb list-keys -g <your-azure-group-name> -n <your-azure-COSMOSDB-name>

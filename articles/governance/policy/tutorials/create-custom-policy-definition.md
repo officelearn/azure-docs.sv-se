@@ -7,12 +7,12 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: f9dc6e98e184e6eeeca3a56ff4a28739369a3d24
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: e38eb1315cde3400b70925059d4dd50475a47835
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65800489"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979669"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>Självstudier: Skapa en anpassad principdefinition
 
@@ -46,12 +46,11 @@ Det är viktigt att du förstår syftet med principen innan du skapar principdef
 
 Dina krav bör tydligt identifiera både resurstillståndet ”to be” och ”not to be”.
 
-Vi har definierat förväntat tillstånd för resursen, men vi har ännu inte definierat vad vi vill ha gjort med icke-kompatibla resurser. Principen har stöd för ett antal [effekter](../concepts/effects.md). I den här självstudien ska vi definiera affärsbehov som att förhindra skapandet av resurser om de inte är kompatibla med affärsreglerna. För att nå detta mål använder vi effekten för att [neka](../concepts/effects.md#deny). Vi vill också ha alternativet för att inaktivera principen för specifika tilldelningar. Därför använder vi den [inaktiverade](../concepts/effects.md#disabled) effekten och skapar en [parameter](../concepts/definition-structure.md#parameters) i principdefinitionen.
+Vi har definierat förväntat tillstånd för resursen, men vi har ännu inte definierat vad vi vill ha gjort med icke-kompatibla resurser. Azure Policy stöder ett antal [effekterna](../concepts/effects.md). I den här självstudien ska vi definiera affärsbehov som att förhindra skapandet av resurser om de inte är kompatibla med affärsreglerna. För att nå detta mål använder vi effekten för att [neka](../concepts/effects.md#deny). Vi vill också ha alternativet för att inaktivera principen för specifika tilldelningar. Därför använder vi den [inaktiverade](../concepts/effects.md#disabled) effekten och skapar en [parameter](../concepts/definition-structure.md#parameters) i principdefinitionen.
 
 ## <a name="determine-resource-properties"></a>Fastställa resursegenskaper
 
-Azure-resursen som ska granskas med principen är ett lagringskonto, baserat på affärsbehov.
-Vi vet emellertid inte vilka egenskaper som ska användas i principdefinitionen. Principen utvärderas mot JSON-representation av resursen, så vi behöver förstå egenskaperna som är tillgängliga på den resursen.
+Baserat på affärsbehov, är Azure-resursen att granska med Azure Policy ett lagringskonto. Vi vet emellertid inte vilka egenskaper som ska användas i principdefinitionen. Azure Policy utvärderar mot JSON-representation av resursen, så vi behöver förstå egenskaperna som är tillgängliga på den här resursen.
 
 Det finns många sätt att avgöra egenskaperna för en Azure-resurs. Vi ska titta på var och en för den här självstudien:
 
@@ -121,8 +120,7 @@ Under **egenskaper** är ett värde med namnet **supportsHttpsTrafficOnly** inst
 
 #### <a name="create-a-resource-in-the-portal"></a>Skapa en resurs i portalen
 
-Ett annat sätt via portalen är resursskapandeupplevelsen. När du skapar ett lagringskonto via portalen är ett alternativ under fliken **Avancerat** **Säkerhetsöverföring krävs**.
-Den här egenskapen har alternativen _Inaktiverad_ och _Aktiverad_. Informationsikonen har ytterligare text som bekräftar att det är sannolikt att det här alternativet är egenskapen vi vill ha. Dock visar inte portalen egenskapens namn på den här skärmen.
+Ett annat sätt via portalen är resursskapandeupplevelsen. När du skapar ett lagringskonto via portalen är ett alternativ under fliken **Avancerat** **Säkerhetsöverföring krävs**. Den här egenskapen har alternativen _Inaktiverad_ och _Aktiverad_. Informationsikonen har ytterligare text som bekräftar att det är sannolikt att det här alternativet är egenskapen vi vill ha. Dock visar inte portalen egenskapens namn på den här skärmen.
 
 På fliken **Granska + skapa** finns en länk längst ned på sidan för att **ladda ned en mall för automatisering**. Om du väljer länken öppnas den mall som skapar den resurs som vi har konfigurerat. I det här fallet kan vi se två viktiga uppgifter:
 
@@ -181,8 +179,7 @@ I resultatet ser vi ett alias som stöds av lagringskonton med namnet **supports
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-I Azure PowerShell används cmdleten `Get-AzPolicyAlias` för att söka efter resursalias.
-Vi ska filtrera **Microsoft.Storage**-namnområdet utifrån den information som vi tidigare fått om Azure-resursen.
+I Azure PowerShell används cmdleten `Get-AzPolicyAlias` för att söka efter resursalias. Vi ska filtrera **Microsoft.Storage**-namnområdet utifrån den information som vi tidigare fått om Azure-resursen.
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -312,7 +309,8 @@ Azure Resource Graph (förhandsversion) kan användas via [Cloud Shell](https://
 
 ## <a name="determine-the-effect-to-use"></a>Fastställa vilken effekt som ska användas
 
-Det är nästan lika viktigt att bestämma vad som ska göras med icke-kompatibla resurser som att bestämma vad som ska utvärderas i första hand. Varje möjligt svar på en icke-kompatibel resurs kallas för en [effekt](../concepts/effects.md). Effekten kontrollerar om den icke-kompatibla resursen loggas, blockeras, har bifogade data eller en distribution associerad till sig för att sätta tillbaka resursen i ett kompatibelt tillstånd.
+Det är nästan lika viktigt att bestämma vad som ska göras med icke-kompatibla resurser som att bestämma vad som ska utvärderas i första hand. Varje möjligt svar på en icke-kompatibel resurs kallas för en [effekt](../concepts/effects.md).
+Effekten kontrollerar om den icke-kompatibla resursen loggas, blockeras, har bifogade data eller en distribution associerad till sig för att sätta tillbaka resursen i ett kompatibelt tillstånd.
 
 I vårt exempel är Neka den effekt som vi vill ha, eftesom vi inte vill ha icke-kompatibla resurser som skapats i vår Azure-miljö. Granskning är ett bra första alternativ för en principeffekt för att avgöra vad effekten av en princip är innan du nekar. Ett sätt att underlätta ändring av effekt per tilldelning är att parameterisera effekten. Se [parametrarna](#parameters) nedan för information om hur.
 

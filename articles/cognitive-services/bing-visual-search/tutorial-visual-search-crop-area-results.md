@@ -3,19 +3,19 @@ title: 'Självstudier: Beskär en bild med Bing Visual Search SDK'
 description: Använd Bing Visual Search SDK för att få insikter från specifika ar på en bild.
 services: cognitive-services
 titleSuffix: Azure Cognitive Services
-author: mikedodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: article
-ms.date: 04/03/2019
+ms.date: 04/26/2019
 ms.author: rosh
-ms.openlocfilehash: a6a98d9ddf76e86feb35c6d3d71f7777b0edd51d
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: a65994ffb2fc707c59e507cad71699211b6a64a5
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62109990"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65896266"
 ---
 # <a name="tutorial-crop-an-image-with-the-bing-visual-search-sdk-for-c"></a>Självstudier: Beskär en bild med Bing Visual Search SDK förC#
 
@@ -33,7 +33,7 @@ Den här självstudien visar hur du:
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-* Valfri version av [Visual Studio 2017](https://www.visualstudio.com/downloads/).
+* En utgåva av [Visual Studio 2019](https://www.visualstudio.com/downloads/).
 * Om du använder Linux/Mac OS kan det här programmet köras med [Mono](https://www.mono-project.com/).
 * [NuGet-paketet för anpassad sökning](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0) installerat.
     - Solution Explorer i Visual Studio högerklickar du på projektet och välj **hantera NuGet-paket** på menyn. Installera `Microsoft.Azure.CognitiveServices.Search.CustomSearch`-paketet. När du installerar NuGet-paketet för anpassad sökning installeras även följande sammansättningar:
@@ -81,7 +81,7 @@ Console.WriteLine("\r\n" + "ActionType: " + i.ActionType + " -> WebSearchUrl: " 
 
 Hela programmet returnerar:
 
-|Åtgärdstyp  |URL  | |
+|Åtgärdstyp  |Webbadress  | |
 |---------|---------|---------|
 |PagesIncluding WebSearchURL     |         |
 |MoreSizes WebSearchURL     |         |  

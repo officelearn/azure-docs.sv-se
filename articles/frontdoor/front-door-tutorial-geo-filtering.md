@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: af1846f66996ded553a95188df958e9592ec68a2
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: c04a9dff55794a3e48146e8effc3627452b3db14
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523782"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65950162"
 ---
 # <a name="how-to-set-up-a-geo-filtering-waf-policy-for-your-front-door"></a>Hur du ställer in en princip för geo-filtrering WAF för ytterdörren
 Den här självstudiekursen visar hur du använder Azure PowerShell till att skapa ett exempel på en princip för geofiltrering och associerar principen med din befintliga Front Door-klientdelsvärd. Det här exemplet geo-filtrering principen blockerar begäranden från alla andra länder/regioner utom USA.
@@ -65,10 +65,10 @@ $nonUSGeoMatchCondition = New-AzFrontDoorWafMatchConditionObject `
  
 ## <a name="add-geo-filtering-match-condition-to-a-rule-with-action-and-priority"></a>Lägga till matchningsvillkor för geofiltrering i en regel med Action (Åtgärd) och Priority (Prioritet)
 
-Skapa ett objekt för CustomRule `nonUSBlockRule` baserat på matchningsvillkor, en åtgärd och en prioritet med hjälp av [New AzFrontDoorCustomRuleObject](/powershell/module/az.frontdoor/new-azfrontdoorwafcustomruleobject).  En CustomRule (Anpassad regel) kan ha flera MatchCondition (Matchningsvillkor).  I det här exemplet anges Block (Blockera) för Action (Åtgärd) och 1 som Priority (Prioritet), högsta prioritetsnivån.
+Skapa ett objekt för CustomRule `nonUSBlockRule` baserat på matchningsvillkor, en åtgärd och en prioritet med hjälp av [New AzFrontDoorWafCustomRuleObject](/powershell/module/az.frontdoor/new-azfrontdoorwafcustomruleobject).  En CustomRule (Anpassad regel) kan ha flera MatchCondition (Matchningsvillkor).  I det här exemplet anges Block (Blockera) för Action (Åtgärd) och 1 som Priority (Prioritet), högsta prioritetsnivån.
 
 ```
-$nonUSBlockRule = New-AzFrontDoorCustomRuleObject `
+$nonUSBlockRule = New-AzFrontDoorWafCustomRuleObject `
 -Name "geoFilterRule" `
 -RuleType MatchRule `
 -MatchCondition $nonUSGeoMatchCondition `

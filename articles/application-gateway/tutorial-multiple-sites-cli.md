@@ -3,25 +3,23 @@ title: Skapa en programgateway som är värd för flera webbplatser – Azure CL
 description: Lär dig hur du skapar en programgateway som är värd för flera webbplatser i Azure CLI.
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
 ms.topic: tutorial
-ms.workload: infrastructure-services
-ms.date: 7/14/2018
+ms.date: 5/20/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: a1f1b464b2ac6fc62ea23a80a3887961ebe2d87e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9c99b534a40b5c87cf511c75ccdb19df4d9aaf63
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58100732"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955637"
 ---
-# <a name="tutorial-create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>Självstudier: Skapa en programgateway som är värd för flera webbplatser med hjälp av Azure CLI
+# <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>Skapa en programgateway som är värd för flera webbplatser med hjälp av Azure CLI
 
-Du kan använda Azure CLI till att [konfigurera ett värdskap för flera webbplatser](multiple-site-overview.md) när du skapar en [programgateway](overview.md). I den här självstudien definierar du adresspooler för serverdelen med hjälp av VM-skalningsuppsättningar. Du konfigurerar sedan lyssnare och regler baserat på de domäner du äger för att kontrollera att webbtrafiken anländer till rätt servrar i poolerna. Den här självstudien förutsätter att du äger flera domäner och använder exempel på *www\.contoso.com* och *www\.fabrikam.com*.
+Du kan använda Azure CLI till att [konfigurera ett värdskap för flera webbplatser](multiple-site-overview.md) när du skapar en [programgateway](overview.md). I den här artikeln kan du definiera serverdelsadresspooler med skalningsuppsättningar för virtuella datorer. Du konfigurerar sedan lyssnare och regler baserat på de domäner du äger för att kontrollera att webbtrafiken anländer till rätt servrar i poolerna. Den här artikeln förutsätter att du äger flera domäner och använder exempel på *www\.contoso.com* och *www\.fabrikam.com*.
 
-I den här guiden får du lära dig att:
+I den här artikeln kan du se hur du:
 
 > [!div class="checklist"]
 > * Konfigurera nätverket
@@ -33,8 +31,7 @@ I den här guiden får du lära dig att:
 
 ![Exempel på routning mellan flera webbplatser](./media/tutorial-multiple-sites-cli/scenario.png)
 
-
-Om du vill kan du utföra den här självstudien med [Azure PowerShell](tutorial-multiple-sites-powershell.md).
+Om du vill kan du slutföra den här proceduren med [Azure PowerShell](tutorial-multiple-sites-powershell.md).
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -48,11 +45,11 @@ En resursgrupp är en logisk container där Azure-resurser distribueras och hant
 
 I följande exempel skapas en resursgrupp med namnet *myResourceGroupAG* på platsen *eastus*.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group create --name myResourceGroupAG --location eastus
 ```
 
-## <a name="create-network-resources"></a>Skapa nätverksresurser 
+## <a name="create-network-resources"></a>Skapa nätverksresurser
 
 Skapa det virtuella nätverket och ett undernät med namnet *myAGSubnet* med [az network vnet create](/cli/azure/network/vnet). Du kan sedan lägga till undernätet som servrarna i serverdelen behöver med [az network vnet subnet create](/cli/azure/network/vnet/subnet). Skapa den offentliga IP-adressen med namnet *myAGPublicIPAddress* med [az network public-ip create](/cli/azure/network/public-ip).
 
@@ -254,15 +251,4 @@ az group delete --name myResourceGroupAG --location eastus
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen lärde du dig att:
-
-> [!div class="checklist"]
-> * Konfigurera nätverket
-> * Skapa en programgateway
-> * Skapa lyssnare för serverdelen
-> * Skapa routningsregler
-> * Skapa VM-skalningsuppsättningar med serverdelspoolerna
-> * Skapa en CNAME-post i domänen
-
-> [!div class="nextstepaction"]
-> [Skapa en programgateway med webbadressbaserade routningsregler](./tutorial-url-route-cli.md)
+* [Skapa en programgateway med webbadressbaserade routningsregler](./tutorial-url-route-cli.md)

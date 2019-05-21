@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8092724a8ebf04342e00d054cc78fe26b48d2f82
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1fe436632eee12157dde2b082a5c77e67e7977cc
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65864001"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65957180"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-boomi"></a>Självstudier: Azure Active Directory-integrering med Boomi
 
@@ -251,12 +251,12 @@ För att göra det möjligt för Azure AD-användare att logga in på Boomi mås
 
     d. Ange användarens **Federations-ID**. Varje användare ha ett Federation-ID som unikt identifierar användare i kontot.
 
-    e. Tilldela rollen **Standardanvändare** till användaren. Tilldela inte rollen Administratör, eftersom som skulle ge användaren normal Atmosphere-åtkomst samt åtkomst via enkel inloggning.
+    e. Tilldela rollen **Standardanvändare** till användaren. Tilldela inte rollen Administratör eftersom som skulle ge dem normal atmosfär åtkomst samt enkel inloggning.
 
     f. Klicka på **OK**.
 
     > [!NOTE]
-    > Användaren får inte något e-postvälkomstmeddelande med ett lösenord som kan användas för att logga in på AtomSphere-kontot eftersom lösenordet hanteras via identitetsprovidern. Du kan använda andra verktyg eller API:er för Boomi-kontoskapande som tillhandahålls av Boomi för att etablera AAD-användarkonton.
+    > Användaren får inte en e-postmeddelande som Välkommen med ett lösenord som kan användas för att logga in på kontot AtomSphere eftersom sitt lösenord hanteras via identitetsprovidern. Du kan använda andra verktyg eller API:er för Boomi-kontoskapande som tillhandahålls av Boomi för att etablera AAD-användarkonton.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 

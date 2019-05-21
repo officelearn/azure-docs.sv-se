@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 9bc2bd50fda34b493463898d8ef47ed2c246b7d8
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 339cbf18d79053dfb0704d928b8c9251c73b3a6e
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65790113"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951783"
 ---
 # <a name="fail-back-an-azure-vm-between-azure-regions"></a>Återställa en Azure virtuell dator mellan Azure-regioner
 
@@ -29,7 +29,7 @@ Den här självstudien beskrivs hur du inte återställa en virtuell Azure-dator
 > 
 > [!NOTE]
 > 
-> Den här kursen hjälper dig att växla över några virtuella datorer till en målregion och tillbaka till källregionen med minsta anpassningar. Mer detaljerad information, granska de [anvisningar hjälper på Azure Virtual Machines](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/).
+> Den här kursen hjälper dig att växla över några virtuella datorer till en målregion och tillbaka till källregionen med minsta anpassningar. Mer detaljerad information, granska de [anvisningar hjälper på Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/windows/).
 
 ## <a name="before-you-start"></a>Innan du börjar
 

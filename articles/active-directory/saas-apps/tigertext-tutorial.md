@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
-ms.openlocfilehash: 7507e5d23898fd069797c14d0fa18419b8345d78
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
-ms.translationtype: HT
+ms.openlocfilehash: 840b1fe55556cfd853e0928164891d6b21b17cc2
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/20/2019
-ms.locfileid: "65888262"
+ms.locfileid: "65956859"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tigertext-secure-messenger"></a>Självstudier: Azure Active Directory-integrering med TigerText Secure Messenger
 
@@ -156,7 +156,7 @@ I det här avsnittet skapar du en testanvändare med namnet Britta Simon i Azure
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning ger användarens företagsidentitet åtkomst TigerText skydda Messenger.
+I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att ge dem åtkomst till TigerText skydda Messenger.
 
 1. I Azure-portalen väljer du **företagsprogram** > **alla program** > **TigerText skydda Messenger**.
 

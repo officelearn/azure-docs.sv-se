@@ -6,6 +6,9 @@
     - name: Vad är tjänsten Azure Machine Learning?
       displayName: AML services overview
       href: overview-what-is-azure-ml.md
+    - name: Så här fungerar tjänsten
+      displayName: architecture concepts definitions
+      href: concept-azure-machine-learning-architecture.md
 - name: Konfiguration
   items:
     - name: Skapa en arbetsyta
@@ -77,9 +80,6 @@
           href: ui-sample-classification-predict-churn.md
 - name: Begrepp
   items:
-    - name: Så här fungerar tjänsten
-      displayName: architecture concepts definitions
-      href: concept-azure-machine-learning-architecture.md
     - name: Arbetsyta
       displayName: concept definitions architecture
       href: concept-workspace.md

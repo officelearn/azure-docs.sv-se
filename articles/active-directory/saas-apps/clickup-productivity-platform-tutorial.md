@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 3244140999dc61560549db077d4c402b3986956b
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
-ms.translationtype: HT
+ms.openlocfilehash: 2a14b251df0bedbcd27ab4e9bf1abe9a27ad50d6
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/20/2019
-ms.locfileid: "65900506"
+ms.locfileid: "65950914"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clickup-productivity-platform"></a>Självstudier: Azure Active Directory-integrering med ClickUp Productivity Platform
 
@@ -203,7 +203,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
     ![Konfiguration av ClickUp Productivity Platform](./media/clickup-productivity-platform-tutorial/user2.png)
 
     > [!NOTE]
-    > Användaren får meddelandet och måste tacka ja till inbjudan för att aktivera kontot.
+    > Användaren får meddelandet och de måste acceptera inbjudan att aktivera kontot.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 

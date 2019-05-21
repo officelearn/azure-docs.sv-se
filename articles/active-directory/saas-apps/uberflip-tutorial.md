@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 69e86e486a9cdb058b972bda5176c14e15f4630a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 55fa42eb1c35025b1008b3b5d26f61c243ff2b97
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65865668"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956662"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-uberflip"></a>Självstudier: Azure Active Directory-integrering med Uberflip
 
@@ -72,15 +72,15 @@ Om du vill konfigurera integrering av Uberflip i Azure AD måste du lägga till 
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Uberflip baserat på en användare med namnet **Britta Simon**. För enkel inloggning ska fungera, måste du upprätta en länk mellan en Azure AD-användare och en tillhörande användare i Uberflip.
+I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Uberflip baserat på en användare med namnet **B Simon**. För enkel inloggning ska fungera, måste du upprätta en länk mellan en Azure AD-användare och en tillhörande användare i Uberflip.
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med Uberflip, måste du utföra följande byggblock:
 
 1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  vill tillåta att användarna använda den här funktionen.
 1. **[Konfigurera Uberflip enkel inloggning](#configure-uberflip-single-sign-on)**  att konfigurera inställningar för enkel inloggning på programsidan.
-1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  att testa Azure AD enkel inloggning med Britta Simon.
-1. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  att aktivera Britta Simon att använda Azure AD enkel inloggning.
-1. **[Skapa en testanvändare Uberflip](#create-an-uberflip-test-user)**  så att det finns en användare med namnet Britta Simon i Uberflip som är kopplad till Azure AD-användare med namnet Britta Simon.
+1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  att testa Azure AD enkel inloggning med B. Simon.
+1. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  att aktivera B. Simon att använda Azure AD enkel inloggning.
+1. **[Skapa en testanvändare Uberflip](#create-an-uberflip-test-user)**  så att det finns en användare med namnet B. Simon i Uberflip som är kopplad till Azure AD-användare med namnet B. Simon.
 1. **[Testa enkel inloggning](#test-single-sign-on)**  att kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
@@ -136,7 +136,7 @@ Du behöver skicka hämtade Federation Metadata XML-filen för att konfigurera e
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-I det här avsnittet skapar du en testanvändare med namnet Britta Simon i Azure-portalen.
+I det här avsnittet skapar du en användare med namnet B. Simon i Azure-portalen.
 
 1. I Azure-portalen går du till den vänstra panelen och väljer **Azure Active Directory** > **Användare** > **Alla användare**.
 
@@ -150,9 +150,9 @@ I det här avsnittet skapar du en testanvändare med namnet Britta Simon i Azure
 
     ![Fönstret användare](common/user-properties.png)
 
-    1. I rutan **Namn** anger du **BrittaSimon**.
+    1. I den **namn** anger **BSimon**.
   
-    1. I den **användarnamn** anger **BrittaSimon\@\<företagsdomänen >.\< tillägget >**. Till exempel **BrittaSimon\@contoso.com**.
+    1. I den **användarnamn** anger **BSimon\@\<företagsdomänen >.\< tillägget >**. Till exempel **BSimon\@contoso.com**.
 
     1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
 
@@ -160,7 +160,7 @@ I det här avsnittet skapar du en testanvändare med namnet Britta Simon i Azure
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning ger användarens företagsidentitet åtkomst Uberflip.
+I det här avsnittet ska aktivera du B. Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Uberflip.
 
 1. I Azure-portalen väljer du **företagsprogram** > **alla program** > **Uberflip**.
 
@@ -178,7 +178,7 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
     ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-1. I den **användare och grupper** väljer **Britta Simon** i den **användare** och välj sedan **Välj** längst ned i fönstret.
+1. I den **användare och grupper** väljer **B Simon** i den **användare** och välj sedan **Välj** längst ned i fönstret.
 
 1. Om du förväntar dig ett rollvärde i SAML-försäkran sedan i den **Välj roll** fönstret Välj rätt roll för användaren i listan. Längst ned i fönstret Välj **Välj**.
 
@@ -186,7 +186,7 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 ### <a name="create-an-uberflip-test-user"></a>Skapa en Uberflip testanvändare
 
-En användare med namnet Britta Simon skapas nu i Uberflip. Du behöver inte göra något för att skapa den här användaren. Uberflip stöder etableringen av just-in-time-användare som är aktiverat som standard. Om en användare med namnet Britta Simon inte redan finns i Uberflip, skapas en ny efter autentisering.
+En användare med namnet B. Simon skapas nu i Uberflip. Du behöver inte göra något för att skapa den här användaren. Uberflip stöder etableringen av just-in-time-användare som är aktiverat som standard. Om en användare med namnet B. Simon inte redan finns i Uberflip, skapas en ny efter autentisering.
 
 > [!NOTE]
 > Om du vill skapa en användare manuellt kan du kontakta den [Uberflip supportteamet](mailto:support@uberflip.com).

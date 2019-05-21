@@ -7,12 +7,12 @@ ms.date: 02/04/2019
 ms.topic: tutorial
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 1a00d237ef94f73ebf59070d8160a7e5144b0ac8
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c12345791e62aa99bd07dde7fc44dd52d0989941
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65800563"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979169"
 ---
 # <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>Självstudier: Skapa och hantera principer för att använda kompatibilitet
 
@@ -42,11 +42,11 @@ Det första steget för att tillämpa efterlevnad av Azure Policy är att tillde
 
    ![Tilldela en principdefinition från sidan tilldelningar](../media/create-and-manage/select-assign-policy.png)
 
-1. På sidan **Tilldela princip** väljer du **Omfång** genom att klicka på ellipsen och antingen välja en hanteringsgrupp eller en prenumeration. Du kan även välja en resursgrupp. En omfattning avgör vilka resurser eller grupper med resurser som principtilldelningen används på.  Klicka sedan på **Välj** längst ned på sidan **Omfång**.
+1. På sidan **Tilldela princip** väljer du **Omfång** genom att klicka på ellipsen och antingen välja en hanteringsgrupp eller en prenumeration. Du kan även välja en resursgrupp. En omfattning avgör vilka resurser eller grupper med resurser som principtilldelningen används på. Klicka sedan på **Välj** längst ned på sidan **Omfång**.
 
    I det här exemplet används **Contoso-prenumerationen**. Din prenumeration skiljer sig.
 
-1. Resurser som kan uteslutas baserat på **omfång**.  **Undantag** startar på en nivå som är lägre än nivån för **Omfång**. **Undantag** är valfria, så lämna det tomt just nu.
+1. Resurser som kan uteslutas baserat på **omfång**. **Undantag** startar på en nivå som är lägre än nivån för **Omfång**. **Undantag** är valfria, så lämna det tomt just nu.
 
 1. Välj ellipsen **Principdefinition** för att öppna listan med tillgängliga definitioner. Du kan filtrera principdefinitionen **Typ** som *Inbyggt* om du vill se alla och läsa deras beskrivningar.
 
@@ -54,7 +54,8 @@ Det första steget för att tillämpa efterlevnad av Azure Policy är att tillde
 
    ![Använd sökrutan filtrera för att hitta en princip](../media/create-and-manage/select-available-definition.png)
 
-1. **Tilldelningsnamn** fylls i automatiskt med namnet på principen som du valde, men du kan ändra det om du vill. I det här exemplet låter du *Kräv SQL Server version 12.0* vara kvar. Du kan också lägga till en valfri **Beskrivning**. Beskrivningen innehåller information om den här principtilldelningen.  **Tilldelad av** fylls automatiskt i baserat på vem som är inloggad. Det här fältet är valfritt, så du kan ange anpassade värden.
+1. **Tilldelningsnamn** fylls i automatiskt med namnet på principen som du valde, men du kan ändra det om du vill. I det här exemplet låter du *Kräv SQL Server version 12.0* vara kvar. Du kan också lägga till en valfri **Beskrivning**. Beskrivningen innehåller information om den här principtilldelningen.
+   **Tilldelad av** fylls automatiskt i baserat på vem som är inloggad. Det här fältet är valfritt, så du kan ange anpassade värden.
 
 1. Lämna **Skapa en hanterad identitet** avmarkerat. Den här rutan _måste_ markeras när den princip eller det initiativ som tilldelas omfattar en princip med effekten [deployIfNotExists](../concepts/effects.md#deployifnotexists). Eftersom den princip som används för den här självstudien inte gör det kan du lämna den tom. Mer information finns i avsnitten [hanterade identiteter](../../../active-directory/managed-identities-azure-resources/overview.md) och [hur reparationssäkerhet fungerar](../how-to/remediate-resources.md#how-remediation-security-works).
 
@@ -116,7 +117,7 @@ Nu när du har tilldelat en inbyggd principdefinition kan du göra mer med Azure
 
 ## <a name="create-a-policy-definition-with-rest-api"></a>Skapa en principdefinition med REST API
 
-Du kan skapa en princip med REST API för principdefinitioner. Med REST API kan du skapa och ta bort principdefinitioner och få information om befintliga definitioner. Om du vill skapa en principdefinition använder du följande exempel:
+Du kan skapa en princip med REST API för Principdefinitioner i Azure. Med REST API kan du skapa och ta bort principdefinitioner och få information om befintliga definitioner. Om du vill skapa en principdefinition använder du följande exempel:
 
 ```http
 PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.authorization/policydefinitions/{policyDefinitionName}?api-version={api-version}
@@ -156,7 +157,7 @@ Inkludera en begärantext som liknar följande exempel:
 
 ## <a name="create-a-policy-definition-with-powershell"></a>Skapa en principdefinition med PowerShell
 
-Innan du fortsätter med PowerShell-exemplet ska du kontrollera att du har installerat den senaste versionen av Azure PowerShell Az-modulen. 
+Innan du fortsätter med PowerShell-exemplet ska du kontrollera att du har installerat den senaste versionen av Azure PowerShell Az-modulen.
 
 Du kan skapa en principdefinition med cmdleten `New-AzPolicyDefinition`.
 
@@ -369,13 +370,14 @@ Med en initiativdefinition kan du gruppera flera principdefinitioner för att up
 
    ![Tilldela en definition från sidan för definition av initiativ](../media/create-and-manage/assign-definition.png)
 
-   Du kan även högerklicka på den markerade raden eller vänsterklicka på ellipsen i slutet av raden för att få upp en snabbmeny.  Välj sedan **Tilldela**.
+   Du kan även högerklicka på den markerade raden eller vänsterklicka på ellipsen i slutet av raden för att få upp en snabbmeny. Välj sedan **Tilldela**.
 
    ![Alternativ för ett initiativ](../media/create-and-manage/select-right-click.png)
 
 1. Fyll i sidan **Get Secure: Assign Initiative** genom att ange följande exempelinformation. Du kan använda din egen information.
 
-   - Omfång: Den hanteringsgrupp eller prenumeration som du sparade initiativet till blir standard.  Du kan ändra omfånget för att tilldela initiativet till en prenumeration eller resursgrupp inom lagringsplatsen.
+   - Omfång: Den hanteringsgrupp eller prenumeration som du sparade initiativet till blir standard.
+     Du kan ändra omfånget för att tilldela initiativet till en prenumeration eller resursgrupp inom lagringsplatsen.
    - Undantag: Konfigurera några resurser inom omfånget för att förhindra att initiativtilldelningen tillämpas på dem.
    - Initiativdefinition och tilldelningsnamn: Get Secure (förifylld som namnet på det initiativ som tilldelas).
    - Beskrivning: Initiativtilldelningen är skräddarsydd för att tillämpa den här gruppen med principdefinitioner.
@@ -389,7 +391,8 @@ Med en initiativdefinition kan du gruppera flera principdefinitioner för att up
 
 1. Välj **Efterlevnad** till vänster på Azure Policy-sidan.
 
-1. Leta upp initiativet **Hämta källan**. Det är sannolikt fortfarande i _Efterlevnadstillståndet_ **Inte startat**. Klicka på initiativet att få fullständig information om förloppet för tilldelningen.
+1. Leta upp initiativet **Hämta källan**. Det är sannolikt fortfarande i _Efterlevnadstillståndet_ **Inte startat**.
+   Klicka på initiativet att få fullständig information om förloppet för tilldelningen.
 
    ![Initiativkompatibilitet sidan – utvärderingar som inte har startats](../media/create-and-manage/compliance-status-not-started.png)
 

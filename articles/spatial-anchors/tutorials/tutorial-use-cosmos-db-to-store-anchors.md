@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: d955654eee1d02994f303b6270b156eb9a61c29b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 19c2298c9bda03acba28496a97c89c2a53e3c44e
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60681411"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65964896"
 ---
 # <a name="tutorial-share-azure-spatial-anchors-across-sessions-and-devices-with-an-azure-cosmos-db-back-end"></a>Självstudier: Dela Azure Spatial ankare flera sessioner och enheter med ett Azure Cosmos DB-serverdel
 
@@ -70,7 +70,7 @@ Leta upp den `StorageConnectionString` egenskap och ange det värde som ska vara
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du använda Azure Cosmos DB för att dela fästpunktsidentifierare mellan enheter. Om du vill veta mer om hur du använder Azure Spatial fästpunkter i en ny Android-app kan du fortsätta till nästa självstudie.
+I den här självstudien har du använda Azure Cosmos DB för att dela fästpunktsidentifierare mellan enheter. Om du vill veta mer om hur du använder Azure Spatial fästpunkter i en ny Unity HoloLens-app kan du fortsätta till nästa självstudie.
 
 > [!div class="nextstepaction"]
-> [Startar en ny Android-app](./tutorial-new-android-app.md)
+> [Startar en ny Android-app](./tutorial-new-unity-hololens-app.md)

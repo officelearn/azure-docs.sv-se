@@ -216,6 +216,8 @@
           href: online-backup-and-restore.md
         - name: Efterlevnad
           href: compliance.md
+    - name: Begränsningar
+      href: concepts-limits.md
 - name: 'Cassandra, MongoDB och andra API:er'
   expanded: true
   items:

@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: 58835b66824d55b64b77e34df64d34c8da1c269a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 29a842f7dfcf720f29fcff80d2e736893c824f5a
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60641095"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65949555"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Distribuera till Azure App Service med plugin-programmet Jenkins 
 
@@ -72,7 +72,7 @@ Innan du konfigurerar jobbet i Jenkins behöver du en Azure App Service-plan och
 
 
 1. Skapa en Azure App Service-plan med den **kostnadsfria** prisnivån med `az appservice plan create` [Azure CLI-kommandot](/cli/azure/appservice/plan#az-appservice-plan-create). I App Service-planen definieras de fysiska resurser som används som värd för dina appar. Alla program som har tilldelats en App Service-plan delar de här resurserna. Delade resurser hjälper dig att minska kostnaderna vid värdskap för flera appar.
-2. Skapa en webbapp. Du kan använda [Azure-portalen](/azure/app-service-web/web-sites-configure) eller följande `az` Azure CLI-kommando:
+2. Skapa en webbapp. Du kan använda [Azure-portalen](/azure/app-service/configure-common) eller följande `az` Azure CLI-kommando:
     ```azurecli-interactive 
     az webapp create --name <myAppName> --resource-group <myResourceGroup> --plan <myAppServicePlan>
     ```

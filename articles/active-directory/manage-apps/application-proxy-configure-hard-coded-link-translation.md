@@ -3,8 +3,8 @@ title: 'Översätta länkar och URL: er Azure AD App Proxy | Microsoft Docs'
 description: Beskriver grunderna om Azure AD Application Proxy-kopplingar.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/04/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2949559542759cadf90d329bc50b352998b3eb7e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: fdfd8fd642120f4e829de8fbb013f85aea2a9484
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60437753"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65825563"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Omdirigera hårdkodad länkar till appar som publiceras med Azure AD Application Proxy
 
@@ -59,13 +59,14 @@ Med webbläsartillägget MyApps är alla interna URL: er som publiceras med Appl
 
 Användaren måste ladda ned tillägget och logga in om du vill använda den här funktionen. Det finns ingen annan konfiguration som krävs för administratörer eller användare. 
 
- 
+Mer information, inklusive hur du konfigurerar det här alternativet finns i [MyApps webbläsartillägget](https://docs.microsoft.com/en-us/azure/active-directory/user-help/my-apps-portal-end-user-access#download-and-install-the-my-apps-secure-sign-in-extension) dokumentation.
 
 ### <a name="option-3-link-translation-setting"></a>Alternativ 3: Link Translation Setting 
 
-När länken translation är aktiverat programproxytjänsten söker igenom HTML och CSS för publicerade interna länkar och omvandlar dem så att användarna får en oavbruten upplevelse. 
+När länken translation är aktiverat programproxytjänsten söker igenom HTML och CSS för publicerade interna länkar och omvandlar dem så att användarna får en oavbruten upplevelse. Med hjälp av webbläsartillägget MyApps är att föredra att länken anonymt eftersom det ger en mer bättre upplevelse för användare.
 
-
+> [!NOTE]
+> Om du använder alternativet 2 eller 3, ska endast en av dessa vara aktiverad i taget.
 
 ## <a name="how-link-translation-works"></a>Hur länkar translation fungerar
 
@@ -101,7 +102,7 @@ Den fullständiga listan med HTML-kod taggar som Application Proxy stöder länk
 * meta
 * objekt
 * skript
-* källa
+* source
 * Spåra
 * video
 

@@ -2,18 +2,17 @@
 title: Övergången till offentlig CA-certifikat för P2S-gatewayer | Azure VPN Gateway | Microsoft Docs
 description: Den här artikeln får du går över till de nya offentliga CA-certifikat för P2S-gatewayer.
 services: vpn-gateway
-author: WenJason
+author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-origin.date: 03/12/2019
-ms.date: 04/29/2019
-ms.author: v-jay
-ms.openlocfilehash: 29f2aeee53e07adfeafb8017c489c0b830f24b36
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/16/2019
+ms.author: cherylmc
+ms.openlocfilehash: 1d45e1a5e4053ead4330967c5e250c0797c19fe7
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60859655"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827459"
 ---
 # <a name="transition-to-a-public-ca-gateway-certificate-for-p2s"></a>Övergång till ett offentligt CA-gatewaycertifikat för P2S
 
@@ -30,17 +29,7 @@ Tidigare behövde ett självsignerat certifikat för gateway (utfärdats i bakgr
 Endast äldre gatewayer som påverkas av den här ändringen. Om din gateway-certifikatet måste överföras, får du kommunikation eller popup i Azure-portalen. Du kan kontrollera om din gateway påverkas med hjälp av stegen i den här artikeln.
 
 > [!IMPORTANT]
-> Övergången är schemalagd för mars 12 2019 kl. 18:00 UTC. Du kan skapa ett supportärende om du föredrar ett annat tidsintervall. Se och slutföra din begäran minst 24 timmar i förväg.  Du kan begära en av följande fönster:
->
-> * 06:00 UTC den 25 februari
-> * 18:00 UTC den 25 februari
-> * 06:00 UTC på 1 mars
-> * 18:00 UTC på 1 mars
->
-> **Alla återstående gatewayer övergår mars 12 2019 kl. 18:00 UTC**.
->
-> Kunderna får ett e-postmeddelande när deras gateway Slutför övergången.
-> 
+> Övergången till offentlig CA-certifikat slutfördes på den 12 maj 2019. **Det här dokumentet tas den 31 maj 2019.**
 
 ## <a name="1-verify-your-certificate"></a>1. Kontrollera ditt certifikat
 
@@ -64,7 +53,7 @@ Endast äldre gatewayer som påverkas av den här ändringen. Om din gateway-cer
 
 Om certifikatet ingår i uppdateringen, kommer gateway-certifikatet att överföras. Referera till den **viktigt** Obs för övergången gånger. Efter uppdateringen P2S-klienter inte att ansluta med sina gamla profilen. Du måste generera nya profiler för VPN-klienten och installera dem på klienter.
 
-## <a name="3-generate-vpn-client-configuration-profile"></a>3. Generera VPN-profil för klienten
+## <a name="3-generate-vpn-client-configuration-profile"></a>3 Generera VPN-profil för klienten
 
 När certifikatet har övergått, kan du hämta den nya VPN-profilen (VPN-klientkonfigurationsfiler) från Azure-portalen. Anvisningar finns i [skapa och installera VPN-klientkonfigurationsfiler](point-to-site-vpn-client-configuration-azure-cert.md). Du behöver inte att generera nya klientcertifikat.
 

@@ -1,57 +1,69 @@
 ---
-title: Enkel inloggning – icke-galleriprogram - Azure Active Directory | Microsoft Docs
-description: Konfigurera enkel inloggning (SSO) till icke-galleriprogram i Azure Active Directory (AD Azure)
+title: Enkel - icke-galleriprogram - inloggning Microsoft identity-plattformen | Microsoft Docs
+description: Konfigurera enkel inloggning (SSO) till icke-galleriprogram i Microsoft identity-plattformen (Azure AD)
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: article
 ms.workload: identity
 ms.date: 01/08/2019
-ms.author: celested
+ms.author: mimart
 ms.reviewer: asmalser,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f003ec847ab3777a2174a1078a2d07eb012bb34
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 8f55de2d081f12f1bddf7e68a795133c4b394823
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60292078"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65824992"
 ---
-# <a name="configure-single-sign-on-to-non-gallery-applications-in-azure-active-directory"></a>Konfigurera enkel inloggning till icke-galleriprogram i Azure Active Directory
+# <a name="configure-single-sign-on-to-non-gallery-applications-in-microsoft-identity-platform"></a>Konfigurera enkel inloggning till icke-galleriprogram i Microsoft identity-plattformen
 
-Den här artikeln handlar om en funktion som gör att administratörer kan konfigurera enkel inloggning till program som inte finns i appgalleriet för Azure Active Directory *utan att skriva kod*. Om du söker i stället för vägledning för utvecklare om hur du integrerar anpassade appar med Azure AD med hjälp av kod, se [Autentiseringsscenarier för Azure AD](../develop/authentication-scenarios.md).
+Den här artikeln handlar om en funktion som gör att administratörer kan konfigurera enkel inloggning för program inte finns i appgalleriet för Microsoft identity-plattformen *utan att skriva kod*.
 
-Azure Active Directory-programgalleriet innehåller en lista över program som är kända för att stödja en form av enkel inloggning med Azure Active Directory, enligt beskrivningen i [i den här artikeln](what-is-single-sign-on.md). När du (som en IT-specialist eller system integrator i din organisation) har hittat programmet som du vill ansluta till, kan du komma igång genom att följa de stegvisa anvisningarna som visas i Azure-portalen för att aktivera enkel inloggning.
+Om du söker i stället för vägledning för utvecklare om hur du integrerar anpassade appar med Azure AD med hjälp av kod, se [Autentiseringsscenarier för Azure AD](../develop/authentication-scenarios.md).
 
-Dessa funktioner är också tillgängliga, enligt ditt licensavtal. Mer information finns på sidan med [priser](https://azure.microsoft.com/pricing/details/active-directory/). 
+Programgalleriet för Microsoft identity-plattformen innehåller en lista över program som är kända för att stödja en form av enkel inloggning med Microsoft identity-plattformen, enligt beskrivningen i [i den här artikeln](what-is-single-sign-on.md). När du (som en IT-specialist eller system integrator i din organisation) har hittat programmet som du vill ansluta till, kan du komma igång genom att följa de stegvisa anvisningarna som visas i Azure-portalen för att aktivera enkel inloggning.
 
+Dessa funktioner är också tillgängliga, enligt ditt licensavtal. Mer information finns på sidan med [priser](https://azure.microsoft.com/pricing/details/active-directory/).
+
+- Integrering med självbetjäning för ett program som använder en modern protokollet som [OpenId Connect/OAuth](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols) att verifiera användare och hämta token för [Microsoft Graph](https://graph.microsoft.com).
 - Integrering med självbetjäning för alla program som stöder SAML 2.0-Identitetsproviders (SP-initierat eller IdP-initierad)
 - Integrering med självbetjäning för alla webbprogram som har en HTML-baserad på inloggningssidan med hjälp av [lösenordsbaserad SSO](what-is-single-sign-on.md#password-based-sso)
 - Självbetjäning anslutning av program som använder protokollet SCIM för användaretablering ([som beskrivs här](use-scim-to-provision-users-and-groups.md))
-- Du kan lägga till länkar till alla program i den [Office 365-appstartaren](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) eller [Azure AD-åtkomstpanelen](what-is-single-sign-on.md#linked-sso)
+- Du kan lägga till länkar till alla program i den [Office 365-appstartaren](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) eller [Azure AD-åtkomstpanelen](what-is-single-sign-on.md#linked-sign-on)
 
 Detta kan inkludera inte bara SaaS-program som du använder men har inte ännu har publicerat till Azure AD-programgalleriet, men andra leverantörers webb-program som din organisation har distribuerats till servrar som du styr, antingen i molnet eller lokalt.
 
-De här funktionerna kallas även *mallar för integrering*anger standardbaserad anslutningspunkter för appar som stöder SAML, SCIM eller formulärbaserad autentisering och innehåller flexibla alternativ och inställningar för kompatibilitet med ett stort antal program. 
+De här funktionerna kallas även *mallar för integrering*anger standardbaserad anslutningspunkter för appar som stöder SAML, SCIM eller formulärbaserad autentisering och innehåller flexibla alternativ och inställningar för kompatibilitet med ett stort antal program.
 
 ## <a name="adding-an-unlisted-application"></a>Lägga till ett program som inte finns i listan
-Logga in på Azure portal med ditt konto i Azure Active Directory-administratör om du vill ansluta ett program med en mall för integrering. Bläddra till den **Active Directory > företagsprogram > Nytt program > icke-galleriprogram** väljer **Lägg till**, och sedan **lägga till ett program från galleriet** .
 
-  ![Lägga till ett program](./media/configure-single-sign-on-non-gallery-applications/customapp1.png)
+Microsoft Identity-plattformen ger två mekanismer för att registrera program.
 
-I app-galleriet kan du lägga till en app som inte finns i listan genom att välja den **icke-galleriprogram** panel som visas i sökresultaten om din önskade app inte hittades. När du har angett ett namn för ditt program, kan du konfigurera alternativ för enkel inloggning och beteende. 
+Ett program som använder ett moderna protokoll som [OpenId Connect/OAuth](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols) att autentisera användarna har registrerats med hjälp av den [programregistrering Portal](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v2-register-an-app).
 
-**Snabbtips**:  Ett bra tips är att använda sökfunktionen för att kontrollera om programmet redan finns i programgalleriet. Om hitta appen och dess beskrivning nämner enkel inloggning, stöds redan programmet för federerad enkel inloggning.
+Registreringen av program som använder andra typer av [stöds autentiseringsmekanismer](what-is-single-sign-on.md) som den [SAML](https://docs.microsoft.com/azure/active-directory/develop/single-sign-on-saml-protocol) protokollet används den **företagsprogram** bladet ansluta sig själva med Microsoft Identity-plattformen.
 
-  ![Search](./media/configure-single-sign-on-non-gallery-applications/customapp2.png)
+För att ansluta ett program med en mall för integration måste du logga in på Azure portal med ditt administratörskonto för Microsoft identity-plattformen. Bläddra till den **Active Directory > företagsprogram > Nytt program > icke-galleriprogram** väljer **Lägg till**, och sedan **lägga till ett program från galleriet** .
+
+![Lägg till program](./media/configure-single-sign-on-non-gallery-applications/customapp1.png)
+
+I app-galleriet kan du lägga till en app som inte finns i listan genom att välja den **icke-galleriprogram** panel som visas i sökresultaten om din önskade app inte hittades. När du har angett ett namn för ditt program, kan du konfigurera alternativ för enkel inloggning och beteende.
+
+> [!TIP]
+> Ett bra tips är att använda sökfunktionen för att kontrollera om programmet redan finns i programgalleriet. Om hitta appen och dess beskrivning nämner enkel inloggning, stöds redan programmet för federerad enkel inloggning.
+
+![Sökning](./media/configure-single-sign-on-non-gallery-applications/customapp2.png)
 
 Lägga till ett program på så sätt är liknande som tillgänglig för redan integrerade program. För att starta, markerar **Konfigurera enkel inloggning** eller klicka på **enkel inloggning** från programmets vänstra navigeringsmenyn. Nästa skärm anger alternativ för att konfigurera enkel inloggning. Alternativen beskrivs i nästa avsnitt av den här artikeln.
   
 ![Konfigurationsalternativ](./media/configure-single-sign-on-non-gallery-applications/customapp3.png)
 
 ## <a name="saml-based-single-sign-on"></a>SAML-baserad enkel inloggning
+
 Välj det här alternativet för att konfigurera SAML-baserad autentisering för programmet. Detta kräver att programmet har stöd för SAML 2.0. Du bör samla in information om hur du använder SAML-funktioner i programmet innan du fortsätter. Gå igenom följande avsnitt för att konfigurera enkel inloggning mellan programmet och Azure AD.
 
 ### <a name="enter-basic-saml-configuration"></a>Ange grundläggande SAML-konfiguration
@@ -60,12 +72,12 @@ Ange den grundläggande SAML-konfigurationen om du vill konfigurera Azure AD. Du
 
   ![Litware domän och URL: er](./media/configure-single-sign-on-non-gallery-applications/customapp4.png)
 
-- **Inloggning på URL: en (SP-initierat endast)** – där användaren går för att logga in till det här programmet. Om programmet har konfigurerats för tjänsten tjänstprovider-initierad enkel inloggning, och sedan när användarna navigerar till den här URL: en, tjänstleverantören gör nödvändiga omdirigeringen med Azure AD för att autentisera och logga in användaren i. Om det här fältet fylls sedan Azure AD ska använda den här URL: en starta program från Office 365 och Azure AD-åtkomstpanelen. Om det här fältet utelämnas kommer Azure AD i stället utför identitetsprovider-initierad inloggning när appen startas från Office 365, Azure AD-åtkomstpanelen eller från Azure AD enkel inloggnings-URL (kan kopieras från fliken instrumentpanel).
+- **Inloggning på URL: en (SP-initierat endast)** – där användaren går för att logga in på det här programmet. Om programmet har konfigurerats för tjänsten tjänstprovider-initierad enkel inloggning, och sedan när användarna navigerar till den här URL: en, tjänstleverantören gör nödvändiga omdirigeringen med Azure AD för att autentisera och loggar in användaren. Om det här fältet fylls sedan Azure AD ska använda den här URL: en starta program från Office 365 och Azure AD-åtkomstpanelen. Om det här fältet utelämnas kommer Azure AD i stället utför identitetsprovider-initierad inloggning när appen startas från Office 365, Azure AD-åtkomstpanelen eller från Azure AD enkel inloggnings-URL (kan kopieras från fliken instrumentpanel).
 - **Identifieraren** -ska identifiera programmet som enkel inloggning konfigureras. Du hittar det här värdet som elementet utfärdaren i AuthRequest (SAML begäran) som skickas av programmet. Det här värdet visas också som den **entitets-ID** i alla SAML-metadata som tillhandahålls av programmet. Kontrollera programmets SAML-dokumentationen för information om vad som är attributvärdet entitets-ID eller målgrupp. 
 
     Följande är ett exempel på hur ID- eller Utfärdarnamn visas i SAML-begäran som skickas av programmet till Azure AD:
 
-    ```
+    ```XML
     <samlp:AuthnRequest
     xmlns="urn:oasis:names:tc:SAML:2.0:metadata"
     ID="id6c1c178c166d486687be4aaf5e482730"
@@ -86,7 +98,7 @@ Ange den grundläggande SAML-konfigurationen om du vill konfigurera Azure AD. Du
     Set-AzureADServicePrincipal -ObjectId $sp.ObjectId -ReplyUrls "<ReplyURLs>"
     ```
 
-Mer information finns i [SAML 2.0-autentiseringsbegäranden och svar som har stöd för Azure Active Directory (AD Azure)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference?/?WT.mc_id=DOC_AAD_How_to_Debug_SAML)
+Mer information finns i [SAML 2.0-autentiseringsbegäranden och svar som har stöd för Microsoft identity-plattformen (Azure AD)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference?/?WT.mc_id=DOC_AAD_How_to_Debug_SAML)
 
 
 ### <a name="review-or-customize-the-claims-issued-in-the-saml-token"></a>Granska eller anpassa anspråk som utfärdats i SAML-token
@@ -100,11 +112,9 @@ Du kan visa eller redigera anspråk som skickats i SAML-token till program under
 Det finns två orsaker till varför du kan behöva redigera anspråk som utfärdats i SAML-token:
 
 - Programmet har skrivits för att kräva en annan uppsättning anspråk URI: er eller anspråksvärden.
-- Programmet har distribuerats på ett sätt som kräver NameIdentifier-anspråket ska vara något annat än användarnamnet (AKA användarens huvudnamn) lagras i Azure Active Directory. 
+- Programmet har distribuerats på ett sätt som kräver NameIdentifier-anspråket ska vara något annat än användarnamnet (det vill säga användarens huvudnamn) lagras i Microsoft identity-plattformen.
 
 Mer information finns i [anpassa anspråk som utfärdats i SAML-token för företagsprogram](./../develop/../develop/active-directory-saml-claims-customization.md). 
-
-
 
 ### <a name="review-certificate-expiration-data-status-and-email-notification"></a>Data om certifikatet upphör att gälla, status och e-postmeddelande
 
@@ -120,7 +130,7 @@ Kontrollera att certifikatet har:
 - Statusen aktiv. Om statusen är inaktiva, ändrar du statusen till aktiv. Om du vill ändra status, kontrollera **Active** och spara konfigurationen. 
 - Rätt e-postmeddelandet. När det aktiva certifikatet närmar sig förfallodatum, skickar Azure AD ett meddelande till den e-postadress som konfigurerats i det här fältet.  
 
-Mer information finns i [hantera certifikat för federerad enkel inloggning i Azure Active Directory](manage-certificates-for-federated-single-sign-on.md).
+Mer information finns i [hantera certifikat för federerad enkel inloggning i Microsoft identity-plattformen](manage-certificates-for-federated-single-sign-on.md).
 
 ### <a name="set-up-target-application"></a>Konfigurera målprogrammet
 
@@ -145,7 +155,7 @@ Tilldela en användare kan Azure AD för att utfärda en token för användaren.
 
 ### <a name="test-the-saml-application"></a>Testa SAML-program
 
-Innan du testar programmet SAML, måste du har registrerat programmet med Azure AD och tilldelade användare eller grupper till programmet. För att testa SAML-program, se [Felsök SAML-baserad enkel inloggning till program i Azure Active Directory](../develop/howto-v1-debug-saml-sso-issues.md).
+Innan du testar programmet SAML, måste du har registrerat programmet med Azure AD och tilldelade användare eller grupper till programmet. För att testa SAML-program, se [Felsök SAML-baserad enkel inloggning till program i Microsoft identity-plattformen](../develop/howto-v1-debug-saml-sso-issues.md).
 
 ## <a name="password-single-sign-on"></a>Lösenord för enkel inloggning
 
@@ -169,6 +179,7 @@ När du har valt **nästa**, uppmanas du att ange Webbadressen till programmet f
 >
 
 ## <a name="related-articles"></a>Relaterade artiklar
+
 - [Anpassa anspråk som utfärdats i SAML-Token för förintegrerade appar](../develop/active-directory-saml-claims-customization.md)
 - [Felsöka SAML-baserad enkel inloggning](../develop/howto-v1-debug-saml-sso-issues.md)
-
+- [Microsoft identity-plattformen (Azure Active Directory för utvecklare](https://aka.ms/aaddev)

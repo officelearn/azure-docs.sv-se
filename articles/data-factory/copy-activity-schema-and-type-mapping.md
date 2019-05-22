@@ -90,12 +90,12 @@ Följande egenskaper stöds `translator`  ->  `mappings` -> objekt med `source` 
 
 | Egenskap  | Beskrivning                                                  | Krävs |
 | -------- | ------------------------------------------------------------ | -------- |
-| namn     | Namnet på källan eller mottagaren kolumn.                           | Ja      |
+| name     | Namnet på källan eller mottagaren kolumn.                           | Ja      |
 | ordinal  | Kolumnindex. Börja med 1. <br>Tillämpa och krävs när med avgränsad text utan rubrikrad. | Nej       |
 | path     | JSON-sökvägsuttrycket för varje fält ska extraheras eller mappar. Gäller för hierarkiska data t.ex. MongoDB/REST.<br>För fält under rotobjektet, JSON-sökvägen som börjar med $; för fält inuti matrisen som väljs av `collectionReference` egenskapen startar JSON-sökvägen från matriselementet. | Nej       |
-| typ     | Data Factory tillfälliga datatypen för kolumnen källan eller mottagaren. | Nej       |
-| kultur  | Kulturen kolumnens källan eller mottagaren. <br>Tillämpa när typen är `Datetime` eller `Datetimeoffset`. Standardvärdet är `en-us`. | Nej       |
-| Format   | Formatera strängen som ska användas när typen är `Datetime` eller `Datetimeoffset`. Referera till [anpassade datum- och Datumformatsträngar](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) om hur du formaterar datetime. | Nej       |
+| type     | Data Factory tillfälliga datatypen för kolumnen källan eller mottagaren. | Nej       |
+| culture  | Kulturen kolumnens källan eller mottagaren. <br>Tillämpa när typen är `Datetime` eller `Datetimeoffset`. Standardvärdet är `en-us`. | Nej       |
+| format   | Formatera strängen som ska användas när typen är `Datetime` eller `Datetimeoffset`. Referera till [anpassade datum- och Datumformatsträngar](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) om hur du formaterar datetime. | Nej       |
 
 Följande egenskaper stöds `translator`  ->  `mappings` förutom objekt med `source` och `sink`:
 
@@ -203,7 +203,7 @@ Du kan ange copy activity -> `translator`  ->  `schemaMapping` för att mappa me
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för kopiera aktivitet translator måste anges till: **TabularTranslator** | Ja |
+| type | Type-egenskapen för kopiera aktivitet translator måste anges till: **TabularTranslator** | Ja |
 | schemaMapping | En samling nyckel / värde-par som representerar mappning relationen **från källan sida till sida för mottagare**.<br/>- **Nyckel:** representerar källan. För **tabular källa**, ange kolumnnamnet som definierats i datauppsättningsstrukturen; för **hierarkiska källa**, ange JSON-sökvägsuttrycket för varje fält för att extrahera och mappa.<br>- **Värde:** representerar mottagare. För **tabular mottagare**, ange kolumnnamnet som definierats i datauppsättningsstrukturen; för **hierarkiska mottagare**, ange JSON-sökvägsuttrycket för varje fält för att extrahera och mappa. <br>När det gäller hierarkiska data för fält under rotobjektet, JSON-sökvägen som börjar med $; för fält inuti matrisen som väljs av `collectionReference` egenskapen startar JSON-sökvägen från matriselementet.  | Ja |
 | collectionReference | Om du vill iterera och extrahera data från objekten **i ett matrisfält** med samma mönster och konvertera till ange JSON-sökvägen för matrisen för cross-gäller per rad per objekt. Den här egenskapen stöds endast när hierarkiska data är källan. | Nej |
 
@@ -287,7 +287,7 @@ Data Factory stöder följande datatyper av mellanliggande: Du kan ange värdena
 
 * Byte[]
 * Boolean
-* DateTime
+* Datetime
 * Datetimeoffset
 * Decimal
 * Double
@@ -297,7 +297,7 @@ Data Factory stöder följande datatyper av mellanliggande: Du kan ange värdena
 * Int64
 * Single
 * String
-* Tidsintervall
+* Timespan
 
 ## <a name="next-steps"></a>Nästa steg
 Se de andra artiklarna i Kopieringsaktiviteten:

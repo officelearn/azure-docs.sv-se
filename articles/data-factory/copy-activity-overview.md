@@ -130,13 +130,13 @@ Följande mall med en Kopieringsaktivitet innehåller en fullständig förteckni
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för en Kopieringsaktivitet måste anges till: **Kopiera** | Ja |
-| indata | Ange den datauppsättning som du skapade som pekar till källdata. Kopieringsaktivitet stöder bara en enda indata. | Ja |
-| utdata | Ange den datauppsättning som du skapade som pekar till mottagardata. Kopieringsaktivitet stöder bara ett enda utflöde. | Ja |
+| type | Type-egenskapen för en Kopieringsaktivitet måste anges till: **Kopiera** | Ja |
+| inputs | Ange den datauppsättning som du skapade som pekar till källdata. Kopieringsaktivitet stöder bara en enda indata. | Ja |
+| outputs | Ange den datauppsättning som du skapade som pekar till mottagardata. Kopieringsaktivitet stöder bara ett enda utflöde. | Ja |
 | typeProperties | En grupp egenskaper för att konfigurera kopieringsaktiviteten. | Ja |
-| källa | Ange den kopiering av källtypen och motsvarande egenskaper på hur du hämtar data.<br/><br/>Få mer detaljerad information från avsnittet ”Kopiera Aktivitetsegenskaper” i connector artikeln listas i [datalager och format som stöds](#supported-data-stores-and-formats). | Ja |
-| mottagare | Ange kopieringsmottagartyper och motsvarande egenskaper om hur du skriver data.<br/><br/>Få mer detaljerad information från avsnittet ”Kopiera Aktivitetsegenskaper” i connector artikeln listas i [datalager och format som stöds](#supported-data-stores-and-formats). | Ja |
-| Translator | Ange explicita kolumnmappningarna från källa till mottagare. Gäller när kopia standardbeteendet inte uppfyller dina behov.<br/><br/>Få mer detaljerad information från [Schema och data typmappningen](copy-activity-schema-and-type-mapping.md). | Nej |
+| source | Ange den kopiering av källtypen och motsvarande egenskaper på hur du hämtar data.<br/><br/>Få mer detaljerad information från avsnittet ”Kopiera Aktivitetsegenskaper” i connector artikeln listas i [datalager och format som stöds](#supported-data-stores-and-formats). | Ja |
+| sink | Ange kopieringsmottagartyper och motsvarande egenskaper om hur du skriver data.<br/><br/>Få mer detaljerad information från avsnittet ”Kopiera Aktivitetsegenskaper” i connector artikeln listas i [datalager och format som stöds](#supported-data-stores-and-formats). | Ja |
+| translator | Ange explicita kolumnmappningarna från källa till mottagare. Gäller när kopia standardbeteendet inte uppfyller dina behov.<br/><br/>Få mer detaljerad information från [Schema och data typmappningen](copy-activity-schema-and-type-mapping.md). | Nej |
 | dataIntegrationUnits | Ange powerfulness av [Azure Integration Runtime](concepts-integration-runtime.md) möjligheter för kopiering av data. Kallades tidigare för molnet dmu-enheter (Data Movement här). <br/><br/>Få mer detaljerad information från [integrering enheter](copy-activity-performance.md#data-integration-units). | Nej |
 | parallelCopies | Ange parallellitet som du vill Kopieringsaktivitet ska användas vid läsning av data från käll- och skriva data till mottagare.<br/><br/>Få mer detaljerad information från [parallell kopiera](copy-activity-performance.md#parallel-copy). | Nej |
 | enableStaging<br/>stagingSettings | Välja att mellanlagra tillfälliga data i ett blob storage i stället för direkt kopieringsdata från källa till mottagare.<br/><br/>Lär dig användbara scenarier och konfigurationsinformation från [mellanlagrad kopiering](copy-activity-performance.md#staged-copy). | Nej |
@@ -173,14 +173,14 @@ Körningen kopiering och prestandaegenskaper returneras också i resultatet för
 
 | Egenskapsnamn  | Beskrivning | Enhet |
 |:--- |:--- |:--- |
-| DataRead | Storleken på data som läses från källa | Int64 värdet i **byte** |
-| DataWritten | Storleken på data som skrivs till mottagare | Int64 värdet i **byte** |
-| filerskrivskyddad | Antal filer som kopieras när du kopierar data från fillagring. | Int64-värde (ingen enhet) |
+| dataRead | Storleken på data som läses från källa | Int64 värdet i **byte** |
+| dataWritten | Storleken på data som skrivs till mottagare | Int64 värdet i **byte** |
+| filesRead | Antal filer som kopieras när du kopierar data från fillagring. | Int64-värde (ingen enhet) |
 | filesWritten | Antal filer som kopieras när du kopierar data till file storage. | Int64-värde (ingen enhet) |
 | rowsRead | Antal rader som läses från källa (gäller inte för binär kopia). | Int64-värde (ingen enhet) |
 | rowsCopied | Antal rader som kopieras till mottagare (gäller inte för binär kopia). | Int64-värde (ingen enhet) |
 | rowsSkipped | Antal inkompatibla rader hoppas över. Du kan aktivera funktionen genom att ange ”enableSkipIncompatibleRow” till true. | Int64-värde (ingen enhet) |
-| Dataflöde | Förhållande mellan där data överförs. | Flyttal i **KB/s** |
+| throughput | Förhållande mellan där data överförs. | Flyttal i **KB/s** |
 | copyDuration | Varaktigheten för kopian. | Ett Int32-värde i sekunder |
 | sourcePeakConnections | Högsta antalet samtidiga anslutningar till källdatalagret vid kopiering. | Ett Int32-värde |
 | sinkPeakConnections| Högsta antalet samtidiga anslutningar till det mottagande datalagren vid kopiering.| Ett Int32-värde |

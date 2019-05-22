@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: 8ded7a86c1b4fb53ca81fc4e7b0c0d794c515ddf
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 614d7c0b58ee318461cf3c97e934a77c84221ef7
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62120659"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827599"
 ---
 # <a name="get-answers-to-a-question-from-a-knowledge-base-with-c"></a>Få svar på en fråga med hjälp av en kunskapsbas med C#
 
@@ -36,7 +36,7 @@ Koden för den här snabbstarten finns i lagringsplatsen [https://github.com/Azu
 
 ## <a name="create-a-knowledge-base-project"></a>Skapa ett kunskapsbasprojekt
 
-1. Öppna Visual Studio 2017 Community Edition.
+1. Öppna Visual Studio 2019 Community edition.
 1. Skapa en ny Konsolapp (.NET Core) projekt och namn på projektet QnaMakerQuickstart. Godkänn standardinställningarna för de återstående inställningarna.
 
 ## <a name="add-the-required-dependencies"></a>Lägga till nödvändiga beroenden
@@ -72,4 +72,4 @@ Skapa och kör programmet från Visual Studio. Det skickar automatiskt begäran 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Referens för QnA Maker (V4) REST API](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+> [Referens för QnA Maker (V4) REST API](https://go.microsoft.com/fwlink/?linkid=2092179)

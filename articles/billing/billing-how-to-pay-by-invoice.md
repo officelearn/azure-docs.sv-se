@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: banders
-ms.openlocfilehash: 8dc5918ac539abde2586e29a1608e9dc496a5e37
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: HT
+ms.openlocfilehash: 7caa7df3817c51d63dfa2838e4223d3fba88e529
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65794796"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827384"
 ---
 # <a name="pay-azure-subscription-by-invoice"></a>Betala en Azure-prenumeration med faktura
 
@@ -65,14 +65,14 @@ Om du växlar för att betala med faktura, det innebär att du betalar din faktu
          (New quota) Requested cores:
          Specific region & series of Subscription:
 
-- Den **företagsnamn** och **företagets adress** ska stämma överens med den information som du angav för Azure-konto.  Om du vill visa eller uppdatera information, se [ändra profilinformationen Azure-konto](billing-how-to-change-azure-account-profile.md).
-- Du måste lägga till din kontakt för fakturering i Azure-portalen innan det att kreditgränsen kan godkännas. Kontaktuppgifter måste vara relaterat till företagets Leverantörsreskontra eller ekonomi avdelning. Om du vill uppdatera fakturering kontakten, gå till [Azure Kontocenter](https://account.azure.com/Profile).
+    - Den **företagsnamn** och **företagets adress** ska stämma överens med den information som du angav för Azure-konto.  Om du vill visa eller uppdatera information, se [ändra profilinformationen Azure-konto](billing-how-to-change-azure-account-profile.md).
+    - Du måste lägga till din kontakt för fakturering i Azure-portalen innan det att kreditgränsen kan godkännas. Kontaktuppgifter måste vara relaterat till företagets Leverantörsreskontra eller ekonomi avdelning. Om du vill uppdatera fakturering kontakten, gå till [Azure Kontocenter](https://account.azure.com/Profile).
 
 5. Verifiera din kontaktinformation, din önskade kontaktmetod och klicka på **Skapa**.
 
 Om vi behöver göra en kreditkontroll på grund av mängden kredit som du behöver skickar vi du en kredit.
 
-## <a name="switch-your-azure-subscription-to-invoice-payment"></a>Växla din Azure-prenumeration till faktura betalning
+## <a name="switch-to-invoice-pay"></a>Växla till faktura betala per användning
 
 När du har godkänt för att betala med faktura, kan du byta din Azure-prenumeration till fakturabetalning i den [Azure-portalen](https://portal.azure.com).
 

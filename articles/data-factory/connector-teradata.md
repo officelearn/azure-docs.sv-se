@@ -57,7 +57,7 @@ Följande egenskaper har stöd för Teradata länkade tjänsten:
 | type | Type-egenskapen måste anges till: **Teradata** | Ja |
 | server | Namnet på Teradata-servern. | Ja |
 | authenticationType | Typ av autentisering som används för att ansluta till Teradata-databasen.<br/>Tillåtna värden är: **Grundläggande**, och **Windows**. | Ja |
-| användarnamn | Ange användarnamn för att ansluta till Teradata-databasen. | Ja |
+| username | Ange användarnamn för att ansluta till Teradata-databasen. | Ja |
 | password | Ange lösenord för det användarkonto som du angav för användarnamnet. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. En lokal Integration Runtime krävs enligt [krav](#prerequisites). |Ja |
 
@@ -123,7 +123,7 @@ För att kopiera data från Teradata, ange typ av datakälla i kopieringsaktivit
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **RelationalSource** | Ja |
-| DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
+| query | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**
 
@@ -167,37 +167,37 @@ När du kopierar data från Teradata, används följande mappningar från Terada
 | Blob |Byte[] |
 | Byte |Byte[] |
 | ByteInt |Int16 |
-| char |String |
+| Char |String |
 | Clob |String |
 | Date |DateTime |
 | Decimal |Decimal |
 | Double |Double |
-| Bild |String |
+| Graphic |String |
 | Integer |Int32 |
-| Intervall för dag |TimeSpan |
-| Dag för intervall och timme |TimeSpan |
-| Intervall dag till minut |TimeSpan |
-| Intervall dag till andra |TimeSpan |
-| Intervall timme |TimeSpan |
-| Intervall för timme och minut |TimeSpan |
-| Intervall timme till andra |TimeSpan |
-| Intervall minut |TimeSpan |
-| Intervall minut till andra |TimeSpan |
-| Intervall för månad |String |
-| Intervall för andra |TimeSpan |
-| Intervall år |String |
-| Intervall årets månad |String |
-| Tal |Double |
+| Interval Day |TimeSpan |
+| Interval Day To Hour |TimeSpan |
+| Interval Day To Minute |TimeSpan |
+| Interval Day To Second |TimeSpan |
+| Interval Hour |TimeSpan |
+| Interval Hour To Minute |TimeSpan |
+| Interval Hour To Second |TimeSpan |
+| Interval Minute |TimeSpan |
+| Interval Minute To Second |TimeSpan |
+| Interval Month |String |
+| Interval Second |TimeSpan |
+| Interval Year |String |
+| Interval Year To Month |String |
+| Number |Double |
 | Period(Date) |String |
 | Period(Time) |String |
-| Period (tid med tidszon) |String |
+| Period(Time With Time Zone) |String |
 | Period(Timestamp) |String |
-| Period (tidsstämpel med tidszon) |String |
+| Period(Timestamp With Time Zone) |String |
 | SmallInt |Int16 |
-| Tid |TimeSpan |
-| Tid med tidszon |String |
-| Tidsstämpel |DateTime |
-| Tidsstämpel med tidszon |Datetimeoffset |
+| Time |TimeSpan |
+| Time With Time Zone |String |
+| Timestamp |DateTime |
+| Timestamp With Time Zone |DateTimeOffset |
 | VarByte |Byte[] |
 | VarChar |String |
 | VarGraphic |String |

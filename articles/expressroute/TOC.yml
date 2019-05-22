@@ -21,13 +21,12 @@
     - name: Kretsar och peering
       href: expressroute-circuit-peerings.md
     - name: Platser och partners
-      href: expressroute-locations.md
       items:
         - name: Leverantörer efter plats
           href: expressroute-locations-providers.md
         - name: Platser efter leverantör
           href: expressroute-locations.md
-    - name: Om virtuella nätverksgatewayer
+    - name: ExpressRoute-gateway för virtuella nätverk och FastPath
       href: expressroute-about-virtual-network-gateways.md
     - name: Nödvändiga komponenter
       href: expressroute-prerequisites.md

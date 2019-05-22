@@ -83,8 +83,8 @@
   items:
     - name: Konfigurera app
       items:
-        - name: Använda appinställningar
-          href: ../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+        - name: Konfigurera vanliga inställningar
+          href: ../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
         - name: Konfigurera ASP.NET Core
           href: configure-language-dotnetcore.md
         - name: Konfigurera Node.js

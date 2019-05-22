@@ -4,14 +4,14 @@ title: Dokumentation om Azure Cosmos DB
 metadata:
   document_id: e77bd640-1036-8b31-955c-a2cc990c69a1
   title: 'Dokumentation om Azure Cosmos DB – självstudier, API-referens'
-  description: 'Lär dig att använda Azure Cosmos DB för att skapa globalt distribuerade databaser för flera datamodeller. I självstudierna lär du dig att bygga upp databaser för datamodeller av typen frågedokument, nyckel/värde och graf.'
+  description: 'Lär dig att använda Azure Cosmos DB, en globalt distribuerad databastjänst med flera olika modeller. I självstudierna lär du dig att bygga upp databaser för datamodeller av typen frågedokument, nyckel/värde och graf.'
   author: SnehaGunda
   ms.author: sngun
   ms.service: cosmos-db
   ms.topic: landing-page
-  ms.date: 04/26/2018
+  ms.date: 05/20/2019
 abstract:
-  description: 'Azure Cosmos DB är en globalt distribuerad databastjänst för flera modeller som har stöd för dokument, nyckelvärden, breda kolumner och grafdatabaser. Lär dig hur du använder Azure Cosmos DB med våra snabbstarter, självstudier och exempel.'
+  description: 'Azure Cosmos DB är en fullständigt hanterad databastjänst med nyckelfärdig global distribution och transparent replikering för flera original. Du kan köra globalt distribuerade drift- och analysarbetsbelastningar med snabba svarstider och AI på transaktionsdata i din databas. Lär dig hur du använder Azure Cosmos DB med våra snabbstarter, självstudier och exempel.'
   aside:
     image:
       alt: null

@@ -5,12 +5,11 @@ metadata:
   title: 'Dokumentation om Azure Application Gateway – Självstudier, API-referens'
   meta.description: 'Learn how to create application gateways. Documentation helps you plan, deploy, and manage web traffic to your Azure resources.'
   services: application-gateway
-  author: davidmu1
-  manager: jeconnocfte
+  author: vhorne
   ms.service: application-gateway
   ms.topic: landing-page
-  ms.date: 02/01/2018
-  ms.author: davidmu
+  ms.date: 5/20/2019
+  ms.author: victorh
 abstract:
   description: 'Lär dig hur du distribuerar Application Gateway, en Application Deliver Controller (ADC) som en tjänst. Självstudier, API-referenser och annan dokumentation som visar hur du konfigurerar routning på appnivå och belastningsutjämningstjänster som hjälper dig att bygga en skalbar och högtillgänglig frontwebb.'
 sections:
@@ -40,12 +39,12 @@ sections:
       - type: list
         style: ordered
         items:
-          - html: <a href="/azure/application-gateway/tutorial-manage-web-traffic-cli">Hantera webbtrafik med Application Gateway.</a>
-          - html: <a href="/azure/application-gateway/tutorial-restrict-web-traffic-cli">Begränsa webbtrafik med en brandvägg för webbaserade program på Application Gateway.</a>
-          - html: <a href="/azure/application-gateway/tutorial-ssl-cli">Aktivera SSL-avslutning på Application Gateway.</a>
-          - html: <a href="/azure/application-gateway/tutorial-multiple-sites-cli">Tillhandahåll en värdtjänst för flera webbplatser med Application Gateway.</a>
-          - html: '<a href="/azure/application-gateway/tutorial-url-route-cli">Dirigera trafik utifrån URL:en i Application Gateway.</a>'
-          - html: <a href="/azure/application-gateway/tutorial-url-redirect-cli">Dirigera trafik till specifika servrar i en Application Gateway-pool.</a>
+          - html: <a href="/azure/application-gateway/application-gateway-web-application-firewall-portal">Skapa en programgateway med en brandvägg för webbaserade program</a>
+          - html: <a href="/azure/application-gateway/create-ssl-portal">Konfigurera en programgateway med SSL-avslutning</a>
+          - html: <a href="/azure/application-gateway/create-multiple-sites-portal">Skapa och konfigurera en programgateway för att tillhandahålla värdtjänster för flera webbplatser</a>
+          - html: <a href="/azure/application-gateway/create-url-route-portal">Skapa en programgateway med sökvägsbaserade routningsregler</a>
+          - html: <a href="/azure/application-gateway/tutorial-url-redirect-cli">Skapa en programgateway med webbadressbaserad omdirigering</a>
+          - html: <a href="/azure/application-gateway/tutorial-autoscale-ps">Skapa en programgateway som förbättrar webbprogramåtkomsten</a>
   - title: Exempel
     items:
       - type: paragraph

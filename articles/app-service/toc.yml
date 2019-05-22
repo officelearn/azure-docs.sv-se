@@ -92,11 +92,11 @@
   items:
     - name: Konfigurera app
       items:
-        - name: Använda appinställningar
-          href: web-sites-configure.md
+        - name: Konfigurera vanliga inställningar
+          href: configure-common.md
         - name: Konfigurera PHP
           href: web-sites-php-configure.md
-        - name: Utvecklarguide för Java
+        - name: Konfigurera Java
           href: configure-language-java.md
         - name: Ansluta till lokala resurser
           href: web-sites-integrate-with-vnet.md

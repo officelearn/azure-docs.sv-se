@@ -59,7 +59,7 @@
       items:
         - name: Förstå Azure IoT Edge-moduler
           href: iot-edge-modules.md
-        - name: Edge-agenten och hubbegenskaper
+        - name: IoT Edge-agenten och hubbegenskaper
           href: module-edgeagent-edgehub.md
     - name: Utveckling
       items:
@@ -93,7 +93,7 @@
       href: iot-edge-glossary.md
 - name: Instruktionsguider
   items:
-    - name: Registrera en Edge-enhet
+    - name: Registrera en IoT Edge-enhet
       items:
         - name: Azure Portal
           href: how-to-register-device-portal.md
@@ -145,7 +145,7 @@
           href: how-to-deploy-monitor.md
         - name: Azure CLI
           href: how-to-deploy-monitor-cli.md
-    - name: Använda Edge-enheter som gatewayer
+    - name: Använda IoT Edge-enheter som gatewayer
       items:
         - name: Konfigurera en transparent gateway
           href: how-to-create-transparent-gateway.md
@@ -159,6 +159,8 @@
       items:
         - name: Azure Blob Storage på IoT Edge
           href: how-to-store-data-blob.md
+        - name: Distribuera bloblagringsmoduler
+          href: how-to-deploy-blob.md
     - name: Hantera med DevOps-verktyg
       items:
         - name: Azure DevOps Projects
@@ -189,7 +191,7 @@
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
         - name: Time Series Insights
           href: /azure/time-series-insights
-    - name: Edge
+    - name: Azure IoT Edge
       items:
         - name: IoT Edge
           href: /azure/iot-edge

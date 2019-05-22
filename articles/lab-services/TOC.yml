@@ -116,8 +116,9 @@
             - name: Ange bevarandeprincip och köra rensningsskript
               href: image-factory-set-retention-policy-cleanup.md
         - name: DevTest Labs i företaget
-          href: devtest-lab-guidance-prescriptive-adoption.md
           items:
+            - name: DevTest Labs med skalbarhet i företagsklass
+              href: devtest-lab-guidance-prescriptive-adoption.md
             - name: Referensarkitektur
               href: devtest-lab-reference-architecture.md
             - name: Skala upp din DevTest Labs-distribution

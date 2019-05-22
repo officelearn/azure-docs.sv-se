@@ -1,21 +1,47 @@
-- name: OpenShift-dokumentation
-  href: index.md
-- name: Snabbstarter
-  expanded: true
+- name: Azure Red Hat OpenShift
+  href: index.yml
+- name: Översikt
   items:
-    - name: 'OpenShift:  Community-mall'
-      href: 'https://azure.microsoft.com/resources/templates/openshift-origin-rhel/'
+    - name: Om Azure Red Hat OpenShift
+      href: intro-openshift.md
 - name: Självstudier
   items:
-    - name: Distribuera till virtuella Azure-datorer
-      href: /azure/virtual-machines/linux/openshift-get-started
+    - name: Skapa och hantera ett Azure Red Hat OpenShift-kluster
+      items:
+        - name: 1 – Skapa ett Azure Red Hat OpenShift-kluster
+          href: tutorial-create-cluster.md
+        - name: 2 – Skala ett Azure Red Hat OpenShift-kluster
+          href: tutorial-scale-cluster.md
+        - name: 3 – Ta bort ett Azure Red Hat OpenShift-kluster
+          href: tutorial-delete-cluster.md
+- name: Instruktionsguider
+  expanded: true
+  items:
+    - name: Konfigurera Azure Red Hat OpenShift-utvecklingsmiljön
+      href: howto-setup-environment.md
+      expanded: true
+      items:
+        - name: Skapa en Azure AD-klientorganisation
+          href: howto-create-tenant.md
+        - name: Skapa ett Azure AD-appobjekt och en användare
+          href: howto-aad-app-configuration.md
+- name: Referens
+  items:
+    - name: CLI för Azure Red Hat OpenShift
+      href: /cli/azure/openshift
+    - name: 'REST-API:er för Azure Red Hat OpenShift'
+      href: /rest/api/openshift
 - name: Resurser
   items:
+    - name: Vanliga frågor
+      href: openshift-faq.md
+    - name: Felsökning
+      href: troubleshoot.md
+    - name: Resurser som stöds
+      href: supported-resources.md
+    - name: Regional tillgänglighet
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Dokumentation om Red Hat OpenShift
+      href: 'https://docs.openshift.com/aro/welcome/index.html'
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/'
-    - name: Containermall för OpenShift
-      href: 'https://github.com/Microsoft/openshift-container-platform'
-    - name: OpenShift Origin
-      href: 'https://docs.openshift.org/latest/getting_started/index.html'
-    - name: OpenShift-webbplats
-      href: 'https://docs.openshift.org/latest/welcome/index.html'

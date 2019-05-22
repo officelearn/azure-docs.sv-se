@@ -44,6 +44,8 @@
           href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
         - name: Återställa en borttagen användare
           href: /azure/active-directory/fundamentals/active-directory-users-restore?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Avsluta ditt konto i en ohanterad katalog
+          href: users-close-account.md
         - name: Lägga till B2B-användare
           href: /azure/active-directory/b2b/what-is-b2b?context=azure/active-directory/users-groups-roles/context/ugr-context
         - name: Tilldela en roll till en B2B-användare

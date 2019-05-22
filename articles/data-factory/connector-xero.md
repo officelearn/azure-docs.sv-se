@@ -50,7 +50,7 @@ Följande egenskaper har stöd för Xero länkade tjänsten:
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen måste anges till: **Xero** | Ja |
-| värd | Slutpunkten för Xero-server (`api.xero.com`).  | Ja |
+| host | Slutpunkten för Xero-server (`api.xero.com`).  | Ja |
 | consumerKey | Konsumenten nyckeln som associeras med Xero-programmet. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | privateKey | Den privata nyckeln från filen .pem som genererades för ditt privata Xero-program finns i [skapa ett offentligt/privat nyckelpar](https://developer.xero.com/documentation/api-guides/create-publicprivate-key). Observera att **generera privatekey.pem med numbits 512** med `openssl genrsa -out privatekey.pem 512`; 1024 stöds inte. Inkluderar all text från .pem-filen, inklusive Unix rad endings(\n), finns i exemplet nedan.<br/><br/>Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | useEncryptedEndpoints | Anger om käll-slutpunkter data krypteras med HTTPS. Standardvärdet är sant.  | Nej |
@@ -125,7 +125,7 @@ För att kopiera data från Xero, ange typ av datakälla i kopieringsaktiviteten
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **XeroSource** | Ja |
-| DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM Contacts"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
+| query | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM Contacts"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**
 

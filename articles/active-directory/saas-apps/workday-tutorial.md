@@ -5,143 +5,119 @@ services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
-ms.reviewer: barbkess
+ms.reviewer: celested
 ms.assetid: e9da692e-4a65-4231-8ab3-bc9a87b10bca
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/04/2019
+ms.date: 05/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 36773fce18abe5e91f393e2e82e0fb5eb44bb3b4
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: bb9c8d1fb234efd5df297082cfc1001f28ca1656
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65888334"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65990398"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-workday"></a>Självstudier: Azure Active Directory-integrering med Workday
+# <a name="tutorial-integrate-workday-with-azure-active-directory"></a>Självstudier: Integrera Workday med Azure Active Directory
 
-I den här självstudien får du lära dig hur du integrerar Workday med Azure Active Directory (AD Azure).
-Integrera Workday med Azure AD ger dig följande fördelar:
+I de här självstudierna lär du dig att integrera Workday med Azure Active Directory (AD Azure). När du integrerar Workday med Azure AD, kan du:
 
-* Du kan styra i Azure AD som har åtkomst till Workday.
-* Du kan aktivera användarna att vara automatiskt inloggad till Workday (Single Sign-On) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure portal.
+* Styr i Azure AD som har åtkomst till Workday.
+* Ge dina användare att automatiskt inloggad till Workday med sina Azure AD-konton.
+* Hantera konton på en central plats – Azure portal.
 
-Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+Läs mer om integrering av SaaS-app med Azure AD i [vad är programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Om du vill konfigurera Azure AD-integrering med Workday, behöver du följande objekt:
+För att komma igång behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* Workday enkel inloggning aktiverat prenumeration
+* En Azure AD-prenumeration. Om du inte har en prenumeration kan du få en [kostnadsfritt konto](https://azure.microsoft.com/free/).
+* Aktiverat prenumeration workday enkel inloggning (SSO).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
-
-* Har stöd för workday **SP** och **IDP** -initierad SSO
+I den här självstudien, konfigurera och testa Azure AD enkel inloggning i en testmiljö. Har stöd för workday **SP** -initierad SSO.
 
 ## <a name="adding-workday-from-the-gallery"></a>Att lägga till Workday från galleriet
 
 För att konfigurera integrering av Workday i Azure AD, som du behöver lägga till Workday från galleriet i din lista över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till Workday från galleriet:**
-
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
-
-    ![Azure Active Directory-knappen](common/select-azuread.png)
-
-2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
-
-    ![Bladet Företagsprogram](common/enterprise-applications.png)
-
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
-
-    ![Knappen Nytt program](common/add-new-app.png)
-
-4. I sökrutan skriver **Workday**väljer **Workday** resultatet panelen klickar **Lägg till** för att lägga till programmet.
-
-     ![Arbetsdag i resultatlistan](common/search-new-app.png)
+1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
+1. I det vänstra navigeringsfönstret, väljer den **Azure Active Directory** service.
+1. Gå till **företagsprogram** och välj sedan **alla program**.
+1. Om du vill lägga till nytt program, Välj **nytt program**.
+1. I den **Lägg till från galleriet** Skriv **Workday** i sökrutan.
+1. Välj **Workday** från resultaten panelen och lägger sedan till appen. Vänta några sekunder medan appen läggs till i din klient.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Workday baserat på en testanvändare kallas **Britta Simon**.
-För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och den relaterade användaren i Workday upprättas.
+Konfigurera och testa Azure AD enkel inloggning med Workday med en testanvändare kallas **Britta Simon**. För enkel inloggning ska fungera, måste du upprätta en länk förhållandet mellan en Azure AD-användare och den relaterade användaren i Workday.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med Workday, måste du utföra följande byggblock:
+Om du vill konfigurera och testa Azure AD enkel inloggning med Workday, utför du följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Konfigurera Workday Single Sign-On](#configure-workday-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Skapa testanvändare i Workday](#create-workday-test-user)**  – du har en motsvarighet för Britta Simon i Workday som är länkad till en Azure AD-representation av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)**  vill tillåta att användarna använda den här funktionen.
+2. **[Konfigurera Workday](#configure-workday)**  att konfigurera inställningar för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  att testa Azure AD enkel inloggning med Britta Simon.
+4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  att aktivera Britta Simon att använda Azure AD enkel inloggning.
+5. **[Skapa testanvändare i Workday](#create-workday-test-user)**  har en motsvarighet för Britta Simon i Workday som är länkad till en Azure AD-representation av användaren.
+6. **[Testa SSO](#test-sso)**  att kontrollera om konfigurationen fungerar.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
+### <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
-I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
+Följ dessa steg om du vill aktivera enkel inloggning för Azure AD i Azure-portalen.
 
-Utför följande steg för att konfigurera Azure AD enkel inloggning med Workday:
+1. I den [Azure-portalen](https://portal.azure.com/)på den **Workday** programsidan integration, hitta den **hantera** och väljer **enkel inloggning**.
+1. På den **väljer du en metod för enkel inloggning** väljer **SAML**.
+1. På den **ange in enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **SAML grundkonfiguration** att redigera inställningarna.
 
-1. I den [Azure-portalen](https://portal.azure.com/)på den **Workday** application integration markerar **enkel inloggning**.
+   ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-    ![Konfigurera enkel inloggning för länken](common/select-sso.png)
+1. På den **SAML grundkonfiguration** ange värdena för följande fält:
 
-2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
-
-    ![Välja läge för enkel inloggning](common/select-saml-option.png)
-
-3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
-
-    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
-
-4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
-
-    ![Workday domän och URL: er med enkel inloggning för information](common/sp-identifier.png)
-
-    a. I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `https:\//impl.workday.com/<tenant>/login-saml2.flex`
+    a. I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `https://impl.workday.com/<tenant>/login-saml2.flex`
 
     b. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://www.workday.com`
 
-5. Klicka på **ange ytterligare webbadresser** och utföra följande steg:
-
-    ![Workday domän och URL: er med enkel inloggning för information](./media/workday-tutorial/reply.png)
-
-    I textrutan **Svars-URL** skriver du en URL med följande mönster: `https:\//impl.workday.com/<tenant>/login-saml.htmld`
+    c. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://impl.workday.com/<tenant>/login-saml.htmld`
 
     > [!NOTE]
     > De här värdena är inte verkliga. Uppdatera dessa värden med de faktiska inloggnings-URL och svars-URL. Svars-URL måste ha en underdomän till exempel: www, wd2, wd3, wd3 impl, wd5, wd5 impl).
-    > Med något som `https://www.myworkday.com` fungerar men `https://myworkday.com` inte. Kontakta [Workday klienten supportteamet](https://www.workday.com/en-us/partners-services/services/support.html) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Med något som `http://www.myworkday.com` fungerar men `http://myworkday.com` inte. Kontakta [Workday klienten supportteamet](https://www.workday.com/partners-services/services/support.html) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-6. Dina Workday-programmet förväntar sig SAML-intyg i ett visst format, vilket kräver att du kan lägga till anpassade attributmappningar i SAML-tokenattribut konfigurationen. Följande skärmbild visar en lista över standardattribut, där **nameidentifier** mappas med **user.userprincipalname**. Workday program som förväntar **nameidentifier** mappas med **user.mail**, **UPN** osv, så du behöver redigera attribut mappar genom att klicka på **redigera**  ikon och ändra attributet mappningen.
+6. Dina Workday-programmet förväntar sig SAML-intyg i ett visst format, vilket kräver att du kan lägga till anpassade attributmappningar i SAML-tokenattribut konfigurationen. Följande skärmbild visar en lista över standardattribut, där **nameidentifier** mappas med **user.userprincipalname**. Workday program som förväntar **nameidentifier** mappas med **user.mail**, **UPN**, o.s.v., så du behöver redigera attribut mappar genom att klicka på  **Redigera** ikon och ändra attributet mappningen.
 
     ![image](common/edit-attribute.png)
 
     > [!NOTE]
-    > Här har vi mappat namn-ID med UPN (user.userprincipalname) som standard. Du behöver mappa namn-ID med faktiska användar-ID i Workday-konto (din e-post, UPN etc.) för lyckad enkel inloggning att fungera.
+    > Här har vi mappat namn-ID med UPN (user.userprincipalname) som standard. Du behöver mappa namn-ID med faktiska användar-ID i Workday-konto (e-post, UPN, etc.) för lyckad enkel inloggning att fungera.
 
-7. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
+1. På den **ange in enkel inloggning med SAML** sidan den **SAML-signeringscertifikat** avsnittet, hitta **certifikat (Base64)** och välj **hämta** att hämta certifikatet och spara den på din dator.
 
-    ![Länk för hämtning av certifikat](common/certificatebase64.png)
+   ![Länk för hämtning av certifikat](common/certificatebase64.png)
 
-8. På den **konfigurera Workday** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
+1. Att ändra den **signering** alternativ enligt dina krav, klickar du på **redigera** knappen för att öppna **SAML-signeringscertifikat** dialogrutan.
 
-    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
+    ![image](common/edit-certificate.png) 
 
-    a. Inloggningswebbadress
+    ![image](./media/workday-tutorial/signing-option.png)
 
-    b. Microsoft Azure Active Directory-identifierare
+    a. Välj **inloggning SAML-svar och försäkran** för **signering alternativet**.
 
-    c. Utloggnings-URL
+    b. Klicka på **Spara**
 
-### <a name="configure-workday-single-sign-on"></a>Konfigurera Workday enkel inloggning
+1. På den **konfigurera Workday** avsnittet, kopiera den lämpliga URL: er efter behov.
 
-1. I ett annat webbläsarfönster logga du in på webbplatsen för Workday-företag som administratör.
+   ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
+
+### <a name="configure-workday"></a>Konfigurera Workday
+
+1. I ett annat webbläsarfönster, loggar du in din Workday företagets webbplats som administratör.
 
 2. I den **sökrutan** sökning med namnet **redigera klientkonfiguration – Security** uppe till vänster på startsidan.
 
@@ -153,16 +129,16 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Workday
 
     a. Klicka på **Lägg till rad**.
 
-    b. I den **inloggning omdirigerings-URL** textrutan och **Mobile omdirigerings-URL** textrutan skriver den **inloggnings-URL** du har angett på den **grundläggande SAML-konfiguration**  på Azure portal.
+    b. I den **inloggning omdirigerings-URL**, **omdirigerings-URL för Sessionstidsgräns** och **Mobile omdirigerings-URL** textrutan klistra in den **inloggnings-URL** som du har kopierat från den **konfigurera Workday** på Azure portal.
 
-    c. I Azure-portalen på den **konfigurera Workday** avsnittet, kopiera den **URL för utloggning**, och klistra in den i den **omdirigerings-URL för utloggning** textrutan.
+    c. I den **omdirigerings-URL för utloggning** textrutan klistra in den **URL för utloggning** som du har kopierat från den **konfigurera Workday** på Azure portal.
 
     d. I **används för miljöer** textrutan väljer du miljönamnet.  
 
    > [!NOTE]
    > Värdet för attributet miljö är kopplad till värdet för klient-URL:  
    > -Om domännamnet för Workday klient-URL börjar med impl till exempel: *https:\//impl.workday.com/\<klient\>/login-saml2.flex*), **miljö**attributet måste anges till implementering.  
-   > -Om domännamnet startas med något annat, måste du kontakta [Workday klienten supportteamet](https://www.workday.com/en-us/partners-services/services/support.html) att hämta den matchande **miljö** värde.
+   > -Om domännamnet startas med något annat, måste du kontakta [Workday klienten supportteamet](https://www.workday.com/partners-services/services/support.html) att hämta den matchande **miljö** värde.
 
 4. I den **SAML installationsprogrammet** avsnittet, utför följande steg:
 
@@ -236,66 +212,43 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Workday
     > [!NOTE]
     > Kontrollera att du konfigurerar enkel inloggning på rätt sätt. Om du aktiverar enkel inloggning med felaktig inställning kanske du inte att ange programmet med dina autentiseringsuppgifter och blir utelåsta. I det här fallet Workday ger en backup log-url där användare kan logga in med sitt vanliga användarnamn och lösenord i följande format: [Your Workday URL]/login.flex?redirect=n
 
-### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
+I det här avsnittet skapar du en användare i Azure-portalen kallas Britta Simon.
 
-1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
-
-    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
-
-2. Välj **Ny användare** överst på skärmen.
-
-    ![Knappen Ny användare](common/new-user.png)
-
-3. Genomför följande steg i Användaregenskaper.
-
-    ![Dialogrutan Användare](common/user-properties.png)
-
-    a. I fältet **Namn** anger du **BrittaSimon**.
-  
-    b. I den **användarnamn** fälttyp **brittasimon\@yourcompanydomain.extension**  
-    Till exempel, BrittaSimon@contoso.com
-
-    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
-
-    d. Klicka på **Skapa**.
+1. På menyn till vänster i Azure-portalen väljer du **Azure Active Directory**väljer **användare**, och välj sedan **alla användare**.
+1. Välj **ny användare** överst på skärmen.
+1. I den **användaren** egenskaper, Följ dessa steg:
+   1. I **Namn**-fältet skriver du `Britta Simon`.  
+   1. I den **användarnamn** fältet, anger du den username@companydomain.extension. Till exempel `BrittaSimon@contoso.com`.
+   1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
+   1. Klicka på **Skapa**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Workday.
+I det här avsnittet ska du aktivera Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Workday.
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **Workday**.
+1. I Azure-portalen väljer du **företagsprogram**, och välj sedan **alla program**.
+1. I listan med program väljer **Workday**.
+1. Appens översiktssidan, hitta den **hantera** och väljer **användare och grupper**.
 
-    ![Bladet Företagsprogram](common/enterprise-applications.png)
+   ![Länken ”användare och grupper”](common/users-groups-blade.png)
 
-2. I listan med program väljer **Workday**.
+1. Välj **Lägg till användare**och välj sedan **användare och grupper** i den **Lägg till tilldelning** dialogrutan.
 
-    ![Workday-länk i listan med program](common/all-applications.png)
+    ![Länken Lägg till användare](common/add-assign-user.png)
 
-3. På menyn till vänster väljer du **Användare och grupper**.
-
-    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
-
-4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
-
-    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
-
-5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
-
-6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
-
-7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+1. I den **användare och grupper** dialogrutan **Britta Simon** från listan över användare klickar på **Välj** längst ned på skärmen.
+1. Om du förväntar dig något rollvärde i SAML-försäkran i den **Välj roll** dialogrutan Välj rätt roll för användaren i listan och klicka sedan på den **Välj** längst ned på skärmen.
+1. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
 ### <a name="create-workday-test-user"></a>Skapa testanvändare i Workday
 
 I det här avsnittet skapar du en användare som kallas Britta Simon i Workday. Arbeta med [Workday klienten supportteamet](https://www.workday.com/en-us/partners-services/services/support.html) att lägga till användare i Workday-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
-### <a name="test-single-sign-on"></a>Testa enkel inloggning 
+### <a name="test-sso"></a>Testa enkel inloggning
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
-
-När du klickar på panelen Workday i åtkomstpanelen, bör det vara loggas in automatiskt till Workday som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du väljer panelen Workday i åtkomstpanelen, bör det vara loggas in automatiskt till Workday som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
@@ -304,4 +257,3 @@ När du klickar på panelen Workday i åtkomstpanelen, bör det vara loggas in a
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

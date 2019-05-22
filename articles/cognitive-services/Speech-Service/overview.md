@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: e29e36807aff6c32f295c79c90d80c7d2b5b4bcc
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: dc0871c0b16246fa178072e9d9f266d4c02ba1c4
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510735"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002994"
 ---
 # <a name="what-are-the-speech-services"></a>Vad är Speech Services?
 
@@ -42,7 +42,9 @@ Dessa funktioner utgör Azure Speech Services. Använd länkarna i den här tabe
 Läs mer om nyheterna med Azure Speech Services.
 
 * Maj 2019 - dokumentation finns nu tillgänglig för [konversationen avskrift](conversation-transcription-service.md), [anropa Center avskrift](call-center-transcription.md), och [röst första virtuella assistenter](voice-first-virtual-assistants.md).
-* Maj 2019 - släppte tal SDK 1.5.0. En fullständig lista över uppdateringar, förbättringar och kända problem finns i [viktig](releasenotes.md).
+* Maj 2019
+    * Publicerat tal SDK 1.5.1. En fullständig lista över uppdateringar, förbättringar och kända problem finns i [viktig](releasenotes.md).
+    * Publicerat tal SDK 1.5.0. En fullständig lista över uppdateringar, förbättringar och kända problem finns i [viktig](releasenotes.md).
 * April 2019 - är tal SDK 1.4.0 med stöd för text till tal (Beta) för C++, C#, och Java i Windows och Linux. Dessutom SDK stöder nu MP3- och Opus/Ogg ljudformat för C++ och C# i Linux. En fullständig lista över uppdateringar, förbättringar och kända problem finns i [viktig](releasenotes.md).
 * Mars 2019 – är en ny slutpunkt för tal som returnerar en fullständig lista över röster som är tillgängliga i en viss region nu tillgänglig. Nya regioner stöds nu för text till tal. Mer information finns i [text till tal-API-referens (REST)](rest-text-to-speech.md).
 

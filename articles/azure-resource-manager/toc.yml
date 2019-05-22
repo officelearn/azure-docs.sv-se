@@ -54,7 +54,7 @@
 - name: Begrepp
   items:
     - name: Filstruktur för mallar
-      displayName: 'parameters,variables,resources,outputs'
+      displayName: 'parameters,variables,resources,outputs,condition'
       href: resource-group-authoring-templates.md
     - name: Metodtips för mallar
       href: template-best-practices.md

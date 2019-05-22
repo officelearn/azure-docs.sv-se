@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 602e3145a003a0413287b08151abf472ecf4ade0
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: dbdf6847658e6a5a3999007f51b409e47a65e4cd
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406714"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65988081"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-leapsome"></a>Självstudier: Azure Active Directory-integrering med Leapsome
 
@@ -126,10 +126,10 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Leapsom
 
     | Namn | Källattribut | Namnområde |
     | ---------------| --------------- | --------- |  
-    | förnamn | user.givenname | https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | lastname | user.surname | https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | rubrik | user.jobtitle | https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | bild | Webbadressen till medarbetarens bild | https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | förnamn | user.givenname | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | lastname | user.surname | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | rubrik | user.jobtitle | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | bild | Webbadressen till medarbetarens bild | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
     | | |
 
     > [!Note]
@@ -244,7 +244,7 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 ### <a name="create-leapsome-test-user"></a>Skapa Leapsome testanvändare
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i Leapsome. Arbeta med [Leapsome klienten supportteamet](mailto:support@leapsome.com) att lägga till användare eller domän, som måste tillåtas i Leapsome-plattformen. Om domänen har lagts till av teamet, kommer användare får automatiskt tillhandahållas för Leapsome-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som kallas Britta Simon i Leapsome. Arbeta med [Leapsome klienten supportteamet](mailto:support@leapsome.com) att lägga till användare eller domän som måste du lägga till en lista över tillåtna för Leapsome-plattformen. Om domänen har lagts till av teamet, kommer användare får automatiskt tillhandahållas för Leapsome-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 

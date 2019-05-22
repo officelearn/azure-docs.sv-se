@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: bf8c7e76aa6dd69cc505be237e47d8e10e7e8db5
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 8f8dc8219d65505952f35ad018ef19aeb68d64e9
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65813317"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65989771"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ipass-smartconnect"></a>Självstudier: Azure Active Directory-integrering med iPass SmartConnect
 
@@ -215,7 +215,7 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 ### <a name="create-ipass-smartconnect-test-user"></a>Skapa iPass SmartConnect testanvändare
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i iPass SmartConnect. Arbeta med [iPass SmartConnect supportteam](mailto:help@ipass.com) att lägga till användare eller domän som behövs för att bli godkänd i iPass SmartConnect-plattformen. Om domänen har lagts till av teamet, kommer användare får automatiskt tillhandahållas för iPass SmartConnect-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som kallas Britta Simon i iPass SmartConnect. Arbeta med [iPass SmartConnect supportteam](mailto:help@ipass.com) att lägga till användare eller domän som måste du lägga till en lista över tillåtna för iPass SmartConnect plattform. Om domänen har lagts till av teamet, kommer användare får automatiskt tillhandahållas för iPass SmartConnect-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 

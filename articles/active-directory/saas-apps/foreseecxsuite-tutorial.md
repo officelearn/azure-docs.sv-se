@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: af849fa6790dfdb57d8073b17f6d31a3f59a532d
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 19c2ccab6685f53ba714298f66bc8e8821b4aa02
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898695"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65988033"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-foresee-cx-suite"></a>Självstudier: Azure Active Directory-integrering med förutser CX Suite
 
@@ -194,7 +194,7 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 ### <a name="create-foresee-cx-suite-test-user"></a>Skapa förutser CX Suite testanvändare
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i förutser CX Suite. Arbeta med [förutser CX Suite supportteamet](mailto:support@foresee.com) att lägga till användare eller domän som behövs för att bli godkänd i plattformen förutser CX Suite. Om domänen har lagts till av teamet, kommer användare får automatiskt tillhandahållas till plattformen förutser CX Suite. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som kallas Britta Simon i förutser CX Suite. Arbeta med [förutser CX Suite supportteamet](mailto:support@foresee.com) att lägga till användare eller domän som måste du lägga till en lista över tillåtna för plattformen förutser CX Suite. Om domänen har lagts till av teamet, kommer användare får automatiskt tillhandahållas till plattformen förutser CX Suite. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 

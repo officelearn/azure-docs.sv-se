@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8942ebf3f006c2e1cc72b322dd243d46bf69f04d
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 91d4cf874d4d98735582d2690072e6a04683c1f5
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65899646"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65988730"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-sign"></a>Självstudier: Azure Active Directory-integrering med Adobe Sign
 
@@ -128,7 +128,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Adobe
 
 ### <a name="configure-adobe-sign-single-sign-on"></a>Konfigurera enkel inloggning för Adobe Sign
 
-1. Före konfigurationen kontaktar du [supportteamet för Adobe Sign](https://helpx.adobe.com/in/contact/support.html) för att lägga till din domän i listan över godkända i Adobe Sign. Så här lägger du till domänen:
+1. Innan konfigurationen, kontakta den [Adobe Sign klienten supportteamet](https://helpx.adobe.com/in/contact/support.html) att lägga till din domän i Adobe Sign-tillåtelselistan. Så här lägger du till domänen:
 
     a. [Supportteamet för Adobe Sign](https://helpx.adobe.com/in/contact/support.html) skickar dig en slumpmässigt genererad token. För din domän kommer token se ut ungefär på följande sätt: **adobe-sign-verification= xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx**
 

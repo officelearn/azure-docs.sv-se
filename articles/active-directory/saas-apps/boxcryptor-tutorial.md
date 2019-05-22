@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8dc04a307779b47b50cd16a81c0566b72bafab95
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: c4beac0ab739d62eb7acb00e6b2db717b5f43e15
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65900698"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65987963"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-boxcryptor"></a>Självstudier: Azure Active Directory-integrering med Boxcryptor
 
@@ -181,7 +181,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
 ### <a name="create-boxcryptor-test-user"></a>Skapa Boxcryptor-testanvändare
 
-I det här avsnittet skapar du en användare med namnet Britta Simon i Boxcryptor. Kontakta [supportteamet för Boxcryptor](mailto:support@boxcryptor.com) och lägg till de användare eller den domän som ska tillåtas på Boxcryptor-plattformen. Om domänen läggs till av teamet så etableras användare automatiskt till Boxcryptor-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare med namnet Britta Simon i Boxcryptor. Arbeta med [Boxcryptor supportteamet](mailto:support@boxcryptor.com) att lägga till användare eller domän som måste du lägga till en lista över tillåtna för Boxcryptor-plattformen. Om domänen läggs till av teamet så etableras användare automatiskt till Boxcryptor-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 

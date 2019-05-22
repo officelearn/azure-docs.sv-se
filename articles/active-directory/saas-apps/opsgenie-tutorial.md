@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: f395ae51d51e56668482ad6c8d446bdd31050fea
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 98e4d1870c57c9718e2d4293157b21ead8ea44e1
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65870627"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65987492"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-opsgenie"></a>Självstudier: Azure Active Directory-integrering med OpsGenie
 
@@ -71,16 +71,16 @@ För att konfigurera integrering av OpsGenie i Azure AD, som du behöver lägga 
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med OpsGenie baserat på en testanvändare kallas **Britta Simon**.
+I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med OpsGenie baserat på en testanvändare kallas **B. Simon**.
 För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i OpsGenie upprättas.
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med OpsGenie, måste du utföra följande byggblock:
 
 1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
 2. **[Konfigurera OpsGenie Single Sign-On](#configure-opsgenie-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Skapa testanvändare OpsGenie](#create-opsgenie-test-user)**  – du har en motsvarighet för Britta Simon i OpsGenie som är länkad till en Azure AD-representation av användaren.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med B. Simon.
+4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera B. Simon att använda Azure AD enkel inloggning.
+5. **[Skapa testanvändare OpsGenie](#create-opsgenie-test-user)**  – du har en motsvarighet för B. Simon i OpsGenie som är länkad till en Azure AD-representation av användaren.
 6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
@@ -149,9 +149,9 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med OpsGeni
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas B. Simon.
 
-1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
+1. I Azure-portalen, i den vänstra rutan väljer **Azure Active Directory**väljer **användare**, och välj sedan **alla användare**.
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
@@ -163,10 +163,10 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Dialogrutan Användare](common/user-properties.png)
 
-    a. I fältet **Namn** anger du **BrittaSimon**.
+    a. I den **namn** ange **B. Simon**.
   
-    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
-    Till exempel, BrittaSimon@contoso.com
+    b. I fältet **Användarnamn** anger du **bsimon@yourcompanydomain.extension**  
+    Till exempel, BSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
@@ -174,7 +174,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till OpsGenie.
+I det här avsnittet ska aktivera du B. Simon att använda Azure enkel inloggning genom att bevilja åtkomst till OpsGenie.
 
 1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **OpsGenie**.
 
@@ -192,7 +192,7 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
     ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
+5. I den **användare och grupper** dialogrutan Välj **B. Simon** i listan över användare och klicka på den **Välj** längst ned på skärmen.
 
 6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 
@@ -200,7 +200,7 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 ### <a name="create-opsgenie-test-user"></a>Skapa OpsGenie testanvändare
 
-Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i OpsGenie. 
+Målet med det här avsnittet är att skapa en användare som kallas B. Simon i OpsGenie. 
 
 1. Logga in på din OpsGenie-klient som en administratör i ett webbläsarfönster.
 
@@ -214,14 +214,14 @@ Målet med det här avsnittet är att skapa en användare som kallas Britta Simo
    
     ![Inställningar för OpsGenie](./media/opsgenie-tutorial/tutorial_opsgenie_11.png)
    
-    a. I den **e-post** textrutan e-postadressen sorts BrittaSimon åtgärdas i Azure Active Directory.
+    a. I den **e-post** textrutan typ e-postadressen för B. Simon åtgärdas i Azure Active Directory.
    
-    b. I den **fullständigt namn** textrutan typ **Britta Simon**.
+    b. I den **fullständigt namn** textrutan typ **B. Simon**.
    
     c. Klicka på **Spara**. 
 
 >[!NOTE]
->Britta får ett e-postmeddelande med instruktioner för att konfigurera sin profil.
+>B. Simon får ett e-postmeddelande med instruktioner för att konfigurera sin profil.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 0879f9026276eb7149ae44906377a7b369e05116
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a3e457ca29ebe086c6097528af5a9253446b757c
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65865300"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65990547"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vodeclic"></a>Självstudier: Azure Active Directory-integrering med Vodeclic
 
@@ -191,7 +191,7 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 I det här avsnittet skapar du en användare som kallas Britta Simon i Vodeclic. Arbeta med [Vodeclic supportteamet](mailto:hotline@vodeclic.com) att lägga till användare i Vodeclic-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 > [!NOTE]
-> Du kan behöva hämta dator-godkänd enligt kraven för programmet. För att det ska ske, måste du dela din offentliga IP-adress med det [Vodeclic supportteamet](mailto:hotline@vodeclic.com).
+> Enligt programkrav, kan du behöva hämta din dator som har lagts till i en lista över tillåtna. För att det ska ske, måste du dela din offentliga IP-adress med det [Vodeclic supportteamet](mailto:hotline@vodeclic.com).
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 

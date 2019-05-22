@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f250a5ac5f6fefa099303b033a9687f1a219efd8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a8ff026743ccda0a47ce176db51dbc7913376f46
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65862395"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65987996"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bersin"></a>Självstudier: Azure Active Directory-integrering med Bersin
 
@@ -51,7 +51,7 @@ I den här självstudien konfigurerar och testar du enkel inloggning med Azure A
 
 För att konfigurera integrering av Bersin i Azure AD, som du behöver lägga till Bersin från galleriet i din lista över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till Bersin från galleriet:**
+**Lägga till Bersin från galleriet**
 
 1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
@@ -86,7 +86,7 @@ Om du vill konfigurera och testa Azure AD enkel inloggning med Bersin, måste du
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Utför följande steg för att konfigurera Azure AD enkel inloggning med Bersin:
+Om du vill konfigurera Azure AD enkel inloggning med Bersin, gör du följande:
 
 1. I den [Azure-portalen](https://portal.azure.com/)på den **Bersin** application integration markerar **enkel inloggning**.
 
@@ -100,7 +100,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Bersin:
 
     ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-4. Om du vill konfigurera appen i **IDP**-initierat läge gör du följande i avsnittet **Grundläggande SAML-konfiguration**:
+4. På den **SAML grundkonfiguration** om du vill konfigurera programmet i **IDP** initierade läge, gör du följande steg:
 
     ![Bersin domän och URL: er med enkel inloggning för information](common/idp-identifier-relay.png)
 
@@ -110,7 +110,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Bersin:
 
     c. Skriv en URL med följande mönster i textrutan **Vidarebefordransstatus**: `https://www.bersin.com/secure/`
 
-5. Klicka på **Ange ytterligare URL:er** och utför följande steg om du vill konfigurera programmet i **SP**-initierat läge:
+5. Klicka på **ange ytterligare webbadresser** och utför följande steg om du vill konfigurera programmet i **SP** initierade läge:
 
     ![Bersin domän och URL: er med enkel inloggning för information](common/metadata-upload-additional-signon.png)
 
@@ -132,7 +132,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Bersin:
 
 ### <a name="configure-bersin-single-sign-on"></a>Konfigurera Bersin Single Sign-On
 
-Att konfigurera enkel inloggning på **Bersin** sida, som du behöver skicka de hämtade **XML-Metadata för Federation** och lämpliga kopierade URL: er från Azure portal för att [Bersin supportteamet](mailto:ramansabde@gmail.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+Att konfigurera enkel inloggning på **Bersin** sida, skicka de hämtade **XML-Metadata för Federation** och lämpliga kopierade URL: er från Azure portal för att [Bersin supportteamet](mailto:ramansabde@gmail.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
@@ -146,13 +146,13 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Knappen Ny användare](common/new-user.png)
 
-3. Genomför följande steg i Användaregenskaper.
+3. Utför följande steg i egenskaperna för användaren.
 
-    ![Dialogrutan Användare](common/user-properties.png)
+    ![Dialogrutan användare](common/user-properties.png)
 
-    a. I fältet **Namn** anger du **BrittaSimon**.
+    a. I den **namn** anger **BrittaSimon**.
   
-    b. I den **användarnamn** fälttyp **brittasimon\@yourcompanydomain.extension**  
+    b. I den **användarnamn** skriver **brittasimon\@yourcompanydomain.extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
@@ -179,15 +179,15 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
     ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
+5. I den **användare och grupper** dialogrutan Välj **Britta Simon** i listan över användare och klicka på den **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig något rollvärde i SAML-försäkran sedan i den **Välj roll** dialogrutan Välj rätt roll för användaren i listan. Klicka på den **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
 ### <a name="create-bersin-test-user"></a>Skapa Bersin testanvändare
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i Bersin. Arbeta med den [Bersin supportteamet](mailto:USBersinServiceClient@deloitte.com) att lägga till användare i plattformen Bersin eller domän som behövs för att bli godkänd i Bersin-plattformen. Om domänen har lagts till av teamet, kommer användare får automatiskt tillhandahållas för Bersin-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som kallas Britta Simon i Bersin. Arbeta med den [Bersin supportteamet](mailto:USBersinServiceClient@deloitte.com) att lägga till användare i plattformen Bersin eller domän som måste du lägga till en lista över tillåtna för Bersin-plattformen. Om domänen har lagts till av teamet, kommer användare får automatiskt tillhandahållas för Bersin-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 

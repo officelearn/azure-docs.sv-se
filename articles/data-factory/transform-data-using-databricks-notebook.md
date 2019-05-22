@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 03/12/2018
 ms.author: abnarain
 ms.reviewer: douglasl
-ms.openlocfilehash: ca208ded54d17c2392d764e4cba67e5f24e03fd3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fad8045ac8bddb236f0f80ad223ebafc7aa7e93a
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60655378"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002862"
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>Kör en Databricks Notebook med Databricks Notebook-aktiviteten i Azure Data Factory
 
@@ -33,7 +33,7 @@ I den här självstudiekursen får du göra följande:
 
   - Övervaka pipelinekörningen.
 
-Om du inte har en Azure-prenumeration skapar du ett  [kostnadsfritt konto](https://azure.microsoft.com/free/)  innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 Om du vill se en introduktion och demonstration av den här funktionen rekommenderar vi följande videoklipp (11 minuter):
 
@@ -45,37 +45,37 @@ Om du vill se en introduktion och demonstration av den här funktionen rekommend
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
-1.  Starta webbläsaren **Microsoft Edge** eller **Google Chrome** . Användargränssnittet för Data Factory stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
+1.  Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Användargränssnittet för Data Factory stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
 
-1.  Välj **Skapa en resurs** på den vänstra menyn. Välj **Analys**och välj sedan **Data Factory**.
+1.  Välj **Skapa en resurs** på den vänstra menyn, välj **Analys** och välj sedan **Data Factory**.
 
     ![Skapa en ny datafabrik](media/transform-data-using-databricks-notebook/new-azure-data-factory-menu.png)
 
-1.  I fönsterrutan **Ny datafabrik**  anger du **ADFTutorialDataFactory** under **Namn**.
+1.  I fönstret **Ny datafabrik** anger du **ADFTutorialDataFactory** under **Namn**.
 
-    Namnet på Azure-datafabriken måste vara *globalt unikt*. Om du ser följande fel ska du ändra namnet på datafabriken. (Använd till exempel **\<dittnamn\>ADFTutorialDataFactory**). Namngivningsregler för Data Factory-artefakter finns i artikeln [Data Factory – namnregler](https://docs.microsoft.com/azure/data-factory/naming-rules) .
+    Namnet på Azure Data Factory måste vara *globalt unikt*. Om du ser följande fel ska du ändra namnet på datafabriken. (Använd till exempel **\<dittnamn\>ADFTutorialDataFactory**). Namngivningsregler för Data Factory-artefakter finns i artikeln [Data Factory – namnregler](https://docs.microsoft.com/azure/data-factory/naming-rules).
 
     ![Ange ett namn för den nya datafabriken](media/transform-data-using-databricks-notebook/new-azure-data-factory.png)
 
-1.  För **Prenumeration** väljer du den Azure-prenumeration där du vill skapa datafabriken.
+1.  Välj den Azure-prenumeration där du vill skapa den nya datafabriken för **Prenumeration**.
 
-1.  För **Resursgrupp**, utför du något av följande steg:
+1.  Gör något av följande för **Resursgrupp**:
     
-    - Välj **Använd befintlig** och välj en befintlig resursgrupp i listrutan.
+    - Välj **Använd befintlig** och välj en befintlig resursgrupp i listrutan.
     
-    - Välj **Skapa ny** och ange namnet på en resursgrupp.
+    - Välj **Skapa ny** och ange namnet på en resursgrupp.
 
-    Vissa av stegen i den här snabbstarten förutsätter att du använder namnet **ADFTutorialResourceGroup** för resursgruppen. Mer information om resursgrupper finns i  [Använda resursgrupper till att hantera Azure-resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+    Vissa av stegen i den här snabbstarten förutsätter att du använder namnet **ADFTutorialResourceGroup** på resursgruppen. Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
-1.  För **Version** väljer du **V2**.
+1.  För **Version** väljer du **V2**.
 
-1.  För **Plats** väljer du platsen för datafabriken.
+1.  För **Plats** väljer du en plats för datafabriken.
 
     Om du vill se en lista med Azure-regioner där Data Factory är tillgängligt för närvarande markerar du de regioner du är intresserad av på följande sida. Expandera sedan **Analytics** och leta rätt på **Data Factory**: [Produkttillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/). De datalager (som Azure Storage och Azure SQL Database) och beräkningar (som HDInsight) som används i Data Factory kan finnas i andra regioner.
-1.  Välj  **Skapa**.
+1.  Välj **Skapa**.
 
 
-1.  När skapandet är klart visas sidan **Datafabrik** . Välj panelen **Författare och övervakare** för att starta Data Factory UI-programmet på en separat flik.
+1.  När datafabriken har skapats visas sidan **Datafabrik**. Välj ikonen **Författare och övervakare** för att starta programmet Data Factory UI på en separat flik.
 
     ![Starta användargränssnittsprogrammet för datafabriken](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image4.png)
 
@@ -85,19 +85,19 @@ I det här avsnittet skapar du en Databricks-länkad tjänst. Den här länkade 
 
 ### <a name="create-an-azure-databricks-linked-service"></a>Skapa en länkad Azure Databricks-tjänst
 
-1.  På sidan **Kom igång** växlar du till fliken **Redigera** i den vänstra panelen.
+1.  På sidan **Nu sätter vi igång** växlar du till fliken **Redigera** i den vänstra panelen.
 
     ![Redigera den nya länkade tjänsten](media/transform-data-using-databricks-notebook/get-started-page.png)
 
-1.  Välj **Anslutningar** längst ned i fönstret och sedan **+ Ny**.
+1.  Välj **Anslutningar** längst ned i fönstret och sedan **+Ny**.
     
     ![Skapa en ny anslutning](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image6.png)
 
-1.  I fönstret **Ny länkad tjänst** väljer du **Compute** \> **Azure Databricks** och sedan **Fortsätt**.
+1.  I fönstret **Ny länkad tjänst** väljer du **Compute** \> **Azure Databricks** och klickar på **Fortsätt**.
     
     ![Ange en länkad Databricks-tjänst](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image7.png)
 
-1.  I fönstret **Ny länkad tjänst** utför du följande steg:
+1.  Utför följande steg i fönstret **New Linked Service** (Ny länkad tjänst):
     
     1.  Som **Namn** anger du ***AzureDatabricks\_LinkedService***
     
@@ -121,7 +121,7 @@ I det här avsnittet skapar du en Databricks-länkad tjänst. Den här länkade 
 
 ## <a name="create-a-pipeline"></a>Skapa en pipeline
 
-1.  Välj knappen **+** (plus) och sedan **Pipeline** på menyn.
+1.  Välj knappen **+** (plus) och sedan **Pipeline** från menyn.
 
     ![Knappar för att skapa en ny pipeline](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image9.png)
 
@@ -131,15 +131,15 @@ I det här avsnittet skapar du en Databricks-länkad tjänst. Den här länkade 
 
     ![Skapa namnparametern](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image11.png)
 
-1.  I verktygslådan **Aktiviteter** expanderar du **Databricks**. Dra aktiviteten **Notebook** från verktygslådan **Aktiviteter** till pipelinedesignytan.
+1.  Gå till verktygsfältet **Aktiviteter** och expandera **Databricks**. Dra aktiviteten **Notebook** från verktygsfältet **Aktiviteter** till pipelinedesignytan.
 
     ![Dra denna notebook till designytan](media/transform-data-using-databricks-notebook/new-adf-pipeline.png)
 
-1.  I egenskaperna för aktivitetsfönstret **Databricks** **Notebook** längst ned utför du följande steg:
+1.  Utför följande steg i egenskaperna för **Databricks** **Notebook**-aktivitetsfönstret längst ned:
 
-    a. Växla till fliken **Azure Databricks** .
+    a. Växla till fliken **Azure Databricks**.
 
-    b. Välj **AzureDatabricks\_LinkedService** (som du skapade i den föregående proceduren).
+    b. Välj **AzureDatabricks\_LinkedService** (som du skapade i den föregående proceduren).
 
     c. Växla till fliken **Inställningar**
 
@@ -181,17 +181,17 @@ I det här avsnittet skapar du en Databricks-länkad tjänst. Den här länkade 
 
     b.  Namnge parametern **inkommande** och ange värdet som uttrycket  **\@pipeline ()-.parameters.name**.
 
-1.  Verifiera pipelinen genom att välja knappen **Verifiera** i verktygsfältet. Stäng verifieringsfönstret genom att välja knappen **\>\>** (högerpil).
+1.  Verifiera pipelinen genom att välja knappen **Verifiera** i verktygsfältet. Klicka på knappen **\>\>** (högerpil) för att stänga verifieringsfönstret.
 
     ![Verifiera pipeline](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image18.png)
 
-1.  Välj **Publicera alla**. Data Factory-gränssnittet publicerar entiteter (länkade tjänster och pipelines) till Azure Data Factory-tjänsten.
+1.  Välj **Publicera alla**. Data Factory-gränssnittet publicerar entiteter (länkade tjänster och pipelines) till Azure Data Factory-tjänsten.
 
     ![Publicera de nya datafabriksentiteterna](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image19.png)
 
 ## <a name="trigger-a-pipeline-run"></a>Utlös en pipelinekörning
 
-Välj **Utlös** i verktygsfältet och sedan **Trigger Now** (Utlös nu).
+Välj **Utlös** i verktygsfältet och sedan **Trigger Now** (Utlös nu).
 
 ![Välj kommandot Utlös nu](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image20.png)
 
@@ -201,17 +201,17 @@ Dialogrutan **Kör pipeline** efterfrågar parametern **namn**. Använd **/path/
 
 ## <a name="monitor-the-pipeline-run"></a>Övervaka pipelinekörningen
 
-1.  Växla till fliken **Övervaka** . Bekräfta att du ser en pipelinekörning. Det tar cirka 5–8 minuter att skapa ett Databricks-jobbkluster där en notebook körs.
+1.  Välj fliken **Övervaka**. Bekräfta att du ser en pipelinekörning. Det tar cirka 5–8 minuter att skapa ett Databricks-jobbkluster där en notebook körs.
 
     ![Övervaka pipeline](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image22.png)
 
-1.  Välj **Uppdatera** då och då så att du ser pipelinekörningens status.
+1.  Klicka på **Uppdatera** då och då så att du ser pipelinekörningens status.
 
-1.  Om du vill visa aktivitetskörningar som är associerade med pipelinekörningen väljer du länken **View activity runs** (Visa aktivitetskörningar) i kolumnen **Åtgärder** .
+1.  Om du vill visa aktivitetskörningar som är associerade med pipelinekörningarna väljer på länken **View activity runs** (Visa aktivitetskörningar) i kolumnen **Åtgärd**.
 
     ![Visa aktivitetskörningar](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image23.png)
 
-Du kan växla tillbaka till vyn över pipelinekörningar genom att välja länken **Pipelines** .
+Du kan gå tillbaka till vyn över pipelinekörningar genom att välja länken **Pipelines**.
 
 ## <a name="verify-the-output"></a>Verifiera utdata
 

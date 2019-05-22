@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: e9378f8d2b31bfed4c464951c427b1e9d00b7893
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b073a270fabb8657be19b79601fa90f1b9a0351b
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64699379"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "66015237"
 ---
 # <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>Självstudier: Lägga till en riktig enhet till Azure IoT Central-programmet
 
@@ -348,7 +348,7 @@ I den här självstudiekursen lärde du dig att:
 > * Förstå hur klientkod mappas till programmet
 > * Konfigurera klientkod för den riktiga enheten
 
-Nu när du har anslutit en riktig enhet till Azure IoT Central programmet, är här nästa föreslagna steg:
+Nu när du har anslutit en riktig enhet till Azure IoT Central programmet, är här några förslag nästa steg.
 
 Som operatör lär du dig att:
 

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 2fd3416824189007bfdbe55d30907d9cb56f87ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fdf5508475d868ccb8c271daaac7449d3c940301
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60598405"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "65073158"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Förstå vad bra yttranden är avsedda för LUIS-app
 
@@ -74,13 +74,47 @@ LUIS skapar effektiva modeller med yttranden som väljs noggrant installationsko
 
 Är det bättre att börja med ett par yttranden sedan [granska endpoint yttranden](luis-how-to-review-endpoint-utterances.md) för rätt avsikt extrahering av förutsägelser och entiteten.
 
-## <a name="punctuation-marks"></a>Skiljetecken
+## <a name="utterance-normalization"></a>Uttryck normalisering
 
-LUIS går inte att Ignorera skiljetecken, som standard, eftersom alla klientprogram kan placera betydelse på dessa märken. Kontrollera att ditt exempel yttranden använder både interpunktion och inga skiljetecken för båda formaten för att returnera samma relativa poängen. Om skiljetecken har ingen specifik betydelse i klientprogrammet, bör du [Ignorerar skiljetecken](#ignoring-words-and-punctuation) med hjälp av mönster. 
+Uttryck normalisering är processen att ignorera effekterna av interpunktion och diakritiska tecken under träning och förutsägelser.
 
-## <a name="ignoring-words-and-punctuation"></a>Ignorerar ord och skiljetecken
+## <a name="utterance-normalization-for-diacritics-and-punctuation"></a>Uttryck normalisering för diakritiska tecken och skiljetecken
 
-Om du vill ignorera vissa specifika ord eller skiljetecken i exempel-uttryck kan använda en [mönstret](luis-concept-patterns.md#pattern-syntax) med den _Ignorera_ syntax. 
+Uttryck normalisering definieras när du skapar eller importera appen eftersom den är en inställning i JSON-filen för appen. Uttryck-normaliseringsinställningarna är inaktiverade som standard. 
+
+Diakritiska tecken är varumärken eller kännetecken i texten, till exempel: 
+
+```
+İ ı Ş Ğ ş ğ ö ü
+```
+
+Om din app aktiverar normalisering, bedömer i den **Test** fönstret, batch tester och slutpunkten frågor kommer att ändras för alla yttranden med diakritiska tecken eller skiljetecken.
+
+Aktivera uttryck normalisering för diakritiska tecken eller skiljetecken i LUIS JSON appfilen i den `settings` parametern.
+
+```JSON
+"settings": [
+    {"name": "NormalizePunctuation", "value": "true"},
+    {"name": "NormalizeDiacritics", "value": "true"}
+] 
+```
+
+Normaliserar **skiljetecken** innebär att innan dina modeller utbilda och innan slutpunkten frågor hämta förutse skiljetecken tas bort från yttranden. 
+
+Normaliserar **diakritiska tecken** ersätter tecknen med dem i uttryck med vanliga tecken. Till exempel: `Je parle français` blir `Je parle francais`. 
+
+Normalisering innebär inte att du kommer inte se skiljetecken och diakritiska tecken i ditt exempel yttranden eller förutsägelse svar bara att de kommer att ignoreras under träning och förutsägelser.
+
+
+### <a name="punctuation-marks"></a>Skiljetecken
+
+Om skiljetecken inte är normaliserat LUIS går inte att Ignorera skiljetecken, som standard, eftersom alla klientprogram kan placera betydelse på dessa märken. Kontrollera att ditt exempel yttranden använder både interpunktion och inga skiljetecken för båda formaten för att returnera samma relativa poängen. 
+
+Om skiljetecken har ingen specifik betydelse i klientprogrammet, bör du [Ignorerar skiljetecken](#utterance-normalization) av normaliserar skiljetecken. 
+
+### <a name="ignoring-words-and-punctuation"></a>Ignorerar ord och skiljetecken
+
+Om du vill ignorera vissa specifika ord eller skiljetecken i mönster kan använda en [mönstret](luis-concept-patterns.md#pattern-syntax) med den _Ignorera_ syntaxen för hakparenteser, `[]`. 
 
 ## <a name="training-utterances"></a>Utbildning yttranden
 
@@ -94,7 +128,7 @@ Utvecklare bör börja testa sina LUIS-program med verklig trafik genom att skic
 
 När din modell är tränade publicerade och mottagande [endpoint](luis-glossary.md#endpoint) frågor, [granska talade](luis-how-to-review-endpoint-utterances.md) föreslås av LUIS. LUIS väljer endpoint yttranden som har låg poäng för avsikt eller entitet. 
 
-## <a name="best-practices"></a>Bästa praxis
+## <a name="best-practices"></a>Regelverk
 
 Granska [bästa praxis](luis-concept-best-practices.md) och använda dem som en del av din vanliga redigering cykel.
 

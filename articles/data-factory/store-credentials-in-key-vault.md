@@ -76,10 +76,10 @@ Följande egenskaper stöds när du konfigurerar ett fält i den länkade tjäns
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för fältet måste anges till: **AzureKeyVaultSecret**. | Ja |
+| type | Type-egenskapen för fältet måste anges till: **AzureKeyVaultSecret**. | Ja |
 | secretName | Namnet på hemlighet i azure key vault. | Ja |
 | secretVersion | Versionen av hemlighet i azure key vault.<br/>Om inte anges använder alltid den senaste versionen av hemligheten.<br/>Om anges fastnar den angivna versionen.| Nej |
-| Store | Refererar till en Azure Key Vault-länkade tjänst som används för att lagra autentiseringsuppgifterna. | Ja |
+| store | Refererar till en Azure Key Vault-länkade tjänst som används för att lagra autentiseringsuppgifterna. | Ja |
 
 **Med redigering av Användargränssnittet:**
 

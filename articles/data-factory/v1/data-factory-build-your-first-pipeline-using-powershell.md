@@ -215,13 +215,13 @@ I det här steget skapar du datauppsättningar som ska representera in- och utda
 
    | Egenskap | Beskrivning |
    |:--- |:--- |
-   | typ |Typegenskapen har angetts till AzureBlob eftersom det finns data i Azure Blob-lagringen. |
+   | type |Typegenskapen har angetts till AzureBlob eftersom det finns data i Azure Blob-lagringen. |
    | linkedServiceName |refererar till den StorageLinkedService som du skapade tidigare. |
    | fileName |Den här egenskapen är valfri. Om du tar bort egenskapen kommer alla filer från folderPath hämtas. I det här fallet bearbetas bara input.log. |
-   | typ |Loggfilerna är i textformat, så vi använder TextFormat. |
+   | type |Loggfilerna är i textformat, så vi använder TextFormat. |
    | columnDelimiter |kolumner i loggfilerna avgränsas med kommatecken (,). |
-   | frekvens/intervall |frekvensen är månad och intervallet är 1, vilket innebär att indatasektorerna är tillgängliga en gång i månaden. |
-   | extern |den här egenskapen anges som true om indatan inte skapades av Data Factory-tjänsten. |
+   | frequency/interval |frekvensen är månad och intervallet är 1, vilket innebär att indatasektorerna är tillgängliga en gång i månaden. |
+   | external |den här egenskapen anges som true om indatan inte skapades av Data Factory-tjänsten. |
 2. I Azure PowerShell kör du följande kommando för att skapa Data Factory-datauppsättningen:
 
     ```PowerShell

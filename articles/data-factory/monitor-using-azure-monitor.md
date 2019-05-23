@@ -109,12 +109,12 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | serviceBusRuleId |String | Service bus regeln ID för service bus-namnområde som du vill ha Händelsehubbar som skapats för direktuppspelning diagnostikloggar. Regel-ID är i formatet ”: {service bus resurs-ID} /authorizationrules/ {namn}”.|
 | workspaceId | Komplex typ | Matris med mått tid kärnor och deras bevarandeprinciper. Den här egenskapen är för närvarande är tom. |
 |metrics| Parametervärdena för pipelinekörningen om du vill ska skickas till anropad pipeline| Ett JSON-objekt som mappar parameternamn till argumentvärden |
-| loggar| Komplex typ| Namnet på en diagnostiklogg kategori för en resurstyp. Du kan hämta listan över diagnostiklogg kategorier för en resurs genom att utföra en åtgärd för hämtning av diagnostikinställningar först. |
+| logs| Komplex typ| Namnet på en diagnostiklogg kategori för en resurstyp. Du kan hämta listan över diagnostiklogg kategorier för en resurs genom att utföra en åtgärd för hämtning av diagnostikinställningar först. |
 | category| String| Loggkategorier och deras bevarandeprinciper |
 | timeGrain | String | Granulariteten för mått som har hämtats i ISO 8601-format för varaktighet. Måste vara PT1M (en minut)|
-| aktiverad| Boolean | Anger om insamling av mått eller log kategorin har aktiverats för den här resursen|
+| enabled| Boolean | Anger om insamling av mått eller log kategorin har aktiverats för den här resursen|
 | retentionPolicy| Komplex typ| Beskriver bevarandeprincipen för ett mått eller log kategori. Används för endast lagringskonto visas.|
-| dagar| Int| Antal dagar att behålla mått eller loggar. Värdet 0 behåller loggarna på obestämd tid. Används för endast lagringskonto visas. |
+| days| Int| Antal dagar att behålla mått eller loggar. Värdet 0 behåller loggarna på obestämd tid. Används för endast lagringskonto visas. |
 
 **Svar**
 

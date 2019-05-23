@@ -59,7 +59,7 @@ Följande tabell innehåller en beskrivning för JSON-element som är specifika 
 
 | **Egenskap** | **Beskrivning** | **Krävs** |
 | --- | --- | --- |
-| typ |Type-egenskapen måste anges till: **DocumentDb** |Ja |
+| type |Type-egenskapen måste anges till: **DocumentDb** |Ja |
 | connectionString |Ange information som behövs för att ansluta till Azure Cosmos DB-databas. |Ja |
 
 Exempel:
@@ -83,7 +83,7 @@ Avsnittet typeProperties är olika för varje typ av datauppsättning och tillha
 
 | **Egenskap** | **Beskrivning** | **Krävs** |
 | --- | --- | --- |
-| Samlingsnamn |Namnet på Cosmos DB-dokumentsamling. |Ja |
+| collectionName |Namnet på Cosmos DB-dokumentsamling. |Ja |
 
 Exempel:
 
@@ -124,7 +124,7 @@ Vid Kopieringsaktivitet när källan är av typen **DocumentDbCollectionSource**
 
 | **Egenskap** | **Beskrivning** | **Tillåtna värden** | **Krävs** |
 | --- | --- | --- | --- |
-| DocumentDB |Ange fråga för att läsa data. |Frågesträng som stöds av Azure Cosmos DB. <br/><br/>Exempel: `SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Nej <br/><br/>Om inte anges, SQL-instruktionen som körs: `select <columns defined in structure> from mycollection` |
+| query |Ange fråga för att läsa data. |Frågesträng som stöds av Azure Cosmos DB. <br/><br/>Exempel: `SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Nej <br/><br/>Om inte anges, SQL-instruktionen som körs: `select <columns defined in structure> from mycollection` |
 | nestingSeparator |Specialtecken som visar att dokumentet är kapslade |Valfritt tecken. <br/><br/>Azure Cosmos DB är en NoSQL-lagring av JSON-dokument, där kapslade strukturer är tillåtna. Azure Data Factory kan användaren att ange hierarki via nestingSeparator, vilket är ””. i ovanstående exempel. Med avgränsaren, Kopieringsaktivitet genererar ”Name”-objekt med tre underordnade element först mellan- och efternamn enligt ”Name.First”, ”Name.Middle” och ”Name.Last” i tabelldefinitionen. |Nej |
 
 **DocumentDbCollectionSink** har stöd för följande egenskaper:

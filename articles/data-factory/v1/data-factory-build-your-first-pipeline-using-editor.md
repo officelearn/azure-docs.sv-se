@@ -211,14 +211,14 @@ I det här steget skapar du datauppsättningar som ska representera in- och utda
 
    | Egenskap  | Kapslat under | Beskrivning |
    |:--- |:--- |:--- |
-   | typ | properties |Egenskapen type sätts till **AzureBlob** eftersom data finns i bloblagringen. |
-   | linkedServiceName | Format |Refererar till den AzureStorageLinkedService du skapade tidigare. |
+   | type | properties |Egenskapen type sätts till **AzureBlob** eftersom data finns i bloblagringen. |
+   | linkedServiceName | format |Refererar till den AzureStorageLinkedService du skapade tidigare. |
    | folderPath | typeProperties | Anger vilken blobcontainer och mapp som innehåller indatablobar. | 
    | fileName | typeProperties |Den här egenskapen är valfri. Om du utelämnar den här egenskapen väljs alla filer från folderPath. I den här självstudien bearbetas bara filen input.log. |
-   | typ | Format |Loggfilerna är i textformat, så använd **TextFormat**. |
-   | columnDelimiter | Format |Kolumnerna i loggfilerna avgränsas med kommatecken (`,`). |
-   | frekvens/intervall | availability |frequency sätts till **Month** (månad) och interval till **1**, vilket innebär att indatasektorerna är tillgängliga en gång i månaden. |
-   | extern | properties | Den här egenskapen sätts till **true** om indata inte genereras i denna pipeline. I den här självstudien genereras inte input.log-filen i denna pipeline, så vi sätter egenskapen till **true**. |
+   | type | format |Loggfilerna är i textformat, så använd **TextFormat**. |
+   | columnDelimiter | format |Kolumnerna i loggfilerna avgränsas med kommatecken (`,`). |
+   | frequency/interval | availability |frequency sätts till **Month** (månad) och interval till **1**, vilket innebär att indatasektorerna är tillgängliga en gång i månaden. |
+   | external | properties | Den här egenskapen sätts till **true** om indata inte genereras i denna pipeline. I den här självstudien genereras inte input.log-filen i denna pipeline, så vi sätter egenskapen till **true**. |
 
     Mer information om de här JSON-egenskaperna finns i [Azure Blob-anslutningsapp](data-factory-azure-blob-connector.md#dataset-properties).
 

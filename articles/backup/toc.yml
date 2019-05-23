@@ -21,6 +21,8 @@
       href: tutorial-restore-disk.md
     - name: Återställa enskilda filer
       href: tutorial-restore-files.md
+    - name: Säkerhetskopiera SQL Server på virtuella Azure-datorer
+      href: tutorial-sql-backup.md
     - name: Säkerhetskopiera Windows Server
       href: tutorial-backup-windows-server-to-azure.md
     - name: Återställa filer till Windows Server

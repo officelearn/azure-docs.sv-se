@@ -26,7 +26,7 @@
           href: expressroute-locations-providers.md
         - name: Platser efter leverantör
           href: expressroute-locations.md
-    - name: ExpressRoute-gateway för virtuella nätverk och FastPath
+    - name: Gateway för virtuella nätverk och FastPath
       href: expressroute-about-virtual-network-gateways.md
     - name: Nödvändiga komponenter
       href: expressroute-prerequisites.md

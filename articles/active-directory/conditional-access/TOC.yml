@@ -19,8 +19,8 @@
 - name: Begrepp
   expanded: false
   items:
-    - name: Baslinjeskydd
-      href: baseline-protection.md
+    - name: Principer för baslinjeskydd
+      href: concept-baseline-protection.md
     - name: Villkor
       href: conditions.md
     - name: Platsvillkor
@@ -38,6 +38,16 @@
       href: plan-conditional-access.md
     - name: Bästa praxis
       href: best-practices.md
+    - name: Baslinjeprinciper
+      items:
+        - name: Kräva MFA för administratörer
+          href: howto-baseline-protect-administrators.md
+        - name: Slutanvändarskydd
+          href: howto-baseline-protect-end-users.md
+        - name: Blockera äldre autentisering
+          href: howto-baseline-protect-legacy-auth.md
+        - name: Kräva MFA för tjänsthantering
+          href: howto-baseline-protect-azure.md
     - name: Blockera äldre autentisering
       href: block-legacy-authentication.md
     - name: Migrera klassiska principer

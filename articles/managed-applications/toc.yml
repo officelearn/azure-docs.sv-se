@@ -45,6 +45,8 @@
           href: publish-portal.md
         - name: Använda en hemlighet från Key Vault
           href: key-vault-access.md
+        - name: Distribuera med hanterad identitet
+          href: publish-managed-identity.md
     - name: Konsumenter
       items:
         - name: Övervaka hanterat program

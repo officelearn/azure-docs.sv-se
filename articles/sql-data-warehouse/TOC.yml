@@ -257,6 +257,10 @@
       items:
         - name: Analysera din arbetsbelastning
           href: analyze-your-workload.md
+        - name: Hantera och övervaka arbetsbelastningsprioritet
+          href: sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md
+        - name: Konfigurera arbetsbelastningsprioritet
+          href: sql-data-warehouse-how-to-configure-workload-importance.md
     - name: Hantera och övervaka
       items:
         - name: Uppgradera till Gen2

@@ -81,11 +81,11 @@ I följande tabell beskrivs egenskaperna i ovanstående JSON:
 
 | Egenskap  | Beskrivning | Obligatoriskt | Standard |
 | --- | --- | --- | --- |
-| namn |Namnet på datauppsättningen. Se [Azure Data Factory – namnregler](data-factory-naming-rules.md) för regler för namngivning. |Ja |Ej tillämpligt |
-| typ |Typ av datauppsättningen. Ange en av de typer som stöds av Data Factory (till exempel: AzureBlob, AzureSqlTable). <br/><br/>Mer information finns i [datauppsättningstypen](#Type). |Ja |Ej tillämpligt |
-| struktur |Schemat för datauppsättningen.<br/><br/>Mer information finns i [datauppsättningsstrukturen](#Structure). |Nej |Ej tillämpligt |
+| name |Namnet på datauppsättningen. Se [Azure Data Factory – namnregler](data-factory-naming-rules.md) för regler för namngivning. |Ja |Ej tillämpligt |
+| type |Typ av datauppsättningen. Ange en av de typer som stöds av Data Factory (till exempel: AzureBlob, AzureSqlTable). <br/><br/>Mer information finns i [datauppsättningstypen](#Type). |Ja |Ej tillämpligt |
+| structure |Schemat för datauppsättningen.<br/><br/>Mer information finns i [datauppsättningsstrukturen](#Structure). |Nej |Ej tillämpligt |
 | typeProperties | Typegenskaperna är olika för varje typ (till exempel: Azure Blob, Azure SQL-tabell). Mer information om typerna som stöds och deras egenskaper finns [datauppsättningstypen](#Type). |Ja |Ej tillämpligt |
-| extern | Boolesk flagga för att ange om en datauppsättning uttryckligen produceras av data factory-pipeline eller inte. Om datauppsättningen för indata för en aktivitet inte skapas av den nuvarande pipelinen, ange den här flaggan till true. Ange den här flaggan till true för indatauppsättningen för den första aktiviteten i pipelinen.  |Nej |false |
+| external | Boolesk flagga för att ange om en datauppsättning uttryckligen produceras av data factory-pipeline eller inte. Om datauppsättningen för indata för en aktivitet inte skapas av den nuvarande pipelinen, ange den här flaggan till true. Ange den här flaggan till true för indatauppsättningen för den första aktiviteten i pipelinen.  |Nej |false |
 | availability | Definierar fönstret bearbetning (till exempel varje timme eller varje dag) eller slicing modellen för produktion för datauppsättningen. Varje enhet med data används och produceras av en aktivitet körs kallas för en datasektor. Om tillgängligheten för en utdatauppsättning anges för varje dag (frekvens - dag, interval - 1), produceras en sektor varje dag. <br/><br/>Mer information finns i tillgänglighet för datauppsättningar. <br/><br/>Mer information om datauppsättningen uppdelning modellen finns det [schemaläggning och körning](data-factory-scheduling-and-execution.md) artikeln. |Ja |Ej tillämpligt |
 | policy |Definierar kriterierna eller villkor som datauppsättning segment måste vara uppfyllda. <br/><br/>Mer information finns i [datauppsättning princip](#Policy) avsnittet. |Nej |Ej tillämpligt |
 
@@ -193,10 +193,10 @@ Varje kolumn i strukturen innehåller följande egenskaper:
 
 | Egenskap  | Beskrivning | Obligatoriskt |
 | --- | --- | --- |
-| namn |Namnet på kolumnen. |Ja |
-| typ |Datatypen för kolumnen.  |Nej |
-| kultur |. NET-baserade språkmiljö som ska användas när typen är en .NET-typ: `Datetime` eller `Datetimeoffset`. Standardvärdet är `en-us`. |Nej |
-| Format |Formatera strängen som ska användas när typen är en .NET-typ: `Datetime` eller `Datetimeoffset`. |Nej |
+| name |Namnet på kolumnen. |Ja |
+| type |Datatypen för kolumnen.  |Nej |
+| culture |. NET-baserade språkmiljö som ska användas när typen är en .NET-typ: `Datetime` eller `Datetimeoffset`. Standardvärdet är `en-us`. |Nej |
+| format |Formatera strängen som ska användas när typen är en .NET-typ: `Datetime` eller `Datetimeoffset`. |Nej |
 
 Följande riktlinjer hjälper dig att avgöra när du ska inkludera strukturinformation och vad som ska ingå i den **struktur** avsnittet.
 
@@ -237,7 +237,7 @@ I följande tabell beskrivs egenskaperna som du kan använda i avsnittet tillgä
 | --- | --- | --- | --- |
 | frequency |Anger tidsenheten för datauppsättningen sektorn produktion.<br/><br/><b>Stöds frekvens</b>: Minut, timme, dag, vecka, månad |Ja |Ej tillämpligt |
 | interval |Anger en multiplikator för frekvensen.<br/><br/>”X frekvensintervall” avgör hur ofta sektorn skapas. Till exempel om du behöver datauppsättningen att delas timme kan du ange <b>frekvens</b> till <b>timme</b>, och <b>intervall</b> till <b>1</b>.<br/><br/>Observera att om du anger **frekvens** som **minut**, bör du ange intervallet till mindre än 15. |Ja |Ej tillämpligt |
-| stil |Anger om sektorn ska produceras i början eller slutet av intervallet.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul>Om **frekvens** är inställd på **månad**, och **style** är inställd på **EndOfInterval**, sektorn skapas på den sista dagen i månaden. Om **style** är inställd på **StartOfInterval**, sektorn skapas på den första dagen i månaden.<br/><br/>Om **frekvens** är inställd på **dag**, och **style** är inställd på **EndOfInterval**, sektorn skapas under den senaste timmen på dagen.<br/><br/>Om **frekvens** är inställd på **timme**, och **style** är inställd på **EndOfInterval**, sektorn skapas i slutet av timmen. För en sektor under 1 PM - 14: 00, till exempel produceras sektorn klockan 2. |Nej |EndOfInterval |
+| style |Anger om sektorn ska produceras i början eller slutet av intervallet.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul>Om **frekvens** är inställd på **månad**, och **style** är inställd på **EndOfInterval**, sektorn skapas på den sista dagen i månaden. Om **style** är inställd på **StartOfInterval**, sektorn skapas på den första dagen i månaden.<br/><br/>Om **frekvens** är inställd på **dag**, och **style** är inställd på **EndOfInterval**, sektorn skapas under den senaste timmen på dagen.<br/><br/>Om **frekvens** är inställd på **timme**, och **style** är inställd på **EndOfInterval**, sektorn skapas i slutet av timmen. För en sektor under 1 PM - 14: 00, till exempel produceras sektorn klockan 2. |Nej |EndOfInterval |
 | anchorDateTime |Definierar absolut position i tid som används av scheduler för att beräkna datauppsättning sektorn gränser. <br/><br/>Observera att om den här egenskapen har datumdelar som är större än den angivna frekvensen, ignoreras de mer detaljerade delarna. Till exempel om den **intervall** är **per timme** (frequency: hour och interval: 1), och **anchorDateTime** innehåller **minuter och sekunder**, och sedan minuter och sekunder delar av **anchorDateTime** ignoreras. |Nej |01/01/0001 |
 | offset |TimeSpan som början och slutet av alla datauppsättningen sektorer beräkningsarbete. <br/><br/>Observera att om båda **anchorDateTime** och **offset** anges, resultatet är kombinerade SKIFT. |Nej |Ej tillämpligt |
 

@@ -125,8 +125,8 @@ Följande tabell innehåller beskrivningar av de JSON-egenskaper som användes i
 
 | Egenskap | Beskrivning |
 |:--- |:--- |
-| ClusterSize |Storleken på HDInsight-klustret. |
-| TimeToLive |Anger inaktivitetstiden för HDInsight-klustret innan det tas bort. |
+| clusterSize |Storleken på HDInsight-klustret. |
+| timeToLive |Anger inaktivitetstiden för HDInsight-klustret innan det tas bort. |
 | linkedServiceName |Anger lagringskontot som används för att spara loggarna som genereras av HDInsight |
 
 Observera följande punkter:
@@ -171,13 +171,13 @@ Följande tabell innehåller beskrivningar av de JSON-egenskaper som användes i
 
 | Egenskap | Beskrivning |
 |:--- |:--- |
-| typ |Typegenskapen har angetts till AzureBlob eftersom det finns data i Azure Blob-lagringen. |
+| type |Typegenskapen har angetts till AzureBlob eftersom det finns data i Azure Blob-lagringen. |
 | linkedServiceName |refererar till den StorageLinkedService som du skapade tidigare. |
 | fileName |Den här egenskapen är valfri. Om du tar bort egenskapen kommer alla filer från folderPath hämtas. I det här fallet bearbetas bara input.log. |
-| typ |Loggfilerna är i textformat, så vi använder TextFormat. |
+| type |Loggfilerna är i textformat, så vi använder TextFormat. |
 | columnDelimiter |kolumner i loggfilerna avgränsas med kommatecken () |
-| frekvens/intervall |frekvensen är månad och intervallet är 1, vilket innebär att indatasektorerna är tillgängliga en gång i månaden. |
-| extern |den här egenskapen anges som true om indatan inte skapades av Data Factory-tjänsten. |
+| frequency/interval |frekvensen är månad och intervallet är 1, vilket innebär att indatasektorerna är tillgängliga en gång i månaden. |
+| external |den här egenskapen anges som true om indatan inte skapades av Data Factory-tjänsten. |
 
 ### <a name="outputdatasetjson"></a>outputdataset.json
 

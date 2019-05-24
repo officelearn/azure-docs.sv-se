@@ -203,14 +203,14 @@ I det här steget skapar du en datauppsättning med namnet InputDataset som peka
 
     | Egenskap | Beskrivning |
     |:--- |:--- |
-    | typ | Typegenskapen har angetts till **AzureBlob** eftersom det finns data i Azure Blob-lagringen. |
+    | type | Typegenskapen har angetts till **AzureBlob** eftersom det finns data i Azure Blob-lagringen. |
     | linkedServiceName | Refererar till **AzureStorageLinkedService** som du skapade tidigare. |
     | folderPath | Anger vilken **blobcontainer** och **mapp** som innehåller indatablobar. I den här självstudiekursen adftutorial är blobcontainern och -mappen rotmappen. | 
     | fileName | Den här egenskapen är valfri. Om du tar bort egenskapen kommer alla filer från folderPath hämtas. I den här självstudiekursen har angetts **emp.txt** som filnamn så att endast den filen hämtas för bearbetning. |
-    | format -> typ |Indatafilen är i textformat, så vi använder **TextFormat**. |
+    | format -> type |Indatafilen är i textformat, så vi använder **TextFormat**. |
     | columnDelimiter | Kolumner i loggfilerna avgränsas med **kommatecken (`,`)**. |
-    | frekvens/intervall | Frekvensen är **timme** och intervallet är **1**, vilket innebär att indatasektorerna är tillgängliga en gång i **timmen**. Det betyder att tjänsten Data Factory söker efter indata varje timme i rotmappen för den angivna blobcontainern (**adftutorial**). Den söker data i pipelinens start- och sluttider och inte före eller efter dessa tider.  |
-    | extern | Den här egenskapen anges som **true** om indatan inte skapades av denna pipeline. Inkommande data i den här självstudien finns i filen emp.txt som genereras av denna pipeline, så vi ställer in den här egenskapen på true. |
+    | frequency/interval | Frekvensen är **timme** och intervallet är **1**, vilket innebär att indatasektorerna är tillgängliga en gång i **timmen**. Det betyder att tjänsten Data Factory söker efter indata varje timme i rotmappen för den angivna blobcontainern (**adftutorial**). Den söker data i pipelinens start- och sluttider och inte före eller efter dessa tider.  |
+    | external | Den här egenskapen anges som **true** om indatan inte skapades av denna pipeline. Inkommande data i den här självstudien finns i filen emp.txt som genereras av denna pipeline, så vi ställer in den här egenskapen på true. |
 
     Mer information om de här JSON-egenskaperna finns i artikeln [Azure Blob-anslutningsapp](data-factory-azure-blob-connector.md#dataset-properties).      
 3. Klicka på **Distribuera** i verktygsfältet för att distribuera **InputDataset**. Kontrollera att du ser **InputDataset** i trädvyn.
@@ -252,10 +252,10 @@ Den länkade tjänsten Azure SQL Database anger anslutningssträngen som använd
 
     | Egenskap | Beskrivning |
     |:--- |:--- |
-    | typ | Typegenskapen är **AzureSqlTable** eftersom data kopieras till en tabell i en Azure SQL-databas. |
+    | type | Typegenskapen är **AzureSqlTable** eftersom data kopieras till en tabell i en Azure SQL-databas. |
     | linkedServiceName | Refererar till **AzureSqlLinkedService** som du skapade tidigare. |
     | tableName | Ange **tabellen** dit data kopieras. | 
-    | frekvens/intervall | Frekvensen är inställd på **timme** och intervallet är **1**, vilket innebär att utdatasegment produceras **varje timme** mellan pipelinens start- och sluttider, inte före eller efter dessa tider.  |
+    | frequency/interval | Frekvensen är inställd på **timme** och intervallet är **1**, vilket innebär att utdatasegment produceras **varje timme** mellan pipelinens start- och sluttider, inte före eller efter dessa tider.  |
 
     Det finns tre kolumner – **ID**, **FirstName** och **LastName** – i emp-tabellen i databasen. ID är en identitetskolumn, så du anger bara **FirstName** och **LastName** här.
 

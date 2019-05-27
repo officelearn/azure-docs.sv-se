@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/28/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: b55aca79047a224a9e1a474afdabf43e2701872d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 75538519b7d43aa702e15ce3c22ea4acc73ade87
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61473152"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65072204"
 ---
 # <a name="percentage-prebuilt-entity-for-a-luis-app"></a>Procentandel fördefinierade entitet för en LUIS-app
 Procentandel siffrorna visas som bråkdelar, `3 1/2`, eller som procentandel, `2%`. Eftersom den här entiteten har redan tränats, behöver du inte att lägga till exempel yttranden som innehåller andel till programmet avsikter. Procentandel entitet stöds i [många kulturer](luis-reference-prebuilt-entities.md). 
@@ -25,6 +25,9 @@ Procentandel siffrorna visas som bråkdelar, `3 1/2`, eller som procentandel, `2
 Procentandel hanteras från den [identifierare fulltext](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml#L114) GitHub-lagringsplats
 
 ## <a name="resolution-for-prebuilt-percentage-entity"></a>Lösning för fördefinierade procent entitet
+
+### <a name="api-version-2x"></a>API-version 2.x
+
 I följande exempel visas av lösningen på den **builtin.percentage** entitet.
 
 ```json
@@ -51,6 +54,64 @@ I följande exempel visas av lösningen på den **builtin.percentage** entitet.
       }
     }
   ]
+}
+```
+
+### <a name="preview-api-version-3x"></a>Förhandsversionen av API 3.x
+
+Följande JSON är med i `verbose` parameteruppsättning till `false`:
+
+```json
+{
+    "query": "set a trigger when my stock goes up 2%",
+    "prediction": {
+        "normalizedQuery": "set a trigger when my stock goes up 2%",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.541765451
+            }
+        },
+        "entities": {
+            "percentage": [
+                2
+            ]
+        }
+    }
+}
+```
+
+Följande JSON är med i `verbose` parameteruppsättning till `true`:
+
+```json
+{
+    "query": "set a trigger when my stock goes up 2%",
+    "prediction": {
+        "normalizedQuery": "set a trigger when my stock goes up 2%",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.541765451
+            }
+        },
+        "entities": {
+            "percentage": [
+                2
+            ],
+            "$instance": {
+                "percentage": [
+                    {
+                        "type": "builtin.percentage",
+                        "text": "2%",
+                        "startIndex": 36,
+                        "length": 2,
+                        "modelTypeId": 2,
+                        "modelType": "Prebuilt Entity Extractor"
+                    }
+                ]
+            }
+        }
+    }
 }
 ```
 

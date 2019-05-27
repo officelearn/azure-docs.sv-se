@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 6f85b0088fac97f4b9f2dd2835e3052cb598a987
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 6c48aaf404803c45122ed3fad0d6af1345406f7b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142763"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239670"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Självstudier: Distribuera Azure Machine Learning som en IoT Edge-modul (förhandsversion)
 
@@ -145,7 +145,7 @@ Följande steg visar hur du ställer in Visual Studio Code för att övervaka me
 
 3. Ange anslutningssträngen iothubowner för din IoT Hub i textrutan som visas överst på sidan. Enhetens IoT Edge-enhet bör visas i listan över IoT Hub-enheter.
 
-4. Välj **...** igen och välj sedan **alternativet för att börja övervaka D2C**.
+4. Välj **...**  igen därefter **starta inbyggda händelse slutpunkt för övervakning av**.
 
 5. Kontrollera meddelandena som kommer från tempSensor var femte sekund. Meddelandetexten innehåller en egenskap som kallas **avvikelseidentifiering**, där machinelearningmodule har värdet SANT eller FALSKT. Egenskapen **AzureMLResponse** innehåller värdet "OK" om modellen har körts med lyckat resultat.
 

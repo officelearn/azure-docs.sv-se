@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 17f612f2ee6c7d27dcec9f72ed3df1ed418eb3d2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5b9ace8a2402d96c4bb54864eb59a56b46d04067
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60712628"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65071974"
 ---
 # <a name="geographyv2-prebuilt-entity-for-a-luis-app"></a>GeographyV2 fördefinierade entitet för en LUIS-app
 Entiteten fördefinierade geographyV2 identifierar platser. Eftersom den här entiteten har redan tränats, behöver du inte lägga till exempel yttranden som innehåller GeographyV2 till programmet avsikter. GeographyV2 entiteten har stöd för engelska [kultur](luis-reference-prebuilt-entities.md).
@@ -34,6 +34,9 @@ De geografiska platserna har undertyper:
 
 
 ## <a name="resolution-for-geographyv2-entity"></a>Lösning för GeographyV2 entitet
+
+### <a name="api-version-2x"></a>API-version 2.x
+
 I följande exempel visas av lösningen på den **builtin.geographyV2** entitet.
 
 ```json
@@ -88,6 +91,104 @@ I följande exempel visas av lösningen på den **builtin.geographyV2** entitet.
         }
     ]
 } 
+```
+
+### <a name="preview-api-version-3x"></a>Förhandsversionen av API 3.x
+
+Följande JSON är med i `verbose` parameteruppsättning till `false`:
+
+```json
+{
+    "query": "Carol is visiting the sphinx in gizah egypt in africa before heading to texas",
+    "prediction": {
+        "normalizedQuery": "carol is visiting the sphinx in gizah egypt in africa before heading to texas",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.5115521
+            }
+        },
+        "entities": {
+            "geographyV2": [
+                "the sphinx",
+                "gizah",
+                "egypt",
+                "africa",
+                "texas"
+            ]
+        }
+    }
+}
+```
+
+Följande JSON är med i `verbose` parameteruppsättning till `true`:
+
+```json
+{
+    "query": "Carol is visiting the sphinx in gizah egypt in africa before heading to texas",
+    "prediction": {
+        "normalizedQuery": "carol is visiting the sphinx in gizah egypt in africa before heading to texas",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.5115521
+            }
+        },
+        "entities": {
+            "geographyV2": [
+                "the sphinx",
+                "gizah",
+                "egypt",
+                "africa",
+                "texas"
+            ],
+            "$instance": {
+                "geographyV2": [
+                    {
+                        "type": "builtin.geographyV2",
+                        "text": "the sphinx",
+                        "startIndex": 18,
+                        "length": 10,
+                        "modelTypeId": 2,
+                        "modelType": "Prebuilt Entity Extractor"
+                    },
+                    {
+                        "type": "builtin.geographyV2",
+                        "text": "gizah",
+                        "startIndex": 32,
+                        "length": 5,
+                        "modelTypeId": 2,
+                        "modelType": "Prebuilt Entity Extractor"
+                    },
+                    {
+                        "type": "builtin.geographyV2",
+                        "text": "egypt",
+                        "startIndex": 38,
+                        "length": 5,
+                        "modelTypeId": 2,
+                        "modelType": "Prebuilt Entity Extractor"
+                    },
+                    {
+                        "type": "builtin.geographyV2",
+                        "text": "africa",
+                        "startIndex": 47,
+                        "length": 6,
+                        "modelTypeId": 2,
+                        "modelType": "Prebuilt Entity Extractor"
+                    },
+                    {
+                        "type": "builtin.geographyV2",
+                        "text": "texas",
+                        "startIndex": 72,
+                        "length": 5,
+                        "modelTypeId": 2,
+                        "modelType": "Prebuilt Entity Extractor"
+                    }
+                ]
+            }
+        }
+    }
+}
 ```
 
 ## <a name="next-steps"></a>Nästa steg

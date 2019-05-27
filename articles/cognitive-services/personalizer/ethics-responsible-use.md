@@ -9,12 +9,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: 7b1e972b5516aa79d1754e32e487e17c9e68ac1d
-ms.sourcegitcommit: eea74d11a6d6ea6d187e90e368e70e46b76cd2aa
+ms.openlocfilehash: 437dc1fba2502602109483aa9d6f25b4265af26f
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65035417"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239869"
 ---
 # <a name="guidelines-for-responsible-implementation-of-personalizer"></a>Riktlinjer för ansvarar implementering av Personalizer
 
@@ -128,17 +128,13 @@ Här följer delar av design för ansvarar implementeringar av AI. Lär dig mer 
 * Arkivera information och resurser – till exempel modeller, learning principer och andra data – som Personalizer använder ska fungera, för att kunna återge resultat.
 
 ### <a name="transparency"></a>Transparens
-*AI-system bör vara Understandable*. Med Personalizer
+*AI-system bör vara Understandable*. Med Personalizer:
 
-• Ger användare information om hur innehållet var personlig. Exempel: du kan visa dina användare en knapp med etiketten ”varför förslagen”? Visar vilka översta funktioner för användaren och åtgärder spelat en roll i resultatet av Personalizer.
-• Kontrollera att dina villkor för användning gör nämner som du ska använda information om användare och deras beteende för att anpassa upplevelsen.
-
-
-* *Ger användare information om hur innehållet var personlig.* Exempel: du kan visa dina användare en knapp med etiketten `Why These Suggestions?` som visar vilka översta funktioner för användaren och åtgärder spelat en roll i anpassningen.
-* Kontrollera att dina användningsvillkor nämna att information om användare som kommer användas för att anpassa upplevelsen.
+* *Ger användare information om hur innehållet var personlig.* Exempel: du kan visa dina användare en knapp med etiketten `Why These Suggestions?` som visar vilka översta funktioner för användaren och åtgärder spelat en roll i resultatet av Personalizer.
+* Kontrollera att dina villkor för användning gör nämner som du ska använda information om användare och deras beteende för att anpassa upplevelsen.
 
 ### <a name="fairness"></a>Rättvisa
-* AI-system bör hantera alla personer ganska.
+*AI-system bör hantera alla personer ganska*.
 
 * Använd inte Personalizer för användningsfall där resultaten är långsiktiga, följdskador eller omfatta verkliga skada.
 * Använd inte funktioner som inte är lämpligt att anpassa innehåll med eller som kan hjälpa att sprida oönskad eventuella fördomar. Exempelvis bör alla med liknande finansiella ställning se samma personanpassade rekommendationer för finansiella produkter.

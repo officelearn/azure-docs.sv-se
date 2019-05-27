@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: pafarley
-ms.openlocfilehash: bd68e2803b3b538011cfa37378890f2cc7b22223
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 942f84723bc207c200b36a63ca7f65cb9d7dab59
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65906990"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235611"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-curl"></a>Snabbstart: Träna en modell för formuläret Igenkännande och extrahera formulärdata med hjälp av REST-API med cURL
 
@@ -108,7 +108,7 @@ Nu ska du analysera ett dokument och extrahera nyckel / värde-par och tabeller 
 
 1. Ersätt `<Endpoint>` med slutpunkten som du fick från din prenumerationsnyckel för formuläret Igenkännande. Du hittar den på formuläret Igenkännande resursen **översikt** fliken.
 1. Ersätt `<modelID>` med modell-ID som du fick i föregående avsnitt.
-1. Ersätt `<path to your form>` med sökväg av formuläret.
+1. Ersätt `<path to your form>` med sökväg av formuläret. Till exempel c:\temp\file.pdf. 
 1. Ersätt `<file type>` med filtypen. Typer som stöds: pdf, bild/jpeg, bild/png.
 1. Ersätt `<subscription key>` med din prenumerationsnyckel.
 

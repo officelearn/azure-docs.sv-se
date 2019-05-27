@@ -1,7 +1,7 @@
 ---
 title: Filtrera nätverkstrafik – självstudie – Azure-portalen
 titlesuffix: Azure Virtual Network
-description: I den här självstudien får du lära dig hur du filtrerar nätverkstrafik till ett undernät, med en nätverkssäkerhetsgrupp, med hjälp av Azure-portalen.
+description: I den här självstudien får du lära dig hur du filtrerar nätverkstrafik till ett undernät med en nätverkssäkerhetsgrupp med Azure portal.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/13/2018
 ms.author: kumud
-ms.openlocfilehash: ad34c6a876ca21bc7ef32cce638240e0d23b3177
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 4097d4fc46aac88cd44d21a4cdcf0d7d5093feea
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64723920"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242721"
 ---
-# <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-the-azure-portal"></a>Självstudie: Filtrera nätverkstrafik med en nätverkssäkerhetsgrupp med hjälp av Azure-portalen
+# <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-the-azure-portal"></a>Självstudier: Filtrera nätverkstrafik med en nätverkssäkerhetsgrupp med Azure portal
 
 Du kan filtrera inkommande och utgående nätverkstrafik till och från ett undernät i ett virtuellt nätverk med en nätverkssäkerhetsgrupp. Nätverkssäkerhetsgrupper innehåller säkerhetsregler som filtrerar nätverkstrafik efter IP-adress, port och protokoll. Säkerhetsregler tillämpas på resurser som har distribuerats i ett undernät. I den här guiden får du lära dig att:
 
@@ -112,8 +112,8 @@ En programsäkerhetsgrupp gör att du kan gruppera ihop servrar med liknande fun
     | Inställning                 | Värde                                                                                                           |
     | ---------               | ---------                                                                                                       |
     | Mål             | Välj **Programsäkerhetsgrupp** och välj sedan **myAsgWebServers** för **Programsäkerhetsgrupp**.  |
-    | Målportintervall | Ange 80,443                                                                                                    |
-    | Protokoll                | Välj TCP                                                                                                      |
+    | Målportsintervall | Ange 80,443                                                                                                    |
+    | Protocol                | Välj TCP                                                                                                      |
     | Namn                    | Allow-Web-All                                                                                                   |
 
 3. Slutför steg 2 igen med följande värden:
@@ -121,8 +121,8 @@ En programsäkerhetsgrupp gör att du kan gruppera ihop servrar med liknande fun
     | Inställning                 | Värde                                                                                                           |
     | ---------               | ---------                                                                                                       |
     | Mål             | Välj **Programsäkerhetsgrupp** och välj sedan **myAsgMgmtServers** för **Programsäkerhetsgrupp**. |
-    | Målportintervall | Ange 3389                                                                                                      |
-    | Protokoll                | Välj TCP                                                                                                      |
+    | Målportsintervall | Ange 3389                                                                                                      |
+    | Protocol                | Välj TCP                                                                                                      |
     | Prioritet                | Ange 110                                                                                                       |
     | Namn                    | Allow-RDP-All                                                                                                   |
 

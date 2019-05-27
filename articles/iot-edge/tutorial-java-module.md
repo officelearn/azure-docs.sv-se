@@ -9,12 +9,12 @@ ms.date: 04/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 7f659240e7de729c6f64acf41d76530475fb810f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a105e59007543ffaf31b586707390954643e8bee
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64569464"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239638"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-for-linux-devices"></a>Självstudier: Utveckla en Java IoT Edge-modul för Linux-enheter
 
@@ -37,7 +37,7 @@ Den här kursen visar hur du utvecklar en modul i **Java** med **Visual Studio C
 
 Använd följande tabell för att förstå dina alternativ för att utveckla och distribuera Java-moduler: 
 
-| Java | Visual Studio-koden | Visual Studio 2017 | 
+| Java | Visual Studio-kod | Visual Studio 2017 | 
 | - | ------------------ | ------------------ |
 | **Linux AMD64** | ![Använda VS Code för Java-moduler på Linux AMD64](./media/tutorial-c-module/green-check.png) |  |
 | **Linux ARM32** | ![Använda VS Code för Java-moduler på Linux ARM32](./media/tutorial-c-module/green-check.png) |  |
@@ -259,7 +259,7 @@ När du tillämpar distributionsmanifestet till din IoT Edge-enhet samlar IoT Ed
 
 Du kan visa statusen för din IoT Edge-enhet i avsnittet om **Azure IoT Hub-enheter** i Visual Studio Code-utforskaren. Expandera enhetsinformationen så ser du en lista med moduler som distribueras och körs.
 
-1. I Visual Studio Code-Utforskaren högerklickar du på namnet på din IoT Edge-enhet och välj **börja övervaka D2C meddelanden**.
+1. I Visual Studio Code-Utforskaren högerklickar du på namnet på din IoT Edge-enhet och välj **starta inbyggda händelse slutpunkt för övervakning av**.
 
 2. Visa meddelanden som inkommer på din IoT-hubb. Det kan ta en stund innan meddelanden tas emot, eftersom IoT Edge-enheten måste ta emot dess ny distribution och starta alla moduler. Vi ändringar i koden JavaModule vänta sedan tills datorn temperaturen når 25 grader innan du skickar meddelanden. Det ger också meddelandetypen **avisering** att alla meddelanden som når gränsen temperatur. 
 
@@ -277,8 +277,8 @@ Vi använde modultvilling JavaModule i manifestet distribution Ange tröskelvär
 
 5. Högerklicka någonstans i modultvillingen redigera rutan och välj **uppdatering modultvilling**. 
 
-5. Övervaka inkommande meddelanden för enhet-till-moln. Du bör se meddelanden stoppa tills det nya temperatur-tröskelvärdet har uppnåtts. 
- 
+6. Övervaka inkommande meddelanden för enhet-till-moln. Du bör se meddelanden stoppa tills det nya temperatur-tröskelvärdet har uppnåtts. 
+
 ## <a name="clean-up-resources"></a>Rensa resurser 
 
 Om du planerar att fortsätta med nästa rekommenderade artikel kan du behålla de resurser och konfigurationer som du skapat och använda dem igen. Du kan även fortsätta att använda samma IoT Edge-enhet som en testenhet. 

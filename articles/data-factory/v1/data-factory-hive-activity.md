@@ -216,7 +216,7 @@ Gör följande för att använda parametriserade Hive-skript
       }
     }
     ```
-* Referera till en parameter med hjälp av Hive-skriptet **${hiveconf:parameterName}**. 
+* Referera till en parameter med hjälp av Hive-skriptet **${hiveconf:parameterName}** . 
   
     ```
     DROP TABLE IF EXISTS HiveSampleIn; 

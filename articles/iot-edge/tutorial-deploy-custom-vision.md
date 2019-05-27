@@ -9,12 +9,12 @@ ms.date: 11/01/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 194ebcc1f1779c927503e09e9c42a96afddb12c9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a0530739428e18d01209f94345ae53dfb743d80b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64575818"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239692"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Självstudie: Utföra bildklassificering på gränsen med Custom Vision Service
 
@@ -437,7 +437,7 @@ Från enheten visar du loggarna för modulen cameraCapture för att se meddeland
    iotedge logs cameraCapture
    ```
 
-Från Visual Studio Code högerklickar du på namnet på din IoT Edge-enhet och väljer **Start monitoring D2C message** (Börja övervaka D2C-meddelande). 
+Från Visual Studio Code, högerklicka på namnet på din IoT Edge-enhet och välj **starta inbyggda händelse slutpunkt för övervakning av**. 
 
 Resultatet från Custom Vision-modulen, som skickas som meddelanden från modulen cameraCapture, innefattar sannolikheten att bilden föreställer antingen en hemlockgran eller ett körsbärsträd. Eftersom bilden föreställer en hemlockgran bör du se sannolikheten 1.0. 
 

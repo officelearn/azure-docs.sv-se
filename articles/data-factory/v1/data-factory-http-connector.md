@@ -161,7 +161,7 @@ Den **typeProperties** är olika för varje typ av datauppsättning. Den **typeP
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Den **typ** av datauppsättningen måste anges till **Http**. | Ja |
-| relativeUrl | En relativ URL till den resurs som innehåller data. Om sökvägen inte anges används den URL som anges i länkade tjänstedefinition. <br><br> Du kan använda för att skapa en dynamisk URL [Data Factory-funktioner och systemvariabler](data-factory-functions-variables.md). Exempel: **relativeUrl**: **$$Text.Format (”/ min/rapporten? månad = {0: yyyy}-{0:MM} & fmt = csv”, SliceStart)**. | Nej |
+| relativeUrl | En relativ URL till den resurs som innehåller data. Om sökvägen inte anges används den URL som anges i länkade tjänstedefinition. <br><br> Du kan använda för att skapa en dynamisk URL [Data Factory-funktioner och systemvariabler](data-factory-functions-variables.md). Exempel: **relativeUrl**: **$$Text.Format (”/ min/rapporten? månad = {0: yyyy}-{0:MM} & fmt = csv”, SliceStart)** . | Nej |
 | requestMethod | HTTP-metoden. Tillåtna värden är **hämta** och **POST**. | Nej <br />(standardvärdet är **hämta**) |
 | additionalHeaders | Ytterligare rubriker för HTTP-begäran. | Nej |
 | requestBody | Brödtexten för HTTP-begäran. | Nej |

@@ -1,6 +1,6 @@
 ---
 title: 'Självstudier: Azure Active Directory-integrering med RolePoint | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och RolePoint.
+description: I de här självstudierna lär du dig att konfigurera enkel inloggning mellan Azure Active Directory och RolePoint.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,184 +15,188 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 96b33b8d7a52f836a5950a28b4f1f035619f185f
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: d2f854c869ead8016a5437a4e40339d9455c9ad7
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65889965"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66226416"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rolepoint"></a>Självstudier: Azure Active Directory-integrering med RolePoint
 
-I den här självstudien får du lära dig hur du integrerar RolePoint med Azure Active Directory (AD Azure).
-Integrera RolePoint med Azure AD ger dig följande fördelar:
+I de här självstudierna lär du dig att integrera RolePoint med Azure Active Directory (AD Azure).
+Den här integrationen har följande fördelar:
 
-* Du kan styra i Azure AD som har åtkomst till RolePoint.
-* Du kan aktivera användarna att vara automatiskt inloggad till RolePoint (Single Sign-On) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure portal.
+* Du kan använda Azure AD för att kontrollera vem som har åtkomst till RolePoint.
+* Du kan aktivera användarna att logga in automatiskt till RolePoint (enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats: Azure-portalen.
 
-Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Läs mer om SaaS-appintegrering med Azure AD i [Enkel inloggning till program i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Om du vill konfigurera Azure AD-integrering med RolePoint, behöver du följande objekt:
+Om du vill konfigurera Azure AD-integrering med RolePoint, måste du ha:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en [kostnadsfritt konto](https://azure.microsoft.com/free/)
-* RolePoint enkel inloggning aktiverat prenumeration
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en [kostnadsfritt konto](https://azure.microsoft.com/free/).
+* En RolePoint prenumeration med enkel inloggning aktiverat.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
+I den här självstudien får du konfigurera och testa Azure AD enkel inloggning i en testmiljö.
 
-* Har stöd för RolePoint **SP** -initierad SSO
+* RolePoint stöder SP-initierad SSO.
 
-## <a name="adding-rolepoint-from-the-gallery"></a>Att lägga till RolePoint från galleriet
+## <a name="add-rolepoint-from-the-gallery"></a>Lägg till RolePoint från galleriet
 
-För att konfigurera integrering av RolePoint i Azure AD, som du behöver lägga till RolePoint från galleriet i din lista över hanterade SaaS-appar.
+Om du vill konfigurera integrering av RolePoint i Azure AD, som du behöver lägga till RolePoint från galleriet i din lista över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till RolePoint från galleriet:**
+1. I den [Azure-portalen](https://portal.azure.com), i den vänstra rutan väljer **Azure Active Directory**:
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+    ![Välj Azure Active Directory](common/select-azuread.png)
 
-    ![Azure Active Directory-knappen](common/select-azuread.png)
-
-2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
+2. Gå till **företagsprogram** > **alla program**:
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Om du vill lägga till ett program, Välj **nytt program** överst i fönstret:
 
-    ![Knappen Nytt program](common/add-new-app.png)
+    ![Välj nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver **RolePoint**väljer **RolePoint** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+4. I sökrutan anger **RolePoint**. Välj **RolePoint** i sökresultatet och välj sedan **Lägg till**.
 
-     ![RolePoint i resultatlistan](common/search-new-app.png)
+     ![Sökresultat](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med RolePoint baserat på en testanvändare kallas **Britta Simon**.
-För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i RolePoint upprättas.
+I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med RolePoint med hjälp av en användare med namnet Britta Simon.
+Om du vill aktivera enkel inloggning, måste du upprätta en relation mellan en Azure AD-användare och motsvarande användare i RolePoint.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med RolePoint, måste du utföra följande byggblock:
+Om du vill konfigurera och testa Azure AD enkel inloggning med RolePoint, måste du slutföra de här stegen:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Konfigurera RolePoint Single Sign-On](#configure-rolepoint-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Skapa testanvändare RolePoint](#create-rolepoint-test-user)**  – du har en motsvarighet för Britta Simon i RolePoint som är länkad till en Azure AD-representation av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  att aktivera funktionen för dina användare.
+2. **[Konfigurera RolePoint enkel inloggning](#configure-rolepoint-single-sign-on)**  på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  att testa Azure AD enkel inloggning.
+4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  att aktivera Azure AD enkel inloggning för användaren.
+5. **[Skapa en testanvändare RolePoint](#create-a-rolepoint-test-user)**  som är länkad till en Azure AD-representation av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)**  att kontrollera att konfigurationen fungerar.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
-I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
+I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen.
 
-Utför följande steg för att konfigurera Azure AD enkel inloggning med RolePoint:
+Konfigurera Azure AD enkel inloggning med RolePoint genom att göra följande:
 
-1. I den [Azure-portalen](https://portal.azure.com/)på den **RolePoint** application integration markerar **enkel inloggning**.
+1. I den [Azure-portalen](https://portal.azure.com/), på sidan RolePoint application integration väljer **enkel inloggning**:
 
-    ![Konfigurera enkel inloggning för länken](common/select-sso.png)
+    ![Välj enkel inloggning](common/select-sso.png)
 
-2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
+2. I den **väljer du en metod för enkel inloggning** dialogrutan **SAML/WS-Fed** läge för att aktivera enkel inloggning:
 
-    ![Välja läge för enkel inloggning](common/select-saml-option.png)
+    ![Välj en metod för enkel inloggning](common/select-saml-option.png)
 
-3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
+3. På den **ange in enkel inloggning med SAML** väljer den **redigera** ikonen för att öppna den **SAML grundkonfiguration** dialogrutan:
 
-    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
+    ![Ikonen Redigera](common/edit-urls.png)
 
-4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
+4. I den **SAML grundkonfiguration** dialogrutan rutan, vidta följande steg.
 
-    ![RolePoint domän och URL: er med enkel inloggning för information](common/sp-identifier.png)
+    ![Dialogrutan för grundläggande SAML-konfiguration](common/sp-identifier.png)
 
-    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<subdomain>.rolepoint.com/login`
+    1. I den **inloggnings-URL** anger en URL i det här mönstret:
 
-    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://app.rolepoint.com/<instancename>`
+       `https://<subdomain>.rolepoint.com/login`
+
+    1. I den **identifierare (entitets-ID)** anger en URL i det här mönstret:
+
+       `https://app.rolepoint.com/<instancename>`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Här föreslår vi att du använder det unika värdet för strängen i identifieraren. Kontakta [RolePoint klienten supportteamet](mailto:info@rolepoint.com) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är platshållare. Du måste använda faktiska inloggnings-URL och identifierare. Vi rekommenderar att du använder ett unikt strängvärde i identifierare. Kontakta den [RolePoint supportteamet](mailto:info@rolepoint.com) att hämta dessa värden. Du kan också referera till de mönster som visas i den **SAML grundkonfiguration** dialogrutan i Azure-portalen.
 
-5. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och spara den på datorn.
+5. På den **ange in enkel inloggning med SAML** sidan den **SAML-signeringscertifikat** väljer den **hämta** länka bredvid **Federation Metadata-XML** enligt krav och spara filen på datorn.
 
-    ![Länk för hämtning av certifikat](common/metadataxml.png)
+    ![Länk för nedladdning av certifikat](common/metadataxml.png)
 
-6. På den **konfigurera RolePoint** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
+6. I den **konfigurera RolePoint** avsnittet, kopiera de lämpliga URL: er, baserat på dina krav:
 
-    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
+    ![Kopiera URL: er för konfiguration](common/copy-configuration-urls.png)
 
-    a. Inloggningswebbadress
+    1. **Inloggnings-URL**.
 
-    b. Microsoft Azure Active Directory-identifierare
+    1. **Azure AD-identifierare**.
 
-    c. Utloggnings-URL
+    1. **URL för utloggning**.
 
-### <a name="configure-rolepoint-single-sign-on"></a>Konfigurera RolePoint Single Sign-On
 
-Att konfigurera enkel inloggning på **RolePoint** sida, som du behöver skicka de hämtade **XML-Metadata för Federation** och lämpliga kopierade URL: er från Azure portal för att [RolePoint supportteamet](mailto:info@rolepoint.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+### <a name="configure-rolepoint-single-sign-on"></a>Konfigurera RolePoint enkel inloggning
 
-### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
+Om du vill konfigurera enkel inloggning på RolePoint sida, måste du samarbeta med den [RolePoint supportteamet](mailto:info@rolepoint.com). Skicka det här laget Federation Metadata-XML-filen och URL: er som du fick från Azure-portalen. De konfigurerar RolePoint för att säkerställa SAML SSO-anslutningen är korrekt inställda på båda sidorna.
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
+I det här avsnittet skapar du en användare med namnet Britta Simon i Azure-portalen.
 
-    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
+1. I Azure-portalen väljer du **Azure Active Directory** i den vänstra rutan väljer **användare**, och välj sedan **alla användare**:
 
-2. Välj **Ny användare** överst på skärmen.
+    ![Välj alla användare](common/users.png)
 
-    ![Knappen Ny användare](common/new-user.png)
+2. Välj **ny användare** överst i fönstret:
 
-3. Genomför följande steg i Användaregenskaper.
+    ![Välj ny användare](common/new-user.png)
 
-    ![Dialogrutan Användare](common/user-properties.png)
+3. I den **användaren** dialogrutan rutan, vidta följande steg.
 
-    a. I fältet **Namn** anger du **BrittaSimon**.
+    ![Användardialogrutan](common/user-properties.png)
+
+    1. I rutan **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** fälttyp `brittasimon@yourcompanydomain.extension`. Till exempel BrittaSimon@contoso.com.
+    1. I den **användarnamn** anger **BrittaSimon @\<företagsdomänen >.\< tillägget >** . (Till exempel BrittaSimon@contoso.com.)
 
-    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
+    1. Välj **visa lösenord**, och sedan skriva ned det värde som är i den **lösenord** box.
 
-    d. Klicka på **Skapa**.
+    1. Välj **Skapa**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till RolePoint.
+I det här avsnittet ska du aktivera Britta Simon att använda Azure enkel inloggning ger användarens företagsidentitet åtkomst RolePoint.
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **RolePoint**.
+1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**, och välj sedan **RolePoint**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
 2. I listan med program väljer **RolePoint**.
 
-    ![Länken RolePoint i listan med program](common/all-applications.png)
+    ![Lista över program](common/all-applications.png)
 
-3. På menyn till vänster väljer du **Användare och grupper**.
+3. I den vänstra rutan väljer **användare och grupper**:
 
-    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
+    ![Välj Användare och grupper](common/users-groups-blade.png)
 
-4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
+4. Välj **Lägg till användare** och sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
 
-    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
+    ![Välj Lägg till användare](common/add-assign-user.png)
 
-5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
+5. I den **användare och grupper** dialogrutan **Britta Simon** i listan och klicka sedan på den **Välj** knappen längst ned i fönstret.
 
-6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig ett rollvärde i SAML-försäkran i den **Välj roll** dialogrutan väljer du rätt roll för användaren i listan. Klicka på den **Välj** knappen längst ned i fönstret.
 
-7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+7. I dialogrutan **Lägg till tilldelning** väljer du **Tilldela**.
 
-### <a name="create-rolepoint-test-user"></a>Skapa RolePoint testanvändare
+### <a name="create-a-rolepoint-test-user"></a>Skapa en RolePoint testanvändare
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i RolePoint. Arbeta med [RolePoint supportteamet](mailto:info@rolepoint.com) att lägga till användare i RolePoint-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+Därefter måste du skapa en användare med namnet Britta Simon i RolePoint. Arbeta med den [RolePoint supportteamet](mailto:info@rolepoint.com) lägga till användare till RolePoint. Användare måste skapas och aktiveras innan du kan använda enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+Nu ska du testa Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på panelen RolePoint i åtkomstpanelen, bör det vara loggas in automatiskt till RolePoint som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du väljer panelen RolePoint i åtkomstpanelen, bör det vara loggas in automatiskt till RolePoint-instansen som du ställer in enkel inloggning. Läs mer om åtkomstpanelen [öppna och använda appar på portalen Mina appar](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Självstudier för att integrera SaaS-program med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

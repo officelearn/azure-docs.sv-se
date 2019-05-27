@@ -12,17 +12,17 @@ ms.date: 03/19/2019
 ms.author: erhopf
 ms.custom: seodec18
 ms.openlocfilehash: 9b8e12220f220bd8183675d13e25bdcab02707fd
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 05/27/2019
 ms.locfileid: "65020845"
 ---
 # <a name="language-and-region-support-for-the-speech-services"></a>Stöd för språk och din region för Speech Services
 
 Olika språk stöds för olika Speech Services-funktioner. Följande tabeller sammanfattar språkstöd.
 
-## <a name="speech-to-text"></a>Tal till text
+## <a name="speech-to-text"></a>Tal-till-text
 
 Microsoft taligenkänningens API stöder följande språk. Olika typer av anpassningar är tillgängliga för varje språk.
 
@@ -60,7 +60,7 @@ Microsoft taligenkänningens API stöder följande språk. Olika typer av anpass
  TH-TH | Thailändska (Thailand) | Nej | Nej | Nej
 
 
-## <a name="text-to-speech"></a>Text till tal
+## <a name="text-to-speech"></a>Text-till-tal
 
 Text till tal REST API har stöd för dessa röster som stöder ett visst språk och dialekt som identifieras av nationella inställningar.
 
@@ -75,7 +75,7 @@ Neural röster kan användas för att göra interaktion med chattrobotar och vir
 
 En fullständig lista över neural röster och regional tillgänglighet finns i [regioner](regions.md#standard-and-neural-voices).
 
-Nationell inställning | Språk | Kön | Fullständiga namnmappning | Namn på kort röst
+Nationella inställningar | Språk | Kön | Fullständiga namnmappning | Namn på kort röst
 --------|----------|--------|---------|------------
 de-DE | Tyska (Tyskland) | Kvinna | ”Microsoft Server tal Text till tal-röst (de-DE, KatjaNeural)” | "de-DE-KatjaNeural"
 en-US | English (US) | Man | ”Microsoft Server tal Text till tal-röst (en-US, GuyNeural)” | "en-US-GuyNeural"
@@ -90,7 +90,7 @@ zh-CN | Kinesiska (fastlandet) | Kvinna | ”Microsoft Server tal Text till tal-
 
 Mer än 75 standard röster är tillgängliga i över 45 språk och nationella inställningar, där du kan omvandla text till syntetiskt tal. Mer information om regional tillgänglighet finns i [regioner](regions.md#standard-and-neural-voices).
 
-Nationell inställning | Språk | Kön | Fullständiga namnmappning | Namn på kort röst
+Nationella inställningar | Språk | Kön | Fullständiga namnmappning | Namn på kort röst
 -------|----------|---------|----------|----------
 ar-t.ex.\* | Arabiska (Egypten) | Kvinna | ”Microsoft Server tal Text till tal-röst (ar-t.ex., Hoda)” | "ar-EG-Hoda"
 ar-SA | Arabiska (Saudiarabien) | Man | ”Microsoft Server tal Text till tal-röst (ar-SA, Naayf)” | "ar-SA-Naayf"

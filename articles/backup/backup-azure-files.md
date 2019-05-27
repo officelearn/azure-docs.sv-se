@@ -8,12 +8,12 @@ ms.date: 01/31/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: f20cc1107476f8d65323d277a53086b8bd035a1b
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.openlocfilehash: 30544a49f49714eeefbf54d70e54275d2cf9a7ef
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65518912"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243537"
 ---
 # <a name="back-up-azure-file-shares"></a>Säkerhetskopiera Azure-filresurser
 Den här artikeln förklarar hur du använder Azure Portal för att säkerhetskopiera och återställa [Azure-filresurser](../storage/files/storage-files-introduction.md).
@@ -32,7 +32,6 @@ Innan du kan säkerhetskopiera en Azure-filresurs bör du kontrollera att den fi
 
 ## <a name="limitations-for-azure-file-share-backup-during-preview"></a>Begränsningar för säkerhetskopiering av Azure-filresurser i förhandsversionen
 Säkerhetskopiering för Azure-filresurser är i förhandsversion. Azure-filresurser i både general-purpose v1- och general-purpose v2-lagringskonton stöds. Följande säkerhetskopieringsscenarier stöds inte för Azure-filresurser:
-- Du kan inte skydda Azure-filresurser i lagringskonton med RA-GRS-replikering\* [geo-redundant lagring med läsbehörighet](../storage/common/storage-redundancy-grs.md).
 - Du kan inte skydda av Azure-filresurser i lagringskonton som har virtuella nätverk eller brandvägg aktiverade.
 - Det finns ingen tillgänglig CLI som skyddar Azure Files med hjälp av Azure Backup.
 - Det maximala antalet schemalagda säkerhetskopieringar per dag är en.
@@ -40,8 +39,6 @@ Säkerhetskopiering för Azure-filresurser är i förhandsversion. Azure-filresu
 - Förhindra att säkerhetskopior i Recovery Services-valvet oavsiktligt tas bort genom att använda [resurslås](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) på lagringskontot.
 - Ta inte bort ögonblicksbilder som skapats av Azure Backup. Om du tar bort ögonblicksbilder kan du förlora återställningspunkter och/eller drabbas av återställningsfel.
 - Ta inte bort filresurser som skyddas av Azure Backup. Den aktuella lösningen tar bort alla ögonblicksbilder som har tagits av Azure Backup när filresursen har tagits bort och förlorar därför alla återställningspunkter
-
-\*Azure-filresurser i lagringskonton med replikeringsfunktionen [Read-Access Geo-Redundant Storage](../storage/common/storage-redundancy-grs.md) (RA-GRS) som GRS och fakturerade GRS-priser.
 
 Säkerhetskopiering av Azure-filresurser i lagringskonton med replikering med [zonredundant lagring](../storage/common/storage-redundancy-zrs.md) (ZRS) är för närvarande endast tillgängligt i USA, centrala (CUS), USA, östra (EUS), USA, östra 2 (EUS2), Europa, norra (NE), Sydostasien (SEA), Europa, västra (WE) och USA, västra 2 (WUS2).
 
@@ -85,7 +82,7 @@ Ibland kanske du vill skapa en ögonblicksbild eller återställningspunkt på e
 
    ![klicka på säkerhetskopian för att associera Azure-filresursen med valvet](./media/backup-file-shares/list-of-backup-items.png)
 
-2. I listan väljer du **Azure Storage (Azure Files)**. Listan med Azure-filresurser visas.
+2. I listan väljer du **Azure Storage (Azure Files)** . Listan med Azure-filresurser visas.
 
    ![klicka på säkerhetskopian för att associera Azure-filresursen med valvet](./media/backup-file-shares/list-of-azure-files-backup-items.png)
 
@@ -166,7 +163,7 @@ Sluta skydda en Azure-filresurs:
 
    ![klicka på säkerhetskopian för att associera Azure-filresursen med valvet](./media/backup-file-shares/list-of-backup-items.png)
 
-2. I listan **Typ av säkerhetskopieringshantering** väljer du **Azure Storage (Azure Files)**. Listan med säkerhetskopieringsobjekt för (Azure Storage (Azure Files)) visas.
+2. I listan **Typ av säkerhetskopieringshantering** väljer du **Azure Storage (Azure Files)** . Listan med säkerhetskopieringsobjekt för (Azure Storage (Azure Files)) visas.
 
    ![klicka på objektet om du vill öppna ytterligare en meny](./media/backup-file-shares/azure-file-share-backup-items.png)
 

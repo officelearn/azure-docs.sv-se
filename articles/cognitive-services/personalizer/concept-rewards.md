@@ -10,16 +10,16 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/13/2019
 ms.author: edjez
-ms.openlocfilehash: 536aad0fac4e833cd9a30bad2cfd10e25b0f1300
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 302f1e18a23bdef9247693f84d3a924370b63f80
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65607079"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244237"
 ---
 # <a name="reward-scores-indicate-success-of-personalization"></a>Utmärkelse resultat anger framgången för anpassning
 
-Trafik-poäng indikerar hur väl personanpassning valet, [RewardActionID](https://docs.microsoft.com/rest/api/cognitiveservices/personalizer/events/rank#rankresponse), resulterade för användaren. Värdet för ersättning poängen bestäms av din affärslogik som baseras på observationer av användarbeteende.
+Trafik-poäng indikerar hur väl personanpassning valet, [RewardActionID](https://docs.microsoft.com/rest/api/cognitiveservices/personalizer/rank/rank#response), resulterade för användaren. Värdet för ersättning poängen bestäms av din affärslogik som baseras på observationer av användarbeteende.
 
 Personalizer träna dess maskininlärningsmodeller genom att utvärdera fördelarna. 
 

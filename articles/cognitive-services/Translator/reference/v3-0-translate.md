@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: e7ab2eba54aafda6bb00696939bf9bc32bb627ca
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 5a2192c4555c2d84587ec8e39ce9ba94c985b541
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65797011"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235819"
 ---
 # <a name="translator-text-api-30-translate"></a>Translator Text API 3.0: Translate
 
@@ -54,7 +54,7 @@ Parametrarna som skickades mot frågesträngen är:
   </tr>
   <tr>
     <td>category</td>
-    <td><em>Valfri parameter</em>.<br/>En sträng som anger kategorin (domän) för översättningen. Den här parametern används för att hämta översättningar från ett anpassat system som skapats med <a href="../customization.md">anpassad Translator</a>. Lägg till kategori-ID från projektet anpassade Translator för den här parametern för att använda ditt anpassade distribuerade system. Standardvärdet är: <code>general</code>.</td>
+    <td><em>Valfri parameter</em>.<br/>En sträng som anger kategorin (domän) för översättningen. Den här parametern används för att hämta översättningar från ett anpassat system som skapats med <a href="../customization.md">anpassad Translator</a>. Lägg till kategori-ID från din anpassade Translator <a href="https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/how-to-create-project#view-project-details">projektet information</a> anpassas till den här parametern för att använda dina distribuerade system. Standardvärdet är: <code>general</code>.</td>
   </tr>
   <tr>
     <td>ProfanityAction</td>

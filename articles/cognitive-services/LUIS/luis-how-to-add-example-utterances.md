@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 0d3123b1e0238a1907b5ad3d487b92a7919ff181
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: badf351f8336e501b3ee1c035fcb389a570750c0
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60198015"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65072857"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>Lägga till en entitet till exempel yttranden 
 
@@ -89,25 +89,6 @@ Om vi antar att uttryck, `Does John Smith work in Seattle?`, ett sammansatt uttr
 
     ![Skärmbild av avsikter detaljsidan med sammansatta entitet](./media/luis-how-to-add-example-utterances/hr-create-composite-4.png)
 
-## <a name="add-hierarchical-entity"></a>Lägg till hierarkisk entitet
-
-**Hierarkisk entiteter gälla så småningom upphör att. Använd [entitet roller](luis-concept-roles.md) fastställa entitet underordnade typer, i stället för hierarkisk entiteter.**
-
-En hierarkisk entitet är en viss kategori av sammanhangsmässigt inlärda och begreppsmässigt relaterade entiteter. I följande exempel innehåller entiteten ursprung- och målplatserna. 
-
-I uttryck `Move John Smith from Seattle to Cairo`, Seattle är ursprungsplatsen och Kairo är målplatsen. Varje plats är sammanhangsmässigt annan, inlärda från ordföljden och word valet i uttryck.
-
-1. På sidan avsikt i uttryck, Välj `Seattle`, ange entitetsnamnet `Location`, och tryck sedan på RETUR på tangentbordet.
-
-1. I den **vilken typ av enhet vill du skapa?** popup-rutan, väljer _hierarkiska_ för **entitetstypen**, Lägg sedan till `Origin` och `Destination` som barn, Välj sedan **klar**.
-
-    ![Skärmbild av avsikter detaljsidan med ToLocation entitet markerat](./media/luis-how-to-add-example-utterances/create-location-hierarchical-entity.png)
-
-1. Ordet i uttryck etiketterades med den överordnade hierarkiska entiteten. Du måste tilldela ordet till en underordnad entitet. Gå tillbaka till uttryck på sidan med avsikt. Markera ord, och sedan välja entitetsnamn som du skapade från den nedrullningsbara listan och följ på menyn till höger för att välja rätt underordnad entitet.
-
-    >[!CAUTION]
-    >Namn på underordnade entiteter måste vara unikt inom alla entiteter i samma app. Två olika hierarkiska entiteter får inte innehålla underordnade entiteter med samma namn. 
-
 ## <a name="add-entitys-role-to-utterance"></a>Lägga till enhetens roll till uttryck
 
 En roll är en namngiven undertyp till en entitet, bestäms av kontexten för uttryck. Du kan markera en entitet i ett uttryck som entiteten eller välj en roll i entiteten. En person kan ha roller, inklusive anpassade entiteter som är datorn lärt dig (enkla enheter och sammansatta entiteter), är inte datorn lärt dig (fördefinierade entiteter, reguljärt uttryck entiteter, lista över entiteter). 
@@ -143,9 +124,6 @@ På följande sätt att lösa entitet förutsägelse avvikelse:
 |Utan etikett text|röd linje|Felaktig förutsägelse|De aktuella yttranden som använder den här felaktiga entiteten måste granskas för alla avsikter. De aktuella yttranden har mistaught LUIS att den här texten är den förväntade entiteten.
 |Korrekt taggade text|Markera blå entitet, röd understrykning|Felaktig förutsägelse|Ger mer yttranden med entiteten korrekt taggade på olika platser och användningsområden. De aktuella yttranden är inte tillräckliga för att lära LUIS att detta är entiteten är eller liknande entiteterna visas i samma kontext. Liknande entitet ska kombineras till en enda entitet så LUIS är inte blandas ihop. En annan lösning är att lägga till en fras lista för att höja betydelsen av orden. |
 |Felaktigt taggade text|Markera blå entitet, röd understrykning|Rätt förutsägelse| Ger mer yttranden med entiteten korrekt taggade på olika platser och användningsområden. 
-
-> [!Note]
-> När en röd ram runt taggade avsikten i raden i exempel-uttryck ett [avsikt förutsägelse fel](luis-how-to-add-intents.md#intent-prediction-discrepancy-errors) har inträffat. Du måste korrigera den. 
 
 ## <a name="other-actions"></a>Andra åtgärder
 

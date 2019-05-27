@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: erhopf
-ms.openlocfilehash: eebe3ed15d21b08b208667a571bd59eac98a674d
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: a31921e229a4bbfccd6fdd871666aad1eeef3232
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190285"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243843"
 ---
 # <a name="what-is-conversation-transcription"></a>Vad är konversationen avskrift?
 
@@ -67,6 +67,11 @@ Konversationen avskrift förväntas ljudströmmar på flera kanaler och använda
 > -Specifikationen och design information finns i [Microsoft Speech enheten SDK mikrofon](https://aka.ms/cts/microphone). Om du vill veta mer eller köpa ett development kit Se [hämta Microsoft Speech enhets-SDK](https://aka.ms/cts/getsdk).
 
 Läs hur du använder konversationen avskrift med tal Devices SDK i [hur du använder konversationen avskrift](https://aka.ms/cts/howto).
+
+
+## <a name="quick-start-with-a-sample-app"></a>Snabbstart med en exempelapp
+
+Tal-enhets-SDK har en exempelapp för Snabbstart för alla enheter relaterade exempel. Konversationen avskrift är en av dem. Du hittar den i [tal enhets-SDK för android Snabbstart](https://aka.ms/sdsdk-quickstart) med exempelappen och källkoden för din referens.
 
 ## <a name="next-steps"></a>Nästa steg
 

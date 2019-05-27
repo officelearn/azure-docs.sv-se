@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: d42e266de9c958c8a71cc5fa680a78c2278cec6e
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 1a1acde81baa596e71b7e39763b0464c8de2fb86
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956789"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244182"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netdocuments"></a>Självstudier: Azure Active Directory-integrering med NetDocuments
 
@@ -52,7 +52,7 @@ För att konfigurera integrering av NetDocuments i Azure AD, som du behöver lä
 
 **Utför följande steg för att lägga till NetDocuments från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -109,7 +109,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med NetDocu
     b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<Repository ID>`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktiska inloggnings-URL och svars-URL. Databas-ID är ett värde som börjar med CA-följt av 8 teckenkod som är associerade med din NetDocuments lagringsplats. Du kan kontrollera den [NetDocuments federerad identitet stöddokument](https://support.netdocuments.com/hc/en-us/articles/205220410-Federated-Identity-Login) för mer information. Du kan också kontakta [NetDocuments klienten supportteamet](https://support.netdocuments.com/hc/) att hämta dessa värden om du har problem med konfiguration med hjälp av ovanstående information. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktiska inloggnings-URL och svars-URL. Databas-ID är ett värde som börjar med **CA -** följt av 8 teckenkod som är associerade med din NetDocuments lagringsplats. Du kan kontrollera den [NetDocuments federerad identitet stöddokument](https://support.netdocuments.com/hc/en-us/articles/205220410-Federated-Identity-Login) för mer information. Du kan också kontakta [NetDocuments klienten supportteamet](https://support.netdocuments.com/hc/) att hämta dessa värden om du har problem med konfiguration med hjälp av ovanstående information. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 5. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och spara den på datorn.
 

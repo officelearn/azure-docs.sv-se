@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 41589dccae4e1259e4dc9368d5825ba770b4bdcc
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 4ee3c0bf344520afee6b3a00eb49759ae1432949
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66146709"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239778"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-linux-devices"></a>Självstudier: Utveckla IoT Edge-moduler för Linux-enheter
 
@@ -190,7 +190,7 @@ Varje modul kan ha flera *inkommande* och *utdata* köer som har deklarerats i s
 
 7. Längst ned i filen hittar du de önskade egenskaperna för den **$edgeHub** modulen. 
 
-   En av funktionerna i IoT Edge hub-modulen är att dirigera meddelanden mellan alla moduler i en distribution. Granska värdena i den **vägar** egenskapen. Den första rutten **SampleModuleToIoTHub**, använder jokertecken (**\***) att visa alla meddelanden som kommer från alla utgående köer i modulen SampleModule. Dessa meddelanden går du till *$uppströms*, vilket är ett reserverat namn som anger IoT Hub. Den andra vägen sensorToSampleModule, tar meddelanden som kommer från modulen tempSensor och skickar dem till den *indata1* inkommande kö som du såg initieras i SampleModule koden. 
+   En av funktionerna i IoT Edge hub-modulen är att dirigera meddelanden mellan alla moduler i en distribution. Granska värdena i den **vägar** egenskapen. Den första rutten **SampleModuleToIoTHub**, använder jokertecken ( **\*** ) att visa alla meddelanden som kommer från alla utgående köer i modulen SampleModule. Dessa meddelanden går du till *$uppströms*, vilket är ett reserverat namn som anger IoT Hub. Den andra vägen sensorToSampleModule, tar meddelanden som kommer från modulen tempSensor och skickar dem till den *indata1* inkommande kö som du såg initieras i SampleModule koden. 
 
    ![Granska vägar i deployment.template.json](./media/tutorial-develop-for-linux/deployment-routes.png)
 
@@ -284,7 +284,7 @@ Du har verifierat att de inbyggda behållaravbildningarna lagras på ditt behål
 
 SampleModule koden tar emot meddelanden via dess inkommande kö och skickar dem via den utgående kön. Distribution av manifestet deklarerats vägar som skickas meddelanden till SampleModule från tempSensor och sedan vidarebefordras meddelanden från SampleModule till IoT Hub. Azure IoT-verktyg för Visual Studio Code kan du se meddelanden när de anländer till IoT Hub från dina enskilda enheter. 
 
-1. I Visual Studio Code-Utforskaren högerklickar du på IoT Edge-enheten som du vill övervaka och väljer sedan **börja övervaka D2C-meddelande**. 
+1. I Visual Studio Code-Utforskaren högerklickar du på IoT Edge-enheten som du vill övervaka och väljer sedan **starta inbyggda händelse slutpunkt för övervakning av**. 
 
 2. Se utdatafönstret i Visual Studio Code för att se meddelanden som inkommer på din IoT-hubb. 
 

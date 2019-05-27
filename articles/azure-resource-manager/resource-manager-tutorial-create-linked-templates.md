@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 03/18/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e811d1f7fb84e2539ba9daea3eea13f5e028f997
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: de2e848bd587f3b9bf2efe3fa8df3710e24243e4
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60389567"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241387"
 ---
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>Självstudie: Skapa länkade Azure Resource Manager-mallar
 
@@ -89,7 +89,7 @@ Den länkade mallen skapar ett lagringskonto. Länkad mall kan användas som en 
 2. Gör följande ändringar:
 
     * Ta bort alla parametrar än **plats**.
-    * Lägg till en parameter med namnet **storageAccountName**. 
+    * Lägg till en parameter med namnet **storageAccountName**.
         ```json
         "storageAccountName":{
           "type": "string",
@@ -99,7 +99,7 @@ Den länkade mallen skapar ett lagringskonto. Länkad mall kan användas som en 
         },
         ```
         Lagringskontonamn och plats skickas från den huvudsakliga mallen till den länkade mallen som parametrar.
-        
+
     * Ta bort elementet **variabler** och alla definitioner för variabeln.
     * Ta bort alla resurser än lagringskontot. Du tar bort totalt fyra resurser.
     * Uppdatera värdet för elementet **namn** för lagringskontoresursen till:
@@ -109,7 +109,7 @@ Den länkade mallen skapar ett lagringskonto. Länkad mall kan användas som en 
         ```
 
     * Uppdatera elementet **outputs**, så det ser ut så här:
-    
+
         ```json
         "outputs": {
           "storageUri": {
@@ -272,7 +272,7 @@ Huvudmallen heter azuredeploy.json.
     Ta hänsyn till följande information:
 
     * En `Microsoft.Resources/deployments`-resurs i huvudmallen används för att länka till en annan mall.
-    * `deployments`-resursen har namnet `linkedTemplate`. Det här namnet används för [ konfigurering av beroende](#configure-dependency).  
+    * `deployments`-resursen har namnet `linkedTemplate`. Det här namnet används för [ konfigurering av beroende](#configure-dependency).
     * Du kan bara använda läget för [stegvis](./deployment-modes.md) distribution när du anropar länkade mallar.
     * `templateLink/uri` innehåller den länkade mallens URI. Uppdatera värdet till den URI som du får när du laddar upp den länkade mallen (knappen med en SAS-token).
     * Använd `parameters` för att skicka värden från huvudmallen till den länkade mallen.
@@ -305,7 +305,7 @@ Eftersom lagringskontot är definierat i den länkade mallen nu, måste du uppda
 
     ![Azure Resource Manager-länkade mallar konfigurerar beroende](./media/resource-manager-tutorial-create-linked-templates/resource-manager-template-linked-templates-configure-dependency.png)
 
-    *linkedTemplate* är namnet på distributionsresursen.  
+    *linkedTemplate* är namnet på distributionsresursen.
 3. Uppdatera **properties/diagnosticsProfile/bootDiagnostics/storageUri** som visas på föregående skärmbild.
 4. Spara den redigerade mallen.
 
@@ -334,4 +334,4 @@ För att förbättra projektet gör du följande ytterligare ändringar i det f�
 I den här självstudien har du modulariserat en mall i en huvudmall och en länkad mall. Information om hur du använder tillägg för virtuell dator för att utföra distributionsuppgifter finns i:
 
 > [!div class="nextstepaction"]
-> [Distribuera tillägg för virtuell dator](./deployment-manager-tutorial.md)
+> [Distribuera tillägg för virtuell dator](./resource-manager-tutorial-deploy-vm-extensions.md)

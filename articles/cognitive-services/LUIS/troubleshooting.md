@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: diberry
-ms.openlocfilehash: b4c1de8edf04e15b540adeac01bcbf0cb1d1b8af
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: b114b1c3b1c421c6e6944666e3fd928d2aced966
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65766937"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66225882"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Språkförståelse vanliga frågor (och svar FAQ)
 
@@ -49,7 +49,7 @@ Se den [Bing stavningskontroll kontrollera API V7](luis-tutorial-bing-spellcheck
 Redigera LUIS-app via programmering genom att använda den [redigering API](https://go.microsoft.com/fwlink/?linkid=2092087). Se [anropa LUIS redigering API](./luis-quickstart-node-add-utterance.md) och [skapa en LUIS-app via programmering med hjälp av Node.js](./luis-tutorial-node-import-utterances-csv.md) exempel på hur du anropar API: et redigering. Redigera-API kräver att du använder en [redigering nyckeln](luis-concept-keys.md#authoring-key) i stället för en slutpunktsnyckel. Programmässig redigering kan upp till 1 000 000 anrop per månad och fem transaktioner per sekund. Mer information på de nycklar som du använder med LUIS finns i [hantera nycklar](./luis-concept-keys.md).
 
 ### <a name="where-is-the-pattern-feature-that-provided-regular-expression-matching"></a>Där matchar mönstret-funktion som tillhandahålls reguljärt uttryck?
-Den tidigare **mönsterfunktion** för närvarande är inaktuell, ersatts av  **[mönster](luis-concept-patterns.md)**.
+Den tidigare **mönsterfunktion** för närvarande är inaktuell, ersatts av  **[mönster](luis-concept-patterns.md)** .
 
 ### <a name="how-do-i-use-an-entity-to-pull-out-the-correct-data"></a>Hur kan jag använda en entitet för att hämta rätt data?
 Se [entiteter](luis-concept-entity-types.md) och [dataextrahering](luis-concept-data-extraction.md).
@@ -297,6 +297,10 @@ Följande funktioner har släppts på 2019 Utvecklarkonferens:
 * [Förbättrad fördefinierade domäner](luis-reference-prebuilt-domains.md) 
 * [Listan med dynamiskt entiteter](luis-migration-api-v3.md#dynamic-lists-passed-in-at-prediction-time)
 * [Externa enheter](luis-migration-api-v3.md#external-entities-passed-in-at-prediction-time)
+
+Videor:
+
+* [Hur du använder Azure Konversationsanpassad AI att skala upp din verksamhet för nästa generations](https://www.youtube.com/watch?v=_k97jd-csuk&feature=youtu.be)
 
 ## <a name="next-steps"></a>Nästa steg
 

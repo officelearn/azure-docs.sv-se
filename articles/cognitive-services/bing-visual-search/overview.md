@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 03/27/2019
 ms.author: scottwhi
 ms.openlocfilehash: bd93166cb878fbd961795492ed9a035c919429a8
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 05/27/2019
 ms.locfileid: "64916628"
 ---
 # <a name="what-is-the-bing-visual-search-api"></a>Vad är API:et för visuell sökning i Bing?
@@ -30,7 +30,7 @@ Om du använder den [bildsökning i Bing](../bing-image-search/overview.md), du 
 
 Du kan identifiera följande insikter med hjälp av Bing Visual Search:
 
-| Insight                              | Beskrivning |
+| Insikt                              | Beskrivning |
 |--------------------------------------|-------------|
 | Visuellt likartade bilder              | En lista med avbildningar som visuellt liknar den inmatade bilden. |
 | Visuellt liknande produkter            | Produkter som är visuellt likartade för produkten som visas.            |

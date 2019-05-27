@@ -17,12 +17,12 @@ ms.date: 03/20/2019
 ms.author: joflore
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94fbcc1c29c1860642dda0afab6a1f10e719a05a
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: e45b3b19821644142176c5c0cc7646c4643fe17c
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65962202"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235208"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Självstudier: Konfigurera en Azure Active Directory-hybridanslutning för hanterade domäner
 
@@ -178,7 +178,7 @@ Dessutom kan du behöva aktivera **Tillåt uppdateringar i statusfältet via skr
 
 ### <a name="configure-seamless-sso"></a>Konfigurera sömlös enkel inloggning
 
-För att slutföra fullständig Azure AD-anslutning för dina äldre Windows-enheter i en hanterad domän som använder direktautentisering (PTA) eller synkronisering av lösenordshash (PHS) som Azure AD-molnautentiseringsmetod måste du även [konfigurera sömlös enkel inloggning](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso-quick-start#step-2-enable-the-feature). Om du har problem med att konfigurera sömlös enkel inloggning kan du läsa artikeln [felsöka Azure Active Directory sömlös enkel inloggning](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/tshoot-connect-sso).
+För att slutföra fullständig Azure AD-anslutning för dina äldre Windows-enheter i en hanterad domän som använder direktautentisering (PTA) eller synkronisering av lösenordshash (PHS) som Azure AD-molnautentiseringsmetod måste du även [konfigurera sömlös enkel inloggning](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso-quick-start#step-2-enable-the-feature). Om du har problem med att konfigurera sömlös enkel inloggning kan du läsa artikeln [felsöka Azure Active Directory sömlös enkel inloggning](https://docs.microsoft.com/azure/active-directory/hybrid/tshoot-connect-sso).
 
 
 ### <a name="control-windows-down-level-devices"></a>Kontrollera äldre Windows-enheter 
@@ -188,7 +188,7 @@ För att registrera äldre Windows-enheter måste du ladda ned och installera et
 
 ## <a name="verify-the-registration"></a>Verifiera registreringen
 
-För verifiering av enhetsregistreringsstatus i din Azure-klientorganisation kan du använda cmdlet:en **[Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice)** i  **[Azure Active Directory PowerShell-modulen](/powershell/azure/install-msonlinev1?view=azureadps-2.0)**.
+För verifiering av enhetsregistreringsstatus i din Azure-klientorganisation kan du använda cmdlet:en **[Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice)** i  **[Azure Active Directory PowerShell-modulen](/powershell/azure/install-msonlinev1?view=azureadps-2.0)** .
 
 Följande gäller när du använder cmdlet:en **Get-MSolDevice** för att kontrollera tjänstinformation:
 

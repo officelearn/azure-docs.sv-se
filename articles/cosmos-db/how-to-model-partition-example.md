@@ -1,18 +1,17 @@
 ---
 title: Så här modellen och partitionera data i Azure Cosmos DB med ett verkliga exempel
 description: Lär dig hur du modellera och partitionera en verkliga exempel på användning av Azure Cosmos DB Core API
-author: rockboyfor
+author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: sample
-origin.date: 03/27/2019
-ms.date: 04/15/2019
-ms.author: v-yeche
-ms.openlocfilehash: ac1b94de4b439aab202d53b23b0d0da616a9f851
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/23/2019
+ms.author: thweiss
+ms.openlocfilehash: c98a8187c0365abc8fdb2bedacc5216266cc5cad
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61057623"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240989"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>Så här modellen och partitionera data i Azure Cosmos DB med ett verkliga exempel
 
@@ -141,7 +140,7 @@ Hämta en användare gör du genom att läsa motsvarande objekt från den `users
 
 ### <a name="c2-createedit-a-post"></a>[C2] Skapa/redigera ett inlägg
 
-På samma sätt till **[C1]**, behöver vi bara att skriva till den `posts` behållare.
+På samma sätt till **[C1]** , behöver vi bara att skriva till den `posts` behållare.
 
 ![Skriva ett enskilt objekt till behållaren för inlägg](./media/how-to-model-partition-example/V1-C2.png)
 
@@ -200,7 +199,7 @@ Vi börjar med en fråga som hämtar alla kommentarer om inlägget och igen, må
 
 ### <a name="c4-like-a-post"></a>[C4] Som ett inlägg
 
-Precis som **[C3]**, vi skapar motsvarande objekt i den `posts` behållare.
+Precis som **[C3]** , vi skapar motsvarande objekt i den `posts` behållare.
 
 ![Skriva ett enskilt objekt till behållaren för inlägg](./media/how-to-model-partition-example/V1-C2.png)
 
@@ -210,7 +209,7 @@ Precis som **[C3]**, vi skapar motsvarande objekt i den `posts` behållare.
 
 ### <a name="q5-list-a-posts-likes"></a>[F5] Lista över ett inlägg likes
 
-Precis som **[kvartal 4]**, vi fråga likes för inlägget, och sedan aggregera deras användarnamn.
+Precis som **[kvartal 4]** , vi fråga likes för inlägget, och sedan aggregera deras användarnamn.
 
 ![Hämta alla gillar för ett inlägg och deras ytterligare datainsamling](./media/how-to-model-partition-example/V1-Q5.png)
 
@@ -283,7 +282,7 @@ Vi kan också ändra kommentar och som objekt att lägga till användarnamnet f�
 
 Vad vi vill uppnå är att varje gång vi lägger till en kommentar eller ett liknande kan vi också öka den `commentCount` eller `likeCount` i motsvarande inlägget. Som våra `posts` behållare har partitionerats med `postId`, det nya objektet (kommentera eller en) och dess motsvarande post finns i samma logiska partition. Därför kan vi använda en [lagrade proceduren](stored-procedures-triggers-udfs.md) att utföra åtgärden.
 
-Nu när du skapar en kommentar (**[C3]**), i stället för bara att lägga till ett nytt objekt i den `posts` behållare vi anropa följande lagrade procedur i den behållaren:
+Nu när du skapar en kommentar ( **[C3]** ), i stället för bara att lägga till ett nytt objekt i den `posts` behållare vi anropa följande lagrade procedur i den behållaren:
 
 ```javascript
 function createComment(postId, comment) {
@@ -334,7 +333,7 @@ I vårt exempel använder vi ändringsfeed av den `users` behållare för att re
 ```javascript
 function updateUsernames(userId, username) {
   var collection = getContext().getCollection();
-
+  
   collection.queryDocuments(
     collection.getSelfLink(),
     `SELECT * FROM p WHERE p.userId = '${userId}'`,
@@ -397,7 +396,7 @@ Exakt samma situation när likes.
 
 ## <a name="v3-making-sure-all-requests-are-scalable"></a>V3: Att se till att är alla begäranden som skalbara
 
-Titta på vår övergripande prestandaförbättringar, det fortfarande finns två begäranden som vi inte har fullständigt optimerad: **[kvartal 3]** och **[Q6]**. De är de förfrågningar som rör frågor som inte filtrerar på Partitionsnyckeln för de behållare som de är riktade mot.
+Titta på vår övergripande prestandaförbättringar, det fortfarande finns två begäranden som vi inte har fullständigt optimerad: **[kvartal 3]** och **[Q6]** . De är de förfrågningar som rör frågor som inte filtrerar på Partitionsnyckeln för de behållare som de är riktade mot.
 
 ### <a name="q3-list-a-users-posts-in-short-form"></a>KVARTAL [3] Lista över en användares inlägg i kortformen
 
@@ -577,6 +576,3 @@ Efter den här introduktionen till praktiska-datamodellerings och partitionering
 - [Arbeta med databaser, behållare och objekt](databases-containers-items.md)
 - [Partitionering i Azure Cosmos DB](partitioning-overview.md)
 - [Ändringsflödet i Azure Cosmos DB](change-feed.md)
-
-<!--Update_Description: new articles on how to model partition example -->
-<!--ms.date: 04/15/2019-->

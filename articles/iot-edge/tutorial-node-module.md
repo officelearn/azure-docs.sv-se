@@ -9,12 +9,12 @@ ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 2725f0a34ace3a353df5f746df299aeaf0ea92b3
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5147a0d164f1fac67a1c70429fc2e9b1caa00685
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64574239"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244841"
 ---
 # <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-for-linux-devices"></a>Självstudier: Utveckla och distribuera en Node.js IoT Edge-modul för Linux-enheter
 
@@ -39,7 +39,7 @@ Den här kursen visar hur du utvecklar en modul i **Node.js** med **Visual Studi
 
 Använd följande tabell för att förstå dina alternativ för att utveckla och distribuera Node.js-moduler: 
 
-| Node.js | Visual Studio-koden | Visual Studio 2017 | 
+| Node.js | Visual Studio-kod | Visual Studio 2017 | 
 | - | ------------------ | ------------------ |
 | **Linux AMD64** | ![Använda VS Code för Node.js-moduler på Linux AMD64](./media/tutorial-c-module/green-check.png) |  |
 | **Linux ARM32** | ![Använda VS Code för Node.js-moduler på Linux ARM32](./media/tutorial-c-module/green-check.png) |  |
@@ -220,10 +220,9 @@ När du tillämpar distributionsmanifestet till din IoT Edge-enhet samlar IoT Ed
 
 Du kan visa statusen för din IoT Edge-enhet i avsnittet om **Azure IoT Hub-enheter** i Visual Studio Code-utforskaren. Expandera enhetsinformationen så ser du en lista med moduler som distribueras och körs.
 
-1. I Visual Studio Code-Utforskaren högerklickar du på namnet på din IoT Edge-enhet och välj **börja övervaka D2C meddelanden**.
+1. I Visual Studio Code-Utforskaren högerklickar du på namnet på din IoT Edge-enhet och välj **starta inbyggda händelse slutpunkt för övervakning av**.
 
 2. Visa meddelanden som inkommer på din IoT-hubb. Det kan ta en stund innan meddelanden tas emot, eftersom IoT Edge-enheten måste ta emot dess ny distribution och starta alla moduler. Vi ändringar i koden NodeModule vänta sedan tills datorn temperaturen når 25 grader innan du skickar meddelanden. Det ger också meddelandetypen **avisering** att alla meddelanden som når gränsen temperatur. 
-
 
 ## <a name="edit-the-module-twin"></a>Redigera modultvillingen
 
@@ -239,7 +238,7 @@ Vi använde modultvilling NodeModule i manifestet distribution Ange tröskelvär
 
 5. Högerklicka någonstans i modultvillingen redigera rutan och välj **uppdatering modultvilling**. 
 
-5. Övervaka inkommande meddelanden för enhet-till-moln. Du bör se meddelanden stoppa tills det nya temperatur-tröskelvärdet har uppnåtts. 
+6. Övervaka inkommande meddelanden för enhet-till-moln. Du bör se meddelanden stoppa tills det nya temperatur-tröskelvärdet har uppnåtts. 
 
 ## <a name="clean-up-resources"></a>Rensa resurser 
 
@@ -248,7 +247,6 @@ Om du planerar att fortsätta med nästa rekommenderade artikel kan du behålla 
 Annars kan du ta bort de lokala konfigurationerna och de Azure-resurser som du har skapat i den här artikeln för att därigenom undvika kostnader. 
 
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
-
 
 ## <a name="next-steps"></a>Nästa steg
 

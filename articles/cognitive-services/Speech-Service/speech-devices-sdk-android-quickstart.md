@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: d5af2bb61eeb986f02a31d45ff9236ecc0c8427e
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 073166a594088bca04d81883247a5880fcbd1cb7
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026201"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234499"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-android"></a>Snabbstart: Kör exempelappen tal Devices SDK på Android
 
-I den här snabbstarten lär du dig att använda tal Devices SDK för Android för att skapa en produkt med stöd för tal.
+I den här snabbstarten får du lära dig hur du använder tal enheter SDK för Android för att bygga en talbaserade produkt eller använda det som en [konversationen avskrift](conversation-transcription-service.md) enhet.
 
 Den här guiden kräver en [Azure Cognitive Services](get-started.md) konto med en Speech Services-resurs. Om du inte har ett konto kan du använda den [kostnadsfria utvärderingsversionen](https://azure.microsoft.com/try/cognitive-services/) för att hämta en prenumerationsnyckel.
 
@@ -33,9 +33,11 @@ Innan du börjar använda SDK: N för tal enheter, måste du:
 
 * Ladda ned den senaste versionen av den [tal Devices SDK](https://aka.ms/sdsdk-download), och extrahera ZIP till din arbetskatalog.
    > [!NOTE]
-   > ZIP-filen innehåller Android-exempelappen.
+   > Android-exempel – Release.zip-filen innehåller Android-exempelappen och den här snabbstarten förutsätter att appen ska extraheras till C:\SDSDK\Android-Sample-Release
 
 * Att hämta en [prenumerationsnyckel för Azure för Speech Services](get-started.md)
+
+* Om du planerar att använda konversationen avskrift måste du använda en [cirkulär mikrofon enheten](get-speech-devices-sdk.md) och tjänsten är för närvarande endast tillgänglig för ”en-US” och ”zh-CN” i regioner, ”centralus” och ”asienöstra”. Du måste ha en tal-nyckel i någon av dessa regioner för att använda konversationen avskrift.
 
 * Om du planerar att använda Speech Services för att identifiera avsikter (eller åtgärder) från användaren yttranden, behöver du en [Language Understanding Service (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription) prenumeration. Läs mer om LUIS- och taligenkänning i [känna igen tal avsikter med LUIS kan C# ](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp).
 
@@ -82,16 +84,23 @@ Om du vill verifiera din development kit-konfiguration, skapa och installera exe
 
 1. Lägga till din prenumerationsnyckel för tal i källkoden. Om du vill prova taligenkänning kan också lägga till din [tjänst för Språkförståelse](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) prenumerationsnyckel och program-ID.
 
-   Dina nycklar och information om programmet finns i följande rader i källfilen MainActivity.java:
+   Din information hamnar i MainActivity.java för tal och LUIS:
 
    ```java
-   // Subscription
-   private static final String SpeechSubscriptionKey = "[your speech key]";
-   private static final String SpeechRegion = "westus";
-   private static final String LuisSubscriptionKey = "[your LUIS key]";
-   private static final String LuisRegion = "westus2.api.cognitive.microsoft.com";
-   private static final String LuisAppId = "[your LUIS app ID]"
+    // Subscription
+    private static String SpeechSubscriptionKey = "<enter your subscription info here>";
+    private static String SpeechRegion = "westus"; // You can change this if your speech region is different.
+    private static String LuisSubscriptionKey = "<enter your subscription info here>";
+    private static String LuisRegion = "westus2"; // you can change this, if you want to test the intent, and your LUIS region is different.
+    private static String LuisAppId = "<enter your LUIS AppId>";
    ```
+
+    Om du använder konversationen avskrift krävs också informationen om tal nyckel och region i conversation.java:
+
+   ```java
+    private static final String CTSKey = "<Conversation Transcription Service Key>";
+    private static final String CTSRegion="<Conversation Transcription Service Region>";// Region may be "centralus" or "eastasia"
+    ```
 
 1. Standard wake ordet (nyckelordet) är ”dator”. Du kan också prova något av de andra tillhandahålls wake ord, som till exempel ”dator” eller ”assistenten”. Resursfiler för dessa alternativa wake ord är i tal enheter SDK i mappen nyckelord. Till exempel innehåller C:\SDSDK\Android-Sample-Release\keyword\Computer de filer som används för wake ordet ”dator”.
 
@@ -126,7 +135,7 @@ Om du vill verifiera din development kit-konfiguration, skapa och installera exe
    |||För en linjär dev-paket använder som alla mikrofoner: `Linear4`|
    |||För en linjär dev-paket använder som två mikrofoner: `Linear2`|
 
-1. Att skapa programmet på den **kör** menyn och välj **kör ”app”**. Den **Välj distributionsmålet** dialogrutan visas.
+1. Att skapa programmet på den **kör** menyn och välj **kör ”app”** . Den **Välj distributionsmålet** dialogrutan visas.
 
 1. Välj din enhet och välj sedan **OK** du distribuerar program till enheten.
 
@@ -135,6 +144,10 @@ Om du vill verifiera din development kit-konfiguration, skapa och installera exe
 1. Exempelprogram för tal Devices SDK startar och välja mellan följande alternativ:
 
    ![Exempelprogrammet tal Devices SDK exempel och alternativ](media/speech-devices-sdk/qsg-8.png)
+
+1. Nyligen tillagda är konversationen avskrift demon. Börja skriva med Startsession. Som standard är alla Gäst, men om du har deltagarens röst signaturer de kan placeras i en fil /video/participants.properties på enheten. Att generera röst signatur titt på [transkribera konversationer (SDK)](how-to-use-conversation-transcription-service.md).
+
+   ![Konversationen avskrift demoprogram](media/speech-devices-sdk/qsg-15.png)
 
 1. Experiment!
 

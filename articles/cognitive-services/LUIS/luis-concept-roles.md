@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 5fa922cb91d34483256faf4dcf70569aa2f17b97
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 318e71b68bbabeeef34c75a412f9fdd5b6db754a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60813837"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65073014"
 ---
 # <a name="entity-roles-for-contextual-subtypes"></a>Entiteten roller för sammanhangsberoende undertyper
 
@@ -79,12 +79,6 @@ Följande exempel talade använda entiteter och roller:
 |--|--|
 |Jag är intressant veta mer om **Seattle**|Jag vill veta mer om {Location}|
 |Köp en biljett från Seattle till New York|Köp en biljett från {plats: ursprunget} till {plats: Destination}|
-
-## <a name="how-are-roles-related-to-hierarchical-entities"></a>Hur roller rör hierarkisk entiteter?
-
-Roller är nu tillgängliga för alla entiteter i exempel yttranden, samt tidigare användning av mönster. Eftersom de är tillgängliga överallt, ersätter de behovet av hierarkiska entiteter. Nya entiteter ska skapas med roller i stället för med hierarkisk entiteter. 
-
-Hierarkisk entiteter gälla så småningom upphör att.
 
 ## <a name="how-are-roles-used-in-patterns"></a>Hur används roller i mönster?
 I ett mönster mall uttryck används roller inom uttryck: 

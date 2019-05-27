@@ -2,18 +2,18 @@
 title: Självstudie – Dirigera trafik till viktade slutpunkter – Azure Traffic Manager
 description: Den här artikeln beskriver hur du dirigerar trafik till viktade slutpunkter med Traffic Manager.
 services: traffic-manager
-author: KumudD
+author: asudbring
 Customer intent: As an IT Admin, I want to distribute traffic based on the weight assigned to a website endpoint so that I can control the user traffic to a given website.
 ms.service: traffic-manager
 ms.topic: tutorial
 ms.date: 10/15/2018
-ms.author: kumud
-ms.openlocfilehash: 50790e50602fbc8d302a67ea9963a4e492ce2f0b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: allensu
+ms.openlocfilehash: fdae6f9f83cace2d2da08ae2494dbc82a94b1e5d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60329688"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66238899"
 ---
 # <a name="tutorial-control-traffic-routing-with-weighted-endpoints-by-using-traffic-manager"></a>Självstudier: Styr trafikroutning med viktade slutpunkter med hjälp av Traffic Manager
 
@@ -32,64 +32,49 @@ I den här guiden får du lära dig att:
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
+
 Om du vill se hur Traffic Manager fungerar distribuerar du följande för den här självstudien:
+
 - Två instanser av grundläggande webbplatser som körs i olika Azure-regioner: USA, östra och Europa, västra.
 - Två virtuella testdatorer för att testa Traffic Manager: en i USA, östra och den andra vi Europa, västra. De virtuella testdatorerna används till att illustrera hur Traffic Manager dirigerar användartrafik som har högre vikt tilldelad till sin slutpunkt.
 
-### <a name="sign-in-to-azure"></a>Logga in på Azure
+### <a name="sign-in-to-azure"></a>Logga in till Azure
 
 Logga in på [Azure Portal](https://portal.azure.com).
 
 ### <a name="create-websites"></a>Skapa webbplatser
 
 I det här avsnittet skapar du två webbplatsinstanser som tillhandahåller två tjänstslutpunkter för Traffic Manager-profilen i två Azure-regioner. Skapa de två webbplatserna genom att göra följande:
+
 1. Skapa två virtuella datorer för att köra en grundläggande webbplats – en i USA, östra och den andra i Europa, västra.
 2. Installera en IIS-server på varje virtuell dator. Uppdatera standardwebbsidan som beskriver namnet på den virtuella datorn som en användare är ansluten när webbplatsen besöks.
 
 #### <a name="create-vms-for-running-websites"></a>Skapa virtuella datorer för att köra webbplatser
+
 I det här avsnittet skapar du de två virtuella datorerna (*myIISVMEastUS* och *myIISVMWEurope*) i Azure-regionerna USA, östra och Europa, västra.
 
-1. Längst upp till vänster i Azure-portalen väljer du **Skapa en resurs** > **Beräkning** > **Windows Server 2016 VM**.
-2. För **Grundläggande** ska du ange eller välja följande information. Acceptera standardinställningarna för de andra inställningarna och välj sedan **Skapa**.
+1. I övre vänstra hörnet på Azure portal, Välj **skapa en resurs** > **Compute** > **Windows Server 2019 Datacenter**.
+2. I **Skapa en virtuell dator** skriver eller väljer du följande värden på fliken **Grundläggande**:
 
-    |Inställning|Värde|
-    |---|---|
-    |Namn|Ange **myIISVMEastUS**.|
-    |Användarnamn| Ange ett valfritt användarnamn.|
-    |Lösenord| Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    |Resursgrupp| Välj **Ny** och skriv sedan **myResourceGroupTM1**.|
-    |Location| Välj **USA, östra**.|
-    |||
+   - **Prenumeration** > **Resursgrupp**: Välj **Skapa nytt** och skriv sedan **myResourceGroupTM1**.
+   - **Instansinformation** > **Namn på virtuell dator**: Typ *myIISVMEastUS*.
+   - **Information om-instansen** > **Region**:  Välj **USA, östra**.
+   - **Administratörskontot** > **användarnamn**:  Ange ett valfritt användarnamn.
+   - **Administratörskontot** > **lösenord**:  Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).
+   - **Regler för inkommande portar** > **offentliga inkommande portar**: Välj **Tillåt valda portar**.
+   - **Regler för inkommande portar** > **Välj ingående portar**: Välj **RDP** och **HTTP** i pull/ned-ruta.
 
-4. Välj en VM-storlek i **Välj en storlek**.
-5. Välj följande värden för **Inställningar** och sedan **OK**:
-    
-    |Inställning|Värde|
-    |---|---|
-    |Virtuellt nätverk| Välj **virtuellt nätverk**. I **Skapa virtuellt nätverk** skriver du **myVNet1** i **Namn**. För **Undernät** anger du **mySubnet**.|
-    |Nätverkssäkerhetsgrupp|Välj **Grundläggande**. I listrutan **Välj offentliga inkommande portar** väljer du **HTTP** och **RDP**. |
-    |Startdiagnostik|Välj **Inaktiverad**.|
-    |||
-
-6. Under **Skapa** i **sammanfattningen** väljer du **Skapa** för att starta VM-distributionen.
-
-7. Utför steg 1–6 igen, med följande ändringar:
-
-    |Inställning|Värde|
-    |---|---|
-    |Resursgrupp | Välj **Ny** och skriv sedan **myResourceGroupTM2**.|
-    |Location|Ange **Europa, västra**.|
-    |Namn på virtuell dator | Ange **myIISVMWEurope**.|
-    |Virtuellt nätverk | Välj **virtuellt nätverk**. I **Skapa virtuellt nätverk** skriver du **myVNet2** i **Namn**. För **Undernät** anger du **mySubnet**.|
-    |||
-
-8. Det tar några minuter att skapa de virtuella datorerna. Fortsätt inte med de övriga stegen förrän de båda virtuella datorerna har skapats.
+3. Välj den **Management** fliken eller välj **nästa: Diskar** och sedan **Nästa: Nätverk**, sedan **nästa: Hantering av**. Under **Övervakning** anger du **Startdiagnostik** till **Av**.
+4. Välj **Granska + skapa**.
+5. Granska inställningarna och klicka sedan på **skapa**.  
+6. Följ stegen för att skapa en andra virtuell dator med namnet *myIISVMWEurope*, med en **resursgrupp** namn på *myResourceGroupTM2*, ett **plats** av *Västeuropa*, och de andra inställningarna identiskt *myIISVMEastUS*.
+7. Det tar några minuter att skapa de virtuella datorerna. Fortsätt inte med återstående steg förrän båda virtuella datorerna har skapats.
 
 ![Skapa en virtuell dator](./media/tutorial-traffic-manager-improve-website-response/createVM.png)
 
 #### <a name="install-iis-and-customize-the-default-webpage"></a>Installera IIS och anpassa standardwebbsidan
 
-I det här avsnittet installerar du IIS-servern på de två virtuella datorerna &mdash;myIISVMEastUS och myIISVMWEurope&mdash; och uppdaterar sedan standardwebbsidan. Den anpassade webbsidan visar namnet på den virtuella datorn som du ansluter till när du besöker webbplatsen från en webbläsare.
+I det här avsnittet ska du installera IIS-servern på de två virtuella datorerna, myIISVMEastUS och myIISVMWEurope och sedan uppdaterar på standard-webbsidan. Den anpassade webbsidan visar namnet på den virtuella datorn som du ansluter till när du besöker webbplatsen från en webbläsare.
 
 1. Välj **Alla resurser** på menyn till vänster. I resurslistan väljer du **myIISVMEastUS** i resursgruppen **myResourceGroupTM1**.
 2. På **översiktssidan** väljer du **Anslut**. I **Ansluta till den virtuella datorn**väljer du **Ladda ned RDP-fil**.
@@ -121,37 +106,31 @@ Traffic Manager dirigerar användartrafik baserat på tjänstslutpunkternas DNS-
 1. Välj **Alla resurser** på menyn till vänster. I resurslistan väljer du **myIISVMEastUS** i resursgruppen **myResourceGroupTM1**.
 2. På sidan **Översikt** under **DNS-namn** väljer du **Konfigurera**.
 3. På sidan **Konfiguration**, under DNS-namnetiketten, lägger du till ett unikt namn. Välj sedan **Spara**.
-4. Upprepa steg 1–3, för den virtuella datorn med namnet **myIISVMWEurope** i resursgruppen **myResourceGroupTM1**.
+4. Upprepa steg 1 – 3 för den virtuella datorn med namnet **myIISVMWEurope** i den **myResourceGroupTM2** resursgrupp.
 
 ### <a name="create-a-test-vm"></a>Skapa en virtuell testdator
 
-I det här avsnittet skapar du den virtuella datorn *mVMEastUS*. Du använder den här virtuella datorn för att testa hur Traffic Manager dirigerar trafik till webbplatsslutpunkten som högre viktningsvärde.
+I det här avsnittet skapar du en virtuell dator (*myVMEastUS* och *myVMWestEurope*) i varje Azure-region (**USA, östra** och **Västeuropa**. Du använder dessa virtuella datorer för att testa hur Traffic Manager dirigerar trafik till webbplats-slutpunkt som har högre viktningsvärde.
 
-1. Längst upp till vänster i Azure-portalen väljer du **Skapa en resurs** > **Beräkning** > **Windows Server 2016 VM**.
-2. För **Grundläggande** ska du ange eller välja följande information. Acceptera standardinställningarna för de andra inställningarna och välj sedan **Skapa**:
+1. I övre vänstra hörnet på Azure portal, Välj **skapa en resurs** > **Compute** > **Windows Server 2019 Datacenter**.
+2. I **Skapa en virtuell dator** skriver eller väljer du följande värden på fliken **Grundläggande**:
 
-    |Inställning|Värde|
-    |---|---|
-    |Namn|Ange **myVMEastUS**.|
-    |Användarnamn| Ange ett valfritt användarnamn.|
-    |Lösenord| Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    |Resursgrupp| Välj **Använd befintlig** och sedan **myResourceGroupTM1**.|
-    |||
+   - **Prenumeration** > **Resursgrupp**: Välj **myResourceGroupTM1**.
+   - **Instansinformation** > **Namn på virtuell dator**: Typ *myVMEastUS*.
+   - **Information om-instansen** > **Region**:  Välj **USA, östra**.
+   - **Administratörskontot** > **användarnamn**:  Ange ett valfritt användarnamn.
+   - **Administratörskontot** > **lösenord**:  Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).
+   - **Regler för inkommande portar** > **offentliga inkommande portar**: Välj **Tillåt valda portar**.
+   - **Regler för inkommande portar** > **Välj ingående portar**: Välj **RDP** i pull/ned-ruta.
 
-4. Välj en VM-storlek i **Välj en storlek**.
-5. Välj följande värden för **Inställningar** och sedan **OK**:
-
-    |Inställning|Värde|
-    |---|---|
-    |Virtuellt nätverk| Välj **virtuellt nätverk**. I **Skapa virtuellt nätverk** skriver du **myVNet3** i **Namn**. För undernät anger du **mySubnet**.|
-    |Nätverkssäkerhetsgrupp|Välj **Grundläggande**. I listrutan **Välj offentliga inkommande portar** väljer du **HTTP** och **RDP**. |
-    |Startdiagnostik|Välj **Inaktiverad**.|
-    |||
-
-6. Under **Skapa** i **sammanfattningen** väljer du **Skapa** för att starta VM-distributionen.
-8. Det tar några minuter att skapa den virtuella datorn. Fortsätt inte med de övriga stegen förrän den virtuella datorn har skapats.
+3. Välj den **Management** fliken eller välj **nästa: Diskar** och sedan **Nästa: Nätverk**, sedan **nästa: Hantering av**. Under **Övervakning** anger du **Startdiagnostik** till **Av**.
+4. Välj **Granska + skapa**.
+5. Granska inställningarna och klicka sedan på **skapa**.  
+6. Följ stegen för att skapa en andra virtuell dator med namnet *myVMWestEurope*, med en **resursgrupp** namn på *myResourceGroupTM2*, ett **plats** av *Västeuropa*, och de andra inställningarna identiskt *myVMEastUS*.
+7. Det tar några minuter att skapa de virtuella datorerna. Fortsätt inte med återstående steg förrän båda virtuella datorerna har skapats.
 
 ## <a name="create-a-traffic-manager-profile"></a>Skapa en Traffic Manager-profil
+
 Skapa en Traffic Manager-profil baserat på routningsmetoden **Viktat**.
 
 1. Längst upp till vänster på skärmen väljer du **Skapa en resurs** > **Nätverk** > **Traffic Manager-profil** > **Skapa**.
@@ -188,22 +167,26 @@ Lägg till de två virtuella datorer som kör IIS-servrarna myIISVMEastUS och my
 5. När båda slutpunkterna har lagts till visas de i Traffic Manager-profilen tillsammans med sin övervakningsstatus, som är **Online**.
 
 ## <a name="test-the-traffic-manager-profile"></a>Testa Traffic Manager-profilen
+
 Om du vill se hur Traffic Manager fungerar i praktiken gör du följande:
+
 1. Fastställ DNS-namnet för din Traffic Manager-profil.
 2. Visa Traffic Manager i aktion.
 
 ### <a name="determine-dns-name-of-traffic-manager-profile"></a>Fastställ DNS-namnet på Traffic Manager-profilen
+
 I den här självstudien använder du för enkelhetens skull DNS-namnet för Traffic Manager-profilen för att besöka webbplatserna.
 
 Så här kan du fastställa DNS-namnet i Traffic Manager-profilen:
 
 1. I portalens sökfält söker du efter det Traffic Manager-profilnamn som du skapade i föregående avsnitt. I det resultat som visas väljer du Traffic Manager-profilen.
-1. Välj **Översikt**.
-2. Traffic Manager-profilen visar DNS-namnet. I Produktionsdistributioner konfigurerar du ett anpassat domännamn så att den pekar till Traffic Manager-domännamnet, med hjälp av en DNS CNAME-post.
+2. Välj **Översikt**.
+3. Traffic Manager-profilen visar DNS-namnet. I Produktionsdistributioner konfigurerar du ett anpassat domännamn så att den pekar till Traffic Manager-domännamnet, med hjälp av en DNS CNAME-post.
 
    ![DNS-namn för Traffic Manager](./media/tutorial-traffic-manager-improve-website-response/traffic-manager-dns-name.png)
 
 ### <a name="view-traffic-manager-in-action"></a>Se hur Traffic Manager fungerar i praktiken
+
 I det här avsnittet får du se Traffic Manager i arbete.
 
 1. Välj **Alla resurser** på menyn till vänster. I resurslistan väljer du **myVMEastUS** i resursgruppen **myResourceGroupTM1**.
@@ -215,7 +198,10 @@ I det här avsnittet får du se Traffic Manager i arbete.
 
    ![Testa Traffic Manager-profil](./media/tutorial-traffic-manager-improve-website-response/eastus-traffic-manager-test.png)
 
+7. Upprepa steg 1 – 6 på VM-myVMWestEurope att se svaret viktad webbplats.
+
 ## <a name="delete-the-traffic-manager-profile"></a>Ta bort Traffic Manager-profilen
+
 När du inte längre behöver de resursgrupper som skapades i den här självstudien kan du ta bort dem. Om du vill göra det markerar du resursgruppen (**ResourceGroupTM1** eller **ResourceGroupTM2**) och väljer sedan **Ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg

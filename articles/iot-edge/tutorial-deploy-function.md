@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 2694d0f22acfb34c07220ad0145b933457961931
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5b7d903c8be74e4c0561bb4a857619c9c62f95a9
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64575923"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239644"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>Självstudie: Distribuera Azure Functions som IoT Edge-moduler
 
@@ -71,7 +71,7 @@ Skapa en C# funktionsmallen för lösningen som du kan anpassa med din egen kod.
    | ----- | ----- |
    | Välj mapp | Välj den plats på utvecklingsdatorn där Visual Studio Code ska skapa lösningsfilerna. |
    | Ange ett namn på lösningen | Ange ett beskrivande namn för lösningen, till exempel **FunctionSolution**, eller acceptera standardnamnet. |
-   | Välj modulmall | Välj **Azure Functions - C#**. |
+   | Välj modulmall | Välj **Azure Functions - C#** . |
    | Ange ett modulnamn | Ge modulen namnet **CSharpFunction**. |
    | Ange Docker-bildlagringsplats för modulen | En bildlagringsplats innehåller namnet på containerregistret och namnet på containeravbildningen. Containeravbildningen har fyllts i från föregående steg. Ersätt **localhost:5000** med värdet för inloggningsservern från ditt Azure-containerregister. Du kan hämta inloggningsservern från sidan Översikt för ditt containerregister på Azure-portalen. Den slutlgiltiga strängen ser ut så här: \<registernamn\>.azurecr.io/CSharpFunction. |
 
@@ -222,12 +222,11 @@ Du kan använda Azure Portal till att distribuera din funktionsmodul till en IoT
 
 ## <a name="view-generated-data"></a>Visa genererade data
 
-Du kan se alla meddelanden som kommer till din IoT-hubb genom att köra **Azure IoT Hub: Börja övervaka D2C-meddelande** i kommandopaletten.
+Du kan se alla meddelanden som kommer till din IoT-hubb genom att köra **Azure IoT Hub: Starta övervakning inbyggda händelse slutpunkten** i kommandopaletten.
 
-Du kan också filtrera vyn för att visa alla meddelanden som kommer till IoT-hubben från en viss enhet. Högerklicka på enheten i avsnittet för **Azure IoT Hub-enheter** och välj **Start Monitoring D2C Messages** (Starta övervakning av D2C-meddelande).
+Du kan också filtrera vyn för att visa alla meddelanden som kommer till IoT-hubben från en viss enhet. Högerklicka på enheten i den **Azure IoT Hub-enheter** och väljer **starta inbyggda händelse slutpunkt för övervakning av**.
 
-Om du vill stoppa övervakningen av meddelanden kör du kommandot **Azure IoT Hub: Sluta övervaka D2C-meddelande** i kommandopaletten. 
-
+Om du vill stoppa övervakningen av meddelanden kör du kommandot **Azure IoT Hub: Stoppa övervakning inbyggd händelse slutpunkt** i kommandopaletten. 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -245,4 +244,3 @@ Fortsätt med någon av följande självstudier om du vill lära dig mer om hur 
 
 > [!div class="nextstepaction"]
 > [Hitta medelvärden med hjälp av ett flytande fönster i Azure Stream Analytics](tutorial-deploy-stream-analytics.md)
-

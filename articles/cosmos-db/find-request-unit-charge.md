@@ -4,20 +4,20 @@ description: Lär dig att hitta begäransenhet (RU) kostnad för alla åtgärder
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 04/15/2019
+ms.date: 05/23/2019
 ms.author: thweiss
-ms.openlocfilehash: 730f0604d0c292764aaee6e0ffb8ef95d90be5f2
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 8ccb7ae9869ec01b4f26009535af613ccb1d35d0
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65410295"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241109"
 ---
 # <a name="find-the-request-unit-charge-in-azure-cosmos-db"></a>Hitta kostnad för begäran-enhet i Azure Cosmos DB
 
 Den här artikeln beskriver vi hur du hittar den [begäransenhet](request-units.md) (RU) förbrukningen för alla åtgärder som körs mot en behållare i Azure Cosmos DB. Du kan för närvarande kan mäta denna förbrukning endast med hjälp av Azure portal eller genom att granska svaret skickas tillbaka från Azure Cosmos DB via en av SDK: erna.
 
-## <a name="sql-core-api"></a>SQL (kärna) API
+## <a name="sql-core-api"></a>SQL (Core) API
 
 Om du använder SQL-API: T har du flera alternativ för att hitta RU-förbrukningen för en åtgärd mot en Azure Cosmos-behållare.
 

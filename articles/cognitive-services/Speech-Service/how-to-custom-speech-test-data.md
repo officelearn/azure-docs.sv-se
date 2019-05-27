@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: af801600eebed7c0d4ff01dd1edf01fa595840eb
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: de2f1009c574d9768330d4e6a38a219ba1f81daa
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785777"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237960"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Förbereda data för anpassat tal
 
@@ -52,7 +52,7 @@ Ljuddata är optimalt för att testa det arbete du utfört Microsofts baslinje t
 
 Använd den här tabellen för att säkerställa att dina ljudfiler formateras på rätt sätt för användning med anpassat tal:
 
-| Egenskap  | Value |
+| Egenskap  | Värde |
 |----------|-------|
 | Filformat | RIFF (WAV) |
 | Samplingshastighet | 8 000 eller 16 000 Hz |
@@ -66,14 +66,14 @@ Om din ljud inte uppfyller de här egenskaperna eller om du vill kontrollera om 
 
 | Aktivitet | Beskrivning | SOx kommando |
 |----------|-------------|-------------|
-| Kontrollera ljudformatet | Du kan använda det här kommandot för att kontrollera formatet ljud. | `soxi <filename>.wav` |
-| Konvertera ljudformatet | Använd kommandot för att konvertera filen till en kanal, 16-bitars 48 KHz. | `sox <filename>.wav -b 16 -3 signed-integer -c l -r 48k -t wav <filename>.wav` |
+| Kontrollera ljudformatet | Du kan använda det här kommandot för att kontrollera formatet ljud. | `sox --i <filename>` |
+| Konvertera ljudformatet | Använd kommandot för att konvertera filen till en kanal, 16-bitars, 16 KHz. | `sox <input> -b 16 -e signed-integer -c 1 -r 16k -t wav <output>.wav` |
 
 ## <a name="audio--human-labeled-transcript-data-for-testingtraining"></a>Ljud + mänskliga etikett avskrift data för testning/utbildning
 
 För att mäta korrektheten i Microsofts tal till text precision vid bearbetning av din ljudfiler, måste du ange mänskliga etikett avskrifter (ord för ord) för jämförelse. Human etikett avskrift är ofta tidskrävande, är det nödvändigt att utvärdera Precision och för att träna modellen för ditt användningsfall. Tänk på, förbättringarna i Taligenkänning kommer bara att lika bra som tillhandahålls. Därför är det viktigt att endast högkvalitativa avskrifter överförs.  
 
-| Egenskap  | Value |
+| Egenskap  | Värde |
 |----------|-------|
 | Filformat | RIFF (WAV) |
 | Samplingshastighet | 8 000 eller 16 000 Hz |
@@ -117,7 +117,7 @@ Om du vill skapa en anpassad modell med relaterade text, måste du ange en lista
 
 Använd den här tabellen för att se till att datafilen relaterade för yttranden har formaterats korrekt:
 
-| Egenskap  | Value |
+| Egenskap  | Värde |
 |----------|-------|
 | Textkodning | UTF-8 BOM |
 | antal yttrande per rad | 1 |
@@ -155,7 +155,7 @@ Anpassade uttal är tillgänglig på engelska (en-US) och tyska (de-DE). Den hä
 
 Använd den här tabellen för att säkerställa att din relaterade datafil för uttal har formaterats korrekt. Uttal av filer är små och får inte överstiga några KB-artiklar.
 
-| Egenskap  | Value |
+| Egenskap  | Värde |
 |----------|-------|
 | Textkodning | UTF-8 BOM (ANSI stöds också för engelska) |
 | Antal uttal per rad | 1 |

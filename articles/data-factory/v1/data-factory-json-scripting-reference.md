@@ -49,7 +49,7 @@ Följande tabell beskrivs egenskaperna i pipeline-JSON-definition:
 
 | Egenskap  | Beskrivning | Krävs
 -------- | ----------- | --------
-| name | Namnet på pipeline. Ange ett namn som representerar åtgärden aktivitet eller pipeline har konfigurerats för att göra<br/><ul><li>Maximalt antal tecken: 260</li><li>Måste börja med en bokstav siffra eller ett understreck (\_)</li><li>Följande tecken är inte tillåtna ”:”., ”+” ”,”?, ”/”, ”<” ”, >” ”, *”, ”%”, ”&” ”,:” ”,\\”</li></ul> |Ja |
+| namn | Namnet på pipeline. Ange ett namn som representerar åtgärden aktivitet eller pipeline har konfigurerats för att göra<br/><ul><li>Maximalt antal tecken: 260</li><li>Måste börja med en bokstav siffra eller ett understreck (\_)</li><li>Följande tecken är inte tillåtna ”:”., ”+” ”,”?, ”/”, ”<” ”, >” ”, *”, ”%”, ”&” ”,:” ”,\\”</li></ul> |Ja |
 | description |Text som beskriver vad aktiviteten eller pipeline används till | Nej |
 | activities | Innehåller en lista över aktiviteter. | Ja |
 | start |Starta datum / tid för pipelinen. Måste vara i [ISO-format](https://en.wikipedia.org/wiki/ISO_8601). Exempel: 2014-10-14T16:32:41. <br/><br/>Det är möjligt att ange en lokal tid, till exempel en EST tid. Här är ett exempel: `2016-02-27T06:00:00**-05:00`, vilket är 6 AM EST.<br/><br/>Egenskaper för start- och ange tillsammans aktiva perioden för pipelinen. Utdatasegment produceras bara med i den här aktiva period. |Nej<br/><br/>Om du anger ett värde för end-egenskapen, måste du ange värdet för egenskapen start.<br/><br/>Start- och sluttider kan vara tom för att skapa en pipeline. Du måste ange båda värdena för att ställa in en aktiva perioden för pipelinen att köra. Om du inte anger start- och sluttider när du skapar en pipeline kan du ange dem med hjälp av cmdleten Set-AzDataFactoryPipelineActivePeriod senare. |
@@ -87,7 +87,7 @@ Följande tabell beskrivs egenskaperna i aktiviteten JSON-definition:
 
 | Tagg | Beskrivning | Krävs |
 | --- | --- | --- |
-| name |Namnet på aktiviteten. Ange ett namn som representerar åtgärden som aktiviteten har konfigurerats för att göra<br/><ul><li>Maximalt antal tecken: 260</li><li>Måste börja med en bokstav siffra eller ett understreck (\_)</li><li>Följande tecken är inte tillåtna ”:”., ”+” ”,”?, ”/”, ”<” ”, >” ”, *”, ”%”, ”&” ”,:” ”,\\”</li></ul> |Ja |
+| namn |Namnet på aktiviteten. Ange ett namn som representerar åtgärden som aktiviteten har konfigurerats för att göra<br/><ul><li>Maximalt antal tecken: 260</li><li>Måste börja med en bokstav siffra eller ett understreck (\_)</li><li>Följande tecken är inte tillåtna ”:”., ”+” ”,”?, ”/”, ”<” ”, >” ”, *”, ”%”, ”&” ”,:” ”,\\”</li></ul> |Ja |
 | description |Text som beskriver vad aktiviteten används till. |Nej |
 | type |Anger vilken typ av aktiviteten. Se den [DATALAGER](#data-stores) och [DATATRANSFORMERINGSAKTIVITETER](#data-transformation-activities) avsnitten om olika typer av aktiviteter. |Ja |
 | inputs |Inkommande tabeller som används av aktiviteten<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |Nej för HDInsightStreaming och SqlServerStoredProcedure aktiviteter <br/> <br/> Ja för alla andra |
@@ -287,19 +287,19 @@ I följande tabell beskrivs egenskaperna i ovanstående JSON:
 | Egenskap  | Beskrivning | Krävs | Standard |
 | --- | --- | --- | --- |
 | namn | Namnet på datauppsättningen. Se [Azure Data Factory – namnregler](data-factory-naming-rules.md) för regler för namngivning. |Ja |Saknas |
-| typ | Typ av datauppsättningen. Ange en av de typer som stöds av Azure Data Factory (till exempel: AzureBlob, AzureSqlTable). Se [DATALAGER](#data-stores) för alla datalager och datauppsättningstyper som stöds av Data Factory. |
+| type | Typ av datauppsättningen. Ange en av de typer som stöds av Azure Data Factory (till exempel: AzureBlob, AzureSqlTable). Se [DATALAGER](#data-stores) för alla datalager och datauppsättningstyper som stöds av Data Factory. |
 | struktur | Schemat för datauppsättningen. Den innehåller kolumner, deras typer och så vidare. | Nej |Saknas |
 | typeProperties | Egenskaper för den valda typen. Se [DATALAGER](#data-stores) för typer som stöds och deras egenskaper. |Ja |Saknas |
 | extern | Boolesk flagga för att ange om en datauppsättning uttryckligen produceras av data factory-pipeline eller inte. |Nej |false |
 | availability | Definierar fönstret bearbetning eller slicing modellen för produktion för datauppsättningen. Mer information om datauppsättningen uppdelning modellen finns [schemaläggning och körning](data-factory-scheduling-and-execution.md) artikeln. |Ja |Saknas |
-| princip |Definierar kriterierna eller villkor som datauppsättning segment måste vara uppfyllda. <br/><br/>Mer information finns i datauppsättningen princip avsnittet. |Nej |Saknas |
+| policy |Definierar kriterierna eller villkor som datauppsättning segment måste vara uppfyllda. <br/><br/>Mer information finns i datauppsättningen princip avsnittet. |Nej |Saknas |
 
 Varje kolumn i den **struktur** avsnittet innehåller följande egenskaper:
 
 | Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
 | namn |Namnet på kolumnen. |Ja |
-| typ |Datatypen för kolumnen.  |Nej |
+| type |Datatypen för kolumnen.  |Nej |
 | culture |.NET-baserade språkmiljö som ska användas när typ har angetts och .NET-typ `Datetime` eller `Datetimeoffset`. Standardvärdet är `en-us`. |Nej |
 | format |Formatera strängen som ska användas när typ har angetts och .NET-typ `Datetime` eller `Datetimeoffset`. |Nej |
 
@@ -2454,7 +2454,7 @@ Följande tabell innehåller en beskrivning för JSON-element som är specifika 
 
 | Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
-| typ |Type-egenskapen ska anges till: **OnPremisesSqlServer**. |Ja |
+| type |Type-egenskapen ska anges till: **OnPremisesSqlServer**. |Ja |
 | connectionString |Ange connectionString information som behövs för att ansluta till en lokal SQL Server-databasen med hjälp av SQL-autentisering eller Windows-autentisering. |Ja |
 | gatewayName |Namnet på den gateway som Data Factory-tjänsten ska använda för att ansluta till en lokal SQL Server-databasen. |Ja |
 | username |Ange användarnamnet om du använder Windows-autentisering. Exempel: **domainname\\användarnamn**. |Nej |
@@ -3317,7 +3317,7 @@ Du kan länka ett lokalt filsystem till en Azure-datafabrik med den **lokala fil
 
 | Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
-| typ |Kontrollera att type-egenskapen är inställd på **OnPremisesFileServer**. |Ja |
+| type |Kontrollera att type-egenskapen är inställd på **OnPremisesFileServer**. |Ja |
 | host |Anger rotsökvägen i den mapp som du vill kopiera. Använd escape-tecknet ”\” för specialtecken i strängen. Se exemplet länkade tjänsten och datauppsättningen definitioner för exempel. |Ja |
 | userid |Ange ID för den användare som har åtkomst till servern. |Nej (om du väljer encryptedCredential) |
 | password |Ange lösenordet för användaren (användar-ID). |Nej (om du väljer encryptedCredential |
@@ -4745,7 +4745,7 @@ För att definiera en Web-datauppsättning, ange den **typ** på datauppsättnin
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ |Typ av datauppsättningen. måste vara inställt på **WebTable** |Ja |
+| type |Typ av datauppsättningen. måste vara inställt på **WebTable** |Ja |
 | path |En relativ URL till den resurs som innehåller tabellen. |Nej. Om sökvägen inte anges används bara den URL som anges i länkade tjänstedefinition. |
 | index |Index för tabellen i resursen. Se Get index för en tabell i en HTML-sidavsnitt anvisningar för hur du hämtar index för en tabell i en HTML-sida. |Ja |
 
@@ -4838,7 +4838,7 @@ Följande tabell innehåller beskrivningar av de egenskaper som används i Azure
 
 | Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
-| typ |Type-egenskapen ska anges till **HDInsightOnDemand**. |Ja |
+| type |Type-egenskapen ska anges till **HDInsightOnDemand**. |Ja |
 | clusterSize |Antal worker/data noder i klustret. HDInsight-klustret har skapats med 2 huvudnoder tillsammans med antalet arbetsnoder som du anger för den här egenskapen. Noderna är storlek Standard_D3 med 4 kärnor, så att ett kluster med noder 4 worker tar 24 kärnor (4\*4 = 16 kärnor för arbetsnoder plus 2\*4 = 8 kärnor för huvudnoder). Se [skapa Linux-baserade Hadoop-kluster i HDInsight](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) mer information om Standard_D3-nivå. |Ja |
 | timetolive |Tillåtna inaktivitetstiden för HDInsight-kluster på begäran. Anger hur länge HDInsight-kluster på begäran förblir aktiv efter det att en aktivitet som körs om det finns inga aktiva jobb i klustret.<br/><br/>Till exempel om en aktivitet kör tar 6 minuter och timetolive är inställd på 5 minuter, kvar klustret alive under 5 minuter efter 6 minuter bearbeta aktiviteten körs. Om en annan aktivitet som kör körs med fönstret 6 minuter, bearbetas den av samma kluster.<br/><br/>Det är en kostsam åtgärd (kan ta en stund), så Använd den här inställningen som krävs för att förbättra prestanda för en data factory genom att återanvända ett HDInsight-kluster på begäran att skapa ett HDInsight-kluster på begäran.<br/><br/>Om du ställer in timetolive-värdet till 0 tas klustret bort när aktiviteten körs bearbetade. Å andra sidan, om du anger ett högt värde för kan klustret Håll inaktiv onödigt lett till höga kostnader. Det är därför viktigt att du ställer in lämpligt värde utifrån dina behov.<br/><br/>Flera pipelines kan dela samma instans av HDInsight-kluster på begäran om timetolive egenskapens värde har angetts på rätt sätt |Ja |
 | version |Versionen av HDInsight-klustret. Mer information finns i [HDInsight-versioner som stöds i Azure Data Factory](data-factory-compute-linked-services.md#supported-hdinsight-versions-in-azure-data-factory). |Nej |
@@ -4876,7 +4876,7 @@ Följande tabell innehåller beskrivningar av de egenskaper som används i Azure
 
 | Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
-| typ |Type-egenskapen ska anges till **HDInsight**. |Ja |
+| type |Type-egenskapen ska anges till **HDInsight**. |Ja |
 | clusterUri |URI för HDInsight-klustret. |Ja |
 | username |Ange namnet på användaren som ska användas för att ansluta till ett befintligt HDInsight-kluster. |Ja |
 | password |Ange lösenordet för användarkontot. |Ja |
@@ -4909,7 +4909,7 @@ Följande tabell innehåller beskrivningar av de egenskaper som används i Azure
 
 | Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
-| typ |Type-egenskapen ska anges till **AzureBatch**. |Ja |
+| type |Type-egenskapen ska anges till **AzureBatch**. |Ja |
 | accountName |Namnet på Azure Batch-kontot. |Ja |
 | accessKey |Åtkomstnyckel för Azure Batch-kontot. |Ja |
 | Poolnamn |Namnet på poolen med virtuella datorer. |Ja |
@@ -5060,7 +5060,7 @@ Följande tabell innehåller en beskrivning för JSON-element som är specifika 
 
 | Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
-| typ |Type-egenskapen ska anges till: **OnPremisesSqlServer**. |Ja |
+| type |Type-egenskapen ska anges till: **OnPremisesSqlServer**. |Ja |
 | connectionString |Ange connectionString information som behövs för att ansluta till en lokal SQL Server-databasen med hjälp av SQL-autentisering eller Windows-autentisering. |Ja |
 | gatewayName |Namnet på den gateway som Data Factory-tjänsten ska använda för att ansluta till en lokal SQL Server-databasen. |Ja |
 | username |Ange användarnamnet om du använder Windows-autentisering. Exempel: **domainname\\användarnamn**. |Nej |

@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/08/2019
-ms.openlocfilehash: b73249a9f72e4616f6d36e16f110913278f04590
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.date: 05/24/2019
+ms.openlocfilehash: 0b3af3d29e6e938f0301d751a79170c7c1964b45
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415607"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243804"
 ---
 # <a name="tutorial-migrate-oracle-to-azure-database-for-postgresql-online-using-dms-preview"></a>Självstudier: Migrera Oracle till Azure Database för PostgreSQL med hjälp av DMS (förhandsversion)
 
@@ -24,6 +24,7 @@ Du kan använda Azure Database Migration Service för att migrera databaser frå
 
 I den här guiden får du lära dig att:
 > [!div class="checklist"]
+>
 > * Utvärdera det enklare för migrering med hjälp av verktyget ora2pg.
 > * Migrera med hjälp av verktyget ora2pg exempel schemat.
 > * Skapa en instans av Azure Database Migration Service.
@@ -411,5 +412,5 @@ När den fullständiga inläsningen är klar är databaserna märkta med **Klar 
 ## <a name="next-steps"></a>Nästa steg
 
 * Information om kända problem och begränsningar när du utför onlinemigreringar till Azure Database for PostgreSQL finns i artikeln [Kända problem och lösningar för Azure Database for PostgreSQL-onlinemigreringar](known-issues-azure-postgresql-online.md).
-* Mer information om Azure Database Migration Service finns i artikeln [What is the Azure Database Migration Service?](https://docs.microsoft.com/azure/dms/dms-overview) (Vad är Azure Database Migration Service?).
+* Information om Azure Database Migration Service finns i artikeln [vad är Azure Database Migration Service?](https://docs.microsoft.com/azure/dms/dms-overview).
 * Information om Azure Database för PostgreSQL, finns i artikeln [vad är Azure Database för PostgreSQL?](https://docs.microsoft.com/azure/postgresql/overview).

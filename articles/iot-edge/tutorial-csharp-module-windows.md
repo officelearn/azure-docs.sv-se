@@ -9,12 +9,12 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 046398af8678e708784614dfdc231778454ed945
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: ca321b8a073f709b55093fde6ff32ae876f3ef12
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64576602"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66238073"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Självstudier: Utveckla en C# IoT Edge-modul för Windows-enheter
 
@@ -38,7 +38,7 @@ Den här kursen visar hur du utvecklar en modul i **C#** med **Visual Studio 201
 
 Använd följande tabell för att förstå dina alternativ för utveckling och distribution C-moduler till Windows-enheter: 
 
-| C# | Visual Studio-koden | Visual Studio 2017 | 
+| C# | Visual Studio-kod | Visual Studio 2017 | 
 | -- | ------------------ | ------------------ |
 | **Utveckla Windows AMD64** | ![Utveckla C# moduler för WinAMD64 i VS Code](./media/tutorial-c-module/green-check.png) | ![Utveckla C# moduler för WinAMD64 i Visual Studio](./media/tutorial-c-module/green-check.png) |
 | **Windows AMD64-felsökning** |   | ![Felsöka C# moduler för WinAMD64 i Visual Studio](./media/tutorial-c-module/green-check.png) |
@@ -322,7 +322,7 @@ Du kan använda tillägget IoT Edge-verktyg för att visa meddelanden när de an
 
 1. I Visual Studio cloud explorer, väljer du namnet på din IoT Edge-enhet. 
 
-2. I den **åtgärder** väljer **börja övervaka D2C-meddelande**. 
+2. I den **åtgärder** väljer **starta inbyggda händelse slutpunkt för övervakning av**. 
 
 3. Visa meddelanden som inkommer på din IoT-hubb. Det kan ta en stund innan meddelanden tas emot, eftersom vi ändringar i koden CSharpModule vänta tills datorn temperaturen når 25 grader innan du skickar meddelanden. Det ger också meddelandetypen **avisering** att alla meddelanden som når gränsen temperatur. 
 

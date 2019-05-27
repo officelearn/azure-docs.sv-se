@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/22/2019
+ms.date: 05/23/2019
 ms.author: diberry
-ms.openlocfilehash: 59308cdadb1eda9e73b373e72112b83d93629683
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: b379ebeeec7d9309cdf150b8b90ddd006e3bcd9a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66124293"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240216"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installera och köra LUIS docker-behållare
  
@@ -32,11 +32,11 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 För att kunna köra LUIS-behållare, måste du ha följande: 
 
-|Obligatoriskt|Syfte|
+|Krävs|Syfte|
 |--|--|
 |Docker-motorn| Du behöver Docker-motorn installerad på en [värddatorn](#the-host-computer). Docker innehåller paket som konfigurerar Docker-miljön på [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), och [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Få en genomgång om grunderna för Docker och behållare finns i den [översikt över Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker måste konfigureras för att tillåta behållarna för att ansluta till och skicka faktureringsdata till Azure. <br><br> **På Windows**, Docker måste också konfigureras för att stödja Linux-behållare.<br><br>|
 |Liknar processen med Docker | Du bör ha grundläggande kunskaper om Docker-begrepp som register, databaser, behållare, och behållaravbildningar samt kunskaper om grundläggande `docker` kommandon.| 
-|Azure `Cognitive Services` resurs och LUIS [paketerad app](luis-how-to-start-new-app.md#export-app-for-containers) fil |För att kunna använda behållaren måste du ha:<br><br>* A _Cognitive Services_ Azure-resurs och associerade faktureringen nyckel fakturering slutpunkten URI. Båda värdena är tillgängliga på sidorna Översikt och nycklar för resursen och krävs för att starta behållaren. Du måste lägga till den `luis/v2.0` routning till slutpunkten URI som du ser i exemplet nedan BILLING_ENDPOINT_URI. <br>* En tränad eller publicerade app paketerad som en monterad indata till behållaren med dess tillhörande App-ID. Du kan hämta den paketerade filen från LUIS-portalen eller API: erna redigering. Om du får LUIS paketerad app från den [redigera API: er](#authoring-apis-for-package-file), måste du också din _redigering nyckeln_.<br><br>Dessa krav används för att överföra kommandoradsargument till följande variabler:<br><br>**{AUTHORING_KEY}**: Den här nyckeln används för att hämta den paketerade appen från LUIS-tjänsten i molnet och ladda upp loggarna fråga tillbaka till molnet. Formatet är `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.<br><br>**{APPLICATION_ID}**: Detta ID används för att välja appen. Formatet är `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.<br><br>**{ENDPOINT_KEY}** : Den här nyckeln används för att starta behållaren. Du hittar slutpunktsnyckeln på två platser. Först är Azure-portalen inom den _Cognitive Services_ resursens nycklar lista. Slutpunktsnyckeln är också tillgängligt i LUIS-portalen med nycklar och slutpunkten inställningssidan. Använd inte den starter-nyckeln.<br><br>**{BILLING_ENDPOINT}** : Ett exempel är: `https://westus.api.cognitive.microsoft.com/luis/v2.0`.<br><br>Den [redigering nyckel och slutpunktsnyckeln](luis-boundaries.md#key-limits) har olika syften. Använd dem inte synonymt. |
+|Azure `Cognitive Services` resurs och LUIS [paketerad app](luis-how-to-start-new-app.md#export-app-for-containers) fil |För att kunna använda behållaren måste du ha:<br><br>* A _Cognitive Services_ Azure-resurs och associerade faktureringen nyckel fakturering slutpunkten URI. Båda värdena är tillgängliga på sidorna Översikt och nycklar för resursen och krävs för att starta behållaren. Du måste lägga till den `luis/v2.0` routning till slutpunkten URI som du ser i exemplet nedan BILLING_ENDPOINT_URI. <br>* En tränad eller publicerade app paketerad som en monterad indata till behållaren med dess tillhörande App-ID. Du kan hämta den paketerade filen från LUIS-portalen eller API: erna redigering. Om du får LUIS paketerad app från den [redigera API: er](#authoring-apis-for-package-file), måste du också din _redigering nyckeln_.<br><br>Dessa krav används för att överföra kommandoradsargument till följande variabler:<br><br>**{AUTHORING_KEY}** : Den här nyckeln används för att hämta den paketerade appen från LUIS-tjänsten i molnet och ladda upp loggarna fråga tillbaka till molnet. Formatet är `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.<br><br>**{APPLICATION_ID}** : Detta ID används för att välja appen. Formatet är `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.<br><br>**{ENDPOINT_KEY}** : Den här nyckeln används för att starta behållaren. Du hittar slutpunktsnyckeln på två platser. Först är Azure-portalen inom den _Cognitive Services_ resursens nycklar lista. Slutpunktsnyckeln är också tillgängligt i LUIS-portalen med nycklar och slutpunkten inställningssidan. Använd inte den starter-nyckeln.<br><br>**{BILLING_ENDPOINT}** : Ett exempel är: `https://westus.api.cognitive.microsoft.com/luis/v2.0`.<br><br>Den [redigering nyckel och slutpunktsnyckeln](luis-boundaries.md#key-limits) har olika syften. Använd dem inte synonymt. |
 
 ### <a name="authoring-apis-for-package-file"></a>Redigera API: er för paketfil
 
@@ -136,7 +136,7 @@ Den publicerade appen paketet är tillgängligt från den **Mina appar** sidan.
 1. Logga in på LUIS [portal](https://www.luis.ai).
 1. Markera kryssrutan till vänster om appnamnet i listan. 
 1. Välj den **exportera** objekt från sammanhangsberoende verktygsfältet ovanför listan.
-1. Välj **exportera för behållare (GZIP)**.
+1. Välj **exportera för behållare (GZIP)** .
 1. Välj miljö **produktionsplatsen** eller **mellanlagringsplats**.
 1. Paketet har hämtats från webbläsaren.
 
@@ -152,7 +152,7 @@ Tränade app-paket är tillgängliga från den **versioner** sidan.
 1. Välj **versioner** i det vänstra navigeringsfältet.
 1. Markera kryssrutan till vänster om versionsnamnet i listan.
 1. Välj den **exportera** objekt från sammanhangsberoende verktygsfältet ovanför listan.
-1. Välj **exportera för behållare (GZIP)**.
+1. Välj **exportera för behållare (GZIP)** .
 1. Paketet har hämtats från webbläsaren.
 
 ![Exportera tränade paketet för behållaren sidan versioner Export-menyn](./media/luis-container-how-to/export-trained-package-for-container.png)
@@ -223,20 +223,24 @@ Använd den [docker kör](https://docs.docker.com/engine/reference/commandline/r
 |{ENDPOINT_KEY} | Den här nyckeln används för att starta behållaren. Använd inte den starter-nyckeln. |
 |{BILLING_ENDPOINT} | Fakturering slutpunktsvärdet är tillgänglig på Azure portal `Cognitive Services` översiktssidan. Du måste lägga till den `luis/v2.0` routning till slutpunkten URI som visas i följande exempel: `https://westus.api.cognitive.microsoft.com/luis/v2.0`.|
 
-Ersätt parametrarna med dina egna värden i följande exempel `docker run` kommando.
+Ersätt parametrarna med dina egna värden i följande exempel `docker run` kommando. Kör kommando i Windows-konsolen.
 
-```bash
-docker run --rm -it -p 5000:5000 --memory 4g --cpus 2 \
---mount type=bind,src=c:\input,target=/input \
---mount type=bind,src=c:\output,target=/output \
-mcr.microsoft.com/azure-cognitive-services/luis \
-Eula=accept \
-Billing={BILLING_ENDPOINT} \
+```console
+docker run --rm -it -p 5000:5000 ^
+--memory 4g ^
+--cpus 2 ^
+--mount type=bind,src=c:\input,target=/input ^
+--mount type=bind,src=c:\output\,target=/output ^
+mcr.microsoft.com/azure-cognitive-services/luis ^
+Eula=accept ^
+Billing={BILLING_ENDPOINT} ^
 ApiKey={ENDPOINT_KEY}
 ```
 
-> [!Note] 
-> Föregående kommando använder katalogen av den `c:` enhet för att undvika eventuella behörighetskonflikter på Windows. Om du vill använda en viss katalog som den inkommande katalogen kan du behöva ge docker tjänsten behörighet. Kommandot ovan docker använder det omvända snedstrecket `\`, som en fortsättning tecknet. Ersätta eller ta bort detta baserat på din [värddatorn](#the-host-computer) operativsystemets krav. Ändra inte argumentens ordning om du inte är bekant med docker-behållare.
+* Det här exemplet används katalogen av den `c:` enhet för att undvika eventuella behörighetskonflikter på Windows. Om du vill använda en viss katalog som den inkommande katalogen kan du behöva ge docker tjänsten behörighet. 
+* Ändra inte argumentens ordning om du inte är bekant med docker-behållare.
+* Om du använder ett annat operativsystem, Använd rätt konsolen/terminal, mappen syntax för monterar och tecknet för fortsättning för ditt system. De här exemplen antar vi att en Windows-konsolen med en fortsättning tecknet `^`. Eftersom behållaren är en Linux-operativsystem, använder target montera en Linux-style mappen syntax.
+
 
 
 Det här kommandot:
@@ -273,7 +277,7 @@ Använd värden `https://localhost:5000`, för behållaren API: er.
 
 Frågeparametrarna konfigurera hur och vad returneras i svaret på frågan:
 
-|Frågeparameter|Type|Syfte|
+|Frågeparameter|Typ|Syfte|
 |--|--|--|
 |`q`|string|Användarens uttryck.|
 |`timezoneOffset`|nummer|TimezoneOffset kan du [ändra tidszonen](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) används av färdiga entitet datetimeV2.|

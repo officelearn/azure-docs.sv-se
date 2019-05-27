@@ -1,5 +1,5 @@
 ---
-title: 'Vad är API: T för Avvikelseidentifiering detektor? | Microsoft Docs'
+title: Vad är API:et för avvikelseidentifiering? | Microsoft Docs
 titleSuffix: Azure Cognitive Services
 description: Använd avancerade algoritmer för Avvikelseidentifiering detektor API för att identifiera avvikelser i tidsseriedata.
 services: cognitive-services
@@ -10,13 +10,13 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: aahi
 ms.openlocfilehash: 48dffb8853d3def590e434c1683ecf038e2a194e
-ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58473278"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "64415802"
 ---
-# <a name="what-is-the-anomaly-detector-api"></a>Vad är API: T för Avvikelseidentifiering detektor?
+# <a name="what-is-the-anomaly-detector-api"></a>Vad är API:et för avvikelseidentifiering?
 
 Avvikelseidentifiering detektor API kan du övervaka och identifiera avvikelser i tidsseriedata med machine learning. API: T för Avvikelseidentifiering detektor anpassas genom att automatiskt identifiera och tillämpa bäst passningsåtgärderna modeller till dina data, oavsett bransch, scenario eller datavolym. Med time series-data kan API: et anger gränser för identifiering av avvikelser, förväntade värden och vilka datapunkter är avvikelser.
 

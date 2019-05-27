@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 631338c0217eb61f4f98cd06ffa16cb2500f246b
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 1f2e9bc93b8bea70a58f2e6a544e2088505935a9
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66146736"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239748"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>Självstudier: Utveckla IoT Edge-moduler för Windows-enheter
 
@@ -298,7 +298,7 @@ IotEdgeModule1 koden tar emot meddelanden via dess inkommande kö och skickar de
 
 1. I Visual Studio cloud explorer, väljer du namnet på IoT Edge-enhet som du distribuerat till. 
 
-2. I den **åtgärder** menyn och välj **börja övervaka D2C-meddelande**.
+2. I den **åtgärder** menyn och välj **starta inbyggda händelse slutpunkt för övervakning av**.
 
 3. Titta på den **utdata** avsnittet i Visual Studio för att se meddelanden som inkommer på din IoT-hubb. 
 

@@ -1,7 +1,7 @@
 ---
 title: Instrumentpanel – Språkförståelse
 titleSuffix: Azure Cognitive Services
-description: Åtgärda avsikter med analytics sammanfattande instrumentpanel, en visualiserade Rapporteringsverktyg.
+description: Åtgärda avsikter med analytics-instrumentpanelen, ett visualiserade Rapporteringsverktyg.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/22/2019
 ms.author: diberry
-ms.openlocfilehash: a518a697369ff74689a0c4ac05af96453b6a5ca4
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 055d113a2bc77f8de1b4b881718007c869470532
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65072472"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236948"
 ---
 # <a name="how-to-use-the-dashboard-to-improve-your-app"></a>Hur du använder instrumentpanelen för att förbättra din app
 
-Hitta och åtgärda problem med din tränade appavsikter när du använder exemplet yttranden. Instrumentpanel för nätverkssammanfattning visar övergripande appinformation med höjdpunkter i avsikter som ska åtgärdas. 
+Hitta och åtgärda problem med din tränade appavsikter när du använder exemplet yttranden. Instrumentpanelen visar övergripande appinformation med höjdpunkter i avsikter som ska åtgärdas. 
 
 Granska instrumentpanelen analysen är en iterativ process, upprepas när du ändrar och förbättra din modell.
 
@@ -38,11 +38,11 @@ De tre problem som åtgärdas i instrumentpanelen är:
 
 Korrekta förutsägelser visas med blå färg.
 
-Instrumentpanel för nätverkssammanfattning visar de här problemen och talar om vilka avsikter som påverkas och ger förslag på vad du bör göra för att förbättra appen. 
+Instrumentpanelen visar de här problemen och talar om vilka avsikter som påverkas och ger förslag på vad du bör göra för att förbättra appen. 
 
 ## <a name="before-app-is-trained"></a>Innan app har tränats 
 
-Innan du tränar appen innehåller instrumentpanel för nätverkssammanfattning inte några förslag för korrigeringar. Träna din app för att se dessa förslag.  
+Innan du tränar appen innehåller inte några förslag för korrigeringar i instrumentpanelen. Träna din app för att se dessa förslag.  
 
 ## <a name="check-your-publishing-status"></a>Kontrollera din Publiceringsstatus
 
@@ -50,7 +50,7 @@ Den **Publiceringsstatus** kort innehåller information om aktivt version använ
 
 Kontrollera att den aktiva versionen är den version du vill åtgärda. 
 
-![Instrumentpanel för nätverkssammanfattning visar appens externa tjänster, publicerat regioner och aggregeras endpoint träffar.](./media/luis-how-to-use-dashboard/analytics-card-1-shows-app-summary-and-endpoint-hits.png)
+![Instrumentpanelen visar appens externa tjänster, publicerat regioner och aggregeras endpoint träffar.](./media/luis-how-to-use-dashboard/analytics-card-1-shows-app-summary-and-endpoint-hits.png)
 
 Detta också visar eventuella externa tjänster, publicerade regioner och aggregeras endpoint träffar. 
 
@@ -96,7 +96,7 @@ Den **data obalans** avsikt i listan visas avsikter som behöver mer yttranden f
 
 * Lägg till mer yttranden med intentionen och sedan träna igen. 
 
-Lägg inte till yttranden avsikt NONE, såvida inte som föreslås på instrumentpanel för nätverkssammanfattning.
+Lägg inte till yttranden avsikt NONE, såvida inte som föreslås på instrumentpanelen.
 
 > [!Tip]
 > Använd det tredje avsnittet på sidan **yttranden per avsikt** med den **yttranden (nummer)** anger som en visual snabbguide som avsikter behöver mer yttranden.  
@@ -154,10 +154,10 @@ Fastställa tröskelvärden som du är nöjd med för din verksamhet.
 
 Filtret kan du söka efter avsikter med specifika problem:
 
-|Filter|Föreslagna procent|Syfte|
+|Filtrera|Föreslagna procent|Syfte|
 |--|--|--|
 |De mest problematiska avsikter|-|**Börja här** -åtgärda talade i den här förbättrar appen som är mer än andra korrigeringar.|
-|Korrekta förutsägelser nedan|60 %|Detta är i procent av yttranden i den valda metoden som är rätt men har ett förtroenderesultat under tröskeln. |
+|Korrekta förutsägelser nedan|60%|Detta är i procent av yttranden i den valda metoden som är rätt men har ett förtroenderesultat under tröskeln. |
 |Oklart förutsägelser ovan|15 %|Detta är i procent av yttranden i den valda metoden som förväxlas med närmaste rival avsikten.|
 |Felaktig förutsägelser ovan|15 %|Detta är i procent av yttranden i den valda metoden som förutspås felaktigt. |
 

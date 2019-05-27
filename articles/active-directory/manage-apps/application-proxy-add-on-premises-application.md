@@ -12,12 +12,12 @@ ms.date: 05/21/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ae8b9709e7294e8cb7819afe3ec9f6eb5a06427
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
-ms.translationtype: HT
+ms.openlocfilehash: 31992a08c1b6c4fda4053032458879661fe2b740
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66015427"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66233773"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Självstudier: Lägga till ett lokalt program för fjärråtkomst via programproxy i Azure Active Directory
 
@@ -51,9 +51,9 @@ Vi rekommenderar att du har mer än en Windows-server för att säkra hög tillg
 
 2. Connector-server och program webbservrarna ska tillhöra samma Active Directory-domän eller sträcker sig över domäner. Med servrar i samma domän eller domäner med förtroende är ett krav för att använda enkel inloggning (SSO) med integrerad Windows-autentisering (IWA) och Kerberos-begränsad delegering (KCD). Om anslutningsservern och webbprogramservrarna är i olika Active Directory-domäner så måste du använda resursbaserad delegering för enkel inloggning. Mer information finns i [KCD för enkel inloggning med programproxy](application-proxy-configure-single-sign-on-with-kcd.md).
 
-#### <a name="software-requirements"></a>Programvarukrav
+#### <a name="tls-requirements"></a>TLS-krav
 
-Windows-anslutningsservern måste ha TLS 1.2 aktiverat innan du installerar anslutningsprogrammet för programproxyn. Befintliga anslutningar med versioner under 1.5.612.0 fortsätter tills vidare att fungera i tidigare versioner av TLS. 
+Windows-anslutningsservern måste ha TLS 1.2 aktiverat innan du installerar anslutningsprogrammet för programproxyn.
 
 Aktivera TLS 1.2:
 
@@ -67,6 +67,9 @@ Aktivera TLS 1.2:
     ```
 
 2. Starta om servern.
+
+>[!Important] 
+> För att ge bästa i klassen-kryptering för våra kunder, gör vi uppdateringar till Application Proxy-tjänsten för att begränsa åtkomsten till endast TLS 1.2-protokoll. Baserat på kundernas beredskap ändringarna distribueras gradvis till kunder som bara använder TLS 1.2-protokoll och kommer inte se någon inverkan från den här ändringen. TLS 1.0 och 1.1 utfasning slutförs den 31 augusti 2019 och kunder får alltid att förbereda för den här ändringen. Förbereda för den här ändringen gör att som uppdateras alla kombinationer av klient-server och webbläsaren servrar för att använda TLS 1.2 för att upprätthålla anslutning till Application Proxy-tjänsten. Dessa inkluderar klienter som dina användare använder för att få åtkomst till program som publicerats via programproxy. Se förbereda för [TLS 1.2 i Office 365](https://docs.microsoft.com/en-us/office365/troubleshoot/prepare-tls-1.2-in-office-365) för användbar-referenser och resurser.
 
 ## <a name="prepare-your-on-premises-environment"></a>Förbered din lokala miljö
 

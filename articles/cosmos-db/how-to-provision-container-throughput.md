@@ -4,14 +4,14 @@ description: Lär dig att etablera dataflöde på containernivå i Azure Cosmos 
 author: rimman
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 04/15/2019
+ms.date: 05/23/2019
 ms.author: rimman
-ms.openlocfilehash: d092844fbd75fc2307cc13ec9b7779ae9237535d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dec6d0a65e556e0572bd030617e5b2c30078fce8
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61054652"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243838"
 ---
 # <a name="provision-throughput-on-an-azure-cosmos-container"></a>Etablera dataflöde i en Azure Cosmos-container
 

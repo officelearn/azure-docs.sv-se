@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Använda Azure Database Migration Service för att utföra en online-migrering av SQL Server till en Azure SQL Database managed instance | Microsoft Docs'
+title: 'Självstudier: Använd Azure Database Migration Service för att utföra en online-migrering av SQL Server till en Azure SQL Database managed instance | Microsoft Docs'
 description: Lär dig att utföra en online-migrering från SQL Server på en plats till en Azure SQL Database managed instance med hjälp av Azure Database Migration Service.
 services: dms
 author: HJToland3
@@ -10,29 +10,35 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/08/2019
-ms.openlocfilehash: 12a0ebeebbc3bdc205816c5534f59b1385cecb12
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.date: 05/22/2019
+ms.openlocfilehash: 1229ff3221deb49601dec3cd40b556ea367fc4c9
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65413759"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240706"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-database-managed-instance-online-using-dms"></a>Självstudier: Migrera SQL Server till en Azure SQL Database managed instance med DMS online
 
-Du kan använda Azure Database Migration Service till att migrera databaserna från en lokal SQL Server-instans till en [hanterad Azure SQL Database-instans](../sql-database/sql-database-managed-instance.md) med minimal avbrottstid. Information om ytterligare metoder som kan kräva manuella insatser finns i artikeln om [migrering av SQL Server-instans till hanterad Azure SQL Database-instans](../sql-database/sql-database-managed-instance-migrate.md).
+Du kan använda Azure Database Migration Service för att migrera databaserna från en lokal SQL Server-instansen till en [Azure SQL Database-hanterad instans](../sql-database/sql-database-managed-instance.md) med minimal avbrottstid. Information om ytterligare metoder som kan kräva manuella insatser finns i artikeln om [migrering av SQL Server-instans till hanterad Azure SQL Database-instans](../sql-database/sql-database-managed-instance-migrate.md).
 
-I den här självstudien migrerar du databasen **Adventureworks2012** från en lokal instans av SQL Server till en hanterad Azure SQL Database-instans med minimal avbrottstid genom att använda Azure Database Migration Service.
+I den här självstudien får du migrera den **Adventureworks2012** databas från en lokal instans av SQL Server till en Azure SQL Database managed instance med minimal avbrottstid med hjälp av Azure Database Migration Service.
 
 I den här guiden får du lära dig att:
 > [!div class="checklist"]
-> - Skapa en instans av Azure Database Migration Service.
-> - Skapa ett migreringsprojekt och starta onlinemigreringen med hjälp av Azure Database Migration Service.
-> - Övervaka migreringen.
-> - Flytta över migreringen när du är klar.
+>
+> * Skapa en instans av Azure Database Migration Service.
+> * Skapa ett migreringsprojekt och starta onlinemigrering med hjälp av Azure Database Migration Service.
+> * Övervaka migreringen.
+> * Flytta över migreringen när du är klar.
+
+> [!IMPORTANT]
+> Du måste ange den fullständiga säkerhetskopian för online migreringar från SQL Server till en Azure SQL Database managed instance med Azure Database Migration Service och efterföljande säkerhetskopieringar i SMB-nätverket delar att tjänsten kan använda för att migrera dina databaser. Azure Database Migration Service initieras inte eventuella säkerhetskopior, men i stället använder befintliga säkerhetskopior som du kanske redan som en del av din plan för katastrofåterställning, för migreringen.
+> Se till att du vidtar [säkerhetskopior med hjälp av alternativet WITH CHECKSUM](https://docs.microsoft.com/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server?view=sql-server-2017). Se även till att du inte lägga till flera säkerhetskopieringar (d.v.s. fullständig och t-log) i en enda säkerhetskopieringsmedia; koppla varje säkerhetskopiering på en separat säkerhetskopia.
 
 > [!NOTE]
-> Användning av Azure Database Migration Service för att utföra en onlinemigrering kräver att en instans skapas baserat på prisnivån Premium.
+> Användning av Azure Database Migration Service för att utföra en onlinemigrering kräver att en instans skapas baserad på prisnivån Premium.
+
 > [!IMPORTANT]
 > För optimala migreringsfunktioner rekommenderar Microsoft att skapa en instans av Azure Database Migration Service i samma Azure-region som måldatabasen. Att flytta data mellan regioner eller geografiska områden kan göra migreringsprocessen långsammare och leda till fel.
 
@@ -44,28 +50,29 @@ Den här artikeln beskrivs en online-migrering från SQL Server till en Azure SQ
 
 För att slutföra den här kursen behöver du:
 
-- Skapa ett Azure-nätverk (VNet) för Azure Database Migration Service med hjälp av Azure Resource Manager-distributionsmodellen, som tillhandahåller plats-till-plats-anslutning till dina lokala källservrar genom att använda antingen [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) eller [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). [Lär dig nätverkstopologier för migreringar av hanterad instans av Azure SQL Database med Azure Database Migration Service](https://aka.ms/dmsnetworkformi). Mer information om hur du skapar ett virtuellt nätverk finns i den [dokumentation om virtuella nätverk](https://docs.microsoft.com/azure/virtual-network/), och särskilt artiklarna i snabbstarten med stegvis information.
+* Skapa ett Azure-nätverk (VNet) för Azure Database Migration Service med hjälp av Azure Resource Manager-distributionsmodellen, som tillhandahåller plats-till-plats-anslutning till dina lokala källservrar genom att använda antingen [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) eller [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). [Lär dig nätverkstopologier för migreringar av hanterad instans av Azure SQL Database med Azure Database Migration Service](https://aka.ms/dmsnetworkformi). Mer information om hur du skapar ett virtuellt nätverk finns i den [dokumentation om virtuella nätverk](https://docs.microsoft.com/azure/virtual-network/), och särskilt artiklarna i snabbstarten med stegvis information.
 
     > [!NOTE]
     > Under installationen av virtuellt nätverk, om du använder ExpressRoute med nätverks-peering till Microsoft, lägger du till följande tjänst [slutpunkter](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) till undernätet där tjänsten ska etableras:
-    > - Mål-database-slutpunkten (till exempel SQL-slutpunkten och Cosmos DB-slutpunkt)
-    > - Slutpunkt för lagring
-    > - Service bus-slutpunkt
+    >
+    > * Mål-database-slutpunkten (till exempel SQL-slutpunkten och Cosmos DB-slutpunkt)
+    > * Slutpunkt för lagring
+    > * Service bus-slutpunkt
     >
     > Den här konfigurationen är nödvändigt eftersom Azure Database Migration Service saknar Internetanslutning.
 
-- Se till att dina regler för Nätverkssäkerhetsgrupp kopplad till virtuella nätverk inte blockerar följande portar för inkommande kommunikation till Azure Database Migration Service: 443, 53, 9354, 445, 12000. Mer information om Azure VNet NSG-trafikfiltrering finns i artikeln [filtrera nätverkstrafik med nätverkssäkerhetsgrupper](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
-- Konfigurera din [Windows-brandvägg för källdatabasmotoråtkomst](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
-- Öppna Windows-brandväggen så att Azure Database Migration Service kommer åt käll-SQL Server, som har standardinställningen TCP-port 1433.
-- Om du kör flera namngivna SQL Server-instanser med dynamiska portar kan du vilja aktivera SQL Browser Service och tillåta åtkomst till UDP-port 1434 via dina brandväggar så att Azure Database Migration Service kan ansluta till en namngiven instans på källservern.
-- Om du använder en brandväggsinstallation framför dina källdatabaser kanske du måste lägga till brandväggsregler för att tillåta Azure Database Migration Service att komma åt källdatabaserna för migrering samt filer via SMB-port 445.
-- Skapa en hanterad Azure SQL Database-instans genom att följa informationen i artikeln om att [skapa en hanterad Azure SQL Database-instans i Azure-portalen](https://aka.ms/sqldbmi).
-- Kontrollera att inloggningarna som används för att ansluta SQL Server-källans och hanterade målinstansen är medlemmar i rollen sysadmin.
-- Ange en SMB-nätverksresurs som innehåller alla säkerhetskopierade databasfiler och efterföljande säkerhetskopierade transaktionsloggfiler som Azure Database Migration Service kan använda för databasmigrering.
-- Se till att tjänstkontot som kör SQL Server-källinstansen har skrivbehörighet på nätverksresursen som du har skapat och att datorkontot för källservern har läs-/skrivåtkomst till samma resurs.
-- Anteckna en Windows-användare (och lösenordet) som har fullständig kontrollbehörighet på nätverksresursen som du tidigare har skapat. Azure Database Migration Service personifierar användarens autentiseringsuppgifter för att ladda upp de säkerhetskopierade filerna till Azure Storage-container för återställning.
-- Skapa ett Azure Active Directory-program-ID som genererar den program-ID-nyckel som DMS-tjänsten kan använda för att ansluta till den hanterade Azure Database-målinstansen och Azure Storage-containern. Mer information finns i artikeln [Använda portalen för att skapa ett Azure Active Directory-program och ett huvudnamn för tjänsten som får åtkomst till resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal).
-- Skapa eller anteckna **Standard Performance-nivå** och Azure Storage-konto, som DMS-tjänsten kan överföra de säkerhetskopierade databasfilerna till och använda för att migrera databaser.  Var noga med att Azure Storage-kontot skapas i samma region där DMS-tjänsten har skapats.
+* Se till att dina regler för Nätverkssäkerhetsgrupp kopplad till virtuella nätverk inte blockerar följande portar för inkommande kommunikation till Azure Database Migration Service: 443, 53, 9354, 445, 12000. Mer information om Azure VNet NSG-trafikfiltrering finns i artikeln [filtrera nätverkstrafik med nätverkssäkerhetsgrupper](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
+* Konfigurera din [Windows-brandvägg för källdatabasmotoråtkomst](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
+* Öppna Windows-brandväggen så att Azure Database Migration Service kommer åt käll-SQL Server, som har standardinställningen TCP-port 1433.
+* Om du kör flera namngivna SQL Server-instanser med dynamiska portar kan du vilja aktivera SQL Browser Service och tillåta åtkomst till UDP-port 1434 via dina brandväggar så att Azure Database Migration Service kan ansluta till en namngiven instans på källservern.
+* Om du använder en brandväggsinstallation framför dina källdatabaser kanske du måste lägga till brandväggsregler för att tillåta Azure Database Migration Service att komma åt källdatabaserna för migrering samt filer via SMB-port 445.
+* Skapa en hanterad Azure SQL Database-instans genom att följa informationen i artikeln om att [skapa en hanterad Azure SQL Database-instans i Azure-portalen](https://aka.ms/sqldbmi).
+* Kontrollera att inloggningarna som används för att ansluta SQL Server-källans och hanterade målinstansen är medlemmar i rollen sysadmin.
+* Ange en SMB-nätverksresurs som innehåller alla säkerhetskopierade databasfiler och efterföljande säkerhetskopierade transaktionsloggfiler som Azure Database Migration Service kan använda för databasmigrering.
+* Se till att tjänstkontot som kör SQL Server-källinstansen har skrivbehörighet på nätverksresursen som du har skapat och att datorkontot för källservern har läs-/skrivåtkomst till samma resurs.
+* Anteckna en Windows-användare (och lösenordet) som har fullständig kontrollbehörighet på nätverksresursen som du tidigare har skapat. Azure Database Migration Service personifierar användarens autentiseringsuppgifter för att ladda upp de säkerhetskopierade filerna till Azure Storage-container för återställning.
+* Skapa ett Azure Active Directory-program-ID som genererar den program-ID-nyckel som DMS-tjänsten kan använda för att ansluta till den hanterade Azure Database-målinstansen och Azure Storage-containern. Mer information finns i artikeln [Använda portalen för att skapa ett Azure Active Directory-program och ett huvudnamn för tjänsten som får åtkomst till resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal).
+* Skapa eller anteckna **Standard Performance-nivå** och Azure Storage-konto, som DMS-tjänsten kan överföra de säkerhetskopierade databasfilerna till och använda för att migrera databaser.  Var noga med att Azure Storage-kontot skapas i samma region där DMS-tjänsten har skapats.
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Registrera resursprovidern Microsoft.DataMigration
 

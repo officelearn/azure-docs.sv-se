@@ -4,14 +4,14 @@ description: Lär dig hur du konfigurerar flera oberoende Azure Cosmos DB-utlös
 author: ealsur
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 4/15/2019
+ms.date: 05/23/2019
 ms.author: maquaran
-ms.openlocfilehash: 7a47a928e97d52535a6d3baa808f1fcb81d9bb55
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 722da9f0112d63af52be8c9c3a746f6da9638bac
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61056188"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241952"
 ---
 # <a name="create-multiple-azure-cosmos-db-triggers"></a>Skapa flera Azure Cosmos DB-utlösare
 

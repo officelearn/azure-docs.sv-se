@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: aa62c06d0c12a42d34ef9b13b8b4533d197d8d19
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5cac4a46fb35ef955903018028abbe7588c94dc7
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64715811"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66233895"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Självstudier: Övervaka nätverkskommunikationen mellan två virtuella datorer i Azure-portalen
 
@@ -35,7 +35,7 @@ Det kan vara mycket viktigt att kommunikationen mellan en virtuell dator (VM) oc
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="sign-in-to-azure"></a>Logga in på Azure
+## <a name="sign-in-to-azure"></a>Logga in till Azure
 
 Logga in på [Azure Portal](https://portal.azure.com).
 
@@ -77,7 +77,7 @@ Utför stegen i [Skapa den första virtuella datorn](#create-the-first-vm) igen 
 | 3 | Namn                                  | myVm2                                                                   |
 | 3 | Autentiseringstyp                   | Klistra in den offentliga SSH-nyckeln eller välj **Lösenord** och ange ett lösenord. |
 | 3 | Resursgrupp                        | Välj **Använd befintlig** och sedan **myResourceGroup**.                 |
-| 6 | Tillägg                            | **Network Agent for Linux**                                             |
+| 6 | Tillägg                            | **Network Watcher-Agent för Linux**                                             |
 
 Det tar några minuter att distribuera den virtuella datorn. Vänta tills distributionen av den virtuella datorn är klar innan du fortsätter med nästa steg.
 
@@ -94,7 +94,7 @@ Skapa en anslutningsövervakare för övervakning av kommunikationen via TCP-por
     | Inställning                  | Värde               |
     | ---------                | ---------           |
     | Namn                     | myVm1-myVm2(22)     |
-    | Källa                   |                     |
+    | Source                   |                     |
     | Virtuell dator          | myVm1               |
     | Mål              |                     |
     | Välj en virtuell dator |                     |
@@ -117,7 +117,7 @@ Skapa en anslutningsövervakare för övervakning av kommunikationen via TCP-por
 
     | Objekt                     | Värde                      | Information                                                     |
     | ---------                | ---------                  |--------                                                     |
-    | Status                   | Nåbar                  | Visar om slutpunkten kan nås eller inte.|
+    | Status                   | Kan nås                  | Visar om slutpunkten kan nås eller inte.|
     | GENOMSN. TIDSFÖRDRÖJNING          | Visar anslutningens tidsfördröjning i millisekunder. Anslutningsövervakaren söker av anslutningen var 60:e sekund så att du kan se svarstiderna över tid.                                         |
     | Hopp                     | Anslutningsövervakaren visar hoppen mellan de två slutpunkterna. I det här exemplet ligger anslutningen mellan de två virtuella datorerna i samma virtuella nätverk, så det sker bara ett hopp till IP-adressen 10.0.0.5. Om något befintligt system eller en egen väg dirigerar trafiken mellan de två virtuella datorerna via en VPN-gateway eller en virtuell nätverksenhet visas fler hopp.                                                                                                                         |
     | STATUS                   | En grön bockmarkering vid respektive slutpunkt anger att tillståndet är felfritt.    ||
@@ -149,8 +149,8 @@ Som standard tillåter Azure kommunikation via alla portar mellan virtuella dato
 
     | Inställning                 | Värde          |
     | ---                     | ---            |
-    | Målportintervall | 22             |
-    | Åtgärd                  | Neka           |
+    | Målportsintervall | 22             |
+    | Åtgärd                  | Avvisa           |
     | Prioritet                | 100            |
     | Namn                    | DenySshInbound |
 

@@ -65,10 +65,10 @@ I följande tabell beskrivs JSON-element som är specifika för en FTP-länkad t
 
 | Egenskap  | Beskrivning | Obligatoriskt | Standard |
 | --- | --- | --- | --- |
-| typ |Ange FtpServer. |Ja |&nbsp; |
-| värd |Ange namn eller IP-adressen för FTP-servern. |Ja |&nbsp; |
+| type |Ange FtpServer. |Ja |&nbsp; |
+| host |Ange namn eller IP-adressen för FTP-servern. |Ja |&nbsp; |
 | authenticationType |Ange vilken autentiseringstyp. |Ja |Basic-, anonym |
-| användarnamn |Ange den användare som har åtkomst till FTP-servern. |Nej |&nbsp; |
+| username |Ange den användare som har åtkomst till FTP-servern. |Nej |&nbsp; |
 | password |Ange lösenordet för användaren (användarnamn). |Nej |&nbsp; |
 | encryptedCredential |Ange de krypterade autentiseringsuppgifterna för åtkomst till FTP-servern. |Nej |&nbsp; |
 | gatewayName |Ange namnet på gatewayen i Data Management Gateway för att ansluta till en lokal FTP-server. |Nej |&nbsp; |
@@ -159,8 +159,8 @@ Den **typeProperties** är olika för varje typ av datauppsättning. Den innehå
 | fileName |Ange namnet på filen i den **folderPath** om du vill att tabellen för att referera till en viss fil i mappen. Om du inte anger något värde för den här egenskapen, tabellen pekar på alla filer i mappen.<br/><br/>När **fileName** har inte angetts för en utdatauppsättning, namnet på den genererade filen är i följande format: <br/><br/>`Data.<Guid>.txt` (Exempel: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Nej |
 | fileFilter |Ange ett filter som används för att välja en delmängd av filerna i den **folderPath**, i stället för alla filer.<br/><br/>Tillåtna värden är: `*` (flera tecken) och `?` (tecken).<br/><br/>Exempel 1: `"fileFilter": "*.log"`<br/>Exempel 2: `"fileFilter": 2014-1-?.txt"`<br/><br/> **fileFilter** gäller för en indatauppsättning filresursen. Den här egenskapen stöds inte med Hadoop Distributed File System (HDFS). |Nej |
 | partitionedBy |Används för att ange en dynamisk **folderPath** och **fileName** för time series-data. Du kan till exempel ange en **folderPath** som är innehåller parametrar för varje timme som data. |Nej |
-| Format | Följande formattyper av stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange den **typ** egenskapen under format till ett av dessa värden. Mer information finns i den [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [Json-Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc-Format](data-factory-supported-file-and-compression-formats.md#orc-format), och [Parquet-Format ](data-factory-supported-file-and-compression-formats.md#parquet-format) avsnitt. <br><br> Om du vill kopiera filer som de är mellan filbaserade (binär kopia) kan du hoppa över avsnittet format i både inkommande och utgående datamängd definitioner. |Nej |
-| Komprimering | Ange typ och komprimeringsnivå för data. Typer som stöds är **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**, och stöds nivåer är **Optimal** och **snabbaste**. Mer information finns i [format och komprimering i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej |
+| format | Följande formattyper av stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange den **typ** egenskapen under format till ett av dessa värden. Mer information finns i den [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [Json-Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc-Format](data-factory-supported-file-and-compression-formats.md#orc-format), och [Parquet-Format ](data-factory-supported-file-and-compression-formats.md#parquet-format) avsnitt. <br><br> Om du vill kopiera filer som de är mellan filbaserade (binär kopia) kan du hoppa över avsnittet format i både inkommande och utgående datamängd definitioner. |Nej |
+| compression | Ange typ och komprimeringsnivå för data. Typer som stöds är **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**, och stöds nivåer är **Optimal** och **snabbaste**. Mer information finns i [format och komprimering i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej |
 | useBinaryTransfer |Ange om du vill använda binär överföringsläge. Värdena är sanna för binärt läge (detta är standardvärdet), och false för ASCII. Den här egenskapen kan bara användas när den associera länkade tjänsttypen är av typen: FtpServer. |Nej |
 
 > [!NOTE]
@@ -206,7 +206,7 @@ I kopieringsaktiviteten när källan är av typen **FileSystemSource**, följand
 
 | Egenskap  | Beskrivning | Tillåtna värden | Obligatoriskt |
 | --- | --- | --- | --- |
-| rekursiv |Anger om data läses rekursivt från undermapparna eller endast från den angivna mappen. |SANT, FALSKT (standard) |Nej |
+| recursive |Anger om data läses rekursivt från undermapparna eller endast från den angivna mappen. |SANT, FALSKT (standard) |Nej |
 
 ## <a name="json-example-copy-data-from-ftp-server-to-azure-blob"></a>JSON-exempel: Kopiera data från FTP-servern till Azure Blob
 Detta exempel visar hur du kopierar data från en FTP-server till Azure Blob storage. Dock datan kan kopieras direkt till någon av de mottagare som anges i den [datalager och format som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats), med hjälp av kopieringsaktiviteten i Data Factory.

@@ -13,11 +13,11 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/03/2019
 ms.openlocfilehash: 4ff6cc0ba18074f353eb5b99af7052edd658a80e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799277"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66164469"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Arkitektur för Azure SQL-anslutning
 
@@ -63,39 +63,39 @@ I följande tabell visas de primära och sekundära IP-adresserna för Azure SQL
 
 | Regionsnamn | Primär IP-adress | Sekundär IP-adress |
 | --- | --- |--- |
-| Östra Australien | 13.75.149.87 | 40.79.161.1 |
+| Australien, östra | 13.75.149.87 | 40.79.161.1 |
 | Sydöstra Australien | 191.239.192.109 | 13.73.109.251 |
-| Södra Brasilien | 104.41.11.5 | |
-| Centrala Kanada | 40.85.224.249 | |
-| Östra Kanada | 40.86.226.166 | |
+| Brasilien, södra | 104.41.11.5 | |
+| Kanada, centrala | 40.85.224.249 | |
+| Kanada, östra | 40.86.226.166 | |
 | Centrala USA | 23.99.160.139 | 13.67.215.62 |
 | Östra Kina 1 | 139.219.130.35 | |
 | Kina, östra 2 | 40.73.82.1 | |
 | Norra Kina 1 | 139.219.15.17 | |
 | Kina, norra 2 | 40.73.50.0 | |
-| Östasien | 191.234.2.139 | 52.175.33.150 |
+| Asien, östra | 191.234.2.139 | 52.175.33.150 |
 | Östra USA 1 | 191.238.6.43 | 40.121.158.30 |
 | USA, östra 2 | 191.239.224.107 | 40.79.84.180 * |
-| Frankrike, centrala | 40.79.137.0 | 40.79.129.1 |
-| Centrala Tyskland | 51.4.144.100 | |
+| Centrala Frankrike | 40.79.137.0 | 40.79.129.1 |
+| Tyskland, centrala | 51.4.144.100 | |
 | Nordöstra Tyskland | 51.5.144.179 | |
-| Centrala Indien | 104.211.96.159 | |
-| Södra Indien | 104.211.224.146 | |
-| Västra Indien | 104.211.160.80 | |
-| Östra Japan | 191.237.240.43 | 13.78.61.196 |
-| Västra Japan | 191.238.68.11 | 104.214.148.156 |
+| Indien, centrala | 104.211.96.159 | |
+| Indien, södra | 104.211.224.146 | |
+| Indien, västra | 104.211.160.80 | |
+| Japan, östra | 191.237.240.43 | 13.78.61.196 |
+| Japan, västra | 191.238.68.11 | 104.214.148.156 |
 | Sydkorea, centrala | 52.231.32.42 | |
 | Sydkorea, södra | 52.231.200.86 |  |
-| Norra centrala USA | 23.98.55.75 | 23.96.178.199 |
-| Norra Europa | 191.235.193.75 | 40.113.93.91 |
-| Södra centrala USA | 23.98.162.75 | 13.66.62.124 |
-| Sydostasien | 23.100.117.95 | 104.43.15.0 |
-| Storbritannien, södra | 51.140.184.11 | |
-| Storbritannien, västra | 51.141.8.11| |
-| Västra centrala USA | 13.78.145.25 | |
-| Västra Europa | 191.237.232.75 | 40.68.37.158 |
+| USA, norra centrala | 23.98.55.75 | 23.96.178.199 |
+| Europa, norra | 191.235.193.75 | 40.113.93.91 |
+| USA, södra centrala | 23.98.162.75 | 13.66.62.124 |
+| Asien, sydöstra | 23.100.117.95 | 104.43.15.0 |
+| Södra Storbritannien | 51.140.184.11 | |
+| Västra Storbritannien | 51.141.8.11| |
+| USA, västra centrala  | 13.78.145.25 | |
+| Europa, västra | 191.237.232.75 | 40.68.37.158 |
 | Västra USA 1 | 23.99.34.75 | 104.42.238.205 |
-| Västra USA 2 | 13.66.226.202 | |
+| USA, västra 2 | 13.66.226.202 | |
 ||||
 
 \* **OBS:** *Östra USA 2* har också en tertiär IP-adressen för `52.167.104.0`.

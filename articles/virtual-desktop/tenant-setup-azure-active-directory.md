@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 88b3ffa38eb42eef42c98920b2c3193661b1c0f5
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 2c9682746201306f1b99a04462819618225caa11
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236143"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66164253"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop-preview"></a>Självstudier: Skapa en klient i förhandsversion för virtuella skrivbord i Windows
 
@@ -114,7 +114,7 @@ Därefter skapar du en ny virtuellt skrivbord i Windows-klient som är associera
 New-RdsTenant -Name <TenantName> -AadTenantId <DirectoryID> -AzureSubscriptionId <SubscriptionID>
 ```
 
-Inom hakparenteser värdena ska ersättas med värden som är relevanta för din organisation och klient. Anta exempelvis att du är Windows Virtual Desktop TenantCreator för Contoso-organisationen. Kör du cmdlet: en ut så här:
+Inom hakparenteser värdena ska ersättas med värden som är relevanta för din organisation och klient. Det namn du väljer för din nya virtuella skrivbordet i Windows-klient ska vara globalt unikt. Anta exempelvis att du är Windows Virtual Desktop TenantCreator för Contoso-organisationen. Kör du cmdlet: en ut så här:
 
 ```powershell
 New-RdsTenant -Name Contoso -AadTenantId 00000000-1111-2222-3333-444444444444 -AzureSubscriptionId 55555555-6666-7777-8888-999999999999

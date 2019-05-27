@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
 ms.openlocfilehash: 635b45fe7f0108795c34f51081fa374c604036b2
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59996141"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66153218"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Säkerhetsöverväganden för dataförflyttning i Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -135,11 +135,11 @@ Azure-nätverk är en logisk representation av ditt nätverk i molnet. Du kan an
 
 I följande tabell sammanfattas i nätverket och lokal integration runtime-konfigurationsrekommendationer baserat på olika kombinationer av käll- och platser för flytt av hybriddata.
 
-| Källa      | Mål                              | Nätverkskonfiguration                    | Installation av Integration Runtime                |
+| Source      | Mål                              | Nätverkskonfiguration                    | Installation av Integration Runtime                |
 | ----------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Lokal | Virtuella datorer och molntjänster som distribuerats i virtuella nätverk | IPSec-VPN (punkt-till-plats eller plats-till-plats) | Lokal integration runtime ska installeras på en Azure-dator i det virtuella nätverket.  |
-| Lokal | Virtuella datorer och molntjänster som distribuerats i virtuella nätverk | ExpressRoute (privat peering)           | Lokal integration runtime ska installeras på en Azure-dator i det virtuella nätverket.  |
-| Lokal | Azure-baserade tjänster som har en offentlig slutpunkt | ExpressRoute (Microsoft-peering)            | Lokal integration runtime kan vara installerade på plats eller på virtuella Azure-datorer. |
+| Lokalt | Virtuella datorer och molntjänster som distribuerats i virtuella nätverk | IPSec-VPN (punkt-till-plats eller plats-till-plats) | Lokal integration runtime ska installeras på en Azure-dator i det virtuella nätverket.  |
+| Lokalt | Virtuella datorer och molntjänster som distribuerats i virtuella nätverk | ExpressRoute (privat peering)           | Lokal integration runtime ska installeras på en Azure-dator i det virtuella nätverket.  |
+| Lokalt | Azure-baserade tjänster som har en offentlig slutpunkt | ExpressRoute (Microsoft-peering)            | Lokal integration runtime kan vara installerade på plats eller på virtuella Azure-datorer. |
 
 Följande bilder visar användning av lokal integration runtime för att flytta data mellan en lokal databas och Azure-tjänster med hjälp av ExpressRoute- och IPSec-VPN (med Azure Virtual Network):
 

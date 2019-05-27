@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/19/2018
 ms.author: aschhab
-ms.openlocfilehash: 7ef152b130e77e833e19c51ff97d0cea577216c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e4571a8918b7877b728b54129e47ffcf4af9b46a
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61472258"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979626"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Aktiva Directory Role-Based Access Control (förhandsversion)
 
@@ -31,7 +31,14 @@ Ett program som använder Azure AD RBAC behöver inte hantera SAS regler och nyc
 
 ## <a name="service-bus-roles-and-permissions"></a>Service Bus-roller och behörigheter
 
-Den första offentliga förhandsversionen kan du bara lägga till Azure AD-konton och tjänstens huvudnamn till ”ägare” eller ”bidragsgivare” roller för ett namnområde för Service Bus-meddelanden. Den här åtgärden ger den identitet fullständig kontrollen över alla entiteter i namnområdet. Management-åtgärder som ändrar namnområde topologin är inledningsvis endast stöds dock Azure resource Manager och inte via gränssnittet för hantering av interna Service Bus REST. Det här stödet innebär att även .NET Framework-klienten [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) objektet kan inte användas med en Azure AD-konto.
+Azure ger den nedan inbyggda RBAC-roller för att auktorisera åtkomst till en Service Bus-namnområde:
+
+* [Service Bus-Dataägaren (förhandsversion)](../role-based-access-control/built-in-roles.md#service-bus-data-owner): Aktiverar åtkomst till Service Bus-namnområde och entiteter (köer, ämnen, prenumerationer och filter)
+
+>[!IMPORTANT]
+> Vi tidigare stöd för att lägga till hanterad identitet till den **”ägare”** eller **”bidragsgivare”** roll.
+>
+> Men data behörighet för **”ägare”** och **”bidragsgivare”** rollen kommer inte längre att hanteras. Om du använde den **”ägare”** eller **”bidragsgivare”** roll och de måste anpassas till att använda den **”Service Bus-Dataägaren”** roll.
 
 ## <a name="use-service-bus-with-an-azure-ad-domain-user-account"></a>Använda Service Bus med ett användarkonto för Azure AD-domän
 
@@ -47,7 +54,7 @@ Om du vill skapa ett särskilt konto för det här scenariot [gör så här](../
 
 ### <a name="create-a-service-bus-namespace"></a>Skapa ett namnområde för Service Bus
 
-Nästa [skapa ett namnområde för Service Bus-meddelanden](service-bus-create-namespace-portal.md) i någon av de Azure-regioner som har förhandsversionsstöd för RBAC: **USA, Öst**, **USA, Öst 2**, eller **Västeuropa**.
+Nästa [skapa ett namnområde för Service Bus-meddelanden](service-bus-create-namespace-portal.md).
 
 När namnområdet har skapats går du till dess **åtkomstkontroll (IAM)** på portalen och klicka sedan på **Lägg till rolltilldelning** att lägga till Azure AD-användarkontot i rollen ägare. Om du använder ett eget användarkonto och du skapade namnområdet, är du redan rollen ägare. Om du vill lägga till ett annat konto för rollen, Sök efter namnet på webbprogrammet i den **Lägg till behörigheter** panelen **Välj** fältet och sedan klickar du på posten. Klicka sedan på **Spara**.
 

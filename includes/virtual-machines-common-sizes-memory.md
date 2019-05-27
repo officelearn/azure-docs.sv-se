@@ -5,15 +5,15 @@ services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/13/2019
+ms.date: 05/16/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 8cc13e9aec679a79d31d2724ba412efd2d58dfd1
-ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
+ms.openlocfilehash: 0b0e03b163d4de7a441bb7d2714be23b58c95028
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65561262"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66170360"
 ---
 Minnesoptimerade erbjudande för VM-storlekar högt minne att CPU-förhållande som är utmärkt för relationsdatabasservrar, mellanstora till stora cacheminnen och minnesinterna analyser. Den här artikeln innehåller information om hur många virtuella processorer, diskar och nätverkskort samt lagring dataflöde och nätverket bandbredden för varje storlek i den här grupperingen. 
 
@@ -98,15 +98,57 @@ Premium Storage cachelagring: Stöds
 
 Write Accelerator: [Stöds](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
 
+Den Mv2-serien funktioner med stora dataflöden och låg latens, mappa direkt lokal NVMe lagring som körs på en hyper-threaded Intel® Xeon® Platinum 8180 M 2.5GHz (Skylake)-processor med en alla kärnor grundläggande frekvensen för 2,5 GHz och en max turbo frekvensen för 3,8 GHz. Alla storlekar för virtuella datorer av Mv2-serien kan använda beständiga standard- och premium-diskar. Mv2-serieinstanserna är minnesoptimerade VM-storlekar som tillhandahåller oöverträffade prestanda för stöd för stora minnesinterna databaser och arbetsbelastningar med högt minne att CPU-förhållande som passar utmärkt för relationsdatabasservrar, stora cacheminnen och minnesinterna Analytics. 
+
 |Storlek | vCPU | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Max cachelagrat och temporärt lagrat dataflödet: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Maximalt antal nätverkskort / förväntade nätverksbandbredd (Mbit/s) |
 |-----------------|------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------|
-| Standard_M208ms_v22<sup>1</sup> | 208 | 5700 | 4096 | 64 | 80,000 / 800 (7,040) | 40,000 / 1000 | 8/16 000 |
-| Standard_M208s_v22<sup>1</sup> | 208 | 2850 | 4096 | 64 | 80,000 / 800 (7,040) | 40,000 / 1000 | 8/16 000 |
+| Standard_M208ms_v2<sup>1, 2</sup> | 208 | 5700 | 4096 | 64 | 80,000 / 800 (7,040) | 40,000 / 1000 | 8/16 000 |
+| Standard_M208s_v2<sup>1, 2</sup> | 208 | 2850 | 4096 | 64 | 80,000 / 800 (7,040) | 40,000 / 1000 | 8/16 000 |
 
 Mv2-serien Virtuella datorns funktion Intel® Hyper-Threading Technology  
 
-<sup>1</sup> dessa stora virtuella processorer kräver något av följande gästoperativsystem som stöds: Windows Server 2016, Windows Server 2019, SLES 12 SP4, SLES 15 och RHEL 7.6
+<sup>1</sup> dessa stora virtuella datorer begär en av följande gästoperativsystem som stöds: Windows Server 2016, Windows Server 2019, SLES 12 SP4, SLES 15.
 
+<sup>2</sup> Mv2-seriens virtuella datorer är generation 2. Om du använder Linux finns i följande avsnitt att hitta och välja en SUSE Linux-avbildning.
+
+#### <a name="find-a-suse-image"></a>Hitta en SUSE-avbildning
+
+Att välja en lämplig avbildning med SUSE Linux i Azure portal: 
+
+1. I Azure-portalen väljer du **skapa en resurs** 
+1. Sök efter ”SUSE SAP” 
+1. SLES för SAP generation 2-avbildningar är tillgängliga som antingen betala per användning eller Använd din egen prenumeration (BYOS). I sökresultaten expanderar du kategorin önskad bild:
+
+    * SUSE Linux Enterprise Server (SLES) för SAP
+    * SUSE Linux Enterprise Server (SLES) för SAP (BYOS)
+    
+1. SUSE-avbildningar som är kompatibla med Mv2-serien har ett prefix med namnet `GEN2:`. Följande SUSE-avbildningar är tillgängliga för virtuella datorer Mv2-serien:
+
+    * GEN2: SUSE Linux Enterprise Server (SLES) 12 SP4 för SAP-program
+    * GEN2: SUSE Linux Enterprise Server (SLES) 15 för SAP-program
+    * GEN2: SUSE Linux Enterprise Server (SLES) 12 SP4 för SAP-program (BYOS)
+    * GEN2: SUSE Linux Enterprise Server (SLES) 15 för SAP-program (BYOS)
+
+#### <a name="select-a-suse-image-via-azure-cli"></a>Välj en avbildning av SUSE via Azure CLI
+
+Om du vill se en lista över tillgängliga SLES för SAP-avbildningen för virtuella datorer Mv2-serien kan använda följande [ `az vm image list` ](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az-vm-image-list) kommando:
+
+```azurecli
+az vm image list --output table --publisher SUSE --sku gen2 --all
+```
+
+Kommandot returnerar de för närvarande tillgänglig Generation 2 virtuella datorer tillgängliga från SUSE för Mv2-seriens virtuella datorer. 
+
+Exempel på utdata:
+
+```
+Offer          Publisher  Sku          Urn                                        Version
+-------------  ---------  -----------  -----------------------------------------  ----------
+SLES-SAP       SUSE       gen2-12-sp4  SUSE:SLES-SAP:gen2-12-sp4:2019.05.13       2019.05.13
+SLES-SAP       SUSE       gen2-15      SUSE:SLES-SAP:gen2-15:2019.05.13           2019.05.13
+SLES-SAP-BYOS  SUSE       gen2-12-sp4  SUSE:SLES-SAP-BYOS:gen2-12-sp4:2019.05.13  2019.05.13
+SLES-SAP-BYOS  SUSE       gen2-15      SUSE:SLES-SAP-BYOS:gen2-15:2019.05.13      2019.05.13
+```
 
 ## <a name="m-series"></a>M-serien 
 

@@ -6,13 +6,13 @@ manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 08/24/2019
-ms.author: rayne
-ms.openlocfilehash: 5fac369f15edb3ef0be31d3dc7d7434104c18dfe
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.author: raynew
+ms.openlocfilehash: f3ba08bc1d557d53bca2421b5052f496c740b185
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64928174"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65969338"
 ---
 # <a name="monitor-the-process-server"></a>Övervaka processerver
 
@@ -54,14 +54,14 @@ Processervern genererar ett antal hälsovarningar sammanfattas i tabellen nedan.
 **Typ av avisering** | **Detaljer**
 --- | ---
 ![Felfri][green] | Processervern är ansluten och felfri.
-![Varning][yellow] | CPU-användning > 80% för de senaste 15 minuterna
-![Varning][yellow] | Minne användning > 80% för de senaste 15 minuterna
-![Varning][yellow] | Cachemapp ledigt utrymme < 30% under de senaste 15 minuterna
-![Varning][yellow] | Processervertjänsterna körs inte under de senaste 15 minuterna
-![Kritisk][red] | CPU-användning > 95% under de senaste 15 minuterna
-![Kritisk][red] | Minne användning > 95% under de senaste 15 minuterna
-![Kritisk][red] | Cachemapp ledigt utrymme < 25% under de senaste 15 minuterna
-![Kritisk][red] | Inget pulsslag från processervern under 15 minuter.
+![Varning!][yellow] | CPU-användning > 80% för de senaste 15 minuterna
+![Varning!][yellow] | Minne användning > 80% för de senaste 15 minuterna
+![Varning!][yellow] | Cachemapp ledigt utrymme < 30% under de senaste 15 minuterna
+![Varning!][yellow] | Processervertjänsterna körs inte under de senaste 15 minuterna
+![Kritiska][red] | CPU-användning > 95% under de senaste 15 minuterna
+![Kritiska][red] | Minne användning > 95% under de senaste 15 minuterna
+![Kritiska][red] | Cachemapp ledigt utrymme < 25% under de senaste 15 minuterna
+![Kritiska][red] | Inget pulsslag från processervern under 15 minuter.
 
 ![tabellnyckel](./media/vmware-physical-azure-monitor-process-server/table-key.png)
 

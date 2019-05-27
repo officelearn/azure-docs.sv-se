@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/06/2018
 ms.author: magattus
 ms.openlocfilehash: a5fab3e2bf9908fa35cf5f5485df3116b7718d8c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57881137"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66126276"
 ---
 # <a name="azure-diagnostic-logs"></a>Azure diagnostikloggar
 
@@ -242,55 +242,55 @@ Följ dessa steg för att lägga till en Azure Monitor övervakningslösning:
 
 3. I den **övervakning + hantering** väljer **se alla**.
 
-    ![Se alla](./media/cdn-diagnostics-log/15_See-all.png)
+    ![Se allt](./media/cdn-diagnostics-log/15_See-all.png)
 
 4. Sök efter CDN i sökrutan.
 
-    ![Se alla](./media/cdn-diagnostics-log/16_Search-for.png)
+    ![Se allt](./media/cdn-diagnostics-log/16_Search-for.png)
 
 5. Välj **Azure CDN Core Analytics**. 
 
-    ![Se alla](./media/cdn-diagnostics-log/17_Core-analytics.png)
+    ![Se allt](./media/cdn-diagnostics-log/17_Core-analytics.png)
 
 6. När du har valt **skapa**, uppmanas du att skapa en ny Log Analytics-arbetsyta eller välj en befintlig. 
 
-    ![Se alla](./media/cdn-diagnostics-log/18_Adding-solution.png)
+    ![Se allt](./media/cdn-diagnostics-log/18_Adding-solution.png)
 
 7. Välj den arbetsyta som du skapade innan. Du måste sedan lägga till ett automation-konto.
 
-    ![Se alla](./media/cdn-diagnostics-log/19_Add-automation.png)
+    ![Se allt](./media/cdn-diagnostics-log/19_Add-automation.png)
 
 8. Följande skärmbild visar formuläret automation-konto måste du fylla ut. 
 
-    ![Se alla](./media/cdn-diagnostics-log/20_Automation.png)
+    ![Se allt](./media/cdn-diagnostics-log/20_Automation.png)
 
 9. När du har skapat ett automation-kontot, är du redo att lägga till din lösning. Välj knappen **Skapa**.
 
-    ![Se alla](./media/cdn-diagnostics-log/21_Ready.png)
+    ![Se allt](./media/cdn-diagnostics-log/21_Ready.png)
 
 10. Lösningen har nu lagts till din arbetsyta. Gå tillbaka till instrumentpanelen i Azure portal.
 
-    ![Se alla](./media/cdn-diagnostics-log/22_Dashboard.png)
+    ![Se allt](./media/cdn-diagnostics-log/22_Dashboard.png)
 
     Välj Log Analytics-arbetsytan som du skapade för att gå till din arbetsyta. 
 
 11. Välj den **OMS-portalen** ikonen för att visa den nya lösningen.
 
-    ![Se alla](./media/cdn-diagnostics-log/23_workspace.png)
+    ![Se allt](./media/cdn-diagnostics-log/23_workspace.png)
 
 12. Din portal bör nu se ut som följande skärmbild:
 
-    ![Se alla](./media/cdn-diagnostics-log/24_OMS-solution.png)
+    ![Se allt](./media/cdn-diagnostics-log/24_OMS-solution.png)
 
     Välj en av panelerna för att se flera vyer i dina data.
 
-    ![Se alla](./media/cdn-diagnostics-log/25_Interior-view.png)
+    ![Se allt](./media/cdn-diagnostics-log/25_Interior-view.png)
 
     Du kan rulla åt vänster eller höger för att se ytterligare paneler som representerar enskilda vyer i data. 
 
     Välj någon av panelerna för att se mer information om dina data.
 
-     ![Se alla](./media/cdn-diagnostics-log/26_Further-detail.png)
+     ![Se allt](./media/cdn-diagnostics-log/26_Further-detail.png)
 
 ### <a name="offers-and-pricing-tiers"></a>Erbjudanden och prisnivåer
 

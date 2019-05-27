@@ -13,11 +13,11 @@ ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 04/19/2019
 ms.openlocfilehash: cbcdcfd151951334246a4e85d9f521a15bb6269d
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006156"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66146113"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads"></a>Använda skrivskyddade repliker att belastningsutjämna skrivskyddad frågearbetsbelastningar
 
@@ -118,7 +118,7 @@ New-AzSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -D
 Set-AzSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Enabled
 ```
 
-### <a name="rest-api"></a>REST-API
+### <a name="rest-api"></a>REST API
 
 Att skapa en databas med skrivskyddade skalbar inaktiverad, eller ändra inställningen för en befintlig databas måste du använda följande metod med det `readScale` egenskapen `Enabled` eller `Disabled` som i den nedan exempelförfrågan.
 

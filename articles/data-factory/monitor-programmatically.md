@@ -12,11 +12,11 @@ author: gauravmalhot
 ms.author: gamal
 manager: craigg
 ms.openlocfilehash: 035e12da67d28e8e3fb46ac295717dd6b579922c
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486621"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66167060"
 ---
 # <a name="programmatically-monitor-an-azure-data-factory"></a>Övervaka en Azure data factory programmässigt
 Den här artikeln beskriver hur du övervakar en pipeline i en datafabrik med hjälp av olika software development Kit (SDK). 
@@ -83,7 +83,7 @@ print_activity_run_details(activity_runs_paged[0])
 
 Fullständig dokumentation om Python SDK finns [Data Factory Python SDK-referens](/python/api/overview/azure/datafactory?view=azure-python).
 
-## <a name="rest-api"></a>REST-API
+## <a name="rest-api"></a>REST API
 En fullständig genomgång för att skapa och övervaka en pipeline med hjälp av REST API finns i [skapa en datafabrik och pipeline med REST API](quickstart-create-data-factory-rest-api.md).
  
 1. Kör följande skript för att kontinuerligt kontrollera pipelinekörningens status tills kopieringen av data är klar.

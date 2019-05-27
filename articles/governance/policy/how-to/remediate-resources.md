@@ -8,23 +8,23 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: fe06e7081e4e3691aeb054985f9f2f3f6dc7d19e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: d6753b319bc5bc4cbda18fe486695e5b0266acae
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59795006"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66169661"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Åtgärda icke-kompatibla resurser med Azure Policy
 
-Resurser som är icke-kompatibla till en **deployIfNotExists** princip kan placeras i ett kompatibelt tillstånd via **reparation**. Reparation åstadkoms genom att uppmana körs den **deployIfNotExists** tilldelade policyns effekt på dina befintliga resurser. Den här artikeln visar de steg som krävs för att förstå och utföra åtgärder med principen.
+Resurser som är icke-kompatibla till en **deployIfNotExists** princip kan placeras i ett kompatibelt tillstånd via **reparation**. Reparation åstadkoms genom att uppmana Azure Policy för att köra den **deployIfNotExists** tilldelade policyns effekt på dina befintliga resurser. Den här artikeln visar de steg som krävs för att förstå och utföra åtgärder med Azure Policy.
 
 [!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## <a name="how-remediation-security-works"></a>Hur fungerar säkerheten för reparation
 
-När principen körs mallen i den **deployIfNotExists** principdefinition som den gör det med hjälp av en [hanterad identitet](../../../active-directory/managed-identities-azure-resources/overview.md).
-Principen skapas en hanterad identitet för varje uppgift, men måste ha information om vilka roller att bevilja den hanterade identitet. Om den hanterade identitet saknas roller, visas det här felet under tilldelningen av principen eller ett initiativ. När du använder portalen beviljas principen automatiskt hanterad identitet listade rollerna när tilldelningen har startats.
+När Azure Policy körs mallen i den **deployIfNotExists** principdefinition som den gör det med hjälp av en [hanterad identitet](../../../active-directory/managed-identities-azure-resources/overview.md).
+Azure Policy skapar en hanterad identitet för varje uppgift, men måste ha information om vilka roller att bevilja den hanterade identitet. Om den hanterade identitet saknas roller, visas det här felet under tilldelningen av principen eller ett initiativ. När du använder portalen, kommer Azure Policy automatiskt ge hanterad identitet listade rollerna när tilldelningen har startats.
 
 ![Hanterad identitet - saknas roll](../media/remediate-resources/missing-role.png)
 
@@ -39,7 +39,7 @@ Det första steget är att definiera rollerna som **deployIfNotExists** behöver
 "details": {
     ...
     "roleDefinitionIds": [
-        "/subscription/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
+        "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
         "/providers/Microsoft.Authorization/roleDefinitions/{builtinroleGUID}"
     ]
 }
@@ -57,7 +57,7 @@ Get-AzRoleDefinition -Name 'Contributor'
 
 ## <a name="manually-configure-the-managed-identity"></a>Konfigurera manuellt hanterad identitet
 
-När du skapar en uppgift med hjälp av portalen princip både genererar den hanterade identitet och beviljar de roller som definierats i **roleDefinitionIds**. Steg för att skapa den hanterade identitet och tilldela den behörigheter måste göras manuellt under följande förhållanden:
+När du skapar en uppgift med hjälp av portalen, Azure Policy både genererar den hanterade identitet och beviljar de roller som definierats i **roleDefinitionIds**. Steg för att skapa den hanterade identitet och tilldela den behörigheter måste göras manuellt under följande förhållanden:
 
 - När du använder SDK: N (till exempel Azure PowerShell)
 - När en resurs utanför tilldelningsomfånget ändras av mallen
@@ -126,7 +126,8 @@ Följ dessa steg om du vill lägga till en roll i tilldelningens hanterad identi
 
 1. Klicka på den **åtkomstkontroll (IAM)** länka på resurssidan och klicka på **+ Lägg till rolltilldelning** överst på sidan för kontroll av åtkomst.
 
-1. Välj rätt roll som matchar en **roleDefinitionIds** från principdefinitionen. Lämna **tilldela åtkomst till** inställt på standardvärdet ”Azure AD användaren, gruppen eller programmet”. I den **Välj** rutan, klistra in eller Skriv delen av tilldelning av resurs-ID finns tidigare. När sökningen är klar klickar du på objektet med samma namn och välj ID och klicka på **spara**.
+1. Välj rätt roll som matchar en **roleDefinitionIds** från principdefinitionen.
+   Lämna **tilldela åtkomst till** inställt på standardvärdet ”Azure AD användaren, gruppen eller programmet”. I den **Välj** rutan, klistra in eller Skriv delen av tilldelning av resurs-ID finns tidigare. När sökningen är klar klickar du på objektet med samma namn och välj ID och klicka på **spara**.
 
 ## <a name="create-a-remediation-task"></a>Skapa en uppgift för reparation
 
@@ -193,9 +194,9 @@ Andra åtgärder cmdletar och exempel finns i den [Az.PolicyInsights](/powershel
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Se exempel på [Azure Policy-exempel](../samples/index.md)
-- Granska den [Policy-definitionsstruktur](../concepts/definition-structure.md)
-- Granska [förstå effekterna av princip](../concepts/effects.md)
-- Förstå hur du [skapa principer programmässigt](programmatically-create.md)
-- Lär dig hur du [hämta data för kompatibilitetsinställningar](getting-compliance-data.md)
-- Se över vad en hanteringsgrupp är med sidan om att [organisera dina resurser med Azure-hanteringsgrupper](../../management-groups/overview.md)
+- Se exempel på [Azure Policy-exempel](../samples/index.md).
+- Granska [Azure Policy-definitionsstrukturen](../concepts/definition-structure.md).
+- Granska [Förstå policy-effekter](../concepts/effects.md).
+- Förstå hur du [skapa principer programmässigt](programmatically-create.md).
+- Lär dig hur du [hämta kompatibilitetsdata](getting-compliance-data.md).
+- Granska vilka en hanteringsgrupp är med [organisera dina resurser med Azure-hanteringsgrupper](../../management-groups/overview.md).

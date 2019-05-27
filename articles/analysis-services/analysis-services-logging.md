@@ -9,11 +9,11 @@ ms.date: 02/14/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 2303d385d3d688050a8d82c07e78a68588f41e88
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010930"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66142609"
 ---
 # <a name="setup-diagnostic-logging"></a>Konfigurera Diagnostisk loggning
 
@@ -190,7 +190,7 @@ Det finns hundratals frågor som du kan använda. Mer information om frågor fin
 
 I den här snabba självstudien skapar du ett lagringskonto i samma prenumeration och resursgrupp som Analysis Services-servern. Du kan sedan använda Set-AzDiagnosticSetting för att slå på diagnostik loggning, skicka utdata till det nya lagringskontot.
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Nödvändiga komponenter
 Den här kursen måste du ha följande resurser:
 
 * En befintlig Azure Analysis Services-server. Anvisningar om hur du skapar en serverresurs finns i [skapar en server i Azure-portalen](analysis-services-create-server.md), eller [skapa en Azure Analysis Services-server med hjälp av PowerShell](analysis-services-create-powershell.md).

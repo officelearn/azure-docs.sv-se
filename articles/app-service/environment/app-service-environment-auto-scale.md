@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 29a639142395c43fea06c1d6d18909b3c9f33b86
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6660aa4e21aa36dc94c4ed9201fecb5637dddb3a
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60769504"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955959"
 ---
 # <a name="autoscaling-and-app-service-environment-v1"></a>Automatisk skalning och App Service Environment v1
 
@@ -63,7 +63,7 @@ Automatisk skalning av App Service environment kan bäst illustreras genom att g
 Den här artikeln beskrivs alla nödvändiga överväganden när du ställer in automatisk skalning. Artikeln vägleder dig genom de interaktioner som har betydelse vid du räkna in automatisk skalning App Service-miljöer som finns i App Service Environment.
 
 ### <a name="scenario-introduction"></a>Scenario-introduktion
-Frank är en sysadmin för ett företag som har en del av de arbetsbelastningar som hanterar han till en App Service-miljö.
+Frank är en sysadmin för ett företag som har en del av arbetsbelastningarna som de hanterar till en App Service-miljö.
 
 App Service-miljö är konfigurerad att manuell skala enligt följande:
 
@@ -76,7 +76,7 @@ Arbetarpool 1 används för produktionsarbetsbelastningar medan arbetarpool 2 oc
 
 App Service-planer för QA och utveckling är konfigurerade att manuell skala. App Service-plan för produktion anges som automatisk skalning utan variationer i nätverksbelastningen och.
 
-Frank är insatt i programmet. Han känner att tiderna med högsta användningsnivå för är mellan 9:00:00 och 18:00, eftersom detta är en line-of-business (LOB) program som anställda använder när de är på kontoret. Användningen sjunker efter det när användare är klar för den dagen. Utanför högbelastningstid finns fortfarande vissa eftersom användarna kommer åt appen via en fjärranslutning med hjälp av sina mobila enheter eller hemdatorer. Produktion App Service-plan har redan konfigurerats för automatisk skalning baserat på CPU-användning med följande regler:
+Frank är insatt i programmet. De vet att tiderna med högsta användningsnivå för belastningen mellan 9:00:00 och 18:00 eftersom detta är en line-of-business (LOB) program som anställda använder när de är på kontoret. Användningen sjunker efter det när användare är klar för den dagen. Utanför högbelastningstid finns fortfarande vissa eftersom användarna kommer åt appen via en fjärranslutning med hjälp av sina mobila enheter eller hemdatorer. Produktion App Service-plan har redan konfigurerats för automatisk skalning baserat på CPU-användning med följande regler:
 
 ![Inställningar för LOB-app.][asp-scale]
 
@@ -104,7 +104,7 @@ Frank är insatt i programmet. Han känner att tiderna med högsta användningsn
 | **resursen:** Produktion (App Service Environment) |**resursen:** Produktion (App Service Environment) |
 | **Mått:** Processor i procent |**Mått:** Processor i procent |
 | **Åtgärd:** Mindre än 30% |**Åtgärd:** Mindre än 20% |
-| **Varaktighet:** 10 minuter |**Varaktighet:** 15 minuter |
+| **Varaktighet:** 10 minuter |**Varaktighet:** 15 minuter |
 | **Tidsmängd:** Medel |**Tidsmängd:** Medel |
 | **Åtgärd:** Minska antal med 1 |**Åtgärd:** Minska antal med 1 |
 | **Väntetid (minuter):** 20 |**Väntetid (minuter):** 10 |
@@ -166,7 +166,7 @@ Med den här informationen kan du definiera följande profilen för automatisk s
 | **resursen:** Arbetarpool 1 |**resursen:** Arbetarpool 1 |
 | **Mått:** WorkersAvailable |**Mått:** WorkersAvailable |
 | **Åtgärd:** Mindre än 8 |**Åtgärd:** Mindre än 3 |
-| **Varaktighet:** 20 minuter |**Varaktighet:** 30 minuter |
+| **Varaktighet:** 20 minuter |**Varaktighet:** 30 minuter |
 | **Tidsmängd:** Medel |**Tidsmängd:** Medel |
 | **Åtgärd:** Öka antal med 8 |**Åtgärd:** Öka antal med 3 |
 | **Väntetid (minuter):** 180 |**Väntetid (minuter):** 180 |
@@ -175,7 +175,7 @@ Med den här informationen kan du definiera följande profilen för automatisk s
 | **resursen:** Arbetarpool 1 |**resursen:** Arbetarpool 1 |
 | **Mått:** WorkersAvailable |**Mått:** WorkersAvailable |
 | **Åtgärd:** Större än 8 |**Åtgärd:** Är större än 3 |
-| **Varaktighet:** 20 minuter |**Varaktighet:** 15 minuter |
+| **Varaktighet:** 20 minuter |**Varaktighet:** 15 minuter |
 | **Tidsmängd:** Medel |**Tidsmängd:** Medel |
 | **Åtgärd:** Minska antal med 2 |**Åtgärd:** Minska antal med 3 |
 | **Väntetid (minuter):** 120 |**Väntetid (minuter):** 120 |
@@ -211,7 +211,7 @@ Det här scenariot vet Frank att Felfrekvensen ökar när klientdelar når 80% C
 | **resursen:** Adresspool på klientsidan |
 | **Mått:** Processor i procent |
 | **Åtgärd:** Större än 60% |
-| **Varaktighet:** 20 minuter |
+| **Varaktighet:** 20 minuter |
 | **Tidsmängd:** Medel |
 | **Åtgärd:** Öka antal med 3 |
 | **Väntetid (minuter):** 120 |

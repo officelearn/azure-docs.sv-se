@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: danlep
 ms.openlocfilehash: c72b6564109b39fa4f58eedca68361f6a28a422d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60512487"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66148906"
 ---
 > [!NOTE]
 > Docker Swarm Orchestrator i Azure Container Service använder äldre fristående versionen av Swarm. Det integrerade [Swarm-läget](https://docs.docker.com/engine/swarm/) (i Docker 1.12 och senare) är inte en orchestrator som stöds i Azure Container Service. Om du vill distribuera ett Swarm-lägeskluster i Azure använder du [ACS Engine](https://github.com/Azure/acs-engine/blob/master/docs/swarmmode.md) (öppen källkod), en [snabbstartsmall](https://azure.microsoft.com/resources/templates/101-acsengine-swarmmode/) (från communityn) eller en Docker-lösning på [Azure Marketplace](https://azuremarketplace.microsoft.com).

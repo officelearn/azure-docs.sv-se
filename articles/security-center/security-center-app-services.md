@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/27/2019
-ms.author: monhaber
-ms.openlocfilehash: ea738535ae9326109a7c3fdd0b5d0c4f4691fdf0
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.author: v-mohabe
+ms.openlocfilehash: b18267b1443b257a575bf2e1199b9f8fa8c419fc
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62095282"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65966803"
 ---
 # <a name="protect-app-service-with-azure-security-center"></a>Skydda App Service med Azure Security Center
 Den här artikeln hjälper dig att använda Azure Security Center att övervaka och skydda dina program som körs på App Service.
@@ -34,7 +34,7 @@ Security Center utnyttjar skalan för molnet för att identifiera attacker på d
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Du måste ha en App Service-plan som är associerad med dedikerade datorer för att övervaka och skydda dina App Service. Dessa är: Basic, Standard, Premium, isolerad eller Linux. Azure Security Center har inte stöd för prenumerationerna kostnadsfri, delad eller förbrukning. Mer information finns i [App Service-planer](https://azure.microsoft.com/pricing/details/app-service/plans/).
+Du måste ha en App Service-plan associerad med dedikerade datorer för att övervaka och skydda din App Service. Dessa planer är: Basic, Standard, Premium, Isolerad eller Linux. Azure Security Center stöder inte planerna Kostnadsfri, Delad eller Förbrukning. Mer information finns i [App Service-planer](https://azure.microsoft.com/pricing/details/app-service/plans/).
 
 ## <a name="security-center-protection"></a>Security Center-skydd
 

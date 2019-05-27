@@ -9,11 +9,11 @@ ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 9c59b98fb615266c193f997c01c83922c18d4408
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60679831"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66147915"
 ---
 *Värmer upp cachen*  
 Disken med cachelagring av ReadOnly-värden kan ge högre IOPS än gränsen på disk. Om du vill ha den här högsta läsprestanda från värd-cachen, måste först du värmt upp cachen för den här disken. Detta säkerställer att läsa IOs att benchmarking verktyget kommer att öka på CacheReads volym faktiskt når cachen och inte disken direkt. Cacheträffar resulterar i ytterligare IOPS från enkel cachen aktiverad disk.
@@ -68,12 +68,12 @@ Utför nedanstående steg värmt upp cache
    | RandomReads\_1 MB |1 MB |100 |100 |
 1. Köra Iometer test för att initiera disk i cachen med följande parametrar. Använd tre trådar för målvolymen och ett ködjup på 128. Ange ”körningstiden” varaktigheten för testet till 2 timmar på fliken ”testa inställningar”.
 
-   | Scenario | Målvolymen | Namn | Varaktighet |
+   | Scenario | Målvolymen | Namn | Giltighetstid |
    | --- | --- | --- | --- |
    | Initiera Disk i cachen |CacheReads |RandomWrites\_1 MB |2 timmar |
 1. Kör testet Iometer för uppvärmning disk i cachen med följande parametrar. Använd tre trådar för målvolymen och ett ködjup på 128. Ange ”körningstiden” varaktigheten för testet till 2 timmar på fliken ”testa inställningar”.
 
-   | Scenario | Målvolymen | Namn | Varaktighet |
+   | Scenario | Målvolymen | Namn | Giltighetstid |
    | --- | --- | --- | --- |
    | Varma upp Cachedisk |CacheReads |RandomReads\_1 MB |2 timmar |
 

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/18/2019
 ms.author: rogarana
 ms.openlocfilehash: 2936fd318f08c74675f7e8b382c861f4a28319fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60386364"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66148192"
 ---
 Du kan koppla ett antal datadiskar till en Azure virtuell dator. Baserat på mål för skalbarhet och prestanda för en virtuell dators datadiskar kan bestämma du antalet och typen av disk som du behöver för att uppfylla dina kapacitetskrav på prestanda och.
 
@@ -20,7 +20,7 @@ Du kan koppla ett antal datadiskar till en Azure virtuell dator. Baserat på må
 
 I följande tabell visas standardwebbplatsen och den gränsvärdena för antalet resurser per region per prenumeration
 
-> | Resurs | Standardgräns  | Övre gräns |
+> | Resource | Standardgräns  | Övre gräns |
 > | --- | --- | --- |
 > | Hanterade standarddiskar | 25,000 | 50,000 |
 > | Hanterade Standard SSD-diskar | 25,000 | 50,000 |

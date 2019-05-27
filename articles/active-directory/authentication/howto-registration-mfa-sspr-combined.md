@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc4ff596cdafd348288187b0cd9b32f7b4c2d275
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: cafe81a1b5ab6d26e71eff05e355d2ed79c4d5e7
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65823374"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66119388"
 ---
 # <a name="enable-combined-security-information-registration-preview"></a>Aktivera kombineras security information registrering (förhandsversion)
 
@@ -43,7 +43,7 @@ Utför stegen nedan för att aktivera registreringen av kombinerade:
 > Från och med mars 2019, är telefonsamtal alternativ inte tillgängliga för multi-Factor Authentication och SSPR-användare i kostnadsfria/utvärderingsversion Azure AD-klienter. SMS-meddelanden påverkas inte av den här ändringen. Telefonsamtal-alternativ kan fortfarande tillgängliga för användare i betalda Azure AD-klienter.
 
 > [!NOTE]
-> När du har aktiverat kombineras registreringen användare registrera eller bekräfta sina telefonnummer eller mobilappar via den nya upplevelsen kan använda dem för Multifaktorautentisering och SSPR, om dessa metoder är aktiverade i Multi-Factor Authentication och SSPR principer. Om du inaktiverar sedan den här upplevelsen kan användare gå till föregående SSPR-registrering sidan på `https:/aka.ms/ssprsetup` kommer att behöva utföra multifaktorautentisering innan de kan komma åt sidan.
+> När du har aktiverat kombineras registreringen användare registrera eller bekräfta sina telefonnummer eller mobilappar via den nya upplevelsen kan använda dem för Multifaktorautentisering och SSPR, om dessa metoder är aktiverade i Multi-Factor Authentication och SSPR principer. Om du inaktiverar sedan den här upplevelsen kan användare gå till föregående SSPR-registrering sidan på `https://aka.ms/ssprsetup` kommer att behöva utföra multifaktorautentisering innan de kan komma åt sidan.
 
 Om du har konfigurerat platser till zoner tilldelning i Internet Explorer, måste på följande webbplatser vara i samma zon:
 

@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/02/2019
-ms.openlocfilehash: 96abef29c5290770d296fb5053007e36d1eaf537
-ms.sourcegitcommit: eea74d11a6d6ea6d187e90e368e70e46b76cd2aa
+ms.openlocfilehash: a2a281fda9272fb794692becb0ca08f3cf791458
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65035443"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65989899"
 ---
 # <a name="create-and-explore-automated-machine-learning-experiments-in-the-azure-portal-preview"></a>Skapa och utforska automatiserade machine learning-experiment i Azure portal (förhandsversion)
 
@@ -40,7 +40,7 @@ Navigera till den vänstra rutan i din arbetsyta. Välj Automatisk Machine Learn
 
 ![Landningssida för Azure portal experiment](media/how-to-create-portal-experiments/landing-page.png)
 
-Annars ser du automatisk machine learning-instrumentpanel med en översikt över alla dina automatiserade machine learning-experiment, inklusive de som kör med SDK: N. Här kan du filtrera och utforska dina körningar efter datum, experimentera namn och Körningsstatus.
+Annars ser du automatisk machine learning-instrumentpanel med en översikt över alla dina automatiserade machine learning-experiment, inklusive de som skapats med SDK: N. Här kan du filtrera och utforska dina körningar efter datum, experimentera namn och Körningsstatus.
 
 ![Azure portal experiment instrumentpanel](media/how-to-create-portal-experiments/dashboard.png)
 
@@ -184,6 +184,63 @@ Utbildning jobb kan ta en stund för varje pipeline som ska slutföras.
 
 ![Iteration information](media/how-to-create-portal-experiments/iteration-details.png)
 
+## <a name="deploy-model"></a>Distribuera modell
+
+När du har den bästa modellen till hands, är det dags att distribuera den som en webbtjänst för att förutsäga på nya data.
+
+Automatiserad ML hjälper dig att distribuera modellen utan att skriva kod:
+
+1. Du har några alternativ för distribution. 
+    1. Om du vill distribuera den bästa modellen baserat på mått kriterier du anger experimentet väljer **distribuera modellen med bäst** från den **kör detalj** sidan.
+
+        ![Distribuera modell-knappen](media/how-to-create-portal-experiments/deploy-model-button.png)
+
+    1. Om du vill distribuera en viss iteration öka detaljnivån för modellen för att öppna appens specifika Detaljvyn sida och välj **distribuera modellen**.
+
+        ![Distribuera modell-knappen](media/how-to-create-portal-experiments/deploy-model-button2.png)
+
+1. Första steget är att registrera modellen i tjänsten. Välj ”registrera modellen” och vänta på att slutföra registreringen.
+
+    ![Distribuera modell-bladet](media/how-to-create-portal-experiments/deploy-model-blade.png)
+
+1. När modellen har registrerats kommer du att kunna ladda ned bedömningsskriptet (scoring.py) och skriptet miljö (condaEnv.yml) som ska användas under distributionen.
+
+1. Bedömningsskriptet och miljö-skript som laddas ned, gå till den **tillgångar** -bladet i den vänstra navigeringsfönstret och välj **modeller**.
+
+    ![Navigering fönstret modeller](media/how-to-create-portal-experiments/nav-pane-models.png)
+
+1. Välj den modell som du har registrerat och välj ”Skapa avbildning”.
+
+    Du kan identifiera modellen genom dess beskrivning, som inkluderar körnings-ID, iteration tal, i följande format: *< Run_ID > _ < Iteration_number > _Model*
+
+    ![Modeller: Skapa avbildning](media/how-to-create-portal-experiments/model-create-image.png)
+
+1. Ange ett namn för avbildningen. 
+1. Välj den **Bläddra** bredvid rutan ”bedömning fil” för att ladda upp bedömningsfilen (scoring.py) som du har hämtat tidigare.
+
+1. Välj den **Bläddra** bredvid rutan ”Conda-fil” för att överföra filen för miljön (condaEnv.yml) som du har hämtat tidigare.
+
+    Du kan använda dina egna bedömningsskript och conda-filen, samt överföra ytterligare filer. [Mer information om bedömning skriptet](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where#script).
+
+      >[!Important]
+      > Filnamn måste vara under 32 tecken och måste börja och sluta med alfanumeriska tecken. Kan innehålla bindestreck, understreck, punkter och alfanumeriska tecken mellan. Blanksteg är inte tillåtna.
+
+    ![Skapa avbildning](media/how-to-create-portal-experiments/create-image.png)
+
+1. Välj knappen ”Skapa” för att börja skapa avbildningar. Detta tar några minuter att slutföra när klar, visas ett meddelande i det översta fältet.
+1. Gå till fliken ”avbildningar”, markera kryssrutan bredvid den avbildning du vill distribuera och välj ”Skapa distribution”. [Mer information om distributioner](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where).
+
+    Det finns 2 alternativ för distribution.
+     + Azure Container Instance (ACI) – det här används mer för att testa syfte i stället för operativa distribution i stor skala. Se till att fylla i värdena för minst en core för _CPU-reserverad kapacitet_, och minst en gigabyte (GB) för _reserverad minneskapacitet_
+     + Azure Kubernetes Service (AKS)) – det här alternativet är för distribution i stor skala. Du måste ha ett AKS-baserad beräkning redo.
+
+     ![Bilder: Skapa distribution](media/how-to-create-portal-experiments/images-create-deployment.png)
+
+1. Välj **Skapa** när du är klar. Distribuera modellen kan ta flera minuter för varje pipeline som ska slutföras.
+
+1. Klart! Du har en operational webbtjänst för att generera förutsägelser.
+
 ## <a name="next-steps"></a>Nästa steg
 
 * [Läs mer om automatisk machine learning](concept-automated-ml.md) och Azure Machine Learning.
+* [Lär dig att använda en webbtjänst](https://docs.microsoft.com/azure/machine-learning/service/how-to-consume-web-service).

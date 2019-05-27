@@ -40,6 +40,8 @@
               href: connectivty-interoperability-data-plane.md?toc=%2fazure%2fnetworking%2ftoc.json
     - name: Begrepp
       items:
+        - name: Microsofts globala WAN-nätverk
+          href: azure-network.md
         - name: Virtuella nätverk
           href: ../virtual-network/virtual-networks-overview.md?toc=%2fazure%2fnetworking%2ftoc.json
         - name: Utjämning av nätverksbelastning
@@ -54,7 +56,7 @@
           href: ../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fnetworking%2ftoc.json
         - name: Anslut lokalt – särskilda
           href: ../expressroute/expressroute-introduction.md?toc=%2fazure%2fnetworking%2ftoc.json
-- name: Kom igång
+- name: Snabbstart
   items:
     - name: Skapa ditt första virtuella nätverk
       href: ../virtual-network/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json

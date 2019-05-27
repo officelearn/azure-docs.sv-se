@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/24/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 88123cc24359daaf1c6fc7e3ceeed8f77f717c9a
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: f4f2b93316c87a5e8ba572ca2b584dbd13f6536c
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65228015"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956947"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Hantera användarnas åtkomst i Azure Active Directory B2C
 
@@ -38,7 +38,7 @@ Om en användare identifieras som en mindre, kan du ange användarflödet i Azur
 
 - **Skicka en osignerad JSON-token till programmet**: Azure AD B2C meddelar programmet att användaren är en mindre och som visar status för användarens föräldrars tillstånd. Sedan fortsätter genom att använda affärsregler. En JSON-token inte att slutföra en lyckad autentisering med programmet. Programmet måste bearbeta oautentiserad användare enligt de anspråk som ingår i JSON-token som kan innehålla **namn**, **e-post**, **ageGroup**, och **consentProvidedForMinor**.
 
-- **Blockera användaren**: Om en användare är en mindre och föräldrars tillstånd har inte angetts, meddela Azure AD B2C användaren att han eller hon är blockerad. Ingen token utfärdas, blockeras åtkomsten och användarkontot har inte skapats under en registrerings-resa. För att implementera det här meddelandet, kan du ange en lämplig HTML/CSS-innehållssida för att informera användaren och finns lämpliga alternativ. Ingen ytterligare åtgärd krävs av programmet för nya registreringar.
+- **Blockera användaren**: Om en användare är en mindre och föräldrars tillstånd har inte angetts, meddela Azure AD B2C användaren att de är blockerad. Ingen token utfärdas, blockeras åtkomsten och användarkontot har inte skapats under en registrerings-resa. För att implementera det här meddelandet, kan du ange en lämplig HTML/CSS-innehållssida för att informera användaren och finns lämpliga alternativ. Ingen ytterligare åtgärd krävs av programmet för nya registreringar.
 
 ## <a name="get-parental-consent"></a>Hämta föräldrars tillstånd
 
@@ -48,7 +48,7 @@ Följande är ett exempel på ett användarflöde för att samla in föräldrars
 
 1. En [Azure Active Directory Graph API](/previous-versions/azure/ad/graph/api/api-catalog) åtgärden identifierar användaren som minderårig och returnerar användarens data till programmet i form av en osignerad JSON-token.
 
-2. Programmet bearbetar JSON-token och visar en skärm till mindre, meddela honom eller henne att föräldrars tillstånd krävs och begära medgivande från en överordnad online. 
+2. Programmet bearbetar JSON-token och visar en skärm till mindre, meddela dem om att föräldrars tillstånd krävs och begära medgivande från en överordnad online. 
 
 3. Azure AD B2C visar en inloggning resa att användaren kan logga in på normalt och utfärdar en token till det program som har angetts att inkludera **legalAgeGroupClassification = ”minorWithParentalConsent”**. Programmet samlar in e-postadressen till överordnat och kontrollerar att överordnat är en vuxen. Om du vill göra det använder en betrodd källa, till exempel en nationell ID office, Licensverifiering eller kreditkort bevis. Om verifieringen lyckas uppmanar programmet mindre att logga in med hjälp av Azure AD B2C-användarflödet. Om medgivande nekas (till exempel om **legalAgeGroupClassification = ”minorWithoutParentalConsent”**), Azure AD B2C returnerar en JSON-token (inte en inloggning) i program för att starta om processen för medgivande. Det är också möjligt att anpassa användarflödet så att en mindre eller en vuxen kan få åtkomst till en mindre konto genom att skicka en Registreringskod till det mindre e-postadress eller det vuxen e-postadress på posten.
 

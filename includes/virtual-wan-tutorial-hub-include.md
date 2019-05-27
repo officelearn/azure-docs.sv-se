@@ -9,11 +9,11 @@ ms.date: 02/27/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 0a81d8c97b916fd15e7be5fde05e9ea25ba1151d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60457887"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66150803"
 ---
 En hubb innehåller gatewayen. När hubben har skapats debiteras du för hubben, även om du inte kopplar några platser. Det tar 30 minuter att skapa hubben och gateway.
 
@@ -23,6 +23,6 @@ En hubb innehåller gatewayen. När hubben har skapats debiteras du för hubben,
 
    * Location
    * Namn
-   * Privat adressutrymme för hubb
+   * Privat adressområde för hubb
 
 Klicka på **Bekräfta** för att skapa hubben. Klicka på **uppdatera** visa hubben på den **Hubs** sidan.

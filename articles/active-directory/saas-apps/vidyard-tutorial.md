@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 94e5893caa4dc19702f45e9b42727aab4f884bcd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5ff939fa514e067c26daf609270ef49de8c16db2
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65865529"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66143167"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vidyard"></a>Självstudier: Azure Active Directory-integrering med Vidyard
 
@@ -180,7 +180,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Vidyard
     ![Vidyard konfiguration](./media/vidyard-tutorial/configure6.png)
 
     > [!NOTE]
-    > Mer information finns [det här dokumentet](https://knowledge.vidyard.com/saml-single-sign-on-authentication/saml-based-single-sign-on-sso-in-vidyard).
+    > Mer information finns i [det här dokumentet](https://knowledge.vidyard.com/hc/articles/360009990033-SAML-based-Single-Sign-On-SSO-in-Vidyard).
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 

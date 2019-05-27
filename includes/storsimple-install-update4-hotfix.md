@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 0755c01fe8e13e8e39c0b453198f2b67c51a2bc4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60860519"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66149610"
 ---
 #### <a name="to-download-hotfixes"></a>Ladda ned snabbkorrigerar
 
@@ -92,7 +92,7 @@ Utför följande steg för att installera och verifiera snabbkorrigeringar i nor
     > [!NOTE]
     > I vissa fall rapporterar cmdlet `False` när uppdateringen fortfarande pågår. Om du vill kontrollera att snabbkorrigeringen har slutförts väntar du några minuter och sedan kör du det här kommandot igen och kontrollerar att `RunInProgress` är `False`. Om det har det har snabbkorrigeringen slutförts.
 
-6. När programuppdateringen har slutförts kan du kontrollera systemprogramversionerna. Ange:
+6. När programuppdateringen har slutförts kan du kontrollera systemprogramversionerna. Typ:
    
     `Get-HcsSystem`
    
@@ -123,7 +123,7 @@ Observera att om den inbyggda programvaran för disken redan är uppdaterad så 
 
 Följ anvisningarna nedan om du vill installera uppdateringarna för den inbyggda programvaran för disken.
 
-1. Sätt enheten i underhållsläge. **Observera att du inte bör använda Windows PowerShell-fjärrkommunikation när du ansluter till en enhet i underhållsläge. I stället kan du köra den här cmdleten på enhetens styrenhet när du är ansluten via enhetens seriekonsol.** Ange:
+1. Sätt enheten i underhållsläge. **Observera att du inte bör använda Windows PowerShell-fjärrkommunikation när du ansluter till en enhet i underhållsläge. I stället kan du köra den här cmdleten på enhetens styrenhet när du är ansluten via enhetens seriekonsol.** Typ:
    
     `Enter-HcsMaintenanceMode`
    
@@ -164,7 +164,7 @@ Följ anvisningarna nedan om du vill installera uppdateringarna för den inbyggd
         [Y] Yes [N] No (Default is "Y"): Y
         WARNING: Installation is currently in progress. This operation can take several minutes to complete.
 3. Övervaka installationsförloppet med `Get-HcsUpdateStatus`-kommandot. Uppdateringen är slutförd när `RunInProgress` ändras till `False`.
-4. När installationen är färdig startas styrenheten som snabbkorrigeringen i underhållsläge installerades på om. Logga i alternativ 1, **logga in med fullständig åtkomst**, och kontrollera versionen för inbyggd programvara för disk. Ange:
+4. När installationen är färdig startas styrenheten som snabbkorrigeringen i underhållsläge installerades på om. Logga i alternativ 1, **logga in med fullständig åtkomst**, och kontrollera versionen för inbyggd programvara för disk. Typ:
    
    `Get-HcsFirmwareVersion`
    

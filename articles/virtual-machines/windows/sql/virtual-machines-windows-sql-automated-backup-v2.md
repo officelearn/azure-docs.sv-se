@@ -16,11 +16,11 @@ ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 540acd1735eb539ecaac468e74511ba5f751278f
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57780022"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66165692"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Automatisk säkerhetskopiering v2 för virtuella Azure-datorer (Resource Manager)
 
@@ -32,7 +32,7 @@ Automatiserad säkerhetskopiering v2 konfigurerar automatiskt [hanterad säkerhe
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 För att använda automatisk säkerhetskopiering v2, gå igenom följande krav:
 
 **Operativsystemet**:
@@ -107,7 +107,7 @@ Du har en SQL Server VM som innehåller ett antal stora databaser.
 
 På måndag aktiverar du automatisk säkerhetskopiering v2 med följande inställningar:
 
-- Schema för säkerhetskopiering: Manuellt
+- Schema för säkerhetskopiering: Manuell
 - Frekvens för fullständig säkerhetskopiering: Dagligen
 - Starttid för fullständig säkerhetskopiering: 22:00
 - Tidsperiod för fullständig säkerhetskopiering: 6 timmar

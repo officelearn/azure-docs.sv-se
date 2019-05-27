@@ -9,11 +9,11 @@ ms.date: 10/24/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 35f987f26ce47c19e3d5eb1ca5d2bb32d0c7ad1b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60407802"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66170070"
 ---
 1. Till vänster på portalen klickar du på **+** och skriver ”Virtuell nätverksgateway” i sökrutan. I **Resultat** letar du upp och klickar på **Virtuell nätverksgateway**.
 2. Klicka på **Skapa** längst ned på sidan ”Virtuell nätverksgateway”. Då öppnas sidan **Skapa virtuell nätverksgateway**.
@@ -21,7 +21,7 @@ ms.locfileid: "60407802"
 
     ![Fält på sidan Skapa virtuell nätverksgateway](./media/vpn-gateway-add-gateway-portal-include/create-gateway.png "Ny gateway")
 
-   - **Namn**: Namnge din gateway. Det här är inte samma sak som att namnge ett gateway-undernät. Det här är namnet på det gatewayobjekt som du skapar.
+   - **Namn på**: Namnge din gateway. Det här är inte samma sak som att namnge ett gateway-undernät. Det här är namnet på det gatewayobjekt som du skapar.
    - **Gateway-typ**: Välj **VPN**. En VPN-gateway använder **VPN** som virtuell nätverksgateway. 
    - **VPN-typ**: Välj den VPN-typ som har angetts för din konfiguration. De flesta konfigurationer kräver en ruttbaserad VPN-typ.
    - **SKU**: Välj gatewayen-SKU i listrutan. SKU:erna som visas i listrutan beror på vilken VPN-typ du har valt. Se [Gateway-SKU:er](../articles/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku) för information om gateway-SKU:er.

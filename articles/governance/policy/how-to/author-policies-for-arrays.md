@@ -7,12 +7,12 @@ ms.date: 03/06/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 38cf6decb8e61768faa9680058f6366e1550ba40
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 479f77791a0b035f2d1de6085dfb12f5196288ee
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60498771"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979330"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Skapa principer för matris egenskaper på Azure-resurser
 
@@ -185,7 +185,7 @@ För varje villkor exemplet nedan ersätter `<field>` med `"field": "Microsoft.S
 
 Följande resultat är resultatet av en kombination av villkoret och exempel principregeln och matrisen med befintliga värdena ovan:
 
-|Tillstånd |Resultat |Förklaring |
+|Villkor |Resultat |Förklaring |
 |-|-|-|
 |`{<field>,"notEquals":"127.0.0.1"}` |Inget |Ett matriselement utvärderas som false (127.0.0.1! = 127.0.0.1) och en som true (127.0.0.1! = 192.168.1.1) och **notEquals** villkoret är _FALSKT_ och effekten utlöses inte. |
 |`{<field>,"notEquals":"10.0.4.1"}` |Principens effekt |Båda matriselement utvärderas som true (10.0.4.1! = 127.0.0.1 och 10.0.4.1! = 192.168.1.1) och **notEquals** villkoret är _SANT_ och effekten blir utlöst. |
@@ -207,9 +207,9 @@ Mer information finns i den [lägger du till exempel](../concepts/effects.md#app
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Se exempel på [Azure Policy-exempel](../samples/index.md)
-- Granska den [Policy-definitionsstruktur](../concepts/definition-structure.md)
-- Granska [förstå effekterna av princip](../concepts/effects.md)
-- Förstå hur du [skapa principer programmässigt](programmatically-create.md)
-- Lär dig hur du [åtgärda icke-kompatibla resurser](remediate-resources.md)
-- Se över vad en hanteringsgrupp är med sidan om att [organisera dina resurser med Azure-hanteringsgrupper](../../management-groups/overview.md)
+- Se exempel på [Azure Policy-exempel](../samples/index.md).
+- Granska [Azure Policy-definitionsstrukturen](../concepts/definition-structure.md).
+- Granska [Förstå policy-effekter](../concepts/effects.md).
+- Förstå hur du [skapa principer programmässigt](programmatically-create.md).
+- Lär dig hur du [åtgärda icke-kompatibla resurser](remediate-resources.md).
+- Granska vilka en hanteringsgrupp är med [organisera dina resurser med Azure-hanteringsgrupper](../../management-groups/overview.md).

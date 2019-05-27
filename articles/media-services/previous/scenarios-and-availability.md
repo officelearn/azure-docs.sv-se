@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 0cae2befad1b0cd2d6a093387c41aac8ccdfff7d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 930420240d7b0f116f72056404e809ca94820f11
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64719231"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991434"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Scenarier och tillgängligheten för Media Services-funktioner i datacenter
 
@@ -207,17 +207,16 @@ Media Analytics är en samling tal- och visionskomponenter som gör det enklare 
 
 |Namn på mediebearbetare|Status|Datacenter
 |---|---|---|
-|Azure Media Face Detector|Förhandsversion|Alla|
-|Azure Media Hyperlapse|Förhandsversion|Alla|
+|Azure Media Face Detector|Förhandsgranska|Alla|
 |Azure Media Indexer|Allmän tillgänglighet (GA)|Alla|
-|Azure Media Motion Detector|Förhandsversion|Alla|
-|Azure Media OCR|Förhandsversion|Alla|
-|Azure Media Redactor|Förhandsversion|Alla|
-|Azure Media Stabilizer|Förhandsversion|Alla|
-|Azure Media Video Thumbnails|Förhandsversion|Alla|
-|Azure Media Indexer 2|Förhandsversion|Allt utom Kina och federala myndigheter|
+|Azure Media Motion Detector|Förhandsgranska|Alla|
+|Azure Media OCR|Förhandsgranska|Alla|
+|Azure Media Redactor|Förhandsgranska|Alla|
+|Azure Media Stabilizer|Förhandsgranska|Alla|
+|Azure Media Video Thumbnails|Förhandsgranska|Alla|
+|Azure Media Indexer 2|Förhandsgranska|Allt utom Kina och federala myndigheter|
 
-### <a name="protection"></a>Skydd
+### <a name="protection"></a>Säkerhet
 
 Med Microsoft Azure Media Services kan du skydda dina mediefiler från att filerna lämnar din dator och medan de lagras, bearbetas och levereras. Mer information finns i avsnittet om att [skydda AMS-innehåll](media-services-content-protection-overview.md).
 
@@ -261,6 +260,6 @@ Granska sökvägarna för Media Services-utbildning.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Ge feedback
+## <a name="provide-feedback"></a>Lämna feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

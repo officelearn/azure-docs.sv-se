@@ -9,11 +9,11 @@ ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: ''
 ms.openlocfilehash: 57212da1a8da7ee6c57faf2413b88a413df04817
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57315137"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66129534"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-data-store-for-a-windows-virtual-machine-classic"></a>Skicka gäst-OS mått till Azure Monitor-datalager för en Windows-dator (klassisk)
 
@@ -27,7 +27,7 @@ Lagra dem i den här platsen kan du komma åt samma åtgärder som du gör platt
 
 Processen som beskrivs i den här artikeln fungerar bara på klassiska virtuella datorer som kör Windows-operativsystem.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Du måste vara en [tjänstadministratör eller delad administratör](../../billing/billing-add-change-azure-subscription-administrator.md) på din Azure-prenumeration. 
 

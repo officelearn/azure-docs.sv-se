@@ -15,11 +15,11 @@ ms.date: 12/11/2017
 ms.author: msangapu;cephalin
 ms.custom: seodec18
 ms.openlocfilehash: b5f75ded0b51b78d56354bf97b5ebb0488022509
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635756"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66136897"
 ---
 # <a name="create-a-scheduled-backup-for-an-app-service-app-using-cli"></a>Skapa en schemalagd säkerhetskopiering för en App Service-app med hjälp av CLI
 

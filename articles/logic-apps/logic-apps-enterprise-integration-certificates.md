@@ -12,11 +12,11 @@ ms.suite: integration
 ms.topic: article
 ms.date: 08/17/2018
 ms.openlocfilehash: 38bc1615c0849a33ddfa5790a66fc05d681ce339
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244937"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66167184"
 ---
 # <a name="secure-b2b-messages-with-certificates"></a>Säkra B2B-meddelanden med certifikat
 
@@ -50,7 +50,7 @@ Du använder en *offentligt certifikat* i logic apps som har B2B-funktioner mås
    | Egenskap  | Värde | Beskrivning | 
    |----------|-------|-------------|
    | **Namn** | <*certificate-name*> | Namn på certifikat som är ”publicCert” i det här exemplet | 
-   | **Certifikattyp** | Offentligt | Din certifikattyp |
+   | **Certifikattyp** | Offentlig | Din certifikattyp |
    | **Certifikat** | <*certificate-file-name*> | För att hitta och markera den certifikatfil du vill ladda upp, Välj mappikonen bredvid den **certifikat** box. |
    ||||
 

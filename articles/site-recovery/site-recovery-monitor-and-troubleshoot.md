@@ -6,13 +6,13 @@ manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.author: rayne-wiselman
-ms.openlocfilehash: 605421196c2ec7f62826e2f6c823d50262af8144
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: raynew
+ms.openlocfilehash: 8a3c9a4fb1b43c1d00d66fee3548ccd10a1e075e
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61278162"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65969386"
 ---
 # <a name="monitor-site-recovery"></a>Övervaka Site Recovery
 
@@ -38,9 +38,9 @@ Avsnittet replikerade objekt som visar hälsotillståndet för alla datorer som 
 **tillstånd** | **Detaljer**
 --- | ---
 Felfri | Replikeringen körs normalt. Inga fel eller varning symptom identifieras.
-Varning | En eller flera varningar problem som kan påverka replikering identifieras.
-Kritisk | En eller flera kritisk replikering Fel Symptom har identifierats.<br/><br/> Problemen fel är vanligtvis indikatorer att replikeringen har fastnat eller inte så snabbt som de dataändringshastighet.
-Inte tillämpligt | Servrar som inte är för närvarande förväntas vara replikeras. Detta kan innehålla datorer som har redundansväxlats.
+Varning! | En eller flera varningar problem som kan påverka replikering identifieras.
+Kritiska | En eller flera kritisk replikering Fel Symptom har identifierats.<br/><br/> Problemen fel är vanligtvis indikatorer att replikeringen har fastnat eller inte så snabbt som de dataändringshastighet.
+Saknas | Servrar som inte är för närvarande förväntas vara replikeras. Detta kan innehålla datorer som har redundansväxlats.
 
 ## <a name="monitor-test-failovers"></a>Övervaka redundanstestning
 
@@ -53,7 +53,7 @@ Du kan visa status för test-redundans för virtuella datorer i valvet.
 --- | ---
 Test som rekommenderas | Datorer som inte har haft ett redundanstest sedan skyddet aktiverades.
 Genomfördes | Datorer med eller mer framgångsrika redundanstestningen.
-Inte tillämpligt | Datorer som inte är för närvarande är berättigade till ett redundanstest. Datorer som har redundansväxlats, har till exempel inledande replikering/redundanstest/redundansväxling pågår.
+Saknas | Datorer som inte är för närvarande är berättigade till ett redundanstest. Datorer som har redundansväxlats, har till exempel inledande replikering/redundanstest/redundansväxling pågår.
 
 ## <a name="monitor-configuration-issues"></a>Problem med konfigurationen av Övervakare
 

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
 ms.openlocfilehash: ff7ba04271c150018f2c55b62e40542a686608cf
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55904981"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66140889"
 ---
 ## <a name="create-client"></a>Skapa en klientanslutning
 Skapa en klientanslutning genom att skapa ett `WindowsAzure.MobileServiceClient`-objekt.  Ersätt `appUrl` med URL-adressen till din mobilapp.

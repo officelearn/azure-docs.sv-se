@@ -8,11 +8,11 @@ ms.topic: tutorial
 ms.date: 4/17/2019
 ms.author: victorh
 ms.openlocfilehash: f3ba3eb12dc85a72c4e49c374e62209b83400d33
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59677858"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66134410"
 ---
 # <a name="tutorial-configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Självstudier: Konfigurera en Programgateway med SSL-avslutning med Azure portal
 
@@ -30,7 +30,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="sign-in-to-azure"></a>Logga in på Azure
+## <a name="sign-in-to-azure"></a>Logga in till Azure
 
 Logga in på Azure-portalen på [https://portal.azure.com](https://portal.azure.com)
 
@@ -81,7 +81,7 @@ Det krävs ett virtuellt nätverk för kommunikation mellan de resurser som du s
    - *myBackendSubnet* – Undernätsnamnet.
    - *10.0.0.0/24* – Undernätets adressutrymme.
 
-     ![Skapa det virtuella nätverket](./media/create-ssl-portal/application-gateway-vnet.png)
+     ![Skapa virtuellt nätverk](./media/create-ssl-portal/application-gateway-vnet.png)
 
 6. Välj **OK** att skapa virtuellt nätverk och undernät.
 7. Välj **välja en offentlig IP-adress**väljer **Skapa nytt**, och ange sedan namnet på den offentliga IP-adressen. I det här exemplet heter den offentliga IP-adressen *myAGPublicIPAddress*. Godkänn standardvärdena för de andra inställningarna och välj sedan **OK**.

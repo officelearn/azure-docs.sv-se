@@ -9,11 +9,11 @@ ms.date: 02/19/2018
 ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: d1e7fa1ed1649508f0d4923db8817d17ad556ca1
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64951575"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66164598"
 ---
 När du distribuerar resurser till Azure får du en enorm flexibilitet för att bestämma vilka typer av resurser som ska distribueras, var de finns och hur du konfigurerar dem. Den flexibiliteten kan dock möjliggöra fler alternativ än vad du vill tillåta i din organisation. När du planerar att distribuera resurser till Azure undrar du kanske:
 

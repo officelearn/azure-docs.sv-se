@@ -5,15 +5,15 @@ services: expressroute
 author: mialdrid
 ms.service: expressroute
 ms.topic: overview
-ms.date: 10/18/2018
+ms.date: 05/20/2019
 ms.author: mialdrid
 ms.custom: seodec18
-ms.openlocfilehash: 56baabb95a7873b48a27943a58b8e26c56efb6b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9b13c57728c43e02f7ebf9d7730d82d681f5fc1f
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60364354"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65965874"
 ---
 # <a name="expressroute-overview"></a>Översikt över ExpressRoute
 Med ExpressRoute kan du utöka ditt lokala nätverk till Microsoft-molnet över en privat anslutning som tillhandahålls av en anslutningsprovider. Med ExpressRoute kan du upprätta anslutningar till Microsofts molntjänster, till exempel Microsoft Azure, Office 365 och Dynamics 365.
@@ -59,8 +59,11 @@ Du kan ansluta till Microsoft på någon av våra [peeringplatser](expressroute-
 
 Om du exempelvis ansluter till Microsoft i Amsterdam via ExpressRoute kommer du ha åtkomst till alla Microsoft-molntjänster som finns i Europa, norra och Europa, västra. En översikt över geopolitiska regioner, tillhörande Microsoft-molnområden och motsvarande ExpressRoute-peeringplatser finns i [ExpressRoute-partners och peeringplatser](expressroute-locations.md).
 
-### <a name="global-connectivity-with-expressroute-premium-add-on"></a>Global anslutning med ExpressRoutes premiumtillägg
-Du kan aktivera ExpressRoutes premiumtillägg om du vill utöka anslutningen över geopolitiska gränser. Om du till exempel ansluter till Microsoft i Amsterdam via ExpressRoute får du åtkomst till alla Microsoft-molntjänster som finns i alla regioner över hela världen (med undantag för nationella moln). Du kan komma åt tjänster som distribueras i Sydamerika eller Australien på samma sätt som du har åtkomst till regionerna Europa, norra och Europa, västra.
+### <a name="global-connectivity-with-expressroute-premium"></a>Global anslutning med ExpressRoute Premium
+Du kan aktivera [ExpressRoute Premium](expressroute-faqs.md) vill utöka anslutningen över geopolitiska gränser. Om du till exempel ansluter till Microsoft i Amsterdam via ExpressRoute får du åtkomst till alla Microsoft-molntjänster som finns i alla regioner över hela världen (med undantag för nationella moln). Du kan komma åt tjänster som distribueras i Sydamerika eller Australien på samma sätt som du har åtkomst till regionerna Europa, norra och Europa, västra.
+
+### <a name="local-connectivity-with-expressroute-local"></a>Lokal anslutning med ExpressRoute lokala
+Du kan överföra data kostnadseffektivt genom att aktivera den [lokala SKU](expressroute-faqs.md) om du kan hämta dina data till en ExpressRoute-plats nära dina önskade Azure-region. Med lokal ingår dataöverföring i kostnaden för ExpressRoute-port. 
 
 ### <a name="across-on-premises-connectivity-with-expressroute-global-reach"></a>Lokal anslutning till flera platser med ExpressRoute Global Reach
 Du kan aktivera ExpressRoute Global Reach för att utbyta data på dina olika lokala platser genom att ansluta ExpressRoute-kretsarna. Om du till exempel har ett privat datacenter i Kalifornien som är anslutet till ExpressRoute i Silicon Valley och ett annat privat datacenter anslutet till ExpressRoute i Dallas kan du, med ExpressRoute Global Reach, ansluta dina privata datacenter till varandra genom två ExpressRoute-kretsar. Din trafik över datacenter passerar genom Microsofts nätverk.
@@ -108,7 +111,7 @@ Du kan välja den faktureringsmodell som passar dig bäst. Välj mellan fakturer
   * Global anslutning för tjänster. En ExpressRoute-krets som skapats i en region (exklusive nationella moln) har åtkomst till resurser i alla andra regioner i världen. Till exempel kan ett virtuellt nätverk som skapats i västra Europa nås via en ExpressRoute-krets som etablerats i Silicon Valley.
   * Ökat antal VNet-länkar per ExpressRoute-krets från 10 till en högre gräns, beroende på kretsens bandbredd.
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor
 Vanliga frågor om ExpressRoute finns i [Vanliga frågor och svar om ExpressRoute](expressroute-faqs.md).
 
 ## <a name="next-steps"></a>Nästa steg

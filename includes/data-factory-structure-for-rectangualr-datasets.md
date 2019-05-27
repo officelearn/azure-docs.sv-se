@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: 1ab404b838af65dcb75395dfeee1ca0553e497a1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60309205"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66122533"
 ---
 ## <a name="specifying-structure-definition-for-rectangular-datasets"></a>Ange strukturdefinition för rektangulära datauppsättningar
 Avsnittet strukturen i datauppsättningar JSON är en **valfritt** för rektangulär tabeller (med rader och kolumner) och innehåller en uppsättning kolumner för tabellen. Du använder avsnittet struktur för antingen givande anger du följande information typkonverteringar eller göra kolumnmappningarna. I följande avsnitt beskrivs de här funktionerna i detalj. 
@@ -20,8 +20,8 @@ Varje kolumn innehåller följande egenskaper:
 | --- | --- | --- |
 | namn |Namnet på kolumnen. |Ja |
 | typ |Datatypen för kolumnen. Se typen konverteringar avsnittet nedan finns mer information om när ska du ange typinformation |Nej |
-| kultur |.NET baserade språkmiljö som ska användas när typ har angetts och .NET-typen Datetime eller Datetimeoffset. Standardvärdet är ”en-us”. |Nej |
-| Format |Formatera strängen som ska användas när typ har angetts och är .NET typen Datetime eller Datetimeoffset. |Nej |
+| culture |.NET baserade språkmiljö som ska användas när typ har angetts och .NET-typen Datetime eller Datetimeoffset. Standardvärdet är ”en-us”. |Nej |
+| format |Formatera strängen som ska användas när typ har angetts och är .NET typen Datetime eller Datetimeoffset. |Nej |
 
 I följande exempel visas avsnittet struktur JSON för en tabell med tre kolumner användar-ID, namn och lastlogindate.
 
@@ -53,12 +53,12 @@ Data factory stöder följande CLS kompatibla .NET baserat typvärden för att t
 * Double
 * Decimal
 * Byte[]
-* Booleskt
+* Bool
 * String 
 * Guid
-* DateTime
+* Datetime
 * Datetimeoffset
-* Tidsintervall 
+* Timespan 
 
 Du kan även ange ”kultur” & ”format” sträng för att underlätta tolkning av din anpassade Datetime-sträng för Datetime & Datetimeoffset. Se exempel för typkonvertering nedan.
 

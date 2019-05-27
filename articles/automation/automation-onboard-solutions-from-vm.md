@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: bf81b862f978d4baab0907dc9002564062ec5228
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 38b5b233d21c0c5d79d7bcb6a145e6232b238b0e
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60738929"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66133127"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Publicera lösningar från Azure-datorer som uppdateringshantering, ändringsspårning och inventering
 
 Azure Automation tillhandahåller lösningar som hjälper dig hantera säkerhetsuppdateringar för operativsystemet, spåra ändringar och inventering vad som är installerat på datorerna. Det finns flera sätt att registrera datorer. Du kan registrera lösningen från en virtuell dator, [från ditt Automation-konto](automation-onboard-solutions-from-automation-account.md), [från flera datorer-surfning](automation-onboard-solutions-from-browse.md), eller genom att använda en [runbook](automation-onboard-solutions.md). Den här artikeln beskrivs registrering dessa lösningar från Azure-datorer.
 
-## <a name="sign-in-to-azure"></a>Logga in på Azure
+## <a name="sign-in-to-azure"></a>Logga in till Azure
 
 Logga in på Azure Portal på https://portal.azure.com.
 
@@ -104,6 +104,8 @@ Om du har använt Starta/stoppa virtuella datorer vid låg belastning på nätve
 * Starta och stoppa scheman för VM-runbook
 * Starta och stoppa Virtuella runbooks
 * Variabler
+
+Du kan också du kan också ta bort länken till din arbetsyta från ditt Automation-konto från Log Analytics-arbetsytan. På arbetsytan och välj **Automatiseringskontot** under **relaterade resurser**. På sidan Automation-konto väljer **Avlänka konto**.
 
 ## <a name="next-steps"></a>Nästa steg
 

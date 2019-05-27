@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: d0ef3e407fd256b4db351f86b51964cbcb16e819
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d1bad50f2d97434865bb02ad54b1643c54e01790
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60747820"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65953024"
 ---
 # <a name="safely-install-and-operate-your-azure-data-box"></a>Installera och använda Azure Data box-enhet på ett säkert sätt
 ![Varningsikon](./media/data-box-safety/warning_icon.png)
@@ -116,7 +116,7 @@ Eller ändringar som gjorts till den enhet som inte uttryckligen har godkänts a
 
 ![Observera ikonen](./media/data-box-safety/notice_icon.png) **meddelande:** 
 
-Den här utrustning har testats och efterlevnaden gränser för en klass A digital enhet, i enlighet med 15 tillhör FCC-regler. Dessa gränser är utformade för att ge rimliga skydd mot skadlig störning när utrustningen som körs i en kommersiell miljö. Den här utrustning genererar, använder, och kan bestråla alternativknapp frekvensen energi och, om inte installeras och användas i enlighet med bruksanvisningen, som kan orsaka skadlig störning radio kommunikation. Användning av den här utrustningen i en lokal område är kan orsaka skadlig störning i vilket fall användaren kommer att behöva korrigera störningar på sin egen bekostnad.
+Den här utrustning har testats och efterlevnaden gränser för en klass A digital enhet, i enlighet med 15 tillhör FCC-regler. Dessa gränser är utformade för att ge rimliga skydd mot skadlig störning när utrustningen som körs i en kommersiell miljö. Den här utrustning genererar, använder, och kan bestråla alternativknapp frekvensen energi och, om inte installeras och användas i enlighet med bruksanvisningen, som kan orsaka skadlig störning radio kommunikation. Användning av den här utrustningen i en lokal område är kan orsaka skadlig störning i vilket fall användaren kommer att behöva korrigera störningar på egen bekostnad.
 
 Den här enheten uppfyller del 15 av FCC regler och branschen Kanada licens undantagna RSS standarder. Åtgärden lyder under följande villkor: (1) den här enheten inte kan orsaka skadlig störning och (2) den här enheten måste godkänna alla störningar som tagits emot, inklusive störningar som kan orsaka oönskade driften av enheten.
 

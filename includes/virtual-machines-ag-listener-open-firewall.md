@@ -1,16 +1,15 @@
 ---
-author: rockboyfor
+author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-origin.date: 10/26/2018
-ms.date: 11/26/2018
-ms.author: v-yeche
+ms.date: 10/26/2018
+ms.author: cynthn
 ms.openlocfilehash: e128f3c67a41322d9c25a8d6941e937729760bf4
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62097701"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66165389"
 ---
 I det här steget ska du skapa en brandväggsregel för att öppna avsökningsporten för slutpunkten för Utjämning av nätverksbelastning (enligt vad som anges tidigare 59999) och en annan regel för att öppna porten för tillgänglighetsgruppens lyssnare. Eftersom du har skapat den belastningsutjämnade slutpunkten på de virtuella datorerna som innehåller tillgänglighetsgrupprepliker måste du öppna avsökningsporten och lyssningsport på respektive virtuella datorer.
 
@@ -30,4 +29,3 @@ I det här steget ska du skapa en brandväggsregel för att öppna avsökningspo
 
 8. Upprepa föregående steg för porten för tillgänglighetsgruppens lyssnare (som anges tidigare i parametern $EndpointPort för skriptet) och ange sedan ett lämpligt namn, till exempel **alltid på lyssningsport**.
 
-<!-- Update_Description: update meta properties -->

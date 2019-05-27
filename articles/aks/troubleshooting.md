@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: d1c1ed7388ff55e4f17559742054cea973f65ba7
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: f0b0ff3ff4ac742a7e850798c736eb31098f66e8
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192279"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65966391"
 ---
 # <a name="aks-troubleshooting"></a>AKS felsökning
 
@@ -118,3 +118,15 @@ Namngivningsbegränsningar implementeras av både Azure-plattformen och AKS. Om 
 
 * AKS *MC_* resursgruppens namn kombinerar resursgruppens namn och resursnamn. Den automatisk genererade syntaxen för `MC_resourceGroupName_resourceName_AzureRegion` får inte vara större än 80 tecken. Om det behövs kan du minska längden på din resursgruppens namn eller ett AKS-klusternamnet.
 * Den *dnsPrefix* måste börja och sluta med alfanumeriska värden. Giltiga tecken är alfanumeriska värden och bindestreck (-). Den *dnsPrefix* får inte innehålla specialtecken, till exempel en punkt (.).
+
+## <a name="im-receiving-errors-when-trying-to-create-update-scale-delete-or-upgrade-cluster-that-operation-is-not-allowed-as-another-operation-is-in-progress"></a>Jag får fel vid försök att skapa, uppdatera, skala, ta bort eller uppgradera kluster som åtgärden inte är tillåten eftersom en annan åtgärd pågår.
+
+*Den här hjälp med felsökning dirigeras från aka.ms/aks-väntande-åtgärd*
+
+Klusteråtgärder begränsas när en tidigare åtgärd pågår fortfarande. Använd för att hämta detaljerad statusinformation för klustret, den `az aks show -g myResourceGroup -n myAKSCluster -o table` kommando. Använda en egen resursgrupp och AKS-klusternamnet vid behov.
+
+Baserat på resultatet av klusterstatusen:
+
+* Om klustret har alla Etableringsstatus än *lyckades* eller *misslyckades*, vänta tills åtgärden (*uppgradera / uppdatera / skapa / skalning / ta bort / migrerar*) avslutas. När den föregående åtgärden har slutförts, försök igen din senaste klusteråtgärden.
+
+* Om klustret har en misslyckad uppgradering, följer du stegen som [jag får fel som mitt kluster är i felaktigt tillstånd och uppgraderar eller skalning fungerar inte förrän den har lösts](#im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed).

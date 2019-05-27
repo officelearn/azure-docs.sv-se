@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: c346c51db2c06c2ef91b101255076b811dfea9e7
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: aa923fa7e2d5e673e6a2db2b349e54d433d1817b
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64869745"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65957266"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Använda Kartkontrollen Azure Maps
 
@@ -68,7 +68,7 @@ Du kan bädda in en karta på en webbsida med hjälp av klientens Javascript-bib
     </body>
     ```
 
-5. Definiera ett nytt avsnitt i html-text och skapa ett skript för att initiera kartkontrollen. Använd din egen nyckel för Azure Maps-konto eller autentiseringsuppgifter för Azure Active Directory (AAD) för att autentisera en karta med hjälp av [autentiseringsalternativ](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions). Om du vill skapa ett konto eller hitta din nyckel finns i [så här hanterar du ditt Azure Maps-konto och dina nycklar](how-to-manage-account-keys.md). Den **språk** alternativet anger språket som ska användas för kartetiketter och kontroller. Mer information om språk som stöds finns i [språk som stöds](supported-languages.md). Om du använder en prenumerationsnyckel för autentisering.
+5. Definiera ett nytt avsnitt i html-text och skapa ett skript för att initiera kartkontrollen. Skicka in den `id` kartans `<div>` eller en `HTMLElement` (till exempel `document.getElementById('myMap')`) som första parameter när du skapar en instans av den `Map` klass. Använd din egen nyckel för Azure Maps-konto eller autentiseringsuppgifter för Azure Active Directory (AAD) för att autentisera en karta med hjälp av [autentiseringsalternativ](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions). Om du vill skapa ett konto eller hitta din nyckel finns i [så här hanterar du ditt Azure Maps-konto och dina nycklar](how-to-manage-account-keys.md). Den **språk** alternativet anger språket som ska användas för kartetiketter och kontroller. Mer information om språk som stöds finns i [språk som stöds](supported-languages.md). Om du använder en prenumerationsnyckel för autentisering.
 
     ```HTML
     <script type="text/javascript">

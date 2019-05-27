@@ -17,11 +17,11 @@ ms.date: 05/10/2017
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: e90880aeaae17c80d6714f917f2ea849c953711f
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755416"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66169307"
 ---
 # <a name="tutorial-create-and-manage-azure-virtual-networks-for-linux-virtual-machines-with-the-azure-cli"></a>Självstudier: Skapa och hantera virtuella Azure-nätverk för virtuella Linux-datorer med Azure CLI
 
@@ -66,7 +66,7 @@ Innan du kan skapa ett virtuellt nätverk skapar du en resursgrupp med [az group
 az group create --name myRGNetwork --location eastus
 ```
 
-### <a name="create-virtual-network"></a>Skapa det virtuella nätverket
+### <a name="create-virtual-network"></a>Skapa virtuellt nätverk
 
 Använd kommandot [az network vnet create](/cli/azure/network/vnet) för att skapa ett virtuellt nätverk. I det här exemplet heter nätverket *mvVNet* och har adressprefixet *10.0.0.0/16*. Dessutom skapas ett undernät med namnet *myFrontendSubnet* och prefixet *10.0.1.0/24*. Senare i den här självstudien ansluts klientdelens VM till det här undernätet. 
 

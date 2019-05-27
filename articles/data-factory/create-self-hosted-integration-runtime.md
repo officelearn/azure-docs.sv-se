@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 6e88d8f1c16e7c73f5c62325e41701e6f0ea97fb
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 90e43ab0448646650067dbf151702132f434c01e
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728087"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967953"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Skapa och konfigurera en lokal integration runtime
 Integration runtime (IR) är beräkningsinfrastrukturen som Azure Data Factory använder för att tillhandahålla funktioner för dataintegrering olika nätverksmiljöer integrationsfunktioner. Mer information om IR finns [översikten över Integration runtime](concepts-integration-runtime.md).
@@ -57,7 +57,7 @@ Här är ett övergripande dataflöde för sammanfattning av stegen för att kop
 1. Data-utvecklare skapar en lokal integration runtime i en Azure-datafabrik med hjälp av en PowerShell-cmdlet. Azure-portalen stöder för närvarande inte den här funktionen.
 2. Data-utvecklare skapar en länkad tjänst för ett lokalt datalager genom att ange lokal integration runtime-instans som den ska använda för att ansluta till datalager.
 3. Lokal integration runtime-noden krypterar autentiseringsuppgifterna med hjälp av Windows Data Protection Application Programming Interface (DPAPI) och sparar autentiseringsuppgifter lokalt. Om flera noder ställs in för hög tillgänglighet, synkroniseras ytterligare autentiseringsuppgifterna på andra noder. Varje nod krypterar autentiseringsuppgifterna med hjälp av DPAPI och lagrar dem lokalt. Synkroniseringen av autentiseringsuppgifter är transparent för data-utvecklare och hanteras av lokal IR.    
-4. Data Factory-tjänsten kommunicerar med den lokala integreringskörningen för schemaläggning och hantering av jobb via en *kontrollkanal* som använder en delad Azure Service Bus-kö. När en aktivitet jobbet måste köras, placerar Data Factory begäran tillsammans med eventuella autentiseringsuppgifter (om autentiseringsuppgifter inte lagras redan på den lokala integreringskörningen). Lokal integration runtime startar jobbet efter avsökning kön.
+4. Data Factory-tjänsten kommunicerar med den lokala integreringskörningen för schemaläggning och hantering av jobb via en *kontrollkanal* som använder en delad [Azure Service Bus Relay](https://docs.microsoft.com/azure/service-bus-relay/relay-what-is-it#wcf-relay). När en aktivitet jobbet måste köras, placerar Data Factory begäran tillsammans med eventuella autentiseringsuppgifter (om autentiseringsuppgifter inte lagras redan på den lokala integreringskörningen). Lokal integration runtime startar jobbet efter avsökning kön.
 5. Den lokala integreringskörningen kopierar data från en lokal databas till en molnlagring, och vice versa beroende på konfigureringen av kopieringsaktiviteten i datapipelinen. För det här steget kommunicerar lokal integration runtime direkt med molnbaserade storage-tjänster som Azure Blob storage via en säker kanal (HTTPS).
 
 ## <a name="considerations-for-using-a-self-hosted-ir"></a>Överväganden för att använda en lokal IR

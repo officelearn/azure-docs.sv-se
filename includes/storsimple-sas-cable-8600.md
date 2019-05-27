@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 51e1fd18b52d7e215ba43be540156199fb41778e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60482776"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66155912"
 ---
 #### <a name="to-attach-the-sas-cables"></a>Att koppla SAS-kablar
 1. Identifiera den primära servern och EBOD-höljen. Två höljena kan identifieras genom att titta på sina respektive tillbaka plan. Se följande bild för vägledning. 

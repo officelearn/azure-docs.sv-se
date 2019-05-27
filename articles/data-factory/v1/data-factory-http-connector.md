@@ -53,7 +53,7 @@ I följande tabell beskrivs JSON-element som är specifika för HTTP-länkade tj
 
 | Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
-| typ | Den **typ** egenskapen måste anges till **Http**. | Ja |
+| type | Den **typ** egenskapen måste anges till **Http**. | Ja |
 | url | Den grundläggande Webbadressen till webbservern. | Ja |
 | authenticationType | Anger autentiseringstypen. Tillåtna värden är **anonym**, **grundläggande**, **sammanfattad**, **Windows**, och **ClientCertificate**. <br><br> Referera till senare avsnitt i den här artikeln för fler egenskaper och JSON-exempel för dessa typer av autentisering. | Ja |
 | enableServerCertificateValidation | Anger om du vill aktivera server SSL-certifikatsverifiering om källan är en HTTPS-webbserver. När HTTPS-server använder ett självsignerat certifikat, Ställ in på **FALSKT**. | Nej<br /> (standardvärdet är **SANT**) |
@@ -68,7 +68,7 @@ Ange **authenticationType** till **grundläggande**, **sammanfattad**, eller **W
 
 | Egenskap  | Beskrivning | Obligatoriskt |
 | --- | --- | --- |
-| användarnamn | Användarnamnet du använder för att få åtkomst till HTTP-slutpunkt. | Ja |
+| userName | Användarnamnet du använder för att få åtkomst till HTTP-slutpunkt. | Ja |
 | password | Lösenordet för användaren (**användarnamn**). | Ja |
 
 **Exempel: Med hjälp av grundläggande, sammanfattad eller Windows-autentisering**
@@ -160,13 +160,13 @@ Den **typeProperties** är olika för varje typ av datauppsättning. Den **typeP
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Den **typ** av datauppsättningen måste anges till **Http**. | Ja |
+| type | Den **typ** av datauppsättningen måste anges till **Http**. | Ja |
 | relativeUrl | En relativ URL till den resurs som innehåller data. Om sökvägen inte anges används den URL som anges i länkade tjänstedefinition. <br><br> Du kan använda för att skapa en dynamisk URL [Data Factory-funktioner och systemvariabler](data-factory-functions-variables.md). Exempel: **relativeUrl**: **$$Text.Format (”/ min/rapporten? månad = {0: yyyy}-{0:MM} & fmt = csv”, SliceStart)**. | Nej |
 | requestMethod | HTTP-metoden. Tillåtna värden är **hämta** och **POST**. | Nej <br />(standardvärdet är **hämta**) |
 | additionalHeaders | Ytterligare rubriker för HTTP-begäran. | Nej |
 | requestBody | Brödtexten för HTTP-begäran. | Nej |
-| Format | Om du vill *hämta data från en HTTP-slutpunkt som – är* utan parsning den hoppar du över den **format** inställningen. <br><br> Om du vill parsa HTTP-svarsinnehåll vid kopiering stöds följande formattyper av: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, och **ParquetFormat**. Mer information finns i [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [JSON-format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc-format](data-factory-supported-file-and-compression-formats.md#orc-format), och [Parquet-format](data-factory-supported-file-and-compression-formats.md#parquet-format). |Nej |
-| Komprimering | Ange typ och komprimeringsnivå för data. Typer som stöds: **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**. Stöds nivåer: **Optimal** och **snabbaste**. Mer information finns i [format och komprimering i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej |
+| format | Om du vill *hämta data från en HTTP-slutpunkt som – är* utan parsning den hoppar du över den **format** inställningen. <br><br> Om du vill parsa HTTP-svarsinnehåll vid kopiering stöds följande formattyper av: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, och **ParquetFormat**. Mer information finns i [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [JSON-format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc-format](data-factory-supported-file-and-compression-formats.md#orc-format), och [Parquet-format](data-factory-supported-file-and-compression-formats.md#parquet-format). |Nej |
+| compression | Ange typ och komprimeringsnivå för data. Typer som stöds: **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**. Stöds nivåer: **Optimal** och **snabbaste**. Mer information finns i [format och komprimering i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej |
 
 **Exempel: Med hjälp av metoden GET (standard)**
 

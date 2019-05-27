@@ -14,11 +14,11 @@ ms.workload: NA
 ms.date: 03/22/2019
 ms.author: aljo
 ms.openlocfilehash: 2e9c41409c1f528947e3bef281e9a3c34da39e9b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59050450"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66119167"
 ---
 # <a name="enable-disk-encryption-for-service-fabric-windows-cluster-nodes"></a>Aktivera diskkryptering för service fabric Windows-klusternoder 
 > [!div class="op_single_selector"]
@@ -55,7 +55,7 @@ Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -EnabledForDiskEncryption
 * Installera senaste [Azure CLI](/cli/azure/install-azure-cli) , som innehåller de nya kommandona för kryptering.
 * Installera den senaste versionen av [Azure SDK från Azure PowerShell](https://github.com/Azure/azure-powershell/releases) versionen. Följande är VM-skalningsuppsättningen ADE-cmdletar för att aktivera ([ange](/powershell/module/az.compute/set-azvmssdiskencryptionextension))-kryptering, hämta ([hämta](/powershell/module/az.compute/get-azvmssvmdiskencryption)) krypteringsstatus och ta bort ([inaktivera](/powershell/module/az.compute/disable-azvmssdiskencryption)) kryptering på skalningsuppsättningen instans.
 
-| Kommando | Version |  Källa  |
+| Kommando | Version |  Source  |
 | ------------- |-------------| ------------|
 | Get-AzVmssDiskEncryptionStatus   | 1.0.0 eller senare | Az.Compute |
 | Get-AzVmssVMDiskEncryptionStatus   | 1.0.0 eller senare | Az.Compute |
@@ -75,7 +75,7 @@ Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -EnabledForDiskEncryption
 
 Använd följande kommandon för att skapa kluster och aktivera diskkryptering med hjälp av Azure Resource Manager-mall & självsignerat certifikat.
 
-### <a name="sign-in-to-azure"></a>Logga in på Azure 
+### <a name="sign-in-to-azure"></a>Logga in till Azure 
 
 ```powershell
 Login-AzAccount

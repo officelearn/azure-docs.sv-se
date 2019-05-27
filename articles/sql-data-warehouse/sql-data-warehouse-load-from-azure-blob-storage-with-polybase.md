@@ -2,20 +2,20 @@
 title: Läsa in Contoso Retail-data till Azure SQL Data Warehouse | Microsoft Docs
 description: Använda PolyBase och T-SQL-kommandon för att läsa in två tabeller från Contoso Retail-data till Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: ckarst
+author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: load data
 ms.date: 04/17/2018
-ms.author: cakarst
+ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 33a5f9eebeb68981a9ccd13bb24834f5a9eabd85
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.openlocfilehash: 946d7685839b949a50604bf255809cb00086af99
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64875685"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873564"
 ---
 # <a name="load-contoso-retail-data-to-azure-sql-data-warehouse"></a>Läsa in Contoso Retail-data till Azure SQL Data Warehouse
 
@@ -103,7 +103,7 @@ WITH
 );
 ``` 
 
-## <a name="3-create-the-external-tables"></a>3. Skapa externa tabeller
+## <a name="3-create-the-external-tables"></a>3 Skapa externa tabeller
 Nu när du har angett dataformatet för käll- och filen, är du redo att skapa externa tabeller. 
 
 ### <a name="31-create-a-schema-for-the-data"></a>3.1. Skapa ett schema för data.

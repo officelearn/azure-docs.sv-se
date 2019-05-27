@@ -9,11 +9,11 @@ ms.date: 09/15/2018
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 3cfdca99c91dc54a711801d92aa0da91fb9703e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61484259"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66115526"
 ---
 > [!IMPORTANT]
 > Din nyckel för lagringskontot liknar rotlösenordet för lagringskontot. Var alltid noga med att skydda din kontonyckel. Undvik att dela ut den till andra användare, hårdkoda den eller spara den var som helst i en oformaterad textfil som andra har åtkomst till. Återskapa din kontonyckel med hjälp av Azure Portal om du misstänker att den komprometterats.

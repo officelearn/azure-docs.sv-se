@@ -9,12 +9,12 @@ ms.date: 04/18/2017
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 25c562e144b635cb66c5df9b5b7bd6237ce3122c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 8bee0426f171b0fdb7793d18c352649928fdb2e8
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154432"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65907249"
 ---
 # <a name="using-shared-access-signatures-sas"></a>Använda signaturer för delad åtkomst (SAS)
 
@@ -118,7 +118,7 @@ https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2015-04-05&s
 | Resource |`sr=b` |Resursen är en blob. |
 | Behörigheter |`sp=rw` |De behörigheter som beviljats av SAS omfattar Read (r) och skriva (w). |
 | IP-intervall |`sip=168.1.5.60-168.1.5.70` |IP-adressintervall som en begäran tas emot. |
-| Protokoll |`spr=https` |Endast begäranden med hjälp av HTTPS tillåts. |
+| Protocol |`spr=https` |Endast begäranden med hjälp av HTTPS tillåts. |
 | Signatur |`sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D` |Används för att auktorisera åtkomst till bloben. Signaturen är en HMAC beräknas över en inloggning till sträng och nyckeln med SHA256-algoritmen och sedan kodad med Base64-kodning. |
 
 ### <a name="account-sas-uri-example"></a>Exempel för konto-SAS-URI
@@ -232,7 +232,7 @@ Nedan följer några exempel på båda typerna av signaturer för delad åtkomst
 Om du vill köra dessa C#-exempel, måste du referera till följande NuGet-paketen i projektet:
 
 * [Azure Storage-klientbiblioteket för .NET](https://www.nuget.org/packages/WindowsAzure.Storage), version 6.x eller senare (för att använda SAS-konto).
-* [Azure Configuration Manager](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager)
+* [Azure Configuration Manager](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager)
 
 Ytterligare exempel som visar hur du skapar och testar en SAS finns i [kodexempel för Azure för lagring](https://azure.microsoft.com/documentation/samples/?service=storage).
 
@@ -422,7 +422,6 @@ private static string GetBlobSasUri(CloudBlobContainer container, string blobNam
 Signaturer för delad åtkomst är användbara för att tillhandahålla begränsade behörigheter till ditt lagringskonto till klienter som inte ska ha kontonyckeln. Det innebär att de är en viktig del av säkerhetsmodellen för alla program som använder Azure Storage. Om du har följt de rekommenderade metoder som beskrivs här måste använda du SAS för större flexibilitet för åtkomst till resurser i ditt lagringskonto utan att kompromissa med säkerheten för ditt program.
 
 ## <a name="next-steps"></a>Nästa steg
-* [Signaturer för delad åtkomst, del 2: Skapa och använda en SAS med Blob storage](../blobs/storage-dotnet-shared-access-signature-part-2.md)
 * [Hantera anonym läsbehörighet till behållare och blobbar](../blobs/storage-manage-access-to-resources.md)
 * [Delegera åtkomst med signatur för delad åtkomst](https://msdn.microsoft.com/library/azure/ee395415.aspx)
 * [Introduktion till tabell och kö-SAS](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)

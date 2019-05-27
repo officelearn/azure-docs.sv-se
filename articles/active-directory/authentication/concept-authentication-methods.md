@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0c9af1a9ad8b816809f661d368133997f55329d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f0bcaf356108984baf473cdef8c18c5561343cd9
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60359287"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66119371"
 ---
 # <a name="what-are-authentication-methods"></a>Vad är autentiseringsmetoder?
 
@@ -31,7 +31,7 @@ Microsoft rekommenderar starkt att administratörer aktivera användare att väl
 | Lösenord | MFA och SSPR |
 | Säkerhetsfrågor | Endast SSPR |
 | E-postadress | Endast SSPR |
-| Microsoft Authenticator-appen | MFA och förhandsversion för SSPR |
+| Microsoft Authenticator-app | MFA och förhandsversion för SSPR |
 | OATH-token för maskinvara | Offentlig förhandsversion för MFA och SSPR |
 | SMS | MFA och SSPR |
 | Röstsamtal | MFA och SSPR |
@@ -119,7 +119,7 @@ E-postadress finns **endast i Azure AD-självbetjäning lösenord återställa**
 
 Microsoft rekommenderar användningen av ett e-postkonto som inte kräver användarens Azure AD-lösenord för att få åtkomst till.
 
-## <a name="microsoft-authenticator-app"></a>Microsoft Authenticator-appen
+## <a name="microsoft-authenticator-app"></a>Microsoft Authenticator-app
 
 Microsoft Authenticator-appen innehåller en extra nivå av säkerhet för din Azure AD-arbets- eller skolkonto eller ditt Microsoft-konto.
 
@@ -165,7 +165,7 @@ OATH-token för maskinvara som stöds som en del av en offentlig förhandsversio
 När token är upptagna måste de laddas upp i en fil med kommaavgränsade värden (CSV)-filformat, inklusive UPN, serienummer, hemlig nyckel, tidsintervall, tillverkare och modell som exemplet nedan visar.
 
 ```csv
-upn,serial number,secret key,timeinterval,manufacturer,model
+upn,serial number,secret key,time interval,manufacturer,model
 Helga@contoso.com,1234567,1234567890abcdef1234567890abcdef,60,Contoso,HardwareKey
 ```
 

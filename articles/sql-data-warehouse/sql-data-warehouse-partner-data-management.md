@@ -2,20 +2,20 @@
 title: SQL Data Warehouse datahanteringspartner | Microsoft Docs
 description: Listor med tredje parts datahanteringspartner med lösningar som har stöd för SQL Data Warehouse.
 services: sql-data-warehouse
-author: jrowlandjones
+author: mabasile-MSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: consume
 ms.date: 04/17/2018
-ms.author: jrj
+ms.author: mabasile
 ms.reviewer: igorstan
-ms.openlocfilehash: 08d168a688935328fb4716b849c70e828545765b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 98f581eca893fc3f0cf2eae12fdcffbe0440bdd7
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61476242"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873702"
 ---
 # <a name="sql-data-warehouse-data-management-partners"></a>SQL Data Warehouse datahanteringspartner
 Välj från ett brett utbud av branschledande verktyg för att skapa din lösning för informationslager. Den här artikeln visar Microsoft partnerföretag med hanteringsverktyg för data och stöd för Azure SQL Data Warehouse-lösningar.

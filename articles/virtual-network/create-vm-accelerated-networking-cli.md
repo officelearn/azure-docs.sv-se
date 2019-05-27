@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: 8ea17e5615c0256c084b0745a392fb49f8873f99
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1e5513b28c1ae64fc8c87bb7a949596feab4623e
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60713741"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873426"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Skapa en Linux-dator med Accelererat nätverk
 
@@ -77,7 +77,7 @@ Virtuella datorer (klassiska) kan inte distribueras med Accelererat nätverk.
 ## <a name="portal-creation"></a>Skapa Portal
 Även om den här artikeln innehåller steg för att skapa en virtuell dator med accelererat nätverk med hjälp av Azure CLI, du kan också [skapa en virtuell dator med accelererat nätverk med Azure portal](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). När du skapar en virtuell dator i portalen, i den **skapa en virtuell dator** bladet väljer du den **nätverk** fliken.  I den här fliken finns ett alternativ för **Accelerated networking**.  Om du har valt en [operativsystem som stöds](#supported-operating-systems) och [VM-storlek](#supported-vm-instances), det här alternativet kommer automatiskt att fylla i ”på”.  Om inte, den fylla i alternativet ”Off” för Accelererat nätverk och ge användaren en orsak till varför den inte är aktiveras.   
 
-* *Obs!* Endast operativsystem som stöds kan aktiveras via portalen.  Om du använder en anpassad avbildning och din avbildning har stöd för Accelererat nätverk, skapar du en virtuell dator med CLI eller Powershell. 
+* *Obs:* Endast operativsystem som stöds kan aktiveras via portalen.  Om du använder en anpassad avbildning och din avbildning har stöd för Accelererat nätverk, skapar du en virtuell dator med CLI eller Powershell. 
 
 När den virtuella datorn har skapats kan du bekräfta Accelererat nätverk är aktiverat genom att följa anvisningarna i den [bekräfta att accelererat nätverk är aktiverat](#confirm-that-accelerated-networking-is-enabled).
 
@@ -224,6 +224,10 @@ vf_tx_bytes: 1099443970
 vf_tx_dropped: 0
 ```
 Accelererat nätverk har nu aktiverats för den virtuella datorn.
+
+## <a name="handle-dynamic-binding-and-revocation-of-virtual-function"></a>Hantera dynamisk bindning och återkallelse av-funktion 
+Program måste köra över syntetiska nätverkskort som är exponerad på den virtuella datorn. Om programmet körs direkt via VF-NIC kan den inte har tagit emot **alla** paket som är avsedd för den virtuella datorn, eftersom vissa paket som visas över syntetisk gränssnittet.
+Om du kör ett program över syntetiska nätverkskort det garanterar att programmet tar emot **alla** paket som är avsedda till den. Gör det också se till att programmet köras, även om VF återkallas när värden blir servad. Program som binder till syntetiska nätverkskort är en **obligatorisk** krav för alla program som utnyttjar **Accelerated Networking**.
 
 ## <a name="enable-accelerated-networking-on-existing-vms"></a>Aktivera Accelererat nätverk på befintliga virtuella datorer
 Om du har skapat en virtuell dator utan Accelererat nätverk, är det möjligt att aktivera den här funktionen på en befintlig virtuell dator.  Den virtuella datorn måste ha stöd för Accelererat nätverk genom att uppfylla följande krav som också beskrivs ovan:

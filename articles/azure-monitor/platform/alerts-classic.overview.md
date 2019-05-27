@@ -5,14 +5,14 @@ author: rboucher
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 12/29/2018
+ms.date: 05/19/2018
 ms.author: robb
-ms.openlocfilehash: 0d91e12de075ee6efebe39fd5ab582d4998046f9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 96183e22f0aeafc681a782e7d3d8bd29a6ec9617
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60776649"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65914719"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>Vad är klassiska aviseringar i Microsoft Azure?
 
@@ -24,7 +24,7 @@ Aviseringar kan du konfigurera villkor för över data och bli informerad när v
 
 ## <a name="old-and-new-alerting-capabilities"></a>Gamla och nya aviseringsfunktioner
 
-Tidigare Azure Monitor, Application Insights, logganalys och Service Health hade separat aviseringsfunktioner. Övertidskostnad, Azure förbättrad och kombineras både användargränssnitt och olika metoder för aviseringar. Konsolideringen pågår fortfarande. Aviseringar
+Tidigare Azure Monitor, Application Insights, logganalys och Service Health hade separat aviseringsfunktioner. Övertidskostnad, Azure förbättrad och kombineras både användargränssnitt och olika metoder för aviseringar. Konsolideringen pågår fortfarande.
 
 Du kan visa klassiska aviseringar endast på skärmen klassiska aviseringar om användaren i Azure Portal. Du får den här skärmen från den **Visa klassiska aviseringar** knappen på skärmen aviseringar. 
 

@@ -9,18 +9,18 @@ ms.date: 10/20/2017
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: d8ef24bfec541ec65c74f77a90aa9476a8b298b2
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 93386bd1fa3be88cbcdfab3d59ae07d3eb2b046d
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153267"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65911919"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Client Side Encryption och Azure Key Vault för Microsoft Azure Storage
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
 
 ## <a name="overview"></a>Översikt
-Den [Azure Storage-klientbiblioteket för .NET Nuget-paket](https://www.nuget.org/packages/WindowsAzure.Storage) har stöd för kryptering av data i klientprogram före överföringen till Azure Storage och dekryptering av data under nedladdningen till klienten. Biblioteket stöder även integrering med [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) för hantering av nycklar i storage-konto.
+Den [Azure Storage-klientbiblioteket för .NET](/dotnet/api/overview/azure/storage/client) har stöd för kryptering av data i klientprogram före överföringen till Azure Storage och dekryptering av data under nedladdningen till klienten. Biblioteket stöder även integrering med [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) för hantering av nycklar i storage-konto.
 
 En stegvis självstudiekurs som leder dig genom processen för att kryptera blobbar med client side encryption och Azure Key Vault finns i [kryptera och dekryptera blobbar i Microsoft Azure Storage med Azure Key Vault](../blobs/storage-encrypt-decrypt-blobs-key-vault.md).
 
@@ -125,7 +125,7 @@ Key Vault är utformat för högt värde huvudnycklar och begränsningar gränse
 
 Mer information om Key Vault fungerar finns i den [kryptering kodexempel](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples).
 
-## <a name="best-practices"></a>Bästa praxis
+## <a name="best-practices"></a>Regelverk
 Stöd för kryptering är endast tillgänglig i storage-klientbiblioteket för .NET. Windows Phone och Windows Runtime stöder för närvarande inte kryptering.
 
 > [!IMPORTANT]

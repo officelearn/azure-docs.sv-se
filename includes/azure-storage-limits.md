@@ -9,19 +9,19 @@ ms.date: 01/11/2018
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: ee9b70827c19236287f81f66f4b9c6e1004a54fd
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59532465"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66114509"
 ---
 I följande tabell beskrivs standardgränser för Azure general-purpose v1, v2 och Blob storage-konton. Den *ingående* gränsen syftar på alla data från förfrågningar som skickas till ett lagringskonto. Den *utgående* gränsen syftar på alla data från svar som tas emot från ett lagringskonto.
 
-| Resurs | Standardgräns |
+| Resource | Standardgräns |
 | --- | --- |
 | Antal lagringskonton per region per prenumeration, inklusive konton för standard- och premium | 250 |
 | Maximal lagringskapacitet för konto | 2 PB för USA och Europa, 500 TB för alla andra regioner, vilket innefattar Storbritannien |
-| Maximalt antal blob-behållare, blobar, filresurser, tabeller, köer, enheter eller meddelanden per lagringskonto | Obegränsad |
+| Maximalt antal blob-behållare, blobar, filresurser, tabeller, köer, enheter eller meddelanden per lagringskonto | Ingen gräns |
 | Maximala hastigheten<sup>1</sup> per lagringskonto | 20 000 begäranden per sekund |
 | Största ingående<sup>1</sup> per lagringskonto (USA-regioner) | 10 Gbit/s om RA-GRS/GRS är aktiverad, 20 Gbit/s för LRS/ZRS<sup>2</sup> |
 | Största ingående<sup>1</sup> per lagringskonto (icke-amerikanska regioner) | 5 Gbit/s om RA-GRS/GRS är aktiverad, 10 Gbit/s för LRS/ZRS<sup>2</sup> |

@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 02/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0ab01187b03b3d658b171029003667588382bd7f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 15118535578419f9e1230c5b2fcfd0d7c42257ea
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60820298"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65908995"
 ---
 # <a name="access-data-from-your-datastores"></a>Komma åt data från ditt datalager
 
@@ -30,7 +30,7 @@ Den här anvisningen visar exempel på följande uppgifter:
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Om du vill använda datalager måste du först en [arbetsytan](concept-azure-machine-learning-architecture.md#workspace).
+Om du vill använda datalager måste du först en [arbetsytan](concept-workspace.md).
 
 Börja med antingen [skapar en ny arbetsyta](setup-create-workspace.md#sdk) eller hämta en befintlig:
 
@@ -156,7 +156,7 @@ Följande tabell listar de [ `DataReference` ](https://docs.microsoft.com/python
 Sätt|Metod|Beskrivning|
 ----|-----|--------
 Montera| [`as_mount()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--)| Använd för att montera databasen på beräkningsmål.
-Ladda ned|[`as_download()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-)|Använd för att hämta innehållet i dina datalager till den plats som anges av `path_on_compute`. <br> Uppdateringen sker innan körningen för utbildning som kör kontext.
+Ladda ner|[`as_download()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-)|Använd för att hämta innehållet i dina datalager till den plats som anges av `path_on_compute`. <br> Uppdateringen sker innan körningen för utbildning som kör kontext.
 Ladda upp|[`as_upload()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)| Använda för att överföra en fil från den plats som anges av `path_on_compute` till ditt datalager. <br> Den här uppladdningen händer efter din körning för utbildning som kör kontext.
 
  ```Python

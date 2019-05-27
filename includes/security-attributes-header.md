@@ -1,23 +1,22 @@
 ---
-author: WenJason
+author: msmbaldwin
 ms.service: security
 ms.topic: include
-origin.date: 03/15/2019
-ms.date: 04/22/2019
-ms.author: v-jay
+ms.date: 04/17/2019
+ms.author: mbaldwin
 ms.openlocfilehash: cd0ab47a46e452701307986d3fbfc7cdfe040c58
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60461415"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66114717"
 ---
 Attributet security är en kvalitet eller funktion i Azure-tjänst som bidrar till i tjänstens förmåga att förhindra, upptäcka och svara på säkerhetsrisker.
 
 Security attribut kategoriseras som:
 * Förebyggande
 * Nätverkssegmentering
-* Detection (Identifiering)
+* Identifiering
 * Support för identitets- och åtkomsthantering
 * Granskningslogg
 * Åtkomstkontroller (om det används)

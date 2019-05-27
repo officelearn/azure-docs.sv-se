@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 05/21/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: brandwe
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01a0f30063b5d98d23bb25fdc7f610158b92cd78
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 8538a96e1919fbff9f800a785788ccaa41a68392
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545630"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66121935"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-app"></a>Snabbstart: Logga in användare och anropa Microsoft Graph API från en iOS-app
 
@@ -76,12 +76,13 @@ Om du vill konfigurera appen så att den hämtar apptoken måste du registrera a
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Välj konto i det översta fältet. Under **kataloglistan** väljer du den Active Directory-klientorganisation där du vill registrera appen.
 3. Välj **Alla tjänster** i navigeringsfönstret längst till vänster och välj sedan **Azure Active Directory**.
-4. Välj **Appregistreringar** och sedan **Lägg till**.
-5. Följ anvisningarna för att skapa ett nytt **internt** klientprogram.
+4. Välj **appregistreringar**, och välj sedan **ny registrering**.
+5. Följ anvisningarna för att skapa ett nytt klientprogram.
     * **Namn** är appens namn och beskriver appen för användarna.
-    * **Omdirigerings-URI** är ett schema och en strängkombination som Azure AD använder till att returnera tokensvar. Ange ett värde som är specifikt för appen och baseras på den tidigare informationen om omdirigerings-URI.
+    * **Omdirigerings-URI** är ett schema och en strängkombination som Azure AD använder till att returnera tokensvar. Ange ett värde som är specifikt för appen och baseras på den tidigare informationen om omdirigerings-URI. Välj också **offentlig klient (mobila och stationära)** i listrutan.
 6. När du har slutfört registreringen tilldelar Azure AD din app ett unikt program-ID. Du behöver det här värdet i nästa avsnitt, så kopiera det från appfliken.
-7. På sidan **Inställningar** väljer du **Nödvändiga behörigheter > Lägg till > Microsoft Graph**, och sedan lägger du under **Delegerade behörigheter** till behörigheten **Läsa katalogdata**. Den här behörigheten konfigurerar appen att fråga Azure AD Graph API efter användare.
+7. Från den **API-behörigheter** väljer **lägga till en behörighet**. Inuti **Välj en API** Välj ***Microsoft Graph***.
+8. Under **delegerade behörigheter**, välj behörigheten **User.Read**, tryck sedan på **Lägg till** att spara. Den här behörigheten konfigurerar appen att fråga Azure AD Graph API efter användare.
 
 ## <a name="step-3-install-and-configure-adal"></a>Steg 3: Installera och konfigurera ADAL
 

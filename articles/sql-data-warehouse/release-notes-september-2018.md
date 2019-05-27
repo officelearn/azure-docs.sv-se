@@ -2,20 +2,20 @@
 title: Azure SQL Data Warehouse viktig September 2018 | Microsoft Docs
 description: Viktig information för Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: twounder
+author: anumjs
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: manage
+ms.subservice: ''
 ms.date: 10/08/2018
-ms.author: mausher
-ms.reviewer: twounder
-ms.openlocfilehash: bc559a1224aace2ee599c24c8dce07a6d55173fd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: anjangsh
+ms.reviewer: jrasnick
+ms.openlocfilehash: 5041458fdc3c6a49c59f2c4c476db71098531419
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474987"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65912171"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-september-2018"></a>Vad är nytt i Azure SQL Data Warehouse? September 2018
 Azure SQL Data Warehouse tar emot förbättringar kontinuerligt. Den här artikeln beskriver nya funktioner och ändringar som har införts i September 2018.
@@ -99,7 +99,7 @@ Slutligen minskar förbättring övergripande körningen av instruktioner som k�
 
 ## <a name="bug-fixes"></a>Felkorrigeringar
 
-| Rubrik | Beskrivning |
+| Titel | Beskrivning |
 |:---|:---|
 | **Åtgärda när du skapar statistik på distributioner för unika restriktioner** | Den här snabbkorrigeringen löser ett fel som användarna stöter på när du anger som kör UPDATE STATISTICS med endast tabellen när tabellen har en unik begränsning som definierats. |
 | **Åtgärda vid kompilering frågor via externa tabeller** | Den här snabbkorrigeringen löser ett fel som påverkas kompileringstid för frågor som rör externa tabeller.|

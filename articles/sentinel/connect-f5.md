@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: b4dad338308853303612c92feddba42722ef10ee
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: ee864a264ae9012b64b7dab5cd19467d8d66791c
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205587"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65921889"
 ---
 # <a name="connect-your-f5-appliance"></a>Ansluta din F5-installation
 
@@ -42,7 +42,7 @@ Ett nätverksdiagram för båda alternativen finns i [ansluta datakällor](conne
 
 ### <a name="deploy-the-agent-in-azure"></a>Distribuera agenten i Azure
 
-1. Sentinel-Azure-portalen klickar du på **Data connecctors** och väljer du typen av installation. 
+1. Sentinel-Azure-portalen klickar du på **datakopplingar** och väljer du typen av installation. 
 
 1. Under **Linux Syslog-agentkonfiguration**:
    - Välj **automatisk distribution** om du vill skapa en ny dator som är förinstallerade med agenten Sentinel-Azure och innehåller alla konfiguration behövs, enligt beskrivningen ovan. Välj **automatisk distribution** och klicka på **agenten för automatisk distribution**. Detta tar dig till sidan för en dedikerad virtuell dator som automatiskt ansluter till din arbetsyta, är. Den virtuella datorn är en **standard D2s v3 (2 virtuella processorer, 8 GB minne)** och har en offentlig IP-adress.
@@ -96,6 +96,8 @@ Om du inte använder Azure, distribuera manuellt Azure Sentinel-agenten ska kör
             3. Starta om syslog-daemon `sudo service syslog-ng restart`
       1. Starta om Syslog-agenten med hjälp av det här kommandot: `sudo /opt/microsoft/omsagent/bin/service_control restart [{workspace GUID}]`
       1. Bekräfta att det inte finns några fel i agentloggen genom att köra det här kommandot: `tail /var/opt/microsoft/omsagent/log/omsagent.log`
+  3. Om du vill använda relevanta schemat i Log Analytics för F5-händelser, söka efter **CommonSecurityLog**.
+
  
 ## <a name="step-2-forward-f5-logs-to-the-syslog-agent"></a>Steg 2: Vidarebefordra F5 loggar till Syslog-agent
 
@@ -113,12 +115,43 @@ Gå till F5 [konfigurerar Application Security händelseloggning](https://aka.ms
 
 Det kan ta höjningen tjugonde minut tills loggarna börjar visas i Log Analytics. 
 
-1. Se till att dina loggar får till rätt port i Syslog-agenten. Kör det här kommandot agentdatorn Syslog: `tcpdump -A -ni any  port 514 -vv` Det här kommandot visar de loggar som strömmas från enheten till den Syslog-datorn. Kontrollera att loggarna tas emot från käll-installationen på rätt port och rätt resurs.
-2. Kontrollera att det finns kommunikation mellan Syslog-daemon och agenten. Kör det här kommandot agentdatorn Syslog: `tcpdump -A -ni any  port 25226 -vv` Det här kommandot visar de loggar som strömmas från enheten till den Syslog-datorn. Kontrollera att loggarna också tas emot på agenten.
-3. Om båda dessa kommandon angetts lyckade resultat och kontrollera Log Analytics för att se om dina loggar inkommer. Alla händelser som strömmas direkt från dessa enheter visas i obearbetat format i Log Analytics under `CommonSecurityLog` typen.
-1. Om du vill kontrollera om det finns fel eller om loggarna som inte kommer att se ut `tail /var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log`
-4. Se till att din standardstorlek för Syslog-meddelande är begränsat till 2 048 byte (2KB). Om loggarna är för långt, uppdatera security_events.conf med hjälp av det här kommandot: `message_length_limit 4096`
-6. Om du vill använda relevanta schemat i Log Analytics för F5-händelser, söka efter **CommonSecurityLog**.
+1. Kontrollera att du använder rätt anläggningen. Funktionen måste vara samma i din installation och Sentinel-Azure. Du kan kontrollera vilken anläggning-fil som du använder i Azure Sentinel och göra ändringar i filen `security-config-omsagent.conf`. 
+
+2. Se till att dina loggar får till rätt port i Syslog-agenten. Kör följande kommando på agentdatorn Syslog: `tcpdump -A -ni any  port 514 -vv` Det här kommandot visar de loggar som strömmas från enheten till den Syslog-datorn. Kontrollera att loggarna tas emot från käll-installationen på rätt port och rätt resurs.
+
+3. Se till att loggarna du skickar följer [RFC 5424](https://tools.ietf.org/html/rfc542).
+
+4. På den dator som kör Syslog-agenten, se till att dessa portar 514, 25226 är öppna och lyssna, med hjälp av kommandot `netstat -a -n:`. Mer information om hur du använder det här kommandot finns i [netstat(8) - Linux man sidan](https://linux.die.netman/8/netstat). Om den lyssnar på rätt sätt, visas följande:
+
+   ![Azure Sentinel-portar](./media/connect-cef/ports.png) 
+
+5. Kontrollera daemon anges att lyssna på port 514, där du skickar loggarna.
+    - För rsyslog:<br>Kontrollera att filen `/etc/rsyslog.conf` innehåller den här konfigurationen:
+
+           # provides UDP syslog reception
+           module(load="imudp")
+           input(type="imudp" port="514")
+        
+           # provides TCP syslog reception
+           module(load="imtcp")
+           input(type="imtcp" port="514")
+
+      Mer information finns i [imudp: Indata för UDP Syslogmodulen](https://www.rsyslog.com/doc/v8-stable/configuration/modules/imudp.html#imudp-udp-syslog-input-module) och [imtcp: Indata för Syslog-modulen för TCP](https://www.rsyslog.com/doc/v8-stable/configuration/modules/imtcp.html#imtcp-tcp-syslog-input-module)
+
+   - För syslog-ng:<br>Kontrollera att filen `/etc/syslog-ng/syslog-ng.conf` innehåller den här konfigurationen:
+
+           # source s_network {
+            network( transport(UDP) port(514));
+             };
+     Mer information finns i [imudp: UDP Syslogmodulen till indata] (Mer information finns i den [syslog-ng öppen källkod Edition 3,16 - Administrationsguide](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.16/administration-guide/19#TOPIC-956455).
+
+1. Kontrollera att det finns kommunikation mellan Syslog-daemon och agenten. Kör följande kommando på agentdatorn Syslog: `tcpdump -A -ni any  port 25226 -vv` Det här kommandot visar de loggar som strömmas från enheten till den Syslog-datorn. Kontrollera att loggarna också tas emot på agenten.
+
+6. Om båda dessa kommandon angetts lyckade resultat och kontrollera Log Analytics för att se om dina loggar inkommer. Alla händelser som strömmas direkt från dessa enheter visas i obearbetat format i Log Analytics under `CommonSecurityLog` typen.
+
+7. Kontrollera om det finns fel eller om loggarna som inte kommer se i `tail /var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log`. Om det står att det finns fel i formatet matchningsfel, går du till `/etc/opt/microsoft/omsagent/{0}/conf/omsagent.d/security_events.conf "https://aka.ms/syslog-config-file-linux"` och titta på filen `security_events.conf`och se till att dina loggar matchar regex-format som du ser i den här filen.
+
+8. Se till att din standardstorlek för Syslog-meddelande är begränsat till 2 048 byte (2KB). Om loggarna är för långt, uppdatera security_events.conf med hjälp av det här kommandot: `message_length_limit 4096`
 
 
 

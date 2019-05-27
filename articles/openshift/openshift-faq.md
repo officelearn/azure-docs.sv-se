@@ -8,16 +8,26 @@ manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 05/08/2019
-ms.openlocfilehash: 06051eff73a83ff97a733d1863580885c5d0e174
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: 4f11eac106fe984aa06e41083c2d4f66c7d0e62c
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65551728"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872920"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Azure Red Hat OpenShift vanliga frågor och svar
 
 Den här artikeln tar upp vanliga frågor och svar (FAQ) om Microsoft Azure Red Hat OpenShift.
+
+## <a name="how-do-i-get-started"></a>Hur kommer jag igång?
+
+Innan du kan använda Azure Red Hat OpenShift, behöver du köpa minst 4 noder för reserverade Azure Red Hat OpenShift-programmet.
+
+Om du är Azure-kund[köpa Azure Red Hat OpenShift reserverade instanser](https://aka.ms/openshift/buy) via Azure portal. När du har köpt, aktiveras din prenumeration inom 24 timmar, varefter kommer du att kunna etablera kluster.
+
+Om du inte är Azure-kund [försäljningskontakt](https://aka.ms/openshift/contact-sales) och Fyll i formuläret försäljning längst ned på sidan för att starta processen.
+
+Referera till den [Azure Red Hat OpenShift sidan med priser](https://aka.ms/openshift/pricing) för mer information.
 
 ## <a name="which-azure-regions-are-supported"></a>Vilka Azure-regioner stöds?
 

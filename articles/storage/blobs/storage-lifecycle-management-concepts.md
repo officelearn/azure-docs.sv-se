@@ -5,16 +5,16 @@ services: storage
 author: mhopkins-msft
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/09/2019
+ms.date: 05/21/2019
 ms.author: mhopkins
 ms.reviewer: yzheng
 ms.subservice: common
-ms.openlocfilehash: 26ff592ea0d0a57049ae11a981fe8d8e77ca876f
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: ce2559f62d29c7b062cfd1ad1dcb61146adfd91c
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65606939"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001744"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Hantera livscykeln för Azure Blob-lagring
 
@@ -197,7 +197,7 @@ En princip är en samling regler:
 
 Varje regel i principen har flera parametrar:
 
-| Parameternamn | Parametertyp | Anteckningar | Obligatoriskt |
+| Parameternamn | Parametertyp | Anteckningar | Krävs |
 |----------------|----------------|-------|----------|
 | `name`         | String |Ett regelnamn kan innehålla upp till 256 alfanumeriska tecken. Regelnamnet är skiftlägeskänsligt.  Det måste vara unika inom en princip. | True |
 | `enabled`      | Boolean | Ett valfritt booleskt värde att tillåta en regel för att vara tillfälligt inaktiverats. Standardvärdet är SANT om det inte har angetts. | Falskt | 
@@ -393,8 +393,12 @@ För data som ändras och komma åt regelbundet under hela dess livslängd, anv�
 
 ## <a name="faq"></a>Vanliga frågor
 
-**Jag har skapat en ny princip, varför åtgärderna som inte körs direkt?**  
+**Jag har skapat en ny princip, varför åtgärderna som inte kör direkt?**  
 Plattformen körs policyn för onlinelivscykeln en gång om dagen. När du konfigurerar en princip, kan det ta upp till 24 timmar för vissa åtgärder körs för första gången.  
+
+**Jag extraheras manuellt en arkiverad blob, hur kan jag förhindra den flyttas tillbaka till arkivnivån tillfälligt?**  
+När en blob flyttas från en åtkomstnivå till en annan åtkomstnivå, ändras inte dess senaste ändringstid. Om du manuellt rehydrate en arkiverad blob till frekvent nivå, skulle det flyttas tillbaka till Arkivera nivå av motorn för hantering av livscykeln. Du kan förhindra att den genom att inaktivera den regel som påverkar den här bloben tillfälligt. Du kan kopiera bloben till en annan plats om det behöver vara i frekvent nivå permanent. Du kan återaktivera regeln när blob kan på ett säkert sätt flyttas tillbaka till Arkivera nivå. 
+
 
 ## <a name="next-steps"></a>Nästa steg
 

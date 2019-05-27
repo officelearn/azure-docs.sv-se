@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/22/2019
 ms.author: diberry
-ms.openlocfilehash: 6412f0a2e295a19f741c70e7870a4d198ee03b71
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: b7b4e25c78ef08bdf9a7c2f3faf96725fc5f5fc8
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233543"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66123892"
 ---
 # <a name="preview-migrate-to-api-version-3x--for-luis-apps"></a>Förhandsversion: Migrera till API-version 3.x för LUIS-appar
 
@@ -54,7 +54,7 @@ V3 svar objektet förändringarna innefattar [förskapade entiteter](luis-refere
 
 V3-API: et har olika parametrar för frågesträngen.
 
-|Parameternamn|Typ|Version|Syfte|
+|Parameternamn|Type|Version|Syfte|
 |--|--|--|--|
 |`query`|string|Endast v3|**I V2**, uttryck till att förutse finns i den `q` parametern. <br><br>**I V3**, funktionen skickas den `query` parametern.|
 |`show-all-intents`|boolesk|Endast v3|Returnera alla avsikter med motsvarande poängen på den **prediction.intents** objekt. Avsikter returneras som objekt i en överordnad `intents` objekt. På så sätt kan programmässig åtkomst utan att behöva hitta avsikten i en matris: `prediction.intents.give`. I V2 kan returnerade dessa i en matris. |
@@ -343,6 +343,9 @@ Förutsägelse svaret innehåller entiteten, lista, med alla andra förväntade 
 
 **I V3**, entiteten är märkt med `startIndex` och `entityLength`.
 
+## <a name="deprecation"></a>Utfasning 
+
+V2 API gälla inte upphör att för minst nio månader efter V3-förhandsversion. 
 
 ## <a name="next-steps"></a>Nästa steg
 

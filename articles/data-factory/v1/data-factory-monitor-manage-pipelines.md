@@ -14,11 +14,11 @@ ms.date: 04/30/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 64fae56bfc95b62bd60444d49100689845f64278
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445151"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66122813"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Övervaka och hantera Azure Data Factory-pipelines med hjälp av Azure-portalen och PowerShell
 > [!div class="op_single_selector"]
@@ -123,10 +123,10 @@ Datauppsättningen segment i datafabriken kan ha något av följande statusar:
 <td>Sektorn behandlas.</td>
 </tr>
 <tr>
-<td rowspan="4">Misslyckad</td><td>TimedOut</td><td>Körningsmiljön för aktiviteten tog längre tid än vad som är tillåtet av aktiviteten.</td>
+<td rowspan="4">Fungerar inte</td><td>TimedOut</td><td>Körningsmiljön för aktiviteten tog längre tid än vad som är tillåtet av aktiviteten.</td>
 </tr>
 <tr>
-<td>Avbrutna</td><td>Sektorn avbröts av användaren.</td>
+<td>Annullerad</td><td>Sektorn avbröts av användaren.</td>
 </tr>
 <tr>
 <td>Validering</td><td>Verifieringen misslyckades.</td>
@@ -134,7 +134,7 @@ Datauppsättningen segment i datafabriken kan ha något av följande statusar:
 <tr>
 <td>-</td><td>Det gick inte att vara genereras och/eller verifiera sektorn.</td>
 </tr>
-<td>Redo</td><td>-</td><td>Sektorn är klar att förbrukas.</td>
+<td>Klar</td><td>-</td><td>Sektorn är klar att förbrukas.</td>
 </tr>
 <tr>
 <td>Hoppades över</td><td>Ingen</td><td>Sektorn bearbetas inte.</td>

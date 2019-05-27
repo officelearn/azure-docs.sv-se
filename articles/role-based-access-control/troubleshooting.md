@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 05/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: c6f947ad6f2f8dba2df17132243eb6d918539c14
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5dda2eafe86d037faab6284c2af0d8026c194d11
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60344435"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65921155"
 ---
 # <a name="troubleshoot-rbac-for-azure-resources"></a>Felsöka RBAC för Azure-resurser
 
@@ -36,7 +36,7 @@ Den här artikeln innehåller vanliga frågor och svar om rollbaserad åtkomstko
 - Om du behöver anvisningar att skapa en anpassad roll kan se de anpassade rollen självstudier med [Azure PowerShell](tutorial-custom-role-powershell.md) eller [Azure CLI](tutorial-custom-role-cli.md).
 - Om det inte går att uppdatera en befintlig anpassad roll kan du kontrollera att du har loggat in med en användare som har tilldelats en roll som har den `Microsoft.Authorization/roleDefinition/write` behörighet som [ägare](built-in-roles.md#owner) eller [administratör för användaråtkomst](built-in-roles.md#user-access-administrator).
 - Om du inte lyckas ta bort en anpassad roll och får felmeddelandet om att det finns befintliga rolltilldelningar som refererar till rollen (kod: RoleDefinitionHasAssignments), så finns det rolltilldelningar som fortfarande använder den anpassade rollen. Ta bort dessa rolltilldelningar och försök att ta bort den anpassade rollen igen.
-- Om du får felmeddelandet ”Det högsta tillåtna antalet rolldefinitioner har överskridits. Inga fler Rolldefinitioner kan skapas (kod: RoleDefinitionLimitExceeded) ”när du försöker skapa en ny anpassad roll kan du ta bort eventuella anpassade roller som inte används. Azure har stöd för upp till **2000** anpassade roller i en klient.
+- Om du får felmeddelandet ”Det högsta tillåtna antalet rolldefinitioner har överskridits. Inga fler Rolldefinitioner kan skapas (kod: RoleDefinitionLimitExceeded) ”när du försöker skapa en ny anpassad roll kan du ta bort eventuella anpassade roller som inte används. Azure har stöd för upp till **5000** anpassade roller i en klient. (För särskild moln, till exempel Azure Government, Azure Tyskland och Azure Kina 21Vianet är gränsen 2000 anpassade roller.)
 - Om du får ett felmeddelande liknande ”klienten har behörighet att utföra åtgärden” Microsoft.Authorization/roleDefinitions/write ”på omfånget” /subscriptions/ {subscriptionid}}, men det inte gick att hitta den länkade prenumerationen ”när du försöker uppdatera en anpassad roll Om en eller flera [tilldelningsbara omfång](role-definitions.md#assignablescopes) har tagits bort i klienten. Om omfånget har tagits bort ska du skapa en supportbegäran eftersom det inte finns någon självbetjäningslösning tillgänglig just nu.
 
 ## <a name="recover-rbac-when-subscriptions-are-moved-across-tenants"></a>Återställa RBAC när prenumerationer flyttas mellan klienter

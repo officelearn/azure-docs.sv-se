@@ -2,20 +2,20 @@
 title: Optimera transaktioner för Azure SQL Data Warehouse | Microsoft Docs
 description: Lär dig att optimera prestandan för transaktionell kod i Azure SQL Data Warehouse och minimerar risken för lång återställningar.
 services: sql-data-warehouse
-author: ckarst
+author: XiaoyuL-Preview
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: development
 ms.date: 04/19/2018
-ms.author: cakarst
+ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: f5e0b2b75ac111f3221108936f84e5883aebfc1a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9ab1da9fce74359448311591986d57abbbcef066
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61478835"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873649"
 ---
 # <a name="optimizing-transactions-in-azure-sql-data-warehouse"></a>Optimera transaktioner i Azure SQL Data Warehouse
 Lär dig att optimera prestandan för transaktionell kod i Azure SQL Data Warehouse och minimerar risken för lång återställningar.
@@ -44,9 +44,9 @@ Följande åtgärder har kapacitet för minimalt som du loggar in:
 
 * SKAPA TABLE AS SELECT ([CTAS](sql-data-warehouse-develop-ctas.md))
 * INFOGA... VÄLJ
-* SKAPA INDEX
+* CREATE INDEX
 * ALTER INDEX REBUILD
-* TA BORT INDEXET
+* DROP INDEX
 * TRUNKERA TABELLEN
 * TA BORT TABELL
 * ALTER TABLE SWITCH PARTITION
@@ -67,7 +67,7 @@ CTAS och INSERT... Välj är båda belastningen massåtgärder. Men båda påver
 
 | Primärt Index | Load Scenario | Loggningsläge |
 | --- | --- | --- |
-| Heap |Alla |**Minimal** |
+| Heap |Valfri |**Minimal** |
 | Grupperat Index |Tom måltabellen |**Minimal** |
 | Grupperat Index |Läsa in rader inte överlappar befintliga sidor på målservern |**Minimal** |
 | Grupperat Index |Läsa in rader som överlappar med befintliga sidor på målservern |Fullständig |

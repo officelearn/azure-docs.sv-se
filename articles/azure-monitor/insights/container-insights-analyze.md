@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/06/2019
+ms.date: 05/18/2019
 ms.author: magoedte
-ms.openlocfilehash: ed387f7038c5dee1a1685c918abcae49942cd55d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 531e51fbddb99ebba11284d5291b4cca26559bc1
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148850"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65906767"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Förstå prestanda för AKS-kluster med Azure Monitor för behållare 
 Med Azure Monitor för behållare kan använda du prestandadiagram och hälsostatus för att övervaka arbetsbelastningen för dina Azure Kubernetes Service (AKS) kluster ur två perspektiv, direkt från ett AKS-kluster eller alla AKS-kluster i en prenumeration från Azure Övervaka. Visa Azure Container Instances (ACI) är också möjligt när du övervakar ett specifikt AKS-kluster.
@@ -26,10 +26,6 @@ Med Azure Monitor för behållare kan använda du prestandadiagram och hälsosta
 Den här artikeln hjälper dig att förstå upplevelse mellan två perspektiv och hur den hjälper dig att snabbt utvärdera, undersöka och lösa problem som identifieras.
 
 Information om hur du aktiverar Azure Monitor för behållare finns i [publicera Azure Monitor för behållare](container-insights-onboard.md).
-
-> [!IMPORTANT]
-> Azure Monitor för behållare support att övervaka ett AKS-kluster som kör Windows Server 2019 är för närvarande i offentlig förhandsversion.
-> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Azure Monitor innehåller en vy för flera kluster som visar hälsotillståndet för alla övervakade AKS-kluster som kör Linux och Windows Server 2019 distribueras mellan resursgrupper i dina prenumerationer.  Den visar AKS-kluster identifieras som inte övervakas av lösningen. Du kan omedelbart förstår klusterhälsa och härifrån kan du öka detaljnivån till sidan noden och controller prestanda eller navigera för att se prestandadiagram för klustret.  AKS-kluster identifieras och identifieras som oövervakade kan aktivera du övervakning för klustret när som helst.  
 
@@ -135,7 +131,7 @@ Du kan använda [uppdelningen](../platform/metrics-charts.md#apply-splitting-to-
 
 * Kontrollenhet
 * Kubernetes-namnområde
-* Node
+* Nod
 * Fas
 
 ## <a name="analyze-nodes-controllers-and-container-health"></a>Analysera noder, domänkontrollanter och hälsotillstånd för behållare

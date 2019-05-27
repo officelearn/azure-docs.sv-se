@@ -8,13 +8,13 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/12/2018
-ms.openlocfilehash: 5f85f0a6b1869571a8db29586e5fe113e0f47433
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/17/2019
+ms.openlocfilehash: 60cddf15ee8a93aa01a72fdc124fa27e68184e04
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60761683"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65916034"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Förstå och justera Direktuppspelningsenheter
 
@@ -51,7 +51,7 @@ I allmänhet är det bästa sättet är att starta med 6 SUs för frågor som in
 Mer information om hur du väljer rätt antal su: er finns i den här sidan: [Skala Azure Stream Analytics-jobb för att öka dataflödet](stream-analytics-scale-jobs.md)
 
 > [!Note]
-> Välja hur många su: er som krävs för ett specifikt jobb beror på partitionskonfigurationen för indata och frågan som definierats för jobbet. Du kan välja upp till din kvot i su: er för ett jobb. Som standard har en kvot på upp till 200 SUs för analytics-jobb i en viss region i varje Azure-prenumeration. För att öka su: er för dina prenumerationer utöver den här kvoten kan kontakta [Microsoft Support](https://support.microsoft.com). Giltiga värden för su: er per jobb är 1, 3, 6, och upp i steg 6.
+> Välja hur många su: er som krävs för ett specifikt jobb beror på partitionskonfigurationen för indata och frågan som definierats för jobbet. Du kan välja upp till din kvot i su: er för ett jobb. Som standard har en kvot på upp till 500 SUs för analytics-jobb i en viss region i varje Azure-prenumeration. För att öka su: er för dina prenumerationer utöver den här kvoten kan kontakta [Microsoft Support](https://support.microsoft.com). Giltiga värden för su: er per jobb är 1, 3, 6, och upp i steg 6.
 
 ## <a name="factors-that-increase-su-utilization"></a>Faktorer som ökar SU % utnyttjande 
 

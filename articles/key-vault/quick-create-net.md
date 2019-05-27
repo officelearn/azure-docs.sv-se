@@ -2,19 +2,19 @@
 title: 'Snabbstart: Ange och hämta en hemlighet från Azure Key Vault med hjälp av en .NET-webbapp – Azure Key Vault | Microsoft Docs'
 description: I den här snabbstarten konfigurerar du och hämtar en hemlighet från Azure Key Vault med hjälp av en .NET-webbapp
 services: key-vault
-author: mbaldwin
+author: msmbaldwin
 manager: sumedhb
 ms.service: key-vault
 ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 0d2b3f16086bc3dc653124ecfa9e7116f71bc585
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 132711249ffde4a9c49bc997d8c4ebe4d9c74948
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925435"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872532"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-net-web-app"></a>Snabbstart: Konfigurera och hämta en hemlighet från Azure Key Vault med hjälp av en .NET-webbapp
 
@@ -39,7 +39,7 @@ Innan du fortsätter rekommenderar vi att du läser avsnittet om [grundbegreppen
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * I Windows:
-  * [Visual Studio 2017 version 15.7.3 eller senare](https://www.microsoft.com/net/download/windows) med följande arbetsbelastningar:
+  * [Visual Studio-2019](https://www.microsoft.com/net/download/windows) med följande arbetsbelastningar:
     * ASP.NET och webbutveckling
     * .NET Core plattformsoberoende utveckling
   * [.NET Core 2.1 SDK eller senare](https://www.microsoft.com/net/download/windows)
@@ -119,14 +119,14 @@ git clone https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart.git
 Redigera program.cs-filen för att köra exemplet med namnet på ditt specifika nyckelvalv:
 
 1. Bläddra till mappen key-vault-dotnet-core-quickstart.
-2. Öppna filen key-vault-dotnet-core-quickstart.sln i Visual Studio 2017.
+2. Öppna filen key-vault-dotnet-core-quickstart.sln i Visual Studio 2019.
 3. Öppna Program.cs-filen och uppdatera platshållaren *YourKeyVaultName* (ditt nyckelvalvsnamn) med namnet på det nyckelvalv som du skapade tidigare.
 
 Den här lösningen använder NuGet-biblioteken [AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) och [KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault).
 
 ## <a name="run-the-app"></a>Kör appen
 
-På huvudmenyn för Visual Studio 2017 väljer du **Debug** > **Start** without debugging (Felsökning > Starta utan felsökning). När webbläsaren visas går du till sidan **Om**. Värdet för **AppSecret** visas.
+På huvudmenyn för Visual Studio-2019 Välj **felsöka** > **starta utan felsökning**. När webbläsaren visas går du till sidan **Om**. Värdet för **AppSecret** visas.
 
 ## <a name="publish-the-web-application-to-azure"></a>Publicera webbappen till Azure
 

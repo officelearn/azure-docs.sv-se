@@ -8,12 +8,12 @@ ms.author: sngun
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 2e43b2d6f5a127f7f0f81c2dfc2fd3737c9ee787
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1afdc0319ae26fcd6c8cb3ada0b4aa8c31fe1fbb
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60894176"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65861309"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-net-sdk-and-azure-cosmos-db"></a>Snabbstart: Skapa en Cassandra-app med .NET SDK och Azure Cosmos DB
 
@@ -33,7 +33,7 @@ Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera d
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] Du kan även [Testa Azure Cosmos DB kostnadsfritt](https://azure.microsoft.com/try/cosmosdb/) utan en Azure-prenumeration, utan kostnad och åtaganden.
 
 Dessutom behöver du: 
-* Om du inte har Visual Studio 2017 installerat kan du ladda ned och använda [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/) **utan kostnad**. Se till att du aktiverar **Azure-utveckling** under installationen av Visual Studio.
+* Om du inte redan har Visual Studio 2019 installerat kan du hämta och använda den **kostnadsfria** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Se till att du aktiverar **Azure-utveckling** under installationen av Visual Studio.
 * Installera [Git](https://www.git-scm.com/) för att klona exemplet.
 
 <a id="create-account"></a>
@@ -118,11 +118,11 @@ Gå nu tillbaka till Azure-portalen för att hämta information om din anslutnin
 
 1. På [Azure-portalen](https://portal.azure.com/) väljer du **Anslutningssträng**.
 
-    Använd ![Knappen Kopiera](./media/create-cassandra-dotnet/copy.png) knappen på höger sida av skärmen för att kopiera värdet ANVÄNDARNAMN.
+    Använd ![Kopieringsknapp](./media/create-cassandra-dotnet/copy.png) knappen på höger sida av skärmen för att kopiera värdet ANVÄNDARNAMN.
 
     ![Visa och kopiera en åtkomstnyckel från Azure-portalen, sidan Anslutningssträng](./media/create-cassandra-dotnet/keys.png)
 
-2. I Visual Studio 2017 öppnar du filen Program.cs. 
+2. Öppna filen Program.cs i Visual Studio. 
 
 3. Klistra in värdet för ANVÄNDARNAMN från portalen över `<FILLME>` på rad 13.
 

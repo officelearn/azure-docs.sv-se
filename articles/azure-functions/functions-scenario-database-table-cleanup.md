@@ -11,16 +11,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/28/2018
 ms.author: glenga
-ms.openlocfilehash: 4ec2e9b931e6405aca5b4237bc044647af3b8bb3
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 19a5fe4c087d477ff15d2237a36d1c4ecaa0e070
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62120678"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65908189"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Använd Azure Functions för att ansluta till en Azure SQL Database
 
-Den här artikeln visar hur du använder Azure Functions för att skapa ett schemalagt jobb som ansluter till en Azure SQL Database-instans. Funktionskoden rensar rader i en tabell i databasen. Den nya C# funktionen skapas baserat på en fördefinierad timer utlösarmallen i Visual Studio 2017. För det här scenariot måste ange du också en anslutningssträng för databasen som en appinställning i funktionsappen. Det här scenariot använder en bulkåtgärd mot databasen. 
+Den här artikeln visar hur du använder Azure Functions för att skapa ett schemalagt jobb som ansluter till en Azure SQL Database-instans. Funktionskoden rensar rader i en tabell i databasen. Den nya C# funktionen skapas baserat på en fördefinierad timer utlösarmallen i Visual Studio 2019. För det här scenariot måste ange du också en anslutningssträng för databasen som en appinställning i funktionsappen. Det här scenariot använder en bulkåtgärd mot databasen. 
 
 Om det här är din första erfarenhet av att arbeta med C# funktioner, bör du läsa den [Azure Functions C# utvecklarreferens](functions-dotnet-class-library.md).
 
@@ -64,7 +64,7 @@ Du måste ha tidigare publicerat din app till Azure. Om du inte redan gjort det,
 
 Du måste lägga till NuGet-paket som innehåller SqlClient-biblioteket. Det här biblioteket för åtkomst av data krävs för att ansluta till en SQL-databas.
 
-1. Öppna ditt lokala funktionsappsprojekt i Visual Studio 2017.
+1. Öppna ditt lokala funktionsappsprojekt i Visual Studio 2019.
 
 1. I Solution Explorer högerklickar du på approjektet funktionen och välj **hantera NuGet-paket**.
 

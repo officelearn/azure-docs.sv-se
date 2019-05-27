@@ -9,16 +9,16 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7868b52fee991d4b9323fa0b7969aeca4dc83cdb
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 922273e3805004f6af068ea748c16f5675810144
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64711949"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001465"
 ---
-# <a name="common-security-attributes-for-azure-storage"></a>Vanliga säkerhetsattribut för Azure Storage
+# <a name="security-attributes-for-azure-storage"></a>Security attribut för Azure Storage
 
-Säkerheten är integrerad i alla aspekter av en Azure-tjänst. Den här artikeln beskrivs vanliga security attribut som är inbyggda i Azure Storage. 
+Den här artikeln dokumenteras security-attribut som är inbyggda i Azure Storage. 
 
 [!INCLUDE [Security Attributes Header](../../../includes/security-attributes-header.md)]
 
@@ -41,7 +41,7 @@ Säkerheten är integrerad i alla aspekter av en Azure-tjänst. Den här artikel
 | Isolering av nätverk och brandväggsfunktioner support| Ja | |
 | Tvingad tunneltrafik support| Gäller inte |  |
 
-## <a name="detection"></a>Detection (Identifiering)
+## <a name="detection"></a>Identifiering
 
 | Säkerhetsattributet | Ja/nej | Anteckningar|
 |---|---|--|
@@ -55,7 +55,7 @@ Säkerheten är integrerad i alla aspekter av en Azure-tjänst. Den här artikel
 | Auktorisering| Ja | Stöd för auktorisering via RBAC, POSIX-ACL: er och SAS-token |
 
 
-## <a name="audit-trail"></a>Spårning
+## <a name="audit-trail"></a>Granskningslogg
 
 | Säkerhetsattributet | Ja/nej | Anteckningar|
 |---|---|--|

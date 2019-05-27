@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: apimpm
-ms.openlocfilehash: b8c564ef2de22555930f998ccd9918b252d35f17
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 8947637a42adfca12268c3f84e208079768870e0
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65541700"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65921218"
 ---
 # <a name="api-management-access-restriction-policies"></a>API Management-principer för begränsning av åtkomst
 
@@ -58,14 +58,14 @@ Använd den `check-header` princip för att genomdriva att en begäran har ett a
 
 ### <a name="elements"></a>Element
 
-| Namn         | Beskrivning                                                                                                                                   | Obligatoriskt |
+| Namn         | Beskrivning                                                                                                                                   | Krävs |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | Kontrollera rubrik | Rotelement.                                                                                                                                 | Ja      |
 | value        | Tillåtna värde för HTTP-huvud. När flera värde anges är, betraktas kontrollen lyckas om något av värdena finns en matchning. | Nej       |
 
 ### <a name="attributes"></a>Attribut
 
-| Namn                       | Beskrivning                                                                                                                                                            | Obligatoriskt | Standard |
+| Namn                       | Beskrivning                                                                                                                                                            | Krävs | Standard |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | failed-check-error-message | Felmeddelande att returnera i HTTP-svarstext om huvudet finns inte eller har ett ogiltigt värde. Det här meddelandet måste ha några specialtecken som korrekt undantaget. | Ja      | Gäller inte     |
 | Det gick inte-kontroll-httpcode      | HTTP-statuskod ska returneras om huvudet finns inte eller har ett ogiltigt värde.                                                                                        | Ja      | Gäller inte     |
@@ -118,7 +118,7 @@ Den `rate-limit` princip förhindrar API-användningstoppar på basis av per pre
 
 ### <a name="elements"></a>Element
 
-| Namn      | Beskrivning                                                                                                                                                                                                                                                                                              | Krävs |
+| Namn      | Beskrivning                                                                                                                                                                                                                                                                                              | Obligatoriskt |
 | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | Ställ in gräns | Rotelement.                                                                                                                                                                                                                                                                                            | Ja      |
 | api       | Lägg till en eller flera av dessa element att införa en anropsgränsen på API: er inom produkten. Produkt- och API: et anropsfrekvens begränsningar tillämpas oberoende av varandra. API: et kan vara refereras via `name` eller `id`. Om båda attributen har angetts, `id` ska användas och `name` kommer att ignoreras.                    | Nej       |
@@ -183,13 +183,13 @@ I exemplet nedan ställs in gräns för överföringshastigheten i med anropares
 
 ### <a name="elements"></a>Element
 
-| Namn      | Beskrivning   | Krävs |
+| Namn      | Beskrivning   | Obligatoriskt |
 | --------- | ------------- | -------- |
 | Ställ in gräns | Rotelement. | Ja      |
 
 ### <a name="attributes"></a>Attribut
 
-| Namn                | Beskrivning                                                                                           | Krävs | Standard |
+| Namn                | Beskrivning                                                                                           | Obligatoriskt | Standard |
 | ------------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
 | anrop               | Det maximala totalt antalet anrop tillåts under en tidsperiod som anges i den `renewal-period`. | Ja      | Gäller inte     |
 | avdelningar nyckel         | Nyckeln som ska användas för frekvensbegränsningsprincipen.                                                             | Ja      | Gäller inte     |
@@ -230,7 +230,7 @@ I följande exempel tillåter principen endast begäranden som kommer från IP-a
 
 ### <a name="elements"></a>Element
 
-| Namn                                      | Beskrivning                                         | Krävs                                                       |
+| Namn                                      | Beskrivning                                         | Obligatoriskt                                                       |
 | ----------------------------------------- | --------------------------------------------------- | -------------------------------------------------------------- |
 | ip-filter                                 | Rotelement.                                       | Ja                                                            |
 | adress                                   | Anger en IP-adress som ska filtreras.   | Minst en `address` eller `address-range` elementet krävs. |
@@ -315,8 +315,6 @@ Den här principen kan användas i följande princip [avsnitt](https://azure.mic
 Den `quota-by-key` principen tvingar fram en förnyas eller livslängd anrop volym och/eller bandbredd kvoten på basis av per nyckel. Nyckeln kan ha en godtycklig sträng-värde och anges vanligtvis med en principuttryck. Valfritt steg villkor kan läggas till ange vilka begäranden som ska räknas mot kvoten. Om flera principer skulle öka samma nyckelvärde, ökas den bara en gång per begäran. När anropet gränsen har nåtts anroparen får en `403 Forbidden` Svarets statuskod.
 
 Mer information och exempel på den här principen kan du se [avancerad begränsning av förfrågningar med Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).
-
-> [Principuttryck](api-management-policy-expressions.md) kan inte användas i något av principen attribut för den här principen.
 
 ### <a name="policy-statement"></a>Principframställning
 
@@ -533,7 +531,7 @@ Det här exemplet visar hur du använder den [verifiera JWT](api-management-acce
 
 ### <a name="attributes"></a>Attribut
 
-| Namn                            | Beskrivning                                                                                                                                                                                                                                                                                                                                                                                                                                            | Krävs                                                                         | Standard                                                                           |
+| Namn                            | Beskrivning                                                                                                                                                                                                                                                                                                                                                                                                                                            | Obligatoriskt                                                                         | Standard                                                                           |
 | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
 | clock-skew                      | TimeSpan. Använd för att ange högsta förväntade tidsskillnaden mellan tokenutfärdaren systemklockor och API Management-instans.                                                                                                                                                                                                                                                                                                               | Nej                                                                               | 0 sekunder                                                                         |
 | failed-validation-error-message | Felmeddelande att returnera i HTTP-svarstext om JWT inte klarar valideringen. Det här meddelandet måste ha några specialtecken som korrekt undantaget.                                                                                                                                                                                                                                                                                                 | Nej                                                                               | Standardfelmeddelande beror på verifieringsproblem, till exempel ”JWT finns inte”. |

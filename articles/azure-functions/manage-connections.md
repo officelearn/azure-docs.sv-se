@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 02/25/2018
 ms.author: glenga
-ms.openlocfilehash: e15d6ad445c3fdde0632c3ad468eee7da836a394
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 69425129d5f049254a60032283ddc6ca2ab84d5c
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785968"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872696"
 ---
 # <a name="manage-connections-in-azure-functions"></a>Hantera anslutningar i Azure Functions
 
@@ -21,9 +21,9 @@ Funktioner i en funktionsapp delar resurser. Bland dessa delade resurser finns i
 
 ## <a name="connection-limit"></a>Anslutningsbegränsning
 
-Antalet tillgängliga anslutningar är begränsat delvis eftersom en funktionsapp som körs i en [testmiljö](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox). En av de begränsningar som sandbox-miljön inför din kod är en begränsning på antalet anslutningar (för närvarande på 600 aktiva anslutningar och 1 200 Totalt antal anslutningar) per instans. När du når den här gränsen kan funktionskörningen skapar en logg med följande meddelande: `Host thresholds exceeded: Connections`.
+Antalet tillgängliga anslutningar är begränsat delvis eftersom en funktionsapp som körs i en [testmiljö](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox). En av de begränsningar som sandbox-miljön inför din kod är en gräns för antalet utgående anslutningar som för närvarande är 600 aktiva (1 200 totalt) anslutningar per instans. När du når den här gränsen kan funktionskörningen skriver du följande meddelande till loggarna: `Host thresholds exceeded: Connections`. Mer information finns i den [Functions tjänstbegränsningar](functions-scale.md#service-limits).
 
-Den här gränsen är per instans.  När den [skala controller lägger till funktionen app-instanserna](functions-scale.md#how-the-consumption-and-premium-plans-work) för att hantera fler begäranden varje instans har ett oberoende anslutningsgräns. Det innebär att det finns ingen gräns för global anslutning och du kan ha mycket mer än 600 aktiva anslutningar över alla aktiva instanser.
+Den här gränsen är per instans. När den [skala controller lägger till funktionen app-instanserna](functions-scale.md#how-the-consumption-and-premium-plans-work) för att hantera fler begäranden varje instans har ett oberoende anslutningsgräns. Det innebär att det finns ingen gräns för global anslutning och du kan ha mycket mer än 600 aktiva anslutningar över alla aktiva instanser.
 
 När du felsöker kan du kontrollera att du har aktiverat Application Insights för din funktionsapp. Application Insights kan du visa mått för dina funktionsappar som körningar. Mer information finns i [visa telemetri i Application Insights](functions-monitoring.md#view-telemetry-in-application-insights).  
 

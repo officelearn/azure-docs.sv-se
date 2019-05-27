@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 883042e7c8abb43338c55a76bba3d64844ce1c56
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 3361013d8421cd859c834c07018356318d5e2989
+ms.sourcegitcommit: f4469b7bb1f380bf9dddaf14763b24b1b508d57c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65604343"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66179808"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Konfigurera ett Linux Java-program för Azure App Service
 
@@ -65,7 +65,7 @@ De inbyggda Java-avbildningarna är baserade på den [Alpine Linux](https://alpi
 
 Azure App Service för Linux stöder från box justering och anpassning genom Azure portal och CLI. Granska följande artiklar för icke-Java-specifika web app-konfiguration:
 
-- [Konfigurera inställningar för App Service](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+- [Konfigurera appinställningar](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings)
 - [Konfigurera en anpassad domän](../app-service-web-tutorial-custom-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 - [Aktivera SSL](../app-service-web-tutorial-custom-ssl.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 - [Lägga till ett CDN](../../cdn/cdn-add-to-web-app.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
@@ -73,7 +73,7 @@ Azure App Service för Linux stöder från box justering och anpassning genom Az
 
 ### <a name="set-java-runtime-options"></a>Ange alternativ för Java runtime
 
-Ange allokerat minne eller andra alternativ för körning av JVM i Tomcat- och Java SE-miljöer och skapa en [programinställningen](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings) med namnet `JAVA_OPTS` med alternativ. App Service Linux skickar den här inställningen som en miljövariabel till Java runtime när den startas.
+Ange allokerat minne eller andra alternativ för körning av JVM i Tomcat- och Java SE-miljöer och skapa en [appinställningen](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) med namnet `JAVA_OPTS` med alternativ. App Service Linux skickar den här inställningen som en miljövariabel till Java runtime när den startas.
 
 I Azure-portalen under **programinställningar** för webbappen, skapa en ny appinställning med namnet `JAVA_OPTS` som omfattar ytterligare inställningar som `-Xms512m -Xmx1204m`.
 
@@ -140,11 +140,45 @@ Java-program som körs i App Service för Linux har samma uppsättning [säkerhe
 
 ### <a name="authenticate-users"></a>Autentisera användare
 
-Appautentisering i Azure-portalen med den **autentisering och auktorisering** alternativet. Därifrån kan aktivera du autentisering med hjälp av Azure Active Directory eller sociala inloggningar som Facebook, Google eller GitHub. Konfiguration av Azure portal fungerar bara när du konfigurerar en enda autentiseringsprovider. Mer information finns i [konfigurera App Service-appen för att använda Azure Active Directory-inloggning](../configure-authentication-provider-aad.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) och relaterade artiklar för andra identitetsleverantörer.
+Appautentisering i Azure-portalen med den **autentisering och auktorisering** alternativet. Därifrån kan aktivera du autentisering med hjälp av Azure Active Directory eller sociala inloggningar som Facebook, Google eller GitHub. Konfiguration av Azure portal fungerar bara när du konfigurerar en enda autentiseringsprovider. Mer information finns i [konfigurera App Service-appen för att använda Azure Active Directory-inloggning](../configure-authentication-provider-aad.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) och relaterade artiklar för andra identitetsleverantörer. Om du vill aktivera flera inloggning providers, följ instruktionerna i den [anpassa App Service-autentisering](../app-service-authentication-how-to.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) artikeln.
 
-Om du vill aktivera flera inloggning providers, följ instruktionerna i den [anpassa App Service-autentisering](../app-service-authentication-how-to.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) artikeln.
+#### <a name="tomcat"></a>Tomcat
 
- Spring Boot-utvecklare kan använda den [Azure Active Directory Spring Boot starter](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory?view=azure-java-stable) att skydda program med hjälp av välbekanta Spring Security anteckningar och API: er. Se till att öka den högsta huvudstorlek i din `application.properties` fil. Vi rekommenderar ett värde på `16384`.
+Tomcat-program kan komma åt användarens anspråk direkt från Tomcat servleten av instruktionsvideor huvudkontot objekt till ett Kartobjekt. Kartobjekt mappar varje typ av anspråk till en uppsättning anspråk för den typen. I följande kodexempel anger `request` är en instans av `HttpServletRequest`.
+
+```java
+Map<String, Collection<String>> map = (Map<String, Collection<String>>) request.getUserPrincipal();
+```
+
+Nu kan du granska den `Map` objekt för eventuella specifika krav. Följande kodavsnitt går igenom alla anspråkstyper och skriver ut innehållet i varje samling.
+
+```java
+for (Object key : map.keySet()) {
+        Object value = map.get(key);
+        if (value != null && value instanceof Collection {
+            Collection claims = (Collection) value;
+            for (Object claim : claims) {
+                System.out.println(claims);
+            }
+        }
+    }
+```
+
+Om du vill logga ut användarna och utföra andra åtgärder, finns i dokumentationen om [App Service-autentisering och auktorisering](https://docs.microsoft.com/en-us/azure/app-service/app-service-authentication-how-to). Det finns också officiella dokumentationen på Tomcat [Objektparametern gränssnittet](https://tomcat.apache.org/tomcat-5.5-doc/servletapi/javax/servlet/http/HttpServletRequest.html) och dess metoder. Följande servleten metoder är också hydrerat baserat på din App Service-konfiguration:
+
+```java
+public boolean isSecure()
+public String getRemoteAddr()
+public String getRemoteHost()
+public String getScheme()
+public int getServerPort()
+```
+
+Om du vill inaktivera den här funktionen, skapa programinställning med namnet `WEBSITE_AUTH_SKIP_PRINCIPAL` med värdet `1`. För att inaktivera alla servlet filter har lagts till av App Service, skapa en inställning med namnet `WEBSITE_SKIP_FILTERS` med värdet `1`.
+
+#### <a name="spring-boot"></a>Spring Boot
+
+Spring Boot-utvecklare kan använda den [Azure Active Directory Spring Boot starter](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory?view=azure-java-stable) att skydda program med hjälp av välbekanta Spring Security anteckningar och API: er. Se till att öka den högsta huvudstorlek i din `application.properties` fil. Vi rekommenderar ett värde på `16384`.
 
 ### <a name="configure-tlsssl"></a>Konfigurera TLS/SSL
 
@@ -232,7 +266,7 @@ Om du vill konfigurera Tomcat om du vill använda Java Database Connectivity (JD
 </appSettings>
 ```
 
-Eller ange miljövariabler i bladet ”Application Settings” i Azure-portalen.
+Eller ange miljövariabler den **Configuration** > **programinställningar** sidan på Azure portal.
 
 Därefter fastställer om datakällan ska vara tillgänglig till ett program eller för alla program som körs på Tomcat servleten.
 
@@ -327,10 +361,7 @@ Slutligen placera drivrutinen JAR-filer i Tomcat-klassökvägen och starta om Ap
 
 För att ansluta till datakällor i Spring Boot-program, föreslår vi att skapa anslutningssträngar och infoga dem till din `application.properties` fil.
 
-1. Ange ett namn för strängen i avsnittet ”Application Settings” i App Service-bladet, klistra in JDBC-anslutningssträngen i värdefältet och ange till ”anpassad”. Du kan också ange den här anslutningssträngen som platsinställning.
-
-    ! [Skapa en anslutningssträng i portalen.]
-    
+1. Ange ett namn för strängen i avsnittet ”Configuration” i App Service-sidan, klistra in JDBC-anslutningssträngen i värdefältet och ange till ”anpassad”. Du kan också ange den här anslutningssträngen som platsinställning.
 
     Den här anslutningssträngen är tillgänglig för vårt program som en miljövariabel som heter `CUSTOMCONNSTR_<your-string-name>`. Till exempel den anslutningssträng som vi skapade ovan får namnet `CUSTOMCONNSTR_exampledb`.
 
@@ -383,13 +414,13 @@ Ladda upp startskriptet att `/home/site/deployments/tools` i din App Service-ins
 
 Ange den **startskript** fältet i Azure-portalen till platsen för din start shell-skript, till exempel `/home/site/deployments/tools/your-startup-script.sh`.
 
-Ange [appinställningar](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings) i programkonfigurationen att skicka miljövariabler för användning i skriptet. Programinställningar Behåll anslutningssträngar och andra hemligheter som behövs för att konfigurera ditt program utanför versionskontroll.
+Ange [appinställningar](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) i programkonfigurationen att skicka miljövariabler för användning i skriptet. Programinställningar Behåll anslutningssträngar och andra hemligheter som behövs för att konfigurera ditt program utanför versionskontroll.
 
 ### <a name="modules-and-dependencies"></a>Moduler och beroenden
 
 För att installera moduler och deras beroenden i klassökvägen Wildfly via JBoss CLI, behöver du skapa följande filer i sina egna katalogen. Vissa moduler och beroenden kanske behöver ytterligare konfiguration, till exempel JNDI naming eller andra API-konfiguration, så att den här listan är en minimiuppsättning för vad du behöver konfigurera ett beroende i de flesta fall.
 
-- En [XML-modulen descriptor](https://jboss-modules.github.io/jboss-modules/manual/#descriptors). Den här XML-filen definierar namn, attribut och beroenden modulens. Detta [module.xml-exempelfil](https://access.redhat.com/documentation/jboss_enterprise_application_platform/6/html/administration_and_configuration_guide/example_postgresql_xa_datasource) definierar en Postgres-modul, beroendet JDBC JAR-filen och andra modulberoenden som krävs.
+- En [XML-modulen descriptor](https://jboss-modules.github.io/jboss-modules/manual/#descriptors). Den här XML-filen definierar namn, attribut och beroenden modulens. Detta [module.xml-exempelfil](https://access.redhat.com/documentation/en-us/jboss_enterprise_application_platform/6/html/administration_and_configuration_guide/example_postgresql_xa_datasource) definierar en Postgres-modul, beroendet JDBC JAR-filen och andra modulberoenden som krävs.
 - Alla nödvändiga JAR-filen beroenden för din modul.
 - Ett skript med din JBoss CLI-kommandon för att konfigurera den nya modulen. Den här filen innehåller kommandon som ska köras av JBoss CLI att konfigurera servern för att använda beroendet. Dokumentation om kommandon för att lägga till moduler, datakällor och leverantörer av meddelanden som avser [det här dokumentet](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.0/html-single/management_cli_guide/#how_to_cli).
 - Ett Bash-startskript att anropa JBoss CLI och köra skriptet i föregående steg. Den här filen ska utföras när din App Service-instans startas eller när nya instanser som levereras under en skalbar. Den här startskript är där du kan utföra alla andra inställningar för ditt program som JBoss kommandon skickas till JBoss CLI. Den här filen kan vara ett enda kommando för att skicka ditt kommando JBoss CLI-skript till JBoss CLI minimum:
@@ -401,7 +432,7 @@ För att installera moduler och deras beroenden i klassökvägen Wildfly via JBo
 När du har de filer och innehåll för din modul, följer du stegen nedan för att lägga till modulen på programservern Wildfly.
 
 1. FTP-filer till `/home/site/deployments/tools` i din App Service-instans. Se det här dokumentet för instruktioner om hur du hämtar din FTP-autentiseringsuppgifter.
-2. På bladet programinställningar i Azure-portalen ange fältet ”startskript” till platsen för din startskript shell, till exempel `/home/site/deployments/tools/your-startup-script.sh` .
+2. I den **Configuration** > **allmänna inställningar** sidan i Azure portal, Ställ in ”startskriptet” fältet till platsen för din start shell-skript, till exempel `/home/site/deployments/tools/your-startup-script.sh` .
 3. Starta om din App Service-instans genom att trycka på den **starta om** knappen i den **översikt** avsnittet i portalen eller med hjälp av Azure CLI.
 
 ### <a name="configure-data-source-connections"></a>Konfigurera anslutningar till datakälla

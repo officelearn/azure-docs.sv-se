@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: overview
 ms.date: 12/22/2018
 ms.author: azfuncdf, glenga
-ms.openlocfilehash: 4c7b4733d05f18d3c30e45fd08c3cf9c50354ebc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2228f3fe05e1021d0f87ce0b0d33a8287f048a8c
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60730607"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872815"
 ---
 # <a name="what-are-durable-functions"></a>Vad är Durable Functions?
 
@@ -49,7 +49,7 @@ Durable Functions stöder för närvarande följande språk:
 
 Durable Functions har som mål att stödja alla [Azure Functions-språk](../supported-languages.md). I [Durable Functions-problemlistan](https://github.com/Azure/azure-functions-durable-extension/issues) finns senaste status för arbetet med att stödja ytterligare språk.
 
-Liksom för Azure Functions finns det mallar som hjälper dig att utveckla Durable Functions med hjälp av [Visual Studio 2017](durable-functions-create-first-csharp.md), [Visual Studio Code](quickstart-js-vscode.md) och [Azure-portalen](durable-functions-create-portal.md).
+Liksom Azure Functions är det finns mallar som hjälper dig att utveckla varaktiga funktioner med hjälp av [Visual Studio 2019](durable-functions-create-first-csharp.md), [Visual Studio Code](quickstart-js-vscode.md), och [Azure-portalen](durable-functions-create-portal.md).
 
 ## <a name="billing"></a>Fakturering
 
@@ -59,12 +59,12 @@ Durable Functions debiteras samma som Azure Functions. Mer information finns i [
 
 Du kan komma igång med Durable Functions på mindre än 10 minuter genom att slutföra någon av dessa språkspecifika snabbstartsguider:
 
-* [C# med hjälp av Visual Studio 2017](durable-functions-create-first-csharp.md)
+* [C#med hjälp av Visual Studio 2019](durable-functions-create-first-csharp.md)
 * [JavaScript med hjälp av Visual Studio Code](quickstart-js-vscode.md)
 
 I båda snabbstarterna skapar du och testar en beständig ”hello world”-funktion lokalt. Du publicerar sedan funktionskoden till Azure. Den funktion som du skapar orkestrerar och kedjar samman anrop till andra funktioner.
 
-## <a name="learn-more"></a>Läs mer
+## <a name="learn-more"></a>Lär dig mer
 
 Följande video visar fördelarna med Durable Functions:
 

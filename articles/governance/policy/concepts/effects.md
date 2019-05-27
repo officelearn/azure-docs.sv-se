@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 67a195932ad1afc3c93a94dfcbda8ab8a47760b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6ad6f9414df17f9edff7565752ef3845e0d3c88e
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60498825"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66116209"
 ---
 # <a name="understand-azure-policy-effects"></a>Förstå effekterna av Azure Policy
 
@@ -30,7 +30,7 @@ Det finns för närvarande sex effekter som stöds i en definition av principen:
 
 ## <a name="order-of-evaluation"></a>Ordningen för utvärdering
 
-Begäranden om att skapa eller uppdatera en resurs via Azure Resource Manager utvärderas av principen först. Principen skapas en lista över alla tilldelningar som tillämpas på resursen och sedan utvärderar resursen mot varje definition. Grupprincip bearbetar flera effekterna innan du skickar begäran till lämplig Resursprovidern. Detta förhindrar onödiga bearbetning av en Resursprovider när en resurs inte uppfyller utformade styrning kontroller av principen.
+Begäranden om att skapa eller uppdatera en resurs via Azure Resource Manager utvärderas först av Azure Policy. Azure Policy skapar en lista över alla tilldelningar som tillämpas på resursen och sedan utvärderar resursen mot varje definition. Azure Policy bearbetar flera effekterna innan du skickar begäran till lämplig Resursprovidern. Detta förhindrar onödig bearbetning av en Resursprovider när en resurs inte uppfyller utformade styrning kontroller av Azure Policy.
 
 - **Inaktiverad** kontrolleras först för att fastställa om principregeln bör utvärderas.
 - **Lägg till** utvärderas sedan. Lägg sedan till kunde ändra begäran, ändringar av Lägg till kan förhindra en granskningslogg eller neka effekt utlöser.
@@ -88,8 +88,7 @@ Exempel 2: Två **fält/värde** par att lägga till en uppsättning taggar.
 }
 ```
 
-Exempel 3: Enkel **fält/värde** parkopplas med en icke -**[\*]**
-[alias](definition-structure.md#aliases) med en matris **värdet** att ange IP-regler för en Storage-konto. När den icke -**[\*]** alias är en matris, effekten lägger till den **värdet** som hela matrisen. Om matrisen redan finns inträffar en neka-händelse från konflikten.
+Exempel 3: Enkel **fält/värde** parkopplas med en icke -**[\*]** [alias](definition-structure.md#aliases) med en matris **värdet** att ange IP-regler för ett lagringskonto. När den icke -**[\*]** alias är en matris, effekten lägger till den **värdet** som hela matrisen. Om matrisen redan finns inträffar en neka-händelse från konflikten.
 
 ```json
 "then": {
@@ -119,7 +118,7 @@ Exempel 4: Enkel **fält/värde** parkopplas med en **[\*]** [alias](definition-
 }
 ```
 
-## <a name="deny"></a>Neka
+## <a name="deny"></a>Avvisa
 
 Neka används för att förhindra att en resursbegäran som matchar inte definierad standarder genom en principdefinition och misslyckas begäran.
 
@@ -149,7 +148,7 @@ Granska används för att skapa en varning-händelse i aktivitetsloggen vid utv�
 
 ### <a name="audit-evaluation"></a>Granska utvärdering
 
-Granskning är den sista effekten som kontrolleras av en princip under skapandet eller uppdatering av en resurs. Princip skickar sedan resursen till Resursprovidern. Granskning fungerar på samma sätt för en resursbegäran och en utvärderingscykel för datorprincip. Grupprincip lägger till en `Microsoft.Authorization/policies/audit/action` åtgärden aktivitetsloggen och markerar resursen som icke-kompatibel.
+Granskning är den sista effekten som kontrolleras av Azure Policy under generering och uppdatering av en resurs. Azure Policy skickar sedan resursen till Resursprovidern. Granskning fungerar på samma sätt för en resursbegäran och en utvärderingscykel för datorprincip. Azure Policy lägger till en `Microsoft.Authorization/policies/audit/action` åtgärden aktivitetsloggen och markerar resursen som icke-kompatibel.
 
 ### <a name="audit-properties"></a>Egenskaper för granskning
 
@@ -171,7 +170,7 @@ AuditIfNotExists aktiverar granskning på resurser som matchar den **om** villko
 
 ### <a name="auditifnotexists-evaluation"></a>AuditIfNotExists utvärdering
 
-AuditIfNotExists körs när en Resursprovider hanterat en skapa eller uppdatera resursbegäran och returnerade statuskoden lyckades. Granskningen uppstår om det finns inga relaterade resurser eller om resurserna som definierats av **ExistenceCondition** inte utvärderas till SANT. Grupprincip lägger till en `Microsoft.Authorization/policies/audit/action` åtgärden till aktiviteten logga på samma sätt som spårningsseffekt. När det utlöses, den resurs som uppfyller den **om** villkoret är den resurs som markeras som icke-kompatibla.
+AuditIfNotExists körs när en Resursprovider hanterat en skapa eller uppdatera resursbegäran och returnerade statuskoden lyckades. Granskningen uppstår om det finns inga relaterade resurser eller om resurserna som definierats av **ExistenceCondition** inte utvärderas till SANT. Azure Policy lägger till en `Microsoft.Authorization/policies/audit/action` åtgärden till aktiviteten logga på samma sätt som spårningsseffekt. När det utlöses, den resurs som uppfyller den **om** villkoret är den resurs som markeras som icke-kompatibla.
 
 ### <a name="auditifnotexists-properties"></a>AuditIfNotExists egenskaper
 
@@ -300,7 +299,7 @@ Exempel: Utvärderar SQL Server-databaser för att avgöra om transparentDataEnc
         "type": "Microsoft.Sql/servers/databases/transparentDataEncryption",
         "name": "current",
         "roleDefinitionIds": [
-            "/subscription/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
+            "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
             "/providers/Microsoft.Authorization/roleDefinitions/{builtinroleGUID}"
         ],
         "existenceCondition": {
@@ -369,9 +368,9 @@ Varje tilldelning utvärderas individuellt. Därför det är inte en möjlighet 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Se exempel på [Azure Policy-exempel](../samples/index.md)
-- Granska den [Policy-definitionsstruktur](definition-structure.md)
-- Förstå hur du [skapa principer programmässigt](../how-to/programmatically-create.md)
-- Lär dig hur du [hämta data för kompatibilitetsinställningar](../how-to/getting-compliance-data.md)
-- Lär dig hur du [åtgärda icke-kompatibla resurser](../how-to/remediate-resources.md)
-- Se över vad en hanteringsgrupp är med sidan om att [organisera dina resurser med Azure-hanteringsgrupper](../../management-groups/overview.md)
+- Se exempel på [Azure Policy-exempel](../samples/index.md).
+- Granska [Azure Policy-definitionsstrukturen](definition-structure.md).
+- Förstå hur du [skapa principer programmässigt](../how-to/programmatically-create.md).
+- Lär dig hur du [hämta kompatibilitetsdata](../how-to/getting-compliance-data.md).
+- Lär dig hur du [åtgärda icke-kompatibla resurser](../how-to/remediate-resources.md).
+- Granska vilka en hanteringsgrupp är med [organisera dina resurser med Azure-hanteringsgrupper](../../management-groups/overview.md).

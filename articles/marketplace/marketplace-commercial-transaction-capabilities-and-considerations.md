@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: 5dc311538055d9ecb7aba21f95d819a914cd1db7
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: bd8cdbec42ea7df34ceee3ab82a1c6cac60ab59e
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/17/2019
-ms.locfileid: "65826556"
+ms.locfileid: "65849709"
 ---
 # <a name="azure-marketplace-commercial-transaction-capabilities-and-considerations"></a>Azure Marketplace affärstransaktion funktioner och överväganden
 
@@ -144,7 +144,7 @@ Det här alternativet måste konfigureras för att sälja via Microsoft och kan 
 |Microsoft betalar du 80% av dina kostnader för licens <br> \* Microsoft betalar du 90% av din licenskostnaden för alla kvalificerade SaaS-appar   |   $80.00 per månad <br> \* $90.00 per månad    |
 |Microsoft behåller 20% av dina kostnader för licens <br> \* Microsoft håller 10% av din licenskostnaden för alla kvalificerade SaaS-appar.  |  20,00 per månad <br> \* $10.00     |
 
-* **Minskad Marketplace serviceavgift:** För vissa SaaS-produkter som du publicerar på vår kommersiella Marketplace Microsoft minskar dess serviceavgift för Marketplace från 20% (enligt beskrivningen i Publiceringsavtalet för Microsoft) till 10%.  För din produkt att kvalificera minst en av dina produkter kan bara vara av Microsoft som antingen IP medförsäljning redo eller IP-medförsäljning prioriteras. Kvalificering måste vara uppfyllda minst fem (5) arbetsdagar innan slutet av denna kalendermånad för att ta emot den här minskade serviceavgift för Marketplace för månaden. Minskar avgift inte gäller för virtuella datorer, hanterade appar eller andra produkter som görs tillgängliga via vår kommersiella Marketplace Marketplace-tjänsten.  Det här minskar serviceavgift för Marketplace blir tillgänglig för kvalificerade erbjudanden med licensavgifter som samlas in av Microsoft mellan den 31 maj 2019 och den 30 juni 2020.  Efter den tiden returnerar serviceavgift för Marketplace till dess normala mängden.
+* **Minskad Marketplace serviceavgift:** För vissa SaaS-produkter som du publicerar på vår kommersiella Marketplace Microsoft minskar dess serviceavgift för Marketplace från 20% (enligt beskrivningen i Publiceringsavtalet för Microsoft) till 10%.  För din produkt att kvalificera minst en av dina produkter kan bara vara av Microsoft som antingen IP medförsäljning redo eller IP-medförsäljning prioriteras. Kvalificering måste vara uppfyllda minst fem (5) arbetsdagar innan slutet av denna kalendermånad för att ta emot den här minskade serviceavgift för Marketplace för månaden. Minskar avgift inte gäller för virtuella datorer, hanterade appar eller andra produkter som görs tillgängliga via vår kommersiella Marketplace Marketplace-tjänsten.  Det här minskar serviceavgift för Marketplace blir tillgänglig för kvalificerade erbjudanden med licensavgifter som samlas in av Microsoft mellan den 1 maj 2019 och den 30 juni 2020.  Efter den tiden returnerar serviceavgift för Marketplace till dess normala mängden.
 
 ### <a name="customer-invoicing-payment-billing-and-collections"></a>Kundfakturering, betalning, fakturering och samlingar
 

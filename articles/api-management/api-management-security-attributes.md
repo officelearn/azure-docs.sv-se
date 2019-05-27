@@ -1,24 +1,23 @@
 ---
-title: Vanliga säkerhetsattribut för Azure API Management
+title: Security attribut för Azure API Management
 description: En lista med vanliga security attribut för utvärdering av API Management
 services: api-management
-documentationcenter: ''
 author: msmbaldwin
 manager: barbkess
 ms.service: api-management
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 040d628f9fe89f68a1c5ab91a1522c6a3cb724d9
-ms.sourcegitcommit: e729629331ae10097a081a03029398525f4147a4
+ms.openlocfilehash: 3b5826d472b80179c5eb76e0e3a6b1c7ee282487
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64508144"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001097"
 ---
-# <a name="common-security-attributes-for-api-management"></a>Vanliga säkerhetsattribut för API Management
+# <a name="security-attributes-for-api-management"></a>Security attribut för API Management
 
-Säkerheten är integrerad i alla aspekter av en Azure-tjänst. Den här artikeln beskrivs vanliga security attribut som är inbyggda i API Management.
+Den här artikeln dokumenteras security-attribut som är inbyggda i API Management.
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
@@ -30,7 +29,7 @@ Säkerheten är integrerad i alla aspekter av en Azure-tjänst. Den här artikel
 | Kryptering under överföring:<ul><li>Express route-kryptering</li><li>Virtuellt nätverk med kryptering</li><li>VNet-VNet-kryptering</ul>| Ja | [Express Route](../expressroute/index.yml) och tillhandahålls krypteringen av virtuellt nätverk av [Azure-nätverk](../virtual-network/index.yml). |
 | Kryptering viktiga hantering (CMK, BYOK osv.)| Nej | Alla krypteringsnycklar är per instans och tjänsthanterade. |
 | Kolumnen filnivåkryptering (Azure-datatjänster)| Gäller inte | |
-| API-anrop som är krypterad| Ja | Hantering av plan anrop görs via [Azure Resource Manager](../azure-resource-manager/index.yml) via TLS. Det krävs en giltig JSON webbtoken (JWT).  Plan dataöverföringar kan skyddas med TLS och en av autentiseringsmekanismer som stöds (t.ex. klientcertifikatet eller JWT).
+| API-anrop som är krypterad| Ja | Hantering av plan anrop görs via [Azure Resource Manager](../azure-resource-manager/index.yml) via TLS. Det krävs en giltig JSON webbtoken (JWT).  Plan dataöverföringar kan skyddas med TLS och en av metoder för autentisering som stöds (till exempel klientcertifikat eller JWT).
  |
 
 ## <a name="network-segmentation"></a>Nätverkssegmentering
@@ -42,7 +41,7 @@ Säkerheten är integrerad i alla aspekter av en Azure-tjänst. Den här artikel
 | Isolering av nätverk och brandväggsfunktioner support| Ja | Med hjälp av nätverk nätverkssäkerhetsgrupper (NSG) och Azure Application Gateway (eller andra programinstallation) respektive. |
 | Tvingad tunneltrafik support| Ja | Azure-nätverket innehåller Tvingad tunneltrafik. |
 
-## <a name="detection"></a>Detection (Identifiering)
+## <a name="detection"></a>Identifiering
 
 | Säkerhetsattributet | Ja/nej | Anteckningar|
 |---|---|--|
@@ -75,4 +74,4 @@ Det här avsnittet beskrivs vanliga säkerhetsproblem som inte påverkar Azure A
 
 | Sårbarhet               | Beskrivning                                                                                                                                                                                                                                                                                                               |
 |-----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Ticketbleed (CVE-2016-9244) | Ticketbleed är säkerhetsproblem i implementeringen av TLS SessionTicket tillägget finns i vissa F5-produkter. Det gör läckage (”genomsläpplighet”) av upp till 31 byte av data från oinitierad minne. Detta orsakas av TLS-stack utfyllnad ett sessions-ID som skickades från klienten, med data så att de blir 32 bitar långt. |
+| Ticketbleed (CVE-2016-9244) | Ticketbleed är säkerhetsproblem i implementeringen av TLS SessionTicket tillägget finns i vissa F5-produkter. Det gör läckage (”genomsläpplighet”) av upp till 31 byte av data från oinitierad minne. Detta orsakas av TLS-stacken utfyllnad ett sessions-ID som skickades från klienten, med data så att de blir 32 bitar långt. |

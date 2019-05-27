@@ -16,14 +16,14 @@ ms.date: 04/27/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3abe2f7deef2a1dbe82f4702fd3477303891ab2e
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.openlocfilehash: 0b9baa48c13e317ba3fb54d998ee8f125d2093c7
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64873571"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65921065"
 ---
-# <a name="what-is-azure-ad-entitlement-management-preview"></a>Vad är Azure AD rättigheten management? (Förhandsversion)
+# <a name="what-is-azure-ad-entitlement-management-preview"></a>Vad är Azure AD rättigheten management? (Förhandsgranskning)
 
 > [!IMPORTANT]
 > Azure Active Directory (Azure AD) rättigheten management är för närvarande i offentlig förhandsversion.
@@ -114,7 +114,7 @@ Följande diagram visar ett exempel på de olika elementen i rätt management. D
 
 När du använder den [Azure AD business-to-business (B2B)](../b2b/what-is-b2b.md) bjuda in upplevelse, måste du redan kan e-postadresserna för de externa gästanvändare som du vill sätta i din katalog i resursen och arbeta med. Det här fungerar bra när du arbetar med ett mindre eller kortsiktiga projekt och du redan vet alla deltagare, men det är svårare att hantera om du har många användare som du vill arbeta med eller om deltagarna ändras med tiden.  Exempel: du kan arbeta med en annan organisation och har en kontaktpunkt med organisationen, men med tiden måste ytterligare användare från organisationen också ha tillgång.
 
-Med rätt management kan definiera du en princip som tillåter användare från organisationer som du anger, och som också använder Azure AD för att kunna begära ett åtkomst-paket. Du kan ange om godkännande krävs och ett förfallodatum för åtkomst. Om godkännande krävs, kan du också ange som godkännare en eller flera användare från den externa organisation som du tidigare inbjuden - eftersom det är troligt att veta vilka externa användare från organisationen behöver åtkomst. När du har konfigurerat paketet åtkomst kan skicka du en länk till paketet åtkomst till kontaktpersonen hos extern organisation. Kontakten kan dela med andra användare i externa organisationen och de kan använda den här länken för att begära åtkomst till paketet.  Användare från att organisationens som redan har bjudits in till din katalog kan också använda länken.
+Med rätt management kan definiera du en princip som tillåter användare från organisationer som du anger, och som också använder Azure AD för att kunna begära ett åtkomst-paket. Du kan ange om godkännande krävs och ett förfallodatum för åtkomst. Om godkännande krävs, kan du också ange som godkännare en eller flera användare från den externa organisation som du tidigare inbjuden - eftersom det är troligt att veta vilka externa användare från organisationen behöver åtkomst. När du har konfigurerat paketet åtkomst kan skicka du en länk till paketet åtkomst till kontaktpersonen hos extern organisation. Kontakten kan dela med andra användare i externa organisationen och de kan använda den här länken för att begära åtkomst till paketet.  Användare från organisationen som har redan bjudits in till din katalog kan också använda länken.
 
 När en begäran har godkänts, kommer rättigheten management etablera användare med den åtkomst som krävs, som kan innehålla bjuda in användaren om de inte redan är i din katalog. Azure AD skapar automatiskt en B2B-konto för dem.  Observera att en administratör kan ha tidigare begränsade vilka organisationer är tillåtna för samarbete, genom att ange en [B2B tillåter eller nekar lista](../b2b/allow-deny-list.md) att tillåta eller blockera inbjudningar till andra organisationer.  Om användaren inte tillåts av listan Tillåt eller blockera och sedan de inte kommer att bjuda in.
 
@@ -129,8 +129,8 @@ För att bättre förstå rättigheten hanterings- och dess dokumentation, bör 
 | hantering av behörighet | En tjänst som tilldelar återkallar och administrerar åtkomst paket. |
 | åtkomst-paketet | En uppsättning behörigheter och principer till resurser som användarna kan begära. En åtkomst-paketet finns alltid i en katalog. |
 | åtkomstbegäran | En begäran om åtkomst till en åtkomst-paketet. En begäran går vanligtvis igenom ett arbetsflöde. |
-| policy | En uppsättning regler som definierar åtkomst livscykel, till exempel hur användare får åtkomst, som kan godkänna och hur länge användarna har åtkomst. Exempel på principer är medarbetarnas åtkomst och extern åtkomst. |
-| katalog | En behållare för relaterade resurser och åtkomst-paket. |
+| princip | En uppsättning regler som definierar åtkomst livscykel, till exempel hur användare får åtkomst, som kan godkänna och hur länge användarna har åtkomst. Exempel på principer är medarbetarnas åtkomst och extern åtkomst. |
+| catalog | En behållare för relaterade resurser och åtkomst-paket. |
 | Allmän catalog | En inbyggd katalog som alltid är tillgänglig. Lägg till resurser i den allmänna katalogen måste du ha vissa behörigheter. |
 | resurs | En tillgång eller en tjänst (till exempel en grupp, program eller en webbplats) som en användare kan beviljas behörigheter till. |
 | resurstyp | Typ av resurs som innehåller grupper, program och SharePoint Online-platser. |
@@ -154,7 +154,7 @@ Berättigande management har olika roller baserat på arbetsfunktion.
 
 I följande tabell visas behörigheterna för var och en av dessa roller.
 
-| Aktivitet | Användaradministration | Katalogens skapare | Katalogen ägare | Åtkomst-Pakethanteraren | Godkännare |
+| Uppgift | Användaradministration | Katalogens skapare | Katalogen ägare | Åtkomst-Pakethanteraren | Godkännare |
 | --- | :---: | :---: | :---: | :---: | :---: |
 | [Skapa ett nytt åtkomst-paket i allmän katalogen](entitlement-management-access-package-create.md) | :heavy_check_mark: |  :heavy_check_mark: |  |  |  |
 | [Skapa ett nytt åtkomst-paket i en katalog](entitlement-management-access-package-create.md) | :heavy_check_mark: |   | :heavy_check_mark: |  |  |

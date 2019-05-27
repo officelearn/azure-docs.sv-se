@@ -2,21 +2,21 @@
 title: Skapa TABLE AS SELECT (CTAS) i Azure SQL Data Warehouse | Microsoft Docs
 description: Förklaring och exempel på instruktionen CREATE TABLE AS SELECT (CTAS) i Azure SQL Data Warehouse för utveckling av lösningar.
 services: sql-data-warehouse
-author: mlee3gsd
+author: XiaoyuL-Preview
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: development
 ms.date: 03/26/2019
-ms.author: mlee3gsd
-ms.reviewer: jrasnick
+ms.author: xiaoyul
+ms.reviewer: igorstan
 ms.custom: seoapril2019
-ms.openlocfilehash: c8e9f3ccdfaee64f75443f6a4eb89a3df7c48b0e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 91de474cc0610099b4264cc6d0dfbd26e8df0618
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60403792"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65851454"
 ---
 # <a name="create-table-as-select-ctas-in-azure-sql-data-warehouse"></a>Skapa TABLE AS SELECT (CTAS) i Azure SQL Data Warehouse
 

@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 04/26/2019
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: cfb90dc31635001291b1661f31ec2ee1fc378404
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7365fa4cac5e32962477ef7f2441825327a0eb64
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60894449"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65912711"
 ---
 # <a name="use-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Använd bulk executor .NET-biblioteket för att utföra massåtgärder i Azure Cosmos DB
 
@@ -24,7 +24,7 @@ Massinläsning executor biblioteket är för närvarande stöds av Azure Cosmos 
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-* Om du inte redan har Visual Studio 2017 installerat, kan du hämta och använda den [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Se till att du aktiverar Azure-utveckling under installationen av Visual Studio.
+* Om du inte redan har Visual Studio 2019 installerat kan du hämta och använda den [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Se till att du aktiverar Azure-utveckling under installationen av Visual Studio.
 
 * Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar. 
 

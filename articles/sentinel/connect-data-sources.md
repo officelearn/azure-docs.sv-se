@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: b54c4ef1b188896a70cf8b2f9352d0b76874fd50
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 5d8d97aefa2efadae70c976b8a1876b2c7d8f1c1
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65204290"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65921933"
 ---
 # <a name="connect-data-sources"></a>Ansluta till datakällor
 
@@ -39,7 +39,7 @@ Att integrera Azure Sentinel måste du först ansluta till dina datakällor. Azu
 Följande data anslutningsmetoder stöds av Azure Sentinel:
 
 - **Microsoft-tjänster**:<br> Microsoft-tjänster är anslutna internt, att utnyttja Azure grunden för out-nyckelfärdig integrering, följande lösningar kan anslutas med några få klick:
-    - [Office 365](connect-office-365.md)
+    - [Office 365](connect-office-365.md)
     - [Azure AD granska loggar och inloggningar](connect-azure-active-directory.md)
     - [Azure-aktivitet](connect-azure-activity.md)
     - [Azure AD Identity Protection](connect-azure-ad-Identity-protection.md)
@@ -53,7 +53,7 @@ Följande data anslutningsmetoder stöds av Azure Sentinel:
 - **Externa lösningar via API: et**: Vissa datakällor är anslutna med API: er som tillhandahålls av den anslutna datakällan. De flesta säkerhetstekniker ger vanligtvis en uppsättning API: er som händelseloggar kan hämtas. API: erna ansluta till Azure Sentinel och samla in specifika datatyper och skicka dem till Azure Log Analytics. Enheter som är anslutna via API: T är:
     - [Barracuda](connect-barracuda.md)
     - [Symantec](connect-symantec.md)
-- **Externa lösningar via agent**: Azure Sentinel kan anslutas till andra datakällor som kan utföra i realtid loggströmningen med hjälp av protokollet Syslog via en agent. <br>De flesta installationer använda Syslog-protokollet för att skicka meddelanden om händelser som innehåller loggen själva och data om loggen. Formatet på loggarna varierar, men de flesta installationer stöder Common Event Format (CEF)-standarden. <br>Agenten Sentinel-Azure, som baseras på OMS-agenten, konverterar CEF formaterad loggar till ett format som kan matas in av Log Analytics. Beroende på typen av enhet installeras agenten direkt på installationen eller på en dedikerad server för Linux. Agenten för Linux tar emot händelser från Syslog-daemon över UDP, men i fall där en Linux-dator förväntas samla in en stor mängd Syslog-händelser, skickas de via TCP från Syslog-daemon till agenten och därifrån till Log Analytics.
+- **Externa lösningar via agent**: Azure Sentinel kan anslutas till andra datakällor som kan utföra i realtid loggströmningen med hjälp av protokollet Syslog via en agent. <br>De flesta installationer använda Syslog-protokollet för att skicka meddelanden om händelser som innehåller loggen själva och data om loggen. Formatet på loggarna varierar, men de flesta installationer stöder Common Event Format (CEF)-standarden. <br>Azure Sentinel agenten som är baserad på Microsoft Monitoring Agent, konverterar formaterad CEF-loggar till ett format som kan matas in av Log Analytics. Beroende på typen av enhet installeras agenten direkt på installationen eller på en dedikerad server för Linux. Agenten för Linux tar emot händelser från Syslog-daemon över UDP, men i fall där en Linux-dator förväntas samla in en stor mängd Syslog-händelser, skickas de via TCP från Syslog-daemon till agenten och därifrån till Log Analytics.
     - Brandväggar, proxyservrar och slutpunkter:
         - [F5](connect-f5.md)
         - [Check Point](connect-checkpoint.md)

@@ -2,23 +2,22 @@
 title: Vanliga säkerhetsattribut för Azure Backup
 description: En lista med vanliga security attribut för att utvärdera Azure Backup
 services: backup
-documentationcenter: ''
 author: msmbaldwin
 manager: barbkess
 ms.service: backup
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7bc4fd42f64bba09fd20fedf5e06dc30c3b2cc49
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 86b8ab96a94a6ffc44c304d8a0a689301560a989
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64680801"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002806"
 ---
-# <a name="common-security-attributes-for-azure-backup"></a>Vanliga säkerhetsattribut för Azure Backup
+# <a name="security-attributes-for-azure-backup"></a>Security attribut för Azure Backup
 
-Säkerheten är integrerad i alla aspekter av en Azure-tjänst. Den här artikeln beskrivs vanliga security attribut som är inbyggda i Azure Backup. 
+Den här artikeln dokumenteras security-attribut som är inbyggda i Azure Backup. 
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
@@ -41,7 +40,7 @@ Säkerheten är integrerad i alla aspekter av en Azure-tjänst. Den här artikel
 | Isolering av nätverk och brandväggsfunktioner support| Ja | Tvingad tunneltrafik har stöd för säkerhetskopiering av virtuella datorer. Tvingad tunneltrafik finns inte stöd för arbetsbelastningar som körs på virtuella datorer. |
 | Tvingad tunneltrafik support| Nej |  |
 
-## <a name="detection"></a>Detection (Identifiering)
+## <a name="detection"></a>Identifiering
 
 | Säkerhetsattributet | Ja/nej | Anteckningar|
 |---|---|--|
@@ -55,7 +54,7 @@ Säkerheten är integrerad i alla aspekter av en Azure-tjänst. Den här artikel
 | Auktorisering| Ja | Kunden har skapat och inbyggda RBAC-roller används. Se [Use Role-Based Access Control för att hantera Azure Backup återställningspunkter](/azure/backup/backup-rbac-rs-vault) för mer information. |
 
 
-## <a name="audit-trail"></a>Spårning
+## <a name="audit-trail"></a>Granskningslogg
 
 | Säkerhetsattributet | Ja/nej | Anteckningar|
 |---|---|--|

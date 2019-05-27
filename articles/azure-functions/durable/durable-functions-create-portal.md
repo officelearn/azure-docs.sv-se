@@ -8,15 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-origin.date: 10/23/2018
-ms.date: 03/25/2019
-ms.author: v-junlch
-ms.openlocfilehash: 1c60bd4dae6c279ccff637ff0aa798c48ebec6f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 10/23/2018
+ms.author: azfuncdf, glenga
+ms.openlocfilehash: 705a43f1ef35f953d1b87c7c44bbc45fcb4334be
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60710956"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872864"
 ---
 # <a name="create-durable-functions-using-the-azure-portal"></a>Skapa varaktiga funktioner med hjälp av Azure portal
 
@@ -24,7 +23,7 @@ Den [varaktiga funktioner](durable-functions-overview.md) tillägget för Azure 
 
 > [!NOTE]
 > 
-> * Om du utvecklar varaktiga funktioner i C#, i stället bör du [Visual Studio 2017 utveckling](durable-functions-create-first-csharp.md).
+> * Om du utvecklar varaktiga funktioner i C#, i stället bör du [Visual Studio 2019 utveckling](durable-functions-create-first-csharp.md).
 > * Om du utvecklar varaktiga funktioner i JavaScript, i stället bör du [Visual Studio Code utveckling](./quickstart-js-vscode.md).
 
 ## <a name="create-a-function-app"></a>Skapa en funktionsapp
@@ -39,7 +38,7 @@ Som standard använder funktionsappen skapas version 2.x av Azure Functions-kör
 
 Om du skapar varaktiga funktioner i JavaScript, behöver du installera den [ `durable-functions` npm-paketet](https://www.npmjs.com/package/durable-functions).
 
-1. Välj funktionsappens namn följt av **plattformsfunktioner**, sedan **avancerade verktyg (Kudu)**.
+1. Välj funktionsappens namn följt av **plattformsfunktioner**, sedan **avancerade verktyg (Kudu)** .
 
    ![Functions plattformsfunktioner väljer Kudu](./media/durable-functions-create-portal/function-app-platform-features-choose-kudu.png)
 
@@ -92,7 +91,7 @@ Om du skapar varaktiga funktioner i JavaScript, behöver du installera den [ `du
 1. Använda en HTTP-verktyg som Postman eller cURL för att skicka en POST-begäran till den URL som du kopierade. I följande exempel är ett cURL-kommando som skickar en POST-begäran till funktionen varaktiga:
 
     ```bash
-    curl -X POST https://{your-function-app-name}.chinacloudsites.cn/api/orchestrators/HelloSequence
+    curl -X POST https://{your-function-app-name}.azurewebsites.net/api/orchestrators/HelloSequence
     ```
 
     I det här exemplet `{your-function-app-name}` är den domän som är namnet på din funktionsapp. Svarsmeddelandet innehåller en uppsättning URI-slutpunkter som du kan använda för att övervaka och hantera körningen som ser ut som i följande exempel:
@@ -141,5 +140,3 @@ Din första varaktiga funktion är nu aktiv och körs i Azure.
 
 > [!div class="nextstepaction"]
 > [Läs mer om vanliga mönster för beständiga funktioner](durable-functions-concepts.md)
-
-<!-- Update_Description: wording update -->

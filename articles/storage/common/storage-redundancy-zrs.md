@@ -9,12 +9,12 @@ ms.date: 10/24/2018
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 9fd594fb264ff0467cc315f59927cd157068d522
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 3d4c40e172352fc2d92ea5523cad2aebe5468e1e
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65146181"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65961433"
 ---
 # <a name="zone-redundant-storage-zrs-highly-available-azure-storage-applications"></a>Zonredundant lagring (ZRS): Azure Storage-program med hög tillgänglighet
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-zrs.md)]
@@ -29,13 +29,13 @@ ZRS är allmänt tillgängligt i följande regioner:
 - Sydostasien
 - Västeuropa
 - Nordeuropa
-- Frankrike, centrala
-- Östra Japan
-- Storbritannien, södra
-- USA, Östra
+- Centrala Frankrike
+- Japan, östra
+- Södra Storbritannien
+- USA, centrala
+- USA, östra
 - USA, östra 2
 - USA, västra 2
-- USA, centrala
 
 Microsoft fortsätter att aktivera ZRS i ytterligare Azure-regioner. Kontrollera den [tjänstuppdateringar för Azure](https://azure.microsoft.com/updates/) regelbundet för information om nya regioner.
 
@@ -75,6 +75,7 @@ Tänk på följande begränsningar för Direktmigrering:
 - Du kan bara migrera data inom samma region. Om du vill migrera dina data till ett ZRS-konto finns i en region som är annorlunda än källkontot, måste du utföra en manuell migrering.
 - Endast standard storage-kontotyper stöd för Direktmigrering. Premium storage-konton måste migreras manuellt.
 - Direktmigrering från ZRS LRS, GRS eller RA-GRS stöds inte. Du måste manuellt flytta data till ett nytt eller ett befintligt lagringskonto.
+- Hanterade diskar är bara tillgängliga för LRS och kan inte migreras till ZRS. För integrering med tillgänglighet anger Se [introduktion till Azure hanterade diskar](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#integration-with-availability-sets). Du kan lagra ögonblicksbilder och avbildningar för Standard SSD Managed Disks i Standard HDD-lagring och [välja mellan alternativen LRS och ZRS](https://azure.microsoft.com/pricing/details/managed-disks/). 
 
 Du kan begära Direktmigrering via den [Support för Azure-portalen](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). Välj lagringskontot som du vill konvertera till ZRS i portalen.
 1. Välj **ny supportbegäran**
@@ -96,7 +97,7 @@ Supporttekniker kommer att kontakta dig och ge någon hjälp du behöver.
 
 **Ska jag planera för någon stilleståndstid under migreringen?**
 
-Det finns inga driftstopp som orsakas av migreringen. Du kan fortsätta ditt lagringskonto medan dina data migreras mellan käll- och storage-stämplar under en Direktmigrering. Under migreringsprocessen har samma nivå av hållbarhet och tillgänglighet serviceavtal som du vanligtvis utför.
+Det finns inga driftstopp som orsakas av migreringen. Du kan fortsätta använda ditt lagringskonto medan dina data migreras mellan käll- och storage-stämplar under en Direktmigrering. Under migreringsprocessen har samma nivå av hållbarhet och tillgänglighet serviceavtal som du vanligtvis utför.
 
 **Finns det någon förlust av data som är associerade med migreringen?**
 

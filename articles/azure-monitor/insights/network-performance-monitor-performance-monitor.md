@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
-ms.author: abshamsft
-ms.openlocfilehash: de9e6d5c8c6b4dc9652ae64c9a4fd0e38d7a7b87
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.author: absha
+ms.openlocfilehash: bb99689409ddff311e556250083b99842bc59927
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62109546"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65963472"
 ---
 # <a name="network-performance-monitor-solution-performance-monitoring"></a>Network Performance Monitor-lösningen: Prestandaövervakning
 
@@ -31,7 +31,7 @@ ms.locfileid: "62109546"
 - Övervaka hälsotillståndet för nätverket, utan att behöva SNMP.
 
 
-![Övervakning av nätverksprestanda](media/network-performance-monitor-performance-monitor/npm-performance-monitor.png)
+![Övervakare av nätverksprestanda](media/network-performance-monitor-performance-monitor/npm-performance-monitor.png)
 
 ## <a name="configuration"></a>Konfiguration
 För att öppna konfigurationen för Övervakare av nätverksprestanda, öppna den [Network Performance Monitor-lösningen](network-performance-monitor.md), och välj **konfigurera**.

@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 09/22/2018
 ms.author: qianw211
-ms.openlocfilehash: 9f4ad704de83e5971b5bc10083aefeec5d28374b
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: c734461f1a57c100b4a00ab5c309659f8b0e903a
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64937859"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65964018"
 ---
 # <a name="iot-edge-modules"></a>IoT Edge-moduler
 
@@ -84,7 +84,7 @@ Om du inte redan gjort det,
 
 - Registrera i den [Microsoft Partner Network](https://partner.microsoft.com/membership).
 - Skapa en [Account](https://account.microsoft.com/account/) (krävs för Azure Marketplace transact erbjudanden; rekommenderas för andra).
-- Skicka den [Marketplace registreringsformuläret](https://azuremarketplace.microsoft.com/sell/signup).
+- Skicka den [Marketplace registreringsformuläret](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv). Se hur du [skapa ett Partnercenter-konto](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) för mer information.
 
 Om du är registrerad och skapar ett nytt erbjudande eller arbetar på en befintlig
 

@@ -17,12 +17,12 @@ ms.date: 10/03/2018
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d533e6aac9ae1a486d018414a86a9dc3fe742c2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 37c63e32f1ee9c404e8b84a6eb17bc6eec30a761
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60294300"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956928"
 ---
 # <a name="what-is-azure-active-directory-identity-protection-refreshed"></a>Vad är Azure Active Directory Identity Protection (uppdateras)?
 
@@ -147,44 +147,44 @@ Baslinje-flödet för Identity Protection riskidentifieringen och svar för alla
 
 ## <a name="common-scenarios"></a>Vanliga scenarier 
 
-Nu ska vi titta på exempel på Sarah, anställd hos Contoso. 
+Nu ska vi titta på exempel för en anställd på Contoso. 
 
-1. Sarah försöker logga in på Exchange Online från Tor-webbläsaren. Vid tidpunkten för inloggning upptäcker Azure AD att i realtid riskhändelser. 
+1. En medarbetare försöker logga in på Exchange Online från Tor-webbläsaren. Vid tidpunkten för inloggning upptäcker Azure AD att i realtid riskhändelser. 
 
-2. Azure AD upptäcker att Sarah loggar in från en anonym IP-adress, utlösa en inloggning Medelrisk-nivå. 
+2. Azure AD upptäcker att anställda loggar in från en anonym IP-adress, utlösa en inloggning Medelrisk-nivå. 
 
-3. Sarah är på samma en MFA-prompt eftersom Contosos IT-administratören konfigurerat principen för villkorlig åtkomst inloggningsrisk Identity Protection. Principen kräver MFA för en risk för medelstora eller högre. 
+3. Medarbetaren är på samma en MFA-prompt eftersom Contosos IT-administratören konfigurerat principen för villkorlig åtkomst inloggningsrisk Identity Protection. Principen kräver MFA för en risk för medelstora eller högre. 
 
-4. Sarah skickar MFA fråga och får åtkomst till Exchange Online och Sarahs risknivån ändras inte. 
+4. Medarbetaren skickar MFA-prompten och får åtkomst till Exchange Online och deras risknivån ändras inte. 
 
-Vad hände med bakom kulisserna? Försök logga in från Tor webbläsaren utlöses en i realtid inloggningsrisk i Azure AD för anonyma IP-adress. Eftersom Azure AD bearbetade förfrågan, tillämpas principen inloggningsrisk som konfigurerats i Identity Protection eftersom Sarahs inloggning risknivå uppfyllt tröskelvärdet (Medium). Eftersom Sarah tidigare hade registrerats för MFA, kunde hon svara på och skicka MFA-kontrollen. Hon har möjlighet att skicka MFA-kontrollen har signalerats till Azure AD att hon var ett troligt legitima identitet ägare och hennes risknivån ökar inte. 
+Vad hände med bakom kulisserna? Försök logga in från Tor webbläsaren utlöses en i realtid inloggningsrisk i Azure AD för anonyma IP-adress. Eftersom Azure AD bearbetade förfrågan, tillämpas principen inloggningsrisk som konfigurerats i Identity Protection eftersom medarbetarens inloggning risknivå uppfyllt tröskelvärdet (Medium). Eftersom medarbetaren tidigare hade registrerats för MFA, kunna de svara på och skicka MFA-kontrollen. Möjligheten att skicka MFA-kontrollen har signalerats till Azure AD att de var sannolikt legitima identitet ägare och deras risknivån ökar inte. 
 
 
-Men vad händer om Sarah inte var ett försök att logga in? 
+Men vad händer om medarbetaren inte var ett försök att logga in? 
 
-1. En skadliga aktörer med autentiseringsuppgifter för Sarahs försöker logga in till Sarah's Exchange Online-konto från Tor-webbläsare eftersom de försöker att dölja sina IP-adress. 
+1. En skadliga aktörer med autentiseringsuppgifter för medarbetarens försöker logga in i sina konton i Exchange Online från Tor-webbläsare eftersom de försöker att dölja sina IP-adress. 
 
 2. Azure AD upptäcker att försök logga in från en anonym IP-adress, utlösa en i realtid inloggningsrisk. 
 
 3. Skadliga aktören anropas av en MFA-prompt eftersom Contosos IT-administratören konfigurerat Identity Protection inloggning Risk principen för villkorlig åtkomst för att kräva MFA när inloggningsrisk är medium eller högre. 
 
-4. Skadliga aktören misslyckas MFA-kontrollen och det går inte att komma åt Sarah's Exchange Online-konto. 
+4. Skadliga aktören misslyckas MFA-kontrollen och det går inte att komma åt medarbetarens Exchange Online-konto. 
 
-5. Misslyckade MFA prompten utlöses en riskhändelse att höja Sarahs användarrisk för framtida inloggningar. 
+5. Misslyckade MFA prompten utlöses en riskhändelse att höja sina användarrisk för framtida inloggningar. 
 
-Nu när en skadliga aktörer försökte få åtkomst till Sarahs konto, ska vi se vad som händer vid nästa Sarah försöker logga in. 
+Nu när en skadliga aktörer försökte få åtkomst till Sarahs konto, ska vi se vad som händer vid nästa medarbetaren försöker logga in. 
 
-1. Sarah försöker logga in på Exchange Online från Outlook. Vid tidpunkten för inloggning upptäcker Azure AD att i realtid riskhändelser samt eventuella tidigare användarrisk. 
+1. Medarbetaren försöker logga in på Exchange Online från Outlook. Vid tidpunkten för inloggning upptäcker Azure AD att i realtid riskhändelser samt eventuella tidigare användarrisk. 
 
 2. Azure AD identifierar inte någon i realtid inloggningsrisk, men identifierar hög användarrisk på grund av den senaste riskfyllda aktiviteten i föregående scenarier.  
 
-3. Sarah är på samma Kommandotolken för återställning av lösenord eftersom Contoso är IT-administratören har konfigurerat riskprincip för Identity Protection-användare för att kräva ändring av lösenord när en användare med hög risk som loggar in. 
+3. Medarbetaren är på samma Kommandotolken för återställning av lösenord eftersom Contoso är IT-administratören har konfigurerat riskprincip för Identity Protection-användare för att kräva ändring av lösenord när en användare med hög risk som loggar in. 
 
-4. Eftersom Sarah är registrerad för SSPR och MFA, återställer hon har sitt lösenord. 
+4. Eftersom medarbetaren är registrerad för SSPR och MFA, de har återställer sitt lösenord. 
 
-5. Genom att återställa sina lösenord, Sarahs autentiseringsuppgifter inte längre har komprometterats och användarens identitet återgår till säkert läge. 
+5. Genom att återställa sina lösenord, medarbetarens autentiseringsuppgifter inte längre har komprometterats och sin identitet återgår till säkert läge. 
 
-6. Sarahs tidigare riskhändelser har åtgärdats och hennes risknivån återställs automatiskt som ett svar till att minimera autentiseringsuppgifter kompromettering. 
+6. Medarbetarens tidigare riskhändelser har åtgärdats och hennes risknivån återställs automatiskt som ett svar till att minimera autentiseringsuppgifter kompromettering. 
 
 ## <a name="how-do-i-configure-identity-protection"></a>Hur konfigurerar jag Identity Protection? 
 
@@ -203,7 +203,7 @@ Identity Protection stöder 3 roller i Azure AD för att balansera hanteringsakt
 Mer information finns i [Tilldela administratörsroller i Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md)
 
  
-## <a name="licensing"></a>Licensiering
+## <a name="licensing"></a>Licenser
 
 >[!NOTE]
 > Allmänt tillgängliga förhandsversionen av Identity Protection (uppdateras) har endast Azure AD Premium P2-kunder åtkomst till riskabla användare rapport och rapporten över riskfyllda inloggningar.

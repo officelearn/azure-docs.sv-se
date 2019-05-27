@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 02/02/2018
-ms.openlocfilehash: 52bdbe6d34fb631cd4b2205dfad25399fe0e43fb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/17/2019
+ms.openlocfilehash: d5bd291758d6bb445b757b93fd91a4c2321b97db
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60446099"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65898934"
 ---
 # <a name="quickstart-ingest-data-from-event-hub-into-azure-data-explorer"></a>Snabbstart: Mata in data från Event Hub i Azure Data Explorer
 
@@ -22,11 +22,11 @@ Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för
 
 * Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 
-* [Ett testkluster och en databas](create-cluster-database-portal.md)
+* [Ett testkluster och databasen](create-cluster-database-portal.md).
 
 * [En exempelapp](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) som genererar data och skickar dem till en händelsehubb. Ladda ned exempelprogrammet till datorn.
 
-* [Visual Studio 2017 version 15.3.2 eller senare](https://www.visualstudio.com/vs/) för att köra exempelappen
+* [Visual Studio-2019](https://visualstudio.microsoft.com/vs/) att köra exempelappen.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
@@ -68,7 +68,7 @@ I den här snabbstarten ska du skapa exempeldata och skicka dem till en händels
 
 1. Välj **Meddelanden** i verktygsfältet för att övervaka etableringsprocessen. Det kan ta flera minuter innan distributionen slutförs, men du kan gå vidare till nästa steg nu.
 
-    ![Meddelanden](media/ingest-data-event-hub/notifications.png)
+    ![Aviseringar](media/ingest-data-event-hub/notifications.png)
 
 ## <a name="create-a-target-table-in-azure-data-explorer"></a>Skapa en måltabell i Azure Data Explorer
 
@@ -134,7 +134,7 @@ När du kör den [exempelapp](https://github.com/Azure-Samples/event-hubs-dotnet
 
 1. Under händelsehubbens namnområde som du skapade väljer du **Policyer för delad åtkomst** och sedan **RootManageSharedAccessKey**.
 
-    ![Principer för delad åtkomst](media/ingest-data-event-hub/shared-access-policies.png)
+    ![Policyer för delad åtkomst](media/ingest-data-event-hub/shared-access-policies.png)
 
 1. Kopiera **Anslutningssträng – primär nyckel**. Du klistrar in den i nästa avsnitt.
 

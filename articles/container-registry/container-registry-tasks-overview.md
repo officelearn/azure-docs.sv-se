@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 05/20/2019
 ms.author: danlep
-ms.openlocfilehash: b97db09c477a940ca36129316613f5ceb4eb13b1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cc182743c3879ab2748f92022437bc23c26c371c
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60582422"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65977205"
 ---
 # <a name="automate-os-and-framework-patching-with-acr-tasks"></a>Automatisera framework uppdatering med ACR uppgifter av operativsystem och
 
@@ -94,6 +94,16 @@ Du kan till exempel skapa en uppgift i flera steg som automatiserar följande:
 Uppgifter i flera steg kan du dela upp att bygga, köra och testa i en bild i mer sammansättningsbar steg, med stöd för kommunikation mellan steg beroende. Med flera steg åtgärder i ACR uppgifter har du mer detaljerad kontroll över bild att bygga, testa, och OS och framework korrigeringar arbetsflöden.
 
 Lär dig om uppgifter i flera steg i [köra flera steg skapa, testa och patch uppgifter i ACR uppgifter](container-registry-tasks-multi-step.md).
+
+## <a name="view-task-logs"></a>Visa aktivitet loggar
+
+Varje aktivitet kör genererar loggutdata som du kan kontrollera för att avgöra om uppgift har körts. Om du använder den [az acr build](/cli/azure/acr#az-acr-build), [az acr kör](/cli/azure/acr#az-acr-run), eller [az acr-uppgiftskörning](/cli/azure/acr/task#az-acr-task-run) kommandot för att utlösa aktiviteten, loggutdata för aktiviteten kör strömmas till konsolen och sparas till senare hämtning. Visa loggar för en aktivitet körs i Azure portal eller Använd den [az acr uppgift loggar](/cli/azure/acr/task#az-acr-task-logs) kommando.
+
+Från och med juli 2019, kommer data och loggfiler för körs i ett register vara kvar som standard i 30 dagar och sedan rensas automatiskt. Om du vill arkivera data för en aktivitet som körs kan du aktivera arkivering med hjälp av den [az acr update-körda](/cli/azure/acr/task#az-acr-task-update-run) kommando. I följande exempel aktiveras arkiverar för aktiviteten kör *cf11* i registret *myregistry*.
+
+```azurecli
+az acr task update-run --registry myregistry --run-id cf11 --no-archive false
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

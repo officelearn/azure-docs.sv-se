@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: Snabb Kubernetes-utveckling med behållare, mikrotjänster och Java på Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, Java, Helm, tjänsten nät, tjänsten nät routning, kubectl, k8s
 manager: jeconnoc
-ms.openlocfilehash: f39fc0a7094941bb44fbe717879b3a2179c3be25
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 26efa17ee699aed87ecfbbd21e7880e7538de4ea
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65800888"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979118"
 ---
 # <a name="quickstart-develop-with-java-on-kubernetes-using-azure-dev-spaces"></a>Snabbstart: Utveckla med Java i Kubernetes med Azure Dev blanksteg
 
@@ -41,7 +41,7 @@ Du måste skapa ett AKS-kluster i en [region som stöds](https://docs.microsoft.
 
 ```cmd
 az group create --name MyResourceGroup --location eastus
-az aks create -g MyResourceGroup -n MyAKS --location eastus --node-count 1 --generate-ssh-keys
+az aks create -g MyResourceGroup -n MyAKS --location eastus --node-vm-size Standard_DS2_v2 --node-count 1 --disable-rbac --generate-ssh-keys
 ```
 
 ## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>Aktivera Azure Dev blanksteg på AKS-kluster
@@ -122,7 +122,7 @@ Om du stoppar den `azds up` kommando med hjälp av *Ctrl + c*tjänsten fortsätt
 För att distribuera en uppdaterad version av din tjänst måste du uppdatera alla filer i projektet och kör den `azds up` kommando. Exempel:
 
 1. Om `azds up` är fortfarande körs, tryck på *Ctrl + c*.
-1. Uppdatera [rad 16 i `src/main/java/com/ms/sample/webfrontend/Application.java` ](https://github.com/Azure/dev-spaces/blob/master/samples/java/getting-started/webfrontend/src/main/java/com/ms/sample/webfrontend/Application.java#L16) till:
+1. Uppdatera [rad 19 i `src/main/java/com/ms/sample/webfrontend/Application.java` ](https://github.com/Azure/dev-spaces/blob/master/samples/java/getting-started/webfrontend/src/main/java/com/ms/sample/webfrontend/Application.java#L19) till:
     
     ```java
     return "Hello from webfrontend in Azure!";
@@ -178,17 +178,17 @@ Klicka på *felsöka* sedan *stoppa felsökning* att stoppa felsökningen.
 
 Starta tjänsten vid felsökning med hjälp av *starta Java Program (AZDS)*.
 
-Gå tillbaka till den *Explorer* vyn genom att klicka på *visa* sedan *Explorer*. Öppna `src/main/java/com/ms/sample/webfrontend/Application.java` och klicka någonstans på rad 16 att placera markören där. Ange en brytpunkt når *F9* eller klicka på *felsöka* sedan */Radera brytpunkt*.
+Gå tillbaka till den *Explorer* vyn genom att klicka på *visa* sedan *Explorer*. Öppna `src/main/java/com/ms/sample/webfrontend/Application.java` och klicka någonstans på rad 19 att placera markören där. Ange en brytpunkt når *F9* eller klicka på *felsöka* sedan */Radera brytpunkt*.
 
-Öppna din tjänst i en webbläsare och Observera visas inget meddelande. Gå tillbaka till Visual Studio Code och notera rad 16 är markerad. Brytpunkt som du angett har pausats tjänsten på rad 16. Om du vill återuppta tjänsten når *F5* eller klicka på *felsöka* sedan *Fortsätt*. Gå tillbaka till webbläsaren och Observera meddelandet visas nu.
+Öppna din tjänst i en webbläsare och Observera visas inget meddelande. Gå tillbaka till Visual Studio Code och notera rad 19 markeras. Brytpunkt som du angett har pausats tjänsten på rad 19. Om du vill återuppta tjänsten når *F5* eller klicka på *felsöka* sedan *Fortsätt*. Gå tillbaka till webbläsaren och Observera meddelandet visas nu.
 
 När du kör din tjänst i Kubernetes ett internt, har du fullständig åtkomst till felsökningsinformation som anropsstacken, lokala variabler och undantagsinformation.
 
-Ta bort brytpunkten genom att placera markören på rad 16 i `src/main/java/com/ms/sample/webfrontend/Application.java` och träffa *F9*.
+Ta bort brytpunkten genom att placera markören på rad 19 i `src/main/java/com/ms/sample/webfrontend/Application.java` och träffa *F9*.
 
 ## <a name="update-code-from-visual-studio-code"></a>Uppdatera kod från Visual Studio Code
 
-Medan tjänsten körs i felsökningsläge, uppdaterar du rad 16 i `src/main/java/com/ms/sample/webfrontend/Application.java`. Exempel:
+Medan tjänsten körs i felsökningsläge, uppdaterar du rad 19 i `src/main/java/com/ms/sample/webfrontend/Application.java`. Exempel:
 ```java
 return "Hello from webfrontend in Azure while debugging!";
 ```

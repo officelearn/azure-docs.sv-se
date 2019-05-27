@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cephalin
-ms.openlocfilehash: d62632d6c28ac137095307e95dbbdab7e8573bbc
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1e09eec89c683d36df49110227488a6413ed371c
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65137886"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955881"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Konfigurera mellanlagringsmiljöer i Azure App Service
 <a name="Overview"></a>
@@ -217,7 +217,7 @@ När du använder [Auto-Swap](#Auto-Swap), vissa appar kan kräva anpassade vär
 
 Mer information om hur du anpassar den `applicationInitialization` element, se [vanligaste slot swap distributionsfel och hur du åtgärdar dem](https://ruslany.net/2017/11/most-common-deployment-slot-swap-failures-and-how-to-fix-them/).
 
-Du kan också anpassa beteendet värma upp med en eller flera av följande [appinställningar](web-sites-configure.md):
+Du kan också anpassa beteendet värma upp med en eller flera av följande [appinställningar](configure-common.md):
 
 - `WEBSITE_SWAP_WARMUP_PING_PATH`: Sökvägen till att värma upp pinga din webbplats. Lägg till den här appinställningen genom att ange en anpassad sökväg som börjar med ett snedstreck som värde. Till exempel `/statuscheck`. Standardvärdet är `/`. 
 - `WEBSITE_SWAP_WARMUP_PING_STATUSES`: Ogiltig HTTP-svarskoder för värma upp igen. Lägg till den här appinställningen med en kommaavgränsad lista över HTTP-koder. Till exempel: `200,202` . Om den returnerade statuskoden inte är i listan, stoppas värma upp och växling åtgärderna. Som standard är alla svarskoder giltiga.
@@ -289,7 +289,7 @@ Azure PowerShell är en modul som tillhandahåller cmdletar för att hantera Azu
 Information om att installera och konfigurera Azure PowerShell och om autentisering av Azure PowerShell med Azure-prenumerationen finns i [hur du installerar och konfigurerar du Microsoft Azure PowerShell](/powershell/azure/overview).  
 
 - - -
-### <a name="create-web-app"></a>Skapa webbapp
+### <a name="create-web-app"></a>Skapa webbprogram
 ```powershell
 New-AzWebApp -ResourceGroupName [resource group name] -Name [app name] -Location [location] -AppServicePlan [app service plan name]
 ```

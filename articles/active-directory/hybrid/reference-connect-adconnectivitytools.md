@@ -5,18 +5,17 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-origin.date: 10/19/2018
-ms.date: 04/09/2019
+ms.date: 10/19/2018
 ms.subservice: hybrid
-ms.author: v-junlch
+ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40b4be9aca5243b80151afac0ae221f0d44509c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1084a3e546a234739fbede46612dce96537c7d4a
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60454650"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65950650"
 ---
 # <a name="azure-ad-connect--adconnectivitytools-powershell-reference"></a>Azure AD Connect:  ADConnectivityTools PowerShell-referens
 
@@ -37,7 +36,7 @@ Confirm-DnsConnectivity [-Forest] <String> [-DCs] <Array> [-ReturnResultAsPSObje
 ### <a name="description"></a>BESKRIVNING
 
 Kör tester av lokala Dns-anslutning.
-För att konfigurera Active Directory-kopplingen, måste användarna ha både namnmatchning för skogen he\she försöker ansluta till samt som domänkontrollanter som är kopplad till den här skogen.
+Användare måste ha både namnmatchning för skogen som de försöker ansluta till samt som domänkontrollanter som är kopplad till den här skogen för att konfigurera Active Directory-kopplingen.
 
 ### <a name="examples"></a>EXEMPEL
 
@@ -310,7 +309,7 @@ Accept wildcard characters: False
 
 #### <a name="-skipdnsport"></a>-SkipDnsPort
 
-Om användaren inte använder DNS-tjänster som tillhandahålls av AD-plats / inloggning DC och sedan he\she kanske vill hoppa över kontrollerar port 53.
+Om användaren inte använder DNS-tjänster som tillhandahålls av AD-plats / inloggning DC och sedan de kanske vill hoppa över kontrollerar port 53.
 Användaren måste fortfarande kunna lösa _.ldap._tcp. \<forestfqdn\> för Active Directory Connector-konfigurationen ska lyckas.
 
 ```yml
@@ -964,5 +963,3 @@ Accept wildcard characters: False
 
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
 Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
-
-<!-- Update_Description: wording update -->

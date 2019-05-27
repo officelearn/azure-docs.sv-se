@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/13/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2e1288885476aeeba01f966b615c23c5fe51081
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d12519a2bd0a5e3951d0ca9ae51a54bd728a782b
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60261008"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65987901"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-land-gorilla-client"></a>Självstudier: Azure Active Directory-integrering med mark Gorilla klienten
 
@@ -47,7 +47,7 @@ Om du vill konfigurera Azure AD-integrering med mark Gorilla klienten behöver d
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
 
-Du bör följa de här rekommendationerna när du testar stegen i självstudien:
+Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
 
 - Du bör inte använda din produktionsmiljö såvida inte detta är nödvändigt.
 - Om du inte har en Azure AD-utvärderingsmiljö kan du skaffa en månads utvärderingsperiod [här](https://azure.microsoft.com/pricing/free-trial/).
@@ -87,7 +87,7 @@ Om du vill konfigurera integreringen av mark Gorilla klient till Azure AD, som d
 
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med mark Gorilla klient med en testanvändare som kallas ”Britta Simon”.
+I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med mark Gorilla klient med en testanvändare som kallas ”B. Simon ”.
 
 För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i mark Gorilla klienten är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i mark Gorilla klienten upprättas.
 
@@ -97,8 +97,8 @@ Om du vill konfigurera och testa Azure AD enkel inloggning med mark Gorilla klie
 
 1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
 1. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med begränsad grupp.
-1. **[Skapa en testanvändare mark Gorilla](#creating-a-land-gorilla-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-1. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+1. **[Skapa en testanvändare mark Gorilla](#creating-a-land-gorilla-test-user)**  – om du vill testa Azure AD enkel inloggning med B. Simon.
+1. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera B. Simon att använda Azure AD enkel inloggning.
 1. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
@@ -142,7 +142,7 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-hantering
 
     ![Konfigurera enkel inloggning](./media/landgorilla-tutorial/tutorial_landgorilla_certificate.png) 
 
-1. Klicka på knappen **Spara**.
+1. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning](./media/landgorilla-tutorial/tutorial_general_400.png) 
 
@@ -150,7 +150,7 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-hantering
 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
-Målet med det här avsnittet är att skapa en testanvändare i Azure Management portal kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure Management portal kallas B. Simon.
 
 ![Skapa en Azure AD-användare][100]
 
@@ -172,9 +172,9 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure Management
  
     ![Skapa en Azure AD-användare för testning](./media/landgorilla-tutorial/create_aaduser_04.png) 
 
-    a. I den **namn** textrutan typ **BrittaSimon**.
+    a. I den **namn** textrutan typ **B. Simon**.
 
-    b. I den **användarnamn** textrutan skriver den **e-postadress** av BrittaSimon.
+    b. I den **användarnamn** textrutan skriver den **e-postadress** för B. Simon.
 
     c. Välj **visa lösenord** och anteckna värdet för den **lösenord**.
 
@@ -186,11 +186,11 @@ Kontakta [mark Gorilla supportteamet](https://www.landgorilla.com/support/) att 
     
 ### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning ger användarens företagsidentitet åtkomst mark Gorilla klienten.
+I det här avsnittet ska aktivera du B. Simon att använda Azure enkel inloggning genom att ge dem åtkomst till mark Gorilla klient.
 
 ![Tilldela användare][200] 
 
-**Om du vill tilldela Britta Simon mark Gorilla klienten, utför du följande steg:**
+**Om du vill tilldela mark Gorilla klient B. Simon utför du följande steg:**
 
 1. Öppna vyn program i Azure-hanteringsportalen och sedan gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
 
@@ -208,7 +208,7 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
     ![Tilldela användare][203]
 
-1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+1. På **användare och grupper** dialogrutan **B. Simon** på listan användare.
 
 1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
 
@@ -225,7 +225,7 @@ När du klickar på panelen mark Gorilla klienten i åtkomstpanelen du bör få 
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 

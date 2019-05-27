@@ -17,17 +17,17 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7711c3476ac9118406a86430e5ade238bec2c028
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 9ecc90e13f49c231d8d3ab0cff1de91443b80f21
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918630"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65950894"
 ---
 # <a name="determine-identity-requirements-for-your-hybrid-identity-solution"></a>Fastställa identitetskrav för för din hybrididentitetslösning
 Det första steget i utforma en hybrididentitetslösning är att avgöra kraven för organisationen som kommer att utnyttja den här lösningen.  Hybrididentitet startas som en stödjande roll (stöds alla andra molnlösningar genom att tillhandahålla autentisering) och på att tillhandahålla nya och intressanta funktioner att låsa upp nya arbetsbelastningar för användare.  Dessa arbetsbelastningar eller tjänster som du vill använda för dina användare styr kraven för hybrid identity utformningen.  Dessa tjänster och arbetsbelastningar behöver använda hybrididentitet både lokalt och i molnet.  
 
-Du behöver gå igenom dessa viktiga aspekter av företag att förstå vad det är ett krav nu och vad företaget planerar för framtiden. Om du inte har synligheten för långsiktig strategi för hybrid identity design, är risken att lösningen inte är skalbar när verksamheten behöver växa och ändra.   T han diagrammet nedan visar ett exempel på en hybrid identity-arkitektur och de arbetsbelastningar som är att låsas upp för användare. Det här är bara ett exempel på alla nya möjligheter som kan låsas upp och levereras med en solid hybrid identity-strategi. 
+Du behöver gå igenom dessa viktiga aspekter av företag att förstå vad det är ett krav nu och vad företaget planerar för framtiden. Om du inte har synligheten för långsiktig strategi för hybrid identity design, är risken att lösningen inte är skalbar när verksamheten behöver växa och ändra. Diagrammet nedan visar ett exempel på en hybrid identity-arkitektur och de arbetsbelastningar som är att låsas upp för användare. Det här är bara ett exempel på alla nya möjligheter som kan låsas upp och levereras med en solid hybrid identity-strategi. 
 
 Vissa komponenter som är en del av arkitekturen för hybrid identity ![hybrid identity-arkitektur](./media/plan-hybrid-identity-design-considerations/hybrid-identity-architechture.png)
 

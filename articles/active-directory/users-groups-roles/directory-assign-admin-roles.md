@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3593324523340300279232e0e63392c9c127991d
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 1107a6df92bf577cd60b9ad31627219da8e1a388
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65823571"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956538"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Behörigheter för administratör i Azure Active Directory
 
@@ -335,28 +335,28 @@ Kan visa, ange och återställa information om autentisering för alla icke-admi
 | microsoft.office365.serviceHealth/allEntities/allTasks | Läsa och konfigurera Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Skapa och hantera Office 365-supportbegäranden. |
 
-### <a name="b2c-user-flow-administrator"></a>Flow-administratör för B2C-användare
+### <a name="b2c-user-flow-administrator"></a>B2C User Flow Administrator
 Skapa och hantera alla aspekter av användarflöden.
 
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
 | microsoft.aad.b2c/userFlows/allTasks | Läsa och konfigurera användarflöden i Azure Active Directory B2C. |
 
-### <a name="b2c-user-flow-attribute-administrator"></a>B2C Användaradministratör Flow attribut
+### <a name="b2c-user-flow-attribute-administrator"></a>B2C User Flow Attribute Administrator
 Skapa och hantera tillgängliga för alla användarflöden som attributschemat.
 
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
 | microsoft.aad.b2c/userAttributes/allTasks | Läsa och konfigurera användarattribut i Azure Active Directory B2C. |
 
-### <a name="b2c-ief-keyset-administrator"></a>Administratör för B2C IEF Keyset
+### <a name="b2c-ief-keyset-administrator"></a>B2C IEF Keyset Administrator
 Hantera hemligheter för federation och kryptering i den Identitetsramverk.
 
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
 | microsoft.aad.b2c/trustFramework/keySets/allTasks | Läsa och konfigurera viktiga uppsättningar i Azure Active Directory B2C. |
 
-### <a name="b2c-ief-policy-administrator"></a>Administratör för B2C IEF princip
+### <a name="b2c-ief-policy-administrator"></a>B2C IEF Policy Administrator
 Skapa och hantera framework förtroendeprinciper i den Identitetsramverk.
 
 | **Åtgärder** | **Beskrivning** |
@@ -367,7 +367,7 @@ Skapa och hantera framework förtroendeprinciper i den Identitetsramverk.
 Kan utföra vanliga faktureringsrelaterade uppgifter som uppdatering av betalningsinformation.
 
   > [!NOTE]
-  > Den här rollen har ytterligare behörigheter utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
+  > Den här rollen har ytterligare behörighet utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
   >
   >
 
@@ -385,7 +385,7 @@ Kan utföra vanliga faktureringsrelaterade uppgifter som uppdatering av betalnin
 Kan komma åt och hantera skrivbordshanteringsverktyg och tjänster, inklusive Intune.
 
   > [!NOTE]
-  > Den här rollen har ytterligare behörigheter utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
+  > Den här rollen har ytterligare behörighet utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
   >
   >
 
@@ -458,7 +458,7 @@ Fullständig åtkomst för att hantera enheter i Azure AD.
 Kan hantera alla aspekter av Azure AD och Microsoft-tjänster som använde Azure AD-identiteter.
 
   > [!NOTE]
-  > Den här rollen har ytterligare behörigheter utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
+  > Den här rollen har ytterligare behörighet utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
   >
   >
 
@@ -524,7 +524,7 @@ Kan hantera alla aspekter av Azure AD och Microsoft-tjänster som använde Azure
 Kan läsa och hantera efterlevnadskonfiguration och rapporter i Azure AD och Office 365.
 
   > [!NOTE]
-  > Den här rollen har ytterligare behörigheter utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
+  > Den här rollen har ytterligare behörighet utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
   >
   >
 
@@ -558,7 +558,7 @@ Kan hantera funktioner för villkorsstyrd åtkomst.
 Kan hantera alla aspekter av Dynamics 365-produkten.
 
   > [!NOTE]
-  > Den här rollen har ytterligare behörigheter utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
+  > Den här rollen har ytterligare behörighet utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
   >
   >
 
@@ -575,7 +575,7 @@ Kan hantera alla aspekter av Dynamics 365-produkten.
 Kan godkänna förfrågningar till Microsoft Support om att få åtkomst till kundens organisationsdata.
 
   > [!NOTE]
-  > Den här rollen har ytterligare behörigheter utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
+  > Den här rollen har ytterligare behörighet utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
   >
   >
 
@@ -705,7 +705,7 @@ Kan läsa och skriva grundläggande kataloginformation. För att bevilja åtkoms
 Kan hantera alla aspekter av Exchange-produkten.
 
   > [!NOTE]
-  > Den här rollen har ytterligare behörigheter utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
+  > Den här rollen har ytterligare behörighet utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
   >
   >
 
@@ -765,7 +765,7 @@ Kan återställa lösenord för icke-administratörer och Helpdeks-administratö
 Kan hantera alla aspekter av Azure Information Protection-produkten.
 
   > [!NOTE]
-  > Den här rollen har ytterligare behörigheter utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
+  > Den här rollen har ytterligare behörighet utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
   >
   >
 
@@ -781,7 +781,7 @@ Kan hantera alla aspekter av Azure Information Protection-produkten.
 Kan hantera alla aspekter av Intune-produkten.
 
   > [!NOTE]
-  > Den här rollen har ytterligare behörigheter utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
+  > Den här rollen har ytterligare behörighet utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
   >
   >
 
@@ -829,7 +829,7 @@ Kan hantera produktlicenser på användare och grupper.
 Kan hantera alla aspekter av Skype för Business-produkten.
 
   > [!NOTE]
-  > Den här rollen har ytterligare behörigheter utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
+  > Den här rollen har ytterligare behörighet utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
   >
   >
 
@@ -846,7 +846,7 @@ Kan hantera alla aspekter av Skype för Business-produkten.
 Kan endast läsa meddelanden och uppdateringar avseende sin organisation i meddelandecenter för Office 365. 
 
   > [!NOTE]
-  > Den här rollen har ytterligare behörigheter utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
+  > Den här rollen har ytterligare behörighet utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
   >
   >
 
@@ -859,7 +859,7 @@ Kan endast läsa meddelanden och uppdateringar avseende sin organisation i medde
 Använd inte – inte avsett för allmänt bruk.
 
   > [!NOTE]
-  > Den här rollen har ytterligare behörigheter utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
+  > Den här rollen har ytterligare behörighet utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
   >
   >
 
@@ -891,7 +891,7 @@ Använd inte – inte avsett för allmänt bruk.
 Använd inte – inte avsett för allmänt bruk.
 
   > [!NOTE]
-  > Den här rollen har ytterligare behörigheter utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
+  > Den här rollen har ytterligare behörighet utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
   >
   >
 
@@ -925,7 +925,7 @@ Använd inte – inte avsett för allmänt bruk.
 Kan hantera alla aspekter av Power BI-produkten.
 
   > [!NOTE]
-  > Den här rollen har ytterligare behörigheter utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
+  > Den här rollen har ytterligare behörighet utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
   >
   >
 
@@ -955,7 +955,7 @@ Har tillåtelse att visa, konfigurera och återställa autentiseringsmetodsinfor
 Kan hantera rolltilldelningar i Azure AD och alla aspekter av Privileged Identity Management.
 
   > [!NOTE]
-  > Den här rollen har ytterligare behörigheter utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
+  > Den här rollen har ytterligare behörighet utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
   >
   >
 
@@ -968,7 +968,7 @@ Kan hantera rolltilldelningar i Azure AD och alla aspekter av Privileged Identit
 Kan läsa inloggnings- och granskningsrapporter.
 
   > [!NOTE]
-  > Den här rollen har ytterligare behörigheter utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
+  > Den här rollen har ytterligare behörighet utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
   >
   >
 
@@ -984,7 +984,7 @@ Kan läsa inloggnings- och granskningsrapporter.
 Kan läsa säkerhetsinformation och rapporter och hantera konfigurationen i Azure AD och Office 365.
 
   > [!NOTE]
-  > Den här rollen har ytterligare behörigheter utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
+  > Den här rollen har ytterligare behörighet utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
   >
   >
 
@@ -1013,7 +1013,7 @@ Kan läsa säkerhetsinformation och rapporter och hantera konfigurationen i Azur
 Kan läsa säkerhetsinformation och rapporter i Azure AD och Office 365.
 
   > [!NOTE]
-  > Den här rollen har ytterligare behörigheter utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
+  > Den här rollen har ytterligare behörighet utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
   >
   >
 
@@ -1033,7 +1033,7 @@ Kan läsa säkerhetsinformation och rapporter i Azure AD och Office 365.
 Kan läsa information om Service Health och hantera supportärenden.
 
   > [!NOTE]
-  > Den här rollen har ytterligare behörigheter utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
+  > Den här rollen har ytterligare behörighet utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
   >
   >
 
@@ -1049,7 +1049,7 @@ Kan läsa information om Service Health och hantera supportärenden.
 Kan hantera alla aspekter av SharePoint-tjänsten.
 
   > [!NOTE]
-  > Den här rollen har ytterligare behörigheter utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
+  > Den här rollen har ytterligare behörighet utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
   >
   >
 
@@ -1072,7 +1072,7 @@ Kan hantera alla aspekter av SharePoint-tjänsten.
 Kan hantera anrops- och mötesfunktioner i Microsoft Teams-tjänsten.
 
   > [!NOTE]
-  > Den här rollen har ytterligare behörigheter utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
+  > Den här rollen har ytterligare behörighet utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
   >
   >
 
@@ -1089,7 +1089,7 @@ Kan hantera anrops- och mötesfunktioner i Microsoft Teams-tjänsten.
 Kan felsöka kommunikationsproblem i grupper med hjälp av avancerade verktyg.
 
   > [!NOTE]
-  > Den här rollen har ytterligare behörigheter utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
+  > Den här rollen har ytterligare behörighet utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
   >
   >
 
@@ -1103,7 +1103,7 @@ Kan felsöka kommunikationsproblem i grupper med hjälp av avancerade verktyg.
 Kan felsöka kommunikationsproblem i grupper med hjälp av grundläggande verktyg.
 
   > [!NOTE]
-  > Den här rollen har ytterligare behörigheter utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
+  > Den här rollen har ytterligare behörighet utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
   >
   >
 
@@ -1117,7 +1117,7 @@ Kan felsöka kommunikationsproblem i grupper med hjälp av grundläggande verkty
 Kan hantera Microsoft Teams-tjänsten.
 
   > [!NOTE]
-  > Den här rollen har ytterligare behörigheter utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
+  > Den här rollen har ytterligare behörighet utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
   >
   >
 

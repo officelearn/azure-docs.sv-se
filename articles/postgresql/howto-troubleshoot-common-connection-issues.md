@@ -7,12 +7,12 @@ ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 9026b561f52b2d43fff2d3e36ba569d7b62a4684
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 8a0fe87703c9fb471174c761a6e8296e6e7a37ec
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65069029"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952101"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql---single-server"></a>Felsöka problem med anslutningen till Azure Database för PostgreSQL – enskild Server
 
@@ -53,7 +53,7 @@ Om programmet misslyckas med ett beständigt sätt att ansluta till Azure Databa
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Steg för att lösa beständiga anslutningsproblem
 
 1. Konfigurera [brandväggsregler](howto-manage-firewall-using-portal.md) som tillåter klientens IP-adress. Konfigurera en brandväggsregel med 0.0.0.0 som den inledande IP-adress och använda 255.255.255.255 som den sista IP-adressen för tillfälliga endast för testning. Servern för att alla IP-adresser öppnas. Om det löser problem med nätverksanslutningen, ta bort den här regeln och skapa en brandväggsregel för en korrekt begränsad IP-adressen eller adressintervallet.
-2. Kontrollera att port 3306 är öppen för utgående anslutningar på alla brandväggar mellan klienten och internet.
+2. Kontrollera att port 5432 är öppen för utgående anslutningar på alla brandväggar mellan klienten och internet.
 3. Kontrollera anslutningssträngen och andra anslutningsinställningar.
 4. Kontrollera tjänstehälsa i instrumentpanelen. Om du tror att det finns ett regionalt strömavbrott kan du se [översikt över affärskontinuitet med Azure Database for PostgreSQL](concepts-business-continuity.md) anvisningar för hur du återställer till en ny region.
 

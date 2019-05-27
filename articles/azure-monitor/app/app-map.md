@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: ba4643118c5d90b91c3e51d569e9a628c84159fc
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 70d1f54aed5e83801b1d1e249d7a412dd6d9a49a
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65780021"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65964034"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Programkartan: Hantera distribuerade program
 
@@ -94,7 +94,9 @@ Om du vill visa aktiva varningar och de underliggande reglerna som orsakar att a
 
 Programavbildning använder den **molnrollnamn** egenskapen att identifiera komponenterna på kartan. Application Insights SDK lägger automatiskt till molnet rollen namnegenskapen telemetri som genereras av komponenter. Till exempel SDK: N kommer lägger till en webbplatsens namn eller tjänstnamnet i roll namnegenskapen för cloud-rollen. Men finns det fall där kan du åsidosätta standardvärdet. Att åsidosätta molnrollnamn och ändra det hämtar visas på kartan för programmet:
 
-### <a name="net"></a>.NET
+### <a name="netnet-core"></a>.NET/.NET Core
+
+**Skriv anpassad TelemetryInitializer enligt nedan.**
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;
@@ -117,9 +119,9 @@ namespace CustomInitializer.Telemetry
 }
 ```
 
-**Läsa in din initieraren**
+**Läsa in initieraren till den aktiva TelemetryConfiguration**
 
-In ApplicationInsights.config:
+I ApplicationInsights.config:
 
 ```xml
     <ApplicationInsights>
@@ -131,7 +133,10 @@ In ApplicationInsights.config:
     </ApplicationInsights>
 ```
 
-En alternativ metod är att skapa en instans av initierare i kod, till exempel i Global.aspx.cs:
+> [!NOTE]
+> Att lägga till initieraren med `ApplicationInsights.config` är inte giltig för ASP.NET Core-program.
+
+En alternativ metod för ASP.NET-webbprogram är att skapa en instans av initierare i kod, till exempel i Global.aspx.cs:
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;
@@ -141,6 +146,17 @@ En alternativ metod är att skapa en instans av initierare i kod, till exempel i
     {
         // ...
         TelemetryConfiguration.Active.TelemetryInitializers.Add(new MyTelemetryInitializer());
+    }
+```
+
+För [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) program, att lägga till en ny `TelemetryInitializer` görs genom att lägga till behållaren Beroendeinmatning enligt nedan. Detta görs `ConfigureServices` -metoden för din `Startup.cs` klass.
+
+```csharp
+ using Microsoft.ApplicationInsights.Extensibility;
+ using CustomInitializer.Telemetry;
+ public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddSingleton<ITelemetryInitializer, MyCustomTelemetryInitializer>();
     }
 ```
 

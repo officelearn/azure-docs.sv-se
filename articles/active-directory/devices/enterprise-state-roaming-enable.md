@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 10/25/2018
 ms.author: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7e665f3124296392c8138f4f2bd3632b56e53de
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 88e825ebc08b4bfbd65f81b7b2480ead9be314b5
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230940"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954943"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Aktivera enterprise tillståndsväxling i Azure Active Directory
 Enterprise State Roaming är tillgänglig för alla företag med en Azure AD Premium eller Enterprise Mobility + Security (EMS)-licens. Mer information om hur du hämtar en Azure AD-prenumeration finns i den [produktsidan för Azure AD](https://azure.microsoft.com/services/active-directory).
@@ -84,7 +84,7 @@ Explicit borttagning är när en Azure-administratör tar bort en användare ell
 Data som inte har använts i ett år (”kvarhållningsperioden”) kommer att behandlas som inaktuell och kan tas bort från Microsoft-molnet. Kvarhållningsperioden kan ändras, men inte mindre än 90 dagar. Inaktuella data kan vara en specifik uppsättning Windows/programinställningar eller alla inställningar för en användare. Exempel:
 
 * Om inga enheter åtkomst till en viss inställningar-samling (till exempel om ett program tas bort från enheten eller en grupp med inställningar, till exempel ”tema” är inaktiverad för alla användarens enheter), och sedan samlingen blir inaktuella efter kvarhållningsperioden och kan tas bort . 
-* Om en användare har inaktiverat synkronisering på hans/hennes enheter, inga inställningsdata kommer att komma åt och alla inställningsdata för den användaren blir inaktuella och kan tas bort efter kvarhållningsperioden. 
+* Om en användare har inaktiverat synkronisering på sina enheter, inga inställningsdata kommer att komma åt och alla inställningsdata för den användaren blir inaktuella och kan tas bort efter kvarhållningsperioden. 
 * Om Azure AD directory-administratör inaktiverar Enterprise State Roaming för hela katalogen, sedan alla användare i den directory slutar att synkronisera inställningar och inställningsdata för alla för alla användare blir inaktuella och kan tas bort efter kvarhållningsperioden. 
 
 ### <a name="deleted-data-recovery"></a>Återställning av borttagna data

@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 5983c2036ff206825a82072b57ca2b9bb44ca678
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: e9daebf46093e38858feff87ca5c4ba89638aa74
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65021666"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951903"
 ---
 # <a name="add-custom-analyzers-to-an-azure-search-index"></a>Lägga till anpassade analysverktyg i ett Azure Search-index
 
@@ -214,7 +214,7 @@ Analysverktyg, indexattribut variera beroende på den om du använder fördefini
 |||  
 |-|-|  
 |Namn|Det får bara innehålla bokstäver, siffror, blanksteg, bindestreck eller understreck, inledas och avslutas med alfanumeriska tecken och är begränsat till 128 tecken.|  
-|Typ|Typ av Analyzer från listan över stöds analysverktyg. Se den **analyzer_type** kolumnen i den [analysverktyg](#AnalyzerTable) tabellen nedan.|  
+|Type|Typ av Analyzer från listan över stöds analysverktyg. Se den **analyzer_type** kolumnen i den [analysverktyg](#AnalyzerTable) tabellen nedan.|  
 |Alternativ|Måste vara giltiga alternativ för en fördefinierad analyzer som anges i den [analysverktyg](#AnalyzerTable) tabellen nedan.|  
 
 #### <a name="custom-analyzers"></a>Anpassade analysverktyg
@@ -222,8 +222,8 @@ Analysverktyg, indexattribut variera beroende på den om du använder fördefini
 |||  
 |-|-|  
 |Namn|Det får bara innehålla bokstäver, siffror, blanksteg, bindestreck eller understreck, inledas och avslutas med alfanumeriska tecken och är begränsat till 128 tecken.|  
-|Typ|Måste vara ”#Microsoft.Azure.Search.CustomAnalyzer”.|  
-|CharFilters|Inställt på någon av fördefinierade char filter listas i den [Char filter](#CharFilter) tabell eller ett anpassat char-filter som anges i indexdefinitionen.|  
+|Type|Måste vara ”#Microsoft.Azure.Search.CustomAnalyzer”.|  
+|CharFilters|Inställt på någon av fördefinierade char filter listas i den [Char filter](#char-filters-reference) tabell eller ett anpassat char-filter som anges i indexdefinitionen.|  
 |Tokenizer|Krävs. Inställt på någon av fördefinierade tokenizers som anges i den [Tokenizers](#Tokenizers) tabellen nedan eller en anpassad tokenizer som anges i indexdefinitionen.|  
 |TokenFilters|Inställt på någon av fördefinierade token filter som listas i den [Token filter](#TokenFilters) tabell eller ett anpassat token filter som anges i indexdefinitionen.|  
 
@@ -236,8 +236,8 @@ Analysverktyg, indexattribut variera beroende på den om du använder fördefini
 |||  
 |-|-|  
 |Namn|Det får bara innehålla bokstäver, siffror, blanksteg, bindestreck eller understreck, inledas och avslutas med alfanumeriska tecken och är begränsat till 128 tecken.|  
-|Typ|Char filtertyp i listan över stöds char-filter. Se **char_filter_type** kolumnen i den [Char filter](#CharFilter) tabellen nedan.|  
-|Alternativ|Måste vara giltiga alternativ för en viss [Char filter](#CharFilter) typen.|  
+|Type|Char filtertyp i listan över stöds char-filter. Se **char_filter_type** kolumnen i den [Char filter](#char-filters-reference) tabellen nedan.|  
+|Alternativ|Måste vara giltiga alternativ för en viss [Char filter](#char-filters-reference) typen.|  
 
 ### <a name="tokenizers"></a>Tokenizers
 
@@ -249,7 +249,7 @@ Ett anpassat analysverktyg kan använda en fördefinierad tokenizer med antingen
 |||  
 |-|-|  
 |Namn|Det får bara innehålla bokstäver, siffror, blanksteg, bindestreck eller understreck, inledas och avslutas med alfanumeriska tecken och är begränsat till 128 tecken.|  
-|Typ|Tokenizer namnet från listan över stöds tokenizers. Se **tokenizer_type** kolumnen i den [Tokenizers](#Tokenizers) tabellen nedan.|  
+|Type|Tokenizer namnet från listan över stöds tokenizers. Se **tokenizer_type** kolumnen i den [Tokenizers](#Tokenizers) tabellen nedan.|  
 |Alternativ|Måste vara giltiga alternativ för en viss tokenizer-typ som anges i den [Tokenizers](#Tokenizers) tabellen nedan.|  
 
 ### <a name="token-filters"></a>Token filter
@@ -260,7 +260,7 @@ Du kan ha flera token filter i ett anpassat analysverktyg. Token filter kör i a
 |||  
 |-|-|  
 |Namn|Det får bara innehålla bokstäver, siffror, blanksteg, bindestreck eller understreck, inledas och avslutas med alfanumeriska tecken och är begränsat till 128 tecken.|  
-|Typ|Token filternamnet i listan över stöds token filter. Se **token_filter_type** kolumnen i den [Token filter](#TokenFilters) tabellen nedan.|  
+|Type|Token filternamnet i listan över stöds token filter. Se **token_filter_type** kolumnen i den [Token filter](#TokenFilters) tabellen nedan.|  
 |Alternativ|Måste vara [Token filter](#TokenFilters) av en viss token filtertyp.|  
 
 <a name="PropertyReference"></a>  

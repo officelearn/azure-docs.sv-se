@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 662260c3cf37f8f8a675c522f3d3dea41153e485
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f086850ecc2f15c41ab89db34b16d6d2e4a229cb
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60853154"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956218"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions-preview"></a>Använd Key Vault-referenser för App Service och Azure Functions (förhandsversion)
 
@@ -67,7 +67,7 @@ Du kan också:
 
 ## <a name="source-application-settings-from-key-vault"></a>Inställningar för datakälla program från Key Vault
 
-Referenser för Key Vault kan användas som värden för [programinställningar](web-sites-configure.md#app-settings), så att du kan hålla hemligheter i Key Vault i stället för platsens konfiguration. Programinställningar krypteras på ett säkert sätt på plats, men om du behöver hemliga hanteringsfunktioner, de bör ingå i Key Vault.
+Referenser för Key Vault kan användas som värden för [programinställningar](configure-common.md#configure-app-settings), så att du kan hålla hemligheter i Key Vault i stället för platsens konfiguration. Programinställningar krypteras på ett säkert sätt på plats, men om du behöver hemliga hanteringsfunktioner, de bör ingå i Key Vault.
 
 Om du vill använda en Key Vault-referens för en programinställning, ange referensen som värde för inställningen. Din app kan referera till hemligheten via dess nyckel som vanligt. Inga kodändringar krävs.
 

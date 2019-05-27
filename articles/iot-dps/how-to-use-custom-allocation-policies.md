@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
-ms.openlocfilehash: f0eb2f7358e8fb1564275e1de510f302d2eef90b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 03d39ed01907a2ad61e089946673b96b8a2cc83e
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59500948"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65916963"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Hur du använder anpassade allokeringsprinciper
 
@@ -46,7 +46,7 @@ Du utför följande steg i den här artikeln:
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Slutförandet av den [konfigurera IoT Hub Device Provisioning-tjänsten med Azure portal](./quick-setup-auto-provision.md) Snabbstart.
-* Visual Studio 2015 eller [Visual Studio 2017](https://www.visualstudio.com/vs/) med arbetsbelastningen [”Desktop development with C++”](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) (Skrivbordsutveckling med C++) aktiverad.
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 eller senare med den [”utveckling för stationära datorer med C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) arbetsbelastning aktiverat.
 * Senaste versionen av [Git](https://git-scm.com/download/) installerad.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -509,11 +509,11 @@ I följande tabell visar förväntad scenarier och resultat felkoder som kan upp
 | Scenario | Registrering av resultatet från Provisioning-tjänsten | Etablering SDK-resultat |
 | -------- | --------------------------------------------- | ------------------------ |
 | Webhooken returnerar 200 OK med 'iotHubHostName' inställt på ett giltigt värdnamn för IoT hub | Resultat: Tilldelad  | SDK: N returnerar PROV_DEVICE_RESULT_OK tillsammans med hub information |
-| Webhooken returnerar 200 OK med 'iotHubHostName' i svaret, men att en tom sträng eller null | Resultat: Misslyckad<br><br> Felkod: CustomAllocationIotHubNotSpecified (400208) | SDK: N returnerar PROV_DEVICE_RESULT_HUB_NOT_SPECIFIED |
-| Webhooken returnerar 401 Ej behörig | Resultat: Misslyckad<br><br>Felkod: CustomAllocationUnauthorizedAccess (400209) | SDK: N returnerar PROV_DEVICE_RESULT_UNAUTHORIZED |
-| En enskild registrering har skapats för att inaktivera enheten | Resultat: Disabled | SDK: N returnerar PROV_DEVICE_RESULT_DISABLED |
+| Webhooken returnerar 200 OK med 'iotHubHostName' i svaret, men att en tom sträng eller null | Resultat: Fungerar inte<br><br> Felkod: CustomAllocationIotHubNotSpecified (400208) | SDK: N returnerar PROV_DEVICE_RESULT_HUB_NOT_SPECIFIED |
+| Webhooken returnerar 401 Ej behörig | Resultat: Fungerar inte<br><br>Felkod: CustomAllocationUnauthorizedAccess (400209) | SDK: N returnerar PROV_DEVICE_RESULT_UNAUTHORIZED |
+| En enskild registrering har skapats för att inaktivera enheten | Resultat: Har inaktiverats | SDK: N returnerar PROV_DEVICE_RESULT_DISABLED |
 | Webhooken returnerar felkod > = 429 | DPS-dirigering kommer att försöka igen flera gånger. Återförsöksprincipen är för närvarande:<br><br>&nbsp;&nbsp;– Antal nya försök: 10<br>&nbsp;&nbsp;-Första intervall: 1s<br>&nbsp;&nbsp;-Öka: 9s | SDK: N ska ignorera felet och skicka en annan get-statusmeddelande inom den angivna tiden |
-| Webhooken returnerar alla andra statuskod | Resultat: Misslyckad<br><br>Felkod: CustomAllocationFailed (400207) | SDK: N returnerar PROV_DEVICE_RESULT_DEV_AUTH_ERROR |
+| Webhooken returnerar alla andra statuskod | Resultat: Fungerar inte<br><br>Felkod: CustomAllocationFailed (400207) | SDK: N returnerar PROV_DEVICE_RESULT_DEV_AUTH_ERROR |
 
 
 ## <a name="clean-up-resources"></a>Rensa resurser

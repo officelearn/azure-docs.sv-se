@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: e13111eb241c7734e25a28fcaeea55b1c70bc267
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 225a4936bbbb8d068caa0ee2a3280c395dbd490e
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64938316"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65964127"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Konsulttjänster för Azure Marketplace och AppSource
 Konsulttjänster i Azure Marketplace och AppSource ger Microsoft-partner mål anslutande kunder med tjänster som stöder och utökar deras användning av Azure och affärsmål. 
@@ -30,7 +30,7 @@ Molnmarknadsplatsen ligger i linje med målgrupper och Microsoft-molnprodukter f
 |Lösningen relevans     |Teknisk appar som skapats för eller på Azure|Appar som utnyttjar / utöka D365, Power BI, O365, Azure. (Tillägg eller tillägg klar appar)|
 |Publiceringsalternativ     |Kontakta mig, utvärdering, Transact eller konsulttjänster|Kontakta mig, utvärderingsversion eller konsulttjänster|
 |I övningar      |Hanteringsportalen för Azure|Dynamics 365, Office 365, Office-Klientappar| 
-|Annat      |En lokal publicering Via Azure Stack|Konsulttjänster för Dynamics och Powerbi|
+|Annat       |En lokal publicering Via Azure Stack|Konsulttjänster för Dynamics och Powerbi|
 
 Service-erbjudanden som är baserade på Microsoft Dynamics 365, Office 365 och Power BI är berättigade att lista på AppSource. Mer information finns i [konsulttjänster för Microsoft AppSource lista riktlinjer](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf). 
 
@@ -71,16 +71,16 @@ Partner måste ha en **silver eller gold kompetens** i området relevanta för d
 
 |Berättigade länder/regioner |   |   |   |
 |---------|----------|----------|----------|
-|Australien |Frankrike  |     Mexiko          |Spanien       |
+|Australien |Frankrike  |     Mexico          |Spanien       |
 |Belgien   |Tyskland |     Nederländerna     |Sverige       |
-|Kanada    |Indien   |     Nya Zeeland     |Storbritannien  |
+|Kanada    |Indien   |     Nya Zeeland     |Storbritannien och Nordirland  |
 |Danmark   |Italien   |     Norge          |USA |
 |Finland   |Japan   |     Polen          
 
 Lanseringen av konsulttjänster hamnar live i specifika georegionen. Första gången programmet startas blir: USA, Kanada, Storbritannien och Australien. Kataloger för andra länder/regioner går live efter ett beskrivande tal och övertygande valet av Tjänsterbjudanden har skickats av partners och godkänts av Microsoft.
 
 ## <a name="how-to-register-for-consulting-services-in-azure-marketplace-and-appsource"></a>Hur du registrera dig för konsulttjänster i Azure Marketplace och AppSource
-Börja med att [registrerar](https://azuremarketplace.microsoft.com/sell/signup) företagsinformationen i marketplace. Utgivare kan hänvisa till [blir utgivare på Marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher), en fullständig kontroll lista över kraven för enhetsregistrering. 
+Börja med att [registrerar](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) företagsinformationen i marketplace. Utgivare kan hänvisa till [blir utgivare på Marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher), en fullständig kontroll lista över kraven för enhetsregistrering. 
 
 **Vilka att förvänta sig efter registreringen** The Onboarding-teamet kontaktar i 1 – 3 arbetsdagar med ett välkomstmeddelande som innehåller din inloggningsinformation för Cloud Partner Portal (CPP). [Cloud Partner Portal](https://cloudpartner.azure.com) är erbjudandet lista portalen där utgivare kan skicka registreringsinformationen och bidrag. 
 
@@ -128,7 +128,7 @@ Erbjudanden måste vara en följande fem typer av tjänster (du kan ange fler ä
 * **Konceptbevis**: Implementering av begränsad omfattning att avgöra om en lösning uppfyller kundernas krav. 
 * **Workshop**: En interaktiv kontakt som utförs i en kunds lokala. Det kan omfatta utbildning, implikationer, utvärderingar och demonstrationer som bygger på kundens data eller miljö. 
 
-**Obs!** Undantag för den *Briefing* tjänsttyp, konsulttjänster erbjuds personligen (det vill säga direkt på kundens plats eller en partners anläggning) eller virtuellt (det vill säga via och telefonkonferenser, web konferenser eller fjärr implementering). Implikationer måste erbjudas personligen.
+**Obs:** Undantag för den *Briefing* tjänsttyp, konsulttjänster erbjuds personligen (det vill säga direkt på kundens plats eller en partners anläggning) eller virtuellt (det vill säga via och telefonkonferenser, web konferenser eller fjärr implementering). Implikationer måste erbjudas personligen.
 
 När du har konfigurerat de obligatoriska elementen som anges ovan, verifierar innehållsgranskning-teamet att beskrivning av ditt erbjudande är klar för din målgrupp och informativa. 
 
@@ -149,7 +149,7 @@ Exempel:
 
 När du granskar erbjuder beskrivningar och erbjuder sammanfattningar gäller teamet följande villkor:
 
-|Erbjudandetyp  |Krävs |Rekommenderas  |
+|Erbjudandetyp  |Obligatoriskt |Rekommenderas  |
 |---------|---------|---------|
 |**Utvärdering**    |   Innehåller en detaljerad agenda för flera veckor eller flera dagar utvärderingar och förklara vad leverans kunden kan förvänta sig      |    Optimera ditt erbjudande sammanfattning med dina viktigaste sökmotoroptimering nyckelord     |
 |**Genomgång**    |   Förklara vad leverans kunden kan vänta. Kom ihåg genomgång måste erbjudas personligen. Om du tillhandahåller virtuella Välj ett annat erbjudande-typ    |  Optimera ditt erbjudande sammanfattning med dina viktigaste sökmotoroptimering nyckelord       |

@@ -5,15 +5,15 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 05/20/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 1d7bb72dab622cd0b18d1da1aa34a651e1443997
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0fec7234d18659051c61fda593b1ba0fb846c220
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60365085"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65964256"
 ---
 # <a name="how-to-configure-expressroute-direct"></a>Så här konfigurerar du ExpressRoute Direct
 
@@ -226,7 +226,9 @@ Du kan skapa 10 kretsar i prenumerationen där resursen ExpressRoute Direct är 
 
 Det finns ytterligare krets bandbredder som kan användas på ExpressRoute Direct för scenarier som beskrivs ovan. Dessa är: 40Gbps och 100Gbps.
 
-Standard- eller premium-kretsar kan skapas. Standard-kretsar som ingår i kostnaden, även om premium-kretsar har en kostnad baserat på den bandbredd som valts. Kretsar kan bara skapas som mäts, som ett obegränsat antal stöds inte på ExpressRoute direkt.
+**SkuTier** kan vara lokala, Standard och Premium.
+
+**SkuFamily** måste vara MeteredData som obegränsade stöds inte på ExpressRoute direkt.
 
 Skapa en krets på ExpressRoute Direct-resursen.
 

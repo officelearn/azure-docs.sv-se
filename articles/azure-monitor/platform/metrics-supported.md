@@ -5,15 +5,15 @@ author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
-ms.date: 05/13/2019
+ms.date: 05/20/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: dae280f86abce47bfcc029f4d81e4ca3a7b696f4
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: f3907cbc46bd226ef8e90d2061f2d36b2afabf8a
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595429"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65957149"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Mått som stöds med Azure Monitor
 
@@ -70,7 +70,7 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |ShortParsingBusyThreads|Trådar: Kort parsning upptagna trådar|Count|Medel|Antal upptagna trådar i den korta parsningstrådpoolen.|ServerResourceType|
 |ShortParsingIdleThreads|Trådar: Kort parsning inaktiva trådar|Count|Medel|Antal inaktiva trådar i den korta parsningstrådpoolen.|ServerResourceType|
 |ShortParsingJobQueueLength|Trådar: Kort parsning jobbkölängd|Count|Medel|Antal jobb i kön för den korta parsningstrådpoolen.|ServerResourceType|
-|memory_thrashing_metric|Minnesförslöing|Procent|Medel|Genomsnittlig minnesförslöing.|ServerResourceType|
+|memory_thrashing_metric|Minnesförslöing|Percent|Medel|Genomsnittlig minnesförslöing.|ServerResourceType|
 |mashup_engine_qpu_metric|M-motor QPU|Count|Medel|QPU-användning efter motorprocesser|ServerResourceType|
 |mashup_engine_memory_metric|M-Motorminne|Byte|Medel|Minnesanvändning efter motorprocesser|ServerResourceType|
 
@@ -84,7 +84,7 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |FailedRequests|Misslyckade Gatewaybegäranden|Count|Totalt|Antalet fel i gateway-begäranden|Plats, värdnamn|
 |OtherRequests|Andra Gateway-begäranden|Count|Totalt|Antal andra gateway-begäranden|Plats, värdnamn|
 |Giltighetstid|Varaktighet för Gateway-begäranden|Millisekunder|Medel|Övergripande varaktighet av Gateway-begäranden i millisekunder|Plats, värdnamn|
-|Kapacitet|Kapacitet|Procent|Medel|Utnyttjande mått för ApiManagement-tjänsten|Location|
+|Kapacitet|Kapacitet|Percent|Medel|Utnyttjande mått för ApiManagement-tjänsten|Location|
 |EventHubTotalEvents|Totalt antal EventHub-händelser|Count|Totalt|Antalet händelser som skickas till EventHub|Location|
 |EventHubSuccessfulEvents|Lyckad EventHub-händelser|Count|Totalt|Antal lyckade EventHub-händelser|Location|
 |EventHubTotalFailedEvents|Misslyckade EventHub-händelser|Count|Totalt|Antalet misslyckade EventHub-händelser|Location|
@@ -154,12 +154,12 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |totalkeys|Totalt antal nycklar|Count|Maximal||ShardId|
 |expiredkeys|Utgångna nycklar|Count|Totalt||ShardId|
 |usedmemory|Använt minne|Byte|Maximal||ShardId|
-|usedmemorypercentage|Procentandelen använt minne|Procent|Maximal||ShardId|
+|usedmemorypercentage|Procentandelen använt minne|Percent|Maximal||ShardId|
 |usedmemoryRss|Använt minne RSS|Byte|Maximal||ShardId|
-|serverLoad|Serverbelastning|Procent|Maximal||ShardId|
+|serverLoad|Serverbelastning|Percent|Maximal||ShardId|
 |cacheWrite|Cacheskrivning|BytesPerSecond|Maximal||ShardId|
 |cacheRead|Cacheläsning|BytesPerSecond|Maximal||ShardId|
-|percentProcessorTime|Processor|Procent|Maximal||ShardId|
+|percentProcessorTime|Processor|Percent|Maximal||ShardId|
 |cacheLatency|Cachelagra svarstid mikrosekunder (förhandsversion)|Count|Medel||ShardId, SampleType|
 |fel|Fel|Count|Maximal||ShardId, ErrorType|
 |connectedclients0|Anslutna klienter (fragment 0)|Count|Maximal||Inga dimensioner|
@@ -174,10 +174,10 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |expiredkeys0|Utgångna nycklar (fragment 0)|Count|Totalt||Inga dimensioner|
 |usedmemory0|Använt minne (fragment 0)|Byte|Maximal||Inga dimensioner|
 |usedmemoryRss0|Använt minne RSS (fragment 0)|Byte|Maximal||Inga dimensioner|
-|serverLoad0|Belastningen på servern (fragment 0)|Procent|Maximal||Inga dimensioner|
+|serverLoad0|Belastningen på servern (fragment 0)|Percent|Maximal||Inga dimensioner|
 |cacheWrite0|Cacheskrivning (fragment 0)|BytesPerSecond|Maximal||Inga dimensioner|
 |cacheRead0|Cacheläsning (fragment 0)|BytesPerSecond|Maximal||Inga dimensioner|
-|percentProcessorTime0|CPU (fragment 0)|Procent|Maximal||Inga dimensioner|
+|percentProcessorTime0|CPU (fragment 0)|Percent|Maximal||Inga dimensioner|
 |connectedclients1|Anslutna klienter (Shard 1)|Count|Maximal||Inga dimensioner|
 |totalcommandsprocessed1|Totalt antal åtgärder (Shard 1)|Count|Totalt||Inga dimensioner|
 |cachehits1|Cacheträffar (Shard 1)|Count|Totalt||Inga dimensioner|
@@ -190,10 +190,10 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |expiredkeys1|Utgångna nycklar (Shard 1)|Count|Totalt||Inga dimensioner|
 |usedmemory1|Använt minne (Shard 1)|Byte|Maximal||Inga dimensioner|
 |usedmemoryRss1|Använt minne RSS (Shard 1)|Byte|Maximal||Inga dimensioner|
-|serverLoad1|Belastningen på servern (Shard 1)|Procent|Maximal||Inga dimensioner|
+|serverLoad1|Belastningen på servern (Shard 1)|Percent|Maximal||Inga dimensioner|
 |cacheWrite1|Cacheskrivning (Shard 1)|BytesPerSecond|Maximal||Inga dimensioner|
 |cacheRead1|Cacheläsning (Shard 1)|BytesPerSecond|Maximal||Inga dimensioner|
-|percentProcessorTime1|CPU (Shard 1)|Procent|Maximal||Inga dimensioner|
+|percentProcessorTime1|CPU (Shard 1)|Percent|Maximal||Inga dimensioner|
 |connectedclients2|Anslutna klienter (fragment 2)|Count|Maximal||Inga dimensioner|
 |totalcommandsprocessed2|Totalt antal åtgärder (fragment 2)|Count|Totalt||Inga dimensioner|
 |cachehits2|Cacheträffar (fragment 2)|Count|Totalt||Inga dimensioner|
@@ -206,10 +206,10 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |expiredkeys2|Utgångna nycklar (fragment 2)|Count|Totalt||Inga dimensioner|
 |usedmemory2|Använt minne (fragment 2)|Byte|Maximal||Inga dimensioner|
 |usedmemoryRss2|Använt minne RSS (fragment 2)|Byte|Maximal||Inga dimensioner|
-|serverLoad2|Belastningen på servern (fragment 2)|Procent|Maximal||Inga dimensioner|
+|serverLoad2|Belastningen på servern (fragment 2)|Percent|Maximal||Inga dimensioner|
 |cacheWrite2|Cacheskrivning (fragment 2)|BytesPerSecond|Maximal||Inga dimensioner|
 |cacheRead2|Cacheläsning (fragment 2)|BytesPerSecond|Maximal||Inga dimensioner|
-|percentProcessorTime2|CPU (fragment 2)|Procent|Maximal||Inga dimensioner|
+|percentProcessorTime2|CPU (fragment 2)|Percent|Maximal||Inga dimensioner|
 |connectedclients3|Anslutna klienter (fragment 3)|Count|Maximal||Inga dimensioner|
 |totalcommandsprocessed3|Totalt antal åtgärder (fragment 3)|Count|Totalt||Inga dimensioner|
 |cachehits3|Cacheträffar (fragment 3)|Count|Totalt||Inga dimensioner|
@@ -222,10 +222,10 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |expiredkeys3|Utgångna nycklar (fragment 3)|Count|Totalt||Inga dimensioner|
 |usedmemory3|Använt minne (fragment 3)|Byte|Maximal||Inga dimensioner|
 |usedmemoryRss3|Använt minne RSS (fragment 3)|Byte|Maximal||Inga dimensioner|
-|serverLoad3|Belastningen på servern (fragment 3)|Procent|Maximal||Inga dimensioner|
+|serverLoad3|Belastningen på servern (fragment 3)|Percent|Maximal||Inga dimensioner|
 |cacheWrite3|Cacheskrivning (fragment 3)|BytesPerSecond|Maximal||Inga dimensioner|
 |cacheRead3|Cacheläsning (fragment 3)|BytesPerSecond|Maximal||Inga dimensioner|
-|percentProcessorTime3|CPU (fragment 3)|Procent|Maximal||Inga dimensioner|
+|percentProcessorTime3|CPU (fragment 3)|Percent|Maximal||Inga dimensioner|
 |connectedclients4|Anslutna klienter (fragment 4)|Count|Maximal||Inga dimensioner|
 |totalcommandsprocessed4|Totalt antal åtgärder (fragment 4)|Count|Totalt||Inga dimensioner|
 |cachehits4|Cacheträffar (fragment 4)|Count|Totalt||Inga dimensioner|
@@ -238,10 +238,10 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |expiredkeys4|Utgångna nycklar (fragment 4)|Count|Totalt||Inga dimensioner|
 |usedmemory4|Använt minne (fragment 4)|Byte|Maximal||Inga dimensioner|
 |usedmemoryRss4|Använt minne RSS (fragment 4)|Byte|Maximal||Inga dimensioner|
-|serverLoad4|Belastningen på servern (fragment 4)|Procent|Maximal||Inga dimensioner|
+|serverLoad4|Belastningen på servern (fragment 4)|Percent|Maximal||Inga dimensioner|
 |cacheWrite4|Cacheskrivning (fragment 4)|BytesPerSecond|Maximal||Inga dimensioner|
 |cacheRead4|Cacheläsning (fragment 4)|BytesPerSecond|Maximal||Inga dimensioner|
-|percentProcessorTime4|CPU (fragment 4)|Procent|Maximal||Inga dimensioner|
+|percentProcessorTime4|CPU (fragment 4)|Percent|Maximal||Inga dimensioner|
 |connectedclients5|Anslutna klienter (fragment 5)|Count|Maximal||Inga dimensioner|
 |totalcommandsprocessed5|Totalt antal åtgärder (fragment 5)|Count|Totalt||Inga dimensioner|
 |cachehits5|Cacheträffar (fragment 5)|Count|Totalt||Inga dimensioner|
@@ -254,10 +254,10 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |expiredkeys5|Utgångna nycklar (fragment 5)|Count|Totalt||Inga dimensioner|
 |usedmemory5|Använt minne (fragment 5)|Byte|Maximal||Inga dimensioner|
 |usedmemoryRss5|Använt minne RSS (fragment 5)|Byte|Maximal||Inga dimensioner|
-|serverLoad5|Belastningen på servern (fragment 5)|Procent|Maximal||Inga dimensioner|
+|serverLoad5|Belastningen på servern (fragment 5)|Percent|Maximal||Inga dimensioner|
 |cacheWrite5|Cacheskrivning (fragment 5)|BytesPerSecond|Maximal||Inga dimensioner|
 |cacheRead5|Cacheläsning (fragment 5)|BytesPerSecond|Maximal||Inga dimensioner|
-|percentProcessorTime5|CPU (fragment 5)|Procent|Maximal||Inga dimensioner|
+|percentProcessorTime5|CPU (fragment 5)|Percent|Maximal||Inga dimensioner|
 |connectedclients6|Anslutna klienter (fragment 6)|Count|Maximal||Inga dimensioner|
 |totalcommandsprocessed6|Totalt antal åtgärder (fragment 6)|Count|Totalt||Inga dimensioner|
 |cachehits6|Cacheträffar (fragment 6)|Count|Totalt||Inga dimensioner|
@@ -270,10 +270,10 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |expiredkeys6|Utgångna nycklar (fragment 6)|Count|Totalt||Inga dimensioner|
 |usedmemory6|Använt minne (fragment 6)|Byte|Maximal||Inga dimensioner|
 |usedmemoryRss6|Använt minne RSS (fragment 6)|Byte|Maximal||Inga dimensioner|
-|serverLoad6|Belastningen på servern (fragment 6)|Procent|Maximal||Inga dimensioner|
+|serverLoad6|Belastningen på servern (fragment 6)|Percent|Maximal||Inga dimensioner|
 |cacheWrite6|Cacheskrivning (fragment 6)|BytesPerSecond|Maximal||Inga dimensioner|
 |cacheRead6|Cacheläsning (fragment 6)|BytesPerSecond|Maximal||Inga dimensioner|
-|percentProcessorTime6|CPU (fragment 6)|Procent|Maximal||Inga dimensioner|
+|percentProcessorTime6|CPU (fragment 6)|Percent|Maximal||Inga dimensioner|
 |connectedclients7|Anslutna klienter (Shard 7)|Count|Maximal||Inga dimensioner|
 |totalcommandsprocessed7|Totalt antal åtgärder (Shard 7)|Count|Totalt||Inga dimensioner|
 |cachehits7|Cache Hits (Shard 7)|Count|Totalt||Inga dimensioner|
@@ -286,10 +286,10 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |expiredkeys7|Utgångna nycklar (Shard 7)|Count|Totalt||Inga dimensioner|
 |usedmemory7|Använt minne (Shard 7)|Byte|Maximal||Inga dimensioner|
 |usedmemoryRss7|Använt minne RSS (Shard 7)|Byte|Maximal||Inga dimensioner|
-|serverLoad7|Belastningen på servern (Shard 7)|Procent|Maximal||Inga dimensioner|
+|serverLoad7|Belastningen på servern (Shard 7)|Percent|Maximal||Inga dimensioner|
 |cacheWrite7|Cacheskrivning (Shard 7)|BytesPerSecond|Maximal||Inga dimensioner|
 |cacheRead7|Cacheläsning (Shard 7)|BytesPerSecond|Maximal||Inga dimensioner|
-|percentProcessorTime7|CPU (Shard 7)|Procent|Maximal||Inga dimensioner|
+|percentProcessorTime7|CPU (Shard 7)|Percent|Maximal||Inga dimensioner|
 |connectedclients8|Anslutna klienter (fragment 8)|Count|Maximal||Inga dimensioner|
 |totalcommandsprocessed8|Totalt antal åtgärder (fragment 8)|Count|Totalt||Inga dimensioner|
 |cachehits8|Cacheträffar (fragment 8)|Count|Totalt||Inga dimensioner|
@@ -302,10 +302,10 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |expiredkeys8|Utgångna nycklar (fragment 8)|Count|Totalt||Inga dimensioner|
 |usedmemory8|Använt minne (fragment 8)|Byte|Maximal||Inga dimensioner|
 |usedmemoryRss8|Använt minne RSS (fragment 8)|Byte|Maximal||Inga dimensioner|
-|serverLoad8|Belastningen på servern (fragment 8)|Procent|Maximal||Inga dimensioner|
+|serverLoad8|Belastningen på servern (fragment 8)|Percent|Maximal||Inga dimensioner|
 |cacheWrite8|Cacheskrivning (fragment 8)|BytesPerSecond|Maximal||Inga dimensioner|
 |cacheRead8|Cacheläsning (fragment 8)|BytesPerSecond|Maximal||Inga dimensioner|
-|percentProcessorTime8|CPU (fragment 8)|Procent|Maximal||Inga dimensioner|
+|percentProcessorTime8|CPU (fragment 8)|Percent|Maximal||Inga dimensioner|
 |connectedclients9|Anslutna klienter (fragment 9)|Count|Maximal||Inga dimensioner|
 |totalcommandsprocessed9|Totalt antal åtgärder (fragment 9)|Count|Totalt||Inga dimensioner|
 |cachehits9|Cacheträffar (fragment 9)|Count|Totalt||Inga dimensioner|
@@ -318,10 +318,10 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |expiredkeys9|Utgångna nycklar (fragment 9)|Count|Totalt||Inga dimensioner|
 |usedmemory9|Använt minne (fragment 9)|Byte|Maximal||Inga dimensioner|
 |usedmemoryRss9|Använt minne RSS (fragment 9)|Byte|Maximal||Inga dimensioner|
-|serverLoad9|Belastningen på servern (fragment 9)|Procent|Maximal||Inga dimensioner|
+|serverLoad9|Belastningen på servern (fragment 9)|Percent|Maximal||Inga dimensioner|
 |cacheWrite9|Cacheskrivning (fragment 9)|BytesPerSecond|Maximal||Inga dimensioner|
 |cacheRead9|Cacheläsning (fragment 9)|BytesPerSecond|Maximal||Inga dimensioner|
-|percentProcessorTime9|CPU (fragment 9)|Procent|Maximal||Inga dimensioner|
+|percentProcessorTime9|CPU (fragment 9)|Percent|Maximal||Inga dimensioner|
 
 ## <a name="microsoftclassiccomputevirtualmachines"></a>Microsoft.ClassicCompute/virtualMachines
 
@@ -403,10 +403,10 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |Utgående flöden|Utgående flöden (förhandsversion)|Count|Medel|Utgående flöden är antalet aktuella flöden i utgående riktning (utgående trafik från den virtuella datorn)|Inga dimensioner|
 |Maximal skapandefrekvens för inkommande flöden|Maximal skapandefrekvens för inkommande flöden (förhandsversion)|CountPerSecond|Medel|Maximal skapandefrekvens för inkommande flöden (inkommande trafik till den virtuella datorn)|Inga dimensioner|
 |Maximal skapandefrekvens för utgående flöden|Maximal skapandefrekvens för utgående flöden (förhandsversion)|CountPerSecond|Medel|Maximal skapandefrekvens för utgående flöden (utgående trafik från den virtuella datorn)|Inga dimensioner|
-|Cacheläsningsträff på premium-datadisk|Cacheläsningsträff på premium-datadisk (förhandsversion)|Procent|Medel|Cacheläsningsträff på premium-datadisk|LUN|
-|Cacheläsningsmiss på premium-datadisk|Cacheläsningsmiss på premium-datadisk (förhandsversion)|Procent|Medel|Cacheläsningsmiss på premium-datadisk|LUN|
-|Cacheläsningsträff på premium-operativsystemdisk|Cacheläsningsträff på premium-operativsystemdisk (förhandsversion)|Procent|Medel|Cacheläsningsträff på premium-operativsystemdisk|Inga dimensioner|
-|Cacheläsningsmiss på premium-operativsystemdisk|Cacheläsningsmiss på premium-operativsystemdisk (förhandsversion)|Procent|Medel|Cacheläsningsmiss på premium-operativsystemdisk|Inga dimensioner|
+|Cacheläsningsträff på premium-datadisk|Cacheläsningsträff på premium-datadisk (förhandsversion)|Percent|Medel|Cacheläsningsträff på premium-datadisk|LUN|
+|Cacheläsningsmiss på premium-datadisk|Cacheläsningsmiss på premium-datadisk (förhandsversion)|Percent|Medel|Cacheläsningsmiss på premium-datadisk|LUN|
+|Cacheläsningsträff på premium-operativsystemdisk|Cacheläsningsträff på premium-operativsystemdisk (förhandsversion)|Percent|Medel|Cacheläsningsträff på premium-operativsystemdisk|Inga dimensioner|
+|Cacheläsningsmiss på premium-operativsystemdisk|Cacheläsningsmiss på premium-operativsystemdisk (förhandsversion)|Percent|Medel|Cacheläsningsmiss på premium-operativsystemdisk|Inga dimensioner|
 |Nätverk in, totalt|Nätverk in, totalt|Byte|Totalt|Antal byte som mottagits i alla nätverksgränssnitt av virtuella datorer (inkommande trafik)|Inga dimensioner|
 |Nätverk ut, totalt|Nätverk ut, totalt|Byte|Totalt|Antal byte som skickats ut i alla nätverksgränssnitt av virtuella datorer (utgående trafik)|Inga dimensioner|
 
@@ -447,10 +447,10 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |Utgående flöden|Utgående flöden (förhandsversion)|Count|Medel|Utgående flöden är antalet aktuella flöden i utgående riktning (utgående trafik från den virtuella datorn)|VMName|
 |Maximal skapandefrekvens för inkommande flöden|Maximal skapandefrekvens för inkommande flöden (förhandsversion)|CountPerSecond|Medel|Maximal skapandefrekvens för inkommande flöden (inkommande trafik till den virtuella datorn)|VMName|
 |Maximal skapandefrekvens för utgående flöden|Maximal skapandefrekvens för utgående flöden (förhandsversion)|CountPerSecond|Medel|Maximal skapandefrekvens för utgående flöden (utgående trafik från den virtuella datorn)|VMName|
-|Cacheläsningsträff på premium-datadisk|Cacheläsningsträff på premium-datadisk (förhandsversion)|Procent|Medel|Cacheläsningsträff på premium-datadisk|LUN, VMName|
-|Cacheläsningsmiss på premium-datadisk|Cacheläsningsmiss på premium-datadisk (förhandsversion)|Procent|Medel|Cacheläsningsmiss på premium-datadisk|LUN, VMName|
-|Cacheläsningsträff på premium-operativsystemdisk|Cacheläsningsträff på premium-operativsystemdisk (förhandsversion)|Procent|Medel|Cacheläsningsträff på premium-operativsystemdisk|VMName|
-|Cacheläsningsmiss på premium-operativsystemdisk|Cacheläsningsmiss på premium-operativsystemdisk (förhandsversion)|Procent|Medel|Cacheläsningsmiss på premium-operativsystemdisk|VMName|
+|Cacheläsningsträff på premium-datadisk|Cacheläsningsträff på premium-datadisk (förhandsversion)|Percent|Medel|Cacheläsningsträff på premium-datadisk|LUN, VMName|
+|Cacheläsningsmiss på premium-datadisk|Cacheläsningsmiss på premium-datadisk (förhandsversion)|Percent|Medel|Cacheläsningsmiss på premium-datadisk|LUN, VMName|
+|Cacheläsningsträff på premium-operativsystemdisk|Cacheläsningsträff på premium-operativsystemdisk (förhandsversion)|Percent|Medel|Cacheläsningsträff på premium-operativsystemdisk|VMName|
+|Cacheläsningsmiss på premium-operativsystemdisk|Cacheläsningsmiss på premium-operativsystemdisk (förhandsversion)|Percent|Medel|Cacheläsningsmiss på premium-operativsystemdisk|VMName|
 |Nätverk in, totalt|Nätverk in, totalt|Byte|Totalt|Antal byte som mottagits i alla nätverksgränssnitt av virtuella datorer (inkommande trafik)|VMName|
 |Nätverk ut, totalt|Nätverk ut, totalt|Byte|Totalt|Antal byte som skickats ut i alla nätverksgränssnitt av virtuella datorer (utgående trafik)|VMName|
 
@@ -532,8 +532,8 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |CloudUploadThroughput|Dataflöde för molnuppladdning|BytesPerSecond|Medel|Molnet uppladdningsdataflödet till Azure under rapporteringsperioden.|Inga dimensioner|
 |CloudReadThroughput|Molnet Download dataflöde|BytesPerSecond|Medel|Molnet download dataflödet till Azure under rapporteringsperioden.|Inga dimensioner|
 |BytesUploadedToCloud|Uppladdade molnbyte (enhet)|Byte|Medel|Totalt antal byte som laddas upp till Azure från en enhet under rapporteringsperioden.|Inga dimensioner|
-|HyperVVirtualProcessorUtilization|Databehandling på gränsenheter: processorprocentandel|Procent|Medel|Processoranvändning i procent|Instansnamn|
-|HyperVMemoryUtilization|Databehandling på gränsenheter: minnesanvändning|Procent|Medel|Mängd RAM som används|Instansnamn|
+|HyperVVirtualProcessorUtilization|Databehandling på gränsenheter: processorprocentandel|Percent|Medel|Processoranvändning i procent|Instansnamn|
+|HyperVMemoryUtilization|Databehandling på gränsenheter: minnesanvändning|Percent|Medel|Mängd RAM som används|Instansnamn|
 
 ## <a name="microsoftdatafactorydatafactories"></a>Microsoft.DataFactory/datafactories
 
@@ -552,7 +552,7 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |ActivitySucceededRuns|Lyckades aktivitetsmått för körningar|Count|Totalt||ActivityType, PipelineName, FailureType, namn|
 |TriggerFailedRuns|Det gick inte utlösaren körs mått|Count|Totalt||Namn, FailureType|
 |TriggerSucceededRuns|Lyckades utlösaren körs mått|Count|Totalt||Namn, FailureType|
-|IntegrationRuntimeCpuPercentage|Integration runtime CPU-användning|Procent|Medel||IntegrationRuntimeName, NodeName|
+|IntegrationRuntimeCpuPercentage|Integration runtime CPU-användning|Percent|Medel||IntegrationRuntimeName, NodeName|
 |IntegrationRuntimeAvailableMemory|Tillgängligt minne för integration runtime|Byte|Medel||IntegrationRuntimeName, NodeName|
 |MaxAllowedResourceCount|Högsta tillåtna enheter antal|Count|Maximal||Inga dimensioner|
 |MaxAllowedFactorySizeInGbUnits|Maximalt tillåten factory storlek (GB-enhet)|Count|Maximal||Inga dimensioner|
@@ -584,13 +584,13 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 
 |Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Mått|
 |---|---|---|---|---|---|
-|cpu_percent|CPU-procent|Procent|Medel|CPU-procent|Inga dimensioner|
-|memory_percent|Minne|Procent|Medel|Minne|Inga dimensioner|
-|io_consumption_percent|IO-procent|Procent|Medel|IO-procent|Inga dimensioner|
-|storage_percent|Storage-procent|Procent|Medel|Storage-procent|Inga dimensioner|
+|cpu_percent|CPU-procent|Percent|Medel|CPU-procent|Inga dimensioner|
+|memory_percent|Minne|Percent|Medel|Minne|Inga dimensioner|
+|io_consumption_percent|IO-procent|Percent|Medel|IO-procent|Inga dimensioner|
+|storage_percent|Storage-procent|Percent|Medel|Storage-procent|Inga dimensioner|
 |storage_used|Använt lagringsutrymme|Byte|Medel|Använt lagringsutrymme|Inga dimensioner|
 |storage_limit|Gränsen för lagring|Byte|Medel|Gränsen för lagring|Inga dimensioner|
-|serverlog_storage_percent|Procent för lagring av Server-loggen|Procent|Medel|Procent för lagring av Server-loggen|Inga dimensioner|
+|serverlog_storage_percent|Procent för lagring av Server-loggen|Percent|Medel|Procent för lagring av Server-loggen|Inga dimensioner|
 |serverlog_storage_usage|Server logglagring som används|Byte|Medel|Server logglagring som används|Inga dimensioner|
 |serverlog_storage_limit|Log storage gränsen|Byte|Medel|Log storage gränsen|Inga dimensioner|
 |active_connections|Aktiva anslutningar|Count|Medel|Aktiva anslutningar|Inga dimensioner|
@@ -604,13 +604,13 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 
 |Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Mått|
 |---|---|---|---|---|---|
-|cpu_percent|CPU-procent|Procent|Medel|CPU-procent|Inga dimensioner|
-|memory_percent|Minne|Procent|Medel|Minne|Inga dimensioner|
-|io_consumption_percent|IO-procent|Procent|Medel|IO-procent|Inga dimensioner|
-|storage_percent|Storage-procent|Procent|Medel|Storage-procent|Inga dimensioner|
+|cpu_percent|CPU-procent|Percent|Medel|CPU-procent|Inga dimensioner|
+|memory_percent|Minne|Percent|Medel|Minne|Inga dimensioner|
+|io_consumption_percent|IO-procent|Percent|Medel|IO-procent|Inga dimensioner|
+|storage_percent|Storage-procent|Percent|Medel|Storage-procent|Inga dimensioner|
 |storage_used|Använt lagringsutrymme|Byte|Medel|Använt lagringsutrymme|Inga dimensioner|
 |storage_limit|Gränsen för lagring|Byte|Medel|Gränsen för lagring|Inga dimensioner|
-|serverlog_storage_percent|Procent för lagring av Server-loggen|Procent|Medel|Procent för lagring av Server-loggen|Inga dimensioner|
+|serverlog_storage_percent|Procent för lagring av Server-loggen|Percent|Medel|Procent för lagring av Server-loggen|Inga dimensioner|
 |serverlog_storage_usage|Server logglagring som används|Byte|Medel|Server logglagring som används|Inga dimensioner|
 |serverlog_storage_limit|Log storage gränsen|Byte|Medel|Log storage gränsen|Inga dimensioner|
 |active_connections|Aktiva anslutningar|Count|Medel|Aktiva anslutningar|Inga dimensioner|
@@ -624,13 +624,13 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 
 |Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Mått|
 |---|---|---|---|---|---|
-|cpu_percent|CPU-procent|Procent|Medel|CPU-procent|Inga dimensioner|
-|memory_percent|Minne|Procent|Medel|Minne|Inga dimensioner|
-|io_consumption_percent|IO-procent|Procent|Medel|IO-procent|Inga dimensioner|
-|storage_percent|Storage-procent|Procent|Medel|Storage-procent|Inga dimensioner|
+|cpu_percent|CPU-procent|Percent|Medel|CPU-procent|Inga dimensioner|
+|memory_percent|Minne|Percent|Medel|Minne|Inga dimensioner|
+|io_consumption_percent|IO-procent|Percent|Medel|IO-procent|Inga dimensioner|
+|storage_percent|Storage-procent|Percent|Medel|Storage-procent|Inga dimensioner|
 |storage_used|Använt lagringsutrymme|Byte|Medel|Använt lagringsutrymme|Inga dimensioner|
 |storage_limit|Gränsen för lagring|Byte|Medel|Gränsen för lagring|Inga dimensioner|
-|serverlog_storage_percent|Procent för lagring av Server-loggen|Procent|Medel|Procent för lagring av Server-loggen|Inga dimensioner|
+|serverlog_storage_percent|Procent för lagring av Server-loggen|Percent|Medel|Procent för lagring av Server-loggen|Inga dimensioner|
 |serverlog_storage_usage|Server logglagring som används|Byte|Medel|Server logglagring som används|Inga dimensioner|
 |serverlog_storage_limit|Log storage gränsen|Byte|Medel|Log storage gränsen|Inga dimensioner|
 |active_connections|Aktiva anslutningar|Count|Medel|Aktiva anslutningar|Inga dimensioner|
@@ -645,10 +645,10 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 
 |Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Mått|
 |---|---|---|---|---|---|
-|cpu_percent|CPU-procent|Procent|Medel|CPU-procent|Inga dimensioner|
-|memory_percent|Minne|Procent|Medel|Minne|Inga dimensioner|
+|cpu_percent|CPU-procent|Percent|Medel|CPU-procent|Inga dimensioner|
+|memory_percent|Minne|Percent|Medel|Minne|Inga dimensioner|
 |IOPs|IOPS|Count|Medel|I/o-åtgärder per sekund|Inga dimensioner|
-|storage_percent|Storage-procent|Procent|Medel|Storage-procent|Inga dimensioner|
+|storage_percent|Storage-procent|Percent|Medel|Storage-procent|Inga dimensioner|
 |storage_used|Använt lagringsutrymme|Byte|Medel|Använt lagringsutrymme|Inga dimensioner|
 |active_connections|Aktiva anslutningar|Count|Medel|Aktiva anslutningar|Inga dimensioner|
 |network_bytes_egress|Nätverk ut|Byte|Totalt|Nätverk ut över aktiva anslutningar|Inga dimensioner|
@@ -747,7 +747,7 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |MongoRequests|Mongo-begäranden|Count|Count|Antal Mongo-begäranden gjorda|DatabaseName, CollectionName, Region, CommandName, ErrorCode|
 |ProvisionedThroughput|Etablerat dataflöde|Count|Maximal|Etablerat dataflöde|DatabaseName, samlingsnamn|
 |ReplicationLatency|P99 Replikeringsfördröjning|MilliSeconds|Medel|P99 replikeringsfördröjning mellan käll- och regioner för geo-aktiverat konto|SourceRegion, TargetRegion|
-|ServiceAvailability|Tjänsttillgänglighet|Procent|Medel|Tillgänglighet för begäranden med en timme, dag eller månad Precision|Inga dimensioner|
+|ServiceAvailability|Tjänsttillgänglighet|Percent|Medel|Tillgänglighet för begäranden med en timme, dag eller månad Precision|Inga dimensioner|
 |TotalRequestUnits|Totalt antal enheter för programbegäran|Count|Totalt|Enheter som används för begäran|DatabaseName, CollectionName, Region, StatusCode, OperationType|
 |TotalRequests|Totalt antal begäranden|Count|Count|Antalet begäranden som görs|DatabaseName, CollectionName, Region, StatusCode, OperationType|
 
@@ -839,7 +839,7 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |CaptureBacklog|Hämta kvarvarande uppgifter. (Förhandsgranskning)|Count|Totalt|Hämta kvarvarande uppgifter för Microsoft.EventHub. (Förhandsgranskning)|Inga dimensioner|
 |CapturedMessages|Hämtade meddelanden. (Förhandsgranskning)|Count|Totalt|Hämtade meddelanden för Microsoft.EventHub. (Förhandsgranskning)|Inga dimensioner|
 |CapturedBytes|Hämtade byte. (Förhandsgranskning)|Byte|Totalt|Hämtade byte för Microsoft.EventHub. (Förhandsgranskning)|Inga dimensioner|
-|Processor|CPU (förhandsversion)|Procent|Maximal|Processoranvändning för Event Hub-klustret i procentandel|Roll|
+|Processor|CPU (förhandsversion)|Percent|Maximal|Processoranvändning för Event Hub-klustret i procentandel|Roll|
 |AvailableMemory|Tillgängligt minne (förhandsversion)|Count|Maximal|Tillgängligt minne för Event Hub-klustret i byte|Roll|
 
 ## <a name="microsofthdinsightclusters"></a>Microsoft.HDInsight/clusters
@@ -848,12 +848,6 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |---|---|---|---|---|---|
 |GatewayRequests|Gateway-begäranden|Count|Totalt|Antal gateway-begäranden|ClusterDnsName, HttpStatus|
 |CategorizedGatewayRequests|Kategoriserat Gateway-begäranden|Count|Totalt|Antal gatewaybegäranden efter kategorier (1xx/2xx/3xx/4xx/5xx)|ClusterDnsName, HttpStatus|
-|Automatisk skalning|Mått för autoskalning|Count|Maximal|Mått för autoskalning|ClusterDnsName, MetricName|
-|AllocatedMB|Tilldelat MB|Count|Maximal|Tilldelat MB|ClusterDnsName, MetricName|
-|AvailableMB|Tillgängliga MB|Count|Maximal|Tillgängliga MB|ClusterDnsName, MetricName|
-|AppsPending|Appar som väntar|Count|Maximal|Appar som väntar|ClusterDnsName, MetricName|
-|AppsRunning|Appar som körs|Count|Maximal|Appar som körs|ClusterDnsName, MetricName|
-|AppsSubmitted|Appar som har skickats|Count|Maximal|Appar som har skickats|ClusterDnsName, MetricName|
 |NumActiveWorkers|Antal aktiva medarbetare|Count|Maximal|Antal aktiva medarbetare|ClusterDnsName, MetricName|
 
 ## <a name="microsoftinsightsautoscalesettings"></a>Microsoft.Insights/AutoscaleSettings
@@ -889,8 +883,8 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |performanceCounters/requestsPerSecond|Hastighet för HTTP-begäranden|CountPerSecond|Medel|Hastigheten per sekund för alla förfrågningar till programmet från ASP.NET.|molnet/Rollinstans|
 |performanceCounters/exceptionsPerSecond|Antal undantag|CountPerSecond|Medel|Antalet hanterade och ohanterade undantag som rapporterats till Windows, inklusive .NET-undantag och ohanterade undantag som har konverterats till .NET-undantag.|molnet/Rollinstans|
 |performanceCounters/processIOBytesPerSecond|IO-frekvens för process|BytesPerSecond|Medel|Totalt antal byte per sekund som har lästs och skrivits till filer, nätverk och enheter.|molnet/Rollinstans|
-|performanceCounters/processCpuPercentage|Processoranvändning för process|Procent|Medel|Procentandelen av förfluten tid som alla processtrådar använde i processorn för att köra instruktioner. Detta kan variera mellan 0 och 100. Det här måttet indikerar prestandan för w3wp-processen ensam.|molnet/Rollinstans|
-|performanceCounters/processorCpuPercentage|Processortid|Procent|Medel|Den procentandel av tiden som processorn ägnat åt icke-inaktiva trådar|molnet/Rollinstans|
+|performanceCounters/processCpuPercentage|Processoranvändning för process|Percent|Medel|Procentandelen av förfluten tid som alla processtrådar använde i processorn för att köra instruktioner. Detta kan variera mellan 0 och 100. Det här måttet indikerar prestandan för w3wp-processen ensam.|molnet/Rollinstans|
+|performanceCounters/processorCpuPercentage|Processortid|Percent|Medel|Den procentandel av tiden som processorn ägnat åt icke-inaktiva trådar|molnet/Rollinstans|
 |performanceCounters/memoryAvailableBytes|Ledigt minne|Byte|Medel|Fysiskt minne som är omedelbart tillgängligt för att tilldelas en process eller för att användas av systemet.|molnet/Rollinstans|
 |performanceCounters/processPrivateBytes|Privata byte för process|Byte|Medel|Minne som har tilldelats exklusivt för att övervaka programprocesser.|molnet/Rollinstans|
 |begäranden/varaktighet|Serversvarstid |MilliSeconds|Medel|Tid från det att en HTTP-förfrågning mottagits till dess att svaret har skickats.|begäran/performanceBucket, begäran/Resultatkod, åtgärden/syntetiska, molnet/Rollinstans, begäran/lyckades, molnet/roleName|
@@ -914,15 +908,15 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 
 |Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Mått|
 |---|---|---|---|---|---|
-|ClusterDataCapacityFactor|Cache-användning|Procent|Medel|På en nivå i omfånget för kluster|Inga dimensioner|
+|ClusterDataCapacityFactor|Cache-användning|Percent|Medel|På en nivå i omfånget för kluster|Inga dimensioner|
 |QueryDuration|Frågevaraktighet|Millisekunder|Medel|Frågor varaktighet i sekunder|QueryStatus|
-|IngestionsLoadFactor|Datainmatning användning|Procent|Medel|Förhållandet mellan används inmatning kortplatser i klustret|Inga dimensioner|
+|IngestionsLoadFactor|Datainmatning användning|Percent|Medel|Förhållandet mellan används inmatning kortplatser i klustret|Inga dimensioner|
 |IsEngineAnsweringQuery|Keep Alive|Count|Medel|Kontrollera förstånd anger klustret svarar på frågor|Inga dimensioner|
 |IngestCommandOriginalSizeInMb|Datainmatning volymen (i MB)|Count|Totalt|Totala mängden insamlade data i klustret (i MB)|Inga dimensioner|
 |IngestedEventAgeSeconds|Datainmatningssvarstid (i sekunder)|Sekunder|Medel|Datainmatning tid från källan (t.ex. meddelandet är EventHub) till klustret i sekunder|Inga dimensioner|
 |EventRecievedFromEventHub|Händelser som bearbetas (för Event Hubs)|Count|Totalt|Antalet händelser som bearbetas av klustret om mata in från Event Hub|Inga dimensioner|
 |IngestionResult|Datainmatning resultat|Count|Count|Antal åtgärder för inmatning|IngestionResultDetails|
-|EngineCPU|Processor|Procent|Medel|Processor på en nivå|Inga dimensioner|
+|EngineCPU|Processor|Percent|Medel|Processor på en nivå|Inga dimensioner|
 
 ## <a name="microsoftlocationbasedservicesaccounts"></a>Microsoft.LocationBasedServices/accounts
 
@@ -942,7 +936,7 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |RunLatency|Svarstid för körning|Sekunder|Medel|Svarstid för slutförda arbetsflödeskörningar.|Inga dimensioner|
 |RunSuccessLatency|Svarstid för lyckad körning|Sekunder|Medel|Svarstid för lyckade arbetsflödeskörningar.|Inga dimensioner|
 |RunThrottledEvents|Kör begränsade händelser|Count|Totalt|Antal arbetsflödesåtgärds- eller utlösarbegränsade händelser.|Inga dimensioner|
-|RunFailurePercentage|Kör felprocent|Procent|Totalt|Misslyckade arbetsflödeskörningar i procent.|Inga dimensioner|
+|RunFailurePercentage|Kör felprocent|Percent|Totalt|Misslyckade arbetsflödeskörningar i procent.|Inga dimensioner|
 |ActionsStarted|Startade åtgärder |Count|Totalt|Antal startade arbetsflödesåtgärder.|Inga dimensioner|
 |ActionsCompleted|Slutförda åtgärder |Count|Totalt|Antal slutförda arbetsflödesåtgärder.|Inga dimensioner|
 |ActionsSucceeded|Lyckade åtgärder |Count|Totalt|Antal lyckade arbetsflödesåtgärder.|Inga dimensioner|
@@ -984,7 +978,7 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |RunSuccessLatency|Svarstid för lyckad körning|Sekunder|Medel|Svarstid för lyckade arbetsflödeskörningar.|Inga dimensioner|
 |RunThrottledEvents|Kör begränsade händelser|Count|Totalt|Antal arbetsflödesåtgärds- eller utlösarbegränsade händelser.|Inga dimensioner|
 |RunStartThrottledEvents|Begränsade händelser vid starta körningen|Count|Totalt|Antal begränsade händelser för arbetsflödet starta körning.|Inga dimensioner|
-|RunFailurePercentage|Kör felprocent|Procent|Totalt|Misslyckade arbetsflödeskörningar i procent.|Inga dimensioner|
+|RunFailurePercentage|Kör felprocent|Percent|Totalt|Misslyckade arbetsflödeskörningar i procent.|Inga dimensioner|
 |ActionsStarted|Startade åtgärder |Count|Totalt|Antal startade arbetsflödesåtgärder.|Inga dimensioner|
 |ActionsCompleted|Slutförda åtgärder |Count|Totalt|Antal slutförda arbetsflödesåtgärder.|Inga dimensioner|
 |ActionsSucceeded|Lyckade åtgärder |Count|Totalt|Antal lyckade arbetsflödesåtgärder.|Inga dimensioner|
@@ -1003,10 +997,10 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |TriggerFireLatency|Brandlatensutlösare |Sekunder|Medel|Svartstid för utlösta arbetsflödesutlösare.|Inga dimensioner|
 |TriggerSuccessLatency|Framgångslatensutlösare |Sekunder|Medel|Svartstid för lyckade arbetsflödesutlösare.|Inga dimensioner|
 |TriggerThrottledEvents|Utlösare för begränsade händelser|Count|Totalt|Antal begränsade händelser för arbetsflödesutlösare.|Inga dimensioner|
-|IntegrationServiceEnvironmentWorkflowProcessorUsage|Arbetsflödets processoranvändning för integreringstjänstmiljön|Procent|Medel|Arbetsflödets processoranvändning för integreringstjänstmiljön.|Inga dimensioner|
-|IntegrationServiceEnvironmentWorkflowMemoryUsage|Arbetsflödets minnesanvändning för integreringstjänstmiljön|Procent|Medel|Arbetsflödets minnesanvändning för integreringstjänstmiljön.|Inga dimensioner|
-|IntegrationServiceEnvironmentConnectorProcessorUsage|Anslutningsappens processoranvändning för integreringstjänstmiljön|Procent|Medel|Anslutningsappens processoranvändning för integreringstjänstmiljön.|Inga dimensioner|
-|IntegrationServiceEnvironmentConnectorMemoryUsage|Anslutningsappens minnesanvändning för integreringstjänstmiljön|Procent|Medel|Anslutningsappens minnesanvändning för integreringstjänstmiljön.|Inga dimensioner|
+|IntegrationServiceEnvironmentWorkflowProcessorUsage|Arbetsflödets processoranvändning för integreringstjänstmiljön|Percent|Medel|Arbetsflödets processoranvändning för integreringstjänstmiljön.|Inga dimensioner|
+|IntegrationServiceEnvironmentWorkflowMemoryUsage|Arbetsflödets minnesanvändning för integreringstjänstmiljön|Percent|Medel|Arbetsflödets minnesanvändning för integreringstjänstmiljön.|Inga dimensioner|
+|IntegrationServiceEnvironmentConnectorProcessorUsage|Anslutningsappens processoranvändning för integreringstjänstmiljön|Percent|Medel|Anslutningsappens processoranvändning för integreringstjänstmiljön.|Inga dimensioner|
+|IntegrationServiceEnvironmentConnectorMemoryUsage|Anslutningsappens minnesanvändning för integreringstjänstmiljön|Percent|Medel|Anslutningsappens minnesanvändning för integreringstjänstmiljön.|Inga dimensioner|
 
 ## <a name="microsoftmachinelearningservicesworkspaces"></a>Microsoft.MachineLearningServices/workspaces
 
@@ -1088,7 +1082,7 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |---|---|---|---|---|---|
 |QueryVolume|Fråga volym|Count|Totalt|Antal frågor som hanteras för en DNS-zon|Inga dimensioner|
 |RecordSetCount|Antal för uppsättningen av poster|Count|Maximal|Antal postuppsättningar i en DNS-zon|Inga dimensioner|
-|RecordSetCapacityUtilization|Kapacitetsutnyttjande för uppsättningen av poster|Procent|Maximal|Procent av postuppsättning kapacitet som används av en DNS-zon|Inga dimensioner|
+|RecordSetCapacityUtilization|Kapacitetsutnyttjande för uppsättningen av poster|Percent|Maximal|Procent av postuppsättning kapacitet som används av en DNS-zon|Inga dimensioner|
 
 ## <a name="microsoftnetworkpublicipaddresses"></a>Microsoft.Network/publicIPAddresses
 
@@ -1188,7 +1182,7 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 
 |Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Mått|
 |---|---|---|---|---|---|
-|ProbesFailedPercent|% Avsökningar misslyckades|Procent|Medel|% av tiden har anslutning övervakningsavsökningar misslyckades|Inga dimensioner|
+|ProbesFailedPercent|% Avsökningar misslyckades|Percent|Medel|% av tiden har anslutning övervakningsavsökningar misslyckades|Inga dimensioner|
 |AverageRoundtripMs|Genomsn. Fram och åter tid (ms)|MilliSeconds|Medel|Genomsnittlig nätverk fram och åter tid (ms) för anslutning övervakningsavsökningar som skickas mellan källa och mål|Inga dimensioner|
 
 ## <a name="microsoftnetworkfrontdoors"></a>Microsoft.Network/frontdoors
@@ -1201,7 +1195,7 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |BackendRequestCount|Antal förfrågningar för serverdel|Count|Totalt|Antalet begäranden som skickas från HTTP/S-proxy till serverdelar|HttpStatus, HttpStatusGroup, Backend|
 |BackendRequestLatency|Svarstid för backend-begäran|MilliSeconds|Medel|Tid som beräknas från när begäran har skickats av HTTP/S-proxyn till serverdelen tills HTTP/S-proxyn fick den sista byten av svaret från serverdelen|Serverdel|
 |TotalLatency|Total svarstid|MilliSeconds|Medel|Tid som beräknas från när klientbegäran togs emot av HTTP/S-proxyn tills klienten godkänt den sista byten svar från HTTP/S-proxy|HttpStatus, HttpStatusGroup, ClientRegion, ClientCountry|
-|BackendHealthPercentage|Serverdelens hälsotillstånd procent|Procent|Medel|Procentandelen av lyckade hälsorapporter avsökningar från HTTP/S-proxy till serverdelar|Backend, BackendPool|
+|BackendHealthPercentage|Serverdelens hälsotillstånd procent|Percent|Medel|Procentandelen av lyckade hälsorapporter avsökningar från HTTP/S-proxy till serverdelar|Backend, BackendPool|
 |WebApplicationFirewallRequestCount|Web Application Firewall begäran antal|Count|Totalt|Antalet klientbegäranden bearbetas av Brandvägg för webbaserade program|PolicyName, RuleName, Action|
 
 ## <a name="microsoftnotificationhubsnamespacesnotificationhubs"></a>Microsoft.NotificationHubs/Namespaces/NotificationHubs
@@ -1355,7 +1349,7 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |QueryPoolJobQueueLength|Trådar: Fråga efter pool jobbkölängd|Count|Medel|Antal jobb i kön för frågetrådspoolen.|Inga dimensioner|
 |qpu_high_utilization_metric|QPU hög användning|Count|Totalt|QPU hög användning i sista minuten, 1 för hög QPU-användning, annars 0|Inga dimensioner|
 |memory_metric|Minne|Byte|Medel|Minne. Intervallet 0 – 3 GB för A1, 0 – 5 GB för A2, A3 0 – 10 GB, 0 – 25 GB för A4, 0 – 50 GB a5 och 0-100 GB för A6|Inga dimensioner|
-|memory_thrashing_metric|Minnesförslöing|Procent|Medel|Genomsnittlig minnesförslöing.|Inga dimensioner|
+|memory_thrashing_metric|Minnesförslöing|Percent|Medel|Genomsnittlig minnesförslöing.|Inga dimensioner|
 
 ## <a name="microsoftrelaynamespaces"></a>Microsoft.Relay/namespaces
 
@@ -1381,7 +1375,7 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |---|---|---|---|---|---|
 |SearchLatency|Svarstid för sökning|Sekunder|Medel|Svarstid för genomsnittlig sökning för search-tjänsten|Inga dimensioner|
 |SearchQueriesPerSecond|Sökfrågor per sekund|CountPerSecond|Medel|Sökfrågor per sekund för search-tjänsten|Inga dimensioner|
-|ThrottledSearchQueriesPercentage|Begränsade sökfrågor i procent|Procent|Medel|Procentandel av sökfrågor som har begränsats för search-tjänsten|Inga dimensioner|
+|ThrottledSearchQueriesPercentage|Begränsade sökfrågor i procent|Percent|Medel|Procentandel av sökfrågor som har begränsats för search-tjänsten|Inga dimensioner|
 
 ## <a name="microsoftservicebusnamespaces"></a>Microsoft.ServiceBus/namespaces
 
@@ -1400,8 +1394,8 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |ActiveMessages|Antal aktiva meddelanden i kö/ämne. (Förhandsgranskning)|Count|Medel|Antal aktiva meddelanden i kö/ämne. (Förhandsgranskning)|EntityName|
 |DeadletteredMessages|Antal obeställbara meddelanden i kö/ämne. (Förhandsgranskning)|Count|Medel|Antal obeställbara meddelanden i kö/ämne. (Förhandsgranskning)|EntityName|
 |ScheduledMessages|Antal schemalagda meddelanden i kö/ämne. (Förhandsgranskning)|Count|Medel|Antal schemalagda meddelanden i kö/ämne. (Förhandsgranskning)|EntityName|
-|CPUXNS|Processoranvändning per namnområde|Procent|Maximal|CPU-användningsmått för Service Bus Premium-namnområde|Inga dimensioner|
-|WSXNS|Minnesstorleksanvändning per namnområde|Procent|Maximal|Minnesanvändningsmått för Service Bus Premium-namnområde|Inga dimensioner|
+|CPUXNS|Processoranvändning per namnområde|Percent|Maximal|CPU-användningsmått för Service Bus Premium-namnområde|Inga dimensioner|
+|WSXNS|Minnesstorleksanvändning per namnområde|Percent|Maximal|Minnesanvändningsmått för Service Bus Premium-namnområde|Inga dimensioner|
 
 ## <a name="microsoftservicefabricmeshapplications"></a>Microsoft.ServiceFabricMesh/applications
 
@@ -1411,8 +1405,8 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |AllocatedMemory|AllocatedMemory|Byte|Medel|Minne som allokeras till den här behållaren i MB|ApplicationName, ServiceName, CodePackageName, ServiceReplicaName|
 |ActualCpu|ActualCpu|Count|Medel|Faktisk CPU-användning i millicores|ApplicationName, ServiceName, CodePackageName, ServiceReplicaName|
 |ActualMemory|ActualMemory|Byte|Medel|Användning av faktiska minne i MB|ApplicationName, ServiceName, CodePackageName, ServiceReplicaName|
-|CpuUtilization|CpuUtilization|Procent|Medel|Användning av processor för den här behållaren som procentandel av AllocatedCpu|ApplicationName, ServiceName, CodePackageName, ServiceReplicaName|
-|MemoryUtilization|MemoryUtilization|Procent|Medel|Användning av processor för den här behållaren som procentandel av AllocatedCpu|ApplicationName, ServiceName, CodePackageName, ServiceReplicaName|
+|CpuUtilization|CpuUtilization|Percent|Medel|Användning av processor för den här behållaren som procentandel av AllocatedCpu|ApplicationName, ServiceName, CodePackageName, ServiceReplicaName|
+|MemoryUtilization|MemoryUtilization|Percent|Medel|Användning av processor för den här behållaren som procentandel av AllocatedCpu|ApplicationName, ServiceName, CodePackageName, ServiceReplicaName|
 |ApplicationStatus|ApplicationStatus|Count|Medel|Status för Service Fabric-nät program|ApplicationName, Status|
 |ServiceStatus|ServiceStatus|Count|Medel|Hälsostatus för en tjänst i Service Fabric-nät program|ApplicationName, Status, ServiceName|
 |ServiceReplicaStatus|ServiceReplicaStatus|Count|Medel|Hälsostatus för en tjänst-replik i Service Fabric-nät program|ApplicationName, Status, tjänstnamn, ServiceReplicaName|
@@ -1427,70 +1421,70 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |MessageCount|Antal meddelanden|Count|Totalt|Den totala mängden meddelanden.|Inga dimensioner|
 |InboundTraffic|Inkommande trafik|Byte|Totalt|Inkommande trafik för tjänsten|Inga dimensioner|
 |OutboundTraffic|Utgående trafik|Byte|Totalt|Utgående trafik för tjänsten|Inga dimensioner|
-|UserErrors|Användarfel|Procent|Maximal|Procentandelen användarfel|Inga dimensioner|
-|SystemErrors|Systemfel|Procent|Maximal|Procentandelen fel i filsystemet|Inga dimensioner|
+|UserErrors|Användarfel|Percent|Maximal|Procentandelen användarfel|Inga dimensioner|
+|SystemErrors|Systemfel|Percent|Maximal|Procentandelen fel i filsystemet|Inga dimensioner|
 
 ## <a name="microsoftsqlserversdatabases"></a>Microsoft.Sql/servers/databases
 
 |Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Mått|
 |---|---|---|---|---|---|
-|cpu_percent|Processorprocent|Procent|Medel|Processorprocent|Inga dimensioner|
-|physical_data_read_percent|Data I/O-procent|Procent|Medel|Data I/O-procent|Inga dimensioner|
-|log_write_percent|Logg I/O-procent|Procent|Medel|Logg I/O-procent|Inga dimensioner|
-|dtu_consumption_percent|DTU-procent|Procent|Medel|DTU-procent|Inga dimensioner|
+|cpu_percent|Processorprocent|Percent|Medel|Processorprocent|Inga dimensioner|
+|physical_data_read_percent|Data I/O-procent|Percent|Medel|Data I/O-procent|Inga dimensioner|
+|log_write_percent|Logg I/O-procent|Percent|Medel|Logg I/O-procent|Inga dimensioner|
+|dtu_consumption_percent|DTU-procent|Percent|Medel|DTU-procent|Inga dimensioner|
 |lagring|Använt datautrymme|Byte|Maximal|Totala databasstorleken|Inga dimensioner|
 |connection_successful|Anslutningarna lyckades|Count|Totalt|Anslutningarna lyckades|Inga dimensioner|
 |connection_failed|Misslyckade anslutningar|Count|Totalt|Misslyckade anslutningar|Inga dimensioner|
 |blocked_by_firewall|Blockeras av brandvägg|Count|Totalt|Blockeras av brandvägg|Inga dimensioner|
 |deadlock|Dödlägen|Count|Totalt|Dödlägen|Inga dimensioner|
-|storage_percent|Datautrymme använt procent|Procent|Maximal|Databasstorlek i procent|Inga dimensioner|
-|xtp_storage_percent|Procent för in-Memory OLTP-lagring|Procent|Medel|Procent för in-Memory OLTP-lagring|Inga dimensioner|
-|workers_percent|Arbetarprocent|Procent|Medel|Arbetarprocent|Inga dimensioner|
-|sessions_percent|Sessionsprocent|Procent|Medel|Sessionsprocent|Inga dimensioner|
+|storage_percent|Datautrymme använt procent|Percent|Maximal|Databasstorlek i procent|Inga dimensioner|
+|xtp_storage_percent|Procent för in-Memory OLTP-lagring|Percent|Medel|Procent för in-Memory OLTP-lagring|Inga dimensioner|
+|workers_percent|Arbetarprocent|Percent|Medel|Arbetarprocent|Inga dimensioner|
+|sessions_percent|Sessionsprocent|Percent|Medel|Sessionsprocent|Inga dimensioner|
 |dtu_limit|DTU-gräns|Count|Medel|DTU-gräns|Inga dimensioner|
 |dtu_used|DTU används|Count|Medel|DTU används|Inga dimensioner|
 |cpu_limit|CPU-begränsning|Count|Medel|CPU-begränsning|Inga dimensioner|
 |cpu_used|Processorn som används|Count|Medel|Processorn som används|Inga dimensioner|
 |dwu_limit|DWU-gräns|Count|Maximal|DWU-gräns|Inga dimensioner|
-|dwu_consumption_percent|DWU-procent|Procent|Maximal|DWU-procent|Inga dimensioner|
+|dwu_consumption_percent|DWU-procent|Percent|Maximal|DWU-procent|Inga dimensioner|
 |dwu_used|Använda DWU|Count|Maximal|Använda DWU|Inga dimensioner|
-|dw_cpu_percent|DW nivån CPU-procent|Procent|Medel|DW nivån CPU-procent|DwLogicalNodeId|
-|dw_physical_data_read_percent|DW noden på Data IO-procent|Procent|Medel|DW noden på Data IO-procent|DwLogicalNodeId|
-    |cache_hit_percent|Cacheträff i procent|Procent|Maximal|Cacheträff i procent|Inga dimensioner|
-|cache_used_percent|Använd cache-procent|Procent|Maximal|Använd cache-procent|Inga dimensioner|
-|local_tempdb_usage_percent|Lokala tempdb-procent|Procent|Medel|Lokala tempdb-procent|Inga dimensioner|
+|dw_cpu_percent|DW nivån CPU-procent|Percent|Medel|DW nivån CPU-procent|DwLogicalNodeId|
+|dw_physical_data_read_percent|DW noden på Data IO-procent|Percent|Medel|DW noden på Data IO-procent|DwLogicalNodeId|
+    |cache_hit_percent|Cacheträff i procent|Percent|Maximal|Cacheträff i procent|Inga dimensioner|
+|cache_used_percent|Använd cache-procent|Percent|Maximal|Använd cache-procent|Inga dimensioner|
+|local_tempdb_usage_percent|Lokala tempdb-procent|Percent|Medel|Lokala tempdb-procent|Inga dimensioner|
 |app_cpu_billed|App CPU debiterad|Count|Totalt|App CPU debiterad|Inga dimensioner|
-|app_cpu_percent|App CPU-procent|Procent|Medel|App CPU-procent|Inga dimensioner|
-|app_memory_percent|App används minnesprocent|Procent|Medel|App används minnesprocent|Inga dimensioner|
+|app_cpu_percent|App CPU-procent|Percent|Medel|App CPU-procent|Inga dimensioner|
+|app_memory_percent|App används minnesprocent|Percent|Medel|App används minnesprocent|Inga dimensioner|
 |allocated_data_storage|Allokerat datautrymme|Byte|Medel|Allokerat datautrymme|Inga dimensioner|
 
 ## <a name="microsoftsqlserverselasticpools"></a>Microsoft.Sql/servers/elasticPools
 
 |Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Mått|
 |---|---|---|---|---|---|
-|cpu_percent|Processorprocent|Procent|Medel|Processorprocent|Inga dimensioner|
-|physical_data_read_percent|Data I/O-procent|Procent|Medel|Data I/O-procent|Inga dimensioner|
-|log_write_percent|Logg I/O-procent|Procent|Medel|Logg I/O-procent|Inga dimensioner|
-|dtu_consumption_percent|DTU-procent|Procent|Medel|DTU-procent|Inga dimensioner|
-|storage_percent|Datautrymme använt procent||Procent|Medel|Lagringsprocent|Inga dimensioner|
-|workers_percent|Arbetarprocent|Procent|Medel|Arbetarprocent|Inga dimensioner|
-|sessions_percent|Sessionsprocent|Procent|Medel|Sessionsprocent|Inga dimensioner|
+|cpu_percent|Processorprocent|Percent|Medel|Processorprocent|Inga dimensioner|
+|physical_data_read_percent|Data I/O-procent|Percent|Medel|Data I/O-procent|Inga dimensioner|
+|log_write_percent|Logg I/O-procent|Percent|Medel|Logg I/O-procent|Inga dimensioner|
+|dtu_consumption_percent|DTU-procent|Percent|Medel|DTU-procent|Inga dimensioner|
+|storage_percent|Datautrymme använt procent||Percent|Medel|Lagringsprocent|Inga dimensioner|
+|workers_percent|Arbetarprocent|Percent|Medel|Arbetarprocent|Inga dimensioner|
+|sessions_percent|Sessionsprocent|Percent|Medel|Sessionsprocent|Inga dimensioner|
 |eDTU_limit|eDTU-gränsen|Count|Medel|eDTU-gränsen|Inga dimensioner|
 |storage_limit|Maximal datastorlek|Byte|Medel|Gränsen för lagring|Inga dimensioner|
 |eDTU_used|edtu: er används|Count|Medel|edtu: er används|Inga dimensioner|
 |storage_used|Använt datautrymme|Byte|Medel|Använt lagringsutrymme|Inga dimensioner|
-|xtp_storage_percent|Procent för in-Memory OLTP-lagring|Procent|Medel|Procent för in-Memory OLTP-lagring|Inga dimensioner|
+|xtp_storage_percent|Procent för in-Memory OLTP-lagring|Percent|Medel|Procent för in-Memory OLTP-lagring|Inga dimensioner|
 |cpu_limit|CPU-begränsning|Count|Medel|CPU-begränsning|Inga dimensioner|
 |cpu_used|Processorn som används|Count|Medel|Processorn som används|Inga dimensioner|
 |allocated_data_storage|Allokerat datautrymme|Byte|Medel|Allokerat datautrymme|Inga dimensioner|
-|allocated_data_storage_percent|Data allokerat utrymme procent|Procent|Maximal|Data allokerat utrymme procent|Inga dimensioner|
+|allocated_data_storage_percent|Data allokerat utrymme procent|Percent|Maximal|Data allokerat utrymme procent|Inga dimensioner|
 
 ## <a name="microsoftsqlmanagedinstances"></a>Microsoft.Sql/managedInstances
 
 |Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Mått|
 |---|---|---|---|---|---|
 |virtual_core_count|Antal virtuella kärnor|Count|Medel|Antal virtuella kärnor|Inga dimensioner|
-|avg_cpu_percent|Genomsnittlig CPU-procent|Procent|Medel|Genomsnittlig CPU-procent|Inga dimensioner|
+|avg_cpu_percent|Genomsnittlig CPU-procent|Percent|Medel|Genomsnittlig CPU-procent|Inga dimensioner|
 |reserved_storage_mb|Reserverat lagringsutrymme|Count|Medel|Reserverat lagringsutrymme|Inga dimensioner|
 |storage_space_used_mb|Lagringsutrymme som används|Count|Medel|Lagringsutrymme som används|Inga dimensioner|
 |io_requests|Antal för i/o-begäranden|Count|Medel|Antal för i/o-begäranden|Inga dimensioner|
@@ -1581,7 +1575,7 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 
 |Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Mått|
 |---|---|---|---|---|---|
-|ResourceUtilization|SU % utnyttjande|Procent|Maximal|SU % utnyttjande|LogicalName, PartitionId|
+|ResourceUtilization|SU % utnyttjande|Percent|Maximal|SU % utnyttjande|LogicalName, PartitionId|
 |InputEvents|Indatahändelser|Count|Totalt|Indatahändelser|LogicalName, PartitionId|
 |InputEventBytes|Indatahändelsebyte|Byte|Totalt|Indatahändelsebyte|LogicalName, PartitionId|
 |LateInputEvents|Sena indatahändelser|Count|Totalt|Sena indatahändelser|LogicalName, PartitionId|
@@ -1654,8 +1648,8 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 
 |Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Mått|
 |---|---|---|---|---|---|
-|CpuPercentage|CPU-procent|Procent|Medel|CPU-procent|Instans|
-|MemoryPercentage|Minnesprocent|Procent|Medel|Minnesprocent|Instans|
+|CpuPercentage|CPU-procent|Percent|Medel|CPU-procent|Instans|
+|MemoryPercentage|Minnesprocent|Percent|Medel|Minnesprocent|Instans|
 |DiskQueueLength|Diskkölängd|Count|Medel|Diskkölängd|Instans|
 |HttpQueueLength|Http-kölängd|Count|Medel|Http-kölängd|Instans|
 |BytesReceived|Data in|Byte|Totalt|Data in|Instans|
@@ -1782,8 +1776,8 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |Http4xx|Http 4xx|Count|Totalt|Http 4xx|Instans|
 |Http5xx|Http-serverfel|Count|Totalt|Http-serverfel|Instans|
 |AverageResponseTime|Genomsnittlig svarstid|Sekunder|Medel|Genomsnittlig svarstid|Instans|
-|CpuPercentage|CPU-procent|Procent|Medel|CPU-procent|Instans|
-|MemoryPercentage|Minnesprocent|Procent|Medel|Minnesprocent|Instans|
+|CpuPercentage|CPU-procent|Percent|Medel|CPU-procent|Instans|
+|MemoryPercentage|Minnesprocent|Percent|Medel|Minnesprocent|Instans|
 |DiskQueueLength|Diskkölängd|Count|Medel|Diskkölängd|Instans|
 |HttpQueueLength|Http-kölängd|Count|Medel|Http-kölängd|Instans|
 |ActiveRequests|Aktiva förfrågningar|Count|Totalt|Aktiva förfrågningar|Instans|
@@ -1799,8 +1793,8 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |WorkersTotal|Totalt antal arbeten|Count|Medel|Totalt antal arbeten|Inga dimensioner|
 |WorkersAvailable|Tillgängliga arbeten|Count|Medel|Tillgängliga arbeten|Inga dimensioner|
 |WorkersUsed|Använda arbeten|Count|Medel|Använda arbeten|Inga dimensioner|
-|CpuPercentage|CPU-procent|Procent|Medel|CPU-procent|Instans|
-|MemoryPercentage|Minnesprocent|Procent|Medel|Minnesprocent|Instans|
+|CpuPercentage|CPU-procent|Percent|Medel|CPU-procent|Instans|
+|MemoryPercentage|Minnesprocent|Percent|Medel|Minnesprocent|Instans|
 
 ## <a name="next-steps"></a>Nästa steg
 * [Läs mer om mätvärden i Azure Monitor](data-platform.md)

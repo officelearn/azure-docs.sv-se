@@ -15,21 +15,21 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7aee10780512e284faccadface0dc928ef8270e
-ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
+ms.openlocfilehash: 3d949b746f05eb440f5ae28f683dfc838217ab47
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65501902"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956510"
 ---
-# <a name="what-is-self-service-signup-for-azure-active-directory"></a>Vad är självbetjäningsregistrering för Azure Active Directory?
+# <a name="what-is-self-service-sign-up-for-azure-active-directory"></a>Vad är självbetjäning registrera dig för Azure Active Directory?
 
 Den här artikeln förklarar hur du använder självbetjäningsregistrering för att fylla i en organisation i Azure Active Directory (AD Azure). Om du vill ta över ett domännamn från en ohanterad Azure AD-organisation finns i [ta över en ohanterad katalog som administratör](domains-admin-takeover.md).
 
-## <a name="why-use-self-service-signup"></a>Varför använda självbetjäningsregistrering?
+## <a name="why-use-self-service-sign-up"></a>Varför använda självanmälan?
 * Få kunder till tjänster snabbare resultat
 * Skapa e-postbaserad erbjudanden för en tjänst
-* Skapa e-postbaserad registreringen flöden som snabbt kan du skapa identiteter med hjälp av deras enkelt att komma ihåg work e-post-alias
+* Skapa e-postbaserad registrering flöden som snabbt kan du skapa identiteter med hjälp av deras enkelt att komma ihåg work e-post-alias
 * En klientportal-självservice skapade Azure AD-katalog kan omvandlas till en hanterad katalog som kan användas för andra tjänster
 
 ## <a name="terms-and-definitions"></a>Termer och definitioner
@@ -47,9 +47,9 @@ Administratörer har två självbetjäning kontroller i dag. De kan kontrollera 
 En administratör kan konfigurera de här funktionerna med följande cmdlet Set-MsolCompanySettings-parametrarna för Azure AD:
 
 * **AllowEmailVerifiedUsers** styr om en användare kan skapa eller Anslut till en katalog. Om du ställer in parametern $false ingen e-postkontrollerad användare kan ansluta till katalogen.
-* **AllowAdHocSubscriptions** styr möjligheten för användare att utföra registrering av självbetjäning. Om du ställer in parametern $false kan ingen användare utföra registrering av självbetjäning.
+* **AllowAdHocSubscriptions** styr möjligheten för användare att utföra registrering via självbetjäning. Om du ställer in parametern $false kan ingen användare utföra självbetjänad registrering.
   
-AllowEmailVerifiedUsers och AllowAdHocSubscriptions är hela katalogen inställningar som kan tillämpas på en hanterad eller en ohanterad katalog. Här är ett exempel där:
+AllowEmailVerifiedUsers och AllowAdHocSubscriptions är hela katalogen inställningar som kan tillämpas på en hanterad eller ohanterad katalog. Här är ett exempel där:
 
 * Du administrerar en katalog med en verifierad domän, till exempel contoso.com
 * Du använder B2B-samarbete från en annan katalog för att bjuda in användare som inte redan finns (userdoesnotexist@contoso.com) i arbetskatalogen för contoso.com
@@ -63,15 +63,15 @@ Flow och PowerApps utvärderingsversion registreringar kontrolleras inte av den 
 * [Flow i din organisation frågor och svar](https://docs.microsoft.com/flow/organization-q-and-a)
 
 ### <a name="how-do-the-controls-work-together"></a>Hur fungerar kontrollerna tillsammans?
-Dessa två parametrar kan användas tillsammans för att definiera mer exakt kontroll över självbetjäningsregistrering. Till exempel följande kommando kan användarna utföra självbetjänad registrering, men endast om dessa användare redan har ett konto i Azure AD (d.v.s. användare som behöver en e-postkontrollerad konto skapas först kan inte utföra självbetjänad registrering):
+Dessa två parametrar kan användas tillsammans för att definiera mer exakt kontroll över registrering via självbetjäning. Till exempel följande kommando kan användarna utföra självbetjäning registrering, men bara om användarna redan har ett konto i Azure AD (d.v.s. användare som behöver en e-postkontrollerad konto skapas först kan inte utföra självbetjänad registrering):
 
 ```powershell
     Set-MsolCompanySettings -AllowEmailVerifiedUsers $false -AllowAdHocSubscriptions $true
 ```
 
-I följande flödesschema beskriver olika kombinationer för dessa parametrar och de resulterande villkor katalog-och registrering av självbetjäning.
+I följande flödesschema beskriver olika kombinationer för dessa parametrar och de resulterande villkor katalog-och självanmälan.
 
-![Flödesdiagram för självbetjäningsportalen registrering kontroller](./media/directory-self-service-signup/SelfServiceSignUpControls.png)
+![Flödesschema för självbetjänad registrering kontroller](./media/directory-self-service-signup/SelfServiceSignUpControls.png)
 
 Mer information och exempel på hur du använder dessa parametrar finns i [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0).
 
@@ -82,3 +82,4 @@ Mer information och exempel på hur du använder dessa parametrar finns i [Set-M
 * [Azure PowerShell](/powershell/azure/overview)
 * [Azure Cmdlet-referens](/powershell/azure/get-started-azureps)
 * [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)
+* [Avsluta ditt arbets- eller skolkonto konto i en ohanterad katalog](users-close-account.md)

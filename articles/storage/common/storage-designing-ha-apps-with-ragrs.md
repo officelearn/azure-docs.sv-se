@@ -10,12 +10,12 @@ ms.date: 01/17/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: c4d213a7c08162ef0b107572cfb79b6e96e271d6
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 5f8d8d96e15fe3b59cb288a9a1cf6c547312fe67
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205490"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951306"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Utforma högtillgängliga program med hjälp av RA-GRS
 
@@ -54,7 +54,7 @@ Syftet med den här artikeln är att visa dig hur du utformar ett program som fo
 
 Föreslagen lösning förutsätter att det går att returnera potentiellt inaktuella data till det anropande programmet. Eftersom data i den sekundära regionen är konsekvent, är det möjligt den primära regionen blir otillgänglig innan en uppdatering till den sekundära regionen är klar replikeras.
 
-Anta exempelvis att kunden skickar en uppdatering har, men den primära regionen misslyckas innan uppdateringen sprids till den sekundära regionen. När kunden begär att läsa data tillbaka, får han inaktuella data från den sekundära regionen i stället för uppdaterade data. När ditt program måste du bestämma om det är lämpligt och i så fall, hur du kommer meddelandet kunden. 
+Anta exempelvis att kunden skickar en uppdatering har, men den primära regionen misslyckas innan uppdateringen sprids till den sekundära regionen. När kunden begär att läsa data tillbaka, får de inaktuella data från den sekundära regionen i stället för uppdaterade data. När ditt program måste du bestämma om det är lämpligt och i så fall, hur du kommer meddelandet kunden. 
 
 Senare i den här artikeln visar vi hur du kontrollerar den senaste synkronisering för de sekundära data för att kontrollera om sekundärt är uppdaterad.
 
@@ -197,14 +197,14 @@ I det tredje scenariot när pinga den primära lagringsslutpunkten blir lyckad i
 
 Med RA-GRS replikeras transaktioner från den primära regionen till den sekundära. Replikeringsprocessen garanterar att data i den sekundära regionen är *konsekvent*. Det innebär att alla transaktioner i den primära regionen så småningom kommer att visas i den andra regionen, men det kan finnas en fördröjning innan de kan visas och att det finns ingen garanti transaktioner som tas emot i den sekundära regionen i samma ordning som där de tillämpades ursprungligen i den primära regionen. Om dina transaktioner kommer till den sekundära regionen fel ordning, du *kan* överväga dina data i den sekundära regionen ska vara i ett inkonsekvent tillstånd förrän tjänsten ikapp.
 
-I följande tabell visar ett exempel på vad som händer när du uppdaterar information om en anställd att göra henne medlem i den *administratörer* roll. För det här exemplet är detta kräver att du uppdaterar den **medarbetare** entitet och uppdatera en **administratörsroll** entitet med en uppräkning av det totala antalet administratörer. Observera hur uppdateringarna tillämpas inte i den sekundära regionen.
+I följande tabell visar ett exempel på vad som händer när du uppdaterar information om en anställd att göra dem till en medlem i den *administratörer* roll. För det här exemplet är detta kräver att du uppdaterar den **medarbetare** entitet och uppdatera en **administratörsroll** entitet med en uppräkning av det totala antalet administratörer. Observera hur uppdateringarna tillämpas inte i den sekundära regionen.
 
 | **Time** | **Transaktionen**                                            | **Replikering**                       | **Senaste synkroniseringstid** | **Resultatet** |
 |----------|------------------------------------------------------------|---------------------------------------|--------------------|------------| 
 | T0       | Transaktionen A: <br> Infoga medarbetare <br> entiteten i primär |                                   |                    | Transaktionen A infogas till primär,<br> inte har replikerats än. |
 | T1       |                                                            | Transaktionen A <br> replikeras till<br> Sekundär | T1 | Transaktionen A replikeras till sekundär. <br>Senaste synkronisering har uppdaterats.    |
-| T2       | Transaktionen B:<br>Uppdatering<br> Medarbetaren entitet<br> i primär  |                                | T1                 | Transaktionen B som skrivs till primär,<br> inte har replikerats än.  |
-| T3       | Transaktionen C:<br> Uppdatering <br>administratör<br>rollen entitet i<br>primär |                    | T1                 | Transaktionen skrivs till primär, C<br> inte har replikerats än.  |
+| T2       | Transaktionen B:<br>Uppdatera<br> Medarbetaren entitet<br> i primär  |                                | T1                 | Transaktionen B som skrivs till primär,<br> inte har replikerats än.  |
+| T3       | Transaktionen C:<br> Uppdatera <br>administratör<br>rollen entitet i<br>primär |                    | T1                 | Transaktionen skrivs till primär, C<br> inte har replikerats än.  |
 | *T4*     |                                                       | Transaktionen C <br>replikeras till<br> Sekundär | T1         | Transaktionen C som replikeras till sekundär.<br>LastSyncTime inte uppdateras eftersom <br>transaktionen B har ännu inte replikerats.|
 | *T5*     | Läsa entiteter <br>från den sekundära                           |                                  | T1                 | Du får det inaktuella värdet för medarbetare <br> entiteten eftersom transaktionen B har inte <br> replikerade ännu. Du får det nya värdet för<br> administratören rollentiteten eftersom C har<br> replikeras. Senaste synkroniseringstid fortfarande inte<br> har uppdaterats eftersom transaktionen B<br> har inte replikeras. Du kan se den<br>administratören rollentiteten är inkonsekvent <br>eftersom entiteten datum/tid är efter <br>Senaste synkronisering. |
 | *T6*     |                                                      | Transaktionen B<br> replikeras till<br> Sekundär | T6                 | *T6* – alla transaktioner via C <br>har replikerats, senaste synkroniseringstid<br> har uppdaterats. |

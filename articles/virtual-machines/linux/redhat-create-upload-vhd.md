@@ -13,17 +13,17 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2018
+ms.date: 05/17/2019
 ms.author: szark
-ms.openlocfilehash: 01acdf23c3113c3c4d185263b5cab75f3efd34a2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9d5e9c6c8a104c16d1ff4e96929ff47ed6fd5ff6
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60771183"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65966112"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Förbered en Red Hat-baserad virtuell dator för Azure
-I den här artikeln får lära du dig att förbereda en virtuell dator för Red Hat Enterprise Linux (RHEL) för användning i Azure. RHEL-versioner som beskrivs i den här artikeln är 6.7 + och 7.1 +. Hypervisorer för förberedelse av som beskrivs i den här artikeln är Hyper-V, kernel-baserad virtuell dator (KVM) och VMware. Läs mer om krav för berättigande för att du deltar i programmet för Red Hat Cloud Access [Red Hat Cloud Access webbplats](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) och [kör RHEL på Azure](https://access.redhat.com/ecosystem/ccsp/microsoft-azure).
+I den här artikeln får lära du dig att förbereda en virtuell dator för Red Hat Enterprise Linux (RHEL) för användning i Azure. RHEL-versioner som beskrivs i den här artikeln är 6.7 + och 7.1 +. Hypervisorer för förberedelse av som beskrivs i den här artikeln är Hyper-V, kernel-baserad virtuell dator (KVM) och VMware. Läs mer om krav för berättigande för att du deltar i programmet för Red Hat Cloud Access [Red Hat Cloud Access webbplats](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) och [kör RHEL på Azure](https://access.redhat.com/ecosystem/ccsp/microsoft-azure). Sätt att automatisera och bygga RHEL avbildningar finns i den [Azure Image Builder](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-overview).
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-hyper-v-manager"></a>Förbered en Red Hat-baserad virtuell dator från Hyper-V Manager
 
@@ -110,7 +110,7 @@ Det här avsnittet förutsätter att du redan har fått en ISO-fil från Red Hat
 
 1. Skapa inte växlingsutrymme på operativsystemdisken.
 
-    Azure Linux Agent kan automatiskt konfigurera växlingsutrymme med hjälp av den lokala resursdisk som är kopplat till den virtuella datorn när den virtuella datorn har etablerats på Azure. Observera att den lokala resurs disken är en tillfällig disk och att den kan tömmas när virtuella datorn avetableras. Ändra följande parametrar i /etc/waagent.conf på rätt sätt när du har installerat Azure Linux Agent i föregående steg:
+    Azure Linux Agent kan automatiskt konfigurera växlingsutrymme med hjälp av den lokala resursdisk som är kopplat till den virtuella datorn när den virtuella datorn har etablerats på Azure. Observera att den lokala resurs disken är en tillfällig disk och att den kan tömmas om virtuella datorn avetableras. Ändra följande parametrar i /etc/waagent.conf på rätt sätt när du har installerat Azure Linux Agent i föregående steg:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -124,6 +124,8 @@ Det här avsnittet förutsätter att du redan har fått en ISO-fil från Red Hat
 
 1. Kör följande kommandon för att avetablera den virtuella datorn och förbereda den för etablering i Azure:
 
+        # Mote: if you are migrating a specific virtual machine and do not wish to create a generalized image,
+        # skip the deprovision step
         # sudo waagent -force -deprovision
 
         # export HISTSIZE=0
@@ -193,7 +195,7 @@ Det här avsnittet förutsätter att du redan har fått en ISO-fil från Red Hat
 
 1. Skapa inte växlingsutrymme på operativsystemdisken.
 
-    Azure Linux Agent kan automatiskt konfigurera växlingsutrymme med hjälp av den lokala resursdisk som är kopplat till den virtuella datorn när den virtuella datorn har etablerats på Azure. Observera att den lokala resurs disken är en tillfällig disk och kan tömmas när virtuella datorn avetableras. När du har installerat Azure Linux Agent i föregående steg kan du ändra följande parametrar i `/etc/waagent.conf` på rätt sätt:
+    Azure Linux Agent kan automatiskt konfigurera växlingsutrymme med hjälp av den lokala resursdisk som är kopplat till den virtuella datorn när den virtuella datorn har etablerats på Azure. Observera att den lokala resurs disken är en tillfällig disk och kan tömmas om virtuella datorn avetableras. När du har installerat Azure Linux Agent i föregående steg kan du ändra följande parametrar i `/etc/waagent.conf` på rätt sätt:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -207,6 +209,8 @@ Det här avsnittet förutsätter att du redan har fått en ISO-fil från Red Hat
 
 1. Kör följande kommandon för att avetablera den virtuella datorn och förbereda den för etablering i Azure:
 
+        # Mote: if you are migrating a specific virtual machine and do not wish to create a generalized image,
+        # skip the deprovision step
         # sudo waagent -force -deprovision
 
         # export HISTSIZE=0
@@ -315,7 +319,7 @@ Det här avsnittet förutsätter att du redan har fått en ISO-fil från Red Hat
 
         # chkconfig waagent on
 
-1. Azure Linux Agent kan automatiskt konfigurera växlingsutrymme med hjälp av den lokala resursdisk som är kopplat till den virtuella datorn när den virtuella datorn har etablerats på Azure. Observera att den lokala resurs disken är en tillfällig disk och kan tömmas när virtuella datorn avetableras. När du har installerat Azure Linux Agent i föregående steg kan du ändra följande parametrar i **/etc/waagent.conf** på rätt sätt:
+1. Azure Linux Agent kan automatiskt konfigurera växlingsutrymme med hjälp av den lokala resursdisk som är kopplat till den virtuella datorn när den virtuella datorn har etablerats på Azure. Observera att den lokala resurs disken är en tillfällig disk och kan tömmas om virtuella datorn avetableras. När du har installerat Azure Linux Agent i föregående steg kan du ändra följande parametrar i **/etc/waagent.conf** på rätt sätt:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -329,6 +333,8 @@ Det här avsnittet förutsätter att du redan har fått en ISO-fil från Red Hat
 
 1. Kör följande kommandon för att avetablera den virtuella datorn och förbereda den för etablering i Azure:
 
+        # Mote: if you are migrating a specific virtual machine and do not wish to create a generalized image,
+        # skip the deprovision step
         # waagent -force -deprovision
 
         # export HISTSIZE=0
@@ -464,7 +470,7 @@ Det här avsnittet förutsätter att du redan har fått en ISO-fil från Red Hat
 
 1. Skapa inte växlingsutrymme på operativsystemdisken.
 
-    Azure Linux Agent kan automatiskt konfigurera växlingsutrymme med hjälp av den lokala resursdisk som är kopplat till den virtuella datorn när den virtuella datorn har etablerats på Azure. Observera att den lokala resurs disken är en tillfällig disk och kan tömmas när virtuella datorn avetableras. När du har installerat Azure Linux Agent i föregående steg kan du ändra följande parametrar i `/etc/waagent.conf` på rätt sätt:
+    Azure Linux Agent kan automatiskt konfigurera växlingsutrymme med hjälp av den lokala resursdisk som är kopplat till den virtuella datorn när den virtuella datorn har etablerats på Azure. Observera att den lokala resurs disken är en tillfällig disk och kan tömmas om virtuella datorn avetableras. När du har installerat Azure Linux Agent i föregående steg kan du ändra följande parametrar i `/etc/waagent.conf` på rätt sätt:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -478,6 +484,8 @@ Det här avsnittet förutsätter att du redan har fått en ISO-fil från Red Hat
 
 1. Kör följande kommandon för att avetablera den virtuella datorn och förbereda den för etablering i Azure:
 
+        # Mote: if you are migrating a specific virtual machine and do not wish to create a generalized image,
+        # skip the deprovision step
         # sudo waagent -force -deprovision
 
         # export HISTSIZE=0
@@ -593,7 +601,7 @@ Det här avsnittet förutsätter att du redan har installerat en RHEL-dator i VM
 
 1. Skapa inte växlingsutrymme på operativsystemdisken.
 
-    Azure Linux Agent kan automatiskt konfigurera växlingsutrymme med hjälp av den lokala resursdisk som är kopplat till den virtuella datorn när den virtuella datorn har etablerats på Azure. Observera att den lokala resurs disken är en tillfällig disk och kan tömmas när virtuella datorn avetableras. När du har installerat Azure Linux Agent i föregående steg kan du ändra följande parametrar i `/etc/waagent.conf` på rätt sätt:
+    Azure Linux Agent kan automatiskt konfigurera växlingsutrymme med hjälp av den lokala resursdisk som är kopplat till den virtuella datorn när den virtuella datorn har etablerats på Azure. Observera att den lokala resurs disken är en tillfällig disk och kan tömmas om virtuella datorn avetableras. När du har installerat Azure Linux Agent i föregående steg kan du ändra följande parametrar i `/etc/waagent.conf` på rätt sätt:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -607,6 +615,8 @@ Det här avsnittet förutsätter att du redan har installerat en RHEL-dator i VM
 
 1. Kör följande kommandon för att avetablera den virtuella datorn och förbereda den för etablering i Azure:
 
+        # Mote: if you are migrating a specific virtual machine and do not wish to create a generalized image,
+        # skip the deprovision step
         # sudo waagent -force -deprovision
 
         # export HISTSIZE=0
@@ -707,7 +717,7 @@ Det här avsnittet förutsätter att du redan har installerat en RHEL-dator i VM
 
 1. Skapa inte växlingsutrymme på operativsystemdisken.
 
-    Azure Linux Agent kan automatiskt konfigurera växlingsutrymme med hjälp av den lokala resursdisk som är kopplat till den virtuella datorn när den virtuella datorn har etablerats på Azure. Observera att den lokala resurs disken är en tillfällig disk och kan tömmas när virtuella datorn avetableras. När du har installerat Azure Linux Agent i föregående steg kan du ändra följande parametrar i `/etc/waagent.conf` på rätt sätt:
+    Azure Linux Agent kan automatiskt konfigurera växlingsutrymme med hjälp av den lokala resursdisk som är kopplat till den virtuella datorn när den virtuella datorn har etablerats på Azure. Observera att den lokala resurs disken är en tillfällig disk och kan tömmas om virtuella datorn avetableras. När du har installerat Azure Linux Agent i föregående steg kan du ändra följande parametrar i `/etc/waagent.conf` på rätt sätt:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -721,6 +731,8 @@ Det här avsnittet förutsätter att du redan har installerat en RHEL-dator i VM
 
 1. Kör följande kommandon för att avetablera den virtuella datorn och förbereda den för etablering i Azure:
 
+        # Mote: if you are migrating a specific virtual machine and do not wish to create a generalized image,
+        # skip the deprovision step
         # sudo waagent -force -deprovision
 
         # export HISTSIZE=0
@@ -875,7 +887,7 @@ Det här avsnittet förutsätter att du redan har installerat en RHEL-dator i VM
         NM_CONTROLLED=no
         EOF
 
-        # Deprovision and prepare for Azure
+        # Deprovision and prepare for Azure if you are creating a generalized image
         waagent -force -deprovision
 
         %end

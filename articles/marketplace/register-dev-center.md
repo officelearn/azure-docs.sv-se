@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 559b5a519a48d4aa8022961a59f6f29cef28f948
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 1caa523b2bc43b7b3690e01f589aecf18fd3da9e
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64937582"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65965106"
 ---
 # <a name="register-in-dev-center"></a>Registrera i Dev Center  
 För att kontrollera att du inte är inloggad på ett konto för personliga webbläsaren kan öppna en ny Internet Explorer InPrivate- eller Chrome Incognito-webbläsarsession.  
@@ -71,7 +71,7 @@ För att kontrollera att du inte är inloggad på ett konto för personliga webb
 
     | Faktureringsmodell | Nästa steg |  
     |:--- |:--- |  
-    | Kostnadsfri | Gå till partnerportalen i molnet.<ul> <li>Om du vill publicera på Azure Marketplace finns på sidan finns på partnerportalen i molnet [cloudpartner.azure.com](https://cloudpartner.azure.com).</li> </ul> |  
+    | Kostnadsfritt | Gå till partnerportalen i molnet.<ul> <li>Om du vill publicera på Azure Marketplace finns på sidan finns på partnerportalen i molnet [cloudpartner.azure.com](https://cloudpartner.azure.com).</li> </ul> |  
     | Kommersiella (transact) | Uppdatera din kontoinformation.<ul> <li>Mer information om att lägga till kontoinformation, finns det [så Lägg till bank-och skatteinformation](#add-bank-information) avsnittet.</li> </ul> |  
 
     *   Ett exempel på ett erbjudande med kommersiella är ett erbjudande för virtuell dator med ett timpris för fakturering modellen.  
@@ -156,7 +156,7 @@ Bank-och skatt krävs för alla kommersiella erbjudanden med hjälp av transact 
   > Kontrollera att zip-kod har angetts korrekt för. Det finns en stad, postnummer verifiering.
 
 * **Hur får jag en kampanjkod?**
-  > Slutför den [Marketplace registrering](https://azuremarketplace.microsoft.com/en-us/sell/signup) formuläret för att ta emot en kampanjkoden Dev Center.
+  > Slutför den [Marketplace registrering](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) formuläret för att ta emot en kampanjkoden Dev Center. Se hur du [skapa ett Partnercenter-konto](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) för mer information.
  
 * **Vad kan jag förvänta mig när du har slutfört registreringen?**
   > Leta efter ett e-postmeddelande från verify@microsoft.com med ämnesrad ”åtgärd krävs: Verifiera din e-postkonto med Microsoft ”. Klicka på den känsliga verifieringslänken tid att slutföra registreringen. *Om du inte har fått ett e-postmeddelande inom 24 timmar, kontrollera mappen för skräppost.*

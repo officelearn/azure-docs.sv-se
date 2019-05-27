@@ -4,21 +4,21 @@ description: Den här artikeln beskriver databastransaktioner och optimistisk sa
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 568f47aacf39793d4c2da46798682abc002ca33b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1da5dabad04d72c903072a33dfb7b0229f99c62d
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60889363"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978995"
 ---
 # <a name="transactions-and-optimistic-concurrency-control"></a>Kontroll över transaktioner och optimistisk samtidighet
 
 Databastransaktioner ger en säker och förutsägbar programmeringsmodell utan samtidiga ändringar av data. Traditionella relationsdatabaser som SQL Server, kan du skriva affärslogik med lagrade procedurer och/eller utlösare, skicka den till servern för körning direkt i databasmotorn. Med traditionella relationsdatabaser du krävs för att hantera två olika programmeringsspråk (icke-transaktionell) programmet programmeringsspråk, till exempel JavaScript, Python, C#, Java, etc. och transaktionella programming språk ( till exempel T-SQL) som internt körs av databasen.
 
-Databasmotorn i Azure Cosmos DB stöder fullständig ACID (Atomicitet, konsekvens, isolering, varaktighet) kompatibla transaktioner med ögonblicksbildisolering. Alla databasåtgärderna inom omfånget för en behållare [logisk partition](partition-data.md) Verkställ inom databasmotorn som är värd för repliken av partitionen. Dessa åtgärder omfattar både Skriv (uppdaterar ett eller flera objekt i logisk partition) och läs-och skrivåtgärder. I följande tabell visas olika åtgärder och transaktionen typer:
+Databasmotorn i Azure Cosmos DB stöder fullständig ACID (Atomicitet, konsekvens, isolering, varaktighet) kompatibla transaktioner med ögonblicksbildisolering. Alla databasåtgärderna inom omfånget för en behållare [logisk partition](partition-data.md) Verkställ inom databasmotorn som är värd för repliken av partitionen. Dessa åtgärder omfattar både Skriv (uppdaterar ett eller flera objekt i logisk partition) och läs-och skrivåtgärder. I följande tabell visas olika åtgärder och transaktionstyper:
 
 | **Åtgärd**  | **Åtgärdstyp** | **Enda eller flera objekt transaktionen** |
 |---------|---------|---------|

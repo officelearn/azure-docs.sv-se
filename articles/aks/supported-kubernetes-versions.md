@@ -5,14 +5,14 @@ services: container-service
 author: sauryadas
 ms.service: container-service
 ms.topic: article
-ms.date: 04/26/2019
+ms.date: 05/20/2019
 ms.author: saudas
-ms.openlocfilehash: d4287307ee3ed7f65b91f2865242113aa5b22bfd
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a7b3176e39ccaa0f9ddb1ef45c33ec6902e62f1c
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64684179"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956319"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Kubernetes-versioner som stöds i Azure Kubernetes Service (AKS)
 
@@ -27,11 +27,11 @@ AKS har stöd för fyra lägre Kubernetes-versioner:
 - Den aktuella delversionen som är publicerad överordnade (n)
 - Tre tidigare lägre versioner. Varje lägre version som stöds har även stöd för två stabila korrigeringsversioner.
 
-Exempel: om AKS introducerar *1.12.x* idag finns också stöd för *1.11.a* + *1.11.b*, *1.10.c*  +  *1.10d*, *1.9.e* + *1.9f* (där bokstäver patch-versioner är två senaste stabil versioner).
+Exempel: om AKS introducerar *1.13.x* idag finns också stöd för *1.12.a* + *1.12.b*, *1.11.c*  +  *1.11d*, *1.10.e* + *1.10F* (där bokstäver patch-versioner är två senaste stabil versioner).
 
-När en ny lägre version släpps tas den äldsta lägre versionen och dess korrigeringsversioner ur bruk. 30 dagar innan lanseringen av den nya minor-version och kommande versionen dras tillbaka ett meddelande görs via den [Azure uppdateringskanaler][azure-update-channel]. I exemplet ovan var *1.12.x* har lanserats utgångna versioner är *1.8.g* + *1.8.h*.
+När en ny lägre version släpps tas den äldsta lägre versionen och dess korrigeringsversioner ur bruk. 30 dagar innan lanseringen av den nya minor-version och kommande versionen dras tillbaka ett meddelande görs via den [Azure uppdateringskanaler][azure-update-channel]. I exemplet ovan var *1.13.x* har lanserats utgångna versioner är *1.9.g* + *1.9.h*.
 
-När du distribuerar ett AKS-kluster i portalen eller med Azure CLI konfigureras klustret alltid till den lägre versionen n-1 och den senaste korrigeringsversionen. Exempel: om AKS stöder *1.12.x*, *1.11.a* + *1.11.b*, *1.10.c*  +   *1.10d*, *1.9.e* + *1.9f*, standardversionen för nya kluster är *1.11.b*.
+När du distribuerar ett AKS-kluster i portalen eller med Azure CLI konfigureras klustret alltid till den lägre versionen n-1 och den senaste korrigeringsversionen. Exempel: om AKS stöder *1.13.x*, *1.12.a* + *1.12.b*, *1.11.c*  +   *1.11d*, *1.10.e* + *1.10F*, standardversionen för nya kluster är *1.11.b*.
 
 ## <a name="list-currently-supported-versions"></a>Lista över versioner som stöds för närvarande
 
@@ -41,29 +41,28 @@ Om du vill ta reda på vilka versioner som är tillgängliga för din prenumerat
 az aks get-versions --location eastus --output table
 ```
 
-Utdata liknar följande exempel som visar att Kubernetes-version *1.12.5* finns den senaste versionen:
+Utdata liknar följande exempel som visar att Kubernetes-version *1.13.5* finns den senaste versionen:
 
 ```
 KubernetesVersion    Upgrades
--------------------  -----------------------
-1.12.5               None available
-1.12.4               1.12.5
-1.11.7               1.12.4, 1.12.5
-1.11.6               1.11.7, 1.12.4, 1.12.5
-1.10.12              1.11.6, 1.11.7
-1.10.9               1.10.12, 1.11.6, 1.11.7
-1.9.11               1.10.9, 1.10.12
-1.9.10               1.9.11, 1.10.9, 1.10.12
+-------------------  ------------------------
+1.13.5               None available
+1.12.7               1.13.5
+1.12.6               1.12.7, 1.13.5
+1.11.9               1.12.6, 1.12.7
+1.11.8               1.11.9, 1.12.6, 1.12.7
+1.10.13              1.11.8, 1.11.9
+1.10.12              1.10.13, 1.11.8, 1.11.9
 ```
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor
 
 **Vad händer när en kund uppgraderas ett Kubernetes-kluster med en mindre version som inte stöds?**
 
 Om du använder den *n-4* version kan du ligger utanför Servicenivåmål. Om din uppgradering från version n-4 till n-3 lyckas, och sedan är du tillbaka i på SLO. Exempel:
 
-- Om AKS-versioner som stöds är *1.12.x*, *1.11.a* + *1.11.b*, *1.10.c*  +  *1.10d*, och *1.9.e* + *1.9f* och du har en *1.8.g* eller *1.8.h*, är slut på SLO.
-- Om uppgraderingen från *1.8.g* eller *1.8.h* till *1.9.e* eller *1.9.f* lyckas, är du tillbaka i på SLO.
+- Om AKS-versioner som stöds är *1.13.x*, *1.12.a* + *1.12.b*, *1.11.c*  +  *1.11d*, och *1.10.e* + *1.10F* och du har en *1.9.g* eller *1.9.h*, är slut på SLO.
+- Om uppgraderingen från *1.9.g* eller *1.9.h* till *1.10.e* eller *1.10.f* lyckas, är du tillbaka i på SLO.
 
 Uppgraderingar till versioner som är äldre än *n-4* stöds inte. I sådana fall rekommenderar vi kunder skapar nya AKS-kluster och distribuera om sina arbetsbelastningar.
 

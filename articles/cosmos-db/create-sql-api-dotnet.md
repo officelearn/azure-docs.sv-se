@@ -7,13 +7,13 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 04/05/2019
-ms.openlocfilehash: e1b5ade470e3041fc15a8f71db76a4004a33f765
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.date: 05/20/2019
+ms.openlocfilehash: 432ddf6e0fea0d6de3c24dc853502dca303ce693
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142673"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954554"
 ---
 # <a name="quickstart-build-a-net-web-app-using-sql-api-account-in-azure-cosmos-db"></a>Snabbstart: Skapa en .NET-webbapp med SQL API-konto i Azure Cosmos DB
 
@@ -35,8 +35,8 @@ I den här snabbstarten använder du Datautforskaren i Azure-portalen för att s
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Visual Studio 2017 med Azure-utveckling arbetsflödet installerad
-- Du kan hämta och använda den **kostnadsfria** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Se till att du aktiverar **Azure-utveckling** under installationen av Visual Studio. 
+Visual Studio 2019 med Azure-utveckling arbetsflödet installerad
+- Du kan hämta och använda den **kostnadsfria** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Se till att du aktiverar **Azure-utveckling** under installationen av Visual Studio. 
 
 En Azure-prenumeration eller ett kostnadsfritt utvärderingskonto för Azure Cosmos DB
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
@@ -62,8 +62,8 @@ Du kan använda Datautforskaren i Azure-portalen för att skapa en databas och s
     
     |Inställning|Föreslaget värde|Beskrivning
     |---|---|---|
-    |**Databas-id**|ToDoList|Ange *ToDoList* som namn på den nya databasen. Databasnamn måste innehålla 1–255 tecken och får inte innehålla `/, \\, #, ?`, eller avslutande blanksteg.|
-    |**Samlings-id**|Objekt|Ange *Objekt* som namnet på din nya samling. Samlings-ID har samma teckenkrav gäller som databasnamn.|
+    |**Databas-ID**|ToDoList|Ange *ToDoList* som namn på den nya databasen. Databasnamn måste innehålla 1–255 tecken och får inte innehålla `/, \\, #, ?`, eller avslutande blanksteg.|
+    |**Samlings-ID**|Objekt|Ange *Objekt* som namnet på din nya samling. Samlings-ID har samma teckenkrav gäller som databasnamn.|
     |**Partitionsnyckel**| /category| I exemplet som beskrivs i den här artikeln används */category* som partitionsnyckel.|
     |**Dataflöde**|400|Vill du lämna dataflödet på 400 begäransenheter per sekund (RU/s). Du kan skala upp dataflödet senare om du vill minska svarstiden.| 
     

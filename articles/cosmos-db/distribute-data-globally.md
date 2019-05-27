@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/18/2019
-ms.openlocfilehash: b90e495e0901c0caa14d9451f365e17f6c075e2b
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.date: 05/20/2019
+ms.openlocfilehash: e58a8cd286e4d416dd5f4e6d3fddedf1897fed1c
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65070794"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954165"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---overview"></a>Globala data-distribution med Azure Cosmos DB – översikt
 
@@ -21,7 +21,7 @@ Azure Cosmos DB är en globalt distribuerad databastjänst som har utformats fö
 
 Du kan konfigurera databaserna och globalt distribuerad och vara tillgängligt i alla Azure-regioner. Om du vill minska svarstiden, placera data nära där användarna finns. Välja regionerna som krävs beror på global räckvidden för ditt program och var dina användare finns. Cosmos DB replikerar data transparent till alla regioner som är associerat med ditt Cosmos-konto. Det ger en enskild systemavbildning av globalt distribuerade Azure Cosmos-databasen och behållare som ditt program kan läsa och skriva till lokalt. 
 
-Med Azure Cosmos DB kan du lägga till eller ta bort de regioner som är associerade med ditt konto när som helst. Ditt program behöver inte pausas eller omdistribueras om du vill lägga till eller ta bort en region. Det fortsätter att ha hög tillgänglighet när som helst på grund av flera funktioner som internt tillhandahåller tjänsten.
+Med Azure Cosmos DB kan du lägga till eller ta bort de regioner som är associerade med ditt konto när som helst. Appen behöver inte pausas eller distribueras på nytt för att lägga till eller ta bort en region. Det fortsätter att ha hög tillgänglighet när som helst på grund av flera funktioner som internt tillhandahåller tjänsten.
 
 ![Topologi för distribution med hög tillgänglighet](./media/distribute-data-globally/deployment-topology.png)
 

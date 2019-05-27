@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: 49491c5283ba16c5379c1115fae597bd7fd6ea19
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fbb2458e73330a09124c00cebe3eb7bcaba5408d
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60614107"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951495"
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>Komma igång med Temporala tabeller i Azure SQL Database
 
@@ -109,7 +109,7 @@ WITH (DROP_EXISTING = ON);
 ## <a name="step-2-run-your-workload-regularly"></a>Steg 2: Kör din arbetsbelastning regelbundet
 Den största fördelen med Temporala tabeller är att du inte behöver ändra eller anpassa din webbplats på något sätt att utföra ändringsspårning. När du skapat bevara Temporala tabeller transparent tidigare radversioner varje gång du utföra ändringar på dina data. 
 
-För att kunna utnyttja automatisk ändringsspårning för det här scenariot ska vi bara uppdatera kolumnen **PagesVisited** varje gång när användaren avslutar göra åtaganden sessionen på webbplats:
+För att kunna utnyttja automatisk ändringsspårning för det här scenariot ska vi bara uppdatera kolumnen **PagesVisited** varje gång en användare slutar sin session på webbplats:
 
 ```
 UPDATE WebsiteUserInfo  SET [PagesVisited] = 5 

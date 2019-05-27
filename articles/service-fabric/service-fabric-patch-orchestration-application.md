@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: brkhande
-ms.openlocfilehash: aca34ee40bfe10c55c478d9aaeb01a65d139e1e2
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: ccc0399b6ac886ec8d9ef7d207c3539f1d078070
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65522378"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951991"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Uppdatera Windows-operativsystemet i Service Fabric-klustret
 
@@ -141,9 +141,7 @@ Automatiska uppdateringar för Windows kan leda till förlust av tillgänglighet
 
 ## <a name="download-the-app-package"></a>Hämta app-paket
 
-Programmet tillsammans med installationsskript kan laddas ned från [Arkiv länk](https://go.microsoft.com/fwlink/?linkid=869566).
-
-Program i sfpkg format kan laddas ned från [sfpkg länk](https://aka.ms/POA/POA.sfpkg). Detta är praktiskt för [Azure Resource Manager-baserade programdistribution](service-fabric-application-arm-resource.md).
+Om du vill hämta programpaket finns på GitHub-versionen [sidan](https://github.com/microsoft/Service-Fabric-POA/releases/latest/) av Patch Orchestration Application.
 
 ## <a name="configure-the-app"></a>Konfigurera appen
 
@@ -205,13 +203,15 @@ Appen patch orchestration exponerar REST-API: er för att visa historiska result
       {
         "OperationResult": 0,
         "NodeName": "_stg1vm_1",
-        "OperationTime": "2017-05-21T11:46:52.1953713Z",
+        "OperationTime": "2019-05-13T08:44:56.4836889Z",
+        "OperationStartTime": "2019-05-13T08:44:33.5285601Z",
         "UpdateDetails": [
           {
             "UpdateId": "7392acaf-6a85-427c-8a8d-058c25beb0d6",
             "Title": "Cumulative Security Update for Internet Explorer 11 for Windows Server 2012 R2 (KB3185319)",
             "Description": "A security issue has been identified in a Microsoft software product that could affect your system. You can help protect your system by installing this update from Microsoft. For a complete listing of the issues that are included in this update, see the associated Microsoft Knowledge Base article. After you install this update, you may have to restart your system.",
-            "ResultCode": 0
+            "ResultCode": 0,
+            "HResult": 0
           }
         ],
         "OperationType": 1,
@@ -234,6 +234,9 @@ Resultatkod | Samma som OperationResult | Det här fältet visar resultatet av i
 OperationType | 1 – installation<br> 0 – Sök efter och ladda ned.| Installationen är den enda OperationType som visas i resultaten som standard.
 WindowsUpdateQuery | Standardvärdet är ”IsInstalled = 0” |Windows uppdaterar fråga som används för att söka efter uppdateringar. Mer information finns i [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
 RebootRequired | True - krävdes omstart<br> FALSE - omstart behövs inte | Anger om omstart krävdes för att slutföra installationen av uppdateringar.
+OperationStartTime | DateTime | Anger tidpunkt på vilka operation(Download/Installation) igång.
+OperationTime | DateTime | Anger tidpunkt på vilka operation(Download/Installation) har slutförts.
+HResult | 0 - Successful<br> övrigt – fel| Anger orsaken till felet i windows update med updateID ”7392acaf-6a85-427c-8a8d-058c25beb0d6”.
 
 Om ingen uppdatering har schemalagts ännu är resultatet JSON tom.
 
@@ -255,6 +258,58 @@ Om du vill aktivera omvänd proxy i klustret, följer du stegen i [omvänd proxy
 
 ## <a name="diagnosticshealth-events"></a>Diagnostik/health-händelser
 
+Följande avsnitt pratar om hur du debug/diagnostisera problem med patchuppdateringar via Patch Orchestration Application på Service Fabric-kluster.
+
+> [!NOTE]
+> Du bör ha v1.4.0 version av POA installerat för att många av de nedan påpekas självsignerat diagnostikförbättringar.
+
+NodeAgentNTService skapar [reparera uppgifter](https://docs.microsoft.com/dotnet/api/system.fabric.repair.repairtask?view=azure-dotnet) att installera uppdateringar på noderna. Varje aktivitet förbereds sedan med CoordinatorService enligt principer för godkännande av uppgiften. Förberedd aktiviteter godkänns slutligen med Reparationshanteraren som inte kommer att godkänna alla aktiviteter om klustret är i feltillstånd. Kan gå-för-steg-för-steg för att förstå hur uppdateringar ska fortsätta på en nod.
+
+1. NodeAgentNTService, som körs på varje nod, söker efter tillgängliga Windows Update på den schemalagda tiden. Om uppdateringar är tillgängliga går vidare och hämtar dem på noden.
+2. När uppdateringarna har hämtats, skapar NodeAgentNTService, motsvarande reparationsuppgiften för noden med namnet POS___ unikt < ID >. En kan visa dessa reparera uppgifter med hjälp av cmdlet [Get-ServiceFabricRepairTask](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricrepairtask?view=azureservicefabricps) eller i SFX i informationsavsnittet noden. När reparationsuppgiften har skapats kan snabbt flyttas till [ägs tillstånd](https://docs.microsoft.com/dotnet/api/system.fabric.repair.repairtaskstate?view=azure-dotnet).
+3. Tjänsten Coordinator söker efter reparationsuppgifter i anspråk tillstånd och går vidare med jämna mellanrum och uppdaterar dem att förbereda tillstånd baserat på TaskApprovalPolicy. Om TaskApprovalPolicy är konfigurerad för att vara NodeWise, en reparationsuppgiften som motsvarar en nod är förberedd endast om det finns för närvarande inga andra reparationsuppgiften i förbereda/godkänd/kör/återställningsläge. På samma sätt är det uppgifter ovan tillstånd endast för noder som tillhör samma uppgraderingsdomän om av UpgradeWise TaskApprovalPolicy den säkerställs när som helst. När en reparationsuppgiften flyttas till förbereda tillstånd, den motsvarande Service Fabric-noden är [inaktiverat](https://docs.microsoft.com/powershell/module/servicefabric/disable-servicefabricnode?view=azureservicefabricps) med avsikt som ”omstart”.
+
+   POA(v1.4.0 and above) publicerar händelser med egenskapen ”ClusterPatchingStatus” på CoordinaterService att visa de noder som är korrigeras. Bilden nedan komma visar att uppdaterar installeras på _poanode_0:
+
+    [![Bild av korrigeringar status-kluster](media/service-fabric-patch-orchestration-application/clusterpatchingstatus.png)](media/service-fabric-patch-orchestration-application/clusterpatchingstatus.png#lightbox)
+
+4. När noden är inaktiverat har reparationsuppgiften flyttats till läget Kör. Observera att en reparationsuppgiften som fastnat i förbereda tillstånd, efter eftersom en nod har fastnat inaktiverar tillstånd kan leda till att blockera nya reparationsuppgiften och kan därför Stoppa uppdatering av klustret.
+5. När reparationsuppgiften finns i kör tillstånd, börjar patch-installationen på noden. Här, när uppdateringen har installerats, noden kanske eller kanske inte att starta om beroende på vilken korrigeringsfil. Efter att reparationsuppgiften har flyttats till återställa tillståndet, vilket möjliggör tillbaka noden igen och sedan den har markerats som slutförd.
+
+   Uppdateringens status kan hittas genom att titta på health-händelser på NodeAgentService med egenskapen ”WUOperationStatus-[nodnamn]” i v1.4.0 och senare versioner av programmet. Markerade avsnitt i bilderna nedan visar status för windows update på noden 'poanode_0' och 'poanode_2':
+
+   [![Bild av Windows update-Åtgärdsstatus](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png#lightbox)
+
+   [![Bild av Windows update-Åtgärdsstatus](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png#lightbox)
+
+   En kan också hämta information med hjälp av powershell, genom att ansluta till klustret och hämtar status för reparation aktivitet med [Get-ServiceFabricRepairTask](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricrepairtask?view=azureservicefabricps). Precis som nedan visar exempel som ”POS__poanode_2_125f2969-933c-4774-85 d 1-ebdf85e79f15” är uppgift i DownloadComplete tillstånd. Det innebär att uppdateringar har laddats ned på noden ”poanode_2” och installationen kommer att försökas när uppgiften övergår läget Kör.
+
+   ``` powershell
+    D:\service-fabric-poa-bin\service-fabric-poa-bin\Release> $k = Get-ServiceFabricRepairTask -TaskId "POS__poanode_2_125f2969-933c-4774-85d1-ebdf85e79f15"
+
+    D:\service-fabric-poa-bin\service-fabric-poa-bin\Release> $k.ExecutorData
+    {"ExecutorSubState":2,"ExecutorTimeoutInMinutes":90,"RestartRequestedTime":"0001-01-01T00:00:00"}
+    ```
+
+   Om det finns mycket mer som ska returneras sedan, loggar du in till specifika virtuella vill veta mer om problemet med hjälp av Windows-händelseloggar. Ovanstående nämns reparationsuppgiften kan bara ha executor underordnade tillståndet:
+
+      ExecutorSubState | Information
+    -- | -- 
+      Ingen = 1 |  Innebär att det inte fanns en pågående åtgärd på noden. Möjliga tillståndsövergångar.
+      DownloadCompleted=2 | Antyder hämtningen har slutförts med åtgärden lyckades delvis fel eller fel.
+      InstallationApproved=3 | Innebär hämtningen slutfördes tidigare och reparera Manager har godkänt installationen.
+      InstallationInProgress=4 | Motsvarar tillståndet för körning av reparationsuppgiften.
+      InstallationCompleted=5 | Innebär installationen slutfördes med framgång, delvis lyckats eller misslyckats.
+      RestartRequested=6 | Innebär korrigera installationen slutfördes och det finns någon väntande omstart åtgärd på noden.
+      RestartNotNeeded=7 |  Innebär att starta om inte behövdes när patch-installationen.
+      RestartCompleted=8 | Innebär att omstarten har slutförts.
+      OperationCompleted=9 | Windows uppdaterar åtgärden har slutförts.
+      OperationAborted = 10 | Innebär att windows update-åtgärden har avbrutits.
+
+6. I v1.4.0 och ovan av programmet, när Uppdateringsförsöket på en nod har slutförts, en händelse med egenskapen ”WUOperationStatus-[nodnamn]” på NodeAgentService att meddela när försöker nästa, för att ladda ned och installera uppdateringen, starta. Se bilden nedan:
+
+     [![Bild av Windows update-Åtgärdsstatus](media/service-fabric-patch-orchestration-application/wuoperationstatusc.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusc.png#lightbox)
+
 ### <a name="diagnostic-logs"></a>Diagnostikloggar
 
 Patch orchestration-appen loggar samlas in som en del av loggar för Service Fabric runtime.
@@ -269,12 +324,6 @@ Om du vill samla in loggar via diagnostiska verktyg/pipeline valfri. Patch orche
 ### <a name="health-reports"></a>Hälsorapporter
 
 Patch orchestration appen publiceras även hälsorapporter mot tjänsten Coordinator eller nod-agenttjänsten i följande fall:
-
-#### <a name="a-windows-update-operation-failed"></a>En Windows Update-åtgärden misslyckades
-
-Om en Windows Update-åtgärd misslyckas på en nod, genereras en hälsorapport mot Node Agent-tjänsten. Information om hälsorapporten innehålla problematiska nodnamnet.
-
-När uppdateringar har slutförts på noden problematiska, rensas automatiskt rapporten.
 
 #### <a name="the-node-agent-ntservice-is-down"></a>Noden agenten NTService är nere
 
@@ -347,6 +396,14 @@ F. **Hur jag för att korrigera klusternoder på Linux?**
 
 A. Se [automatisk operativsystemuppgradering avbildning för Azure VM-skalningsuppsättningen](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) för att samordna uppdateringar på linux.
 
+F.**varför uppdateringscykeln tar så lång tid?**
+
+A. Fråga efter den resultatet json och sedan, gå igenom posten i uppdateringscykeln för alla noder och sedan kan du försöka ta reda på den tid som uppdateringen på varje nod med hjälp av OperationStartTime och OperationTime(OperationCompletionTime). Om det har lång tidsperiod i vilken ingen uppdatering frånkopplades, det kan bero på att klustret var i feltillstånd och på grund av att reparera manager gick inte att godkänna alla andra POA repair-uppgifter. Om installationen av uppdateringen tog lång tid på varje nod, sedan kan det vara möjligt att noden inte har uppdaterats från lång tid och en massa uppdateringar var väntar på installation som tog tid. Det kan också finnas fall där korrigeringar på en nod har blockerats på grund av noden som fastnat inaktiverar tillstånd som inträffar vanligen eftersom inaktivera noden kan leda till kvorum/data går förlorade situationer.
+
+F. **Varför är det krävs för att inaktivera noden när POA korrigerar det?**
+
+A. Patch orchestration application inaktiverar noden med ”starta om” avsikt som stoppar/omtilldela alla Service fabric-tjänster som körs på noden. Detta görs för att säkerställa att program inte hamnar med hjälp av en blandning av nya och gamla DLL-filer, så det inte rekommenderas att korrigera en nod utan att inaktivera den.
+
 ## <a name="disclaimers"></a>Ansvarsfriskrivningar
 
 - Appen patch orchestration accepterar slutanvändarens licens av Windows Update för användarens räkning. Du kan också kan inställningen inaktiveras i konfigurationen av programmet.
@@ -386,6 +443,9 @@ En felaktig Windows-uppdatering kan påverkar hälsotillståndet för ett progra
 En administratör måste ingripa och avgöra varför programmet eller kluster fick dåligt hälsotillstånd på grund av Windows Update.
 
 ## <a name="release-notes"></a>Viktig information
+
+>[!NOTE]
+> Från och med version 1.4.0, viktig information och versioner finns på GitHub-versionen [sidan](https://github.com/microsoft/Service-Fabric-POA/releases/).
 
 ### <a name="version-110"></a>Version 1.1.0
 - Publiceringen

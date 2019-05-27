@@ -5,14 +5,14 @@ services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/01/2019
+ms.date: 05/15/2019
 ms.author: spelluru
-ms.openlocfilehash: 6dfa84eff8dcc104ae6f9c16262f3b1c697df6c1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b4bfdd3e9cdf99314dc55907ba163adc6cd39423
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60562006"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952896"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Event Grid meddelandeleverans och försök igen
 
@@ -24,16 +24,18 @@ För närvarande skickar Event Grid varje händelse individuellt till prenumeran
 
 ## <a name="retry-schedule-and-duration"></a>Försök testschemat
 
-Event Grid använder en exponentiell backoff återförsöksprincipen för händelseleverans. Om en slutpunkt som inte svarar eller returnerar en felkod, försöker Event Grid leverans enligt följande schema efter bästa förmåga:
+Event Grid väntar 30 sekunder för ett svar efter att leverera meddelandet. Efter 30 sekunder om slutpunkten inte har svarat meddelandet är i kö för återförsök. Event Grid använder en exponentiell backoff återförsöksprincipen för händelseleverans. Event Grid försöker leverans enligt följande schema efter bästa förmåga:
 
-1. 10 sekunder
-1. 30 sekunder
-1. 1 minut
-1. 5 minuter
-1. 10 minuter
-1. 30 minuter
-1. 1 timme
-1. Per timme för upp till 24 timmar
+- 10 sekunder
+- 30 sekunder
+- 1 minut
+- 5 minuter
+- 10 minuter
+- 30 minuter
+- 1 timme
+- Per timme för upp till 24 timmar
+
+Om slutpunkten som svarar inom 3 minuter, Event Grid försöker att ta bort händelsen från kön försök igen efter bästa förmåga men kan fortfarande att ta emot dubbletter.
 
 Event Grid lägger till en liten slumpmässig till alla åtgärder för återförsök och kan autentiseringsuuppsättningarna hoppa över vissa återförsök om en slutpunkt är konsekvent skadade, ned under en lång eller verkar vara överbelastas.
 
@@ -72,7 +74,7 @@ Följande HTTP-svarskoder tyda på att en händelse leveransförsök misslyckade
 
 - 400 Felaktig förfrågan
 - 401 Ej behörig
-- 404 Hittades inte
+- 404 Kunde ej hittas
 - 408 timeout för begäran
 - 413 begäran entiteten är för stor
 - 414 URI för lång

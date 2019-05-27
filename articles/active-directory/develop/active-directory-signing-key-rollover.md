@@ -17,15 +17,15 @@ ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b47430b4bd2f7fa6811785247ae6cd4f6df6f8f5
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: f809fa856d39096a85dcc205d8211ba3551eeb48
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546134"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65962853"
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>Signeringsnyckel i Azure Active Directory
-Den här artikeln beskriver vad du behöver veta om de offentliga nycklarna som används i Azure Active Directory (Azure AD) för att logga säkerhetstoken. Det är viktigt att Observera att dessa nycklar förnya regelbundet och, i nödfall, kan distribueras omedelbart. Alla program som använder Azure AD ska kunna programmässigt hantera nyckelförnyelse processen eller upprätta en process som regelbundet manuell förnyelse. Läs vidare för att förstå hur nycklarna fungerar, hur du kan utvärdera effekten av förnyelse för ditt program och hur du uppdaterar ditt program eller upprätta en regelbunden manuell förnyelse process för att hantera nyckelförnyelse om det behövs.
+Den här artikeln beskriver vad du behöver veta om de offentliga nycklarna som används i Azure Active Directory (Azure AD) för att logga säkerhetstoken. Det är viktigt att Observera att nycklarna förnyas regelbundet och i nödfall, kan distribueras omedelbart. Alla program som använder Azure AD ska kunna programmässigt hantera nyckelförnyelse processen eller upprätta en process som regelbundet manuell förnyelse. Läs vidare för att förstå hur nycklarna fungerar, hur du kan utvärdera effekten av förnyelse för ditt program och hur du uppdaterar ditt program eller upprätta en regelbunden manuell förnyelse process för att hantera nyckelförnyelse om det behövs.
 
 ## <a name="overview-of-signing-keys-in-azure-ad"></a>Översikt över Signeringsnycklar i Azure AD
 Azure AD använder kryptografi med offentliga nycklar bygger på branschstandarder för att upprätta förtroende mellan själva och de program som använder den. I praktiken kan fungerar det här på följande sätt: Azure AD använder en signeringsnyckel som består av en offentlig och privat nyckel. När en användare loggar in till ett program som använder Azure AD för autentisering, skapar en säkerhetstoken som innehåller information om användaren i Azure AD. Denna token är signerat av Azure AD med dess privata nyckel innan den skickas tillbaka till programmet. Om du vill verifiera att token är giltig och har sitt ursprung från Azure AD genom programmet måste validera token signatur med hjälp av den offentliga nyckeln som exponeras av Azure AD som finns i klientens [OpenID Connect discovery-dokumentet](https://openid.net/specs/openid-connect-discovery-1_0.html) eller SAML / WS-Fed [federationsmetadatadokumentet](azure-ad-federation-metadata.md).
@@ -43,7 +43,7 @@ Hur programmet hanterar nyckelförnyelse beror på olika faktorer, till exempel 
 * [Webbprogram / API: er som skyddar resurser med hjälp av .NET OWIN OpenID Connect, WS-Fed eller WindowsAzureActiveDirectoryBearerAuthentication mellanprogram](#owin)
 * [Webbprogram / API: er som skyddar resurser med hjälp av .NET Core OpenID Connect eller JwtBearerAuthentication mellanprogram](#owincore)
 * [Webbprogram / API: er som skyddar resurser med hjälp av Node.js passport-azure-ad-modulen](#passport)
-* [Webbprogram / API: er skyddar resurser och skapas med Visual Studio 2015 eller Visual Studio 2017](#vs2015)
+* [Webbprogram / API: er skyddar resurser och skapas med Visual Studio 2015 eller senare](#vs2015)
 * [Webbprogram skyddar resurser och skapas med Visual Studio 2013](#vs2013)
 * Webb-API: er skyddar resurser och skapas med Visual Studio 2013
 * [Webbprogram skyddar resurser och skapas med Visual Studio 2012](#vs2012)
@@ -56,12 +56,12 @@ Den här vägledningen är **inte** gäller för:
 * Lokala program som publicerats via programproxy inte behöver bekymra dig om Signeringsnycklar.
 
 ### <a name="nativeclient"></a>Interna klientprogram som har åtkomst till resurser
-Program som kommer endast åt resurser (dvs.) Microsoft Graph, KeyVault, API för Outlook och andra Microsoft-APIs) i allmänhet bara hämta en token och skickar den vidare till ägare till resursen. Med hänsyn till att de inte skyddar resurser, granska inte token och behöver därför inte att se till att den är korrekt signerad.
+Program som kommer endast åt resurser (dvs.) Microsoft Graph, KeyVault, API för Outlook och andra Microsoft-APIs) Allmänt bara hämta en token och skickar den vidare till ägare till resursen. Med hänsyn till att de inte skyddar resurser, granska inte token och behöver därför inte att se till att den är korrekt signerad.
 
 Interna klientprogram, oavsett om desktop eller mobile, i den här kategorin och därför påverkas inte av uppdateringen.
 
 ### <a name="webclient"></a>Webbprogram / API: er som har åtkomst till resurser
-Program som kommer endast åt resurser (dvs.) Microsoft Graph, KeyVault, API för Outlook och andra Microsoft-APIs) i allmänhet bara hämta en token och skickar den vidare till ägare till resursen. Med hänsyn till att de inte skyddar resurser, granska inte token och behöver därför inte att se till att den är korrekt signerad.
+Program som kommer endast åt resurser (dvs.) Microsoft Graph, KeyVault, API för Outlook och andra Microsoft-APIs) Allmänt bara hämta en token och skickar den vidare till ägare till resursen. Med hänsyn till att de inte skyddar resurser, granska inte token och behöver därför inte att se till att den är korrekt signerad.
 
 Webbprogram och webb-API: er som använder flödet appspecifika (klientautentiseringsuppgifter / klientcertifikat), i den här kategorin och därför inte påverkas av uppdateringen.
 
@@ -128,8 +128,8 @@ passport.use(new OIDCStrategy({
 ));
 ```
 
-### <a name="vs2015"></a>Webbprogram / API: er skyddar resurser och skapas med Visual Studio 2015 eller Visual Studio 2017
-Om ditt program har skapats med en mall för programmet i Visual Studio 2015 eller Visual Studio 2017 och du har valt **arbets-och Skolkonton** från den **ändra autentisering** menyn den redan den nödvändiga logiken för att hantera nyckelförnyelse automatiskt. Den här logiken inbäddad i OWIN OpenID Connect-middleware, hämtar och cachelagrar nycklarna från OpenID Connect discovery-dokumentet och uppdaterar dem regelbundet.
+### <a name="vs2015"></a>Webbprogram / API: er skyddar resurser och skapas med Visual Studio 2015 eller senare
+Om ditt program har skapats med en mall för web program i Visual Studio 2015 eller senare och du har valt **arbets-eller Skolkonton** från den **ändra autentisering** menyn den redan har nödvändiga logik för att hantera nyckelförnyelse automatiskt. Den här logiken inbäddad i OWIN OpenID Connect-middleware, hämtar och cachelagrar nycklarna från OpenID Connect discovery-dokumentet och uppdaterar dem regelbundet.
 
 Lägg till autentisering till din lösning manuellt och kanske programmet inte har logiken som behövs nyckelförnyelse. Du kommer att behöva skriva den själv eller följer du stegen i [webbprogram / API: er med andra bibliotek eller manuellt implementera någon av protokoll som stöds](#other).
 

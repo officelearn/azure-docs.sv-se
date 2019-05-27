@@ -4,14 +4,14 @@ description: Lär dig klienten konfigurationsalternativ för att förbättra pre
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 01/24/2018
+ms.date: 05/20/2019
 ms.author: sngun
-ms.openlocfilehash: e03fa427227bed745b53d43aaebc4dc58ad5bb9d
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: feab3ee1a21a52e8b18d59e67e8410fcbeb4ff5e
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62097903"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65953785"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Prestandatips för Azure Cosmos DB och .NET
 
@@ -48,8 +48,8 @@ Så om du begär ”hur kan jag förbättra min databasprestanda”? Överväg f
      |Anslutningsläge  |Protokoll som stöds  |Stödda SDK: erna  |API/Service-port  |
      |---------|---------|---------|---------|
      |Gateway  |   HTTPS    |  All SDKS    |   SQL(443), Mongo(10250, 10255, 10256), Table(443), Cassandra(10350), Graph(443)    |
-     |Direct    |    HTTPS     |  .NET och Java SDK    |   Portar i intervallet 20 10 000 000    |
-     |Direct    |     TCP    |  .NET SDK    | Portar i intervallet 20 10 000 000 |
+     |Direkt    |    HTTPS     |  .NET och Java SDK    |   Portar i intervallet 20 10 000 000    |
+     |Direkt    |     TCP    |  .NET SDK    | Portar i intervallet 20 10 000 000 |
 
      Azure Cosmos DB erbjuder en enkel och öppna RESTful-programmeringsmiljö via HTTPS. Dessutom finns det en effektiv TCP-protokollet som är också RESTful i sin modell och är tillgänglig via SDK för .NET-klient. Använda SSL för den inledande autentiseringen och kryptering trafik direkt TCP- och HTTPS. Använda TCP-protokollet när det är möjligt för bästa prestanda.
 
@@ -164,7 +164,7 @@ Så om du begär ”hur kan jag förbättra min databasprestanda”? Överväg f
  
 1. **Undanta oanvända sökvägar från indexering för snabbare skrivningar**
 
-    Cosmos DB: s indexeringsprincip kan du ange vilka dokument sökvägar för att inkludera eller exkludera från indexering genom att använda indexering sökvägar (IndexingPolicy.IncludedPaths och IndexingPolicy.ExcludedPaths). Användning av indexering sökvägar kan erbjuda bättre skrivprestanda och lagring med lägre index för scenarier där frågemönstren är kända i förväg, som korreleras indexering kostnader direkt till antal unika sökvägar som indexeras.  Till exempel visar följande kod hur du undantar en hela avsnittet dokument (alias) ett underträd) från indexering med den ”*” med jokertecken.
+    Cosmos DB: s indexeringsprincip kan du ange vilka dokument sökvägar för att inkludera eller exkludera från indexering genom att använda indexering sökvägar (IndexingPolicy.IncludedPaths och IndexingPolicy.ExcludedPaths). Användning av indexering sökvägar kan erbjuda bättre skrivprestanda och lagring med lägre index för scenarier där frågemönstren är kända i förväg, som korreleras indexering kostnader direkt till antal unika sökvägar som indexeras.  Till exempel följande kod visar hur du undantar en hela avsnittet dokument (ett underträd) från indexering med den ”*” med jokertecken.
 
     ```csharp
     var collection = new DocumentCollection { Id = "excludedPathCollection" };

@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/14/2018
 ms.author: iainfou
-ms.openlocfilehash: a6a2fb246e407d6ea240ff40f4d2fa2b1b780931
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f7a0269ff22987648d134cb7f4fba8e28e29fd8b
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61023746"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956288"
 ---
 # <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>Använda Virtual Kubelet med Azure Kubernetes Service (AKS)
 
@@ -26,13 +26,35 @@ När du använder Virtual Kubelet-providern för Azure Container Instances, kan 
 >
 > Virtual Kubelet är en experimentell öppenkällkodsprojekt och bör användas som sådana. För att bidra, problem med Files, och Läs mer om virtual kubelet finns i den [Virtual Kubelet GitHub-projektet][vk-github].
 
-## <a name="prerequisite"></a>Krav
+## <a name="before-you-begin"></a>Innan du börjar
 
 Det här dokumentet förutsätter att du har ett AKS-kluster. Om du behöver ett AKS-kluster finns i den [Snabbstart för Azure Kubernetes Service (AKS)][aks-quick-start].
 
 Du måste också Azure CLI version **2.0.33** eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
 
 Installera Virtual Kubelet [Helm](https://docs.helm.sh/using_helm/#installing-helm) krävs också.
+
+### <a name="register-container-instances-feature-provider"></a>Registrera providern för Container Instances-funktionen
+
+Om du inte tidigare har använt tjänsten Azure Container Instance (ACI) kan du registrera tjänstleverantören med din prenumeration. Du kan kontrollera status för ACI providerregistrering med hjälp av kommandot [az provider list] [az-provider-list] som visas i följande exempel:
+
+```azurecli-interactive
+az provider list --query "[?contains(namespace,'Microsoft.ContainerInstance')]" -o table
+```
+
+Den *Microsoft.ContainerInstance* provider ska rapporteras som *registrerad*, vilket visas i följande Exempelutdata:
+
+```
+Namespace                    RegistrationState
+---------------------------  -------------------
+Microsoft.ContainerInstance  Registered
+```
+
+Om providern visas som *NotRegistered*, registrera providern med [az provider registrera] [az-provider-register] som visas i följande exempel:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerInstance
+```
 
 ### <a name="for-rbac-enabled-clusters"></a>För RBAC-aktiverade kluster
 
@@ -85,7 +107,7 @@ az aks install-connector --resource-group myAKSCluster --name myAKSCluster --con
 
 De här argumenten är tillgängliga för den `aks install-connector` kommando.
 
-| Argument: | Beskrivning | Krävs |
+| Argument: | Beskrivning | Obligatoriskt |
 |---|---|:---:|
 | `--connector-name` | Namnet på ACI-Anslutningsappens.| Ja |
 | `--name` `-n` | Namnet på det hanterade klustret. | Ja |

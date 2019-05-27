@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4715ec92c4ee45733cc0eb2839c533f9ee8968fe
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 35d494702673d59290a0073c55135138f533b8bf
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64694121"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956688"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Felsökningsguide för Azure Disk Encryption
 
@@ -150,7 +150,9 @@ If the expected encryption state does not match what is being reported in the po
 
 Portalen visas en disk som är krypterade även när det har varit okrypterade i den virtuella datorn.  Detta kan inträffa när på låg nivå kommandon används för att dekryptera direkt disken från den virtuella datorn istället för att använda de högre nivån Azure Disk Encryption kommandona för hantering.  Den högre nivån kommandon inte bara företagsprinciperna disken från den virtuella datorn, men utanför den virtuella datorn de också uppdatera inställningar för viktiga plattform filnivåkryptering och tillägg som är associerade med den virtuella datorn.  Om dessa inte sparas i justering, kommer plattformen inte kunna rapportera krypteringsstatus eller etablera den virtuella datorn korrekt.   
 
-Starta från en fungerande tillstånd där kryptering är aktiverat för att inaktivera korrekt Azure Disk Encryption, och sedan använda den [inaktivera AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) och [Remove-AzVMDiskEncryptionExtension](/powershell/module/az.compute/remove-azvmdiskencryptionextension) Powershell kommandon eller [az vm encryption inaktivera](/cli/azure/vm/encryption) CLI-kommando. 
+För att inaktivera Azure Disk Encryption med PowerShell, Använd [inaktivera AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) följt av [Remove-AzVMDiskEncryptionExtension](/powershell/module/az.compute/remove-azvmdiskencryptionextension). Kör Remove-AzVMDiskEncryptionExtension innan krypteringen är inaktiverad kommer att misslyckas.
+
+För att inaktivera Azure Disk Encryption med CLI, använder [az vm encryption inaktivera](/cli/azure/vm/encryption). 
 
 ## <a name="next-steps"></a>Nästa steg
 

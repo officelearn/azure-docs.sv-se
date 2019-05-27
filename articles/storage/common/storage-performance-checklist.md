@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: b8451a1195ab64d3cd7afda074d786a3209ce785
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 904b9b8ba98be5e14b1d769a0e1d8c2d6084e24d
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61477305"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951168"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Prestanda och skalbarhetschecklista för Microsoft Azure Storage
 ## <a name="overview"></a>Översikt
 Microsoft har utvecklat ett antal beprövade metoder för att använda dessa tjänster på ett effektivt sätt sedan versionen av Microsoft Azure Storage-tjänster och den här artikeln fungerar att konsolidera den viktigaste inställningen av dem i en checklista-style-lista. Avsikten med den här artikeln är att hjälpa programutvecklare att kontrollera att de använder beprövade metoder med Azure Storage och hjälper dem att identifiera andra beprövade metoder som bör de överväga att använda. Den här artikeln använder inte att täcka alla möjliga optimering för prestanda och skalbarhet – den omfattar inte de som är små i deras inverkan eller inte bred front. I den utsträckning som går att förutse programmets beteende under design, är det bra att behålla dem i åtanke tidigt för att undvika Designer som kommer stöter på problem med prestanda.  
 
-Alla programutvecklare som använder Azure Storage ska ta dig tid att läsa den här artikeln och kontrollera att hans eller hennes program följer var och en av de beprövade metoder som anges nedan.  
+Alla programutvecklare som använder Azure Storage ska ta dig tid att läsa den här artikeln och kontrollera att deras program följer var och en av de beprövade metoder som anges nedan.  
 
 ## <a name="checklist"></a>Checklista
 Den här artikeln organiserar beprövade metoder i följande grupper. Beprövade metoder som gäller för:  
@@ -29,7 +29,7 @@ Den här artikeln organiserar beprövade metoder i följande grupper. Beprövade
 * Tabeller
 * Köer  
 
-| Klart | Område | Category | Fråga |
+| Klar | Område | Category | Fråga |
 | --- | --- | --- | --- |
 | &nbsp; | Alla tjänster |Skalbarhetsmål |[Är programmet som utformat för att undvika närmar sig det för skalbarhetsmål?](#subheading1) |
 | &nbsp; | Alla tjänster |Skalbarhetsmål |[Har din namngivningskonvention som utformats för att aktivera bättre belastningsutjämning?](#subheading47) |
@@ -45,8 +45,8 @@ Den här artikeln organiserar beprövade metoder i följande grupper. Beprövade
 | &nbsp; | Alla tjänster |.NET Configuration |[Du använder .NET 4.5 eller senare, vilket har förbättrat skräpinsamling?](#subheading11) |
 | &nbsp; | Alla tjänster |Parallellitet |[Har du sett att parallellitet avgränsas på lämpligt sätt så att du inte överbelasta dina klientfunktioner eller det för skalbarhetsmål?](#subheading12) |
 | &nbsp; | Alla tjänster |Verktyg |[Är du med hjälp av den senaste versionen av Microsoft tillhandahöll klientbibliotek och verktyg?](#subheading13) |
-| &nbsp; | Alla tjänster |Antal försök |[Är du med hjälp av en exponentiell backoff återförsöksprincip för begränsning av fel och tidsgränser?](#subheading14) |
-| &nbsp; | Alla tjänster |Antal försök |[Är dina program Undvik återförsök för icke-återförsöksbar fel?](#subheading15) |
+| &nbsp; | Alla tjänster |Återförsök |[Är du med hjälp av en exponentiell backoff återförsöksprincip för begränsning av fel och tidsgränser?](#subheading14) |
+| &nbsp; | Alla tjänster |Återförsök |[Är dina program Undvik återförsök för icke-återförsöksbar fel?](#subheading15) |
 | &nbsp; | Blobar |Skalbarhetsmål |[Har du ett stort antal klienter som ansluter till ett enda objekt samtidigt?](#subheading46) |
 | &nbsp; | Blobar |Skalbarhetsmål |[Är programmet dig inom skalbarhetsmålen bandbredd eller åtgärder för en enda blob?](#subheading16) |
 | &nbsp; | Blobar |Kopiera BLOB |[Är du kopiera blobar på ett effektivt sätt?](#subheading17) |
@@ -208,7 +208,7 @@ Parallellitet kan vara bra för prestanda, var försiktig med obegränsade paral
 ### <a name="subheading13"></a>Storage-klientbibliotek och verktyg
 Använd alltid den senaste av Microsoft tillhandahållna klientbibliotek och verktyg. Vid tidpunkten för skrivning finns klientbibliotek som är tillgängliga för .NET, Windows Phone, Windows Runtime, Java och C++ samt preview-bibliotek för andra språk. Microsoft har också publicerat PowerShell-cmdletar och Azure CLI-kommandon för att arbeta med Azure Storage. Microsoft aktivt utvecklar dessa verktyg med prestanda, håller dem uppdaterade med de senaste versionerna för tjänsten och garanterar de hanterar många av de beprövade prestanda internt.  
 
-### <a name="retries"></a>Antal försök
+### <a name="retries"></a>Återförsök
 #### <a name="subheading14"></a>Begränsning/ServerBusy
 I vissa fall kan tjänsten storage kan begränsa ditt program eller kan helt enkelt inte hantera begäran på grund av vissa tillfälliga villkor och returnerar ett meddelande om ”503 Server upptagen” eller ”500 löper ut”.  Detta kan inträffa om programmet närmar sig något av det för skalbarhetsmål, eller om systemet är ombalansering av dina partitionerade data för högre dataflöde.  Klientprogrammet bör vanligtvis försök som orsakar ett sådant fel: försök samma begäran senare kan lyckas. Men om lagringstjänsten begränsar ditt program eftersom det överskrider skalbarhetsmål, eller även om tjänsten kunde inte hantera begäran av någon anledning, att aggressiva återförsök vanligtvis problemet sämre. Därför bör du använda en exponentiell backoff (klienten bibliotek standard till det här beteendet). Exempelvis kan programmet försöka igen efter 2 sekunder, och sedan 4 sekunder sedan 10 sekunder sedan 30 sekunder och ger sedan upp helt. Detta resulterar i ditt program avsevärt minska belastningen på tjänsten i stället exacerbating eventuella problem.  
 

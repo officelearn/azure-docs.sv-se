@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 0ac102f388c404bab98354b7bd131989abedd7e6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 075fc48d4db4c4cfcc6f45f5fe93e8cfb38d5559
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60418619"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991848"
 ---
 # <a name="time-sync-for-linux-vms-in-azure"></a>Tidssynkronisering för virtuella Linux-datorer i Azure
 
@@ -40,7 +40,7 @@ Azure-värdar som synkroniseras till interna Microsoft-tidsservrar att ta sina t
 
 På fristående maskinvara, Linux-operativsystem endast läser värdmaskinvaran systemklockan på Start. Efter det underhålls klockan av avbrott timern i Linux-kernel. I den här konfigurationen kommer klockan avviker över tid. I senare Linux-distributioner på Azure kan virtuella datorer använda VMICTimeSync-provider som ingår i Linux integration services (LIS) att fråga efter klockan uppdateringar från värden oftare.
 
-VM-interaktioner med-värden kan också påverka klockan. Under [minne bevarande Underhåll](maintenance-and-updates.md#maintenance-not-requiring-a-reboot), virtuella datorer har pausats för upp till 30 sekunder. Till exempel innan du påbörjar Underhåll VM klockan visar 10:00:00 AM och varar 28 sekunder. När den virtuella datorn återupptas klockan på den virtuella datorn fortfarande visas 10:00:00 AM, som är 28 sekunder av. Att korrekt för detta, VMICTimeSync tjänsten övervakar vad som händer på värden och frågar efter ändringar på de virtuella datorerna att kompensera.
+VM-interaktioner med-värden kan också påverka klockan. Under [minne bevarande Underhåll](maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot), virtuella datorer har pausats för upp till 30 sekunder. Till exempel innan du påbörjar Underhåll VM klockan visar 10:00:00 AM och varar 28 sekunder. När den virtuella datorn återupptas klockan på den virtuella datorn fortfarande visas 10:00:00 AM, som är 28 sekunder av. Att korrekt för detta, VMICTimeSync tjänsten övervakar vad som händer på värden och frågar efter ändringar på de virtuella datorerna att kompensera.
 
 Klockan på den virtuella datorn skulle ackumuleras fel utan att tid synkronisering fungerar. När det finns bara en virtuell dator, kanske inte effekten är betydande om arbetsbelastningen kräver mycket exakta tidsangivelserna. Men i de flesta fall, vi har flera, sammankopplade virtuella datorer som använder tid för att spåra transaktioner och de tid måste vara konsekvent på hela distributionen. När tiden mellan virtuella datorer skiljer sig, kan du få se följande effekter:
 

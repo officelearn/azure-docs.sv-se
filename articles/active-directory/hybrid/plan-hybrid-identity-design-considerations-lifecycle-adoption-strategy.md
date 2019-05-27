@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19b312f284d557c2c1344b82b9fcd570d3392077
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: aff695307fc97e9f2acfd44f7434d5cbb26ef53e
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60381285"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65950827"
 ---
 # <a name="determine-hybrid-identity-lifecycle-adoption-strategy"></a>Fastställa hybrid införande för identitetslivscykel
 I det här steget ska du definiera identity management strategin för din hybrididentitetslösning att uppfylla affärskrav som du definierade i [fastställa hybrid identitetshanteringsaktiviteter](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md).
@@ -36,13 +36,13 @@ Access control är en viktig funktion av en central, en enda punkt etablering sy
 
 Konton i avancerade IT-företag omfattar hundratals olika parametrar som definierar utfärdare och informationen kan styras av systemet etablering. Nya användare kan identifieras med de data som du anger från den auktoritativa källan. Begäran om godkännande-funktion för åtkomst initierar de processer som godkänna (eller avvisa) resursetablering för dem.
 
-| Livscykeln för hantering av fas | Lokalt | Molnet | Hybrid |
+| Livscykeln för hantering av fas | Lokalt | Moln | Hybrid |
 | --- | --- | --- | --- |
 | Kontohantering och etablering |Med hjälp av serverrollen Active Directory® Domain Services (AD DS), kan du skapa en skalbar, säker och hanterbar infrastruktur för användar- och resurshantering och ger stöd för katalogaktiverade program, till exempel Microsoft® Exchange Server. <br><br> [Du kan etablera grupper i AD DS via en Identity manager](https://technet.microsoft.com/library/ff686261.aspx) <br>[Du kan etablera användare i AD DS](https://technet.microsoft.com/library/ff686263.aspx) <br><br> Administratörer kan använda åtkomstkontroll för att hantera användarnas åtkomst till delade resurser av säkerhetsskäl. I Active Directory administreras åtkomstkontroll på objektnivå genom att ställa in olika nivåer av åtkomst och behörighet till objekt, till exempel fullständig behörighet, Skriv, läs eller ingen åtkomst. Åtkomstkontroll i Active Directory definierar hur olika användare kan använda Active Directory-objekt. Behörigheter för objekt i Active Directory är som standard den säkraste inställningen. |Du måste skapa ett konto för varje användare som behöver komma åt en Microsoft-molntjänst. Du kan också ändra användarkonton eller ta bort dem när de inte längre behövs. Användare har inte administratörsbehörighet som standard, men du kan tilldela dem (valfritt). <br><br> I Azure Active Directory är en av de viktigaste funktionerna möjligheten att hantera åtkomst till resurser. Dessa resurser kan vara en del av katalogen, som i fallet med behörigheter för att hantera objekt via roller i katalogen, eller resurser som är externa för katalogen såsom SaaS-program, Azure-tjänster och SharePoint-webbplatser eller lokala resurser. <br><br> Center för Azure Active Directorys åtkomst finns lösning i säkerhetsgruppen. Resursägaren (eller administratören för katalogen) kan tilldela en grupp för att ge en viss åtkomsträtt till resurser som ägaren äger. Medlemmar i gruppen ges åtkomst och resursägaren kan delegera behörighet att hantera listan över medlemmar i en grupp till någon annan – till exempel en avdelningschef eller en supportavdelningsadministratör<br> <br> Hantera grupper i Azure AD-avsnitt innehåller mer information om hur du hanterar åtkomst via grupper. |Utöka Active Directory-identiteter till molnet via synkronisering och federation |
 
 ## <a name="role-based-access-control"></a>Rollbaserad åtkomstkontroll
 Rollbaserad åtkomst kontroll (RBAC) använder roller och etablera principer för att utvärdera, testa och tillämpa dina affärsprocesser och regler för att bevilja åtkomst till användare. Viktiga administratörer skapa principer för etablering och tilldela användare till roller och som definierar uppsättningar av rättigheter till resurser för dessa roller. RBAC utökar identitetshanteringslösning för att använda programvarubaserade processer och minska manuell användaråtgärder i etableringsprocessen.
-RBAC i Azure AD gör det möjligt för företaget att begränsa antalet åtgärder som en person kan göra när han har åtkomst till Azure-portalen. Genom att använda RBAC för att styra åtkomst till portalen kan IT-administratörer ca delegera åtkomst med hjälp av följande metoder för hantering av åtkomst:
+RBAC i Azure AD gör det möjligt för företaget att begränsa antalet åtgärder som en person kan göra när de har åtkomst till Azure-portalen. Genom att använda RBAC för att styra åtkomst till portalen kan IT-administratörer ca delegera åtkomst med hjälp av följande metoder för hantering av åtkomst:
 
 * **Gruppbaserad rolltilldelning**: Du kan tilldela åtkomst till Azure AD-grupper som kan synkroniseras från din lokala Active Directory. På så sätt kan du utnyttja befintliga investeringar som din organisation har gjort i verktyg och processer för att hantera grupper. Du kan också använda delegerad grupp-funktionen för hantering av Azure AD Premium.
 * **Utnyttja inbyggda roller i Azure**: Du kan använda tre roller, ägare, deltagare och läsare, så att användare och grupper har behörighet till endast de aktiviteter som de behöver för att göra sina jobb.
@@ -86,7 +86,7 @@ Om du integrerar dina lokala kataloger med Azure AD kan du hjälpa dina använda
 
 Följande bild innehåller ett exempel på en översikt över processen för synkronisering av identitet.
 
-![Sync](./media/plan-hybrid-identity-design-considerations/identitysync.png)
+![Synkronisera](./media/plan-hybrid-identity-design-considerations/identitysync.png)
 
 Processen för synkronisering av identitet
 

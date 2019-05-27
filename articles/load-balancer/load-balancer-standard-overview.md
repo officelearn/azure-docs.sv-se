@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/28/2019
 ms.author: kumud
-ms.openlocfilehash: ee0dc1b9879c8a26c7f3e48cc8daf6ae3511b27a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 266630cb7c9601af69073a6c9beb7d7ada9b8034
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60734531"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65957483"
 ---
 # <a name="azure-standard-load-balancer-overview"></a>Översikt över Azure Standard Load Balancer
 
@@ -226,7 +226,6 @@ Prisinformation om Standard Load Balancer finns på sidan med [Load Balancer-pri
 - SKU: er är inte föränderliga. Du kan inte ändra SKU: N för en befintlig resurs.
 - En fristående virtuell datorresurs, resurs för tillgänglighetsuppsättning eller VM scale set resurs kan referera till en SKU aldrig båda.
 - En belastningsutjämningsregel kan inte finnas två virtuella nätverk.  Klienter och deras relaterade serverdelsinstanser måste finnas i samma virtuella nätverk.  
-- Load Balancer klienter är inte tillgängliga för global vnet-peering.
 - [Flytta Prenumerationsåtgärder](../azure-resource-manager/resource-group-move-resources.md) stöds inte för Standard-SKU-Belastningsutjämnare och PIP-resurser.
 - Webbarbetsroller utan ett virtuellt nätverk och andra Microsoft-plattformstjänster kan vara tillgängliga när bara en intern Standardbelastningsutjämnare används på grund av en sidoeffekt från hur pre-VNet-tjänster och andra plattformar tjänster funktion. Du måste inte förlita dig på detta när de hanterar själva eller den underliggande plattformen kan ändras utan föregående meddelande. Du måste alltid anta att du behöver skapa [utgående anslutning](load-balancer-outbound-connections.md) uttryckligen om du vill när du använder en intern Standard Load Balancer endast.
 - Load Balancer är en TCP- eller UDP-produkt för belastningsutjämning och portvidarebefordran för dessa specifika IP-protokoll.  Belastningsutjämningsregler och inkommande NAT-regler stöds för TCP och UDP och stöds inte för andra IP-protokoll, inklusive ICMP. Load Balancer avslutar inte, svarar inte på eller på annat sätt interagerar med nyttolasten för ett UDP- eller TCP-flöde. Det är inte en proxy. Lyckad validering av anslutning till en klientdel måste vidta plats i band med samma protokoll som används i en belastning belastningsutjämning eller inkommande NAT-regel (TCP eller UDP) _och_ minst en av dina virtuella datorer måste generera ett svar för en klient för att se ett svar från en klientdel.  Inte får en in-band-svar från Belastningsutjämnarens klientdel anger att inga virtuella datorer kunde svara.  Det går inte att interagera med en belastningsutjämnare som är klientdelen utan en virtuell dator kan svara.  Det här gäller även för utgående anslutningar där [portmaskerings-SNAT](load-balancer-outbound-connections.md#snat) bara stöds för TCP och UDP. Alla andra IP-protokoll, inklusive ICMP, kommer att misslyckas.  Tilldela en offentlig IP-adress på instansnivå som åtgärd.

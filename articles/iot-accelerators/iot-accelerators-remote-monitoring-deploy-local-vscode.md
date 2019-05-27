@@ -3,17 +3,17 @@ title: Distribuera lösningen för fjärrövervakning lokalt (Visual Studio Code
 description: Den här guiden visar hur du distribuerar den lösningsacceleratorn för fjärrövervakningen till den lokala datorn med hjälp av Visual Studio Code för utveckling och testning.
 author: avneet723
 manager: hegate
-ms.author: avneet723
+ms.author: avneets
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 946f815cecea4cc172fac35c0b260d795317e6e1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bfe28f3ff994d518cb744233e88a6f04b5771a83
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61446188"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967525"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio-code"></a>Distribuera lösningsacceleratorn för fjärrövervakning lokalt – Visual Studio Code
 
@@ -59,7 +59,7 @@ dotnet build -c Release
 
 ### <a name="deploy-all-other-microservices-on-local-machine"></a>Distribuera alla mikrotjänster på den lokala datorn
 
-Följande steg visar hur du kör fjärrövervakning-mikrotjänster i Visual Studio 2017:
+Följande steg visar hur du kör fjärrövervakning-mikrotjänster i Visual Studio Code:
 
 1. Starta Visual Studio Code.
 1. Öppna den **azure-iot-pcs-remote-monitoring-dotnet** modul från den lokala kopian i VS Code.

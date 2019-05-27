@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 2/25/2019
+ms.date: 05/20/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: c4998712d77771a5600c06183a76254548289372
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ebfe3db43de87e67ad05ed8cb9f5812b5ded04e0
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60365102"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65965903"
 ---
 # <a name="configure-expressroute-direct-by-using-the-azure-cli"></a>Konfigurera ExpressRoute direkt med hjälp av Azure CLI
 
@@ -280,8 +280,9 @@ Du kan skapa 10 kretsar i den prenumeration som innehåller den ExpressRoute Dir
 
 Du kan använda ytterligare krets bandbredder på ExpressRoute Direct för scenarier som beskrivs här. Vilka bandbredder är 40 Gbit/s och 100 Gbit/s.
 
-Du kan skapa antingen Standard eller Premium-kretsar. Standard-kretsar som ingår i kostnaden för tjänsten. Kostnaden för Premium-kretsar baseras på den bandbredd som du väljer. Du kan skapa kretsar endast som mäts. Obegränsade kretsar stöds inte på ExpressRoute direkt.
+**SkuTier** kan vara lokala, Standard och Premium.
 
+**SkuFamily** måste vara MeteredData som obegränsade stöds inte på ExpressRoute direkt.
 Skapa en krets på ExpressRoute Direct-resursen:
 
   ```azurecli

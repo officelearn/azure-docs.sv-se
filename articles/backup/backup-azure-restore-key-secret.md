@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 08/28/2017
 ms.author: geetha
 ms.openlocfilehash: 13eb800cd64e0de736b1fdea308a03d8a8d0f046
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59358195"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66127908"
 ---
 # <a name="restore-key-vault-key-and-secret-for-encrypted-vms-using-azure-backup"></a>Återställa Key Vault-nyckel och hemlighet för krypterade virtuella datorer med Azure Backup
 

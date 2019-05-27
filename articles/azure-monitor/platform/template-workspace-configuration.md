@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: magoedte
 ms.openlocfilehash: 0578b50952c12d4587f7a4751bc831d3134c64e7
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540779"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66129438"
 ---
 # <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Hantera Log Analytics-arbetsyta med hjälp av Azure Resource Manager-mallar
 
@@ -27,7 +27,7 @@ ms.locfileid: "58540779"
 Du kan använda [Azure Resource Manager-mallar](../../azure-resource-manager/resource-group-authoring-templates.md) du skapar och konfigurerar Log Analytics-arbetsytor i Azure Monitor. Exempel på de uppgifter du kan utföra med mallar:
 
 * Skapa en arbetsyta inklusive inställningen prisnivå 
-* Lägga till en lösning
+* Lägg till en lösning
 * Skapa sparade sökningar
 * Skapa en datorgrupp
 * Aktivera insamling av IIS-loggar från datorer med Windows-agenten installerad
@@ -42,10 +42,10 @@ Den här artikeln innehåller mallexempel på som beskriva några av den konfigu
 ## <a name="api-versions"></a>API-versioner
 I följande tabell visas den API-versionen för resurser som används i det här exemplet.
 
-| Resurs | Resurstyp | API-version |
+| Resource | Resurstyp | API-version |
 |:---|:---|:---|
 | Arbetsyta   | arbetsytor    | 2017-03-15-preview |
-| Search      | savedSearches | 2015-03-20 |
+| Sökning      | savedSearches | 2015-03-20 |
 | Datakälla | datakällor   | 2015-11-01-preview |
 | Lösning    | lösningar     | 2015-11-01-preview |
 

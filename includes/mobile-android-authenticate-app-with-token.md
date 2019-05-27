@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: crdun
 ms.openlocfilehash: deb94cab97bd9a402676cdc5c0239da8d07ed8b2
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52440465"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66141021"
 ---
 Föregående exempel visade en standard inloggning, vilket kräver att klienten kan kontakta identitetsprovidern- och backend Azure-tjänsten varje gång appen startas. Den här metoden är ineffektiv och du kan ha användning-relaterade problem om många kunder försöker starta din app samtidigt. En bättre metod är att cachelagra den autentiseringstoken som returneras av Azure-tjänsten och försöker använda den här första innan du använder en provider-baserad inloggning.
 

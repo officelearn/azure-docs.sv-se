@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: victorh
-ms.openlocfilehash: 568df6f83d0bc986c8b452bdaa094a96970ff34a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 7ed4cee6ab794ddcc2142d5c7ef47f90a54d7120
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58878340"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "66136085"
 ---
 # <a name="create-an-application-gateway-with-multiple-site-hosting-using-azure-powershell"></a>Skapa en Programgateway med flera webbplatser med hjälp av Azure PowerShell
 
@@ -27,7 +27,7 @@ I den här artikeln kan du se hur du:
 
 > [!div class="checklist"]
 > * Konfigurera nätverket
-> * Skapa en Application Gateway
+> * Skapa en programgateway
 > * Skapa lyssnare och regler för Routning
 > * Skapa VM-skalningsuppsättningar med serverdelspoolerna
 > * Skapa en CNAME-post i domänen
@@ -74,7 +74,7 @@ $pip = New-AzPublicIpAddress `
   -AllocationMethod Dynamic
 ```
 
-## <a name="create-an-application-gateway"></a>Skapa en Application Gateway
+## <a name="create-an-application-gateway"></a>Skapa en programgateway
 
 ### <a name="create-the-ip-configurations-and-frontend-port"></a>Skapa IP-konfigurationerna och klientdelsporten
 
@@ -98,7 +98,7 @@ $frontendport = New-AzApplicationGatewayFrontendPort `
 
 ### <a name="create-the-backend-pools-and-settings"></a>Skapa serverdelspoolerna och tillhörande inställningar
 
-Skapa backend-adresspooler med namnet *contosoPool* och *fabrikamPool* för application gateway med [New AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/new-azapplicationgatewaybackendaddresspool). Konfigurera inställningarna för poolen med hjälp av [New AzApplicationGatewayBackendHttpSettings](/powershell/module/az.network/new-azapplicationgatewaybackendhttpsettings).
+Skapa backend-adresspooler med namnet *contosoPool* och *fabrikamPool* för application gateway med [New AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/new-azapplicationgatewaybackendaddresspool). Konfigurera inställningarna för poolen med hjälp av [New AzApplicationGatewayBackendHttpSettings](/powershell/module/az.network/new-azapplicationgatewaybackendhttpsetting).
 
 ```azurepowershell-interactive
 $contosoPool = New-AzApplicationGatewayBackendAddressPool `
@@ -274,7 +274,7 @@ I den här artikeln lärde du dig att:
 
 > [!div class="checklist"]
 > * Konfigurera nätverket
-> * Skapa en Application Gateway
+> * Skapa en programgateway
 > * Skapa lyssnare och regler för Routning
 > * Skapa VM-skalningsuppsättningar med serverdelspoolerna
 > * Skapa en CNAME-post i domänen

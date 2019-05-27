@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 04/02/2019
 ms.author: wesmc
 ms.openlocfilehash: 498a7ee28b9404d0733e4615f4df635a8c904b51
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60118889"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66132822"
 ---
 ### <a name="cacheskuname"></a>cacheSKUName
 
@@ -81,12 +81,12 @@ Mallen definierar integer-värden som tillåts för den här parametern (0 till 
 
 Värdena motsvarar följande cachestorlekarna:
 
-| Value | Basic och Standard<br>Cachestorlek | Premium<br>Cachestorlek |
+| Värde | Basic och Standard<br>Cachestorlek | Premium<br>Cachestorlek |
 | :---: | :------------------------------: | :-------------------: |
 | 0     | 250 MB (standard)                 | Saknas                   |
 | 1     | 1 GB                             | 6 GB (standard)        |
 | 2     | 2,5 GB                           | 13 GB                 |
 | 3     | 6 GB                             | 26 GB                 |
 | 4     | 13 GB                            | 53 GB                 |
-| 5     | 26 GB                            | 120 GB                |
+| 5     | 26 GB                            | 120 GB                |
 | 6     | 53 GB                            | Saknas                   |

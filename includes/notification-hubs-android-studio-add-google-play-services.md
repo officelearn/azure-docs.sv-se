@@ -9,11 +9,11 @@ ms.date: 02/05/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: fb27386881e89cd9056d0efccb7d3c301867bd83
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55965995"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66156835"
 ---
 1. Öppna **Android Studio**, välj **Verktyg** på menyn och välj **SDK Manager**. 
 2. Välj målversionen av det Android-SDK som används i projektet och välj **Visa paketinformation**. 

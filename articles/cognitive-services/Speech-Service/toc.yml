@@ -170,7 +170,7 @@
               href: how-to-custom-speech-train-model.md
             - name: Distribuera en anpassad modell
               href: how-to-custom-speech-deploy-model.md
-            - name: 'Guide: Skapa transkriptioner med mänsklig etikett'
+            - name: Guide för att skapa transkriptioner med mänsklig etikett
               href: how-to-custom-speech-human-labeled-transcriptions.md
         - name: Text till tal
           items:
@@ -195,14 +195,14 @@
           href: how-to-migrate-from-custom-speech-service.md
         - name: 'Från Translator Speech API:et'
           href: how-to-migrate-from-translator-speech-api.md
-    - name: Använda lokala containrar
+    - name: Använda containrar
       items:
-        - name: Installera och köra lokala containrar
-          displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull'
+        - name: Installera och köra containrar
+          displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull, on-premises'
           href: speech-container-howto.md
         - name: Konfigurera containrar
           href: speech-container-configuration.md
-          displayName: 'docker, container, billing, apikey, pull, logging'
+          displayName: 'docker, container, billing, apikey, pull, logging, on-premises'
 - name: Exempel
   items:
     - name: Speech SDK
@@ -314,6 +314,8 @@
       href: support.md
     - name: Priser och begränsningar
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/'
+    - name: Efterlevnad
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/?category=ai-machine-learning'
     - name: Sekretess och cookies

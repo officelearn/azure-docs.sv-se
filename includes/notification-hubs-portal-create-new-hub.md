@@ -9,11 +9,11 @@ ms.date: 01/17/2019
 ms.author: jowargo
 ms.custom: include file
 ms.openlocfilehash: a5d29e77f6ba10ed3069cb3f5a3c8089f49c237d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60423407"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66140558"
 ---
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Välj **Alla tjänster** på den vänstra menyn och välj **Notification Hubs** i avsnittet **Mobil**. Välj stjärnan (`*`) intill namnet på tjänsten för att lägga till den i avsnittet **FAVORITER** på den vänstra menyn. När **Notification Hubs** har lagts till i **FAVORITER** väljer du det på den vänstra menyn. 

@@ -16,11 +16,11 @@ ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 0a5b8bdbcd5a05574d824e3f57cfc23967278e27
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487744"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66138725"
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-app-service"></a>Självstudier: Bind ett befintligt anpassat SSL-certifikat till Azure App Service
 
@@ -34,14 +34,14 @@ I den här guiden får du lära dig att:
 > * Uppgradera appens prisnivå
 > * Binda ditt anpassade certifikat till App Service
 > * Förnya certifikat
-> * Använda HTTPS
+> * Framtvinga HTTPS
 > * Använda TLS 1.1/1.2
 > * Automatisera hantering av TLS med skript
 
 > [!NOTE]
 > Om du behöver ett anpassat SSL-certifikat kan du skaffa ett i Azure Portal direkt och binda det till din app. Följ [Självstudie för App Service Certificate](web-sites-purchase-ssl-web-site.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att slutföra den här självstudien behöver du:
 
@@ -185,13 +185,13 @@ Din inkommande IP-adress kan ändras när du tar bort en bindning, även om bind
 2. Bind det nya certifikatet till önskad anpassad domän utan att ta bort det gamla. Med den här åtgärden ersätts bindningen i stället för att den gamla tas bort.
 3. Ta bort det gamla certifikatet. 
 
-## <a name="enforce-https"></a>Använda HTTPS
+## <a name="enforce-https"></a>Framtvinga HTTPS
 
 Som standard kan alla fortfarande komma åt din app med HTTP. Du kan omdirigera alla HTTP-begäranden till HTTPS-porten.
 
 Välj **SSL-inställningar** i den vänstra navigeringen på din appsida. I **Endast HTTPS** väljer du **På**.
 
-![Använda HTTPS](./media/app-service-web-tutorial-custom-ssl/enforce-https.png)
+![Framtvinga HTTPS](./media/app-service-web-tutorial-custom-ssl/enforce-https.png)
 
 När åtgärden har slutförts går du till någon av de HTTP-webbadresser som pekar på din app. Exempel:
 
@@ -266,7 +266,7 @@ Om din app behöver åtkomst till fjärranslutna resurser som en klient och fjä
 
 Mer information om hur du läser in och använder ett offentligt certifikat i din app finns i [Använda ett SSL-certifikat i programkoden i Azure App Service](app-service-web-ssl-cert-load.md). Du kan även använda offentliga certifikat med appar i App Service Environment. Om du vill lagra certifikatet i certifikatarkivet LocalMachine kan behöva du använda en app på App Service Environment. Mer information finns i [Så här konfigurerar du offentliga certifikat till din App Service-app](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer).
 
-![Ladda upp ett offentligt certifikat](./media/app-service-web-tutorial-custom-ssl/upload-certificate-public1.png)
+![Överför offentligt certifikat](./media/app-service-web-tutorial-custom-ssl/upload-certificate-public1.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -276,7 +276,7 @@ I den här självstudiekursen lärde du dig att:
 > * Uppgradera appens prisnivå
 > * Binda ditt anpassade certifikat till App Service
 > * Förnya certifikat
-> * Använda HTTPS
+> * Framtvinga HTTPS
 > * Använda TLS 1.1/1.2
 > * Automatisera hantering av TLS med skript
 

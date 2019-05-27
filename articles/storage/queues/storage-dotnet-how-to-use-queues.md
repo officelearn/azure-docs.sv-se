@@ -6,16 +6,16 @@ author: mhopkins-msft
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 06/13/2018
+ms.date: 05/21/2019
 ms.author: mhopkins
 ms.reviewer: cbrooks
 ms.subservice: queues
-ms.openlocfilehash: 81bf178a97944d4110cf99a442163229a283bd25
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.openlocfilehash: 054369a7fd75663c75c99c6ee586843582a6b6f9
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65797761"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65965956"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>Komma igång med Azure Queue Storage med hjälp av .NET
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -30,7 +30,7 @@ I den här kursen lär du dig hur du skriver .NET-kod för några vanliga scenar
 
 **Uppskattad tidsåtgång:** 45 minuter
 
-**Krav:**
+###<a name="prerequisites"></a>Krav:
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [Azure Storage-klientbibliotek för .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
@@ -58,7 +58,7 @@ Exempelkoden måste autentisera åtkomsten till lagringskontot. När du vill aut
 
 1. Navigera till [Azure-portalen](https://portal.azure.com).
 2. Leta rätt på ditt lagringskonto.
-3. Välj **Åtkomstnycklar** i avsnittet **Inställningar** i lagringskontoöversikten. Åtkomstnycklarna för kontot visas, samt den fullständiga anslutningssträngen för varje nyckel.   
+3. Välj **Åtkomstnycklar** i avsnittet **Inställningar** i lagringskontoöversikten. Åtkomstnycklarna för kontot visas, samt den fullständiga anslutningssträngen för varje nyckel.
 4. Sök efter värdet för **Anslutningssträng** under **key1** och kopiera anslutningssträngen genom att klicka på **Kopiera**. Du lägger till strängvärdet för anslutningen till en miljövariabel i nästa steg.
 
     ![Skärmbild som visar hur man kopierar en anslutningssträng från Azure-portalen](media/storage-dotnet-how-to-use-queues/portal-connection-string.png)
@@ -67,7 +67,7 @@ Exempelkoden måste autentisera åtkomsten till lagringskontot. När du vill aut
 [!INCLUDE [storage-cloud-configuration-manager-include](../../../includes/storage-cloud-configuration-manager-include.md)]
 
 ### <a name="create-the-queue-service-client"></a>Skapa Queue-tjänstklienten
-Med hjälp av **CloudQueueClient**-klassen kan du hämta köer som lagras i Queue Storage. Här är ett sätt att skapa tjänstklienten:
+Med hjälp av [CloudQueueClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueueclient?view=azure-dotnet)-klassen kan du hämta köer som lagras i Queue Storage. Här är ett sätt att skapa tjänstklienten:
 
 ```csharp
 CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
@@ -94,7 +94,7 @@ queue.CreateIfNotExists();
 ```
 
 ## <a name="insert-a-message-into-a-queue"></a>Infoga ett meddelande i en kö
-Om du vill infoga ett meddelande i en befintlig kö börjar du med att skapa ett nytt **CloudQueueMessage**. Därefter anropar du **AddMessage**-metoden. Du kan skapa ett **CloudQueueMessage** antingen från en sträng (i UTF-8-format) eller från en **byte**-matris. Här är kod som skapar en kö (om den inte finns) och som infogar meddelandet ”Hello World”:
+Om du vill infoga ett meddelande i en befintlig kö börjar du med att skapa ett nytt [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage?view=azure-dotnet). Därefter anropar du [AddMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessage?view=azure-dotnet)-metoden. Du kan skapa ett **CloudQueueMessage** antingen från en sträng (i UTF-8-format) eller från en **byte**-matris. Här är kod som skapar en kö (om den inte finns) och som infogar meddelandet ”Hello World”:
 
 ```csharp
 // Retrieve storage account from connection string.
@@ -116,7 +116,7 @@ queue.AddMessage(message);
 ```
 
 ## <a name="peek-at-the-next-message"></a>En titt på nästa meddelande
-Du kan kika på meddelandet först i en kö utan att ta bort det från kön genom att anropa metoden **PeekMessage**.
+Du kan kika på meddelandet först i en kö utan att ta bort det från kön genom att anropa metoden [PeekMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.peekmessage?view=azure-dotnet).
 
 ```csharp
 // Retrieve storage account from connection string
@@ -159,7 +159,7 @@ queue.UpdateMessage(message,
 ```
 
 ## <a name="de-queue-the-next-message"></a>Ta bort nästa meddelande från kön
-Koden tar bort ett meddelande från en kö i två steg. När du anropar **GetMessage** hämtas nästa meddelande i en kö. Ett meddelande som returneras från **GetMessage** blir osynligt för andra meddelanden som läser kod i den här kön. Som standard är det här meddelandet osynligt i 30 sekunder. För att slutföra borttagningen av meddelandet från kön måste du även anropa **DeleteMessage**. Den här tvåstegsprocessen för att ta bort ett meddelande säkerställer att om din kod inte kan bearbeta ett meddelande på grund av ett maskin- eller programvarufel så kan en annan instans av koden hämta samma meddelande och försöka igen. Koden anropar **DeleteMessage** direkt efter att meddelandet har bearbetats.
+Koden tar bort ett meddelande från en kö i två steg. När du anropar [GetMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage?view=azure-dotnet) hämtas nästa meddelande i en kö. Ett meddelande som returneras från **GetMessage** blir osynligt för andra meddelanden som läser kod i den här kön. Som standard är det här meddelandet osynligt i 30 sekunder. För att slutföra borttagningen av meddelandet från kön måste du även anropa [DeleteMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage?view=azure-dotnet). Den här tvåstegsprocessen för att ta bort ett meddelande säkerställer att om din kod inte kan bearbeta ett meddelande på grund av ett maskin- eller programvarufel så kan en annan instans av koden hämta samma meddelande och försöka igen. Koden anropar **DeleteMessage** direkt efter att meddelandet har bearbetats.
 
 ```csharp
 // Retrieve storage account from connection string
@@ -210,8 +210,7 @@ Console.WriteLine("Deleted message");
 ```
     
 ## <a name="leverage-additional-options-for-de-queuing-messages"></a>Använda fler alternativ för att hämta meddelanden ur kön
-Det finns två metoder som du kan använda för att anpassa meddelandehämtningen från en kö.
-För det första kan du hämta en grupp med meddelanden (upp till 32). För det andra kan du ange en längre eller kortare tidsgräns för osynlighet för att ge koden mer eller mindre tid att bearbeta klart varje meddelande. I följande kodexempel används metoden **GetMessage** för att hämta 20 meddelanden i ett anrop. Sedan bearbetas varje meddelande med hjälp av en **foreach**-loop. Koden ställer också in tidsgränsen för osynlighet till fem minuter för varje meddelande. Observera att de fem minuterna startar för alla meddelanden samtidigt, vilket betyder att när det här har gått fem minuter sedan anropet till **GetMessage** så blir alla meddelanden som inte har tagits bort synliga igen.
+Det finns två metoder som du kan använda för att anpassa meddelandehämtningen från en kö. För det första kan du hämta en grupp med meddelanden (upp till 32). För det andra kan du ange en längre eller kortare tidsgräns för osynlighet för att ge koden mer eller mindre tid att bearbeta klart varje meddelande. I följande kodexempel används metoden [GetMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessages?view=azure-dotnet) för att hämta 20 meddelanden i ett anrop. Sedan bearbetas varje meddelande med hjälp av en **foreach**-loop. Koden ställer också in tidsgränsen för osynlighet till fem minuter för varje meddelande. Observera att de fem minuterna startar för alla meddelanden samtidigt, vilket betyder att när det här har gått fem minuter sedan anropet till **GetMessage** så blir alla meddelanden som inte har tagits bort synliga igen.
 
 ```csharp
 // Retrieve storage account from connection string.
@@ -232,7 +231,7 @@ foreach (CloudQueueMessage message in queue.GetMessages(20, TimeSpan.FromMinutes
 ```
 
 ## <a name="get-the-queue-length"></a>Hämta kölängden
-Du kan hämta en uppskattning av antalet meddelanden i en kö. **FetchAttributes**-metoden ber kötjänsten att hämta köattributen, inklusive antalet meddelanden. Egenskapen **ApproximateMessageCount** returnerar det sista värdet som hämtas av **FetchAttributes**-metoden, utan att kötjänsten anropas.
+Du kan hämta en uppskattning av antalet meddelanden i en kö. [FetchAttributes](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.storage.queue.cloudqueue.fetchattributes?view=azure-dotnet)-metoden ber kötjänsten att hämta köattributen, inklusive antalet meddelanden. Egenskapen [ApproximateMessageCount](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.storage.queue.cloudqueue.approximatemessagecount?view=azure-dotnet) returnerar det sista värdet som hämtas av **FetchAttributes**-metoden, utan att kötjänsten anropas.
 
 ```csharp
 // Retrieve storage account from connection string.
@@ -256,7 +255,7 @@ Console.WriteLine("Number of messages in queue: " + cachedMessageCount);
 ```
 
 ## <a name="delete-a-queue"></a>Ta bort en kö
-Om du vill ta bort en kö och alla meddelanden i den anropar du **Delete**-metoden för köobjektet.
+Om du vill ta bort en kö och alla meddelanden i den anropar du [Delete](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.storage.queue.cloudqueue.delete?view=azure-dotnet)-metoden för köobjektet.
 
 ```csharp
 // Retrieve storage account from connection string.

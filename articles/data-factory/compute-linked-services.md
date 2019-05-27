@@ -12,18 +12,18 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: b4078303a0fabf70fe8bda82875dd312714f73de
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576896"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66155254"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Compute-miljöer som stöds av Azure Data Factory
 Den här artikeln beskrivs olika beräkningsmiljöer som du kan använda för att bearbeta och omvandla data. Den innehåller också information om olika konfigurationer (på begäran och ta med din egen) som stöds av Data Factory när du konfigurerar länkade tjänster länkar dessa compute-miljöer i en Azure-datafabrik.
 
 Följande tabell innehåller en lista över de beräkningsmiljöer som stöds av Data Factory och de aktiviteter som kan köras på dem. 
 
-| Compute-miljö                                          | activities                                                   |
+| Compute-miljö                                          | aktiviteter                                                   |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [HDInsight-kluster på begäran](#azure-hdinsight-on-demand-linked-service) eller [ett eget HDInsight-kluster](#azure-hdinsight-linked-service) | [Hive](transform-data-using-hadoop-hive.md), [Pig](transform-data-using-hadoop-pig.md), [Spark](transform-data-using-spark.md), [MapReduce](transform-data-using-hadoop-map-reduce.md), [Hadoop Streaming](transform-data-using-hadoop-streaming.md) |
 | [Azure Batch](#azure-batch-linked-service)                   | [Anpassad](transform-data-using-dotnet-custom-activity.md)     |
@@ -156,7 +156,7 @@ Använd autentisering av tjänstens huvudnamn genom att ange följande egenskape
 
 Du kan också ange följande egenskaper för detaljerad konfiguration av HDInsight-kluster på begäran.
 
-| Egenskap                | Beskrivning                              | Krävs |
+| Egenskap                | Beskrivning                              | Obligatoriskt |
 | :--------------------- | :--------------------------------------- | :------- |
 | coreConfiguration      | Anger konfigurationsparametrar core (som i core-site.xml) för att skapa HDInsight-klustret. | Nej       |
 | hBaseConfiguration     | Anger HBase konfigurationsparametrar (hbase-site.xml) för HDInsight-klustret. | Nej       |
@@ -224,7 +224,7 @@ Du kan också ange följande egenskaper för detaljerad konfiguration av HDInsig
 ### <a name="node-sizes"></a>Nodstorlekar
 Du kan ange storleken på huvudnoder, datanoder och zookeeper-noder med följande egenskaper: 
 
-| Egenskap           | Beskrivning                              | Krävs |
+| Egenskap           | Beskrivning                              | Obligatoriskt |
 | :---------------- | :--------------------------------------- | :------- |
 | headNodeSize      | Anger storleken på huvudnoden. Standardvärdet är: Standard_D3. Se den **att ange storleken på** information. | Nej       |
 | dataNodeSize      | Anger storleken på datanod. Standardvärdet är: Standard_D3. | Nej       |
@@ -288,8 +288,8 @@ Du kan skapa en Azure HDInsight-länkad tjänst för att registrera ett eget HDI
 | ----------------- | ------------------------------------------------------------ | -------- |
 | typ              | Type-egenskapen ska anges till **HDInsight**.            | Ja      |
 | clusterUri        | URI för HDInsight-klustret.                            | Ja      |
-| användarnamn          | Ange namnet på användaren som ska användas för att ansluta till ett befintligt HDInsight-kluster. | Ja      |
-| lösenord          | Ange lösenordet för användarkontot.                       | Ja      |
+| username          | Ange namnet på användaren som ska användas för att ansluta till ett befintligt HDInsight-kluster. | Ja      |
+| password          | Ange lösenordet för användarkontot.                       | Ja      |
 | linkedServiceName | Namnet på den länkade Azure Storage-tjänst som refererar till Azure blob-lagring som används av HDInsight-klustret. <p>För närvarande kan ange du inte en Azure Data Lake Store-länkad tjänst för den här egenskapen. Om HDInsight-klustret har åtkomst till Data Lake Store, kan du komma åt data i Azure Data Lake Store från Hive/Pig-skript. </p> | Ja      |
 | isEspEnabled      | Ange ”*SANT*' om HDInsight-klustret är [Enterprise Security Package](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-introduction) aktiverat. Standardvärdet är '*FALSKT*'. | Nej       |
 | connectVia        | Integration Runtime som ska användas för att skicka ut aktiviteter till den här länkade tjänsten. Du kan använda Azure Integration Runtime eller lokal Integration Runtime. Om den inte anges används standard Azure Integration Runtime. <br />För Enterprise Security Package (ESP) aktiverat HDInsight klusteranvändning en lokal integration runtime som har åtkomst till klustret eller den ska distribueras i samma virtuella nätverk som ESP HDInsight-kluster. | Nej       |
@@ -347,7 +347,7 @@ Se följande avsnitt om du är nybörjare på Azure Batch-tjänsten:
 | Egenskap           | Beskrivning                              | Krävs |
 | ----------------- | ---------------------------------------- | -------- |
 | typ              | Type-egenskapen ska anges till **AzureBatch**. | Ja      |
-| Kontonamn       | Namnet på Azure Batch-kontot.         | Ja      |
+| accountName       | Namnet på Azure Batch-kontot.         | Ja      |
 | accessKey         | Åtkomstnyckel för Azure Batch-kontot.  | Ja      |
 | batchUri          | URL: en till din Azure Batch-konto i formatet https://*batchaccountname.region*. batch.azure.com. | Ja      |
 | Poolnamn          | Namnet på poolen med virtuella datorer.    | Ja      |
@@ -380,7 +380,7 @@ Skapar du en Azure Machine Learning-länkad tjänst för att registrera en Machi
 ```
 
 ### <a name="properties"></a>Egenskaper
-| Egenskap                | Beskrivning                              | Krävs                                 |
+| Egenskap                | Beskrivning                              | Obligatoriskt                                 |
 | ---------------------- | ---------------------------------------- | ---------------------------------------- |
 | Type                   | Type-egenskapen ska anges till: **AzureML**. | Ja                                      |
 | mlEndpoint             | Batchbedömnings-URL: en.                   | Ja                                      |
@@ -388,7 +388,7 @@ Skapar du en Azure Machine Learning-länkad tjänst för att registrera en Machi
 | updateResourceEndpoint | Uppdatera resurs-URL för en Azure ML Web Service-slutpunkt som används för att uppdatera förutsägande webbtjänsten med tränade modellfilen | Nej                                       |
 | servicePrincipalId     | Ange programmets klient-ID.     | Krävs om updateResourceEndpoint har angetts |
 | servicePrincipalKey    | Ange programmets nyckel.           | Krävs om updateResourceEndpoint har angetts |
-| klient                 | Ange klientinformation (domain name eller klient-ID) under där programmet finns. Du kan hämta den håller musen i det övre högra hörnet i Azure Portal. | Krävs om updateResourceEndpoint har angetts |
+| tenant                 | Ange klientinformation (domain name eller klient-ID) under där programmet finns. Du kan hämta den håller musen i det övre högra hörnet i Azure Portal. | Krävs om updateResourceEndpoint har angetts |
 | connectVia             | Integration Runtime som ska användas för att skicka ut aktiviteter till den här länkade tjänsten. Du kan använda Azure Integration Runtime eller lokal Integration Runtime. Om den inte anges används standard Azure Integration Runtime. | Nej                                       |
 
 ## <a name="azure-data-lake-analytics-linked-service"></a>Azure Data Lake Analytics länkad tjänst
@@ -426,13 +426,13 @@ Du skapar en **Azure Data Lake Analytics** compute service till en Azure data fa
 | Egenskap              | Beskrivning                              | Krävs                                 |
 | -------------------- | ---------------------------------------- | ---------------------------------------- |
 | typ                 | Type-egenskapen ska anges till: **AzureDataLakeAnalytics**. | Ja                                      |
-| Kontonamn          | Azure Data Lake Analytics-kontonamn.  | Ja                                      |
+| accountName          | Azure Data Lake Analytics-kontonamn.  | Ja                                      |
 | dataLakeAnalyticsUri | Azure Data Lake Analytics-URI.           | Nej                                       |
 | subscriptionId       | Azure-prenumerations-id                    | Nej                                       |
 | resourceGroupName    | Azure-resursgruppsnamn                | Nej                                       |
 | servicePrincipalId   | Ange programmets klient-ID.     | Ja                                      |
 | servicePrincipalKey  | Ange programmets nyckel.           | Ja                                      |
-| klient               | Ange klientinformation (domain name eller klient-ID) under där programmet finns. Du kan hämta den håller musen i det övre högra hörnet i Azure Portal. | Ja                                      |
+| tenant               | Ange klientinformation (domain name eller klient-ID) under där programmet finns. Du kan hämta den håller musen i det övre högra hörnet i Azure Portal. | Ja                                      |
 | connectVia           | Integration Runtime som ska användas för att skicka ut aktiviteter till den här länkade tjänsten. Du kan använda Azure Integration Runtime eller lokal Integration Runtime. Om den inte anges används standard Azure Integration Runtime. | Nej                                       |
 
 

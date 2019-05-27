@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: e5b34171af53a72ef231bb8beb758b7ff97cf5d9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: 41589dccae4e1259e4dc9368d5825ba770b4bdcc
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64576784"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66146709"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-linux-devices"></a>Självstudier: Utveckla IoT Edge-moduler för Linux-enheter
 
@@ -46,12 +46,12 @@ Den här kursen riktar sig till Linux-enheter som kör IoT Edge. Du kan använda
 
 I följande tabell visas stöds utvecklingsscenarier för **Linux-behållare** i Visual Studio Code och Visual Studio 2017.
 
-|   | Visual Studio-koden | Visual Studio 2017 |
+|   | Visual Studio-kod | Visual Studio 2017 |
 | - | ------------------ | ------------------ |
 | **Arkitektur för Linux-enhet** | Linux AMD64 <br> Linux ARM32 | Linux AMD64 <br> Linux ARM32 |
 | **Azure-tjänster** | Azure Functions <br> Azure Stream Analytics <br> Azure Machine Learning |   |
 | **Språk** | C <br> C# <br> Java <br> Node.js <br> Python | C <br> C# |
-| **Mer information** | [Azure IoT Edge for Visual Studio Code](https://marketplace.visualstudio.com/itemdetails?itemName=vsciot-vscode.azure-iot-edge) | [Azure IoT Edge-verktyg för Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) |
+| **Mer information** | [Azure IoT Edge for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [Azure IoT Edge-verktyg för Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) |
 
 Den här självstudien Lär hur utveckling för Visual Studio Code. Om du föredrar att använda Visual Studio 2017, läser du anvisningarna i [använda Visual Studio 2017 du utvecklar och felsöker moduler för Azure IoT Edge](how-to-visual-studio-develop-module.md).
 

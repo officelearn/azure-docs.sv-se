@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/17/2019
+ms.date: 05/22/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2505ab5a9445256bd592dfa7f58a6dea79d25043
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 7abd0ac3d95825594dffe385bccc1672d0f71c5f
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506822"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66142549"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Datakällor som stöds i Azure Analysis Services
 
@@ -34,7 +34,7 @@ Datakällor och anslutningsappar som visas i hämta Data eller Importguiden i Vi
 ||||
 
 <a name="tab1400a">1</a> -tabell 1400 och högre modeller.   
-<a name="azsqlmanaged">2</a> – azure SQL Database Managed Instance stöds. Eftersom en hanterad instans körs i Azure virtuellt nätverk med en privat IP-adress, krävs en lokal Datagateway.   
+<a name="azsqlmanaged">2</a> – azure SQL Database Managed Instance stöds. Eftersom en hanterad instans körs i Azure virtuellt nätverk med en privat IP-adress, krävs en lokal Datagateway. Azure SQL Database Managed Instance med en offentlig slutpunkt stöds för närvarande inte.   
 <a name="databricks">3</a> – azure Databricks med Spark connector inte stöds för tillfället.   
 <a name="gen2">4</a> -ADLS Gen2 stöds inte för tillfället.
 

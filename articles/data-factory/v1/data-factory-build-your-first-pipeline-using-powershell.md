@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: e3421f8401d227e5c14dd244d87711427c57eefb
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 9d273886b3add43818af80915e42b4aa7ca69a89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019239"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66146895"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-powershell"></a>Självstudier: Skapa din första Azure-datafabrik med Azure PowerShell
 > [!div class="op_single_selector"]
@@ -38,7 +38,7 @@ ms.locfileid: "54019239"
 
 I den här artikeln får du lära dig hur du använder Azure PowerShell till att skapa din första Azure-datafabrik. Om du vill gå igenom självstudien med andra verktyg/SDK:er kan du välja något av alternativen i listrutan.
 
-Pipelinen i den här självstudien har en aktivitet: **HDInsight Hive-aktiviteten**. Aktiviteten kör ett Hive-skript i ett Azure HDInsight-kluster som omvandlar indata för till utdata. Denna pipeline är schemalagd att köras en gång i månaden mellan angivna start- och sluttider. 
+Pipeline i den här självstudien har en aktivitet: **HDInsight Hive-aktiviteten**. Aktiviteten kör ett Hive-skript i ett Azure HDInsight-kluster som omvandlar indata för till utdata. Denna pipeline är schemalagd att köras en gång i månaden mellan angivna start- och sluttider. 
 
 > [!NOTE]
 > Datapipelinen i den här självstudien transformerar indata för att generera utdata. Den kopierar inte data från ett källdatalager till ett måldatalager. En självstudie om hur du kopierar data med hjälp av Azure Data Factory finns i [Självstudie: Kopiera data från Blob Storage till SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
@@ -46,38 +46,41 @@ Pipelinen i den här självstudien har en aktivitet: **HDInsight Hive-aktivitete
 > En pipeline kan ha fler än en aktivitet. Du kan länka två aktiviteter (köra en aktivitet efter en annan) genom att ställa in datauppsättningen för utdata för en aktivitet som den inkommande datauppsättningen för den andra aktiviteten. Mer detaljerad information finns i [Scheduling and execution in Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) (Schemaläggning och utförande i Data Factory).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 * Läs igenom artikeln [Självstudier – översikt](data-factory-build-your-first-pipeline.md) och slutför de **nödvändiga** stegen.
 * Följ instruktionerna i artikeln [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview) för att installera den senaste versionen av Azure PowerShell på datorn.
-* (valfritt) Den här artikeln beskriver inte alla Data Factory-cmdletar. Se [Cmdlet-referens för Data Factory](/powershell/module/azurerm.datafactories) för omfattande dokumentation om Data Factory-cmdletar.
+* (valfritt) Den här artikeln beskriver inte alla Data Factory-cmdletar. Se [Cmdlet-referens för Data Factory](/powershell/module/az.datafactory) för omfattande dokumentation om Data Factory-cmdletar.
 
 ## <a name="create-data-factory"></a>Skapa en datafabrik
 I det här steget använder du Azure PowerShell till att skapa en Azure Data Factory med namnet **FirstDataFactoryPSH**. En datafabrik kan ha en eller flera pipelines. En pipeline kan innehålla en eller flera aktiviteter. Till exempel, en kopieringsaktivitet som kopierar data från en källa till en måldatalagring och en HDInsight Hive-aktivitet som kör ett Hive-skript som omvandlar indata. Låt oss börja med att skapa datafabriken i det här steget.
 
 1. Starta Azure PowerShell och kör följande kommando. Låt Azure PowerShell vara öppet tills du är klar med självstudien. Om du stänger och öppnar det igen måste du köra kommandona en gång till.
    * Kör följande kommando och ange användarnamnet och lösenordet som du använder för att logga in på Azure-portalen.
-    ```PowerShell
-    Connect-AzureRmAccount
-    ```    
+     ```PowerShell
+     Connect-AzAccount
+     ```    
    * Kör följande kommando för att visa alla prenumerationer för det här kontot.
-    ```PowerShell
-    Get-AzureRmSubscription 
-    ```
+     ```PowerShell
+     Get-AzSubscription  
+     ```
    * Kör följande kommando för att välja den prenumeration som du vill arbeta med. Den här prenumerationen ska vara samma som den du använde i Azure-portalen.
-    ```PowerShell
-    Get-AzureRmSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzureRmContext
-    ```     
+     ```PowerShell
+     Get-AzSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzContext
+     ```     
 2. Skapa en Azure-resursgrupp med namnet **ADFTutorialResourceGroup** genom att köra följande kommando:
     
     ```PowerShell
-    New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+    New-AzResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
     ```
     Vissa av stegen i den här självstudien förutsätter att du använder resursgruppen med namnet ADFTutorialResourceGroup. Om du använder en annan resursgrupp måste du använda den i stället för ADFTutorialResourceGroup i den här självstudiekursen.
-3. Kör cmdleten **New-AzureRmDataFactory** för att skapa en datafabrik med namnet **FirstDataFactoryPSH**.
+3. Kör den **New-AzDataFactory** cmdlet som skapar en datafabrik med namnet **FirstDataFactoryPSH**.
 
     ```PowerShell
-    New-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name FirstDataFactoryPSH –Location "West US"
+    New-AzDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name FirstDataFactoryPSH –Location "West US"
     ```
-Observera följande punkter:
+   Observera följande punkter:
 
 * Namnet på Azure Data Factory måste vara globalt unikt. Om du får felet **Datafabriksnamnet ”FirstDataFactoryPSH” är inte tillgängligt** ändrar du namnet (exempelvis till yournameFirstDataFactoryPSH). Använd det här namnet i stället för ADFTutorialFactoryPSH när du utför stegen i självstudien. Se artikeln [Data Factory – namnregler](data-factory-naming-rules.md) för namnregler för Data Factory-artefakter.
 * Om du vill skapa Data Factory-instanser måste du vara deltagare/administratör för Azure-prenumerationen
@@ -87,12 +90,12 @@ Observera följande punkter:
   * I Azure PowerShell kör du följande kommando för att registrera Data Factory-providern:
 
     ```PowerShell
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+    Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
     ```
       Du kan köra följande kommando om du vill kontrollera att Data Factory-providern är registrerad:
 
     ```PowerShell
-    Get-AzureRmResourceProvider
+    Get-AzResourceProvider
     ```
   * Logga in med Azure-prenumerationen i [Azure Portal](https://portal.azure.com) och navigera till ett Data Factory-blad (eller) skapa en datafabrik i Azure Portal. Med den här åtgärden registreras providern automatiskt.
 
@@ -120,22 +123,22 @@ I det här steget länkar du ditt Azure-lagringskonto till datafabriken. Du anv�
     ```
     Ersätt **kontonamn** med namnet på ditt Azure-lagringskonto och **kontonyckel** med åtkomstnyckeln för Azure-lagringskontot. Information om hur du hämtar lagringsåtkomstnyckeln finns i avsnitten om hur du visar, kopierar och återskapar åtkomstnycklar i [Manage your storage account](../../storage/common/storage-account-manage.md#access-keys) (Hantera ditt lagringskonto).
 2. Växla till mappen ADFGetStarted i Azure PowerShell.
-3. Du kan använda cmdleten **New-AzureRmDataFactoryLinkedService** till att skapa en länkad tjänst. Med den här cmdleten och andra Data Factory-cmdlets som du använder i den här självstudien måste du ange värden för parametrarna *ResourceGroupName* och *DataFactoryName*. Du kan också använda **Get-AzureRmDataFactory** till att hämta ett **DataFactory**-objekt och skicka objektet utan att ange *ResourceGroupName* och *DataFactoryName* varje gång du kör en cmdlet. Kör följande kommando för att tilldela utdatan från cmdleten **Get-AzureRmDataFactory** till en **$df**-variabel.
+3. Du kan använda den **New AzDataFactoryLinkedService** cmdlet som skapar en länkad tjänst. Med den här cmdleten och andra Data Factory-cmdlets som du använder i den här självstudien måste du ange värden för parametrarna *ResourceGroupName* och *DataFactoryName*. Du kan också använda **Get-AzDataFactory** att hämta en **DataFactory** objekt och skicka objektet utan att skriva *ResourceGroupName* och  *DataFactoryName* varje gång du kör en cmdlet. Kör följande kommando för att tilldela utdatan från den **Get-AzDataFactory** cmdlet för att en **$df** variabeln.
 
     ```PowerShell
-    $df=Get-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name FirstDataFactoryPSH
+    $df=Get-AzDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name FirstDataFactoryPSH
     ```
-4. Kör nu cmdleten **New-AzureRmDataFactoryLinkedService** för att skapa den länkade **StorageLinkedService**-tjänsten.
+4. Kör nu den **New-AzDataFactoryLinkedService** cmdlet som skapar den länkade **StorageLinkedService** service.
 
     ```PowerShell
-    New-AzureRmDataFactoryLinkedService $df -File .\StorageLinkedService.json
+    New-AzDataFactoryLinkedService $df -File .\StorageLinkedService.json
     ```
-    Om du inte hade kört cmdleten **Get-AzureRmDataFactory** och tilldelat utdatan till **$df**-variabeln, hade du behövt ange värden för parametrarna *ResourceGroupName* och *DataFactoryName* på följande sätt.
+    Om du inte kör den **Get-AzDataFactory** cmdlet och tilldelat utdatan till den **$df** variabel, skulle du behöva ange värden för den *ResourceGroupName* och  *DataFactoryName* på följande sätt.
 
     ```PowerShell
-    New-AzureRmDataFactoryLinkedService -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName FirstDataFactoryPSH -File .\StorageLinkedService.json
+    New-AzDataFactoryLinkedService -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName FirstDataFactoryPSH -File .\StorageLinkedService.json
     ```
-    Om du stänger Azure PowerShell mitt i självstudierna måste du köra cmdleten **Get-AzureRmDataFactory** nästa gång du startar Azure PowerShell för att slutföra självstudierna.
+    Om du stänger Azure PowerShell mitt i självstudien måste du köra den **Get-AzDataFactory** nästa gång du startar Azure PowerShell för att slutföra den här självstudien.
 
 ### <a name="create-azure-hdinsight-linked-service"></a>Skapa en Azure HDInsight-länkad tjänst
 I det här steget ska du länka ett HDInsight-kluster på begäran till datafabriken. HDInsight-klustret skapas automatiskt vid körning och tas bort när bearbetningen är klar. Det är inaktivt under en angiven tidsrymd. Du kan använda ditt eget HDInsight-kluster i stället för att använda ett HDInsight-kluster på begäran. Se [Beräkna länkade tjänster](data-factory-compute-linked-services.md) för mer information.
@@ -171,13 +174,13 @@ I det här steget ska du länka ett HDInsight-kluster på begäran till datafabr
    * Du kan använda **ditt eget HDInsight-kluster** i stället för att använda ett HDInsight-kluster på begäran. Se [HDInsight-länkad tjänst](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) för mer information.
    * HDInsight-klustret skapar en **standardcontainer** i den bloblagring som du angav i JSON (**linkedServiceName**). HDInsight tar inte bort den här containern när klustret tas bort. Det här beteendet är avsiktligt. Med en HDInsight-länkad tjänst på begäran skapas ett HDInsight-kluster varje gång en sektor bearbetas, såvida det inte finns ett befintligt live-kluster (**timeToLive**). Klustret tas bort automatiskt när bearbetningen är klar.
 
-       Allteftersom fler sektorer bearbetas kan du se många containrar i ditt Azure Blob Storage. Om du inte behöver dem för att felsöka jobb, kan du ta bort dem för att minska lagringskostnaderna. Namnen på de här containrarna följer ett mönster: ”adf**datafabrikensnamn**-**denlänkadetjänstensnamn**-datumtidsstämpel”. Använd verktyg som [Microsoft Lagringsutforskaren](http://storageexplorer.com/) till att ta bort containrar i din Azure bloblagring.
+       Allteftersom fler sektorer bearbetas kan du se många containrar i ditt Azure Blob Storage. Om du inte behöver dem för att felsöka jobb, kan du ta bort dem för att minska lagringskostnaderna. Namnen på de här containrarna följer ett mönster: ”adf**datafabrikensnamn**-**denlänkadetjänstensnamn**-datumtidsstämpel”. Använd verktyg som [Microsoft Lagringsutforskaren](https://storageexplorer.com/) till att ta bort containrar i din Azure bloblagring.
 
      Se [HDInsight-länkad tjänst på begäran](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) för mer information.
-2. Kör cmdleten **New-AzureRmDataFactoryLinkedService** för att skapa den länkade tjänsten HDInsightOnDemandLinkedService.
+2. Kör den **New AzDataFactoryLinkedService** cmdlet som skapar den länkade tjänsten kallas HDInsightOnDemandLinkedService.
     
     ```PowerShell
-    New-AzureRmDataFactoryLinkedService $df -File .\HDInsightOnDemandLinkedService.json
+    New-AzDataFactoryLinkedService $df -File .\HDInsightOnDemandLinkedService.json
     ```
 
 ## <a name="create-datasets"></a>Skapa datauppsättningar
@@ -225,7 +228,7 @@ I det här steget skapar du datauppsättningar som ska representera in- och utda
 2. I Azure PowerShell kör du följande kommando för att skapa Data Factory-datauppsättningen:
 
     ```PowerShell
-    New-AzureRmDataFactoryDataset $df -File .\InputTable.json
+    New-AzDataFactoryDataset $df -File .\InputTable.json
     ```
 
 ### <a name="create-output-dataset"></a>Skapa datauppsättning för utdata
@@ -257,7 +260,7 @@ Nu skapar du den utdatauppsättning som representerar de utdata som lagras i Azu
 2. I Azure PowerShell kör du följande kommando för att skapa Data Factory-datauppsättningen:
 
     ```PowerShell
-    New-AzureRmDataFactoryDataset $df -File .\OutputTable.json
+    New-AzDataFactoryDataset $df -File .\OutputTable.json
     ```
 
 ## <a name="create-pipeline"></a>Skapa pipeline
@@ -330,22 +333,22 @@ I det här steget ska du skapa din första pipeline med en **HDInsightHive**-akt
 2. Kontrollera att du ser filen **input.log** i mappen **adfgetstarted/inputdata** i Azure-blobblagringen och kör följande kommando för att distribuera pipelinen. Eftersom tiderna för **start** och **slut** har angetts tidigare och **isPaused** har angetts till false, kommer pipelinen (aktiviteten i pipelinen) köras omedelbart efter att du har distribuerat.
 
     ```PowerShell
-    New-AzureRmDataFactoryPipeline $df -File .\MyFirstPipelinePSH.json
+    New-AzDataFactoryPipeline $df -File .\MyFirstPipelinePSH.json
     ```
 3. Grattis, du har skapat din första pipeline med Azure PowerShell!
 
 ## <a name="monitor-pipeline"></a>Övervaka pipeline
 I det här steget använder du Azure PowerShell till att övervaka vad som händer i en Azure Data Factory.
 
-1. Kör **Get-AzureRmDataFactory** och tilldela utdatan till en **$df**- variabel.
+1. Kör **Get-AzDataFactory** och tilldela utdatan till en **$df** variabeln.
 
     ```PowerShell
-    $df=Get-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name FirstDataFactoryPSH
+    $df=Get-AzDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name FirstDataFactoryPSH
     ```
-2. Kör **Get-AzureRmDataFactorySlice** att få information om alla sektorer av **EmpSQLTable**, vilket är utdatatabellen för pipelinen.
+2. Kör **Get-AzDataFactorySlice** att få information om alla sektorer av den **EmpSQLTable**, vilket är utdatatabellen för pipelinen.
 
     ```PowerShell
-    Get-AzureRmDataFactorySlice $df -DatasetName AzureBlobOutput -StartDateTime 2017-07-01
+    Get-AzDataFactorySlice $df -DatasetName AzureBlobOutput -StartDateTime 2017-07-01
     ```
     Observera att StartDateTime som du anger här är samma starttid som angavs i din pipeline-JSON. Här är exempel på utdata:
 
@@ -361,10 +364,10 @@ I det här steget använder du Azure PowerShell till att övervaka vad som händ
     LatencyStatus     :
     LongRetryCount    : 0
     ```
-3. Kör **Get-AzureRmDataFactoryRun** för att hämta information om aktiviteten som körs för en viss sektor.
+3. Kör **Get-AzDataFactoryRun** för att hämta information om aktiviteten som körs för en viss sektor.
 
     ```PowerShell
-    Get-AzureRmDataFactoryRun $df -DatasetName AzureBlobOutput -StartDateTime 2017-07-01
+    Get-AzDataFactoryRun $df -DatasetName AzureBlobOutput -StartDateTime 2017-07-01
     ```
 
     Här är exempel på utdata: 
@@ -413,9 +416,10 @@ I den här självstudien skapade du en Azure-datafabrik som bearbetar data genom
 I den här artikeln har du skapat en pipeline med en transformeringsaktivitet (HDInsight-aktivitet) som kör ett Hive-skript på ett Azure HDInsight-kluster på begäran. Information om hur du använder en kopieringsaktivitet för att kopiera data från en Azure-blob till Azure SQL finns i [Självstudie: Kopiera data från en Azure-blob till Azure SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## <a name="see-also"></a>Se även
-| Avsnitt | Beskrivning |
+
+| Ämne | Beskrivning |
 |:--- |:--- |
-| [Cmdlet-referens för Data Factory](/powershell/module/azurerm.datafactories) |Se den omfattande dokumentationen för Data Factory-cmdletar |
+| [Cmdlet-referens för Data Factory](/powershell/module/az.datafactory) |Se den omfattande dokumentationen för Data Factory-cmdletar |
 | [Pipelines](data-factory-create-pipelines.md) |I den här artikeln beskriver vi pipelines och aktiviteter i Azure Data Factory och hur du kan använda dem för att konstruera datadrivna arbetsflöden från slutpunkt till slutpunkt för ditt scenario eller ditt företag. |
 | [Datauppsättningar](data-factory-create-datasets.md) |I den här artikeln förklaras hur datauppsättningar fungerar i Azure Data Factory. |
 | [Schemaläggning och körning](data-factory-scheduling-and-execution.md) |I den här artikeln beskrivs aspekter för schemaläggning och körning av Azure Data Factory-programmodellen. |

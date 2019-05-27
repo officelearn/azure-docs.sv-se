@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: jaboes
 ms.custom: include file
-ms.openlocfilehash: 6085eb2b520217c4e678a75032e8a1cb4b9343ec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 904bd884bc09c1e2016f55ffc8e1e9f635974ac7
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60581090"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66157682"
 ---
 # <a name="using-managed-disks-in-azure-resource-manager-templates"></a>Med hanterade diskar i Azure Resource Manager-mallar
 
@@ -202,7 +202,7 @@ I det Virtuella datorobjektet, referera till diskobjektet ska anslutas. Ange res
 
 ### <a name="create-managed-availability-sets-with-vms-using-managed-disks"></a>Skapa hanterade tillgänglighetsuppsättningar med virtuella datorer med hanterade diskar
 
-För att skapa hanterade tillgänglighetsuppsättningar med virtuella datorer med hanterade diskar, lägga till den `sku` objekt tillgängliga resurser och den `name` egenskap `Aligned`. Den här egenskapen säkerställer att diskarna för varje virtuell dator är tillräckligt isolerade från varandra för att undvika enskilda felpunkter. Observera också att den `apiVersion` för tillgänglighetsuppsättningen resursen är inställd på `2017-03-30`.
+För att skapa hanterade tillgänglighetsuppsättningar med virtuella datorer med hanterade diskar, lägga till den `sku` objekt tillgängliga resurser och den `name` egenskap `Aligned`. Den här egenskapen säkerställer att diskarna för varje virtuell dator är tillräckligt isolerade från varandra för att undvika enskilda felpunkter. Observera också att den `apiVersion` för tillgänglighetsuppsättningen resursen är inställd på `2018-10-01`.
 
 ```json
 {

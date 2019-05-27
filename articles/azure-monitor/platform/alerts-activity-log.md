@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.openlocfilehash: 2b069e55d98da824363dc480c211cde0fcc2518c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58090822"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66130009"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-using-azure-monitor"></a>Skapa, visa och hantera aviseringar för aktivitetsloggar med Azure Monitor  
 
@@ -37,7 +37,7 @@ Dessa aviseringar är för Azure-resurser kan skapas med hjälp av en Azure Reso
 
 ### <a name="create-with-azure-portal"></a>Skapa med Azure portal
 
-Följ dessa steg:
+Följ anvisningarna nedan:
 
 1. Azure-portalen väljer du **övervakaren** > **aviseringar**
 2. Klicka på **ny Aviseringsregel** överst i den **aviseringar** fönster.
@@ -200,7 +200,7 @@ Exempel-json ovan kan sparas som (exempelvis) sampleActivityLogAlert.json i den 
 > [!NOTE]
 > Det kan ta upp till 5 minuter för den en ny aktivitetsloggsaviseringsregel att bli aktiv
 
-## <a name="rest-api"></a>REST-API 
+## <a name="rest-api"></a>REST API 
 [Azure Monitor - aktivitet Log aviseringar API](https://docs.microsoft.com/rest/api/monitor/activitylogalerts) är en REST-API och helt kompatibla med Azure Resource Manager REST API. Därför kan den användas via Powershell med Resource Manager-cmdlet som Azure CLI.
 
 ## <a name="powershell"></a>PowerShell

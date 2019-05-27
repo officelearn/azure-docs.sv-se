@@ -8,14 +8,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: howto
 ms.date: 05/13/2019
-ms.openlocfilehash: f244a67abab5c7f8cd14277f87f055ac6d48b8d2
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.openlocfilehash: 44b6f099b5b17329976b9fec3c0ac38b5e394221
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65762436"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978005"
 ---
-# <a name="configure-outbound-network-traffic-restriction-for-azure-hdinsight-clusters"></a>Konfigurera utgående trafik nätverksbegränsning för Azure HDInsight-kluster
+# <a name="configure-outbound-network-traffic-restriction-for-azure-hdinsight-clusters-preview"></a>Konfigurera utgående trafik nätverksbegränsning för Azure HDInsight-kluster (förhandsversion)
 
 Den här artikeln innehåller anvisningar för att skydda dina utgående trafik från ditt HDInsight-kluster med hjälp av Azure-brandvägg. Stegen nedan förutsätter att du konfigurerar ett Azure-brandväggen för ett befintligt kluster. Om du distribuerar ett nytt kluster och bakom en brandvägg, skapa ditt HDInsight-kluster och undernätet först och följ sedan stegen i den här guiden.
 
@@ -27,7 +27,7 @@ Det finns flera beroenden som kräver inkommande trafik. Inkommande hanteringstr
 
 HDInsight utgående trafik beroenden definieras nästan helt och hållet med FQDN: er som inte har den statiska IP-adresser bakom dem. Bristen på statiska adresser innebär att Nätverkssäkerhetsgrupper (NSG) inte kan användas för att låsa den utgående trafiken från ett kluster. Adresserna ändras tillräckligt ofta att det går inte att ställa in regler baserat på den aktuella namnmatchningen och använda den för att konfigurera NSG-regler.
 
-Lösning för att skydda utgående adresser är att använda en brandväggsenhet som kan styra utgående trafik baserat på domännamn. Azure-brandväggen kan begränsa utgående HTTP och HTTPS-trafik baserat på det fullständiga Domännamnet för målet.
+Lösning för att skydda utgående adresser är att använda en brandväggsenhet som kan styra utgående trafik baserat på domännamn. Azure-brandväggen kan begränsa utgående HTTP och HTTPS-trafik baserat på det fullständiga Domännamnet för målet eller [FQDN taggar](https://docs.microsoft.com/azure/firewall/fqdn-tags).
 
 ## <a name="configuring-azure-firewall-with-hdinsight"></a>Konfigurera Brandvägg för Azure med HDInsight
 
@@ -80,7 +80,7 @@ På den **lägga till programmet regelsamlingen** skärmen, gör du följande:
         1. Ange `https:443` under **protokoll: Port** och `sqm.telemetry.microsoft.com` under **rikta FQDN**.
     1. Om ditt kluster backas upp av WASB och du inte använder Tjänsteslutpunkter ovan, lägger du till en regel för WASB:
         1. I den **Target FQDN** avsnittet tillhandahåller en **namn**, och Ställ in **Source adresser** till `*`.
-        1. Ange `wasb` under **protokoll: Port** och `*` under **rikta FQDN**.
+        1. Ange `http` eller [https] beroende på om du använder wasb: / / eller wasbs: / / under **protokoll: Port** och URL: en för storage-konto under **Target FQDN**.
 1. Klicka på **Lägg till**.
 
 ![Rubrik: Ange programinformation regeln samling](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)

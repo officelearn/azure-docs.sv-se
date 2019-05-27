@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: apimpm
 ms.openlocfilehash: 532c1051522410c496fb3809c06c7e3a74340adb
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006054"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66141451"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Hur du använder Azure API Management med virtuella nätverk
 Azure-nätverk (Vnet) kan du placera någon av dina Azure-resurser i ett icke-internet-dirigerbara nätverk som du styr åtkomst till. Dessa nätverk kan sedan anslutas till ditt lokala nätverk med olika VPN-teknologier. Om du vill veta börjar mer om Azure Virtual Networks med den här informationen: [Översikt över Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
@@ -111,7 +111,7 @@ Följande är en lista över vanliga felkonfigurationsproblem som kan uppstå n�
 
 | Källa / målportar | Direction          | Transport-protokoll |   [Tjänsttaggar](../virtual-network/security-overview.md#service-tags) <br> Källa / mål   | Syfte (*)                                                 | Typ av virtuellt nätverk |
 |------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
-| * / 80, 443                  | Inkommande            | TCP                | INTERNET / VIRTUAL_NETWORK            | Klientkommunikation till API Management                      | Extern             |
+| * / 80, 443                  | Inkommande            | TCP                | INTERNET / VIRTUAL_NETWORK            | Klientkommunikation till API Management                      | Externa             |
 | * / 3443                     | Inkommande            | TCP                | ApiManagement / VIRTUAL_NETWORK       | Hanteringsslutpunkten för Azure-portalen och Powershell         | Externa och interna  |
 | * / 80, 443                  | Utgående           | TCP                | VIRTUAL_NETWORK / Storage             | **Beroende på Azure Storage**                             | Externa och interna  |
 | * / 80, 443                  | Utgående           | TCP                | VIRTUAL_NETWORK / AzureActiveDirectory | Azure Active Directory (om tillämpligt)                   | Externa och interna  |

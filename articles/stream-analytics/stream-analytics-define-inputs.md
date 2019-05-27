@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 2a366a9030104c885adb1a4f773de04cdc439044
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 420705ef6b2e38d147b7033d2fb3ad57bbc216ac
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61480501"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66159291"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Stream-data som indata till Stream Analytics
 
@@ -131,6 +131,8 @@ Stream Analytics stöder för närvarande inte deserialisering av AVRO-meddeland
 > [!NOTE]
 > Stream Analytics stöder inte att lägga till innehåll på en befintlig blobfil. Stream Analytics Visa bara en gång varje fil och alla ändringar som görs i filen när jobbet har läst data bearbetas inte. Det är bra att överföra alla data för en blob-fil på en gång och sedan lägga till ytterligare nya händelser i en annan, en ny blob-fil.
 > 
+
+Ladda upp ett mycket stort antal blobbar samtidigt kan det leda till att Stream Analytics kan du hoppar över att läsa några blobbar i sällsynta fall. Vi rekommenderar att ladda upp blobar på minst 2 sekunder upp till Blob storage. Om det här alternativet inte är möjligt kan du använda Event Hubs till stream stora mängder händelser. 
 
 ### <a name="configure-blob-storage-as-a-stream-input"></a>Konfigurera Blob-lagring som en dataström som indata 
 

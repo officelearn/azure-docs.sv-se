@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/10/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 495326c172f900dc8bcff78b0df38f2cb64ed27e
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 326382339e2b4aeaa488d3d7f76b7ff35f9bc620
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546521"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66147765"
 ---
 # <a name="enable-and-deploy-azure-ultra-ssds-preview"></a>Aktivera och distribuera Azure ultra SSD: er (förhandsversion)
 
@@ -27,13 +27,13 @@ När du blivit godkänd, måste du fastställa vilka tillgänglighetszon du är 
 
 PowerShell: `Get-AzComputeResourceSku | where {$_.ResourceType -eq "disks" -and $_.Name -eq "UltraSSD_LRS" }`
 
-CLI: `az vm list-skus --resource-type disks --query “[?name==UltraSSD_LRS]”`
+CLI: `az vm list-skus --resource-type disks --query "[?name=='UltraSSD_LRS'].locationInfo"`
 
 Svaret ska vara detsamma som i formuläret här nedan, där X är den zon som ska användas för att distribuera i östra USA 2. X kan vara 1, 2 eller 3.
 
 Bevara den **zoner** värde representerar din tillgänglighetszon och du behöver för att distribuera ett ultra SSD.
 
-|Resurstyp  |Namn  |Location  |Zoner  |Begränsning  |Funktion  |Value  |
+|Resurstyp  |Namn  |Location  |Zoner  |Begränsning  |Funktion  |Värde  |
 |---------|---------|---------|---------|---------|---------|---------|
 |Diskar     |UltraSSD_LRS         |usaöstra2         |X         |         |         |         |
 

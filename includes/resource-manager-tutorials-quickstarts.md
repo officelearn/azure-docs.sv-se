@@ -15,11 +15,11 @@ ms.date: 01/15/2019
 ms.author: jgao
 ms.custom: include file
 ms.openlocfilehash: 8c5347b412475b86222acabb76b88baaceb7645a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60589385"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66129007"
 ---
 ## <a name="quickstarts-and-tutorials"></a>Snabbstarter och självstudier
 
@@ -27,7 +27,7 @@ Använd följande snabbstarter och självstudier för att lära dig hur du utvec
 
 - Snabbstarter
 
-    |Rubrik|Beskrivning|
+    |Titel|Beskrivning|
     |------|-----|
     |[Använda Azure Portal](../articles/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)|Skapa en mall med hjälp av portalen och förstå processen med att redigera och distribuera mallen.|
     |[Använda Visual Studio Code](../articles/azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code.md)|Använd Visual Studio Code för att skapa och redigera mallar och hur du använder Azure Cloud Shell för att distribuera mallar.|
@@ -35,7 +35,7 @@ Använd följande snabbstarter och självstudier för att lära dig hur du utvec
 
 - Självstudier
 
-    |Rubrik|Beskrivning|
+    |Titel|Beskrivning|
     |------|-----|
     |[Använda mallreferens](../articles/azure-resource-manager/resource-manager-tutorial-create-encrypted-storage-accounts.md)|Använd referensdokumentationen till mallar för att utveckla mallar. I självstudien hittar du schemat för lagringskonto och använder informationen för att skapa ett krypterat lagringskonto.|
     |[Skapa flera instanser](../articles/azure-resource-manager/resource-manager-tutorial-create-multiple-instances.md)|Skapa flera instanser av Azure-resurser. I självstudiekursen skapar du flera instanser av lagringskonto.|

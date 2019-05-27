@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 05/08/2019
+ms.date: 05/22/2019
 ms.author: alkohli
-ms.openlocfilehash: 3fca94a56f80ec520ac6777610a90bdddf1b8988
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
-ms.translationtype: MT
+ms.openlocfilehash: 2b021975983858386cd7c847ba11a26f4feb9562
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65473267"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66150465"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Vanliga frågor och svar
 
@@ -182,6 +182,9 @@ A. Om enheten är skadad eller om det finns tecken på att den har manipulerats 
 
 ### <a name="q-can-i-use-my-own-shipping-carrier-to-ship-data-box"></a>F. Kan jag använda mitt eget transportföretag för att skicka Data Box?
 A. För Data Box-tjänsten hanterar Microsoft leveransen till och från Azure-datacentret. Om du vill använda ditt eget transportföretag kan du använda tjänsten Azure Import/Export. Mer information finns i [Vad är Azure Import/Export-tjänsten?](../storage/common/storage-import-export-service.md)
+
+### <a name="q-will-my-data-box-devices-cross-country-borders-during-shipping"></a>F. Kommer Mina Data Box-enheter mellan land kantlinjer under leverans?
+A. Alla Data Box-enheter levereras från inom samma land som deras mål och kommer inte att passera några internationella gränser. Det enda undantaget är för beställningar i den Europeiska unionen (EU), där enheter kan levereras till och från ett land i Europa.
 
 ### <a name="q-e-ink-display-is-not-showing-the-return-shipment-label-what-should-i-do"></a>F. Returadressetiketten visas inte på e-bläckskärmen. Vad ska jag göra?
 A. Om returadressetiketten inte visas på e-bläckskärmen följer du dessa steg:

@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 5/16/2019
+ms.date: 5/22/2019
 ms.author: victorh
-ms.openlocfilehash: 0da5d8a3eec0faa4001ccf229c6748c253f1b6e5
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 8e17c5e34ec3e2397c3054b1d0e0d97dbf410db2
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65827429"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65986874"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway"></a>Automatisk skalning och zonredundant Application Gateway 
 
@@ -93,8 +93,6 @@ Enhetspriset för kapacitet = 744(hours) * Max (beräkning enhet Max(25/50 for c
 
 Totalt pris = $267.84 + $85.71 = $353.55
 
-Den [prissättningssidan](https://azure.microsoft.com/pricing/details/application-gateway/) kommer att uppdateras för att återspegla regionala priserna på den 14 maj 2019. Fakturering är schemalagd att starta den 1 juni 2019.
-
 ## <a name="scaling-application-gateway-and-waf-v2"></a>Skala Application Gateway och WAF v2
 
 Application Gateway och WAF kan konfigureras att skala i två lägen:
@@ -138,7 +136,7 @@ I följande tabell jämförs funktionerna med varje SKU.
 |Användardefinierad väg (UDR) i Application Gateway-undernät|Stöds ej|
 |NSG för inkommande portintervall| -65200 till 65535 för Standard_v2 SKU<br>-65503 till 65534 för Standard-SKU.<br>Mer information finns i den [vanliga frågor och svar](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet).|
 |Prestandaloggar i Azure-diagnostik|Stöds ej.<br>Du bör använda Azure-mått.|
-|Fakturering|Fakturering som schemalagts att starta den 1 juni 2019.|
+|Fakturering|Fakturering som schemalagts att starta den 1 juli 2019.|
 |FIPS-läge|Dessa stöds inte för närvarande.|
 |ILB läge|Detta stöds för närvarande inte. Offentliga och ILB-läget tillsammans stöds.|
 |NetWatcher-integrering|Stöds ej.|

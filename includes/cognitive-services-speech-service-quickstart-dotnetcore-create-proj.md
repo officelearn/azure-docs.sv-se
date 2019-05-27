@@ -2,15 +2,14 @@
 author: erhopf
 ms.service: cognitive-services
 ms.topic: include
-origin.date: 12/12/2018
-ms.date: 04/01/2019
-ms.author: v-biyu
+ms.date: 12/12/2018
+ms.author: erhopf
 ms.openlocfilehash: 6e49db90aa9e9f933a190425afbafd15e0057fca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60621137"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66146049"
 ---
 1. Starta Visual Studio 2017.
 

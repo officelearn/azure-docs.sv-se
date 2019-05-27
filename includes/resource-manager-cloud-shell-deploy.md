@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 01/30/2019
 ms.author: tomfitz
 ms.openlocfilehash: 7c081b3bc5f9e6273f680b24897f9aced4999afa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60730498"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66129018"
 ---
 ## <a name="deploy-template-from-cloud-shell"></a>Distribuera mallen från Cloud Shell
 
@@ -19,7 +19,7 @@ Du kan använda [Cloud Shell](../articles/cloud-shell/overview.md) till att dist
 
 1. Välj din Cloud Shell-resursgrupp. Namnet har formatet `cloud-shell-storage-<region>`.
 
-   ![Välj resursgrupp](./media/resource-manager-cloud-shell-deploy/select-cs-resource-group.png)
+   ![Välj en resursgrupp](./media/resource-manager-cloud-shell-deploy/select-cs-resource-group.png)
 
 1. Välj lagringskontot för Cloud Shell.
 
@@ -31,7 +31,7 @@ Du kan använda [Cloud Shell](../articles/cloud-shell/overview.md) till att dist
 
 1. Välj **+ Container**.
 
-   ![Lägga till containern](./media/resource-manager-cloud-shell-deploy/add-container.png)
+   ![Lägg till container](./media/resource-manager-cloud-shell-deploy/add-container.png)
 
 1. Ge behållaren ett namn och en åtkomstnivå. Exempelmallen i den här artikeln innehåller ingen känslig information, så tillåter anonym läsbehörighet. Välj **OK**.
 
@@ -47,7 +47,7 @@ Du kan använda [Cloud Shell](../articles/cloud-shell/overview.md) till att dist
 
 1. Leta upp och överför mallen.
 
-   ![Ladda upp filen](./media/resource-manager-cloud-shell-deploy/find-and-upload-template.png)
+   ![Överför fil](./media/resource-manager-cloud-shell-deploy/find-and-upload-template.png)
 
 1. Välj mallen när paketet har överförts.
 

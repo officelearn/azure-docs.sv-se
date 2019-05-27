@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 0587782cbfa31f7b397b950a752040cc678cf7d7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0de4da5792553b8e61ce8116988dc0d0b2c55488
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60576670"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66130992"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-status-monitor"></a>Instrumentera webbappar vid körning med Application Insights Status Monitor
 
@@ -149,6 +149,8 @@ Vi följer upp problemet [här](https://github.com/Microsoft/ApplicationInsights
 * Om du vill spara utförliga loggar, ändra konfigurationsfilen: `C:\Program Files\Microsoft Application Insights\Status Monitor\Microsoft.Diagnostics.Agent.StatusMonitor.exe.config` och Lägg till `<add key="TraceLevel" value="All" />` till den `appsettings`.
 Starta sedan om statusövervakaren.
 
+* Eftersom Status Monitor är en .NET-program kan du också aktivera [.net spårning genom att lägga till lämpliga diagnostiken konfigurationsfilen](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/trace-debug/system-diagnostics-element). Till exempel i vissa fall det kan vara praktiskt att se vad som händer på nätverksnivå av [konfigurera nätverksspårning](https://docs.microsoft.com/dotnet/framework/network-programming/how-to-configure-network-tracing)
+
 ### <a name="insufficient-permissions"></a>Otillräckliga behörigheter
   
 * Om du ser ett meddelande om ”otillräcklig behörighet” på servern provar du följande:
@@ -184,7 +186,7 @@ Operativsystemstöd för Application Insights Status Monitor på servern:
 * Windows server 2012 R2
 * Windows Server 2016
 
-med senaste SP och .NET Framework 4.5
+med senaste SP och .NET Framework 4.5 (statusövervakaren bygger på den här versionen av framework)
 
 På klientsidan: Windows 7, 8, 8.1 och 10 med .NET Framework 4.5
 
@@ -276,7 +278,9 @@ När du har valt en webbapp som Statusövervakaren ska instrumentera gör den f�
 
 ### <a name="what-version-of-application-insights-sdk-does-status-monitor-install"></a>Vilken version av Application Insights SDK installeras statusövervakaren?
 
-Från och med nu installera statusövervakaren bara Application Insights SDK version 2.3 eller 2.4.
+Från och med nu installera statusövervakaren bara Application Insights SDK version 2.3 eller 2.4. 
+
+Application Insights SDK Version 2.4 är den [senaste version till stöd för .NET 4.0](https://github.com/microsoft/ApplicationInsights-dotnet/releases/tag/v2.5.0-beta1) som var [EOL januari 2016](https://devblogs.microsoft.com/dotnet/support-ending-for-the-net-framework-4-4-5-and-4-5-1/). Därför från och med nu kan statusövervakaren användas för att instrumentera ett .NET 4.0-program. 
 
 ### <a name="do-i-need-to-run-status-monitor-whenever-i-update-the-app"></a>Måste jag köra Statusövervakaren när jag uppdaterar appen?
 

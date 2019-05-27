@@ -8,11 +8,11 @@ ms.topic: tutorial
 ms.date: 4/18/2019
 ms.author: victorh
 ms.openlocfilehash: 5307f7674635fd33241e1faba9bb0b7c0432d10b
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60001039"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66134751"
 ---
 # <a name="tutorial-create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Självstudier: Skapa en Programgateway med sökvägsbaserad routning regler med hjälp av Azure portal
 
@@ -33,7 +33,7 @@ Om du vill kan du slutföra den här självstudien med [Azure CLI](tutorial-url-
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="sign-in-to-azure"></a>Logga in på Azure
+## <a name="sign-in-to-azure"></a>Logga in till Azure
 
 Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 
@@ -58,7 +58,7 @@ Ett virtuellt nätverk krävs för kommunikation mellan de resurser du skapar. I
    - *myBackendSubnet* – Undernätsnamnet.
    - *10.0.0.0/24* – Undernätets adressutrymme.
 
-     ![Skapa det virtuella nätverket](./media/create-url-route-portal/application-gateway-vnet.png)
+     ![Skapa virtuellt nätverk](./media/create-url-route-portal/application-gateway-vnet.png)
 
 6. Välj **OK** att skapa virtuellt nätverk och undernät.
 7. Välj **välja en offentlig IP-adress**väljer **Skapa nytt**, och ange sedan namnet på den offentliga IP-adressen. I det här exemplet heter den offentliga IP-adressen *myAGPublicIPAddress*. Godkänn standardvärdena för de andra inställningarna och välj sedan **OK**.

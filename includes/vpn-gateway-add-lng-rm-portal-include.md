@@ -9,11 +9,11 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: d9825ea41937dc9436fe8b465b48b378e13407c1
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53444392"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66150277"
 ---
 1. Klicka på **+Lägg till** från **Alla resurser** i portalen.
 2. I den **allt** sidan Sök-rutan, skriver du in **lokal nätverksgateway**, och sedan klicka för att returnera en lista över resurser. Klicka på **Lokal nätverksgateway** för att öppna sidan och klicka sedan på **Skapa** för att öppna sidan **Skapa lokal nätverksgateway**.

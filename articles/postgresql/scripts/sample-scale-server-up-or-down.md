@@ -9,11 +9,11 @@ ms.custom: mvc
 ms.topic: sample
 ms.date: 04/05/2018
 ms.openlocfilehash: 65958eb1e2d7cc4492e0437b24db77f00ebc7eba
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55728341"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66154530"
 ---
 # <a name="monitor-and-scale-a-single-postgresql-server-using-azure-cli"></a>Övervaka och skala en enskild PostgreSQL-server med Azure CLI
 Det här CLI-exempelskriptet skalar en enda Azure Database for PostgreSQL-servern till en annan prestandanivå när du har kört frågor mot måtten. 

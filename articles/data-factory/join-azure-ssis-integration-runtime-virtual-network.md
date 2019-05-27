@@ -13,11 +13,11 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
 ms.openlocfilehash: 6978b83e66f58e468d9f98394904861c8a4d8bd0
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59618149"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66152897"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Ansluta en Azure-SSIS integration runtime till ett virtuellt nätverk
 Anslut till din Azure-SSIS integration runtime (IR) till en Azure-nätverk i följande scenarier: 
@@ -110,7 +110,7 @@ Mer information finns i [namnmatchning som använder en egen DNS-server](../virt
 ### <a name="nsg"></a> Nätverkssäkerhetsgrupp
 Om du behöver implementera en nätverkssäkerhetsgrupp (NSG) för det undernät som används av din Azure-SSIS integration runtime Tillåt inkommande/utgående trafik via följande portar: 
 
-| Riktning | Transport-protokoll | Källa | Källportsintervall | Mål | Målportsintervall | Kommentarer |
+| Direction | Transport-protokoll | Source | Källportsintervall | Mål | Målportsintervall | Kommentarer |
 |---|---|---|---|---|---|---|
 | Inkommande | TCP | AzureCloud<br/>(eller större område som Internet) | * | VirtualNetwork | 29876, 29877 (om du ansluter IR till ett virtuellt nätverk för Azure Resource Manager) <br/><br/>10100, 20100 och 30100 (om du ansluter IR till ett klassiskt virtuellt nätverk)| Data Factory-tjänsten använder dessa portar för att kommunicera med noderna i din Azure-SSIS integration runtime i det virtuella nätverket. <br/><br/> Om du skapar en NSG på undernätsnivå eller inte konfigurerar Data Factory alltid en NSG på nivån över nätverkskort (NIC) som anslutna till virtuella datorer som är värdar för Azure-SSIS IR. Endast inkommande trafik från Data Factory IP-adresser på de angivna portarna tillåts av den NSG för NIC-nivå. Även om du öppnar dessa portar för Internet-trafiken på undernätverksnivån i är trafik från IP-adresser som inte är Data Factory IP-adresser blockerad på nätverkskortnivån. |
 | Utgående | TCP | VirtualNetwork | * | AzureCloud<br/>(eller större område som Internet) | 443 | Noderna på din Azure-SSIS integration runtime i virtuella nätverk använda den här porten för att komma åt Azure-tjänster, till exempel Azure Storage och Azure Event Hubs. |

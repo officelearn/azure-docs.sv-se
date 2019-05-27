@@ -1,5 +1,5 @@
 ---
-title: Definitionen av datauppsättningen och versionshantering
+title: Definitionen av datauppsättningen och versionshantering med azureml-datauppsättningar
 titleSuffix: Azure Machine Learning service
 description: Lär dig hur du uppdaterar datauppsättningen definitioner och hanterar livscykeln för definitioner
 services: machine-learning
@@ -10,12 +10,12 @@ ms.author: sihhu
 author: MayMSFT
 ms.reviewer: larryfr
 ms.date: 05/02/2019
-ms.openlocfilehash: 7c861c8cdc9985caa42bd2beb5236a4f4e93e4c7
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.openlocfilehash: e58ce156deaaad259ea7b74521bcf9b79afbd183
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65028687"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66146208"
 ---
 # <a name="update-and-manage-the-lifecycle-of-dataset-definitions"></a>Uppdatera och hantera livscykeln för datauppsättningen definitioner
 
@@ -344,7 +344,7 @@ När du har hämtat en definition kan använda du det med dina maskininlärnings
 
 Du kan hantera livscykeln för varje datauppsättningsdefinitionen oberoende av varandra. Det finns tre steg i livscykeln: aktiv, inaktuella eller arkiveras.
 
-### <a name="active"></a>Active
+### <a name="active"></a>Aktiv
 
 När en ny datauppsättningsdefinitionen skapas, är den aktiv som standard. 
 

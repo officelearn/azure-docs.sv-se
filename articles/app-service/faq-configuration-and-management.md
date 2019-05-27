@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
 ms.openlocfilehash: 88051c45f21bdf11807ffcc63d8248cba81ae70b
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118453"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66137070"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Konfiguration och hantering av vanliga frågor och svar för Web Apps i Azure
 
@@ -148,7 +148,7 @@ Om du använder Hybridanslutningar för att ansluta till SQL Server, orsaka en M
 Exception: System.Data.Entity.Core.EntityException: The underlying provider failed on Open. —> System.OverflowException: Arithmetic operation resulted in an overflow. or (64 bit Web app) System.OverflowException: Array dimensions exceeded supported range, at System.Data.SqlClient.TdsParser.ConsumePreLoginHandshake
 ```
 
-### <a name="resolution"></a>Lösning
+### <a name="resolution"></a>Matchning
 
 Undantaget orsakades av ett problem med Hybridanslutningshanteraren som sedan har åtgärdats. Se till att [uppdatera din Hybridanslutningshanterare](https://go.microsoft.com/fwlink/?LinkID=841308) att lösa problemet.
 

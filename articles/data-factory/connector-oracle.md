@@ -284,17 +284,17 @@ När du kopierar data från och till Oracle, används följande mappningar från
 | CHAR |String |
 | CLOB |String |
 | DATE |DateTime |
-| FLOAT |Decimal, String (om precision > 28) |
-| INTEGER |Decimal, String (om precision > 28) |
+| FLYTTAL |Decimal, sträng (om precision > 28) |
+| HELTAL |Decimal, sträng (om precision > 28) |
 | LONG |String |
 | LONG RAW |Byte[] |
 | NCHAR |String |
 | NCLOB |String |
-| NUMBER |Decimal, String (om precision > 28) |
+| NUMBER |Decimal, sträng (om precision > 28) |
 | NVARCHAR2 |String |
 | RAW |Byte[] |
 | ROWID |String |
-| TIMESTAMP |DateTime |
+| TIDSSTÄMPEL |DateTime |
 | TIMESTAMP WITH LOCAL TIME ZONE |String |
 | TIMESTAMP WITH TIME ZONE |String |
 | UNSIGNED INTEGER |Number |

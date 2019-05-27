@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 05/21/2019
 ms.author: sngun
-ms.openlocfilehash: 297f71cef41f91a2e9595a0ccca08e2803bd6201
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 033baa80eaa10581777061b40c64afe6331a2e92
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787300"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979068"
 ---
 # <a name="azure-cosmos-db-build-a-python-application-using-azure-cosmos-db-sql-api-account"></a>Azure Cosmos DB: Skapa ett Python-program med hjälp av Azure Cosmos DB SQL API-konto
 
@@ -26,7 +26,7 @@ ms.locfileid: "65787300"
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
 >  
 
-Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan snabbt skapa och fråga efter dokument, nyckel/värde- och grafdatabaser. Alla dessa åtgärder dra nytta av distribution och skalning i Azure Cosmos DB.
+Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan snabbt skapa och fråga efter dokument, nyckel/värde, bred kolumn och grafdatabaser. Alla dessa åtgärder dra nytta av distribution och skalning i Azure Cosmos DB.
 
 Den här snabbstarten visar hur du skapar ett [SQL API](sql-api-introduction.md)-konto i Azure Cosmos DB, en dokumentdatabas och en container med Azure-portalen. Sedan skapar du och kör en konsolapp som är byggd med Python SDK för [SQL API](sql-api-sdk-python.md). Den här snabbstarten används version 3.0 av den [Python SDK](https://pypi.org/project/azure-cosmos).
 

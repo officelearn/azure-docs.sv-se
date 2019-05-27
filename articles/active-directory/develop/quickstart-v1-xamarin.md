@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fdb3de88fde2fbc7ec2aaffdb7d82433845db34b
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: e3470d9220ed471a05792ed5b3bb259e0dcbe0a6
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545947"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66121920"
 ---
 # <a name="quickstart-build-a-xamarin-app-that-integrates-microsoft-sign-in"></a>Snabbstart: Skapa en Xamarin-app som integrerar Microsoft-inloggning
 
@@ -57,14 +57,14 @@ För att göra så att appen kan få token behöver du först registrera den i d
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Klicka på ditt konto i fältet längst upp. Under **kataloglistan** väljer du sedan den Active Directory-klientorganisation där du vill registrera appen.
 3. Klicka på **Alla tjänster** i den vänstra fönsterrutan och välj sedan **Azure Active Directory**.
-4. Klicka på **Appregistreringar** och välj sedan **Lägg till**.
-5. Följ anvisningarna för att skapa ett nytt **internt klientprogram**.
+4. Klicka på **appregistreringar**, och välj sedan **ny registrering**.
+5. Följ anvisningarna för att skapa ett nytt klientprogram.
    * **Namn** beskriver appen för användarna.
+   * Under **Kontotyper som stöds** väljer du **Accounts in any organizational directory and personal Microsoft accounts** (Konton i alla organisationskataloger och personliga Microsoft-konton).
    * **Omdirigerings-URI** är ett schema och en strängkombination som Azure AD använder till att returnera tokensvar. Ange ett värde (till exempel `http://DirectorySearcher`).
 6. När du har slutfört registreringen tilldelar Azure AD appen ett unikt program-ID. Kopiera värdet från fliken **Program** eftersom du behöver det senare.
-7. På sidan **Inställningar** väljer du **Nödvändiga behörigheter** och sedan **Lägg till**.
-8. Välj **Microsoft Graph** som API. Under **Delegerade behörigheter** lägger du till behörigheten **Läsa katalogdata**. 
-   Den här åtgärden gör det möjligt för appen att köra frågor mot Graph API för användare.
+7. Från den **API-behörigheter** väljer **lägga till en behörighet**. Inuti **Välj en API** Välj ***Microsoft Graph***.
+8. Under **delegerade behörigheter**, välj behörigheten **User.Read**, tryck sedan på **Lägg till** att spara. Den här behörigheten konfigurerar appen att fråga Azure AD Graph API efter användare.
 
 ## <a name="step-3-install-and-configure-adal"></a>Steg 3: Installera och konfigurera ADAL
 

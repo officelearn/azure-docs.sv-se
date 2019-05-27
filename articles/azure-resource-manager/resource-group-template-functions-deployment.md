@@ -13,11 +13,11 @@ ms.workload: na
 ms.date: 01/03/2019
 ms.author: tomfitz
 ms.openlocfilehash: c5bd40741ec0fe047f98b4b4431819d90e188385
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268125"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66128659"
 ---
 # <a name="deployment-functions-for-azure-resource-manager-templates"></a>Distributionsfunktioner för Azure Resource Manager-mallar 
 
@@ -167,7 +167,7 @@ Returnerar ett parametervärde. Det angivna parameternamnet måste definieras i 
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| parameterName |Ja |sträng |Namnet på parametern för att returnera. |
+| parameterName |Ja |string |Namnet på parametern för att returnera. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -256,7 +256,7 @@ Utdata från föregående exempel med standardvärdena är:
 | ---- | ---- | ----- |
 | stringOutput | String | Alternativ 1 |
 | intOutput | Int | 1 |
-| objectOutput | Objekt | {"one": "a", "two": "b"} |
+| objectOutput | Object | {"one": "a", "two": "b"} |
 | arrayOutput | Matris | [1, 2, 3] |
 | crossOutput | String | Alternativ 1 |
 
@@ -360,7 +360,7 @@ Utdata från föregående exempel med standardvärdena är:
 | exampleOutput1 | String | myVariable |
 | exampleOutput2 | Matris | [1, 2, 3, 4] |
 | exampleOutput3 | String | myVariable |
-| exampleOutput4 |  Objekt | {"property1": "value1", "property2": "value2"} |
+| exampleOutput4 |  Object | {"property1": "value1", "property2": "value2"} |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 

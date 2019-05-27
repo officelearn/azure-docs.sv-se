@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 05/22/2019
 ms.author: jingwang
-ms.openlocfilehash: cf5713fecd354f1e1d2c0ce7d28439b5b8b785ec
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.openlocfilehash: 6d2ed8ba13fac03a60d9a0730776bc8348876b62
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153426"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66153576"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Kopiera data till och från Azure SQL Data Warehouse med hjälp av Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -149,7 +149,7 @@ Följ dessa steg om du vill använda tokenautentisering för service principal-b
 4. **Bevilja behörigheter krävs för tjänstens huvudnamn** som du brukar för SQL-användare eller andra. Kör följande kod eller hänvisa till fler alternativ [här](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
 
     ```sql
-    EXEC sp_addrolemember [role name], [your application name];
+    EXEC sp_addrolemember db_owner, [your application name];
     ```
 
 5. **Konfigurera en länkad Azure SQL Data Warehouse-tjänsten** i Azure Data Factory.
@@ -199,7 +199,7 @@ Följ dessa steg om du vill använda hanterad identitet-autentisering:
 3. **Bevilja behörigheter krävs för Data Factory hanterade identiteter** som du brukar för SQL-användare och andra. Kör följande kod eller hänvisa till fler alternativ [här](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
 
     ```sql
-    EXEC sp_addrolemember [role name], [your Data Factory name];
+    EXEC sp_addrolemember db_owner, [your Data Factory name];
     ```
 
 5. **Konfigurera en länkad Azure SQL Data Warehouse-tjänsten** i Azure Data Factory.
@@ -375,7 +375,7 @@ Om du vill kopiera data till Azure SQL Data Warehouse, ange Mottagartyp i Kopier
 | rejectValue | Anger det tal eller procentandelen rader som kan avvisas innan frågan inte kunde köras.<br/><br/>Läs mer om Polybases avvisningsalternativen i avsnittet argument i [Skapa extern tabell (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx). <br/><br/>Tillåtna värden är 0 (standard), 1, 2, osv. |Nej |
 | rejectType | Anger om den **rejectValue** alternativet är ett exakt värde eller en procentandel.<br/><br/>Tillåtna värden är **värdet** (standard) och **procent**. | Nej |
 | rejectSampleValue | Anger antalet rader som ska hämtas innan PolyBase beräknar om procentandelen avvisade raden.<br/><br/>Tillåtna värden är 1, 2, osv. | Ja, om den **rejectType** är **procent**. |
-| useTypeDefault | Anger hur du hanterar värden som saknas i avgränsade textfiler när PolyBase hämtar data från textfilen.<br/><br/>Mer information om den här egenskapen från avsnittet argument i [skapa externt FILFORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx).<br/><br/>Tillåtna värden är **SANT** och **FALSKT** (standard). | Nej |
+| useTypeDefault | Anger hur du hanterar värden som saknas i avgränsade textfiler när PolyBase hämtar data från textfilen.<br/><br/>Mer information om den här egenskapen från avsnittet argument i [skapa externt FILFORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx).<br/><br/>Tillåtna värden är **SANT** och **FALSKT** (standard).<br><br>**Se [felsökningstips](#polybase-troubleshooting) relaterade till den här inställningen.** | Nej |
 | writeBatchSize | Antalet rader som tillägg i SQL-tabell **per batch**. Gäller endast när PolyBase inte används.<br/><br/>Det tillåtna värdet är **heltal** (antal rader). Som standard Data Factory dynamiskt kan bestämma lämpliga batchstorleken baserat på radstorleken. | Nej |
 | writeBatchTimeout | Väntetid för batch insert-åtgärden ska slutföras innan tidsgränsen uppnås. Gäller endast när PolyBase inte används.<br/><br/>Det tillåtna värdet är **timespan**. Exempel: ”00: 30:00” (30 minuter). | Nej |
 | preCopyScript | Ange en SQL-fråga för Kopieringsaktiviteten ska köras innan du skriver data till Azure SQL Data Warehouse i varje körning. Använd den här egenskapen för att rensa förinstallerade data. | Nej |
@@ -405,6 +405,9 @@ Med hjälp av [PolyBase](https://docs.microsoft.com/sql/relational-databases/pol
 * Om dina källdata finns i **Azure Blob, Azure Data Lake Storage Gen1 eller Azure Data Lake Storage Gen2**, och **format är PolyBase kompatibel**, du kan använda Kopieringsaktivitet för att anropa direkt PolyBase för att låta Azure SQL Data Warehouse kan du hämta data från källan. Mer information finns i  **[dirigera kopiera genom att använda PolyBase](#direct-copy-by-using-polybase)**.
 * Om dina källdatalagret och format ursprungligen inte stöds av PolyBase, använder du den **[mellanlagrad kopiering genom att använda PolyBase](#staged-copy-by-using-polybase)** funktionen i stället. Funktionen mellanlagrad kopiering ger dig också bättre genomströmning. Den konverterar automatiskt data till PolyBase-kompatibelt format. Och den lagrar data i Azure Blob storage. Det hämtar sedan data till SQL Data Warehouse.
 
+>[!TIP]
+>Läs mer på [bästa praxis för att använda PolyBase](#best-practices-for-using-polybase).
+
 ### <a name="direct-copy-by-using-polybase"></a>Direct kopiera genom att använda PolyBase
 
 SQL Data Warehouse PolyBase stöder direkt Azure Blob, Azure Data Lake Storage Gen1 och Gen2 för Azure Data Lake Storage. Om dina källdata uppfyller kriterierna som beskrivs i det här avsnittet, kan du använda PolyBase för att kopiera direkt från källans datalager till Azure SQL Data Warehouse. Annars kan du använda [mellanlagrad kopiering genom att använda PolyBase](#staged-copy-by-using-polybase).
@@ -418,9 +421,12 @@ Om kraven inte uppfylls, Azure Data Factory kontrollerar du inställningarna och
 
     | Stöds datalagertyp | Typ av autentisering som stöds |
     |:--- |:--- |
-    | [Azure Blob](connector-azure-blob-storage.md) | Konto-nyckelautentisering |
+    | [Azure Blob](connector-azure-blob-storage.md) | Konto-nyckelautentisering, hanterad identitetsautentisering |
     | [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | Autentisering av tjänstens huvudnamn |
-    | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | Konto-nyckelautentisering |
+    | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | Konto-nyckelautentisering, hanterad identitetsautentisering |
+
+    >[!IMPORTANT]
+    >Om din Azure-lagring är konfigurerad med VNet-tjänstslutpunkt, måste du använda hanterade identitetsautentisering. Referera till [effekten av att använda tjänstslutpunkter för virtuellt nätverk med Azure storage](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)
 
 2. Den **källdataformatet** är av **Parquet**, **ORC**, eller **avgränsad text**, med följande konfigurationer:
 
@@ -515,9 +521,28 @@ Användaren som läser in data i SQL Data Warehouse måste ha för att använda 
 
 ### <a name="row-size-and-data-type-limits"></a>Ange gränser Radstorleken och data
 
-PolyBase-inläsningar är begränsade till rader som är mindre än 1 MB. De kan inte läsa in VARCHR(MAX), NVARCHAR(MAX) eller VARBINARY(MAX). Mer information finns i [kapacitetsbegränsningar i SQL Data Warehouse-tjänsten](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md#loads).
+PolyBase-inläsningar är begränsade till rader som är mindre än 1 MB. Det kan inte användas för att läsa in till VARCHR(MAX), NVARCHAR(MAX) eller VARBINARY(MAX). Mer information finns i [kapacitetsbegränsningar i SQL Data Warehouse-tjänsten](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md#loads).
 
 När dina källdata innehåller rader som är större än 1 MB, kanske du vill dela lodrätt källtabellerna i flera små. Kontrollera att den största storleken på varje rad inte överskrider gränsen. Mindre tabeller kan sedan lästs in med PolyBase och sammanfogas tillsammans i Azure SQL Data Warehouse.
+
+För data med sådana breda kolumner du också använda icke-PolyBase för att läsa in data med ADF, genom att stänga av ”Tillåt PolyBase” inställningen.
+
+### <a name="polybase-troubleshooting"></a>Felsökning av PolyBase
+
+**Läser in till Decimal kolumn**
+
+Om dina källdata är i textformat och den innehåller tomt värde som ska hämtas till SQL Data Warehouse decimalkolumn, du kan stöta på följande fel:
+
+```
+ErrorCode=FailedDbOperation, ......HadoopSqlException: Error converting data type VARCHAR to DECIMAL.....Detailed Message=Empty string can't be converted to DECIMAL.....
+```
+
+Lösningen är att avmarkera ”**Använd förvald**” alternativet (som FALSKT) i Kopiera aktivitet mottagare -> PolyBase Principtyp. ”[USE_TYPE_DEFAULT](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest#arguments
+)” är en inbyggd PolyBase-konfiguration som anger hur du hanterar värden som saknas i avgränsade textfiler när PolyBase hämtar data från textfilen. 
+
+**Andra**
+
+Ju fler problem som knonw PolyBase, finns i [felsökning av Azure SQL Data Warehouse PolyBase-inläsning](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md#polybase).
 
 ### <a name="sql-data-warehouse-resource-class"></a>SQL Data Warehouse resursklass
 
@@ -558,40 +583,38 @@ Få mer detaljerad information från [source omvandling](data-flow-source.md) oc
 
 När du kopierar data från eller till Azure SQL Data Warehouse, används följande mappningar från Azure SQL Data Warehouse-datatyper till Azure Data Factory tillfälliga-datatyper. Se [schema och data skriver mappningar](copy-activity-schema-and-type-mapping.md) att lära dig hur Kopieringsaktiviteten mappar källtypen schema och data till mottagaren.
 
+>[!TIP]
+>Referera till [Tabelldatatyper i Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-tables-data-types.md) artikel om SQL DW stöds datatyper och lösningarna för som de som inte stöds.
+
 | Azure SQL Data Warehouse-datatyp | Data Factory tillfälliga datatyp |
 |:--- |:--- |
 | bigint | Int64 |
 | binary | Byte[] |
 | bit | Boolean |
 | char | String, Char[] |
-| date | Datetime |
-| Datetime | Datetime |
-| datetime2 | Datetime |
-| Datetimeoffset | Datetimeoffset |
+| date | DateTime |
+| DateTime | DateTime |
+| datetime2 | DateTime |
+| DateTimeOffset | DateTimeOffset |
 | Decimal | Decimal |
-| FILESTREAM-attributet (varbinary(max)) | Byte[] |
+| FILESTREAM attribute (varbinary(max)) | Byte[] |
 | Float | Double |
 | image | Byte[] |
 | int | Int32 |
 | money | Decimal |
 | nchar | String, Char[] |
-| ntext | String, Char[] |
-| numeriskt | Decimal |
+| numeric | Decimal |
 | nvarchar | String, Char[] |
 | real | Single |
-| ROWVERSION | Byte[] |
-| smalldatetime | Datetime |
+| rowversion | Byte[] |
+| smalldatetime | DateTime |
 | smallint | Int16 |
 | smallmoney | Decimal |
-| sql_variant | Object |
-| text | String, Char[] |
 | time | TimeSpan |
-| tidsstämpel | Byte[] |
 | tinyint | Byte |
 | uniqueidentifier | Guid |
-| Varbinary | Byte[] |
+| varbinary | Byte[] |
 | varchar | String, Char[] |
-| xml | Xml |
 
 ## <a name="next-steps"></a>Nästa steg
 En lista över datalager som stöds som källor och mottagare av Kopieringsaktivitet i Azure Data Factory finns i [datalager och format som stöds](copy-activity-overview.md##supported-data-stores-and-formats).

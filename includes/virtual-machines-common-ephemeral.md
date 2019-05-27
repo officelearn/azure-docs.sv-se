@@ -9,13 +9,13 @@ ms.date: 05/02/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
 ms.openlocfilehash: 47407df90a83501b8739a428789e20cddc59e83d
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65468430"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66145922"
 ---
-Tillfälliga operativsystemdiskar skapas i den lokala lagringen för virtuell dator (VM) och inte sparats till fjärranslutna Azure Storage. Tillfälliga operativsystemdiskar fungerar bra för tillståndslösa arbetsbelastningar där program är toleranta för enskilda VM-fel, men är mer orolig för den tid det tar för storskaliga distributioner eller tid att återställa avbildningen av de enskilda Virtuella datorinstanserna. Det är också lämpliga för program som distribueras med den klassiska distributionsmodellen för att flytta till Resource Manager-distributionsmodellen. Du skulle se lägre läsning och skrivning till OS-disken och snabbare återställa VM-avbildning med tillfälliga OS-disken. Dessutom kan tillfälliga OS-disken är kostnadsfria, du betalar inga lagringskostnaden för OS-disken. 
+Tillfälliga operativsystemdiskar skapas i den lokala lagringen för virtuell dator (VM) och inte sparats till fjärranslutna Azure Storage. Tillfälliga operativsystemdiskar fungerar bra för tillståndslösa arbetsbelastningar där program är toleranta för enskilda VM-fel, men är mer orolig för den tid det tar för storskaliga distributioner eller tid att återställa avbildningen av de enskilda Virtuella datorinstanserna. Det är också lämpliga för program som distribueras med den klassiska distributionsmodellen för att flytta till Resource Manager-distributionsmodellen. Med Ephemeral OS Disk får du lägre svarstider för läs- och skrivåtgärder till OS-disken och det går snabbare att återställa VM-avbildningar. Dessutom kan tillfälliga OS-disken är kostnadsfria, du betalar inga lagringskostnaden för OS-disken. 
  
 De viktigaste funktionerna i differentierande diskar är: 
 - De kan användas med både Marketplace-avbildningar och anpassade avbildningar.

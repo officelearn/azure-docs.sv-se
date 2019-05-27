@@ -11,11 +11,11 @@ ms.workload: infrastructure-services
 ms.date: 3/26/2018
 ms.author: victorh
 ms.openlocfilehash: 10bc4e4c440e5495afd820f588270b7990108b68
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259269"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66135382"
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Skapa en Programgateway med sökvägsbaserad routning regler med hjälp av Azure portal
 
@@ -61,7 +61,7 @@ Det krävs ett virtuellt nätverk för kommunikation mellan de resurser som du s
    - *myBackendSubnet* – Undernätsnamnet.
    - *10.0.0.0/24* – Undernätets adressutrymme.
 
-     ![Skapa det virtuella nätverket](./media/application-gateway-create-url-route-portal/application-gateway-vnet.png)
+     ![Skapa virtuellt nätverk](./media/application-gateway-create-url-route-portal/application-gateway-vnet.png)
 
 6. Klicka på **OK** för att skapa det virtuella nätverket och undernätet.
 7. Klicka på **välja en offentlig IP-adress**, klickar du på **Skapa nytt**, och ange sedan namnet på den offentliga IP-adressen. I det här exemplet heter den offentliga IP-adressen *myAGPublicIPAddress*. Godkänn standardvärdena för de andra inställningarna och klicka sedan på **OK**.

@@ -16,11 +16,11 @@ ms.date: 9/26/2018
 ms.author: aljo
 ms.custom: mvc
 ms.openlocfilehash: 92b1e95598da27f0b7d7df30dfa4a82824b4a48c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799464"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66158192"
 ---
 # <a name="integrate-api-management-with-service-fabric-in-azure"></a>Integrera API Management med Service Fabric i Azure
 
@@ -201,7 +201,7 @@ Fyll i följande tomma parametrar i *apim.parameters.json* för din distribution
 |---|---|
 |apimInstanceName|sf-apim|
 |apimPublisherEmail|myemail@contosos.com|
-|apimSku|Developer|
+|apimSku|Utvecklare|
 |serviceFabricCertificateName|sfclustertutorialgroup320171031144217|
 |certificatePassword|q6D7nN %6ck@6|
 |serviceFabricCertificateThumbprint|C4C1E541AD512B8065280292A8BA6079C3F26F10 |

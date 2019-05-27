@@ -109,3 +109,5 @@
       href: language-support.md
     - name: Analys för API för nyhetssökning i Bing
       href: bing-news-stats.md
+    - name: Efterlevnad
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'

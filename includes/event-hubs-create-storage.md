@@ -9,11 +9,11 @@ ms.date: 10/16/2018
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: b84b0a8e09bf739ce62dee167ff751b491765c66
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59684675"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66154555"
 ---
 ### <a name="create-a-storage-account-for-event-processor-host"></a>Skapa ett lagringskonto för Event Processor Host
 Event Processor Host är en smart agent som gör det enklare att ta emot händelser från Event Hubs genom hantering av permanenta kontrollpunkter och parallella mottaganden. För att kunna använda kontrollpunkter måste Event Processor Host ha ett lagringskonto. I följande exempel visas hur du skapar ett lagringskonto och hur du kommer åt dess åtkomstnycklar:
@@ -22,7 +22,7 @@ Event Processor Host är en smart agent som gör det enklare att ta emot händel
 
 2. Välj **Lagring** och sedan **Koppla undernät – blob, fil, tabell, kö**.
    
-    ![Välja lagringskonto](./media/event-hubs-create-storage/create-storage1.png)
+    ![Välj lagringskonto](./media/event-hubs-create-storage/create-storage1.png)
 
 3. Gör följande på sidan **Skapa lagringskonto**: 
 

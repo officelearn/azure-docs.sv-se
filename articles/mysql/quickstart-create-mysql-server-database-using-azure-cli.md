@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 01/09/2019
 ms.custom: mvc
 ms.openlocfilehash: 10acb353e282508c838bee89b131d94dcd3fa7ee
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57877827"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66160399"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-using-azure-cli"></a>Snabbstart: Skapa en Azure Database för MySQL-server med Azure CLI
 
@@ -51,8 +51,8 @@ namn | mydemoserver | Välj ett unikt namn för Azure Database för MySQL-server
 resource-group | myresourcegroup | Ange namnet på Azure-resursgruppen.
 sku-name | GP_Gen5_2 | Namnet på SKU:n. Följer konventionen {prisnivå}\_{beräkningsgenerering}\_{vCores} i snabbformat. Se under tabellen för mer information om parametern sku-name.
 backup-retention | 7 | Hur länge en säkerhetskopia ska behållas. Enheten är dagar. Intervallet är 7–35. 
-geo-redundant-backup | Disabled | Huruvida geo-redundanta säkerhetskopieringar ska aktiveras för den här servern eller inte. Tillåtna värden: Aktiverad, inaktiverad.
-location | westus | Azure-platsen för servern.
+geo-redundant-backup | Har inaktiverats | Huruvida geo-redundanta säkerhetskopieringar ska aktiveras för den här servern eller inte. Tillåtna värden: Aktiverad, inaktiverad.
+location | usavästra | Azure-platsen för servern.
 ssl-enforcement | Enabled | Om ssl ska aktiveras eller inte för den här servern. Tillåtna värden: Aktiverad, inaktiverad.
 storage-size | 51200 | Serverns lagringskapacitet (enheten är megabyte). En giltig storage-size är minst 5 120 MB och ökar i steg om 1 024 MB. Se dokumentet med [prisnivåer](./concepts-pricing-tiers.md) för mer information om storleksgränser för lagring. 
 version | 5.7 | Huvudversion för MySQL.
@@ -208,7 +208,7 @@ mysql>
 |---|---|---|
 |   Anslutningsnamn | Min anslutning | Ange ett namn på anslutningen (det kan vara vad som helst) |
 | Anslutningsmetod | välj Standard (TCP/IP) | Använda TCP/IP-protokollet för att ansluta till Azure Database för MySQL > |
-| Värdnamn | mydemoserver.mysql.database.azure.com | Servernamn som du antecknade tidigare. |
+| Värddatornamn | mydemoserver.mysql.database.azure.com | Servernamn som du antecknade tidigare. |
 | Port | 3306 | Standardporten för MySQL används. |
 | Användarnamn | myadmin@mydemoserver | Inloggning för serveradministratör som du antecknade tidigare. |
 | Lösenord | **** | Ange lösenordet som du konfigurerade tidigare. |

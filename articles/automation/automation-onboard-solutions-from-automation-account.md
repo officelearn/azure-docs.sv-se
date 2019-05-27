@@ -9,18 +9,18 @@ ms.date: 4/11/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 41f0607908cde94ca08a4c4dfce0a47032eefbb3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a1bb5534d2f98a4e5143038ab1d5fbbcc76184fe
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60739257"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66133191"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Publicera lösningar för uppdateringshantering, ändringsspårning och inventering
 
 Azure Automation tillhandahåller lösningar för att hantera säkerhet för operativsystemuppdateringar, spåra ändringar och inventering vad som är installerat på datorerna. Det finns många sätt att registrera datorer, du kan registrera lösningen [från en virtuell dator](automation-onboard-solutions-from-vm.md), [från flera datorer-surfning](automation-onboard-solutions-from-browse.md), från ditt Automation-konto eller av [runbook](automation-onboard-solutions.md). Den här artikeln beskrivs registrering dessa lösningar från ditt Automation-konto.
 
-## <a name="sign-in-to-azure"></a>Logga in på Azure
+## <a name="sign-in-to-azure"></a>Logga in till Azure
 
 Logga in i Azure på https://portal.azure.com
 
@@ -32,27 +32,10 @@ Välj Log Analytics-arbetsytan och Automation-kontot och klicka på **aktivera**
 
 ![Publicera inventeringslösningen](media/automation-onboard-solutions-from-automation-account/onboardsolutions.png)
 
-När du aktiverar lösningar går det endast att länka en Log Analytics-arbetsyta och ett Automation-konto i vissa regioner.
-
-I följande tabell visas mappningarna som stöds:
-
-|**Log Analytics arbetsytans Region**|**Azure Automation Region**|
-|---|---|
-|Sydöstra Australien|Sydöstra Australien|
-|CanadaCentral|CanadaCentral|
-|Indiencentrala|Indiencentrala|
-|EastUS<sup>1</sup>|EastUS2|
-|JapanEast|JapanEast|
-|SoutheastAsia|SoutheastAsia|
-|WestCentralUS<sup>2</sup>|WestCentralUS<sup>2</sup>|
-|Västeuropa|Västeuropa|
-|Södrastorbritannien|Södrastorbritannien|
-|USGovVirginia|USGovVirginia|
-|EastUS2EUAP<sup>1</sup>|CentralUSEUAP|
-
-<sup>1</sup> EastUS2EUAP och östra USA mappningar för Log Analytics-arbetsytor till Automation-konton är inte en exakt mappning för olika regioner, men är korrekt mappning.
-
-<sup>2</sup> på grund av begränsningar i kapaciteten regionen är inte tillgänglig när du skapar nya resurser. Detta inkluderar Automation-konton och Log Analytics-arbetsytor. Redan befintliga länkade resurser i regionen bör dock fortsätta att fungera.
+> [!NOTE]
+> När du aktiverar lösningar går det endast att länka en Log Analytics-arbetsyta och ett Automation-konto i vissa regioner.
+>
+> En lista över stöds mappningspar finns i [regionsmappning för Automation-kontot och Log Analytics-arbetsytan](how-to/region-mappings.md).
 
 Lösningen Ändringsspårning och inventering ger dig möjlighet att [spåra ändringar](automation-vm-change-tracking.md) och [inventering](automation-vm-inventory.md) på dina virtuella datorer. I det här steget aktiverar du lösningen för en virtuell dator.
 
@@ -161,6 +144,8 @@ Om du har använt Start- och stoppa virtuella datorer vid låg belastning på n�
 * Starta och stoppa scheman för VM-runbook
 * Starta och stoppa Virtuella runbooks
 * Variabler
+
+Du kan också du kan också ta bort länken till din arbetsyta från ditt Automation-konto från Log Analytics-arbetsytan. På arbetsytan och välj **Automatiseringskontot** under **relaterade resurser**. På sidan Automation-konto väljer **Avlänka konto**.
 
 ## <a name="next-steps"></a>Nästa steg
 

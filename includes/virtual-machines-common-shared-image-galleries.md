@@ -9,11 +9,11 @@ ms.date: 05/06/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
 ms.openlocfilehash: 4063e79a9415ac35b09cc77d0110c04e191b49c7
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: MT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546707"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66145880"
 ---
 Delade bildgalleriet är en tjänst som hjälper dig att skapa struktur och organisation runt dina anpassade hanterade VM-avbildningar. Delade Image Galleries innehåller:
 
@@ -128,7 +128,7 @@ Vi rekommenderar att dela på nivån galleriet för bästa möjliga upplevelse. 
 Bilder kan också delas, i skala, mellan klienter med hjälp av en app för flera klienter registrering. Läs mer om att dela bilder över klienter [dela galleriet VM-avbildningar i Azure-klienter](../articles/virtual-machines/linux/share-images-across-tenants.md).
 
 ## <a name="billing"></a>Fakturering
-Det finns utan extra kostnad för att använda delade bildgalleriet-tjänsten. Du kommer att debiteras för följande resurser:
+Tjänsten Shared Image Gallery erbjuds utan extra kostnad. Du kommer att debiteras för följande resurser:
 - Kostnader för lagring för att lagra delade bild-versioner. Kostnaden beror på antalet repliker av versionsnumret för avbildningen och antalet regioner versionen replikeras till. Till exempel om du har 2 avbildningar och båda replikeras till 3 regioner, kommer sedan du att ändras för 6 hanterade diskar baserat på deras storlek. Mer information finns i [priser för Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/).
 - Nätverks-kostnader för utgående trafik för replikering av den första bildversionen från källregionen till de replikerade regionerna. Efterföljande repliker hanteras i regionen, så det finns inga ytterligare avgifter. 
 

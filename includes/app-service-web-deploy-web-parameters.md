@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/03/2016
 ms.author: cephalin
 ms.openlocfilehash: 5bde217601d27129e044b64d90184727ea717950
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50133779"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66132885"
 ---
 Med Azure Resource Manager kan du definiera parametrar för värden som du vill ange när mallen distribueras. Mallen innehåller ett avsnitt som heter parametrar som innehåller alla parametervärden.
 Du bör definiera en parameter för de värden som varierar utifrån det projekt som du distribuerar eller utifrån den miljö som du distribuerar till. Inte definiera parametrar för värden som ska alltid vara samma. Varje parametervärde används i mallen för att definiera de resurser som distribueras. 
@@ -32,7 +32,7 @@ Namnet på App Service-plan för att använda som värd för webbappen.
       "type":"string"
     }
 
-### <a name="sku"></a>SKU: n
+### <a name="sku"></a>sku
 Prisnivån för tjänstplanen.
 
     "sku": {

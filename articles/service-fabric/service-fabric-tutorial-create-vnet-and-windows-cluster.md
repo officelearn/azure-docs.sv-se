@@ -16,11 +16,11 @@ ms.date: 03/13/2019
 ms.author: aljo
 ms.custom: mvc
 ms.openlocfilehash: dabbefa8ca2073e30948f1c70782f730bceae030
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59050014"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66158100"
 ---
 # <a name="tutorial-deploy-a-service-fabric-cluster-running-windows-into-an-azure-virtual-network"></a>Självstudier: Distribuera ett Service Fabric-kluster som kör Windows till en Azure-nätverk
 
@@ -80,7 +80,7 @@ I resursen **Microsoft.ServiceFabric/kluster** konfigureras ett Windows-kluster 
 
 * Tre nodtyper.
 * Fem noder av den primära nodtypen (kan konfigureras i mallparametrarna) och en nod i var och en av de andra två nodtyperna.
-* Operativsystem: Windows Server 2016 Datacenter med behållare (kan konfigureras i mallparametrarna).
+* OS: Windows Server 2016 Datacenter med behållare (kan konfigureras i mallparametrarna).
 * Skyddat med certifikat (kan konfigureras i mallparametrarna).
 * [Omvänd proxy](service-fabric-reverseproxy.md) är aktiverad.
 * [DNS-tjänsten](service-fabric-dnsservice.md) är aktiverad.

@@ -9,11 +9,11 @@ ms.date: 10/08/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
 ms.openlocfilehash: 2864946af6bd9ed2a271ef35d3afb385bfa9a71d
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65815533"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66145763"
 ---
 VM-storlekar för generell användning ger balanserat förhållande mellan processor och minne. Utmärkt för tester och utveckling, små till mellanstora databaser och webbservrar med låg till medelhög trafik. Den här artikeln innehåller information om hur många virtuella processorer, diskar och nätverkskort samt genomflödet för storlekar i den här grupperingen. 
 

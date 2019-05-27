@@ -9,11 +9,11 @@ ms.date: 12/19/2018
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 1f9c30f1c914f6c8d42967e014d967ba0d5b85cc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58893851"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66142302"
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>Hantera Azure Analysis Services med PowerShell
 
@@ -33,7 +33,7 @@ För åtgärder med hjälp av Azure PowerShell-cmdletar, ditt konto eller det ko
 
 Module - [Az.AnalysisServices](/powershell/module/az.analysisservices)
 
-|Cmdlet:|Beskrivning| 
+|Cmdlet|Beskrivning| 
 |------------|-----------------| 
 |[Get-AzAnalysisServicesServer](/powershell/module/az.analysisservices/get-azanalysisservicesserver)|Hämtar information om en server-instans.|  
 |[New-AzAnalysisServicesServer](/powershell/module/az.analysisservices/new-azanalysisservicesserver)|Skapar en server-instans.|   
@@ -49,7 +49,7 @@ Module - [Az.AnalysisServices](/powershell/module/az.analysisservices)
 
 Modul - [Azure.AnalysisServices](https://www.powershellgallery.com/packages/Azure.AnalysisServices)
 
-|Cmdlet:|Beskrivning| 
+|Cmdlet|Beskrivning| 
 |------------|-----------------| 
 |[Add-AzAnalysisServicesAccount](/powershell/module/az.analysisservices/add-AzAnalysisServicesaccount)|Lägger till en autentiserad konto som ska användas för Azure Analysis Services serverbegäranden för cmdlet.| 
 |[Export-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/export-AzAnalysisServicesinstancelog)|Exporterar en logg från en instans av Analysis Services-servern i den för tillfället inloggade miljö som anges i kommandot Lägg till AzAnalysisServicesAccount|  
@@ -63,7 +63,7 @@ Azure Analysis Services-databasåtgärder använder samma [SqlServer-modulen](ht
 SqlServer-modulen innehåller uppgiftsspecifika database management-cmdletar samt den allmänna Invoke-ASCmd-cmdlet som accepterar en fråga Tabular Model Tabellmodellskriptspråket (TMSL) eller ett skript. Följande cmdletar i SqlServer-modulen har stöd för Azure Analysis Services.
 
   
-|Cmdlet:|Beskrivning|
+|Cmdlet|Beskrivning|
 |------------|-----------------| 
 |[Lägg till RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/Add-RoleMember)|Lägga till en medlem i en databasroll.| 
 |[Backup-ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/backup-asdatabase)|Säkerhetskopiera en Analysis Services-databas.|  

@@ -9,11 +9,11 @@ ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 499aeccdf00980eeb66ac6ee06e45267fd515143
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546796"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66145892"
 ---
 Delade Image Galleries kan du dela bilder med hjälp av RBAC. Du kan använda RBAC för att dela bilder i din klient, och även till personer utanför din klientorganisation. Men om du vill dela avbildningar utanför din Azure-klient i skala, bör du skapa en appregistrering för att underlätta delning.  Med hjälp av en appregistrering kan möjliggöra mer komplexa delning, t.ex.: 
 

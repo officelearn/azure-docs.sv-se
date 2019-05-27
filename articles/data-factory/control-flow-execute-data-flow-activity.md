@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: makromer
-ms.openlocfilehash: e1d4ce355f34014d5099c4b46f4420d032363fce
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.openlocfilehash: b0a6c6feae11f8daeed54c5e763dbff3aa711652
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236687"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66153509"
 ---
 # <a name="execute-data-flow-activity-in-azure-data-factory"></a>Kör flödesaktivitet för data i Azure Data Factory
 Använda aktiviteten kör data flöde för att köra ditt ADF dataflöde i pipelinekörningar för felsökning (sandbox) och utlösta pipelinekörningar.
@@ -64,6 +64,10 @@ Använd den Data flöda felsöka ska kunna använda ett uppvärmning kluster fö
 Det här är ett obligatoriskt fält som definierar vilka Integration Runtime för dina Data flöda körningsmiljön för aktiviteten. Som standard använder Data Factory Azure Integration runtime i standardversionen löses. Du kan dock skapa dina egna Azure-Integreringskörningar som definierar specifika regioner, compute typ, kärnor och TTL för dina data flow-körningsmiljön för aktiviteten.
 
 Standardinställningen för dataflöde körningar är 8 kärnor för allmän beräkning med en TTL 60 minuter.
+
+Du har kontroll över Spark-körningsmiljö för dina Data flöda aktiviteter. I den [med Azure integration runtime](concepts-integration-runtime.md) finns inställningar du anger beräkningstyp (generell användning, minnesoptimerade och optimerad databehandling), antal kärnor för arbetare och time-to-live så att de matchar motorn för körning med dina Data flöda beräkning krav. Dessutom kan ställa in TTL du underhålla en varm kluster som är omedelbart tillgängligt för jobbkörningar.
+
+![Azure Integration Runtime](media/data-flow/ir-new.png "Azure Integration Runtime")
 
 ### <a name="staging-area"></a>Mellanlagringsområde
 

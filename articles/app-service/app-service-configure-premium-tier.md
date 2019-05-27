@@ -17,17 +17,17 @@ ms.date: 07/25/2018
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: c85644e3cab39f9e0864af91722ee54aab6d59f3
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486877"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66139770"
 ---
 # <a name="configure-premiumv2-tier-for-azure-app-service"></a>Konfigurera PremiumV2-nivå för Azure App Service
 
 Den nya **PremiumV2** prisnivån får du snabbare processorer, SSD-lagring och Double-värden minne-till-kärna-förhållande på befintliga prisnivåer. Du kan spara pengar genom att köra dina appar på färre instanser med fördelen prestanda. I den här artikeln får du lära dig hur du skapar en app i **PremiumV2** nivån eller skala upp en app på **PremiumV2** nivå.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Skala upp en app på **PremiumV2**, måste du ha en Azure App Service-app som körs i en prisnivå som är lägre än **PremiumV2**, och appen måste köras i en App Service-distribution som har stöd för PremiumV2.
 
@@ -123,7 +123,7 @@ New-AzAppServicePlan -ResourceGroupName <resource_group_name> `
     -Tier "PremiumV2" `
     -WorkerSize "Small"
 ```
-## <a name="more-resources"></a>Fler resurser
+## <a name="more-resources"></a>Flera resurser
 
 [Skala upp en app i Azure](web-sites-scale.md)  
 [Skala instansantalet manuellt eller automatiskt](../monitoring-and-diagnostics/insights-how-to-scale.md)

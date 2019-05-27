@@ -11,11 +11,11 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: 3bc7b409d590ac096b70431ae009fed36c968307
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680017"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66148251"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-cli"></a>Snabbstart: Skapa en händelsehubb med Azure CLI
 
@@ -30,7 +30,7 @@ Du behöver en Azure-prenumeration för att kunna utföra den här snabbstarten.
 
 Om du väljer att installera och använda Azure CLI lokalt kräver de här självstudierna att du kör Azure CLI version 2.0.4 eller senare. Kör `az --version` för att kontrollera vilken version du har. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
-## <a name="sign-in-to-azure"></a>Logga in på Azure
+## <a name="sign-in-to-azure"></a>Logga in till Azure
 
 Följande steg krävs inte om du kör kommandon i Cloud Shell. Om du kör CLI lokalt måste du utföra följande steg för att logga in i Azure och ange din aktuella prenumeration:
 
@@ -70,7 +70,7 @@ Kör följande kommando för att skapa en händelsehubb:
 az eventhubs eventhub create --name <event hub name> --resource-group <resource group name> --namespace-name <Event Hubs namespace>
 ```
 
-Grattis! Du har skapat ett Event Hubs-namnområde och en händelsehubb i namnområdet med Azure CLI. 
+Gratulerar! Du har skapat ett Event Hubs-namnområde och en händelsehubb i namnområdet med Azure CLI. 
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: mbaldwin
-ms.openlocfilehash: df1ffa07c9b813ee3da4952bbcc394f43c69b7ac
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 6c495456a5a3295abe5460ff6b5586e41fab2d95
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65204242"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001039"
 ---
 # <a name="security-attributes-for-azure-sql-database"></a>Security attribut för Azure SQL Database
 
@@ -29,20 +29,20 @@ Azure SQL Database innehåller både [enkel databas](sql-database-single-index.y
 |---|---|--|
 | Vilande kryptering:<ul><li>Kryptering på serversidan</li><li>Kryptering på serversidan med Kundhanterade nycklar</li><li>Andra krypteringsfunktioner (t.ex på klientsidan, alltid krypterad, osv.)</ul>| Ja | Kallas ”kryptering vid användning”, enligt beskrivningen i artikeln [Always Encrypted](sql-database-always-encrypted.md). Tjänstsidan kryptering använder [transparent datakryptering](transparent-data-encryption-azure-sql.md) (TDE).|
 | Kryptering under överföring:<ul><li>ExpressRoute-kryptering</li><li>Virtuellt nätverk med kryptering</li><li>VNet-VNet-kryptering</ul>| Ja | Med hjälp av HTTPS. |
-| Hantering av kryptering nyckel (CMK, BYOK osv.)| Ja | Både tjänsthanterad och kundhanterad nyckel hantering erbjuds (det senare via [Azure Key Vault](../key-vault/index.yml). |
-| Kolumnen Filnivåkryptering (Azure-datatjänster)| Ja | Via [Always Encrypted](sql-database-always-encrypted.md). |
+| Kryptering viktiga hantering (CMK, BYOK osv.)| Ja | Både tjänsthanterad och kundhanterad nyckel hantering erbjuds (det senare via [Azure Key Vault](../key-vault/index.yml). |
+| Kolumnen filnivåkryptering (Azure-datatjänster)| Ja | Via [Always Encrypted](sql-database-always-encrypted.md). |
 | API-anrop som är krypterad| Ja | Med hjälp av HTTPS/SSL. |
 
 ## <a name="network-segmentation"></a>Nätverkssegmentering
 
 | Säkerhetsattributet | Ja/nej | Anteckningar |
 |---|---|--|
-| Stöd för tjänstslutpunkt| Ja | Gäller för [enkel databas](sql-database-single-index.yml) endast. |
-| vNET-stöd för inmatning| Ja | Gäller för [hanterad instans](sql-database-managed-instance.md) endast. |
-| Nätverksisolering / brandväggsfunktioner support| Ja | Brandväggen på båda databas - och server-nivå. nätverksisolering för [hanterad instans](sql-database-managed-instance.md) endast |
-| Stöd för Tvingad tunneltrafik | Ja | [hanterad instans](sql-database-managed-instance.md) via [Azure ExpressRoute](../expressroute/index.yml) VPN |
+| Stöd för Service-slutpunkt| Ja | Gäller för [enkel databas](sql-database-single-index.yml) endast. |
+| VNet-stöd för inmatning| Ja | Gäller för [hanterad instans](sql-database-managed-instance.md) endast. |
+| Isolering av nätverk och brandväggsfunktioner support| Ja | Brandväggen på båda databas - och server-nivå. nätverksisolering för [hanterad instans](sql-database-managed-instance.md) endast |
+| Tvingad tunneltrafik support| Ja | [hanterad instans](sql-database-managed-instance.md) via [Azure ExpressRoute](../expressroute/index.yml) VPN |
 
-## <a name="detection"></a>Detection (Identifiering)
+## <a name="detection"></a>Identifiering
 
 | Säkerhetsattributet | Ja/nej | Anteckningar|
 |---|---|--|
@@ -52,16 +52,16 @@ Azure SQL Database innehåller både [enkel databas](sql-database-single-index.y
 
 | Säkerhetsattributet | Ja/nej | Anteckningar|
 |---|---|--|
-| Åtkomsthantering - autentisering| Ja | Azure Active Directory. |
-| Åtkomsthantering - auktorisering| Ja |  |
+| Autentisering| Ja | Azure Active Directory. |
+| Auktorisering| Ja |  |
 
 
 ## <a name="audit-trail"></a>Granskningslogg
 
 | Säkerhetsattributet | Ja/nej | Anteckningar|
 |---|---|--|
-| Kontroll och hantering planera loggning och granskning| Ja | Ja för endast vissa händelser. |
-| Data-dataplaner loggning och granskning | Ja | Via [SQL audit](sql-database-auditing.md). |
+| Kontroll och hantering av plan loggning och granskning| Ja | Ja för endast vissa händelser. |
+| Data plan loggning och granskning | Ja | Via [SQL audit](sql-database-auditing.md). |
 
 ## <a name="configuration-management"></a>Konfigurationshantering
 

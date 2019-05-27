@@ -1,10 +1,15 @@
 ---
+author: diberry
+ms.author: diberry
+ms.service: cognitive-services
+ms.topic: include
+ms.date: 01/02/2019
 ms.openlocfilehash: ffd17f7a641e1481aa4c88f8b2eb12ec11fa7d8b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60599416"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66116760"
 ---
 Fluentd är en öppen källkod för datainsamling för enhetlig loggning. Den `Fluentd` inställningar hantera behållarens anslutning till en [Fluentd](https://www.fluentd.org) server. Behållaren innehåller en Fluentd loggningsprovider, vilket gör att din behållare att skriva loggar och eventuellt måttdata till en Fluentd-server.
 

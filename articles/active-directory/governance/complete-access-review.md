@@ -12,55 +12,83 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 05/02/2018
+ms.date: 05/22/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4265a7e08eab079e55ce91b27142ec3e55b3f3e9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bae204ec1789f227150adc560d4a292404d23b7e
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60246478"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66113311"
 ---
 # <a name="complete-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Slutför en åtkomstgranskning av grupper eller program i Azure AD-åtkomstgranskningar
 
-Administratörer kan använda Azure Active Directory (Azure AD) för att [skapa en åtkomstgranskning](create-access-review.md) för gruppmedlemmar eller användare som är tilldelade till ett program. Azure AD skickar granskare automatiskt ett e-postmeddelande som uppmanar dem att granska åtkomst. Om en användare inte får ett e-postmeddelande kan du skicka dem instruktionerna [granska åtkomst till grupper eller program](perform-access-review.md). (Observera att gäster som är tilldelad som granskare, men inte har accepterat inbjudan inte får ett e-postmeddelande från åtkomstgranskningar, eftersom de måste du acceptera en inbjudan innan du granskat.) När du åtkomstgranskningen är slut eller om en administratör slutar åtkomstgranskningen, följer du stegen i den här artikeln för att se och tillämpa resultaten.
+Som administratör kan du [skapa en åtkomstgranskning av grupper eller program](create-access-review.md) och granskare [utföra åtkomstgranskningen](perform-access-review.md). Den här artikeln beskriver hur du se resultaten av åtkomstgranskningen och tillämpar resultaten.
 
-## <a name="view-an-access-review-in-the-azure-portal"></a>Visa en åtkomstgranskning i Azure portal
+[!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
-1. Gå till den [sidan med åtkomstgranskningar](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/)väljer **program**, och välj det program som innehåller åtkomstkontroll för granskning.
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-2. Välj **hantera**, och välj åtkomstkontroll för granskning. Om det finns många kontroller i programmet kan du filtrera efter en viss typ av kontroller och sortera på status. Du kan även söka efter namnet på kontrollen för åtkomstgranskning eller efter visningsnamnet för ägaren som skapade den. 
+- Azure AD Premium P2
+- Global administratör, Användaradministratör, säkerhetsadministratör eller säkerhetsläsare
 
-## <a name="stop-a-review-that-hasnt-finished"></a>Stoppa en granskning inte har slutförts
+Mer information finns i [vilka användare måste ha licenser?](access-reviews-overview.md#which-users-must-have-licenses).
 
-Om granskningen inte har nått det schemalagda slutdatumet, en administratör kan välja **stoppa** du avsluta granskningen tidigt. När du stoppa granskningen kan användare inte längre att granskas. Du kan inte starta om en granskning när den är stoppad.
+## <a name="view-an-access-review"></a>Visa en åtkomstgranskning
 
-## <a name="apply-the-changes"></a>Tillämpa ändringarna 
+Du kan följa förloppet när granskarna har slutfört sina granskningar.
 
-När en åtkomstgranskning är klar, antingen eftersom det har nått slutdatum eller en administratör stoppade den manuellt och Använd automatiskt har inte konfigurerats för granskning, kan du välja **tillämpa** att tillämpa ändringarna manuellt. Resultatet av granskningen implementeras genom att uppdatera gruppen eller programmet. Om en användares åtkomst nekades i granskningen, när en administratör väljer det här alternativet, Azure AD tar du bort deras medlemskap eller programmet tilldelning. 
+1. Logga in på Azure-portalen och öppna den [sidan med åtkomstgranskningar](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
 
-När en åtkomstgranskning är klar och autotillämpad konfigurerades status för granskningen kommer att ändras från slutförd via mellanliggande tillstånd och slutligen kommer att ändras till tillstånd tillämpas. Du kan förvänta att se nekade användare, om sådant finns, tas bort från resursen gruppen medlemskap eller apptilldelningar på några få minuter.
+1. I den vänstra menyn klickar du på **Åtkomstgranskningar**.
+
+1. Klicka på en åtkomstgranskning i listan.
+
+    Visa en serie med granskningar, gå till åtkomstgranskningen och hittar du kommande förekomster i schemalagd granskning.
+
+    På den **översikt** kan du kan följa förloppet. Ingen behörighet har ändrats i katalogen tills granskningen har slutförts.
+
+    ![Åtkomstgranskningar pågår](./media/complete-access-review/overview-progress.png)
+
+1. Om du vill stoppa en åtkomstgranskning före det schemalagda slutdatumet har uppnåtts, klickar på den **stoppa** knappen.
+
+    Stoppa när en granskning, granskare kommer inte längre att kunna ge några svar. Du kan inte starta om en granskning när den är stoppad.
+
+1. Om du inte längre är intresserad av åtkomstgranskningen kan du ta bort den genom att klicka på den **ta bort** knappen.
+
+## <a name="apply-the-changes"></a>Tillämpa ändringarna
+
+Om **tillämpa automatiskt resultaten på resursen** är aktiverat och baserat på dina val i **vid slutförande-inställningar**, automatisk-gäller kommer utförs efter slutet granskningsdatum eller när du manuellt stoppa granskningen.
+
+Om **tillämpa automatiskt resultaten på resursen** har inte aktiverats för granskningen klickar du på **tillämpa** att tillämpa ändringarna manuellt. Om en användares åtkomst nekades i granskningen, när du klickar på **tillämpa**, Azure AD tar bort sitt medlemskap eller programmet tilldelning.
+
+![Tillämpa åtkomst granska ändringar](./media/complete-access-review/apply-changes.png)
+
+Status för granskningen kommer att ändras från **slutförd** via mellanliggande tillstånd som **tillämpar** och slutligen till tillstånd **resultatet tillämpades**. Du bör förvänta dig att se nekade användare, om sådant finns, tas bort från grupptilldelning för medlemskap eller ett program på några få minuter.
 
 En konfigurerade automatiskt tillämpa granskning eller välja **tillämpa** inte påverka en grupp som har sitt ursprung på en lokal katalog eller en dynamisk grupp. Om du vill ändra en grupp som har sitt ursprung på plats, Hämta resultaten och tillämpa ändringarna på representation av gruppen i den katalogen.
 
-## <a name="download-the-results-of-the-review"></a>Hämta resultatet från granskningen
+## <a name="retrieve-the-results"></a>Hämta resultaten
 
-Om du vill hämta resultaten från granskningen, Välj **godkännanden** och välj sedan **hämta**. Den resulterande CSV-filen kan ses i Excel eller i andra program som öppnar UTF-8-kodade CSV-filer.
+Om du vill visa resultat för en enstaka åtkomstgranskning, klickar du på den **resultat** sidan. Om du vill visa bara en användares behörighet i sökrutan skriver du namn eller användarhuvudnamn för en användare vars åtkomst granskades.
 
-## <a name="optional-delete-a-review"></a>Valfritt: Ta bort en granskning
-Om du inte längre är intresserad av att granskningen kan du ta bort den. Välj **ta bort** att ta bort granskningen från Azure AD.
+![Hämta resultat för en åtkomstgranskning](./media/complete-access-review/retrieve-results.png)
 
-> [!IMPORTANT]
-> Det finns ingen varning innan borttagningen sker, så var noga med att du vill ta bort granskningen.
-> 
-> 
+Om du vill visa förloppet för en aktiv åtkomstgranskning som är återkommande, klickar du på den **resultat** sidan.
+
+Om du vill visa resultatet av en slutförd instans av en åtkomstgranskning som är återkommande, klickar du på **granska historiken**och välj sedan den specifika instansen i listan för slutförda åtkomstgranskningsinstanser, baserat på den instansen start- och slutdatum. Resultatet av den här instansen kan hämtas från den **resultat** sidan.
+
+Om du vill hämta alla resultat från en åtkomstgranskning, klickar du på den **hämta** knappen. Den resulterande CSV-filen kan ses i Excel eller i andra program som öppnar UTF-8-kodade CSV-filer.
+
+## <a name="remove-users-from-an-access-review"></a>Ta bort användare från en åtkomstgranskning
+
+ Som standard är en användare som tas bort borttagen i Azure AD i 30 dagar. Under den här perioden kan användaren återställas av en administratör om det behövs.  Efter 30 dagar tas användaren bort permanent.  En global administratör kan också använda Azure Active Directory-portalen för att uttryckligen och [permanent ta bort en användare som nyligen lagts till](../fundamentals/active-directory-users-restore.md) innan perioden är slut.  När en användare har tagits bort permanent tas efterföljande data om den användaren bort från aktiva åtkomstgranskningar.  Granskningsinformation om borttagna användare finns kvar i spårningsloggen.
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Hantera användare med Azure AD-åtkomstgranskningar](manage-user-access-with-access-reviews.md)
 - [Hantera gäståtkomst med Azure AD-åtkomstgranskningar](manage-guest-access-with-access-reviews.md)
-- [Hantera program och kontroller för Azure AD-åtkomstgranskningar](manage-programs-controls.md)
 - [Skapa en åtkomstgranskning av grupper eller program](create-access-review.md)
 - [Skapa en åtkomstgranskning av användarna i en administrativ roll i Azure AD](../privileged-identity-management/pim-how-to-start-security-review.md)

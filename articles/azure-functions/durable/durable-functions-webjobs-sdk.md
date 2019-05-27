@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: df12639aaafaf3df7ae2b755d635d4fba83d846e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 39a757900b4307d702a0ce0ce1c20694418aa8dd
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60648660"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872826"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>Hur du kör varaktiga funktioner som WebJobs
 
@@ -37,7 +37,7 @@ Den här artikeln förutsätter att du är bekant med grunderna för WebJobs SDK
 
 För att slutföra stegen i den här artikeln:
 
-* [Installera Visual Studio 2017 version 15,6 eller senare](https://docs.microsoft.com/visualstudio/install/) med den **Azure development** arbetsbelastning.
+* [Installera Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/) med den **Azure development** arbetsbelastning.
 
   Om du redan har Visual Studio, men inte har den arbetsbelastningen, lägger du till arbetsbelastningen genom att välja **verktyg** > **hämta verktyg och funktioner**.
 
@@ -53,9 +53,9 @@ Den här artikeln förklarar hur du utvecklar ett WebJobs-SDK 2.x-projekt (motsv
 
 Om du vill köra varaktiga funktioner som WebJobs, måste du först skapa en konsolapp. Ett WebJobs-SDK-projekt är bara ett konsolen app-projekt med lämpligt NuGet-paket installeras.
 
-I Visual Studio **nytt projekt** dialogrutan **Windows Classic Desktop** > **Konsolapp (.NET Framework)**. I projektfilen, den `TargetFrameworkVersion` ska vara `v4.6.1`.
+I Visual Studio **nytt projekt** dialogrutan **Windows Classic Desktop** > **Konsolapp (.NET Framework)** . I projektfilen, den `TargetFrameworkVersion` ska vara `v4.6.1`.
 
-Visual Studio har också en projektmall för WebJob som du kan använda genom att välja **molnet** > **Azure WebJob (.NET Framework)**. Den här mallen installerar många paket, vilket inte kanske behövs.
+Visual Studio har också en projektmall för WebJob som du kan använda genom att välja **molnet** > **Azure WebJob (.NET Framework)** . Den här mallen installerar många paket, vilket inte kanske behövs.
 
 ## <a name="install-nuget-packages"></a>Installera NuGet-paket
 
@@ -125,7 +125,7 @@ static void Main(string[] args)
 }
 ```
 
-## <a name="functions"></a>Functions
+## <a name="functions"></a>Funktioner
 
 Varaktiga funktioner i samband med WebJobs skiljer sig något från varaktiga funktioner i samband med Azure Functions. Det är viktigt att vara medveten om skillnaderna när du skriver din kod.
 
@@ -222,7 +222,7 @@ Den här artikeln förklarar hur du utvecklar ett WebJobs-SDK 2.x-projekt. Om du
 
 Den huvudsakliga ändringen introducerades är användningen av .NET Core i stället för .NET Framework. Om du vill skapa ett projekt för WebJobs SDK 3.x är instruktionerna likadana, med följande undantag:
 
-1. Skapa en .NET Core-konsolapp. I Visual Studio **nytt projekt** dialogrutan **.NET Core** > **Konsolapp (.NET Core)**. Projektfilen anger att `TargetFramework` är `netcoreapp2.x`.
+1. Skapa en .NET Core-konsolapp. I Visual Studio **nytt projekt** dialogrutan **.NET Core** > **Konsolapp (.NET Core)** . Projektfilen anger att `TargetFramework` är `netcoreapp2.x`.
 
 1. Välj den utgivna versionen WebJobs SDK 3.x av följande paket:
 

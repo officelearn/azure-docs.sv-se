@@ -15,12 +15,12 @@ ms.workload: tbd
 ms.date: 05/11/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 8682a335372a1516be49b35400a2605f08d6b45e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f8189b5a90f7e9114ec39a874cc60912ac2bb0ce
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60830134"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873003"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-python"></a>Snabbstart: Använda Azure Cache for Redis med Python
 
@@ -46,7 +46,7 @@ Den här snabbstarten visar hur du ansluter Azure Cache for Redis med Python fö
 
 [Redis-py](https://github.com/andymccurdy/redis-py) är ett Python-gränssnitt för Azure Cache for Redis. Använd Python-verktygspaketet *pip* för att installera redis-py-paketet. 
 
-I följande exempel används *pip3* för Python3 för att installera redis-py-paketet på Windows 10 med utvecklarkommandotolken för Visual Studio 2017 med förhöjd administratörsbehörighet.
+I följande exempel används *pip3* för Python3 att installera paketet redis-py på Windows 10 med ett Visual Studio 2019 Kommandotolken för utvecklare som körs med förhöjd administratörsbehörighet.
 
     pip3 install redis
 
@@ -115,7 +115,7 @@ Logga in på [Azure Portal](https://portal.azure.com) och klicka på **Resursgru
 
 Skriv namnet på din resursgrupp i textrutan **Filtrera efter namn...**. Anvisningarna för den här artikeln använde en resursgrupp med namnet *TestResources*. På din resursgrupp i resultatlistan klickar du på **...** och därefter **Ta bort resursgrupp**.
 
-![Ta bort](./media/cache-web-app-howto/cache-delete-resource-group.png)
+![Radera](./media/cache-web-app-howto/cache-delete-resource-group.png)
 
 Du blir ombedd att bekräfta borttagningen av resursgruppen. Skriv namnet på din resursgrupp för att bekräfta och klicka på **Ta bort**.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: 319ec5d09a6daddb5c1fc36f680ee6d0d856e337
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 6cb40f8c9f1ee85848b5e3db311d0fb652ec1bc3
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205436"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65921812"
 ---
 # <a name="tutorial-detect-threats-with-azure-sentinel-preview"></a>Självstudier: Identifiera hot med Azure Sentinel-förhandsgranskning
 
@@ -45,7 +45,7 @@ Regler för identifiering baseras på de typer av hot och avvikelser som kan var
 
 1. I Azure-portalen under Azure Sentinel väljer **Analytics**.
 
-   ![Analytics](./media/tutorial-detect-threats/alert-rules.png)
+   ![Analys](./media/tutorial-detect-threats/alert-rules.png)
 
 2. I den övre menyraden klickar du på **+ Lägg till**.  
 
@@ -59,6 +59,10 @@ Regler för identifiering baseras på de typer av hot och avvikelser som kan var
         | where OperationName == "Create or Update Virtual Machine" or OperationName == "Create Deployment"
         | where ActivityStatus == "Succeeded"
         | make-series dcount(ResourceId)  default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller
+
+   > [!NOTE]
+   > Fråga längden ska vara mellan 1 till 10 000 tecken och får inte innehålla ”Sök *” och ”union *”.
+
 
 5. I den **Entitetsmappning** använder fälten under **entitetstypen** att mappa kolumnerna i frågan till entitetsfält som identifieras av Azure Sentinel. Mappa relevant kolumn i frågan som du skapade i Log Analytics till lämplig entitetsfält för varje fält. Välj relevant kolumnnamnet under den **egenskapen**. Varje entitet innehåller flera fält, till exempel SID, GUID, osv. Du kan mappa entiteten enligt något av fälten, inte bara den övre nivån entiteten.
 

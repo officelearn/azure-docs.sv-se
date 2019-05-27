@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: b051f844b8c221e2e53c5fcf204878f80447cfe8
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 26935b53d8f852289513a5a7b5d31e3befe3e3b2
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65596564"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002237"
 ---
 # <a name="lucene-query-syntax-in-azure-search"></a>Lucene-frågesyntax i Azure Search
 Du kan skriva frågor mot Azure Search baserat på omfattande [frågeparser (Lucene)](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) syntaxen för specialiserade fråga formulär: jokertecken, fuzzy-sökning, närhetssökning, reguljära uttryck är några exempel. Mycket av frågeparser (Lucene)-syntax är [intakta implementeras i Azure Search](search-lucene-query-architecture.md), med undantag för *intervall sökningar* som skapas i Azure Search via `$filter` uttryck. 
@@ -79,7 +79,7 @@ I exemplet ovan är tilde (~), men samma principer gäller för varje operator.
  Särskilda tecken måste undantas som ska användas som en del av söktexten. Du kan hoppa över dem genom dem med omvänt snedstreck (\\). Följande: specialtecken som ska undantas  
 `+ - && || ! ( ) { } [ ] ^ " ~ * ? : \ /`  
 
- Till exempel om du vill lämna ett jokertecken, använda \\*.
+ Till exempel om du vill lämna ett jokertecken, använda \\ \*.
 
 ### <a name="encoding-unsafe-and-reserved-characters-in-urls"></a>Kodning osäkra och reserverade tecken i URL: er
 

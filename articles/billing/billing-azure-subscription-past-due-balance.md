@@ -13,32 +13,35 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/11/2018
+ms.date: 05/20/2019
 ms.author: banders
-ms.openlocfilehash: 056ece53fa154e86cf0b5f5fb24a8842cf5a4261
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 45b5d2c94a72cb23ef2b4a8db100623b0c58b0a9
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60617732"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66023404"
 ---
-# <a name="resolve-past-due-balance-for-your-azure-subscription-after-getting-an-email-from-azure"></a>Lös passerat betalningsdatum balans för din Azure-prenumeration när du har fått ett e-postmeddelande från Azure
+# <a name="resolve-past-due-balance-for-your-azure-subscription"></a>Lös passerat betalningsdatum balans för din Azure-prenumeration
 
-Om betalningen inte emot eller om vi inte behandla din betalning, kan du få ett e-postmeddelande eller ett meddelande i Kontocenter eller Azure-portalen. Meddelandet kan se ut:
+Om betalningen inte emot eller om vi inte behandla din betalning, kan du få ett e-postmeddelande eller ett meddelande i Azure portal eller Kontocenter.
+Om du är den [kontoadministratör](billing-subscription-transfer.md#whoisaa), du kan reglera utestående debiteringar den [Azure-portalen](https://portal.azure.com). Om du är på en faktura-läget för betalning, skickar du betalningen till den plats som anges längst ned på fakturan.
 
-**Vi har kunnat debitera ditt kreditkort för din prenumeration. Uppdatera din betalningsinformation för att förhindra avbrott i tjänsten.**
+> [!IMPORTANT]
+> * Om du har flera prenumerationer med hjälp av samma kreditkort och de är alla har passerat, måste du betala hela utestående saldo på samma gång.
+> * Det betalningsinstrument som du använder för att reglera de utestående debiteringarna blir den nya aktiva betalningsmetoden för alla prenumerationer som har använt den misslyckade betalningsmetoden.
 
-Följ stegen i artikeln om du vill lösa tidigare på grund av belastningsutjämning.
+## <a name="resolve-past-due-balance-in-the-azure-portal"></a>Lös passerat betalningsdatum saldo i Azure portal
 
-## <a name="resolve-the-past-due-balance"></a>Lösa tidigare på grund av saldo
-
-* Om kreditkortet på filen avvisade eller upphört att gälla, [ändra det kreditkort som används för att betala för prenumerationen](billing-how-to-change-credit-card.md) eller kontakta din bank för att lösa problemet. När du uppdaterar betalningsmetoden bearbetar Azure omedelbart betalningen för alla utestående debiteringar. Betalning bearbetas också för andra Microsoft-tjänster där du har utestående debiteringar.
-
-* Om du är på en faktura-läget för betalning, skickar du betalningen till den plats som anges längst ned på fakturan. Om du behöver hjälp kan du kontakta [Azure-supporten](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-
-* Om du inte ser en faktura eftersom kontoadministratören lämnat företaget eller bytt, kontakta [Azure-supporten](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) att lösa problemet.
-
-* Om du vet att din betalning har bearbetats men prenumerationen fortfarande är inaktiverad, kontakta [Azure-supporten](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+1. Logga in på den [Azure-portalen](https://portal.azure.com) som kontoadministratör
+1. Sök på **Cost Management + fakturering**.
+1. På sidan översikt visas en lista över dina prenumerationer. Om prenumerationsstatus för din har förfallit, klickar du på den **reglera Saldo** länk.
+    ![Skärmbild som visar reglera saldo länk](./media/billing-azure-subscription-past-due-balance/settle-balance-entry-point.png)
+1. Totalt antal utestående saldo återspeglar utestående debiteringar över alla Microsoft-tjänster med misslyckade betalningssätt.
+1. Välj en betalningsmetod betala balans. Den här betalningsmetoden blir aktiv betalningsmetod för alla prenumerationer som för närvarande använder misslyckade betalningsmetoden.
+    ![Skärmbild som visar Välj betalning metoden länk](./media/billing-azure-subscription-past-due-balance/settle-balance-screen.png)
+1. Om den valda betalningsmetoden har också obetalda avgifter för Microsoft-tjänster, återspeglas detta i totalt antal utestående saldo. Du måste betala för de utestående debiteringar.
+1. Klicka på **betala**.
 
 ## <a name="not-getting-billing-email-notifications"></a>Inte får e-postaviseringar till fakturering?
 
@@ -47,6 +50,8 @@ Om du är kontoadministratör, [Kontrollera vilken e-postadress används för av
 ## <a name="if-i-forget-to-pay-what-happens"></a>Vad händer om jag har glömt att betala?
 
 Tjänsten avbryts och dina resurser är inte längre tillgängliga. Dina Azure-data tas bort 90 dagar efter att tjänsten avslutas. Mer information finns i [Microsoft Trust Center – hur vi hanterar dina data](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409).
+
+Om du vet att din betalning har bearbetats men prenumerationen fortfarande är inaktiverad, kontakta [Azure-supporten](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
 

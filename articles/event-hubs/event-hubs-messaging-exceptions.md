@@ -13,12 +13,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: a6ebfc86a2489910d23faa96550f34cc979c0435
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7b6323e02225be3d954e4ee91ea06952bb3ce396
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60203439"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001770"
 ---
 # <a name="event-hubs-messaging-exceptions"></a>Event Hubs – undantag för meddelanden
 
@@ -91,6 +91,12 @@ Det här felet kan bero på något av två skäl:
 
 Det här felet ska skrivfel uppstår. Det händer när den behållare som körs koden för ditt namnområde har brist på CPU – inte mer än ett par sekunder innan Event Hubs belastningsutjämnare börjar.
 
+### <a name="limit-on-calls-to-the-getruntimeinformation-method"></a>Begränsa anrop till metoden GetRuntimeInformation
+Händelsehubbar i Azure har stöd för upp till 50 anrop per sekund till GetRuntimeInfo per sekund. När gränsen har nåtts kan du få ett undantag som liknar det följande:
+
+```
+ExceptionId: 00000000000-00000-0000-a48a-9c908fbe84f6-ServerBusyException: The request was terminated because the namespace 75248:aaa-default-eventhub-ns-prodb2b is being throttled. Error code : 50001. Please wait 10 seconds and try again.
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 8f5cdc33e48d647dba8caeb09b57e233d64712f6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 49c836f5e9189104ba77e8f3d865f4db199c4060
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64687736"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002981"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>Infoga annonser på klientsidan
 Den här artikeln innehåller information om hur du infogar olika typer av annonser på klientsidan.
@@ -160,7 +160,7 @@ Icke-linjära annonser som har angetts i en `<Creative>` -element. I följande e
     </Creative>
 ```
 
-Den <**NonLinearAds**> element kan innehålla en eller flera <**NonLinear**>-element, som kan beskriva en icke-linjära ad. Den <**NonLinear**> elementet anger resurs för den icke-linjära ad. Resursen kan vara en <**StaticResource**>, en <**IFrameResource**>, eller en <**HTMLResource**>. <**StaticResource**> beskriver en icke-HTML-resurs och definierar ett creativeType-attribut som anger hur resursen visas:
+Den <**NonLinearAds**> element kan innehålla en eller flera <**NonLinear**>-element, som kan beskriva en icke-linjära ad. Den <**NonLinear**> elementet anger resurs för den icke-linjära ad. Resursen kan vara en <**StaticResource**>, en <**IFrameResource**>, eller en <**HTMLResource**>. \<**StaticResource**> beskriver en icke-HTML-resurs och definierar ett creativeType-attribut som anger hur resursen visas:
 
 Bild/gif, bild/jpeg, bild/png – resursen visas i en HTML <**img**> taggen.
 
@@ -846,7 +846,7 @@ I följande exempel visas hur du schemalägger en mitten sammanslagning överlä
 ## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Ge feedback
+## <a name="provide-feedback"></a>Lämna feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Se även

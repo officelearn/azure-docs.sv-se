@@ -10,12 +10,12 @@ ms.subservice: workload management
 ms.date: 05/01/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9c26bca66b0f82ea58d01d0eb8358f521168a799
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 92990b68969e754ee126b6cd5a22ecfa700c0494
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154142"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002892"
 ---
 # <a name="sql-data-warehouse-workload-importance"></a>SQL Data Warehouse arbetsbelastning prioritet
 
@@ -61,4 +61,8 @@ Eftersom F5 är mediumrc, kräver två samtidighetsfack.  F5 måste vänta för 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Kom igång med att skapa en klassificerare, se den [skapa ARBETSBELASTNING KLASSIFICERARE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql).  Läs mer om SQL Data Warehouse arbetsbelastning klassificering, [SQL Data Warehouse arbetsbelastning klassificering](sql-data-warehouse-workload-classification.md).  Se Snabbstart om hur du skapar en arbetsbelastning klassificerare [skapa en arbetsbelastning klassificerare](quickstart-create-a-workload-classifier-tsql.md). Se [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) visa frågor och den prioritet som tilldelas.
+- Mer information om hur du skapar en klassificerare finns i den [skapa ARBETSBELASTNING KLASSIFICERARE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql).  
+- Läs mer om SQL Data Warehouse arbetsbelastning klassificering, [arbetsbelastning klassificering](sql-data-warehouse-workload-classification.md).  
+- Se snabbstarten [skapa arbetsbelastning klassificerare](quickstart-create-a-workload-classifier-tsql.md) för hur du skapar en arbetsbelastning klassificerare.
+- Se anvisningar för att [konfigurera arbetsbelastning vikten](sql-data-warehouse-how-to-configure-workload-importance.md) och hur du [hantera och övervaka Arbetsbelastningshantering](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).
+- Se [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) visa frågor och den prioritet som tilldelas.

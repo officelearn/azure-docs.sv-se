@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/14/2019
+ms.date: 05/21/2019
 ms.topic: troubleshooting
 ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 0516c954bd23d5a2e339c5df447a923528e09d93
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 02a03adb128c140343032075ec334cbd6d88729b
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61430638"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002016"
 ---
 # <a name="frequently-asked-questions-for-cloudyn"></a>Vanliga frågor om Cloudyn
 
@@ -74,9 +74,9 @@ När du har slutfört föregående steg kan du visa rekommendationer för optime
 
 Först ska vi titta på de vanligaste scenariot som orsakar användarkonton att hämta *initiallySuspended*.
 
-> Admin1 kanske Microsoft Cloud Solution Provider- eller Enterprise Agreement-användare. Företaget är redo att börja använda Cloudyn.  Han registreras via Azure portal och loggar in på Cloudyn-portalen. Som den person som registrerar Cloudyn-tjänsten och loggar in på Cloudyn-portalen, han blir den *primära administratörskonto*. Admin1 skapar inte alla användarkonton. Men med Cloudyn-portalen kan han skapar Azure-konton och ställer in en entitetshierarki. Admin1 informerar Admin2, en Innehavaradministratör som han behöver för att registrera med Cloudyn och logga in på Cloudyn-portalen.
-> 
-> Admin2 registreras via Azure portal. Men när han försöker att logga in på Cloudyn-portalen, han får ett felmeddelande om kontot är **pausats**. Den primära administratörskonto Admin1, är ett meddelande om detta konto. Admin1 måste aktivera Admin2's konto och bevilja *entitet administratörsåtkomst* för enheterna som är lämplig och tillåter användaråtkomst för hantering och aktiv användarkontot.
+> Admin1 kan vara en Microsoft Cloud Solution Provider- eller Enterprise Agreement-användare. Organisationen är redo att börja använda Cloudyn.  Han registreras via Azure portal och loggar in på Cloudyn-portalen. Som den person som registrerar Cloudyn-tjänsten och loggar in på Cloudyn-portalen, Admin1 blir den *primära administratörskonto*. Admin1 skapar inte alla användarkonton. Men med Cloudyn-portalen kan de skapa Azure-konton och ställa in en entitetshierarki. Admin1 informerar Admin2, en Innehavaradministratör som de behöver för att registrera med Cloudyn och logga in på Cloudyn-portalen.
+>
+> Admin2 registreras via Azure portal. Men när de försöker logga in på Cloudyn-portalen, de får ett felmeddelande om deras konto är **pausats**. Den primära administratörskonto Admin1, är ett meddelande om detta konto. Admin1 måste aktivera Admin2's konto och bevilja *entitet administratörsåtkomst* för enheterna som är lämplig och tillåter användaråtkomst för hantering och aktiv användarkontot.
 
 
 Om du får en avisering med en begäran om att tillåta åtkomst för en användare måste du aktivera användarkontot.

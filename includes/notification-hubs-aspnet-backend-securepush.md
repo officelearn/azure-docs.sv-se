@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: spelluru
 ms.openlocfilehash: b8cf4217ca6c80be998b92e71c3ba29c4f68bce2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60874569"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66111528"
 ---
 ## <a name="webapi-project"></a>WebAPI-projekt
 1. Visual Studio, öppna den **AppBackend** projektet som du skapade i den **meddela användare** självstudien.

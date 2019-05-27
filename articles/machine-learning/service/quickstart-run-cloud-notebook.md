@@ -8,24 +8,25 @@ ms.subservice: core
 ms.topic: quickstart
 author: sdgilley
 ms.author: sgilley
-ms.date: 05/02/2019
+ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4c15b9aa0bde704ad3665375d1c1a5bb8a1d32cf
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: HT
+ms.openlocfilehash: 3e360b019a0c275c5ce0f9986fabd5dfc847f130
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65604124"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "66015275"
 ---
 # <a name="quickstart-use-a-cloud-based-notebook-server-to-get-started-with-azure-machine-learning"></a>Snabbstart: Använd en molnbaserad notebook-server för att komma igång med Azure Machine Learning
 
-Skapa en molnbaserad notebook-server och sedan använda den.  I den här snabbstarten kör du Python-kod som loggar in värden i den [Azure Machine Learning-tjänstens arbetsyta](concept-azure-machine-learning-architecture.md). Den här arbetsytan är själva grunden i det moln som du använder för att experimentera, träna och distribuera maskininlärningsmodeller med Machine Learning. 
+Ingen installation krävs.  Kom igång med Azure Machine Learning-tjänsten med hjälp av en hanterad notebook-server i molnet. Om du vill att i stället installera SDK i din egen Python-miljö, se [snabbstarten: Använd din egen notebook-server för att komma igång med Azure Machine Learning](quickstart-run-local-notebook.md).
 
-Den här snabbstarten visar hur du skapar en molnresurs i Azure Machine Learning-arbetsytan som konfigurerats med Python-miljön krävs för att köra Azure Machine Learning. Om du vill använda din egen miljö i stället Se [snabbstarten: Använd din egen notebook-server för att komma igång med Azure Machine Learning](quickstart-run-local-notebook.md).  
+Den här snabbstarten visar hur du kan använda den [Azure Machine Learning-tjänstens arbetsyta](concept-azure-machine-learning-architecture.md) att hålla reda på exempelexperiment för maskininlärning.  Skapar du en [notebook VM (förhandsversion)](how-to-configure-environment.md#notebookvm), en säker, molnbaserade Azure arbetsstation som tillhandahåller en Jupyter notebook-server, JupyterLab och en helt förberedd ML-miljö. Du kan sedan köra en Python notebook på den här virtuella datorn som loggar in värden på arbetsytan.
 
 I den här snabbstarten utför du följande åtgärder:
 
-* Skapa en ny molnbaserade notebook-server i din arbetsyta.
+* Skapa en arbetsyta
+* Skapa en anteckningsbok VM i din arbetsyta.
 * Starta Jupyter-webbgränssnittet.
 * Öppna en bärbar dator som innehåller kod för att beräkna pi och loggar fel vid varje iteration.
 * Köra anteckningsboken.
@@ -35,11 +36,11 @@ Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan
 
 ## <a name="create-a-workspace"></a>Skapa en arbetsyta
 
-Om du har en arbetsyta för Azure Machine Learning-tjänsten kan gå vidare till den [nästa avsnitt](#create-a-cloud-based-notebook-server). Annars kan skapa en nu.
+Om du har en arbetsyta för Azure Machine Learning-tjänsten kan gå vidare till den [nästa avsnitt](#create-notebook). Annars kan skapa en nu.
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-## <a name="create-a-cloud-based-notebook-server"></a>Skapa en molnbaserad notebook-server
+## <a name="create-notebook"></a>Skapa en VM-anteckningsbok
 
  Från arbetsytan, kan du skapa en molnresurs för att komma igång med Jupyter-anteckningsböcker. Den här resursen ger dig en molnbaserad plattform som är förkonfigurerad med allt du behöver för att köra Azure Machine Learning-tjänsten.
 
@@ -59,6 +60,7 @@ Om du har en arbetsyta för Azure Machine Learning-tjänsten kan gå vidare till
     ![Skapa en ny virtuell dator](media/quickstart-run-cloud-notebook/create-new-workstation.png)
 
 1. Väntar du cirka 4 – 5 minuter, tills status ändras till **kör**.
+
 
 ## <a name="launch-jupyter-web-interface"></a>Starta Jupyter webbgränssnitt
 
@@ -143,6 +145,7 @@ Du kan också behålla resursgruppen men ta bort en enstaka arbetsyta. Visa arbe
 
 I den här snabbstarten har slutfört du uppgifterna:
 
+* Skapa en arbetsyta
 * Skapa en anteckningsbok VM.
 * Starta Jupyter-webbgränssnittet.
 * Öppna en bärbar dator som innehåller kod för att beräkna pi och loggar fel vid varje iteration.

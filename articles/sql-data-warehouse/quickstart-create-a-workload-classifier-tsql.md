@@ -10,12 +10,12 @@ ms.subservice: workload management
 ms.date: 05/01/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2074ea1028f6a5e8a0251c6d0c9519361db6ba8d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1c84bf84f8ba28a98937b02a463003a900aefaa0
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150389"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002901"
 ---
 # <a name="quickstart-create-a-workload-classifier-using-t-sql"></a>Snabbstart: Skapa en klassificerare för arbetsbelastning med T-SQL
 
@@ -107,6 +107,6 @@ Följ dessa steg för att rensa resurser.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu har du skapat en arbetsbelastning klassificerare. Köra några frågor som TheCEO att se hur de fungerar. Se [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) visa frågor och den prioritet som tilldelas.
-
-Läs mer om SQL Data Warehouse arbetsbelastningshantering [SQL Data Warehouse arbetsbelastning vikten](sql-data-warehouse-workload-importance.md) och [SQL Data Warehouse arbetsbelastning klassificering](sql-data-warehouse-workload-classification.md).
+- Nu har du skapat en arbetsbelastning klassificerare. Köra några frågor som TheCEO att se hur de fungerar. Se [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) visa frågor och den prioritet som tilldelas.
+- Läs mer om Azure SQL Data Warehouse arbetsbelastningshantering [arbetsbelastning vikten](sql-data-warehouse-workload-importance.md) och [arbetsbelastning klassificering](sql-data-warehouse-workload-classification.md).
+- Se anvisningar för att [konfigurera arbetsbelastning vikten](sql-data-warehouse-how-to-configure-workload-importance.md) och hur du [hantera och övervaka Arbetsbelastningshantering](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).

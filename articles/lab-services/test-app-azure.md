@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: spelluru
-ms.openlocfilehash: 9ca1c4a1ed1841f82bc386cff48315dd15ef91bb
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: f8c57b9e1fabbd04a7d9c92484b0f52f074c2577
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56730417"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872469"
 ---
 # <a name="test-your-app-in-azure"></a>Testa appen i Azure 
-Den här artikeln innehåller steg för att testa ditt program i Azure med DevTest Labs. Först måste du ställa in en filresurs i ett laboratorium och montera den som en enhet på utvecklingsdatorn lokal och en virtuell dator i ett labb. Sedan använder du Visual Studio 2017 för att distribuera appen till filresursen så att du kan köra appen på den virtuella datorn i laboratoriet.  
+Den här artikeln innehåller steg för att testa ditt program i Azure med DevTest Labs. Först måste du ställa in en filresurs i ett laboratorium och montera den som en enhet på utvecklingsdatorn lokal och en virtuell dator i ett labb. Sedan använder du Visual Studio 2019 för att distribuera appen till filresursen så att du kan köra appen på den virtuella datorn i laboratoriet.  
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Förutsättningar 
+## <a name="prerequisites"></a>Nödvändiga komponenter 
 1. [Skapa en Azure-prenumeration](https://azure.microsoft.com/free/) om du inte redan har en och logga in på [Azure-portalen](https://portal.azure.com).
 2. Följ instruktionerna i [i den här artikeln](devtest-lab-create-lab.md) att skapa ett labb med Azure DevTest Labs. Fäst labb på din instrumentpanel så att du lätt kan hitta den nästa gång du loggar in. Azure DevTest Labs kan du snabbt skapa resurser i Azure som minimerar avbrott och kontrollerar kostnaderna. Läs mer om DevTest Labs i [översikt](devtest-lab-overview.md). 
 3. Skapa ett Azure Storage-konto i testgruppen resurs genom att följa instruktionerna i den [skapa ett lagringskonto](../storage/common/storage-create-storage-account.md) artikeln. På den **skapa lagringskonto** väljer **Använd befintlig** för **resursgrupp**, och välj den **övningen resursgrupp**. 
@@ -64,7 +64,7 @@ Den här artikeln innehåller steg för att testa ditt program i Azure med DevTe
 ## <a name="publish-your-app-from-visual-studio"></a>Publicera en app från Visual Studio
 I det här avsnittet kan du publicera din app från Visual Studio för att testa virtuell dator i molnet.
 
-1. Skapa en desktop/webbprogram med hjälp av Visual Studio 2017.
+1. Skapa en desktop/webbprogram med hjälp av Visual Studio 2019.
 2. Skapa din app.
 3. Om du vill publicera appen högerklickar du på projektet i den **Solution Explorer**, och välj **publicera**. 
 4. I den **Publiceringsguiden**, ange den **enhet** som är mappad till filresursen.

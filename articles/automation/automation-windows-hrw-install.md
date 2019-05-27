@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/22/2019
+ms.date: 05/21/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0cc00b4f2075ba77490d310080b9968bedb8dc1f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: cc3307a4f32d77b9b8d259ac846c4db1c1ae4a99
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64701763"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002517"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Distribuera en Windows Hybrid Runbook Worker
 
@@ -60,8 +60,10 @@ Utför följande steg för att automatisera installation och konfiguration av Wi
    * *SubscriptionID* (obligatoriskt): ID för Azure-prenumeration som Automation-kontot.
    * *WorkspaceName* (valfritt): Namnet på Log Analytics-arbetsytan. Om du inte har en Log Analytics-arbetsyta, skriptet skapar och konfigurerar en.
 
-     > [!NOTE]
-     > De enda Automation-regioner som stöds för integrering med Azure Monitor-loggar finns för närvarande **Australien, sydöstra**, **östra USA 2**, **Sydostasien**, och **Västeuropa**. Om ditt Automation-konto inte är i någon av dessa regioner skriptet skapar en Log Analytics-arbetsyta men varnar dig om att det går inte att länka dem tillsammans.
+   > [!NOTE]
+   > När du aktiverar lösningar går det endast att länka en Log Analytics-arbetsyta och ett Automation-konto i vissa regioner.
+   >
+   > En lista över stöds mappningspar finns i [regionsmappning för Automation-kontot och Log Analytics-arbetsytan](how-to/region-mappings.md).
 
 2. På din dator, öppna **Windows PowerShell** från den **starta** skärm i administratörsläge.
 3. Bläddra till den mapp som innehåller skriptet som du laddade ned från PowerShell-kommandoradsgränssnittet. Ändra värdena för parametrarna *- AutomationAccountName*, *- AAResourceGroupName*, *- OMSResourceGroupName*, *- HybridGroupName*, *- SubscriptionId*, och *- WorkspaceName*. Kör sedan skriptet.
@@ -99,7 +101,7 @@ Att lägga till den **Automation** Azure Monitor loggar lösning på arbetsytan 
 Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName <logAnalyticsResourceGroup> -WorkspaceName <LogAnalyticsWorkspaceName> -IntelligencePackName "AzureAutomation" -Enabled $true
 ```
 
-#### <a name="3-install-the-microsoft-monitoring-agent"></a>3. Installera Microsoft Monitoring Agent
+#### <a name="3-install-the-microsoft-monitoring-agent"></a>3 Installera Microsoft Monitoring Agent
 
 Microsoft Monitoring Agent ansluter datorer till Azure Monitor-loggar. När du installerar agenten på den lokala datorn och ansluter den till arbetsytan, hämtas automatiskt de komponenter som krävs för Hybrid Runbook Worker.
 

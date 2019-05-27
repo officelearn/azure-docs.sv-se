@@ -2,23 +2,23 @@
 title: Felsöka säkerhetskopiering med Azure virtual machines
 description: Felsöka säkerhetskopiering och återställning av virtuella Azure-datorer
 services: backup
-author: srinathv
+author: srinathvasireddy
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 04/08/2019
-ms.author: srinathv
-ms.openlocfilehash: 6f10d8bc7f813245a66296988e4bb3792d898e08
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/22/2019
+ms.author: srinathvasireddy
+ms.openlocfilehash: 179f806fcff5ce0e384455fdc9db3b2253449eb0
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60550030"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002319"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Felsöka säkerhetskopiering av virtuell Azure-dator
-Du kan felsöka fel vid användning av Azure Backup med informationen som visas i följande tabell:
+Du kan felsöka fel påträffades när med Azure Backup med den information som visas nedan:
 
-## <a name="backup"></a>Backup
+## <a name="backup"></a>Säkerhetskopiera
 
 ### <a name="copyingvhdsfrombackupvaulttakinglongtime--copying-backed-up-data-from-vault-timed-out"></a>CopyingVHDsFromBackUpVaultTakingLongTime – kopiera säkerhetskopierade data från valvet tidsgränsen uppnåddes
 
@@ -159,7 +159,7 @@ Detta säkerställer att ögonblicksbilderna tas via värden i stället för gä
 
 ### <a name="common-vm-backup-errors"></a>Vanliga fel för VM-säkerhetskopiering
 
-| Felinformation | Lösning |
+| Felinformation | Lösning: |
 | ------ | --- |
 | Felkod: 320001<br/> Felmeddelande: Det gick inte att utföra åtgärden eftersom den virtuella datorn inte finns längre. <br/> <br/> Felkod: 400094 <br/> Felmeddelande: Den virtuella datorn finns inte <br/> <br/>  Det gick inte att hitta en Azure virtuell dator.  |Det här felet inträffar när den primära virtuella datorn tas bort, men fortfarande verkar principen för säkerhetskopiering för en virtuell dator att säkerhetskopiera. Om du vill åtgärda det här felet, gör du följande: <ol><li> Återskapa den virtuella datorn med samma namn och samma resursgruppnamn **molntjänstnamnet**,<br>**eller**</li><li> Sluta skydda den virtuella datorn med eller utan att ta bort säkerhetskopierade data. Mer information finns i [sluta skydda virtuella datorer](backup-azure-manage-vms.md#stop-protecting-a-vm).</li></ol>|
 | Den virtuella datorn är i felläge för etablering: <br>Starta om den virtuella datorn och kontrollera att Virtuellt datorn körs eller stänga av. | Det här felet uppstår när någon av datortillägg placerar den virtuella datorn i misslyckade Etableringsstatus. Gå till listan över tillägg, kontrollera om det finns ett tillägg för misslyckade, ta bort den och försök att starta om den virtuella datorn. Om alla tillägg är körs för närvarande kan du kontrollera om VM-agenttjänsten körs. Annars kan du starta om tjänsten VM-agenten. |
@@ -175,7 +175,7 @@ Detta säkerställer att ögonblicksbilderna tas via värden i stället för gä
 
 ## <a name="jobs"></a>Jobb
 
-| Felinformation | Lösning |
+| Felinformation | Lösning: |
 | --- | --- |
 | Annulleringen stöds inte för den här jobbtypen: <br>Vänta tills jobbet har slutförts. |Ingen |
 | Det finns inte i tillståndet avbrytbar jobbet: <br>Vänta tills jobbet har slutförts. <br>**eller**<br> Det valda jobbet finns inte i ett avbrytbar tillstånd: <br>Vänta tills jobbet är slutfört. |Det är troligt att jobbet är nästan klar. Vänta tills jobbet har slutförts.|
@@ -184,7 +184,7 @@ Detta säkerställer att ögonblicksbilderna tas via värden i stället för gä
 
 ## <a name="restore"></a>Återställ
 
-| Felinformation | Lösning |
+| Felinformation | Lösning: |
 | --- | --- |
 | Återställningen misslyckades med ett internt fel i molnet. |<ol><li>Molntjänsten som du försöker återställa har konfigurerats med DNS-inställningarna. Du kan kontrollera: <br>**$deployment = get-AzureDeployment - ServiceName ”ServiceName”-fack ”produktion” Get-AzureDns - DnsSettings $deployment. DnsSettings**.<br>Om **adress** konfigureras, och sedan DNS-inställningarna har konfigurerats.<br> <li>Molntjänsten som du försöker återställa har konfigurerats med **ReservedIP**, och befintliga virtuella datorer i Molntjänsten som är i ett stoppat tillstånd. Du kan kontrollera att en tjänst i molnet har reserverat en IP-adress med hjälp av följande PowerShell-cmdlets: **$deployment = Get-AzureDeployment - ServiceName ”servicename”-fack ”produktion” $dep. ReservedIPName**. <br><li>Du försöker återställa en virtuell dator med följande särskilda nätverkskonfigurationer i samma molntjänst: <ul><li>Virtuella datorer under konfigurationen för belastningsutjämnaren, interna och externa.<li>Virtuella datorer med flera reserverade IP-adresser. <li>Virtuella datorer med flera nätverkskort. </ul><li>Välj en ny molntjänst i Användargränssnittet eller se [återställa överväganden](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations) för virtuella datorer med särskilda nätverkskonfigurationer.</ol> |
 | Det valda DNS-namnet används redan: <br>Ange ett annat DNS-namn och försök igen. |Den här DNS-namn som refererar till molntjänstens namn, vanligtvis slutar med **. cloudapp.net**. Det här namnet måste vara unikt. Om du får det här felet kan behöva du välja ett annat namn under återställningen. <br><br> Det här felet visas endast för användare av Azure-portalen. Återställningsåtgärden via PowerShell lyckas eftersom den återställer endast diskar och skapar inte den virtuella datorn. Felet kommer riktas när den virtuella datorn uttryckligen har skapats av dig när disken återställningsåtgärden. |

@@ -2,20 +2,19 @@
 title: Etablera en simulerad TPM-enhet på Azure IoT Hub med C | Microsoft Docs
 description: Den här snabbstarten använder enskilda registreringar. I den här snabbstarten skapade och etablerade du en simulerad TPM-enhet med C-enhets-SDK för Azure IoT Hub Device Provisioning Service.
 author: wesmc7777
-ms.author: v-yiso
-origin.date: 04/10/2019
-ms.date: 05/06/2019
+ms.author: wesmc
+ms.date: 04/10/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: e705ce17f0f09d341f2c650dfaccbbad60da14c7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ca6914967d855123c70bf746a9d68d2e045e76d9
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61262780"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65908684"
 ---
 # <a name="quickstart-provision-a-simulated-tpm-device-using-the-azure-iot-c-sdk"></a>Snabbstart: Etablera en simulerad TPM-enhet med Azure IoT C SDK
 
@@ -35,7 +34,7 @@ Den här artikeln visar enskilda registreringar.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-* Visual Studio 2015 eller [Visual Studio 2017](https://www.visualstudio.com/vs/) med arbetsbelastningen [”Desktop development with C++”](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) (Skrivbordsutveckling med C++) aktiverad.
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 eller senare med den [”utveckling för stationära datorer med C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) arbetsbelastning aktiverat.
 * Senaste versionen av [Git](https://git-scm.com/download/) installerad.
 
 
@@ -132,7 +131,7 @@ I det här avsnittet kompilerar och kör du ett exempel som läser bekräftelsen
     - **Mekanism:** Välj **TPM** som identitet för bestyrkande *mekanism*.
     - **Bekräftelsenyckel:** Ange den *bekräftelsenyckel* som du skapade för din TPM-enhet genom att köra projektet *tpm_device_provision*.
     - **Registrerings-ID**: Ange det *registrerings-ID* som du skapade för din TPM-enhet genom att köra projektet *tpm_device_provision*.
-    - **IoT Edge-enhet:** Välj **Inaktivera**.
+    - **IoT Edge-enhet:** Välj **inaktivera**.
     - **Enhets-ID för IoT Hub:** Ge enheten ett ID genom att ange **test-docs-device**.
 
       ![Ange information för enhetsregistrering i portalen](./media/quick-create-simulated-device/enter-device-enrollment.png)  

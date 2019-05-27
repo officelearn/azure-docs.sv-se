@@ -5,19 +5,19 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 09/26/2018
-ms.openlocfilehash: eb2fee7c76bcf29aee2dcd70d7975d7631bb23f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/21/2019
+ms.openlocfilehash: 3fbffc805afb540499e38f1c0853260968228b22
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61459308"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002011"
 ---
 # <a name="connect-an-existing-azure-app-service-to-azure-database-for-mysql-server"></a>Ansluta en befintlig Azure App Service till Azure Database for MySQL-server
 Det här avsnittet beskrivs hur du ansluter en befintlig Azure App Service till din Azure Database for MySQL-server.
 
 ## <a name="before-you-begin"></a>Innan du börjar
-Logga in på [Azure-portalen](https://portal.azure.com). Skapa en Azure Database for MySQL-server. Mer information finns att [hur du skapar Azure Database for MySQL-server från portalen](quickstart-create-mysql-server-database-using-azure-portal.md) eller [hur du skapar Azure Database for MySQL-server med hjälp av CLI](quickstart-create-mysql-server-database-using-azure-cli.md).
+Logga in på [Azure Portal](https://portal.azure.com). Skapa en Azure Database for MySQL-server. Mer information finns att [hur du skapar Azure Database for MySQL-server från portalen](quickstart-create-mysql-server-database-using-azure-portal.md) eller [hur du skapar Azure Database for MySQL-server med hjälp av CLI](quickstart-create-mysql-server-database-using-azure-cli.md).
 
 Det finns för närvarande två lösningar att aktivera åtkomst från en Azure App Service till en Azure Database för MySQL. Båda lösningarna handla om hur du konfigurerar brandväggsregler på servernivå.
 
@@ -48,6 +48,23 @@ Du kan uttryckligen lägga till alla utgående IP-adresser i Azure App Service.
 
 ## <a name="ssl-configuration"></a>SSL-konfiguration
 Azure Database för MySQL har SSL aktiverat som standard. Om ditt program inte är med SSL för att ansluta till databasen, måste du inaktivera SSL på MySQL-server. Mer information om hur du konfigurerar SSL finns i [med hjälp av SSL med Azure Database for MySQL](howto-configure-ssl.md).
+
+### <a name="django-pymysql"></a>Django (PyMySQL)
+```python
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'quickstartdb',
+        'USER': 'myadmin@mydemoserver',
+        'PASSWORD': 'yourpassword',
+        'HOST': 'mydemoserver.mysql.database.azure.com',
+        'PORT': '3306',
+        'OPTIONS': {
+            'ssl': {'ssl-ca': '/var/www/html/BaltimoreCyberTrustRoot.crt.pem'}
+        }
+    }
+}
+```
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om anslutningssträngar finns [anslutningssträngar](howto-connection-string.md).

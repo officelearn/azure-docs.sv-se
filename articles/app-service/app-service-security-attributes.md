@@ -9,12 +9,12 @@ ms.service: app-service
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: mbaldwin
-ms.openlocfilehash: d22fca27943be7ac7db8b8edd5882b9fa4ab3ab9
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 1d7ab8008e8fbdb5f851f158d14f62bdea803f11
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65607265"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001706"
 ---
 # <a name="security-attributes-for-azure-app-service"></a>Security attribut för Azure App Service
 
@@ -28,18 +28,18 @@ Den här artikeln beskrivs vanliga security attribut som är inbyggda i Azure Ap
 |---|---|--|
 | Kryptering i vila (t.ex kryptering på serversidan, kryptering på serversidan med Kundhanterade nycklar och andra krypteringsfunktioner) | Ja | Webbplats filinnehållet lagras i Azure Storage, som krypterar automatiskt innehållet i vila. Se [Azure Storage kryptering för vilande data](../storage/common/storage-service-encryption.md).<br><br>Kunden tillhandahållna hemligheter krypteras i vila. Hemligheterna är krypterade i vila medan lagras i App Service-konfigurationsdatabaser.<br><br>Lokalt anslutna diskar kan du kan också användas som tillfällig lagring av webbplatser (D:\local och % TMP %). Lokalt anslutna diskar som är inte krypterade i vila. |
 | Kryptering under överföring (till exempel ExpressRoute-kryptering, i virtuella nätverk, och kryptering för VNet-VNet)| Ja | Kunder kan konfigurera webbplatser för att kräva och använda HTTPS för inkommande trafik. Finns i bloggposten [hur du gör en Azure App Service endast HTTPS](https://blogs.msdn.microsoft.com/benjaminperkins/2017/11/30/how-to-make-an-azure-app-service-https-only/). |
-| Hantering av kryptering nyckel (CMK, BYOK osv.)| Ja | Kunder kan välja att lagra hemligheter i Key Vault och hämta dem vid körning. Se [använda Key Vault refererar till för App Service och Azure Functions (förhandsversion)](app-service-key-vault-references.md).|
-| Kolumnen Filnivåkryptering (Azure-datatjänster)| Gäller inte | |
+| Kryptering viktiga hantering (CMK, BYOK osv.)| Ja | Kunder kan välja att lagra hemligheter i Key Vault och hämta dem vid körning. Se [använda Key Vault refererar till för App Service och Azure Functions (förhandsversion)](app-service-key-vault-references.md).|
+| Kolumnen filnivåkryptering (Azure-datatjänster)| Gäller inte | |
 | API-anrop som är krypterad| Ja | Hanteringsanrop att konfigurera App Service sker [Azure Resource Manager](../azure-resource-manager/index.yml) anrop via HTTPS. |
 
 ## <a name="network-segmentation"></a>Nätverkssegmentering
 
 | Säkerhetsattributet | Ja/nej | Anteckningar |
 |---|---|--|
-| Stöd för tjänstslutpunkt| Ja | För närvarande tillgängligt i förhandsversionen av App Service. Se [åtkomstbegränsningar för Azure App Service](app-service-ip-restrictions.md). |
-| vNET-stöd för inmatning| Ja | App Service-miljöer är privat implementeringar av Apptjänst som är dedikerad till en enda kund som införs i kundens virtuella nätverk. Se [introduktion till App Service-miljöer](environment/intro.md). |
+| Stöd för Service-slutpunkt| Ja | För närvarande tillgängligt i förhandsversionen av App Service. Se [åtkomstbegränsningar för Azure App Service](app-service-ip-restrictions.md). |
+| VNet-stöd för inmatning| Ja | App Service-miljöer är privat implementeringar av Apptjänst som är dedikerad till en enda kund som införs i kundens virtuella nätverk. Se [introduktion till App Service-miljöer](environment/intro.md). |
 | Stöd för isolering av nätverk och Firewalling| Ja | Kunder kan konfigurera åtkomstkontrollistor (IP-begränsningar) för att låsa tillåten inkommande trafik i nätverket för den offentliga flera innehavare-variationen av App Service.  Se [åtkomstbegränsningar för Azure App Service](app-service-ip-restrictions.md).  App Service-miljöer har distribuerats direkt i virtuella nätverk och därför kan skyddas med NSG: er. |
-| Stöd för Tvingad tunneltrafik | Ja | App Service-miljöer kan distribueras till en kunds virtuella nätverk där Tvingad tunneltrafik har konfigurerats. Kunder måste följa anvisningarna i [konfigurera App Service Environment med tvingande dirigering](environment/forced-tunnel-support.md). |
+| Tvingad tunneltrafik support| Ja | App Service-miljöer kan distribueras till en kunds virtuella nätverk där Tvingad tunneltrafik har konfigurerats. Kunder måste följa anvisningarna i [konfigurera App Service Environment med tvingande dirigering](environment/forced-tunnel-support.md). |
 
 ## <a name="detection"></a>Identifiering
 
@@ -59,8 +59,8 @@ Den här artikeln beskrivs vanliga security attribut som är inbyggda i Azure Ap
 
 | Säkerhetsattributet | Ja/nej | Anteckningar|
 |---|---|--|
-| Kontroll och hantering planera loggning och granskning| Ja | Alla hanteringsåtgärder som utförts på App Service-objekt sker [Azure Resource Manager](../azure-resource-manager/index.yml). Historiska loggarna för dessa åtgärder är tillgängliga både i portalen och via CLI; Se [Azure Resource Manager åtgärder för resursprovider](../role-based-access-control/resource-provider-operations.md#microsoftweb) och [az monitor-aktivitetsloggen](/cli/azure/monitor/activity-log). |
-| Data-dataplaner loggning och granskning | Nej | Dataplanet för App Service är en fjärransluten filresurs som innehåller en kunds distribuerade webbplatsinnehåll.  Det finns ingen granskning fjärransluten filresurs. |
+| Kontroll och hantering av plan loggning och granskning| Ja | Alla hanteringsåtgärder som utförts på App Service-objekt sker [Azure Resource Manager](../azure-resource-manager/index.yml). Historiska loggarna för dessa åtgärder är tillgängliga både i portalen och via CLI; Se [Azure Resource Manager åtgärder för resursprovider](../role-based-access-control/resource-provider-operations.md#microsoftweb) och [az monitor-aktivitetsloggen](/cli/azure/monitor/activity-log). |
+| Data plan loggning och granskning | Nej | Dataplanet för App Service är en fjärransluten filresurs som innehåller en kunds distribuerade webbplatsinnehåll.  Det finns ingen granskning fjärransluten filresurs. |
 
 ## <a name="configuration-management"></a>Konfigurationshantering
 

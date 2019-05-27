@@ -13,12 +13,12 @@ ms.topic: reference
 ms.date: 03/27/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 459758142c94ddfd244df1427dd5632186efc0de
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 05fb277564f72e62a4cdacc12a16cce229b2befc
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61045855"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872749"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions skalar och som är värd för
 
@@ -165,3 +165,9 @@ Faktureringen för förbrukningsplanen beskrivs i detalj på den [Azure Function
 Användbara frågor och information om hur du förstå fakturan förbrukning finns [på fakturering vanliga](https://github.com/Azure/Azure-Functions/wiki/Consumption-Plan-Cost-Billing-FAQ).
 
 [Azure Functions-priserna sidan]: https://azure.microsoft.com/pricing/details/functions
+
+## <a name="service-limits"></a>Tjänstbegränsningar
+
+Följande tabell visar de begränsningar som gäller för funktionsappar när de körs i olika värdplaner:
+
+[!INCLUDE [functions-limits](../../includes/functions-limits.md)]

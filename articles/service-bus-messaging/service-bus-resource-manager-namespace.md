@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/23/2019
 ms.author: spelluru
 ms.openlocfilehash: 4471c9d5b6c09bcf4d9100cccfa725f36cf9a3f8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59045090"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66111243"
 ---
 # <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>Skapa ett Service Bus-namnområde med en Azure Resource Manager-mall
 I den här snabbstarten skapar du en Azure Resource Manager-mall som skapar ett Service Bus-namnområde av typen **Messaging** med en **Standard** SKU. Artikeln definierar också de parametrar som har angetts för körning av distributionen. Du kan använda den här mallen för dina egna distributioner eller anpassa den så att den uppfyller dina krav. Mer information om att skapa mallar finns i [Redigera Azure Resource Manager-mallar][Authoring Azure Resource Manager templates]. Läs den fullständiga mallen, den [mall för Service Bus-namnområde] [ Service Bus namespace template] på GitHub.
@@ -169,7 +169,7 @@ Växla till den mapp där du har sparat JSON-filer för att distribuera resurser
 
 ## <a name="use-azure-cli-to-deploy-the-template"></a>Använd Azure CLI för att distribuera mallen
 
-### <a name="sign-in-to-azure"></a>Logga in på Azure
+### <a name="sign-in-to-azure"></a>Logga in till Azure
 
 1. Kör följande kommandon för att logga in på Azure:
 

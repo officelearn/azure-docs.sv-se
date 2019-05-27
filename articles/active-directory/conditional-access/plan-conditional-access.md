@@ -13,12 +13,12 @@ ms.date: 01/25/2019
 ms.author: joflore
 ms.reviewer: martincoetzer
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4832055bffa72732991cb766ce88cc48c07530e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2e277f31dcf2627959b88d58f325fb4dad024a00
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60301436"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001198"
 ---
 # <a name="how-to-plan-your-conditional-access-deployment-in-azure-active-directory"></a>Instruktioner: Planera distributionen av villkorlig åtkomst i Azure Active Directory
 
@@ -81,7 +81,7 @@ Nu är det dags att besluta om en namngivningsstandard för dina principer. Namn
  
 ![Namngivningsstandarden](./media/plan-conditional-access/11.png)
 
-Ett beskrivande namn hjälper dig att få överblick över implementeringen av villkorlig åtkomst, är sekvensnumret användbart om du vill referera till en princip i en konversation. Exempelvis kan du be honom att öppna princip EM063 att lösa ett problem om du prata med en andra administratör på telefonen.
+Ett beskrivande namn hjälper dig att få överblick över implementeringen av villkorlig åtkomst, är sekvensnumret användbart om du vill referera till en princip i en konversation. Exempelvis kan du be dem att öppna princip EM063 att lösa ett problem om du prata med en andra administratör på telefonen.
 
 
 
@@ -131,7 +131,7 @@ För att förenkla inloggning för dina användare kan vilja du att de kan logga
 
 Vanliga användningsområden för att kräva MFA är åtkomst:
 
-- [Av administratörer](baseline-protection.md#require-mfa-for-admins)
+- [Av administratörer](howto-baseline-protect-administrators.md)
 - [Till specifika appar](app-based-mfa.md) 
 - [Från nätverket, som du inte litar](untrusted-networks.md).
 

@@ -10,15 +10,15 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/25/2019
-ms.openlocfilehash: 6d7d065f45bca38cedd2c276bdd9b98dfd9675df
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.date: 05/22/2019
+ms.openlocfilehash: 8499d99ab82fa89062d74c7dc5db5d7dd11e770c
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64866954"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66016378"
 ---
-# <a name="time-zones-in-azure-sql-database-managed-instance-preview"></a>Tidszoner i Azure SQL Database Managed Instance (förhandsversion)
+# <a name="time-zones-in-azure-sql-database-managed-instance"></a>Tidszoner i Azure SQL Database Managed Instance
 
 Coordinated Universal Time (UTC) är den rekommenderade tidszonen för datanivån för molnlösningar. Azure SQL Database Managed Instance erbjuder även välja mellan olika tidszoner att uppfylla behoven i befintliga program som lagrar datum- och tidsvärden och anropa datum- och tidsfunktioner med en implicit kontexten för en viss tidszon.
 
@@ -106,9 +106,9 @@ Med hjälp av samma tidszon mellan en primär och sekundär instans i en redunda
 | Hawaii, normaltid | (UTC-10:00) Hawaii |
 | Marquesas, normaltid | (UTC-09:30) Marquesasöarna |
 | Alaska, normaltid | (UTC-09:00) Alaska |
-| UTC-09 | (UTC-09:00) Coordinated Universal Time-09 |
+| UTC-09 | (UTC-09:00) Koordinerad universell tid-09 |
 | Pacific, normaltid (Mexiko) | (UTC-08:00) Baja California |
-| UTC-08 | (UTC-08:00) Coordinated Universal Time-08 |
+| UTC-08 | (UTC-08:00) Koordinerad universaltid-08 |
 | Pacific, normaltid | (UTC-08:00) Pacific Time (USA och Kanada) |
 | US Mountain, normaltid | (UTC-07:00) Arizona |
 | Mountain, normaltid (Mexiko) | (UTC-07:00) Chihuahua, La Paz, Mazatlan |
@@ -139,7 +139,7 @@ Med hjälp av samma tidszon mellan en primär och sekundär instans i en redunda
 | Grönland, normaltid | (UTC-03:00) Grönland |
 | Montevideo, normaltid | (UTC-03:00) Montevideo |
 | Magallanes, normaltid | (UTC-03:00) Punta Arenas |
-| Saint Pierre, normaltid | (UTC-03:00) Saint Pierre och Miquelon |
+| Saint Pierre, normaltid | (UTC-03:00) Saint-Pierre and Miquelon |
 | Bahia, normaltid | (UTC-03:00) Salvador |
 | UTC-02 | (UTC-02:00) Coordinated Universal Time-02 |
 | Mid-Atlantic, normaltid | (UTC-02:00) Mid-Atlantic - gammal |
@@ -202,7 +202,7 @@ Med hjälp av samma tidszon mellan en primär och sekundär instans i en redunda
 | Nordasien, normaltid | (UTC+07:00) Krasnoyarsk |
 | N. Centralasien, normaltid | (UTC+07:00) Novosibirsk |
 | Tomsk, normaltid | (UTC+07:00) Tomsk |
-| Kina, normaltid | (UTC+08:00) Beijing, Chongqing, Hongkong SAR, Urumqi |
+| Kina, normaltid | (UTC+08:00) Beijing, Chongqing, Hongkong, Urumqi |
 | Östra Nordasien, normaltid | (UTC+08:00) Irkutsk |
 | Singapore, normaltid | (UTC+08:00) Kuala Lumpur, Singapore |
 | W. Australien, normaltid | (UTC+08:00) Perth |
@@ -225,7 +225,7 @@ Med hjälp av samma tidszon mellan en primär och sekundär instans i en redunda
 | Bougainville, normaltid | (UTC+11:00) Bougainville |
 | Ryssland tidszon 10 | (UTC+11:00) Chokurdakh |
 | Magadan, normaltid | (UTC+11:00) Magadan |
-| Norfolk, normaltid | (UTC+11:00) Norfolkön |
+| Norfolk, normaltid | (UTC+11:00) Norfolköarna |
 | Sachalin, normaltid | (UTC+11:00) Sakhalin |
 | Central Pacific, normaltid | (UTC+11:00) Salomonöarna, Nya Kaledonien |
 | Ryssland tidszon 11 | (UTC+12:00) Anadyr, Petropavlovsk-Kamchatsky |

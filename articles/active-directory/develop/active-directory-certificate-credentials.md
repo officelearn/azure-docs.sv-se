@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2018
+ms.date: 05/21/2019
 ms.author: ryanwi
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34a499ac12bcf6f4aee671eb209b709390ca6139
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: ed4e7559ff6c3b76bbdf49b538ffebf3ad09cc58
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545127"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001216"
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>Autentiseringsuppgifter för certifikat för autentisering för programmet
 
@@ -98,11 +98,10 @@ Du kan associera certifikat-autentiseringsuppgifter med klientprogram i Azure AD
 ### <a name="uploading-the-certificate-file"></a>Överföring av certifikatfilen
 
 I Azure appregistreringen för klientprogrammet:
-1. Välj **Inställningar > nycklar** och välj sedan **ladda upp offentlig nyckel**. 
-2. Markera den certifikatfil du vill ladda upp.
-3. Välj **Spara**. 
-   
-   När du sparar certifikatet har laddats upp och tumavtryck, startdatum och upphör att gälla värden visas. 
+1. Välj **certifikat och hemligheter**. 
+2. Klicka på **överför certifikat** och markera den certifikatfil du överför.
+3. Klicka på **Lägg till**.
+  När certifikatet har överförts, visas tumavtryck, startdatum och upphör att gälla värden. 
 
 ### <a name="updating-the-application-manifest"></a>Uppdatera applikationsmanifestet
 
@@ -114,7 +113,7 @@ Med undantag för ett certifikat, måste du beräkna:
 Du måste också ange ett GUID för att identifiera nyckeln i applikationsmanifestet (`$keyId`).
 
 I Azure appregistreringen för klientprogrammet:
-1. Öppna programmanifestet.
+1. Välj **Manifest** att öppna programmanifestet.
 2. Ersätt den *keyCredentials* egenskap med din nya certifikatinformationen med hjälp av följande schema.
 
    ```

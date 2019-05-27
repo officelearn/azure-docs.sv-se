@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 05/21/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78d251d637d12f35968c2b897a2a8cfd6496b7e0
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 5e2eca253bc5d1495d26506e0e6f8a83762e8bc5
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545937"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001114"
 ---
 # <a name="quickstart-build-a-net-web-api-that-integrates-with-azure-ad-for-authentication-and-authorization"></a>Snabbstart: Skapa ett .NET-baserat webb-API som integreras med Azure AD för autentisering och auktorisering
 
@@ -58,12 +58,12 @@ För att skydda appen måste du först skapa en app i klientorganisationen och g
     * Hoppa över det här steget om du bara har en Azure AD-klientorganisation under ditt konto eller om du redan har valt den rätta Azure AD-klientorganisationen.
 
 3. Välj **Azure Active Directory** i det vänstra navigeringsfönstret.
-4. Välj **Appregistreringar** och sedan **Lägg till**.
-5. Följ anvisningarna och skapa **en ny webbapp och/eller ett nytt webb-API**.
-    * **Namn** beskriver appen för dina användare. Ange **To Do List Service** (Att göra-lista).
-    * **Omdirigerings-URI** är ett schema och en strängkombination som Azure AD använder för att returnera token som din app har begärt. Ange `https://localhost:44321/` för det här värdet.
-
-6. På sidan **Inställningar > Egenskaper** för appen uppdaterar du app-ID-URI. Ange en klientspecifik identifierare. Ange till exempel `https://contoso.onmicrosoft.com/TodoListService`.
+4. Välj **appregistreringar**, och välj sedan **ny registrering**.
+5. När sidan **Registrera ett program** visas anger du ett namn för programmet.
+Under **Kontotyper som stöds** väljer du **Accounts in any organizational directory and personal Microsoft accounts** (Konton i alla organisationskataloger och personliga Microsoft-konton).
+6. Välj den **Web** plattform under den **omdirigerings-URI** avsnittet och ange värdet `https://localhost:44321/` (den plats som Azure AD returnerar token).
+7. När det är klart väljer du **Registrera**. På appens sida **Översikt** antecknar du värdet för **Application (client) ID** (Program-ID (klient)).
+6. Välj **exponerar ett API**, uppdatera program-ID-URI genom att klicka på **ange**. Ange en klientspecifik identifierare. Ange till exempel `https://contoso.onmicrosoft.com/TodoListService`.
 7. Spara konfigurationen. Lämna portalen öppen, eftersom du även måste registrera ditt klientprogram inom kort.
 
 ## <a name="step-2-set-up-the-app-to-use-the-owin-authentication-pipeline"></a>Steg 2: Konfigurera appen att använda pipelinen för OWIN-autentisering
@@ -148,12 +148,9 @@ För att verifiera inkommande begäranden och token måste du konfigurera appen 
 Innan du kan se To Do List Service i aktion måste du konfigurera To Do List-klienten så att den kan hämta token från Azure AD och göra anrop till tjänsten.
 
 1. Gå tillbaka till [Azure-portalen](https://portal.azure.com).
-1. Skapa en ny app i Azure AD-klienten och välj **Internt klientprogram** i prompten som visas.
-    * **Namn** beskriver appen för dina användare.
-    * Ange `http://TodoListClient/` för värdet för **Omdirigerings-URI**.
-
+1. Skapa en ny programregistrering i Azure AD-klienten.  Ange en **namn** som beskriver ditt program till användare, ange `http://TodoListClient/` för den **omdirigerings-URI** värde och välj **offentlig klient (mobila och stationära)** i den listrutan.
 1. När du har slutfört registreringen tilldelar Azure AD ett unikt ID till din app. Du behöver det här värdet i nästa steg, så kopiera det från appsidan.
-1. På sidan **Inställningar** väljer du **Nödvändiga behörigheter** och sedan **Lägg till**. Leta upp och välj To Do List Service, lägg till behörigheten **Åtkomst till TodoListService** under **Delegerade behörigheter** och välj sedan **Klart**.
+1. Välj **API-behörigheter**, sedan **lägga till en behörighet**.  Leta upp och väljer att göra tjänsten, lägga till den **user_impersonation åtkomst TodoListService** behörighet under **delegerade behörigheter**, och välj sedan **Lägg till behörigheter**.
 1. I Visual Studio öppnar du `App.config` i TodoListClient-projektet och anger sedan dina konfigurationsvärden i avsnittet `<appSettings>`.
 
     * `ida:Tenant` är namnet din Azure AD-klientorganisation, till exempel contoso.onmicrosoft.com.

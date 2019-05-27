@@ -7,16 +7,19 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: 55e6b515328df635a423e0ecf736b03e17a90b8f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 00229cca1d7fb238b330ec98cd35d0bb59bc821a
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64698425"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66015628"
 ---
 # <a name="use-the-voluntary-migration-tool-to-migrate-your-classic-alert-rules"></a>Använd verktyget frivillig migrering för att migrera din klassiska Varningsregler
 
-Som [tidigare meddelats](monitoring-classic-retirement.md), klassiska aviseringar i Azure Monitor är dras tillbaka i juli 2019. Migreringsverktyg finns i Azure portal för att kunder som använder klassiska Varningsregler och som vill aktivera migrering själva. Den här artikeln förklarar hur du använder Migreringsverktyget för att migrera din klassiska Varningsregler frivilligt innan automatisk migrering startar i juli 2019.
+Som [tidigare meddelats](monitoring-classic-retirement.md), klassiska aviseringar i Azure Monitor är att tas ur drift i September 2019 (var ursprungligen juli 2019). Migreringsverktyg finns i Azure portal för att kunder som använder klassiska Varningsregler och som vill aktivera migrering själva. Den här artikeln förklarar hur du använder Migreringsverktyget för att migrera din klassiska Varningsregler frivilligt innan automatisk migrering börjar i September 2019.
+
+> [!NOTE]
+> Fördröjning i lansering av migreringsverktyget slutdatum för klassiska aviseringar migrering har [utökats till den 31 augusti 2019](https://azure.microsoft.com/updates/azure-monitor-classic-alerts-retirement-date-extended-to-august-31st-2019/) ursprungligen presenterade efter den 30 juni 2019.
 
 ## <a name="benefits-of-new-alerts"></a>Fördelarna med nya aviseringar
 
@@ -78,7 +81,7 @@ Följ dessa steg om du vill starta migreringen av dina klassiska aviseringsregle
 
 ### <a name="why-is-my-subscription-listed-as-not-ready-for-migration"></a>Varför är min prenumeration visas inte redo för migrering?
 
-Migreringsverktyget inför för kunder i faser. I de tidiga faserna, de flesta eller alla dina prenumerationer kan markeras som **inte klar för migrering**. Mid april dock bör alla prenumerationer vara redo att migrera.
+Migreringsverktyget inför för kunder i faser. I de tidiga faserna, de flesta eller alla dina prenumerationer kan markeras som **inte klar för migrering**. 
 
 När en prenumeration blir klar för migrering, får Prenumerationens ägare ett e-postmeddelande om att verktyget är tillgängligt. Håll utkik för det här meddelandet.
 

@@ -3,20 +3,21 @@ title: Kontinuerlig integrering och leverans i Azure Data Factory | Microsoft Do
 description: Lär dig hur du använder kontinuerlig integrering och leverans för att flytta Data Factory-pipeliner från en miljö (utveckling, testning, produktion) till en annan.
 services: data-factory
 documentationcenter: ''
-author: gauravmalhot
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/17/2019
+author: gauravmalhot
 ms.author: gamal
+ms.reviewer: maghan
 manager: craigg
-ms.openlocfilehash: 2edd4e28a0dd67be3c06159bce2e968d681b7f70
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 76962975705ff53a292f41a0a54e42c5f2991a2c
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58905264"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002629"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Kontinuerlig integrering och leverans (CI/CD) i Azure Data Factory
 
@@ -937,7 +938,7 @@ Här följer några riktlinjer ska användas när du skapar anpassade parameterf
 
 ### <a name="explanation"></a>Förklaring:
 
-#### <a name="pipelines"></a>Pipelines
+#### <a name="pipelines"></a>Rörledningar
     
 * Alla egenskaper i sökvägen aktiviteter/typeProperties/waitTimeInSeconds parametriserade. Detta innebär att alla aktiviteter i en pipeline med en kod på servernivå egenskap med namnet `waitTimeInSeconds` (till exempel den `Wait` aktivitet) är som innehåller parametrar som ett tal med ett standardnamn. Men det kommer inte ha ett standardvärde i Resource Manager-mallen. Det är en obligatorisk indata under Resource Manager-distribution.
 * På samma sätt kan en egenskap som kallas `headers` (till exempel i en `Web` aktivitet) parameteriserat med typen `object` (JObject). Den har ett standardvärde, vilket är samma värde som källa fabriken.
@@ -957,7 +958,7 @@ Här följer några riktlinjer ska användas när du skapar anpassade parameterf
 * I föregående exempel, den `connectionString` egenskapen kommer parametriseras som en `securestring` värde, den inte har något standardvärde och den har en förkortade parameternamnet som suffix med `connectionString`.
 * Egenskapen `secretAccessKey`, men råkar vara en `AzureKeyVaultSecret` (till exempel en `AmazonS3` länkad tjänst). Därför är automatiskt innehåller parametrar som en Azure Key Vault-hemlighet och hämtas från nyckelvalvet som den är konfigurerad med i käll-factory. Du kan också Parameterisera nyckelvalvet, sig själv.
 
-#### <a name="datasets"></a>Datauppsättningar
+#### <a name="datasets"></a>Datamängder
 
 * Även om typspecifika anpassning är tillgänglig för datauppsättningar konfiguration kan tillhandahållas utan uttryckligen en \*-konfiguration på nivå. I föregående exempel, alla egenskaper för datamängd under `typeProperties` parametriseras.
 

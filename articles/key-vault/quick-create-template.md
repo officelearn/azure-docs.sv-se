@@ -8,14 +8,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/04/2019
+ms.date: 05/22/2019
 ms.author: jgao
-ms.openlocfilehash: b1b50858286e3a174de254ae16c64b04abc00936
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 802c0409fe3ac88f73c383958d2337be09ef7992
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64715998"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66016464"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-resource-manager-template"></a>Snabbstart: Ange och hämta en hemlighet från Azure Key Vault med hjälp av Resource Manager-mall
 
@@ -61,10 +61,10 @@ Den mall som användes i den här snabbstarten är från [Azure-snabbstartmallar
     * **Prenumeration**: välj en Azure-prenumeration.
     * **Resursgrupp**: Välj **Skapa nytt**, ange ett unikt namn för resursgruppen och klicka sedan på **OK**. 
     * **Plats**: välj en plats.  Välj till exempel **USA, centrala**.
-    * **Namn på Key Vault**: Ange ett unikt namn för nyckelvalvet.  
-    * **Klient-ID**: mallfunktionen hämtar ditt klient-ID automatiskt.  Ändra inte standardvärdet
+    * **Namn på Key Vault**: Ange ett namn för nyckelvalvet som måste vara globalt unikt inom det. vault.azure.net namnområde.  
+    * **Klient-ID**: mallfunktionen hämtar ditt klient-ID automatiskt.  Ändra inte standardvärdet.
     * **Användar-Id för AD**: Ange din Azure AD användarens objekt-ID som du hämtade från [krav](#prerequisites).
-    * **Namn på hemlighet**: Ange ett namn för den hemlighet som du lagrar i nyckelvalvet.  Till exempel **adminpassword**
+    * **Namn på hemlighet**: Ange ett namn för den hemlighet som du lagrar i nyckelvalvet.  Till exempel **adminpassword**.
     * **Hemligt värde**: Ange värdet för hemligheten.  Om du sparar ett lösenord, rekommenderas att använda genererade lösenordet du skapade i krav.
     * **Jag godkänner villkoren ovan**: Välj.
 3. Välj **Köp**.

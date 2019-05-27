@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
-ms.openlocfilehash: ed6a50ee68d39e6e0d01b405eb02edd6d4c93613
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 637feb855c7816dfb26229c5a65a069260a58cd3
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65407577"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66003102"
 ---
 # <a name="configure-a-linux-php-app-for-azure-app-service"></a>Konfigurera en Linux-PHP-app för Azure App Service
 
@@ -105,7 +105,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 ## <a name="access-environment-variables"></a>Få åtkomst till miljövariabler
 
-I App Service kan du [konfigurera appinställningar](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings) utanför din Appkod. Du kan använda dem med hjälp av standard [getenv()](https://secure.php.net/manual/function.getenv.php) mönster. Om du till exempel vill få åtkomst till en appinställning med namnet `DB_HOST` använder du följande kod:
+I App Service kan du [konfigurera appinställningar](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) utanför din Appkod. Du kan använda dem med hjälp av standard [getenv()](https://secure.php.net/manual/function.getenv.php) mönster. Om du till exempel vill få åtkomst till en appinställning med namnet `DB_HOST` använder du följande kod:
 
 ```php
 getenv("DB_HOST")
@@ -147,7 +147,7 @@ Om du behöver göra ändringar i din PHP-installation kan du ändra någon av d
 > Det bästa sättet att se den PHP-versionen och aktuellt *php.ini* konfiguration är att anropa [phpinfo()](https://php.net/manual/function.phpinfo.php) i din app.
 >
 
-### <a name="customize-non-phpinisystem-directives"></a>Anpassa icke PHP_INI_SYSTEM direktiv
+### <a name="Customize-non-PHP_INI_SYSTEM directives"></a>Anpassa-icke-PHP_INI_SYSTEM direktiv
 
 Anpassa PHP_INI_USER och PHP_INI_PERDIR PHP_INI_ALL direktiv (se [php.ini-direktiv](https://www.php.net/manual/ini.list.php)), Lägg till en *.htaccess* filen till rotkatalogen för din app.
 
@@ -237,7 +237,7 @@ När en fungerande PHP-app fungerar annorlunda i App Service eller innehåller f
     - Beroende på din *composer.json*, olika paket kan installeras för Produktionsläge (`require` jämfört med `require-dev`).
     - Vissa webbramverk kan distribuera statiska filer på olika sätt i Produktionsläge.
     - Vissa webbramverk kan använda anpassade startskript vid körning i Produktionsläge.
-- Kör din app i App Service i felsökningsläge. Till exempel i [Laravel](https://meanjs.org/), du kan konfigurera din app för att mata ut felsökningsmeddelanden i produktion av [inställningen den `APP_DEBUG` appinställningen `true` ](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
+- Kör din app i App Service i felsökningsläge. Till exempel i [Laravel](https://meanjs.org/), du kan konfigurera din app för att mata ut felsökningsmeddelanden i produktion av [inställningen den `APP_DEBUG` appinställningen `true` ](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings).
 
 ### <a name="robots933456"></a>robots933456
 

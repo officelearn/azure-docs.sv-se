@@ -11,22 +11,28 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/01/2019
+ms.date: 05/21/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d42fe972b79ecd9bcee65d0664c5d13da02d2238
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6cd5bbba681acaa0c32e681f7cb4809142fe11f9
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60384683"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66113246"
 ---
 # <a name="review-access-to-groups-or-applications-in-azure-ad-access-reviews"></a>Granska åtkomst till grupper eller program i Azure AD-åtkomstgranskningar
 
 Azure Active Directory (Azure AD) förenklar hur företag hantera åtkomst till grupper och program i Azure AD och andra Microsoft Online Services med en funktion som kallas åtkomst till Azure AD-åtkomstgranskningar.
 
 Den här artikeln beskrivs hur en avsedda granskare utför en åtkomstgranskning för medlemmar i en grupp eller användare med åtkomst till ett program.
+
+## <a name="prerequisites"></a>Nödvändiga komponenter
+
+- Azure AD Premium P2
+
+Mer information finns i [vilka användare måste ha licenser?](access-reviews-overview.md#which-users-must-have-licenses).
 
 ## <a name="open-the-access-review"></a>Öppna åtkomstgranskningen
 
@@ -64,16 +70,16 @@ Om begäran är att granska dina egna åtkomst, ser sidan annorlunda. Mer inform
 
 Det finns två sätt att du kan godkänna eller neka åtkomst:
 
-- Du kan godkänna eller neka varje begäran individuellt, eller
+- Du kan godkänna eller neka åtkomst för en eller flera användare, eller
 - Du kan acceptera system-rekommendationer, vilket är det enklaste och snabbaste sättet.
 
-### <a name="approve-or-deny-access-for-each-request"></a>Godkänn eller neka åtkomst för varje begäran
+### <a name="approve-or-deny-access-for-one-or-more-users"></a>Godkänn eller neka åtkomst för en eller flera användare
 
 1. Granska listan över användare att bestämma om du vill godkänna eller neka fortsatt åtkomst.
 
-1. För att godkänna eller neka varje begäran, klickar du på raden för att öppna ett fönster för att ange åtgärden som ska vidtas.
+1. För att godkänna eller neka åtkomst för en enskild användare, klickar du på raden för att öppna ett fönster för att ange åtgärden som ska vidtas. Lägg till markerade användare för att godkänna eller neka åtkomst för flera användare, och klicka sedan på den **granska X användare** knappen för att öppna ett fönster för att ange åtgärden som ska vidtas.
 
-1. Klicka på **godkänna** eller **neka**. Om du är osäker kan du klicka på **vet inte**. Detta resulterar i att upprätthålla hans/hennes åtkomsten användaren, men markeringen visas i granskningsloggarna.
+1. Klicka på **godkänna** eller **neka**. Om du är osäker kan du klicka på **vet inte**. Detta leder till användaren upprätthålla åtkomsten, men markeringen visas i granskningsloggarna.
 
     ![Utför åtkomstgranskning](./media/perform-access-review/approve-deny.png)
 

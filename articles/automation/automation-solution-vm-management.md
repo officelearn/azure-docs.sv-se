@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/08/2019
+ms.date: 05/21/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 017c2fd934f35a64f26687f4a58634dda9a821a3
-ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
+ms.openlocfilehash: 2269eac0790e61dbf0ce893bbb737cb22d58d497
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65501966"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002483"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Starta/stoppa virtuella datorer vid låg belastning på nätverket lösning i Azure Automation
 
@@ -49,7 +49,7 @@ Det rekommenderas att använda ett separat Automation-konto för att starta/stop
 
 ### <a name="permissions-needed-to-deploy"></a>Behörigheter som krävs för att distribuera
 
-Det finns vissa behörigheter som en användare måste ha för att distribuera den Starta/stoppa virtuella datorer utanför timmar lösning. Dessa behörigheter finns olika om du använder en Automation-kontot och Log Analytics-arbetsyta som skapats i förväg och skapa nya filer under distributionen.
+Det finns vissa behörigheter som en användare måste ha för att distribuera den Starta/stoppa virtuella datorer utanför timmar lösning. Dessa behörigheter finns olika om du använder en Automation-kontot och Log Analytics-arbetsyta som skapats i förväg och skapa nya filer under distributionen. Om du är deltagare för prenumerationen och en Global administratör i din Azure Active Directory-klient, behöver du inte konfigurera följande behörigheter. Om du inte har dessa rättigheter eller måste du konfigurera en anpassad roll, ser du de behörigheter som krävs nedan.
 
 #### <a name="pre-existing-automation-account-and-log-analytics-account"></a>Befintliga Automation-kontot och Log Analytics-konto
 
@@ -79,41 +79,21 @@ Att distribuera den Starta/stoppa virtuella datorer utanför timmar lösningen t
 
 Om du vill distribuera Starta/stoppa virtuella datorer under arbetstid, måste lösningen till en ny Automation-kontot och Log Analytics-arbetsyta användaren-lösningen distribueras de behörigheter som definierats i föregående avsnitt samt följande behörigheter:
 
-- Delad administratör på prenumerationen – detta behövs för att skapa det klassiska kör som-konto
-- Vara en del av den **programutvecklare** roll. Mer information om hur du konfigurerar kör som-konton finns i [behörigheter för att konfigurera kör som-konton](manage-runas-account.md#permissions).
+- Delad administratör på prenumerationen – det här krävs bara att skapa det klassiska kör som-konto
+- Vara en del av den [Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md) **programutvecklare** roll. Mer information om hur du konfigurerar kör som-konton finns i [behörigheter för att konfigurera kör som-konton](manage-runas-account.md#permissions).
+- Deltagare för prenumerationen eller följande behörigheter.
 
 | Behörighet |Scope|
 | --- | --- |
+| Microsoft.Authorization/Operations/read | Prenumeration|
+| Microsoft.Authorization/permissions/read |Prenumeration|
 | Microsoft.Authorization/roleAssignments/read | Prenumeration |
 | Microsoft.Authorization/roleAssignments/write | Prenumeration |
+| Microsoft.Authorization/roleAssignments/delete | Prenumeration |
 | Microsoft.Automation/automationAccounts/connections/read | Resursgrupp |
 | Microsoft.Automation/automationAccounts/certificates/read | Resursgrupp |
 | Microsoft.Automation/automationAccounts/write | Resursgrupp |
 | Microsoft.OperationalInsights/workspaces/write | Resursgrupp |
-
-### <a name="region-mappings"></a>Region-mappningar
-
-När du aktiverar Starta/Stoppa VM under kontorstid, stöds endast i vissa regioner för att länka en Log Analytics-arbetsyta och ett Automation-konto.
-
-I följande tabell visas mappningarna som stöds:
-
-|**Log Analytics arbetsytans Region**|**Azure Automation Region**|
-|---|---|
-|Sydöstra Australien|Sydöstra Australien|
-|CanadaCentral|CanadaCentral|
-|Indiencentrala|Indiencentrala|
-|EastUS<sup>1</sup>|EastUS2|
-|JapanEast|JapanEast|
-|SoutheastAsia|SoutheastAsia|
-|WestCentralUS<sup>2</sup>|WestCentralUS<sup>2</sup>|
-|Västeuropa|Västeuropa|
-|Södrastorbritannien|Södrastorbritannien|
-|USGovVirginia|USGovVirginia|
-|EastUS2EUAP<sup>1</sup>|CentralUSEUAP|
-
-<sup>1</sup> EastUS2EUAP och östra USA mappningar för Log Analytics-arbetsytor till Automation-konton är inte en exakt mappning för olika regioner, men är korrekt mappning.
-
-<sup>2</sup> på grund av begränsningar i kapaciteten regionen är inte tillgänglig när du skapar nya resurser. Detta inkluderar Automation-konton och Log Analytics-arbetsytor. Redan befintliga länkade resurser i regionen bör dock fortsätta att fungera.
 
 ## <a name="deploy-the-solution"></a>Distribuera lösningen
 
@@ -140,6 +120,11 @@ Utför följande steg för att lägga till Starta/stoppa virtuella datorer vid l
    - För **resursgrupp**, du kan skapa en ny resursgrupp eller välj en befintlig.
    - Välj en **Plats**. För närvarande endast tillgängliga regionerna är **Australien, sydöstra**, **centrala**, **centrala Indien**, **USA, östra**, **Östra japan**, **Sydostasien**, **Storbritannien, södra**, **Västeuropa**, och **USA, västra 2**.
    - Välj en **Prisnivå**. Välj den **Per GB (fristående)** alternativet. Azure Monitor-loggar har uppdaterat [priser](https://azure.microsoft.com/pricing/details/log-analytics/) och Per GB-nivån är det enda alternativet.
+
+   > [!NOTE]
+   > När du aktiverar lösningar går det endast att länka en Log Analytics-arbetsyta och ett Automation-konto i vissa regioner.
+   >
+   > En lista över stöds mappningspar finns i [regionsmappning för Automation-kontot och Log Analytics-arbetsytan](how-to/region-mappings.md).
 
 5. När du har angett informationen som krävs på den **Log Analytics-arbetsyta** klickar du på **skapa**. Du kan spåra förloppet under **meddelanden** från menyn som tillbaka till den **lägga till lösning** sidan när du är klar.
 6. På den **lägga till lösning** väljer **Automation-konto**. Om du skapar en ny Log Analytics-arbetsyta kan du skapa ett nytt Automation-konto som ska associeras med den eller välja ett befintligt Automation-konto som inte är redan länkad till en Log Analytics-arbetsyta. Välj ett befintligt Automation-konto eller klicka på **skapa ett Automation-konto**, och på den **Lägg till Automation-konto** anger du följande information:
@@ -351,7 +336,7 @@ Automation skapar två typer av poster i Log Analytics-arbetsyta: jobb-loggar oc
 |RunbookName | Anger namnet på runbooken.|
 |SourceSystem | Anger källsystemet för data som skickats. För Automation är värdet OpsManager.|
 |StreamType | Typ av jobbström. Möjliga värden är:<br>-Förlopp<br>- Utdata<br>- Varning<br>- Fel<br>- Felsökning<br>- Verbose|
-|Tid | Datum och tid då runbook-jobbet körs.|
+|Time | Datum och tid då runbook-jobbet körs.|
 
 När du utför en loggsökning som returnerar poster kategori av **JobLogs** eller **JobStreams**, kan du välja den **JobLogs** eller **JobStreams**vy som visar en uppsättning paneler som sammanfattar de uppdateringar som returneras av sökningen.
 
@@ -433,7 +418,9 @@ Om du inte längre behöver använda lösningen kan du ta bort den från Automat
 
 Utför följande steg för att ta bort lösningen:
 
-1. Från ditt Automation-konto väljer **arbetsytan** från den vänstra sidan.
+1. Från ditt Automation-konto under **relaterade resurser**väljer **länkade arbetsytan**.
+1. Välj **går du till arbetsytan**.
+1. Under **Allmänt**väljer **lösningar**. 
 1. På den **lösningar** väljer lösningen **Start stoppa VM [Workspace]**. På den **VMManagementSolution [Workspace]** sida från menyn och välj **ta bort**.<br><br> ![Ta bort VM-Mgmt-lösning](media/automation-solution-vm-management/vm-management-solution-delete.png)
 1. I den **ta bort lösningen** och bekräfta att du vill ta bort lösningen.
 1. Även om informationen har verifierats och lösningen har tagits bort, du kan spåra förloppet under **meddelanden** på menyn. Du kommer tillbaka till den **lösningar** sidan när processen för att ta bort lösningen har startat.

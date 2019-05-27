@@ -5,23 +5,23 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 03/29/2019
+ms.date: 05/21/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 7700efb7bfdb60c8f8f82b442cf01aae691f2fc3
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
-ms.translationtype: MT
+ms.openlocfilehash: e6afd342a27fa13ae79e037e6e42e582dd9856cc
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595570"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66015298"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>Börja övervaka din ASP.NET Core-webbapp
 
 Med Azure Application Insights kan du enkelt övervaka en webbapp med avseende på tillgänglighet, prestanda och användning. Du kan också snabbt identifiera och diagnostisera fel i appen utan att vänta på att en användare rapporterar dem. 
 
-Den här snabbstarten hjälper dig att lägga till Application Insights SDK i en befintlig ASP.NET Core-webbapp. Läs om hur du konfigurerar Application Insights utan Visual Studio checka ut detta [artikeln](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core-no-visualstudio).
+Den här snabbstarten hjälper dig att lägga till Application Insights SDK i en befintlig ASP.NET Core-webbapp. Läs om hur du konfigurerar Application Insights utan Visual Studio checka ut detta [artikeln](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -51,7 +51,7 @@ Application Insights kan samla in telemetridata från alla internetanslutna appa
 
     En konfigurationsruta visas. Använd följande tabell när du ska fylla i indatafälten.
 
-    | Inställningar        |  Value           | Beskrivning  |
+    | Inställningar        |  Värde           | Beskrivning  |
    | ------------- |:-------------|:-----|
    | **Namn**      | Globalt unikt värde | Namn som identifierar appen du övervakar |
    | **Programtyp** | ASP.NET-webbapp | Typen av app du övervakar |
@@ -98,6 +98,10 @@ Application Insights kan samla in telemetridata från alla internetanslutna appa
 5. På den vänstra klickar du på **mått**. Använd metrics explorer för att undersöka hälsa och användning av din resurs. Du kan klicka på **Lägg till nytt diagram** om du vill skapa fler anpassade vyer eller välja **Redigera** för att ändra befintliga diagramtyper, höjd, färgpalett, grupperingar och mått. Du kan till exempel göra ett diagram som visar den genomsnittliga webbsideinläsningar genom att välja ”webbsideinläsningar” från mått, listruta och ”medel” från aggregering. Mer information om Azure Metrics Explorer besök [komma igång med Azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md).
 
      ![Fliken mått: Genomsnittlig webbläsare sidan belastningen diagrammets](./media/dotnetcore-quick-start/8metrics.png)
+
+## <a name="video"></a>Video
+
+- Externa stegvisa video om [konfigurera Application Insights med .NET Core och Visual Studio](https://www.youtube.com/watch?v=NoS9UhcR4gA&t) från grunden.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 När du är klar testning bör du ta bort resursgruppen och alla relaterade resurser. Att så att följa stegen nedan.

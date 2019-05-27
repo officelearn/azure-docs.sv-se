@@ -9,16 +9,16 @@ manager: barbkess
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 11977a5aa36b023e468ce6a54862b5138995c417
-ms.sourcegitcommit: e729629331ae10097a081a03029398525f4147a4
+ms.openlocfilehash: d68ffe6561da6a23c288dfabd1d3eb6b34099bb3
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64513523"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66003117"
 ---
-# <a name="common-security-attributes-for-azure-service-bus-messaging"></a>Vanliga säkerhetsattribut för Azure Service Bus-meddelanden
+# <a name="security-attributes-for-azure-service-bus-messaging"></a>Security attribut för Azure Service Bus-meddelanden
 
-Säkerheten är integrerad i alla aspekter av en Azure-tjänst. Den här artikeln beskrivs vanliga security attribut som är inbyggda i Azure Service Bus-meddelanden.
+Den här artikeln dokumenteras security-attribut som är inbyggda i Azure Service Bus-meddelanden.
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
@@ -41,7 +41,7 @@ Säkerheten är integrerad i alla aspekter av en Azure-tjänst. Den här artikel
 | Isolering av nätverk och brandväggsfunktioner support| Ja (endast Premium-nivån) |  |
 | Tvingad tunneltrafik support| Nej |  |
 
-## <a name="detection"></a>Detection (Identifiering)
+## <a name="detection"></a>Identifiering
 
 | Säkerhetsattributet | Ja/nej | Anteckningar|
 |---|---|--|

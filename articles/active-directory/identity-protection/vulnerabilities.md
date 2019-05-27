@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80faf1899da0f16d25b9b7c68cb0edcbc1276632
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0e792551f4cac857f56454c67d527e01cb9c4281
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60294249"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66113130"
 ---
 # <a name="vulnerabilities-detected-by-azure-active-directory-identity-protection"></a>Sårbarheter som identifieras av Azure Active Directory Identity Protection
 
@@ -30,13 +30,11 @@ I följande avsnitt ger dig en översikt över sårbarheter som rapporterats av 
 
 Denna säkerhetsrisk kan utvärdera distributionen av Azure Multi-Factor Authentication i din organisation.
 
-Om du vill visa antalet för användare som inte är registrerade för MFA, klickar på omdirigeras problemet och du till statistik i Identity skyddar Score.
-
 Azure Multi-Factor Authentication ger ett andra säkerhetslager för autentisering av användare. Det hjälper dig att skydda åtkomsten till data och program och tillgodoser samtidigt användarens önskemål för en enkel inloggningsprocess. Azure Multi-Factor Authentication ger lättanvända verifieringsalternativ som:
 
 * Telefonsamtal
 * Textmeddelande
-* Meddelanden via mobilapp
+* Mobilapp-meddelande
 * OTP-Verifieringskod
 
 Vi rekommenderar att du kräver Azure Multi-Factor Authentication för användarinloggningar. Multifaktorautentisering spelar en viktig roll i principer för riskbaserad villkorlig åtkomst som är tillgängliga via Identity Protection.

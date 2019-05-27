@@ -10,12 +10,12 @@ ms.date: 01/11/2018
 ms.author: mhopkins
 ms.reviewer: cbrooks
 ms.subservice: queues
-ms.openlocfilehash: b827894c633c425220bf94be1f51c52d464bd79b
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 4ff54f9ca20c101de55bec2c7acf914c17bd7709
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65410453"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951213"
 ---
 # <a name="how-to-use-queue-storage-from-php"></a>Använda Queue Storage från PHP
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -87,7 +87,7 @@ UseDevelopmentStorage=true
 Om du vill skapa en Azure Queue-tjänstklienten, måste du använda den **QueueRestProxy** klass. Du kan använda någon av följande metoder:
 
 * Skicka anslutningssträngen till den direkt.
-* Använda miljövariabler i Webbappen för att lagra anslutningssträngen. Se [konfigurationsinställningar för Azure web app](../../app-service/web-sites-configure.md) dokumentet för att konfigurera anslutningssträngar.
+* Använda miljövariabler i Webbappen för att lagra anslutningssträngen. Se [konfigurationsinställningar för Azure web app](../../app-service/configure-common.md) dokumentet för att konfigurera anslutningssträngar.
 I exemplen som beskrivs här anges anslutningssträngen direkt.
 
 ```php

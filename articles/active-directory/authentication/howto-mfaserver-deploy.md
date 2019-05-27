@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 05/20/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ae1db992984e8bb1dca71afed9fadd6b411b3dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: aa3d7d22ed032379f452eb4648c9a1cf87293df9
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415234"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956574"
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Komma igång med Azure Multi-Factor Authentication Server
 
@@ -28,6 +28,9 @@ Nu när vi har bestämt oss för att använda en lokal Multi-Factor Authenticati
 
 ## <a name="plan-your-deployment"></a>Planera distributionen
 
+> [!WARNING]
+> Från och med mars i 2019 MFA Server kommer nedladdningar bara att kunna betald klienter. Kostnadsfri utvärderingsversion/klienter kommer inte längre att kunna ladda ned eller skapa och använda autentiseringsuppgifter för aktivering.
+
 Innan du laddar ned Azure Multi-Factor Authentication-servern måste du överväga dina krav på belastningar och hög tillgänglighet. Använd den här informationen till att bestämma hur och var du ska distribuera servern.
 
 En tumregel för mängden minne som behövs utgår från antalet användare som förväntas autentisera sig regelbundet.
@@ -38,7 +41,7 @@ En tumregel för mängden minne som behövs utgår från antalet användare som 
 | 10,001-50,000 | 8 GB |
 | 50,001-100,000 | 12 GB |
 | 100,000-200,001 | 16 GB |
-| 200,001+ | 32 GB |
+| 200,001+ | 32 GB |
 
 Behöver du konfigurera flera servrar för hög tillgänglighet eller belastningsutjämning? Det finns ett antal olika sätt att ordna den här konfigurationen med Azure MFA-servern. När du installerar din första Azure MFA-server blir den till huvudserver. Eventuella ytterligare servrar blir underordnade och synkroniserar automatiskt användare och eventuell konfiguration. Sedan kan du konfigurera en primär server och använda resten som reserver, eller så kan du konfigurera belastningsutjämning mellan alla servrarna.
 
@@ -51,7 +54,7 @@ Se till att den server du använder för Azure Multi-Factor Authentication uppfy
 | Krav för Azure Multi-Factor Authentication Server | Beskrivning |
 |:--- |:--- |
 | Maskinvara |<li>200 MB ledigt hårddiskutrymme</li><li>x32- eller x64-processor</li><li>Minst 1 GB RAM-minne</li> |
-| Programvara |<li>Windows Server 2016</li><li>Windows Server 2012 R2</li><li>Windows Server 2012</li><li>Windows Server 2008 R2</li><li>Windows Server 2008, SP1, SP2</li><li>Windows Server 2003 R2</li><li>Windows Server 2003, SP1, SP2</li><li>Windows 10</li><li>Windows 8.1, alla utgåvor</li><li>Windows 8, alla utgåvor</li><li>Windows 7, alla utgåvor</li><li>Windows Vista, alla utgåvor, SP1, SP2</li><li>Microsoft .NET 4.0 Framework</li><li>IIS 7.0 eller senare om du installerar användarportalen eller webbtjänst-SDK</li> |
+| Programvara |<li>Windows Server 2016</li><li>Windows Server 2012 R2</li><li>Windows Server 2012</li><li>Windows Server 2008 R2</li><li>Windows Server 2008, SP1, SP2</li><li>Windows Server 2003 R2</li><li>Windows Server 2003, SP1, SP2</li><li>Windows 10</li><li>Windows 8,1, alla utgåvor</li><li>Windows 8, alla utgåvor</li><li>Windows 7, alla utgåvor</li><li>Windows Vista, alla utgåvor, SP1, SP2</li><li>Microsoft .NET 4.0 Framework</li><li>IIS 7.0 eller senare om du installerar användarportalen eller webbtjänst-SDK</li> |
 | Behörigheter | Domän- eller Enterprise-administratör-konto för att registrera med Active Directory |
 
 ### <a name="azure-mfa-server-components"></a>Azure MFA-serverkomponenter
@@ -90,6 +93,9 @@ Om du inte använder funktionen Händelsebekräftelse och om användarna inte an
 
 ## <a name="download-the-mfa-server"></a>Ladda ned MFA-server
 
+> [!WARNING]
+> Från och med mars i 2019 MFA Server kommer nedladdningar bara att kunna betald klienter. Kostnadsfri utvärderingsversion/klienter kommer inte längre att kunna ladda ned eller skapa och använda autentiseringsuppgifter för aktivering.
+
 Följ de här stegen för att ladda ned Azure Multi-Factor Authentication-servern från Azure-portalen:
 
 1. Logga in på [Azure Portal](https://portal.azure.com) som administratör.
@@ -102,9 +108,6 @@ Följ de här stegen för att ladda ned Azure Multi-Factor Authentication-server
 5. Ha den här sidan öppen eftersom vi kommer att hänvisa till den när vi har kört installationsprogrammet.
 
 ## <a name="install-and-configure-the-mfa-server"></a>Installera och konfigurera MFA-servern
-
-> [!WARNING]
-> Från och med mars i 2019 MFA Server kommer nedladdningar bara att kunna betald klienter. Kostnadsfri utvärderingsversion/klienter kommer inte längre att kunna ladda ned eller skapa och använda autentiseringsuppgifter för aktivering.
 
 Nu när du har laddat ned servern kan du installera och konfigurera den. Se till att servern du installerar den på uppfyller kraven i planeringsavsnittet.
 

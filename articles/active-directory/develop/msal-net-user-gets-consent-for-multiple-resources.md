@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f7d24a1e14cfbb1163ab78b94dd36ec288dce50
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: e8bd9a86d5ec0d39a7f1c26adac52f41e6420283
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544052"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66121973"
 ---
 # <a name="user-gets-consent-for-several-resources-using-msalnet"></a>Användaren får medgivande för flera resurser med hjälp av MSAL.NET
 Microsoft identity-plattformen slutpunkten kan du inte att hämta en token för flera resurser på samma gång. När du använder Microsoft Authentication Library för .NET (MSAL.NET), får scope-parametern i metoden hämta token endast innehålla omfång för en enskild resurs. Dock kan förväg samtycker du till förskott flera resurser genom att ange ytterligare scope med hjälp av den `.WithExtraScopeToConsent` builder-metoden.
@@ -32,8 +32,8 @@ Microsoft identity-plattformen slutpunkten kan du inte att hämta en token för 
 
 Till exempel om du har två resurser som har definierar 2 var och en:
 
-- https://mytenant.onmicrosoft.com/customerapi (med 2 omfång `customer.read` och `customer.write`)
-- https://mytenant.onmicrosoft.com/vendorapi (med 2 omfång `vendor.read` och `vendor.write`)
+- https:\//mytenant.onmicrosoft.com/customerapi (med 2 omfång `customer.read` och `customer.write`)
+- https:\//mytenant.onmicrosoft.com/vendorapi (med 2 omfång `vendor.read` och `vendor.write`)
 
 Du bör använda den `.WithExtraScopeToConsent` modifieraren som har den *extraScopesToConsent* parameter som visas i följande exempel:
 

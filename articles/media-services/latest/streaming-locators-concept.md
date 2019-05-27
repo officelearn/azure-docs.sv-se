@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/08/2019
+ms.date: 05/22/2019
 ms.author: juliako
-ms.openlocfilehash: 24ee700e326ef61aa6a93aae725e85e7b4780edf
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 9a14399117971807c1d18f8eb5fab7d6e6cef2d5
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65465044"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66120352"
 ---
 # <a name="streaming-locators"></a>Positionerare för direktuppspelning
 
@@ -24,17 +24,19 @@ För att skapa videor i utdatatillgångar som klienter ska kunna spela upp måst
 
 Processen att skapa en **positionerare för direktuppspelning** kallas för publicering. Som standard kan din **positionerare för direktuppspelning** användas omedelbart efter API-anropen. Den fungerar tills den tas bort, såvida du inte konfigurerar valfria start- och sluttider. 
 
-När du skapar en **Strömningspositionerare**, måste du ange den [tillgången](https://docs.microsoft.com/rest/api/media/assets) namn och [Streaming princip](https://docs.microsoft.com/rest/api/media/streamingpolicies) namn. Du kan antingen använda en av principerna för direktuppspelning fördefinierade eller skapat en anpassad princip. De fördefinierade principerna som är tillgänglig för tillfället är: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' and 'Predefined_MultiDrmStreaming'. När du använder en anpassad bör strömning principen du utforma en begränsad uppsättning principer för ditt Media Services-konto och återanvända dem för din positionerare för direktuppspelning när samma alternativ och protokoll krävs. 
+När du skapar en **Strömningspositionerare**, måste du ange en **tillgången** namn och en **Streaming princip** namn. Mer information finns i följande avsnitt:
 
-Om du vill ange alternativ för kryptering på din stream skapar den [innehåll nyckel princip](https://docs.microsoft.com/rest/api/media/contentkeypolicies) som konfigurerar hur innehållsnyckeln levereras om du vill avsluta klienter via komponenten nyckel leverans av Media Services. Associera din Strömningspositionerare med den **innehåll nyckel princip** och innehållsnyckeln. Du kan låta Media Services för att skapa nyckeln. I följande .NET-exempel visas hur du konfigurerar AES-kryptering med en token begränsning i Media Services v3: [EncodeHTTPAndPublishAESEncrypted](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/EncodeHTTPAndPublishAESEncrypted). **Innehålls-principer för nycklar** är uppdateringsbar, kanske du vill uppdatera principen om du behöver göra en rotation av. Det kan ta upp till 15 minuter för leverans av nyckel-cacheminne för att uppdatera och hämta den uppdaterade policyn. Det rekommenderas att inte skapa en ny princip för Content-nyckel för varje Strömningspositionerare. Du bör försöka återanvända de befintliga principerna när samma alternativ behövs.
+* [Tillgångar](assets-concept.md)
+* [Principer för direktuppspelning](streaming-policy-concept.md)
+* [Principer för innehållsnycklar](content-key-policy-concept.md)
 
 > [!IMPORTANT]
 > * Egenskaper för **positionerare för direktuppspelning** som är av typen är alltid i UTC-format för datum/tid.
-> * Du bör utforma en begränsad uppsättning principer för ditt Media Services-konto och återanvända dem för din positionerare för direktuppspelning när samma alternativ behövs. 
+> * Du bör utforma en begränsad uppsättning principer för ditt Media Services-konto och återanvända dem för din positionerare för direktuppspelning när samma alternativ behövs. Mer information finns i [kvoter och begränsningar](limits-quotas-constraints.md).
 
 ## <a name="associate-filters-with-streaming-locators"></a>Associera filter med positionerare för direktuppspelning
 
-Du kan ange en lista över [tillgång eller konto filter](filters-concept.md), vilket skulle gälla för dina [Strömningspositionerare](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body). Den [dynamisk Paketeraren](dynamic-packaging-overview.md) gäller den här listan över filter tillsammans med de som klienten anger i URL: en. Den här kombinationen genererar en [dynamiska manifest](filters-dynamic-manifest-overview.md), som grundar sig på filter i URL: en + filter som du anger på Strömningspositionerare. Vi rekommenderar att du använder den här funktionen om du vill använda filter men inte vill exponera filternamn i URL: en.
+Se [filter: Koppla med strömning positionerare](filters-concept.md#associate-filters-with-streaming-locator).
 
 ## <a name="filter-order-page-streaming-locator-entities"></a>Filtrera, ordning, sidan Strömningspositionerare entiteter
 
@@ -42,5 +44,4 @@ Se [filtrering, sortering, växling av Media Services entiteter](entities-overvi
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Självstudie: Ladda upp, koda och strömma videor med hjälp av .NET](stream-files-tutorial-with-api.md)
-* [Använda DRM dynamisk kryptering och licens video-on-demand](protect-with-drm.md)
+[Självstudie: Ladda upp, koda och strömma videor med hjälp av .NET](stream-files-tutorial-with-api.md)

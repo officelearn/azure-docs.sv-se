@@ -16,12 +16,12 @@ ms.date: 12/13/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 967fbf460175dee303d26074426a1f90e4353407
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6fc5bcdbbe821008f74e85a91889044c8975ce93
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60350974"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66113265"
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Hantera gäståtkomst med Azure AD åtkomstgranskningar
 
@@ -31,16 +31,13 @@ Med Azure Active Directory (AD Azure), kan du enkelt aktivera samarbete över or
 Du också kan enkelt se till att gästanvändare har lämplig åtkomst. Du kan be gästerna själva, eller en beslutsfattare, att delta i en åtkomstgranskning och certifiera om (eller intygar genomförs) till den gästers åtkomst. Granskarna kan ge sin syn på varje användares behov för kontinuerlig åtkomst, baserat på förslag från Azure AD. När en åtkomstgranskning är klar kan du göra ändringar och ta bort åtkomst för gäster som inte längre behöver den.
 
 > [!NOTE]
-> Det här dokumentet fokuserar på Granska gästanvändares åtkomst. Om du vill visa alla användares åtkomst, inte bara gäster, se [hantera användarnas åtkomst med åtkomstgranskningar](manage-user-access-with-access-reviews.md). Om du vill granska användarens medlemskap i administrativa roller som global administratör, se [starta en åtkomstgranskning i Azure AD Privileged Identity Management](../privileged-identity-management/pim-how-to-start-security-review.md). 
->
->
+> Det här dokumentet fokuserar på Granska gästanvändares åtkomst. Om du vill visa alla användares åtkomst, inte bara gäster, se [hantera användarnas åtkomst med åtkomstgranskningar](manage-user-access-with-access-reviews.md). Om du vill granska användarens medlemskap i administrativa roller som global administratör, se [starta en åtkomstgranskning i Azure AD Privileged Identity Management](../privileged-identity-management/pim-how-to-start-security-review.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter 
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
+- Azure AD Premium P2
 
-Åtkomstgranskningar är tillgängliga med Premium P2-versionen av Azure AD, som ingår i Microsoft Enterprise Mobility + Security, E5. Mer information finns i [Azure Active Directory-versioner](../fundamentals/active-directory-whatis.md). Varje användare som använder den här funktionen, inklusive för att skapa en granskning, fylla i en granskning eller bekräfta sin åtkomst, behöver en licens. 
-
-Du kan även ställa gästanvändare rätt att granska sin egen åtkomst. Du kan använda B2B för varje betalda Azure AD Premium P2-licens som tilldelas en av användare i din organisation, bjuda in upp till fem gästanvändare under den externa användaren tilldelningen. Dessa gästanvändare kan också använda Azure AD Premium P2-funktioner. Mer information finns i [licensiering av Azure AD B2B-samarbete](../b2b/licensing-guidance.md).
+Mer information finns i [vilka användare måste ha licenser?](access-reviews-overview.md#which-users-must-have-licenses).
 
 ## <a name="create-and-perform-an-access-review-for-guests"></a>Skapa och utföra en åtkomstgranskning för gäster
 

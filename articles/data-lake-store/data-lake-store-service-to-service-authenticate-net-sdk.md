@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: be8d4172476ca0613e80e62739b9ab36f8ab4c3b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 96c496ef67e26a3079577bf52e9d019d963467b8
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60197751"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65915850"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>Tjänst-till-tjänst-autentisering med Azure Data Lake Storage Gen1 med .NET SDK
 > [!div class="op_single_selector"]
@@ -30,25 +30,18 @@ ms.locfileid: "60197751"
 I den här artikeln lär du dig hur du använder .NET SDK för att göra tjänst-till-tjänst-autentisering med Azure Data Lake Storage Gen1. Slutanvändarautentisering med Data Lake Storage Gen1 med .NET SDK, se [slutanvändarautentisering med Data Lake Storage Gen1 med .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
-* **Visual Studio 2013, 2015 eller 2017**. Anvisningarna nedan använder Visual Studio 2017.
+* **Visual Studio 2013 eller senare**. Anvisningarna nedan använder Visual Studio 2019.
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 * **Skapa ett program för Azure Active Directory ”Web”**. Du måste ha slutfört stegen i [tjänst-till-tjänst-autentisering med Data Lake Storage Gen1 med Azure Active Directory](data-lake-store-service-to-service-authenticate-using-active-directory.md).
 
 ## <a name="create-a-net-application"></a>Skapa ett .NET-program
-1. Öppna Visual Studio och skapa ett konsolprogram.
-2. Klicka på **Nytt** i **Arkiv**-menyn och klicka sedan på **Projekt**.
-3. Från **Nytt projekt** anger eller väljer du följande värden:
+1. I Visual Studio väljer du den **filen** menyn **New**, och sedan **projekt**.
+2. Välj **Konsolapp (.NET Framework)**, och välj sedan **nästa**.
+3. I **projektnamn**, ange `CreateADLApplication`, och välj sedan **skapa**.
 
-   | Egenskap  | Värde |
-   | --- | --- |
-   | Category |Mallar/Visual C#/Windows |
-   | Mall |Konsolprogram |
-   | Namn |CreateADLApplication |
-4. Klicka på **OK** för att skapa projektet.
-
-5. Lägg till NuGet-paketen i projektet.
+4. Lägg till NuGet-paketen i projektet.
 
    1. Högerklicka på projektnamnet i Solution Explorer och klicka på **Hantera NuGet-paket**.
    2. På fliken **NuGet Package Manager** ser du till att **Paketkälla** har angetts som **nuget.org** och att kryssrutan **Inkludera förhandsversion** är markerad.
@@ -60,7 +53,7 @@ I den här artikeln lär du dig hur du använder .NET SDK för att göra tjänst
         ![Lägg till en NuGet-källa](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "Skapa ett nytt Azure Data Lake-konto")
    4. Stäng **NuGet Package Manager**.
 
-6. Öppna **Program.cs**, ta bort den befintliga koden och lägg sedan till följande instruktioner för att lägga till referenser till namnområden.
+5. Öppna **Program.cs**, ta bort den befintliga koden och lägg sedan till följande instruktioner för att lägga till referenser till namnområden.
 
 ```csharp
 using System;

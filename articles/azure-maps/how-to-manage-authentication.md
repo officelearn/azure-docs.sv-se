@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 414ca7156fd59ec1dc08e45c73e9eb30835078d4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 617adbcda70799aa07248945bbc27f9d95aa77a3
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60694121"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952568"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Hantera autentisering i Azure Maps
 
@@ -98,4 +98,8 @@ Läs mer om hur du begär åtkomsttoken från Azure AD för användare och tjän
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om Azure AD-autentisering och Azure Maps Web SDK i [Azure AD och Azure Maps Web SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control).
+Läs mer om Azure AD-autentisering och Azure Maps Web SDK i [Azure AD och Azure Maps Web SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control).
+
+Lär dig hur du visar användningsstatistik för API för Azure Maps-konto:
+> [!div class="nextstepaction"] 
+> [Visa användningsstatistik](how-to-view-api-usage.md)

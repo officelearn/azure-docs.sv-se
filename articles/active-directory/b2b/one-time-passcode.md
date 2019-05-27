@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 577f370c3be0f232be4e6628dd6754c4164ab93f
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 13808871d67bb47dce82c5a3493fd89b0dfe1dcd
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785266"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952856"
 ---
 # <a name="email-one-time-passcode-authentication-preview"></a>E-engångskod authentication (förhandsversion)
 
@@ -64,7 +64,7 @@ Du kan visa gästanvändare som autentiserats med ett enstaka lösenord i Azure 
 > När en användare redeems ett engångslösenord och senare hämtar en MSA, Azure AD-konto eller andra federerade, fortsätter de att autentiseras med en engångslösenkod. Om du vill uppdatera autentiseringsmetod du reinvite dem ta bort deras gästanvändarkontot.
 
 ### <a name="example"></a>Exempel
-Gästanvändaren alexdoe@gmail.com bjuds in till Fabrikam, som inte har Google federation ställa in. Alex har inte ett Microsoft-konto. Han kommer att få ett engångslösenord för autentisering.
+Gästanvändaren alexdoe@gmail.com bjuds in till Fabrikam, som inte har Google federation ställa in. Alex har inte ett Microsoft-konto. De får ett engångslösenord för autentisering.
 
 ## <a name="opting-in-to-the-preview"></a>Valde förhandsversionen 
 Det kan ta några minuter innan åtgärden valbar ska börja gälla. Efter det kan använder endast nyligen inbjudna användare som uppfyller villkor som ovan autentisering med engångslösenord. Gästanvändare som utnyttjats inbjudan kommer fortsätta att använda samma autentiseringsmetod.

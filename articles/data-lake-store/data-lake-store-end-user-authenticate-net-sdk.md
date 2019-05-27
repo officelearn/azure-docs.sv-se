@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 78a290d8136f8804e853d36a9bc95571625ed89c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c80e9953a24504c4ad324ce077b741e60a52b1fb
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60880299"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65908015"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>Slutanvändarautentisering med Azure Data Lake Storage Gen1 med .NET SDK
 > [!div class="op_single_selector"]
@@ -30,26 +30,18 @@ ms.locfileid: "60880299"
 I den här artikeln lär du dig hur du använder .NET SDK för att göra slutanvändarautentisering med Azure Data Lake Storage Gen1. Tjänst-till-tjänst-autentisering med Data Lake Storage Gen1 med hjälp av .NET SDK, se [tjänst-till-tjänst-autentisering med Data Lake Storage Gen1 med .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
-* **Visual Studio 2013, 2015 eller 2017**. Anvisningarna nedan använder Visual Studio 2017.
+* **Visual Studio 2013 eller senare**. Anvisningarna nedan använder Visual Studio 2019.
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 * **Skapa ett Azure Active Directory ”interna” program**. Du måste ha slutfört stegen i [slutanvändarautentisering med Data Lake Storage Gen1 med Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
 
 ## <a name="create-a-net-application"></a>Skapa ett .NET-program
-1. Öppna Visual Studio och skapa ett konsolprogram.
-2. Klicka på **Nytt** i **Arkiv**-menyn och klicka sedan på **Projekt**.
-3. Från **Nytt projekt** anger eller väljer du följande värden:
+1. I Visual Studio väljer du den **filen** menyn **New**, och sedan **projekt**.
+2. Välj **Konsolapp (.NET Framework)**, och välj sedan **nästa**.
+3. I **projektnamn**, ange `CreateADLApplication`, och välj sedan **skapa**.
 
-   | Egenskap  | Värde |
-   | --- | --- |
-   | Category |Mallar/Visual C#/Windows |
-   | Mall |Konsolprogram |
-   | Namn |CreateADLApplication |
-
-4. Klicka på **OK** för att skapa projektet.
-
-5. Lägg till NuGet-paketen i projektet.
+4. Lägg till NuGet-paketen i projektet.
 
    1. Högerklicka på projektnamnet i Solution Explorer och klicka på **Hantera NuGet-paket**.
    2. På fliken **NuGet Package Manager** ser du till att **Paketkälla** har angetts som **nuget.org** och att kryssrutan **Inkludera förhandsversion** är markerad.
@@ -61,8 +53,8 @@ I den här artikeln lär du dig hur du använder .NET SDK för att göra slutanv
         ![Lägg till en NuGet-källa](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "Skapa ett nytt Azure Data Lake-konto")
    4. Stäng **NuGet Package Manager**.
 
-6. Öppna **Program.cs**
-7. Ersätt den med hjälp av-instruktioner med följande rader:
+5. Öppna **Program.cs**
+6. Ersätt den med hjälp av-instruktioner med följande rader:
 
     ```csharp
     using System;

@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 05/21/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: beccd3f28cd3f5de3ef777b80c53651c76017619
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: a2d9639c21e201db1df5145caf1345d4f0879af6
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545639"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66121947"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-a-net-desktop-wpf-app"></a>Snabbstart: Logga in användare och anropa Microsoft Graph API från en .NET Desktop (WPF)-app
 
@@ -57,13 +57,15 @@ Om du vill göra det möjligt för appen att hämta apptoken måste du registrer
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. I det översta fältet väljer du ditt konto och under **kataloglistan** väljer du den Active Directory-klientorganisation där du vill registrera appen.
 3. Välj **Alla tjänster** i det vänstra navigeringsfältet och välj **Azure Active Directory**.
-4. För **Appregistreringar** väljer du **Lägg till**.
-5. Följ anvisningarna för att skapa ett nytt **internt** klientprogram.
-    * **Namnet** på appen beskriver den för slutanvändarna
-    * **Omdirigerings-URI** är ett schema och en strängkombination som Azure AD använder till att returnera tokensvar. Ange ett värde som är specifikt för ditt program, till exempel `http://DirectorySearcher`.
+4. På **appregistreringar**, Välj **ny registrering**.
+5. Följ anvisningarna för att skapa ett nytt klientprogram.
+    * **Namn** är appens namn och beskriver appen för användarna.
+    * Under **Kontotyper som stöds** väljer du **Accounts in any organizational directory and personal Microsoft accounts** (Konton i alla organisationskataloger och personliga Microsoft-konton).
+    * **Omdirigerings-URI** är ett schema och en strängkombination som Azure AD använder till att returnera tokensvar. Ange ett värde som är specifik för ditt program (till exempel `http://DirectorySearcher`) och baseras på informationen om föregående omdirigerings-URI. Välj också **offentlig klient (mobila och stationära)** i listrutan. 
 
 6. När du har slutfört registreringen tilldelar AAD din app ett unikt program-ID. Du behöver det här värdet i nästa avsnitt, så kopiera det från programsidan.
-7. På sidan **Inställningar** väljer du **Nödvändiga behörigheter** och sedan **Lägg till**. Välj **Microsoft Graph** som API:et, och under **Delegerade behörigheter** lägger du till behörigheten **Läsa katalogdata**. När du konfigurerar den här behörigheten kana appen fråga Graph API efter användare.
+7. Från den **API-behörigheter** väljer **lägga till en behörighet**. Inuti **Välj en API** Välj ***Microsoft Graph***.
+8. Under **delegerade behörigheter**, välj behörigheten **User.Read**, tryck sedan på **Lägg till** att spara. Den här behörigheten konfigurerar appen att fråga Azure AD Graph API efter användare.
 
 ## <a name="step-2-install-and-configure-adal"></a>Steg 2: Installera och konfigurera ADAL
 

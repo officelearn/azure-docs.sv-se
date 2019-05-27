@@ -27,8 +27,6 @@
           href: manage-guest-access-with-access-reviews.md
         - name: Hantera användaråtkomst med granskningar
           href: manage-user-access-with-access-reviews.md
-        - name: Hantera program och deras kontroller
-          href: manage-programs-controls.md
         - name: Hantera användare som undantagits från villkorsstyrd åtkomst
           href: conditional-access-exclusion.md
 - name: Instruktionsguider
@@ -64,8 +62,6 @@
               href: review-your-access.md
             - name: Slutför en åtkomstgranskning
               href: complete-access-review.md
-            - name: Hämta resultat av åtkomstgranskningar
-              href: retrieve-access-review.md
         - name: Azure AD-roller
           items:
             - name: Skapa en åtkomstgranskning

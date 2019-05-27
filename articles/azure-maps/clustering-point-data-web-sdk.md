@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: d4dc6f0c8fd2dff74a1997c9dca5a31abc70c03a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6dbd4461e7b8382ec3c4075b9688de59678f98f5
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60795925"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65957333"
 ---
 # <a name="clustering-point-data"></a>Klustring punkt data
 
@@ -33,7 +33,7 @@ var datasource = new atlas.source.DataSource(null, {
     //The radius in pixels to cluster points together.
     clusterRadius: 45,
 
-    //The maximium zoom level in which clustering occurs.
+    //The maximum zoom level in which clustering occurs.
     //If you zoom in more than this, all points are rendered as symbols.
     clusterMaxZoom: 15 
 });
@@ -46,9 +46,9 @@ Den `DataSource` klassen har också följande relaterade till kluster:
 
 | Metod | Returtyp | Beskrivning |
 |--------|-------------|-------------|
-| getClusterChildren(clusterId: number) | Löftet&lt;funktionen&lt;geometri, alla&gt; \| form&gt; | Hämtar underordnade grupper till viss klustret på nästa zoomnivån. De här underordnade kan vara en kombination av former och subclusters. Subclusters blir funktioner med egenskaper som matchar ClusteredProperties. |
+| getClusterChildren(clusterId: number) | Löftet&lt;matris&lt;funktionen&lt;geometri, alla&gt; \| form&gt;&gt; | Hämtar underordnade grupper till viss klustret på nästa zoomnivån. De här underordnade kan vara en kombination av former och subclusters. Subclusters blir funktioner med egenskaper som matchar ClusteredProperties. |
 | getClusterExpansionZoom(clusterId: number) | Löftet&lt;tal&gt; | Beräknar en zoomnivå som klustret ska starta expandera eller dela upp. |
-| getClusterLeaves (clusterId: number, gränsen: number, förskjutning: tal) | Löftet&lt;funktionen&lt;geometri, alla&gt; \| form&gt; | Hämtar alla punkter i ett kluster. Ange den `limit` att returnera en delmängd av punkterna och använda den `offset` vill bläddra igenom punkterna. |
+| getClusterLeaves (clusterId: number, gränsen: number, förskjutning: tal) | Löftet&lt;matris&lt;funktionen&lt;geometri, alla&gt; \| form&gt;&gt; | Hämtar alla punkter i ett kluster. Ange den `limit` att returnera en delmängd av punkterna och använda den `offset` vill bläddra igenom punkterna. |
 
 ## <a name="display-clusters-using-a-bubble-layer"></a>Visa kluster med ett bubbeldiagram lager
 
@@ -84,12 +84,12 @@ Se pennan <a href='https://codepen.io/azuremaps/pen/VRJrgO/'>kluster viktad term
 
 När mushändelser inträffar på ett lager med klustrade datapunkter, returneras den klustrade datapunkten på händelsen som ett GeoJSON point funktionen-objekt. Den här punkt-funktionen har följande egenskaper:
 
-| Egenskapsnamn | Typ | Beskrivning |
+| Egenskapsnamn | Type | Beskrivning |
 |---------------|------|-------------|
 | kluster | boolesk | Anger om funktionen representerar ett kluster. |
 | cluster_id | string | Ett unikt ID för det kluster som kan användas med datakällan `getClusterExpansionZoom`, `getClusterChildren`, och `getClusterLeaves` metoder. |
 | point_count | nummer | Antal punkter som innehåller klustret. |
-| point_count_abbreviated | string | En sträng som abbreviates point_count värdet om det är långt. (exempel: 4 000 blir 4K) |
+| point_count_abbreviated | string | En sträng som abbreviates den `point_count` värde om det är långt. (exempel: 4 000 blir 4K) |
 
 Det här exemplet tar ett bubbeldiagram lager som återger kluster punkter och lägger till en click-händelse som när det utlöses, beräkna och Zooma på kartan till nästa zoomnivån då klustret bryts skillnad med hjälp av den `getClusterExpansionZoom` -metoden för den `DataSource` klassen och `cluster_id` egenskapen för den klickade på klustrade datapunkt. 
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 8e00fd312dd335551f5ba8e7dcec2baa4f7e2643
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 72306132f88f211180c99cd30845781667605204
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65204314"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65921877"
 ---
 # <a name="connect-your-fortinet-appliance"></a>Ansluta din Fortinet-installation 
 
@@ -120,13 +120,50 @@ Konfigurera Fortinet för att vidarebefordra Syslog-meddelanden i CEF-format til
    > [!NOTE] 
    > Mer information går du till den [Fortinet dokumentbibliotek](https://aka.ms/asi-syslog-fortinet-fortinetdocumentlibrary). Välj din version och använda den **handboken** och **referens: loggar meddelandet**.
 
+ Om du vill använda relevanta schemat i Log Analytics för Fortinet händelser, söka efter `CommonSecurityLog`.
+
+
 ## <a name="step-3-validate-connectivity"></a>Steg 3: Verifiera anslutningen
 
 Det kan ta höjningen tjugonde minut tills loggarna börjar visas i Log Analytics. 
 
-1. Se till att dina loggar får till rätt port i Syslog-agenten. Kör det här kommandot agentdatorn Syslog: `tcpdump -A -ni any  port 514 -vv` Det här kommandot visar de loggar som strömmas från enheten till den Syslog-datorn. Kontrollera att loggarna tas emot från käll-installationen på rätt port och rätt resurs.
+1. Kontrollera att du använder rätt anläggningen. Funktionen måste vara samma i din installation och Sentinel-Azure. Du kan kontrollera vilken anläggning-fil som du använder i Azure Sentinel och göra ändringar i filen `security-config-omsagent.conf`. 
 
-2. Kontrollera att det finns kommunikation mellan Syslog-daemon och agenten. Kör det här kommandot agentdatorn Syslog: `tcpdump -A -ni any  port 25226 -vv` Det här kommandot visar de loggar som strömmas från enheten till den Syslog-datorn. Kontrollera att loggarna också tas emot på agenten.
+2. Se till att dina loggar får till rätt port i Syslog-agenten. Kör följande kommando på agentdatorn Syslog: `tcpdump -A -ni any  port 514 -vv` Det här kommandot visar de loggar som strömmas från enheten till den Syslog-datorn. Kontrollera att loggarna tas emot från käll-installationen på rätt port och rätt resurs.
+
+3. Se till att loggarna du skickar följer [RFC 5424](https://tools.ietf.org/html/rfc542).
+
+4. På den dator som kör Syslog-agenten, se till att dessa portar 514, 25226 är öppna och lyssna, med hjälp av kommandot `netstat -a -n:`. Mer information om hur du använder det här kommandot finns i [netstat(8) - Linux man sidan](https://linux.die.netman/8/netstat). Om den lyssnar på rätt sätt, visas följande:
+
+   ![Azure Sentinel-portar](./media/connect-cef/ports.png) 
+
+5. Kontrollera daemon anges att lyssna på port 514, där du skickar loggarna.
+    - För rsyslog:<br>Kontrollera att filen `/etc/rsyslog.conf` innehåller den här konfigurationen:
+
+           # provides UDP syslog reception
+           module(load="imudp")
+           input(type="imudp" port="514")
+        
+           # provides TCP syslog reception
+           module(load="imtcp")
+           input(type="imtcp" port="514")
+
+      Mer information finns i [imudp: Indata för UDP Syslogmodulen](https://www.rsyslog.com/doc/v8-stable/configuration/modules/imudp.html#imudp-udp-syslog-input-module) och [imtcp: Indata för Syslog-modulen för TCP](https://www.rsyslog.com/doc/v8-stable/configuration/modules/imtcp.html#imtcp-tcp-syslog-input-module)
+
+   - För syslog-ng:<br>Kontrollera att filen `/etc/syslog-ng/syslog-ng.conf` innehåller den här konfigurationen:
+
+           # source s_network {
+            network( transport(UDP) port(514));
+             };
+     Mer information finns i [imudp: UDP Syslogmodulen till indata] (Mer information finns i den [syslog-ng öppen källkod Edition 3,16 - Administrationsguide](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.16/administration-guide/19#TOPIC-956455).
+
+1. Kontrollera att det finns kommunikation mellan Syslog-daemon och agenten. Kör följande kommando på agentdatorn Syslog: `tcpdump -A -ni any  port 25226 -vv` Det här kommandot visar de loggar som strömmas från enheten till den Syslog-datorn. Kontrollera att loggarna också tas emot på agenten.
+
+6. Om båda dessa kommandon angetts lyckade resultat och kontrollera Log Analytics för att se om dina loggar inkommer. Alla händelser som strömmas direkt från dessa enheter visas i obearbetat format i Log Analytics under `CommonSecurityLog` typen.
+
+7. Kontrollera om det finns fel eller om loggarna som inte kommer se i `tail /var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log`. Om det står att det finns fel i formatet matchningsfel, går du till `/etc/opt/microsoft/omsagent/{0}/conf/omsagent.d/security_events.conf "https://aka.ms/syslog-config-file-linux"` och titta på filen `security_events.conf`och se till att dina loggar matchar regex-format som du ser i den här filen.
+
+8. Se till att din standardstorlek för Syslog-meddelande är begränsat till 2 048 byte (2KB). Om loggarna är för långt, uppdatera security_events.conf med hjälp av det här kommandot: `message_length_limit 4096`
 
 1. Om dina Fortinet loggar inte tas emot av agenten, kör du följande kommando, beroende på vilken typ av Syslog-daemon som du använder, ange funktionen och ange loggarna för att söka efter ord Fortinet i loggarna:
    - rsyslog.d: `sudo bash -c "printf 'local4.debug  @127.0.0.1:25226\n\n:msg, contains, \"Fortinet\"  @127.0.0.1:25226' > /etc/rsyslog.d/security-config-omsagent.conf"`
@@ -135,11 +172,6 @@ Det kan ta höjningen tjugonde minut tills loggarna börjar visas i Log Analytic
    - syslog-ng: `sudo bash -c "printf 'filter f_local4_oms { facility(local4); };\n  destination security_oms { tcp(\"127.0.0.1\" port(25226)); };\n  log { source(src); filter(f_local4_oms); destination(security_oms); };\n\nfilter f_msg_oms { match(\"Fortinet\" value(\"MESSAGE\")); };\n  destination security_msg_oms { tcp(\"127.0.0.1\" port(25226)); };\n  log { source(src); filter(f_msg_oms); destination(security_msg_oms); };' > /etc/syslog-ng/security-config-omsagent.conf"`
       
      Starta om Syslog-daemon: `sudo service syslog-ng restart`
-1. Om båda dessa kommandon angetts lyckade resultat och kontrollera Log Analytics för att se om dina loggar inkommer. Alla händelser som strömmas direkt från dessa enheter visas i obearbetat format i Log Analytics under `CommonSecurityLog` typen.
-1. Om du vill kontrollera om det finns fel eller om loggarna som inte kommer att se ut `tail /var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log`
-1. Se till att din standardstorlek för Syslog-meddelande är begränsat till 2 048 byte (2KB). Om loggarna är för långt, uppdatera security_events.conf med hjälp av det här kommandot: `message_length_limit 4096`
-6. Om du vill använda relevanta schemat i Log Analytics för Fortinet händelser, söka efter **CommonSecurityLog**.
-
 
 ## <a name="next-steps"></a>Nästa steg
 I det här dokumentet har du lärt dig hur du ansluter Fortinet installationer till Sentinel-Azure. Mer information om Azure Sentinel finns i följande artiklar:

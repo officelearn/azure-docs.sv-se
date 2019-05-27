@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.author: jingwang
-ms.openlocfilehash: 355f61d6282c822e18cf4752044c1e1a5cbbc6a0
-ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
+ms.openlocfilehash: c0591a7850516a419cb59045754cc4eb02979dfd
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65560763"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66122587"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Kopiera data till och från Azure Data Lake Storage Gen2 med Azure Data Factory
 
@@ -167,6 +167,9 @@ Följ dessa steg om du vill använda hanterade identiteter för Azure-resurser a
 >- **Kopiera Data-verktyg** att författaren kopiering av pipeline.
 >- **Användargränssnittet för data Factory** att testa anslutningen och navigera mappar under redigering. 
 >Om du har problem för att bevilja behörighet på kontonivå, du kan hoppa över Testa anslutning och indatasökvägen manuellt under redigering. Kopieringsaktivitet kommer att fungera så länge som den hanterade identitet beviljas med rätt behörighet på filerna som ska kopieras.
+
+>[!IMPORTANT]
+>Om du använder PolyBase för att läsa in data från ADLS Gen2 till SQL DW, när med ADLS Gen2 hanterade identitetsautentisering, se till att du även konfigurera SQL DW korrekt om du vill använda MSI till ADLS Gen2 lagring, följer du stegen #1 till #3.b i [den här vägledningen](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Om ditt ADLS Gen2 konfigureras med VNet-tjänstslutpunkt, måste du använda hanterade identitetsautentisering för att använda PolyBase för att läsa in data från den.
 
 Dessa egenskaper stöds i den länkade tjänsten:
 

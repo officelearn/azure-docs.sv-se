@@ -15,16 +15,18 @@ ms.topic: conceptual
 ms.date: 04-04-2019
 ms.author: barbaraselden
 ms.reviewer: ''
-ms.openlocfilehash: 44393f80ab6ea01f0c2f52cb01dcd6241fab3d2d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d8686b9296c8b1d7c5232e2e46a0e66a9896656b
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60442597"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66113014"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planera en distribution av Azure AD Application Proxy
 
-Azure Active Directory (Azure AD) Application Proxy är en lösning för säker och kostnadseffektiv fjärråtkomst för lokala program. Det ger en omedelbar övergången sökväg för ”Cloud First” organisationer att hantera åtkomst till äldre lokala program som ännu inte kan använda modern protokoll. Ytterligare inledande information finns i [vad är Application Proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) och [hur programmet fungerar](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy).
+Azure Active Directory (Azure AD) Application Proxy är en lösning för säker och kostnadseffektiv fjärråtkomst för lokala program. Det ger en omedelbar övergången sökväg för ”Cloud First” organisationer att hantera åtkomst till äldre lokala program som ännu inte kan använda modern protokoll. Ytterligare inledande information finns i [vad är Application Proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy).
+
+Programproxy rekommenderas för att ge fjärranvändare åtkomst till interna resurser. Programproxy ersätter behovet av en VPN-anslutning eller omvänd proxy för dessa användningsområden för fjärråtkomst. Den är inte avsedd för användare som är ansluten till företagets nätverk. Dessa användare som använder Application Proxy för åtkomst via intranät kan få oönskade prestandaproblem.
 
 Den här artikeln innehåller de resurser du behöver för att planera, driva och hantera Azure AD-programproxy. 
 
@@ -41,25 +43,30 @@ Du måste uppfylla följande krav innan du påbörjar din implementering. Du kan
    * En virtuell dator i en hypervisor-lösning
    * En virtuell dator i Azure för att aktivera utgående anslutning till Application Proxy-tjänsten.
 
-Se [förstå Azure AD App Proxy kopplingar](application-proxy-connectors.md) för en mer detaljerad översikt.
+* Se [förstå Azure AD App Proxy kopplingar](application-proxy-connectors.md) för en mer detaljerad översikt.
 
-   * Anslutningen är värd för måste [aktiveras för TLS 1.2](application-proxy-add-on-premises-application.md) innan du installerar anslutningarna.
+     * Connector datorer måste [aktiveras för TLS 1.2](application-proxy-add-on-premises-application.md) innan du installerar anslutningarna.
 
-   * Distribuera om möjligt kopplingar i den [samma nätverk](application-proxy-network-topology.md) och segment som backend-webb-programservrar. Det är bäst att distribuera anslutningstjänsten värdar när du har slutfört en identifiering av program.
+     * Distribuera om möjligt kopplingar i den [samma nätverk](application-proxy-network-topology.md) och segment som backend-webb-programservrar. Det är bäst att distribuera anslutningar när du har slutfört en identifiering av program.
+     * Vi rekommenderar att varje anlsutningsgruppen har minst två anslutningsappar för att ge hög tillgänglighet och skala. Att ha tre kopplingar är optimalt om du kanske behöver att hantera en dator när som helst. Granska den [connector tabellen över kapacitet](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors#capacity-planning) för att installera kopplingar på med bestämmer vilken typ av dator. Ju större den datorn mer bufferten och högpresterande blir anslutningen.
 
-* **Inställningar för åtkomst**: Azure AD Application Proxy-anslutningsappar [försöker ansluta till Azure via HTTPS (TCP-Port 443) och HTTP (TCP-Port 80)](application-proxy-add-on-premises-application.md). 
+* **Inställningar för åtkomst**: Azure AD Application Proxy-anslutningsappar [ansluta till Azure via HTTPS (TCP-Port 443) och HTTP (TCP-Port 80)](application-proxy-add-on-premises-application.md). 
 
    * Avslutande connector TLS trafik stöds inte och förhindra att kopplingar upprättar en säker kanal med sina respektive Azure App Proxy-slutpunkter.
 
    * Undvik att alla former av infogade-kontroll på utgående TLS-kommunikationen mellan kopplingar och Azure. Intern granskning mellan en koppling och backend-program kan dock försämra användarupplevelsen och rekommenderas därför inte.
 
-   * Belastningsutjämning av proxyanslutningsprogram själva är inte heller stöds eller nödvändigt.
+   * Belastningsutjämning av kopplingar själva är inte heller stöds eller nödvändigt.
 
 ### <a name="important-considerations-before-configuring-azure-ad-application-proxy"></a>Att tänka på innan du konfigurerar Azure AD Application Proxy
 
 Följande grundläggande krav måste uppfyllas för att konfigurera och implementera Azure AD-programproxy.
 
 *  **Azure onboarding**: Innan du distribuerar programproxy användaridentiteter synkroniseras från en lokal katalog eller skapat direkt i din Azure AD-klienter. Identitetssynkronisering kan Azure AD att autentisera användare förväg innan bevilja dem åtkomst till App Proxy publicerade program och ha nödvändiga användarinformationen identifierare för enkel inloggning (SSO).
+
+* **Krav för villkorlig åtkomst**: Vi rekommenderar inte att använda programproxy för intranätåtkomst eftersom detta lägger till svarstid som påverkar användarna. Vi rekommenderar att du använder Application Proxy med principer för förautentisering och villkorlig åtkomst för fjärråtkomst från internet.  En metod för att ge villkorlig åtkomst för intranät är att modernisera program så att de kan diretly autentisera med AAD. Referera till [resurser för att migrera program till AAD](https://docs.microsoft.com/azure/active-directory/manage-apps/migration-resources) för mer information. 
+
+* **Tjänstbegränsningar**: För att skydda mot finns överförbrukning av resurser efter det enskilda klienter begränsningar gränser ange per program- och klienttrafik. Se dessa gränser som avser [Azure AD-tjänsten begränsningar](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-service-limits-restrictions). Dessa nätverksbegränsningar baseras på en benchmark långt över vanliga användningsvolym och ger gott om buffert för en majoritet av distributioner.
 
 * **Offentliga certifikat**: Om du använder anpassade domännamn, måste du skaffa ett offentligt certifikat som utfärdats av en icke-Microsoft betrodd certifikatutfärdare. Hämta ett certifikat kan ta lite tid beroende på din organisations krav, och vi rekommenderar börjar så snart som möjligt. Standard, har stöd för Azure Application Proxy [jokertecken](application-proxy-wildcard.md), eller SAN-baserade certifikat.
 
@@ -73,13 +80,11 @@ Följande grundläggande krav måste uppfyllas för att konfigurera och implemen
 
 * **Administrativa behörigheter och roller**
 
-   * **Installation av** kräver lokal administratörsbehörighet för den Windows-server som installeras på. Det också kräver minst en administratörsroll för programmet att autentisera och registrera connector-instans till Azure AD-klienten. 
+   * **Installation av** kräver lokal administratörsbehörighet för den Windows-server som installeras på. Det också kräver minst en *programadministratör* roll att autentisera och registrera connector-instans till Azure AD-klienten. 
 
    * **Programpublicering och administration** kräver den *programadministratör* rollen. Administratörer kan hantera alla program i katalogen, inklusive registreringar, inställningar för enkel inloggning, användaren och grupptilldelningar och licensiering, Application Proxy-inställningar och godkännande. Det ger inte möjlighet att hantera villkorlig åtkomst. Den *Molnprogramadministratör* rollen har alla funktioner av programadministratör förutom att den inte tillåter hantering av Application Proxy-inställningar.
 
-* **Licensiering**: Programproxyn är tillgänglig via Azure AD Basic-prenumeration. Referera till den [Azure Active Directory-prissättning](https://azure.microsoft.com/pricing/details/active-directory/) för en fullständig lista över licensiering alternativ och funktioner. 
-
-* En höjning av rollen kan komma att behöva hämta programmet administratörsbehörighet via [Privileged Identity Manager](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) (PIM), så kontrollera att ditt konto är berättigade. 
+* **Licensiering**: Programproxyn är tillgänglig via Azure AD Basic-prenumeration. Referera till den [Azure Active Directory-prissättning](https://azure.microsoft.com/pricing/details/active-directory/) för en fullständig lista över licensiering alternativ och funktioner.  
 
 ### <a name="application-discovery"></a>Programidentifiering
 
@@ -107,9 +112,9 @@ Här följer områden som du bör definiera din organisations behov. Varje områ
 
  **Åtkomst**
 
-* Domän- och Azure AD-användare kan komma åt publicerade program på ett säkert sätt med sömlös enkel inloggning (SSO) när på alla domänanslutna och Azure AD-anslutna enheter.
+* Fjärranslutna användare med domänanslutna eller Azure AD-anslutna enheter som användare kan komma åt publicerade program på ett säkert sätt med sömlös enkel inloggning (SSO).
 
-* Användare med godkända personliga enheter kan få säker åtkomst till publicerade program förutsatt att de är registrerade i MFA och har registrerat Microsoft Authenticator-appen på sin mobiltelefon som autentiseringsmetod.
+* Fjärranslutna användare med godkända personliga enheter kan få säker åtkomst till publicerade program förutsatt att de är registrerade i MFA och har registrerat Microsoft Authenticator-appen på sin mobiltelefon som autentiseringsmetod.
 
 **Styrning** 
 
@@ -121,7 +126,7 @@ Här följer områden som du bör definiera din organisations behov. Varje områ
 
 **Prestanda**
 
-* Det finns inga försämring av prestanda jämfört med åtkomst till program från interna nätverket.
+* Det finns inga försämring av prestanda jämfört med åtkomst till program från det interna nätverket.
 
 **Användarupplevelse**
 
@@ -164,7 +169,7 @@ Följande designelement bör öka framgången för implementeringen pilot direkt
 
 ### <a name="deploy-application-proxy"></a>Distribuera Application Proxy
 
-Stegen för att distribuera Application Proxy beskrivs i det här [självstudie för att lägga till ett lokalt program för fjärråtkomst](application-proxy-add-on-premises-application.md). Om installationen inte lyckas, Välj **felsöka programproxyn** i portalen eller Använd felsökningsguiden[för problem med att installera den Programproxyagenten](application-proxy-connector-installation-problem.md).
+Stegen för att distribuera Application Proxy beskrivs i det här [självstudie för att lägga till ett lokalt program för fjärråtkomst](application-proxy-add-on-premises-application.md). Om installationen inte lyckas, Välj **felsöka programproxyn** i portalen eller Använd felsökningsguiden [för problem med att installera den Programproxyagenten](application-proxy-connector-installation-problem.md).
 
 ### <a name="publish-applications-via-application-proxy"></a>Publicera program via programproxy
 
@@ -174,7 +179,7 @@ Du kan även publicera program med hjälp av [PowerShell](https://docs.microsoft
 
 Nedan visas några metodtips att följa när du publicerar ett program:
 
-* **Använda Anslutningsgrupper**: Tilldela en anslutningsgrupp som har angetts för publicering av varje respektive program.
+* **Använda Anslutningsgrupper**: Tilldela en anslutningsgrupp som har angetts för publicering av varje respektive program. Vi rekommenderar att varje anlsutningsgruppen har minst två anslutningsappar för att ge hög tillgänglighet och skala. Att ha tre kopplingar är optimalt om du kanske behöver att hantera en dator när som helst. Dessutom finns i [publicera program på separata nätverk och platser med hjälp av anslutningsappgrupper](application-proxy-connector-groups.md) att se hur du även kan använda anslutningsapp-grupper för att segmentera dina anslutningar av nätverk eller en plats.
 
 * **Ange tidsgränsen för Backend-programmet**: Den här inställningen är användbar i scenarier där programmet kan kräva mer än 75 sekunder att bearbeta en transaktion för klienten. Till exempel fungerar när en klient skickar en fråga till ett webbprogram som som klientdel till en databas. Klienten skickar den här frågan till sin serverdatabas server och väntar på svar, men med tiden det tar emot ett svar, klientsidan av konversationen tidsgränsen. Anger timeout-värdet till länge ger 180 sekunder för längre transaktioner har slutförts.
 
@@ -190,7 +195,7 @@ Nedan visas några metodtips att följa när du publicerar ett program:
 
 * **Översätt URL: er i brödtexten för programmet**: Aktivera brödtext för program länköversättning för en app när du vill att länkar från appen översättas i svar tillbaka till klienten. Om aktiverad kan ger den här funktionen ett bästa försök vid översättning av alla interna länkar som Approxy söker efter i HTML och CSS-svar returneras till klienter. Det är användbart när du publicerar appar som innehåller antingen hårdkodat absoluta eller NetBIOS-kortnamn länkar i innehållet eller appar med innehåll som länkar till andra lokala program.
 
-Aktivera länk translation eller varje program för scenarier där en publicerad app länkar till andra publicerade appar, så att du har kontroll över användarupplevelsen på per app-nivå.
+Aktivera länköversättning för varje program för scenarier där en publicerad app länkar till andra publicerade appar, så att du har kontroll över användarupplevelsen på per app-nivå.
 
 Anta att du har tre program som publicerats via programproxy att alla länkar till varandra: Fördelar, kostnader, och resor samt en fjärde app, Feedback, som inte har publicerats via programproxy.
 
@@ -225,7 +230,7 @@ När programmet har publicerats ska den vara åtkomlig genom att skriva dess ext
 
 ### <a name="enable-pre-authentication"></a>Aktivera förautentisering
 
-Kontrollera att ditt program är tillgänglig via programproxyn. 
+Kontrollera att ditt program är tillgänglig via programproxy åtkomst till den via den externa URL: en. 
 
 1. Gå till **Azure Active Directory** > **företagsprogram** > **alla program** och välj den app som du vill hantera.
 
@@ -233,7 +238,7 @@ Kontrollera att ditt program är tillgänglig via programproxyn.
 
 3. I den **förautentisering** fältet, Använd den nedrullningsbara listan för att välja **Azure Active Directory**, och välj **spara**.
 
-Azure AD kommer utmaning eftersom du för autentisering med förautentisering aktiverat, och sedan backend-programmet bör också utmana dig om autentisering krävs. Ändrar förautentisering från genomströmning till Azure AD konfigurerar även en extern URL med HTTPS, så att alla program som ursprungligen konfigurerats för HTTP ska nu skyddas med HTTPS.
+Utmana Azure AD först användare för autentisering med förautentisering aktiverat, och om enkel inloggning är configued sedan backend-programmet kontrollerar också användaren få åtkomst till programmet. Ändra förautentisering läget från genomströmning till Azure AD konfigurerar även en extern URL med HTTPS, så att alla program som ursprungligen konfigurerats för HTTP ska nu skyddas med HTTPS.
 
 ### <a name="enable-single-sign-on"></a>Aktivera enkel inloggning
 
@@ -241,7 +246,7 @@ Enkel inloggning ger den bästa möjliga användarupplevelsen och säkerheten ef
 
 Välja den **genomströmning** alternativet låter användare komma åt det publicerade programmet utan att autentisera till Azure AD.
 
-Utför enkel inloggning är endast möjligt om Azure AD kan identifiera den användare som begär åtkomst till en resurs, så att ditt program måste konfigureras för att autentisera förväg användare vid åtkomst för enkel inloggning till funktionen, annars alternativ för enkel inloggning kommer att inaktiveras.
+Utför enkel inloggning är endast möjligt om Azure AD kan identifiera den användare som begär åtkomst till en resurs, så att ditt program måste konfigureras för att autentisera användare med Azure AD vid åtkomst före för enkel inloggning till funktionen, annars alternativ för enkel inloggning kommer att inaktiveras.
 
 Läs [enkel inloggning till program i Azure AD](what-is-single-sign-on.md) för att välja den lämpligaste SSO-metoden när du konfigurerar dina program.
 
@@ -265,7 +270,7 @@ Följande funktioner kan användas för Azure AD Application Proxy:
 
 * Riskbaserad villkorlig åtkomst: Skydda dina data från hackare med en [riskbaserad villkorlig åtkomstprincip](https://www.microsoft.com/cloud-platform/conditional-access) som kan tillämpas på alla appar och alla användare, oavsett om den lokala eller i molnet.
 
-* Panelen för Azure AD-program: Med Application Proxy-tjänsten distribueras och program som publicerats på ett säkert sätt, ger användarna en enkel hubb för att upptäcka och komma åt sina program. Öka produktiviteten med självbetjäning funktioner, till exempel möjligheten att begära åtkomst till nya appar och grupper eller hantera åtkomst till dessa resurser för andra, via den [åtkomstpanelen](https://aka.ms/AccessPanelDPDownload).
+* Azure AD-åtkomstpanelen: Med Application Proxy-tjänsten distribueras och program som publicerats på ett säkert sätt, ger användarna en enkel hubb för att upptäcka och komma åt sina program. Öka produktiviteten med självbetjäning funktioner, till exempel möjligheten att begära åtkomst till nya appar och grupper eller hantera åtkomst till dessa resurser för andra, via den [åtkomstpanelen](https://aka.ms/AccessPanelDPDownload).
 
 ## <a name="manage-your-implementation"></a>Hantera din implementering
 
@@ -290,7 +295,7 @@ Azure AD kan ge ytterligare insikter om din organisations användaretablering an
 
 #### <a name="application-audit-logs"></a>Granskningsloggar för program
 
-Dessa loggar redogör för inloggningar till program som har konfigurerats med Application Proxy, samt information om enheten och användaren åtkomst till programmet. De är placerade i Azure-portalen och granska API.
+De här loggarna ger detaljerad information om inloggningar till program som har konfigurerats med Application Proxy och enheten och användaren åtkomst till programmet. Granskningsloggarna finns i Azure-portalen och granska API för export.
 
 #### <a name="windows-event-logs-and-performance-counters"></a>Windows-händelseloggar och prestandaräknare
 
@@ -300,7 +305,7 @@ Kopplingar har både admin och sessionen loggar. Administratörsloggar innehåll
 
 Läs mer om vanliga problem och hur du löser dem med vår guide om hur du [felsökning](application-proxy-troubleshoot.md) felmeddelanden. 
 
-De här artiklarna täcker vanliga scenarier, men du kan också skapa egna felsökningsguider för supportavdelningen. 
+I följande artiklar beskriver vanliga scenarier som kan också användas för att skapa felsökningsguider för supportavdelningen. 
 
 * [Problem med att visa appsida](application-proxy-page-appearance-broken-problem.md)
 * [För lång programinläsning](application-proxy-page-load-speed-problem.md)

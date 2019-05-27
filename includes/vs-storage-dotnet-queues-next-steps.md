@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: tamram
 ms.openlocfilehash: c118ba581aa23bd1647e4dce26c035e6591d07dc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60505635"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66123261"
 ---
 Nu när du har lärt dig grunderna i Azure-kölagring kan du följa dessa länkar om du vill lära dig mer komplexa lagringsuppgifter.
 

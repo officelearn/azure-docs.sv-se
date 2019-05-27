@@ -15,12 +15,12 @@ ms.date: 02/09/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 7855c2bd45ba35ecb0ede5c60268e6446f37ed5a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 5a08c2ae0b82841fd15aac4af06a8874cf64ba53
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62121834"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65950004"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>Förstå rolldefinitioner för Azure-resurser
 
@@ -147,9 +147,9 @@ Storage Blob Data-deltagare
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write`
 
-Eftersom Alice har ett jokertecken (`*`) åtgärden en prenumerationsomfånget ärver behörigheter ned för att aktivera henne att utföra alla hanteringsåtgärder. Alice kan läsa, skriva och ta bort behållare. Alice kan inte utföra dataåtgärder utan att utföra ytterligare steg. Som standard kan till exempel Alice läsa blobarna i en behållare. Om du vill läsa blobarna måste Alice hämta åtkomstnycklar för lagring och använda dem för att komma åt blobarna.
+Eftersom Alice har ett jokertecken (`*`) åtgärden en prenumerationsomfånget deras behörigheter ärver ned för att kunna utföra alla hanteringsåtgärder. Alice kan läsa, skriva och ta bort behållare. Alice kan inte utföra dataåtgärder utan att utföra ytterligare steg. Som standard kan till exempel Alice läsa blobarna i en behållare. Om du vill läsa blobarna måste Alice hämta åtkomstnycklar för lagring och använda dem för att komma åt blobarna.
 
-Bobs behörigheter är begränsade till bara den `Actions` och `DataActions` anges i den [Storage Blob Data-deltagare](built-in-roles.md#storage-blob-data-contributor) roll. Baserat på vilken roll, kan Bob utföra både hantering och åtgärder. Till exempel Bob kan läsa, skriva och ta bort behållare i det angivna lagringskontot och han kan också läsa, skriva och ta bort blobar.
+Bobs behörigheter är begränsade till bara den `Actions` och `DataActions` anges i den [Storage Blob Data-deltagare](built-in-roles.md#storage-blob-data-contributor) roll. Baserat på vilken roll, kan Bob utföra både hantering och åtgärder. Till exempel kan Bob läsa, skriva, ta bort behållare i det angivna lagringskontot och kan också läsa, skriva och ta bort blobar.
 
 Mer information om hantering och datasäkerhet plan för lagring finns i den [säkerhetsguiden för Azure Storage](../storage/common/storage-security-guide.md).
 

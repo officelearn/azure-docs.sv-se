@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 11/19/2018
-ms.openlocfilehash: 180053aa2146d8ab80df832044ac3ee4d45970da
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/17/2019
+ms.openlocfilehash: f36acb7237438848a53fdf91c291c4f67233af5d
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60445638"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65901020"
 ---
 # <a name="quickstart-ingest-data-from-kafka-into-azure-data-explorer"></a>Snabbstart: Mata in data från Kafka i Azure Data Explorer
  
@@ -22,11 +22,11 @@ Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för
  
 * Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar. 
  
-* [Ett testkluster och en databas](create-cluster-database-portal.md)
+* [Ett testkluster och databasen](create-cluster-database-portal.md).
  
-* [En exempelapp](https://github.com/Azure/azure-kusto-samples-dotnet/tree/master/kafka) som genererar data och skickar dem till Kafka
+* [En exempelapp](https://github.com/Azure/azure-kusto-samples-dotnet/tree/master/kafka) som genererar data och skickar det till Kafka.
 
-* [Visual Studio 2017 version 15.3.2 eller senare](https://www.visualstudio.com/vs/) för att köra exempelappen
+* [Visual Studio-2019](https://visualstudio.microsoft.com/vs/) att köra exempelappen.
  
 ## <a name="kafka-connector-setup"></a>Konfiguration av Kafka-anslutningsappen
 
@@ -43,7 +43,7 @@ git clone git://github.com:Azure/kafka-sink-azure-kusto.git
 cd ./kafka-sink-azure-kusto/kafka/
 ```
 
-#### <a name="build"></a>Utveckla
+#### <a name="build"></a>Skapa
 
 Skapa lokalt med Maven för att bilda en `.jar` komplett med beroenden.
 

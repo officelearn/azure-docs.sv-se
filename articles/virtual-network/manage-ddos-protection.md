@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/06/2018
+ms.date: 05/17/2019
 ms.author: kumud
-ms.openlocfilehash: a053beb121e1b3c0db020094c29a9a1e0117da87
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 53185caa6a0492702035041a893f20a78cf1ea4d
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65203531"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65911267"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Hantera Azure DDoS Protection Standard med hjälp av Azure portal
 
@@ -186,8 +186,8 @@ Attack minskning Flow loggar kan du granska förlorad trafik vidarebefordras tra
 1. Om du vill visa loggarna flödesdata i Azure analytics-instrumentpanelen, kan du importera exempelinstrumentpanel från https://github.com/Anupamvi/Azure-DDoS-Protection/raw/master/flowlogsbyip.zip
 
 Flödesloggar har följande fält: 
-- Käll-IP-adress
-- Mål-IP-adress
+- Käll-IP
+- Mål-IP
 - Källport 
 - Målport 
 - Protokolltypen 
@@ -203,6 +203,19 @@ Microsoft samarbetar med [BreakingPoint Cloud](https://www.ixiacom.com/products/
 - Optimera din incidenthanteringsprocess medan under DDoS-attack
 - Dokumentera DDoS-efterlevnad
 - Träna dina network security team
+
+## <a name="view-ddos-protection-alerts-in-azure-security-center"></a>Visa DDoS protection-aviseringar i Azure Security Center
+
+Azure Security Center innehåller en lista över [säkerhetsaviseringar](/azure/security-center/security-center-managing-and-responding-alerts), med information för att undersöka och åtgärda problem. Med den här funktionen kan få du en enhetlig vy över aviseringar, inklusive DDoS-attack-relaterade aviseringar och de åtgärder som vidtas för att undvika angreppet i nära tiden.
+Det finns två specifika varningar som visas för alla DDoS-angrepp identifiering och skyddsteknik:
+
+- **DDoS-Attack upptäcktes för offentlig IP-adress**: Den här aviseringen genereras när tjänsten DDoS protection identifierar att en av dina offentliga IP-adresser är målet för en DDoS-attack.
+- **DDoS-Attack undvikas för offentlig IP-adress**: Den här aviseringen genereras när ett angrepp på den offentliga IP-adressen har tagits undvikas.
+Om du vill visa aviseringar, öppna **Security Center** i Azure-portalen. Under **Hotskydd**väljer **säkerhetsaviseringar**. Följande skärmbild visar ett exempel på aviseringar för DDoS-attack.
+
+![DDoS-avisering i Azure Security Center](./media/manage-ddos-protection/ddos-alert-asc.png)
+
+Aviseringarna innehåller allmän information om den offentliga IP-adressen som är under attack, GEO-replikering och hotinformation och reparationer steg.
 
 ## <a name="permissions"></a>Behörigheter
 

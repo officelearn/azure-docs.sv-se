@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 21fb2b84fd58fb7cca7551ee1cef0c79179cfa40
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: ac440be4444ca0d62f7ffde2b8b65e41dcba6683
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65467134"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002391"
 ---
 # <a name="dynamic-manifests"></a>Dynamiska manifest
 
@@ -26,12 +26,12 @@ Media Services erbjuder **dynamiska manifest** baserat på fördefinierade filte
 
 I följande tabell visas några exempel på URL: er med filter:
 
-|Protokoll|Exempel|
+|Protocol|Exempel|
 |---|---|
 |HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`|
 |MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
 |Smooth Streaming|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
-
+ 
 > [!NOTE]
 > Dynamiska manifest ändras inte tillgången och standard-manifest för tillgången. Klienten kan du begära en dataström med eller utan filter. 
 > 
@@ -124,7 +124,7 @@ Mer information finns i [detta](https://azure.microsoft.com/blog/azure-media-ser
 
 ## <a name="associate-filters-with-streaming-locator"></a>Associera filter med Strömningspositionerare
 
-Du kan ange en lista över tillgång eller konto filter som skulle gälla för dina Strömningspositionerare. Den [dynamisk Paketeraren](dynamic-packaging-overview.md) gäller den här listan över filter tillsammans med de som klienten anger i URL: en. Den här kombinationen genererar en [dynamiska manifest](filters-dynamic-manifest-overview.md), som grundar sig på filter i URL: en + filter som du anger på Strömningspositionerare. Vi rekommenderar att du använder den här funktionen om du vill använda filter men inte vill exponera filternamn i URL: en.
+Se [filter: Koppla med strömning positionerare](filters-concept.md#associate-filters-with-streaming-locator).
 
 ## <a name="considerations-and-limitations"></a>Överväganden och begränsningar
 
@@ -136,7 +136,6 @@ Du kan ange en lista över tillgång eller konto filter som skulle gälla för d
     
     - Att fastställa egenskaperna för spår i en tillgång [få och granska manifestfilen](#get-and-examine-manifest-files).
     - Formeln för att ange filtret tillgången tidsstämpel egenskaper: <br/>startTimestamp = &lt;starttid i manifestet&gt; +  &lt;förväntat filter starttiden på några sekunder&gt;* tidsskalan
-
 
 ## <a name="next-steps"></a>Nästa steg
 

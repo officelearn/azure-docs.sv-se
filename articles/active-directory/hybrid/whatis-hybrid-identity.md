@@ -1,6 +1,6 @@
 ---
-title: Anslut Active Directory med Azure Active Directory. | Microsoft Docs
-description: Azure AD Connect integrerar dina lokala kataloger med Azure Active Directory. På så sätt kan du tillhandahålla en gemensam identitet för Office 365-, Azure- och SaaS-program som är integrerade med Azure AD.
+title: Vad är hybrid-identitet med Azure Active Directory?
+description: Hybrid-identitet som har en vanlig användaridentitet för autentisering och auktorisering både lokalt och i molnet.
 keywords: introduktion till Azure AD Connect, översikt över Azure AD Connect, vad är Azure AD Connect, installera Active Directory
 services: active-directory
 author: billmath
@@ -9,24 +9,26 @@ ms.assetid: 59bd209e-30d7-4a89-ae7a-e415969825ea
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 11/28/2018
+ms.date: 05/17/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6393d363c85fd22b28a3bc2ac5ef02047ebaacf0
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 9c43238d44b2309d105ef14e696a5a16848d0b58
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65784355"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65896825"
 ---
-# <a name="what-is-hybrid-identity"></a>Vad är hybrididentitet?
+# <a name="what-is-hybrid-identity-with-azure-active-directory"></a>Vad är hybrid-identitet med Azure Active Directory?
 
-Företag och organisationer blir i dag allt mer en blandning av lokala och molnbaserade program.  Användare behöver åtkomst till dessa program både lokalt och i molnet. Det här kravet har blivit ett utmanande scenario. 
+Företag och organisationer blir i dag allt mer en blandning av lokala och molnbaserade program.  Användare behöver åtkomst till dessa program både lokalt och i molnet. Hantera användare både lokalt och i molnet-utgör en utmaning scenarier. 
 
 Microsofts identitetslösningar omfattar både lokala och molnbaserade funktioner.  Dessa lösningar skapar en gemensam användaridentitet för autentisering och auktorisering för alla resurser, oavsett plats. Vi kallar det för **hybrididentitet**.
 
-För att uppnå hybrididentitet kan en av tre autentiseringsmetoder användas, beroende på dina scenarier.   De tre metoderna är: 
+Hybrididentitet till Azure AD och hybrid-identitet och hantering av dessa scenarier blir möjligt.
+
+För att uppnå hybrididentitet med Azure AD, kan en av tre autentiseringsmetoder användas, beroende på dina scenarier.   De tre metoderna är: 
 
 - **[Synkronisering av lösenordshash (PHS)](whatis-phs.md)**  
 - **[Direktautentisering (PTA)](how-to-connect-pta.md)**  

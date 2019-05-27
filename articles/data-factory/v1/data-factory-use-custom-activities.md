@@ -13,12 +13,12 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 robots: noindex
-ms.openlocfilehash: 0ddc235064d99e9d6385ab48e78f893952eefa15
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f7e3b1496890a4b97fc435b49ab9bf282134d1a6
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61254831"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65910815"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Använda anpassade aktiviteter i en Azure Data Factory-pipeline)
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -44,7 +44,7 @@ Den här genomgången innehåller stegvisa instruktioner för att skapa en anpas
 
 ## <a name="walkthrough-create-a-custom-activity"></a>Genomgång: skapa en anpassad aktivitet
 ### <a name="prerequisites"></a>Nödvändiga komponenter
-* Visual Studio 2012/2013/2015
+* Visual Studio 2012/2013/2015/2017
 * Ladda ned och installera [Azure .NET SDK](https://azure.microsoft.com/downloads/)
 
 ### <a name="azure-batch-prerequisites"></a>Krav för Azure Batch
@@ -100,10 +100,10 @@ Metoden returnerar en ordlista som kan användas för att länka anpassade aktiv
 ### <a name="procedure"></a>Procedur
 1. Skapa en **.NET-klassbiblioteket** projekt.
    <ol type="a">
-     <li>Starta <b>Visual Studio 2017</b> eller <b>Visual Studio 2015</b> eller <b>Visual Studio 2013</b> eller <b>Visual Studio 2012</b>.</li>
+     <li>Starta Visual Studio.</li>
      <li>Klicka på <b>Arkiv</b>, peka på <b>Nytt</b> och klicka på <b>Projekt</b>.</li>
      <li>Expandera <b>Mallar</b> och välj <b>Visual C#</b>. I den här genomgången ska du använda C#, men du kan använda valfritt .NET-språk för att utveckla den anpassade aktiviteten.</li>
-     <li>Välj <b>klassbiblioteket</b> i listan över projekttyper till höger. I VS 2017 väljer <b>Class Library (.NET Framework)</b> </li>
+     <li>Välj <b>klassbiblioteket</b> i listan över projekttyper till höger. I Visual Studio väljer <b>Class Library (.NET Framework)</b> </li>
      <li>Ange <b>MyDotNetActivity</b> för den <b>namn</b>.</li>
      <li>Välj <b>C:\ADFGetStarted</b> för den <b>plats</b>.</li>
      <li>Klicka på <b>OK</b> för att skapa projektet.</li>

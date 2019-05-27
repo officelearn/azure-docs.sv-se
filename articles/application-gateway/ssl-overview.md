@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/19/2019
 ms.author: victorh
-ms.openlocfilehash: 92799019d13de71d911767d8e400598513587667
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1259e755642563a7baad5496bc84ed736d5499f8
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60715235"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65849810"
 ---
 # <a name="overview-of-ssl-termination-and-end-to-end-ssl-with-application-gateway"></a>Översikt över SSL-avslutning och slutpunkt till slutpunkt-SSL med Programgateway
 
@@ -36,7 +36,7 @@ Om du vill konfigurera SSL-avslutning, krävs ett SSL-certifikat som ska läggas
 För SSL-anslutningen ska fungera måste du kontrollera att SSL-certifikatet uppfyller följande villkor:
 
 - Det aktuella datum och tid är i ”giltig från” och ”giltig till” datumintervall på certifikatet.
-- Den den ”namn” (CN) matchar värdhuvudet i begäran. Exempel: om klienten gör en begäran om att `https://www.contoso.com/`, CN måste vara `www.contoso.com`.
+- Att certifikatets ”vanliga namn” (CN) matchar värdhuvudet i begäran. Exempelvis om klienten gör en begäran till `https://www.contoso.com/`, måste CN vara `www.contoso.com`.
 
 ### <a name="certificates-supported-for-ssl-termination"></a>Certifikat som stöds för SSL-avslutning
 
@@ -48,6 +48,9 @@ Application gateway stöder följande typer av certifikat:
 - Självsignerade certifikat: Klientwebbläsare lita inte på dessa certifikat och kommer att varna användaren att virtual service-certifikat inte är en del av en certifikatkedjan. Självsignerade certifikat är bra för testning eller miljöer där administratörer styra klienterna och kan på ett säkert sätt att kringgå webbläsarens säkerhetsaviseringar. Produktionsarbetsbelastningar använda aldrig självsignerade certifikat.
 
 Mer information finns i [konfigurerar SSL-avslutning med application gateway](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal).
+
+### <a name="size-of-the-certificate"></a>Storleken på certifikatet
+Personal Information Exchange (PFX)-fil med SSL-Certifikatsinformation får inte vara mer än 10 KB.
 
 ## <a name="end-to-end-ssl-encryption"></a>Slutpunkt till slutpunkt SSL-kryptering
 

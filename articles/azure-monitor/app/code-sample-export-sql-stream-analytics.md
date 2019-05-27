@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: mbullwin
-ms.openlocfilehash: 0166622539a439a99aef7e476519881518baa0b0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eecd2a50607fa42562a9ae6a7fb950a253655a45
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60904816"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872707"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Genomgång: Exportera till SQL från Application Insights med hjälp av Stream Analytics
 Den här artikeln visar hur du flyttar dina telemetridata från [Azure Application Insights] [ start] till en Azure SQL-databas med hjälp av [löpande Export] [ export] och [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
@@ -179,10 +179,10 @@ I det här exemplet:
 
 > [!TIP]
 > Funktionen exemplet används för att kontrollera att du har angett korrekt indatasökvägen. Om det misslyckas: Kontrollera att det finns data i lagring för exemplet tidsintervall som du har valt. Redigera definitionen för indata och kontrollera du ange storage-konto, sökvägsprefix och datumformat korrekt.
-> 
-> 
-> ## <a name="set-query"></a>Ange fråga
-> Öppna avsnittet fråga:
+
+ 
+## <a name="set-query"></a>Ange fråga
+Öppna avsnittet fråga:
 
 Ersätt standardfrågan med:
 

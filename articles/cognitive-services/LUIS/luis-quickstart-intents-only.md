@@ -3,20 +3,20 @@ title: Förutsäga avsikter
 titleSuffix: Azure Cognitive Services
 description: I den här självstudien skapar du en anpassad app som förutspår en användares avsikt. Den här appen är den enklaste typen av LUIS-app eftersom den inte extraherar olika dataelement från yttranden, som e-postadresser eller datum.
 services: cognitive-services
-author: diberry
-manager: nitinme
+author: lingliw
+manager: digimobile
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 02/19/2019
-ms.author: diberry
+ms.date: 04/19/19
+ms.author: v-lingwu
 ms.openlocfilehash: 067829a1d9425ede1320242e364eca7c30bb7053
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593921"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66123897"
 ---
 # <a name="tutorial-build-luis-app-to-determine-user-intentions"></a>Självstudier: Skapa en LUIS-app som identifierar användarens avsikter
 
@@ -239,3 +239,7 @@ Fortsätt med den här appen och [lägg till en enkel entitet och fraslista](lui
 
 > [!div class="nextstepaction"]
 > [Lägga till fördefinierade avsikter och entiteter i appen](luis-tutorial-prebuilt-intents-entities.md)
+
+
+
+

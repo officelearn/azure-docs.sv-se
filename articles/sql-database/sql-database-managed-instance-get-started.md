@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 05/07/2019
-ms.openlocfilehash: 09ab4cd44515d90df0e36e2775f50ac33955fe75
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: f54cea75e6f7866f1be41d3b0f82393af2235a0a
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466267"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65949887"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Snabbstart: Skapa en hanterad Azure SQL Database-instans
 
@@ -28,7 +28,9 @@ Den här snabbstarten får du veta hur du skapar en Azure SQL Database [hanterad
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com/). 
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/).
+
+Logga in på [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-managed-instance"></a>Skapa en hanterad instans
 
@@ -79,7 +81,7 @@ När distributionen har slutförts granskar de resurser som har skapats och häm
 
 1. Öppna resursgruppen för din hanterade instans. Visa dess resurser som har skapats för dig i den [skapa en hanterad instans](#create-a-managed-instance) Snabbstart.
 
-   ![Resurser för hanterad instans](./media/sql-database-managed-instance-get-started/resources.png)
+   ![Hanterade instansresurser](./media/sql-database-managed-instance-get-started/resources.png)
 
 2. Välj routningstabellen med en användardefinierad väg (UDR) tabellen som har skapats för dig.
 
@@ -103,7 +105,7 @@ När distributionen har slutförts granskar de resurser som har skapats och häm
 
 7. På den **översikt** fliken, leta upp den **värden** egenskapen. Kopiera den fullständiga värd-adressen för den hanterade instansen för användning i nästa Snabbstart.
 
-   ![Värdnamn](./media/sql-database-managed-instance-get-started/host-name.png)
+   ![Värddatornamn](./media/sql-database-managed-instance-get-started/host-name.png)
 
    Namnet ser ut ungefär så här: **ditt_datornamn.a1b2c3d4e5f6.database.windows.net**.
 

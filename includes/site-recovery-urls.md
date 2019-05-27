@@ -8,20 +8,20 @@ ms.service: site-recovery
 ms.topic: include
 ms.date: 09/12/2018
 ms.author: raynew
-ms.openlocfilehash: ae8eebf9667f2bc03fdc1082fb38c19c5c645c10
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: f4cd9cad3813378fcdc3f06e8ab1c28eced4f93c
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47060770"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66116035"
 ---
-**Namn** | **Extern URL**  | **URL: en för myndigheter** | **Beskrivning** |
+Namn | Extern URL | URL: en för myndigheter | Beskrivning
 --- | --- | --- | ---
-Azure AD | ``login.microsoftonline.com`` | ``login.microsoftonline.us`` | Används för access control och Identitetshantering med AAD 
-Backup | ``*.backup.windowsazure.com`` | ``*.backup.windowsazure.us`` | Används för överföring av replikeringsdata och koordination 
-Replikering | ``*.hypervrecoverymanager.windowsazure.com`` | ``*.hypervrecoverymanager.windowsazure.us``  | Används för replikeringshantering och koordination 
-Storage | ``*.blob.core.windows.net`` | ``*.blob.core.usgovcloudapi.net``  | Används för åtkomst till lagringskontot som lagrar replikerade data 
-Telemetri (valfritt) | ``dc.services.visualstudio.com`` | ``dc.services.visualstudio.com`` | Används för telemetri 
-Tidssynkronisering | ``time.windows.com`` | ``time.nist.gov`` | Ssed att kontrollera tidssynkronisering mellan system och global tid i alla distributioner.
+Azure Active Directory | ``login.microsoftonline.com`` | ``login.microsoftonline.us`` | Används för access control och Identitetshantering med hjälp av Azure Active Directory. 
+Säkerhetskopiera | ``*.backup.windowsazure.com`` | ``*.backup.windowsazure.us`` | Används för överföring av replikeringsdata och koordination.
+Replikering | ``*.hypervrecoverymanager.windowsazure.com`` | ``*.hypervrecoverymanager.windowsazure.us``  | Används för åtgärder för replikeringshantering och koordination.
+Storage | ``*.blob.core.windows.net`` | ``*.blob.core.usgovcloudapi.net``  | Används för åtkomst till lagringskontot som lagrar replikerade data.
+Telemetri (valfritt) | ``dc.services.visualstudio.com`` | ``dc.services.visualstudio.com`` | Används för telemetri.
+Tidssynkronisering | ``time.windows.com`` | ``time.nist.gov`` | Används för att kontrollera tidssynkronisering mellan system och global tid i alla distributioner.
 
 

@@ -6,14 +6,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: c
 ms.topic: conceptual
-ms.date: 08/25/2017
+ms.date: 05/17/2019
 ms.author: yizhon
-ms.openlocfilehash: a0099fa085e21c381b74dc2690ffcf0870345f21
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d758d761e560642de76e149c83fc6898aa78bafb
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60401309"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65910323"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>Azure IoT-enhetens SDK för C
 
@@ -126,7 +126,7 @@ Windows-versionen av den **iothub_client\_exempel\_iothub_convenience_sample** p
   ![Visual Studio Solution Explorer](./media/iot-hub-device-sdk-c-intro/iothub-client-sample-mqtt.png)
 
 > [!NOTE]
-> Om du öppnar det här projektet i Visual Studio 2017, accepterar du anvisningarna för att omdirigera projektet till den senaste versionen.
+> Om Visual Studio ber dig att omdirigera projektet till den senaste versionen, acceptera uppmaningen.
 
 Den här lösningen innehåller ett enda projekt. Det finns fyra NuGet-paket i den här lösningen:
 
@@ -339,7 +339,7 @@ I den **serialiserare** mapp i den [lagringsplatsen för azure-iot-sdk-c](https:
   ![Visual Studio-lösning för mqtt-exemplet](./media/iot-hub-device-sdk-c-intro/simplesample_mqtt.png)
 
 > [!NOTE]
-> Om du öppnar det här projektet i Visual Studio 2017, accepterar du anvisningarna för att omdirigera projektet till den senaste versionen.
+> Om Visual Studio ber dig att omdirigera projektet till den senaste versionen, acceptera uppmaningen.
 
 Precis som med i föregående exempel innehåller den här flera NuGet-paket:
 

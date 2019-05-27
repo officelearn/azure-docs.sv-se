@@ -10,11 +10,11 @@ ms.date: 02/28/2019
 ms.author: mayg
 ms.custom: include file
 ms.openlocfilehash: 7c682105113dac7c1d457489cf926210ead77993
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57343575"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66116009"
 ---
 1. Kör det enhetliga installationsprogrammet.
 2. I **innan du börjar**väljer **installera konfigurationsservern och processervern**.
@@ -35,7 +35,7 @@ ms.locfileid: "57343575"
      ![Brandvägg](./media/site-recovery-add-configuration-server/combined-wiz4.png)
 6. I **Kravkontroll** körs en kontroll för att se till att installationen kan köras. Om det visas en varning om **synkroniseringskontrollen för global tid** kontrollerar du att systemklockans tid (inställningarna för **datum och tid**) är samma som tidszonen.
 
-    ![Förutsättningar](./media/site-recovery-add-configuration-server/combined-wiz5.png)
+    ![Nödvändiga komponenter](./media/site-recovery-add-configuration-server/combined-wiz5.png)
 7. I **MySQL Configuration** (MySQL-konfiguration) skapar du autentiseringsuppgifter för att logga in på den MySQL-serverinstans som är installerad.
 
     ![MySQL](./media/site-recovery-add-configuration-server/combined-wiz6.png)

@@ -2,20 +2,20 @@
 title: Azure SQL Data Warehouse viktig augusti 2018 | Microsoft Docs
 description: Viktig information för Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: twounder
+author: anumjs
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: manage
+ms.subservice: ''
 ms.date: 08/13/2018
-ms.author: twounder
-ms.reviewer: twounder
-ms.openlocfilehash: 9547380d4636c1a72add9dab7a9eed850abd0307
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: anjangsh
+ms.reviewer: jrasnick
+ms.openlocfilehash: f0840e9b91c81b8a99e8c736c3c5db082c92fe76
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61475005"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65912210"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-august-2018"></a>Vad är nytt i Azure SQL Data Warehouse? Augusti 2018
 Azure SQL Data Warehouse tar emot förbättringar kontinuerligt. Den här artikeln beskriver nya funktioner och ändringar som har införts i augusti 2018.
@@ -30,7 +30,7 @@ Du kan öka detaljnivån i varje kategori om du vill se rekommendationer för de
 
 ## <a name="bug-fixes"></a>Felkorrigeringar
 
-| Rubrik | Beskrivning |
+| Titel | Beskrivning |
 |:---|:---|
 | **Potentiella frågefel när överskrider maxgränsen för antal delningar** |När filen dela gränsen 1 miljon övre gränsen ett ohanterat undantag orsakade SQL-motorn att dumpa och det gick inte att alla frågor. Den här snabbkorrigeringen åtgärdas problemet genom att hantera undantaget korrekt och returnera ett fel utan att orsaka frågor att misslyckas. |
 | **Standardvärdet för ökad ExternalMoveReadersPerNode att förbättra prestandan** |Det här problemet orsakades av egenskapsinställningen ExternalMoveReadersPerNode är osynkroniserad med service fabric-inställningen. Den här regression orsakades av en försämrad Gen2 inläsningsprestanda. Korrigeringen ger Gen2 inläsningsprestanda igen inom optimerad design parametrar.|

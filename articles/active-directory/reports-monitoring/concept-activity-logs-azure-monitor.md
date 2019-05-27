@@ -17,12 +17,12 @@ ms.date: 04/22/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b924746c00a438ec4ac81dacc02905565adf30e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: cffef4028a684e27c0941c234df551d844f13420
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64682116"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65896859"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor"></a>Azure aktivitetsloggar AD i Azure Monitor
 
@@ -78,10 +78,10 @@ Följande tabell innehåller en uppskattning av kostnaden, beroende på klientor
 
 | Loggkategori | Antal användare | Händelser per dag | Datavolym per månad (uppskattad) | Kostnad per månad (uppskattad) | Kostnad per år (uppskattad) |
 |--------------|-----------------|----------------------|--------------------------------------|----------------------------|---------------------------|
-| Granska | 100 000 | 1,5&nbsp;miljoner | 90 GB | 1,93 USD | 23,12 USD |
-| Granska | 1,000 | 15 000 | 900 MB | 0,02 USD | 0,24 USD |
+| Granska | 100,000 | 1,5&nbsp;miljoner | 90 GB | 1,93 USD | 23,12 USD |
+| Granska | 1,000 | 15,000 | 900 MB | 0,02 USD | 0,24 USD |
 | Inloggningar | 1,000 | 34 800 | 4 GB | 0,13 USD | 1,56 USD |
-| Inloggningar | 100 000 | 15&nbsp;miljoner | 1,7 TB | 35,41 USD | 424,92 USD |
+| Inloggningar | 100,000 | 15&nbsp;miljoner | 1,7 TB | 35,41 USD | 424,92 USD |
  
 
 
@@ -102,11 +102,28 @@ Följande tabell innehåller uppskattad kostnad per månad för en grundläggand
 
 | Loggkategori | Antal användare | Händelser per sekund | Händelser per femminutsintervall | Volym per intervall | Meddelanden per intervall | Meddelanden per månad | Kostnad per månad (uppskattad) |
 |--------------|-----------------|-------------------------|----------------------------------------|---------------------|---------------------------------|------------------------------|----------------------------|
-| Granska | 100 000 | 18 | 5 400 | 10,8 MB | 43 | 371 520 | 10,83 USD |
+| Granska | 100,000 | 18 | 5 400 | 10,8 MB | 43 | 371 520 | 10,83 USD |
 | Granska | 1,000 | 0,1 | 52 | 104 KB | 1 | 8 640 | 10,80 USD |
 | Inloggningar | 1,000 | 178 | 53 400 | 106,8&nbsp;MB | 418 | 3 611 520 | 11,06 USD |  
 
 ### <a name="azure-monitor-logs-cost-considerations"></a>Azure Monitor loggar kostnaden överväganden
+
+
+
+| Loggkategori       | Antal användare | Händelser per dag | Händelser per månad (30 dagar) | Kostnad per månad i USD (est). |
+| :--                | ---             | ---            | ---                        | --:                          |
+| Gransknings- och inloggningar | 100,000         | 16,500,000     | 495,000,000                |  $1093.00                       |
+| Granska              | 100,000         | 1,500,000      | 45,000,000                 |  $246.66                     |
+| Inloggningar           | 100,000         | 15,000,000     | 450,000,000                |  $847.28                     |
+
+
+
+
+
+
+
+
+
 
 Kostnaderna för att hantera Azure Monitor-loggar finns i [hantera kostnader genom att kontrollera datavolymer och kvarhållning i Azure Monitor-loggar](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-cost-storage).
 

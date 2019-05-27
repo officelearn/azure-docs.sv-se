@@ -6,14 +6,14 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 04/29/2098
+ms.date: 05/20/2019
 ms.author: rajanaki
-ms.openlocfilehash: aa135fef2850a692d45d932c15d4be74ccba5724
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 1d36145b2a38c0f1106b4468eab226996e270ae1
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925697"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65922147"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Automatisk uppdatering av mobilitetstjänsten i replikering från Azure till Azure
 
@@ -535,3 +535,14 @@ Om du gick inte att aktivera Automatiska uppdateringar, se följande vanliga fel
 - **Fel**: Kör som-kontot hittades inte. En av dessa har tagits bort eller inte skapats – Azure Active Directory-program, tjänstens huvudnamn, roll, Automation-certifikattillgång, Automation-anslutningstillgång, eller tumavtrycket är inte identiskt för certifikat och anslutning. 
 
     **Rekommenderad åtgärd**: Ta bort och sedan [återskapa kör som-kontot](https://docs.microsoft.com/azure/automation/automation-create-runas-account).
+
+-  **Fel**: Azure kör som-certifikatet som används av automation-kontot är på väg att upphöra att gälla. 
+
+    Det självsignerade certifikatet som skapades för Kör som-kontot går ut ett år från skapandedatum. Du kan förnya det när som helst innan det upphör att gälla. Om du har registrerat dig för e-postmeddelanden, får även e-postmeddelanden när en åtgärd krävs från din sida. Det här felet visas två månader före utgångsdatum och ändrar till ett kritiskt fel om certifikatet har upphört att gälla. När certifikatet har upphört att gälla, fungerar automatisk uppdatering inte tills du förnyar den.
+
+   **Rekommenderad åtgärd**: Klicka på ”reparera” och sedan förnya certifikat för att lösa problemet.
+    
+   ![förnya certifikat](media/azure-to-azure-autoupdate/automation-account-renew-runas-certificate.PNG)
+
+> [!NOTE]
+> När du förnyar certifikatet uppdatera sidan så att den aktuella statusen uppdateras.

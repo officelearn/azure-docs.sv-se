@@ -12,11 +12,11 @@ author: gauravmalhot
 ms.author: gamal
 manager: craigg
 ms.openlocfilehash: b62cbe75730da8c5764839d41887deb7e6cd0e90
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576345"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66122628"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Övervaka en integration runtime i Azure Data Factory  
 **Integreringskörningen** är beräkningsinfrastrukturen som används av Azure Data Factory för att tillhandahålla olika funktioner för dataintegrering i olika nätverksmiljöer. Det finns tre typer av integration Runtime som erbjuds av Data Factory:
@@ -45,7 +45,7 @@ Följande tabell innehåller beskrivningar av egenskaper som returneras av cmdle
 -------- | ------------- | 
 | Namn | Namnet på Azure integration runtime. |  
 | Status | Status för Azure integration runtime. | 
-| Plats | Platsen för Azure integration runtime. Mer information om platsen för en Azure integration runtime finns [introduktion till integration runtime](concepts-integration-runtime.md). |
+| Location | Platsen för Azure integration runtime. Mer information om platsen för en Azure integration runtime finns [introduktion till integration runtime](concepts-integration-runtime.md). |
 | DataFactoryName | Namnet på datafabriken som tillhör Azure integration runtime. | 
 | ResourceGroupName | Namnet på resursgruppen som datafabriken tillhör.  |
 | Beskrivning | Beskrivning av integration runtime.  |
@@ -164,7 +164,7 @@ Azure-SSIS integration runtime är ett fullständigt hanterat kluster av Azure v
 | OtherErrors | De icke-nod-specifika fel som behöver åtgärdas på din Azure-SSIS integration runtime. |
 | LastOperation | Resultatet av åtgärd som senast Starta/Stoppa på din Azure-SSIS integration runtime med användbara fel om den misslyckades. |
 | Status | Övergripande status (första/starta/igång/stoppa/stoppad) för din Azure-SSIS integration runtime. |
-| Plats | Platsen för din Azure-SSIS integration runtime. |
+| Location | Platsen för din Azure-SSIS integration runtime. |
 | NodeSize | Storleken på varje nod i din Azure-SSIS integration runtime. |
 | NodeCount | Antalet noder i din Azure-SSIS integration runtime. |
 | MaxParallelExecutionsPerNode | Antalet parallella körningar per nod i din Azure-SSIS integration runtime. |
@@ -187,7 +187,7 @@ Azure-SSIS integration runtime är ett fullständigt hanterat kluster av Azure v
 | Status | Beskrivning |
 | ------ | ----------- | 
 | Startar | Den här noden förbereds. |
-| Tillgängligt | Den här noden är redo att distribuera/köra SSIS-paket. |
+| Tillgänglig | Den här noden är redo att distribuera/köra SSIS-paket. |
 | Återvinning | Den här noden är att reparera/omstart. |
 | Inte tillgängligt | Den här noden är inte redo att distribuera/köra SSIS-paket och användbara fel/problem som du kan lösa. |
 
@@ -198,7 +198,7 @@ Azure-SSIS integration runtime är ett fullständigt hanterat kluster av Azure v
 | Inledande | Noderna på din Azure-SSIS integration runtime har inte allokerats/förberett. | 
 | Startar | Noderna på din Azure-SSIS integration runtime som ska allokeras/förberedd och fakturering har startats. |
 | Startade | Noderna på din Azure-SSIS integration runtime har allokerats/förberedd och de är redo att distribuera/köra SSIS-paket. |
-| Stoppas  | Noderna på din Azure-SSIS integration runtime släpps. |
+| Stoppar  | Noderna på din Azure-SSIS integration runtime släpps. |
 | Stoppad | Noderna på din Azure-SSIS integration runtime har publicerats och fakturering har stoppats. |
 
 ### <a name="monitor-the-azure-ssis-integration-runtime-in-the-azure-portal"></a>Övervaka Azure-SSIS integration runtime i Azure portal

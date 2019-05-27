@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 12/12/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e958aa82eb1e2fbf21a44df333533c6da058a966
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 1a6797c7bd0c6bd8ce8d3f51b42cb4c2b1338fd6
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58448482"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65950470"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Vanliga frågor och kända problem med hanterade identiteter för Azure-resurser
 
@@ -68,7 +68,7 @@ Vissa begränsningar med att använda VM-tillägg-slutpunkten är:
 - Endast 32 användartilldelade hanterade identiteter kan tilldelas till den virtuella datorn.
 
 
-Obs! Hanterade identiteter för Azure-resurser VM-tillägget kommer att januari 2019 support upphör. 
+Anteckning: Hanterade identiteter för Azure-resurser VM-tillägget kommer att januari 2019 support upphör. 
 
 Läs mer på Azure Instance Metadata Service [IMDS dokumentation](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
 
@@ -81,6 +81,11 @@ Nej. Om du flyttar en prenumeration till en annan katalog, måste du manuellt å
 ### <a name="can-i-use-a-managed-identity-to-access-a-resource-in-a-different-directorytenant"></a>Kan jag använda en hanterad identitet för att komma åt en resurs i en annan katalog/klient?
 
 Nej. Hanterade identiteter stöder för närvarande inte mellan directory scenarier. 
+
+### <a name="what-azure-rbac-permissions-are-required-to-managed-identity-on-a-resource"></a>Vilka Azure RBAC-behörigheter krävs för att hanterade identiteter på en resurs? 
+
+- Systemtilldelade hanterad identitet: Du måste skriva över resursen. Exempel: Microsoft.Compute/virtualMachines/write eller den här åtgärden ingår i resursen specifika inbyggda roller som [virtuell Datordeltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#virtual-machine-contributor).
+- Användartilldelade hanterad identitet: Du måste skriva över resursen. Exempel: Microsoft.Compute/virtualMachines/write . Förutom [hanterade Identitetsoperatör](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-operator) rolltilldelning över hanterad identitet. 
 
 ### <a name="how-do-you-restart-the-managed-identities-for-azure-resources-extension"></a>Hur du starta om de hanterade identiteterna för tillägget för Azure-resurser
 På Windows och vissa versioner av Linux om tillägget slutar kan följande cmdlet användas för att starta om den manuellt:

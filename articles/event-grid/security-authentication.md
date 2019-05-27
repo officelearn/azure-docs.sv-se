@@ -6,14 +6,14 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 03/29/2019
+ms.date: 05/22/2019
 ms.author: babanisa
-ms.openlocfilehash: 2d56a7cda88f96a6728dc1c3e4af8e9ad0bf946f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 87cfce6045ce84f83ca651472635227547c26ee9
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60822851"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66117009"
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid säkerhet och autentisering 
 
@@ -45,6 +45,9 @@ Om du använder någon annan typ av slutpunkt, t.ex. en HTTP-utlösare baserade 
 
     Den här autentiseringsmekanism kräver också webhook-slutpunkt för att returnera ett HTTP-statuskod 200 så att den vet att INLÄGGET för händelsen verifieringen godkändes innan den kan läggas till i läge för manuell verifiering. Om slutpunkten returnerar 200 men inte returnerar verifieringssvaret programmässigt, överföras med andra ord läget till manuell verifiering-läge. Om det finns en hämtning på URL: en för verifiering inom 5 minuter, anses verifiering handskakningen ska lyckas.
 
+> [!NOTE]
+> Använder självsignerade certifikat för verifiering stöds inte. Använd ett signerat certifikat från en certifikatutfärdare (CA) i stället.
+
 ### <a name="validation-details"></a>Verifieringsinformation
 
 * Vid tidpunkten för händelsen skapande/uppdatering av prenumeration publicerar Event Grid en händelse för verifiering av prenumerationen till mål-slutpunkten. 
@@ -64,8 +67,8 @@ Ett exempel SubscriptionValidationEvent visas i följande exempel:
   "topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "subject": "",
   "data": {
-    "validationCode": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6",
-    "validationUrl": "https://rp-eastus2.eventgrid.azure.net:553/eventsubscriptions/estest/validate?id=B2E34264-7D71-453A-B5FB-B62D0FDC85EE&t=2018-04-26T20:30:54.4538837Z&apiVersion=2018-05-01-preview&token=1BNqCxBBSSE9OnNSfZM4%2b5H9zDegKMY6uJ%2fO2DFRkwQ%3d"
+    "validationCode": "0000000000-0000-0000-0000-00000000000000",
+    "validationUrl": "https://rp-eastus2.eventgrid.azure.net:553/eventsubscriptions/estest/validate?id=0000000000-0000-0000-0000-0000000000000&t=2018-04-26T20:30:54.4538837Z&apiVersion=2018-05-01-preview&token=1A1A1A1A"
   },
   "eventType": "Microsoft.EventGrid.SubscriptionValidationEvent",
   "eventTime": "2018-01-25T22:12:19.4556811Z",

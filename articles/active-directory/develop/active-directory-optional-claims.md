@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/27/2019
+ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 593289e64c0f9cd13251a0f7b47b860158100b36
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 8c0e5035331cbe4f54926f0ae60ae0c5c31f6a9a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544568"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66119725"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Anvisningar: Ange valfria anspråk till din Azure AD-app
 
@@ -125,6 +125,9 @@ Det här objektet OptionalClaims orsakar ID-token som returneras till klienten m
 ## <a name="configuring-optional-claims"></a>Konfigurera valfria anspråk
 
 Du kan konfigurera valfria anspråk för ditt program genom att ändra programmanifestet (se exemplet nedan). Mer information finns i den [förstå Azure AD application manifest artikeln](reference-app-manifest.md).
+
+> [!IMPORTANT]
+> Åtkomsttoken är **alltid** genereras med hjälp av manifestet för resursen inte klienten.  Så i begäran `...scope=https://graph.microsoft.com/user.read...` resursen är diagrammet.  Därför skapas åtkomsttoken med hjälp av Graph-manifestet inte klientens manifest.  Ändra manifest för ditt program gör aldrig så att token för Graph för att se annorlunda ut.  För att kontrollera att din `accessToken` ändringar tillämpas, begära en token för ditt program, inte en annan app.  
 
 **Exemplet schema:**
 
@@ -247,7 +250,7 @@ Det här avsnittet beskrivs konfigurationsalternativ under valfria anspråk för
    }
    ```
 
-   | Valfria anspråk Schema | Value |
+   | Valfria anspråk Schema | Värde |
    |----------|-------------|
    | **Namn:** | Måste vara ”grupper” |
    | **Källa:** | Används inte. Utelämna eller ange null |

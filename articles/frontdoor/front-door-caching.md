@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: fb00c09680c6a80bc093c6f02ccd8d7269b8748c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 42ee1dea8c9735592f6d6c9e0542ca094a6be383
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60306146"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65962914"
 ---
 # <a name="caching-with-azure-front-door-service"></a>Cachelagring med Azure ytterdörren Service
 Följande dokument anger beteende för ytterdörren med regler för routning som har aktiverat cachelagring.
@@ -101,7 +101,7 @@ Cache återställningspunkter på åtkomsten är skiftlägeskänsliga. Dessutom 
 ## <a name="cache-expiration"></a>Förfallotid för cache
 I följande prioritetsordning rubriker används för att avgöra hur lång tid ett objekt som är lagrade i vår cache:</br>
 1. Cache-Control: s-maxage =\<sekunder >
-2. Cache-Control: maxage =\<sekunder >
+2. Cache-Control: max-age=\<seconds>
 3. Förfaller: \<http-date >
 
 Cache-Control-svarshuvuden som indikerar att svaret inte cachelagras, till exempel Cache-Control: privat Cache-Control: no-cache och Cache-Control: no-store respekteras. Om det finns flera begäranden pågående på en POP för samma URL, kan de dela svaret. Om det finns inga Cache-Control är standardbeteendet AFD cachelagrar resurs för X tid där X slumpmässigt plockas mellan 1 till 3 dagar.

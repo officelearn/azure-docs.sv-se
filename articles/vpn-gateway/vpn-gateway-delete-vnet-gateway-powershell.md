@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.date: 02/07/2019
 ms.author: cherylmc
 ms.topic: conceptual
-ms.openlocfilehash: bf1cc3b95e8335b6e24dd405d82e5c51d2a8d11b
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: 7b9503b2db14d4de6c4c8cf983c42bccd6f9f8fd
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792692"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66157428"
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell"></a>Ta bort en virtuell nätverksgateway med hjälp av PowerShell
 > [!div class="op_single_selector"]
@@ -79,7 +79,7 @@ get-Azvirtualnetworkgatewayconnection -ResourceGroupName "RG1" | where-object {$
 $Conns=get-Azvirtualnetworkgatewayconnection -ResourceGroupName "RG1" | where-object {$_.VirtualNetworkGateway1.Id -eq $GW.Id}
 ```
 
-### <a name="3-delete-all-connections"></a>3. Ta bort alla anslutningar.
+### <a name="3-delete-all-connections"></a>3 Ta bort alla anslutningar.
 
 Du kan uppmanas att bekräfta borttagningen av var och en av anslutningarna.
 
@@ -167,7 +167,7 @@ Det kan finnas andra anslutningar till den virtuella nätverksgatewayen som ing�
 get-Azvirtualnetworkgatewayconnection -ResourceGroupName "RG2" | where-object {$_.VirtualNetworkGateway2.Id -eq $GW.Id}
 ```
 
-### <a name="3-get-the-list-of-connections-in-both-directions"></a>3. Hämta listan över anslutningar i båda riktningarna.
+### <a name="3-get-the-list-of-connections-in-both-directions"></a>3 Hämta listan över anslutningar i båda riktningarna.
 
 Eftersom detta är en VNet-till-VNet-konfiguration måste listan över anslutningar i båda riktningarna.
 
@@ -259,7 +259,7 @@ Remove-AzVirtualNetworkGateway -Name "GW1" -ResourceGroupName "RG1"
 
 Nu kan har din virtuella nätverksgateway tagits bort. Du kan använda nästa steg att ta bort alla resurser som används inte längre.
 
-### <a name="3-delete-the-public-ip-address-resources"></a>3. Ta bort offentlig IP-adressresurser
+### <a name="3-delete-the-public-ip-address-resources"></a>3 Ta bort offentlig IP-adressresurser
 
 Hämta IP-konfigurationer för den virtuella nätverksgatewayen.
 
@@ -304,7 +304,7 @@ Leta upp den resursgrupp som du vill ta bort och visa listan över resurser i re
 Find-AzResource -ResourceGroupNameContains RG1
 ```
 
-### <a name="3-verify-the-resources-in-the-list"></a>3. Kontrollera resurserna i listan.
+### <a name="3-verify-the-resources-in-the-list"></a>3 Kontrollera resurserna i listan.
 
 När listan returneras kan du granska den för att kontrollera att du vill ta bort alla resurser i resursgruppen, samt själva resursgruppen. Om du vill behålla några av resurserna i resursgruppen du använda stegen i de tidigare avsnitten i den här artikeln för att ta bort din gateway.
 

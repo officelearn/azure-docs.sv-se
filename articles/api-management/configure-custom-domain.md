@@ -9,14 +9,14 @@ editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-ms.date: 12/14/2017
+ms.date: 05/29/2019
 ms.author: apimpm
-ms.openlocfilehash: a771b437258046f937b97a9e37ffedbe0a17c1c1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a8bfa7c5baa316b4019480bfc146b6cc61eff979
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60693606"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66141292"
 ---
 # <a name="configure-a-custom-domain-name"></a>Konfigurera ett anpassat domännamn 
 
@@ -36,8 +36,6 @@ Om du vill utföra stegen som beskrivs i den här artikeln, måste du ha:
 + En APIM-instansen. Mer information finns i [skapa en Azure API Management-instans](get-started-create-service-instance.md).
 + Ett anpassat domännamn som ägs av dig. Det anpassade domännamnet som du vill använda, måste skaffat separat och finns på en DNS-server. Det här avsnittet ger inte instruktioner om hur du vara värd för ett anpassat domännamn.
 + Du måste ha ett giltigt certifikat med en offentlig och privat nyckel (. PFX). Ämnet eller alternativt namn för certifikatmottagare (SAN) måste matcha domännamnet (Detta möjliggör APIM att exponera URL: er på ett säkert sätt via SSL).
-
-[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="use-the-azure-portal-to-set-a-custom-domain-name"></a>Använd Azure portal för att ange ett anpassat domännamn
 

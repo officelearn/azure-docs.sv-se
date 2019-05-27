@@ -1,16 +1,15 @@
 ---
-author: WenJason
+author: vhorne
 ms.service: dns
 ms.topic: include
-origin.date: 11/25/2018
-ms.date: 12/24/2018
-ms.author: v-jay
+ms.date: 11/25/2018
+ms.author: victorh
 ms.openlocfilehash: 9cc650cea17acb8d89933c819c4ca60e2c459d1c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60563372"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66149946"
 ---
 Avsändaren princip framework (SPF) poster används för att ange vilka e-postservrar kan skicka e-post åt ett domännamn. SPF-poster är korrekt konfigurerat är viktigt att förhindra att mottagaren Markera din e-postadress som skräppost.
 

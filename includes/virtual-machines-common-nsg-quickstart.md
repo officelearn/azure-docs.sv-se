@@ -2,19 +2,18 @@
 title: ta med fil
 description: ta med fil
 services: virtual-machines-windows
-author: rockboyfor
+author: cynthn
 ms.service: virtual-machines-windows
 ms.topic: include
-origin.date: 09/12/2018
-ms.date: 11/12/2018
-ms.author: v-yeche
+ms.date: 09/12/2018
+ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: ec6cbcbc93fe87634c87caeb0041b75ec916a22f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60405394"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66154786"
 ---
 Du öppnar en port eller skapa en slutpunkt för att en virtuell dator (VM) i Azure genom att skapa ett filter för nätverk på ett undernät eller ett VM-nätverksgränssnitt. Du kan placera dessa filter som styr både inkommande och utgående trafik på en nätverkssäkerhetsgrupp som är kopplade till den resurs som tar emot trafiken.
 
@@ -34,4 +33,8 @@ När du har skapat en virtuell dator som är konfigurerad för att hantera webbe
 
 3. Associera nätverkssäkerhetsgruppen med VM-nätverksgränssnitt eller undernät.
 
-    Även om det här exemplet använder en enkel regel för att tillåta HTTP-trafik, kan du också använda nätverkssäkerhetsgrupper och regler för att skapa mer komplexa konfigurationer.
+Även om det här exemplet använder en enkel regel för att tillåta HTTP-trafik, kan du också använda nätverkssäkerhetsgrupper och regler för att skapa mer komplexa konfigurationer. 
+
+
+
+

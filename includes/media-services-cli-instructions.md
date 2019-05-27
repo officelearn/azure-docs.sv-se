@@ -9,11 +9,11 @@ ms.date: 01/28/2019
 ms.author: juliako
 ms.custom: include file
 ms.openlocfilehash: 8439da94c770bee313a1ae1d1da5df30683cd2ad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61224317"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66155714"
 ---
 ## <a name="cli-shell"></a>CLI-gränssnittet
 
@@ -31,7 +31,7 @@ Om CLI kan öppna din standardwebbläsare så sker det och en inloggningssida l�
 
 Många Media Services CLI-kommandon kan du skicka en parameter med ett filnamn. Om du använder **Cloud Shell**, du kan överföra filen till din clouddrive (med Bash eller PowerShell). 
 
-![Överföra filer]
+![Ladda upp filer]
 
 Om du använder en lokal CLI eller **Cloud Shell**, måste du ange sökvägen till filen enligt OS- eller Cloud Shell (Bash eller PowerShell) som du använder. Nedan visas några exempel:
 

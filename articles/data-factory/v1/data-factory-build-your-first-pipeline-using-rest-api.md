@@ -14,11 +14,11 @@ ms.date: 11/01/2017
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 5dcf31adc5e8bdf810d484f07ebeb6f23acbf452
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487812"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66146863"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-data-factory-rest-api"></a>Självstudier: Skapa din första Azure-datafabrik med hjälp av REST-API:et för Data Factory
 > [!div class="op_single_selector"]
@@ -45,7 +45,7 @@ Pipeline i den här självstudien har en aktivitet: **HDInsight Hive-aktiviteten
 > En pipeline kan ha fler än en aktivitet. Du kan länka två aktiviteter (köra en aktivitet efter en annan) genom att ställa in datauppsättningen för utdata för en aktivitet som den inkommande datauppsättningen för den andra aktiviteten. Mer detaljerad information finns i [Scheduling and execution in Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) (Schemaläggning och utförande i Data Factory).
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -125,8 +125,8 @@ Följande tabell innehåller beskrivningar av de JSON-egenskaper som användes i
 
 | Egenskap | Beskrivning |
 |:--- |:--- |
-| clusterSize |Storleken på HDInsight-klustret. |
-| timeToLive |Anger inaktivitetstiden för HDInsight-klustret innan det tas bort. |
+| ClusterSize |Storleken på HDInsight-klustret. |
+| TimeToLive |Anger inaktivitetstiden för HDInsight-klustret innan det tas bort. |
 | linkedServiceName |Anger lagringskontot som används för att spara loggarna som genereras av HDInsight |
 
 Observera följande punkter:
@@ -171,13 +171,13 @@ Följande tabell innehåller beskrivningar av de JSON-egenskaper som användes i
 
 | Egenskap | Beskrivning |
 |:--- |:--- |
-| type |Typegenskapen har angetts till AzureBlob eftersom det finns data i Azure Blob-lagringen. |
+| typ |Typegenskapen har angetts till AzureBlob eftersom det finns data i Azure Blob-lagringen. |
 | linkedServiceName |refererar till den StorageLinkedService som du skapade tidigare. |
 | fileName |Den här egenskapen är valfri. Om du tar bort egenskapen kommer alla filer från folderPath hämtas. I det här fallet bearbetas bara input.log. |
-| type |Loggfilerna är i textformat, så vi använder TextFormat. |
+| typ |Loggfilerna är i textformat, så vi använder TextFormat. |
 | columnDelimiter |kolumner i loggfilerna avgränsas med kommatecken () |
-| frequency/interval |frekvensen är månad och intervallet är 1, vilket innebär att indatasektorerna är tillgängliga en gång i månaden. |
-| external |den här egenskapen anges som true om indatan inte skapades av Data Factory-tjänsten. |
+| frekvens/intervall |frekvensen är månad och intervallet är 1, vilket innebär att indatasektorerna är tillgängliga en gång i månaden. |
+| extern |den här egenskapen anges som true om indatan inte skapades av Data Factory-tjänsten. |
 
 ### <a name="outputdatasetjson"></a>outputdataset.json
 
@@ -490,7 +490,7 @@ I den här självstudien skapade du en Azure-datafabrik som bearbetar data genom
 I den här artikeln har du skapat en pipeline med en transformeringsaktivitet (HDInsight-aktivitet) som kör ett Hive-skript på ett Azure HDInsight-kluster på begäran. Information om hur du använder en kopieringsaktivitet för att kopiera data från en Azure-blob till Azure SQL finns i [Självstudie: Kopiera data från en Azure-blob till Azure SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## <a name="see-also"></a>Se även
-| Avsnitt | Beskrivning |
+| Ämne | Beskrivning |
 |:--- |:--- |
 | [Referens för REST-API:et för Data Factory](/rest/api/datafactory/) |Se den omfattande dokumentationen för Data Factory-cmdletar |
 | [Pipelines](data-factory-create-pipelines.md) |I den här artikeln beskriver vi pipelines och aktiviteter i Azure Data Factory och hur du kan använda dem för att konstruera datadrivna arbetsflöden från slutpunkt till slutpunkt för ditt scenario eller ditt företag. |

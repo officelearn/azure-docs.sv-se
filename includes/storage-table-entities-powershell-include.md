@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/27/2019
 ms.author: tamram
 ms.openlocfilehash: 9a60c624b181a1efd2f6deebd349daa82214a8a4
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541391"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66159744"
 ---
 <!--created by Robin Shahan to go in the articles for table storage w/powershell.
     There is one for Azure Table Storage and one for Azure Cosmos DB Table API -->
@@ -70,7 +70,7 @@ Get-AzTableRow -table $cloudTable | ft
 
 Det här kommandot ger resultat som liknar följande tabell:
 
-| userid | användarnamn | partition | rowkey |
+| userid | username | partition | rowkey |
 |----|---------|---------------|----|
 | 1 | Chris | Partition1 | CA |
 | 3 | Christine | Partition1 | WA |
@@ -85,7 +85,7 @@ Get-AzTableRow -table $cloudTable -partitionKey $partitionKey1 | ft
 
 Resultatet liknar följande tabell:
 
-| userid | användarnamn | partition | rowkey |
+| userid | username | partition | rowkey |
 |----|---------|---------------|----|
 | 1 | Chris | Partition1 | CA |
 | 3 | Christine | Partition1 | WA |
@@ -101,10 +101,10 @@ Get-AzTableRow -table $cloudTable `
 
 Den här frågan returnerar en post.
 
-|Fältet|värde|
+|Fältet|value|
 |----|----|
 | userid | 1 |
-| användarnamn | Chris |
+| username | Chris |
 | PartitionKey | Partition1 |
 | RowKey      | CA |
 
@@ -118,10 +118,10 @@ Get-AzTableRow `
 
 Den här frågan returnerar en post.
 
-|Fältet|värde|
+|Fältet|value|
 |----|----|
 | userid | 1 |
-| användarnamn | Chris |
+| username | Chris |
 | PartitionKey | Partition1 |
 | RowKey      | CA |
 
@@ -153,10 +153,10 @@ Get-AzTableRow -table $cloudTable `
 
 Jessie2 posten visas i resultaten.
 
-|Fältet|värde|
+|Fältet|value|
 |----|----|
 | userid | 2 |
-| användarnamn | Jessie2 |
+| username | Jessie2 |
 | PartitionKey | partition2 |
 | RowKey      | NM |
 

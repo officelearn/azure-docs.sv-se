@@ -1,5 +1,5 @@
 ---
-title: Utforska och förbereda data (datauppsättningen klassen)
+title: Utforska och transformera data (datauppsättningen klassen)
 titleSuffix: Azure Machine Learning service
 description: Utforska data med hjälp av sammanfattande statistik och förbereda data via datarensning, omvandling och funktioner
 services: machine-learning
@@ -10,17 +10,17 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 05/02/19
-ms.openlocfilehash: 70712605cc97670b625d32052bb79b4a666e4281
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.date: 05/23/2019
+ms.openlocfilehash: e692b0dc1089804b1d68b79c1a6f438f30554602
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65603151"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66146302"
 ---
 # <a name="explore-and-prepare-data-with-the-dataset-class-preview"></a>Utforska och förbereda data med klassen datauppsättning (förhandsgranskning)
 
-Lär dig att utforska och förbereda data med den [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Den [datauppsättning](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) klass (förhandsversion) kan du utforska och förbereda dina data genom att tillhandahålla funktioner som: sampling, sammanfattande statistik och intelligent transformationer. Transformeringssteg sparas i [datauppsättning definitioner](how-to-manage-dataset-definitions.md) möjlighet att hantera flera stora filer med olika scheman i en mycket skalbar.
+Lär dig att utforska och förbereda data med paketet azureml-datauppsättningar i den [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Den [datauppsättning](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) klass (förhandsversion) kan du utforska och förbereda dina data genom att tillhandahålla funktioner som: sampling, sammanfattande statistik och intelligent transformationer. Transformeringssteg sparas i [datauppsättning definitioner](how-to-manage-dataset-definitions.md) möjlighet att hantera flera stora filer med olika scheman i en mycket skalbar.
 
 > [!Important]
 > Vissa klasser för datauppsättningen (förhandsversion) är beroende av den [azureml-förberedelse av data](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) paketet (GA). Även om omvandlingen funktioner kan göras direkt med GA'ed [Dataförberedelser funktioner](how-to-transform-data.md), rekommenderar vi datauppsättning paketet omslutningar som beskrivs i den här artikeln om du skapar en ny lösning. Azure Machine Learning datauppsättningar (förhandsversion) kan du inte bara omvandla data, utan även [domänögonblicksdata](how-to-create-dataset-snapshots.md) och lagra [version datauppsättning definitioner](how-to-manage-dataset-definitions.md). Datauppsättningar är nästa version av Data Prep-SDK, som erbjuder fler funktioner för att hantera datauppsättningar i AI-lösningar.
@@ -33,7 +33,7 @@ För att utforska och förbereda dina data, behöver du:
 
 * En arbetsyta för Azure Machine Learning-tjänsten. Se [skapa en arbetsyta för Azure Machine Learning-tjänsten](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace).
 
-* Azure Machine Learning-SDK för Python (version 1.0.21 eller senare). Om du vill installera eller uppdatera till den senaste versionen av SDK, se [installera eller uppdatera SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
+* Azure Machine Learning-SDK för Python (version 1.0.21 eller senare), vilket inkluderar paketets azureml-datauppsättningar. Om du vill installera eller uppdatera till den senaste versionen av SDK, se [installera eller uppdatera SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 
 * I Azure Machine Learning Dataförberedelser SDK. Om du vill installera eller uppdatera till den senaste versionen, se [installera eller uppdatera Data Prep SDK](https://docs.microsoft.com/python/api/overview/azure/dataprep/intro?view=azure-dataprep-py#install).
 

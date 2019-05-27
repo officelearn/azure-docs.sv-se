@@ -9,11 +9,11 @@ ms.date: 04/26/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
 ms.openlocfilehash: f3c1a946afb7f51a1c7543dabae7f2f42ff466be
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65199514"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66145832"
 ---
 Azure H-serien virtuella datorer (VM) är utformade för att leverera prestanda för ledarskap klassen, MPI skalbarhet och kostnadseffektivitet för en mängd verklig HPC-arbetsbelastningar.
 
@@ -29,7 +29,7 @@ Virtuella datorer i H-serien är optimerade för program som styrs av hög CPU-f
 
 Premium-lagring: Stöd för Premiumlagring cachelagring: Stöds
 
-| Storlek | Virtuell processor | Processor | Minne (GB) | Minnesbandbredd GB/s | Grundläggande CPU-frekvens (GHz) | Alla kärnor frekvens (GHz, högsta) | Enkel kärna frekvens (GHz, högsta) | RDMA-prestanda (GB/s) | MPI-stöd | Temporär lagring (GB) | Maximalt antal datadiskar | Max Ethernet-nätverkskort |
+| Storlek | vCPU | Processor | Minne (GB) | Minnesbandbredd GB/s | Grundläggande CPU-frekvens (GHz) | Alla kärnor frekvens (GHz, högsta) | Enkel kärna frekvens (GHz, högsta) | RDMA-prestanda (GB/s) | MPI-stöd | Temporär lagring (GB) | Maximalt antal datadiskar | Max Ethernet-nätverkskort |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_HB60rs | 60 | AMD EPYC 7551 | 240 | 263 | 2.0 | 2.55 | 2.55 | 100 | Alla | 700 | 4 | 1 |
 
@@ -40,7 +40,7 @@ Premium-lagring: Stöd för Premiumlagring cachelagring: Stöds
 Premium-lagring: Stöd för Premiumlagring cachelagring: Stöds
 
 
-| Storlek | Virtuell processor | Processor | Minne (GB) | Minnesbandbredd GB/s | Grundläggande CPU-frekvens (GHz) | Alla kärnor frekvens (GHz, högsta) | Enkel kärna frekvens (GHz, högsta) | RDMA-prestanda (GB/s) | MPI-stöd | Temporär lagring (GB) | Maximalt antal datadiskar | Max Ethernet-nätverkskort |
+| Storlek | vCPU | Processor | Minne (GB) | Minnesbandbredd GB/s | Grundläggande CPU-frekvens (GHz) | Alla kärnor frekvens (GHz, högsta) | Enkel kärna frekvens (GHz, högsta) | RDMA-prestanda (GB/s) | MPI-stöd | Temporär lagring (GB) | Maximalt antal datadiskar | Max Ethernet-nätverkskort |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_HC44rs | 44 | Intel Xeon Platinum 8168 | 352 | 191 | 2.7 | 3.4 | 3.7 | 100 | Alla | 700 | 4 | 1 |
 
@@ -55,7 +55,7 @@ Premium-lagring:  Stöds inte
 
 Premium Storage Caching:  Stöds inte
 
-| Storlek | Virtuell processor | Processor | Minne (GB) | Minnesbandbredd GB/s | Grundläggande CPU-frekvens (GHz) | Alla kärnor frekvens (GHz, högsta) | Enkel kärna frekvens (GHz, högsta) | RDMA-prestanda (GB/s) | MPI-stöd | Temporär lagring (GB) | Maximalt antal datadiskar | Max Ethernet-nätverkskort |
+| Storlek | vCPU | Processor | Minne (GB) | Minnesbandbredd GB/s | Grundläggande CPU-frekvens (GHz) | Alla kärnor frekvens (GHz, högsta) | Enkel kärna frekvens (GHz, högsta) | RDMA-prestanda (GB/s) | MPI-stöd | Temporär lagring (GB) | Maximalt antal datadiskar | Max Ethernet-nätverkskort |
 | --- | --- |--- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_H8 | 8 | Intel Xeon® E5-2667 v3 | 56 | 40 | 3.2 | 3.3 | 3.6 | 56 | Intel 5.x, MS-MPI | 1000 | 32 | 2 |
 | Standard_H16 | 16 | Intel Xeon® E5-2667 v3 | 112 | 80 | 3.2 | 3.3 | 3.6 |  56 | Intel 5.x, MS-MPI | 2000 | 64 | 4 |

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 8cc5dbb907c342b766cebe6da36cf580ddac5e2c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61410017"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66171910"
 ---
 #### <a name="to-install-regular-hotfixes-via-windows-powershell-for-storsimple"></a>Du installerar regelbundna snabbkorrigeringar via Windows PowerShell för StorSimple
 1. Ansluta till enhetens seriekonsol. Mer information finns i [steg 1: Ansluta till seriekonsolen](../articles/storsimple/storsimple-update-device.md#step1).

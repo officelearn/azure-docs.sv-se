@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 03/29/2019
+ms.date: 05/17/2019
 ms.author: iainfou
-ms.openlocfilehash: 1c24bbb9433e4164d4b2f6ce1ac7bd726cc36356
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
-ms.translationtype: MT
+ms.openlocfilehash: 4086b73313d563afaecad9b6a9289905d7085004
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506909"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66142644"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Förhandsversion – skapa och hantera flera nodpooler för ett kluster i Azure Kubernetes Service (AKS)
 
@@ -332,7 +332,7 @@ Poddar som har den här färg som används kan schemaläggas på noder i *gpunod
 
 I den här artikeln skapade du ett AKS-kluster med GPU-baserad noder. För att minska onödiga kostnader, kanske du vill ta bort den *gpunodepool*, eller hela AKS-klustret.
 
-Ta bort poolen GPU-baserad noden genom att använda den [az aks nodpool ta bort] [ az-aks-nodepool-delete] kommandot enligt följande exempel:
+Ta bort poolen GPU-baserad noden genom att använda den [az aks nodepool ta bort] [ az-aks-nodepool-delete] kommandot enligt följande exempel:
 
 ```azurecli-interactive
 az aks nodepool delete -g myResourceGroup --cluster-name myAKSCluster --name gpunodepool
@@ -348,8 +348,10 @@ az group delete --name myResourceGroup --yes --no-wait
 
 I den här artikeln beskrivs hur du skapar och hanterar flera nodpooler i ett AKS-kluster. Läs mer om hur du styr poddar i nodpooler [bästa praxis för avancerade scheduler funktioner i AKS][operator-best-practices-advanced-scheduler].
 
+Om du vill skapa och använda nodpooler för Windows Server-behållare, se [skapa en Windows Server-behållare i AKS][aks-windows].
+
 <!-- EXTERNAL LINKS -->
-[aks-github]: https://github.com/azure/aks/issues]
+[aks-github]: https://github.com/azure/aks/issues
 [kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-taint]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#taint
@@ -376,3 +378,4 @@ I den här artikeln beskrivs hur du skapar och hanterar flera nodpooler i ett AK
 [install-azure-cli]: /cli/azure/install-azure-cli
 [supported-versions]: supported-kubernetes-versions.md
 [operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
+[aks-windows]: windows-container-cli.md

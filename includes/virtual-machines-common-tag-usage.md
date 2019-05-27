@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 17778b3edf1845d85302a0bcdf72a1ebc3919cea
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62108326"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66166083"
 ---
 ## <a name="viewing-your-tags-in-the-usage-details"></a>Visa taggarna i användningsinformation
 Taggar som placeras på beräkning, nätverk och lagringsresurser i Resource Manager-distributionsmodellen fylls i användningsinformation i den [faktureringsportalen](https://account.windowsazure.com/).

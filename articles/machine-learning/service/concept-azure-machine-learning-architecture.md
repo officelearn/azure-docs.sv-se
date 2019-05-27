@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: cb716e0d9f97d3ea2e9584a9fc3d7a6f57da9179
-ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
-ms.translationtype: MT
+ms.openlocfilehash: 3167f60cca9997c9713efad0fbb8a51b20def76b
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65502078"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66151167"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Så här fungerar Azure Machine Learning-tjänsten: Arkitektur och begrepp
 
@@ -34,39 +34,23 @@ Machine learning-arbetsflöde Allmänt följer den här sekvensen:
 1. När du har hittat ett tillfredsställande kör registrera beständiga modellen i den **modellen registret**.
 1. Utveckla ett bedömningsskript som använder modellen och **distribuera modellen** som en **webbtjänsten** i Azure eller till en **IoT Edge-enhet**.
 
+Du utför de här stegen med någon av följande:
++ [Azure Machine Learning-SDK för Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
++ [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli)
++  Den [visuella gränssnittet (förhandsversion) för Azure Machine Learning-tjänsten](ui-concept-visual-interface.md)
 
 > [!NOTE]
 > Även om den här artikeln definierar termer och begrepp som används av Azure Machine Learning-tjänsten, anger inte termer och begrepp för Azure-plattformen. Läs mer om Azure-plattformen terminologi, den [Microsoft Azures ordlista](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology).
 
 ## <a name="workspace"></a>Arbetsyta
 
-Arbetsytan är den översta resursen för Azure Machine Learning-tjänsten. Det ger en centraliserad plats för att arbeta med alla artefakter som du skapar när du använder Azure Machine Learning-tjänsten.
-
-Arbetsytan och ser en lista över beräkningsmål som du kan använda för att träna din modell. Det håller också en historik över träningskörningar, inklusive loggar, mått, utdata och en ögonblicksbild av dina skript. Du kan använda den här informationen för att avgöra vilka kör utbildning ger den bästa modellen.
-
-Du kan registrera modeller med arbetsytan. Du använder en registrerade modellen och bedömnings-skript för att distribuera en modell till Azure Container Instances, Azure Kubernetes Service eller till en fält-programmable gate (FPGA) som en REST-baserade HTTP-slutpunkt. Du kan också distribuera avbildningen till en Azure IoT Edge-enhet som en modul. Internt, skapas en docker-avbildning för att vara värd för den distribuerade avbildningen. Om det behövs kan du ange en egen avbildning.
-
-Du kan skapa flera arbetsytor och varje arbetsyta kan delas av flera personer. När du delar en arbetsyta, kan du styra åtkomsten till den genom att tilldela användare till följande roller:
-
-* Ägare
-* Deltagare
-* Läsare
-
-Mer information om dessa roller finns i den [hantera åtkomst till en Azure Machine Learning-arbetsyta](how-to-assign-roles.md) artikeln.
-
-När du skapar en ny arbetsyta skapas automatiskt flera Azure-resurser som används av arbetsytan:
-
-* [Azure Container Registry](https://azure.microsoft.com/services/container-registry/): Registrerar docker-behållare som du använder vid träning och när du distribuerar en modell.
-* [Azure-lagringskonto](https://azure.microsoft.com/services/storage/): Används som standard-datalager för arbetsytan.
-* [Azure Application Insights](https://azure.microsoft.com/services/application-insights/): Butiker övervakningsinformation om dina modeller.
-* [Azure Key Vault](https://azure.microsoft.com/services/key-vault/): Butiker hemligheter som används av compute mål och annan känslig information som behövs av arbetsytan.
-
-> [!NOTE]
-> Förutom att skapa nya versioner, kan du också använda befintliga Azure-tjänster.
+[Arbetsytan](concept-workspace.md) är den översta resursen för Azure Machine Learning-tjänsten. Det ger en centraliserad plats för att arbeta med alla artefakter som du skapar när du använder Azure Machine Learning-tjänsten.
 
 En taxonomi för arbetsytan illustreras i följande diagram:
 
 [![Arbetsytan taxonomi](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
+
+Mer information om arbetsytor finns i [vad är en Azure Machine Learning-arbetsyta?](concept-workspace.md).
 
 ## <a name="experiment"></a>Experiment
 
@@ -170,6 +154,10 @@ Du kan skapa en körning när du skickar in ett skript för att träna en modell
 
 Ett exempel med att visa körningar som genereras av träna en modell finns i [snabbstarten: Kom igång med Azure Machine Learning-tjänsten](quickstart-run-cloud-notebook.md).
 
+## <a name="github-tracking-and-integration"></a>GitHub-spårning och integration
+
+När du startar en utbildning som kör där källkatalogen är en lokal Git-lagringsplats, lagras information om databasen i körningshistoriken. Till exempel loggas aktuellt genomförande-ID för lagringsplatsen som en del av historiken. Detta fungerar med körningar som skickas med en kostnadsuppskattning, ML pipeline eller skript som körs. Den fungerar även för körningar som har skickats från Machine Learning CLI eller SDK.
+
 ## <a name="snapshot"></a>Ögonblicksbild
 
 När du skickar en körning komprimerar katalogen som innehåller skriptet som en zip-fil och skickar dem till beräkningsmål-i Azure Machine Learning. Zip-filen hämtas sedan och skriptet körs det. Azure Machine Learning lagrar också zip-filen som en ögonblicksbild som en del av den kör posten. Alla som har åtkomst till arbetsytan kan bläddra en kör post och ladda ned ögonblicksbilden.
@@ -228,7 +216,7 @@ Azure IoT Edge säkerställer att din modul körs och det övervakar den enhet s
 
 ## <a name="pipeline"></a>Pipeline
 
-Använder du machine learning pipelines för att skapa och hantera arbetsflöden som sätta ihop machine learning faser. En pipeline kan till exempel innehålla förberedelse av data, modellträning, distribution av modeller och inferensjobb faser. Varje fas kan omfatta flera steg, som kan köras obevakat i olika beräkningsmål.
+Använder du machine learning pipelines för att skapa och hantera arbetsflöden som sätta ihop machine learning faser. En pipeline kan till exempel innehålla förberedelse av data, modellträning, distribution av modeller och inferens/bedömning faser. Varje fas kan omfatta flera steg, som kan köras obevakat i olika beräkningsmål.
 
 Mer information om machine learning pipelines med den här tjänsten finns i [Pipelines och Azure Machine Learning](concept-ml-pipelines.md).
 

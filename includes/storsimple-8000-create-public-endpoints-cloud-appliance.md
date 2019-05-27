@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 1cf5bbdad555c50c418851904f36a578522843b2
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50166358"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66159672"
 ---
 #### <a name="to-create-public-endpoints-on-the-cloud-appliance"></a>Så här skapar du offentliga slutpunkter för molninstallationen
 
@@ -31,7 +31,7 @@ ms.locfileid: "50166358"
 
         På bladet Lägg till inkommande säkerhetsregel:
 
-        1. I fältet **Namn** anger du följande namn för slutpunkten: WinRMHttps.
+        1. För den **namnet**, anger du följande namn för slutpunkten: WinRMHttps.
         
         2. För **Prioritet** väljer du ett tal som är mindre än 1 000 (som är prioriteten för standardregeln). Desto högre värde, ju lägre prioritet.
 

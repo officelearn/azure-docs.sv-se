@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 04/15/2019
 ms.author: alkohli
 ms.openlocfilehash: e02c0b86cd542b3ea12914e35a6577cf4e9b43d8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60755089"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66161331"
 ---
 Du kan också visa statistik för att övervaka prestanda för enheten och i vissa fall för att felsöka problem med enheter.
 
@@ -17,7 +17,7 @@ Vidta följande steg i Azure portal för att skapa ett diagram för vald enhetsm
 
 1. För din resurs i Azure-portalen, gå till **övervakning > mått** och välj **Lägg till mått**.
 
-    ![Lägga till mått](media/data-box-edge-gateway-view-metrics/view-metrics-1.png)
+    ![Lägg till mått](media/data-box-edge-gateway-view-metrics/view-metrics-1.png)
 
 2. Resursen fylls i automatiskt.  
 
@@ -61,7 +61,7 @@ Vidta följande steg i Azure portal för att skapa ett diagram för vald enhetsm
 
 7. Du kan också fästa diagrammet på instrumentpanelen för enkel åtkomst.
 
-    ![Fäst vid instrumentpanelen](media/data-box-edge-gateway-view-metrics/view-metrics-7.png)
+    ![Fäst på instrumentpanelen](media/data-box-edge-gateway-view-metrics/view-metrics-7.png)
 
 8. Om du vill exportera diagramdata till ett Excel-kalkylblad eller hämta en länk till ett diagram som du kan dela, väljer du alternativet dela i kommandofältet.
 

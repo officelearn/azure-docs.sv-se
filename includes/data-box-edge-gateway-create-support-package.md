@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: alkohli
 ms.openlocfilehash: b657ee32e76dd90671f7e91337ced01b925889a1
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57555312"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66161172"
 ---
 Om det uppstår enhetsproblem med kan skapa du ett supportpaket från systemloggar. Microsoft Support använder det här paketet för felsökning av problem. Följ stegen nedan för att skapa ett supportpaket:
 
@@ -31,7 +31,7 @@ Om det uppstår enhetsproblem med kan skapa du ett supportpaket från systemlogg
 
     De parametrar som används är följande:
 
-    - `-Path` -Ange nätverket eller den lokala sökvägen till kopiera supportpaket till. (krävs)
+    - `-Path` -Ange nätverket eller den lokala sökvägen till kopiera supportpaket till. (obligatoriskt)
     - `-Credential` -Ange autentiseringsuppgifter för att komma åt den skyddade sökvägen.
     - `-Zip` -Ange om du vill generera en zip-fil.
     - `-Include` -Ange om du vill inkludera komponenterna som ska ingå i supportpaketet. Om inte anges `Default` antas.

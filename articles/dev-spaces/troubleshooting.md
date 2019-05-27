@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, Helm, tjänsten nät, tjänsten nät routning, kubectl, k8s '
-ms.openlocfilehash: d5b08a22aa3896fb7158ef3535b115e3e0189142
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
-ms.translationtype: MT
+ms.openlocfilehash: 39ef23d04dc1cf1b48297ecf8f0accfef4935cd2
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65596978"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66158941"
 ---
 # <a name="troubleshooting-guide"></a>Felsökningsguide
 
@@ -374,7 +374,7 @@ När din kontrollant har installerats om måste du distribuera om poddarna.
 Användaren kommer åt Azure Dev blanksteg kontrollanten måste ha åtkomst till Läs administratören *kubeconfig* på AKS-klustret. Exempelvis kan den här behörigheten finns i den [inbyggda Azure Kubernetes Service-kluster-administratörsrollen](../aks/control-kubeconfig-access.md#available-cluster-roles-permissions). Användaren kommer åt Azure Dev blanksteg kontrollanten måste också ha den *deltagare* eller *ägare* RBAC-roll för styrenheten.
 
 ### <a name="try"></a>Testa
-Mer information om hur du uppdaterar en användares behörigheter för ett AKS-kluster finns [här](../aks/control-kubeconfig-access.md#assign-role-permissions-to-a-user).
+Mer information om hur du uppdaterar en användares behörigheter för ett AKS-kluster finns [här](../aks/control-kubeconfig-access.md#assign-role-permissions-to-a-user-or-group).
 
 Så här uppdaterar användarens RBAC-roll för styrenheten:
 

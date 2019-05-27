@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/10/2019
-ms.openlocfilehash: b950e7d38235d089c6236c76136d8ec2fc7a1f74
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9762b8cadde86a2e64f8fa74a4e794bdf1109ec4
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60821365"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66151194"
 ---
 # <a name="enterprise-security-for-azure-machine-learning-service"></a>Företagssäkerhet för Azure Machine Learning-tjänsten
 
@@ -83,7 +83,7 @@ Varje arbetsyta har också associerade systemtilldelade hanterade identiteter (m
 
 Mer information om hanterade identiteter finns [hanterade identiteter för Azure-resurser](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
 
-| Resurs | Behörigheter |
+| Resource | Behörigheter |
 | ----- | ----- |
 | Arbetsyta | Deltagare | 
 | Lagringskonto | Storage Blob Data-deltagare | 
@@ -101,7 +101,7 @@ Azure Machine Learning-tjänsten skapar en tilläggsapplikation (namn börjar me
 
 Azure Machine Learning-tjänsten är beroende av andra Azure-tjänster för compute-resurser. Beräkningsresurser (beräkningsmål) används för att träna och distribuera modeller. Dessa beräkningsalternativ mål kan skapas i ett virtuellt nätverk. Du kan till exempel använda Microsoft Data Science Virtual Machine för att träna en modell och distribuerar sedan modellen till Azure Kubernetes Service (AKS).  
 
-Mer information finns i [hur du kör experiment och inferensjobb i ett virtuellt nätverk](how-to-enable-virtual-network.md).
+Mer information finns i [hur du kör experiment och inferens i ett virtuellt nätverk](how-to-enable-virtual-network.md).
 
 ## <a name="data-encryption"></a>Datakryptering
 
@@ -154,7 +154,7 @@ Följande diagram visar arbetsflödet skapa arbetsytan.
 Användaren loggar in på Azure AD från någon av de Azure Machine Learning-tjänsten klienterna som stöds (CLI, Python SDK, Azure portal) och begär lämplig Azure Resource Manager-token.  Användaren anropar sedan Azure Resource Manager för att skapa arbetsytan.  Azure Resource Manager-kontakter Azure Machine Learning-tjänsten Resource Provider för att etablera arbetsytan.  Ytterligare resurser skapas i kundens prenumeration när arbetsytan skapas:
 * KeyVault (för att lagra hemligheter)
 * Azure Storage-kontot (inklusive Blob & filresurs)
-* Azure Container Registry (för att lagra docker-avbildningar för inferensjobb och experimentering)
+* Azure Container Registry (för att lagra docker-avbildningar för inferens/bedömning och experimentering)
 * Application Insights (för att lagra telemetri)
 
 Andra beräkningarna som är kopplade till en arbetsyta (Azure Kubernetes Service, VM etc.) kan också etableras av kunder efter behov. 
@@ -172,7 +172,7 @@ Följande diagram visar arbetsflödet för utbildning.
 * Azure Machine Learning-tjänsten anropas med ögonblicksbild-ID för kod ögonblicksbilden sparade ovan
 * Azure Machine Learning-tjänsten skapar kör ID (valfritt) och Azure Machine Learning-tjänsttoken, som senare används av beräkningsmål som Machine Learning beräkning/VM tala tillbaka till Azure Machine Learning-tjänsten
 * Du kan välja antingen en hanterad beräkning (ex.) Machine Learning-beräkning) eller ohanterade beräkning (ex.) VM) för att köra dina utbildningsjobb. Dataflödet förklaras för båda scenarierna nedan:
-* (Virtuell dator/HDInsight/lokal – nås med hjälp av SSH-inloggningsuppgifter i Key Vault i Microsoft-prenumeration) Azure Machine Learning-tjänsten körs hanteringskod på beräkningsmål som:
+* (Virtuell dator/HDInsight – nås med hjälp av SSH-inloggningsuppgifter i Key Vault i Microsoft-prenumeration) Azure Machine Learning-tjänsten körs hanteringskod på beräkningsmål som:
     1.  Förbereder miljön (Observera: Docker är också ett alternativ för VM/lokal. Se steg för beräkning av Machine Learning nedan att förstå hur pågående experiment på docker container fungerar)
     2.  Hämtar koden
     3.  Ställer in miljön variabler/konfigurationer
@@ -189,7 +189,7 @@ Det här steget visas i flödet där utbildning compute skrivningar i *kör måt
 ![Skärmbild som visar skapa arbetsytan arbetsflöde](./media/enterprise-readiness/training-and-metrics.png)
 
 ### <a name="creating-web-services"></a>Skapa webbtjänster
-Följande diagram visar inferensjobb arbetsflödet där modellen har distribuerats som en webbtjänst.
+Följande diagram visar arbetsflödet inferens. Inferens eller modell bedömning är fasen där distribuerade modellen används för förutsägelse oftast på produktionsdata.
 Se information nedan:
 * Användare registrerar en modell som använder en klient som Azure ML-SDK
 * Användare skapar avbildning med hjälp av modellen, poäng fil och andra modell-beroenden

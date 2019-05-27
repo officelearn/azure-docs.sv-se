@@ -9,11 +9,11 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 940306f79aa48567e3da943fe752a6acdf206c27
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53444390"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66157343"
 ---
 Följ stegen nedan för att skapa en VNet i Resource Manager-distributionsmodellen med hjälp av Azure Portal. Skärmbilderna anges som exempel. Glöm inte att byta ut värdena mot dina egna. Mer information om hur du arbetar med virtuella nätverk finns i [Översikt över virtuella nätverk](../articles/virtual-network/virtual-networks-overview.md).
 
@@ -36,7 +36,7 @@ Följ stegen nedan för att skapa en VNet i Resource Manager-distributionsmodell
 6. **Adressutrymme**: Ange adressutrymmet. Om du vill lägga till flera adressutrymme anger du ditt första adressutrymme. Du kan lägga till ytterligare adressutrymmen senare när du har skapat det virtuella nätverket.
 7. **Prenumeration**: Kontrollera att prenumerationen som visas är korrekt. Du kan ändra prenumerationer i listrutan.
 8. **Resursgrupp**: Välj en befintlig resursgrupp eller skapa en ny genom att skriva ett namn för din nya resursgrupp. Om du skapar en ny grupp, bör du kalla resursgruppen efter dina planerade konfigurationsvärden. Mer information om resursgrupper finns i [Översikt över Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md#resource-groups).
-9. **Plats**: Välj en plats för ditt virtuella nätverk. Platsen avgör var resurserna som du distribuerar till detta VNet kommer att placeras.
+9. **Plats**: Välj plats för ditt VNet. Platsen avgör var resurserna som du distribuerar till detta VNet kommer att placeras.
 10. **Undernät**: Lägg till undernätsnamn och adressintervall för undernätet. Du kan lägga till ytterligare undernät senare när du har skapat det virtuella nätverket.
 11. Välj **Fäst vid instrumentpanelen** om du vill kunna hitta ditt VNet på ett enkelt sätt på instrumentpanelen och klicka sedan på **Skapa**.
 

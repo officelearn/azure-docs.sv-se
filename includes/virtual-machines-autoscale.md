@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 3c008e77116a9b42a2ea137069529c5e241adddd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61456904"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66160064"
 ---
 Du kan enkelt [skala automatiskt](../articles/azure-monitor/platform/autoscale-best-practices.md) din [virtuella datorer (VM)](../articles/virtual-machines/windows/overview.md) när du använder [VM-skalningsuppsättningar](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) och [funktionen för automatisk skalning i Azure Övervaka](../articles/azure-monitor/platform/autoscale-overview.md). Dina virtuella datorer måste vara medlemmar i en skalningsuppsättning kan skalas automatiskt. Den här artikeln innehåller information som hjälper dig att bättre förstå hur du skalar dina virtuella datorer både lodrätt och vågrätt med hjälp av automatisk och manuell metoder.
 
@@ -47,7 +47,7 @@ Om programmet behöver för att skala baserat på mått som inte är tillgängli
 
 ![Åtgärder för automatisk skalning](./media/virtual-machines-autoscale/virtual-machines-autoscale-actions.png)
  
-### <a name="notifications"></a>Meddelanden
+### <a name="notifications"></a>Aviseringar
 
 Du kan [konfigurera utlösare](../articles/azure-monitor/platform/autoscale-webhook-email.md) så att specifika URL: er anropas eller e-postmeddelanden skickas baserat på reglerna för automatisk skalning som du skapar. Webhooks kan du dirigera Azure aviseringsmeddelanden till andra system för efterbearbetning eller anpassade meddelanden.
 

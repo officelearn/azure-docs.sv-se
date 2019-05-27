@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 01/30/2019
 ms.author: alkohli
 ms.openlocfilehash: 94fe099984fae77c65658d7085a8540ff4f2448b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60755262"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66161245"
 ---
 Det här avsnittet beskriver begränsningar för Azure Storage-tjänsten och nödvändiga namnkonventionerna för Azure Files, Azure blockblob-objekt och Azure-sidblobar, som gäller för Data Box Gateway/Data Box Edge-tjänsten. Granska Lagringsgränser noggrant och följer alla rekommendationer.
 

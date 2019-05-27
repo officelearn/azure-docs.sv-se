@@ -7,12 +7,12 @@ ms.service: analysis-services
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: chlound
-ms.openlocfilehash: 1897193f0ae781029a7303c42ca8eeaa51389892
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: abbad97e29f60e5f135017cd43f9d30eba1805ca
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920581"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66142966"
 ---
 # <a name="refresh-with-azure-automation"></a>Uppdatera med Azure Automation
 
@@ -148,7 +148,7 @@ Den **brödtext** är ett JSON-dokument som ska innehålla följande egenskaper:
 |Egenskap   |Värde  |
 |---------|---------|
 |**AnalysisServicesDatabase**     |Namnet på Azure Analysis Services-databasen <br/> Exempel: AdventureWorksDB         |
-|**AnalysisServicesServer**     |Azure Analysis Services-servernamnet. <br/> Exempel: https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/         |
+|**AnalysisServicesServer**     |Azure Analysis Services-servernamnet. <br/> Exempel: https:\//westus.asazure.windows.net/servers/myserver/models/AdventureWorks/         |
 |**DatabaseRefreshType**     |Typ av uppdatering för att utföra. <br/> Exempel: Fullständig         |
 
 Exempel-JSON-texten:

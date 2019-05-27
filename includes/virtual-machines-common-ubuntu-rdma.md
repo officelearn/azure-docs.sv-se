@@ -1,10 +1,15 @@
 ---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
 ms.openlocfilehash: 9a5a2d92f70c411c46ebb4efb35e17e9b0c477ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60542355"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66161596"
 ---
 1. Installera dapl, rdmacm, ibverbs och mlx4
 
@@ -12,10 +17,11 @@ ms.locfileid: "60542355"
    sudo apt-get update
 
    sudo apt-get install libdapl2 libmlx4-1
+
    ```
 
 2. Aktivera RDMA på/etc/waagent.conf, av uncommenting följande konfigurationsrader. Du behöver rotåtkomst att redigera den här filen.
-
+  
    ```
    OS.EnableRDMA=y
 
@@ -29,20 +35,19 @@ ms.locfileid: "60542355"
 
    <User or group name> soft    memlock <memory required for your application in KB>
    ```
-
+  
 4. Installera Intel MPI-biblioteket. Antingen [köpa och ladda ned](https://software.intel.com/intel-mpi-library/) biblioteket från Intel eller ladda ned den [gratisversion](https://registrationcenter.intel.com/en/forms/?productid=1740).
 
    ```bash
    wget http://registrationcenter-download.intel.com/akdlm/irc_nas/tec/9278/l_mpi_p_5.1.3.223.tgz
    ```
-
+ 
    Endast Intel MPI 5.x körningar stöds.
-
+ 
    Anvisningar för installation finns i den [installationsguide för Intel MPI biblioteket](http://registrationcenter-download.intel.com/akdlm/irc_nas/1718/INSTALL.html?lang=en&fileExt=.html).
 
 5. Aktivera ptrace för icke-felsökare processer (som behövs för de senaste versionerna av Intel MPI).
-
+ 
    ```bash
    echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
    ```
-   <!--ms.date: 07/30/2018-->

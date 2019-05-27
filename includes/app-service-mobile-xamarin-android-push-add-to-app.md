@@ -4,12 +4,12 @@ ms.author: crdun
 ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
-ms.openlocfilehash: 3ced8c9fdadf547ec234c6d1bd5f3ddb8af7bc05
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: baf0f07002a21a8e4e60bc17186107b471243202
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42817447"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66140305"
 ---
 1. Skapa en ny klass i projektet med namnet `ToDoBroadcastReceiver`.
 2. Lägg till följande using-satser till **ToDoBroadcastReceiver** klass:
@@ -109,7 +109,7 @@ ms.locfileid: "42817447"
     }
     ```
 
-    Den här metoden använder returnerade GCM registrerings-ID för att registrera med Azure för push-meddelanden. Taggar kan bara läggas till i registreringen när den har skapats. Mer information finns i [så här: lägga till taggar till en enhetsinstallation för att aktivera push-taggar](../articles/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags).
+    Den här metoden använder returnerade GCM registrerings-ID för att registrera med Azure för push-meddelanden. Taggar kan bara läggas till i registreringen när den har skapats. Mer information finns i [Gör så här: Lägga till taggar till en enhetsinstallation för att aktivera push-taggar](../articles/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags).
 
 7. Åsidosätta den **OnMessage** -metod i **PushHandlerService** med följande kod:
 

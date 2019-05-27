@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: e48ab075264423479e792848af522a890736a403
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 8907ae61fb03b417a74eb32e1fd09aece75d5e2c
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65152697"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66151722"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Installera Azure IoT Edge-körningen på Windows
 
@@ -76,6 +76,13 @@ Det här exemplet visar en manuell installation med Windows-behållare:
 
 2. Kör PowerShell som administratör.
 
+   >[!NOTE]
+   >Använd en AMD64-session för PowerShell för att installera IoT Edge, inte PowerShell (x86). Om du inte är säker på vilka sessionstypen som du använder kör du följande kommando:
+   >
+   >```powershell
+   >(Get-Process -Id $PID).StartInfo.EnvironmentVariables["PROCESSOR_ARCHITECTURE"]
+   >```
+
 3. Den **distribuera IoTEdge** kommandot kontrollerar att din Windows-dator på en version som stöds, aktiverar funktionen behållare och laddar sedan ned moby-runtime och IoT Edge-körningen. Kommandot som standard med hjälp av Windows-behållare. 
 
    ```powershell
@@ -111,12 +118,19 @@ I den här andra alternativet etablerar du enheten med IoT Hub Device Provisioni
 
 I följande exempel visar en automatisk installation med Windows-behållare:
 
-1. Följ stegen i [skapa och etablera en simulerad TPM-Edge-enhet på Windows](how-to-auto-provision-simulated-device-windows.md) att konfigurera Device Provisioning-tjänsten och hämta dess **Scopeid**, simulera en TPM-enhet och hämta dess  **Registrerings-ID**, skapa en enskild registrering. När enheten är registrerad i IoT hub, fortsätter du med de här installationsstegen.  
+1. Följ stegen i [skapa och etablera en simulerad TPM IoT Edge-enhet på Windows](how-to-auto-provision-simulated-device-windows.md) att konfigurera Device Provisioning-tjänsten och hämta dess **Scopeid**, simulera en TPM-enhet och hämta dess **Registrerings-ID**, skapa en enskild registrering. När enheten är registrerad i IoT hub, fortsätter du med de här installationsstegen.  
 
    >[!TIP]
    >Lämna fönstret med TPM-simulatorn öppen under installationen och testning. 
 
 2. Kör PowerShell som administratör.
+
+   >[!NOTE]
+   >Använd en AMD64-session för PowerShell för att installera IoT Edge, inte PowerShell (x86). Om du inte är säker på vilka sessionstypen som du använder kör du följande kommando:
+   >
+   >```powershell
+   >(Get-Process -Id $PID).StartInfo.EnvironmentVariables["PROCESSOR_ARCHITECTURE"]
+   >```
 
 3. Den **distribuera IoTEdge** kommandot kontrollerar att din Windows-dator på en version som stöds, aktiverar funktionen behållare och laddar sedan ned moby-runtime och IoT Edge-körningen. Kommandot som standard med hjälp av Windows-behållare. 
 
@@ -212,7 +226,7 @@ Mer information om kommandon som du kan använda för att interagera med behåll
 
 ## <a name="update-an-existing-installation"></a>Uppdatera en befintlig installation
 
-Om du har redan installerat IoT Edge-körningen på en enhet innan och etablerat den med en identitet från IoT Hub, kan du uppdatera körningen utan att behöva ange din enhetsinformation igen. 
+Om du har redan installerat IoT Edge-körningen på en enhet innan och etablerat den med en identitet från IoT Hub, kan du uppdatera körningen utan att behöva ange ditt enhetsinformation. 
 
 Mer information finns i [uppdatera IoT Edge security daemon och runtime](how-to-update-iot-edge.md).
 
@@ -262,7 +276,7 @@ Distribuera IoTEdge kommandot laddar ned och distribuerar daemonen IoT Edge säk
 
 ### <a name="initialize-iotedge"></a>Initiera IoTEdge
 
-Initiera IoTEdge-kommando konfigurerar IoT Edge med enhetens anslutningssträng och information. Mycket av den information som genereras av det här kommandot lagras sedan i filen iotedge\config.yaml. Kommandot initieringen accepterar dessa vanliga parametrar, bland annat. För en fullständig lista, använder du vanliga `Get-Help Initialize-IoTEdge -full`. 
+Initiera IoTEdge-kommando konfigurerar IoT Edge med enhetens anslutningssträng och information. Mycket av den information som genereras av det här kommandot lagras sedan i filen iotedge\config.yaml. Kommandot initieringen accepterar dessa vanliga parametrar, bland annat. Använd kommandot för en fullständig lista `Get-Help Initialize-IoTEdge -full`. 
 
 | Parameter | Godkända värden | Kommentarer |
 | --------- | --------------- | -------- |

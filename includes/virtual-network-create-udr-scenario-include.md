@@ -2,19 +2,18 @@
 title: ta med fil
 description: ta med fil
 services: virtual-network
-author: rockboyfor
+author: genlin
 ms.service: virtual-network
 ms.topic: include
-origin.date: 04/13/2018
-ms.date: 06/11/2018
-ms.author: v-yeche
+ms.date: 04/13/2018
+ms.author: genli
 ms.custom: include file
 ms.openlocfilehash: 40b81904daabfdad7e45571d8ab86cf32cac8964
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60743384"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66170875"
 ---
 ## <a name="scenario"></a>Scenario
 För att bättre visar hur du skapar udr: er, används det här dokumentet följande scenario:
@@ -29,3 +28,4 @@ I det här scenariot skapar du en UDR för det *klientdelsundernätet* och en an
   * **RouteToFrontend**. Den här vägen skickar all trafik till klientdelsundernätet till den **FW1** virtuell dator.
 
 Kombinationen av dessa vägar ser till att all trafik från ett undernät till en annan dirigeras till den **FW1** virtuell dator som används som en virtuell installation. Du måste också aktivera IP-vidarebefordran för den **FW1** virtuell dator, så det kan ta emot trafik till andra virtuella datorer.
+

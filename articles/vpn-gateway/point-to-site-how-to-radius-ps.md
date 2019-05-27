@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 02/27/2019
 ms.author: cherylmc
 ms.openlocfilehash: 1096c120b4e7731fabd574c4096e70fe02b6272d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58081091"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66147079"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>Konfigurera en punkt-till-plats-anslutning till ett virtuellt nätverk med RADIUS-autentisering: PowerShell
 
@@ -80,7 +80,7 @@ Du kan använda exempelvärdena för att skapa en testmiljö eller hänvisa till
 * **Prenumeration:** Om du har mer än en prenumeration kan du kontrollera att du använder rätt.
 * **Resursgrupp: TestRG**
 * **Plats: USA, östra**
-* **DNS-Server: IP-adress** för DNS-servern som du vill använda för namnmatchning för ditt virtuella nätverk. (valfritt)
+* **DNS-Server: IP-adress** för DNS-servern som du vill använda för namnmatchning för ditt virtuella nätverk. (valfri)
 * **GW-namn: Vnet1GW**
 * **Namn på offentlig IP: VNet1GWPIP**
 * **VpnType: Routningsbaserad**
@@ -156,7 +156,7 @@ Innan du skapar och konfigurerar den virtuella nätverksgatewayen, ska RADIUS-se
 
 Den [nätverksprincipserver (NPS)](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top) artikeln innehåller råd om hur du konfigurerar en Windows-RADIUS-server (NPS) för AD-domain-autentisering.
 
-## 3. <a name="creategw"></a>Skapa VPN-gateway
+## 3 <a name="creategw"></a>Skapa VPN-gateway
 
 Konfigurera och skapa VPN-gatewayen för ditt virtuella nätverk.
 

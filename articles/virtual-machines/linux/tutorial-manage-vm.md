@@ -17,11 +17,11 @@ ms.date: 03/23/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 270479061ad40fdda9db06571ad4ef24b00d6c4d
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749150"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66171845"
 ---
 # <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>Självstudier: Skapa och hantera virtuella Linux-datorer med Azure CLI
 
@@ -38,7 +38,7 @@ Med virtuella Azure-datorer får du en fullständigt konfigurerbar och flexibel 
 
 Om du väljer att installera och använda CLI lokalt krävs Azure CLI version 2.0.30 eller senare för att du ska kunna genomföra den här självstudiekursen. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
-## <a name="create-resource-group"></a>Skapa resursgrupp
+## <a name="create-resource-group"></a>Skapa en resursgrupp
 
 Skapa en resursgrupp med kommandot [az group create](https://docs.microsoft.com/cli/azure/group). 
 
@@ -155,7 +155,7 @@ Storleken på den virtuella datorn avgör hur mycket av beräkningsresurser som 
 
 I följande tabell kategoriseras storlekarna i användningsfall.  
 
-| Typ                     | Storlekar           |    Beskrivning       |
+| Type                     | Storlekar           |    Beskrivning       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [Generellt syfte](sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7| Balanserat förhållande mellan processor och minne. Perfekt för utveckling eller test samt små till medelstora lösningar för program och data.  |
 | [Beräkningsoptimerad](sizes-compute.md)   | Fs, F             | Högt förhållande mellan processor och minne. Bra för program med medelhög trafik, nätverkstillämpningar och batchprocesser.        |
@@ -273,7 +273,7 @@ az vm get-instance-view \
     --query instanceView.statuses[1] --output table
 ```
 
-Resultat:
+Utdata:
 
 ```azurecli-interactive 
 ode                DisplayStatus    Level
@@ -281,7 +281,7 @@ ode                DisplayStatus    Level
 PowerState/running  VM running       Info
 ```
 
-## <a name="management-tasks"></a>Administrativa uppgifter
+## <a name="management-tasks"></a>Hanteringsuppgifter
 
 Under livscykeln för en virtuell dator kan du vilja utföra administrativa uppgifter som att starta, stoppa eller ta bort en virtuell dator. Dessutom kanske du vill skapa skript för att automatisera repetitiva och komplicerade uppgifter. Med Azure CLI kan många vanliga administrativa uppgifter köras från kommandoraden eller i skript. 
 

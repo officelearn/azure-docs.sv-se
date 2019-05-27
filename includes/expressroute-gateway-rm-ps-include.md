@@ -9,11 +9,11 @@ ms.date: 02/21/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 922ac7eb6cb9676af65700a6a2fe7fbae35a0dc5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60366409"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66158765"
 ---
 Stegen för den här uppgiften använder ett virtuellt nätverk baserat på värdena i följande konfiguration är en lista. Ytterligare inställningar och namn beskrivs också i den här listan. Vi använda inte den här listan direkt i något av stegen, även om vi lägger till variabler baserat på värdena i den här listan. Du kan kopiera listan om du vill använda som en referens, där du ersätter värdena med dina egna.
 

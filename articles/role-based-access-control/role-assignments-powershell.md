@@ -15,11 +15,11 @@ ms.date: 04/17/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 002ebcbe8ba14b9f15ddea6deb21f0f2bc201ab0
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999050"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66160321"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Hantera åtkomst till Azure-resurser med RBAC och Azure PowerShell
 
@@ -355,7 +355,7 @@ ObjectType         : ServicePrincipal
 CanDelegate        : False
 ```
 
-## <a name="remove-access"></a>Tar bort åtkomst
+## <a name="remove-access"></a>Ta bort åtkomst
 
 I RBAC, för att ta bort åtkomst måste du ta bort en rolltilldelning med hjälp av [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment).
 
@@ -369,6 +369,6 @@ PS C:\> Remove-AzRoleAssignment -SignInName alain@example.com -RoleDefinitionNam
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Självstudier: Bevilja en åtkomst till Azure-resurser med RBAC och Azure PowerShell](tutorial-role-assignments-group-powershell.md)
-- [Självstudier: Skapa en anpassad roll för Azure-resurser med Azure PowerShell](tutorial-custom-role-powershell.md)
+- [Självstudie: Bevilja en åtkomst till Azure-resurser med RBAC och Azure PowerShell](tutorial-role-assignments-group-powershell.md)
+- [Självstudie: Skapa en anpassad roll för Azure-resurser med Azure PowerShell](tutorial-custom-role-powershell.md)
 - [Hantera resurser med Azure PowerShell](../azure-resource-manager/manage-resources-powershell.md)

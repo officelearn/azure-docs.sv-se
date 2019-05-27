@@ -16,11 +16,11 @@ ms.date: 08/07/2018
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: ff0cb82e3f1ddedf8dabebadf7a0309d08b2c4e3
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55297097"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66139171"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>Självstudie: Autentisera och auktorisera användare från slutpunkt till slutpunkt i Azure App Service
 
@@ -331,7 +331,7 @@ Logga in på `https://<front_end_app_name>.azurewebsites.net` igen. På sidan me
 
 Du bör nu kunna skapa, läsa, uppdatera och ta bort data från serverdelsappen, precis som innan. Den enda skillnaden är att båda apparna är nu skyddade med App Service-autentisering och -auktorisering, inklusive tjänst-till-tjänst-anrop.
 
-Grattis! Serverkoden har nu åtkomst till serverdelsdata å den autentiserade användarens vägnar.
+Gratulerar! Serverkoden har nu åtkomst till serverdelsdata å den autentiserade användarens vägnar.
 
 ## <a name="call-api-securely-from-browser-code"></a>Anropa API på ett säkert sätt från webbläsarkoden
 
@@ -413,7 +413,7 @@ git push frontend master
 
 Navigera till `https://<front_end_app_name>.azurewebsites.net` igen. Du bör nu kunna skapa, läsa, uppdatera och ta bort data från serverdelsappen, direkt i Angular.js-appen.
 
-Grattis! Klientkoden har nu åtkomst till serverdelsdata å den autentiserade användarens vägnar.
+Gratulerar! Klientkoden har nu åtkomst till serverdelsdata å den autentiserade användarens vägnar.
 
 ## <a name="when-access-tokens-expire"></a>När åtkomsttoken upphör att gälla
 

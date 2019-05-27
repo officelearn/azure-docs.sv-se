@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: alkohli
 ms.openlocfilehash: 880b630ae48eda086f6454f0d7108d27d3403b77
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57555241"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66161178"
 ---
 Om du startar upp i en icke-DHCP-miljö, följer du stegen nedan för att distribuera den virtuella datorn för din Data Box-Gateway.
 

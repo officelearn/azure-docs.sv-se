@@ -1,5 +1,5 @@
 ---
-title: Skapa och registrera datauppsättningar i din arbetsyta
+title: Skapa datauppsättningar för att komma åt data med azureml-datauppsättningar
 titleSuffix: Azure Machine Learning service
 description: Lär dig hur du skapar datauppsättningar från olika källor och registrera datauppsättningar med din arbetsyta
 services: machine-learning
@@ -10,34 +10,59 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 05/02/19
-ms.openlocfilehash: d3502219f03d4ad076a693ab990f2fadb0b5d558
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.date: 05/21/2019
+ms.openlocfilehash: 949468dfe26b076b5c5cf5cab8bbdc2038c7bd2a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65800835"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66165887"
 ---
-# <a name="create-and-register-azure-machine-learning-datasets-preview"></a>Skapa och registrera Azure Machine Learning datauppsättningar (förhandsversion)
+# <a name="create-and-access-datasets-preview-in-azure-machine-learning"></a>Skapa och komma åt datauppsättningar (förhandsversion) i Azure Machine Learning
 
-I den här artikeln får du lära dig Azure Machine Learning-arbetsflöden för att skapa och registrera datauppsättningar och hur du kommer åt dem för användning i lokala och fjärranslutna experiment.
+I den här artikeln får lära du dig hur du skapar datauppsättningar för Azure Machine Learning (förhandsversion) och hur du kommer åt data från lokala och fjärranslutna experiment.
 
-Azure Machine Learning datauppsättningar (förhandsversion) gör det enklare att komma åt och arbeta med dina data. Datauppsättningar hantera data i olika scenarier, till exempel träning och skapa en pipeline. Med hjälp av den [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py), du kan arbeta med data i populära format, få åtkomst till underliggande lagring, utforska och förbereda data, hantera livscykeln för olika datauppsättning definitioner och jämför datauppsättningar som används i utbildning och i produktion.
+Med hanterade datauppsättningar kan du: 
+* **Enkelt komma åt data under modellträning** utan återansluter till underliggande datalager
+
+* **Se till att datakonsekvens och reproducerbarhet** med hjälp av samma pekaren över experiment: bärbara datorer, automatiserade ml, pipelines, visuella gränssnittet
+
+* **Dela data & samarbeta** med andra användare
+
+* **Utforska data** & Hantera livscykeln för ögonblicksbilder av data och versioner
+
+* **Jämför data** i utbildning till produktion
+
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Skapa och registrera datauppsättningar som du behöver:
+Om du vill skapa och arbeta med datauppsättningar, behöver du:
 
 * En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfria versionen eller betalversionen av Azure Machine Learning-tjänsten](https://aka.ms/AMLFree) i dag.
 
-* En arbetsyta för Azure Machine Learning-tjänsten. Se [skapa en arbetsyta för Azure Machine Learning-tjänsten](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace).
+* En [Azure Machine Learning-arbetsytan Azure Machine Learning-tjänsten tjänstarbetsyta](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace)
 
-* Azure Machine Learning SDK för Python. Om du vill installera eller uppdatera till den senaste versionen av SDK, se [installera eller uppdatera SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
+* Den [Azure Machine Learning-SDK för Python installerat](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py), vilket inkluderar paketets azureml-datauppsättningar.
 
 > [!Note]
 > Vissa klasser för datauppsättningen (förhandsversion) är beroende av den [azureml-förberedelse av data](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) paketet (GA). De här klasserna stöds endast på följande distributioner för Linux-användare:  Red Hat Enterprise Linux, Ubuntu, Fedora och CentOS.
 
-## <a name="create-datasets-from-local-files"></a>Skapa datauppsättningar från lokala filer
+## <a name="data-formats"></a>Dataformat
+
+Du kan skapa en Azure Machine Learning-datauppsättning från följande data:
++ [delimited](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-delimited-files-path--separator------header--promoteheadersbehavior-allfileshavesameheaders--3---encoding--fileencoding-utf8--0---quoting-false--infer-column-types-true--skip-rows-0--skip-mode--skiplinesbehavior-norows--0---comment-none--include-path-false--archive-options-none-)
++ [binary](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-binary-files-path-)
++ [json](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-json-files-path--encoding--fileencoding-utf8--0---flatten-nested-arrays-false--include-path-false-)
++ [Excel](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-excel-files-path--sheet-name-none--use-column-headers-false--skip-rows-0--include-path-false--infer-column-types-true-)
++ [Parquet](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-parquet-files-path--include-path-false-)
++ [Azure SQL Database](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-sql-query-data-source--query-)
++ [Azure Data Lake gen. 1](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-sql-query-data-source--query-)
+
+## <a name="create-datasets"></a>Skapa datauppsättningar 
+
+Du kan interagera med dina datauppsättningar med paketet azureml-datauppsättningar i den [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) , särskilt [den `Dataset` klass](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py).
+
+### <a name="create-from-local-files"></a>Skapa från lokala filer
 
 Läsa in filer från din lokala dator genom att ange sökvägen för filen eller mappen med den [ `auto_read_files()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#auto-read-files-path--include-path-false-) metod från den `Dataset` klass.  Den här metoden utför följande steg som kräver att du kan ange filtypen eller parsning argument:
 
@@ -52,13 +77,14 @@ from azureml.core.dataset import Dataset
 dataset = Dataset.auto_read_files('./data/crime.csv')
 ```
 
-Alternativt använda fil-specifika funktioner att uttryckligen styra parsningen av din fil. Datasets SDK stöder för närvarande [avgränsade](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-delimited-files-path--separator------header--promoteheadersbehavior-allfileshavesameheaders--3---encoding--fileencoding-utf8--0---quoting-false--infer-column-types-true--skip-rows-0--skip-mode--skiplinesbehavior-norows--0---comment-none--include-path-false--archive-options-none-), [Excel](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-excel-files-path--sheet-name-none--use-column-headers-false--skip-rows-0--include-path-false--infer-column-types-true-), [Parquet](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-parquet-files-path--include-path-false-), [binära](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-binary-files-path-), och [json](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-json-files-path--encoding--fileencoding-utf8--0---flatten-nested-arrays-false--include-path-false-) filformat.
+Alternativt använda fil-specifika funktioner att uttryckligen styra parsningen av din fil. 
 
-## <a name="create-datasets-from-azure-datastores"></a>Skapa datauppsättningar från Azure datalager
 
-Om du vill skapa datauppsättningar från en Azure-datalager, måste du kontrollera att:
+### <a name="create-from-azure-datastores"></a>Skapa från Azure datalager
 
-* Kontrollera att du har deltagare eller ägare som har åtkomst till registrerade Azure-databasen.
+Skapa datauppsättningar från en Azure-datalager:
+
+* Kontrollera att du har `contributor` eller `owner` åtkomst till registrerade Azure-databasen.
 
 * Importera den [ `Workspace` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) och [ `Datastore` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#definition) och `Dataset` paket från SDK.
 
@@ -90,17 +116,11 @@ dataset = Dataset.from_delimited_files(datapath)
 dataset.head(5)
 ```
 
-||ID|Ärendenummer|Date|Blockera|IUCR|Primär typ|Beskrivning|Platsbeskrivning|Kvarhållande|Inrikes|...|Ward|Community-området|FBI: S kod|X-koordinat|Y-koordinaten|År|Uppdaterad den|Latitud|Longitud|Plats|
-|--|--|---|---|---|---|----|------|-------|------|-----|---|----|----|-----|-----|------|----|-----|----|----|-----
-|0|10498554|HZ239907|4/4/2016 23:56|007XX E 111TH ST|1153|BEDRÄGERIFÖRSÖK|FINANSIELLA IDENTITETSSTÖLDER ÖVER 300 USD|ANDRA|FALSKT|FALSKT|...|9|50|11|1183356|1831503|2016|5/11/2016 15:48|41.69283384|-87.60431945|(41.692833841, -87.60431945)|
-1|10516598|HZ258664|4/15/2016 17:00|082XX S MARSHFIELD AVE|890|STÖLD| FRÅN ATT BYGGA|BOSATT|FALSKT|FALSKT|...|21|71|6|1166776|1850053|2016|5/12/2016 15:48|41.74410697|-87.66449429|(41.744106973, -87.664494285)
-2|10519196|HZ261252|4/15/2016 10:00|104XX S SACRAMENTO PARA|1154|BEDRÄGERIFÖRSÖK|FINANSIELLA IDENTITETSSTÖLDER 300 USD OCH UNDER|BOSATT|FALSKT|FALSKT|...|19|74|11|||2016|5/12/2016 15:50
-3|10519591|HZ261534|4/15/2016 9:00|113XX S PRAIRIE PARA|1120|BEDRÄGERIFÖRSÖK|FÖRFALSKNING|BOSATT|FALSKT|FALSKT|...|9|49|10|||2016|5/13/2016 15:51
-4|10534446|HZ277630|4/15/2016 10:00|055XX N KEDZIE AVE|890|STÖLD|FRÅN ATT BYGGA|SKOLAN, OFFENTLIG, ATT SKAPA|FALSKT|FALSKT|...|40|13|6|||2016|5/25/2016 15:59|
+## <a name="register-datasets"></a>Registrera datauppsättningar
 
-## <a name="register-your-datasets-with-workspace"></a>Registrera dina datauppsättningar med arbetsytan
+Slutför processen genom att registrera dina datauppsättningar med arbetsyta:
 
-Använd den [ `register()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#register-workspace--name--description-none--tags-none--visible-true--exist-ok-false--update-if-exist-false-) metod för att registrera datauppsättningar till din arbetsyta för att dela och återanvända inom din organisation och mellan olika experiment.
+Använd den [ `register()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#register-workspace--name--description-none--tags-none--visible-true--exist-ok-false--update-if-exist-false-) metod för att registrera datauppsättningar till arbetsytan så att de kan delas med andra och återanvändas i olika experiment.
 
 ```Python
 dataset = dataset.register(workspace = workspace,
@@ -111,38 +131,19 @@ dataset = dataset.register(workspace = workspace,
 ```
 
 >[!NOTE]
-> Standardinställningen för parametern för `register()` är `exist_ok = False`. Om du försöker registrera en datauppsättning med samma namn utan att ändra den här inställningen resulterar i ett fel.
+> Om `exist_ok = False` (standard), och du försöker registrera en datauppsättning med samma namn som en annan, ett fel inträffar. Ange `True` att skriva över befintliga.
 
-Den `register()` returnerar metoden redan registrerade datauppsättningen med parameterinställningen `exist_ok = True`.
-
-```Python
-dataset = dataset.register(workspace = workspace,
-                           name = 'dataset_crime',
-                           description = 'Training data',
-                           exist_ok = True
-                           )
-```
-
-Använd `list()` att se alla registrerade datauppsättningar i din arbetsyta.
-
-```Python
-Dataset.list(workspace_name)
-```
-
-Föregående kod resulterar i följande:
-
-```Python
-[Dataset(Name: dataset_crime,
-         Workspace: workspace_name)]
-```
-
-## <a name="access-datasets-in-workspace"></a>Åtkomst till datauppsättningar i arbetsyta
+## <a name="access-data-in-datasets"></a>Åtkomst till data i datauppsättningar
 
 Registrerade datauppsättningar är tillgängliga och använda lokalt, via en fjärranslutning och på vilket beräkningsklustren som Azure Machine Learning-databearbetning. Om du vill återanvända din registrerade datauppsättning över experiment och compute miljöer, Använd följande kod för att hämta din arbetsyta och registrerade datauppsättning efter namn.
 
 ```Python
 workspace = Workspace.from_config()
 
+# See list of datasets registered in workspace.
+Dataset.list(workspace)
+
+# Get dataset by name
 dataset = workspace.datasets['dataset_crime']
 ```
 

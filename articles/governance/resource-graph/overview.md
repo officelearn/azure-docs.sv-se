@@ -7,12 +7,12 @@ ms.date: 05/06/2019
 ms.topic: overview
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 45d5cf7c4235d10e136cc96364d52aa4319bbf79
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 9d3385b688208065e5854b6358819b5afad8fe65
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65137780"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66162084"
 ---
 # <a name="overview-of-the-azure-resource-graph-service"></a>Översikt över Azure Resource Graph-tjänsten
 
@@ -43,7 +43,7 @@ Med Azure Resource Graph kan du:
 ## <a name="how-resource-graph-is-kept-current"></a>Hur Resource Graph uppdateras
 
 När en Azure-resurs uppdateras meddelas Resource Graph av Resource Manager för ändringen.
-Resursen Graph uppdateras sedan databasen. Resursen Graph har också en vanlig _fullständig genomsökning_. Skanningen garanterar att resursen diagramdata är aktuella vid missade meddelanden eller när en resurs uppdateras utanför Resource Manager.
+Resursen Graph uppdateras sedan databasen. Resursen Graph har också en vanlig _fullständig genomsökning_. Skanningen garanterar att resursen diagramdata är aktuella om det finns uteblivna meddelanden eller när en resurs uppdateras utanför Resource Manager.
 
 ## <a name="the-query-language"></a>Frågespråket
 
@@ -63,9 +63,15 @@ Om du vill använda Resource Graph måste du ha rätt behörighet i [Rollbaserad
 
 ## <a name="throttling"></a>Begränsning
 
-Som en kostnadsfri tjänst begränsas frågor till resursen Graph för att tillhandahålla den bästa tidpunkten för upplevelse och svar för alla kunder. Om din organisation vill använda Graph-API-resurs för storskaliga och vanliga frågor, kan du använda portalen ”Feedback” från sidan Resource Graph. Se till att ange ditt affärsfall och markera kryssrutan ”Microsoft kan kontakta mig via e-post om min feedback” så att teamet kan kontakta dig.
+Som en kostnadsfri tjänst begränsas frågor till resursen Graph för att tillhandahålla den bästa tidpunkten för upplevelse och svar för alla kunder. Om din organisation vill använda Graph-API-resurs för storskaliga och vanliga frågor, använder du portalen ”Feedback” från den [Resource Graph-portalsidan](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyMenuBlade/ResourceGraph).
+Ange ditt affärsfall och markera kryssrutan ”Microsoft kan via e-post angående din feedback” för teamet att kontakta dig.
 
-Resursen Graph begränsar på klientnivån. Tjänsten åsidosätter och anger den `x-ms-ratelimit-remaining-tenant-reads` svarshuvud att ange återstående frågar tillgängliga av användare i klienten. Resursen Graph återställer kvoten var femte sekund i stället för varje timme. Mer information finns i [begränsning resurshanteraren begär](../../azure-resource-manager/resource-manager-request-limits.md).
+Resursen Graph begränsar frågor på användarnivå. Tjänstsvaret innehåller följande HTTP-huvuden:
+
+- `x-ms-user-quota-remaining` (int): Återstående Resurskvot för användaren. Det här värdet motsvarar antalet förfrågningar.
+- `x-ms-user-quota-resets-after` (: mm: ss): Varaktighet tills en användares kvot förbrukning återställs
+
+Mer information finns i [begränsning resurshanteraren begär](../../azure-resource-manager/resource-manager-request-limits.md).
 
 ## <a name="running-your-first-query"></a>Kör din första fråga
 

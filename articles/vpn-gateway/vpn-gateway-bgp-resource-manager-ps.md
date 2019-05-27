@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: yushwang
 ms.openlocfilehash: c65ea038fc39702affae93cb68b8cf644393c62e
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415620"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66150227"
 ---
 # <a name="how-to-configure-bgp-on-azure-vpn-gateways-using-powershell"></a>Så här konfigurerar du BGP på Azure VPN gateway med PowerShell
 Den här artikeln vägleder dig igenom stegen för att aktivera BGP på en plats-till-plats (S2S) VPN-anslutning för flera platser och en VNet-till-VNet-anslutning med hjälp av Resource Manager-distributionsmodellen och PowerShell.
@@ -28,7 +28,7 @@ Den här artikeln vägleder dig igenom stegen för att aktivera BGP på en plats
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="about-bgp"></a>Om BGP
-BGP är ett standardroutningsprotokoll som vanligen används på Internet för att utbyta information om routning och åtkomst mellan två eller flera nätverk. Det möjliggör BGP att Azure VPN gateway och dina lokala VPN-enheter kallas BGP-peer eller grannar, utbyta ”vägar” som informerar båda gatewayerna om åtkomsten för de prefix som ska gå igenom de gatewayer eller routrar som ingår. BGP kan också möjliggöra överföringsroutning mellan flera nätverk genom att sprida vägar som BGP-gatewayen får information om från en BGP-peer till alla andra BGP-peers.
+BGP är ett standardroutningsprotokoll som vanligen används på Internet för att utbyta information om routning och åtkomst mellan två eller flera nätverk. BGP gör att Azure VPN Gateway och dina lokala VPN-enheter, som kallas BGP-peers eller grannar, kan utbyta ”vägar” som informerar båda gatewayerna om åtkomsten för de prefix som ska passera genom de gatewayer eller routrar som berörs. BGP kan också möjliggöra överföringsroutning mellan flera nätverk genom att sprida vägar som BGP-gatewayen får information om från en BGP-peer till alla andra BGP-peers.
 
 Se [översikt över BGP med Azure VPN gateway](vpn-gateway-bgp-overview.md) mer information om hur du fördelar över BGP och för att förstå de tekniska krav och överväganden för att använda BGP.
 
@@ -92,7 +92,7 @@ Select-AzSubscription -SubscriptionName $Sub1
 New-AzResourceGroup -Name $RG1 -Location $Location1
 ```
 
-#### <a name="3-create-testvnet1"></a>3. Skapa TestVNet1
+#### <a name="3-create-testvnet1"></a>3 Skapa TestVNet1
 I följande exempel skapas ett virtuellt nätverk med namnet TestVNet1 och tre undernät, ett kallas GatewaySubnet, ett kallas FrontEnd och ett kallas Backend. När du ersätter värden är det viktigt att du alltid namnger gateway-undernätet specifikt till GatewaySubnet. Om du ger det något annat namn går det inte att skapa gatewayen.
 
 ```powershell
@@ -121,7 +121,7 @@ Skapa den virtuella nätverksgatewayen för TestVNet1. BGP kräver en Ruttbasera
 New-AzVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Location $Location1 -IpConfigurations $gwipconf1 -GatewayType Vpn -VpnType RouteBased -GatewaySku HighPerformance -Asn $VNet1ASN
 ```
 
-#### <a name="3-obtain-the-azure-bgp-peer-ip-address"></a>3. Skaffa Azure BGP-Peer-IP-adress
+#### <a name="3-obtain-the-azure-bgp-peer-ip-address"></a>3 Skaffa Azure BGP-Peer-IP-adress
 När gatewayen har skapats kan behöva du hämta den BGP-Peer-IP-adressen på Azure VPN Gateway. Den här adressen behövs för att konfigurera Azure VPN-gatewayen som en BGP-Peer för dina lokala VPN-enheter.
 
 ```powershell
@@ -267,7 +267,7 @@ $gwsub2 = New-AzVirtualNetworkSubnetConfig -Name $GWSubName2 -AddressPrefix $GWS
 New-AzVirtualNetwork -Name $VNetName2 -ResourceGroupName $RG2 -Location $Location2 -AddressPrefix $VNetPrefix21,$VNetPrefix22 -Subnet $fesub2,$besub2,$gwsub2
 ```
 
-#### <a name="3-create-the-vpn-gateway-for-testvnet2-with-bgp-parameters"></a>3. Skapa en VPN-gateway för TestVNet2 med BGP-parametrar
+#### <a name="3-create-the-vpn-gateway-for-testvnet2-with-bgp-parameters"></a>3 Skapa en VPN-gateway för TestVNet2 med BGP-parametrar
 
 Begär en offentlig IP-adress som ska allokeras till den gateway som du skapar för ditt virtuella nätverk och definiera nödvändiga undernätet och IP-konfigurationer.
 

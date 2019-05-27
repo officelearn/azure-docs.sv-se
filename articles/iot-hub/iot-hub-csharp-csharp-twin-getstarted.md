@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: robinsh
-ms.openlocfilehash: eec63cbdbdb852aff2cf9c6fa768bdc2580d4665
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 9d5d5bdc569fec1df20c7729285cc462d5af4ffb
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60780531"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873238"
 ---
 # <a name="get-started-with-device-twins-netnet"></a>Kom igång med enhetstvillingar (.NET/.NET)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
@@ -33,7 +33,7 @@ I slutet av den här självstudien har du de här .NET-konsolappar:
 
 Den här kursen behöver du följande:
 
-* Visual Studio 2017.
+* Visual Studio.
 * Ett aktivt Azure-konto. (Om du inte har ett konto kan du skapa en [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) på bara några minuter.)
 
 ## <a name="create-an-iot-hub"></a>Skapa en IoT Hub

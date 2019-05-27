@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: d158e1869cb85752b9b24e76d5227a2f7167bfcf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2871a4a0efaa40d20148ede7f0402a0dd874126c
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60794138"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65957307"
 ---
 # <a name="manage-your-azure-maps-account"></a>Hantera ditt Azure Maps-konto
 
@@ -43,10 +43,14 @@ Då visas en bekräftelsesida. Du kan bekräfta borttagningen av ditt konto geno
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om att hantera ett Azure Maps-konto som prisnivå:
-    > [!div class="nextstepaction"] 
-    > [Hantera en prisnivå](./how-to-manage-pricing-tier.md)
+Konfigurera autentisering med Azure Maps:
+> [!div class="nextstepaction"]
+> [Hantera autentisering](how-to-manage-authentication.md)
 
-* Lär dig hur du visar användningsstatistik för API för Azure Maps-konto:
-    > [!div class="nextstepaction"] 
-    > [Visa användningsstatistik](./how-to-view-api-usage.md)
+Lär dig mer om att hantera ett Azure Maps-konto som prisnivå:
+> [!div class="nextstepaction"] 
+> [Hantera en prisnivå](how-to-manage-pricing-tier.md)
+
+Lär dig hur du visar användningsstatistik för API för Azure Maps-konto:
+> [!div class="nextstepaction"] 
+> [Visa användningsstatistik](how-to-view-api-usage.md)

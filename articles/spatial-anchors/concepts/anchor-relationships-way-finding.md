@@ -4,16 +4,16 @@ description: 'Läs mer om den konceptuella modellen bakom ankare relationer. Lä
 author: ramonarguelles
 manager: vicenterivera
 services: azure-spatial-anchors
-ms.author: ramonarguelles
+ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 619cd051eccce3434469ae909f69496a254d0d9a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 008269a5883750dc8899d896c101c6a05bf7e814
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60565141"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65969280"
 ---
 # <a name="anchor-relationships-and-way-finding-in-azure-spatial-anchors"></a>Ankare relationer och sätt att hitta i Azure Spatial ankare
 

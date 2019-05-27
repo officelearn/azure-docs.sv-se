@@ -5,15 +5,15 @@ services: active-directory
 author: rolyon
 ms.service: active-directory
 ms.topic: include
-ms.date: 04/16/2019
+ms.date: 05/16/2019
 ms.author: rolyon
 ms.custom: include file
-ms.openlocfilehash: ef8155cda6c31a63204af80ca091a13bb16a687d
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 6711506c1e489dcbd50aedd36241affc3bbed80b
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64866440"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66113394"
 ---
 ### <a name="policy-for-users-in-your-directory"></a>Princip: För användare i din katalog
 
@@ -34,6 +34,9 @@ Följ dessa steg om du vill att principen för användare och grupper i kataloge
 ### <a name="policy-for-users-not-in-your-directory"></a>Princip: För användare inte i din katalog
 
 Följ dessa steg om du vill att principen ska vara för användare inte i katalogen som kan begära det här åtkomst-paketet. Kataloger måste konfigureras för att tillåtas i den **organisationens relationer samarbetesbegränsningar** inställningar.
+
+> [!NOTE]
+> En gästanvändarkontot skapas för en användare ännu ej i din katalog vars begäran godkänns eller godkänts automatiskt. Gästen bjuds in, men får inte ett e-postmeddelande för inbjudan. I stället får de ett e-postmeddelande när deras åtkomst pakettilldelningar levereras. Som standard har senare om gästanvändaren inte längre alla åtkomsttilldelningar av paketet eftersom deras senaste tilldelningen har gått ut eller avbrutits, att användarkontot ska blockeras från att logga in och tas bort. Om du vill ha gästanvändare som finns kvar i din katalog på obestämd tid även om de har inga åtkomsttilldelningar för paketet, kan du ändra inställningarna för din konfiguration för hantering av rättigheten.
 
 1. I den **användare som kan begära åtkomst** väljer **för användare inte i katalogen**.
 
@@ -66,7 +69,7 @@ Följ dessa steg om du vill att din princip för att kringgå förfrågningar oc
 
 1. Hoppa över ned till den [princip: Upphör att gälla](#policy-expiration) avsnittet.
 
-### <a name="policy-request"></a>Princip: Förfrågan
+### <a name="policy-request"></a>Princip: Begäran
 
 I avsnittet begäran anger du inställningar för godkännande när användare begär åtkomst till paketet.
 

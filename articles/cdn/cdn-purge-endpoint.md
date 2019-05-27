@@ -5,21 +5,21 @@ services: cdn
 documentationcenter: ''
 author: mdgattuso
 manager: danielgi
-editor: ''
+editor: sohamnchatterjee
 ms.assetid: 0b50230b-fe82-4740-90aa-95d4dde8bd4f
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 05/17/2019
 ms.author: magattus
-ms.openlocfilehash: 76e7817be81a97c8d1a0b9ca2fea8378c3c733e1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 94d9fb0878458f3de0a64fac57af4a70e1875112
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60324919"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65909675"
 ---
 # <a name="purge-an-azure-cdn-endpoint"></a>Rensa en Azure CDN-slutpunkt
 ## <a name="overview"></a>Översikt
@@ -69,7 +69,7 @@ Den här självstudien vägleder dig genom att rensa tillgångar från alla edge
     ![Rensa knappen](./media/cdn-purge-endpoint/cdn-purge-button.png)
 
 > [!IMPORTANT]
-> Rensa begäranden tar cirka 2 – 3 minuter att bearbeta med **Azure CDN från Verizon** (standard och premium), och cirka 7 minuter med **Azure CDN från Akamai**.  Azure CDN har en gräns på 50 samtidiga Rensa förfrågningar vid en given tidpunkt på profilnivå. 
+> Rensa begäranden tar cirka 2 minuter att bearbeta med **Azure CDN från Microsoft** och **Azure CDN från Verizon** (standard och premium), och cirka 10 sekunder med **Azure CDN från Akamai**.  Azure CDN har en gräns på 50 samtidiga Rensa förfrågningar vid en given tidpunkt på profilnivå. 
 > 
 > 
 

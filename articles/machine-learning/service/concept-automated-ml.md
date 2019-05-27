@@ -9,48 +9,55 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: nacharya1
 ms.author: nilesha
-ms.date: 05/02/2019
+ms.date: 05/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9736cc3ab20d43cc3731bc237bed9eb9b5370cb4
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 88e4e305e0f66c61ab4d73bcfef21319b4d02946
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65800772"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65989794"
 ---
 # <a name="what-is-automated-machine-learning"></a>Vad är automatisk maskininlärning?
 
-Automatiserad maskininlärning, även kallat AutoML, kan dataforskare, analytiker och utvecklare att skapa ML-modeller med hög skala, effektivitet och produktivitet samtidigt tjänstemål Modellkvalitet. 
+Automatiserad maskininlärning, är kallas även automatiserade ML processen för automatisering av tidskrävande, iterativ uppgifter av machine learning-modeller. Det gör att dataforskare, analytiker och utvecklare att skapa ML-modeller med hög skala, effektivitet och produktivitet samtidigt tjänstemål Modellkvalitet.
 
-Automatiserad ML bygger en uppsättning ML-modeller som automatiskt, smart väljer modeller för utbildning och rekommenderar sedan som passar dig bäst. Traditionella machine learning-modeller är resurskrävande kräver betydande domänkunskap och tid för att producera och jämföra flera modeller. Med automatiserade ML dig kommer att öka den tid det tar för att hämta produktionsklara ML-modeller med bra enkelt och effektivt.
+Traditionella machine learning-modeller är resurskrävande, som kräver betydande domänkunskap och tid för att producera och jämföra flera modeller. Tillämpa automatiska ML när du vill att Azure Machine Learning för att träna och finjustera en modell för dig med mål-mått som du anger. Tjänsten går igenom ML-algoritmer tillsammans med val av funktioner, där varje iteration producerar en modell med en poäng för utbildning. Ju högre poäng, desto bättre anses modellen ”efter” dina data.
 
-I bakgrunden är dina utbildningsdata tas med ett definierat mål-funktionen och Smart resultatuppsättningen kan upprepas vid via kombinationerna av ML-algoritmer och val av funktioner. Sedan, baserat på utbildning poäng, den bästa anpassade modellen identifieras och rekommenderas för dig. 
+Med automatiserade machine learning, kan du påskynda den tid det tar för att hämta produktionsklara ML-modeller med bra enkelt och effektivt.
 
-Du kan fortfarande har kontroll över dina experiment och insyn i vad som händer. Du kan definiera villkor och experimentera mål baserat på tid, korrekthet eller antalet iterationer, till exempel. Du kan se varje modell som har genererats för experimentet utbildning flödet för varje iteration och de mest inflytelserika funktionerna för en viss modell.
+## <a name="when-to-use-automated-ml"></a>När du ska använda automatisk ML
+
+Automatiserad ML demokratiserar sakernas, de machine learning-modell utvecklingsprocessen och ger dess användare, oavsett deras data science-expertis, att identifiera en slutpunkt till slutpunkt-maskininlärningspipeline för alla problem.
+
+Datatekniker, analytiker och utvecklare branscher kan använda automatiska ML som:
+
++ Implementera maskininlärningslösningar utan omfattande programming kunskap
++ Spara tid och resurser
++ Utnyttja bästa praxis för data science
++ Tillhandahålla flexibel problemlösning
 
 ## <a name="how-automated-ml-works"></a>Hur automatiserade ML fungerar
 
 Med hjälp av **Azure Machine Learning-tjänsten**, du kan utforma och köra dina automatiserade experiment i ML utbildning med de här stegen:
 
 1. **Identifiera problemet ML** som måste lösas: klassificering, prognoser eller regression
-   
+
 1. **Ange källa och formatet för den märkta träningsdata**: Numpy matriser eller Pandas-dataframe
 
 1. **Konfigurera beräkningsmål för modellträning**, till exempel din [lokala datorn, Azure Machine Learning beräknar, remote virtuella datorer eller Azure Databricks](how-to-set-up-training-targets.md).  Lär dig mer om automatisk utbildning [på en fjärransluten resurs](how-to-auto-train-remote.md).
 
 1. **Konfigurera parametrar för automatisk maskininlärning** som bestämmer hur många iterationer över olika modeller, inställningar för finjustering, avancerade Förbearbeta/funktionalisering och vilka mått som ska titta på när du ska bestämma den bästa modellen.  Du kan konfigurera inställningarna för automatisk träningsexperiment [i Azure-portalen](how-to-create-portal-experiments.md) eller [med SDK](how-to-configure-auto-train.md).
 
-1. **Skicka utbildningen kör.** 
+1. **Skicka utbildningen kör.**
 
+  ![Automatiserad Machine learning](./media/how-to-automated-ml/automl-concept-diagram.png)
 
-[![Automatiserad Machine learning](./media/how-to-automated-ml/automated-machine-learning.png)](./media/how-to-automated-ml/automated-machine-learning.png#lightbox)
-
-Vid träning skapar Azure Machine Learning-tjänsten ett antal pipelines som prova olika algoritmer och parametrar. Det slutar när den når avsluta-villkor som definierats i experimentet. 
+Vid träning skapar Azure Machine Learning-tjänsten ett antal i parallella pipelines som prova olika algoritmer och parametrar. Det slutar när den når avsluta-villkor som definierats i experimentet.
 
 Du kan också granska den loggade kör informationen som innehåller mätvärden som samlats in under körningen. Utbildning kör producerar ett Python-serialiserat objekt (`.pkl` fil) som innehåller modellen och dataförbearbetning.
 
-
-Medan modellskapandet är automatiserad, du kan också [Lär dig hur viktiga eller relevanta funktioner är](how-to-configure-auto-train.md#explain) för de genererade modellerna. 
+Medan modellskapandet är automatiserad, du kan också [Lär dig hur viktiga eller relevanta funktioner är](how-to-configure-auto-train.md#explain) för de genererade modellerna.
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2Xc9t]
 
@@ -61,22 +68,25 @@ Medan modellskapandet är automatiserad, du kan också [Lär dig hur viktiga ell
 I varje automatiserade machine learning-experiment, är dina data förbearbetats med hjälp av standard-metoder och du kan också via Avancerad Förbearbeta.
 
 ### <a name="automatic-preprocessing-standard"></a>Automatisk Förbearbeta (standard)
+
 I varje automatiserade machine learning-experiment, är dina data automatiskt skalas eller normalized för att hjälpa algoritmer som gör.  Under modellträning tillämpas en av följande metoder för skalning eller normalisering på varje modell.
 
 |Skala&nbsp;&&nbsp;normalisering| Beskrivning |
 | ------------- | ------------- |
 | [StandardScaleWrapper](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html)  | Standardisera funktioner genom att ta bort medelvärdet och skala till enhet varians  |
 | [MinMaxScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html)  | Omvandlar funktioner genom att skala varje funktion av den kolumnen minimum och maximum  |
-| [MaxAbsScaler](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MaxAbsScaler.html#sklearn.preprocessing.MaxAbsScaler) |    Skala varje funktion genom att dess högsta absolutvärde |  
-| [RobustScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.RobustScaler.html) |   Den här Scaler-funktioner genom att deras quantile intervall |
-| [PCA](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html) | Linjär dimensionalitet minskning med rapportanvändare värdet uppdelning av data till projektet till en lägre dimensionell utrymme | 
-| [TruncatedSVDWrapper](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.TruncatedSVD.html) |    Den här omvandlare utför linjär dimensionalitet minskning med hjälp av trunkerat rapportanvändare värde uppdelning (SVD). Sätt som strider mot PCA Datacenter inte den här kostnadsuppskattning data innan databehandling rapportanvändare värdet uppdelning. Det innebär att fungera med scipy.sparse matriser effektivt | 
-| [SparseNormalizer](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.Normalizer.html) | Varje exempel (dvs, varje rad i matrisen data) med minst ett noll-komponenten skalas oberoende av andra exempel så att dess normen (l1 eller l2) är lika med en | 
+| [MaxAbsScaler](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MaxAbsScaler.html#sklearn.preprocessing.MaxAbsScaler) |Skala varje funktion genom att dess högsta absolutvärde |
+| [RobustScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.RobustScaler.html) |Den här Scaler-funktioner genom att deras quantile intervall |
+| [PCA](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html) |Linjär dimensionalitet minskning med rapportanvändare värdet uppdelning av data till projektet till en lägre dimensionell utrymme |
+| [TruncatedSVDWrapper](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.TruncatedSVD.html) |Den här omvandlare utför linjär dimensionalitet minskning med hjälp av trunkerat rapportanvändare värde uppdelning (SVD). Sätt som strider mot PCA Datacenter inte den här kostnadsuppskattning data innan databehandling rapportanvändare värdet uppdelning. Det innebär att fungera med scipy.sparse matriser effektivt |
+| [SparseNormalizer](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.Normalizer.html) | Varje exempel (dvs, varje rad i matrisen data) med minst ett noll-komponenten är nytt skalade oberoende av andra exempel så att dess normen (l1 eller l2) är lika med en |
 
 ### <a name="advanced-preprocessing-optional-featurization"></a>Avancerade Förbearbeta: valfria funktionalisering
 
 Ytterligare avancerade Förbearbeta och funktionalisering är också tillgängliga, till exempel värden uppräkning, kodning och transformeringar som saknas. [Mer information om vilka funktionalisering ingår](how-to-create-portal-experiments.md#preprocess). Aktivera den här inställningen med:
-+ Azure-portalen: Att välja den **Preprocess** kryssrutan i den **avancerade inställningar** [med de här stegen](how-to-create-portal-experiments.md). 
+
++ Azure-portalen: Att välja den **Preprocess** kryssrutan i den **avancerade inställningar** [med de här stegen](how-to-create-portal-experiments.md).
+
 + Python SDK: Ange `"preprocess": True` för den [ `AutoMLConfig` klass](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
 
 ## <a name="ensemble-models"></a>Ensemble modeller
@@ -90,8 +100,9 @@ Du kan använda automatiserad ML med Azure Machine Learning för att skapa en Py
 ## <a name="automated-ml-across-microsoft"></a>Automatiserad ML på Microsoft
 
 Automatiserad ML är också tillgängligt i andra Microsoft-lösningar som:
+
 + I .NET-appar med Visual Studio och Visual Studio Code med [ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview)
-+ [På HDInsight](../../hdinsight/spark/apache-spark-run-machine-learning-automl.md), där du skala ut dina automatiserade ML utbildning jobb på Spark i HDInsight-kluster parallellt. 
++ [På HDInsight](../../hdinsight/spark/apache-spark-run-machine-learning-automl.md), där du skala ut dina automatiserade ML utbildning jobb på Spark i HDInsight-kluster parallellt.
 + [I Powerbi](https://docs.microsoft.com/power-bi/service-machine-learning-automated)
 
 ## <a name="next-steps"></a>Nästa steg
@@ -100,10 +111,10 @@ Se exempel och lär dig hur du skapar modeller med hjälp av automatisk Machine 
 
 + Följ den [självstudien: Automatiskt träna en modell för klassificering med Azure automatiserad Machine Learning](tutorial-auto-train-models.md)
 
-+ Konfigurera inställningar för automatisk träningsexperiment: 
-   + I Azure portal-gränssnittet, [Följ dessa steg](how-to-create-portal-experiments.md).
-   + Med SDK för Python [Följ dessa steg](how-to-configure-auto-train.md).
++ Konfigurera inställningar för automatisk träningsexperiment:
+  + I Azure portal-gränssnittet, [Följ dessa steg](how-to-create-portal-experiments.md).
+  + Med SDK för Python [Följ dessa steg](how-to-configure-auto-train.md).
   
- + Lär dig hur du automatiskt med hjälp av time series-data, träna [Följ dessa steg](how-to-auto-train-forecast.md).
++ Lär dig hur du automatiskt med hjälp av time series-data, träna [Följ dessa steg](how-to-auto-train-forecast.md).
 
 + Prova att använda [Jupyter Notebook-exempel](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/)

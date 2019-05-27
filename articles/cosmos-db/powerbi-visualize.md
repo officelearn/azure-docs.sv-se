@@ -4,14 +4,14 @@ description: Använd den här Power BI-självstudiekursen för att importera JSO
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/03/2018
+ms.date: 05/21/2019
 ms.author: sngun
-ms.openlocfilehash: 2c58b982e596c95aa47442c1897410fe9ab6b99a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 76531de279dfe6e9b73b3895f0ef63c4c88b63cd
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60929831"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978998"
 ---
 # <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>Visualisera data med Azure Cosmos DB med hjälp av anslutningsprogrammet för Power BI
 
@@ -48,7 +48,7 @@ Kontrollera att du har åtkomst till följande resurser innan du följer anvisni
 
 Du måste ha ett konto på PowerBI.com om du vill dela dina rapporter på PowerBI.com.  Läs mer om Power BI och Power BI Pro i [ https://powerbi.microsoft.com/pricing ](https://powerbi.microsoft.com/pricing).
 
-## <a name="lets-get-started"></a>Nu börjar vi
+## <a name="lets-get-started"></a>Kom igång
 I de här självstudierna Låt oss anta att du är en geologist studerat snö runt om i världen. Vulkanen data lagras i ett Azure Cosmos DB-konto och format för JSON-dokumentet är följande:
 
     {

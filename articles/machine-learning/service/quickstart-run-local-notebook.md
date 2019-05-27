@@ -10,18 +10,18 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 03/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3afea20fe02eafbf14b5162eef3a198d27140b9e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 53e495a3c2d82738e1008ead84a4124e44435c9a
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60753026"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864381"
 ---
 # <a name="quickstart-use-your-own-notebook-server-to-get-started-with-azure-machine-learning"></a>Snabbstart: Använd din egen notebook-server för att komma igång med Azure Machine Learning
 
-Använd din egen notebook-server för att köra kod som loggar in värden i den [Azure Machine Learning-tjänstens arbetsyta](concept-azure-machine-learning-architecture.md). Den här arbetsytan är själva grunden i det moln som du använder för att experimentera, träna och distribuera maskininlärningsmodeller med Machine Learning.
+Använd egna Python-miljön och Jupyter Notebook-Server för att komma igång med Azure Machine Learning-tjänsten.  En Snabbstart med någon SDK-installation finns i [snabbstarten: Använd en molnbaserad notebook-server för att komma igång med Azure Machine Learning](quickstart-run-cloud-notebook.md).
 
-Den här snabbstarten använder egna Python-miljön och Jupyter Notebook-Server. En Snabbstart med någon SDK-installation finns i [snabbstarten: Använd en molnbaserad notebook-server för att komma igång med Azure Machine Learning](quickstart-run-cloud-notebook.md) 
+Den här snabbstarten visar hur du kan använda den [Azure Machine Learning-tjänstens arbetsyta](concept-azure-machine-learning-architecture.md) att hålla reda på exempelexperiment för maskininlärning. Du ska köra Python-kod som loggar in värden på arbetsytan.
 
 Visa en videoversion av den här snabbstarten:
 

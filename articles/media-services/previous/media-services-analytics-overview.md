@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: milanga;juliako;johndeu
-ms.openlocfilehash: aac9719f8d74c4b7bc283745ee2b8e01365a81f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ceaf4d3db71d99c3e87157f9847312fdf4000026
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61245270"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991794"
 ---
 # <a name="media-analytics-on-the-media-services-platform"></a>Media Analytics på Media Services-plattformen 
 
@@ -58,7 +58,6 @@ Media Analytics kan hjälpa organisationer och företag få djupare förståelse
 
 * **Anropa Datacenter**. Även med ankomsten av sociala medier underlätta kunden call Center fortfarande en stor del av kundservice transaktioner. Kodning i den här ljuddata är en stor mängd kundinformation som kan analyseras för att uppnå högre kundnöjdhet. Med hjälp av Media Indexer kan organisationer extrahera text och skapa sökindex och instrumentpaneler. De kan sedan extrahera intelligence runt vanligt klagomål, källor för klagomål och andra relevanta data.
 * **Användargenererade innehållsmoderering**. Många organisationer har från nyhetsmedier nyhetskanaler att polis avdelningar, offentliga portaler som accepterar användargenererade media som videor och bilder. Mängden innehåll kan skalas på grund av oväntade händelser. Det är svårt att genomföra effektiva manuell granskning av innehåll efter lämplighet i dessa scenarier. Kunderna kan lita på tjänsten moderering av innehåll för att fokusera på att innehåll som är lämpligt.
-* **Övervakning**. Kommer en växande inventering av övervakning video med en ökning i användning av IP-kameror. Manuell granskning övervakning video är tid intensiv och känslig för mänskliga fel. Medieanalys tillhandahåller tjänster som rörelsedetektering, ansiktsigenkänning och Videostabilisering till att förenkla processen att granska, hantera och skapa derivat enklare.
 
 ## <a name="media-analytics-media-processors"></a>Media Analytics-medieprocessorer
 Det här avsnittet visar en lista över Media Analytics-medieprocessorer och visar hur du använder .NET eller REST för att få ett mediaobjekt för processor (MP).
@@ -66,7 +65,6 @@ Det här avsnittet visar en lista över Media Analytics-medieprocessorer och vis
 ### <a name="mp-names"></a>MP-namn
 * Förhandsversion av Azure Media Indexer 2
 * Azure Media Indexer
-* Azure Media Hyperlapse
 * Azure Media Face Detector
 * Azure Media Motion Detector
 * Azure Media Video Thumbnails
@@ -123,10 +121,10 @@ Svar:
        ]
     }
 
-## <a name="demos"></a>Demos
+## <a name="demos"></a>Demonstrationer
 Se [Azure Media Analytics demonstrationer](https://azuremedialabs.azurewebsites.net/demos/Analytics.html).
 
-## <a name="provide-feedback"></a>Ge feedback
+## <a name="provide-feedback"></a>Lämna feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-articles"></a>Relaterade artiklar

@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 05/11/2019
-ms.openlocfilehash: 72552f6335f3ad6742679708a639634362c49c0b
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.date: 05/20/2019
+ms.openlocfilehash: 57f2c38ce0479f43d7f24de8d1feb554517bcc69
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65823322"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951476"
 ---
 # <a name="sql-database-serverless-preview"></a>SQL Database utan server (förhandsversion)
 
@@ -81,7 +81,22 @@ I allmänhet databaser körs på en dator med tillräckligt med kapacitet för a
 
 ### <a name="memory-management"></a>Minneshantering
 
-Minne för serverlös databaser frigöras överstiger ofta för etablerade databaser. Det här beteendet är viktigt att kontrollera kostnader i utan server. Till skillnad från etablerade beräkningen frigöras minne från SQL-cache från en databas utan Server när CPU- eller cache förbrukningen är låg.
+Minne för serverlös databaser frigöras överstiger ofta för etablerade beräkningen databaser. Detta är viktigt att kontrollera kostnader i utan server och kan påverka prestanda.
+
+#### <a name="cache-reclaiming"></a>Cachelagra frigöra
+
+Till skillnad från etablerade beräkningen databaser frigöras minne från SQL-cache från en databas utan Server när CPU- eller cache förbrukningen är låg.
+
+- Cache-användning betraktas som låg när den totala storleken på de senast använda cache poster är lägre än ett tröskelvärde för en viss tidsperiod.
+- När cachen frigöring utlöses cache Målstorlek reduceras stegvis till en bråkdel av den föregående storleken och frigöra endast fortsätter om användningen förblir låg.
+- När cachen frigöring inträffar är principen för att välja cacheposter att ta bort samma val av princip för etablerade beräkningen databaser när minnesbelastning är hög.
+- Cachestorleken minskar aldrig under det minsta minnet som definieras av minsta virtuella kärnor, som kan konfigureras.
+
+I både utan server och etablerade compute-databaser, cache poster kan tas bort om allt tillgängligt minne används.
+
+#### <a name="cache-hydration"></a>Cachelagra hydrering
+
+SQL-cacheminnet växer när data hämtas från disken på samma sätt och med samma hastighet som etablerade databaser. När databasen är upptagen, kan cacheminnet växer obegränsad upp till högst minnesgränsen.
 
 ## <a name="autopause-and-autoresume"></a>Autopause och autoresume
 
@@ -115,7 +130,7 @@ Autoresume utlöses om något av följande villkor är uppfyllt när som helst:
 
 ### <a name="connectivity"></a>Anslutningar
 
-Om en serverlös databaser är pausad, kommer sedan den första inloggningen återuppta databasen och returnera ett felmeddelande om att databasen är inte tillgänglig med felkod 40613. När databasen återupptas, måste inloggningen utföras igen om du vill upprätta en anslutning. Databas-klienter med logik behöver inte ändras.
+Om en databas utan Server är pausad, kommer sedan den första inloggningen återuppta databasen och returnera ett felmeddelande om att databasen är inte tillgänglig med felkod 40613. När databasen återupptas, måste inloggningen utföras igen om du vill upprätta en anslutning. Databas-klienter med logik behöver inte ändras.
 
 ### <a name="latency"></a>Svarstid
 
@@ -267,7 +282,7 @@ Mängden beräkning som faktureras är det maximala antalet på Processorn som a
 - **Mängden debiteras ($)**: vCore enhetspriset * max (min virtuella kärnor, virtuella kärnor som används, minsta minnesmängd GB * 1/3 minne GB används * 1/3) 
 - **Fakturering frekvens**: Per sekund
 
-Enhetspriset vcore i kostnaden per vcore per sekund. Referera till den [sidan med priser för Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/single/) för specifika a-priserna i en viss region.
+Enhetspriset vCore i kostnaden per vCore per sekund. Referera till den [sidan med priser för Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/single/) för specifika a-priserna i en viss region.
 
 Mängden beräkning som faktureras exponeras av följande mått:
 
@@ -277,9 +292,9 @@ Mängden beräkning som faktureras exponeras av följande mått:
 
 Den här datamängden beräknas varje sekund och aggregerat över 1 minut.
 
-Överväg en serverlös databas som har konfigurerats med 1 min vcore och 4 max virtuella kärnor.  Detta motsvarar cirka 3 GB minne för min och max 12 GB-minne.  Anta att automatisk pausning fördröjningen är inställd på 6 timmar och databas-arbetsbelastning är aktiv under de första 2 timmarna på en 24-timmarsperiod och annars inaktiva.    
+Överväg en serverlös databas som har konfigurerats med 1 min vCore och 4 max virtuella kärnor.  Detta motsvarar cirka 3 GB minne för min och max 12 GB-minne.  Anta att automatisk pausning fördröjningen är inställd på 6 timmar och databas-arbetsbelastning är aktiv under de första 2 timmarna på en 24-timmarsperiod och annars inaktiva.    
 
-I det här fallet debiteras databasen för beräkning och lagring under de första 8 timmarna.  Även om databasen är inaktiv startar efter 2: a timme, debiteras det fortfarande för beräkning i de efterföljande 6 timmar baserat på minsta compute etableras när databasen är online.  När databasen är pausat debiteras endast lagring under resten av 24-timmarsperiod.
+I det här fallet debiteras databasen för beräkning och lagring under de första 8 timmarna.  Även om databasen är inaktiv startar efter den andra timmen, debiteras det fortfarande för beräkning i de efterföljande 6 timmar baserat på minsta compute etableras när databasen är online.  När databasen är pausat debiteras endast lagring under resten av 24-timmarsperiod.
 
 Mer exakt beräknas beräkning fakturan i det här exemplet enligt följande:
 
@@ -291,7 +306,7 @@ Mer exakt beräknas beräkning fakturan i det här exemplet enligt följande:
 |8:00-24:00|0|0|Ingen beräkning debiteras medan pausats|0 vCore sekunder|
 |Totalt antal vCore sekunder debiteras under 24 timmar||||50400 vCore sekunder|
 
-Anta att enhetspriset beräkning är $0.000073/vCore/second.  Beräkningarna debiteras du för den här 24-timmarsperiod är produkten av beräkning pris- och vcore enhetssekunder faktureras: $0.000073/vCore/second * 50400 vCore sekunder = $3.68
+Anta att enhetspriset beräkning är $0.000073/vCore/second.  Beräkningarna debiteras du för den här 24-timmarsperiod är produkten av beräkning pris- och vCore enhetssekunder faktureras: $0.000073/vCore/second * 50400 vCore sekunder = $3.68
 
 ## <a name="available-regions"></a>Tillgängliga regioner
 

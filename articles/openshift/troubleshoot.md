@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 05/08/2019
-ms.openlocfilehash: 9ef32273c007e7319b7f6df99f3d904f805c31f2
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: 82678091c1d0b71e6209f6d03e9d1a0ca60fe03e
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65550915"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65992159"
 ---
 # <a name="troubleshooting-for-azure-red-hat-openshift"></a>Felsökning för Azure Red Hat OpenShift
 
@@ -23,10 +23,6 @@ Den här artikeln beskriver några vanliga problem som uppstod när du skapar el
 
 Om hur du skapar en Azure Red Hat OpenShift klustret med hjälp av den `az` CLI-kommando misslyckas, försöker skapa fortsätter att misslyckas.
 Använd `az openshift delete` om du vill ta bort det misslyckade klustret, sedan skapa ett helt nytt kluster.
-
-## <a name="untrusted-azure-red-hat-openshift-server-certificate"></a>Ej betrodda Azure Red Hat OpenShift-servercertifikat
-
-OpenShift-konsolen använder ett självsignerat certifikat. När du uppmanas till detta i din webbläsare kringgå varningen och godkänna ”ej betrodd” certifikatet.
 
 ## <a name="hidden-azure-red-hat-openshift-cluster-resource-group"></a>Dolda Azure Red Hat OpenShift klusterresursgrupp
 

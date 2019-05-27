@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/01/2019
+ms.date: 05/21/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 804efa6e0a39e009e18bbb9dec5ad1638a163597
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6bafa4614e40bb1796ec90e07ecf5b9286a8acb9
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60247127"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66113513"
 ---
 # <a name="create-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Skapa en åtkomstgranskning av grupper eller program i Azure AD-åtkomstgranskningar
 
@@ -30,8 +30,11 @@ Den här artikeln beskriver hur du skapar en eller flera åtkomstgranskningar f�
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
+- Azure AD Premium P2
 - [Åtkomstgranskningar aktiverat](access-reviews-overview.md)
 - Global administratör eller Användaradministratör
+
+Mer information finns i [vilka användare måste ha licenser?](access-reviews-overview.md#which-users-must-have-licenses).
 
 ## <a name="create-one-or-more-access-reviews"></a>Skapa en eller flera åtkomstgranskningar
 
@@ -77,9 +80,13 @@ Den här artikeln beskriver hur du skapar en eller flera åtkomstgranskningar f�
 
     ![Skapa en åtkomstgranskning - granskare](./media/create-access-review/reviewers.png)
 
-1. I den **program** väljer du det program som du vill använda. Du kan förenkla spåra och samla in åtkomstgranskningar för olika ändamål genom att ordna dem i program. **Standardprogrammet** är alltid finns, eller så kan du skapa ett annat program. Du kan till exempel välja att ha ett program för varje efterlevnad eller företagsmål.
+1. I den **program** väljer du det program som du vill använda. **Standardprogrammet** finns alltid.
 
     ![Skapa en åtkomstgranskning - program](./media/create-access-review/programs.png)
+
+    Du kan förenkla spåra och samla in åtkomstgranskningar för olika ändamål genom att ordna dem i program. Varje åtkomstgranskning kan länkas till ett program. Sedan när du förbereder rapporter för en granskare kan du fokusera på åtkomstgranskningar inom omfånget för en viss initiativ. Program och åtkomstgranskningsresultaten är synliga för användare med Global administratör, Användaradministratör, säkerhetsadministratör eller säkerhetsläsarroll.
+
+    Om du vill se en lista över program, gå till åtkomst går igenom sidan och väljer **program**. Om du arbetar i en Global administratör eller användarrollen administratör, kan du skapa ytterligare program. Du kan till exempel välja att ha ett program för varje efterlevnad eller företagsmål. Om du inte längre behöver ett program och den inte redan har alla kontroller som är länkad till den, kan du ta bort den.
 
 ### <a name="upon-completion-settings"></a>Vid slutförande-inställningar
 
@@ -110,6 +117,8 @@ Den här artikeln beskriver hur du skapar en eller flera åtkomstgranskningar f�
 
 1. Ange **påminnelser** till **aktivera** har Azure AD skickar påminnelser om åtkomstgranskningar pågår till granskare som inte har slutfört sina granskningar.
 
+    Som standard skickar Azure AD automatiskt en påminnelse när halva tiden före slutdatumet har gått till granskarna som ännu inte har svarat.
+
 ## <a name="start-the-access-review"></a>Starta åtkomstgranskningen
 
 När du har angett inställningarna för en åtkomstgranskning, klickar du på **starta**. Åtkomstgranskningen visas i listan med en indikator för dess status.
@@ -118,19 +127,7 @@ När du har angett inställningarna för en åtkomstgranskning, klickar du på *
 
 Som standard skickar Azure AD ett e-postmeddelande till granskare strax efter det att granskningen startar. Om du väljer att inte har Azure AD skickar e-postmeddelandet, måste du meddela granskarna att en åtkomstgranskning väntar dem att slutföra. Visa instruktioner för hur du [granska åtkomst till grupper eller program](perform-access-review.md). Om din granskning är för gäster att granska sin egen åtkomst, visas instruktioner för hur du [granska åtkomst själv till grupper eller program](review-your-access.md).
 
-Om några av granskarna gäster, Gäster får ett meddelande via e-post endast om de redan har accepterat sin inbjudan.
-
-## <a name="manage-the-access-review"></a>Hantera åtkomstgranskningen
-
-Du kan följa förloppet när granskarna har slutfört sina granskningar på den **översikt** sidan i åtkomstgranskningen. Ingen behörighet har ändrats i katalogen tills [granskningen har slutförts](complete-access-review.md).
-
-![Åtkomstgranskningar pågår](./media/create-access-review/overview-progress.png)
-
-Om det här är en enstaka granskning efter åtkomstgranskningsperiod är över eller administratören stoppar åtkomstgranskning, Följ stegen i [Slutför en åtkomstgranskning av grupper eller program som](complete-access-review.md) att se och tillämpa resultaten.  
-
-För att hantera en serie med granskningar, gå till åtkomstgranskningen, och du ska hitta kommande förekomster i schemalagd granskningar och redigera slutdatumet eller Lägg till/ta bort granskare i enlighet med detta.
-
-Baserat på dina val i **vid slutförande-inställningar**, Använd kommer automatiskt utförs efter slutet granskningsdatum eller när du manuellt stoppa granskningen. Status för granskningen kommer att ändras från **slutförd** via mellanliggande tillstånd som **tillämpar** och slutligen till tillstånd **kopplat**. Du bör förvänta dig att se nekade användare, om sådant finns, tas bort från grupptilldelning för medlemskap eller ett program på några få minuter.
+Om du har tilldelat gäster som granskare och de inte har accepterat inbjudan, kommer de inte emot ett e-postmeddelande från åtkomstgranskningar eftersom de måste du acceptera inbjudan innan du granska.
 
 ## <a name="create-reviews-via-apis"></a>Skapa granskningar via API: er
 

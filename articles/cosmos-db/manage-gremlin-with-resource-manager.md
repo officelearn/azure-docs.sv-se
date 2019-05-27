@@ -4,20 +4,20 @@ description: Använda Azure Resource Manager-mallar för att skapa och konfigure
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 05/20/2019
 ms.author: mjbrown
-ms.openlocfilehash: d1928606a22eba180ebd3f1e979362e75edaf2d7
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 9f62399e3a1ef2a4ceaa8bdf64196bdb634fb4b6
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65077792"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65968884"
 ---
-# <a name="create-azure-cosmos-db-gremlin-api-resources-from-a-resource-manager-template"></a>Skapa Azure Cosmos DB Gremlin API-resurser från en Resource Manager-mall
+# <a name="manage-azure-cosmos-db-gremlin-api-resources-using-azure-resource-manager-templates"></a>Hantera Azure Cosmos DB Gremlin-API med Azure Resource Manager-mallar
 
-Lär dig hur du skapar ett Azure Cosmos DB Gremlin API-resurser med hjälp av en Azure Resource Manager-mall. I följande exempel skapas en Azure Cosmos DB Gremlin-API från en [Azure-snabbstartsmall](https://aka.ms/gremlin-arm-qs). Den här mallen skapar ett Azure Cosmos-konto för Gremlin-API med två diagram som delar 400 RU/s genomströmning på databasnivå.
+## Skapa Azure Cosmos DB API för MongoDB-konto, databas och samling <a id="create-resource"></a>
 
-Här är en kopia av mallen:
+Skapa Azure Cosmos DB-resurser med hjälp av en Azure Resource Manager-mall. Den här mallen skapar ett Azure Cosmos-konto för Gremlin-API med två diagram som delar 400 RU/s genomströmning på databasnivå. Kopiera mallen och distribuera enligt nedan eller gå till [Azure Snabbstartsgalleriet](https://azure.microsoft.com/resources/templates/101-cosmosdb-gremlin/) och distribuera från Azure-portalen. Du kan också ladda ned mallen till din lokala dator eller skapa en ny mall och ange den lokala sökvägen med den `--template-file` parametern.
 
 [!code-json[create-cosmos-gremlin](~/quickstart-templates/101-cosmosdb-gremlin/azuredeploy.json)]
 
@@ -47,7 +47,48 @@ az cosmosdb show --resource-group $resourceGroupName --name accountName --output
 
 Den `az cosmosdb show` -kommando visar det nya Azure Cosmos-kontot när den har etablerats. Om du väljer att använda ett lokalt installerade versionen av Azure CLI istället för att använda CloudShell, se [Azure kommandoradsgränssnitt (CLI)](/cli/azure/) artikeln.
 
-I exemplet ovan har du refererar till en mall som lagras på GitHub. Du kan också ladda ned mallen till din lokala dator eller skapa en ny mall och ange den lokala sökvägen med den `--template-file` parametern.
+## Uppdatera dataflöde (RU/s) på en databas <a id="database-ru-update"></a>
+
+Följande mall uppdateras dataflödet för en databas. Kopiera mallen och distribuera enligt nedan eller gå till [Azure Snabbstartsgalleriet](https://azure.microsoft.com/resources/templates/101-cosmosdb-gremlin-database-ru-update/) och distribuera från Azure-portalen. Du kan också ladda ned mallen till din lokala dator eller skapa en ny mall och ange den lokala sökvägen med den `--template-file` parametern.
+
+[!code-json[cosmosdb-gremlin-database-ru-update](~/quickstart-templates/101-cosmosdb-gremlin-database-ru-update/azuredeploy.json)]
+
+### <a name="deploy-database-template-via-azure-cli"></a>Distribuera databasmall via Azure CLI
+
+För att distribuera Resource Manager-mallen med hjälp av Azure CLI, Välj **prova** att öppna Azure Cloud shell. Högerklicka i gränssnittet för att klistra in skriptet, och välj sedan **klistra in**:
+
+```azurecli-interactive
+read -p 'Enter the Resource Group name: ' resourceGroupName
+read -p 'Enter the account name: ' accountName
+read -p 'Enter the database name: ' databaseName
+read -p 'Enter the new throughput: ' throughput
+
+az group deployment create --resource-group $resourceGroupName \
+   --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-cosmosdb-gremlin-database-ru-update/azuredeploy.json \
+   --parameters accountName=$accountName databaseName=$databaseName throughput=$throughput
+```
+
+## Uppdatera dataflöde (RU/s) på ett diagram <a id="graph-ru-update"></a>
+
+Följande mall uppdateras dataflödet för ett diagram. Kopiera mallen och distribuera enligt nedan eller gå till [Azure Snabbstartsgalleriet](https://azure.microsoft.com/resources/templates/101-cosmosdb-gremlin-graph-ru-update/) och distribuera från Azure-portalen. Du kan också ladda ned mallen till din lokala dator eller skapa en ny mall och ange den lokala sökvägen med den `--template-file` parametern.
+
+[!code-json[cosmosdb-gremlin-graph-ru-update](~/quickstart-templates/101-cosmosdb-gremlin-graph-ru-update/azuredeploy.json)]
+
+### <a name="deploy-graph-template-via-azure-cli"></a>Distribuera graph mall via Azure CLI
+
+För att distribuera Resource Manager-mallen med hjälp av Azure CLI, Välj **prova** att öppna Azure Cloud shell. Högerklicka i gränssnittet för att klistra in skriptet, och välj sedan **klistra in**:
+
+```azurecli-interactive
+read -p 'Enter the Resource Group name: ' resourceGroupName
+read -p 'Enter the account name: ' accountName
+read -p 'Enter the database name: ' databaseName
+read -p 'Enter the graph name: ' graphName
+read -p 'Enter the new throughput: ' throughput
+
+az group deployment create --resource-group $resourceGroupName \
+   --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-cosmosdb-gremlin-graph-ru-update/azuredeploy.json \
+   --parameters accountName=$accountName databaseName=$databaseName graphName=$graphName throughput=$throughput
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

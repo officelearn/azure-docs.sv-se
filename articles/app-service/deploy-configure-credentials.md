@@ -13,17 +13,17 @@ ms.topic: article
 ms.date: 03/10/2019
 ms.author: cephalin;byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: df874ab77c88f05b048b1f9d10873943b7bebf36
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b054e56afdec65ac000b0dc18a0c1a3fd845b4c3
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60765489"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955978"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Konfigurera autentiseringsuppgifter för distribution för Azure App Service
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) stöder två typer av autentiseringsuppgifter för [lokal Git-distribution](deploy-local-git.md) och [FTP/S distribution](deploy-ftp.md). De här autentiseringsuppgifterna är inte samma som din Azure Active Directory-autentiseringsuppgifter.
 
-* **Användarnivå autentiseringsuppgifter**: en uppsättning autentiseringsuppgifter för hela Azure-konto. Den kan användas för att distribuera till App Service för en app i alla prenumerationer som Azure-kontot har behörighet att komma åt. Det är en standarduppsättning som visas i portalen GUI (som den **översikt** och **egenskaper** för appens [resurssida](../azure-resource-manager/manage-resources-portal.md#manage-resources)). När en användare beviljas åtkomst till appen via rollbaserad åtkomstkontroll (RBAC) eller coadmin behörigheter kan användaren använda sina egna användarnivå autentiseringsuppgifter förrän åtkomst har återkallats. Dela inte dessa autentiseringsuppgifter med andra Azure-användare.
+* **Användarnivå autentiseringsuppgifter**: en uppsättning autentiseringsuppgifter för hela Azure-konto. Den kan användas för att distribuera till App Service för en app i alla prenumerationer som Azure-kontot har behörighet att komma åt. Det är en standarduppsättning som visas i portalen GUI (som den **översikt** och **egenskaper** för appens [resurssida](../azure-resource-manager/manage-resources-portal.md#manage-resources)). När en användare beviljas åtkomst till appen via rollbaserad åtkomstkontroll (RBAC) eller coadmin behörigheter kan användaren använda sina egna autentiseringsuppgifter på användarnivå förrän åtkomst har återkallats. Dela inte dessa autentiseringsuppgifter med andra Azure-användare.
 
 * **Appnivå autentiseringsuppgifter**: en uppsättning autentiseringsuppgifter för varje app. Den kan användas för att distribuera till appen endast. Autentiseringsuppgifterna för varje app som genereras automatiskt när en app skapas. De kan inte konfigureras manuellt, men kan återställas när som helst. För en användare beviljas åtkomst på appnivå autentiseringsuppgifter via (RBAC), som är deltagare eller senare på appen. Läsare tillåts inte att publicera, och det går inte att få åtkomst till dessa autentiseringsuppgifter.
 

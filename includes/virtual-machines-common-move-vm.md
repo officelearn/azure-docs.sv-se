@@ -9,11 +9,11 @@ ms.date: 10/19/2018
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 61990e785741799fcbcd4e6df965953bd9944f4d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61473944"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66110442"
 ---
 ## <a name="use-the-azure-portal-to-move-a-vm-to-a-different-subscription"></a>Använd Azure portal för att flytta en virtuell dator till en annan prenumeration
 Du kan flytta en virtuell dator och dess kopplade resurser till en annan prenumeration med hjälp av Azure portal.

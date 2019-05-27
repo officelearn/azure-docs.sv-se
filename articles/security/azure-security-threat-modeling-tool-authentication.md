@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 56620dc1d3e315caa3e259715ed84a539b91356d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3b170a214c7c3c464f7ea645fa1dc42cce0a0580
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60610869"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951708"
 ---
 # <a name="security-frame-authentication--mitigations"></a>Security ram: Autentisering | Åtgärder 
 
@@ -41,10 +41,10 @@ ms.locfileid: "60610869"
 
 ## <a id="standard-authn-web-app"></a>Överväg att använda en standard autentiseringsmekanism för att autentisera till webbprogram
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL fas**               | Utveckla |  
+| **SDL fas**               | Skapa |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |
 | **Referenser**              | Gäller inte  |
@@ -52,10 +52,10 @@ ms.locfileid: "60610869"
 
 ## <a id="handle-failed-authn"></a>Program måste hantera misslyckade autentiseringsscenarier på ett säkert sätt
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL fas**               | Utveckla |  
+| **SDL fas**               | Skapa |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |
 | **Referenser**              | Gäller inte  |
@@ -63,10 +63,10 @@ ms.locfileid: "60610869"
 
 ## <a id="step-up-adaptive-authn"></a>Aktivera steg upp eller anpassad autentisering
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL fas**               | Utveckla |  
+| **SDL fas**               | Skapa |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |
 | **Referenser**              | Gäller inte  |
@@ -74,10 +74,10 @@ ms.locfileid: "60610869"
 
 ## <a id="admin-interface-lockdown"></a>Se till att administrationsgränssnitt på rätt sätt är låsta
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL fas**               | Utveckla |  
+| **SDL fas**               | Skapa |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |
 | **Referenser**              | Gäller inte  |
@@ -85,10 +85,10 @@ ms.locfileid: "60610869"
 
 ## <a id="forgot-pword-fxn"></a>Implementera har glömt lösenord funktioner på ett säkert sätt
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL fas**               | Utveckla |  
+| **SDL fas**               | Skapa |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |
 | **Referenser**              | Gäller inte  |
@@ -96,21 +96,21 @@ ms.locfileid: "60610869"
 
 ## <a id="pword-account-policy"></a>Se till att lösenord och principen tillämpas
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL fas**               | Utveckla |  
+| **SDL fas**               | Skapa |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |
 | **Referenser**              | Gäller inte  |
-| Information | <p>Princip för lösenord och efterlever organisationens policy och bästa praxis bör implementeras.</p><p>För att skydda mot brute force- och ordlista baserat gissa: Princip för starka lösenord måste implementeras för att säkerställa att användarna skapar komplext lösenord (t.ex. 12 tecken minimilängd, alfanumeriska tecken och specialtecken).</p><p>Principer för kontoutelåsning kan implementeras på följande sätt:</p><ul><li>**Mjuk Lås ut:** Detta kan vara ett bra alternativ för att skydda användarna mot brute force-attacker. Till exempel när användaren anger fel lösenord kunde tre gånger programmet låsa kontot för en minut för att kunna långsammare processen med brute tvinga sitt lösenord, vilket gör det mindre lönsamma för angripare att fortsätta. Om du implementerar hårda motåtgärder för lås rapporteras för det här exemplet skulle du få en ”Dos” av permanent utelåsning konton. Du kan också program kan generera ett Engångslösenord (en gång lösenord) och skicka den out-of-band (via e-post, sms etc.) för användaren. En annan metod kan vara att implementera CAPTCHA när ett tröskelvärde för antal misslyckade försök har nåtts.</li><li>**Hårda Lås ut:** Den här typen av kontoutelåsning tillämpas när du identifierar en användare som en attack ditt program och räknaren honom med hjälp av permanent utelåsning kontot förrän en svarsgrupp haft tid att göra sina datautredning. Efter den här processen som du kan välja att ge användaren tillbaka sitt konto eller ytterligare vidta rättsliga åtgärder mot honom. Den här typen av metoden förhindrar att angriparen ytterligare leds genom ditt program och infrastruktur.</li></ul><p>Kontrollera att alla nycklar och lösenord är utbytbara och är för att skydda dig mot angrepp på standard- och förutsägbara konton, genererats eller ersatts efter tidpunkten för installationen.</p><p>Om programmet har att generera lösenord automatiskt, kontrollera att de genererade lösenord är slumpmässig och har hög entropi.</p>|
+| Information | <p>Princip för lösenord och efterlever organisationens policy och bästa praxis bör implementeras.</p><p>För att skydda mot brute force- och ordlista baserat gissa: Princip för starka lösenord måste implementeras för att säkerställa att användarna skapar komplext lösenord (t.ex. 12 tecken minimilängd, alfanumeriska tecken och specialtecken).</p><p>Principer för kontoutelåsning kan implementeras på följande sätt:</p><ul><li>**Mjuk Lås ut:** Detta kan vara ett bra alternativ för att skydda användarna mot brute force-attacker. Till exempel när användaren anger fel lösenord kunde tre gånger programmet låsa kontot för en minut för att kunna långsammare processen med brute tvinga sitt lösenord, vilket gör det mindre lönsamma för angripare att fortsätta. Om du implementerar hårda motåtgärder för lås rapporteras för det här exemplet skulle du få en ”DoS” av permanent utelåsning konton. Du kan också program kan generera ett Engångslösenord (en gång lösenord) och skicka den out-of-band (via e-post, sms etc.) för användaren. En annan metod kan vara att implementera CAPTCHA när ett tröskelvärde för antal misslyckade försök har nåtts.</li><li>**Hårda Lås ut:** Den här typen av kontoutelåsning tillämpas när du identifierar en användare som ditt program och räknaren dem med hjälp av permanent utelåsning sitt konto förrän en svarsgrupp haft tid att göra sina datautredning en attack. Efter den här processen som du kan välja att ge användaren tillbaka deras konto eller vidta rättsliga åtgärder mot dem ytterligare. Den här typen av metoden förhindrar att angriparen ytterligare leds genom ditt program och infrastruktur.</li></ul><p>Kontrollera att alla nycklar och lösenord är utbytbara och är för att skydda dig mot angrepp på standard- och förutsägbara konton, genererats eller ersatts efter tidpunkten för installationen.</p><p>Om programmet har att generera lösenord automatiskt, kontrollera att de genererade lösenord är slumpmässig och har hög entropi.</p>|
 
 ## <a id="controls-username-enum"></a>Implementera kontroller för att förhindra användarnamn uppräkning
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL fas**               | Utveckla |  
+| **SDL fas**               | Skapa |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |
 | **Referenser**              | Gäller inte  |
@@ -118,10 +118,10 @@ ms.locfileid: "60610869"
 
 ## <a id="win-authn-sql"></a>Använd om möjligt Windows-autentisering för att ansluta till SQL Server
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Databas | 
-| **SDL fas**               | Utveckla |  
+| **SDL fas**               | Skapa |  
 | **Tillämpliga tekniker** | OnPrem |
 | **Attribut**              | Version av SQL - alla |
 | **Referenser**              | [SQLServer – Välj ett autentiseringsläge](https://msdn.microsoft.com/library/ms144284.aspx) |
@@ -129,10 +129,10 @@ ms.locfileid: "60610869"
 
 ## <a id="aad-authn-sql"></a>När det är möjligt använda Azure Active Directory-autentisering för anslutning till SQL-databas
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Databas | 
-| **SDL fas**               | Utveckla |  
+| **SDL fas**               | Skapa |  
 | **Tillämpliga tekniker** | SQL Azure |
 | **Attribut**              | SQL Version - V12 |
 | **Referenser**              | [Ansluta till SQL Database med hjälp av Azure Active Directory-autentisering](https://azure.microsoft.com/documentation/articles/sql-database-aad-authentication/) |
@@ -140,10 +140,10 @@ ms.locfileid: "60610869"
 
 ## <a id="authn-account-pword"></a>När SQL-autentiseringsläge används, se till att kontot och lösenordet principer verkställs på SQLServer
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Databas | 
-| **SDL fas**               | Utveckla |  
+| **SDL fas**               | Skapa |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |
 | **Referenser**              | [SQL Server-lösenordsprincip](https://technet.microsoft.com/library/ms161959(v=sql.110).aspx) |
@@ -151,10 +151,10 @@ ms.locfileid: "60610869"
 
 ## <a id="autn-contained-db"></a>Använd inte SQL-autentisering i inneslutna databaser
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Databas | 
-| **SDL fas**               | Utveckla |  
+| **SDL fas**               | Skapa |  
 | **Tillämpliga tekniker** | OnPrem, SQL Azure |
 | **Attribut**              | SQL-Version - MSSQL2012, SQL-Version - V12 |
 | **Referenser**              | [Rekommenderade säkerhetsmetoder med inneslutna databaser](https://msdn.microsoft.com/library/ff929055.aspx) |
@@ -162,10 +162,10 @@ ms.locfileid: "60610869"
 
 ## <a id="authn-sas-tokens"></a>Använda per enhet autentiseringsuppgifter med hjälp av SaS-token
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure händelsehubb | 
-| **SDL fas**               | Utveckla |  
+| **SDL fas**               | Skapa |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |
 | **Referenser**              | [Autentisering och säkerhet modellen översikt över Event Hubs](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
@@ -173,7 +173,7 @@ ms.locfileid: "60610869"
 
 ## <a id="multi-factor-azure-admin"></a>Aktivera Azure Multi-Factor Authentication för Azure-administratörer
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure Förtroendegräns | 
 | **SDL fas**               | Distribution |  
@@ -184,7 +184,7 @@ ms.locfileid: "60610869"
 
 ## <a id="anon-access-cluster"></a>Begränsa anonym åtkomst till Service Fabric-kluster
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Service Fabric-Förtroendegräns | 
 | **SDL fas**               | Distribution |  
@@ -195,7 +195,7 @@ ms.locfileid: "60610869"
 
 ## <a id="fabric-cn-nn"></a>Se till att certifikatet för Service Fabric-klient-till-nod skiljer sig från nod till nod-certifikat
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Service Fabric-Förtroendegräns | 
 | **SDL fas**               | Distribution |  
@@ -206,7 +206,7 @@ ms.locfileid: "60610869"
 
 ## <a id="aad-client-fabric"></a>Använda AAD för att autentisera klienter till service fabric-kluster
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Service Fabric-Förtroendegräns | 
 | **SDL fas**               | Distribution |  
@@ -217,7 +217,7 @@ ms.locfileid: "60610869"
 
 ## <a id="fabric-cert-ca"></a>Se till att service fabric-certifikat hämtas från en godkänd certifikatutfärdaren (CA)
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Service Fabric-Förtroendegräns | 
 | **SDL fas**               | Distribution |  
@@ -228,10 +228,10 @@ ms.locfileid: "60610869"
 
 ## <a id="standard-authn-id"></a>Använd standard autentiseringsscenarier som stöds av Identity Server
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Identitetsserver | 
-| **SDL fas**               | Utveckla |  
+| **SDL fas**               | Skapa |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |
 | **Referenser**              | [IdentityServer3 - helheten](https://identityserver.github.io/Documentation/docsv2/overview/bigPicture.html) |
@@ -239,7 +239,7 @@ ms.locfileid: "60610869"
 
 ## <a id="override-token"></a>Åsidosätt standard Identity Server tokens cacheminne med ett skalbart alternativ
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Identitetsserver | 
 | **SDL fas**               | Distribution |  
@@ -250,7 +250,7 @@ ms.locfileid: "60610869"
 
 ## <a id="binaries-signed"></a>Se till att binärfilerna för distribuerade program är digitalt signerade
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Datorn Förtroendegräns | 
 | **SDL fas**               | Distribution |  
@@ -261,10 +261,10 @@ ms.locfileid: "60610869"
 
 ## <a id="msmq-queues"></a>Aktivera autentisering när du ansluter till MSMQ-köer i WCF
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | WCF | 
-| **SDL fas**               | Utveckla |  
+| **SDL fas**               | Skapa |  
 | **Tillämpliga tekniker** | Generic, NET Framework 3 |
 | **Attribut**              | Gäller inte |
 | **Referenser**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx) |
@@ -301,10 +301,10 @@ Den `<netMsmqBinding/>` element i WCF-konfigurationsfilen nedan instruerar WCF a
 
 ## <a id="message-none"></a>WCF-gör Ange inte meddelande clientCredentialType till ingen
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | WCF | 
-| **SDL fas**               | Utveckla |  
+| **SDL fas**               | Skapa |  
 | **Tillämpliga tekniker** | .NET Framework 3 |
 | **Attribut**              | Typ av autentiseringsuppgift för klient - ingen |
 | **Referenser**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify](https://vulncat.fortify.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_anonymous_message_client) |
@@ -317,10 +317,10 @@ Den `<netMsmqBinding/>` element i WCF-konfigurationsfilen nedan instruerar WCF a
 
 ## <a id="transport-none"></a>WCF-gör inställd inte Transport clientCredentialType none
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | WCF | 
-| **SDL fas**               | Utveckla |  
+| **SDL fas**               | Skapa |  
 | **Tillämpliga tekniker** | Generic, .NET Framework 3 |
 | **Attribut**              | Typ av autentiseringsuppgift för klient - ingen |
 | **Referenser**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify](https://vulncat.fortify.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_anonymous_transport_client) |
@@ -333,10 +333,10 @@ Den `<netMsmqBinding/>` element i WCF-konfigurationsfilen nedan instruerar WCF a
 
 ## <a id="authn-secure-api"></a>Se till att standard autentiseringen tekniker som används för att skydda webb-API: er
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webb-API | 
-| **SDL fas**               | Utveckla |  
+| **SDL fas**               | Skapa |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |
 | **Referenser**              | [Autentisering och auktorisering i ASP.NET Web API](https://www.asp.net/web-api/overview/security/authentication-and-authorization-in-aspnet-web-api), [extern autentiseringstjänster med ASP.NET webb-API (C#)](https://www.asp.net/web-api/overview/security/external-authentication-services) |
@@ -344,10 +344,10 @@ Den `<netMsmqBinding/>` element i WCF-konfigurationsfilen nedan instruerar WCF a
 
 ## <a id="authn-aad"></a>Använd standard autentiseringsscenarier som stöds av Azure Active Directory
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure AD | 
-| **SDL fas**               | Utveckla |  
+| **SDL fas**               | Skapa |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |
 | **Referenser**              | [Autentiseringsscenarier för Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-authentication-scenarios/), [kodexempel för Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-code-samples/), [Utvecklarhandbok för Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-developers-guide/) |
@@ -355,10 +355,10 @@ Den `<netMsmqBinding/>` element i WCF-konfigurationsfilen nedan instruerar WCF a
 
 ## <a id="adal-scalable"></a>Åsidosätt standard ADAL-tokencache med ett skalbart alternativ
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure AD | 
-| **SDL fas**               | Utveckla |  
+| **SDL fas**               | Skapa |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |
 | **Referenser**              | [Modern autentisering med Azure Active Directory för webbprogram](https://blogs.msdn.microsoft.com/microsoft_press/2016/01/04/new-book-modern-authentication-with-azure-active-directory-for-web-applications/), [använda Redis som ADAL-tokencache](https://blogs.msdn.microsoft.com/mrochon/2016/09/19/using-redis-as-adal-token-cache/)  |
@@ -366,10 +366,10 @@ Den `<netMsmqBinding/>` element i WCF-konfigurationsfilen nedan instruerar WCF a
 
 ## <a id="tokenreplaycache-adal"></a>Se till att TokenReplayCache används för att förhindra återuppspelning av ADAL-autentisering-token
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure AD | 
-| **SDL fas**               | Utveckla |  
+| **SDL fas**               | Skapa |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |
 | **Referenser**              | [Modern autentisering med Azure Active Directory för webbprogram](https://blogs.msdn.microsoft.com/microsoft_press/2016/01/04/new-book-modern-authentication-with-azure-active-directory-for-web-applications/) |
@@ -427,10 +427,10 @@ Tänk på att för att testa effektiviteten i den här konfigurationen måste lo
 
 ## <a id="adal-oauth2"></a>Använda ADAL-bibliotek för att hantera förfrågningar om säkerhetstoken från OAuth2-klienter till AAD (eller lokala AD)
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure AD | 
-| **SDL fas**               | Utveckla |  
+| **SDL fas**               | Skapa |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |
 | **Referenser**              | [ADAL](https://azure.microsoft.com/documentation/articles/active-directory-authentication-libraries/) |
@@ -438,10 +438,10 @@ Tänk på att för att testa effektiviteten i den här konfigurationen måste lo
 
 ## <a id="authn-devices-field"></a>Autentisera enheter som ansluter till fält-Gateway
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | IoT Field Gateway | 
-| **SDL fas**               | Utveckla |  
+| **SDL fas**               | Skapa |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |
 | **Referenser**              | Gäller inte  |
@@ -449,10 +449,10 @@ Tänk på att för att testa effektiviteten i den här konfigurationen måste lo
 
 ## <a id="authn-devices-cloud"></a>Se till att enheter som ansluter till molngatewayen autentiseras
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | IoT Cloud Gateway | 
-| **SDL fas**               | Utveckla |  
+| **SDL fas**               | Skapa |  
 | **Tillämpliga tekniker** | Generisk, C#, Node.JS,  |
 | **Attribut**              | Inte aktuellt, Gateway - valet i Azure IoT Hub |
 | **Referenser**              | Inte aktuellt, [Azure IoT hub med .NET](https://azure.microsoft.com/documentation/articles/iot-hub-csharp-csharp-getstarted/), [komma igång med IoT hub och Node JS](https://azure.microsoft.com/documentation/articles/iot-hub-node-node-getstarted), [skydda IoT med SAS och certifikat](https://azure.microsoft.com/documentation/articles/iot-hub-sas-tokens/), [Git-lagringsplats](https://github.com/Azure/azure-iot-sdks/tree/master/node) |
@@ -549,10 +549,10 @@ await deviceClient.SendEventAsync(message);
 
 ## <a id="authn-cred"></a>Använd autentiseringsuppgifter för varje enhet
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | IoT Cloud Gateway  | 
-| **SDL fas**               | Utveckla |  
+| **SDL fas**               | Skapa |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gateway - valet i Azure IoT Hub |
 | **Referenser**              | [Azure IoT Hub säkerhetstoken](https://azure.microsoft.com/documentation/articles/iot-hub-sas-tokens/) |
@@ -560,10 +560,10 @@ await deviceClient.SendEventAsync(message);
 
 ## <a id="req-containers-anon"></a>Se till att endast nödvändiga behållare och blobbar ges anonym läsbehörighet
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure Storage | 
-| **SDL fas**               | Utveckla |  
+| **SDL fas**               | Skapa |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | StorageType - Blob |
 | **Referenser**              | [Hantera anonym läsbehörighet till behållare och blobbar](https://azure.microsoft.com/documentation/articles/storage-manage-access-to-resources/), [signaturer för delad åtkomst, del 1: Förstå SAS-modellen](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/) |
@@ -571,10 +571,10 @@ await deviceClient.SendEventAsync(message);
 
 ## <a id="limited-access-sas"></a>Bevilja begränsad åtkomst till objekt i Azure storage med SAS eller SAP
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure Storage | 
-| **SDL fas**               | Utveckla |  
+| **SDL fas**               | Skapa |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte |
 | **Referenser**              | [Signaturer för delad åtkomst, del 1: Förstå SAS-modellen](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/), [signaturer för delad åtkomst, del 2: Skapa och använda en SAS med Blob storage](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-2/), [hur du delegerar åtkomst till objekt i ditt konto med signaturer för delad åtkomst och lagrade åtkomstprinciper](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_how-to-delegate-access-to-objects-in-your-account-using-shared-access-signatures-and-stored-access-policies) |

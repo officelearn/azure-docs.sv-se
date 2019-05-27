@@ -5,22 +5,18 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 1/15/2019
+ms.date: 5/21/2019
 ms.author: cherylmc
-ms.openlocfilehash: d1e57e623e3e95f3d71e895c49c928f00aa0ad46
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: fdfabf328ddfa6b5e4b578be5a1b329cb3219a18
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59274680"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65989084"
 ---
-# <a name="configure-openvpn-clients-for-azure-vpn-gateway-preview"></a>Konfigurera OpenVPN klienter för Azure VPN Gateway (förhandsversion)
+# <a name="configure-openvpn-clients-for-azure-vpn-gateway"></a>Konfigurera OpenVPN klienter för Azure VPN Gateway
 
 Den här artikeln hjälper dig att konfigurera **OpenVPN® protokollet** klienter.
-
-> [!IMPORTANT]
-> Den allmänt tillgängliga förhandsversionen tillhandahålls utan serviceavtal och bör inte användas för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller har begränsad funktionalitet, eller så är de inte tillgängliga på alla Azure-platser. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -138,6 +134,6 @@ Kontrollera att du har slutfört stegen för att konfigurera OpenVPN för din VP
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill att VPN-klienter ska kunna komma åt resurser i ett annat virtuellt nätverk (produktion), följ instruktionerna på den [VNet-till-VNet](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) artikeln om du vill konfigurera en vnet-till-vnet-anslutning. Se till att aktivera BGP på gateway och anslutningar, annars kommer inte trafiken.
+Om du vill att VPN-klienter ska kunna komma åt resurser i ett annat virtuellt nätverk, följ instruktionerna på den [VNet-till-VNet](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) artikeln om du vill konfigurera en vnet-till-vnet-anslutning. Se till att aktivera BGP på gateway och anslutningar, annars kommer inte trafiken.
 
 **”OpenVPN” är ett varumärke som tillhör OpenVPN Inc.**

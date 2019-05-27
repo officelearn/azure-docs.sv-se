@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 04/30/2019
+ms.date: 05/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 35d9e953ade337672fd57149e325b507f6ce115f
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: cebe22dddf9ef382c4eceb799e05cbaab30aedaa
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65405722"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951101"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Lagring av data- och ingångsanspråk i förhandsversionen av Azure Time Series Insights
 
@@ -28,7 +28,7 @@ När du skapar en Time Series Insights Preview-användningsbaserad SKU-miljö, s
 * En Time Series Insights-miljö.
 * Ett Azure Storage allmänna V1-konto där data kommer att lagras.
 
-Förhandsversionen av Time Series Insights använder Azure Blob storage med Parquet-filtypen. Time Series Insights hanterar alla dataåtgärder inklusive att skapa blobbar, indexering och partitionera data i Azure storage-kontot. Du kan skapa dessa blobar med hjälp av ett Azure storage-konto.
+Time Series Insights Preview använder Azure Blob storage med Parquet-filtypen. Time Series Insights hanterar alla dataåtgärder inklusive att skapa blobbar, indexering och partitionera data i Azure storage-kontot. Du kan skapa dessa blobar med hjälp av ett Azure storage-konto.
 
 Som andra Azure Storage-blobbar kan Time Series Insights-skapade blobbar du läsa och skriva till dem för att stödja olika integrationsscenarier.
 
@@ -120,7 +120,7 @@ Time Series Insights publicerar upp till två kopior av varje händelse i Azure 
 
 Time Series Insights repartitions dessutom Parquet-filer för att optimera för API: er för Time Series Insights. Nyligen repartitioned filen sparas också.
 
-Data lagras på obestämd tid i Azure storage-kontot under den offentliga Förhandsperioden.
+Data lagras på obestämd tid i Azure storage-kontot under den offentliga förhandsperioden.
 
 ### <a name="writing-and-editing-time-series-insights-blobs"></a>Skriva och redigera Time Series Insights-blobar
 
@@ -146,7 +146,7 @@ Du kan komma åt dina data på tre Allmänt sätt:
 
 ### <a name="data-deletion"></a>Data raderas
 
-Ta inte bort blobbar, eftersom Time Series Insights Preview underhåller metadata om blobbar i den.
+Ta inte bort blobbar. De är inte bara användbar för granskning och underhålla en post med dina data, Time Series Insights Preview underhåller blob-metadata i varje blob.
 
 ## <a name="time-series-insights-data-ingress"></a>Inkommande för Time Series Insights-data
 
@@ -177,7 +177,7 @@ Time Series Insights Preview indexerar data med hjälp av en strategi för optim
 
 ### <a name="scale"></a>Skalning
 
-Time Series Insights Preview stöder en inledande ingående skala upp till 6 megabyte per sekund (Mbit/s) per miljö. Förbättrat stöd för skalning pågår. Vi planerar att uppdatera vår dokumentation för att återspegla dessa förbättringar
+Time Series Insights Preview stöder en inledande ingående skalan för upp till 1 ingående Byte per sekund (Mbit/s) per miljö. Förbättrat stöd för skalning pågår. Vi planerar att uppdatera vår dokumentation för att återspegla dessa förbättringar.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -2,18 +2,19 @@
 title: Hur du etablerar enheter för flera innehavare i Azure IoT Hub Device Provisioning-tjänsten | Microsoft Docs
 description: Hur du etablerar enheter för flera innehavare med din device provisioning-tjänstinstans
 author: wesmc7777
-ms.author: wesmc
-ms.date: 04/10/2019
+ms.author: v-yiso
+origin.date: 04/10/2019
+ms.date: 05/06/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.openlocfilehash: 84e1f57175d772ad281c18b67fa1be484c0cac69
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59793171"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66116098"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Hur du etablerar för flera innehavare 
 
@@ -41,8 +42,6 @@ Den här artikeln använder en simulerad enhet exempel från den [Azure IoT C SD
 
 * Slutförandet av den [konfigurera IoT Hub Device Provisioning-tjänsten med Azure portal](./quick-setup-auto-provision.md) Snabbstart.
 
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 
 ## <a name="create-two-regional-iot-hubs"></a>Skapa två regionala IoT-hubbar

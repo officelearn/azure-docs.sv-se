@@ -10,16 +10,16 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: fb0482be1670a96befdd69a5356c9e21476d9f9f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 85a4aca0c4b80eaab1f43bcbec33dc9cf37aa655
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60305408"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65950095"
 ---
 # <a name="tasks-for-a-group-manager-on-a-data-science-team-project"></a>Uppgifter för gruppchef i ett team för datavetenskapsprojekt
 
-Det här avsnittet beskrivs de uppgifter som gruppchef förväntas slutföra för hist / hennes data science-organisation. Målet är att upprätta samarbetsfunktioner gruppmiljö som standardiserar på den [Team Data Science Process](overview.md) (TDSP). En översikt över rollerna som personal och förknippade aktiviteter som hanteras av en datavetenskapliga team standardisera om den här processen finns i [roller för Team Data Science Process och uppgifter](roles-tasks.md).
+Det här avsnittet beskrivs de uppgifter som gruppchef är väntat att slutföra för organisationen data science. Målet är att upprätta samarbetsfunktioner gruppmiljö som standardiserar på den [Team Data Science Process](overview.md) (TDSP). En översikt över rollerna som personal och förknippade aktiviteter som hanteras av en datavetenskapliga team standardisera om den här processen finns i [roller för Team Data Science Process och uppgifter](roles-tasks.md).
 
 Den **Gruppansvarig** projektledaren för hela data science-enhet i ett företag. En data science-enhet kan ha flera team som arbetar med flera dataforskningsprojekt i olika företag branscher. Gruppchef kan delegera sina uppgifter till en surrogate, men de uppgifter som är associerade med rollen är desamma. Det finns sex viktigaste uppgifterna som du ser i följande diagram:
 

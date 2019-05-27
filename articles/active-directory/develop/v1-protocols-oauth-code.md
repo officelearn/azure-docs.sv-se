@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/5/2019
+ms.date: 03/05/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2e9177f91f016ffc64d542b9fad89d147b96f6d
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: e05d79773cfd2ebae8047e75d41684de9101787a
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545152"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65962174"
 ---
 # <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>Bevilja åtkomst till Azure Active Directory-webbprogram med hjälp av kod grant-flöde för OAuth 2.0
 
@@ -209,7 +209,7 @@ En exempel-felsvar kan se ut så här:
 | fel |En felkodsträngen som kan användas för att klassificera typer av fel som inträffar och kan användas för att ta hänsyn till fel. |
 | error_description |Ett felmeddelande som kan hjälpa utvecklare identifiera grundorsaken till ett autentiseringsfel. |
 | error_codes |En lista över STS-specifika felkoder som kan hjälpa i diagnostik. |
-| tidsstämpel |Den tid då felet inträffade. |
+| timestamp |Den tid då felet inträffade. |
 | trace_id |En unik identifierare för begäran som kan hjälpa i diagnostik. |
 | correlation_id |En unik identifierare för begäran som kan hjälpa i diagnostik för komponenter. |
 
@@ -341,7 +341,7 @@ En exempel-felsvar kan se ut så här:
 | fel |En felkodsträngen som kan användas för att klassificera typer av fel som inträffar och kan användas för att ta hänsyn till fel. |
 | error_description |Ett felmeddelande som kan hjälpa utvecklare identifiera grundorsaken till ett autentiseringsfel. |
 | error_codes |En lista över STS-specifika felkoder som kan hjälpa i diagnostik. |
-| tidsstämpel |Den tid då felet inträffade. |
+| timestamp |Den tid då felet inträffade. |
 | trace_id |En unik identifierare för begäran som kan hjälpa i diagnostik. |
 | correlation_id |En unik identifierare för begäran som kan hjälpa i diagnostik för komponenter. |
 

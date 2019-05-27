@@ -8,12 +8,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: hrasheed
-ms.openlocfilehash: aaf54907ca0cf218b126fc9fc74080c02ef6cf6c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2e0c17b07f70d9b05ff9ea6c3af2e8dc26127cae
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64721603"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65906513"
 ---
 # <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>Fråga Apache Hive via JDBC-drivrutinen i HDInsight
 
@@ -80,7 +80,7 @@ SQuirreL SQL är en JDBC-klient som kan användas för att köra Hive-frågor vi
 
 5. Lägg till följande information i dialogrutan Lägg till drivrutin:
 
-    * **Namn**: Hive
+    * **Namn på**: Hive
     * **Exempel-URL**: `jdbc:hive2://localhost:443/default;transportMode=http;ssl=true;httpPath=/hive2`
     * **Extra klassen sökväg**: Använd knappen Lägg till att lägga till i alla jar-filer som hämtats tidigare
     * **Klassnamn**: org.apache.hive.jdbc.HiveDriver
@@ -95,7 +95,7 @@ SQuirreL SQL är en JDBC-klient som kan användas för att köra Hive-frågor vi
 
 7. Använd följande värden för den **lägga till Alias** dialogrutan.
 
-    * **Namn**: Hive på HDInsight
+    * **Namn på**: Hive på HDInsight
 
     * **Drivrutinen**: Använd listrutan för att välja den **Hive** drivrutin
 
@@ -144,7 +144,7 @@ at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 
 **Orsak**: Det här felet beror på en äldre version commons codec.jar fil som ingår i SQuirreL.
 
-**Upplösning**: Om du vill åtgärda det här felet, använder du följande steg:
+**Lösning**: Om du vill åtgärda det här felet, använder du följande steg:
 
 1. Avsluta SQuirreL och går sedan till katalogen där SQuirreL är installerad på datorn. I katalogen SquirreL under den `lib` directory, Ersätt den befintliga commons codec.jar med det hämtade från HDInsight-kluster.
 
@@ -156,7 +156,7 @@ Nu när du har lärt dig hur du använder JDBC för att arbeta med Hive, Använd
 
 * [Visualisera Apache Hive-data med Microsoft Power BI i Azure HDInsight](apache-hadoop-connect-hive-power-bi.md).
 * [Visualisera Interactive Query Hive-data med Power BI i Azure HDInsight](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md).
-* [Använda Apache Zeppelin för att köra Apache Hive-frågor i Azure HDInsight](./../hdinsight-connect-hive-zeppelin.md).
+* [Använda Apache Zeppelin för att köra Apache Hive-frågor i Azure HDInsight](../interactive-query/hdinsight-connect-hive-zeppelin.md).
 * [Ansluta Excel till HDInsight med Microsoft Hive ODBC-drivrutin](apache-hadoop-connect-excel-hive-odbc-driver.md).
 * [Ansluta Excel till Apache Hadoop med Power Query](apache-hadoop-connect-excel-power-query.md).
 * [Ansluta till Azure HDInsight och kör Apache Hive-frågor med Data Lake Tools för Visual Studio](apache-hadoop-visual-studio-tools-get-started.md).

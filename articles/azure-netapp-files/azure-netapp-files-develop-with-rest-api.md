@@ -12,18 +12,25 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/06/2019
+ms.date: 05/17/2019
 ms.author: b-juche
-ms.openlocfilehash: 56667b9a47411b2abae30ff159fa6bc555fec070
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 996fbcc7c3c9af0da9160216785ecd54840660e8
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61087259"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65957036"
 ---
 # <a name="develop-for-azure-netapp-files-with-rest-api"></a>Utveckla för Azure NetApp-filer med REST API 
 
 REST-API: et för tjänsten Azure NetApp Files definierar HTTP-åtgärder mot resurser, till exempel NetApp-konto, poolen kapacitet, volymer och ögonblicksbilder. Den här artikeln hjälper dig att komma igång med hjälp av Azure NetApp filer REST API.
+
+## <a name="azure-netapp-files-rest-api-specification"></a>Azure NetApp filer REST API-specifikation
+
+REST API-specifikationen för Azure NetApp Files publiceras via [GitHub](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/netapp/resource-manager):
+
+`https://github.com/Azure/azure-rest-api-specs/tree/master/specification/netapp/resource-manager`
+
 
 ## <a name="access-the-azure-netapp-files-rest-api"></a>Komma åt Azure NetApp filer REST-API  
 

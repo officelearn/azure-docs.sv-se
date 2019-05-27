@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/08/2017
 ms.author: tomfitz
 ms.openlocfilehash: 5ed3a0a57dad61a5fe783790eba4cb89ce19c660
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56266984"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66128646"
 ---
 # <a name="numeric-functions-for-azure-resource-manager-templates"></a>Numeriska funktioner för Azure Resource Manager-mallar
 
@@ -40,7 +40,7 @@ Resource Manager tillhandahåller följande funktioner för att arbeta med helta
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="add"></a>add
+## <a name="add"></a>lägg till
 `add(operand1, operand2)`
 
 Returnerar summan av de två angivna heltal.
@@ -120,7 +120,7 @@ Returnerar index för en iteration loop.
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| loopName | Nej | sträng | Namnet på slingan för att hämta iterationen. |
+| loopName | Nej | string | Namnet på slingan för att hämta iterationen. |
 | offset |Nej |int |Nummer att lägga till det nollbaserade iteration-värdet. |
 
 ### <a name="remarks"></a>Kommentarer
@@ -386,7 +386,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="min" />
 
-## <a name="min"></a>min.
+## <a name="min"></a>min
 `min (arg1)`
 
 Returnerar det minsta värdet från en matris av heltal eller en kommaavgränsad lista med heltal.

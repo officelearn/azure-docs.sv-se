@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
 ms.date: 04/10/2017
-ms.openlocfilehash: 8d024e0bc90724892bc53f8895b270716ad0cefc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ac29ef7f0599cc41924ba1a5a00e46b0292e7e9b
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61001240"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967758"
 ---
 # <a name="cross-region-disaster-recovery-for-b2b-integration-accounts-in-azure-logic-apps"></a>Interregionala katastrofåterställning för B2B-integrationskonton i Azure Logic Apps
 
@@ -62,7 +62,7 @@ Affärskontinuitet i ett konto för integrering av Logic Apps ger stöd baserat 
 
 Vid ett haveri, när den primära regionen inte är tillgänglig för affärskontinuitet, dirigera trafik till den sekundära regionen. En sekundär region kan ett företag för att återställa funktioner snabbt för att uppfylla Återställningspunktmål/Återställningstidsmål kommit överens om deras partner. Det minskar också ansträngningar för att växla över från en region till en annan region. 
 
-Det finns en förväntad svarstid när du kopierar kontrollnummer från en primär region till en sekundär region. Om du vill undvika att skicka duplicerade genererade kontrollnummer till partners vid ett haveri, rekommendationen är att öka kontrollnumren i avtalen sekundär region med hjälp av [PowerShell-cmdletar](https://blogs.msdn.microsoft.com/david_burgs_blog/2017/03/09/fresh-of-the-press-new-azure-powershell-cmdlets-for-upcoming-x12-connector-disaster-recovery).
+Det finns en förväntad svarstid när du kopierar kontrollnummer från en primär region till en sekundär region. Om du vill undvika att skicka duplicerade genererade kontrollnummer till partners vid ett haveri, rekommendationen är att öka kontrollnumren i avtalen sekundär region med hjälp av [PowerShell-cmdletar](https://docs.microsoft.com/powershell/module/azurerm.logicapp/set-azurermintegrationaccountgeneratedicn?view=azurermps-6.13.0).
 
 ## <a name="fall-back-to-a-primary-region-post-disaster-event"></a>Växla över till en primär region efter haveri
 
@@ -70,7 +70,7 @@ Om du vill växla tillbaka till en primär region när den är tillgänglig, Fö
 
 1. Sluta ta emot meddelanden från partner i den sekundära regionen.  
 
-2. Öka den genererade kontrollnummer för alla de primära regionen avtal med hjälp av [PowerShell-cmdletar](https://blogs.msdn.microsoft.com/david_burgs_blog/2017/03/09/fresh-of-the-press-new-azure-powershell-cmdlets-for-upcoming-x12-connector-disaster-recovery).  
+2. Öka den genererade kontrollnummer för alla de primära regionen avtal med hjälp av [PowerShell-cmdletar](https://docs.microsoft.com/powershell/module/azurerm.logicapp/set-azurermintegrationaccountgeneratedicn?view=azurermps-6.13.0).  
 
 3. Dirigera trafik från den sekundära regionen till den primära regionen.
 
@@ -83,7 +83,7 @@ Affärskontinuitet för EDI X 12 dokument baseras på kontrollnummer:
 > [!TIP]
 > Du kan också använda den [X12 snabb start mallen](https://azure.microsoft.com/resources/templates/201-logic-app-b2b-disaster-recovery-replication/) att skapa logikappar. Skapa primära och sekundära integrationskonton är förutsättningar för att använda mallen. Det hjälper dig för att skapa två logic apps, en för mottagna kontrollnummer och en annan för genererade kontrollnummer mallen. Respektive utlösare och åtgärder som skapas i logic apps kan ansluta utlösaren till primära integrationskontot samt åtgärden att sekundära integrationskontot.
 
-**Förutsättningar**
+**Krav**
 
 Om du vill aktivera haveriberedskap för inkommande meddelanden, Välj dubbla Kontrollera inställningarna i X12 avtalet tar emot inställningar.
 
@@ -138,7 +138,7 @@ Baserat på tidsintervallet, replikerar inkrementella Körningsstatus från en p
 
 Affärskontinuitet för EDI EDIFACT-dokument baseras på kontrollnummer.
 
-**Förutsättningar**
+**Krav**
 
 Välj dubbla Kontrollera inställningarna i din EDIFACT-avtal ta emot inställningar för att aktivera haveriberedskap för inkommande meddelanden.
 

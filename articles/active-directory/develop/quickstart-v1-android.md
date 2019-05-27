@@ -5,7 +5,6 @@ services: active-directory
 documentationcenter: android
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.assetid: da1ee39f-89d3-4d36-96f1-4eabbc662343
 ms.service: active-directory
 ms.subservice: develop
@@ -13,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 05/21/2019
 ms.author: ryanwi
-ms.reviewer: dadobali
+ms.reviewer: brandwe, jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 288581ed3ca339ad9126336556e7b0b565fbbafa
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 6a05d8b9182451fc52dd1860dac1dcce57ba2c55
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545692"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66122001"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Snabbstart: Logga in användare och anropa Microsoft Graph API från en Android-app
 
@@ -86,18 +85,17 @@ Du behöver ha ett internt klientprogram som har registrerats med Microsoft med 
     - Välj ***Azure Active Directory*** > ***Appregistreringar***.
 
 2. Skapa appen
-    - Välj **Ny programregistrering**.
+    - Välj **ny registrering**.
     - Ange ett appnamn i fältet **Namn**.
-    - I **Programtyp** väljer du **Intern**.
-    - I **Redirect URI** (Omdirigerings-URI) anger du `http://localhost`.
+    - Under **Kontotyper som stöds** väljer du **Accounts in any organizational directory and personal Microsoft accounts** (Konton i alla organisationskataloger och personliga Microsoft-konton).
+    - I **omdirigerings-URI**väljer **offentlig klient (mobila och stationära)** i listrutan och ange `http://localhost`.
+    - Klicka på **registrera**.
 
 3. Konfigurera Microsoft Graph
-    - Välj **Inställningar > Nödvändiga behörigheter**.
-    - Välj **Lägg till**, och i **Välj ett API** väljer du ***Microsoft Graph***.
-    - Välj behörigheten **Logga in och läsa användarprofil** och tryck sedan på **Välj** för att spara.
-        - Den här behörigheten mappar till omfånget `User.Read`.
-    - Valfritt: I **Nödvändiga behörigheter > Windows Azure Active Directory** tar du bort den valda behörigheten **Logga in och läsa användarprofil**. Då undviker du att sidan för användarmedgivande visar behörigheten två gånger.
-
+    - Välj **API-behörigheter**.
+    - Välj **lägga till en behörighet**, inuti **Välj en API** Välj ***Microsoft Graph***.
+    - Under **delegerade behörigheter**, välj behörigheten **User.Read**, tryck sedan på **Lägg till** att spara.        
+    
 4. Gratulerar! Din app har konfigurerats. I nästa avsnitt behöver du:
     - `Application ID`
     - `Redirect URI`

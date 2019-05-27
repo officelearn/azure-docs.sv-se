@@ -5,18 +5,18 @@ author: LuisBosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
-ms.date: 09/05/2018
+ms.date: 05/20/2019
 ms.author: lbosq
-ms.openlocfilehash: 36465c253996e4cecc665b2fd1d59c03adc78a2f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6f5d90f8b825b7076a1a5122dbef3c8b2990e216
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60888660"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954256"
 ---
 # <a name="introduction-to-azure-cosmos-db-gremlin-api"></a>Introduktion till Azure Cosmos DB: Gremlin-API
 
-[Azure Cosmos DB](introduction.md) är den globalt distribuerade databastjänsten för flera datamodeller från Microsoft för verksamhetskritiska program. Den stöder flera databasmodeller och dokument, nyckelvärden, diagram och kolumndatamodeller. Azure Cosmos DB Gremlin API används för att lagra och bearbeta diagramdata. Gremlin-API:t har stöd för modellering av diagramdata och innehåller API:er för att bläddra i diagramdata.
+[Azure Cosmos DB](introduction.md) är tjänsten globalt distribuerad databas för flera datamodeller från Microsoft för verksamhetskritiska program. Det är en databas för flera modeller och har stöd för dokument, nyckel / värde-, graf och kolumndatamodeller. Azure Cosmos DB Gremlin API används för att lagra och bearbeta diagramdata. Gremlin-API:t har stöd för modellering av diagramdata och innehåller API:er för att bläddra i diagramdata.
 
 Den här artikeln ger en översikt över Azure Cosmos DB Gremlin-API och förklarar hur du kan använda den för att lagra massiva diagram med miljarder brytpunkter och kanter. Du kan fråga diagrammen med svarstider på millisekunder och enkelt utveckla diagrammets struktur och schema. Du kan ställa frågor mot Azure Cosmos DB med diagramtraverseringsspråket [Apache TinkerPop](https://tinkerpop.apache.org) eller [Gremlin](https://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps).
 

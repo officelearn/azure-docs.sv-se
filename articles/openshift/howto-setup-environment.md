@@ -9,14 +9,14 @@ ms.date: 05/10/2019
 ms.topic: conceptual
 ms.service: openshift
 manager: jeconnoc
-ms.openlocfilehash: 6e859f57f9b5f24ea2f0172f5aa35a60d9769f19
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: 6ba7e67620ebfd7ff98c1ba81c7cecb133288be7
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65551707"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65962136"
 ---
-# <a name="set-up-your-azure-red-hat-openshift-dev-environment"></a>Konfigurera din utvecklingsmiljö för Azure Red Hat OpenShift
+# <a name="set-up-your-azure-red-hat-openshift-dev-environment"></a>Konfigurera Azure Red Hat OpenShift-utvecklingsmiljön
 
 Om du vill skapa och köra Microsoft Azure Red Hat OpenShift program, måste du:
 
@@ -29,13 +29,15 @@ Om du vill skapa och köra Microsoft Azure Red Hat OpenShift program, måste du:
 
 Följande instruktioner vägleder dig igenom alla dessa krav.
 
-## <a name="purchase-azure-virtual-machine-reserved-instances"></a>Köpa Azure-dator som är reserverade instanser
+## <a name="purchase-azure-red-hat-openshift-application-nodes-reserved-instances"></a>Köp Azure Red Hat OpenShift program noder reserverade instanser
 
-Innan du kan använda Azure Red Hat OpenShift, behöver du köpa Azure-dator som är reserverade instanser.
+Innan du kan använda Azure Red Hat OpenShift, behöver du köpa minst 4 noder för Azure Red Hat OpenShift reserverade program, varefter kommer du att kunna etablera kluster.
 
-Om du är Azure-kund härs så [köp Azure-dator reserverade instanser](https://aka.ms/openshift/buy). En reservation minskar dina utgifter per förväg betala för fullständigt hanterade Azure-tjänster. Referera till [ *vad är Azure reservationer* ](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations) mer information om reservationer och hur de spara pengar.
+Om du är Azure-kund [köpa Azure Red Hat OpenShift reserverade instanser](https://aka.ms/openshift/buy) via Azure portal. När du har köpt, aktiveras din prenumeration inom 24 timmar.
 
 Om du inte är Azure-kund [försäljningskontakt](https://aka.ms/openshift/contact-sales) och Fyll i formuläret försäljning längst ned på sidan för att starta processen.
+
+Referera till den [Azure Red Hat OpenShift sidan med priser](https://aka.ms/openshift/pricing) för mer information.
 
 ## <a name="install-the-azure-cli"></a>Installera Azure CLI
 

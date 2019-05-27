@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: 892d485fb5cdaa08107870e9ab5b2b7ad9bcba5b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2ca8f0e34b63802453c8876f878b531e78e66d76
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60714263"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991783"
 ---
 # <a name="get-started-with-service-bus-topics"></a>Kom igång med Service Bus-ämnen
 
@@ -390,9 +390,12 @@ Skapa en annan .NET Core-konsolprogram för att ta emot meddelanden som du har s
     ```
 9. Kör programmet och kontrollera portalen igen. Observera att värdena för **Antal meddelanden** och **Aktuell** nu är **0**.
    
-    ![Ämnets längd][topic-message-receive]
+    ![Ämneslängd][topic-message-receive]
 
-Grattis! Med .NET Standard-biblioteket har du nu skapat ett ämne och en prenumeration, skickat tio meddelanden och tagit emot dessa meddelanden.
+Gratulerar! Med .NET Standard-biblioteket har du nu skapat ett ämne och en prenumeration, skickat tio meddelanden och tagit emot dessa meddelanden.
+
+> [!NOTE]
+> Du kan hantera Service Bus-resurser med [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer tillåter användare att ansluta till ett Service Bus-namnområde och administrera meddelandeentiteter på ett enkelt sätt. Verktyget tillhandahåller avancerade funktioner som import/export-funktionalitet eller möjligheten att testa ämne, köer, prenumerationer, relätjänster, meddelandehubbar och händelser hubs. 
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 09/12/2018
 ms.author: glenga
-ms.openlocfilehash: 71ba1266c3a6a1f063f1af4ab37a5f29752c62f0
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 2a6d670ba9f2f496cc94d2790eb6f66d46305746
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62107106"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872789"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C#-utvecklarreferens
 
@@ -29,16 +29,16 @@ Azure Functions har stöd för C# och C#-skript som programmeringsspråk. Om du 
 Den här artikeln förutsätter att du redan har läst i följande artiklar:
 
 * [Azure Functions-guide för utvecklare](functions-reference.md)
-* [Visual Studio 2017-verktyg för Azure Functions](functions-develop-vs.md)
+* [Azure Functions Visual Studio 2019 Tools](functions-develop-vs.md)
 
 ## <a name="functions-class-library-project"></a>Functions klassbiblioteksprojektet
 
 I Visual Studio i **Azure Functions** projektmall skapar en C# klassbiblioteksprojektet som innehåller följande filer:
 
 * [Host.JSON](functions-host-json.md) -lagrar konfigurationsinställningar som påverkar alla funktioner i projektet när du kör lokalt eller i Azure.
-* [Local.Settings.JSON](functions-run-local.md#local-settings-file) -lagrar appinställningar och anslutningssträngar som används när du kör lokalt. Den här filen innehåller hemligheter och publiceras inte i din funktionsapp i Azure. Du måste i stället [lägga till programinställningar i funktionsappen](functions-develop-vs.md#function-app-settings).
+* [Local.Settings.JSON](functions-run-local.md#local-settings-file) -lagrar appinställningar och anslutningssträngar som används när du kör lokalt. Den här filen innehåller hemligheter och publiceras inte i din funktionsapp i Azure. I stället [lägga till programinställningar i funktionsappen](functions-develop-vs.md#function-app-settings).
 
-När du skapar projektet utdata en mappstruktur som ser ut som följande genereras i bygget directory:
+När du skapar projektet, en mappstruktur som ser ut som i följande exempel skapas i katalogen skapa utdata:
 
 ```
 <framework.version>
@@ -50,7 +50,7 @@ När du skapar projektet utdata en mappstruktur som ser ut som följande generer
  | - host.json
 ```
 
-Den här katalogen är det distribueras till din funktionsapp i Azure. Bindningen-tillägg som krävs i [version 2.x](functions-versions.md) funktioner runtime är [lagts till i projektet som NuGet-paket](./functions-bindings-register.md#c-class-library-with-visual-studio-2017).
+Den här katalogen är det distribueras till din funktionsapp i Azure. Bindningen-tillägg som krävs i [version 2.x](functions-versions.md) funktioner runtime är [lagts till i projektet som NuGet-paket](./functions-bindings-register.md#c-class-library-with-visual-studio-2019).
 
 > [!IMPORTANT]
 > Skapandeprocessen skapar en *function.json* fil för varje funktion. Detta *function.json* filen är inte avsedd att redigeras direkt. Du kan inte ändra bindningskonfigurationen eller inaktivera funktionen genom att redigera den här filen. Läs hur du inaktiverar en funktion i [så här inaktiverar du funktioner](disable-function.md#functions-2x---c-class-libraries).
@@ -72,7 +72,7 @@ public static class SimpleExample
 } 
 ```
 
-Den `FunctionName` attributet markerar metoden som en startpunkt för funktionen. Namnet måste vara unika inom ett projekt, börja med en bokstav och endast innehålla bokstäver, siffror, `_` och `-`, högst 127 tecken. Projektmallar ofta skapa en metod med namnet `Run`, men metodnamnet kan vara ett giltigt C#-metodnamn.
+Den `FunctionName` attributet markerar metoden som en startpunkt för funktionen. Namnet måste vara unika inom ett projekt, börja med en bokstav och endast innehålla bokstäver, siffror, `_`, och `-`, högst 127 tecken. Projektmallar ofta skapa en metod med namnet `Run`, men metodnamnet kan vara ett giltigt C#-metodnamn.
 
 Attributet utlösaren anger typen av utlösare och Binder indata till en metodparameter. Exempel-funktion som utlöses av ett kömeddelande och kömeddelandet skickas till-metoden i det `myQueueItem` parametern.
 
@@ -181,7 +181,7 @@ Samma paket som ska användas för både version 1.x och 2.x av Functions-körni
 </ItemGroup>
 ```
 
-Bland de `Sdk` paketberoenden är utlösare och bindningar. Ett 1.x-projekt som refererar till 1.x-utlösare och bindningar eftersom de mål .NET Framework, medan 2.x utlösare och bindningar rikta .NET Core.
+Bland de `Sdk` paketberoenden är utlösare och bindningar. Ett 1.x-projekt som refererar till 1.x-utlösare och bindningar eftersom dessa utlösare och bindningar mål .NET Framework, medan 2.x utlösare och bindningar rikta .NET Core.
 
 Den `Sdk` paketet beror också på [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json), indirekt på [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage). Dessa beroenden se till att projektet använder versioner av de paket som fungerar med Functions runtime-versionen som mål för projektet. Till exempel `Newtonsoft.Json` har version 11 för .NET Framework 4.6.1, men Functions-körning som riktas mot .NET Framework 4.6.1 är endast kompatibel med `Newtonsoft.Json` 9.0.1. Så att Funktionskoden i projektet har också att använda `Newtonsoft.Json` 9.0.1.
 

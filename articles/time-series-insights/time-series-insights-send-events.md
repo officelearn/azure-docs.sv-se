@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2842a365cdf25a6b19f655f6397d62ecb9a723b0
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 48524020940149f6c67f4859f23c03eea140454b
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406912"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991483"
 ---
 # <a name="send-events-to-a-time-series-insights-environment-by-using-an-event-hub"></a>Skicka händelser till en Time Series Insights-miljö med hjälp av en event hub
 
@@ -28,12 +28,12 @@ Den här artikeln förklarar hur du skapar och konfigurerar en event hub i Azure
 1. Läs hur du skapar en event hub i den [dokumentation om Event Hubs](https://docs.microsoft.com/azure/event-hubs/).
 1. I sökrutan söker du efter **Händelsehubbar**. Välj i den returnerade listan **Händelsehubbar**.
 1. Välj din event hub.
-1. När du skapar en event hub skapar du egentligen ett händelsehubbnamnområde. Om du inte har skapat en händelsehubb i namnområdet, på menyn, under **entiteter**, skapa en händelsehubb.  
+1. När du skapar en event hub, skapar du ett händelsehubbnamnområde. Om du inte har skapat en händelsehubb i namnområdet, på menyn under **entiteter**, skapa en händelsehubb.  
 
     [![Listan över händelsehubbar](media/send-events/updated.png)](media/send-events/updated.png#lightbox)
 
 1. När du skapar en event hub, markerar du den i listan över händelsehubbar.
-1. I menyn, under **entiteter**väljer **Händelsehubbar**.
+1. På menyn under **entiteter**väljer **Händelsehubbar**.
 1. Välj namnet på händelsehubben för att konfigurera den.
 1. Under **entiteter**väljer **konsumentgrupper**, och välj sedan **konsumentgrupp**.
 
@@ -42,9 +42,9 @@ Den här artikeln förklarar hur du skapar och konfigurerar en event hub i Azure
 1. Se till att skapa en konsumentgrupp som enbart används av din Time Series Insights-händelsekälla.
 
     > [!IMPORTANT]
-    > Kontrollera att den här konsumentgruppen inte används av andra tjänster (till exempel Azure Stream Analytics-jobb eller en annan Time Series Insights-miljö). Om konsumentgruppen används av den andra påverkas negativt tjänster, Läs-och skrivåtgärder både för den här miljön och för andra tjänster. Om du använder **$Default** som konsumentgrupp, andra läsare potentiellt kan återanvända din konsumentgrupp.
+    > Kontrollera att den här konsumentgruppen inte används av någon annan tjänst, till exempel Azure Stream Analytics-jobb eller en annan Time Series Insights-miljö. Om konsumentgruppen används av den andra påverkas negativt tjänster, Läs-och skrivåtgärder både för den här miljön och för andra tjänster. Om du använder **$Default** som konsumentgrupp, andra läsare potentiellt kan återanvända din konsumentgrupp.
 
-1. I menyn, under **inställningar**väljer **principer för delad åtkomst**, och välj sedan **Lägg till**.
+1. På menyn under **inställningar**väljer **principer för delad åtkomst**, och välj sedan **Lägg till**.
 
     [![Välj principer för delad åtkomst och välj sedan knappen Lägg till](media/send-events/shared-access-policy.png)](media/send-events/shared-access-policy.png#lightbox)
 
@@ -52,7 +52,7 @@ Den här artikeln förklarar hur du skapar och konfigurerar en event hub i Azure
 
     [![I rutan princip ange MySendPolicy](media/send-events/shared-access-policy-2.png)](media/send-events/shared-access-policy-2.png#lightbox)
 
-1. Under **anspråk**väljer den **skicka** kryssrutan.
+1. Under **anspråk**väljer den **skicka** markerar du kryssrutan.
 
 ## <a name="add-a-time-series-insights-instance"></a>Lägg till en Time Series Insights-instans
 
@@ -70,7 +70,7 @@ Time Series Insights-uppdateringen använder instanser för att lägga till kont
 
 1. Välj din event hub.
 
-1. Gå till **delade åtkomstprinciper** > **RootManageSharedAccessKey**. Kopiera värdet för **anslutning förekomster av textsträngen primär nyckel**.
+1. Gå till **delade åtkomstprinciper** > **RootManageSharedAccessKey**. Kopiera värdet för **anslutningssträng – primär nyckel**.
 
     [![Kopiera värdet för primärnyckelns anslutningssträng](media/send-events/sample-code-connection-string.png)](media/send-events/sample-code-connection-string.png#lightbox)
 
@@ -81,7 +81,7 @@ Time Series Insights-uppdateringen använder instanser för att lägga till kont
 
 1. Välj **Klicka om du vill starta**. Simulatorn genererar instans JSON som du kan använda direkt.
 
-1. Gå tillbaka till din event hub i Azure-portalen. På den **översikt** bör du se de nya händelserna tas emot av event hub.
+1. Gå tillbaka till din event hub i Azure-portalen. På den **översikt** kan du se de nya händelserna som tas emot av event hub.
 
     [![En översikt översiktssidan händelsehubb som visar mått för event hub](media/send-events/telemetry.png)](media/send-events/telemetry.png#lightbox)
 

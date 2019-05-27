@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/22/2019
 ms.author: diberry
-ms.openlocfilehash: 7c3b93db18cb8e2660118927da47ffe95abb900f
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.openlocfilehash: 59308cdadb1eda9e73b373e72112b83d93629683
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073009"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66124293"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installera och köra LUIS docker-behållare
  
@@ -256,6 +256,10 @@ Mer [exempel](luis-container-configuration.md#example-docker-run-commands) av de
 
 [!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
+## <a name="endpoint-apis-supported-by-the-container"></a>Slutpunkt för API: er som stöds av behållaren
+
+Både V2 och [V3 (förhandsversion)](luis-migration-api-v3.md) versioner av API: et är tillgängliga med behållaren. 
+
 ## <a name="query-the-containers-prediction-endpoint"></a>Fråga behållarslutpunkten förutsägelse
 
 Behållaren innehåller REST-baserade frågan förutsägelse endpoint API: er. Slutpunkter för publicerade (mellanlagring eller produktion) appar har en _olika_ väg än slutpunkter för tränade appar. 
@@ -264,12 +268,12 @@ Använd värden `https://localhost:5000`, för behållaren API: er.
 
 |Pakettyp|Metod|Routa|Frågeparametrar|
 |--|--|--|--|
-|Publicerad|[Hämta](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78), [inlägg](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)|/ luis/v2.0/apps/{appId}?|q={q}<br>& mellanlagring<br>[&timezoneOffset]<br>[& utförlig]<br>[&log]<br>|
+|Publicerat|[Hämta](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78), [inlägg](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)|/ luis/v2.0/apps/{appId}?|q={q}<br>& mellanlagring<br>[&timezoneOffset]<br>[& utförlig]<br>[&log]<br>|
 |Tränad|Get, Post|/luis/v2.0/apps/{appId}/versions/{versionId}?|q={q}<br>[&timezoneOffset]<br>[& utförlig]<br>[&log]|
 
 Frågeparametrarna konfigurera hur och vad returneras i svaret på frågan:
 
-|Frågeparameter|Typ|Syfte|
+|Frågeparameter|Type|Syfte|
 |--|--|--|
 |`q`|string|Användarens uttryck.|
 |`timezoneOffset`|nummer|TimezoneOffset kan du [ändra tidszonen](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) används av färdiga entitet datetimeV2.|

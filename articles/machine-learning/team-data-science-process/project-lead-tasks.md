@@ -10,16 +10,16 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 4415759530985710c8376709db9955ba98066160
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 00b1b58a39724951f2d5e4e688df8eb178654bbb
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61046185"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952835"
 ---
 # <a name="tasks-for-the-project-lead-in-the-team-data-science-process"></a>Uppgifter för projektet leda i Team Data Science Process
 
-Den här självstudien beskrivs de uppgifter som är en projektledare väntat att slutföra för hans/hennes projektteamet. Målet är att upprätta samarbetsteam miljö som standardiserar på den [Team Data Science Process](overview.md) (TDSP). TDSP är ett ramverk som utvecklats av Microsoft och som tillhandahåller en strukturerade sekvensen av aktiviteter att köra molnbaserad förutsägande Analyslösningar effektivt. En översikt över rollerna som personal och förknippade aktiviteter som hanteras av en datavetenskapliga team standardisera om den här processen finns i [roller för Team Data Science Process och uppgifter](roles-tasks.md).
+Den här självstudien beskrivs de uppgifter som är en projektledare väntat att slutföra sina projekt-teamet. Målet är att upprätta samarbetsteam miljö som standardiserar på den [Team Data Science Process](overview.md) (TDSP). TDSP är ett ramverk som utvecklats av Microsoft och som tillhandahåller en strukturerade sekvensen av aktiviteter att köra molnbaserad förutsägande Analyslösningar effektivt. En översikt över rollerna som personal och förknippade aktiviteter som hanteras av en datavetenskapliga team standardisera om den här processen finns i [roller för Team Data Science Process och uppgifter](roles-tasks.md).
 
 En **projektbeskrivning** hanterar dagliga aktiviteter för enskilda datapersonal i en specifik datavetenskapsprojekt. Arbetsflödet för aktiviteter som ska slutföras av projektet leder till att konfigurera den här miljön illustreras i följande bild:
 

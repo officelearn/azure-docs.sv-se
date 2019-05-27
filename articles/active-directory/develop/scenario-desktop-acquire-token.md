@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1fe9594471c6e8f723afff2def940bb675e04fb
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 9d18c92cccac6bfb0bd359767ecdb51951268735
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65407010"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65962535"
 ---
 # <a name="desktop-app-that-calls-web-apis---acquire-a-token"></a>Skrivbordsappen som anropar webb-API: er – hämta en token
 
@@ -163,7 +163,7 @@ MSAL.NET-teamet har om vår UI-test för att använda den här mekanismen för u
 
 #### <a name="other-optional-parameters"></a>Andra valfria parametrar
 
-Mer information om alla andra valfria parametrar för `AcquireTokenInteractive` från referensdokumentation för [AcquireTokenInteractiveParameterBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.apiconfig.acquiretokeninteractiveparameterbuilder?view=azure-dotnet-preview#methods)
+Mer information om alla andra valfria parametrar för `AcquireTokenInteractive` från referensdokumentation för [AcquireTokenInteractiveParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokeninteractiveparameterbuilder?view=azure-dotnet-preview#methods)
 
 ## <a name="integrated-windows-authentication"></a>Integrerad Windows-autentisering
 
@@ -283,7 +283,7 @@ static async Task GetATokenForGraph()
 }
 ```
 
-Lista över möjliga modifierare på AcquireTokenByIntegratedWindowsAuthentication, finns i [AcquireTokenByIntegratedWindowsAuthParameterBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.apiconfig.acquiretokenbyintegratedwindowsauthparameterbuilder?view=azure-dotnet-preview#methods)
+Lista över möjliga modifierare på AcquireTokenByIntegratedWindowsAuthentication, finns i [AcquireTokenByIntegratedWindowsAuthParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokenbyintegratedwindowsauthparameterbuilder?view=azure-dotnet-preview#methods)
 
 ## <a name="username--password"></a>Användarnamn / lösenord
 
@@ -519,7 +519,7 @@ static async Task GetATokenForGraph()
 }
 ```
 
-Mer information om alla modifierare som kan tillämpas på `AcquireTokenByUsernamePassword`, se [AcquireTokenByUsernamePasswordParameterBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.apiconfig.acquiretokenbyusernamepasswordparameterbuilder?view=azure-dotnet-preview#methods)
+Mer information om alla modifierare som kan tillämpas på `AcquireTokenByUsernamePassword`, se [AcquireTokenByUsernamePasswordParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokenbyusernamepasswordparameterbuilder?view=azure-dotnet-preview#methods)
 
 ## <a name="command-line-tool-without-web-browser"></a>Kommandoradsverktyget (utan webbläsare)
 

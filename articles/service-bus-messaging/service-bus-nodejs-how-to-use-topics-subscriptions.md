@@ -14,18 +14,23 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: d3f71382a3f2b15ec0f9764b9913a95c0d32b21d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3b805a80330dd44ac4a65db88950393d3d4d60b7
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60591813"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65992098"
 ---
-# <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs"></a>Använd Service Bus-ämnen och prenumerationer med Node.js
+# <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azure-sb-package"></a>Använd Service Bus-ämnen och prenumerationer med Node.js och azure-sb-paketet
+> [!div class="op_multi_selector" title1="Programming language" title2="Node.js pacakge"]
+> - [(Node.js | azure-sb)](service-bus-nodejs-how-to-use-topics-subscriptions.md)
+> - [(Node.js | @azure/service-bus)](service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md)
 
-[!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
+I den här självstudien får du lära dig hur du skapar en Node.js-program att skicka meddelanden till en Service Bus-ämne och ta emot meddelanden från en Service Bus-prenumerationen med den [azure sb](https://www.npmjs.com/package/azure-sb) paketet. Exemplen är skrivna i JavaScript och använder Node.js [Azure-modulen](https://www.npmjs.com/package/azure) som internt använder den `azure-sb` paketet.
 
-Den här guiden beskriver hur du använder Service Bus-ämnen och prenumerationer från Node.js-program. Scenarier som omfattas är:
+Den [azure sb](https://www.npmjs.com/package/azure-sb) paketera använder [Service Bus REST API: er för körning](/rest/api/servicebus/service-bus-runtime-rest). Du kan få en snabbare upplevelse med hjälp av den nya [ @azure/service-bus ](https://www.npmjs.com/package/@azure/service-bus) paket som använder den snabbare [AMQP 1.0-protokollet](service-bus-amqp-overview.md). Läs mer om det nya paketet i [hur du använder Service Bus-ämnen och prenumerationer med Node.js och @azure/service-bus paketet](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-topics-subscriptions-new-package), annars Läs vidare om du vill se hur du använder den [azure](https://www.npmjs.com/package/azure) paketet.
+
+Scenarier som beskrivs här är:
 
 - Skapa ämnen och prenumerationer 
 - Skapa prenumerationsfilter 
@@ -36,8 +41,8 @@ Den här guiden beskriver hur du använder Service Bus-ämnen och prenumeratione
 Läs mer om ämnen och prenumerationer, [nästa steg](#next-steps) avsnittet.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
-1. En Azure-prenumeration. Du behöver ett Azure-konto för att slutföra den här självstudien. Du kan aktivera din [Visual Studio eller MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) eller registrera dig för en [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-2. Följ stegen i den [snabbstarten: Använd Azure-portalen för att skapa ett Service Bus-ämne och prenumerationer till ämnet](service-bus-quickstart-topics-subscriptions-portal.md) att skapa ett Service Bus **namnområde** och få den **anslutningssträngen**.
+- En Azure-prenumeration. Du behöver ett Azure-konto för att slutföra den här självstudien. Du kan aktivera din [Visual Studio eller MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) eller registrera dig för en [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+- Följ stegen i den [snabbstarten: Använd Azure-portalen för att skapa ett Service Bus-ämne och prenumerationer till ämnet](service-bus-quickstart-topics-subscriptions-portal.md) att skapa ett Service Bus **namnområde** och få den **anslutningssträngen**.
 
     > [!NOTE]
     > Skapar du en **avsnittet** och en **prenumeration** till ämnet med hjälp av **Node.js** i den här snabbstarten. 
@@ -329,6 +334,9 @@ serviceBusService.deleteSubscription('MyTopic', 'HighMessages', function (error)
     }
 });
 ```
+
+> [!NOTE]
+> Du kan hantera Service Bus-resurser med [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer tillåter användare att ansluta till ett Service Bus-namnområde och administrera meddelandeentiteter på ett enkelt sätt. Verktyget tillhandahåller avancerade funktioner som import/export-funktionalitet eller möjligheten att testa ämne, köer, prenumerationer, relätjänster, meddelandehubbar och händelser hubs. 
 
 ## <a name="next-steps"></a>Nästa steg
 Nu när du har lärt dig grunderna i Service Bus-ämnen kan du följa dessa länkar om du vill veta mer.

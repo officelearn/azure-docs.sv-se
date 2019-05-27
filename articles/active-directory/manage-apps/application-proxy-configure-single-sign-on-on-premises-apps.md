@@ -3,8 +3,8 @@ title: SAML enkel inloggning för lokala program med Azure Active Directory Appl
 description: Lär dig att tillhandahålla enkel inloggning för lokala program som publicerats via programproxy som skyddas med SAML-autentisering.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/12/2019
-ms.author: celested
+ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e103604af7aba2a0ef2e3d0e02a721ae4740c40
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 2b3500ce1f1f80d975555edef56d95f2f1d27ca7
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60437922"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65783761"
 ---
 # <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy-preview"></a>SAML enkel inloggning för lokala program med Application Proxy (förhandsversion)
 

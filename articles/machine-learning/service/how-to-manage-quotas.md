@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: nishankgu
 ms.author: nigup
-ms.date: 12/04/2018
+ms.date: 05/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: aa425b6dfeb076448d14fc35cbea964516d603b0
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: MT
+ms.openlocfilehash: f9734a5d8f34536558fbf0c861889f3c7d6719da
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63765868"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523986"
 ---
 # <a name="manage-and-request-quotas-for-azure-resources"></a>Hantera och begära kvoter för Azure-resurser
 
@@ -52,9 +52,9 @@ En mer utförlig och aktuell lista över kvotgränser, hittar du i Azure hela kv
 Det finns en standardgräns för kvot för både antalet kärnor och antal unika beräkningsresurser som tillåts per region för en prenumeration för Azure Machine Learning Compute. Den här kvoten skiljer sig från den virtuella datorn kärnkvoten ovan och core gränserna delas inte för närvarande mellan de två resurstyperna.
 
 Tillgängliga resurser:
-+ Reserverade kärnor per region har en standardgräns för 10-24.  Antalet reserverade kärnor per prenumeration kan ökas. Kontakta Azure-supporten diskutera alternativ för utökning.
++ Reserverade kärnor per region har en standardgräns för 24 – 300 beroende på din typ av prenumerationserbjudande.  Antalet reserverade kärnor per prenumeration kan ökas. Kontakta Azure-supporten diskutera alternativ för utökning.
 
-+ Lågprioritetskärnor per region har en standardgräns för 10-24.  Antalet lågprioritetskärnor per prenumeration kan ökas. Kontakta Azure-supporten diskutera alternativ för utökning.
++ Lågprioritetskärnor per region har en standardgräns för 24 – 300 beroende på din typ av prenumerationserbjudande.  Antalet lågprioritetskärnor per prenumeration kan ökas. Kontakta Azure-supporten diskutera alternativ för utökning.
 
 + Kluster per region har en standardgräns på 100 och maxgränsen på 200. Kontakta Azure-supporten om du vill begära en ökning utöver denna gräns.
 
@@ -66,10 +66,12 @@ Tillgängliga resurser:
 | Högsta antalet noder i en enskild resurs i Azure Machine Learning Compute (AmlCompute) | 100 noder |
 | Den maximala GPU MPI bearbetar per nod | 1 – 4 |
 | Den maximala GPU arbetare per nod | 1 – 4 |
-| Maximal jobbet livslängd | 7 dagar<sup>1</sup> |
+| Maximal jobbet livslängd | 90 dagar<sup>1</sup> |
+| Maximal jobbet livslängd på en nod för låg prioritet | 1 dag<sup>2</sup> |
 | Maximal parametern servrar per nod | 1 |
 
 <sup>1</sup> högsta livstid som refererar till den tid som en körning startas och när den är klar. Slutförda körningar kvar på obestämd tid; data för körs inte slutförs inom den maximala livstiden är inte tillgänglig.
+<sup>2</sup> jobb på en nod med låg prioritet kan pre-empted som helst som det finns en begränsning för kapacitet. Vi rekommenderar att implementera kontrollpunkter i jobbet.
 
 ### <a name="container-instances"></a>Containerinstanser
 
@@ -80,20 +82,20 @@ Det finns också en gräns för antalet behållarinstanser som kan sätta upp i 
 En mer utförlig och aktuell lista över kvotgränser, hittar du i Azure hela kvoten artikeln [här](https://docs.microsoft.com/azure/azure-subscription-service-limits#container-instances-limits).
 
 ### <a name="storage"></a>Storage
-Det finns en gräns för antalet storage-konton per region samt i en viss prenumeration. Standardgränsen är 200 och inkluderar både Standard och Premium Storage-konton. Om du behöver fler än 200 lagringskonton i en viss region kan skicka en förfrågan via [Azure-supporten](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/). Azure Storage-teamet granskar ditt affärsfall och kan godkänna upp till 250 lagringskonton för en viss region.
+Det finns en gräns för antalet storage-konton per region samt i en viss prenumeration. Standardgränsen är 200 och inkluderar både Standard och Premium Storage-konton. Om du behöver fler än 200 lagringskonton i en viss region kan skicka en förfrågan via [Azure-supporten](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/). Azure Storage-teamet granskar ditt affärsfall och kan godkänna upp till 250 lagringskonton för en viss region.
 
 
 ## <a name="find-your-quotas"></a>Hitta dina kvoter
 
 Visa din kvot för olika resurser, till exempel virtuella datorer, lagring, nätverk, är enkelt via Azure portal.
 
-1. I det vänstra fönstret, Välj **alla tjänster** och välj sedan **prenumerationer** under kategorin Allmänt.
+1. I det vänstra fönstret, Välj **alla tjänster** och välj sedan **prenumerationer** under kategorin Allmänt.
 
 1. Välj den prenumeration vars kvot som du letar efter listan över prenumerationer.
 
    **Det finns ett villkor för**, särskilt för att visa Azure Machine Learning Compute-kvoten. Som nämnts ovan är är den kvoten separat från compute-kvoten för din prenumeration.
 
-1. I det vänstra fönstret, Välj **Machine Learning-tjänsten** och välj sedan en arbetsyta från listan som visas
+1. I det vänstra fönstret, Välj **Machine Learning-tjänsten** och välj sedan en arbetsyta från listan som visas
 
 1. På nästa blad under den **Support och felsökning** Välj **användning + kvoter** att visa din aktuella kvotgränser och användning.
 
@@ -102,7 +104,7 @@ Visa din kvot för olika resurser, till exempel virtuella datorer, lagring, nät
 
 ## <a name="request-quota-increases"></a>Kvoter för begäran
 
-Om du vill höja gränsen eller kvot än Standardgränsen [öppna en supportbegäran online-kund](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/) utan kostnad.
+Om du vill höja gränsen eller kvot än Standardgränsen [öppna en supportbegäran online-kund](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/) utan kostnad.
 
 Gränserna kan inte höjas ovan maxgränsen värdet som visas i tabellerna. Om det finns ingen högsta gräns, har inte resursen justerbara begränsningar. [Detta](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quota-errors) artikeln beskriver hur kvot ökning i detalj.
 

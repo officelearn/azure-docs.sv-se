@@ -5,15 +5,15 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 05/12/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 17f596abda4febbd6e532adcb44d544cd4d104df
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
-ms.translationtype: MT
+ms.openlocfilehash: e4d4ac45ad0ba9516d863682015b9c07096ae106
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924674"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794754"
 ---
 # <a name="expressroute-faq"></a>Vanliga frågor och svar för ExpressRoute
 
@@ -79,7 +79,7 @@ ExpressRoute stöder [tre routningsdomäner](expressroute-circuit-peerings.md) f
 
 * [Office 365](https://aka.ms/ExpressRouteOffice365)
 * Dynamics 365 
-* Power BI
+* Power BI – tillgängligt via ett regionalt Azure-communityn finns i [här](https://docs.microsoft.com/power-bi/service-admin-where-is-my-tenant-located) att ta reda på regionen för din Power BI-klient. 
 * Azure Active Directory
 * [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (globala tjänster för Azure-community)
 * De flesta av de Azure-tjänsterna stöds. Kontrollera direkt med den tjänst som du vill använda för att verifiera support.<br><br>**Följande tjänster stöds inte**:
@@ -152,7 +152,7 @@ Om din tjänstleverantör erbjuder ExpressRoute på båda platserna, du samarbet
 
 ### <a name="can-i-have-multiple-expressroute-circuits-in-the-same-metro-can-i-link-them-to-the-same-virtual-network"></a>Kan jag har flera ExpressRoute-kretsar i samma metro? Kan jag koppla dem till samma virtuella nätverk?
 
-Ja. Du kan ha flera ExpressRoute-kretsar med samma eller olika leverantörer. Om metro har flera ExpressRoute-peeringplatser och kretsarna som skapas på olika peering-platser, kan du länka dem till samma virtuella nätverk. Om kretsarna som skapas på samma peering plats, kan du länka dem till samma virtuella nätverk, men bara upp till 4 ExpressRoute-kretsar i varje peeringplats. Du kan till exempel välja peeringplatser ”Singapore” och ”Singapore2” och ansluta kretsar från var och en till samma virtuella nätverk. 
+Ja. Du kan ha flera ExpressRoute-kretsar med samma eller olika leverantörer. Om metro har flera ExpressRoute-peeringplatser och kretsarna som skapas på olika peering-platser, kan du länka dem till samma virtuella nätverk. Om kretsarna som skapas på samma peering plats, kan du länka upp till 4 kretsar till samma virtuella nätverk.
 
 ### <a name="how-do-i-connect-my-virtual-networks-to-an-expressroute-circuit"></a>Hur ansluter jag mitt virtuella nätverk till en ExpressRoute-krets
 
@@ -190,7 +190,7 @@ Nej. Från en routning perspektiv alla virtuella nätverk som är länkade till 
 
 ### <a name="can-i-have-one-virtual-network-connected-to-more-than-one-expressroute-circuit"></a>Kan jag ha ett virtuellt nätverk som är anslutna till flera ExpressRoute-krets?
 
-Ja. Du kan länka ett enda virtuellt nätverk med upp till fyra ExpressRoute-kretsar. De måste sorteras via fyra olika [ExpressRoute-platser](expressroute-locations.md).
+Ja. Du kan länka ett enda virtuellt nätverk med upp till fyra ExpressRoute-kretsar i antingen i samma eller en annan peering-platser. 
 
 ### <a name="can-i-access-the-internet-from-my-virtual-networks-connected-to-expressroute-circuits"></a>Kan jag ansluta till Internet från mitt virtuella nätverk som är anslutna till ExpressRoute-kretsar?
 

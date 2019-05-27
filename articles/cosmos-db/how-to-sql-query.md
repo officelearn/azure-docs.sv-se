@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: mjbrown
-ms.openlocfilehash: a5cc6bfca67f3d90467fa2339bc991c1f0bbeadf
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.openlocfilehash: 4d1ef650a3f12d8b97cbad3e9aecf31c8b81a038
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148939"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796151"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>SQL-exempelfrågor för Azure Cosmos DB
 
@@ -139,7 +139,7 @@ Resultatet av frågan är:
     }]
 ```
 
-Följande fråga returnerar alla angivna namn på barnen i familjen vars `id` matchar `WakefieldFamily`, ordnade efter stad där.
+Följande fråga returnerar alla angivna namn på barnen i familjen vars `id` matchar `WakefieldFamily`, ordnade efter ort.
 
 ```sql
     SELECT c.givenName
@@ -550,13 +550,13 @@ I följande tabell visas resultatet av likhetsjämförelser i SQL API mellan tv�
 
 | **Op** | **Odefinierad** | **Null** | **Boolesk** | **Nummer** | **Sträng** | **Objekt** | **Matris** |
 |---|---|---|---|---|---|---|---|
-| **Odefinierad** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) |
-| **Null** | Undefined (Odefinierad) | **Ok** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) |
-| **Boolesk** | Undefined (Odefinierad) | Undefined (Odefinierad) | **Ok** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) |
-| **Nummer** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | **Ok** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) |
-| **Sträng** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | **Ok** | Undefined (Odefinierad) | Undefined (Odefinierad) |
-| **Objekt** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | **Ok** | Undefined (Odefinierad) |
-| **Matris** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | **Ok** |
+| **Odefinierad** | Odefinierat | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Odefinierat |
+| **Null** | Odefinierat | **Ok** | Odefinierat | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Odefinierat |
+| **Boolesk** | Odefinierat | Odefinierat | **Ok** | Odefinierat | Undefined (Odefinierad) | Undefined (Odefinierad) | Odefinierat |
+| **Nummer** | Odefinierat | Undefined (Odefinierad) | Odefinierat | **Ok** | Odefinierat | Undefined (Odefinierad) | Odefinierat |
+| **Sträng** | Odefinierat | Undefined (Odefinierad) | Undefined (Odefinierad) | Odefinierat | **Ok** | Odefinierat | Odefinierat |
+| **Objekt** | Odefinierat | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Odefinierat | **Ok** | Odefinierat |
+| **Matris** | Odefinierat | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Odefinierat | **Ok** |
 
 För jämförelseoperatorer som `>`, `>=`, `!=`, `<`, och `<=`, jämförelse över typer eller mellan två objekt eller matriser ger `Undefined`.  
 
@@ -568,27 +568,27 @@ Logiska operatorer arbetar med booleska värden. Följande tabeller visar de log
 
 **Operatorn OR** (ELLER)
 
-| ELLER | True | False | Undefined (Odefinierad) |
+| ELLER | True | Falskt | Odefinierat |
 | --- | --- | --- | --- |
 | True |True |True |True |
-| False |True |False |Undefined (Odefinierad) |
-| Undefined (Odefinierad) |True |Undefined (Odefinierad) |Undefined (Odefinierad) |
+| Falskt |True |Falskt |Odefinierat |
+| Odefinierat |True |Odefinierat |Undefined (Odefinierad) |
 
 **Operatorn AND** (OCH)
 
-| AND | True | False | Undefined (Odefinierad) |
+| AND | True | Falskt | Odefinierat |
 | --- | --- | --- | --- |
-| True |True |False |Undefined (Odefinierad) |
-| False |False |False |False |
-| Undefined (Odefinierad) |Undefined (Odefinierad) |False |Undefined (Odefinierad) |
+| True |True |Falskt |Odefinierat |
+| Falskt |Falskt |Falskt |Falskt |
+| Odefinierat |Odefinierat |Falskt |Odefinierat |
 
 **Operatorn NOT** (INTE)
 
 | NOT |  |
 | --- | --- |
-| True |False |
-| False |True |
-| Undefined (Odefinierad) |Undefined (Odefinierad) |
+| True |Falskt |
+| Falskt |True |
+| Odefinierat |Odefinierat |
 
 ## <a name="between-keyword"></a>Nyckelordet BETWEEN (mellan)
 
@@ -867,6 +867,13 @@ Resultatet är:
         ]
       }
     ]
+```
+
+Följande SQL-fråga är ett annat exempel på matrisen inom i underfrågor. Den här frågan hämtar alla distinkta angivna namn på barnen i en arrary.
+
+```sql
+SELECT f.id, ARRAY(SELECT DISTINCT VALUE c.givenName FROM c IN f.children) as ChildNames
+FROM f
 ```
 
 
@@ -1287,11 +1294,11 @@ SQL-API: et stöder mängdfunktionerna. Summa och Genomsnittlig fungerar på num
 
 | Funktion | Beskrivning |
 |-------|-------------|
-| COUNT | Returnerar antalet objekt i uttrycket. |
+| ANTAL | Returnerar antalet objekt i uttrycket. |
 | SUM   | Returnerar summan av alla värden i uttrycket. |
 | MIN   | Returnerar minimivärdet i uttrycket. |
 | MAX   | Returnerar maxvärdet i uttrycket. |
-| AVG   | Returnerar medelvärdet av värdena i uttrycket. |
+| MEDEL   | Returnerar medelvärdet av värdena i uttrycket. |
 
 Du kan även aggregera över resultatet av en matris iteration. Mer information finns i den [Iteration](#Iteration) avsnittet.
 

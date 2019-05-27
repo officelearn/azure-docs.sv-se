@@ -12,12 +12,12 @@ ms.author: josack
 ms.reviewer: sstein
 manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: a83bc6518409add8a0732e5a0b17ab46c36564af
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 4424e53689714625ebc791df250956463452c3cb
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60703379"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65791505"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Ny DBA i molnet – hantera din enda och delade databaser i Azure SQL Database
 
@@ -32,7 +32,7 @@ Den här artikeln beskriver några av de grundläggande egenskaperna i Azure SQL
 - Företag affärskontinuitet och haveriberedskap recovery (BCDR)
 - Säkerhet och efterlevnad
 - Intelligent database-övervakning och underhåll
-- Dataförflyttning
+- Dataflytt
 
 > [!NOTE]
 > Den här artikeln gäller följande distributionsalternativ i Azure SQL Database: enkel databaser och elastiska pooler. Den gäller inte för hanterad instans-alternativ för distribution i SQL-databas.
@@ -45,9 +45,9 @@ Funktioner för Business affärskontinuitet och haveriberedskap återställning 
 
 Du skapar inte säkerhetskopior i Azure SQL DB och det beror på att du inte behöver. SQL-databas säkerhetskopierar automatiskt databaser för dig, så att du inte längre måste bekymra dig om schemaläggning, tar och hantera säkerhetskopior. Plattformen tar en fullständig säkerhetskopiering varje vecka, differentiell säkerhetskopiering några timmars mellanrum och en logg säkerhetskopiering var femte minut så haveriberedskap är effektivt och den minimal förlusten av data. Den första fullständiga säkerhetskopieringen sker när du skapar en databas. Dessa säkerhetskopior är tillgängliga för dig för en viss tid som kallas ”Kvarhållningsperioden” och varierar beroende på tjänstnivå som du väljer. SQL-databas ger dig möjlighet att återställa till valfri punkt inom denna kvarhållning period med [peka i tiden Recovery (PITR)](sql-database-recovery-using-backups.md#point-in-time-restore).
 
-|Tjänstenivå|Kvarhållningsperiod i dagar|
+|Tjänstnivå|Kvarhållningsperiod i dagar|
 |---|:---:|
-|Basic|7|
+|Grundläggande|7|
 |Standard|35|
 |Premium|35|
 |||
@@ -113,7 +113,7 @@ En brandvägg förhindrar åtkomst till din server från en extern entitet genom
 
 Du kan skapa brandväggsregler på servernivå eller på databasnivå. Server på IP-brandväggsregler kan antingen skapas med hjälp av Azure portal eller med SSMS. Mer information om hur du ställer in en brandväggsregel på servernivå och databasnivå konfigureras finns: [Skapa IP-brandväggsregler i SQL Database](sql-database-security-tutorial.md#create-firewall-rules).
 
-#### <a name="service-endpoints"></a>Tjänstslutpunkter
+#### <a name="service-endpoints"></a>Tjänstens slutpunkter
 
 Som standard SQL-databasen är konfigurerad att ”Tillåt Azure-tjänster åtkomst till servern” – vilket innebär att alla virtuella datorer i Azure kan försöka ansluta till databasen. Dessa försök fortfarande behöver autentiserad. Men om du inte vill din databas för att vara tillgängliga för alla Azure-IP-adresser, kan du inaktivera ”Tillåt Azure-tjänster åtkomst till servern”. Du kan också konfigurera [VNet-tjänstslutpunkter](sql-database-vnet-service-endpoint-rule-overview.md).
 
@@ -127,7 +127,7 @@ Ett annat alternativ är att etablera [reserverade IP-adresser](../virtual-netwo
 
 ### <a name="what-port-do-i-connect-to-sql-database-on"></a>Vilken port som ansluter jag till SQL-databas på
 
-Port 1433. SQL Database kommunicerar via den här porten. Om du vill ansluta inifrån ett företagsnätverk, måste du lägga till en utgående regel i brandväggsinställningarna för din organisation. Undvik att exponera port 1433 utanför gränsen för Azure som en riktlinje. Du kan köra SSMS i Azure med hjälp av [Azure RemoteApp](https://www.microsoft.com/cloud-platform/azure-remoteapp-client-apps). Det här behöver du inte att öppna utgående anslutningar till port 1433, IP-Adressen är statisk, så att databasen kan vara öppen för endast RemoteApp och Multi Factor Authentication (MFA) stöds.
+Port 1433. SQL Database kommunicerar via den här porten. Om du vill ansluta inifrån ett företagsnätverk, måste du lägga till en utgående regel i brandväggsinställningarna för din organisation. Undvik att exponera port 1433 utanför gränsen för Azure som en riktlinje.
 
 ### <a name="how-can-i-monitor-and-regulate-activity-on-my-server-and-database-in-sql-database"></a>Hur kan jag övervaka och reglera aktivitet på Min server och databas i SQL Database
 
@@ -202,7 +202,7 @@ Nätverkstrafiken mellan din organisation och SQL-databas skulle vanligtvis diri
 Expressroute kan du utöka upp till 2 x Bandbreddsgräns som du köper för utan extra kostnad. Det är också möjligt att konfigurera mellan region-anslutning med expressroute. Om du vill se en lista över anslutningsleverantörer som ER, se: [Express Route-Partners och Peeringplatser](../expressroute/expressroute-locations.md). I följande artiklar beskriver Express Route i detalj:
 
 - [Introduktion till Expressroute](../expressroute/expressroute-introduction.md)
-- [Förutsättningar](../expressroute/expressroute-prerequisites.md)
+- [Krav](../expressroute/expressroute-prerequisites.md)
 - [Arbetsflöden](../expressroute/expressroute-workflows.md)
 
 ### <a name="is-sql-database-compliant-with-any-regulatory-requirements-and-how-does-that-help-with-my-own-organizations-compliance"></a>Är SQL-databas som är kompatibel med alla efterlevnadskrav och vad som bidrar med min egen organisation efterlevnad

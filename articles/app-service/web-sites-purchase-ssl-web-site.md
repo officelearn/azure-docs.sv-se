@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b561091eedb43e1c77f3c97951beeb92bfcf4751
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.openlocfilehash: 15441f70052950748f07b96ff234557462f268cd
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65202930"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786328"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Köp och konfigurera ett SSL-certifikat för Azure App Service
 
@@ -113,7 +113,7 @@ Använd följande tabell när du konfigurerar bindningen i den **SSL-bindningar*
 
 | Inställning | Beskrivning |
 |-|-|
-| Värdnamn | Att lägga till SSL-bindning för domännamn. |
+| Värddatornamn | Att lägga till SSL-bindning för domännamn. |
 | Tumavtryck för privat certifikat | Certifikat för att binda. |
 | SSL-typ | <ul><li>**SNI SSL** -flera SNI-baserad SSL-bindningar kan läggas till. Med det här alternativet kan flera SSL-certifikat skydda flera domäner på samma IP-adress. De flesta moderna webbläsare (inklusive Internet Explorer, Chrome, Firefox och Opera) stöder SNI (mer information om webbläsare som stöds finns i [Servernamnindikator](https://wikipedia.org/wiki/Server_Name_Indication)).</li><li>**IP-baserad SSL** – Det går bara att lägga till en IP-baserad SSL-bindning. Med det här alternativet tillåts endast ett SSL-certifikat för att skydda en dedikerad offentlig IP-adress. När du konfigurerar bindningen, följer du stegen i [mappa om en post för IP SSL](app-service-web-tutorial-custom-ssl.md#remap-a-record-for-ip-ssl). </li></ul> |
 
@@ -161,9 +161,9 @@ När förnyelseåtgärden är klar klickar du på **synkronisering**. Synkronise
 
 [!code-powershell[main](../../powershell_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1?highlight=1-3 "Bind a custom SSL certificate to a web app")]
 
-## <a name="more-resources"></a>Fler resurser
+## <a name="more-resources"></a>Flera resurser
 
 * [Använda HTTPS](app-service-web-tutorial-custom-ssl.md#enforce-https)
 * [Kräv TLS 1.1/1.2](app-service-web-tutorial-custom-ssl.md#enforce-tls-versions)
 * [Använda ett SSL-certifikat i programkoden i Azure App Service](app-service-web-ssl-cert-load.md)
-* [VANLIGA FRÅGOR OCH SVAR: App Service Certificate](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/24/faq-app-service-certificates/)
+* [VANLIGA FRÅGOR OCH SVAR: App Service Certificate](https://docs.microsoft.com/en-us/azure/app-service/faq-configuration-and-management/)

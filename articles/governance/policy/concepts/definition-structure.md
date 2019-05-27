@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 0783251eaeef188c49c5b3aa61b5ecaec48127b7
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
-ms.translationtype: MT
+ms.openlocfilehash: b9fe723ca13cbee0e31b14e60a6bd740d2a282df
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506699"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65779296"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy-definitionsstruktur
 
@@ -238,7 +238,7 @@ Ett villkor utvärderas om en **fältet** eller **värdet** accessor uppfyller v
 När du använder den **som** och **notLike** villkor du anger ett jokertecken `*` i värdet.
 Värdet får inte innehålla fler än ett jokertecken `*`.
 
-När du använder den **matchar** och **notMatch** villkor, ger `#` så att de matchar en siffra, `?` för en bokstav, `.` så att den matchar alla tecken och alla andra tecken som ska matchas Det faktiska tecknet.
+När du använder den **matchar** och **notMatch** villkor, ger `#` så att de matchar en siffra, `?` för en bokstav, `.` så att de matchar valfritt tecken, och alla andra tecken som ska matchas Det faktiska tecknet.
 **matcha** och **notMatch** är skiftlägeskänsliga. Skiftlägeskänsliga alternativ är tillgängliga i **matchInsensitively** och **notMatchInsensitively**. Exempel finns i [Tillåt flera namn mönster](../samples/allow-multiple-name-patterns.md).
 
 ### <a name="fields"></a>Fält
@@ -293,7 +293,7 @@ I följande exempel `concat` används för att skapa en fält-sökning för tagg
 }
 ```
 
-### <a name="value"></a>Värde
+### <a name="value"></a>Value
 
 Villkor kan även skapas med hjälp av **värdet**. **värdet** kontrollerar villkor mot [parametrar](#parameters), [stöds Mallfunktioner](#policy-functions), eller litteraler.
 **värdet** paras ihop med alla stöds [villkor](#conditions).

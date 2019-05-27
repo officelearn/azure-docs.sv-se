@@ -12,14 +12,16 @@ ms.topic: article
 ms.date: 05/02/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 4c5b30ab075bbca22b6a58ccf65e55d332820937
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
-ms.translationtype: MT
+ms.openlocfilehash: 3ce20b56fc2cbebbed4b525eeccc2c12d14cccc3
+ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406550"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65556232"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>Utveckla med Media Services v3-API: er
+
+Som utvecklare kan du använda Media Services [REST API](https://aka.ms/ams-v3-rest-ref) eller klientbibliotek så att du kan interagera med REST API för att enkelt skapa, hantera och underhålla anpassade mediearbetsflöden. [Media Services v3](https://aka.ms/ams-v3-rest-sdk) API baseras på OpenAPI-specifikationen (kallades tidigare för en Swagger).
 
 Den här artikeln beskrivs regler som gäller för entiteter och API: er när du utvecklar med Media Services v3.
 
@@ -98,6 +100,32 @@ Media Services har följande långvariga åtgärder:
 * Stoppa StreamingEndpoint
 * Skala StreamingEndpoint
 
+
+## <a name="sdks"></a>SDK:er
+
+> [!NOTE]
+> SDK: er för Azure Media Services v3 garanteras vara trådsäkra. När du utvecklar ett flertrådiga program, bör du lägga till en egen logik för synkronisering av tråd för att skydda den eller använda ett nytt AzureMediaServicesClient objekt per tråd. Du bör också vara försiktig flertrådsteknik problem som introducerades av valfritt objekt som tillhandahålls av din kod till klienten (t.ex. en HttpClient-instans i .NET).
+
+|SDK|Referens|
+|---|---|
+|[.NET SDK](https://aka.ms/ams-v3-dotnet-sdk)|[.NET-referens](https://aka.ms/ams-v3-dotnet-ref)|
+|[Java SDK](https://aka.ms/ams-v3-java-sdk)|[Java-referens](https://aka.ms/ams-v3-java-ref)|
+|[Python SDK](https://aka.ms/ams-v3-python-sdk)|[Python-referens](https://aka.ms/ams-v3-python-ref)|
+|[Node.js SDK](https://aka.ms/ams-v3-nodejs-sdk) |[Node.js-referens](https://aka.ms/ams-v3-nodejs-ref)| 
+|[Go SDK](https://aka.ms/ams-v3-go-sdk) |[Go-referens](https://aka.ms/ams-v3-go-ref)|
+|[Ruby SDK](https://aka.ms/ams-v3-ruby-sdk)||
+
+### <a name="see-also"></a>Se också
+
+- [EventGrid .NET SDK, som innehåller Media Service-händelser](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
+- [Definitioner av Media Services-händelser](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)
+
+## <a name="azure-media-services-explorer"></a>Azure Media Services Explorer
+
+[Azure Media Services Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (AMSE) är ett verktyg som är tillgängligt för Windows-kunder som vill lära sig om Media Services. AMSE är ett Winforms-/C#-program som laddar upp, laddar ned, kodar och strömmar VOD- och live-innehåll med Media Services. AMSE-verktyget är till för klienter som vill testa Media Services utan att skriva någon kod. AMSE-koden tillhandahålls som en resurs för kunder som vill utveckla med Media Services.
+
+AMSE är ett projekt med öppen källkod och får support från communityn (problem kan rapporteras till https://github.com/Azure/Azure-Media-Services-Explorer/issues). Det här projektet använder sig av [Microsofts uppförandekod för öppen källkod](https://opensource.microsoft.com/codeofconduct/). Läs [Vanliga frågor och svar om uppförandekoden](https://opensource.microsoft.com/codeofconduct/faq/) eller kontakta opencode@microsoft.com om du har några andra frågor eller kommentarer.
+
 ## <a name="filtering-ordering-paging-of-media-services-entities"></a>Filtrering, skrivordning, växling av Media Services-entiteter
 
 Se [filtrering, sortering, växling av Azure Media Services-entiteter](entities-overview.md)
@@ -108,4 +136,7 @@ Kolla in den [Azure Media Services-community](media-services-community.md) artik
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Börja utveckla med Media Services v3-API med hjälp av SDK: er/verktyg](developers-guide.md)
+* [Ansluta till Media Services med Java](configure-connect-java-howto.md)
+* [Ansluta till Media Services med .NET](configure-connect-dotnet-howto.md)
+* [Ansluta till Media Services med Node.js](configure-connect-nodejs-howto.md)
+* [Ansluta till Media Services med Python](configure-connect-python-howto.md)

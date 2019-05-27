@@ -1,0 +1,317 @@
+---
+title: 'Snabbstart: Python- och REST API: er – Azure Search'
+description: Skapa, läsa in och fråga ett index med hjälp av Python, Jupyter-anteckningsböcker och Azure Search REST API.
+ms.date: 05/15/2019
+author: heidisteen
+manager: cgronlun
+ms.author: heidist
+services: search
+ms.service: search
+ms.devlang: rest-api
+ms.topic: conceptual
+ms.custom: seodec2018
+ms.openlocfilehash: 1ab6bb069f60f4d2dbb4cfaecda54c3c2ef20adc
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65806438"
+---
+# <a name="quickstart-create-an-azure-search-index-using-jupyter-python-notebooks"></a>Snabbstart: Skapa ett Azure Search-index med Python i Jupyter-anteckningsböcker
+> [!div class="op_single_selector"]
+> * [Python (REST)](search-get-started-python.md)
+> * [PowerShell (REST)](search-create-index-rest-api.md)
+> * [C#](search-create-index-dotnet.md)
+> * [Postman (REST)](search-fiddler.md)
+> * [Portal](search-create-index-portal.md)
+> 
+
+Skapa en Jupyter-anteckningsbok som skapar, läser in och frågar en Azure Search [index](search-what-is-an-index.md) med hjälp av Python och [Azure Search Service REST API: er](https://docs.microsoft.com/rest/api/searchservice/). Den här artikeln förklarar hur du skapar dina egna notebook steg för steg. Du kan också köra en färdig anteckningsbok. Du kan hämta en kopia går du till [lagringsplatsen för Azure Search-python-exempel](https://github.com/Azure-Samples/azure-search-python-samples).
+
+Om du inte har en Azure-prenumeration kan du innan du börjar först skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) och sedan [registrera dig för Azure Search](search-create-service-portal.md).
+
+## <a name="prerequisites"></a>Nödvändiga komponenter
+
+Följande tjänster och verktyg som används i den här snabbstarten. 
+
++ [Skapa en Azure Search-tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under din aktuella prenumeration. Du kan använda en kostnadsfri tjänst för den här snabbstarten. 
+
++ [Anaconda 3.x](https://www.anaconda.com/distribution/#download-section), vilket ger Python 3.x och Jupyter Notebooks.
+
+## <a name="get-a-key-and-url"></a>Hämta en nyckel och URL: en
+
+För att kunna göra REST-anrop behöver du tjänstens webbadress och en åtkomstnyckel för varje begäran. En söktjänst har vanligen båda dessa komponenter, så om du har valt att lägga till Azure Search i din prenumeration följer du bara stegen nedan för att hitta fram till rätt information:
+
+1. [Logga in på Azure-portalen](https://portal.azure.com/), och i din söktjänst **översikt** sidan, hämta URL: en. Här följer ett exempel på hur en slutpunkt kan se ut: `https://mydemo.search.windows.net`.
+
+1. I **inställningar** > **nycklar**, hämta en administratörsnyckel för fullständiga rättigheter på tjänsten. Det finns två utbytbara administratörsnycklar, som angetts för kontinuitet för företag om du behöver förnya ett. Du kan använda antingen den primära eller sekundära nyckeln för förfrågningar för att lägga till, ändra och ta bort objekt.
+
+![Hämta en HTTP-slutpunkt och åtkomstnyckel](media/search-fiddler/get-url-key.png "får en HTTP-slutpunkt och åtkomstnyckel")
+
+Alla begäranden som kräver en api-nyckel för varje begäran som skickas till din tjänst. En giltig nyckel upprättar förtroende, i varje begäran, mellan programmet som skickar begäran och tjänsten som hanterar den.
+
+## <a name="connect-to-azure-search"></a>Anslut till Azure Search
+
+Öppna en Jupyter-anteckningsbok och kontrollera anslutningen från den lokala arbetsstationen genom att begära en lista över index i din tjänst. Du kan använda Anaconda Navigator på Windows med Anaconda3 för att starta en anteckningsbok.
+
+1. Skapa en ny Python3 anteckningsbok.
+
+1. Läsa in de bibliotek som används för att arbeta med JSON och utformningen av HTTP-begäranden i den första cellen.
+
+   ```python
+   import json
+   import requests
+   from pprint import pprint
+   ```
+
+1. Ange begäran-element som ska vara konstanter för varje begäran i den andra cellen. Ersätt söktjänstnamnet (din-SEARCH-SERVICE-NAME) och admin API-nyckel (din-ADMIN-API-nyckel) med giltiga värden. 
+
+   ```python
+    endpoint = 'https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/'
+    api_version = '?api-version=2019-05-06'
+    headers = {'Content-Type': 'application/json',
+           'api-key': '<YOUR-ADMIN-API-KEY>' }
+   ```
+
+1. Formulera begäran i cellen tredje. Den här GET-begäran riktar sig mot samlingen index för search-tjänsten och väljer namnegenskapen.
+
+   ```python
+   url = endpoint + "indexes" + api_version + "&$select=name"
+   response  = requests.get(url, headers=headers)
+   index_list = response.json()
+   pprint(index_list)
+   ```
+
+1. Kör varje steg. Om index finns innehåller svaret en lista över index. Tjänsten omfattar en azureblob-index och en realestate-us-sample-index i skärmbilden nedan.
+
+   ![Python-skriptet i Jupyter-anteckningsbok med HTTP-begäranden till Azure Search](media/search-get-started-python/connect-azure-search.png "Python-skriptet i Jupyter-anteckningsbok med HTTP-begäranden till Azure Search")
+
+   En tom index samling returnerar svaret: `{'@odata.context': 'https://mydemo.search.windows.net/$metadata#indexes(name)', 'value': []}`
+
+> [!Tip]
+> Du är begränsad till tre index, indexerare och datakällor på en kostnadsfri tjänst. Den här snabbstarten skapar vi en av varje. Kontrollera att det finns utrymme att skapa nya objekt innan skickas vidare.
+
+## <a name="1---create-an-index"></a>1 – Skapa ett index
+
+Om du inte använder portalen, måste ett index finnas på tjänsten innan du kan läsa in data. Det här steget använder den [skapa Index REST API](https://docs.microsoft.com/rest/api/searchservice/create-index) att skicka ett indexschema till tjänsten
+
+Fältsamlingen definierar strukturen för en *dokumentet*. Obligatoriska elementen för ett index är ett namn och en samling fält. Varje fält har ett namn, typ och attribut som avgör hur den används (till exempel om det är fulltext sökbar, filtrerbar eller hämtningsbara i sökresultat). I ett index, ett fält av typen `Edm.String` måste anges som den *nyckel* för dokumentet identitet.
+
+Det här indexet har namnet ”hotels-py” och fältdefinitioner som du ser nedan. Det är en del av ett större [Hotels indexet](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) används i andra genomgångar. Vi tas bort den i den här snabbstarten av utrymmesskäl.
+
+
+1. I nästa cell, klistrar du in i följande exempel i en cell att tillhandahålla schemat. 
+
+    ```python
+    index_schema = {
+       "name": "hotels-py",  
+       "fields": [
+         {"name": "HotelId", "type": "Edm.String", "key": "true", "filterable": "true"},
+         {"name": "HotelName", "type": "Edm.String", "searchable": "true", "filterable": "false", "sortable": "true", "facetable": "false"},
+         {"name": "Description", "type": "Edm.String", "searchable": "true", "filterable": "false", "sortable": "false", "facetable": "false", "analyzer": "en.lucene"},
+         {"name": "Description_fr", "type": "Edm.String", "searchable": "true", "filterable": "false", "sortable": "false", "facetable": "false", "analyzer": "fr.lucene"},
+         {"name": "Category", "type": "Edm.String", "searchable": "true", "filterable": "true", "sortable": "true", "facetable": "true"},
+         {"name": "Tags", "type": "Collection(Edm.String)", "searchable": "true", "filterable": "true", "sortable": "false", "facetable": "true"},
+         {"name": "ParkingIncluded", "type": "Edm.Boolean", "filterable": "true", "sortable": "true", "facetable": "true"},
+         {"name": "LastRenovationDate", "type": "Edm.DateTimeOffset", "filterable": "true", "sortable": "true", "facetable": "true"},
+         {"name": "Rating", "type": "Edm.Double", "filterable": "true", "sortable": "true", "facetable": "true"},
+         {"name": "Address", "type": "Edm.ComplexType", 
+         "fields": [
+         {"name": "StreetAddress", "type": "Edm.String", "filterable": "false", "sortable": "false", "facetable": "false", "searchable": "true"},
+         {"name": "City", "type": "Edm.String", "searchable": "true", "filterable": "true", "sortable": "true", "facetable": "true"},
+         {"name": "StateProvince", "type": "Edm.String", "searchable": "true", "filterable": "true", "sortable": "true", "facetable": "true"},
+         {"name": "PostalCode", "type": "Edm.String", "searchable": "true", "filterable": "true", "sortable": "true", "facetable": "true"},
+         {"name": "Country", "type": "Edm.String", "searchable": "true", "filterable": "true", "sortable": "true", "facetable": "true"}
+        ]
+       }
+      ]
+    }
+    ```
+
+2. Formulera begäran i en annan cell. Den här PUT begäran riktar sig mot samlingen index för search-tjänsten och skapar ett index baserat på indexschema som du angav i föregående steg.
+
+   ```python
+   url = endpoint + "indexes" + api_version
+   response  = requests.post(url, headers=headers, json=index_schema)
+   index = response.json()
+   pprint(index)
+   ```
+
+3. Kör varje steg.
+
+   Svaret innehåller JSON-representation av schemat. Följande skärmbild: av delar av indexschemat så att du kan se mer av svaret.
+
+    ![Begäran om att skapa ett index](media/search-get-started-python/create-index.png "begäran om att skapa ett index")
+
+> [!Tip]
+> För verifiering, du kan också kontrollera listan index i portalen eller köra tjänsten anslutningsbegäran att se den *hotels-py* index som anges i index-samlingen.
+
+<a name="load-documents"></a>
+
+## <a name="2---load-documents"></a>2 – läsa in dokument
+
+Använd en HTTP POST-begäran till ditt index URL-slutpunkt för att skicka dokument. REST-API: et är [Lägg till, uppdatera eller ta bort dokument](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents). Dokument som kommer från [HotelsData](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/HotelsData_toAzureSearch.JSON) på GitHub.
+
+1. En ny cell innehåller tre dokument som överensstämmer med indexschemat. Ange en uppladdning åtgärd för varje dokument.
+
+    ```python
+    documents = {
+        "value": [
+        {
+        "@search.action": "upload",
+        "HotelId": "1",
+        "HotelName": "Secret Point Motel",
+        "Description": "The hotel is ideally located on the main commercial artery of the city in the heart of New York. A few minutes away is Time's Square and the historic centre of the city, as well as other places of interest that make New York one of America's most attractive and cosmopolitan cities.",
+        "Description_fr": "L'hôtel est idéalement situé sur la principale artère commerciale de la ville en plein cœur de New York. A quelques minutes se trouve la place du temps et le centre historique de la ville, ainsi que d'autres lieux d'intérêt qui font de New York l'une des villes les plus attractives et cosmopolites de l'Amérique.",
+        "Category": "Boutique",
+        "Tags": [ "pool", "air conditioning", "concierge" ],
+        "ParkingIncluded": "false",
+        "LastRenovationDate": "1970-01-18T00:00:00Z",
+        "Rating": 3.60,
+        "Address": {
+            "StreetAddress": "677 5th Ave",
+            "City": "New York",
+            "StateProvince": "NY",
+            "PostalCode": "10022",
+            "Country": "USA"
+            }
+        },
+        {
+        "@search.action": "upload",
+        "HotelId": "2",
+        "HotelName": "Twin Dome Motel",
+        "Description": "The hotel is situated in a  nineteenth century plaza, which has been expanded and renovated to the highest architectural standards to create a modern, functional and first-class hotel in which art and unique historical elements coexist with the most modern comforts.",
+        "Description_fr": "L'hôtel est situé dans une place du XIXe siècle, qui a été agrandie et rénovée aux plus hautes normes architecturales pour créer un hôtel moderne, fonctionnel et de première classe dans lequel l'art et les éléments historiques uniques coexistent avec le confort le plus moderne.",
+        "Category": "Boutique",
+        "Tags": [ "pool", "free wifi", "concierge" ],
+        "ParkingIncluded": "false",
+        "LastRenovationDate": "1979-02-18T00:00:00Z",
+        "Rating": 3.60,
+        "Address": {
+            "StreetAddress": "140 University Town Center Dr",
+            "City": "Sarasota",
+            "StateProvince": "FL",
+            "PostalCode": "34243",
+            "Country": "USA"
+            }
+        },
+        {
+        "@search.action": "upload",
+        "HotelId": "3",
+        "HotelName": "Triple Landscape Hotel",
+        "Description": "The Hotel stands out for its gastronomic excellence under the management of William Dough, who advises on and oversees all of the Hotel’s restaurant services.",
+        "Description_fr": "L'hôtel est situé dans une place du XIXe siècle, qui a été agrandie et rénovée aux plus hautes normes architecturales pour créer un hôtel moderne, fonctionnel et de première classe dans lequel l'art et les éléments historiques uniques coexistent avec le confort le plus moderne.",
+        "Category": "Resort and Spa",
+        "Tags": [ "air conditioning", "bar", "continental breakfast" ],
+        "ParkingIncluded": "true",
+        "LastRenovationDate": "2015-09-20T00:00:00Z",
+        "Rating": 4.80,
+        "Address": {
+            "StreetAddress": "3393 Peachtree Rd",
+            "City": "Atlanta",
+            "StateProvince": "GA",
+            "PostalCode": "30326",
+            "Country": "USA"
+        }
+      }
+     ]
+    }
+    ```
+
+2. Formulera begäran i en annan cell. Denna POST-begäran riktar sig mot samlingen docs indexets hotels-py och skickar de dokument som anges i föregående steg.
+
+   ```python
+   url = endpoint + "indexes/hotels-py/docs/index" + api_version
+   response  = requests.post(url, headers=headers, json=documents)
+   index_content = response.json()
+   pprint(index_content)
+   ```
+
+3. Kör varje steg för att skicka dokument till ett index i din söktjänst. Resultatet bör likna följande exempel. 
+
+   ```
+   {'@odata.context': "https://mydemo.search.windows.net/indexes('hotels-py')/$metadata#Collection(Microsoft.Azure.Search.V2019_05_06.IndexResult)",
+    'value': [{'errorMessage': None,
+            'key': '1',
+            'status': True,
+            'statusCode': 201},
+           {'errorMessage': None,
+            'key': '2',
+            'status': True,
+            'statusCode': 201},
+           {'errorMessage': None,
+            'key': '3',
+            'status': True,
+            'statusCode': 201}]}
+     ```
+
+
+## <a name="3---search-an-index"></a>3 – Söka i ett index
+
+Det här steget visar hur man frågar ett index med hjälp av den [REST-API för Search-dokument](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+
+
+1. Ange ett frågeuttryck i en ny cell. I följande exempel söker på villkoren ”hotels” och ”wifi”. Den returnerar även en *antal* av dokument som matchar, och *väljer* vilka fält som ska ingå i sökresultaten.
+
+   ```python
+   searchstring = '&search=hotels wifi&$count=true&$select=HotelId,HotelName'
+   ```
+
+2. Formulera en begäran. Den här GET-begäran riktar sig mot samlingen docs indexets hotels-py och bifogar den fråga som du angav i föregående steg.
+
+   ```python
+   url = endpoint + "indexes/hotels-py/docs" + api_version + searchstring
+   response  = requests.get(url, headers=headers, json=searchstring)
+   query = response.json()
+   pprint(query)
+   ```
+
+   Resultatet bör likna följande utdata.
+
+   ```
+   {'@odata.context': "https://mydemo.search.windows.net/indexes('hotels-py')/$metadata#docs(*)",
+    '@odata.count': 3,
+    'value': [{'@search.score': 1.0,
+               'HotelId': '1',
+               'HotelName': 'Secret Point Motel'},
+              {'@search.score': 1.0,
+               'HotelId': '2',
+               'HotelName': 'Twin Dome Motel'},
+              {'@search.score': 1.0,
+               'HotelId': '3',
+               'HotelName': 'Triple Landscape Hotel'}]}
+   ```
+
+3. Testa några andra fråga exempel för att få en bild av syntaxen. Ett filter, ta de två översta resultat, ordna efter ett visst fält eller 
+
+   + `searchstring = '&search=*&$filter=Rating gt 4&$select=HotelId,HotelName,Description'`
+
+   + `searchstring = '&search=hotel&$top=2&$select=HotelId,HotelName,Description'`
+
+   + `searchstring = '&search=pool&$orderby=Address/City&$select=HotelId, HotelName, Address/City, Address/StateProvince'`
+
+## <a name="clean-up"></a>Rensa 
+
+Du bör ta bort indexet om du inte längre behöver den. En kostnadsfri tjänst är begränsad till tre index. Du kanske vill ta bort alla index som du inte aktivt använder för att göra plats för andra självstudier.
+
+   ```python
+  url = endpoint + "indexes/hotels-py" + api_version
+  response  = requests.delete(url, headers=headers)
+   ```
+
+Du kan kontrollera indexet tas bort genom att returnera en lista över befintliga index. Om hotels-py är borta, vet du din begäran har slutförts.
+
+```python
+url = endpoint + "indexes" + api_version + "&$select=name"
+
+response  = requests.get(url, headers=headers)
+index_list = response.json()
+pprint(index_list)
+```
+
+## <a name="next-steps"></a>Nästa steg
+
+Mer information om frågesyntaxen och scenarier.
+
+> [!div class="nextstepaction"]
+> [Skapa en grundläggande fråga](search-query-overview.md)

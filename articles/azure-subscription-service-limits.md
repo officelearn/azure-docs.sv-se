@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: byvinyal
-ms.openlocfilehash: cb0203e3413ab525d6885f23c5936c64e1bef189
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.openlocfilehash: c8f1eaba726efe72e2b6845beaf1465d047c90d2
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233703"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787595"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure-prenumeration och tjänstbegränsningar, kvoter och krav
 Det här dokumentet innehåller några av de vanligaste Microsoft Azure-gränserna, som kallas ibland också kvoter. Det här dokumentet täcker inte för närvarande alla Azure-tjänster. Med tiden, kommer listan utökats och uppdaterats så att den täcker fler tjänster.
@@ -55,6 +55,7 @@ I följande lista över gränser återspeglar en ny tabell eventuella skillnader
 * [Azure DNS](#azure-dns-limits)
 * [Azure-brandväggen](#azure-firewall-limits)
 * [Azure Kubernetes Service](#azure-kubernetes-service-limits)
+* [Azure Machine Learning Service](#azure-machine-learning-service-limits)
 * [Azure Maps](#azure-maps-limits)
 * [Azure Monitor](#monitor-limits)
 * [Azure Policy](#azure-policy-limits)
@@ -77,15 +78,22 @@ I följande lista över gränser återspeglar en ny tabell eventuella skillnader
 * [IoT Hub](#iot-hub-limits)
 * [IoT Hub Device Provisioning Service](#iot-hub-device-provisioning-service-limits)
 * [Key Vault](#key-vault-limits)
-* [Lastbalanserare](#load-balancer)
 * [Log Analytics](#log-analytics-limits)
 * [Media Services](#media-services-limits)
 * [Mobile Services](#mobile-services-limits)
 * [Multi-Factor Authentication](#multi-factor-authentication-limits)
 * [Nätverk](#networking-limits)
-* [Network Watcher](#network-watcher-limits)
+  * [Application Gateway](#application-gateway-limits)
+  * [Azure DNS](#azure-dns-limits)
+  * [Azure Front Door Service](#azure-front-door-service-limits)
+  * [Azure-brandväggen](#azure-firewall-limits)
+  * [ExpressRoute](#expressroute-limits)
+  * [Lastbalanserare](#load-balancer)
+  * [Offentlig IP-adress](#publicip-address)
+  * [Network Watcher](#network-watcher-limits)
+  * [Traffic Manager](#traffic-manager-limits)
+  * [Virtual Network](#networking-limits)
 * [Notification Hubs](#notification-hubs-limits)
-* [Offentlig IP-adress](#publicip-address)
 * [Resursgrupp](#resource-group-limits)
 * [Rollbaserad åtkomstkontroll](#role-based-access-control-limits)
 * [Scheduler](#scheduler-limits)
@@ -97,7 +105,6 @@ I följande lista över gränser återspeglar en ny tabell eventuella skillnader
 * [StorSimple System](#storsimple-system-limits)
 * [Stream Analytics](#stream-analytics-limits)
 * [Prenumeration](#subscription-limits)
-* [Traffic Manager](#traffic-manager-limits)
 * [Virtual Machines](#virtual-machines-limits)
 * [VM-skalningsuppsättningar](#virtual-machine-scale-sets-limits)
 
@@ -144,6 +151,11 @@ I följande tabell beskrivs de funktioner och begränsningar för Basic, Standar
 
 ### <a name="azure-kubernetes-service-limits"></a>Azure Kubernetes Service-gränser
 [!INCLUDE [container-service-limits](../includes/container-service-limits.md)]
+
+### <a name="azure-machine-learning-service-limits"></a>Azure Machine Learning-tjänstbegränsningar
+De senaste värdena för beräkning av Azure Machine Learning kvoter finns i den [sidan för Azure Machine Learning-kvot](../articles/machine-learning/service/how-to-manage-quotas.md)
+
+[!INCLUDE [how-to-manage-quotas](../articles/machine-learning/service/how-to-manage-quotas.md)]
 
 ### <a name="networking-limits"></a>Begränsningar för nätverk
 [!INCLUDE [azure-virtual-network-limits](../includes/azure-virtual-network-limits.md)]

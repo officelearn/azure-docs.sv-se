@@ -13,12 +13,12 @@ ms.author: ninarn
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 11/14/2018
-ms.openlocfilehash: 7d07b0a098aad472b1b4f0b9810e5b63ac3c48a2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 56b4e948f4e1aab20de95a16f45ab790c7e591bb
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60202188"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66019825"
 ---
 # <a name="working-with-sql-database-connection-issues-and-transient-errors"></a>Arbeta med anslutningsproblem för SQL-databas och tillfälliga fel
 
@@ -134,7 +134,7 @@ Om klientprogrammet ansluter till SQL-databas med hjälp av .NET Framework-klass
 När du skapar den [anslutningssträngen](https://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx) för din **SqlConnection** objekt, samordna värdena bland följande parametrar:
 
 - **ConnectRetryCount**:&nbsp;&nbsp;standardvärdet är 1. Intervallet är 0 till 255.
-- **ConnectRetryInterval**:&nbsp;&nbsp;standard är 1 sekund. Intervallet är 1 till 60.
+- **ConnectRetryInterval**:&nbsp;&nbsp;standardvärdet är 10 sekunder. Intervallet är 1 till 60.
 - **Tidsgräns för anslutning**:&nbsp;&nbsp;standardvärdet är 15 sekunder. Intervallet är 0 och 2147483647.
 
 Mer specifikt bör dina valda värden Se följande likhet true: Connection Timeout = ConnectRetryCount * ConnectionRetryInterval

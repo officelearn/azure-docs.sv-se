@@ -109,7 +109,7 @@ Om du vill kopiera data från PayPal, ange typ av datakälla i kopieringsaktivit
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **PayPalSource** | Ja |
-| query | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM Payment_Experience"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
+| DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM Payment_Experience"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**
 

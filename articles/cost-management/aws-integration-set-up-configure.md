@@ -1,108 +1,118 @@
 ---
 title: Installera och konfigurera AWS kostnader och användning rapport-integrering med Azure Cost Management
-description: Den här artikeln vägleder dig om att installera och konfigurera AWS kostnader och användning rapport-integrering med Azure Cost Management.
+description: Den här artikeln vägleder dig genom att installera och konfigurera AWS kostnader och användning rapport-integrering med Azure Cost Management.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/06/2019
+ms.date: 05/21/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: ormaoz
 ms.custom: ''
-ms.openlocfilehash: e87e95ec9e4e20ee4785c2b1f448a7ca5f442b8a
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 951178a82e0975f5f2af71bd48cf0f931246ae37
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65409199"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002128"
 ---
 # <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>Installera och konfigurera AWS kostnader och användning rapport-integrering
 
-Med Amazon Web Services kostnader och användning rapport-integrering kan du övervaka och styr dina AWS utgifter i Azure Cost Management. Integrationen kan en enda plats i Azure-portalen där du kan övervaka och styra utgifter för både Azure och AWS. Den här artikeln förklarar hur du ställer in integration och konfigurera den så att du använda Cost Management-funktioner för att analysera kostnaderna och granska din budget.
+Med Amazon Web Services (AWS) kostnader och användning rapporten (akt)-integrering, som du kan övervaka och styr dina AWS utgifter i Azure Cost Management. Integrationen kan en enda plats i Azure-portalen där du kan övervaka och styra utgifter för både Azure och AWS. Den här artikeln förklarar hur du ställer in integration och konfigurera den så att du använder Azure Cost Management-funktioner för att analysera kostnaderna och granska din budget.
 
 Kostnad processer för AWS-kostnader och användning rapporten som lagras i en S3-bucket med hjälp av din AWS-autentiseringsuppgifter att hämta rapportdefinitioner och ladda ned rapporten GZIP CSV-filer.
 
 ## <a name="create-a-cost-and-usage-report-in-aws"></a>Skapa en rapport för kostnader och användning i AWS
 
-AWS rekommenderade sätt att samla in och bearbeta AWS-kostnaderna är att använda en rapport för kostnader och användning. Mer information finns i den [AWS-kostnaderna och användningsrapporten](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-reports-costusage.html) dokumentationsartikel.
+Med hjälp av en rapport för kostnader och användning är det AWS-rekommenderade sättet att samla in och bearbeta AWS-kostnaderna. Mer information finns i den [AWS-kostnaderna och användningsrapporten](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-reports-costusage.html) dokumentation.
 
-Använd den **rapporter** sidan i konsolen för fakturering och kostnadshantering i AWS skapa en rapport för kostnader och användning med följande steg.
+Använd den **kostnaden & användningsrapporter** sidan i konsolen för fakturering och kostnadshantering i AWS skapa en rapport för kostnader och användning med följande steg:
 
-1. Logga in på AWS-hanteringskonsolen och öppna konsolen för fakturering och kostnadshantering i https://console.aws.amazon.com/billing.
-2. I navigeringsfönstret klickar du på **rapporter**.
-3. Klicka på **skapa rapport**.
-4. För **rapportnamn**, Skriv ett namn för rapporten.
-5. För **tidsenhet**, Välj **per timme**.
-6. För **inkludera**lägger du till ID: N för varje resurs i rapporten och välj **resurs-ID: N**.
-7. För **aktivera stöd för**, ingen markering krävs.
-8. För **inställningar för datauppdatering**väljer **automatiskt uppdatera dina kostnader &amp; användningsrapporten när avgifter identifieras i föregående månader med stängd fakturor**.
-9. Klicka på **Nästa**.
-10. För **Amazon S3-bucket**, skriver du namnet på Amazon S3-bucket där du vill att rapporter som levereras till och klickar på **Kontrollera**. Bucket måste ha behörighet att vara giltigt. Läs mer om att lägga till behörigheter i bucketen [inställningen Bucket och åtkomstbehörigheter för objektet](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/set-permissions.html).
-11. För **rapporten sökvägsprefix**, ange det prefix för rapporten sökväg som ska läggas till i namnet på rapporten.
-12. För **komprimering**väljer **GZIP**.
-13. Klicka på **Nästa**.
-14. När du har granskat inställningarna för rapporten, klicka på **granska och slutför**.
-    Obs den **rapportnamn**. Du kan använda den i senare steg.
+1. Logga in på AWS-hanteringskonsolen och öppna den [fakturering och kostnadshantering konsolen](https://console.aws.amazon.com/billing).
+2. I navigeringsfönstret väljer **kostnaden & användningsrapporter**.
+3. Välj **skapa rapport**.
+4. För **rapportnamn**, ange ett namn för rapporten.
+5. För **ytterligare rapportinformation** , för att ta med ID: N för varje resurs i rapporten och välj **inkludera resurs-ID: N**.
+6. För **inställningar för datauppdatering**, Välj om du vill att rapporten AWS kostnader och användning för att uppdatera om AWS gäller återbetalningar, krediter, eller supportavgifter till ditt konto när du slutför din faktura. När en rapport har uppdaterats laddas en ny rapport till Amazon S3. Det är rekommenderat att lämna den här inställningen på.
+7. Välj **Nästa**.
+8. För **S3-bucket**, Välj **konfigurera**.
+9. Gör något av följande i dialogrutan Konfigurera S3-Bucket:
+    1. Välj en befintlig bucket från den nedrullningsbara listan och välj **nästa**.
+    2. Ange ett Bucketnamn och den Region där du vill skapa en ny bucket och välj **nästa**.
+10. Välj som jag har bekräftat att den här principen är korrigera och klickar du på Spara.
+11. (Valfritt) För rapporten sökvägsprefix, anger du sökvägsprefix för rapporten som du vill prepended till namnet på rapporten.
+Om du inte anger ett prefix, är standardprefixet det namn som du har angett för rapporten i steg 4 och datumintervall för rapporten i följande format: `/report-name/date-range/`
+12. För **tidsenhet**, Välj **per timme**.
+13. För **rapporten versionshantering**, Välj om du vill att varje version av rapporten att skriva över den tidigare versionen av rapporten eller som ska levereras utöver de tidigare versionerna.
+14. För **aktivera dataintegrering för**, ingen markering krävs.
+15. För **komprimering**väljer **GZIP**.
+16. Välj **Nästa**.
+17. När du har granskat inställningarna för rapporten, Välj **granska och slutför**.
+
+    Observera rapportens namn. Du ska använda den i senare steg.
 
 Det kan ta upp till 24 timmar för AWS att börja leverera rapporter till Amazon S3-bucket. När leverans har startat uppdaterar AWS rapportfiler AWS kostnader och användning på minst en gång om dagen. Du kan fortsätta konfigurera AWS-miljön utan att behöva vänta leverans att starta.
 
 ## <a name="create-a-role-and-policy-in-aws"></a>Skapa en roll och en princip i AWS
 
-Azure Cost Management får åtkomst till en S3-bucket där rapporten kostnader och användning finns flera gånger per dag. Kostnadshantering behöver åtkomst till autentiseringsuppgifter för att söka efter nya data. Du skapar en roll och principen i AWS att tillåta åtkomst av Cost Management.
+Azure Cost Management får åtkomst till en S3-bucket där rapporten kostnader och användning finns flera gånger per dag. Tjänsten behöver åtkomst till autentiseringsuppgifter för att söka efter nya data. Du skapar en roll och principen i AWS så att kostnadshantering att komma åt den.
 
-Om du vill aktivera rollbaserad åtkomst till ett AWS-konto i Azure Cost Management skapas rollen i AWS-konsolen. Du måste ha den _rollen ARN_ och _externt ID_ från AWS-konsolen. Senare kan använda du dem i avsnittet Skapa en anslutningsapp-sidan för AWS i Azure Cost Management.
+Om du vill aktivera rollbaserad åtkomst till ett AWS-konto i Cost Management skapas rollen i AWS-konsolen. Du måste ha den _rollen ARN_ och _externt ID_ från AWS-konsolen. Senare kan du använda dem på den **skapar du en koppling för AWS** sidan i Cost Management.
 
 Använd guiden Skapa en ny roll:
 
-1. Logga in på din AWS-konsolen och välj **Services**.
+1. Logga in till din AWS-konsolen och välj **Services**.
 2. Välj i listan över tjänster, **IAM**.
-3. Välj **roller** och klicka sedan på **skapa roll**.
-4. I nästa sida väljer **en annan AWS-konto**.
-5. I **konto-ID** , ange _432263259397_.
+3. Välj **roller** och välj sedan **skapa roll**.
+4. På nästa sida väljer **en annan AWS-konto**.
+5. I **konto-ID**, ange **432263259397**.
 6. I **alternativ**väljer **kräver externt ID (metodtips när en tredje part tar den här rollen)**.
-7. I **externt ID**, ange den externa-ID. Den externa ID är ett delat lösenord mellan AWS-rollen och Azure Cost Management. Samma externa ID används också på sidan ny koppling i Cost Management. Exempelvis kan ett externt ID liknar _Companyname1234567890123_.
-    Ändra inte valet för **kräver MFA**. Det bör vara omarkerad.
-8. Klicka på **Nästa: Behörigheter**.
-9. Klicka på **skapa princip**. En ny webbläsarflik öppnas där du skapar en ny princip.
-10. Klicka på **väljer du en tjänst**.
+7. I **externt ID**, ange externt ID. Den externa ID är ett delat lösenord mellan AWS-rollen och Azure Cost Management. Samma externa ID används också på den **ny koppling** sidan i Cost Management. Exempelvis kan ett externt ID liknar _Companyname1234567890123_.
 
-Konfigurera kostnaden och användningsrapporten behörighet:
+    > [!NOTE]
+    > Ändra inte valet för **kräver MFA**. Det bör vara omarkerad.
+8. Välj **Nästa: Behörigheter**.
+9. Välj **skapa princip**. En ny webbläsarflik öppnas. Det är där du skapar en princip.
+10. Välj **väljer du en tjänst**.
 
-1. Typ **kostnaden och användningsrapporten**.
-2. Välj **åtkomstnivå**, **Läs** > **DescribeReportDefinitions**. På så sätt kan du kostnadshantering läsa vad utför den rapporterar definieras och avgöra om de matchar nödvändiga för definition av rapporten.
-3. Klicka på **lägga till ytterligare behörigheter**.
+Konfigurera behörighet för rapporten kostnader och användning:
 
-Konfigurera ditt S3-bucket och objekt tillstånd:
+1. Ange **kostnaden och användningsrapporten**.
+2. Välj **åtkomstnivå** > **Läs** > **DescribeReportDefinitions**. Det här steget kan kostnadshantering att läsa vilka akt rapporter definieras och avgöra om de matchar nödvändiga för definition av rapporten.
+3. Välj **lägga till ytterligare behörigheter**.
 
-1. Klicka på **väljer du en tjänst**.
-2. Typ _S3_.
-3. Välj **åtkomstnivå**, **lista** > **ListBucket**. Den här åtgärden hämtar listan över objekt i S3-Bucket.
-4. Välj **åtkomstnivå**, **Läs** > **GetObject**. Denna åtgärd kan fakturering hämtning av filer.
+Konfigurera behörighet för S3-bucket och objekt:
+
+1. Välj **väljer du en tjänst**.
+2. Ange **S3**.
+3. Välj **åtkomstnivå** > **lista** > **ListBucket**. Den här åtgärden hämtar listan över objekt i S3-Bucket.
+4. Välj **åtkomstnivå** > **Läs** > **GetObject**. Denna åtgärd kan hämtning av fakturering filer.
 5. Välj **resurser**.
 6. Välj **bucket – Lägg till ARN**.
 7. I **bucketnamnet**, ange en bucket som används för att lagra filerna som utför den.
 8. Välj **objekt – Lägg till ARN**.
 9. I **bucketnamnet**, ange en bucket som används för att lagra filerna som utför den.
 10. I **objektnamn**väljer **alla**.
-11. Klicka på **lägga till ytterligare behörigheter**.
+11. Välj **lägga till ytterligare behörigheter**.
 
-Konfigurera kostnaden Explorer behörighet:
+Konfigurera behörighet för kostnaden Explorer:
 
-1. Klicka på **väljer du en tjänst**.
-2. Typ _kostnad Explorer Service_.
+1. Välj **väljer du en tjänst**.
+2. Ange **kostnad Explorer Service**.
 3. Välj **alla Explorer tjänster åtgärder (ce:\*)**. Den här åtgärden verifierar att samlingen är korrekt.
-4. Klicka på **lägga till ytterligare behörigheter**.
+4. Välj **lägga till ytterligare behörigheter**.
 
-Lägg till organisationer behörighet:
+Lägg till behörighet för AWS-organisationer:
 
-1. Typ **organisationer**.
-2. Välj **åtkomstnivån, listan** > **ListAccounts**. Den här åtgärden hämtar namnen på kontona.
-3. I **granska princip**, ange ett namn för den nya principen. Kontroll för att kontrollera att du har angett rätt information och klicka sedan på **skapa princip**.
-4. Gå tillbaka till den föregående fliken och uppdatera webbsidan i webbläsaren. I sökfältet söker du efter den nya principen.
+1. Ange **organisationer**.
+2. Välj **åtkomstnivå** > **lista** > **ListAccounts**. Den här åtgärden hämtar namnen på kontona.
+3. I **granska princip**, ange ett namn för den nya principen. Kontrollera att du angett rätt information och välj sedan **skapa princip**.
+4. Gå tillbaka till den föregående fliken och uppdatera webbsidan i webbläsaren. I sökfältet, söka efter den nya principen.
 5. Välj **nästa: granska**.
-6. Ange ett namn för den nya rollen. Kontroll för att kontrollera att du har angett rätt information och klicka sedan på **skapa roll**.
-    Obs den **rollen ARN** och **externt ID** använde i föregående steg när du skapade rollen. Du kan använda dem senare när du ställer in Azure Cost Management-anslutningstjänsten.
+6. Ange ett namn för den nya rollen. Kontrollera att du angett rätt information och välj sedan **skapa roll**.
+
+    Obs rollen ARN och externa ID som användes i föregående steg när du skapade rollen. Du kommer att använda dem senare när du ställer in Azure Cost Management-anslutningstjänsten.
 
 Princip-JSON bör likna följande exempel. Ersätt _bucketname_ med namnet på din S3-bucket.
 
@@ -138,87 +148,87 @@ Princip-JSON bör likna följande exempel. Ersätt _bucketname_ med namnet på d
 
 ## <a name="set-up-a-new-aws-connector-in-azure"></a>Konfigurera en ny AWS-anslutning i Azure
 
-Använd följande information för att skapa en ny koppling för AWS och börja övervaka din AWS-kostnaderna.
+Använd följande information för att skapa en anslutningsapp för AWS och börja övervaka dina kostnader för AWS:
 
-1. Logga in på Azure Portal på https://portal.azure.com.
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Gå till **Cost Management + fakturering** > **kostnadshantering**.
-3. Under **inställningar**, klickar du på **kopplingar (förhandsversion) i molnet**.  
-    ![Exemplet visar Cloud-anslutningsappar (förhandsversion inställning)](./media/aws-integration-setup-configure/cloud-connectors-preview01.png).
-4. Klicka på **+ Lägg till** överst på sidan för att skapa en ny anslutning.
-5. På sidan Skapa en AWS connector, skriver en **visningsnamn** att namnge din anslutningsapp.  
-    ![Exempel för att skapa en koppling för AWS-sida](./media/aws-integration-setup-configure/create-aws-connector01.png)
+3. Under **inställningar**väljer **kopplingar (förhandsversion) i molnet**.  
+    ![Exemplet visar Cloud-anslutningsappar (förhandsversion) inställningen)](./media/aws-integration-setup-configure/cloud-connectors-preview01.png).
+4. Välj **+ Lägg till** överst på sidan för att skapa en anslutning.
+5. På den **skapar du en koppling för AWS** sidan **visningsnamn**, ange ett namn för din anslutningsapp.  
+    ![Exempel på sidan för att skapa en AWS-koppling](./media/aws-integration-setup-configure/create-aws-connector01.png)
 6. Du kan också väljer du standard-hanteringsgrupp. Det lagrar alla identifierade länkade konton. Du kan konfigurera det senare.
-7. Under den **fakturering** väljer **automatiskt debiterar 1-% vid allmän tillgänglighet** om du vill säkerställa kontinuerlig drift när förhandsversionen upphör att gälla. Om du väljer det automatiska alternativet måste du välja en fakturering **prenumeration**.
-8. Ange den **rollen ARN**. Det är det värde som du använde när du installerar rollen i AWS.
-9. Ange den **externt ID**. Det är det värde som du använde när du installerar rollen i AWS.
-10. Ange den **rapportnamn** som du skapade i AWS.
-11. Klicka på **nästa** och klicka sedan på **skapa**.
+7. I den **fakturering** väljer **automatiskt debiterar 1-% vid allmän tillgänglighet** om du vill säkerställa kontinuerlig drift när förhandsversionen upphör att gälla. Om du väljer det automatiska alternativet måste du välja en prenumeration för fakturering.
+8. För **rollen ARN**, ange det värde som du använde när du installerar rollen i AWS.
+9. För **externt ID**, ange det värde som du använde när du installerar rollen i AWS.
+10. För **rapportnamn**, anger du namnet som du skapade i AWS.
+11. Välj **nästa** och välj sedan **skapa**.
 
-Det kan ta några timmar innan nya AWS-scope, AWS konsolideras-konto och länkade AWS-konton och deras kostnadsdata ska visas.
+Det kan ta några timmar innan de nya AWS-scope, AWS konsoliderade konto och länkad AWS-konton och deras kostnadsdata ska visas.
 
-När du har skapat anslutningen, rekommenderar vi att du tilldela behörighet till anslutningen. Användare tilldelas behörigheter till de nyligen identifierade Omfattningarna: AWS konsoliderade konto och AWS länkade konton. Den användare som skapar anslutningen är ägare av koppling, konsoliderade konto och alla länkade konton.
+När du har skapat kopplingen rekommenderar vi att du tilldela behörighet till den. Användare tilldelas behörigheter till de nyligen identifierade Omfattningarna: AWS sammanslagna kontot och länkad AWS-konton. Den användare som skapar anslutningen är ägare av anslutningen och det sammanslagna kontot alla länkade konton.
 
 Tilldela behörigheter för anslutningsapp till användare när identifieringen sker tilldela inte behörigheter till de befintliga Omfattningarna för AWS. I stället tilldelas endast nya länkade konton behörigheter.
 
-## <a name="additional-steps"></a>Ytterligare steg
+## <a name="take-additional-steps"></a>Vidta ytterligare åtgärder
 
 - [Konfigurera hanteringsgrupper](../governance/management-groups/index.md#initial-setup-of-management-groups), om du inte redan har gjort.
-- Kontrollera att nya scope läggs till i omfånget Väljaren. Glöm inte att klicka på **uppdatera** att visa den senaste informationen.
-- På sidan Cloud connector, Välj din anslutning och klicka på **går du till faktureringskonto** att tilldela kontot länkade till hanteringsgrupper.
+- Kontrollera att nya scope läggs till i omfånget Väljaren. Välj **uppdatera** att visa den senaste informationen.
+- På den **Cloud kopplingar** väljer du din anslutning och välj **går du till faktureringskonto** att tilldela kontot länkade till hanteringsgrupper.
 
 ## <a name="manage-cloud-connectors"></a>Hantera moln-kopplingar
 
-När du väljer en koppling på sidan anslutningsprogram för molnet, kan du:
+När du väljer en anslutning på den **Cloud kopplingar** sidan kan du:
 
-- Klicka på **går du till faktureringskonto** att visa konsoliderade AWS-kontoinformation.
-- Klicka på **Access Control** att hantera rolltilldelningen för anslutningen.
-- Klicka på **redigera** att uppdatera anslutningen. Du kan inte ändra antal AWS-konto, som det visas i rollen ARN. Du kan dock skapa en ny anslutning.
-- Klicka på **Kontrollera** köra verifieringstest att se till att Cost Management kan du samla in data med hjälp av inställningarna för koppling på nytt.
+- Välj **går du till faktureringskonto** visa information för AWS sammanslagna kontot.
+- Välj **Access Control** att hantera rolltilldelningen för anslutningen.
+- Välj **redigera** att uppdatera anslutningen. Du kan inte ändra kontonummer AWS eftersom den visas i rollen ARN. Men du kan skapa en ny anslutning.
+- Välj **Kontrollera** köra verifieringstest att se till att Cost Management kan samla in data med hjälp av inställningarna för koppling på nytt.
 
-![Exempel som visar listan över skapade AWS-kopplingar](./media/aws-integration-setup-configure/list-aws-connectors.png)
+![Exempel kopplingslista skapade AWS](./media/aws-integration-setup-configure/list-aws-connectors.png)
 
-## <a name="role-of-azure-management-groups"></a>Rollen för Azure-hanteringsgrupper
+## <a name="set-up-azure-management-groups"></a>Konfigurera Azure-hanteringsgrupper
 
 Om du vill skapa en och samma plats om du vill visa information om molnet, måste du placera din Azure-prenumerationer och länkad AWS-konton i samma hanteringsgrupp. Om du inte redan har konfigurerat Azure-miljön med hanteringsgrupper, se [inledande installationen av hanteringsgrupper](../governance/management-groups/index.md#initial-setup-of-management-groups).
 
 Om du vill separera kostnader kan du skapa en hanteringsgrupp som innehåller bara länkad AWS-konton.
 
-## <a name="aws-consolidated-account"></a>Konsoliderade AWS-konto
+## <a name="set-up-an-aws-consolidated-account"></a>Konfigurera AWS konsoliderat konto
 
-Konsoliderade AWS-konto används för att konsolidera fakturering och betalning för flera AWS-konton. AWS sammanslagna kontot fungerar också som ett länkat AWS-konto.
+AWS sammanslagna kontot kombinerar fakturering och betalning för flera AWS-konton. Det fungerar också som en länkad AWS-konto.
 
-![Exempel på AWS-konsoliderad kontoinformation](./media/aws-integration-setup-configure/aws-consolidated-account01.png)
+![Exempel-information för AWS konsoliderat konto](./media/aws-integration-setup-configure/aws-consolidated-account01.png)
 
-Från sidan kan du:
+Sidan kan du:
 
-- Klicka på **uppdatera** till Massuppdatering AWS länkade konton kopplingen till en hanteringsgrupp.
-- Klicka på **Access Control** att ställa in rolltilldelningen för detta scope.
+- Välj **uppdatera** Massuppdatering associationen mellan AWS länkad konton med en hanteringsgrupp.
+- Välj **Access Control** att ställa in rolltilldelningen för detta scope.
 
-### <a name="aws-consolidated-account-permissions"></a>AWS sammanställs behörigheterna
+### <a name="permissions-for-an-aws-consolidated-account"></a>Behörigheter för AWS konsoliderat konto
 
-Som standard konsoliderat i AWS konto behörigheterna har ställts in när de skapas, baserat på behörigheter för AWS-anslutningsapp. Connector skaparen är ägaren.
+Som standard anges behörigheterna för en konsoliderad AWS-konto vid kontoskapandet, baserat på behörigheter för AWS-anslutningsapp. Connector skaparen är ägaren.
 
-Du kan hantera åtkomstnivån som med hjälp av sidan åtkomstnivå i AWS konsolideras-kontot. Dock behörigheter till AWS konsoliderat konto ärvs inte av den länkade AWS-konton.
+Du hanterar åtkomstnivån som med hjälp av den **åtkomstnivå** för AWS konsoliderat konto. Dock AWS länkade konton inte ärver behörigheter till konsoliderade AWS-konto.
 
-## <a name="aws-linked-account"></a>Länkat AWS-konto
+## <a name="set-up-an-aws-linked-account"></a>Konfigurera ett länkad AWS-konto
 
-Det länkade AWS-kontot är där AWS-resurser skapas och hanteras. Ett länkat konto fungerar också som en säkerhetsgräns.
+Länkad AWS-kontot är där AWS-resurser skapas och hanteras. Ett länkat konto fungerar också som en säkerhetsgräns.
 
 Från den här sidan kan du:
 
-- Klicka på **uppdatera** att uppdatera länkade AWS-kontoassociation med en hanteringsgrupp.
-- Klicka på **Access Control** att ställa in en rolltilldelning för detta scope.
+- Välj **uppdatera** att uppdatera associationen mellan en AWS länkat konto med en hanteringsgrupp.
+- Välj **Access Control** att ställa in en rolltilldelning för detta scope.
 
 ![Exempel på sidan länkat AWS-konto](./media/aws-integration-setup-configure/aws-linked-account01.png)
 
-### <a name="aws-linked-account-permissions"></a>Behörighet för den länkade AWS
+### <a name="permissions-for-an-aws-linked-account"></a>Behörigheter för AWS länkat konto
 
-AWS länkade behörigheterna är som standard när de skapas, baserat på behörigheter för AWS-anslutningsapp. Connector skaparen är ägaren. Du kan hantera åtkomstnivån som med hjälp av sidan åtkomstnivå för AWS länkat konto. Behörigheterna för kontot AWS konsolideras ärvs inte av den länkade AWS-konton.
+Behörigheter för ett länkat AWS-konto är som standard när de skapas, baserat på behörigheter för AWS-anslutningsapp. Connector skaparen är ägaren. Du hanterar åtkomstnivån som med hjälp av den **åtkomstnivå** för AWS länkat konto. AWS länkade konton inte ärver behörigheter från en konsoliderad AWS-konto.
 
-Länkade AWS-konton kan du alltid ärver behörigheter från den hanteringsgrupp som de tillhör.
+AWS länkade konton alltid ärver behörigheter från den hanteringsgrupp som de tillhör.
 
 ## <a name="next-steps"></a>Nästa steg
 
 - Nu när du har ställt in och konfigurerat AWS kostnader och användning rapport-integrering, fortsätter du till [hantera AWS kostnader och användning](aws-integration-manage.md).
 - Om du är bekant med kostnadsanalys kan se [utforska och analysera kostnaderna med kostnadsanalys](quick-acm-cost-analysis.md) Snabbstart.
-- Om du är bekant med budgetar i Azure kan du läsa [skapa och hantera Azure budgetar](tutorial-acm-create-budgets.md) självstudien.
+- Om du är bekant med budgetar i Azure kan du läsa [skapa och hantera Azure budgetar](tutorial-acm-create-budgets.md).

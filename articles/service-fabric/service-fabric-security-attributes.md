@@ -9,16 +9,16 @@ ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
-ms.openlocfilehash: f12d11cecbf682ae82f9c432804b1d611ee3e39f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7c1718298c3f7c3fea28fa0b18569085f071696f
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64719399"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66003063"
 ---
-# <a name="common-security-attributes-for-azure-service-fabric"></a>Vanliga säkerhetsattribut för Azure Service Fabric
+# <a name="security-attributes-for-azure-service-fabric"></a>Security attribut för Azure Service Fabric
 
-Säkerheten är integrerad i alla aspekter av en Azure-tjänst. Den här artikeln beskrivs vanliga security attribut som är inbyggda i Azure Service Fabric. 
+Den här artikeln dokumenteras security-attribut som är inbyggda i Azure Service Fabric. 
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
@@ -41,7 +41,7 @@ Säkerheten är integrerad i alla aspekter av en Azure-tjänst. Den här artikel
 | Isolering av nätverk och brandväggsfunktioner support| Ja | Med hjälp av nätverk nätverkssäkerhetsgrupper (NSG). |
 | Tvingad tunneltrafik support| Ja | Azure-nätverket innehåller Tvingad tunneltrafik. |
 
-## <a name="detection"></a>Detection (Identifiering)
+## <a name="detection"></a>Identifiering
 
 | Säkerhetsattributet | Ja/nej | Anteckningar|
 |---|---|--|
@@ -55,7 +55,7 @@ Säkerheten är integrerad i alla aspekter av en Azure-tjänst. Den här artikel
 | Auktorisering| Ja | Identitets- och åtkomsthantering (IAM) för anrop via SFRP. Anrop direkt till slutpunkten för klustret har stöd för två roller: Användare och administratör. Kunden kan mappa API: erna till någon av rollerna. |
 
 
-## <a name="audit-trail"></a>Spårning
+## <a name="audit-trail"></a>Granskningslogg
 
 | Säkerhetsattributet | Ja/nej | Anteckningar|
 |---|---|--|

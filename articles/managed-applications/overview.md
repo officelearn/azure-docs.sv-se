@@ -10,12 +10,12 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: da6c9bb6cbd94ab5078641f25e42ad2203ff7a53
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 48bb241a7871d2a209636f66837fb2afd95fd22c
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60251039"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001804"
 ---
 # <a name="azure-managed-applications-overview"></a>Översikt över Azure Managed Applications
 
@@ -33,7 +33,7 @@ Trots att kunder distribuerar hanterade program i sina prenumerationer måste de
 
 För IT-team gör hanterade program att de kan erbjuda förhandsgodkända lösningar till användare i organisationen. Du vet att lösningarna uppfyller organisationens standarder.
 
-Hanterade program för närvarande inte stöder [hanterade identiteter för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md).
+Hanterade program som stöder [hanterade identiteter för Azure-resurser](./publish-managed-identity.md).
 
 ## <a name="types-of-managed-applications"></a>Typer av hanterade program
 

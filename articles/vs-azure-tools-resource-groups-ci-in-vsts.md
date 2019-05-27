@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
-ms.openlocfilehash: a2a730e2c3ca466a2705f053d7db0db12d7941da
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 692c075b55efd138f6d731ffae43608f141abfdc
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60458905"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66019775"
 ---
 # <a name="continuous-integration-in-azure-devops-services-using-azure-resource-group-deployment-projects"></a>Kontinuerlig integrering i Azure DevOps-tjänster med projekt för distribution av Azure-resursgrupp
 För att distribuera en Azure-mall kan utföra du uppgifter i olika faser: Build-, Test, kopiera till Azure (kallas även ”mellanlagring”) och distribuera mallen. Det finns två olika sätt att distribuera mallar till Azure DevOps-tjänsterna. Båda metoderna ger samma resultat, så du väljer det alternativ som bäst passar ditt arbetsflöde.
@@ -93,7 +93,7 @@ Följande procedurer för att gå igenom stegen för att konfigurera kontinuerli
       
       Om du använder Azure CLI använder du:
       
-      `azure account show`
+      `az account show`
    8. Att hämta ett ID för tjänstens huvudnamn, tjänstens huvudnamn nyckel och klient-ID, Följ proceduren i [Skapa Active Directory-program och tjänstobjekt med portalen](active-directory/develop/howto-create-service-principal-portal.md) eller [autentisera ett huvudnamn för tjänsten med Azure Resource Manager](active-directory/develop/howto-authenticate-service-principal-powershell.md).
    9. Lägg till värden för ID för tjänstens huvudnamn, tjänstens huvudnamn nyckel och klient-ID i den **Lägg till Azure-prenumeration** dialogrutan rutan och välj sedan den **OK** knappen.
       

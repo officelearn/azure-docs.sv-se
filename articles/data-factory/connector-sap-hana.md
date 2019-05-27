@@ -176,7 +176,7 @@ När du kopierar data från SAP HANA, används följande mappningar från SAP HA
 | SECONDDATE | DateTime |
 | SMALLINT | Int16 |
 | TIME | TimeSpan |
-| TIMESTAMP | DateTime |
+| TIDSSTÄMPEL | DateTime |
 | TINYINT | Byte |
 | VARCHAR | String |
 

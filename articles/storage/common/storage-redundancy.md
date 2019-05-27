@@ -9,18 +9,20 @@ ms.date: 01/18/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 7006e19616be51d79dc3e1319064d19024400bcc
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 078c62913b903eafe9e0fcfcef4189f5ca735d0f
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65789980"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002825"
 ---
 # <a name="azure-storage-redundancy"></a>Redundans i Azure Storage
 
 Data i ditt Microsoft Azure-lagringskonto replikeras alltid för att säkerställa hållbarhet och hög tillgänglighet. Azure Storage kopierar dina data så att den är skyddad från planerade och oplanerade händelser, inklusive tillfälliga maskinvarufel, nätverket och strömavbrott av massiv naturkatastrofer. Du kan välja att replikera dina data inom samma Datacenter på zonindelad datacenter inom samma region eller flera geografiskt åtskilda regioner.
 
 Replikeringen garanterar att ditt lagringskonto uppfyller [Servicenivåavtal (SLA) för lagring](https://azure.microsoft.com/support/legal/sla/storage/) även vid fel. Visa SLA för information om Azure Storage-garantier för hållbarhet och tillgänglighet.
+
+Azure Storage kontrollerar regelbundet integriteten för data som lagras med redundanskontroller (CRC). Den har reparerats med hjälp av redundanta data om skadade data har identifierats. Azure-lagring beräknas också kontrollsummor på all nätverkstrafik för att identifiera skadade data paket när du lagrar eller hämtning av data.
 
 ## <a name="choosing-a-redundancy-option"></a>Välja ett alternativ för dataredundans
 

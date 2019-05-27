@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f526ea3d1a53ef2ae80f36c863e7a19797e9142
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 1a1fdbcd04504181a20f5245b6f2378be5b9d405
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545990"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001201"
 ---
 # <a name="quickstart-build-an-angularjs-single-page-app-for-sign-in-and-sign-out-with-azure-active-directory"></a>Snabbstart: Skapa en enkelsidig AngularJS-webbapp för inloggning och utloggning med Azure Active Directory
 
@@ -63,20 +63,15 @@ Om du vill göra så att appen kan autentisera användare och hämta token behö
 1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Om du är inloggad i flera kataloger kan du behöva se till att du är i rätt katalog. Gör det genom att klicka på ditt konto i fältet längst upp. Under **kataloglistan** väljer du den Azure AD-klientorganisation där du vill registrera programmet.
 1. Klicka på **Alla tjänster** i den vänstra fönsterrutan och välj sedan **Azure Active Directory**.
-1. Klicka på **Appregistreringar** och välj sedan **Lägg till**.
-1. Följ anvisningarna och skapa ett nytt webbprogram och/eller webb-API:
-
-    * **Namn** beskriver appen för dina användare.
-    * **Inloggnings-URL** är den plats som Azure AD returnerar token till. Standardplatsen för det här exemplet är `https://localhost:44326/`.
-
-1. När du har slutfört registreringen tilldelar Azure AD ett unikt ID till din app. Du behöver det här värdet i nästa avsnitt, så kopiera det från appfliken.
-1. Adal.js använder det implicita flödet för OAuth för att kommunicera med Azure AD. Du måste aktivera det implicita flödet för ditt program:
-
-    1. Klicka på programmet och välj **Manifest** för att öppna redigeraren för infogade manifest.
-    1. Leta rätt på egenskapen `oauth2AllowImplicitFlow`. Ställ in värdet på `true`.
-    1. Klicka på **Spara** för att spara manifestet.
-
-1. Ge behörigheter till hela klientorganisationen för programmet. Gå till **Inställningar > Nödvändiga behörigheter** och välj knappen **Bevilja behörigheter** i det översta fältet.
+1. Klicka på **appregistreringar**, och välj sedan **ny registrering**.
+1. När sidan **Registrera ett program** visas anger du ett namn för programmet.
+1. Under **Kontotyper som stöds** väljer du **Accounts in any organizational directory and personal Microsoft accounts** (Konton i alla organisationskataloger och personliga Microsoft-konton).
+1. Välj den **Web** plattform under den **omdirigerings-URI** avsnittet och ange värdet `https://localhost:44326/` (den plats som Azure AD returnerar token).
+1. När det är klart väljer du **Registrera**. På appens sida **Översikt** antecknar du värdet för **Application (client) ID** (Program-ID (klient)).
+1. Adal.js använder det implicita flödet för OAuth för att kommunicera med Azure AD. Du måste aktivera det implicita flödet för ditt program. I det vänstra navigeringsfönstret för det registrerade programmet väljer du **Autentisering**.
+1. I **Avancerade inställningar** går du till **Implicit beviljande** och aktiverar kryssrutorna **ID-token** och **Åtkomsttoken**. ID-token och åtkomsttoken krävs eftersom den här appen behöver logga in användare och anropa ett API.
+1. Välj **Spara**.
+1. Ge behörigheter till hela klientorganisationen för programmet. Gå till **API-behörigheter**, och välj den **bevilja administratörsmedgivande** knappen **ge medgivande**.
 1. Bekräfta genom att välja **Ja**.
 
 ## <a name="step-2-install-adal-and-configure-the-single-page-app"></a>Steg 2: Installera ADAL och konfigurera den enkelsidiga appen

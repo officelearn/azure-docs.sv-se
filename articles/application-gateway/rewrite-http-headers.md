@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 04/29/2019
 ms.author: absha
-ms.openlocfilehash: 89df3a981ba3710e848f834c303772e94e10b139
-ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.openlocfilehash: ebb14d97273851585e491e3bcd36f776ec9b61b4
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64947183"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66000976"
 ---
 # <a name="rewrite-http-headers-with-application-gateway"></a>Skriv om HTTP-huvuden med Application Gateway
 
@@ -69,7 +69,7 @@ Application gateway stöder dessa servervariabler:
 | client_port                | Porten som klienten.                                                  |
 | client_tcp_rtt             | Information om klienten TCP-anslutning. Tillgängligt på system som har stöd för alternativet TCP_INFO socket. |
 | client_user                | När HTTP-autentisering används användarnamnet som angetts för autentisering. |
-| värd                       | I den här rangordning: värdnamnet från raden för kravet, värdnamnet från fältet värd begäran rubrik eller ett servernamn som matchar en begäran. |
+| host                       | I den här rangordning: värdnamnet från raden för kravet, värdnamnet från fältet värd begäran rubrik eller ett servernamn som matchar en begäran. |
 | cookie_*name*              | Den *namn* cookie.                                            |
 | http_method                | den metod som används för att utföra URL-begäran. Till exempel hämta eller skicka. |
 | http_status                | Sessionsstatus. Till exempel 200, 400 eller 403.                       |
@@ -157,9 +157,7 @@ Du kan utvärdera en HTTP-begäran eller ett svar huvud för förekomsten av en 
 
 - Rubriknamn får kan innehålla alla alfanumeriska tecken och specifika symboler som definierats i [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27). Vi stöder för närvarande inte understreck (\_) specialtecken i rubriknamn.
 
-## <a name="need-help"></a>Behöver du hjälp?
-
-Kontakta oss på [ AGHeaderRewriteHelp@microsoft.com ](mailto:AGHeaderRewriteHelp@microsoft.com) om du behöver hjälp med den här funktionen.
+- Om ett svar har flera rubriker med samma namn, leder sedan skriva om värdet för en av dessa huvuden släppa de andra rubrikerna i svaret.
 
 ## <a name="next-steps"></a>Nästa steg
 

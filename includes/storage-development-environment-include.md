@@ -8,22 +8,22 @@ ms.topic: include
 ms.date: 09/15/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 075e19ecb078bbbd5be0d46ed58405b18ebc8334
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
-ms.translationtype: HT
+ms.openlocfilehash: 6882c46ec0e4925c42de86c87225e9509c84df84
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45738475"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66159843"
 ---
-## <a name="set-up-your-development-environment"></a>Ställ in din utvecklingsmiljö
+## <a name="set-up-your-development-environment"></a>Ställt in din utvecklingsmiljö
 Konfigurera sedan din utvecklingsmiljö i Visual Studio så att du är redo att testa kodexemplen i den här guiden.
 
 ### <a name="create-a-windows-console-application-project"></a>Skapa ett Windows-konsolprogramprojekt
 Skapa ett nytt Windows-konsolprogram i Visual Studio. Följande steg visar hur du skapar ett konsolprogram i Visual Studio 2017. Stegen är ungefär som i andra versioner av Visual Studio.
 
 1. Välj **Arkiv** > **Nytt** > **Projekt**.
-2. Välj **Installerat** > **Mallar** > **Visual C#** > **Windows Classic Desktop**.
-3. Välj **Konsolprogram (.NET Framework)**.
+2. Välj **Installerat** > **Mallar** > **Visual C#**  > **Windows Classic Desktop**.
+3. Välj **Konsolprogram (.NET Framework)** .
 4. Ange ett namn för ditt program i fältet **Namn**.
 5. Välj **OK**.
 
@@ -36,8 +36,8 @@ Du kan använda Azure Storage-klientbiblioteket i alla typer av .NET-program, t.
 ### <a name="use-nuget-to-install-the-required-packages"></a>Använd NuGet för att installera de paket som behövs
 Det finns två paket som du måste referera till i ditt projekt för att slutföra den här kursen:
 
-* [Microsoft Azure Storage-klientbibliotek för .NET](https://www.nuget.org/packages/WindowsAzure.Storage/): det här paketet ger programmatisk åtkomst till dataresurser i ditt lagringskonto.
-* [Microsoft Azure Configuration Manager-biblioteket för .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/): det här paketet tillhandahåller en klass för parsning av en anslutningssträng i en konfigurationsfil, oavsett var ditt program körs.
+* [Microsoft Azure Storage-klientbibliotek för .NET](https://www.nuget.org/packages/WindowsAzure.Storage/): Det här paketet ger programmatisk åtkomst till dataresurser i ditt lagringskonto.
+* [Microsoft Azure Configuration Manager-biblioteket för .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/): Det här paketet tillhandahåller en klass för parsning av en anslutningssträng i en konfigurationsfil, oavsett var ditt program körs.
 
 Du kan använda NuGet för att hämta båda paketen. Följ de här stegen:
 

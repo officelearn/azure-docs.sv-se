@@ -5,7 +5,6 @@ services: active-directory
 documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
@@ -17,12 +16,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24b2281e09da0bdcff0abec8be0091dcbb32cc51
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: HT
+ms.openlocfilehash: ea1e47939913435b5b7040c0e6d01b1208d709d3
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544789"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65962893"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Åtkomsttoken för Microsoft identity-plattformen
 
@@ -136,7 +135,7 @@ Följande anspråken kommer att inkluderas i v1.0 token om det är tillämpligt,
 
 Microsoft identiteter kan autentisera på olika sätt, vilket kan vara relevanta för ditt program. Den `amr` anspråk är en matris som kan innehålla flera objekt som `["mfa", "rsa", "pwd"]`, för en autentisering som används för både ett lösenord och autentiseraren.
 
-| Value | Beskrivning |
+| Värde | Beskrivning |
 |-----|-------------|
 | `pwd` | Lösenordsautentisering Microsoft ett lösenord eller en app klienthemlighet. |
 | `rsa` | Autentisering baserades på bevis på en RSA-nyckel, till exempel med den [Microsoft Authenticator-appen](https://aka.ms/AA2kvvu). Detta inkluderar om ett självsignerat JWT autentisering gjordes med en tjänst som ägs X509 certifikat. |

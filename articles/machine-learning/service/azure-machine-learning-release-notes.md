@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 892b9bc63f9f2d9abc7108587a7bf929473e4648
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: HT
+ms.openlocfilehash: 3acaf86123f2cab871bc2f99cc873a73015875e2
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65779437"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65989853"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Viktig information för Azure Machine Learning-tjänsten
 
@@ -30,6 +30,24 @@ Se [lista över kända problem](resource-known-issues.md) att lära dig om känd
 ### <a name="azure-machine-learning-sdk-for-python-v1039"></a>Azure Machine Learning-SDK för Python v1.0.39
 + **Ändringar**
   + Kör auto_prepare_environment konfigurationsalternativet är inaktuell, med automatisk förbereder blir standard.
+
+## <a name="2019-05-08"></a>2019-05-08
+
+### <a name="azure-machine-learning-data-prep-sdk-v113"></a>Azure Machine Learning Data Förbered SDK v1.1.3
+
++ **Nya funktioner**
+  + Stöd har lagts till för att läsa från en PostgresSQL-databas, antingen genom att anropa read_postgresql eller använda ett datalager.
+    + Se exemplen i instruktionsguider:
+      + [Anteckningsboken för inmatning av data](https://aka.ms/aml-data-prep-ingestion-nb)
+      + [DataStore-anteckningsbok](https://aka.ms/aml-data-prep-datastore-nb)
+
++ **Felkorrigeringar och förbättringar**
+  + Åtgärdade problem med kolumnen typkonvertering:
+  + Nu korrekt konverterar en boolesk eller numerisk kolumn till en boolesk kolumn.
+  + Nu misslyckas inte vid försök att ställa in en datumkolumn ska vara av typen date.
+  + Förbättrad JoinType typer och tillhörande referensdokumentation. När du ansluter två dataflöden, kan du nu ange någon av följande typer av koppling:
+    + INGEN, MATCHAR, INRE, UNMATCHLEFT, LEFTANTI, LEFTOUTER, UNMATCHRIGHT, RIGHTANTI, RIGHTOUTER, FULLANTI, FULLSTÄNDIG.
+  + Förbättrad datatyp inferensjobb ska kunna identifiera fler datumformat.
 
 ## <a name="2019-05-06"></a>2019-05-06
 
@@ -367,7 +385,7 @@ Azure Machine Learning-tjänsten är nu allmänt tillgänglig.
 Med den här versionen har Vi presenterar en ny hanterad beräkningsmiljö via den [beräkning av Azure Machine Learning](how-to-set-up-training-targets.md#amlcompute). Den här beräkningsmål ersätter Azure Batch AI-databearbetning för Azure Machine Learning. 
 
 Den här beräkningsmål:
-+ Används för modellen utbildnings- och batch inferensjobb
++ Används för modellen utbildnings- och batch inferens/bedömning
 + Är en - till Multi-Factor - node beräkning
 + Utför klusterhanteringen och jobbschemaläggning för användaren
 + Skalar som standard

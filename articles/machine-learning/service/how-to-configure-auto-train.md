@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 194902cfa2992e4370b68bf140ec3a5e03f364ca
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 3fcc1926d580007750e7e1f5a3de06ef6578e1b5
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65597699"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65957468"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Konfigurera automatisk ML-experiment i Python
 
@@ -158,11 +158,9 @@ y = dprep.read_csv(simple_example_data_root + 'y.csv').to_long(dprep.ColumnSelec
 
 Du kan ange separata träna upp och verifiering ange antingen via get_data() eller direkt i den `AutoMLConfig` metoden.
 
-## <a name="cross-validation-split-options"></a>Delningsalternativ mellan verifiering
-
 ### <a name="k-folds-cross-validation"></a>K Vikningar Korsvalidering
 
-Använd `n_cross_validations` inställningen för att ange hur många olika plattformar verifieringar. Utbildning datauppsättningen slumpmässigt delas upp i `n_cross_validations` vikningar av samma storlek. Vid varje mellan verifiering av runda används en av vikningar som för verifiering av modellen som har tränats på återstående vikningar. Den här processen upprepas för `n_cross_validations` Avrundar tills varje vikning används en gång som angetts för verifiering. Genomsnittlig poängen för alla `n_cross_validations` Avrundar rapporteras och motsvarande modellen kommer modellkomponenten utbildning på hela datauppsättningen. 
+Använd `n_cross_validations` inställningen för att ange hur många olika plattformar verifieringar. Utbildning datauppsättningen slumpmässigt delas upp i `n_cross_validations` vikningar av samma storlek. Vid varje mellan verifiering av runda används en av vikningar som för verifiering av modellen som har tränats på återstående vikningar. Den här processen upprepas för `n_cross_validations` Avrundar tills varje vikning används en gång som angetts för verifiering. Genomsnittlig poängen för alla `n_cross_validations` Avrundar rapporteras och motsvarande modellen kommer modellkomponenten utbildning på hela datauppsättningen.
 
 ### <a name="monte-carlo-cross-validation-repeated-random-sub-sampling"></a>Monte Carlo mellan verifiering (upprepade underordnade stickprov)
 
@@ -188,7 +186,7 @@ Se den [GitHub-webbplatsen](https://github.com/Azure/MachineLearningNotebooks/tr
 
 ## <a name="configure-your-experiment-settings"></a>Konfigurera inställningarna för experiment
 
-Det finns flera alternativ som du kan använda för att konfigurera dina automatiserade machine learning-experiment. Dessa parametrar anges av instansiera en `AutoMLConfig` objekt. Se den [AutoMLConfig klass](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py) för en fullständig lista över parametrar.  
+Det finns flera alternativ som du kan använda för att konfigurera dina automatiserade machine learning-experiment. Dessa parametrar anges av instansiera en `AutoMLConfig` objekt. Se den [AutoMLConfig klass](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py) för en fullständig lista över parametrar.
 
 Några exempel är:
 
@@ -221,7 +219,7 @@ Några exempel är:
 
 Tre olika `task` parametervärden avgörs av algoritmer för att tillämpa.  Använd den `whitelist` eller `blacklist` parametrar för att ändra ytterligare iterationer med de tillgängliga algoritmerna för att inkludera eller exkludera. Listan över modeller som stöds finns på [SupportedAlgorithms klass](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.constants.supportedalgorithms?view=azure-ml-py).
 
-## <a name="primary-metric"></a>Primär mått
+### <a name="primary-metric"></a>Primär mått
 Det primära metriskt; som du ser i exemplen ovan anger mått som ska användas när modellen för optimering. Den primära mått som du kan välja bestäms av Uppgiftstyp som du väljer. Nedan visas en lista över tillgängliga mått.
 
 |Klassificering | Regression | Time Series prognoser
@@ -232,15 +230,15 @@ Det primära metriskt; som du ser i exemplen ovan anger mått som ska användas 
 |norm_macro_recall | normalized_mean_absolute_error | normalized_mean_absolute_error
 |precision_score_weighted |
 
-## <a name="data-preprocessing--featurization"></a>Förbearbeta data & funktionalisering
+### <a name="data-preprocessing--featurization"></a>Förbearbeta data & funktionalisering
 
-I varje automatiserade machine learning-experiment, dina data är [automatiskt skalas och normalized](concept-automated-ml.md#preprocess) att algoritmer som gör.  Du kan också aktivera ytterligare Förbearbeta/funktionalisering, till exempel värden uppräkning, kodning och transformeringar som saknas. [Mer information om vilka funktionalisering ingår](how-to-create-portal-experiments.md#preprocess). 
+I varje automatiserade machine learning-experiment, dina data är [automatiskt skalas och normalized](concept-automated-ml.md#preprocess) att algoritmer som gör.  Du kan också aktivera ytterligare Förbearbeta/funktionalisering, till exempel värden uppräkning, kodning och transformeringar som saknas. [Mer information om vilka funktionalisering ingår](how-to-create-portal-experiments.md#preprocess).
 
 Om du vill aktivera den här funktionalisering ange `"preprocess": True` för den [ `AutoMLConfig` klass](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
 
-## <a name="time-series-forecasting"></a>Time Series prognoser
+### <a name="time-series-forecasting"></a>Time Series prognoser
 Time series prognosmodellen Uppgiftstyp har ytterligare parametrar för att definiera.
-1. time_column_name – det här är en obligatorisk parameter som definierar namnet på kolumnen i din utbildning som innehåller datum/tid dataserien. 
+1. time_column_name – det här är en obligatorisk parameter som definierar namnet på kolumnen i din utbildning som innehåller datum/tid dataserien.
 1. max_horizon - detta definierar hur lång tid som du vill förutsäga ut baserat på periodiciteten för träningsdata. Till exempel om du har träningsdata till dagliga tid kärnor kan du definiera hur långt ut i dagar som du vill att modellen för att träna för.
 1. grain_column_names - detta definierar namnet på kolumner som innehåller enskilda time series-data i dina utbildningsdata. Om du försäljningsprognoser för ett visst varumärke per butik, skulle du till exempel definiera store och varumärke kolumner som grain-kolumner.
 
@@ -287,60 +285,16 @@ run = experiment.submit(automl_config, show_output=True)
 >Beroenden installeras först på en ny dator.  Det kan ta upp till 10 minuter innan utdata visas.
 >Ange `show_output` till `True` i utdata som visas på konsolen.
 
-## <a name="exit-criteria"></a>Avsluta-villkor 
+### <a name="exit-criteria"></a>Avsluta-villkor
 Det ett par alternativ du kan definiera för att slutföra experimentet.
-1. Inga kriterier - om du inte definierar någon avsluta parametrar experimentet fortsätter tills inga ytterligare framsteg görs på din primära mått. 
+1. Inga kriterier - om du inte definierar någon avsluta parametrar experimentet fortsätter tills inga ytterligare framsteg görs på din primära mått.
 1. Antalet iterationer - definierar du antalet upprepningar som krävs att köra experimentet. Du kan valfritt lägga till iteration_timeout_minutes för att definiera en tidsgräns i minuter per varje iteration.
 1. Avsluta efter en lång tid – med hjälp av experiment_timeout_minutes i dina inställningar som du kan definiera hur länge i minuter bör fortsätta ett experiment i körning.
 1. Avsluta när en poäng nåtts - med experiment_exit_score som du kan välja att utföra experimentet när en poäng baserat på din primära mått har uppnåtts.
 
-## <a name="explore-model-metrics"></a>Utforska mått i modellen
-Du kan visa dina resultat i en widget eller en infogad om du är på en bärbar dator. Se [spåra och utvärdera modeller](how-to-track-experiments.md#view-run-details) för mer information.
+### <a name="explore-model-metrics"></a>Utforska mått i modellen
 
-
-### <a name="classification-metrics"></a>Klassificering mått
-Följande mått har sparats i varje iteration för en klassificering.
-
-|Mått|Beskrivning|Beräkning|Extra parametrar
---|--|--|--|
-AUC_Macro| AUC är området under mottagare fungerar egenskap kurvan. Makrot är det aritmetiska medelvärdet av AUC för varje klass.  | [Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | Genomsnittlig = ”makrot”|
-AUC_Micro| AUC är området under mottagare fungerar egenskap kurvan. Micro beräknas globalt genom att kombinera positiva och falska positiva identifieringar från varje klass| [Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | Genomsnittlig = ”micro”|
-AUC_Weighted  | AUC är området under mottagare fungerar egenskap kurvan. Viktat är det aritmetiska medelvärdet av poängen för varje klass, viktat av antalet instanser som true i varje klass| [Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html)|Genomsnittlig = ”viktat”
-accuracy|Procent av förväntade etiketter som exakt matchar SANT etiketter är. |[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html) |Ingen|
-average_precision_score_macro|Genomsnittlig precision sammanfattas en precisionsåterkallningsdiagram kurva som viktad medelvärdet av Precision-datorerna som kan uppnås på varje tröskelvärde ökade återkallande från föregående tröskelvärdet används som vikten. Makrot är det aritmetiska medelvärdet av den genomsnittliga precision poängen för varje klass|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html)|Genomsnittlig = ”makrot”|
-average_precision_score_micro|Genomsnittlig precision sammanfattas en precisionsåterkallningsdiagram kurva som viktad medelvärdet av Precision-datorerna som kan uppnås på varje tröskelvärde ökade återkallande från föregående tröskelvärdet används som vikten. Micro beräknas globalt av nyhetsnotiser genomsöks positiva och falska positiva identifieringar vid varje brytfrekvens|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html)|Genomsnittlig = ”micro”|
-average_precision_score_weighted|Genomsnittlig precision sammanfattas en precisionsåterkallningsdiagram kurva som viktad medelvärdet av Precision-datorerna som kan uppnås på varje tröskelvärde ökade återkallande från föregående tröskelvärdet används som vikten. Viktat är det aritmetiska medelvärdet av den genomsnittliga precision poängen för varje klass, viktat av antalet instanser som true i varje klass|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html)|Genomsnittlig = ”viktat”|
-balanced_accuracy|Belastningsutjämnade är det aritmetiska medelvärdet om återkallande för varje klass.|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|Genomsnittlig = ”makrot”|
-f1_score_macro|F1 poängen är det harmoniska medelvärdet av precision och återkallande. Makrot är det aritmetiska medelvärdet av F1 poängen för varje klass|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|Genomsnittlig = ”makrot”|
-f1_score_micro|F1 poängen är det harmoniska medelvärdet av precision och återkallande. Micro beräknas globalt genom att räkna den totala positiva och falska negativ falska positiva identifieringar|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|Genomsnittlig = ”micro”|
-f1_score_weighted|F1 poängen är det harmoniska medelvärdet av precision och återkallande. Viktat medelvärde av klassen frekvensen av F1 poängen för varje klass|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|Genomsnittlig = ”viktat”|
-log_loss|Detta är funktionen för förlust som används i (multinomialen) logistic regression och tillägg av den som neurala nätverk, definierad som negativt log-sannolikheten för true etiketterna får en avsnittet om sannolikhetsbunden klassificerare förutsägelser. Etikett för en enda exemplet med true yt i {0,1} och uppskattade sannolikheten yp den yt = 1, log förlusten är – logga P (yt&#124;yp) =-(yt log(yp) + (1 - yt) log (1 - yp))|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.log_loss.html)|Ingen|
-norm_macro_recall|Normaliserade makrot återkalla är makrot återkalla normalized så att slumpmässiga prestanda har ett värde på 0 och perfekt prestanda har ett värde på 1. Detta uppnås med norm_macro_recall: = (recall_score_macro - R) /(1-R), där R är det förväntade värdet recall_score_macro för slumpmässiga förutsägelser (d.v.s. R = 0,5 för binär klassificering) och R=(1/C) för problem med C-class klassificering|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|Genomsnittlig = ”makrot” och sedan (recall_score_macro - R) /(1-R), där R är det förväntade värdet recall_score_macro för slumpmässiga förutsägelser (d.v.s. R = 0,5 för binär klassificering) och R=(1/C) för problem med C-class klassificering|
-precision_score_macro|Precisionen är procent av element som är märkt som en viss klass som faktiskt finns i den klassen. Makrot är det aritmetiska medelvärdet av precision för varje klass|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|Genomsnittlig = ”makrot”|
-precision_score_micro|Precisionen är procent av element som är märkt som en viss klass som faktiskt finns i den klassen. Micro beräknas globalt genom att räkna totala positiva och falska positiva identifieringar|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|Genomsnittlig = ”micro”|
-precision_score_weighted|Precisionen är procent av element som är märkt som en viss klass som faktiskt finns i den klassen. Viktat är det aritmetiska medelvärdet av precision för varje klass, viktat av antalet SANT instanser i varje klass|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|Genomsnittlig = ”viktat”|
-recall_score_macro|Återkallande är procent av element faktiskt i en viss klass som är märkta korrekt. Makrot är det aritmetiska medelvärdet om återkallande för varje klass|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|Genomsnittlig = ”makrot”|
-recall_score_micro|Återkallande är procent av element faktiskt i en viss klass som är märkta korrekt. Micro beräknas globalt genom att räkna totala positiva, false negativ|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|Genomsnittlig = ”micro”|
-recall_score_weighted|Återkallande är procent av element faktiskt i en viss klass som är märkta korrekt. Viktat är det aritmetiska medelvärdet om återkallande för varje klass, viktat av antalet SANT instanser i varje klass|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|Genomsnittlig = ”viktat”|
-weighted_accuracy|Viktad Precision är Precision där vikten för varje exempel är lika med andelen SANT instanser i det exemplet true-klass|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html)|sample_weight är en vektor som är lika med andelen av den klassen för varje element i målet|
-
-### <a name="regression-and-time-series-forecasting-metrics"></a>Regression och time series prognoser mått
-Följande mått har sparats i varje iteration för en regression eller prognosmodellen uppgift.
-
-|Mått|Beskrivning|Beräkning|Extra parametrar
---|--|--|--|
-explained_variance|Beskrivs varians är den som en matematisk modell-konton för variant av en viss uppsättning data. Det är i procent minskning i variansen för den ursprungliga informationen med variansen av fel. När medelvärdet av felen är 0, är det lika beskrivs avvikelse.|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html)|Ingen|
-r2_score|R2 är bestämning dvs procent minskningen jämfört med en baslinje-modell som visar medelvärdet av kvadratfel. När medelvärdet av felen är 0, är det lika beskrivs avvikelse.|[Beräkning](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|Ingen|
-spearman_correlation|Spearman korrelationen är ett nonparametric mått på monotonicity för relationen mellan två datauppsättningar. Till skillnad från Pearson-korrelationen Spearman korrelationen utgår inte från att distribueras normalt båda datauppsättningar. Som andra Korrelations-koefficienter varierar den här mellan-1 och + 1 med 0 innebär ingen korrelation. Sambandet mellan -1 eller + 1 innebär en exakt Monoton relation. Positivt korrelationer innebär att det som x ökar, ökar y. Negativt korrelationer innebär att som x ökar, y minskar.|[Beräkning](https://docs.scipy.org/doc/scipy-0.16.1/reference/generated/scipy.stats.spearmanr.html)|Ingen|
-mean_absolute_error|Innebära absoluta fel är det förväntade värdet i absoluta värdet för skillnaden mellan mål och förutsägelser|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html)|Ingen|
-normalized_mean_absolute_error|Normaliserade absoluta fel är absoluta fel dividerat med en uppsättning data|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html)|Dela med mängd data|
-median_absolute_error|Median absoluta fel är Medianen för alla absolut skillnader mellan mål och förutsägelser. Den här förlusten är robust till extremvärden.|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.median_absolute_error.html)|Ingen|
-normalized_median_absolute_error|Normaliserade median absoluta fel är median absoluta fel dividerat med en uppsättning data|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.median_absolute_error.html)|Dela med mängd data|
-root_mean_squared_error|Rot innebära kvadratfel är kvadratroten ur den förväntade kvadratskillnaden mellan mål och förutsägelser|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|Ingen|
-normalized_root_mean_squared_error|Normaliserade rot innebära kvadratfel är roten mean kvadratfel dividerat med en uppsättning data|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|Dela med mängd data|
-root_mean_squared_log_error|Rot innebära kvadraten logga fel är kvadratroten ur den förväntade logaritmisk kvadratfel|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Ingen|
-normalized_root_mean_squared_log_error|Normaliserade rot mean kvadraten log fel är roten mean kvadraten logga fel dividerat med en uppsättning data|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Dela med mängd data|
-
+Du kan visa dina utbildning resultat i en widget eller en infogad om du är på en bärbar dator. Se [spåra och utvärdera modeller](how-to-track-experiments.md#view-run-details) för mer information.
 
 ## <a name="understand-automated-ml-models"></a>Förstå automatiserade ML-modeller
 
@@ -358,7 +312,7 @@ best_run, fitted_model = automl_run.get_output()
 
 ### <a name="automated-feature-engineering"></a>Automatiska funktioner
 
-Se en lista över Förbearbeta och [automatiserad funktionsframställning](concept-automated-ml.md#preprocess) som händer när Förbearbeta = True.  
+Se en lista över Förbearbeta och [automatiserad funktionsframställning](concept-automated-ml.md#preprocess) som händer när Förbearbeta = True.
 
 Överväg det här exemplet:
 + Det finns 4 indatafunktionerna: A (numeriska), B (numeriska), C (numeriska), D (DateTime)
@@ -370,7 +324,7 @@ Använd dessa 2 API: er på det första steget i anpassade modell som vill veta 
 
 + API 1: `get_engineered_feature_names()` returnerar en lista med bakåtkompilerade funktionsnamn.
 
-  Användning: 
+  Användning:
   ```python
   fitted_model.named_steps['timeseriestransformer']. get_engineered_feature_names ()
   ```
@@ -382,11 +336,11 @@ Använd dessa 2 API: er på det första steget i anpassade modell som vill veta 
   Den här listan innehåller alla bakåtkompilerade funktionsnamn.
 
   >[!Note]
-  >Använda 'timeseriestransformer' för uppgiften = 'prognoser ”annan användning 'datatransformer' för 'regression' eller 'klassificering” uppgiften. 
+  >Använda 'timeseriestransformer' för uppgiften = 'prognoser ”annan användning 'datatransformer' för 'regression' eller 'klassificering” uppgiften.
 
 + API 2: `get_featurization_summary()` returnerar funktionalisering sammanfattning för alla funktioner som indata.
 
-  Användning: 
+  Användning:
   ```python
   fitted_model.named_steps['timeseriestransformer'].get_featurization_summary()
   ```
@@ -417,16 +371,16 @@ Använd dessa 2 API: er på det första steget i anpassade modell som vill veta 
     'EngineeredFeatureCount': 11,
     'Tranformations': ['DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime']}]
   ```
-  
+
    Där:
-   
+
    |Utdata|Definition|
    |----|--------|
-   |RawFeatureName|Funktionen/indatakolumnen namn från den datauppsättning som angetts.| 
+   |RawFeatureName|Funktionen/indatakolumnen namn från den datauppsättning som angetts.|
    |TypeDetected|Identifierade datatype av indata-funktionen.|
    |Ta bort|Anger om funktionen indata har släppts eller används.|
    |EngineeringFeatureCount|Antal funktioner som genereras genom automatisk funktion engineering transformeringar.|
-   |Transformationer|Lista över transformationer som används för att ange funktioner för att generera bakåtkompilerade funktioner.|  
+   |Transformationer|Lista över transformationer som används för att ange funktioner för att generera bakåtkompilerade funktioner.|
 
 ### <a name="scalingnormalization-and-algorithm-with-hypermeter-values"></a>Skala/normalisering och algoritmen med hypermeter värden:
 
@@ -451,108 +405,36 @@ def print_model(model, prefix=""):
         else:
             pprint(step[1].get_params())
             print()
-                
+
 print_model(fitted_model)
 ```
 
-Här är exempel på utdata:
+Följande är exempel på utdata för en pipeline med en specifik algoritm (LogisticRegression med RobustScalar i det här fallet).
 
-+ Pipeline med hjälp av en specifik algoritm (LogisticRegression med RobustScalar i det här fallet):
+```
+RobustScaler
+{'copy': True,
+'quantile_range': [10, 90],
+'with_centering': True,
+'with_scaling': True}
 
-  ```
-  RobustScaler
-  {'copy': True,
-   'quantile_range': [10, 90],
-   'with_centering': True,
-   'with_scaling': True}
-  
-  LogisticRegression
-  {'C': 0.18420699693267145,
-   'class_weight': 'balanced',
-   'dual': False,
-   'fit_intercept': True,
-   'intercept_scaling': 1,
-   'max_iter': 100,
-   'multi_class': 'multinomial',
-   'n_jobs': 1,
-   'penalty': 'l2',
-   'random_state': None,
-   'solver': 'newton-cg',
-   'tol': 0.0001,
-   'verbose': 0,
-   'warm_start': False}
-  ```
-  
-+ Pipeline med hjälp av ensemble metoden: I det här fallet är det en ensemble av 2 olika pipelines
+LogisticRegression
+{'C': 0.18420699693267145,
+'class_weight': 'balanced',
+'dual': False,
+'fit_intercept': True,
+'intercept_scaling': 1,
+'max_iter': 100,
+'multi_class': 'multinomial',
+'n_jobs': 1,
+'penalty': 'l2',
+'random_state': None,
+'solver': 'newton-cg',
+'tol': 0.0001,
+'verbose': 0,
+'warm_start': False}
+```
 
-  ```
-  prefittedsoftvotingclassifier
-  {'estimators': ['1', '18'],
-  'weights': [0.6666666666666667,
-              0.3333333333333333]}
-
-  1 - RobustScaler
-  {'copy': True,
-   'quantile_range': [25, 75],
-   'with_centering': True,
-   'with_scaling': False}
-  
-  1 - LightGBMClassifier
-  {'boosting_type': 'gbdt',
-   'class_weight': None,
-   'colsample_bytree': 0.2977777777777778,
-   'importance_type': 'split',
-   'learning_rate': 0.1,
-   'max_bin': 30,
-   'max_depth': 5,
-   'min_child_samples': 6,
-   'min_child_weight': 5,
-   'min_split_gain': 0.05263157894736842,
-   'n_estimators': 200,
-   'n_jobs': 1,
-   'num_leaves': 176,
-   'objective': None,
-   'random_state': None,
-   'reg_alpha': 0.2631578947368421,
-   'reg_lambda': 0,
-   'silent': True,
-   'subsample': 0.8415789473684211,
-   'subsample_for_bin': 200000,
-   'subsample_freq': 0,
-   'verbose': -10}
-  
-  18 - StandardScalerWrapper
-  {'class_name': 'StandardScaler',
-   'copy': True,
-   'module_name': 'sklearn.preprocessing.data',
-   'with_mean': True,
-   'with_std': True}
-  
-  18 - LightGBMClassifier
-  {'boosting_type': 'goss',
-   'class_weight': None,
-   'colsample_bytree': 0.2977777777777778,
-   'importance_type': 'split',
-   'learning_rate': 0.07894947368421053,
-   'max_bin': 30,
-   'max_depth': 6,
-   'min_child_samples': 47,
-   'min_child_weight': 0,
-   'min_split_gain': 0.2631578947368421,
-   'n_estimators': 400,
-   'n_jobs': 1,
-   'num_leaves': 14,
-   'objective': None,
-   'random_state': None,
-   'reg_alpha': 0.5789473684210527,
-   'reg_lambda': 0.7894736842105263,
-   'silent': True,
-   'subsample': 1,
-   'subsample_for_bin': 200000,
-   'subsample_freq': 0,
-   'verbose': -10}
-  ```
-  
 <a name="explain"></a>
 
 ## <a name="explain-the-model-interpretability"></a>Förklara modellen (interpretability)

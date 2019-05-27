@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: mjbrown
-ms.openlocfilehash: 322d5630daeedaa671f994b1374f15f655811de5
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 97b6cc6f171c89f5a253b1104155768ef9324293
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65796094"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65905218"
 ---
 # <a name="create-containers-with-large-partition-key"></a>Skapa behållare med stora partitionsnyckel
 
@@ -54,7 +54,9 @@ De stora partitionsnycklarna stöds med följande minsta versioner av SDK: er:
 |.Net     |    1.18     |
 |Java-synkronisering     |   2.4.0      |
 |Java Async   |  2.5.0        |
-| REST API | en högre version än `2017-05-03` med hjälp av den `x-ms-version` huvudet i begäran.|
+| REST-API | en högre version än `2017-05-03` med hjälp av den `x-ms-version` huvudet i begäran.|
+
+För närvarande kan använda du inte behållare med stora partitionsnyckel inom i Power BI och Azure Logic Apps. Du kan använda behållare utan att en stor partitionsnyckel från dessa program. 
  
 ## <a name="next-steps"></a>Nästa steg
 

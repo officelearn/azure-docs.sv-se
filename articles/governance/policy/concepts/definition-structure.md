@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: b9fe723ca13cbee0e31b14e60a6bd740d2a282df
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: HT
+ms.openlocfilehash: 91dd1ebc457bfeed5c9e8d0d62ecc23740ca5d8d
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65779296"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979556"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy-definitionsstruktur
 
@@ -100,7 +100,8 @@ En parameter har följande egenskaper som används i principdefinitionen:
   - `displayName`: Det egna namnet som visas i portalen för parametern.
   - `strongType`: (Valfritt) Används när du tilldelar principdefinitionen via portalen. Innehåller en kontext medveten lista. Mer information finns i [strongType](#strongtype).
   - `assignPermissions`: (Valfritt) Ange som _SANT_ ha Azure-portalen skapar rolltilldelningar under principtilldelningen. Den här egenskapen är användbar om du vill tilldela behörigheter utanför tilldelningsomfånget. Det finns en rolltilldelning per rolldefinition i principen (eller per rolldefinition i alla principer i initiativet). Parametervärdet måste vara en giltig resurs eller ett omfång.
-- `defaultValue`: (Valfritt) Anger värdet för parametern i en tilldelning om inget värde anges. Krävs när du uppdaterar en befintlig principdefinition som är tilldelad.
+- `defaultValue`: (Valfritt) Anger värdet för parametern i en tilldelning om inget värde anges.
+  Krävs när du uppdaterar en befintlig principdefinition som är tilldelad.
 - `allowedValues`: (Valfritt) Innehåller en matris med värden som parametern accepterar under tilldelning.
 
 Exempelvis kan definiera du en principdefinition för att begränsa de platser där resurser kan distribueras. En parameter för den principdefinitionen kan vara **allowedLocations**. Den här parametern används av varje tilldelning av principdefinitionen för att begränsa de godkända värdena. Användning av **strongType** ger en förbättrad upplevelse när du har slutfört tilldelningen via portalen:
@@ -268,8 +269,7 @@ Följande fält stöds:
 - Egenskapen alias – en lista i [alias](#aliases).
 
 > [!NOTE]
-> `tags.<tagName>`, `tags[tagName]`, och `tags[tag.with.dots]` godtas sätt deklarerar en tagg-fälten.
-> Prioriterade uttrycken är de som anges ovan.
+> `tags.<tagName>`, `tags[tagName]`, och `tags[tag.with.dots]` godtas sätt deklarerar en tagg-fälten. Prioriterade uttrycken är de som anges ovan.
 
 #### <a name="use-tags-with-parameters"></a>Använda taggar med parametrar
 
@@ -293,7 +293,7 @@ I följande exempel `concat` används för att skapa en fält-sökning för tagg
 }
 ```
 
-### <a name="value"></a>Value
+### <a name="value"></a>Värde
 
 Villkor kan även skapas med hjälp av **värdet**. **värdet** kontrollerar villkor mot [parametrar](#parameters), [stöds Mallfunktioner](#policy-functions), eller litteraler.
 **värdet** paras ihop med alla stöds [villkor](#conditions).
@@ -505,7 +505,7 @@ Flera av de alias som är tillgängliga har en version som visas som ett ”norm
 
 'Normal' alias representerar fältet som ett enda värde. Det här fältet är exakt matchning jämförelse scenarier när samtliga värden måste vara exakt som de definierats några och inte mindre.
 
-Den **[\*]** alias gör det möjligt att jämföra med värdet för varje element i matrisen och specifika egenskaper för varje element. Den här metoden gör det möjligt att jämföra element egenskaperna för ”om inget av”, ”om någon av”, eller ”om alla av ' scenarier. Med hjälp av **ipRules [\*]**, ett exempel skulle verifierar som varje _åtgärd_ är _neka_, men inte oroa dig över hur många regler finns, eller vilka IP-Adressen _värdet_ är. Regeln exempel söker efter alla matchningar av **ipRules [\*] .value** till **10.0.4.1** och tillämpar den **effectType** endast om det inte finns minst en matchning:
+Den **[\*]** alias gör det möjligt att jämföra med värdet för varje element i matrisen och specifika egenskaper för varje element. Den här metoden gör det möjligt att jämföra element egenskaperna för ”om inget av”, ”om någon av”, eller ”om alla av ' scenarier. Med hjälp av **ipRules [\*]** , ett exempel skulle verifierar som varje _åtgärd_ är _neka_, men inte oroa dig över hur många regler finns, eller vilka IP-Adressen _värdet_ är. Regeln exempel söker efter alla matchningar av **ipRules [\*] .value** till **10.0.4.1** och tillämpar den **effectType** endast om det inte finns minst en matchning:
 
 ```json
 "policyRule": {

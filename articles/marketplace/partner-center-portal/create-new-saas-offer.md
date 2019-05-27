@@ -7,12 +7,12 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 32537426b7b9b1a7015610fc0c3e2dd7c3efa49b
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 30e547759cbafabf5f762f671b09b0cbeea3a44c
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65806213"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65851251"
 ---
 # <a name="create-a-new-saas-offer"></a>Skapa ett nytt SaaS-erbjudande
 
@@ -128,12 +128,12 @@ Genom att aktivera provkörning, blir du ombedd att konfigurera en demonstration
 
 ### <a name="type-of-test-drive"></a>Typ av provkörning
 
-- **[Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)**: En Distributionsmall som innehåller alla Azure-resurser som utgör din lösning. Produkter som passar det här scenariot använder endast Azure-resurser.
-- **[Dynamics 365 för företag centrala](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-business-central-offer)**: Microsoft är värd för och underhåller tjänsten test drive (inklusive etablering och distribution) för en Business Central Företagsresursplanering system (ekonomi, åtgärder, leveranskedja, CRM, osv.).  
-- **[Dynamics 365 för kundengagemang](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/dyn365ce/cpp-customer-engagement-offer)**: Microsoft är värd för och underhåller tjänsten test drive (inklusive etablering och distribution) för ett Customer Engagement-system (försäljning, service, projekt-tjänsten, fälttjänst osv.).  
-- **[Dynamics 365 for Operations](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-dynamics-365-operations-offer)**: Microsoft är värd för och underhåller tjänsten test drive (inklusive etablering och distribution) för en Finance and Operations Företagsresursplanering system (ekonomi, åtgärder, tillverkning, leveranskedja, osv.). 
-- **[Logikapp](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/logic-app-test-drive)**: En Distributionsmall som omfattar alla komplexa lösningsarkitekturer. Alla anpassade produkter bör använda den här typen av Test Drive.
-- **[Power BI](https://docs.microsoft.com/power-bi/service-template-apps-overview)**: En inbäddad länk till en anpassade instrumentpanel. Produkter som du vill visa en interaktiva Power BI-objekt bör använda den här typen av Test Drive. Allt du behöver ladda upp här är din inbäddade Power BI-URL.
+- **[Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)** : En Distributionsmall som innehåller alla Azure-resurser som utgör din lösning. Produkter som passar det här scenariot använder endast Azure-resurser.
+- **[Dynamics 365 för företag centrala](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-business-central-offer)** : Microsoft är värd för och underhåller tjänsten test drive (inklusive etablering och distribution) för en Business Central Företagsresursplanering system (ekonomi, åtgärder, leveranskedja, CRM, osv.).  
+- **[Dynamics 365 för kundengagemang](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/dyn365ce/cpp-customer-engagement-offer)** : Microsoft är värd för och underhåller tjänsten test drive (inklusive etablering och distribution) för ett Customer Engagement-system (försäljning, service, projekt-tjänsten, fälttjänst osv.).  
+- **[Dynamics 365 for Operations](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-dynamics-365-operations-offer)** : Microsoft är värd för och underhåller tjänsten test drive (inklusive etablering och distribution) för en Finance and Operations Företagsresursplanering system (ekonomi, åtgärder, tillverkning, leveranskedja, osv.). 
+- **[Logikapp](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/logic-app-test-drive)** : En Distributionsmall som omfattar alla komplexa lösningsarkitekturer. Alla anpassade produkter bör använda den här typen av Test Drive.
+- **[Power BI](https://docs.microsoft.com/power-bi/service-template-apps-overview)** : En inbäddad länk till en anpassade instrumentpanel. Produkter som du vill visa en interaktiva Power BI-objekt bör använda den här typen av Test Drive. Allt du behöver ladda upp här är din inbäddade Power BI-URL.
 
 #### <a name="additional-test-drive-resources"></a>Ytterligare test drive-resurser
 - [Test Drive teknisk bästa praxis](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
@@ -386,11 +386,11 @@ Microsoft kan ta bort komplexiteten för att ställa in en testkörning av som �
 
 - **Maximalt antal samtidiga provkörningarna** (krävs): Ange det maximala antalet kunder som kan använda din provkörning i taget. Varje samtidig användare förbrukar en Dynamics 365-licens, medan test drive är aktiv, så måste du kontrollera att du har tillräckligt med licenser för att stödja den maximala storleksgränsen. Rekommenderat värde från 3 till 5.
 
-- **Varaktighet för provkörningen** (krävs): Ange hur lång tid som Test Drive förblir aktiva genom att definiera antalet timmar. Efter detta antal timmar sessionen avslutas och inte längre använda en av dina licenser. Vi rekommenderar ett värde på 2 – 24 timmar beroende på komplexiteten i ditt erbjudande. Varaktigheten kan bara ställas in med ett heltal timmar (t.ex.) ”2” timmar är ”1.5” inte giltig).  Användaren kan begära en ny session om de körs utanför tid och vill använda test drive igen.
+- **Varaktighet för provkörningen** (krävs): Ange hur lång tid som Test Drive förblir aktiva genom att definiera hur många timmar. Efter detta antal timmar sessionen avslutas och inte längre använda en av dina licenser. Vi rekommenderar ett värde på 2 – 24 timmar beroende på komplexiteten i ditt erbjudande. Varaktigheten kan bara ställas in med ett heltal timmar (t.ex.) ”2” timmar är ”1.5” inte giltig).  Användaren kan begära en ny session om de körs utanför tid och vill använda test drive igen.
 
 - **Instans-URL: en** (krävs): URL: en där kunden kommer att börja sina provkörning. Vanligtvis URL: en för din Dynamics 365-instans som kör din app med exempeldata som är installerat (t.ex. https://testdrive.crm.dynamics.com).
 
-- **Instans-URL: en för webb-API: et** (krävs): Hämta URL: en för webb-API för din Dynamics 365-instans genom att logga in på ditt Microsoft 365-konto och gå till **inställningar** \&gt; **Anpassning** \&gt; **Utvecklarresurser** \&gt; **Instans webb-API (tjänstens rot-URL)**, kopiera den URL som finns här (t.ex. https://testdrive.crm.dynamics.com/api/data/v9.0).
+- **Instans-URL: en för webb-API: et** (krävs): Hämta URL: en för webb-API för din Dynamics 365-instans genom att logga in på ditt Microsoft 365-konto och gå till **inställningar** \&gt; **Anpassning** \&gt; **Utvecklarresurser** \&gt; **Instans webb-API (tjänstens rot-URL)** , kopiera den URL som finns här (t.ex. https://testdrive.crm.dynamics.com/api/data/v9.0).
 
 - **Rollnamnet** (krävs): Ange säkerhetsrollsnamn som du har definierat i din anpassade provkörning i Dynamics 365. Detta kommer att tilldelas till användaren under deras provkörning (t.ex. test-animera roller).
 
@@ -443,7 +443,7 @@ Den **Test Drive publiceringar** alternativet finns under den **Testkör** flike
 - **Videor: Lägg till videor** (valfritt): Videor kan laddas upp till YouTube eller Vimeo och refereras till här med en länk och miniatyr-avbildning (533 x 324 bildpunkter), så att en kund kan se en genomgång av information som hjälper dem att bättre förstå test drive, inklusive hur du använder funktionerna i din erbjuder och förstå scenarier som visar deras fördelar.
   - **Namn på** (krävs)
   - **URL (YouTube eller Vimeo endast)** (krävs)
-  - **Miniatyr (533 x 324px)**: Image-filen måste vara i PNG-format.
+  - **Miniatyr (533 x 324px)** : Image-filen måste vara i PNG-format.
 
 Välj **spara** när du har slutfört de här fälten.
 

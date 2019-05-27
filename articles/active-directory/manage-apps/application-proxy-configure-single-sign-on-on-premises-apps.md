@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/12/2019
+ms.date: 05/20/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b3500ce1f1f80d975555edef56d95f2f1d27ca7
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 5524576ef21830ae13526dad2d8ac8a1d0864cf1
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65783761"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956888"
 ---
 # <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy-preview"></a>SAML enkel inloggning för lokala program med Application Proxy (förhandsversion)
 
@@ -50,8 +50,9 @@ Tänk på följande när du ska självstudien:
 1. Välj **SAML** som metod för enkel inloggning.
 1. I den **ange in enkel inloggning med SAML** , redigera den **grundläggande SAML-konfiguration** data, och följ stegen i [RETUR SAML grundkonfiguration](configure-single-sign-on-non-gallery-applications.md#saml-based-single-sign-on) att konfigurera SAML-baserad autentisering för programmet.
 
-   * Kontrollera att den **svars-URL** matchar eller är en sökväg under den **externa URL: en** för dina lokala program som du har publicerat via programproxy. Om programmet kräver en annan **svars-URL** för SAML-konfiguration, lägger du till detta som den **första** URL i listan och håll den **externa URL: en** som en ytterligare URL sorterade efter först.
-   * Se till att programmet också anger rätt **svars-URL** eller URL för Konsumenttjänst för försäkran att använda för att ta emot autentiseringstoken.
+   * Kontrollera att den **svars-URL** matchar eller är en sökväg under den **externa URL: en** för dina lokala program som du har publicerat via programproxy. 
+   * Om programmet kräver en annan **svars-URL** för SAML-konfiguration, lägger du till detta som en **ytterligare** URL i listan och markera kryssrutan bredvid den för att ange den som primärt  **Svars-URL** att skicka IDP-initierat SAML-svar på.
+   * Se till att programmet också anger rätt för ett flöde för SP-initierat **svars-URL** eller URL för Konsumenttjänst för försäkran att använda för att ta emot autentiseringstoken.
 
      ![Ange grundläggande SAML-konfigurationsdata](./media/application-proxy-configure-single-sign-on-on-premises-apps/basic-saml-configuration.png)
 

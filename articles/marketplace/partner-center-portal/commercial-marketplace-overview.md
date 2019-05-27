@@ -7,12 +7,12 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 85e162773f95272ac2af36469480f1786b260e26
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: HT
+ms.openlocfilehash: ebf371c45868d8e620413f8f54b3531b1a17f817
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65806258"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65949588"
 ---
 # <a name="overview-of-the-commercial-marketplace-portal-in-partner-center"></a>Översikt över den kommersiella Marketplace-portalen i Partnercenter
 
@@ -36,7 +36,7 @@ Befintliga marketplace-utgivare hittar en bekant men förbättrad användarupple
 
 ### <a name="improvements-on-user-experience-and-billing"></a>Förbättringar i användarupplevelsen och fakturering
 
-I övergången till Partner Center är nya funktioner tillgängligt för utgivare, förutom förbättringar i användarupplevelsen. SaaS-erbjudanden som kan faktureras eller månadsvis, stöd för per användare-licensiering (klientbaserade) utöver (fast) per webbplats. Den här nya intäkter-modellen är perfekt för företag-programvara. Introduktionen av SaaS per användare licensiering överensstämmer med nya funktioner så att kunderna kan slutföra inköp i AppSource, Microsofts kommersiella marketplace för företag och -lösningar. 
+I övergången till Partner Center är nya funktioner tillgängligt för utgivare, förutom förbättringar i användarupplevelsen. SaaS-erbjudanden som kan faktureras eller månadsvis, stöd för per användare-licensiering (klientbaserade) utöver per webbplats licensiering (fast). Den här nya intäkter-modellen är perfekt för företag-programvara. Introduktionen av SaaS per användare licensiering överensstämmer med nya funktioner som låter kunder fullständig inköp i AppSource, Microsoft kommersiell marketplace för affärs- och branschspecifika lösningar. 
 
 ### <a name="account-and-user-management-updates"></a>Uppdateringar för kontot och användaren av
 
@@ -58,3 +58,4 @@ Läs mer om de senaste och framtida versioner genom att besöka den [marketplace
 
 - Helt nya Microsoft-partner som vill publicera en SaaS erbjuda av marknadsplatser, finns i [skapa ett konto för kommersiella Marketplace i Partnercenter](./create-account.md).
 - För de befintliga partners som tidigare har publicerat erbjudanden i partnerportalen i molnet [hantera ditt kommersiella Marketplace-konto i Partnercenter](./manage-account.md). 
+- Läs mer om marketplace molnhantering flyttar till Partner Center i den här [Partnercommunity blogginlägget](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/Cloud-Marketplace-In-Partner-Center/m-p/9738#M293), inklusive en demovideo.

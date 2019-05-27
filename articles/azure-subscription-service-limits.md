@@ -8,14 +8,14 @@ tags: billing
 ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
 ms.service: billing
 ms.topic: article
-ms.date: 04/19/2019
+ms.date: 05/17/2019
 ms.author: byvinyal
-ms.openlocfilehash: c8f1eaba726efe72e2b6845beaf1465d047c90d2
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 3f01e15e4ac39127263c8c68590b6c50be04847d
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787595"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "66023215"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure-prenumeration och tjänstbegränsningar, kvoter och krav
 Det här dokumentet innehåller några av de vanligaste Microsoft Azure-gränserna, som kallas ibland också kvoter. Det här dokumentet täcker inte för närvarande alla Azure-tjänster. Med tiden, kommer listan utökats och uppdaterats så att den täcker fler tjänster.
@@ -54,6 +54,7 @@ I följande lista över gränser återspeglar en ny tabell eventuella skillnader
 * [Azure Database for PostgreSQL](#azure-database-for-postgresql)
 * [Azure DNS](#azure-dns-limits)
 * [Azure-brandväggen](#azure-firewall-limits)
+* [Azure Functions](#functions-limits)
 * [Azure Kubernetes Service](#azure-kubernetes-service-limits)
 * [Azure Machine Learning Service](#azure-machine-learning-service-limits)
 * [Azure Maps](#azure-maps-limits)
@@ -234,6 +235,9 @@ Följande begränsningar för App Service innehåller begränsningar för Web Ap
 
 [!INCLUDE [azure-websites-limits](../includes/azure-websites-limits.md)]
 
+### <a name="functions-limits"></a>Functions gränser
+[!INCLUDE [functions-limits](../includes/functions-limits.md)]
+
 ### <a name="scheduler-limits"></a>Scheduler-gränser
 [!INCLUDE [scheduler-limits-table](../includes/scheduler-limits-table.md)]
 
@@ -246,7 +250,7 @@ I följande tabell visar gränserna för Azure BizTalk Services.
 [!INCLUDE [biztalk-services-service-limits](../includes/biztalk-services-service-limits.md)]
 
 ### <a name="azure-cosmos-db-limits"></a>Azure Cosmos DB-gränser
-Azure Cosmos DB är en global skala databas där dataflöde och lagring kan skalas för att hantera vad ditt program kräver. Om du har frågor om skalbarhet som tillhandahåller Azure Cosmos DB kan skicka e- askcosmosdb@microsoft.com.
+Azure Cosmos DB-gränser för finns i [gränser i Azure Cosmos DB](cosmos-db/concepts-limits.md).
 
 ### <a name="azure-database-for-mysql"></a>Azure Database for MySQL
 Azure Database för MySQL-gränser, se [begränsningar i Azure Database för MySQL](mysql/concepts-limits.md).

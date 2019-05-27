@@ -12,12 +12,12 @@ ms.author: josack
 ms.reviewer: sstein
 manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: 4424e53689714625ebc791df250956463452c3cb
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: HT
+ms.openlocfilehash: e13907e96bba338648bddcc102e3b4f51887d0ea
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65791505"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65949915"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Ny DBA i molnet – hantera din enda och delade databaser i Azure SQL Database
 
@@ -160,7 +160,7 @@ För att skydda känsliga data pågående och i vila, SQL-databasen innehåller 
 
 ### <a name="how-can-i-limit-access-to-sensitive-data-in-my-database"></a>Hur kan jag begränsa åtkomsten till känsliga data i databasen
 
-Varje program har en viss del känsliga data i databasen som måste skyddas från att vara synlig för alla. Vissa personal i organisationen behöver för att visa dessa data, men andra bör inte att kunna visa dessa data. Ett exempel är medarbetares löner. En chef behöver åtkomst till löneinformation för hans/hennes direktrapporter men, de enskilda gruppmedlemmarna inte ska ha åtkomst till löneinformation av de. Ett annat scenario är data utvecklare som kan interagera med känsliga data under stegen för utveckling eller testning, till exempel personnummer kunder. Den här informationen igen behöver inte exponeras för utvecklare. I sådana fall kan måste känsliga data antingen vara dold eller inte exponeras alls. SQL Database erbjuder två sådana metoder för att förhindra att obehöriga användare från att kunna visa känsliga data:
+Varje program har en viss del känsliga data i databasen som måste skyddas från att vara synlig för alla. Vissa personal i organisationen behöver för att visa dessa data, men andra bör inte att kunna visa dessa data. Ett exempel är medarbetares löner. En chef behöver åtkomst till löneinformationen för sina direktrapporter men, de enskilda gruppmedlemmarna inte ska ha åtkomst till löneinformation av de. Ett annat scenario är data utvecklare som kan interagera med känsliga data under stegen för utveckling eller testning, till exempel personnummer kunder. Den här informationen igen behöver inte exponeras för utvecklare. I sådana fall kan måste känsliga data antingen vara dold eller inte exponeras alls. SQL Database erbjuder två sådana metoder för att förhindra att obehöriga användare från att kunna visa känsliga data:
 
 [Dynamisk Datamaskning](sql-database-dynamic-data-masking-get-started.md) är en data-maskning-funktion som låter dig begränsa exponering av känsliga data genom att maskera den för icke-privilegierade användare på programnivån. Du definierar en maskningsregel som kan skapa ett maskning-mönster (till exempel de sista fyra siffrorna i en nationell ID-SSN att endast visa: XXX-xx-0000 och markera de flesta av den som Xs) och identifiera vilka användare som ska uteslutas från maskering regeln. Maskeringen händer på direkt och det finns olika maskeringsfunktioner för olika datakategorier. Dynamisk datamaskning kan du identifiera känsliga data i databasen och tillämpa maskning på den automatiskt.
 

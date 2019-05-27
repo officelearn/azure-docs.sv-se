@@ -5,27 +5,27 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: include
-ms.date: 04/29/2019
+ms.date: 05/14/2019
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: d20e266d1331fc15e65b2d119468483ff53a4c06
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: ee8ff3529524a63ca2e54a64327570197f363538
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64951573"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66148965"
 ---
-| Resurs | Basic | Standard | Premium |
+| Resource | Grundläggande | Standard | Premium |
 |---|---|---|---|
 | Storage<sup>1</sup> | 10 GiB | 100 giB| 500 giB |
 | Maximal bildstorlek för lager | 200 GiB | 200 GiB | 200 GiB |
-| ReadOps per minut<sup>2, 3</sup> | 1,000 | 3 000 | 10 000 |
+| ReadOps per minut<sup>2, 3</sup> | 1,000 | 3,000 | 10 000 |
 | WriteOps per minut<sup>2, 4</sup> | 100 | 500 | 2,000 |
 | Ladda ned bandbredd Mbit/s<sup>2</sup> | 30 | 60 | 100 |
 | Ladda upp bandbredd Mbit/s<sup>2</sup> | 10 | 20 | 50 |
-| Webhooks | 2 | 10 | 100 |
+| Webhook-konfigurationer | 2 | 10 | 100 |
 | Geo-replikering | Gäller inte | Gäller inte | [Stöds][geo-replication] |
-| Innehållsförtroende (förhandsversion) | Gäller inte | Gäller inte | [Stöds][content-trust] |
+| Förtroende för innehåll | Gäller inte | Gäller inte | [Stöds][content-trust] |
 
 <sup>1</sup>angivna lagringsgränserna är mängden *ingår* lagring för varje nivå. Du debiteras en ytterligare daglig avgift per GiB för lagring av avbildningen över gränserna. Priset information finns i [priser för Azure Container Registry][pricing].
 

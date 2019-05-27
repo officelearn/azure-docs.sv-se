@@ -4,18 +4,18 @@ description: Viktig information för Azure SQL Data Warehouse.
 services: sql-data-warehouse
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: manage
+ms.subservice: ''
 ms.date: 05/13/2019
 author: anumjs
 ms.author: anjangsh
 ms.reviewer: jrasnick
 manager: craigg
-ms.openlocfilehash: 519cec0951305db60e0994134f8c680f6c560752
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: HT
+ms.openlocfilehash: 215f7c9c65658ddbb10498bb59f3d326bf3a10f1
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792419"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65988294"
 ---
 # <a name="azure-sql-data-warehouse-release-notes"></a>Viktig information om Azure SQL Data Warehouse
 
@@ -23,15 +23,11 @@ Den här artikeln sammanfattas de nya funktionerna och förbättringarna i de se
 
 ## <a name="check-your-azure-sql-data-warehouse-version"></a>Kontrollera din Azure SQL Data Warehouse-version
 
-Anslut till data warehouse via SQL Server Management Studio (SSMS) och kör du följande syntax för att returnera den aktuella versionen av SQL Data Warehouse.
-
-```sql
-SELECT @@VERSION AS 'SQL Data Warehouse';
-```
+Eftersom nya funktioner som distribueras till alla regioner, kontrollera vilken version som distribueras till din instans och de senaste Azure SQL DW viktig information om tillgängliga funktioner. Om du vill kontrollera din Azure SQL DW-version, ansluta till data warehouse via SQL Server Management Studio (SSMS) och kör `SELECT @@VERSION AS 'SQL Data Warehouse';` att returnera den aktuella versionen av Azure SQL DW.
 
 Exempel på utdata: ![SQL Data Warehouse-version](./media/release-notes/sql_data_warehouse_version.png)
 
-Använd det datum som identifierats för att kontrollera vilken versionen har kopplats till Azure SQL Data Warehouse.
+Använd det datum som identifierats för att kontrollera vilken versionen har kopplats till din Azure SQL DW.
 
 ## <a name="may-2019"></a>Maj 2019
 
@@ -39,7 +35,7 @@ Använd det datum som identifierats för att kontrollera vilken versionen har ko
 | --- | --- |
 |**Dynamisk datamaskning (förhandsversion)**|Dynamic Data Masking (DDM) förhindrar obehörig åtkomst till känsliga data i ditt data warehouse genom att dölja den på direkt i resultatet av frågan baserat på maskningsregler som du definierar. Mer information finns i [SQL Database dynamisk datamaskning](/azure/sql-database/sql-database-dynamic-data-masking-get-started).|
 |**Arbetsbelastningen vikten nu allmänt tillgänglig**|Klassificering för hantering av arbetsbelastning och vikten ger möjlighet att påverka kör ordningen för frågor. Mer information om arbetsbelastningen vikten finns i den [klassificering](sql-data-warehouse-workload-classification.md) och [vikten](sql-data-warehouse-workload-importance.md) översiktsartiklar i dokumentationen. Kolla in den [skapa ARBETSBELASTNING KLASSIFICERARE](/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest) dokument samt.<br/><br/>Se arbetsbelastning betydelse i åtgärden i den nedan videor:<br/> -[Arbetsbelastningen Management-relaterade begrepp](https://www.youtube.com/embed/QcCRBAhoXpM)<br/> -[Scenarier för hantering av arbetsbelastning](https://www.youtube.com/embed/_2rLMljOjw8)|
-|**Ytterligare stöd för T-SQL**|T-SQL language utsatt område för SQL Data Warehouse har utökats och omfattar stöd för: </br> - [I TIDSZON](/sql/t-sql/queries/at-time-zone-transact-sql?view=azure-sqldw-latest)</br> - [TRIM](/sql/t-sql/functions/trim-transact-sql?view=azure-sqldw-latest)|
+|**Ytterligare stöd för T-SQL**|T-SQL language utsatt område för SQL Data Warehouse har utökats och omfattar stöd för: </br> - [TRIM](/sql/t-sql/functions/trim-transact-sql?view=azure-sqldw-latest)|
 |**JSON-funktioner**|Affärsanalytiker kan nu använda välbekanta T-SQL-språket att fråga efter och hantera dokument som är formaterade som JSON-data med hjälp av följande nya JSON-funktioner i Azure Data Warehouse:</br> - [ISJSON](/sql/t-sql/functions/isjson-transact-sql?view=azure-sqldw-latest)</br> - [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?view=azure-sqldw-latest)</br> -  [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?view=azure-sqldw-latest)</br> -  [JSON_MODIFY](/sql/t-sql/functions/json-modify-transact-sql?view=azure-sqldw-latest)</br> - [OPENJSON](/sql/t-sql/functions/openjson-transact-sql?view=azure-sqldw-latest)|
 |**Resultatmängden caching (förhandsversion)**|Cachelagring av resultatuppsättningen kan omedelbar frågesvarstiderna samtidigt minska tid och förståelse för affärsanalytiker och rapportering av användare. Mer information finns i:</br> - [ALTER DATABASE (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql?view=azure-sqldw-latest)</br> - [ALTER DATABASE SET-alternativ (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest)</br> - [Ange RESULTATUPPSÄTTNINGEN CACHELAGRING (Transact-SQL)](/sql/t-sql/statements/set-result-set-caching-transact-sql?view=azure-sqldw-latest)</br> - [Ange instruktionen (Transact-SQL)](/sql/t-sql/statements/set-statements-transact-sql)</br> - [sys.Databases (Transact-SQL)](/sql/relational-databases/system-catalog-views/sys-databases-transact-sql?view=azure-sqldw-latest)|
 

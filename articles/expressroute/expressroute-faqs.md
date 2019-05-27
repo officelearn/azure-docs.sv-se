@@ -5,15 +5,15 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 05/12/2019
+ms.date: 05/20/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: e4d4ac45ad0ba9516d863682015b9c07096ae106
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: HT
+ms.openlocfilehash: 75c0deaa8bca94349091e3317e4ca70129bb4426
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65794754"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991613"
 ---
 # <a name="expressroute-faq"></a>Vanliga frågor och svar för ExpressRoute
 
@@ -72,6 +72,7 @@ ExpressRoute stöder [tre routningsdomäner](expressroute-circuit-peerings.md) f
 * De flesta av de Azure-tjänsterna stöds. Kontrollera direkt med den tjänst som du vill använda för att verifiera support.<br><br>
   **Följande tjänster stöds inte**:
     * CDN
+    * Azure Front Door
     * Multifaktorautentisering
     * Traffic Manager
 
@@ -84,6 +85,7 @@ ExpressRoute stöder [tre routningsdomäner](expressroute-circuit-peerings.md) f
 * [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (globala tjänster för Azure-community)
 * De flesta av de Azure-tjänsterna stöds. Kontrollera direkt med den tjänst som du vill använda för att verifiera support.<br><br>**Följande tjänster stöds inte**:
     * CDN
+    * Azure Front Door
     * Multifaktorautentisering
     * Traffic Manager
 
@@ -220,7 +222,7 @@ Ja. Vi kan acceptera upp till 4 000 prefix som vägen för privat peering och 20
 
 ### <a name="are-there-restrictions-on-ip-ranges-i-can-advertise-over-the-bgp-session"></a>Finns det några begränsningar för IP-adressintervall som jag kan annonsera i BGP-sessionen?
 
-Vi accepterar inte privata-prefix (RFC1918) för Microsoft-peering BGP-sessionen.
+Vi accepterar inte privata-prefix (RFC1918) för Microsoft-peering BGP-sessionen. Vi kan godkänna alla prefixstorlek (upp till /32) på både Microsoft och privat peering.
 
 ### <a name="what-happens-if-i-exceed-the-bgp-limits"></a>Vad händer om jag överskrider BGP begränsar?
 
@@ -283,6 +285,26 @@ Referera till [prisinformation](https://azure.microsoft.com/pricing/details/expr
 ### <a name="do-i-pay-for-expressroute-premium-in-addition-to-standard-expressroute-charges"></a>Måste jag betala för ExpressRoute premium utöver avgifterna för standard ExpressRoute?
 
 Ja. ExpressRoute premium-avgifter gäller utöver avgifterna för ExpressRoute-krets och avgifter som krävs av anslutningsprovidern.
+
+## <a name="expressroute-local"></a>ExpressRoute lokal
+### <a name="what-is-expressroute-local"></a>Vad är ExpressRoute lokal?
+Lokal ExpressRoute är en SKU för ExpressRoute-krets. En viktig funktion i lokala är att en lokal circit på en ExpressRoute peeringplats ger dig åtkomst till endast till en eller två Azure-regioner i eller nästan samma metro. Däremot får en standardkrets du tillgång till alla Azure-regioner i ett geopolitiska område och en Premium-krets till alla Azure-regioner globalt. 
+
+### <a name="what-are-the-benefits-of-expressroute-local"></a>Vilka är fördelarna med lokala ExpressRoute?
+När du behöver betala för utgående dataöverföring för Standard eller Premium ExpressRoute-krets kan betalar du inte utgående dataöverföring separat för din lokala ExpressRoute-krets. Med andra ord innehåller priset för ExpressRoute lokal dataöverföring. Lokal ExpressRoute är en mer prisvärt lösning om du har omfattande mängd data du överför och du kan hämta data via en privat anslutning till en ExpressRoute-peering plats nära dina önskade Azure-regioner. 
+
+### <a name="what-features-are-available-and-what-are-not-on-expressroute-local"></a>Vilka funktioner är tillgängliga och vilka inte på lokala ExpressRoute?
+Jämfört med en Standard ExpressRoute-krets, har en lokal krets samma uppsättning funktioner utom:
+* Omfånget för åtkomst till Azure-regioner som beskrivs ovan
+* ExpressRoute Global räckvidd är inte tillgänglig på lokala
+
+ExpressRoute lokal också har samma begränsningar på resurser (t.ex. antalet virtuella nätverk per krets) som Standard. 
+
+### <a name="how-to-configure-expressroute-local"></a>Så här konfigurerar du lokala ExpressRoute? 
+ExpressRoute lokal är endast tillgängligt på ExpressRoute direkt. Så först måste du konfigurera din ExpressRoute Direct-port. När din direkt port har skapats kan du skapa en lokal krets följa anvisningarna [här](expressroute-howto-erdirect.md).
+
+### <a name="where-is-expressroute-local-available-and-which-azure-regions-is-each-peering-location-mapped-to"></a>Där är lokala för ExpressRoute och vilka Azure-regioner varje peeringplats mappas till?
+ExpressRoute lokal är tillgänglig på peering-platser där en eller två Azure-regioner är stängs av. Det är inte tillgängligt på en peering plats där det finns inga Azure-regioner i den stat eller provins eller ditt land. Finns de exakta mappningarna om [sidan platser](expressroute-locations-providers.md).  
 
 ## <a name="expressroute-for-office-365"></a>ExpressRoute för Office 365
 

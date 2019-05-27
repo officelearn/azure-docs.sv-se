@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/25/2019
 ms.author: jaredro
 ms.custom: include file
-ms.openlocfilehash: 41f62d095c1a0cbdd0a888326b263a3294066637
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 1bcadc18172535649a0ceb482939ca6a75477e25
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60118893"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66170723"
 ---
 ### <a name="what-is-expressroute-direct"></a>Vad är ExpressRoute direkt?
 
@@ -33,12 +33,18 @@ Tillgängliga portar ska vara dynamisk och blir tillgängligt via PowerShell fö
 * Washington DC
 * Dallas 
 * Hongkong SAR
+* London
 * Los Angeles
 * New York City
 * Paris
+* Perth
+* Toronto
 * San Antonio
+* Seattle
+* Söul
 * Silicon Valley
 * Singapore 
+* Sydney
 
 ### <a name="what-is-the-sla-for-expressroute-direct"></a>Vad är serviceavtalet för ExpressRoute direkt?
 

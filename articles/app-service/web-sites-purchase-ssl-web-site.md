@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 15441f70052950748f07b96ff234557462f268cd
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: HT
+ms.openlocfilehash: 0febb8fadd973b67ed232d6094d85894fb383d14
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65786328"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955706"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Köp och konfigurera ett SSL-certifikat för Azure App Service
 
@@ -97,9 +97,9 @@ Välj **App Service-verifiering**. Eftersom du redan har mappats till domänen t
 
 ## <a name="bind-certificate-to-app"></a>Binda certifikatet till appen
 
-I den  **[Azure-portalen](https://portal.azure.com/)**, i den vänstra menyn, Välj **Apptjänster** > **\<your_ app >**.
+I den  **[Azure-portalen](https://portal.azure.com/)** , i den vänstra menyn, Välj **Apptjänster** >  **\<your_ app >** .
 
-I det vänstra navigeringsfönstret i appen, Välj **SSL-inställningar** > **privata certifikat (.pfx)** > **importera App Service Certificate**.
+I det vänstra navigeringsfönstret i appen, Välj **SSL-inställningar** > **privata certifikat (.pfx)**  > **importera App Service Certificate**.
 
 ![Infoga bild av Importera certifikat](./media/app-service-web-purchase-ssl-web-site/ImportCertificate.png)
 
@@ -166,4 +166,4 @@ När förnyelseåtgärden är klar klickar du på **synkronisering**. Synkronise
 * [Använda HTTPS](app-service-web-tutorial-custom-ssl.md#enforce-https)
 * [Kräv TLS 1.1/1.2](app-service-web-tutorial-custom-ssl.md#enforce-tls-versions)
 * [Använda ett SSL-certifikat i programkoden i Azure App Service](app-service-web-ssl-cert-load.md)
-* [VANLIGA FRÅGOR OCH SVAR: App Service Certificate](https://docs.microsoft.com/en-us/azure/app-service/faq-configuration-and-management/)
+* [VANLIGA FRÅGOR OCH SVAR: App Service Certificate](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/)

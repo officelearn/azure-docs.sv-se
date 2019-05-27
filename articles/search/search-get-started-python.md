@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 1ab6bb069f60f4d2dbb4cfaecda54c3c2ef20adc
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: a79a5fe1632eeabee670274ebbb19c4c34bd84d2
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65806438"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66117345"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-jupyter-python-notebooks"></a>Snabbstart: Skapa ett Azure Search-index med Python i Jupyter-anteckningsböcker
 > [!div class="op_single_selector"]
@@ -26,17 +26,17 @@ ms.locfileid: "65806438"
 > * [Portal](search-create-index-portal.md)
 > 
 
-Skapa en Jupyter-anteckningsbok som skapar, läser in och frågar en Azure Search [index](search-what-is-an-index.md) med hjälp av Python och [Azure Search Service REST API: er](https://docs.microsoft.com/rest/api/searchservice/). Den här artikeln förklarar hur du skapar dina egna notebook steg för steg. Du kan också köra en färdig anteckningsbok. Du kan hämta en kopia går du till [lagringsplatsen för Azure Search-python-exempel](https://github.com/Azure-Samples/azure-search-python-samples).
+Skapa en Jupyter-anteckningsbok som skapar, läser in och frågar en Azure Search-index med hjälp av Python och [Azure Search REST API: er](https://docs.microsoft.com/rest/api/searchservice/). Den här artikeln förklarar hur du bygger en anteckningsbok steg för steg, med början från grunden. Du kan också köra en färdig anteckningsbok. Du kan hämta en kopia går du till [lagringsplatsen för Azure Search-python-exempel](https://github.com/Azure-Samples/azure-search-python-samples).
 
-Om du inte har en Azure-prenumeration kan du innan du börjar först skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) och sedan [registrera dig för Azure Search](search-create-service-portal.md).
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Följande tjänster och verktyg som används i den här snabbstarten. 
 
-+ [Skapa en Azure Search-tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under din aktuella prenumeration. Du kan använda en kostnadsfri tjänst för den här snabbstarten. 
-
 + [Anaconda 3.x](https://www.anaconda.com/distribution/#download-section), vilket ger Python 3.x och Jupyter Notebooks.
+
++ [Skapa en Azure Search-tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under din aktuella prenumeration. Du kan använda en kostnadsfri tjänst för den här snabbstarten. 
 
 ## <a name="get-a-key-and-url"></a>Hämta en nyckel och URL: en
 
@@ -67,9 +67,9 @@ Alla begäranden som kräver en api-nyckel för varje begäran som skickas till 
 1. Ange begäran-element som ska vara konstanter för varje begäran i den andra cellen. Ersätt söktjänstnamnet (din-SEARCH-SERVICE-NAME) och admin API-nyckel (din-ADMIN-API-nyckel) med giltiga värden. 
 
    ```python
-    endpoint = 'https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/'
-    api_version = '?api-version=2019-05-06'
-    headers = {'Content-Type': 'application/json',
+   endpoint = 'https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/'
+   api_version = '?api-version=2019-05-06'
+   headers = {'Content-Type': 'application/json',
            'api-key': '<YOUR-ADMIN-API-KEY>' }
    ```
 
@@ -98,7 +98,6 @@ Om du inte använder portalen, måste ett index finnas på tjänsten innan du ka
 Fältsamlingen definierar strukturen för en *dokumentet*. Obligatoriska elementen för ett index är ett namn och en samling fält. Varje fält har ett namn, typ och attribut som avgör hur den används (till exempel om det är fulltext sökbar, filtrerbar eller hämtningsbara i sökresultat). I ett index, ett fält av typen `Edm.String` måste anges som den *nyckel* för dokumentet identitet.
 
 Det här indexet har namnet ”hotels-py” och fältdefinitioner som du ser nedan. Det är en del av ett större [Hotels indexet](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) används i andra genomgångar. Vi tas bort den i den här snabbstarten av utrymmesskäl.
-
 
 1. I nästa cell, klistrar du in i följande exempel i en cell att tillhandahålla schemat. 
 
@@ -152,7 +151,7 @@ Det här indexet har namnet ”hotels-py” och fältdefinitioner som du ser ned
 
 Använd en HTTP POST-begäran till ditt index URL-slutpunkt för att skicka dokument. REST-API: et är [Lägg till, uppdatera eller ta bort dokument](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents). Dokument som kommer från [HotelsData](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/HotelsData_toAzureSearch.JSON) på GitHub.
 
-1. En ny cell innehåller tre dokument som överensstämmer med indexschemat. Ange en uppladdning åtgärd för varje dokument.
+1. En ny cell innehåller fyra dokument som överensstämmer med indexschemat. Ange en uppladdning åtgärd för varje dokument.
 
     ```python
     documents = {
@@ -212,7 +211,25 @@ Använd en HTTP POST-begäran till ditt index URL-slutpunkt för att skicka doku
             "StateProvince": "GA",
             "PostalCode": "30326",
             "Country": "USA"
-        }
+        },
+        {
+        "@search.action": "upload",
+        "HotelId": "4",
+        "HotelName": "Sublime Cliff Hotel",
+        "Description": "Sublime Cliff Hotel is located in the heart of the historic center of Sublime in an extremely vibrant and lively area within short walking distance to the sites and landmarks of the city and is surrounded by the extraordinary beauty of churches, buildings, shops and monuments. Sublime Cliff is part of a lovingly restored 1800 palace.",
+        "Description_fr": "Le sublime Cliff Hotel est situé au coeur du centre historique de sublime dans un quartier extrêmement animé et vivant, à courte distance de marche des sites et monuments de la ville et est entouré par l'extraordinaire beauté des églises, des bâtiments, des commerces et Monuments. Sublime Cliff fait partie d'un Palace 1800 restauré avec amour.",
+        "Category": "Boutique",
+        "Tags": [ "concierge", "view", "24-hour front desk service" ],
+        "ParkingIncluded": "true",
+        "LastRenovationDate": "1960-02-06T00:00:00Z",
+        "Rating": 4.60,
+        "Address": {
+            "StreetAddress": "7400 San Pedro Ave",
+            "City": "San Antonio",
+            "StateProvince": "TX",
+            "PostalCode": "78216",
+            "Country": "USA"
+       }
       }
      ]
     }
@@ -242,6 +259,10 @@ Använd en HTTP POST-begäran till ditt index URL-slutpunkt för att skicka doku
            {'errorMessage': None,
             'key': '3',
             'status': True,
+            'statusCode': 201}]},
+           {'errorMessage': None,
+            'key': '4',
+            'status': True,
             'statusCode': 201}]}
      ```
 
@@ -266,7 +287,7 @@ Det här steget visar hur man frågar ett index med hjälp av den [REST-API för
    pprint(query)
    ```
 
-   Resultatet bör likna följande utdata.
+   Resultatet bör likna följande utdata. Resultatet är unranked (search.score = 1.0) eftersom vi inte ange kriterier för att matcha i.
 
    ```
    {'@odata.context': "https://mydemo.search.windows.net/indexes('hotels-py')/$metadata#docs(*)",
@@ -279,14 +300,17 @@ Det här steget visar hur man frågar ett index med hjälp av den [REST-API för
                'HotelName': 'Twin Dome Motel'},
               {'@search.score': 1.0,
                'HotelId': '3',
-               'HotelName': 'Triple Landscape Hotel'}]}
+               'HotelName': 'Triple Landscape Hotel'},
+              {'@search.score': 1.0,
+               'HotelId': '4',
+               'HotelName': 'Sublime Cliff Hotel'}]}
    ```
 
-3. Testa några andra fråga exempel för att få en bild av syntaxen. Ett filter, ta de två översta resultat, ordna efter ett visst fält eller 
+3. Testa några andra fråga exempel för att få en bild av syntaxen. Du kan använda ett filter, ta de två översta resultat eller Ordna efter ett visst fält.
 
    + `searchstring = '&search=*&$filter=Rating gt 4&$select=HotelId,HotelName,Description'`
 
-   + `searchstring = '&search=hotel&$top=2&$select=HotelId,HotelName,Description'`
+   + `searchstring = '&search=boutique&$top=2&$select=HotelId,HotelName,Description'`
 
    + `searchstring = '&search=pool&$orderby=Address/City&$select=HotelId, HotelName, Address/City, Address/StateProvince'`
 
@@ -311,7 +335,7 @@ pprint(index_list)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om frågesyntaxen och scenarier.
+Den här snabbstarten används en förkortad version av hotellindexet som en förenkling av distribution. Du kan skapa den fullständiga versionen du prova att använda mer intressanta frågor. För att få den fullständiga versionen och alla 50 dokument, köra den **dataimport** guiden välja *hotels-sample* från inbyggda exempel datakällor.
 
 > [!div class="nextstepaction"]
-> [Skapa en grundläggande fråga](search-query-overview.md)
+> [Snabbstart: Skapa ett index i Azure portal](search-get-started-portal.md)

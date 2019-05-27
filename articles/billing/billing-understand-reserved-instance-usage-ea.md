@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/07/2019
 ms.author: banders
-ms.openlocfilehash: 09242eaa6058229226062801f5f71f2bf4c7a9e8
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: b2452580eaecc0ab922f8e7db48676f70831a8ca
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65789379"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66126850"
 ---
 # <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>Hämta Enterprise-avtal reservation kostnader och användning
 
@@ -42,9 +42,9 @@ Jämförelse av två datauppsättningar:
 
 | Data | Faktisk kostnad datauppsättning | Amorterad kostnad datauppsättning |
 | --- | --- | --- |
-| Köp av reservation | Tillgängligt i den här vyn.<br>  Att hämta datafiltret på ChargeType = &quot;köp&quot;. <br> Referera till ReservationID eller ReservationName veta vilka reservation avgiften gäller för.  | Ej tillämpligt för den här vyn. <br> Köp kostnader tillhandahålls inte i amorterade data. |
+| Köp av reservation | Tillgängligt i den här vyn.<br><br>  Att hämta datafiltret på ChargeType = &quot;köp&quot;. <br><br> Referera till ReservationID eller ReservationName veta vilka reservation avgiften gäller för.  | Ej tillämpligt för den här vyn. <br><br> Köp kostnader tillhandahålls inte i amorterade data. |
 | EffectivePrice | Värdet är noll för användning som får rabatten. | Värdet är per timme-beräknas kostnaden för reservation för användning med reservationsrabatten. |
-| Oanvända reserverade (ger antalet timmar som de reservationen inte har använts under en dag och värdet av avfallet) | Ej tillämpligt i den här vyn. | Tillgängligt i den här vyn.<br> För att få dessa data kan filtrera på ChargeType = &quot;UnusedReservation&quot;.<br>  Referera till ReservationID eller ReservationName veta vilka reservation har varit underutnyttjade. Detta är hur mycket av reservationen har gått i för dagen.  |
+| Oanvända reserverade (ger antalet timmar som de reservationen inte har använts under en dag och värdet av avfallet) | Ej tillämpligt i den här vyn. | Tillgängligt i den här vyn.<br><br> För att få dessa data kan filtrera på ChargeType = &quot;UnusedReservation&quot;.<br><br>  Referera till ReservationID eller ReservationName veta vilka reservation har varit underutnyttjade. Detta är hur mycket av reservationen har gått i för dagen.  |
 | Enhetspris (pris på resursen från din prisdokument) | Tillgänglig | Tillgänglig |
 
 Annan information som är tillgängliga i Azure-användningsdata har ändrats:
@@ -77,12 +77,12 @@ Med hjälp av informationen i följande tabell om mått och filter kan du lösa 
 | **Typ av API-data** | Åtgärd för API-anrop |
 | --- | --- |
 | **Alla avgifter (förbrukning och inköp)** | Ersätt {mått} med ActualCost |
-| **Användning som har fått reservationsrabatten** | Ersätt {mått} med ActualCost<br>Ersätt {filter} med: properties/reservationId%20ne%20 |
-| **Användning som inte fick reservationsrabatten** | Ersätt {mått} med ActualCost<br>Ersätt {filter} med: properties/reservationId%20eq%20 |
+| **Användning som har fått reservationsrabatten** | Ersätt {mått} med ActualCost<br><br>Ersätt {filter} med: properties/reservationId%20ne%20 |
+| **Användning som fick reservationsrabatten** | Ersätt {mått} med ActualCost<br><br>Ersätt {filter} med: properties/reservationId%20eq%20 |
 | **Amorterade avgifter (förbrukning och inköp)** | Ersätt {mått} med AmortizedCost |
-| **Oanvända reserverade rapport** | Ersätt {mått} med AmortizedCost<br>Ersätt {filter} med: properties/ChargeType%20eq%20'UnusedReservation' |
-| **Köp av reservation** | Ersätt {mått} med ActualCostReplace {filter} med: properties/ChargeType%20eq%20'Purchase'  |
-| **Återbetalningar** | Ersätt {mått} med ActualCost<br>Ersätt {filter} med: properties/ChargeType%20eq%20'Refund' |
+| **Oanvända reserverade rapport** | Ersätt {mått} med AmortizedCost<br><br>Ersätt {filter} med: properties/ChargeType%20eq%20'UnusedReservation' |
+| **Köp av reservation** | Ersätt {mått} med ActualCost<br><br>Ersätt {filter} med: properties/ChargeType%20eq%20'Purchase'  |
+| **Återbetalningar** | Ersätt {mått} med ActualCost<br><br>Ersätt {filter} med: properties/ChargeType%20eq%20'Refund' |
 
 ## <a name="download-the-usage-csv-file-with-new-data"></a>Hämta CSV-fil för användning med nya data
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23c88857c877440be724ddea0bdb239768621c8c
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 32ad8c12834ee538e231b38f9098c741fdc17954
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65764790"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65997246"
 ---
 # <a name="what-is-conditional-access-in-azure-active-directory"></a>Vad är villkorsstyrd åtkomst i Azure Active Directory?
 
@@ -86,9 +86,9 @@ När den konfigurerade principen för villkorsstyrd åtkomst kräver multifaktor
 
 När användaren har loggat in på tjänsten för federerad autentisering hanterar Azure AD andra principkrav, till exempel enhetsefterlevnad eller ett godkänt program.
 
-## <a name="license-requirements-for-using-conditional-access"></a>Licenskrav för att använda villkorsstyrd åtkomst
+## <a name="license-requirements"></a>Licenskrav
 
-Användning av villkorsstyrd åtkomst kräver en Azure AD Premium-licens. Hitta rätt licens för dina behov i [Jämför allmänt tillgängliga funktioner i Free, Basic och Premium-utgåvorna](https://azure.microsoft.com/pricing/details/active-directory/).
+[!INCLUDE [Active Directory P1 license](../../../includes/active-directory-p1-license.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/31/2019
 ms.author: iainfou
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 4d2ab19fafc265d70028d5ee192efc60a5a8eaff
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: a4ed3ec823982bf3977edf9939d98419e1c4b01f
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073975"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956385"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Använd kubenet nätverk med dina egna IP-adressintervall i Azure Kubernetes Service (AKS)
 
@@ -22,6 +22,9 @@ Som standard AKS-kluster används [kubenet][kubenet], och ett Azure-nätverk och
 Med [Azure behållare nätverk gränssnitt (CNI)][cni-networking], varje pod får en IP-adress från undernätet och kan nås direkt. Dessa IP-adresser måste vara unikt för ditt adressutrymme för nätverket och måste planeras i förväg. Varje nod har en konfigurationsparameter för det maximala antalet poddar som stöds. Det motsvarande antalet IP-adresser per nod reserveras sedan direkt för noden. Den här metoden kräver mer planering och leder ofta till IP-adress överbelastning eller att behöva återskapa kluster i ett större undernät allteftersom dina behov växer.
 
 Den här artikeln visar hur du använder *kubenet* nätverk för att skapa och använda ett virtuellt nätverksundernät för ett AKS-kluster. Mer information om Nätverksalternativ och överväganden finns i [nätverk begrepp för Kubernetes och AKS][aks-network-concepts].
+
+> [!WARNING]
+> Om du vill använda Windows Server nodpooler (för närvarande i förhandsversion i AKS), måste du använda Azure CNI. Användningen av kubenet som nätverk modellen är inte tillgänglig för Windows Server-behållare.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -149,6 +152,8 @@ Följande IP-adressintervall också definieras som en del av klustret skapa proc
     * Den här adressintervallet måste vara tillräckligt stor för att anpassa antalet noder som du förväntar dig att skala upp till. Du kan inte ändra den här adressintervall när klustret distribueras om du behöver fler adresser för ytterligare noder.
     * Pod IP-adressintervall som används för att tilldela en */24* adressutrymme till varje nod i klustret. I följande exempel visas den *--pod-cidr* av *192.168.0.0/16* tilldelar den första noden *192.168.0.0/24*, den andra noden *192.168.1.0/24*, och den tredje nod *192.168.2.0/24*.
     * Som klustret skalas eller uppgraderingar kan fortsätter Azure-plattformen att tilldela en pod IP-adressintervall till varje ny nod.
+    
+* Den *--docker-bridge-adress* tillåter AKS-noder kommunicerar med den underliggande hanteringsplattformen. Den här IP-adressen får inte vara inom det virtuella nätverket IP-adressintervallet på klustret och får inte överlappa med andra adressintervall som används i nätverket.
 
 ```azurecli-interactive
 az aks create \

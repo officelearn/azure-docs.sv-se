@@ -16,12 +16,12 @@ ms.date: 03/20/2018
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: 91548a4df4a77623978ea4bcb214b76427c026a6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d919453816436366c00dde506210a2ed38cc69b7
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60345384"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952205"
 ---
 # <a name="manage-access-to-azure-resources-for-external-users-using-rbac"></a>Hantera åtkomst till Azure-resurser för externa användare med RBAC
 
@@ -57,7 +57,7 @@ När du har valt prenumerationen administratörsanvändaren måste klicka på **
 
 Nästa steg är att välja rollen tilldelas och användaren som ska tilldelas den RBAC-rollen. I den **rollen** listrutan admin-användare ser bara de inbyggda RBAC-roller som är tillgängliga i Azure. Mer detaljerade förklaringar av varje roll och deras tilldelningsbara scope finns i [inbyggda roller för Azure-resurser](built-in-roles.md).
 
-Administratören måste sedan lägga till den externa användaren e-postadress. Det är förväntat beteende för den externa användaren inte visas i den befintliga klienten. När den externa användaren har bjudits han kommer att visas under **prenumerationer > åtkomstkontroll (IAM)** med de aktuella användarna som är tilldelade en RBAC-roll prenumerationsområde.
+Administratören måste sedan lägga till den externa användaren e-postadress. Det är förväntat beteende för den externa användaren inte visas i den befintliga klienten. När den externa användaren har bjudits in, kommer de att visas under **prenumerationer > åtkomstkontroll (IAM)** med de aktuella användarna som är tilldelade en RBAC-roll prenumerationsområde.
 
 ![lägga till behörigheter till nya RBAC-roll](./media/role-assignments-external-users/3.png)
 
@@ -66,7 +66,7 @@ Administratören måste sedan lägga till den externa användaren e-postadress. 
 Användaren ”chessercarlton@gmail.com” har blivit inbjuden att vara en **ägare** för prenumerationen ”kostnadsfri utvärdering”. När du har skickat inbjudan, får den externa användaren en e-postbekräftelse med en aktiveringslänk.
 ![e-postinbjudan för RBAC-roll](./media/role-assignments-external-users/5.png)
 
-Är utanför organisationen, har den nya användaren inte några befintliga attribut i katalogen ”standard-klientorganisation Azure”. De kommer att skapas efter den externa användaren har gett ditt medgivande till att läggas till i den katalog som är associerade med prenumerationen har tilldelats en roll.
+Är utanför organisationen, har den nya användaren inte några befintliga attribut i katalogen ”standard-klientorganisation Azure”. De kommer att skapas efter den externa användaren har gett ditt medgivande till att läggas till i den katalog som är associerade med prenumerationen de har tilldelats en roll.
 
 ![e-postinbjudan meddelande för RBAC-roll](./media/role-assignments-external-users/6.png)
 

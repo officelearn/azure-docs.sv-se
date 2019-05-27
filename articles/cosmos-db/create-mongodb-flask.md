@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 12/26/2018
-ms.openlocfilehash: 3a95ee065b25f936f08e1c775dc9c42e75a0f67e
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 07f213de3509ed16af627af5e0583cd985c278f6
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65793859"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954652"
 ---
 # <a name="quickstart-build-a-python-app-using-azure-cosmos-dbs-api-for-mongodb"></a>Snabbstart: Skapa en Python-app med hjälp av Azure Cosmos DB:s API för MongoDB
 
@@ -28,7 +28,7 @@ ms.locfileid: "65793859"
 
 Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan snabbt skapa och ställa frågor mot databaser med dokument, nyckel/värde-par och grafer. Du får fördelar av den globala distributionen och den horisontella skalningsförmågan som ligger i grunden hos Cosmos DB.
 
-Den här snabbstartsguiden använder följande [Flask-exempel](https://github.com/Azure-Samples/CosmosDB-Flask-Mongo-Sample) och visar hur du kan bygga en enkel att göra-app i Flask med [Azure Cosmos DB-emulatorn](local-emulator.md) och Azure Cosmos DB:s API för MongoDB.
+Den här snabbstartsguiden använder följande [Flask-exempel](https://github.com/Azure-Samples/CosmosDB-Flask-Mongo-Sample) och visar hur du skapar en enkel att göra Flask-app med den [Azure Cosmos DB-emulatorn](local-emulator.md) och Azure Cosmos DB: s API för MongoDB.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -142,7 +142,7 @@ När du distribuerar till Azure bör du ta bort dina programnycklar och kontroll
     db.authenticate(name=os.getenv("MONGO_USERNAME"),password=os.getenv("MONGO_PASSWORD"))
 ```
 
-Du måste sedan lägga till MONGOURL, MONGO_PASSWORD och MONGO_USERNAME i programinställningarna. Följ den här [självstudien](https://docs.microsoft.com/azure/app-service-web/web-sites-configure#application-settings) om du vill veta mer om programinställningar i Azure Web Apps.
+Du måste sedan lägga till MONGOURL, MONGO_PASSWORD och MONGO_USERNAME i programinställningarna. Följ den här [självstudien](https://docs.microsoft.com/azure/app-service/configure-common#configure-app-settings) om du vill veta mer om programinställningar i Azure Web Apps.
 
 Om du inte vill skapa en förgrening av den här lagringsplatsen kan du även klicka på knappen nedan för att distribuera till Azure. Du bör sedan gå till Azure och konfigurera programinställningarna med dina uppgifter för Cosmos DB-kontot.
 

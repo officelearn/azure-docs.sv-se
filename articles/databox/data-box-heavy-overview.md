@@ -4,89 +4,81 @@ description: Beskriver Azure Data Box, en hybridlösning som gör det möjligt a
 services: databox
 documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: databox
-ms.devlang: NA
+ms.subservice: pod
 ms.topic: overview
-ms.custom: ''
-ms.tgt_pltfrm: NA
-ms.workload: TBD
-ms.date: 09/24/2018
+ms.date: 05/20/2019
 ms.author: alkohli
-ms.openlocfilehash: 780a50d9d470e8904e066459f97aa00d34ba1d3c
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 0f71d9b4400041db50cb3e24940e922acde55edc
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65603495"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991693"
 ---
-# <a name="what-is-azure-data-box-heavy-preview"></a>Vad är Azure Data Box – tung? (Förhandsgranskning)
+# <a name="what-is-azure-data-box-heavy-preview"></a>Vad är Azure Data Box – tung? (förhandsversion)
 
-Med Microsoft Azure Data Box-hybridlösningen kan du skicka hundratals terabyte data till Azure på ett snabbt, prisvärt och tillförlitligt sätt. Den säkra dataöverföringen påskyndas genom att skicka en upphovsrättsskyddad lagringsenhet med 1 PB lagringskapacitet via frakt. Enheten har ett robust hölje för att skydda data under överföringen.
+Azure Data Box tung kan du skicka hundratals terabyte data till Azure i en snabb, prisvärd, och tillförlitligt sätt. Data överförs till Azure genom att skicka en Data Box tung enhet med 1 PB lagringskapacitet, där du fyller med dina data och skickar tillbaka till Microsoft. Enheten har en robust gemener och versaler att skydda och skydda dina data under överföringen.
 
-Data Box – tung är för närvarande en förhandsversion och du kan registrera dig för att beställa en enhet via Azure-portalen. När enheten tas emot i ditt datacenter kan du konfigurera den med hjälp av det lokala webbgränssnittet. Kopiera data från dina servrar till enheten och skicka sedan tillbaka enheten till Azure. I Azure-datacentret överförs dina data automatiskt från enheten till Azure. Hela processen spåras från slutpunkt till slutpunkt av Data Box-tjänsten på Azure-portalen.
+Data Box tung förhandsvisas just nu. Registrera dig att begära för en enhet via Azure portal. När enheten tas emot i ditt datacenter, konfigurera den med hjälp av det lokala webbgränssnittet. Kopiera data från dina servrar till enheten och skicka sedan tillbaka enheten till Azure. Dina data har överförts till Azure Storage-konton i Azure-datacenter. Du kan följa hela slutpunkt till slutpunkt-processen i Azure-portalen.
 
 
 > [!IMPORTANT]
-> - Data Box – tung är en förhandsversion. Granska [Azures användningsvillkor för förhandsversionen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) innan du distribuerar den här lösningen. 
-> - Om du vill beställa en enhet, registrerar du dig i [Preview-portalen](https://aka.ms/).
+> - Data Box – tung är en förhandsversion. Granska [Azures användningsvillkor för förhandsversionen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) innan du distribuerar den här lösningen.
+> - Om du vill beställa en enhet, registrerar du dig i [Preview-portalen](https://aka.ms/azuredatabox).
 > - Under förhandsversionen kan Data Box – tung levereras till kunder i USA och EU. Mer information finns i [Regional tillgänglighet](#region-availability).
 
 ## <a name="use-cases"></a>Användningsfall
 
-Data Box – tung passar bäst för överföring av data som är större än 500 TB i scenarier med begränsad eller ingen nätverksanslutning. Dataflytten kan vara enstaka, periodisk eller en inledande massdataöverföring följt av periodiska överföringar. Här följer olika scenarier där Data Box – tung kan användas för dataöverföring.
+Data Box tung passar bäst för datamängder i hundratals terabyte, där nätverksanslutning är tillräckligt för att ladda upp data till Azure. Dataflytten kan vara enstaka, periodisk eller en inledande massdataöverföring följt av periodiska överföringar. Här följer olika scenarier där Data Box – tung kan användas för dataöverföring.
 
- - **Engångsmigrering** – när stora mängder lokala data flyttas till Azure. 
-     - Flytta ett mediebibliotek från offlineband i Azure för att skapa ett mediebibliotek online.
-     - Migrera VM-servergrupp, SQLServer och program till Azure
-     - Flytta historiska data till Azure för djupanalys och rapportering med hjälp av HDInsight
+ - **Engångsmigrering** – när stora mängder lokala data flyttas till Azure.
+     - Flytta ett mediebibliotek från offlineband till Azure för att skapa en online mediabibliotek.
+     - Migrera dina VM-servergrupp, SQLServer och program till Azure.
+     - Flytta historiska data till Azure för detaljerad analys och rapport med hjälp av HDInsight.
 
- - **Inledande bulköverföring** – när en inledande massöverföring utförs med hjälp av Data Box – tung (startvärde) följt av inkrementella överföringar över nätverket. 
-     - Till exempel används partners med säkerhetskopieringslösningar som Commvault och Data Box – tung för att flytta den första stora historiska säkerhetskopieringen till Azure. När du är klar överförs inkrementella data via nätverket till Azure Storage.
+ - **Inledande bulköverföring** – när en inledande massöverföring utförs med hjälp av Data Box – tung (startvärde) följt av inkrementella överföringar över nätverket.
+     - Till exempel används Data Box stor och säkerhetskopieringslösningar partner för att flytta första stora historiska säkerhetskopiering till Azure. När du är klar överförs inkrementella data via nätverket till Azure Storage.
 
- - **Periodiska uppladdningar** – när stora mängder data genereras med jämna mellanrum och behöver flyttas till Azure. Till exempel i energiutforskning, där videoinnehåll genereras på oljeplattformar och vindkraftsparker.      
+ - **Periodiska uppladdningar** – när stora mängder data genereras med jämna mellanrum och behöver flyttas till Azure. Till exempel i energiutforskning, där videoinnehåll genereras på oljeplattformar och vindkraftsparker.
 
 ## <a name="benefits"></a>Fördelar
 
-Data Box – tung har utformats för att flytta stora mängder data till Azure med lite eller ingen inverkan på nätverket. Lösningen har följande fördelar:
+Data Box tung har utformats för att flytta stora mängder data till Azure med lite eller ingen inverkan på ditt nätverk. Lösningen har följande fördelar:
 
-- **Hastighet** – Data Box – tung 40 Gbit/s-nätverksgränssnitt med höga prestanda.
+- **Hastighet** -Data Box tung använder högpresterande 40-Gbit/s-nätverksgränssnitt.
 
-- **Skydd** – Data Box – tung har inbyggt säkerhetsskydd för enheten, data och tjänsten.
-    - Enheten har ett robust enhetshölje som skyddas av manipuleringsskyddade skruvar och säkerhetsförslutna klistermärken. 
+- **Security** -Data Box tung har inbyggda säkerhetsskydd för enheten, data och tjänsten.
+    - Enheten har ett robust enhetshölje som skyddas av manipuleringsskyddade skruvar och säkerhetsförslutna klistermärken.
     - Data på enheten skyddas alltid med AES 256-bitars kryptering.
     - Enheten kan bara låsas upp med ett lösenord som anges i Azure-portalen.
     - Tjänsten skyddas av säkerhetsfunktionerna i Azure.
-    - När dina data har laddats upp till Azure rensas diskarna på enheten i enlighet med standarderna NIST 800-88r1.
+    - När dina data har överförts till Azure, rensas diskar på enheten, i enlighet med standarder för National Institute of Standards and Technology (NIST) 800 88r1.
 
 
-<!--## Features and specifications
+## <a name="features-and-specifications"></a>Funktioner och specifikationer
 
-The Data Box Heavy device has the following features in this release.
+Data Box tung enheten har följande funktioner i den här versionen.
 
-| Specifications                                          | Description              |
+| Specifikationer                                          | Beskrivning              |
 |---------------------------------------------------------|--------------------------|
-| Weight                                                  | < 50 lbs.                |
-| Dimensions                                              | Device - Width: 309.0 mm Height: 430.4 mm Depth: 502.0 mm |            
-| Rack space                                              | 7 U when placed in the rack on its side (cannot be rack-mounted)|
-| Cables required                                         | 1 X power cable (included) <br> 2 RJ45 cables <br> 2 X SFP+ Twinax copper cables|
-| Storage capacity                                        | 100 TB <br> 80 TB usable capacity after RAID 5 protection|
-| Network interfaces                                      | 2 X 1 GbE interface - MGMT, DATA 3. <br> MGMT - for management, not user configurable, used for initial setup <br> DATA3 - for data, user configurable, and is dynamic by default <br> MGMT and DATA 3 can also work as 10 GbE <br> 2 X 10 GbE interface - DATA 1, DATA 2 <br> Both are for data, can be configured as dynamic (default) or static |
-| Data transfer media                                     | RJ45, SFP+ copper 10 GbE Ethernet  |
-| Security                                                | Rugged device casing with tamper-proof custom screws <br> Tamper-evident stickers placed at the bottom of the device|
-| Data transfer rate                                      | Up to 80 TB in a day over 10 GbE network interface        |
-| Management                                              | Local web UI - one-time initial setup and configuration <br> Azure portal - day-to-day device management        |-->
+| Vikt                                                  | ~ 500 lbs.                |
+| Mått                                              | Bredd: 26 tum höjd: 28 tum längd: 48 tum |
+| Rackutrymme                                              | Det går inte att vara rackmonterade|
+| Kablar som krävs                                         | 4 X förankrad 120 V/10 A strömkablar (NEMA 5 till 15) ingår <br> Enheten har stöd för upp till 240 V power och har C-13 power behållare <br> Använda nätverkskablarna som är kompatibel med [Mellanox MCX314A-BCCT](https://store.mellanox.com/products/mellanox-mcx314a-bcct-connectx-3-pro-en-network-interface-card-40-56gbe-dual-port-qsfp-pcie3-0-x8-8gt-s-rohs-r6.html)  |
+|Power                                                    | 4 inbyggda power anger enheter (PSUs) delas mellan båda enheten noder|
+| Lagringskapacitet                                        | ~ 1-PB raw, 70 diskar på 14 TB <br> 770 TB användbar kapacitet|
+|Antal noder                                          | 2 oberoende noder per enhet (500 TB som är varje) |
+| Nätverksgränssnitt per nod                             | 4 nätverksgränssnitt per nod <br> MGMT, DATA3 <ul><li> 2 x 1 GbE-gränssnitt </li><li> MGMT för hantering, inte konfigureras av användaren, används för den första installationen </li><li> DATA3 är ett gränssnitt för användarangiven data, DHCP Dynamic Host Configuration Protocol () som standard</li><li>1 GbE-nätverksgränssnitt kan också konfigureras som 10 GbE-gränssnitt</li></ul>Fil1 fil2-gränssnitt <ul><li>2 x 40 GbE-gränssnitt </li><li> DHCP som standard eller statisk, konfigurerbara data användargränssnitt</li>|
+
 
 ## <a name="components"></a>Komponenter
 
 Data Box – tung innehåller följande komponenter:
 
-* **Data Box – tung-enhet** – en fysisk enhet med robust utsida som lagrar data på ett säkert sätt. Den här enheten har en användbar lagringskapacitet på 800 TB. 
-
+* **Data Box – tung-enhet** – en fysisk enhet med robust utsida som lagrar data på ett säkert sätt. Den här enheten har en användbar lagringskapacitet på 770 TB.
     
-* **Data Box-tjänsten** – ett tillägg till Azure-portalen som gör att du kan hantera en Data Box – tung-enhet via ett webbgränssnitt som du kan komma åt från olika geografiska platser. Använd Data Box-tjänsten för att utföra daglig administration av din Data Box – tung-enhet. Tjänstens uppgifter är till exempel hur du skapar och hanterar beställningar, visar och hanterar aviseringar och hanterar filresurser.  
+* **Data Box-tjänsten** – ett tillägg till Azure-portalen som gör att du kan hantera en Data Box – tung-enhet via ett webbgränssnitt som du kan komma åt från olika geografiska platser. Använda Data Box-tjänsten för att administrera din Data Box tung enhet. Tjänstens uppgifter är till exempel hur du skapar och hanterar beställningar, visar och hanterar aviseringar och hanterar filresurser.  
 
 * **Lokalt webbgränssnitt** – ett webbaserat gränssnitt som används för att konfigurera enheten så att den kan ansluta till det lokala nätverket och sedan registrera enheten med Data Box-tjänsten. Använd även det lokala webbgränssnittet till att stänga av och starta om enheten, visa kopieringsloggar och kontakta Microsoft Support om du vill skicka en tjänstbegäran.
 
@@ -105,11 +97,11 @@ Ett typiskt flöde omfattar följande steg:
 
 5. **Ladda upp** – data kopieras automatiskt från enheten till Azure. Enhetsdiskarna raderas på ett säkert sätt enligt riktlinjerna från National Institute of Standards and Technology (NIST).
 
-Under den här processen meddelas du via e-post om alla statusändringar. 
+Hela processen meddelas via e-post på alla status ändras.
 
 ## <a name="region-availability"></a>Regional tillgänglighet
 
-Data Box tung kan överföra data baserat på den region där tjänsten distribueras, land/region som enheten levereras och mål-Azure storage-konto där du kan överföra data. 
+Data Box tung kan överföra data baserat på den region där tjänsten distribueras, land/region som enheten levereras och mål-Azure storage-konto där du kan överföra data.
 
 - **Tjänstens tillgänglighet** – För den här versionen är Data Box – tung tillgänglig i följande regioner:
     - Alla offentliga molnregioner i USA – USA, västra centrala, USA, västra 2, USA, västra, USA, södra centrala, USA, centrala, USA, norra centrala, USA, östra och USA, östra 2.
@@ -117,14 +109,16 @@ Data Box tung kan överföra data baserat på den region där tjänsten distribu
     - Storbritannien – Storbritannien, södra och Storbritannien, västra.
     - Frankrike – Frankrike, centrala och Frankrike, södra.
 
-- **Destinationslagringskonton** – de lagringskonton som lagrar data som är tillgängliga i alla Azure-regioner där tjänsten är tillgänglig. 
+- **Destinationslagringskonton** – de lagringskonton som lagrar data som är tillgängliga i alla Azure-regioner där tjänsten är tillgänglig.
+
+Gå till den senaste informationen om regiontillgänglighet för Data Box tung [Azure-produkter per region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all).
 
 ## <a name="sign-up"></a>Registrera dig
 
-Data Box – tung är en förhandsversion och du måste registrera dig. Registrera dig för Data Box – tung via följande steg:
+Data Box – tung är en förhandsversion och du måste registrera dig. Vidta följande steg för att registrera dig för Data Box tung:
 
 1. Logga in på Azure-portalen på: https://aka.ms/azuredatabox.
-2. Klicka på **+** för att skapa en ny resurs. Sök efter **Azure Data Box**. Välj **Azure Data Box**-tjänsten.
+2. Klicka på **+ skapa en resurs** att skapa en ny resurs. Sök efter **Azure Data Box**. Välj **Azure Data Box**-tjänsten.
 
     <!--![The Data Box Heavy sign up 1]()-->
 
@@ -140,8 +134,6 @@ Data Box – tung är en förhandsversion och du måste registrera dig. Registre
 
     <!--![The Data Box Heavy sign up 4]()-->
 
-När du är registrerad och aktiverad för förhandsversionen kan du beställa Data Box – tung.
+När du är registrerad och aktiverad för förhandsversionen kan beställa du en Data Box tung.
 
-
-
-
+    

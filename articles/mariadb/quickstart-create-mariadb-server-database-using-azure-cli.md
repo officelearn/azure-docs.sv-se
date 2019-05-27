@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 01/09/2019
 ms.custom: mvc
 ms.openlocfilehash: 7d94834523e331ff048f787760561739765e7023
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57842302"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66171400"
 ---
 # <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>Skapa en Azure Database for MariaDB-server med hjälp av Azure CLI
 
@@ -215,7 +215,7 @@ Så här ansluter du till servern med hjälp av mysql-kommandoradsverktyget:
    |---|---|---|
    | Anslutningsnamn | **Demoanslutning** | Ange ett namn på den här anslutningen (anslutningsnamnet kan vara vad som helst) |
    | Anslutningsmetod | **Standard (TCP/IP)** | Använda TCP/IP-protokollet för att ansluta till Azure Database for MariaDB |
-   | Värdnamn | **mydemoserver.mariadb.database.azure.com** | Det servernamn som du antecknade tidigare. |
+   | Värddatornamn | **mydemoserver.mariadb.database.azure.com** | Det servernamn som du antecknade tidigare. |
    | Port | **3306** | Standardporten för Azure Database for MariaDB. |
    | Användarnamn | **myadmin\@mydemoserver** | Den serveradministratörsinloggning som du antecknade tidigare. |
    | Lösenord | *ditt lösenord* | Ange det lösenord som du konfigurerade tidigare. |

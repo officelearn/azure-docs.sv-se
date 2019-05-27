@@ -3,8 +3,8 @@ title: 'Azure-nätverk VPN gateway SKU: er för äldre | Microsoft Docs'
 description: 'Hur du arbetar med den gamla virtuella nätverksgatewayen SKU: er; Basic, Standard och HighPerformance.'
 services: vpn-gateway
 documentationcenter: na
-author: cherylmc
-manager: jpconnock
+author: WenJason
+manager: digimobile
 editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: ''
@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/20/2018
-ms.author: cherylmc
+origin.date: 03/20/2018
+ms.date: 03/04/2019
+ms.author: v-jay
 ms.openlocfilehash: 5a9e3f63a484069bf8cd39f8a545d7c37f05c63c
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417320"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66159208"
 ---
 # <a name="working-with-virtual-network-gateway-skus-legacy-skus"></a>Arbeta med virtuella nätverkets gateway SKU: er (äldre SKU: er)
 
@@ -67,3 +68,5 @@ Du kan också ändra storlek på en gateway i Azure-portalen.
 Mer information om den nya Gateway-SKU: er finns i [Gateway SKU: er](vpn-gateway-about-vpngateways.md#gwsku).
 
 Mer information om konfigurationsinställningar finns i [om VPN Gateway-konfigurationsinställningar](vpn-gateway-about-vpn-gateway-settings.md).
+
+<!--Update_Description: wording update-->

@@ -1,23 +1,17 @@
 ---
 title: Azure Resource Manager-Mallfunktioner - resurser | Microsoft Docs
 description: Beskriver funktionerna du använder i en Azure Resource Manager-mall för att hämta värden om resurser.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-ms.assetid: ''
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 04/09/2019
+ms.date: 05/21/2019
 ms.author: tomfitz
-ms.openlocfilehash: 4d5e6d20cb93c339d75c12ca1c0f56eaa5cc8cdd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dcad4b988f37d46a0b843fbf905e18011bc4e313
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60783015"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65990761"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Resursfunktioner för Azure Resource Manager-mallar
 
@@ -175,7 +169,7 @@ Andra listfunktioner har olika returnerade format. Om du vill se formatet för e
 
 Ange resurs med samma resurs eller [resourceId funktionen](#resourceid). När du använder en funktion i listan i samma mall som distribuerar den refererade resursen kan du använda resursnamnet.
 
-Om du använder en **lista** funktionen i en resurs som distribueras villkorligt funktionen utvärderas även om resursen inte är distribuerats. Du får ett felmeddelande om de **lista** funktion refererar till en resurs som inte finns. Använd den **om** funktionen för att kontrollera att funktionen utvärderas bara när resursen finns. Se den [om funktionen](resource-group-template-functions-logical.md#if) ett exempel på en mall som använder om och en lista med en villkorligt distribuerade resursen.
+Om du använder en **lista** funktionen i en resurs som distribueras villkorligt funktionen utvärderas även om resursen inte är distribuerats. Du får ett felmeddelande om de **lista** funktion refererar till en resurs som inte finns. Använd den **om** funktionen för att kontrollera att funktionen utvärderas bara när resursen distribueras. Se den [om funktionen](resource-group-template-functions-logical.md#if) ett exempel på en mall som använder om och en lista med en villkorligt distribuerade resursen.
 
 ### <a name="example"></a>Exempel
 
@@ -343,11 +337,11 @@ Alla resurstyper returnerar olika egenskaper för funktionen referens. Funktione
 
 Funktionen referens hämtar körtiden för en tidigare distribuerad resurs eller en resurs som distribuerats i den aktuella mallen. Den här artikeln visar exempel på båda scenarierna. När du refererar till en resurs i den aktuella mallen, anger du bara resursnamn som en parameter. När du refererar till en tidigare distribuerad resurs, ange resurs-ID och en API-version för resursen. Du kan fastställa giltig API-versioner för din resurs i den [mallreferensen](/azure/templates/).
 
-Referens-funktionen kan endast användas i egenskaperna för en resursdefinition och outputs-avsnittet av en mall eller distribution.
+Referens-funktionen kan endast användas i egenskaperna för en resursdefinition och outputs-avsnittet av en mall eller distribution. När det används med [egenskapen iteration](resource-group-create-multiple.md#property-iteration), du kan använda funktionen referens för `input` eftersom uttrycket har tilldelats till resursegenskapen. Du kan inte använda den med `count` eftersom antalet måste fastställas innan funktionen referens har lösts.
 
 Med hjälp av funktionen referens deklarera du implicit att en resurs beror på en annan resurs om refererade resursen har tillhandahållits i samma mall och du referera till resursen med sitt namn (inte resurs-ID). Du behöver inte också använda egenskapen dependsOn. Funktionen utvärderas inte förrän den refererade resursen har slutfört distributionen.
 
-Om du använder den **referens** funktionen i en resurs som distribueras villkorligt funktionen utvärderas även om resursen inte är distribuerats.  Du får ett felmeddelande om de **referens** funktion refererar till en resurs som inte finns. Använd den **om** funktionen för att kontrollera att funktionen utvärderas bara när resursen finns. Se den [om funktionen](resource-group-template-functions-logical.md#if) för ett exempel på en mall som använder om och referensen med en villkorligt distribuerade resursen.
+Om du använder den **referens** funktionen i en resurs som distribueras villkorligt funktionen utvärderas även om resursen inte är distribuerats.  Du får ett felmeddelande om de **referens** funktion refererar till en resurs som inte finns. Använd den **om** funktionen för att kontrollera att funktionen utvärderas bara när resursen distribueras. Se den [om funktionen](resource-group-template-functions-logical.md#if) för ett exempel på en mall som använder om och referensen med en villkorligt distribuerade resursen.
 
 Skapa en mall som returnerar objektet i outputs-avsnittet om du vill se egenskapsnamn och värden för en resurstyp. Om du har en befintlig resurs av den typen returnerar objektet utan att distribuera nya resurser i din mall. 
 

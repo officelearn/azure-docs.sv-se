@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 1a2e75dcffe32c6f1aeaba8646b96bbc1500ffdf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: aac0a3ab14cc2543fe3b60f4c52e14e3cb0ee743
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61438218"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991702"
 ---
 # <a name="time-sync-for-windows-vms-in-azure"></a>Tidssynkronisering för Windows-datorer i Azure
 
@@ -39,7 +39,7 @@ Precision för en datorklocka gauged på hur nära datorklockan är tid-standard
 
 Azure-värdar som synkroniseras till interna Microsoft-tidsservrar att ta sina tid från Microsoft-ägda Stratum 1-enheter med GPS antenner. Virtuella datorer i Azure kan antingen bero på deras värden för att skicka rätt tid (*värd tid*) in på den virtuella datorn eller den virtuella datorn direkt får tid från en time-server eller en kombination av båda. 
 
-VM-interaktioner med-värden kan också påverka klockan. Under [minne bevarande Underhåll](maintenance-and-updates.md#maintenance-not-requiring-a-reboot), virtuella datorer har pausats för upp till 30 sekunder. Till exempel innan du påbörjar Underhåll VM klockan visar 10:00:00 AM och varar 28 sekunder. När den virtuella datorn återupptas klockan på den virtuella datorn fortfarande visas 10:00:00 AM, som är 28 sekunder av. Att korrekt för detta, VMICTimeSync tjänsten övervakar vad som händer på värden och frågar efter ändringar på de virtuella datorerna att kompensera.
+VM-interaktioner med-värden kan också påverka klockan. Under [minne bevarande Underhåll](maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot), virtuella datorer har pausats för upp till 30 sekunder. Till exempel innan du påbörjar Underhåll VM klockan visar 10:00:00 AM och varar 28 sekunder. När den virtuella datorn återupptas klockan på den virtuella datorn fortfarande visas 10:00:00 AM, som är 28 sekunder av. Att korrekt för detta, VMICTimeSync tjänsten övervakar vad som händer på värden och frågar efter ändringar på de virtuella datorerna att kompensera.
 
 VMICTimeSync-tjänsten körs i exemplet eller sync läge och påverkar endast klockan framåt. I exemplet läge, vilket kräver W32time köras, tjänsten VMICTimeSync ska avsöka värden var femte sekund och ger exempel tid till W32time. Ungefär var 30: e sekund W32time-tjänsten tar senaste gången exemplet och använder den för att påverka gästens klockan. Replikinstanserna aktiverar om gäst har återupptagits eller om en gäst klockan drifts mer än 5 sekunder bakom värdens klockan. Det senare fallet bör aldrig inträffa i fall där W32time-tjänsten körs korrekt.
 

@@ -10,20 +10,20 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 04/10/2019
 ms.author: sbowles
-ms.openlocfilehash: 04fe9251ba124ed5d218daf915339c7f84efdeb6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 83aef90702e4a4cc4fd9bdfda486841f9b2a63a4
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64704192"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66124505"
 ---
-# <a name="how-to-add-faces-to-a-persongroup"></a>Lägga till ansikten i en PersonGroup
+# <a name="add-faces-to-a-persongroup"></a>Lägg till ansikten i en PersonGroup
 
-Den här guiden visar de rekommenderade metoderna för att lägga till ett stort antal personer och ansikten i ett PersonGroup-objekt. Samma strategin gäller även för LargePersonGroup och FaceList LargeFaceList. Det här exemplet är skriven i C# med Ansikts-API .NET-klientbiblioteket.
+Den här guiden visar hur du lägger till ett stort antal personer och ansikten i ett PersonGroup-objekt. Samma strategin gäller även för LargePersonGroup och FaceList LargeFaceList objekt. Det här exemplet är skriven i C# med hjälp av Azure Cognitive Services Ansikts-API för .NET-klientbiblioteket.
 
 ## <a name="step-1-initialization"></a>Steg 1: Initiering
 
-Följande kod deklarerar flera variabler och implementerar en hjälpfunktionen att schemalägga ansiktet Lägg till begäranden.
+Följande kod deklarerar flera variabler och implementerar en hjälpfunktionen att schemalägga ansiktet Lägg till begäranden:
 
 - `PersonCount` är det totala antalet personer.
 - `CallLimitPerSecond` är det maximala antalet anrop per sekund enligt prenumerationsnivån.
@@ -66,7 +66,7 @@ När du använder ett klientbibliotek, måste du ange prenumerationsnyckeln till
 FaceServiceClient faceServiceClient = new FaceServiceClient("<Subscription Key>");
 ```
 
-Prenumerationsnyckeln kan hämtas från Marketplace-sidan på Azure-portalen. Se [Prenumerationer](https://www.microsoft.com/cognitive-services/sign-up).
+Prenumerationsnyckeln, gå till Azure Marketplace från Azure-portalen. Mer information finns i [prenumerationer](https://www.microsoft.com/cognitive-services/sign-up).
 
 ## <a name="step-3-create-the-persongroup"></a>Steg 3: Skapa PersonGroup
 
@@ -80,9 +80,9 @@ _timeStampQueue.Enqueue(DateTime.UtcNow);
 await faceServiceClient.CreatePersonGroupAsync(personGroupId, personGroupName);
 ```
 
-## <a name="step-4-create-the-persons-to-the-persongroup"></a>Steg 4: Skapa personerna i PersonGroup
+## <a name="step-4-create-the-persons-for-the-persongroup"></a>Steg 4: Skapa personer för PersonGroup
 
-Personer skapas samtidigt och `await WaitCallLimitPerSecondAsync()` används också för att inte överskrida anropsgränsen.
+Personer skapas samtidigt, och `await WaitCallLimitPerSecondAsync()` används också för att inte överskridas för anropet.
 
 ```csharp
 CreatePersonResult[] persons = new CreatePersonResult[PersonCount];
@@ -97,8 +97,8 @@ Parallel.For(0, PersonCount, async i =>
 
 ## <a name="step-5-add-faces-to-the-persons"></a>Steg 5: Lägg till ansikten till personerna
 
-Ansikten som läggs till olika personer bearbetas samtidigt medan ansikten för en specifik person bearbetas sekventiellt.
-Igen, `await WaitCallLimitPerSecondAsync()` anropas för att säkerställa att frekvensen för begäran är inom omfånget för begränsningen.
+Ansikten som lagts till olika personer bearbetas samtidigt. Ansikten har lagts till för en viss person utförs i ordningsföljd.
+Igen, `await WaitCallLimitPerSecondAsync()` anropas för att se till att frekvensen för begäran är inom omfånget för begränsningen.
 
 ```csharp
 Parallel.For(0, PersonCount, async i =>
@@ -120,21 +120,21 @@ Parallel.For(0, PersonCount, async i =>
 
 ## <a name="summary"></a>Sammanfattning
 
-I den här guiden har du lärt dig hur du skapar en PersonGroup med ett stort antal personer och ansikten. Flera påminnelser:
+I den här guiden beskrivs processen för att skapa en PersonGroup med ett stort antal personer och ansikten. Flera påminnelser:
 
-- Samma strategi gäller även för FaceList och LargePersonGroup.
-- Du kan lägga till/ta bort ansikten till olika FaceLists eller Persons i LargePersonGroup samtidigt.
-- Samma åtgärder i en specifik FaceList eller Person i en LargePersonGroup bör göras sekventiellt.
-- För att hålla guiden enkel utelämnas hantering av eventuella undantag. Om du vill förbättra stabiliteten ska återförsöksprincipen tillämpas.
+- Den här strategin gäller även för FaceLists och LargePersonGroups.
+- Att lägga till eller ta bort ansikten till olika FaceLists eller personer i LargePersonGroups bearbetas samtidigt.
+- Att lägga till eller ta bort ansikten till en specifik FaceList person eller i en LargePersonGroup utförs sekventiellt.
+- För enkelhetens skull utelämnas hur du hanterar en potentiell undantag i den här guiden. Om du vill förbättra mer stabilitet, tillämpa principen för nya försök.
 
-Det följande är en snabb påminnelse om de viktiga aspekter som förklarats och beskrivits tidigare:
+Följande funktioner har beskrivs och visas:
 
-- Skapa PersonGroups med hjälp av API:et [PersonGroup – Skapa](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244)
-- Skapa personer med hjälp av API:et [PersonGroup Person – Skapa](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c)
-- Lägga till ansikten till personer med hjälp av API:et [PersonGroup Person – Lägg till ansikte](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b)
+- Skapa PersonGroups med hjälp av den [PersonGroup - skapa](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) API.
+- Skapa personer med hjälp av den [PersonGroup Person - skapa](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c) API.
+- Lägg till ansikten för personer med hjälp av den [PersonGroup Person - Lägg till ansikte](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) API.
 
 ## <a name="related-topics"></a>Relaterade ämnen
 
 - [Identifiera ansikten i en bild](HowtoIdentifyFacesinImage.md)
-- [Känna igen ansikten i en bild](HowtoDetectFacesinImage.md)
-- [Känna igen storskaliga funktioner](how-to-use-large-scale.md)
+- [Identifiera ansikten i en bild](HowtoDetectFacesinImage.md)
+- [Använda funktionen för storskaliga](how-to-use-large-scale.md)

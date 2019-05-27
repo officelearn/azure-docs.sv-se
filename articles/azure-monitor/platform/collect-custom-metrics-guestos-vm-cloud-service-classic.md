@@ -9,11 +9,11 @@ ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: 90e841628d989a16f504d2efd7a2c7b18335ff48
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482631"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66129477"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>Skicka gäst-OS mått av Azure Monitor-måtten lagra klassiska molntjänster 
 
@@ -27,7 +27,7 @@ Lagra dem i den här platsen kan du komma åt samma åtgärder som du kan för p
 
 Processen som beskrivs i den här artikeln fungerar endast för prestandaräknare i Azure Cloud Services. Det fungerar inte för andra anpassade mått. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Du måste vara en [tjänstadministratör eller delad administratör](~/articles/billing/billing-add-change-azure-subscription-administrator.md) på din Azure-prenumeration. 
 

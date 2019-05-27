@@ -10,12 +10,12 @@ ms.subservice: workload management
 ms.date: 05/01/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 208308533753370575b844633c45f7e4aeda0864
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: c4630e11ef4001c546aecfe74dbced346b6d30e4
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154214"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66000127"
 ---
 # <a name="sql-data-warehouse-workload-classification"></a>SQL Data Warehouse arbetsbelastning klassificering
 
@@ -81,4 +81,7 @@ sp_droprolemember ‘[Resource Class]’, membername
 
 ## <a name="next-steps"></a>Nästa steg
 
-Kom igång med att skapa en klassificerare, se den [skapa ARBETSBELASTNING KLASSIFICERARE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql).  Läs mer om SQL Data Warehouse arbetsbelastning klassificering och vikten [skapa en arbetsbelastning klassificerare](quickstart-create-a-workload-classifier-tsql.md) och [SQL Data Warehouse vikten](sql-data-warehouse-workload-importance.md). Se [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) visa frågor och den prioritet som tilldelas.
+- Mer information om hur du skapar en klassificerare finns i den [skapa ARBETSBELASTNING KLASSIFICERARE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql).  
+- Se Snabbstart om hur du skapar en arbetsbelastning klassificerare [skapa en arbetsbelastning klassificerare](quickstart-create-a-workload-classifier-tsql.md).
+- Se anvisningar för att [konfigurera arbetsbelastning vikten](sql-data-warehouse-how-to-configure-workload-importance.md) och hur du [hantera och övervaka Arbetsbelastningshantering](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).
+- Se [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) visa frågor och den prioritet som tilldelas.

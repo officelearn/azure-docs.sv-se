@@ -105,6 +105,8 @@
       href: language-support.md
     - name: Analys för API för webbsökning i Bing
       href: bing-web-stats.md
+    - name: Efterlevnad
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Support
       items:
         - name: User Voice-forum

@@ -8,21 +8,21 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: hrasheed
-ms.openlocfilehash: f8803a498e62958a5488f2ac8830137c37533e54
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 6ec981164de0ff61b0e83d54255d046a1418ed96
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65413705"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66000108"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters-preview"></a>Skala automatiskt Azure HDInsight-kluster (förhandsversion)
+
+> [!Important]
+> Funktionen för automatisk skalning fungerar bara för Spark, Hive och MapReduce-kluster som skapats efter maj 8 2019. 
 
 Azure HDInsight funktionen för automatisk skalning skalas automatiskt antalet arbetarnoder i ett kluster upp och ned. Andra typer av noder i klustret kan inte skalas för närvarande.  När du skapar ett nytt HDInsight-kluster, kan du ange ett lägsta och högsta antal arbetsnoder. Automatisk skalning övervakar resurskraven för analytics-belastningen sedan och skalar antalet arbetarnoder upp eller ned. Det finns ingen extra kostnad för den här funktionen.
 
 ## <a name="cluster-compatibility"></a>Kluster-kompatibilitet
-
-> [!Important]
-> Funktionen för automatisk skalning fungerar endast för kluster som skapats efter allmän tillgänglighet av funktionen i maj 2019. Det fungerar inte för befintliga kluster.
 
 I följande tabell beskrivs klustertyper och versioner som är kompatibla med funktionen för automatisk skalning.
 
@@ -189,6 +189,25 @@ Du kan skapa ett HDInsight-kluster med schemabaserad automatisk skalning en Azur
 Om du vill aktivera automatisk skalning på ett aktivt kluster, Välj **klusterstorlek** under **inställningar**. Klicka sedan på **aktivera autoskalning**. Välj typ av automatisk skalning som du vill och ange alternativ för att skala baserat på belastning eller schema. Klicka slutligen på **spara**.
 
 ![Aktivera alternativet för worker noden schemabaserad automatisk skalning](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-enable-running-cluster.png)
+
+## <a name="best-practices"></a>Regelverk
+
+### <a name="choosing-load-based-or-schedule-based-scaling"></a>Välja skala baserat på belastning eller schema
+
+Tänk på följande innan du fattar ett beslut om vilket läge du väljer:
+
+* Läsa in avvikelse: belastningen på klustret följer ett konsekvent mönster vid specifika tidpunkter särskilda dagar. Om inte, schemaläggning av belastningen baserat är ett bättre alternativ.
+* SLA-krav: Automatisk skalning skalning är reaktiv i stället för förutsägande. Kommer det att finnas en tillräcklig fördröjning mellan när belastningen börjar ökning och när klustret måste vara på dess Målstorlek? Om det finns strikt SLA-krav och belastningen är ett fast kända mönster, är ”schema” ett bättre alternativ.
+
+### <a name="consider-the-latency-of-scale-up-or-scale-down-operations"></a>Överväg att svarstiden för skala upp eller skala ned åtgärder
+
+Det kan ta 10 till 20 minuter för en skalning åtgärden har slutförts. När du konfigurerar ett anpassat schema, planera för den här fördröjningen. Till exempel i om du behöver klusterstorleken ska vara 20 kl. 9:00, ange schemautlösare till en tidigare tidpunkt, till exempel kl. 8:30, så att den skalning åtgärden har slutförts av 9:00:00.
+
+### <a name="preparation-for-scaling-down"></a>Förberedelser för att skala
+
+Under klustret skalas ned processen, inaktiveras automatisk skalning noder för att uppfylla målstorleken. Om det kör uppgifter på dessa noder, väntar automatisk skalning tills aktiviteterna har slutförts. Eftersom varje arbetsnod fungerar också en roll i HDFS, temp data flyttas till de återstående noderna. Så bör du se att det finns tillräckligt med utrymme på de återstående noderna som värd för alla temp data. 
+
+Jobb som körs kommer att fortsätta att köra och avsluta. Väntande jobb väntar schemaläggas som vanligt med färre tillgängliga arbetarnoder.
 
 ## <a name="monitoring"></a>Övervakning
 

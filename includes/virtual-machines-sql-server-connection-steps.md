@@ -4,12 +4,12 @@ ms.service: virtual-machines-sql
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
-ms.openlocfilehash: 4d77e9b57301bea30d8a33985071c28e972a81a6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 297317ff33d88d6390220980ef35f2538579e310
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51264036"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66165515"
 ---
 ### <a name="open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine"></a>Öppna TCP-portar i Windows-brandväggen för standardinstansen av databasmotorn
 1. Anslut till den virtuella datorn med Fjärrskrivbord. Detaljerade instruktioner om hur du ansluter till den virtuella datorn finns i [Öppna den virtuella SQL-datorn med Fjärrskrivbord](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md#remotedesktop).
@@ -26,12 +26,12 @@ ms.locfileid: "51264036"
 6. Klicka på **Nästa**.
 7. I dialogrutan **Åtgärd** markerar du **Tillåt anslutningen** och klickar på **Nästa**.
    
-    **Säkerhetstips:** Du får ytterligare skydd om du markerar **Tillåt anslutningen om den är säker**. Välj det här alternativet om du vill konfigurera ytterligare säkerhetsalternativ i din miljö.
+    **Säkerhetsmeddelande:** Att välja **Tillåt anslutningen om den är skyddad** kan ge ytterligare säkerhet. Välj det här alternativet om du vill konfigurera ytterligare säkerhetsalternativ i din miljö.
    
     ![Tillåta anslutningar](./media/virtual-machines-sql-server-connection-steps/15Allow-Connection.png)
 8. Markera **Offentlig**, **Privat** och **Domän** i dialogrutan **Profil**. Klicka sedan på **Nästa**.
    
-    **Säkerhetstips:**  Om du väljer **Offentlig** tillåts åtkomst via Internet. Välj alltid en mer restriktiv profil om det är möjligt.
+    **Säkerhetsmeddelande:**  Att välja **offentliga** tillåts åtkomst via internet. Välj alltid en mer restriktiv profil om det är möjligt.
    
     ![Offentlig profil](./media/virtual-machines-sql-server-connection-steps/16Public-Private-Domain-Profile.png)
 9. Skriv ett namn och en beskrivning för regeln i dialogrutan **Namn** och klicka sedan på **Slutför**.
@@ -55,7 +55,7 @@ SQL Server-databasmotorn kan inte använda Windows-autentisering utan domänmilj
 1. När du är ansluten till den virtuella datorn skriver du **SQL Server Management Studio** på startsidan och klickar sedan på den valda ikonen.
    
     Första gången du öppnar Management Studio måste programmet skapa en Management Studio-miljö för användarna. Det kan ta en stund.
-2. Management Studio presenterar dialogrutan **Anslut till Server**. I rutan **Servernamn** skriver du namnet på den virtuella datorn som ska anslutas till databasmotorn med Object Explorer (i stället för namnet på den virtuella datorn kan du också använda **(lokal)** eller en punkt som **Servernamn**). Välj **Windows-autentisering**, och lämna ***ditt_vm_namn * \your_local_administrator** i den **användarnamn** box. Klicka på **Anslut**.
+2. Management Studio presenterar dialogrutan **Anslut till Server**. I rutan **Servernamn** skriver du namnet på den virtuella datorn som ska anslutas till databasmotorn med Object Explorer (i stället för namnet på den virtuella datorn kan du också använda **(lokal)** eller en punkt som **Servernamn**). Välj **Windows-autentisering**, och lämna ***your_VM_name\your_local_administrator*** i den **användarnamn** box. Klicka på **Anslut**.
    
     ![Anslut till server](./media/virtual-machines-sql-server-connection-steps/19Connect-to-Server.png)
 3. Högerklicka på instansen av SQL Server (namnet på den virtuella datorn) i Object Explorer i SQL Server Management Studio. Klicka sedan på **Egenskaper**.

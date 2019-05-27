@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: johndeu;
-ms.openlocfilehash: b26252ddda7997bebd730bb4c1007f76b3e645a4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b9756920d25891dbe6b71fa24c06ed8f0c8eabb0
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60650717"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65963251"
 ---
 # <a name="smooth-streaming-protocol-ms-sstr-amendment-for-hevc"></a>Jämn direktuppspelning Protocol (MS-SSTR)-tillägg för – HEVC 
 
@@ -40,11 +40,11 @@ Följande villkor är definierade i *[MS-GLOS]*:
 
 Följande villkor är specifika för det här dokumentet:
 
->  **sammansättning tid:** Tid ett exempel presenteras på klienten, som definieras i [[ISO/IEC-14496-12].](https://go.microsoft.com/fwlink/?LinkId=183695)
+>  **sammansättning tid:** Tid ett exempel presenteras på klienten, som definieras i [[ISO/IEC-14496-12]](https://go.microsoft.com/fwlink/?LinkId=183695).
 > 
 >   **CENC**: Common Encryption och som definierats i [ISO/IEC 23001 7], andra utgåvan.
 > 
->   **avkoda tid:** Tid ett exempel krävs för att att avkoda på klienten, som definieras i [[ISO/IEC https://go.microsoft.com/fwlink/?LinkId=18369514496-12].](https://go.microsoft.com/fwlink/?LinkId=183695)
+>   **avkoda tid:** Tid ett exempel krävs för att att avkoda på klienten, som definieras i [[ISO/IEC 14496-12:2008]](https://go.microsoft.com/fwlink/?LinkId=183695).
 
 **fragment:** En oberoende nedladdningsbara enhet **media** som består av en eller flera **exempel**.
 
@@ -52,11 +52,11 @@ Följande villkor är specifika för det här dokumentet:
 > 
 >   **manifest:** Metadata om den **presentation** som gör det möjligt för en klient att göra begäranden **media**. **media:** Komprimerade data för ljud, video och text som används av klienten för att spela upp en **presentation**. **Mediaformat:** Ett väldefinierat format för att representera ljud- eller videoklipp som en komprimerad **exempel**.
 > 
->   **presentation:** Uppsättningen med alla **strömmar** och tillhörande metadata som behövs för att spela upp en enda film. **Begäran:** Ett HTTP-meddelande som skickats från klienten till servern, enligt definitionen i [[RFC2616].](https://go.microsoft.com/fwlink/?LinkId=90372) **Svar:** Ett HTTP-meddelande som skickats från servern till klienten, enligt definitionen i [[RFC2616].](https://go.microsoft.com/fwlink/?LinkId=90372)
+>   **presentation:** Uppsättningen med alla **strömmar** och tillhörande metadata som behövs för att spela upp en enda film. **Begäran:** Ett HTTP-meddelande som skickats från klienten till servern, enligt definitionen i [[RFC2616]](https://go.microsoft.com/fwlink/?LinkId=90372) **svaret:** Ett HTTP-meddelande som skickats från servern till klienten, enligt definitionen i [[RFC2616]](https://go.microsoft.com/fwlink/?LinkId=90372)
 > 
 >   **Exempel:** Den minsta grundläggande enheten (till exempel en ram) där **media** lagras och bearbetas.
 > 
->   **MAJ, BÖR, MÅSTE, BÖR INTE, FÅR INTE:** Dessa villkor (i versaler) används enligt beskrivningen i [[RFC2119].](https://go.microsoft.com/fwlink/?LinkId=90317) Alla instruktioner för valfritt beteende kan antingen SHOULD eller bör inte.
+>   **MAJ, BÖR, MÅSTE, BÖR INTE, FÅR INTE:** Dessa villkor (i versaler) används enligt beskrivningen i [[RFC2119]](https://go.microsoft.com/fwlink/?LinkId=90317) alla instruktioner för valfritt beteende kan antingen SHOULD eller bör inte.
 
 ## <a name="12-references"></a>1.2-referenser
 
@@ -161,7 +161,7 @@ ProtectionElement skall vara närvarande när gemensam kryptering (CENC) har kop
 > 
 >   * PPSField innehåller sektorn Parameter angetts (PPS).
 > 
->   Obs! Video Parameter angetts (VPS) ingår inte i CodecPrivateData, men ska finnas i filhuvudet lagrade filernas i rutan ”hvcC”. System med hjälp av Smooth Streaming-protokollet måste skicka en signal ytterligare avkodning parametrar (till exempel – HEVC nivå) med hjälp av det anpassade attributet ”codec”.
+>   Anteckning: Video Parameter angetts (VPS) ingår inte i CodecPrivateData, men ska finnas i filhuvudet lagrade filernas i rutan ”hvcC”. System med hjälp av Smooth Streaming-protokollet måste skicka en signal ytterligare avkodning parametrar (till exempel – HEVC nivå) med hjälp av det anpassade attributet ”codec”.
 
 ##### <a name="22251-customattributeselement"></a>2.2.2.5.1 CustomAttributesElement 
 
@@ -211,7 +211,7 @@ ProtectionElement skall vara närvarande när gemensam kryptering (CENC) har kop
 > 
 >   enligt definitionen i [[ISO/IEC-14496-12].](https://go.microsoft.com/fwlink/?LinkId=183695)
 > 
->   Obs! Detta förhindrar en video synkroniseringsfel på grund av video släpar ljud som motsvarar den största avkodade bild buffert borttagning fördröjningen och underhåller presentation tidsinställning mellan alternativa fragment som kan ha olika borttagning av fördröjningar.
+>   Anteckning: Detta förhindrar en video synkroniseringsfel på grund av video släpar ljud som motsvarar den största avkodade bild buffert borttagning fördröjningen och underhåller presentation tidsinställning mellan alternativa fragment som kan ha olika borttagning av fördröjningar.
 > 
 >   Syntaxen för de fält som definierats i det här avsnittet anges i ABNF [[RFC5234]](https://go.microsoft.com/fwlink/?LinkId=123096) förblir detsamma utom på följande sätt:
 > 

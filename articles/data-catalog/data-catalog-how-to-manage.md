@@ -8,12 +8,12 @@ ms.assetid: 623f5ed4-8da7-48f5-943a-448d0b7cba69
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 0b155a5cdfa1c540e1cfb92147f6ebc7f88dd929
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 407e25b7bb1a2220448c9701bbef208195c50b63
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61003720"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65953106"
 ---
 # <a name="manage-data-assets-in-azure-data-catalog"></a>Hantera datatillgångar i Azure Data Catalog
 ## <a name="introduction"></a>Introduktion
@@ -52,7 +52,7 @@ Om en datatillgång ägs redan, kan inte andra användare bara bli ägare. De m�
 ### <a name="remove-owners"></a>Ta bort ägare
 Precis som alla tillgångens ägare kan lägga till Medägare måste alla tillgångens ägare kan ta bort alla Medägare.
 
-En tillgångsägare som tar bort sig själv som ägare kan inte längre hantera tillgången. Om tillgångens ägare tar bort sig själv som ägare och det finns inga andra Medägare, återgår tillgången till oägd status.
+En tillgångsägare som tar bort själva som ägare kan inte längre hantera tillgången. Om tillgångens ägare tar bort själva som ägare och det finns inga andra Medägare, återgår tillgången till oägd status.
 
 ## <a name="control-visibility"></a>Kontrollen synlighet
 Data-tillgångsägare kan styra synligheten för de dataresurser som de äger. Om du vill begränsa synligheten som standard, där alla Data Catalog-användare kan identifiera och visa datatillgången, tillgångens ägare kan växla synlighetsinställningen från **alla** till **ägare och dessa användare** i Egenskaper för tillgången. Ägare kan sedan lägga till specifika användare och säkerhetsgrupper.

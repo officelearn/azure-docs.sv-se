@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/05/2019
 ms.author: wgries
 ms.custom: include file
-ms.openlocfilehash: b480f9720cabddbba9e9c35c12ca1f8dda7ab5ab
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 2614c9290bf31813d59ee753a31622bccf0682b8
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190009"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66114528"
 ---
 | Resource | Mål | Hård gräns |
 |----------|--------------|------------|
@@ -23,10 +23,12 @@ ms.locfileid: "65190009"
 | Molnslutpunkter per synkroniseringsgrupp | 1 molnslutpunkt | Ja |
 | Serverslutpunkter per synkroniseringsgrupp | 50 serverslutpunkter | Nej |
 | Serverslutpunkter per server | 30 serverslutpunkter | Ja |
-| Slutpunkten storlek | 4 TiB | Nej |
 | Filsystemobjekt (kataloger och filer) per synkroniseringsgrupp | 25 miljoner objekt | Nej |
 | Maxantalet filsystemsobjekt (kataloger och filer) i en katalog | 1 miljon objekt | Ja |
 | Maximal (kataloger och filer) security descriptor Objektstorlek | 64 KiB | Ja |
 | Filstorlek | 100 giB | Nej |
 | Minsta filstorlek för en fil för att vara nivåindelad | 64 KiB | Ja |
 | Samtidiga synkroniseringssessioner | V4-agenten och senare: Gränsen varierar beroende på tillgängliga systemresurser. <BR> V3 agent: Två active sync-sessioner per processor eller högst åtta active sync-sessioner per server. | Ja
+
+> [!Note]  
+> En slutpunkt för Azure File Sync kan skala upp till storleken på en Azure-filresurs. Om storleksgränsen för Azure file-resursen har nåtts synkroniseringen inte fungerar.

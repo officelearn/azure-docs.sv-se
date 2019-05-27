@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
 ms.openlocfilehash: e23c23196f096b6181291b24645590f61e029349
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50134099"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66131510"
 ---
-| Objekt | Beskrivning | Länk |
+| Objekt | Beskrivning | Länka |
 | --- | --- | --- |
-| Körmiljö |Skriptvärden, utlösare och bindningar, språkstöd |[Öppna ett](https://github.com/Azure/azure-webjobs-sdk-script/issues) |
+| Körning |Skriptvärden, utlösare och bindningar, språkstöd |[Öppna ett](https://github.com/Azure/azure-webjobs-sdk-script/issues) |
 | Mallar |Kod problem med att skapa en mall |[Öppna ett](https://github.com/Azure/azure-webjobs-sdk-templates/issues) |
-| Portalen |Användargränssnittet eller upplevelse problemet |[Öppna ett](https://github.com/ProjectKudu/AzureFunctionsPortal/issues) |
+| Portal |Användargränssnittet eller upplevelse problemet |[Öppna ett](https://github.com/ProjectKudu/AzureFunctionsPortal/issues) |
 

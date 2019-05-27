@@ -8,12 +8,12 @@ ms.assetid: 5a7e6bb2-863c-4eca-b614-1c814920d9ed
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 3a66c8c5963972828723dd74ffe560a0e2240165
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 18dfd9eb66c1dc71ecb14bb748d9cdd6afeb00a7
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61001944"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65953185"
 ---
 # <a name="how-to-annotate-data-sources"></a>Så här kommenterar du datakällor
 ## <a name="introduction"></a>Introduktion
@@ -27,9 +27,9 @@ Data Catalog identifierar att olika användare har olika perspektiv på företag
 * Databasadministratören vet schemat för säkerhetskopiering för varje databas och windows-tillåtna ETL-bearbetningen.
 * Systemets huvudägare vet processen för användare att begära åtkomst till datakällan.
 * Data steward vet hur tillgångar och attribut i datakällan mappar i enterprise-datamodellen.
-* Analytikern vet hur de används i samband med affärsprocesser som han har stöd för.
+* Analytikern vet hur de används i samband med affärsprocesser som de stöder.
 
-Var och en av dessa perspektiv är värdefulla och Data Catalog använder en användargenererade metadata som gör att varje som ska samlas in och används för att ge en heltäckande bild av registrerade datakällor. Med Data Catalog-portalen kan varje användare lägga till och redigera egna anteckningar samtidigt kunna visa kommentarer som tillhandahålls av andra användare.
+Var och en av dessa perspektiv är värdefulla och Data Catalog använder en användargenererade metadata som gör att varje som ska samlas in och används för att ge en heltäckande bild av registrerade datakällor. Med Data Catalog-portalen kan varje användare lägga till och redigera egna anteckningar, samtidigt som det är att visa kommentarer som tillhandahålls av andra användare.
 
 ## <a name="different-types-of-annotations"></a>Olika typer av kommentarer
 Data Catalog stöder följande typer av kommentarer:

@@ -4,15 +4,15 @@ description: Tillgänglighet och prestanda kompromisser för olika konsekvensniv
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: a76e277bf56861bcaefb5bf7f8b3b3bc03ad1164
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 09777a9980e4576a5d00123516e33696e845dcac
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60894036"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65990226"
 ---
 # <a name="consistency-availability-and-performance-tradeoffs"></a>Kompromisser avseende konsekvens, tillgänglighet och prestanda 
 
@@ -55,9 +55,9 @@ Tabellen nedan definierar relationen mellan konsekvens modell och data hållbarh
 |1|En eller flera huvudservrar|Alla konsekvensnivå|< 240 minuter|< 1 vecka|
 |>1|Single Master|Session, konsekventa Prefix, eventuell|< 15 minuter|< 15 minuter|
 |>1|Single Master|Begränsad föråldring|*K* & *T*|< 15 minuter|
+|>1|Single Master|Stark|0|< 15 minuter|
 |>1|Multi-Master|Session, konsekventa Prefix, eventuell|< 15 minuter|0|
 |>1|Multi-Master|Begränsad föråldring|*K* & *T*|0|
-|>1|En eller flera huvudservrar|Stark|0|< 15 minuter|
 
 *K* = antalet *”K”* versioner (t.ex, uppdateringar) av ett objekt.
 

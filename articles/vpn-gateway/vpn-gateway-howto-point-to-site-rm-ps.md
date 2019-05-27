@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 05/21/2019
 ms.author: cherylmc
-ms.openlocfilehash: f3c02e80016e43bdd83218851de5ceb72be7f268
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 822cbc7401de90d63f9079561ced0dfbb911fa2c
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60320268"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65989446"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>Konfigurera en punkt-till-plats-anslutning till ett virtuellt nätverk med intern Azure-certifikatautentisering: PowerShell
 
@@ -55,7 +55,7 @@ Du kan använda exempelvärdena för att skapa en testmiljö eller hänvisa till
 * **Prenumeration:** Om du har mer än en prenumeration kan du kontrollera att du använder rätt.
 * **Resursgrupp: TestRG**
 * **Plats: USA, östra**
-* **DNS-Server: IP-adress** för DNS-servern som du vill använda för namnmatchning. (valfritt)
+* **DNS-Server: IP-adress** för DNS-servern som du vill använda för namnmatchning. (valfri)
 * **GW-namn: Vnet1GW**
 * **Namn på offentlig IP: VNet1GWPIP**
 * **VpnType: Routningsbaserad** 
@@ -131,8 +131,8 @@ Deklarera de variabler som du vill använda. Använd följande exempel och ersä
 Konfigurera och skapa VNet-gatewayen för ditt VNet.
 
 * -GatewayType måste vara **Vpn** och -VpnType måste vara **RouteBased**.
-* -VpnClientProtocol används för att ange vilka typer av tunnlar som ska aktiveras. De två tunnelalternativen är **SSTP** och **IKEv2**. Du kan välja att aktivera den ena typen eller båda. Om du vill aktivera båda anger du båda namnen avgränsade med kommatecken. StrongSwan-klienten i Android och Linux och den inbyggda IKEv2 VPN-klienten i iOS och OSX använder endast IKEv2-tunnlar för att ansluta. Windows-klienter provar IKEv2 först, och går över till SSTP om det inte går att ansluta.
-* Den virtuella nätverksgatewayen ”grundläggande” SKU: N stöder inte IKEv2 eller RADIUS-autentisering. Om du planerar att Mac-klienter ansluter till det virtuella nätverket, Använd inte en grundläggande SKU.
+* -VpnClientProtocol används för att ange vilka typer av tunnlar som ska aktiveras. Tunnelalternativen är **OpenVPN, SSTP** och **IKEv2**. Du kan välja att aktivera en av dem eller någon kombination som stöds. Om du vill aktivera flera typer, anger du namnen avgränsade med kommatecken. OpenVPN och SSTP kan inte aktiveras tillsammans. StrongSwan-klienten i Android och Linux och den inbyggda IKEv2 VPN-klienten i iOS och OSX använder endast IKEv2-tunnlar för att ansluta. Windows-klienter provar IKEv2 först, och går över till SSTP om det inte går att ansluta. Du kan använda OpenVPN-klienten för att ansluta till OpenVPN Tunneltyp.
+* Den virtuella nätverksgatewayen ”grundläggande” SKU: N stöder inte IKEv2, OpenVPN eller RADIUS-autentisering. Om du planerar att Mac-klienter ansluter till det virtuella nätverket, Använd inte en grundläggande SKU.
 * Det kan ta upp till 45 minuter innan en VPN-gateway är klar, beroende på vilken [gateway-sku](vpn-gateway-about-vpn-gateway-settings.md) du väljer. I det här exemplet används IKEv2.
 
 ```azurepowershell-interactive

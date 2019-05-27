@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: billgib, stein
 manager: craigg
 ms.date: 10/16/2018
-ms.openlocfilehash: 8f19303dba7fcf2a9edb325464fdd3748220903e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 350e67f5a1e7e1eab7abe27a6ca851ed2420af84
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61486208"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978531"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>Distribuera och utforska ett delat program för flera innehavare
 
@@ -58,7 +58,7 @@ Följande krav måste uppfyllas för att kunna köra den här självstudiekursen
 ### <a name="plan-the-names"></a>Planera namnen
 
 I stegen i det här avsnittet anger du en *användaren* värde som används för att säkerställa att resursnamn är globalt unikt och ett namn för den *resursgrupp* som innehåller alla resurser som skapades i en distribution appens. För en person med namnet *Ann Finley*, föreslår vi att:
-- *Användare:* **af1**  *(hennes initialer plus en siffra. Använd ett annat värde (t.ex. af2) om du distribuerar appen en gång.)*
+- *Användare:* **af1***(initialer plus en siffra.   Använd ett annat värde (t.ex. af2) om du distribuerar appen en gång.)*
 - *Resursgrupp:* **wingtip-mt-af1** *(wingtip-mt innebär att det är shardad app för flera klienter. Lägga till användaren namnet af1 korrelerar resursgruppens namn med namnen på de resurser som den innehåller.)*
 
 Välj ditt namn nu och Skriv ned dem. 
@@ -210,7 +210,7 @@ Nu titta vi på några av de resurser som har distribuerats:
 
 1. I den [Azure-portalen](https://portal.azure.com), bläddra i listan över resursgrupper. Öppna resursgruppen du skapade när du har distribuerat programmet.
 
-   ![Resursgrupp](./media/saas-multitenantdb-get-started-deploy/resource-group.png)
+   ![resursgrupp](./media/saas-multitenantdb-get-started-deploy/resource-group.png)
 
 2. Klicka på **catalog mt&lt;användaren&gt;**  server. Katalogservern innehåller två databaser med namnet *tenantcatalog* och *basetenantdb*. Den *basetenantdb* databasen är en tom mall-databas. Kopieras för att skapa en ny klientdatabas, oavsett om de används för många klienter eller bara en klient.
 

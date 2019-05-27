@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: b3192d848e77c59d0ff6950e647d1faf172484b5
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 820c89ce352db772f629a99a438ed86448af02fe
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65606406"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65965729"
 ---
 # <a name="what-is-windows-virtual-desktop-preview"></a>Vad är Windows Virtual Desktop förhandsversionen? 
 
@@ -54,11 +54,6 @@ Du kan också tilldela och ansluta användare till dina virtuella skrivbord:
 
 Det finns några saker som du behöver för att konfigurera virtuella Windows-skrivbordet och ansluta dina användare till sina Windows-skrivbord och program.
 
-Virtuella Windows-skrivbordet stöder för närvarande endast följande två OS:
-
-* Windows 10 Enterprise flera session
-* Windows Server 2016
-
 Vi planerar att lägga till stöd för följande operativsystem, så se till att du har den [lämpliga licenser](https://azure.microsoft.com/pricing/details/virtual-desktop/) för dina användare baserat på skrivbordet och appar som du planerar att distribuera:
 
 |Operativsystem|Licens som krävs|
@@ -78,9 +73,7 @@ Din infrastruktur behöver följande för virtuella Windows-skrivbordet:
 Azure-datorer som du skapar för virtuella Windows-skrivbordet måste vara:
 
 * [Standard-domänanslutna](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-comparison) eller [Hybrid AD-anslutna](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan). Virtuella datorer får inte vara Azure AD-anslutning.
-* Kör något av följande stöds OS-avbildningar:
-  * Windows 10 Enterprise flera session
-  * Windows Server 2016
+* Kör något av följande [stöd för OS-avbildningar](#supported-virtual-machine-os-image).
 
 >[!NOTE]
 >Om du behöver en Azure-prenumeration kan du [registrera dig för en månads kostnadsfri utvärderingsversion](https://azure.microsoft.com/free/). Om du använder en kostnadsfri utvärderingsversion av Azure, bör du använda Azure AD Domain Services för att synkronisera dina Windows Server Active Directory med Azure Active Directory.
@@ -92,6 +85,21 @@ För bästa prestanda bör du kontrollera nätverket uppfyller följande krav:
 * Tidszonsbevarande (RTT) svarstid från klientens nätverk till Azure-region där värden pooler har distribuerats bör vara mindre än 150 ms.
 * Nätverkstrafik kan flöda utanför landet/regionen kantlinjer när virtuella datorer som är värdar för skrivbord och appar som ansluter till management-tjänsten.
 * Optimera nätverksprestanda, rekommenderar vi att värd för fjärrskrivbordssession virtuella datorer är samordnad i samma Azure-region som management-tjänsten.
+
+## <a name="supported-remote-desktop-clients"></a>Remote Desktop-klienter som stöds
+
+Följande Remote Desktop-klienter har stöd för virtuella Windows-skrivbordet:
+
+* [Windows](https://docs.microsoft.com/azure/virtual-desktop/connect-windows-7-and-10)
+* [HTML5](https://docs.microsoft.com/azure/virtual-desktop/connect-web)
+
+
+## <a name="supported-virtual-machine-os-image"></a>Stöds den virtuella datoravbildning
+
+Virtuella Windows-skrivbordet stöder följande OS-avbildningar:
+
+* Windows 10 Enterprise flera session
+* Windows Server 2016
 
 ## <a name="provide-feedback"></a>Lämna feedback
 

@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: kgremban
-ms.openlocfilehash: bb47a1b828084673961a6d2c5657793b4437f294
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b7386cbbe18d7e05c2fbffb96f6214b468956192
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65160582"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66151710"
 ---
 # <a name="use-iot-edge-on-windows-to-run-linux-containers"></a>Använd IoT Edge på Windows för att köra Linux-behållare
 
@@ -64,6 +64,13 @@ Du kan läsa mer om olika installationsalternativ och parametrar i artikeln [ins
    * [Visual Studio Code](how-to-register-device-vscode.md)
 
 2. Kör PowerShell som administratör.
+
+   >[!NOTE]
+   >Använd en AMD64-session för PowerShell för att installera IoT Edge, inte PowerShell (x86). Om du inte är säker på vilka sessionstypen som du använder kör du följande kommando:
+   >
+   >```powershell
+   >(Get-Process -Id $PID).StartInfo.EnvironmentVariables["PROCESSOR_ARCHITECTURE"]
+   >```
 
 3. Den **distribuera IoTEdge** kommandot kontrollerar att din Windows-dator på en version som stöds, aktiverar funktionen behållare och laddar sedan ned moby körningen (som inte används för Linux-behållare) och IoT Edge-körningen. Kommando standardinställningarna för Windows-behållare, deklarera så Linux som önskade behållaren operativsystem. 
 

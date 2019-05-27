@@ -7,14 +7,14 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 01/11/2019
-ms.author: adgera
+ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: ffd7d71c33b569b396b9f8babf8105968ee525b9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b77960961a7c032faad7000f7a2ce297802a1497
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60926508"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967044"
 ---
 # <a name="add-blobs-to-objects-in-azure-digital-twins"></a>Lägg till BLOB-objekt till objekt i Azure Digital Twins
 
@@ -51,11 +51,11 @@ JSON-blob-metadata överensstämmer med följande modell:
   }
 ```
 
-| Attribut | Typ | Beskrivning |
+| Attribut | Type | Beskrivning |
 | --- | --- | --- |
 | **parentId** | String | Den överordnade entiteten associera bloben med (blanksteg, enheter eller användare) |
-| **Namn** |String | Ett mänskliga eget namn för blobben |
-| **typ** | String | Vilken typ av blob - kan inte använda *typ* och *typeId*  |
+| **name** |String | Ett mänskliga eget namn för blobben |
+| **type** | String | Vilken typ av blob - kan inte använda *typ* och *typeId*  |
 | **typeId** | Integer | Blob typ-ID - kan inte använda *typ* och *typeId* |
 | **Undertyp** | String | Blob-undertyp - kan inte använda *undertyp* och *subtypeId* |
 | **subtypeId** | Integer | Undertyp-ID: T för blob - kan inte använda *undertyp* och *subtypeId* |
@@ -108,12 +108,12 @@ Individuellt returnerade blobar överensstämmer med följande JSON-schemat:
 }
 ```
 
-| Attribut | Typ | Beskrivning |
+| Attribut | Type | Beskrivning |
 | --- | --- | --- |
 | **ID** | String | Den unika identifieraren för bloben |
-| **Namn** |String | Ett mänskliga eget namn för blobben |
+| **name** |String | Ett mänskliga eget namn för blobben |
 | **parentId** | String | Den överordnade entiteten associera bloben med (blanksteg, enheter eller användare) |
-| **typ** | String | Vilken typ av blob - kan inte använda *typ* och *typeId*  |
+| **type** | String | Vilken typ av blob - kan inte använda *typ* och *typeId*  |
 | **typeId** | Integer | Blob typ-ID - kan inte använda *typ* och *typeId* |
 | **Undertyp** | String | Blob-undertyp - kan inte använda *undertyp* och *subtypeId* |
 | **subtypeId** | Integer | Undertyp-ID: T för blob - kan inte använda *undertyp* och *subtypeId* |

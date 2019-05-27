@@ -14,11 +14,11 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: c160fe39b02d8adf6c12e3736307cf7f9688b0c5
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58483241"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66128441"
 ---
 # <a name="requestdisallowedbypolicy-error-with-azure-resource-policy"></a>Fel med RequestDisallowedByPolicy med Azure-resurs-princip
 
@@ -67,4 +67,4 @@ Lös problemet genom att granska resursprinciperna och kontrollera hur du distri
 Mer information finns i följande artiklar:
 
 - [Vad är Azure Policy?](../governance/policy/overview.md)
-- [Skapa och hantera principer för att tvinga kompatibilitet](../governance/policy/tutorials/create-and-manage.md)
+- [Skapa och hantera principer för att använda kompatibilitet](../governance/policy/tutorials/create-and-manage.md)

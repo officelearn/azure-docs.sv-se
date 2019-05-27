@@ -2,19 +2,18 @@
 title: ta med fil
 description: ta med fil
 services: virtual-network
-author: rockboyfor
+author: genlin
 ms.service: virtual-network
 ms.topic: include
-origin.date: 04/13/2018
-ms.date: 06/11/2018
-ms.author: v-yeche
+ms.date: 04/13/2018
+ms.author: genli
 ms.custom: include file
 ms.openlocfilehash: 588aa260f2ece543445bfd4da7ef4682dab8334c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60309971"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66170312"
 ---
 ## <a name="scenario"></a>Scenario
 För att bättre visar hur du skapar NSG: er, används det här dokumentet följande scenario:
@@ -31,3 +30,4 @@ I det här scenariot skapar du en NSG för varje undernät i den **TestVNet** vi
   * **regel för Web**. Nekar alla internet-bunden trafik från den *serverdel* undernät.
 
 Kombinationen av reglerna skapar en DMZ-liknande-scenario, där det backend-undernätet kan endast ta emot inkommande trafik för SQL från klientdelens undernät och har ingen åtkomst till Internet, medan klientdelsundernätet kan kommunicera med Internet och ta emot inkommande HTTP-begäranden endast.
+

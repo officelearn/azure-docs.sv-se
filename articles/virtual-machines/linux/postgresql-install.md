@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: cynthn
-ms.openlocfilehash: 76f1ddeebb173bf19b15753d12e4374e6365bf8f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5fe5e819c4f1079b6eb1fa8bb19d337ecfed600d
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474235"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955149"
 ---
 # <a name="install-and-configure-postgresql-on-azure"></a>Installera och konfigurera PostgreSQL på Azure
 PostgreSQL är en avancerad databas för öppen källkod liknar Oracle och DB2. Den innehåller företagsklara funktioner, till exempel fullständig ACID efterlevnad, tillförlitlig transaktionsbearbetning och flera versioner samtidighetskontroll. Det stöder även standarder som ANSI SQL och SQL/MED (inklusive externa data omslutningar för Oracle, MySQL, MongoDB och många andra). Det är mycket utökningsbart med stöd för över 12 procedurmässig språk, GIN och GiST index, stöd för spatialdata och flera NoSQL-liknande funktioner för JSON eller nyckel-värde-baserade program.
@@ -232,7 +232,7 @@ Detta tar bort all information på raden ”John”. Utdata är:
 ![image](./media/postgresql-install/no8.png)
 
 ### <a name="update-data-in-a-table"></a>Uppdatera data i en tabell
-Använd följande kommando för att uppdatera data i en tabell. För den här en har Sandy bekräftat att hon var med oss, så vi ändrar sin RSVP från ”N” till ”Y”:
+Använd följande kommando för att uppdatera data i en tabell. För den här en har Sandy bekräftat att de deltar, så vi kommer att ändras RSVP från ”N” till ”Y”:
 
      UPDATE potluck set confirmed = 'Y' WHERE name = 'Sandy';
 

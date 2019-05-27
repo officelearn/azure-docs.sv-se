@@ -12,11 +12,11 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: ea409d6705d0146e9cb32ba11e6b785cf527739c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58904584"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66165960"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Använda anpassade aktiviteter i en Azure Data Factory-pipeline)
 
@@ -67,7 +67,7 @@ Följande JSON definierar ett exempel på Azure Batch-länkad tjänst. Mer infor
 
  Läs mer om Azure Batch-länkade tjänsten i [länkade tjänster för Compute](compute-linked-services.md) artikeln.
 
-## <a name="custom-activity"></a>Anpassad aktivitet
+## <a name="custom-activity"></a>Egen aktivitet
 
 Följande JSON-kodfragmentet definierar en pipeline med en enkel anpassad aktivitet. Aktivitetsdefinitionen innehåller en referens till tjänsten Azure Batch länkad.
 
@@ -100,13 +100,13 @@ I det här exemplet är helloworld.exe ett anpassat program som lagras i mappen 
 
 I följande tabell beskrivs namn och beskrivningar för egenskaper som är specifika för den här aktiviteten.
 
-| Egenskap              | Beskrivning                              | Krävs |
+| Egenskap               | Beskrivning                              | Krävs |
 | :-------------------- | :--------------------------------------- | :------- |
 | namn                  | Namnet på aktiviteten i pipelinen     | Ja      |
-| beskrivning           | Text som beskriver hur aktiviteten ska hantera.  | Nej       |
+| description           | Text som beskriver hur aktiviteten ska hantera.  | Nej       |
 | typ                  | Anpassad aktivitet aktivitetstyp av är **anpassad**. | Ja      |
 | linkedServiceName     | Länkad tjänst till Azure Batch. Mer information om den här länkade tjänsten, se [länkade tjänster för Compute](compute-linked-services.md) artikeln.  | Ja      |
-| command               | Kommandot i anpassade program som ska köras. Om programmet redan är tillgängliga på Azure Batch Pool Node, kan resourceLinkedService och folderPath hoppas över. Du kan till exempel ange kommandot för att vara `cmd /c dir`, som stöds internt av Batch-Pool för Windows-nod. | Ja      |
+| Kommandot               | Kommandot i anpassade program som ska köras. Om programmet redan är tillgängliga på Azure Batch Pool Node, kan resourceLinkedService och folderPath hoppas över. Du kan till exempel ange kommandot för att vara `cmd /c dir`, som stöds internt av Batch-Pool för Windows-nod. | Ja      |
 | resourceLinkedService | Azure Storage länkade tjänsten till det lagringskonto där programmet lagras | Nej&#42;       |
 | folderPath            | Sökvägen till mappen för anpassade program och alla dess beroenden<br/><br/>Om du har beroenden som lagras i undermappar – det vill säga i en hierarkisk mappstruktur under *folderPath* -mappstrukturen för närvarande förenklas när filerna har kopierats till Azure Batch. Det vill säga kopieras alla filer till en enda mapp med utan undermappar. Överväg att komprimerar filerna, kopiera den komprimerade filen och packat upp den med anpassad kod i önskad plats för att undvika problemet. | Nej&#42;       |
 | referenceObjects      | En matris med befintliga länkade tjänster och datauppsättningar. Refererade länkade tjänster och datauppsättningar som skickas till det anpassa programmet i JSON-format så att din anpassade kod kan hänvisa till resurser av Data Factory | Nej       |
@@ -342,7 +342,7 @@ I följande tabell beskrivs skillnaderna mellan Data Factory V2 anpassad aktivit
 |Hur anpassad logik har definierats      |Genom att tillhandahålla en körbar fil      |Genom att implementera ett .NET-DLL      |
 |Körningsmiljö för den anpassade logiken      |Windows- eller Linux      |Windows (.NET Framework 4.5.2)      |
 |Kör skript      |Har stöd för körning av skript direkt (till exempel ”cmd /c echo hello world” på Windows virtuell dator)      |Kräver implementering i .NET-DLL      |
-|Datauppsättning som krävs      |Valfri      |Krävs för att länka aktiviteter och skickar information      |
+|Datauppsättning som krävs      |Valfritt      |Krävs för att länka aktiviteter och skickar information      |
 |Skicka information från aktiviteten till anpassad logik      |Via ReferenceObjects (LinkedServices och datauppsättningar) och ExtendedProperties (anpassade egenskaper)      |Via ExtendedProperties (anpassade egenskaper), indata och utdata datauppsättningar      |
 |Hämta information i anpassad logik      |Parsar activity.json och linkedServices.json datasets.json som lagras i samma mapp på den körbara filen      |Via .NET SDK (.NET bildruta 4.5.2)      |
 |Loggning      |Skriver direkt till STDOUT      |Implementera loggaren i .NET-DLL      |

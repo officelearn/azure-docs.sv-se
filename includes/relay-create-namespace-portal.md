@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: clemensv
 ms.openlocfilehash: bbcf38ab54632144920b729f433c222f426d96dc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60420203"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66111549"
 ---
 1. Logga in på [Azure Portal][Azure portal].
 2. Välj **+ Skapa en resurs** på menyn till vänster. Välj sedan **Integrering** > **Relay**. Om du inte ser **Relay** i listan väljer du **Visa alla** i det övre högra hörnet. 

@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: abnarain
 ms.openlocfilehash: f038510c20e70c9d6b9dc8e396d9a15beb7270ca
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58444616"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66155156"
 ---
 # <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory-with-powershell"></a>Skapa en delad lokal integration runtime i Azure Data Factory med PowerShell
 
@@ -28,7 +28,7 @@ Den här stegvisa guiden visar hur du skapar en delad lokal integration runtime 
 1. Skapa en länkad integration runtime.
 1. Återkalla delning.
 
-## <a name="prerequisites"></a>Förutsättningar 
+## <a name="prerequisites"></a>Nödvändiga komponenter 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

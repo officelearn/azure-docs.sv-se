@@ -7,14 +7,14 @@ ms.suite: integration
 author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
-ms.topic: article
-ms.date: 05/06/2019
-ms.openlocfilehash: b452485ccf235d1f245989e40840f2f0b3b2ae45
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.topic: conceptual
+ms.date: 05/20/2019
+ms.openlocfilehash: bd1f06c93a75673f86f0c52f78cad8a60f7a1a1e
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544512"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65961450"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Ansluta till Azure-nätverk från Azure Logic Apps med hjälp av en integration service-miljö (ISE)
 
@@ -24,7 +24,7 @@ För scenarier där dina logic apps och integrationskonton behöver åtkomst til
 
 Den här artikeln visar hur du utför dessa uppgifter:
 
-* Konfigurera portar på Azure-nätverk så att trafik kan skickas genom din integration service-environment (ISE) i alla undernät i det virtuella nätverket.
+* Kontrollera att alla nödvändiga portar i ett virtuellt nätverk är öppen så att trafik kan skickas genom din integration service-environment (ISE) över undernät i det virtuella nätverket.
 
 * Skapa din integration service-environment (ISE).
 
@@ -60,11 +60,13 @@ Läs mer om integreringstjänstmiljöer [åtkomst till Azure Virtual Network-res
 
 <a name="ports"></a>
 
-## <a name="set-up-network-ports"></a>Konfigurera nätverksportar
+## <a name="check-network-ports"></a>Kontrollera nätverksportar
 
-För att fungera korrekt och håll tillgänglig, måste din integration service-environment (ISE) ha specifika portar som är tillgängliga i det virtuella nätverket. Annars, om något av de här portarna är inte tillgänglig, du kan förlora åtkomst till din ISE som kan sluta fungera. När du använder en ISE i ett virtuellt nätverk ett vanligt installationsproblem har en eller flera blockerade portar. Den koppling som du använder kan också ha en egen portkraven för anslutningar mellan dina ISE och målsystemet. Till exempel om du kommunicera med en FTP-system med hjälp av FTP-anslutningen kontrollerar du den port som du använder på att FTP-system, till exempel port 21 för att skicka kommandon och är tillgänglig.
+När du använder en integration service-miljö (ISE) med ett virtuellt nätverk ett vanligt installationsproblem har en eller flera blockerade portar. De kopplingar som du använder för att skapa anslutningar mellan dina ISE och målsystemet kan också ha sina egna krav på nätverksportar. Till exempel om du kommunicera med en FTP-system med hjälp av FTP-anslutningen kontrollerar du den port som du använder på att FTP-system, till exempel port 21 för att skicka kommandon och är tillgänglig.
 
-Om du vill styra trafiken över det virtuella nätverkets undernät där du distribuerar din ISE kan du ställa in [nätverkssäkerhetsgrupper](../virtual-network/security-overview.md) för dessa undernät av [filtrerar nätverkstrafik mellan undernät](../virtual-network/tutorial-filter-network-traffic.md). Dessa tabeller beskrivs portarna i ditt virtuella nätverk som använder din ISE och där de portarna som får användas. Den [Resource Manager-tjänsttaggar](../virtual-network/security-overview.md#service-tags) representerar en grupp med IP-adressprefix som syfte att minska komplexiteten när du skapar säkerhetsregler.
+Om du vill styra trafiken över det virtuella nätverkets undernät där du distribuerar ISE kan du ställa in [nätverkssäkerhetsgrupper](../virtual-network/security-overview.md) av [filtrerar nätverkstrafik mellan undernät](../virtual-network/tutorial-filter-network-traffic.md). Din ISE måste dock ha specifika portar öppna på det virtuella nätverket som använder nätverkssäkerhetsgrupper. På så sätt kan din ISE förblir tillgängligt och kan fungera korrekt så att du inte förlorar åtkomsten till dina ISE. Annars, om alla nödvändiga portar är otillgängliga din ISE slutar att fungera.
+
+Dessa tabeller beskrivs portarna i ditt virtuella nätverk som använder din ISE och där de portarna som får användas. Den [Resource Manager-tjänsttaggar](../virtual-network/security-overview.md#service-tags) representerar en grupp med IP-adressprefix som syfte att minska komplexiteten när du skapar säkerhetsregler.
 
 > [!IMPORTANT]
 > För intern kommunikation inom dina undernät kräver ISE att du öppnar alla portar i dessa undernät.

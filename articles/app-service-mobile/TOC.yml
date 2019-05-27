@@ -186,18 +186,6 @@
               href: ../app-service/environment/app-service-app-service-environment-network-architecture-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
             - name: Nätverkskonfigurationsinformation med ExpressRoute
               href: ../app-service/environment/app-service-app-service-environment-network-configuration-expressroute.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
-    - name: Migrera
-      items:
-        - name: Hur är App Service jämfört med Mobile Services?
-          href: app-service-mobile-value-prop-migration-from-mobile-services.md
-        - name: Migrera en befintlig mobiltjänst till App Service
-          href: app-service-mobile-migrating-from-mobile-services.md
-        - name: Uppgradera en befintlig mobiltjänst till App Service
-          items:
-            - name: .NET-serverdelen
-              href: app-service-mobile-net-upgrading-from-mobile-services.md
-            - name: Node.js-serverdelen
-              href: app-service-mobile-node-backend-upgrading-from-mobile-services.md
     - name: Skydda
       items:
         - name: Autentisera med identitetsproviders

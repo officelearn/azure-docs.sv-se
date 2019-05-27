@@ -121,6 +121,12 @@
           items:
             - name: Vad är Data Box – tung?
               href: data-box-heavy-overview.md
+        - name: Begrepp
+          items:
+            - name: Granska krav
+              href: data-box-heavy-system-requirements.md
+            - name: Förstå begränsningar
+              href: data-box-heavy-limits.md
     - name: Resurser
       items:
         - name: Data Box-produkt

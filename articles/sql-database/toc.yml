@@ -754,17 +754,3 @@
       href: /azure/architecture/
     - name: Kundberättelser
       href: 'https://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc'
-    - name: Elastiska jobb (inaktuella)
-      items:
-        - name: Elastiska jobb (inaktuella)
-          href: sql-database-elastic-jobs-overview.md
-        - name: Installera elastiska jobb (inaktuellt)
-          href: sql-database-elastic-jobs-service-installation.md
-        - name: Skapa jobb – Portal (inaktuellt)
-          href: sql-database-elastic-jobs-create-and-manage.md
-        - name: Skapa jobb – Azure PowerShell (inaktuellt)
-          href: sql-database-elastic-jobs-powershell.md
-        - name: Skapa jobb – exempelapp (inaktuellt)
-          href: sql-database-elastic-jobs-getting-started.md
-        - name: Avinstallera elastiskt jobb (inaktuellt)
-          href: sql-database-elastic-jobs-uninstall.md

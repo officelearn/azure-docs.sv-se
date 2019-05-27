@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: design
+ms.subservice: load data
 ms.date: 05/10/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: db397ae43d1c134823abfc7004f1f3490addeb06
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: 076a9c2cee5a976d1424a6c101822e374c20e83b
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65550617"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65850555"
 ---
 # <a name="designing-a-polybase-data-loading-strategy-for-azure-sql-data-warehouse"></a>Designa en PolyBase för datainläsning strategi för Azure SQL Data Warehouse
 
@@ -67,12 +67,12 @@ PolyBase läser in data från UTF-8 och UTF-16-kodade textfiler. Förutom avgrä
 |        string         |                             char                             |
 |        string         |                           varchar                            |
 |        binary         |                            binary                            |
-|        binary         |                          Varbinary                           |
-|       tidsstämpel       |                             date                             |
-|       tidsstämpel       |                        smalldatetime                         |
-|       tidsstämpel       |                          datetime2                           |
-|       tidsstämpel       |                           datetime                           |
-|       tidsstämpel       |                             time                             |
+|        binary         |                          varbinary                           |
+|       timestamp       |                             date                             |
+|       timestamp       |                        smalldatetime                         |
+|       timestamp       |                          datetime2                           |
+|       timestamp       |                           datetime                           |
+|       timestamp       |                             time                             |
 |       date        | (1) Läs in som int och konvertera till datum </br> 2) [använder Azure Databricks SQL DW-anslutningen](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse#load-data-into-azure-sql-data-warehouse) med </br> spark.conf.set( "spark.sql.parquet.writeLegacyFormat", "true" ) </br> (**uppdatera kommer snart**) |
 |        decimal        | [Använda Azure Databricks SQL DW-koppling](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse#load-data-into-azure-sql-data-warehouse) med </br> spark.conf.set( "spark.sql.parquet.writeLegacyFormat", "true" ) </br> (**uppdatera kommer snart**) |
 

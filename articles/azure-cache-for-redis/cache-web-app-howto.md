@@ -15,18 +15,18 @@ ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 0c267b2fbe639d08396d8773e077483b41b9747e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bac43ef17116dcb2d6a6bb3dd7c1617d91a010d9
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60830542"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864825"
 ---
 # <a name="quickstart-create-an-aspnet-web-app"></a>Snabbstart: Skapa en ASP.NET-webbapp 
 
 ## <a name="introduction"></a>Introduktion
 
-I den här snabbstarten får du veta hur du skapar och distribuerar en ASP.NET-webbapp till Azure App Service med hjälp av Visual Studio 2017. Exempelprogrammet ansluter till Azure Cache for Redis när du ska lagra och hämta data från cachen. När du är klar med snabbstarten har du en fungerande webbapp, som finns i Azure och som läser och skriver till Azure Cache for Redis.
+Den här snabbstarten visar hur du skapar och distribuerar en ASP.NET-webbapp till Azure App Service med hjälp av Visual Studio 2019. Exempelprogrammet ansluter till Azure Cache for Redis när du ska lagra och hämta data från cachen. När du är klar med snabbstarten har du en fungerande webbapp, som finns i Azure och som läser och skriver till Azure Cache for Redis.
 
 ![Enkelt test slutfört – Azure](./media/cache-web-app-howto/cache-simple-test-complete-azure.png)
 
@@ -34,7 +34,7 @@ I den här snabbstarten får du veta hur du skapar och distribuerar en ASP.NET-w
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-För att kunna utföra den här snabbstarten måste du installera [Visual Studio 2017](https://www.visualstudio.com/downloads/) med följande miljöer:
+För att du har slutfört snabbstarten kan du behöva installera [Visual Studio 2019](https://www.visualstudio.com/downloads/) med följande miljöer:
 * ASP.NET och webbutveckling
 * Azure Development
 
@@ -301,7 +301,7 @@ Lägg till en ny appinställning när den nya appen har publicerats. Den här in
 
 2. Lägg till en ny appinställning med namnet **CacheConnection** som appen ska använda för att ansluta till cachen. Använd samma värde som du har konfigurerat för `CacheConnection` i filen *CacheSecrets.config*. Värdet innehåller cachens värdnamn och åtkomstnyckel.
 
-    ![Lägga till appinställning](./media/cache-web-app-howto/cache-add-app-setting.png)
+    ![Lägg till appinställning](./media/cache-web-app-howto/cache-add-app-setting.png)
 
 ### <a name="run-the-app-in-azure"></a>Köra appen i Azure
 
@@ -326,7 +326,7 @@ Om du är klar med exempelappen i snabbstarten kan du ta bort Azure-resurserna s
 
 2. Skriv namnet på din resursgrupp i rutan **Filtrera efter namn...**. Anvisningarna för den här artikeln använde en resursgrupp med namnet *TestResources*. På din resursgrupp i resultatlistan väljer du **...** och sedan **Ta bort resursgrupp**.
 
-    ![Ta bort](./media/cache-web-app-howto/cache-delete-resource-group.png)
+    ![Radera](./media/cache-web-app-howto/cache-delete-resource-group.png)
 
 Du blir ombedd att bekräfta borttagningen av resursgruppen. Skriv namnet på din resursgrupp för att bekräfta och välj sedan **Ta bort**.
 

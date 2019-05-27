@@ -11,18 +11,18 @@ ms.author: prasantp
 author: prasanthpul
 ms.date: 04/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: a8bc46011b00a0c63eddd2799ac1309b5754472e
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.openlocfilehash: f1eca5bdd81a384efe04f769ebd12be9d91fc78a
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65442413"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65849730"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-accelerate-ml-models"></a>ONNX och Azure Machine Learning: Skapa och påskynda ML-modeller
 
-Lär dig hur med hjälp av den [öppna Neural Network Exchange](https://onnx.ai) (ONNX) hjälpa dig att optimera dina maskininlärningsmodeller.
+Lär dig hur med hjälp av den [öppna Neural Network Exchange](https://onnx.ai) (ONNX) hjälpa dig att optimera inferens av machine learning-modell. Inferens eller modell bedömning är fasen där distribuerade modellen används för förutsägelse oftast på produktionsdata. 
 
-Optimera maskininlärningsmodeller för inferens är svårt eftersom du behöver justera modellen och inferens-biblioteket för att få ut det mesta av maskinvarukapaciteten. Problemet blir mycket svårt att om du vill få bästa möjliga prestanda på olika typer av plattformar (moln/edge, CPU/GPU osv), eftersom varje har olika funktioner och egenskaper. Komplexiteten ökar om du har modeller från en mängd ramverk som måste köras på en rad olika plattformar. Det tar lång tid att optimera alla olika kombinationer av ramverk och maskinvara. En lösning för att träna en gång i din prioriterade framework och kör var som helst i molnet eller edge krävs. Det här är här ONNX kommer in.
+Optimera maskininlärningsmodeller för inferens (eller modell bedömning) är svårt eftersom du behöver justera modellen och inferens-biblioteket för att få ut det mesta av maskinvarukapaciteten. Problemet blir mycket svårt att om du vill få bästa möjliga prestanda på olika typer av plattformar (moln/edge, CPU/GPU osv), eftersom varje har olika funktioner och egenskaper. Komplexiteten ökar om du har modeller från en mängd ramverk som måste köras på en rad olika plattformar. Det tar lång tid att optimera alla olika kombinationer av ramverk och maskinvara. En lösning för att träna en gång i din prioriterade framework och kör var som helst i molnet eller edge krävs. Det här är här ONNX kommer in.
 
 Microsoft och en community med partner skapade ONNX som en öppen standard för att representera machine learning-modeller. Modeller från [många ramverk](https://onnx.ai/supported-tools) inklusive TensorFlow, PyTorch, lär du dig SciKit, Keras, Chainer, MXNet och MATLAB kan exporteras eller konverteras till standard ONNX-formatet. När modeller finns i ONNX-formatet, kan de köras på en rad olika plattformar och enheter.
 

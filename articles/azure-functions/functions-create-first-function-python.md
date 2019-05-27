@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: 7e2b3424c3d8edc931054dea062280ea7789dc44
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 88e8d543e8bc3c3ae07133ec333b33c4486c2684
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65143056"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864522"
 ---
 # <a name="create-an-http-triggered-function-in-azure"></a>Skapa en HTTP-utlöst funktion i Azure
 
@@ -108,7 +108,7 @@ En undermapp med namnet _HttpTrigger_ skapas, som innehåller följande filer:
 
   Varje bindning kräver en riktning, typ och ett unikt namn. HTTP-utlösaren har en indatabindning av typen [ `httpTrigger` ](functions-bindings-http-webhook.md#trigger) och en utgående bindning av typen [ `http` ](functions-bindings-http-webhook.md#output).
 
-* **__init__.py**: funktion som utlöses av skriptfil som är HTTP. Granska det här skriptet och se att den innehåller en standard `main()`. HTTP-data från utlösaren skickas till den här funktionen med hjälp av den `req` med namnet bindningsparametern. Definierats i function.json, `req` är en instans av den [azure.functions.HttpRequest klass](/python/api/azure-functions/azure.functions.httprequest). 
+* **\_\_init\_\_.py**: funktion som utlöses av skriptfil som är HTTP. Granska det här skriptet och se att den innehåller en standard `main()`. HTTP-data från utlösaren skickas till den här funktionen med hjälp av den `req` med namnet bindningsparametern. Definierats i function.json, `req` är en instans av den [azure.functions.HttpRequest klass](/python/api/azure-functions/azure.functions.httprequest). 
 
     Det returnera objektet, definierad som `$return` i function.json, är en instans av [azure.functions.HttpResponse klass](/python/api/azure-functions/azure.functions.httpresponse). Mer information finns i [Azure Functions HTTP-utlösare och bindningar](functions-bindings-http-webhook.md).
 

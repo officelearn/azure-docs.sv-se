@@ -2,20 +2,20 @@
 title: Definiera datatyper – Azure SQL Data Warehouse | Microsoft Docs
 description: Rekommendationer för att definiera tabelldatatyper i Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: ronortloff
+author: XiaoyuL-Preview
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: development
 ms.date: 04/17/2018
-ms.author: rortloff
+ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: aab51c3dc66a1486e8ad7ced55425a2b49c7dea1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 06a273d3bfd5d416039a992e36bd4b0f72a85f78
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60401773"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65851556"
 ---
 # <a name="table-data-types-in-azure-sql-data-warehouse"></a>Tabelldatatyper i Azure SQL Data Warehouse
 Rekommendationer för att definiera tabelldatatyper i Azure SQL Data Warehouse. 
@@ -50,7 +50,7 @@ WHERE y.[name] IN ('geography','geometry','hierarchyid','image','text','ntext','
 
 I följande lista visas datatyperna som SQL Data Warehouse stöder inte och ger alternativ som du kan använda i stället för datatyperna som stöds inte.
 
-| Datatyp | Lösning |
+| Datatyp | Lösning: |
 | --- | --- |
 | [geometri](/sql/t-sql/spatial-geometry/spatial-types-geometry-transact-sql) |[varbinary](/sql/t-sql/data-types/binary-and-varbinary-transact-sql) |
 | [Geografisk plats](/sql/t-sql/spatial-geography/spatial-types-geography) |[varbinary](/sql/t-sql/data-types/binary-and-varbinary-transact-sql) |

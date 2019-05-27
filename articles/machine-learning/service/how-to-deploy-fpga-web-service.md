@@ -1,7 +1,7 @@
 ---
 title: Distribuera modeller på FPGA
 titleSuffix: Azure Machine Learning service
-description: Lär dig hur du distribuerar en webbtjänst med en modell som körs på en FPGA med Azure Machine Learning-tjänsten för extremt låg latens inferensjobb.
+description: Lär dig hur du distribuerar en webbtjänst med en modell som körs på en FPGA med Azure Machine Learning-tjänsten för extremt låg latens inferens.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,16 +11,16 @@ ms.author: tedway
 author: tedway
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 249a21bf9eeb3913826971fd1aae136197d264c4
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 8d667d45e1831e0fcc939d302a16f63d4a282963
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149616"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65852038"
 ---
 # <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning-service"></a>Distribuera en modell som en webbtjänst på en FPGA med Azure Machine Learning-tjänsten
 
-Du kan distribuera en modell som en webbtjänst på [fältet programmable gate matriser (FPGA)](concept-accelerate-with-fpgas.md) med Azure Machine Learning maskinvara Accelererat-modeller. FPGA ger extremt låg latens inferensjobb, även med en enda gruppstorlek.
+Du kan distribuera en modell som en webbtjänst på [fältet programmable gate matriser (FPGA)](concept-accelerate-with-fpgas.md) med Azure Machine Learning maskinvara Accelererat-modeller. FPGA ger extremt låg latens inferens, även med en enda gruppstorlek. Inferens eller modell bedömning är fasen där distribuerade modellen används för förutsägelse oftast på produktionsdata.
 
 Dessa modeller är tillgängliga:
   - ResNet 50
@@ -32,8 +32,8 @@ Dessa modeller är tillgängliga:
 FPGA är tillgängliga i de här Azure-regioner:
   - Östra USA
   - Sydostasien
-  - Västra Europa
-  - Västra USA 2
+  - Europa, västra
+  - USA, västra 2
 
 > [!IMPORTANT]
 > För att optimera svarstid och dataflöde, måste klienten skickar data till modellen FPGA vara i en av regionerna ovan (det som du har distribuerat modellen till).
@@ -160,9 +160,9 @@ print(output_tensors)
 ```
 
 > [!IMPORTANT]
-> Spara indata och utdata tensors eftersom du behöver dem för konvertering och inferensjobb modellbegäranden.
+> Spara indata och utdata tensors eftersom du behöver dem för konvertering och inferens modellbegäranden.
 
-De tillgängliga modellerna och motsvarande standard klassificeraren utdata tensors är nedan, vilket är vad du använder under inferensjobb om du använder standard-klassificerare.
+De tillgängliga modellerna och motsvarande standard klassificeraren utdata tensors är nedan, vilket är vad du använder för inferens om du använder standard-klassificerare.
 
 + Resnet50 QuantizedResnet50 ``
 output_tensors = "classifier_1/resnet_v1_50/predictions/Softmax:0"

@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/14/2018
+ms.date: 05/17/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9da23b0c0b0b0c0bfc238b1504811a9c1c55a9ef
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 2caedeb5cd4d0f920ffa49b33b0dca8bea9938cb
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785385"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65861550"
 ---
-# <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Vad är villkor i Azure Active Directory villkorlig åtkomst? 
+# <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Vad är villkor i Azure Active Directory villkorlig åtkomst?
 
-Du kan styra hur användare kommer åt dina appar i molnet med hjälp av [villkorlig åtkomst i Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal). I en princip för villkorlig åtkomst definierar du svaret (”sedan gör du”) att orsaken för att utlösa principen (”när detta sker”). 
+Du kan styra hur användare kommer åt dina appar i molnet med hjälp av [villkorlig åtkomst i Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal). I en princip för villkorlig åtkomst definierar du svaret (”sedan gör du”) att orsaken för att utlösa principen (”när detta sker”).
 
 ![Orsak och svar](./media/conditions/10.png)
 
@@ -37,7 +37,7 @@ I samband med villkorlig åtkomst, **om det här händer** kallas en **villkor**
 ![Princip för villkorlig åtkomst](./media/conditions/61.png)
 
 
-Villkor som du inte har konfigurerat i en princip för villkorlig åtkomst tillämpas inte. Vissa villkor är [obligatorisk](best-practices.md) att tillämpa en princip för villkorlig åtkomst till en miljö. 
+Villkor som du inte har konfigurerat i en princip för villkorlig åtkomst tillämpas inte. Vissa villkor är [obligatorisk](best-practices.md) att tillämpa en princip för villkorlig åtkomst till en miljö.
 
 Den här artikeln är en översikt över villkoren och hur de används i en princip för villkorlig åtkomst. 
 
@@ -73,7 +73,7 @@ Organisationer kan välja mellan följande:
 > [!NOTE]
 > Du kan utesluta specifika appar från en princip. De här apparna är dock fortfarande omfattas av principer som tillämpas på de tjänster som de har åtkomst till.
 
-**Användaråtgärder** uppgifter som kan utföras av en användare. Den enda åtgärden som stöds för närvarande **registrera säkerhetsinformation (förhandsversion)**, vilket gör att principen för villkorlig åtkomst att tvinga när en användare registrerar sina säkerhetsinformation.
+**Användaråtgärder** uppgifter som kan utföras av en användare. Den enda åtgärden som stöds för närvarande **registrera säkerhetsinformation (förhandsversion)**, vilket gör att principen för villkorlig åtkomst att tvinga när användare som har aktiverats för registrering av kombinerade försöker registrera sina säkerhet information. Mer information finns i artikeln [aktivera kombineras security information registrering (förhandsversion)](../authentication/howto-registration-mfa-sspr-combined.md).
 
 ## <a name="sign-in-risk"></a>Inloggningsrisk
 

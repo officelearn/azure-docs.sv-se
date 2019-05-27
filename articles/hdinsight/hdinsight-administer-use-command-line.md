@@ -1,110 +1,98 @@
 ---
-title: Hantera Apache Hadoop-kluster med Azure klassiska CLI - Azure HDInsight
-description: Lär dig hur du använder den klassiska Azure CLI för att hantera Apache Hadoop-kluster i Azure HDInsight.
+title: Hantera Azure HDInsight-kluster med Azure CLI
+description: Lär dig hur du använder Azure CLI för att hantera Azure HDInsight-kluster. Klustertyper som omfattar Apache Hadoop, Spark, HBase, Storm, Kafka, Interactive Query och ML-tjänster.
 ms.reviewer: jasonh
 author: tylerfox
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 05/13/2019
 ms.author: tyfox
-ms.openlocfilehash: 94ef5a60ecc5d943d78b16a386660049cc52d82e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7c12831c43762ddc776e8d5701f002be97992cbc
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64694463"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65859969"
 ---
-# <a name="manage-apache-hadoop-clusters-in-hdinsight-using-the-azure-classic-cli"></a>Hantera Apache Hadoop-kluster i HDInsight med hjälp av den klassiska Azure-CLI
+# <a name="manage-azure-hdinsight-clusters-using-azure-cli"></a>Hantera Azure HDInsight-kluster med Azure CLI
+
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Lär dig hur du använder den [klassiska Azure-CLI](../cli-install-nodejs.md) att hantera [Apache Hadoop](https://hadoop.apache.org/) kluster i Azure HDInsight. Klassisk CLI är implementerat i Node.js. Det kan användas på alla plattformar som har stöd för Node.js, inklusive Windows, Mac- och Linux.
+Lär dig hur du använder [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) att hantera Azure HDInsight-kluster. Kommandoradsgränssnittet för Azure (CLI) är Microsofts plattformsoberoende kommandoradsmiljö för att hantera Azure-resurser.
 
-[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
-Innan du påbörjar den här artikeln måste du ha:
 
-* **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* **Azure klassiskt CLI** – Se [installera och konfigurera den klassiska Azure-CLI](../cli-install-nodejs.md) för information om installation och konfiguration.
-* **Ansluta till Azure**, med följande kommando:
+* Azure CLI. Om du inte har installerat Azure CLI, se [installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) anvisningar.
 
-    ```cli
-    azure login
-    ```
-  
-    Mer information om autentisering med ett arbets- eller skolkonto konto finns i [Anslut till en Azure-prenumeration från den klassiska Azure-CLI](/cli/azure/authenticate-azure-cli).
-* **Växla till läget Azure Resource Manager**, med följande kommando:
-  
-    ```cli
-    azure config mode arm
-    ```
+* Ett Apache Hadoop-kluster på HDInsight. Se [Kom igång med HDInsight på Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
-Om du vill ha hjälp med att använda den **-h** växla.  Exempel:
+## <a name="connect-to-azure"></a>Anslut till Azure
 
-```cli
-azure hdinsight cluster create -h
+Logga in på Azure-prenumerationen. Om du planerar att använda Azure Cloud Shell och sedan markerar du **prova** i det övre högra hörnet i kodblocket. Annars anger du kommandot nedan:
+
+```azurecli-interactive
+az login
+
+# If you have multiple subscriptions, set the one to use
+# az account set --subscription "SUBSCRIPTIONID"
 ```
 
-## <a name="create-clusters-with-the-cli"></a>Skapa kluster med CLI
-Se [Skapa kluster i HDInsight med hjälp av den klassiska Azure-CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md).
+## <a name="list-clusters"></a>En lista över kluster
 
-## <a name="list-and-show-cluster-details"></a>Visa information om kluster
-Använd följande kommandon för att visa information om kluster:
+Använd [az hdinsight lista](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-list) till en lista över kluster. Redigera kommandona nedan genom att ersätta `RESOURCE_GROUP_NAME` med namnet på resursgruppen, sedan ange kommandon:
 
-```cli
-azure hdinsight cluster list
-azure hdinsight cluster show <Cluster Name>
+```azurecli-interactive
+# List all clusters in the current subscription
+az hdinsight list
+
+# List only cluster name and its resource group
+az hdinsight list --query "[].{Cluster:name, ResourceGroup:resourceGroup}" --output table
+
+# List all cluster for your resource group
+az hdinsight list --resource-group RESOURCE_GROUP_NAME
+
+# List all cluster names for your resource group
+az hdinsight list --resource-group RESOURCE_GROUP_NAME --query "[].{clusterName:name}" --output table
 ```
 
-![Kommandoradsverktyget vy över klusterlista][image-cli-clusterlisting]
+## <a name="show-cluster"></a>Visa kluster
+
+Använd [az hdinsight show](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-show) för att visa information för ett kluster som anges. Redigera kommandot nedan genom att ersätta `RESOURCE_GROUP_NAME`, och `CLUSTER_NAME` med relevant information, ange sedan kommando:
+
+```azurecli-interactive
+az hdinsight show --resource-group RESOURCE_GROUP_NAME --name CLUSTER_NAME
+```
 
 ## <a name="delete-clusters"></a>Ta bort kluster
-Använd följande kommando för att ta bort ett kluster:
 
-```cli
-azure hdinsight cluster delete <Cluster Name>
+Använd [az hdinsight bort](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-delete) att ta bort ett kluster som anges. Redigera kommandot nedan genom att ersätta `RESOURCE_GROUP_NAME`, och `CLUSTER_NAME` med relevant information, ange sedan kommando:
+
+```azurecli-interactive
+az hdinsight delete --resource-group RESOURCE_GROUP_NAME --name CLUSTER_NAME
 ```
 
 Du kan också ta bort ett kluster genom att ta bort resursgruppen som innehåller klustret. Observera att detta tar bort alla resurser i gruppen, inklusive standardkontot för lagring.
 
-```cli
-azure group delete <Resource Group Name>
+```azurecli-interactive
+az group delete --name RESOURCE_GROUP_NAME
 ```
 
 ## <a name="scale-clusters"></a>Skala kluster
-Så här ändrar storleken för Apache Hadoop-kluster:
 
-```cli
-azure hdinsight cluster resize [options] <clusterName> <Target Instance Count>
-```
+Använd [az hdinsight ändra storlek på](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) att ändra storlek på det angivna HDInsight-klustret till den angivna storleken. Redigera kommandot nedan genom att ersätta `RESOURCE_GROUP_NAME`, och `CLUSTER_NAME` med relevant information. Ersätt `TARGET_INSTANCE_COUNT` med antalet arbetsnoder för klustret. Läs mer om att skala kluster [skala HDInsight-kluster](./hdinsight-scaling-best-practices.md). Ange kommandot:
 
-
-## <a name="enabledisable-http-access-for-a-cluster"></a>Aktivera/inaktivera HTTP-åtkomst för ett kluster
-
-```cli
-azure hdinsight cluster enable-http-access [options] <Cluster Name> <userName> <password>
-azure hdinsight cluster disable-http-access [options] <Cluster Name>
+```azurecli-interactive
+az hdinsight delete --resource-group RESOURCE_GROUP_NAME --name CLUSTER_NAME --target-instance-count TARGET_INSTANCE_COUNT
 ```
 
 ## <a name="next-steps"></a>Nästa steg
+
 I den här artikeln har du lärt dig hur du utför olika HDInsight-kluster administrativa uppgifter. Mer information finns i följande artiklar:
 
 * [Hantera Apache Hadoop-kluster i HDInsight med hjälp av Azure-portalen](hdinsight-administer-use-portal-linux.md)
-* [Administrera HDInsight med hjälp av Azure PowerShell][hdinsight-admin-powershell]
-* [Kom igång med Azure HDInsight][hdinsight-get-started]
-* [Hur du använder den klassiska Azure-CLI][azure-command-line-tools]
-
-[azure-command-line-tools]: ../cli-install-nodejs.md
-[azure-create-storageaccount]:../storage/common/storage-create-storage-account.md
-[azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
-
-[hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
-[hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md
-
-[image-cli-account-download-import]: ./media/hdinsight-administer-use-command-line/HDI.CLIAccountDownloadImport.png
-[image-cli-clustercreation]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreation.png
-[image-cli-clustercreation-config]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreationConfig.png
-[image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/command-line-list-of-clusters.png "Lista och visa kluster"
+* [Administrera HDInsight med hjälp av Azure PowerShell](hdinsight-administer-use-powershell.md)
+* [Kom igång med Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
+* [Kom igång med Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)

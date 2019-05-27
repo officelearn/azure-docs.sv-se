@@ -12,12 +12,12 @@ ms.reviewer: sstein, carlrab, bonova
 manager: craigg
 ms.date: 03/13/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 08920a25fc7213a773ef0d76a5daddbab3f765c2
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 17609212fcc7620dc0d6d617e7626d12c8bb0592
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64866868"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65852153"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database Managed Instance T-SQL skillnader från SQL Server
 
@@ -46,7 +46,7 @@ Alternativ för distribution av Managed Instance tillhandahåller hög kompatibi
 - [DROP AVAILABILITY GROUP](https://docs.microsoft.com/sql/t-sql/statements/drop-availability-group-transact-sql)
 - Den [ange HADR](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-hadr) -satsen i den [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql) instruktionen
 
-### <a name="backup"></a>Backup
+### <a name="backup"></a>Säkerhetskopiera
 
 Hanterade instanser har automatisk säkerhetskopiering så att användare kan skapa fullständiga databasen `COPY_ONLY` säkerhetskopior. Differentiell, logg och av filögonblicksbilder stöds inte.
 
@@ -471,7 +471,7 @@ Följande variabler, uppgifter och vyer returnerar olika resultat:
 
 ### <a name="tempdb-size"></a>TEMPDB-storlek
 
-Den maximala filstorleken för `tempdb` får inte överskrida 24 GB per kärna på en allmän-nivån. Maximalt `tempdb` storleken på en affärskritisk nivå är begränsad med lagringsstorlek instans. Den `tempdb` databasen alltid upp till 12 datafiler. Den här största storleken per fil inte kan ändras och nya filer som kan läggas till `tempdb`. Några frågor kan returnera ett fel om de behöver mer än 24 GB per kärna i `tempdb`.
+Den maximala filstorleken för `tempdb` får inte överskrida 24 GB per kärna på en allmän-nivån. Maximalt `tempdb` storleken på en affärskritisk nivå är begränsad med lagringsstorlek instans. Den `tempdb` databasen alltid upp till 12 datafiler. Den här största storleken per fil inte kan ändras och nya filer kan inte läggas till `tempdb`. Några frågor kan returnera ett fel om de behöver mer än 24 GB per kärna i `tempdb`. `tempdb` nytt skapas alltid som en tom databas när instansen början eller redundans och eventuella ändra göras i `tempdb` bevaras inte. 
 
 ### <a name="cant-restore-contained-database"></a>Det går inte att återställa innesluten databas
 

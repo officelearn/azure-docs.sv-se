@@ -2,20 +2,20 @@
 title: Analysera data med Azure Machine Learning | Microsoft Docs
 description: Använd Azure Machine Learning för att skapa en förutsägbar Machine Learning-modell som baseras på data lagrade i Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: anumjs
+author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: consume
+ms.subservice: integration
 ms.date: 03/22/2019
-ms.author: anjangsh
+ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 7f9500adc6871c4c9f81c32bf456bc36cf91db4b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cae2acf98f39030f4ff340d32f1911bb2b5763ae
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61440035"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65860830"
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>Analysera data med Azure Machine Learning
 > [!div class="op_single_selector"]
@@ -83,7 +83,7 @@ För att rensa data kommer vi att släppa vissa kolumner som inte är relevanta 
 3. Exkludera två kolumner: CustomerAlternateKey och GeographyKey.
    ![Ta bort onödiga kolumner][5]
 
-## <a name="3-build-the-model"></a>3. Skapa modellen
+## <a name="3-build-the-model"></a>3 Skapa modellen
 Vi delar data 80 – 20: 80% för att träna en maskininlärningsmodell och 20% för att testa modellen. Vi använder ”Tvåklassalgoritmer” för detta binära klassificeringsproblem.
 
 1. Dra modulen **Dela** till arbetsytan.

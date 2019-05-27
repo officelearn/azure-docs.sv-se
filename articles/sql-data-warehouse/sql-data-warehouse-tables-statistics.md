@@ -2,21 +2,21 @@
 title: Skapa, uppdatera statistik – Azure SQL Data Warehouse | Microsoft Docs
 description: Rekommendationer och exempel för att skapa och uppdatera Frågeoptimeringen statistik på tabellerna i Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: ckarst
+author: XiaoyuL-Preview
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: development
 ms.date: 05/09/2018
-ms.author: kevin
-ms.reviewer: jrasnick
+ms.author: xiaoyul
+ms.reviewer: igorstan
 ms.custom: seoapril2019
-ms.openlocfilehash: 7ef5c0a4e6694e9babcb3054831e88d9edceae85
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: c5043d99dd130bc7dc7b35eaa5ecadf11d7644db
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64937277"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65851528"
 ---
 # <a name="table-statistics-in-azure-sql-data-warehouse"></a>Tabellstatistik i Azure SQL Data Warehouse
 
@@ -46,7 +46,7 @@ SET AUTO_CREATE_STATISTICS ON
 
 De här uttrycken utlöser automatisk generering av statistik:
 
-- VÄLJ
+- Välj
 - INSERT-VÄLJ
 - CTAS
 - UPDATE
@@ -469,7 +469,7 @@ AND     st.[user_created] = 1
 
 DBCC SHOW_STATISTICS() visar data som lagras i ett objekt med statistik. Dessa data finns i tre delar:
 
-- Huvud
+- Sidhuvud
 - Densitet vektor
 - Histogram
 

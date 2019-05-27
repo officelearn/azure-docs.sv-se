@@ -5,20 +5,24 @@ services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 12/07/2018
-ms.author: pabutler
-ms.openlocfilehash: 81e33bf37750dd869c3b52be5b2bca49820f47d6
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.date: 05/16/2019
+ms.author: pbutlerm
+ms.openlocfilehash: 08baf908d47cdc6a9bc1e97f88eb5ff509d6790e
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64941900"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65835060"
 ---
 # <a name="azure-saas-application-offer"></a>Azure SaaS-program-erbjudande
 
 Det här avsnittet beskrivs hur du publicerar en programvara som en tjänst (SaaS) program erbjudande till den <a href="https://azuremarketplace.microsoft.com">Azure Marketplace</a>.
 
-Använd SaaS-program när din lösning ska distribueras i din Azure-prenumeration och kunder kommer att logga in via ett användargränssnitt som du utforma och hantera att testa programmet. <a href="https://azure.microsoft.com/services/active-directory">Azure Active Directory (AAD)</a> används för att utnyttja dina befintliga utvärderingsmiljö.
+> [!IMPORTANT] 
+> SaaS erbjuder funktioner håller på att migreras till den [Microsoft Partner Center](https://partner.microsoft.com/dashboard/directory).  Alla nya utgivare måste använda Partner Center för att skapa nya SaaS-erbjudanden och hantering av befintliga erbjudanden.  Aktuella utgivare med SaaS-erbjudanden migreras batchwise från partnerportalen i molnet till Partner Center.  Cloud Partner Portal visar statusmeddelanden för att ange när specifika befintliga erbjudanden har migrerats.
+
+
+Använd SaaS-program när din lösning ska distribueras i din Azure-prenumeration och kunder ska logga in via ett användargränssnitt som du utforma och hantera att testa programmet. <a href="https://azure.microsoft.com/services/active-directory">Azure Active Directory (AAD)</a> används för att utnyttja dina befintliga utvärderingsmiljö.
 
 ## <a name="benefits"></a>Fördelar
 

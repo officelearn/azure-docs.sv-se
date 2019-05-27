@@ -13,32 +13,32 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: a9e902a13071abefff71dc4db089380979c8d459
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 6f743f7ea7fda368fc5895646145f553f3fb50fb
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65198623"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864845"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Kom igång med Azure WebJobs-SDK för händelsedrivna Bakgrundsbearbetning
 
-Den här artikeln visar hur du använder Visual Studio 2017 för att skapa ett projekt med Azure WebJobs SDK, köra det lokalt och sedan distribuera den till [Azure App Service](overview.md). Du har skapat projektet är en .NET Core-konsolapp som använder version 3.x av WebJobs SDK. Om du är intresserad av version 2.x som använder .NET Framework, se [utveckla och distribuera WebJobs med hjälp av Visual Studio – Azure App Service](webjobs-dotnet-deploy-vs.md).
+Den här artikeln visar hur du använder Visual Studio 2019 att skapa ett projekt med Azure WebJobs SDK, köra det lokalt och sedan distribuera den till [Azure App Service](overview.md). Du har skapat projektet är en .NET Core-konsolapp som använder version 3.x av WebJobs SDK. Om du är intresserad av version 2.x som använder .NET Framework, se [utveckla och distribuera WebJobs med hjälp av Visual Studio – Azure App Service](webjobs-dotnet-deploy-vs.md).
 
 Mer information om hur du arbetar med WebJobs SDK finns [hur du använder Azure WebJobs SDK för händelsedrivna Bakgrundsbearbetning](webjobs-sdk-how-to.md).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-* [Installera Visual Studio 2017](/visualstudio/install/) med den **Azure development** arbetsbelastning. Om du redan har Visual Studio men inte har den arbetsbelastningen, lägger du till arbetsbelastningen genom att välja **Verktyg > Hämta verktyg och funktioner**.
+* [Installera Visual Studio 2019](/visualstudio/install/) med den **Azure development** arbetsbelastning. Om du redan har Visual Studio men inte har den arbetsbelastningen, lägger du till arbetsbelastningen genom att välja **Verktyg > Hämta verktyg och funktioner**.
 
 * Du måste ha [ett Azure-konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) att publicera projektet WebJobs SDK på Azure.
 
 ## <a name="create-a-project"></a>Skapa ett projekt
 
-1. I Visual Studio väljer **fil > Nytt > projekt**.
+1. I Visual Studio väljer **skapa ett nytt projekt**.
 
-2. Välj **.NET Core > konsolprogram (.NET Core)**.
+2. Välj **konsolprogram (.NET Core)**.
 
-3. Ge projektet namnet *WebJobsSDKSample*, och välj sedan **OK**.
+3. Ge projektet namnet *WebJobsSDKSample*, och välj sedan **skapa**.
 
    ![Dialogrutan Nytt projekt](./media/webjobs-sdk-get-started/new-project.png)
 
@@ -203,7 +203,7 @@ Azure Storage-emulatorn som körs lokalt har inte alla funktioner som krävs fö
 
 1. Öppna **Server Explorer** i Visual studio och logga in på Azure. Högerklicka på den **Azure** noden och välj sedan **Anslut till Microsoft Azure-prenumeration**.
 
-   ![Logga in på Azure](./media/webjobs-sdk-get-started/sign-in.png)
+   ![Logga in till Azure](./media/webjobs-sdk-get-started/sign-in.png)
 
 1. Under den **Azure** nod i **Server Explorer**, högerklicka på **Storage**, och välj sedan **skapa lagringskonto**.
 

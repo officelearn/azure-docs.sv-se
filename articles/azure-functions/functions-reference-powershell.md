@@ -10,12 +10,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha, glenga
-ms.openlocfilehash: 71ac525e2af7473ca9ce0a8f60268e76eccd1a9a
-ms.sourcegitcommit: 111a7b3e19d5515ce7036287cea00a7204ca8b56
+ms.openlocfilehash: 46b1e5c99dd86fed6f87ac3b8f0ff6555187899b
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64530390"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833523"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Utvecklarguide för Azure Functions PowerShell
 
@@ -23,9 +23,9 @@ Den här artikeln innehåller information om hur du skriver Azure Functions med 
 
 [!INCLUDE [functions-powershell-preview-note](../../includes/functions-powershell-preview-note.md)]
 
-En PowerShell-funktionen visas som ett PowerShell-skript som körs när den utlöses. Varje funktion skript har en relaterad function.json som definierar hur funktionen fungerar, till exempel hur den utlöses och indata-och utdataparametrar. Mer information finns i den [utlösare och bindningen artikeln](functions-triggers-bindings.md). 
+PowerShell Azure-funktion (funktion) visas som ett PowerShell-skript som körs när den utlöses. Varje funktion skript har en relaterad `function.json` -fil som definierar hur funktionen fungerar, till exempel hur den utlöses och dess indata- och parametrar. Mer information finns i den [utlösare och bindningen artikeln](functions-triggers-bindings.md). 
 
-PowerShell-skript tar in-parametrar som matchar namnen på alla indatabindningar som definierats i function.json som andra typer av funktioner. En `TriggerMetadata` parametern skickas också som innehåller ytterligare information för utlösaren som startats funktionen.
+Som andra typer av funktioner, funktioner för PowerShell-skript tar in-parametrar som matchar namnen på alla indatabindningar som definierats i den `function.json` filen. En `TriggerMetadata` parametern skickas också som innehåller ytterligare information för utlösaren som startats funktionen.
 
 Den här artikeln förutsätter att du redan har läst den [Azure Functions för utvecklare](functions-reference.md). Du bör ha slutfört också den [Functions-Snabbstart för PowerShell](functions-create-first-function-powershell.md) att skapa din första PowerShell-funktion.
 
@@ -56,9 +56,9 @@ PSFunctionApp
  | - bin
 ```
 
-I roten av projektet, det finns en delad [host.json](functions-host-json.md) -fil som kan användas för att konfigurera funktionsappen. Varje funktion har en mapp med en egen kodfilen (.ps1) och bindningen konfigurationsfil (function.json). Namnet på `function.json`'s överordnad katalog är alltid namnet på din funktion.
+I roten av projektet, det finns en delad [ `host.json` ](functions-host-json.md) -fil som kan användas för att konfigurera funktionsappen. Varje funktion har en mapp med en egen kodfilen (.ps1) och bindningen konfigurationsfil (`function.json`). Namnet på filen function.json överordnad katalog är alltid namnet på din funktion.
 
-Vissa bindningar kräver förekomsten av en `extensions.csproj`. Bindande tillägg som krävs i [version 2.x](functions-versions.md) av Functions-körning har definierats i den `extensions.csproj` -fil med faktiska library-filer i den `bin` mapp. När du utvecklar lokalt, måste du [registrera tillägg av bindning](functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles). När du utvecklar funktioner i Azure-portalen görs denna registrering för dig.
+Vissa bindningar kräver förekomsten av en `extensions.csproj` fil. Bindande tillägg som krävs i [version 2.x](functions-versions.md) av Functions-körning har definierats i den `extensions.csproj` -fil med faktiska library-filer i den `bin` mapp. När du utvecklar lokalt, måste du [registrera tillägg av bindning](functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles). När du utvecklar funktioner i Azure-portalen görs denna registrering för dig.
 
 I PowerShell-Funktionsappar, kanske du också en `profile.ps1` som körs när en funktionsapp börjar köras (annars känner till som en  *[kallstart](#cold-start)*. Mer information finns i [PowerShell profil](#powershell-profile).
 
@@ -81,7 +81,7 @@ Den `TriggerMetadata` används för att ange ytterligare information om utlösar
 $TriggerMetadata.sys
 ```
 
-| Egenskap    | Beskrivning                                     | Typ     |
+| Egenskap    | Description                                     | Type     |
 |------------|-------------------------------------------------|----------|
 | utcNow     | När, i UTC, funktionen utlöstes        | DateTime |
 | Metodnamn | Namnet på den funktion som utlöstes     | string   |
@@ -133,7 +133,7 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 
 Följande är giltiga parametrar för att anropa `Push-OutputBinding`:
 
-| Namn | Typ | Position | Beskrivning |
+| Namn | Type | Position | Beskrivning |
 | ---- | ---- |  -------- | ----------- |
 | **`-Name`** | String | 1 | Namnet på utdatabindningen som du vill ange. |
 | **`-Value`** | Object | 2 | Värdet för utdatabindningen du vill ange, som accepteras från pipeline ByValue. |
@@ -241,9 +241,9 @@ Loggning i PowerShell-funktioner fungerar som vanliga PowerShell-loggning. Du ka
 | Functions loggningsnivå | Loggning cmdlet |
 | ------------- | -------------- |
 | Fel | **`Write-Error`** |
-| Varning | **`Write-Warning`**  | 
+| Varning! | **`Write-Warning`**  | 
 | Information | **`Write-Information`** <br/> **`Write-Host`** <br /> **`Write-Output`**      | Information | Skriver till _Information_ på loggning. |
-| Felsökning | **`Write-Debug`** |
+| Felsök | **`Write-Debug`** |
 | Spårning | **`Write-Progress`** <br /> **`Write-Verbose`** |
 
 Förutom dessa cmdlets något skrivs till pipelinen omdirigeras till den `Information` loggen och det visas med PowerShell standardformatering.
@@ -302,7 +302,7 @@ HTTP- och webhook-utlösare och HTTP-utdata bindningar använda begäranden och 
 
 Det objekt som skickas till skriptet är av typen `HttpRequestContext`, som har följande egenskaper:
 
-| Egenskap   | Beskrivning                                                    | Typ                      |
+| Egenskap   | Description                                                    | Type                      |
 |-----------|----------------------------------------------------------------|---------------------------|
 | **`Body`**    | Ett objekt som innehåller brödtext för begäran. `Body` serialiseras till den bästa typen baserat på data. Till exempel om data är JSON, skickas den som en hash-tabell. Om data är en sträng, skickas den i som en sträng. | objekt |
 | **`Headers`** | En ordlista som innehåller de begärda rubrikerna.                | Dictionary < sträng, sträng ><sup>*</sup> |
@@ -317,7 +317,7 @@ Det objekt som skickas till skriptet är av typen `HttpRequestContext`, som har 
 
 Svarsobjekt som du ska skicka tillbaka är av typen `HttpResponseContext`, som har följande egenskaper:
 
-| Egenskap       | Beskrivning                                                 | Typ                      |
+| Egenskap       | Description                                                 | Type                      |
 |---------------|-------------------------------------------------------------|---------------------------|
 | **`Body`**  | Ett objekt som innehåller brödtexten i svaret.           | objekt                    |
 | **`ContentType`** | En kort hand för att ställa in innehållstyp för svar. | string                    |

@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 02/28/2019
+ms.date: 05/17/2019
 ms.author: iainfou
-ms.openlocfilehash: faac0f02d1a1b8927fa0c651f44f8b120a583d9a
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 7b983535f862a452c900d0a0a12ae0d79b56f92f
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230143"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65850533"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Kubernetes grundläggande begrepp för Azure Kubernetes Service (AKS)
 
@@ -70,9 +70,9 @@ Om du vill köra dina program och tjänsterna du behöver ett Kubernetes *noden*
 
 Azure VM-storlek för noderna definierar hur många processorer, hur mycket minne och storlek och typ av lagring som är tillgängliga (till exempel högpresterande SSD och regelbundna HDD). Om du räknar behov av program som kräver stora mängder CPU och minne eller lagring med höga prestanda, planera på lämpligt sätt nodstorlek. Du kan även skala upp antalet noder i AKS-kluster för att möta efterfrågan.
 
-I AKS baserat VM-avbildning för noderna i klustret för närvarande på Ubuntu Linux. När du skapar ett AKS-kluster eller skala upp antalet noder, skapar det begärda antalet virtuella datorer i Azure-plattformen och konfigurerar dem. Det finns ingen manuell konfiguration som du kan utföra.
+I AKS baserat VM-avbildning för noderna i klustret för närvarande på Ubuntu Linux eller Windows Server 2019. När du skapar ett AKS-kluster eller skala upp antalet noder, skapar det begärda antalet virtuella datorer i Azure-plattformen och konfigurerar dem. Det finns ingen manuell konfiguration som du kan utföra.
 
-Om du vill använda en annan värd OS, körning av behållare, eller anpassade paket kan du distribuera din egen Kubernetes-kluster med [aks-engine][aks-engine]. Den överordnade `aks-engine` släpper funktioner och ger konfigurationsalternativ innan de stöds officiellt i AKS-kluster. Till exempel om du vill använda Windows-behållare eller en behållare runtime än Moby du kan använda `aks-engine` att konfigurera och distribuera ett Kubernetes-kluster som uppfyller dina befintliga behov.
+Om du vill använda en annan värd OS, körning av behållare, eller anpassade paket kan du distribuera din egen Kubernetes-kluster med [aks-engine][aks-engine]. Den överordnade `aks-engine` släpper funktioner och ger konfigurationsalternativ innan de stöds officiellt i AKS-kluster. Till exempel om du vill använda en behållare runtime än Moby du kan använda `aks-engine` att konfigurera och distribuera ett Kubernetes-kluster som uppfyller dina befintliga behov.
 
 ### <a name="resource-reservations"></a>Resurs-reservationer
 
@@ -104,6 +104,27 @@ Noder i samma konfiguration grupperas tillsammans i *nodpooler*. Ett Kubernetes-
 När du skalar eller uppgradera ett AKS-kluster, utföra åtgärden mot standardpoolen för noden. Du kan också välja att skala eller uppgradera en viss nod-pool. För uppgradering schemaläggs behållare som körs på andra noder i nodpoolen tills alla noder har uppgraderats.
 
 Läs mer om hur du använder flera nodpooler i AKS [skapa och hantera flera nodpooler för ett kluster i AKS][use-multiple-node-pools].
+
+### <a name="node-selectors"></a>Noden väljare
+
+I ett AKS-kluster som innehåller flera nodpooler, kan du behöva berätta vilken nodpoolen som ska användas för en viss resurs för Kubernetes Scheduler. Exempelvis bör inte ingående domänkontrollanter köras på Windows Server-noder (för närvarande i förhandsversion i AKS). Väljare för noden kan du definiera olika parametrar, till exempel att noden OS, kontroll där en pod ska schemaläggas.
+
+I följande grundläggande exempel schemaläggs en NGINX-instans på en Linux-nod med hjälp av noden selector *”beta.kubernetes.io/os”: linux*:
+
+```yaml
+kind: Pod
+apiVersion: v1
+metadata:
+  name: nginx
+spec:
+  containers:
+    - name: myfrontend
+      image: nginx:1.15.12
+  nodeSelector:
+    "beta.kubernetes.io/os": linux
+```
+
+Läs mer om hur du kontroll där poddar schemaläggs [bästa praxis för avancerade scheduler funktioner i AKS][operator-best-practices-advanced-scheduler].
 
 ## <a name="pods"></a>Poddar
 
@@ -248,3 +269,4 @@ Den här artikeln beskriver några av Kubernetes kärnkomponenter samt hur de an
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
 [operator-best-practices-scheduler]: operator-best-practices-scheduler.md
 [use-multiple-node-pools]: use-multiple-node-pools.md
+[operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md

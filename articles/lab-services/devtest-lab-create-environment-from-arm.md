@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 96e3a24b0c9f9ab21652ffcd1b29deeb512581e5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 144fd11e9c1ee3e00412320840e864a3190ccdb0
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60202712"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833990"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Skapa miljöer för flera virtuella datorer och PaaS-resurser med Azure Resource Manager-mallar
 
@@ -54,7 +54,7 @@ Det finns några regler för att följa för att organisera dina Azure Resource 
     ![Nyckeln Azure Resource Manager-mallfiler](./media/devtest-lab-create-environment-from-arm/master-template.png)
 
 - Om du vill använda parametervärden som definierats i en parameterfil parameterfilen måste ha namnet `azuredeploy.parameters.json`.
-- Du kan använda parametrarna `_artifactsLocation` och `_artifactsLocationSasToken` så att DevTest Labs för automatisk hantering av kapslade mallar för att konstruera parametersLink URI-värdet. Mer information finns i [hur Azure DevTest Labs underlättar kapslade resurshanteraren malldistributioner för testmiljöer](https://blogs.msdn.microsoft.com/devtestlab/2017/05/23/how-azure-devtest-labs-makes-nested-arm-template-deployments-easier-for-testing-environments/).
+- Du kan använda parametrarna `_artifactsLocation` och `_artifactsLocationSasToken` så att DevTest Labs för automatisk hantering av kapslade mallar för att konstruera parametersLink URI-värdet. Mer information finns i [distribuera kapslade Azure Resource Manager-mallar för testmiljöer](deploy-nested-template-environments.md).
 - Metadata kan definieras för att ange Mallens visningsnamn och beskrivning. Dessa metadata måste finnas i en fil med namnet `metadata.json`. Metadatafilen följande exempel visar hur du kan ange namn och beskrivning: 
 
     ```json

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: helohr
-ms.openlocfilehash: 8e6783bb56f55949824e4ce94c85145f53dd9f4b
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: a58e059e800b13d01ba8e50880bd75077d4418ae
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523960"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833959"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>Skapa en värdpool med PowerShell
 
@@ -78,6 +78,9 @@ Du har domänanslutning, gör du följande på varje virtuell dator:
 3. Välj **datornamn**väljer **ändra inställningarna för**, och välj sedan **ändringen...**
 4. Välj **domän** och ange sedan Active Directory-domänen i det virtuella nätverket.
 5. Autentisera med ett domänkonto som har behörighet att domänanslutning datorer.
+
+    >[!NOTE]
+    > Om du ska ansluta dina virtuella datorer till en Azure AD DS-miljö, kontrollera att din anslutning till domänanvändare även är medlem i den [AAD DC-administratörsgruppen](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-admingroup#task-3-configure-administrative-group).
 
 ## <a name="register-the-virtual-machines-to-the-windows-virtual-desktop-preview-host-pool"></a>Registrera virtuella datorer till poolen förhandsversion för virtuella skrivbord i Windows-värd
 

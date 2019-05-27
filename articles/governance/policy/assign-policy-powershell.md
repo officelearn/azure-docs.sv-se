@@ -13,7 +13,7 @@ ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2019
-ms.locfileid: "65756508"
+ms.locfileid: "65794660"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-azure-powershell"></a>Snabbstart: Skapa en policytilldelning som identifierar icke-kompatibla resurser med hjälp av Azure PowerShell
 

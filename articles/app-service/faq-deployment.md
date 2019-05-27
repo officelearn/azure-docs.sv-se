@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 9d7fd41657394e006957392f37ec1a258b33c8c6
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: beee76bdc443b3a66b4500b83d228075b84eed1e
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65413869"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864773"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Distribution av vanliga frågor och svar för Web Apps i Azure
 
@@ -38,9 +38,9 @@ Här följer några alternativ för att publicera webbappens kod:
 
 Mer information finns i [distribuera din app till App Service](deploy-local-git.md).
 
-## <a name="i-see-an-error-message-when-i-try-to-deploy-from-visual-studio-how-do-i-resolve-this"></a>Jag får ett felmeddelande när jag försöker distribuera från Visual Studio. Hur löser jag det?
+## <a name="i-see-an-error-message-when-i-try-to-deploy-from-visual-studio-how-do-i-resolve-this-error"></a>Jag får ett felmeddelande när jag försöker distribuera från Visual Studio. Hur löser jag det här felet?
 
-Om du ser följande meddelande, kan du använda en äldre version av SDK: N: ”Ett fel uppstod vid distribution för resursen” YourResourceName ”i resursgruppen” YourResourceGroup ”: MissingRegistrationForLocation: Prenumerationen har inte registrerats för resurstypen ”komponenter' på plats” USA, centrala ”. Registrera den här leverantören för att få tillgång till den här platsen ”. 
+Om du ser följande meddelande, kan du använda en äldre version av SDK: N: ”Ett fel uppstod vid distribution för resursen” YourResourceName ”i resursgruppen” YourResourceGroup ”: MissingRegistrationForLocation: Prenumerationen har inte registrerats för resurstypen ”komponenter' på plats” USA, centrala ”. Omregistrera dig hos den här leverantören för att få tillgång till den här platsen ”. 
 
 Lös felet genom att uppgradera till den [senaste SDK: N](https://azure.microsoft.com/downloads/). Om du ser det här meddelandet och du har den senaste SDK kan skicka en supportförfrågan.
 
@@ -69,11 +69,11 @@ Du kan ställa in kontinuerlig distribution från flera resurser, inklusive Azur
 
 Hjälp med att undersöka problem med kontinuerlig distribution från GitHub eller Bitbucket finns i [undersöka kontinuerlig distribution](https://github.com/projectkudu/kudu/wiki/Investigating-continuous-deployment).
 
-## <a name="i-cant-ftp-to-my-site-and-publish-my-code-how-do-i-resolve-this"></a>Jag kan inte FTP till min webbplats och publicera min kod. Hur löser jag det?
+## <a name="i-cant-ftp-to-my-site-and-publish-my-code-how-do-i-resolve-this-issue"></a>Jag kan inte FTP till min webbplats och publicera min kod. Hur löser jag det här problemet?
 
 Lösa problem som FTP:
 
-1. Kontrollera att du angett rätt värdnamn och autentiseringsuppgifter. Detaljerad information om olika typer av autentiseringsuppgifter och hur de används finns i [distributionsbehörigheterna](https://github.com/projectkudu/kudu/wiki/Deployment-credentials).
+1. Kontrollera att du har angett rätt värdnamn och autentiseringsuppgifter. Detaljerad information om olika typer av autentiseringsuppgifter och hur de används finns i [distributionsbehörigheterna](https://github.com/projectkudu/kudu/wiki/Deployment-credentials).
 2. Kontrollera att FTP-portarna inte blockeras av en brandvägg. Portarna som ska ha de här inställningarna:
     * Anslutningsport för FTP-kontroll: 21
     * Anslutningsport för FTP-data: 989, 10001-10300

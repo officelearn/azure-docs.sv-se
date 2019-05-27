@@ -2,20 +2,20 @@
 title: Med hjälp av T-SQL-slingor i Azure SQL Data Warehouse | Microsoft Docs
 description: Tips för att använda T-SQL-slingor och ersätta markörer i Azure SQL Data Warehouse för utveckling av lösningar.
 services: sql-data-warehouse
-author: ckarst
+author: XiaoyuL-Preview
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: development
 ms.date: 04/17/2018
-ms.author: cakarst
+ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 5aa26aeb27d962e6e6289a754ef57b49158b68db
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c321bc4e493799a50ada4dd91faf2d2ebdee8aba
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61439204"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65850462"
 ---
 # <a name="using-t-sql-loops-in-sql-data-warehouse"></a>Med hjälp av T-SQL-slingor i SQL Data Warehouse
 Tips för att använda T-SQL-slingor och ersätta markörer i Azure SQL Data Warehouse för utveckling av lösningar.

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/02/2019
 ms.author: spelluru
-ms.openlocfilehash: 7cdd185cddbd2403b72ff0e06530913af0b031de
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 865ae0b3f7a7965698a67183a4c820ba71f49cd8
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233123"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833915"
 ---
 # <a name="use-platform-as-a-service-paas-services-in-azure-devtest-labs"></a>Använda Platform-as-a-Service (PaaS) tjänster i Azure DevTest Labs
 PaaS stöds i DevTest Labs via funktionen miljöer. Miljöer i DevTest Labs stöds av förkonfigurerade Azure Resource Manager-mallar i en Git-lagringsplats. Miljöer kan innehålla både PaaS och IaaS-resurser. De gör att du kan skapa komplexa system som kan inkludera Azure-resurser som virtuella datorer, databaser, virtuella nätverk och Web apps, som är anpassade till samarbete. Dessa mallar kan konsekvent distribution och förbättrad hantering av miljöer med källkodskontroll. 
@@ -53,7 +53,7 @@ Det finns vissa anpassat labb-information som ligger utanför resursgruppen och 
 Den [miljöer att ansluta till virtuella labbnätverk](connect-environment-lab-virtual-network.md) artikeln beskrivs hur du ändrar dina Resource Manager-mall som ska användas i `$(LabSubnetId)` token. När en miljö skapas den `$(LabSubnetId)` token ersättas med det första undernät märket där den **användning i virtuell dator skapar** alternativet är inställt på **SANT**. Det gör våra miljö för att använda tidigare skapat nätverk. Om du vill använda samma Resource Manager-mallar i miljöer i testet som mellanlagring och produktion, använda `$(LabSubnetId)` som standard i en mallparameter i Resource Manager. 
 
 #### <a name="environment-storage-account"></a>Miljö Storage-konto
-DevTest Labs stöder användning av [kapslade Resource Manager-mallar](../azure-resource-manager/resource-group-linked-templates.md). Den [hur Azure DevTest Labs underlättar kapslade resurshanteraren malldistributioner för testmiljöer](https://azure.microsoft.com/updates/azure-devtest-labs-streamlined-nested-arm-template-deployment-support-for-arm-template-based-environments) artikeln förklarar hur du använder `_artifactsLocation` och `_artifactsLocationSasToken` -tokens för att skapa en URI för en Resource Manager-mall i samma mapp som eller i en kapslad mapp för den huvudsakliga mallen. Mer information om dessa två token finns i den **distribution artefakter** delen av [Azure Resource Manager – Guide för bästa praxis](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md).
+DevTest Labs stöder användning av [kapslade Resource Manager-mallar](../azure-resource-manager/resource-group-linked-templates.md). Den [[distribuera kapslade Azure Resource Manager-mallar för testmiljöer](deploy-nested-template-environments.md) artikeln förklarar hur du använder `_artifactsLocation` och `_artifactsLocationSasToken` -tokens för att skapa en URI till en Resource Manager-mall i samma mapp som eller i en kapslad mappen för den huvudsakliga mallen. Mer information om dessa två token finns i den **distribution artefakter** delen av [Azure Resource Manager – Guide för bästa praxis](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md).
 
 ## <a name="user-experience"></a>Användarupplevelse
 

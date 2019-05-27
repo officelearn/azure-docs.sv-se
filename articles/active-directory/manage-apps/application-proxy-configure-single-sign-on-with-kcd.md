@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/24/2018
+ms.date: 05/17/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.custom: H1Hack27Feb2017, it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 214d984388869431453267ef18ebf6eb976bc496
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 545906af882be6e53297bf7a9ff2cd12e86d55f0
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65783528"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65859630"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Kerberos-begränsad delegering för enkel inloggning till dina appar med Application Proxy
 
@@ -59,7 +59,8 @@ Active Directory-konfigurationen varierar beroende på om programproxy-kopplinge
 2. Välj den server som kör anslutningstjänsten.
 3. Högerklicka och välj **egenskaper** > **delegering**.
 4. Välj **lita på den här datorn för delegering till angivna tjänster**. 
-5. Under **tjänster som det här kontot kan ge delegerade autentiseringsuppgifter** mervärde SPN-identitet för programservern. På så sätt kan Application Proxy Connector att personifiera användare i AD mot de program som definierats i listan.
+5. Välj **Använd valfritt autentiseringsprotokoll**.
+6. Under **tjänster som det här kontot kan ge delegerade autentiseringsuppgifter** mervärde SPN-identitet för programservern. På så sätt kan Application Proxy Connector att personifiera användare i AD mot de program som definierats i listan.
 
    ![Egenskaper för Server Connector Instanser skärmbild](./media/application-proxy-configure-single-sign-on-with-kcd/Properties.jpg)
 

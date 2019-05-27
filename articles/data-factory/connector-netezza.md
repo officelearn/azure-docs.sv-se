@@ -51,7 +51,7 @@ En typisk anslutningssträng är `Server=<server>;Port=<port>;Database=<database
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | SecurityLevel | Nivån på security (SSL/TLS) som drivrutinen använder för anslutning till datalagret. Exempel: `SecurityLevel=preferredSecured`. Värden som stöds är:<br/>- **Endast oskyddad** (**onlyUnSecured**): Drivrutinen använder inte SSL.<br/>- **Önskad oskyddat (preferredUnSecured) (standard)**: Om servern innehåller ett val, använder drivrutinen inte SSL. <br/>- **Önskad säker (preferredSecured)**: Om servern innehåller ett val, använder drivrutinen SSL. <br/>- **Endast skyddas (onlySecured)**: Drivrutinen inte går att ansluta såvida inte en SSL-anslutning är tillgänglig. | Nej |
-| CUCertfil | Den fullständiga sökvägen till SSL-certifikatet som används av servern. Exempel: `CaCertFile=<cert path>;`| Ja, om SSL är aktiverat |
+| CaCertFile | Den fullständiga sökvägen till SSL-certifikatet som används av servern. Exempel: `CaCertFile=<cert path>;`| Ja, om SSL är aktiverat |
 
 **Exempel**
 

@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b46df5e4ec8352b47f744a507fad702c37aa5fba
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 6ce534c6eeecba220fd829be829caa679df52055
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65075107"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833088"
 ---
 # <a name="scenario-web-app-that-signs-in-users"></a>Scenario: Webbapp som loggar in användare
 
@@ -40,7 +40,7 @@ Om du vill skapa din första bärbar (ASP.NET Core)-webbappar som kan logga in a
 Om du vill att hålla dig med ASP.NET kan prova att använda följande självstudie:
 
 > [!div class="nextstepaction"]
-> [Snabbstart: ASP.NET Core webbapp som loggar in användare](quickstart-v2-aspnet-webapp.md)
+> [Snabbstart: ASP.NET web app som loggar in användare](quickstart-v2-aspnet-webapp.md)
 
 ## <a name="overview"></a>Översikt
 

@@ -10,12 +10,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/26/2019
-ms.openlocfilehash: 58b4acb3ebfc1ff22c04dafb3063f197d2866311
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 74146242ef4084e5990027117689bb1371c3f272
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59005843"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65832220"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-python"></a>Snabbstart: Kontroll som en enhet som är kopplad till en IoT hub (Python)
 
@@ -37,7 +37,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 De två exempelprogram som du kör i den här snabbstarten skrivs med Python. För närvarande stöder endast specifika versioner av Python för varje plattform med Microsoft Azure IoT SDK för Python. Mer information finns i den [Python SDK Readme](https://github.com/Azure/azure-iot-sdk-python#important-installation-notes---dealing-with-importerror-issues).
 
-Den här snabbstarten förutsätter att du använder en Windows-utvecklingsdator. För Windows System [Python 3.6.x](https://www.python.org/downloads/release/python-368/) stöds. Python-installationsprogrammet som du väljer ska baseras på arkitekturen i systemet som du arbetar med. Om systemet processorarkitektur är 32-bitars och sedan ladda ned x86 installer; ladda ned x86-64-installationsprogrammet för 64-bitars-arkitektur. Se även till den [Microsoft Visual C++ Redistributable för Visual Studio 2017](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads) har installerats för din arkitektur (x86 eller x64).
+Den här snabbstarten förutsätter att du använder en Windows-utvecklingsdator. För Windows System [Python 3.6.x](https://www.python.org/downloads/release/python-368/) stöds. Python-installationsprogrammet som du väljer ska baseras på arkitekturen i systemet som du arbetar med. Om systemet processorarkitektur är 32-bitars och sedan ladda ned x86 installer; ladda ned x86-64-installationsprogrammet för 64-bitars-arkitektur. Se även till den [Microsoft Visual C++ Redistributable för Visual Studio 2015, 2017 och 2019](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads) har installerats för din arkitektur (x86 eller x64).
 
 Du kan hämta Python för andra plattformar från [Python.org](https://www.python.org/downloads/).
 

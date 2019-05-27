@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 07/04/2017
 ms.author: robinsh
-ms.openlocfilehash: afa8a77a1c2eabce11af5730ffc5e7b768983589
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cdc0f189daebcda592338b463954efab4fc2db96
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60741038"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864423"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-using-net"></a>Ladda upp filer från din enhet till molnet med IoT Hub med .NET
 
@@ -29,7 +29,7 @@ Den här självstudien bygger på koden i den [skicka meddelanden från moln til
 Den [skickar telemetri från en enhet till IoT hub](quickstart-send-telemetry-dotnet.md) och [skicka meddelanden från moln till enhet med IoT Hub](iot-hub-csharp-csharp-c2d.md) artiklar visar de grundläggande funktionerna av enhet till moln och från moln till enhet meddelanden i IoT Hub. Den [konfigurera meddelanderoutning med IoT Hub](tutorial-routing.md) självstudien beskrivs ett sätt att pålitligt lagra meddelanden från enheten till molnet i Azure blob storage. Men i vissa fall kan inte du enkelt mappa enheterna skickar till relativt liten enhet-till-moln-meddelanden som IoT-hubb tar emot data. Exempel:
 
 * Stora filer som innehåller bilder
-* Videoklipp
+* Videor
 * Vibrationer data samplas med hög frekvens
 * Någon form av förbearbetade data
 
@@ -46,7 +46,7 @@ I slutet av den här kursen kan du köra två .NET-konsolappar:
 
 För att kunna genomföra den här kursen behöver du följande:
 
-* Visual Studio 2017
+* Visual Studio
 * Ett aktivt Azure-konto. (Om du inte har ett konto kan du skapa en [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) på bara några minuter.)
 
 [!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-associate-storage.md)]

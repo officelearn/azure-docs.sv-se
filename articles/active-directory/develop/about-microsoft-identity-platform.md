@@ -17,16 +17,16 @@ ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03a4702ac0f70e3fc280501cd9524ccbfb528678
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 807045089f70e117d46754412d974be7fba5a77a
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546257"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65832505"
 ---
 # <a name="evolution-of-microsoft-identity-platform"></a>Utvecklingen av Microsofts identitetsplattform
 
-Microsoft Identity-plattformen är en utveckling av identitetstjänsten och utvecklingsplattformen Azure Active Directory (Azure AD). Det hjälper utvecklare att bygga program som loggar du in användare och hämta token för att anropa API: er, till exempel Microsoft Graph eller API: er som utvecklare har byggt. Det består av en autentiseringstjänst, bibliotek med öppen källkod, programregistrering och konfiguration (via en developer-portalen och API-program), fullständig utvecklardokumentation, Snabbstart exempel, kodexempel, självstudier, guider, och andra developer-innehåll. Microsoft Identity-plattformen stöder branschstandardprotokoll som OAuth 2.0 och OpenID Connect.
+Microsofts identitetsplattform är en vidareutveckling av utvecklarplattformen för Azure Active Directory (Azure AD). Det hjälper utvecklare att bygga program som loggar du in användare och hämta token för att anropa API: er, till exempel Microsoft Graph eller API: er som utvecklare har byggt. Det består av en autentiseringstjänst, bibliotek med öppen källkod, programregistrering och konfiguration (via en developer-portalen och API-program), fullständig utvecklardokumentation, Snabbstart exempel, kodexempel, självstudier, guider, och andra developer-innehåll. Microsoft Identity-plattformen stöder branschstandardprotokoll som OAuth 2.0 och OpenID Connect.
 
 Fram tills nu, har de flesta utvecklare arbetat med Azure AD v1.0-plattformen för att autentisera arbets- och skolkonton (som tillhandahålls av Azure AD) genom att begära token från Azure AD-v1.0 slutpunkten med hjälp av Azure AD-Autentiseringsbiblioteket (ADAL), Azure-portalen för programregistrering- och konfigurations- och Azure AD Graph API för programmässig programkonfiguration.
 

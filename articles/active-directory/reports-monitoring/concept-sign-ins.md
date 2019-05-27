@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac65a9ac81bca942f9fcbe802fdbf8a0aa3f8248
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b69dca5abddd56b29abf3e482e51b3d2a41612e7
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60288088"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864458"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Rapporter om inloggningsaktiviteter i Azure Active Directory-portalen
 
@@ -97,9 +97,9 @@ Markera ett objekt i listvyn för att få mer detaljerad information.
 Om du vill begränsa vilka data som rapporteras till en nivå som passar dig kan du filtrera inloggningsdata med hjälp av följande standardfält:
 
 - Användare
-- Program
+- Tillämpningsprogram
 - Inloggningsstatus
-- Villkorlig åtkomst
+- Villkorad åtkomst
 - Date
 
 ![Inloggningsaktivitet](./media/concept-sign-ins/04.png "inloggningsaktivitet")
@@ -118,11 +118,11 @@ Den **villkorlig åtkomst** filter kan du välja CA Principstatus för att logga
 
 - Alla
 - Används inte
-- Lyckades
+- Klart
 - Fel
 
 Med filtret **Datum** kan du definiera en tidsram för de data som returneras.  
-Möjliga värden:
+Möjliga värden är:
 
 - 1 månad
 - 7 dagar
@@ -131,21 +131,28 @@ Möjliga värden:
 
 När du väljer en anpassad tidsram kan du konfigurera en starttid och en sluttid.
 
-Om du lägger till ytterligare fält i inloggningsvyn läggs de automatiskt till i listan med filter. Om du till exempel lägger till fältet **Klientapp** i listan får du även ett annat filteralternativ som gör att du kan ange följande filter:
-
-- Webbläsare      
-- Exchange ActiveSync (stöds)               
-- Exchange ActiveSync (stöds inte)
-- Övriga klienter               
-    - IMAP
-    - MAPI
-    - Äldre Office-klienter
-    - POP
-    - SMTP
-
-
+Om du lägger till ytterligare fält i inloggningsvyn läggs de automatiskt till i listan med filter. Om du till exempel lägger till fältet **Klientapp** i listan får du även ett annat filteralternativ som gör att du kan ange följande filter:  
 ![Inloggningsaktivitet](./media/concept-sign-ins/12.png "inloggningsaktivitet")
 
+- **Webbläsare**  
+    Det här filtret visar alla händelser där inloggningsförsök har utförts med webbläsare flöden.
+- **Exchange ActiveSync (stöds)**  
+    Det här filtret visar alla inloggningsförsök där Exchange ActiveSync (EAS)-protokollet har gjorts från plattformar som stöds som iOS, Android och Windows Phone.
+- **Exchange ActiveSync (unSupported)**  
+    Det här filtret visar alla inloggningsförsök där EAS-protokollet har gjorts från plattformar som Linux-distributioner som inte stöds.
+- **Mobilappar och skrivbordsklienter** det här filtret visar alla försök att logga in som inte använder webbläsare flöden. Detta kan vara mobilappar från valfri plattform med valfritt protokoll eller från klientversionen appar som Office på Windows- eller MacOS.
+  
+- **Andra klienter**
+    - **IMAP**  
+        En äldre e-postklient använder IMAP för att hämta e-post.
+    - **MAPI**  
+        Office 2013, där ADAL är aktiverat och den använder MAPI.
+    - **Äldre Office-klienter**  
+        Office 2013 i standardkonfigurationen där ADAL inte är aktiverat och den använder MAPI eller Office 2016 där ADAL har inaktiverats.
+    - **POP**  
+        En äldre e-postklient använder POP3 för att hämta e-post.
+    - **SMTP**  
+        En äldre e-postklient med SMTP skicka e-post.
 
 ## <a name="download-sign-in-activities"></a>Ladda ned inloggningsaktivitet
 
@@ -183,12 +190,12 @@ Det här visas på varje rad i listan med inloggningsaktiviteter:
 
 När du klickar på ett objekt visas mer information om inloggningen:
 
-- Användar-ID
+- Användar-id
 - Användare
 - Användarnamn
 - Program-ID:t
-- Program
-- Client
+- Tillämpningsprogram
+- Klient
 - Location
 - IP-adress
 - Date

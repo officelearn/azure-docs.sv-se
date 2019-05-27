@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 05/21/2019
 ms.author: andret
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c99125d1d17f85e9767dca6d108005e598561cc
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 17aaff1a6da2c18e9b1d915f61844635b1ad130b
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545667"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001448"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Snabbstart: Lägga till inloggning med Microsoft till en ASP.NET-webbapp
 
@@ -199,14 +199,15 @@ Skapa en ny vy i Visual Studio för att visa användarens anspråk på en webbsi
 
 ### <a name="register-your-application-in-the-azure-portal-then-add-its-information-to-webconfig"></a>Registrera ditt program i Azure portal och sedan lägga till dess information till *web.config*
 
-1. Gå till [Appregistreringar på Microsoft Azure-portalen](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) för att registrera ett program.
-2. Välj **Ny programregistrering**.
-3. Ange ett namn för ditt program.
-4. Klistra in Visual Studio-projektets *SSL-URL* i **Inloggnings-URL**. Den här URL: en läggs också automatiskt i listan över svars-URL för programmet som du registrera.
-5. Välj **Skapa** för att registrera programmet. Den här åtgärden tar dig tillbaka till listan med program.
-6. Sök och/eller välj det program som du nyss skapade för att öppna dess egenskaper.
-7. Kopiera GUID under **Program-ID** till Urklipp.
-8. Gå tillbaka till Visual Studio och i `web.config`, Ersätt `Enter_the_Application_Id_here` med program-ID från programmet som du har registrerat.
+1. Logga in på [Azure-portalen](https://portal.azure.com/) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
+2. Om ditt konto ger dig tillgång till fler än en klientorganisation väljer du ditt konto i det övre högra hörnet och ställer in din portalsession på önskad Azure AD-klientorganisation.
+3. Gå till Microsoft identity-plattformen för utvecklare [appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) sidan.
+4. Välj **ny registrering**.
+5. När sidan **Registrera ett program** visas anger du ett namn för programmet.
+6. Under **Kontotyper som stöds** väljer du **Accounts in any organizational directory and personal Microsoft accounts** (Konton i alla organisationskataloger och personliga Microsoft-konton).
+7. Välj den **Web** plattform under den **omdirigerings-URI** avsnittet och ange värdet i Visual Studio-projektet *SSL URL* (den plats som Azure AD returnerar token).
+78. När det är klart väljer du **Registrera**. I appen **översikt** sidan, kopiera den **(klient)-ID: T** värde.
+9. Gå tillbaka till Visual Studio och i `web.config`, Ersätt `Enter_the_Application_Id_here` med program-ID från programmet som du har registrerat.
 
 > [!TIP]
 > Om ditt konto har konfigurerats för åtkomst till flera kataloger kontrollerar du att du har valt rätt katalog för den organisation som du vill att programmet ska registreras för genom att klicka på namnet på ditt konto längst upp till höger på Azure-portalen och verifiera den valda katalogen:<br/>![Välja rätt katalog](./media/quickstart-v1-aspnet-webapp/tenantselector.png)
@@ -289,7 +290,7 @@ Välj hyperlänken för att se användarens anspråk. Den här åtgärden leder 
 
  Du bör se en tabell som innehåller de grundläggande egenskaperna för den inloggade användaren:
 
-| Egenskap  | Value | Beskrivning |
+| Egenskap  | Värde | Beskrivning |
 |---|---|---|
 | Namn | {User Full Name} | Användarens förnamn och efternamn |
 | Användarnamn | <span>user@domain.com</span> | Användarnamnet som används för att identifiera den inloggade användaren |

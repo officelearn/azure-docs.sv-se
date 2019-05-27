@@ -1,5 +1,5 @@
 ---
-title: C#-snabbstart för Azure IoT Hub-enhetsströmmar (förhandsversion) | Microsoft Docs
+title: Kommunicera med en app för enheter i C# via Azure IoT Hub device strömmar (förhandsversion) | Microsoft Docs
 description: I den här snabbstarten kör du två C#-exempelprogram som kommunicerar genom en enhetsström som upprättas via IoT Hub.
 author: rezasherafat
 manager: briz
@@ -10,14 +10,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: rezas
-ms.openlocfilehash: 2853bd5539a40e3b38927f619756fe37a4cec984
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 8df57d3d36dcae851c9c0e23ea609e200a429605
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59006858"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65832924"
 ---
-# <a name="quickstart-communicate-to-device-applications-in-c-via-iot-hub-device-streams-preview"></a>Snabbstart: Kommunicera med enhetsprogram i C# via IoT Hub-enhetsströmmar (förhandsversion)
+# <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>Snabbstart: Kommunicera med ett program för enhet i C# via IoT Hub device strömmar (förhandsversion)
 
 [!INCLUDE [iot-hub-quickstarts-3-selector](../../includes/iot-hub-quickstarts-3-selector.md)]
 
@@ -31,14 +31,15 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Förhandsgranskning av enheten strömmar är för närvarande stöds endast för IoT-hubbar som har skapats i följande regioner:
+*  Förhandsgranskning av enheten strömmar är för närvarande stöds endast för IoT-hubbar som har skapats i följande regioner:
 
-  - **USA, centrala**
-  - **USA, centrala – EUAP**
+   *  **USA, centrala**
+
+   *  **USA, centrala – EUAP**
 
 De två exempelprogram som du kör i den här snabbstarten skrivs med C#. Du måste ha .NET Core SDK 2.1.0 eller senare på utvecklingsdatorn.
 
-Du kan ladda ned .NET Core-SDK:n för flera plattformar från [.NET](https://www.microsoft.com/net/download/all).
+*  Ladda ned den [.NET Core SDK för flera plattformar från .NET](https://www.microsoft.com/net/download/all).
 
 Du kan kontrollera den aktuella versionen av C# på utvecklingsdatorn med följande kommando:
 
@@ -46,17 +47,17 @@ Du kan kontrollera den aktuella versionen av C# på utvecklingsdatorn med följa
 dotnet --version
 ```
 
-Kör följande kommando för att lägga till Microsoft Azure IoT-tillägget för Azure CLI i Cloud Shell-instans. IOT-tillägget lägger till IoT Hub, IoT Edge och IoT Device Provisioning-tjänsten (DPS) för vissa kommandon i Azure CLI.
+*  Kör följande kommando för att lägga till Microsoft Azure IoT-tillägget för Azure CLI i Cloud Shell-instans. IOT-tillägget lägger till IoT Hub, IoT Edge och IoT Device Provisioning-tjänsten (DPS) för vissa kommandon i Azure CLI.
 
-```azurecli-interactive
-az extension add --name azure-cli-iot-ext
-```
+    ```azurecli-interactive
+    az extension add --name azure-cli-iot-ext
+    ```
 
-Ladda ned exempelprojektet för C# från https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip och extrahera ZIP-arkivet. Du behöver den på både enhetssidan och tjänstsidan.
+* Ladda ned exempelprojektet för C# från https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip och extrahera ZIP-arkivet. Du behöver den på både enhetssidan och tjänstsidan.
 
 ## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 
-[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub-device-streams.md)]
+[!INCLUDE [iot-hub-include-create-hub-device-streams](../../includes/iot-hub-include-create-hub-device-streams.md)]
 
 ## <a name="register-a-device"></a>Registrera en enhet
 
@@ -86,7 +87,7 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den h
 
     Du kommer att använda det här värdet senare i snabbstarten.
 
-3. Du behöver även _tjänstanslutningssträngen_ från din IoT-hubb för att göra så att programmet på tjänstsidan kan ansluta till din IoT-hubb och upprätta en enhetsström. Följande kommando hämtar det här värdet för din IoT-hubb:
+3. Du behöver även *tjänstanslutningssträngen* från din IoT-hubb för att göra så att programmet på tjänstsidan kan ansluta till din IoT-hubb och upprätta en enhetsström. Följande kommando hämtar det här värdet för din IoT-hubb:
 
    **YourIoTHubName**: Ersätt platshållaren nedan med det namn du valde för din IoT-hubb.
 
@@ -99,6 +100,8 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den h
    `"HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}"`
 
 ## <a name="communicate-between-device-and-service-via-device-streams"></a>Kommunicera mellan enhet och tjänst via enhetsströmmar
+
+I det här avsnittet kör både enhetssidan programmet och tjänstsidan programmet och kommunicera mellan två.
 
 ### <a name="run-the-service-side-application"></a>Köra programmet på tjänstsidan
 
@@ -154,15 +157,17 @@ dotnet run <DeviceConnectionString>
 
 I slutet av det sista steget initierar programmet på tjänstsidan en dataström till enheten, och när den har upprättats skickas en strängbuffert till tjänsten via dataströmmen. I det här exemplet ekar på tjänstsidan programmet bara tillbaka samma data på enheten, vilket demonstrerar lyckad dubbelriktad kommunikation mellan de två programmen. Se bilden nedan.
 
-Konsolens utdata på enhetssidan: ![alternativ text](./media/quickstart-device-streams-echo-csharp/device-console-output.png "Konsolens utdata på enhetssidan")
+Konsolens utdata på enhetens sida:
 
-Konsolens utdata på tjänstsidan: ![alternativ text](./media/quickstart-device-streams-echo-csharp/service-console-output.png "Konsolens utdata på tjänstsidan")
+![Enhetssidan konsolutdata](./media/quickstart-device-streams-echo-csharp/device-console-output.png)
 
-Den trafik som skickas via en strömmen dirigeras via IoT-hubben i stället för att skickas direkt. Detta ger [dessa fördelar](./iot-hub-device-streams-overview.md#benefits).
+Konsolens utdata på tjänstsidan: ![Konsolens utdata på tjänstsidan](./media/quickstart-device-streams-echo-csharp/service-console-output.png )
+
+Den trafik som skickas via en strömmen dirigeras via IoT-hubben i stället för att skickas direkt. Fördelarna som erbjuds finns beskrivna i [enheten strömmar fördelar](./iot-hub-device-streams-overview.md#benefits).
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-[!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources-device-streams.md)]
+[!INCLUDE [iot-hub-quickstarts-clean-up-resources-device-streams](../../includes/iot-hub-quickstarts-clean-up-resources-device-streams.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

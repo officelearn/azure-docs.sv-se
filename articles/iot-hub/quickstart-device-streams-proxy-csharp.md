@@ -10,39 +10,39 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: rezas
-ms.openlocfilehash: d36737e6007f247777689e2afa9f47b3ad5bf107
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 514c2e0ea1ef33406c6633064434239d8bdd0e3f
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59006653"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833007"
 ---
-# <a name="quickstart-sshrdp-over-iot-hub-device-streams-using-c-proxy-applications-preview"></a>Snabbstart: SSH/RDP över IoT Hub-enhetsströmmar med hjälp av C#-proxyprogram (förhandsversion)
+# <a name="quickstart-sshrdp-over-an-iot-hub-device-stream-using-a-c-proxy-application-preview"></a>Snabbstart: SSH/RDP över en IoT Hub enheten med hjälp av en C# proxyprogrammet (förhandsversion)
 
 [!INCLUDE [iot-hub-quickstarts-4-selector](../../includes/iot-hub-quickstarts-4-selector.md)]
 
 Microsoft Azure IoT Hub stöder för närvarande enheten strömmar som en [förhandsgranskningsfunktion](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-[IoT Hub-enhetsströmmar](./iot-hub-device-streams-overview.md) gör att tjänst- och enhetsprogram kan kommunicera på ett säkert och brandväggsvänligt sätt. Den här snabbstartsguiden omfattar två C#-program som gör att trafik från klient-/servertillämpningar (som SSH och RDP) kan skickas via en enhetsström som upprättas genom IoT Hub. [Här](./iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp) finns en översikt över konfigurationen.
+[IoT Hub-enhetsströmmar](iot-hub-device-streams-overview.md) gör att tjänst- och enhetsprogram kan kommunicera på ett säkert och brandväggsvänligt sätt. Den här snabbstartsguiden omfattar två C#-program som gör att trafik från klient-/servertillämpningar (som SSH och RDP) kan skickas via en enhetsström som upprättas genom IoT Hub. Se [lokal Proxy-exemplet för SSH eller RDP](iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp) en översikt över installationen.
 
 Först beskrivs konfiguration för SSH (via port 22). Sedan beskrivs hur du ändrar konfigurationens port för RDP. Eftersom enhetsströmmar är program- och protokolloberoende kan samma exempel ändras med avseende på andra typer av programtrafik. Detta innebär vanligtvis bara att du ändrar kommunikationsporten till den som används av det avsedda programmet.
 
-## <a name="how-it-works"></a>Hur fungerar det?
+## <a name="how-it-works"></a>Hur det fungerar
 
 I bilden nedan visas konfigurationen för hur de enhets- och tjänstlokala proxyprogrammen i det här exemplet möjliggör slutpunkt till slutpunkt-anslutning mellan SSH-klient och SSH-daemon. Här förutsätter vi att daemon körs på samma enhet som den enhetslokala proxyn.
 
-![Alternativ text](./media/quickstart-device-streams-proxy-csharp/device-stream-proxy-diagram.svg "Konfiguration av lokal proxy")
+![Installationen av lokal webbprogramproxy](./media/quickstart-device-streams-proxy-csharp/device-stream-proxy-diagram.svg)
 
 1. Tjänstlokal proxy ansluter till IoT-hubben och initierar en enhetsström till målenheten via målenhetens enhets-ID.
 
 2. Enhetslokal proxy slutför handskakningen för ströminitiering och upprättar en slutpunkt till slutpunkt-strömningstunnel via IoT-hubbens slutpunkt för direktuppspelning till tjänstsidan.
 
-3. Enhetslokal proxy ansluter till den SSH-daemon (SSHD) som lyssnar på port 22 på enheten (porten kan konfigureras enligt beskrivningen [nedan](#run-the-device-local-proxy)).
+3. Proxy för lokal enhet ansluter till SSH-daemon (SSHD) lyssnar på port 22 på enheten (den här porten är konfigureringsbar, enligt beskrivningen i den [kör avsnittet enhetens lokala Proxy](#run-the-device-local-proxy).
 
-4. Tjänstlokal proxy väntar på nya SSH-anslutningar från användaren genom att lyssna på en avsedd port, vilket i det här fallet är port 2222 (detta kan också konfigureras enligt beskrivningen [nedan](#run-the-service-local-proxy)). När användaren ansluter via SSH-klient gör tunneln så att programtrafik kan växlas mellan SSH-klienten och serverprogram.
+4. Service-lokal proxy väntar på dig för nya SSH-anslutningar från användaren genom att lyssna på en avsedda port som i det här fallet är port 2222 (Detta kan också konfigureras, enligt beskrivningen i den [kör det lokala Tjänstproxy avsnittet](#run-the-service-local-proxy). När användaren ansluter via SSH-klient, kan tunneln programtrafik att utbytas mellan klienten och tjänsten program för SSH.
 
 > [!NOTE]
-> SSH-trafik som skickas via en strömmen dirigeras via IoT-hubbens slutpunkt för direktuppspelning i stället för att skickas direkt mellan tjänst och enhet. Detta ger [dessa fördelar](./iot-hub-device-streams-overview.md#benefits).
+> SSH-trafik som skickas via en strömmen dirigeras via IoT-hubbens slutpunkt för direktuppspelning i stället för att skickas direkt mellan tjänst och enhet. Mer information finns i avsnittet på [enheten strömmar fördelar](./iot-hub-device-streams-overview.md#benefits).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -52,12 +52,13 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 Förhandsgranskning av enheten strömmar är för närvarande stöds endast för IoT-hubbar som har skapats i följande regioner:
 
-  - **USA, centrala**
-  - **USA, centrala – EUAP**
+*  **USA, centrala**
+
+*  **USA, centrala – EUAP**
 
 De två exempelprogram som du kör i den här snabbstarten skrivs med C#. Du måste ha .NET Core SDK 2.1.0 eller senare på utvecklingsdatorn.
 
-Du kan ladda ned .NET Core-SDK:n för flera plattformar från [.NET](https://www.microsoft.com/net/download/all).
+Du kan ladda ned den [.NET Core SDK för flera plattformar från .NET](https://www.microsoft.com/net/download/all).
 
 Du kan kontrollera den aktuella versionen av C# på utvecklingsdatorn med följande kommando:
 
@@ -75,7 +76,7 @@ Ladda ned exempelprojektet för C# från https://github.com/Azure-Samples/azure-
 
 ## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 
-[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub-device-streams.md)]
+[!INCLUDE [iot-hub-include-create-hub-device-streams](../../includes/iot-hub-include-create-hub-device-streams.md)]
 
 ## <a name="register-a-device"></a>Registrera en enhet
 
@@ -105,7 +106,7 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den h
 
     Du kommer att använda det här värdet senare i snabbstarten.
 
-3. Du behöver även _tjänstanslutningssträngen_ från din IoT-hubb för att göra så att programmet på tjänstsidan kan ansluta till din IoT-hubb och upprätta en enhetsström. Följande kommando hämtar det här värdet för din IoT-hubb:
+3. Du behöver även *tjänstanslutningssträngen* från din IoT-hubb för att göra så att programmet på tjänstsidan kan ansluta till din IoT-hubb och upprätta en enhetsström. Följande kommando hämtar det här värdet för din IoT-hubb:
 
    **YourIoTHubName**: Ersätt platshållaren nedan med det namn du valde för din IoT-hubb.
 
@@ -116,9 +117,10 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den h
     Anteckna det returnerade värdet, som ser ut så här:
 
    `"HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}"`
-    
 
 ## <a name="ssh-to-a-device-via-device-streams"></a>SSH till en enhet via enhetsströmmar
+
+I det här avsnittet ska upprätta du en slutpunkt till slutpunkt-dataström för att tunnla SSH-trafik.
 
 ### <a name="run-the-device-local-proxy"></a>Köra den enhetslokala proxyn
 
@@ -174,7 +176,7 @@ dotnet run %serviceConnectionString% MyDevice 2222
 
 ### <a name="run-ssh-client"></a>Köra SSH-klient
 
-Använd nu SSH-klientprogrammet och anslut till den tjänstlokala proxyn på port 2222 (i stället för direkt till SSH-daemon). 
+Använd nu SSH-klientprogrammet och anslut till den tjänstlokala proxyn på port 2222 (i stället för direkt till SSH-daemon).
 
 ```
 ssh <username>@localhost -p 2222
@@ -184,16 +186,15 @@ Nu visas prompten för SSH-inloggning, där du anger dina autentiseringsuppgifte
 
 Konsolens utdata på tjänstsidan (den tjänstlokala proxyn lyssnar på port 2222):
 
-![Alternativ text](./media/quickstart-device-streams-proxy-csharp/service-console-output.png "Utdata för tjänstlokal proxy")
+![Service-lokal proxy-utdata](./media/quickstart-device-streams-proxy-csharp/service-console-output.png)
 
 Konsolens utdata på den enhetslokala proxy som ansluter till SSH-daemon på `IP_address:22`:
 
-]Alternativ text(./media/quickstart-device-streams-proxy-csharp/device-console-output.png "")Utdata för enhetslokal proxy
+![Enhet-lokal proxy-utdata](./media/quickstart-device-streams-proxy-csharp/device-console-output.png)
 
 Konsolens utdata för SSH-klientprogrammet (SSH-klienten kommunicerar med SSH-daemon genom att ansluta till port 22 där den tjänstlokala proxyn lyssnar):
 
-![Alternativ text](./media/quickstart-device-streams-proxy-csharp/ssh-console-output.png "Utdata för SSH-klientprogram")
-
+![Programutdata för SSH-klient](./media/quickstart-device-streams-proxy-csharp/ssh-console-output.png)
 
 ## <a name="rdp-to-a-device-via-device-streams"></a>RDP till en enhet via enhetsströmmar
 
@@ -252,7 +253,7 @@ dotnet run %serviceConnectionString% MyDevice 2222
 
 Använd RDP-klientprogrammet och anslut till den tjänstlokala proxyn på port 2222 (det här var en godtycklig tillgänglig port som du valde tidigare).
 
-![Alternativ text](./media/quickstart-device-streams-proxy-csharp/rdp-screen-capture.PNG "RDP ansluter till tjänstlokal proxy")
+![RDP ansluter till tjänsten-lokal proxy](./media/quickstart-device-streams-proxy-csharp/rdp-screen-capture.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

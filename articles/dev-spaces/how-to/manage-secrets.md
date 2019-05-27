@@ -9,12 +9,12 @@ ms.date: 05/11/2018
 ms.topic: conceptual
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, behållare
-ms.openlocfilehash: 9fe29e8717c76c353f3e95d4693011f3925c4e1b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8ee50289083b12b7b2abd3b9ece2c8de345df9fe
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60686454"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65851439"
 ---
 # <a name="how-to-manage-secrets-when-working-with-an-azure-dev-space"></a>Hantera hemligheter när du arbetar med ett adressutrymme för Azure-utveckling
 
@@ -24,7 +24,7 @@ Azure Dev blanksteg innehåller två rekommenderade alternativ för att lagra he
  
 ## <a name="method-1-valuesdevyaml"></a>Metod 1: values.dev.yaml
 1. Öppna VS Code med ditt projekt som är aktiverad för Azure Dev blanksteg.
-2. Lägg till en fil med namnet _values.dev.yaml_ i samma mapp som befintliga _values.yaml_ och definiera hemlig nyckel och värden, som i följande exempel:
+2. Lägg till en fil med namnet _values.dev.yaml_ i samma mapp som befintliga _azds.yaml_ och definiera hemlig nyckel och värden, som i följande exempel:
 
     ```yaml
     secrets:
@@ -34,12 +34,13 @@ Azure Dev blanksteg innehåller två rekommenderade alternativ för att lagra he
         key: "secretkeyhere"
     ```
      
-3. Uppdatera _azds.yaml_ som talar om Azure Dev blanksteg till den nya _values.dev.yaml_ fil. Gör detta genom att lägga till den här konfigurationen under avsnittet configurations.develop.container:
+3. _azds.yaml_ redan till den _values.dev.yaml_ filen om den finns. Om du föredrar ett annat namn kan du uppdatera avsnittet install.values:
 
     ```yaml
-           container:
-             values:
-             - "charts/webfrontend/values.dev.yaml"
+    install:
+      values:
+      - values.dev.yaml?
+      - secrets.dev.yaml?
     ```
  
 4. Ändra koden för tjänsten att referera till dessa hemligheter som miljövariabler, som i följande exempel:
@@ -76,17 +77,17 @@ Azure Dev blanksteg innehåller två rekommenderade alternativ för att lagra he
           set:
             secrets:
               redis:
-                port: "$REDIS_PORT_DEV"
-                host: "$REDIS_HOST_DEV"
-                key: "$REDIS_KEY_DEV"
+                port: "$REDIS_PORT"
+                host: "$REDIS_HOST"
+                key: "$REDIS_KEY"
     ```
      
 2.  Skapa en _.env_ fil i samma mapp som _azds.yaml_. Ange hemligheter med hjälp av standard nyckel = värde-notering. Inte genomföra den _.env_ filen till källkontroll. (Om du vill utelämna från källkontroll i git-baserade versionskontrollsystem, lägger du till den i den _.gitignore_ fil.) I följande exempel visas en _.env_ fil:
 
     ```
-    REDIS_PORT_DEV=3333
-    REDIS_HOST_DEV=myredishost
-    REDIS_KEY_DEV=myrediskey
+    REDIS_PORT=3333
+    REDIS_HOST=myredishost
+    REDIS_KEY=myrediskey
     ```
 2.  Ändra service källkoden för att referera till dessa hemligheter i kod, som i följande exempel:
 

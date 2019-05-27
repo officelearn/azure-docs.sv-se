@@ -11,12 +11,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 02/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: f5cc86c40f56cee28ff6a6912acd67961285bffc
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 2410787c3307136f827ea7fc34df9a545a59cbf4
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025317"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65850912"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Hantera åtkomst till en Azure Machine Learning-arbetsyta
 
@@ -113,5 +113,5 @@ Mer information finns i [anpassade roller för Azure-resurser](/azure/role-based
 ## <a name="next-steps"></a>Nästa steg
 
 - [Översikt över Enterprise-säkerhet](concept-enterprise-security.md)
-- [Kör säkert experiment och inferensjobb i ett virtuellt nätverk](how-to-enable-virtual-network.md)
+- [Kör säkert experiment och inferens/poäng i ett virtuellt nätverk](how-to-enable-virtual-network.md)
 - [Självstudie: Skapa modeller](tutorial-train-models-with-aml.md)

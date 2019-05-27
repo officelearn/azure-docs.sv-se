@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshoot
 ms.date: 04/08/2019
 ms.author: v-chjenk
-ms.openlocfilehash: 99295fd4581cd81751f7d64b694c853efe51a106
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: f88dee579e44a01dc1a7404ef6a670de34063552
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65522932"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833576"
 ---
 # <a name="remote-desktop-client-connections"></a>Anslutningar för fjärrskrivbordsklienten
 
@@ -28,9 +28,9 @@ Bekräfta att det finns en internet-anslutning genom att öppna en annan webbpla
 
 Använd **nslookup** att bekräfta DNS kan matcha detta FQDN:
 
-    ```cmd
-    nslookup rdweb.wvd.microsoft.com
-    ```
+```cmd
+nslookup rdweb.wvd.microsoft.com
+```
 
 Vill du försöka ansluta med en annan klient, t.ex. fjärrskrivbord-klienten för Windows 7 eller Windows 10 och kontroll att se om du kan öppna webbklienten.
 
@@ -54,7 +54,7 @@ Vill du försöka ansluta med en annan klient, t.ex. fjärrskrivbord-klienten f�
 
 1. Starta om webbläsaren.
 2. Rensa webbläsarcookies. Se [hur du tar bort cookie-filer i Internet Explorer](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer).
-3. Rensa webbläsarens cacheminne. Se [rensa webbläsarens cacheminne för din webbläsare](https://binged.it/2RKyfdU).
+3. Rensa webbläsarens cache. Se [rensa webbläsarens cacheminne för din webbläsare](https://binged.it/2RKyfdU).
 4. Öppna webbläsaren i privat läge.
 
 ## <a name="web-client-stops-responding-or-disconnects"></a>Webbklienten slutar svara eller kopplar
@@ -74,7 +74,7 @@ Om webbklienten håller förfrågning om autentiseringsuppgifter, följer du des
 1. Bekräfta Webbadress för klienten är korrekt.
 2. Kontrollera att autentiseringsuppgifterna är för virtuellt skrivbord i Windows-miljö som är kopplad till URL: en.
 3. Rensa webbläsarcookies. Se [hur du tar bort cookie-filer i Internet Explorer](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer).
-4. Rensa webbläsarens cacheminne. Se [rensa webbläsarens cacheminne för din webbläsare](https://binged.it/2RKyfdU).
+4. Rensa webbläsarens cache. Se [rensa webbläsarens cacheminne för din webbläsare](https://binged.it/2RKyfdU).
 5. Öppna webbläsaren i privat läge.
 
 ## <a name="remote-desktop-client-for-windows-7-or-windows-10-stops-responding-or-cannot-be-opened"></a>Fjärrskrivbordsklient för Windows 7 eller Windows 10 slutar svara eller kan inte öppnas
@@ -111,20 +111,20 @@ De här instruktionerna allmän felsökning för klienten felkoder för anslutni
 4. Med hjälp av **Get-RdsHostPool** och **Get-RdsSessionHost** cmdlet: ar, bekräfta att felsöka görs på rätt värden poolen.
 5. Kör kommandot nedan för att hämta en lista över alla misslyckade aktiviteter av typen anslutning för det angivna tidsfönstret:
 
-    ```cmd
+    ```PowerShell
      Get-RdsDiagnosticActivities -TenantName <TenantName> -username <UPN> -StartTime
      "11/21/2018 1:07:03 PM" -EndTime "11/21/2018 1:27:03 PM" -Outcome Failure -ActivityType Connection
     ```
 
 6. Med hjälp av den **ActivityId** från föregående cmdlet-utdatan, kör du kommandot nedan:
 
-    ```
+    ```PowerShell
     (Get-RdsDiagnosticActivities -TenantName $tenant -ActivityId <ActivityId> -Detailed).Errors
     ```
 
 7. Kommandot producerar utdata som liknar de utdata som visas nedan. Använd **ErrorCodeSymbolic** och **ErrorMessage** att felsöka rotorsaken.
 
-    ```
+    ```PowerShell
     ErrorSource       : <Source>
     ErrorOperation    : <Operation>
     ErrorCode         : <Error code>
@@ -159,7 +159,7 @@ En användare kan starta fjärrskrivbordsklienter och kan autentisera, men anvä
 
 Bekräfta att användaren problemen som har tilldelats till programgrupper genom att använda den här kommandoraden:
 
-```cmd
+```PowerShell
 Get-RdsAppGroupUser <tenantname> <hostpoolname> <appgroupname>
 ```
 

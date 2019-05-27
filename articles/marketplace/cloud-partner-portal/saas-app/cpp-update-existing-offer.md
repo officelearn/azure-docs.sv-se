@@ -5,18 +5,21 @@ services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 12/04/2018
-ms.author: pabutler
-ms.openlocfilehash: 8817c8aa7d5d589be5e03cdd04e3a505d7e2be21
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.date: 05/16/2019
+ms.author: pbutlerm
+ms.openlocfilehash: 2195c9a5e1f0d3683ea8cf6564d97cbabd072f81
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64941664"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65834204"
 ---
 # <a name="update-an-existing-saas-application-offer"></a>Uppdatera ett befintligt erbjudande för SaaS-program
 
 Det finns olika typer av uppdateringar som du kan göra att ditt erbjudande när den har publicerats och är aktiv. Alla ändringar du gör i den nya versionen av ditt erbjudande ska sparas och publiceras igen att den återspeglar i Marketplace. Den här artikeln vägleder genom de olika delarna av uppdaterar din SaaS-erbjudande i den [Cloud Partner Portal](https://cloudpartner.azure.com/).
+
+> [!IMPORTANT] 
+> SaaS erbjuder funktioner håller på att migreras till den [Microsoft Partner Center](https://partner.microsoft.com/dashboard/directory).  Alla nya utgivare måste använda Partner Center för att skapa nya SaaS-erbjudanden och hantering av befintliga erbjudanden.  Aktuella utgivare med SaaS-erbjudanden migreras batchwise från partnerportalen i molnet till Partner Center.  Cloud Partner Portal visar statusmeddelanden för att ange när specifika befintliga erbjudanden har migrerats.
 
 Det finns flera orsaker till varför du kanske vill uppdatera ditt erbjudande, till exempel:
 

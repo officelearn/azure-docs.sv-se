@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/14/2018
+ms.date: 05/08/2019
 ms.author: alsin
-ms.openlocfilehash: ca2523a1101a21740a318a304f9bec491d4de2f9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 89cbf220c9ae32c7f63da4941ced1bdbfa1e5293
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60307106"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65835045"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Använd Seriekonsol för att komma åt GRUB och enanvändarläge
 GRUB är GRand Unified startprogrammet, vilket förmodligen är det första som visas när du startar en virtuell dator. Eftersom den visar innan operativsystemet har startat är den inte tillgänglig via SSH. Från GRUB kan du ändra din startkonfiguration starta i enanvändarläge, bland annat.
@@ -61,7 +61,7 @@ RHEL förlorar du i enanvändarläge automatiskt om den inte kan starta på vanl
 ### <a name="grub-access-in-rhel"></a>GRUB-åtkomst i RHEL
 RHEL levereras med GRUB aktiverad direkt ur lådan. Du anger GRUB genom att starta om den virtuella datorn med `sudo reboot` och tryck på valfri tangent. GRUB-skärmen visas visas.
 
-> Obs! Red Hat innehåller också dokumentationen för start i Räddade läge, nödfall läge, felsökningsläge och återställa rotlösenordet. [Klicka här för att komma åt den](https://aka.ms/rhel7grubterminal).
+> Anteckning: Red Hat innehåller också dokumentationen för start i Räddade läge, nödfall läge, felsökningsläge och återställa rotlösenordet. [Klicka här för att komma åt den](https://aka.ms/rhel7grubterminal).
 
 ### <a name="set-up-root-access-for-single-user-mode-in-rhel"></a>Konfigurera rotåtkomst för enanvändarläge i RHEL
 Enanvändarläge i RHEL kräver rotanvändaren är aktiverat som standard är inaktiverad. Om du har ett behov av att aktivera enanvändarläge, Använd följande instruktioner:
@@ -95,7 +95,7 @@ Om du har ställt in GRUB nätverksenheter och rotcertifikatutfärdarcertifikat 
 ### <a name="enter-single-user-mode-without-root-account-enabled-in-rhel"></a>Ange enanvändarläge utan rotkontot aktiverat i RHEL
 Om du inte går igenom stegen ovan för att aktivera rotanvändaren kan återställa du fortfarande rotlösenordet. Använd följande instruktioner:
 
-> Obs! Om du använder SELinux, kontrollera att du har vidtagit de ytterligare stegen som beskrivs i dokumentationen för Red Hat [här](https://aka.ms/rhel7grubterminal) när de återställer rotlösenordet.
+> Anteckning: Om du använder SELinux, kontrollera att du har vidtagit de ytterligare stegen som beskrivs i dokumentationen för Red Hat [här](https://aka.ms/rhel7grubterminal) när de återställer rotlösenordet.
 
 1. Tryck på 'Esc ”när du startar om den virtuella datorn om du vill ange GRUB
 1. I GRUB, trycker du på ”e” om du vill redigera den valda OS som du vill starta i (vanligtvis den första raden)
@@ -109,7 +109,7 @@ Om du inte går igenom stegen ovan för att aktivera rotanvändaren kan återst�
 
 ![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-emergency-mount-no-root.gif)
 
-> Obs! Kör via anvisningarna ovan förlorar du i nödfall shell, så du kan också utföra uppgifter som att redigera `fstab`. Allmänt vedertagna förslag är dock att återställa rotlösenordet och använda den för att ange enanvändarläge.
+> Anteckning: Kör via anvisningarna ovan förlorar du i nödfall shell, så du kan också utföra uppgifter som att redigera `fstab`. Allmänt vedertagna förslag är dock att återställa rotlösenordet och använda den för att ange enanvändarläge.
 
 
 ## <a name="access-for-centos"></a>Åtkomst för CentOS

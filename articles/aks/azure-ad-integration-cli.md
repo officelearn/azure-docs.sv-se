@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: iainfou
-ms.openlocfilehash: 0216a8c7d4e52e89098979223e9b792398e25038
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: d80ad5abecc968a9fe3c82d62ddd8577856a3c54
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920170"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65835189"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli"></a>Integrera Azure Active Directory med Azure Kubernetes Service med hjälp av Azure CLI
 
@@ -25,7 +25,6 @@ Den fullständiga exempelskript som används i den här artikeln finns i [Azure 
 Följande begränsningar gäller:
 
 - Azure AD kan bara aktiveras när du skapar en ny, RBAC-aktiverade kluster. Du kan inte aktivera Azure AD i ett befintligt AKS-kluster.
-- *Gästen* användare i Azure AD, till exempel som om du använder en federerad inloggning från en annan katalog stöds inte.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -237,8 +236,9 @@ Om du ser ett meddelande om auktoriseringsfel när du har loggat in med en webbl
 error: You must be logged in to the server (Unauthorized)
 ```
 
-* Användaren som du har loggat in om det är inte en *gäst* i Azure AD-instans (detta är ofta fallet om du använder en federerad inloggning från en annan katalog).
+* Du har definierat lämpliga objekt-ID eller UPN, beroende på om användarkontot är i samma Azure AD-klienten eller inte.
 * Användaren är inte medlem i fler än 200.
+* Hemligheten som definierats i programregistrering för servern matchar värdet som konfigurerats med hjälp av `--aad-server-app-secret`
 
 ## <a name="next-steps"></a>Nästa steg
 

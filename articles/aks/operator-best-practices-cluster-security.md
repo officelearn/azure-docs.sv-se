@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: iainfou
-ms.openlocfilehash: 0f24f7378ceb9266acf8988835b77cef80bd6f13
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: a468c2f3b1b3034c817ac19988420b68e18deb83
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192198"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65849852"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Metodtips för Klustersäkerhet och uppgraderingar i Azure Kubernetes Service (AKS)
 
@@ -50,7 +50,7 @@ Läs mer om Azure AD-integrering och RBAC [bästa praxis för autentisering och 
 
 På samma sätt som du bör ge användare eller grupper minsta möjliga antal behörigheter som krävs, behållare bör också begränsas till endast de åtgärder och processer som de behöver. För att minimera risken för angrepp, inte konfigurera program och behållare som kräver eskalerade privilegier eller rot åtkomst. Till exempel `allowPrivilegeEscalation: false` i pod-manifestet. Dessa *pod security kontexter* är inbyggda i Kubernetes och kan du definiera ytterligare behörigheter som användaren eller gruppen som ska köras som, eller vilka Linux-funktioner för att exponera. Läs mer om bästa praxis, [pod säker åtkomst till resurser][pod-security-contexts].
 
-För mer detaljerad kontroll över behållaråtgärder du kan också använda inbyggda säkerhetsfunktioner för Linux som *AppArmor* och *seccomp*. De här funktionerna definieras nivån, och sedan implementerats via en pod-manifestet.
+För mer detaljerad kontroll över behållaråtgärder du kan också använda inbyggda säkerhetsfunktioner för Linux som *AppArmor* och *seccomp*. De här funktionerna definieras nivån, och sedan implementerats via en pod-manifestet. Inbyggda säkerhetsfunktioner för Linux är bara tillgängliga på Linux-noder och poddar.
 
 > [!NOTE]
 > Kubernetes-miljöer i AKS eller någon annanstans, är inte helt säker för fientlig användning med flera innehavare. Ytterligare säkerhetsfunktioner som *AppArmor*, *seccomp*, *Pod säkerhetsprinciper*, eller mer detaljerade rollbaserade åtkomstkontroller (RBAC) för noder göra kryphål svårare. Men är SANT säkerhet vid körning av fientlig arbetsbelastningar för flera innehavare, ett hypervisor-program endast säkerhetsnivå som du ska lita på. Säkerhetsdomän för Kubernetes blir hela klustret, inte en enskild nod. Du bör använda fysiskt isolerat kluster för dessa typer av fientlig arbetsbelastningar för flera innehavare.
@@ -193,13 +193,13 @@ az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes
 
 Läs mer om uppgraderingar i AKS [stöds Kubernetes-versioner i AKS] [ aks-supported-versions] och [uppgradera ett AKS-kluster][aks-upgrade].
 
-## <a name="process-node-updates-and-reboots-using-kured"></a>Processen noden uppdateringar och startar om datorn med hjälp av kured
+## <a name="process-linux-node-updates-and-reboots-using-kured"></a>Processen Linux noden uppdateringar och startar om datorn med hjälp av kured
 
-**Bästa praxis riktlinjer** – AKS automatiskt hämtar och installerar security korrigeringar på varje worker-nod, men startar inte automatiskt om vid behov. Använd `kured` för att söka efter väntande omstarter, och sedan på ett säkert sätt här och tömmer noden så att noden ska startas om, tillämpa uppdateringarna och vara precis lika säkert som möjligt med avseende på datorns operativsystem.
+**Bästa praxis riktlinjer** – AKS automatiskt hämtar och installerar security korrigeringar på varje Linux-noder, men startar inte automatiskt om vid behov. Använd `kured` för att söka efter väntande omstarter, och sedan på ett säkert sätt här och tömmer noden så att noden ska startas om, tillämpa uppdateringarna och vara precis lika säkert som möjligt med avseende på datorns operativsystem. För Windows Server-noder (för närvarande i förhandsversion i AKS), regelbundet utför du en AKS uppgraderingsåtgärd att på ett säkert sätt här och tömma poddar och distribuera uppdaterade noder.
 
-Varje kväll hämta AKS-nodernas säkerhetsuppdateringar som är tillgängliga via deras distribution Uppdatera kanal. Det här beteendet konfigureras automatiskt när noderna är distribuerade i ett AKS-kluster. För att minimera störningar och möjliga inverkan på arbetsbelastningar som körs, noder automatiskt startas om inte om en säkerhetskorrigering eller kernel-uppdateringen kräver den.
+Varje kväll hämta Linux-noder i AKS säkerhetsuppdateringar som är tillgängliga via deras distribution Uppdatera kanal. Det här beteendet konfigureras automatiskt när noderna är distribuerade i ett AKS-kluster. För att minimera störningar och möjliga inverkan på arbetsbelastningar som körs, noder automatiskt startas om inte om en säkerhetskorrigering eller kernel-uppdateringen kräver den.
 
-Öppen källkod [kured (KUbernetes starta om Daemon)] [ kured] projektet genom att Weaveworks söker efter väntande omstarter av noden. När en nod tillämpar uppdateringar som kräver en omstart, avspärrade och tömda för att flytta och schemalägga poddarna på andra noder i klustret noden på ett säkert sätt. När noden startas om, läggs den tillbaka till klustret och Kubernetes återupptar schemaläggning poddar på den. För att minimera störningar tillåts bara en nod i taget startas av `kured`.
+Öppen källkod [kured (KUbernetes starta om Daemon)] [ kured] projektet genom att Weaveworks söker efter väntande omstarter av noden. När en Linux-nod tillämpar uppdateringar som kräver en omstart, avspärrade och tömda för att flytta och schemalägga poddarna på andra noder i klustret noden på ett säkert sätt. När noden startas om, läggs den tillbaka till klustret och Kubernetes återupptar schemaläggning poddar på den. För att minimera störningar tillåts bara en nod i taget startas av `kured`.
 
 ![AKS noden omstart processen med kured](media/operator-best-practices-cluster-security/node-reboot-process.png)
 

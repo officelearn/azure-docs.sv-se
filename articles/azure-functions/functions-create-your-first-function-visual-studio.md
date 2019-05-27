@@ -13,18 +13,18 @@ ms.topic: quickstart
 ms.date: 10/17/2018
 ms.author: glenga
 ms.custom: mvc, devcenter, vs-azure, 23113853-34f2-4f
-ms.openlocfilehash: 51f6fb8c0dc1450a39173fafb0d71efc9a59a536
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1c07da0121b8e350c55b139901d56cfe2133386d
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60431298"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864502"
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>Skapa din första funktion med Visual Studio
 
 Med Azure Functions kan du köra kod i en [serverfri](https://azure.microsoft.com/solutions/serverless/) miljö utan att först behöva skapa en virtuell dator eller publicera en webbapp.
 
-I den här artikeln får du lära dig hur du använder Visual Studio 2017-verktyg med Azure Functions för att skapa och testa en ”Hello World”-funktion lokalt. Du publicerar sedan funktionskoden till Azure. De här verktygen är tillgängliga som en del av arbetsbelastningen Azure Development i Visual Studio 2017.
+I den här artikeln får du lära dig hur du använder Visual Studio 2019 verktyg för Azure Functions för att skapa och testa en ”hello world”-funktion lokalt. Du publicerar sedan funktionskoden till Azure. Dessa verktyg är tillgängliga som en del av arbetsbelastningen Azure development i Visual Studio 2019.
 
 ![Svar för funktion-localhost i webbläsaren](./media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-local-final.png)
 
@@ -34,7 +34,7 @@ Det här avsnittet innehåller [en video](#watch-the-video) som visar samma grun
 
 För att slutföra den här självstudien behöver du:
 
-* Installera [Visual Studio 2017](https://azure.microsoft.com/downloads/) och kontrollera att även arbetsbelastningen **Azure-utveckling** är installerad.
+* Installera [Visual Studio 2019](https://azure.microsoft.com/downloads/) och se till att den **Azure development** arbetsbelastning installeras också.
 
 * Kontrollera att du har de [senaste Azure Functions-verktygen](functions-develop-vs.md#check-your-tools-version).
 

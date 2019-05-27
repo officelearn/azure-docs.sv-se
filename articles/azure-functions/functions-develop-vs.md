@@ -1,6 +1,6 @@
 ---
 title: Utveckla Azure-funktioner med hjälp av Visual Studio | Microsoft Docs
-description: Lär dig mer om att utveckla och testa Azure Functions med hjälp av Azure Functions Tools för Visual Studio 2017.
+description: Lär dig mer om att utveckla och testa Azure Functions med Azure Functions Tools för Visual Studio-2019.
 services: functions
 documentationcenter: .net
 author: ggailey777
@@ -10,16 +10,16 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: glenga
-ms.openlocfilehash: 4e67e91e93ef3a2e2acf88a87b97eaab56ca6479
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4366f09ccc9a3b2335e0aa84b7fb7398825cb87e
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60403893"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864536"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Utveckla Azure-funktioner med hjälp av Visual Studio  
 
-Azure Functions Tools för Visual Studio 2017 är ett tillägg för Visual Studio som låter dig utveckla, testa och distribuera C#-funktioner till Azure. Om det här är din första med Azure Functions, kan du läsa mer på [en introduktion till Azure Functions](functions-overview.md).
+Azure Functions Tools för Visual Studio-2019 är ett tillägg för Visual Studio som låter dig utveckla, testa och distribuera C# funktioner till Azure. Om det här är din första med Azure Functions, kan du läsa mer på [en introduktion till Azure Functions](functions-overview.md).
 
 Azure Functions Tools ger följande fördelar: 
 
@@ -29,16 +29,16 @@ Azure Functions Tools ger följande fördelar:
 * Utveckla och distribuera förkompilerad C#-funktioner. Före följt functions erbjuder en bättre kallstart prestanda än C#-skriptbaserade funktioner. 
 * Koda dina funktioner i C# samtidigt som du har alla fördelarna med Visual Studio-utveckling. 
 
-Den här artikeln innehåller information om hur du använder Azure Functions Tools för Visual Studio 2017 för att utveckla C# fungerar och publicera dem till Azure. Innan du läser den här artikeln bör du genomföra den [Functions-Snabbstart för Visual Studio](functions-create-your-first-function-visual-studio.md). 
+Den här artikeln innehåller information om hur du använder Azure Functions Tools för Visual Studio-2019 för att utveckla C# fungerar och publicera dem till Azure. Innan du läser den här artikeln bör du genomföra den [Functions-Snabbstart för Visual Studio](functions-create-your-first-function-visual-studio.md). 
 
 > [!IMPORTANT]
 > Blanda inte lokal utveckling med portalen utvecklingen i samma funktionsapp. När du publicerar från ett lokalt projekt till en funktionsapp skriver distributionsprocessen över alla funktioner som du har utvecklat i portalen.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Med Azure Functions Tools ingår i arbetsbelastningen Azure development av [Visual Studio 2017 version 15.5](https://www.visualstudio.com/vs/), eller en senare version. Kontrollera att du inkluderar den **Azure development** arbetsbelastningen i Visual Studio 2017-installationen:
+Med Azure Functions Tools ingår i arbetsbelastningen Azure development av [Visual Studio 2017](https://www.visualstudio.com/vs/), eller en senare version. Kontrollera att du inkluderar den **Azure development** arbetsbelastningen i Visual Studio 2019 installationen:
 
-![Installera Visual Studio 2017 med arbetsbelastningen Azure Development](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
+![Installera Visual Studio 2019 med arbetsbelastningen Azure development](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
 
 Se till att din Visual Studio är uppdaterad och att du använder den [den senaste versionen](#check-your-tools-version) av Azure Functions-verktyg.
 

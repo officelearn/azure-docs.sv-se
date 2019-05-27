@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: 362df8cee163bcd2d1dac73c650e42ee4f0f7751
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 3d50746324ddac21f222d4c743f4b7bf6ee9b773
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920108"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864809"
 ---
 # <a name="how-to-manage-user-accounts-in-azure-api-management"></a>Hantera användarkonton i Azure API Management
 
@@ -69,7 +69,7 @@ Följ stegen nedan om du vill blockera en användare.
 
 ## <a name="reset-a-user-password"></a>Återställa en användarlösenord
 
-Om du vill arbeta programmeringsbaserat med konton, se den [användarentiteten](https://docs.microsoft.com/rest/api/apimanagement/user) dokumentationen i den [API Management REST](/rest/api/apimanagement/) referens. Om du vill återställa lösenordet för ett användarkonto till ett specifikt värde, kan du använda den [uppdatera en användare](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity#UpdateUser) igen och ange önskat lösenord.
+Om du vill arbeta programmässigt med användarkonton, finns i dokumentationen för entitet av användare i den [API Management REST API](/rest/api/apimanagement/) referens. Om du vill återställa lösenordet för ett användarkonto till ett specifikt värde, kan du använda den [uppdatera en användare](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity#UpdateUser) igen och ange önskat lösenord.
 
 ## <a name="next-steps"> </a>Nästa steg
 När ett developer-konto har skapats kan du koppla den till roller och den prenumerera på produkter och API: er. Mer information finns i [hur du skapar och använda grupper för][How to create and use groups].

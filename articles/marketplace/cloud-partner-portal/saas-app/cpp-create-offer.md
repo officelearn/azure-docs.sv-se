@@ -5,18 +5,22 @@ services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 12/04/2018
-ms.author: pabutler
-ms.openlocfilehash: 246dd77c8e92a36e0601aba7d1b851efb7e7fb9a
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.date: 05/16/2019
+ms.author: pbutlerm
+ms.openlocfilehash: 646e9bf844477b3d8e1c4c42fb5956e015805433
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64943559"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833507"
 ---
 # <a name="create-a-new-saas-application-offer"></a>Skapa ett nytt erbjudande för SaaS-program
 
 Den här artikeln beskriver hur du skapar och publicerar en post för SaaS-program (app) erbjudandet för Azure Marketplace.
+
+> [!IMPORTANT] 
+> SaaS erbjuder funktioner håller på att migreras till den [Microsoft Partner Center](https://partner.microsoft.com/dashboard/directory).  Alla nya utgivare måste använda Partner Center för att skapa nya SaaS-erbjudanden och hantering av befintliga erbjudanden.  Aktuella utgivare med SaaS-erbjudanden migreras batchwise från partnerportalen i molnet till Partner Center.  Cloud Partner Portal visar statusmeddelanden för att ange när specifika befintliga erbjudanden har migrerats.
+
 
 ## <a name="offer-process"></a>Processen för erbjudandet
 
@@ -33,7 +37,7 @@ SaaS-App-erbjudandet består av fem delar, som beskrivs i följande tabell:
 |    Erbjudandeinställningar  |  Använd om du vill konfigurera en unik identitet för SaaS-appen.                 |
 |  Teknisk information    |  Använd för att konfigurera typ av SaaS-lösning och ange anslutningsinformationen för ditt program.                |
 |  Kanal-Info      |   Ange kanalinformation, till exempel GTM material och kontakter.                |
-|  Test Drive        |   Valfria avsnittet för att definiera en tjänst som låter kunder testa ditt erbjudande innan de köpa den.                |
+|  Provkörning        |   Valfria avsnittet för att definiera en tjänst som låter kunder testa ditt erbjudande innan de köpa den.                |
 |  Storefront information       | Innehåller marknadsföring, juridiska och inverka management tillgångar och specifikationer.  <ul><li> Marknadsföring-material inkluderar erbjudandenamn, beskrivning och logotyper</li> <li> Juridiska tillgångar är en sekretesspolicy, användningsvillkor och andra juridisk dokumentation</li>  <li> Lead princip kan du ange hur du hanterar leads från Azure Marketplace-slutanvändarportal.</li> </ul> |
 | Contacts            | Innehåller information om support kontakta och princip |
 

@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: masoucou
-ms.openlocfilehash: c7a80ae704d13934a5d51bc5538bc28693b49e5b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a0612ea06c71b2a93e6fb76f5d82516cfbad8657
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60890635"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65860330"
 ---
 # <a name="quickstart-build-a-xamarinforms-app-with-net-sdk-and-azure-cosmos-dbs-api-for-mongodb"></a>Snabbstart: Skapa en Xamarin.Forms-app med .NET SDK och Azure Cosmos DB:s API för MongoDB
 
@@ -34,7 +34,7 @@ I den här snabbstarten visas hur du kan skapa ett [Cosmos-konto som konfigurera
 
 Om du vill köra exemplet behöver du [Visual Studio](https://www.visualstudio.com/downloads/) eller [Visual Studio för Mac](https://visualstudio.microsoft.com/vs/mac/) och ett giltigt Azure CosmosDB-konto.
 
-Om du inte redan har Visual Studio kan du hämta [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/) med arbetsbelastningen för **Mobile-utveckling med .NET** som installeras i samband med konfigurationen.
+Om du inte redan har Visual Studio, hämta [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/) med den **mobil utveckling med .NET** arbetsbelastning som installeras med installationsprogrammet.
 
 Om du föredrar att arbeta på en Mac laddar du ned [Visual Studio för Mac](https://visualstudio.microsoft.com/vs/mac/) och kör installationsprogrammet.
 
@@ -164,7 +164,7 @@ Du har nu uppdaterat din app med all information den behöver för att kommunice
 
 ## <a name="run-the-app"></a>Kör appen
 
-### <a name="visual-studio-2017"></a>Visual Studio 2017
+### <a name="visual-studio-2019"></a>Visual Studio 2019
 
 1. I Visual Studio högerklickar du på varje projekt i **Solution Explorer** och därefter på **Hantera NuGet-paket**.
 2. Klicka på **Återställ alla NuGet-paket**.

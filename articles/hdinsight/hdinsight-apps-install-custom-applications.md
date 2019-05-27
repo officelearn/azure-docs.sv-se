@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: ec2e53624ad48650f922439c5f16d1cf1f25c280
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0acac29ee49bc94c195d0e13e55fff3a735ad36b
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64706382"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65859816"
 ---
 # <a name="install-custom-apache-hadoop-applications-on-azure-hdinsight"></a>Installera anpassade Apache Hadoop-program i Azure HDInsight
 
@@ -116,8 +116,8 @@ Via portalen kan du också ta bort klustret eller resursgruppen som innehåller 
 ### <a name="use-azure-powershell"></a>Använda Azure PowerShell
 Med Azure PowerShell kan du ta bort klustret eller resursgruppen. Se [Ta bort kluster med hjälp av Azure PowerShell](hdinsight-administer-use-powershell.md#delete-clusters).
 
-### <a name="use-azure-classic-cli"></a>Använda Azure klassiska CLI
-Med klassiska Azure-CLI kan du ta bort klustret eller ta bort resursgruppen. Se [ta bort kluster med hjälp av klassiska Azure-CLI](hdinsight-administer-use-command-line.md#delete-clusters).
+### <a name="use-azure-cli"></a>Använda Azure CLI
+Med Azure CLI kan du ta bort klustret eller resursgruppen. Se [Ta bort kluster med hjälp av Azure CLI](hdinsight-administer-use-command-line.md#delete-clusters).
 
 ## <a name="next-steps"></a>Nästa steg
 * [MSDN: Installera ett HDInsight-program](https://msdn.microsoft.com/library/mt706515.aspx): Lär dig hur du utvecklar Resource Manager-mallar för distribution av HDInsight-program.

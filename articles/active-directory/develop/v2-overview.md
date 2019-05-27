@@ -17,16 +17,16 @@ ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd3a1525d7b1f9c0a0b6516014ea83fb8abd0376
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 3d139efaa8e6de4861dc8e885bd22a426fde6c94
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544830"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833057"
 ---
 # <a name="microsoft-identity-platform-v20-overview"></a>Översikt över Microsoft identity-plattformen (v2.0)
 
-Microsoft Identity-plattformen är en utveckling av identitetstjänsten och utvecklingsplattformen Azure Active Directory (Azure AD). Det hjälper utvecklare att bygga program som loggar in alla Microsoft-identiteter och hämta token för att anropa Microsoft APIs, till exempel Microsoft Graph eller API: er som utvecklare har byggt. Microsoft identity-plattformen består av:
+Microsofts identitetsplattform är en vidareutveckling av utvecklarplattformen för Azure Active Directory (Azure AD). Det hjälper utvecklare att bygga program som loggar in alla Microsoft-identiteter och hämta token för att anropa Microsoft APIs, till exempel Microsoft Graph eller API: er som utvecklare har byggt. Microsoft identity-plattformen består av:
 
 - **OAuth 2.0 och OpenID Connect standard-kompatibla autentiseringstjänst** som ger utvecklare möjlighet att autentisera alla Microsoft-identitet, inklusive:
   - Arbets- eller skolkonto konton (tillhandahålls genom Azure AD)
@@ -79,4 +79,4 @@ När du är redo att starta appen i en **produktionsmiljö**, granska dessa meto
 
 ## <a name="learn-more"></a>Lär dig mer
 
-Om du planerar att skapa en kundinriktad program som loggar in sociala och lokala identiteter måste du ta en titt på de [översikt över Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-add-identity-providers).
+Om du planerar att skapa en kundinriktad program som loggar in sociala och lokala identiteter, finns i den [översikt över Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-add-identity-providers).

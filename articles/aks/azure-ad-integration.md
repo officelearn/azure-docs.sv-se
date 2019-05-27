@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: iainfou
-ms.openlocfilehash: 026c0eefc0c4fe31e72ecad91a4a7b558f367487
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: a6ed8ec37a3b20ccdbd2b013ba308518d8e3b97c
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192110"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65849876"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Integrera Azure Active Directory med Azure Kubernetes Service
 
@@ -23,7 +23,6 @@ Den här artikeln visar hur du distribuerar förutsättningarna för AKS och Azu
 Följande begränsningar gäller:
 
 - Azure AD kan bara aktiveras när du skapar en ny, RBAC-aktiverade kluster. Du kan inte aktivera Azure AD i ett befintligt AKS-kluster.
-- *Gästen* användare i Azure AD, till exempel som om du använder en federerad inloggning från en annan katalog stöds inte.
 
 ## <a name="authentication-details"></a>Autentisering-information
 
@@ -114,6 +113,10 @@ Andra Azure AD-programmet används när du loggar in med Kubernetes CLI (`kubect
         När behörigheterna har beviljats har, visas följande meddelande i portalen:
 
         ![Meddelande om lyckad behörigheter](media/aad-integration/permissions-granted.png)
+
+1. I det vänstra navigeringsfältet på Azure AD-programmet väljer **autentisering**.
+
+    * Under **standard klienttyp**väljer **Ja** till *hantera klienten som en offentlig klient*.
 
 1. I det vänstra navigeringsfönstret för Azure AD-programmet, anteckna den **program-ID**. När du distribuerar ett Azure AD-aktiverade AKS-kluster kan det här värdet kallas den `Client application ID`.
 
@@ -242,13 +245,14 @@ aks-nodepool1-79590246-2   Ready     agent     1h        v1.13.5
 När du är klar cachelagras autentiseringstoken. Du är bara reprompted för inloggning när token har upphört att gälla eller Kubernetes-config-fil som skapas på nytt.
 
 Om du ser ett meddelande om auktoriseringsfel efter inloggningen, kontrollera om:
-1. Användaren du loggar in som är inte en gäst i Azure AD-instans (det här scenariot är ofta fallet om du använder ett federerat konto från en annan katalog).
-2. Användaren är inte medlem i fler än 200.
-3. Hemligheten som definierats i programregistrering för servern matchar inte värdet som konfigurerats med hjälp av--aad-server-app-hemlighet
 
 ```console
 error: You must be logged in to the server (Unauthorized)
 ```
+
+1. Du har definierat lämpliga objekt-ID eller UPN, beroende på om användarkontot är i samma Azure AD-klienten eller inte.
+2. Användaren är inte medlem i fler än 200.
+3. Hemligheten som definierats i programregistrering för servern matchar värdet som konfigurerats med hjälp av `--aad-server-app-secret`
 
 ## <a name="next-steps"></a>Nästa steg
 

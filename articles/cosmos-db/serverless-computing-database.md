@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: 4d259523d3f7fe7165d0ef4c8a5aac12bd7cd823
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 54de2d2f9b5691a47ff56891185c7655661092dd
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61330819"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833606"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Databas utan Server databehandling med Azure Cosmos DB och Azure Functions
 
@@ -107,11 +107,11 @@ I alla dessa användningsfall, eftersom funktionen har fristående själva appen
 
 ## <a name="tooling"></a>Verktyg
 
-Intern integrering mellan Azure Cosmos DB och Azure Functions är tillgänglig i Azure-portalen och i Visual Studio 2017.
+Intern integrering mellan Azure Cosmos DB och Azure Functions är tillgänglig i Azure-portalen och i Visual Studio 2019.
 
 * Du kan skapa en Azure Cosmos DB-utlösare i Azure Functions-portalen. Snabbstart anvisningar finns i [skapa en Azure Cosmos DB-utlösare i Azure-portalen](https://aka.ms/cosmosdbtriggerportalfunc).
 * I Azure Cosmos DB-portalen kan du lägga till en Azure Cosmos DB-utlösare i en befintlig Azure Function-app i samma resursgrupp.
-* I Visual Studio 2017, kan du skapa ett Azure Cosmos DB-utlösare med den [Azure Functions Tools för Visual Studio 2017](../azure-functions/functions-develop-vs.md):
+* I Visual Studio 2019, kan du skapa ett Azure Cosmos DB-utlösare med den [Azure Functions Tools](../azure-functions/functions-develop-vs.md):
 
     >[!VIDEO https://www.youtube.com/embed/iprndNsUeeg]
 

@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: hrasheed
-ms.openlocfilehash: 003aeadba1f4683af40f390d40dd3bbe32e02a83
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 528d2fd5b26e06478078711405bd5b9ca51feeda
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64721918"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65860001"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Hantera Apache Hadoop-kluster i HDInsight med hjälp av Azure-portalen
 
@@ -43,7 +43,7 @@ Välj klusternamnet från den [ **HDInsight-kluster** ](#showClusters) sidan.  D
 | Objekt| Beskrivning |
 |---|---|
 |Flytta|Flyttar klustret till en annan resursgrupp eller till en annan prenumeration.|
-|Ta bort|Tar bort klustret. |
+|Radera|Tar bort klustret. |
 |Uppdatera|Uppdaterar vyn.|
 
 **Menyn till vänster:**  
@@ -54,7 +54,7 @@ Välj klusternamnet från den [ **HDInsight-kluster** ](#showClusters) sidan.  D
     |Översikt|Innehåller allmän information för klustret.|
     |Aktivitetslogg|Visa och fråga efter aktivitetsloggar.|
     |Åtkomstkontroll (IAM)|Använd rolltilldelningar.  Se [använda rolltilldelningar för att hantera åtkomst till din Azure-prenumerationsresurser](../role-based-access-control/role-assignments-portal.md).|
-    |Taggar|Kan du ange nyckel/värde-par för att definiera en anpassad taxonomi för cloud services. Du kan till exempel skapa en nyckel med namnet **projekt**, och sedan använda gemensamt värde för alla tjänster som är associerade med ett specifikt projekt.|
+    |Tags|Kan du ange nyckel/värde-par för att definiera en anpassad taxonomi för cloud services. Du kan till exempel skapa en nyckel med namnet **projekt**, och sedan använda gemensamt värde för alla tjänster som är associerade med ett specifikt projekt.|
     |Diagnosticera och lösa problem|Visa felsökningsinformation.|
     |Snabbstart|Visar information som hjälper dig att komma igång med HDInsight.|
     |Verktyg|Hjälpinformation för HDInsight relaterade verktyg.|
@@ -90,7 +90,7 @@ Välj klusternamnet från den [ **HDInsight-kluster** ](#showClusters) sidan.  D
     | Objekt| Beskrivning |
     |---|---|
     |Resurshälsa|Se [översikt över hälsotillståndet för Azure-resurs](../service-health/resource-health-overview.md).|
-    |Ny supportbegäran|Kan du skapa ett supportärende hos Microsoft support.|
+    |Ny supportförfrågan|Kan du skapa ett supportärende hos Microsoft support.|
 
 ## <a name="properties"></a> Egenskaper för klustret
 
@@ -98,14 +98,14 @@ Från den [kluster startsida](#homePage)under **inställningar** Välj **egenska
 
 |Objekt | Beskrivning |
 |---|---|
-|Värdnamn|Klustrets namn.|
+|Värddatornamn|Klustrets namn.|
 |Kluster-URL|URL till Ambari-webbgränssnittet.|
 |Secure shell (SSH)|Användarnamn och värden namnet ska användas i åtkomst till klustret via SSH.|
 |Status|En av: Avbröts, godkända ClusterStorageProvisioned, AzureVMConfiguration, HDInsightConfiguration, drift, kör, fel, tar bort, tas bort, nådde sin tidsgräns, DeleteQueued, DeleteTimedout, DeleteError, PatchQueued, CertRolloverQueued, ResizeQueued, eller ClusterCustomization.|
 |Region|Azure-plats. En lista över platser som stöds Azure finns i den **Region** nedrullningsbara listrutan på [HDInsight priser](https://azure.microsoft.com/pricing/details/hdinsight/).|
-|Skapad den|Det datum som klustret har distribuerats.|
+|Skapad|Det datum som klustret har distribuerats.|
 |Operativsystem|Antingen **Windows** eller **Linux**.|
-|Typ|Hadoop, HBase, Storm, Spark.|
+|Type|Hadoop, HBase, Storm, Spark.|
 |Version|Se [HDInsight versioner](hdinsight-component-versioning.md).|
 |Prenumeration|Prenumerationsnamn.|
 |Standarddatakälla|Standardfilsystemet för klustret.|
@@ -204,7 +204,7 @@ Det finns många sätt som du kan programmera processen:
 
 * Användaren Azure Data Factory. Se [skapa på begäran Linux-baserade Apache Hadoop-kluster i HDInsight med Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md) länkade tjänster för att skapa HDInsight på begäran.
 * Använd Azure PowerShell.  Se [analysera flygförseningsdata](hdinsight-analyze-flight-delay-data-linux.md).
-* Använda Azure klassiska CLI. Se [hantera HDInsight-kluster med klassiska Azure-CLI](hdinsight-administer-use-command-line.md).
+* Använda Azure CLI. Se [hantera Azure HDInsight-kluster med Azure CLI](hdinsight-administer-use-command-line.md).
 * Använda HDInsight .NET SDK. Se [skicka Apache Hadoop-jobb](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 
 Prisinformationen, se [HDInsight priser](https://azure.microsoft.com/pricing/details/hdinsight/). Om du vill ta bort ett kluster från portalen, se [ta bort kluster](#delete-clusters)
@@ -284,7 +284,7 @@ HDInsight-kluster har följande HTTP-webbtjänster (alla dessa tjänster har RES
 * Oozie
 * Templeton
 
-Som standard beviljas de här tjänsterna för åtkomst. Du kan återkalla/bevilja åtkomst med hjälp av [klassiska Azure-CLI](hdinsight-administer-use-command-line.md#enabledisable-http-access-for-a-cluster) och [Azure PowerShell](hdinsight-administer-use-powershell.md#grantrevoke-access).
+Som standard beviljas de här tjänsterna för åtkomst. Du kan återkalla/bevilja åtkomst med hjälp av [Azure PowerShell](hdinsight-administer-use-powershell.md#grantrevoke-access).
 
 ## <a name="find-the-subscription-id"></a>Hitta prenumerations-ID
 Varje kluster är kopplad till en Azure-prenumeration.  Azure-prenumerationen ID: T är synliga från den [kluster startsida](#homePage).
@@ -316,7 +316,7 @@ Den **användning** på HDInsight-klusterbladet visar information om hur många 
 I den här artikeln har du lärt dig vissa grundläggande administrativa funktioner. Mer information finns i följande artiklar:
 
 * [Administrera HDInsight med hjälp av Azure PowerShell](hdinsight-administer-use-powershell.md)
-* [Administrera HDInsight med hjälp av Azure klassiskt CLI](hdinsight-administer-use-command-line.md)
+* [Administrera HDInsight med hjälp av Azure CLI](hdinsight-administer-use-command-line.md)
 * [Skapa HDInsight-kluster](hdinsight-hadoop-provision-linux-clusters.md)
 * [Läs mer om hur du använder Apache Ambari-Webbgränssnittet](hdinsight-hadoop-manage-ambari.md)
 * [Information om hur du använder Apache Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md)

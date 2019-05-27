@@ -1,7 +1,7 @@
 ---
 title: Modelltolkning
 titleSuffix: Azure Machine Learning service
-description: Lär dig hur du förklara varför din modell förutsägelser med hjälp av Azure Machine Learning-SDK. Den kan användas under utbildnings- och inferensjobb för att förstå hur din modell förutsägelser.
+description: Lär dig hur du förklara varför din modell förutsägelser med hjälp av Azure Machine Learning-SDK. Det kan användas vid utbildning och inferens för att förstå hur din modell förutsägelser.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,25 +10,25 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: larryfr
 ms.date: 04/29/2019
-ms.openlocfilehash: 62d51a0075d8b6864e4b10fa6c1eb423a440d6d0
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 4261e869fe17283886d7d8ea8101e03110d6dad4
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926445"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65851997"
 ---
 # <a name="model-interpretability-with-azure-machine-learning-service"></a>Modellen interpretability med Azure Machine Learning-tjänsten
 
 I den här artikeln får du lära dig att förklara varför din modell gjort förutsägelserna med interpretability paketet av Azure Machine Learning Python SDK.
 
 Använda klasser och metoder i det här paketet kan få du:
-+ Interpretability verkliga datauppsättningar i stor skala, under utbildning och inferensjobb. 
++ Interpretability verkliga datauppsättningar i stor skala, under utbildning och inferens. 
 + Interaktiva visualiseringar som hjälper dig i identifiering av mönster i data och förklaringar på utbildning
 + Funktionen vikten värden: både rådata och bakåtkompilerade funktioner
 
 Under fasen utbildning av utvecklingscykeln kan modellen designers och bedömare använda för att förklara utdata från en modell för intressenter att skapa förtroendet.  De även använda insikter om modellen för felsökning, verifierar beteendet för enhetsmodellen matchar deras mål, och att söka efter bias.
 
-Under fasen för inferensjobb kan datatekniker använda interpretability som förklarar förutsägelser för de personer som använder din modell. Till exempel varför modellen neka en lånet eller förutsäga att en investeringsportfölj innebär en högre risk?
+Inferens eller modell bedömning är fasen där distribuerade modellen används för förutsägelse oftast på produktionsdata. Under den här fasen förklara dataexperter de resulterande förutsägelserna för de personer som använder din modell. Till exempel varför modellen neka en lånet eller förutsäga att en investeringsportfölj innebär en högre risk?
 
 Med hjälp av dessa erbjuder ni förklara maskininlärningsmodeller **globalt på alla data**, eller **lokalt på en viss datapunkt** med för avancerade tekniker i ett enkelt att använda och skalbart sätt.
 
@@ -287,7 +287,7 @@ clf = Pipeline(steps=[('preprocessor', DataFrameMapper(transformations)),
 tabular_explainer = TabularExplainer(clf.steps[-1][1], initialization_examples=x_train, features=dataset_feature_names, classes=dataset_classes, transformations=transformations)
 ```
 
-## <a name="interpretability-in-inferencing"></a>Interpretability i inferensjobb
+## <a name="interpretability-in-inference"></a>Interpretability i inferens
 
 Förklaring kan distribueras tillsammans med den ursprungliga modellen och kan användas vid bedömning tid för att ange information om lokala förklaring. Processen för att distribuera en arbetsflödesbaserad förklaring påminner om att distribuera en modell och omfattar följande steg:
 

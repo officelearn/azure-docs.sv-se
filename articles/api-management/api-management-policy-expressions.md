@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: apimpm
-ms.openlocfilehash: 90b2dfdbec0d6dc81a05b845832fda92fe36d98c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b8bd6e7c77faa54a8ebf0842cf140ef8aa73e953
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60656599"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65834551"
 ---
 # <a name="api-management-policy-expressions"></a>Principuttryck för API Management
 Den här artikeln beskriver principuttryck syntaxen är C# 7. Varje uttryck har åtkomst till den angivna implicit [kontext](api-management-policy-expressions.md#ContextVariables) variabeln och tillåtet [delmängd](api-management-policy-expressions.md#CLRTypes) av .NET Framework-typer.
@@ -74,7 +74,7 @@ Uttryck kan användas som attributvärden eller textvärden i alla API Managemen
 ## <a name="CLRTypes"></a> .NET framework-typer tillåts i principuttryck
 I följande tabell visas de .NET Framework-typerna och deras medlemmar som tillåts i principuttryck.
 
-|Typ|Stöds medlemmar|
+|Type|Stöds medlemmar|
 |--------------|-----------------------|
 |Newtonsoft.Json.Formatting|Alla|
 |Newtonsoft.Json.JsonConvert|SerializeObject, DeserializeObject|
@@ -192,7 +192,7 @@ I följande tabell visas de .NET Framework-typerna och deras medlemmar som till�
 |System.Xml.Linq.XComment|Alla|
 |System.Xml.Linq.XContainer|Alla|
 |System.Xml.Linq.XDeclaration|Alla|
-|System.Xml.Linq.XDocument|Alla, utom: Läsa in|
+|System.Xml.Linq.XDocument|Alla, utom: Läs in|
 |System.Xml.Linq.XDocumentType|Alla|
 |System.Xml.Linq.XElement|Alla|
 |System.Xml.Linq.XName|Alla|
@@ -210,7 +210,7 @@ En variabel med namnet `context` finns implicit i varje princip [uttryck](api-ma
 
 |Sammanhangsvariabel|Tillåtna metoder, egenskaper och parametervärden|
 |----------------------|-------------------------------------------------------|
-|Kontext|Api: IApi<br /><br /> Distribution<br /><br /> Förfluten tid: TimeSpan - tidsintervallet mellan värdet för tidsstämpeln och aktuell tid<br /><br /> LastError<br /><br /> Åtgärd<br /><br /> Product<br /><br /> Förfrågan<br /><br /> RequestId: GUID - identifierare för unika begäran<br /><br /> Svar<br /><br /> Prenumeration<br /><br /> Tidsstämpel: DateTime - tidpunkt när en förfrågan togs emot<br /><br /> Spårning: bool - anger om spårning har aktiverats eller inaktiverats <br /><br /> Användare<br /><br /> Variabler: IReadOnlyDictionary < string, object ><br /><br /> Annullera Trace(message: string)|
+|Kontext|Api: IApi<br /><br /> Distribution<br /><br /> Förfluten tid: TimeSpan - tidsintervallet mellan värdet för tidsstämpeln och aktuell tid<br /><br /> LastError<br /><br /> Operation<br /><br /> Product<br /><br /> Begäran<br /><br /> RequestId: GUID - identifierare för unika begäran<br /><br /> Svar<br /><br /> Prenumeration<br /><br /> Tidsstämpel: DateTime - tidpunkt när en förfrågan togs emot<br /><br /> Spårning: bool - anger om spårning har aktiverats eller inaktiverats <br /><br /> Användare<br /><br /> Variabler: IReadOnlyDictionary < string, object ><br /><br /> Annullera Trace(message: string)|
 |context.Api|ID: sträng<br /><br /> IsCurrentRevision: bool<br /><br />  Namn: sträng<br /><br /> Sökväg: sträng<br /><br /> Revision: sträng<br /><br /> ServiceUrl: IUrl<br /><br /> Version: sträng |
 |context.Deployment|Region: sträng<br /><br /> Tjänstnamn: sträng<br /><br /> Certifikat: IReadOnlyDictionary<string, X509Certificate2>|
 |context.LastError|Källa: sträng<br /><br /> Orsak: sträng<br /><br /> Meddelande: sträng<br /><br /> Omfång: sträng<br /><br /> Avsnittet: sträng<br /><br /> Sökväg: sträng<br /><br /> PolicyId: sträng<br /><br /> Mer information om kontext. LastError, se [felhantering](api-management-error-handling-policies.md).|
@@ -229,7 +229,7 @@ En variabel med namnet `context` finns implicit i varje princip [uttryck](api-ma
 |IUserIdentity|ID: sträng<br /><br /> Providern: sträng|
 |ISubscriptionKeyParameterNames|Rubrik: sträng<br /><br /> Fråga: sträng|
 |sträng IUrl.Query.GetValueOrDefault (queryParameterName: sträng, defaultValue: sträng)|queryParameterName: sträng<br /><br /> Standardvärde: sträng<br /><br /> Returnerar kommaavgränsad frågeparametervärden eller `defaultValue` om parametern inte hittas.|
-|T context.Variables.GetValueOrDefault<T\>(variableName: string, defaultValue: T)|variableName: string<br /><br /> Standardvärde: T<br /><br /> Returnerar värdet på variabeln typkonverteras till typen `T` eller `defaultValue` om variabeln inte hittas.<br /><br /> Den här metoden genereras ett undantag om den angivna typen inte matchar den faktiska typen av returnerade variabeln.|
+|T context.Variables.GetValueOrDefault<T\>(variableName: string, defaultValue: T)|variableName: string<br /><br /> Standardvärde: t<br /><br /> Returnerar värdet på variabeln typkonverteras till typen `T` eller `defaultValue` om variabeln inte hittas.<br /><br /> Den här metoden genereras ett undantag om den angivna typen inte matchar den faktiska typen av returnerade variabeln.|
 |BasicAuthCredentials AsBasic(input: this string)|inkommande: sträng<br /><br /> Om parametern innehåller ett giltigt grundläggande autentisering för HTTP-begäran auktoriseringsrubrikvärde, metoden returnerar ett objekt av typen `BasicAuthCredentials`; annars returnerar-metoden null.|
 |bool TryParseBasic (indata: den här strängen, resultat: ut BasicAuthCredentials)|inkommande: sträng<br /><br /> resultat: ut BasicAuthCredentials<br /><br /> Om parametern innehåller ett giltigt grundläggande HTTP-autentisering auktoriseringsvärde i rubriken returnerar-metoden `true` och resultatet parametern innehåller ett värde av typen `BasicAuthCredentials`; annars returnerar-metoden `false`.|
 |BasicAuthCredentials|Lösenord: sträng<br /><br /> Användar-ID: sträng|
@@ -242,7 +242,8 @@ En variabel med namnet `context` finns implicit i varje princip [uttryck](api-ma
 |byte [] kryptera (indata: den här byte [], algoritm: System.Security.Cryptography.SymmetricAlgorithm, nyckel: byte [], iv:byte[])|indata - klartext krypteras<br /><br />algoritm - krypteringsalgoritm<br /><br />nyckel - krypteringsnyckeln<br /><br />IV - Initieringsvektorn<br /><br />Returnerar krypterad klartext.|
 |byte [] dekryptera (indata: den här byte [], algoritm: sträng, nyckel: byte [], iv:byte[])|indata - text som kod ska dekrypteras<br /><br />algoritm - namnet på en symmetrisk kryptografisk algoritm<br /><br />nyckel - krypteringsnyckeln<br /><br />IV - Initieringsvektorn<br /><br />Returnerar klartext.|
 |byte [] dekryptera (indata: den här byte [], algoritm: System.Security.Cryptography.SymmetricAlgorithm)|indata - text som kod ska dekrypteras<br /><br />algoritm - krypteringsalgoritm<br /><br />Returnerar klartext.|
-|byte [] dekryptera (indata: den här byte [], algoritm: System.Security.Cryptography.SymmetricAlgorithm, nyckel: byte [], iv:byte[])|kod för indata - indata - text som ska dekrypteras<br /><br />algoritm - krypteringsalgoritm<br /><br />nyckel - krypteringsnyckeln<br /><br />IV - Initieringsvektorn<br /><br />Returnerar klartext.|
+|byte [] dekryptera (indata: den här byte [], algoritm: System.Security.Cryptography.SymmetricAlgorithm, nyckel: byte [], iv:byte[])|indata - text som kod ska dekrypteras<br /><br />algoritm - krypteringsalgoritm<br /><br />nyckel - krypteringsnyckeln<br /><br />IV - Initieringsvektorn<br /><br />Returnerar klartext.|
+|bool VerifyNoRevocation (indata: den här System.Security.Cryptography.X509Certificates.X509Certificate2)|Utför en verifiering av X.509-certifikatkedjan utan att kontrollera certifikatets återkallningsstatus.<br /><br />indata - certifikatobjekt<br /><br />Returnerar `true` om verifieringen lyckas; `false` om verifieringen misslyckas.|
 
 
 ## <a name="next-steps"></a>Nästa steg

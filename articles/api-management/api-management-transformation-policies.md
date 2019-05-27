@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: 565bcfa6c2f8a3da2ac16df0016b5adc54e27380
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: b3f86147eb91e874d5317204ca05fb45628414d3
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65407595"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833419"
 ---
 # <a name="api-management-transformation-policies"></a>API Management-principer för anspråksomvandling
 Det här avsnittet innehåller en referens för följande API Management-principer. Information om att lägga till och konfigurerar principer finns i [principer i API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -70,7 +70,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 
 ### <a name="elements"></a>Element
 
-|Namn|Beskrivning|Obligatoriskt|
+|Namn|Beskrivning|Krävs|
 |----------|-----------------|--------------|
 |json-to-xml|Rotelement.|Ja|
 
@@ -114,7 +114,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 
 ### <a name="elements"></a>Element
 
-|Namn|Beskrivning|Obligatoriskt|
+|Namn|Beskrivning|Krävs|
 |----------|-----------------|--------------|
 |xml-to-json|Rotelement.|Ja|
 
@@ -267,7 +267,7 @@ I det här exemplet dirigerar principen begäran till en service fabric-serverde
 
 ### <a name="attributes"></a>Attribut
 
-|Namn|Beskrivning|Obligatoriskt|Standard|
+|Namn|Beskrivning|Krävs|Standard|
 |----------|-----------------|--------------|-------------|
 |bas-url|Ny backend-tjänsten bas-URL.|En av `base-url` eller `backend-id` måste finnas.|Gäller inte|
 |backend-id|Identifierare för att dirigera till serverdelen. (Serverdel entiteter hanteras via [API](https://docs.microsoft.com/rest/api/apimanagement/backend) och [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).)|En av `base-url` eller `backend-id` måste finnas.|Gäller inte|
@@ -375,7 +375,7 @@ Den `set-body` principen kan konfigureras för att använda den [flytande](https
 #### <a name="convert-json-to-soap-using-a-liquid-template"></a>Konvertera JSON till SOAP med en flytande mall
 ```xml
 <set-body template="liquid">
-    <soap:Envelope xmlns="http://tempuri.org/" xmlns:soap="https://schemas.xmlsoap.org/soap/envelope/">
+    <soap:Envelope xmlns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
         <soap:Body>
             <GetOpenOrders>
                 <cust>{{body.getOpenOrders.cust}}</cust>
@@ -397,7 +397,7 @@ Den `set-body` principen kan konfigureras för att använda den [flytande](https
 
 ### <a name="elements"></a>Element
 
-|Namn|Beskrivning|Obligatoriskt|
+|Namn|Beskrivning|Krävs|
 |----------|-----------------|--------------|
 |Ställ in brödtext|Rotelement. Innehåller brödtexten eller ett uttryck som returnerar en brödtext.|Ja|
 
@@ -405,7 +405,7 @@ Den `set-body` principen kan konfigureras för att använda den [flytande](https
 
 |Namn|Beskrivning|Obligatoriskt|Standard|
 |----------|-----------------|--------------|-------------|
-|mall|Används för att ändra läget mall som principen set brödtext ska köras i. För närvarande är det enda värdet som stöds:<br /><br />-flytande - ange brödtext princip kommer att använda den flytande mall-motorn |Nej|Liquid|
+|mall|Används för att ändra läget mall som principen set brödtext ska köras i. För närvarande är det enda värdet som stöds:<br /><br />-flytande - ange brödtext princip kommer att använda den flytande mall-motorn |Nej||
 
 För att komma åt information om begäran och svaret kan flytande mallen bindas till en context-objektet med följande egenskaper: <br />
 <pre>context.
@@ -504,14 +504,14 @@ OriginalUrl.
 
 ### <a name="elements"></a>Element
 
-|Namn|Beskrivning|Obligatoriskt|
+|Namn|Beskrivning|Krävs|
 |----------|-----------------|--------------|
 |set-header|Rotelement.|Ja|
 |value|Anger värdet för rubriken anges. För flera rubriker med samma namn Lägg till ytterligare `value` element.|Ja|
 
 ### <a name="properties"></a>Egenskaper
 
-|Namn|Beskrivning|Obligatoriskt|Standard|
+|Namn|Beskrivning|Krävs|Standard|
 |----------|-----------------|--------------|-------------|
 |exists-action|Anger vilken åtgärd som ska vidtas när rubriken har redan angetts. Det här attributet måste ha något av följande värden.<br /><br /> -åsidosätt - ersätter värdet för befintlig rubrik.<br />-skip - ersätter inte befintliga huvudets värde.<br />-Tillägg - lägger till värdet till det befintliga värdet för sidhuvudet.<br />-delete - tar bort huvudet i begäran.<br /><br /> När värdet `override` ta med flera poster med samma namn resulterar i rubriken anges enligt alla poster (som visas flera gånger); endast listade värdena anges i resultatet.|Nej|åsidosättning|
 |namn|Anger namnet på rubriken anges.|Ja|Gäller inte|
@@ -571,7 +571,7 @@ OriginalUrl.
 
 ### <a name="properties"></a>Egenskaper
 
-|Namn|Beskrivning|Obligatoriskt|Standard|
+|Namn|Beskrivning|Krävs|Standard|
 |----------|-----------------|--------------|-------------|
 |exists-action|Anger vilken åtgärd som ska vidtas när Frågeparametern har redan angetts. Det här attributet måste ha något av följande värden.<br /><br /> -åsidosätt - ersätter värdet för parametern befintliga.<br />-skip - ersätter inte fråga befintlig parametervärdet.<br />-Tillägg - lägger till värdet till det befintliga frågan parametervärdet.<br />-ta bort – tar bort Frågeparametern från begäran.<br /><br /> När värdet `override` ta med flera poster med samma namn resulterar i Frågeparametern anges enligt alla poster (som visas flera gånger); endast listade värdena anges i resultatet.|Nej|åsidosättning|
 |namn|Anger namnet på parametern fråga att ställas in.|Ja|Gäller inte|

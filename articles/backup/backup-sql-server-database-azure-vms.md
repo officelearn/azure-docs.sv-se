@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/23/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: ae1f5f9148fa516c98d78afdd57887d4279f92dc
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
-ms.translationtype: MT
+ms.openlocfilehash: 2fba8b0056c80a62837682a6820b68f71fba9ea8
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65827690"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952935"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Säkerhetskopiera SQL Server-databaser i virtuella Azure-datorer
 
@@ -51,7 +51,7 @@ Upprätta en anslutning med hjälp av något av följande alternativ:
 
 - **Tillåt Azure-datacenter IP-adressintervall**. Det här alternativet kan [IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653) i nedladdningen. Använd cmdleten Set-AzureNetworkSecurityRule för att komma åt en nätverkssäkerhetsgrupp (NSG). Om du är listan över tillåtna program endast regionspecifika IP-adresser, du får också måste du godkänna Azure Active Directory (Azure AD) servicetagg för att aktivera autentisering.
 
-- **Tillåt åtkomst med hjälp av NSG taggar**. Om du använder NSG: er för att begränsa anslutning kan det här alternativet lägger till en regel för din NSG som tillåter utgående åtkomst till Azure Backup med hjälp av taggen AzureBackup. Förutom den här taggen måste du också motsvarande [regler](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#service-tags) för Azure AD och Azure Storage för att tillåta anslutning för autentisering och överföring. Taggen AzureBackup är endast tillgänglig på PowerShell. Skapa en regel med hjälp av AzureBackup-taggen:
+- **Tillåt åtkomst med hjälp av NSG taggar**. Om du använder NSG: er för att begränsa anslutning kan det här alternativet lägger till en regel för din NSG som tillåter utgående åtkomst till Azure Backup med hjälp av taggen AzureBackup. Förutom den här taggen måste du också motsvarande [regler](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) för Azure AD och Azure Storage för att tillåta anslutning för autentisering och överföring. Taggen AzureBackup är endast tillgänglig på PowerShell. Skapa en regel med hjälp av AzureBackup-taggen:
 
     - Lägg till autentiseringsuppgifter för Azure-konto och uppdatera nationella moln<br/>
     `Add-AzureRmAccount`
@@ -67,7 +67,7 @@ Upprätta en anslutning med hjälp av något av följande alternativ:
 
   - Spara NSG: N<br/>
     `Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg`
-- **Tillåta åtkomst med hjälp av Azure-brandvägg taggar**. Om du använder Azure-brandväggen, skapa en regel för program med hjälp av AzureBackup [FQDN taggen](https://docs.microsoft.com/en-us/azure/firewall/fqdn-tags). Detta tillåter utgående åtkomst till Azure Backup.
+- **Tillåta åtkomst med hjälp av Azure-brandvägg taggar**. Om du använder Azure-brandväggen, skapa en regel för program med hjälp av AzureBackup [FQDN taggen](https://docs.microsoft.com/azure/firewall/fqdn-tags). Detta tillåter utgående åtkomst till Azure Backup.
 - **Distribuera en HTTP-proxyserver kan dirigera trafik**. När du säkerhetskopierar en SQL Server-databas på en Azure virtuell dator använder tillägget på den virtuella datorn HTTPS-API: er för att skicka kommandon för hantering av Azure Backup och data till Azure Storage. Säkerhetskopieringstillägget använder också Azure AD för autentisering. Dirigera trafiken för säkerhetskopieringstillägget för dessa tre tjänster via HTTP-proxyn. Tilläggen är den enda komponenten som är konfigurerad för åtkomst till det offentliga internet.
 
 Anslutningsalternativ omfattar följande fördelar och nackdelar:

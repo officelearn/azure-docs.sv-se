@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 910c593c9277efeaf72dadc52740b1c918381e19
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b8c1513838fb848388946e18698a0410aa7a0332
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61466076"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65949621"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Hur du skapar ett Smooth Streaming Windows Store-program  
 
@@ -507,7 +507,7 @@ Samma händelser är tillgängliga på anpassningsbar källa Manager nivå, som 
    ```
 
    > [!NOTE]
-   > CoreDispatcher används för att göra ändringar i UI-tråden från icke-UI-tråden. Utvecklare kan välja att använda dispatcher som tillhandahålls av UI-element som han/hon har för avsikt att uppdatera vid flaskhals för dispatcher-tråden.  Exempel:
+   > CoreDispatcher används för att göra ändringar i UI-tråden från icke-UI-tråden. Utvecklare kan välja att använda dispatcher som tillhandahålls av UI-element som de tänker uppdatera vid flaskhals för dispatcher-tråden.  Exempel:
 
    ```csharp
          await sliderProgress.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => { TimeSpan 
@@ -847,7 +847,7 @@ En Smooth Streaming-presentation kan innehålla flera videofiler kodad med olika
          </ListBox>
          </StackPanel>
    ```
-3. Tryck på **CTRL + S** spara he ändringar
+3. Tryck på **CTRL + S** att spara ändringarna
 
 ### <a name="to-modify-the-code-behind-file"></a>Att ändra koden bakom filen
 
@@ -1027,7 +1027,7 @@ Du har slutfört Lektion 4.  Lägg till funktioner för att välja spårar i den
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Ge feedback
+## <a name="provide-feedback"></a>Lämna feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="other-resources"></a>Andra resurser:

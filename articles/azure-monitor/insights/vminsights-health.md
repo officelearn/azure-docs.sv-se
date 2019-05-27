@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/12/2019
+ms.date: 05/22/2019
 ms.author: magoedte
-ms.openlocfilehash: 45c9a8da8344aa6aaaa19b534451a7276e96911a
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 9fa76c9637a6dcdca48bf45e8ee2aa9305a4f64f
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65522194"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66130457"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines"></a>Förstå hälsotillståndet för virtuella datorer i Azure
 
@@ -85,7 +85,7 @@ Logga in på [Azure Portal](https://portal.azure.com).
 
 Innan du börjar använda funktionen hälsotillståndet för en enskild virtuell dator eller en grupp med virtuella datorer, är det viktigt att vi ger en kort introduktion så att du förstår hur informationen visas och visualiseringar representerar.  
 
-## <a name="view-health-directly-from-a-virtual-machine"></a>Visa hälsa direkt från en virtuell dator 
+### <a name="view-health-directly-from-a-virtual-machine"></a>Visa hälsa direkt från en virtuell dator 
 
 Om du vill visa hälsotillståndet för en Azure-dator, Välj **Insights (förhandsversion)** från det vänstra fönstret för den virtuella datorn. På sidan VM insights **hälsotillstånd** visas som standard och visar vyn hälsotillståndet för den virtuella datorn.  
 
@@ -96,11 +96,21 @@ På den **hälsotillstånd** fliken, under avsnittet **gäst VM-hälsa**, visas 
 Hälsotillstånden som definierats för en virtuell dator beskrivs i följande tabell: 
 
 |Ikon |Hälsotillstånd |Betydelse |
-|-----|-------------|------------|
+|-----|-------------|---------------|
 | |Felfri |Hälsotillståndet är felfri om det är inom de definierade hälsovillkoren, som anger inga problem hittades för den virtuella datorn och den fungerar som krävs. Med en överordnad Övervakare för insamling visar hälsotillstånd samlar in och du det bästa eller sämsta tillståndet för underordnat.|
 | |Kritiska |Hälsotillståndet är kritiskt om den inte är inom definierad hälsostatus, som anger att en eller flera kritiska problem har identifierats som behöver åtgärdas om du vill återställa normal drift. Med en överordnad Övervakare för insamling visar hälsotillstånd samlar in och du det bästa eller sämsta tillståndet för underordnat.|
 | |Varning! |Hälsotillståndet är en varning om det är mellan två tröskelvärden för definierade hälsostatus, där en anger en *varning* tillstånd och den andra anger en *kritisk* tillstånd (tre hälsotillstånd tillstånd tröskelvärden kan kan konfigureras), eller när ett icke-kritiska problem har identifierats som kan orsaka problem om inte lösas. Med en överordnad samlad Övervakare, om en eller flera av de underordnade objekten är i varningstillstånd så kommer att användas i överordnat *varning* tillstånd. Om det finns en underordnad som tillhör en *kritisk* och en annan underordnade i en *varning* tillstånd, den överordnade samlade visar ett hälsotillstånd *kritisk*.|
-| |Inte tillgängligt |Hälsotillståndet är i ett *okänd* tillstånd när hälsotillståndet inte kan beräknas av flera skäl, till exempel inte kunna samla in data, tjänsten som ej initierad, osv. Den här hälsotillstånd kan inte konfigureras.| 
+| |Inte tillgängligt |Hälsotillståndet är *okänd* när den kan inte beräknas av flera skäl. Se följande fotnot <sup>1</sup> för ytterligare information och möjliga lösningar för att lösa dem. |
+
+<sup>1</sup> the okänd hälsotillstånd beror på följande problem:
+
+- Agenten har konfigurerats och inte längre rapporter till arbetsytan anges när Azure Monitor för virtuella datorer har aktiverats. Konfigurera agent att rapportera till arbetsytan finns i [att lägga till eller ta bort en arbetsyta](../platform/agent-manage.md#adding-or-removing-a-workspace).
+- Virtuell dator har tagits bort.
+- Arbetsytan som är associerade med Azure Monitor för virtuella datorer tas bort. Att återställa arbetsytan om du har Premier support-förmåner som du kan öppna en supportförfrågan med [Premier](https://premier.microsoft.com/).
+- Lösningsberoenden har tagits bort. Om du vill aktivera ServiceMap och InfrastructureInsights-lösningar i Log Analytics-arbetsytan, du kan installera om med en [Azure Resource Manager-mall](vminsights-enable-at-scale-powershell.md#install-the-servicemap-and-infrastructureinsights-solutions) som har angetts eller med hjälp av alternativet konfigurera arbetsyta hittades på den Kom igång-fliken.
+- Virtuell dator har stängts.
+- Azure VM-tjänsten är inte tillgänglig eller underhåll utförs.
+- Arbetsytan [dagliga data eller kvarhållning gränsen](../platform/manage-cost-storage.md) uppfylls.
 
 Att välja **visa hälsotillstånd diagnostik** öppnas en sida som visar alla komponenter i den virtuella datorn, tillhörande hälsostatus kriterier, tillståndsändringar och andra problem som uppstod genom att övervaka komponenter som hör till den virtuella datorn. Mer information finns i [hälsotillstånd diagnostik](#health-diagnostics). 
 
@@ -108,7 +118,7 @@ Under den **komponenthälsa** avsnittet visas en samlad hälsostatus primära pr
 
 Vid åtkomst till hälsotillstånd från en Azure virtuell dator som kör Windows-operativsystem, hälsotillståndet för överst fem viktiga Windows services visas under avsnittet **Core services health**.  Om du väljer någon av tjänsterna öppnas en sida där health-villkor som övervakning av komponenten och dess hälsotillstånd.  När du klickar på namnet på health-villkor öppnas egenskapsrutan och härifrån kan du granska konfigurationsinformationen, inklusive om health-villkor har en motsvarande Azure Monitor-avisering som definierats. Mer information finns i [hälsotillstånd diagnostik- och arbeta med Hälsokriterier](#health-diagnostics).  
 
-## <a name="aggregate-virtual-machine-perspective"></a>Sammanställd VM perspektiv
+### <a name="aggregate-virtual-machine-perspective"></a>Sammanställd VM perspektiv
 
 Om du vill visa insamling av hälsotillstånd för alla dina virtuella datorer i en resursgrupp från listan över navigeringsfönstret i portalen, Välj **Azure Monitor** och välj sedan **virtuella datorer (förhandsversion)**.  
 
@@ -154,7 +164,7 @@ Du kan gå längre ned om du vill se vilka instanser som inte är felfria genom 
 
 ## <a name="health-diagnostics"></a>Diagnostik för hälsa
 
-Thge **hälsotillstånd diagnostik** sidan kan du visualisera Hälsomodell för en virtuell dator, visa en lista över alla komponenter i den virtuella datorn, som är associerade health-villkor, tillståndsändringar, och andra problem som identifieras av övervakas relaterade komponenter till den virtuella datorn.
+Den **hälsotillstånd diagnostik** sidan kan du visualisera Hälsomodell för en virtuell dator, visa en lista över alla komponenter i den virtuella datorn, som är associerade health-villkor, tillståndsändringar, och andra problem som identifieras av övervakas relaterade komponenter till den virtuella datorn.
 
 ![Exempel på sidan hälsa diagnostik för en virtuell dator](./media/vminsights-health/health-diagnostics-page-01.png)
 
@@ -343,7 +353,7 @@ Aktivera eller inaktivera en avisering för ett visst hälsotillstånd villkor, 
 Azure Monitor för virtuella datorer Health stöder SMS eller e-postmeddelanden när aviseringar genereras när Hälsokriterier blir ohälsosamt. Om du vill konfigurera meddelanden, måste du notera namnet på åtgärdsgrupp som är konfigurerad för att skicka SMS eller e-meddelanden. 
 
 >[!NOTE]
->Den här åtgärden måste utföras mot varje virtuell dator övervakas som du vill få ett meddelande för.
+>Den här åtgärden måste utföras mot varje virtuell dator övervakas att du vill få ett meddelande för, gäller inte för alla virtuella datorer i resursgruppen.  
 
 1. Skriv i ett terminalfönster **armclient.exe inloggning**. Då uppmanas du att logga in på Azure.
 

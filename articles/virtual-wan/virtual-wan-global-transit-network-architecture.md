@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 05/20/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand global transit network architecture as it relates to Virtual WAN.
-ms.openlocfilehash: 8cda617ca60a17fceaaa818480ff9bbaef46c3fd
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 114d11f98c6181a03f5ce52527b5e2efea468c42
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65414057"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65965978"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Global överföring nätverksarkitektur och virtuellt WAN-nätverk
 
@@ -48,7 +48,7 @@ Bild 2 visar logisk vy för globala nätverk där geografiskt distribuerade anv�
 
 ## <a name="crossregion"></a>Anslutningen mellan regioner
 
-För ett företag följer en molntjänster vanligtvis fysiska storleken. De flesta företag åtkomst till molnet från en region som är närmast deras fysiska plats och användare. En av viktiga huvudkonton av globala nätverksarkitektur är att aktivera interregionala anslutning mellan nätverksentiteter och slutpunkter. En molntjänster kan sträcka sig över flera regioner. Det innebär att trafik från en gren som är anslutna till molnet i en region kan nå en annan gren eller ett virtuellt nätverk i en annan region.
+För ett företag följer en molntjänster vanligtvis fysiska storleken. De flesta företag åtkomst till molnet från en region som är närmast deras fysiska plats och användare. En av viktiga huvudkonton av globala nätverksarkitektur är att aktivera interregionala anslutning mellan nätverksentiteter och slutpunkter. En molntjänster kan sträcka sig över flera regioner. Det innebär att trafik från en gren som är anslutna till molnet i en region kan nå en annan gren eller ett virtuellt nätverk i en annan region med hjälp av hub-till-hub-anslutning som för närvarande finns som förhandsversion.
 
 ## <a name="any"></a>Alla-till-alla anslutningar
 
@@ -89,7 +89,7 @@ Fjärranslutna användare att avdelningskontor sökvägen kan fjärranslutna anv
 
 ### <a name="vnetvnet"></a>VNet-till-VNet-överföring med VNet-peering
 
-Anslut virtuella nätverk till varandra för att stödja flernivåprogram som implementeras över flera virtuella nätverk genom att använda VNet-peering. Ett scenario för överföring av VNet-till-VNet via Azure virtuellt WAN-nätverk stöds inte för närvarande, men är på Azure-översikten. Ansluta virtuella nätverk via VNet-Peering är rekommenderad lösning för virtuella nätverk som måste vara anslutna till varandra. Läs mer om VNet-peering, [VNet Peering översikt](../virtual-network/virtual-network-peering-overview.md).
+Anslut virtuella nätverk till varandra för att stödja flernivåprogram som implementeras över flera virtuella nätverk genom att använda VNet-peering. Ett scenario för överföring av VNet-till-VNet via Azure virtuellt WAN-nätverk stöds inte för närvarande, men är på Azure-översikten. Ansluta virtuella nätverk via VNet-Peering är rekommenderad lösning för virtuella nätverk som måste vara anslutna till varandra. [Gatewayöverföring](../virtual-network/virtual-network-peering-overview.md#gateways-and-on-premises-connectivity) (i samband med VNet-peering) krävs inte för virtuellt WAN-nätverk eftersom virtuellt WAN-nätverk automatiskt kan gateway-överföring.
 
 ### <a name="globalreach"></a>ExpressRoute Global räckvidd
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/01/2018
 ms.author: aschhab
-ms.openlocfilehash: abba0e15314387aed09e39f05d9127f346f9c799
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 8477ff8c8ff0bc1629ff4cdc61f7c28c6eed778c
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65228392"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978800"
 ---
 # <a name="managed-identities-for-azure-resources-with-service-bus"></a>Hanterade identiteter för Azure-resurser med Service Bus 
 
@@ -29,7 +29,23 @@ Med hanterade identiteter hanterar den här identiteten för körning i Azure-pl
 
 ## <a name="service-bus-roles-and-permissions"></a>Service Bus-roller och behörigheter
 
-Du kan bara lägga till en hanterad identitet till ”ägare” eller ”bidragsgivare” roller av en Service Bus-namnrymd. Den ger fullständig kontrollen identitet i alla entiteter i namnområdet. Hantering av åtgärder som ändrar namnområde topologin är från början stöds dock bara om Azure Resource Manager. Det är inte via gränssnittet för hantering av interna Service Bus REST. Det här stödet innebär också att du inte kan använda .NET Framework-klienten [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) eller .NET Standard-klienten [ManagementClient](/dotnet/api/microsoft.azure.servicebus.management.managementclient) objekt inom en hanterad identitet.
+Du kan lägga till en hanterad identitet ”Service Bus Data” ägarrollen i ett Service Bus-namnområde. Den ger identitet, fullständig behörighet (för hantering och åtgärder för) alla entiteter i namnområdet.
+
+>[!IMPORTANT]
+> Vi tidigare stöd för att lägga till hanterad identitet till den **”ägare”** eller **”bidragsgivare”** roll.
+>
+> Men data behörighet för **”ägare”** och **”bidragsgivare”** rollen kommer inte längre att hanteras. Om du använde den **”ägare”** eller **”bidragsgivare”** roll och de måste anpassas till att använda den **”Service Bus-Dataägaren”** roll.
+
+Om du vill använda den nya inbyggda rollen, Fyll i nedanstående steg -
+
+1. Gå vidare till den [Azure-portalen](https://portal.azure.com)
+2. Gå till Service Bus-namnområde där du har för närvarande installationsprogrammet rollen ”ägare” eller ”bidragsgivare”.
+3. Klicka på ”åtkomst Control(IAM)” menyn till vänster.
+4. Fortsätta att lägga till en ny rolltilldelning enligt nedan
+
+    ![](./media/service-bus-role-based-access-control/ServiceBus_RBAC_SBDataOwner.png)
+
+5. Klicka på ”Spara” för att spara den nya rolltilldelningen.
 
 ## <a name="use-service-bus-with-managed-identities-for-azure-resources"></a>Använda Service Bus med hanterade identiteter för Azure-resurser
 
@@ -51,7 +67,7 @@ När du har aktiverat funktionen, en ny tjänstidentitet skapas i Azure Active D
 
 ### <a name="create-a-new-service-bus-messaging-namespace"></a>Skapa ett nytt namnområde för Service Bus-meddelanden
 
-Nästa [skapa ett namnområde för Service Bus-meddelanden](service-bus-create-namespace-portal.md) i någon av de Azure-regioner som har förhandsversionsstöd för RBAC: **USA, Öst**, **USA, Öst 2**, eller **Västeuropa**. 
+Nästa [skapa ett namnområde för Service Bus-meddelanden](service-bus-create-namespace-portal.md). 
 
 Gå till namnområdet **åtkomstkontroll (IAM)** på portalen och klicka sedan på **Lägg till rolltilldelning** att lägga till den hantera identitet som den **ägare** roll. Du gör detta genom att söka efter namnet på webbprogrammet i den **Lägg till behörigheter** panelen **Välj** fältet och sedan klickar du på posten. Klicka sedan på **Spara**.
 

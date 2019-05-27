@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/17/2018
 ms.author: sedusch
-ms.openlocfilehash: b844c93a1f3e83d682b51db6f9854f11b24d82e7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e082afb212be46c40566eb643d01bc37eababfa6
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61127136"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65992152"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Konfigurera Pacemaker på Red Hat Enterprise Linux i Azure
 
@@ -37,7 +37,7 @@ ms.locfileid: "61127136"
 [2243692]:https://launchpad.support.sap.com/#/notes/2243692
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
 
-[virtual-machines-linux-maintenance]:../../linux/maintenance-and-updates.md#maintenance-not-requiring-a-reboot
+[virtual-machines-linux-maintenance]:../../linux/maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot
 
 > [!NOTE]
 > Pacemaker på Red Hat Enterprise Linux använder Azure avgränsningstecken agenten för att fence en klusternod om det behövs. En redundansväxling kan ta upp till 15 minuter om det inte går att stoppa en resurs eller noderna i klustret inte kan kommunicera som varandra längre. Mer information finns [virtuell Azure-dator som körs som en hög tillgänglighet för RHEL-klustermedlem ta mycket lång tid att vara inhägnade eller hägna in misslyckas / timeout innan den virtuella datorn stängs av](https://access.redhat.com/solutions/3408711)

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 05/20/2019
 ms.author: alkohli
-ms.openlocfilehash: a90475cfd1d166b8fae1c2b872cbbb9d48b50392
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: a9daf1d59b03d283be999aaab559c6d60f6405dd
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785799"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65953121"
 ---
 # <a name="manage-compute-on-your-azure-data-box-edge"></a>Hantera beräkning på Azure Data Box-Edge
 
@@ -129,24 +129,6 @@ Vidta följande steg i Azure portal för att synkronisera åtkomstnycklarna för
 
 3. Avsluta dialogrutan när synkroniseringen är klar.
 
-## <a name="enable-a-network-interface-for-compute"></a>Aktivera ett nätverksgränssnitt för beräkning
-
-Du kan behöva åtkomst till en modul som körs på din Data Box Edge-enhet. För att komma åt modulen externt, behöver du tilldela en IP-adress till ett nätverksgränssnitt på din enhet. Du kan hantera dessa compute inställningar från din lokala webbgränssnittet.
-
-Gör följande i din lokala webbgränssnitt att konfigurera inställningarna för beräkning.
-
-1. I det lokala webbgränssnittet går du till **Configuration > Compute inställningar**.  
-
-2. **Aktivera** nätverksgränssnittet som du vill använda för att ansluta till compute-moduler på enheten. 
-
-    - Om du använder statiska IP-adresser anger du en IP-adress för nätverksgränssnittet.
-    - Om du använder DHCP, ska sedan IP-adresser tilldelas automatiskt.
-
-3. Välj **tillämpa** att tillämpa inställningarna.
-
-    ![Aktivera inställningarna för beräkning](media/data-box-edge-manage-compute/compute-settings-1.png)
-
-
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig hur du [hanterar användare via Azure-portalen](data-box-edge-manage-users.md).
+- Lär dig hur du [hantera Edge compute nätverk via Azure-portalen](data-box-edge-extend-compute-access-modules.md).

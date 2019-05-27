@@ -9,16 +9,16 @@ manager: barbkess
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: mbaldwin
-ms.openlocfilehash: f8827ac290393c9f394c3b13149555a1a2aa6df9
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: d8ce3c995e8e0f20ed6d694f481cc5fc9fde4fa7
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64927499"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66000156"
 ---
-# <a name="common-security-attributes-for-azure-service-bus-relay"></a>Vanliga säkerhetsattribut för Azure Service Bus Relay
+# <a name="security-attributes-for-azure-service-bus-relay"></a>Security attribut för Azure Service Bus Relay
 
-Säkerheten är integrerad i alla aspekter av en Azure-tjänst. Den här artikeln beskrivs vanliga security attribut som är inbyggda i Azure Service Bus Relay.
+Den här artikeln dokumenteras security-attribut som är inbyggda i Azure Service Bus Relay.
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
@@ -40,7 +40,7 @@ Säkerheten är integrerad i alla aspekter av en Azure-tjänst. Den här artikel
 | Isolering av nätverk och brandväggsfunktioner support| Nej |  |
 | Tvingad tunneltrafik support| Gäller inte | Relay är TLS-tunnel  |
 
-## <a name="detection"></a>Detection (Identifiering)
+## <a name="detection"></a>Identifiering
 
 | Säkerhetsattributet | Ja/nej | Anteckningar|
 |---|---|--|

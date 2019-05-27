@@ -6,15 +6,15 @@ manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
-ms.date: 12/15/2018
+ms.date: 3/13/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 8bcc72cf151b085c7f65b6c600a49642cd330bac
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
-ms.translationtype: HT
+ms.openlocfilehash: 40e54daa60efedd84b32c72f29d1e2a8858c27da
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54248494"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66162361"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-diagnostic-logs-with-an-iot-hub"></a>Självstudier: Konfigurera och använda mått och diagnostikloggar med en IoT-hubb
 
@@ -210,7 +210,7 @@ IoT Hub har inte migrerats till den [mått i Azure Monitor](/azure/azure-monitor
 
     Fyll i fälten:
 
-    **Namn**: Ange ett namn för din varningsregel, som *telemetri-meddelanden*.
+    **Namn på**: Ange ett namn för din varningsregel, som *telemetri-meddelanden*.
 
     **Beskrivning**: Ange en beskrivning av aviseringen, till exempel *avisera när 1000 telemetrimeddelanden har skickats*. 
 
@@ -240,7 +240,7 @@ IoT Hub har inte migrerats till den [mått i Azure Monitor](/azure/azure-monitor
 
    På skärmen **Visa klassiska aviseringar** klickar du på **Lägg till måttavisering (klassisk)** och fyller därefter i fälten i fönstret **Lägg till regel**.
 
-   **Namn**: Ange ett namn för din varningsregel, som *antal-använda-meddelanden*.
+   **Namn på**: Ange ett namn för din varningsregel, som *antal-använda-meddelanden*.
 
    **Beskrivning**: Ange en beskrivning av aviseringen, till exempel *avisera när en kvot närmar sig*.
 
@@ -274,7 +274,7 @@ IoT Hub har inte migrerats till den [mått i Azure Monitor](/azure/azure-monitor
 
 Tidigare i avsnittet om skriptkonfiguration konfigurerade du en enhet för att använda en IoT-enhet. I det här avsnittet ska du ladda ned en .NET-konsolapp som simulerar en enhet som skickar ”enhet till molnet”-meddelanden till en IoT Hub.  
 
-Ladda ned lösningen för [IoT-enhetssimuleringen](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Länken laddar ned en lagringsplats som innehåller flera program ned. Lösningen du söker finns i iot-hub/Tutorials/Routing/SimulatedDevice/.
+Ladda ned lösningen för [IoT-enhetssimuleringen](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Den här länken laddar ned en lagringsplats med flera program. lösningen som du letar efter finns i iot-hubb/självstudier/routning /.
 
 Dubbelklicka på lösningsfilen (SimulatedDevice.sln) för att öppna koden i Visual Studio och öppna sedan Program.cs. Ersätt `{iot hub hostname}` med IoT-hubbens värdnamn. Formatet för IoT-hubbens värdnamn är **{iot-hub-name}.azure-devices.net**. För den här självstudien är hubbens värdnamn **ContosoTestHub.azure-devices.net**. Ersätt därefter `{device key}` med enhetsnyckeln du sparade tidigare när du konfigurerade den simulerade enheten. 
 
@@ -298,7 +298,7 @@ Kör konsolprogrammet. Vänta några minuter (10–15). Du kan se meddelandena s
 
 ### <a name="see-the-metrics-in-the-portal"></a>Se Mått i portalen
 
-Öppna dina mått från instrumentpanelen. Ändra tidsvärden till *Senaste 30 minuterna* med en tidskornighet på *1 minut*. Det visar telemetrimeddelanden som skickats och det totala antalet meddelanden som använts i diagrammet, med de senaste siffrorna längst ned i diagrammet. 
+Öppna dina mått från instrumentpanelen. Ändra tidsvärden till *Senaste 30 minuterna* med en tidskornighet på *1 minut*. Det visar telemetrimeddelanden som skickats och det totala antalet meddelanden som använts i diagrammet, med de senaste siffrorna längst ned i diagrammet.
 
    ![Skärmbild som visar måtten.](./media/tutorial-use-metrics-and-diags/13-metrics-populated.png)
 
@@ -385,4 +385,4 @@ I den här självstudien har du lärt dig att använda mått och diagnostiklogga
 Gå vidare till nästa självstudie där du får lära dig hur du hanterar tillstånd för en IoT-enhet. 
 
 > [!div class="nextstepaction"]
-[Konfigurera dina enheter från en serverdelstjänst](tutorial-device-twins.md)
+> [Konfigurera dina enheter från en serverdelstjänst](tutorial-device-twins.md)

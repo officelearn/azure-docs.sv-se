@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 11/27/2018
 ms.author: glenga
 ms.openlocfilehash: 79dbee33928fbc7560d0ea27be3af25cc510e996
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
-ms.translationtype: HT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52641899"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66132294"
 ---
 ## <a name="create-an-azure-functions-project"></a>Skapa ett Azure Functions-projekt
 
 Med Azure Functions-projektmallen i Visual Studio Code skapas ett projekt som kan publiceras till en funktionsapp i Azure. Med en funktionsapp kan du gruppera funktioner som en logisk enhet så att det blir enklare att hantera, distribuera och dela resurser.
 
-1. Välj Azure-logotypen i Visual Studio Code så att området **Azure: Funktioner** visas och välj sedan ikonen Skapa nytt projekt.
+1. I Visual Studio Code, väljer du den Azure logotypen som ska visas i **Azure: Functions** område och välj sedan ikonen Skapa nytt projekt.
 
     ![Skapa ett funktionsapprojekt](./media/functions-create-function-app-vs-code/create-function-app-project.png)
 

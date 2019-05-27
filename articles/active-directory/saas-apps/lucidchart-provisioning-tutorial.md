@@ -3,9 +3,8 @@ title: 'Självstudier: Konfigurera LucidChart för automatisk användaretablerin
 description: Lär dig hur du konfigurerar Azure Active Directory för att automatiskt etablera och avetablera användarkonton till LucidChart.
 services: active-directory
 documentationcenter: ''
-author: asmalser-msft
-writer: asmalser-msft
-manager: daveba
+author: ArvindHarinder1
+manager: CelesteDG
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
@@ -14,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
-ms.author: asmalser-msft
+ms.author: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc181625ead251480bb107fc59e3aae46afab1ee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9540cf882af6b11f0e8624e477ad336f6d5d9ad3
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60256612"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65963675"
 ---
 # <a name="tutorial-configure-lucidchart-for-automatic-user-provisioning"></a>Självstudier: Konfigurera LucidChart för automatisk användaretablering
 

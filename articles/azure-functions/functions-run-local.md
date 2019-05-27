@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 7c6e7d8bb407b0ffeb320ebfe9e2639feb303800
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: fe483f00c5711c2b2b62add32e951d26f732de2f
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65603410"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66131396"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Arbeta med Azure Functions Core Tools
 
@@ -52,51 +52,51 @@ Om inget annat anges i exemplen i den här artikeln gäller för version 2.x.
 
 ### <a name="v2"></a>Version 2.x
 
-Version 2.x av verktygen använder Azure Functions-runtime 2.x som bygger på .NET Core. Den här versionen stöds för alla plattformar som .NET Core 2.x stöder, inklusive [Windows](#windows-npm), [macOS](#brew), och [Linux](#linux). Du måste först installera .NET Core 2.x SDK.
+Version 2.x av verktygen använder Azure Functions-runtime 2.x som bygger på .NET Core. Den här versionen stöds för alla plattformar som .NET Core 2.x stöder, inklusive [Windows](#windows-npm), [macOS](#brew), och [Linux](#linux). 
+
+> [!IMPORTANT]
+> Du kan kringgå kravet för att installera .NET Core 2.x SDK med hjälp av [tillägget paket].
 
 #### <a name="windows-npm"></a>Windows
 
 Följande steg Använd npm för att installera Core Tools på Windows. Du kan också använda [Chocolatey](https://chocolatey.org/). Mer information finns i den [Core Tools readme](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
 
-1. Installera [.NET Core 2.x SDK för Windows](https://www.microsoft.com/net/download/windows).
+1. Installera [Node.js], vilket inkluderar npm. För version 2.x av verktyg, endast Node.js 8.5 och senare versioner stöds.
 
-2. Installera [Node.js], vilket inkluderar npm. För version 2.x av verktyg, endast Node.js 8.5 och senare versioner stöds.
-
-3. Installera Core Tools-paketet:
+1. Installera Core Tools-paketet:
 
     ```bash
     npm install -g azure-functions-core-tools
     ```
+1. Om du inte planerar att använda [tillägget paket], installera den [.NET Core 2.x SDK för Windows](https://www.microsoft.com/net/download/windows).
 
 #### <a name="brew"></a>MacOS med Homebrew
 
 Följande steg använda Homebrew för att installera de viktigaste verktygen på macOS.
 
-1. Installera [.NET Core 2.x SDK för macOS](https://www.microsoft.com/net/download/macos).
+1. Installera [Homebrew](https://brew.sh/), om det inte redan är installerat.
 
-2. Installera [Homebrew](https://brew.sh/), om det inte redan är installerat.
-
-3. Installera Core Tools-paketet:
+1. Installera Core Tools-paketet:
 
     ```bash
     brew tap azure/functions
     brew install azure-functions-core-tools
     ```
+1. Om du inte planerar att använda [tillägget paket], installera [.NET Core 2.x SDK för macOS](https://www.microsoft.com/net/download/macos).
+
 
 #### <a name="linux"></a> Linux (Debian/Ubuntu) med APT
 
 I följande anvisningar används [APT](https://wiki.debian.org/Apt) installera Core Tools på din Ubuntu/Debian Linux-distribution. Andra Linux-distributioner finns i den [Core Tools readme](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#linux).
 
-1. Installera [.NET Core 2.x SDK för Linux](https://www.microsoft.com/net/download/linux).
-
-2. Registrera Microsoft-produktnyckeln som tillförlitliga:
+1. Registrera Microsoft-produktnyckeln som tillförlitliga:
 
     ```bash
     curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
     sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
     ```
 
-3. Kontrollera din Ubuntu-server kör något av versionerna som är lämplig i tabellen nedan. Om du vill lägga till apt källan, kör du:
+1. Kontrollera din Ubuntu-server kör något av versionerna som är lämplig i tabellen nedan. Om du vill lägga till apt källan, kör du:
 
     ```bash
     sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-$(lsb_release -cs)-prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list'
@@ -110,11 +110,12 @@ I följande anvisningar används [APT](https://wiki.debian.org/Apt) installera C
     | Ubuntu 17.04    | `zesty`     |
     | Ubuntu 16.04/Linux myntverket 18    | `xenial`  |
 
-4. Installera Core Tools-paketet:
+1. Installera Core Tools-paketet:
 
     ```bash
     sudo apt-get install azure-functions-core-tools
     ```
+1. Om du inte planerar att använda [tillägget paket], installera [.NET Core 2.x SDK för Linux](https://www.microsoft.com/net/download/linux).
 
 ## <a name="create-a-local-functions-project"></a>Skapa ett lokalt Functions-projekt
 
@@ -186,6 +187,7 @@ Filen local.settings.json lagrar appinställningar, anslutningssträngar och ins
   "Host": {
     "LocalHttpPort": 7071,
     "CORS": "*"
+    "CORSCredentials": true
   },
   "ConnectionStrings": {
     "SQLConnectionString": "<sqlclient-connection-string>"
@@ -200,6 +202,7 @@ Filen local.settings.json lagrar appinställningar, anslutningssträngar och ins
 | **`Host`** | Inställningarna i det här avsnittet Anpassa värdprocessen funktioner när du kör lokalt. |
 | **`LocalHttpPort`** | Anger standardporten som används när du kör den lokala Functions-värden (`func host start` och `func run`). Den `--port` kommandoradsalternativet har företräde framför det här värdet. |
 | **`CORS`** | Definierar de ursprung som får för [cross-origin resource sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Ursprung tillhandahålls som en kommaavgränsad lista med utan blanksteg. Jokertecknet (\*) stöds, vilket gör att begäranden från valfri origin. |
+| **`CORSCredentials`** |  Ändra det till SANT för att låta `withCredentials` begäranden |
 | **`ConnectionStrings`** | Använd inte den här samlingen för anslutningssträngar som används av din funktionsbindning. Den här samlingen används endast av ramverk som kommer vanligtvis anslutningssträngar från den `ConnectionStrings` avsnitt i en konfiguration av fil, som [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx). Anslutningssträngar i det här objektet läggs till i miljön med providertyp av [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx). Objekt i den här samlingen inte har publicerats till Azure med andra appinställningar. Du måste uttryckligen lägga till dessa värden till den `Connection strings` insamling av din funktionsappinställningarna. Om du skapar en [ `SqlConnection` ](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx) i Funktionskoden, bör du lagra Anslutningssträngens värde i **programinställningar** i portalen med dina andra anslutningar. |
 
 Funktionen appen inställningsvärden kan också läsa i koden som miljövariabler. Mer information finns i avsnittet miljö variabler i dessa språkspecifika referensämnen:
@@ -500,3 +503,4 @@ Till filen en bugg eller funktionen begäran [öppna ett GitHub-ärende](https:/
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
 [`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functions_worker_runtime
 [`AzureWebJobsStorage`]: functions-app-settings.md#azurewebjobsstorage
+[tillägget paket]: functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles

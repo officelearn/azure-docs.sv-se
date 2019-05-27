@@ -9,14 +9,14 @@ ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 05/21/2019
 ms.author: shvija
-ms.openlocfilehash: 549cfb84ff247295e01c800aa41ba265bb8921c7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ae970b9612154a6463c4bf44a65da71a20c81635
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60343468"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978313"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Aktiva Directory Role-Based Access Control (förhandsversion)
 
@@ -27,8 +27,13 @@ För Azure Event Hubs, hantering av namnområden och alla relaterade resurser vi
 Ett program som använder Azure AD RBAC behöver inte hantera SAS regler och nycklar eller andra åtkomsttoken specifika för Event Hubs. Klientappen interagerar med Azure AD för att upprätta en autentiseringskontext och hämtar en åtkomsttoken för Event Hubs. Med domänanvändarkonton som kräver interaktiv inloggning, hanterar programmet aldrig autentiseringsuppgifter direkt.
 
 ## <a name="event-hubs-roles-and-permissions"></a>Event Hubs roller och behörigheter
+Azure tillhandahåller följande inbyggda RBAC-roller för att auktorisera åtkomst till ett Event Hubs-namnområde:
 
-Den första offentliga förhandsversionen kan du bara lägga till Azure AD-konton och tjänstens huvudnamn till ”ägare” eller ”bidragsgivare” roller för ett namnområde för Event Hubs. Den här åtgärden ger den identitet fullständig kontrollen över alla entiteter i namnområdet. Management-åtgärder som ändrar namnområde topologin är inledningsvis endast stöds dock Azure resource Manager och inte via gränssnittet för hantering av inbyggda Event Hubs REST. Det här stödet innebär att även .NET Framework-klienten [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) objektet kan inte användas med en Azure AD-konto.  
+Den [Dataägaren (förhandsversion) för Event Hubs](../role-based-access-control/built-in-roles.md#service-bus-data-owner) rollen kan åtkomst till ett Event Hubs-namnområde och entiteter (köer, ämnen, prenumerationer och filter)
+
+>[!IMPORTANT]
+> Vi tidigare stöd för att lägga till hanterad identitet till den **ägare** eller **deltagare** roll. Men data behörighet för **ägare** och **deltagare** rollen respekteras inte längre. Om du använder den **ägare** eller **deltagare** roll, växla till med hjälp av den **Dataägaren för Event Hubs** roll.
+
 
 ## <a name="use-event-hubs-with-an-azure-ad-domain-user-account"></a>Använda Event Hubs med ett användarkonto för Azure AD-domän
 
@@ -44,7 +49,7 @@ Om du vill skapa ett särskilt konto för det här scenariot [gör så här](../
 
 ### <a name="create-an-event-hubs-namespace"></a>Skapa ett Event Hubs-namnområde
 
-Nästa [skapa ett namnområde för Event Hubs](event-hubs-create.md) i någon av de Azure-regioner som har stöd för förhandsversionen av Event Hubs för RBAC: **USA, Öst**, **USA, Öst 2**, eller **Västeuropa**. 
+Nästa [skapa ett namnområde för Event Hubs](event-hubs-create.md). 
 
 När namnområdet har skapats går du till dess **åtkomstkontroll (IAM)** på portalen och klicka sedan på **Lägg till rolltilldelning** att lägga till Azure AD-användarkontot i rollen ägare. Om du använder ett eget användarkonto och du skapade namnområdet, är du redan rollen ägare. Om du vill lägga till ett annat konto för rollen, Sök efter namnet på webbprogrammet i den **Lägg till behörigheter** panelen **Välj** fältet och sedan klickar du på posten. Klicka sedan på **Spara**. Användarkontot har nu tillgång till Event Hubs-namnområdet och till händelsehubben du skapade tidigare.
  

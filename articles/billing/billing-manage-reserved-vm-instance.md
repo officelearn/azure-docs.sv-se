@@ -13,11 +13,11 @@ ms.workload: na
 ms.date: 04/13/2019
 ms.author: banders
 ms.openlocfilehash: 9a5b200ffb9441b90875c7764786004ff5f1e8a1
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59994971"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66127112"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Hantera reservationer för Azure-resurser
 
@@ -70,7 +70,7 @@ Att delegera hantering för en reservation:
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Välj **alla tjänster** > **Reservation** till listan reservationer som du har åtkomst till.
 3. Markerar du den som du vill delegera åtkomst till andra användare.
-4. Välj **Åtkomstkontroll (IAM)**.
+4. Välj **åtkomstkontroll (IAM)**.
 5. Välj **Lägg till rolltilldelning** > **rollen** > **ägare**. Du kan också välja en annan roll om du vill ge begränsad åtkomst.
 6. Ange e-postadressen för den användare som du vill lägga till som ägare.
 7. Välj användaren och sedan **Spara**.

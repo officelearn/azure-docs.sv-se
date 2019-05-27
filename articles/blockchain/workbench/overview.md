@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 01/14/2019
+ms.date: 05/20/2019
 ms.topic: overview
 ms.service: azure-blockchain
-ms.reviewer: zeyadr
+ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 58fd09726f05ba442c66387ecbd6cfad37f598e1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 16e2497f4e26d16c008161477fd7d573e59e84db
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60896166"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955200"
 ---
 # <a name="what-is-azure-blockchain-workbench"></a>Vad är Azure Blockchain Workbench?
 
@@ -41,13 +41,13 @@ Workbench levererar automatiskt händelser till Service Bus och Event Grid så a
 
 Azure Blockchain Workbench förenklar konfigurationen av blockkedjenätverket som en förkonfigurerad lösning med en Azure Resource Manager-lösningsmall. Mallen tillhandahåller en förenklad distribution som distribuerar alla komponenter som behövs för att köra ett konsortium. Blockchain Workbench stöder för närvarande Ethereum.
 
-## <a name="use-active-directory-login"></a>Använd Active Directory-inloggning
+## <a name="use-active-directory"></a>Använd Active Directory
 
 Med befintliga blockkedjeprotokoll representeras blockkedjeidentiteterna som en adress i nätverket. Azure Blockchain Workbench avlägsnar direkt blockkedjeidentiteten genom att associera den med en Active Directory-identitet, vilket gör det enklare att skapa företagsprogram med Active Directory-identiteter.
 
 ## <a name="synchronize-on-chain-data-with-off-chain-storage"></a>Synkronisera kedjedata med lagring utanför kedjan
 
-Azure Blockchain Workbench gör det lättare att analysera blockkedjehändelser och data genom att automatiskt synkronisera data i blockkedjan med lagring utanför kedjan. I stället för att extrahera data direkt från blockkedjan kan du fråga databassystem utanför kedjan som t.ex. SQL Server. Det krävs inga blockkedjespecifika kunskaper för de slutanvändare som utför dataanalysuppgifterna. 
+Azure Blockchain Workbench gör det lättare att analysera blockkedjehändelser och data genom att automatiskt synkronisera data i blockkedjan med lagring utanför kedjan. I stället för att extrahera data direkt från blockkedjan kan du fråga databassystem utanför kedjan som t.ex. SQL Server. Blockchain expertis krävs inte för slutanvändare som gör data analysis-uppgifter.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: 102fe85916194648501be3d2cb39d8bcda9e9f5c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 47cd0621a601e3f1ef53572bc7bb8bc1c7ea76ab
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60811077"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65992003"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-python"></a>Hur du använder Service Bus-ämnen och prenumerationer med Python
 
@@ -189,6 +189,9 @@ Om du tar bort ett ämne så tar du även bort alla prenumerationer som är regi
 ```python
 bus_service.delete_subscription('mytopic', 'HighMessages')
 ```
+
+> [!NOTE]
+> Du kan hantera Service Bus-resurser med [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer tillåter användare att ansluta till ett Service Bus-namnområde och administrera meddelandeentiteter på ett enkelt sätt. Verktyget tillhandahåller avancerade funktioner som import/export-funktionalitet eller möjligheten att testa ämne, köer, prenumerationer, relätjänster, meddelandehubbar och händelser hubs. 
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -5,18 +5,18 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 05/20/2019
 ms.author: mialdrid
 ms.custom: seodec18
-ms.openlocfilehash: d9c607114d6c6c56c25303a88dcc11f4ab804eb4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 18615cf737eedcd188fd59d2aa98482210b9333a
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60367980"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991592"
 ---
-# <a name="about-virtual-network-gateways-for-expressroute"></a>Om virtuella nätverksgatewayer för ExpressRoute
-En virtuell nätverksgateway används för att skicka nätverkstrafik mellan Azure-nätverk och lokala platser. Du kan använda en virtuell nätverksgateway för ExpressRoute-trafik eller VPN-trafik. Den här artikeln fokuserar på virtuella nätverksgatewayer för ExpressRoute och innehåller information om SKU: er, uppskattade prestanda av SKU och gateway-typer.
+# <a name="expressroute-virtual-network-gateway-and-fastpath"></a>ExpressRoute-gateway för virtuella nätverk och FastPath
+För att ansluta Azure-nätverk och ditt lokala nätverk via ExpressRoute, måste du skapa en virtuell nätverksgateway först. En virtuell nätverksgateway har två syften: exchange IP-vägar mellan virtuella nätverk och dirigera nätverkstrafik. Den här artikeln förklarar gatewaytyper, gateway-SKU: er och uppskattade prestanda av SKU: N. Den här artikeln förklarar också ExpressRoute [FastPath](#fastpath), en funktion som gör att nätverkstrafik från ditt lokala nätverk för att kringgå den virtuella nätverksgatewayen för att förbättra prestanda.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -59,6 +59,15 @@ Zonredundant gateways använda specifika nya gateway SKU: er för ExpressRoute-g
 
 De nya gateway-SKU: er har också stöd för andra distributionsalternativ för att matcha dina behov bäst. När du skapar en virtuell nätverksgateway med hjälp av den nya gatewayen SKU: er kan möjlighet du också att distribuera en gateway i en viss zon. Detta kallas för en zonindelad gateway. När du distribuerar en zonindelad gateway distribueras alla instanser av en gateway i samma Tillgänglighetszon.
 
+## <a name="fastpath"></a>FastPath
+Virtuell nätverksgateway för ExpressRoute har utformats för att utbyta nätverksvägar och dirigerar nätverkstrafik. FastPath har utformats för att förbättra prestanda sökväg mellan ditt lokala nätverk och ditt virtuella nätverk. När aktiverad, skickar FastPath nätverkstrafik direkt till virtuella datorer i det virtuella nätverket, vilket kringgår gatewayen. 
+
+FastPath är tillgänglig på [ExpressRoute Direct](expressroute-erdirect-about.md) endast. Med andra ord kan du aktivera den här funktionen endast om du [Anslut det virtuella nätverket](expressroute-howto-linkvnet-arm.md) till en ExpressRoute-krets som skapats på en ExpressRoute-Direct-port. FastPath kräver fortfarande en virtuell nätverksgateway skapas för att utbyta vägar mellan virtuella nätverk och lokala nätverk. Den virtuella nätverksgatewayen måste vara antingen ultrahöga prestanda eller ErGw3AZ.
+
+FastPath stöder inte följande funktioner:
+* Användardefinierade vägen i Gateway-undernätet: Om du använder en UDR till Gateway-undernät för virtuellt nätverk nätverkstrafik från ditt lokala nätverk kommer att fortsätta att skickas till den virtuella nätverksgatewayen.
+* VNet-Peering: Om du har andra virtuella nätverk peer-kopplas med det som är anslutet till ExpressRoute nätverkstrafik från ditt lokala nätverk till de andra virtuella nätverk (dvs. s.k. ”ekrar” virtuella nätverk) fortsätter att skickas till det virtuella nätverket gateway. Lösningen är att de virtuella nätverken ansluta direkt till ExpressRoute-kretsen.
+
 ## <a name="resources"></a>REST API: er och PowerShell-cmdlets
 Ytterligare tekniska resurser och specifik syntax krav när du använder REST API: er och PowerShell-cmdletar för gateway-konfigurationer för virtuella nätverk finns i följande sidor:
 
@@ -73,3 +82,5 @@ Se [översikt över ExpressRoute](expressroute-introduction.md) för mer informa
 Se [skapar en virtuell nätverksgateway för ExpressRoute](expressroute-howto-add-gateway-resource-manager.md) för mer information om hur du skapar ExpressRoute-gatewayer.
 
 Se [skapa en zonredundant virtuell nätverksgateway](../../articles/vpn-gateway/create-zone-redundant-vnet-gateway.md) för mer information om hur du konfigurerar zonredundant gatewayer.
+
+Se [länk virtuellt nätverk till ExpressRoute](expressroute-howto-linkvnet-arm.md) för mer information om hur du aktiverar FastPath. 

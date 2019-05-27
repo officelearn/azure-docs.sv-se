@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 05/21/2019
 ms.author: anzaman,cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 5ddcfe14873d13384b043f7a977dc4f069dbe8dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9a6f16df4b827538c1f8bdb9b7382ed06d543b62
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60883087"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991525"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>Ansluta ett virtuellt nätverk till en ExpressRoute-krets med hjälp av CLI
 
@@ -139,6 +139,32 @@ az network vpn-connection create --name ERConnection --resource-group ExpressRou
 **Att släppa en anslutningsauktorisering**
 
 Du kan släppa en auktorisering genom att ta bort anslutningen som länkar ExpressRoute-kretsen till det virtuella nätverket.
+
+## <a name="modify-a-virtual-network-connection"></a>Ändra en virtuell nätverksanslutning
+Du kan uppdatera vissa egenskaper för en virtuell nätverksanslutning. 
+
+**Uppdatera anslutningsvikten**
+
+Ditt virtuella nätverk kan anslutas till flera ExpressRoute-kretsar. Du kan få samma prefix från mer än en ExpressRoute-krets. Om du vill välja vilken anslutning som ska skicka trafik till det här prefixet, du kan ändra *RoutingWeight* för en anslutning. Trafik skickas på anslutningen med den högsta *RoutingWeight*.
+
+```azurecli
+az network vpn-connection update --name ERConnection --resource-group ExpressRouteResourceGroup --routing-weight 100
+```
+
+Intervallet för *RoutingWeight* är 0 till 32000. Standardvärdet är 0.
+
+## <a name="configure-expressroute-fastpath"></a>Konfigurera ExpressRoute FastPath 
+Du kan aktivera [ExpressRoute FastPath](expressroute-about-virtual-network-gateways.md) om ExpressRoute-kretsen finns på [ExpressRoute Direct](expressroute-erdirect-about.md) och din virtuella newtork-gateway är ultrahöga prestanda eller ErGw3AZ. FastPath förbättrar data sökvägen preformance, till exempel paket per sekund och anslutningar per sekund mellan ditt lokala nätverk och ditt virtuella nätverk. 
+
+> [!NOTE] 
+> Om du redan har en virtuell nätverksanslutning, men som inte har aktiverat FastPath måste du ta bort virtuell nätverksanslutning och skapa en ny. 
+> 
+>  
+
+```azurecli
+az network vpn-connection create --name ERConnection --resource-group ExpressRouteResourceGroup --express-route-gateway-bypass true --vnet-gateway1 VNet1GW --express-route-circuit2 MyCircuit
+```
+
 
 ## <a name="next-steps"></a>Nästa steg
 

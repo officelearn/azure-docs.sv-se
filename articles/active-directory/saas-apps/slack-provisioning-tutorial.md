@@ -3,9 +3,8 @@ title: 'Självstudier: Konfigurera Slack för automatisk användaretablering med
 description: Lär dig hur du konfigurerar Azure Active Directory för att automatiskt etablera och användares användarkonton till Slack.
 services: active-directory
 documentationcenter: ''
-author: asmalser-msft
-writer: asmalser-msft
-manager: daveba
+author: ArvindHarinder1
+manager: CelesteDG
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
@@ -14,15 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
-ms.author: asmalser-msft
-ms.reviewer: asmalser
+ms.author: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b50bcada8cfc72c06804793850f1f28a288f5248
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 036112027fcf210f0ac2ff1e631c8b0bd4b5e9ef
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60620231"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65964391"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Slack för automatisk användaretablering
 
@@ -36,7 +34,7 @@ Det scenario som beskrivs i den här självstudien förutsätter att du redan ha
 * En Slack-klienten med den [Plus plan](https://aadsyncfabric.slack.com/pricing) eller bättre har aktiverats
 * Ett användarkonto i Slack med administratörsbehörighet för Team
 
-Obs! Azure AD etablering integration förlitar sig på den [Slack SCIM API](https://api.slack.com/scim), som är tillgängliga för Slack team på Plus planera eller bättre.
+Anteckning: Azure AD etablering integration förlitar sig på den [Slack SCIM API](https://api.slack.com/scim), som är tillgängliga för Slack team på Plus planera eller bättre.
 
 ## <a name="assigning-users-to-slack"></a>Tilldela användare till Slack
 
@@ -118,7 +116,7 @@ Mer information om hur du läser den Azure AD etablering loggar finns i [rapport
 
   * Stöd för icke-engelska tecken, blanksteg, versaler. 
   
-  * Tillåtna skiljetecken innehåller punkter, understreck, bindestreck, apostrofer, hakparenteser (t.ex. **([{}])**), och avgränsare (t.ex. **, /;**).
+  * Tillåtna skiljetecken innehåller punkter, understreck, bindestreck, apostrofer, hakparenteser (t.ex. **([{}])** ), och avgränsare (t.ex. **, /;** ).
   
   * Uppdaterar endast om de två inställningarna är konfigurerade i Slacks arbetsplats/organisation - **profil synkronisering är aktiverat** och **användare kan inte ändra deras visningsnamn**.
   

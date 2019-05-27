@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: overview
 ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: 5d1c3e4bb1c4b3545c8f051432016348112f16b0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c998e01cdb9031771acd3d9605da3e77d5ae3201
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60406284"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65953369"
 ---
 # <a name="use-azure-portal-to-administer-your-data-box-disk"></a>Använda Azure-portalen för att administrera din Data Box Disk
 
@@ -105,7 +105,7 @@ Följ stegen nedan om du vill redigera ordern.
 
 ## <a name="edit-notification-details"></a>Redigera meddelandeinformation
 
-Du kan behöva ändra vilka användare som ska få e-postmeddelanden om orderstatusen. Exempelvis kanske en användare ska meddelas när disken levereras eller hämtas. En annan användare kanske behöver informeras när datakopieringen är klar, så att han kan kontrollera att alla data finns i Azure Storage-kontot innan de raderas från källan. I dessa fall kan du redigera meddelandeinformationen.
+Du kan behöva ändra vilka användare som ska få e-postmeddelanden om orderstatusen. Exempelvis kanske en användare ska meddelas när disken levereras eller hämtas. En annan användare behöva du informeras när Datakopieringen är klar så att de kan kontrollera dina data finns i Azure storage-kontot innan du tar bort den från källan. I dessa fall kan du redigera meddelandeinformationen.
 
 Följ stegen nedan om du vill redigera meddelandeinformationen.
 
@@ -126,7 +126,7 @@ Följ stegen nedan om du vill redigera meddelandeinformationen.
 |Skickat     | Beställningen har skickats. Du bör få beställningen inom en till två dagar.        |
 |Levererade     | Beställningen har levererats till adressen som angetts i ordern.        |
 |Hämtat     |Ditt returpaket har hämtats. <br> När leveransen har tagits emot på Azure-datacentret laddas data automatiskt upp till Azure.         |
-|Mottaget     | Dina diskar har tagits emot på Azures datacenter. Datakopieringen startar inom kort.        |
+|Mottagning     | Dina diskar har tagits emot på Azures datacenter. Datakopieringen startar inom kort.        |
 |Kopierade data     |Data kopieras.<br> Vänta tills datakopieringen är klar.         |
 |Slutfört       |Ordern har slutförts.<br> Kontrollera att dina data finns i Azure innan du tar bort lokala data från servrarna.         |
 |Slutfört med fel| Datakopieringen slutfördes men det uppstod fel. <br> Granska kopieringsloggarna med hjälp av sökvägen som anges i **Översikt**. Mer information finns i [Hämta diagnostikloggar](data-box-disk-troubleshoot.md#download-diagnostic-logs).   |

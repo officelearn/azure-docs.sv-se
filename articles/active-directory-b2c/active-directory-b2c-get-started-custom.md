@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/03/2019
+ms.date: 05/16/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 6a66d45028b9fbf9c421b10ffb7863fcb9be5bec
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: f4ecc01f42d491f5d9d967b9983e773c1df22298
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65779850"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65986820"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Kom igång med anpassade principer i Azure Active Directory B2C
 
@@ -31,7 +31,7 @@ ms.locfileid: "65779850"
 ## <a name="add-signing-and-encryption-keys"></a>Lägg till nycklar för signering och kryptering
 
 1. Logga in på [Azure Portal](https://portal.azure.com/) som global administratör för din Azure AD B2C-klientorganisationen.
-2. Kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient. Klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller din klient. 
+2. Kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient. Klicka på den **katalog- och prenumerationsfilter** på den översta menyn och välj den katalog som innehåller din klient. 
 3. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
 4. På sidan Översikt väljer **Identitetsramverk**.
 
@@ -70,17 +70,17 @@ Azure AD B2C måste du registrera två program som används för att registrera 
 
 ### <a name="register-the-identityexperienceframework-application"></a>Registrera IdentityExperienceFramework-program
 
-1. Välj **alla tjänster** i det övre vänstra hörnet i Azure Portal Sök efter och välj **appregistreringar**.
-2. Välj **Ny programregistrering**.
-3. För **namn**, ange `IdentityExperienceFramework`.
-4. För **programtyp**, Välj **Web app/API**.
-5. För **inloggnings-URL**, ange `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, där `your-tenant-name` är ditt domännamn i Azure AD B2C-klient.
-6. Klicka på **Skapa**. 
-7. När den har skapats kan du kopiera program-ID och spara den för senare användning.
+1. Välj **alla tjänster** i det övre vänstra hörnet i Azure Portal Sök efter och välj **Azure Active Directory**.
+2. I menyn, Välj **appregistreringar (äldre)**.
+3. Välj **Ny programregistrering**.
+4. För **namn**, ange `IdentityExperienceFramework`.
+5. För **programtyp**, Välj **Web app/API**.
+6. För **inloggnings-URL**, ange `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, där `your-tenant-name` är ditt domännamn i Azure AD B2C-klient. Alla URL: er bör nu använda [b2clogin.com](b2clogin.md).
+7. Klicka på **Skapa**. När den har skapats kan du kopiera program-ID och spara den för senare användning.
 
 ### <a name="register-the-proxyidentityexperienceframework-application"></a>Registrera ProxyIdentityExperienceFramework-program
 
-1. Välj **appregistreringar**, och välj sedan **ny programregistrering**.
+1. I **appregistreringar (äldre)** väljer **ny programregistrering**.
 2. För **namn**, ange `ProxyIdentityExperienceFramework`.
 3. För **programtyp**, Välj **interna**.
 4. För **omdirigerings-URI**, ange `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, där `yourtenant` är din Azure AD B2C-klient.

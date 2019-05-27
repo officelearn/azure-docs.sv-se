@@ -9,11 +9,11 @@ ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: 573c205cd2e208a1cb2b526d96fb08ca21331c80
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58481331"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66129623"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Skicka gäst-OS mått till arkivet som Azure Monitor-mått med en Azure Resource Manager-mall för en Windows VM-skalningsuppsättning
 
@@ -25,7 +25,7 @@ Den här artikeln beskriver processen för att skicka guest OS-prestandamått f�
 
 Om du är nybörjare på Resource Manager-mallar kan du läsa om [malldistributioner](../../azure-resource-manager/resource-group-overview.md) och deras struktur och syntax.  
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Prenumerationen måste vara registrerad med [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
 

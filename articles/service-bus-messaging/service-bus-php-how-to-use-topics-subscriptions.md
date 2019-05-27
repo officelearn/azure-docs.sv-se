@@ -14,12 +14,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: 1ce9c5ddb08f3e81a0f0050048a8afef24e4c625
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f0ae734ac8814cc605ce03756fde5545c77c837d
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60203723"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65992058"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-php"></a>Hur du använder Service Bus-ämnen och prenumerationer med PHP
 
@@ -343,6 +343,9 @@ Med hjälp av den `deleteSubscription` metoden, du kan ta bort en prenumeration 
 ```php
 $serviceBusRestProxy->deleteSubscription("mytopic", "mysubscription");
 ```
+
+> [!NOTE]
+> Du kan hantera Service Bus-resurser med [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer tillåter användare att ansluta till ett Service Bus-namnområde och administrera meddelandeentiteter på ett enkelt sätt. Verktyget tillhandahåller avancerade funktioner som import/export-funktionalitet eller möjligheten att testa ämne, köer, prenumerationer, relätjänster, meddelandehubbar och händelser hubs. 
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information finns i [köer, ämnen och prenumerationer][Queues, topics, and subscriptions].

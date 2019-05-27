@@ -14,11 +14,11 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
 ms.openlocfilehash: dea0153b9ca6d8e751fd94cc558abd44b2591907
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453039"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66120436"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-with-azure-sql-database-geo-replication-and-failover"></a>Konfigurera Azure-SSIS Integration Runtime med Azure SQL Database geo-replikering och redundans
 
@@ -72,7 +72,7 @@ Vid redundans som du behöver göra följande:
 
 I följande avsnitt beskrivs de här stegen i detalj.
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Kontrollera att du har aktiverat haveriberedskap för Azure SQL Database-servern om servern har ett avbrott på samma gång. Mer information finns i [översikt över affärskontinuitet med Azure SQL Database](../sql-database/sql-database-business-continuity.md).
 
@@ -107,6 +107,6 @@ Följ dessa steg för att stoppa din Azure-SSIS IR, växla IR till en ny region 
 
 - [Konfigurera Azure-SSIS Integration Runtime för höga prestanda](configure-azure-ssis-integration-runtime-performance.md)
 
-- [Anpassa installationsprogrammet för Azure-SSIS integration runtime](how-to-configure-azure-ssis-ir-custom-setup.md)
+- [Anpassa konfigurationen av Azure SSIS-integreringskörningen](how-to-configure-azure-ssis-ir-custom-setup.md)
 
 - [Etablera Enterprise Edition för Azure-SSIS Integration Runtime](how-to-configure-azure-ssis-ir-enterprise-edition.md)

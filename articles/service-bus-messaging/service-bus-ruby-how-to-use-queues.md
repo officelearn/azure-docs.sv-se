@@ -14,12 +14,12 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: 6c42fbffd0b4569a9b04dede94061e716c48ecf1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 48f60b7c07cc16b4d9994d5644069fdcb4881e0a
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474597"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991882"
 ---
 # <a name="how-to-use-service-bus-queues-with-ruby"></a>Hur du använder Service Bus-köer med Ruby
 
@@ -96,6 +96,9 @@ Service Bus innehåller funktioner som hjälper dig att återställa fel i progr
 Det finns också en tidsgräns som är associerade med ett meddelande som ligger låst i kön. Om programmet inte kan bearbeta meddelandet innan timeout för lås går ut (till exempel om programmet kraschar), kommer Service Bus låser upp meddelandet automatiskt och gör det tillgängligt att tas emot igen.
 
 I händelse av att programmet kraschar efter behandlingen av meddelandet men innan den `delete_queue_message()` metoden anropas sedan meddelandet once till programmet när den startas om. Den här processen kallas ofta *minst Processing*; det vill säga varje meddelande bearbetas minst en gång men i vissa situationer kan samma meddelande kan levereras. Om scenariot inte tolererar duplicerad bearbetning, bör programutvecklarna lägga till ytterligare logik i sina program för att hantera duplicerad meddelandeleverans. Detta uppnås ofta med hjälp av den `message_id` för meddelandet, förblir konstant under alla leveransförsök.
+
+> [!NOTE]
+> Du kan hantera Service Bus-resurser med [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer tillåter användare att ansluta till ett Service Bus-namnområde och administrera meddelandeentiteter på ett enkelt sätt. Verktyget tillhandahåller avancerade funktioner som import/export-funktionalitet eller möjligheten att testa ämne, köer, prenumerationer, relätjänster, meddelandehubbar och händelser hubs. 
 
 ## <a name="next-steps"></a>Nästa steg
 Nu när du har lärt dig grunderna om Service Bus-köer, kan du följa dessa länkar om du vill veta mer.

@@ -15,11 +15,11 @@ ms.date: 06/05/2018
 ms.author: dariagrigoriu;cephalin
 ms.custom: seodec18
 ms.openlocfilehash: b879036dcd79901cb634fa197932e833cb22d12a
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405036"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65956042"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Lokal Git-distribution till Azure Apptjänst
 
@@ -27,7 +27,7 @@ Den här guiden visar hur du distribuerar din kod till [Azure App Service](overv
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Att följa stegen i den här guiden:
 
@@ -54,19 +54,19 @@ Det enklaste sättet att aktivera lokal Git-distribution för din app med Kudu b
 
 ### <a name="enable-local-git-with-kudu"></a>Aktivera lokal Git med Kudu
 
-Om du vill aktivera lokal Git-distribution för din app med Kudu build-servern kör [ `az webapp deployment source config-local-git` ](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-local-git) i Cloud Shell.
+För att aktivera lokal Git-distribution för din app med Kudu build-servern kör du [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-local-git) i Cloud Shell.
 
 ```azurecli-interactive
 az webapp deployment source config-local-git --name <app_name> --resource-group <group_name>
 ```
 
-Om du vill skapa en Git-aktiverad app i stället kör [ `az webapp create` ](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) i Cloud Shell med den `--deployment-local-git` parametern.
+Om du vill skapa en Git-aktiverad app i stället kör du [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) i Cloud Shell med parametern `--deployment-local-git`.
 
 ```azurecli-interactive
 az webapp create --name <app_name> --resource-group <group_name> --plan <plan_name> --deployment-local-git
 ```
 
-Den `az webapp create` kommandot bör ge dig något som liknar följande utdata:
+Kommandot `az webapp create` bör ge utdata som ser ut ungefär så här:
 
 ```json
 Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git'
@@ -86,7 +86,7 @@ Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebs
 
 ### <a name="deploy-your-project"></a>Distribuera projektet
 
-I det _lokala terminalfönstret_ kan du lägga till en Azure-fjärrdatabas till din lokala Git-databas. Ersätt  _\<url >_ med URL-Adressen för den fjärranslutna Git som du fick från [aktivera Git för din app](#enable-local-git-with-kudu).
+I det _lokala terminalfönstret_ kan du lägga till en Azure-fjärrdatabas till din lokala Git-databas. Ersätt _\<url>_ med URL:en för den fjärranslutna Git-lagringsplats som du fick från [Enable Git for your app](#enable-local-git-with-kudu) (Aktivera Git för din app).
 
 ```bash
 git remote add azure <url>
@@ -98,7 +98,7 @@ Skicka till Azure-fjärrdatabasen för att distribuera appen med följande komma
 git push azure master
 ```
 
-Du kan se runtime-specifika automation i utdata, till exempel MSBuild för ASP.NET, `npm install` för Node.js, och `pip install` för Python. 
+Du kan se körningsspecifik automatisering i utdata, till exempel MSBuild för ASP.NET, `npm install` för Node.js och `pip install` för Python. 
 
 Bläddra till din app för att kontrollera att innehållet distribueras.
 
@@ -158,21 +158,21 @@ Följande är vanliga fel eller problem när du använder Git för att publicera
 
 **Orsak**: Det här felet kan inträffa om appen inte är igång.
 
-**Upplösning**: Starta appen i Azure-portalen. Git-distribution är inte tillgänglig när Webbappen har stoppats.
+**Lösning**: Starta appen i Azure-portalen. Git-distribution är inte tillgänglig när Webbappen har stoppats.
 
 ---
 **Symtom**: `Couldn't resolve host 'hostname'`
 
 **Orsak**: Det här felet kan inträffa om den adressinformation som anges när du skapar i azure remote var felaktig.
 
-**Upplösning**: Använd den `git remote -v` kommando för att lista alla fjärrkontroller, tillsammans med tillhörande URL: en. Kontrollera att URL: en för ”azure” remote är korrekt. Om det behövs kan du ta bort och återskapa den här remote använder rätt Webbadress.
+**Lösning**: Använd den `git remote -v` kommando för att lista alla fjärrkontroller, tillsammans med tillhörande URL: en. Kontrollera att URL: en för ”azure” remote är korrekt. Om det behövs kan du ta bort och återskapa den här remote använder rätt Webbadress.
 
 ---
 **Symtom**: `No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'master'.`
 
 **Orsak**: Det här felet kan inträffa om du inte anger en gren under `git push`, eller om du inte har angetts i `push.default` värde i `.gitconfig`.
 
-**Upplösning**: Kör `git push` igen och ange huvudgrenen. Exempel:
+**Lösning**: Kör `git push` igen och ange huvudgrenen. Exempel:
 
 ```bash
 git push azure master
@@ -183,7 +183,7 @@ git push azure master
 
 **Orsak**: Det här felet kan inträffa om du försöker skicka till en gren Master på azure fjärrdatabasen.
 
-**Upplösning**: Kör `git push` igen och ange huvudgrenen. Exempel:
+**Lösning**: Kör `git push` igen och ange huvudgrenen. Exempel:
 
 ```bash
 git push azure master
@@ -194,7 +194,7 @@ git push azure master
 
 **Orsak**: Det här felet kan inträffa om du försöker skicka en stor git-lagringsplats via HTTPS.
 
-**Upplösning**: Ändra git-konfigurationen på den lokala datorn för att göra postBuffer större
+**Lösning**: Ändra git-konfigurationen på den lokala datorn för att göra postBuffer större
 
 ```bash
 git config --global http.postBuffer 524288000
@@ -205,7 +205,7 @@ git config --global http.postBuffer 524288000
 
 **Orsak**: Det här felet kan inträffa om du distribuerar en Node.js-app med en _package.json_ -fil som anger ytterligare moduler som krävs.
 
-**Upplösning**: Ytterligare meddelanden med 'npm fel ”! ska loggas innan det här felet och kan ge ytterligare sammanhang om felet. Följande är kända orsaker till felet och motsvarande 'npm fel ”! meddelande:
+**Lösning**: Ytterligare meddelanden med 'npm fel ”! ska loggas innan det här felet och kan ge ytterligare sammanhang om felet. Följande är kända orsaker till felet och motsvarande 'npm fel ”! meddelande:
 
 * **Felaktig package.json-fil**: npm fel! Det gick inte att läsa beroenden.
 * **Ursprunglig modul som inte har en binär distribution för Windows**:

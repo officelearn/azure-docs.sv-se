@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/o7/2019
+ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eadcae393128d9721f2c988f713af07913c5fd1d
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: bc0042d6392891e8282c563afea2212031a0f49a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545509"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66121873"
 ---
 # <a name="desktop-app-that-calls-web-apis---code-configuration"></a>Att anrop webb-API: er – kod configuration-skrivbordsapp
 
@@ -38,7 +38,7 @@ Från en kod synvinkel skrivbordsprogram är offentlig klientprogram och det är
 
 ### <a name="exclusively-by-code"></a>Uteslutande av kod
 
-Följande kod skapar en instans av en offentlig klientprogrammet, logga in användare i det offentliga molnet i Microsoft Azure, med sitt arbete och skola konton eller deras personliga Microsoft-konton.
+Följande kod skapar en instans av en offentlig klientprogrammet, logga in användare i det offentliga molnet i Microsoft Azure, med ett arbets- och skolkonto, eller ett personligt microsoftkonto.
 
 ```CSharp
 IPublicClientApplication app = PublicClientApplicationBuilder.Create(clientId)
@@ -50,8 +50,8 @@ Om du planerar att använda interaktiv autentisering som visas ovan, som du vill
 ```CSharp
 IPublicClientApplication app;
 app = PublicClientApplicationBuilder.Create(clientId)
-        .WithRedirectUri(PublicClientApplicationBuilder.DefaultInteractiveDesktopRedirectUri)
-         .Build();
+        .WithRedirectUri("https://login.microsoftonline.com/common/oauth2/nativeclient")
+        .Build();
 ```
 
 ### <a name="using-configuration-files"></a>Använda konfigurationsfiler
@@ -61,7 +61,8 @@ Följande kod skapar en instans av en offentlig klientprogram från ett konfigur
 ```CSharp
 PublicClientApplicationOptions options = GetOptions(); // your own method
 IPublicClientApplication app = PublicClientApplicationBuilder.CreateWithApplicationOptions(options)
-    .Build();
+        .WithRedirectUri("https://login.microsoftonline.com/common/oauth2/nativeclient")
+        .Build();
 ```
 
 ### <a name="more-elaborated-configuration"></a>Mer framtagna konfiguration
@@ -71,6 +72,7 @@ Du kan utveckla program som att skapa genom att lägga till ett antal modifierar
 ```CSharp
 IPublicClientApplication app;
 app = PublicClientApplicationBuilder.Create(clientId)
+        .WithRedirectUri("https://login.microsoftonline.com/common/oauth2/nativeclient")
         .WithAadAuthority(AzureCloudInstance.AzureUsGovernment,
                          AadAuthorityAudience.AzureAdMultipleOrgs)
         .Build();
@@ -167,6 +169,7 @@ Nu för att skapa ditt program, behöver du bara skriva följande kod:
 ```CSharp
 SampleConfiguration config = SampleConfiguration.ReadFromJsonFile("appsettings.json");
 var app = PublicClientApplicationBuilder.CreateWithApplicationOptions(config.PublicClientApplicationOptions)
+           .WithRedirectUri("https://login.microsoftonline.com/common/oauth2/nativeclient")
            .Build();
 ```
 

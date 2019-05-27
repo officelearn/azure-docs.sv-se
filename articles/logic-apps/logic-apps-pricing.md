@@ -9,13 +9,13 @@ ms.author: klam
 ms.reviewer: estfan, LADocs
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.topic: article
-ms.date: 03/25/2019
-ms.openlocfilehash: c3d06d3c0f9c86b4fe6495632b48051fd69dc663
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.date: 05/22/2019
+ms.openlocfilehash: b37a6b6995df6f784b5f1b4a7a3f54d91faafc13
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544560"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65990196"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Prismodellen för Azure Logic Apps
 
@@ -92,11 +92,15 @@ När du inaktiverar en logikapp, kan alla instanser som körs för närvarande t
 Prissättning för konsumtion gäller [integrationskonton](logic-apps-enterprise-integration-create-integration-account.md) där du kan utforska, utvecklar och testar den [B2B- och EDI](logic-apps-enterprise-integration-b2b.md) och [XML-bearbetning](logic-apps-enterprise-integration-xml.md) funktioner i Azure Logic Apps utan extra kostnad.
 Du kan ha ett integrationskonto i varje Azure-region. Varje integrationskontot kan lagra upp till specifika [mängder artefakter](../logic-apps/logic-apps-limits-and-config.md), som innehåller samarbetspartner, avtal, kartor, scheman, sammansättningar, certifikat, batchkonfigurationer och så vidare.
 
-Med Azure Logic Apps erbjuder även Basic och Standard-integrationskonton med stöds Logic Apps serviceavtal. Här följer sätt som du kan välja om du vill använda ett konto för Basic eller Standard-integrering:
+Med Azure Logic Apps erbjuder Free, Basic och Standard-integrationskonton. Nivåerna Basic och Standard stöds av den Logic Apps servicenivåavtal (SLA), medan den kostnadsfria nivån stöds inte av något serviceavtal och har en gräns på dataflöde och användning.
 
-* Använd Basic-integrationskonton när du bara vill meddelandehantering eller fungera som ett litet partnerföretag som har en handel partner-relation med en större företag entitet.
+Att välja mellan en kostnadsfri, Basic eller Standard-integrationskonto:
 
-* Använd Standard-integrationskonton när du har mer komplexa B2B-förhållanden och vill öka antalet enheter som du kan hantera.
+* **Kostnadsfria**: När du vill prova undersökande scenarier, inte produktionsscenarier.
+
+* **Basic**: När du vill att endast meddelandehantering eller för att fungera som en partner för småföretag har som en handel partner-relation med en större företag entitet.
+
+* **Standard**: När du har mer avancerade B2B-relationer och ökat antal entiteter som du måste hantera.
 
 Mer specifik prisinformation finns i [priser för Azure Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps).
 

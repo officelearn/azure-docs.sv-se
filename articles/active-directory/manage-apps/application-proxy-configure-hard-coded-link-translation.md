@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fdfd8fd642120f4e829de8fbb013f85aea2a9484
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
-ms.translationtype: HT
+ms.openlocfilehash: b0899a127566c4d06de7d42443a956c2660a7a6d
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65825563"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956899"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Omdirigera hårdkodad länkar till appar som publiceras med Azure AD Application Proxy
 
@@ -59,7 +59,7 @@ Med webbläsartillägget MyApps är alla interna URL: er som publiceras med Appl
 
 Användaren måste ladda ned tillägget och logga in om du vill använda den här funktionen. Det finns ingen annan konfiguration som krävs för administratörer eller användare. 
 
-Mer information, inklusive hur du konfigurerar det här alternativet finns i [MyApps webbläsartillägget](https://docs.microsoft.com/en-us/azure/active-directory/user-help/my-apps-portal-end-user-access#download-and-install-the-my-apps-secure-sign-in-extension) dokumentation.
+Mer information, inklusive hur du konfigurerar det här alternativet finns i [MyApps webbläsartillägget](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access#download-and-install-the-my-apps-secure-sign-in-extension) dokumentation.
 
 ### <a name="option-3-link-translation-setting"></a>Alternativ 3: Link Translation Setting 
 

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 09898ac7dd4a6f3ee9cf0ea26ded607a8673b9f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 06b3a5110bfdea2a2067979c806701011dc16f3d
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61438252"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65987665"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Felsöka problem i Azure Files i Linux
 
@@ -91,7 +91,7 @@ Problemet återanslutning i Linux-kärnan löses nu som en del av följande änd
 
 Men kan de här ändringarna inte flyttas ännu till Linux-distributioner. Den här och andra återanslutning korrigeringar finns i följande populära Linux-kernel: 4.4.40 4.8.16 och 4.9.1. Den här snabbkorrigeringen får du genom att uppgradera till en av dessa rekommenderade kernel-versioner.
 
-### <a name="workaround"></a>Lösning
+### <a name="workaround"></a>Lösning:
 
 Du kan undvika det här problemet genom att ange en hård montering. En hård montering tvingas klienten att vänta tills en anslutning har upprättats eller uttryckligen avbrott. Du kan använda den för att förhindra fel på grund av timeout för nätverket. Den här lösningen kan dock orsaka obestämd väntar. Var beredd på att stoppa anslutningar vid behov.
 
@@ -150,7 +150,9 @@ I vissa fall kan den **serverino** mount-alternativet kan orsaka den **ls** komm
 
 Du kan också kontrollera om rätt alternativ som används genom att köra den **sudo montera | grep cifs** kommando och kontroll av dess utdata. Följande är exempel på utdata:
 
-`//azureuser.file.core.windows.net/cifs on /cifs type cifs (rw,relatime,vers=2.1,sec=ntlmssp,cache=strict,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777, dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)`
+```
+//azureuser.file.core.windows.net/cifs on /cifs type cifs (rw,relatime,vers=2.1,sec=ntlmssp,cache=strict,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777, dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)
+```
 
 Om den **cache = strikt** eller **serverino** alternativet är inte finns, demontera och montera Azure Files igen genom att köra monteringskommandot från den [dokumentation](../storage-how-to-use-files-linux.md). Kontrollera sedan som den **/etc/fstab** post har rätt alternativ.
 
@@ -163,7 +165,7 @@ På Linux/Unix-plattformar, den **cp -p** kommandot misslyckas om olika använda
 
 Den tvingande flaggen **f** i COPYFILE leder till att köra **cp -p -f** på Unix. Det här kommandot genererar ett fel att bevara tidsstämpeln för den fil som du inte äger.
 
-### <a name="workaround"></a>Lösning
+### <a name="workaround"></a>Lösning:
 
 Använd det storage-kontot för att kopiera filerna:
 
@@ -245,6 +247,8 @@ sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<share-name> <
 ```
 
 Du kan sedan skapa symlinks föreslås vanliga ord på den [wiki](https://wiki.samba.org/index.php/UNIX_Extensions#Storing_symlinks_on_Windows_servers).
+
+[!INCLUDE [storage-files-condition-headers](../../../includes/storage-files-condition-headers.md)]
 
 ## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten.
 

@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: shlo
 ms.openlocfilehash: 6fbdee71ab1123c258a5191a78e38f51eb41cbab
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433237"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66152944"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Skapa en utlösare som kör en pipeline på ett rullande fönster
 Den här artikeln innehåller steg för att skapa, starta och övervaka en utlösare för rullande fönster. Allmän information om utlösare och typerna som stöds finns i [Pipelinekörning och utlösare](concepts-pipeline-execution-triggers.md).
@@ -74,7 +74,7 @@ Ett rullande fönster har följande egenskaper för typ av utlösare:
 
 Följande tabell innehåller en översikt över de viktigaste JSON-element som är relaterade till upprepning och schemaläggning i en utlösare för rullande fönster:
 
-| JSON-element | Beskrivning | Type | Tillåtna värden | Krävs |
+| JSON-element | Beskrivning | Type | Tillåtna värden | Obligatoriskt |
 |:--- |:--- |:--- |:--- |:--- |
 | **type** | Typ av utlösaren. Typen är det fasta värdet ”TumblingWindowTrigger”. | String | "TumblingWindowTrigger" | Ja |
 | **runtimeState** | Körningstiden för det aktuella tillståndet för utlösaren.<br/>**Obs!** Det här elementet har \<readOnly >. | String | ”Started”, Stoppad ”” ”inaktiverad” | Ja |
@@ -82,9 +82,9 @@ Följande tabell innehåller en översikt över de viktigaste JSON-element som �
 | **interval** | Ett positivt heltal som anger intervallet för värdet för **frequency** och som avgör hur ofta utlösaren körs. Till exempel om den **intervall** är 3 och **frekvens** är ”hour” utlösaren återkommer var tredje timme. | Integer | Ett positivt heltal. | Ja |
 | **startTime**| Den första förekomsten, vilket kan vara i förflutna. Den första utlösaren är (**startTime**, **startTime** + **intervall**). | DateTime | Ett DateTime-värde. | Ja |
 | **endTime**| Den sista förekomsten, vilket kan vara i förflutna. | DateTime | Ett DateTime-värde. | Ja |
-| **delay** | Hur lång tid att fördröja starten av databearbetningen för fönstret. Pipelinekörningen startas efter den förväntade tiden för körningen plus det **fördröjning**. Den **fördröjning** definierar hur länge utlösaren väntar tidigare förfallotiden innan du utlöser ett nytt kör. Den **fördröjning** påverkar inte fönstret **startTime**. Till exempel en **fördröjning** värdet 00:10:00 innebär en fördröjning på 10 minuter. | Tidsintervall<br/>(: mm: ss)  | Ett timespan-värde där standardvärdet är 00:00:00. | Nej |
+| **fördröjning** | Hur lång tid att fördröja starten av databearbetningen för fönstret. Pipelinekörningen startas efter den förväntade tiden för körningen plus det **fördröjning**. Den **fördröjning** definierar hur länge utlösaren väntar tidigare förfallotiden innan du utlöser ett nytt kör. Den **fördröjning** påverkar inte fönstret **startTime**. Till exempel en **fördröjning** värdet 00:10:00 innebär en fördröjning på 10 minuter. | Timespan<br/>(: mm: ss)  | Ett timespan-värde där standardvärdet är 00:00:00. | Nej |
 | **maxConcurrency** | Antal samtidiga utlösarkörningar som aktiverats för windows som är klara. Om du vill Bakgrundsfyllning körs till exempel varje timme för igår resultat i 24 windows. Om **maxConcurrency** = 10, utlösare händelser skickas endast för de första 10 windows (00:00-01:00 - 09:00-10:00). När de första 10 utlösta pipelinekörningarna har slutförts kan utlösta utlösarkörningar för nästa 10 windows (10:00-11:00 – 19:00-20:00). Du fortsätter med det här exemplet på **maxConcurrency** = 10, om det finns 10 windows som är redo, det finns 10 totala pipelinekörningar. Om det finns bara 1 fönstret redo, finns bara 1 pipeline-körning. | Integer | Ett heltal mellan 1 och 50. | Ja |
-| **retryPolicy: Count** | Antalet försök innan pipeline-körning har markerats som ”misslyckades”.  | Integer | Ett heltal, där standardvärdet är 0 (inga nya försök). | Nej |
+| **retryPolicy: Antal** | Antalet försök innan pipeline-körning har markerats som ”misslyckades”.  | Integer | Ett heltal, där standardvärdet är 0 (inga nya försök). | Nej |
 | **retryPolicy: intervalInSeconds** | Fördröjningen mellan återförsök som anges i sekunder. | Integer | Antal sekunder, där standardvärdet är 30. | Nej |
 
 ### <a name="windowstart-and-windowend-system-variables"></a>WindowStart och WindowEnd systemvariabler

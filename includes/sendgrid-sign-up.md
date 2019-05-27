@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: erikre
 ms.openlocfilehash: 96c4da8465a87fee4c00bfc6177515c94910704a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60444913"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66121368"
 ---
 Azure-kunder kan låsa upp 25 000 kostnadsfria e-postmeddelanden varje månad. Med de här 25 000 kostnadsfria e-postmeddelandena varje månad får du åtkomst till avancerade rapporter och analyser samt [alla API:er][all APIs] (bland annat webb, SMTP, händelser och parsning). Information om ytterligare tjänster från SendGrid finns på sidan om [SendGrid-lösningar][SendGrid Solutions].
 
@@ -53,7 +53,7 @@ Azure-kunder kan låsa upp 25 000 kostnadsfria e-postmeddelanden varje månad. M
 ### <a name="to-find-your-sendgrid-api-key"></a>Så här hittar du din SendGrid API-nyckel
 1. Klicka på **Hantera**.
 
-    ![manage][manage]
+    ![hantera][manage]
 2. Välj **Inställningar** på instrumentpanelen för SendGrid sedan **API Keys** (API-nycklar) på menyn till vänster.
 
     ![api-keys][api-keys]
@@ -74,7 +74,7 @@ Azure-kunder kan låsa upp 25 000 kostnadsfria e-postmeddelanden varje månad. M
 
 Om du vill hantera inställningarna för e-postleverans så klickar du på knappen **Hantera**. Detta kommer att omdirigera till instrumentpanelen för SendGrid.
 
-![manage][manage]
+![hantera][manage]
 
 Mer information om hur du skickar e-post via SendGrid finns på [e-API-översikt][Email API Overview].
 

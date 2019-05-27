@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: 22996b277aba96cbbfedbb3e9cc67644d1a535ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: abef7815effcf420c8a0065ed46ce3c16c19ebe0
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60714293"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991772"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Komma igång med Service Bus-köer
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -389,7 +389,10 @@ Skapa en annan .NET Core-konsolprogram för att ta emot meddelanden som du har s
    
     ![Kölängd][queue-message-receive]
 
-Grattis! Nu har du skapat en kö, skickat en uppsättning meddelanden till kön och tagit emot meddelandena från samma kö.
+Gratulerar! Nu har du skapat en kö, skickat en uppsättning meddelanden till kön och tagit emot meddelandena från samma kö.
+
+> [!NOTE]
+> Du kan hantera Service Bus-resurser med [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer tillåter användare att ansluta till ett Service Bus-namnområde och administrera meddelandeentiteter på ett enkelt sätt. Verktyget tillhandahåller avancerade funktioner som import/export-funktionalitet eller möjligheten att testa ämne, köer, prenumerationer, relätjänster, meddelandehubbar och händelser hubs. 
 
 ## <a name="next-steps"></a>Nästa steg
 

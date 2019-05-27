@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 06337fef1a9d9b41fd41ff7c67611581639adc0a
-ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
+ms.openlocfilehash: b3177c5dfc5602dd2b6530b0934c17400ab5d528
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65619717"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978885"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Köp ett anpassat domännamn för Azure App Service
 
@@ -201,7 +201,9 @@ Gå till listan värdnamn i webbläsaren. I exemplet i föregående skärmbild, 
 
 ## <a name="renew-the-domain"></a>Förnya domänen
 
-App Service-domän som du har köpt är giltig i ett år från inköpstillfället. Som standard konfigureras domänen om du vill förnya automatiskt genom att debitera din betalningsmetod för nästa år. Om du vill inaktivera automatisk förnyelse, eller om du vill manuellt förnya din domän, följa de här stegen.
+App Service-domän som du har köpt är giltig i ett år från inköpstillfället. Som standard konfigureras domänen om du vill förnya automatiskt genom att debitera din betalningsmetod för nästa år. Du kan manuellt förnya ditt domännamn.
+
+Om du vill inaktivera automatisk förnyelse, eller om du vill manuellt förnya din domän, följa de här stegen.
 
 I den **Apptjänster** klickar du på namnet på din app, väljer **inställningar**, och välj sedan **anpassade domäner**.
 
@@ -211,11 +213,25 @@ I den **App Service-domäner** väljer du den domän du vill konfigurera.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-select-domain.png)
 
-I det vänstra navigeringsfönstret på domänen, Välj **domänförnyelse**. Om du vill stoppa automatiskt förnya din domän, Välj **av**, och sedan **spara**. 
+I det vänstra navigeringsfönstret på domänen, Välj **domänförnyelse**. Om du vill stoppa automatiskt förnya din domän, Välj **av**, och sedan **spara**.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-autorenew.png)
 
-Om du vill manuellt förnya din domän, Välj **förnya domän**. Men är den här knappen inte aktiv förrän 90 dagar före domänens förfallodatum.
+Om du vill manuellt förnya din domän, Välj **förnya domän**. Den här knappen är dock inte aktiva tills [90 dagar före domänens förfallodatum](#when-domain-expires).
+
+Om förnyelse av din domän har slutförts får du ett e-postmeddelande inom 24 timmar.
+
+## <a name="when-domain-expires"></a>När domänen upphör att gälla
+
+Azure behandlar upphör att gälla eller har upphört att gälla App Service-domäner på följande sätt:
+
+* Om automatisk förnyelse har inaktiverats: 90 dagar före domänens förfallodatum, skickas ett e-postmeddelande förnyelse till dig och **förnya domän** knappen aktiveras i portalen.
+* Om automatisk förnyelse har aktiverats: Dag efter förfallodatum för din domän försöker Azure faktureras du för namnförnyelse domän.
+* Om ett fel uppstår vid automatisk förnyelse (till exempel kortet på filen har gått ut) eller om automatisk förnyelse har inaktiverats och tillåter du att domänen som ska upphöra att gälla, Azure meddelar dig om domänens förfallodatum och parker ditt domännamn. Du kan [manuellt förnya](#renew-the-domain) din domän.
+* 4 och 12 dagar dag efter förfallodatumet skickar Azure du e-postaviseringar ytterligare. Du kan [manuellt förnya](#renew-the-domain) din domän.
+* 19 dag efter förfallodatumet, din domän finns kvar i beredskap men regleras av villkoren i en avgift för inlösen. Du kan anropa kundsupport om du vill förnya ditt domännamn, omfattas av alla tillämpliga förnyelse och inlösen avgifter.
+* Azure placerar 25: e dag efter förfallodatumet, din domän för auktion med en bransch auktion domännamnserver. Du kan anropa kundsupport om du vill förnya ditt domännamn, omfattas av alla tillämpliga förnyelse och inlösen avgifter.
+* 30: e dag efter förfallodatumet är du inte längre kunna lösa in din domän.
 
 <a name="custom"></a>
 

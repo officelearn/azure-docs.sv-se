@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc2c125df2e3455b0e90919dbca92fe497a4b1b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 50452dc5a0c2074c452878c890643f7b21591689
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415725"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65977312"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Eliminera felaktiga lösenord i din organisation
 
@@ -75,7 +75,7 @@ Var och en av de ovanstående lösenorden matchar inte specifikt förbjudna lös
 
 Delsträngen matchar används på normaliserad lösenordet för att kontrollera om användarens första och sista namnet samt klientnamnet (Observera att klienten namn matchar inte görs vid verifiering av lösenord på en Active Directory-domänkontrollant).
 
-Exempel: Anta att vi har en användare John Berg som vill återställa sitt lösenord till ”J0hn123fb”. Efter normalisering blir det här lösenordet ”john123fb”. Delsträngen matchar söker du efter att lösenordet innehåller användarens förnamn ”John”. Även om ”J0hn123fb” inte var särskilt på antingen lista med förbjudna lösenord, hitta delsträngen matchar ”John” i lösenordet. Det här lösenordet skulle därför avvisas.
+Exempel: Anta att vi har en användare, Pol, som vill återställa sina lösenord till ”P0l123fb”. Efter normalisering blir det här lösenordet ”pol123fb”. Delsträngen matchar söker du efter att lösenordet innehåller användarens förnamn ”Pol”. Även om ”P0l123fb” inte var särskilt på antingen lista med förbjudna lösenord, hitta delsträngen matchar ”Pol” i lösenordet. Det här lösenordet skulle därför avvisas.
 
 #### <a name="score-calculation"></a>Poängberäkningen
 

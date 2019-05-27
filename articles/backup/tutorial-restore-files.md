@@ -11,11 +11,11 @@ ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
 ms.openlocfilehash: 905fce2be5de2fff371272efa79bdec5b3bef112
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497712"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66127607"
 ---
 # <a name="restore-files-to-a-virtual-machine-in-azure"></a>Återställa filer till en virtuell dator i Azure
 Med Azure Backup skapas återställningspunkter som lagras i geo-redundanta återställningsvalv. När du återställer från en återställningspunkt kan du återställa hela den virtuella datorn eller enskilda filer. Den här artikeln beskriver hur du återställer enskilda filer. I den här självstudiekursen får du lära du dig att:

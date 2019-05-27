@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 03/11/2019
+ms.date: 05/21/2019
 ms.author: sngun
-ms.openlocfilehash: 25f8a88c1b488b9272ed1254aaca79a79bc7e871
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 629adfe558aec71e156e50c75aa0891eac5a8bcf
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60890789"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979038"
 ---
 # <a name="quickstart-build-a-table-api-app-with-net-sdk-and-azure-cosmos-db"></a>Snabbstart: Skapa en tabell-API-app med .NET SDK och Azure Cosmos DB 
 
@@ -28,7 +28,7 @@ Den här snabbstarten visar hur du använder [tabell-API](table-introduction.md)
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Om du inte har Visual Studio 2017 installerad kan du ladda ned och använda [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/) **utan kostnad**. Se till att du aktiverar **Azure-utveckling** under installationen av Visual Studio.
+Om du inte redan har Visual Studio 2019 installerat kan du hämta och använda den **kostnadsfria** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Se till att du aktiverar **Azure-utveckling** under installationen av Visual Studio.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

@@ -12,16 +12,16 @@ ms.topic: sample
 ms.date: 07/04/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 8874039d148cc89d3f47979370e64dd78777f268
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 790d095cfb1b59aed1b9014fc474f9ad6e1b3328
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60325756"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66131294"
 ---
 # <a name="map-a-custom-domain-to-a-function-app"></a>Mappa en anpassad domän till en funktionsapp
 
-I det här exempelskriptet skapar du en funktionsapp i en App Service-plan och mappar den till en anpassad domän du anger. När din funktionsapp finns i en [App Service-plan](../functions-scale.md#app-service-plan) kan du mappa en anpassad domän med antingen en CNAME-post eller en A-post. För funktionsappar i en [förbrukningsplan](../functions-scale.md#consumption-plan) stöds endast alternativet CNAME. I det här exemplet skapar du en App Service-plan, och det behövs en A-post till att mappa domänen. 
+I det här exempelskriptet skapar du en funktionsapp i en App Service-plan och mappar den till en anpassad domän du anger. När funktionsappen är värd för en [premiumprenumerationen](../functions-scale.md#premium-plan-public-preview) eller en [App Service-plan](../functions-scale.md#app-service-plan), kan du mappa en anpassad domän med en CNAME-post eller en A-post. För funktionsappar i en [förbrukningsplan](../functions-scale.md#consumption-plan) stöds endast alternativet CNAME. I det här exemplet skapar du en App Service-plan, och det behövs en A-post till att mappa domänen. 
 
 Om du vill köra det här exempelskriptet måste du redan ha konfigurerat en A-post i din anpassade domän som pekar på standarddomännamnet för webbappen. Mer information finns i [Mappa instruktioner om anpassad domän till Azure App Service](https://aka.ms/appservicecustomdns). 
 

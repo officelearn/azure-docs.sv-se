@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: e2d258f327ade2149adc92bdb7fb4bcc87cdd58c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60633410"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66155829"
 ---
 #### <a name="to-install-the-storsimple-adapter-for-sharepoint"></a>Så här installerar StorSimple Adapter för SharePoint
 1. Kopiera installationsprogrammet till webbservern för klientdelen (WFE) som även är konfigurerat för att köra webbprogrammet för Central Administration av SharePoint. 

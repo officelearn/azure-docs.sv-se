@@ -4,15 +4,15 @@ description: Den här artikeln innehåller en översikt över Brandvägg för we
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 2/22/2019
+ms.date: 5/22/2019
 ms.author: amsriva
 ms.topic: conceptual
-ms.openlocfilehash: 830513a03bd65ca14cb0938ae599a676f1bb3bca
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 9c2759222198f5df682d9e7a5363c0d9679e0fad
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518192"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991406"
 ---
 # <a name="web-application-firewall-for-azure-application-gateway"></a>Brandvägg för webbaserade program för Azure Application Gateway
 
@@ -34,11 +34,11 @@ Säkerhetsförbättringarna som Application Gateway inkluderar SSL-principhanter
 
 Det här avsnittet beskrivs viktiga fördelar med Application Gateway och dess WAF tillhandahåller.
 
-### <a name="protection"></a>Skydd
+### <a name="protection"></a>Säkerhet
 
 * Skydda dina webbprogram från säkerhetsrisker och attacker utan ändringar till backend-koden.
 
-* Skydda flera webbprogram på samma gång. En instans av Application Gateway kan vara värd för upp till 20 webbplatser som skyddas av en brandvägg för webbaserade program.
+* Skydda flera webbprogram på samma gång. En instans av Application Gateway kan vara värd för upp till 100 webbplatser som skyddas av en brandvägg för webbaserade program.
 
 ### <a name="monitoring"></a>Övervakning
 
@@ -121,12 +121,19 @@ Application Gateway WAF kan konfigureras för att köras i följande två lägen
 * **Förhindringsläge**: Block intrång och attacker som identifieras av reglerna. Angriparen tar emot ett ”403 för obehörig åtkomst”-undantag och avslutas anslutningen. Förhindringsläge registrerar sådana attacker i WAF-loggar.
 
 ### <a name="anomaly-scoring-mode"></a>Avvikelseidentifiering beräkning läge
- 
+
 OWASP har två lägen för att bestämma om du vill blockera trafik: Traditionell och Avvikelseidentifiering bedömning läge.
 
 Trafik som matchar Standardregeln anses vara oberoende av andra regel-matchningar i traditionella läge. Det här läget är lätt att förstå. Men avsaknaden av information om hur många regler matchar en specifik begäran är en begränsning. Därför introducerades Avvikelseidentifiering bedömning läget. Det är standard för OWASP-3. *x*.
 
 I läget för Avvikelseidentifiering bedömning trafik som matchar Standardregeln är inte omedelbart att blockeras när den är i förhindringsläge. Regler har en viss allvarlighetsgrad: *Kritiska*, *fel*, *varning*, eller *meddelande*. Den allvarlighetsgraden påverkar ett numeriskt värde för begäran, vilket kallas den Avvikelsepoäng. Exempelvis en *varning* regeln matchar bidrar 3 till poängen. En *kritisk* regeln matchar bidrar 5.
+
+|Severity  |Värde  |
+|---------|---------|
+|Kritiska     |5|
+|Fel        |4|
+|Varning!      |3|
+|Meddelande       |2|
 
 Det finns ett tröskelvärde på 5 för Avvikelsepoäng till blockerar trafiken. Det öppnar en enda *kritisk* regeln matchar räcker för Application Gateway WAF att blockera en begäran, även i förhindringsläge. Men en *varning* regeln matchar ökar bara Avvikelseidentifiering poäng med 3, vilket inte är tillräckligt ensamt blockera trafik.
 

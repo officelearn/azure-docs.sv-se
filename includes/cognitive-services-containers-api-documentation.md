@@ -1,26 +1,24 @@
 ---
 author: diberry
-ms.author: v-junlch
+ms.author: diberry
 ms.service: cognitive-services
 ms.topic: include
-origin.date: 03/25/2019
-ms.date: 04/23/2019
-ms.openlocfilehash: 94e95864d8bac2d6dc0ff690a2a8f53bd2db5a40
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 03/25/2019
+ms.openlocfilehash: f4925401235aedb341a7e29ca36b079126647f7b
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60598896"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66124335"
 ---
-## <a name="validate-container-is-running"></a>Verifiera behållaren körs 
+## <a name="validate-that-a-container-is-running"></a>Kontrollera att en behållare körs 
 
-Det finns flera sätt att verifiera behållaren körs: 
+Det finns flera sätt att kontrollera att behållaren körs. 
 
-|Förfrågan|Syfte|
+|Begäran|Syfte|
 |--|--|
-|`http://localhost:5000/`|Behållaren innehåller en webbsida.|
-|`http://localhost:5000/status`|Begärd med GET, körs för att verifiera behållaren utan att orsaka en slutpunkt-fråga. Detta kan användas för Kubernetes [liveness och beredskap avsökningar](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/).|
-|`http://localhost:5000/swagger`|Behållaren innehåller en fullständig uppsättning av dokumentationen för slutpunkter som en `Try it now` funktionen. Den här funktionen kan du ange dina inställningar i en webbaserad HTML-formulär och gör att frågan utan att behöva skriva någon kod. När frågan returnerar, ett exempel CURL-kommando har angetts för att visa de HTTP-rubrikerna och brödtext format som krävs. |
+|`http://localhost:5000/`|Behållaren innehåller en startsida.|
+|`http://localhost:5000/status`|Begärt med GET för att kontrollera att behållaren körs utan att orsaka en slutpunkt-fråga. Den här förfrågan kan användas för Kubernetes [liveness och beredskap avsökningar](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/).|
+|`http://localhost:5000/swagger`|Behållaren innehåller en fullständig uppsättning av dokumentationen för slutpunkter och en `Try it now` funktionen. Med den här funktionen kan du ange dina inställningar till en webbaserad HTML-formulär och gör att frågan utan att behöva skriva någon kod. Efter att frågan returnerar är ett exempel CURL-kommandot tillgängligt för att demonstrera HTTP-rubriker och brödtext format som krävs. |
 
 ![Behållarens startsida](./media/cognitive-services-containers-api-documentation/container-webpage.png)
-

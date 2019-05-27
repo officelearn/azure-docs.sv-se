@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: nitinme
 ms.openlocfilehash: f96c3a693ce8fc099374c998b35ce2fa90f4bb3f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60513699"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66124726"
 ---
 Vissa Bing-svar inkluderar URL: er till miniatyrbilder som hanteras av Bing. Du kan ändra storlek på och Beskär miniatyrbilder. 
 

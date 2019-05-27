@@ -8,12 +8,12 @@ ms.service: service-bus-messaging
 ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: spelluru
-ms.openlocfilehash: e943dbff71fdbd98773587c8ac5a62dd081b49a2
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a392f8b11a7ab1ad72f4da289c54e34b022f1ea6
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64698869"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65990302"
 ---
 # <a name="quickstart-use-the-azure-portal-to-create-a-service-bus-topic-and-subscriptions-to-the-topic"></a>Snabbstart: Använd Azure-portalen för att skapa ett Service Bus-ämne och prenumerationer till ämnet
 I den här snabbstarten använder du Azure-portalen för att skapa ett Service Bus-ämne och sedan skapa prenumerationer på detta ämne. 
@@ -31,7 +31,8 @@ Service Bus-ämnen och prenumerationer kan du skala för att bearbeta ett stort 
 
 [!INCLUDE [service-bus-create-topics-three-subscriptions-portal](../../includes/service-bus-create-topics-three-subscriptions-portal.md)]
 
-
+> [!NOTE]
+> Du kan hantera Service Bus-resurser med [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer tillåter användare att ansluta till ett Service Bus-namnområde och administrera meddelandeentiteter på ett enkelt sätt. Verktyget tillhandahåller avancerade funktioner som import/export-funktionalitet eller möjligheten att testa ämne, köer, prenumerationer, relätjänster, meddelandehubbar och händelser hubs. 
 
 ## <a name="next-steps"></a>Nästa steg
 Om du vill lära dig mer om att skicka meddelanden till ett ämne och ta emot meddelanden via en prenumeration, finns i följande artikel: Välj programmeringsspråket i Innehållsförteckningen. 

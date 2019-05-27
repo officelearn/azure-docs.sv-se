@@ -9,11 +9,11 @@ ms.topic: sample
 ms.date: 10/26/2018
 ms.reviewer: sngun
 ms.openlocfilehash: 73039c92e73570101299c4f8cecd27d2c28c1030
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54035516"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66154632"
 ---
 # <a name="get-an-azure-cosmos-db-connection-string-for-mongodb-using-the-azure-cli"></a>Hämta en Azure Cosmos DB-anslutningssträng för MongoDB som använder Azure CLI
 

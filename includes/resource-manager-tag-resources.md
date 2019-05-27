@@ -8,45 +8,45 @@ ms.topic: include
 ms.date: 05/17/2018
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: daa97c8ec0c2fd728e4d1eddf090afa17e87c31f
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: ab55441650085f6ca89f05613fe74dd4ae3cba54
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34675344"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66128987"
 ---
-1. Om du vill visa taggar för en resurs eller en resursgrupp, söker du efter befintliga taggar i översikten. Om du inte tidigare har tillämpar taggar är listan tom.
+1. Om du vill visa taggarna för en resurs eller en resursgrupp, söker du efter befintliga taggar i översikten. Om du inte tidigare har tillämpar taggar är listan tom.
    
-     ![Visa taggar för resurs eller resursgrupp](./media/resource-manager-tag-resources/view-tags.png)
-1. Om du vill lägga till en tagg, Välj **Klicka här för att lägga till taggar**.
+     ![Visa taggar för resursen eller resursgruppen](./media/resource-manager-tag-resources/view-tags.png)
+1. Om du vill lägga till en tagg, Välj **Klicka här om du vill lägga till taggar**.
 
 1. Ange ett namn och värde. Välj **+** att lägga till taggen.
    
      ![Lägg till tagg](./media/resource-manager-tag-resources/add-tag.png)
-1. Fortsätt lägga till taggar efter behov. Välj **Spara** när du är klar.
+1. Fortsätt att lägga till taggar efter behov. Välj **Spara** när du är klar.
    
      ![Spara etiketter](./media/resource-manager-tag-resources/save-tags.png)
-1. Taggar visas i översikten.
+1. Taggar visas nu i översikten.
    
      ![Visa etiketter](./media/resource-manager-tag-resources/view-new-tags.png)
 1. Om du vill lägga till eller ta bort en tagg, Välj **ändra**.
    
-1. Välj Papperskorgen för att ta bort en tagg. Välj sedan **Spara**.
+1. Välj Papperskorgen om du vill ta bort en tagg. Välj sedan **Spara**.
 
      ![Ta bort tagg](./media/resource-manager-tag-resources/delete-tag.png)
 
 
-Att Massredigera tilldela taggar till flera resurser:
+Massregistrera tilldela taggar till flera resurser:
 
-1. Markera kryssrutan för de resurser som du vill tilldela taggen från en lista över resurser.
+1. Alla listan över resurser, markerar du kryssrutan för de resurser som du vill tilldela taggen.
 
-     ![Markera flera resurser](./media/resource-manager-tag-resources/select-multiple-resources.png)
+     ![Välj flera resurser](./media/resource-manager-tag-resources/select-multiple-resources.png)
 
 1. Välj **tilldela taggar**
 
      ![Tilldela taggar](./media/resource-manager-tag-resources/assign-tags.png)
 
-1. När du varje namn och värde **+**. När du är klar väljer **tilldela**.
+1. När du har varje namn och värde väljer **+**. När du är klar, Välj **tilldela**.
 
      ![Välj tilldela](./media/resource-manager-tag-resources/select-assign.png)
 
@@ -56,18 +56,18 @@ Visa alla resurser med en tagg:
 
      ![Sök efter tagg](./media/resource-manager-tag-resources/find-tags.png)
 
-1. Välj taggen för att visa resurser.
+1. Välj tagg för att visa resurser.
 
      ![Välj tagg](./media/resource-manager-tag-resources/select-tag.png)
 
-1. Alla resurser med taggen visas.
+1. Alla resurserna med taggen visas.
 
      ![Visa resurser efter tagg](./media/resource-manager-tag-resources/view-resources-by-tag.png)
 
-1. Fäst vyn instrumentpanelen för snabb åtkomst.
+1. Fäst vyn på instrumentpanelen för snabb åtkomst.
 
-     ![Fäst vid instrumentpanelen](./media/resource-manager-tag-resources/pin-to-dashboard.png)
+     ![Fäst på instrumentpanelen](./media/resource-manager-tag-resources/pin-to-dashboard.png)
 
-1. Vyn är tillgänglig från instrumentpanelen.
+1. Vyn är tillgängligt från instrumentpanelen.
 
      ![Instrumentpanel](./media/resource-manager-tag-resources/dashboard.png)

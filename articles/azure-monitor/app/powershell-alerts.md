@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 10/31/2016
 ms.author: mbullwin
 ms.openlocfilehash: 5dfbc6fa18b5d1b5b3058db14eb1232be27a0c40
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58481799"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66130978"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>Använd PowerShell för att ställa in aviseringar i Application Insights
 
@@ -127,12 +127,12 @@ Mått som skickas av flera telemetriska moduler:
 
 | Metrisk grupp | Insamlaren modul |
 | --- | --- |
-| basicExceptionBrowser,<br/>clientPerformance,<br/>vy |[Webbläsaren JavaScript](../../azure-monitor/app/javascript.md) |
+| basicExceptionBrowser,<br/>clientPerformance,<br/>visa |[Webbläsaren JavaScript](../../azure-monitor/app/javascript.md) |
 | performanceCounter |[Prestanda](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
 | remoteDependencyFailed |[Beroende](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
 | begäran<br/>requestFailed |[Serverbegäran](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
 
-## <a name="webhooks"></a>Webhooks
+## <a name="webhooks"></a>Webhook-konfigurationer
 Du kan [automatisera dina svar på en avisering](../../azure-monitor/platform/alerts-webhooks.md). Azure anropar en webbadress för valfri när en avisering genereras.
 
 ## <a name="see-also"></a>Se också

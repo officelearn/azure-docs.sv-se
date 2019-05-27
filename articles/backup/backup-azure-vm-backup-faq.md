@@ -6,43 +6,43 @@ author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 05/21/2019
 ms.author: sogup
-ms.openlocfilehash: 9f233af316bd6022b93a7208bf3fae37e913e6af
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9d4d1db808446cb010e6551bdcec514fc550d802
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60848188"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65966314"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Vanliga frågor: Säkerhetskopiera virtuella Azure-datorer
 
 Den här artikeln innehåller vanliga frågor och svar om säkerhetskopiering av virtuella Azure-datorer med den [Azure Backup](backup-introduction-to-azure-backup.md) service.
 
 
-## <a name="backup"></a>Backup
+## <a name="backup"></a>Säkerhetskopiera
 
 ### <a name="which-vm-images-can-be-enabled-for-backup-when-i-create-them"></a>Vilka VM-avbildningar kan aktiveras för säkerhetskopiering när jag skapar dem?
 När du skapar en virtuell dator kan du aktivera säkerhetskopiering för virtuella datorer som kör [operativsystem som stöds](backup-support-matrix-iaas.md#supported-backup-actions)
- 
-### <a name="is-the-backup-cost-included-in-the-vm-cost"></a>Är kostnaden för säkerhetskopiering i VM-kostnad? 
+
+### <a name="is-the-backup-cost-included-in-the-vm-cost"></a>Är kostnaden för säkerhetskopiering i VM-kostnad?
 
 Nej. Kostnader för Backup skiljer sig från en virtuell dators kostnader. Läs mer om [priser för Azure Backup](https://azure.microsoft.com/pricing/details/backup/).
- 
-### <a name="which-permissions-are-required-to-enable-backup-for-a-vm"></a>Vilka behörigheter krävs för att aktivera säkerhetskopiering för en virtuell dator? 
 
-Om du är deltagare VM, kan du aktivera säkerhetskopiering på den virtuella datorn. Om du använder en anpassad roll, behöver du följande behörigheter till Aktivera säkerhetskopiering på den virtuella datorn: 
+### <a name="which-permissions-are-required-to-enable-backup-for-a-vm"></a>Vilka behörigheter krävs för att aktivera säkerhetskopiering för en virtuell dator?
 
-- Microsoft.RecoveryServices/Vaults/write 
-- Microsoft.RecoveryServices/Vaults/read 
-- Microsoft.RecoveryServices/locations/* 
-- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/*/read 
-- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read 
-- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write 
-- Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write 
-- Microsoft.RecoveryServices/Vaults/backupPolicies/read 
-- Microsoft.RecoveryServices/Vaults/backupPolicies/write 
- 
+Om du är deltagare VM, kan du aktivera säkerhetskopiering på den virtuella datorn. Om du använder en anpassad roll, behöver du följande behörigheter till Aktivera säkerhetskopiering på den virtuella datorn:
+
+- Microsoft.RecoveryServices/Vaults/write
+- Microsoft.RecoveryServices/Vaults/read
+- Microsoft.RecoveryServices/locations/*
+- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/*/read
+- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read
+- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write
+- Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write
+- Microsoft.RecoveryServices/Vaults/backupPolicies/read
+- Microsoft.RecoveryServices/Vaults/backupPolicies/write
+
 Om dina Recovery Services-valv och en virtuell dator har olika resursgrupper kan du kontrollera att du har skrivbehörighet i resursgruppen för Recovery Services-valvet.  
 
 
@@ -140,3 +140,6 @@ Den virtuella datorn säkerhetskopieras med schema och kvarhållning inställnin
 3. Återaktiveras säkerhetskopiering i samma eller ett nytt valv.
 
 Du kan återställa den virtuella datorn från tillgängliga återställningspunkter som skapades innan åtgärden för att flytta.
+
+### <a name="is-there-a-limit-on-number-of-vms-that-can-beassociated-with-a-same-backup-policy"></a>Finns det en gräns för antalet virtuella datorer som kan associeras med en samma princip för säkerhetskopiering?
+Ja, det finns en gräns på 100 virtuella datorer som kan associeras till samma säkerhetskopieringsprincip från portalen. Vi rekommenderar att mer än 100 virtuella datorer, skapa flera principer för säkerhetskopiering med samma schema eller annan schema.

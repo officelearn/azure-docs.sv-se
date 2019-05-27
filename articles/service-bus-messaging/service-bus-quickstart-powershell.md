@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/10/2019
 ms.author: spelluru
-ms.openlocfilehash: 31b1b852c92ad671564fd54520af3f3a23b3e3c2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 80cef3efd65a3f68dba1856a892a9a120f7d95cd
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59499809"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65990288"
 ---
 # <a name="quickstart-use-azure-powershell-to-create-a-service-bus-queue"></a>Snabbstart: Använda Azure PowerShell för att skapa en Service Bus-kö
 Den här snabbstarten beskriver hur man skickar och tar emot meddelanden till och från en Service Bus-kö med PowerShell för att skapa ett namnområde för meddelanden och en kö inom det namnområdet och för att få auktoriseringsuppgifter på det namnområdet. Proceduren visar därefter hur du skickar och tar emot meddelanden från den här kön med [.NET standardbiblioteket](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).
@@ -35,7 +35,7 @@ För att kunna följa de här självstudierna ska du kontrollera att du har inst
 
 Den här snabbstarten kräver att du kör den senaste versionen av Azure PowerShell. Om du behöver installera eller uppgradera, kan du läsa [Installera och konfigurera Azure PowerShell][]. Om du är bekant med Azure Cloud Shell, kan du använda den utan att installera Azure PowerShell på datorn. Mer information om Azure Cloud Shell finns [översikt av Azure Cloud Shell](../cloud-shell/overview.md)
 
-## <a name="sign-in-to-azure"></a>Logga in på Azure
+## <a name="sign-in-to-azure"></a>Logga in till Azure
 
 1. Installera först Service Bus PowerShell-modulen, om du inte redan gjort det:
 
@@ -254,6 +254,9 @@ static async Task ProcessMessagesAsync(Message message, CancellationToken token)
     await queueClient.CompleteAsync(message.SystemProperties.LockToken);
 }
 ```
+
+> [!NOTE]
+> Du kan hantera Service Bus-resurser med [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer tillåter användare att ansluta till ett Service Bus-namnområde och administrera meddelandeentiteter på ett enkelt sätt. Verktyget tillhandahåller avancerade funktioner som import/export-funktionalitet eller möjligheten att testa ämne, köer, prenumerationer, relätjänster, meddelandehubbar och händelser hubs. 
 
 ## <a name="next-steps"></a>Nästa steg
 

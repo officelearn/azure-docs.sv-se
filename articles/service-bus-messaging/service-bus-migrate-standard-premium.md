@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/18/2019
+ms.date: 05/18/2019
 ms.author: aschhab
-ms.openlocfilehash: 65f89e234317c5a17e4443e767528fb9be9a8b72
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 65c207b4d03e7d156c8c871a3642601fd0489ead
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64687066"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991424"
 ---
 # <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>Migrera befintliga standard Azure Service Bus-namnområde till premium-nivån
 Azure Service Bus erbjuds tidigare namnområden endast på standard-nivån. Namnområden är inställningar för flera innehavare som är optimerade för utvecklarmiljöer och lågt dataflöde. Premium-nivån erbjuder dedikerade resurser per namnområde för förutsägbar latens och ökat genomflöde till ett fast pris. Premium-nivån är optimerat för stora dataflöden och produktionsmiljöer som kräver ytterligare företagsfunktioner.
 
-Den här artikeln beskriver hur du migrerar befintliga namnområden på standard-nivå till premium-nivån.
+Den här artikeln beskriver hur du migrerar befintliga namnområden på standard-nivå till premium-nivån.  
 
 >[!WARNING]
 > Migreringen är avsedd för Service Bus standard-namnområden som ska uppgraderas till premium-nivån. Migreringsverktyget stöder inte nedgradering.
@@ -33,6 +33,7 @@ Några av de saker att Observera:
 - Den **premium** namnområdet ska ha **inga entiteter** i den för migreringen ska lyckas. 
 - Alla **entiteter** i standard-namnområdet är **kopieras** premium-namnområdet under migreringsprocessen. 
 - Migrering stöder **1 000 entiteter per meddelandeenhet** på premium-nivån. Börja med antalet enheter som du har i din aktuella standardnamnområde för att identifiera hur många meddelanden enheter som du behöver. 
+- Du kan inte migrera direkt från **basic-nivån** till **premier nivån**, men du kan göra så indirekt genom att migrera från basic till standard först och sedan från standard till premium i nästa steg.
 
 ## <a name="migration-steps"></a>Migreringssteg
 Vissa villkor är associerade med migreringen. Bekanta dig med följande steg för att minska risken för fel. Dessa steg beskriver migreringsprocessen och stegvis information finns i avsnitten som följer.

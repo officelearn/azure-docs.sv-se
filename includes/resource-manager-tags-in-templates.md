@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/11/2019
 ms.author: tomfitz
 ms.openlocfilehash: 104bd13a0cf97a8605670adde479c2a2eeb29c15
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57786336"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66128992"
 ---
 Om du vill tagga en resurs under distributionen lägger du till den `tags` elementet till den resurs som du distribuerar. Ange namn och värde för taggen.
 

@@ -5,23 +5,23 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/13/2019
+ms.date: 05/20/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 4e7956e8873b552fcd73c51a51f51d99f21af324
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 717c0f110ebbeee53e2c9b9207350385288d57c3
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61003020"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991383"
 ---
 # <a name="understand-and-work-with-scopes"></a>Förstå och arbeta med omfång
 
 Den här artikeln hjälper dig att förstå fakturerings- och resource management omfång som är tillgängliga i Azure och hur du använder scope i Cost Management och API: er.
 
-## <a name="scopes"></a>Omfattningar
+## <a name="scopes"></a>Scope
 
 En _omfång_ är en nod i Azure-resurs-hierarki där Azure AD-användare komma åt och hantera tjänster. De flesta Azure-resurser skapas och distribueras till resursgrupper, vilket är en del av prenumerationer. Microsoft erbjuder även två hierarkier ovan Azure-prenumerationer som har specialiserat roller för att hantera faktureringsinformation:
 - Faktureringsdata, till exempel betalningar och fakturor
@@ -60,14 +60,14 @@ Kostnadshantering stöder följande inbyggda roller för var och en av följande
 - [**Ägare** ](../role-based-access-control/built-in-roles.md#owner) – Visa kostnader och hantera allt, inklusive kostnaden konfiguration.
 - [**Deltagare** ](../role-based-access-control/built-in-roles.md#contributor) – Visa kostnader och hantera allt, inklusive kostnaden konfiguration, men exklusive åtkomstkontroll.
 - [**Läsare** ](../role-based-access-control/built-in-roles.md#reader) – kan visa allt, inklusive kostnadsdata och konfiguration, men inte göra några ändringar.
-- [**Cost Management deltagare** ](../role-based-access-control/built-in-roles.md#cost-management-contributor) – Visa kostnader och hantera kostnaden konfiguration.
-- [**Cost Management läsare** ](../role-based-access-control/built-in-roles.md#cost-management-reader) – kan visa kostnadsdata och konfiguration.
+- [**Cost Management deltagare** ](../role-based-access-control/built-in-roles.md#cost-management-contributor) – kan visa kostnader, hantera kostnader, konfiguration och visa rekommendationer.
+- [**Cost Management läsare** ](../role-based-access-control/built-in-roles.md#cost-management-reader) – kan visa kostnadsdata, kostnad konfiguration, och visa rekommendationer.
 
 Cost Management-deltagare är den rekommenderade lägsta behörighet-rollen. Den låter personer behörighet att skapa och hantera budgetar och exporterar till mer effektivt, övervaka och rapportera om kostnaderna. Management kostnadsfaktorer kan också kräva ytterligare roller för scenarier för hantering av kostnaden för slutpunkt till slutpunkt. Tänk på följande scenarier:
 
 - **Agerar vid budgetar överskrids** – Management kostnadsfaktorer också ha tillgång till skapa och/eller hantera åtgärdsgrupper för att automatiskt ta hänsyn till överförbrukning. Överväg att bevilja [övervakning deltagare](../role-based-access-control/built-in-roles.md#monitoring-contributor) till en resursgrupp som innehåller åtgärdsgruppen ska användas när budget tröskelvärden överskrids. Automatisera specifika åtgärder kräver ytterligare roller för de specifika tjänster som används, till exempel Automation och Azure Functions.
 - **Schema kostnad dataexport** – Cost Management deltagare behöver också åtkomst till att hantera lagringskonton för att schemalägga en export kopiera data till ett lagringskonto. Överväg att bevilja [Lagringskontodeltagare](../role-based-access-control/built-in-roles.md#storage-account-contributor) konto där kostnadsdata exporteras till en resursgrupp som innehåller lagringen.
-- **Visa rekommendationer för kostnadsbesparande** – Cost Management läsare och deltagare som inte har åtkomst till rekommendationer som standard. Åtkomst till rekommendationer kräver läsbehörighet till enskilda resurser. Överväg att bevilja [läsare](../role-based-access-control/built-in-roles.md#reader) eller en [roll tjänstspecifik](../role-based-access-control/built-in-roles.md#built-in-role-descriptions).
+- **Visa kostnadsbesparande rekommendationer** – har åtkomst till Cost Management läsare och hantering av kostnadsfaktorer *visa* kostnad rekommendationer som standard. Åtkomst till agera utifrån kostnadsrekommendationer kräver dock åtkomst till enskilda resurser. Överväg att bevilja en [roll tjänstspecifik](../role-based-access-control/built-in-roles.md#built-in-role-descriptions) om du vill arbeta med en kostnadsbaserad rekommendation.
 
 ## <a name="enterprise-agreement-scopes"></a>Enterprise Agreement-scope
 
@@ -106,7 +106,7 @@ Betala per användning (PAYG) prenumerationer, inklusive relaterade typer som ko
 
 - [**Faktureringskonto** ](../billing/billing-view-all-accounts.md) -representerar en enskild ägare för en eller flera Azure-prenumerationer. Det stöder för närvarande inte bevilja åtkomst till flera personer eller åtkomst till aggregerad kostnaden vyer.
 
-    Resurstyp: Inte tillämpligt
+    Resurstyp: Saknas
 
 Konto för PAYG prenumerationsadministratörer kan visa och hantera faktureringen data, till exempel fakturor och betalningar, från den [Azure Kontocenter](https://account.azure.com/subscriptions). Men kan inte de visa kostnadsdata eller hantera resurser i Azure-portalen. Om du vill bevilja åtkomst till kontoadministratören, använda Cost Management-roller som tidigare nämnts.
 

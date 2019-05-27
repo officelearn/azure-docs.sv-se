@@ -12,12 +12,12 @@ ms.topic: sample
 ms.date: 07/03/2013
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 84cc4e92419e683f8d2c29883b26148fdef23356
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ee655dc39fbe7d0e3eb5cb41b091aea24d8dbea3
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60325739"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66131293"
 ---
 # <a name="bind-a-custom-ssl-certificate-to-a-function-app"></a>Binda ett anpassat SSL-certifikat till en funktionsapp
 
@@ -27,7 +27,7 @@ Det här exempelskriptet skapar en funktionsapp i App Service med dess relaterad
 * En giltig .PFX-fil och dess lösenord för SSL-certifikatet du vill ladda upp och binda.
 * En konfigurerad A-post i den anpassade domänen som pekar på standarddomännamnet för webbappen. Mer information finns i [Mappa instruktioner om anpassad domän till Azure App Service](https://aka.ms/appservicecustomdns).
 
-Om du vill binda ett SSL-certifikat måste funktionsappen skapas i en App Service-plan och inte i en användningsplan.
+Om du vill binda ett SSL-certifikat måste funktionsappen skapas i en premiumplan eller en App Service plan och inte i en användningsplan.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

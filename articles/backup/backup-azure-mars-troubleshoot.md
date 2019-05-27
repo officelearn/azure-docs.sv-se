@@ -6,18 +6,38 @@ author: saurabhsensharma
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/18/2019
+ms.date: 05/21/2019
 ms.author: saurse
-ms.openlocfilehash: e36e0813b7a50c659a2c3ae61350381e83a1823f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 122f0884469a4901b02a1c86dd5ec98ef4fb24b0
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64686183"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66000254"
 ---
 # <a name="troubleshoot-microsoft-azure-recovery-services-mars-agent"></a>Felsöka Microsoft Azure Recovery Services (MARS)-agenten
 
 Här är hur du löser problem som kan uppstå under konfiguration, registrering, säkerhetskopiering och återställning.
+
+## <a name="basic-troubleshooting"></a>Grundläggande felsökning
+
+Vi rekommenderar att du utför den under verifieringen, innan du börjar felsöka Microsoft Azure Recovery Services (MARS) agent:
+
+- [Se till att Microsoft Azure Recovery Services MARS-agenten är uppdaterade](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
+- [Kontrollera att det finns nätverksanslutning mellan MARS-agenten och Azure](https://aka.ms/AB-A4dp50)
+- Kontrollera att Microsoft Azure Recovery Services körs (i tjänstkonsolen). Starta om åtgärden och försök igen vid behov
+- [Kontrollera att det finns 5–10 % ledigt utrymme i den tillfälliga mappen](https://aka.ms/AB-AA4dwtt)
+- [Kontrollera att inte andra processer eller antivirusprogram stör Azure Backup](https://aka.ms/AB-AA4dwtk)
+- [Schemalagd säkerhetskopiering misslyckas, men manuell säkerhetskopiering fungerar](https://aka.ms/ScheduledBackupFailManualWorks)
+- Kontrollera att ditt operativsystem har de senaste uppdateringarna
+- [Se till att enheter som inte stöds och filer med attribut som inte stöds är undantagna från säkerhetskopia](backup-support-matrix-mars-agent.md#supported-drives-or-volumes-for-backup)
+- Kontrollera att **systemklockan** i det skyddade systemet är konfigurerad till rätt tidszon <br>
+- [Kontrollera att servern har minst .NET Framework version 4.5.2 eller senare](https://www.microsoft.com/download/details.aspx?id=30653)<br>
+- Om du försöker **omregistrera din server** till ett valv: <br>
+  - Kontrollera att agenten är avinstallerad på servern och raderad från portalen <br>
+  - Använd samma lösenfras som användes vid den första registreringen av servern <br>
+- Se till att Azure PowerShell-version 3.7.0 är installerad på både käll- och kopiera datorn innan du påbörjar säkerhetskopieringen offline vid säkerhetskopiering offline
+- [Faktor vid Backup-agenten körs på virtuella Azure-datorer](https://aka.ms/AB-AA4dwtr)
 
 ## <a name="invalid-vault-credentials-provided"></a>Ogiltiga valvautentiseringsuppgifter har angetts
 
@@ -35,7 +55,7 @@ Här är hur du löser problem som kan uppstå under konfiguration, registrering
 
 | Felinformation | Möjliga orsaker | Rekommenderade åtgärder |
 | ---     | ---     | ---    |
-| **Fel** <br /><ol><li>*Microsoft Azure Recovery Service-agenten kunde inte ansluta till Microsoft Azure Backup. (ID: 100050) kontrollera nätverksinställningarna och se till att du kan ansluta till internet*<li>*(407) Proxyautentisering krävs* |Proxy blockerar anslutningen. |  <ul><li>Starta **IE** > **inställningen** > **Internetalternativ** > **Security**  >  **Internet**. Välj sedan **Anpassad nivå** och Bläddra tills du ser att hämta filen. Välj **Aktivera**.<li>Du kan också behöva lägga till dessa webbplatser i Internet Explorer [betrodda platser](https://docs.microsoft.com/azure/backup/backup-try-azure-backup-in-10-mins).<li>Ändra inställningarna för att använda en proxyserver. Ange sedan proxyn serverinformation. <li>Om du har ett antivirusprogram installerat på servern, Uteslut följande filer från virusgenomsökning. <ul><li>CBEngine.exe (i stället för dpmra.exe).<li>CSC.exe (relaterade till .NET Framework). Det finns en CSC.exe för varje .NET-version som är installerad på servern. Undanta CSC.exe-filer som är knutna till alla versioner av .NET framework på den berörda servern. <li>Tillfällig plats för mappen eller cache. <br>*Standardplatsen för den temporära mappen eller sökvägen till cache är C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.<li>Bin-mappen C:\Program Files\Microsoft Azure Recovery Services Agent\Bin
+| **Fel** <br /><ol><li>*Microsoft Azure Recovery Service-agenten kunde inte ansluta till Microsoft Azure Backup. (ID: 100050) kontrollera nätverksinställningarna och se till att du kan ansluta till internet*<li>*(407) Proxyautentisering krävs* |Proxy blockerar anslutningen. |  <ul><li>Starta **IE** > **inställningen** > **Internetalternativ** > **Security**  >  **Internet**. Välj sedan **Anpassad nivå** och Bläddra tills du ser att hämta filen. Välj **aktivera**.<li>Du kan också behöva lägga till dessa webbplatser i Internet Explorer [betrodda platser](https://docs.microsoft.com/azure/backup/backup-try-azure-backup-in-10-mins).<li>Ändra inställningarna för att använda en proxyserver. Ange sedan proxyn serverinformation. <li>Om du har ett antivirusprogram installerat på servern, Uteslut följande filer från virusgenomsökning. <ul><li>CBEngine.exe (i stället för dpmra.exe).<li>CSC.exe (relaterade till .NET Framework). Det finns en CSC.exe för varje .NET-version som är installerad på servern. Undanta CSC.exe-filer som är knutna till alla versioner av .NET framework på den berörda servern. <li>Tillfällig plats för mappen eller cache. <br>*Standardplatsen för den temporära mappen eller sökvägen till cache är C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.<li>Bin-mappen C:\Program Files\Microsoft Azure Recovery Services Agent\Bin
 
 
 ## <a name="failed-to-set-the-encryption-key-for-secure-backups"></a>Det gick inte att ange krypteringsnyckeln för säker säkerhetskopiering
@@ -48,7 +68,7 @@ Här är hur du löser problem som kan uppstå under konfiguration, registrering
 
 | Felinformation | Möjliga orsaker | Rekommenderade åtgärder |
 |---------|---------|---------|
-|**Fel** <br /><ol>*Aktiveringen slutfördes inte. Den aktuella åtgärden misslyckades på grund av ett internt tjänstfel [0x1FC07]. Försök igen efter en stund. Kontakta Microsoft-supporten om problemet kvarstår*     | <li> Den temporära mappen finns på en volym som har inte tillräckligt med utrymme. <li> Den temporära mappen har felaktigt flyttats till en annan plats. <li> Filen OnlineBackup.KEK saknas.         | <li>Uppgradera till den [senaste versionen](https://aka.ms/azurebackup_agent) av MARS-agenten.<li>Flytta den tillfälliga mapp eller cache-platsen till en volym med ledigt utrymme som motsvarar 5 – 10% av den totala mängden säkerhetskopierade data. Om du vill flytta cacheplatsen, läser du anvisningarna i [frågor om Azure Backup-agenten](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup).<li> Kontrollera att filen OnlineBackup.KEK finns. <br>*Standardplatsen för den temporära mappen eller sökvägen till cache är C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.        |
+|**Fel** <br /><ol>*Aktiveringen slutfördes inte. Den aktuella åtgärden misslyckades på grund av ett internt tjänstfel [0x1FC07]. Försök igen senare. Kontakta Microsoft-supporten om problemet kvarstår*     | <li> Den temporära mappen finns på en volym som har inte tillräckligt med utrymme. <li> Den temporära mappen har felaktigt flyttats till en annan plats. <li> Filen OnlineBackup.KEK saknas.         | <li>Uppgradera till den [senaste versionen](https://aka.ms/azurebackup_agent) av MARS-agenten.<li>Flytta den tillfälliga mapp eller cache-platsen till en volym med ledigt utrymme som motsvarar 5 – 10% av den totala mängden säkerhetskopierade data. Om du vill flytta cacheplatsen, läser du anvisningarna i [frågor om Azure Backup-agenten](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup).<li> Kontrollera att filen OnlineBackup.KEK finns. <br>*Standardplatsen för den temporära mappen eller sökvägen till cache är C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.        |
 
 ## <a name="encryption-passphrase-not-correctly-configured"></a>Krypteringslösenfrasen inte korrekt konfigurerad
 
@@ -109,7 +129,7 @@ Azure Backup kan inte har montera återställningsvolymen, även om några minut
 
 Om återställningen fortfarande misslyckas, startar du om din server eller klient. Om du inte vill starta om eller återställningen fortfarande misslyckas efter att servern startas om, försök att återställa från en annan dator. Följ stegen i [i den här artikeln](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine).
 
-## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten
+## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta support
 Om du fortfarande behöver hjälp, [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) att lösa problemet snabbt.
 
 ## <a name="next-steps"></a>Nästa steg

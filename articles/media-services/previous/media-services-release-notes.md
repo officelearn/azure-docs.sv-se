@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 427ba2b386810749810397afed8ef3f62dcf9217
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: c519cf88f40928bbd556b0accfa30d9f8c5c0f11
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506633"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991904"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services viktig information
 
@@ -44,6 +44,10 @@ Vi vill gärna höra från våra kunder så att vi kan fokusera på att åtgärd
 
 ## <a name="a-idrestversionhistoryrest-api-version-history"></a><a id="rest_version_history"/>REST API-versionshistorik
 Information om versionshistorik för Media Services REST API finns i den [Azure Media Services REST API-referens].
+
+## <a name="march-2019"></a>Mars 2019
+
+Media Hyperlapse förhandsgranskningsfunktion i Azure Media Services är inaktuell.
 
 ## <a name="december-2018"></a>December 2018
 

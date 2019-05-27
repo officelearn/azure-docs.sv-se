@@ -7,12 +7,12 @@ ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 2f856e9c42b26d4e286493e2eb5d019a8cff6c23
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 6e3e01ca9bd459aa6c6aca8dfaacb98b1267fada
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64868724"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979352"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Fastställa orsaker till icke-kompatibilitet
 
@@ -85,7 +85,7 @@ Dessa uppgifter förklara varför en resurs för närvarande inte är kompatibel
 
 Matrisen följande mappar varje möjligt _orsak_ till den ansvariga [villkor](../concepts/definition-structure.md#conditions) i principdefinitionen:
 
-|Orsak | Tillstånd |
+|Reason | Villkor |
 |-|-|
 |Aktuellt värde måste innehålla målvärdet som en nyckel. |containsKey eller **inte** notContainsKey |
 |Aktuellt värde måste innehålla målvärdet. |innehåller eller **inte** notContains |
@@ -215,11 +215,11 @@ Som en del av en ny **förhandsversion**, de senaste 14 dagarna ändringshistori
 
 1. Välj den **ändra historik (förhandsversion)** fliken på den **Resurskompatibilitet** sidan. En lista över identifierat ändringar, om några finns, visas.
 
-   ![Fliken Ändra historik på Resurskompatibilitet sida](../media/determine-non-compliance/change-history-tab.png)
+   ![Azure Policy ändra historik-fliken på Resurskompatibilitet sidan](../media/determine-non-compliance/change-history-tab.png)
 
 1. Välj en av de identifierade ändringarna. Den _visual diff_ för resursen som visas på den **ändringshistorik** sidan.
 
-   ![Principen ändra historik Visual Diff på sidan för ändra historik](../media/determine-non-compliance/change-history-visual-diff.png)
+   ![Azure Policy ändra historik Visual Diff på sidan för ändra historik](../media/determine-non-compliance/change-history-visual-diff.png)
 
 Den _visual diff_ aides identifiera ändringar till en resurs. Ändringar som har identifierats kan inte vara relaterade till det aktuella tillståndet för efterlevnad för resursen.
 
@@ -228,7 +228,7 @@ Den _visual diff_ aides identifiera ändringar till en resurs. Ändringar som ha
 ## <a name="next-steps"></a>Nästa steg
 
 - Se exempel på [Azure Policy-exempel](../samples/index.md).
-- Granska [Policy-definitionsstrukturen](../concepts/definition-structure.md).
+- Granska [Azure Policy-definitionsstrukturen](../concepts/definition-structure.md).
 - Granska [Förstå policy-effekter](../concepts/effects.md).
 - Förstå hur du [skapa principer programmässigt](programmatically-create.md).
 - Lär dig hur du [hämta kompatibilitetsdata](getting-compliance-data.md).

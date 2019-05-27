@@ -9,11 +9,11 @@ ms.date: 02/07/2019
 ms.topic: conceptual
 manager: philmea
 ms.openlocfilehash: 9e5d842cece316bc9c53e1e8583f40a0f222b91d
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56808723"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66151960"
 ---
 # <a name="manage-iot-central-from-azure-cli"></a>Hantera IoT Central från Azure CLI
 
@@ -21,7 +21,7 @@ ms.locfileid: "56808723"
 
 I stället för att skapa och hantera IoT Central-program från IoT Central [Programhanterare](https://aka.ms/iotcentral) kan du använda [Azure CLI](/cli/azure/) att hantera dina program.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -62,7 +62,7 @@ Dessa kommandon kan du först skapa en resursgrupp i östra USA för programmet.
 
 **Programmallar**
 
-| Mallens namn            | Beskrivning |
+| Mallnamn            | Beskrivning |
 | ------------------------ | ----------- |
 | iotc-default@1.0.0       | Skapar ett tomt program som du kan fylla med dina egna enhetsmallar och enheter. |
 | iotc-demo@1.0.0          | Skapar ett program som innehåller en mall för enheter som redan har skapats för en kylande varuautomat. Använd den här mallen för att börja utforska Azure IoT Central. |

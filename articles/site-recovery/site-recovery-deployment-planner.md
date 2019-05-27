@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: mayg
-ms.openlocfilehash: 195c70cd887d75eebb23cb7632b5fa250f89661c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: a1fbc8a42492b4a9c2254ccea2ddc2909219ad23
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65137765"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65969340"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Om Azure Site Recovery Deployment Planner för VMware till Azure
 Den här artikeln utgör användarhandboken för Distributionshanteraren för Azure Site Recovery vid produktionsdistribution av VMware till Azure.
@@ -66,9 +66,9 @@ Du kan se följande information i verktyget:
 | | **VMware till Azure** |**Hyper-V till Azure**|**Azure till Azure**|**Hyper-V till sekundär plats**|**VMware till sekundär plats**
 --|--|--|--|--|--
 Scenarier som stöds |Ja|Ja|Nej|Ja*|Nej
-Version som stöds | vCenter 6.7, 6.5, 6.0 eller 5.5| Windows Server 2016, Windows Server 2012 R2 | Ej tillämpligt |Windows Server 2016, Windows Server 2012 R2|Ej tillämpligt
-Konfiguration som stöds|vCenter, ESXi| Hyper-V-kluster, Hyper-V-värd|Ej tillämpligt|Hyper-V-kluster, Hyper-V-värd|Ej tillämpligt|
-Antalet servrar som kan profileras per körningsinstans av Distributionshanteraren för Site Recovery |En enda (virtuella datorer som hör till en vCenter-server eller en ESXi-server kan profileras samtidigt)|Flera (virtuella datorer över flera värdar eller värdkluster kan profileras samtidigt)| Ej tillämpligt |Flera (virtuella datorer över flera värdar eller värdkluster kan profileras samtidigt)| Ej tillämpligt
+Version som stöds | vCenter 6.7, 6.5, 6.0 eller 5.5| Windows Server 2016, Windows Server 2012 R2 | Saknas |Windows Server 2016, Windows Server 2012 R2|Saknas
+Konfiguration som stöds|vCenter, ESXi| Hyper-V-kluster, Hyper-V-värd|Saknas|Hyper-V-kluster, Hyper-V-värd|Saknas|
+Antalet servrar som kan profileras per körningsinstans av Distributionshanteraren för Site Recovery |En enda (virtuella datorer som hör till en vCenter-server eller en ESXi-server kan profileras samtidigt)|Flera (virtuella datorer över flera värdar eller värdkluster kan profileras samtidigt)| Saknas |Flera (virtuella datorer över flera värdar eller värdkluster kan profileras samtidigt)| Saknas
 
 * Verktyget är främst avsett för haveriberedskapsscenariot Hyper-V till Azure. För haveriberedskap från Hyper-V till sekundär plats kan det bara användas till att förstå rekommendationer för källsidan, till exempel nätverksbandbredd som krävs, ledigt lagringsutrymme som krävs på varje Hyper-V-källserver samt inledande batchnummer för replikering och batchdefinitioner. Ignorera Azure-rekommendationer och kostnader i rapporten. Åtgärden för att hämta dataflödet gäller dessutom inte för haveriberedskapsscenarion från Hyper-V till sekundär plats.
 
@@ -121,7 +121,7 @@ Om du har en tidigare version av distributionshanteraren gör du något av följ
 
 ## <a name="version-history"></a>Versionshistorik
 Den senaste versionen av Distributionshanteraren för Site Recovery är 2.4.
-Läs sidan med [versionshistorik för Distributionshanteraren för Site Recovery](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) för information om korrigeringarna som har lagts till i varje uppdatering.
+Läs sidan med [versionshistorik för Distributionshanteraren för Site Recovery](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-deployment-planner-history) för information om korrigeringarna som har lagts till i varje uppdatering.
 
 ## <a name="next-steps"></a>Nästa steg
 [Kör Distributionshanteraren för Site Recovery](site-recovery-vmware-deployment-planner-run.md)

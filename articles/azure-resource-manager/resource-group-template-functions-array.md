@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/8/2018
 ms.author: tomfitz
 ms.openlocfilehash: c80625fb36709f66319b4966e210785864f30d09
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270461"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66128706"
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Funktioner för matris och objekt för Azure Resource Manager-mallar
 
@@ -197,7 +197,7 @@ Utdata från föregående exempel med standardvärdena är:
 | ---- | ---- | ----- |
 | stringOutput | String | standard |
 | intOutput | Int | 1 |
-| objectOutput | Objekt | {"first": "default"} |
+| objectOutput | Object | {"first": "default"} |
 | arrayOutput | Matris | [1] |
 | emptyOutput | Bool | True |
 
@@ -403,11 +403,11 @@ Utdata från föregående exempel med standardvärdena är:
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | stringTrue | Bool | True |
-| stringFalse | Bool | False |
+| stringFalse | Bool | Falskt |
 | objectTrue | Bool | True |
-| objectFalse | Bool | False |
+| objectFalse | Bool | Falskt |
 | arrayTrue | Bool | True |
-| arrayFalse | Bool | False |
+| arrayFalse | Bool | Falskt |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
@@ -630,7 +630,7 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| arrayOutput | String | en |
+| arrayOutput | String | ett |
 | stringOutput | String | O |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
@@ -709,7 +709,7 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| objectOutput | Objekt | {”en”: ”a”, ”tre”: ”c”} |
+| objectOutput | Object | {”en”: ”a”, ”tre”: ”c”} |
 | arrayOutput | Matris | ["two", "three"] |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
@@ -733,7 +733,7 @@ Returnerar ett JSON-objekt.
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |sträng |Värdet att konvertera till JSON. |
+| arg1 |Ja |string |Värdet att konvertera till JSON. |
 
 
 ### <a name="return-value"></a>Returvärde
@@ -781,9 +781,9 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| jsonOutput | Objekt | {"a": "b"} |
-| nullOutput | Boolesk | True |
-| paramOutput | Objekt | {”a”: ”demonstrera värdet”}
+| jsonOutput | Object | {"a": "b"} |
+| nullOutput | Boolean | True |
+| paramOutput | Object | {”a”: ”demonstrera värdet”}
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
@@ -1011,7 +1011,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="min" />
 
-## <a name="min"></a>min.
+## <a name="min"></a>min
 `min(arg1)`
 
 Returnerar det minsta värdet från en matris av heltal eller en kommaavgränsad lista med heltal.
@@ -1363,7 +1363,7 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| objectOutput | Objekt | {”en”: ”a”, ”två”: ”b”, ”tre”: ”c2”, ”fyra”: ”d”, ”fem”: ”e”} |
+| objectOutput | Object | {”en”: ”a”, ”två”: ”b”, ”tre”: ”c2”, ”fyra”: ”d”, ”fem”: ”e”} |
 | arrayOutput | Matris | [”en”, ”två”, ”tre”, ”fyra”] |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:

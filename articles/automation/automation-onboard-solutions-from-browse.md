@@ -9,20 +9,20 @@ ms.date: 04/11/2019
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: df59342bebae3ac0f6e80e5b58f429fedf3c3336
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e6359d57a1f4cce6ec89fd76ef343b515cafae6e
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60739039"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66133146"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Aktivera uppdateringshantering, ändringsspårning och inventering lösningar på flera virtuella datorer
 
 Azure Automation tillhandahåller lösningar för att hantera säkerhet för operativsystemuppdateringar, spåra ändringar och inventering vad som är installerat på datorerna. Det finns flera sätt att registrera datorer, du kan registrera lösningen [från en virtuell dator](automation-onboard-solutions-from-vm.md), från din [automatiseringskontot](automation-onboard-solutions-from-automation-account.md), när du bläddrar efter virtuella datorer eller genom att [runbook](automation-onboard-solutions.md). Den här artikeln beskrivs registrering dessa lösningar när du bläddrar efter virtuella datorer i Azure.
 
-## <a name="log-in-to-azure"></a>Logga in på Azure
+## <a name="sign-in-to-azure"></a>Logga in till Azure
 
-Logga in till Azure på https://portal.azure.com
+Logga in i Azure på https://portal.azure.com
 
 ## <a name="enable-solutions"></a>Aktivera lösningar
 
@@ -59,27 +59,10 @@ Om arbetsytan som valts inte är länkad till ett Automation-konto, visas följa
 
 ![Ingen arbetsyta](media/automation-onboard-solutions-from-browse/no-workspace.png)
 
-När du aktiverar lösningar går det endast att länka en Log Analytics-arbetsyta och ett Automation-konto i vissa regioner.
-
-I följande tabell visas mappningarna som stöds:
-
-|**Log Analytics arbetsytans Region**|**Azure Automation Region**|
-|---|---|
-|Sydöstra Australien|Sydöstra Australien|
-|CanadaCentral|CanadaCentral|
-|Indiencentrala|Indiencentrala|
-|EastUS<sup>1</sup>|EastUS2|
-|JapanEast|JapanEast|
-|SoutheastAsia|SoutheastAsia|
-|WestCentralUS<sup>2</sup>|WestCentralUS<sup>2</sup>|
-|Västeuropa|Västeuropa|
-|Södrastorbritannien|Södrastorbritannien|
-|USGovVirginia|USGovVirginia|
-|EastUS2EUAP<sup>1</sup>|CentralUSEUAP|
-
-<sup>1</sup> EastUS2EUAP och östra USA mappningar för Log Analytics-arbetsytor till Automation-konton är inte en exakt mappning för olika regioner, men är korrekt mappning.
-
-<sup>2</sup> på grund av begränsningar i kapaciteten regionen är inte tillgänglig när du skapar nya resurser. Detta inkluderar Automation-konton och Log Analytics-arbetsytor. Redan befintliga länkade resurser i regionen bör dock fortsätta att fungera.
+> [!NOTE]
+> När du aktiverar lösningar går det endast att länka en Log Analytics-arbetsyta och ett Automation-konto i vissa regioner.
+>
+> En lista över stöds mappningspar finns i [regionsmappning för Automation-kontot och Log Analytics-arbetsytan](how-to/region-mappings.md).
 
 Avmarkera kryssrutan bredvid en virtuell dator som du inte vill aktivera. Virtuella datorer som inte kan aktiveras är redan avmarkerat.
 
@@ -122,6 +105,8 @@ Om du har använt Starta/stoppa virtuella datorer vid låg belastning på nätve
 * Starta och stoppa Virtuella runbooks
 * Variabler
 
+Du kan också du kan också ta bort länken till din arbetsyta från ditt Automation-konto från Log Analytics-arbetsytan. På arbetsytan och välj **Automatiseringskontot** under **relaterade resurser**. På sidan Automation-konto väljer **Avlänka konto**.
+
 ## <a name="troubleshooting"></a>Felsökning
 
 När onboarding flera datorer och det kan vara datorer som visas som **kan inte aktivera**. Det finns olika orsaker varför vissa datorer inte kanske är aktiverad. I följande avsnitt visas möjliga orsaker till det **kan inte aktivera** tillstånd på en virtuell dator när du försöker publicera.
@@ -152,7 +137,7 @@ När onboarding flera datorer och det kan vara datorer som visas som **kan inte 
 
 **Orsak**: Virtuella datorer som använder den klassiska distributionsmodellen stöds inte.
 
-**Lösningen**: Migrera den virtuella datorn till resource manager-distributionsmodellen. Information om hur du gör detta finns i [migrera klassiska distributionsresurserna för modellen](../virtual-machines/windows/migration-classic-resource-manager-overview.md).
+**Lösningen**: Migrera den virtuella datorn till Resource Manager-distributionsmodellen. Information om hur du gör detta finns i [migrera klassiska distributionsresurserna för modellen](../virtual-machines/windows/migration-classic-resource-manager-overview.md).
 
 ### <a name="vm-is-stopped-deallocated"></a>Virtuell dator har stoppats. (frigjord)
 

@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e258670e863ff195190bae5cd50537e50d40d942
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 4cc742a6b1a7f3fc78e8639206e06c2937f00c30
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65825642"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956911"
 ---
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>Arbeta med anpassade domäner i Azure AD Application Proxy
 
@@ -71,7 +71,9 @@ När du har dessa tre krav som är redo, följer du dessa steg för att konfigur
 ### <a name="certificate-format"></a>Certifikatformatet
 Det finns ingen begränsning för certifikat signatur metoder. Elliptic Curve Cryptography (ECC), alternativt namn på CERTIFIKATMOTTAGARE, och andra vanliga typer av certifikat stöds. 
 
-Du kan använda ett jokerteckencertifikat så länge jokertecknet matchar den önskade externa URL: en. 
+Du kan använda ett jokerteckencertifikat så länge jokertecknet matchar den önskade externa URL: en.
+
+Du kan inte använda ett certifikat utfärdat av en egen offentlig nyckelinfrastruktur (PKI) på grund av säkerhetsöverväganden.
 
 ### <a name="changing-the-domain"></a>Ändra domänen
 Alla verifierade domäner visas i listrutan externa URL: en för ditt program. Om du vill ändra domänen du bara uppdatera fältet för programmet. Om domänen som du vill inte finns i listan [Lägg till den som en verifierad domän](../fundamentals/add-custom-domain.md). Om du väljer en domän som inte har en tillhörande certifikat än Följ steg 5 – 7 för att lägga till certifikatet. Kontrollera sedan att du uppdaterar DNS-posten att omdirigera från den nya externa URL: en. 

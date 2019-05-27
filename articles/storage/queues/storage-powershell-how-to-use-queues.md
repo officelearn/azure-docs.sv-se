@@ -5,22 +5,23 @@ services: storage
 author: mhopkins-msft
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/14/2017
+ms.date: 05/15/2019
 ms.author: mhopkins
 ms.reviewer: cbrooks
 ms.subservice: queues
-ms.openlocfilehash: fdb05adaf6a4b039ef288ac8b4464f62930e3f9c
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 6e8640b136c52f500de010f842ab73678acdce4f
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65797776"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991344"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Utföra åtgärder för Azure Queue storage med Azure PowerShell
 
 Azure Queue storage är en tjänst för att lagra stora mängder meddelanden som kan nås från var som helst i världen via HTTP eller HTTPS. Detaljerad information finns i [introduktion till Azure-köer](storage-queues-introduction.md). I den här artikeln beskriver vanliga Queue storage-åtgärder. Lär dig att:
 
 > [!div class="checklist"]
+>
 > * Skapa en kö
 > * Hämta en kö
 > * Lägga till ett meddelande
@@ -53,7 +54,7 @@ $location = "eastus"
 
 ## <a name="create-resource-group"></a>Skapa en resursgrupp
 
-Skapa en resursgrupp med kommandot [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). 
+Skapa en resursgrupp med kommandot [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).
 
 En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. Store resursgruppens namn i en variabel för framtida användning. I det här exemplet, en resursgrupp med namnet *howtoqueuesrg* skapas i den *eastus* region.
 
@@ -114,7 +115,7 @@ $queueMessage = New-Object -TypeName "Microsoft.Azure.Storage.Queue.CloudQueueMe
 # Add a new message to the queue
 $queue.CloudQueue.AddMessageAsync($QueueMessage)
 
-# Add two more messages to the queue 
+# Add two more messages to the queue
 $queueMessage = New-Object -TypeName "Microsoft.Azure.Storage.Queue.CloudQueueMessage,$($queue.CloudQueue.GetType().Assembly.FullName)" `
   -ArgumentList "This is message 2"
 $queue.CloudQueue.AddMessageAsync($QueueMessage)
@@ -123,15 +124,15 @@ $queueMessage = New-Object -TypeName "Microsoft.Azure.Storage.Queue.CloudQueueMe
 $queue.CloudQueue.AddMessageAsync($QueueMessage)
 ```
 
-Om du använder den [Azure Storage Explorer](https://storageexplorer.com), du kan ansluta till ditt Azure-konto och visa köer i lagringskontot och granska nedåt i kö för att visa meddelanden i kön. 
+Om du använder den [Azure Storage Explorer](https://storageexplorer.com), du kan ansluta till ditt Azure-konto och visa köer i lagringskontot och granska nedåt i kö för att visa meddelanden i kön.
 
 ## <a name="read-a-message-from-the-queue-then-delete-it"></a>Läs ett meddelande från kön och tar bort den
 
 Meddelanden läses i bästa Försök först-in-först-ut ordning. Detta är inte säkert. När du läser meddelandet från kön blir det osynligt för andra processer som tittar på kön. Detta säkerställer att om din kod inte kan bearbeta meddelandet på grund av maskin- eller programvarufel, kan en annan instans av koden hämta samma meddelande och försök igen.  
 
-Detta **tidsgränsen för osynlighet** definierar hur länge meddelandet är osynlig innan den blir tillgänglig igen för bearbetning. Standardvärdet är 30 sekunder. 
+Detta **tidsgränsen för osynlighet** definierar hur länge meddelandet är osynlig innan den blir tillgänglig igen för bearbetning. Standardvärdet är 30 sekunder.
 
-Din kod läser meddelandet från kön i två steg. När du anropar den [Microsoft.Azure.Storage.Queue.CloudQueue.GetMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage) metoden du hämtas nästa meddelande i kön. Ett meddelande som returneras från **GetMessage** blir osynligt för andra meddelanden som läser kod i den här kön. Om du vill ta bort meddelandet från kön är klar kan du anropa den [Microsoft.Azure.Storage.Queue.CloudQueue.DeleteMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage) metod. 
+Din kod läser meddelandet från kön i två steg. När du anropar den [Microsoft.Azure.Storage.Queue.CloudQueue.GetMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage) metoden du hämtas nästa meddelande i kön. Ett meddelande som returneras från **GetMessage** blir osynligt för andra meddelanden som läser kod i den här kön. Om du vill ta bort meddelandet från kön är klar kan du anropa den [Microsoft.Azure.Storage.Queue.CloudQueue.DeleteMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage) metod.
 
 I följande exempel du läsa igenom tre Kömeddelanden och vänta 10 sekunder (tidsgränsen för osynlighet). Och sedan läsa de tre meddelanden igen, ta bort meddelanden när du har läst dem genom att anropa **DeleteMessage**. Om du försöker läsa kön när meddelanden tas bort returneras $queueMessage som NULL.
 
@@ -148,7 +149,7 @@ $queueMessage.Result
 $queueMessage = $queue.CloudQueue.GetMessageAsync($invisibleTimeout,$null,$null)
 $queueMessage.Result
 
-# After 10 seconds, these messages reappear on the queue. 
+# After 10 seconds, these messages reappear on the queue.
 # Read them again, but delete each one after reading it.
 # Delete the message.
 $queueMessage = $queue.CloudQueue.GetMessageAsync($invisibleTimeout,$null,$null)
@@ -167,7 +168,7 @@ $queue.CloudQueue.DeleteMessageAsync($queueMessage.Result.Id,$queueMessage.Resul
 Ta bort en kö och alla meddelanden som finns i den genom att anropa cmdleten Remove-AzStorageQueue. I följande exempel visas hur du tar bort den specifika kö som används i den här övningen med hjälp av cmdleten Remove-AzStorageQueue.
 
 ```powershell
-# Delete the queue 
+# Delete the queue
 Remove-AzStorageQueue –Name $queueName –Context $ctx
 ```
 
@@ -184,11 +185,12 @@ Remove-AzResourceGroup -Name $resourceGroup
 I den här artikeln berättade om grundläggande Queue storage management med PowerShell, inklusive hur du:
 
 > [!div class="checklist"]
+>
 > * Skapa en kö
 > * Hämta en kö
 > * Lägga till ett meddelande
 > * Läs nästa meddelande
-> * Ta bort ett meddelande 
+> * Ta bort ett meddelande
 > * Ta bort en kö
 
 ### <a name="microsoft-azure-powershell-storage-cmdlets"></a>Microsoft Azure PowerShell Storage-cmdletar

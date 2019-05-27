@@ -10,11 +10,11 @@ ms.date: 06/10/2018
 ms.author: raynew
 ms.custom: include file
 ms.openlocfilehash: 371cbcc50b574f95e8d9ba4efe79058b2b25a8ba
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58016682"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66127739"
 ---
 **Configuration/Process server-krav**
 
@@ -61,5 +61,5 @@ MYSQL | MySQL ska installeras. Du kan installera manuellt eller Site Recovery ka
 --- | --- | --- | --- | ---
 8 virtuella processorer<br/><br/> 2 platser * 4 kärnor \@ 2,5 GHz | 16GB | 300 GB | 500 GB eller mindre | < 100 datorer
 12 virtuella processorer<br/><br/> 2 socks * 6 kärnor \@ 2,5 GHz | 18 GB | 600 GB | 500 GB-1 TB | 100-150 datorer
-16 vcpu: er<br/><br/> 2 socks * 8 kärnor \@ 2,5 GHz | 32 GB | 1 TB | 1-2 TB | 150-200 datorer
+16 vcpu: er<br/><br/> 2 socks * 8 kärnor \@ 2,5 GHz | 32 GB | 1 TB | 1-2 TB | 150-200 datorer
 

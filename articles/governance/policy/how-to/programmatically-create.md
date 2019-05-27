@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: ade5d55833f1d63a8d70b6eedb3c3e4bdffe590b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c4bb06bd4c75dfeb164341d8cc5084030d3a08a7
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59276498"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979314"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>Programmässigt skapa principer och visa data för kompatibilitetsinställningar
 
-Den här artikeln beskriver hur du programmässigt kan skapa och hantera principer. Principdefinitioner tillämpar olika regler och effekterna på resurserna. Tvingande ser till att resurserna kompatibla med företagets standarder och serviceavtal.
+Den här artikeln beskriver hur du programmässigt kan skapa och hantera principer. Azure principdefinitioner tillämpar olika regler och effekterna på resurserna. Tvingande ser till att resurserna kompatibla med företagets standarder och serviceavtal.
 
 Information om efterlevnad finns i [komma kompatibilitetsdata](getting-compliance-data.md).
 
@@ -31,13 +31,13 @@ Innan du börjar måste du kontrollera att följande krav är uppfyllda:
 
 1. Uppdatera Azure PowerShell-modulen till den senaste versionen. Detaljerad information finns i [Installera Azure PowerShell-modulen](/powershell/azure/install-az-ps). Mer information om den senaste versionen finns i [Azure PowerShell](https://github.com/Azure/azure-powershell/releases).
 
-1. Registrera resursprovidern Policy Insights med Azure PowerShell för att verifiera att din prenumeration fungerar med resursprovidern. Om du vill registrera en resursleverantör måste du ha behörighet att köra registeringsåtgärden för resursprovidern. Den här åtgärden ingår i rollerna Deltagare och Ägare. Registrera resursprovidern genom att köra följande kommando:
+1. Registrera resursprovidern Policy Insights i Azure med Azure PowerShell för att verifiera att din prenumeration fungerar med resursprovidern. Om du vill registrera en resursleverantör måste du ha behörighet att köra registeringsåtgärden för resursprovidern. Den här åtgärden ingår i rollerna Deltagare och Ägare. Registrera resursprovidern genom att köra följande kommando:
 
    ```azurepowershell-interactive
    Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
    ```
 
-   Läs mer om att registrera och visa resursproviders [Resursproviders och resurstyper](../../../azure-resource-manager/resource-manager-supported-services.md).
+   Läs mer om att registrera och visa resursproviders i [Resource Providers and Types](../../../azure-resource-manager/resource-manager-supported-services.md) (Resursproviders och typer).
 
 1. Om du inte redan gjort installerar du Azure CLI. Du kan hämta den senaste versionen på [installera Azure CLI på Windows](/cli/azure/install-azure-cli-windows).
 
@@ -148,7 +148,7 @@ Använd följande procedur för att skapa en principdefinition.
 
    Ersätt det föregående {subscriptionId} med ID: T för din prenumeration eller {managementGroupId} med ID: T för din [hanteringsgruppen](../../management-groups/overview.md).
 
-   Mer information om strukturen i frågan finns i [Principdefinitioner – skapa eller uppdatera](/rest/api/resources/policydefinitions/createorupdate) och [Principdefinitioner – skapa eller uppdatera vid hantering av grupp](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup)
+   Mer information om strukturen i frågan finns i [Azure Principdefinitioner – skapa eller uppdatera](/rest/api/resources/policydefinitions/createorupdate) och [Principdefinitioner – skapa eller uppdatera vid hantering av grupp](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup)
 
 Använd följande procedur för att skapa en principtilldelning och tilldelar principdefinitionen på resursgruppsnivå.
 
@@ -230,7 +230,7 @@ Följ anvisningarna nedan om du vill skapa en principdefinition:
    - Prenumeration – `/subscriptions/{subID}`
    - Hanteringsgrupp- `/providers/Microsoft.Management/managementGroups/{mgName}`
 
-Du kan hämta Principdefinitionens ID med hjälp av PowerShell med följande kommando:
+Du kan få Azure Principdefinitionens ID med hjälp av PowerShell med följande kommando:
 
 ```azurecli-interactive
 az policy definition show --name 'Audit Storage Accounts with Open Public Networks'
@@ -251,5 +251,5 @@ Granska följande artiklar för mer information om kommandon och frågor i den h
 - [Azure REST API-resurser](/rest/api/resources/)
 - [Azure PowerShell-moduler](/powershell/module/az.resources/#policies)
 - [Azure CLI-kommandon för principen](/cli/azure/policy?view=azure-cli-latest)
-- [Princip för resursprovidern för Insights REST API-referens](/rest/api/policy-insights)
-- [Organisera dina resurser med Azure-hanteringsgrupper](../../management-groups/overview.md)
+- [Resursprovidern för Azure Policy Insights REST API-referens](/rest/api/policy-insights)
+- [Organisera dina resurser med Azure-hanteringsgrupper](../../management-groups/overview.md).

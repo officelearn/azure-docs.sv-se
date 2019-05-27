@@ -10,11 +10,11 @@ ms.date: 10/18/2018
 ms.author: raynew
 ms.custom: include file
 ms.openlocfilehash: 74fe531c07aa871b06b5d0773f7e8fb0ade80be4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60850780"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66127690"
 ---
 ## <a name="create-a-recovery-services-vault"></a>skapar ett Recovery Services-valv
 Ett Recovery Services-valv är en entitet som lagrar säkerhetskopior och återställningspunkter som skapats med tiden. Recovery Services-valvet innehåller även säkerhetskopieringspolicyerna som är kopplade till de skyddade virtuella datorerna.
@@ -41,7 +41,7 @@ Så här skapar du ett Recovery Services-valv:
 
     ![Konfigurera Recovery Services-valvet](./media/backup-create-rs-vault/create-new-vault-dialog.png)
 
-   - **Namn**: Ange ett eget namn som identifierar valvet. Namnet måste vara unikt för Azure-prenumeration. Ange ett namn som har minst två, men inte mer än 50 tecken. Namnet måste börja med en bokstav och endast bestå av bokstäver, siffror och bindestreck.
+   - **Namn på**: Ange ett eget namn som identifierar valvet. Namnet måste vara unikt för Azure-prenumeration. Ange ett namn som har minst två, men inte mer än 50 tecken. Namnet måste börja med en bokstav och endast bestå av bokstäver, siffror och bindestreck.
    - **Prenumeration**: Välj prenumerationen som ska användas. Om du är medlem i endast en prenumeration visas det namnet. Om du inte är säker på vilken prenumeration du ska använda använder du standardprenumerationen (rekommenderas). Det finns flera alternativ endast om ditt arbete eller skola konto är kopplat till flera Azure-prenumeration.
    - **Resursgrupp**: Använd en befintlig resursgrupp eller skapa en ny. Om du vill se en lista över tillgängliga resursgrupper i din prenumeration, Välj **Använd befintlig**, och välj sedan en resurs i nedrullningsbara listrutan. Om du vill skapa en ny resursgrupp, Välj **Skapa nytt** och ange namnet. Fullständig information om resursgrupper finns i [översikt över Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md).
    - **Plats**: Välj ett geografiskt område för valvet. Skapa ett valv för att skydda virtuella datorer, valvet **måste** vara i samma region som de virtuella datorerna.

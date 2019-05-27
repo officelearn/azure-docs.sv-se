@@ -11,11 +11,11 @@ ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: vamelech
 ms.openlocfilehash: 3531b43e6aee1eedef811e81e192873c5b5ed561
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59274798"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66126376"
 ---
 # <a name="ethereum-proof-of-authority-consortium"></a>Ethereum proof-of-authority consortium
 
@@ -202,7 +202,7 @@ När en prenumeration är skyddad, går du till Azure-portalen. Välj ”+”, M
 
 Följande avsnitt vägleder dig genom att konfigurera den första medlemmen fotavtryck i nätverket. Distributionsflödet består av fem steg: Grunderna, distribution regioner, nätverkets storlek och prestanda, Ethereum-inställningar, Azure Monitor.
 
-#### <a name="basics"></a>Grundläggande inställningar
+#### <a name="basics"></a>Grundinställningar
 
 Under **grunderna**, ange värden för standard parametrar för alla distributioner, till exempel prenumeration, resursgrupp och grundläggande VM-egenskaper.
 
@@ -211,14 +211,14 @@ En detaljerad beskrivning av varje parameter visas nedan:
 Parameternamn|Beskrivning|Tillåtna värden|Standardvärden
 ---|---|---|---
 Skapa ett nytt nätverk eller ansluta till befintliga nätverk?|Skapa ett nytt nätverk eller Anslut till ett befintligt consortium-nätverk|Skapa ny koppling befintliga|Skapa ny
-E-postadress (valfritt)|Du får ett e-postmeddelande när distributionen är klar med information om din distribution.|Giltig e-postadress|Ej tillämpligt
-VM-användarnamn|Administratörens användarnamn för varje distribuerad virtuell dator (endast alfanumeriska tecken)|1 – 64 tecken|Ej tillämpligt
+E-postadress (valfritt)|Du får ett e-postmeddelande när distributionen är klar med information om din distribution.|Giltig e-postadress|Saknas
+VM-användarnamn|Administratörens användarnamn för varje distribuerad virtuell dator (endast alfanumeriska tecken)|1 – 64 tecken|Saknas
 Autentiseringstyp|Metoden för att autentisera till den virtuella datorn.|Lösenordet eller SSH offentlig nyckel|Lösenord
-Lösenord (autentiseringstyp = lösenord)|Lösenordet för administratörskontot för var och en av de virtuella datorerna som distribueras.  Lösenordet måste innehålla 3 av följande: 1 versal bokstav, 1 gemen bokstav, 1 siffra och 1 specialtecken. Även om alla virtuella datorer har ursprungligen samma lösenord, kan du ändra lösenordet när du har etablerat.|12 – 72 tecken|Ej tillämpligt
-SSH-nyckel (autentiseringstyp = offentlig nyckel)|SSH-nyckel som används för fjärrinloggning.||Ej tillämpligt
-Prenumeration|Den prenumeration som ska distribueras consortium network||Ej tillämpligt
-Resursgrupp|Den resursgrupp som ska distribueras consortium network.||Ej tillämpligt
-Plats|Azure-regionen för resursgruppen.||Ej tillämpligt
+Lösenord (autentiseringstyp = lösenord)|Lösenordet för administratörskontot för var och en av de virtuella datorerna som distribueras.  Lösenordet måste innehålla 3 av följande: 1 versal bokstav, 1 gemen bokstav, 1 siffra och 1 specialtecken. Även om alla virtuella datorer har ursprungligen samma lösenord, kan du ändra lösenordet när du har etablerat.|12 – 72 tecken|Saknas
+SSH-nyckel (autentiseringstyp = offentlig nyckel)|SSH-nyckel som används för fjärrinloggning.||Saknas
+Prenumeration|Den prenumeration som ska distribueras consortium network||Saknas
+Resursgrupp|Den resursgrupp som ska distribueras consortium network.||Saknas
+Location|Azure-regionen för resursgruppen.||Saknas
 
 En exempeldistribution visas nedan: ![grundläggande bladet](./media/ethereum-poa-deployment/basic-blade.png)
 
@@ -231,11 +231,11 @@ En detaljerad beskrivning av varje parameter visas nedan:
   Parameternamn|Beskrivning|Tillåtna värden|Standardvärden
   ---|---|---|---
   Antal region(er)|Antal regioner för att distribuera consortium network|1, 2, 3, 4, 5|1
-  Första regionen|Första regionen att distribuera consortium network|Alla tillåtna Azure-regioner|Ej tillämpligt
-  Andra region|Andra regionen som du distribuerar konsortienätverk (visas bara om antalet regioner som har markerats som 2)|Alla tillåtna Azure-regioner|Ej tillämpligt
-  Tredje region|Tredje region för att distribuera konsortienätverk (visas bara om antalet regioner som har markerats som 3)|Alla tillåtna Azure-regioner|Ej tillämpligt
-  Fjärde region|Fjärde region för att distribuera konsortienätverk (visas bara om antalet regioner som har markerats som 4)|Alla tillåtna Azure-regioner|Ej tillämpligt
-  Femte region|Femte region för att distribuera konsortienätverk (visas bara om antalet regioner som har markerats som 5)|Alla tillåtna Azure-regioner|Ej tillämpligt
+  Första regionen|Första regionen att distribuera consortium network|Alla tillåtna Azure-regioner|Saknas
+  Andra region|Andra regionen som du distribuerar konsortienätverk (visas bara om antalet regioner som har markerats som 2)|Alla tillåtna Azure-regioner|Saknas
+  Tredje region|Tredje region för att distribuera konsortienätverk (visas bara om antalet regioner som har markerats som 3)|Alla tillåtna Azure-regioner|Saknas
+  Fjärde region|Fjärde region för att distribuera konsortienätverk (visas bara om antalet regioner som har markerats som 4)|Alla tillåtna Azure-regioner|Saknas
+  Femte region|Femte region för att distribuera konsortienätverk (visas bara om antalet regioner som har markerats som 5)|Alla tillåtna Azure-regioner|Saknas
 
 En exempeldistribution visas nedan: ![distribution regioner](./media/ethereum-poa-deployment/deployment-regions.png)
 
@@ -274,14 +274,14 @@ En detaljerad beskrivning av varje parameter visas nedan:
 
   Parameternamn|Beskrivning|Tillåtna värden|Standardvärden
   ---|---|---|---
-Consortium medlems-ID|ID som är associerade med varje medlem som deltar i konsortienätverk som används för att konfigurera IP-adressutrymmen att undvika kollision. När det gäller ett privat nätverk måste medlems-ID vara unikt inom olika organisationer i samma nätverk.  Ett unikt medlems-ID krävs även när samma organisation distribuerar till flera regioner. Anteckna värdet för den här parametern eftersom du behöver dela den med andra sammanbinder medlemmar att se till att det finns inga kollision.|0-255|Ej tillämpligt
+Consortium medlems-ID|ID som är associerade med varje medlem som deltar i konsortienätverk som används för att konfigurera IP-adressutrymmen att undvika kollision. När det gäller ett privat nätverk måste medlems-ID vara unikt inom olika organisationer i samma nätverk.  Ett unikt medlems-ID krävs även när samma organisation distribuerar till flera regioner. Anteckna värdet för den här parametern eftersom du behöver dela den med andra sammanbinder medlemmar att se till att det finns inga kollision.|0-255|Saknas
 Nätverks-ID|Nätverks-ID för consortium Ethereum-nätverk som ska distribueras.  Varje Ethereum-nätverk har sin egen, med 1 som ID för det offentliga nätverket.|5 - 999,999,999|10101010
-Administratören Ethereum-adress|Ethereum kontoadress som används för att delta i PoA styrning.  Vi rekommenderar att du använder MetaMask för att generera en Ethereum-adress.|42 alfanumeriska tecken som börjar med 0 x|Ej tillämpligt
+Administratören Ethereum-adress|Ethereum kontoadress som används för att delta i PoA styrning.  Vi rekommenderar att du använder MetaMask för att generera en Ethereum-adress.|42 alfanumeriska tecken som börjar med 0 x|Saknas
 Avancerade alternativ|Avancerade alternativ för Ethereum-inställningar|Aktivera eller inaktivera|Inaktivera
-Offentlig IP-adress (avancerade alternativ = Enable)|Distribuerar nätverket bakom en VNet-Gateway och tar bort peering åtkomst. Om det här alternativet väljs, måste alla medlemmar använda en VNet-Gateway för anslutningen för att vara kompatibel.|Privat virtuellt nätverk för offentlig IP-adress|Offentlig IP-adress
+Offentlig IP-adress (avancerade alternativ = Enable)|Distribuerar nätverket bakom en VNet-Gateway och tar bort peering åtkomst. Om det här alternativet väljs, måste alla medlemmar använda en VNet-Gateway för anslutningen för att vara kompatibel.|Privat virtuellt nätverk för offentlig IP-adress|Offentlig IP
 Block Gas Limit (Advanced Options = Enable)|Startar block gas gränsen på nätverket|Numerisk|50000000
 Reseal Blockeringsperiod (sek)|Frekvensen som tomt block skapas när det finns inga transaktioner i nätverket. Tätare har snabbare avveckling överföring men ökade lagringskostnader.|Numerisk|15
-Transaktionen behörighet kontraktet (avancerade alternativ = Enable)|ByteCode för transaktionen ge behörighet till kontraktet. Begränsar smarta kontrakt distribution och körning till en lista med tillåtna av Ethereum-konton.|Kontraktet bytecode|Ej tillämpligt
+Transaktionen behörighet kontraktet (avancerade alternativ = Enable)|ByteCode för transaktionen ge behörighet till kontraktet. Begränsar smarta kontrakt distribution och körning till en lista med tillåtna av Ethereum-konton.|Kontraktet bytecode|Saknas
 
 En exempeldistribution visas nedan: ![ethereum-inställningar](./media/ethereum-poa-deployment/ethereum-settings.png)
 
@@ -295,9 +295,9 @@ Bladet övervakning kan du konfigurera en resurs med Azure Monitor-loggar för n
   ---|---|---|---
 Övervakning|Möjlighet att aktivera övervakning|Aktivera eller inaktivera|Aktivera
 Ansluta till befintliga Azure Monitor-loggar|Skapa en ny instans av Azure Monitor-loggar eller Anslut till en befintlig instans|Skapa en ny eller ansluta till befintliga|Skapa ny
-Övervaka plats (Anslut till befintliga Azure Monitor-loggar = Skapa ny)|Den region där den nya Azure Monitor loggar instansen kommer att distribueras|Alla Azure Monitor loggar regioner|Ej tillämpligt
-Befintliga log analytics arbetsyte-ID (Anslut till befintliga Azure Monitor-loggar = ansluta befintliga)|Arbetsyte-ID för den befintliga Azure-övervakaren loggar instans||Ej tillämpligt
-Primärnyckeln för befintliga log analytics (Anslut till befintliga Azure Monitor-loggar = ansluta befintliga)|Den primära nyckeln som används för att ansluta till den befintliga instansen av Azure Monitor-loggar||Ej tillämpligt
+Övervaka plats (Anslut till befintliga Azure Monitor-loggar = Skapa ny)|Den region där den nya Azure Monitor loggar instansen kommer att distribueras|Alla Azure Monitor loggar regioner|Saknas
+Befintliga log analytics arbetsyte-ID (Anslut till befintliga Azure Monitor-loggar = ansluta befintliga)|Arbetsyte-ID för den befintliga Azure-övervakaren loggar instans||Saknas
+Primärnyckeln för befintliga log analytics (Anslut till befintliga Azure Monitor-loggar = ansluta befintliga)|Den primära nyckeln som används för att ansluta till den befintliga instansen av Azure Monitor-loggar||Saknas
 
 
 En exempeldistribution visas nedan: ![med azure monitor](./media/ethereum-poa-deployment/azure-monitor.png)
@@ -330,7 +330,7 @@ Om du anger en e-postadress ([grunderna avsnittet](#basics)), ett e-postmeddelan
 
 ![distribution av e-post](./media/ethereum-poa-deployment/deployment-email.png)
 
-##### <a name="portal"></a>Portalen
+##### <a name="portal"></a>Portal
 
 När distributionen har slutförts och alla resurser som har etablerats kan du visa utdataparametrarna i resursgruppen.
 
@@ -760,7 +760,7 @@ WebAssembly support har redan aktiverats för dig i den nyligen distribuerade Po
 
 ## <a name="reference"></a>Referens
 
-### <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+### <a name="faq"></a>Vanliga frågor
 
 #### <a name="i-notice-there-are-many-transactions-on-the-network-that-i-didnt-send-where-are-these-coming-from"></a>Jag Observera att det finns många transaktioner i nätverket som jag fungerade\'t skicka. Var kommer dessa från?
 

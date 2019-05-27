@@ -9,14 +9,14 @@ ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 05/20/2019
 ms.author: shvija
-ms.openlocfilehash: 784d8c9280aeff7224f90ecee0b16c9c30381aeb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4e6f16a15547583baab63f452504d36eb2e43b85
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60746920"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978485"
 ---
 # <a name="managed-identities-for-azure-resources-with-event-hubs"></a>Hanterade identiteter för Azure-resurser med Event Hubs
 
@@ -27,8 +27,28 @@ Med hanterade identiteter hanterar den här identiteten för körning i Azure-pl
 När den är associerad med en hanterad identitet, kan en händelsehubbklient göra alla behöriga åtgärder. Auktorisering genom att associera en hanterad identitet med Event Hubs-roller. 
 
 ## <a name="event-hubs-roles-and-permissions"></a>Event Hubs roller och behörigheter
+Du kan lägga till en hanterad identitet till den **Dataägaren för Event Hubs** rollen för ett namnområde för Event Hubs. Den här rollen ger identitet, fullständig behörighet (för hantering och åtgärder för) alla entiteter i namnområdet.
 
-Du kan bara lägga till en hanterad identitet ”ägare” eller ”deltagare” rollerna för ett namnområde för Event Hubs, vilket ger fullständig kontrollen identitet i alla entiteter i namnområdet. Hantering av åtgärder som ändrar namnområde topologin är från början stöds dock bara om Azure Resource Manager. Det är inte via det inbyggda Event Hubs REST-hanteringsgränssnittet. Det här stödet innebär också att du inte kan använda .NET Framework-klienten [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) objekt i en hanterad identitet. 
+>[!IMPORTANT]
+> Vi tidigare stöd för att lägga till hanterad identitet till den **ägare** eller **deltagare** roll. Men data behörighet för **ägare** och **deltagare** rollen respekteras inte längre. Om du använder den **ägare** eller **deltagare** roll, växla till med hjälp av den **Dataägaren för Event Hubs** roll.
+
+Följ dessa steg om du vill använda den nya inbyggda rollen: 
+
+1. Navigera till [Azure Portal](https://portal.azure.com)
+2. Gå till Event Hubs-namnområdet.
+3. På den **Event Hubs Namespace** väljer **åtkomst Control(IAM)** menyn till vänster.
+4. På den **åtkomstkontroll (IAM)** väljer **Lägg till** i den **Lägg till en rolltilldelning** avsnittet. 
+
+    ![Lägg till en knapp för tilldelning av roll](./media/event-hubs-managed-service-identity/add-role-assignment-button.png)
+5. På den **Lägg till rolltilldelning** gör du följande steg: 
+    1. För **rollen**väljer **Dataägaren för Azure Event Hubs**. 
+    2. Välj den **identitet** som ska läggas till rollen.
+    3. Välj **Spara**. 
+
+        ![Event Hubs Data ägarrollen](./media/event-hubs-managed-service-identity/add-role-assignment-dialog.png)
+6. Växla till den **rolltilldelningar** sidan och bekräfta att användaren har lagts till i **Dataägaren för Azure Event Hubs** roll. 
+
+    ![Bekräfta användare läggs till i rollen](./media/event-hubs-managed-service-identity/role-assignments.png)
  
 ## <a name="use-event-hubs-with-managed-identities-for-azure-resources"></a>Använda Event Hubs med hanterade identiteter för Azure-resurser
 
@@ -54,7 +74,7 @@ När du har aktiverat funktionen, en ny tjänstidentitet skapas i Azure Active D
 
 ### <a name="create-a-new-event-hubs-namespace"></a>Skapa ett nytt namnområde för Event Hubs
 
-Nästa [skapa ett namnområde för Event Hubs](event-hubs-create.md) i någon av de Azure-regioner som har förhandsversionsstöd för hanterade identiteter för Azure-resurser: **USA, Öst**, **USA, Öst 2**, eller **Västeuropa**. 
+Nästa [skapa ett namnområde för Event Hubs](event-hubs-create.md). 
 
 Gå till namnområdet **åtkomstkontroll (IAM)** på portalen och klicka sedan på **Lägg till rolltilldelning** att lägga till den hantera identitet som den **ägare** roll. Du gör detta genom att söka efter namnet på webbprogrammet i den **Lägg till behörigheter** panelen **Välj** fältet och sedan klickar du på posten. Klicka sedan på **Spara**. Den hanterade identitet för webbprogrammet nu har åtkomst till Event Hubs-namnområdet och till händelsehubben du skapade tidigare. 
 

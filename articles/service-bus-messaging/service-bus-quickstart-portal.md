@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/10/2019
 ms.author: spelluru
-ms.openlocfilehash: 05c84f91c960bbcf7383cd2164289c8398f8dc91
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a946443e1d1e66a1ae8f70671ff328cdf47ff009
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60594456"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65992021"
 ---
 # <a name="quickstart-use-azure-portal-to-create-a-service-bus-queue"></a>Snabbstart: Skapa en Service Bus-kö i Azure-portalen
 Den här snabbstarten beskriver hur man skickar och tar emot meddelanden till och från en Service Bus-kö med [Azure-portalen][Azure portal] för att skapa ett namnområde för meddelanden och en kö inom det namnområdet och för att få auktoriseringsuppgifter på det namnområdet. Proceduren visar därefter hur du skickar och tar emot meddelanden från den här kön med [.NET standardbiblioteket](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).
@@ -197,6 +197,8 @@ static async Task ProcessMessagesAsync(Message message, CancellationToken token)
     await queueClient.CompleteAsync(message.SystemProperties.LockToken);
 }
 ```
+> [!NOTE]
+> Du kan hantera Service Bus-resurser med [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer tillåter användare att ansluta till ett Service Bus-namnområde och administrera meddelandeentiteter på ett enkelt sätt. Verktyget tillhandahåller avancerade funktioner som import/export-funktionalitet eller möjligheten att testa ämne, köer, prenumerationer, relätjänster, meddelandehubbar och händelser hubs. 
 
 ## <a name="next-steps"></a>Nästa steg
 

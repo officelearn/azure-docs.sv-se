@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 3e40e72a4cbb154a7ccef153959e81f7054ea003
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 9658ed46e1a46aa3fc2c7fe251fd73b2ef0a13dd
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926383"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991372"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Felsöka Azure Files-problem i Windows
 
@@ -246,7 +246,7 @@ När en fil kopieras över nätverket, är filen dekrypteras på källdatorn, sk
 ### <a name="cause"></a>Orsak
 Det här problemet kan inträffa om du använder EFS (ENCRYPTING File System). BitLocker-krypterade filer kan kopieras till Azure Files. Azure Files stöder dock inte NTFS EFS.
 
-### <a name="workaround"></a>Lösning
+### <a name="workaround"></a>Lösning:
 Om du vill kopiera en fil i nätverket, måste du först dekryptera den. Använd någon av följande metoder:
 
 - Använd den **Kopiera /d** kommando. Det tillåter krypterade filer ska sparas som dekrypterade filer vid målet.
@@ -284,6 +284,8 @@ Fel AadDsTenantNotFound händer när du försöker [aktivera Azure Active Direct
 ### <a name="solution"></a>Lösning
 
 Aktivera AAD DS på AAD-klient för den prenumeration som ditt lagringskonto har distribuerats till. Du måste ha administratörsbehörighet för AAD-klient för att skapa en hanterad domän. Om du inte är administratör för Azure AD-klient, kontakta administratören och följ de stegvisa anvisningarna till [aktivera Azure Active Directory Domain Services med Azure portal](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started).
+
+[!INCLUDE [storage-files-condition-headers](../../../includes/storage-files-condition-headers.md)]
 
 ## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten.
 Om du fortfarande behöver hjälp, [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) att snabbt lösa ditt problem.

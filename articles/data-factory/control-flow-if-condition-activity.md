@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 ms.openlocfilehash: 52f96b8fc2a1288c652169817a3a73d7b26caac9
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431503"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66153466"
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Om Villkorsaktivitet i Azure Data Factory
 If-villkoret fungerar på samma sätt som en if-sats i ett programmeringsspråk. Det utvärderar en uppsättning aktiviteter om villkoret utvärderas till `true` och en annan uppsättning aktiviteter när villkoret utvärderas till `false`. 
@@ -64,7 +64,7 @@ If-villkoret fungerar på samma sätt som en if-sats i ett programmeringsspråk.
 
 ## <a name="type-properties"></a>Egenskaperna för anslutningstypen
 
-Egenskap  | Beskrivning | Tillåtna värden | Krävs
+Egenskap  | Beskrivning | Tillåtna värden | Obligatoriskt
 -------- | ----------- | -------------- | --------
 namn | Namnet på if-villkoret. | String | Ja
 typ | Måste vara inställt på **IfCondition** | String | Ja

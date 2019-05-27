@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: kumud
-ms.openlocfilehash: d5f52829f5895b30afd160cc8ded755332aca5c5
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: f9742d14fc14230f2424d005aa6aa8b1db3cece4
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190171"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967730"
 ---
 # <a name="outbound-connections-in-azure"></a>Utgående anslutningar i Azure
 
@@ -34,7 +34,7 @@ En distribution i Azure kan kommunicera med slutpunkter utanför Azure i det off
 Det finns flera [utgående scenarier](#scenarios). Du kan kombinera dessa scenarier efter behov. Granska dem noggrant för att förstå de funktioner, begränsningar och mönster som de gäller för din distributionsmodell och programscenariot. Granska vägledning för [hantera dessa scenarier](#snatexhaust).
 
 >[!IMPORTANT] 
->Standard Load Balancer och offentlig IP innehåller nya funktioner och olika beteenden till utgående anslutning.  De är inte samma som grundläggande SKU: er.  Om du vill utgående anslutning när du arbetar med Standard-SKU: er, måste du explicit definiera den antingen med offentliga IP-adresser eller offentlig Load Balancer.  Detta innefattar att skapa utgående anslutning när du använder och interna Standard Load Balancer.  Vi rekommenderar att du alltid använda regler för utgående trafik på en offentlig Standardbelastningsutjämnare.  [Scenario 3](#defaultsnat) är inte tillgänglig med Standard-SKU.  Det innebär att när en intern Standardbelastningsutjämnare används, måste du vidta åtgärder för att skapa utgående anslutning för de virtuella datorerna i serverdelspoolen om utgående anslutningar är det önskade.  I samband med utgående anslutning, en enda fristående virtuell dator, alla Virtuella datorer i en Tillgänglighetsuppsättning, fungerar alla instanser i en VMSS som en grupp. Det innebär att om en enskild virtuell dator i en Tillgänglighetsuppsättning är associerad med en Standard-SKU, alla VM-instanser i den här Tillgänglighetsuppsättningen nu bete sig av samma som om de är associerade med Standard-SKU, även om en enskild instans inte är direkt kopplade till den.  Noga igenom hela dokumentet att förstå de övergripande begrepp, granska [Standardbelastningsutjämnare](load-balancer-standard-overview.md) efter skillnader mellan SKU: er och granska [utgående regler](load-balancer-outbound-rules-overview.md).  Med utgående regler kan du de detaljerade kontroll över alla aspekter av utgående anslutning.
+>Standard Load Balancer och offentlig IP innehåller nya funktioner och olika beteenden till utgående anslutning.  De är inte samma som grundläggande SKU: er.  Om du vill utgående anslutning när du arbetar med Standard-SKU: er, måste du explicit definiera den antingen med offentliga IP-adresser eller offentlig Load Balancer.  Detta innefattar att skapa utgående anslutning när du använder en intern Standard Load Balancer.  Vi rekommenderar att du alltid använda regler för utgående trafik på en offentlig Standardbelastningsutjämnare.  [Scenario 3](#defaultsnat) är inte tillgänglig med Standard-SKU.  Det innebär att när en intern Standardbelastningsutjämnare används, måste du vidta åtgärder för att skapa utgående anslutning för de virtuella datorerna i serverdelspoolen om utgående anslutningar är det önskade.  I samband med utgående anslutning, en enda fristående virtuell dator, alla Virtuella datorer i en Tillgänglighetsuppsättning, fungerar alla instanser i en VMSS som en grupp. Det innebär att om en enskild virtuell dator i en Tillgänglighetsuppsättning är associerad med en Standard-SKU, alla VM-instanser i den här Tillgänglighetsuppsättningen nu bete sig av samma som om de är associerade med Standard-SKU, även om en enskild instans inte är direkt kopplade till den.  Noga igenom hela dokumentet att förstå de övergripande begrepp, granska [Standardbelastningsutjämnare](load-balancer-standard-overview.md) efter skillnader mellan SKU: er och granska [utgående regler](load-balancer-outbound-rules-overview.md).  Med utgående regler kan du de detaljerade kontroll över alla aspekter av utgående anslutning.
 
 ## <a name="scenarios"></a>Scenarioöversikt
 

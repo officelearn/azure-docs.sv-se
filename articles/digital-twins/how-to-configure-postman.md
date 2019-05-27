@@ -7,13 +7,13 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 01/10/2019
-ms.author: adgera
-ms.openlocfilehash: 49b073952b0923b940204b19680dcc9a1ffa44b5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: v-adgera
+ms.openlocfilehash: 797dfc44b9897920f9fd74346ee01e4b157a4ce8
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60926200"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967777"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Så här konfigurerar du Postman för Azure Digital Twins
 
@@ -73,7 +73,7 @@ Nu ska installera och konfigurera Postman att skaffa en Azure Active Directory-t
     | Beviljandetyp | `Implicit` |
     | Motringnings-URL | `https://www.getpostman.com/oauth2/callback` |
     | Auth URL | Använd den **Auktoriseringswebbadressen** från steg 2 |
-    | Klientorganisations-ID | Använd den **program-ID** för Azure Active Directory-app som har skapats eller ändrat syfte från föregående avsnitt |
+    | Klient-ID | Använd den **program-ID** för Azure Active Directory-app som har skapats eller ändrat syfte från föregående avsnitt |
     | Scope | Lämna tomt |
     | Status | Lämna tomt |
     | Klientautentisering | `Send as Basic Auth header` |

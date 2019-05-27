@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2019
 ms.author: juliako
-ms.openlocfilehash: 7ce57e1f8b2732ea909625c89f3e8148cb70635c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: bbf43ecb07947fad8cc1ee064d2038e4a21d4444
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728836"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65964763"
 ---
 # <a name="monitor-media-services-metrics-and-diagnostic-logs"></a>Övervaka Media Services-mått och diagnostikloggar
 
-[Azure Monitor](../../azure-monitor/overview.md) kan du övervaka mått och diagnostikloggar som hjälper dig att förstå hur dina program utför. Alla data som samlas in av Azure Monitor passar in i en av två grundläggande typer, mått och loggfiler. Du kan övervaka diagnostikloggar för Media Services och skapa aviseringar och meddelanden för insamlade mått och loggar. Du kan visualisera och analysera data mått med [måttutforskaren](../../azure-monitor/platform/metrics-getting-started.md). Du kan skicka loggar till [Azure Storage](https://azure.microsoft.com/services/storage/), strömma dem till [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), och exportera dem till [Log Analytics](https://azure.microsoft.com/services/log-analytics/), eller använda tjänster med 3 part.
+[Azure Monitor](../../azure-monitor/overview.md) kan du övervaka mått och diagnostikloggar som hjälper dig att förstå hur dina program utför. Alla data som samlas in av Azure Monitor passar in i en av två grundläggande typer, mått och loggar. Du kan övervaka diagnostikloggar för Media Services och skapa aviseringar och meddelanden för insamlade mått och loggar. Du kan visualisera och analysera data mått med [måttutforskaren](../../azure-monitor/platform/metrics-getting-started.md). Du kan skicka loggar till [Azure Storage](https://azure.microsoft.com/services/storage/), strömma dem till [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), och exportera dem till [Log Analytics](https://azure.microsoft.com/services/log-analytics/), eller använda tjänster med 3 part.
 
 Detaljerad översikt finns i [Azure Monitor Metrics](../../azure-monitor/platform/data-platform.md) och [Azure Monitor diagnostiska loggar](../../azure-monitor/platform/diagnostic-logs-overview.md).
 
@@ -34,11 +34,11 @@ Mätvärden samlas in med jämna mellanrum oavsett värdet ändras. Det är anv�
 
 För närvarande följande medietjänster [Strömningsslutpunkter](https://docs.microsoft.com/rest/api/media/streamingendpoints) mått som genereras av Azure:
 
-|Namn|Beskrivning|
-|---|---|
-|Begäranden|Ger information kring Totalt antal begäranden som betjänas av slutpunkt för direktuppspelning.|
-|Egress|Totalt antal utgående byte. Till exempel byte som strömmas av slutpunkt för direktuppspelning.|
-|Svarstid för lyckad från slutpunkt till slutpunkt| Ger information om svarstider från slutpunkt till slutpunkt för lyckade begäranden.|
+|Mått|Visningsnamn|Beskrivning|
+|---|---|---|
+|Begäranden|Begäranden|Ger information kring Totalt antal begäranden som betjänas av slutpunkt för direktuppspelning.|
+|Egress|Egress|Totalt antal utgående byte. Till exempel byte som strömmas av slutpunkt för direktuppspelning.|
+|SuccessE2ELatency|Svarstid för lyckad från slutpunkt till slutpunkt| Ger information om svarstider från slutpunkt till slutpunkt för lyckade begäranden.|
 
 Till exempel för att få ”utgående” mått med CLI kör du följande `az monitor metrics` CLI-kommando:
 

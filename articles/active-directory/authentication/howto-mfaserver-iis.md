@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6404356edca606d78656011b9dec654e9f29edd3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5a019aaec270fe1beb3914e7ab388fce9a701bcc
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415045"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65988606"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-iis-web-apps"></a>Konfigurera Azure Multi-Factor Authentication Server för IIS-webbappar
 
@@ -63,7 +63,7 @@ Om du ska skydda en IIS-webbapp som använder integrerad Windows HTTP-autentiser
 
 ## <a name="enable-iis-plug-ins-for-azure-multi-factor-authentication-server"></a>Aktivera IIS plugin-program för Azure Multi-Factor Authentication Server
 
-När du har konfigurerat URL:erna och inställningarna för formulärbaserad autentisering eller HTTP-autentisering måste du välja de platser där Azure Multi-Factor Authentication IIS plugin-programmen ska läsas in och aktiveras i IIS. Följ dessa steg:
+När du har konfigurerat URL:erna och inställningarna för formulärbaserad autentisering eller HTTP-autentisering måste du välja de platser där Azure Multi-Factor Authentication IIS plugin-programmen ska läsas in och aktiveras i IIS. Följ anvisningarna nedan:
 
 1. Om du kör på IIS 6 klickar du på fliken **ISAPI**. Välj den webbplats som webbappen körs under (t.ex. standardwebbplatsen) om du vill aktivera plugin-programmet för ISAPI-filter för Azure Multi-Factor Authentication för platsen i fråga.
 2. Om den körs på IIS 7 eller senare, klickar du på fliken **Ursprunglig modul**. Välj den server, de webbplatser eller de program som ska användas för att aktivera IIS-plugin-programmet på de önskade nivåerna.
@@ -76,4 +76,4 @@ Tillförlitliga IP-adresser låter användarna kringgå Azure Multi-Factor Authe
 1. Klicka på fliken **Tillförlitliga IP-adresser** i avsnittet IIS-autentisering.
 2. Klicka på **Lägg till**.
 3. När dialogrutan för att lägga till tillförlitliga IP-adresser visas väljer du alternativknappen **Enkel IP**, **IP-intervall** eller **Undernät**.
-4. Ange IP-adressen, IP-adressintervallet eller undernätet som ska vitlistas. Om du anger ett undernät väljer du lämplig nätmask och klickar på **OK**. Nu har vitlistan lagts till.
+4. Ange IP-adressen, IP-adressintervall eller undernät som ska tillåtas. Om du anger ett undernät väljer du lämplig nätmask och klickar på **OK**.

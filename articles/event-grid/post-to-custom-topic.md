@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 01/17/2019
 ms.author: spelluru
 ms.openlocfilehash: fc8877ed23b408ea041de67018a71cc203c5e8c0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58182412"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66162043"
 ---
 # <a name="post-to-custom-topic-for-azure-event-grid"></a>Skicka till anpassat ämne för Azure Event Grid
 
@@ -39,7 +39,7 @@ Om du vill hämta slutpunkten för ett anpassat ämne med Azure PowerShell anvä
 (Get-AzEventGridTopic -ResourceGroupName <topic-resource-group> -Name <topic-name>).Endpoint
 ```
 
-## <a name="header"></a>Huvud
+## <a name="header"></a>Sidhuvud
 
 Inkludera ett huvudvärde med namnet i begäran, `aeg-sas-key` som innehåller en nyckel för autentisering.
 
@@ -100,10 +100,10 @@ När du publicera till avsnittet slutpunkten får du ett svar. Svaret är en HTT
 
 |Resultat  |Svar  |
 |---------|---------|
-|Lyckades  | 200 OK  |
+|Klart  | 200 OK  |
 |Händelsedata är i felaktigt format | 400 Felaktig förfrågan |
 |Ogiltig åtkomstnyckel | 401 Ej behörig |
-|Felaktig slutpunkt | 404 Hittades inte |
+|Felaktig slutpunkt | 404 Kunde ej hittas |
 |Matris eller händelse överskrider storleksgränsen | 413 nyttolast som är för stor |
 
 För fel har meddelandetexten följande format:

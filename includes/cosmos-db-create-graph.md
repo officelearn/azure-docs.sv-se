@@ -2,21 +2,19 @@
 title: ta med fil
 description: ta med fil
 services: cosmos-db
-author: rockboyfor
+author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: include
-origin.date: 04/13/2018
-ms.date: 03/18/2019
-ms.author: v-yeche
+ms.date: 04/13/2018
+ms.author: sngun
 ms.custom: include file
 ms.openlocfilehash: 9800848b24523a0eb5992e64ce1580cc53b0e3a0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60891547"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66151467"
 ---
-<!--Verify sucessfully-->
 Nu kan du använda datautforskarverktyget i Azure Portal för att skapa en grafdatabas. 
 
 1. Klicka på **Datautforskaren** > **Nytt diagram**.
@@ -35,7 +33,3 @@ Nu kan du använda datautforskarverktyget i Azure Portal för att skapa en grafd
     Dataflöde|400 RU:er|Ändra genomflödet till 400 begäransenheter per sekund (RU/s). Du kan skala upp dataflödet senare om du vill minska svarstiden.
 
 3. När formuläret är ifyllt klickar du på **OK**.
-
-<!--Verify sucessfully-->
-<!--Update_Description: new articles on  -->
-<!--ms.date: 03/18/2019-->

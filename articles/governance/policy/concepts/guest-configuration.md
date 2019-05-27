@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: c11d6519986cf7a0e70d1fe004ef527c3df247d5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c98229a28f31ff715f252dc3915ca690e99245ff
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59277742"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979516"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Förstå Azure Policy gäst-konfiguration
 
@@ -63,7 +63,7 @@ I följande tabell visas en lista över de lokala verktyg som används på varje
 
 ### <a name="validation-frequency"></a>Frekvens för verifiering
 
-Gäst-konfigurationen kontrollerar klienten för nytt innehåll var femte minut. När en gäst-tilldelning tas emot, kontrolleras inställningarna med 15 minuters intervall. Resultaten skickas till resursprovidern gäst konfiguration när granskningen är klar. När en princip [utvärdering utlösaren](../how-to/get-compliance-data.md#evaluation-triggers) inträffar, tillståndet för datorn skrivs till resursprovidern gäst-konfiguration. Detta leder till Azure Policy att utvärdera Azure Resource Manager-egenskaper. En på begäran principutvärdering hämtar det senaste värdet från resursprovidern gäst-konfiguration. Dock utlöser inte den en ny granskning av konfigurationen på den virtuella datorn.
+Gäst-konfigurationen kontrollerar klienten för nytt innehåll var femte minut. När en gäst-tilldelning tas emot, kontrolleras inställningarna med 15 minuters intervall. Resultaten skickas till resursprovidern gäst konfiguration när granskningen är klar. När en princip [utvärdering utlösaren](../how-to/get-compliance-data.md#evaluation-triggers) inträffar, tillståndet för datorn skrivs till resursprovidern gäst-konfiguration. Detta leder till Azure Policy att utvärdera Azure Resource Manager-egenskaper. En utvärdering för Azure Policy på begäran hämtar det senaste värdet från resursprovidern gäst-konfiguration. Dock utlöser inte den en ny granskning av konfigurationen på den virtuella datorn.
 
 ### <a name="supported-client-types"></a>Stöds klienttyper
 
@@ -80,7 +80,7 @@ I följande tabell visas en lista över operativsystem som stöds på Azure-avbi
 |SUSE|SLES|12 SP3|
 
 > [!IMPORTANT]
-> Gäst-konfiguration kan granska noder som kör ett operativsystem som stöds.  Om du vill granska virtuella datorer som använder en anpassad avbildning måste du duplicera den **DeployIfNotExists** definition och ändra den **om** att inkludera din avbildningsegenskaper.
+> Gäst-konfiguration kan granska noder som kör ett operativsystem som stöds. Om du vill granska virtuella datorer som använder en anpassad avbildning måste du duplicera den **DeployIfNotExists** definition och ändra den **om** att inkludera din avbildningsegenskaper.
 
 ### <a name="unsupported-client-types"></a>Klientappar typer
 
@@ -93,9 +93,7 @@ För att kommunicera med resursprovidern gäst-konfiguration i Azure virtuella d
 För listor för IP-adress, kan du ladda ned [IP-intervall i Microsoft Azure Datacenter](https://www.microsoft.com/download/details.aspx?id=41653). Den här filen uppdateras varje vecka och har de aktuella intervall och eventuella kommande ändringar till IP-adressintervall. Du behöver bara tillåter utgående åtkomst till IP-adresser i regioner där dina virtuella datorer distribueras.
 
 > [!NOTE]
-> Azure-Datacenter IP-adress XML-filen visas de IP-adressintervall som används i Microsoft Azure-datacenter. Filen innehåller compute, SQL och storage-intervall.
-> Varje vecka publiceras en uppdaterad fil. Filen visar aktuella intervall och eventuella kommande ändringar till IP-adressintervall. De nya intervall som visas i filen används inte i datacenter för minst en vecka.
-> Det är en bra idé att ladda ned den nya XML-filen varje vecka. Sedan uppdatera webbplatsen för att kunna identifiera vilka tjänster som körs i Azure. Azure ExpressRoute-användare bör Observera att den här filen används för att uppdatera Border Gateway Protocol (BGP)-annonsen Azure utrymme i den första veckan varje månad.
+> Azure-Datacenter IP-adress XML-filen visas de IP-adressintervall som används i Microsoft Azure-datacenter. Filen innehåller compute, SQL och storage-intervall. Varje vecka publiceras en uppdaterad fil. Filen visar aktuella intervall och eventuella kommande ändringar till IP-adressintervall. De nya intervall som visas i filen används inte i datacenter för minst en vecka. Det är en bra idé att ladda ned den nya XML-filen varje vecka. Sedan uppdatera webbplatsen för att kunna identifiera vilka tjänster som körs i Azure. Azure ExpressRoute-användare bör Observera att den här filen används för att uppdatera Border Gateway Protocol (BGP)-annonsen Azure utrymme i den första veckan varje månad.
 
 ## <a name="guest-configuration-definition-requirements"></a>Definition av gäst konfigurationskrav
 
@@ -140,7 +138,7 @@ Exempel för konfiguration av gäst finns på följande platser:
 ## <a name="next-steps"></a>Nästa steg
 
 - Se exempel på [Azure Policy-exempel](../samples/index.md).
-- Granska [Policy-definitionsstrukturen](definition-structure.md).
+- Granska [Azure Policy-definitionsstrukturen](definition-structure.md).
 - Granska [Förstå policy-effekter](effects.md).
 - Förstå hur du [skapa principer programmässigt](../how-to/programmatically-create.md).
 - Lär dig hur du [hämta kompatibilitetsdata](../how-to/getting-compliance-data.md).

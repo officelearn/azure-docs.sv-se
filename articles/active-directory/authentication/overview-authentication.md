@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38bc2f138a8e56fc56b48ccdaf0636a93138f95d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e2f53243e49cc961f50ef09cf43a7ed174a82a9c
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60414008"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65997273"
 ---
 # <a name="what-methods-are-available-for-authentication"></a>Vilka metoder är tillgängliga för autentisering?
 
@@ -35,7 +35,7 @@ Ytterligare verifiering kan ges i form av autentiseringsmetoder som:
 
 Självåterställning av lösenord med Azure MFA och Azure AD ger administratörer kontroll över konfiguration, princip, övervakning och rapportering med hjälp av Azure AD och Azure-portalen för att skydda sina organisationer.
 
-## <a name="self-service-password-reset"></a>Återställning av lösenord för självbetjäning
+## <a name="self-service-password-reset"></a>Självåterställning av lösenord
 
 Självåterställning av lösenord ger användarna möjlighet att återställa sina lösenord utan inblandning av administratören, när och var som helst.
 
@@ -50,6 +50,10 @@ Självåterställning av lösenord inkluderar:
 ## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
 Azure Multi-Factor Authentication (MFA) är Microsofts verifieringslösning i två steg. Med autentiseringsmetoder som är godkända av administratör hjälper Azure MFA till att skydda din åtkomst till data och program, samtidigt som behovet av en enkel inloggningsprocess uppfylls.
+
+## <a name="license-requirements"></a>Licenskrav
+
+[!INCLUDE [Active Directory P1 license](../../../includes/active-directory-p1-license.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

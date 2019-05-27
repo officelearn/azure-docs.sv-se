@@ -8,11 +8,11 @@ ms.date: 06/12/2018
 ms.topic: include
 ms.custom: include file
 ms.openlocfilehash: 9f44bb5353a522e187adf8da0d1a573e3a4489aa
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913707"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66118738"
 ---
 > [!IMPORTANT]
 > Den här artikeln innehåller innehåll som kräver den klassiska Azure CLI. Den aktuella versionen av Azure CLI har inte stöd för funktioner som beskrivs i den här artikeln klassiskt CLI så krävs. 

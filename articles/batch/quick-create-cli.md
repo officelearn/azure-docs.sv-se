@@ -11,11 +11,11 @@ ms.date: 07/03/2018
 ms.author: lahugh
 ms.custom: mvc
 ms.openlocfilehash: df56fd00d5a5ff2f9e9000b39939d0f33b3737d5
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752355"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66127494"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>Snabbstart: Kör ditt första Batch-jobb med Azure CLI
 

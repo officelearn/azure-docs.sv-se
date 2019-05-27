@@ -7,18 +7,18 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: f17dc61f47dadf4c808467b2158cd9ef034e1ce9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 376df206d75780a4b814873d72d9c56554f6b0b8
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59277127"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956614"
 ---
 # <a name="enable-azure-disk-encryption-for-windows-iaas-vms"></a>Aktivera Azure Disk Encryption för Windows virtuella IaaS-datorer
 
-Du kan aktivera många diskkryptering scenarier och stegen kan variera beroende på scenario. Följande avsnitt beskriver scenarier i större detalj för Windows virtuella IaaS-datorer. Innan du kan använda diskkryptering, den [som krävs för Azure Disk Encryption](../security/azure-security-disk-encryption-prerequisites.md) måste slutföras. 
+Den här artikeln innehåller anvisningar om hur du aktiverar Microsoft Azure Disk Encryption för Windows IaaS-datorer (VM). Innan du kan använda diskkryptering, måste du först slutföra den [som krävs för Azure Disk Encryption](../security/azure-security-disk-encryption-prerequisites.md). 
 
-Ta en [ögonblicksbild](../virtual-machines/windows/snapshot-copy-managed-disk.md) och/eller säkerhetskopierar innan diskar krypteras. Säkerhetskopior Se till att ett återställningsalternativ är möjligt om ett oväntat fel inträffar under krypteringen. Virtuella datorer med hanterade diskar kräver en säkerhetskopia innan kryptering sker. Du kan använda cmdleten Set-AzVMDiskEncryptionExtension för att kryptera hanterade diskar genom att ange parametern - skipVmBackup när en säkerhetskopia görs. Mer information om hur du säkerhetskopiera och återställa krypterade virtuella datorer finns i den [Azure Backup](../backup/backup-azure-vms-encryption.md) artikeln. 
+Det rekommenderas också starkt att du [skapa en ögonblicksbild](../virtual-machines/windows/snapshot-copy-managed-disk.md) och/eller säkerhetskopiera dina diskar innan du kryptering. Säkerhetskopior Se till att ett återställningsalternativ är möjligt om ett oväntat fel inträffar under krypteringen. Virtuella datorer med hanterade diskar kräver en säkerhetskopia innan kryptering sker. När en säkerhetskopia görs, kan du använda den [cmdlet Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) att kryptera hanterade diskar genom att ange parametern - skipVmBackup. Mer information om hur du säkerhetskopiera och återställa krypterade virtuella datorer finns i [säkerhetskopiera och återställa krypterade virtuella Azure-datorn](../backup/backup-azure-vms-encryption.md) artikeln.
 
 >[!WARNING]
 > - Om du tidigare har använt [Azure Disk Encryption med Azure AD-app](azure-security-disk-encryption-prerequisites-aad.md) för att kryptera den här virtuella datorn, måste du fortsätta använda det här alternativet för att kryptera den virtuella datorn. Du kan inte använda [Azure Disk Encryption](azure-security-disk-encryption-prerequisites.md) på den här krypterade virtuella datorn eftersom det är inte ett scenario som stöds, betydelse växla från AAD-programmet för det här krypterade virtuella datorer stöds inte ännu. 
@@ -27,12 +27,12 @@ Ta en [ögonblicksbild](../virtual-machines/windows/snapshot-copy-managed-disk.m
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="bkmk_RunningWinVM"></a> Aktivera kryptering på befintliga eller som kör Windows virtuella IaaS-datorer
-I det här scenariot kan du aktivera kryptering med hjälp av en mall, PowerShell-cmdletar eller CLI-kommandon. I följande avsnitt beskrivs i detalj hur du aktiverar Azure Disk Encryption. Om du behöver information för databasschema för tillägget för virtuell dator finns i den [Azure Disk Encryption för Windows-tillägget](../virtual-machines/extensions/azure-disk-enc-windows.md) artikeln.
+Du kan aktivera kryptering med hjälp av en mall, PowerShell-cmdletar eller CLI-kommandon. Om du behöver information för databasschema för tillägget för virtuell dator finns i den [Azure Disk Encryption för Windows-tillägget](../virtual-machines/extensions/azure-disk-enc-windows.md) artikeln.
 
 >[!IMPORTANT]
- >Det är obligatoriskt att ögonblicksbilden och/eller säkerhetskopiera en hanterad disk baserat VM-instans utanför och innan du kan aktivera Azure Disk Encryption. En ögonblicksbild av den hantera disken kan tas från portalen eller [Azure Backup](../backup/backup-azure-vms-encryption.md) kan användas. Säkerhetskopior Se till att ett återställningsalternativ är möjligt när det gäller ett oväntat fel under krypteringen. Cmdleten Set-AzVMDiskEncryptionExtension kan användas för att kryptera hanterade diskar genom att ange parametern - skipVmBackup när en säkerhetskopia görs. Kommandot Set-AzVMDiskEncryptionExtension misslyckas mot virtuella datorer med hanterade diskar baserade tills en säkerhetskopia har gjorts och den här parametern har angetts. 
+ > Det är obligatoriskt att ögonblicksbilden och/eller säkerhetskopiera en hanterad disk baserat VM-instans utanför och innan du kan aktivera Azure Disk Encryption. En ögonblicksbild av den hantera disken kan tas från portalen eller [Azure Backup](../backup/backup-azure-vms-encryption.md) kan användas. Säkerhetskopior Se till att ett återställningsalternativ är möjligt när det gäller ett oväntat fel under krypteringen. Cmdleten Set-AzVMDiskEncryptionExtension kan användas för att kryptera hanterade diskar genom att ange parametern - skipVmBackup när en säkerhetskopia görs. Kommandot Set-AzVMDiskEncryptionExtension misslyckas mot virtuella datorer med hanterade diskar baserade tills en säkerhetskopia har gjorts och den här parametern har angetts. 
 >
->Kryptering eller inaktivera kryptering leda till den virtuella datorn ska startas om. 
+> Kryptering eller inaktivera kryptering leda till den virtuella datorn ska startas om. 
 >
 
 ### <a name="bkmk_RunningWinVMPSH"></a> Aktivera kryptering på befintliga eller köra virtuella datorer med Azure PowerShell 

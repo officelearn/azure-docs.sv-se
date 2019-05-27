@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 1e4feaed9f4e8f6dd3275da25e33e57197731572
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 374fd700f3ac99c00b922f4fca330fee9acfd704
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60838968"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955739"
 ---
 # <a name="security-in-azure-app-service"></a>Säkerhet i Azure App Service
 
@@ -105,7 +105,7 @@ Du kan på ett säkert sätt komma åt lokala resurser, till exempel databaser p
 
 ## <a name="application-secrets"></a>Programhemligheter
 
-Lagra programhemligheter som Databasautentiseringsuppgifter, API-token och privata nycklar i filerna kodning eller inte. Allmänt accepterade metod är att komma åt dem som [miljövariabler](https://wikipedia.org/wiki/Environment_variable) med hjälp av Standardmönstret i valfritt språk. I App Service är sättet att definiera miljövariabler via [appinställningar](web-sites-configure.md#app-settings) (och särskilt för .NET-program, [anslutningssträngar](web-sites-configure.md#connection-strings)). Appinställningar och anslutningssträngar lagras krypterade i Azure och de är dekrypteras endast innan som införs i din app processminne när appen startar. Krypteringsnycklarna roteras regelbundet.
+Lagra programhemligheter som Databasautentiseringsuppgifter, API-token och privata nycklar i filerna kodning eller inte. Allmänt accepterade metod är att komma åt dem som [miljövariabler](https://wikipedia.org/wiki/Environment_variable) med hjälp av Standardmönstret i valfritt språk. I App Service är sättet att definiera miljövariabler via [appinställningar](configure-common.md#configure-app-settings) (och särskilt för .NET-program, [anslutningssträngar](configure-common.md#configure-connection-strings)). Appinställningar och anslutningssträngar lagras krypterade i Azure och de är dekrypteras endast innan som införs i din app processminne när appen startar. Krypteringsnycklarna roteras regelbundet.
 
 Du kan också integrera din App Service-app med [Azure Key Vault](/azure/key-vault/) för hantering av avancerade hemligheter. Genom att [åtkomst till Nyckelvalv med en hanterad identitet](../key-vault/tutorial-web-application-keyvault.md), App Service-appen på ett säkert sätt kan komma åt hemligheter som du behöver.
 

@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/18/2019
+ms.date: 05/20/2019
 ms.topic: quickstart
 ms.custom: seodec18
 ms.service: cost-management
 manager: benshy
-ms.openlocfilehash: 835a7027293694551e672220a3d7db4c7085550b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 17f4069e38b4e4f0ee7a4ef4acc4535198b62b02
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61039873"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65969195"
 ---
 # <a name="register-with-the-csp-partner-program-and-view-cost-data"></a>Registrera dig för CSP-partnerprogrammet och visa kostnadsdata
 
@@ -31,7 +31,7 @@ Som CSP-partner kan du registrera dig för Cloudyn. Registreringen ger dig åtko
 >
 > Åtkomst till Cloudyn kan göras tillgänglig för CSP Indirect-återförsäljare när deras CSP Indirekt-leverantörer registreras i Cloudyn. Sedan kan CSP Indirect-återförsäljare ge Cloudyn-åtkomst till Azure-kunder och prenumerationer.
 
-## <a name="sign-in-to-azure"></a>Logga in på Azure
+## <a name="sign-in-to-azure"></a>Logga in till Azure
 
 - Logga in på Azure Portal på https://portal.azure.com.
 

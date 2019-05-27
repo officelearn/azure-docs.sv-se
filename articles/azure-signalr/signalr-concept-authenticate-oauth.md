@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: zhshang
 ms.openlocfilehash: 7660e1405598676599cab30467d22ac979438deb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58003692"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66128325"
 ---
 # <a name="azure-signalr-service-authentication"></a>Azure SignalR Service-autentisering
 
@@ -40,7 +40,7 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att kunna slutföra den här självstudien behöver du följande:
 
@@ -565,7 +565,7 @@ Logga in på [Azure Portal](https://portal.azure.com) och klicka på **Resursgru
 
 Skriv namnet på din resursgrupp i textrutan **Filtrera efter namn...**. Anvisningarna för den här artikeln använde en resursgrupp med namnet *SignalRTestResources*. På din resursgrupp i resultatlistan klickar du på **...** och därefter **Ta bort resursgrupp**.
 
-![Ta bort](./media/signalr-concept-authenticate-oauth/signalr-delete-resource-group.png)
+![Radera](./media/signalr-concept-authenticate-oauth/signalr-delete-resource-group.png)
 
 Du blir ombedd att bekräfta borttagningen av resursgruppen. Skriv namnet på din resursgrupp för att bekräfta och klicka på **Ta bort**.
 

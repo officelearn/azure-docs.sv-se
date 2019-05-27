@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45ea34a673b46dda2ec9606952c707a13d1b72d9
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: b8897de5ee86d20e52b948f21afaef4acf196539
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65766876"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65988581"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Konfigurera autentisering sessionshantering med villkorlig åtkomst
 
@@ -50,7 +50,7 @@ Azure AD-standarden för persistence för webbläsare kan användare på personl
 
 ## <a name="configuring-authentication-session-controls"></a>Konfigurera autentisering sessionskontroller
 
-Villkorlig åtkomst är en Azure AD Premium-funktion som kräver en premiumlicens. Om du vill veta mer om villkorlig åtkomst, se [vad är villkorlig åtkomst i Azure Active Directory?](overview.md#license-requirements-for-using-conditional-access)
+Villkorlig åtkomst är en Azure AD Premium-funktion som kräver en premiumlicens. Om du vill veta mer om villkorlig åtkomst, se [vad är villkorlig åtkomst i Azure Active Directory?](overview.md#license-requirements)
 
 > [!WARNING]
 > Om du använder den [konfigurerbara livslängd för uppdateringstoken](../develop/active-directory-configurable-token-lifetimes.md) funktion för närvarande i offentlig förhandsversion, Observera att vi inte stöder skapandet av två olika principer för samma kombination av användare eller app: en med den här funktionen och en annan med konfigurerbara livslängd för token-funktionen. Microsoft planerar att inaktivera funktionen konfigurerbara livslängd för token på 15 oktober och Ersätt den med funktionen för villkorlig åtkomst autentisering session hantering.  
@@ -66,7 +66,7 @@ Villkorlig åtkomst är en Azure AD Premium-funktion som kräver en premiumlicen
 1. Gå till **åtkomstkontroller** > **Session** och klicka på **inloggning frekvens**
 1. Ange det obligatoriska värdet i dagar och tider i den första textrutan
 1. Välj ett värde på **timmar** eller **dagar** listrutan
-1. Spara princip
+1. Spara principen
 
 ![Princip för villkorlig åtkomst som konfigurerats för inloggning i frekvens](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-sign-in-frequency.png)
 

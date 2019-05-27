@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 04/25/2019
+ms.date: 05/16/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: ce23b891decd20db239e653702533ac7af21b980
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 5d964ebd40ac1bd8817bc93d5e4f78096f221be2
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073344"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65977771"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Inbyggda roller för Azure-resurser
 
@@ -56,12 +56,14 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 | [Avere Operator](#avere-operator) | Används av Avere vFXT klustret för att hantera klustret |
 | [Administratörsroll för Azure Kubernetes Service-kluster](#azure-kubernetes-service-cluster-admin-role) | Åtgärden lista autentiseringsuppgifter för klusteradministratör. |
 | [Användarrollen för Azure Kubernetes Service-kluster](#azure-kubernetes-service-cluster-user-role) | Åtgärden lista autentiseringsuppgifter för klusteranvändare. |
+| [Azure Maps Data-läsare (förhandsgranskning)](#azure-maps-data-reader-preview) | Beviljar åtkomst att läsa kartrelaterade data från ett Azure Maps-konto. |
 | [Azure Stack-registrering ägare](#azure-stack-registration-owner) | Låter dig hantera Azure Stack-registreringar. |
 | [Säkerhetskopieringsmedarbetare](#backup-contributor) | Låter dig hantera säkerhetskopieringstjänsten, men låter dig inte skapa valv eller ge åtkomst till andra |
 | [Ansvarig för säkerhetskopiering](#backup-operator) | Låter dig hantera säkerhetskopieringstjänster, med undantag för att ta bort säkerhetskopior, skapa valv eller ge åtkomst till andra |
 | [Backup Reader](#backup-reader) | Kan visa säkerhetskopieringstjänster, men inte göra några ändringar |
 | [Faktureringsläsare](#billing-reader) | Tillåter läsåtkomst till faktureringsdata |
 | [BizTalk Contributor](#biztalk-contributor) | Låter dig hantera BizTalk-tjänster, men ger dig inte tillgång till dem. |
+| [Blockchain medlem noden åtkomst (förhandsgranskning)](#blockchain-member-node-access-preview) | Tillåter åtkomst till blockkedja-medlemsnoder |
 | [CDN-Slutpunktsdeltagare](#cdn-endpoint-contributor) | Kan hantera CDN-slutpunkter, men kan inte bevilja åtkomst till andra användare. |
 | [CDN-Slutpunktsläsare](#cdn-endpoint-reader) | Kan visa CDN-slutpunkter, men kan inte göra ändringar. |
 | [CDN-Profildeltagare](#cdn-profile-contributor) | Kan hantera CDN-profiler och deras slutpunkter, men kan inte bevilja åtkomst till andra användare. |
@@ -86,6 +88,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 | [DevTest Labs-användare](#devtest-labs-user) | Låter dig ansluta, starta, starta om och stänga av dina virtuella datorer i din Azure DevTest Labs. |
 | [DNS-Zondeltagare](#dns-zone-contributor) | Låter dig hantera DNS-zoner och postuppsättningar i Azure DNS, men låter dig inte kontrollera vem som har åtkomst till dem. |
 | [DocumentDB-Kontodeltagare](#documentdb-account-contributor) | Hantera Azure Cosmos DB-konton. Azure Cosmos DB är kallades DocumentDB. |
+| [Dataägaren för Event Hubs](#event-hubs-data-owner) | Ger fullständig åtkomst till Azure Event Hubs-resurser | 
 | [EventGrid EventSubscription Contributor](#eventgrid-eventsubscription-contributor) | Låter dig hantera åtgärder för EventGrid-händelseprenumeration. |
 | [EventGrid EventSubscription Reader](#eventgrid-eventsubscription-reader) | Låter dig läsa EventGrid-händelseprenumerationer. |
 | [HDInsight-kluster-Operator](#hdinsight-cluster-operator) | Kan du läsa och ändra konfigurationerna för HDInsight-kluster. |
@@ -116,6 +119,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 | [Säkerhetsadministratör](#security-admin) | I Säkerhetscenter: Kan visa säkerhetsprinciper, security tillstånd, redigera säkerhetsprinciper, Visa aviseringar och rekommendationer, avvisa aviseringar och rekommendationer |
 | [Säkerhetshanteraren (bakåtkompatibel)](#security-manager-legacy) | Det här är en äldre roll. Använd säkerhetsadministratör istället |
 | [Security Reader](#security-reader) | I Säkerhetscenter: Visa rekommendationer och aviseringar, visa IPSec-principer security tillstånd, men det går inte att göra ändringar |
+| [Service Bus-Dataägaren](#service-bus-data-owner) | Tillåter fullständig åtkomst till Azure Service Bus-resurser |
 | [Site Recovery-bidragsgivare](#site-recovery-contributor) | Låter dig hantera Site Recovery-tjänsten förutom att skapa valv och tilldela roller |
 | [Site Recovery Operator](#site-recovery-operator) | Låter dig växla vid fel och återställa men inte utföra andra Site Recovery-hanteringsåtgärder |
 | [Site Recovery Reader](#site-recovery-reader) | Låter dig se Site Recovery-status men inte utföra andra hanteringsåtgärder |
@@ -574,6 +578,21 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **NotDataActions** |  |
 > | *Ingen* |  |
 
+## <a name="azure-maps-data-reader-preview"></a>Azure Maps-dataläsare (förhandsgranskning)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beskrivning** | Beviljar åtkomst att läsa kartrelaterade data från ett Azure Maps-konto. |
+> | **Id** | 423170ca-a8f6-4b0f-8487-9e4eb8f49bfa |
+> | **Åtgärder** |  |
+> | *Ingen* |  |
+> | **NotActions** |  |
+> | *Ingen* |  |
+> | **DataActions** |  |
+> | Microsoft.Maps/accounts/data/read | Ger tillgång till data läsåtkomst till en maps-konto. |
+> | **NotDataActions** |  |
+> | *Ingen* |  |
+
 ## <a name="azure-stack-registration-owner"></a>Ägare för Azure Stack-registrering
 > [!div class="mx-tableFixed"]
 > | | |
@@ -812,6 +831,21 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | *Ingen* |  |
 > | **DataActions** |  |
 > | *Ingen* |  |
+> | **NotDataActions** |  |
+> | *Ingen* |  |
+
+## <a name="blockchain-member-node-access-preview"></a>Blockkedja-medlemsnodåtkomst (förhandsversion)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beskrivning** | Tillåter åtkomst till blockkedja-medlemsnoder |
+> | **Id** | 31a002a1-acaf-453e-8a5b-297c9ca1ea24 |
+> | **Åtgärder** |  |
+> | Microsoft.Blockchain/blockchainMembers/transactionNodes/read | Hämtar eller listar befintliga Blockchain medlem transaktion nod(er). |
+> | **NotActions** |  |
+> | *Ingen* |  |
+> | **DataActions** |  |
+> | Microsoft.Blockchain/blockchainMembers/transactionNodes/connect/action | Ansluter till en medlem i Blockchain transaktion nod. |
 > | **NotDataActions** |  |
 > | *Ingen* |  |
 
@@ -1139,6 +1173,8 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Resources/subscriptions/read | Hämtar listan över prenumerationer. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
+> | Microsoft.Advisor/configurations/read | Hämta konfigurationer |
+> | Microsoft.Advisor/recommendations/read | Läser rekommendationer |
 > | **NotActions** |  |
 > | *Ingen* |  |
 > | **DataActions** |  |
@@ -1159,6 +1195,8 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Resources/subscriptions/read | Hämtar listan över prenumerationer. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
+> | Microsoft.Advisor/configurations/read | Hämta konfigurationer |
+> | Microsoft.Advisor/recommendations/read | Läser rekommendationer |
 > | **NotActions** |  |
 > | *Ingen* |  |
 > | **DataActions** |  |
@@ -1198,6 +1236,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Databox/jobs/listsecrets/action |  |
 > | Microsoft.Databox/jobs/listcredentials/action | Visar lista med okrypterade autentiseringsuppgifter för beställningen. |
 > | Microsoft.Databox/locations/availableSkus/action | Den här metoden returnerar listan över tillgängliga SKU:er. |
+> | Microsoft.Databox/locations/validateAddress/action | Verifierar leveransadressen och anger alternativa adresser om sådana finns. |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Hämtar tillgänglighetsstatusarna för alla resurser i det angivna området |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 > | **NotActions** |  |
@@ -1299,6 +1338,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.DevTestLab/*/read | Läsa egenskaperna för ett labb |
 > | Microsoft.DevTestLab/labs/claimAnyVm/action | Gör anspråk på en slumpmässig tillgängliga virtuell dator i labbet. |
 > | Microsoft.DevTestLab/labs/createEnvironment/action | Skapa virtuella datorer i ett labb. |
+> | Microsoft.DevTestLab/labs/ensureCurrentUserProfile/action | Se till att den aktuella användaren har en giltig profil i laboratoriet. |
 > | Microsoft.DevTestLab/labs/formulas/delete | Ta bort formler. |
 > | Microsoft.DevTestLab/labs/formulas/read | Läsa formler. |
 > | Microsoft.DevTestLab/labs/formulas/write | Lägg till eller ändra formler. |
@@ -1369,6 +1409,22 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **NotDataActions** |  |
 > | *Ingen* |  |
 
+## <a name="event-hubs-data-owner"></a>Dataägaren för Event Hubs
+
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beskrivning** | Tillåter fullständig åtkomst till Azure Event Hubs-resurser. |
+> | **Id** | f526a384-b230-433a-b45c-95f59c4a2dec |
+> | **Åtgärder** |  |
+> | Microsoft.EventHubs/* | Tillåter fullständig åtkomst till Event Hubs-namnområde |
+> | **NotActions** |  |
+> | *Ingen* |  |
+> | **DataActions** |  |
+> | Microsoft.EventHubs/* | Tillåter fullständig dataåtkomst till Event Hubs-namnområdet |
+> | **NotDataActions** |  |
+> | *Ingen* |  |
+
 ## <a name="eventgrid-eventsubscription-contributor"></a>EventGrid EventSubscription-deltagare
 > [!div class="mx-tableFixed"]
 > | | |
@@ -1426,6 +1482,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
 > | Microsoft.Resources/deployments/operations/read | Hämtar eller listar distributionsåtgärder. |
 > | Microsoft.Insights/alertRules/* | Skapa och hantera Insights Varningsregler |
+> | Microsoft.Authorization/*/read | Läs roller och rolltilldelningar |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 > | **NotActions** |  |
 > | *Ingen* |  |
@@ -2019,6 +2076,22 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **NotDataActions** |  |
 > | *Ingen* |  |
 
+## <a name="service-bus-data-owner"></a>Service Bus-Dataägaren
+
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beskrivning** | Tillåter fullständig åtkomst till Azure Service Bus-resurser. |
+> | **Id** | 090c5cfd-751d-490a-894a-3ce6f1109419 |
+> | **Åtgärder** |  |
+> | Microsoft.ServiceBus/* | Tillåter fullständig åtkomst till Service Bus-namnområde |
+> | **NotActions** |  |
+> | *Ingen* |  |
+> | **DataActions** |  |
+> | Microsoft.ServiceBus/* | Tillåter fullständig dataåtkomst till Service Bus-namnområde |
+> | **NotDataActions** |  |
+> | *Ingen* |  |
+
 ## <a name="site-recovery-contributor"></a>Site Recovery-bidragsgivare
 > [!div class="mx-tableFixed"]
 > | | |
@@ -2482,7 +2555,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **Beskrivning** | Ger fullständig åtkomst till Azure Storage blob-behållare och data, inklusive tilldela POSIX-åtkomstkontroll. Läs vilka åtgärder som krävs för en viss dataåtgärd i [behörigheter för att anropa blob och kö dataåtgärder](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations). |
 > | **Id** | b7e6dc6d-f1e8-4753-8033-0f276bb0955b |
 > | **Åtgärder** |  |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/* | Fullständig behörighet i behållare.  |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/* | Fullständig behörighet i behållare. |
 > | **NotActions** |  |
 > | *Ingen* |  |
 > | **DataActions** |  |

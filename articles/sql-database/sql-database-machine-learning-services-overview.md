@@ -11,12 +11,12 @@ ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
 ms.date: 03/01/2019
-ms.openlocfilehash: b33561ad80207a5d649ac1fd497c9d6c7add78c6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: fe472b8a19b45d7f7b00a8f858c9179d6ee51999
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64723984"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951575"
 ---
 # <a name="azure-sql-database-machine-learning-services-with-r-preview"></a>Azure SQL Database Machine Learning Services med R (förhandsversion)
 
@@ -49,9 +49,7 @@ De vanligaste open source-R-paket är förinstallerade i Machine Learning Servic
 | [RevoScaleR](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-revoscaler) | RevoScaleR är primärt bibliotek för skalbar R. funktioner i det här biblioteket är bland de mest använda. Dataomvandlingar och manipulering, Statistisk sammanfattning, visualisering och modellering och analyser på många sätt finns i dessa bibliotek. Dessutom distribuera funktioner i dessa bibliotek automatiskt arbetsbelastningar över tillgängliga kärnor för parallell bearbetning, med möjlighet att arbeta med datasegment som samordnas och hanteras av beräkningsmotorn för. |
 | [MicrosoftML (R)](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-microsoftml) | MicrosoftML lägger till machine learning-algoritmer för att skapa anpassade modeller för textanalys, bildanalys och attitydanalys. |
 
-<!-- Add this back when the new package-related article is written
-In addition to the pre-installed packages, you can [install additional packages](sql-database-quickstart-r-create-script.md#add-a-package).
--->
+Förutom de förinstallerade paket kan du [installera ytterligare paket](sql-database-machine-learning-services-add-r-packages.md).
 
 <a name="signup"></a>
 

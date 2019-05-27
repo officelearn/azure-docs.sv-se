@@ -9,11 +9,11 @@ ms.date: 02/02/2018
 ms.author: cephalin
 ms.custom: include file
 ms.openlocfilehash: cd7fc7487a41979f37c9a55baeb0b8e172e808c4
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59587173"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66133153"
 ---
 I Azure Cloud Shell, konfigurerar du autentiseringsuppgifter för distribution med den [ `az webapp deployment user set` ](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set) kommando. Den här distributionsanvändare krävs för en FTP-distribution och en lokal git-distribution till en webbapp. Det användarnamn och lösenord är på kontonivå. _De är skiljer sig från autentiseringsuppgifterna för din Azure-prenumeration._
 

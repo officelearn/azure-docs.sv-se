@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/01/2018
 ms.author: cherylmc
 ms.openlocfilehash: b4d9a469e46d964055d9459901ebdb9c6d04cf24
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58078354"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66157453"
 ---
 # <a name="configure-forced-tunneling-using-the-azure-resource-manager-deployment-model"></a>Konfigurera framtvingad tunneling med distributionsmodellen Azure Resource Manager
 
@@ -61,7 +61,7 @@ Tvingad tunneltrafik i Azure konfigureras via användardefinierade vägar i virt
 * Tvingad tunneltrafik måste vara associerad med ett virtuellt nätverk som har en routningsbaserad VPN-gateway. Du måste ange en ”standardwebbplats” mellan de över flera lokala platserna anslutna till det virtuella nätverket. Den lokala VPN-enheten måste också konfigureras med 0.0.0.0/0 som trafikväljare. 
 * ExpressRoute Tvingad tunneltrafik är inte konfigurerad via den här mekanismen, men i stället aktiveras genom att annonsera en standardväg via ExpressRoute BGP-peeringsessioner. Mer information finns i den [dokumentation om ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/).
 
-## <a name="configuration-overview"></a>Översikt över konfiguration
+## <a name="configuration-overview"></a>Konfigurationsöversikt
 
 Följande procedur kan du skapa en resursgrupp och ett virtuellt nätverk. Du sedan skapa en VPN-gateway och konfigurera Tvingad tunneltrafik. I den här proceduren har tre undernät i det virtuella nätverket MultiTier-VNet: ”Frontend”, ”Midtier” och ”serverdel”, med fyra anslutningar mellan olika platser: 'DefaultSiteHQ' och tre grenar.
 

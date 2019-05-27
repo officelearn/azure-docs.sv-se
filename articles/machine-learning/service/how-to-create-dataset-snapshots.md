@@ -1,5 +1,5 @@
 ---
-title: Jämför & återskapa data över tid med ögonblicksbilder
+title: Jämför & återskapa data med ögonblicksbilder av datauppsättning
 titleSuffix: Azure Machine Learning service
 description: Lär dig hur du jämför data över tid och se till att reproducerbarhet med ögonblicksbilder av datauppsättning
 services: machine-learning
@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sihhu
 author: MayMSFT
-ms.date: 05/02/2019
-ms.openlocfilehash: 51d0dcfc543834e9a8725d11fa82b566a5132a6b
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.date: 05/23/2019
+ms.openlocfilehash: 525660be0f38c9458590e52cfcd575acb4cf5444
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205006"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66162059"
 ---
 # <a name="compare-data-and-ensure-reproducibility-with-snapshots-preview"></a>Jämförelse av data och se till att reproducerbarhet med ögonblicksbilder (förhandsversion)
 
@@ -41,7 +41,7 @@ Du behöver en registrerad datauppsättning för Azure Machine Learning för att
 
 ## <a name="create-dataset-snapshots"></a>Skapa datauppsättning ögonblicksbilder
 
-Du kan skapa en ögonblicksbild av en datauppsättning med [ `dataset.create_snapshot()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?#create-snapshot-snapshot-name--compute-target-none--create-data-snapshot-false--target-datastore-none-) från Azure Machine Learning SDK.
+Du kan skapa en ögonblicksbild av en datauppsättning med [ `dataset.create_snapshot()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?#create-snapshot-snapshot-name--compute-target-none--create-data-snapshot-false--target-datastore-none-) från paketet azureml-datauppsättningar i Azure Machine Learning SDK.
 
 Som standard lagrar ögonblicksbilden profil (sammanfattande statistik) av data med senast [datauppsättningsdefinitionen](how-to-manage-dataset-definitions.md) tillämpas. Definitionen av datauppsättningen innehåller en post för alla transformeringssteg som definierats för data. Det är ett bra sätt att göra din data prep fungerar reproducerbar.
 
@@ -124,7 +124,7 @@ Använd [ `get_profile()` ](https://docs.microsoft.com/python/api/azureml-core/a
 snapshot.get_profile()
 ```
 
-||Typ|Min|Max|Antal|Antal saknas|Antal saknas inte|Procent saknas|Antal fel|Tomt antal|0,1 % kvantil|1 % kvantil|5 % kvantil|25 % kvantil|50 % kvantil|75 % kvantil|95 % kvantil|99 % kvantil|99,9 % kvantil|Medelvärde|Standardavvikelse|Varians|Snedhet|Toppighet
+||Type|Min|Max|Antal|Antal saknas|Antal saknas inte|Procent saknas|Antal fel|Tomt antal|0,1 % kvantil|1 % kvantil|5 % kvantil|25 % kvantil|50 % kvantil|75 % kvantil|95 % kvantil|99 % kvantil|99,9 % kvantil|Medelvärde|Standardavvikelse|Varians|Snedhet|Toppighet
 -|----|---|---|-----|-------------|-----------------|---------------|-----------|-----------|-------------|-----------|-----------|------------|------------|------------|------------|------------|--------------|----|------------------|--------|--------|--------
 ID|FieldType.INTEGER|1.04986e + 07|1.05351e + 07|10.0|0.0|10.0|0.0|0.0|0.0|1.04986e + 07|1.04992e+07|1.04986e + 07|1.05166e + 07|1.05209e + 07|1.05259e + 07|1.05351e + 07|1.05351e + 07|1.05351e + 07|1.05195e + 07|12302.7|1.51358e + 08|-0.495701|-1.02814
 Ärendenummer|FieldType.STRING|HZ239907|HZ278872|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
@@ -134,8 +134,8 @@ IUCR|FieldType.INTEGER|810|1154|10.0|0.0|10.0|0.0|0.0|0.0|810|850|810|890|1136|1
 Primär typ|FieldType.STRING|BEDRÄGERIFÖRSÖK|STÖLD|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
 Beskrivning|FieldType.STRING|MUSENHETEN KONTROLL|ÖVER 500 USD|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
 Platsbeskrivning|FieldType.STRING||SKOLAN, OFFENTLIG, ATT SKAPA|10.0|0.0|10.0|0.0|0.0|1.0||||||||||||||
-Kvarhållande|FieldType.BOOLEAN|False|False|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
-Inrikes|FieldType.BOOLEAN|False|False|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
+Kvarhållande|FieldType.BOOLEAN|Falskt|Falskt|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
+Inrikes|FieldType.BOOLEAN|Falskt|Falskt|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
 Beat|FieldType.INTEGER|531|2433|10.0|0.0|10.0|0.0|0.0|0.0|531|531|531|614|1318.5|1911|2433|2433|2433|1371.1|692.094|478994|0.105418|-1.60684
 Distrikt|FieldType.INTEGER|5|24|10.0|0.0|10.0|0.0|0.0|0.0|5|5|5|6|13|19|24|24|24|13.5|6.94822|48.2778|0.0930109|-1.62325
 Ward|FieldType.INTEGER|1|48|10.0|0.0|10.0|0.0|0.0|0,0|1|5|1|9|22.5|40|48|48|48|24.5|16.2635|264.5|0.173723|-1.51271
@@ -153,9 +153,9 @@ snapshot.to_pandas_dataframe().head(3)
 
 ||ID|Ärendenummer|Date|Blockera|IUCR|Primär typ|Beskrivning|Platsbeskrivning|Kvarhållande|Inrikes|...|Ward|Community-området|FBI: S kod|X-koordinat|Y-koordinaten|År|Uppdaterad den|Latitud|Longitud|Plats
 -|--|-----------|----|-----|----|------------|-----------|--------------------|------|--------|---|----|--------------|--------|------------|------------|----|----------|--------|---------|--------
-0|10498554|HZ239907|2016-04-04 23:56:00|007XX E 111TH ST|1153|BEDRÄGERIFÖRSÖK|FINANSIELLA IDENTITETSSTÖLDER ÖVER 300 USD|ANDRA|False|False|...|9|50|11|1183356.0|1831503.0|2016|2016-05-11 15:48:00|41.692834|-87.604319|(41.692833841, -87.60431945)
-1|10516598|HZ258664|2016-04-15 17:00:00|082XX S MARSHFIELD AVE|890|STÖLD|FRÅN ATT BYGGA|BOSATT|False|False|...|21|71|6|1166776.0|1850053.0|2016|2016-05-12 15:48:00|41.744107|-87.664494|(41.744106973, -87.664494285)
-2|10519196|HZ261252|2016-04-15 10:00:00|104XX S SACRAMENTO PARA|1154|BEDRÄGERIFÖRSÖK|FINANSIELLA IDENTITETSSTÖLDER 300 USD OCH UNDER|BOSATT|False|False|...|19|74|11|NaN|NaN|2016|2016-05-12 15:50:00|NaN|NaN|
+0|10498554|HZ239907|2016-04-04 23:56:00|007XX E 111TH ST|1153|BEDRÄGERIFÖRSÖK|FINANSIELLA IDENTITETSSTÖLDER ÖVER 300 USD|ANDRA|Falskt|Falskt|...|9|50|11|1183356.0|1831503.0|2016|2016-05-11 15:48:00|41.692834|-87.604319|(41.692833841, -87.60431945)
+1|10516598|HZ258664|2016-04-15 17:00:00|082XX S MARSHFIELD AVE|890|STÖLD|FRÅN ATT BYGGA|BOSATT|Falskt|Falskt|...|21|71|6|1166776.0|1850053.0|2016|2016-05-12 15:48:00|41.744107|-87.664494|(41.744106973, -87.664494285)
+2|10519196|HZ261252|2016-04-15 10:00:00|104XX S SACRAMENTO PARA|1154|BEDRÄGERIFÖRSÖK|FINANSIELLA IDENTITETSSTÖLDER 300 USD OCH UNDER|BOSATT|Falskt|Falskt|...|19|74|11|NaN|NaN|2016|2016-05-12 15:50:00|NaN|NaN|
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
 ms.openlocfilehash: 7fab3b05429e430b444c2a14213c524fbf19a01d
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149503"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66171723"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>Hantera konfigurationsservern för VMware-VM-katastrofåterställning
 
@@ -154,13 +154,13 @@ Uppgradera servern på följande sätt:
     ![Uppdatering](./media/vmware-azure-manage-configuration-server/update2.png)
 3. Ladda ned installationsfilen för uppdateringen till konfigurationsservern.
 
-    ![Uppdatering](./media/vmware-azure-manage-configuration-server/update1.png)
+    ![Uppdatera](./media/vmware-azure-manage-configuration-server/update1.png)
 
 4. Dubbelklicka för att köra installationsprogrammet.
 5. Installationsprogrammet identifierar den aktuella versionen som körs på datorn. Klicka på **Ja** starta uppgraderingen.
 6. När uppgraderingen har slutförts verifierar serverkonfigurationen.
 
-    ![Uppdatering](./media/vmware-azure-manage-configuration-server/update3.png)
+    ![Uppdatera](./media/vmware-azure-manage-configuration-server/update3.png)
 
 7. Klicka på **Slutför** stängs installationsprogrammet.
 8. Om du vill uppgradera resten av Site Recovery-komponenter, referera till vår [uppgradera vägledningen](https://aka.ms/asr_vmware_upgrades).
@@ -187,17 +187,17 @@ Kör installationsfilen på följande sätt:
 |-|-|-|-|
 | /ServerMode|Krävs|Anger om både konfigurations- och processervrar eller endast processervern ska installeras|CS<br>PS|
 |/InstallLocation|Krävs|Den mapp där komponenterna installeras| Vilken mapp på datorn som helst|
-|/MySQLCredsFilePath|Krävs|Filsökvägen till platsen där autentiseringsuppgifterna för MySQL-servern lagras|Filen ska vara i det format som anges nedan|
-|/VaultCredsFilePath|Krävs|Sökvägen för valvautentiseringsfilen|Giltig sökväg|
+|/MySQLCredsFilePath|Obligatoriskt|Filsökvägen till platsen där autentiseringsuppgifterna för MySQL-servern lagras|Filen ska vara i det format som anges nedan|
+|/VaultCredsFilePath|Obligatoriskt|Sökvägen för valvautentiseringsfilen|Giltig sökväg|
 |/EnvType|Krävs|Typ av miljö som du vill skydda |VMware<br>NonVMware|
-|/PSIP|Krävs|Nätverkskortets IP-adress används för överföring av replikeringsdata| Vilken giltig IP-adress som helst|
+|/PSIP|Obligatoriskt|Nätverkskortets IP-adress används för överföring av replikeringsdata| Vilken giltig IP-adress som helst|
 |/CSIP|Krävs|Nätverkskortets IP-adress som konfigurationsservern lyssnar på| Vilken giltig IP-adress som helst|
 |/PassphraseFilePath|Krävs|Den fullständiga sökvägen till platsen för lösenfrasfilen|Giltig sökväg|
-|/BypassProxy|Valfri|Anger att konfigurationsservern ansluter till Azure utan en proxyserver|För att få det här värdet från Venu|
-|/ProxySettingsFilePath|Valfri|Proxy-inställningar (standardproxy kräver autentisering, eller en anpassad proxy)|Filen ska vara i det format som anges nedan|
-|DataTransferSecurePort|Valfri|Portnumret på PSIP ska användas för replikeringsdata| Giltigt portnummer (standardvärdet är 9433)|
-|/SkipSpaceCheck|Valfri|Hoppa över utrymmeskontroll för cachedisk| |
-|/AcceptThirdpartyEULA|Krävs|När du flaggar innebär det att du godkänner licensavtalet från tredje part| |
+|/BypassProxy|Valfritt|Anger att konfigurationsservern ansluter till Azure utan en proxyserver|För att få det här värdet från Venu|
+|/ProxySettingsFilePath|Valfritt|Proxy-inställningar (standardproxy kräver autentisering, eller en anpassad proxy)|Filen ska vara i det format som anges nedan|
+|DataTransferSecurePort|Valfritt|Portnumret på PSIP ska användas för replikeringsdata| Giltigt portnummer (standardvärdet är 9433)|
+|/SkipSpaceCheck|Valfritt|Hoppa över utrymmeskontroll för cachedisk| |
+|/AcceptThirdpartyEULA|Obligatoriskt|När du flaggar innebär det att du godkänner licensavtalet från tredje part| |
 |/ShowThirdpartyEULA|Valfri|Visar licensavtalet (EULA) från tredje part. Om detta anges som indata ignoreras alla andra parametrar| |
 
 

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 12/03/2018
 ms.author: asnegi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: b5e4ad30a65b25140cfb2c80dd15d8cd28fb827b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9f760e7e693334475fb61ba9e5d44df019e78604
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60419228"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66147483"
 ---
 # <a name="mount-highly-available-service-fabric-reliable-disk-based-volume-in-a-service-fabric-mesh-application"></a>Montera med hög tillgänglighet Service Fabric tillförlitliga baserat diskvolymen i ett Service Fabric-nät program 
 Den vanliga metoden för att bevara tillstånd med behållarappar är att använda Fjärrlagring som Azure File Storage eller databas som Azure Cosmos DB. Detta medför betydande läsning och skrivning Nätverksfördröjningen till arkivet för fjärråtkomst.
@@ -36,7 +36,7 @@ Den `counterService` regelbundet läser ett värde för prestandaräknaren från
 
 Du kan använda Azure Cloud Shell eller en lokal installation av Azure CLI för att slutföra den här uppgiften. Om du vill använda Azure CLI med den här artikeln, kontrollerar du att `az --version` returnerar minst `azure-cli (2.0.43)`.  Installera (eller uppdatera) Azure Service Fabric nät CLI-tillägg-modulen genom att följa dessa [instruktioner](service-fabric-mesh-howto-setup-cli.md).
 
-## <a name="sign-in-to-azure"></a>Logga in på Azure
+## <a name="sign-in-to-azure"></a>Logga in till Azure
 
 Logga in på Azure och konfigurera din prenumeration.
 
@@ -73,7 +73,7 @@ Lägg märke till namnet på gatewayresursen som har resursen skriver som `Micro
 
 När programmet har distribuerats kan du hämta IP-adress till gatewayresursen för appen. Använda såg du på gatewaynamnet ovanför avsnittet.
 ```azurecli-interactive
-az mesh gateway show --resource-group myResourceGroup --gateway-name counterGateway
+az mesh gateway show --resource-group myResourceGroup --name counterGateway
 ```
 
 Utdata bör ha en egenskap `ipAddress` som är den offentliga IP-adressen för tjänsteslutpunkt. Öppna en webbläsare. En webbsida visas med räknarvärdet håller på att uppdateras varje sekund.

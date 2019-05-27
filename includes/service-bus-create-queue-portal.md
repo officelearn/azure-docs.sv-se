@@ -9,11 +9,11 @@ ms.date: 02/20/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: d1cf75d8e678bc5bd3e3036930eea42526194df1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60594377"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66171301"
 ---
 ## <a name="create-a-queue-in-the-azure-portal"></a>Skapa en kö i Azure-portalen
 1. På sidan **Service Bus Namespace** (Service Bus-namnrymd) väljer du **Köer** på navigeringsmenyn till vänster.

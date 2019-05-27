@@ -11,14 +11,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: c49b9d5fdc0c17f16f1c80471a00dd53625dc6e8
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.openlocfilehash: 3edc1c2bd328cd6e7b7991ff2b5438b8899a0ce7
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236951"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66160484"
 ---
-# <a name="set-up-compute-targets-for-model-training"></a>Konfigurera beräkningsmål för modellträning
+# <a name="set-up-compute-targets-for-model-training"></a>Konfigurera beräkningsmål för modellträning 
 
 Med Azure Machine Learning-tjänsten kan du träna din modell på en mängd olika resurser eller miljöer, samlingsnamnet [ __beräkningsmål__](concept-azure-machine-learning-architecture.md#compute-target). Beräkningsmål kan vara en lokal dator eller en molnresurs, till exempel ett Azure beräkning av Machine Learning, Azure HDInsight eller en fjärransluten virtuell dator.  Du kan också skapa beräkningsmål för distribution av modeller som beskrivs i [”där och hur du distribuerar dina modeller”](how-to-deploy-and-where.md).
 
@@ -38,7 +38,7 @@ I den här artikeln får du lära dig hur du använder olika beräkningsmål fö
 Azure Machine Learning-tjänsten har olika stöd för olika beräkningsmål. En typisk modellen för säkerhetsutveckling börjar med utveckling/experimentering på en liten mängd data. I det här skedet bör du använda en lokal miljö. Den lokala datorn eller en molnbaserad VM. När du skalar upp utbildning på större datauppsättningar eller göra distribuerad utbildning, bör du använda beräkning av Azure Machine Learning för att skapa ett enda eller flera node kluster som skalar varje gång du skickar en körning. Du kan även bifoga dina egna beräkningsresurs, även om stöd för olika scenarier kan variera som beskrivs nedan:
 
 
-|Beräkningsmål för träning| GPU-acceleration | Automatisk<br/> finjustering av hyperparametrar | Automatisk</br> maskininlärning | Azure Machine Learning Pipelines |
+|Beräkningsmål för träning| GPU-acceleration | Automatisk<br/> finjustering av hyperparametrar | Automatisk<br/> maskininlärning | Azure Machine Learning Pipelines |
 |----|:----:|:----:|:----:|:----:|
 |[Lokal dator](#local)| Kanske | &nbsp; | ✓ | &nbsp; |
 |[Azure Machine Learning-beräkning](#amlcompute)| ✓ | ✓ | ✓ | ✓ |
@@ -418,6 +418,10 @@ Eller så kan du:
 
 * Skicka experiment med en `Estimator` objekt enligt [träna ML-modeller med estimators](how-to-train-ml-models.md). 
 * Skicka ett experiment [med hjälp av CLI-tillägget](reference-azure-machine-learning-cli.md#experiments).
+
+## <a name="github-tracking-and-integration"></a>GitHub-spårning och integration
+
+När du startar en utbildning som kör där källkatalogen är en lokal Git-lagringsplats, lagras information om databasen i körningshistoriken. Till exempel loggas aktuellt genomförande-ID för lagringsplatsen som en del av historiken.
 
 ## <a name="notebook-examples"></a>Notebook-exempel
 

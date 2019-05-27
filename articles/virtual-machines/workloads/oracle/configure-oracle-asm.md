@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
 ms.openlocfilehash: 0af6e87d3e0b4b3b40b63db07384d4a33a9d43e1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57998960"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66154255"
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Konfigurera Oracle ASM på en virtuell Linux-dator för Azure  
 
@@ -583,8 +583,8 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Självstudier: Konfigurera Oracle DataGuard](configure-oracle-dataguard.md)
+[Självstudie: Konfigurera Oracle DataGuard](configure-oracle-dataguard.md)
 
-[Självstudier: Konfigurera Oracle GoldenGate](Configure-oracle-golden-gate.md)
+[Självstudie: Konfigurera Oracle GoldenGate](Configure-oracle-golden-gate.md)
 
 Granska [om arkitekturen i en Oracle-databas](oracle-design.md)

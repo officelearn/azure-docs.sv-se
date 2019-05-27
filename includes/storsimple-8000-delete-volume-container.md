@@ -9,11 +9,11 @@ ms.date: 06/08/2018
 ms.author: alkohli
 ms.custom: include file
 ms.openlocfilehash: e683d17422321b780a1c01b3011292f2e2c631cb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60724790"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66156095"
 ---
 Om du vill ta bort en volymbehållare, måste du
  - ta bort volymer i volymbehållaren. Om volymcontainern har tillhörande volymer, koppla från volymerna först. Följ stegen i [koppla från en volym](../articles/storsimple/storsimple-8000-manage-volumes-u2.md#take-a-volume-offline). När volymerna som är offline kan du ta bort dem. 

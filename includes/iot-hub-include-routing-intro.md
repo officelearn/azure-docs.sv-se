@@ -9,11 +9,11 @@ ms.date: 03/05/2019
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 400f12237ae8b8cbaf6d66bda1663ecb680136f3
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630984"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66162562"
 ---
 [Meddelanderoutning](../articles/iot-hub/iot-hub-devguide-messages-d2c.md) kan skicka telemetridata från dina IoT-enheter till den inbyggda Event Hub-kompatibla slutpunkter eller anpassade slutpunkter som blob storage, Service Bus-köer, Service Bus-ämnen och Händelsehubbar. Om du vill konfigurera anpassade meddelanderoutning måste du skapa [routning frågor](../articles/iot-hub/iot-hub-devguide-routing-query-syntax.md) att anpassa den väg som matchar ett visst villkor. Därefter dirigeras inkommande data automatiskt till slutpunkterna av IoT Hub. Om meddelandet inte matchar någon av de definierade routning frågorna, dirigeras den till standardslutpunkt.
 
@@ -36,7 +36,7 @@ I de här självstudierna 2 delar du lära dig hur du konfigurerar och använder
 > * ...i lagringskontot.
 > * ...i Power BI-visualiseringen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * För del 1 av självstudien:
   - Du måste ha en Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.

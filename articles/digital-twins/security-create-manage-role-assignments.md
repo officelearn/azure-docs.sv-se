@@ -10,11 +10,11 @@ ms.date: 12/26/2018
 ms.author: lyrana
 ms.custom: seodec18
 ms.openlocfilehash: 72155799971760e9ddc93746dceafb1ea554d88b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58905315"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66162140"
 ---
 # <a name="create-and-manage-role-assignments-in-azure-digital-twins"></a>Skapa och hantera rolltilldelningar i Azure Digital Twins
 
@@ -44,7 +44,7 @@ Tabellen nedan beskrivs alla attribut:
 | roleId | Identifierare för rollen arbetsflödesdefinition | Ja | String | Unikt ID för den önskade rolltilldelningen. Hitta roll- och deras ID genom att fråga System-API: et eller granskar tabellen nedan. |
 | objekt-ID | Objekt-ID: | Ja | String | ID för Azure Active Directory, service principal objekt-ID eller domännamn. Vad eller vem rolltilldelningen har tilldelats. Rolltilldelningen måste vara formaterad enligt dess associerade typ. För den `DomainName` objectIdType, objectId måste börja med den `“@”` tecken. |
 | objectIdType | Typ av identifierare | Ja | String | Vilken typ av objekt-ID som används. Se **stöds ObjectIdTypes** nedan. |
-| sökväg | Utrymme sökväg | Ja | String | Fullständig åtkomst till sökvägen till den `Space` objekt. Ett exempel är `/{Guid}/{Guid}`. Om en identifierare som behöver rolltilldelningen för hela diagrammet, ange `"/"`. Det här tecknet betecknar roten, men dess användning rekommenderas inte. Alltid följa principen för lägsta behörighet. |
+| path | Utrymme sökväg | Ja | String | Fullständig åtkomst till sökvägen till den `Space` objekt. Ett exempel är `/{Guid}/{Guid}`. Om en identifierare som behöver rolltilldelningen för hela diagrammet, ange `"/"`. Det här tecknet betecknar roten, men dess användning rekommenderas inte. Alltid följa principen för lägsta behörighet. |
 | tenantId | Klient-ID | Varierar | String | I de flesta fall en Azure Active Directory-klient-ID. Tillåts inte för `DeviceId` och `TenantId` ObjectIdTypes. Krävs för `UserId` och `ServicePrincipalId` ObjectIdTypes. Valfritt för DomainName ObjectIdType. |
 
 ### <a name="supported-role-definition-identifiers"></a>Identifierare för definition av roll som stöds

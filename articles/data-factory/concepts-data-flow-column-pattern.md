@@ -1,24 +1,23 @@
 ---
 title: Azure Data Factory mappning datamönster Flow kolumn
-description: Azure Data Factory mappning Flow kolumnen datamönster används för att skapa generaliserad mall mönster för omvandling av fälten i ett dataflöde utan hänsyn till underliggande schemametadata
+description: Lär dig hur du använder Azure Data Factory kolumnen mönster i mappning dataflöde för att skapa generaliserad mall mönster för omvandling av fälten i ett dataflöde utan hänsyn till underliggande schemametadata
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 53d3300ea11a86c34909ba6ce0fd6c8c0c38b4b5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5131329f6675bc86374f5a5c081e0aaa7d36c0fe
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61269716"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66155240"
 ---
-# <a name="azure-data-factory-mapping-data-flow-concepts"></a>Azure Data Factory mappning begrepp för Flow
+# <a name="azure-data-factory-mapping-data-flows-column-patterns"></a>Azure data factory mappningsdata flödar kolumnen mönster
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-Flera Azure Data Factory-dataflöde transformationer stöder uppfattning om ”kolumner mönster” så att du kan skapa mallen kolumner baserat på mönster i stället för hårdkodade kolumnnamn. Du kan använda den här funktionen i Uttrycksverktyget för att definiera mönster för att matcha kolumner för omvandling i stället för att xact, specifika fältnamn. Mönster är användbara när inkommande källfält ändras ofta, särskilt om du ska ändra kolumner i textfiler eller NoSQL-databaser. Detta kallas ibland för ”Schema Drift”.
+Flera Azure Data Factory-dataflöde transformationer stöder uppfattning om ”kolumner mönster” så att du kan skapa mallen kolumner baserat på mönster i stället för hårdkodade kolumnnamn. Du kan använda den här funktionen i Uttrycksverktyget för att definiera mönster för att matcha kolumner för omvandling i stället för att xact, specifika fältnamn. Mönster är användbara om inkommande källfält ändras ofta, särskilt om du ska ändra kolumner i textfiler eller NoSQL-databaser. Det här tillståndet kallas ibland för ”Schema Drift”.
 
 ![kolumnen mönster](media/data-flow/columnpattern2.png "kolumnen mönster")
 

@@ -2,19 +2,18 @@
 title: ta med fil
 description: ta med fil
 services: virtual-machines
-author: rockboyfor
+author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-origin.date: 03/09/2018
-ms.date: 04/16/2018
-ms.author: v-yeche
+ms.date: 03/09/2018
+ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: be71b269e618d13a126e4005754b307e9c6517d7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60543721"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66160055"
 ---
 ## <a name="azure-backup"></a>Azure Backup
 
@@ -23,6 +22,7 @@ Använda Azure Backup för att säkerhetskopiera virtuella Azure-datorer som kö
 En enkel, praktisk introduktion till Azure Backup för virtuella Azure-datorer, finns i ”Säkerhetskopiera Azure virtual machines”-självstudiekurs för [Linux](../articles/virtual-machines/linux/tutorial-backup-vms.md) eller [Windows](../articles/virtual-machines/windows/tutorial-backup-vms.md).
 
 Mer information om hur Azure Backup fungerar finns i [planera din infrastruktur för VM-säkerhetskopiering i Azure](../articles/backup/backup-azure-vms-introduction.md)
+
 
 ## <a name="azure-site-recovery"></a>Azure Site Recovery
 
@@ -40,6 +40,8 @@ Mer information om hur du skapar ögonblicksbilder finns:
 
 * [Skapa kopia av en virtuell hårddisk som lagras som en hanterad disk med hjälp av ögonblicksbilder i Windows](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
 * [Skapa kopia av en virtuell hårddisk som lagras som en hanterad disk med hjälp av ögonblicksbilder i Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
+
+
 
 ## <a name="next-steps"></a>Nästa steg
 Du kan prova att använda Azure Backup genom att följa ”säkerhetskopiering av Windows-datorer självstudien” i [Linux](../articles/virtual-machines/linux/tutorial-backup-vms.md) eller [Windows](../articles/virtual-machines/windows/tutorial-backup-vms.md).

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 04/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7b479556543c6a9dff88643fdc587dec3f832f39
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 98f7dc2e295c0c994db9a0189814b0ef2a19b758
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60818498"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66153603"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>Träna modeller med Azure Machine Learning med hjälp av kostnadsuppskattning
 
@@ -26,7 +26,7 @@ För att underlätta deep learning modellträning, Azure Machine Learning Python
 
 ## <a name="train-with-an-estimator"></a>Träna med en kostnadsuppskattning
 
-När du har skapat din [arbetsytan](concept-azure-machine-learning-architecture.md#workspace) och Ställ in din [utvecklingsmiljö](how-to-configure-environment.md), träna en modell i Azure Machine Learning omfattar följande steg:  
+När du har skapat din [arbetsytan](concept-workspace.md) och Ställ in din [utvecklingsmiljö](how-to-configure-environment.md), träna en modell i Azure Machine Learning omfattar följande steg:  
 1. Skapa en [remote beräkningsmål](how-to-set-up-training-targets.md) (Observera att du kan också använda lokal dator som beräkningsmål)
 2. Ladda upp din [träningsdata](how-to-access-data.md) till datalagret (valfritt)
 3. Skapa din [inlärningsskript](tutorial-train-models-with-aml.md#create-a-training-script)
@@ -119,6 +119,10 @@ Slutligen skicka utbildningsjobbet:
 run = experiment.submit(estimator)
 print(run.get_portal_url())
 ```
+
+## <a name="github-tracking-and-integration"></a>GitHub-spårning och integration
+
+När du startar en utbildning som kör där källkatalogen är en lokal Git-lagringsplats, lagras information om databasen i körningshistoriken. Till exempel loggas aktuellt genomförande-ID för lagringsplatsen som en del av historiken.
 
 ## <a name="examples"></a>Exempel
 En bärbar dator som visar grunderna i mönstret för kostnadsuppskattning, finns här:

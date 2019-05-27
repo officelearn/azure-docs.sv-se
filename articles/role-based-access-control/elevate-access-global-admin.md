@@ -16,11 +16,11 @@ ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: ede7037aabc85739ee47636f1390c15e0b0d1639
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58106329"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66158368"
 ---
 # <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>Utöka behörighet för att hantera alla Azure-prenumerationer och hanteringsgrupper
 
@@ -120,7 +120,7 @@ Ta bort en administratör för användaråtkomst rolltilldelning för en använd
       -RoleDefinitionName "User Access Administrator" -Scope "/"
     ```
 
-## <a name="rest-api"></a>REST-API
+## <a name="rest-api"></a>REST API
 
 ### <a name="elevate-access-for-a-global-administrator"></a>Utöka behörighet för Global administratör
 

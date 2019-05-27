@@ -2,21 +2,20 @@
 title: Resursklasser för hantering av arbetsbelastning – Azure SQL Data Warehouse | Microsoft Docs
 description: Riktlinjer för att hantera samtidighet och beräkningsresurser för frågor i Azure SQL Data Warehouse med resursklasser.
 services: sql-data-warehouse
-author: WenJason
-manager: digimobile
+author: ronortloff
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload management
-origin.date: 03/15/2019
-ms.date: 04/22/2019
-ms.author: v-jay
+ms.date: 05/22/2019
+ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5ad8dad35013a28696e7c9cb5cc68464f3c4bf64
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 75bd6e8071717ba755b71f51afcd884539049489
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61475090"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66165989"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>Hantering av arbetsbelastning med resursklasser i Azure SQL Data Warehouse
 
@@ -80,18 +79,19 @@ De dynamiska resursklasser implementeras med dessa fördefinierade databasroller
 
 När gräva i detaljerna för dynamiska resursklasser på Gen1, finns det några uppgifter som lägger till ytterligare komplexitet att förstå deras beteende:
 
-- Klassen smallrc resurser fungerar med en fast minnesmodell som en statisk resursklass.  Smallrc frågor får inte mer minne som servicenivån ökas dynamiskt.
+**På Gen1**
+- Klassen smallrc resurser fungerar med en fast minnesmodell som en statisk resursklass.  Smallrc frågor får inte mer minne som servicenivån ökas dynamiskt. 
 - När servicenivåer ändrar, kan tillgängliga fråga samtidighet gå upp eller ned.
-- Skala tjänster nivåer ger inte en proportionell ändring det minne som allokerats till samma resursklasser.
+- Skala servicenivåer ger inte en proportionell ändring av det minne som allokerats till samma resursklasser.
 
-På **Gen2 endast**, dynamiska resursklasser är verkligen dynamiska adresser punkter som nämns ovan.  Den nya regeln är 3-10-22 – 70 för minnesallokeringar i procent för små-medium-stora-xlarge resursklasser **oavsett servicenivå**.  I tabellen nedan har samlad information om procenttal för allokering av minne och det minsta antalet samtidiga förfrågningar som körs, oavsett servicenivån.
+**På Gen2**, dynamiska resursklasser är verkligen dynamiska adresser punkter som nämns ovan.  Den nya regeln är 3-10-22 – 70 för minnesallokeringar i procent för små-medium-stora-xlarge resursklasser **oavsett servicenivå**.  I tabellen nedan har samlad information om procenttal för allokering av minne och det minsta antalet samtidiga förfrågningar som körs, oavsett servicenivån.
 
 | Resursklass | Procentandelen minne | Min samtidiga frågor |
 |:--------------:|:-----------------:|:----------------------:|
 | smallrc        | 3%                | 32                     |
 | mediumrc       | 10 %               | 10                     |
 | largerc        | 22%               | 4                      |
-| xlargerc       | 70 %               | 1                      |
+| xlargerc       | 70%               | 1                      |
 
 ### <a name="default-resource-class"></a>Standard resursklass
 
@@ -116,7 +116,7 @@ De här åtgärderna regleras av resursklasser:
 - Välj (vid frågor till användartabeller)
 - ALTER INDEX - ÅTERSKAPNING eller REORGANIZE
 - ALTER TABLE REBUILD
-- SKAPA INDEX
+- CREATE INDEX
 - SKAPA KLUSTRADE COLUMNSTORE-INDEX
 - SKAPA TABLE AS SELECT (CTAS)
 - Läsa in data
@@ -134,7 +134,7 @@ Följande instruktioner är undantagna från resursklasser och körs alltid i sm
 - Skapa eller ta bort tabell
 - ALTER TABLE... VÄXEL, dela och slå samman partitionen
 - ALTER INDEX INAKTIVERA
-- TA BORT INDEXET
+- DROP INDEX
 - Skapa, uppdatera eller DROP STATISTICS
 - TRUNKERA TABELLEN
 - ALTER AUTHORIZATION
@@ -942,7 +942,6 @@ Mer information om hur du hanterar databasanvändare och säkerhet finns i [skyd
 [Secure a database in SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
 
 <!--MSDN references-->
-[Managing Databases and Logins in Azure SQL Database]:../sql-database/sql-database-manage-logins.md
+[Managing Databases and Logins in Azure SQL Database]:https://msdn.microsoft.com/library/azure/ee336235.aspx
 
 <!--Other Web references-->
-<!-- Update_Description: update link, wording update-->

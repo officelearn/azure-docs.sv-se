@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 19d2dedc2ccf7015696504a94f5ef7c43a90d3be
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58125208"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66171155"
 ---
 #### <a name="to-download-hotfixes"></a>Ladda ned snabbkorrigerar
 
@@ -93,7 +93,7 @@ Utför följande steg för att installera och verifiera snabbkorrigeringar i nor
     > [!NOTE]
     > I vissa fall rapporterar cmdlet `False` när uppdateringen fortfarande pågår. Om du vill kontrollera att snabbkorrigeringen har slutförts väntar du några minuter och sedan kör du det här kommandot igen och kontrollerar att `RunInProgress` är `False`. Om det har det har snabbkorrigeringen slutförts.
 
-7. När programuppdateringen har slutförts kan du kontrollera systemprogramversionerna. Ange:
+7. När programuppdateringen har slutförts kan du kontrollera systemprogramversionerna. Typ:
    
     `Get-HcsSystem`
    
@@ -175,7 +175,7 @@ Följ anvisningarna nedan om du vill installera uppdateringarna för den inbyggd
         [Y] Yes [N] No (Default is "Y"): Y
         WARNING: Installation is currently in progress. This operation can take several minutes to complete.
 3. Övervaka installationsförloppet med `Get-HcsUpdateStatus`-kommandot. Uppdateringen är slutförd när `RunInProgress` ändras till `False`.
-4. När installationen är färdig startas styrenheten som snabbkorrigeringen i underhållsläge installerades på om. Logga i alternativ 1, **logga in med fullständig åtkomst**, och kontrollera versionen för inbyggd programvara för disk. Ange:
+4. När installationen är färdig startas styrenheten som snabbkorrigeringen i underhållsläge installerades på om. Logga i alternativ 1, **logga in med fullständig åtkomst**, och kontrollera versionen för inbyggd programvara för disk. Typ:
    
    `Get-HcsFirmwareVersion`
    

@@ -10,11 +10,11 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/22/2017
 ms.openlocfilehash: 555083235aff08476e82f0daa81203b66591f3cc
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245957"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66167333"
 ---
 # <a name="secure-calls-to-custom-apis-from-azure-logic-apps"></a>Säkra anrop till anpassade API: er från Azure Logic Apps
 
@@ -188,12 +188,12 @@ Den tidigare mallen har redan det här avsnittet för auktorisering som ställer
 
 `{"tenant": "{tenant-ID}", "audience": "{client-ID-from-Part-2-web-app-or-API app}", "clientId": "{client-ID-from-Part-1-logic-app}", "secret": "{key-from-Part-1-logic-app}", "type": "ActiveDirectoryOAuth" }`
 
-| Element | Krävs | Beskrivning | 
+| Element | Obligatoriskt | Beskrivning | 
 | ------- | -------- | ----------- | 
-| klient | Ja | GUID för Azure AD-klient | 
+| tenant | Ja | GUID för Azure AD-klient | 
 | Målgrupp | Ja | GUID för vilken resurs som du vill komma åt, vilket är klient-ID från programidentitet för din webbapp eller API-app | 
-| ClientId | Ja | GUID för klienten som begärde åtkomst, vilket är klient-ID från programidentitet för din logikapp | 
-| hemlighet | Ja | Nyckeln eller lösenordet från programidentitet för den klient som begär åtkomst-token | 
+| clientId | Ja | GUID för klienten som begärde åtkomst, vilket är klient-ID från programidentitet för din logikapp | 
+| hemlig | Ja | Nyckeln eller lösenordet från programidentitet för den klient som begär åtkomst-token | 
 | typ | Ja | Autentiseringstypen. Värdet är för ActiveDirectoryOAuth autentisering, `ActiveDirectoryOAuth`. | 
 |||| 
 
@@ -234,10 +234,10 @@ I den **auktorisering** avsnittet, innehåller den här raden:
 
 `{"type": "clientcertificate", "password": "password", "pfx": "long-pfx-key"}`
 
-| Element | Krävs | Beskrivning | 
+| Element | Obligatoriskt | Beskrivning | 
 | ------- | -------- | ----------- | 
 | typ | Ja | Autentiseringstypen. För SSL-klientcertifikat, värdet måste vara `ClientCertificate`. | 
-| lösenord | Ja | Lösenord för att komma åt klientcertifikatet (PFX-fil) | 
+| password | Ja | Lösenord för att komma åt klientcertifikatet (PFX-fil) | 
 | pfx | Ja | Base64-kodad innehållet i klientcertifikatet (PFX-fil) | 
 |||| 
 
@@ -254,8 +254,8 @@ I den **auktorisering** avsnittet, innehåller den här raden:
 | Element | Krävs | Beskrivning | 
 | ------- | -------- | ----------- | 
 | typ | Ja | Den autentiseringstyp som du vill använda. För grundläggande autentisering, värdet måste vara `Basic`. | 
-| användarnamn | Ja | Det användarnamn som du vill använda för autentisering | 
-| lösenord | Ja | Det lösenord som du vill använda för autentisering | 
+| username | Ja | Det användarnamn som du vill använda för autentisering | 
+| password | Ja | Det lösenord som du vill använda för autentisering | 
 |||| 
 
 <a name="azure-ad-code"></a>

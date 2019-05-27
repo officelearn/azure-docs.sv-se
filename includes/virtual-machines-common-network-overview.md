@@ -9,17 +9,17 @@ ms.date: 11/01/2018
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 8b77dceb8f5dd8def2fda493104892b13a95bccc
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58505773"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66154804"
 ---
 När du skapar en virtuell Azure-dator (VM) måste du skapa ett [virtuellt nätverk](../articles/virtual-network/virtual-networks-overview.md) (VNet) eller använda ett befintligt VNet. Du måste också bestämma hur dina virtuella datorer är avsedda att användas på VNet. Det är viktigt att [planera innan du skapar resurser](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) och att säkerställa att du förstår [begränsningarna för nätverksresurser](../articles/azure-subscription-service-limits.md#networking-limits).
 
 I följande bild visas virtuella datorer som webb- och databasservrar. Varje uppsättning virtuella datorer är tilldelade separata undernät i VNet.
 
-![Azure-virtuellt nätverk](./media/virtual-machines-common-network-overview/vnetoverview.png)
+![Virtuellt Azure-nätverk](./media/virtual-machines-common-network-overview/vnetoverview.png)
 
 Du kan skapa ett virtuellt nätverk innan du skapar en virtuell dator eller så kan du när du skapar en virtuell dator. Du skapar dessa resurser för att stödja kommunikation med en virtuell dator:
 

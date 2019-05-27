@@ -10,11 +10,11 @@ ms.date: 03/25/2018
 ms.author: robinsh
 ms.custom: mvc
 ms.openlocfilehash: 1417ecdaf6a85f491e1accfb9564e27d15e13445
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59045841"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66162870"
 ---
 # <a name="tutorial-part-2---view-the-routed-messages"></a>Självstudier: Del 2 – Visa routade meddelanden
 
@@ -26,7 +26,7 @@ ms.locfileid: "59045841"
 
 Detta är regler för meddelanderoutning; Dessa är inställda i del 1 i den här självstudien och du ser dem att fungera i den andra delen.
 
-|värde |Resultat|
+|value |Resultat|
 |------|------|
 |level="storage" |Skriv till Azure Storage.|
 |level="critical" |Skriv till en Service Bus-kö. En logikapp hämtar meddelandet från kön och använder Office 365 för att skicka meddelandet via e-post.|

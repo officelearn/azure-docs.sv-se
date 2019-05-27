@@ -9,11 +9,11 @@ ms.date: 04/04/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 9a5e2e7e735404efad75d6dd318e965ebbefe73c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60407742"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66170180"
 ---
 1. Gå till **DNS-servrar** på det virtuella nätverkets sida **Inställningar** och öppna sidan **DNS-servrar** genom att klicka.
 

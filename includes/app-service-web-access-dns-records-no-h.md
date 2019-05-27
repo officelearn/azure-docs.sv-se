@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/03/2016
 ms.author: cephalin
 ms.openlocfilehash: d001d76bca5b9a0837349b6e05b3b0a271ea3a73
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65920096"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66136331"
 ---
 > [!NOTE]
 > Du kan använda Azure DNS för att konfigurera ett anpassat DNS-namn för Azure Web Apps. Mer information finns i [Använda Azure DNS för att skapa inställningar för anpassad domän för en Azure-tjänst](../articles/dns/dns-custom-domain.md#app-service-web-apps).

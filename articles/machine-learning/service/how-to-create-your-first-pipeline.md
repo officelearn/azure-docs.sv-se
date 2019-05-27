@@ -1,7 +1,7 @@
 ---
 title: Skapa, köra och spåra ML pipelines
 titleSuffix: Azure Machine Learning service
-description: Skapa och kör en machine learning-pipeline med Azure Machine Learning-SDK för Python. Du kan använda pipelines för att skapa och hantera arbetsflöden som sadelhäftning tillsammans maskininlärning (ML) faser. Här ingår dataförberedelser, modellinlärning, distribution av modeller och inferensjobb.
+description: Skapa och kör en machine learning-pipeline med Azure Machine Learning-SDK för Python. Du kan använda pipelines för att skapa och hantera arbetsflöden som sadelhäftning tillsammans maskininlärning (ML) faser. Här ingår förberedelse av data, träning, distribution av modeller och inferens/bedömning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3ec3e915c26abf38653d1bddfe0a5ba44d5e6de1
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 15fa9095b8169dc1545c796421be91e89652e1c1
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64914897"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66165866"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Skapa och köra en machine learning-pipeline med hjälp av Azure Machine Learning-SDK
 
@@ -251,6 +251,8 @@ trainStep = PythonScriptStep(
 )
 ```
 
+Återanvändning av tidigare resultat (`allow_reuse`) är nyckeln när du använder pipelines i en samarbetsmiljö eftersom eliminera onödiga omkörningar erbjuder en smidighet. Detta är standardbeteendet när script_name indata och parametrarna för ett steg är desamma. När utdata från steget återanvänds jobbet skickas inte till beräkningarna, i stället resultaten från den tidigare körningen är omedelbart tillgängliga för körning av nästa steg. Om inställt på false, ett nytt Kör alltid genereras för det här steget under pipeline-åtgärd. 
+
 När du har definierat dina steg skapar du pipelinen med hjälp av en eller flera av de här stegen.
 
 > [!NOTE]
@@ -315,6 +317,10 @@ Första gången du kör en pipeline, Azure Machine Learning:
 
 Mer information finns i den [experimentera klass](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) referens.
 
+## <a name="github-tracking-and-integration"></a>GitHub-spårning och integration
+
+När du startar en utbildning som kör där källkatalogen är en lokal Git-lagringsplats, lagras information om databasen i körningshistoriken. Till exempel loggas aktuellt genomförande-ID för lagringsplatsen som en del av historiken.
+
 ## <a name="publish-a-pipeline"></a>Publicera en pipeline
 
 Du kan publicera en pipeline kan köras med olika indata senare. För REST-slutpunkt för ett redan publicerat pipeline att acceptera parametrar måste du Parameterisera pipelinen innan du publicerar. 
@@ -373,11 +379,11 @@ Se en lista över alla dina pipelines och deras körningsinformation:
 ## <a name="caching--reuse"></a>Cachelagring & återanvändning  
 
 Du kan göra några saker runt cachelagring för att optimera och anpassa beteendet hos dina pipelines och återanvända. Du kan till exempel välja att:
-+ **Inaktivera standard återanvändning av steget Kör utdata** genom att ange `allow_reuse=False` under [steg definition](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py)
++ **Inaktivera standard återanvändning av steget Kör utdata** genom att ange `allow_reuse=False` under [steg definition](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py). Återanvändning är nyckeln när du använder pipelines i en samarbetsmiljö eftersom eliminera onödiga körningar erbjuder en smidighet. Du kan dock välja bort detta.
 + **Utöka hashing utöver skriptet**att också inkludera en absolut sökväg eller relativa sökvägar till källkatalog till andra filer och kataloger med hjälp av den `hash_paths=['<file or directory']` 
 + **Tvinga utdata återskapas för alla steg i en körning** med `pipeline_run = exp.submit(pipeline, regenerate_outputs=False)`
 
-Steg att återanvända är aktiverat som standard, och den huvudsakliga skriptfilen hashas. Om skriptet för ett visst steg förblir densamma (`script_name`, in- och parametrarna), utdata från föregående steg kör återanvänds, jobbet skickas inte till beräkningarna och resultatet från den tidigare körningen är omedelbart tillgängliga för nästa steg i stället .  
+Som standard `allow-reuse` för stegen är aktiverat och den huvudsakliga skriptfilen hashas. Om skriptet för ett visst steg förblir densamma (`script_name`, in- och parametrarna), utdata från föregående steg kör återanvänds, jobbet skickas inte till beräkningarna och resultatet från den tidigare körningen är omedelbart tillgängliga för nästa steg i stället .  
 
 ```python
 step = PythonScriptStep(name="Hello World", 

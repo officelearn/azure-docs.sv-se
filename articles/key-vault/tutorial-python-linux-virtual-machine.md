@@ -2,19 +2,19 @@
 title: Självstudie – Använda en virtuell Linux-dator och ett Python-program för att lagra hemligheter i Azure Key Vault | Microsoft Docs
 description: I den här självstudien lär du dig att konfigurera ett Python-program till att läsa en hemlighet från Azure Key Vault.
 services: key-vault
-author: mbaldwin
+author: msmbaldwin
 manager: rajvijan
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: a5923c3d5ea7888a3737d7976caded8eef9c1661
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e5fbb4e6f6599d8f9560561fc219dbf57ac0cee1
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64702109"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "66147763"
 ---
 # <a name="tutorial-use-a-linux-vm-and-a-python-app-to-store-secrets-in-azure-key-vault"></a>Självstudier: Använda en virtuell Linux-dator och en Python-app för att lagra hemligheter i Azure Key Vault
 
@@ -50,7 +50,7 @@ När du aktiverar MSI för en Azure-tjänst som Virtual Machines, App Service el
 
 Koden anropar sedan en lokal metadatatjänst som är tillgänglig på Azure-resursen för att hämta en åtkomsttoken. Koden använder den åtkomsttoken som den får från den lokala MSI-slutpunkt för att autentisera till en Azure Key Vault-tjänst.
 
-## <a name="sign-in-to-azure"></a>Logga in på Azure
+## <a name="sign-in-to-azure"></a>Logga in till Azure
 
 Om du vill logga in i Azure med hjälp av Azure CLI anger du:
 

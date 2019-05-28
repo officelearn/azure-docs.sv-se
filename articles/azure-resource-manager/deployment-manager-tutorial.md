@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 04/02/2019
+ms.date: 05/23/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: a4f14a1e68042704ca8e8c49f1bd76b722c90d4d
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: aa58d0405176a63ff9d1cc25b572f3f3754dbbdc
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466307"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66238856"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>Självstudier: Använda Distributionshanteraren för Azure med Resource Manager-mallar (offentlig förhandsversion)
 
@@ -55,7 +55,6 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 För att kunna följa stegen i den här artikeln behöver du:
 
 * Viss erfarenhet av att utveckla [Azure Resource Manager-mallar](./resource-group-overview.md).
-* Distributionshanteraren i Azure finns i en privat förhandsgranskning. Om du vill registrera dig med Azure Deployment Manager fyller du i [registreringsbladet](https://aka.ms/admsignup). 
 * Azure PowerShell. Mer information finns i [Kom igång med Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 * Deployment Manager-cmdlets. För att installera dessa cmdlets i förhandsversionen behöver du den senaste versionen av PowerShellGet. Information om hur du skaffar den senaste versionen finns i [Installera PowerShellGet](/powershell/gallery/installing-psget). Stäng PowerShell-fönstret när du har installerat PowerShellGet. Öppna ett nytt upphöjt PowerShell-fönster och använd följande kommando:
 
@@ -106,18 +105,18 @@ Mappen ArtifactStore från nedladdningen innehåller två mappar:
 
 De två versionerna (1.0.0.0 och 1.0.0.1) är avsedda för [ändringsdistributionen](#deploy-the-revision). Även om både mallartefakterna och de binära artefakterna har två versioner, skiljer sig endast de binära artefakterna åt i de två versionerna. I praktiken uppdateras binära artefakter oftare jämfört med mallartefakter.
 
-1. Öppna **\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateStorageAccount.json** i ett redigeringsprogram. Det är en enkel mall för att skapa ett lagringskonto.  
-2. Öppna **\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateWebApplication.json**. 
+1. Öppna **\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateStorageAccount.json** i ett redigeringsprogram. Det är en enkel mall för att skapa ett lagringskonto.
+2. Öppna **\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateWebApplication.json**.
 
     ![Azure Deployment Manager-självstudie om att skapa en webbprogrammall](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-create-web-application-packageuri.png)
 
     Mallen anropar ett distributionspaket, som innehåller filerna för webbprogrammet. I de här självstudierna innehåller det komprimerade paketet endast en index.html-fil.
-3. Öppna **\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateWebApplicationParameters.json**. 
+3. Öppna **\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateWebApplicationParameters.json**.
 
     ![Azure Deployment Manager-självstudie om att skapa containerRoot och parametrar för en webbprogrammall](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-create-web-application-parameters-deploypackageuri.png)
 
     Värdet för deployPackageUri är sökvägen till distributionspaketet. Parametern innehåller en **$containerRoot**-variabel. Värdet för $containerRoot anges i [distributionsmallen](#create-the-rollout-template) genom att artefaktkällans SAS-plats, artefaktrot och deployPackageUri sammanfogas.
-4. Öppna **\ArtifactStore\binaries\1.0.0.0\helloWorldWebAppWUS.zip\index.html**.  
+4. Öppna **\ArtifactStore\binaries\1.0.0.0\helloWorldWebAppWUS.zip\index.html**.
 
     ```html
     <html>
@@ -257,7 +256,7 @@ Följande skärmbild visar definitionen av wait-steget:
 
 ![Azure Deployment Manager-självstudie om wait-steget i resurserna för distributionsmallen](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-rollout-template-resources-wait-step.png)
 
-För varaktigheten används [ISO 8601-standarden](https://en.wikipedia.org/wiki/ISO_8601#Durations). **PT1M** (versaler krävs) är ett exempel på en 1-minuters väntan. 
+För varaktigheten används [ISO 8601-standarden](https://en.wikipedia.org/wiki/ISO_8601#Durations). **PT1M** (versaler krävs) är ett exempel på en 1-minuters väntan.
 
 I följande skärmbild visas endast vissa delar av distributionsdefinitionen:
 
@@ -278,7 +277,7 @@ Du skapar en parameterfil som används med distributionsmallen.
 2. Fyll parametervärdena:
 
     * **namePrefix**: Ange en sträng med 4–5 tecken. Det här prefixet används för att skapa unika Azure-resursnamn.
-    * **azureResourceLocation**: För närvarande kan Azure Deployment Manager-resurser endast skapas i regionen USA, centrala eller **USA, östra 2**.
+    * **azureResourceLocation**: För närvarande kan Azure Deployment Manager-resurser endast skapas i regionen **USA, centrala** eller **USA, östra 2**.
     * **artifactSourceSASLocation**: Ange SAS-URI till den rotkatalog (blobcontainern) där filerna för tjänstenhetsmall och parametrar lagras för distribution.  Se [Förbereda artefakterna](#prepare-the-artifacts).
     * **binaryArtifactRoot**: Såvida du inte ändrar mappstrukturen för artefakterna använder du **binaries/1.0.0.0** i den här självstudien.
     * **managedIdentityID**: Ange den användartilldelade hanterade identiteten. Se [Skapa den användartilldelade hanterade identiteten](#create-the-user-assigned-managed-identity). Syntax:
@@ -292,13 +291,13 @@ Du skapar en parameterfil som används med distributionsmallen.
 
 ## <a name="deploy-the-templates"></a>Distribuera mallarna
 
-Azure PowerShell kan användas för att distribuera mallarna. 
+Azure PowerShell kan användas för att distribuera mallarna.
 
 1. Kör skriptet för att distribuera tjänsttopologin.
 
     ```azurepowershell
     $resourceGroupName = "<Enter a Resource Group Name>"
-    $location = "Central US"  
+    $location = "Central US"
     $filePath = "<Enter the File Path to the Downloaded Tutorial Files>"
 
     # Create a resource group
@@ -429,7 +428,7 @@ När Azure-resurserna inte längre behövs rensar du de resurser som du har dist
     * **&lt;namePrefix>ServiceWUSrg**: Innehåller resurserna som definieras av ServiceWUS.
     * **&lt;namePrefix>ServiceEUSrg**: Innehåller resurserna som definieras av ServiceEUS.
     * Resursgruppen för den användardefinierade hanterade identiteten.
-3. Välj resursgruppens namn.  
+3. Välj resursgruppens namn.
 4. Välj **Ta bort resursgrupp** från menyn längst upp.
 5. Upprepa de två sista stegen för att ta bort andra resursgrupper som skapats av den här självstudien.
 

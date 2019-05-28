@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 04/19/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 28ba4397ca5a5fd3c281555238fc7eec8a82943d
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: f712cc34a3d41ea9472bf9428606cb378eef8c18
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65413676"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244265"
 ---
 # <a name="tutorial-use-feature-flags-in-a-net-core-app"></a>Självstudier: Använda funktionsflaggor i en .NET Core-app
 
@@ -66,7 +66,7 @@ public class Startup
 }
 ```
 
-Om du använder filter i funktionen flaggor, måste du inkludera ett ytterligare bibliotek och registrera den. I följande exempel visas hur du använder ett filter för inbyggd funktion som kallas **PercentageFilter ”**.
+Om du använder filter i funktionen flaggor, måste du inkludera ett ytterligare bibliotek och registrera den. I följande exempel visas hur du använder ett filter för inbyggd funktion som kallas **PercentageFilter ”** .
 
 ```csharp
 using Microsoft.FeatureManagement;
@@ -262,6 +262,6 @@ app.UseForFeature(featureName, appBuilder => {
 
 I den här självstudien beskrivs hur du implementerar funktionen flaggor i ASP.NET Core-program genom att använda den `Microsoft.FeatureManagement` bibliotek. Se följande resurser för mer information på funktionsstöd för hantering i ASP.NET Core och konfiguration.
 
-* [ASP.NET Core funktionsflagga exempelkoden]()
-* [Microsoft.FeatureManagement dokumentation]()
+* [ASP.NET Core funktionsflagga exempelkoden](/azure/azure-app-configuration/quickstart-feature-flag-aspnet-core)
+* [Microsoft.FeatureManagement dokumentation](https://docs.microsoft.com/dotnet/api/microsoft.featuremanagement)
 * [Hantera funktionsflaggor](./manage-feature-flags.md)

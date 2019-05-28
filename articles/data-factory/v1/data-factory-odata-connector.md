@@ -66,7 +66,7 @@ Följande tabell innehåller en beskrivning för JSON-element som är specifika 
 | type |Type-egenskapen måste anges till: **OData** |Ja |
 | url |URL för OData-tjänsten. |Ja |
 | authenticationType |Typ av autentisering som används för att ansluta till OData-källan. <br/><br/> För molnet OData är möjliga värden anonym, grundläggande och OAuth (Observera att Azure Data Factory för närvarande endast stöder Azure Active Directory-baserad OAuth). <br/><br/> För den lokala OData är möjliga värden anonym, grundläggande och Windows. |Ja |
-| användarnamn |Ange användarnamnet om du använder grundläggande autentisering. |Ja (endast om du använder grundläggande autentisering) |
+| username |Ange användarnamnet om du använder grundläggande autentisering. |Ja (endast om du använder grundläggande autentisering) |
 | password |Ange lösenord för det användarkonto som du angav för användarnamnet. |Ja (endast om du använder grundläggande autentisering) |
 | authorizedCredential |Om du använder OAuth, klickar du på **auktorisera** i Data Factory-Kopieringsguide eller redigerare och ange dina autentiseringsuppgifter och sedan värdet för den här egenskapen kommer att genereras automatiskt. |Ja (endast om du använder OAuth-autentisering) |
 | gatewayName |Namnet på den gateway som Data Factory-tjänsten ska använda för att ansluta till OData-tjänst på plats. Ange endast om du kopierar data från lokala OData-källan. |Nej |
@@ -159,7 +159,7 @@ När källan är av typen **RelationalSource** (som innehåller OData) följande
 
 | Egenskap  | Beskrivning | Exempel | Krävs |
 | --- | --- | --- | --- |
-| DocumentDB |Använd anpassad fråga för att läsa data. |”? $select = namn, beskrivning och $top = 5” |Nej |
+| query |Använd anpassad fråga för att läsa data. |”? $select = namn, beskrivning och $top = 5” |Nej |
 
 ## <a name="type-mapping-for-odata"></a>Mappning för OData
 Som vi nämnde i den [dataförflyttningsaktiviteter](data-factory-data-movement-activities.md) artikeln kopieringsaktiviteten utför automatisk konverteringar från typer av datakällor till mottagare typer med följande metod i två steg.

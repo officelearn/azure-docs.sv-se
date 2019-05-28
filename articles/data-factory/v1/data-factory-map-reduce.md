@@ -184,12 +184,12 @@ Pipelinen i det här exemplet har en aktivitet som är av typen: HDInsightMapRed
 
 | Egenskap  | Anteckningar |
 |:--- |:--- |
-| typ |Typen måste vara inställt på **HDInsightMapReduce**. |
-| Klassnamn |Namnet på klassen är: **wordcount** |
+| type |Typen måste vara inställt på **HDInsightMapReduce**. |
+| className |Namnet på klassen är: **wordcount** |
 | jarFilePath |Sökväg till jar-filen som innehåller klassen. Om du kopiera och klistra in följande kod, Glöm inte att ändra namnet på klustret. |
 | jarLinkedService |Länkad Azure Storage-tjänst som innehåller jar-filen. Den här länkade tjänsten refererar till den lagring som är kopplade till HDInsight-klustret. |
 | argument |Wordcount-programmet tar två argument, indata och utdata. Indatafilen är davinci.txt-fil. |
-| frekvens/intervall |Värdena för dessa egenskaper matchar datauppsättningen för utdata. |
+| frequency/interval |Värdena för dessa egenskaper matchar datauppsättningen för utdata. |
 | linkedServiceName |refererar till den länkade HDInsight-tjänst som du skapade tidigare. |
 
 ```JSON

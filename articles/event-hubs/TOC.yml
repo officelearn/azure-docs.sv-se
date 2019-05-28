@@ -51,8 +51,6 @@
           href: event-hubs-capture-python.md
     - name: Strömma till Event Hubs för Apache Kafka
       href: event-hubs-quickstart-kafka-enabled-event-hubs.md
-    - name: Skapa ett dedikerat Event Hubs-kluster
-      href: event-hubs-dedicated-cluster-create-portal.md
 - name: Självstudier
   items:
     - name: Visualisera dataavvikelser på Event Hubs-dataströmmar
@@ -86,14 +84,18 @@
       href: event-hubs-event-processor-host.md
     - name: Programmeringsguide
       href: event-hubs-programming-guide.md
-    - name: Hanterad identitet för Azure-resurser
-      href: event-hubs-managed-service-identity.md
-    - name: Rollbaserad åtkomstkontroll (förhandsgranskning)
-      href: event-hubs-role-based-access-control.md
-    - name: Geo-haveriberedskap och geo-replikering
-      href: event-hubs-geo-dr.md
-    - name: Översikt över autentisering och säkerhetsmodell
-      href: event-hubs-authentication-and-security-model-overview.md
+    - name: Säkerhet
+      items:
+        - name: Hanterad identitet för Azure-resurser
+          href: event-hubs-managed-service-identity.md
+        - name: Rollbaserad åtkomstkontroll (förhandsgranskning)
+          href: event-hubs-role-based-access-control.md
+        - name: Geo-haveriberedskap och geo-replikering
+          href: event-hubs-geo-dr.md
+        - name: Översikt över autentisering och säkerhetsmodell
+          href: event-hubs-authentication-and-security-model-overview.md
+        - name: Säkerhetsattribut
+          href: event-hubs-security-attributes.md
     - name: Tillgänglighet och konsekvens
       href: event-hubs-availability-and-consistency.md
     - name: AMQP 1.0-protokollguide

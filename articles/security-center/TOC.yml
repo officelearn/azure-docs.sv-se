@@ -6,6 +6,8 @@
       href: security-center-intro.md
     - name: Plattformar och funktioner som stöds av Security Center
       href: security-center-os-coverage.md
+    - name: Utvärdering av slutpunktsskydd och rekommendationer
+      href: security-center-endpoint-protection.md
 - name: Snabbstarter
   expanded: true
   items:

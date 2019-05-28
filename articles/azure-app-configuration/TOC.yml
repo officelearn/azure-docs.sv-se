@@ -59,11 +59,13 @@
   items:
     - name: Konfiguration
       items:
-        - name: Konfigurationsprovider för .NET Core
+        - name: Azure CLI
+          href: 'https://docs.microsoft.com/cli/azure/ext/appconfig/appconfig?view=azure-cli-latest'
+        - name: .NET Core-provider
           href: 'https://go.microsoft.com/fwlink/?linkid=2074664'
-        - name: Konfigurationsbyggare för .NET Framework
+        - name: .NET Framework-verktyg
           href: 'https://go.microsoft.com/fwlink/?linkid=2074663'
-        - name: Konfigurationsprovider för Java Spring
+        - name: Java Spring-provider
           href: 'https://github.com/Microsoft/spring-cloud-azure/tree/azure-config/spring-cloud-azure-starters/spring-cloud-starter-azure-config'
         - name: Azure SDK för .NET
           href: 'https://go.microsoft.com/fwlink/?linkid=2092056'
@@ -79,7 +81,11 @@
           href: 'https://go.microsoft.com/fwlink/?linkid=2091601'
 - name: Resurser
   items:
-    - name: Video för att komma igång
-      href: 'https://channel9.msdn.com/Shows/Azure-Friday/Getting-started-with-Azure-App-Configuration'
+    - name: Videoklipp
+      items:
+        - name: Komma igång
+          href: 'https://channel9.msdn.com/Shows/Azure-Friday/Getting-started-with-Azure-App-Configuration'
+        - name: Funktionshantering
+          href: 'https://channel9.msdn.com/Shows/NET-Community-Standups/ASPNET-Community-Standup-May-21st-2019-Introducing-MicrosoftFeatureManagement'
     - name: Ge produktfeedback
       href: 'https://github.com/Azure/AppConfiguration/issues'

@@ -8,6 +8,8 @@
   items:
     - name: Planera för ESP-kluster
       href: apache-domain-joined-architecture.md
+    - name: Skapa ESP-kluster och synkronisera lokalt
+      href: apache-domain-joined-create-configure-enterprise-security-cluster.md
     - name: Konfigurera ESP-kluster med Azure AD DS
       href: apache-domain-joined-configure-using-azure-adds.md
     - name: Synkronisera Azure AD-användare till ett HDInsight-kluster

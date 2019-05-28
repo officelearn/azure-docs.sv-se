@@ -28,36 +28,8 @@
           href: migrate-best-practices-networking.md
         - name: Metodtips för kostnad och storleksändring efter migrering
           href: migrate-best-practices-costs.md
-    - name: Contoso-migreringsserie
-      items:
-        - name: 1. Contoso-migreringsöversikt
-          href: contoso-migration-overview.md
-        - name: 2. Contoso – Distribuera en Azure-infrastruktur
-          href: contoso-migration-infrastructure.md
-        - name: 3. Contoso – utvärdera lokala resurser för migrering till Azure
-          href: contoso-migration-assessment.md
-        - name: 4. Contoso – Byta värd för en app på virtuella Azure-datorer och Azure SQL Database Managed Instance
-          href: contoso-migration-rehost-vm-sql-managed-instance.md
-        - name: 5. Contoso – Byta värd för en app på virtuella Azure-datorer
-          href: contoso-migration-rehost-vm.md
-        - name: 6. Contoso – Byta värd för en app på virtuella Azure-datorer och AlwaysOn-tillgänglighetsgrupper i Azure SQL Server
-          href: contoso-migration-rehost-vm-sql-ag.md
-        - name: 7. Contoso – Byta värd för en Linux-app på virtuella Azure-datorer
-          href: contoso-migration-rehost-linux-vm.md
-        - name: 8. Contoso – Byta värd för en Linux-app på virtuella Azure-datorer och Azure MySQL
-          href: contoso-migration-rehost-linux-vm-mysql.md
-        - name: 9. Contoso – Omstrukturera en app på Azure Web Apps och Azure SQL Database
-          href: contoso-migration-refactor-web-app-sql.md
-        - name: 10. Contoso – Omstrukturera en Linux-app på Azure Web Apps och Azure MySQL
-          href: contoso-migration-refactor-linux-app-service-mysql.md
-        - name: 11. Contoso-Migrera TFS till Azure DevOps Services
-          href: contoso-migration-tfs-vsts.md
-        - name: 12. Contoso – Omforma en app på Azure Containers och Azure SQL Database
-          href: contoso-migration-rearchitect-container-sql.md
-        - name: 13. Contoso – Återskapa en app i Azure
-          href: contoso-migration-rebuild.md
-        - name: 14. Contoso – skala en migrering
-          href: contoso-migration-scale.md
+    - name: Migreringsexempel – Contoso-serien
+      href: contoso-migration-overview.md
     - name: Utforska och utvärdera en stor miljö
       href: how-to-scale-assessment.md
     - name: Gruppera datorer

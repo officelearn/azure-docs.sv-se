@@ -8,15 +8,6 @@
     - name: Översikt och fördelar med Azure Marketplace och AppSource
       href: ./marketplace-publishers-guide.md
       items:
-        - name: Publicera på marknadsplatsen
-          href: ./become-publisher.md
-          items:
-            - name: Skapa ett Microsoft-konto
-              href: ./guidelines.md
-            - name: Registrera i Dev Center
-              href: ./register-dev-center.md
-            - name: Spårning av kundanvändning för Azure-partner
-              href: ./azure-partner-customer-usage-attribution.md
         - name: 'En marknadsplats, två butiker'
           href: ./comparing-appsource-azure-marketplace.md
         - name: Publiceringsalternativ och överväganden
@@ -30,6 +21,8 @@
               href: ./private-offers.md
             - name: Standardavtal
               href: ./standard-contract.md
+            - name: Spårning av kundanvändning för Azure-partner
+              href: ./azure-partner-customer-usage-attribution.md
         - name: Publiceringsguide efter erbjudandetyp
           href: ./publisher-guide-by-offer-type.md
           items:
@@ -481,6 +474,15 @@
       items:
         - name: Skapa ett SaaS-erbjudande
           href: ./partner-center-portal/create-new-saas-offer.md
+        - name: 'API:er för uppfyllnad av SaaS'
+          href: ./partner-center-portal/pc-saas-fulfillment-apis.md
+          items:
+            - name: Registrera ett SaaS-program
+              href: ./partner-center-portal/pc-saas-registration.md
+            - name: 'API:er för uppfyllnad av SaaS, v2'
+              href: ./partner-center-portal/pc-saas-fulfillment-api-v2.md
+            - name: 'API:er för uppfyllnad av SaaS, v1 (inaktuell)'
+              href: ./partner-center-portal/pc-saas-fulfillment-api-v1.md
     - name: Publiceringsstatus
       href: ./partner-center-portal/publishing-status.md
     - name: Uppdatera befintliga erbjudanden

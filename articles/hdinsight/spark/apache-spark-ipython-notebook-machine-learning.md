@@ -6,20 +6,20 @@ author: hrasheed-msft
 ms.reviewer: jasonh
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
-ms.date: 11/06/2018
+ms.date: 05/24/2019
 ms.author: hrasheed
-ms.openlocfilehash: 87efac96aa0120bfcc804f7a2a49a5ac3da1036b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: ed6a8f83d2ef31513aeadbc6741dd77c30c30070
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64719069"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66252886"
 ---
 # <a name="tutorial-build-an-apache-spark-machine-learning-application-in-hdinsight"></a>Självstudier: Skapa ett Apache Spark-maskininlärningsprogram i HDInsight 
 
 I den här självstudien lär du dig att använda [Jupyter Notebook](https://jupyter.org/) för att skapa ett [Apache Spark](https://spark.apache.org/)-maskininlärningsprogram för Azure HDInsight. 
 
-[MLib](https://spark.apache.org/docs/1.1.0/mllib-guide.html) är Sparks skalbara Machine Learning-bibliotek som består av vanliga algoritmer och verktyg, inklusive klassificering, regression, klustring, samarbetsfilter, dimensionsminskning samt underliggande optimeringsprimitiver.
+[MLib](https://spark.apache.org/docs/latest/ml-guide.html) är Sparks skalbara Machine Learning-bibliotek som består av vanliga algoritmer och verktyg, inklusive klassificering, regression, klustring, samarbetsfilter, dimensionsminskning samt underliggande optimeringsprimitiver.
 
 I den här guiden får du lära dig att:
 > [!div class="checklist"]
@@ -27,15 +27,15 @@ I den här guiden får du lära dig att:
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav:
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Du måste ha följande objekt:
+* Ett Apache Spark-kluster i HDInsight. Se [skapar ett Apache Spark-kluster](./apache-spark-jupyter-spark-sql-use-portal.md).
 
-* Slutför [Skapa ett Apache Spark-kluster i Azure HDInsight](apache-spark-jupyter-spark-sql.md).
+* Kunskaper om Jupyter Notebooks med Spark på HDInsight. Mer information finns i [läsa in data och köra frågor med Apache Spark i HDInsight](./apache-spark-load-data-run-query.md).
 
 ## <a name="understand-the-data-set"></a>Förstå datauppsättningen
 
-Programmet använder HVAC.csv-exempeldata som är tillgängligt på alla kluster som standard. Filen finns på **\HdiSamples\HdiSamples\SensorSampleData\hvac**. Data visar måltemperaturen och den faktiska temperaturen för några byggnader som har installerade HVAC-system. Kolumnen **System** representerar system-ID:t, och kolumnen **SystemAge** representerar antalet år som HVAC-systemet har funnits i byggnaden. Med dessa data kan du förutsäga om en byggnad kommer att bli varmare eller kallare baserat på måltemperaturen baserat på ett system-ID och systemets ålder.
+Programmet använder HVAC.csv-exempeldata som är tillgängligt på alla kluster som standard. Filen finns på `\HdiSamples\HdiSamples\SensorSampleData\hvac`. Data visar måltemperaturen och den faktiska temperaturen för några byggnader som har installerade HVAC-system. Kolumnen **System** representerar system-ID:t, och kolumnen **SystemAge** representerar antalet år som HVAC-systemet har funnits i byggnaden. Med dessa data kan du förutsäga om en byggnad kommer att bli varmare eller kallare baserat på måltemperaturen baserat på ett system-ID och systemets ålder.
 
 ![Ögonblicksbild av data som används för Spark machine learning-exempel](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-understand-data.png "Ögonblicksbild av data som används för Spark machine learning-exempel")
 
@@ -60,6 +60,7 @@ I det här programmet använder du en Spark [ML-pipeline](https://spark.apache.o
     from pyspark.mllib.regression import LabeledPoint
     from numpy import array
     ```
+
 3. Läs in data (hvac.csv), parsa dem och använd dem för att träna modellen. 
 
     ```PySpark
@@ -96,7 +97,7 @@ I det här programmet använder du en Spark [ML-pipeline](https://spark.apache.o
     pipeline = Pipeline(stages=[tokenizer, hashingTF, lr])
     ```
 
-    Mer information om pipeline och hur det fungerar finns i avsnittet om <a href="https://spark.apache.org/docs/latest/ml-guide.html#how-it-works" target="_blank">Apache Spark-maskininlärnings-pipeline</a>.
+    Mer information om pipeline och hur det fungerar finns i avsnittet om [Apache Spark-maskininlärnings-pipeline](https://spark.apache.org/docs/latest/ml-pipeline.html).
 
 5. Anpassa pipelinen till utbildningsdokumentet.
    
@@ -187,12 +188,7 @@ Apache Spark-kluster i HDInsight innehåller Anaconda-bibliotek. Det innehåller
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen lärde du dig att:
-
-* Utveckla ett Apache Spark-maskininlärningsprogram
-
-Gå vidare till nästa självstudie om du vill lära dig hur du använder IntelliJ IDEA för Spark-jobb. 
+I den här självstudien lärde du dig att använda Jupyter-anteckningsboken för att skapa ett Apache Spark machine learning-program för Azure HDInsight. Gå vidare till nästa självstudie om du vill lära dig hur du använder IntelliJ IDEA för Spark-jobb. 
 
 > [!div class="nextstepaction"]
 > [Skapa ett Scala Maven-program med IntelliJ](./apache-spark-create-standalone-application.md)
-

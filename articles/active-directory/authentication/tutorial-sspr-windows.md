@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: acd100ccc3aafc2de1f2c7970ff9437c92156b17
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: ea65120a2a735477d048b9012e160e0cdafe8835
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65861520"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66253076"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Självstudie: Azure AD-lösenordsåterställning från inloggningsskärmen
 
@@ -29,7 +29,7 @@ I den här självstudien gör du så att användare kan återställa sina lösen
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-* Du måste köra minst Windows 10, versionen med uppdatering från april 2018, och enheterna måste vara antingen:
+* Du måste köra minst Windows 10, version April 2018 Update (v1803) och enheterna måste vara antingen:
    * [Azure AD-anslutna](../device-management-azure-portal.md) eller
    * [Hybrid Azure AD-anslutna](../device-management-hybrid-azuread-joined-devices-setup.md) med en nätverksanslutning till en domänkontrollant.
 * Du måste aktivera självbetjäning av lösenordsåterställning med Azure AD.
@@ -122,7 +122,7 @@ När du testar funktionen med hjälp av Fjärrskrivbord eller en förbättrad VM
 
 * Återställning av lösenord stöds inte från ett Fjärrskrivbord.
 
-Om Ctrl + Alt + Del krävs av principen i versioner av Windows 10 innan 1809 fungerar inte **Återställ lösenord**.
+Om Ctrl + Alt + Del krävs av principen i versioner av Windows 10 innan v1809, **Återställ lösenord** fungerar inte.
 
 Om meddelanden för låsskärmen är avstängda fungerar inte **Återställ lösenord**.
 

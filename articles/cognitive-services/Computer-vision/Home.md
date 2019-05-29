@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 03/04/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 87c5d24f0e9077acf66bacd97097cfc32bd49ead
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3a307c32d15aa8c7809d728d98220b0819e91c7c
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60901110"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357398"
 ---
 # <a name="what-is-computer-vision"></a>Vad är visuellt innehåll?
 
@@ -46,7 +46,7 @@ Du kan analysera bilder för att identifiera och få insikter om bildernas visue
 
 Du kan använda för visuellt innehåll för att extrahera text från en avbildning till en mängd med hjälp av [optisk teckenläsning (OCR)](concept-recognizing-text.md#ocr-optical-character-recognition-api). Om det behövs korrigerar OCR rotationen av den tolkade texten och anger ramkoordinater för varje ord. OCR har stöd för 25 olika språk och identifierar automatiskt språket för den tolkade texten.
 
-Du kan också använda den [tillgång till API](concept-recognizing-text.md#read-api) att extrahera utskrivna såväl som handskriven text från bilder och textbaserade dokument. Läs-API använder uppdaterade modeller och fungerar för en mängd-objekt med olika ytor och bakgrunder, till exempel kvitton, affischer, visitkort, bokstäver och whiteboardtavlor. För närvarande kan de få tillgång till API är en förhandsversion och engelska är det enda språket som stöds.
+Du kan också använda den [tillgång till API](concept-recognizing-text.md#read-api) att extrahera utskrivna såväl som handskriven text från bilder och textbaserade dokument. Läs-API använder uppdaterade modeller och fungerar för en mängd-objekt med olika ytor och bakgrunder, till exempel kvitton, affischer, visitkort, bokstäver och whiteboardtavlor. Engelska är för närvarande det enda språket som stöds.
 
 ## <a name="moderate-content-in-images"></a>Moderera innehåll i bilder
 

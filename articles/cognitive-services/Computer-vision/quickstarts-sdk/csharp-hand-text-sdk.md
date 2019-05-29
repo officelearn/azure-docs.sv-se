@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 03/26/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 539d80310f07031f7a92bb5c1d6155e5948c2653
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 656e2519dc814baffa2f1c427d46e66054969e25
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60622075"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357177"
 ---
 # <a name="quickstart-extract-handwritten-text-using-the-computer-vision-c-sdk"></a>Snabbstart: Extrahera handskriven text med visuellt C# SDK
 
@@ -53,10 +53,6 @@ För att köra exemplet följer du dessa steg:
         {
             // subscriptionKey = "0123456789abcdef0123456789ABCDEF"
             private const string subscriptionKey = "<Subscription key>";
-
-            // For printed text, change to TextRecognitionMode.Printed
-            private const TextRecognitionMode textRecognitionMode =
-                TextRecognitionMode.Handwritten;
 
             // localImagePath = @"C:\Documents\LocalImage.jpg"
             private const string localImagePath = @"<LocalImage>";
@@ -106,7 +102,7 @@ För att köra exemplet följer du dessa steg:
                 // Start the async process to read the text
                 BatchReadFileHeaders textHeaders =
                     await computerVision.BatchReadFileAsync(
-                        imageUrl, textRecognitionMode);
+                        imageUrl);
 
                 await GetTextAsync(computerVision, textHeaders.OperationLocation);
             }
@@ -127,7 +123,7 @@ För att köra exemplet följer du dessa steg:
                     // Start the async process to recognize the text
                     BatchReadFileInStreamHeaders textHeaders =
                         await computerVision.BatchReadFileInStreamAsync(
-                            imageStream, textRecognitionMode);
+                            imageStream);
 
                     await GetTextAsync(computerVision, textHeaders.OperationLocation);
                 }
@@ -177,7 +173,6 @@ För att köra exemplet följer du dessa steg:
 
 1. Ersätt `<Subscription Key>` med en giltig prenumerationsnyckel.
 1. Om det behövs ändrar du `computerVision.Endpoint` till den Azure-region som är associerad med dina prenumerationsnycklar.
-1. Om du vill kan du ange `textRecognitionMode` till `TextRecognitionMode.Printed`.
 1. Ersätt `<LocalImage>` med sökvägen och filnamnet för en lokal bild.
 1. Du kan också ange `remoteImageUrl` till en annan bild om du vill.
 1. Kör programmet.

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7a2d793a1fbd68d6a71f48b556a77ddcaaaf111
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 93a1ad1f9fbc01cd06b3aaffc8a718634e8454d6
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66112154"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357031"
 ---
 # <a name="tutorial-integrate-displayr-with-azure-active-directory"></a>Självstudier: Integrera Displayr med Azure Active Directory
 
@@ -91,11 +91,11 @@ Följ dessa steg om du vill aktivera enkel inloggning för Azure AD i Azure-port
 
    ![Länk för hämtning av certifikat](common/certificatebase64.png)
 
-1. Displayr program som förväntar SAML-intyg i ett visst format, vilket kräver att du kan lägga till anpassade attributmappningar i SAML-tokenattribut konfigurationen. I följande skärmbild visas listan över standardattribut. Klicka på ikonen **Redigera** för att öppna dialogrutan Användarattribut.
+1. Displayr program som förväntar SAML-intyg i ett visst format, vilket kräver att du kan lägga till anpassade attributmappningar i SAML-tokenattribut konfigurationen. I följande skärmbild visas listan över standardattribut. Klicka på ikonen**Redigera** för att öppna dialogrutan Användarattribut.
 
     ![image](common/edit-attribute.png)
 
-1. Förutom ovanstående Displayr program som förväntar få fler attribut som ska skickas tillbaka i SAML-svar. I den **användarattribut och anspråk** avsnittet på den **gruppanspråk (förhandsversion)** dialogrutan utför följande steg:
+1. Förutom ovanstående Displayr program som förväntar få fler attribut som ska skickas tillbaka i SAML-svar. I den **användarattribut och anspråk** avsnittet på den **gruppanspråk (förhandsversion)** dialogrutan utför följande steg:
 
     a. Klicka på den **penna** bredvid **grupper returneras i anspråk**.
 
@@ -105,7 +105,7 @@ Följ dessa steg om du vill aktivera enkel inloggning för Azure AD i Azure-port
 
     b. Välj **alla grupper** från listan över radio.
 
-    c. Välj **källattributet** av **grupp-ID:**.
+    c. Välj **källattributet** av **grupp-ID:** .
 
     d. Kontrollera **har ändrat namnet på gruppanspråket**.
 
@@ -133,7 +133,7 @@ Följ dessa steg om du vill aktivera enkel inloggning för Azure AD i Azure-port
 
     ![Konfiguration](./media/displayr-tutorial/config01.png)
 
-5. Växla till **inställningar** från den översta menyn och rulla nedåt på sidan för att klicka på **Konfigurera enkel inloggning på (SAML)**.
+5. Växla till **inställningar** från den översta menyn och rulla nedåt på sidan för att klicka på **Konfigurera enkel inloggning på (SAML)** .
 
     ![Konfiguration](./media/displayr-tutorial/config02.png)
 

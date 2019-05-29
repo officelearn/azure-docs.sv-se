@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: f9987a4aee561340c5ebe2639626e5f66a55358e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7091e542c1e7c5cd6715d9c0a064ea47d69239e1
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60794344"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66356323"
 ---
 # <a name="route-to-a-point-of-interest-using-azure-maps"></a>Rutt till en orienteringspunkt med hjälp av Azure Maps
 
@@ -189,7 +189,7 @@ Det här avsnittet visar hur du använder Azure Maps route service API för att 
     var routeURL = new atlas.service.RouteURL(pipeline);
     ```
 
-   Den `SubscriptionKeyCredential` skapar en `SubscriptionKeyCredentialPolicy` att autentisera HTTP-förfrågningar till Azure Maps med prenumerationsnyckeln. Den `atlas.service.MapsURL.newPipeline()` tar den `SubscriptionKeyCredential` princip och skapar en [Pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest) instans. Den `routeURL` representerar en URL för Azure Maps [väg](https://docs.microsoft.com/rest/api/maps/route) åtgärder.
+   Den `SubscriptionKeyCredential` skapar en `SubscriptionKeyCredentialPolicy` att autentisera HTTP-förfrågningar till Azure Maps med prenumerationsnyckeln. Den `atlas.service.MapsURL.newPipeline()` tar den `SubscriptionKeyCredential` princip och skapar en [Pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest) instans. Den `routeURL` representerar en URL för Azure Maps [väg](https://docs.microsoft.com/rest/api/maps/route) åtgärder.
 
 2. När du har installerat autentiseringsuppgifter och URL: en, lägger du till följande JavaScript-kod för att konstruera vägen från start till slutpunkten. Den `routeURL` begäranden Azure Maps dirigera tjänsten för att beräkna riktningar i vägen. En samling med GeoJSON-funktionen från svaret extraheras sedan med hjälp av den `geojson.getFeatures()` metoden och läggs till i datakällan.
 

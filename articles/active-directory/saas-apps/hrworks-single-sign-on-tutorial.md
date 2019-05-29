@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: e994150f68c0f274c97c27fccc89f226bc8236cd
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: c0c326525f5a551ddb00a709ed0a36a68a1343db
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66000499"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66356470"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hrworks-single-sign-on"></a>Självstudier: Azure Active Directory-integrering med HRworks enkel inloggning
 
@@ -53,7 +53,7 @@ För att konfigurera integrering av HRworks enkel inloggning i Azure AD, som du 
 
 **Utför följande steg för att lägga till HRworks enkel inloggning från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -130,7 +130,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med HRworks
 
 2. Klicka på **administratör** > **grunderna** > **Security** > **enkel inloggning** från till vänster på menyn menyraden och utför följande steg:
 
-       ![Configure Single Sign-On](./media/hrworks-single-sign-on-tutorial/configure01.png)
+    ![Konfigurera enkel inloggning](./media/hrworks-single-sign-on-tutorial/configure01.png)
 
     a. Kontrollera den **Använd enkel inloggning** box.
 

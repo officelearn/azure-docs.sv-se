@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 3e33eef430db627a82bb82e8c22ddc861d08982b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e0d201baec253abee9ad8a998dd36968927a25a6
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60692114"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357593"
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-maps"></a>Hitta rutter för olika färdmedel med hjälp av Azure Maps
 
@@ -216,7 +216,7 @@ Det här avsnittet visar hur du använder Maps route service API för att hitta 
     var routeURL = new atlas.service.RouteURL(pipeline);
     ```
 
-   Den `SubscriptionKeyCredential` skapar en `SubscriptionKeyCredentialPolicy` att autentisera HTTP-förfrågningar till Azure Maps med prenumerationsnyckeln. Den `atlas.service.MapsURL.newPipeline()` tar den `SubscriptionKeyCredential` princip och skapar en [Pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest) instans. Den `routeURL` representerar en URL för Azure Maps [väg](https://docs.microsoft.com/rest/api/maps/route) åtgärder.
+   Den `SubscriptionKeyCredential` skapar en `SubscriptionKeyCredentialPolicy` att autentisera HTTP-förfrågningar till Azure Maps med prenumerationsnyckeln. Den `atlas.service.MapsURL.newPipeline()` tar den `SubscriptionKeyCredential` princip och skapar en [Pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest) instans. Den `routeURL` representerar en URL för Azure Maps [väg](https://docs.microsoft.com/rest/api/maps/route) åtgärder.
 
 2. När du har installerat autentiseringsuppgifter och URL: en, Lägg till följande JavaScript kod för att skapa ett flöde från början till slutpunkt för en lastbil körts USHazmatClass2 har klassificerat lasten och visa resultatet.
 
@@ -245,7 +245,7 @@ Det här avsnittet visar hur du använder Maps route service API för att hitta 
     });
     ```
 
-    Det här kodfragmentet ovan frågar Azure Maps-tjänst för händelsedirigering via den [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-iot-typescript-latest) metod. Raden route sedan extraheras från samlingen GeoJSON-funktionen från svaret som extraheras med hjälp av den `geojson.getFeatures()` metoden. Raden route läggs sedan till datakällan. Det ger också ett index på 0 så att den renderas före andra rader i datakällan. Detta görs eftersom beräkningen av lastbilsvägen ofta tar längre tid än beräkningen för en bilväg, och om lastbilens väglinje läggs till i datakällan efter bilvägen renderas den före bilvägen. Två egenskaper läggs till i raden lastbil route, en linjefärg som är en fin blå och en linjebredd på nio bildpunkter.
+    Det här kodfragmentet ovan frågar Azure Maps-tjänst för händelsedirigering via den [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-maps-typescript-latest) metod. Raden route sedan extraheras från samlingen GeoJSON-funktionen från svaret som extraheras med hjälp av den `geojson.getFeatures()` metoden. Raden route läggs sedan till datakällan. Det ger också ett index på 0 så att den renderas före andra rader i datakällan. Detta görs eftersom beräkningen av lastbilsvägen ofta tar längre tid än beräkningen för en bilväg, och om lastbilens väglinje läggs till i datakällan efter bilvägen renderas den före bilvägen. Två egenskaper läggs till i raden lastbil route, en linjefärg som är en fin blå och en linjebredd på nio bildpunkter.
 
 3. Lägg till följande JavaScript-kod för att skapa en väg för en bil och visa resultaten.
 
@@ -265,7 +265,7 @@ Det här avsnittet visar hur du använder Maps route service API för att hitta 
     });
     ```
 
-    Det här kodfragmentet ovan frågar Azure Maps-tjänst för händelsedirigering via den [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-iot-typescript-latest) metod. Raden route sedan extraheras från samlingen GeoJSON-funktionen från svaret som extraheras med hjälp av den `geojson.getFeatures()` metoden. Raden route läggs sedan till datakällan. Två egenskaper läggs till i raden bil route, en linjefärg som är en färgton lila och en linjebredd på fem bildpunkter.  
+    Det här kodfragmentet ovan frågar Azure Maps-tjänst för händelsedirigering via den [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-maps-typescript-latest) metod. Raden route sedan extraheras från samlingen GeoJSON-funktionen från svaret som extraheras med hjälp av den `geojson.getFeatures()` metoden. Raden route läggs sedan till datakällan. Två egenskaper läggs till i raden bil route, en linjefärg som är en färgton lila och en linjebredd på fem bildpunkter.  
 
 4. Spara filen **MapTruckRoute.html** och uppdatera webbläsaren så att den visar resultatet. För en lyckad anslutning med den API:er i Maps bör du se en karta som liknar följande.
 

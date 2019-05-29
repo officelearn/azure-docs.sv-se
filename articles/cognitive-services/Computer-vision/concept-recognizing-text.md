@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: f7fd13b0b6df0b07543216e3c612520e528c1176
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bcaa990cc2186a5f1eecdbbca91804c92370277c
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60368021"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357185"
 ---
 # <a name="recognize-printed-and-handwritten-text"></a>Känna igen tryckt och handskriven text
 
@@ -24,12 +24,12 @@ Visuellt innehåll ger ett antal tjänster som kan identifiera och extrahera uts
 
 ## <a name="read-api"></a>Få tillgång till API
 
-Läs API: et identifierar textinnehåll i en avbildning med hjälp av våra senaste modeller för taligenkänning och konverterar den identifierade texten till en maskinläsningsbar teckenström. Tjänsten är optimerad för textintensiv avbildningar (t.ex dokument som har genomsökts digitalt) och avbildningar med en massa visual bruset. Den kan köras asynkront eftersom större dokument kan ta flera minuter att beräkna ett resultat.
+Läs API: et identifierar textinnehåll i en avbildning med hjälp av våra senaste modeller för taligenkänning och konverterar den identifierade texten till en maskinläsningsbar teckenström. Tjänsten är optimerad för textintensiv avbildningar (t.ex dokument som har genomsökts digitalt) och avbildningar med en massa visual bruset. Det avgör vilka igenkänningsfunktion för att använda för varje rad med text, stöd för avbildningar med både utskrivna och handskriven text. Läs API körs asynkront eftersom större dokument kan ta flera minuter att beräkna ett resultat.
 
 Läs-åtgärden bevarar de ursprungliga rad grupperingarna av identifierade ord i dess utdata. Varje rad med avgränsar koordinater för avgränsningsfält, och varje ord i raden har också sin egen koordinater. Om ett ord identifieras med låg tryggt som informationen överförs även. Se den [Läs API-referensdokumenten](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) vill veta mer.
 
 > [!NOTE]
-> Den här funktionen är för närvarande en förhandsversion och är endast tillgänglig för engelsk text.
+> Den här funktionen är endast tillgänglig för engelsk text.
 
 ### <a name="image-requirements"></a>Avbildningskrav
 
@@ -80,7 +80,7 @@ Identifiera Text-API fungerar med avbildningar som uppfyller följande krav:
 - Storleken för avbildningen måste vara mellan 50 x 50 och 4200 x 4200 bildpunkter.
 - Filstorleken för avbildningen måste vara mindre än 4 MB (megabyte).
 
-## <a name="improve-results"></a>Förbättra resultaten
+## <a name="limitations"></a>Begränsningar
 
 Hur korrekt referensdatorns text igenkänning av operations beror på kvaliteten på bilderna. Följande faktorer kan orsaka en felaktig läsning:
 

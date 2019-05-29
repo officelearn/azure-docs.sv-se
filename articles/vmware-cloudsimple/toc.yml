@@ -6,7 +6,7 @@
         - name: Vad är VMware Solution från CloudSimple
           href: cloudsimple-vmware-solutions-overview.md
         - name: Viktiga begrepp för administration
-          href: 'https://docs.azure.cloudsimple.com/key-concepts/'
+          href: key-concepts.md
     - name: Snabbstart
       expanded: true
       items:
@@ -21,7 +21,7 @@
     - name: Begrepp
       items:
         - name: Tjänst
-          href: 'https://docs.azure.cloudsimple.com/cloudsimple-service/'
+          href: cloudsimple-service.md
         - name: Noder
           href: cloudsimple-node.md
         - name: Privat moln
@@ -45,13 +45,13 @@
         - name: VMware i privata moln
           href: vmware-components.md
         - name: Säkerhetsöversikt
-          href: 'https://docs.azure.cloudsimple.com/cloudsimple-security/'
+          href: cloudsimple-security.md
         - name: Nodkvot
           href: node-quota.md
         - name: Underhåll och uppdateringar
           href: cloudsimple-maintenance-updates.md
         - name: VANLIGA FRÅGOR OCH SVAR
-          href: 'https://docs.azure.cloudsimple.com/cloudsimple-faq/'
+          href: cloudsimple-faq.md
     - name: Självstudier
       items:
         - name: Aktivera resursprovider

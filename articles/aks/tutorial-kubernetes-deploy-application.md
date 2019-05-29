@@ -2,18 +2,18 @@
 title: Självstudie om Kubernetes i Azure – Distribuera ett program
 description: I den här självstudien om Azure Kubernetes Service (AKS) distribuerar du ett program med flera containrar till ditt kluster med hjälp av en anpassad avbildning som lagras i Azure Container Registry.
 services: container-service
-author: zr-msft
+author: tylermsft
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: zarhoads
+ms.author: twhitney
 ms.custom: mvc
-ms.openlocfilehash: dc3d4f0b2658c82a50f58d976a47607dead1abce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c579aed1acb555a82d5a04308ab4e68f4bfecb8c
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61031284"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305282"
 ---
 # <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>Självstudier: Köra program i Azure Kubernetes Service (AKS)
 

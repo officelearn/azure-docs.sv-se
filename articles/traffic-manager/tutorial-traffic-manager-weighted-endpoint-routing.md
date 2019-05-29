@@ -8,12 +8,12 @@ ms.service: traffic-manager
 ms.topic: tutorial
 ms.date: 10/15/2018
 ms.author: allensu
-ms.openlocfilehash: fdae6f9f83cace2d2da08ae2494dbc82a94b1e5d
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: f9e2b6f6a45279c52e19a63509c57fb34e739330
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66238899"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258375"
 ---
 # <a name="tutorial-control-traffic-routing-with-weighted-endpoints-by-using-traffic-manager"></a>Självstudier: Styr trafikroutning med viktade slutpunkter med hjälp av Traffic Manager
 
@@ -51,7 +51,7 @@ I det här avsnittet skapar du två webbplatsinstanser som tillhandahåller två
 
 #### <a name="create-vms-for-running-websites"></a>Skapa virtuella datorer för att köra webbplatser
 
-I det här avsnittet skapar du de två virtuella datorerna (*myIISVMEastUS* och *myIISVMWEurope*) i Azure-regionerna USA, östra och Europa, västra.
+I det här avsnittet skapar du två virtuella datorer (*myIISVMEastUS* och *myIISVMWestEurope*) i regionerna östra USA och västra Europa Azure.
 
 1. I övre vänstra hörnet på Azure portal, Välj **skapa en resurs** > **Compute** > **Windows Server 2019 Datacenter**.
 2. I **Skapa en virtuell dator** skriver eller väljer du följande värden på fliken **Grundläggande**:
@@ -67,14 +67,14 @@ I det här avsnittet skapar du de två virtuella datorerna (*myIISVMEastUS* och 
 3. Välj den **Management** fliken eller välj **nästa: Diskar** och sedan **Nästa: Nätverk**, sedan **nästa: Hantering av**. Under **Övervakning** anger du **Startdiagnostik** till **Av**.
 4. Välj **Granska + skapa**.
 5. Granska inställningarna och klicka sedan på **skapa**.  
-6. Följ stegen för att skapa en andra virtuell dator med namnet *myIISVMWEurope*, med en **resursgrupp** namn på *myResourceGroupTM2*, ett **plats** av *Västeuropa*, och de andra inställningarna identiskt *myIISVMEastUS*.
+6. Följ stegen för att skapa en andra virtuell dator med namnet *myIISVMWestEurope*, med en **resursgrupp** namn på *myResourceGroupTM2*, ett **plats**av *Västeuropa*, och de andra inställningarna identiskt *myIISVMEastUS*.
 7. Det tar några minuter att skapa de virtuella datorerna. Fortsätt inte med återstående steg förrän båda virtuella datorerna har skapats.
 
 ![Skapa en virtuell dator](./media/tutorial-traffic-manager-improve-website-response/createVM.png)
 
 #### <a name="install-iis-and-customize-the-default-webpage"></a>Installera IIS och anpassa standardwebbsidan
 
-I det här avsnittet ska du installera IIS-servern på de två virtuella datorerna, myIISVMEastUS och myIISVMWEurope och sedan uppdaterar på standard-webbsidan. Den anpassade webbsidan visar namnet på den virtuella datorn som du ansluter till när du besöker webbplatsen från en webbläsare.
+I det här avsnittet, installerar du IIS-server på två virtuella datorer myIISVMEastUS och myIISVMWestEurope och sedan uppdatera på standard-webbsidan. Den anpassade webbsidan visar namnet på den virtuella datorn som du ansluter till när du besöker webbplatsen från en webbläsare.
 
 1. Välj **Alla resurser** på menyn till vänster. I resurslistan väljer du **myIISVMEastUS** i resursgruppen **myResourceGroupTM1**.
 2. På **översiktssidan** väljer du **Anslut**. I **Ansluta till den virtuella datorn**väljer du **Ladda ned RDP-fil**.
@@ -83,6 +83,7 @@ I det här avsnittet ska du installera IIS-servern på de två virtuella datorer
 5. Du kan få en certifikatvarning under inloggningen. Om du ser varningen väljer du **Ja** eller **Fortsätt** för att fortsätta med anslutningen.
 6. Gå till **Windows Administrationsverktyg** > **Serverhanteraren** på serverdatorn.
 7. Öppna Windows PowerShell på VM1. Använd följande kommandon för att installera IIS-servern och uppdatera standard-HTML-filen.
+
     ```powershell-interactive
     # Install IIS
     Install-WindowsFeature -name Web-Server -IncludeManagementTools
@@ -97,20 +98,20 @@ I det här avsnittet ska du installera IIS-servern på de två virtuella datorer
     ![Installera IIS och anpassa webbsidan](./media/tutorial-traffic-manager-improve-website-response/deployiis.png)
 
 8. Stäng RDP-anslutningen med **myIISVMEastUS**.
-9. Upprepa steg 1–8. Skapa en RDP-anslutning med den virtuella datorn **myIISVMWEurope** i resursgruppen **myResourceGroupTM2** för att installera IIS och anpassa dess standardwebbsida.
+9. Upprepa steg 1–8. Skapa en RDP-anslutning med den virtuella datorn **myIISVMWestEurope** inom den **myResourceGroupTM2** resursgrupp att installera IIS och anpassa dess standard-webbsidan.
 
 #### <a name="configure-dns-names-for-the-vms-running-iis"></a>Konfigurera DNS-namnen för de virtuella datorer som kör IIS
 
-Traffic Manager dirigerar användartrafik baserat på tjänstslutpunkternas DNS-namn. I det här avsnittet konfigurerar du DNS-namnen för IIS-servrarna myIISVMEastUS och myIISVMWEurope.
+Traffic Manager dirigerar användartrafik baserat på tjänstslutpunkternas DNS-namn. I det här avsnittet ska konfigurera du DNS-namn för IIS-servrar myIISVMEastUS och myIISVMWestEurope.
 
 1. Välj **Alla resurser** på menyn till vänster. I resurslistan väljer du **myIISVMEastUS** i resursgruppen **myResourceGroupTM1**.
 2. På sidan **Översikt** under **DNS-namn** väljer du **Konfigurera**.
 3. På sidan **Konfiguration**, under DNS-namnetiketten, lägger du till ett unikt namn. Välj sedan **Spara**.
-4. Upprepa steg 1 – 3 för den virtuella datorn med namnet **myIISVMWEurope** i den **myResourceGroupTM2** resursgrupp.
+4. Upprepa steg 1 – 3 för den virtuella datorn med namnet **myIISVMWestEurope** i den **myResourceGroupTM2** resursgrupp.
 
 ### <a name="create-a-test-vm"></a>Skapa en virtuell testdator
 
-I det här avsnittet skapar du en virtuell dator (*myVMEastUS* och *myVMWestEurope*) i varje Azure-region (**USA, östra** och **Västeuropa**. Du använder dessa virtuella datorer för att testa hur Traffic Manager dirigerar trafik till webbplats-slutpunkt som har högre viktningsvärde.
+I det här avsnittet skapar du en virtuell dator (*myVMEastUS* och *myVMWestEurope*) i varje Azure-region (**USA, östra** och **Västeuropa**). Du använder dessa virtuella datorer för att testa hur Traffic Manager dirigerar trafik till webbplats-slutpunkt som har högre viktningsvärde.
 
 1. I övre vänstra hörnet på Azure portal, Välj **skapa en resurs** > **Compute** > **Windows Server 2019 Datacenter**.
 2. I **Skapa en virtuell dator** skriver eller väljer du följande värden på fliken **Grundläggande**:
@@ -148,7 +149,7 @@ Skapa en Traffic Manager-profil baserat på routningsmetoden **Viktat**.
 
 ## <a name="add-traffic-manager-endpoints"></a>Lägga till Traffic Manager-slutpunkter
 
-Lägg till de två virtuella datorer som kör IIS-servrarna myIISVMEastUS och myIISVMWEurope för att dirigera användartrafik till dem.
+Lägg till de två virtuella datorerna som kör IIS-servrar myIISVMEastUS och myIISVMWestEurope, för att dirigera trafik till dem.
 
 1. I portalens sökfält söker du efter det Traffic Manager-profilnamn som du skapade i föregående avsnitt. Välj profilen i resultaten som visas.
 2. Klicka på **Slutpunkter** på bladet **Traffic Manager-profil** i avsnittet **Inställningar** och välj  > **Lägg till**.
@@ -156,14 +157,14 @@ Lägg till de två virtuella datorer som kör IIS-servrarna myIISVMEastUS och my
 
     | Inställning                 | Värde                                              |
     | ---                     | ---                                                |
-    | Typ                    | Ange Azure-slutpunkten.                                   |
+    | Type                    | Ange Azure-slutpunkten.                                   |
     | Namn           | Ange **myEastUSEndpoint**.                                        |
     | Målresurstyp           | Välj **Offentlig IP-adress**.                          |
     | Målresurs          | Välj en offentlig IP-adress för att visa en lista över resurser med offentliga IP-adresser i samma prenumeration. I **Resurs** väljer du den offentliga IP-adressen med namnet **myIISVMEastUS-ip**. Det här är den offentliga IP-adressen för virtuella datorer med IIS i USA, östra.|
     |  Vikt      | Ange **100**.        |
     |        |           |
 
-4. Upprepa steg 2 och 3 för att lägga till en annan slutpunkt med namnet **myWestEuropeEndpoint** för den offentliga IP-adressen **myIISVMWEurope-ip**. Den här adressen är associerad med den virtuella datorn med namnet myIISVMWEurope för IIS-servern. Som **vikt** anger du **25**.
+4. Upprepa steg 2 och 3 för att lägga till en annan slutpunkt med namnet **myWestEuropeEndpoint** för den offentliga IP-adressen **myIISVMWestEurope ip**. Den här adressen är associerad med den virtuella dator med namnet myIISVMWestEurope för IIS-servern. Som **vikt** anger du **25**.
 5. När båda slutpunkterna har lagts till visas de i Traffic Manager-profilen tillsammans med sin övervakningsstatus, som är **Online**.
 
 ## <a name="test-the-traffic-manager-profile"></a>Testa Traffic Manager-profilen
@@ -194,7 +195,7 @@ I det här avsnittet får du se Traffic Manager i arbete.
 3. Öppna den nedladdade RDP-filen. Välj **Anslut** om du uppmanas att göra det. Ange användarnamnet och lösenordet du angav när du skapade den virtuella datorn. Du kan behöva välja **Fler alternativ** > **Använd ett annat konto** för att ange autentiseringsuppgifterna du angav när du skapade den virtuella datorn.
 4. Välj **OK**.
 5. Du kan få en certifikatvarning under inloggningen. Om du ser varningen väljer du **Ja** eller **Fortsätt** för att fortsätta med anslutningen.
-6. I en webbläsare på den virtuella datorn myVMEastUS anger du DNS-namnet i Traffic Manager-profilen för at visa din webbplats. Du dirigeras till en webbplats på IIS-servern myIISVMEastUS eftersom den har tilldelats en högre vikt på **100**. IIS-servern myIISVMWEurope tilldelas ett lägre slutpunktsviktvärde på **25**.
+6. I en webbläsare på den virtuella datorn myVMEastUS anger du DNS-namnet i Traffic Manager-profilen för at visa din webbplats. Du dirigeras till en webbplats på IIS-servern myIISVMEastUS eftersom den har tilldelats en högre vikt på **100**. IIS-servern myIISVMWestEurope tilldelas en lägre endpoint viktningsvärde på **25**.
 
    ![Testa Traffic Manager-profil](./media/tutorial-traffic-manager-improve-website-response/eastus-traffic-manager-test.png)
 

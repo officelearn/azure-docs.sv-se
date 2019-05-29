@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/24/2019
-ms.openlocfilehash: 494ee28ec682da6a7f8125d4c325995a7344f1d4
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.date: 05/29/2019
+ms.openlocfilehash: 0bd271dbf173885cbd5f7835c5dc6b672a3e6035
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66243790"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298966"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-online-using-dms"></a>Självstudier: Migrera MongoDB till Azure Cosmos DB API för MongoDB online med DMS
 
@@ -60,8 +60,8 @@ För att slutföra den här kursen behöver du:
     >
     > Den här konfigurationen är nödvändigt eftersom Azure Database Migration Service saknar Internetanslutning.
 
-* Se till att dina regler för Nätverkssäkerhetsgrupp kopplad till virtuella nätverk inte blockerar följande portar för inkommande kommunikation till Azure Database Migration Service: 443, 53, 9354, 445 och 12000. Mer information om Azure VNet NSG-trafikfiltrering finns i artikeln [filtrera nätverkstrafik med nätverkssäkerhetsgrupper](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
-* Ändra källserverns brandväggen så att Azure Database Migration Service åtkomst till källservern MongoDB, vilket som standard är TCP-port 27017.
+* Se till att dina VNet Nätverkssäkerhetsgrupp (NSG)-regler inte blockera följande kommunikationsportar: 53, 443, 445, 9354 och 10000 20000. Mer information om Azure VNet NSG-trafikfiltrering finns i artikeln [filtrera nätverkstrafik med nätverkssäkerhetsgrupper](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
+* Öppna din Windows-brandväggen så att Azure Database Migration Service åtkomst till källservern MongoDB, vilket som standard är TCP-port 27017.
 * När du använder en brandväggsinstallation framför din källdatabaserna, kan du behöva lägga till brandväggsregler som tillåter Azure Database Migration Service åtkomst till källdatabaserna för migrering.
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Registrera resursprovidern Microsoft.DataMigration

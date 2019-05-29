@@ -9,12 +9,12 @@ ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 5147a0d164f1fac67a1c70429fc2e9b1caa00685
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 6c94ca3a82095736ef7d242987d1fbf66a825950
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244841"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306506"
 ---
 # <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-for-linux-devices"></a>Självstudier: Utveckla och distribuera en Node.js IoT Edge-modul för Linux-enheter
 
@@ -39,7 +39,7 @@ Den här kursen visar hur du utvecklar en modul i **Node.js** med **Visual Studi
 
 Använd följande tabell för att förstå dina alternativ för att utveckla och distribuera Node.js-moduler: 
 
-| Node.js | Visual Studio-kod | Visual Studio 2017 | 
+| Node.js | Visual Studio-kod | Visual Studio 2017/2019 | 
 | - | ------------------ | ------------------ |
 | **Linux AMD64** | ![Använda VS Code för Node.js-moduler på Linux AMD64](./media/tutorial-c-module/green-check.png) |  |
 | **Linux ARM32** | ![Använda VS Code för Node.js-moduler på Linux ARM32](./media/tutorial-c-module/green-check.png) |  |

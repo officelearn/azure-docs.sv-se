@@ -7,14 +7,14 @@ author: aahill
 ms.service: cognitive-services
 ms.subservice: anomaly-detection
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/28/2019
 ms.author: aahi
-ms.openlocfilehash: cc82e091ae4c033bda7f1d91c9aed36bb081de88
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: ec32d5de9e3af14abbf14f79f37ab00f3346b1c1
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233612"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306986"
 ---
 # <a name="install-and-run-anomaly-detector-containers"></a>Installera och köra Avvikelseidentifiering detektor behållare
 
@@ -22,7 +22,7 @@ Avvikelseidentifiering detektor har följande behållare:
 
 |Funktion|Funktioner|
 |-|-|
-|Avvikelseidentifiering detektor| <li> Identifierar avvikelser allteftersom de sker i realtid. <li> Identifierar avvikelser i hela datauppsättningen som en batch. <li> Härleder det förväntade normala intervallet av dina data. <li> Har stöd för avvikelseidentifiering identifiering känslighet justering bättre passar dina data. |
+|Avvikelseidentifiering| <li> Identifierar avvikelser allteftersom de sker i realtid. <li> Identifierar avvikelser i hela datauppsättningen som en batch. <li> Härleder det förväntade normala intervallet av dina data. <li> Har stöd för avvikelseidentifiering identifiering känslighet justering bättre passar dina data. |
 
 Detaljerad information om API: erna finns:
 * [Mer information om Avvikelseidentifiering detektor API-tjänsten](https://go.microsoft.com/fwlink/?linkid=2080698&clcid=0x409)
@@ -176,6 +176,10 @@ Avvikelseidentifiering detektor behållare skicka faktureringsinformation till A
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 Mer information om alternativen finns i [konfigurera behållare](anomaly-detector-container-configuration.md).
+
+<!--blogs/samples/video coures -->
+
+[!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
 ## <a name="summary"></a>Sammanfattning
 

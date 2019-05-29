@@ -12,12 +12,12 @@ ms.date: 05/21/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 31992a08c1b6c4fda4053032458879661fe2b740
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 7110d7004ae9be58bb150674d516692049507608
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66233773"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299087"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Självstudier: Lägga till ett lokalt program för fjärråtkomst via programproxy i Azure Active Directory
 
@@ -69,7 +69,7 @@ Aktivera TLS 1.2:
 2. Starta om servern.
 
 >[!Important] 
-> För att ge bästa i klassen-kryptering för våra kunder, gör vi uppdateringar till Application Proxy-tjänsten för att begränsa åtkomsten till endast TLS 1.2-protokoll. Baserat på kundernas beredskap ändringarna distribueras gradvis till kunder som bara använder TLS 1.2-protokoll och kommer inte se någon inverkan från den här ändringen. TLS 1.0 och 1.1 utfasning slutförs den 31 augusti 2019 och kunder får alltid att förbereda för den här ändringen. Förbereda för den här ändringen gör att som uppdateras alla kombinationer av klient-server och webbläsaren servrar för att använda TLS 1.2 för att upprätthålla anslutning till Application Proxy-tjänsten. Dessa inkluderar klienter som dina användare använder för att få åtkomst till program som publicerats via programproxy. Se förbereda för [TLS 1.2 i Office 365](https://docs.microsoft.com/en-us/office365/troubleshoot/prepare-tls-1.2-in-office-365) för användbar-referenser och resurser.
+> För att ge bästa i klassen-kryptering för våra kunder, gör vi uppdateringar till Application Proxy-tjänsten för att begränsa åtkomsten till endast TLS 1.2-protokoll. Baserat på kundernas beredskap ändringarna distribueras gradvis till kunder som bara använder TLS 1.2-protokoll och kommer inte se någon inverkan från den här ändringen. TLS 1.0 och 1.1 utfasning slutförs den 31 augusti 2019 och kunder får alltid att förbereda för den här ändringen. Förbereda för den här ändringen gör att som uppdateras alla kombinationer av klient-server och webbläsaren servrar för att använda TLS 1.2 för att upprätthålla anslutning till Application Proxy-tjänsten. Dessa inkluderar klienter som dina användare använder för att få åtkomst till program som publicerats via programproxy. Se förbereda för [TLS 1.2 i Office 365](https://support.microsoft.com/help/4057306/preparing-for-tls-1-2-in-office-365) för användbar-referenser och resurser.
 
 ## <a name="prepare-your-on-premises-environment"></a>Förbered din lokala miljö
 

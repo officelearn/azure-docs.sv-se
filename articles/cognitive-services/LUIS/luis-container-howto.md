@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/23/2019
+ms.date: 05/28/2019
 ms.author: diberry
-ms.openlocfilehash: b379ebeeec7d9309cdf150b8b90ddd006e3bcd9a
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 02ac7b91622a3c8fe877ea9bcbc7224a67eb0ae5
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66240216"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306630"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installera och köra LUIS docker-behållare
  
@@ -32,7 +32,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 För att kunna köra LUIS-behållare, måste du ha följande: 
 
-|Krävs|Syfte|
+|Obligatoriskt|Syfte|
 |--|--|
 |Docker-motorn| Du behöver Docker-motorn installerad på en [värddatorn](#the-host-computer). Docker innehåller paket som konfigurerar Docker-miljön på [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), och [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Få en genomgång om grunderna för Docker och behållare finns i den [översikt över Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker måste konfigureras för att tillåta behållarna för att ansluta till och skicka faktureringsdata till Azure. <br><br> **På Windows**, Docker måste också konfigureras för att stödja Linux-behållare.<br><br>|
 |Liknar processen med Docker | Du bör ha grundläggande kunskaper om Docker-begrepp som register, databaser, behållare, och behållaravbildningar samt kunskaper om grundläggande `docker` kommandon.| 
@@ -277,7 +277,7 @@ Använd värden `https://localhost:5000`, för behållaren API: er.
 
 Frågeparametrarna konfigurera hur och vad returneras i svaret på frågan:
 
-|Frågeparameter|Typ|Syfte|
+|Frågeparameter|Type|Syfte|
 |--|--|--|
 |`q`|string|Användarens uttryck.|
 |`timezoneOffset`|nummer|TimezoneOffset kan du [ändra tidszonen](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) används av färdiga entitet datetimeV2.|
@@ -367,6 +367,10 @@ Konfigurationer som inte stöds|Information|
 |Stöds inte entiteter för engelska (en-US) kultur|[GeographyV2](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-geographyv2) fördefinierade entiteter|
 |Tal promotor|Externa beroenden stöds inte i behållaren.|
 |Sentimentanalys|Externa beroenden stöds inte i behållaren.|
+
+<!--blogs/samples/video coures -->
+
+[!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
 ## <a name="summary"></a>Sammanfattning
 

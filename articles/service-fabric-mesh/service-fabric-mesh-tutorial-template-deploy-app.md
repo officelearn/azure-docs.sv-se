@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/11/2019
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 825f667029aeb1d75bfdaf52b1084ff5133b5774
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ce063d8a256cbf2507e19d459aafe13150eccce7
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60810441"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306951"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Självstudier: Distribuera ett program till Service Fabric Mesh med hjälp av en mall
 

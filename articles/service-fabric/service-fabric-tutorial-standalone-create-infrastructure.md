@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 05/11/2018
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: aa50cbe640c928c4113fb64c1b503548a95ee0a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 69508628356a5f33073311e4d062d66875509192
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60718351"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66302483"
 ---
 # <a name="tutorial-create-aws-infrastructure-to-host-a-service-fabric-cluster"></a>Självstudier: Skapa AWS-infrastruktur för att vara värd för Service Fabric-kluster
 
@@ -42,7 +42,7 @@ Du behöver ett AWS-konto för att kunna slutföra den här självstudien.  Om d
 
 ## <a name="create-ec2-instances"></a>Skapa EC2-instanser
 
-Logga in på AWS-konsolen > Ange **EC2** i sökrutan > **Virtuella EC2-servrar i molnet**
+Logga in på AWS-konsolen > RETUR **EC2** i sökrutan > **EC2 virtuella servrar i molnet**
 
 ![AWS-konsolsökning][aws-console]
 

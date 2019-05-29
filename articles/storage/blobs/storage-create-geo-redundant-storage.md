@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: artek
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: 24869981595cd68eb833f7b176e17a2683127945
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: cbf6409efa2fbb56500c6919edc6c741c4a2c45a
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787919"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306760"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Självstudier: Skapa ett program med hög tillgänglighet med Blob-lagring
 
@@ -40,7 +40,7 @@ För att slutföra den här självstudien behöver du:
 
 # <a name="nettabdotnet"></a>[NET](#tab/dotnet)
 
-* Installera [Visual Studio 2017](https://www.visualstudio.com/downloads/) med följande arbetsbelastningar:
+* Installera [Visual Studio 2019](https://www.visualstudio.com/downloads/) med följande arbetsbelastningar:
   - **Azure Development**
 
   ![Azure-utveckling (under Web & Cloud (Webb och moln))](media/storage-create-geo-redundant-storage/workloads.png)
@@ -82,6 +82,8 @@ Följ dessa steg om du vill skapa ett RA-GRS-lagringskonto:
    | **Distributionsmodell** | Resource Manager  | Resource Manager innehåller de senaste funktionerna.|
    | **Typ av konto** | StorageV2 | Mer information om kontotyper finns i [typer av lagringskonton](../common/storage-introduction.md#types-of-storage-accounts) |
    | **Prestanda** | Standard | Standard är tillräckligt för exempelscenariot. |
+   | **Replikering**| Read-Access Geo-Redundant Storage (RA-GRS) | Den här inställningen är nödvändigt för att exemplet ska fungera. |
+   |**Prenumeration** | din prenumeration |Mer information om dina prenumerationer finns i [Prenumerationer](https://account.windowsazure.com/Subscriptions). |
    | **Replikering**| Read-Access Geo-Redundant Storage (RA-GRS) | Detta krävs för att exemplet ska fungera. |
    |**Prenumeration** | din prenumeration |Mer information om dina prenumerationer finns i [Prenumerationer](https://account.azure.com/Subscriptions). |
    |**ResourceGroup** | myResourceGroup |Giltiga resursgruppnamn finns i [Namngivningsregler och begränsningar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
@@ -167,7 +169,7 @@ setx accountkey "<youraccountkey>"
 
 # <a name="java-v10-sdktabjava-v10"></a>[Java V10 SDK](#tab/java-v10)
 
-Det här exemplet kräver att du lagrar namnet och nyckeln för ditt lagringskonto på ett säkert sätt. Lagra dem i miljövariabler som är lokala på den dator som kommer att köra exemplet. Använd antingen Linux- eller Windows-exemplet, beroende på operativsystemet, för att skapa miljövariablerna. I Windows är miljövariabeln inte tillgänglig förrän du har läst in **kommandotolken** eller gränssnittet på nytt.
+Det här exemplet kräver att du lagrar namnet och nyckeln för ditt lagringskonto på ett säkert sätt. Lagra dem i miljövariabler som är lokala på den dator som kommer att köra exemplet. Använd antingen Linux- eller Windows-exemplet, beroende på operativsystemet, för att skapa miljövariablerna. I Windows, miljövariabeln inte tillgänglig förrän du ladda den **kommandotolk** eller gränssnittet som du använder.
 
 ### <a name="linux-example"></a>Linux-exemplet
 
@@ -194,7 +196,7 @@ AZURE_STORAGE_ACCOUNT_ACCESS_KEY=<replace with your storage account access key>
 
 Du hittar den här informationen i Azure portal genom att gå till ditt storage-konto och välja **åtkomstnycklar** i den **inställningar** avsnittet.
 
-Du måste också installera de nödvändiga beroendena. Om du vill göra detta, öppna en kommandotolk, navigerar du till exempelmappen och sedan ange `npm install`.
+Installera de nödvändiga beroendena. Om du vill göra detta, öppna en kommandotolk, navigerar du till exempelmappen och sedan ange `npm install`.
 
 ---
 
@@ -220,7 +222,7 @@ I exempelkoden används metoden `run_circuit_breaker` i filen `circuitbreaker.py
 
 Återförsöksfunktionen för lagringsobjektet har angetts till en linjär återförsöksprincip. Återförsöksfunktionen bestämmer om det ska göras ett nytt försök med begäran och anger antalet sekunder som ska förflyta innan det görs ett nytt försök. Ange true för värdet **retry\_to\_secondary** om det ska göras ett nytt försök till den sekundära slutpunkten om den första begäran till den primära slutpunkten misslyckas. I exempelprogrammet definieras en anpassad återförsöksprincip i funktionen `retry_callback` för lagringsobjektet.
 
-Före nedladdningen definieras funktionerna [retry_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) och [response_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) för objektet. Funktionerna definierar de händelsehanterare som utlöses när en nedladdning slutförs eller om en nedladdning misslyckas och ett nytt försök görs.
+Före nedladdningen serviceobjektet [retry_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) och [response_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) definieras. Funktionerna definierar de händelsehanterare som utlöses när en nedladdning slutförs eller om en nedladdning misslyckas och ett nytt försök görs.
 
 # <a name="java-v10-sdktabjava-v10"></a>[Java V10 SDK](#tab/java-v10)
 
@@ -231,11 +233,11 @@ Du kör exemplet med hjälp av Maven på kommandoraden.
 
 Det här exemplet skapar en testfil i din standardkatalog. Den här katalogen är för Windows-användare, **AppData\Local\Temp**. Exemplet visar sedan följande alternativ med kommandon som du kan ange:
 
-- Ange **P** för att köra en placeringsåtgärd (Put) för blob. Då laddas en temp-fil upp till ditt lagringskonto.
-- Ange **L** för att utföra en liståtgärd för blob. Då visas en lista över de blobar som för närvarande finns i din container.
-- Ange **G** för att utföra en hämtningsåtgärd (Get) för blob. Då laddas en fil ned från ditt lagringskonto till din lokala dator.
-- Ange **D** för att köra en borttagningsåtgärd (Delete) för blob. tas bloben bort från lagringskontot.
-- Ange **E** för att stänga exemplet. Detta gör även att alla resurser som exemplet skapade tas bort.
+- Ange **P** för att köra en åtgärd för placera blob, det här kommandot laddar upp en temporär fil till ditt lagringskonto.
+- Ange **L** för att genomföra en lista över blob-åtgärd, det här kommandot listar blobarna för närvarande i din behållare.
+- Ange **G** för att utföra en åtgärd för hämtning av blob, det här kommandot laddar ned en fil från ditt lagringskonto till den lokala datorn.
+- Ange **D** för att köra en borttagningsåtgärd blob, det här kommandot tar bort blobben från ditt lagringskonto.
+- Ange **E** Stäng exemplet genom det här kommandot också tar bort alla resurser i exemplet skapas.
 
 Det här exemplet visar dina utdata om du kör programmet på Windows.
 

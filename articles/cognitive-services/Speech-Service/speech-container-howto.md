@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 05/28/2019
 ms.author: diberry
-ms.openlocfilehash: 2adcbad55236917685ddcdbabe4809f36ab5a730
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b620cbb8e51fbe41defb6bdbdc66ba4a7e539aa0
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153050"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306562"
 ---
 # <a name="install-and-run-speech-service-containers"></a>Installera och köra Speech Service-behållare
 
@@ -25,7 +25,7 @@ Två tal-behållare är **tal till text** och **text till tal**.
 
 |Funktion|Funktioner|Senaste|
 |-|-|--|
-|Tal till text| <li>Transkriberar kontinuerlig realtidsöversättning av tal till text.<li>Kan masstranskribera tal från ljudinspelningar. <li>Stöder mellanliggande resultat, identifiering av talslut, automatisk textformatering och svordomsmaskering. <li>Kan anropa [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS) för att härleda användaravsikten från transkriberat tal.\*|1.1.1|
+|Tal-till-text| <li>Transkriberar kontinuerlig realtidsöversättning av tal till text.<li>Kan masstranskribera tal från ljudinspelningar. <li>Stöder mellanliggande resultat, identifiering av talslut, automatisk textformatering och svordomsmaskering. <li>Kan anropa [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS) för att härleda användaravsikten från transkriberat tal.\*|1.1.1|
 |Text till tal| <li>Konverterar text till naturligt tal. <li>Erbjuder flera kön eller dialekter för många språk. <li>Stöder inmatning av oformaterad text eller Speech Synthesis Markup Language (SSML). |1.1.0|
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
@@ -34,7 +34,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 Du måste uppfylla följande krav innan du använder tal behållare:
 
-|Krävs|Syfte|
+|Obligatoriskt|Syfte|
 |--|--|
 |Docker-motorn| Du behöver Docker-motorn installerad på en [värddatorn](#the-host-computer). Docker innehåller paket som konfigurerar Docker-miljön på [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), och [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Få en genomgång om grunderna för Docker och behållare finns i den [översikt över Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker måste konfigureras för att tillåta behållarna för att ansluta till och skicka faktureringsdata till Azure. <br><br> **På Windows**, Docker måste också konfigureras för att stödja Linux-behållare.<br><br>|
 |Liknar processen med Docker | Du bör ha grundläggande kunskaper om Docker-begrepp som register, databaser, behållare, och behållaravbildningar samt kunskaper om grundläggande `docker` kommandon.| 
@@ -107,10 +107,10 @@ Följande kod är ett exempel på format:
 
 I följande tabell visas de nationella inställningarna som stöds för **tal till text** 1.1.1 version av behållaren:
 
-|Språkinställningen|Taggar|
+|Språkinställningen|Tags|
 |--|--|
 |Kinesiska|`zh-cn`|
-|Svenska |`en-us`<br>`en-gb`<br>`en-au`<br>`en-in`|
+|Engelska |`en-us`<br>`en-gb`<br>`en-au`<br>`en-in`|
 |Franska |`fr-ca`<br>`fr-fr`|
 |Tyska|`de-de`|
 |Italienska|`it-it`|
@@ -136,18 +136,18 @@ Följande kod är ett exempel på format:
 
 I följande tabell visas de nationella inställningarna som stöds för **text till tal** i 1.1.0 versionen av behållaren:
 
-|Språkinställningen|Taggar|Stöds röster|
+|Språkinställningen|Tags|Stöds röster|
 |--|--|--|
 |Kinesiska|`zh-cn`|huihuirus<br>kangkang-apollo<br>yaoyao-apollo|
-|Svenska |`en-au`|catherine<br>hayleyrus|
-|Svenska |`en-gb`|george-apollo<br>hazelrus<br>susan-apollo|
-|Svenska |`en-in`|heera-apollo<br>priyarus<br>ravi-apollo<br>|
-|Svenska |`en-us`|jessarus<br>benjaminrus<br>jessa24krus<br>zirarus<br>guy24krus|
+|Engelska |`en-au`|catherine<br>hayleyrus|
+|Engelska |`en-gb`|george-apollo<br>hazelrus<br>susan-apollo|
+|Engelska |`en-in`|heera-apollo<br>priyarus<br>ravi-apollo<br>|
+|Engelska |`en-us`|jessarus<br>benjaminrus<br>jessa24krus<br>zirarus<br>guy24krus|
 |Franska|`fr-ca`|caroline<br>harmonierus|
 |Franska|`fr-fr`|hortenserus<br>julie-apollo<br>paul-apollo|
 |Tyska|`de-de`|hedda<br>heddarus<br>stefan-apollo|
 |Italienska|`it-it`|cosimo-apollo<br>luciarus|
-|Japanska|`ja-jp`|ayumi-apollo<br>harukarus<br>ichiro-apollo|
+|japanska|`ja-jp`|ayumi-apollo<br>harukarus<br>ichiro-apollo|
 |Koreanska|`ko-kr`|heamirus|
 |Portugisiska|`pt-br`|daniel-apollo<br>heloisarus|
 |Spanska|`es-es`|elenarus<br>laura-apollo<br>pablo-apollo<br>|
@@ -155,13 +155,13 @@ I följande tabell visas de nationella inställningarna som stöds för **text t
 
 ### <a name="docker-pull-for-the-speech-containers"></a>Docker pull för tal-behållare
 
-#### <a name="speech-to-text"></a>Tal till text
+#### <a name="speech-to-text"></a>Tal-till-text
 
 ```Docker
 docker pull containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text:latest
 ```
 
-#### <a name="text-to-speech"></a>Text till tal
+#### <a name="text-to-speech"></a>Text-till-tal
 
 ```Docker
 docker pull containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech:latest
@@ -187,7 +187,7 @@ Använd den [docker kör](https://docs.docker.com/engine/reference/commandline/r
 
 Ersätt parametrarna med dina egna värden i följande exempel `docker run` kommando.
 
-### <a name="text-to-speech"></a>Text till tal
+### <a name="text-to-speech"></a>Text-till-tal
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
@@ -197,7 +197,7 @@ Billing={BILLING_ENDPOINT_URI} \
 ApiKey={BILLING_KEY} 
 ```
 
-### <a name="speech-to-text"></a>Tal till text
+### <a name="speech-to-text"></a>Tal-till-text
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 2g --cpus 2 \
@@ -221,10 +221,10 @@ Det här kommandot:
 
 |Container|Slutpunkt|
 |--|--|
-|Tal till text|ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1|
-|Text till tal|http://localhost:5000/speech/synthesize/cognitiveservices/v1|
+|Tal-till-text|ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1|
+|Text-till-tal|http://localhost:5000/speech/synthesize/cognitiveservices/v1|
 
-### <a name="speech-to-text"></a>Tal till text
+### <a name="speech-to-text"></a>Tal-till-text
 
 Behållaren innehåller websocket-baserade frågan endpoint API: er, som kan nås via den [tal SDK](index.yml).
 
@@ -258,7 +258,7 @@ med hjälp av behållarslutpunkten på det här anropet:
 speech_config = speechsdk.SpeechConfig(subscription=speech_key, endpoint="ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1")
 ```
 
-### <a name="text-to-speech"></a>Text till tal
+### <a name="text-to-speech"></a>Text-till-tal
 
 Behållaren innehåller REST-slutpunkt API: er som du hittar [här](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api) och exempel finns [här](https://azure.microsoft.com/resources/samples/cognitive-speech-tts/).
 
@@ -281,6 +281,10 @@ Tal behållare skicka faktureringsinformation till Azure, med en _tal_ resurs p�
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 Mer information om alternativen finns i [konfigurera behållare](speech-container-configuration.md).
+
+<!--blogs/samples/video coures -->
+
+[!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
 ## <a name="summary"></a>Sammanfattning
 

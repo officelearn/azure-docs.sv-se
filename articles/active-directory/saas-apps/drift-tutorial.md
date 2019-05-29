@@ -5,107 +5,80 @@ services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
-ms.reviewer: barbkess
+ms.reviewer: celested
 ms.assetid: 39dcbb95-c192-448c-86a1-cedede1c0972
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/05/2019
+ms.date: 05/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 876780189768411eba40a99192755bee6732728b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e645dd40071416a28ced475e02c47688a5759eb4
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65862973"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304054"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-drift"></a>Självstudier: Azure Active Directory-integrering med Drift
+# <a name="tutorial-integrate-drift-with-azure-active-directory"></a>Självstudier: Integrera Drift med Azure Active Directory
 
-I den här självstudien får du lära dig hur du integrerar Drift med Azure Active Directory (AD Azure).
-Integreringen av Drift med Azure AD medför följande fördelar:
+I de här självstudierna lär du dig att integrera Drift med Azure Active Directory (AD Azure). När du integrerar Drift med Azure AD, kan du:
 
-* Du kan styra vem som har åtkomst till Drift från Azure AD.
-* Du kan konfigurera inställningar så att dina användare automatiskt loggas in i Drift (enkel inloggning) med deras Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure portal.
+* Styr i Azure AD som har åtkomst till Drift.
+* Ge dina användare att automatiskt inloggad till Drift med sina Azure AD-konton.
+* Hantera konton på en central plats – Azure portal.
 
-Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+Läs mer om integrering av SaaS-app med Azure AD i [vad är programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-För att konfigurera Azure AD-integrering med Drift behöver du följande:
+För att komma igång behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* En Drift-prenumeration med enkel inloggning aktiverat
+* En Azure AD-prenumeration. Om du inte har en prenumeration kan du få en [kostnadsfritt konto](https://azure.microsoft.com/free/).
+* Aktiverat prenumeration drift enkel inloggning (SSO).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
-
-* Drift stöder **SP**- och **IDP**-initierad enkel inloggning
-
-* Drift stöder **JIT**-användaretablering (Just-In-Time)
+I den här självstudien, konfigurera och testa Azure AD enkel inloggning i en testmiljö. Avviker stöder **SP och IDP** -initierad SSO och **Just In Time** etableringen av användare.
 
 ## <a name="adding-drift-from-the-gallery"></a>Lägga till Drift från galleriet
 
 För att konfigurera integreringen mellan Drift och Azure AD måste du lägga till Drift från galleriet i din lista över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till Drift från galleriet:**
-
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
-
-    ![Azure Active Directory-knappen](common/select-azuread.png)
-
-2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
-
-    ![Bladet Företagsprogram](common/enterprise-applications.png)
-
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
-
-    ![Knappen Nytt program](common/add-new-app.png)
-
-4. I sökrutan skriver du **Drift**, väljer **Drift** i resultatrutan och klickar på knappen **Lägg till** för att lägga till programmet.
-
-     ![Drift i resultatlistan](common/search-new-app.png)
+1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
+1. I det vänstra navigeringsfönstret, väljer den **Azure Active Directory** service.
+1. Gå till **företagsprogram** och välj sedan **alla program**.
+1. Om du vill lägga till nytt program, Välj **nytt program**.
+1. I den **Lägg till från galleriet** Skriv **Drift** i sökrutan.
+1. Välj **Drift** från resultaten panelen och lägger sedan till appen. Vänta några sekunder medan appen läggs till i din klient.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
-I det här avsnittet ska du konfigurera och testa enkel inloggning i Azure AD med Drift baserat på testanvändaren **Britta Simon**.
-För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Drift upprättas.
+Konfigurera och testa Azure AD enkel inloggning med Drift med en testanvändare kallas **B. Simon**. För enkel inloggning ska fungera, måste du upprätta en länk förhållandet mellan en Azure AD-användare och den relaterade användaren i Drift.
 
-För att konfigurera och testa enkel inloggning mellan Azure AD och Drift måste du göra följande:
+Om du vill konfigurera och testa Azure AD enkel inloggning med Drift, utför du följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Konfigurera enkel inloggning för Drift](#configure-drift-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Skapa en Drift-testanvändare](#create-drift-test-user)**  – för att skapa en motsvarighet till Britta Simon i Drift som är länkad till en Azure AD-representation av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)**  vill tillåta att användarna använda den här funktionen.
+2. **[Konfigurera Drift](#configure-drift)**  att konfigurera inställningar för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  att testa Azure AD enkel inloggning med B. Simon.
+4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  att aktivera B. Simon att använda Azure AD enkel inloggning.
+5. **[Skapa Drift testanvändare](#create-drift-test-user)**  har en motsvarighet för B. Simon i Drift som är länkad till en Azure AD-representation av användaren.
+6. **[Testa SSO](#test-sso)**  att kontrollera om konfigurationen fungerar.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
+### <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
-I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
+Följ dessa steg om du vill aktivera enkel inloggning för Azure AD i Azure-portalen.
 
-Utför följande steg för att konfigurera enkel inloggning mellan Azure AD och Drift:
+1. I den [Azure-portalen](https://portal.azure.com/)på den **Drift** programsidan integration, hitta den **hantera** och väljer **enkel inloggning**.
+1. På den **väljer du en metod för enkel inloggning** väljer **SAML**.
+1. På den **ange in enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **SAML grundkonfiguration** att redigera inställningarna.
 
-1. Välj **Enkel inloggning** på sidan för programintegrering av **Drift** på [Azure-portalen](https://portal.azure.com/).
+   ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-    ![Konfigurera enkel inloggning för länken](common/select-sso.png)
-
-2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
-
-    ![Välja läge för enkel inloggning](common/select-saml-option.png)
-
-3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
-
-    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
-
-4. Om du vill konfigurera programmet i **IDP**-initierat läge gör du följande i avsnittet **Grundläggande SAML-konfiguration**:
-
-    ![Information om domäner och URL:er för enkel inloggning med Drift](common/both-preintegrated-advanced-urls.png)
+1. På den **SAML grundkonfiguration** avsnittet programmet är förkonfigurerad och nödvändiga URL: er är redan ifyllda på förhand med Azure. Användaren behöver för att spara konfigurationen genom att klicka på den **spara** knappen och utför följande steg:
 
     a. Klicka på **Ange ytterligare URL:er**.
  
@@ -115,11 +88,11 @@ Utför följande steg för att konfigurera enkel inloggning mellan Azure AD och 
 
     d. I rutan **Inloggnings-URL** anger du en URL: `https://start.drift.com`
 
-6. Drift-programmet förväntar sig att SAML-försäkran har ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut i avsnittet **Användarattribut** på sidan för programintegrering. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialogrutan **Användarattribut**.
+6. Programmets Drift förväntar sig SAML-intyg i ett visst format, vilket kräver att du kan lägga till anpassade attributmappningar i SAML-tokenattribut konfigurationen. I följande skärmbild visas listan över standardattribut. Klicka på ikonen **Redigera** för att öppna dialogrutan Användarattribut.
 
     ![image](common/edit-attribute.png)
 
-7. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** så redigerar du anspråken genom att använda **Redigera-ikonen** eller lägga till anspråken genom att använda **Lägg till nytt anspråk** för att konfigurera SAML-tokenattribut som det visas i bilden ovan och utföra följande steg: 
+7. Dessutom för att driva program ovan, förväntar sig att få fler attribut som ska skickas tillbaka i SAML-svar. I avsnittet användaranspråk i dialogrutan användarattribut utför du följande steg för att lägga till SAML-token attributet som visas i den tabellen nedan: 
 
     | Namn | Källattribut|
     | ---------------| --------------- |    
@@ -143,25 +116,27 @@ Utför följande steg för att konfigurera enkel inloggning mellan Azure AD och 
 
     g. Klicka på **Spara**.
 
-8. Klicka på **Ladda ned** i avsnittet **SAML-signeringscertifikat** på sidan **Konfigurera enkel inloggning med SAML** när du ska ladda ned **Federation Metadata XML** från de angivna alternativen enligt dina behov och spara det på datorn.
+1. På den **ange in enkel inloggning med SAML** sidan den **SAML-signeringscertifikat** avsnittet, hitta **XML-Metadata för Federation** och välj **hämta** att hämta certifikatet och spara den på din dator.
 
-    ![Länk för hämtning av certifikat](common/metadataxml.png)
+   ![Länk för hämtning av certifikat](common/metadataxml.png)
 
-9. I avsnittet **Konfigurera Drift** kopierar du lämpliga URL:er enligt dina behov.
+1. På den **konfigurera Drift** avsnittet, kopiera den lämpliga URL: er efter behov.
 
-    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
+   ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    a. Inloggningswebbadress
+### <a name="configure-drift"></a>Konfigurera Drift
 
-    b. Azure AD-identifierare
+1. Om du vill automatisera konfigurationen i Drift, måste du installera **Mina appar skyddat inloggning webbläsartillägget** genom att klicka på **installera tillägget**.
 
-    c. Utloggnings-URL
+    ![Mina appar-tillägg](common/install-myappssecure-extension.png)
 
-### <a name="configure-drift-single-sign-on"></a>Konfigurera enkel inloggning för Drift
+2. När du lägger till tillägg till webbläsaren, klickar på **installationsprogrammet Drift** omdirigerar dig till Drift-programmet. Ange administratörsautentiseringsuppgifter för att logga in på Drift därifrån. Webbläsartillägget automatiskt att konfigurera program för dig. och automatisera steg 3 – 4.
 
-1. Logga in i Drift som säkerhetsadministratör i ett annat webbläsarfönster.
+    ![Installationskonfiguration](common/setup-sso.png)
 
-2. Från vänster sida av menyraden klickar du på **inställningsikonen** > **Appinställningar** > **Autentisering** och utför följande steg:
+3. Om du vill konfigurera Drift manuellt, öppna ett nytt webbläsarfönster och logga till Drift företagets webbplatsen som administratör och utför följande steg:
+
+4. Från vänster sida av menyraden klickar du på **inställningsikonen** > **Appinställningar** > **Autentisering** och utför följande steg:
 
     ![Admin-länken](./media/drift-tutorial/tutorial_drift_admin.png)
 
@@ -171,56 +146,35 @@ Utför följande steg för att konfigurera enkel inloggning mellan Azure AD och 
 
     c. Klicka på **Aktivera SAML**.
 
-### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
+I det här avsnittet skapar du en användare i Azure-portalen kallas B. Simon.
 
-1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
-
-    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
-
-2. Välj **Ny användare** överst på skärmen.
-
-    ![Knappen Ny användare](common/new-user.png)
-
-3. Genomför följande steg i Användaregenskaper.
-
-    ![Dialogrutan Användare](common/user-properties.png)
-
-    a. I fältet **Namn** anger du **BrittaSimon**.
-  
-    b. I den **användarnamn** fälttyp **brittasimon\@yourcompanydomain.extension**  
-    Till exempel, BrittaSimon@contoso.com
-
-    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
-
-    d. Klicka på **Skapa**.
+1. På menyn till vänster i Azure-portalen väljer du **Azure Active Directory**väljer **användare**, och välj sedan **alla användare**.
+1. Välj **ny användare** överst på skärmen.
+1. I den **användaren** egenskaper, Följ dessa steg:
+   1. I **Namn**-fältet skriver du `B. Simon`.  
+   1. I den **användarnamn** fältet, anger du den username@companydomain.extension. Till exempel `B. Simon@contoso.com`.
+   1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
+   1. Klicka på **Skapa**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till Drift.
+I det här avsnittet ska du aktivera B. Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Drift.
 
-1. På Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **Drift**.
+1. I Azure-portalen väljer du **företagsprogram**, och välj sedan **alla program**.
+1. I listan med program väljer du **Drift**.
+1. Appens översiktssidan, hitta den **hantera** och väljer **användare och grupper**.
 
-    ![Bladet Företagsprogram](common/enterprise-applications.png)
+   ![Länken ”användare och grupper”](common/users-groups-blade.png)
 
-2. I listan med program väljer du **Drift**.
+1. Välj **Lägg till användare**och välj sedan **användare och grupper** i den **Lägg till tilldelning** dialogrutan.
 
-    ![Drift-länken i listan med program](common/all-applications.png)
+    ![Länken Lägg till användare](common/add-assign-user.png)
 
-3. På menyn till vänster väljer du **Användare och grupper**.
-
-    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
-
-4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
-
-    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
-
-5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
-
-6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
-
-7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+1. I den **användare och grupper** dialogrutan **B. Simon** från listan över användare klickar på **Välj** längst ned på skärmen.
+1. Om du förväntar dig något rollvärde i SAML-försäkran i den **Välj roll** dialogrutan Välj rätt roll för användaren i listan och klicka sedan på den **Välj** längst ned på skärmen.
+1. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
 ### <a name="create-drift-test-user"></a>Skapa testanvändare för Drift
 
@@ -229,11 +183,9 @@ I det här avsnittet skapas en användare med namnet Britta Simon i Drift. Drift
 >[!Note]
 >Om du vill skapa en användare manuellt kontaktar du [Drift-supportteamet](mailto:integrations@drift.com).
 
-### <a name="test-single-sign-on"></a>Testa enkel inloggning 
+### <a name="test-sso"></a>Testa enkel inloggning
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
-
-När du klickar på Drift-panelen på åtkomstpanelen bör du loggas in automatiskt i Drift som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du väljer panelen Drift i åtkomstpanelen, bör det vara loggas in automatiskt till Drift som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
@@ -242,4 +194,3 @@ När du klickar på Drift-panelen på åtkomstpanelen bör du loggas in automati
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

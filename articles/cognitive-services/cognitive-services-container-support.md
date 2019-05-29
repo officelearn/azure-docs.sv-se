@@ -8,14 +8,14 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/16/2019
+ms.date: 05/28/2019
 ms.author: diberry
-ms.openlocfilehash: 43e35e8074922f45493bc635455d1d176078ce51
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 3d09ee542b98e1c365aceaf86b051d706c7882d4
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65833539"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304273"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Stöd för behållare i Azure Cognitive Services
 
@@ -103,16 +103,7 @@ Få en genomgång om grunderna för Docker och behållare finns i den [översikt
 
 Enskilda behållare kan ha sina egna krav, samt, inklusive server och minneskrav för allokering.
 
-## <a name="developer-samples"></a>Utvecklingsexempel
-
-Developer-exempel finns på vår [GitHub-lagringsplatsen](https://github.com/Azure-Samples/cognitive-services-containers-samples).
-
-## <a name="view-webinar"></a>Visa webbseminarium 
-
-Ansluta till den [webbseminarium](https://info.microsoft.com/AP-AZUREPLAT-WBNR-FY19-03Mar-20-Seamlesslyintegrateapplicationsdataandprocesses-MCW0012283_02OnDemandRegistration-ForminBody.html) vill veta mer om:
-
-* Distribuera Cognitive Services på en dator med Docker
-* Hur du distribuerar Cognitive Services till AKS
+[!INCLUDE [Discoverability of more container information](../../includes/cognitive-services-containers-discoverability.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

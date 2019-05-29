@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 05/28/2019
 ms.author: diberry
-ms.openlocfilehash: 9bc18157a6f60555ea18901796199a3fe9dc4c22
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 26ebeb463f42dce06c29a5bd3f69585430a2ee90
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65891246"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306644"
 ---
 # <a name="install-and-run-face-containers"></a>Installera och köra Ansikts-behållare
 
@@ -83,7 +83,7 @@ När behållaren är på den [värddatorn](#the-host-computer), använder du fö
 
 Använd den [docker kör](https://docs.docker.com/engine/reference/commandline/run/) kommando för att köra någon av tre behållarna. Kommandot använder följande parametrar.
 
-| Platshållare | Value |
+| Platshållare | Värde |
 |-------------|-------|
 |{BILLING_KEY} | Den här nyckeln används för att starta behållaren och är tillgängligt på Azure `Cognitive Services` **nycklar** sidan. |
 |{BILLING_ENDPOINT_URI} | Fakturering slutpunkten URI-värdet är tillgänglig på Azure `Cognitive Services` **översikt** sidan. Ett exempel är `https://westus.api.cognitive.microsoft.com/face/v1.0`.|
@@ -142,6 +142,10 @@ Ansikts-API-behållare skicka faktureringsinformation till Azure med hjälp av e
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 Mer information om alternativen finns i [konfigurera behållare](./face-resource-container-config.md).
+
+<!--blogs/samples/video coures -->
+
+[!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
 ## <a name="summary"></a>Sammanfattning
 

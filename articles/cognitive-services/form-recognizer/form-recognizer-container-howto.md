@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: form-recognizer
 ms.topic: overview
-ms.date: 05/07/2019
+ms.date: 05/28/2019
 ms.author: pafarley
-ms.openlocfilehash: a7159fccc9c4ef232cfca08b173e712e268343ea
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: f65375bfd826660f8583068875a1fddc545a86d7
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65507820"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306538"
 ---
 # <a name="install-and-run-form-recognizer-containers"></a>Installera och köra formuläret Igenkännande behållare
 Formuläret Igenkännande gäller maskininlärningsteknik för att identifiera och extrahera nyckel / värde-par och tabeller från formulär. Det kopplar värden och tabellposter till dem och sedan returnerar strukturerade data som innehåller relationerna i den ursprungliga filen. Du kan anropa anpassade formulär Igenkännande modellen med hjälp av ett enkelt REST API för att minska komplexiteten och integrera enkelt i ditt automation-arbetsflödesprocessen eller annat program. Endast fem dokument (eller ett tomt formulär) behövs, så du kan få resultat snabbt, korrekt och anpassats efter dina specifika innehåll, utan tunga manuella åtgärder eller omfattande data science-expertis. Det kräver inte märkning av data eller data anteckning.
@@ -101,7 +101,7 @@ När behållaren är på den [värddatorn](#the-host-computer), använder du fö
 
 Använd den [docker kör](https://docs.docker.com/engine/reference/commandline/run/) kommando för att köra någon av tre behållarna. Kommandot använder följande parametrar:
 
-| Platshållare | Value |
+| Platshållare | Värde |
 |-------------|-------|
 |{BILLING_KEY} | Den här nyckeln används för att starta behållaren och är tillgänglig på sidan för Azure-portalens formuläret Igenkännande nycklar.  |
 |{BILLING_ENDPOINT_URI} | Fakturering slutpunkten URI-värdet är tillgänglig på Azure portal formuläret Igenkännande översiktssidan.|
@@ -282,6 +282,10 @@ Formuläret Igenkännande behållare skicka faktureringsinformation till Azure, 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 Mer information om alternativen finns i [konfigurera behållare](form-recognizer-container-configuration.md).
+
+<!--blogs/samples/video coures -->
+
+[!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
 ## <a name="summary"></a>Sammanfattning
 

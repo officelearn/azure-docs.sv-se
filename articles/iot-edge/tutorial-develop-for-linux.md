@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 4ee3c0bf344520afee6b3a00eb49759ae1432949
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 11fa72f5853350c76b2a8d0aa4fd7b96b598b670
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66239778"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66303856"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-linux-devices"></a>Självstudier: Utveckla IoT Edge-moduler för Linux-enheter
 
@@ -42,18 +42,18 @@ Den här självstudiekursen beskriver utvecklingen av IoT Edge-modul. En *IoT Ed
 
 När du utvecklar IoT Edge-moduler, är det viktigt att förstå skillnaden mellan utvecklingssystemet och målet IoT Edge-enhet där modulen så småningom ska distribueras. Behållaren som du skapar för att lagra din modul-kod måste matcha operativsystemet (OS) på den *målenheten*. Till exempel är det vanligaste scenariot någon utveckla en modul på en Windows-dator som har för avsikt att fokusera på en Linux-enhet som kör IoT Edge. I så fall är behållare operativsystemet Linux. När du går igenom den här kursen, Tänk på skillnaden mellan den *utvecklingsdator OS* och *behållare OS*.
 
-Den här kursen riktar sig till Linux-enheter som kör IoT Edge. Du kan använda operativsystemet lämpliga utvecklings datorn så länge utvecklingsdatorn kan köra Linux-behållare. Vi rekommenderar att du använder Visual Studio Code för att utveckla för Linux enheter, så det är den här självstudien använder. Du kan använda Visual Studio 2017, även om det finns skillnader i stöd mellan de två verktyg.
+Den här kursen riktar sig till Linux-enheter som kör IoT Edge. Du kan använda operativsystemet lämpliga utvecklings datorn så länge utvecklingsdatorn kan köra Linux-behållare. Vi rekommenderar att du använder Visual Studio Code för att utveckla för Linux enheter, så det är den här självstudien använder. Du kan använda Visual Studio, även om det finns skillnader i stöd mellan de två verktyg.
 
-I följande tabell visas stöds utvecklingsscenarier för **Linux-behållare** i Visual Studio Code och Visual Studio 2017.
+I följande tabell visas stöds utvecklingsscenarier för **Linux-behållare** i Visual Studio Code och Visual Studio.
 
-|   | Visual Studio-kod | Visual Studio 2017 |
+|   | Visual Studio-kod | Visual Studio 2017/2019 |
 | - | ------------------ | ------------------ |
 | **Arkitektur för Linux-enhet** | Linux AMD64 <br> Linux ARM32 | Linux AMD64 <br> Linux ARM32 |
 | **Azure-tjänster** | Azure Functions <br> Azure Stream Analytics <br> Azure Machine Learning |   |
 | **Språk** | C <br> C# <br> Java <br> Node.js <br> Python | C <br> C# |
-| **Mer information** | [Azure IoT Edge for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [Azure IoT Edge-verktyg för Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) |
+| **Mer information** | [Azure IoT Edge for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [Azure IoT Edge-verktyg för Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools), [Azure IoT Edge-verktyg för Visual Studio-2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) |
 
-Den här självstudien Lär hur utveckling för Visual Studio Code. Om du föredrar att använda Visual Studio 2017, läser du anvisningarna i [använda Visual Studio 2017 du utvecklar och felsöker moduler för Azure IoT Edge](how-to-visual-studio-develop-module.md).
+Den här självstudien Lär hur utveckling för Visual Studio Code. Om du föredrar att använda Visual Studio, läser du anvisningarna i [använda Visual Studio 2019 att utveckla och felsöka moduler för Azure IoT Edge](how-to-visual-studio-develop-module.md).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 

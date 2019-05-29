@@ -2,18 +2,18 @@
 title: Självstudie – skapa ett kluster i Azure Red Hat OpenShift | Microsoft Docs
 description: Lär dig hur du skapar ett Microsoft Azure Red Hat OpenShift-kluster med Azure CLI
 services: container-service
-author: TylerMSFT
-ms.author: twhitney
+author: jimzim
+ms.author: jzim
 manager: jeconnoc
 ms.topic: tutorial
 ms.service: openshift
 ms.date: 05/14/2019
-ms.openlocfilehash: d8d767b97e335feeb31851c89a9b21eddf7157ea
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 651236c25ed912ebd7399d351677a67e3826278c
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65962221"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306188"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-cluster"></a>Självstudier: Skapa ett Azure Red Hat OpenShift-kluster
 

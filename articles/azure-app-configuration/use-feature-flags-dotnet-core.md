@@ -14,20 +14,20 @@ ms.topic: tutorial
 ms.date: 04/19/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: f712cc34a3d41ea9472bf9428606cb378eef8c18
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: b0e48a0db63eded9e9c4921d33b03af39656ce0d
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244265"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299269"
 ---
 # <a name="tutorial-use-feature-flags-in-a-net-core-app"></a>Självstudier: Använda funktionsflaggor i en .NET Core-app
 
-Hanteringsbibliotek för .NET Core funktionen ger idiomatiskt support för att implementera funktionen flaggor i ett .NET- eller ASP.NET Core-program. De kan du lägga till funktionen flaggar i koden mer deklarativt så att du inte behöver skriva alla de `if` -uttryck för dem manuellt. De hanterar funktionen flaggan livscykler (till exempel uppdatering och cache flaggan tillstånd, garanterar ett flaggan tillstånd som inte kan ändras under ett begärandeanrop) bakom scenen. ASP.NET Core-biblioteket erbjuder dessutom out-of the box integreringar inklusive MVC controller åtgärder, vyer, vägar och mellanprogram.
+Hanteringsbibliotek för .NET Core funktionen ger idiomatiskt support för att implementera funktionen flaggor i ett .NET- eller ASP.NET Core-program. De kan du lägga till funktionen flaggar i koden mer deklarativt så att du inte behöver skriva alla de `if` -uttryck för dem manuellt. De hanterar funktionen flaggan livscykler (till exempel uppdatering och cache flaggan tillstånd, garanterar ett flaggan tillstånd som inte kan ändras under ett begärandeanrop) i bakgrunden. ASP.NET Core-biblioteket erbjuder dessutom out-of the box integreringar inklusive MVC controller åtgärder, vyer, vägar och mellanprogram.
 
 Den [lägga till funktionen flaggor i en ASP.NET Core-app](./quickstart-feature-flag-aspnet-core.md) visas ett antal sätt att lägga till funktionen flaggor i ett ASP.NET Core-program. Den här självstudien beskrivs dessa i mer information. Se den [management-dokumentation för ASP.NET Core-funktionen](https://go.microsoft.com/fwlink/?linkid=2091410) för en fullständig referens.
 
-I den här guiden får du lära dig att:
+I den här självstudien får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Lägg till funktionen flaggor i viktiga delar i ditt program för att styra tillgängliga funktioner.
@@ -82,7 +82,7 @@ public class Startup
 }
 ```
 
-För att fungera effektivt, bör du hålla funktionen flaggor utanför programmet och hantera dem separat. Då kan du ändra flaggan tillstånd när som helst och har ändringarna träder i kraft i programmet direkt. Konfiguration av ger en central plats för att ordna och hur du styr alla funktionen flaggar via en dedikerad portalens användargränssnitt och levererar flaggor för ditt program direkt via .NET Core klienten bibliotek. Det enklaste sättet att ansluta din ASP.NET Core-program till App-konfigurationen är via konfigurationsprovidern `Microsoft.Extensions.Configuration.AzureAppConfiguration`. Du kan använda den här NuGet-paketet i din kod genom att lägga till följande för att den *Program.cs* fil:
+För att fungera effektivt, bör du hålla funktionen flaggor utanför programmet och hantera dem separat. Då kan du ändra flaggan tillstånd när som helst och har dessa ändringar börjar gälla omedelbart i programmet. Konfiguration av ger en central plats för att ordna och hur du styr alla funktionen flaggar via en dedikerad portalens användargränssnitt och levererar flaggor för ditt program direkt via .NET Core klienten bibliotek. Det enklaste sättet att ansluta din ASP.NET Core-program till App-konfigurationen är via konfigurationsprovidern `Microsoft.Extensions.Configuration.AzureAppConfiguration`. Du kan använda den här NuGet-paketet i din kod genom att lägga till följande för att den *Program.cs* fil:
 
 ```csharp
 using Microsoft.Extensions.Configuration.AzureAppConfiguration;

@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 01/31/2019
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 0dbd0445f4167485172a2b98cec3bb2b2a47ac20
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a54ec7349317fdd8621fecec57cb06ad98f4660b
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60718214"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306740"
 ---
 # <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>Självstudier: Paketera och distribuera containrar som ett Service Fabric-program med hjälp av Yeoman
 
@@ -122,7 +122,7 @@ ApplicationManifest.xml azurevotefrontPkg azurevotebackPkg
 
 Service Fabric behöver autentiseringsuppgifter för att hämta behållaravbildningar från Azure Container Registry. Dessa anges i **ApplicationManifest.xml**.
 
-Logga in på din ACR-instans. Använd kommandot **az acr login** till att slutföra åtgärden. Ange det unika namn du angav för containerregistret när det skapades.
+Logga in på ACR-instansen. Använd kommandot **az acr login** till att slutföra åtgärden. Ange det unika namn du angav för containerregistret när det skapades.
 
 ```bash
 az acr login --name <acrName>

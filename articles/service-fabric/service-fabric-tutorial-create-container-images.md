@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/15/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: c081a6296e1fae89f24a2c3ddb1ae66f7a3f94aa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fe01d55b17c0f6f6dd6a621fbac0cf4d3a268ee3
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60865297"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306769"
 ---
 # <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>Självstudie: Skapa containeravbildningar i ett Service Fabric-kluster i Linux
 
@@ -88,7 +88,7 @@ tiangolo/uwsgi-nginx-flask   python3.6           590e17342131        5 days ago 
 
 ## <a name="deploy-azure-container-registry"></a>Distribuera Azure Container Registry
 
-Kör först kommandot **az login** för att logga in på ditt Azure-konto.
+Kör först den **az-inloggning** kommando för att logga in på ditt Azure-konto.
 
 ```bash
 az login
@@ -116,7 +116,7 @@ az acr create --resource-group <myResourceGroup> --name <acrName> --sku Basic --
 
 I resten av den här självstudien använder vi acrName som platshållare för det containerregisternamn du väljer. Skriv ned det här värdet.
 
-## <a name="log-in-to-your-container-registry"></a>Logga in på ditt containerregister
+## <a name="sign-in-to-your-container-registry"></a>Logga in på ditt behållarregister
 
 Logga in på din ACR-instans innan du push-överför avbildningar till den. Använd kommandot **az acr login** till att slutföra åtgärden. Ange det unika namn du angav för containerregistret när det skapades.
 

@@ -9,12 +9,12 @@ ms.date: 04/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: a105e59007543ffaf31b586707390954643e8bee
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 95fab84fb6472339c9d6b847f8c09139b55e1466
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66239638"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66303830"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-for-linux-devices"></a>Självstudier: Utveckla en Java IoT Edge-modul för Linux-enheter
 
@@ -37,7 +37,7 @@ Den här kursen visar hur du utvecklar en modul i **Java** med **Visual Studio C
 
 Använd följande tabell för att förstå dina alternativ för att utveckla och distribuera Java-moduler: 
 
-| Java | Visual Studio-kod | Visual Studio 2017 | 
+| Java | Visual Studio-kod | Visual Studio 2017/2019 | 
 | - | ------------------ | ------------------ |
 | **Linux AMD64** | ![Använda VS Code för Java-moduler på Linux AMD64](./media/tutorial-c-module/green-check.png) |  |
 | **Linux ARM32** | ![Använda VS Code för Java-moduler på Linux ARM32](./media/tutorial-c-module/green-check.png) |  |

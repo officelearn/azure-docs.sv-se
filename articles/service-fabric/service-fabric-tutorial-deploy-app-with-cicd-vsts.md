@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 12/02/2018
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: c805d2bc03ad07635b01a5e978822ecab2425457
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ba0975486039546d5be0f704fb617beb1a9e0908
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61390629"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306896"
 ---
 # <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Självstudie: Distribuera ett program med CI/CD till ett Service Fabric-kluster
 
@@ -47,7 +47,7 @@ I den här självstudieserien får du lära du dig att:
 Innan du börjar den här självstudien:
 
 * om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* [Installera Visual Studio 2017](https://www.visualstudio.com/) och installera **Azure Development** och arbetsbelastningarna **ASP.NET och webbutveckling**.
+* [Installera Visual Studio 2019](https://www.visualstudio.com/) och installera den **Azure development** och **ASP.NET och webbutveckling** arbetsbelastningar.
 * [Installera Service Fabric SDK](service-fabric-get-started.md)
 * Skapa ett Windows Service Fabric-kluster i Azure, till exempel genom att [följa den här självstudiekursen](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 * Skapa en [Azure DevOps-organisation](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student). På så sätt kan du skapa ett projekt i Azure DevOps och använda Azure Pipelines.
@@ -86,7 +86,7 @@ När du publicerar lagringsplatsen skapas ett nytt projekt i ditt konto med samm
 
 ## <a name="configure-continuous-delivery-with-azure-pipelines"></a>Konfigurera kontinuerlig leverans med Azure Pipelines
 
-En bygg-pipeline för Azure Pipelines beskriver ett arbetsflöde som består av en uppsättning byggesåtgärder som utförs i tur och ordning. Skapa en bygg-pipeline som producerar ett Service Fabric-programpaket och andra artefakter att distribuera till ett Service Fabric-kluster. Läs mer om [Azure Pipelines bygg-pipelines](https://www.visualstudio.com/docs/build/define/create). 
+En Azure-Pipelines build-pipeline beskriver ett arbetsflöde som består av en uppsättning byggesåtgärder som körs sekventiellt. Skapa en bygg-pipeline som producerar ett Service Fabric-programpaket och andra artefakter att distribuera till ett Service Fabric-kluster. Läs mer om [Azure Pipelines bygg-pipelines](https://www.visualstudio.com/docs/build/define/create). 
 
 En versionspipeline för Azure Pipelines beskriver ett arbetsflöde som distribuerar ett programpaket till ett kluster. När de används tillsammans kör bygg-pipelinen och versionspipelinen hela arbetsflödet med början på källfiler och slutar med ett program som körs i klustret. Läs mer om [Azure Pipelines versionspipelines](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition).
 
@@ -108,7 +108,7 @@ I **Välj en mall** väljer du mallen **Azure Service Fabric-program** och klick
 
 I **Uppgifter** anger du ”Hosted VS2017” som **agentpool**.
 
-![Välj uppgifter][save-and-queue]
+![Välj aktiviteter][save-and-queue]
 
 Under **Utlösare** aktiverar du kontinuerlig integrering genom att markera **Aktivera kontinuerlig integrering**. I **Branch filters** (Grenfilter) får **Branch specification** (Grenspecifikation) standardvärdet **master**. Välj alternativet för att **spara och köa** för att manuellt starta en version.
 
@@ -128,13 +128,13 @@ Välj **Uppgifter**->**Environment 1** (Miljö 1)och sedan **+New** (+Ny) för a
 
 I vyn för att **lägga till nya Service Fabric-anslutningar** väljer du autentisering av typerna **Certifikatbaserad** eller **Azure Active Directory**.  Ange ett anslutningsnamn för mysftestcluster och en klusterslutpunkt för tcp://mysftestcluster.southcentralus.cloudapp.azure.com:19000 (eller slutpunkten i klustret som du distribuerar till).
 
-Om du använder certifikatbaserad autentisering lägger du till **servercertifikatets tumavtryck** för det servercertifikat som används för att skapa klustret.  I **klientcertifikat** lägger du till base-64-kodningen för klientcertifikatfilen. Det finns ett hjälppopupfönster för fältet om du behöver information om hur du hittar den base-64-kodade representationen för certifikatet. Lägg också till **lösenordet** för certifikatet.  Du kan använda certifikatet för klustret eller servern om du inte har något separat klientcertifikat.
+För certifikatbaserad autentisering lägger du till den **servercertifikatets tumavtryck** för certifikatet används för att skapa klustret.  I **klientcertifikat** lägger du till base-64-kodningen för klientcertifikatfilen. Det finns ett hjälppopupfönster för fältet om du behöver information om hur du hittar den base-64-kodade representationen för certifikatet. Lägg också till **lösenordet** för certifikatet.  Du kan använda certifikatet för klustret eller servern om du inte har något separat klientcertifikat.
 
 För Azure Active Directory-autentiseringsuppgifter lägger du till **servercertifikatets tumavtryck** för det servercertifikatet som användes för att skapa klustret och de autentiseringsuppgifter du vill använda för att ansluta till klustret i fälten **Användarnamn** och **Lösenord**.
 
 Klicka på **Lägg till** och spara klusteranslutningen.
 
-Lägg sedan till en byggartefakt i pipelinen så versionspipelinen kan hitta utdata från bygget. Välj **Pipeline** och **artefakter**->**+ Lägg till**.  I **Source (Build definition)** (Källa (byggesdefinition)) väljer du den bygg-pipeline som du skapade tidigare.  Klicka på **Lägg till** för att spara byggesartefakten.
+Lägg sedan till en byggartefakt i pipelinen så versionspipelinen kan hitta utdata från bygget. Välj **Pipeline** och **artefakter**-> **+ Lägg till**.  I **Source (Build definition)** (Källa (byggesdefinition)) väljer du den bygg-pipeline som du skapade tidigare.  Klicka på **Lägg till** för att spara byggesartefakten.
 
 ![Lägg till artefakt][add-artifact]
 
@@ -191,6 +191,7 @@ I den här självstudiekursen lärde du dig att:
 > * distribuera och uppgradera ett program automatiskt.
 
 Gå vidare till nästa kurs:
+> [!div class="nextstepaction"]
 > [konfigurera övervakning och diagnostik för programmet](service-fabric-tutorial-monitoring-aspnet.md)
 
 <!-- Image References -->

@@ -10,16 +10,14 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 9a00dfd1186d19ce9432db8e636bffa40eb977af
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0e24f66369cf990f6b271b894a31dc8395068e17
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60699945"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257335"
 ---
 # <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Självstudier: Identifiera avsikter från tal med hjälp av Speech SDK för C#
-
-[!INCLUDE [Article selector](../../../includes/cognitive-services-speech-service-how-to-recognize-intents-from-speech-selector.md)]
 
 Cognitive Services [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) kan integreras med [Language Understanding-tjänsten (LUIS)](https://www.luis.ai/home) för att tillhandahålla **avsiktsigenkänning**. En avsikt är något som användaren vill göra: boka en flygning, titta på vädret eller ringa ett samtal. Användaren kan använda de termer som känns naturliga. Med maskininlärning mappar LUIS användarbegäranden till de avsikter som du har definierat.
 
@@ -52,7 +50,7 @@ LUIS använder två typer av nycklar:
 |Nyckeltyp|Syfte|
 |--------|-------|
 |redigering|gör att du kan skapa och ändra LUIS-appar programmatiskt|
-|slutpunkt |auktoriserar åtkomst till en viss LUIS-app|
+|endpoint |auktoriserar åtkomst till en viss LUIS-app|
 
 Slutpunktsnyckeln är den LUIS-nyckel som behövs för den här självstudien. Den här kursen använder LUIS-exempelappen Home Automation, som du kan skapa genom att följa [Använda en färdig hemautomatiseringsapp](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app). Om du har skapat en LUIS-app på egen hand kan du använda den i stället.
 

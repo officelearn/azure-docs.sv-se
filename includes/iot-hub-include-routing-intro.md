@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 400f12237ae8b8cbaf6d66bda1663ecb680136f3
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: d0accd01926743d64fa4911dfe56806537170c2d
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66162562"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66271542"
 ---
 [Meddelanderoutning](../articles/iot-hub/iot-hub-devguide-messages-d2c.md) kan skicka telemetridata från dina IoT-enheter till den inbyggda Event Hub-kompatibla slutpunkter eller anpassade slutpunkter som blob storage, Service Bus-köer, Service Bus-ämnen och Händelsehubbar. Om du vill konfigurera anpassade meddelanderoutning måste du skapa [routning frågor](../articles/iot-hub/iot-hub-devguide-routing-query-syntax.md) att anpassa den väg som matchar ett visst villkor. Därefter dirigeras inkommande data automatiskt till slutpunkterna av IoT Hub. Om meddelandet inte matchar någon av de definierade routning frågorna, dirigeras den till standardslutpunkt.
 
 I de här självstudierna 2 delar du lära dig hur du konfigurerar och använder dessa anpassade routning frågor med IoT Hub. Du vidarebefordra meddelanden från en IoT-enhet till en av flera slutpunkter, inklusive blob-lagring och en Service Bus-kö. Meddelanden i Service Bus-kön slutpunktsstatus uppfattas av en Logikapp och skickas via e-post. Meddelanden som inte har anpassat meddelanderoutning definierats skickas till standardslutpunkt och sedan plockas av Azure Stream Analytics och visas i en Power BI-visualisering.
 
- För fullständig delar 1 och 2 i den här självstudien kan du utföra följande uppgifter:
+För fullständig delar 1 och 2 i den här självstudien utfört du följande uppgifter:
 
 **En del I: Skapa resurser, konfigurera meddelanderoutning**
 > [!div class="checklist"]

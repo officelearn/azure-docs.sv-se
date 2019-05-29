@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 05/08/2019
 ms.author: tasharm
-ms.openlocfilehash: 7def77c0b1cf99fcc2cee77a28782dddaf2ac45d
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 688887826fa803b616ca737bc8558aa17ed80e37
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65994547"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66297777"
 ---
 # <a name="quickstart-call-the-text-analytics-service-using-the-ruby-sdk"></a>Snabbstart: Anropa Text Analytics-tjänsten med hjälp av Ruby SDK
 
@@ -28,18 +28,12 @@ Se [API-definitionerna](//go.microsoft.com/fwlink/?LinkID=759346) för teknisk d
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
+* [Ruby 2.5.5 eller senare](https://www.ruby-lang.org/)
+* Text analytics [SDK för Ruby](https://rubygems.org/gems/azure_cognitiveservices_textanalytics)
+ 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
 Du måste även ha [den slutpunkt och den åtkomstnyckel](../How-tos/text-analytics-how-to-access-key.md) som genererades åt dig vid registreringen. 
-
-Hämta och installera Ruby 2.5.5 versionen baserat på din systemarkitektur från [här](https://rubyinstaller.org/downloads/).
-
-> [!Tip]
->  Medan du kan anropa den [REST API-slutpunkter](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) direkt med Ruby, den `Microsoft.Azure.CognitiveServices.TextAnalytics` SDK gör det enkelt att anropa tjänsten utan serialisering och avserialisering av JSON.
->
-> Några användbara länkar:
-> - [Ruby gem-sidan](https://rubygems.org/gems/azure_cognitiveservices_textanalytics)
-> - [SDK-koden på GitHub](https://github.com/Azure/azure-sdk-for-ruby/tree/master/data/azure_cognitiveservices_textanalytics/lib/v2.1/generated/azure_cognitiveservices_textanalytics)
 
 <a name="RubyProject"></a>
 

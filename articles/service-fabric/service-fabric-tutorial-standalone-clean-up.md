@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 05/11/2018
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 28cc2bf4794620641fb6af46bd4017d74f87e955
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 67334a0e8ae3e6dcca86830cd088e6e446331aee
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60718010"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306703"
 ---
 # <a name="tutorial-clean-up-your-standalone-cluster"></a>Självstudier: Rensa upp ditt fristående kluster
 
@@ -60,7 +60,7 @@ The cluster is successfully removed.
 
 ## <a name="clean-up-aws-resources"></a>Rensa AWS-resurser
 
-* Logga in på ditt AWS-konto
+* Logga in på din AWS-konto
 * Gå till EC2-konsolen.
 * Välj de tre noder som du skapade i del ett av självstudien.
 * Klicka på **Åtgärder** > **Instanstillstånd** > **Avsluta**

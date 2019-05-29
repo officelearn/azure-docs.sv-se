@@ -5,20 +5,22 @@ services: event-grid
 author: banisadr
 ms.service: event-grid
 ms.topic: tutorial
-ms.date: 01/16/2018
+ms.date: 05/16/2019
 ms.author: babanisa
-ms.openlocfilehash: fa0ffa9ad913f0dc3afe8dc31aeaa0254fa2d241
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4a069db7984a7b0b0bb4bb867dc510f73d8b1f75
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60562924"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305080"
 ---
-# <a name="build-your-own-disaster-recovery-for-custom-topics-in-event-grid"></a>Skapa din egen haveriberedskap för anpassade ämnen i Event Grid
-
+# <a name="build-your-own-disaster-recovery-for-custom-topics-in-event-grid"></a>Skapa din egen katastrofåterställning för anpassade ämnen i Event Grid
 Haveriberedskap handlar om att återställa från en betydande förlust av programfunktion. Den här självstudien vägleder dig genom hur du konfigurerar din händelsearkitektur för att återställa om Event Grid-tjänsten blir skadad i en viss region.
 
 I den här självstudien lär du dig att skapa aktiv-passiv redundansarkitektur för anpassade ämnen i Event Grid. Du utför redundans genom att spegla dina ämnen och prenumerationer mellan två regioner och hanterar sedan redundans när ett ämne blir skadat. Arkitekturen i den här självstudien redundansväxlar över all ny trafik. Det är viktigt att känna till att händelser som redan är på gång inte återställs i den här konfigurationen förrän den skadade regionen återställs igen.
+
+> [!NOTE]
+> Event Grid stöder nu automatisk geo-haveriberedskap (GeoDR) på serversidan. Du kan fortfarande implementera logik för klientsidan disaster recovery om du vill att en större kontroll på redundansprocessen. Mer information om automatisk GeoDR finns [serversidan geo-haveriberedskap i Azure Event Grid](geo-disaster-recovery.md).
 
 ## <a name="create-a-message-endpoint"></a>Skapa en slutpunkt för meddelanden
 

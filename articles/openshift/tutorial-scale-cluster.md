@@ -2,18 +2,18 @@
 title: Självstudie – skala ett kluster i Azure Red Hat OpenShift | Microsoft Docs
 description: Lär dig hur du skalar ett Microsoft Azure Red Hat OpenShift-kluster med Azure CLI
 services: container-service
-author: tylermsft
-ms.author: twhitney
+author: jimzim
+ms.author: jzim
 manager: jeconnoc
 ms.topic: tutorial
 ms.service: openshift
 ms.date: 05/06/2019
-ms.openlocfilehash: f86b60fbe20fc630863d6e177d45f2c1f06a7863
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: b25e17e7064006a1421142dfcd32997cb4426e8e
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65080704"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305970"
 ---
 # <a name="tutorial-scale-an-azure-red-hat-openshift-cluster"></a>Självstudier: Skala ett Azure Red Hat OpenShift-kluster
 
@@ -28,7 +28,7 @@ I den här självstudieserien får du lära du dig att:
 > [!div class="checklist"]
 > * [Skapa ett Azure Red Hat OpenShift-kluster](tutorial-create-cluster.md)
 > * Skala ett Azure Red Hat OpenShift-kluster
-> * [Ta bort ett kluster i Azure Red Hat OpenShift](tutorial-delete-cluster.md)
+> * [Ta bort ett Azure Red Hat OpenShift-kluster](tutorial-delete-cluster.md)
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -36,7 +36,7 @@ Innan du börjar den här självstudien:
 
 * Skapa ett kluster genom att följa den [skapa ett kluster i Azure Red Hat OpenShift](tutorial-create-cluster.md) självstudien.
 
-## <a name="step-1-sign-in-to-azure"></a>Steg 1: Logga in på Azure
+## <a name="step-1-sign-in-to-azure"></a>Steg 1: Logga in till Azure
 
 Om du använder Azure CLI lokalt kan köra `az login` att logga in på Azure.
 
@@ -71,4 +71,4 @@ I den här självstudiedelen lärde du dig att:
 
 Gå vidare till nästa kurs:
 > [!div class="nextstepaction"]
-> [Ta bort ett kluster i Azure Red Hat OpenShift](tutorial-delete-cluster.md)
+> [Ta bort ett Azure Red Hat OpenShift-kluster](tutorial-delete-cluster.md)

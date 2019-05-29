@@ -9,12 +9,12 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: ca321b8a073f709b55093fde6ff32ae876f3ef12
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 7678415b7ce505da7678a00a4bcf2d933e260530
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66238073"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66303931"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Självstudier: Utveckla en C# IoT Edge-modul för Windows-enheter
 
@@ -34,11 +34,11 @@ IoT Edge-modulen du skapar i den här självstudien filtrerar temperaturdata som
 
 ## <a name="solution-scope"></a>Lösningen omfattning
 
-Den här kursen visar hur du utvecklar en modul i **C#** med **Visual Studio 2017**, och hur du distribuerar det till en **Windows-enhet**. Om du utvecklar moduler för Linux-enheter kan du gå till [utveckla en C# IoT Edge-modul för Linux-enheter](tutorial-csharp-module.md) i stället. 
+Den här kursen visar hur du utvecklar en modul i **C#** med **Visual Studio 2019**, och hur du distribuerar det till en **Windows-enhet**. Om du utvecklar moduler för Linux-enheter kan du gå till [utveckla en C# IoT Edge-modul för Linux-enheter](tutorial-csharp-module.md) i stället. 
 
 Använd följande tabell för att förstå dina alternativ för utveckling och distribution C-moduler till Windows-enheter: 
 
-| C# | Visual Studio-kod | Visual Studio 2017 | 
+| C# | Visual Studio-kod | Visual Studio 2017/2019 | 
 | -- | ------------------ | ------------------ |
 | **Utveckla Windows AMD64** | ![Utveckla C# moduler för WinAMD64 i VS Code](./media/tutorial-c-module/green-check.png) | ![Utveckla C# moduler för WinAMD64 i Visual Studio](./media/tutorial-c-module/green-check.png) |
 | **Windows AMD64-felsökning** |   | ![Felsöka C# moduler för WinAMD64 i Visual Studio](./media/tutorial-c-module/green-check.png) |
@@ -50,8 +50,11 @@ Innan du påbörjar den här självstudiekursen ska du har gått igenom den tidi
 * En [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) på kostnadsfri nivå eller standardnivå i Azure.
 * En [Windows-enhet som kör Azure IoT Edge](quickstart.md).
 * Ett behållarregister, till exempel [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/).
-* [Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio?view=vs-2017), version 15.7 eller högre, som har konfigurerats med den [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) tillägget.
+* [Visual Studio-2019](https://docs.microsoft.com/visualstudio/install/install-visual-studio) konfigurerats med den [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) tillägget.
 * [Docker CE](https://docs.docker.com/install/) konfigurerats för att köra Windows-behållare.
+
+> [!TIP]
+> Om du använder Visual Studio 2017 (version 15.7 eller högre) plrease ladda ned och installera [verktyg för Azure IoT Edge (förhandsversion)](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) för VS 2017 från Visual Studio marketplace
 
 ## <a name="create-a-module-project"></a>Skapa en modul-projekt
 
@@ -59,21 +62,22 @@ Följande steg kan du skapa ett projekt med IoT Edge-modulen med hjälp av Visua
 
 ### <a name="create-a-new-project"></a>Skapa ett nytt projekt
 
-Verktyg för Azure IoT-tillägget innehåller projektmallar för alla stöds IoT Edge modulen språk i Visual Studio 2017. Dessa mallar kan alla filer och kod som du behöver distribuera en fungerande-modul för att testa IoT Edge, eller ge dig en utgångspunkt för att anpassa mallen med egen affärslogik. 
+Azure IoT Edge-verktygen innehåller projektmallar för alla stöds IoT Edge modulen språk i Visual Studio. Dessa mallar kan alla filer och kod som du behöver distribuera en fungerande-modul för att testa IoT Edge, eller ge dig en utgångspunkt för att anpassa mallen med egen affärslogik. 
 
-1. Köra Visual Studio som administratör.
+1. Starta Visual Studio 2019 och välj **Skapa nytt projekt**.
 
-2. Välj **Arkiv** > **Nytt** > **Projekt**. 
-
-3. I fönstret nytt projekt väljer du den **Azure IoT** programprojektet typ och väljer den **Azure IoT Edge** projekt. Byt namn på projektet och lösningen till något beskrivande liknande **CSharpTutorialApp**. Klicka på **OK** för att skapa projektet. 
+2. Sök i fönstret nytt projekt **IoT Edge** programprojektet och väljer den **Azure IoT Edge (Windows amd64)** projekt. Klicka på **Nästa**. 
 
    ![Skapa ett nytt projekt i Azure IoT Edge](./media/tutorial-csharp-module-windows/new-project.png)
+
+3. I Konfigurera din nya projektfönstret Byt namn på projektet och lösningen till något beskrivande liknande **CSharpTutorialApp**. Klicka på **skapa** att skapa projektet. 
+
+   ![Konfigurera ett nytt Azure IoT Edge-projekt](./media/tutorial-csharp-module-windows/configure-project.png)
 
 4. Konfigurera ditt projekt i IoT Edge-programmet och modulfönstret, med följande värden: 
 
    | Fält | Värde |
    | ----- | ----- |
-   | Programplattform | Avmarkera **Linux Amd64**, och kontrollera **WindowsAmd64**. |
    | Välj en mall | Välj  **C# modulen**. | 
    | Modulen projektnamn | Ge modulen namnet **CSharpModule**. | 
    | Lagringsplatsen för docker-avbildningen | En bildlagringsplats innehåller namnet på containerregistret och namnet på containeravbildningen. Behållaravbildningen innehåller redan från modulen Projekt namn-värde. Ersätt **localhost:5000** med värdet för inloggningsservern från ditt Azure-containerregister. Du kan hämta inloggningsservern från sidan Översikt för ditt containerregister på Azure-portalen. <br><br> Den slutliga avbildningslagringsplatsen ser ut så här: \<registry name\>.azurecr.io/csharpmodule. |

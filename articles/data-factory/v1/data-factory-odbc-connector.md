@@ -15,7 +15,7 @@ ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 83de0046a56788e40b9224823af0411a18dea5eb
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "66122476"
@@ -69,7 +69,7 @@ Följande tabell innehåller beskrivning för JSON-element som är specifika fö
 | --- | --- | --- |
 | type |Type-egenskapen måste anges till: **OnPremisesOdbc** |Ja |
 | connectionString |Den icke-autentiseringsuppgifter delen av anslutningssträngen och en valfri krypterade autentiseringsuppgifter. Se exemplen i följande avsnitt. <br/><br/>Du kan ange anslutningssträngen med mönster som `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`, eller använda systemet-DSN (Data Source Name) som du har konfigurerat på gateway-datorn med `"DSN=<name of the DSN>;"` (du måste fortfarande ange credential-delen i den länkade tjänsten i enlighet med detta). |Ja |
-| autentiseringsuppgift |Åtkomst till autentiseringsuppgifter delen av anslutningssträngen som angetts i drivrutinsspecifika egenskapsvärdet format. Exempel: `"Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;"`. |Nej |
+| credential |Åtkomst till autentiseringsuppgifter delen av anslutningssträngen som angetts i drivrutinsspecifika egenskapsvärdet format. Exempel: `"Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;"`. |Nej |
 | authenticationType |Typ av autentisering som används för att ansluta till ODBC-datalager. Möjliga värden är: Anonym och grundläggande. |Ja |
 | userName |Ange användarnamnet om du använder grundläggande autentisering. |Nej |
 | password |Ange lösenord för det användarkonto som du angav för användarnamnet. |Nej |

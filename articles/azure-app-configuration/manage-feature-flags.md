@@ -1,6 +1,6 @@
 ---
 title: Självstudie för att hantera flaggor för funktionen med hjälp av Azure-Appkonfiguration | Microsoft Docs
-description: I den här självstudien får du lära dig hur du hanterar funktionen flaggor separat från ditt program med Azure-Appkonfiguration
+description: Lär dig hur du hanterar funktionen flaggor separat från ditt program med hjälp av Azure-Appkonfiguration i de här självstudierna.
 services: azure-app-configuration
 documentationcenter: ''
 author: yegu-ms
@@ -14,16 +14,16 @@ ms.topic: tutorial
 ms.date: 04/19/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: d995a2e9f0d05dc3b0853036e8fb3c04ccdfab96
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: b7fbf9add67a45c0db89fc11cee5c10bc537ab63
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65412345"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393575"
 ---
 # <a name="tutorial-manage-feature-flags-in-azure-app-configuration"></a>Självstudier: Hantera flaggor för funktionen i Azure-Appkonfiguration
 
-Du kan lagra alla flaggor för funktionen i Azure-Appkonfiguration och administrerar dem från en enda plats. Den har en portalens användargränssnitt, som kallas **funktionen Manager**, som utformats speciellt för funktionen flaggor. Dessutom stöder konfiguration av .NET Core funktionen flaggan dataschema internt.
+Du kan lagra alla flaggor för funktionen i Azure-Appkonfiguration och administrerar dem från en enda plats. Konfiguration av har en portal som Användargränssnittet med namnet **funktionen Manager** som har utformats speciellt för funktionen flaggor. Konfiguration av har också har inbyggt stöd för .NET Core-funktionsflagga dataschemat.
 
 I den här guiden får du lära dig att:
 
@@ -33,21 +33,23 @@ I den här guiden får du lära dig att:
 
 ## <a name="create-feature-flags"></a>Skapa funktionen flaggor
 
-Den **funktionen Manager** i Azure-portalen för konfiguration av ger ett gränssnitt för att skapa och hantera funktionen flaggor som du använder i ditt program. Följ stegen nedan för att lägga till en ny funktionsflagga för.
+Hanteraren för funktionen i Azure-portalen för Appkonfiguration ger ett gränssnitt för att skapa och hantera flaggor för funktionen som du använder i dina program.
 
-1. Välj **funktionen Manager** > **+ skapa** att lägga till en funktionsflagga.
+Lägga till en ny funktionsflagga för:
+
+1. Välj **funktionen Manager** >  **+ Lägg till** att lägga till en funktionsflagga.
 
     ![Flaggan funktionslista](./media/azure-app-configuration-feature-flags.png)
 
-2. Ange ett unikt namn som är viktiga för funktionsflagga. Du behöver det här namnet att referera till flaggan i din kod.
+1. Ange ett unikt namn som är viktiga för funktionsflagga. Du behöver det här namnet att referera till flaggan i din kod.
 
-3. Du kan också ge funktionsflagga en mer mänskliga-vänlig beskrivning.
+1. Om du vill ge en beskrivning i funktionsflagga.
 
-4. Ange det ursprungliga tillståndet för funktionsflagga. Det är vanligtvis bara *på* eller *av*.
+1. Ange det ursprungliga tillståndet för funktionsflagga. Det här tillståndet är vanligtvis *av* eller *på*. Den *på* tillståndet ändras till *villkorlig* om du lägger till ett filter funktionsflagga.
 
-    ![Skapa funktionsflagga](./media/azure-app-configuration-feature-flag-create.png)
+    ![Skapa en funktion flagga](./media/azure-app-configuration-feature-flag-create.png)
 
-5. När tillståndet är *på*kan du också ange ytterligare villkor att kvalificera den med **Lägg till filter**. Ange en nyckel för inbyggda eller anpassade filter och associera parametrar. Inbyggda filtren är:
+1. När tillståndet är *på*väljer **+ Lägg till filter** ange eventuella ytterligare villkor måste anges för programmets status. Ange en nyckel för inbyggda eller anpassade filter och välj sedan **+ Lägg till parameter** att associera en eller flera parametrar med filtret. Inbyggda filtren är:
 
     | Nyckel | JSON-parametrar |
     |---|---|
@@ -58,20 +60,20 @@ Den **funktionen Manager** i Azure-portalen för konfiguration av ger ett gräns
 
 ## <a name="update-feature-flag-states"></a>Uppdatera flaggan funktionsstatus
 
-Följ stegen nedan om du vill ändra värdet för en funktionsflagga state.
+Ändra värdet för en funktionsflagga state:
 
 1. Välj **funktionen Manager**.
 
-2. Klicka på **...**   >  **Redigera** till höger om en funktionsflagga som du vill ändra.
+1. Till höger om en funktionsflagga som du vill ändra, Välj ellipsen ( **...** ), och välj sedan **redigera**.
 
-3. Ange ett nytt tillstånd för funktionsflagga.
+1. Ange ett nytt tillstånd för funktionsflagga.
 
 ## <a name="access-feature-flags"></a>Åtkomst till funktionen flaggor
 
-Funktionen flaggor som skapats av den **funktionen Manager** lagras och hämtas som vanlig nyckel-värden. De sparas under en särskild namnrymdsprefixet *. appconfig.featureflag*. Du kan visa underliggande nyckel-värden med hjälp av den **Configuration Explorer**. Programmet kan hämta dem med hjälp av konfiguration av konfigurationstjänst, SDK: er, kommandorad tillägg och REST API: er.
+Funktionen flaggor som skapats av funktionen Manager lagras och hämtas som vanlig nyckelvärden. De är kvar under en särskild namnrymdsprefixet `.appconfig.featureflag`. Använd Configuration Explorer om du vill visa de underliggande nyckelvärdena. Programmet kan hämta dessa värden med hjälp av konfiguration av konfigurationstjänst, SDK: er, kommandorad tillägg och REST API: er.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien lärde du dig att hantera flaggor för funktionen och deras tillstånd med hjälp av konfiguration. Se följande resurser för mer information på funktionsstöd för hantering i Appkonfiguration och ASP.NET Core.
+I den här självstudien lärde du dig att hantera flaggor för funktionen och deras tillstånd med hjälp av konfiguration. Mer information om stöd för hantering av funktionen i Appkonfiguration och ASP.NET Core finns i följande artikel:
 
 * [Använd funktionen flaggor i en ASP.NET Core-app](./use-feature-flags-dotnet-core.md)

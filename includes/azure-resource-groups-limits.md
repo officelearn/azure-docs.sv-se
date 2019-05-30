@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 04/19/2019
 ms.author: tomfitz
 ms.openlocfilehash: 8bd16378e9c82a011309c12cf241b59d03405a77
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60012531"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66238726"
 ---
-| Resurs | Standardgräns | Övre gräns |
+| Resource | Standardgräns | Övre gräns |
 | --- | --- | --- |
 | Resurser per [resursgrupp](../articles/azure-resource-manager/resource-group-overview.md#resource-groups), per resurstyp |800 |Varierar per resurstyp |
 | Distributioner per resursgrupp i distributionshistoriken |800<sup>1</sup> |800 |
@@ -25,7 +25,7 @@ ms.locfileid: "60012531"
 
 #### <a name="template-limits"></a>Mall för gränser
 
-| Value | Standardgräns | Övre gräns |
+| Värde | Standardgräns | Övre gräns |
 | --- | --- | --- |
 | Parametrar |256 |256 |
 | Variabler |256 |256 |

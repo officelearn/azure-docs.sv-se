@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 04/16/2019
+ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 588fe452473ddc2434d92f90afbf8a0e1bc8c275
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 74f7d8a1a828732d5448bf29c0878adb5f74b5e1
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65795769"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66398256"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms"></a>Konfigurera haveriberedskap för virtuella Azure-datorer
 

@@ -3,17 +3,17 @@ title: Förstå frågespråket
 description: Beskriver de tillgängliga Kusto-operatorer och funktioner som kan användas med Azure Resource-diagram.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 12/11/2018
+ms.date: 04/22/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 08e4f09665a3501073f55b7f5b82bf51cf508ea9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: dcb21a6aedf16b034fad4f0822e22758dda03c33
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59276685"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800513"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Förstå Azure Resource Graph-frågespråk
 
@@ -52,6 +52,38 @@ Här är listan över funktioner som stöds i resursen Graph:
 - [isnotempty()](/azure/kusto/query/isnotemptyfunction)
 - [tostring()](/azure/kusto/query/tostringfunction)
 - [zip()](/azure/kusto/query/zipfunction)
+
+## <a name="escape-characters"></a>Escape-tecken
+
+Vissa egenskapsnamn, till exempel de som innehåller en `.` eller `$`, måste omslutna eller undantagna i frågan eller egenskapen namn tolkas felaktigt och ger inte de förväntade resultaten.
+
+- `.` -Omsluta egenskapsnamnet som sådana: `['propertyname.withaperiod']`
+  
+  Exempelfråga som omsluter egenskapen _OData.Type värdet_:
+
+  ```kusto
+  where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.['odata.type']
+  ```
+
+- `$` -Escape-tecken i namnet. Escape-tecknet som används beror på gränssnittet Resource Graph körs från.
+
+  - **bash** - `\`
+
+    Exempelfråga som lämnar egenskapen  _\$typ_ i bash:
+
+    ```kusto
+    where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.\$type
+    ```
+
+  - **cmd** -escape-inte den `$` tecken.
+
+  - **PowerShell** - ``` ` ```
+
+    Exempelfråga som lämnar egenskapen  _\$typ_ i PowerShell:
+
+    ```kusto
+    where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.`$type
+    ```
 
 ## <a name="next-steps"></a>Nästa steg
 

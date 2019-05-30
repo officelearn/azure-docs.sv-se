@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 02/01/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: e12b3cbcb8f7a433b37c450c84bd34745f68a22d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9c08b5b5278045341ed86d987557d03cb46754e6
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64711520"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65601595"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Självstudier: Skapa användarflöden i Azure Active Directory B2C
 
@@ -41,7 +41,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 Registrera dig och logga in användarflödet hanterar registrering och inloggning upplevelser med en enda konfiguration. Användare av ditt program leds av rätt väg beroende på kontext.
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Se till att du använder den katalog som innehåller din Azure AD B2C-klientorganisation genom att klicka på **katalog- och prenumerationsfiltret** på den översta menyn och välja katalogen som innehåller din klientorganisation.
+2. Kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient genom att klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller din klient.
 
     ![Växla till prenumerationskatalogen](./media/tutorial-create-user-flows/switch-directories.png)
 
@@ -76,7 +76,7 @@ Registrera dig och logga in användarflödet hanterar registrering och inloggnin
 4. Ange en giltig e-postadress, klickar du på **skicka verifieringskoden**, och sedan ange verifieringskoden som visas.
 5. Ange ett nytt lösenord och bekräfta lösenordet.
 6. Ange namnet som ska visas, Välj land och region, ange ett postnummer och klicka sedan på **skapa**. Token returneras till `https://jwt.ms` och ska visas för dig.
-7. Du kan nu köra användarflödet igen och du bör kunna logga in med det konto som du skapade. Den returnerade token innehåller anspråk som du har markerat namn, land och postnummer.
+7. Du kan nu köra användarflödet igen och du bör kunna logga in med det konto som du skapade. Den returnerade token innehåller anspråk som du har markerat namn, land/region och postnummer.
 
 ## <a name="create-a-profile-editing-user-flow"></a>Skapa ett användarflöde för profilredigering
 

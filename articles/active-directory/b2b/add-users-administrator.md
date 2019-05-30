@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 04/10/2019
+ms.date: 04/11/2019
 ms.author: mimart
 author: msmimart
-manager: celested
+manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef0a4e4a05427b1ed83b017b7a49862596aaf50a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 66b3e68ff2199c6a8bf4da9e02caaf93ee69342b
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60414587"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65812835"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Lägg till användare i Azure Active Directory B2B-samarbetet i Azure portal
 
@@ -27,11 +27,15 @@ När du lägger till en gästanvändare till katalogen du kan antingen skicka en
 > [!IMPORTANT]
 > Du bör följa stegen i [anvisningar: Lägg till din organisations sekretess information i Azure Active Directory](https://aka.ms/adprivacystatement) att lägga till URL: en för din organisations sekretesspolicy. Som en del av den första gången inbjudan inlösen en inbjuden användare måste ge sitt godkännande till din sekretessvillkor för att fortsätta. 
 
+## <a name="before-you-begin"></a>Innan du börjar
+
+Kontrollera inställningar för externt samarbete i din organisation har konfigurerats så att du har behörighet att bjuda in gäster. Som standard alla användare och administratörer kan bjuda in gäster. Men organisationens externt samarbete principer kan konfigureras för att förhindra vissa typer av användare eller administratörer från bjuda in gäster. Om du vill veta hur du visar och ange dessa principer [Aktivera externa B2B-samarbete och hantera vem som kan bjuda in gäster](delegate-invitations.md).
+
 ## <a name="add-guest-users-to-the-directory"></a>Lägga till gästanvändare i katalogen
 
 Följ dessa steg om du vill lägga till användare i B2B-samarbetet i katalogen:
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com) som en användare som är tilldelade någon av begränsad administratör-katalogroller.
+1. Logga in på den [Azure-portalen](https://portal.azure.com) som en användare som har tilldelats en katalogroll begränsad administratör eller rollen Gästinbjudare.
 2. I navigeringsfönstret väljer **Azure Active Directory**.
 3. Under **Hantera** väljer du **Användare**.
 4. Välj **Ny gästanvändare**.
@@ -56,7 +60,7 @@ När du har skickat inbjudan läggs användarkontot automatiskt till i katalogen
 ![Visar B2B-användare med gästen användartyp](./media/add-users-administrator/GuestUserType.png)  
 
 ## <a name="add-guest-users-to-a-group"></a>Lägga till gästanvändare till en grupp
-Följ dessa steg om du vill lägga till användare i B2B-samarbetet manuellt till en grupp som en Azure AD-administratör:
+Följ dessa steg om du vill lägga till användare i B2B-samarbetet manuellt till en grupp:
 
 1. Logga in på [Azure Portal](https://portal.azure.com) som Azure AD-administratör.
 2. I navigeringsfönstret väljer **Azure Active Directory**.
@@ -73,7 +77,7 @@ Du kan också använda dynamiska grupper med Azure AD B2B-samarbete. Mer informa
 
 ## <a name="add-guest-users-to-an-application"></a>Lägga till gästanvändare till ett program
 
-Följ dessa steg om du vill lägga till användare i B2B-samarbetet i ett program som en Azure AD-administratör:
+Följ dessa steg om du vill lägga till användare i B2B-samarbetet i ett program:
 
 1. Logga in på [Azure Portal](https://portal.azure.com) som Azure AD-administratör.
 2. I navigeringsfönstret väljer **Azure Active Directory**.

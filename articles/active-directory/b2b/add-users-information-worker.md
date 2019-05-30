@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: mimart
 author: msmimart
-manager: daveba
+manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 561d7f5b28775e5f431d35d956cff6f800cc11b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e8606a0d4e203e1a910a5cd15ca83a622f5286bd
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60357672"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65812533"
 ---
 # <a name="how-users-in-your-organization-can-invite-guest-users-to-an-app"></a>Hur användare i din organisation kan bjuda in gästanvändare till en app
 
@@ -35,11 +35,11 @@ När du har en gäst har användare lagts till katalogen i Azure AD en programme
 När en app har konfigurerats för självbetjäning, använda programägare sina egna åtkomstpanelen att bjuda in gästanvändare till appen som de vill dela. Gästanvändaren behöver inte nödvändigtvis att läggas till i förväg Azure AD. 
 
 1. Öppna din åtkomstpanelen genom att gå till `https://myapps.microsoft.com`.
-2. Peka på appen, Välj ellipserna (**...** ), och välj sedan **hantera app**.
+2. Peka på appen, Välj ellipserna ( **...** ), och välj sedan **hantera app**.
  
    ![Skärmbild som visar de hantera app undermenyn för Salesforce-appen](media/add-users-iw/access-panel-manage-app.png)
  
-3. Överst i listan över användare, Välj **+**.
+3. Överst i listan över användare, Välj **+** .
    
    ![Skärmbild som visar på plustecknet för att lägga till medlemmar till appen](media/add-users-iw/access-panel-manage-app-add-user.png)
    
@@ -62,7 +62,7 @@ När en app har konfigurerats för självbetjäning kan programägare kan bjuda 
    
    ![Skärmbild som visar var du vill välja en grupp under de grupper som jag äger](media/add-users-iw/access-panel-groups-i-own.png)
    
-5. Överst i listan över gruppmedlemmar, Välj **+**.
+5. Överst i listan över gruppmedlemmar, Välj **+** .
    
    ![Skärmbild som visar på plustecknet för att lägga till medlemmar i gruppen](media/add-users-iw/access-panel-groups-add-member.png)
    

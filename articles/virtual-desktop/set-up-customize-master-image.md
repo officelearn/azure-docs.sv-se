@@ -7,16 +7,16 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 04/03/2019
 ms.author: helohr
-ms.openlocfilehash: 58471dc539f72c49b041638e928dda751f4bf5a2
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
-ms.translationtype: HT
+ms.openlocfilehash: 9df4be5534a1cbe6aa4ffb9c60bb180fd4587d32
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65410599"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65551035"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Förbereda och anpassa en VHD-huvudavbildning
 
-Den här artikeln kommer berättar hur du förbereder en avbildning av master virtuell hårddisk (VHD) för överföring till Azure, inklusive hur du skapar virtuella datorer (VM) och installera och konfigurera programvara på dem. Dessa instruktioner är för en virtuell Windows-skrivbordet förhandsversion konfiguration som kan användas med din organisations befintliga processer.
+Den här artikeln beskriver hur du förbereder en avbildning av master virtuell hårddisk (VHD) för överföring till Azure, inklusive hur du skapar virtuella datorer (VM) och installera programvara på dem. Dessa instruktioner är för en virtuell Windows-skrivbordet förhandsversion konfiguration som kan användas med din organisations befintliga processer.
 
 ## <a name="create-a-vm"></a>Skapa en virtuell dator
 
@@ -24,11 +24,11 @@ Windows 10 Enterprise flera session är tillgänglig i Azure-bildgalleriet. Det 
 
 Det första alternativet är att etablera en virtuell dator (VM) i Azure genom att följa instruktionerna i [skapa en virtuell dator från en hanterad avbildning](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-generalized-managed), och sedan gå vidare till [förberedelse av programvara och installation](set-up-customize-master-image.md#software-preparation-and-installation).
 
-Det andra alternativet är att skapa avbildningen lokalt genom att hämta avbildningen, etablera en Hyper-V virtuell dator och anpassa den så att den passar dina behov, vilket vi tar upp i följande avsnitt.
+Det andra alternativet är att skapa avbildningen lokalt genom att hämta avbildningen, etablera en Hyper-V virtuell dator och anpassa den så att den passar dina behov, vilket vi upp i följande avsnitt.
 
 ### <a name="local-image-creation"></a>Skapa lokala avbildningar
 
-När du har laddat ned avbildningen till en lokal plats, öppna **Hyper-V Manager** att skapa en virtuell dator med den virtuella Hårddisken som du kopierade. Följande är en enkel version, men du kan hitta mer detaljerad information i [skapa en virtuell dator i Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v).
+När du har laddat ned avbildningen till en lokal plats, öppna **Hyper-V Manager** att skapa en virtuell dator med den virtuella Hårddisken som du kopierade. Följande instruktioner är en enkel version, men du kan hitta mer detaljerad information i [skapa en virtuell dator i Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v).
 
 Skapa en virtuell dator med den kopierade virtuella Hårddisken:
 
@@ -62,101 +62,11 @@ Convert-VHD –Path c:\\test\\MY-VM.vhdx –DestinationPath c:\\test\\MY-NEW-VM.
 
 ## <a name="software-preparation-and-installation"></a>Förberedelse av programvara och installation
 
-Det här avsnittet beskriver hur du förbereder och installera Office 365 ProPlus, OneDrive, FSLogix, Windows Defender och andra vanliga program. Om dina användare behöver åtkomst till vissa LOB-program, rekommenderar vi du installera dem när du har slutfört instruktionerna i det här avsnittet.
+Det här avsnittet beskriver hur du förbereder och installera FSLogix, Windows Defender och andra vanliga program. 
 
-Det här avsnittet förutsätter att du har haft utökade åtkomst på den virtuella datorn om den har etablerats i Azure eller Hyper-V Manager.
+Om du installerar Office 365 ProPlus och OneDrive på den virtuella datorn, se [installerar Office på en VHD-huvudavbildning](install-office-on-wvd-master-image.md). Följ länken i nästa steg i den här artikeln att gå tillbaka till den här artikeln och slutföra master VHD-processen.
 
-### <a name="install-office-in-shared-computer-activation-mode"></a>Installera Office i läget för aktivering av delade datorer
-
-Använd den [distributionsverktyget för Office](https://www.microsoft.com/download/details.aspx?id=49117) att installera Office. Windows 10 Enterprise flera session stöder endast Office 365 ProPlus, inte Office 2019 beständig.
-
-Distributionsverktyget för Office kräver en XML-konfigurationsfilen. Om du vill anpassa följande exempel finns i den [konfigurationsalternativ för distributionsverktyget för Office](https://docs.microsoft.com/deployoffice/configuration-options-for-the-office-2016-deployment-tool).
-
-Den här exempelkonfigurationen XML som vi tillhandahåller kommer att göra följande:
-
-- Installera Office från Insiders kanalen och leverera uppdateringar från Insiders kanalen när de är körs.
-- Använd x64 arkitektur.
-- Inaktivera automatiska uppdateringar.
-- Installera Visio och projekt.
-- Ta bort alla befintliga installationer av Office och migrera deras inställningar.
-- Aktivera delad dator licensiering för åtgärd i en terminal server-miljö.
-
-Här är vad den här exempelkonfigurationen XML inte göra:
-
-- Installera Skype för företag
-- Installera OneDrive i läget per användare. Mer information finns i [installera OneDrive i per dator läge](#install-onedrive-in-per-machine-mode).
-
->[!NOTE]
->Delad dator licensiering kan ställas in via grupprincipobjekt (GPO) eller registerinställningar. Grupprincipobjektet finns på **Datorkonfiguration\\principer\\Administrationsmallar\\Microsoft Office 2016 (dator)\\för licensiering**
-
-Distributionsverktyget för Office innehåller setup.exe. För att installera Office, kör du följande kommando i Kommandotolken:
-
-```batch
-Setup.exe /configure configuration.xml
-```
-
-#### <a name="sample-configurationxml"></a>Exempel på configuration.xml
-
-I följande XML-exempel installerar Insiders-versionen, även kallat Insiders snabbt eller Insiders Main.
-
-```xml
-<Configuration>
-    <Add OfficeClientEdition="64" SourcePath="https://officecdn.microsoft.com/pr/5440fd1f-7ecb-4221-8110-145efaa6372f">
-        <Product ID="O365ProPlusRetail">
-            <Language ID="en-US" />
-            <Language ID="MatchOS" Fallback = "en-US"/>
-            <Language ID="MatchPreviousMSI" />
-            <ExcludeApp ID="Groove" />
-            <ExcludeApp ID="Lync" />
-            <ExcludeApp ID="OneDrive" />
-            <ExcludeApp ID="Teams" />
-        </Product>
-        <Product ID="VisioProRetail">
-            <Language ID="en-US" />
-            <Language ID="MatchOS" Fallback = "en-US"/>
-            <Language ID="MatchPreviousMSI" />
-            <ExcludeApp ID="Teams" /> 
-        </Product>
-        <Product ID="ProjectProRetail">
-            <Language ID="en-US" />
-            <Language ID="MatchOS" Fallback = "en-US"/>
-            <Language ID="MatchPreviousMSI" />
-            <ExcludeApp ID="Teams" />
-        </Product>
-    </Add>
-    <RemoveMSI All="True" />
-    <Updates Enabled="FALSE" UpdatePath="https://officecdn.microsoft.com/pr/5440fd1f-7ecb-4221-8110-145efaa6372f" />
-    <Display Level="None" AcceptEULA="TRUE" />
-    <Logging Level="Verbose" Path="%temp%\WVDOfficeInstall" />
-    <Property Value="TRUE" Name="FORCEAPPSHUTDOWN"/>
-    <Property Value="1" Name="SharedComputerLicensing"/>
-    <Property Value="TRUE" Name="PinIconsToTaskbar"/>
-</Configuration>
-```
-
->[!NOTE]
->Office-teamet rekommenderar att du använder 64-bitars installation för den **OfficeClientEdition** parametern.
-
-När du har installerat Office, kan du uppdatera Office standardbeteendet. Kör följande kommandon individuellt eller i en batchfil att uppdatera beteendet.
-
-```batch
-rem Mount the default user registry hive
-reg load HKU\TempDefault C:\Users\Default\NTUSER.DAT
-rem Must be executed with default registry hive mounted.
-reg add HKU\TempDefault\SOFTWARE\Policies\Microsoft\office\16.0\common /v InsiderSlabBehavior /t REG_DWORD /d 2 /f
-rem Set Outlook's Cached Exchange Mode behavior
-rem Must be executed with default registry hive mounted.
-reg add "HKU\TempDefault\software\policies\microsoft\office\16.0\outlook\cached mode" /v enable /t REG_DWORD /d 1 /f
-reg add "HKU\TempDefault\software\policies\microsoft\office\16.0\outlook\cached mode" /v syncwindowsetting /t REG_DWORD /d 1 /f
-reg add "HKU\TempDefault\software\policies\microsoft\office\16.0\outlook\cached mode" /v CalendarSyncWindowSetting /t REG_DWORD /d 1 /f
-reg add "HKU\TempDefault\software\policies\microsoft\office\16.0\outlook\cached mode" /v CalendarSyncWindowSettingMonths  /t REG_DWORD /d 1 /f
-rem Unmount the default user registry hive
-reg unload HKU\TempDefault
-
-rem Set the Office Update UI behavior.
-reg add HKLM\SOFTWARE\Policies\Microsoft\office\16.0\common\officeupdate /v hideupdatenotifications /t REG_DWORD /d 1 /f
-reg add HKLM\SOFTWARE\Policies\Microsoft\office\16.0\common\officeupdate /v hideenabledisableupdates /t REG_DWORD /d 1 /f
-```
+Om dina användare behöver åtkomst till vissa LOB-program, rekommenderar vi du installera dem när du har slutfört instruktionerna i det här avsnittet.
 
 ### <a name="disable-automatic-updates"></a>Inaktivera automatiska uppdateringar
 
@@ -179,63 +89,13 @@ Kör detta kommando för att ange en Start-layout för Windows 10-datorer.
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /v SpecialRoamingOverrideAllowed /t REG_DWORD /d 1 /f
 ```
 
-### <a name="install-onedrive-in-per-machine-mode"></a>Installera OneDrive i per dator-läge
-
-OneDrive är normalt installerat per användare. I den här miljön bör det vara installerad per dator.
-
-Här är hur du installerar OneDrive i per dator-läge:
-
-1. Skapa först en plats för att mellanlagra OneDrive-installationsprogrammet. En lokal disk-mapp eller [\\\\unc] (file://unc) plats är bra.
-
-2. Hämta OneDriveSetup.exe att den mellanlagrade platsen med den här länken: <https://aka.ms/OneDriveWVD-Installer>
-
-3. Om du har installerat office med OneDrive genom att utelämna  **\<ExcludeApp ID = ”OneDrive” /\>**, avinstallera alla befintliga OneDrive användarspecifika installationer från en upphöjd kommandotolk genom att köra följande kommandot:
-    
-    ```batch
-    "[staged location]\OneDriveSetup.exe" /uninstall
-    ```
-
-4. Kör det här kommandot från en upphöjd kommandotolk för att ange den **AllUsersInstall** registervärdet:
-
-    ```batch
-    REG ADD "HKLM\Software\Microsoft\OneDrive" /v "AllUsersInstall" /t REG_DWORD /d 1 /reg:64
-    ```
-
-5. Kör detta kommando för att installera OneDrive i per dator-läge:
-
-    ```batch
-    Run "[staged location]\OneDriveSetup.exe" /allusers
-    ```
-
-6. Kör detta kommando för att konfigurera OneDrive för att starta vid inloggning för alla användare:
-
-    ```batch
-    REG ADD "HKLM\Software\Microsoft\Windows\CurrentVersion\Run" /v OneDrive /t REG_SZ /d "C:\Program Files (x86)\Microsoft OneDrive\OneDrive.exe /background" /f
-    ```
-
-7. Aktivera **tyst konfigurera användarkonto** genom att köra följande kommando.
-
-    ```batch
-    REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /v "SilentAccountConfig" /t REG_DWORD /d 1 /f
-    ```
-
-8. Omdirigera och flyttar Windows kända mappar till OneDrive genom att köra följande kommando.
-
-    ```batch
-    REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /v "KFMSilentOptIn" /t REG_SZ /d "<your-AzureAdTenantId>" /f
-    ```
-
-### <a name="teams-and-skype"></a>Teams och Skype
-
-Virtuella Windows-skrivbordet stöder inte officiellt Skype för företag och team.
-
 ### <a name="set-up-user-profile-container-fslogix"></a>Konfigurera användarbehållaren profil (FSLogix)
 
 För att inkludera FSLogix behållaren som en del av avbildningen, följer du anvisningarna i [ställa in en användare profil resurs för en värd-pool](create-host-pools-user-profile.md#configure-the-fslogix-profile-container). Du kan testa funktionerna i behållaren FSLogix med [snabbstarten](https://docs.fslogix.com/display/20170529/Profile+Containers+-+Quick+Start).
 
 ### <a name="configure-windows-defender"></a>Konfigurera Windows Defender
 
-Om Windows Defender konfigureras på den virtuella datorn kan du kontrollera att den har konfigurerats för att inte genomsökning hela innehållet i VHD och VHDX-filer under koppla samma.
+Om Windows Defender konfigureras på den virtuella datorn kan du kontrollera att den har konfigurerats för att inte genomsökning hela innehållet i VHD och VHDX-filer under bifogad fil.
 
 Den här konfigurationen kan du bara tar bort genomsökning av VHD och VHDX-filer under bifogad fil, men påverkar inte genomsökning i realtid.
 
@@ -308,7 +168,7 @@ Den här artikeln täcker inte så här konfigurerar du språk och nationella su
 Det här avsnittet beskriver program- och operativsystemets konfiguration. All konfiguration i det här avsnittet görs via registerposter som kan utföras av kommandorad och regedit verktyg.
 
 >[!NOTE]
->Du kan implementera bästa praxis i konfigurationen med allmänna gruppolicy objekt (GPO) eller registret import. Administratören kan välja något av alternativen utifrån organisationens krav.
+>Du kan implementera bästa praxis i konfigurationen med grupprincipobjekt (GPO) eller registret import. Administratören kan välja något av alternativen utifrån organisationens krav.
 
 För feedback hub insamlingen av dessa data på flera session för Windows 10 Enterprise kan du köra det här kommandot:
 

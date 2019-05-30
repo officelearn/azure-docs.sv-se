@@ -2,21 +2,23 @@
 title: Skapa Azure Enterprise-prenumerationer programmässigt | Microsoft Docs
 description: Lär dig hur du skapar ytterligare Azure Enterprise- eller Enterprise Dev/Test-prenumerationer programmässigt.
 services: azure-resource-manager
-author: tfitzmac
+author: jureid
+manager: jureid
+editor: ''
 ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/05/2019
-ms.author: tomfitz
-ms.openlocfilehash: 93df0c196d78a4685ff82108354b82a07d67695d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 04/10/2019
+ms.author: jureid
+ms.openlocfilehash: 7985451eb2bb5e9fd4fbcfb3d2fcf35149122c15
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59256931"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796066"
 ---
 # <a name="programmatically-create-azure-enterprise-subscriptions-preview"></a>Programmässigt skapa Azure Enterprise-prenumerationer (förhandsversion)
 
@@ -40,9 +42,9 @@ När du har lagt till en Azure EA-registrering kontots ägare kan använder Azur
 
 För att köra följande kommandon, måste du vara inloggad på den Kontoägare *hemkatalog*, vilket är den katalog som prenumerationer skapas som standard.
 
-# <a name="resttabrest"></a>[REST](#tab/rest)
+## <a name="resttabrest"></a>[REST](#tab/rest)
 
-Begäran att lista alla registreringskonton:
+Begäran att lista alla registreringskonton som du har åtkomst till:
 
 ```json
 GET https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts?api-version=2018-03-01-preview
@@ -73,7 +75,11 @@ Azure svarar med en lista över alla registreringskonton som du har åtkomst til
 }
 ```
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+Använd den `principalName` egenskapen att identifiera det konto som du vill prenumerationer att debiteras till. Kopiera den `name` på det kontot. Exempel: Om du vill skapa prenumerationer under den SignUpEngineering@contoso.com konto för enhetsregistreringshanterare som du vill kopiera ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Det här är objekt-ID för registreringskontot. Klistra in det här värdet någonstans så att du kan använda den i nästa steg som `enrollmentAccountObjectId`.
+
+## <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
+Öppna [Azure Cloud Shell](https://shell.azure.com/) och välj PowerShell.
 
 Använd den [Get-AzEnrollmentAccount](/powershell/module/az.billing/get-azenrollmentaccount) cmdlet för att lista alla registreringskonton som du har åtkomst till.
 
@@ -81,15 +87,16 @@ Använd den [Get-AzEnrollmentAccount](/powershell/module/az.billing/get-azenroll
 Get-AzEnrollmentAccount
 ```
 
-Azure svarar med en lista med objekt-ID och e-postadresser av konton.
+Azure svarar med en lista över registreringskonton som du har åtkomst till:
 
 ```azurepowershell
 ObjectId                               | PrincipalName
 747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | SignUpEngineering@contoso.com
 4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | BillingPlatformTeam@contoso.com
 ```
+Använd den `principalName` egenskapen att identifiera det konto som du vill prenumerationer att debiteras till. Kopiera den `ObjectId` på det kontot. Exempel: Om du vill skapa prenumerationer under den SignUpEngineering@contoso.com konto för enhetsregistreringshanterare som du vill kopiera ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Klistra in den här objekt-ID någonstans så att du kan använda den i nästa steg som den `enrollmentAccountObjectId`.
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+## <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Använd den [az fakturering konto för enhetsregistreringshanterare lista](https://aka.ms/EASubCreationPublicPreviewCLI) kommando för att lista alla registreringskonton som du har åtkomst till.
 
@@ -97,45 +104,39 @@ Använd den [az fakturering konto för enhetsregistreringshanterare lista](https
 az billing enrollment-account list
 ```
 
-Azure svarar med en lista med objekt-ID och e-postadresser av konton.
+Azure svarar med en lista över registreringskonton som du har åtkomst till:
 
 ```json
-{
-  "value": [
-    {
-      "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-      "name": "747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-      "type": "Microsoft.Billing/enrollmentAccounts",
-      "properties": {
-        "principalName": "SignUpEngineering@contoso.com"
-      }
-    },
-    {
-      "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-      "name": "4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-      "type": "Microsoft.Billing/enrollmentAccounts",
-      "properties": {
-        "principalName": "BillingPlatformTeam@contoso.com"
-      }
-    }
-  ]
-}
+[
+  {
+    "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "name": "747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "principalName": "SignUpEngineering@contoso.com",
+    "type": "Microsoft.Billing/enrollmentAccounts",
+  },
+  {
+    "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "name": "4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "principalName": "BillingPlatformTeam@contoso.com",
+    "type": "Microsoft.Billing/enrollmentAccounts",
+  }
+]
 ```
+
+Använd den `principalName` egenskapen att identifiera det konto som du vill prenumerationer att debiteras till. Kopiera den `name` på det kontot. Exempel: Om du vill skapa prenumerationer under den SignUpEngineering@contoso.com konto för enhetsregistreringshanterare som du vill kopiera ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Det här är objekt-ID för registreringskontot. Klistra in det här värdet någonstans så att du kan använda den i nästa steg som `enrollmentAccountObjectId`.
 
 ---
 
-Använd den `principalName` egenskapen att identifiera det konto som du vill prenumerationer att debiteras till. Använd den `id` som den `enrollmentAccount` värde som används för att skapa prenumerationen i nästa steg.
+## <a name="create-subscriptions-under-a-specific-enrollment-account"></a>Skapa prenumerationer under en viss registreringskontot
 
-## <a name="create-subscriptions-under-a-specific-enrollment-account"></a>Skapa prenumerationer under en viss registreringskontot 
-
-I följande exempel skapas en begäran om att skapa prenumeration med namnet *Dev-teamet prenumeration* och erbjudandet är *MS-AZR - 0017P* (regelbundna EA). Konto för enhetsregistreringshanterare är `747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx` (platshållarvärdet, det här värdet är ett GUID), vilket är registreringskontot för SignUpEngineering@contoso.com. Det även lägger till två användare som ägare av RBAC för prenumerationen.
+I följande exempel skapas en prenumeration med namnet *Dev-teamet prenumeration* i registreringskontot valde i föregående steg. Prenumerationen-erbjudandet är *MS-AZR - 0017P* (vanliga Microsoft Enterprise Agreement). Det även lägger till två användare som ägare av RBAC för prenumerationen.
 
 # <a name="resttabrest"></a>[REST](#tab/rest)
 
-Använd den `id` av den `enrollmentAccount` i sökvägen för begäran om att skapa prenumerationen.
+Gör följande för begäran, byta ut `<enrollmentAccountObjectId>` med den `name` kopieras från det första steget (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Om du vill ange ägare kan läsa [så här hämtar du ID: N för användarobjektet](grant-access-to-create-subscription.md#userObjectId).
 
 ```json
-POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/Microsoft.Subscription/createSubscription?api-version=2018-03-01-preview
+POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>/providers/Microsoft.Subscription/createSubscription?api-version=2018-03-01-preview
 
 {
   "displayName": "Dev Team Subscription",
@@ -151,7 +152,7 @@ POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
 }
 ```
 
-| Elementnamn  | Krävs | Typ   | Beskrivning                                                                                               |
+| Elementnamn  | Obligatoriskt | Typ   | Beskrivning                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `displayName` | Nej      | String | Visningsnamnet för prenumerationen. Om inte anges, är den inställd på namnet på erbjudandet, som ”Microsoft Azure Enterprise”.                                 |
 | `offerType`   | Ja      | String | Erbjudande för prenumerationen. Två alternativ för EA är [MS-AZR - 0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (produktion) och [MS-AZR - 0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (utveckling/testning, måste vara [aktiverat EA-portalen](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
@@ -161,12 +162,12 @@ I svaret, få tillbaka en `subscriptionOperation` objekt för övervakning. När
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-För att använda den här förhandsversionsmodulen måste du installera det genom att köra `Install-Module Az.Subscription -AllowPrerelease` första. Kontrollera `-AllowPrerelease` fungerar, installera en ny version av PowerShellGet från [hämta PowerShellGet-modul](/powershell/gallery/installing-psget).
+Först installerar den här förhandsversionsmodulen genom att köra `Install-Module Az.Subscription -AllowPrerelease`. Kontrollera `-AllowPrerelease` fungerar, installera en ny version av PowerShellGet från [hämta PowerShellGet-modul](/powershell/gallery/installing-psget).
 
-Använd den [New-AzSubscription](/powershell/module/az.subscription) tillsammans med `enrollmentAccount` objekt-ID som den `EnrollmentAccountObjectId` parametern för att skapa en ny prenumeration. 
+Kör den [New-AzSubscription](/powershell/module/az.subscription) kommandot nedan och Ersätt `<enrollmentAccountObjectId>` med den `ObjectId` som samlas in i det första steget (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Om du vill ange ägare kan läsa [så här hämtar du ID: N för användarobjektet](grant-access-to-create-subscription.md#userObjectId).
 
 ```azurepowershell-interactive
-New-AzSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -EnrollmentAccountObjectId 747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx -OwnerObjectId <userObjectId>,<servicePrincipalObjectId>
+New-AzSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -EnrollmentAccountObjectId <enrollmentAccountObjectId> -OwnerObjectId <userObjectId1>,<servicePrincipalObjectId>
 ```
 
 | Elementnamn  | Krävs | Typ   | Beskrivning                                                                                               |
@@ -182,12 +183,12 @@ En fullständig lista över alla parametrar finns i [New AzSubscription](/powers
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-För att använda det här preview-tillägget måste du installera det genom att köra `az extension add --name subscription` första.
+Installera först förhandsversion tillägget genom att köra `az extension add --name subscription`.
 
-Använd den [az konto skapa](/cli/azure/ext/subscription/account?view=azure-cli-latest#-ext-subscription-az-account-create) tillsammans med `enrollmentAccount` objekt-ID som den `enrollment-account-object-id` parametern för att skapa en ny prenumeration.
+Kör den [az konto skapa](/cli/azure/ext/subscription/account?view=azure-cli-latest#-ext-subscription-az-account-create) kommandot nedan och Ersätt `<enrollmentAccountObjectId>` med den `name` du kopierade i det första steget (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Om du vill ange ägare kan läsa [så här hämtar du ID: N för användarobjektet](grant-access-to-create-subscription.md#userObjectId).
 
 ```azurecli-interactive 
-az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscription" --enrollment-account-object-id "747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx" --owner-object-id "<userObjectId>","<servicePrincipalObjectId>"
+az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscription" --enrollment-account-object-id "<enrollmentAccountObjectId>" --owner-object-id "<userObjectId>","<servicePrincipalObjectId>"
 ```
 
 | Elementnamn  | Krävs | Typ   | Beskrivning                                                                                               |
@@ -206,7 +207,7 @@ En fullständig lista över alla parametrar finns i [az konto skapa](/cli/azure/
 ## <a name="limitations-of-azure-enterprise-subscription-creation-api"></a>Begränsningar i Azure Enterprise-prenumeration har skapats API
 
 - Azure Enterprise-prenumerationer kan skapas med den här API: et.
-- Det finns en gräns på 50 prenumerationer per konto. Efter det kan du bara skapa prenumerationer med hjälp av Kontocenter.
+- Det finns en inledande högst 50 prenumerationer per konto för enhetsregistreringshanterare, men du kan [skapa en supportbegäran](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) att öka gränsen till 200. Efter det, går du bara skapa prenumerationer via Azure Kontocenter.
 - Det måste finnas minst en EA eller utveckling/testning i EA-prenumerationer under kontot, vilket innebär att ägare har gått igenom manuell registrering minst en gång.
 - Användare som inte är kontoinnehavare, men har lagts till i ett konto för registrering via RBAC, det går inte att skapa prenumerationer med hjälp av Kontocenter.
 - Du kan inte välja klientorganisationen för prenumerationen som ska skapas i. Prenumerationen skapas alltid i startklientorganisation till Kontoägaren. Om du vill flytta prenumerationen till en annan klient Se [ändra prenumerationen klient](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).

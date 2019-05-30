@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: e64b18cef44a5fa6d63137f57fcada27adcd0299
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: da8d1000ebe2695dbc95d475027722962a3305d9
+ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205472"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65555882"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Riktlinjer för att flytta från Media Services v2 till v3
 
@@ -29,14 +29,14 @@ Den här artikeln redogörs för ändringar som introducerades i Azure Media Ser
 Om du har en videotjänst som har utvecklats i dag ovanpå den [äldre Media Services v2 API: er](../previous/media-services-overview.md), bör du granska följande riktlinjer och att tänka på innan du migrerar till v3-API: er. Det finns många fördelar och nya funktioner i v3-API som förbättrar utvecklarupplevelse och funktionerna i Media Services. Dock som kallas ut i den [kända problem](#known-issues) avsnitt av den här artikeln, det finns även vissa begränsningar på grund av ändringar mellan API-versioner. Den här sidan bevaras som Media Services-teamet gör fortsatt förbättringar till v3-API: er och bemöta luckor mellan versionerna. 
 
 > [!NOTE]
-> För närvarande kan du inte hantera v3-resurser med Azure-portalen. Använd [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) eller en av [SDK:erna som stöds](developers-guide.md).
+> För närvarande kan du inte hantera v3-resurser med Azure-portalen. Använd [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) eller en av [SDK:erna som stöds](media-services-apis-overview.md#sdks).
 
 ## <a name="benefits-of-media-services-v3"></a>Fördelarna med Media Services v3
   
 ### <a name="api-is-more-approachable"></a>API: et är mer programmera
 
 *  v3 baseras på en enhetlig API-yta som innehåller funktioner för både hantering och åtgärder som skapats på Azure Resource Manager. Azure Resource Manager-mallar kan användas för att skapa och distribuera transformeringar, -slutpunkter för direktuppspelning, Live-händelser med mera.
-* [Öppna API (även kallat Swagger) specifikationen](https://aka.ms/ams-v3-rest-sdk) dokumentet.
+* [OpenAPI-specifikation (kallades tidigare Swagger)](https://aka.ms/ams-v3-rest-sdk) dokumentet.
     Visar schemat för alla tjänstkomponenter, inklusive filbaserade kodning.
 * SDK: er som är tillgängliga för [.NET](https://aka.ms/ams-v3-dotnet-ref), .NET Core [Node.js](https://aka.ms/ams-v3-nodejs-ref), [Python](https://aka.ms/ams-v3-python-ref), [Java](https://aka.ms/ams-v3-java-ref), [Gå](https://aka.ms/ams-v3-go-ref), och Ruby.
 * [Azure CLI](https://aka.ms/ams-v3-cli-ref) -integrering för stöd för enkla skript.
@@ -100,7 +100,7 @@ I följande tabell visas kodskillnaderna mellan v2 och v3 för vanliga scenarier
 |---|---|---|
 |Skapa en tillgång och överföra en fil |[v2 .NET-exempel](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L113)|[v3 .NET-exempel](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L169)|
 |Skicka ett jobb|[v2 .NET-exempel](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L146)|[v3 .NET-exempel](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L298)<br/><br/>Visar hur du först skapa en transformering och sedan skicka ett jobb.|
-|Publicera en tillgång med AES-kryptering |1. Create ContentKeyAuthorizationPolicyOption<br/>2. Create ContentKeyAuthorizationPolicy<br/>3. Create AssetDeliveryPolicy<br/>4. Skapa tillgång och överföra innehåll eller skicka jobb och Använd utdatatillgången<br/>5. Associera AssetDeliveryPolicy med tillgången<br/>6. Skapa ContentKey<br/>7. Koppla ContentKey till tillgången<br/>8. Skapa AccessPolicy<br/>9. Skapa positionerare<br/><br/>[v2 .NET-exempel](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L64)|1. Skapa innehåll viktiga princip<br/>2. Skapa tillgång<br/>3. Ladda upp innehåll eller använder tillgången som JobOutput<br/>4. Skapa positionerare för direktuppspelning<br/><br/>[v3 .NET-exempel](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs#L105)|
+|Publicera en tillgång med AES-kryptering |1. Create ContentKeyAuthorizationPolicyOption<br/>2. Create ContentKeyAuthorizationPolicy<br/>3 Create AssetDeliveryPolicy<br/>4. Skapa tillgång och överföra innehåll eller skicka jobb och Använd utdatatillgången<br/>5. Associera AssetDeliveryPolicy med tillgången<br/>6. Skapa ContentKey<br/>7. Koppla ContentKey till tillgången<br/>8. Skapa AccessPolicy<br/>9. Skapa positionerare<br/><br/>[v2 .NET-exempel](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L64)|1. Skapa innehåll viktiga princip<br/>2. Skapa tillgång<br/>3 Ladda upp innehåll eller använder tillgången som JobOutput<br/>4. Skapa positionerare för direktuppspelning<br/><br/>[v3 .NET-exempel](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs#L105)|
 |Hämta jobbinformation och hantera jobb |[Hantera jobb med v2](../previous/media-services-dotnet-manage-entities.md#get-a-job-reference) |[Hantera jobb med v3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L546)|
 
 ## <a name="known-issues"></a>Kända problem

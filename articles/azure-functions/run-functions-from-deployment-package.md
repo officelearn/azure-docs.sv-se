@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: glenga
-ms.openlocfilehash: 57126c87879da9f99d224457433bbbd5f95ef021
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 88e5f1ac7834caa32302a3817e1779d0d733a7b3
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60325636"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787549"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>Kör dina Azure-funktioner från en paketfil
 
@@ -42,7 +42,7 @@ Mer information finns i [det här meddelandet](https://github.com/Azure/app-serv
 
 Om du vill aktivera funktionsappen att köra från ett paket, du lägger bara till en `WEBSITE_RUN_FROM_PACKAGE` att ställa in din funktionsappinställningarna. Den `WEBSITE_RUN_FROM_PACKAGE` inställningen kan ha ett av följande värden:
 
-| Värde  | Beskrivning  |
+| Value  | Beskrivning  |
 |---------|---------|
 | **`1`**  | Rekommenderas för funktionsappar som körs på Windows. Kör en paketfil i från den `d:\home\data\SitePackages` mapp på din funktionsapp. Om inte [distribuerar med zip distribuera](#integration-with-zip-deployment), det här alternativet kräver mappen också ha en fil med namnet `packagename.txt`. Den här filen innehåller bara namnet på den paketfil i mappen, utan några blanksteg. |
 |**`<url>`**  | Platsen för en specifik paketfil som du vill köra. När du använder Blob storage, bör du använda en privat behållare med en [signatur för delad åtkomst (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#attach-a-storage-account-by-using-a-shared-access-signature-sas) att aktivera Functions-körningen får tillgång till paketet. Du kan använda den [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) ladda upp paketfiler till Blob storage-kontot.         |
@@ -64,6 +64,13 @@ Nedan visas en funktionsapp som konfigurerats för att köras från en .zip-fil 
 ## <a name="adding-the-websiterunfrompackage-setting"></a>Att lägga till inställningen WEBSITE_RUN_FROM_PACKAGE
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
+
+## <a name="troubleshooting"></a>Felsökning
+
+- Kör från paketet gör `wwwroot` skrivskyddad, så att du får ett felmeddelande när du skriver filer till den här katalogen.
+- Tar och gzip-format stöds inte.
+- Den här funktionen inte compose med lokalt cacheminne.
+- För bättre prestanda för kallstart, använder du alternativet för lokal Zip (`WEBSITE_RUN_FROM_PACKAGE`= 1).
 
 ## <a name="next-steps"></a>Nästa steg
 

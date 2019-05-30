@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 22db43413b5c752decf6785a75dff22ff4a68039
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 057ec69db300c3ec95cbc63bd5056a78c24d5660
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60596662"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65601659"
 ---
 # <a name="best-practices-for-securing-paas-databases-in-azure"></a>Metoder för att skydda PaaS-databaser i Azure
 
@@ -78,7 +78,7 @@ Azure SQL hanterar viktiga relaterade problem för transparent Datakryptering. S
 
 Azure SQL ger dig kryptering för kolumnerna till [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine). På så sätt kan endast auktoriserade program åtkomst till känsliga kolumner. Med hjälp av den här typen av kryptering begränsar SQL-frågor för krypterade kolumner till likhet-baserade värden.
 
-Programmet filnivåkryptering bör också användas för dataåtkomst. Ibland kan du minimera data datasuveränitet frågor genom att kryptera data med en nyckel som lagras i ett land. Detta förhindrar att även oavsiktlig dataöverföring orsakar problem Eftersom det är omöjligt att dekryptera data utan nyckeln, förutsatt att en stark algoritmen används (till exempel AES-256).
+Programmet filnivåkryptering bör också användas för dataåtkomst. Ibland kan du minimera data datasuveränitet frågor genom att kryptera data med en nyckel som används i rätt land/region. Detta förhindrar att även oavsiktlig dataöverföring orsakar problem Eftersom det är omöjligt att dekryptera data utan nyckeln, förutsatt att en stark algoritmen används (till exempel AES-256).
 
 Du kan använda ytterligare säkerhetsåtgärder för att skydda databasen, till exempel utforma en säker system, kryptera känsliga tillgångar och skapa en brandvägg runt database-servrar.
 

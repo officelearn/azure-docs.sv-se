@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
 ms.author: sujayt
-ms.openlocfilehash: fafa791039397e93e9bf8ab6be04a2190e8ed784
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 3c87e159022b6dcf13daf2a2659c88c0529a8f48
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64699086"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796429"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Felsöka problem med Azure till Azure VM-replikering
 
@@ -232,10 +232,10 @@ Du kan antingen välja att skydda diskarna eller Ignorera varningen göra felfri
  ![add_disks](./media/azure-to-azure-troubleshoot-errors/add-disk.png)
 2. Att ignorera varningen. Gå till replikerat objekt > virtuell dator > Klicka på Stäng aviseringen under översiktsavsnittet.
 ![dismiss_warning](./media/azure-to-azure-troubleshoot-errors/dismiss-warning.png)
-## <a name="unable-to-see-the-azure-vm-for-selection-in-enable-replication"></a>Det går inte att se Azure VM väljas i ”Aktivera replikering”
+## <a name="unable-to-see-the-azure-vm-or-resource-group--for-selection-in-enable-replication"></a>Det går inte att se gruppen virtuell Azure-dator eller resurs för val av i ”Aktivera replikering”
 
  **Orsak 1:  Resursgruppens namn och det virtuella källdatorn finns på olika platser** <br>
-Azure Site Recovery ut för närvarande källresursgruppen för region och virtuella datorer ska finnas på samma plats. Om detta inte är fallet skulle sedan du inte att hitta den virtuella datorn vid tidpunkten för skyddet.
+Azure Site Recovery för närvarande måste ett demonterat som käll-resursgrupp i regionen och virtuella datorer ska finnas på samma plats. Om detta inte är fallet skulle sedan du inte att hitta den virtuella datorn vid tidpunkten för skyddet. Som en lösning kan aktivera du replikering från den virtuella datorn i stället för Recovery services-valvet. Gå till Sourece VM > Egenskaper > Haveriberedskap och aktivera replikering.
 
 **Orsak 2: Resursgrupp ingår inte i den valda prenumerationen** <br>
 Du kanske inte att hitta resursgruppen vid tidpunkten för skydd om det inte är en del av den givna prenumerationen. Kontrollera att resursgruppen tillhör prenumerationen som används.
@@ -252,7 +252,7 @@ Om du inte ser den virtuella datorn som du vill aktivera för replikering, kan d
 >
 >Se till att uppdatera modulen ”” AzureRM.Resources ”” innan du använder den skriptet nedan.
 
-Du kan använda [ta bort inaktuella ASR-konfigurationsskript](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412) och ta bort den inaktuella konfigurationen för Site Recovery på Azure-VM. Du bör kunna se den virtuella datorn när du tar bort den inaktuella konfigurationen.
+Du kan använda [ta bort inaktuella ASR-konfigurationsskript](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1) och ta bort den inaktuella konfigurationen för Site Recovery på Azure-VM. Du bör kunna se den virtuella datorn när du tar bort den inaktuella konfigurationen.
 
 ## <a name="unable-to-select-virtual-machine-for-protection"></a>Det går inte att välja virtuell dator för skydd
  **Orsak 1:  Virtuell dator har vissa tillägg som installeras i tillståndet misslyckad eller svarar inte** <br>

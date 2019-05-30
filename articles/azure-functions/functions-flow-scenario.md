@@ -12,12 +12,12 @@ ms.date: 12/14/2017
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: ''
-ms.openlocfilehash: 31e18285bf6211e73d994e037a91adc396972715
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: d3e777b5611dec382dc4eaaac5ec1594abcdab31
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62106978"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787680"
 ---
 # <a name="call-a-function-from-microsoft-flow"></a>Anropa en funktion från Microsoft Flow
 
@@ -35,6 +35,8 @@ I det här avsnittet lär du dig hur du:
 > * Lägga till en anslutning till API: et.
 > * Skapa ett flöde för att skicka e-postmeddelande om en reparation är kostnadseffektiv.
 > * Kör flödet.
+
+[!INCLUDE [functions-openapi-note](../../includes/functions-openapi-note.md)]
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -224,7 +226,7 @@ Nu när flödet är slutfört kan du lägga till en rad i SharePoint-listan och 
 
 2. Ange följande värden i rutnätet Redigera.
 
-    | Listkolumn     | Värde           |
+    | Listkolumn     | Value           |
     |-----------------|---------------------|
     | **Rubrik**           | Turbinen 60 |
     | **LastServiceDate** | 08/04/2017 |
@@ -244,7 +246,7 @@ Nu när flödet är slutfört kan du lägga till en rad i SharePoint-listan och 
 
 5. Under **KÖRNINGSHISTORIK**, klickar du på körning av flöde.
 
-    ![Körningshistorik](media/functions-flow-scenario/run-history.png)
+    ![Körn.historik](media/functions-flow-scenario/run-history.png)
 
     Om körningen lyckades, kan du granska flow-åtgärder på nästa sida. Om körningen misslyckades av någon anledning, felsökningsinformation nästa sida.
 

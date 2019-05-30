@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 6eb0fe592196466f7f49c21ce38afdf13b254d86
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 88cbd942413757388278d69d728d407271e4c4a3
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61061586"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606395"
 ---
 # <a name="core-reports-from-verizon"></a>Core-rapporter från Verizon
 
@@ -119,7 +119,7 @@ Rapporten innehåller följande information:
 
 Rapporten innehåller inte:
 
-* Begäranden som nekats på grund av land filtreringsalternativ.
+* Begäranden som nekats på grund av land/region filtreringsalternativ.
 * Begäranden för tillgångar vars rubriker tyda på att de inte ska cachelagras. Till exempel `Cache-Control: private`, `Cache-Control: no-cache`, eller `Pragma: no-cache` rubriker förhindra att en tillgång att cachelagras.
 * Begäranden med byte-intervall för delvis cachelagrat innehåll.
 

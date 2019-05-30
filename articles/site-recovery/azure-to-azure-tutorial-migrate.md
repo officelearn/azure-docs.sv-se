@@ -10,10 +10,10 @@ ms.author: rajanaki
 ms.custom: MVC
 ms.openlocfilehash: 0d446be664d695af946d46abc48389d4f7be92cd
 ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2019
-ms.locfileid: "65751113"
+ms.locfileid: "65791045"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Migrera virtuella Azure-datorer till en annan region
 
@@ -90,7 +90,7 @@ Följande steg visar hur du använder Azure Site Recovery för att kopiera data 
 1. I **Namn** anger du det egna namnet **ContosoVMVault**. Om du har mer än en prenumeration väljer du den lämpligaste.
 1. Skapa resursgruppen **ContosoRG**.
 1. Ange en Azure-region. Regioner som stöds finns under geografisk tillgänglighet i [Azure Site Recovery-prisinformation](https://azure.microsoft.com/pricing/details/site-recovery/).
-1. I **Recovery Services-valv**väljer **översikt** > **ContosoVMVault** > **+ replikera**.
+1. I **Recovery Services-valv**väljer **översikt** > **ContosoVMVault** >  **+ replikera**.
 1. I **Källa** väljer du **Azure**.
 1. I **Källplats** väljer du den Azure källregion där de virtuella datorerna körs just nu.
 1. Välj Resource Manager-distributionsmodellen. Välj sedan **källprenumerationen** och **källresursgruppen**.

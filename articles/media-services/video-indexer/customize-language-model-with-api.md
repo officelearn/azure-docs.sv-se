@@ -6,15 +6,16 @@ services: media-services
 author: anikaz
 manager: johndeu
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 05/15/2019
 ms.author: anzaman
-ms.openlocfilehash: ca1e66d20b19c1a5b85a4f4ff1c433331116bee7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4ef5354a94ae707df8dd1f2767efe04dfbacd7ad
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60553750"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799597"
 ---
 # <a name="customize-a-language-model-with-the-video-indexer-apis"></a>Anpassa en språkmodell med API: er för Video Indexer
 
@@ -31,7 +32,7 @@ Följande kommando skapar en ny anpassad språkmodell i det angivna kontot. Du k
 > [!NOTE]
 > Du måste fortfarande träna modellen med dess aktiverade filer för modellen Läs innehållet i filerna. Information om hur du tränar en språk finns i nästa avsnitt.
 
-### <a name="request-url"></a>URL för begäran
+### <a name="request-url"></a>Fråge-URL
 
 Det här är en POST-begäran.
 
@@ -104,7 +105,7 @@ Följande kommando träna en anpassad språkmodell i det angivna kontot med inne
 > [!NOTE]
 > Du måste först skapa språkmodellen och överföra dess filer. Du kan överföra filer när du skapar språkmodellen eller genom att uppdatera språkmodellen. 
 
-### <a name="request-url"></a>URL för begäran
+### <a name="request-url"></a>Fråge-URL
 
 Det här är en PUT-begäran.
 
@@ -169,7 +170,7 @@ Du bör använda den **id** värdet för språkmodellen för den **linguisticMod
 
 Följande kommando tar bort en anpassad språkmodell från det angivna kontot. En video som använde har tagits bort språkmodellen behåller samma index tills du indexera om videon. Om du indexera om videon, kan du tilldela en ny språkmodell till videon. I annat fall använder Video Indexer dess standardmodell för att indexera om videon.
 
-### <a name="request-url"></a>URL för begäran
+### <a name="request-url"></a>Fråge-URL
 
 Det här är en DELETE-begäran.
 
@@ -209,7 +210,7 @@ Följande kommando uppdaterar en anpassad person för språkmodell i det angivna
 > [!NOTE]
 > Du måste redan ha skapat språkmodellen. Du kan använda det här anropet för att aktivera eller inaktivera alla filer under modellen, uppdatera namnet på språkmodellen och ladda upp filer som ska läggas till språkmodellen.
 
-### <a name="request-url"></a>URL för begäran
+### <a name="request-url"></a>Fråge-URL
 
 Det här är en PUT-begäran.
 
@@ -280,7 +281,7 @@ Du kan använda den **id** filernas returnerade här att ladda ned innehållet i
 
 Följande kommando gör att du kan uppdatera namn och **aktivera** läget för en fil i en anpassad språkmodell i det angivna kontot.
 
-### <a name="request-url"></a>URL för begäran
+### <a name="request-url"></a>Fråge-URL
 
 Det här är en PUT-begäran.
 
@@ -331,7 +332,7 @@ Du kan använda den **id** filens returnerade här att ladda ned innehållet i f
 
 Följande kommando returnerar information på den angivna språkmodellen i det angivna kontot som språk och filer som finns i språkmodellen. 
 
-### <a name="request-url"></a>URL för begäran
+### <a name="request-url"></a>Fråge-URL
 
 Det här är en GET-begäran.
 ```
@@ -395,7 +396,7 @@ Du kan använda den **id** filens returnerade här att ladda ned innehållet i f
 
 Följande kommando returnerar alla anpassade språkmodeller i det angivna kontot i en lista.
 
-### <a name="request-url"></a>URL för begäran
+### <a name="request-url"></a>Fråge-URL
 
 Det här är en hämta-begäran.
 
@@ -467,7 +468,7 @@ Svaret innehåller en lista över alla språkmodeller i ditt konto och var och e
 
 Följande kommando tar bort den angivna filen från den angivna språkmodellen i det angivna kontot. 
 
-### <a name="request-url"></a>URL för begäran
+### <a name="request-url"></a>Fråge-URL
 
 Det här är en DELETE-begäran.
 ```
@@ -504,7 +505,7 @@ Det finns inget returnerade innehåll när filen tas bort från språkmodellen.
 
 Detta returnerar innehållet i och metadata på den angivna filen från den valda språkmodellen i på ditt konto.
 
-### <a name="request-url"></a>URL för begäran
+### <a name="request-url"></a>Fråge-URL
 
 Det här är en GET-begäran.
 
@@ -555,7 +556,7 @@ Svaret innehåller innehåll och metadata för filen i JSON-format, ungefär så
 
 Följande kommando laddar ned en textfil som innehåller innehållet i den angivna filen från den angivna språkmodellen i det angivna kontot. Den här filen ska matcha innehållet i textfilen som ursprungligen har överförts.
 
-### <a name="request-url"></a>URL för begäran
+### <a name="request-url"></a>Fråge-URL
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language/{modelId}/Files/{fileId}/download?accessToken={accessToken}
 ```

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: 68ca35590aaadba431d5f1dc06e0405162ebc69f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 23cd77d4a2d0c8203670039dd44c878bf7217fd3
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154487"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799112"
 ---
 # <a name="public-ip-address-prefix"></a>Offentliga IP-adressprefix
 
@@ -48,14 +48,14 @@ Du kan associera följande resurser med en statisk offentlig IP-adress från ett
 
 |Resource|Scenario|Steg|
 |---|---|---|
-|Virtuella datorer| Associera offentliga IP-adresser från ett prefix till dina virtuella datorer i Azure minskar hanteringskostnader när det gäller att lista över tillåtna IP-adresser i brandväggen. Du kan bara godkänna ett hela prefix med en enda brandväggsregel. När du skalar med virtuella datorer i Azure kan du associera IP-adresser från samma prefix sparar kostnader, tid och omkostnader för lagringshantering.| Associera IP-adresser från ett prefix till den virtuella datorn: 1. [Skapa ett prefix.](manage-public-ip-address-prefix.md) 2. [Skapa en IP-adress från prefixet.](manage-public-ip-address-prefix.md) 3. [Associera IP-Adressen till den virtuella datorns nätverksgränssnitt.](virtual-network-network-interface-addresses.md#add-ip-addresses)
-| Lastbalanserare | Associera offentliga IP-adresser från ett prefix till frontend-IP säkerställer konfiguration eller utgående regel för belastningsutjämning förenkling av distribution av ditt Azure offentlig IP-adressutrymme. Du kan förenkla din situation genom rensning utgående anslutningar till har sitt ursprung från en mängd sammanhängande IP-adresser som definieras av den offentliga IP-prefix. | Associera IP-adresser från ett prefix i Load balancer: 1. [Skapa ett prefix.](manage-public-ip-address-prefix.md) 2. [Skapa en IP-adress från prefixet.](manage-public-ip-address-prefix.md) 3. När du skapar belastningsutjämnaren, Välj eller uppdatera IP-Adressen som skapades i steg 2 ovan som frontend-IP för belastningsutjämnaren. |
-| Azure Firewall | Du kan använda en offentlig IP-adress från ett prefix för utgående SNAT. Det innebär att all utgående trafik i virtuella nätverk översätts till den [Azure brandvägg](../firewall/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) offentlig IP-adress. Eftersom denna IP-adress kommer från ett förutbestämt prefix, är det mycket enkelt förväg veta hur dina offentliga IP-fotavtryck i Azure ser ut. | 1. [Skapa ett prefix.](manage-public-ip-address-prefix.md) 2. [Skapa en IP-adress från prefixet.](manage-public-ip-address-prefix.md) 3. När du [distribuera Azure-brandväggen](../firewall/tutorial-firewall-deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-the-firewall), se till att välja den IP-Adressen som du tidigare tilldelat från prefixet.|
+|Virtuella datorer| Associera offentliga IP-adresser från ett prefix till dina virtuella datorer i Azure minskar hanteringskostnader när det gäller att lista över tillåtna IP-adresser i brandväggen. Du kan bara godkänna ett hela prefix med en enda brandväggsregel. När du skalar med virtuella datorer i Azure kan du associera IP-adresser från samma prefix sparar kostnader, tid och omkostnader för lagringshantering.| Associera IP-adresser från ett prefix till den virtuella datorn: 1. [Skapa ett prefix.](manage-public-ip-address-prefix.md) 2. [Skapa en IP-adress från prefixet.](manage-public-ip-address-prefix.md) 3 [Associera IP-Adressen till den virtuella datorns nätverksgränssnitt.](virtual-network-network-interface-addresses.md#add-ip-addresses)
+| Lastbalanserare | Associera offentliga IP-adresser från ett prefix till frontend-IP säkerställer konfiguration eller utgående regel för belastningsutjämning förenkling av distribution av ditt Azure offentlig IP-adressutrymme. Du kan förenkla din situation genom rensning utgående anslutningar till har sitt ursprung från en mängd sammanhängande IP-adresser som definieras av den offentliga IP-prefix. | Associera IP-adresser från ett prefix i Load balancer: 1. [Skapa ett prefix.](manage-public-ip-address-prefix.md) 2. [Skapa en IP-adress från prefixet.](manage-public-ip-address-prefix.md) 3 När du skapar belastningsutjämnaren, Välj eller uppdatera IP-Adressen som skapades i steg 2 ovan som frontend-IP för belastningsutjämnaren. |
+| Azure Firewall | Du kan använda en offentlig IP-adress från ett prefix för utgående SNAT. Det innebär att all utgående trafik i virtuella nätverk översätts till den [Azure brandvägg](../firewall/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) offentlig IP-adress. Eftersom denna IP-adress kommer från ett förutbestämt prefix, är det mycket enkelt förväg veta hur dina offentliga IP-fotavtryck i Azure ser ut. | 1. [Skapa ett prefix.](manage-public-ip-address-prefix.md) 2. [Skapa en IP-adress från prefixet.](manage-public-ip-address-prefix.md) 3 När du [distribuera Azure-brandväggen](../firewall/tutorial-firewall-deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-the-firewall), se till att välja den IP-Adressen som du tidigare tilldelat från prefixet.|
 
-## <a name="constraints"></a>Villkor
+## <a name="constraints"></a>Begränsningar
 
 - Du kan inte ange IP-adresser för prefixet. Azure tilldelar IP-adresser för prefixet, baserat på den storlek som du anger.
-- Standardstorleken för ett prefix/28 eller 16 offentliga IP-adresser.
+- Du kan skapa ett prefix på upp till 16 IP-adresser eller en/28. Mer information finns i [Azure-gränser](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 - Du kan inte ändra intervallet när du har skapat prefixet.
 - Intervallet är för IPv4-adresser. Intervallet innehåller inte IPv6-adresser.
 - Endast statiska offentliga IP-adresser skapas med Standard-SKU kan tilldelas från adressintervallet för det prefixet. Läs mer om offentliga IP-adress SKU: er i [offentliga IP-adressen](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses).

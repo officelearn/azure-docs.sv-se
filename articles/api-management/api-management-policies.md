@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 711f6395959b3718ca0a094a03c07c4381892104
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: ad57f86e221a98461fcd1dc11b92f5665d6128d0
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64699005"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786452"
 ---
 # <a name="api-management-policies"></a>API Management-principer
 Det här avsnittet innehåller en referens för följande API Management-principer. Information om att lägga till och konfigurerar principer finns i [principer i API Management](api-management-howto-policies.md).  
@@ -83,5 +83,4 @@ Arbeta med principer, Läs mer:
 
 + [Principer i API Management](api-management-howto-policies.md)
 + [Transformera API: er](transform-api.md)
-+ [Principreferens för](api-management-policy-reference.md) för en fullständig lista över principrapporter och deras inställningar
 + [Princip-exempel](policy-samples.md)   

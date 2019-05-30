@@ -6,15 +6,16 @@ services: media-services
 author: Juliako
 manager: femila
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 04/07/2019
+ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: d55e246e6fc3a5eeb182a49d1e159887f66d6872
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 205dc7d9e69788ea29a48ff342844a4b74e143bd
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60560046"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799071"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-api"></a>Granska Video Indexer-utdata som genereras av API
 
@@ -35,13 +36,13 @@ Den här artikeln undersöker JSON-innehåll som returneras av den **hämta Vide
 |Namn|Beskrivning|
 |---|---|
 |accountId|Till spellistan VI konto-ID.|
-|id|Till spellistan-ID.|
+|ID|Till spellistan-ID.|
 |namn|Till spellistan namn.|
 |description|Till spellistan beskrivning.|
 |userName|Namnet på användaren som skapade listan.|
 |skapad|Skapandetid för till spellistan.|
 |privacyMode|Till spellistan sekretess-läge (privata/offentliga).|
-|state|Till spellistan (överförda, bearbetning, bearbetade, misslyckades, har satts i karantän).|
+|tillstånd|Till spellistan (överförda, bearbetning, bearbetade, misslyckades, har satts i karantän).|
 |isOwned|Anger om listan har skapats av den aktuella användaren.|
 |isEditable|Anger om den aktuella användaren har behörighet att redigera spelningslistan.|
 |isBase|Anger om listan är en grundläggande spelningslista (en video) eller en spellista som består av andra videor (härledd).|
@@ -75,7 +76,7 @@ Det här avsnittet visas en sammanfattning av insikterna.
 |Attribut | Beskrivning|
 |---|---|
 |namn|Namnet på videon. Till exempel Azure Monitor.|
-|id|ID för videon. Till exempel 63c6d532ff.|
+|ID|ID för videon. Till exempel 63c6d532ff.|
 |privacyMode|Din analys på detaljnivå kan ha något av följande lägen: **Privata**, **offentliga**. **Offentliga** -videon är synlig för alla i ditt konto och vem som helst som har en länk till videon. **Privata** -videon är synlig för alla i ditt konto.|
 |varaktighet|Innehåller en varaktighet som beskriver den tid som en insikt inträffade. Varaktighet är i sekunder.|
 |thumbnailVideoId|ID för videon som miniatyren togs.
@@ -95,9 +96,9 @@ Det här avsnittet visas en sammanfattning av insikterna.
 |Namn|Beskrivning|
 |---|---|
 |accountId|Videons VI konto-ID.|
-|id|Videons-ID.|
+|ID|Videons-ID.|
 |namn|Videons namn.
-|state|Videons tillstånd (överförda, bearbetning, bearbetade, misslyckades, har satts i karantän).|
+|tillstånd|Videons tillstånd (överförda, bearbetning, bearbetade, misslyckades, har satts i karantän).|
 |processingProgress|Bearbetningsförlopp under bearbetningen (t.ex, 20%).|
 |failureCode|Felkod om kunde inte bearbeta (till exempel UnsupportedFileType).|
 |failureMessage|Felmeddelande om det gick inte att bearbeta.|
@@ -192,14 +193,14 @@ Exempel:
 
 Attribut | Beskrivning
 ---|---
-id|ID för blocket.|
+ID|ID för blocket.|
 instanser|En lista över tidsintervall i det här blocket.|
 
 #### <a name="transcript"></a>avskrift
 
 |Namn|Beskrivning|
 |---|---|
-|id|Rad-ID.|
+|ID|Rad-ID.|
 |text|Avskriften.|
 |language|Avskriften-språk. Avser att stödja avskrift där varje rad kan ha ett annat språk.|
 |instanser|En lista över tidsintervall där den här raden visas. Om-instansen är avskrift, har endast 1 instans.|
@@ -237,7 +238,7 @@ Exempel:
 
 |Namn|Beskrivning|
 |---|---|
-|id|OCR rad-ID.|
+|ID|OCR rad-ID.|
 |text|OCR-text.|
 |förtroende|Igenkänning av förtroende.|
 |language|OCR-språk.|
@@ -272,7 +273,7 @@ Exempel:
 
 |Namn|Beskrivning|
 |---|---|
-|id|Nyckelordet-ID.|
+|ID|Nyckelordet-ID.|
 |text|Nyckelordstexten.|
 |förtroende|Den nyckelordet igenkänning av förtroende.|
 |language|Nyckelordet språk (vid översättning).|
@@ -303,7 +304,7 @@ Exempel:
 
 |Namn|Beskrivning|
 |---|---|
-|id|Ansikts-ID.|
+|ID|Ansikts-ID.|
 |namn|Namnet på ansiktet. Det kan vara ”okänt #0, en identifierade kändisar eller en kund utbildad person.|
 |förtroende|Face ID förtroende.|
 |description|En beskrivning av kändisar. |
@@ -311,7 +312,7 @@ Exempel:
 |knownPersonId|Om det är en känd person, dess interna ID.|
 |referenceId|Om det är en Bing kändisar, dess Bing-ID.|
 |referenceType|För närvarande bara Bing.|
-|title|Om det är en kändisar, dess rubrik (till exempel ”Microsofts VD”).|
+|rubrik|Om det är en kändisar, dess rubrik (till exempel ”Microsofts VD”).|
 |imageUrl|Om det är en kändisar, dess bild-url.|
 |instanser|Dessa är instanser av där ansiktet visas i det angivna tidsintervallet. Varje instans har också en thumbnailsId. |
 
@@ -348,7 +349,7 @@ Exempel:
 
 |Namn|Beskrivning|
 |---|---|
-|id|Etikett-ID.|
+|ID|Etikett-ID.|
 |namn|Etikettnamn (till exempel ”dator”, ”TV”).|
 |language|Etiketten namn språk (vid översättning). BCP-47|
 |instanser|En lista över tidsintervall där den här etiketten visas (en etikett kan visas flera gånger). Varje instans har ett förtroende-fält. |
@@ -407,7 +408,7 @@ Exempel:
 
 |Namn|Beskrivning|
 |---|---|
-|id|Scen-ID.|
+|ID|Scen-ID.|
 |instanser|En lista över tidsintervall i det här scen (en scen kan endast ha 1 instans).|
 
 ```json
@@ -440,7 +441,7 @@ Exempel:
 
 |Namn|Beskrivning|
 |---|---|
-|id|Som ID.|
+|ID|Som ID.|
 |Nyckelrutor|En lista över nyckelbildrutorna i på nedan (var och en har ett ID och en lista över instanser tidsintervall). Varje instans av bildrutan har ett thumbnailId fält, som innehåller den bildrutan miniatyr-ID.|
 |instanser|En lista över tidsintervall för den här som visar (en som visar kan endast ha 1 instans).|
 
@@ -490,12 +491,12 @@ Företag och produkten namn har identifierats i tal till textavskrift och/eller 
 
 |Namn|Beskrivning|
 |---|---|
-|id|Varumärke-ID.|
+|ID|Varumärke-ID.|
 |namn|Namnet varumärken.|
 |referenceId | Suffix för varumärke wikipedias url. Till exempel ”Target_Corporation” är suffixet för [ https://en.wikipedia.org/wiki/Target_Corporation ](https://en.wikipedia.org/wiki/Target_Corporation).
 |referenceUrl | Varumärket är Wikipedias url, om det finns. Till exempel [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).
 |description|Varumärken beskrivning.|
-|tags|En lista över fördefinierade taggar som är kopplade till den här varumärke.|
+|taggar|En lista över fördefinierade taggar som är kopplade till den här varumärke.|
 |förtroende|Förtroende-värdet för Video Indexer varumärke detektor (0-1).|
 |instanser|En lista över tidsintervall för den här varumärke. Varje instans har en brandType som anger om den här varumärke visades i avskriften eller OCR.|
 
@@ -559,7 +560,7 @@ Företag och produkten namn har identifierats i tal till textavskrift och/eller 
 
 |Namn|Beskrivning|
 |---|---|
-|id|Ljud effekt-ID.|
+|ID|Ljud effekt-ID.|
 |typ|Typ av ljud effekt (till exempel applåder, tal, tystnad).|
 |instanser|En lista över tidsintervall där detta ljud visades.|
 
@@ -588,7 +589,7 @@ Sentiment sammanställs efter deras sentimentType fält (positiv/Neutral/negativ
 
 |Namn|Beskrivning|
 |---|---|
-|id|Sentiment-ID.|
+|ID|Sentiment-ID.|
 |averageScore |Medelvärdet för samtliga värden i alla instanser av den typ av sentiment – positiv/Neutral/negativ|
 |instanser|En lista över tidsintervall där den här sentiment visades.|
 |sentimentType |Typen kan vara ”positiva', 'Neutral' eller 'Negativt”.|
@@ -627,7 +628,7 @@ Videor som finns för vuxet eller olämpligt innehåll kan vara tillgängliga f�
 
 |Namn|Beskrivning|
 |---|---|
-|id|Visual innehållsmoderering-ID.|
+|ID|Visual innehållsmoderering-ID.|
 |adultScore|Poäng för Vuxeninnehåll (från content moderator).|
 |racyScore|Poäng för vågat (från innehållsmoderering).|
 |instanser|En lista över tidsintervall där den här visual innehållsmoderering visades.|
@@ -663,7 +664,7 @@ Videor som finns för vuxet eller olämpligt innehåll kan vara tillgängliga f�
 
 |Namn|Beskrivning|
 |---|---|
-|id|Textbaserade innehållsmoderering-ID.|
+|ID|Textbaserade innehållsmoderering-ID.|
 |bannedWordsCount |Antal otillåtna orden.|
 |bannedWordsRatio |Förhållandet från totala antalet ord.|
 
@@ -673,7 +674,7 @@ Video Indexer identifierar känslor baserat på tal- och ljud tips. Identifierad
 
 |Namn|Beskrivning|
 |---|---|
-|id|Känslo-ID.|
+|ID|Känslo-ID.|
 |typ|Känslo-och som har identifierats utifrån tal- och ljud. Känslan kan vara: glädje, sorg, ilska eller rädsla.|
 |instanser|En lista över tidsintervall där den här känslor visades.|
 
@@ -763,7 +764,7 @@ Video Indexer gör inferens av viktigaste avsnitten från avskrifter. Om det är
 
 |Namn|Beskrivning|
 |---|---|
-|id|Avsnittet-ID.|
+|ID|Avsnittet-ID.|
 |namn|Ämnesnamnet, till exempel: "Pharmaceuticals".|
 |referenceId|Spår återger ämnen-hierarkin. Exempel: ”Hälsa och välbefinnande / medicin och healthcare / Pharmaceuticals”.|
 |förtroende|Förtroendepoäng i intervallet [0,1]. Är högre tryggare.|

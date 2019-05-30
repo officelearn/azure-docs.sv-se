@@ -12,12 +12,12 @@ ms.date: 12/14/2017
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: ''
-ms.openlocfilehash: afb97c1c14422f15a3fc2c00b2101c4a36675556
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 26f6502f63b39d3f1ecf8dfeb09c8df4daa63b68
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61026007"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786122"
 ---
 # <a name="call-a-function-from-powerapps"></a>Anropa en funktion från PowerApps
 Den [PowerApps](https://powerapps.microsoft.com) -plattformen är utformad för företagsexperter för att skapa appar utan traditionell programkod. Professionella utvecklare kan använda Azure Functions för att utöka funktionerna i PowerApps, samtidigt PowerApps app builders från de tekniska detaljerna.
@@ -39,8 +39,7 @@ I det här avsnittet lär du dig hur du:
 > * Lägga till kontroller för att anropa funktionen och visa data.
 > * Kör appen för att avgöra om en reparation är kostnadseffektiv.
 
-> [!IMPORTANT]
-> OpenAPI-funktionen är för närvarande i förhandsversion och är endast tillgänglig för version 1.x av Azure Functions-körningen.
+[!INCLUDE [functions-openapi-note](../../includes/functions-openapi-note.md)]
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -137,7 +136,7 @@ Nu när datakällorna är tillgängliga i appen kan du lägga till en skärm i d
 
 1. I den **Data** fönstret väljer **sig** i listan.
 
-    ![Välja datakälla](media/functions-powerapps-scenario/select-data-source.png)
+    ![Välj datakälla](media/functions-powerapps-scenario/select-data-source.png)
 
     Datauppsättningen innehåller inte en avbildning, sedan du ändra layouten för att bättre passa för data. 
 

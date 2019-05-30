@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/02/2019
 ms.author: spelluru
-ms.openlocfilehash: 0eed874d405fcf99241a702292f8ceadae6c5a07
-ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
+ms.openlocfilehash: 2ad81ae97414abbf3266cc5728febf9abe836151
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65502035"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522949"
 ---
 # <a name="automate-adding-a-lab-user-to-a-lab-in-azure-devtest-labs"></a>Automatisera tillägg av lab användare i ett labb i Azure DevTest Labs
 Azure DevTest Labs kan du snabbt skapa självbetjäning utvecklings-och testmiljöer med hjälp av Azure portal. Men om du har flera team och flera DevTest Labs-instanser kan kan automatisera processen spara tid. [Azure Resource Manager-mallar](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates) kan du skapa labb, labb virtuella datorer, anpassade avbildningar, formler och lägga till användare i obevakat läge. Den här artikeln fokuserar särskilt på att lägga till användare i en labb-instans.
@@ -85,7 +85,7 @@ Följande exempel Resource Manager-mallen anger en användare som ska läggas ti
 
 ```
 
-Om du tilldelar rollen i samma mall som skapat labbet, kan du komma ihåg att lägga till ett beroende mellan datorrollresurs för tilldelning och labbet. Mer information finns i [definiera beroenden i Azure Resource Manager-mallar](/azure-resource-manager/resource-group-define-dependencies.md) artikeln.
+Om du tilldelar rollen i samma mall som skapat labbet, kan du komma ihåg att lägga till ett beroende mellan datorrollresurs för tilldelning och labbet. Mer information finns i [definiera beroenden i Azure Resource Manager-mallar](../azure-resource-manager/resource-group-define-dependencies.md) artikeln.
 
 ### <a name="role-assignment-resource-information"></a>Rollen tilldelning resursinformation
 Tilldelningen datorrollresurs måste ange typ och namn.

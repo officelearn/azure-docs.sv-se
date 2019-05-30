@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 04/03/2019
+ms.date: 05/11/2019
 ms.author: juliako
-ms.openlocfilehash: 3cd22b89852706ed129373fd24ca9a9d9a27d25b
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: fa09185e68c8d3a70562fe50c583ff872bf91e48
+ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153382"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65556228"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Liveuppspelning med Azure Media Services v3
 
@@ -33,7 +33,7 @@ Azure Media Services kan du leverera händelser till dina kunder på Azure-molne
 Den här artikeln ger en översikt och riktlinjerna för direktsänd strömning med Media Services och länkar till andra relevanta artiklar.
 
 > [!NOTE]
-> För närvarande kan du inte hantera v3-resurser med Azure-portalen. Använd [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) eller en av [SDK:erna som stöds](developers-guide.md).
+> För närvarande kan du inte hantera v3-resurser med Azure-portalen. Använd [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) eller en av [SDK:erna som stöds](media-services-apis-overview.md#sdks).
 
 ## <a name="dynamic-packaging"></a>Dynamisk paketering
 
@@ -67,9 +67,9 @@ När du använder livekodning med Media Services konfigurerar du din lokala live
 
 För att förstå live direktuppspelning arbetsflödet i Media Services v3, du måste först läsa och förstå följande begrepp: 
 
-- [Slutpunkter för direktuppspelning](streaming-endpoint-concept.md)
-- [Livehändelser och liveutdata](live-events-outputs-concept.md)
-- [Positionerare för direktuppspelning](streaming-locators-concept.md)
+- [Slutpunkter för direktuppspelning API](streaming-endpoint-concept.md)
+- [Live-händelser och Live utdata-API](live-events-outputs-concept.md)
+- [Strömmande positionerare API](streaming-locators-concept.md)
 
 ### <a name="general-steps"></a>Allmänna steg
 

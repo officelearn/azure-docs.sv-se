@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 04/24/2019
 ms.openlocfilehash: 8d108e1683be03a79e87990b983f2eda3eadba90
 ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2019
-ms.locfileid: "65759214"
+ms.locfileid: "65797527"
 ---
 # <a name="tutorial-work-with-azure-storage-queues"></a>Självstudier: Arbeta med Azure Storage-köer
 

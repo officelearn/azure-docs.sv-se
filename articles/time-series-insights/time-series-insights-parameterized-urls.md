@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: e70eb7ae73e88b37e649d519d0d0428554dd4ab3
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
-ms.translationtype: MT
+ms.openlocfilehash: 3ddde600c2ac15c56b59051fbcd6bb0e8fbae1f6
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65467526"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787533"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Dela en anpassad vy med en parametriserad URL
 
@@ -34,7 +34,7 @@ Parametern `environmentId=<guid>` anger målmiljö-ID:t. Det är en komponent i 
 
 Ett exempel på miljö-ID-parametern är `?environmentId=10000000-0000-0000-0000-100000000108`.
 
-## <a name="time"></a>Tid
+## <a name="time"></a>Time
 
 Du kan ange absoluta eller relativa tidsvärden med en parametriserad URL.
 
@@ -86,11 +86,11 @@ Den `timeSeriesDefinitions=<collection of term objects>` parametern anger villko
 | `multiChartStack=false` | `true` är aktiverad som standard så skicka `false` stapla. |
 | `multiChartStack=false&multiChartSameScale=true` | Stapling måste aktiveras att använda samma skala för y-axeln i villkoren.  Den har `false` som standard så skicka 'true' aktiverar den här funktionen. |
 | `timeBucketUnit=<Unit>&timeBucketSize=<integer>` | Enheter (Units) = dagar, timmar, minuter, sekunder och millisekunder.  Inled alltid enheten med versal. </br> Definiera antalet enheter genom att skicka det önskade heltalet för timeBucketSize.  Observera att du jämnar upp till 7 dagar.  |
-| `timezoneOffset=-<integer>` | Heltalet är alltid i millisekunder. </br> Observera den här funktionen är något annorlunda än vad vi aktivera i TSI-utforskaren där du kan välja lokal tid (webbläsartid) eller UTC. |
+| `timezoneOffset=-<integer>` | Heltalet är alltid i millisekunder. </br> Observera att den här funktionen är något annorlunda än vad vi aktivera i Time Series Insights explorer, där vi kan du välja lokal (tid webbläsartid) eller UTC. |
 
 ### <a name="examples"></a>Exempel
 
-Lägg till för att lägga till tidsseriedefinitioner en TSI-miljö som en URL-parameter:
+Lägg till för att lägga till tidsseriedefinitioner till en Time Series Insights-miljö som en URL-parameter:
 
 ```plaintext
 &timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},
@@ -112,7 +112,7 @@ https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0
 > [!TIP]
 > Se Explorer live [med hjälp av URL: en](https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0000-100000000108&relativeMillis=3600000&timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},{"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}]).
 
-URL: en ovan beskriver och TSI-Utforskaren vy:
+URL: en ovan beskriver och Time Series Insights Explorer-vy:
 
 [![Time Series Insights explorer-villkor](media/parameterized-url/url1.png)](media/parameterized-url/url1.png#lightbox)
 

@@ -1,221 +1,232 @@
 ---
-title: Distributionsåtgärder med Azure Resource Manager | Microsoft Docs
+title: Distributionshistoriken med Azure Resource Manager | Microsoft Docs
 description: Beskriver hur du visar Azure Resource Manager distributionsåtgärder med portalen, PowerShell, Azure CLI och REST API.
-services: azure-resource-manager,virtual-machines
-documentationcenter: ''
 tags: top-support-issue
 author: tfitzmac
-ms.assetid: ''
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: vm-multiple
-ms.workload: infrastructure
-ms.date: 09/28/2018
+ms.date: 05/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: 9ff6388c72c631dad870a4f52f86749bfd744d85
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 58d22e3fcae5c30e5d7dcc39b317afeef4a693ee
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58085634"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606014"
 ---
-# <a name="view-deployment-operations-with-azure-resource-manager"></a>Visa distributionsåtgärder med Azure Resource Manager
+# <a name="view-deployment-history-with-azure-resource-manager"></a>Visa distributionshistoriken med Azure Resource Manager
 
-Du kan visa åtgärderna för en distribution via Azure portal. Du kanske är mest intresserad visa åtgärderna när du har fått ett fel under distributionen så att den här artikeln handlar om hur du visar åtgärder som har misslyckats. Portalen tillhandahåller ett gränssnitt som gör det möjligt att enkelt hitta felen och fastställa eventuella korrigeringar.
+Azure Resource Manager kan du visa distributionshistoriken och undersöka specifika åtgärder i tidigare distributioner. Du kan se de resurser som har distribuerats och få information om eventuella fel.
 
-Du kan felsöka distributionen genom att titta på granskningsloggarna eller distributionsåtgärder. Den här artikeln visar båda metoderna. Om du vill ha hjälp med att lösa specifika distributionsfel finns i [lösa vanliga fel när du distribuerar resurser till Azure med Azure Resource Manager](resource-manager-common-deployment-errors.md).
+Om du vill ha hjälp med att lösa specifika distributionsfel finns i [lösa vanliga fel när du distribuerar resurser till Azure med Azure Resource Manager](resource-manager-common-deployment-errors.md).
+
+## <a name="portal"></a>Portal
+
+Få information om en distribution från distributionshistoriken.
+
+1. Välj den resursgrupp som du vill undersöka.
+
+1. Klicka på länken under **distributioner**.
+
+   ![Välj distributionshistoriken](./media/resource-manager-deployment-operations/select-deployment-history.png)
+
+1. Välj en av distributionerna från distributionshistoriken.
+
+   ![Välj distributionen](./media/resource-manager-deployment-operations/select-details.png)
+
+1. En sammanfattning av distributionen visas, inklusive en lista över de resurser som har distribuerats.
+
+    ![Distributionssammanfattning](./media/resource-manager-deployment-operations/view-deployment-summary.png)
+
+1. Om du vill visa mallen som används för distributionen, Välj **mallen**. Du kan ladda ned mallen för att återanvända den.
+
+    ![Visa mall](./media/resource-manager-deployment-operations/show-template-from-history.png)
+
+1. Om distributionen misslyckades kan se du ett felmeddelande. Välj felmeddelande för mer information.
+
+    ![Visa misslyckad distribution](./media/resource-manager-deployment-operations/show-error.png)
+
+1. Det detaljerade felmeddelandet visas.
+
+    ![Visa felinformationen](./media/resource-manager-deployment-operations/show-details.png)
+
+1. Korrelations-ID används för att spåra relaterade händelser och kan vara användbart när du arbetar med teknisk support att felsöka en distribution.
+
+    ![Hämta Korrelations-ID](./media/resource-manager-deployment-operations/get-correlation-id.png)
+
+1. Mer information om steget som misslyckades, Välj **åtgärdsinformation**.
+
+    ![Välj distributionsåtgärder](./media/resource-manager-deployment-operations/select-deployment-operations.png)
+
+1. Du ser information om det steget i distributionen.
+
+    ![Visa information om åtgärd](./media/resource-manager-deployment-operations/show-operation-details.png)
+
+## <a name="powershell"></a>PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="portal"></a>Portalen
+Hämta övergripande status för en distribution med den **Get-AzResourceGroupDeployment** kommando.
 
-Visa distributionsåtgärder, använda följande steg:
+```azurepowershell-interactive
+Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup
+```
 
-1. Se status för den senaste distributionen för resursgruppen som ingår i distributionen. Du kan välja denna status för att få mer information.
-   
-    ![Distributionsstatus](./media/resource-manager-deployment-operations/deployment-status.png)
-2. Du kan se de senaste distributionshistoriken. Välj den distribution som misslyckades.
-   
-    ![Distributionsstatus](./media/resource-manager-deployment-operations/select-deployment.png)
-3. Välj länken för att se en beskrivning av varför distributionen misslyckades. I bilden nedan är DNS-posten inte unikt.  
-   
-    ![Visa misslyckad distribution](./media/resource-manager-deployment-operations/view-error.png)
-   
-    Det här felmeddelandet ska vara räcker att påbörja felsökning. Men om du vill ha mer information om vilka uppgifter har slutförts kan du visa åtgärderna som du ser i följande steg.
-4. Du kan visa alla distributionsåtgärder. Välj alla åtgärder som du vill ha mer information.
-   
-    ![Visa åtgärder](./media/resource-manager-deployment-operations/view-operations.png)
-   
-    Du ser i det här fallet att lagringskontot, virtuellt nätverk och tillgänglighetsuppsättning har skapats. Det gick inte att den offentliga IP-adressen och andra resurser som inte har försökts.
-5. Du kan visa händelser för distributionen genom att välja **händelser**.
-   
-    ![Visa händelser](./media/resource-manager-deployment-operations/view-events.png)
-6. Du ser alla händelser för distributionen och väljer något mer information. Observera Korrelations-ID: N. Det här värdet kan vara användbart när du arbetar med teknisk support att felsöka en distribution.
-   
-    ![Visa händelser](./media/resource-manager-deployment-operations/see-all-events.png)
+Eller du kan filtrera resultatet för dessa distributioner som har misslyckats.
 
-## <a name="powershell"></a>PowerShell
-1. Hämta övergripande status för en distribution med den **Get-AzResourceGroupDeployment** kommando. 
+```azurepowershell-interactive
+Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
+```
 
-   ```powershell
-   Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup
-   ```
+Korrelations-ID används för att spåra relaterade händelser och kan vara användbart när du arbetar med teknisk support att felsöka en distribution. Hämta Korrelations-ID med:
 
-   Eller du kan filtrera resultatet för dessa distributioner som har misslyckats.
+```azurepowershell-interactive
+(Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName azuredeploy).CorrelationId
+```
 
-   ```powershell
-   Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
-   ```
-   
-2. Hämta Korrelations-ID med:
+Varje distributionen omfattar flera åtgärder. Varje åtgärd representerar ett steg i distributionsprocessen. För att identifiera vad som gick fel med en distribution, måste vanligtvis du se information om distributionsåtgärder. Du kan se statusen för åtgärder med **Get-AzResourceGroupDeploymentOperation**.
 
-   ```powershell
-   (Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName azuredeploy).CorrelationId
-   ```
+```azurepowershell-interactive
+Get-AzResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName azuredeploy
+```
 
-3. Varje distributionen omfattar flera åtgärder. Varje åtgärd representerar ett steg i distributionsprocessen. För att identifiera vad som gick fel med en distribution, måste vanligtvis du se information om distributionsåtgärder. Du kan se statusen för åtgärder med **Get-AzResourceGroupDeploymentOperation**.
+Som returnerar flera åtgärder med var och en i följande format:
 
-   ```powershell 
-   Get-AzResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName vmDeployment
-   ```
+```powershell
+Id             : /subscriptions/{guid}/resourceGroups/ExampleGroup/providers/Microsoft.Resources/deployments/Microsoft.Template/operations/A3EB2DA598E0A780
+OperationId    : A3EB2DA598E0A780
+Properties     : @{provisioningOperation=Create; provisioningState=Succeeded; timestamp=2019-05-13T21:42:40.7151512Z;
+                duration=PT23.0227078S; trackingId=11d376e8-5d6d-4da8-847e-6f23c6443fbf;
+                serviceRequestId=0196828d-8559-4bf6-b6b8-8b9057cb0e23; statusCode=OK; targetResource=}
+PropertiesText : {duration:PT23.0227078S, provisioningOperation:Create, provisioningState:Succeeded,
+                serviceRequestId:0196828d-8559-4bf6-b6b8-8b9057cb0e23...}
+```
 
-    Som returnerar flera åtgärder med var och en i följande format:
+Om du vill ha mer information om misslyckade åtgärder, hämta egenskaperna för åtgärder med **misslyckades** tillstånd.
 
-   ```powershell
-   Id             : /subscriptions/{guid}/resourceGroups/ExampleGroup/providers/Microsoft.Resources/deployments/Microsoft.Template/operations/A3EB2DA598E0A780
-   OperationId    : A3EB2DA598E0A780
-   Properties     : @{provisioningOperation=Create; provisioningState=Succeeded; timestamp=2016-06-14T21:55:15.0156208Z;
-                   duration=PT23.0227078S; trackingId=11d376e8-5d6d-4da8-847e-6f23c6443fbf;
-                   serviceRequestId=0196828d-8559-4bf6-b6b8-8b9057cb0e23; statusCode=OK; targetResource=}
-   PropertiesText : {duration:PT23.0227078S, provisioningOperation:Create, provisioningState:Succeeded,
-                   serviceRequestId:0196828d-8559-4bf6-b6b8-8b9057cb0e23...}
-   ```
+```azurepowershell-interactive
+(Get-AzResourceGroupDeploymentOperation -DeploymentName azuredeploy -ResourceGroupName ExampleGroup).Properties | Where-Object ProvisioningState -eq Failed
+```
 
-4. Om du vill ha mer information om misslyckade åtgärder, hämta egenskaperna för åtgärder med **misslyckades** tillstånd.
+Som returnerar alla misslyckade åtgärder med var och en i följande format:
 
-   ```powershell
-   (Get-AzResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object ProvisioningState -eq Failed
-   ```
-   
-    Som returnerar alla misslyckade åtgärder med var och en i följande format:
+```powershell
+provisioningOperation : Create
+provisioningState     : Failed
+timestamp             : 2019-05-13T21:42:40.7151512Z
+duration              : PT3.1449887S
+trackingId            : f4ed72f8-4203-43dc-958a-15d041e8c233
+serviceRequestId      : a426f689-5d5a-448d-a2f0-9784d14c900a
+statusCode            : BadRequest
+statusMessage         : @{error=}
+targetResource        : @{id=/subscriptions/{guid}/resourceGroups/ExampleGroup/providers/
+                       Microsoft.Network/publicIPAddresses/myPublicIP;
+                       resourceType=Microsoft.Network/publicIPAddresses; resourceName=myPublicIP}
+```
 
-   ```powershell
-   provisioningOperation : Create
-   provisioningState     : Failed
-   timestamp             : 2016-06-14T21:54:55.1468068Z
-   duration              : PT3.1449887S
-   trackingId            : f4ed72f8-4203-43dc-958a-15d041e8c233
-   serviceRequestId      : a426f689-5d5a-448d-a2f0-9784d14c900a
-   statusCode            : BadRequest
-   statusMessage         : @{error=}
-   targetResource        : @{id=/subscriptions/{guid}/resourceGroups/ExampleGroup/providers/
-                          Microsoft.Network/publicIPAddresses/myPublicIP;
-                          resourceType=Microsoft.Network/publicIPAddresses; resourceName=myPublicIP}
-   ```
+Observera serviceRequestId och spårnings-ID för åtgärden. ServiceRequestId kan vara användbart när du arbetar med teknisk support att felsöka en distribution. Du använder trackingId i nästa steg för att fokusera på en viss åtgärd.
 
-    Observera serviceRequestId och spårnings-ID för åtgärden. ServiceRequestId kan vara användbart när du arbetar med teknisk support att felsöka en distribution. Du använder trackingId i nästa steg för att fokusera på en viss åtgärd.
-5. Om du vill ha statusmeddelande för en viss misslyckad åtgärd, använder du följande kommando:
+Om du vill ha statusmeddelande för en viss misslyckad åtgärd, använder du följande kommando:
 
-   ```powershell
-   ((Get-AzResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object trackingId -eq f4ed72f8-4203-43dc-958a-15d041e8c233).StatusMessage.error
-   ```
+```azurepowershell-interactive
+((Get-AzResourceGroupDeploymentOperation -DeploymentName azuredeploy -ResourceGroupName ExampleGroup).Properties | Where-Object trackingId -eq f4ed72f8-4203-43dc-958a-15d041e8c233).StatusMessage.error
+```
 
-    Som returnerar:
+Som returnerar:
 
-   ```powershell
-   code           message                                                                        details
-   ----           -------                                                                        -------
-   DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP. {}
-   ```
-6. Varje distributionsåtgärd i Azure inkluderar innehåll för begäran och svar. Innehållet i begäran är vad du skickas till Azure under distributionen (till exempel skapa en virtuell dator, OS-disk och andra resurser). Svarsinnehållet är vad Azure skickas tillbaka från din begäran om distribution. Under distributionen kan du använda **DeploymentDebugLogLevel** parametern för att ange att begäran/svar eller bevaras i loggen. 
+```powershell
+code           message                                                                        details
+----           -------                                                                        -------
+DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP. {}
+```
 
-   Du får den här informationen från loggen och spara den lokalt genom att använda följande PowerShell-kommandon:
+Varje distributionsåtgärd i Azure inkluderar innehåll för begäran och svar. Under distributionen kan du använda **DeploymentDebugLogLevel** parametern för att ange att begäran/svar eller loggas.
 
-   ```powershell
-   (Get-AzResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.request | ConvertTo-Json |  Out-File -FilePath <PathToFile>
+Du får den här informationen från loggen och spara den lokalt genom att använda följande PowerShell-kommandon:
 
-   (Get-AzResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.response | ConvertTo-Json |  Out-File -FilePath <PathToFile>
-   ```
+```powershell
+(Get-AzResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.request | ConvertTo-Json |  Out-File -FilePath <PathToFile>
+
+(Get-AzResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.response | ConvertTo-Json |  Out-File -FilePath <PathToFile>
+```
 
 ## <a name="azure-cli"></a>Azure CLI
 
-1. Hämta övergripande status för en distribution med den **azure group deployment show** kommando.
+Hämta övergripande status för en distribution med den **azure group deployment show** kommando.
 
-   ```azurecli
-   az group deployment show -g ExampleGroup -n ExampleDeployment
-   ```
+```azurecli-interactive
+az group deployment show -g ExampleGroup -n ExampleDeployment
+```
   
-2. En av de returnerade värdena är den **correlationId**. Det här värdet används för att spåra relaterade händelser och kan vara användbart när du arbetar med teknisk support att felsöka en distribution.
+Korrelations-ID används för att spåra relaterade händelser och kan vara användbart när du arbetar med teknisk support att felsöka en distribution.
 
-   ```azurecli
-   az group deployment show -g ExampleGroup -n ExampleDeployment --query properties.correlationId
-   ```
+```azurecli-interactive
+az group deployment show -g ExampleGroup -n ExampleDeployment --query properties.correlationId
+```
 
-3. Visa åtgärderna för en distribution, använda:
+Visa åtgärderna för en distribution, använda:
 
-   ```azurecli
-   az group deployment operation list -g ExampleGroup -n ExampleDeployment
-   ```
+```azurecli-interactive
+az group deployment operation list -g ExampleGroup -n ExampleDeployment
+```
 
 ## <a name="rest"></a>REST
 
-1. Få information om en distribution med den [få information om en malldistributionen](https://docs.microsoft.com/rest/api/resources/deployments) igen.
+Om du vill ha information om en distribution kan använda den [få information om en malldistributionen](https://docs.microsoft.com/rest/api/resources/deployments) igen.
 
-   ```http
-   GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}?api-version={api-version}
-   ```
+```
+GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}?api-version={api-version}
+```
 
-    I svaret, Observera särskilt den **provisioningState**, **correlationId**, och **fel** element. Den **correlationId** används för att spåra relaterade händelser och kan vara användbart när du arbetar med teknisk support att felsöka en distribution.
+I svaret, Observera särskilt den **provisioningState**, **correlationId**, och **fel** element. Den **correlationId** används för att spåra relaterade händelser och kan vara användbart när du arbetar med teknisk support att felsöka en distribution.
 
-   ```json
-   { 
-    ...
-    "properties": {
-      "provisioningState":"Failed",
-      "correlationId":"d5062e45-6e9f-4fd3-a0a0-6b2c56b15757",
-      ...
-      "error":{
-        "code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.",
-        "details":[{"code":"Conflict","message":"{\r\n  \"error\": {\r\n    \"message\": \"Conflict\",\r\n    \"code\": \"Conflict\"\r\n  }\r\n}"}]
-      }  
-    }
-   }
-   ```
+```json
+{ 
+ ...
+ "properties": {
+   "provisioningState":"Failed",
+   "correlationId":"d5062e45-6e9f-4fd3-a0a0-6b2c56b15757",
+   ...
+   "error":{
+     "code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.",
+     "details":[{"code":"Conflict","message":"{\r\n  \"error\": {\r\n    \"message\": \"Conflict\",\r\n    \"code\": \"Conflict\"\r\n  }\r\n}"}]
+   }  
+ }
+}
+```
 
-2. Få information om distributioner med [visa alla distributionsåtgärder för mallen](https://docs.microsoft.com/rest/api/resources/deployments). 
+Hämta information om distribution av [visa alla distributionsåtgärder för mallen](https://docs.microsoft.com/rest/api/resources/deployments). 
 
-   ```http
-   GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}/operations?$skiptoken={skiptoken}&api-version={api-version}
-   ```
+```
+GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}/operations?$skiptoken={skiptoken}&api-version={api-version}
+```
    
-    Svaret innehåller begäran/svar eller information baserat på vad du har angett i den **debugSetting** egenskapen under distributionen.
+Svaret innehåller begäran/svar eller information baserat på vad du har angett i den **debugSetting** egenskapen under distributionen.
 
-   ```json
-   {
-    ...
-    "properties": 
-    {
-      ...
-      "request":{
-        "content":{
-          "location":"West US",
-          "properties":{
-            "accountType": "Standard_LRS"
-          }
-        }
-      },
-      "response":{
-        "content":{
-          "error":{
-            "message":"Conflict","code":"Conflict"
-          }
-        }
-      }
-    }
+```json
+{
+ ...
+ "properties": 
+ {
+   ...
+   "request":{
+     "content":{
+       "location":"West US",
+       "properties":{
+         "accountType": "Standard_LRS"
+       }
+     }
+   },
+   "response":{
+     "content":{
+       "error":{
+         "message":"Conflict","code":"Conflict"
+       }
+     }
    }
-   ```
-
+ }
+}
+```
 
 ## <a name="next-steps"></a>Nästa steg
 * Om du vill ha hjälp med att lösa specifika distributionsfel finns i [lösa vanliga fel när du distribuerar resurser till Azure med Azure Resource Manager](resource-manager-common-deployment-errors.md).

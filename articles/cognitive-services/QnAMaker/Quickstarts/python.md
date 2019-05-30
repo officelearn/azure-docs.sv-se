@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 02/13/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: e732417daada836dc7de58fadf69e8edb4ebcb14
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 20236dd2b5d2e21ca0490065ca6f26101dee3244
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60240750"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792300"
 ---
 # <a name="how-to-use-the-qna-maker-rest-api-with-python"></a>Hur du använder REST-API för QnA Maker med Python
 <a name="HOLTop"></a>
@@ -50,7 +50,7 @@ Du behöver ett [Cognitive Services API-konto](https://docs.microsoft.com/azure/
 
 ## <a name="create-knowledge-base"></a>Skapa en kunskapsbas
 
-Följande kod skapar en ny kunskapsbas med hjälp av metoden [Create](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff) (Skapa).
+Följande kod skapar en ny kunskapsbas med hjälp av metoden [Create](https://go.microsoft.com/fwlink/?linkid=2092179) (Skapa).
 
 1. Skapa ett nytt Python-projekt i valfri IDE.
 2. Lägg till koden nedan.
@@ -106,7 +106,7 @@ req = {
   "qnaList": [
     {
       "id": 0,
-      "answer": "You can use our REST APIs to manage your Knowledge Base. See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600",
+      "answer": "You can use our REST APIs to manage your Knowledge Base. See here for details: https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update",
       "source": "Custom Editorial",
       "questions": [
         "How do I programmatically update my Knowledge Base?"
@@ -185,7 +185,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 ## <a name="update-knowledge-base"></a>Uppdatera kunskapsbas
 
-Följande kod uppdaterar en befintlig kunskapsbas med hjälp av metoden [Update](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) (Uppdatera).
+Följande kod uppdaterar en befintlig kunskapsbas med hjälp av metoden [Update](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update) (Uppdatera).
 
 1. Skapa ett nytt Python-projekt i valfri IDE.
 2. Lägg till koden nedan.
@@ -244,7 +244,7 @@ req = {
     'qnaList': [
       {
         'id': 1,
-        'answer': 'You can change the default message if you use the QnAMakerDialog. See this for details: https://docs.botframework.com/en-us/azure-bot-service/templates/qnamaker/#navtitle',
+        'answer': 'You can change the default message if you use the QnAMakerDialog. See this for details: https://docs.botframework.com/azure-bot-service/templates/qnamaker/#navtitle',
         'source': 'Custom Editorial',
         'questions': [
           'How can I change the default message from QnA Maker?'
@@ -318,7 +318,7 @@ Press any key to continue.
 
 ## <a name="get-request-status"></a>Hämta status för begäran
 
-Du kan anropa den metoden [Operation](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) (Åtgärd) för att kontrollera status för en begäran om att skapa eller uppdatera en kunskapsbas. Om du vill se hur den här metoden används kan du titta på exempelkoden för metoden [Create](#Create) (Skapa) eller [Update](#Update) (Uppdatera).
+Du kan anropa den metoden [Operation](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/operations/getdetails) (Åtgärd) för att kontrollera status för en begäran om att skapa eller uppdatera en kunskapsbas. Om du vill se hur den här metoden används kan du titta på exempelkoden för metoden [Create](#Create) (Skapa) eller [Update](#Update) (Uppdatera).
 
 [Överst på sidan](#HOLTop)
 
@@ -326,7 +326,7 @@ Du kan anropa den metoden [Operation](https://westus.dev.cognitive.microsoft.com
 
 ## <a name="publish-knowledge-base"></a>Publicera kunskapsbas
 
-Följande kod publicerar en befintlig kunskapsbas med hjälp av metoden [Publish](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) (Publicera).
+Följande kod publicerar en befintlig kunskapsbas med hjälp av metoden [Publish](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish) (Publicera).
 
 1. Skapa ett nytt Python-projekt i valfri IDE.
 2. Lägg till koden nedan.
@@ -393,7 +393,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 ## <a name="replace-knowledge-base"></a>Ersätt kunskapsbas
 
-Följande kod ersätter innehållet i den angivna kunskapsbasen med hjälp av metoden [Ersätt](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_publish).
+Följande kod ersätter innehållet i den angivna kunskapsbasen med hjälp av metoden [Ersätt](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/replace).
 
 1. Skapa ett nytt Python-projekt i valfri IDE.
 2. Lägg till koden nedan.
@@ -443,7 +443,7 @@ req = {
   'qnaList': [
     {
       'id': 0,
-      'answer': 'You can use our REST APIs to manage your Knowledge Base. See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600',
+      'answer': 'You can use our REST APIs to manage your Knowledge Base. See here for details: https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update',
       'source': 'Custom Editorial',
       'questions': [
         'How do I programmatically update my Knowledge Base?'
@@ -481,7 +481,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 ## <a name="download-the-contents-of-a-knowledge-base"></a>Ladda ned innehållet i en kunskapsbas
 
-Följande kod laddar ned innehållet i den angivna kunskapsbasen med hjälp av metoden [Ladda ned kunskapsbas](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_download).
+Följande kod laddar ned innehållet i den angivna kunskapsbasen med hjälp av metoden [Ladda ned kunskapsbas](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/download).
 
 1. Skapa ett nytt Python-projekt i valfri IDE.
 2. Lägg till koden nedan.
@@ -538,7 +538,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
   "qnaDocuments": [
     {
       "id": 1,
-      "answer": "You can use our REST APIs to manage your Knowledge Base. See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600",
+      "answer": "You can use our REST APIs to manage your Knowledge Base. See here for details: https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update",
       "source": "Custom Editorial",
       "questions": [
         "How do I programmatically update my Knowledge Base?"
@@ -658,7 +658,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 ## <a name="get-information-about-a-knowledge-base"></a>Få information om en kunskapsbas
 
-Följande kod hämtar information om den angivna kunskapsbasen med hjälp av metoden [Hämta information om kunskapsbas](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasedetails).
+Följande kod hämtar information om den angivna kunskapsbasen med hjälp av metoden [Hämta information om kunskapsbas](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/getdetails).
 
 1. Skapa ett nytt Python-projekt i valfri IDE.
 2. Lägg till koden nedan.
@@ -731,7 +731,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 ## <a name="get-all-knowledge-bases-for-a-user"></a>Hämta alla kunskapsbaser för en användare
 
-Följande kod hämtar information om alla kunskapsbaser för en viss användare med hjälp av metoden [Hämta kunskapsbaser för användare](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasesforuser).
+Följande kod hämtar information om alla kunskapsbaser för en viss användare med hjälp av metoden [Hämta kunskapsbaser för användare](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/listall).
 
 1. Skapa ett nytt Python-projekt i valfri IDE.
 2. Lägg till koden nedan.
@@ -817,7 +817,7 @@ Press any key to continue.
 
 ## <a name="delete-a-knowledge-base"></a>Ta bort en kunskapsbas
 
-Följande kod tar bort den angivna kunskapsbasen med hjälp av metoden [Ta bort kunskapsbas](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_delete).
+Följande kod tar bort den angivna kunskapsbasen med hjälp av metoden [Ta bort kunskapsbas](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/delete).
 
 1. Skapa ett nytt Python-projekt i valfri IDE.
 2. Lägg till koden nedan.
@@ -884,7 +884,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 ## <a name="get-endpoint-keys"></a>Hämta slutpunktsnycklar
 
-Följande kod hämtar de aktuella slutpunktsnycklarna med hjälp av metoden [Hämta slutpunktsnycklar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_getendpointkeys).
+Följande kod hämtar de aktuella slutpunktsnycklarna med hjälp av metoden [Hämta slutpunktsnycklar](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/endpointkeys/getkeys).
 
 1. Skapa ett nytt Python-projekt i valfri IDE.
 2. Lägg till koden nedan.
@@ -943,7 +943,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 ## <a name="refresh-endpoint-keys"></a>Uppdatera slutpunktsnycklar
 
-Följande kod återskapar de aktuella slutpunktsnycklarna med hjälp av metoden [Uppdatera slutpunktsnycklar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_refreshendpointkeys).
+Följande kod återskapar de aktuella slutpunktsnycklarna med hjälp av metoden [Uppdatera slutpunktsnycklar](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/endpointkeys/refreshkeys).
 
 1. Skapa ett nytt Python-projekt i valfri IDE.
 2. Lägg till koden nedan.
@@ -1011,7 +1011,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 ## <a name="get-word-alterations"></a>Hämta ordvariationer
 
-Följande kod hämtar de aktuella ordvariationerna med hjälp av metoden [Ladda ned variationer](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fc).
+Följande kod hämtar de aktuella ordvariationerna med hjälp av metoden [Ladda ned variationer](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/get).
 
 1. Skapa ett nytt Python-projekt i valfri IDE.
 2. Lägg till koden nedan.
@@ -1076,7 +1076,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 ## <a name="replace-word-alterations"></a>Ersätt ordvariationer
 
-Följande kod ersätter de aktuella ordvariationerna med hjälp av metoden [Ersätt variationer](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd).
+Följande kod ersätter de aktuella ordvariationerna med hjälp av metoden [Ersätt variationer](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace).
 
 1. Skapa ett nytt Python-projekt i valfri IDE.
 2. Lägg till koden nedan.
@@ -1152,7 +1152,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Referens för QnA Maker (V4) REST API](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+> [Referens för QnA Maker (V4) REST API](https://go.microsoft.com/fwlink/?linkid=2092179)
 
 ## <a name="see-also"></a>Se också 
 

@@ -3,8 +3,8 @@ title: Azure AD App Proxy connector för tyst installation | Microsoft Docs
 description: Beskriver hur du utför en obevakad installation av Azure AD Application Proxy Connector att tillhandahålla säker fjärråtkomst till lokala appar.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb193119186c2cf9e758f8c74f99f18c5fb389b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0eb3e52dfd02bd7948f1b5ffd908ac1255118008
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60292664"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782921"
 ---
 # <a name="create-an-unattended-installation-script-for-the-azure-ad-application-proxy-connector"></a>Skapa ett obevakat installationsskript för Azure AD Application Proxy connector
 
@@ -53,7 +53,7 @@ Det finns två metoder som du kan använda för att registrera anslutningsverkty
 * Registrera anslutningsverktyget med hjälp av en token som skapats offline
 
 ### <a name="register-the-connector-using-a-windows-powershell-credential-object"></a>Registrera anslutningsverktyget med hjälp av en Windows PowerShell-objektet för autentiseringsuppgifter
-1. Skapa en Windows PowerShell med huvudautentiseringsuppgifter `$cred` som innehåller ett administratörsanvändarnamn och lösenord för din katalog. Kör följande kommando ersätter *\<användarnamn\>* och  *\<lösenord\>*:
+1. Skapa en Windows PowerShell med huvudautentiseringsuppgifter `$cred` som innehåller ett administratörsanvändarnamn och lösenord för din katalog. Kör följande kommando ersätter *\<användarnamn\>* och  *\<lösenord\>* :
    
         $User = "<username>"
         $PlainPassword = '<password>'

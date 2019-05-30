@@ -14,10 +14,10 @@ manager: craigg
 ms.date: 03/25/2019
 ms.openlocfilehash: 8ca2346de84a97bff370a7d5bacb006130cb5116
 ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2019
-ms.locfileid: "65758279"
+ms.locfileid: "65792479"
 ---
 # <a name="quickstart-use-net-core-c-to-query-an-azure-sql-database"></a>Snabbstart: Köra frågor mot en Azure SQL-databas med hjälp av .NET Core (C#)
 

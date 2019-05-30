@@ -3,20 +3,20 @@ title: 'Snabbstart: Utföra en nyhetssökning – SDK för nyhetssökning i Bing
 titleSuffix: Azure Cognitive Services
 description: Använd den här snabbstarten för att söka efter nyheter med Bing News Search SDK för C#, och bearbeta svaret.
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
 ms.date: 01/10/2019
-ms.author: v-gedod
+ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: fe9010215e5b6c4c9ece2372e3ce87bcf99b150c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9e0a4da2662b9d4b4b775631705e7b4fcc1eecea
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60323203"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65798679"
 ---
 # <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-c"></a>Snabbstart: Utför en nyhetssökning med SDK för nyhetssökning i Bing för C#
 
@@ -24,7 +24,7 @@ Använd den här snabbstarten om du vill börja söka efter nyheter med SDK för
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-* Valfri version av [Visual Studio 2017](https://www.visualstudio.com/downloads/).
+* En utgåva av [Visual Studio 2017 eller senare](https://www.visualstudio.com/downloads/).
 * [Json.NET](https://www.newtonsoft.com/json) framework, tillgänglig som ett NuGet-paket.
 * Om du använder Linux/Mac OS kan det här programmet köras med [Mono](https://www.mono-project.com/).
 
@@ -41,7 +41,7 @@ Se även [Priser för Cognitive Services – API för Bing-sökning](https://azu
 
 ## <a name="create-and-initialize-a-project"></a>Skapa och initiera ett projekt
 
-1. skapa en ny C#-konsollösning i Visual Studio. Lägg sedan till följande i huvudkodfilen.
+1. Skapa en ny C#-konsollösning i Visual Studio. Lägg sedan till följande i huvudkodfilen.
     
     ```csharp
     using System;

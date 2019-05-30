@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor - noll instrumentation programövervakning för Kubernetes värdbaserade appar | Microsoft Docs
-description: Noll instrumentation programövervakning för Kubernetes som värd för appar är en lösning för övervakning som gör det möjligt att samla in Application Insights telemetry som hör till inkommande och utgående förfrågningar till och från poddar som körs i Kubernetes-klustret genom att använda tjänsten nät teknik kallas Istio.
+title: Använd Application Insights för att övervaka dina Azure Kubernetes Service (AKS) eller andra Kubernetes värdbaserade program – Azure Monitor | Microsoft Docs
+description: Azure Monitor använder tjänsten nät teknik, Istio, på ett Kubernetes-kluster för att tillhandahålla programövervakning för alla värdbaserade Kubernetes-program. På så sätt kan du samla in Application Insights-telemetri som hör till inkommande och utgående förfrågningar till och från poddar som körs i klustret.
 services: application-insights
 author: tokaplan
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: application-insights
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: alkaplan
-ms.openlocfilehash: 42b81ec0fa01841791a5b2651d1c1189db5e27ff
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
-ms.translationtype: HT
+ms.openlocfilehash: c94d589875195207ec6f71c35ad077cac281fda5
+ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408212"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65555823"
 ---
-# <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-apps"></a>Noll instrumentering av program för Kubernetes-värdappar
+# <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-applications"></a>Noll instrumentering av program för Kubernetes värdbaserade program
 
 > [!IMPORTANT]
 > Den här funktionen finns för närvarande i offentlig förhandsversion.
@@ -78,7 +78,7 @@ Program som körs utanför service-nät påverkas inte.
 3. Edit *application-insights-istio-mixer-adapter-deployment.yaml*
     - redigera värdet för *ISTIO_MIXER_PLUGIN_AI_INSTRUMENTATIONKEY* miljövariabeln som innehåller instrumenteringsnyckeln för Application Insights-resurs i Azure portal för att innehålla telemetri.
     - Om det behövs kan du redigera värdet för *ISTIO_MIXER_PLUGIN_WATCHLIST_NAMESPACES* miljövariabeln ska innehålla en kommaavgränsad lista över namnområden som du vill aktivera övervakning. Lämna det tomt om du vill övervaka alla namnområden.
-4. Tillämpa *varje* YAML-fil som finns under *src/kubernetes/* genom att köra följande (du måste fortfarande vara inuti */src/kubernetes/*):
+4. Tillämpa *varje* YAML-fil som finns under *src/kubernetes/* genom att köra följande (du måste fortfarande vara inuti */src/kubernetes/* ):
 
    ```console
    kubectl apply -f .

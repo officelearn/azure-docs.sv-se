@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: iainfou
-ms.openlocfilehash: a1fe8929b5ae39c82850aa08899c7b3e6bb98c7e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: eeb9f5fa91252bbc3c3038ab88bd2d7e802f263f
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64725302"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786399"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Tjänstens huvudnamn med Azure Kubernetes Service (AKS)
 
@@ -23,6 +23,8 @@ Den här artikeln visar hur du skapar och använder ett tjänstens huvudnamn fö
 ## <a name="before-you-begin"></a>Innan du börjar
 
 För att skapa ett Azure AD-huvudnamn för tjänsten måste du ha behörighet att registrera ett program med din Azure AD-klientorganisation, samt behörighet att tilldela programmet till en roll i din prenumeration. Om du inte har de behörigheter som du behöver kan du be din Azure AD- eller prenumerationsadministratör att tilldela de nödvändiga behörigheterna eller att skapa ett tjänstens huvudnamn att använda med AKS-klustret.
+
+Om du använder ett huvudnamn för tjänsten från en annan Azure AD-klient finns det ytterligare överväganden kring behörigheterna som tillgänglig när du distribuerar i klustret. Du kanske inte har behörighet att läsa och skriva kataloginformation. Mer information finns i [vad är standardbehörigheterna för användare i Azure Active Directory?][azure-ad-permissions]
 
 Du också ha Azure CLI version 2.0.59 eller senare installerat och konfigurerat. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa  [Installera Azure CLI 2.0][install-azure-cli].
 
@@ -124,7 +126,7 @@ Tänk på följande när du använder AKS och Azure AD-tjänstens huvudnamn.
 
 - Tjänstobjektet för Kubernetes är en del av klusterkonfigurationen. Men använd inte identiteten för att distribuera klustret.
 - Som standard är autentiseringsuppgifter för tjänstens huvudnamn giltiga i ett år. Du kan [uppdatera eller rotera autentiseringsuppgifter för tjänstens huvudnamn] [ update-credentials] när som helst.
-- Varje tjänstobjekt är associerat med ett Azure AD-program. Tjänstobjektet för ett Kubernetes-kluster kan associeras med ett giltigt Azure Active Directory-programnamn (t.ex. *https://www.contoso.org/example*). URL:en för programmet behöver inte vara en verklig slutpunkt.
+- Varje tjänstobjekt är associerat med ett Azure AD-program. Tjänstobjektet för ett Kubernetes-kluster kan associeras med ett giltigt Azure Active Directory-programnamn (t.ex. *https://www.contoso.org/example* ). URL:en för programmet behöver inte vara en verklig slutpunkt.
 - När du anger **Klient-ID** för tjänstens huvudnamn använder du värdet för `appId`.
 - På agenten noden virtuella datorer i Kubernetes-klustret lagras autentiseringsuppgifterna för tjänstobjektet i filen `/etc/kubernetes/azure.json`
 - Om du använder kommandot [az aks create][az-aks-create] för att generera tjänstobjektet automatiskt skrivs autentiseringsuppgifterna för tjänstobjektet till filen `~/.azure/aksServicePrincipal.json` på den dator som används för att köra kommandot.
@@ -158,3 +160,4 @@ Information om hur du uppdaterar autentiseringsuppgifterna som finns i [uppdater
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [aks-to-acr]: ../container-registry/container-registry-auth-aks.md?toc=%2fazure%2faks%2ftoc.json#grant-aks-access-to-acr
 [update-credentials]: update-credentials.md
+[azure-ad-permissions]: ../active-directory/fundamentals/users-default-permissions.md

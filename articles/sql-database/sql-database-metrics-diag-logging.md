@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: fe53dd4419c06d376a1cc46db0d2621ccbc06f23
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 089f5335a65151c9c576346995f0bee34b5d10b4
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548653"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65791936"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database-mått och diagnostikloggning
 
@@ -64,7 +64,7 @@ Du kan ställa in Azure SQL-databaser och instansdatabaser att samla in följand
 
 | Övervakning av telemetri för databaser | Enkel databas och stöd för databas i pool | Stöd för databaser i instansen |
 | :------------------- | ----- | ----- |
-| [Alla mått](#all-metrics): Innehåller DTU/CPU-procent, DTU/CPU-begränsning, fysiska data läses procent, skriva log procent brandväggsanslutningar, sessioner procent, arbetare procent, lagring, lagringsprocent och XTP lagringsprocent lyckades/misslyckades/blockerades. | Ja | Nej |
+| [Basmått](#basic-metrics): Innehåller DTU/CPU-procent, DTU/CPU-begränsning, fysiska data läses procent, skriva log procent brandväggsanslutningar, sessioner procent, arbetare procent, lagring, lagringsprocent och XTP lagringsprocent lyckades/misslyckades/blockerades. | Ja | Nej |
 | [QueryStoreRuntimeStatistics](#query-store-runtime-statistics): Innehåller information om den fråga runtime statistik, till exempel CPU-användning och fråga varaktighet. | Ja | Ja |
 | [QueryStoreWaitStatistics](#query-store-wait-statistics): Innehåller information om frågestatistik för vänta (vad dina frågor kan ha väntat), till exempel är processor, LOG och låser. | Ja | Ja |
 | [Fel](#errors-dataset): Innehåller information om SQL-fel på en databas. | Ja | Ja |
@@ -91,9 +91,9 @@ Du kan använda den **diagnostikinställningar** menyn för var och en enkel til
 
 Du kan ställa in en elastisk pool-resurs för att samla in följande diagnostiktelemetri:
 
-| Resurs | Övervakning av telemetri |
+| Resource | Övervakning av telemetri |
 | :------------------- | ------------------- |
-| **Elastisk pool** | [Alla mått](sql-database-metrics-diag-logging.md#all-metrics) innehåller eDTU/CPU-procent, eDTU/CPU-begränsning, fysiska data läses procent, skriva log procent, sessioner procent, arbetare procent, lagring, lagringsprocent, lagringsgräns och XTP lagringsprocent. |
+| **Elastisk pool** | [Basmått](sql-database-metrics-diag-logging.md#basic-metrics) innehåller eDTU/CPU-procent, eDTU/CPU-begränsning, fysiska data läses procent, skriva log procent, sessioner procent, arbetare procent, lagring, lagringsprocent, lagringsgräns och XTP lagringsprocent. |
 
 Om du vill konfigurera strömning av diagnostiktelemetri för elastiska pooler och databaser i elastiska pooler, behöver du konfigurera separat **både** av följande:
 
@@ -113,7 +113,7 @@ Följ dessa steg om du vill aktivera strömning av diagnostiktelemetri för en e
 1. Ange ett namn på inställningen för din egen referens.
 1. Välj en mål-resurs för strömmande diagnostikdata: **Arkivet till lagringskontot**, **Stream till en händelsehubb**, eller **skicka till Log Analytics**.
 1. Log analytics, Välj **konfigurera** och skapa en ny arbetsyta genom att välja **+ Skapa ny arbetsyta**, eller välj en befintlig arbetsyta.
-1. Markera kryssrutan för telemetri för elastisk pool diagnostik: **AllMetrics**.
+1. Markera kryssrutan för telemetri för elastisk pool diagnostik: **Grundläggande** mått.
    ![Konfigurera diagnostik för elastiska pooler](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-elasticpool-selection.png)
 1. Välj **Spara**.
 1. Dessutom konfigurera strömning av diagnostiktelemetri för varje databas i den elastiska poolen som du vill övervaka genom att följa stegen som beskrivs i nästa avsnitt.
@@ -137,7 +137,7 @@ Följ dessa steg om du vill aktivera strömning av diagnostiktelemetri för enke
 1. Ange ett namn på inställningen för din egen referens.
 1. Välj en mål-resurs för strömmande diagnostikdata: **Arkivet till lagringskontot**, **Stream till en händelsehubb**, eller **skicka till Log Analytics**.
 1. Välj följande kryssrutor för databasen diagnostik loggtelemetri för övervakningen standard, baserat på händelse: **SQLInsights**, **AutomaticTuning**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics**, **fel** , **DatabaseWaitStatistics**, **tidsgränser**, **block**, och **låsningar**.
-1. För en avancerad, 1-minut-baserade övervakningsupplevelse, markerar du kryssrutan för **AllMetrics**.
+1. För en avancerad, 1-minut-baserade övervakningsupplevelse, markerar du kryssrutan för **grundläggande** mått.
    ![Konfigurera diagnostik för en enskild, i pooler eller instans databaser](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
 1. Välj **Spara**.
 1. Upprepa dessa steg för varje databas som du vill övervaka.
@@ -153,7 +153,7 @@ Följ dessa steg om du vill aktivera strömning av diagnostiktelemetri för enke
 
 Du kan ställa in en hanterad instans-resurs för att samla in följande diagnostiktelemetri:
 
-| Resurs | Övervakning av telemetri |
+| Resource | Övervakning av telemetri |
 | :------------------- | ------------------- |
 | **Hanterad instans** | [ResourceUsageStats](#resource-usage-stats-for-managed-instance) innehåller antal virtuella kärnor, Genomsnittlig CPU-procent, i/o-begäranden, byte lästa/skrivna, reserverade lagringsutrymme och använt lagringsutrymme. |
 
@@ -298,7 +298,7 @@ Du kan aktivera mätvärden och diagnostikloggning med hjälp av Azure CLI.
 
 Du kan kombinera dessa parametrar om du vill aktivera flera Utdataalternativ för.
 
-### <a name="rest-api"></a>REST-API
+### <a name="rest-api"></a>REST API
 
 Läs om hur du [ändra inställningarna för startdiagnostik med hjälp av REST-API i Azure Monitor](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings).
 
@@ -385,7 +385,7 @@ Eller rättare:
 insights-{metrics|logs}-{category name}/resourceId=/{resource Id}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
 ```
 
-Exempelvis kanske en blob-namnet för alla mått:
+Till exempel kan en blob-namnet för basmått vara:
 
 ```powershell
 insights-metrics-minute/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/RESOURCEGROUPS/TESTRESOURCEGROUP/PROVIDERS/MICROSOFT.SQL/ servers/Server1/databases/database1/y=2016/m=08/d=22/h=18/m=00/PT1H.json
@@ -411,23 +411,26 @@ Om du använder Azure SQL Analytics kan du övervaka din förbrukning för inmat
 
 Övervakning telemetri som är tillgängliga för Azure SQL Database, dokumenteras elastiska pooler och hanterade instansen nedan. Insamlade övervakning telemetri i SQL Analytics kan användas för dina egna anpassade analys och program snabbare med [loggfrågor i Azure Monitor](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries) språk.
 
-## <a name="all-metrics"></a>Alla mått
+## <a name="basic-metrics"></a>Basmått
 
-Avse följande tabell innehåller information om alla mått per resurs.
+Avse följande tabell innehåller information om basmått av resurs.
 
-### <a name="all-metrics-for-elastic-pools"></a>Alla mått för elastiska pooler
+> [!NOTE]
+> Basmått alternativet kallades tidigare alla mått. Ändringen som gjordes var av namnen endast och det var ingen förändring av övervakade mått. Den här ändringen har påbörjats för att tillåta introduktion av ytterligare mått kategorier i framtiden.
+
+### <a name="basic-metrics-for-elastic-pools"></a>Basmått för elastiska pooler
 
 |**Resurs**|**Mått**|
 |---|---|
 |Elastisk pool|eDTU procent eDTU används, eDTU-gränsen, CPU-procent, fysiska data Läs procent, skriva log procent, sessioner procent, arbetare procent, lagring, lagringsprocent, gränsen för lagring, XTP-lagringsprocent |
 
-### <a name="all-metrics-for-azure-sql-databases"></a>Alla mått för Azure SQL-databaser
+### <a name="basic-metrics-for-azure-sql-databases"></a>Grundläggande mätvärden för Azure SQL-databaser
 
 |**Resurs**|**Mått**|
 |---|---|
 |Azure SQL-databas|DTU-procent DTU används, DTU-gränsen, CPU-procent, fysiska data Läs procent, skriva log procent, brandväggsanslutningar, sessioner procent, arbetare procent, lagring, lagringsprocent, XTP lagringsprocent, lyckades/misslyckades/blockerades och låsningar |
 
-## <a name="all-logs"></a>Alla loggar
+## <a name="basic-logs"></a>Grundläggande loggar
 
 Information om telemetri som är tillgängliga för alla loggar dokumenteras i tabellerna nedan. Se [stöds diagnostikloggning](#supported-diagnostic-logging-for-azure-sql-databases-and-instance-databases) förstå vilka loggar som stöds för en viss databas smak – Azure SQL enkel, tilldelade i poler, eller database-instans.
 
@@ -438,11 +441,11 @@ Information om telemetri som är tillgängliga för alla loggar dokumenteras i t
 |TenantId|Ditt klient-ID |
 |SourceSystem|Alltid: Azure|
 |TimeGenerated [UTC]|Tidsstämpel när loggen registrerades |
-|Typ|Alltid: AzureDiagnostics |
+|Type|Alltid: AzureDiagnostics |
 |ResourceProvider|Namnet på resursprovidern. Alltid: MICROSOFT.SQL |
-|Kategori|Namnet på kategorin. Alltid: ResourceUsageStats |
-|Resurs|Namn på resursen |
-|ResourceType|Namnet på resurstypen. Alltid: MANAGEDINSTANCES |
+|Category|Namnet på kategorin. Alltid: ResourceUsageStats |
+|Resource|Namn på resursen |
+|Resurstyp|Namnet på resurstypen. Alltid: MANAGEDINSTANCES |
 |SubscriptionId|Prenumerations-GUID för databasen |
 |ResourceGroup|Namnet på resursgruppen för databasen |
 |LogicalServerName_s|Namnet på den hanterade instansen |
@@ -458,17 +461,17 @@ Information om telemetri som är tillgängliga för alla loggar dokumenteras i t
 
 ### <a name="query-store-runtime-statistics"></a>Query Store-körningsstatistik
 
-|Egenskap|Beskrivning|
+|Egenskap |Beskrivning|
 |---|---|
 |TenantId|Ditt klient-ID |
 |SourceSystem|Alltid: Azure |
 |TimeGenerated [UTC]|Tidsstämpel när loggen registrerades |
-|Typ|Alltid: AzureDiagnostics |
+|Type|Alltid: AzureDiagnostics |
 |ResourceProvider|Namnet på resursprovidern. Alltid: MICROSOFT.SQL |
-|Kategori|Namnet på kategorin. Alltid: QueryStoreRuntimeStatistics |
+|Category|Namnet på kategorin. Alltid: QueryStoreRuntimeStatistics |
 |OperationName|Åtgärdens namn. Alltid: QueryStoreRuntimeStatisticsEvent |
-|Resurs|Namn på resursen |
-|ResourceType|Namnet på resurstypen. Alltid: SERVERS/DATABASES |
+|Resource|Namn på resursen |
+|Resurstyp|Namnet på resurstypen. Alltid: SERVERS/DATABASES |
 |SubscriptionId|Prenumerations-GUID för databasen |
 |ResourceGroup|Namnet på resursgruppen för databasen |
 |LogicalServerName_s|Namnet på servern för databasen |
@@ -514,12 +517,12 @@ Läs mer om [Query Store runtime statistikdata](https://docs.microsoft.com/sql/r
 |TenantId|Ditt klient-ID |
 |SourceSystem|Alltid: Azure |
 |TimeGenerated [UTC]|Tidsstämpel när loggen registrerades |
-|Typ|Alltid: AzureDiagnostics |
+|Type|Alltid: AzureDiagnostics |
 |ResourceProvider|Namnet på resursprovidern. Alltid: MICROSOFT.SQL |
-|Kategori|Namnet på kategorin. Alltid: QueryStoreWaitStatistics |
+|Category|Namnet på kategorin. Alltid: QueryStoreWaitStatistics |
 |OperationName|Åtgärdens namn. Alltid: QueryStoreWaitStatisticsEvent |
-|Resurs|Namn på resursen |
-|ResourceType|Namnet på resurstypen. Alltid: SERVERS/DATABASES |
+|Resource|Namn på resursen |
+|Resurstyp|Namnet på resurstypen. Alltid: SERVERS/DATABASES |
 |SubscriptionId|Prenumerations-GUID för databasen |
 |ResourceGroup|Namnet på resursgruppen för databasen |
 |LogicalServerName_s|Namnet på servern för databasen |
@@ -552,22 +555,22 @@ Läs mer om [Query Store vänta statistikdata](https://docs.microsoft.com/sql/re
 |TenantId|Ditt klient-ID |
 |SourceSystem|Alltid: Azure |
 |TimeGenerated [UTC]|Tidsstämpel när loggen registrerades |
-|Typ|Alltid: AzureDiagnostics |
+|Type|Alltid: AzureDiagnostics |
 |ResourceProvider|Namnet på resursprovidern. Alltid: MICROSOFT.SQ |
-|Kategori|Namnet på kategorin. Alltid: Fel |
+|Category|Namnet på kategorin. Alltid: Fel |
 |OperationName|Åtgärdens namn. Alltid: ErrorEvent |
-|Resurs|Namn på resursen |
-|ResourceType|Namnet på resurstypen. Alltid: SERVERS/DATABASES |
+|Resource|Namn på resursen |
+|Resurstyp|Namnet på resurstypen. Alltid: SERVERS/DATABASES |
 |SubscriptionId|Prenumerations-GUID för databasen |
 |ResourceGroup|Namnet på resursgruppen för databasen |
 |LogicalServerName_s|Namnet på servern för databasen |
 |ElasticPoolName_s|Namnet på den elastiska poolen för databasen, om sådana |
 |DatabaseName_s|Namnet på databasen |
 |ResourceId|Resurs-URI |
-|Meddelande|Felmeddelande i oformaterad text |
+|Message|Felmeddelande i oformaterad text |
 |user_defined_b|Är fel användardefinierade-bitars |
 |error_number_d|Felkod |
-|Allvarsgrad|Allvarlighetsgraden för felet |
+|Severity|Allvarlighetsgraden för felet |
 |state_d|Tillståndet för felet |
 |query_hash_s|Fråge-hash för misslyckade frågan, om det är tillgängligt |
 |query_plan_hash_s|Fråga plan hash för misslyckade frågan, om det är tillgängligt |
@@ -581,12 +584,12 @@ Läs mer om [felmeddelanden för SQL Server](https://msdn.microsoft.com/library/
 |TenantId|Ditt klient-ID |
 |SourceSystem|Alltid: Azure |
 |TimeGenerated [UTC]|Tidsstämpel när loggen registrerades |
-|Typ|Alltid: AzureDiagnostics |
+|Type|Alltid: AzureDiagnostics |
 |ResourceProvider|Namnet på resursprovidern. Alltid: MICROSOFT.SQL |
-|Kategori|Namnet på kategorin. Alltid: DatabaseWaitStatistics |
+|Category|Namnet på kategorin. Alltid: DatabaseWaitStatistics |
 |OperationName|Åtgärdens namn. Alltid: DatabaseWaitStatisticsEvent |
-|Resurs|Namn på resursen |
-|ResourceType|Namnet på resurstypen. Alltid: SERVERS/DATABASES |
+|Resource|Namn på resursen |
+|Resurstyp|Namnet på resurstypen. Alltid: SERVERS/DATABASES |
 |SubscriptionId|Prenumerations-GUID för databasen |
 |ResourceGroup|Namnet på resursgruppen för databasen |
 |LogicalServerName_s|Namnet på servern för databasen |
@@ -605,17 +608,17 @@ Läs mer om [databasen vänta statistik](https://docs.microsoft.com/sql/relation
 
 ### <a name="time-outs-dataset"></a>Timeout-datauppsättning
 
-|Egenskap|Beskrivning|
+|Egenskap |Beskrivning|
 |---|---|
 |TenantId|Ditt klient-ID |
 |SourceSystem|Alltid: Azure |
 |TimeGenerated [UTC]|Tidsstämpel när loggen registrerades |
-|Typ|Alltid: AzureDiagnostics |
+|Type|Alltid: AzureDiagnostics |
 |ResourceProvider|Namnet på resursprovidern. Alltid: MICROSOFT.SQL |
-|Kategori|Namnet på kategorin. Alltid: Timeouter |
+|Category|Namnet på kategorin. Alltid: Timeouter |
 |OperationName|Åtgärdens namn. Alltid: TimeoutEvent |
-|Resurs|Namn på resursen |
-|ResourceType|Namnet på resurstypen. Alltid: SERVERS/DATABASES |
+|Resource|Namn på resursen |
+|Resurstyp|Namnet på resurstypen. Alltid: SERVERS/DATABASES |
 |SubscriptionId|Prenumerations-GUID för databasen |
 |ResourceGroup|Namnet på resursgruppen för databasen |
 |LogicalServerName_s|Namnet på servern för databasen |
@@ -633,12 +636,12 @@ Läs mer om [databasen vänta statistik](https://docs.microsoft.com/sql/relation
 |TenantId|Ditt klient-ID |
 |SourceSystem|Alltid: Azure |
 |TimeGenerated [UTC]|Tidsstämpel när loggen registrerades |
-|Typ|Alltid: AzureDiagnostics |
+|Type|Alltid: AzureDiagnostics |
 |ResourceProvider|Namnet på resursprovidern. Alltid: MICROSOFT.SQL |
-|Kategori|Namnet på kategorin. Alltid: block |
+|Category|Namnet på kategorin. Alltid: block |
 |OperationName|Åtgärdens namn. Alltid: BlockEvent |
-|Resurs|Namn på resursen |
-|ResourceType|Namnet på resurstypen. Alltid: SERVERS/DATABASES |
+|Resource|Namn på resursen |
+|Resurstyp|Namnet på resurstypen. Alltid: SERVERS/DATABASES |
 |SubscriptionId|Prenumerations-GUID för databasen |
 |ResourceGroup|Namnet på resursgruppen för databasen |
 |LogicalServerName_s|Namnet på servern för databasen |
@@ -657,12 +660,12 @@ Läs mer om [databasen vänta statistik](https://docs.microsoft.com/sql/relation
 |TenantId|Ditt klient-ID |
 |SourceSystem|Alltid: Azure |
 |TimeGenerated [UTC] |Tidsstämpel när loggen registrerades |
-|Typ|Alltid: AzureDiagnostics |
+|Type|Alltid: AzureDiagnostics |
 |ResourceProvider|Namnet på resursprovidern. Alltid: MICROSOFT.SQL |
-|Kategori|Namnet på kategorin. Alltid: Dödlägen |
+|Category|Namnet på kategorin. Alltid: Dödlägen |
 |OperationName|Åtgärdens namn. Alltid: DeadlockEvent |
-|Resurs|Namn på resursen |
-|ResourceType|Namnet på resurstypen. Alltid: SERVERS/DATABASES |
+|Resource|Namn på resursen |
+|Resurstyp|Namnet på resurstypen. Alltid: SERVERS/DATABASES |
 |SubscriptionId|Prenumerations-GUID för databasen |
 |ResourceGroup|Namnet på resursgruppen för databasen |
 |LogicalServerName_s|Namnet på servern för databasen |
@@ -678,11 +681,11 @@ Läs mer om [databasen vänta statistik](https://docs.microsoft.com/sql/relation
 |TenantId|Ditt klient-ID |
 |SourceSystem|Alltid: Azure |
 |TimeGenerated [UTC]|Tidsstämpel när loggen registrerades |
-|Typ|Alltid: AzureDiagnostics |
+|Type|Alltid: AzureDiagnostics |
 |ResourceProvider|Namnet på resursprovidern. Alltid: MICROSOFT.SQL |
-|Kategori|Namnet på kategorin. Alltid: AutomaticTuning |
-|Resurs|Namn på resursen |
-|ResourceType|Namnet på resurstypen. Alltid: SERVERS/DATABASES |
+|Category|Namnet på kategorin. Alltid: AutomaticTuning |
+|Resource|Namn på resursen |
+|Resurstyp|Namnet på resurstypen. Alltid: SERVERS/DATABASES |
 |SubscriptionId|Prenumerations-GUID för databasen |
 |ResourceGroup|Namnet på resursgruppen för databasen |
 |LogicalServerName_s|Namnet på servern för databasen |

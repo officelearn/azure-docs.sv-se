@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 39fbe30ccf4429003dc0c9f11165c5dd057a89cd
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: deea16b8670623acd2ae92ba62f579f5474d12ec
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62121800"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790906"
 ---
 # <a name="add-language-analyzers-to-an-azure-search-index"></a>Lägga till språkanalysverktyg till ett Azure Search-index
 
@@ -45,9 +45,6 @@ Standard-analysatorn är Standard Lucene, vilket fungerar bra för engelska, men
 + Engelska Lucene-analyzer utökar standard analysatorn. Det tar bort genitiv (avslutande) från ord, gäller ordstamsigenkänning enligt Porter ordstamsigenkänning algoritmen och tar bort engelska stoppord.  
 
 + Microsofts engelska analyzer utför lemmatisering i stället för ordstamsigenkänning. Det innebär att den kan hantera böjda och oregelbundna ordformer mycket bättre vad resulterar i mer relevanta sökresultat 
-
-  > [!Tip]
-  > Den [Sökanalysverktyg](https://alice.unearth.ai/) innehåller sida-vid-sida-jämförelse av resultat som skapas av analysverktyget från Lucene Lucenes engelska analyzer och Microsofts engelska naturligt språk processor. För varje sökinmatning anger du visas resultaten från varje analyzer i intilliggande fönster.
 
 ## <a name="configuring-analyzers"></a>Konfigurera analysverktyg
 
@@ -76,7 +73,7 @@ Läs mer om egenskaper för frågeindex [Create Index &#40;Azure Search Service 
 |Tjeckiska|cs.microsoft|cs.lucene|  
 |Danska|da.microsoft|da.lucene|  
 |Nederländska|nl.microsoft|nl.lucene|  
-|Svenska|en.microsoft|en.lucene|  
+|Engelska|en.microsoft|en.lucene|  
 |Estniska|et.microsoft||  
 |Finska|fi.microsoft|fi.lucene|  
 |Franska|fr.microsoft|fr.lucene|  
@@ -91,7 +88,7 @@ Läs mer om egenskaper för frågeindex [Create Index &#40;Azure Search Service 
 |Indonesiska (Bahasa)|id.microsoft|id.lucene|  
 |Iriska||ga.lucene|  
 |Italienska|it.microsoft|it.lucene|  
-|Japanska|ja.microsoft|ja.lucene|  
+|japanska|ja.microsoft|ja.lucene|  
 |Kannada|kn.microsoft||  
 |Koreanska|ko.microsoft|ko.lucene|  
 |Lettiska|lv.microsoft|lv.lucene|  
@@ -99,7 +96,7 @@ Läs mer om egenskaper för frågeindex [Create Index &#40;Azure Search Service 
 |Malayalam|ml.microsoft||  
 |Malajiska (latinsk)|ms.microsoft||  
 |Marathi|mr.microsoft||  
-|Norska|nb.microsoft|no.lucene|  
+|Norska (bokmål)|nb.microsoft|no.lucene|  
 |Persiska||fa.lucene|  
 |Polska|pl.microsoft|pl.lucene|  
 |Portugisiska (Brasilien)|pt-Br.microsoft|pt-Br.lucene|  

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: eac5e43c69cc09c5945316827a35f729c158d47a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8ff3c497372a761bd8a02ae81bc897c8ee297bd0
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61431250"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794875"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>Migrera en kunskapsbas med hjälp av export-import
 
@@ -56,7 +56,7 @@ Migrera en kunskapsbas kräver exportera från en kunskapsbas och sedan importer
     Nu kan alla kunskapsbas innehållet - frågor, svar och metadata, tillsammans med namnen på källfilerna och URL: er, importeras till nya kunskapsbasen. 
 
 ## <a name="chat-logs-and-alterations"></a>Chattloggarna och ändringar
-Skiftlägeskänsliga ändringar (synonymer) importeras inte automatiskt. Använd den [V2 API: er](https://aka.ms/qnamaker-v2-apis) att exportera ändringar från den gamla kunskapen och [V4-API: er](https://aka.ms/qnamaker-v4-apis) att flytta ändringar i nya knowledge base.
+Skiftlägeskänsliga ändringar (synonymer) importeras inte automatiskt. Använd den [V4-API: er](https://go.microsoft.com/fwlink/?linkid=2092179) att flytta ändringar i nya knowledge base.
 
 Det går inte att migrera chattloggarna, eftersom nya kunskapsbasen använder Application Insights för att lagra chattloggarna. 
 

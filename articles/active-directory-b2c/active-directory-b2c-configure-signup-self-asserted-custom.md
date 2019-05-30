@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 6eaace7589488a9466e78597e0091c84dabb5155
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a64c58d23543279a3a32d2d7b612b43dee8741eb
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64685291"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65768015"
 ---
 #  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>Lägga till anspråk och anpassa användarindata med anpassade principer i Azure Active Directory B2C
 
@@ -29,12 +29,12 @@ Utför stegen i artikeln [komma igång med anpassade principer](active-directory
 
 ## <a name="add-claims"></a>Lägga till anspråk
 
-Första datainsamlingen från dina användare uppnås med hjälp av registrering eller inloggning användarresa. Ytterligare anspråk samlas in senare med hjälp av en användarresa för redigering av profil. När Azure AD B2C samlar in information direkt från användaren interaktivt, använder de Identitetsramverk sin selfasserted-provider.
+Första datainsamlingen från dina användare uppnås med hjälp av registrering eller inloggning användarresa. Ytterligare anspråk samlas in senare med hjälp av en användarresa för redigering av profil. När Azure AD B2C samlar in information direkt från användaren interaktivt, använder de Identitetsramverk sin självkontrollerad provider.
 
 
 ### <a name="define-the-claim"></a>Definiera anspråket
 
-Kan be användaren ange sina stad. Lägg till följande element till den **ClaimsSchema** element i TrustFrameworkBase principfil:
+Nu ska vi be användaren ange sina stad. Lägg till följande element till den **ClaimsSchema** element i TrustFrameworkBase principfil:
 
 ```xml
 <ClaimType Id="city">
@@ -263,7 +263,7 @@ Följande element används för att definiera anspråket:
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Kontrollera att du använder den katalog som innehåller Azure AD-klienten genom att klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller din Azure AD-klient.
 3. Välj **alla tjänster** i det övre vänstra hörnet av Azure-portalen och Sök efter och välj **appregistreringar**.
-4. Välj **Identitetsramverk (förhandsversion)**.
+4. Välj **Identitetsramverk (förhandsversion)** .
 5. Välj **överför Kundpolicy**, och sedan ladda upp de två principfiler som du har ändrats.
 2. Välj den princip för registrering eller inloggning som du laddat upp och klicka på den **kör nu** knappen.
 3. Du ska kunna registrera dig med en e-postadress.

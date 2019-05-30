@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: jenoller
-ms.openlocfilehash: 9b779021eca11638e8ee52ec11d082e5b0e89cd4
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 0d2c080be727d2ae13d6d9e5274f17cadffbe640
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506689"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786466"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Stöd för principer för Azure Kubernetes Service
 
@@ -146,7 +146,7 @@ Funktioner i förhandsversion eller funktionsflagga funktioner är inte avsedda 
 
 Funktioner i offentlig förhandsversion är faller under ”bästa prestanda” support som de här funktionerna finns i en förhandsversion och inte avsedd för produktion och stöds av team för AKS-teknisk support endast under kontorstid. Mer information finns:
 
-* [Vanliga frågor om Azure-Support](https://azure.microsoft.com/en-us/support/faq/)
+* [Vanliga frågor om Azure-Support](https://azure.microsoft.com/support/faq/)
 
 > [!NOTE]
 > Förhandsversionsfunktioner gälla när Azure *prenumeration* nivå. Installera inte förhandsversionsfunktioner på en prenumeration för produktion. På en prenumeration för produktion förhandsversionsfunktioner ändra standard-API och påverka normal drift.

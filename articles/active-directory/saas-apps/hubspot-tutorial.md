@@ -16,251 +16,252 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: adcd0f094d584e770f1a3f4938ee677ba58a21a8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3d74cc1665867568032bb1343e4f2c26c50fe15a
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60275836"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65770179"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hubspot"></a>Självstudier: Azure Active Directory-integrering med HubSpot
 
 I den här självstudien får du lära dig hur du integrerar HubSpot med Azure Active Directory (AD Azure).
+
 Integrera HubSpot med Azure AD ger dig följande fördelar:
 
-* Du kan styra i Azure AD som har åtkomst till HubSpot.
-* Du kan aktivera användarna att vara automatiskt inloggad till HubSpot (Single Sign-On) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure-portalen.
+* Du kan använda Azure AD för att kontrollera vem som har åtkomst till HubSpot.
+* Användare kan vara loggas in automatiskt till HubSpot med sina Azure AD-konton (enkel inloggning).
+* Du kan hantera dina konton på en central plats, Azure-portalen.
 
-Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+Mer information om programvara som en tjänst (SaaS) app-integrering med Azure AD finns i [enkel inloggning till program i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill konfigurera Azure AD-integrering med HubSpot, behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en [kostnadsfritt konto](https://azure.microsoft.com/free/)
-* HubSpot enkel inloggning aktiverat prenumeration
+* En Azure AD-prenumeration. Om du inte har en Azure AD-prenumeration kan du skapa en [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+* En HubSpot prenumeration med enkel inloggning aktiverat.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
+I den här självstudien konfigurerar du och testa Azure AD enkel inloggning i en testmiljö och integrera HubSpot med Azure AD.
 
-* Har stöd för HubSpot **SP och IDP** -initierad SSO
+HubSpot har stöd för följande funktioner:
 
-## <a name="adding-hubspot-from-the-gallery"></a>Att lägga till HubSpot från galleriet
+* **SP-initierad enkel inloggning**
+* **IDP-initierad enkel inloggning**
 
-För att konfigurera integrering av HubSpot i Azure AD, som du behöver lägga till HubSpot från galleriet i din lista över hanterade SaaS-appar.
+## <a name="add-hubspot-in-the-azure-portal"></a>Lägg till HubSpot i Azure portal
 
-**Utför följande steg för att lägga till HubSpot från galleriet:**
+Om du vill integrera HubSpot med Azure AD, måste du lägga till HubSpot i din lista över hanterade SaaS-appar.
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
-    ![Azure Active Directory-knappen](common/select-azuread.png)
+1. I den vänstra menyn väljer du **Azure Active Directory**.
 
-2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
+    ![Azure Active Directory-alternativet](common/select-azuread.png)
 
-    ![Bladet Företagsprogram](common/enterprise-applications.png)
+1. Välj **Företagsprogram** > **Alla program**.
 
-3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
+    ![Fönstret Företagsprogram](common/enterprise-applications.png)
 
-    ![Knappen Nytt program](common/add-new-app.png)
+1. Om du vill lägga till ett program, Välj **nytt program**.
 
-4. I sökrutan skriver **HubSpot**väljer **HubSpot** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+    ![Alternativet nytt program](common/add-new-app.png)
+
+1. I sökrutan anger **HubSpot**. I sökresultaten väljer **HubSpot**, och välj sedan **Lägg till**.
 
     ![HubSpot i resultatlistan](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med HubSpot baserat på en testanvändare kallas **Britta Simon**.
-För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i HubSpot upprättas.
+I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med HubSpot baserat på en användare med namnet **Britta Simon**. För enkel inloggning ska fungera, måste du upprätta ett länkat förhållande mellan en Azure AD-användare och relaterade användaren i HubSpot.
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med HubSpot, måste du utföra följande byggblock:
 
-1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera HubSpot Single Sign-On](#configure-hubspot-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
-4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Skapa testanvändare HubSpot](#create-hubspot-test-user)**  – du har en motsvarighet för Britta Simon i HubSpot som är länkad till en Azure AD-representation av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
+| Uppgift | Beskrivning |
+| --- | --- |
+| **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)** | Gör det möjligt för användarna att använda den här funktionen. |
+| **[Konfigurera HubSpot enkel inloggning](#configure-hubspot-single-sign-on)** | Konfigurerar inställningar för enkel inloggning i programmet. |
+| **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** | Med namnet Britta Simon tester Azure AD enkel inloggning för en användare. |
+| **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)** | Gör det möjligt för Britta Simon att använda Azure AD enkel inloggning. |
+| **[Skapa en HubSpot testanvändare](#create-a-hubspot-test-user)** | Skapar en motsvarighet för Britta Simon i HubSpot som är länkad till en Azure AD-representation av användaren. |
+| **[Testa enkel inloggning](#test-single-sign-on)** | Kontrollerar att konfigurationen fungerar. |
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
-I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
+I det här avsnittet konfigurerar du Azure AD enkel inloggning med HubSpot i Azure-portalen.
 
-Utför följande steg för att konfigurera Azure AD enkel inloggning med HubSpot:
+1. I den [Azure-portalen](https://portal.azure.com/)i den **HubSpot** application integration väljer **enkel inloggning**.
 
-1. I den [Azure-portalen](https://portal.azure.com/)på den **HubSpot** application integration markerar **enkel inloggning**.
+    ![Konfigurera alternativ för enkel inloggning](common/select-sso.png)
 
-    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
-
-2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
+1. I den **väljer du en metod för enkel inloggning** fönstret Välj **SAML** eller **SAML/WS-Fed** läge för att aktivera enkel inloggning.
 
     ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
+1. I den **ange in enkel inloggning med SAML** väljer **redigera** (på pennikonen) att öppna den **SAML grundkonfiguration** fönstret.
 
     ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-4. Om du vill konfigurera programmet i **IDP**-initierat läge gör du följande i avsnittet **Grundläggande SAML-konfiguration**:
+1. I den **SAML grundkonfiguration** fönstret Konfigurera *IDP-initierad läge*, gör du följande:
+
+    1. I den **identifierare** anger en URL som har följande mönster: https:\//api.hubspot.com/login-api/v1/saml/login?portalId=\<kund-ID\>.
+
+    1. I den **svars-URL** anger en URL som har följande mönster: https:\//api.hubspot.com/login-api/v1/saml/acs?portalId=\<kund-ID\>.
 
     ![HubSpot domän och URL: er med enkel inloggning för information](common/idp-intiated.png)
 
-    a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://api.hubspot.com/login-api/v1/saml/login?portalId=<CUSTOMER ID>`
-
-    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://api.hubspot.com/login-api/v1/saml/acs?portalId=<CUSTOMER ID>`
-
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska identifierare och svars-URL som beskrivs senare i den här självstudien. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Om du vill formatera URL: er, kan du även gå till de mönster som visas i den **SAML grundkonfiguration** fönstret i Azure-portalen.
 
-5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
+1. Konfigurera programmet i *SP-initierat* läge:
 
-    ![HubSpot domän och URL: er med enkel inloggning för information](common/metadata-upload-additional-signon.png)
+    1. Välj **ange ytterligare webbadresser**.
 
-    I rutan **Inloggnings-URL** anger du följande URL: `https://app.hubspot.com/login`
+    1. I den **inloggnings-URL** anger **https:\//app.hubspot.com/login**.
 
-6. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
+    ![Set-alternativ för ytterligare URL: er](common/metadata-upload-additional-signon.png)
 
-    ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
+1. I den **ange in enkel inloggning med SAML** fönstret i den **SAML-signeringscertifikat** väljer **hämta** bredvid **certifikat (Base64)** . Markera ett nedladdningsalternativ baserat på dina krav. Spara certifikatet på datorn.
 
-7. På den **konfigurera HubSpot** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
+    ![Hämtningsalternativet certifikat (Base64)](common/certificatebase64.png)
+
+1. I den **konfigurera HubSpot** avsnittet, kopiera följande URL: er utifrån dina behov:
+
+    * Inloggningswebbadress
+    * Microsoft Azure Active Directory-identifierare
+    * Utloggnings-URL
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    a. Inloggnings-URL
-
-    b. Azure AD-identifierare
-
-    c. Utloggnings-URL
-
-### <a name="configure-hubspot-single-sign-on"></a>Konfigurera HubSpot Single Sign-On
+### <a name="configure-hubspot-single-sign-on"></a>Konfigurera HubSpot enkel inloggning
 
 1. Öppna en ny flik i webbläsaren och logga in på ditt administratörskonto för HubSpot.
 
-2. Klicka på **inställningsikonen** i det övre högra hörnet på sidan.
+1. Välj den **inställningar** ikonen i det övre högra hörnet på sidan.
 
-    ![Konfigurera enkel inloggning](./media/hubspot-tutorial/config1.png)
+    ![Ikonen för inställningar i HubSpot](./media/hubspot-tutorial/config1.png)
 
-3. Klicka på **konto standardvärden**.
+1. Välj **konto standardvärden**.
 
-    ![Konfigurera enkel inloggning](./media/hubspot-tutorial/config2.png)
+    ![Det konto som standard alternativet i HubSpot](./media/hubspot-tutorial/config2.png)
 
-4. Rulla ned till den **Security** och klicka på **konfigurera**.
+1. Rulla ned till den **Security** avsnittet och välj sedan **konfigurera**.
 
-    ![Konfigurera enkel inloggning](./media/hubspot-tutorial/config3.png)
+    ![Ställ in alternativet i HubSpot](./media/hubspot-tutorial/config3.png)
 
-5. På den **Konfigurera enkel inloggning** avsnittet, utför följande steg:
+1. I den **Konfigurera enkel inloggning** avsnittet, gör du följande:
 
-    ![Konfigurera enkel inloggning](./media/hubspot-tutorial/config4.png)
+    1. I den **målgrupp URl (Service Provider entitets-ID)** väljer **kopia** att kopiera värdet. I Azure-portalen i den **grundläggande SAML-konfiguration** fönstret klistrar du in värdet i den **identifierare** box.
 
-    a. Klickar du på **kopia** för att kopiera den **målgrupp URl(Service Provider Entity ID)** värde och klistra in den i den **identifierare** -textrutan i den **grundläggande SAML Konfigurationen** avsnitt i Azure-portalen.
+    1. I den **logga på URL: en, ACS, mottagaren eller omdirigering** väljer **kopia** att kopiera värdet. I Azure-portalen i den **grundläggande SAML-konfiguration** fönstret klistrar du in värdet i den **svars-URL** box.
 
-    b. Klickar du på **kopia** för att kopiera den **logga på URL: en, ACS, mottagaren eller omdirigering** värde och klistra in den i den **svars-URL** -textrutan i den **grundläggande SAML Konfigurationen** avsnitt i Azure-portalen.
+    1. I HubSpot, i den **identitet identifierare eller utfärdar-URL** rutan, klistra in värdet för **Azure AD-identifierare** som du kopierade i Azure-portalen.
 
-    c. I den **identitet identifierare eller utfärdar-URL** textrutan klistra in den **Azure AD-identifierare** värde som du har kopierat från Azure-portalen.
+    1. I HubSpot, i den **enkel inloggnings-URL för identitetsprovider** rutan, klistra in värdet för **inloggnings-URL** som du kopierade i Azure-portalen.
 
-    d. I den **enkel inloggnings-URL för identitetsprovider** textrutan klistra in den **inloggnings-URL** värde som du har kopierat från Azure-portalen.
+    1. Öppna filen Certificate(Base64) som du laddade ned i anteckningar för Windows. Markera och kopiera innehållet i filen. Sedan i HubSpot, klistra in den i den **X.509-certifikat** box.
 
-    e. Öppna din hämtade **Certificate(Base64)** -filen i anteckningar. Kopiera innehållet i den till Urklipp och klistra in den till den **X.509-certifikat** box.
+    1. Välj **Kontrollera**.
 
-    f. Klicka på **Verifiera**.
+        ![Ställ in enkel inloggning-avsnittet i HubSpot](./media/hubspot-tutorial/config4.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
+I det här avsnittet skapar du en testanvändare med namnet Britta Simon i Azure-portalen.
 
-1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
+1. I Azure-portalen väljer du **Azure Active Directory** > **Användare** > **Alla användare**.
 
-    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
+    ![Användarna och alternativ för alla användare](common/users.png)
 
-2. Välj **Ny användare** överst på skärmen.
+1. Välj **Ny användare**.
 
-    ![Knappen Ny användare](common/new-user.png)
+    ![Alternativet ny användare](common/new-user.png)
 
-3. Genomför följande steg i Användaregenskaper.
+1. I fönstret **Användare** utför du följande steg:
 
-    ![Dialogrutan Användare](common/user-properties.png)
-
-    a. I fältet **Namn** anger du **BrittaSimon**.
+    1. I rutan **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** fälttyp `brittasimon@yourcompanydomain.extension`. Till exempel, BrittaSimon@contoso.com
+    1. I den **användarnamn** anger **brittasimon\@\<din företagsdomän >.\< tillägget\>** . Till exempel **brittasimon\@contoso.com**.
 
-    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
+    1. Välj den **Show lösenord** markerar du kryssrutan. Skriv ned värdet som visas i den **lösenord** box.
 
-    d. Klicka på **Skapa**.
+    1. Välj **Skapa**.
+
+    ![Fönstret användare](common/user-properties.png)
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till HubSpot.
+I det här avsnittet ska ge du Britta Simon åtkomst till HubSpot så att hon kan använda Azure enkel inloggning.
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **HubSpot**.
+1. I Azure-portalen väljer du **företagsprogram** > **alla program** > **HubSpot**.
 
-    ![Bladet Företagsprogram](common/enterprise-applications.png)
+    ![Fönstret Företagsprogram](common/enterprise-applications.png)
 
-2. I listan med program väljer **HubSpot**.
+1. I listan med program väljer **HubSpot**.
 
-    ![Länken HubSpot i listan med program](common/all-applications.png)
+    ![HubSpot i programlistan](common/all-applications.png)
 
-3. På menyn till vänster väljer du **Användare och grupper**.
+1. På menyn väljer du **Användare och grupper**.
 
-    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
+    ![Alternativet användare och grupper](common/users-groups-blade.png)
 
-4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
+1. Välj **Lägg till användare**. I fönstret **Lägg till tilldelning** väljer du **Användare och grupper**.
 
     ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
+1. I den **användare och grupper** väljer **Britta Simon** i listan över användare. Välj **Välj**.
 
-6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Om du förväntar dig ett rollvärde i SAML-försäkran i den **Välj roll** fönstret Välj rollen relevant för användaren i listan. Välj **Välj**.
 
-7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+1. I den **Lägg till tilldelning** väljer **tilldela**.
 
-### <a name="create-hubspot-test-user"></a>Skapa HubSpot testanvändare
+### <a name="create-a-hubspot-test-user"></a>Skapa en HubSpot testanvändare
 
-Om du vill aktivera Azure AD-användare att logga in på HubSpot, måste de etableras i HubSpot. När det gäller HubSpot är etablering en manuell aktivitet.
+Att aktivera Azure AD som en användare att logga in på HubSpot, användaren måste etableras i HubSpot. I HubSpot är etablering en manuell aktivitet.
 
-**Utför följande steg för att etablera ett användarkonto:**
+Att etablera ett användarkonto i HubSpot:
 
-1. Logga in på din **HubSpot** företagets plats som administratör.
+1. Logga in på webbplatsen HubSpot företag som administratör.
 
-2. Klicka på **inställningsikonen** i det övre högra hörnet på sidan.
+1. Välj den **inställningar** ikonen i det övre högra hörnet på sidan.
 
-    ![Konfigurera enkel inloggning](./media/hubspot-tutorial/config1.png)
+    ![Ikonen för inställningar i HubSpot](./media/hubspot-tutorial/config1.png)
 
-3. Klicka på **användare och team**.
+1. Välj **användare och team**.
 
-    ![Konfigurera enkel inloggning](./media/hubspot-tutorial/user1.png)
+    ![Alternativet användare och team i HubSpot](./media/hubspot-tutorial/user1.png)
 
-4. Klicka på **Skapa användare**.
+1. Välj **skapa användare**.
 
-    ![Konfigurera enkel inloggning](./media/hubspot-tutorial/user2.png)
+    ![Alternativet Skapa användare i HubSpot](./media/hubspot-tutorial/user2.png)
 
-5. Ange e-postadress för användaren som `brittasimon\@contoso.com` i den **Lägg till e-addess(es)** textrutan och klicka på **nästa**.
+1. I den **Lägg till e-addess(es)** ange användarens e-postadress i formatet brittasimon\@contoso.com och välj sedan **nästa**.
 
-    ![Konfigurera enkel inloggning](./media/hubspot-tutorial/user3.png)
+    ![Lägg till e-postadresserna rutan i avsnittet Skapa användare i HubSpot](./media/hubspot-tutorial/user3.png)
 
-6. På den **skapa användare** ,. Gå igenom varje enskild fliken och väljer lämpliga inställningar och behörigheter för användaren och klicka på **nästa**.
+1. I den **skapa användare** väljer du varje flik. Ange de relevanta alternativ och behörigheter för användaren på varje flik. Välj sedan **Nästa**.
 
-    ![Konfigurera enkel inloggning](./media/hubspot-tutorial/user4.png)
+    ![Flikar i avsnittet Skapa användare i HubSpot](./media/hubspot-tutorial/user4.png)
 
-7. Klicka på **skicka** att skicka inbjudan till användaren.
+1. Skicka inbjudan till användaren, Välj **skicka**.
 
-    ![Konfigurera enkel inloggning](./media/hubspot-tutorial/user5.png)
+    ![Alternativet Skicka i HubSpot](./media/hubspot-tutorial/user5.png)
 
     > [!NOTE]
-    > Användaren kommer aktiveras efter att acceptera inbjudan.
+    > Användaren är aktiverat när användaren har accepterat inbjudan.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av Mina appar-portalen.
 
-När du klickar på panelen HubSpot i åtkomstpanelen, bör det vara loggas in automatiskt till HubSpot som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du har konfigurerat enkel inloggning, när du väljer **HubSpot** i portalen Mina appar loggas du automatiskt till HubSpot. Läs mer om portalen Mina appar [öppna och använda appar i portalen Mina appar](../user-help/my-apps-portal-end-user-access.md).
 
-## <a name="additional-resources"></a>Ytterligare resurser
+## <a name="next-steps"></a>Nästa steg
 
-- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+Om du vill veta mer kan du granska dessa artiklar:
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-
+- [Lista över självstudier för att integrera SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Enkel inloggning till program i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

@@ -1,6 +1,6 @@
 ---
 title: Registrera för Azure NetApp Files| Microsoft Docs
-description: Beskriver hur du skickar en begäran om att registrera i Azure NetApp Files-tjänsten.
+description: Beskriver hur du registrera dig för att använda Azure NetApp-filer.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,25 +12,39 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/04/2018
+ms.date: 05/06/2019
 ms.author: b-juche
-ms.openlocfilehash: 86c016a5dbcc0d78378e59bc6b3606ddf2c54f64
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: fbe0b82008d7b15332c4e2cd62c49c611f20fe89
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60452797"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794703"
 ---
 # <a name="register-for-azure-netapp-files"></a>Registrera för Azure NetApp Files
-Innan du använder Azure NetApp filer behöver du skicka en begäran om att registrera i Azure NetApp Files-tjänsten.  Efter registreringen registrerar du dig för att använda tjänsten.
 
-## <a name="request-to-enroll-in-the-service"></a>Begäran om att registrera i tjänsten
-Du behöver delta i programmet för allmänt tillgängliga förhandsversioner och vara med i listan över tillåtna för att få åtkomst till Azure-resursprovidern för Microsoft.NetApp. Mer information om att gå med i programmet för allmänt tillgängliga förhandsversioner finns på [registreringssidan för allmänt tillgängliga förhandsversioner för Azure NetApp Files](https://aka.ms/nfspublicpreview). 
+> [!IMPORTANT] 
+> Innan du registrerar resursprovidern Azure NetApp filer, måste du har fått ett e-postmeddelande från Azure NetApp Files-teamet som bekräftar att du har fått åtkomst till tjänsten. 
 
+I den här artikeln lär du dig hur du registrera dig för Azure NetApp filer så att du kan börja använda tjänsten.
 
-## <a name="register-the-netapp-resource-provider"></a>Registrera resursprovidern för NetApp
+## <a name="waitlist"></a>Skicka en väntelista begäran om åtkomst till tjänsten
 
-För att kunna använda tjänsten behöver du registrera Azure-resursprovidern för Azure NetApp Files. 
+1. Skicka en väntelista begäran om åtkomst till Azure NetApp Files-tjänsten via den [Azure NetApp Files Väntelista överföringssidan](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR8cq17Xv9yVBtRCSlcD_gdVUNUpUWEpLNERIM1NOVzA5MzczQ0dQR1ZTSS4u). 
+
+    Väntelista registreringen garanterar inte omedelbar-åtkomst. 
+
+2. Vänta tills en officiell bekräftelsemeddelandet från teamet för Azure NetApp filer innan du fortsätter med andra aktiviteter. 
+
+## <a name="resource-provider"></a>Registrera Resursprovidern NetApp
+
+För att kunna använda tjänsten behöver du registrera Azure-resursprovidern för Azure NetApp Files.
+
+> [!NOTE] 
+> Du kommer att kunna registrera har Resursprovidern NetApp även om du inte beviljas åtkomst för tjänsten. Men utan åtkomstauktorisering avvisas alla Azure-portalen eller API-begäran för att skapa ett NetApp-konto eller någon annan Azure NetApp Files-resurs med följande fel:  
+>
+> `{"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.","details":[{"code":"NotFound","message":"{\r\n \"error\": {\r\n \"code\": \"InvalidResourceType\",\r\n \"message\": \"The resource type could not be found in the namespace 'Microsoft.NetApp' for api version '2017-08-15'.\"\r\n }\r\n}"}]}`
+
 
 1. På Azure-portalen klickar du på Azure Cloud Shell-ikonen i det övre högra hörnet:
 
@@ -50,6 +64,8 @@ För att kunna använda tjänsten behöver du registrera Azure-resursprovidern f
        "name": "Microsoft.NetApp/publicPreviewADC" 
        
    `<SubID>` är ditt prenumerations-ID.
+
+    Om du inte ser funktionsnamnet `Microsoft.NetApp/publicPreviewADC`, du har inte åtkomst till tjänsten. Stoppa i det här steget. Följ instruktionerna i [skicka en väntelista begäran om åtkomst till tjänsten](#waitlist) att begära service åtkomst innan du fortsätter. 
 
 4. I Azure Cloud Shell-konsolen anger du följande kommando för att registrera Azure-resursprovidern: 
     
@@ -78,6 +94,6 @@ För att kunna använda tjänsten behöver du registrera Azure-resursprovidern f
       ![Registrerad Microsoft.NetApp](../media/azure-netapp-files/azure-netapp-files-registered-resource-providers.png)
 
 
-## <a name="next-steps"></a>Nästa steg  
+## <a name="next-steps"></a>Nästa steg
 
 [Skapa ett NetApp-konto](azure-netapp-files-create-netapp-account.md)

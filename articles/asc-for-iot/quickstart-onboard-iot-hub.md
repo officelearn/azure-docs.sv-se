@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/29/2019
+ms.date: 05/16/2019
 ms.author: mlottner
-ms.openlocfilehash: 3ef3891ac2b0423688f49ae034331935b1b0cd6c
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 7030ae1c3a28cdd74671dc95dce59cf86cacf4c9
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192491"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786166"
 ---
 # <a name="quickstart-enable-service-in-iot-hub"></a>Snabbstart: Aktivera tjänsten i IoT Hub
 
@@ -30,7 +30,7 @@ ms.locfileid: "65192491"
 Den här artikeln innehåller en förklaring på hur du aktiverar Azure Security Center (ASC) för IoT-förhandsversioner på IoT Hub.  
 
 > [!NOTE]
-> Azure Security Center för IoT för närvarande stöder endast standard-nivån och högre IoT-hubbar.
+> Azure Security Center för IoT för närvarande endast stöd för standardnivån för IoT-hubbar.
 > Azure Security Center för IoT är en enda hubb-lösning. Om du behöver flera hubbar krävs flera lösningar. 
 
 ## <a name="prerequisites-for-enabling-the-service"></a>Förutsättningar för att aktivera tjänsten
@@ -38,8 +38,12 @@ Den här artikeln innehåller en förklaring på hur du aktiverar Azure Security
 - Log Analytics-arbetsyta
   - Två typer av information lagras som standard i Log Analytics-arbetsytan av ASC för IoT; **säkerhetsaviseringar** och **rekommendationer**. 
   - Du kan välja att lägga till lagring av en typ för ytterligare information, **råhändelser**. Observera att lagra **råhändelser** innebär ytterligare lagringskostnader i Log Analytics. 
-- IoT Hub (standard-nivån eller senare)
-- Uppfyller alla [prerequities-tjänst](service-prerequisites.md) 
+- IoT Hub (standard-nivån)
+- Uppfyller alla [tjänsten krav](service-prerequisites.md) 
+- Stöds tjänstregioner
+  - Centrala USA
+  - Norra Europa
+  - Sydostasien
 
 ## <a name="enable-asc-for-iot-on-your-iot-hub"></a>Aktivera ASC för IoT i din IoT-hubb 
 
@@ -53,7 +57,7 @@ Om du vill aktivera säkerheten på din IoT-hubb, gör du följande:
    - Välja att aktivera **twin samling** genom att låta den **twin samling** växla **på**. 
 5. Klicka på **Spara**. 
 
-Grattis! Du har slutfört att aktivera ASC för IoT i din IoT-hubb. 
+Gratulerar! Du har slutfört att aktivera ASC för IoT i din IoT-hubb. 
 
 ## <a name="next-steps"></a>Nästa steg
 

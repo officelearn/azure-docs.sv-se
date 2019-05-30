@@ -3,8 +3,8 @@ title: Säkerhetsöverväganden för Azure AD Application Proxy | Microsoft Docs
 description: Beskriver säkerhetsöverväganden vid användning av Azure AD Application Proxy
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/08/2017
-ms.author: celested
+ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7bb9fc806779565581fa7667749402f5608edd80
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d7bb07fa00babb00d1b2af03f89ae6857cb79f5f
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60292765"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782873"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Säkerhetsöverväganden för att komma åt appar med Azure AD Application Proxy
 
@@ -163,7 +163,7 @@ Kopplingar håller en utgående anslutning öppen till Application Proxy-tjänst
 
 Begäran innehåller objekt från programmet, till exempel begärandehuvuden data från den krypterad cookien användaren att göra begäran och begärande-ID. Även om data från en krypterad cookie skickas med begäran, är inte autentiseringscookien själva.
 
-#### <a name="3-the-connector-processes-the-request-from-the-queue"></a>3. Anslutningen bearbetar begäran från kön. 
+#### <a name="3-the-connector-processes-the-request-from-the-queue"></a>3 Anslutningen bearbetar begäran från kön. 
 
 Baserat på begäran, utför Application Proxy någon av följande åtgärder:
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: yili
 ms.custom: seodec18
-ms.openlocfilehash: 7cc3a4d98901e618369c98ceee8125d2abbe94e3
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: dbf63ff47b11c2e75966b4a4b91fb1b00b40d216
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919953"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65594276"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Azure App Service i Linux vanliga frågor och svar
 
@@ -39,13 +39,15 @@ Du hittar alla Docker-filer på [GitHub](https://github.com/azure-app-service). 
 
 **Vilka är de förväntade värdena för avsnittet startfil när jag konfigurerar körningsstack?**
 
-| Stack     | Förväntat värde                                                                |
-|-----------|-------------------------------------------------------------------------------|
-| Java SE   | ett kommando för att starta din `.jar` program                                    |
-| Tomcat    | platsen för ett skript för att köra alla konfigurationer för din app          |
-| Node.js   | PM2-konfigurationsfilen eller skriptfilen                                |
-| .NET core | Det kompilerade DLL-namnet som `dotnet <myapp>.dll`                                 |
-| Ruby      | Ruby-skript som du vill initiera din app med                     |
+| Stack           | Förväntat värde                                                                         |
+|-----------------|----------------------------------------------------------------------------------------|
+| Java SE         | kommandot för att påbörja din JAR-app (till exempel `java -jar my-app.jar --server.port=80`) |
+| Tomcat, Wildfly | platsen för ett skript för att utföra alla nödvändiga konfigurationer (till exempel `/home/site/deployments/tools/startup_script.sh`)          |
+| Node.js         | PM2-konfigurationsfilen eller skriptfilen                                |
+| .NET core       | Det kompilerade DLL-namnet som `dotnet <myapp>.dll`                                 |
+| Ruby            | Ruby-skript som du vill initiera din app med                     |
+
+Dessa kommandon eller skript körs efter den inbyggda Docker-behållaren startas, men innan programmet startas kod.
 
 ## <a name="management"></a>Hantering
 
@@ -93,7 +95,7 @@ Om det inte går att webbappen Linux Git-distribution, väljer du något av föl
 
    Om du får ett felmeddelande som den `curl` kommando inte hittas, måste du installera curl med hjälp av `apt-get install curl` innan du kör den tidigare `curl` kommando.
 
-## <a name="language-support"></a>Stöd för språk
+## <a name="language-support"></a>Språkstöd
 
 **Jag vill använda webbsockets i mitt Node.js-program, eventuella specialinställningar eller konfigurationer för att ställa in?**
 

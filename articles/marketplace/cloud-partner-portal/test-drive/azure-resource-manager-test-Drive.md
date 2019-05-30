@@ -8,14 +8,14 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 7665050dfc9a561f42fec00c40d0a40dfa5cc183
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 92c55c7f15b3f350ad802157bf401f3e75983789
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64941574"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606431"
 ---
-# <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager Test Drive
+# <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager-provkörning
 
 Den här artikeln är utgivare som har sitt erbjudande på Azure Marketplace eller som står på AppSource men vill bygga sina Test Drive med endast Azure-resurser.
 
@@ -319,7 +319,7 @@ Nu när du har din provkörning som skapats beskriver i det här avsnittet var o
 
 Fältet första och viktigaste är att ange om du vill Test Drive aktiverats för ditt erbjudande eller inte. När du väljer **Ja,** resten av formuläret med alla de obligatoriska fälten visas för att fylla. När du väljer **Nej,** formuläret blir inaktiverad och om du publicerar med Test Drive inaktiverat din provkörning tas bort från produktionen.
 
-Obs! Om det finns några tester enheter som aktivt används av användare, fortsätter dessa Provkörningar att köras tills sin session upphör att gälla.
+Anteckning: Om det finns några tester enheter som aktivt används av användare, fortsätter dessa Provkörningar att köras tills sin session upphör att gälla.
 
 ### <a name="details"></a>Information
 
@@ -362,7 +362,7 @@ Just nu beräknar du det totala antalet möjliga samtidiga Provkörningar du ska
 
 **Test Drive Resource Manager-mall -** *krävs* ladda upp här Resource Manager-mallen. Det här är den fil som du skapade i föregående avsnitt ovan. Namnge huvudsakliga mallfilen: ”main-template.json” och se till att Resource Manager-mallen innehåller utdataparametrar för viktiga variabler som krävs. (Måste vara en .zip-fil)
 
-**Komma åt Information -** *krävs* när en kund får sin Test Drive kan komma åt information visas för dem. Dessa instruktioner är avsedda att dela användbara Utdataparametrarna från Test Drive Resource Manager-mallen. För att inkludera utdataparametrar, använda dubbla klammerparenteser (till exempel **{{outputname}}**), och de kommer att infogas korrekt på plats. (HTML-strängformatering bör här renderas i klientdelen).
+**Komma åt Information -** *krävs* när en kund får sin Test Drive kan komma åt information visas för dem. Dessa instruktioner är avsedda att dela användbara Utdataparametrarna från Test Drive Resource Manager-mallen. För att inkludera utdataparametrar, använda dubbla klammerparenteser (till exempel **{{outputname}}** ), och de kommer att infogas korrekt på plats. (HTML-strängformatering bör här renderas i klientdelen).
 
 ### <a name="test-drive-deployment-subscription-details"></a>Prenumerationsinformation för Test Drive-distribution
 
@@ -382,7 +382,7 @@ Annars skapar du en ny klient i Azure Active Directory.
 
 ![Lista över Azure Active Directory-klienter](./media/azure-resource-manager-test-drive/subdetails4.png)
 
-![Definiera organisation, domän och land för Azure AD-klient](./media/azure-resource-manager-test-drive/subdetails5.png)
+![Definiera organisation, domän och land/region för Azure AD-klient](./media/azure-resource-manager-test-drive/subdetails5.png)
 
 ![Bekräfta valet](./media/azure-resource-manager-test-drive/subdetails6.png)
 
@@ -403,7 +403,7 @@ Klicka på Spara. Det sista steget är att hämta program-ID för den här regis
 Får vi använder programmet för att distribuera till prenumerationen, behöver vi lägga till programmet som deltagare för prenumerationen. Anvisningarna för dessa är som nedan:
 
 1. Gå till bladet prenumerationer och välj lämplig prenumeration som du använder för Test-enheten.
-1. Klicka på **åtkomstkontroll (IAM)**.
+1. Klicka på **åtkomstkontroll (IAM)** .
 1. Klicka på den **rolltilldelningar** fliken.  ![Lägg till ett nytt huvudnamn för åtkomstkontroll](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
 1. Klicka på **Lägg till rolltilldelning**.
 1. Ange rollen som **deltagare**.

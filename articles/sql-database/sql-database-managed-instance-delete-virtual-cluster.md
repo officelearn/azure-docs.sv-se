@@ -12,18 +12,18 @@ ms.author: danil
 ms.reviewer: douglas, carlrab, sstein
 manager: craigg
 ms.date: 05/07/2019
-ms.openlocfilehash: 95d1681c9ff9981990d873a58a2d01833d690e0f
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 61f6c25031c4906e65c2f75a7679600741e8311a
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65411993"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65791378"
 ---
 # <a name="delete-subnet-after-deleting-azure-sql-database-managed-instance"></a>Ta bort undernätet när du tar bort Azure SQL Database-hanterad instans
 
 Den här artikeln innehåller riktlinjer för hur du manuellt ta bort undernätet när du tar bort den senaste Azure SQL Database-hanterad instans som finns i den.
 
-Den [virtuellt kluster](sql-database-managed-instance-connectivity-architecture.md#virtual-cluster-connectivity-architecture) som innehåller inneslutna det borttagna hanterad instans sparas i 12 timmar från instans borttagningen. Det virtuella klustret sparas alive avsiktligt att snabbare skapa hanterade instanser i samma undernät. Det undernät som är associerade med det virtuella klustret kan inte tas bort under denna period.
+Den [virtuellt kluster](sql-database-managed-instance-connectivity-architecture.md#virtual-cluster-connectivity-architecture) som innehåller inneslutna det borttagna hanterad instans sparas i 12 timmar från instans borttagningen. Det virtuella klustret sparas alive avsiktligt att snabbare skapa hanterade instanser i samma undernät. Det är kostnadsfritt att hålla ett tomt virtuellt kluster. Det undernät som är associerade med det virtuella klustret kan inte tas bort under denna period.
 
 Omedelbar versionen av det undernät som används av ett tomt virtuellt kluster är möjlig genom manuell borttagning av det virtuella klustret. Borttagning av det virtuella klustret kan ske via Azure portal eller virtuella kluster API.
 

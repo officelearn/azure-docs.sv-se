@@ -8,16 +8,16 @@ ms.topic: reference
 ms.date: 04/10/2019
 ms.author: mimart
 author: msmimart
-manager: celested
+manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d361a40e2efa80a677255c02c7e9cf155af09ffb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3b40fc631e84336b684f981a2fef1515a1febec0
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60413669"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65811913"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory B2B-samarbete vanliga frågor och svar
 
@@ -57,7 +57,7 @@ Absolut. Mer information finns i [att lägga till gästanvändare till en roll](
 Om en användare har tilldelats rollen för begränsad administratör, behöver inte användare i B2B-samarbetet någon åtkomst till Azure-portalen. B2B-samarbete användare som har tilldelats rollen begränsad administratör kan dock åtkomst till portalen. Även om en gästanvändare som inte tilldelats någon av dessa administrativa roller har åtkomst till portalen, kanske användaren kan komma åt vissa delar av upplevelsen. Gästrollen har vissa behörigheter i katalogen.
 
 ### <a name="can-i-block-access-to-the-azure-portal-for-guest-users"></a>Kan jag blockera åtkomst till Azure-portalen för gästanvändare?
-Visst! När du konfigurerar den här principen kan vara noga med att undvika att av misstag blockerar åtkomsten till medlemmar och administratörer.
+Ja! När du konfigurerar den här principen kan vara noga med att undvika att av misstag blockerar åtkomsten till medlemmar och administratörer.
 Att blockera en gästanvändare åtkomst till den [Azure-portalen](https://portal.azure.com), använda en princip för villkorlig åtkomst i Windows Azure klassiska modellen API:
 1. Ändra den **alla användare** gruppen så att den innehåller bara medlemmar.
    ![Skärmbild som visar gruppen Alla användare där UserType inte är lika med gästen](media/faq/modify-all-users-group.png)

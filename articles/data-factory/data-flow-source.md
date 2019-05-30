@@ -1,103 +1,115 @@
 ---
-title: Azure Data Factory mappning Dataomvandling Flow källa
-description: Azure Data Factory mappning Dataomvandling Flow källa
+title: Konfigurera en källa omvandling i funktionen för mappning av dataflöde i Azure Data Factory
+description: Lär dig hur du ställer in en källa omvandling i mappning dataflöde.
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 54302f97913fd01dc8f8e4a8d987a407c8bdf9a7
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
-ms.translationtype: MT
+ms.openlocfilehash: dc0a6e008c7a1f4fb414f6d8adad3a94abc7a6b2
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369181"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792345"
 ---
-# <a name="mapping-data-flow-source-transformation"></a>Mappningen Dataomvandling Flow källa
+# <a name="source-transformation-for-mapping-data-flow"></a>Transformering av källa för mappning av dataflöde 
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-Käll-transformeringen konfigurerar en datakälla som du vill använda för att hämta data till ditt dataflöde. Du kan ha fler än en källa transformeringen i en enda dataflöde. Alltid börja utforma dina Data som flödar genom att omvandla en källa.
+En käll-omvandling konfigurerar din datakälla för dataflödet. Ett dataflöde kan innehålla fler än en transformering av källa. När du utformar data flödar alltid börja med en transformering av källa.
+
+Varje dataflöde kräver minst ett omvandling. Lägg till så många källor som behövs för att slutföra din Datatransformationer. Du kan ansluta till dessa källor tillsammans med en join-transformation eller en union omvandling.
 
 > [!NOTE]
-> Varje dataflöde kräver minst en transformering av källa. Lägg till så många ytterligare datakällor som du behöver för att slutföra din Datatransformationer. Du kan ansluta till dessa källor tillsammans med ett Join- eller Union omvandling. När du felsöker ditt dataflöde i debug-sessioner, läsa data från källan med hjälp av inställningen för Sampling eller Debug källa gränser. Men skrivs inga data till en mottagare tills du kör ditt dataflöde från en pipeline data flödesaktivitet. 
+> När du felsöker ditt dataflöde, läses data från källan med hjälp av inställningen sampling eller debug källa gränser. Om du vill skriva data till en mottagare, måste du köra ditt dataflöde från en pipeline Data flödesaktivitet. 
 
-![Käll-omvandling alternativ](media/data-flow/source.png "källa")
+![Käll-omvandling alternativ på fliken Inställningar för datakälla](media/data-flow/source.png "källa")
 
-Varje transformering av Data flöda källa måste vara kopplad till exakt en Data Factory-datauppsättningen. Datauppsättningen definierar formen och var dina data att skriva till eller läsa från. Du kan använda jokertecken och filen listor i din källan för att arbeta med fler än en fil i taget när du använder filen källor.
+Koppla din dataflöde källa omvandling till exakt en Data Factory-datauppsättningen. Datauppsättningen definierar formen och platsen för de data du vill skriva till eller läsa från. Du kan använda jokertecken och filen listor i din källan för att arbeta med fler än en fil i taget.
 
-## <a name="data-flow-staging-areas"></a>Dataflöde Mellanlagringsområden
+## <a name="data-flow-staging-areas"></a>Data Flow mellanlagringsområden
 
-Dataflödet fungerar med ”mellanlagring” datauppsättningar som finns i Azure. Dessa datauppsättningar för flödet av data används för mellanlagring för att utföra din dataomvandlingar data. Data Factory har åtkomst till nästan 80 olika inbyggda anslutningar. För att inkludera data från de andra källorna i dina dataflöde, först mellanlagra data i en av dessa Data flöda datauppsättning mellanlagringsområden med hjälp av Kopieringsaktiviteten.
+Dataflödet som fungerar med *mellanlagring* datauppsättningar som finns i Azure. Använd dessa datauppsättningar för att mellanlagra när du omvandlar dina data. 
+
+Data Factory har åtkomst till nästan 80 ursprungliga anslutningsprogram. För att inkludera data från de andra källorna i ditt dataflöde, använder du verktyget Kopieringsaktivitet för att mellanlagra data i någon av mellanlagringsområden för dataflödet datauppsättning.
 
 ## <a name="options"></a>Alternativ
 
+Välj schema- och sampling alternativ för dina data.
+
 ### <a name="allow-schema-drift"></a>Tillåt schemat drift
-Välj Tillåt schemat Drift om källkolumner ändras ofta. Den här inställningen gör att alla inkommande fält från källan kan passera transformeringar som mottagaren.
+Välj **Tillåt schemat drift** om källkolumner ändras ofta. Den här inställningen kan alla inkommande källfält kan passera transformeringar som mottagaren.
 
 ### <a name="validate-schema"></a>Validera schemat
 
-![Offentlig datakälla](media/data-flow/source1.png "offentliga källa 1")
+Om den inkommande versionen av källdata inte matchar definierat schema, misslyckas dataflödet att köra.
 
-Körningen av dataflödet misslyckas om den inkommande versionen för datakällan inte matchar definierat schema.
+![Inställningar för offentlig datakälla, som visar alternativen för att verifiera schemat och Tillåt schemat drift Sampling](media/data-flow/source1.png "offentliga källa 1")
 
-### <a name="sampling"></a>Samling
-Använda Sampling för att begränsa antalet rader från källan.  Detta är användbart när du testar eller samlar data från källan för felsökning.
+### <a name="sample-the-data"></a>Exempel på data
+Aktivera **Sampling** att begränsa antalet rader från källan. Använd den här inställningen när du testar eller samla in data från källan för felsökning.
 
-## <a name="define-schema"></a>Definiera Schema
+## <a name="define-schema"></a>Definiera schema
 
-![Käll-omvandling](media/data-flow/source2.png "datakällan 2")
+När källfilerna inte är starkt typbestämd (till exempel, flata filer i stället Parquet-filer), kan du definiera datatyperna för varje fält här omvandling källa.  
 
-Du bör definiera datatyperna för varje fält här i käll-transformering för käll-filtyper som inte är starkt typifierad (d.v.s. flata filer istället för Parquet-filer). Du kan senare ändra kolumnnamnen i en Select transformation och datatyper i en härledd kolumn omvandling. 
+![Datakällans omvandling inställningar på fliken Definiera schemat](media/data-flow/source2.png "datakällan 2")
 
-![Käll-omvandling](media/data-flow/source003.png "datatyper")
+Du kan senare ändra kolumnnamnen i en select transformation. Använd en härledd kolumn transformation för att ändra datatyperna. Du kan ändra datatyper i en senare väljer transformation för starkt typifierad källor. 
 
-Du kan ändra datatyper i en efterföljande Select transformation för starkt typifierade källor. 
+![Datatyper i en select transformation](media/data-flow/source003.png "datatyper")
 
-### <a name="optimize"></a>Optimera
+### <a name="optimize-the-source-transformation"></a>Optimera käll-transformering
 
-![Käll-partitioner](media/data-flow/sourcepart.png "partitionering")
+På den **optimera** fliken för käll-omvandling visas en **källa** partitionstyp. Det här alternativet är tillgängligt endast när källan är Azure SQL Database. Det beror på att Data Factory försöker upprätta anslutningar parallellt för att köra stora frågor mot din SQL Database-källan.
 
-På fliken Optimize för käll-omvandling visas en ytterligare partitionering typ med namnet ”källa”. Detta kommer endast Ljus upp när du har valt Azure SQL DB som källan. Det beror på att ADF kommer vill parallellisera anslutningar för att köra stora frågor mot Azure SQL DB-källa.
+![Datakällan partitionsinställningar](media/data-flow/sourcepart2.png "partitionering")
 
-Partitionera data på din SQL DB-källan är valfritt, men det är användbart för stora frågor. Du kan välja mellan två alternativ:
+Partitioner är användbara för stora frågor när du behöver att partitionera data på din SQL Database-källan. Du kan basera din partition på en kolumn eller en fråga.
 
-### <a name="column"></a>Kolumn
+### <a name="use-a-column-to-partition-data"></a>Använda en kolumn att partitionera data
 
-Markera en kolumn till partition på från din källtabellen. Du måste också ange det maximala antalet anslutningar.
+Välj en kolumn till partition på din källtabellen. Också ange det maximala antalet anslutningar.
 
-### <a name="query-condition"></a>Frågevillkoret
+### <a name="use-a-query-to-partition-data"></a>Använd en fråga för att partitionera data
 
-Du kan välja att partitionera anslutningar baserat på en fråga. För det här alternativet kan du enkelt uttryckt i innehållet i en WHERE-predikat. T.ex. år > 1980
+Du kan välja att partitionera anslutningar baserat på en fråga. Ange innehållet i en WHERE-predikat. Till exempel ange år > 1980.
 
 ## <a name="source-file-management"></a>Hantering av källa
+
+Välj inställningar för att hantera filer i källan. 
+
 ![Nya inställningar för datakälla](media/data-flow/source2.png "nya inställningar")
 
-* Jokersökväg att välja ett antal filer från din källmapp som matchar ett mönster. Detta åsidosätter alla filer som du har angett i definitionen av datauppsättningen.
-* Lista över filer. Samma som en uppsättning. Peka en textfil som du skapar en lista med relativa sökvägen filer som ska bearbetas.
-* Kolumnen för att lagra filnamn lagrar namnet på filen från källan i en kolumn i dina data. Ange ett nytt namn för att lagra filen namnsträngen.
-* När du har slutfört (kan du göra något med källfilen när dataflödet körs tar du bort källfiler eller flytta källfilerna. Sökvägar för flytt är relativa sökvägar.
+* **Jokersökväg**: Välj ett antal filer som matchar ett mönster från din källmapp. Den här inställningen åsidosätter alla filer i definitionen av datauppsättningen.
+* **Lista över filer**: Det här är en uppsättning. Skapa en textfil som innehåller en lista över filer som relativ sökväg ska bearbetas. Peka på den här filen.
+* **Kolumnen för att lagra filnamn**: Store namnet på källfilen i en kolumn i dina data. Ange ett nytt namn för att lagra filen namnsträngen.
+* **När du har slutfört**: Välja att göra något med källfilen när data flödeskörningar, ta bort källfilen eller flytta källfilen. Sökvägar för flytten är relativa.
 
 ### <a name="sql-datasets"></a>SQL-datauppsättningar
 
-När du använder Azure SQL DB eller Azure SQL DW som källan, har du ytterligare alternativ.
+Om källan finns i SQL Database eller SQL Data Warehouse, har du ytterligare alternativ för hantering av källa.
 
-* Fråga: Ange en SQL-fråga för källan. Ställa en fråga åsidosätter en tabell som du har valt i datauppsättningen. Observera att Order By-satser inte stöds här. Men du kan ange en fullständig SELECT FROM-instruktion här.
-
-* Batchstorlek: Ange en batchstorlek för att dela upp stora mängder data till batch medelstora läsningar.
+* **Fråga**: Ange en SQL-fråga för källan. Den här inställningen åsidosätter eventuella tabell som du har valt i datauppsättningen. Observera att **Order By** satser stöds inte här. Men du kan ange en fullständig SELECT FROM-instruktion här.
+* **Batchstorlek**: Ange en batchstorlek för att dela upp stora mängder data till läsningar.
 
 > [!NOTE]
-> Filinställningar för åtgärden körs bara när Data flöda körs från en pipeline som körs (pipeline debug eller körningen kör) med aktiviteten kör dataflöde i en pipeline. Filåtgärder körs inte i felsökningsläge dataflöde.
+> Filåtgärder körs bara när du startar dataflödet från en pipeline som körs (en pipeline debug eller körningen kör) och som använder aktiviteten kör dataflödet i en pipeline. Filåtgärder *inte* kör i felsökningsläge dataflöde.
 
 ### <a name="projection"></a>Projektion
 
-![Projektion](media/data-flow/source3.png "projektion")
+T.ex. scheman i datauppsättningar definierar projektionen i en källa datakolumner, typer och format från datakällan. 
 
-Liknar scheman i datauppsättningar, projektion i källan definierar datakolumner, datatyper och dataformat från datakällan. Klicka på ”identifiera datatyp” om du vill ställa ADF att försöka hämta exempel och härleder datatyperna som om du har en textfil med inget definierat schema. Du kan ange standarddata format för automatisk identifiering med hjälp av knappen ”Definiera standardformatet”. Du kan ändra datatyperna för kolumnen vid omvandling av en efterföljande härledd kolumn. Kolumnnamnen kan ändras med hjälp av väljer transformeringen.
+![Inställningarna på fliken projektion](media/data-flow/source3.png "projektion")
 
-![Standardformat](media/data-flow/source2.png "standardformat")
+Om din textfil har inget definierat schema väljer **identifiera datatyp** så att Data Factory kommer exempel och härleder datatyperna. Välj **definiera standardformatet** Autodetect standarddata format. 
+
+Du kan ändra datatyperna för kolumnen i en senare härledd kolumn omvandling. Använda en select transformation för att ändra namn på kolumnerna.
+
+![Inställningar för standard-dataformat](media/data-flow/source2.png "standardformat")
 
 ## <a name="next-steps"></a>Nästa steg
 
-Börja skapa din Dataomvandling med [härledd kolumn](data-flow-derived-column.md) och [Välj](data-flow-select.md).
+Börja bygga en [härledd kolumn omvandling](data-flow-derived-column.md) och en [Välj omvandling](data-flow-select.md).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: mlottner
-ms.openlocfilehash: 7f585c496328fef3e3d7dbb300fc4f07167fd55d
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 3b4c5e4700b0ef718a6b079ecc6ab3ad80f4eab6
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192474"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786188"
 ---
 # <a name="quickstart-create-custom-alerts"></a>Snabbstart: Skapa anpassade varningar
 
@@ -50,13 +50,12 @@ Använda säkerhetsgrupper för att gruppera dina enheter i logiska kategorier. 
 ## <a name="customize-an-alert"></a>Anpassa en avisering
 
 1. Öppna din IoT-hubb. 
-2. Välj **Security**och välj sedan **anpassade aviseringar**. 
-3. Välj de säkerhetsgrupper som du vill tillämpa anpassningen till. 
-4. Klicka på **lägga till en anpassad avisering**
-5. Ange ett namn på avisering (Observera att aviseringen namn inte kan ändras efter skapandet). 
-6. Välj beteende för en anpassad aviseringar från den nedrullningsbara listan. 
-7. Redigera de obligatoriska egenskaperna, klickar du på **OK**.
-8. Se till att klicka på **spara**. Aviseringen tas bort nästa gång du stänger IoT Hub utan att spara den nya aviseringen.
+2. Klicka på **anpassade aviseringar** i den **Security** avsnittet. 
+3. Välj en säkerhetsgrupp som du vill tillämpa anpassningen till. 
+4. Klicka på **lägga till en anpassad avisering** 
+5. Välj beteende för en anpassad aviseringar från den nedrullningsbara listan. 
+6. Redigera de obligatoriska egenskaperna, klickar du på **OK**.
+7. Se till att klicka på **spara**. Aviseringen tas bort nästa gång du stänger IoT Hub utan att spara den nya aviseringen.
 
  
 ## <a name="alerts-available-for-customization"></a>Aviseringar som är tillgängliga för anpassning

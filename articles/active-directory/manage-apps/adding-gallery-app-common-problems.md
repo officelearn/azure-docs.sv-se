@@ -3,8 +3,8 @@ title: Problem med att lägga till en Azure AD-galleriprogram | Microsoft Docs
 description: Förstå de vanliga problem personer står inför när du lägger till Azure AD-galleriprogram och vad du kan göra för att lösa dem
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
-ms.author: celested
+ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a898b5b235099109fcfeaaa4d647493e54caf57e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b2b42880f99f3e87d75854166047896860f9eb14
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60438803"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65784429"
 ---
 # <a name="problem-adding-an-azure-ad-gallery-application"></a>Problem med att lägga till en Azure AD-galleriprogram
 
@@ -40,7 +40,7 @@ Om det uppstår ett fel när du klickar på den **Lägg till** knappen, visas en
 
 ## <a name="i-dont-know-how-to-set-up-my-application-once-ive-added-it"></a>Jag vet inte hur du ställer in mitt program när jag har lagt till den
 
-Om du behöver hjälp med att lära dig om program, den [lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) artikeln är ett bra ställe att börja.
+Om du behöver hjälp med att lära dig mer om program, den [lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) artikeln är ett bra ställe att börja.
 
 Utöver detta är den [dokumentbibliotek för Azure AD-program](https://docs.microsoft.com/azure/active-directory/active-directory-apps-index) hjälper dig att lära dig mer om enkel inloggning med Azure AD och hur det fungerar.
 
@@ -48,7 +48,7 @@ Utöver detta är den [dokumentbibliotek för Azure AD-program](https://docs.mic
 
 Du kan se information om alla portal-meddelande genom att följa stegen nedan:
 
-1.  Välj den **meddelanden** ikonen (klockan) uppe till höger på Azure Portal
+1.  Välj den **meddelanden** ikonen (klockan) uppe till höger på Azure portal
 
 2.  Välj något meddelande i en **fel** tillstånd (de med ett rött (!) bredvid dem).
 
@@ -93,7 +93,7 @@ Se följande beskrivningar för mer information om meddelanden.
 
   -   Exempel – **2017-03-23T19:50:43.7583681Z**
 
-- **Internt transaktions-ID** – internt ID vi kan använda för att kontrollera felet i våra system
+- **Internt transaktions-ID** – internt ID vi kan använda för att leta upp fel i våra system
 
   -   Exempel – **71a2f329-ca29-402f-aa72-bc00a7aca603**
 

@@ -11,12 +11,12 @@ ms.date: 07/09/2018
 ms.topic: tutorial
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, Helm, tjänsten nät, tjänsten nät routning, kubectl, k8s
-ms.openlocfilehash: 39948479cc563d2f622763ea7b4d09910ffc494c
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 9b529780387e1129dd7827e4d9c805d185a459d0
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65779877"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399261"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core-and-visual-studio"></a>Komma igång med Azure Dev Spaces med .NET Core och Visual Studio
 
@@ -36,7 +36,7 @@ I den här guiden får du lära dig hur du:
 1. Logga in på Azure Portal på https://portal.azure.com.
 1. Välj **Skapa en resurs** > sök efter **Kubernetes** > välj **Kubernetes Service** > **Skapa**.
 
-   Gör följande under varje rubrik i den *skapa Kubernetes-kluster* formuläret och verifiera dina valda [region har stöd för Azure Dev blanksteg](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams).
+   Gör följande under varje rubrik i den *skapa Kubernetes-kluster* formuläret och verifiera dina valda [region har stöd för Azure Dev blanksteg][supported-regions].
 
    - **PROJEKTINFORMATION**: Välj en Azure-prenumeration och en ny eller befintlig Azure-resursgrupp.
    - **KLUSTERINFORMATION**: ange namn, region, version och DNS-prefix för AKS-klustret.
@@ -54,10 +54,7 @@ I den här guiden får du lära dig hur du:
 1. Välj **Granska + skapa** och välj sedan **Skapa** när du är klar.
 
 ## <a name="get-the-visual-studio-tools"></a>Skaffa Visual Studio-verktygen
-1. Installera den senaste versionen av [Visual Studio 2017](https://www.visualstudio.com/vs/)
-1. Se till att följande arbetsbelastning är markerad i Visual Studio-installationsprogrammet:
-    * ASP.NET och webbutveckling
-1. Installera [Visual Studio Tools för Kubernetes](https://aka.ms/get-azds-visualstudio)
+Installera den senaste versionen av [Visual Studio](https://www.visualstudio.com/vs/). Du måste installera arbetsbelastningen Azure Development för Visual Studio 2019 på Windows. Du behöver installera utvecklingsarbetsbelastningar för ASP.NET och för Visual Studio 2017 på Windows, samt [Visual Studio Tools for Kubernetes](https://aka.ms/get-azds-visualstudio).
 
 ## <a name="create-a-web-app-running-in-a-container"></a>Skapa en webbapp som körs i en container
 
@@ -65,7 +62,7 @@ I det här avsnittet ska du skapa en ASP.NET Core-webbapp och hämta den körs i
 
 ### <a name="create-an-aspnet-web-app"></a>Skapa en ASP.NET-webbapp
 
-Skapa ett nytt projekt i Visual Studio 2017. För närvarande måste projektet vara ett **ASP.NET Core-webbprogram**. Ge projektet namnet ”**webfrontend**”.
+Skapa ett nytt projekt från Visual Studio. För närvarande måste projektet vara ett **ASP.NET Core-webbprogram**. Ge projektet namnet ”**webfrontend**”.
 
 ![](media/get-started-netcore-visualstudio/NewProjectDialog1.png)
 
@@ -150,3 +147,6 @@ Uppdatera webbappen i webbläsaren och gå till sidan Om. Nu bör ditt anpassade
 
 > [!div class="nextstepaction"]
 > [Lär dig mer om utveckling för flera tjänster](multi-service-netcore-visualstudio.md)
+
+
+[supported-regions]: about.md#supported-regions-and-configurations

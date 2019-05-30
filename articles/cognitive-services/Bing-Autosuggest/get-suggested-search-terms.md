@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: overview
 ms.date: 02/20/2019
 ms.author: scottwhi
-ms.openlocfilehash: 669eaaf0eaf28c696a7ca368c02f5816054e5d10
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 24f35d795b34e7d9c214a23c040791841b4a711b
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60546698"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66382560"
 ---
 # <a name="what-is-bing-autosuggest"></a>Vad är Automatiska förslag i Bing?
 
@@ -47,7 +47,7 @@ När en användare väljer ett förslag i den nedrullningsbara listan, kan du an
 
 Kom igång snabbt med din första begäran genom att läsa avsnittet om att [Skapa din första fråga](quickstarts/csharp.md).
 
-Bekanta dig med referensen för [API för automatiska förslag i Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference). Referensen innehåller en lista över de slutpunkter, rubriker och frågeparametrar som du använder för att begära föreslagna frågetermer samt definitionerna av svarsobjekten.
+Bekanta dig med referensen för [API för automatiska förslag i Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference). Referensen innehåller en lista över de slutpunkter, rubriker och frågeparametrar som du använder för att begära föreslagna frågetermer samt definitionerna av svarsobjekten.
 
 Lär dig hur du söker på webben med hjälp av [API för webbsökning i Bing](../bing-web-search/search-the-web.md).
 

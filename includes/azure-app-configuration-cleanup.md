@@ -8,26 +8,24 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: yegu
 ms.custom: include file
-ms.openlocfilehash: a02144914e73ca1788976d8b01ccd95d1b9e9a1b
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 8f2e956603fbb9aec81b08260eade846eb6a622c
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66133060"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393329"
 ---
 Om du planerar att fortsätta till nästa självstudie om du bevara alla resurser som du skapade i den här snabbstarten. Du kan återanvända dem i nästa självstudie.
 
 Om du är klar med snabbstarten exempelprogrammet bort Azure-resurserna du skapade i den här snabbstarten för att undvika avgifter.
 
 > [!IMPORTANT]
-> Att ta bort en resursgrupp kan inte ångras. Resursgruppen och alla resurser i den tas bort permanent. Var noga så att du inte tar bort fel resursgrupp eller resurser av misstag. Kanske du har skapat resurserna som värd för det här exemplet i en befintlig resursgrupp som innehåller resurser som du vill behålla. Du kan ta bort varje resurs separat från deras respektive blad i stället för att ta bort resursgruppen.
->
->
+> Att ta bort en resursgrupp kan inte ångras. Resursgruppen och alla resurser i den tas bort permanent. Var noga så att du inte tar bort fel resursgrupp eller resurser av misstag. Om du har skapat resurserna som värd för det här exemplet i en resursgrupp som innehåller resurser som du vill behålla, ta bort varje resurs separat från dess respektive fönstret i stället för att ta bort resursgruppen.
 
-Logga in på den [Azure-portalen](https://aka.ms/azconfig/portal), och välj **resursgrupper**.
+1. Logga in på den [Azure-portalen](https://portal.azure.com), och välj **resursgrupper**.
+1. I den **filtrera efter namn** anger du namnet på resursgruppen. Anvisningarna för den här snabbstarten använde en resursgrupp med namnet *AppConfigTestResources*.
+1. I resultatlistan väljer du resursgruppen och antingen högerklickar du på raden eller Använd den **ellipsen** ( **...** ) för att öppna snabbmenyn.
+1. Välj **Ta bort resursgrupp**.
+1. Du blir ombedd att bekräfta borttagningen av resursgruppen. Ange namnet på din resursgrupp för att bekräfta och välj **ta bort**.
 
-I den **filtrera efter namn** anger du namnet på resursgruppen. Anvisningarna för den här snabbstarten använde en resursgrupp med namnet *AppConfigTestResources*. På din resursgrupp i resultatlistan väljer **...**  och välj sedan **ta bort resursgrupp**.
-
-Du blir ombedd att bekräfta borttagningen av resursgruppen. Ange namnet på din resursgrupp för att bekräfta och välj **ta bort**.
-
-Efter en liten stund tas resursgruppen och resurser som finns i den bort.
+Resursgruppen och alla dess resurser tas bort efter en liten stund.

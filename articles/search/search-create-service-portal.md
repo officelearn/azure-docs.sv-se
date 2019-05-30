@@ -6,15 +6,15 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 05/08/2019
+ms.date: 05/29/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 9de8fa297c2b3f89f74b17e0dac3eab007367b9b
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 650dfa7284b41407e9b128a2096548d7acfc1567
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471605"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393782"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Skapa en Azure Search-tjänst i portalen
 
@@ -69,11 +69,14 @@ Om du inte kombinerar resurser i en grupp eller om befintliga resursgrupper är 
 
 ## <a name="select-a-location"></a>Välj en plats
 
-Azure Search är en Azure-tjänst som kan finnas i datacenter över hela världen. [Priserna kan variera](https://azure.microsoft.com/pricing/details/search/) efter geografiskt område.
+Azure Search är en Azure-tjänst som kan finnas i datacenter över hela världen. Lista över regioner som stöds finns i den [prissättningssidan](https://azure.microsoft.com/pricing/details/search/). 
 
-Om du indexerar data från en annan Azure service (Azure storage, Azure Cosmos DB, Azure SQL Database), skapa Azure Search-tjänsten i samma region för att undvika kostnader för bandbredd. Det finns inga avgifter för utgående data när tjänster som är i samma region.
+Om du indexerar data från en annan Azure service (Azure storage, Azure Cosmos DB, Azure SQL Database), som vi rekommenderar att du skapar Azure Search-tjänsten i samma region för att undvika kostnader för bandbredd. Det finns inga avgifter för utgående data när tjänster som är i samma region.
 
 Om du använder kognitiv sökning AI enrichments kan du skapa din tjänst i samma region som din resurs för Cognitive Services. Samplacering av tjänster är ett krav för AI-funktioner.
+
+> [!Note]
+> Centrala Indien är för närvarande inte tillgänglig för nya tjänster. Du kan skala upp utan begränsningar för tjänster som redan finns i centrala Indien, och din tjänst stöds fullt ut i den regionen. Begränsningen på den här regionen är tillfällig och vi tar bort det här meddelandet när den längre gäller.
 
 ## <a name="select-a-pricing-tier-sku"></a>Välj en prisnivå (SKU)
 

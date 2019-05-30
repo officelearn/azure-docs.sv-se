@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/06/2019
-ms.openlocfilehash: fe26417c6e3a9f159e884c19d7bd7c9dc7569229
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 8512ca2fe01c772d7e4c21a5cb09303b9804899c
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787841"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389207"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-visual-interface"></a>Självstudier: Distribuera en maskininlärningsmodell med det visuella gränssnittet
 
@@ -95,7 +95,7 @@ Indata för användaren anger din distribuerade modell via den **Web service ind
 
 Du kan testa en webbtjänst i web service-flik i det visuella gränssnittet.
 
-1. Gå till avsnittet web service. Du ser den webbtjänst som du har distribuerat med namnet **självstudie – förutsäga priset för bil [förutsägande Exp]**.
+1. Gå till avsnittet web service. Du ser den webbtjänst som du har distribuerat med namnet **självstudie – förutsäga priset för bil [förutsägande Exp]** .
 
      ![Skärmbild som visar fliken tjänsten med den nyligen skapade webbtjänst markerat](./media/ui-tutorial-automobile-price-deploy/web-services.png)
 
@@ -107,7 +107,7 @@ Du kan testa en webbtjänst i web service-flik i det visuella gränssnittet.
 
     ![Skärmbild som visar webbtjänsten testa sidan](./media/ui-tutorial-automobile-price-deploy/web-service-test.png)
 
-1. Ange testa data eller använda autofilled exempeldata och välj **Test** längst ned på sidan. Testbegäran har skickats till webbtjänsten och resultatet visas på sidan.
+1. Ange testa data eller använda autofilled exempeldata och välj **Test** längst ned på sidan. Testbegäran har skickats till webbtjänsten och resultatet visas på sidan. Även om ett prisvärde genereras för indata, används den inte att generera förutsägelse-värde.
 
 ## <a name="manage-the-web-service"></a>Hantera webbtjänsten
 

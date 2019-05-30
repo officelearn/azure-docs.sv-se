@@ -127,7 +127,7 @@
           href: how-to-auto-provision-simulated-device-windows.md
     - name: Utveckla och felsöka anpassade moduler
       items:
-        - name: Visual Studio 2017
+        - name: Visual Studio 2019
           href: how-to-visual-studio-develop-module.md
         - name: Visual Studio-koden
           href: how-to-vs-code-develop-module.md

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: ee539b87c08dd00545060cb30d28ac7fcd01e61b
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.openlocfilehash: 9cbdfe957587977b01bc46b46818856f789f46d8
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65518996"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393620"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>Självstudier: Använda dynamisk konfiguration i en ASP.NET Core-app
 
@@ -167,11 +167,11 @@ Om du vill göra den här självstudien måste du installera den [.NET Core SDK]
 
     ![Snabbstart av lokal app](./media/quickstarts/aspnet-core-app-launch-local-before.png)
 
-4. Logga in på [Azure Portal](https://aka.ms/azconfig/portal). Välj **alla resurser**, och välj den app configuration store-instansen som du skapade i snabbstarten.
+4. Logga in på [Azure Portal](https://portal.azure.com). Välj **alla resurser**, och välj den app configuration store-instansen som du skapade i snabbstarten.
 
 5. Välj **Configuration Explorer**, och uppdatera värdena för följande nycklar:
 
-    | Nyckel | Value |
+    | Nyckel | Värde |
     |---|---|
     | TestAppSettings:BackgroundColor | green |
     | TestAppSettings:FontColor | lightGray |

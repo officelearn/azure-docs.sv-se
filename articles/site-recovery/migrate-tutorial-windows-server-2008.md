@@ -5,16 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.date: 03/18/2019
+ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 5de6ba8ab64797da24039718ca7f2c0b88d1d33d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c449b74a9d6185b0616f62d31926feb6ff218cbb
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60881613"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66400083"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Migrera servrar som kör Windows Server 2008 till Azure
 
@@ -118,7 +117,7 @@ Välj och kontrollera målresurserna.
 
 ## <a name="set-up-a-replication-policy"></a>Konfigurerar en replikeringsprincip
 
-1. Om du vill skapa en ny replikeringsprincip klickar du på **Site Recovery-infrastruktur** > **Replikeringsprinciper** > **+Replikeringsprincip**.
+1. Om du vill skapa en ny replikeringsprincip klickar du på **Site Recovery-infrastruktur** > **Replikeringsprinciper** >  **+Replikeringsprincip**.
 2. I **Skapa replikeringsprincip** anger du ett principnamn.
 3. I **Tröskelvärde för replikeringspunktmål** anger du gränsen för replikeringspunktmålet (RPO). En avisering skapas om replikeringens RPO överskrider gränsen.
 4. I **Återställningspunkt för kvarhållning** anger du kvarhållningsperioden (i antal timmar) för varje återställningspunkt. Replikerade servrar kan återställas till valfri punkt i det här fönstret. Upp till 24 timmars kvarhållning stöds för datorer replikerade till premiumlagring och 72 timmar för standardlagring.

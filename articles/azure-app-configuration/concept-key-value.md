@@ -12,12 +12,12 @@ ms.topic: overview
 ms.workload: tbd
 ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: 4c741bb86242abfb03d01c902dbaa84d83491dd9
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: b25cc8c04aed8cd333ff4de5b12db6674323787d
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408746"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393610"
 ---
 # <a name="keys-and-values"></a>Nycklar och värden
 
@@ -27,7 +27,7 @@ Konfiguration av Azure lagrar konfigurationsdata som nyckel / värde-par. Nyckel
 
 Nycklar fungerar som namn för nyckel / värde-par och används för att lagra och hämta motsvarande värden. Det är vanligt att organisera nycklar i ett hierarkiskt namnområde med hjälp av en avgränsaren, till exempel `/` eller `:`. Använd en konvention som passar bäst för ditt program. App Configuration behandlar nycklar som en helhet. Den parsa inte nycklar för att ta reda på hur deras namn är strukturerade eller framtvinga Standardregeln på dem.
 
-Användningen av konfiguration av lagra inom ramverk för programmet kan avgöra specifika filnamnen för nyckelvärden. Till exempel Java's Spring Cloud-ramverket definierar `Environment` resurser som skicka inställningar till en Spring-program till parameteriseras via variabler som omfattar *programnamn* och *profil*. Nycklar för Spring Cloud-relaterade konfigurationsdata börjar vanligtvis med dessa två element avgränsade med en avgränsare.
+Användningen av konfigurationsdata i ramverk för programmet kan avgöra specifika filnamnen för nyckelvärden. Till exempel Java's Spring Cloud-ramverket definierar `Environment` resurser som skicka inställningar till en Spring-program till parameteriseras via variabler som omfattar *programnamn* och *profil*. Nycklar för Spring Cloud-relaterade konfigurationsdata börjar vanligtvis med dessa två element avgränsade med en avgränsare.
 
 Nycklar som lagras i App Configuration är skiftlägeskänsliga, Unicode-baserade strängar. Nycklarna *app1* och *App1* skiljer sig i ett appkonfigurationsarkiv. Tänk på detta när du använder konfigurationsinställningar i ett program, eftersom vissa ramverk hantera konfigurationsnycklar case-insensitively. Till exempel behandlar konfigurationssystemet för ASP.NET Core nycklar som icke-skiftlägeskänsliga strängar. För att undvika oväntade beteenden när du frågar Appkonfiguration i ett ASP.NET Core-program kan inte använda nycklar som endast skiljer skiftläge.
 

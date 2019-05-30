@@ -67,9 +67,9 @@
 - name: Referens
   items:
     - name: API för nyhetssökning i Bing v7
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference'
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference'
     - name: API för nyhetssökning i Bing v5
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference'
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v5-reference'
     - name: 'SDK:er'
       items:
         - name: .NET

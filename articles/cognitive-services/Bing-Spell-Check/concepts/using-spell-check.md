@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: overview
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: 9544337ef1322e52cbdf123bb48d283485a8c7dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b847615e8440a8992c8130d12cd6111afe3d33d2
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60896146"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390226"
 ---
 # <a name="using-the-bing-spell-check-api"></a>Använda API:et för stavningskontroll i Bing
 
@@ -44,14 +44,14 @@ Standardläget är `Proof`. Stavningsläget `Proof` ger de mest omfattande kontr
 
 ## <a name="market-setting"></a>Marknadsinställning
 
-En [marknadskod](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference#market-codes) ska anges med frågeparametern `mkt` i din begäran. Annars använder API:et en standardmarknad baserat på begärans IP-adress.
+En [marknadskod](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference#market-codes) ska anges med frågeparametern `mkt` i din begäran. Annars använder API:et en standardmarknad baserat på begärans IP-adress.
 
 
 ## <a name="http-post-and-get-support"></a>Stöd för HTTP POST och GET
 
 Detta API har stöd för HTTP POST eller HTTP GET. Vilket du ska använda beror på längden på den text som du ska korrekturläsa. Om strängarna alltid är högst än 1 500 tecken använder du GET (hämtning). Om du vill kunna använda strängar på upp till 10 000 tecken använder du POST (publicering). Textsträngen får innehålla giltiga UTF-8-tecken.
 
-I följande exempel visas en POST-begäran för kontroll av stavning och grammatik i en textsträng. Exemplet innehåller frågeparametern [mode](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference#mode) (läge) för fullständighetens skull (den kunde ha utelämnats eftersom standard för `mode` är Korrektur). Frågeparametern [text](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference#text) innehåller den sträng som ska korrigeras.
+I följande exempel visas en POST-begäran för kontroll av stavning och grammatik i en textsträng. Exemplet innehåller frågeparametern [mode](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference#mode) (läge) för fullständighetens skull (den kunde ha utelämnats eftersom standard för `mode` är Korrektur). Frågeparametern [text](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference#text) innehåller den sträng som ska korrigeras.
   
 ```  
 POST https://api.cognitive.microsoft.com/bing/v7.0/spellcheck?mode=proof&mkt=en-us HTTP/1.1  
@@ -68,7 +68,7 @@ text=when+its+your+turn+turn,+john,+come+runing
 
 Om du använder HTTP GET måste du även ange frågeparametern `text` i webbadressens frågesträng
   
-Nedan visas svaret på den tidigare begäran. Svaret innehåller ett [SpellCheck](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference#spellcheck)-objekt. 
+Nedan visas svaret på den tidigare begäran. Svaret innehåller ett [SpellCheck](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference#spellcheck)-objekt. 
   
 ```json
 {  
@@ -112,7 +112,7 @@ Nedan visas svaret på den tidigare begäran. Svaret innehåller ett [SpellCheck
 }  
 ```  
   
-I fältet [flaggedTokens](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference#flaggedtokens) visas en lista över de stavnings- och grammatikfel som hittats i [text](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference#text)-strängen. I fältet `token` finns det ord som ska bytas ut. Du använder den nollbaserade förskjutningen i fältet `offset` för att hitta token i `text`-strängen. Sedan ersätter du ordet på den platsen med ordet i fältet `suggestion`. 
+I fältet [flaggedTokens](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference#flaggedtokens) visas en lista över de stavnings- och grammatikfel som hittats i [text](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference#text)-strängen. I fältet `token` finns det ord som ska bytas ut. Du använder den nollbaserade förskjutningen i fältet `offset` för att hitta token i `text`-strängen. Sedan ersätter du ordet på den platsen med ordet i fältet `suggestion`. 
 
 Om fältet `type` är RepeatedToken kan du ändå ersätta token med `suggestion`, men behöver troligen också att ta bort avslutande blanksteget.
 
@@ -123,4 +123,4 @@ Om fältet `type` är RepeatedToken kan du ändå ersätta token med `suggestion
 ## <a name="next-steps"></a>Nästa steg
 
 - [Vad är API för stavningskontroll i Bing?](../overview.md)
-- [API-referens för stavningskontroll i Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)
+- [API-referens för stavningskontroll i Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)

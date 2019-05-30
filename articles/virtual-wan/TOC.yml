@@ -14,12 +14,14 @@
       href: virtual-wan-point-to-site-portal.md
 - name: Begrepp
   items:
-    - name: Platser och partners
+    - name: Om platser och partner
       href: virtual-wan-locations-partners.md
-    - name: Global Transit Network-arkitektur
+    - name: Om Global Transit Network-arkitektur
       href: virtual-wan-global-transit-network-architecture.md
-    - name: Office 365-kontrollplanet i virtuellt WAN-nätverk
+    - name: Om Office 365-kontrollplanet i virtuellt WAN-nätverk
       href: virtual-wan-office365-overview.md
+    - name: Om IPSec-principer
+      href: virtual-wan-ipsec.md
 - name: Instruktionsguider
   items:
     - name: Dirigera trafik från en virtuell hubb till en NVA

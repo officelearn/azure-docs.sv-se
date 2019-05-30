@@ -12,12 +12,12 @@ ms.author: ninarn
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/23/2019
-ms.openlocfilehash: 18dde6b028365cc04343b6d2f461cdb8c1a2bede
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 3a0f3154142dc02a9ab48bc288c543b02fef46ea
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074352"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389077"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal"></a>Snabbstart: Skapa en enkel databas i Azure SQL Database med Azure-portalen
 
@@ -72,7 +72,7 @@ Så här skapar du en enkel SQL-databas som innehåller AdventureWorksLT-exempel
    - **Vill du använda SQL-databaspool**: Välj den **nr** alternativet.
    - **Beräkning + lagring**: Välj **konfigurera databasen** och för den här snabbstarten väljer **vCore-baserade Inköpsalternativ**
 
-     ![Virtuell kärna-baserade inköpsalternativ](media/sql-database-get-started-portal/create-database-vcore.png)
+     ![vCore-baserade Inköpsalternativ](media/sql-database-get-started-portal/create-database-vcore.png)
 
    - Välj **serverlös**.
 
@@ -137,4 +137,4 @@ När du är klar med dessa resurser kan du ta bort dem på följande sätt:
   - [Ansluta och köra frågor med Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
 - Om du vill skapa en enkel databas på den etablerade, med hjälp av Azure CLI, se [Azure CLI-exempel](sql-database-cli-samples.md).
 - Om du vill skapa en enkel databas på den etablerade, med hjälp av Azure PowerShell, se [Azure PowerShell-exempel](sql-database-powershell-samples.md).
-- För att skapa en enkel databas på nivån för beräkning utan server med Azure Powershell, se [Skapa databas utan server med hjälp av PowerShell](sql-database-serverless.md#create-new-database-using-powershell)
+- För att skapa en enkel databas på nivån för beräkning utan server med Azure Powershell, se [Skapa databas utan server med hjälp av PowerShell](sql-database-serverless.md#create-new-serverless-database-using-powershell)

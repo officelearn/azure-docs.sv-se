@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 04/08/2019
+ms.date: 05/23/2019
 ms.author: alkohli
-ms.openlocfilehash: 27200406f0866697100e1cf9b32c199203ad600d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 69068304a6bc72f503ed85edf05229f10e4a8bc0
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60729281"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236351"
 ---
 # <a name="what-is-azure-data-box-disk"></a>Vad är Azure Data Box Disk?
 
@@ -55,6 +55,9 @@ A.  Om du vill se där Data Box-diskar är för närvarande tillgängliga går d
 
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box-disks"></a>F. I vilka regioner kan jag lagra data med Data Box-diskar?
 A. Data Box-disken har stöd för alla regioner i USA, Kanada, Australien, västra Europa och Norra Europa, Sydkorea och Japan. Endast regionerna med offentligt Azure-moln stöds. Azure Government och andra begränsade moln stöds inte.
+
+### <a name="q-will-my-data-box-disk-cross-country-borders-during-shipping"></a>F. Kommer Mina Data Box-Disk mellan land kantlinjer under leverans?
+A. Data Box-Disk levereras från inom samma land som deras mål och kommer inte att passera några internationella gränser. Det enda undantaget är för beställningar i den Europeiska unionen (EU), där diskar kan levereras till och från ett land i Europa.
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues--with-data-box-disks"></a>F. Vem kontaktar jag om jag får problem med Data Box-diskarna?
 A. Om du får problem med Data Box Disk-enheter [kontaktar du Microsoft Support](https://docs.microsoft.com/azure/databox/data-box-disk-contact-microsoft-support).
@@ -164,9 +167,9 @@ A. Du kan klona din tidigare beställning. En kloning skapar samma ordning som t
 
 ### <a name="q-i-copied-data-to-manageddisk-folder-i-dont-see-any-managed-disks-with-the-resource-group-specified-for-managed-disks-was-my-data-uploaded-to-azure-and-how-can-i-locate-it"></a>F. Jag har kopierat data till ManagedDisk mapp. Jag ser inte alla hanterade diskar med resursgruppen som angetts för hanterade diskar. Har mina data som överförts till Azure och hur kan jag hitta den?
 A. Ja. Dina data har överförts till Azure, men om du inte ser några hanterade diskar med de angivna resursgrupperna, är det troligt eftersom data inte var giltig. Om sidblobar, blockblobbar, Azure Files och hanterade diskar är inte giltiga, skulle dessa går du till följande mappar:
- - Sidblobar övergår i ett block blob-behållare som börjar med *databoxdisk-ogiltig-pb -*.
- - Azure Files övergår i ett block blob-behållare som börjar med *databoxdisk-ogiltig-af -*.
- - Hanterade diskar skulle gå till en block blob-behållare som börjar med *databoxdisk-ogiltig-md -*.
+ - Sidblobar övergår i ett block blob-behållare som börjar med *databoxdisk-ogiltig-pb -* .
+ - Azure Files övergår i ett block blob-behållare som börjar med *databoxdisk-ogiltig-af -* .
+ - Hanterade diskar skulle gå till en block blob-behållare som börjar med *databoxdisk-ogiltig-md -* .
 
 ## <a name="next-steps"></a>Nästa steg
 

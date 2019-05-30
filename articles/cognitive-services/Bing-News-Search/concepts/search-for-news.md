@@ -10,12 +10,12 @@ ms.subservice: bing-news-search
 ms.topic: overview
 ms.date: 01/11/2019
 ms.author: scottwhi
-ms.openlocfilehash: 612a3961d901f53147ab2f3cfeea20f9c11d96b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 77f8e41b2271770e49c2e5c4d1591c213eaa257d
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60648439"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66383422"
 ---
 # <a name="search-for-news-with-the-bing-news-search-api"></a>Sök efter nyheter med API för nyhetssökning i Bing
 
@@ -27,7 +27,7 @@ API:et för nyhetssökning i Bing hittar och returnerar i första hand relevanta
 
 Om du tillhandahåller en sökruta där användaren anger sin sökterm bör du använda [API för automatiska förslag i Bing ](../../bing-autosuggest/get-suggested-search-terms.md) för att ge bättre funktioner. API:t returnerar föreslagna frågesträngar baserat på partiella söktermer som användaren skriver in.
 
-När användaren har angett sin sökterm ska du koda den i en webbadress innan du ställer in frågeparametern [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#query). Om användaren till exempel anger *segeljollar* ställer du in `q` till `sailing+dinghies` eller `sailing%20dinghies`.
+När användaren har angett sin sökterm ska du koda den i en webbadress innan du ställer in frågeparametern [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#query). Om användaren till exempel anger *segeljollar* ställer du in `q` till `sailing+dinghies` eller `sailing%20dinghies`.
 
 ## <a name="get-general-news"></a>Få allmänna nyheter
 
@@ -99,9 +99,9 @@ Nedan visas svaret på den tidigare frågan. Som en del av [användnings- och vi
 }
 ```
 
-I svaret med [nyheter](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference#news) visas de nyhetsartiklar som Bing anser vara relevanta för frågan. Fältet `totalEstimatedMatches` innehåller en uppskattning av antalet artiklar som är tillgängliga för visning. Läs mer om bläddring mellan artiklar i [Sidindela nyheter](../paging-news.md).
+I svaret med [nyheter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v5-reference#news) visas de nyhetsartiklar som Bing anser vara relevanta för frågan. Fältet `totalEstimatedMatches` innehåller en uppskattning av antalet artiklar som är tillgängliga för visning. Läs mer om bläddring mellan artiklar i [Sidindela nyheter](../paging-news.md).
 
-Varje [nyhetsartikel](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference#newsarticle) i listan innehåller artikels namn, beskrivning och webbadressen till artikeln på värdens webbplats. Om artikeln innehåller en bild innehåller objektet även en miniatyr för bilden. Använd `name` och `url` till att skapa en hyperlänk som tar användaren till nyhetsartikeln på värdens webbplats. Om artikeln innehåller en bild ska du även göra den klickbar med `url`. Se till att du tillskriver artikeln med `provider`.
+Varje [nyhetsartikel](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v5-reference#newsarticle) i listan innehåller artikels namn, beskrivning och webbadressen till artikeln på värdens webbplats. Om artikeln innehåller en bild innehåller objektet även en miniatyr för bilden. Använd `name` och `url` till att skapa en hyperlänk som tar användaren till nyhetsartikeln på värdens webbplats. Om artikeln innehåller en bild ska du även göra den klickbar med `url`. Se till att du tillskriver artikeln med `provider`.
 
 Om Bing kan fastställa vilken kategori nyhetsartikeln tillhör innehåller den även fältet `category`.
 
@@ -135,7 +135,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
-Använd frågeparametern [category](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#category) till att ange vilken typ av artiklar som ska hämtas. En lista med de nyhetskategorier du kan ange finns i [Nyhetskategorier per marknad](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#news-categories-by-market).
+Använd frågeparametern [category](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#category) till att ange vilken typ av artiklar som ska hämtas. En lista med de nyhetskategorier du kan ange finns i [Nyhetskategorier per marknad](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#news-categories-by-market).
 
 Svaret när du hämtar nyheter i en viss kategori är nästan samma som för allmänna nyheter. Alla artiklar kommer dock från den angivna kategorin.
 
@@ -153,11 +153,11 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
-Ta inte med frågeparametern [category](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#category).
+Ta inte med frågeparametern [category](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#category).
 
 Svaret med toppnyheter är nästan samma som för dagens populäraste nyheter. Om artikeln är en toppnyhet har fältet `headline` värdet **true**.
 
-Svaret innehåller som standard upp till 12 toppnyheter. Om du vill ändra antalet toppnyheter som ska returneras ställer du in frågeparametern [headlineCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#headlinecount). Svaret innehåller också upp till fyra nyhetsartiklar per kategori som inte är toppnyheter.
+Svaret innehåller som standard upp till 12 toppnyheter. Om du vill ändra antalet toppnyheter som ska returneras ställer du in frågeparametern [headlineCount](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#headlinecount). Svaret innehåller också upp till fyra nyhetsartiklar per kategori som inte är toppnyheter.
 
 I svaret räknas klustret som en artikel. Eftersom ett kluster kan innehålla flera artiklar så kan svaret innehålla fler än 12 toppnyheter och fler än fyra andra nyhetsartiklar per kategori.
 
@@ -223,7 +223,7 @@ Följande JSON är svaret på föregående förfrågan. Varje populär nyhetsart
 
 ## <a name="getting-related-news"></a>Hämta relaterade nyheter
 
-Om det finns andra artiklar som är relaterade till en nyhetsartikel så kan nyhetsartikeln innehålla fältet [clusteredArticles](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#newsarticle-clusteredarticles). Här visas en artikel med klustrade artiklar.
+Om det finns andra artiklar som är relaterade till en nyhetsartikel så kan nyhetsartikeln innehålla fältet [clusteredArticles](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle-clusteredarticles). Här visas en artikel med klustrade artiklar.
 
 ```json
     {

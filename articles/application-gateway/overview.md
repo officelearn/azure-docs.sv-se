@@ -9,10 +9,10 @@ ms.custom: mvc
 ms.date: 4/30/2019
 ms.author: victorh
 ms.openlocfilehash: 78dd4b31991a15d3d946c47c5394f64bb3afea95
-ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 05/27/2019
 ms.locfileid: "64947257"
 ---
 # <a name="what-is-azure-application-gateway"></a>Vad är Azure Application Gateway?
@@ -125,7 +125,7 @@ Application Gateway stöder möjligheten att lägga till, ta bort eller uppdater
 
 Mer information finns i [skriva om HTTP-huvuden](rewrite-http-headers.md).
 
-## <a name="sizing"></a>Storlekar
+## <a name="sizing"></a>Storleksändring
 
 WAF_v2 SKU: er och Application Gateway Standard_v2 kan konfigureras för automatisk skalning eller fast storlek distributioner. Dessa SKU: er erbjuder inte olika instansstorlekar.
 

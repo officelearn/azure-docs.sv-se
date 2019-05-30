@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
 ms.date: 05/16/2019
-ms.openlocfilehash: ded2011111262eb45818ea149949989eef885f24
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: f607c1e79262efdbec79677fa7f16863b7a9d160
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65789589"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393971"
 ---
 # <a name="what-is-azure-stream-analytics"></a>Vad är Azure Stream Analytics?
 
@@ -49,7 +49,7 @@ Azure Stream Analytics är avsett att vara enkelt att använda samt flexibelt, t
 
 ## <a name="ease-of-getting-started"></a>Lätt att komma igång
 
-Azure Stream Analytics är enkelt att börja. Det tar bara några klick för att ansluta till flera källor och mottagare, hur du skapar en pipeline för slutpunkt till slutpunkt. Stream Analytics kan ansluta till [Azure Event Hubs](/azure/event-hubs/) och [Azure IoT Hub](/azure/iot-hub/) för inmatning av strömmande data, samt [Azure Blob storage](/azure/storage/storage-introduction) att mata in historiska data. Jobbindata kan även innehålla statiska eller långsamt föränderliga referensdata från Azure Blob storage eller [SQL Database](stream-analytics-use-reference-data.md#azure-sql-database-preview) att du kan ansluta till strömmande data för att utföra sökåtgärder.
+Azure Stream Analytics är enkelt att börja. Det tar bara några klick för att ansluta till flera källor och mottagare, hur du skapar en pipeline för slutpunkt till slutpunkt. Stream Analytics kan ansluta till [Azure Event Hubs](/azure/event-hubs/) och [Azure IoT Hub](/azure/iot-hub/) för inmatning av strömmande data, samt [Azure Blob storage](/azure/storage/storage-introduction) att mata in historiska data. Jobbindata kan även innehålla statiska eller långsamt föränderliga referensdata från Azure Blob storage eller [SQL Database](stream-analytics-use-reference-data.md#azure-sql-database) att du kan ansluta till strömmande data för att utföra sökåtgärder.
 
 Stream Analytics kan dirigera jobbutdata till många lagringssystem som [Azure Blob storage](/azure/storage/storage-introduction), [Azure SQL Database](/azure/sql-database/), [Azure Data Lake Store](/azure/data-lake-store/), och [Azure Cosmos DB](/azure/cosmos-db/introduction). Du kan köra batch-analyser på lagrade utdata med Azure HDInsight eller du kan skicka utdata till en annan tjänst, till exempel Händelsehubbar för förbrukning eller [Power BI](https://docs.microsoft.com/power-bi/) för visualisering i realtid.
 

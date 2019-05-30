@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: a8513344c35c14ebf06f3693da618ed20047d07b
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: HT
+ms.openlocfilehash: f1eac83f2b5460bf56ddff1bf15d9180adb49a48
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792042"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66382283"
 ---
 # <a name="quickstarts-azure-sql-database-connect-and-query"></a>Snabbstarter: Azure SQL Database-anslutning och fråga
 
@@ -39,6 +39,7 @@ Följande dokument innehåller länkar till Azure-exempel som beskriver hur du a
 |[PHP](sql-database-connect-query-php.md)|Den här snabbstarten visar hur du använder PHP för att skapa ett program som ansluter till en Azure SQL-databas och använder Transact-SQL-instruktioner för att köra frågor mot data.|
 |[Python](sql-database-connect-query-python.md)|Den här snabbstarten visar hur du använder Python för att ansluta till en Azure SQL-databas och hur du använder Transact-SQL-instruktioner för att köra frågor mot data. |
 |[Ruby](sql-database-connect-query-ruby.md)|Den här snabbstarten visar hur du använder Ruby för att skapa ett program som ansluter till en Azure SQL-databas och använder Transact-SQL-instruktioner för att köra frågor mot data.|
+|[R](sql-database-connect-query-r.md)|Den här snabbstarten visar hur du använder R med Azure SQL Database Machine Learning Services för att skapa ett program som ansluter till en Azure SQL-databas och använder Transact-SQL-uttryck för att köra frågor mot data.|
 |||
 
 ## <a name="tls-considerations-for-sql-database-connectivity"></a>TLS-överväganden för SQL Database-anslutning
@@ -59,7 +60,7 @@ Du kan använda olika bibliotek och ramverk för att ansluta till Azure SQL Data
 
 I följande tabell ser du vilka anslutningsbibliotek eller *drivrutiner* som klientprogram kan använda i olika språk för att ansluta till och använda SQL Server lokalt eller i molnet. Du kan använda dem i Linux, Windows och Docker när du vill ansluta till Azure SQL Database eller Azure SQL Data Warehouse. 
 
-| Språk | Plattform | Ytterligare resurser | Ladda ner | Kom igång |
+| Språk | Plattform | Ytterligare resurser | Ladda ned | Kom igång |
 | :-- | :-- | :-- | :-- | :-- |
 | C# | Windows, Linux, macOS | [Microsoft ADO.NET för SQL Server](https://docs.microsoft.com/sql/connect/ado-net/microsoft-ado-net-for-sql-server) | [Ladda ned](https://www.microsoft.com/net/download/) | [Kom igång](https://www.microsoft.com/sql-server/developer-get-started/csharp/ubuntu)
 | Java | Windows, Linux, macOS | [Microsoft JDBC-drivrutin för SQL Server](https://msdn.microsoft.com/library/mt484311.aspx) | [Ladda ned](https://go.microsoft.com/fwlink/?linkid=852460) |  [Kom igång](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu)

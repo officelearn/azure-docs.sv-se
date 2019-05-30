@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 03/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 53e495a3c2d82738e1008ead84a4124e44435c9a
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
-ms.translationtype: HT
+ms.openlocfilehash: c814f4bb0cc24350e45400d141c97d1b2eb4998d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65864381"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237799"
 ---
 # <a name="quickstart-use-your-own-notebook-server-to-get-started-with-azure-machine-learning"></a>Snabbstart: Använd din egen notebook-server för att komma igång med Azure Machine Learning
 
@@ -33,14 +33,29 @@ Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan
 
 * Python 3.6 notebook-server med Azure Machine Learning SDK installerad
 * En arbetsyta för Azure Machine Learning-tjänsten
-* En konfigurationsfil för arbetsytan (**.azureml/config.json** ).
+* En konfigurationsfil för arbetsytan ( **.azureml/config.json**).
 
-Hämta alla dessa krav från [skapa en arbetsyta för Azure Machine Learning-tjänsten](setup-create-workspace.md#portal).
+Hämta alla dessa krav från [skapa en arbetsyta för Azure Machine Learning-tjänsten](setup-create-workspace.md#sdk).
+
 
 
 ## <a name="use-the-workspace"></a>Använda arbetsytan
 
-Skapa ett skript eller starta en anteckningsbok i samma katalog som arbetsytan konfigurationsfilen. Kör den här koden som använder basic-API: er av SDK för att spåra experimentkörningar.
+Skapa ett skript eller starta en anteckningsbok i samma katalog som arbetsytan konfigurationsfilen ( **.azureml/config.json**).
+
+### <a name="attach-to-workspace"></a>Ansluta till arbetsytan
+
+Den här koden läser information från konfigurationsfilen för att ansluta till din arbetsyta.
+
+```
+from azureml.core import Workspace
+
+ws = Workspace.from_config()
+```
+
+### <a name="log-values"></a>Log-värden
+
+Kör den här koden som använder basic-API: er av SDK för att spåra experimentkörningar.
 
 1. Skapa ett experiment på arbetsytan.
 1. Logga ett värde i experimentet.

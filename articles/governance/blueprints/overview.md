@@ -8,10 +8,10 @@ ms.topic: overview
 ms.service: blueprints
 manager: carmonm
 ms.openlocfilehash: 960b8145e5f53c6c37820604fd634ccf5fd77c6b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 05/27/2019
 ms.locfileid: "60876247"
 ---
 # <a name="overview-of-the-azure-blueprints-service"></a>Översikt över tjänsten Azure skisser
@@ -52,7 +52,7 @@ En princip kan ingå som en av flera _artefakter_ i en definition av skisser. Me
 
 En skiss består av _artefakter_. Skisser stöder för närvarande följande resurser som artefakter:
 
-|Resurs  | Hierarkialternativ| Beskrivning  |
+|Resource  | Hierarkialternativ| Beskrivning  |
 |---------|---------|---------|
 |Resursgrupper | Prenumeration | Skapa en ny resursgrupp för användning av andra artefakter i skissen.  Med de här platshållarresursgrupperna kan du organisera resurser precis som du vill att de struktureras, och de ger en omfångsbegränsning för inkluderade princip- och rolltilldelningsartefakter samt Azure Resource Manager-mallar. |
 |Azure Resource Manager-mall | Prenumeration, resursgrupp | Mallar används till att skapa komplexa miljöer. Exempelmiljöer: en SharePoint-servergrupp, Azure Automation State Configuration eller en Log Analytics-arbetsyta. |

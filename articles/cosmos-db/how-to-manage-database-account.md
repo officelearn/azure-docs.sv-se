@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/23/2019
 ms.author: mjbrown
-ms.openlocfilehash: 07d177987db1dea261520e8ee2543d871d552acb
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: abd50f4e2ca08bea2af491f4b3991278a6dc3b5e
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66240892"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399891"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Hantera ett Azure Cosmos-konto
 
@@ -41,7 +41,7 @@ az cosmosdb create \
 
 ### <a id="create-database-account-via-ps"></a>Azure PowerShell
 ```azurepowershell-interactive
-# Create an Azure Cosmos Account for Core (SQL) API
+# Create an Azure Cosmos account for Core (SQL) API
 $resourceGroupName = "myResourceGroup"
 $location = "West US"
 $accountName = "mycosmosaccount" # must be lower case.
@@ -71,7 +71,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 
 ### <a id="create-database-account-via-arm-template"></a>Azure Resource Manager-mall
 
-Azure Resource Manager-mallen skapar ett Azure Cosmos DB-konto för alla stöds API: er som har konfigurerats med två regioner och alternativ att välja konsekvensnivå, automatisk växling vid fel och Multi-Master. Klicka på Distribuera till Azure på sidan viktigt om du vill distribuera den här mallen [skapar Azure Cosmos DB-konto](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-create-multi-region-account)
+Azure Resource Manager-mallen skapar ett Azure Cosmos-konto för alla stöds API: er som har konfigurerats med två regioner och alternativ att välja konsekvensnivå, automatisk växling vid fel och Multi-Master. Klicka på Distribuera till Azure på sidan viktigt om du vill distribuera den här mallen [skapar Azure Cosmos-konto](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-create-multi-region-account)
 
 ## <a name="addremove-regions-from-your-database-account"></a>Lägga till/ta bort regioner från ditt databaskonto
 
@@ -185,7 +185,7 @@ az cosmosdb update --name $accountName --resource-group $resourceGroupName --ena
 ### <a id="configure-multiple-write-regions-ps"></a>Azure PowerShell
 
 ```azurepowershell-interactive
-# Update an Azure Cosmos Account from single to multi-master
+# Update an Azure Cosmos account from single to multi-master
 
 $account = Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
     -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName -Name $accountName
@@ -200,7 +200,7 @@ Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 
 ### <a id="configure-multiple-write-regions-arm"></a>Resource Manager-mall
 
-Ett konto kan migreras från ett enda ställe till multimaster genom att distribuera Resource Manager-mallen som används för att skapa kontot och inställningen `enableMultipleWriteLocations: true`. Följande Azure Resource Manager-mallen är ett utan minsta mall som distribuerar ett Azure Cosmos DB-konto för SQL-API med en enda region och multimaster aktiverat.
+Ett konto kan migreras från ett enda ställe till multimaster genom att distribuera Resource Manager-mallen som används för att skapa kontot och inställningen `enableMultipleWriteLocations: true`. Följande Azure Resource Manager-mallen är ett utan minsta mall som distribuerar ett Azure Cosmos-konto för SQL-API med en enda region och multimaster aktiverat.
 
 ```json
 {
@@ -239,13 +239,13 @@ Ett konto kan migreras från ett enda ställe till multimaster genom att distrib
 }
 ```
 
-## <a id="automatic-failover"></a>Aktivera automatisk redundans för ditt Azure Cosmos DB-konto
+## <a id="automatic-failover"></a>Aktivera automatisk redundans för ditt Azure Cosmos-konto
 
 Automatisk redundans-alternativet kan Azure Cosmos DB att redundansväxla till regionen som har högst redundansprioritet med inga användaråtgärder ska en region blir otillgänglig. När automatisk redundans är aktiverat, kan region prioritet ändras. Kontot måste ha två eller flera regioner för att aktivera automatisk redundans.
 
 ### <a id="enable-automatic-failover-via-portal"></a>Azure-portalen
 
-1. Öppna fönsterrutan **Replikera data globalt** i ditt Azure Cosmos DB-konto.
+1. Ditt Azure Cosmos-konto, öppna den **replikera data globalt** fönstret.
 
 2. Längst upp i fönsterrutan väljer du **Automatisk redundans**.
 
@@ -344,7 +344,7 @@ Invoke-AzResourceAction -Action failoverPriorityChange `
 Processen för att utföra en manuell redundans innebär att du ändrar kontots skrivregionen (redundansprioritet = 0) till en annan region som konfigurerats för kontot.
 
 > [!NOTE]
-> Flera huvudservrar konton redundansväxlas inte manuellt. För program som använder Azure Cosmos DB SDK, ska SDK: N identifiera när en region blir otillgänglig och automatisk omdirigering till nästa närmaste region om du använder flera API: et i SDK.
+> Flera huvudservrar konton redundansväxlas inte manuellt. För program som använder Azure Cosmos-SDK, ska SDK: N identifiera när en region blir otillgänglig och automatisk omdirigering till nästa närmaste region om du använder flera API: et i SDK.
 
 ### <a id="enable-manual-failover-via-portal"></a>Azure-portalen
 

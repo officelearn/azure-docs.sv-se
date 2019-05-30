@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 12/27/2018
+ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: cccfc3d028cb2da9346e629a5aca080bedd7fee9
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 067040349a5d435860492497dddbf39aad2635eb
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62124161"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66398409"
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>Konfigurera haveriberedskap för virtuella Hyper-V-datorer till en sekundär lokal plats
 
@@ -123,7 +123,7 @@ Välj VMM-målservern och molnet:
 
 Innan du börjar bör du se till att alla värdar som använder principen har samma operativsystem. Om värdarna kör olika versioner av Windows Server behöver du flera replikeringsprinciper.
 
-1. Skapa en ny replikeringsprincip genom att klicka på **Förbered infrastruktur** > **Replikeringsinställningar** > **+Skapa och koppla**.
+1. Skapa en ny replikeringsprincip genom att klicka på **Förbered infrastruktur** > **Replikeringsinställningar** >  **+Skapa och koppla**.
 2. I **Princip för att skapa och koppla** anger du ett principnamn. Käll- och måltypen ska vara **Hyper-V**.
 3. I **Hyper-V-värdversion** väljer du vilket operativsystem som körs på värden.
 4. I **Autentiseringstyp** och **Autentiseringsport** anger du hur trafik autentiseras mellan primär- och återställnings-Hyper-V-värdservrarna.

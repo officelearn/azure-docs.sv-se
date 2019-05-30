@@ -4,19 +4,19 @@ description: Förstå demomiljön för förhandsversionen av Azure Time Series I
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 ms.reviewer: anshan
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
 ms.date: 04/22/2019
-ms.openlocfilehash: dbdbfc797d37ed38936d6cfd354383d412c6b52d
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: e35d46607e0a186c8a3a38669c68a6ea52711b51
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205824"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242076"
 ---
 # <a name="quickstart-explore-the-azure-time-series-insights-preview-demo-environment"></a>Snabbstart: Utforska demomiljön för förhandsversionen av Azure Time Series Insights
 
@@ -40,14 +40,14 @@ Förhandsversionen av Time Series Insights explorer visar historiska data och an
 
 1. Titta på vindturbin **W7** i **Contoso anläggning 1**.  
 
-    * Uppdatera vyn intervallet till **1/1/17 20:00 till 17/10/3 20:00 (UTC)**.
+    * Uppdatera vyn intervallet till **1/1/17 20:00 till 17/10/3 20:00 (UTC)** .
     * Välj den **Contoso anläggning 1** > **W7** > **Generator System** > **GeneratorSpeed** sensorn. Granska sedan de resulterande värdena.
 
       [![W7 på Contoso anläggningen 1](media/v2-update-quickstart/quickstart-one.png)](media/v2-update-quickstart/quickstart-one.png#lightbox)
 
 1. Contoso upptäckte nyligen en brand i vindturbin **W7**. Yttranden variera om närbelägen orsaken till fire har. Vid närmare granskning ser vi att fire avisering sensorn har aktiverats vid fire.
 
-    * Uppdatera vyn intervallet till **3/9/17 20:00 till 17/10/3 20:00 (UTC)**.
+    * Uppdatera vyn intervallet till **3/9/17 20:00 till 17/10/3 20:00 (UTC)** .
     * Välj den **säkerhetssystem** > **FireAlert** sensorn.
 
       [![Contoso finns fire i vindturbin W7](media/v2-update-quickstart/quickstart-two.png)](media/v2-update-quickstart/quickstart-two.png#lightbox)
@@ -61,7 +61,7 @@ Förhandsversionen av Time Series Insights explorer visar historiska data och an
 
 1. Olja hög belastning och aktiva varningen sensorer som högst nådde strax innan startar. Expandera den visade tidsserien om du vill se andra tecken närvarande leder fram till fire. Båda sensorer växlade konsekvent under tiden som indikerar ett permanent eller lite nervöst mönster.
 
-    * Uppdatera vyn intervallet till **2/24/17 20:00 till 17/10/3 20:00 (UTC)**.
+    * Uppdatera vyn intervallet till **2/24/17 20:00 till 17/10/3 20:00 (UTC)** .
 
       [![Tryck för olja och den aktiva varningen sensorer också högst nådde](media/v2-update-quickstart/quickstart-four.png)](media/v2-update-quickstart/quickstart-four.png#lightbox)
 
@@ -82,7 +82,7 @@ Med hjälp av Azure Time Series Insights och våra sensor telemetri, har vi uppt
 
 1. Vissa scenarier kräver avancerad analys för att få fram diskret ledtrådar i data. Välj windmill **W6** på datum **6/25**
 
-    * Uppdatera vyn intervallet till **6/1/17 20:00-7/1/17 20:00 (UTC)**.
+    * Uppdatera vyn intervallet till **6/1/17 20:00-7/1/17 20:00 (UTC)** .
     * Välj sedan den **Contoso anläggning 1** > **W6** > **säkerhetssystem** > **VoltageActuatorSwitchWarning**  sensorn.
 
       [![Uppdatera vyn intervallet och välj W6](media/v2-update-quickstart/quickstart-six.png)](media/v2-update-quickstart/quickstart-six.png#lightbox)

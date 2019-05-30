@@ -219,18 +219,18 @@
           href: backup-azure-restore-windows-server.md
         - name: Återställa Windows Server System-tillstånd
           href: backup-azure-restore-system-state.md
-        - name: Övervaka och hantera Recovery Services-valv
-          href: backup-azure-manage-windows-server.md
     - name: Recovery Services-valv
       items:
         - name: Översikt över Recovery Services-valv
           href: backup-azure-recovery-services-vault-overview.md
-        - name: Uppgradera ett säkerhetskopieringsvalv till Recovery Services-valvet
-          href: backup-azure-upgrade-backup-to-recovery-services.md
+        - name: Skapa Recovery Services-valv
+          href: backup-create-rs-vault.md
         - name: Ta bort ett Recovery Services-valv
           href: backup-azure-delete-vault.md
         - name: Flytta ett Recovery Services-valv
           href: backup-azure-move-recovery-services-vault.md
+        - name: Övervaka och hantera Recovery Services-valv
+          href: backup-azure-manage-windows-server.md
     - name: Felsöka
       items:
         - name: Azure VM

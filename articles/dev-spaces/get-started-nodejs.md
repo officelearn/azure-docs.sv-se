@@ -9,12 +9,12 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, Helm, tjänsten nät, tjänsten nät routning, kubectl, k8s
-ms.openlocfilehash: c01870aa7ae4a0ae5cf1cc8302200675ac0e8022
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: e461f210dc5b2d0dda0eabd5ea80dfcdc9ccebfb
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65861693"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66392797"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-nodejs"></a>Komma igång med Azure Dev Spaces med Node.js
 
@@ -55,7 +55,7 @@ az account set --subscription <subscription ID>
 
 ## <a name="create-a-kubernetes-cluster-enabled-for-azure-dev-spaces"></a>Skapa ett Kubernetes-kluster som är aktiverat för Azure Dev Spaces
 
-I Kommandotolken, skapa en resursgrupp i en [region som stöder Azure Dev blanksteg](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams).
+I Kommandotolken, skapa en resursgrupp i en [region som stöder Azure Dev blanksteg][supported-regions].
 
 ```cmd
 az group create --name MyResourceGroup --location <region>
@@ -272,3 +272,5 @@ I den här konfigurationen konfigureras containern att starta *nodemon*. När ko
 > [!div class="nextstepaction"]
 > [Lär dig mer om utveckling för flera tjänster](multi-service-nodejs.md)
 
+
+[supported-regions]: about.md#supported-regions-and-configurations

@@ -229,16 +229,20 @@
                   href: msal-js-initializing-client-applications.md
             - name: Hantera fel och undantag
               href: msal-handling-exceptions.md
+            - name: Testa MSAL program
+              href: msal-testing.md
             - name: Loggning
               href: msal-logging.md
             - name: Enkel inloggning (JS)
               href: msal-js-sso.md
             - name: Beteende vid fråga (JS)
               href: msal-js-prompt-behavior.md
-            - name: Ange din egen HttpClient (.NET)
-              href: msal-net-provide-httpclient.md
             - name: Integrera med Azure AD B2C
-              href: msal-b2c-overview.md
+              items:
+                - name: JavaScript
+                  href: msal-b2c-overview.md
+                - name: .NET
+                  href: msal-net-aad-b2c-considerations.md
             - name: Överväganden och kända problem
               items:
                 - name: MSAL.NET
@@ -253,8 +257,6 @@
                       href: msal-net-xamarin-ios-considerations.md
                     - name: Universell Windows-plattform
                       href: msal-net-uwp-considerations.md
-                    - name: Tillämpa en AAD B2C-princip
-                      href: msal-net-aad-b2c-considerations.md
                 - name: MSAL.js
                   items:
                     - name: Överväganden vid användning av IE
@@ -295,6 +297,8 @@
           items:
             - name: Program och tjänsternas huvudnamn
               href: app-objects-and-service-principals.md
+            - name: Hur och varför program läggs till i Azure AD
+              href: active-directory-how-applications-are-added.md
             - name: Appar för enskild klient eller flera klienter
               href: single-and-multi-tenant-apps.md
         - name: Behörigheter och samtycke
@@ -360,6 +364,8 @@
                   href: msal-net-instantiate-confidential-client-config-options.md
                 - name: Få medgivande för flera resurser
                   href: msal-net-user-gets-consent-for-multiple-resources.md
+                - name: Ange din egen HttpClient
+                  href: msal-net-provide-httpclient.md
         - name: Arbeta med Visual Studio
           items:
             - name: Använda den Active Directory-anslutna tjänsten

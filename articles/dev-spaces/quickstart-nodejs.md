@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: Snabb Kubernetes-utveckling med behållare, mikrotjänster och Node.js i Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, Helm, tjänsten nät, tjänsten nät routning, kubectl, k8s
 manager: jeconnoc
-ms.openlocfilehash: 7507b6741a373f28e0e780af08d076235e377839
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 5efacc38ab6b30a1a4ae45772f2b81030e76eb83
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65873156"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393919"
 ---
 # <a name="quickstart-develop-with-nodejs-on-kubernetes-using-azure-dev-spaces"></a>Snabbstart: Utveckla med Node.js på Kubernetes med Azure Dev blanksteg
 
@@ -35,7 +35,7 @@ I den här guiden får du lära dig hur du:
 
 ## <a name="create-an-azure-kubernetes-service-cluster"></a>Skapa ett Azure Kubernetes Service-kluster
 
-Du måste skapa ett AKS-kluster i en [region som stöds](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams). Den kommandona nedan skapar du en resursgrupp med namnet *MyResourceGroup* och ett AKS-kluster som heter *MyAKS*.
+Du måste skapa ett AKS-kluster i en [region som stöds][supported-regions]. Den kommandona nedan skapar du en resursgrupp med namnet *MyResourceGroup* och ett AKS-kluster som heter *MyAKS*.
 
 ```cmd
 az group create --name MyResourceGroup --location eastus
@@ -111,7 +111,7 @@ Service 'webfrontend' port 80 (http) is available at http://localhost:54256
 ...
 ```
 
-Du kan se att tjänsten körs genom att öppna en offentlig URL som visas i utdata från den `azds up` kommando. I det här exemplet är en offentlig URL *http://webfrontend.1234567890abcdef1234.eus.azds.io/*.
+Du kan se att tjänsten körs genom att öppna en offentlig URL som visas i utdata från den `azds up` kommando. I det här exemplet är en offentlig URL *http://webfrontend.1234567890abcdef1234.eus.azds.io/* .
 
 Om du stoppar den `azds up` kommando med hjälp av *Ctrl + c*tjänsten fortsätter att köras i AKS och offentligt URL-Adressen förblir tillgängliga.
 
@@ -168,7 +168,7 @@ Klicka på *felsöka* sedan *stoppa felsökning* att stoppa felsökningen.
 
 ## <a name="setting-and-using-breakpoints-for-debugging"></a>Ställa in och använda brytpunkter för felsökning
 
-Starta din tjänst med hjälp av *starta Server (AZDS)*.
+Starta din tjänst med hjälp av *starta Server (AZDS)* .
 
 Gå tillbaka till den *Explorer* vyn genom att klicka på *visa* sedan *Explorer*. Öppna `server.js` och klicka någonstans på rad 10 om du vill placera markören där. Ange en brytpunkt når *F9* eller klicka på *felsöka* sedan */Radera brytpunkt*.
 
@@ -211,3 +211,6 @@ Lär dig hur Azure Dev blanksteg hjälper dig att utveckla mer komplexa program 
 
 > [!div class="nextstepaction"]
 > [Arbeta med flera containrar och utveckling i team](multi-service-nodejs.md)
+
+
+[supported-regions]: about.md#supported-regions-and-configurations

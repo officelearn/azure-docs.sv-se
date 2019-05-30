@@ -41,14 +41,6 @@
           href: web-query-data.md
         - name: Python
           href: python-query-data.md
-    - name: Visualisera data
-      items:
-        - name: Power BI – anslutningsapp
-          href: power-bi-connector.md
-        - name: Power BI – importerad fråga
-          href: power-bi-imported-query.md
-        - name: Power BI – SQL-fråga
-          href: power-bi-sql-query.md
 - name: Självstudier
   items:
     - name: Mata in data utan att använda kod
@@ -80,6 +72,20 @@
           href: anomaly-detection.md
         - name: Maskininlärning
           href: machine-learning-clustering.md
+    - name: Visualisera data
+      items:
+        - name: Power BI
+          items:
+            - name: anslutningsapp
+              href: power-bi-connector.md
+            - name: importerad fråga
+              href: power-bi-imported-query.md
+            - name: SQL-fråga
+              href: power-bi-sql-query.md
+        - name: Sisense
+          href: sisense.md
+        - name: Grafana
+          href: grafana.md
     - name: Hantera
       items:
         - name: Hantera databasbehörigheter
@@ -108,8 +114,6 @@
           href: kqlmagic.md
         - name: Kopiera data med Azure Data Factory
           href: data-factory-load-data.md
-        - name: Visualisera data i Grafana
-          href: grafana.md
         - name: Ansluta med ODBC
           href: connect-odbc.md
     - name: Felsöka

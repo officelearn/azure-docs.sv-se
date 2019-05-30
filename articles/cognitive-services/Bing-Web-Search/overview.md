@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 03/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: b6e546130efd52312fca62ab4e6a22626778a19e
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 65e28b557a3708c155bf80f21a784374c4497783
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "60648164"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66383039"
 ---
 # <a name="what-is-the-bing-web-search-api"></a>Vad är API för webbsökning i Bing?
 
@@ -50,5 +50,5 @@ API:et för webbsökning i Bing är enkelt att anropa från alla programmeringss
 
 * Använd vår [Python-snabbstart](quickstarts/python.md) och gör ditt första anrop till API:et för webbsökning i Bing.  
 * [Skapa en enkelsidig webbapp](tutorial-bing-web-search-single-page-app.md).
-* Granska dokumentationen om [v7-referensen för API:et för webbsökning](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference).  
+* Granska dokumentationen om [v7-referensen för API:et för webbsökning](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference).  
 * Läs mer om [kraven för användning och visning](UseAndDisplayRequirements.md) för webbsökning i Bing.  

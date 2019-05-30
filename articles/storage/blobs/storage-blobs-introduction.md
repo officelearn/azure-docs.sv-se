@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: overview
-ms.date: 01/03/2019
+ms.date: 05/24/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 498dd3be75cb27263c811d9db541b2e040599156
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: e8a68ca87307e1265c200f2e05464ff87983c1e6
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65788025"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258410"
 ---
 # <a name="introduction-to-azure-blob-storage"></a>Introduktion till Azure Blob storage
 
@@ -68,8 +68,8 @@ Det finns flera olika lösningar för att migrera befintliga data till blobblagr
 - **Azure Storages dataflyttbibliotek** är ett .NET-bibliotek som används till att flytta data mellan Azure Storage-tjänster. AzCopy-verktyget skapas med dataflyttbiblioteket. Mer information finns i [referensdokumentationen](/dotnet/api/microsoft.azure.storage.datamovement) för dataflyttbiblioteket. 
 - **Azure Data Factory** stöder kopiering av data till och från blobblagring med hjälp av kontonyckel, signatur för delad åtkomst, tjänstens huvudnamn eller hanterade identiteter för Azure-resursernas autentiseringar. Mer information finns i [Kopiera data till och från Azure-blobblagring med hjälp av Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). 
 - **Blobfuse** är en virtuell filsystemsdrivrutin för Azure-blobblagring. Du kan använda blobfuse för att få åtkomst till dina befintliga blockblobbdata på ditt lagringskonto via filsystemet Linux. Mer information finns i [Montera blobblagring som ett filsystem med blobfuse](storage-how-to-mount-container-linux.md).
-- **Azure Data Box Disk** är en tjänst för överföring av lokala data till blobblagring när stora datamängder eller nätverksbegränsningar gör överföring av data via kabel orealistisk. Du kan använda [Azure Data Box Disk](../../databox/data-box-disk-overview.md) för att begära SSD-diskar från Microsoft. Sedan kan du kopiera dina data till diskarna och skicka tillbaka dem till Microsoft för uppladdning till Blob Storage.
-- Med **Azure Import/Export-tjänsten** kan du exportera stora mängder data från ditt lagringskonto till hårddiskar. Microsoft levererar sedan dessa tillbaka till dig med dina data. Mer information finns i [Använda Microsoft Azure Import/Export till att överföra data till blobblagring](../common/storage-import-export-service.md).
+- **Azure Data Box** tjänsten är tillgänglig för att överföra lokala data till Blob storage när stora datauppsättningar eller nätverksbegränsningar gör överför data i rörelse orealistiskt. Beroende på datastorleken på din, kan du begära [Azure Data Box-Disk](../../databox/data-box-disk-overview.md), [Azure Data Box](../../databox/data-box-overview.md), eller [Azure Data Box tung](../../databox/data-box-heavy-overview.md) enheter från Microsoft. Du kan kopiera data till dessa enheter och skickar tillbaka dem till Microsoft som ska laddas upp till Blob-lagring.
+- Den **tjänsten Azure Import/Export** gör det möjligt att importera eller exportera stora mängder data till och från ditt lagringskonto med hjälp av hårddiskar som du anger. Mer information finns i [Använda Microsoft Azure Import/Export till att överföra data till blobblagring](../common/storage-import-export-service.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

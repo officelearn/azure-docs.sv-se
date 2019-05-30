@@ -6,14 +6,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: overview
-ms.date: 01/28/2019
+ms.date: 05/28/2019
 ms.author: hrasheed
-ms.openlocfilehash: ab349018705f173f1b138b854e0773ef3f996f1c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 4fd03dc6ebada5b665a0c256e9cedbb646cd2fb6
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64725858"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66297441"
 ---
 # <a name="what-is-apache-spark-in-azure-hdinsight"></a>Vad är Apache Spark i Azure HDInsight
 
@@ -42,7 +42,7 @@ Med Spark-kluster HDInsight får du tillgång till en helt hanterad Spark-tjäns
 | Cachelagring i SSD:er |Du kan välja att cachelagrade data i minnet eller i SSD:er anslutna till klusternoderna. Cachelagring i minnet ger bästa frågeprestanda, men kan vara dyrt. Cachelagring i SSD:er är ett bra alternativ för att förbättra frågeprestanda utan att behöva skapa ett kluster i den storlek som krävs för att få plats med hela datauppsättningen i minnet. |
 | Integrering med BI-verktyg |Spark-kluster för HDInsight tillhandahåller anslutningsappar för BI-verktyg som [Power BI](https://www.powerbi.com/) för dataanalys. |
 | Förinstallerade Anaconda-bibliotek |Spark-kluster i HDInsight kommer med förinstallerade Anaconda-bibliotek. [Anaconda](https://docs.continuum.io/anaconda/) innehåller närmare 200 bibliotek för Machine Learning, dataanalys, visualisering med mera. |
-| Skalbarhet | Med HDInsight kan du ändra antalet klusternoder. Dessutom kan du ta bort Apache Spark-kluster utan någon dataförlust eftersom alla data lagras i Azure Storage eller Data Lake Storage. |
+| Skalbarhet | HDInsight kan du ändra antalet noder i klustret. Dessutom kan du ta bort Apache Spark-kluster utan någon dataförlust eftersom alla data lagras i Azure Storage eller Data Lake Storage. |
 | SLA |Spark-kluster på HDInsight levereras med dygnet runt-support veckans alla dagar och ett serviceavtal för 99,9 % drifttid. |
 
 Apache Spark-kluster i HDInsight innehåller följande komponenter som är tillgängliga i klustren som standard.
@@ -78,12 +78,14 @@ Spark-kluster i HDInsight möjliggör följande huvudsakliga scenarier:
     Apache Spark i HDInsight lagrar data i Azure Storage eller Azure Data Lake Storage. Affärsexperter och beslutsfattare kan analysera och skapa rapporter över dessa data och använda Microsoft Power BI till att skapa interaktiva rapporter utifrån analyserade data. Analytiker kan utgå ifrån ostrukturerade/halvstrukturerade data i klusterlagring, definiera ett schema för data med anteckningsböcker och sedan skapa datamodeller med Microsoft Power BI. Spark-kluster i HDInsight har också stöd för ett antal BI-verktyg från tredje part, bland annat Tableau. Det gör det enklare för dataanalytiker, affärsexperter och beslutsfattare.
 
     [Självstudie: Visualisera Spark-data med Power BI](apache-spark-use-bi-tools.md)
+
 - Spark-maskininlärning
 
     Med Apache Spark medföljer Machine Learning-biblioteket [MLlib](https://spark.apache.org/mllib/) som är byggt på Spark som du kan använda från ett Spark-kluster i HDInsight. Spark-kluster i HDInsight innehåller Anaconda, en Python-distribution med en rad olika paket för Machine Learning. Ihop med det inbyggda stödet för Jupyter- och Zeppelin-anteckningsböcker ger det en miljö att skapa Machine Learning-program i.
 
     [Självstudie: Förutsäga temperaturer i en byggnad med hjälp av HVAC-data](apache-spark-ipython-notebook-machine-learning.md)  
-    [Självstudie: Förutsäga resultatet av en livsmedelskontroll](apache-spark-machine-learning-mllib-ipython.md)    
+    [Självstudie: Förutsäga resultatet av en livsmedelskontroll](apache-spark-machine-learning-mllib-ipython.md)
+
 - Spark-strömning och dataanalys i realtid
 
     Spark-kluster i HDInsight innehåller omfattande stöd för att skapa lösningar för realtidsanalys. Spark har anslutningsappar för att föra in data från ett flertal källor som Kafka, Flume, Twitter, ZeroMQ och TCP-socket. Med Spark i HDInsight får du dessutom förstklassig stöd för att föra in data från Azure Event Hubs. Event Hubs är den vanligast använda kötjänsten på Azure. Det inbyggda stödet för Event Hubs gör Spark-kluster i HDInsight till en perfekt plattform för att skapa en pipeline för realtidsanalyser.

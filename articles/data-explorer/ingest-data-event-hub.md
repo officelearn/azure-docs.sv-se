@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 05/17/2019
-ms.openlocfilehash: d5bd291758d6bb445b757b93fd91a4c2321b97db
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.date: 05/29/2019
+ms.openlocfilehash: 18ce5e9d7cff0d32021e97cd85f1e18c0309f00b
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898934"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357672"
 ---
 # <a name="quickstart-ingest-data-from-event-hub-into-azure-data-explorer"></a>Snabbstart: Mata in data från Event Hub i Azure Data Explorer
 
@@ -68,7 +68,7 @@ I den här snabbstarten ska du skapa exempeldata och skicka dem till en händels
 
 1. Välj **Meddelanden** i verktygsfältet för att övervaka etableringsprocessen. Det kan ta flera minuter innan distributionen slutförs, men du kan gå vidare till nästa steg nu.
 
-    ![Aviseringar](media/ingest-data-event-hub/notifications.png)
+    ![Meddelanden](media/ingest-data-event-hub/notifications.png)
 
 ## <a name="create-a-target-table-in-azure-data-explorer"></a>Skapa en måltabell i Azure Data Explorer
 
@@ -118,15 +118,18 @@ Nu ansluter du till händelsehubben från Azure-datautforskaren. När den här a
 
     Måltabell:
 
-    Det finns två alternativ för routning: *statisk* och *dynamisk*. För den här snabbstartsguiden använder du statisk routning (standardinställning), där du anger tabellnamnet, filformatet och mappningen. Låt därför **My data includes routing info** (Mina data innehåller routningsinformation) vara avmarkerat.
-    Du kan även använda dynamisk routning, där dina data innehåller den nödvändiga routningsinformationen.
+    Det finns två alternativ för routning insamlade data: *Statiska* och *dynamisk*. 
+    För den här artikeln får använda du statisk routning, anger du den tabellnamn och dataformat mappning. Låt därför **My data includes routing info** (Mina data innehåller routningsinformation) vara avmarkerat.
 
      **Inställning** | **Föreslaget värde** | **Fältbeskrivning**
     |---|---|---|
     | Tabell | *TestTable* | Tabellen som du skapade i **TestDatabase**. |
     | Dataformat | *JSON* | Format som stöds är Avro, CSV, JSON, MULTILINE JSON, PSV, SOH, SCSV, TSV och TXT. |
-    | Kolumnmappning | *TestMapping* | Den mappning som du skapade i **TestDatabase**, som mappar inkommande JSON-data till kolumnnamnen och datatyperna i **TestTable**.|
+    | Kolumnmappning | *TestMapping* | Den mappning som du skapade i **TestDatabase**, som mappar inkommande JSON-data till kolumnnamnen och datatyperna i **TestTable**. Krävs för JSON, MULTILINE JSON eller AVRO och valfri för andra format.|
     | | |
+
+    > [!NOTE]
+    > Välj **Mina data innehåller routningsinformation** för att använda dynamisk routning, där dina data innehåller nödvändiga routning information som visas i den [exempelapp](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) kommentarer. Om både statisk och dynamisk egenskaperna in åsidosätta statiska dynamiska egenskaper. 
 
 ## <a name="copy-the-connection-string"></a>Kopiera anslutningssträngen
 
@@ -134,7 +137,7 @@ När du kör den [exempelapp](https://github.com/Azure-Samples/event-hubs-dotnet
 
 1. Under händelsehubbens namnområde som du skapade väljer du **Policyer för delad åtkomst** och sedan **RootManageSharedAccessKey**.
 
-    ![Policyer för delad åtkomst](media/ingest-data-event-hub/shared-access-policies.png)
+    ![Principer för delad åtkomst](media/ingest-data-event-hub/shared-access-policies.png)
 
 1. Kopiera **Anslutningssträng – primär nyckel**. Du klistrar in den i nästa avsnitt.
 

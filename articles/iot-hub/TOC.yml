@@ -66,6 +66,8 @@
               href: tutorial-routing-config-message-routing-PowerShell.md
         - name: Del 2 – Visa resultat för meddelanderoutning
           href: tutorial-routing-view-message-routing-results.md
+    - name: Meddelandeberikanden
+      href: tutorial-message-enrichments.md
     - name: Använd mått och diagnostikloggar
       href: tutorial-use-metrics-and-diags.md
     - name: Utför manuell redundans
@@ -78,6 +80,8 @@
       href: tutorial-connectivity.md
 - name: Begrepp
   items:
+    - name: Översikt över meddelandeberikanden
+      href: iot-hub-message-enrichments-overview.md
     - name: Översikt över enhetshantering
       href: iot-hub-device-management-overview.md
     - name: Jämföra IoT Hub och Event Hubs

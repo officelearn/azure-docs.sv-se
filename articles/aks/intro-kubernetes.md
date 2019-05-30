@@ -5,21 +5,21 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: overview
-ms.date: 03/05/2019
+ms.date: 05/06/2019
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: a147d95701af166c650411a91fb24e3448cfec09
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b14e4b452c1dcd92cc3e5447428c28f1d2c5b18e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60465537"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65073821"
 ---
 # <a name="azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS)
 
 Azure Kubernetes Service (AKS) gör det enkelt att distribuera ett hanterat Kubernetes-kluster i Azure. AKS minskar komplexiteten och arbetet med att hantera Kubernetes genom att avlasta en stor del av det ansvaret till Azure. Som Kubernetes-värdtjänst hanterar Azure viktiga uppgifter som övervakning av hälsotillstånd och underhåll åt dig. Kubernetes-huvudservrar hanteras av Azure. Du kan endast hantera och underhålla agentnoderna. Som hanterade Kubernetes tjänst är AKS kostnadsfri, du betalar bara för agentnoder i dina kluster, inte för de överordnade noder.
 
-Du kan skapa ett AKS-kluster i Azure-portalen med Azure CLI eller ett malldrivet distributionsalternativ, till exempel Resource Manager-mallar och Terraform. När du distribuerar ett AKS-kluster styr Kubernetes och alla noder distribueras och konfigureras för dig. Ytterligare funktioner, till exempel avancerade nätverk, Azure Active Directory-integrering och övervakning kan också konfigureras under distributionsprocessen.
+Du kan skapa ett AKS-kluster i Azure-portalen med Azure CLI eller ett malldrivet distributionsalternativ, till exempel Resource Manager-mallar och Terraform. När du distribuerar ett AKS-kluster styr Kubernetes och alla noder distribueras och konfigureras för dig. Ytterligare funktioner, till exempel avancerade nätverk, Azure Active Directory-integrering och övervakning kan också konfigureras under distributionsprocessen. Stöd för Windows Server-behållare är för närvarande i förhandsversion i AKS.
 
 Mer information om grundläggande om Kubernetes finns i [Kubernetes viktiga begrepp för AKS][concepts-clusters-workloads].
 
@@ -43,9 +43,9 @@ Azure Monitor för hälsotillstånd för behållare samlar in minne och mått fr
 
 Mer information finns i [Övervaka Azure Kubernetes Service hälsotillstånd för containrar][container-health].
 
-## <a name="cluster-and-node"></a>Kluster och nod
+## <a name="clusters-and-nodes"></a>Kluster och noder
 
-AKS-noder körs på virtuella Azure-datorer. Du kan ansluta lagringen till noder och poddar, uppgradera klusterkomponenter och använda GPU:er.
+AKS-noder körs på virtuella Azure-datorer. Du kan ansluta lagringen till noder och poddar, uppgradera klusterkomponenter och använda GPU:er. AKS har stöd för Kubernetes-kluster som kör flera nodpooler stöd för blandade operativsystem och Windows Server-behållare (för närvarande i förhandsversion). Linux-noder kör en anpassad Ubuntu OS-avbildning och Windows Server-noder kör en anpassad avbildning av Operativsystemet för Windows Server 2019.
 
 ### <a name="cluster-node-and-pod-scaling"></a>Klusternoder och poddskalning
 

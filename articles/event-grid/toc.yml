@@ -101,6 +101,8 @@
       href: event-sources.md
     - name: Händelsehanterare
       href: event-handlers.md
+    - name: Geohaveriberedskap
+      href: geo-disaster-recovery.md
 - name: Instruktionsguider
   items:
     - name: Skicka till anpassat ämne

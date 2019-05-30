@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: overview
-ms.date: 05/02/2019
+ms.date: 05/28/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 24c6df6a06d08249f236fc36d64b4204b0103b3c
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 8af927bee11d66c473707b603951fa693f6840e3
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540903"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299035"
 ---
 # <a name="what-is-cognitive-search-in-azure-search"></a>Vad är ”cognitive search” i Azure Search?
 
@@ -86,7 +86,7 @@ Index som ska genereras från ett indexschema som definierar fälten, attribut, 
 | Bearbetning av naturligt språk | Text för insikter och information om Textinmatningar bearbetades. Extrahering av diskussionsämne, språkidentifiering och attitydanalys är färdigheter som hör till bearbetning av naturligt språk.  | [Nyckeln frasen extrahering färdighet](cognitive-search-skill-keyphrases.md), [språk identifiering färdighet](cognitive-search-skill-language-detection.md), [Sentiment Analysis färdighet](cognitive-search-skill-sentiment.md) |
 | Document cracking- | Processen för att extrahera eller skapa textinnehåll från icke-text källor under indexering. Optisk teckenläsning (OCR) är ett exempel, men den avser vanligen indexeraren kärnfunktioner som indexeraren extraherar innehåll från programfiler. Datakällan som tillhandahåller plats för källfilen och att indexerarens definition att tillhandahålla fältmappningar, är båda viktiga faktorer för document cracking. | Se [indexerare](search-indexer-overview.md) |
 | Forma | Konsolidera textfragment i en större struktur eller omvänt bryta ned den större textsegment i en lämplig storlek för ytterligare nedströms bearbetning. | [Formaren färdighet](cognitive-search-skill-shaper.md), [Text fusion färdighet](cognitive-search-skill-textmerger.md), [Text dela färdighet](cognitive-search-skill-textsplit.md) |
-| Avancerad och dokument | Ett övergående interna strukturen, inte direkt åtkomliga i kod. Avancerad och dokument genereras under bearbetningen, men endast slutgiltiga utdata finns kvar i ett sökindex. Fältmappningar avgör vilka data läggs till i indexet. | Se [åtkomst till avancerad och dokument](cognitive-search-tutorial-blob.md#access-enriched-document). |
+| Avancerad och dokument | Ett övergående interna strukturen, genereras under bearbetning, med slutgiltiga utdata som visas i ett sökindex. En kompetens avgör vilka enrichments utförs. Fältmappningar avgör vilka data läggs till i indexet. Alternativt kan du skapa ett Arkiv för kunskap för att bevara och utforska avancerad och dokument med hjälp av verktyg som Storage Explorer, Power BI eller något annat verktyg som ansluter till Azure Blob storage. | Se [Knowledge store (förhandsversion)](knowledge-store-concept-intro.md). |
 | Indexerare |  En crawler som extraherar sökbara data och metadata från en extern datakälla och fylla ett index baserat på fältet till fält-mappningar mellan indexet och din datakälla för dokumentknäckning. Indexeraren för kognitiv sökning enrichments anropar en kompetens och innehåller fältmappningar associera berikande utdata till målfält i indexet. Indexerardefinitionen innehåller alla instruktioner och referenser för pipeline-åtgärder och pipeline anropas när du kör indexeraren. | [Indexerare](search-indexer-overview.md) |
 | Datakälla  | Ett objekt som används av en indexerare för att ansluta till en extern datakälla av typer som stöds på Azure. | Se [indexerare](search-indexer-overview.md) |
 | Index | En bestående search-index i Azure Search bygger på ett indexschema som definierar strukturen för fältet och användning. | [Index i Azure Search](search-what-is-an-index.md) | 
@@ -111,7 +111,7 @@ Du kan använda REST `api-version=2019-05-06` på begäranden eller .NET SDK.
 
 Det här steget använder REST-API: er för att skapa en lösning för kognitiv sökning. Endast två API: er läggs till eller utökats för kognitiv sökning. API: er har samma syntax som är allmänt tillgängliga versioner.
 
-| REST API | Beskrivning |
+| REST-API | Beskrivning |
 |-----|-------------|
 | [Skapa datakälla](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | En resurs som identifierar en extern datakälla att tillhandahålla källdata som används för att skapa avancerad och dokument.  |
 | [Skapa kompetens (api-version = 2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | En resurs som samordna användningen av [fördefinierade kunskaper](cognitive-search-predefined-skills.md) och [anpassade kognitiva kunskaper](cognitive-search-custom-skill-interface.md) används i en pipeline för berikande under indexering. |

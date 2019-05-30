@@ -65,7 +65,7 @@
           href: batch-aad-auth.md
         - name: Azure AD med Batch Management
           href: batch-aad-auth-management.md
-    - name: Skapa programpaket
+    - name: Använda programpaket
       href: batch-application-packages.md
     - name: Skapa och hantera pooler
       items:

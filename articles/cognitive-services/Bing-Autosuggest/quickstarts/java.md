@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: 64b6ed680ba0812322d5796debc5edada19bc926
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f41e81d948bfa482a016e3770a705344f9c26b0c
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60547412"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390438"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-java"></a>Snabbstart: Föreslå sökfrågor med REST API för automatiska förslag i Bing och Java
 
@@ -44,7 +44,7 @@ Använd den här snabbstarten ska börja göra anrop till API för automatiska f
     import com.google.gson.JsonParser;
     ```
 
-2. Skapa variabler för din prenumerationsnyckel, API-värden och sökväg, din [marknaden kod](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference#market-codes), och en sökfråga.
+2. Skapa variabler för din prenumerationsnyckel, API-värden och sökväg, din [marknaden kod](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes), och en sökfråga.
     
     ```java
     static String subscriptionKey = "enter key here";
@@ -207,4 +207,4 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 > [Skapa en enkelsidig webbapp](../tutorials/autosuggest.md)
 
 - [Vad är automatiska förslag i Bing?](../get-suggested-search-terms.md)
-- [Referens för API v7 för automatiska förslag i Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference)
+- [Referens för API v7 för automatiska förslag i Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)

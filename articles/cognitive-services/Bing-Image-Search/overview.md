@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 02/06/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: fa1e2e6ac6e85c431a759d8eb1c22923e86e40d4
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: c8213e7d725c7c06d40555176fff24be4cff7607
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "60917150"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388660"
 ---
 # <a name="what-is-the-bing-image-search-api"></a>Vad är API:et för bildsökning i Bing?
 
@@ -59,7 +59,7 @@ För att komma igång snabbt med din första API-begäran kan du lära dig att:
 
 * [Prissättning](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) för API:er för Bing-sökning. 
 
-* Referensavsnittet för [API:et för bildsökning i Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) innehåller information om API:ets slutpunkter, rubriker, API-svar och frågeparametrar.
+* Referensavsnittet för [API:et för bildsökning i Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference) innehåller information om API:ets slutpunkter, rubriker, API-svar och frågeparametrar.
 
 * I [användnings- och visningskraven för Bing](./useanddisplayrequirements.md) specificeras godtagbar användning för det innehåll och den information du får via API:erna för Bing-sökning.
 

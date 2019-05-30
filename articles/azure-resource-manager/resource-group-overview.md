@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/05/2019
+ms.date: 05/24/2019
 ms.author: tomfitz
-ms.openlocfilehash: 0ad1d12a4a2ca3a293546f2bac85210bb9152269
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b6d84a07de408cedb0e21181c70e5c1481ac62bc
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60589423"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66225906"
 ---
 # <a name="azure-resource-manager-overview"></a>Översikt över Azure Resource Manager
 
@@ -91,7 +91,7 @@ Om den resursgrupp regionen är inte tillgänglig för tillfället, kan du inte 
 
 Varje resursprovider tillhandahåller en uppsättning resurser och åtgärder för arbete med dessa resurser. Om du till exempel vill lagra nycklar och hemligheter arbetar du med resursprovidern **Microsoft.KeyVault**. Den här resursprovidern erbjuder en resurstyp som heter **vaults** (valv) för att skapa nyckelvalvet.
 
-Namnet på en resurstyp skrivs i formatet: **{resursprovidern}/{resurstypen}**. Resurstypen för ett nyckelvalv är **Microsoft.KeyVault\vaults**.
+Namnet på en resurstyp skrivs i formatet: **{resursprovidern}/{resurstypen}** . Resurstypen för ett nyckelvalv är **Microsoft.KeyVault\vaults**.
 
 Innan du börjar distribuera dina resurser bör du ha en bra uppfattning om vilka resursprovidrar som finns. Att känna till namnen på resursprovidrar och resurser gör det lättare för dig att definiera resurser som du vill distribuera till Azure. Du måste också känner till giltiga platser och API-versioner för varje resurstyp. Mer information finns i [Resursproviders och typer](resource-manager-supported-services.md).
 
@@ -174,7 +174,21 @@ När du har definierat mallen är du redo att distribuera resurser till Azure. I
 
 När du distribuerar en komplex tjänst till Azure kan du behöva distribuera tjänsten till flera regioner och kontrollera dess tillstånd innan du fortsätter till nästa steg. Samordna en stegvis distribution av tjänsten genom att använda [Azures distributionshanterare](deployment-manager-overview.md). Genom att mellanlagra distribution av tjänsten kan du upptäcka potentiella problem innan den har distribuerats till alla regioner. Om du inte behöver dessa försiktighetsåtgärder är distributionsåtgärderna i föregående avsnitt det bästa alternativet.
 
-Distributionshanteraren finns för närvarande i en privat förhandsversion.
+Distributionshanteraren finns för närvarande i en offentlig förhandsversion.
+
+## <a name="resiliency-of-azure-resource-manager"></a>Återhämtning av Azure Resource Manager
+
+Azure Resource Manager-tjänsten är utformat för återhämtning och kontinuerlig tillgänglighet. Resource Manager- och kontrollplansåtgärder (begäranden skickas till management.azure.com) i REST API är:
+
+* Distribuerat över regioner. En del tjänster är regionala.
+
+* Fördelad över Tillgänglighetszoner (som väl regioner) som har flera Tillgänglighetszoner.
+
+* Inte beroende av ett enda logiskt datacenter.
+
+* Aldrig tas offline för underhållsaktiviteter.
+
+Den här återhämtning gäller för tjänster som tar emot begäranden via Resource Manager. Key Vault hjälper till exempel från den här återhämtning.
 
 [!INCLUDE [arm-tutorials-quickstarts](../../includes/resource-manager-tutorials-quickstarts.md)]
 

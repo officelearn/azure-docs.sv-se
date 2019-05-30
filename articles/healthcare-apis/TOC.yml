@@ -23,6 +23,8 @@
       href: fhir-oss-cli-quickstart.md
     - name: Konfigurera CORS
       href: configure-cross-origin-resource-sharing.md
+    - name: Konfigurera Cosmos DB
+      href: configure-cosmos-db.md
 - name: Självstudier
   expanded: false
   items:

@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 01/10/2019
 ms.author: scottwhi
 ms.custom: seodec2018
-ms.openlocfilehash: a28445199c47c666fb2323a70317f81f3302c765
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e02f81ef6bdf8bf4dc39b70cb7a2d9330660d1d6
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60539170"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390301"
 ---
 # <a name="what-is-the-bing-news-search-api"></a>Vad är API för nyhetssökning i Bing?
 
@@ -54,6 +54,6 @@ Om du vill komma igång snabbt med en API-begäran kan du prova snabbstarten fö
 
 ## <a name="see-also"></a>Se också
 
-* [API för nyhetssökning i Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference)-referensavsnittet innehåller definitioner och information om slutpunkterna, rubrikerna, API-svaren och frågeparametrarna som du kan använda till att skicka begäran.
+* [API för nyhetssökning i Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference)-referensavsnittet innehåller definitioner och information om slutpunkterna, rubrikerna, API-svaren och frågeparametrarna som du kan använda till att skicka begäran.
 
 * I [användnings- och visningskraven för Bing](./useanddisplayrequirements.md) specificeras godtagbar användning för det innehåll och den information du får via API:erna för Bing-sökning.

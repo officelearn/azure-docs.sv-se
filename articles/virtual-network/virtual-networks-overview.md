@@ -14,16 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/12/2018
 ms.author: kumud
-ms.openlocfilehash: 44094a38fff17908fd5ea851209130f89a49c988
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 23093cd8bcb5793b9e5b9abc835f64233e666ce1
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64707024"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241749"
 ---
 # <a name="what-is-azure-virtual-network"></a>Vad är Azure Virtual Network?
 
-Azure Virtual Network gör att många typer av Azure-resurser, till exempel virtuella Azure-datorer (VM), kan kommunicera säkert med varandra, Internet och lokala nätverk. Ett virtuellt nätverk är begränsat till en enda region. Dock kan flera virtuella nätverk från olika regioner anslutas till varandra med hjälp av peering för virtuella nätverk.
+Azure Virtual Network gör att många typer av Azure-resurser, till exempel virtuella Azure-datorer (VM), kan kommunicera säkert med varandra, Internet och lokala nätverk. Ett virtuellt nätverk är begränsad till en enda Azure-region. En Azure [region](https://azure.microsoft.com/global-infrastructure/regions/) är en uppsättning Datacenter distribueras inom en latensdefinierad perimeter och ansluts via ett dedikerat regionalt nätverk med låg latens. 
+
+Virtuella nätverk består av undernät. Ett undernät är ett intervall med IP-adresser i det virtuella nätverket. Undernät för virtuellt nätverk är begränsade till en enda Azure-region. 
+
+Flera virtuella nätverk från olika regioner kan vara anslutna till varandra med Peering för virtuellt nätverk.
 
 Azure Virtual Network innehåller följande viktiga funktioner:
 

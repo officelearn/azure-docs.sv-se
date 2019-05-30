@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Spring
 ms.workload: tbd
 ms.date: 01/08/2019
 ms.author: yidon
-ms.openlocfilehash: 9137262ffc7c172e6a99920a7abb31459a8703fe
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: a91c61edd773b5742b092f5d72a5a22f1d90e63b
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408565"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393553"
 ---
 # <a name="quickstart-create-a-java-spring-app-with-app-configuration"></a>Snabbstart: Skapa en Java Spring-app med App Configuration
 
@@ -29,7 +29,7 @@ Du kan använda valfri Kodredigerare för att utföra stegen i den här snabbsta
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Om du vill göra den här snabbstarten, installera en stödd [Java Development Kit (JDK)](https://aka.ms/azure-jdks) med version 8 och [Apache Maven](https://maven.apache.org/) version 3.0 eller senare.
+Om du vill göra den här snabbstarten, installera en stödd [Java Development Kit (JDK)](https://docs.microsoft.com/java/azure/jdk) med version 8 och [Apache Maven](https://maven.apache.org/) version 3.0 eller senare.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -37,7 +37,7 @@ Om du vill göra den här snabbstarten, installera en stödd [Java Development K
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Välj **Configuration Explorer** > **+ skapa** att lägga till följande nyckel / värde-par:
+6. Välj **Configuration Explorer** >  **+ skapa** att lägga till följande nyckel / värde-par:
 
     | Nyckel | Värde |
     |---|---|

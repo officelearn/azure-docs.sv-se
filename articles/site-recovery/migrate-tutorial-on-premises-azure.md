@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: fc15db91b8f4cc6dbdecd0e7321abdbf81744f08
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: df4f89bd1b2e3c0423f5d758cfa637e4da9e04d0
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60193903"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66396529"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Migrera lokala datorer till Azure
 
@@ -118,7 +118,7 @@ Kör en redundansväxling för de datorer som du vill migrera.
 > [!WARNING]
 > **Avbryt inte en redundansväxling som pågår**: Innan redundans startas stoppas den virtuella datorreplikeringen. Om du avbryter en pågående redundans så stoppas redundansen, men den virtuella datorn kommer inte att replikeras igen.
 
-I vissa fall kräver redundans ytterligare bearbetning som tar cirka 8 till 10 minuter att slutföra. Du kanske märker att redundanstiden är längre för fysiska servrar, VMware Linux-datorer, virtuella VMware-datorer som inte har aktiverat DHCP-tjänsten och virtuella VMware-datorer som inte har följande startdrivrutiner: storvsc, vmbus, storflt, intelide, atapi.
+I vissa fall kräver redundans ytterligare bearbetning som tar cirka 8 till 10 minuter att slutföra. Du kanske märker längre redundanstiden för fysiska servrar, VMware Linux-datorer, virtuella VMware-datorer som inte har aktiverat DHCP-tjänsten och virtuella VMware-datorer som inte har följande startdrivrutiner: storvsc, vmbus, storflt, intelide, atapi.
 
 ## <a name="after-migration"></a>Efter migrering
 
@@ -159,7 +159,7 @@ Vissa steg kan automatiseras som en del av migreringsprocessen med den inbyggda 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen migrerade du lokala virtuella datorer till virtuella Azure-datorer. Nu
+I den här självstudiekursen migrerade du lokala virtuella datorer till virtuella Azure-datorer. nu
 
 > [!div class="nextstepaction"]
 > [Ställ in katastrofåterställning](azure-to-azure-replicate-after-migration.md) till en sekundär Azure-region för virtuella Azure-datorer.

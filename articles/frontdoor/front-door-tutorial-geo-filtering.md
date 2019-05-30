@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: c04a9dff55794a3e48146e8effc3627452b3db14
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: f2b5a2bc3248c9f2ee0eb49e993fd55c7714367a
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65950162"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389153"
 ---
 # <a name="how-to-set-up-a-geo-filtering-waf-policy-for-your-front-door"></a>Hur du ställer in en princip för geo-filtrering WAF för ytterdörren
 Den här självstudiekursen visar hur du använder Azure PowerShell till att skapa ett exempel på en princip för geofiltrering och associerar principen med din befintliga Front Door-klientdelsvärd. Det här exemplet geo-filtrering principen blockerar begäranden från alla andra länder/regioner utom USA.
@@ -110,6 +110,5 @@ Set-AzFrontDoor -InputObject $geoFrontDoorObjectExample[0]
 > Du behöver bara ange WebApplicationFirewallPolicyLink egenskap en gång för att länka en WAF-princip till en ytterdörren frontend-värd. Efterföljande uppdateringar tillämpas automatiskt på frontend-värden.
 
 ## <a name="next-steps"></a>Nästa steg
-
-- Lär dig mer om [säkerhet på programnivå med Front Door](front-door-application-security.md).
+- Lär dig mer om [Azure waf](waf-overview.md).
 - Läs hur du [skapar en Front Door](quickstart-create-front-door.md).

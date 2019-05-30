@@ -1,5 +1,5 @@
 ---
-title: Utveckla med .NET Core på AKS med Azure Dev blanksteg och Visual Studio 2017
+title: Utveckla med .NET Core på AKS med Azure Dev blanksteg och Visual Studio
 titleSuffix: Azure Dev Spaces
 author: zr-msft
 services: azure-dev-spaces
@@ -13,30 +13,29 @@ keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, 
 manager: jeconnoc
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.openlocfilehash: 7a85afd3c0a00260112ef2a945b0f5c5a538194e
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 110962c03f0236ebb26c9ed586981b51f36c635f
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65765309"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399228"
 ---
-# <a name="quickstart-develop-with-net-core-on-kubernetes-with-azure-dev-spaces-visual-studio-2017"></a>Snabbstart: Utveckla med .NET Core på Kubernetes med Azure Dev blanksteg (Visual Studio 2017)
+# <a name="quickstart-develop-with-net-core-on-kubernetes-with-azure-dev-spaces-visual-studio"></a>Snabbstart: Utveckla med .NET Core på Kubernetes med Azure Dev blanksteg (Visual Studio)
 
 I den här guiden får du lära dig hur du:
 
 - Ställa in Azure Dev Spaces med ett hanterat Kubernetes-kluster i Azure.
-- Utveckla iterativt koden i behållare med hjälp av Visual Studio 2017.
-- Felsöka kod som körs i klustret med hjälp av Visual Studio 2017.
+- Iterativt utvecklar kod i containrar med Visual Studio.
+- Felsöka kod som körs i klustret med hjälp av Visual Studio.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - En Azure-prenumeration. Om du inte har någon, kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free).
-- Visual Studio 2017 för Windows med arbetsbelastningen webbutveckling installerad. Om du inte har installerat den kan du hämta den [här](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
-- [Visual Studio Tools för Kubernetes](https://aka.ms/get-vsk8stools) installerad.
+- Visual Studio-2019 på Windows med arbetsbelastningen Azure Development installerad. Du kan också använda Visual Studio 2017 på Windows med arbetsbelastningen webbutveckling och [Visual Studio Tools for Kubernetes](https://aka.ms/get-vsk8stools) installerad. Om du inte har Visual Studio installerat kan du hämta det [här](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 
 ## <a name="create-an-azure-kubernetes-service-cluster"></a>Skapa ett Azure Kubernetes Service-kluster
 
-Du måste skapa ett AKS-kluster i en [region som stöds](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams). Skapa ett kluster:
+Du måste skapa ett AKS-kluster i en [region som stöds][supported-regions]. Skapa ett kluster:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com)
 1. Välj *+ skapa en resurs > Kubernetes Service*. 
@@ -55,7 +54,7 @@ Navigera till ditt AKS-kluster i Azure-portalen och klicka på *Dev blanksteg*. 
 
 ## <a name="create-a-new-aspnet-web-app"></a>Skapa en ny ASP.NET-webbapp
 
-1. Öppna Visual Studio 2017.
+1. Öppna Visual Studio.
 1. Skapa ett nytt projekt.
 1. Välj *ASP.NET Core-Webbapp* och namnge projektet *webfrontend*.
 1. Klicka på *OK*.
@@ -101,7 +100,7 @@ Den här processen kan ha inaktiverat offentlig åtkomst till din tjänst. Om du
 
 ## <a name="update-code"></a>Uppdatera kod
 
-Om Visual Studio 2017 fortfarande är ansluten till ditt dev adressutrymme klickar du på stopp-knappen. Ändra rad 20 i `Controllers/HomeController.cs` till:
+Om Visual Studio fortfarande är ansluten till ditt dev adressutrymme klickar du på stopp-knappen. Ändra rad 20 i `Controllers/HomeController.cs` till:
     
 ```csharp
 ViewData["Message"] = "Your application description page in Azure.";
@@ -113,9 +112,9 @@ Kompilerar koden i befintliga behållaren att tillhandahålla en snabbare redige
 
 ## <a name="setting-and-using-breakpoints-for-debugging"></a>Ställa in och använda brytpunkter för felsökning
 
-Om Visual Studio 2017 fortfarande är ansluten till ditt dev adressutrymme klickar du på stopp-knappen. Öppna `Controllers/HomeController.cs` och klicka någonstans på rad 20 att placera markören där. Ange en brytpunkt når *F9* eller klicka på *felsöka* sedan */Radera brytpunkt*. Om du vill starta tjänsten i felsökningsläge i dev-utrymme når *F5* eller klicka på *felsöka* sedan *Starta felsökning*.
+Om Visual Studio fortfarande är ansluten till ditt dev adressutrymme klickar du på stopp-knappen. Öppna `Controllers/HomeController.cs` och klicka någonstans på rad 20 att placera markören där. Ange en brytpunkt når *F9* eller klicka på *felsöka* sedan */Radera brytpunkt*. Om du vill starta tjänsten i felsökningsläge i dev-utrymme når *F5* eller klicka på *felsöka* sedan *Starta felsökning*.
 
-Öppna din tjänst i en webbläsare och Observera visas inget meddelande. Gå tillbaka till Visual Studio 2017 och notera rad 20 markeras. Brytpunkt som du angett har pausats tjänsten på rad 20. Om du vill återuppta tjänsten når *F5* eller klicka på *felsöka* sedan *Fortsätt*. Gå tillbaka till webbläsaren och Observera meddelandet visas nu.
+Öppna din tjänst i en webbläsare och Observera visas inget meddelande. Gå tillbaka till Visual Studio och notera rad 20 markeras. Brytpunkt som du angett har pausats tjänsten på rad 20. Om du vill återuppta tjänsten når *F5* eller klicka på *felsöka* sedan *Fortsätt*. Gå tillbaka till webbläsaren och Observera meddelandet visas nu.
 
 När du kör din tjänst i Kubernetes ett internt, har du fullständig åtkomst till felsökningsinformation som anropsstacken, lokala variabler och undantagsinformation.
 
@@ -135,3 +134,4 @@ az group delete --name MyResourceGroup --yes --no-wait
 > [Arbeta med flera containrar och utveckling i team](multi-service-netcore-visualstudio.md)
 
 [ingress-update]: how-dev-spaces-works.md#how-running-your-code-is-configured
+[supported-regions]: about.md#supported-regions-and-configurations

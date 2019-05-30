@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: overview
 ms.date: 03/26/2019
-ms.openlocfilehash: 0b3343a9635fe4120f03e56c41797591d2f25815
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: e972dfdd7694a1a43302fa5879ea22f2ecd051ad
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65793686"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298862"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>Vad är Apache Hadoop-komponenter och versioner som är tillgängliga med HDInsight?
 
@@ -50,7 +50,7 @@ Komponent-versioner som är associerade med HDInsight-klusterversioner som lista
 | Apache Phoenix |5 |4.7.0 |4.7.0 |4.4.0 |4.4.0 |4.2.0 |4.0.0.2.1.7.0-2162 |-|
 | Apache Spark |2.3.2 |2.3.0, 2.2.0, 2.1.0 |1.6.2, 2.0 |1.6.0 |1.5.2 |1.3.1 (endast Windows) |-|-|
 | Apache Livy |0,5 |0.4 |0.3 |0.3 |0.2 |-|-|-|
-| Apache Kafka | 1.1.1 |1.1.1.0 * (Se kommentaren nedan) | 0.10.0 | 0.9.0 |-|-|-|-|
+| Apache Kafka | 1.1.1 |1.1, 1.0 * (Se kommentaren nedan) | 0.10.0 | 0.9.0 |-|-|-|-|
 | Apache Ambari | 2.7.0 |2.6.0 | 2.4.0 | 2.2.1 | 2.1.0 |-|-|-|
 | Apache Zeppelin | 0.8.0 |0.7.0 |-|-|-|-|-|-|
 | Mono |4.2.1 |4.2.1 |4.2.1 |3.2.8 |-|-|-|
@@ -149,7 +149,7 @@ Enterprise Security Package-stöder med hjälp av Azure Data Lake Storage som b�
 
 Information om priser och SLA för Enterprise Security Package finns i [HDInsight priser](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-## <a name="hdinsight-windows-retirement"></a>Dra tillbaka HDInsight Windows
+## <a name="hdinsight-windows-retirement"></a>Dras tillbaka HDInsight Windows
 
 Microsoft Azure HDInsight version 3.3 har den senaste versionen av HDInsight på Windows. Slutdatum för HDInsight på Windows är den 31 juli 2018. Om du har alla HDInsight-kluster på Windows 3.3 eller tidigare, måste du migrera till HDInsight i Linux (HDInsight version 3.5 eller senare) före den 31 juli 2018. Migrera till Linux-operativsystem kan du behålla möjligheten att skapa eller ändra storlek på dina HDInsight-kluster. Stöd för HDInsight version 3.3 på Windows upphörde den 27 juni 2016.
 

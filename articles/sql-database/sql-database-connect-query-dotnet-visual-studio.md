@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 3959eb789102cd3d54fc7bab32e585b3c09d897b
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 7870322746d8cb647547e5c85036579611ac3292
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792142"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66303307"
 ---
 # <a name="quickstart-use-net-and-c-in-visual-studio-to-connect-to-and-query-an-azure-sql-database"></a>Snabbstart: Använda .NET och C# i Visual Studio för att ansluta till och köra frågor mot en Azure SQL-databas
 
@@ -41,9 +41,9 @@ Följande krävs för att slutföra den här snabbstarten:
   |||
 
   > [!IMPORTANT]
-  > Skripten i den här artikeln skrivs för att använda Adventure Works-databasen. Med en hanterad instans måste du antingen importera Adventure Works-databasen till en instansdatabas eller ändra skripten i den här artikeln om du vill använda Wide World Importers-databasen.
+  > Skripten i den här artikeln skrivs för att använda Adventure Works-databasen. Med en hanterad instans måste du antingen importera Adventure Works-databasen till en instansdatabas, eller ändra skripten i den här artikeln om du vill använda Wide World Importers-databasen.
 
-- [Visual Studio 2017](https://www.visualstudio.com/downloads/) Community, Professional- eller Enterprise-utgåvan.
+- [Visual Studio-2019](https://www.visualstudio.com/downloads/) Community, Professional eller Enterprise edition.
 
 ## <a name="get-sql-server-connection-information"></a>Hämta anslutningsinformation för en SQL-server
 
@@ -59,7 +59,7 @@ Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL-da
 
 1. Välj **Arkiv** > **Nytt** > **Projekt** i Visual Studio. 
    
-1. Välj **Visual C#** i dialogrutan **Nytt projekt** och välj sedan **Konsolprogram (.NET Framework)**.
+1. Välj **Visual C#** i dialogrutan **Nytt projekt** och välj sedan **Konsolprogram (.NET Framework)** .
    
 1. Ange *sqltest* som projektnamn och välj sedan **OK**. Det nya projektet skapas. 
    
@@ -73,7 +73,7 @@ Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL-da
    
 1. När installationen har slutförts kan du stänga **NuGet-pakethanteraren**. 
    
-1. Ersätt innehållet i **Program.cs** med följande kod i kodredigeraren. Ersätt värdena för `<server>`, `<username>`, `<password>` och `<database>`.
+1. Ersätt innehållet i **Program.cs** med följande kod i kodredigeraren. Ersätt värdena för `<server>`, `<username>`, `<password>`, och `<database>`.
    
    >[!IMPORTANT]
    >Koden i det här exemplet använder AdventureWorksLT-exempeldata, som du kan välja som källa när du skapar din databas. Om din databas har andra data använder du tabeller från din egen databas i SELECT-frågan. 

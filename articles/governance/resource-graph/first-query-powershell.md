@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 17003864c7bcc5f8be6acf17d40ce2039f031313
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: dfe4f226302b6bb6a010d9d4348fde05b2d31193
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65823251"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66356945"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-powershell"></a>Snabbstart: Köra din första Resource Graph-fråga med hjälp av Azure PowerShell
 
@@ -90,6 +90,10 @@ Nu när Azure PowerShell-modulen har lagts till i din valda miljö är det dags 
 
 När den sista frågan har körts flera gånger, och förutsatt att ingenting i din miljö ändras, kommer resultaten som returneras bli konsekventa och som förväntade – sorterade efter **Namn**-egenskapen men fortfarande begränsade till de fem främsta resultaten.
 
+> [!NOTE]
+> Om frågan inte returnerar resultat från en prenumeration du redan har åtkomst till, Observera att `Search-AzGraph` cmdlet standard till prenumerationer i standardkontexten. För att se en lista över prenumeration-ID: n som är en del av standardkontexten som kör det här `(Get-AzContext).Account.ExtendedProperties.Subscriptions` om du vill söka i alla prenumerationer som du har åtkomst till kan ange en PSDefaultParameterValues för `Search-AzGraph' cmdlet by running 
+> `$PSDefaultParameterValues = @{” Sök-AzGraph:Subscription ”= $(Get-AzSubscription) .ID}'
+   
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 Om du vill ta bort Resource Graph-modulen från din Azure PowerShell-miljö, kan du göra det med hjälp av följande kommando:

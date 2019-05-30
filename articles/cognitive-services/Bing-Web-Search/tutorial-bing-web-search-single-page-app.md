@@ -10,12 +10,12 @@ ms.subservice: bing-web-search
 ms.topic: tutorial
 ms.date: 05/15/2019
 ms.author: aahi
-ms.openlocfilehash: 668c380f38f410083ffe7d2cd6690be447f614dc
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 1203947efadf4fed328655c9cfb839f666a80b0c
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65798325"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390053"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>Självstudier: Skapa en enkelsidig app med hjälp av API:et för webbsökning i Bing
 
@@ -80,7 +80,7 @@ Den här självstudien fokuserar på `scripts.js` och den logik som krävs för 
 
 ## <a name="query-options"></a>Frågealternativ
 
-HTML-formuläret innehåller alternativ som mappar till frågeparametrar i [API för webbsökning i Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#query-parameters). Den här tabellen innehåller en detaljerad analys av hur användarna kan filtrera sökresultat med hjälp av exempelappen:
+HTML-formuläret innehåller alternativ som mappar till frågeparametrar i [API för webbsökning i Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query-parameters). Den här tabellen innehåller en detaljerad analys av hur användarna kan filtrera sökresultat med hjälp av exempelappen:
 
 | Parameter | Beskrivning |
 |-----------|-------------|
@@ -93,7 +93,7 @@ HTML-formuläret innehåller alternativ som mappar till frågeparametrar i [API 
 | `offset` | Dolt fält. Förskjutningen av det första sökresultatet i begäran, vilket används för växling. Den återställs till `0` för varje ny begäran. |
 
 > [!NOTE]
-> API för webbsökning i Bing erbjuder ytterligare frågeparametrar för att begränsa sökresultaten. I det här exemplet används bara några få. En fullständig lista över tillgängliga parametrar finns i [referensen API för webbsökning i Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#query-parameters).
+> API för webbsökning i Bing erbjuder ytterligare frågeparametrar för att begränsa sökresultaten. I det här exemplet används bara några få. En fullständig lista över tillgängliga parametrar finns i [referensen API för webbsökning i Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query-parameters).
 
 Funktionen `bingSearchOptions()` konverterar dessa alternativ för att matcha det format som krävs av API för sökning i Bing.
 

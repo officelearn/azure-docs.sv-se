@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 04/10/2019
 ms.author: spelluru
-ms.openlocfilehash: 076e3b41a50681e453c1a07575ac6cb7071d97d2
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: e34599b12b8b0c487c6813038951b051d1eaf425
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65992024"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66400250"
 ---
 # <a name="quickstart-use-the-azure-cli-to-create-a-service-bus-queue"></a>Snabbstart: Använda Azure CLI för att skapa en Service Bus-kö
 Den här snabbstarten beskriver hur du skickar och tar emot meddelanden med Service Bus med hjälp av Azure CLI och Service Bus Java-biblioteket. Slutligen, om du är intresserad av mer teknisk information, kan du [läsa en förklaring](#understand-the-sample-code) av de viktigaste beståndsdelarna i exempelkoden.
@@ -22,11 +22,11 @@ Den här snabbstarten beskriver hur du skickar och tar emot meddelanden med Serv
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto][] innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa en [kostnadsfritt konto] [ free account] innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="sign-in-to-azure"></a>Logga in till Azure
+## <a name="sign-in-to-azure"></a>Logga in på Azure
 Om du använder den **prova** knappen för att starta Cloud Shell, logga in på Azure med dina autentiseringsuppgifter. 
 
 Om du startade Cloud Shell i din webbläsare antingen direkt eller i Azure-portalen, växla till **Bash** om du ser **PowerShell** i det övre vänstra hörnet av Cloud Shell. 
@@ -377,7 +377,7 @@ I den här artikeln skapade du ett Service Bus-namnområde och andra resurser so
 > [!div class="nextstepaction"]
 > [Skicka och ta emot meddelanden](service-bus-dotnet-get-started-with-queues.md)
 
-[kostnadsfritt konto]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
 [Install the Azure CLI]: /cli/azure/install-azure-cli
 [az group create]: /cli/azure/group#az_group_create

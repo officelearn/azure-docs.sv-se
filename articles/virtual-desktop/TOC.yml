@@ -48,6 +48,8 @@
       href: delegated-access-virtual-desktop.md
     - name: Belastningsutjämningsmetoder för värdpool
       href: host-pool-load-balancing.md
+    - name: FSLogix-profilcontainrar och Azure-filer
+      href: fslogix-containers-azure-files.md
 - name: Felsöka
   items:
     - name: 'Översikt, feedback och support för felsökning'

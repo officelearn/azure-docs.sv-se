@@ -49,9 +49,9 @@
 - name: Referens
   items:
     - name: Stavningskontrolls-API i Bing v7
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference'
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference'
     - name: Stavningskontrolls-API i Bing v5 (gammal version)
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference'
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v5-reference'
     - name: 'SDK:er'
       items:
         - name: .NET

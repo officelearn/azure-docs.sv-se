@@ -423,7 +423,7 @@
       items:
         - name: Arkitektur för virtuellt HDInsight-nätverk
           href: ../hdinsight-virtual-network-architecture.md
-        - name: HDInsight – begränsa utgående trafik
+        - name: Använda brandväggen för att begränsa utgående trafik
           href: ../hdinsight-restrict-outbound-traffic.md
         - name: HDInsight i ett virtuellt Azure-nätverk
           href: ../hdinsight-extend-hadoop-virtual-network.md

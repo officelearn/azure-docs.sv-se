@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 02/20/2019
 ms.author: scottwhi
-ms.openlocfilehash: 597ef48fd7499a9d33b214b182d6dd1354756cdf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: abcce52e126e01d25434a90260a220c9aa337f5b
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60318656"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66382702"
 ---
 # <a name="sending-requests-to-the-bing-autosuggest-api"></a>Skicka förfrågningar till automatiska förslag i Bing.
 
@@ -33,7 +33,7 @@ För att få föreslagna frågor med hjälp av Bing-API kan skicka en `GET` beg�
 GET https://api.cognitive.microsoft.com/bing/v7.0/Suggestions 
 ```
 
-Mer information om huvuden, parametrar, marknaden koder, svarsobjekt, fel, o.s.v., se den [automatiska förslag i Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference) referens.
+Mer information om huvuden, parametrar, marknaden koder, svarsobjekt, fel, o.s.v., se den [automatiska förslag i Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference) referens.
 
 Den **Bing** API: er stöder sökåtgärder som returnerar resultat enligt typ. Alla Sök slutpunkter returnerar resultat som JSON-svar-objekt.
 Alla slutpunkter stöd för frågor som returnerar ett visst språk och/eller plats genom att longitud, latitud och Sök radius.
@@ -168,5 +168,5 @@ BingAPIs-Market: en-US
 ## <a name="next-steps"></a>Nästa steg
 
 - [Vad är automatiska förslag i Bing?](../get-suggested-search-terms.md)
-- [Referens för API v7 för automatiska förslag i Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference)
+- [Referens för API v7 för automatiska förslag i Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)
 - [Hämta föreslagna söktermer från automatiska förslag i Bing](get-suggestions.md)

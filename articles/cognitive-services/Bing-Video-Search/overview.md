@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: overview
 ms.date: 01/31/2019
 ms.author: scottwhi
-ms.openlocfilehash: f56893f830720c57c66eb4c17bb2771efbb73f6f
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 2f6be01a3aee4e156b7af184fa2537455fc73f3f
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "62124653"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66386521"
 ---
 # <a name="what-is-the-bing-video-search-api"></a>Vad är API:et för videosökning i Bing?
 
@@ -50,6 +50,6 @@ Använd [snabbstarten](csharp.md) för att snabbt komma igång med din första A
 
 ## <a name="see-also"></a>Se också
 
-* Referenssidan för [API för videosökning i Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference) innehåller listan över slutpunkter, rubriker och frågeparametrar som används för att begära sökresultat.
+* Referenssidan för [API för videosökning i Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference) innehåller listan över slutpunkter, rubriker och frågeparametrar som används för att begära sökresultat.
 
 * I [användnings- och visningskraven för Bing](./useanddisplayrequirements.md) specificeras godtagbar användning för det innehåll och den information du får via API:erna för Bing-sökning.

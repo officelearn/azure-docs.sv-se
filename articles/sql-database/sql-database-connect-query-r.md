@@ -12,13 +12,13 @@ author: garyericson
 ms.author: garye
 ms.reviewer: davidph, carlrab
 manager: cgronlun
-ms.date: 04/11/2019
-ms.openlocfilehash: 2b1206e3087b0573736174d4eed502653d76f7a5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/29/2019
+ms.openlocfilehash: 796e9c17a457bfb1a79b600b178d2c733e10f91e
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61408970"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66382412"
 ---
 # <a name="quickstart-use-r-to-query-an-azure-sql-database-preview"></a>Snabbstart: Använda R för att fråga en Azure SQL-databas (förhandsversion)
 
@@ -32,14 +32,35 @@ Kontrollera att du har följande så att du kan genomföra den här snabbstarten
 
 - En Azure SQL-databas. Du kan använda någon av dessa snabbstarter för att skapa och därefter konfigurera en databas i Azure SQL Database:
 
-  || Enskild databas | Hanterad instans |
+<!-- Managed instance is not supported during the preview
+  || Single database | Managed instance |
   |:--- |:--- |:---|
-  | Skapa| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
+  | Create| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
   || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
   || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
-  | Konfigurera | [IP-brandväggsregel på servernivå](sql-database-server-level-firewall-rule.md)| [Anslutning från en virtuell dator](sql-database-managed-instance-configure-vm.md)|
-  |||[Anslutning från en lokal plats](sql-database-managed-instance-configure-p2s.md)
+  | Configure | [Server-level IP firewall rule](sql-database-server-level-firewall-rule.md) | [Connectivity from a VM](sql-database-managed-instance-configure-vm.md) |
+  ||| [Connectivity from on-site](sql-database-managed-instance-configure-p2s.md) |
+  | Load data | Adventure Works loaded per quickstart | [Restore Wide World Importers](sql-database-managed-instance-get-started-restore.md) |
+  ||| Restore or import Adventure Works from [BACPAC](sql-database-import.md) file from [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works) |
   |||
+-->
+
+  || Enskild databas |
+  |:--- |:--- |
+  | Skapa| [Portal](sql-database-single-database-get-started.md) |
+  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) |
+  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) |
+  | Konfigurera | [IP-brandväggsregel på servernivå](sql-database-server-level-firewall-rule.md) |
+  | Läsa in data | AdventureWorks som lästs in per snabbstart |
+  |||
+
+  > [!NOTE]
+  > Distributionsalternativ för hanterad instans stöds inte i förhandsversionen av Azure SQL Database Machine Learning Services med R.
+
+<!-- Managed instance is not supported during the preview
+  > [!IMPORTANT]
+  > The scripts in this article are written to use the Adventure Works database. With a managed instance, you must either import the Adventure Works database into an instance database or modify the scripts in this article to use the Wide World Importers database.
+-->
 
 - Machine Learning-tjänster (med R) aktiverat. Under den offentliga förhandsversionen introducerar Microsoft dig och aktiverar maskininlärning för din befintliga eller nya databas. Följ stegen i [Registrera dig för förhandsversionen](sql-database-machine-learning-services-overview.md#signup).
 

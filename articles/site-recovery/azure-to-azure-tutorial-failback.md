@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/18/2019
+ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 339cbf18d79053dfb0704d928b8c9251c73b3a6e
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: a3b67e9b0dc41eeb14000400912892fbf29acfe2
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65951783"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399486"
 ---
 # <a name="fail-back-an-azure-vm-between-azure-regions"></a>Återställa en Azure virtuell dator mellan Azure-regioner
 
@@ -50,7 +50,7 @@ När virtuella datorerna åter skyddats kan växla du tillbaka till den primära
 5. När redundanstestet har slutförts väljer **Rensa redundanstestning** att rensa upp resurserna som du skapade i källregionen för redundanstestning.
 6. I **replikerade objekt**, Välj den virtuella datorn och välj sedan **redundans**.
 7. I **redundans**, Välj en återställningspunkt för att växla över till:
-    - **Senaste (standard)**: Bearbetar alla data i Site Recovery-tjänsten och ger lägsta mål för återställningspunkt (RPO).
+    - **Senaste (standard)** : Bearbetar alla data i Site Recovery-tjänsten och ger lägsta mål för återställningspunkt (RPO).
     - **Senaste bearbetade**: Återställer den virtuella datorn till den senaste återställningspunkten som bearbetats av Site Recovery.
     - **Anpassat**: Flyttas över till en specifik återställningspunkt. Det här alternativet är användbart för att utföra test av redundansväxling.
 

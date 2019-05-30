@@ -6,15 +6,15 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
-ms.date: 04/04/2019
+ms.date: 05/25/2019
 ms.author: babanisa
 ms.custom: seodec18
-ms.openlocfilehash: 8ceb3d2d97c63bd19333336314beb6c7444288e9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bfc8b62c61e2b9d01ffa0c582468b6236c92cccc
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60823647"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257926"
 ---
 # <a name="what-is-azure-event-grid"></a>Vad är Azure Event Grid?
 
@@ -22,7 +22,7 @@ Med Azure Event Grid kan du enkelt skapa program med händelsebaserade arkitektu
 
 Du kan använda filter för att dirigera specifika händelser till olika slutpunkter, använda multicast till flera slutpunkter och kontrollera att din händelser levereras på ett tillförlitligt sätt.
 
-Azure Event Grid är för närvarande tillgängligt i alla offentliga regioner. Det är inte ännu tillgängliga i Azure Germany, Azure Kina 21Vianet eller Azure Government-moln.
+Azure Event Grid distribueras för att maximera tillgängligheten genom att sprida internt via flera feldomäner i varje region och mellan tillgänglighetszoner (i regioner som stöder dem). Azure Event Grid är för närvarande tillgängligt i alla offentliga regioner. Det är inte ännu tillgängliga i Azure Germany, Azure Kina 21Vianet eller Azure Government-moln.
 
 Den här artikeln innehåller en översikt för Azure Event Grid. Om du vill komma igång med Event Grid kan du läsa [Skapa och dirigera anpassade händelser med Azure Event Grid](custom-event-quickstart.md). 
 

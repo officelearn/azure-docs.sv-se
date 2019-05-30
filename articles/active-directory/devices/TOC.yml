@@ -22,6 +22,8 @@
   items:
     - name: Enkel inloggning till lokala resurser
       href: azuread-join-sso.md
+    - name: Hanterade Azure-arbetsstationer
+      href: concept-azure-managed-workstation.md
 - name: Instruktionsguider
   expanded: true
   items:
@@ -39,6 +41,8 @@
       href: assign-local-admin.md
     - name: Aktivera Enterprise State Roaming
       href: enterprise-state-roaming-enable.md
+    - name: Distribuera hanterade Azure-arbetsstationer
+      href: howto-azure-managed-workstation.md
     - name: Felsöka Azure AD-anslutningshybriden för aktuella Windows-enheter
       href: troubleshoot-hybrid-join-windows-current.md
     - name: Felsöka Azure AD-anslutningshybriden för äldre Windows-enheter

@@ -10,12 +10,12 @@ ms.subservice: bing-image-search
 ms.topic: quickstart
 ms.date: 02/06/2019
 ms.author: aahi
-ms.openlocfilehash: 23aca69c37e422076273a9b6b044333ad7ad46d9
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: a931ecb255d20199dca13b60aa70a54d9d0fc85f
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65778034"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66383718"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-c"></a>Snabbstart: Sök efter bilder med hjälp av REST API för bildsökning i Bing och C#
 
@@ -213,4 +213,4 @@ Svar från API för bildsökning i Bing returneras som JSON. Det här exempelsva
 * [Prissättning](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) av API:er för Bing-sökning. 
 * [Hämta en kostnadsfri åtkomstnyckel för Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
 * [Dokumentation om Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services)
-* [API-referens för bildsökning i Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+* [API-referens för bildsökning i Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

@@ -45,6 +45,8 @@
       href: security-center-onboarding.md
     - name: Serverskydd med Windows Defender ATP
       href: security-center-wdatp.md
+    - name: Avancerad datasäkerhet för IaaS
+      href: security-center-iaas-advanced-data.md
     - name: Skydda App Service
       href: security-center-app-services.md
     - name: Arbeta med säkerhetsprinciper
@@ -57,11 +59,11 @@
       href: security-center-powershell-onboarding.md
     - name: Security Center-inställningar
       href: security-center-policies-overview.md
+    - name: Jämföra baslinjer med hjälp av filintegritetsövervakning
+      href: security-center-file-integrity-monitoring-baselines.md
       items:
         - name: Datainsamling
           href: security-center-enable-data-collection.md
-        - name: Avancerad datasäkerhet för IaaS
-          href: security-center-iaas-advanced-data.md
         - name: Inbyggda säkerhetsprinciper
           href: security-center-policy-definitions.md
         - name: E-postmeddelanden

@@ -223,6 +223,14 @@
               href: virtual-machine-scale-sets-manage-cli.md
             - name: Använda Azure PowerShell
               href: virtual-machine-scale-sets-manage-powershell.md
+        - name: Ändra en skalningsuppsättning
+          href: virtual-machine-scale-sets-upgrade-scale-set.md
+        - name: Nätverk för skalningsuppsättningar
+          href: virtual-machine-scale-sets-networking.md
+        - name: Automatiska uppgraderingar av operativsystem
+          href: virtual-machine-scale-sets-automatic-upgrade.md
+        - name: Instansskydd (förhandsversion)
+          href: virtual-machine-scale-sets-instance-protection.md
         - name: Delade bildgallerier
           items:
             - name: Översikt
@@ -237,14 +245,8 @@
               href: troubleshooting-shared-images.md
         - name: Vertikal skalning i en skalningsuppsättning
           href: virtual-machine-scale-sets-vertical-scale-reprovision.md
-        - name: Automatiska uppgraderingar av operativsystem
-          href: virtual-machine-scale-sets-automatic-upgrade.md
-        - name: Ändra en skalningsuppsättning
-          href: virtual-machine-scale-sets-upgrade-scale-set.md
         - name: Använda DSC och skalningsuppsättningar
           href: virtual-machine-scale-sets-dsc.md
-        - name: Nätverk för skalningsuppsättningar
-          href: virtual-machine-scale-sets-networking.md
         - name: Konvertera en mall till hanterade diskar
           href: virtual-machine-scale-sets-convert-template-to-md.md
         - name: Planerat underhåll

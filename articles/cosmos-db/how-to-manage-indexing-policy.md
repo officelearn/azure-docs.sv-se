@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/23/2019
 ms.author: thweiss
-ms.openlocfilehash: 179b67306803437ccad085cccfb1b5fd40888261
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 05fd369cfebba03c814507f82755fa6cb6a89400
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66240867"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66386805"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Hantera principer för indexering i Azure Cosmos DB
 
@@ -167,7 +167,7 @@ Här följer några exempel på indexering principer som visas i deras JSON-form
 ### <a name="opt-out-policy-to-selectively-exclude-some-property-paths"></a>Slipp princip för att selektivt undanta vissa sökvägar för egenskapen
 ```
     {
-        "indexingPolicy": "consistent",
+        "indexingMode": "consistent",
         "includedPaths": [
             {
                 "path": "/*",
@@ -201,7 +201,7 @@ Här följer några exempel på indexering principer som visas i deras JSON-form
 ### <a name="opt-in-policy-to-selectively-include-some-property-paths"></a>Delta i principen för att selektivt ta med vissa egenskapen sökvägar
 ```
     {
-        "indexingPolicy": "consistent",
+        "indexingMode": "consistent",
         "includedPaths": [
             {
                 "path": "/path/to/included/property/?",
@@ -230,12 +230,12 @@ Här följer några exempel på indexering principer som visas i deras JSON-form
     }
 ```
 
-Anteckning: Allmänt rekommenderar vi att du använder en **avstår** indexeringspolicy så att Azure Cosmos DB proaktivt Indexera nya egenskaper som kan läggas till i din modell.
+Obs! Allmänt rekommenderar vi att du använder en **avstår** indexeringspolicy så att Azure Cosmos DB proaktivt Indexera nya egenskaper som kan läggas till i din modell.
 
 ### <a name="using-a-spatial-index-on-a-specific-property-path-only"></a>Med hjälp av en spatialindexet på en specifik egenskapssökväg
 ```
     {
-        "indexingPolicy": "consistent",
+        "indexingMode": "consistent",
         "includedPaths": [
             {
                 "path": "/*",
@@ -280,7 +280,7 @@ Den här principen kan användas i situationer där den [Time-to-Live (TTL) funk
 ### <a name="no-indexing"></a>Ingen indexering
 ```
     {
-        "indexingPolicy": "none"
+        "indexingMode": "none"
     }
 ```
 

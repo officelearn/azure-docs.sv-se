@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/02/2019
+ms.date: 05/29/2019
 ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: jackyhsu
 manager: femila
-ms.openlocfilehash: 0b5e39e9cf2fc3ffe91db6587bc1ed1bab079e93
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 80fabccb8a59bcd472812698f624d49dc26c24fa
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65777332"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399125"
 ---
 # <a name="tutorial-send-transactions-using-azure-blockchain-service"></a>Självstudier: Skicka transaktioner med Azure Blockchain-tjänsten
 
@@ -35,10 +35,8 @@ Du lär dig följande:
 
 * Fullständig [skapa medlem blockchain med Azure portal](create-member.md)
 * Fullständig [Snabbstart: Använd Truffle för att ansluta till ett konsortienätverk](connect-truffle.md)
-* Truffle kräver flera verktyg installeras inklusive [Node.js](https://nodejs.org), [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git), och [Truffle](https://github.com/trufflesuite/truffle).
-
-    Om du vill komma igång snabbt på Windows 10, installera [Ubuntu för Windows](https://www.microsoft.com/p/ubuntu/9nblggh4msv6) för en terminal Unix Bash shell installera [Truffle](https://github.com/trufflesuite/truffle). Ubuntu för Windows-distribution innehåller Node.js- och Git.
-
+* Installera [Truffle](https://github.com/trufflesuite/truffle). Truffle kräver flera verktyg installeras inklusive [Node.js](https://nodejs.org), [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
+* Installera [Python 2.7.15](https://www.python.org/downloads/release/python-2715/). Python krävs för Web3.
 * Installera [Visual Studio Code](https://code.visualstudio.com/Download)
 * Installera [Solidity för Visual Studio Code-tillägg](https://marketplace.visualstudio.com/items?itemName=JuanBlanco.solidity)
 
@@ -65,9 +63,9 @@ Som standard har en transaktion nod. Vi ska lägga till ytterligare två. En av 
 
 Du kan fortsätta med självstudiekursen medan noderna har etablerats. När etableringen är klar har du tre noder för transaktionen.
 
-## <a name="open-truffle-project"></a>Öppna Truffle projekt
+## <a name="open-truffle-console"></a>Öppna Truffle-konsolen
 
-1. Öppna en Bash shell-terminal.
+1. Öppna en kommandotolk för Node.js eller shell.
 1. Ändra sökvägen till projektkatalogen Truffle från nödvändiga [Snabbstart: Använd Truffle för att ansluta till ett konsortienätverk](connect-truffle.md). Exempel:
 
     ```bash
@@ -82,9 +80,9 @@ Du kan fortsätta med självstudiekursen medan noderna har etablerats. När etab
 
     Truffle skapar en lokal utveckling blockchain och en interaktiv konsol.
 
-## <a name="connect-to-transaction-node"></a>Ansluta till transaktionsnod
+## <a name="create-ethereum-account"></a>Skapa Ethereum-konto
 
-Använd Web3 för att ansluta till noden standard transaktion och skapa ett konto. Du kan hämta Web3 anslutningssträngen från Azure-portalen.
+Använd Web3 för att ansluta till noden standard transaktion och skapa ett Ethereum-konto. Du kan hämta Web3 anslutningssträngen från Azure-portalen.
 
 1. I Azure-portalen går du till noden standard transaktion och välj **transaktion noder > exempelkoden > Web3**.
 1. Kopiera JavaScript från **HTTPS (åtkomstnyckel 1)** ![Web3 exempelkod](./media/send-transaction/web3-code.png)
@@ -105,7 +103,7 @@ Använd Web3 för att ansluta till noden standard transaktion och skapa ett kont
     web3.eth.personal.newAccount("1@myStrongPassword");
     ```
 
-    Kontrollera anteckna den returnerade postadress och lösenord som du använde för nästa avsnitt.
+    Kontrollera anteckna den returnerade postadress och lösenord. Du behöver Ethereum-adressen för kontot och lösenordet i nästa avsnitt.
 
 1. Avsluta Truffle-utvecklingsmiljö.
 
@@ -138,101 +136,99 @@ Du kan hämta den offentliga nyckeln från transaktionslistan för noden. Kopier
 1. Öppna konfigurationsfilen Truffle `truffle-config.js`.
 1. Ersätt innehållet i filen med följande konfigurationsinformation. Lägg till variabler som innehåller slutpunkter adresser och kontoinformation. Ersätt vinkelparentes avsnitt med värden som du samlat in från föregående avsnitt.
 
-``` javascript
-var defaultnode = "<default transaction node connection string>";
-var alpha = "<alpha transaction node connection string>";
-var beta = "<beta transaction node connection string>";
-
-var myAccount = "<account address>";
-var myPassword = "<account password>";
-
-var Web3 = require("web3");
-```
-
-Lägg till av konfigurationskod i den **module.exports** avsnittet av konfigurationen.
-
-```javascript
-module.exports = {
-  networks: {
-    defaultnode: {
-      provider:(() =>  {
-      const AzureBlockchainProvider = new Web3.providers.HttpProvider(defaultnode);
-
-      const web3 = new Web3(AzureBlockchainProvider);
-      web3.eth.personal.unlockAccount(myAccount, myPassword);
-
-      return AzureBlockchainProvider;
-      })(),
-
-      network_id: "*",
-      gas: 0,
-      gasPrice: 0,
-      from: myAccount
-    },
-    alpha: {
-      provider: new Web3.providers.HttpProvider(alpha),
-      network_id: "*",
-      gas: 0,
-      gasPrice: 0
-    },
-    beta: {
-      provider: new Web3.providers.HttpProvider(beta),
-      network_id: "*",
-      gas: 0,
-      gasPrice: 0
+    ``` javascript
+    var defaultnode = "<default transaction node connection string>";
+    var alpha = "<alpha transaction node connection string>";
+    var beta = "<beta transaction node connection string>";
+    
+    var myAccount = "<Ethereum account address>";
+    var myPassword = "<Ethereum account password>";
+    
+    var Web3 = require("web3");
+    
+    module.exports = {
+      networks: {
+        defaultnode: {
+          provider:(() =>  {
+          const AzureBlockchainProvider = new Web3.providers.HttpProvider(defaultnode);
+    
+          const web3 = new Web3(AzureBlockchainProvider);
+          web3.eth.personal.unlockAccount(myAccount, myPassword);
+    
+          return AzureBlockchainProvider;
+          })(),
+    
+          network_id: "*",
+          gas: 0,
+          gasPrice: 0,
+          from: myAccount
+        },
+        alpha: {
+          provider: new Web3.providers.HttpProvider(alpha),
+          network_id: "*",
+          gas: 0,
+          gasPrice: 0
+        },
+        beta: {
+          provider: new Web3.providers.HttpProvider(beta),
+          network_id: "*",
+          gas: 0,
+          gasPrice: 0
+        }
+      }
     }
-  }
-}
-```
+    ```
+
+1. Spara ändringarna i `truffle-config.js`.
 
 ## <a name="create-smart-contract"></a>Skapa smarta kontrakt
 
-I mappen **kontrakt**, skapa en ny fil med namnet `SimpleStorage.sol`. Lägg till följande kod.
+1. I mappen **kontrakt**, skapa en ny fil med namnet `SimpleStorage.sol`. Lägg till följande kod.
 
-```solidity
-pragma solidity >=0.4.21 <0.6.0;
-
-contract SimpleStorage {
-    string public storedData;
-
-    constructor(string memory initVal) public {
-        storedData = initVal;
+    ```solidity
+    pragma solidity >=0.4.21 <0.6.0;
+    
+    contract SimpleStorage {
+        string public storedData;
+    
+        constructor(string memory initVal) public {
+            storedData = initVal;
+        }
+    
+        function set(string memory x) public {
+            storedData = x;
+        }
+    
+        function get() view public returns (string memory retVal) {
+            return storedData;
+        }
     }
+    ```
+    
+1. I mappen **migreringar**, skapa en ny fil med namnet `2_deploy_simplestorage.js`. Lägg till följande kod.
 
-    function set(string memory x) public {
-        storedData = x;
-    }
+    ```solidity
+    var SimpleStorage = artifacts.require("SimpleStorage.sol");
+    
+    module.exports = function(deployer) {
+    
+      // Pass 42 to the contract as the first constructor parameter
+      deployer.deploy(SimpleStorage, "42", {privateFor: ["<alpha node public key>"], from:"<Ethereum account address>"})  
+    };
+    ```
 
-    function get() view public returns (string memory retVal) {
-        return storedData;
-    }
-}
-```
+1. Ersätt värdena i hakparenteser.
 
-I mappen **migreringar**, skapa en ny fil med namnet `2_deploy_simplestorage.js`. Lägg till följande kod.
+    | Värde | Beskrivning
+    |-------|-------------
+    | \<Alpha noden offentlig nyckel\> | Offentlig nyckel för noden alpha
+    | \<Ethereum kontoadress\> | Ethereum kontoadress som skapats i transaktionen standardnoden
+    
+    I det här exemplet är det första värdet i den **storeData** värdet är inställt på 42.
 
-```solidity
-var SimpleStorage = artifacts.require("SimpleStorage.sol");
+    **privateFor** definierar noderna som kontraktet är tillgänglig. I det här exemplet standard transaktion nodens konto kan omvandla privata transaktionerna till den **alpha** noden. Du måste lägga till offentliga nycklar för alla privata transaktion deltagare. Om du inte anger **privateFor:** och **från:** , smarta kontrakt transaktioner är offentliga och kan ses av alla medlemmarna.
 
-module.exports = function(deployer) {
-
-  // Pass 42 to the contract as the first constructor parameter
-  deployer.deploy(SimpleStorage, "42", {privateFor: ["<alpha node public key>"], from:"<Account address>"})  
-};
-```
-
-Ersätt värdena i hakparenteser.
-
-| Value | Beskrivning
-|-------|-------------
-| \<Alpha noden offentlig nyckel\> | Offentlig nyckel för noden alpha
-| \<Kontoadress\> | Kontoadress som skapats i transaktionen standardnoden.
-
-I det här exemplet är det första värdet i den **storeData** värdet är inställt på 42.
-
-**privateFor** definierar noderna som kontraktet är tillgänglig. I det här exemplet standard transaktion nodens konto kan omvandla privata transaktionerna till den **alpha** noden. Du måste lägga till offentliga nycklar för alla privata transaktion deltagare. Om du inte anger **privateFor:** och **från:**, smarta kontrakt transaktioner är offentliga och kan ses av alla medlemmarna.
-
-Spara alla filer genom att välja **fil > Spara allt**.
+1. Spara alla filer genom att välja **fil > Spara allt**.
 
 ## <a name="deploy-smart-contract"></a>Distribuera smarta kontrakt
 
@@ -247,7 +243,7 @@ Truffle först kompilerar och distribuerar sedan den **SimpleStorage** smarta ko
 Exempel på utdata:
 
 ```
-pat@DESKTOP:/mnt/c/truffledemo$ truffle migrate --network defaultnode
+admin@desktop:/mnt/c/truffledemo$ truffle migrate --network defaultnode
 
 2_deploy_simplestorage.js
 =========================
@@ -279,190 +275,185 @@ Summary
 
 ## <a name="validate-contract-privacy"></a>Verifiera kontrakt sekretess
 
-På grund av kontrakt sekretess kontraktsvärden endast kan efterfrågas från noder som vi har deklarerat i **privateFor**. I det här exemplet frågar vi transaktion standardnoden eftersom kontot finns i noden. Anslut till transaktion standardnoden med Truffle-konsolen.
+På grund av kontrakt sekretess kontraktsvärden endast kan efterfrågas från noder som vi har deklarerat i **privateFor**. I det här exemplet frågar vi transaktion standardnoden eftersom kontot finns i noden. 
 
-```bash
-truffle console --network defaultnode
-```
+1. Anslut till transaktion standardnoden med Truffle-konsolen.
 
-Köra ett kommando som returnerar värdet för kontrakt-instans.
+    ```bash
+    truffle console --network defaultnode
+    ```
 
-```bash
-SimpleStorage.deployed().then(function(instance){return instance.get();})
-```
+1. Köra kod som returnerar värdet för kontrakt-instans i Truffle-konsolen.
 
-Om frågor transaktion standardnoden lyckas, returneras värdet 42.
+    ```bash
+    SimpleStorage.deployed().then(function(instance){return instance.get();})
+    ```
 
-Exempel på utdata:
+    Om frågor transaktion standardnoden lyckas, returneras värdet 42. Exempel:
 
-```
-pat@DESKTOP-J41EP5S:/mnt/c/truffledemo$ truffle console --network defaultnode
-truffle(defaultnode)> SimpleStorage.deployed().then(function(instance){return instance.get();})
-'42'
-```
+    ```
+    admin@desktop:/mnt/c/truffledemo$ truffle console --network defaultnode
+    truffle(defaultnode)> SimpleStorage.deployed().then(function(instance){return instance.get();})
+    '42'
+    ```
 
-Avsluta konsolen.
+1. Avsluta Truffle-konsolen.
 
-```bash
-.exit
-```
+    ```bash
+    .exit
+    ```
 
-Eftersom vi har deklarerat **alpha** nodens offentliga nyckeln i **privateFor**, vi kan fråga den **alpha** noden. Med hjälp av konsolen Truffle ansluta till den **alpha** noden.
+Eftersom vi har deklarerat **alpha** nodens offentliga nyckeln i **privateFor**, vi kan fråga den **alpha** noden.
 
-```bash
-truffle console --network alpha
-```
+1. Med hjälp av konsolen Truffle ansluta till den **alpha** noden.
 
-Köra ett kommando som returnerar värdet för kontrakt-instans.
+    ```bash
+    truffle console --network alpha
+    ```
 
-```bash
-SimpleStorage.deployed().then(function(instance){return instance.get();})
-```
+1. Köra kod som returnerar värdet för kontrakt-instans i Truffle-konsolen.
 
-Om frågar den **alpha** noden lyckas, returneras värdet 42.
+    ```bash
+    SimpleStorage.deployed().then(function(instance){return instance.get();})
+    ```
 
-Exempel på utdata:
+    Om frågar den **alpha** noden lyckas, returneras värdet 42. Exempel:
 
-```
-pat@DESKTOP-J41EP5S:/mnt/c/truffledemo$ truffle console --network alpha
-truffle(alpha)> SimpleStorage.deployed().then(function(instance){return instance.get();})
-'42'
-```
+    ```
+    admin@desktop:/mnt/c/truffledemo$ truffle console --network alpha
+    truffle(alpha)> SimpleStorage.deployed().then(function(instance){return instance.get();})
+    '42'
+    ```
 
-Avsluta konsolen.
+1. Avsluta Truffle-konsolen.
 
-```bash
-.exit
-```
+    ```bash
+    .exit
+    ```
 
-Eftersom vi inte har deklarera **beta** nodens offentliga nyckeln i **privateFor**, vi kommer inte att fråga den **beta** noden på grund av kontrakt sekretess. Med hjälp av konsolen Truffle ansluta till den **beta** noden.
+Eftersom vi inte har deklarera **beta** nodens offentliga nyckeln i **privateFor**, vi kommer inte att fråga den **beta** noden på grund av kontrakt sekretess.
 
-```bash
-truffle console --network beta
-```
+1. Med hjälp av konsolen Truffle ansluta till den **beta** noden.
 
-Köra ett kommando som returnerar värdet för kontrakt-instans.
+    ```bash
+    truffle console --network beta
+    ```
 
-```bash
-SimpleStorage.deployed().then(function(instance){return instance.get();})
-```
+1. Köra en kod som returnerar värdet för kontrakt-instans.
 
-Fråga den **beta** nod misslyckas eftersom kontraktet är privat.
+    ```bash
+    SimpleStorage.deployed().then(function(instance){return instance.get();})
+    ```
 
-Exempel på utdata:
+1. Fråga den **beta** nod misslyckas eftersom kontraktet är privat. Exempel:
 
-```
-pat@DESKTOP-J41EP5S:/mnt/c/truffledemo$ truffle console --network beta
-truffle(beta)> SimpleStorage.deployed().then(function(instance){return instance.get();})
-Thrown:
-Error: Returned values aren't valid, did it run Out of Gas?
-    at XMLHttpRequest._onHttpResponseEnd (/mnt/c/truffledemo/node_modules/xhr2-cookies/xml-http-request.ts:345:8)
-    at XMLHttpRequest._setReadyState (/mnt/c/truffledemo/node_modules/xhr2-cookies/xml-http-request.ts:219:8)
-    at XMLHttpRequestEventTarget.dispatchEvent (/mnt/c/truffledemo/node_modules/xhr2-cookies/xml-http-request-event-target.ts:44:13)
-    at XMLHttpRequest.request.onreadystatechange (/mnt/c/truffledemo/node_modules/web3-providers-http/src/index.js:96:13)
-```
+    ```
+    admin@desktop:/mnt/c/truffledemo$ truffle console --network beta
+    truffle(beta)> SimpleStorage.deployed().then(function(instance){return instance.get();})
+    Thrown:
+    Error: Returned values aren't valid, did it run Out of Gas?
+        at XMLHttpRequest._onHttpResponseEnd (/mnt/c/truffledemo/node_modules/xhr2-cookies/xml-http-request.ts:345:8)
+        at XMLHttpRequest._setReadyState (/mnt/c/truffledemo/node_modules/xhr2-cookies/xml-http-request.ts:219:8)
+        at XMLHttpRequestEventTarget.dispatchEvent (/mnt/c/truffledemo/node_modules/xhr2-cookies/xml-http-request-event-target.ts:44:13)
+        at XMLHttpRequest.request.onreadystatechange (/mnt/c/truffledemo/node_modules/web3-providers-http/src/index.js:96:13)
+    ```
 
-Avsluta konsolen.
+1. Avsluta Truffle-konsolen.
 
-```bash
-.exit
-```
-
+    ```bash
+    .exit
+    ```
+    
 ## <a name="send-a-transaction"></a>Skicka en transaktion
 
-Skapa en fil med namnet `sampletx.js`. Spara den i roten av projektet.
+1. Skapa en fil med namnet `sampletx.js`. Spara den i roten av projektet.
+1. Följande skript anger kontraktet **storedData** variabelvärde till 65. Lägg till kod till den nya filen.
 
-Det här skriptet anger kontraktet **storedData** variabelvärde till 65. Lägg till kod till den nya filen.
+    ```javascript
+    var SimpleStorage = artifacts.require("SimpleStorage");
+    
+    module.exports = function(done) {
+      console.log("Getting deployed version of SimpleStorage...")
+      SimpleStorage.deployed().then(function(instance) {
+        console.log("Setting value to 65...");
+        return instance.set("65", {privateFor: ["<alpha node public key>"], from:"<Ethereum account address>"});
+      }).then(function(result) {
+        console.log("Transaction:", result.tx);
+        console.log("Finished!");
+        done();
+      }).catch(function(e) {
+        console.log(e);
+        done();
+      });
+    };
+    ```
 
-```javascript
-var SimpleStorage = artifacts.require("SimpleStorage");
+    Ersätt värdena i hakparenteser och spara sedan filen.
 
-module.exports = function(done) {
-  console.log("Getting deployed version of SimpleStorage...")
-  SimpleStorage.deployed().then(function(instance) {
-    console.log("Setting value to 65...");
-    return instance.set("65", {privateFor: ["<alpha node public key>"], from:"<Account address>"});
-  }).then(function(result) {
-    console.log("Transaction:", result.tx);
-    console.log("Finished!");
-    done();
-  }).catch(function(e) {
-    console.log(e);
-    done();
-  });
-};
-```
+    | Värde | Beskrivning
+    |-------|-------------
+    | \<Alpha noden offentlig nyckel\> | Offentlig nyckel för noden alpha
+    | \<Ethereum kontoadress\> | Ethereum kontoadress har skapats i transaktionen standardnoden.
 
-Ersätt värdena i hakparenteser och spara sedan filen.
+    **privateFor** definierar noderna som transaktionen är tillgänglig. I det här exemplet standard transaktion nodens konto kan omvandla privata transaktionerna till den **alpha** noden. Du måste lägga till offentliga nycklar för alla privata transaktion deltagare.
 
-| Value | Beskrivning
-|-------|-------------
-| \<Alpha noden offentlig nyckel\> | Offentlig nyckel för noden alpha
-| \<Kontoadress\> | Kontoadress som skapats i transaktionen standardnoden.
+1. Använd Truffle för att köra skriptet för transaktionen standardnoden.
 
-**privateFor** definierar noderna som transaktionen är tillgänglig. I det här exemplet standard transaktion nodens konto kan omvandla privata transaktionerna till den **alpha** noden. Du måste lägga till offentliga nycklar för alla privata transaktion deltagare.
+    ```bash
+    truffle exec sampletx.js --network defaultnode
+    ```
 
-Använd Truffle för att köra skriptet för transaktionen standardnoden.
+1. Köra kod som returnerar värdet för kontrakt-instans i Truffle-konsolen.
 
-```bash
-truffle exec sampletx.js --network defaultnode
-```
+    ```bash
+    SimpleStorage.deployed().then(function(instance){return instance.get();})
+    ```
 
-Köra ett kommando som returnerar värdet för kontrakt-instans.
+    Om transaktionen lyckades returneras värdet 65. Exempel:
+    
+    ```
+    Getting deployed version of SimpleStorage...
+    Setting value to 65...
+    Transaction: 0x864e67744c2502ce75ef6e5e09d1bfeb5cdfb7b880428fceca84bc8fd44e6ce0
+    Finished!
+    ```
 
-```bash
-SimpleStorage.deployed().then(function(instance){return instance.get();})
-```
+1. Avsluta Truffle-konsolen.
 
-Om transaktionen lyckades returneras värdet 65.
-
-Exempel på utdata:
-
-```
-Getting deployed version of SimpleStorage...
-Setting value to 65...
-Transaction: 0x864e67744c2502ce75ef6e5e09d1bfeb5cdfb7b880428fceca84bc8fd44e6ce0
-Finished!
-```
-
-Avsluta konsolen.
-
-```bash
-.exit
-```
-
+    ```bash
+    .exit
+    ```
+    
 ## <a name="validate-transaction-privacy"></a>Verifiera transaktion sekretess
 
-På grund av transaktionen sekretess transaktioner bara kan utföras på noder som vi har deklarerat i **privateFor**. I det här exemplet vi utföra transaktioner eftersom vi har deklarerat **alpha** nodens offentliga nyckeln i **privateFor**. Använda Truffle för att köra transaktionen på den **alpha** noden.
+På grund av transaktionen sekretess transaktioner bara kan utföras på noder som vi har deklarerat i **privateFor**. I det här exemplet vi utföra transaktioner eftersom vi har deklarerat **alpha** nodens offentliga nyckeln i **privateFor**. 
 
-```bash
-truffle exec sampletx.js --network alpha
-```
+1. Använda Truffle för att köra transaktionen på den **alpha** noden.
 
-Köra ett kommando som returnerar värdet för kontrakt-instans.
+    ```bash
+    truffle exec sampletx.js --network alpha
+    ```
+    
+1. Köra kod som returnerar värdet för kontrakt-instans.
 
-```bash
-SimpleStorage.deployed().then(function(instance){return instance.get();})
-```
+    ```bash
+    SimpleStorage.deployed().then(function(instance){return instance.get();})
+    ```
+    
+    Om transaktionen lyckades returneras värdet 65. Exempel:
 
-Om transaktionen lyckades returneras värdet 65.
+    ```
+    Getting deployed version of SimpleStorage...
+    Setting value to 65...
+    Transaction: 0x864e67744c2502ce75ef6e5e09d1bfeb5cdfb7b880428fceca84bc8fd44e6ce0
+    Finished!
+    ```
+    
+1. Avsluta Truffle-konsolen.
 
-Exempel på utdata:
-
-```
-Getting deployed version of SimpleStorage...
-Setting value to 65...
-Transaction: 0x864e67744c2502ce75ef6e5e09d1bfeb5cdfb7b880428fceca84bc8fd44e6ce0
-Finished!
-```
-
-Avsluta konsolen.
-
-```bash
-.exit
-```
-
-I den här självstudien får du har lagt till två transaktion noder för att demonstrera kontrakt och transaktionen sekretess. Du använde standardnoden för att distribuera ett privat smarta kontrakt. Du har testat sekretess genom förfrågningar till kontraktsvärden och utför transaktioner på blockchain.
+    ```bash
+    .exit
+    ```
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -474,6 +465,8 @@ Ta bort resursgruppen:
 1. Välj **Ta bort resursgrupp**. Kontrollera borttagningen genom att ange resursgruppens namn och välj **ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
+
+I den här självstudien får du har lagt till två transaktion noder för att demonstrera kontrakt och transaktionen sekretess. Du använde standardnoden för att distribuera ett privat smarta kontrakt. Du har testat sekretess genom förfrågningar till kontraktsvärden och utför transaktioner på blockchain.
 
 > [!div class="nextstepaction"]
 > [Utveckla blockchain-program med Azure Blockchain-tjänsten](develop.md)

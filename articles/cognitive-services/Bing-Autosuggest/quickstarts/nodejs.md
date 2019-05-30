@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: b8f7fbe386400babac033de0efbaaabbe8832397
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a8782951baccd63d3087ef0628a8fca31b9a4bc1
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60240687"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390395"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-nodejs"></a>Snabbstart: Föreslå sökfrågor med REST API för automatiska förslag i Bing och Node.js
 
@@ -37,7 +37,7 @@ Använd den här snabbstarten ska börja göra anrop till API för automatiska f
     let https = require ('https');
     ```
 
-2. Skapa variabler för API-slutpunkt-värd och sökväg, din prenumerationsnyckel [marknaden kod](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference#market-codes), och en sökterm.
+2. Skapa variabler för API-slutpunkt-värd och sökväg, din prenumerationsnyckel [marknaden kod](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes), och en sökterm.
 
     ```javascript
     // Replace the subscriptionKey string value with your valid subscription key.
@@ -191,4 +191,4 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 > [Skapa en enkelsidig webbapp](../tutorials/autosuggest.md)
 
 - [Vad är automatiska förslag i Bing?](../get-suggested-search-terms.md)
-- [Referens för API v7 för automatiska förslag i Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference)
+- [Referens för API v7 för automatiska förslag i Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)

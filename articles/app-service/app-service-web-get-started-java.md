@@ -1,222 +1,134 @@
 ---
-title: Skapa Java-webbapp – Azure App Service
-description: Distribuera en grundläggande Java-app och lär dig hur du kör webbappar i App Service.
+title: Skapa Java-webbapp på Windows - Azure App Service
+description: I den här snabbstarten får distribuera du din första Java Hello World i Azure App Service i Windows på bara några minuter.
+keywords: azure, app service, web app, windows, java, maven, quickstart
 services: app-service\web
 documentationcenter: ''
-author: rmcmurray
-manager: routlaw
+author: msangapu-msft
+manager: jeconnoc
 editor: ''
-ms.assetid: 8bacfe3e-7f0b-4394-959a-a88618cb31e1
+ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: java
+ms.devlang: Java
 ms.topic: quickstart
-ms.date: 04/23/2019
-ms.author: cephalin;robmcm
-ms.custom: seodec18
-ms.openlocfilehash: f1411ee28ca4e371f68c375242a2445c8b48f8d7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/29/2019
+ms.author: jasonfreeberg
+ms.custom: mvc
+ms.openlocfilehash: c77f7afe3941395a156896135043710252637ef3
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64706135"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393240"
 ---
-# <a name="create-your-first-java-web-app-in-azure"></a>Skapa din första Java-webbapp i Azure
+# <a name="quickstart-create-a-java-app-in-app-service"></a>Snabbstart: Skapa en Java-app i App Service
 
-Med Azure App Service får du en automatiskt uppdaterad webbvärdtjänst med hög skalbarhet. Den här snabbstarten visar hur du distribuerar en Java-webbapp till App Service med hjälp av Eclipse IDE för Java EE-utvecklare.
+> [!NOTE]
+> I den här artikeln distribueras en app till App Service i Windows. Distribuera till App Service på _Linux_, se [skapa Java-webbapp i Linux](./containers/quickstart-java.md).
+>
 
-> [!IMPORTANT]
-> Azure App Service i Linux är också ett alternativ för att värden Java-webbappar internt i Linux med hanterade Tomcat och Java SE WildFly erbjudanden. Om du är intresserad av att komma igång med App Service i Linux, se [snabbstarten: Skapa en Java-app i App Service i Linux](containers/quickstart-java.md).
+Med [Azure App Service](overview.md) får du en automatiskt uppdaterad webbvärdtjänst med hög skalbarhet.  Den här snabbstarten visar hur du använder den [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) med den [Maven-pluginprogrammet för Azure App Service](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) ska distribuera en Java web Arkiv (WAR)-fil.
 
-När du har slutfört den här snabbstarten ser din app ut ungefär som på följande bild när du visar den i en webbläsare:
-
-!["Hello Azure!" exempelwebbapp](./media/app-service-web-get-started-java/browse-web-app-1.png)
+> [!NOTE]
+> Kan du också göra samma sak med hjälp av populära IDEs som IntelliJ och Eclipse. Kolla in våra liknande dokument på [Azure Toolkit för IntelliJ Quickstart](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app) eller [Azure Toolkit för Eclipse Snabbstart](/java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app).
+>
+![Exempelapp som körs i Azure](./media/app-service-web-get-started-java/java-hello-world-in-browser.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-> [!NOTE]
->
-> Stegen i den här snabbstarten visar hur du använder Eclipse IDE för att publicera en Java-webbapp till App Service, men du kan använda IntelliJ IDEA Ultimate Edition eller Community Edition. Mer information finns i [Create a Hello World web app for Azure using IntelliJ](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app) (Skapa en Hello World-webbapp för Azure med IntelliJ).
->
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="create-a-java-app"></a>Skapa en Java-app
 
-Installera följande för att slutföra den här snabbstarten:
+Kör följande Maven-kommando i Cloud Shell-prompten för att skapa en ny app med namnet `helloworld`:
 
-* Kostnadsfria <a href="https://www.eclipse.org/downloads/" target="_blank">Eclipse IDE för Java EE-utvecklare</a>. Den här snabbstarten använder Eclipse Neon.
-* <a href="/java/azure/eclipse/azure-toolkit-for-eclipse-installation" target="_blank">Azure Toolkit för Eclipse</a>.
-
-> [!NOTE]
->
-> Du måste logga in på ditt Azure-konto med hjälp av Azure-verktygen för Eclipse för att slutföra stegen i den här snabbstarten. För att göra det läser du [inloggningsinstruktionerna för Azure Toolkit för Eclipse](/java/azure/eclipse/azure-toolkit-for-eclipse-sign-in-instructions).
->
-
-## <a name="create-a-dynamic-web-project-in-eclipse"></a>Skapa ett dynamiskt webbprojekt i Eclipse
-
-Välj **Arkiv** > **Nytt** > **Dynamic Web Project** (Dynamiskt webbprojekt) Eclipse.
-
-I dialogrutan **New Dynamic Web Project** (Nytt dynamiskt webbprojekt) ger du projektet namnet **MyFirstJavaOnAzureWebApp** och väljer **Slutför**.
-   
-![Dialogrutan för nytt dynamiskt webbprojekt](./media/app-service-web-get-started-java/new-dynamic-web-project-dialog-box.png)
-
-### <a name="add-a-jsp-page"></a>Lägg till en JSP-sida
-
-Om projektutforskaren inte visas kan du återställa den.
-
-![Java EE-arbetsytan för Eclipse](./media/app-service-web-get-started-java/pe.png)
-
-Expandera projektet **MyFirstJavaOnAzureWebApp** i projektutforskaren.
-Högerklicka på **Webbinnehåll** och välj sedan **Ny** > **JSP-fil**.
-
-![Menyn för en ny JSP-fil i projektutforskaren](./media/app-service-web-get-started-java/new-jsp-file-menu.png)
-
-I dialogrutan **Ny JSP-fil**:
-
-* Namnge filen **index.jsp**.
-* Välj **Slutför**.
-
-  ![Dialogruta för en ny JSP-fil](./media/app-service-web-get-started-java/new-jsp-file-dialog-box-page-1.png)
-
-I filen index.jsp ersätter du elementet `<body></body>` med följande kod:
-
-```jsp
-<body>
-<h1><% out.println("Hello Azure!"); %></h1>
-</body>
+```bash
+mvn archetype:generate -DgroupId=example.demo -DartifactId=helloworld -DarchetypeArtifactId=maven-archetype-webapp
 ```
 
-Spara ändringarna.
+## <a name="configure-the-maven-plugin"></a>Konfigurera Maven-plugin-programmet
 
-> [!NOTE]
->
-> Om du ser ett fel på rad 1 som hänvisar till att en Java Servlet-klass saknas kan du ignorera det.
-> 
-> ![Godartat Java servlet-fel](./media/app-service-web-get-started-java/java-servlet-benign-error.png)
->
+Distribuera från Maven genom att använda kodredigeraren i Cloud Shell för att öppna projektets `pom.xml`-fil i katalogen `helloworld`. 
 
-## <a name="publish-the-web-app-to-azure"></a>Publicera webbappen i Azure
-
-Högerklicka på projektet i projektutforskaren och välj sedan **Azure** > **Publicera som Azure Web App**.
-
-![Publicera som Azure Web App (snabbmeny)](./media/app-service-web-get-started-java/publish-as-azure-web-app-context-menu.png)
-
-Om du uppmanas via dialogrutan för **Azure-inloggning** måste du följa stegen i [inloggningsinstruktionerna för Azure Toolkit för Eclipse](/java/azure/eclipse/azure-toolkit-for-eclipse-sign-in-instructions) för att ange dina autentiseringsuppgifter.
-
-### <a name="deploy-web-app-dialog-box"></a>Dialogrutan Distribuera webbapp
-
-När du har loggats in på Azure-kontot visas dialogrutan **Distribuera webbapp**.
-
-Välj **Skapa**.
-
-![Dialogrutan Distribuera webbapp](./media/app-service-web-get-started-java/deploy-web-app-dialog-box.png)
-
-### <a name="create-app-service-dialog-box"></a>Dialogrutan Skapa App Service
-
-Dialogrutan **Skapa App Service** visas med standardvärden. Numret **170602185241** som visas i följande bild skiljer sig från vad som visas i din dialogruta.
-
-![Dialogrutan Skapa App Service](./media/app-service-web-get-started-java/cas1.png)
-
-I dialogrutan **Skapa App Service**:
-
-* Ange ett unikt namn för din webbapp eller behåll det genererade namnet. Användarnamnet måste vara unikt inom Azure. Namnet är en del av URL-adressen för webbappen. Exempel: om webbappens namn är **MyJavaWebApp** så är URL-adressen *myjavawebapp.azurewebsites.net*.
-* Behåll webbcontainern som är standard för den här snabbstarten.
-* Välj en Azure-prenumeration.
-* På fliken **App Service-plan**:
-
-  * **Skapa ny**: Behåll standardvärdet, som är namnet på App Service-planen.
-  * **Plats**: Välj **Europa, västra** eller en plats nära dig.
-  * **Prisnivå**: Markera det kostnadsfria alternativet. Se [Priser för App Service](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) för funktioner.
-
-    ![Dialogrutan Skapa App Service](./media/app-service-web-get-started-java/create-app-service-dialog-box.png)
-
-[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
-
-### <a name="resource-group-tab"></a>Flik för resursgrupp
-
-Välj fliken **Resursgrupp**. Behåll det genererade standardvärdet för resursgruppen.
-
-![Flik för resursgrupp](./media/app-service-web-get-started-java/create-app-service-resource-group.png)
-
-[!INCLUDE [resource-group](../../includes/resource-group.md)]
-
-Välj **Skapa**.
-
-<!--
-### The JDK tab
-
-Select the **JDK** tab. Keep the default, and then select **Create**.
-
-![Create App Service plan](./media/app-service-web-get-started-java/create-app-service-specify-jdk.png)
--->
-
-Webbappen skapas av Azure Toolkit och en dialogruta med en förloppsindikator visas.
-
-![Dialogruta med förloppsindikator för hur apptjänsten skapas](./media/app-service-web-get-started-java/create-app-service-progress-bar.png)
-
-### <a name="deploy-web-app-dialog-box"></a>Dialogrutan Distribuera webbapp
-
-I dialogrutan **Distribuera webbapp** väljer du **Distribuera till rot**. Om du har en apptjänst på *wingtiptoys.azurewebsites.net* och inte distribuerar webbappen till roten så distribueras webbappen med namnet **MyFirstJavaOnAzureWebApp** till *wingtiptoys.azurewebsites.net/MyFirstJavaOnAzureWebApp*.
-
-![Dialogrutan Distribuera webbapp](./media/app-service-web-get-started-java/deploy-web-app-to-root.png)
-
-Dialogrutan visar valen för Azure, JDK och webbcontainer.
-
-Välj **Distribuera** för att publicera webbappen i Azure.
-
-När publiceringen är klar väljer du länken **Publicerade** i dialogrutan **Azure-aktivitetsloggen**.
-
-![Dialogrutan för Azure aktivitetsloggen](./media/app-service-web-get-started-java/aal.png)
-
-Grattis! Din webbapp har distribuerats till Azure. 
-
-!["Hello Azure!" exempelwebbapp](./media/app-service-web-get-started-java/browse-web-app-1.png)
-
-## <a name="update-the-web-app"></a>Uppdatera webbappen
-
-Ändra JSP-exempelkod till ett annat meddelande.
-
-```jsp
-<body>
-<h1><% out.println("Hello again Azure!"); %></h1>
-</body>
+```bash
+code pom.xml
 ```
 
-Spara ändringarna.
+Lägg sedan till följande plugin-definition i `<build>`-elementet i filen `pom.xml`.
 
-Högerklicka på projektet i projektutforskaren och välj sedan **Azure** > **Publicera som Azure Web App**.
+```xml
+<plugins>
+    <!--*************************************************-->
+    <!-- Deploy to Tomcat in App Service Windows         -->
+    <!--*************************************************-->
+    <plugin>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>azure-webapp-maven-plugin</artifactId>
+        <version>1.5.4</version>
+        <configuration>
+            <!-- Specify v2 schema -->
+            <schemaVersion>v2</schemaVersion>
+            <!-- App information -->
+            <subscriptionId>${SUBSCRIPTION_ID}</subscriptionId>
+            <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
+            <appName>${WEBAPP_NAME}</appName>
+            <region>${REGION}</region>
+            <!-- Java Runtime Stack for App Service on Windows-->
+            <runtime>
+                <os>windows</os>
+                <javaVersion>1.8</javaVersion>
+                <webContainer>tomcat 9.0</webContainer>
+            </runtime>
+            <deployment>
+                <resources>
+                    <resource>
+                        <directory>${project.basedir}/target</directory>
+                        <includes>
+                            <include>*.war</include>
+                        </includes>
+                    </resource>
+                </resources>
+            </deployment>
+        </configuration>
+    </plugin>
+</plugins>
+```
 
-Dialogrutan **Distribuera webbapp** visas med apptjänsten som du skapade tidigare. 
+> [!NOTE]
+> I den här artikeln arbetar vi endast med Java-appar som paketerats i WAR-filer. Plugin-programmet stöder också JAR-webbprogram. Läs informationen om att [distribuera en Java SE JAR-fil till App Service på Linux](https://docs.microsoft.com/java/azure/spring-framework/deploy-spring-boot-java-app-with-maven-plugin?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) om du vill testa det.
 
-> [!NOTE] 
-> Välj **Distribuera till rot** varje gång du publicerar. 
-> 
 
-Välj webbappen och sedan **Distribuera**. Då publiceras ändringarna.
+Uppdatera följande platshållare i konfigurationen av plugin-program:
 
-När länken **Publicering** visas väljer du den för att bläddra till webbappen och se ändringarna.
+| Platshållare | Beskrivning |
+| ----------- | ----------- |
+| `SUBSCRIPTION_ID` | Unikt ID för prenumerationen som du vill distribuera din app. Standard prenumerations-ID finns från Cloud Shell eller CLI med den `az account show` kommando. Använd för alla tillgängliga prenumerationer den `az account list` kommando.|
+| `RESOURCEGROUP_NAME` | Namnet på den nya resursgrupp där du vill skapa din app. Genom att lägga alla resurser för en app i en grupp, kan du hantera dem tillsammans. Genom att till exempel ta bort resursgruppen skulle du ta bort alla resurser som är associerade med appen. Uppdatera det här värdet med ett unikt nytt resursgruppnamn, till exempel *TestResources*. Du använder den här resursgruppens namn för att rensa alla Azure-resurser i ett senare avsnitt. |
+| `WEBAPP_NAME` | Appnamnet är en del av värdnamnet för appen när den distribueras till Azure (WEBAPP_NAME.azurewebsites.net). Uppdatera det här värdet med ett unikt namn för den nya App Service-appen, som blir värd för din Java-app, till exempel *contoso*. |
+| `REGION` | En Azure-region där appen hanteras, till exempel `westus2`. Du kan hämta en lista över regioner från Cloud Shell eller CLI med kommandot `az account list-locations`. |
 
-## <a name="manage-the-web-app"></a>Hantera webbappen
+## <a name="deploy-the-app"></a>Distribuera appen
 
-Gå till <a href="https://portal.azure.com" target="_blank">Azure Portal</a> för att se den webbapp som du skapade.
+Distribuera din Java-app till Azure med följande kommando:
 
-Välj **Resursgrupper** på den vänstra menyn.
+```bash
+mvn package azure-webapp:deploy
+```
 
-![Portalnavigering för resursgrupper](media/app-service-web-get-started-java/rg.png)
+När distributionen är klar bläddrar du till den distribuerade tillämpningen med hjälp av följande webbadress i webbläsaren, till exempel `http://<webapp>.azurewebsites.net/`.
 
-Välj resursgruppen. På sidan visas resurserna som du skapade i den här snabbstarten.
+![Exempelapp som körs i Azure](./media/app-service-web-get-started-java/java-hello-world-in-browser.png)
 
-![Resursgrupp](media/app-service-web-get-started-java/rg2.png)
+**Grattis!** Du har distribuerat din första Java-app till App Service i Windows.
 
-Välj webbappen (**webbapp-170602193915** i den föregående bilden).
-
-Sidan **Översikt** visas. Den här sidan ger dig en översikt över hur det går för appen. Här kan du utföra grundläggande hanteringsåtgärder som att bläddra, stoppa, starta, starta om och ta bort. På flikarna till vänster på sidan kan du se olika konfigurationer som du kan öppna. 
-
-![App Service-sidan på Azure Portal](media/app-service-web-get-started-java/web-app-blade.png)
-
-[!INCLUDE [clean-up-section-portal-web-app](../../includes/clean-up-section-portal-web-app.md)]
+[!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
 ## <a name="next-steps"></a>Nästa steg
+
+> [!div class="nextstepaction"]
+> [Azure för Java-utvecklare resurser](/java/azure/)
 
 > [!div class="nextstepaction"]
 > [Mappa anpassad domän](app-service-web-tutorial-custom-domain.md)

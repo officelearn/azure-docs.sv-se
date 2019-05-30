@@ -9,36 +9,27 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 01/25/2019
-ms.openlocfilehash: 8d21e41ad487ad17598f2320fab5eebae02309e8
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: ce8b117a3cbe0e3a5c4265729ccf5c0264241013
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66123182"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66391800"
 ---
-1. Följ instruktionerna på [skapa en arbetsyta för Azure Machine Learning-tjänsten](../articles/machine-learning/service/setup-create-workspace.md#portal) till:
+1. Följ instruktionerna på [skapa en arbetsyta för Azure Machine Learning-tjänsten](../articles/machine-learning/service/setup-create-workspace.md#portal) att göra följande:
     * Skapa en Miniconda-miljö
     * Installera Azure Machine Learning SDK för Python
     * Skapa en arbetsyta
     * Skriv en konfigurationsfil för arbetsytan (**aml_config/config.json**).
-    
+
 1. Klona [github-lagringsplatsen](https://aka.ms/aml-notebooks).
 
-    ```
+    ```CLI
     git clone https://github.com/Azure/MachineLearningNotebooks.git
     ```
 
-1. Lägg till en konfigurationsfil för arbetsytan med hjälp av någon av följande metoder:
-    * Kopiera den **aml_config/config.json** fil som du skapade i steg 1 i den klonade katalogen.
-
-    * I den [Azure-portalen](https://ms.portal.azure.com)väljer **hämta config.json** från den **översikt** avsnitt i din arbetsyta. 
-
-    ![Ladda ned config.json](./media/aml-dsvm-server/download-config.png)
-
-    * Skapa en ny arbetsyta med hjälp av kod i [configuration.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/configuration.ipynb).
-
 1. Starta notebook-servern från den klonade katalogen.
-    
+
     ```shell
     jupyter notebook
     ```

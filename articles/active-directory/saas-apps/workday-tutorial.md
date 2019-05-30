@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb9c8d1fb234efd5df297082cfc1001f28ca1656
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 2b9e4f5208eb1f6abb0d6fd786630c183a04ce50
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65990398"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388872"
 ---
 # <a name="tutorial-integrate-workday-with-azure-active-directory"></a>Självstudier: Integrera Workday med Azure Active Directory
 
@@ -88,7 +88,7 @@ Följ dessa steg om du vill aktivera enkel inloggning för Azure AD i Azure-port
 
     > [!NOTE]
     > De här värdena är inte verkliga. Uppdatera dessa värden med de faktiska inloggnings-URL och svars-URL. Svars-URL måste ha en underdomän till exempel: www, wd2, wd3, wd3 impl, wd5, wd5 impl).
-    > Med något som `http://www.myworkday.com` fungerar men `http://myworkday.com` inte. Kontakta [Workday klienten supportteamet](https://www.workday.com/partners-services/services/support.html) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Med något som `http://www.myworkday.com` fungerar men `http://myworkday.com` inte. Kontakta [Workday klienten supportteamet](https://www.workday.com/en-us/partners-services/services/support.html) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 6. Dina Workday-programmet förväntar sig SAML-intyg i ett visst format, vilket kräver att du kan lägga till anpassade attributmappningar i SAML-tokenattribut konfigurationen. Följande skärmbild visar en lista över standardattribut, där **nameidentifier** mappas med **user.userprincipalname**. Workday program som förväntar **nameidentifier** mappas med **user.mail**, **UPN**, o.s.v., så du behöver redigera attribut mappar genom att klicka på  **Redigera** ikon och ändra attributet mappningen.
 
@@ -138,7 +138,7 @@ Följ dessa steg om du vill aktivera enkel inloggning för Azure AD i Azure-port
    > [!NOTE]
    > Värdet för attributet miljö är kopplad till värdet för klient-URL:  
    > -Om domännamnet för Workday klient-URL börjar med impl till exempel: *https:\//impl.workday.com/\<klient\>/login-saml2.flex*), **miljö**attributet måste anges till implementering.  
-   > -Om domännamnet startas med något annat, måste du kontakta [Workday klienten supportteamet](https://www.workday.com/partners-services/services/support.html) att hämta den matchande **miljö** värde.
+   > -Om domännamnet startas med något annat, måste du kontakta [Workday klienten supportteamet](https://www.workday.com/en-us/partners-services/services/support.html) att hämta den matchande **miljö** värde.
 
 4. I den **SAML installationsprogrammet** avsnittet, utför följande steg:
 
@@ -197,7 +197,7 @@ Följ dessa steg om du vill aktivera enkel inloggning för Azure AD i Azure-port
 
     ![Konfiguration av SSO](./media/workday-tutorial/WorkdaySSOConfiguratio.png "SSO-konfiguration")
 
-    a.  I den **Service Provider-ID** textrutan typ **https://www.workday.com**.
+    a.  I den **Service Provider-ID** textrutan typ **https://www.workday.com** .
 
     b. Välj **inte Deflate SP-initierat autentiseringsbegäran**.
 

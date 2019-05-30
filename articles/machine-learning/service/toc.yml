@@ -176,7 +176,7 @@
           href: how-to-train-ml-models.md
         - name: Använda PyTorch
           href: how-to-train-pytorch.md
-        - name: Använda TensorFlow och Keras
+        - name: Använda TensorFlow
           href: how-to-train-tensorflow.md
         - name: Justering av hyperparametrar
           displayName: parameter

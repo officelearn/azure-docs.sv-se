@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 050f301b55c718e80c1b4157639bd9dce506f6ba
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: 428a1614889409300064420e1d3d4fbc0423a0ec
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65979378"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237535"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Hämta data för kompatibilitetsinställningar för Azure-resurser
 
@@ -122,7 +122,7 @@ _Totalt antal resurser_ definieras som summan av de **kompatibla**, **icke-kompa
 
 ![Exempel på principefterlevnad från sidan för enhetskompatibilitet](../media/getting-compliance-data/simple-compliance.png)
 
-## <a name="portal"></a>Portal
+## <a name="portal"></a>Portalen
 
 Azure-portalen visar en grafisk upplevelse av att visualisera och förstå tillståndet för efterlevnad i din miljö. På den **princip** kan den **översikt** alternativ innehåller information om tillgängliga scope på kompatibiliteten för både principer och initiativ. Tillsammans med kompatibilitetsstatus och antal per tilldelning innehåller den ett diagram som visar efterlevnad under de senaste sju dagarna. Den **efterlevnad** sidan innehåller en stor del av samma information (utom diagram), men ger ytterligare filtrera och sortera alternativ.
 
@@ -416,7 +416,8 @@ Trent Baker
 
 ## <a name="azure-monitor-logs"></a>Azure Monitor-loggar
 
-Om du har en [Log Analytics-arbetsyta](../../../log-analytics/log-analytics-overview.md) med `AzureActivity` från den [Activity Log Analytics-lösningen](../../../azure-monitor/platform/collect-activity-logs.md) är kopplad till din prenumeration, du kan också visa inkompatibilitet resultat från utvärdering cykel med enkla Kusto-frågor och `AzureActivity` tabell. Aviseringar kan konfigureras om du vill titta för icke-kompatibilitet med information i Azure Monitor-loggar.
+Om du har en [Log Analytics-arbetsyta](../../../log-analytics/log-analytics-overview.md) med `AzureActivity` från den [Activity Log Analytics-lösningen](../../../azure-monitor/platform/activity-log-collect.md) är kopplad till din prenumeration, du kan också visa inkompatibilitet resultat från utvärdering cykel med enkla Kusto-frågor och `AzureActivity` tabell. Aviseringar kan konfigureras om du vill titta för icke-kompatibilitet med information i Azure Monitor-loggar.
+
 
 ![Azure efterlevnaden med Azure Monitor-loggar](../media/getting-compliance-data/compliance-loganalytics.png)
 

@@ -9,15 +9,15 @@ ms.date: 08/16/2016
 ms.author: deli
 ms.custom: include file
 ms.openlocfilehash: b3788ede23a423bebf96661ea88b227bfb5fdf4c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60531298"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66238454"
 ---
 I följande tabell beskrivs de större kvoter, gränser, standardinställningar och begränsningar i Azure Scheduler.
 
-| Resurs | Beskrivning av gränsen |
+| Resource | Beskrivning av gränsen |
 | -------- | ----------------- |
 | **Jobbstorlekar** | Den maximala jobbstorlekar är 16 000. Om en PUT- eller en korrigeringsåtgärd resulterar i en jobbstorlek som är större än den här gränsen, returneras statuskod 400 Felaktig begäran. | 
 | **Jobbsamlingar** | Det maximala antalet jobbsamlingar per Azure-prenumeration är 200 000. | 

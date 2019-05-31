@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/29/2019
 ms.author: barclayn
-ms.openlocfilehash: 13183282e5e607f0052194a474203f97e0160adb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9c100bd6815e003d49efcdca65b16d7efa35ac34
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60610917"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234240"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Säkerhetstjänster och teknologier som är tillgängliga på Azure
 
@@ -69,7 +69,7 @@ Framöver kommer den här listan ändrar och växa, precis som Azure gör. Se ti
 | [Azure&nbsp;rollen&nbsp;baserat&nbsp;åtkomstkontroll](../active-directory/role-based-access-control-configure.md)|En funktion för kontroll av åtkomst som utformats för att ge användare åtkomst till de resurser som de som krävs för att åtkomst baserat på deras roller i organisationen.  |
 | [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)|En molnbaserad autentisering-databas som har stöd för en katalog med flera innehavare, molnbaserade och flera identity management-tjänster i Azure.  |
 | [Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-overview.md)|En identitetshanteringstjänst som möjliggör kontroll över hur kunder registrering, inloggning, och hanterar sina profiler när de använder Azure-baserade program.   |
-| [Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-overview.md)| En molnbaserad och hanterade version av Active Directory Domain Services. |
+| [Azure Active Directory Domain Services](../active-directory-domain-services/overview.md)| En molnbaserad och hanterade version av Active Directory Domain Services. |
 | [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md)| Etablera en säkerhet som använder flera olika former av autentisering och verifiering innan åtkomst beviljas till skyddad information. |
 
 ## <a name="backup-and-disaster-recovery"></a>Säkerhetskopiering och katastrofåterställning

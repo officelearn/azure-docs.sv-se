@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 12/05/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 349896a7114fba83d852b8bc066f4f7eb0a070ba
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e1fc405951789305b0df86fd0f7b91890fb45c06
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60550298"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242626"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Batch-mått, aviseringar och loggar för diagnostisk utvärdering och övervakning
 
@@ -109,7 +109,7 @@ Andra valfritt mål för diagnostikloggar:
 
     ![Batch-diagnostik](media/batch-diagnostics/diagnostics-portal.png)
 
-Andra alternativ för att aktivera insamling av supportloggar omfattar: använda Azure Monitor i portalen för att konfigurera diagnostikinställningar ska du använda en [Resource Manager-mall](../azure-monitor/platform/diagnostic-logs-stream-template.md), eller Använd Azure PowerShell eller Azure CLI. Se [samla in och använda loggdata från resurserna i Azure](../azure-monitor/platform/diagnostic-logs-overview.md#how-to-enable-collection-of-diagnostic-logs).
+Andra alternativ för att aktivera insamling av supportloggar omfattar: använda Azure Monitor i portalen för att konfigurera diagnostikinställningar ska du använda en [Resource Manager-mall](../azure-monitor/platform/diagnostic-logs-stream-template.md), eller Använd Azure PowerShell eller Azure CLI. Se [samla in och använda loggdata från resurserna i Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
 
 
 ### <a name="access-diagnostics-logs-in-storage"></a>Diagnostisk loggar i storage

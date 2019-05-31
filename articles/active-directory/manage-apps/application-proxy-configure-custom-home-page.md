@@ -11,30 +11,30 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/17/2019
+ms.date: 05/23/2019
 ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3fa5c5638da390f4416afc9f4bd9c5d58c34cea8
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 0f4e71bd7fd7e0ed9a220619995ba108fdccabe4
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65825577"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66233755"
 ---
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>Ange en anpassad startsida för publicerade appar med hjälp av Azure AD Application Proxy
 
-Den här artikeln beskrivs hur du konfigurerar en app för att be en användare till en anpassad startsida, som kan skilja sig beroende på om de är interna eller externa. När du publicerar en app med Application Proxy kan du ställa in en intern URL, men ibland som inte är den sida som en användare ska se först. Ange en anpassad startsida så att en användare får rätt sida när de har åtkomst till appen. En användare kan se anpassad startsida att du ställer in, oavsett om de använder appen från åtkomstpanelen Azure Active Directory eller Office 365-appstartaren.
+Den här artikeln beskrivs hur du konfigurerar en app för att be en användare till en anpassad startsida. När du publicerar en app med Application Proxy kan du ställa in en intern URL, men ibland som inte är den sida som en användare ska se först. Ange en anpassad startsida så att en användare får rätt sida när de har åtkomst till appen. En användare kan se anpassad startsida att du ställer in, oavsett om de använder appen från åtkomstpanelen Azure Active Directory eller Office 365-appstartaren.
 
 När en användare startar appen, är de riktade som standard till rot-URL för domänen för den publicerade appen. Landningssida anges vanligtvis som URL för startsidan. Använda Azure AD PowerShell-modulen för att definiera en anpassad URL-Adressen när du vill att appanvändare hamnar på en viss sida i appen.
 
-Här är ett scenario som förklarar varför ditt företag skulle ange en anpassad startsida och varför det skulle vara olika beroende på typ av användare:
+Här är ett scenario som förklarar varför ditt företag skulle ange en anpassad startsida:
 
+- I företagsnätverket, en användare går till `https://ExpenseApp/login/login.aspx` att logga in och komma åt din app.
 - Eftersom du har andra resurser (till exempel bilder) som Application Proxy behöver åtkomst till på den översta nivån av mappstrukturen kan du publicera appen med `https://ExpenseApp` som den interna URL: en.
-- Men i företagsnätverket, en användare går till `https://ExpenseApp/login/login.aspx` att logga in och komma åt din app.
 - Den externa URL som standard är `https://ExpenseApp-contoso.msappproxy.net`, som inte tar emot en extern användare komma på inloggningssidan.
-- Vill du ange `https://ExpenseApp-contoso.msappproxy.net/login/login.aspx` som den externa URL-Adressen i stället så en extern användare ser på inloggningssidan först.
+- Vill du ange `https://ExpenseApp-contoso.msappproxy.net/login/login.aspx` som hemsidans URL i stället så en extern användare ser på inloggningssidan först.
 
 >[!NOTE]
 >När du ger användare åtkomst till publicerade appar appar visas i den [Azure AD-åtkomstpanelen](../user-help/my-apps-portal-end-user-access.md) och [Office 365-appstartaren](https://www.microsoft.com/microsoft-365/blog/2016/09/27/introducing-the-new-office-365-app-launcher/).
@@ -49,21 +49,21 @@ Innan du ställer in URL: en för startsidan, Tänk på följande krav:
 
 - Om du gör en ändring i den publicerade appen kan ändringen återställa värdet för den URL-Adressen. När du uppdaterar appen vilket i framtiden kan du kontrollera och, om det behövs, uppdatera hemside-URL.
 
-Du kan ändra startsidan externt eller internt via Azure portal eller med hjälp av PowerShell.
+Du kan ange den URL-Adressen via Azure portal eller med hjälp av PowerShell.
 
 ## <a name="change-the-home-page-in-the-azure-portal"></a>Ändra startsidan i Azure portal
 
-Följ dessa steg om du vill ändra startsidor externa och interna för din app via Azure AD-portalen:
+Följ dessa steg om du vill ändra den URL-Adressen för din app via Azure AD-portalen:
 
-1. Logga in på den [Azure Active Directory-portalen](https://aad.portal.azure.com/). Instrumentpanelen för Azure Active Directory Administrationscenter visas.
-2. Välj i sidopanelen, **Azure Active Directory**. Översikt över Azure AD-sidan visas.
-3. I Översikt-sidopanelen väljer **appregistreringar**. Listan över registrerade appar visas.
-4. Välj din app i listan. En sida som visar information om registrerade appen visas.
-5. Klicka på länken under **omdirigerings-URI: er**, som visar antalet omdirigerings-URI: er för webb- och offentliga klienttyper. Autentiseringssidan för registrerade appen visas.
-6. I den sista raden i det **omdirigerings-URI: er** tabellen genom att ange den **typ** kolumnen till **offentlig klient (mobilappar och skrivbordsappar)**, och i den **OMDIRIGERINGS-URI**kolumnen, skriver du den interna URL: en som du vill använda. En ny tom rad visas under den rad som du just har ändrat.
-7. I den nya raden anger den **typ** kolumnen till **Web**, och i den **OMDIRIGERINGS-URI** kolumnen, skriver du den externa URL: en som du vill använda.
-8. Om du vill ta bort alla befintliga omdirigerings-URI: N rader, väljer du den **ta bort** (en Papperskorgen) intill varje oönskad rad.
-9. Välj **Spara**.
+1. Logga in på [Azure Portal](https://portal.azure.com/) som administratör.
+2. Välj **Azure Active Directory**, och sedan **appregistreringar**. Listan över registrerade appar visas.
+3. Välj din app i listan. En sida som visar information om registrerade appen visas.
+4. Under **hantera**väljer **varumärkesriktlinjer**.
+5. Uppdatera den **URL-Adressen** med den nya sökvägen.
+
+   ![Anpassning av sidan för en registrerad app som visar fältet URL-Adressen](media/application-proxy-configure-custom-home-page/app-proxy-app-branding.png)
+ 
+6. Välj **Spara**.
 
 ## <a name="change-the-home-page-with-powershell"></a>Ändra på hemsidan med PowerShell
 

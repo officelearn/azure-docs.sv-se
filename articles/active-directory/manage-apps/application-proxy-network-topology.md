@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9ee8800d84d1090f97fb72980123f59d5aa0375
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: cf8e7fed30a9b25b2960e3321eca5c4398911f35
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65783482"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236253"
 ---
 # <a name="network-topology-considerations-when-using-azure-active-directory-application-proxy"></a>Topologiöverväganden för nätverk när du använder Azure Active Directory Application Proxy
 
@@ -102,7 +102,7 @@ Svarstid komprometteras inte eftersom trafik som flödar över en dedikerad ansl
 
 Fokus i den här artikeln är anslutningen placering, men du kan också ändra placeringen av programmet för att få bättre svarstid egenskaper.
 
-Allt mer flyttar organisationer sina nätverk i värdbaserade miljöer. Detta gör det enkelt att placera sina appar i en miljö som också är en del av företagets nätverk, och fortfarande var i domänen. I det här fallet kan de mönster som beskrivs i föregående avsnitt tillämpas på den nya platsen för programmet. Om du funderar på att det här alternativet, se [Azure AD Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md).
+Allt mer flyttar organisationer sina nätverk i värdbaserade miljöer. Detta gör det enkelt att placera sina appar i en miljö som också är en del av företagets nätverk, och fortfarande var i domänen. I det här fallet kan de mönster som beskrivs i föregående avsnitt tillämpas på den nya platsen för programmet. Om du funderar på att det här alternativet, se [Azure AD Domain Services](../../active-directory-domain-services/overview.md).
 
 Överväg även ordna dina kopplingar med [anslutningsappgrupper](application-proxy-connector-groups.md) att rikta appar som finns i olika platser och nätverk. 
 

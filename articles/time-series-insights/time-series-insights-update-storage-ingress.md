@@ -2,7 +2,7 @@
 title: Lagring av data- och ingångsanspråk i förhandsversionen av Azure Time Series Insights | Microsoft Docs
 description: Förstå datalagring och ingress i förhandsversionen av Azure Time Series Insights.
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 ms.workload: big-data
 manager: cshankar
 ms.service: time-series-insights
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: cebe22dddf9ef382c4eceb799e05cbaab30aedaa
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 8587fb0138309040232b6e0abc0f3eb17cc3093a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65951101"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244080"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Lagring av data- och ingångsanspråk i förhandsversionen av Azure Time Series Insights
 
@@ -110,7 +110,7 @@ Förhandsversionen av Time Series Insights tillhandahåller högpresterande frå
 
 Det är viktigt att välja en lämplig tid serien ID, eftersom det är en egenskap som inte kan ändras. Mer information finns i [Välj Time Series-ID: N](./time-series-insights-update-how-to-id.md).
 
-## <a name="azure-storage"></a>Azure Storage
+## <a name="azure-storage"></a>Azure-lagring
 
 ### <a name="your-storage-account"></a>Ditt Storage-konto
 
@@ -175,7 +175,7 @@ Time Series Insights Preview indexerar data med hjälp av en strategi för optim
 > * Förvänta dig en längre period innan data görs tillgängliga i förhandsversionen.
 > * Om du får några betydande svarstid, måste du kontakta oss.
 
-### <a name="scale"></a>Skalning
+### <a name="scale"></a>Skala
 
 Time Series Insights Preview stöder en inledande ingående skalan för upp till 1 ingående Byte per sekund (Mbit/s) per miljö. Förbättrat stöd för skalning pågår. Vi planerar att uppdatera vår dokumentation för att återspegla dessa förbättringar.
 

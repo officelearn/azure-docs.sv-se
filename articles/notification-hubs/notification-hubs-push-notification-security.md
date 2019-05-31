@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 05/23/2019
 ms.author: jowargo
-ms.openlocfilehash: 22494984ca45cde7255fb5e1a30548c859bfad68
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 2ba3be0d51758cf7afd9f85258403bf79ca8401f
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65826494"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239420"
 ---
 # <a name="security-model-of-azure-notification-hubs"></a>Säkerhetsmodellen i Azure Notification Hubs
 
@@ -49,7 +49,7 @@ Precis som andra entiteter, Notification Hub åtgärder tillåts för tre säker
 | Skicka    | Skicka meddelanden till meddelandehubben                | Skicka meddelande |
 | Hantera  | CRUDs om Meddelandehubbar (inklusive uppdaterar PNS-autentiseringsuppgifter och säkerhetsnycklar) och Läs registreringar baserat på taggar |Skapa/uppdatera/läsa/ta bort notification hub<br><br>Läs registreringar efter tagg |
 
-Meddelandehubbar accepterar anspråk som beviljas genom Microsoft Azure Access Control-token och signaturtoken som genereras med delade nycklar inställt direkt på Meddelandehubben.
+Notification Hubs accepterar signatur token genererades med delade nycklar inställt direkt på Meddelandehubben.
 
 Det går inte att skicka ett meddelande till mer än ett namnområde. Namnområden är en logisk behållare för meddelandehubbar och ingår inte skicka meddelanden.
 Namnområdesnivå åtkomstprinciper (autentiseringsuppgifter) kan användas för namnområdesnivån åtgärder, till exempel: visa en lista över meddelandehubbar, skapa eller ta bort notification Hub, osv. Endast åtkomstprinciper hub på servernivå skulle kan du skicka meddelanden.

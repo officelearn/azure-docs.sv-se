@@ -13,24 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: apimpm
-ms.openlocfilehash: 478b80b021b4df36e2eccc37ac9c74f75e43a5bb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 9e1b1953520c5502668fbbae70a37a140253b035
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60658043"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241696"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Hur du använder med namnet värden i Azure API Management-principer
 API Management-principer är en kraftfull funktion i systemet som tillåter Azure portal för att ändra funktionssättet för API: ets konfiguration. Principer är en samling instruktioner som körs sekventiellt på begäran av eller efter ett svar från ett API. Principrapporter kan konstrueras med literal textvärden, principuttryck, och namngivna värden. 
 
 Varje API Management-tjänstinstans har en egenskapssamling för nyckel/värde-par, som kallas med namnet värden, som är globala för tjänstinstansen. Dessa värden med namnet kan användas för att hantera konstant strängvärden i alla API-konfiguration och principer. Varje egenskap kan ha följande attribut:
 
-| Attribut | Typ | Beskrivning |
+| Attribut | Type | Beskrivning |
 | --- | --- | --- |
-| Visningsnamn |string |Alfanumerisk sträng som används för att hänvisa till egenskapen i principerna. |
-| Value |string |Värdet på egenskapen. Den kan inte vara tomt eller enbart bestå av blanksteg. |
-|Secret|boolesk|Anger om värdet är en hemlighet och ska krypteras eller inte.|
-| Tags |strängmatris |Valfritt taggar som men som tillhandahålls kan användas för att filtrera egenskapslistan. |
+| `Display name` |string |Alfanumerisk sträng som används för att hänvisa till egenskapen i principerna. |
+| `Value`        |string |Värdet på egenskapen. Den kan inte vara tomt eller enbart bestå av blanksteg. |
+| `Secret`       |boolesk|Anger om värdet är en hemlighet och ska krypteras eller inte.|
+| `Tags`         |strängmatris |Valfritt taggar som men som tillhandahålls kan användas för att filtrera egenskapslistan. |
 
 ![Namngivna värden](./media/api-management-howto-properties/named-values.png)
 
@@ -55,7 +55,7 @@ Egenskapsvärden kan innehålla literala strängar och [principuttryck](/azure/a
 
 När egenskapen har skapats kan redigera du den genom att klicka på egenskapen. Om du ändrar egenskapsnamnet kan uppdateras automatiskt eventuella principer som refererar till egenskapen för att använda det nya namnet.
 
-Information om hur du redigerar en egenskap med hjälp av REST-API finns i [redigera en egenskap med hjälp av REST-API](/rest/api/apimanagement/property?Patch).
+Information om hur du redigerar en egenskap med hjälp av REST-API finns i [redigera en egenskap med hjälp av REST-API](/rest/api/apimanagement/2019-01-01/property?patch).
 
 ## <a name="to-delete-a-property"></a>Ta bort en egenskap
 
@@ -66,7 +66,7 @@ Ta bort en egenskap genom att klicka på **ta bort** bredvid egenskapen att ta b
 > 
 > 
 
-Information om att ta bort en egenskap med hjälp av REST-API finns i [ta bort en egenskap med hjälp av REST-API](/rest/api/apimanagement/property?Delete).
+Information om att ta bort en egenskap med hjälp av REST-API finns i [ta bort en egenskap med hjälp av REST-API](/rest/api/apimanagement/2019-01-01/property/delete).
 
 ## <a name="to-search-and-filter-named-values"></a>Söka och filtrera med namnet värden
 

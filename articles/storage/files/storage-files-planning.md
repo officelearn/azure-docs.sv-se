@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 82c0aa53fa8905e0e58cb784a478ade474ec5601
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 9144165a3ce593dce11b5e50ce5f0af9f0afa480
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65232774"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237662"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planera för distribution av Azure Files
 
@@ -111,7 +111,7 @@ Det är möjligt att minska storleken på ditt etablerade resursen nedan din anv
 
 I följande tabell visas några exempel på dessa produkter för de etablerade resursen storlekarna:
 
-|Kapacitet (GiB) | Baslinjen IOPS | Burst-IOPS | Utgående (MiB/s) | Inkommande (MiB/s) |
+|Kapacitet (GiB) | Baslinje-IOPS | Burst-IOPS | Utgående (MiB/s) | Inkommande (MiB/s) |
 |---------|---------|---------|---------|---------|
 |100         | 100     | Upp till 300     | 66   | 44   |
 |500         | 500     | Upp till 1 500   | 90   | 60   |
@@ -189,9 +189,9 @@ Det är möjligt att synkronisera flera Azure-filresurser på en enda Windows Se
 Det finns många enkelt alternativ för att massregistrera överföra data från en befintlig fil delar, till exempel en lokal filresurs, för i Azure Files. Några populära alternativ inkluderar (ofullständig lista):
 
 * **Azure File Sync**: Som en del av en första synkronisering mellan en Azure-filresurs (en ”Molnslutpunkt”) och ett Windows directory namnområde (en ”Serverslutpunkt”) replikerar Azure File Sync alla data från den befintliga filresursen till Azure Files.
-* **[Azure Import/Export](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)**: Azure Import/Export-tjänsten kan du på ett säkert sätt överföra stora mängder data till en Azure-filresurs via hårddiskar till ett Azure-datacenter. 
-* **[Robocopy](https://technet.microsoft.com/library/cc733145.aspx)**: ROBOCOPY är ett välkänt kopiera verktyg som levereras med Windows och Windows Server. ROBOCOPY kan användas för att överföra data till Azure Files genom att montera filresursen lokalt och sedan använda den monterade platsen som mål i Robocopy-kommandot.
-* **[AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#upload-files-to-an-azure-file-share)**: AzCopy är ett kommandoradsverktyg som utformats för att kopiera data till och från Azure Files, samt Azure Blob storage med hjälp av enkla kommandon med optimala prestanda. AzCopy är tillgängligt för Windows och Linux.
+* **[Azure Import/Export](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)** : Azure Import/Export-tjänsten kan du på ett säkert sätt överföra stora mängder data till en Azure-filresurs via hårddiskar till ett Azure-datacenter. 
+* **[Robocopy](https://technet.microsoft.com/library/cc733145.aspx)** : ROBOCOPY är ett välkänt kopiera verktyg som levereras med Windows och Windows Server. ROBOCOPY kan användas för att överföra data till Azure Files genom att montera filresursen lokalt och sedan använda den monterade platsen som mål i Robocopy-kommandot.
+* **[AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)** : AzCopy är ett kommandoradsverktyg som utformats för att kopiera data till och från Azure Files, samt Azure Blob storage med hjälp av enkla kommandon med optimala prestanda.
 
 ## <a name="next-steps"></a>Nästa steg
 * [Planera för distribution av Azure File Sync](storage-sync-files-planning.md)

@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: e6c7d682d9b16266208baeeff14168b3da157251
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8a62ec95c715c08a8fddc09f0c8e5f5bba368556
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60584887"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241762"
 ---
 # <a name="credentials-used-to-access-the-elastic-database-client-library"></a>Autentiseringsuppgifter som används för att få åtkomst till klientbiblioteket för elastiska databaser
 
@@ -46,7 +46,7 @@ Variabeln **smmAdminConnectionString** är en anslutningssträng som innehåller
 
 Använd inte värden i form av ”username@server” – i stället använda värdet ”användarnamn”.  Det beror på att autentiseringsuppgifter måste arbeta mot både databas och enskilda shards, vilket kan vara på olika servrar.
 
-## <a name="access-credentials"></a>Autentiseringsuppgifter för åtkomst
+## <a name="access-credentials"></a>Autentiseringsuppgifter
 
 När du skapar ett fragment kartan manager i ett program som inte administrerar fragmentkartor Använd autentiseringsuppgifter som har skrivskyddad behörighet på den globala fragmentkartan. Den information som hämtas från global fragmentkartan under dessa autentiseringsuppgifter används för [databeroende routning](sql-database-elastic-scale-data-dependent-routing.md) och att fylla i fragment kartan cachen på klienten. Autentiseringsuppgifterna som tillhandahålls via samma mönster för anrop till **GetSqlShardMapManager**:
 
@@ -79,6 +79,6 @@ Som med administratörsautentiseringsuppgifter och Använd inte värden i form a
 
 [Säkra din SQL Database](sql-database-security-overview.md)
 
-[Komma igång med Elastic Database-jobb](sql-database-elastic-jobs-getting-started.md)
+[Elastic Database-jobb](elastic-jobs-overview.md)
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]

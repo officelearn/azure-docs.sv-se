@@ -11,32 +11,28 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 05/22/2019
 ms.author: juliako
-ms.openlocfilehash: ac440be4444ca0d62f7ffde2b8b65e41dcba6683
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 041a73cd2840e0b6a1840e15629d9c0e284e9890
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002391"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66225511"
 ---
-# <a name="dynamic-manifests"></a>Dynamiska manifest
+# <a name="pre-filtering-manifests-with-dynamic-packager"></a>Före filtrering manifest med dynamiska Paketeraren
 
-Media Services erbjuder **dynamiska manifest** baserat på fördefinierade filter. När du definiera filter (se [definiera filter](filters-concept.md)), dina klienter kan använda dem för att strömma en specifik återgivning eller underordnade klipp av videon. Filter ska anges i strömnings-URL. Filter kan tillämpas på protokoll för direktuppspelning med anpassningsbar bithastighet: Apple HTTP Live Streaming (HLS), MPEG-DASH och Smooth Streaming. 
+När du ska leverera innehåll till enheter för direktuppspelning med anpassningsbar bithastighet måste ofta du publicera flera versioner av ett manifest target specifika enhetsfunktioner eller tillgänglig nätverksbandbredd. Den [dynamisk Paketeraren](dynamic-packaging-overview.md) kan du ange filter som kan filtrera ut specifika codec upplösningar och bithastigheter för utdata ljud spåra kombinationer på direkt tar bort behovet av att skapa flera kopior. Du behöver bara publicera en ny URL med en specifik uppsättning filter som konfigurerats för att dina målenheter (iOS, Android, SmartTV eller webbläsare) och nätverksfunktioner (hög bandbredd, Mobil eller med låg bandbredd-scenario). I det här fallet klienter kan manipulera strömning av innehåll via frågesträngen (genom att ange tillgänglig [tillgången filter eller kontofilter](filters-concept.md)) och Använd filter för att stream vissa delar av en dataström.
 
-I följande tabell visas några exempel på URL: er med filter:
+Vissa leverans scenarier kräver att du gör att en kund är inte har tillgång till specifika spår. Till exempel kanske du inte vill publicera ett manifest som innehåller HD spårar till en specifik prenumerations-nivå. Eller så kan du ta bort specifika med anpassningsbar bithastighet (ABR) spårar för att minska kostnaden för leverans till en specifik enhet som inte skulle ha nytta av ytterligare spår. I det här fallet kunde du koppla en lista med förinställda filter med din [Strömningspositionerare](streaming-locators-concept.md) skapats. Klienter kan inte ändra hur innehåll strömmas i det här fallet, den definieras av den **Strömningspositionerare**.
 
-|Protocol|Exempel|
-|---|---|
-|HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`|
-|MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
-|Smooth Streaming|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
- 
+Du kan kombinera filtrering genom att ange [filter på Strömningspositionerare](filters-concept.md#associating-filters-with-streaming-locator) + ytterligare specifika filter som klienten anger i URL: en. Detta kan vara användbart att begränsa ytterligare spårar som metadata eller händelse strömmar, ljud språk eller beskrivande ljudspår. 
+
+Den här möjligheten att ange olika filter på din stream ger en kraftfull **dynamiska Manifest** manipulering av lösning för att rikta in flera Användningsscenarier för din målenheter. Det här avsnittet förklarar begrepp som rör **dynamiska manifest** och ger exempel på scenarier där du kanske vill använda den här funktionen.
+
 > [!NOTE]
-> Dynamiska manifest ändras inte tillgången och standard-manifest för tillgången. Klienten kan du begära en dataström med eller utan filter. 
+> Dynamiska manifest ändras inte tillgången och standard-manifest för tillgången. 
 > 
-
-Det här avsnittet förklarar begrepp som rör **dynamiska manifest** och ger exempel på scenarier där du kanske vill använda den här funktionen.
 
 ## <a name="manifests-overview"></a>Manifest-översikt
 
@@ -55,6 +51,16 @@ REST-exempel finns i [överföra, koda och strömma filer med REST](stream-files
 Du kan använda den [Demonstrationssida för Azure Media Player](https://aka.ms/amp) att övervaka bithastigheten av en videoström. Demo-sidan visar diagnostik information i den **diagnostik** fliken:
 
 ![Azure Media Player-diagnostik][amp_diagnostics]
+ 
+### <a name="examples-urls-with-filters-in-query-string"></a>Exempel: URL: er med filter i frågesträngen
+
+Filter kan tillämpas på protokoll för direktuppspelning med anpassningsbar bithastighet: HLS, MPEG-DASH och Smooth Streaming. I följande tabell visas några exempel på URL: er med filter:
+
+|Protocol|Exempel|
+|---|---|
+|HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`|
+|MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
+|Smooth Streaming|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
 
 ## <a name="rendition-filtering"></a>Återgivningsfiltrering
 
@@ -121,10 +127,6 @@ Om du vill kombinera filter, måste du ange filternamn i manifestet/spelningslis
 Du kan kombinera upp till tre filter. 
 
 Mer information finns i [detta](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/) blogg.
-
-## <a name="associate-filters-with-streaming-locator"></a>Associera filter med Strömningspositionerare
-
-Se [filter: Koppla med strömning positionerare](filters-concept.md#associate-filters-with-streaming-locator).
 
 ## <a name="considerations-and-limitations"></a>Överväganden och begränsningar
 

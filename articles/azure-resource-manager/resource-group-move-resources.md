@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: 1ae1afe103d4c52a2a7d921ef4f34dc030f3c6f7
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 4b836faef4630f6bee914478aecaed1bb4db7d71
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65872646"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66225891"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Flytta resurser till ny resursgrupp eller prenumeration
 
@@ -54,7 +54,7 @@ Följande lista innehåller en allmän översikt över Azure-tjänster som kan f
 * Azure Cache för Redis - om Azure Cache för Redis-instans som är konfigurerad med ett virtuellt nätverk, instansen kan inte flyttas till en annan prenumeration. Se [virtuella nätverk begränsningar](#virtual-networks-limitations).
 * Azure Cosmos DB
 * Azure-datautforskaren
-* Azure Database for MariaDB
+* Azure-databas för MariaDB
 * Azure Database for MySQL
 * Azure Database for PostgreSQL
 * Azure DevOps - Följ stegen för att [ändra Azure-prenumerationen används för fakturering](/azure/devops/organizations/billing/change-azure-subscription?view=azure-devops).
@@ -68,7 +68,7 @@ Följande lista innehåller en allmän översikt över Azure-tjänster som kan f
 * CDN
 * Molntjänster – Se [begränsningar för klassisk distribution](#classic-deployment-limitations)
 * Cognitive Services
-* Containerregister
+* Container Registry
 * Content Moderator
 * Cost Management
 * Customer Insights
@@ -91,7 +91,7 @@ Följande lista innehåller en allmän översikt över Azure-tjänster som kan f
 * Hanterad identitet - användartilldelade
 * Media Services
 * Övervaka – Se till att flytta till ny prenumeration inte överstiger [prenumerationskvoter](../azure-subscription-service-limits.md#monitor-limits)
-* Meddelandehubbar
+* Notification Hubs
 * Operational Insights
 * Operations Management
 * Portalen instrumentpaneler
@@ -107,7 +107,7 @@ Följande lista innehåller en allmän översikt över Azure-tjänster som kan f
 * SignalR Service
 * Storage - konton i olika regioner kan inte flyttas på samma gång. Använd i stället separata åtgärder för varje region.
 * Storage (klassisk) – Se [begränsningar för klassisk distribution](#classic-deployment-limitations)
-* Tjänst för synkronisering av lagring
+* Storage Sync-tjänsten
 * Stream Analytics - tillstånd för Stream Analytics-jobb inte kan flyttas när du kör i.
 * SQL Database-server - databas och server måste vara i samma resursgrupp. Om du flyttar en SQLServer, flyttas även alla dess databaser. Det här beteendet gäller för Azure SQL Database och Azure SQL Data Warehouse-databaser.
 * Time Series Insights
@@ -133,14 +133,14 @@ Följande lista innehåller en allmän översikt över Azure-tjänster som inte 
 * Azure NetApp Files
 * Certifikat - App Service-certifikat kan flyttas, men uppladdade certifikat har [begränsningar](#app-service-limitations).
 * Klassiska program
-* Containerinstanser
+* Container Instances
 * Container Service
 * Data Box
 * Dev blanksteg
 * Dynamics LCS
 * ExpressRoute
 * Lab Services – klassrum Labs kan inte flyttas till en ny resursgrupp eller prenumeration. DevTest Labs kan flyttas till en ny resursgrupp i samma prenumeration, men inte mellan prenumerationer.
-* Hanterade program
+* Managed Applications
 * Microsoft Genomics
 * Säkerhet
 * Site Recovery
@@ -323,7 +323,7 @@ Flytta klassiska resurser till en ny prenumeration genom att använda REST-åtg�
 
 ### <a name="recovery-services-limitations"></a>Recovery Services-begränsningar
 
- Om du vill flytta ett Recovery Services-valv, måste du registrera på en [begränsad offentlig förhandsversion](../backup/backup-azure-move-recovery-services-vault.md).
+ Följ dessa steg om du vill flytta ett Recovery Services-valv: [Flytta resurser till ny resursgrupp eller prenumeration](../backup/backup-azure-move-recovery-services-vault.md).
 
 För närvarande kan du flytta ett Recovery Services-valv per region i taget. Du kan inte flytta valv som säkerhetskopiera Azure Files eller Azure File Sync SQL i IaaS-datorer.
 

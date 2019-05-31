@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: jrasnick, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 043ceb6c46155ed169c080d08f37688b47e3e4b9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 96d55da713b8591b20f95ba36f332a340999181e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66123300"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242743"
 ---
 # <a name="manage-file-space-for-single-and-pooled-databases-in-azure-sql-database"></a>Hantera utrymmet för enkel och delade databaser i Azure SQL Database
 
@@ -63,7 +63,7 @@ SQL Database-tjänsten Komprimera inte automatiskt filer för att frigöra oanv�
 
 Förstå följande storage utrymme kvantiteter är viktiga för att hantera filutrymme för en databas.
 
-|Databasen kvantitet|Definition|Kommentarer|
+|Databasen kvantitet|Definition|Kommentar|
 |---|---|---|
 |**Datautrymme som används**|Mängden utrymme som används för att lagra databasdata på 8 KB sidor.|I allmänhet används utrymme ökar (minskningar) på infogningar (ta bort). I vissa fall, hur mycket diskutrymme ändras inte på infogningar eller tar bort beroende på omfattningen av och mönstret för de data som ingår i åtgärden och den fragmenterade. Till exempel tar bort en rad från varje datasida inte nödvändigtvis minska utrymmet som används.|
 |**Data som allokerats**|Mängden formaterad filutrymme som gjorts tillgängliga för att lagra databasdata.|Mängden utrymme som allokerats växer automatiskt, men aldrig minskar när du tar bort. Detta säkerställer att framtida infogningar är snabbare eftersom utrymme inte behöver formateras.|
@@ -120,7 +120,7 @@ SELECT DATABASEPROPERTYEX('db1', 'MaxSizeInBytes') AS DatabaseDataMaxSizeInBytes
 
 Förstå följande storage utrymme kvantiteter är viktiga för att hantera filutrymme för en elastisk pool.
 
-|Elastisk pool kvantitet|Definition|Kommentarer|
+|Elastisk pool kvantitet|Definition|Kommentar|
 |---|---|---|
 |**Datautrymme som används**|Summering av datautrymme som används av alla databaser i den elastiska poolen.||
 |**Data som allokerats**|Summan av data som har allokerats av alla databaser i den elastiska poolen.||
@@ -216,6 +216,9 @@ ORDER BY end_time DESC
 ```
 
 ## <a name="reclaim-unused-allocated-space"></a>Frigöra oanvänt allokerade utrymme
+
+> [!NOTE]
+> Det här kommandot kan påverka databasens prestanda när den körs, och om möjligt ska köras under perioder med låg belastning.
 
 ### <a name="dbcc-shrink"></a>DBCC förminskas
 

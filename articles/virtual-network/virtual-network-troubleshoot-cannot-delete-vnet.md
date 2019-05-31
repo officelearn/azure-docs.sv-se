@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 4bd143b37e4403d039108b4349b27604b6503e0e
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 5d2e10a4c5cd5b5dc1a8fe19cef7bc47f68d3fbe
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62123033"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235015"
 ---
 # <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>Felsökning: Det gick inte att ta bort ett virtuellt nätverk i Azure
 
@@ -66,7 +66,7 @@ Om Active Directory Domain Service är aktiverat och anslutet till det virtuella
 
 ![Kontrollera den anslutna enheten](media/virtual-network-troubleshoot-cannot-delete-vnet/enable-domain-services.png)
 
-Om du vill inaktivera tjänsten, se [inaktivera Azure Active Directory Domain Services med Azure portal](../active-directory-domain-services/active-directory-ds-disable-aadds.md).
+Om du vill inaktivera tjänsten, se [inaktivera Azure Active Directory Domain Services med Azure portal](../active-directory-domain-services/delete-aadds.md).
 
 ### <a name="check-whether-the-virtual-network-is-connected-to-other-resource"></a>Kontrollera om det virtuella nätverket är ansluten till en annan resurs
 
@@ -76,7 +76,7 @@ Den rekommendera borttagning ordningen är följande:
 
 1. gateway-anslutningar
 2. Gateways
-3. IP-adresser
+3. IPs
 4. Virtuella nätverk
 5. App Service Environment (ASE)
 

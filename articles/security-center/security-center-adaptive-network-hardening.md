@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/13/2019
-ms.author: v-mohabe
-ms.openlocfilehash: 17f01d89598d99425d157e4c9c31e64ab1ccbcda
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.date: 05/24/2019
+ms.author: monhaber
+ms.openlocfilehash: f35f410ddc039ee264fa1de317e152cb03f391b5
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65966980"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241545"
 ---
 # <a name="adaptive-network-hardening-in-azure-security-center"></a>Anpassningsbar nätverk härdning i Azure Security Center
 Lär dig hur du konfigurerar anpassningsbar Härdning av nätverk i Azure Security Center.
@@ -33,7 +33,6 @@ Anta exempelvis att den befintliga NSG-regeln är att tillåta trafik från 140.
 
 ![nätverket härdning vy](./media/security-center-adaptive-network-hardening/traffic-hardening.png)
 
-
 > [!NOTE]
 > Anpassningsbar rekommendationer för härdning av nätverk stöds på följande portar: 22, 3389, 21, 23, 445, 4333, 3306, 1433, 1434, 53, 20, 5985, 5986, 5432, 139, 66, 1128
 
@@ -43,7 +42,7 @@ Anta exempelvis att den befintliga NSG-regeln är att tillåta trafik från 140.
    * **Skadade resurser**: Virtuella datorer som för närvarande har rekommendationer och aviseringar som utlösts genom att köra algoritmen anpassningsbar Härdning av nätverket. 
    * **Felfria resurser**: Virtuella datorer utan aviseringar och rekommendationer.
    * **Ej genomsökta resurser**: Virtuella datorer som algoritmen anpassningsbar Härdning av nätverket inte kan köras på grund av något av följande orsaker:
-      * **Virtuella datorer är klassiska virtuella datorer**:-endast Azure Resource Manager virtuella datorer stöds.
+      * **Virtuella datorer är klassiska virtuella datorer**: Endast Azure Resource Manager virtuella datorer stöds.
       * **Det finns inte tillräckligt med data är tillgängliga**: Security Center kräver minst 30 dagar trafikdata för att generera korrekta trafik Härdning av rekommendationer.
       * **Den virtuella datorn inte skyddad av ASC-standard**: Endast virtuella datorer som är inställda på att Security Center Standard-prisnivån är berättigade till den här funktionen.
 
@@ -57,18 +56,23 @@ Anta exempelvis att den befintliga NSG-regeln är att tillåta trafik från 140.
 ## <a name="review-and-apply-adaptive-network-hardening-recommended-rules"></a>Granska och tillämpa anpassningsbar nätverk härdning rekommenderas regler
 
 1. Från den **skadade resurser** väljer du en virtuell dator. Aviseringar och rekommenderade härdningsreglerna visas.
-   ![Härdning aviseringar](./media/security-center-adaptive-network-hardening/hardening-alerts.png)
+
+     ![härdningsreglerna](./media/security-center-adaptive-network-hardening/hardening-alerts.png)
 
    > [!NOTE]
    > Den **regler** fliken innehåller de regler som anpassningsbar Härdning av nätverket rekommenderar att du lägger till. Den **aviseringar** fliken visar en lista över de aviseringar som genererats på grund av trafiken som flödar till resursen, vilket inte är inom det IP-adressintervall som tillåts i de rekommenderade reglerna.
-
-   ![härdningsreglerna](./media/security-center-adaptive-network-hardening/hardening-rules.png)
 
 2. Om du vill ändra några av parametrarna för en regel kan du ändra den, enligt beskrivningen i [ändra en regel](#modify-rule).
    > [!NOTE]
    > Du kan också [ta bort](#delete-rule) eller [lägga till](#add-rule) en regel.
 
-3. Välj vilka regler som du vill tillämpa på NSG: N och klickar på **tvinga**. 
+3. Välj vilka regler som du vill tillämpa på NSG: N och klickar på **tvinga**.
+
+      > [!NOTE]
+      > Tvingande regler har lagts till i nätverkssäkerhetsgrupper som är skydda den virtuella datorn. (En virtuell dator kan skyddas av en NSG som är kopplad till dess nätverkskort, eller undernätet där den virtuella datorn finns, eller båda)
+
+    ![Tillämpa regler](./media/security-center-adaptive-network-hardening/enforce-hard-rule2.png)
+
 
 ### Ändra en regel  <a name ="modify-rule"> </a>
 
@@ -84,11 +88,11 @@ Vissa viktiga riktlinjer för att ändra en anpassningsbar Härdning av Network-
 
 * En **neka all trafik** regeln är den enda typen av regel för ”neka” som anges här och det kan inte ändras. Du kan dock ta bort den (se [ta bort en regel](#delete-rule)).
   > [!NOTE]
-  > En **neka all trafik** regeln rekommenderas när, som ett resultat för att köra algoritmen Security Center identifierar inte trafik som ska tillåtas, baserat på den befintliga NSG-konfigurationen. Därför är den rekommenderade regeln som nekar all trafik till den angivna porten. Namnet på den här typen av regeln visas som ”systemgenererad”. Efter att framtvinga den här regeln, är dess faktiska namn i NSG: N en sträng som består av protokollet, trafikriktningen, ”DENY” och ett slumptal.
+  > En **neka all trafik** regeln rekommenderas när, som ett resultat för att köra algoritmen Security Center identifierar inte trafik som ska tillåtas, baserat på den befintliga NSG-konfigurationen. Därför är den rekommenderade regeln som nekar all trafik till den angivna porten. Namnet på den här typen av regeln visas som ”*systemgenererat*”. Efter att framtvinga den här regeln, är dess faktiska namn i NSG: N en sträng som består av protokollet, trafikriktningen, ”DENY” och ett slumptal.
 
 *Ändra en anpassningsbar Härdning av Network-regel:*
 
-1. Att ändra några av parametrarna för en regel i den **regler** , klicka på de tre punkterna (...) i slutet av raden för regelns och på **Redigera regeln**.
+1. Att ändra några av parametrarna för en regel i den **regler** , klicka på de tre punkterna (...) i slutet av raden för regelns och på **redigera**.
 
    ![Redigera regel](./media/security-center-adaptive-network-hardening/edit-hard-rule.png)
 
@@ -97,10 +101,13 @@ Vissa viktiga riktlinjer för att ändra en anpassningsbar Härdning av Network-
    > [!NOTE]
    > När du klickar på **spara**, du har ändrat regeln. *Men har du inte installerat den i NSG.* Om du vill använda det, måste du väljer du regeln i listan och klicka på **tvinga** (enligt beskrivningen i nästa steg).
 
+   ![Redigera regel](./media/security-center-adaptive-network-hardening/edit-hard-rule3.png)
+
 3. Om du vill tillämpa den uppdaterade regeln från listan, väljer du uppdaterade regeln och klickar på **tvinga**.
 
-### Lägg till en ny regel <a name ="add-rule"> </a>
+    ![Tillämpa regel](./media/security-center-adaptive-network-hardening/enforce-hard-rule.png)
 
+### Lägg till en ny regel <a name ="add-rule"> </a>
 
 Du kan lägga till en regel för ”Tillåt” som inte rekommenderas av Security Center.
 
@@ -113,13 +120,14 @@ Du kan lägga till en regel för ”Tillåt” som inte rekommenderas av Securit
 
    ![Lägg till regel](./media/security-center-adaptive-network-hardening/add-hard-rule.png)
 
-1. I den **Redigera regeln** fönstret anger du informationen och klicka på **spara**.
+1. I den **ny regel** fönstret anger du informationen och klicka på **Lägg till**.
 
    > [!NOTE]
-   > När du klickar på **spara**, du har lagt till regeln och det visas med de rekommendera reglerna. Men har du inte installerat den på NSG: N. Om du vill aktivera den, måste du väljer du regeln i listan och klicka på **tvinga** (enligt beskrivningen i nästa steg).
+   > När du klickar på **Lägg till**du har lagt till regeln och det visas med de rekommendera reglerna. Men har du inte installerat den på NSG: N. Om du vill aktivera den, måste du väljer du regeln i listan och klicka på **tvinga** (enligt beskrivningen i nästa steg).
 
 3. Om du vill tillämpa den nya regeln från listan, Välj den nya regeln och klicka på **tvinga**.
 
+    ![Tillämpa regel](./media/security-center-adaptive-network-hardening/enforce-hard-rule.png)
 
 
 ### Ta bort en regel <a name ="delete-rule"> </a>
@@ -128,9 +136,9 @@ Om det behövs kan du ta bort en regel för rekommenderade. Du kan till exempel 
 
 *Ta bort en regel för anpassningsbar Härdning av nätverk:*
 
-1. I den **regler** , klicka på de tre punkterna (...) i slutet av raden för regelns och på **ta Borttagningsregeln**.
+1. I den **regler** , klicka på de tre punkterna (...) i slutet av raden för regelns och på **ta bort**.  
 
-   ![Ta bort regel](./media/security-center-adaptive-network-hardening/delete-hard-rule.png)
+    ![härdningsreglerna](./media/security-center-adaptive-network-hardening/delete-hard-rule.png)
 
 
 

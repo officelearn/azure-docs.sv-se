@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: 399dcd744819cf4cb5d9f5f9636967c34e186a0e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 94f410b7bd3b7c2eb3d7d6a9316323092010338e
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60921010"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418329"
 ---
 # <a name="configuration-server-requirements-for-vmware-disaster-recovery-to-azure"></a>Configuration server-krav för haveriberedskap för VMware till Azure
 
@@ -79,7 +79,7 @@ I följande tabell sammanfattas kapacitetskrav för konfigurationsservern. Om du
 | --- | --- | --- | --- | --- |
 | 8 virtuella processorer<br/><br/> 2 platser * 4 kärnor \@ 2,5 GHz | 16 GB | 300 GB | 500 GB eller mindre | Les än 100 datorer |
 | 12 virtuella processorer<br/><br/> 2 socks * 6 kärnor \@ 2,5 GHz | 18 GB | 600 GB | 500 GB-1 TB | 100-150 datorer |
-| 16 vcpu: er<br/><br/> 2 socks * 8 kärnor \@ 2,5 GHz | 32 GB | 1 TB | 1-2 TB | 150 – 200 datorer | 
+| 16 vcpu: er<br/><br/> 2 socks * 8 kärnor \@ 2,5 GHz | 32 GB | 1 TB | 1-2 TB | 150 – 200 datorer | 
 
 
 

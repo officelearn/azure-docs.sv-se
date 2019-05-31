@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: f4bbea8acd447a731cf5c56f9876baf9183735ea
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cba57875daf9b570d274ec8c4e9c4146af0dc045
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60518647"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65072837"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Behållargrupper i Azure Container Instances
 
@@ -65,7 +65,7 @@ Mer information finns i den [ResourceRequirements] [ resource-requirements] -ege
 
 * Allokera en **minsta** 1 CPU och 1 GB minne till en behållargrupp. Enskild behållarinstanser i en grupp kan etableras med mindre än 1 processor- och 1 GB minne. 
 
-* För den **maximala** resurser i en behållargrupp finns i [resurstillgänglighet] [aci region-tillgänglighet] för Azure Container Instances i distributionsregionen.
+* För den **maximala** resurser i en behållargrupp finns i den [resurstillgänglighet] [ region-availability] för Azure Container Instances i distributionsregionen.
 
 ## <a name="networking"></a>Nätverk
 

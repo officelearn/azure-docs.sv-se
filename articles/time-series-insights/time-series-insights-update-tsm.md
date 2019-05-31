@@ -2,7 +2,7 @@
 title: Förhandsversion av Time Series-modell i Azure Time Series Insights | Microsoft Docs
 description: Förstå Azure Time Series Insights Time Series-modell.
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 ms.workload: big-data
 manager: cshankar
 ms.service: time-series-insights
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: a9de28c96c2833033a3811835f57cffcccdf4619
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 3e6e8ae76c0ae6f688dd4a039b34c52af16b6e0f
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190337"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244013"
 ---
 # <a name="time-series-model"></a>Time Series-modell
 
@@ -126,7 +126,7 @@ Fundera på följande exempel där hierarki H1 har *att skapa*, *våning*, och *
 
 Beroende på den *instans fält*, hierarki-attribut och värden som ska visas som visas i följande tabell:
 
-| Tidserie-ID | Instansfält |
+| Time Series-ID | Instansfält |
 | --- | --- |
 | ID1 | ”Skapa” = ”1000”, ”våning” = ”10”, ”plats” = ”55”  |
 | ID2 | ”Skapa” = ”1000”, ”plats” = ”55” |

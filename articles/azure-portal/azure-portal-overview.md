@@ -5,16 +5,16 @@ services: azure-portal
 keywords: ''
 author: kfollis
 ms.author: kfollis
-ms.date: 03/22/2019
+ms.date: 05/24/2019
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: bff6fe697912bca0bc55501a74a01a92b1330521
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: de04b461d8e2d2dce9a88052a86fbe5d163fafec
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60551403"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244190"
 ---
 # <a name="azure-portal-overview"></a>Översikt över Azure Portal
 
@@ -23,6 +23,8 @@ Den här artikeln introducerar Azure-portalen, identifierar portalsidan element 
 ## <a name="what-is-the-azure-portal"></a>Vad är Azure-portalen?
 
 Azure-portalen är en webbaserad, enhetlig konsol som är ett alternativ till kommandoradsverktyg. Med Azure-portalen kan du hantera din Azure-prenumeration med hjälp av ett grafiskt användargränssnitt. Du kan skapa, hantera, och övervaka allt från enkla webbappar till komplexa distributioner, skapa anpassade instrumentpaneler för en ordnad vy av resurser och konfigurera hjälpmedelsalternativ för bästa möjliga upplevelse.
+
+Azure-portalen är utformat för återhämtning och kontinuerlig tillgänglighet. Den har en närvaro i varje Azure-datacenter vilket gör det elastiska för enskilda datacenterfel och undviker också nätverk slow-downs genom att vara nära användare. Azure-portalen uppdateras kontinuerligt och kräver inget avbrott underhållsaktiviteter.
 
 ## <a name="azure-home"></a>Azure Home
 
@@ -66,7 +68,6 @@ Vi har förifylld dina Favoriter i sidopanelen med länkar till tjänster som of
 
 > [!TIP]
 > Det snabbaste sättet att hitta en resurs, tjänst eller dokumentation är att använda *Search* i global rubriken. Använd dynamiska länkar för att gå tillbaka till föregående sidor.
->
 >
 
 ## <a name="next-steps"></a>Nästa steg

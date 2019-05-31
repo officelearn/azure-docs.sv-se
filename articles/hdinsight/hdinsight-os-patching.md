@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/24/2019
-ms.openlocfilehash: 5b8ed75863087e077d483c792ac4134a0c3e1eb0
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: cfbd68e66730fc338130bc16849fe0b2f4abd6be
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65203639"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244410"
 ---
 # <a name="os-patching-for-hdinsight"></a>OS-korrigering för HDInsight 
 
@@ -45,6 +45,7 @@ När du använder det här skriptet kräver följande information:
 
 > [!NOTE]  
 > Du måste markera det här skriptet som sparas när du använder i ett befintligt kluster. Annars kommer alla nya noder som skapats genom skalningsåtgärder använder standard uppdateringsschema.  Om du använder skriptet som en del av klustret skapas, bevaras det automatiskt.
+
 
 ## <a name="next-steps"></a>Nästa steg
 

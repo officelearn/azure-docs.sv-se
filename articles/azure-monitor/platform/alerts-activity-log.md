@@ -1,18 +1,18 @@
 ---
-title: Skapa, visa och hantera aviseringar för aktivitetsloggar i Azure Monitor
-description: Hur du skapar varningar för aktivitetsloggar från Azure Portal, Resource-mall och PowerShell.
+title: Skapa, visa och hantera aktivitet loggaviseringar i Azure Monitor
+description: Så här att skapa aviseringar för aktivitetsloggen med hjälp av Azure-portalen, en Azure Resource Manager-mall och Azure PowerShell.
 author: msvijayn
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
-ms.openlocfilehash: 2b069e55d98da824363dc480c211cde0fcc2518c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f25321fa5a13ed5a39a62a4115bb0bc10306d36f
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66130009"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244962"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-using-azure-monitor"></a>Skapa, visa och hantera aviseringar för aktivitetsloggar med Azure Monitor  
 
@@ -97,7 +97,7 @@ Följ anvisningarna nedan:
     Du kan aktivera, inaktivera, redigera eller ta bort en regel. Läs mer om hur du hanterar aktivitet log regler.
 
 
-Du kan också en enkel liknelse för förstå villkor som Varningsregler kan skapas på aktivitetslogg, är att utforska eller Filtrera händelser via [aktivitetsloggen i Azure-portalen](../../azure-monitor/platform/activity-logs-overview.md#query-the-activity-log-in-the-azure-portal). I Azure Monitor - aktivitetslogg, en filtrera eller hitta nödvändiga evenemang och sedan skapa en avisering med hjälp av den **Lägg till aktivitetsloggavisering** knappen, Följ steg 4 och senare enligt informationen i självstudien ovan.
+Du kan också en enkel liknelse för förstå villkor som Varningsregler kan skapas på aktivitetslogg, är att utforska eller Filtrera händelser via [aktivitetsloggen i Azure-portalen](activity-log-view.md#azure-portal). I Azure Monitor - aktivitetslogg, en filtrera eller hitta nödvändiga evenemang och sedan skapa en avisering med hjälp av den **Lägg till aktivitetsloggavisering** knappen, Följ steg 4 och senare enligt informationen i självstudien ovan.
     
  ![ Lägg till avisering från aktivitetsloggen](media/alerts-activity-log/add-activity-log.png)
     
@@ -200,8 +200,8 @@ Exempel-json ovan kan sparas som (exempelvis) sampleActivityLogAlert.json i den 
 > [!NOTE]
 > Det kan ta upp till 5 minuter för den en ny aktivitetsloggsaviseringsregel att bli aktiv
 
-## <a name="rest-api"></a>REST API 
-[Azure Monitor - aktivitet Log aviseringar API](https://docs.microsoft.com/rest/api/monitor/activitylogalerts) är en REST-API och helt kompatibla med Azure Resource Manager REST API. Därför kan den användas via Powershell med Resource Manager-cmdlet som Azure CLI.
+## <a name="rest-api"></a>REST-API 
+[Azure Monitor - aktivitetsloggen aviseringar API](https://docs.microsoft.com/rest/api/monitor/activitylogalerts) är en REST-API och helt kompatibla med Azure Resource Manager REST API. Därför kan den användas via Powershell med Resource Manager-cmdlet som Azure CLI.
 
 ## <a name="powershell"></a>PowerShell
 
@@ -216,7 +216,7 @@ New-AzResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile sampleActi
 
 sampleActivityLogAlert.parameters.json innehåller där de angivna värdena för de parametrar som behövs för att skapa en aviseringsregel.
 
-### <a name="use-activity-log-powershell-cmdlets"></a>Använd aktiviteten Log PowerShell-cmdletar
+### <a name="use-activity-log-powershell-cmdlets"></a>Använda aktivitetslogg PowerShell-cmdletar
 
 Aktivitetsloggaviseringar ha dedikerade PowerShell-cmdlets som är tillgängliga:
 

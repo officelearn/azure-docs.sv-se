@@ -1,21 +1,21 @@
 ---
-title: Användningsscenarier för Query Store i Azure Database for PostgreSQL
-description: Den här artikeln beskrivs några scenarier för Query Store i Azure Database för PostgreSQL.
+title: Användningsscenarier för Query Store i Azure Database för PostgreSQL – enskild Server
+description: Den här artikeln beskrivs några scenarier för Query Store i Azure Database för PostgreSQL – enskild Server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/26/2018
-ms.openlocfilehash: 873462354b70d13e56ca108c3257031ef34873f8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 029c595ba983d3b758568fbacaf6577014d893db
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60563196"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65067292"
 ---
 # <a name="usage-scenarios-for-query-store"></a>Användningsscenarier för Query Store
 
-**Gäller för:** Azure Database för PostgreSQL 9.6 och 10
+**Gäller för:** Azure Database för PostgreSQL – enskild Server 9.6 och 10
 
 Du kan använda Query Store i en mängd olika scenarier där spårnings- och bibehålla förutsägbara arbetsbelastningsprestandan är viktiga. Överväg följande exempel: 
 - Identifiera och justera översta dyra frågor 

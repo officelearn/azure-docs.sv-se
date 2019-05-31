@@ -11,14 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c2c5006eb050b70b783ab8199724e0e98766381
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1ca69fc23d580b61e74fe56b3d0c3524fdfad747
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60359345"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235539"
 ---
-# <a name="planning-a-cloud-based-azure-multi-factor-authentication"></a>Planera en molnbaserad Azure Multi-Factor Authentication
+# <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>Planera en molnbaserad Azure Multi-Factor Authentication-distribution
 
 Personer som ansluter till organisationens resurser i allt mer komplicerade scenarier. Personer ansluta från organisationsägda personliga och offentliga enheter och inaktivera företagsnätverket använder Smartphones, surfplattor, datorer och bärbara datorer, ofta på flera plattformar. I den här uppkopplad, flera enheter och flera plattformar är säkerheten för användarkonton viktigare än någonsin. Lösenord, oavsett deras komplexitet, används alla enheter, nätverk och plattformar som inte längre räcker för att säkerställa säkerheten för användarkontot, särskilt när användarna tenderar att återanvändning av lösenord för konton. Avancerade nätfiske och andra social engineering attacker kan leda till användarnamn och lösenord som publicerats och sålda artiklar över mörka Internet.
 
@@ -60,14 +60,12 @@ Azure Multi-Factor Authentication distribueras genom tvingande principer med vil
 * Kompatibel enhet
 * Hybrid Azure AD-domänansluten enhet
 * Godkända klientprogram
- 
 
-Använd anpassningsbara affischer och e-postmallar i [multifaktorautentisering distributionen material] lansera multifaktorautentisering för din organisation. (https://www.microsoft.com/en-us/download/details.aspx?id=57600&WT.mc_id=rss_alldownloads_all)
+Använd anpassningsbara affischer och e-postmallar i [multifaktorautentisering distributionen material](https://www.microsoft.com/download/details.aspx?id=57600&WT.mc_id=rss_alldownloads_all) lansera multifaktorautentisering för din organisation.
 
 ## <a name="enable-multi-factor-authentication-with-conditional-access"></a>Aktivera Multi-Factor Authentication med villkorlig åtkomst
 
 Principer för villkorlig åtkomst framtvinga registrering, kräver oregistrerade användare att slutföra registreringen vid första inloggningen, en viktig säkerhetsaspekt.
-
 
 [Azure AD Identity Protection](../identity-protection/howto-configure-risk-policies.md) bidrar både en registreringsprincip för för och automatiserade risk av och relevanta reparationsåtgärder principer i Azure Multi-Factor Authentication-artikel. Principer kan skapas för att tvinga lösenordsändringar när det finns risk för komprometterade identitet eller kräva MFA när en inloggning som anses vara riskfyllda med följande [händelser](../reports-monitoring/concept-risk-events.md):
 
@@ -145,13 +143,13 @@ Administratörer måste bestämma hur användare registrerar sina metoder. Organ
 
 Om din organisation använder Azure Active Directory Identity Protection, [konfigurera MFA-registreringsprincip](../identity-protection/howto-mfa-policy.md) att uppmana användarna att registrera nästa gång de loggar in interaktivt.
 
-### <a name="registration-without-identity-protection"></a>Registrering utan identity Protection
+### <a name="registration-without-identity-protection"></a>Registrering utan Identity Protection
 
 Om din organisation inte har licenser som aktiverar du Identity Protection, uppmanas användarna att registrera dig nästa gång MFA krävs vid inloggning. Användare kan inte registreras för MFA om de inte använder program som skyddas med MFA. Det är viktigt att hämta alla användare som registrerade så att obehöriga inte kan gissa lösenord för en användare och registrera för MFA för deras räkning effektivt tar kontroll över kontot.
 
 #### <a name="enforcing-registration"></a>Att framtvinga registrering
 
-Följande kan principer för villkorlig åtkomst tvinga användare att registrera sig för Multifaktorautentisering
+Med följande steg en villkorlig åtkomst kan princip tvinga användare att registrera sig för Multifaktorautentisering
 
 1. Skapa en grupp, lägga till alla användare som för närvarande inte registrerad.
 2. Använder villkorlig åtkomst måste använda multifaktorautentisering för den här gruppen för åtkomst till alla resurser.
@@ -169,6 +167,72 @@ Get-MsolUser -All | where {$_.StrongAuthenticationMethods -ne $null} | Select-Ob
 
 ```PowerShell
 Get-MsolUser -All | where {$_.StrongAuthenticationMethods.Count -eq 0} | Select-Object -Property UserPrincipalName | Sort-Object userprincipalname 
+```
+
+### <a name="convert-users-from-per-user-mfa-to-conditional-access-based-mfa"></a>Konvertera användare från MFA per användare med villkorlig åtkomst baserad MFA
+
+Om dina användare har aktiverats med hjälp av per användare-aktiverat och tvingande Azure Multi-Factor Authentication följande PowerShell kan hjälpa dig att göra konverteringen till villkorad tillgång baserat Azure Multi-Factor Authentication.
+
+```PowerShell
+# Disable MFA for all users, keeping their MFA methods intact
+Get-MsolUser -All | Disable-MFA -KeepMethods
+
+# Enforce MFA for all users
+Get-MsolUser -All | Set-MfaState -State Enforced
+
+# Wrapper to disable MFA with the option to keep the MFA
+# methods (to avoid having to proof-up again later)
+function Disable-Mfa {
+
+    [CmdletBinding()]
+    param(
+        [Parameter(ValueFromPipeline=$True)]
+        $User,
+        [switch] $KeepMethods
+    )
+
+    Process {
+
+        Write-Verbose ("Disabling MFA for user '{0}'" -f $User.UserPrincipalName)
+        $User | Set-MfaState -State Disabled
+
+        if ($KeepMethods) {
+            # Restore the MFA methods which got cleared when disabling MFA
+            Set-MsolUser -ObjectId $User.ObjectId `
+                         -StrongAuthenticationMethods $User.StrongAuthenticationMethods
+        }
+    }
+}
+
+# Sets the MFA requirement state
+function Set-MfaState {
+
+    [CmdletBinding()]
+    param(
+        [Parameter(ValueFromPipelineByPropertyName=$True)]
+        $ObjectId,
+        [Parameter(ValueFromPipelineByPropertyName=$True)]
+        $UserPrincipalName,
+        [ValidateSet("Disabled","Enabled","Enforced")]
+        $State
+    )
+
+    Process {
+        Write-Verbose ("Setting MFA state for user '{0}' to '{1}'." -f $ObjectId, $State)
+        $Requirements = @()
+        if ($State -ne "Disabled") {
+            $Requirement =
+                [Microsoft.Online.Administration.StrongAuthenticationRequirement]::new()
+            $Requirement.RelyingParty = "*"
+            $Requirement.State = $State
+            $Requirements += $Requirement
+        }
+
+        Set-MsolUser -ObjectId $ObjectId -UserPrincipalName $UserPrincipalName `
+                     -StrongAuthenticationRequirements $Requirements
+    }
+}
+
 ```
 
 ## <a name="plan-conditional-access-policies"></a>Planera principer för villkorlig åtkomst
@@ -210,7 +274,7 @@ Vissa äldre och lokala program som inte autentiserar direkt mot Azure AD kräve
 * En lokal RADIUS-program, som måste du använda MFA-adapter med NPS-server.
 * En lokal AD FS-program, som kommer att behöva använda MFA-adapter med AD FS 2016.
 
-Program som autentiserar direkt med Azure AD och har modern autentisering (WS-Fed, SAML, OAuth, OpenID Connect) kan göra användning av principer för villkorlig åtkomst direkt.
+Program som autentiserar direkt med Azure AD och har modern autentisering (WS-Fed, SAML, OAuth, OpenID Connect) kan utnyttja villkorlig åtkomst direkt principer.
 
 ### <a name="use-azure-mfa-with-azure-ad-application-proxy"></a>Använda Azure MFA med Azure AD Application Proxy
 
@@ -227,9 +291,9 @@ Nätverksprincipserver (NPS)-tillägget för Azure MFA lägger till funktioner f
 * Endast authenticator-appen push-meddelanden och röstsamtal kan användas med CHAPv2-protokollet.
 * Principer för villkorlig åtkomst kan inte användas.
 
-NPS-tillägget som fungerar som ett kort mellan RADIUS- och molnbaserade Azure MFA för att tillhandahålla en andra faktor autentisering att skydda [VPN](howto-mfa-nps-extension-vpn.md), [Remote Desktop Gateway-anslutningar](howto-mfa-nps-extension-rdg.md), eller andra RADIUS-kompatibla program. Användare att registrera dig för Azure MFA i den här miljön efterfrågas alla autentiseringsförsök, bristen på medelvärde principer för villkorlig åtkomst MFA krävs alltid.
+NPS-tillägget som fungerar som ett kort mellan RADIUS- och molnbaserade Azure MFA för att tillhandahålla en andra faktor autentisering att skydda [VPN](howto-mfa-nps-extension-vpn.md), [Remote Desktop Gateway-anslutningar](howto-mfa-nps-extension-rdg.md), eller andra RADIUS-kompatibla program. Användare att registrera dig för Azure MFA i den här miljön efterfrågas alla autentiseringsförsök, bristen på principer för villkorlig åtkomst innebär MFA krävs alltid.
 
-#### <a name="implementing-your-nps-server"></a>Implementera NPS-Server
+#### <a name="implementing-your-nps-server"></a>Implementera NPS-server
 
 Om du har en NPS-instans som har distribuerats och används redan, referera till [integrera din befintliga NPS-infrastruktur med Azure Multi-Factor Authentication](howto-mfa-nps-extension.md). Om du konfigurerar NPS för första gången, se [nätverksprincipserver (NPS)](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top) anvisningar. Felsökningsanvisningar finns i artikeln [åtgärda felmeddelanden från NPS-tillägget för Azure Multi-Factor Authentication](howto-mfa-nps-extension-errors.md).
 
@@ -279,7 +343,7 @@ Om giltighetsperioden för certifikat är snart upphör att gälla, [generera oc
 
 Följande riktlinjer detaljerad information om hur du hanterar Azure MFA-certifikaten på AD FS-servrarna. När du konfigurerar AD FS med Azure MFA, certifikat som genererats via den `New-AdfsAzureMfaTenantCertificate` PowerShell-cmdlet är giltiga i 2 år. Förnya och installera de förnyade certifikaten före förfallodatumet till ovoid störningar i MFA-tjänsten.
 
-## <a name="implement-your-plan"></a>Implementera din Plan
+## <a name="implement-your-plan"></a>Implementera din plan
 
 Nu när du har planerat din lösning, kan du implementera genom att följa stegen nedan:
 

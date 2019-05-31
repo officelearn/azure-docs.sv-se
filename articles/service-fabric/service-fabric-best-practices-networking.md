@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 86ad6fce34f323d94f7b9c318ba81f547360d4df
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d221b828624e649a0d04a89c4394fe5a7fa857dd
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61038525"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237325"
 ---
 # <a name="networking"></a>Nätverk
 
@@ -71,6 +71,8 @@ Skala ut infrastruktur krävs för att aktivera Accelererat nätverk i ett befin
 * Använd för att köra Windows-behållararbetsbelastningar [öppna nätverk läge](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode) att underlätta tjänst-till-tjänst-kommunikation.
 
 * Använd en omvänd proxy som [Traefik](https://docs.traefik.io/configuration/backends/servicefabric/) eller [Service Fabric omvänd proxy](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy) att exponera programportar för vanliga, till exempel 80 eller 443.
+
+* För Windows-behållare som finns på air gapped datorer som det går inte att hämta grundläggande lager från Azure-molnlagring, Åsidosätt främmande layer-beteende med hjälp av den [– Tillåt nondistributable-artefakter](https://docs.microsoft.com/virtualization/windowscontainers/about/faq#how-do-i-make-my-container-images-available-on-air-gapped-machines) flaggan i Docker-daemon.
 
 ## <a name="next-steps"></a>Nästa steg
 

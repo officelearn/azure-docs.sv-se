@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35cd52fb82e5e4cce759be5dfdd8872f64802459
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 104665774eee885cc2f562e9813cffcf23aa943e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66003168"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235506"
 ---
 # <a name="baseline-policy-end-user-protection-preview"></a>Baslinjeprincip: Slutanvändaren protection (förhandsgranskningsversion)
 
@@ -75,11 +75,11 @@ Den här baslinjeprincip ger dig möjlighet att exkludera användare. Innan du a
 
 Principen **baslinjeprincip: Slutanvändaren protection (förhandsgranskningsversion)** är förkonfigurerad och visas högst upp när du navigerar till bladet för villkorlig åtkomst i Azure-portalen.
 
-Att aktivera den här principen och skydda dina administratörer:
+Aktivera den här principen och skydda dina användare:
 
 1. Logga in på den **Azure-portalen** som global administratör, säkerhetsadministratör eller administratör för villkorsstyrd åtkomst.
 1. Bläddra till **Azure Active Directory** > **villkorlig åtkomst**.
-1. Välj i listan med principer, **baslinjeprincip: Slutanvändaren protection (förhandsgranskningsversion)**.
+1. Välj i listan med principer, **baslinjeprincip: Slutanvändaren protection (förhandsgranskningsversion)** .
 1. Ange **aktiverar principen** till **Använd principen omedelbart**.
 1. Lägg till användare undantag genom att klicka på **användare** > **Välj exkluderade användare** och välja de användare som behöver som ska undantas. Klicka på **Välj** sedan **klar**.
 1. Klicka på **spara**.

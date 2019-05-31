@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 05/23/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cf8d5cb13b39d58920555ff9d99a4949e1bfc20
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 572f8694d31728a3ca570f6ddb60475e13d71e80
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415790"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235594"
 ---
 # <a name="combined-security-information-registration-preview"></a>Kombinerade security information registrering (förhandsversion)
 
@@ -24,7 +24,7 @@ Innan du kombinerade registrerings registrerad användare autentiseringsmetoder 
 
 ![Min profil som visar registrerade säkerhetsinformation för en användare](media/concept-registration-mfa-sspr-combined/combined-security-info-defualts-registered.png)
 
-Granska den här administratören designmiljöer dokumentationen och fokus på användaren dokumentationen så att du förstår funktioner och effekten av den här funktionen innan du aktiverar den nya upplevelsen. Basera din utbildning om användardokumentation för att förbereda dina användare för den nya upplevelsen och bidra till att säkerställa en lyckad distribution.
+Granska den här administratören designmiljöer dokumentationen och fokus på användaren dokumentationen så att du förstår funktioner och effekten av den här funktionen innan du aktiverar den nya upplevelsen. Basera utbildning på den [användardokumentation](../user-help/user-help-security-info-overview.md) att förbereda dina användare för den nya upplevelse och säkerställa en lyckad distribution.
 
 Azure AD kombineras säkerhetsinformation registrering inte är tillgänglig till nationella moln som Azure US Government, Azure Tyskland och Azure Kina 21Vianet.
 
@@ -49,10 +49,10 @@ Kombineras registrering har stöd för följande autentiseringsmetoder och åtg�
 | Microsoft Authenticator | Ja (högst 5) | Nej | Ja |
 | Andra authenticator-appen | Ja (högst 5) | Nej | Ja |
 | Maskinvarutoken | Nej | Nej | Ja |
-| Telefon | Ja | Ja | Ja |
+| Phone | Ja | Ja | Ja |
 | Alternativ telefon | Ja | Ja | Ja |
 | Arbetstelefon | Nej | Nej | Nej |
-| E-post | Ja | Ja | Ja |
+| Email | Ja | Ja | Ja |
 | Säkerhetsfrågor | Ja | Nej | Ja |
 | Applösenord | Ja | Nej | Ja |
 
@@ -84,20 +84,20 @@ Kombinerade registrerings värnar om både Multifaktorautentisering och SSPR-pri
 
 Här följer flera scenarier där användarna uppmanas att registrera eller uppdatera deras säkerhetsinformation:
 
-* Registrering för Multifaktorautentisering aktiveras via Identity Protection: Användarna uppmanas att registrera under inloggning. De registrerar Multifaktorautentisering metoder och SSPR-metoder (om användaren har aktiverats för SSPR).
-* Registrering för Multifaktorautentisering aktiveras via per användare för Multifaktorautentisering: Användarna uppmanas att registrera under inloggning. De registrerar Multifaktorautentisering metoder och SSPR-metoder (om användaren har aktiverats för SSPR).
-* Registrering för Multifaktorautentisering aktiveras via villkorlig åtkomst eller andra principer: Användarna uppmanas att registrera när de använder en resurs som kräver Multifaktorautentisering. De registrerar Multifaktorautentisering metoder och SSPR-metoder (om användaren har aktiverats för SSPR).
-* SSPR-registrering tillämpas: Användarna uppmanas att registrera under inloggning. De registrerar sig för SSPR-metoder.
-* SSPR-uppdatering tillämpas: Användarna uppmanas att granska deras säkerhetsinformation vid ett intervall som angetts av administratören. Användare kan visas deras information och kontrollera den aktuella informationen eller gör ändringar om det behövs.
+- Registrering för Multifaktorautentisering aktiveras via Identity Protection: Användarna uppmanas att registrera under inloggning. De registrerar Multifaktorautentisering metoder och SSPR-metoder (om användaren har aktiverats för SSPR).
+- Registrering för Multifaktorautentisering aktiveras via per användare för Multifaktorautentisering: Användarna uppmanas att registrera under inloggning. De registrerar Multifaktorautentisering metoder och SSPR-metoder (om användaren har aktiverats för SSPR).
+- Registrering för Multifaktorautentisering aktiveras via villkorlig åtkomst eller andra principer: Användarna uppmanas att registrera när de använder en resurs som kräver Multifaktorautentisering. De registrerar Multifaktorautentisering metoder och SSPR-metoder (om användaren har aktiverats för SSPR).
+- SSPR-registrering tillämpas: Användarna uppmanas att registrera under inloggning. De registrerar sig för SSPR-metoder.
+- SSPR-uppdatering tillämpas: Användarna uppmanas att granska deras säkerhetsinformation vid ett intervall som angetts av administratören. Användare kan visas deras information och kontrollera den aktuella informationen eller gör ändringar om det behövs.
 
 När registreringen tillämpas visas användare det minsta antalet metoder som krävs för att vara kompatibel med både Multifaktorautentisering och SSPR-principer, från mest till minst säkert.
 
 Exempel:
 
-* En användare har aktiverats för SSPR. SSPR-princip krävs två metoder för att återställa och har aktiverat mobilappkoden, e-post och telefon.
-   * Den här användaren krävs för att registrera på två sätt.
-      * Användaren visas authenticator-appen och phone som standard.
-      * Användaren kan välja att registrera e-post i stället för authenticator-appen eller telefon.
+- En användare har aktiverats för SSPR. SSPR-princip krävs två metoder för att återställa och har aktiverat mobilappkoden, e-post och telefon.
+   - Den här användaren krävs för att registrera på två sätt.
+      - Användaren visas authenticator-appen och phone som standard.
+      - Användaren kan välja att registrera e-post i stället för authenticator-appen eller telefon.
 
 Det här flödesschemat beskrivs vilka metoder visas för en användare avbruten registrerar vid inloggning:
 

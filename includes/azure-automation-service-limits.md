@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 12/13/2018
 ms.author: gwallace
 ms.custom: include file
-ms.openlocfilehash: 04929de241ff36e4d67f24907747d89a16a73898
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2823a33b25812a69ad463433bacd9710655c9176
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64733801"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66238692"
 ---
 #### <a name="process-automation"></a>Processautomatisering
 
-| Resurs | Övre gräns |Anteckningar|
+| Resource | Övre gräns |Anteckningar|
 | --- | --- |---|
 | Maximalt antal nya jobb som ska skickas med 30 sekunders mellanrum per Azure Automation-konto (nonscheduled jobb) |100 |När den här gränsen har nåtts misslyckas efterföljande förfrågningar för att skapa ett jobb. Klienten får ett felsvar.|
 | Maximalt antal samtidiga jobb som körs på samma instans av tid per Automation-konto (nonscheduled jobb) |200 |När den här gränsen har nåtts misslyckas efterföljande förfrågningar för att skapa ett jobb. Klienten får ett felsvar.|
@@ -29,7 +29,7 @@ ms.locfileid: "64733801"
 | Högsta mängd diskutrymme som tillåts per sandbox<sup>1</sup> |1 GB |Gäller för Azure sandboxar.|
 | Maximal mängd minne som tilldelas en sandbox<sup>1</sup> |400 MB |Gäller för Azure sandboxar.|
 | Maximalt antal nätverk sockets tillåts per sandbox<sup>1</sup> |1,000 |Gäller för Azure sandboxar.|
-| Maximala körtid som tillåts per runbook<sup>1</sup> |3 timmar |Gäller för Azure sandboxar.|
+| Maximala körtid som tillåts per runbook<sup>1</sup> |tre timmar |Gäller för Azure sandboxar.|
 | Maximalt antal Automation-konton i en prenumeration |Obegränsad ||
 | Maxantalet Hybrid Worker-grupper per Automation-konto|4,000||
 |Maximalt antal samtidiga jobb som kan köras på en enda Hybrid Runbook Worker|50 ||
@@ -45,11 +45,19 @@ ms.locfileid: "64733801"
 
 I följande tabell visas de spårade objekt gränserna per dator för att spåra ändringar.
 
-| **Resurs** | **Gräns**| **Anteckningar** |
+| **Resurs** | **Gränsen**| **Anteckningar** |
 |---|---|---|
 |Fil|500||
-|Register|250||
+|Registret|250||
 |Windows-programvara|250|Inte innehåller programuppdateringar.|
 |Linux-paket|1,250||
 |Tjänster|250||
 |Daemon|250||
+
+#### <a name="update-management"></a>Uppdateringshantering
+
+I följande tabell visar gränserna för uppdateringshantering.
+
+| **Resurs** | **Gränsen**| **Anteckningar** |
+|---|---|---|
+|Antalet datorer per distribution|1000||

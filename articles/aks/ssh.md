@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 05/20/2019
+ms.date: 05/24/2019
 ms.author: iainfou
-ms.openlocfilehash: a85c39fbfbf629e6ba9e668d55dd905c1ce0800c
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 57eacca75d711c5125a2856a7b6219cd2ec5306b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956350"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242037"
 ---
 # <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>Ansluta med SSH till Azure Kubernetes Service (AKS) klusternoderna för underhåll och felsökning
 
@@ -33,18 +33,25 @@ Som standard är SSH-nycklar fick, eller genereras och läggs till noder när du
 > [!NOTE]
 > SSH-nycklar kan att för närvarande endast lägga till Linux-noder med Azure CLI. Om du använder Windows Server-noder kan använda SSH-nycklarna som anges när du skapade AKS-klustret och vidare till steg på [så här hämtar du den AKS nodadressen](#get-the-aks-node-address). Eller, [ansluta till Windows Server-noder med hjälp av Fjärrskrivbordsprotokollet (RDP) anslutningar][aks-windows-rdp].
 
+Stegen för att hämta AKS-nodernas privata IP-adressen är olika beroende på vilken typ av AKS-kluster som du kör:
+
+* För de flesta AKS-kluster följer du stegen för att [hämta IP-adressen för regelbundna AKS-kluster](#add-ssh-keys-to-regular-aks-clusters).
+* Om du använder alla funktioner i förhandsversion i AKS med VM-skalningsuppsättningar, till exempel flera nodpooler eller stöd för Windows Server-behållare kan [följer du stegen för VM scale set-baserade AKS kluster](#add-ssh-keys-to-virtual-machine-scale-set-based-aks-clusters).
+
+### <a name="add-ssh-keys-to-regular-aks-clusters"></a>Lägg till SSH-nycklar till vanliga AKS-kluster
+
 Om du vill lägga till din SSH-nyckel till en Linux AKS-nod, utför du följande steg:
 
-1. Hämta resursgruppens namn för dina resurser för AKS-kluster som använder [az aks show][az-aks-show]. Ange din egen core resursgruppens namn och AKS-klusternamnet:
+1. Hämta resursgruppens namn för dina resurser för AKS-kluster som använder [az aks show][az-aks-show]. Ange din egen core resursgruppens namn och AKS-klusternamnet. Klusternamnet tilldelas till variabeln med namnet *CLUSTER_RESOURCE_GROUP*:
 
     ```azurecli-interactive
-    az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
+    CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
     ```
 
 1. Lista de virtuella datorerna i AKS kluster resource gruppen med den [az vm list] [ az-vm-list] kommando. Dessa virtuella datorer är AKS-noder:
 
     ```azurecli-interactive
-    az vm list --resource-group MC_myResourceGroup_myAKSCluster_eastus -o table
+    az vm list --resource-group $CLUSTER_RESOURCE_GROUP -o table
     ```
 
     Följande Exempelutdata visar AKS-noder:
@@ -59,25 +66,61 @@ Om du vill lägga till din SSH-nyckel till en Linux AKS-nod, utför du följande
 
     ```azurecli-interactive
     az vm user update \
-      --resource-group MC_myResourceGroup_myAKSCluster_eastus \
+      --resource-group $CLUSTER_RESOURCE_GROUP \
       --name aks-nodepool1-79590246-0 \
       --username azureuser \
       --ssh-key-value ~/.ssh/id_rsa.pub
+    ```
+
+### <a name="add-ssh-keys-to-virtual-machine-scale-set-based-aks-clusters"></a>Lägg till SSH-nycklar i VM scale set-baserade AKS-kluster
+
+Utför följande steg för att lägga till din SSH-nyckel till en Linux AKS-nod som är en del av en VM-skalningsuppsättning:
+
+1. Hämta resursgruppens namn för dina resurser för AKS-kluster som använder [az aks show][az-aks-show]. Ange din egen core resursgruppens namn och AKS-klusternamnet. Klusternamnet tilldelas till variabeln med namnet *CLUSTER_RESOURCE_GROUP*:
+
+    ```azurecli-interactive
+    CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
+    ```
+
+1. Hämta sedan skalningsuppsättning för virtuell dator för AKS-kluster med den [az vmss list] [ az-vmss-list] kommando. VM scale set namnet tilldelas till variabeln med namnet *SCALE_SET_NAME*:
+
+    ```azurecli-interactive
+    SCALE_SET_NAME=$(az vmss list --resource-group $CLUSTER_RESOURCE_GROUP --query [0].name -o tsv)
+    ```
+
+1. Lägg till SSH-nycklar till noderna i en skalningsuppsättning för virtuell dator genom att använda den [az vmss-tilläggsuppsättningen] [ az-vmss-extension-set] kommando. Klusterresursgrupp och VM scale set namn tillhandahålls i föregående kommandon. Användarnamn för AKS-noder är som standard *azureuser*. Om det behövs uppdaterar du platsen för din egen SSH offentlig nyckel plats, till exempel *~/.ssh/id_rsa.pub*:
+
+    ```azurecli-interactive
+    az vmss extension set  \
+        --resource-group $CLUSTER_RESOURCE_GROUP \
+        --vmss-name $SCALE_SET_NAME \
+        --name VMAccessForLinux \
+        --publisher Microsoft.OSTCExtensions \
+        --version 1.4 \
+        --protected-settings "{\"username\":\"azureuser\", \"ssh_key\":\"$(cat ~/.ssh/id_rsa.pub)\"}"
+    ```
+
+1. Tillämpa SSH-nyckeln till noder med hjälp av den [az vmss update-instances] [ az-vmss-update-instances] kommando:
+
+    ```azurecli-interactive
+    az vmss update-instances --instance-ids '*' \
+        --resource-group $CLUSTER_RESOURCE_GROUP \
+        --name $SCALE_SET_NAME
     ```
 
 ## <a name="get-the-aks-node-address"></a>Hämta AKS nod-adressen
 
 AKS-nodernas exponeras inte offentligt på Internet. SSH för AKS-noder kan du använda den privata IP-adressen. I nästa steg ska skapa du en helper-pod AKS-klustret som låter dig SSH till den här privata IP-adressen för noden. Stegen för att hämta AKS-nodernas privata IP-adressen är olika beroende på vilken typ av AKS-kluster som du kör:
 
-* För de flesta AKS-kluster följer du stegen för att [hämta IP-adressen för regelbundna AKS-kluster](#regular-aks-clusters).
-* Om du använder alla funktioner i förhandsversion i AKS med VM-skalningsuppsättningar, till exempel flera nodpooler eller stöd för Windows Server-behållare kan [följer du stegen för VM scale set-baserade AKS kluster](#virtual-machine-scale-set-based-aks-clusters).
+* För de flesta AKS-kluster följer du stegen för att [hämta IP-adressen för regelbundna AKS-kluster](#ssh-to-regular-aks-clusters).
+* Om du använder alla funktioner i förhandsversion i AKS med VM-skalningsuppsättningar, till exempel flera nodpooler eller stöd för Windows Server-behållare kan [följer du stegen för VM scale set-baserade AKS kluster](#ssh-to-virtual-machine-scale-set-based-aks-clusters).
 
-### <a name="regular-aks-clusters"></a>Vanliga AKS-kluster
+### <a name="ssh-to-regular-aks-clusters"></a>SSH till vanliga AKS-kluster
 
 Visa privat IP-adressen för ett AKS-kluster noden med den [az vm list-ip-adresser] [ az-vm-list-ip-addresses] kommando. Ange din egen AKS-kluster resursgruppens namn fick i ett tidigare [az-aks-visa] [ az-aks-show] steg:
 
 ```azurecli-interactive
-az vm list-ip-addresses --resource-group MC_myResourceGroup_myAKSCluster_eastus -o table
+az vm list-ip-addresses --resource-group $CLUSTER_RESOURCE_GROUP -o table
 ```
 
 Följande Exempelutdata visar privata IP-adresserna för AKS-noder:
@@ -88,7 +131,7 @@ VirtualMachine            PrivateIPAddresses
 aks-nodepool1-79590246-0  10.240.0.4
 ```
 
-### <a name="virtual-machine-scale-set-based-aks-clusters"></a>VM scale set-baserade AKS kluster
+### <a name="ssh-to-virtual-machine-scale-set-based-aks-clusters"></a>SSH till VM scale set-baserade AKS-kluster
 
 Lista de noder som använder interna IP-adress i [kubectl hämta kommando][kubectl-get]:
 
@@ -199,3 +242,6 @@ Om du behöver ytterligare felsökning data, kan du [visa kubelet-loggar] [ view
 [aks-windows-rdp]: rdp.md
 [ssh-nix]: ../virtual-machines/linux/mac-create-ssh-keys.md
 [ssh-windows]: ../virtual-machines/linux/ssh-from-windows.md
+[az-vmss-list]: /cli/azure/vmss#az-vmss-list
+[az-vmss-extension-set]: /cli/azure/vmss/extension#az-vmss-extension-set
+[az-vmss-update-instances]: /cli/azure/vmss#az-vmss-update-instances

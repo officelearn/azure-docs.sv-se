@@ -1,19 +1,19 @@
 ---
-title: Minimal stilleståndstid vid migrering till Azure Database för PostgreSQL
-description: Den här artikeln beskriver hur du utför en minimal stilleståndstid vid migrering av en PostgreSQL-databas till Azure Database för PostgreSQL med hjälp av Azure Database Migration Service.
+title: Minimal stilleståndstid vid migrering till Azure Database för PostgreSQL – enskild Server
+description: Den här artikeln beskriver hur du utför en minimal stilleståndstid vid migrering av en PostgreSQL-databas till Azure Database för PostgreSQL – enskild Server med hjälp av Azure Database Migration Service.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 12/07/2018
-ms.openlocfilehash: ceb64781dc7e5243f785ad239c24e5f21b0481ce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 93cd390889c023adf1c30a8470e1c2298598439e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60421254"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65067517"
 ---
-# <a name="minimal-downtime-migration-to-azure-database-for-postgresql"></a>Minimal stilleståndstid vid migrering till Azure Database för PostgreSQL
+# <a name="minimal-downtime-migration-to-azure-database-for-postgresql---single-server"></a>Minimal stilleståndstid vid migrering till Azure Database för PostgreSQL – enskild Server
 Du kan utföra PostgreSQL migrering till Azure Database för PostgreSQL med minimal avbrottstid med hjälp av den Nyintroducerade **kapaciteten för kontinuerlig synkronisering** för den [Azure Database Migration Service](https://aka.ms/get-dms) (DMS) . Den här funktionen begränsar stilleståndstiden som krävs av programmet.
 
 ## <a name="overview"></a>Översikt

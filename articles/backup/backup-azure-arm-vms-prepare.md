@@ -8,16 +8,16 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: raynew
-ms.openlocfilehash: 98934216c0860c79575874df26603b1187e35978
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bac61342f39821b6181a6a0e61bf0b11fb311007
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60647640"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239308"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Säkerhetskopiera virtuella Azure-datorer i ett Recovery Services-valv
 
-Den här artikeln beskrivs hur du säkerhetskopierar virtuella Azure-datorer i ett Recovery Services-valv med hjälp av den [Azure Backup](backup-overview.md) service. 
+Den här artikeln beskrivs hur du säkerhetskopierar virtuella Azure-datorer i ett Recovery Services-valv med hjälp av den [Azure Backup](backup-overview.md) service.
 
 I den här artikeln kan du se hur du:
 
@@ -47,29 +47,29 @@ Det finns dessutom några saker som du kan behöva göra i vissa fall:
 
 ## <a name="create-a-vault"></a>Skapa ett valv
 
- Ett valv lagrar säkerhetskopior och återställningspunkter som skapats med tiden och lagrar principer för säkerhetskopiering som är associerade med säkerhetskopierade virtuella datorer. Skapa ett valv enligt följande:    
+ Ett valv lagrar säkerhetskopior och återställningspunkter som skapats med tiden och lagrar principer för säkerhetskopiering som är associerade med säkerhetskopierade virtuella datorer. Skapa ett valv enligt följande:
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).    
-2. Skriv i Sök **återställningstjänster**. Under **Services**, klickar du på **Recovery Services-valv**.   
+1. Logga in på [Azure Portal](https://portal.azure.com/).
+2. Skriv i Sök **återställningstjänster**. Under **Services**, klickar du på **Recovery Services-valv**.
 
-     ![Sök efter Recovery Services-valv](./media/backup-azure-arm-vms-prepare/browse-to-rs-vaults-updated.png) <br/> 
+     ![Sök efter Recovery Services-valv](./media/backup-azure-arm-vms-prepare/browse-to-rs-vaults-updated.png) <br/>
 
-3. I **Recovery Services-valv** -menyn klickar du på **+ Lägg till**.    
+3. I **Recovery Services-valv** -menyn klickar du på **+ Lägg till**.
 
-     ![Skapa Recovery Services-valv (steg 2)](./media/backup-azure-arm-vms-prepare/rs-vault-menu.png)   
+     ![Skapa Recovery Services-valv (steg 2)](./media/backup-azure-arm-vms-prepare/rs-vault-menu.png)
 
-4. I **Recovery Services-valv**, Skriv ett eget namn som identifierar valvet.   
-    - Namnet måste vara unikt för Azure-prenumerationen.   
-    - Det kan innehålla 2 och 50 tecken.    
-    - Det måste börja med en bokstav och det får innehålla endast bokstäver, siffror och bindestreck.   
-5. Välj Azure-prenumeration, resursgrupp och geografiska region där valvet ska skapas. Klicka sedan på **Skapa**.    
-    - Det kan ta en stund innan valvet har skapats.  
-    - Övervaka Statusmeddelandena i området längst upp till höger i portalen.   
+4. I **Recovery Services-valv**, Skriv ett eget namn som identifierar valvet.
+    - Namnet måste vara unikt för Azure-prenumerationen.
+    - Det kan innehålla 2 och 50 tecken.
+    - Det måste börja med en bokstav och det får innehålla endast bokstäver, siffror och bindestreck.
+5. Välj Azure-prenumeration, resursgrupp och geografiska region där valvet ska skapas. Klicka sedan på **Skapa**.
+    - Det kan ta en stund innan valvet har skapats.
+    - Övervaka Statusmeddelandena i området längst upp till höger i portalen.
 
 
  När valvet har skapats visas den i listan över Recovery Services-valv. Om du inte ser ditt valv, väljer **uppdatera**.
- 
-![Lista över säkerhetskopieringsvalv](./media/backup-azure-arm-vms-prepare/rs-list-of-vaults.png)    
+
+![Lista över säkerhetskopieringsvalv](./media/backup-azure-arm-vms-prepare/rs-list-of-vaults.png)
 
 ### <a name="modify-storage-replication"></a>Ändra storage-replikering
 
@@ -86,7 +86,7 @@ Som standard valv Använd [geo-redundant lagring (GRS)](https://docs.microsoft.c
 
       ![Ange lagringskonfigurationen för det nya valvet](./media/backup-try-azure-backup-in-10-mins/full-blade.png)
 > [!NOTE]
-   > Du kan inte ändra lagringstypen för replikering när valvet har ställts in och innehåller säkerhetskopieringsobjekt. Om du vill göra detta måste du återskapa valvet. 
+   > Du kan inte ändra lagringstypen för replikering när valvet har ställts in och innehåller säkerhetskopieringsobjekt. Om du vill göra detta måste du återskapa valvet.
 
 ## <a name="apply-a-backup-policy"></a>Tillämpa en princip för säkerhetskopiering
 
@@ -101,7 +101,7 @@ Konfigurera en princip för säkerhetskopiering för valvet.
 
    ![Fönster för säkerhetskopiering och säkerhetskopieringsmål](./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png)
 
-3. I **säkerhetskopieringspolicy**, väljer du den princip som du vill associera med valvet. 
+3. I **säkerhetskopieringspolicy**, väljer du den princip som du vill associera med valvet.
     - Standardprincipen säkerhetskopierar den virtuella datorn en gång om dagen. Dagliga säkerhetskopior bevaras i 30 dagar. Omedelbar återställning kvarhålls i två dagar.
     - Om du inte vill använda standardprincipen väljer **Skapa ny**, och skapa en anpassad princip som beskrivs i nästa procedur.
 
@@ -116,7 +116,7 @@ Konfigurera en princip för säkerhetskopiering för valvet.
      ![Fönstret ”Välj virtuella datorer”](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
 
 5. I **säkerhetskopiering**, klickar du på **Aktivera säkerhetskopiering**. Detta distribueras principen till valvet och till de virtuella datorerna och installerar tillägget för säkerhetskopiering på VM-agenten som körs på Azure VM.
-     
+
      ![Knappen ”Aktivera säkerhetskopiering”](./media/backup-azure-arm-vms-prepare/vm-validated-click-enable.png)
 
 När du har aktiverat säkerhetskopiering:
@@ -126,7 +126,7 @@ När du har aktiverat säkerhetskopiering:
 - Observera att när säkerhetskopiering köras:
     - En virtuell dator som körs har bäst chans att tilldelas för att samla in en programkonsekvent återställningspunkt.
     - Men även om den virtuella datorn stängs av säkerhetskopieras den. Sådana en virtuell dator som kallas en offline-dator. I det här fallet kommer återställningspunkten vara kraschkonsekvent.
-    
+
 
 ### <a name="create-a-custom-policy"></a>Skapa en anpassad princip
 
@@ -138,7 +138,7 @@ Om du valde för att skapa en ny säkerhetskopieringsprincip, fyller du i instä
     - När du återställer säkerhetskopierade virtuell dator diskar kopieras från lagring, över nätverket till lagringsplatsen för återställning. Du kan utnyttja lokalt lagrade ögonblicksbilder som tas under säkerhetskopieringsjobbet, utan att behöva vänta säkerhetskopierade data överförs till valvet med omedelbar återställning.
     - Du kan behålla ögonblicksbilder för omedelbar återställning för mellan en till fem dagar. Två dagar är standardinställningen.
 3. I **Kvarhållningsintervall**, ange hur länge du vill behålla dina dagliga och veckovisa säkerhetskopieringspunkter.
-4. I **kvarhållning av månatlig säkerhetskopieringspunkt**, ange om du vill spara en månatlig säkerhetskopia av dina dagliga och veckovisa säkerhetskopior. 
+4. I **kvarhållning av månatlig säkerhetskopieringspunkt**, ange om du vill spara en månatlig säkerhetskopia av dina dagliga och veckovisa säkerhetskopior.
 5. Klicka på **OK** att spara principen.
 
     ![Ny säkerhetskopieringsprincip](./media/backup-azure-arm-vms-prepare/new-policy.png)
@@ -156,6 +156,34 @@ Den första säkerhetskopieringen kommer att köras i enlighet med schemat, men 
 4. Klicka på **Säkerhetskopiera nu**.
 5. I **Säkerhetskopiera nu**, använder kalenderkontrollen för att välja den sista dagen som återställningspunkten ska behållas. Klicka sedan på **OK**.
 6. Meddelandena som portalen. Du kan övervaka jobbförloppet i instrumentpanelen för valvet > **säkerhetskopieringsjobb** > **pågår**. Beroende på den virtuella datorns storlek kan det ta en stund att skapa den första säkerhetskopian.
+
+## <a name="verify-backup-job-status"></a>Kontrollera status för säkerhetskopieringsjobb
+
+Säkerhetskopieringen information för varje säkerhetskopiering av virtuella datorer som består av 2 faser, den **ögonblicksbild** fas följt av den **överför data till valv** fas.<br/>
+Fasen ögonblicksbild garanterar tillgängligheten för en återställningspunkt som lagras tillsammans med diskarna för **omedelbar återställer** och är tillgängliga i högst 5 dagar, beroende på ögonblicksbild kvarhållningen konfigurerats av användaren. Överföra data till valvet skapar en återställningspunkt i valvet för långsiktig kvarhållning. Överföra data till valvet endast startar när ögonblicksbilden fas har slutförts.
+
+  ![Status för säkerhetskopieringsjobb](./media/backup-azure-arm-vms-prepare/backup-job-status.png)
+
+Det finns två **underaktiviteter** som körs i serverdelen, en för klientdelen säkerhetskopieringsjobb som kan kontrolleras från den **säkerhetskopieringsjobbet** informationsbladet som anges nedan:
+
+  ![Status för säkerhetskopieringsjobb](./media/backup-azure-arm-vms-prepare/backup-job-phase.png)
+
+Den **överför data till valv** fas kan ta flera dagar att slutföra beroende på storleken på diskarna, omsättningen per disk och andra faktorer.
+
+Jobbet har statusen kan variera beroende på följande scenarier:
+
+**ögonblicksbild** | **Överför data till valv** | **Jobbstatus**
+--- | --- | ---
+Slutfört | Pågår | Pågår
+Slutfört | Hoppades över | Slutfört
+Slutfört | Slutfört | Slutfört
+Slutfört | Misslyckad | Slutfört med varning
+Misslyckad | Misslyckad | Misslyckad
+
+
+Med den här funktionen för samma virtuella dator, två säkerhetskopieringar kan köra parallellt, men i antingen fasen (snapshot överföra data till valvet) endast en underaktivitet kan köras. I scenarier har ett säkerhetskopieringsjobb pågår resulterade i nästa dag säkerhetskopiering misslyckas kommer undvikas med den här Frikoppling funktioner. Efterföljande dag säkerhetskopior kan ha ögonblicksbild slutförd när **överför data till valv** hoppas över om en tidigare dag säkerhetskopieringsjobbet är pågår.
+Inkrementell återställningspunkt som skapats i valvet avbildar alla omsättning från den senaste återställningspunkten som skapades i valvet. Påverkas inte kostnaden för användaren.
+
 
 ## <a name="optional-steps-install-agentallow-outbound"></a>Valfria steg (installera agent/Tillåt utgående)
 ### <a name="install-the-vm-agent"></a>Installera VM-agenten
@@ -175,8 +203,8 @@ Säkerhetskopieringstillägget som körs på den virtuella datorn behöver utgå
 - Om du stöter på problem med virtuella datorer ansluter, eller om du ser felet **ExtensionSnapshotFailedNoNetwork** vid försök att ansluta, bör du uttryckligen tillåta åtkomst så att säkerhetskopieringstillägget kan kommunicera med Azure offentlig IP-adress adresser för säkerhetskopieringen. Åtkomstmetoder sammanfattas i tabellen nedan.
 
 
-**Alternativ** | **Åtgärd** | **Detaljer** 
---- | --- | --- 
+**Alternativ** | **Åtgärd** | **Detaljer**
+--- | --- | ---
 **Konfigurera NSG-regler** | Tillåt den [Azure datacenter IP-adressintervall](https://www.microsoft.com/download/details.aspx?id=41653).<br/><br/> I stället för att tillåta och hanterar varje adressintervall, kan du lägga till en regel som tillåter åtkomst till Azure Backup-tjänsten med en [servicetagg](backup-azure-arm-vms-prepare.md#set-up-an-nsg-rule-to-allow-outbound-access-to-azure). | [Läs mer](../virtual-network/security-overview.md#service-tags) om tjänsttaggar.<br/><br/> Tjänster taggar förenkla hantering och innebära inte ytterligare kostnader.
 **Distribuera en proxy** | Distribuera en HTTP-proxyserver dirigeras trafiken. | Ger åtkomst till hela Azure och inte bara lagring.<br/><br/> Detaljerad kontroll över storage-URL: er tillåts.<br/><br/> Enskild punkt för Internetåtkomst för virtuella datorer.<br/><br/> Ytterligare kostnader för proxy.
 **Konfigurera Azure-brandväggen** | Tillåta trafik via Azure-brandväggen på den virtuella datorn med ett FQDN-taggen för Azure Backup-tjänsten | Enkelt att använda om du har Azure brandväggen ställts in i ett undernät för virtuellt nätverk.<br/><br/> Du kan inte skapa dina egna FQDN-taggar eller ändra FQDN: er i en tagg.<br/><br/> Om virtuella datorer i Azure hanterade diskar, kan du behöva öppna ytterligare port (8443) i brandväggar.
@@ -200,7 +228,7 @@ Om en NSG hanterar åtkomst till virtuella datorer, Tillåt utgående åtkomst f
     - Den hanterade virtuella datorn: 8443.
 7. I **protokollet**väljer **TCP**.
 8. I **prioritet**, ange ett prioritetsvärde mindre än högre neka regler.
-   
+
    Om du har en regel som nekar åtkomst kan kan de nya regeln måste vara högre. Exempel: Om du har en **Deny_All** regeluppsättning med prioritet 1000, din nya regel måste anges till mindre än 1 000.
 9. Ange ett namn och beskrivning för regeln och välj **OK**.
 
@@ -254,7 +282,7 @@ Tillåt inkommande anslutningar i proxyinställningarna.
    - Ange vilket **TCP**.
    - Ange **lokala portar** till **specifika portar**.
    - Ange **Fjärrport** till **alla portar**.
-  
+
 6. Slutför guiden och ange ett namn för regeln.
 
 ###### <a name="add-an-exception-rule-to-the-nsg-for-the-proxy"></a>Lägga till en undantagsregel för NSG: N för proxyn
@@ -282,4 +310,3 @@ Du kan ställa in Azure-brandväggen att tillåta utgående åtkomst för trafik
 
 - Felsök eventuella problem med [Azure VM-agenter](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md) eller [virtuell Azure-säkerhetskopiering](backup-azure-vms-troubleshoot.md).
 - [Återställa](backup-azure-arm-restore-vms.md) virtuella Azure-datorer.
-

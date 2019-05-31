@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ec10359c6f684b1d7fb008946b7ceca2ed626ba
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: cd7055794860398ecc6296d0174a691e7fac4450
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545364"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235256"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Programtyper för Microsoft identity-plattformen
 
@@ -51,7 +51,7 @@ https://login.microsoftonline.com/common/oauth2/v2.0/token
 
 ## <a name="single-page-apps-javascript"></a>Enkelsidiga appar (JavaScript)
 
-Många moderna appar innehåller en ensidesapp klientdel som främst är skriven i JavaScript. De skrivs ofta med hjälp av ett ramverk som AngularJS, Ember.js eller Durandal.js. Microsoft identity-plattformen slutpunkten har stöd för dessa appar med hjälp av den [OAuth 2.0 implicit flöde](v2-oauth2-implicit-grant-flow.md).
+Många moderna appar innehåller en ensidesapp klientdel som främst är skriven i JavaScript. De skrivs ofta med hjälp av ett ramverk som Angular, React eller Vue. Microsoft identity-plattformen slutpunkten har stöd för dessa appar med hjälp av den [OAuth 2.0 implicit flöde](v2-oauth2-implicit-grant-flow.md).
 
 I det här flödet appen tar emot token direkt från Microsoft identity-plattformen tillåta slutpunkt utan några server-till-server-utbyten. Placera helt i JavaScript-klient, utan extra sidomdirigeringar alla autentiseringslogiken och hantering av tar-session.
 
@@ -59,7 +59,7 @@ I det här flödet appen tar emot token direkt från Microsoft identity-plattfor
 
 Om du vill se det här scenariot fungerar i praktiken kan du prova någon av ensidesapp kodexemplen i den [Microsoft identity-plattformen har börjat](v2-overview.md#getting-started) avsnittet.
 
-## <a name="web-apps"></a>Webbprogram
+## <a name="web-apps"></a>Webbappar
 
 Du kan använda för web apps (.NET, PHP, Java, Ruby, Python, Node) som användaren har åtkomst via en webbläsare, [OpenID Connect](active-directory-v2-protocols.md) för användarinloggning. Webbappen tar emot ett ID-token i OpenID Connect. Ett ID-token är en säkerhetstoken som verifierar användarens identitet och innehåller information om användaren i form av anspråk:
 

@@ -7,14 +7,14 @@ manager: barbkess
 editor: ''
 ms.service: key-vault
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 05/24/2019
 ms.author: barclayn
-ms.openlocfilehash: 9346f3f9bd9395ac863af87d05724a76ae83fb2f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: dba1fe91a635f467f4a3aeeaa048897065822869
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64702337"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236644"
 ---
 # <a name="azure-key-vault-availability-and-redundancy"></a>Azure Key Vault tillgänglighet och redundans
 
@@ -25,6 +25,8 @@ Innehållet i ditt nyckelvalv replikeras inom regionen och till en sekundär reg
 Om enskilda komponenter i key vault-tjänsten misslyckas, steg alternativa komponenter för regionen att hantera din förfrågan om att se till att det finns inga försämring av funktioner. Du behöver inte vidta några åtgärder som utlöser. Det sker automatiskt och blir transparent till dig.
 
 Om att en hel Azure-region inte är tillgänglig, som du gör för Azure Key Vault i den regionen begäranden dirigeras automatiskt (*redundansväxlats*) till en sekundär region. När den primära regionen är tillgänglig igen, begäranden dirigeras tillbaka (*växlas tillbaka*) till den primära regionen. Igen, behöver du inte vidta någon åtgärd eftersom detta sker automatiskt.
+
+Via den här designen för hög tillgänglighet kräver inget avbrott i Azure Key Vault för underhållsaktiviteter.
 
 Det finns några varningar för att vara medveten om:
 
@@ -41,7 +43,7 @@ Det finns några varningar för att vara medveten om:
   * Omsluta
   * Packa upp
   * Verifiera
-  * Signera
+  * Inloggning
   * Backup
 * Efter en redundansväxling växlas tillbaka, alla typer av begäranden (inklusive Läs *och* skrivförfrågningar) är tillgängliga.
 

@@ -4,19 +4,19 @@ description: Den här artikeln beskriver hur du lägger till en händelsekälla 
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 41d3e72d978a210c2d68365ade5d8cb42c24aad5
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 8040368f4cbd6d264070aa3db0a8e6b07a866480
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65147607"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239029"
 ---
 # <a name="add-an-event-hub-event-source-to-your-time-series-insights-environment"></a>Lägg till en event hub-händelsekälla till Time Series Insights-miljön
 
@@ -72,7 +72,7 @@ Så här lägger du till en ny konsumentgrupp i din event hub
 
    [![Prenumeration och event hub-information](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png#lightbox)
 
-   | Egenskap  | Beskrivning |
+   | Egenskap | Beskrivning |
    | --- | --- |
    | Prenumeration-ID | Välj den prenumeration som den här händelsehubben skapades.
    | service bus namnrymd | Välj det Azure Service Bus-namnområde som innehåller event hub.
@@ -85,7 +85,7 @@ Så här lägger du till en ny konsumentgrupp i din event hub
 
 1. I följande tabell beskrivs de nödvändiga egenskaperna för den **ange Event Hub-inställningar manuellt** alternativet:
 
-   | Egenskap  | Beskrivning |
+   | Egenskap | Beskrivning |
    | --- | --- |
    | Prenumeration-ID | Den prenumeration som den här händelsehubben skapades.
    | Resursgrupp | Den resursgrupp som den här händelsehubben skapades.

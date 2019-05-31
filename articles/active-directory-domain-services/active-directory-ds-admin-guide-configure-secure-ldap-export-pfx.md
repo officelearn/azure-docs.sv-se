@@ -1,9 +1,9 @@
 ---
-title: Skapa en certifikatet för säkert LDAP för en Azure AD Domain Services hanterar domän | Microsoft Docs
+title: Skapa en. PFX-filen med certifikatet för säkert LDAP (LDAPS) för en Azure AD Domain Services-domän
 description: Skapa en certifikatet för säkert LDAP för en Azure AD Domain Services hantera domän
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 ms.assetid: c6da94b6-4328-4230-801a-4b646055d4d7
@@ -13,22 +13,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/01/2017
-ms.author: ergreenl
-ms.openlocfilehash: 801ba3b84ba9956ca8d13916ac4d90060a7f4037
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/13/2019
+ms.author: mstephen
+ms.openlocfilehash: b79418c6e64727e4fdf13b3f4f267d84fcf5da85
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60418565"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235025"
 ---
 # <a name="create-a-pfx-file-with-the-secure-ldap-ldaps-certificate-for-a-managed-domain"></a>Skapa en. PFX-filen med certifikatet för säkert LDAP (LDAPS) för en hanterad domän
 
 ## <a name="before-you-begin"></a>Innan du börjar
-Fullständig [uppgift 1: skaffa ett certifikat för säkert LDAP](active-directory-ds-admin-guide-configure-secure-ldap.md).
 
+Fullständig [uppgift 1: skaffa ett certifikat för säkert LDAP](configure-ldaps.md).
 
 ## <a name="task-2-export-the-secure-ldap-certificate-to-a-pfx-file"></a>Uppgift 2: Exportera certifikatet för säkert LDAP till en. PFX-fil
+
 Innan du börjar den här uppgiften kan du hämta certifikatet för säkert LDAP från en offentlig certifikatutfärdare eller skapa ett självsignerat certifikat.
 
 Exportera LDAPS-certifikat till en. PFX-fil:
@@ -96,6 +97,6 @@ Exportera LDAPS-certifikat till en. PFX-fil:
 
     ![Exportera certifikatet som är klar](./media/active-directory-domain-services-admin-guide/secure-ldap-exported-as-pfx.png)
 
-
 ## <a name="next-step"></a>Nästa steg
+
 [Uppgift 3: aktivera säkert LDAP för den hanterade domänen](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)

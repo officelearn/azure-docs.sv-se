@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: anjangsh,billgib,genemi
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: 0146f6ca610a25e57771fb21436a70acbdd5a5ef
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4bf97c0c447bfabc1454959d457bbd50f3490299
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61486658"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242804"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---multi-tenant-app"></a>Flera klienter analytics med hjälp av extraherade data - app för flera klienter
  
@@ -242,5 +242,5 @@ Grattis!
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 Ytterligare [självstudier som bygger på Wingtip SaaS-program](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials). 
-- [Elastiska jobb](sql-database-elastic-jobs-overview.md).
+- [Elastiska jobb](elastic-jobs-overview.md).
 - [Flera klienter analytics med hjälp av extraherade data - enda klient](saas-tenancy-tenant-analytics.md) 

@@ -5,50 +5,101 @@ services: app-service\mobile
 author: conceptdev
 ms.service: app-service-mobile
 ms.topic: include
-ms.date: 05/25/2018
+ms.date: 05/06/2019
 ms.author: crdun
 ms.custom: include file
-ms.openlocfilehash: 894dd5ea7270390780813b647fe7a8b4c0f173bd
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 99ca7e82a11687d25355589e7ea539a14cdb493b
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66139889"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66420686"
 ---
-1. Klicka på knappen **App Services**, välj din Mobile Apps-serverdel, välj **Snabbstart** och sedan din klientplattform (iOS, Android, Xamarin, Cordova).
+1. Ladda ned klienten SDK snabbstarter för följande plattformar:
+    
+    [iOS (Objective-C)](https://github.com/Azure/azure-mobile-apps-quickstarts/tree/master/client/iOS)  
+    [iOS (Swift)](https://github.com/Azure/azure-mobile-apps-quickstarts/tree/master/client/iOS-Swift)  
+    [Android (Java)](https://github.com/Azure/azure-mobile-apps-quickstarts/tree/master/client/android)  
+    [Xamarin.iOS](https://github.com/Azure/azure-mobile-apps-quickstarts/tree/master/client/xamarin.iOS)  
+    [Xamarin.Android](https://github.com/Azure/azure-mobile-apps-quickstarts/tree/master/client/xamarin.android)  
+    [Xamarin.Forms](https://github.com/Azure/azure-mobile-apps-quickstarts/tree/master/client/xamarin.forms)  
+    [Cordova](https://github.com/Azure/azure-mobile-apps-quickstarts/tree/master/client/cordova)  
+    [Windows (C#)](https://github.com/Azure/azure-mobile-apps-quickstarts/tree/master/client/windows-uwp-cs)  
 
-    ![Azure Portal med snabbstarten för Mobile Apps markerad][quickstart]
+    > [!NOTE]
+    > Om du använder iOS-projektet måste du ladda ned ”azuresdk-iOS -\*.zip” från [senaste GitHub-versionen](https://github.com/Azure/azure-mobile-apps-ios-client/releases/latest). Packa upp och lägga till den `MicrosoftAzureMobile.framework` filen till projektets rot.
+    >
 
-1. Om en databasanslutning inte konfigureras skapar du en genom att göra följande:
+2. Du måste lägga till en databasanslutning eller ansluta till en befintlig anslutning. Först bestämma om du ska skapa ett datalager eller Använd en befintlig.
 
-    ![Azure Portal med Mobile Apps Connect till databas][connect]
+    - **Skapa ett nytt datalager**: Om du ska skapa ett datalager, använder du följande Snabbstart:
 
-    a. Skapa en ny SQL-databas och server. Du kanske måste lämna anslutningssträngens namnfält på standardvärdet MS_TableConnectionString för att kunna slutföra steg 3 nedan.
+        [Snabbstart: Komma igång med en enskild databas i Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-quickstart-guide)
 
-    ![Azure Portal med Mobile Apps skapa ny databas och server][server]
+    - **Befintlig datakälla**: Följ anvisningarna nedan om du vill använda en befintlig databasanslutning
 
-    b. Vänta tills anslutningen har skapats.
+        1. Anslutningssträngen för SQL Database-format: `Data Source=tcp:{your_SQLServer},{port};Initial Catalog={your_catalogue};User ID={your_username};Password={your_password}`
 
-    ![Azure Portal-meddelande om att dataanslutningen har skapats][notification]
+           **{your_SQLServer}**  Namnet på servern, denna finns i översiktssidan för databasen och är vanligtvis i form av ”server_name.database.windows.net”.
+            **{port}**  vanligtvis 1433.
+            **{your_catalogue}**  Namnet på databasen.
+            **{your_username}**  Användarnamn för att komma åt databasen.
+            **{your_password}**  Lösenord för åtkomst till din databas.
 
-    c. Dataanslutningen måste lyckas.
+            [Mer information om format för SQL-anslutningssträng](https://docs.microsoft.com/dotnet/framework/data/adonet/connection-string-syntax#sqlclient-connection-strings)
 
-    ![Azure Portal-meddelande, "Du har redan en dataanslutning"][already-connection]
+        2. Lägg till anslutningssträng till din **mobilappen** i App Service du kan hantera anslutningssträngar för ditt program med hjälp av den **Configuration** alternativ på menyn.
 
-1. Under **2. Skapa ett tabell-API**, Välj Node.js för **Språk för serverdel**.
+            Lägga till en anslutningssträng:
 
-1. Godkänn bekräftelsen och välj **Skapa TodoItem-tabell**.
-    En ny att göra-post-tabell skapas i din databas.
+            1. Klicka på den **programinställningar** fliken.
 
-    >[!IMPORTANT]
-    > Om du ändrar en befintlig serverdel till Node.js skrivs allt innehåll över. Om du istället vill skapa en .NET-serverdel läser du [Work with the .NET back-end server SDK for Mobile Apps][instructions] (Arbeta med SDK för .NET-serverdelen för Mobile Apps).
+            2. Klicka på **[+] ny anslutningssträng**.
 
-<!-- Images. -->
-[quickstart]: ./media/app-service-mobile-configure-new-backend/quickstart.png
-[connect]: ./media/app-service-mobile-configure-new-backend/connect-to-bd.png
-[notification]: ./media/app-service-mobile-configure-new-backend/notification-data-connection-create.png
-[server]: ./media/app-service-mobile-configure-new-backend/create-new-server.png
-[already-connection]: ./media/app-service-mobile-configure-new-backend/already-connection.png
+            3. Du måste ange **namn**, **värdet** och **typ** för anslutningssträngen.
 
-<!-- URLs -->
-[instructions]: ../articles/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#create-app
+            4. Typ **namn** som `MS_TableConnectionString`
+
+            5. Värdet bör vara den anslutande strängen du formaterat i steget innan.
+
+            6. Om du lägger till en anslutningssträng till en SQL Azure-databas väljer **SQLAzure** under **typ**.
+
+3. Azure Mobile Apps har SDK: er för .NET och Node.js-serverdelen.
+
+   - **Node.js-serverdelen**
+    
+     Om du ska använda appen Node.js-Snabbstart, följer du anvisningarna nedan.
+
+     1. I Azure-portalen går du till **enkla tabeller**, visas den här skärmen.
+      
+        ![Noden enkla tabeller](./media/app-service-mobile-configure-new-backend/node-easy-tables.png)
+
+     2. Kontrollera att SQL-anslutningssträng har redan lagts till i den **Configuration** fliken. Markera kryssrutan på **bekräftar jag att allt webbinnehåll skrivs** och klicka på den **skapa TodoItem-tabell** knappen.
+     
+        ![Enkla tabeller nodkonfiguration](./media/app-service-mobile-configure-new-backend/node-easy-tables-configuration.png)
+
+     3. I **enkla tabeller**, klickar du på den **+ Lägg till** knappen.
+    
+        ![Noden enkla tabeller Lägg till knapp](./media/app-service-mobile-configure-new-backend/node-easy-tables-add.png)
+
+     4. Skapa en `TodoItem` tabell med anonym åtkomst.
+      
+        ![Noden enkla tabeller Lägg till tabell](./media/app-service-mobile-configure-new-backend/node-easy-tables-table-add.png)
+
+   - **.NET-serverdelen**
+    
+        Om du ska använda appen för .NET-Snabbstart, följer du anvisningarna nedan.
+
+        1. Ladda ned Azure Mobile Apps .NET server-projekt från den [lagringsplatsen för azure-mobile-appar – snabbstarter](https://github.com/Azure/azure-mobile-apps-quickstarts/tree/master/backend/dotnet/Quickstart).
+
+        2. Skapa .NET serverprojektet lokalt i Visual Studio.
+
+        3. Öppna i Visual Studio Solution Explorer, högerklicka på `ZUMOAPPNAMEService` projektet, klicka på **publicera**, visas en `Publish to App Service` fönster. Om du arbetar på Mac kan du kolla andra sätt att distribuera appen [här](https://docs.microsoft.com/en-us/azure/app-service/deploy-local-git).
+        
+           ![Visual studio-publicering](./media/app-service-mobile-configure-new-backend/visual-studio-publish.png)
+
+        4. Välj **Apptjänst** som publicerar mål, sedan klickar du på **Välj befintligt**, klicka sedan på den **publicera** knappen längst ned i fönstret.
+
+        5. Du måste logga in på Visual Studio med din Azure-prenumeration först. Välj den `Subscription`, `Resource Group`, och välj sedan namnet på din app. När du är klar klickar du på **OK**, detta distribuerar .NET server-projektet som du har lokalt till App Service-serverdelen. När distributionen är klar kommer du att omdirigeras till `http://{zumoappname}.azurewebsites.net/` i webbläsaren.
+        
+           ![Serverdelen är igång](./media/app-service-mobile-configure-new-backend/backend-is-up.png)

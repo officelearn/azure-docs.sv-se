@@ -1,19 +1,19 @@
 ---
-title: Avancerat skydd – Azure Database för PostgreSQL
+title: Avancerat skydd – Azure Database för PostgreSQL – enskild Server
 description: Skydd mot hot identifierar avvikande databasaktiviteter som indikerar potentiella säkerhetshot mot databasen.
 author: bolzmj
 ms.author: mbolz
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/24/2019
-ms.openlocfilehash: bbb48708d0e5a7cd07a3971a6966f40696107562
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: a69a8b651188b9566fdbec4bc6de09a8fec164c7
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60421335"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65067470"
 ---
-# <a name="advanced-threat-protection-for-azure-database-for-postgresql"></a>Avancerat skydd för Azure Database för PostgreSQL
+# <a name="advanced-threat-protection-for-azure-database-for-postgresql---single-server"></a>Avancerat skydd för Azure Database för PostgreSQL – enskild Server
 
 Advanced Threat Protection för Azure Database for PostgreSQL identifierar avvikande aktiviteter som indikerar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja dina databaser.
 
@@ -28,7 +28,7 @@ Avancerat skydd är en del av erbjudandet avancerad säkerhet för Data, vilket 
 
 ## <a name="set-up-threat-detection"></a>Konfigurera identifiering av hot
 1. Starta Azure-portalen på [ https://portal.azure.com ](https://portal.azure.com).
-2. Gå till konfigurationssidan för Azure Database for PostgreSQL-server som du vill skydda. Säkerhetsinställningar, Välj **Advanced Threat Protection (förhandsversion)**.
+2. Gå till konfigurationssidan för Azure Database for PostgreSQL-server som du vill skydda. Säkerhetsinställningar, Välj **Advanced Threat Protection (förhandsversion)** .
 3. På den **Advanced Threat Protection (förhandsversion)** konfigurationssidan:
 
    - Aktivera Avancerat skydd på servern.
@@ -46,7 +46,7 @@ Du får ett e-postavisering när avvikande databasaktiviteter. E-postmeddelandet
 
     Visa aktiva hot:
 
-    ![Aktiva hot](./media/howto-database-threat-protection-portal/active-threats.png)
+    ![aktiva hot](./media/howto-database-threat-protection-portal/active-threats.png)
 
 2. Klicka på en specifik avisering om du vill ha ytterligare information och åtgärder för att undersöka det här hotet och åtgärda framtida hot.
     

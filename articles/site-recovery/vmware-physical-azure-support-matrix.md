@@ -8,12 +8,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: raynew
-ms.openlocfilehash: 2d1999077f6315658dbfd69473ddf5561bd76e0b
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 514aaaf7a274e60a17bbae62b3c62e7cf3668e7a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540592"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237308"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Stöd matrix för haveriberedskap för virtuella VMware-datorer och fysiska servrar till Azure
 
@@ -46,7 +46,7 @@ RAM | 16 GB
 Antal diskar | 3 diskar<br/><br/> Diskar är OS-disk, processerverns cachedisk och kvarhållningsenhet för återställning efter fel.
 Ledigt diskutrymme | 600 GB utrymme som krävs för processerverns cacheminne.
 Ledigt diskutrymme | 600 GB utrymme som krävs för kvarhållningsenhet.
-Operativsystem  | Windows Server 2012 R2 eller Windows Server 2016 |
+Operativsystem  | Windows Server 2012 R2 eller Windows Server 2016 med Skrivbordsmiljö |
 Nationella inställningar för operativsystem | Engelska (en-us)
 PowerCLI | [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0") krävs inte för konfigurationsservern med versioner från [9.14](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery).
 Windows Server-roller | Aktivera inte: <br/> - Active Directory Domain Services <br/>- Internet Information Services <br/> - Hyper-V |
@@ -110,7 +110,7 @@ SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | [9.21][9.21 UR] | SP1 3.12.49-11
 **Komponent** | **Stöds**
 --- | ---
 Filsystem | ext3, ext4, XFS
-Volymhanterare | Innan du [9.20 version](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), <br/> 1. LVM stöds. <br/> 2. / Boot på LVM-volym stöds inte. <br/> 3 Flera operativsystemdiskar stöds inte.<br/><br/>Från [9.20 version](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery) och senare kan/Boot på LVM stöds. Flera operativsystemdiskar stöds inte.
+Volymhanterare | Innan du [9.20 version](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), <br/> 1. LVM stöds. <br/> 2. / Boot på LVM-volym stöds inte. <br/> 3. Flera operativsystemdiskar stöds inte.<br/><br/>Från [9.20 version](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery) och senare kan/Boot på LVM stöds. Flera operativsystemdiskar stöds inte.
 Paravirtualiserade lagringsenheter | Enheter som exporteras av paravirtualiserade drivrutiner stöds inte.
 Flera kö blockera-i/o-enheter | Stöds ej.
 Fysiska servrar med lagringsstyrenhet HP CCISS | Stöds ej.
@@ -195,7 +195,7 @@ Gäst/server EFI/UEFI-Startmetod | Stöd när du migrerar virtuella VMware-dator
 | Azure Data Box | Nej
 
 
-## <a name="azure-storage"></a>Azure Storage
+## <a name="azure-storage"></a>Azure-lagring
 
 **Komponent** | **Stöds**
 --- | ---
@@ -271,8 +271,8 @@ Flytta lagring, nätverk, virtuella Azure-datorer mellan resursgrupper<br/><br/>
 
 **Namn** | **Beskrivning** | **Senaste version Hämtningsinstruktioner**
 --- | --- | ---
-Konfigurationsserver | Samordnar kommunikationen mellan lokala VMware-servrar och Azure <br/><br/> Installerad på den lokala VMware-servrar | Mer information finns i vår vägledning på [nyinstallation](vmware-azure-deploy-configuration-server.md) och [uppgradering av befintlig komponent till senaste versionen](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
-Processerver|Installeras som standard på konfigurationsservern. Den tar emot replikeringsdata; optimerar dem med cachelagring, komprimering och kryptering och skickar dem till Azure Storage. Allt eftersom distributionen växer kan du lägga till ytterligare, separat processervrar för att hantera större mängder replikeringstrafik.| Mer information finns i vår vägledning på [nyinstallation](vmware-azure-set-up-process-server-scale.md) och [uppgradering av befintlig komponent till senaste versionen](vmware-azure-manage-process-server.md#upgrade-a-process-server).
+Konfigurationsservern | Samordnar kommunikationen mellan lokala VMware-servrar och Azure <br/><br/> Installerad på den lokala VMware-servrar | Mer information finns i vår vägledning på [nyinstallation](vmware-azure-deploy-configuration-server.md) och [uppgradering av befintlig komponent till senaste versionen](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
+Processervern|Installeras som standard på konfigurationsservern. Den tar emot replikeringsdata; optimerar dem med cachelagring, komprimering och kryptering och skickar dem till Azure Storage. Allt eftersom distributionen växer kan du lägga till ytterligare, separat processervrar för att hantera större mängder replikeringstrafik.| Mer information finns i vår vägledning på [nyinstallation](vmware-azure-set-up-process-server-scale.md) och [uppgradering av befintlig komponent till senaste versionen](vmware-azure-manage-process-server.md#upgrade-a-process-server).
 Mobilitetstjänsten | Samordnar replikering mellan lokala VMware-servrar/fysiska servrar och Azure/sekundär plats<br/><br/> Installerad på VMware VM eller fysiska servrar som du vill replikera | Mer information finns i vår vägledning på [nyinstallation](vmware-azure-install-mobility-service.md) och [uppgradering av befintlig komponent till senaste versionen](vmware-physical-manage-mobility-service.md#update-mobility-service-from-azure-portal).
 
 Mer information om de senaste funktionerna finns [senaste viktig](https://aka.ms/ASR_latest_release_notes).

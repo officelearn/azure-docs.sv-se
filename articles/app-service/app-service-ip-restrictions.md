@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/22/2018
+ms.date: 05/23/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: de898a7ebb9611f469f42bb23774b3b0a0c2410d
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: be0de7e809565fce4171401760d11ef9de45724e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65541675"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236110"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Åtkomstbegränsningar för Azure App Service #
 
@@ -54,7 +54,7 @@ Du kan klicka på **[+] Lägg till** att lägga till en ny regel för begränsni
 
 När du skapar en regel kan välja du tillåta/Neka och också på vilken typ av regel. Du måste också ange prioritetsvärdet och vad du är att begränsa åtkomst till.  Du kan du lägga till ett namn och beskrivning för regeln.  
 
-Om du vill ange en IP-adress baserat regeln, Välj en typ av IPv4 eller IPv6. IP-adress notation måste anges i CIDR-notation för både IPv4 och IPv6-adresser. Om du vill ange en exakt adress, kan du använda något som 1.2.3.4/32 där de fyra första oktetterna representerar din IP-adress och /32 är masken. IPv4 CIDR-notation för alla adresser är 0.0.0.0/0. Mer information om CIDR-notation, kan du läsa [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). 
+Om du vill ange en IP-adress baserat regeln, Välj en typ av IPv4 eller IPv6. IP-adress notation måste anges i CIDR-notation för både IPv4 och IPv6-adresser. Om du vill ange en exakt adress, kan du använda något som 1.2.3.4/32 där de fyra första oktetterna representerar din IP-adress och /32 är masken. IPv4 CIDR-notation för alla adresser är 0.0.0.0/0. Mer information om CIDR-notation, kan du läsa [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 
 ![Lägg till Begränsningsregel för åtkomst till ett virtuellt nätverk](media/app-service-ip-restrictions/access-restrictions-vnet-add.png)
 
@@ -79,6 +79,14 @@ Ta bort en regel, klicka på den **...**  på regeln och klickar sedan på **ta 
 Förutom att du kan styra åtkomsten till din app, kan du också begränsa åtkomsten till scm-webbplatsen som används av din app. Scm-webbplatsen är webbdistribution slutpunkt och Kudu-konsolen. Separat kan du tilldela åtkomstbegränsningar till scm-webbplatsen från appen eller använda samma för både appen och scm-webbplatsen. När du markerar kryssrutan har samma begränsningar som din app är allt blanked ut. Om du avmarkerar kryssrutan, tillämpas de inställningar som du tidigare hade på scm-webbplatsen. 
 
 ![åtkomstbegränsningar för listan](media/app-service-ip-restrictions/access-restrictions-scm-browse.png)
+
+## <a name="blocking-a-single-ip-address"></a>Blockera en IP-adress ##
+
+När du lägger till din första IP-begränsning regeln tjänsten ska lägga till en explicit **neka alla** regel med prioritet 2147483647. I praktiken den explicita **neka alla** regel kommer att senaste regeln har körts och blockerar åtkomst till alla IP-adresser som uttryckligen inte tillåts med hjälp av en **Tillåt** regeln.
+
+Scenariot där användare vill uttryckligen blockera en enskild IP-adress eller IP-Adressblock, men tillåter du att allt annat åtkomst, det är nödvändigt att lägga till en explicit **Tillåt alla** regeln.
+
+![enkel ip-adress](media/app-service-ip-restrictions/block-single-address.png)
 
 ## <a name="programmatic-manipulation-of-access-restriction-rules"></a>Programmässig manipulation av regler för begränsning av åtkomst ##
 

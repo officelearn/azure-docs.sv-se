@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm
-ms.openlocfilehash: b5bf778f06ff0223fd48a1282aadf223ff032b0f
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: c371333dcc7db0b60ffa5f94d6e2d55ae500a4f6
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919859"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241186"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Spara och konfigurera din API Management-tjänstkonfigurationen med Git
 
@@ -57,7 +57,7 @@ Om du vill visa och konfigurera dina inställningar för Git, kan du klicka på 
 >
 >
 
-Information om att aktivera eller inaktivera Git-åtkomst med hjälp av REST-API finns i [aktivera eller inaktivera Git-åtkomst med hjälp av REST-API](/rest/api/apimanagement/tenantaccess?EnableGit).
+Information om att aktivera eller inaktivera Git-åtkomst med hjälp av REST-API finns i [aktivera eller inaktivera Git-åtkomst med hjälp av REST-API](/rest/api/apimanagement/2019-01-01/tenantaccess?EnableGit).
 
 ## <a name="to-save-the-service-configuration-to-the-git-repository"></a>Spara konfigurationen av Git-lagringsplatsen
 
@@ -69,7 +69,7 @@ Efter en liten stund konfigurationen sparas och visas status för konfiguration 
 
 När konfigurationen har sparats i databasen, kan det klonas.
 
-Information om hur du utför den här åtgärden med hjälp av REST-API finns i [Commit configuration ögonblicksbild med hjälp av REST API](/rest/api/apimanagement/tenantaccess?CommitSnapshot).
+Information om hur du utför den här åtgärden med hjälp av REST-API finns i [Commit configuration ögonblicksbild med hjälp av REST API](/rest/api/apimanagement/2019-01-01/tenantaccess?CommitSnapshot).
 
 ## <a name="to-clone-the-repository-to-your-local-machine"></a>Klona lagringsplatsen till din lokala dator
 
@@ -143,7 +143,7 @@ git push
 
 När din lokala ändringar är allokerade och skickas till server-databasen, kan du distribuera dem till din API Management-tjänstinstans.
 
-Information om hur du utför den här åtgärden med hjälp av REST-API finns i [distribuera Git ändras till konfigurationsdatabasen med hjälp av REST API](https://docs.microsoft.com/rest/api/apimanagement/tenantconfiguration).
+Information om hur du utför den här åtgärden med hjälp av REST-API finns i [distribuera Git ändras till konfigurationsdatabasen med hjälp av REST API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/tenantconfiguration).
 
 ## <a name="file-and-folder-structure-reference-of-local-git-repository"></a>Referens för fil- och strukturen för lokal Git-lagringsplats
 
@@ -163,7 +163,7 @@ Varje mapp kan innehålla en eller flera filer och i vissa fall en eller flera m
 
 | Filtyp | Syfte |
 | --- | --- |
-| JSON |Konfigurationsinformation om respektive entiteten |
+| json |Konfigurationsinformation om respektive entiteten |
 | html |Beskrivningar av entiteten, som ofta visas i developer-portalen |
 | xml |Principrapporter |
 | css |Formatmallar för anpassning av utvecklare |
@@ -173,9 +173,9 @@ Dessa filer kan skapas, tas bort, redigera och hanteras på det lokala filsystem
 > [!NOTE]
 > Följande entiteter finns inte i Git-lagringsplats och kan inte konfigureras med Git.
 >
-> * [Användare](https://docs.microsoft.com/rest/api/apimanagement/user)
-> * [Prenumerationer](https://docs.microsoft.com/rest/api/apimanagement/subscription)
-> * [Namngivna värden](https://docs.microsoft.com/rest/api/apimanagement/property)
+> * [Användare](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/user)
+> * [Prenumerationer](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/subscription)
+> * [Namngivna värden](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/property)
 > * Developer portal enheter än format
 >
 
@@ -223,14 +223,14 @@ Den slutliga inställningen `$ref-policy`, mappar till den globala principfilen 
 ### <a name="apis-folder"></a>API: er för mappen
 Den `apis` mappen innehåller en mapp för varje API i tjänstinstansen, som innehåller följande objekt.
 
-* `apis\<api name>\configuration.json` -Detta är konfigurationen för API: et och innehåller information om URL: en för backend-tjänsten och åtgärderna. Det här är samma information som skulle returneras om du anropar [hämta ett visst API](https://docs.microsoft.com/rest/api/apimanagement/apis/get) med `export=true` i `application/json` format.
+* `apis\<api name>\configuration.json` -Detta är konfigurationen för API: et och innehåller information om URL: en för backend-tjänsten och åtgärderna. Det här är samma information som skulle returneras om du anropar [hämta ett visst API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/apis/get) med `export=true` i `application/json` format.
 * `apis\<api name>\api.description.html` -Detta är beskrivningen av API: et och motsvarar den `description` egenskapen för den [API-entiteten](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table._entity_property).
 * `apis\<api name>\operations\` – den här mappen innehåller `<operation name>.description.html` filer som mappar till åtgärder i API: et. Varje fil innehåller en beskrivning av en enda åtgärd i API: T, som mappar till den `description` egenskapen för den [åtgärden entitet](https://docs.microsoft.com/rest/api/visualstudio/operations/list#operationproperties) i REST-API.
 
 ### <a name="groups-folder"></a>mappen grupper
 Den `groups` mappen innehåller en mapp för varje grupp som definierats i tjänstinstansen.
 
-* `groups\<group name>\configuration.json` -Detta är konfigurationen för gruppen. Det här är samma information som skulle returneras om du anropar den [hämta en specifik grupp](https://docs.microsoft.com/rest/api/apimanagement/group/get) igen.
+* `groups\<group name>\configuration.json` -Detta är konfigurationen för gruppen. Det här är samma information som skulle returneras om du anropar den [hämta en specifik grupp](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/group/get) igen.
 * `groups\<group name>\description.html` -Detta är beskrivningen av gruppen och motsvarar den `description` egenskapen för den [gruppen entitet](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity).
 
 ### <a name="policies-folder"></a>för principmappen
@@ -250,7 +250,7 @@ Den `portalStyles` mappen innehåller konfigurations- och style sheets developer
 ### <a name="products-folder"></a>produkter mapp
 Den `products` mappen innehåller en mapp för varje produkt som definierats i tjänstinstansen.
 
-* `products\<product name>\configuration.json` -Detta är konfigurationen för produkten. Det här är samma information som skulle returneras om du anropar den [hämta en specifik produkt](https://docs.microsoft.com/rest/api/apimanagement/product/get) igen.
+* `products\<product name>\configuration.json` -Detta är konfigurationen för produkten. Det här är samma information som skulle returneras om du anropar den [hämta en specifik produkt](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/product/get) igen.
 * `products\<product name>\product.description.html` -Detta är beskrivningen av produkten och motsvarar den `description` egenskapen för den [produktentiteten](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-product-entity) i REST-API.
 
 ### <a name="templates"></a>mallar

@@ -6,14 +6,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 05/23/2019
 ms.author: hrasheed
-ms.openlocfilehash: 81be4d5809fe8a3f36f7364b15e19d0046a8b5cd
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c910ed9f1160d30e1d4bda2e85b029eb2ad85b02
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64714014"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237155"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Kapacitetsplanering för HDInsight-kluster
 
@@ -104,9 +104,9 @@ För att identifiera problemet på ett lokalt kluster för en nod kan du köra m
 
 När du har fastställt din målklustret VM-storlek, skala och typ, kan du kontrollera aktuella kvotgränserna av kapacitet för din prenumeration. När du når en kvotgräns kan kanske du inte att distribuera nya kluster eller skala ut befintliga kluster genom att lägga till fler arbetsnoder. Endast kvotgränsen är kvoten CPU-kärnor som finns på regionsnivån för varje prenumeration. Din prenumeration kan exempelvis ha 30 kärngräns i regionen östra USA. Om du vill öka kvoten gör du följande:
 
-1. Gå till Azure Portal
-1. Klicka på **hjälp och Support** längst ned till vänster på sidan.
-1. Klicka på **ny supportbegäran**.
+1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Välj **hjälp + support** längst ned till vänster på sidan.
+1. Välj på **ny supportbegäran**.
 1. På den **ny supportbegäran** sidan under **grunderna** väljer du följande alternativ:
    - **Typ av problem**: **Begränsningar för tjänsten och -prenumeration (kvoter)**
    - **Prenumeration**: den prenumeration som du vill ändra
@@ -114,9 +114,9 @@ När du har fastställt din målklustret VM-storlek, skala och typ, kan du kontr
     
      ![Skapa en supportbegäran om att öka kärnkvoten för HDInsight](./media/hdinsight-capacity-planning/hdinsight-quota-support-request.png)
 
-1. Klicka på **Nästa**.
-1. På den **information** , ange en beskrivning av problemet, Välj problemets allvarlighetsgrad och välj önskad kontaktmetod.
-1. Klicka på **Nästa: Granska + skapa**.
+1. Välj **Nästa: Lösningar >>** .
+1. På den **information** ange en beskrivning av problemet, markera hur allvarligt problemet, önskad kontaktmetod och andra obligatoriska fält.
+1. Välj **Nästa: Granska + skapa >>** .
 1. På den **granska + skapa** fliken **skapa**.
 
 > [!NOTE]  

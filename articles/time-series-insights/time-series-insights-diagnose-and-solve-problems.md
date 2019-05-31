@@ -4,19 +4,19 @@ description: Den här artikeln beskriver hur du diagnostiserar, felsöka och lö
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 05/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7be2652355e3b9830d4a5198ba71c0f4a78858dd
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 68d46b54bf066724d8f3474f421d2d1f751b75e3
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471680"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235051"
 ---
 # <a name="diagnose-and-solve-issues-in-your-time-series-insights-environment"></a>Diagnostisera och lösa problem i din Time Series Insights-miljö
 
@@ -104,13 +104,13 @@ Se till att den egenskapsnamn för tidsstämpeln och värdet överensstämmer me
 
 Det enklaste sättet att säkerställa att din egenskapsnamn för tidsstämpeln är skapas och fungerar är att använda i Time Series Insights-Utforskaren. Välj en tidsperiod när du har angett egenskapsnamn för tidsstämpeln i Time Series Insights explorer med hjälp av tabellen. Högerklicka på markeringen och välj sedan den **utforska händelser** alternativet.
 
-Första kolumnrubriken ska vara egenskapsnamn för tidsstämpeln. Bredvid ordet **tidsstämpel**, bör du se **($ts)**.
+Första kolumnrubriken ska vara egenskapsnamn för tidsstämpeln. Bredvid ordet **tidsstämpel**, bör du se **($ts)** .
 
 Du bör inte se följande värden:
 
-- *(abc)*: Anger att Time Series Insights läser datavärdena som strängar.
+- *(abc)* : Anger att Time Series Insights läser datavärdena som strängar.
 - *Ikon för kalender*: Anger att Time Series Insights läser datavärdet är *datetime*.
-- *#*: Anger att Time Series Insights läser datavärdena som ett heltal.
+- *#* : Anger att Time Series Insights läser datavärdena som ett heltal.
 
 ## <a name="next-steps"></a>Nästa steg
 

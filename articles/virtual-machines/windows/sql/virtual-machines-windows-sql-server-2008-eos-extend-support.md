@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 04/08/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 398b7a78c9bc13631e15c8725efb8cc0fba3f127
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: HT
+ms.openlocfilehash: 62261e46dc4744597acd10c32f0a835f4a597d4d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65806483"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243973"
 ---
 # <a name="extend-support-for-sql-server-2008-and-sql-server-2008-r2-with-azure"></a>Utöka stöd för SQL Server 2008 och SQL Server 2008 R2 med Azure
 
@@ -29,7 +29,7 @@ Till skillnad från med en hanterad instans kräver migrera till en Azure-dator 
 
 Resten av den här artikeln innehåller överväganden för att migrera SQL Server-instansen till en Azure-dator. 
 
-## <a name="provisioning"></a>Etableras 
+## <a name="provisioning"></a>Etablering 
 
 Det finns en betala per användning `SQL Server 2008 R2 on Windows Server 2008 R2` avbildning som är tillgängliga på Azure marketplace. 
 
@@ -40,7 +40,7 @@ Avbildningar som distribueras via Marketplace medföljer SQL IaaS-tillägget som
   > [!NOTE]
   > När SQL-servern `Create` och `Manage` blad fungerar med SQL Server 2008R2-avbildning i Azure-portalen, följande funktioner är _stöds inte_: Automatisk säkerhetskopiering, Azure Key Vault-integrering, R Services och lagringskonfiguration.
 
-## <a name="licensing"></a>Licenser
+## <a name="licensing"></a>Licensiering
 Betala per användning SQL Server 2008R2-distributioner kan konvertera till [Azure Hybrid Benefit (AHB)](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
 Om du vill konvertera en licens med Software Assurance (SA) baserat till betala per användning, kunder bör registreras med SQL-VM [resursprovidern](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-sql-resource-provider). När registrerad hos resursprovidern SQL VM, att licenstyp SQL utbytbara mellan AHB och betala per användning. 
@@ -58,7 +58,7 @@ SQL Server kräver appkonsekventa ögonblicksbilder för Azure Site Recovery att
 
 ### <a name="database-migration-service"></a>Database Migration Service
 
-Den [Database Migration Service](/dms/dms-overview) är ett alternativ för kunder om migrering från en lokal plats till en Azure virtuell dator genom att uppgradera SQL Server till SQL Server 2012 och senare.
+Den [Database Migration Service](/azure/dms/dms-overview) är ett alternativ för kunder om migrering från en lokal plats till en Azure virtuell dator genom att uppgradera SQL Server till SQL Server 2012 och senare.
 
 ## <a name="disaster-recovery"></a>Haveriberedskap
 

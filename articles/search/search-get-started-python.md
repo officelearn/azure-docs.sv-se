@@ -1,7 +1,7 @@
 ---
 title: 'Snabbstart: Python- och REST API: er – Azure Search'
 description: Skapa, läsa in och fråga ett index med hjälp av Python, Jupyter-anteckningsböcker och Azure Search REST API.
-ms.date: 05/15/2019
+ms.date: 05/23/2019
 author: heidisteen
 manager: cgronlun
 ms.author: heidist
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: a79a5fe1632eeabee670274ebbb19c4c34bd84d2
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 99b4ec0be8e9fa631c5081edd42474ea89dc5dc3
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66117345"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244780"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-jupyter-python-notebooks"></a>Snabbstart: Skapa ett Azure Search-index med Python i Jupyter-anteckningsböcker
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ Följande tjänster och verktyg som används i den här snabbstarten.
 
 + [Anaconda 3.x](https://www.anaconda.com/distribution/#download-section), vilket ger Python 3.x och Jupyter Notebooks.
 
-+ [Skapa en Azure Search-tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under din aktuella prenumeration. Du kan använda en kostnadsfri tjänst för den här snabbstarten. 
++ [Skapa en Azure Search-tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under din aktuella prenumeration. Du kan använda den kostnadsfria nivån för den här snabbstarten. 
 
 ## <a name="get-a-key-and-url"></a>Hämta en nyckel och URL: en
 
@@ -52,7 +52,7 @@ Alla begäranden som kräver en api-nyckel för varje begäran som skickas till 
 
 ## <a name="connect-to-azure-search"></a>Anslut till Azure Search
 
-Öppna en Jupyter-anteckningsbok och kontrollera anslutningen från den lokala arbetsstationen genom att begära en lista över index i din tjänst. Du kan använda Anaconda Navigator på Windows med Anaconda3 för att starta en anteckningsbok.
+I den här uppgiften ska starta en Jupyter notebook och kontrollera att du kan ansluta till Azure Search. Det gör du genom att begära en lista över index från din tjänst. Du kan använda Anaconda Navigator på Windows med Anaconda3 för att starta en anteckningsbok.
 
 1. Skapa en ny Python3 anteckningsbok.
 
@@ -73,7 +73,7 @@ Alla begäranden som kräver en api-nyckel för varje begäran som skickas till 
            'api-key': '<YOUR-ADMIN-API-KEY>' }
    ```
 
-1. Formulera begäran i cellen tredje. Den här GET-begäran riktar sig mot samlingen index för search-tjänsten och väljer namnegenskapen.
+1. Formulera begäran i cellen tredje. Den här GET-begäran riktar sig mot samlingen index för search-tjänsten och väljer name-egenskapen för befintliga index.
 
    ```python
    url = endpoint + "indexes" + api_version + "&$select=name"
@@ -82,20 +82,20 @@ Alla begäranden som kräver en api-nyckel för varje begäran som skickas till 
    pprint(index_list)
    ```
 
-1. Kör varje steg. Om index finns innehåller svaret en lista över index. Tjänsten omfattar en azureblob-index och en realestate-us-sample-index i skärmbilden nedan.
+1. Kör varje steg. Om index finns innehåller svaret en lista över namn på index. I skärmbilden nedan är har tjänsten redan en azureblob-index och en realestate-us-sample-index.
 
    ![Python-skriptet i Jupyter-anteckningsbok med HTTP-begäranden till Azure Search](media/search-get-started-python/connect-azure-search.png "Python-skriptet i Jupyter-anteckningsbok med HTTP-begäranden till Azure Search")
 
-   En tom index samling returnerar svaret: `{'@odata.context': 'https://mydemo.search.windows.net/$metadata#indexes(name)', 'value': []}`
+   Däremot returnerar en tom index samling svaret: `{'@odata.context': 'https://mydemo.search.windows.net/$metadata#indexes(name)', 'value': []}`
 
 > [!Tip]
 > Du är begränsad till tre index, indexerare och datakällor på en kostnadsfri tjänst. Den här snabbstarten skapar vi en av varje. Kontrollera att det finns utrymme att skapa nya objekt innan skickas vidare.
 
 ## <a name="1---create-an-index"></a>1 – Skapa ett index
 
-Om du inte använder portalen, måste ett index finnas på tjänsten innan du kan läsa in data. Det här steget använder den [skapa Index REST API](https://docs.microsoft.com/rest/api/searchservice/create-index) att skicka ett indexschema till tjänsten
+Om du inte använder portalen, måste ett index finnas på tjänsten innan du kan läsa in data. Det här steget använder den [skapa Index REST API](https://docs.microsoft.com/rest/api/searchservice/create-index) att skicka ett indexschema till tjänsten.
 
-Fältsamlingen definierar strukturen för en *dokumentet*. Obligatoriska elementen för ett index är ett namn och en samling fält. Varje fält har ett namn, typ och attribut som avgör hur den används (till exempel om det är fulltext sökbar, filtrerbar eller hämtningsbara i sökresultat). I ett index, ett fält av typen `Edm.String` måste anges som den *nyckel* för dokumentet identitet.
+Obligatoriska elementen för ett index är ett namn, en samling fält och en nyckel. Fältsamlingen definierar strukturen för en *dokumentet*. Varje fält har ett namn, typ och attribut som avgör hur fältet används (till exempel om det är fulltext sökbar, filtrerbar eller hämtningsbara i sökresultat). I ett index, ett fält av typen `Edm.String` måste anges som den *nyckel* för dokumentet identitet.
 
 Det här indexet har namnet ”hotels-py” och fältdefinitioner som du ser nedan. Det är en del av ett större [Hotels indexet](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) används i andra genomgångar. Vi tas bort den i den här snabbstarten av utrymmesskäl.
 
@@ -127,7 +127,7 @@ Det här indexet har namnet ”hotels-py” och fältdefinitioner som du ser ned
     }
     ```
 
-2. Formulera begäran i en annan cell. Den här PUT begäran riktar sig mot samlingen index för search-tjänsten och skapar ett index baserat på indexschema som du angav i föregående steg.
+2. Formulera begäran i en annan cell. Den här PUT begäran riktar sig mot samlingen index för search-tjänsten och skapar ett index baserat på indexschema som du angav i föregående cell.
 
    ```python
    url = endpoint + "indexes" + api_version
@@ -138,12 +138,12 @@ Det här indexet har namnet ”hotels-py” och fältdefinitioner som du ser ned
 
 3. Kör varje steg.
 
-   Svaret innehåller JSON-representation av schemat. Följande skärmbild: av delar av indexschemat så att du kan se mer av svaret.
+   Svaret innehåller JSON-representation av schemat. Följande skärmbild visar bara en del av svaret.
 
     ![Begäran om att skapa ett index](media/search-get-started-python/create-index.png "begäran om att skapa ett index")
 
 > [!Tip]
-> För verifiering, du kan också kontrollera listan index i portalen eller köra tjänsten anslutningsbegäran att se den *hotels-py* index som anges i index-samlingen.
+> Ett annat sätt att kontrollera skapandet av index är att kontrollera listan index i portalen.
 
 <a name="load-documents"></a>
 
@@ -211,6 +211,7 @@ Använd en HTTP POST-begäran till ditt index URL-slutpunkt för att skicka doku
             "StateProvince": "GA",
             "PostalCode": "30326",
             "Country": "USA"
+            }
         },
         {
         "@search.action": "upload",
@@ -229,11 +230,11 @@ Använd en HTTP POST-begäran till ditt index URL-slutpunkt för att skicka doku
             "StateProvince": "TX",
             "PostalCode": "78216",
             "Country": "USA"
-       }
-      }
-     ]
+            }
+        }
+    ]
     }
-    ```
+    ```   
 
 2. Formulera begäran i en annan cell. Denna POST-begäran riktar sig mot samlingen docs indexets hotels-py och skickar de dokument som anges i föregående steg.
 
@@ -246,26 +247,7 @@ Använd en HTTP POST-begäran till ditt index URL-slutpunkt för att skicka doku
 
 3. Kör varje steg för att skicka dokument till ett index i din söktjänst. Resultatet bör likna följande exempel. 
 
-   ```
-   {'@odata.context': "https://mydemo.search.windows.net/indexes('hotels-py')/$metadata#Collection(Microsoft.Azure.Search.V2019_05_06.IndexResult)",
-    'value': [{'errorMessage': None,
-            'key': '1',
-            'status': True,
-            'statusCode': 201},
-           {'errorMessage': None,
-            'key': '2',
-            'status': True,
-            'statusCode': 201},
-           {'errorMessage': None,
-            'key': '3',
-            'status': True,
-            'statusCode': 201}]},
-           {'errorMessage': None,
-            'key': '4',
-            'status': True,
-            'statusCode': 201}]}
-     ```
-
+    ![Skicka dokument till ett index](media/search-get-started-python/load-index.png "skicka dokument till ett index")
 
 ## <a name="3---search-an-index"></a>3 – Söka i ett index
 
@@ -278,7 +260,7 @@ Det här steget visar hur man frågar ett index med hjälp av den [REST-API för
    searchstring = '&search=hotels wifi&$count=true&$select=HotelId,HotelName'
    ```
 
-2. Formulera en begäran. Den här GET-begäran riktar sig mot samlingen docs indexets hotels-py och bifogar den fråga som du angav i föregående steg.
+2. Formulera en begäran i en annan cell. Den här GET-begäran riktar sig mot samlingen docs indexets hotels-py och bifogar den fråga som du angav i föregående steg.
 
    ```python
    url = endpoint + "indexes/hotels-py/docs" + api_version + searchstring
@@ -287,32 +269,29 @@ Det här steget visar hur man frågar ett index med hjälp av den [REST-API för
    pprint(query)
    ```
 
-   Resultatet bör likna följande utdata. Resultatet är unranked (search.score = 1.0) eftersom vi inte ange kriterier för att matcha i.
+3. Kör varje steg. Resultatet bör likna följande utdata. 
 
-   ```
-   {'@odata.context': "https://mydemo.search.windows.net/indexes('hotels-py')/$metadata#docs(*)",
-    '@odata.count': 3,
-    'value': [{'@search.score': 1.0,
-               'HotelId': '1',
-               'HotelName': 'Secret Point Motel'},
-              {'@search.score': 1.0,
-               'HotelId': '2',
-               'HotelName': 'Twin Dome Motel'},
-              {'@search.score': 1.0,
-               'HotelId': '3',
-               'HotelName': 'Triple Landscape Hotel'},
-              {'@search.score': 1.0,
-               'HotelId': '4',
-               'HotelName': 'Sublime Cliff Hotel'}]}
+    ![Söka i ett index](media/search-get-started-python/search-index.png "söka i ett index")
+
+4. Testa några andra fråga exempel för att få en bild av syntaxen. Du kan ersätta söksträngen med följande exempel och kör sedan sökbegäran. 
+
+   Ett filter: 
+
+   ```python
+   searchstring = '&search=*&$filter=Rating gt 4&$select=HotelId,HotelName,Description'
    ```
 
-3. Testa några andra fråga exempel för att få en bild av syntaxen. Du kan använda ett filter, ta de två översta resultat eller Ordna efter ett visst fält.
+   Ta de främsta två resultat:
 
-   + `searchstring = '&search=*&$filter=Rating gt 4&$select=HotelId,HotelName,Description'`
+   ```python
+   searchstring = '&search=boutique&$top=2&$select=HotelId,HotelName,Description'
+   ```
 
-   + `searchstring = '&search=boutique&$top=2&$select=HotelId,HotelName,Description'`
+    Ordna efter ett visst fält:
 
-   + `searchstring = '&search=pool&$orderby=Address/City&$select=HotelId, HotelName, Address/City, Address/StateProvince'`
+   ```python
+   searchstring = '&search=pool&$orderby=Address/City&$select=HotelId, HotelName, Address/City, Address/StateProvince'
+   ```
 
 ## <a name="clean-up"></a>Rensa 
 

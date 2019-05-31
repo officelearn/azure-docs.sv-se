@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/15/2019
-ms.openlocfilehash: 7ef8715f23d21a23dc3f37b192314b922847d3e1
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 85d6ed80da93f90e6dc0feaee7081ee3f36f1bf9
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65805913"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242696"
 ---
 # <a name="choose-a-real-time-analytics-and-streaming-processing-technology-on-azure"></a>Välj en analys i realtid och streaming bearbetningsteknik i Azure
 
@@ -25,7 +25,7 @@ Azure Stream Analytics är den rekommendera tjänsten för stream analytics på 
 * Instrumentpaneler för datavisualisering
 * I realtid [aviseringar](stream-analytics-set-up-alerts.md) från temporal och spatial mönster eller avvikelser
 * Extrahera, transformera, läsa in (ETL)
-* [Mönstret händelsekällor](/azure/architecture/patterns/event-sourcing.md)
+* [Mönstret händelsekällor](/azure/architecture/patterns/event-sourcing)
 * [IoT Edge](stream-analytics-edge.md)
 
 Att lägga till ett Azure Stream Analytics jobb till ditt program är det snabbaste sättet att få streaming analytics upp och som körs i Azure med SQL-språk du redan kan. Azure Stream Analytics är en tjänst, så att du inte behöver lägga ned tid hantera kluster och du inte behöver bekymra dig om driftstopp med ett serviceavtal på 99,9% på jobbnivån. Debiteringen görs också på jobbnivån att start-kostnader med låg (en Streaming Unit), men skalbar (upp till 192 enheter för strömning). Det är mycket mer kostnadseffektivt att köra några Stream Analytics-jobb än att kör och underhåller ett kluster.

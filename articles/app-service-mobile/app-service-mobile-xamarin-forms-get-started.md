@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 05/09/2019
 ms.author: crdun
-ms.openlocfilehash: b99513cad34bba1b050a24795ecb21d0357d19c1
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: b0719f6ac2f99f9e665b1265665752dd53ccbaf0
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65416083"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242667"
 ---
 # <a name="create-a-xamarinforms-app-with-azure"></a>Skapa en Xamarin.Forms-app med Azure
 
@@ -39,26 +39,18 @@ För att kunna genomföra den här kursen behöver du följande:
 * (valfritt) En Mac med Xcode 9.0 eller senare krävs för att skapa en iOS-app. Visual Studio för Mac kan användas för att utveckla iOS-appar eller Visual Studio 2017 eller senare kan användas (så länge Mac är tillgänglig i nätverket).
 
 ## <a name="create-a-new-mobile-apps-back-end"></a>Skapa en ny Mobile Apps-serverdel
-
-Så här skapar du en ny Mobile Apps-serverdel:
-
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-Nu har du konfigurerat en Mobile Apps-serverdel som dina mobilklientprogram kan använda. I nästa steg får du ladda ned ett serverprojekt för en enkel ”todo list”-serverdel och sedan publicera den på Azure.
+## <a name="create-a-database-connection-and-configure-the-client-and-server-project"></a>Skapa en databasanslutning och konfigurera projektet klient och server
+[!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## <a name="configure-the-server-project"></a>Konfigurera serverprojektet
-
-Så här konfigurerar du serverprojektet för att använda antingen Node.js- eller .NET-serverdelen:
-
-[!INCLUDE [app-service-mobile-configure-new-backend](../../includes/app-service-mobile-configure-new-backend.md)]
-
-## <a name="download-and-run-the-xamarinforms-solution"></a>Hämta och kör Xamarin.Forms-lösningen
+## <a name="run-the-xamarinforms-solution"></a>Kör Xamarin.Forms-lösningen
 
 Visual Studio Tools för Xamarin behövs för att öppna lösningen. Läs mer i [installationsinstruktionerna för Xamarin][Install Xamarin]. Om verktygen redan är installerade följer du dessa anvisningar för att hämta och öppna lösningen:
 
 ### <a name="visual-studio"></a>Visual Studio
 
-1. Gå till [Azure Portal].
+1. Gå till [Azure-portalen](https://portal.azure.com/).
 
 2. På inställningsbladet för mobilappen klickar du på **Snabbstart** (under Distribution) > **Xamarin.Forms**. I steg 3 klickar du på **Skapa ny app** om det alternativet inte redan är förvalt.  Klicka sedan på **Hämta**.
 
@@ -66,25 +58,23 @@ Visual Studio Tools för Xamarin behövs för att öppna lösningen. Läs mer i 
 
 3. Extrahera projektet som du laddade ned och öppna den i Visual Studio.
 
-   ![Extraherat projekt i Visual Studio][8]
-
 4. Följ anvisningarna nedan för att köra Android- eller Windows-projekt, och, om en nätverksansluten Mac-dator finns tillgänglig, även iOS-projektet.
 
 ### <a name="visual-studio-for-mac"></a>Visual Studio för Mac
 
-1. Gå till [Azure Portal].
+1. Gå till den [Azure-portalen](https://portal.azure.com/) och navigera till den mobila appen som du skapade. På den `Overview` bladet letar du reda på URL: en som är den offentliga slutpunkten för din mobilapp. Exempel – sitename för min app name ”test123” kommer att https://test123.azurewebsites.net.
 
-2. På inställningsbladet för mobilappen klickar du på **Snabbstart** (under Distribution) > **Xamarin.Forms**. I steg 3 klickar du på **Skapa ny app** om det alternativet inte redan är förvalt.  Klicka sedan på **Hämta**.
+2. Öppna filen `Constants.cs` i den här mappen - xamarin.forms/ZUMOAPPNAME. Programnamnet är `ZUMOAPPNAME`.
 
-   Ett projekt laddas ned med ett klientprogram som är kopplat till din mobilapp. Spara den komprimerade projektfilen lokalt på datorn och notera var du sparar den.
+3. I `Constants.cs` klass, Ersätt `ZUMOAPPURL` variabeln med offentlig slutpunkt ovan.
 
-3. Extrahera projektet som du laddade ned och öppna det i Visual Studio för Mac.
+    `public static string ApplicationURL = @"ZUMOAPPURL";`
 
-   ![Extraherat projekt i Visual Studio för Mac][9]
+    blir
 
-4. Följ anvisningarna nedan för att köra Android- eller iOS-projekten.
-
-
+    `public static string ApplicationURL = @"https://test123.azurewebsites.net";`
+    
+4. Följ anvisningarna nedan för att köra Android- eller Windows-projekt, och, om en nätverksansluten Mac-dator finns tillgänglig, även iOS-projektet.
 
 ## <a name="optional-run-the-android-project"></a>(Valfritt) Kör Androidprojektet
 
@@ -106,9 +96,7 @@ I det här avsnittet kör du Xamarin.Android-projektet. Du kan hoppa över det h
 
 2. Gå till menyn **Run** (Kör) och välj **Start Debugging** (Starta felsökning) för att skapa projektet och starta appen i en Android-emulator.
 
-
-
-Ange en beskrivande text i appen, till exempel *Läs om Xamarin* och välj sedan plustecknet (**+**).
+Ange en beskrivande text i appen, till exempel *Läs om Xamarin* och välj sedan plustecknet ( **+** ).
 
 ![Att göra-app för Android][11]
 
@@ -138,9 +126,7 @@ I det här avsnittet kör du Xamarin.iOS-projektet för iOS-enheter. Du kan hopp
 
 2. Gå till menyn **Run** (Kör) och välj **Start Debugging** (Starta felsökning) för att bygga projektet och starta appen i iPhone-emulatorn.
 
-
-
-Ange en beskrivande text i appen, till exempel *Läs om Xamarin* och välj sedan plustecknet (**+**).
+Ange en beskrivande text i appen, till exempel *Läs om Xamarin* och välj sedan plustecknet ( **+** ).
 
 ![Att göra-app för iOS][10]
 
@@ -167,9 +153,7 @@ I det här avsnittet kan du köra Xamarin.Forms UWP-projekt (Universell Windows-
 > [!NOTE]
 > Windows-projektet kan inte köras på macOS.
 
-
-
-Ange en beskrivande text i appen, till exempel *Läs om Xamarin* och välj sedan plustecknet (**+**).
+Ange en beskrivande text i appen, till exempel *Läs om Xamarin* och välj sedan plustecknet ( **+** ).
 
 En post-begäran skickas till den nya Mobile Apps-serverdelen som finns på Azure. Data från begäran infogas i tabellen TodoItem. Objekt som lagras i tabellen returneras av Mobile Apps-serverdelen och data visas i listan.
 
@@ -185,32 +169,10 @@ Om du får problem med att skapa lösningen kan du köra pakethanteraren för Nu
 
 Observera att alla supportpaket som det refereras till i ditt Android-projekt måste ha samma version. [Azure Mobile Apps NuGet-paketet](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/) har ett `Xamarin.Android.Support.CustomTabs`-beroende för Android-plattformen, så om ditt projekt använder nyare supportpaket behöver du installera det här paketet i erfordrad version direkt för att undvika konflikter.
 
-## <a name="next-steps"></a>Nästa steg
-
-* [Lägga till autentisering i appen](app-service-mobile-xamarin-forms-get-started-users.md) Läs om hur du autentiserar användare i din app med en identitetsprovider.
-
-* [Lägga till push-meddelanden i appen](app-service-mobile-xamarin-forms-get-started-push.md) Läs om hur du lägger till stöd för push-meddelanden i appen och konfigurerar Mobile Apps-serverdelen så att Azure Notification Hubs används för att skicka push-meddelanden.
-
-* [Aktivera offlinesynkronisering av appen](app-service-mobile-xamarin-forms-get-started-offline-data.md) Läs om hur du lägger till offlinestöd i appen genom att använda en Mobile Apps-serverdel. Med offlinesynkronisering kan du visa, lägga till eller ändra mobilappens data, även när det inte finns någon nätverksanslutning.
-
-* [Använda den hanterade klienten för Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md) Läs om hur du arbetar med den hanterade klient-SDK:n i Xamarin-appen.
-
-* [Använda andra Azure-tjänster med Xamarin.Forms](https://docs.microsoft.com/xamarin/xamarin-forms/data-cloud/) Lägg till ytterligare Azurew-funktioner som sök-, lagrings- och kognitiva tjänster till Xamarin.Forms-appar.
-
-<!-- Anchors. -->
-[Get started with Mobile Apps back ends]:#getting-started
-[Create a new Mobile Apps back end]:#create-new-service
-[Next steps]:#next-steps
-
 <!-- Images. -->
-[6]: ./media/app-service-mobile-xamarin-forms-get-started/xamarin-forms-quickstart.png
-[8]: ./media/app-service-mobile-xamarin-forms-get-started/xamarin-forms-quickstart-vs.png
-[9]: ./media/app-service-mobile-xamarin-forms-get-started/xamarin-forms-quickstart-xs.png
 [10]: ./media/app-service-mobile-xamarin-forms-get-started/mobile-quickstart-startup-ios.png
 [11]: ./media/app-service-mobile-xamarin-forms-get-started/mobile-quickstart-startup-android.png
 [12]: ./media/app-service-mobile-xamarin-forms-get-started/mobile-quickstart-startup-windows.png
 
 <!-- URLs. -->
 [Install Xamarin]: https://docs.microsoft.com/xamarin/cross-platform/get-started/installation/
-[Mobile app SDK]: https://go.microsoft.com/fwlink/?LinkId=257545
-[Azure Portal]: https://portal.azure.com/

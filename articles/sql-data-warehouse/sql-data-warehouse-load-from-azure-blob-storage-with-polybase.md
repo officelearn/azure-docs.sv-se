@@ -10,12 +10,12 @@ ms.subservice: load data
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 946d7685839b949a50604bf255809cb00086af99
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: eb52169fc522ba323f82c42d9505571b18f49f1b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65873564"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244486"
 ---
 # <a name="load-contoso-retail-data-to-azure-sql-data-warehouse"></a>Läsa in Contoso Retail-data till Azure SQL Data Warehouse
 
@@ -103,7 +103,7 @@ WITH
 );
 ``` 
 
-## <a name="3-create-the-external-tables"></a>3 Skapa externa tabeller
+## <a name="3-create-the-external-tables"></a>3. Skapa externa tabeller
 Nu när du har angett dataformatet för käll- och filen, är du redo att skapa externa tabeller. 
 
 ### <a name="31-create-a-schema-for-the-data"></a>3.1. Skapa ett schema för data.

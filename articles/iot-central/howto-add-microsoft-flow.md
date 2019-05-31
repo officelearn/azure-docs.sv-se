@@ -8,12 +8,12 @@ ms.date: 04/25/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: hegate
-ms.openlocfilehash: c0a03b70c6e5e4742e03d4892b2b5f97c908ab9c
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: c50271e28db104522c0e8811508fa882dc316eab
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65467906"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235814"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-microsoft-flow"></a>Skapa arbetsflöden med IoT Central-connector i Microsoft Flow
 
@@ -41,7 +41,7 @@ Det här avsnittet visar hur du utlöser ett mobilmeddelande i Flow-mobilappen n
 
     ![Skapa en ny Microsoft Flow-åtgärd](media/howto-add-microsoft-flow/createflowaction.png)
 
-1. Du ser en lista över arbetsflöden tha du har åtkomst till och är kopplade till regeln IoT Central. Klicka på **utforska mallar** eller **New > Skapa från mall** och du kan välja från någon av de tillgängliga mallarna. 
+1. Du ser en lista över arbetsflöden som du har åtkomst till och är kopplade till regeln IoT Central. Klicka på **utforska mallar** eller **New > Skapa från mall** och du kan välja från någon av de tillgängliga mallarna. 
 
     ![Mall för Microsoft Flow](media/howto-add-microsoft-flow/flowtemplates1.png)
 

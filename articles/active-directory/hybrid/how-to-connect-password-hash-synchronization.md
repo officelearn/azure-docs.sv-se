@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 146fdc3ca2af708a96e6b9a604493eb63c2e6530
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 66ff1cb57bb3317adc7ab6208ebf5029361b7c54
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60348339"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235144"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementera lösenordshashsynkronisering med Azure AD Connect-synkronisering
 Den här artikeln innehåller information du behöver för att synkronisera dina lösenord från en lokal Active Directory-instans till en molnbaserad Azure Active Directory (Azure AD)-instans.
@@ -64,7 +64,7 @@ I följande avsnitt beskrivs, djupgående, hur synkronisering av lösenordshash 
 >Den ursprungliga MD4-hashen överförs inte till Azure AD. I stället överförs SHA256-hash för den ursprungliga MD4-hashen. Därför om hash-värdet lagras i Azure AD hämtas kan den inte användas i en lokal pass-the-hash-attack.
 
 ### <a name="how-password-hash-synchronization-works-with-azure-active-directory-domain-services"></a>Hur synkronisering av lösenordshash fungerar med Azure Active Directory Domain Services
-Du kan också använda funktionen lösenord hash-synkronisering för att synkronisera dina lokala lösenord till [Azure Active Directory Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md). I det här scenariot autentiserar dina användare i molnet med metoderna som är tillgängliga i din lokala Active Directory-instans i Azure Active Directory Domain Services-instans. Upplevelsen av det här scenariot är ungefär som att använda den Active Directory ADMT (Migration Tool) i en lokal miljö.
+Du kan också använda funktionen lösenord hash-synkronisering för att synkronisera dina lokala lösenord till [Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md). I det här scenariot autentiserar dina användare i molnet med metoderna som är tillgängliga i din lokala Active Directory-instans i Azure Active Directory Domain Services-instans. Upplevelsen av det här scenariot är ungefär som att använda den Active Directory ADMT (Migration Tool) i en lokal miljö.
 
 ### <a name="security-considerations"></a>Säkerhetsöverväganden
 Vid synkronisering av lösenord exponeras inte textformat-versionen av ditt lösenord till Azure AD synkroniseringsfunktionen lösenordshash eller någon av de associera tjänsterna.

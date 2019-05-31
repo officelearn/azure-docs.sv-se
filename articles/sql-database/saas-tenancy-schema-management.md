@@ -12,18 +12,18 @@ ms.author: sstein
 ms.reviewer: billgib
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: b2aa3eb6a117bbbdcf9c4aa44161dc25ddea2f1a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eb461367d58f7cadeccd434c0e4ab452b7fc640e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61484390"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241921"
 ---
 # <a name="manage-schema-in-a-saas-application-using-the-database-per-tenant-pattern-with-azure-sql-database"></a>Hantera schemat i ett SaaS-program med hjälp av mönstret för databas-per-klient med Azure SQL Database
  
 Som ett databasprogram utvecklas måste ändringar oundvikligen göras för databasdata för schema eller referens.  Uppgifter för databasunderhåll krävs också regelbundet. Hantera ett program som använder databas per klient mönstret kräver att du tillämpar dessa ändringar eller underhållsaktiviteter över en flotta med klientdatabaser.
 
-Den här guiden utforskar två scenarier – distribuera uppdateringar av referensdata för alla klienter och när ett index i tabellen med referensdata. Den [elastiska jobb](sql-database-elastic-jobs-overview.md) används för att utföra dessa åtgärder på alla klientdatabaser och för mall-databasen som används för att skapa ny klient databaser.
+Den här guiden utforskar två scenarier – distribuera uppdateringar av referensdata för alla klienter och när ett index i tabellen med referensdata. Den [elastiska jobb](elastic-jobs-overview.md) används för att utföra dessa åtgärder på alla klientdatabaser och för mall-databasen som används för att skapa ny klient databaser.
 
 I den här självstudiekursen får du lära du dig att:
 
@@ -46,7 +46,7 @@ Se till att följande förhandskrav är slutförda för att kunna slutföra den 
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>Introduktion till mönster för hantering av SaaS-schema
 
-Databas per klient mönstret isolerar klientdata effektivt, men ökar antalet databaser för att hantera och underhålla. [Elastiska jobb](sql-database-elastic-jobs-overview.md) underlättar administration och hantering av SQL-databaser. Jobb låter dig säkert och tillförlitligt köra uppgifter (T-SQL-skript) mot en grupp med databaser. Jobb kan distribuera schema- och vanliga referensdataändringar för alla klientdatabaser i ett program. Elastiska jobb kan också användas för att underhålla en *mall* databasen som används för att skapa nya klienter och säkerställa att den alltid har den senaste schemat och data.
+Databas per klient mönstret isolerar klientdata effektivt, men ökar antalet databaser för att hantera och underhålla. [Elastiska jobb](elastic-jobs-overview.md) underlättar administration och hantering av SQL-databaser. Jobb låter dig säkert och tillförlitligt köra uppgifter (T-SQL-skript) mot en grupp med databaser. Jobb kan distribuera schema- och vanliga referensdataändringar för alla klientdatabaser i ett program. Elastiska jobb kan också användas för att underhålla en *mall* databasen som används för att skapa nya klienter och säkerställa att den alltid har den senaste schemat och data.
 
 ![skärmen](media/saas-tenancy-schema-management/schema-management-dpt.png)
 
@@ -133,5 +133,4 @@ Nu ska du prova den [Ad hoc-rapportering självstudien](saas-tenancy-cross-tenan
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Ytterligare självstudier som bygger på programdistributionen Wingtip biljetter SaaS databas Per klient](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
-* [Hantera utskalade molndatabaser](sql-database-elastic-jobs-overview.md)
-* [Skapa och hantera utskalade molndatabaser](sql-database-elastic-jobs-create-and-manage.md)
+* [Hantera utskalade molndatabaser](elastic-jobs-overview.md)

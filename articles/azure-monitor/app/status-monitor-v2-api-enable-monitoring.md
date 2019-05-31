@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 17798c78b167821f5f30a11996ac90cf67fb0179
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 0a443df0c55dc916ef6d12d53811e9d9932370e7
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65144952"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255906"
 ---
 # <a name="status-monitor-v2-api-enable-applicationinsightsmonitoring-v021-alpha"></a>Status Monitor v2 API: Aktivera ApplicationInsightsMonitoring (v0.2.1-alfa)
 
@@ -156,7 +156,7 @@ Successfully enabled Application Insights Status Monitor
  - [Utforska mått](../../azure-monitor/app/metrics-explorer.md) för att övervaka prestanda och användning
 - [Sök efter händelser och loggar](../../azure-monitor/app/diagnostic-search.md) att diagnostisera problem
 - [Analys](../../azure-monitor/app/analytics.md) för mer avancerade frågor
-- [Skapa instrumentpaneler](../../azure-monitor/app/app-insights-dashboards.md)
+- [Skapa instrumentpaneler](../../azure-monitor/app/overview-dashboard.md)
  
  Lägg till mer telemetri:
  - [Skapa webbtester](monitor-web-app-availability.md) att kontrollera att webbplatsen är aktiv.

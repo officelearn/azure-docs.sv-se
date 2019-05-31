@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: ab439eb77113c53ab046256dd8d448a18b63f887
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 72d744808d6b52ccd151645c97005bfdfe1a5541
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60452692"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243454"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Stream Azure-övervakningsdata till en händelsehubb för användning av något externt verktyg
 
@@ -43,7 +43,7 @@ Innan du börjar måste du [skapa ett Event Hubs-namnområde och en händelsehub
 * Antal throughput units kan du öka skala dataflöde för event hubs. Antalet partitioner kan du parallellisera förbrukning bland många konsumenter. En partition kan göra upp till 20MBps eller cirka 20 000 meddelanden per sekund. Beroende på vilket verktyg som använder data kanske eller kanske inte stöder förbrukar från flera partitioner. Om du inte vet om antalet partitioner för att ange rekommenderar vi att börja med fyra partitioner.
 * Vi rekommenderar att du ställer in kvarhållning av meddelanden på din event hub till 7 dagar. Om ditt verktyg för konsumerande stängs av i mer än en dag, Detta säkerställer att verktyget kan ta vid där den slutade (för händelser upp till 7 dagar).
 * Vi rekommenderar att du använder förinställd konsumentgrupp för din händelsehubb. Det finns inget behov att skapa andra konsumentgrupper eller använda en separat konsumentgrupp om du planerar att ha två olika verktyg som använder samma data från samma event hub.
-* För Azure-aktivitetsloggen kan du välja ett namnområde för Event Hubs och Azure Monitor skapar en händelsehubb i namnområdet kallas ”insights-logs-operationallogs”. För andra loggtyper av kan du antingen välja en befintlig händelsehubb (så att du kan återanvända samma insights-logs-operationallogs event hub) eller så har Azure Monitor skapar en event hub per loggkategori.
+* För Azure aktivitetsloggen kan du välja ett namnområde för Event Hubs och Azure Monitor skapar en händelsehubb i namnområdet kallas ”insights-logs-operationallogs”. För andra loggtyper av kan du antingen välja en befintlig händelsehubb (så att du kan återanvända samma insights-logs-operationallogs event hub) eller så har Azure Monitor skapar en event hub per loggkategori.
 * Vanligtvis måste du öppna port 5671 och 5672 på den dator som använder data från händelsehubben.
 
 Se även de [Azure Event Hubs vanliga frågor och svar](../../event-hubs/event-hubs-faq.md).

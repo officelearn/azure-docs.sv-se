@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: 1a332dd46cac196c8185ddb12c0d900f5c36e1b3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a50778db5fd57202c17f05407045259371912586
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61271013"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239194"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Felsökningsläge för mappning av Data flöde
 
@@ -27,6 +27,9 @@ När felsökningsläge finns på, skapar du interaktivt ditt dataflöde med en a
 
 I de flesta fall är det en bra idé att skapa din Data som flödar i felsökningsläge så att du kan verifiera din affärslogik och visa dina dataomvandlingar innan du publicerar ditt arbete i Azure Data Factory. Du bör också använda knappen ”felsökning” på panelen pipeline för att testa ditt dataflöde i en pipeline.
 
+> [!NOTE]
+> Debug läge ljus är grön i verktygsfältet Data Factory, debiteras du priset dataflöde felsökning av 8 kärnor/timme för allmän beräkning med en 60 minuters time to live 
+
 ## <a name="debug-mode-on"></a>Felsökningsläge på
 När du växlar på felsökningsläge uppmanas du att ett sidpanel formulär som du blir ombedd att peka på dina interaktiva Azure Databricks-kluster och välja alternativ för provtagning källa. Du måste använda en interaktiv kluster från Azure Databricks och välj antingen en sampling storlek från varje källa-transformeringar eller välj en textfil för testdata.
 
@@ -36,12 +39,12 @@ När du växlar på felsökningsläge uppmanas du att ett sidpanel formulär som
 >När du kör i felsökningsläge i dataflöde kan dina data skrivs inte till mottagaren omvandla. En felsökningssession är avsedd att fungera som ett test > stomme för dina transformeringar. Mottagare krävs inte vid felsökning och ignoreras i ditt dataflöde. Om du vill testa att data > i din mottagare kör Data flöda från en Azure Data Factory-Pipeline och använder Debug-körning från en pipeline.
 
 ## <a name="debug-settings"></a>Inställningar för felsökning
-Inställningar för felsökning kan vara varje källa från ditt dataflöde visas i panelen på klientsidan och kan även redigeras genom att välja ”datakällans inställningar” dataflöde designerverktygsfältet. Du kan välja de begränsningar och/eller källa för att använda den här källan omvandlingen för var och en. Radbegränsningar i den här inställningen är endast för den aktuella felsökningssessionen. Du kan också använda inställningen Sampling i källan för att begränsa rader i källan transforamtion.
+Inställningar för felsökning kan vara varje källa från ditt dataflöde visas i panelen på klientsidan och kan även redigeras genom att välja ”datakällans inställningar” dataflöde designerverktygsfältet. Du kan välja de begränsningar och/eller källa för att använda den här källan omvandlingen för var och en. Radbegränsningar i den här inställningen är endast för den aktuella felsökningssessionen. Du kan också använda inställningen Sampling i källan för att begränsa rader i källan transformeringen.
 
 ## <a name="cluster-status"></a>Klusterstatus
 Det finns en kluster-statusindikator överst på designytan som blir grön när klustret är klart för felsökning. Om klustret redan varma visas grön indikator nästan omedelbart. Om klustret inte körs redan när du har angett felsökningsläge, och du måste vänta 5 – 7 minuter att skapa klustret. Indikatorljus blir gul tills den är klar. När klustret är redo för dataflöde debug blir indikatorljus grön.
 
-När du är klar med din felsökning, tur felsöka inaktivera så att avsluta ditt Azure Databricks-kluster.
+När du är klar med din felsökning, inaktivera växeln felsökning så att avsluta ditt Azure Databricks-kluster och du kommer inte längre att debiteras för debug-aktivitet.
 
 <img src="media/data-flow/datapreview.png" width="400">
 

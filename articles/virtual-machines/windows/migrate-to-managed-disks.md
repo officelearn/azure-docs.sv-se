@@ -13,31 +13,31 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 01/03/2018
+ms.date: 05/30/2019
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 12cd1caa4cb96dbd5862776589d4a34aeb294ca1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7a390c5231f715ce778c0cc267211b8bfb5934d2
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64689726"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418411"
 ---
 # <a name="migrate-azure-vms-to-managed-disks-in-azure"></a>Migrera virtuella Azure-datorer till Managed Disks i Azure
 
 Azure Managed Disks förenklar din lagringshantering genom att ta bort behovet av att hantera storage-konton separat.  Du kan också migrera dina befintliga virtuella Azure-datorer till Managed Disks för att dra nytta av bättre tillförlitlighet för virtuella datorer i en Tillgänglighetsuppsättning. Det innebär att diskar på olika virtuella datorer i en Tillgänglighetsuppsättning är tillräckligt isolerade från varandra för att undvika felkritisk fel. Den placerar automatiskt diskar på olika virtuella datorer i en Tillgänglighetsuppsättning i olika lagringsskalenheter (stämplar) vilket begränsar effekten av enskild lagringsskalningsenhetsfel bero på att maskinvara och programvarufel.
 Utifrån dina behov kan välja du mellan fyra typer av lagringsalternativ. Läs om tillgängliga disktyper i vår artikel [Välj en disktyp av](disks-types.md)
 
-## <a name="migrate-scenarios"></a>Migrera scenarier
+## <a name="migration-scenarios"></a>Migreringsscenarier
 
 Du kan migrera till Managed Disks i följande scenarier:
 
-| **Migrera...**                                            | **Länk till dokumentation**                                                                                                                                                                                                                                                                  |
-|----------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Konvertera fristående virtuella datorer och virtuella datorer i en tillgänglighetsuppsättning till hanterade diskar   | [Konvertera virtuella datorer om du vill använda hanterade diskar](convert-unmanaged-to-managed-disks.md) |
-| En enskild virtuell dator till Resource Manager eller hanterade diskar     | [Skapa en virtuell dator från en klassisk virtuell Hårddisk](create-vm-specialized-portal.md)  | 
-| Alla virtuella datorer i ett vNet från klassisk till Resource Manager eller hanterade diskar     | [Migrera IaaS-resurser från klassisk till Resource Manager](migration-classic-resource-manager-ps.md) och sedan [konvertera en virtuell dator från ohanterade diskar till managed disks](convert-unmanaged-to-managed-disks.md) | 
-
+|Scenario  |Artikel  |
+|---------|---------|
+|Konvertera fristående virtuella datorer och virtuella datorer i en tillgänglighetsuppsättning till hanterade diskar     |[Konvertera virtuella datorer om du vill använda hanterade diskar](convert-unmanaged-to-managed-disks.md)         |
+|Konvertera en enskild virtuell dator från klassisk till Resource Manager på hanterade diskar     |[Skapa en virtuell dator från en klassisk virtuell Hårddisk](create-vm-specialized-portal.md)         |
+|Konvertera alla virtuella datorer i ett virtuellt nätverk från klassisk till Resource Manager på hanterade diskar     |[Migrera IaaS-resurser från klassisk till Resource Manager](migration-classic-resource-manager-ps.md) och sedan [konvertera en virtuell dator från ohanterade diskar till managed disks](convert-unmanaged-to-managed-disks.md)         |
+|Uppgradera virtuella datorer med ohanterade standarddiskar för virtuella datorer med hanterade premiumdiskar     | Först [konvertera en Windows-dator från ohanterade diskar till managed disks](convert-unmanaged-to-managed-disks.md). Sedan [uppdatera lagringstypen för en hanterad disk](convert-disk-storage.md).         |
 
 ## <a name="next-steps"></a>Nästa steg
 

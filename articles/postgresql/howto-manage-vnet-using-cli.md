@@ -1,20 +1,20 @@
 ---
-title: Skapa och hantera Azure Database för PostgreSQL-VNet-tjänstslutpunkter och regler med hjälp av Azure CLI
-description: Den här artikeln beskriver hur du skapar och hanterar Azure Database for PostgreSQL-VNet-tjänstslutpunkter och regler med hjälp av Azure CLI-kommandoraden.
+title: Skapa och hantera tjänstslutpunkter för virtuellt nätverk och regler för Azure Database för PostgreSQL – enskild Server med Azure CLI
+description: Den här artikeln beskriver hur du skapar och hanterar tjänstslutpunkter för virtuellt nätverk och regler för Azure Database for PostgreSQL med Azure CLI-kommandoraden.
 author: bolzmj
 ms.author: mbolz
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 10/23/2018
-ms.openlocfilehash: 7dc5a49e8b27d1a4e4126bef1cce638373e056fb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: df2af0240852b23203e504d8233de4af48475438
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60420938"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65067569"
 ---
-# <a name="create-and-manage-azure-database-for-postgresql-vnet-service-endpoints-using-azure-cli"></a>Skapa och hantera Azure Database för PostgreSQL-VNet-tjänstslutpunkter med Azure CLI
+# <a name="create-and-manage-vnet-service-endpoints-for-azure-database-for-postgresql---single-server-using-azure-cli"></a>Skapa och hantera slutpunkter för virtuellt nätverk för Azure Database för PostgreSQL – enskild Server med Azure CLI
 Virtuella nätverk (VNet) services-slutpunkter och regler kan du utöka det privata adressutrymmet för ett virtuellt nätverk till Azure Database för PostgreSQL-server. Med praktiska Azure kommandoradsgränssnitt (CLI) kommandon kan du skapa, uppdatera, ta bort, lista och visa tjänstslutpunkter för virtuellt nätverk och regler för att hantera servern. En översikt över Azure Database för PostgreSQL-VNet-tjänstslutpunkter, inklusive begränsningar, finns i [Azure Database for PostgreSQL Server VNet-tjänstslutpunkter](concepts-data-access-and-security-vnet.md). VNet-tjänstslutpunkter är tillgängliga i alla regioner som stöds för Azure Database for PostgreSQL.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter

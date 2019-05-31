@@ -2,45 +2,59 @@
 title: Azure-tabell | Azure Marketplace
 description: Konfigurera lead-hantering för Azure Table.
 services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+author: v-miclar
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 05/22/2019
 ms.author: pabutler
-ms.openlocfilehash: af582e51875f84503116f4ec7131464d51e54a99
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: a1bcab9816627b453ba8b20b7bcd9402c2dfd151
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64935849"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240551"
 ---
-# <a name="lead-management-instructions-for-azure-table"></a>Leda Management anvisningar om hur Azure-tabell
+# <a name="lead-management-instructions-for-azure-table"></a>Leda management instruktioner för Azure Table
 
 Den här artikeln beskriver hur du konfigurerar Azure-tabell för att lagra säljleads. Azure-tabell kan du lagra och anpassa kundinformation.
 
-## <a name="to-configure-azure-table"></a>Konfigurera Azure-tabell
 
-1.  Om du inte har ett Azure-konto, kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).
+## <a name="how-to-configure-azure-table"></a>Så här konfigurerar du Azure-tabell
 
-2.  När ditt Azure-konto är aktiv, logga in i den [Azure-portalen](https://portal.azure.com).
-3.  Skapa ett lagringskonto i Azure-portalen. Nästa skärmdump visar hur du skapar ett lagringskonto. Mer information om priser för storage finns i [priser för storage](https://azure.microsoft.com/pricing/details/storage/).
+1. Om du inte har ett Azure-konto, kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).
+2. När ditt Azure-konto är aktiv, logga in i den [Azure-portalen](https://portal.azure.com).
+3. Skapa ett lagringskonto med följande procedur i Azure-portalen.  
+    1. Välj **+ skapa en resurs** i den vänstra menyraden.  Den **New** fönstret (bladet) visas till höger.
+    2. Välj **Storage** i den **New** fönstret.  En **aktuella** visas till höger.
+    3. Välj **Lagringskonto** att börja skapa kontot.  Följ instruktionerna i artikeln [skapa ett lagringskonto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal).
 
     ![Steg för att skapa ett Azure storage-konto](./media/cloud-partner-portal-lead-management-instructions-azure-table/azurestoragecreate.png)
 
-4.  Kopiera anslutningssträngen för lagringskonto för nyckeln och klistra in den i den **Lagringskontots anslutningssträng** på partnerportalen i molnet. Ett exempel på en anslutning förekomster av textsträngen är `DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net`
-    
-    ![Azure-lagringsnyckel](./media/cloud-partner-portal-lead-management-instructions-azure-table/azurestoragekeys.png)
+    För mer information om storage-konton väljer [snabbsjälvstudien](https://docs.microsoft.com/azure/storage/).  Mer information om priser för storage finns i [priser för storage](https://azure.microsoft.com/pricing/details/storage/).
 
-Du kan använda [Azure Lagringsutforskaren](https://azurestorageexplorer.codeplex.com/) eller något annat verktyg för att se data i ditt storage-tabell. Du kan också exportera data i Azure Table.
-data.
+4. Vänta tills lagringskontot etablerats, en process som tar vanligtvis några minuter.  Åtkomst till ditt lagringskonto från den **Start** i Azure-portalen genom att välja **finns i alla dina resurser** eller genom att välja **alla resurser** i det vänstra navigeringsfönstret menyraden i Azure Portal.
 
-## <a name="optional-use-microsoft-flow-with-an-azure-table"></a>**(Valfritt)**  Använd Microsoft Flow med en Azure-tabell
+    ![Få åtkomst till ditt Azure storage-konto](./media/cloud-partner-portal-lead-management-instructions-azure-table/azure-storage-access.png)
 
-Du kan använda [Microsoft Flow](https://docs.microsoft.com/flow/) att automatisera meddelanden varje gång ett lead har lagts till i Azure-tabell. Om du inte har en har ett konto kan du [registrera dig för ett kostnadsfritt konto](https://flow.microsoft.com/).
+5. Kopiera anslutningssträngen för lagringskonto för nyckeln från din storage-konto-fönstret, och klistra in den i den **Lagringskontots anslutningssträng** på partnerportalen i molnet. Ett exempel på en anslutning förekomster av textsträngen är:
+
+```sql
+DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net
+```
+
+  ![Azure-lagringsnyckel](./media/cloud-partner-portal-lead-management-instructions-azure-table/azurestoragekeys.png)
+
+Du kan använda [Azure Lagringsutforskaren](https://azurestorageexplorer.codeplex.com/) eller andra liknande verktyg för att se data i ditt storage-tabell. Du kan också exportera data från Azure-tabeller.
+
+
+## <a name="use-microsoft-flow-with-an-azure-table-optional"></a>Använda Microsoft Flow med en Azure-tabell (*valfritt*) 
+
+Du kan använda [Microsoft Flow](https://docs.microsoft.com/flow/) att automatisera meddelanden varje gång ett lead har lagts till i Azure-tabell. Om du inte har ett konto, kan du [registrera dig för ett kostnadsfritt konto](https://flow.microsoft.com/).
+
 
 ### <a name="lead-notification-example"></a>Leda meddelandeexemplet
 
-Använd det här exemplet som en vägledning för att skapa ett enkelt flöde som skickar ett e-postmeddelande automatiskt när en ny lead läggs till en Azure-tabell. Det här exemplet ställer in en upprepning att skicka lead-information varje timme om tabellagring är uppdaterad.
+Använd det här exemplet som en vägledning för att skapa ett enkelt flöde som automatiskt skickar ett e-postmeddelande när ett nytt lead läggs till i en Azure-tabell. Det här exemplet ställer in en upprepning att skicka lead-information varje timme om tabellagring är uppdaterad.
 
 1. Logga in på ditt Microsoft Flow-konto.
 2. I det vänstra navigeringsfältet väljer **Mina flöden**.
@@ -83,7 +97,7 @@ I nästa uppsättning steg, ansluter du till din Azure-tabell och konfigurera st
 
      ![Välj ett anpassat värde för Azure-tabellnamn](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getentities-table-name.png)
 
-   - **Filterfråga** – Klicka på fältet och hämta de senaste gången ikonen visas i ett popup-fönster. Välj **tidigare tid** att detta tidsstämpeln ska filtrera frågan. Du kan också klistra in den här funktionen i fältet: `gt datetime'@{body('Get_past_time')}'`
+   - **Filterfråga** – Klicka på fältet och **hämta tidigare tid** ikon visas i ett popup-fönster. Välj **tidigare tid** att detta tidsstämpeln ska filtrera frågan. Du kan också klistra in följande funktion i fältet: CreatedTime `gt datetime'@{body('Get_past_time')}'` 
 
      ![Konfigurera filterfunktion för fråga](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getentities-filterquery.png)
 
@@ -114,20 +128,23 @@ I nästa uppsättning steg, ansluter du till din Azure-tabell och konfigurera st
 
     - **Att** -ange en e-postadress för alla användare som får det här meddelandet.
     - **Ämne** – ange ett ämne för e-postmeddelandet. Exempel: Nya leads!
-    - **Body**:   Lägg till text som du vill inkludera i varje e-post (valfritt) och klistra sedan in brödtext `('Get_entities')?['value']` som en funktion för att infoga lead-information.
+    - **Body**:   Lägg till text som du vill inkludera i varje e-post (valfritt) och klistra sedan in brödtext `body('Get_entities')?['value']` som en funktion för att infoga lead-information.
 
       >[!NOTE] 
       >Du kan infoga ytterligare statisk eller dynamisk datapunkter och i brödtexten för e-postmeddelandet.
 
-       ![Konfigurera e-post för lead-meddelande](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-emailbody-fx.png)
+      ![Konfigurera e-post för lead-meddelande](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-emailbody-fx.png)
 
 13. Välj **spara** att spara flödet. Microsoft Flow kommer automatiskt att testa flödet för fel. Om det inte finns några fel, startar ditt flöde körs när det sparats.
 
 Nästa skärmdump visar ett exempel på hur den slutliga flow ska se.
 
- ![Sista flödessekvens](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-end-to-end.png)
+[![Sista flödessekvens](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-end-to-end-thmb.png)](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-end-to-end.png)
 
-### <a name="managing-your-flow"></a>Hantera ditt flöde
+(*Klickar du på bilden som förstora.* )
+
+
+### <a name="manage-your-flow"></a>Hantera ditt flöde
 
 Det är enkelt att hantera ditt flöde när den körs.  Du har fullständig kontroll över ditt flöde. Du kan exempelvis stoppa den, redigera den, finns i en körningshistorik och få analysfunktioner. Nästa skärmdump visar de alternativ som är tillgängliga för att hantera ett flöde. 
 
@@ -138,6 +155,7 @@ Flödet körs tills du stoppar den med hjälp av den **inaktivera flödet** alte
 Om du inte får någon lead e-postmeddelanden, innebär det att nya leads som inte har lagts till Azure-tabellen. Om det finns några fel i flow, får du ett e-postmeddelande som exemplet i nästa skärmdumpen.
 
  ![Flow felet e-postmeddelande](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-failure-note.png)
+
 
 ## <a name="next-steps"></a>Nästa steg
 

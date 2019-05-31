@@ -4,15 +4,15 @@ description: Lär dig hur du ansluter till Azure Cosmos DB och hantera dess resu
 author: deborahc
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 05/23/2019
 ms.author: dech
 ms.custom: seodec18
-ms.openlocfilehash: 8700d0988927b221ace82a492e9902f1f36a562b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6c3c8aee51a4484013126a5959d3d275a88aa1cc
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60951335"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242652"
 ---
 # <a name="work-with-data-using-azure-storage-explorer"></a>Arbeta med data med hjälp av Azure Storage Explorer
 
@@ -223,7 +223,7 @@ När Storage Explorer påträffar ett sådant ”självsignerade certifikat” k
      - [Windows](https://slproweb.com/products/Win32OpenSSL.html) (någon av de enklare versionerna är ok)
      - Mac och Linux: Ska ingå i ditt operativsystem
 2. Kör öppen SSL
-    - Windows: Gå till installationskatalogen, sedan **/bin/**, dubbelklicka på **openssl.exe**.
+    - Windows: Gå till installationskatalogen, sedan **/bin/** , dubbelklicka på **openssl.exe**.
     - Mac och Linux: kör **openssl** från en terminal
 3. Kör `s_client -showcerts -connect microsoft.com:443`
 4. Leta efter självsignerade certifikat. Om du är osäker på vilka som är självsignerade, leta då överallt efter om ämnet (”s:”) och utfärdaren (”i:”) är samma.

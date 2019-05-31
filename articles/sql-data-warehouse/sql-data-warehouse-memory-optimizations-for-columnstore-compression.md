@@ -1,5 +1,5 @@
 ---
-title: Förbättra columnstore-index prestanda – Azure SQL Data Warehouse | Microsoft Docs
+title: Förbättra prestanda för columnstore-index i Azure SQL Data Warehouse | Microsoft Docs
 description: Minska minneskrav eller öka det tillgängliga minnet för att maximera antalet rader som ett columnstore-index komprimeras till varje radgrupp.
 services: sql-data-warehouse
 author: kevinvngo
@@ -10,12 +10,12 @@ ms.subservice: load data
 ms.date: 03/22/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 0b9a4ce84544beb09431e494385f3b9d8507c418
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 39d0fe06ee0e0230411024833cac7c88308f86c7
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65873542"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66225388"
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Maximera radgrupps kvalitet för columnstore
 

@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 04/22/2019
-ms.openlocfilehash: 7f3afec0425033fba174e000195fa26b295aaef1
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.date: 05/23/2019
+ms.openlocfilehash: 98bd70d9f6eb70cb7848dfa74e19c78e55a34991
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65507941"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240342"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-based-purchasing-model-limits"></a>Resursgränser för elastiska pooler när gränserna vCore-baserade inköpschef modell
 
@@ -44,6 +44,7 @@ Du kan ange tjänstnivå, beräkningsstorleken och storage mycket med den [Azure
 |Maskinvaran generation|4|4|4|4|4|4|
 |vCores|1|2|3|4|5|6|
 |Minne (GB)|7|14|21|28|35|42|
+|Maximalt antal databaser per pool|100|200|500|500|500|500|
 |Stöd för Columnstore|Ja|Ja|Ja|Ja|Ja|Ja|
 |InMemory-OLTP-lagring (GB)|Gäller inte|Saknas|Saknas|Saknas|Saknas|Gäller inte|
 |Maximal datastorlek (GB)|512|756|756|1536|1536|1536|
@@ -56,7 +57,6 @@ Du kan ange tjänstnivå, beräkningsstorleken och storage mycket med den [Azure
 |Maximalt antal samtidiga arbetare per pool (begäranden) * |210|420|630|840|1050|1260|
 |Maximalt antal samtidiga inloggningar per pool * |210|420|630|840|1050|1260|
 |Maximalt antal tillåtna sessioner|30000|30000|30000|30000|30000|30000|
-|Maximalt antal databaser per pool|100|200|300|500|500|500|
 |Min/max-databaspool vCore val per databas|0, 0.25, 0.5, 1|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1...3|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...5|0, 0.25, 0.5, 1...6|
 |Antal repliker|1|1|1|1|1|1|
 |Multi-AZ|Gäller inte|Saknas|Saknas|Saknas|Saknas|Gäller inte|
@@ -72,6 +72,7 @@ Du kan ange tjänstnivå, beräkningsstorleken och storage mycket med den [Azure
 |Maskinvaran generation|4|4|4|4|4|4|
 |vCores|7|8|9|10|16|24|
 |Minne (GB)|49|56|63|70|112|168|
+|Maximalt antal databaser per pool|500|500|500|500|500|500|
 |Stöd för Columnstore|Ja|Ja|Ja|Ja|Ja|Ja|
 |InMemory-OLTP-lagring (GB)|Gäller inte|Saknas|Saknas|Saknas|Saknas|Gäller inte|
 |Maximal datastorlek (GB)|1536|2048|2048|2048|3584|4096|
@@ -84,7 +85,6 @@ Du kan ange tjänstnivå, beräkningsstorleken och storage mycket med den [Azure
 |Maximalt antal samtidiga arbetare per pool (begäranden) *|1470|1680|1890|2 100|3360|5040|
 |Maximalt antal samtidiga inloggningar pool (begäranden) *|1470|1680|1890|2 100|3360|5040|
 |Maximalt antal tillåtna sessioner|30000|30000|30000|30000|30000|30000|
-|Maximalt antal databaser per pool|200|500|500|500|500|500|
 |Min/max-databaspool vCore val per databas|0, 0.25, 0.5, 1...7|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...9|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...10, 16|0, 0.25, 0.5, 1...10, 16, 24|
 |Antal repliker|1|1|1|1|1|1|
 |Multi-AZ|Gäller inte|Saknas|Saknas|Saknas|Saknas|Gäller inte|
@@ -100,6 +100,7 @@ Du kan ange tjänstnivå, beräkningsstorleken och storage mycket med den [Azure
 |Maskinvaran generation|5|5|5|5|5|5|5|
 |vCores|2|4|6|8|10|12|14|
 |Minne (GB)|10.2|20.4|30.6|40.8|51|61.2|71.4|
+|Maximalt antal databaser per pool|100|200|500|500|500|500|500|
 |Stöd för Columnstore|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
 |InMemory-OLTP-lagring (GB)|Gäller inte|Saknas|Saknas|Saknas|Saknas|Saknas|Gäller inte|
 |Maximal datastorlek (GB)|512|756|756|1536|1536|1536|
@@ -112,7 +113,6 @@ Du kan ange tjänstnivå, beräkningsstorleken och storage mycket med den [Azure
 |Maximalt antal samtidiga arbetare per pool (begäranden) *|210|420|630|840|1050|1260|1470|
 |Maximalt antal samtidiga inloggningar per pool (begäranden) *|210|420|630|840|1050|1260|1470|
 |Maximalt antal tillåtna sessioner|30000|30000|30000|30000|30000|30000|30000|
-|Maximalt antal databaser per pool|200|500|500|500|500|500|500|
 |Min/max-databaspool vCore val per databas|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...6|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...12|0, 0.25, 0.5, 1...14|
 |Antal repliker|1|1|1|1|1|1|1|
 |Multi-AZ|Gäller inte|Saknas|Saknas|Saknas|Saknas|Saknas|Gäller inte|
@@ -128,6 +128,7 @@ Du kan ange tjänstnivå, beräkningsstorleken och storage mycket med den [Azure
 |Maskinvaran generation|5|5|5|5|5|5|5|
 |vCores|16|18|20|24|32|40|80|
 |Minne (GB)|81.6|91.8|102|122.4|163.2|204|408|
+|Maximalt antal databaser per pool|500|500|500|500|500|500|500|
 |Stöd för Columnstore|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
 |InMemory-OLTP-lagring (GB)|Gäller inte|Saknas|Saknas|Saknas|Saknas|Saknas|Gäller inte|
 |Maximal datastorlek (GB)|2048|2048|3072|3072|4096|4096|4096|
@@ -139,7 +140,6 @@ Du kan ange tjänstnivå, beräkningsstorleken och storage mycket med den [Azure
 |Logga hastighetsbegränsningar (Mbit/s)|37.5|37.5|37.5|37.5|37.5|37.5|37.5|
 |Maximalt antal samtidiga arbetare per pool (begäranden) *|1680|1890|2 100|2520|33600|4200|8400|
 |Maximalt antal samtidiga inloggningar per pool (begäranden) *|1680|1890|2 100|2520|33600|4200|8400|
-|Maximalt antal databaser per pool|500|500|500|500|500|500|500|
 |Min/max-databaspool vCore val per databas|0, 0.25, 0.5, 1...16|0, 0.25, 0.5, 1...18|0, 0.25, 0.5, 1...20|0, 0.25, 0.5, 1...20, 24|0, 0.25, 0.5, 1...20, 24, 32|0, 0.25, 0.5, 1...16, 24, 32, 40|0, 0.25, 0.5, 1...16, 24, 32, 40, 80|
 |Antal repliker|1|1|1|1|1|1|1|
 |Multi-AZ|Gäller inte|Saknas|Saknas|Saknas|Saknas|Saknas|Gäller inte|
@@ -157,6 +157,7 @@ Du kan ange tjänstnivå, beräkningsstorleken och storage mycket med den [Azure
 |Maskinvaran generation|4|4|4|4|4|4|
 |vCores|1|2|3|4|5|6|
 |Minne (GB)|7|14|21|28|35|42|
+|Maximalt antal databaser per pool|Endast enskild databaser har stöd för den här beräkningsstorleken|50|100|100|100|100|
 |Stöd för Columnstore|Ja|Ja|Ja|Ja|Ja|Ja|
 |InMemory-OLTP-lagring (GB)|1|2|3|4|5|6|
 |Lagringstyp|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|
@@ -169,7 +170,6 @@ Du kan ange tjänstnivå, beräkningsstorleken och storage mycket med den [Azure
 |Maximalt antal samtidiga arbetare per pool (begäranden) *|210|420|630|840|1050|1260|
 |Maximalt antal samtidiga inloggningar per pool (begäranden) *|210|420|630|840|1050|1260|
 |Maximalt antal tillåtna sessioner|30000|30000|30000|30000|30000|30000|
-|Maximalt antal databaser per pool|Endast enskild databaser har stöd för den här beräkningsstorleken|50|100|100|100|100|
 |Min/max-databaspool vCore val per databas|Gäller inte|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1...3|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...5|0, 0.25, 0.5, 1...6|
 |Antal repliker|4|4|4|4|4|4|
 |Multi-AZ|Ja|Ja|Ja|Ja|Ja|Ja|
@@ -185,6 +185,7 @@ Du kan ange tjänstnivå, beräkningsstorleken och storage mycket med den [Azure
 |Maskinvaran generation|4|4|4|4|4|4|
 |vCores|7|8|9|10|16|24|
 |Minne (GB)|81.6|91.8|102|122.4|163.2|204|
+|Maximalt antal databaser per pool|100|100|100|100|100|100|
 |Stöd för Columnstore|Gäller inte|Saknas|Saknas|Saknas|Saknas|Gäller inte|
 |InMemory-OLTP-lagring (GB)|7|8|9.5|11|20|36|
 |Lagringstyp|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|
@@ -197,7 +198,6 @@ Du kan ange tjänstnivå, beräkningsstorleken och storage mycket med den [Azure
 |Maximalt antal samtidiga arbetare per pool (begäranden) *|1470|1680|1890|2 100|3360|5040|
 |Maximalt antal samtidiga inloggningar per pool (begäranden) *|1470|1680|1890|2 100|3360|5040|
 |Maximalt antal tillåtna sessioner|30000|30000|30000|30000|30000|30000|
-|Maximalt antal databaser per pool|100|100|100|100|100|100|
 |Min/max-databaspool vCore val per databas|0, 0.25, 0.5, 1...7|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...9|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...10, 16|0, 0.25, 0.5, 1...10, 16, 24|
 |Antal repliker|4|4|4|4|4|4|
 |Multi-AZ|Ja|Ja|Ja|Ja|Ja|Ja|
@@ -213,6 +213,7 @@ Du kan ange tjänstnivå, beräkningsstorleken och storage mycket med den [Azure
 |Maskinvaran generation|5|5|5|5|5|5|5|
 |vCores|2|4|6|8|10|12|14|
 |Minne (GB)|10.2|20.4|30.6|40.8|51|61.2|71.4|
+|Maximalt antal databaser per pool|Endast enskild databaser har stöd för den här beräkningsstorleken|50|100|100|100|100|100|
 |Stöd för Columnstore|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
 |InMemory-OLTP-lagring (GB)|1.571|3.142|4.713|6.284|8.655|11.026|13.397|
 |Maximal datastorlek (GB)|1024|1024|1536|1536|1536|3072|3072|
@@ -225,7 +226,6 @@ Du kan ange tjänstnivå, beräkningsstorleken och storage mycket med den [Azure
 |Maximalt antal samtidiga arbetare per pool (begäranden) *|210|420|630|840|1050|1260|1470|
 |Maximalt antal samtidiga inloggningar per pool (begäranden) *|210|420|630|840|1050|1260|1470|
 |Maximalt antal tillåtna sessioner|30000|30000|30000|30000|30000|30000|30000|
-|Maximalt antal databaser per pool|Endast enskild databaser har stöd för den här beräkningsstorleken|50|100|100|100|100|100|
 |Min/max-databaspool vCore val per databas|Gäller inte|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...6|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...12|0, 0.25, 0.5, 1...14|
 |Antal repliker|4|4|4|4|4|4|4|
 |Multi-AZ|Ja|Ja|Ja|Ja|Ja|Ja|
@@ -241,6 +241,7 @@ Du kan ange tjänstnivå, beräkningsstorleken och storage mycket med den [Azure
 |Maskinvaran generation|5|5|5|5|5|5|5|
 |vCores|16|18|20|24|32|40|80|
 |Minne (GB)|81.6|91.8|102|122.4|163.2|204|408|
+|Maximalt antal databaser per pool|100|100|100|100|100|100|100|
 |Stöd för Columnstore|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
 |InMemory-OLTP-lagring (GB)|15.768|18.139|20.51|25.252|37.936|52.22|131.64|
 |Maximal datastorlek (GB)|3072|3072|3072|4096|4096|4096|4096|
@@ -253,7 +254,6 @@ Du kan ange tjänstnivå, beräkningsstorleken och storage mycket med den [Azure
 |Maximalt antal samtidiga arbetare per pool (begäranden) *|1680|1890|2 100|2520|3360|4200|8400|
 |Maximalt antal samtidiga inloggningar per pool (begäranden) *|1680|1890|2 100|2520|3360|4200|8400|
 |Maximalt antal tillåtna sessioner|30000|30000|30000|30000|30000|30000|30000|
-|Maximalt antal databaser per pool|100|100|100|100|100|100|100|
 |Min/max-databaspool vCore val per databas|0, 0.25, 0.5, 1...16|0, 0.25, 0.5, 1...18|0, 0.25, 0.5, 1...20|0, 0.25, 0.5, 1...20, 24|0, 0.25, 0.5, 1...20, 24, 32|0, 0.25, 0.5, 1...20, 24, 32, 40|0, 0.25, 0.5, 1...20, 24, 32, 40, 80|
 |Antal repliker|4|4|4|4|4|4|4|
 |Multi-AZ|Ja|Ja|Ja|Ja|Ja|Ja|Ja|

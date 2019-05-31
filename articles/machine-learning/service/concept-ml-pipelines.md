@@ -1,7 +1,7 @@
 ---
 title: 'Pipelines: Optimera machine learning-arbetsflöden'
 titleSuffix: Azure Machine Learning service
-description: Läs mer om de machine learning pipelines som du kan skapa med Azure Machine Learning-SDK för Python och fördelarna med att använda pipelines i den här artikeln. Pipelines för maskininlärning (ML) används av dataforskare för att kompilera, optimera och hantera sina maskininlärningsarbetsflöden.
+description: Läs mer om de machine learning pipelines som du kan skapa med Azure Machine Learning-SDK för Python och fördelarna med att använda pipelines i den här artikeln. Machine learning (ML) pipelines som används av datatekniker att bygga, optimera och hantera sina arbetsflöden för maskininlärning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,14 +11,14 @@ ms.author: sanpil
 author: sanpil
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: ff693ac34382ea5673989ecb6cbb38e19e176ad3
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 3e3fe64baca6e61c7eee214b84fd1ccdc88d3629
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65801067"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237824"
 ---
-# <a name="build-machine-learning-pipelines-with-the-azure-machine-learning-service"></a>Skapa machine learning pipelines med Azure Machine Learning-tjänsten
+# <a name="build-reusable-ml-pipelines-in-azure-machine-learning-service"></a>Skapa återanvändbara ML-pipeliner i Azure Machine Learning-tjänsten
 
 Läs mer om de machine learning pipelines som du kan skapa med Azure Machine Learning-SDK för Python och fördelarna med att använda pipelines i den här artikeln.
 
@@ -64,7 +64,7 @@ Viktiga fördelar för att skapa pipelines för din machine learning-arbetsflöd
 
 |Stor fördel|Beskrivning|
 |:-------:|-----------|
-|**Obevakad&nbsp;körs**|Schemalägg några steg så att de körs parallellt eller sekvensiellt på ett tillförlitligt och obevakat sätt. Eftersom dataförberedelser och modellering kan senaste dagar eller veckor, du kan nu fokusera på andra uppgifter medan din pipeline körs. |
+|**Obevakad&nbsp;körs**|Schemalägga några steg för att köra parallellt eller i följd i en tillförlitlig och obevakat sätt. Eftersom dataförberedelser och modellering kan senaste dagar eller veckor, du kan nu fokusera på andra uppgifter medan din pipeline körs. |
 |**Blandade och skilda beräkning**|Använda flera pipelines som på ett tillförlitligt sätt samordnas i heterogena och skalbar beräkningar och lagringsutrymmen. Du kan köra enskilda pipeline-stegen på olika beräkningsmål, till exempel HDInsight, GPU Data Science VM och Databricks. På så sätt blir effektiv användning av tillgängliga beräkningsalternativ.|
 |**Återanvändningsmöjligheter**|Du kan mallanpassa pipelines för specifika scenarier, till exempel träna och batchbedömning. Aktivera dem från externa system via enkla REST-anrop.|
 |**Spårning och versionshantering**|I stället för att manuellt spåra data och resultatet sökvägar som du iterera använda pipelines SDK att uttryckligen ge ett namn och version dina data datakällor, indata och utdata. Du kan också hantera skript och data separat för ökad produktivitet.|

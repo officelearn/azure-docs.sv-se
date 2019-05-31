@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: spelluru
-ms.openlocfilehash: 91c598bde0912cffb8aa1dd7ba022c86a9084faa
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a46d816c04d9f5629c2ee9538016d42c53f9a331
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64713015"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244395"
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs vanliga frågor och svar
 Få svar på några av de vanligaste frågorna om Azure DevTest Labs.
@@ -280,7 +280,7 @@ En mer detaljerad förklaring finns i [jämföra anpassade bilder och formler](d
 
 Om du vill automatisera överför VHD-filer för att skapa anpassade avbildningar, har du två alternativ:
 
-- Använd [AzCopy](../storage/common/storage-use-azcopy.md#upload-blobs-to-blob-storage) att kopiera eller ladda upp VHD-filer till storage-kontot som är associerat med labbet.
+- Använd [AzCopy](../storage/common/storage-use-azcopy-v10.md) att kopiera eller ladda upp VHD-filer till storage-kontot som är associerat med labbet.
 - Använd [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md). Storage Explorer är en fristående app som körs på Windows, OS X och Linux.
 
 Hitta mållagringskontot som är associerat med ditt Labb:

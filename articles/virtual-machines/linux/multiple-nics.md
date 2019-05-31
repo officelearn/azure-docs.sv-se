@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/07/2018
 ms.author: cynthn
-ms.openlocfilehash: b77ed879375cff8d45f7d532283647e70252bdab
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 838afe38cc3b2b98ddad358ddb23ab6b6727e867
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60772441"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236842"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Så här skapar du en Linux-dator i Azure med flera nätverkskort
 
@@ -100,7 +100,7 @@ az vm create \
     --nics myNic1 myNic2
 ```
 
-Lägg till routningstabeller i gästoperativsystemet genom att följa stegen i [konfigurera gästoperativsystemet för flera nätverkskort](#configure-guest-os-for- multiple-nics).
+Lägg till routningstabeller i gästoperativsystemet genom att följa stegen i [konfigurera gästoperativsystemet för flera nätverkskort](#configure-guest-os-for-multiple-nics).
 
 ## <a name="add-a-nic-to-a-vm"></a>Lägg till ett nätverkskort till en virtuell dator
 I föregående steg skapade en virtuell dator med flera nätverkskort. Du kan också lägga till nätverkskort till en befintlig virtuell dator med Azure CLI. Olika [VM-storlekar](sizes.md) stöd för olika antal nätverkskort, storlek, så den virtuella datorn i enlighet med detta. Om det behövs kan du [ändra storlek på en virtuell dator](change-vm-size.md).
@@ -138,7 +138,7 @@ Starta den virtuella datorn med [az vm start](/cli/azure/vm):
 az vm start --resource-group myResourceGroup --name myVM
 ```
 
-Lägg till routningstabeller i gästoperativsystemet genom att följa stegen i [konfigurera gästoperativsystemet för flera nätverkskort](#configure-guest-os-for- multiple-nics).
+Lägg till routningstabeller i gästoperativsystemet genom att följa stegen i [konfigurera gästoperativsystemet för flera nätverkskort](#configure-guest-os-for-multiple-nics).
 
 ## <a name="remove-a-nic-from-a-vm"></a>Ta bort ett nätverkskort från en virtuell dator
 Om du vill ta bort ett nätverkskort från en befintlig virtuell dator, först frigöra den virtuella datorn med [az vm deallocate](/cli/azure/vm). I följande exempel bort den virtuella datorn med namnet *myVM*:
@@ -183,7 +183,7 @@ Du kan också använda en `copyIndex()` att lägga till ett tal till ett resursn
 
 Du kan läsa en komplett exempel på [skapar flera nätverkskort med hjälp av Resource Manager-mallar](../../virtual-network/template-samples.md).
 
-Lägg till routningstabeller i gästoperativsystemet genom att följa stegen i [konfigurera gästoperativsystemet för flera nätverkskort](#configure-guest-os-for- multiple-nics).
+Lägg till routningstabeller i gästoperativsystemet genom att följa stegen i [konfigurera gästoperativsystemet för flera nätverkskort](#configure-guest-os-for-multiple-nics).
 
 ## <a name="configure-guest-os-for-multiple-nics"></a>Konfigurera gästoperativsystem för flera nätverkskort
 

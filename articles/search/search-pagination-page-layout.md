@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: dc208f3231882a0726733c897e70557c657cddf3
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 6e627de5b22a67051961e70bab56b2d931129281
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024512"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244806"
 ---
 # <a name="how-to-work-with-search-results-in-azure-search"></a>Hur du arbetar med sökning resulterar i Azure Search
 Den här artikeln innehåller råd om hur du implementerar standardelement på en sökresultatsida, till exempel totala antalet, hämta dokument, sorteringsordningar och navigering. Sidan-relaterade alternativ som bidrar data eller information till dina sökresultat anges via den [Dokumentsökningsoperationer](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) begäranden som skickas till din Azure Search-tjänst. 
 
-Förfrågningar innehålla en GET-command, sökväg, och frågeparametrar som informerar tjänsten vad som efterfrågas och hur du formulera svaret i REST-API. I .NET-SDK motsvarande API: et är [DocumentSearchResult klass](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsearchresult?view=azure-dotnet).
+Förfrågningar innehålla en GET-command, sökväg, och frågeparametrar som informerar tjänsten vad som efterfrågas och hur du formulera svaret i REST-API. I .NET-SDK motsvarande API: et är [DocumentSearchResult klass](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsearchresult-1).
 
 Kodexempel är ett webbgränssnitt för klientdelen som du hittar här: [New York City jobb demoappen](https://azjobsdemo.azurewebsites.net/) och [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd).
 

@@ -12,18 +12,18 @@ ms.author: joke
 ms.reviewer: sstein
 manager: craigg
 ms.date: 03/13/2019
-ms.openlocfilehash: f71fe4ff14e5a6f5fd6b91713970a097e4e56fb9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 627b29018afff2adb57b3b8b5c816bea9c421f68
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61475804"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236861"
 ---
 # <a name="migrate-to-the-new-elastic-database-jobs"></a>Migrera till nya elastiska databasjobb
 
 En uppgraderad version av [elastiska Databasjobb](elastic-jobs-overview.md) är tillgänglig.
 
-Om du har en befintlig kund finns version av [elastiska Databasjobb](sql-database-elastic-jobs-overview.md), migrerings-cmdlets och skript tillhandahålls för att enkelt migrera till den senaste versionen.
+Om du har en befintlig kund finns version av Elastic Database-jobb, migrerings-cmdlets och skript tillhandahålls för att enkelt migrera till den senaste versionen.
 
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
@@ -32,7 +32,7 @@ Uppgradering av Elastic Database-jobb har en ny uppsättning PowerShell-cmdletar
 
 ### <a name="install-the-latest-elastic-jobs-cmdlets"></a>Installera de senaste elastiska jobb-cmdletarna
 
-Om du inte redan har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
+Om du inte redan har en Azure-prenumeration [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 Installera den **Az.Sql** 1.1.1-preview-modulen för att få de senaste Elastiskt jobb cmdletarna. Kör följande kommandon i PowerShell med administratörsbehörighet.
 

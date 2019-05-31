@@ -16,12 +16,12 @@ ms.date: 04/23/2019
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c95eb45d75a54af75fdc8004316bc8bfeeddbd7e
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: HT
+ms.openlocfilehash: 0cfaea53156b78fad024046bb6f55229f8ad6536
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65783935"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236271"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Felsöka Kerberos-begränsad delegering konfigurationer för Application Proxy
 
@@ -182,4 +182,4 @@ Om du fortfarande inte göra förloppet kan Microsoft-supporten hjälpa dig. Ska
 - Multi-hop autentisering används ofta i scenarier där ett program är nivåer, med en backend-server och en klientdel, där båda kräver autentisering, till exempel SQL Server Reporting Services. För att konfigurera multihop scenariot, se supportartikeln [Kerberos-begränsad delegering kan kräva Protokollövergång i Multi-hop scenarier](https://support.microsoft.com/help/2005838/kerberos-constrained-delegation-may-require-protocol-transition-in-mul).
 
 ## <a name="next-steps"></a>Nästa steg
-[Konfigurera KCD på en hanterad domän](../../active-directory-domain-services/active-directory-ds-enable-kcd.md).
+[Konfigurera KCD på en hanterad domän](../../active-directory-domain-services/deploy-kcd.md).

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: aahi
 ms.openlocfilehash: 1ed494cea1ccf8845a25a3ab49d3194cc6a55509
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 05/30/2019
 ms.locfileid: "65785670"
 ---
 # <a name="migrate-from-the-translator-speech-api-to-the-speech-service"></a>Migrera från API för Talöversättning till Speech-tjänsten
@@ -43,7 +43,7 @@ Använd den här artikeln för att migrera dina program från Microsoft Translat
 | Andra filtyper som indata                         | : heavy_minus_sign:                                              | : heavy_minus_sign:                 |                                                                                                                                                                                                                                                                                    |
 | Ofullständiga resultat                                   | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | Tidsinställning info                                       | :heavy_check_mark:                                              | : heavy_minus_sign:                 |                                                                                                                                                                 |
-| Korrelations-id                                    | :heavy_check_mark:                                              | : heavy_minus_sign:                 |                                                                                                                                                                                                                                                                                    |
+| Korrelations-ID                                    | :heavy_check_mark:                                              | : heavy_minus_sign:                 |                                                                                                                                                                                                                                                                                    |
 | Anpassade talmodeller                              | : heavy_minus_sign:                                              | :heavy_check_mark:                 | Speech Services ger anpassade talmodeller som gör att du kan anpassa taligenkänning till din organisations unika ordförråd.                                                                                                                                           |
 | Anpassade översättningsmodeller                         | : heavy_minus_sign:                                              | :heavy_check_mark:                 | Prenumerera på Microsoft Text Translation-API kan du använda [anpassad Translator](https://www.microsoft.com/translator/business/customization/) att använda dina egna data för exaktare översättningar.                                                 |
 

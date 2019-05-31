@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 04/30/2019
-ms.openlocfilehash: be592cb6bb7c041fab0a2f96a338f4f4bb0ff00a
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 2d70e1b5434b2fb263d1f4587888d4758fac2828
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510928"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66225366"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Läs repliker i Azure Database for MySQL
 
@@ -42,8 +42,7 @@ Om en huvudserver har inga befintliga replikservern, startas först huvudservern
 
 När du börjar skapa replica arbetsflöde, skapas en tom Azure Database for MySQL-server. Den nya servern är fylld med de data som fanns på huvudservern. Tiden för skapandet beror på mängden data på huvudservern och hur lång tid sedan den senaste veckovisa fullständiga säkerhetskopieringen. Tiden kan variera mellan några minuter till flera timmar.
 
-> [!NOTE]
-> Om du inte har en avisering uppsättning lagring på dina servrar, rekommenderar vi att du gör det. Aviseringen informerar dig när en server närmar sig lagringsgränsen, vilket påverkar replikeringen.
+Varje replik är aktiverat för lagring [auto-väx](concepts-pricing-tiers.md#storage-auto-grow). Funktionen auto-grow kan repliken för att hålla jämna steg med data som replikeras till den och förhindra att ett avbrott i replikeringen på grund av av lagringsfel.
 
 Lär dig hur du [skapar en skrivskyddad replik i Azure-portalen](howto-read-replicas-portal.md).
 
@@ -124,7 +123,7 @@ Följande serverparametrar är låsta på både master och repliken:
 
 Den [ `event_scheduler` ](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_event_scheduler) parametern är låst på replikservrarna. 
 
-### <a name="other"></a>Annat 
+### <a name="other"></a>Annat
 
 - Globala transaktions-ID: n (GTID) stöds inte.
 - Det går inte att skapa en replik av en replik.

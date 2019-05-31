@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 09/19/2018
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: 3957fefb44bd8e4732f74f69d5522bd499100d0b
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: e50314d80f3b773d2ea3bbc8abd4709b574aae65
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149872"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66226235"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>Konfigurera Application Insights SDK:n med ApplicationInsights.config eller .xml
 Application Insights .NET SDK består av ett antal NuGet-paket. Den [core-paketet](https://www.nuget.org/packages/Microsoft.ApplicationInsights) tillhandahåller API: et för att skicka telemetri till Application Insights. [Ytterligare paket](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights) ger telemetri *moduler* och *fältparameterbindningar* för att spåra automatiskt telemetri från ditt program och dess kontext. Genom att justera konfigurationsfilen kan du aktivera eller inaktivera telemetri moduler och initierare och ställa in parametrar för några av dem.
@@ -30,7 +30,7 @@ Det finns inte en motsvarande fil att styra den [SDK på en webbsida][client].
 Det här dokumentet beskrivs i avsnitt som du ser i konfigurationen fil, hur de kontrollera komponenterna i SDK, och vilka NuGet-paket läsa in dessa komponenter.
 
 > [!NOTE]
-> ApplicationInsights.config och .xml instruktioner gäller inte för .NET Core SDK. Ändringar till en .NET Core-program använder vi vanligtvis filen appsettings.json. Ett exempel på detta finns i den [Snapshot Debugger-dokumentationen.](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger)
+> ApplicationInsights.config och .xml instruktioner gäller inte för .NET Core SDK. Konfigurera .NET Core-program kan följa [detta](../../azure-monitor/app/asp-net-core.md) guide.
 
 ## <a name="telemetry-modules-aspnet"></a>Telemetri moduler (ASP.NET)
 Varje modul telemetri samlar in en viss typ av data och använder core API för att skicka data. Modulerna som installeras av olika NuGet-paket, som också lägga till raderna som behövs i .config-filen.
@@ -52,10 +52,12 @@ Du kan också skriva egna beroendespårning kod med hjälp av den [TrackDependen
 * [Microsoft.ApplicationInsights.PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector) NuGet-paketet.
 
 ### <a name="application-insights-diagnostics-telemetry"></a>Application Insights-Diagnostiktelemetri
-Den `DiagnosticsTelemetryModule` rapporterar fel i själva koden berörs instrumentation Application Insights. Till exempel om koden inte kan komma åt prestandaräknare eller om en `ITelemetryInitializer` genereras ett undantag. Spårningstelemetri spåras av den här modulen visas i den [Diagnostiksökning][diagnostic]. Skickar diagnostikdata till dc.services.vsallin.net.
+Den `DiagnosticsTelemetryModule` rapporterar fel i själva koden berörs instrumentation Application Insights. Till exempel om koden inte kan komma åt prestandaräknare eller om en `ITelemetryInitializer` genereras ett undantag. Spårningstelemetri spåras av den här modulen visas i den [Diagnostiksökning][diagnostic].
 
+```
 * `Microsoft.ApplicationInsights.Extensibility.Implementation.Tracing.DiagnosticsTelemetryModule`
-* [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) NuGet-paketet. Om du bara installera det här paketet skapas inte filen ApplicationInsights.config automatiskt.
+* [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) NuGet package. If you only install this package, the ApplicationInsights.config file is not automatically created.
+```
 
 ### <a name="developer-mode"></a>Utvecklarläget
 `DeveloperModeWithDebuggerAttachedTelemetryModule` Tvingar Application Insights `TelemetryChannel` att skicka data direkt, en telemetriobjekt i taget, när en felsökare är kopplad till programprocessen. Detta minskar mängden mellan när programmet spårar telemetri och när den visas på Application Insights-portalen. Det gör betydande overhead i processor- och bandbredd.
@@ -97,10 +99,10 @@ Microsoft.ApplicationInsights paketet innehåller den [core API](https://msdn.mi
 * [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) NuGet-paketet. Om du bara installera den här NuGet, skapas ingen .config-filen.
 
 ## <a name="telemetry-channel"></a>Telemetri kanal
-Telemetri kanalen hanterar buffring och överföring av telemetri till Application Insights-tjänsten.
+Den [telemetri kanal](telemetry-channels.md) hanterar buffring och överföring av telemetri till Application Insights-tjänsten.
 
-* `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel` är standardkanal för tjänster. Den buffrar data i minnet.
-* `Microsoft.ApplicationInsights.PersistenceChannel` är ett alternativ för konsolprogram. Det kan spara unflushed data till beständig lagring när din app stängs och skicka den när appen startar igen.
+* `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel` är standardkanal för webbprogram. Den buffrar data i minnet och använder försök metoder och lokalt diskutrymme för mer tillförlitlig leverans av telemetri.
+* `Microsoft.ApplicationInsights.InMemoryChannel` är en förenklad telemetri-kanal som används om inga andra kanalen har konfigurerats. 
 
 ## <a name="telemetry-initializers-aspnet"></a>Telemetri-initierare (ASP.NET)
 Telemetri-initierare ange kontextegenskaperna som skickas tillsammans med alla objekt i telemetrin.
@@ -129,7 +131,7 @@ Standard initierarna är allt klart antingen genom webb- eller WindowsServer NuG
 
     Den `<Filters>` ange identifierar egenskaperna för begäranden.
 * `UserTelemetryInitializer` uppdateringar i `Id` och `AcquisitionDate` egenskaperna för `User` kontext för alla telemetri-objekt med värden som extraheras från den `ai_user` cookie som genererats av Application Insights JavaScript instrumentation koden som körs i användarens webbläsaren.
-* `WebTestTelemetryInitializer` Anger användar-id, sessions-id och syntetiska Källegenskaper för HTTP-förfrågningar som kommer från [tillgänglighetstester](../../azure-monitor/app/monitor-web-app-availability.md).
+* `WebTestTelemetryInitializer` Anger användar-ID, sessions-ID och syntetiska Källegenskaper för HTTP-förfrågningar som kommer från [tillgänglighetstester](../../azure-monitor/app/monitor-web-app-availability.md).
   Den `<Filters>` ange identifierar egenskaperna för begäranden.
 
 För .NET-program som körs i Service Fabric, kan du inkludera den `Microsoft.ApplicationInsights.ServiceFabric` NuGet-paketet. Det här paketet innehåller en `FabricTelemetryInitializer`, som lägger till Service Fabric-egenskaper till telemetrin objekt. Mer information finns i den [GitHub-sidan](https://github.com/Microsoft/ApplicationInsights-ServiceFabric/blob/master/README.md) om egenskaper som har lagts till av den här NuGet-paketet.
@@ -139,7 +141,7 @@ Telemetri processorer kan filtrera och ändra varje telemetriobjekt precis innan
 
 Du kan [skriva din egen telemetri processorer](../../azure-monitor/app/api-filtering-sampling.md#filtering).
 
-#### <a name="adaptive-sampling-telemetry-processor-from-200-beta3"></a>Adaptiv sampling telemetri processor (från 2.0.0-beta3)
+#### <a name="adaptive-sampling-telemetry-processor-from-200-beta3"></a>Adaptiv sampling telemetri-Processor (från 2.0.0-beta3)
 Den här funktionen är aktiverad som standard. Om din app skickar stora mängder telemetri, den här processor tar bort några av den.
 
 ```xml
@@ -156,8 +158,8 @@ Parametern innehåller mål som algoritmen som försöker nå. Varje instans av 
 
 [Läs mer om sampling](../../azure-monitor/app/sampling.md).
 
-#### <a name="fixed-rate-sampling-telemetry-processor-from-200-beta1"></a>Fast räntesats sampling telemetri processor (från 2.0.0-beta1)
-Det finns också en standard [samlar telemetri processor](../../azure-monitor/app/api-filtering-sampling.md) (från 2.0.1):
+#### <a name="fixed-rate-sampling-telemetry-processor-from-200-beta1"></a>Fast räntesats sampling telemetri-Processor (från 2.0.0-beta1)
+Det finns också en standard [samlar telemetri Processor](../../azure-monitor/app/api-filtering-sampling.md) (från 2.0.1):
 
 ```XML
 
@@ -182,7 +184,7 @@ Antal telemetri-objekt som kan lagras i SDK: er minnesintern lagring. När antal
 
 * Min: 1
 * Max: 1000
-* Standard: 500
+* standard: 500
 
 ```
 
@@ -200,7 +202,7 @@ Anger hur ofta de data som lagras i InMemory-lagring ska tas bort (skickade till
 
 * Min: 1
 * Max: 300
-* Standard: 5
+* standard: 5
 
 ```
 
@@ -218,7 +220,7 @@ Anger den maximala storleken i MB som tilldelas till beständig lagring på den 
 
 * Min: 1
 * Max: 100
-* Standard: 10
+* standard: 10
 
 ```
 
@@ -261,7 +263,7 @@ Detta avgör den Application Insights-resurs där dina data visas. Vanligtvis sk
 
 Om du vill ange nyckeln dynamiskt – till exempel om du vill skicka resultaten från ditt program till olika resurser – kan du utelämna nyckeln från konfigurationsfilen och ange den i koden i stället.
 
-För att ställa in nyckeln för alla instanser av TelemetryClient, ange inklusive standardmoduler moduler, nyckeln i TelemetryConfiguration.Active. Du kan göra detta i en initieringsmetod, till exempel global.aspx.cs i en ASP.NET-tjänst:
+För att ställa in nyckeln för alla instanser av TelemetryClient, ange inklusive telemetri standardmoduler, nyckeln i TelemetryConfiguration.Active. Du kan göra detta i en initieringsmetod, till exempel global.aspx.cs i en ASP.NET-tjänst:
 
 ```csharp
 

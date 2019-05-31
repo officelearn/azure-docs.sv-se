@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 5ad7ef714147616fe55a9b978d501b974323e251
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 5adba958ed3bcb9efbf66c079b541e11ceed570c
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65949569"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243595"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Åtkomstkontroll i Azure Data Lake Storage Gen2
 
@@ -26,9 +26,9 @@ Azure Data Lake Storage Gen2 implementerar en modell för åtkomstkontroll som s
 
 RBAC används rolltilldelningar för att ge uppsättningar av behörigheter för att effektivt *säkerhetsobjekt*. En *säkerhetsobjekt* är ett objekt som representerar en användare, grupp, tjänstens huvudnamn eller hanterad identitet som har definierats i Azure Active Directory (AD) som begär åtkomst till Azure-resurser.
 
-Vanligtvis dessa Azure-resurser är begränsade till översta resurser (till exempel: Azure Storage-konton). När det gäller Azure Storage, och därmed Azure Data Lake Storage Gen2, har den här mekanismen utökats till system-filresurs.
+Vanligtvis dessa Azure-resurser är begränsade till översta resurser (till exempel: Azure Storage-konton). När det gäller Azure Storage, och därmed Azure Data Lake Storage Gen2, har den här mekanismen utökats till behållarresursen (filsystemet).
 
-Läs hur du tilldelar roller till säkerhetsobjekt i omfånget för ditt lagringskonto i [autentisera åtkomst till Azure-blobbar och köer med hjälp av Azure Active Directory](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Läs hur du tilldelar roller till säkerhetsobjekt i omfånget för ditt lagringskonto i [bevilja åtkomst till Azure blob och kö data med RBAC i Azure-portalen](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ### <a name="the-impact-of-role-assignments-on-file-and-directory-level-access-control-lists"></a>Effekten av rolltilldelningar på filer och kataloger på åtkomstkontrollistor
 
@@ -49,7 +49,7 @@ SAS-token är tillåtna behörigheter som en del av token. De behörigheter som 
 
 ## <a name="access-control-lists-on-files-and-directories"></a>Åtkomstkontrollistor för filer och kataloger
 
-Du kan associera ett säkerhetsobjekt med åtkomstnivå för filer och kataloger. Dessa associationer samlas i en *åtkomstkontrollistan (ACL)*. Varje fil och katalog i ditt storage-konto har en åtkomstkontrollista.
+Du kan associera ett säkerhetsobjekt med åtkomstnivå för filer och kataloger. Dessa associationer samlas i en *åtkomstkontrollistan (ACL)* . Varje fil och katalog i ditt storage-konto har en åtkomstkontrollista.
 
 Du kan använda åtkomstkontrollistor för att bevilja det säkerhetsobjektet utökad åtkomst till specifika filer och kataloger om du har tilldelat en roll till en säkerhetsprincipal på storage-kontonivå.
 
@@ -62,7 +62,7 @@ Om du vill ange fil- och behörigheter på kolumnnivå, ser du något av följan
 |Om du vill använda det här verktyget:    |Se den här artikeln:    |
 |--------|-----------|
 |Azure Lagringsutforskaren    |[Ange fil- och behörigheter på kolumnnivå med Azure Storage Explorer med Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-how-to-set-permissions-storage-explorer)|
-|REST API    |[Sökväg - uppdatering](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update)|
+|REST-API    |[Sökväg - uppdatering](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update)|
 
 > [!IMPORTANT]
 > Om säkerhetsobjektet är en *service* huvudnamn är det viktigt att använda objekt-ID för tjänstens huvudnamn och inte objekt-ID för relaterade appregistreringen. Att hämta objekt-ID för tjänstens huvudnamn öppna Azure CLI och sedan använda det här kommandot: `az ad sp show --id <Your App ID> --query objectId`. Ersätt den `<Your App ID>` med App-ID för din appregistrering.
@@ -74,8 +74,6 @@ Det finns två typer av åtkomstkontrollistor: *åtkomst-ACL* och *standard-ACL*
 Åtkomst-ACL:er kontrollerar åtkomst till ett objekt. Filer och kataloger har båda åtkomst-ACL:er.
 
 Standard-ACL: er finns mallar av ACL: er som är associerade med en katalog som bestämmer åtkomst-ACL: er för underordnade objekt som skapats under den katalogen. Filer har inte standard-ACL:er.
-
-Både åtkomst-ACL och standard-ACL har samma struktur.
 
 Både åtkomst-ACL och standard-ACL har samma struktur.
 
@@ -92,6 +90,9 @@ Behörigheter för ett objekt i filsystemet är **Läs**, **skriva**, och **kör
 | **Skriva (W)** | Kan skriva eller lägg till i en fil | Kräver **skriva** och **kör** att skapa underordnade objekt i en katalog |
 | **Köra (X)** | Innebär inte något i samband med Data Lake Storage Gen2 | Krävs för att bläddra bland de underordnade objekten i en katalog |
 
+> [!NOTE]
+> Om du beviljar behörighet med hjälp av endast ACL: er (inga RBAC), så om du vill ge en service principal Läs- eller skrivbehörighet till en fil, måste du ge tjänstens huvudnamn **kör** behörighet att filsystemet och mappar i den hierarki av mappar som leder till filen.
+
 #### <a name="short-forms-for-permissions"></a>Kortformat för behörigheter
 
 **RWX**används för att ange **läsa + skriva + köra**. Ett numeriskt mer komprimerat format finns där **Läsa = 4**, **skriva = 2** och **Köra = 1** och deras summa representerar behörigheterna. Här följer några exempel.
@@ -101,7 +102,7 @@ Behörigheter för ett objekt i filsystemet är **Läs**, **skriva**, och **kör
 | 7            | `RWX`        | Läsa + skriva + köra |
 | 5            | `R-X`        | Läsa + köra         |
 | 4            | `R--`        | Läsa                   |
-| 0            | `---`        | Ingen behörighet         |
+| 0            | `---`        | Inga behörigheter         |
 
 #### <a name="permissions-inheritance"></a>Arv av behörigheter
 
@@ -111,7 +112,7 @@ I POSIX modellen som används av Data Lake Storage Gen2, förvaras behörigheter
 
 I följande tabell visas några vanliga scenarier för att hjälpa dig att förstå vilka behörigheter som krävs för att utföra vissa åtgärder på ett lagringskonto.
 
-|    Operation             |    /    | Oregon / | Portland / | Data.txt     |
+|    Åtgärd             |    /    | Oregon / | Portland / | Data.txt     |
 |--------------------------|---------|----------|-----------|--------------|
 | Läs Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
 | Lägga till i Data.txt       |   `--X`   |   `--X`    |  `--X`      | `RW-`          |

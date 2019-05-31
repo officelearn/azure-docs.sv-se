@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/14/2019
+ms.date: 05/22/2019
 ms.author: raynew
-ms.openlocfilehash: 1712e46494796e563c26316b4f45d968872c304f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d8ade598e4f1b6331367e8bd04ad59951ef5de8f
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60781825"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242380"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Återställa SQL Server-databaser på Azure Virtual Machines
 
@@ -41,8 +41,9 @@ Tänk på följande innan du återställer en databas:
     - Det angivna klientnamnet kan öppna anslutningen.
 - Stoppa SQL Server Agent-tjänsten för alla systemdatabaser (modell, master, msdb,) innan du utlöser återställningen.
 - Stäng alla program som kan försöka ta en anslutning till någon av dessa databaser.
+- Om du har flera instanser som körs på en server, alla förekomster bör vara in och kör annars servern inte visas i listan över målservrar som du kan återställa databasen till.
 
-## <a name="restore-a-database"></a>Återställ en databas
+## <a name="restore-a-database"></a>Återställa en databas
 
 Om du vill återställa, behöver du följande behörigheter:
 
@@ -152,6 +153,13 @@ Om du har valt **fullständig och differentiell** som typ av återställning gö
 1. Spåra förloppet för återställning i den **meddelanden** området eller spåra genom att välja **återställningsjobb** på databas-menyn.
 
     ![Förlopp för återställningsjobb](./media/backup-azure-sql-database/restore-job-notification.png)
+
+### <a name="restore-databases-with-large-number-of-files"></a>Återställa databaser med stort antal filer
+
+Om den totala strängstorleken på filerna i en databas är större än en [viss gräns](backup-sql-server-azure-troubleshoot.md#files-size-limit-beyond-which-restore-happens-to-default-path), Azure Backup lagrar listan över databasfiler i en annan pit komponent så att du inte kommer att kunna ange målsökväg för återställning under återställningen åtgärden. Filerna kommer att återställas till standardsökvägen SQL i stället.
+
+  ![Återställ databasen med stora filer](./media/backup-azure-sql-database/restore-large-files.jpg)
+
 
 ## <a name="next-steps"></a>Nästa steg
 

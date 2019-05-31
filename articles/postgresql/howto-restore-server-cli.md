@@ -1,20 +1,20 @@
 ---
-title: Säkerhetskopiera och återställa en server i Azure Database för PostgreSQL
-description: Lär dig hur du säkerhetskopierar och återställer en server i Azure Database för PostgreSQL med hjälp av Azure CLI.
+title: Säkerhetskopiera och återställa en server i Azure Database för PostgreSQL – enskild Server
+description: Lär dig hur du säkerhetskopierar och återställer en server i Azure Database för PostgreSQL – enskild Server med hjälp av Azure CLI.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 04/01/2018
-ms.openlocfilehash: 3415910426d365ea2dc17e7515871c1bf4841fd3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/06/2019
+ms.openlocfilehash: 85fb00ad221ae982e4d3ddc9d2d5d20dd4f2793d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60419929"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65069103"
 ---
-# <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-cli"></a>Hur du säkerhetskopierar och återställer en server i Azure Database for PostgreSQL med Azure CLI
+# <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql---single-server-using-the-azure-cli"></a>Hur du säkerhetskopierar och återställer en server i Azure Database för PostgreSQL – enskild Server med Azure CLI
 
 ## <a name="backup-happens-automatically"></a>Säkerhetskopieringen sker automatiskt
 Azure Database for PostgreSQL-servrar som säkerhetskopieras regelbundet för att aktivera funktioner för återställning. Med den här funktionen kan du återställa servern och dess databaser till en tidigare point-in-time, på en ny server.

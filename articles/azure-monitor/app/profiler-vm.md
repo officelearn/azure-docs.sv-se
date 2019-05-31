@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 4cca65e2be44d2c846cd4034f0a9d7e8c7d9af28
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: ab30351bfff9c5bbf070a1e8a54a4919e4d2231a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66130874"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66226270"
 ---
 # <a name="profile-web-apps-running-on-an-azure-virtual-machine-or-a-virtual-machine-scale-set-by-using-application-insights-profiler"></a>Profil för web apps som körs på virtuella Azure-datorer eller en virtuell datorskalning in med hjälp av Application Insights Profiler
 
@@ -31,7 +31,8 @@ Du kan också distribuera Azure Application Insights Profiler på de här tjäns
 ## <a name="deploy-profiler-on-a-virtual-machine-or-a-virtual-machine-scale-set"></a>Distribuera Profiler på en virtuell dator eller en VM-skalningsuppsättning
 Den här artikeln visar hur du hämtar Application Insights Profiler som körs på din Azure-dator (VM) eller Azure virtual machine scale Sets. Profiler har installerats med Azure Diagnostics-tillägget för virtuella datorer. Konfigurera tillägg för att köra Profiler och skapa Application Insights SDK i ditt program.
 
-1. Lägg till Application Insights SDK till din [ASP.NET-program](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net) eller vanliga [.NET-program](windows-services.md?toc=/azure/azure-monitor/toc.json).  
+1. Lägg till Application Insights SDK till din [ASP.NET-program](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net).
+
    Om du vill visa profiler för dina begäranden, måste du skicka begärandetelemetri till Application Insights.
 
 1. Installera Azure-diagnostiktillägget på den virtuella datorn. Fullständig Resource Manager-mallexempel finns:  

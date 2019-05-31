@@ -3,7 +3,7 @@ title: Jämför Azure AD-anslutning och Azure Active Directory Domain Services |
 description: Välja mellan Azure AD-anslutning och Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 ms.assetid: 31a71d36-58c1-4839-b958-80da0c6a77eb
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/26/2017
-ms.author: ergreenl
-ms.openlocfilehash: d4f50ea89f2623d387fb77acb09e609def547468
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/20/2019
+ms.author: mstephen
+ms.openlocfilehash: eaa8cb54a46b1ff3c2c0f7c40c824f6ddcca16b9
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60359440"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234966"
 ---
 # <a name="choose-between-azure-active-directory-join-and-azure-active-directory-domain-services"></a>Välj mellan Azure Active Directory-koppling och Azure Active Directory Domain Services
 Den här artikeln beskrivs skillnaderna mellan Azure Active Directory (AD)-anslutning och Azure AD Domain Services och hjälper till att du väljer, baserat på användningsfall.
@@ -59,21 +59,21 @@ På en domänansluten dator sker autentisering av användare med hjälp av NTLM 
 | Enheten kontrolleras av | Azure AD | Azure AD Domain Services-hanterad domän |
 | Återgivning i katalogen | Enhetsobjekt i Azure AD-katalog. | Datorobjekt i den hanterade AAD-DS-domänen. |
 | Autentisering | OAuth/OpenID Connect-baserade protokoll | Kerberos, NTLM-protokoll |
-| Hantering | Mobile Device Management (MDM) programvara som Intune | Grupprincip |
+| Hantering | Mobile Device Management (MDM) programvara som Intune | En Grupprincip |
 | Nätverk | Fungerar via internet | Kräver att datorerna ska vara i samma virtuella nätverk som den hanterade domänen.|
 | Bra för... | Slutanvändarens mobila eller stationära enheter | Server-datorer som distribueras i Azure |
 
 
 ## <a name="next-steps"></a>Nästa steg
 ### <a name="learn-more-about-azure-ad-domain-services"></a>Läs mer om Azure AD Domain Services
-* [Översikt över Azure AD Domain Services](active-directory-ds-overview.md)
+* [Översikt över Azure AD Domain Services](overview.md)
 * [Funktioner](active-directory-ds-features.md)
-* [Distributionsscenarier](active-directory-ds-scenarios.md)
-* [Ta reda på om Azure AD Domain Services passar dina användningsfall](active-directory-ds-comparison.md)
-* [Förstå hur Azure AD Domain Services synkroniseras med din Azure AD-katalog](active-directory-ds-synchronization.md)
+* [Distributionsscenarier](scenarios.md)
+* [Ta reda på om Azure AD Domain Services passar dina användningsfall](comparison.md)
+* [Förstå hur Azure AD Domain Services synkroniseras med din Azure AD-katalog](synchronization.md)
 
 ### <a name="learn-more-about-azure-ad-join"></a>Läs mer om Azure AD Join
 * [Introduktion till enhetshantering i Azure Active Directory](../active-directory/device-management-introduction.md)
 
 ### <a name="get-started-with-azure-ad-domain-services"></a>Kom igång med Azure AD Domain Services
-* [Aktivera Azure AD Domain Services med Azure portal](active-directory-ds-getting-started.md)
+* [Aktivera Azure AD Domain Services med Azure portal](create-instance.md)

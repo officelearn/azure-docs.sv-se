@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/14/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 30df480eb314594cbc4d949302aff11e6d764b6f
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: c7b73cad200666db9e926d8e808eaa4a8dccffb2
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66147804"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66248844"
 ---
 ## <a name="premium-ssd"></a>Premium SSD
 
@@ -24,7 +24,7 @@ Mer information om enskilda VM-typer och storlekar i Azure för Windows, inklusi
 ### <a name="disk-size"></a>Diskstorlek
 [!INCLUDE [disk-storage-premium-ssd-sizes](disk-storage-premium-ssd-sizes.md)]
 
-När du etablerar en disk för premium storage, till skillnad från standardlagring, garanterat kapacitet, IOPS och dataflöde på disken. Exempelvis kan etablerar du skapa en P50-disk Azure 4 095 GB lagringskapacitet, 7 500 IOPS och 250 MBIT/s genomströmning för disken. Ditt program kan använda hela eller delar av kapacitet och prestanda. Premium SSD-diskar är utformade för att leverera målet prestanda 99,9% av tiden.
+När du etablerar en disk för premium storage, till skillnad från standardlagring, garanterat kapacitet, IOPS och dataflöde på disken. Exempelvis kan etablerar du skapa en P50-disk Azure 4 095 GB lagringskapacitet, 7 500 IOPS och 250 MBIT/s genomströmning för disken. Ditt program kan använda hela eller delar av kapacitet och prestanda. Premium SSD-diskar är utformade för att ge låg ensiffrig svarstid som och rikta IOPS och dataflöde som beskrivs i föregående tabell 99,9% av tiden.
 
 ### <a name="transactions"></a>Transaktioner
 
@@ -37,7 +37,7 @@ Azure standard SSD: er är ett alternativ för kostnadseffektiv lagring som opti
 ### <a name="disk-size"></a>Diskstorlek
 [!INCLUDE [disk-storage-standard-ssd-sizes](disk-storage-standard-ssd-sizes.md)]
 
-Standard SSD-enheter är utformade för att tillhandahålla ensiffrig svarstid för de flesta i/o-åtgärder och leverera IOPS och dataflöde upp till de gränser som beskrivs i föregående tabell 99% av tiden. Faktiska IOPS och dataflöden varierar ibland beroende på trafikmönster. Standard SSD-enheter ger mer konsekventa prestanda än HDD-diskar med kortare svarstider.
+Standard SSD-enheter är utformade för att ange ensiffrig svarstid och IOPS och dataflöde upp till de gränser som beskrivs i föregående tabell 99% av tiden. Faktiska IOPS och dataflöden varierar ibland beroende på trafikmönster. Standard SSD-enheter ger mer konsekventa prestanda än HDD-diskar med kortare svarstider.
 
 ### <a name="transactions"></a>Transaktioner
 
@@ -45,7 +45,7 @@ För standard SSD: er varje i/o-åtgärden har mindre än eller lika med 256 KiB
 
 ## <a name="standard-hdd"></a>Standard HDD
 
-Azure standardhårddiskar leverera tillförlitlig, billig disksupport för virtuella datorer som kör latens-okänslig arbetsbelastningar. Den stöder även blobar, tabeller, köer och filer. Med standard-lagring lagras data på hårddiskar (HDD). När du arbetar med virtuella datorer kan använda du standarddiskar för SSD och HDD för utveckling och testning och mindre kritiska arbetsbelastningar. Standardhårddiskar är tillgängliga i alla Azure-regioner och kan användas med alla virtuella Azure-datorer.
+Azure standardhårddiskar leverera tillförlitlig, billig disksupport för virtuella datorer som kör latens-okänslig arbetsbelastningar. Med standard-lagring lagras data på hårddiskar (HDD). Svarstid, IOPS och dataflöde över Standard HDD-diskar kan variera mycket mer jämfört med SSD-baserade diskar. När du arbetar med virtuella datorer kan använda du standarddiskar HDD för utveckling och testning och mindre kritiska arbetsbelastningar. Standardhårddiskar är tillgängliga i alla Azure-regioner och kan användas med alla virtuella Azure-datorer.
 
 ### <a name="disk-size"></a>Diskstorlek
 [!INCLUDE [disk-storage-standard-hdd-sizes](disk-storage-standard-hdd-sizes.md)]

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 05/22/2019
 ms.author: alkohli
-ms.openlocfilehash: 7d52af9e3948f40936795efab5b6671c3f71007a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3bce5dd1dd34c53276c5486cc255c4cd93bb6080
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60746938"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242187"
 ---
 # <a name="azure-data-box-system-requirements"></a>Azure Data Box-systemkrav
 
@@ -31,68 +31,28 @@ Programvarukrav innehålla information om de operativsystem som stöds och webbl
 
 ### <a name="supported-operating-systems-for-clients"></a>Operativsystem som stöds för klienter
 
-Här är en lista över operativsystem som stöds för själva Datakopieringen via klienter som är anslutna till Data Box-enhet.
-
-| **Operativsystem** | **Versioner** | 
-| --- | --- | 
-| Windows Server |2008 R2 SP1 <br> 2012 <br> 2012 R2 <br> 2016 | 
-| Windows |7, 8, 10 | 
-|Linux    |         |
+[!INCLUDE [data-box-supported-os-clients](../../includes/data-box-supported-os-clients.md)]
 
 ### <a name="supported-file-systems-for-linux-clients"></a>Filsystem som stöds för Linux-klienter
 
-| **Protokoll** | **Versioner** | 
-| --- | --- | 
-| SMB |2.X och senare |
-| NFS | Alla versioner upp till och inklusive 4.1|
+[!INCLUDE [data-box-supported-file-systems-clients](../../includes/data-box-supported-file-systems-clients.md)]
 
 ### <a name="supported-storage-accounts"></a>Stöds storage-konton
 
-Här är en lista över lagringskontona som stöds och lagringstyper för Data Box-enhet. En fullständig lista över alla olika typer av lagringskonton och deras fullständiga funktioner Se [typer av lagringskonton](/azure/storage/common/storage-account-overview#types-of-storage-accounts).
-
-| **Storage-konto / stöds lagringstyper** | **Blockblob** |**Sidblob*** |**Azure Files** |**Anteckningar**|
-| --- | --- | -- | -- | -- |
-| Klassiska Standard | Y | Y | Y |
-| General-Purpose v1-Standard  | Y | Y | Y | Frekvent och lågfrekvent stöds.|
-| General-Purpose v1 Premium  |  | Y| | |
-| Gpv2 Standard  | Y | Y | Y | Frekvent och lågfrekvent stöds.|
-| Generell användning v2 Premium  |  |Y | | |
-| BLOB-lagring Standard |Y | | |Frekvent och lågfrekvent stöds. |
-
-\* *-Data som överförs till sidblobar måste vara 512 byte justerad, till exempel virtuella hårddiskar.*
-
->[!NOTE]
-> Azure Data Lake Storage Gen 2-konton stöds inte.
-
+[!INCLUDE [data-box-supported-storage-accounts](../../includes/data-box-supported-storage-accounts.md)]
 
 ### <a name="supported-storage-types"></a>Lagringstyper som stöds
 
-Här är en lista över typerna som stöds för Data Box-enhet.
-
-| **Filformat** | **Anteckningar** |
-| --- | --- |
-| Azure blockblob | |
-| Sida för Azure-blob  | Data ska vara 512 byte justerad.|
-| Azure Files | |
-
+[!INCLUDE [data-box-supported-storage-types](../../includes/data-box-supported-storage-types.md)]
 
 ### <a name="supported-web-browsers"></a>Webbläsare som stöds
 
-Här är en lista över webbläsare som stöds för det lokala webbgränssnittet.
-
-| **Webbläsare** | **Versioner** | **Ytterligare krav/anteckningar** |
-| --- | --- | --- |
-| Google Chrome |Senaste versionen |Testats med Chrome|
-| Microsoft Edge |Senaste versionen | |
-| FireFox | Senaste versionen | Testats med FireFox|
-| Internet Explorer |Senaste versionen |Om du inte logga in, kontrollerar du om cookies och Javascript är aktiverat. Lägg till IP-Adressen för enheten att om du vill aktivera åtkomst till Användargränssnittet **Sekretessåtgärder** så att enheten kan komma åt cookies. |
-
+[!INCLUDE [data-box-supported-web-browsers](../../includes/data-box-supported-web-browsers.md)]
 
 ## <a name="networking-requirements"></a>Nätverkskrav
 
 Datacentret måste ha höghastighetsnätverk. Vi rekommenderar starkt att du har en anslutning på minst 10 GbE. Om en 10 GbE-anslutning inte är tillgänglig användas en 1 GbE-datalänk för att kopiera data men kopian hastighet som påverkas.
 
-## <a name="next-step"></a>Nästa steg
+## <a name="next-steps"></a>Nästa steg
 
 * [Distribuera Azure Data Box](data-box-deploy-ordered.md)
-

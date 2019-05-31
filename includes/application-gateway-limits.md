@@ -4,14 +4,14 @@ ms.service: application-gateway
 ms.topic: include
 ms.date: 3/26/2019
 ms.author: victorh
-ms.openlocfilehash: e35f01cc5479a5d27d92c9ed74a12bc44db673cd
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 65ed28c967164be4d239cd4d59b6b36f06caeced
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65754064"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66238405"
 ---
-| Resource | Standard-/ maxgräns | OBS |
+| Resource | Standard-/ maxgräns | Obs! |
 | --- | --- | --- |
 | Azure Application Gateway |1 000 per prenumeration | |
 | Frontend IP-konfigurationer |2 |1 offentlig och 1 privat |
@@ -23,11 +23,12 @@ ms.locfileid: "65754064"
 | Backend-HTTP-inställningar |100<sup>1</sup> | |
 | Instanser per gateway |32 | |
 | SSL-certifikat |100<sup>1</sup> |1 per HTTP-lyssnare |
+| Maxstorlek för SSL-certifikat |V1-SKU - 10 KB<br>V2 SKU - 25 KB| |
 | Autentiseringscertifikat |100 | |
 | Betrodda rotcertifikat |100 | |
 | Minsta timeout för begäran |1 sekund | |
 | Högsta timeout för begäran |24 timmar | |
-| Antal webbplatser |100<sup>1</sup> |1 per HTTP-lyssnare |
+| Antal platser |100<sup>1</sup> |1 per HTTP-lyssnare |
 | URL-mappningar per lyssnare |1 | |
 | Maximal sökväg-baserade regler per URL: en karta|100||
 | Omdirigerings-konfigurationer |100<sup>1</sup>| |

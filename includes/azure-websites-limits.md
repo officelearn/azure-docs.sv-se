@@ -4,14 +4,14 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: c2db5740d6373c8f6be5dabe0260fe7f99575641
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ce64047fd7490106790ea8bb1ad7963d82a87c24
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57554277"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66238194"
 ---
-| Resurs | Kostnadsfri | Delad | Basic | Standard | Premium (v2) | Isolerad </th> |
+| Resource | Lediga | Delad | Basic | Standard | Premium (v2) | Isolerad </th> |
 | --- | --- | --- | --- | --- | --- | --- |
 | [Webb-, Mobil- eller API apps](https://azure.microsoft.com/services/app-service/) per [Azure App Service-plan](../articles/app-service/overview-hosting-plans.md)<sup>1</sup> |10 |100 |Obegränsade<sup>2</sup> |Obegränsade<sup>2</sup> |Obegränsade<sup>2</sup> |Obegränsade<sup>2</sup>|
 | [App Service-plan](../articles/app-service/overview-hosting-plans.md) |10 per region |10 per resursgrupp |100 per resursgrupp |100 per resursgrupp |100 per resursgrupp |100 per resursgrupp|
@@ -29,7 +29,7 @@ ms.locfileid: "57554277"
 | Anpassade domäner per app</a> |0 (endast azurewebsites.net underdomän)|500 |500 |500 |500 |500 |
 | Anpassad domän [SSL-stöd](../articles/app-service/app-service-web-tutorial-custom-ssl.md) |Stöds, inte jokerteckencertifikat för *. azurewebsites.net som är tillgängliga som standard|Stöds, inte jokerteckencertifikat för *. azurewebsites.net som är tillgängliga som standard|Obegränsade SNI SSL-anslutningar |Obegränsade SNI SSL och 1 IP SSL-anslutningar ingår |Obegränsade SNI SSL och 1 IP SSL-anslutningar ingår | Obegränsade SNI SSL och 1 IP SSL-anslutningar ingår|
 | Integrerad belastningsutjämnare | |X |X |X |X |X<sup>9</sup> |
-| [Alltid på](../articles/app-service/web-sites-configure.md) | | |X |X |X |X |
+| [Alltid på](../articles/app-service/configure-common.md) | | |X |X |X |X |
 | [Schemalagda säkerhetskopieringar](../articles/app-service/manage-backup.md) | | | | Schemalagda säkerhetskopieringar varannan timme, upp till 12 säkerhetskopieringar per dag (manuell + schemalagd) | Schemalagda säkerhetskopieringar varje timme, högst 50 säkerhetskopieringar per dag (manuell + schemalagd) | Schemalagda säkerhetskopieringar varje timme, högst 50 säkerhetskopieringar per dag (manuell + schemalagd) |
 | [Automatisk skalning](../articles/app-service/web-sites-scale.md) | | | |X |X |X |
 | [WebJobs](../articles/app-service/webjobs-create.md)<sup>8</sup> |X |X |X |X |X |X |

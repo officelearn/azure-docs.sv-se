@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/24/2019
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: f3ba08bc1d557d53bca2421b5052f496c740b185
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 4ff52e737438210296b8f2201d5e66e1d38b7bc9
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65969338"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418280"
 ---
 # <a name="monitor-the-process-server"></a>Övervaka processerver
 
@@ -54,14 +54,14 @@ Processervern genererar ett antal hälsovarningar sammanfattas i tabellen nedan.
 **Typ av avisering** | **Detaljer**
 --- | ---
 ![Felfri][green] | Processervern är ansluten och felfri.
-![Varning!][yellow] | CPU-användning > 80% för de senaste 15 minuterna
-![Varning!][yellow] | Minne användning > 80% för de senaste 15 minuterna
-![Varning!][yellow] | Cachemapp ledigt utrymme < 30% under de senaste 15 minuterna
-![Varning!][yellow] | Processervertjänsterna körs inte under de senaste 15 minuterna
-![Kritiska][red] | CPU-användning > 95% under de senaste 15 minuterna
-![Kritiska][red] | Minne användning > 95% under de senaste 15 minuterna
-![Kritiska][red] | Cachemapp ledigt utrymme < 25% under de senaste 15 minuterna
-![Kritiska][red] | Inget pulsslag från processervern under 15 minuter.
+![Varning][yellow] | CPU-användning > 80% för de senaste 15 minuterna
+![Varning][yellow] | Minne användning > 80% för de senaste 15 minuterna
+![Varning][yellow] | Cachemapp ledigt utrymme < 30% under de senaste 15 minuterna
+![Varning][yellow] | Processervertjänsterna körs inte under de senaste 15 minuterna
+![Kritiskt][red] | CPU-användning > 95% under de senaste 15 minuterna
+![Kritiskt][red] | Minne användning > 95% under de senaste 15 minuterna
+![Kritiskt][red] | Cachemapp ledigt utrymme < 25% under de senaste 15 minuterna
+![Kritiskt][red] | Inget pulsslag från processervern under 15 minuter.
 
 ![tabellnyckel](./media/vmware-physical-azure-monitor-process-server/table-key.png)
 

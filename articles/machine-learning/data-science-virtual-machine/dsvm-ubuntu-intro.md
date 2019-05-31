@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.openlocfilehash: d693af5ddd0b94734dfa065bef8a1f3a5de09ccc
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 5a9fdebc8db0c2a1acc20a894f80cfcc87fb89d5
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65597138"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236498"
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Etablera den virtuella datorn för datavetenskap för Linux (Ubuntu)
 
@@ -121,7 +121,7 @@ Du kan komma åt Ubuntu DSVM på tre sätt:
 1. X2Go för grafiska sessioner
 1. JupyterHub och JupyterLab för Jupyter-anteckningsböcker
 
-Du kan även bifoga en virtuell dator för datavetenskap i Azure-anteckningsböcker för att köra Jupyter-anteckningsböcker på den virtuella datorn och kringgå begränsningar av kostnadsfria tjänstnivån. Mer information finns i [hantera och konfigurera anteckningsböcker projekt - Beräkningsnivån](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
+Du kan även bifoga en virtuell dator för datavetenskap i Azure-anteckningsböcker för att köra Jupyter-anteckningsböcker på den virtuella datorn och kringgå begränsningar av kostnadsfria tjänstnivån. Mer information finns i [hantera och konfigurera anteckningsböcker projekt - Beräkningsnivån](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).
 
 ### <a name="ssh"></a>SSH
 
@@ -268,7 +268,7 @@ conda install <package> -n py35
 
 Om du är på ett grafiskt gränssnitt eller har X11 vidarebefordran set upp kan du skriva **pycharm** starta PyCharm Python IDE. Du kan använda standard-textredigerare. Du kan dessutom använda Spyder, en Python IDE som har paketerats med Anaconda Python-distributioner. Spyder måste en grafisk desktop eller X11 vidarebefordran. En genväg till Spyder tillhandahålls i grafiska desktop.
 
-### <a name="jupyter-notebook"></a>Jupyter-notebook-fil
+### <a name="jupyter-notebook"></a>Jupyter Notebook
 
 Anaconda distribution levereras också med en Jupyter-anteckningsbok, en miljö för att dela kod och analys. Jupyter-anteckningsboken sker via JupyterHub. Du loggar in med ditt lokala Linux-användarnamn och lösenord.
 

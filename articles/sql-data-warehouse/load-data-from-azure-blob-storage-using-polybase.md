@@ -10,12 +10,12 @@ ms.subservice: load data
 ms.date: 04/26/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: a8ca3b52d181578e6b35090489b7133a94b55cbd
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.openlocfilehash: ac0f8cb4d9069d2ef7ce48939ad2dd1c92732d1a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65852075"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242970"
 ---
 # <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>Självstudier: Läsa in New York-taxidata till Azure SQL Data Warehouse
 
@@ -583,14 +583,14 @@ Läser in med PolyBase och autentiserar med hjälp av hanterade identiteter är 
    > [!NOTE]
    > - Om du har ett allmänt v1- eller blob storage-konto, måste du **först uppgradera till v2** använder det här [guide](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
     
-1. Under ditt storage-konto går du till **åtkomstkontroll (IAM)**, och klicka på **Lägg till rolltilldelning**. Tilldela **Storage Blob Data-deltagare** RBAC-roll till SQL Database-servern.
+1. Under ditt storage-konto går du till **åtkomstkontroll (IAM)** , och klicka på **Lägg till rolltilldelning**. Tilldela **Storage Blob Data-deltagare** RBAC-roll till SQL Database-servern.
 
    > [!NOTE] 
    > Endast medlemmar med ägare behörighet kan utföra det här steget. För olika inbyggda roller för Azure-resurser, referera till denna [guide](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
   
 1. **Polybase-anslutningen till Azure Storage-kontot:**
     
-   1. Skapa din databasbegränsade autentiseringsuppgifter med **IDENTITY = ”hanterad tjänstidentitet'**:
+   1. Skapa din databasbegränsade autentiseringsuppgifter med **IDENTITY = ”hanterad tjänstidentitet'** :
 
        ```SQL
        CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
@@ -640,7 +640,7 @@ Du gjorde detta:
 > * Visade förloppet för data under inläsning
 > * Skapade statistik på nyligen inlästa data
 
-Gå till migreringsöversikten för att lära dig att migrera en befintlig databas till SQL Data Warehouse.
+Gå vidare till utvecklingsöversikt att lära dig hur du migrerar en befintlig databas till SQL Data Warehouse.
 
 > [!div class="nextstepaction"]
->[Lär dig att migrera en befintlig databas till SQL Data Warehouse](sql-data-warehouse-overview-migrate.md)
+>[Information om designbeslut för att migrera en befintlig databas till SQL Data Warehouse](sql-data-warehouse-overview-migrate.md)

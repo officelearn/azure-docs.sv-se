@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: bonova, sstein
 manager: craigg
 ms.date: 05/10/2019
-ms.openlocfilehash: 8a7f334984d92707e4afa7cd595197e4dea83f33
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 79cf4c713d60fa600bbb80b9c16728502ffc88ff
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546493"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236836"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Jämförelse av funktioner: Azure SQL Database jämfört med SQLServer
 
@@ -50,11 +50,11 @@ I följande tabell visas de viktigaste funktionerna i SQL Server och innehåller
 | [BACKUP-kommandot](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql) | Nej, endast systeminitierade automatiska säkerhetskopior – Se [automatiska säkerhetskopior](sql-database-automated-backups.md) | Ja, användarinitierad endast kopiering säkerhetskopieringar till Azure Blob Storage (inte går att initiera automatiska säkerhetskopior av användare) – Se [säkerhetskopiera skillnader](sql-database-managed-instance-transact-sql-information.md#backup) |
 | [Inbyggda funktioner](https://docs.microsoft.com/sql/t-sql/functions/functions) | De flesta – se enskilda funktioner | Ja – Se [lagrade procedurer, funktioner, utlöser skillnader](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-and-triggers) | 
 | [BULK INSERT-instruktion](https://docs.microsoft.com/sql/relational-databases/import-export/import-bulk-data-by-using-bulk-insert-or-openrowset-bulk-sql-server) | Ja, men bara från Azure Blob storage som en källa. | Ja, men bara från Azure Blob Storage som en källa – Se [skillnader](sql-database-managed-instance-transact-sql-information.md#bulk-insert--openrowset). |
-| [Certifikat och asymetric nycklar](https://docs.microsoft.com/sql/relational-databases/security/sql-server-certificates-and-asymmetric-keys) | Ja, utan åtkomst till filsystemet för `BACKUP` och `CREATE` åtgärder. | Ja, utan åtkomst till filsystemet för `BACKUP` och `CREATE` åtgärder - finns i [certifikat skillnader](sql-database-managed-instance-transact-sql-information.md#certificates). | 
+| [Certifikat och asymmetriska nycklar](https://docs.microsoft.com/sql/relational-databases/security/sql-server-certificates-and-asymmetric-keys) | Ja, utan åtkomst till filsystemet för `BACKUP` och `CREATE` åtgärder. | Ja, utan åtkomst till filsystemet för `BACKUP` och `CREATE` åtgärder - finns i [certifikat skillnader](sql-database-managed-instance-transact-sql-information.md#certificates). | 
 | [Sammanställning av ändringsdata](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-data-capture-sql-server) | Nej | Ja |
 | [Spårning av ändringar](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) | Ja |Ja |
 | [Sortering - databas](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-database-collation) | Ja | Ja |
-| [Sortering - server/instans](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation) | Nej, Standardsortering logicla server `SQL_Latin1_General_CP1_CI_AS` används alltid. | Ja, kan anges när den [instans skapas](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md) och kan inte uppdateras senare. |
+| [Sortering - server/instans](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation) | Nej, Standardsortering logisk server `SQL_Latin1_General_CP1_CI_AS` används alltid. | Ja, kan anges när den [instans skapas](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md) och kan inte uppdateras senare. |
 | [Columnstore-index](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) | Ja – [Premium-nivån, Standard-nivån – S3 och senare, nivån generell användning och affärskritisk nivåer](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) |Ja |
 | [CLR (CLR)](https://docs.microsoft.com/sql/relational-databases/clr-integration/common-language-runtime-clr-integration-programming-concepts) | Nej | Ja, men inte har tillgång till filsystemet i `CREATE ASSEMBLY` statement - Se [CLR-skillnader](sql-database-managed-instance-transact-sql-information.md#clr) |
 | [Inneslutna databaser](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) | Ja | För närvarande ingen [på grund av defekt återställning inklusive point-in-time-återställning](sql-database-managed-instance-transact-sql-information.md#cant-restore-contained-database). Det här är ett fel som kommer att åtgärdas snart. |
@@ -86,7 +86,7 @@ I följande tabell visas de viktigaste funktionerna i SQL Server och innehåller
 | [Uttryck](https://docs.microsoft.com/sql/t-sql/language-elements/expressions-transact-sql) |Ja | Ja |
 | [Utökade händelser](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events) | Vissa – Se [utökade händelser i SQL-databas](sql-database-xevent-db-diff-from-svr.md) | Ja – Se [utökade händelser skillnader](sql-database-managed-instance-transact-sql-information.md#extended-events) |
 | [Utökade lagrade procedurer](https://docs.microsoft.com/sql/relational-databases/extended-stored-procedures-programming/creating-extended-stored-procedures) | Nej | Nej |
-| [Filer och filgrupper](https://docs.microsoft.com/sql/relational-databases/databases/database-files-and-filegroups) | Endast primär filgrupp | Ja. Sökvägar kontaktentitet tilldelade och Filplatsen kan inte anges i `ALTER DATABASE ADD FILE` [instruktionen](sql-database-managed-instance-transact-sql-information.md#alter-database-statement).  |
+| [Filer och filgrupper](https://docs.microsoft.com/sql/relational-databases/databases/database-files-and-filegroups) | Endast primär filgrupp | Ja. Sökvägar tilldelas automatiskt och Filplatsen kan inte anges i `ALTER DATABASE ADD FILE` [instruktionen](sql-database-managed-instance-transact-sql-information.md#alter-database-statement).  |
 | [Filestream](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) | Nej | [Nej](sql-database-managed-instance-transact-sql-information.md#filestream-and-filetable) |
 | [Fulltextsökning](https://docs.microsoft.com/sql/relational-databases/search/full-text-search) |  Ja, men orddelare från tredje part stöds inte | Ja, men [orddelare från tredje part stöds inte](sql-database-managed-instance-transact-sql-information.md#full-text-semantic-search) |
 | [Funktioner](https://docs.microsoft.com/sql/t-sql/functions/functions) | De flesta – se enskilda funktioner | Ja – Se [lagrade procedurer, funktioner, utlöser skillnader](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-and-triggers) |
@@ -97,7 +97,7 @@ I följande tabell visas de viktigaste funktionerna i SQL Server och innehåller
 | [Språkelement](https://docs.microsoft.com/sql/t-sql/language-elements/language-elements-transact-sql) | De flesta – se enskilda element |  Ja – Se [T-SQL-skillnader](sql-database-managed-instance-transact-sql-information.md) |
 | [Länkade servrar](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | Nej, se [elastisk fråga](sql-database-elastic-query-horizontal-partitioning.md) | Endast [SQLServer och SQL-databas](sql-database-managed-instance-transact-sql-information.md#linked-servers) |
 | [Loggöverföring](https://docs.microsoft.com/sql/database-engine/log-shipping/about-log-shipping-sql-server) | [Hög tillgänglighet](sql-database-high-availability.md) ingår i varje databas. Katastrofåterställning diskuteras i [översikt över affärskontinuitet med Azure SQL Database](sql-database-business-continuity.md) |[Hög tillgänglighet](sql-database-high-availability.md) ingår i varje databas. Katastrofåterställning diskuteras i [översikt över affärskontinuitet med Azure SQL Database](sql-database-business-continuity.md) |
-| [Inloggningar och användare](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/principals-database-engine) | Ja, men `CREATE` och `ALTER` inloggning instruktioner erbjuder inte alla alternativ (inga Windows och på servernivå Azure Active Directory-inloggningar). `EXECUTE AS LOGIN` är inte supprted - Använd `EXECUTE AS USER` i stället.  | Ja, med några [skillnader](sql-database-managed-instance-transact-sql-information.md#logins-and-users). Windows-inloggningar stöds inte och de ska ersättas med Azure Active Directory-inloggningar. |
+| [Inloggningar och användare](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/principals-database-engine) | Ja, men `CREATE` och `ALTER` inloggning instruktioner erbjuder inte alla alternativ (inga Windows och på servernivå Azure Active Directory-inloggningar). `EXECUTE AS LOGIN` har inte stöd för – använda `EXECUTE AS USER` i stället.  | Ja, med några [skillnader](sql-database-managed-instance-transact-sql-information.md#logins-and-users). Windows-inloggningar stöds inte och de ska ersättas med Azure Active Directory-inloggningar. |
 | [Master Data Services (MDS)](https://docs.microsoft.com/sql/master-data-services/master-data-services-overview-mds) | Nej | Nej |
 | [Minimal loggning i massimport](https://docs.microsoft.com/sql/relational-databases/import-export/prerequisites-for-minimal-logging-in-bulk-import) | Nej | Nej |
 | [Ändra systemdata](https://docs.microsoft.com/sql/relational-databases/databases/system-databases) | Nej | Ja |
@@ -131,7 +131,7 @@ I följande tabell visas de viktigaste funktionerna i SQL Server och innehåller
 | [Rumslig](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-sql-server) | Ja | Ja |
 | [SQL Analytics](https://docs.microsoft.com/azure/azure-monitor/insights/azure-sql) | Ja | Ja |
 | [SQL Data Sync](sql-database-get-started-sql-data-sync.md) | Ja | Nej |
-| [SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) | Nej, se [elastiska jobb](sql-database-elastic-jobs-getting-started.md) | Ja – Se [SQL Server Agent-skillnader](sql-database-managed-instance-transact-sql-information.md#sql-server-agent) |
+| [SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) | Nej, se [elastiska jobb](elastic-jobs-overview.md) | Ja – Se [SQL Server Agent-skillnader](sql-database-managed-instance-transact-sql-information.md#sql-server-agent) |
 | [SQL Server Analysis Services (SSAS)](https://docs.microsoft.com/sql/analysis-services/analysis-services) | Nej, [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) är en separat Azure-molntjänst. | Nej, [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) är en separat Azure-molntjänst. |
 | [SQL Server-granskning](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | Nej, se [SQL Database-granskning](sql-database-auditing.md) | Ja – Se [granskning skillnader](sql-database-managed-instance-transact-sql-information.md#auditing) |
 | [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt) | Ja | Ja |
@@ -149,7 +149,7 @@ I följande tabell visas de viktigaste funktionerna i SQL Server och innehåller
 | [Temporary tables](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql#database-scoped-global-temporary-tables-azure-sql-database) (Temporära tabeller) | Lokal och databasbegränsade globala tillfälliga tabeller | Lokal och instans-omfattande globala tillfälliga tabeller |
 | [Temporala tabeller](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables) | [Ja](sql-database-temporal-tables.md) | [Ja](sql-database-temporal-tables.md) |
 | Val av tidszon | Nej | [Yes(Preview)](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone) |
-| Hotidentifiering|  [Ja](sql-database-threat-detection.md)|[Ja](sql-database-managed-instance-threat-detection.md)|
+| Identifiering av hot|  [Ja](sql-database-threat-detection.md)|[Ja](sql-database-managed-instance-threat-detection.md)|
 | [Spårningsflaggor](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql) | Nej | Nej |
 | [Variabler](https://docs.microsoft.com/sql/t-sql/language-elements/variables-transact-sql) | Ja | Ja |
 | [Transparent datakryptering (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) | Ja – generell användning och affärskritisk tjänstnivåer endast| [Ja](transparent-data-encryption-azure-sql.md) |

@@ -16,12 +16,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1d8c8fcf84cd008957fcdb7cd14c4a07d9f3643
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 59af4e20c7fe838f7c725b47e45968941fa85cb7
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074912"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66254058"
 ---
 # <a name="protected-web-api---app-registration"></a>Skyddade webb-API - appregistrering
 
@@ -33,13 +33,13 @@ Gå till [Snabbstart: Registrera ett program med Microsoft identity-plattformen]
 
 Microsoft identity-plattformen endpoint kan utfärda två typer av token: token v1.0 och v2.0-token. Du kan läsa mer om dessa token i [åtkomsttoken](access-tokens.md). Godkänd token version beror på den **stöds kontotyper** du angav när du skapade ditt program:
 
-- Om värdet för **stöds kontotyper** är **konton alla organisationskatalog och personliga Microsoft-konton (t.ex. Skype, Xbox, Outlook.com)**, godkänd token version kommer att v2.0.
-- Annars blir godkänd token version v2.0.
+- Om värdet för **stöds kontotyper** är **konton alla organisationskatalog och personliga Microsoft-konton (t.ex. Skype, Xbox, Outlook.com)** , godkänd token version kommer att v2.0.
+- Annars blir godkänd token version v1.0.
 
 När du har skapat programmet kan ändra du godkänd token version genom att följa dessa steg:
 
 1. Välj din app i Azure-portalen och välj sedan den **Manifest** för din app.
-2. I manifestet, söker du efter **”accessTokenAcceptedVersion”**, och se dess värde är **2**. Den här egenskapen kan Azure AD som vet att webb-API accepterar v2.0-token. Om det är **null**, godkänd token version kommer att v1.0.
+2. I manifestet, söker du efter **”accessTokenAcceptedVersion”** , och se dess värde är **2**. Den här egenskapen kan Azure AD som vet att webb-API accepterar v2.0-token. Om det är **null**, godkänd token version kommer att v1.0.
 3. Välj **Spara**.
 
 > [!NOTE]

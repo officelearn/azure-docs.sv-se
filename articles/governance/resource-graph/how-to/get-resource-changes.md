@@ -8,12 +8,12 @@ ms.date: 05/10/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 4e28ca15197f89caeaeaca0aabb648755b8235f1
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: b6ef57a3f39c82be30d92aef72c1bbe03b653768
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65551545"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236514"
 ---
 # <a name="get-resource-changes"></a>Hämta resursändringar
 
@@ -29,7 +29,7 @@ Identifiering av ändring av och information är värdefull för följande exemp
 - Att hålla en Konfigurationshanteringsdatabas kallas en CMDB uppdaterad. I stället för att uppdatera alla resurser och deras fullständiga egenskapsuppsättningar enligt en frekvens som är schemalagd att bara hämta vad som ändrats.
 - Förstå vilka andra egenskaper kan ändras när en resurs ändras kompatibilitetsstatus. Utvärdering av dessa ytterligare egenskaper kan ge insikter om andra egenskaper som kan behöva hanteras via en Azure Policy definition.
 
-Den här artikeln visar hur du samlar in uppgifterna via Resource Graph SDK. Den här informationen i Azure-portalen finns i Azure Policy [ändringshistorik](../../policy/how-to/determine-non-compliance.md#change-history-preview) eller Azure-aktivitetsloggen [ändringshistorik](../../../azure-monitor/platform/activity-logs-overview.md#view-change-history).
+Den här artikeln visar hur du samlar in uppgifterna via Resource Graph SDK. Den här informationen i Azure-portalen finns i Azure Policy [ändringshistorik](../../policy/how-to/determine-non-compliance.md#change-history-preview) eller Azure-aktivitetsloggen [ändringshistorik](../../../azure-monitor/platform/activity-log-view.md#azure-portal).
 
 > [!NOTE]
 > Information om ändringar i resurs-diagrammet är för Resource Manager-egenskaper. Spåra ändringar i en virtuell dator finns i Azure Automation [ändringsspårning](../../../automation/automation-change-tracking.md) eller Azure Policy [gäst-konfigurationen för virtuella datorer](../../policy/concepts/guest-configuration.md).
@@ -44,7 +44,7 @@ Det första steget i att se vad som ändrats på en resurs är att hitta ändrin
 Den **resourceChanges** slutpunkten kräver två parametrar i begärandetexten:
 
 - **resourceId**: Azure-resursen ska sökas efter ändringar.
-- **Intervall**: En egenskap med _starta_ och _slutet_ datum för när du ska söka efter en ändring händelse med hjälp av den **Zulu tidszon (Z)**.
+- **Intervall**: En egenskap med _starta_ och _slutet_ datum för när du ska söka efter en ändring händelse med hjälp av den **Zulu tidszon (Z)** .
 
 Exempel-begärandetexten:
 

@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 14f76a716447e09299cfa18d6758245706c7b481
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bbb67845922dd9a3b2a78f76bf25d73bace98a82
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60556550"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240123"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Distribuera och utforska en multitenant SaaS-app som använder mönstret databas-per-klient med SQL Database
 
@@ -75,7 +75,7 @@ Välj ditt namn nu och Skriv ned dem.
 
 1. Om du vill övervaka Distributionsstatus, Välj **meddelanden** (klockikonen till höger om sökrutan). Distribuera Wingtip biljetter SaaS-appen tar cirka fem minuter.
 
-   ![Distribueringen lyckades](media/saas-dbpertenant-get-started-deploy/succeeded.png)
+   ![Distributionen lyckades](media/saas-dbpertenant-get-started-deploy/succeeded.png)
 
 ## <a name="download-and-unblock-the-wingtip-tickets-management-scripts"></a>Ladda ned och avblockera management Wingtip biljettskripten
 
@@ -129,8 +129,8 @@ Wingtip-programmet använder [*Azure Traffic Manager* ](../traffic-manager/traf
 
     | URL-del        | Beskrivning       |
     | :-------------- | :---------------- |
-    | http://events.wingtip-dpt | Händelser som delar av Wingtip-app.<br /><br /> *-dpt* särskiljer den *databas-per-klient* implementeringen av Wingtip biljetter från andra implementeringar. Exempel är den *enda* app-per-klient (*-sa*) eller *multitenant databasen* (*- mt*) implementeringar. |
-    | .*&lt;user&gt;* | *af1* i det här exemplet. |
+    | http://events.wingtip-dpt | Händelser som delar av Wingtip-app.<br /><br /> *-dpt* särskiljer den *databas-per-klient* implementeringen av Wingtip biljetter från andra implementeringar. Exempel är den *enda* app-per-klient ( *-sa*) eller *multitenant databasen* ( *- mt*) implementeringar. |
+    | . *&lt;user&gt;* | *af1* i det här exemplet. |
     | .trafficmanager.net/ | Traffic Manager, bas-URL. |
     | fabrikamjazzclub | Identifierar de klient med namnet Fabrikam Jazzklubb. |
     | &nbsp; | &nbsp; |
@@ -182,7 +182,7 @@ Om du vill kontrollera och övervaka bakgrundsjobb använder du följande cmdlet
     - Som standard körs bakgrundsjobb i 120 minuter.
     - Varje jobb gör att en processorbaserad belastning på en klientdatabas genom att köra *sp_CpuLoadGenerator*. Intensiteten och varaktighet för belastningen varierar beroende på `$DemoScenario`.
     - *sp_CpuLoadGenerator* slingor runt en SQL SELECT-instruktion som orsakar en hög CPU-belastning. Tidsintervallet mellan problem i väljer varierar beroende på parametervärden som ska skapa en kontrolleras CPU-belastning. Belastningsnivåer och intervall väljs slumpvis för att simulera mer realistisk belastning.
-    - Den här SQL-filen lagras under *WingtipTenantDB\\dbo\\StoredProcedures\\*.
+    - Den här SQL-filen lagras under *WingtipTenantDB\\dbo\\StoredProcedures\\* .
 
 4. Om `$OneTime = $false`, belastningsgeneratorn startar bakgrundsjobb och sedan fortsätter att köras. Var tionde sekund som den övervakar för alla nya klienter som har etablerats. Om du ställer in `$OneTime = $true`, LoadGenerator startar bakgrundsjobb och sedan slutar att köras i förgrunden. Den här självstudien lämna `$OneTime = $false`.
 
@@ -221,14 +221,14 @@ Uppdatera Evenemangshubben för att göra den nya klienten som visas i listan.
 
 Nu när du har börjat köra en belastning mot klientsamlingen, nu ska vi titta på några av de resurser som har distribuerats.
 
-1. I den [Azure-portalen](https://portal.azure.com), bläddra till din lista över SQL-servrar. Öppna sedan den **catalog-dpt -&lt;användaren&gt;** server.
+1. I den [Azure-portalen](https://portal.azure.com), bläddra till din lista över SQL-servrar. Öppna sedan den **catalog-dpt -&lt;användaren&gt;**  server.
     - Katalogservern innehåller två databaser **tenantcatalog** och **basetenantdb** (en mall för databas som kopieras för att skapa nya klienter).
 
    ![Databaser](./media/saas-dbpertenant-get-started-deploy/databases.png)
 
 2. Gå tillbaka till din lista över SQL-servrar.
 
-3. Öppna den **tenants1-dpt -&lt;användaren&gt;** server som innehåller klientdatabaserna.
+3. Öppna den **tenants1-dpt -&lt;användaren&gt;**  server som innehåller klientdatabaserna.
 
 4. Se följande objekt:
 
@@ -241,7 +241,7 @@ Nu när du har börjat köra en belastning mot klientsamlingen, nu ska vi titta 
 
 Efter *LoadGenerator.ps1* körs i flera minuter, borde tillräckliga data finnas tillgänglig för att börja titta på vissa övervakningsfunktionerna. De här funktionerna är inbyggda i pooler och databaser.
 
-Bläddra till servern **tenants1-dpt -&lt;användaren&gt;**, och välj **Pool1** att visa resursanvändningen för poolen. I följande diagram körde belastningsgeneratorn under en timme.
+Bläddra till servern **tenants1-dpt -&lt;användaren&gt;** , och välj **Pool1** att visa resursanvändningen för poolen. I följande diagram körde belastningsgeneratorn under en timme.
 
    ![Övervaka poolen](./media/saas-dbpertenant-get-started-deploy/monitor-pool.png)
 
@@ -254,7 +254,7 @@ De två diagrammen visar att elastiska pooler och SQL-databas är utmärkt för 
 
 - Mer information finns i ytterligare [självstudier som bygger på databas-per-klient-programmet Wingtip biljetter SaaS](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).
 - Läs om elastiska pooler i [vad är en Azure SQL-elastisk pool?](sql-database-elastic-pool.md).
-- Läs om elastiska jobb i [hantera utskalade molndatabaser](sql-database-elastic-jobs-overview.md).
+- Läs om elastiska jobb i [hantera utskalade molndatabaser](elastic-jobs-overview.md).
 - Läs mer om SaaS-program för flera innehavare, i [designmönster för SaaS-program för flera innehavare](saas-tenancy-app-design-patterns.md).
 
 ## <a name="next-steps"></a>Nästa steg

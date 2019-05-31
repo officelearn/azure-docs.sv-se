@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: 5eb2ba509983918a55370ae0deafd019e03f53d8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7a52d05c77d0aeb8ebeba196df60e59f0647fea9
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60740292"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66233924"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Azure Database for MariaDB prisnivåer
 
@@ -51,19 +51,25 @@ Lagring som du etablerar är mängden lagringskapacitet som är tillgängliga f�
 | Öka lagringsstorleken | 1 GB | 1 GB | 1 GB |
 | IOPS | Variabel |3 IOPS/GB<br/>Min 100 IOPS<br/>Maximalt antal 6000 IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Maximalt antal 6000 IOPS |
 
-Du kan lägga till ytterligare lagringskapacitet under och efter skapandet av servern. Basic-nivån ger inte en garanti för IOPS. I generell användning och Minnesoptimerad prisnivåer, skala IOPS med den allokerade lagringsstorleken i ett 3:1-förhållande.
+Du kan lägga till ytterligare lagringskapacitet under och efter skapandet av servern och att systemet kan utöka lagringen automatiskt baserat på arbetsbelastningens lagringsanvändningen. Basic-nivån ger inte en garanti för IOPS. I generell användning och Minnesoptimerad prisnivåer, skala IOPS med den allokerade lagringsstorleken i ett 3:1-förhållande.
 
 Du kan övervaka dina i/o-användningen i Azure portal eller med hjälp av Azure CLI-kommandon. De mått som är relevanta för att övervaka är [gränsen för lagring, lagringsprocent, lagringsutrymme och IO-procent](concepts-monitoring.md).
 
 ### <a name="reaching-the-storage-limit"></a>Når gränsen för lagring
 
-Servern markeras som skrivskyddad när mängden ledigt utrymme är mindre än 5 GB eller 5 % av lagringen, beroende på vilket som är minst. Exempel: Om du har etablerat 100 GB lagringsutrymme och den faktiska användningen går över 95 GB, servern är skrivskyddad. Eller om du har etablerat 5 GB lagringsutrymme blir servern markerad som skrivskyddad om det lediga utrymmet understiger 250 MB.  
+Servrar med färre än 100 GB etablerad lagring är skrivskyddad om det lediga lagringsutrymmet som är mindre än 512MB eller 5% av den allokerade lagringsstorleken. Servrar med mer än 100 GB etablerad lagring markeras Läs endast när det lediga lagringsutrymmet som är mindre än 5 GB.
+
+Exempel: Om du har etablerat 110 GB lagringsutrymme och den faktiska användningen går över 105 GB, servern är skrivskyddad. Du kan också om du har etablerat 5 GB lagringsutrymme, är servern skrivskyddad när det lediga lagringsutrymmet som når mindre än 512 MB.
 
 När tjänsten försöker göra så att servern blir skrivskyddad blockeras alla nya skrivtransaktionsbegäranden och befintliga aktiva transaktioner fortsätter att köras. När servern är i skrivskyddat läge misslyckas alla efterföljande skrivåtgärder och transaktioner. Läsfrågor fortsätter att fungera utan avbrott. När du har ökat lagringen är servern redo att acceptera skrivtransaktioner igen.
 
-Vi rekommenderar att du ställer in en avisering som meddelar dig när tröskelvärdet närmar sig din serverlagring för att undvika hämta till skrivskyddat läge. 
+Vi rekommenderar att du aktiverar storage auto-väx eller ställa in en avisering som meddelar dig när ditt serverutrymme närmar sig tröskelvärdet så du kan undvika skrivskyddat läge. Mer information finns i dokumentationen på [hur du ställer in en avisering](howto-alert-metric.md).
 
-Mer information finns i dokumentationen på [hur du ställer in en avisering](howto-alert-metric.md).
+### <a name="storage-auto-grow"></a>Storage auto-Väx
+
+Om lagring auto väx är aktiverad, lagringen som automatiskt är växer utan att påverka arbetsbelastningen. För servrar med färre än 100 GB etablerad lagring ökar den allokerade lagringsstorleken med 5 GB när det lediga lagringsutrymmet som understiger det större av 1 GB eller 10% av allokerat lagringsutrymme. För servrar med fler än 100 GB allokerat lagringsutrymme ökar den allokerade lagringsstorleken med 5% när det lediga utrymmet är mindre än 5% av den allokerade lagringsstorleken. Maximal lagringsgräns som anges ovan gäller.
+
+Exempel: Om du har etablerat 1 000 GB lagringsutrymme och den faktiska användningen går över 950 GB, serverstorlek ökas till 1050 GB. Du kan också om du har etablerat 10 GB lagringsutrymme är lagringsstorleken ökning på 15 GB när mindre än 1 GB lagringsutrymme är kostnadsfri.
 
 ## <a name="backup"></a>Backup
 

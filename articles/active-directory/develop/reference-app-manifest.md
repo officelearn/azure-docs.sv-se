@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d02642b0c069124ddcfbef1ea655438c906739a
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: d369891624256e98ba8d46168cc9c10c41d37b8d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545656"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235225"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Azure Active Directory-appmanifestet
 
@@ -50,7 +50,7 @@ Konfigurera applikationsmanifestet:
 
 | Nyckel  | Värdetyp | Beskrivning  | Exempelvärde |
 |---------|---------|---------|---------|
-| `accessTokenAcceptedVersion` | Kan ha värdet null Int32 | Anger vilken åtkomst-token version som förväntas av resursen. Detta ändrar versionen och formatet för JWT produceras oberoende av slutpunkten eller klienten för att begära åtkomst-token.<br/><br/>Den slutpunkt som används, v1.0 eller v2.0, väljs av klienten och påverkar endast versionen av id_tokens. Resurser måste du uttryckligen konfigurera `accesstokenAcceptedVersion` att ange formatet stöds åtkomst-token.<br/><br/>Möjliga värden för `accesstokenAcceptedVersion` är 1, 2 eller null. Om värdet är null, standard detta 1, vilket motsvarar v1.0-slutpunkten. | `2` |
+| `accessTokenAcceptedVersion` | Kan ha värdet null Int32 | Anger vilken åtkomst-token version som förväntas av resursen. Detta ändrar versionen och formatet för JWT produceras oberoende av slutpunkten eller klienten för att begära åtkomst-token.<br/><br/>Den slutpunkt som används, v1.0 eller v2.0, väljs av klienten och påverkar endast versionen av id_tokens. Resurser måste du uttryckligen konfigurera `accesstokenAcceptedVersion` att ange formatet stöds åtkomst-token.<br/><br/>Möjliga värden för `accesstokenAcceptedVersion` är 1, 2 eller null. Om värdet är null, standard detta 1, vilket motsvarar v1.0-slutpunkten. <br/><br/>Om `signInAudience` är `AzureADandPersonalMicrosoftAccount`, värdet måste vara `2`  | `2` |
 | `addIns` | Samling | Definierar egna funktionssätt konsumerande tjänsten kan använda för att anropa en app i specifika sammanhang. Program som kan återge filen strömmar kan exempelvis ange egenskapen tilläggsprogram för dess ”FileHandler”-funktioner. Detta gör att tjänster som Office 365 anropa programmet i kontexten för ett dokument som du arbetar på. | <code>{<br>&nbsp;&nbsp;&nbsp;"id":"968A844F-7A47-430C-9163-07AE7C31D407"<br>&nbsp;&nbsp;&nbsp;"type": "FileHandler",<br>&nbsp;&nbsp;&nbsp;"properties": [<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"key": "version", "value": "2" }<br>&nbsp;&nbsp;&nbsp;]<br>}</code>|
 | `allowPublicClient` | Boolean | Anger vilken typ av återställning program. Azure AD härleder programtypen från replyUrlsWithType som standard. Det finns vissa scenarier där Azure AD inte kan fastställa typen av app klienten (t.ex. [ROPC](https://tools.ietf.org/html/rfc6749#section-4.3) flöde där HTTP-begäran sker utan en URL-omdirigering). I sådana fall tolkar Azure AD programtypen baserat på värdet för den här egenskapen. Om det här värdet anges till true återställningsplats programtypen har angetts som offentlig klient, till exempel en installerad app som körs på en mobil enhet. Standardvärdet är false, vilket innebär att återställningsplats programtypen är konfidentiell klient, till exempel webbapp. | `false` |
 | `availableToOtherTenants` | Boolean | SANT om programmet delas med andra klienter; Annars, FALSKT. <br><br> _Obs! Detta är endast tillgänglig i App-registreringar (äldre)-upplevelse. Ersättas med `signInAudience` i den [appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) upplevelse._ | |
@@ -59,7 +59,7 @@ Konfigurera applikationsmanifestet:
 | `displayName` | String | Visningsnamn för appen. <br><br> _Obs! Detta är endast tillgänglig i App-registreringar (äldre)-upplevelse. Ersättas med `name` i den [appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) upplevelse._ | `"MyRegisteredApp"` |
 | `errorUrl` | String | som inte stöds. | |
 | `groupMembershipClaims` | String | Konfigurerar den `groups` anspråk som utfärdats i en användare eller OAuth 2.0-åtkomsttoken som förväntar sig att appen. Använd någon av följande giltiga strängvärden för att ställa in det här attributet:<br/><br/>- `"None"`<br/>- `"SecurityGroup"` (för säkerhetsgrupper och Azure AD-roller)<br/>- `"All"` (detta får alla säkerhetsgrupper, distributionsgrupper och Azure AD-katalogroller som den inloggade användaren är medlem i. | `"SecurityGroup"` |
-| `homepage` | String | URL:en till programmets hemsida. <br><br> _Obs! Detta är endast tillgänglig i App-registreringar (äldre)-upplevelse. Ersättas med `signInUrl` i den [appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) upplevelse._ | `"https://MyRegisteredApp"` |
+| `homepage` | String | URL till programmets hemsida. <br><br> _Obs! Detta är endast tillgänglig i App-registreringar (äldre)-upplevelse. Ersättas med `signInUrl` i den [appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) upplevelse._ | `"https://MyRegisteredApp"` |
 | `objectId` | String | Den unika identifieraren för appen i katalogen. <br><br> _Obs! Detta är endast tillgänglig i App-registreringar (äldre)-upplevelse. Ersättas med `id` i den [appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) upplevelse._ | `"f7f9acfc-ae0c-4d6c-b489-0a81dc1652dd"` |
 | `optionalClaims` | String | De valfria anspråk som returneras i token av säkerhetstokentjänsten för den här specifika appen.<br>Appar som stöder både personliga konton och Azure AD (registrerad via portalen för registrering av appen) kan inte använda valfria anspråk för tillfället. Appar som är registrerade för bara Azure AD med v2.0-slutpunkten får valfria anspråk som begärts i manifestet. Mer information finns i [valfria anspråk](active-directory-optional-claims.md). | `null` |
 | `id` | String | Den unika identifieraren för appen i katalogen. Detta ID är inte den identifierare som används för att identifiera appen i alla protokoll-transaktioner. Den används för refererar till objektet i directory-frågor. | `"f7f9acfc-ae0c-4d6c-b489-0a81dc1652dd"` |
@@ -119,7 +119,7 @@ När du försöker ladda upp ett tidigare nedladdat manifest, visas något av f�
 - ”**Det gick inte att uppdatera xxxxxx program. Felinformation: En eller flera egenskapsvärden som angetts är ogiltiga. [].** "
 - ”**Det gick inte att uppdatera xxxxxx program. Felinformation: Inte tillåtet för att ange availableToOtherTenants i den här api-version för uppdateringen. [].** "
 - ”**Det gick inte att uppdatera xxxxxx program. Felinformation: Uppdateringar ”svarsurl: er”-egenskapen är inte tillåtet för det här programmet. Använd egenskapen 'replyUrlsWithType' i stället. [].** "
-- ”**Det gick inte att uppdatera xxxxxx program. Felinformation: Ett värde utan ett typnamn har hittats och inga förväntad typ är tillgängliga. När modellen har angetts måste alla värden i nyttolasten har en typ som kan vara antingen angetts i nyttolasten, uttryckligen av anroparen eller implicit härleds från överordnat värde. []**"
+- ”**Det gick inte att uppdatera xxxxxx program. Felinformation: Ett värde utan ett typnamn har hittats och inga förväntad typ är tillgängliga. När modellen har angetts måste alla värden i nyttolasten har en typ som kan vara antingen angetts i nyttolasten, uttryckligen av anroparen eller implicit härleds från överordnat värde. []** "
 
 När du ser något av dessa fel, rekommenderar vi följande:
 

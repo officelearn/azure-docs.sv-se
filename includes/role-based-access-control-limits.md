@@ -5,17 +5,18 @@ services: active-directory
 author: rolyon
 ms.service: role-based-access-control
 ms.topic: include
-ms.date: 05/22/2018
+ms.date: 05/13/2019
 ms.author: rolyon
 ms.custom: include file
-ms.openlocfilehash: e58778e60eff93847e55126f3c42733cec1afdaf
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: f8576c8486fb25d645eaf67448d2d7e0b9f5071f
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553992"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66238700"
 ---
-| Resurs | Gräns |
+| Resource | Gräns |
 | --- | --- |
 | [Rolltilldelningar för Azure-resurser per Azure-prenumeration](../articles/role-based-access-control/overview.md) | 2,000 |
-| [Anpassade roller för Azure-resurser per klient](../articles/role-based-access-control/custom-roles.md) | 2,000 |
+| [Anpassade roller för Azure-resurser per klient](../articles/role-based-access-control/custom-roles.md) | 5,000 |
+| [Anpassade roller för Azure-resurser per klient](../articles/role-based-access-control/custom-roles.md)<br/>(specialiserade moln, till exempel Azure Government, Azure Tyskland och Azure Kina 21Vianet) | 2,000 |

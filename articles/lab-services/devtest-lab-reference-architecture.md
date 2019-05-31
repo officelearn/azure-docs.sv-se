@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 04/12/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 73a3d426e9040525b0c631db273e59c49a6a9eb0
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1bfd1b5b4b7febd98499e338fcb62e339867aef4
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64705878"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244722"
 ---
 # <a name="azure-devtest-labs-reference-architecture-for-enterprises"></a>Azure DevTest Labs-Referensarkitektur för företag
 Den här artikeln innehåller Referensarkitektur för att hjälpa dig att distribuera en lösning baserad på Azure DevTest Labs i ett företag. Det omfattar följande:
@@ -32,9 +32,9 @@ Den här artikeln innehåller Referensarkitektur för att hjälpa dig att distri
 ## <a name="architecture"></a>Arkitektur
 Det här är de viktigaste elementen i referensarkitekturen:
 
-- **Azure Active Directory (Azure AD)**: DevTest Labs använder den [Azure AD-tjänsten för Identitetshantering](../active-directory/fundamentals/active-directory-whatis.md). Överväg att dessa två viktiga aspekter när du ger användare åtkomst till en miljö, baserat på DevTest Labs:
+- **Azure Active Directory (Azure AD)** : DevTest Labs använder den [Azure AD-tjänsten för Identitetshantering](../active-directory/fundamentals/active-directory-whatis.md). Överväg att dessa två viktiga aspekter när du ger användare åtkomst till en miljö, baserat på DevTest Labs:
     - **Resurshantering**: Det ger åtkomst till Azure portal för att hantera resurser (skapa virtuella datorer, skapa miljöer; starta, stoppa, starta om, ta bort, och tillämpa artefakter; och så vidare). Resurshantering görs i Azure med hjälp av rollbaserad åtkomstkontroll (RBAC). Du tilldela roller till användare och ange resurs- och åtkomst-behörighet.
-    - **Virtuella datorer (på nätverksnivå)**: I standardkonfigurationen, virtuella datorer för att använda ett lokalt administratörskonto. Om det finns en domän ([Azure AD Domain Services](../active-directory-domain-services/active-directory-ds-overview.md), en lokal domän eller en molnbaserad domän), datorer kan kopplas till domänen. Användarna kan sedan använda domänbaserade identiteter för att ansluta till de virtuella datorerna.
+    - **Virtuella datorer (på nätverksnivå)** : I standardkonfigurationen, virtuella datorer för att använda ett lokalt administratörskonto. Om det finns en domän ([Azure AD Domain Services](../active-directory-domain-services/overview.md), en lokal domän eller en molnbaserad domän), datorer kan kopplas till domänen. Användarna kan sedan använda domänbaserade identiteter för att ansluta till de virtuella datorerna.
 - **Lokal anslutning**: I vår arkitekturdiagrammet [ExpressRoute](../expressroute/expressroute-introduction.md) används. Men du kan också använda en [plats-till-plats VPN](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md). Även om ExpressRoute krävs inte för DevTest Labs, används den ofta i företag. ExpressRoute krävs endast om du behöver åtkomst till företagets resurser. Vanliga scenarier är:
     - Du har lokala data som inte kan flyttas till molnet.
     - Du föredrar att ansluta virtuella labbdatorer till den lokala domänen.
@@ -43,15 +43,15 @@ Det här är de viktigaste elementen i referensarkitekturen:
 - **Fjärrskrivbordsgateway**: Företag vanligtvis blockera utgående anslutningar till fjärrskrivbord på företagets brandvägg. Det finns flera alternativ för att aktivera anslutningar till molnbaserade miljön i DevTest Labs, inklusive:
   - Använd en [fjärrskrivbordsgateway](/windows-server/remote/remote-desktop-services/desktop-hosting-logical-architecture), och godkända statiska IP-adressen för gatewayen belastningsutjämnare.
   - [Dirigera alla inkommande RDP-trafik](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) via ExpressRoute/plats-till-plats-VPN-anslutningen. Den här funktionen är en vanliga överväganden när företag planera en distribution för DevTest Labs.
-- **Nätverkstjänster (virtuella nätverk, undernät)**: Den [Azure-nätverk](../networking/networking-overview.md) topologin är en annan nyckelfaktor i DevTest Labs-arkitekturen. Den kontrollerar om resurser från labbet kan kommunicera och få åtkomst till lokala och internet. Vår arkitekturdiagrammet innehåller de vanligaste sätten som kunder använder Labb: Alla labs ansluta via [virtuell nätverkspeering](../virtual-network/virtual-network-peering-overview.md) med hjälp av en [modell av typen hub-spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) på ExpressRoute/plats-till-plats VPN-anslutning till lokalt. Men DevTest Labs använder Azure Virtual Network direkt, så det finns inga begränsningar för hur du ställer in nätverksinfrastrukturen.
+- **Nätverkstjänster (virtuella nätverk, undernät)** : Den [Azure-nätverk](../networking/networking-overview.md) topologin är en annan nyckelfaktor i DevTest Labs-arkitekturen. Den kontrollerar om resurser från labbet kan kommunicera och få åtkomst till lokala och internet. Vår arkitekturdiagrammet innehåller de vanligaste sätten som kunder använder Labb: Alla labs ansluta via [virtuell nätverkspeering](../virtual-network/virtual-network-peering-overview.md) med hjälp av en [modell av typen hub-spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) på ExpressRoute/plats-till-plats VPN-anslutning till lokalt. Men DevTest Labs använder Azure Virtual Network direkt, så det finns inga begränsningar för hur du ställer in nätverksinfrastrukturen.
 - **DevTest Labs**:  DevTest Labs är en viktig del av den övergripande arkitekturen. Mer information om tjänsten finns [om DevTest Labs](devtest-lab-overview.md).
-- **Virtuella datorer och andra resurser (SaaS, PaaS, IaaS)**:  Virtuella datorer är en viktig arbetsbelastning som har stöd för DevTest Labs tillsammans med andra Azure-resurser. DevTest Labs gör det enkelt och snabbt för företaget att ge åtkomst till Azure-resurser (inklusive virtuella datorer och andra Azure-resurser). Mer information om åtkomst till Azure för [utvecklare](devtest-lab-developer-lab.md) och [Testare](devtest-lab-test-env.md).
+- **Virtuella datorer och andra resurser (SaaS, PaaS, IaaS)** :  Virtuella datorer är en viktig arbetsbelastning som har stöd för DevTest Labs tillsammans med andra Azure-resurser. DevTest Labs gör det enkelt och snabbt för företaget att ge åtkomst till Azure-resurser (inklusive virtuella datorer och andra Azure-resurser). Mer information om åtkomst till Azure för [utvecklare](devtest-lab-developer-lab.md) och [Testare](devtest-lab-test-env.md).
 
 ## <a name="scalability-considerations"></a>Skalbarhetsöverväganden
 Även om DevTest Labs saknar inbyggd kvoter eller begränsningar kan andra Azure-resurser som används i ett labb normala funktion har [prenumerationsnivå kvoter](../azure-subscription-service-limits.md). I en typisk företags-distribution måste därför flera Azure-prenumerationer som täcker en stor distribution för DevTest Labs. Kvoter som företag når oftast är:
 
 - **Resursgrupper**: I standardkonfigurationen DevTest Labs skapas en resursgrupp för alla nya virtuella datorn eller användaren skapar en miljö med hjälp av tjänsten. Prenumerationer kan innehålla [upp till 980 resursgrupper](../azure-subscription-service-limits.md#subscription-limits---azure-resource-manager). Det är gränsen på virtuella datorer och miljöer i en prenumeration. Det finns två andra konfigurationer som du bör tänka på:
-    - **[Alla virtuella datorer går du till samma resursgrupp](resource-group-control.md)**: Även om den här konfigurationen hjälper dig att uppfylla gränsen för gruppen, påverkar resurs-typ-per-resource-group-gränsen.
+    - **[Alla virtuella datorer går du till samma resursgrupp](resource-group-control.md)** : Även om den här konfigurationen hjälper dig att uppfylla gränsen för gruppen, påverkar resurs-typ-per-resource-group-gränsen.
     - **Med hjälp av delade offentliga IP-adresser**: Alla virtuella datorer av samma storlek och region går du till samma resursgrupp. Den här konfigurationen är en ”mellanting” mellan gruppen resurskvoter och resurs-typ-per-resource-group-kvoter, om de virtuella datorerna kan ha offentliga IP-adresser.
 - **Resurser per resurs Gruppera efter resurstyp**: Standardgränsen för [resurser per resursgrupp per resurstypen är 800](../azure-subscription-service-limits.md#resource-group-limits).  När du använder den *alla virtuella datorer går du till samma resursgrupp* konfiguration, användare trycker på den här prenumerationen begränsa mycket snabbare, särskilt om de virtuella datorerna har många extra diskar.
 - **Storage-konton**: Ett labb i DevTest Labs levereras med ett storage-konto. Azure-kvoten för [antalet storage-konton per region per prenumeration är 250](../azure-subscription-service-limits.md#storage-limits). Det maximala antalet DevTest Labs i samma region är också 250.

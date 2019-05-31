@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/14/2019
 ms.author: iainfou
-ms.openlocfilehash: de0ba13a527569e446a44c275b7323d4487f53b6
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.openlocfilehash: 4c2dad687d31597954b023dde9d1b9d69788fe04
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65780302"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241407"
 ---
 # <a name="preview---limit-egress-traffic-for-cluster-nodes-and-control-access-to-required-ports-and-services-in-azure-kubernetes-service-aks"></a>Preview - gränsen för utgående trafik för klusternoder och kontrollera åtkomst till nödvändiga portar och tjänster i Azure Kubernetes Service (AKS)
 
@@ -21,9 +21,10 @@ Som standard har AKS-kluster obegränsad åtkomst till internet utgående (utgå
 Den här artikeln beskriver vilka nätverksportar och fullständigt kvalificerade domännamn (FQDN) är obligatoriska och valfria om du begränsar utgående trafik i ett AKS-kluster.  Den här funktionen är för närvarande en förhandsversion.
 
 > [!IMPORTANT]
-> AKS-förhandsversionsfunktioner är självbetjäning och delta i. Förhandsversioner tillhandahålls för att samla in feedback och buggar från vår community. De stöds dock inte av teknisk support för Azure. Om du skapar ett kluster eller lägga till dessa funktioner i befintliga kluster, stöds klustret inte förrän funktionen är inte längre i förhandsversion och uppgraderas till allmän tillgänglighet (GA).
+> AKS-förhandsversionsfunktioner är självbetjäning, delta i. De tillhandahålls för att samla in feedback och buggar från vår community. I förhandsversionen kan är inte dessa funktioner avsedda för användning i produktion. Funktioner i offentliga förhandsversioner omfattas ”bästa prestanda” support. Hjälp från teamen för AKS-teknisk support är tillgänglig under kontorstid Pacific tidszon (Stillahavstid) endast. Mer information finns i följande supportartiklar:
 >
-> Om du stöter på problem med funktioner i förhandsversion [öppna ett ärende på AKS GitHub-lagringsplatsen] [ aks-github] med namnet på funktionen för förhandsgranskning i rubriken för bugg.
+> * [AKS supportprinciper][aks-support-policies]
+> * [Vanliga frågor om Azure-Support][aks-faq]
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -68,11 +69,11 @@ Det finns två uppsättningar med portar och adresser i AKS:
 Följande utgående portar / Nätverksregler krävs för ett AKS-kluster:
 
 * TCP-port *443*
-* TCP-port *9000*
+* TCP-port *9000* för tunnel främre poden att kommunicera med tunnel slutet på API-servern.
 
 Följande FQDN / regler för program som krävs:
 
-| FQDN                      | Port      | Använda      |
+| FQDN                      | Port      | Användning      |
 |---------------------------|-----------|----------|
 | *.azmk8s.io               | HTTPS:443 | Den här adressen är slutpunkten för API-server. |
 | aksrepos.azurecr.io       | HTTPS:443 | Den här adressen krävs för åtkomst-avbildningar i Azure Container Registry (ACR). |
@@ -90,7 +91,7 @@ Följande utgående portar / Nätverksregler inte behövs för AKS-kluster ska f
 
 Följande FQDN / programregler rekommenderas för AKS-kluster ska fungera korrekt:
 
-| FQDN                                    | Port      | Använda      |
+| FQDN                                    | Port      | Användning      |
 |-----------------------------------------|-----------|----------|
 | *.ubuntu.com                            | HTTP:80   | Den här adressen kan noderna i Linux ladda ned nödvändiga säkerhetsuppdateringar och uppdateringar. |
 | packages.microsoft.com                  | HTTPS:443 | Den här adressen är Microsoft-paket-databasen som används för cachelagrade *apt-get* åtgärder. |
@@ -105,9 +106,6 @@ Följande FQDN / programregler rekommenderas för AKS-kluster ska fungera korrek
 
 I den här artikeln beskrivs vilka portar och adresser så att om du begränsar utgående trafik för klustret. Du kan också definiera hur poddarna själva kan kommunicera och vilka begränsningar som finns inom klustret. Mer information finns i [skydda trafik mellan poddar med nätverksprinciper i AKS][network-policy].
 
-<!-- LINKS - external -->
-[aks-github]: https://github.com/azure/aks/issues]
-
 <!-- LINKS - internal -->
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
@@ -118,3 +116,5 @@ I den här artikeln beskrivs vilka portar och adresser så att om du begränsar 
 [az-feature-list]: /cli/azure/feature#az-feature-list
 [az-provider-register]: /cli/azure/provider#az-provider-register
 [aks-upgrade]: upgrade-cluster.md
+[aks-support-policies]: support-policies.md
+[aks-faq]: faq.md

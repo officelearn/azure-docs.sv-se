@@ -8,15 +8,15 @@ ms.topic: reference
 ms.date: 1/16/2019
 ms.author: dukek
 ms.subservice: logs
-ms.openlocfilehash: 93e74eb6aefbaeeddf7c4f15d62f4a9ee3d617d4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ba5e0f696f54f46fb14086b542dc3b2e64155975
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60777397"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244939"
 ---
 # <a name="azure-activity-log-event-schema"></a>Azure Händelseschema för aktivitetslogg
-Den **Azure-aktivitetsloggen** är en logg som ger insikt i alla händelser på prenumerationsnivå som har inträffat i Azure. Den här artikeln beskriver Händelseschema per kategori av data. Schemat för data skiljer sig beroende på om du läser data i portalen, PowerShell, CLI, eller direkt via REST API jämfört med [strömmande data till lagring eller Event Hubs med en Loggprofil](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile). Exemplen nedan visar schemat som gjorts tillgängliga via portalen, PowerShell, CLI och REST API. En mappning av dessa egenskaper så att den [Azure diagnostisk loggar schemat](./diagnostic-logs-schema.md) tillhandahålls i slutet av artikeln.
+Den **Azure-aktivitetsloggen** är en logg som ger insikt i alla händelser på prenumerationsnivå som har inträffat i Azure. Den här artikeln beskriver Händelseschema per kategori av data. Schemat för data skiljer sig beroende på om du läser data i portalen, PowerShell, CLI, eller direkt via REST API jämfört med [strömmande data till lagring eller Event Hubs med en Loggprofil](activity-log-export.md). Exemplen nedan visar schemat som gjorts tillgängliga via portalen, PowerShell, CLI och REST API. En mappning av dessa egenskaper så att den [Azure diagnostisk loggar schemat](diagnostic-logs-schema.md) tillhandahålls i slutet av artikeln.
 
 ## <a name="administrative"></a>Administrativ
 Den här kategorin innehåller en post för alla skapa, uppdatera och ta bort åtgärden åtgärder som utförs via Resource Manager. Exempel på typer av händelser som visas i den här kategorin är ”Skapa virtuell dator” och ”ta bort nätverkssäkerhetsgruppen” varje åtgärd som en användare eller program med hjälp av Resource Manager är utformat som en åtgärd på en viss resurstyp. Om åtgärdstypen är skriva, ta bort eller åtgärden, registreras poster i start- och lyckas eller misslyckas av åtgärden i den administrativa kategorin. Den administrativa kategorin omfattar även ändringar av rollbaserad åtkomstkontroll i en prenumeration.
@@ -113,7 +113,7 @@ Den här kategorin innehåller en post för alla skapa, uppdatera och ta bort å
 | Elementnamn | Beskrivning |
 | --- | --- |
 | Auktorisering |BLOB för RBAC egenskaper för händelsen. Vanligtvis inkluderar egenskaper för ”action”, ”roll” och ”omfång”. |
-| uppringare |E-postadress för den användare som har utfört den åtgärden eller UPN-anspråket SPN-anspråk baserat på tillgänglighet. |
+| Anroparen |E-postadress för den användare som har utfört den åtgärden eller UPN-anspråket SPN-anspråk baserat på tillgänglighet. |
 | kanaler |En av följande värden: ”Admin”, ”åtgärden” |
 | anspråk |Detta JWT-token som används av Active Directory för att autentisera användaren eller programmet för den här åtgärden i Resource Manager. |
 | correlationId |Vanligtvis ett GUID i formatet för strängen. Händelser som delar en correlationId tillhöra samma uber åtgärd. |
@@ -216,7 +216,7 @@ Den här kategorin innehåller en post för eventuella resource health-händelse
         "localizedValue": "Resource Health"
     },
     "eventTimestamp": "2018-09-04T15:33:43.65Z",
-    "id": "/subscriptions/<subscription Id>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>/events/a80024e1-883d-42a5-8b01-7591a1befccb/ticks/636716720236500000",
+    "id": "/subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>/events/a80024e1-883d-42a5-8b01-7591a1befccb/ticks/636716720236500000",
     "level": "Critical",
     "operationId": "",
     "operationName": {
@@ -232,7 +232,7 @@ Den här kategorin innehåller en post för eventuella resource health-händelse
         "value": "Microsoft.Compute/virtualMachines",
         "localizedValue": "Microsoft.Compute/virtualMachines"
     },
-    "resourceId": "/subscriptions/<subscription Id>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>",
+    "resourceId": "/subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>",
     "status": {
         "value": "Active",
         "localizedValue": "Active"
@@ -242,7 +242,7 @@ Den här kategorin innehåller en post för eventuella resource health-händelse
         "localizedValue": ""
     },
     "submissionTimestamp": "2018-09-04T15:36:24.2240867Z",
-    "subscriptionId": "<subscription Id>",
+    "subscriptionId": "<subscription ID>",
     "properties": {
         "stage": "Active",
         "title": "Virtual Machine health status changed to unavailable",
@@ -275,7 +275,7 @@ Den här kategorin innehåller en post för eventuella resource health-händelse
 | status |Sträng som anger status för hälsohändelsen. Värdena kan vara: Aktiv, löst, pågår, uppdateras. |
 | subStatus | Vanligtvis null för aviseringar. |
 | submissionTimestamp |Tidsstämpel när händelsen blev tillgängliga för frågor. |
-| subscriptionId |Azure-prenumerations-Id. |
+| subscriptionId |Azure-prenumerations-ID. |
 | properties |Uppsättning `<Key, Value>` par (det vill säga en ordlista) som beskriver informationen om händelsen.|
 | Properties.title | Ett användarvänligt sträng som beskriver resursen hälsostatus. |
 | Properties.details | Ett användarvänligt sträng som innehåller ytterligare information om händelsen. |
@@ -352,7 +352,7 @@ Den här kategorin innehåller en post för alla Azure-aviseringar-aktiveringar.
 ### <a name="property-descriptions"></a>Egenskapsbeskrivningar
 | Elementnamn | Beskrivning |
 | --- | --- |
-| uppringare | Alltid Microsoft.Insights/alertRules |
+| Anroparen | Alltid Microsoft.Insights/alertRules |
 | kanaler | Alltid ”Admin, åtgärd” |
 | anspråk | JSON-blob med den SPN (service principal name) eller resursen typ av avisering motorn. |
 | correlationId | Ett GUID i formatet för strängen. |
@@ -462,7 +462,7 @@ Den här kategorin innehåller en post för alla händelser relaterade till drif
 ### <a name="property-descriptions"></a>Egenskapsbeskrivningar
 | Elementnamn | Beskrivning |
 | --- | --- |
-| uppringare | Always Microsoft.Insights/autoscaleSettings |
+| Anroparen | Always Microsoft.Insights/autoscaleSettings |
 | kanaler | Alltid ”Admin, åtgärd” |
 | anspråk | JSON-blob med typen SPN (service principal name) eller resurs av motorn för automatisk skalning. |
 | correlationId | Ett GUID i formatet för strängen. |
@@ -744,7 +744,7 @@ Den här kategorin innehåller poster för alla gälla åtgärd åtgärder som u
 | Elementnamn | Beskrivning |
 | --- | --- |
 | Auktorisering | Matris med RBAC-egenskaperna för händelsen. Det här är åtgärden och omfånget för begäran som utlöste utvärdering för nya resurser. Åtgärden är ”Microsoft.Resources/checkPolicyCompliance/read” för befintliga resurser. |
-| uppringare | För nya resurser, den identitet som initierade en distribution. För befintliga resurser, GUID för Microsoft Azure Policy Insights RP. |
+| Anroparen | För nya resurser, den identitet som initierade en distribution. För befintliga resurser, GUID för Microsoft Azure Policy Insights RP. |
 | kanaler | Principhändelser använda ”åtgärden” kanalen. |
 | anspråk | Detta JWT-token som används av Active Directory för att autentisera användaren eller programmet för den här åtgärden i Resource Manager. |
 | correlationId | Vanligtvis ett GUID i formatet för strängen. Händelser som delar en correlationId tillhöra samma uber åtgärd. |
@@ -798,6 +798,6 @@ Vid direktuppspelning av Azure-aktivitetsloggen till ett lagringskonto eller Eve
 
 
 ## <a name="next-steps"></a>Nästa steg
-* [Läs mer om aktivitetsloggen (tidigare granskningsloggar)](../../azure-monitor/platform/activity-logs-overview.md)
-* [Stream Azure-aktivitetsloggen till Event Hubs](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)
+* [Läs mer om aktivitetsloggen](activity-logs-overview.md)
+* [Exportera aktivitetsloggen till Azure Storage eller Event Hubs](activity-log-export.md)
 

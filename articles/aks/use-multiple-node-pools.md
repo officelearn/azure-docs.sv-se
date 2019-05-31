@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/17/2019
 ms.author: iainfou
-ms.openlocfilehash: 4086b73313d563afaecad9b6a9289905d7085004
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 4af2e97e8ace432c37a770f1930514dd19e30944
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66142644"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235760"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Förhandsversion – skapa och hantera flera nodpooler för ett kluster i Azure Kubernetes Service (AKS)
 
@@ -21,9 +21,10 @@ I Azure Kubernetes Service (AKS) noder i samma konfiguration grupperas tillsamma
 Den här artikeln visar hur du skapar och hanterar flera nodpooler i ett AKS-kluster. Den här funktionen är för närvarande en förhandsversion.
 
 > [!IMPORTANT]
-> AKS-förhandsversionsfunktioner är självbetjäning och delta i. Förhandsversioner tillhandahålls för att samla in feedback och buggar från vår community. De stöds dock inte av teknisk support för Azure. Om du skapar ett kluster eller lägga till dessa funktioner i befintliga kluster, stöds klustret inte förrän funktionen är inte längre i förhandsversion och uppgraderas till allmän tillgänglighet (GA).
+> AKS-förhandsversionsfunktioner är självbetjäning, delta i. De tillhandahålls för att samla in feedback och buggar från vår community. I förhandsversionen kan är inte dessa funktioner avsedda för användning i produktion. Funktioner i offentliga förhandsversioner omfattas ”bästa prestanda” support. Hjälp från teamen för AKS-teknisk support är tillgänglig under kontorstid Pacific tidszon (Stillahavstid) endast. Mer information finns i följande supportartiklar:
 >
-> Om du stöter på problem med funktioner i förhandsversion [öppna ett ärende på AKS GitHub-lagringsplatsen] [ aks-github] med namnet på funktionen för förhandsgranskning i rubriken för bugg.
+> * [AKS supportprinciper][aks-support-policies]
+> * [Vanliga frågor om Azure-Support][aks-faq]
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -72,6 +73,7 @@ Följande begränsningar gäller när du skapar och hanterar AKS-kluster som har
 * Flera nodpooler är bara tillgängliga för kluster som skapas när du har registrerat den *MultiAgentpoolPreview* och *VMSSPreview* funktioner för din prenumeration. Du kan inte lägga till eller hantera nodpooler med ett AKS-kluster som skapats innan dessa funktioner som har registrerats.
 * Du kan inte ta bort den första nod-adresspoolen.
 * Tillägg till routning för HTTP-program kan inte användas.
+* Det går inte att lägga till/Uppdatera/ta bort noden pooler med hjälp av en befintlig Resource Manager-mall som med de flesta åtgärder. I stället [använder en separat Resource Manager-mall](#manage-node-pools-using-a-resource-manager-template) att göra ändringar i nodpooler i ett AKS-kluster.
 
 Den här funktionen är i förhandsversion, begränsningar gäller följande ytterligare:
 
@@ -328,6 +330,95 @@ Events:
 
 Poddar som har den här färg som används kan schemaläggas på noder i *gpunodepool*. Andra pod skulle schemaläggas i den *nodepool1* nodpool. Om du skapar ytterligare nodpooler, du kan använda ytterligare taints och tolerations att begränsa vilka poddar kan schemaläggas på resurserna noden.
 
+## <a name="manage-node-pools-using-a-resource-manager-template"></a>Hantera nodpooler med en Resource Manager-mall
+
+När du använder en Azure Resource Manager-mall för att skapa och hanterade resurser, kan du vanligtvis uppdatera inställningarna i din mall och distribuera om för att uppdatera resursen. Med nodepools i AKS kan inte inledande nodepool profilen uppdateras när AKS-klustret har skapats. Detta innebär att du inte kan uppdatera en befintlig Resource Manager-mall, gör en ändring i nodpooler och distribuera om. I stället måste du skapa en separat Resource Manager-mall som uppdaterar endast agentpooler för ett befintligt AKS-kluster.
+
+Skapa en mall som `aks-agentpools.json` och klistra in följande exempel manifestet. Den här exempelmall konfigurerar följande inställningar:
+
+* Uppdateringar i *Linux* agentpoolen med namnet *myagentpool* att köra tre noder.
+* Anger noderna i nodpoolen för att köra Kubernetes-version *1.12.8*.
+* Definierar nodstorlek som *Standard_DS2_v2*.
+
+Redigera dessa värden måste uppdatera, lägger till eller ta bort noden pooler efter behov:
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "clusterName": {
+      "type": "string",
+      "metadata": {
+        "description": "The name of your existing AKS cluster."
+      }
+    },
+    "location": {
+      "type": "string",
+      "metadata": {
+        "description": "The location of your existing AKS cluster."
+      }
+    },
+    "agentPoolName": {
+      "type": "string",
+      "defaultValue": "myagentpool",
+      "metadata": {
+        "description": "The name of the agent pool to create or update."
+      }
+    },
+    "vnetSubnetId": {
+      "type": "string",
+      "defaultValue": "",
+      "metadata": {
+        "description": "The Vnet subnet resource ID for your existing AKS cluster."
+      }
+    }
+  },
+  "variables": {
+    "apiVersion": {
+      "aks": "2019-04-01"
+    },
+    "agentPoolProfiles": {
+      "maxPods": 30,
+      "osDiskSizeGB": 0,
+      "agentCount": 3,
+      "agentVmSize": "Standard_DS2_v2",
+      "osType": "Linux",
+      "vnetSubnetId": "[parameters('vnetSubnetId')]"
+    }
+  },
+  "resources": [
+    {
+      "apiVersion": "2019-04-01",
+      "type": "Microsoft.ContainerService/managedClusters/agentPools",
+      "name": "[concat(parameters('clusterName'),'/', parameters('agentPoolName'))]",
+      "location": "[parameters('location')]",
+      "properties": {
+            "maxPods": "[variables('agentPoolProfiles').maxPods]",
+            "osDiskSizeGB": "[variables('agentPoolProfiles').osDiskSizeGB]",
+            "count": "[variables('agentPoolProfiles').agentCount]",
+            "vmSize": "[variables('agentPoolProfiles').agentVmSize]",
+            "osType": "[variables('agentPoolProfiles').osType]",
+            "storageProfile": "ManagedDisks",
+      "type": "VirtualMachineScaleSets",
+            "vnetSubnetID": "[variables('agentPoolProfiles').vnetSubnetId]",
+            "orchestratorVersion": "1.12.8"
+      }
+    }
+  ]
+}
+```
+
+Distribuera den här mallen med hjälp av den [az group deployment skapa] [ az-group-deployment-create] kommandot, som visas i följande exempel. Du uppmanas för befintliga AKS-klusternamnet och plats:
+
+```azurecli-interactive
+az group deployment create \
+    --resource-group myResourceGroup \
+    --template-file aks-agentpools.json
+```
+
+Det kan ta några minuter att uppdatera AKS-klustret beroende på noden poolinställningar och åtgärder som du definierar i Resource Manager-mallen.
+
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 I den här artikeln skapade du ett AKS-kluster med GPU-baserad noder. För att minska onödiga kostnader, kanske du vill ta bort den *gpunodepool*, eller hela AKS-klustret.
@@ -351,7 +442,6 @@ I den här artikeln beskrivs hur du skapar och hanterar flera nodpooler i ett AK
 Om du vill skapa och använda nodpooler för Windows Server-behållare, se [skapa en Windows Server-behållare i AKS][aks-windows].
 
 <!-- EXTERNAL LINKS -->
-[aks-github]: https://github.com/azure/aks/issues
 [kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-taint]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#taint
@@ -379,3 +469,6 @@ Om du vill skapa och använda nodpooler för Windows Server-behållare, se [skap
 [supported-versions]: supported-kubernetes-versions.md
 [operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
 [aks-windows]: windows-container-cli.md
+[az-group-deployment-create]: /cli/azure/group/deployment#az-group-deployment-create
+[aks-support-policies]: support-policies.md
+[aks-faq]: faq.md

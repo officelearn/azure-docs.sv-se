@@ -3,7 +3,7 @@ title: Binda med säkert LDAP (LDAPS) till en hanterad Azure AD Domain Services-
 description: Binda till en Azure AD Domain Services-hanterad domän med hjälp av säker LDAP (LDAPS)
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 ms.assetid: 6871374a-0300-4275-9a45-a39a52c65ae4
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/01/2018
-ms.author: ergreenl
-ms.openlocfilehash: 62776408675acba1ee8a57252c794e5a1c840155
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/20/2019
+ms.author: mstephen
+ms.openlocfilehash: 47c9553b4191fe6dbae8d92d75dfae83f191a063
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60417051"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234858"
 ---
 # <a name="bind-to-an-azure-ad-domain-services-managed-domain-using-secure-ldap-ldaps"></a>Binda till en Azure AD Domain Services-hanterad domän med hjälp av säker LDAP (LDAPS)
 
@@ -64,13 +64,13 @@ Exemplet NSG i följande tabell låser åtkomst med säkert LDAP via internet. R
 
 
 ## <a name="related-content"></a>Relaterat innehåll
-* [Azure AD Domain Services – komma igång-guiden](active-directory-ds-getting-started.md)
-* [Administrera en Azure AD Domain Services-hanterad domän](active-directory-ds-admin-guide-administer-domain.md)
+* [Azure AD Domain Services – komma igång-guiden](create-instance.md)
+* [Hantera en Azure AD Domain Services-domän](manage-domain.md)
 * [Grunderna i LDAP-fråga](https://technet.microsoft.com/library/aa996205.aspx)
-* [Administrera Grupprincip i en Azure AD Domain Services-hanterad domän](active-directory-ds-admin-guide-administer-group-policy.md)
+* [Hantera en grupprincip för Azure AD Domain Services](manage-group-policy.md)
 * [Nätverkssäkerhetsgrupper](../virtual-network/security-overview.md)
 * [Skapa en Nätverkssäkerhetsgrupp](../virtual-network/tutorial-filter-network-traffic.md)
 
 
 ## <a name="next-step"></a>Nästa steg
-[Felsöka säker LDAP på en hanterad domän](active-directory-ds-ldaps-troubleshoot.md)
+[Felsöka säker LDAP på en hanterad domän](tshoot-ldaps.md)

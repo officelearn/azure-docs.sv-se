@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/17/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: fb829cc5f1eef9c151a70a6479e419076e1c3b24
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 5123ee3f65744f3d0c255712efe990b01be58e26
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66170326"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66420786"
 ---
 Lagring optimerad VM-storlekar ger högt diskgenomflöde och I/O och är perfekt för Stordata, SQL, NoSQL-databaser, informationslagerhantering och stora transaktionsdatabaser.  Exempel är Cassandra, MongoDB, Cloudera och Redis. Den här artikeln innehåller information om hur många virtuella processorer, diskar och nätverkskort samt lokal lagring dataflöde och nätverket bandbredden för varje optimerad storlek.
 
@@ -35,13 +35,13 @@ Premium-lagring: Stöds
 
 Premium Storage cachelagring: Stöds inte
 
-| Storlek          | vCPU | Minne (GiB) | Temporär disk<sup>1</sup> (GiB) | NVMe Disks<sup>2</sup> | NVMe diskdataflöde<sup>3</sup> (Läs IOPS / Mbit/s) | Maximalt icke cachelagrat diskgenomflöde (IOPs/Mbit/s)<sup>4</sup> | Maximalt antal Datadiskar | Maximalt antal nätverkskort / förväntade nätverksbandbredd (Mbit/s) |
+| Storlek          | Virtuell processor | Minne (GiB) | Temporär disk<sup>1</sup> (GiB) | NVMe Disks<sup>2</sup> | NVMe diskdataflöde<sup>3</sup> (Läs IOPS / Mbit/s) | Maximalt icke cachelagrat diskgenomflöde (IOPs/Mbit/s)<sup>4</sup> | Maximalt antal Datadiskar | Maximalt antal nätverkskort / förväntade nätverksbandbredd (Mbit/s) |
 |---------------|-----------|-------------|--------------------------|----------------|---------------------------------------------------|-------------------------------------------|------------------------------|------------------------------| 
-| Standard_L8s_v2   |  8 |  64 |  80 |  1x1.92 TB  | 400,000 / 2,000 | 8,000/160 | 16 | 2 / 3,200  | 
-| Standard_L16s_v2  | 16 | 128 | 160 |  2x1.92 TB  | 800,000 / 4,000 | 16,000/320 | 32 | 4 / 6,400  | 
-| Standard_L32s_v2  | 32 | 256 | 320 |  4x1.92 TB  | 1,5 MILJONER / 8 000    | 32,000/640 | 32 | 8 / 12,800 | 
-| Standard_L64s_v2  | 64 | 512 | 640 |  8x1.92 TB  | 2.9 M / 16 000   | 64,000/1,280 | 32 | 8 / 16,600+ |
-| Standard_L80s_v2  | 80 | 640 | 800 | 10x1.92TB   | 3.8 M / 20 000   | 80,000/1,400 | 32 | 8 / 16,000+ |
+| Standard_L8s_v2   |  8 |  64 |  80 |  1x1.92 TB  | 400000 / 2000 | 8000/160 | 16 | 2 / 3200  |
+| Standard_L16s_v2  | 16 | 128 | 160 |  2x1.92 TB  | 800000 / 4000 | 16000/320 | 32 | 4 / 6400  |
+| Standard_L32s_v2  | 32 | 256 | 320 |  4x1.92 TB  | 1,5 MILJONER / 8000    | 32000/640 | 32 | 8 / 12800 |
+| Standard_L64s_v2  | 64 | 512 | 640 |  8x1.92 TB  | 2.9 M / 16000   | 64000/1280 | 32 | 8 / 16000+ |
+| Standard_L80s_v2<sup>5</sup> | 80 | 640 | 800 | 10x1.92TB   | 3.8 M / 20000   | 80000/1400 | 32 | 8 / 16000+ |
 
 <sup>1</sup> Lsv2-serien virtuella datorer har standard SCSI-baserat temp resursdisk för OS sidindelning/swap-fil (D: på Windows, /dev/sdb på Linux). Den här disken innehåller 80 GiB lagringsutrymme, 4 000 IOPS och 80 Mbit/s överföringshastighet för varje 8 virtuella processorer (t.ex. Standard_L80s_v2 ger 800 GiB på 40 000 IOPS och 800 Mbit/s). Detta säkerställer att NVMe-enheter kan vara helt reserverad för användningen av. Den här disken är tillfälliga och alla data på Stoppa/Frigör förlorade.
 
@@ -50,6 +50,18 @@ Premium Storage cachelagring: Stöds inte
 <sup>3</sup> Hyper-V NVMe Direct-teknik ger obegränsad åtkomst till lokala NVMe-enheter på ett säkert sätt mappas till gäst VM utrymme.  För att uppnå maximal prestanda krävs med den senaste versionen av WS2019 eller Ubuntu 18.04 eller 16.04 från Azure Marketplace.  Skrivprestanda varierar beroende på i/o-storlek, enhet belastning och kapacitetsanvändning.
 
 <sup>4</sup> Lsv2-serien virtuella datorer innehåller värden för datadisk som inte nytta av Lsv2-arbetsbelastningar.  Lsv2 virtuella datorer kan dock innehålla alternativet Azures tillfälliga VM OS-disk (upp till 30 GiB).
+
+<sup>5</sup> virtuella datorer med fler än 64 virtuella processorer kräver något av dessa operativsystem för gästoperativsystem som stöds:
+- Windows Server 2016 eller senare
+- Ubuntu 16.04 LTS eller senare, med Azure justerade kernel (4.15 kernel eller senare)
+- SLES 12 SP2 eller senare
+- RHEL eller CentOS version 6.7 till och 6.10 med Microsoft tillhandahåller LIS paketet 4.3.1 (eller senare) installerat
+- RHEL eller CentOS version 7.3, med paketet Microsoft tillhandahåller LIS 4.2.1 (eller senare) installerat
+- RHEL eller CentOS version 7.4 eller senare
+- Oracle Linux med UEK4 eller senare
+- Debian 9 med backportar-kerneln, Debian 10 eller senare
+- CoreOS med en 4.14 kernel eller senare
+
 
 ## <a name="size-table-definitions"></a>Definitioner för storlekstabellen
 

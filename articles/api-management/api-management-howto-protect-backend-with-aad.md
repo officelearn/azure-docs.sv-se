@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2018
+ms.date: 05/21/2019
 ms.author: apimpm
-ms.openlocfilehash: b5467711f06380ca61b4a9d5150b66c3f945c08c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 73dd46d1ca0a20748d7a3a7838c499f0c659253d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65141080"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241681"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Skydda ett API med hjälp av OAuth 2.0 med Azure Active Directory och API Management
 
@@ -44,17 +44,19 @@ Här är en snabb översikt över stegen:
 
 Det första steget är att registrera ett program i Azure AD som representerar API: et för att skydda ett API med Azure AD. 
 
-1. Bläddra till din Azure AD-klient och bläddra sedan till **appregistreringar (äldre)**.
+1. Navigera till den [Azure portal – appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) sidan. 
 
-2. Välj **Ny programregistrering**. 
+2. Välj **ny registrering**. 
 
-3. Ange ett namn för programmet. (I det här exemplet heter `backend-app`.)  
+1. När sidan **Registrera ett program** visas anger du programmets registreringsinformation: 
+    - I avsnittet **Namn** anger du ett beskrivande programnamn som ska visas för appens användare, till exempel `backend-app`. 
+    - I den **stöds kontotyper** väljer **konton i alla organisationskatalog**. 
 
-4. Välj **webbapp / API** som den **programtyp**. 
+1. Lämna den **omdirigerings-URI** avsnittet tomt för tillfället.
 
-5. För **inloggnings-URL**, du kan använda `https://localhost` som platshållare.
+1. Välj **Registrera** för att skapa programmet. 
 
-6. Välj **Skapa**.
+1. I appen **översikt** sidan, hitta den **(klient)-ID: T** värde och spara den till senare.
 
 När programmet har skapats, notera den **program-ID**, för användning i ett senare skede. 
 
@@ -62,23 +64,25 @@ När programmet har skapats, notera den **program-ID**, för användning i ett s
 
 Alla klientprogram som anropar API: et måste registreras som ett program i Azure AD. I det här exemplet är klienten exempelprogrammet Utvecklarkonsolen i developer-portalen för API Management. Här är att registrera ett annat program i Azure AD för att representera Developer-konsolen.
 
-1. När den är i **appregistreringar (äldre)** väljer **ny programregistrering**. 
+1. Navigera till den [Azure portal – appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) sidan. 
 
-2. Ange ett namn för programmet. (I det här exemplet heter `client-app`.)
+1. Välj **ny registrering**.
 
-3. Välj **webbapp / API** som den **programtyp**.  
+1. När sidan **Registrera ett program** visas anger du programmets registreringsinformation: 
+    - I avsnittet **Namn** anger du ett beskrivande programnamn som ska visas för appens användare, till exempel `client-app`. 
+    - I den **stöds kontotyper** väljer **konton i alla organisationskatalog**. 
 
-4. För **inloggnings-URL**, du kan använda `https://localhost` som platshållare, eller Använd inloggningen URL: en för din API Management-instans. (Det här exemplet är URL: en `https://contoso5.portal.azure-api.net/signin`.)
+1. I den **omdirigerings-URI** väljer `Web` och ange URL: en `https://contoso5.portal.azure-api.net/signin`
 
-5. Välj **Skapa**.
+1. Välj **Registrera** för att skapa programmet. 
 
-När programmet har skapats, notera den **program-ID**, för användning i ett senare skede. 
+1. I appen **översikt** sidan, hitta den **(klient)-ID: T** värde och spara den till senare.
 
 Skapa nu en klienthemlighet för det här programmet för användning i ett senare skede.
 
-1. Välj **inställningar** igen, och gå till **nycklar**.
+1. Lista över sidor för klientappen, Välj **certifikat och hemligheter**, och välj **nya klienthemligheten**.
 
-2. Under **lösenord**, ange en **nyckelbeskrivning**. Välj när nyckeln ska upphöra att gälla och **spara**.
+2. Under **lägga till en klienthemlighet**, ange en **beskrivning**. Välj när nyckeln ska upphöra att gälla och **Lägg till**.
 
 Anteckna värdet för nyckeln. 
 
@@ -86,17 +90,17 @@ Anteckna värdet för nyckeln.
 
 Nu när du har registrerat två program som motsvarar API: et och Developer-konsolen, måste du bevilja behörigheter för att tillåta klientappen att anropa backend-app.  
 
-1. Bläddra till **programregistreringar (äldre)**. 
+1. Gå till **appregistreringar**. 
 
-2. Välj `client-app`, och gå till **inställningar**.
+2. Välj `client-app`, och i listan över sidor för appen går du till **API-behörigheter**.
 
-3. Välj **nödvändiga behörigheter** > **Lägg till**.
+3. Välj **lägga till en behörighet**.
 
-4. Välj **Välj en API**, och Sök efter `backend-app`.
+4. Under **Välj en API**, hitta och välja `backend-app`.
 
-5. Under **delegerade behörigheter**väljer `Access backend-app`. 
+5. Under **delegerade behörigheter**, Välj rätt åtkomstbehörighet för `backend-app`.
 
-6. Välj **Välj**, och välj sedan **klar**. 
+6. Välj **Lägg till behörigheter** 
 
 > [!NOTE]
 > Om **Azure Active Directory** visas under behörigheter för andra program, Välj **Lägg till** att lägga till den i listan.
@@ -148,7 +152,7 @@ Nästa steg är att aktivera OAuth 2.0-användarautentisering för ditt API. På
 
 2. Välj det API som du vill skydda. I det här exemplet använder du den `Echo API`.
 
-3. Gå till **Inställningar**.
+3. Gå till **inställningar**.
 
 4. Under **Security**, Välj **OAuth 2.0**, och välj den OAuth 2.0-server som du konfigurerade tidigare. 
 

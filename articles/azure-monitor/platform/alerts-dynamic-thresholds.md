@@ -5,17 +5,17 @@ author: yanivlavi
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 11/29/2018
+ms.date: 04/26/2019
 ms.author: yalavi
 ms.reviewer: mbullwin
-ms.openlocfilehash: 3773a3e121c3b0162b83ea075601b7386228e4d5
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.openlocfilehash: 0d6c578186dab9622ce650f535e11d505efcecb3
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64876198"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65067625"
 ---
-# <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor-public-preview"></a>Måttaviseringar med dynamiska tröskelvärden i Azure Monitor (förhandsversion)
+# <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor"></a>Måttaviseringar med dynamiska tröskelvärden i Azure Monitor
 
 Metrisk varning med dynamiska tröskelvärden identifiering utnyttjar avancerad maskininlärning (ML) om du vill veta mer mått historiska beteende, identifiera mönster och avvikelser som indikerar möjliga problem. Det finns stöd för både ett enkelt gränssnitt och åtgärder i stor skala genom att tillåta användare att konfigurera Varningsregler via API: et för Azure Resource Manager på ett helt automatiserat sätt.
 
@@ -153,7 +153,7 @@ Följande objekt är bästa metoder för hur du konfigurerar aviseringar på nå
 
 4. När du har valt en målresurs, klickar du på **Lägg till villkor**.
 
-5. Välj den **'Körningstid för HTTP-begäran ”**.
+5. Välj den **'Körningstid för HTTP-begäran ”** .
 
 6. Du kan också förfina måttet genom att justera **Period** och **aggregering**. Det rekommenderas inte för att använda, Maximum, sammansättningstyp för den här Måttyp eftersom det är mindre representativ för beteende. För ”högsta' aggregering typen statisk tröskelvärdet kanske är mer lämpliga.
 

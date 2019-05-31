@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: 6f577530c42952c6340a15110bcd37383a5fca57
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: afd43bbf6f52f498ad8f56d5a48b960d45d84137
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60693555"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243250"
 ---
 # <a name="subscriptions-in-azure-api-management"></a>Prenumerationer i Azure API Management
 
@@ -42,7 +42,7 @@ Prenumerationer kan associeras med olika omfång: produkten, alla API: er eller 
 
 ### <a name="subscriptions-for-a-product"></a>Prenumerationer för en produkt
 
-Traditionellt har prenumerationer i API Management har alltid är associerade med en enda [API-produkt](api-management-terminology.md) omfång. Utvecklare att hitta listan över produkter som på Developer-portalen. Sedan skickar de prenumerationsbegäranden för produkterna som de ville använda. När begäran om en prenumeration har godkänts, antingen automatiskt eller av API-utgivare kan utvecklaren använda nycklarna i den att få åtkomst till alla API: er i produkten.
+Traditionellt har prenumerationer i API Management har alltid är associerade med en enda [API-produkt](api-management-terminology.md) omfång. Utvecklare att hitta listan över produkter som på Developer-portalen. Sedan skickar de prenumerationsbegäranden för produkterna som de ville använda. När begäran om en prenumeration har godkänts, antingen automatiskt eller av API-utgivare kan utvecklaren använda nycklarna i den att få åtkomst till alla API: er i produkten. För närvarande visar utvecklarportalen bara produktomfattningsnivå prenumerationer under avsnitt för användarprofil. 
 
 ![Prenumerationer för produkten](./media/api-management-subscriptions/product-subscription.png)
 

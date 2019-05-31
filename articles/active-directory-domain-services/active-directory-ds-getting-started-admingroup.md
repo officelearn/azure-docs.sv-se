@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Komma igång | Microsoft Docs'
 description: Aktivera Azure Active Directory Domain Services med Azure portal
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 ms.assetid: ace1ed4a-bf7f-43c1-a64a-6b51a2202473
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/27/2018
-ms.author: ergreenl
-ms.openlocfilehash: 734fb5ce641d48800cef68ea79cdb258e44ac267
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/20/2019
+ms.author: mstephen
+ms.openlocfilehash: a4a515f3d669794d5bcdd8fa506a8d3b846db987
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60417763"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234944"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Aktivera Azure Active Directory Domain Services med Azure portal
 
@@ -44,7 +44,7 @@ Den administrativa gruppen skapas automatiskt i Azure AD-katalogen. Den här gru
 
 ## <a name="configure-synchronization"></a>Konfigurera synkronisering
 
-Azure AD Domain Services tillåter antingen fullständig synkronisering av alla användare och grupper som är tillgängliga i Azure AD eller kan du välja begränsade synkronisering att synkronisera endast specifika grupper. Om du väljer den fullständiga synkroniseringen, kommer du att **inte** kan du välja begränsade synkronisering vid ett senare tillfälle. Mer information om begränsade synkronisering, på den [Azure AD Domain Services omfattar synkronisering artikeln](active-directory-ds-scoped-synchronization.md).
+Azure AD Domain Services tillåter antingen fullständig synkronisering av alla användare och grupper som är tillgängliga i Azure AD eller kan du välja begränsade synkronisering att synkronisera endast specifika grupper. Om du väljer den fullständiga synkroniseringen, kommer du att **inte** kan du välja begränsade synkronisering vid ett senare tillfälle. Mer information om begränsade synkronisering, på den [Azure AD Domain Services omfattar synkronisering artikeln](scoped-synchronization.md).
 
 ### <a name="full-synchronization"></a>Fullständig synkronisering
 
@@ -98,7 +98,7 @@ Processen för etablering av den hanterade domänen kan ta upp till en timme.
 
 ## <a name="need-help"></a>Behöver du hjälp?
 
-Det kan ta en timme eller två för båda domänkontrollanterna för din hanterade domän ska etableras. Om distributionen misslyckas eller fastnar i tillståndet ”väntar” i mer än ett par timmar kan passa på att [kontakta Produktteamet för att få hjälp](active-directory-ds-contact-us.md).
+Det kan ta en timme eller två för båda domänkontrollanterna för din hanterade domän ska etableras. Om distributionen misslyckas eller fastnar i tillståndet ”väntar” i mer än ett par timmar kan passa på att [kontakta Produktteamet för att få hjälp](contact-us.md).
 
 ## <a name="next-step"></a>Nästa steg
 

@@ -7,13 +7,13 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/14/2018
-ms.openlocfilehash: 0a6bcb3fb94df56caf4d095097572dd8a704f856
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/27/2019
+ms.openlocfilehash: 705ced82ad4edad0bb4adc057414f6b20b80d8d3
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64701188"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298878"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Använda extern metadatalagring i Azure HDInsight
 
@@ -50,7 +50,7 @@ HDInsight har också stöd för anpassade metastores som rekommenderas för prod
 
 ### <a name="select-a-custom-metastore-during-cluster-creation"></a>Välj en anpassad metaarkiv när klustret skapas
 
-Du kan peka ditt kluster till ett tidigare skapade Azure SQL Database när klustret skapas eller när klustret har skapats kan du konfigurera SQL-databasen. Det här alternativet anges med Storage > Inställningar för Metaarkiv när du skapar en ny Hadoop, Spark eller interaktiva Hive-kluster från Azure-portalen.
+Du kan peka ditt kluster till ett tidigare skapade Azure SQL Database när klustret skapas eller när klustret har skapats kan du konfigurera SQL-databasen. Det här alternativet har angetts med den **Storage > Inställningar för Metaarkiv** när du skapar en ny Hadoop, Spark eller interaktiva Hive-kluster från Azure-portalen.
 
 ![HDInsight Hive-Metadata Store Azure-portalen](./media/hdinsight-use-external-metadata-stores/metadata-store-azure-portal.png)
 

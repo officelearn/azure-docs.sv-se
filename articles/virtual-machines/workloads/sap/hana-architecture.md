@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/04/2018
+ms.date: 05/25/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 80ef63cdd9de8cb2340fe15d761402bb9f00fae9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d077487f85c789bcdfea3d91e29ee0d44ce82de0
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60795950"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239441"
 ---
 # <a name="sap-hana-large-instances-architecture-on-azure"></a>Arkitektur för SAP HANA (stora instanser) på Azure
 
@@ -34,7 +34,7 @@ Den övergripande arkitekturen för SAP HANA på Azure (stora instanser) innehå
 
 Arkitekturen som visas är uppdelad i tre delar:
 
-- **Right**: Visar en lokal infrastruktur som kör olika program i data centers så att slutanvändarna kan komma åt LOB-program, till exempel SAP. Vi rekommenderar den här lokala infrastruktur sedan är ansluten till Azure med [ExpressRoute](https://azure.microsoft.com/services/expressroute/).
+- **Right**: Visar en lokal infrastruktur som kör olika program i data centers så att slutanvändarna kan komma åt LOB-program, till exempel SAP. Vi rekommenderar den här lokala infrastruktur är ansluten till Azure med [ExpressRoute](https://azure.microsoft.com/services/expressroute/).
 
 - **Center**: Visar Azure IaaS och i så fall använder virtuella datorer som värd för SAP eller andra program som använder SAP HANA som en DBMS system. Mindre HANA-instanser som fungerar med det minne som tillhandahåller virtuella datorer distribueras på virtuella datorer tillsammans med deras programnivån. Mer information om virtuella datorer finns i [virtuella datorer](https://azure.microsoft.com/services/virtual-machines/).
 
@@ -45,11 +45,11 @@ Arkitekturen som visas är uppdelad i tre delar:
   -  [Använd SAP på Windows-datorer](../../virtual-machines-windows-sap-get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   -  [Använda SAP-lösningar på Azure virtual machines](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-- **Vänster**: Visar SAP HANA TDI-certifierade-maskinvaran i stämpeln stora Azure-instanser. Stora HANA-instansen enheter är anslutna till de virtuella nätverken för din prenumeration genom att använda samma teknik som anslutningen från en lokal plats till Azure.
+- **Vänster**: Visar SAP HANA TDI-certifierade-maskinvaran i stämpeln stora Azure-instanser. Stora HANA-instansen enheter är anslutna till de virtuella nätverken för Azure-prenumerationen genom att använda samma teknik som anslutningen från en lokal plats till Azure. Från och med maj 2019 fick en optimering introducerade tillåter inte för att kommunicera mellan enheterna som stora HANA-instansen och virtuella Azure-datorer utan inblandning av ExpressRoute-gatewayen. Denna optimering kallas ExpressRoute snabb sökväg visas i den här arkitekturen (röda linjer). 
 
 Stora Azure-instanser stämpeln själva kombinerar följande komponenter:
 
-- **Databehandling**: Servrar som baseras på Intel Xeon E7-8890v3 eller Intel Xeon E7-8890v4 processorer som ger den nödvändiga kapaciteten för databehandling och är SAP HANA-certifierade.
+- **Databehandling**: Servrar som baseras på olika generationens Intel Xeon-processorer som ger den nödvändiga kapaciteten för databehandling och är SAP HANA-certifierade.
 - **Nätverk**: En enhetlig höghastighetsnätverk-infrastrukturresurs som sammanbinder databehandling, lagring och LAN-komponenter.
 - **Storage**: En lagringsinfrastruktur som nås via en enhetlig nätverksresurserna. Den specifika lagringskapacitet som tillhandahålls är beroende av specifika SAP HANA på Azure (stora instanser) konfiguration som har distribuerats. Mer lagringskapacitet finns på en månatlig avgift.
 

@@ -9,12 +9,12 @@ ms.date: 10/24/2018
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 3d4c40e172352fc2d92ea5523cad2aebe5468e1e
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 111167584fb2e0e2ee5977e0e24b3ebf07b170c1
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65961433"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66238009"
 ---
 # <a name="zone-redundant-storage-zrs-highly-available-azure-storage-applications"></a>Zonredundant lagring (ZRS): Azure Storage-program med hög tillgänglighet
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-zrs.md)]
@@ -29,11 +29,11 @@ ZRS är allmänt tillgängligt i följande regioner:
 - Sydostasien
 - Västeuropa
 - Nordeuropa
-- Centrala Frankrike
-- Japan, östra
-- Södra Storbritannien
+- Frankrike, centrala
+- Östra Japan
+- Storbritannien, södra
 - USA, centrala
-- USA, östra
+- USA, Östra
 - USA, östra 2
 - USA, västra 2
 
@@ -49,7 +49,7 @@ ZRS kan inte skydda dina data mot ett regionalt haveri där flera zoner permanen
 ## <a name="converting-to-zrs-replication"></a>Konvertera till ZRS-replikering
 Det är enkelt att migrera till eller från LRS, GRS och RA-GRS. Använd Azure portal eller API: T för Storage Resource Provider för att ändra typ av lagringsredundans för ditt konto. Azure replikeras sedan dina data i enlighet med detta. 
 
-Migrera data till eller från ZRS kräver en egen strategi. ZRS-migrering innebär att fysiskt flytta data från en enda lagringsstämpeln till flera stämplar inom en region.
+Migrera data till ZRS kräver en egen strategi. ZRS-migrering innebär att fysiskt flytta data från en enda lagringsstämpeln till flera stämplar inom en region.
 
 Det finns två huvudsakliga alternativ för migrering till ZRS: 
 

@@ -12,12 +12,12 @@ ms.author: vanto
 ms.reviewer: sstein
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 71d2d542d71977f9d8dfe07370dffd7fe508bc92
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4834688496330210b273f40f1d6f11230a6ae1c8
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61485486"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234132"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Program för flera innehavare med elastic database-verktyg och säkerhet på radnivå
 
@@ -228,7 +228,7 @@ RLS har implementerats i Transact-SQL. En användardefinierad funktion definiera
     - Ett BLOCK-predikat förhindrar rader som inte filter från att vara infogad eller uppdaterad.
     - Om sessionen\_KONTEXTEN har inte angetts, returnerar funktionen NULL och inga rader är synlig eller kan infogas.
 
-Om du vill aktivera RLS på alla shards, kör du följande T-SQL med hjälp av Visual Studio (SSDT), SSMS eller PowerShell-skript som ingår i projektet. Eller om du använder [elastiska Databasjobb](sql-database-elastic-jobs-overview.md), kan du automatisera körningen av den här T-SQL i alla shards.
+Om du vill aktivera RLS på alla shards, kör du följande T-SQL med hjälp av Visual Studio (SSDT), SSMS eller PowerShell-skript som ingår i projektet. Eller om du använder [elastiska Databasjobb](elastic-jobs-overview.md), kan du automatisera körningen av den här T-SQL i alla shards.
 
 ```sql
 CREATE SCHEMA rls; -- Separate schema to organize RLS objects.

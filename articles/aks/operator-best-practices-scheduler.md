@@ -2,18 +2,17 @@
 title: Operatorn metodtips – grundläggande scheduler funktioner i Azure Kubernetes Services (AKS)
 description: Läs kluster operatorn metodtipsen för att använda grundläggande scheduler-funktioner, till exempel resurskvoter och pod avbrott budgetar i Azure Kubernetes Service (AKS)
 services: container-service
-author: rockboyfor
+author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-origin.date: 11/26/2018
-ms.date: 04/08/2019
-ms.author: v-yeche
-ms.openlocfilehash: 8233330973946e552e36a85a11bdbbfb06c739f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 11/26/2018
+ms.author: iainfou
+ms.openlocfilehash: f6e370442c9c359a38025762fb90269119ec0ea6
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60463888"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65074130"
 ---
 # <a name="best-practices-for-basic-scheduler-features-in-azure-kubernetes-service-aks"></a>Metodtips för grundläggande scheduler funktioner i Azure Kubernetes Service (AKS)
 
@@ -95,7 +94,7 @@ spec:
       app: nginx-frontend
 ```
 
-Du kan också definiera en procentsats, till exempel *60%*, vilket gör att du automatiskt kompensera för repliken ange skala upp antalet poddar.
+Du kan också definiera en procentsats, till exempel *60%* , vilket gör att du automatiskt kompensera för repliken ange skala upp antalet poddar.
 
 Du kan definiera ett maximalt antal tillgängliga instanser i en replikuppsättning. Igen, kan också procent för maximal otillgänglig poddarna definieras. Följande pod avbrott budget YAML manifestet definierar att mer än två poddar i replikeringen vara otillgänglig:
 
@@ -127,6 +126,8 @@ Läs mer om hur du använder pod avbrott budgetar [anger en avbrott budget för 
 
 Den [kube-advisor] [ kube-advisor] verktyget är ett projekt med associerade AKS öppen källkod som genomsöker ett Kubernetes-kluster och rapporter på problem som hittas. En användbar check är att identifiera poddar som inte har resursbegäranden och begränsningar på plats.
 
+Verktyget kube-advisor kan rapportera om resursbegäran och begränsningar som saknas i PodSpecs för Windows-program samt Linux-program, men själva kube-advisor-verktyget måste planeras på en Linux-pod. Du kan schemalägga en pod ska köras på en nodpool med ett specifikt operativsystem med en [noden väljare] [ k8s-node-selector] i en pod-konfiguration.
+
 I ett AKS-kluster som är värd för flera utvecklingsteam och program, kan det vara svårt att spåra poddar utan dessa resurs-begäranden och begränsar uppsättningen. Som bästa praxis, regelbundet kör `kube-advisor` på dina AKS-kluster, särskilt om du inte tilldelar resurskvoter till namnområden.
 
 ## <a name="next-steps"></a>Nästa steg
@@ -148,3 +149,4 @@ Den här artikeln fokuserar på grundläggande funktioner som Kubernetes schedul
 [aks-best-practices-cluster-isolation]: operator-best-practices-cluster-isolation.md
 [aks-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
 [aks-best-practices-identity]: operator-best-practices-identity.md
+[k8s-node-selector]: concepts-clusters-workloads.md#node-selectors

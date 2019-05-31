@@ -12,16 +12,16 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: c0d50f3a66d940618f2bc421537b113120a2eaca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1c6e77f3afc90a8c018296db80253d8b9a22159e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61475872"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234110"
 ---
 # <a name="building-scalable-cloud-databases"></a>Skapa skalbara molndatabaser
 
-Skala ut databaser kan enkelt utföras med hjälp av skalbara verktyg och funktioner för Azure SQL Database. Framför allt, du kan använda den **Elastic Database-klientbiblioteket** att skapa och hantera utskalade databaser. Den här funktionen kan du enkelt utveckla fragmenterade (sharded) program med hundratals – eller till och med tusentals – av Azure SQL-databaser. [Elastiska jobb](sql-database-elastic-jobs-powershell.md) kan sedan användas för att enkelt hantering av dessa databaser.
+Skala ut databaser kan enkelt utföras med hjälp av skalbara verktyg och funktioner för Azure SQL Database. Framför allt, du kan använda den **Elastic Database-klientbiblioteket** att skapa och hantera utskalade databaser. Den här funktionen kan du enkelt utveckla fragmenterade (sharded) program med hundratals – eller till och med tusentals – av Azure SQL-databaser.
 
 Så här hämtar:
 
@@ -54,7 +54,7 @@ Skala ut program med hjälp av *horisontell partitionering* medför utmaningar f
 - **Fragmentkarthantering**: En särskild databas som heter ”fragmentkartehanteraren” har skapats. Fragmentkarthantering är möjligheten för ett program för att hantera metadata om dess shards. Utvecklare kan använda den här funktionen för att registrera databaser som shards, beskriver mappningar av enskilda horisontell partitionering nycklar eller nyckelintervall till dessa databaser och underhålla dessa metadata med antalet och sammansättning av databaser som utvecklas för att återspegla ändringar i kapacitet. Utan elastic database-klientbiblioteket, skulle du behöva ta lite tid att skriva management-kod när du implementerar horisontell partitionering. Mer information finns i [fragmentkarthantering](sql-database-elastic-scale-shard-map-management.md).
 
 - **Databeroende routning**: Anta att en begäran som kommer in i programmet. Baserat på horisontell partitionering nyckelvärdet för begäran kan måste programmet fastställa rätt databas baserat på nyckelvärdet. Sedan öppnas en anslutning till databasen för att bearbeta begäran. Databeroende routning ger möjlighet att öppna anslutningar med ett enda enkelt anrop till fragmentkartan för programmet. Databeroende routning har ett annat område i infrastrukturkod som omfattas nu av funktioner i klientbiblioteket för elastiska databaser. Mer information finns i [databeroende routning](sql-database-elastic-scale-data-dependent-routing.md).
-- **Multi-shard-frågor (MSQ)**: Multi-shard-frågor fungerar när en begäran omfattar flera (eller alla) shards. En Multi-shard-fråga körs samma T-SQL-kod på alla shards eller en uppsättning shards. Resultaten från deltagande shards slås samman i en övergripande resultatmängden med hjälp av UNION ALL-semantik. Funktioner som exponeras via klientbiblioteket hanterar många aktiviteter, inklusive: anslutningshanteringen, tråd management, hantering av fel och mellanresultat bearbetning. MSQ kan fråga upp till hundratals shards. Mer information finns i [Multi-shard-frågor](sql-database-elastic-scale-multishard-querying.md).
+- **Multi-shard-frågor (MSQ)** : Multi-shard-frågor fungerar när en begäran omfattar flera (eller alla) shards. En Multi-shard-fråga körs samma T-SQL-kod på alla shards eller en uppsättning shards. Resultaten från deltagande shards slås samman i en övergripande resultatmängden med hjälp av UNION ALL-semantik. Funktioner som exponeras via klientbiblioteket hanterar många aktiviteter, inklusive: anslutningshanteringen, tråd management, hantering av fel och mellanresultat bearbetning. MSQ kan fråga upp till hundratals shards. Mer information finns i [Multi-shard-frågor](sql-database-elastic-scale-multishard-querying.md).
 
 I allmänhet kunder som använder elastic database-verktyg kan förvänta sig att hämta alla T-SQL-funktioner när du skickar in shard-lokala åtgärder i stället för mellan fragment åtgärder som har sina egna semantik.
 

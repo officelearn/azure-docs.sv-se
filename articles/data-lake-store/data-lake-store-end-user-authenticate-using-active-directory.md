@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: c0fe63e395ee08cb65e9bbbadc4ce1f03032ce95
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4c2b774c304e46f9fc68f3beaf64218e614ecad1
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60878264"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234063"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Slutanvändarautentisering med Azure Data Lake Storage Gen1 med Azure Active Directory
 > [!div class="op_single_selector"]
@@ -45,12 +45,12 @@ Den här artikeln berättar om hur du skapar en **Azure AD-program för slutanv�
   
     ![Hämta AAD-domän](./media/data-lake-store-end-user-authenticate-using-active-directory/get-aad-domain.png)
 
-* Ditt Azure-klient-ID. Anvisningar om hur du hämtar klient-ID finns i [hämta klient-ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
+* Ditt Azure-klient-ID. Anvisningar om hur du hämtar klient-ID finns i [hämta klient-ID](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
 
 ## <a name="end-user-authentication"></a>Slutanvändarautentisering
 Den här autentiseringsmekanismen är den rekommenderade metoden om du vill att en användare att logga in på ditt program via Azure AD. Programmet kan sedan komma åt Azure-resurser med samma nivå på dataåtkomst som användaren som har loggat in. Användaren måste ange sina autentiseringsuppgifter med jämna mellanrum i ordning för ditt program att upprätthålla åtkomsten.
 
-Resultatet av att ha slutanvändarens inloggningen är att ditt program är baserat på en åtkomsttoken och en uppdateringstoken. Åtkomsttoken hämtar kopplade till varje begärande gjordes till Data Lake Storage Gen1 eller Data Lake Analytics och är giltig i en timme som standard. Uppdateringstoken kan användas till att hämta en ny åtkomsttoken och den är giltig i upp till två veckor som standard. Du kan använda två olika metoder för slutanvändarinloggning.
+Resultatet av att slutanvändaren logga in är att ditt program är baserat på en åtkomsttoken och en uppdateringstoken. Åtkomsttoken hämtar kopplade till varje begärande gjordes till Data Lake Storage Gen1 eller Data Lake Analytics och är giltig i en timme som standard. Uppdateringstoken kan användas till att hämta en ny åtkomsttoken och den är giltig i upp till två veckor som standard. Du kan använda två olika metoder för slutanvändaren logga in.
 
 ### <a name="using-the-oauth-20-pop-up"></a>Med hjälp av OAuth 2.0 popup-fönstret
 Ditt program kan utlösa en OAuth 2.0-auktorisering popup-menyn där användaren kan ange sina autentiseringsuppgifter. Det här popup-fönster fungerar även med Azure AD, tvåfaktorautentisering (2FA)-processen om det behövs. 
@@ -82,7 +82,7 @@ Kontrollera att du väljer när du följer anvisningarna i länken **interna** f
 
 ## <a name="step-2-get-application-id-and-redirect-uri"></a>Steg 2: Hämta program-ID och omdirigerings-URI
 
-Se [hämta program-ID](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key) att hämta program-ID.
+Se [hämta program-ID](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in) att hämta program-ID.
 
 Utför följande steg för att hämta omdirigeringen-URI.
 

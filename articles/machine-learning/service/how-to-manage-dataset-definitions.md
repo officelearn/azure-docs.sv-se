@@ -1,5 +1,5 @@
 ---
-title: Definitionen av datauppsättningen och versionshantering med azureml-datauppsättningar
+title: Version och hantera datauppsättning definitioner med azureml-datauppsättningar
 titleSuffix: Azure Machine Learning service
 description: Lär dig hur du uppdaterar datauppsättningen definitioner och hanterar livscykeln för definitioner
 services: machine-learning
@@ -10,14 +10,14 @@ ms.author: sihhu
 author: MayMSFT
 ms.reviewer: larryfr
 ms.date: 05/02/2019
-ms.openlocfilehash: e58ce156deaaad259ea7b74521bcf9b79afbd183
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 4476bdd902f054683fa544dc44b548689f3a1881
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66146208"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241882"
 ---
-# <a name="update-and-manage-the-lifecycle-of-dataset-definitions"></a>Uppdatera och hantera livscykeln för datauppsättningen definitioner
+# <a name="version-and-manage-your-dataset-definitions"></a>Version och hantera din datauppsättning definitioner
 
 Lär dig mer om att uppdatera och hantera datauppsättning definitioner med datauppsättningar för Azure Machine Learning (förhandsversion).
 
@@ -37,7 +37,7 @@ Du måste ha en Azure-prenumeration och en arbetsyta för att registrera din dat
 
 Exempelfil som används i exemplen i det här dokumentet finns på [ https://dprepdata.blob.core.windows.net/dataset-sample-files/crime.csv ](https://dprepdata.blob.core.windows.net/dataset-sample-files/crime.csv).
 
-## <a name="update-dataset-definitions"></a>Uppdatera definitioner för datauppsättning
+## <a name="create-and-update-definitions"></a>Skapa och uppdatera definitioner
 
 Vi först skapa och registrera en datauppsättning med din arbetsyta.
 

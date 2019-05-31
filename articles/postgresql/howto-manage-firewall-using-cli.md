@@ -1,20 +1,20 @@
 ---
-title: Skapa och hantera Azure Database för PostgreSQL brandväggsregler med hjälp av Azure CLI
-description: Den här artikeln beskriver hur du skapar och hanterar Azure Database for PostgreSQL brandväggsregler med hjälp av Azure CLI-kommandoraden.
+title: Skapa och hantera brandväggsregler i Azure Database för PostgreSQL – enskild Server med Azure CLI
+description: Den här artikeln beskriver hur du skapar och hanterar brandväggsregler i Azure Database för PostgreSQL – enskild Server med hjälp av Azure CLI-kommandoraden.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 04/09/2019
-ms.openlocfilehash: 9a96361d3fb155ea5b400990690e3c2b1f65f819
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 03b1c215994e4089ad0aed4eac3868b05c564c4c
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60422380"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65067526"
 ---
-# <a name="create-and-manage-azure-database-for-postgresql-firewall-rules-using-azure-cli"></a>Skapa och hantera Azure Database för PostgreSQL brandväggsregler med hjälp av Azure CLI
+# <a name="create-and-manage-firewall-rules-in-azure-database-for-postgresql---single-server-using-azure-cli"></a>Skapa och hantera brandväggsregler i Azure Database för PostgreSQL – enskild Server med Azure CLI
 Brandväggsregler på servernivå kan användas för att hantera åtkomst till en Azure Database for PostgreSQL-Server från en specifik IP-adress eller IP-adressintervall. Med praktiska Azure CLI-kommandon kan du skapa, uppdatera, ta bort, lista, och visa brandväggsregler för att hantera servern. En översikt över Azure Database för PostgreSQL brandväggsregler, se [Azure Database for PostgreSQL-Server brandväggsregler](concepts-firewall-rules.md).
 
 Virtuella nätverk (VNet)-regler kan också användas för att skydda åtkomsten till din server. Läs mer om [skapa och hantera Virtual Network service slutpunkter och regler med hjälp av Azure CLI](howto-manage-vnet-using-cli.md).

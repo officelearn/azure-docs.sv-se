@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: iainfou
-ms.openlocfilehash: 43f3a55bc820a232ccebc3a940faa86f9eb730f7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9771c110e277d67bee329fe62434b18a01189476
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60467382"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65072222"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>Dynamiskt skapa och använda en permanent volym med Azure Files i Azure Kubernetes Service (AKS)
 
@@ -136,7 +136,7 @@ azurefile   Bound     pvc-8436e62e-a0d9-11e5-8521-5a8664dc0477   5Gi        RWX 
 
 ## <a name="use-the-persistent-volume"></a>Använd permanent volym
 
-Följande YAML skapar en pod som använder permanent volym-anspråket *azurefile* att montera Azure-filresursen på den */mnt/azure* sökväg.
+Följande YAML skapar en pod som använder permanent volym-anspråket *azurefile* att montera Azure-filresursen på den */mnt/azure* sökväg. För Windows Server-behållare (för närvarande i förhandsversion i AKS), ange en *mountPath* med Windows sökväg konventionen, till exempel *”D:”* .
 
 Skapa en fil med namnet `azure-pvc-files.yaml`, och kopiera följande YAML. Se till att den *claimName* matchar PVC som skapats i det sista steget.
 

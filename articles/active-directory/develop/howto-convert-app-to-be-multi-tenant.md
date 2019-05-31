@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/12/2019
+ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68973d3a88791bcfffc8183f5e3a16975fe15742
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 2e6a5ecd704aabb4994337cb7b7df9e84677348d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540459"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235286"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Anvisningar: Logga in alla Azure Active Directory-användare med programmönstret för flera innehavare
 
@@ -45,7 +45,7 @@ Låt oss titta på varje steg i detalj. Du kan även gå direkt till [den här l
 
 ## <a name="update-registration-to-be-multi-tenant"></a>Uppdatera registrering om du vill att flera innehavare
 
-Som standard är enskild klient i web app/API registreringar i Azure AD. Du kan göra din registrering för flera innehavare genom att söka efter den **flera innehavare** växla den **egenskaper** rutan i din programregistrering i den [Azure-portalen] [ AZURE-portal] och ange värdet till **Ja**.
+Som standard är enskild klient i web app/API registreringar i Azure AD. Du kan göra din registrering för flera innehavare genom att söka efter den **stöds kontotyper** växla den **autentisering** rutan i din programregistrering i den [Azure-portalen] [ AZURE-portal] och ange värdet till **konton i alla organisationskatalog**.
 
 Innan ett program kan göras med flera innehavare, kräver Azure AD App-ID-URI för programmet som ska vara globalt unikt. App-ID-URI är en av de sätt som ett program identifieras i protokollmeddelanden. För ett program för en enskild klientorganisation räcker det att app-ID-URI är unikt i den klientorganisationen. För ett program för flera klientorganisationer måste den vara globalt unikt så att Azure AD kan hitta programmet bland alla klientorganisationer. Global unikhet framtvingas genom att det krävs att app-ID-URI har ett värdnamn som matchar en verifierad domän i Azure AD-klientorganisationen.
 

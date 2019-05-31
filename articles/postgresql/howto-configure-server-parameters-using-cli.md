@@ -1,20 +1,20 @@
 ---
-title: Konfigurera parametrar för tjänsten i Azure Database för PostgreSQL
-description: Den här artikeln beskriver hur du konfigurerar parametrar för tjänsten i Azure Database för PostgreSQL med hjälp av Azure CLI-kommandoraden.
+title: Konfigurera parametrar för tjänsten i Azure Database för PostgreSQL – enskild Server
+description: Den här artikeln beskriver hur du konfigurerar parametrar för tjänsten i Azure Database för PostgreSQL – enskild Server med hjälp av Azure CLI-kommandoraden.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: c88518749129abed1cf43a70b9165035626a780f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 9a9312d347f896047a5f8606b2518b63830c4d76
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60421225"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65067175"
 ---
-# <a name="customize-server-configuration-parameters-using-azure-cli"></a>Anpassa konfigurationsparametrar för server med Azure CLI
+# <a name="customize-server-configuration-parameters-for-azure-database-for-postgresql---single-server-using-azure-cli"></a>Anpassa konfigurationsparametrar för server för Azure Database för PostgreSQL – enskild Server med Azure CLI
 Du kan lista, visa och uppdatera konfigurationsparametrar för en Azure PostgreSQL-server med hjälp av kommandoradsgränssnittet (Azure CLI). En delmängd av motorkonfigurationer är exponerad på servernivå och kan ändras. 
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter

@@ -6,18 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: ''
 ms.topic: article
-ms.date: 09/27/2018
+ms.date: 05/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 5b392fecd75f5c18793a6122b8d5d967a2e54afa
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: acba9d2c87d2fb23e48ac24cec22388044702bac
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65604453"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240148"
 ---
 # <a name="open-a-support-ticket-for-azure-data-box"></a>Öppna ett supportärende för Azure Data Box 
 
-Den här artikeln gäller för Azure Data Box och Azure Data Box-Disk, som hanteras av Azure Data Box-tjänsten. Om du får problem med din Azure Data Box-tjänst kan du skapa en tjänstbegäran för teknisk support. Den här artikeln beskriver hur du:
+Den här artikeln gäller för Azure Data Box, Azure Data Box stor och Azure Data Box-Disk, som hanteras av Azure Data Box-tjänsten. Om du får problem med din Azure Data Box-tjänst kan du skapa en tjänstbegäran för teknisk support. Den här artikeln beskriver hur du:
 
 * Så här skapar du en supportförfrågan.
 * Så här hanterar du en supportlängd för begäran från i portalen.
@@ -28,17 +28,17 @@ Utför följande steg för att skapa en supportbegäran om:
 
 1. Gå till din Data Box eller Data Box-Disk-beställning. Gå till **stöd + felsökning** avsnittet och klicka sedan på **ny supportbegäran**.
      
-    ![Ny supportförfrågan](./media/data-box-disk-contact-microsoft-support/data-box-disk-support-request.png)
+    ![Ny supportbegäran](./media/data-box-disk-contact-microsoft-support/data-box-disk-support-request.png)
    
 2. I **ny supportbegäran**väljer **grunderna**. I **grunderna**, gör följande:
     
     1. Från den **typ av problem** listrutan, väljer **teknisk**.
     2. Välj din **prenumeration**.
-    3. Under **Service**, kontrollera **alla tjänster**. Välj den nedrullningsbara listan **Data Box - förhandsversion**. 
+    3. Under **Service**, kontrollera **alla tjänster**. Välj den nedrullningsbara listan **Data Box**. 
     4. Ange din **supportavtal**.
     5. Klicka på **Nästa**.
 
-        ![Grundinställningar](./media/data-box-disk-contact-microsoft-support/data-box-disk-support1.png)
+        ![Grundläggande inställningar](./media/data-box-disk-contact-microsoft-support/data-box-disk-support1.png)
 
 3. I **ny supportbegäran**väljer **steg 2 problemet**. I **problemet**, gör följande:
     
@@ -84,3 +84,5 @@ När du har skapat ett supportärende kan du hantera ärendets livscykel på por
 ## <a name="next-steps"></a>Nästa steg
 
 Lär dig hur du [felsöka problem som rör Data Box-Disk](data-box-disk-troubleshoot.md).
+Lär dig hur du [felsöka problem som rör Data Box](data-box-troubleshoot.md).
+Lär dig hur du [felsöka problem med blobblagring för Data Box](data-box-troubleshoot-rest.md).

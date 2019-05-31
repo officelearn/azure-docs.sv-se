@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 05/22/2019
 ms.author: mbullwin
-ms.openlocfilehash: 8522b1d0a8f8466870966d3f11ce66f7bf15672b
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.openlocfilehash: cb7ace20fd0a59dafff3d7f8240f54c3c8e12492
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66016374"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66226401"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights för ASP.NET Core-program
 
@@ -111,7 +111,7 @@ Den [Application Insights SDK (Software Development Kit) för ASP.NET Core](http
     > [!NOTE]
     > En instrumenteringsnyckel som anges i koden wins över miljövariabeln `APPINSIGHTS_INSTRUMENTATIONKEY`, vilket wins andra alternativ.
 
-## <a name="run-your-application"></a>Kör programmet
+## <a name="run-your-application"></a>Köra ditt program
 
  Kör ditt program och göra begäranden till den. Telemetri bör nu börjar flöda till Application Insights. Följande telemetri samlas in automatiskt av Application Insights SDK.
 
@@ -383,6 +383,7 @@ using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
 ## <a name="video"></a>Video
 
 - Externa stegvisa video om [konfigurera Application Insights med .NET Core och Visual Studio](https://www.youtube.com/watch?v=NoS9UhcR4gA&t) från grunden.
+- Externa stegvisa video om [konfigurera Application Insights med .NET Core och Visual Studio Code](https://youtu.be/ygGt84GDync) från grunden.
 
 ## <a name="next-steps"></a>Nästa steg
 * [Utforska Användarflöden](../../azure-monitor/app/usage-flows.md) att förstå hur användarna navigerar i din app.

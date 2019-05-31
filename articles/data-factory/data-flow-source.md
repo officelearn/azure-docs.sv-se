@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: dc0a6e008c7a1f4fb414f6d8adad3a94abc7a6b2
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: HT
+ms.openlocfilehash: 51c1ea7b554178f7fb3f264bf731ffd5872ceea2
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792345"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234551"
 ---
 # <a name="source-transformation-for-mapping-data-flow"></a>Transformering av källa för mappning av dataflöde 
 
@@ -92,7 +92,7 @@ Välj inställningar för att hantera filer i källan.
 
 Om källan finns i SQL Database eller SQL Data Warehouse, har du ytterligare alternativ för hantering av källa.
 
-* **Fråga**: Ange en SQL-fråga för källan. Den här inställningen åsidosätter eventuella tabell som du har valt i datauppsättningen. Observera att **Order By** satser stöds inte här. Men du kan ange en fullständig SELECT FROM-instruktion här.
+* **Fråga**: Ange en SQL-fråga för källan. Den här inställningen åsidosätter en tabell som du har valt i datauppsättningen. Observera att **Order By** satser stöds inte här, men du kan ange en fullständig SELECT FROM-instruktion. Du kan också använda användardefinierade Tabellfunktioner. **Välj * från udfGetData()** är en UDF i SQL som returnerar en tabell. Den här frågan kommer att generera en källtabellen som du kan använda i ditt dataflöde.
 * **Batchstorlek**: Ange en batchstorlek för att dela upp stora mängder data till läsningar.
 
 > [!NOTE]

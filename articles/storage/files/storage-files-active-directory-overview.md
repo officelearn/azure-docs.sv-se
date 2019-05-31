@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 09/19/2018
 ms.author: rogarana
-ms.openlocfilehash: af903ce3ce7cfa165c278e415827dda36630e7b4
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: ad8ddf7e9e324bbcc48f15c95870a24fe7476828
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65209732"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237741"
 ---
 # <a name="overview-of-azure-active-directory-authentication-over-smb-for-azure-files-preview"></a>Översikt över Azure Active Directory-autentisering över SMB för Azure Files (förhandsversion)
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -26,7 +26,7 @@ Det kan vara bra att förstå vissa viktiga termer som är relaterade till Azure
     Azure Active Directory (Azure AD) är Microsofts molnbaserade katalog- och identitetstjänst management multiklienttjänst. Azure AD kombinerar viktiga katalogtjänster, åtkomsthantering för program och identitetsskydd i en enda lösning. Mer information finns i [vad är Azure Active Directory?](../../active-directory/fundamentals/active-directory-whatis.md)
 
 -   **Azure AD Domain Services**  
-    Azure AD Domain Services tillhandahåller hanterade domäntjänster, till exempel domänanslutning, grupprinciper, LDAP och Kerberos/NTLM-autentisering. De här tjänsterna är helt kompatibla med Windows Server Active Directory. Mer information finns i [domäntjänster för Azure Active Directory (AD)](../../active-directory-domain-services/active-directory-ds-overview.md).
+    Azure AD Domain Services tillhandahåller hanterade domäntjänster, till exempel domänanslutning, grupprinciper, LDAP och Kerberos/NTLM-autentisering. De här tjänsterna är helt kompatibla med Windows Server Active Directory. Mer information finns i [domäntjänster för Azure Active Directory (AD)](../../active-directory-domain-services/overview.md).
 
 -   **Azure rollbaserad åtkomstkontroll (RBAC)**  
     Rollbaserad åtkomstkontroll (RBAC) i Azure ger tillgång till ingående åtkomsthantering för Azure. Med RBAC kan hantera du åtkomst till resurser genom att tilldela användare till de minst antal behörigheter som krävs för att utföra sitt arbete. Mer information om RBAC finns [vad är rollbaserad åtkomstkontroll (RBAC) i Azure?](../../role-based-access-control/overview.md)
@@ -60,7 +60,7 @@ När en identitet som är associerad med ett program som körs på en virtuell d
 ### <a name="enable-azure-ad-authentication-over-smb"></a>Aktivera Azure AD-autentisering via SMB
 Du kan aktivera Azure AD-autentisering över SMB för Azure Files på din nya och befintliga lagringskonton som skapats efter den 24 September 2018. 
 
-Innan du aktiverar Azure AD-autentisering över SMB, kontrollerar du att Azure AD Domain Services har distribuerats för primärt Azure AD-klient som är associerad till ditt lagringskonto. Om du inte redan har upprättat Azure AD Domain Services, följer du stegvisa anvisningar finns i [aktivera Azure Active Directory Domain Services med Azure portal](../../active-directory-domain-services/active-directory-ds-getting-started.md).
+Innan du aktiverar Azure AD-autentisering över SMB, kontrollerar du att Azure AD Domain Services har distribuerats för primärt Azure AD-klient som är associerad till ditt lagringskonto. Om du inte redan har upprättat Azure AD Domain Services, följer du stegvisa anvisningar finns i [aktivera Azure Active Directory Domain Services med Azure portal](../../active-directory-domain-services/create-instance.md).
 
 Azure AD Domain Services-distribution tar vanligtvis 10 – 15 minuter. När Azure AD Domain Services har distribuerats, kan du aktivera Azure AD-autentisering över SMB för Azure Files. Mer information finns i [aktivera Azure Active Directory-autentisering över SMB för Azure Files (förhandsversion)](storage-files-active-directory-enable.md). 
 

@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: billgib, sstein
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: c7c10608d90f7659b108d2d8c80038f59396de2d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 07e8fce5fd8db5d2070b8e382a0eba2ae7187b0d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61485248"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242778"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>Hantera schemat i ett SaaS-program som använder delat SQL-databaser för flera innehavare
 
@@ -31,7 +31,7 @@ Den här guiden går igenom följande två scenarier:
 - Distribuera uppdateringar av referensdata för alla klienter.
 - Bygga om index för tabellen med referensdata.
 
-Den [elastiska jobb](sql-database-elastic-jobs-overview.md) funktion i Azure SQL Database används för att utföra de här åtgärderna över klientdatabaser. Jobben tillämpas även på klientdatabas ”mall”. I exempelappen Wingtip Tickets kopieras den här mallen-databasen för att etablera en ny klientdatabas.
+Den [elastiska jobb](elastic-jobs-overview.md) funktion i Azure SQL Database används för att utföra de här åtgärderna över klientdatabaser. Jobben tillämpas även på klientdatabas ”mall”. I exempelappen Wingtip Tickets kopieras den här mallen-databasen för att etablera en ny klientdatabas.
 
 I den här självstudiekursen får du lära du dig att:
 
@@ -57,7 +57,7 @@ I den här självstudiekursen får du lära du dig att:
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>Introduktion till mönster för hantering av SaaS-schema
 
-Fragmenterade (sharded) databas för flera innehavare modellen som används i det här exemplet gör det möjligt för en databas för klienter som innehåller en eller flera innehavare. Det här exemplet utforskar kan använda en kombination av en många-klient och en klient databaser, att aktivera en *hybrid* klient Hanteringsmodellen. Hantera ändringar till dessa databaser kan vara komplicerat. [Elastiska jobb](sql-database-elastic-jobs-overview.md) underlättar administration och hantering av stora mängder databas. Jobb låter dig säkert och tillförlitligt köra Transact-SQL-skript som aktiviteter, mot en grupp av klientdatabaser. Uppgifter som är oberoende av användarinteraktion eller indata. Den här metoden kan användas för att distribuera ändringar till schemat eller vanliga referensdata för alla klienter i ett program. Elastiska jobb kan också användas för att underhålla en gyllene mall kopia av databasen. Mallen används för att skapa nya klienter och se alltid till det senaste schemat och referensdata som används.
+Fragmenterade (sharded) databas för flera innehavare modellen som används i det här exemplet gör det möjligt för en databas för klienter som innehåller en eller flera innehavare. Det här exemplet utforskar kan använda en kombination av en många-klient och en klient databaser, att aktivera en *hybrid* klient Hanteringsmodellen. Hantera ändringar till dessa databaser kan vara komplicerat. [Elastiska jobb](elastic-jobs-overview.md) underlättar administration och hantering av stora mängder databas. Jobb låter dig säkert och tillförlitligt köra Transact-SQL-skript som aktiviteter, mot en grupp av klientdatabaser. Uppgifter som är oberoende av användarinteraktion eller indata. Den här metoden kan användas för att distribuera ändringar till schemat eller vanliga referensdata för alla klienter i ett program. Elastiska jobb kan också användas för att underhålla en gyllene mall kopia av databasen. Mallen används för att skapa nya klienter och se alltid till det senaste schemat och referensdata som används.
 
 ![skärmen](media/saas-multitenantdb-schema-management/schema-management.png)
 
@@ -161,8 +161,7 @@ Observera följande objekt i den *OnlineReindex.sql* skript:
 <!-- TODO: Additional tutorials that build upon the Wingtip Tickets SaaS Multi-tenant Database application deployment (*Tutorial link to come*)
 (saas-multitenantdb-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 -->
-* [Hantera utskalade molndatabaser](sql-database-elastic-jobs-overview.md)
-* [Skapa och hantera utskalade molndatabaser](sql-database-elastic-jobs-create-and-manage.md)
+* [Hantera utskalade molndatabaser](elastic-jobs-overview.md)
 
 ## <a name="next-steps"></a>Nästa steg
 

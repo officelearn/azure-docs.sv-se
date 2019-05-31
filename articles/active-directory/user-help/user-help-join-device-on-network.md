@@ -13,12 +13,12 @@ ms.date: 08/03/2018
 ms.author: lizross
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dfd38e775ba418fbe31cafa8df5f37b45c3b0643
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 62faa47c116cceb941f575a9f76052e8bc57f036
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60474537"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243277"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>Anslut din enhet för arbete till din organisations nätverk
 Anslut Windows 10-enheten ägs av arbetet till din organisations nätverk så att du kan komma åt potentiellt begränsade resurser.
@@ -116,3 +116,4 @@ När du ansluter din enhet till din organisations nätverk bör du kunna komma �
 
 - Om du registrerar en enhet, till exempel din telefon företaget Se [registrera en enhet på din organisations nätverk](user-help-register-device-on-network.md).
 
+- Om din organisation hanteras med Microsoft Intune och du har frågor om registrering, inloggning eller några andra Intune-relaterade problem, se den [hjälpinnehållet för Intune-användare](https://docs.microsoft.com/intune-user-help/use-managed-devices-to-get-work-done).

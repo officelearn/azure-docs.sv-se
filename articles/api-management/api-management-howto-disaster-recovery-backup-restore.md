@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: 0c1efa0e5cfa4bf31e58be64b3fe78075b79b515
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: e0c02829a2fef6e281794fdba6c9fb5d9b8a736b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66141699"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241709"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Implementera haveriberedskap med hjälp av service-säkerhetskopiering och återställning i Azure API Management
 
@@ -63,7 +63,7 @@ Alla aktiviteter som du kan utföra på resurser med hjälp av Azure Resource Ma
 6. Ange en URL-platshållaren som `http://resources` för den **omdirigerings-URI**, eftersom det är ett obligatoriskt fält, men värdet används inte senare. Klicka på kryssrutan för att spara programmet.
 7. Klicka på **Skapa**.
 
-### <a name="add-an-application"></a>Lägg till ett program
+### <a name="add-an-application"></a>Lägga till ett program
 
 1. När programmet har skapats klickar du på **inställningar**.
 2. Klicka på **behörigheter som krävs för**.
@@ -72,9 +72,9 @@ Alla aktiviteter som du kan utföra på resurser med hjälp av Azure Resource Ma
 5. Välj **Windows** **Azure Service Management API**.
 6. Tryck på **Välj**.
 
-    ![Lägg till behörigheter](./media/api-management-howto-disaster-recovery-backup-restore/add-app.png)
+    ![Lägga till behörigheter](./media/api-management-howto-disaster-recovery-backup-restore/add-app.png)
 
-7. Klicka på **delegerade behörigheter** bredvid det nyligen tillagda programmet, markera kryssrutan för **åtkomst till Azure Service Management (förhandsversion)**.
+7. Klicka på **delegerade behörigheter** bredvid det nyligen tillagda programmet, markera kryssrutan för **åtkomst till Azure Service Management (förhandsversion)** .
 8. Tryck på **Välj**.
 9. Klicka på **bevilja**.
 
@@ -124,7 +124,7 @@ Ersätt `{tenant id}`, `{application id}`, och `{redirect uri}` att följa dessa
 
 ## <a name="calling-the-backup-and-restore-operations"></a>Anropa åtgärder för säkerhetskopiering och återställning
 
-REST-API: er är [Api Management-tjänsten – Backup](/rest/api/apimanagement/apimanagementservice/backup) och [Api Management-tjänsten – återställning](/rest/api/apimanagement/apimanagementservice/restore).
+REST-API: er är [Api Management-tjänsten – Backup](/rest/api/apimanagement/2019-01-01/apimanagementservice/backup) och [Api Management-tjänsten – återställning](/rest/api/apimanagement/2019-01-01/apimanagementservice/restore).
 
 Ställ in begärandehuvudet auktorisering för REST-anrop innan du anropar ”säkerhetskopiering och återställning” åtgärderna som beskrivs i följande avsnitt.
 

@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Funktioner | Microsoft Docs'
 description: Funktioner i Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 ms.assetid: 8d1c3eb3-1022-4add-a919-c98cc6584af1
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/30/2018
-ms.author: ergreenl
-ms.openlocfilehash: 9e4ab7aa4f61921d8b327404a266694349d78164
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/10/2019
+ms.author: mstephen
+ms.openlocfilehash: 27aaaca4f28feac0f68b4e034426c64b934b1f95
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60417273"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234920"
 ---
 # <a name="azure-ad-domain-services"></a>Azure AD Domain Services
 ## <a name="features"></a>Funktioner
@@ -35,7 +35,7 @@ Följande funktioner är tillgängliga i Azure AD Domain Services hanterade dom�
 * **Använd dina företagets autentiseringsuppgifter/lösenord:** Lösenord för användare i Azure AD-klienten fungerar med Azure AD Domain Services. Användare kan använda sina inloggningsuppgifter till domänanslutning datorer, logga in interaktivt eller via fjärrskrivbord och autentisera mot den hanterade domänen.
 * **LDAP-bindning & LDAP Läs support:** Du kan använda program som förlitar sig på LDAP-bindningar för att autentisera användare i domäner som underhålls av Azure AD Domain Services. Program som använder LDAP läsåtgärder att fråga användaren eller datorn attribut från katalogen kan dessutom också fungerar mot Azure AD Domain Services.
 * **Säkert LDAP (LDAPS):** Du kan aktivera åtkomst till katalogen över säker LDAP (LDAPS). Åtkomst med säkert LDAP är tillgänglig i det virtuella nätverket som standard. Du kan även aktivera åtkomst med säkert LDAP via internet.
-* **Grupprincip:** Du kan använda en enda inbyggda Grupprincipobjektet varje för användare och datorer behållare för att tvinga kompatibilitet med krävs säkerhetsprinciper för användarkonton och domänanslutna datorer. Du kan också skapa dina egna anpassade grupprincipobjekt och tilldela dem till organisationsenheter som är anpassade till [hanterar Grupprincip](active-directory-ds-admin-guide-administer-group-policy.md).
+* **Grupprincip:** Du kan använda en enda inbyggda Grupprincipobjektet varje för användare och datorer behållare för att tvinga kompatibilitet med krävs säkerhetsprinciper för användarkonton och domänanslutna datorer. Du kan också skapa dina egna anpassade grupprincipobjekt och tilldela dem till organisationsenheter som är anpassade till [hanterar Grupprincip](manage-group-policy.md).
 * **Hantera DNS:** Medlemmar i gruppen ”AAD DC-administratörer” hantera DNS för din hanterade domän via välbekanta DNS-Administrationsverktyg, till exempel DNS-Administration MMC-snapin-modulen.
 * **Skapa anpassade organisationsenheter (OU):** Medlemmar i gruppen AAD DC-administratörer kan skapa anpassade organisationsenheter i den hanterade domänen. Dessa användare beviljas fullständig administratörsbehörighet över anpassade organisationsenheter, så att de kan lägga till/ta bort tjänstkonton, datorer, grupper osv inom dessa anpassade organisationsenheter.
 * **Tillgänglig i många globala Azure-regioner:** På sidan [Azure-tjänster efter region](https://azure.microsoft.com/regions/#services/) ser du i vilka Azure-regioner som Azure AD Domain Services är tillgängligt.

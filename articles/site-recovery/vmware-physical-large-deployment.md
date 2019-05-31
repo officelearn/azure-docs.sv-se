@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: raynew
-ms.openlocfilehash: 593a82221ec94e43d50b7382ba89053d5f68864a
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: e96aafe61c0d8547ffca9e97bfd9e90c9529155f
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65805928"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237267"
 ---
 # <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>Konfigurera haveriberedskap i stor skala för VMware-datorer/fysiska servrar
 
@@ -26,7 +26,7 @@ Som en del av affärskontinuitet och haveriberedskap (BCDR) kan definiera du åt
 - När du planerar för storskaliga haveriberedskap för virtuella VMware-datorer och ta reda på de Azure-resurser måste ange du ett RTO-värde som ska användas för kapacitet beräkningar.
 
 
-## <a name="best-practices"></a>Regelverk
+## <a name="best-practices"></a>Bästa praxis
 
 Vissa allmänna Metodtips för storskaliga katastrofåterställning. Dessa bästa metoder beskrivs närmare i nästa avsnitt i dokumentet.
 
@@ -188,7 +188,7 @@ När du startar replikeringen för den första batchen med virtuella datorer, ka
 1. Tilldela en disaster recovery-administratör för att övervaka hälsotillståndet för replikerade datorer.
 2. [Övervaka händelser](site-recovery-monitor-and-troubleshoot.md) för replikerade objekt och infrastrukturen.
 3. [Övervaka hälsotillståndet](vmware-physical-azure-monitor-process-server.md) servrarnas skalbarhet processen.
-4. Registrera dig för att hämta [e-postmeddelanden](https://docs.microsoft.com/azure/site-recovery/site-recovery-monitor-and-troubleshoot.md#subscribe-to-email-notifications) för händelser för lättare övervakning.
+4. Registrera dig för att hämta [e-postmeddelanden](https://docs.microsoft.com/azure/site-recovery/site-recovery-monitor-and-troubleshoot#subscribe-to-email-notifications) för händelser för lättare övervakning.
 5. Genomför regular [programåterställningstest](site-recovery-test-failover-to-azure.md), för att kontrollera att allt fungerar som förväntat.
 
 

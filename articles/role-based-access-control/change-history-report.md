@@ -15,12 +15,12 @@ ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b808654baded5bbe721866441a8d1115eff7bcaa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 842d3146bf1927871e29eb750cde09e9029b7c12
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60308915"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242107"
 ---
 # <a name="view-activity-logs-for-rbac-changes-to-azure-resources"></a>Visa aktivitetsloggar för RBAC ändringar till Azure-resurser
 
@@ -121,9 +121,9 @@ Här är de grundläggande stegen för att komma igång:
 
 1. [Skapa en Log Analytics-arbetsyta](../azure-monitor/learn/quick-create-workspace.md).
 
-1. [Konfigurera Activity Log Analytics-lösningen](../azure-monitor/platform/collect-activity-logs.md#configuration) för arbetsytan.
+1. [Konfigurera Activity Log Analytics-lösningen](../azure-monitor/platform/activity-log-collect.md#activity-logs-analytics-monitoring-solution) för arbetsytan.
 
-1. [Visa aktivitetsloggar](../azure-monitor/platform/collect-activity-logs.md#using-the-solution). Ett snabbt sätt att navigera till översiktssidan Activity Log Analytics-lösning är att klicka på den **Log Analytics** alternativet.
+1. [Visa aktivitetsloggar](../azure-monitor/platform/activity-log-collect.md#activity-logs-analytics-monitoring-solution). Ett snabbt sätt att navigera till översiktssidan Activity Log Analytics-lösning är att klicka på den **Log Analytics** alternativet.
 
    ![Azure Monitor loggar alternativet i portalen](./media/change-history-report/azure-log-analytics-option.png)
 
@@ -151,4 +151,4 @@ AzureActivity
 
 ## <a name="next-steps"></a>Nästa steg
 * [Visa händelser i aktivitetsloggen](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
-* [Övervaka aktivitet om prenumeration med Azure-aktivitetsloggen](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)
+* [Övervaka prenumerationsaktivitet med Azure-aktivitetsloggen](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)

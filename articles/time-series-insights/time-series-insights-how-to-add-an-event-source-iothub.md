@@ -4,19 +4,19 @@ description: Den här artikeln beskriver hur du lägger till en händelsekälla 
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 258b603b8cd2e0cdfcc72ca17cd3cb0d034caf5b
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 79d2062f0e174eeb7550205f90c1650185e1623a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65143357"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236991"
 ---
 # <a name="add-an-iot-hub-event-source-to-your-time-series-insights-environment"></a>Lägg till en IoT hub-händelsekälla till Time Series Insights-miljön
 
@@ -76,12 +76,12 @@ Lägga till en ny konsumentgrupp till din IoT hub:
    | Egenskap  | Beskrivning |
    | --- | --- |
    | Prenumerations-ID:t | Välj den prenumeration där IoT-hubben har skapats.
-   | Namn på IoT Hub | Välj namnet på IoT-hubben.
+   | Namnet på IoT hub | Välj namnet på IoT-hubben.
    | Principnamn för IoT hub | Välj princip för delad åtkomst. Du hittar principen för delad åtkomst på inställningsfliken för IoT hub. Varje princip för delad åtkomst har ett namn, behörigheter som du ställa in och åtkomstnycklar. Princip för delad åtkomst för din händelsekälla *måste* har **tjänsten ansluta** behörigheter.
    | Principnyckel för IoT hub | Nyckeln innehåller redan.
    | IoT hub-konsumentgrupp | Konsumentgruppen som läser händelser från IoT hub. Vi rekommenderar starkt att du använder en dedikerad konsumentgrupp för din händelsekälla.
    | Händelseserialiseringsformat | JSON är för närvarande endast tillgängligt serialiseringsformatet. Händelsemeddelanden måste vara i formatet eller inga data kan läsas. |
-   | Egenskapsnamn för tidsstämpel | För att fastställa det här värdet, måste du förstå meddelandeformat för meddelandedata som skickas till IoT hub. Det här värdet är den **namn** för egenskapen specifik händelse i meddelandedata som du vill använda som tidsstämpel för händelsen. Värdet är skiftlägeskänsligt. Om det lämnas tomt används det **sätta händelsetid** i källan används som tidsstämpel för händelsen. |
+   | Egenskapsnamnet för tidsstämpeln | För att fastställa det här värdet, måste du förstå meddelandeformat för meddelandedata som skickas till IoT hub. Det här värdet är den **namn** för egenskapen specifik händelse i meddelandedata som du vill använda som tidsstämpel för händelsen. Värdet är skiftlägeskänsligt. Om det lämnas tomt används det **sätta händelsetid** i källan används som tidsstämpel för händelsen. |
 
 1. I följande tabell beskrivs de nödvändiga egenskaperna för den **ger IoT Hub-inställningar manuellt**:
 
@@ -89,12 +89,12 @@ Lägga till en ny konsumentgrupp till din IoT hub:
    | --- | --- |
    | Prenumerations-ID:t | Den prenumeration där IoT-hubben har skapats.
    | Resursgrupp | Resursgruppens namn som IoT-hubben har skapats.
-   | Namn på IoT Hub | namnet på din IoT-hubb. När du har skapat din IoT-hubb kan du har angett ett namn för IoT-hubben.
+   | Namnet på IoT hub | namnet på din IoT-hubb. När du har skapat din IoT-hubb kan du har angett ett namn för IoT-hubben.
    | Principnamn för IoT hub | Princip för delad åtkomst. Du kan skapa princip för delad åtkomst på inställningsfliken för IoT hub. Varje princip för delad åtkomst har ett namn, behörigheter som du ställa in och åtkomstnycklar. Princip för delad åtkomst för din händelsekälla *måste* har **tjänsten ansluta** behörigheter.
    | Principnyckel för IoT hub | Den delade åtkomstnyckeln som används för att tillåta åtkomst till Azure Service Bus-namnområdet. Ange den primära eller sekundära nyckeln här.
    | IoT hub-konsumentgrupp | Konsumentgruppen som läser händelser från IoT hub. Vi rekommenderar starkt att du använder en dedikerad konsumentgrupp för din händelsekälla.
    | Händelseserialiseringsformat | JSON är för närvarande endast tillgängligt serialiseringsformatet. Händelsemeddelanden måste vara i formatet eller inga data kan läsas. |
-   | Egenskapsnamn för tidsstämpel | För att fastställa det här värdet, måste du förstå meddelandeformat för meddelandedata som skickas till IoT hub. Det här värdet är den **namn** för egenskapen specifik händelse i meddelandedata som du vill använda som tidsstämpel för händelsen. Värdet är skiftlägeskänsligt. Om det lämnas tomt används det **sätta händelsetid** i källan används som tidsstämpel för händelsen. |
+   | Egenskapsnamnet för tidsstämpeln | För att fastställa det här värdet, måste du förstå meddelandeformat för meddelandedata som skickas till IoT hub. Det här värdet är den **namn** för egenskapen specifik händelse i meddelandedata som du vill använda som tidsstämpel för händelsen. Värdet är skiftlägeskänsligt. Om det lämnas tomt används det **sätta händelsetid** i källan används som tidsstämpel för händelsen. |
 
 1. Lägg till dedikerade Time Series Insights konsument gruppnamnet som du lade till din IoT-hubb.
 

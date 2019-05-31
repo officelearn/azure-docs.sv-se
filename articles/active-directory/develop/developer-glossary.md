@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/13/2019
+ms.date: 05/21/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c989b690e9537dcaaf3710996474a1b8b99826b
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 314d7a8e8cf6837e2b22446ba23fee03d539bf35
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65962751"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235358"
 ---
 # <a name="microsoft-identity-platform-developer-glossary"></a>Ordlista för utvecklare av Microsoft identity-plattformen
 
@@ -64,7 +64,7 @@ För att tillåta att ett program att integrera med och delegera Identity and Ac
 
 Se [integrera program med Azure Active Directory] [ AAD-Integrating-Apps] för mer information.
 
-## <a name="authentication"></a>autentisering
+## <a name="authentication"></a>Autentisering
 
 Act angrips en part för giltiga autentiseringsuppgifter som ligger till grund för att skapa ett säkerhetsobjekt som ska användas för identitets- och åtkomstkontroll. Under en [OAuth2 auktoriseringsbeviljande](#authorization-grant) exempelvis part autentisering fylls rollen antingen [resursägaren](#resource-owner) eller [klientprogram](#client-application), beroende på den bevilja används.
 
@@ -95,7 +95,7 @@ Enligt definitionen i den [OAuth2 auktorisering Framework][OAuth2-Role-Def], ser
 
 När det gäller programintegrering för Microsoft identity-plattformen, Microsofts identitetsplattform implementerar rollen auktorisering för Azure AD-program och Microsoft service API: er, till exempel [Microsoft Graph API: er] [Microsoft-Graph].
 
-## <a name="claim"></a>anspråk
+## <a name="claim"></a>Anspråk
 
 En [säkerhetstoken](#security-token) innehåller anspråk, som ger intyg om en entitet (till exempel en [klientprogram](#client-application) eller [resursägaren](#resource-owner)) till en annan entitet (till exempel [resursservern](#resource-server)). Anspråk är namn/värde-par som vidarebefordrar fakta om token område (till exempel det säkerhetsobjekt som autentiserades via den [auktoriseringsservern](#authorization-server)). Anspråk som finns i en viss token är beroende av flera variabler, inklusive vilken typ av token, vilken typ av autentiseringsuppgift som används för att autentisera ämne, programkonfiguration, osv.
 
@@ -119,7 +119,7 @@ En [OpenID Connect] [ OpenIDConnect-ID-Token] [säkerhetstoken](#security-token)
 
 Se [tokenreferens för Microsoft identity-plattformen] [ AAD-Tokens-Claims] för mer information.
 
-## <a name="microsoft-identity-platform"></a>Microsoft identitetsplattform
+## <a name="microsoft-identity-platform"></a>Microsoft identity-plattformen
 
 Microsoft Identity-plattformen är en utveckling av identitetstjänsten och utvecklingsplattformen Azure Active Directory (Azure AD). Den hjälper utvecklare att bygga program som loggar in alla Microsoft-identiteter, får tokens för att anropa Microsoft Graph, andra Microsoft API:er eller API:er som utvecklare har byggt. Det är en fullständig plattform som består av en autentiseringstjänst, bibliotek, programregistrering och konfiguration, fullständig utvecklardokumentation, kodexempel och annat innehåll för utvecklare. Microsoft Identity-plattformen stöder branschstandardprotokoll som OAuth 2.0 och OpenID Connect. Se [om Microsoft identity-plattformen](about-microsoft-identity-platform.md) för mer information.
 
@@ -142,7 +142,7 @@ En [klientprogram](#client-application) får åtkomst till en [resursservern](#r
 
 De också lyfta fram under den [godkänna](#consent) processen, vilket ger administratören eller resursägaren möjlighet att bevilja/neka klientåtkomst till resurser i deras klienter.
 
-Begäranden om behörighet har konfigurerats på sidan ”program” / ”inställningar” fliken i den [Azure-portalen][AZURE-portal], under ”nödvändiga behörigheter”, genom att välja önskad ”delegerade behörigheter” och ”-program Behörigheter ”(det senare krävs medlemskap i rollen som Global administratör). Eftersom en [offentlig klient](#client-application) inte kan på ett säkert sätt att upprätthålla autentiseringsuppgifter, det kan bara begära delegerade behörigheter, medan en [konfidentiell klient](#client-application) har möjlighet att begära både delegerad och program behörigheter. Klientens [programobjektet](#application-object) lagrar deklarerade behörigheterna i dess [requiredResourceAccess egenskapen][AAD-Graph-App-Entity].
+Begäranden om behörighet har konfigurerats på den **API-behörigheter** för ett program i den [Azure-portalen][AZURE-portal], genom att välja önskade ”delegerade behörigheter” och ” Behörigheter för programmet ”(det senare krävs medlemskap i rollen som Global administratör). Eftersom en [offentlig klient](#client-application) inte kan på ett säkert sätt att upprätthålla autentiseringsuppgifter, det kan bara begära delegerade behörigheter, medan en [konfidentiell klient](#client-application) har möjlighet att begära både delegerad och program behörigheter. Klientens [programobjektet](#application-object) lagrar deklarerade behörigheterna i dess [requiredResourceAccess egenskapen][AAD-Graph-App-Entity].
 
 ## <a name="resource-owner"></a>resursägaren
 
@@ -156,7 +156,7 @@ Resursservern visar API: er och tillämpar åtkomst till dess skyddade resurser 
 
 Precis som ett klientprogram resource programmets identitet konfiguration har upprättats [registrering](#application-registration) tillhandahåller både programmet och tjänstens huvudnamnsobjekt i en Azure AD-klient. Vissa Microsoft tillhandahåller API: er, till exempel Azure AD Graph-API har redan registrerat tjänstens huvudnamn som är tillgänglig i alla klienter under etableringen.
 
-## <a name="roles"></a>roller
+## <a name="roles"></a>roles
 
 Som [scope](#scopes), roller gör det möjligt för en [resursservern](#resource-server) att styra åtkomst till dess skyddade resurser. Det finns två typer: en ”användare”-roll implementerar rollbaserad åtkomstkontroll för användare/grupper som kräver åtkomst till resursen, medan en ”program”-roll som implementerar samma för [klientprogram](#client-application) som kräver åtkomst.
 
@@ -182,7 +182,7 @@ När du registrera dig/uppdatera ett program i den [Azure-portalen][AZURE-portal
 
 Mer information finns i [program och tjänstobjekt][AAD-App-SP-Objects].
 
-## <a name="sign-in"></a>inloggning
+## <a name="sign-in"></a>sign-in
 
 Processen för en [klientprogram](#client-application) initierar slutanvändarautentisering och samla in relaterade tillstånd, för att förvärva en [säkerhetstoken](#security-token) och konfigurera program till det aktuella tillståndet. Tillstånd kan omfatta artefakter, till exempel information om användarprofiler och information som härleds från tokenanspråken.
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2019
 ms.author: gokuma
-ms.openlocfilehash: 03bf0833bdc1bda24b9d435dafe329e9a3c8e4b2
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 64642da88850e9a0a17173bc50ae9e750cab55a2
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65596503"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235091"
 ---
 # <a name="provision-a-windows-data-science-virtual-machine-on-azure"></a>Etablera en Windows Data Science-dator på Azure
 
@@ -106,7 +106,7 @@ Skapa en DSVM-instans:
 
 När den virtuella datorn skapas och etableras, kan du fjärrskrivbord till den med hjälp av autentiseringsuppgifter som administratör-konto som du konfigurerade i föregående **grunderna** avsnittet. Du är redo att börja använda verktygen som installeras och konfigureras på den virtuella datorn. Många av verktygen kan nås via start-menyn paneler och ikoner på skrivbordet.
 
-Du kan även bifoga en virtuell dator för datavetenskap i Azure-anteckningsböcker för att köra Jupyter-anteckningsböcker på den virtuella datorn och kringgå begränsningar av kostnadsfria tjänstnivån. Mer information finns i [hantera och konfigurera anteckningsböcker projekt - Beräkningsnivån](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
+Du kan även bifoga en virtuell dator för datavetenskap i Azure-anteckningsböcker för att köra Jupyter-anteckningsböcker på den virtuella datorn och kringgå begränsningar av kostnadsfria tjänstnivån. Mer information finns i [hantera och konfigurera anteckningsböcker projekt - Beräkningsnivån](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).
 
 ## <a name="tools-installed-on-the-microsoft-data-science-virtual-machine"></a>Verktygen som installeras på Microsoft Data Science Virtual Machine
 

@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/29/2018
+ms.date: 5/24/2019
 ms.author: hrushib
-ms.openlocfilehash: 9bce408215cef540604a72109bc5b29ebc3359e7
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: e81cc1b3d80afd39a74c3046b1f8020e0a524ae4
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65413810"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237367"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>Regelbunden säkerhetskopiering och återställning i Azure Service Fabric 
 > [!div class="op_single_selector"]
@@ -185,9 +185,6 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 
 ```
 
-> [!IMPORTANT]
-> Se till att kvarhållningsvaraktighetens i bevarandeprincipen är konfigurerad för att vara mindre än 24 dagar eller be om det skulle resultera i Backup Restore-tjänsten för att gå till kvorum förlust efter replikeringsredundans på grund av ett problem i körningen.
-
 ### <a name="enable-periodic-backup"></a>Aktivera regelbunden säkerhetskopiering
 Principen för säkerhetskopiering ska vara associerat med programmet när du har definierat principen för säkerhetskopiering för att uppfylla kraven på dataskydd för programmet. Beroende på krav, kan säkerhetskopieringspolicyn som associeras med ett program, tjänst eller en partition.
 
@@ -286,10 +283,6 @@ FailureError            :
 ## <a name="limitation-caveats"></a>Begränsningen / varningar
 - Service Fabric PowerShell-cmdlet: ar är i förhandsgranskningsläge.
 - Inget stöd för Service Fabric-kluster på Linux.
-
-## <a name="known-issues"></a>Kända problem
-- Se till att kvarhållningsvaraktighetens är konfigurerad för att vara mindre än 24 dagar. 
-
 
 ## <a name="next-steps"></a>Nästa steg
 - [Förstå periodiska säkerhetskopieringskonfiguration](./service-fabric-backuprestoreservice-configure-periodic-backup.md)

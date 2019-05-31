@@ -2,16 +2,16 @@
 title: Ändra, ta bort eller hantera dina hanteringsgrupper - styrning i Azure
 description: Lär dig mer om att visa, underhålla, uppdatera och ta bort din grupphierarki för hantering.
 author: rthorn17
-ms.service: azure-resource-manager
-ms.date: 04/04/2019
+ms.service: governance
+ms.date: 05/22/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: b3798ec7578530e04ec9e00086fffaec9a58a7cd
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 028b4cbf62bf9ed0b3b38f54d3b787a8c1368da0
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65950203"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242950"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Hantera dina resurser med hanteringsgrupper
 
@@ -128,7 +128,7 @@ Du kan visa någon hanteringsgrupp som du har en direkt eller ärvda RBAC-roll p
 
 1. Om du vill se information om hanteringsgruppen, Välj den **(detaljer)** länken bredvid rubriken för hanteringsgruppen. Om den här länken inte är tillgängligt, har inte behörighet att visa den hanteringsgruppen.
 
-   ![Huvud](./media/main.png)
+   ![Main](./media/main.png)
 
 ### <a name="view-in-powershell"></a>Visa i PowerShell
 
@@ -206,10 +206,12 @@ Ett skäl till att skapa en hanteringsgrupp är att slå samman prenumerationer.
 Alla följande RBAC-behörigheter måste vara uppfyllda för att flytta prenumerationen:
 
 - ”Ägare”-rollen på underordnade prenumerationen.
-- ”Ägare”, ”deltagare” eller ”Management Group bidragsgivare”-rollen på målet överordnade management group.*
-- ”Ägare”, ”deltagare” eller ”Management Group bidragsgivare”-rollen på den befintliga överordnade management group.*
+- ”Ägare”, ”deltagare” eller ”Management Group bidragsgivare”-rollen på mål-överordnad hanteringsgrupp.
+- ”Ägare”, ”deltagare” eller ”Management Group bidragsgivare”-rollen på den befintliga överordnade hanteringsgruppen.
 
-*: Om inte målet eller den befintliga överordnade hanteringsgruppen är rot-hanteringsgruppen. Eftersom rot-hanteringsgruppen är standard landing upptäcka för alla nya hanteringsgrupper och prenumerationer, behöver inte användarna behörighet på den för att flytta ett objekt.
+Om målet eller den befintliga överordnade hanteringsgruppen är rot-hanteringsgruppen, gäller inte krav för behörigheter. Eftersom rot-hanteringsgruppen är standard landing upptäcka för alla nya hanteringsgrupper och prenumerationer, behöver du inte behörighet på den för att flytta ett objekt.
+
+Om rollen ägare för prenumerationen har ärvts från den aktuella hanteringsgruppen, begränsas din move-mål. Du kan bara flytta prenumerationen till en annan hanteringsgrupp där du har rollen ägare. Du kan inte flytta den till en hanteringsgrupp där du är deltagare eftersom du kommer att förlora ägarskapet för prenumerationen. Om du direkt har tilldelats rollen ägare för den prenumeration (inte ärvs från hanteringsgruppen) kan du flytta den till någon hanteringsgrupp där du är deltagare.
 
 Se vilka behörigheter du har i Azure portal, Välj management och sedan **IAM**. Läs mer om RBAC-roller i [hantera åtkomst och behörighet med RBAC](../../role-based-access-control/overview.md).
 
@@ -325,7 +327,7 @@ Hanteringsgrupper kan användas i [Azure-aktivitetsloggar](../../azure-monitor/p
 
 ![Aktivitetsloggar med hanteringsgrupper](media/al-mg.png)
 
-När du vill fråga hanteringsgrupper utanför Microsoft Azure-portalen är målområdet för hanteringsgrupper: **"/providers/Microsoft.Management/managementGroups/{yourMgID}"**.
+När du vill fråga hanteringsgrupper utanför Microsoft Azure-portalen är målområdet för hanteringsgrupper: **"/providers/Microsoft.Management/managementGroups/{yourMgID}"** .
 
 ## <a name="referencing-management-groups-from-other-resource-providers"></a>Refererar till hanteringsgrupper från andra Resursprovidrar
 

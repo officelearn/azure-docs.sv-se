@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 0ad006ca966cfcc2c817ae4e8bfd3dc2d477259e
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 0e361edfea6365c3d3fe072e12bb303e71bb8d63
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66145902"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66249065"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Vanliga frågor och svar om virtuella Azure IaaS-datorer och hanterade och ohanterade premiumdiskar
 
@@ -141,19 +141,9 @@ För hanterade diskar du kan inte byta namn på dem. Du kan dock byta namn på e
 
 GPT partitionering kan användas på datadiskar, inte OS-diskar. OS-diskar måste använda partitionstypen MBR.
 
-## <a name="uploading-to-a-managed-disk"></a>Ladda upp till en hanterad disk
+**Vilka disktyper stöd för ögonblicksbilder?**
 
-**Kan jag överföra data till en befintlig hanterad disk?**
-
-Nej, ladda upp bara kan användas när du skapar en ny tom disk med den **ReadyToUpload** tillstånd.
-
-**Kan jag ansluta en disk till en virtuell dator när den är i tillståndet överföring?**
-
-Nej.
-
-**Kan jag ta en ögonblicksbild av en disk som hanteras i en Överföringsstatusen?**
-
-Nej.
+Premium SSD-, standard SSD- och standard SSD stöd för ögonblicksbilder, utan någon storleksgränsen. Så kan du ögonblicksbild stora diskar (upp till 32 TiB). Ultra SSD: er stöder inte ögonblicksbilder.
 
 ## <a name="standard-ssd-disks"></a>Standard SSD-diskar
 
@@ -353,7 +343,7 @@ Ja.
 
 **Vad är den största diskstorleken som stöds av Azure Backup och Azure Site Recovery-tjänsten?**
 
-Den största diskstorleken som stöds av Azure Backup och Azure Site Recovery-tjänsten är 4 TiB. Stöd för större diskar upp till 32 TiB kommer snart.
+Den största diskstorleken som stöds av Azure Backup och Azure Site Recovery-tjänsten är 4 TiB. Stöd för större diskar upp till 32 TiB är inte tillgänglig ännu.
 
 **Vad är den rekommenderade VM-storlekar för större diskstorlekar (> 4 TiB) för Standard SSD och HDD-Standard-diskar för att uppnå optimerade disk-IOPS och bandbredd?**
 

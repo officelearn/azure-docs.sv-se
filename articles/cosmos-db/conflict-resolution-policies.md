@@ -4,15 +4,15 @@ description: Den här artikeln beskriver konflikt kategorier och principer för 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/24/2019
+ms.date: 05/23/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: ebea55f769ca16bfa344d0a100fe16cec6d784d0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 98e9f5fff1b74d417ee07ed0056c8046b49baa17
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60892599"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236535"
 ---
 # <a name="conflict-types-and-resolution-policies"></a>Konflikttyper och matchningsprinciper
 
@@ -30,7 +30,7 @@ Uppdateringskonflikter kan inträffa när skrivare samtidigt uppdaterar samma ob
 
 Azure Cosmos DB erbjuder en flexibel principstyrda mekanism för att lösa konflikter för skrivning. Du kan välja mellan två konflikt upplösning principer på en Azure Cosmos-behållare:
 
-- **Senast ändrad Wins (LWW)**: Den här principen, använder som standard en systemdefinierade tidsstämpel-egenskapen. Den baseras på protokollet tidssynkronisering klockan. Om du använder SQL-API kan ange du någon annan anpassad numeriska egenskap (t.ex. egna begreppet en tidsstämpel) ska användas vid konfliktlösning. En anpassad numeriska egenskap också kallas den *sökväg för lösning av konflikt*. 
+- **Senast ändrad Wins (LWW)** : Den här principen, använder som standard en systemdefinierade tidsstämpel-egenskapen. Den baseras på protokollet tidssynkronisering klockan. Om du använder SQL-API kan ange du någon annan anpassad numeriska egenskap (t.ex. egna begreppet en tidsstämpel) ska användas vid konfliktlösning. En anpassad numeriska egenskap också kallas den *sökväg för lösning av konflikt*. 
 
   Om två eller flera objekt konflikt på Infoga eller ersätt-åtgärder, blir objektet med det högsta värdet för vägen med konflikt upplösning vinnaren. Systemet avgör vinnaren om flera objekt har samma numeriskt värde för konflikt upplösning sökvägen. Alla regioner garanteras att Konvergera till en enda vinnare och slutar in med samma version av det allokerade objektet. När du ta bort konflikter ingår den borttagna versionen alltid wins infoga eller ersätta konflikter. Det här resultatet inträffar oavsett värdet för konflikt upplösning sökvägen finns.
 

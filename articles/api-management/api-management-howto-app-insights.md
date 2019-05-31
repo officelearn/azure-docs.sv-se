@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 69f36773b702d9f0059e0cd27dbb864ccd7f7b2b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3bbab82831fba389cd4bf172e7ea762d5971579b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60527622"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241851"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Hur du integrerar Azure API Management med Azure Application Insights
 
@@ -51,7 +51,7 @@ Innan du kan använda Azure Application Insights, måste du först skapa en inst
     ![App Insights loggare](media/api-management-howto-app-insights/apim-app-insights-logger-2.png)  
 
 > [!NOTE]
-> Bakom scenen, en [loggaren](https://docs.microsoft.com/rest/api/apimanagement/logger/createorupdate) entitet skapas i din API Management-instans som innehåller Instrumenteringsnyckeln för Application Insights-instans.
+> Bakom scenen, en [loggaren](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/logger/createorupdate) entitet skapas i din API Management-instans som innehåller Instrumenteringsnyckeln för Application Insights-instans.
 
 ## <a name="enable-application-insights-logging-for-your-api"></a>Aktivera loggning för Application Insights för ditt API
 
@@ -70,7 +70,7 @@ Innan du kan använda Azure Application Insights, måste du först skapa en inst
 > Åsidosätta standardvärdet **0** i den **första byten i brödtexten** fältet kan avsevärt minska prestandan för dina API: er.
 
 > [!NOTE]
-> Bakom scenen, en [diagnostiska](https://docs.microsoft.com/rest/api/apimanagement/diagnostic/createorupdate) entitet med namnet 'applicationinsights' skapas på API-nivå.
+> Bakom scenen, en [diagnostiska](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/diagnostic/createorupdate) entitet med namnet 'applicationinsights' skapas på API-nivå.
 
 | Inställningsnamn                        | Värdetyp                        | Beskrivning                                                                                                                                                                                                                                                                                                                                      |
 |-------------------------------------|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

@@ -28,12 +28,12 @@ ms.author:
 - minale
 - btalb
 - prachank
-ms.openlocfilehash: d0124d6656167af3942e0d054b4e1fa7a2b48e8b
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: ad1a5b69e4ec7b44c0e61a5ddd2c06633464d31a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65410047"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234986"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>TCP/IP-prestandajustering för virtuella Azure-datorer
 
@@ -79,7 +79,7 @@ Tänk på att öka MTU inte nödvändigtvis att skapa ett mer effektivt nätverk
 
 #### <a name="azure-and-vm-mtu"></a>Azure och VM-MTU
 
-Standardstorleken för virtuella Azure-datorer är 1 500 byte. Azure Virtual Network-stack försöker Fragmentera ett paket på 1,400 byte. Men den virtuella nätverksstacken tillåter paket upp till 2,006 byte när biten Fragmentera anges i IP-huvudet.
+Standardstorleken för virtuella Azure-datorer är 1 500 byte. Azure Virtual Network-stack försöker Fragmentera ett paket på 1,400 byte.
 
 Observera att den virtuella nätverksstacken inte sin natur ineffektiv eftersom den fragmenterar paket på 1,400 byte, även om virtuella datorer har en MTU på 1 500. En stor del av nätverkspaket är mycket mindre än 1,400 eller 1 500 byte.
 
@@ -140,7 +140,7 @@ Nätverksfördröjningen regleras av hastigheten för ljus över ett fiberoptisk
 
 | | | | |
 |-|-|-|-|
-|**väg**|**avstånd**|**Enkelriktad tid**|**RTT**|
+|**Route**|**avstånd**|**Enkelriktad tid**|**RTT**|
 |New York till San Francisco|4,148 km|21 ms|42 ms|
 |New York to London|5,585 km|28 ms|56 ms|
 |New York till Sydney|15,993 km|80 ms|160 ms|
@@ -237,7 +237,7 @@ Dessa är de effektiva TCP-inställningarna för `AutoTuningLevel`:
 | | | | |
 |-|-|-|-|
 |**AutoTuningLevel**|**Skalningsfaktor**|**Skala multiplikatorn**|**Formeln till<br/>beräkna maximal fönsterstorlek**|
-|Har inaktiverats|Ingen|Ingen|Fönsterstorlek|
+|Inaktiverad|Ingen|Ingen|Fönsterstorlek|
 |Begränsat|4|2^4|Fönsterstorlek * (2 ^ 4)|
 |Mycket begränsad|2|2^2|Fönsterstorlek * (2 ^ 2)|
 |Normal|8|2^8|Fönsterstorlek * (2 ^ 8)|
@@ -256,7 +256,7 @@ Eftersom en större MTU innebär en större MSS, kanske du undrar om ökar MTU k
 
 ### <a name="accelerated-networking-and-receive-side-scaling"></a>Accelererat nätverk och skalning på mottagarsidan
 
-#### <a name="accelerated-networking"></a>Accelererat nätverk
+#### <a name="accelerated-networking"></a>Snabbare nätverk
 
 Nätverksfunktioner för virtuell dator har historiskt Processorintensiva på både den Virtuella gästdatorn och hypervisor-/ värden. Varje paket som eltransit via värden bearbetas i programvara av CPU, inklusive alla inkapsling för virtuellt nätverk och avkapsling-värden. Så mer trafik som passerar värden, desto högre CPU-belastningen. Och om värdens CPU är upptagen med andra åtgärder, som även att påverka nätverkets dataflöde och svarstid. Azure löser problemet med accelererat nätverk.
 
@@ -264,7 +264,7 @@ Accelererat nätverk ger konsekvent ultralow Nätverksfördröjningen via Azure 
 
 Accelererat nätverk förbättrar prestanda genom att tillåta att Virtuella kringgå värden och upprätta en datapath direkt med en värds SmartNIC gästdatorn. Här följer några av fördelarna med accelererat nätverk:
 
-- **Lägre latens / högre paket per sekund (pps)**: Ta bort den virtuella växeln från datapath eliminerar tid i värden för behandling av princip för paket och ökar antalet paket som kan bearbetas i den virtuella datorn.
+- **Lägre latens / högre paket per sekund (pps)** : Ta bort den virtuella växeln från datapath eliminerar tid i värden för behandling av princip för paket och ökar antalet paket som kan bearbetas i den virtuella datorn.
 
 - **Minskar jitter**: Virtuell växel bearbetning beror på mängden principinformation som måste installeras och arbetsbelastningen processorkraft som klarar bearbetningen. Avlastning av principtillämpning till maskinvara tar bort den variationen genom att tillhandahålla paket direkt till den virtuella datorn, vilket eliminerar värd-till-VM-kommunikation och all programvara avbrott och kontext växlar.
 

@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 56c5e0582afe55dcd63aa056817898d3d4942419
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cfa6a363725c35083b32d6de1dd1371777f91907
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60859081"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240290"
 ---
 # <a name="client-and-server-versioning-in-mobile-apps-and-mobile-services"></a>Versionshantering för klienter och server i Mobile Apps och Mobile Services
 Den senaste versionen av Azure mobiltjänster är den **Mobile Apps** funktionen i Azure App Service.
@@ -29,7 +29,7 @@ Det vill säga måste du använda en *Mobile Apps* klient-SDK med en *Mobile App
 
 Obs: när det här dokumentet avser en *mobiltjänster* serverdelen, inte nödvändigtvis behöver finnas på mobiltjänster. Nu är det möjligt att migrera en mobil tjänst ska köras på App Service utan kodändringar, men tjänsten skulle fortfarande använda *mobiltjänster* SDK-versioner.
 
-Mer information om hur du migrerar till App Service utan kodändringar, finns i artikeln [Migrera en mobil tjänst till Azure App Service].
+Mer information om hur du migrerar till App Service utan kodändringar, finns i artikeln [migrera en Mobiltjänst till Azure App Service].
 
 ## <a name="header-specification"></a>Huvud-specifikation
 Nyckeln `ZUMO-API-VERSION` kan anges i HTTP-rubriken eller frågesträngen. Värdet är en versionssträng i formuläret **x.y.z**.
@@ -47,50 +47,6 @@ Du kan välja bort versionskontroll genom att ange ett värde av **SANT** för a
 
 > [!NOTE]
 > Det finns ett antal beteendeförändringar mellan mobiltjänster och Mobile Apps, särskilt i områden som offline-synkronisering, autentisering och push-meddelanden. Du bör endast välja bort versionskontroll när du slutför testning för att säkerställa att ändringarna beteendeanalys inte skadar appens funktioner.
->
->
-
-## <a name="summary-of-compatibility-for-all-versions"></a>Sammanfattning av kompatibilitet för alla versioner
-Diagrammet nedan visar kompatibiliteten mellan alla typer av klienten och servern. En serverdel klassificeras som antingen Mobile **Services** eller Mobile **appar** baserat på servern SDK som används.
-
-|  | **Mobila tjänster** Node.js- eller .NET | **Mobilappar** Node.js- eller .NET |
-| --- | --- | --- |
-| [Klienter för mobiltjänster] |OK |Fel\* |
-| [Mobile Apps-klienter] |Fel\* |OK |
-
-\*Detta kan kontrolleras genom att ange **MS_SkipVersionCheck**.
-
-<!-- IMPORTANT!  The anchors for Mobile Services and Mobile Apps MUST be 1.0.0 and 2.0.0 respectively, since there is an exception error message that uses those anchors. -->
-
-<!-- NOTE: the fwlink to this document is https://go.microsoft.com/fwlink/?LinkID=690568 -->
-
-## <a name="1.0.0"></a>Mobile Services-klient och server
-Klient-SDK: er i tabellen nedan är kompatibla med **mobiltjänster**.
-
-Obs: Mobile Services-klient SDK: er *inte* skicka ett huvudvärde för `ZUMO-API-VERSION`. Om tjänsten tar emot den här rubriken eller frågesträngsvärdet kommer att returneras ett fel om du uttryckligen har valt ut enligt beskrivningen ovan.
-
-### <a name="MobileServicesClients"></a> Mobile *Services* klient-SDK: er
-| Klientplattform | Version | Värdet för versionshuvudet |
-| --- | --- | --- |
-| Hanterad klient (Windows, Xamarin) |[1.3.2](https://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.2) |Saknas |
-| iOS |[2.2.2](https://aka.ms/gc6fex) |Saknas |
-| Android |[2.0.3](https://go.microsoft.com/fwLink/?LinkID=280126) |Saknas |
-| HTML |[1.2.7](https://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.2.7.min.js) |Saknas |
-
-### <a name="mobile-services-server-sdks"></a>Mobile *Services* server SDK: er
-| Serverplattform | Version | Godkänd version-huvud |
-| --- | --- | --- |
-| .NET |[WindowsAzure.MobileServices.Backend.* Version 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) |**Inga versionshuvudet** |
-| Node.js |(kommer snart) |**Inga versionshuvudet** |
-
-<!-- TODO: add Node npm version -->
-
-### <a name="behavior-of-mobile-services-backends"></a>Beteendet för serverdelar för mobiltjänster
-| ZUMO-API-VERSION | Värdet för MS_SkipVersionCheck | Svar |
-| --- | --- | --- |
-| Ej specificerat |Alla |200 - OK |
-| Ett värde |True |200 - OK |
-| Ett värde |FALSKT/inte angetts |400 - Felaktig begäran |
 
 ## <a name="2.0.0"></a>Azure Mobile Apps-klient och server
 ### <a name="MobileAppsClients"></a> Mobile *appar* klient-SDK: er
@@ -101,8 +57,6 @@ Versionskontroll introducerades från och med följande versioner av klient-SDK 
 | Hanterad klient (Windows, Xamarin) |[2.0.0](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/2.0.0) |2.0.0 |
 | iOS |[3.0.0](https://go.microsoft.com/fwlink/?LinkID=529823) |2.0.0 |
 | Android |[3.0.0](https://go.microsoft.com/fwlink/?LinkID=717033&clcid=0x409) |3.0.0 |
-
-<!-- TODO: add HTML version when released -->
 
 ### <a name="mobile-apps-server-sdks"></a>Mobile *appar* server SDK: er
 Versionskontroll ingår i följande server SDK-versioner:
@@ -121,12 +75,6 @@ Versionskontroll ingår i följande server SDK-versioner:
 | 2.0.0-2.x.y |FALSKT/inte angetts |200 - OK |
 | 3.0.0-3.x.y |FALSKT/inte angetts |400 - Felaktig begäran |
 
-## <a name="next-steps"></a>Nästa steg
-* [Migrera en mobil tjänst till Azure App Service]
-
-[Klienter för mobiltjänster]: #MobileServicesClients
-[Mobile Apps-klienter]: #MobileAppsClients
-
-
+[Mobile Services clients]: #MobileServicesClients
+[Mobile Apps clients]: #MobileAppsClients
 [Mobile App Server SDK]: https://www.nuget.org/packages/microsoft.azure.mobile.server
-[Migrera en mobil tjänst till Azure App Service]: app-service-mobile-migrating-from-mobile-services.md

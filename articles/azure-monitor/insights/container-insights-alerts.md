@@ -11,26 +11,27 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/17/2019
+ms.date: 04/26/2019
 ms.author: magoedte
-ms.openlocfilehash: bbd7c733c7c089328d2fbe016426fe9de3a6b5ce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 46ac6794272728069d50479f8cd097185bfeeb1a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60494634"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65072394"
 ---
 # <a name="how-to-set-up-alerts-for-performance-problems-in-azure-monitor-for-containers"></a>Hur du ställer in aviseringar för problem med prestanda i Azure Monitor för behållare
 Azure Monitor för behållare övervakar prestanda för arbetsbelastningar som distribueras till Azure Container Instances eller hanterade Kubernetes-kluster som finns på Azure Kubernetes Service (AKS).
 
 Den här artikeln beskriver hur du aktiverar aviseringar i följande situationer:
 
-* När CPU eller minne användning på klusternoder överskrider ett angivet tröskelvärde
-* När CPU eller minne användning på alla behållare i en kontrollant överskrider ett angivet tröskelvärde jämfört med en gräns som har angetts i motsvarande resurs
-* *NotReady* komponentstatusnoden räknar
-*  *Det gick inte*, *väntande*, *okänd*, *kör*, eller *lyckades* pod-fas räknar
+- När CPU eller minne användning på klusternoder överskrider ett tröskelvärde
+- När CPU eller minne användning på alla behållare i en kontrollant överskrider ett tröskelvärde jämfört med en gräns som har angetts i motsvarande resurs
+- *NotReady* komponentstatusnoden räknar
+- *Det gick inte*, *väntande*, *okänd*, *kör*, eller *lyckades* pod-fas räknar
+- När mängden ledigt utrymme på klusternoder överskrider ett tröskelvärde 
 
-Använd de frågor som tillhandahålls för att skapa en metrisk varning eller en avisering om metriska måttenheter varnas för hög CPU- eller minnesanvändning på klusternoder. Måttaviseringar har kortare svarstider än loggaviseringar. Men aviseringar ger avancerade frågor och större grad. Loggaviseringar frågor jämföra ett datetime aktuella med hjälp av den *nu* operatorn och gå tillbaka en timme. (Azure Monitor för behållare lagrar alla datum i Coordinated Universal Time (UTC)-format.)
+Använd de frågor som tillhandahålls för att skapa en metrisk varning eller en avisering om metriska måttenheter varnas för hög processor, minnesanvändning eller lite ledigt diskutrymme på klusternoder. Måttaviseringar har kortare svarstider än loggaviseringar. Men aviseringar ger avancerade frågor och större grad. Loggaviseringar frågor jämföra ett datetime aktuella med hjälp av den *nu* operatorn och gå tillbaka en timme. (Azure Monitor för behållare lagrar alla datum i Coordinated Universal Time (UTC)-format.)
 
 Om du inte är bekant med Azure Monitor-aviseringar finns i [översikt över aviseringar i Microsoft Azure](../platform/alerts-overview.md) innan du börjar. Läs mer om aviseringar som använder loggfrågor i [Loggaviseringar i Azure Monitor](../platform/alerts-unified-log.md). Mer information om måttaviseringar finns i [måttaviseringar i Azure Monitor](../platform/alerts-metric-overview.md).
 
@@ -255,6 +256,33 @@ let endDateTime = now();
 >[!NOTE]
 >Att Avisera om vissa pod-faser, till exempel *väntande*, *misslyckades*, eller *okänd*, ändra den sista raden i frågan. Till exempel till en avisering för *FailedCount* använder: <br/>`| summarize AggregatedValue = avg(FailedCount) by bin(TimeGenerated, trendBinSize)`
 
+Följande fråga returnerar noder klusterdiskar som överstiger 90% ledigt utrymme som används. Om du vill hämta kluster-ID först kör följande fråga och kopiera värdet från den `ClusterId` egenskapen:
+
+```kusto
+InsightsMetrics
+| extend Tags = todynamic(Tags)            
+| project ClusterId = Tags['container.azm.ms/clusterId']   
+| distinct tostring(ClusterId)   
+``` 
+
+```kusto
+let clusterId = '<cluster-id>';
+let endDateTime = now();
+let startDateTime = ago(1h);
+let trendBinSize = 1m;
+InsightsMetrics
+| where TimeGenerated < endDateTime
+| where TimeGenerated >= startDateTime
+| where Origin == 'container.azm.ms/telegraf'            
+| where Namespace == 'disk'            
+| extend Tags = todynamic(Tags)            
+| project TimeGenerated, ClusterId = Tags['container.azm.ms/clusterId'], Computer = tostring(Tags.hostName), Device = tostring(Tags.device), Path = tostring(Tags.path), DiskMetricName = Name, DiskMetricValue = Val   
+| where ClusterId =~ clusterId       
+| where DiskMetricName == 'used_percent'
+| summarize AggregatedValue = max(DiskMetricValue) by bin(TimeGenerated, trendBinSize)
+| where AggregatedValue >= 90
+```
+
 ## <a name="create-an-alert-rule"></a>Skapa en varningsregel
 Följ dessa steg för att skapa en avisering om loggen i Azure Monitor med någon av de log search regler som angavs tidigare.  
 
@@ -272,9 +300,9 @@ Följ dessa steg för att skapa en avisering om loggen i Azure Monitor med någo
 8. Konfigurera aviseringen enligt följande:
 
     1. I listrutan **Baserat på** väljer du **Metrisk måttenhet**. En metrisk måttenhet skapar en avisering för varje objekt i den fråga som innehåller ett värde över våra angivet tröskelvärde.
-    1. För **villkor**väljer **är större än**, och ange **75** som en inledande baslinjekopia **tröskelvärdet**. Eller ange ett annat värde som uppfyller dina kriterier.
+    1. För **villkor**väljer **är större än**, och ange **75** som en inledande baslinjekopia **tröskelvärdet** för aviseringar för CPU och minne användning . Ont om ledigt utrymme aviseringen, ange **90**. Eller ange ett annat värde som uppfyller dina kriterier.
     1. I den **utlösare avisering baserat på** väljer **efterföljande överträdelser**. Från listrutan, väljer **är större än**, och ange **2**.
-    1. Konfigurera en avisering för behållare CPU eller minne utnyttjande under **sammanställda på**väljer **ContainerName**. 
+    1. Konfigurera en avisering för behållare CPU eller minne utnyttjande under **sammanställda på**väljer **ContainerName**. Om du vill konfigurera för klustret noden ont om ledigt aviseringen, Välj **ClusterId**.
     1. I den **Evaluated utifrån** anger den **Period** värde att **60 minuter**. Regeln körs var femte minut och returnerar poster som har skapats i den senaste timmen från den aktuella tiden. Ställa in hur lång tid en bred fönstret konton för potentiella datafördröjning. Det innebär också att frågan returnerar data för att undvika falska negativt där aviseringen aldrig utlöses.
 
 9. Välj **klar** att slutföra varningsregeln.

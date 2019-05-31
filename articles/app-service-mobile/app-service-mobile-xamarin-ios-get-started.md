@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 10/01/2016
+ms.date: 05/06/2019
 ms.author: crdun
-ms.openlocfilehash: 03fb286bd24bb12f3a1e508627a2de156e185568
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 559050cbc575fce5bdb5b32ec266e1cc3d09b2d5
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62097496"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242711"
 ---
 # <a name="create-a-xamarinios-app"></a>Skapa en Xamarin.iOS-app
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
@@ -33,59 +33,40 @@ Du måste slutföra den här kursen innan du påbörjar någon annan Xamarin.iOS
 För att slutföra den här självstudien, finns följande förhandskrav:
 
 * Ett aktivt Azure-konto. Om du inte har ett konto kan du registrera dig för en utvärderingsversion av Azure och få upp till tio mobilappar utan kostnad som du kan fortsätta att använda även efter utvärderingsperiodens slut. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/).
-* Visual Studio med Xamarin. Instruktioner finns i avsnittet om [konfiguration och installation av Visual Studio och Xamarin](/visualstudio/cross-platform/setup-and-install).
-* En Mac med Xcode v7.0 eller senare och Xamarin Studio Community installerat. Se avsnittet om [konfiguration och installation av Visual Studio och Xamarin](/visualstudio/cross-platform/setup-and-install) och om [konfiguration, installation och verifieringar för Mac-användare](/visualstudio/cross-platform/setup-install-and-verifications-for-mac-users) (MSDN).
-
+* Visual Studio för Mac. Se [konfiguration och installation av Visual Studio för Mac](https://docs.microsoft.com/visualstudio/mac/installation?view=vsmac-2019)
+* En Mac med Xcode 9.0 eller senare.
+  
 ## <a name="create-an-azure-mobile-app-backend"></a>Skapa en mobilapp-serverdel i Azure
-Följ de här stegen för att skapa en mobilapp-serverdel.
-
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-## <a name="configure-the-server-project"></a>Konfigurera serverprojektet
-Du har nu skapat en mobilsappsserverdel i Azure som kan användas av dina mobilklientprogram. Därefter, hämtar du ett serverprojekt för en enkel ”att göra lista”-serverdel och publicerar den till Azure.
-
-Följ följande steg för att konfigurera serverprojektet att använda sig av antingen Node.js- eller .NET-serverdelen.
-
+## <a name="create-a-database-connection-and-configure-the-client-and-server-project"></a>Skapa en databasanslutning och konfigurera projektet klient och server
 [!INCLUDE [app-service-mobile-configure-new-backend](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## <a name="download-and-run-the-xamarinios-app"></a>Hämta och kör Xamarin.iOS-appen
-1. Öppna [Azure Portal] i ett webbläsarfönster.
-2. På inställningsbladet för mobilappen klickar du på **Kom igång** > **Xamarin.iOS**. Vid steg 3, klickar du på **Skapa en ny app** om det inte redan är valt.  Klicka sedan på **Hämta**.
+## <a name="run-the-xamarinios-app"></a>Kör Xamarin.iOS-app
+1. Öppna Xamarin.iOS-projektet.
 
-      Ett klientprogram som ansluter till din mobila serverdel hämtas. Spara den komprimerade projektfilen lokalt på datorn och notera var du sparar den.
-3. Extrahera projektet som du laddade ned och öppna det i Xamarin Studio (eller Visual Studio).
+2. Gå till den [Azure-portalen](https://portal.azure.com/) och navigera till den mobila appen som du skapade. På den `Overview` bladet letar du reda på URL: en som är den offentliga slutpunkten för din mobilapp. Exempel – sitename för min app name ”test123” kommer att https://test123.azurewebsites.net.
 
-    ![][9]
+3. Öppna filen `QSTodoService.cs` i den här mappen - xamarin.iOS/ZUMOAPPNAME. Programnamnet är `ZUMOAPPNAME`.
 
-    ![][8]
-4. Tryck på F5 för att skapa projektet och starta appen i iPhone-emulatorn.
-5. Ange en beskrivande text i appen, till exempel  *Läs om Xamarin*, och klicka sedan på **+**.
+4. I `QSTodoService` klass, Ersätt `ZUMOAPPURL` variabeln med offentlig slutpunkt ovan.
+
+    `const string applicationURL = @"ZUMOAPPURL";`
+
+    blir
+    
+    `const string applicationURL = @"https://test123.azurewebsites.net";`
+    
+5. Tryck på F5 för att distribuera och köra appen i iPhone-emulatorn.
+
+6. I appen, ange en beskrivande text som *i självstudiekursen* och klicka sedan på den knappen.
 
     ![][10]
 
     Data från begäran infogas i tabellen TodoItem. Objekt som lagras i tabellen returneras av mobilappsserverdelen och data visas i listan.
 
-> [!NOTE]
-> Du kan se koden som ansluter till mobilappsserverdelen för att fråga efter och infoga data i C#-filen QSTodoService.cs.
->
->
-
-## <a name="next-steps"></a>Nästa steg
-* [Lägg till offlinesynkronisering till din app](app-service-mobile-xamarin-ios-get-started-offline-data.md)
-* [Lägg till autentisering i appen](app-service-mobile-xamarin-ios-get-started-users.md)
-* [Lägg till push-meddelanden till din Xamarin.Android-app](app-service-mobile-xamarin-ios-get-started-push.md)
-* [Så här använder du den hanterade klienten för Azure Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md)
-
-<!-- Anchors. -->
-[Getting started with mobile app backends]:#getting-started
-[Create a new mobile app backend]:#create-new-service
-[Next Steps]:#next-steps
-
+   > [!NOTE]
+   >  Du kan se koden som ansluter till mobilappsserverdelen för att fråga efter och infoga data i C#-filen ToDoActivity.cs.
+   
 <!-- Images. -->
-[6]: ./media/app-service-mobile-xamarin-ios-get-started/xamarin-ios-quickstart.png
-[8]: ./media/app-service-mobile-xamarin-ios-get-started/mobile-xamarin-project-ios-vs.png
-[9]: ./media/app-service-mobile-xamarin-ios-get-started/mobile-xamarin-project-ios-xs.png
 [10]: ./media/app-service-mobile-xamarin-ios-get-started/mobile-quickstart-startup-ios.png
-
-<!-- URLs. -->
-[Azure Portal]: https://portal.azure.com/

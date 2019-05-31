@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 82222dd927f46761941a6a750d96222cc626e71b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 130ca6bc946d44d80cddba5486d405bfb15523cb
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60887342"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235886"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Anslut en enhet för MXChip IoT DevKit till programmet Azure IoT Central
 
@@ -66,7 +66,7 @@ Om du har tidigare använt enhet och vill konfigurera om den om du vill använda
 #### <a name="to-prepare-the-devkit-device"></a>Förbereda enheten DevKit
 
 1. Ladda ned den senaste färdiga Azure IoT Central inbyggda programvaran för MXChip från den [släpper](https://aka.ms/iotcentral-docs-MXChip-releases) sidan på GitHub.
-1. Anslut DevKit enheten till din utvecklingsdator med hjälp av en USB-kabel. I Windows öppnas en fil explorer på en enhet som har mappats till lagring på DevKit enheten. Exempelvis kan enheten kan anropas **AZ3166 (D:)**.
+1. Anslut DevKit enheten till din utvecklingsdator med hjälp av en USB-kabel. I Windows öppnas en fil explorer på en enhet som har mappats till lagring på DevKit enheten. Exempelvis kan enheten kan anropas **AZ3166 (D:)** .
 1. Dra den **iotCentral.bin** fil till fönstret enhet. När kopieringen är klar, startar enheten om med den nya inbyggda programvaran.
 
 1. När DevKit enheten startas om, visas följande skärm:
@@ -235,7 +235,7 @@ Visa/Dölj inställningar
 
 ### <a name="properties"></a>Egenskaper
 
-| Typ            | Visningsnamn | Fältnamn | Datatyp |
+| Type            | Visningsnamn | Fältnamn | Datatyp |
 | --------------- | ------------ | ---------- | --------- |
 | Enhetsegenskap | Dör nummer   | dieNumber  | nummer    |
 | Enhetsegenskap | Enhetsplats   | location  | location    |
@@ -246,8 +246,8 @@ Visa/Dölj inställningar
 | Visningsnamn | Fältnamn | Returtyp | Inmatningsfält visningsnamn | Inkommande fältnamn | Inkommande fälttyp |
 | ------------ | ---------- | ----------- | ------------------------ | ---------------- | ---------------- |
 | echo         | eko       | text        | värde som ska visas         | displayedValue   | text             |
-| nedräkning    | Nedräkning  | nummer      | Räkna från               | countFrom        | nummer           |
+| Nedräkning    | Nedräkning  | nummer      | Räkna från               | countFrom        | nummer           |
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig hur du ansluter en Raspberry Pi till programmet Azure IoT Central, föreslagna nästa steg är att lära dig hur du [konfigurera en anpassad enhet mall](howto-set-up-template.md) för dina egna IoT-enheter.
+Nu när du har lärt dig hur du ansluter en MXChip IoT DevKit till programmet Azure IoT Central, föreslagna nästa steg är att lära dig hur du [konfigurera en anpassad enhet mall](howto-set-up-template.md) för dina egna IoT-enheter.

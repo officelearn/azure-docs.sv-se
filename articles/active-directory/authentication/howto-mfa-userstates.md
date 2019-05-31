@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d5a196af8ee6a7d41833185136a76255be4082a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3928a47abf07ab7e6dad0e0a5883162363805df8
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60359015"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235580"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>Hur du kräver tvåstegsverifiering för en användare
 
@@ -43,7 +43,7 @@ Användarkonton i Azure Multi-Factor Authentication har följande tre skilda lä
 
 | Status | Beskrivning | Icke-webbläsarappar som påverkas | Webbläsarbaserade appar som påverkas | Modern autentisering som påverkas |
 |:---:|:---:|:---:|:--:|:--:|
-| Disabled |Standardläget för en ny användare som inte har registrerats i Azure MFA. |Nej |Nej |Nej |
+| Inaktiverad |Standardläget för en ny användare som inte har registrerats i Azure MFA. |Nej |Nej |Nej |
 | Enabled |Användaren har registrerats i Azure MFA, men har inte registrerats. De får en uppmaning att registrera dig nästa gång de loggar in. |Nej.  De fortsätter att fungera tills registreringen har slutförts. | Ja. När sessionen har gått ut, krävs Azure MFA-registrering.| Ja. När åtkomsttoken upphört att gälla krävs Azure MFA-registrering. |
 | Enforced |Användaren har registrerats och har slutfört registreringsprocessen för Azure MFA. |Ja. Appar kräver applösenord. |Ja. Azure MFA krävs vid inloggning. | Ja. Azure MFA krävs vid inloggning. |
 
@@ -84,7 +84,7 @@ När du aktiverar användare får du meddela dem via e-post. Berätta för dem a
 
 * Enabled
 * Enforced
-* Disabled  
+* Inaktiverad  
 
 Flytta inte användare direkt till den *tvingande* tillstånd. Om du gör, icke-webbläsarbaserade appar slutar att fungera eftersom användaren inte har gått igenom Azure MFA-registrering och fick ett [applösenord](howto-mfa-mfasettings.md#app-passwords).
 
@@ -133,6 +133,72 @@ där kan du också förkortas till:
    ```PowerShell
    Set-MsolUser -UserPrincipalName user@domain.com -StrongAuthenticationRequirements @()
    ```
+
+### <a name="convert-users-from-per-user-mfa-to-conditional-access-based-mfa"></a>Konvertera användare från MFA per användare med villkorlig åtkomst baserad MFA
+
+Följande PowerShell kan hjälpa dig att göra konverteringen till villkorlig åtkomst baserat Azure Multi-Factor Authentication.
+
+```PowerShell
+# Disable MFA for all users, keeping their MFA methods intact
+Get-MsolUser -All | Disable-MFA -KeepMethods
+
+# Enforce MFA for all users
+Get-MsolUser -All | Set-MfaState -State Enforced
+
+# Wrapper to disable MFA with the option to keep the MFA
+# methods (to avoid having to proof-up again later)
+function Disable-Mfa {
+
+    [CmdletBinding()]
+    param(
+        [Parameter(ValueFromPipeline=$True)]
+        $User,
+        [switch] $KeepMethods
+    )
+
+    Process {
+
+        Write-Verbose ("Disabling MFA for user '{0}'" -f $User.UserPrincipalName)
+        $User | Set-MfaState -State Disabled
+
+        if ($KeepMethods) {
+            # Restore the MFA methods which got cleared when disabling MFA
+            Set-MsolUser -ObjectId $User.ObjectId `
+                         -StrongAuthenticationMethods $User.StrongAuthenticationMethods
+        }
+    }
+}
+
+# Sets the MFA requirement state
+function Set-MfaState {
+
+    [CmdletBinding()]
+    param(
+        [Parameter(ValueFromPipelineByPropertyName=$True)]
+        $ObjectId,
+        [Parameter(ValueFromPipelineByPropertyName=$True)]
+        $UserPrincipalName,
+        [ValidateSet("Disabled","Enabled","Enforced")]
+        $State
+    )
+
+    Process {
+        Write-Verbose ("Setting MFA state for user '{0}' to '{1}'." -f $ObjectId, $State)
+        $Requirements = @()
+        if ($State -ne "Disabled") {
+            $Requirement =
+                [Microsoft.Online.Administration.StrongAuthenticationRequirement]::new()
+            $Requirement.RelyingParty = "*"
+            $Requirement.State = $State
+            $Requirements += $Requirement
+        }
+
+        Set-MsolUser -ObjectId $ObjectId -UserPrincipalName $UserPrincipalName `
+                     -StrongAuthenticationRequirements $Requirements
+    }
+}
+
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

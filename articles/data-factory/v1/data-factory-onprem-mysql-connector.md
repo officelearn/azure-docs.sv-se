@@ -70,10 +70,10 @@ Följande tabell innehåller en beskrivning för JSON-element som är specifika 
 | --- | --- | --- |
 | type |Type-egenskapen måste anges till: **OnPremisesMySql** |Ja |
 | server |Namnet på den MySQL-servern. |Ja |
-| databas |Namnet på MySQL-databasen. |Ja |
+| database |Namnet på MySQL-databasen. |Ja |
 | schemat |Namnet på schemat i databasen. |Nej |
 | authenticationType |Typ av autentisering som används för att ansluta till MySQL-databasen. Möjliga värden är: `Basic`. |Ja |
-| användarnamn |Ange användarnamn för anslutning till MySQL-databasen. |Ja |
+| userName |Ange användarnamn för anslutning till MySQL-databasen. |Ja |
 | password |Ange lösenord för det användarkonto som du har angett. |Ja |
 | gatewayName |Namnet på den gateway som Data Factory-tjänsten ska använda för att ansluta till den lokala MySQL-databas. |Ja |
 
@@ -95,7 +95,7 @@ När källan i kopieringsaktiviteten är av typen **RelationalSource** (som inne
 
 | Egenskap  | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| DocumentDB |Använd anpassad fråga för att läsa data. |SQL-sträng. Till exempel: Välj * från MyTable. |Nej (om **tableName** av **datauppsättning** har angetts) |
+| query |Använd anpassad fråga för att läsa data. |SQL-sträng. Till exempel: Välj * från MyTable. |Nej (om **tableName** av **datauppsättning** har angetts) |
 
 
 ## <a name="json-example-copy-data-from-mysql-to-azure-blob"></a>JSON-exempel: Kopiera data från MySQL till Azure Blob

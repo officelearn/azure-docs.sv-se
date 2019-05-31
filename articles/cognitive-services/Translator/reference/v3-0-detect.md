@@ -3,25 +3,25 @@ title: API för textöversättning identifiera metod
 titlesuffix: Azure Cognitive Services
 description: Använd metoden Translator Text API identifiera.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
-ms.author: v-jansko
-ms.openlocfilehash: ea8fe989dd0ef7026957153fb5c9836742d008dd
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.author: v-pawal
+ms.openlocfilehash: 275cf91eb3bf72a612882164c24e4773edcad0f2
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65797501"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389808"
 ---
 # <a name="translator-text-api-30-detect"></a>Translator Text API 3.0: Detect
 
 Identifierar språket i en del av texten.
 
-## <a name="request-url"></a>Fråge-URL
+## <a name="request-url"></a>URL för begäran
 
 Skicka en `POST` begäran om att:
 
@@ -45,14 +45,14 @@ Parametrarna som skickades mot frågesträngen är:
 Begärandehuvuden är:
 
 <table width="100%">
-  <th width="20%">Huvuden</th>
+  <th width="20%">Rubriker</th>
   <th>Beskrivning</th>
   <tr>
     <td>Rubriker för autentisering</td>
     <td><em>Nödvändiga begärandehuvudet</em>.<br/>Se <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">tillgängliga alternativ för autentisering</a>.</td>
   </tr>
   <tr>
-    <td>Innehållstyp</td>
+    <td>Content-Type</td>
     <td>*Nödvändiga begärandehuvudet*.<br/>Anger innehållstypen för nyttolasten. Möjliga värden är: `application/json`.</td>
   </tr>
   <tr>
@@ -122,10 +122,10 @@ Ett exempel JSON-svar är:
 ]
 ```
 
-## <a name="response-headers"></a>Svarshuvud
+## <a name="response-headers"></a>Svarshuvuden
 
 <table width="100%">
-  <th width="20%">Huvuden</th>
+  <th width="20%">Rubriker</th>
   <th>Beskrivning</th>
   <tr>
     <td>X-RequestId</td>

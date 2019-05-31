@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 467586fd23332469338dabd2feb6a42ce4b17af5
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: cf818756f583974a8a9b53a9a0cce31dd93d042b
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471855"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299309"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Felsökning utan data, Application Insights för .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Några av Mina telemetri saknas
@@ -25,6 +25,16 @@ ms.locfileid: "65471855"
 
 * Om du konsekvent ser den samma andel, beror det troligen på grund av anpassningsbar [sampling](../../azure-monitor/app/sampling.md). För att bekräfta detta, Öppna sökning (från översiktsbladet) och titta på en instans av en begäran eller händelse. Klicka på ”...” för att få fullständig egenskapsinformationen längst ned i egenskapsavsnittet. Om begär antal > 1 och sedan sampling är i drift.
 * I annat fall är det möjligt att du får en [data hastighetsbegränsning](../../azure-monitor/app/pricing.md#limits-summary) för prisplanen. Dessa begränsningar tillämpas per minut.
+
+*Jag har dataförlust slumpmässigt.*
+
+* Kontrollera om du upplever dataförlust sker på [telemetri kanal](telemetry-channels.md#does-applicationinsights-channel-offer-guaranteed-telemetry-delivery-or-what-are-the-scenarios-where-telemetry-can-be-lost)
+
+* Sök efter kända problem i telemetri kanal [Github-lagringsplatsen](https://github.com/Microsoft/ApplicationInsights-dotnet/issues)
+
+*Jag har dataförlust i Konsolapp eller på Web App om appen håller på att stoppa.*
+
+* SDK-kanal behålls telemetri i bufferten och skickar dem i batchar. Om programmet stängs av, kan du behöva explicit anropa [Flush()](api-custom-events-metrics.md#flushing-data). Beteendet för `Flush()` beror på den faktiska [kanal](telemetry-channels.md#built-in-telemetrychannels) används.
 
 ## <a name="no-data-from-my-server"></a>Inga data från Min server
 *Jag har installerat min app på webbservern och nu jag ser inte någon telemetri från den. Det fungerade OK på min utvecklingsdator.*
@@ -58,7 +68,6 @@ Fix:
 * Kontrollera att du angett inloggningsuppgifter för rätt Azure-konto.
 * I webbläsaren, kontrollera att du har åtkomst till den [Azure-portalen](https://portal.azure.com). Öppna inställningar och se om det finns några begränsningar.
 * [Lägg till Application Insights i projektet befintliga](../../azure-monitor/app/asp-net.md): Högerklicka på projektet i Solution Explorer och välj ”Lägg till Application Insights”.
-* Om det fortfarande inte fungerar följer du de [manuell proceduren](../../azure-monitor/app/windows-services.md) lägga till en resurs i portalen och sedan lägga till SDK: N i projektet.
 
 ## <a name="emptykey"></a>Det uppstår ett fel ”instrumenteringsnyckeln kan inte vara tom”
 Det verkar som det uppstod ett fel när du installerar Application Insights eller kanske en loggning nätverkskort.

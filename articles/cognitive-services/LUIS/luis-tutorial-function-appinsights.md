@@ -9,19 +9,19 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 05/30/2019
 ms.author: diberry
-ms.openlocfilehash: 1c44d2e41d37a9236ee6d6936c349acf5ca5e44c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bde1983f89cb2fcd0a6fddadc2c3379dee4310be
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60495465"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399635"
 ---
 # <a name="add-luis-results-to-application-insights-and-azure-functions"></a>Lägga till LUIS resultaten till Application Insights och Azure functions
-Den här självstudien lägger till LUIS begäranden och svar information till [Application Insights](https://azure.microsoft.com/services/application-insights/) telemetri datalagring. När du har dessa data kan du fråga den med Kusto språk eller PowerBi aggregeras, om du vill analysera och rapportera om avsikter och entiteter av uttryck i realtid. Den här analysis hjälper dig att avgöra om du ska lägga till eller redigera avsikter och entiteter av LUIS-appen.
+Den här självstudien lägger till LUIS begäranden och svar information till [Application Insights](https://azure.microsoft.com/services/application-insights/) telemetri datalagring. När du har dessa data kan du fråga den med Kusto språk eller Power BI för att analysera, aggregeras, och rapportera om avsikter och entiteter av uttryck i realtid. Den här analysis hjälper dig att avgöra om du ska lägga till eller redigera avsikter och entiteter av LUIS-appen.
 
-Roboten har byggts med Bot Framework 3.x och Azure Web app-robot.
+Roboten har byggts med Bot Framework 3.x och Azure Web app-robot. En [Bot Framework 4.x med LUIS självstudiekursen](luis-nodejs-tutorial-bf-v4.md) är också tillgänglig.
 
 I den här guiden får du lära dig att:
 
@@ -112,7 +112,7 @@ För att samla in LUIS-begäran och svaret, web app-robot måste den **[Programi
 
 1. I portalen, väljer **alla resurser** sedan filtrera efter namnet på webbappen bot. Klicka på resursen med typen **Application Insights**. Ikonen för Application Insights är en glödlampa. 
 
-    ! [[Sökning för app insights i Azure Portal](./media/luis-tutorial-appinsights/search-for-app-insights.png)
+    ! [[Sökning för app insights i Azure portal](./media/luis-tutorial-appinsights/search-for-app-insights.png)
 
 2. När resursen öppnas klickar du på den **Search** ikon på förstoringsglaset i panelen till höger. En ny panel till rätt visar. Beroende på hur mycket telemetridata har hittats, panelen kan ta en andra att visa. Sök efter `LUIS-results` och trycker på Ange på tangentbordet. Listan är smalare med bara LUIS frågeresultat har lagts till i den här självstudiekursen.
 
@@ -129,7 +129,7 @@ För att samla in LUIS-begäran och svaret, web app-robot måste den **[Programi
 > Om du vill spara beroendelistan och återgå till den senare klickar du på **... Mer** och klicka på **spara favorit**.
 
 ## <a name="query-application-insights-for-intent-score-and-utterance"></a>Fråga efter Application Insights för avsikt, poäng och uttryck
-Application Insights ger dig möjlighet att fråga efter data med den [Kusto](https://docs.microsoft.com/azure/application-insights/app-insights-analytics#query-data-in-analytics) språk, samt exportera den till [PowerBI](https://powerbi.microsoft.com). 
+Application Insights ger dig möjlighet att fråga efter data med den [Kusto](https://docs.microsoft.com/azure/application-insights/app-insights-analytics#query-data-in-analytics) språk, samt exportera den till [Power BI](https://powerbi.microsoft.com). 
 
 1. Klicka på **Analytics** överst i beroendet lista över filterfältet. 
 

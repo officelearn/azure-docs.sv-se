@@ -10,16 +10,16 @@ ms.reviewer: divswa, LADocs
 ms.topic: article
 ms.date: 05/09/2019
 tags: connectors
-ms.openlocfilehash: 3fb39103fc9cb0f38bca56dcaeea4837ff4dfabe
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: bccefec80ef3afd6d312bb1048d3be5d8e708728
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65541492"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258157"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Ansluta till SAP-system från Azure Logic Apps
 
-Den här artikeln visar hur du kan komma åt dina lokala SAP-resurser från i en logikapp med hjälp av SAP-anslutningen. Anslutningsappen fungerar med SAP:s klassiska utgåvor, t.ex. lokala R/3 ECC-system. Anslutningen kan också integrering med SAP: s nyare SAP HANA-baserade system, till exempel s/4 HANA, oavsett var de finns – lokalt eller i molnet. SAP-anslutningsappen stöder integration med meddelande- eller data till och från SAP NetWeaver-baserade system via mellanliggande dokumentet (IDoc) eller Business Application Programming Interface (BAPI) eller fjärransluten funktionen anropa (RFC).
+Den här artikeln visar hur du kan komma åt dina lokala SAP-resurser från i en logikapp med hjälp av SAP-anslutningen. Anslutningsappen fungerar med de klassiska versionerna av SAP, som R/3 och ECC-system lokalt. Anslutningen kan också integrering med SAP: s nyare SAP HANA-baserade system, till exempel s/4 HANA, oavsett var de finns – lokalt eller i molnet. SAP-anslutningsappen stöder integration med meddelande- eller data till och från SAP NetWeaver-baserade system via mellanliggande dokumentet (IDoc) eller Business Application Programming Interface (BAPI) eller fjärransluten funktionen anropa (RFC).
 
 SAP-anslutningsappen använder den [SAP .NET Connector (NCo)-biblioteket](https://support.sap.com/en/product/connectors/msnet.html) och ger dessa åtgärder eller åtgärder:
 
@@ -27,7 +27,7 @@ SAP-anslutningsappen använder den [SAP .NET Connector (NCo)-biblioteket](https:
 * **Ta emot från SAP**: Ta emot IDoc över tRFC, anropar BAPI funktioner via tRFC eller anropa RFC/tRFC i SAP-system.
 * **Generera scheman**: Generera scheman för SAP-artefakter för IDoc, BAPI eller RFC.
 
-För alla åtgärder ovan stöder SAP-anslutningsappen grundläggande autentisering via användarnamn och lösenord. Det stöder också anslutningen [Secure Network Communications (SNC)](https://help.sap.com/doc/saphelp_nw70/7.0.31/e6/56f466e99a11d1a5b00000e835363f/content.htm?no_cache=true), som kan användas för SAP NetWeaver enkel inloggning eller för ytterligare säkerhetsfunktioner som tillhandahålls av en extern security-produkt.
+För alla ovanstående åtgärder har SAP-anslutningsappen stöd för grundläggande autentisering med användarnamn och lösenord. Det stöder också anslutningen [Secure Network Communications (SNC)](https://help.sap.com/doc/saphelp_nw70/7.0.31/e6/56f466e99a11d1a5b00000e835363f/content.htm?no_cache=true), som kan användas för SAP NetWeaver enkel inloggning eller för ytterligare säkerhetsfunktioner som tillhandahålls av en extern security-produkt.
 
 SAP-anslutningsappen kan integreras med en lokal SAP-system via den [lokal datagateway](../logic-apps/logic-apps-gateway-connection.md). I Skicka scenarier, till exempel när du skickar ett meddelande från logikappar till ett SAP-system datagateway fungerar som en RFC-klient och vidarebefordrar att förfrågningarna togs emot från logikappar till SAP.
 I Receive scenarier fungerar på samma sätt kan datagateway som en RFC-server som tar emot förfrågningar från SAP och vidarebefordrar till logikappen.
@@ -119,6 +119,8 @@ I Azure Logic Apps, en [åtgärd](../logic-apps/logic-apps-overview.md#logic-app
       Om den **inloggningstyp** är inställd på **grupp**, dessa egenskaper, som normalt visas valfritt, krävs:
 
       ![Skapa SAP meddelande serveranslutning](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)
+
+      Som standard används starkt att skriva för att kontrollera ogiltiga värden genom att utföra XML-verifiering mot schemat. Det här beteendet kan hjälpa dig att identifiera problem tidigare. Den **säkert att skriva** alternativet är tillgängligt för bakåtkompatibilitet och kontrollerar endast stränglängden. Läs mer om den [ **säkert att skriva** alternativet](#safe-typing).
 
    1. När du är klar väljer du **Skapa**.
 
@@ -225,6 +227,8 @@ Det här exemplet används en logikapp som utlöser när du tar emot ett meddela
 
       ![Skapa SAP meddelande serveranslutning](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)  
 
+      Som standard används starkt att skriva för att kontrollera ogiltiga värden genom att utföra XML-verifiering mot schemat. Det här beteendet kan hjälpa dig att identifiera problem tidigare. Den **säkert att skriva** alternativet är tillgängligt för bakåtkompatibilitet och kontrollerar endast stränglängden. Läs mer om den [ **säkert att skriva** alternativet](#safe-typing).
+
 1. Ange de obligatoriska parametrarna utifrån din konfiguration för SAP-system.
 
    Du kan också ange en eller flera SAP-åtgärder. Den här listan över åtgärder anger de meddelanden som utlösaren tar emot från din SAP-server via en datagateway. En tom lista anger att utlösaren får alla meddelanden. Om listan innehåller mer än ett meddelande, får utlösaren endast meddelanden som anges i listan. Andra meddelanden som skickas från din SAP-server avvisas av gatewayen.
@@ -306,7 +310,11 @@ Välj **Spara** i designerverktygsfältet.
 
       ![Skapa SAP meddelande serveranslutning](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)
 
-   1. När du är klar väljer du **Skapa**. Logic Apps konfigurerar och testar anslutningen, se till att anslutningen fungerar korrekt.
+      Som standard används starkt att skriva för att kontrollera ogiltiga värden genom att utföra XML-verifiering mot schemat. Det här beteendet kan hjälpa dig att identifiera problem tidigare. Den **säkert att skriva** alternativet är tillgängligt för bakåtkompatibilitet och kontrollerar endast stränglängden. Läs mer om den [ **säkert att skriva** alternativet](#safe-typing).
+
+   1. När du är klar väljer du **Skapa**. 
+   
+      Logic Apps konfigurerar och testar anslutningen, se till att anslutningen fungerar korrekt.
 
 1. Ange sökvägen till den artefakt som du vill skapa schemat.
 
@@ -402,6 +410,53 @@ Om du vill aktivera SNC för dina förfrågningar till eller från SAP-system, V
 
    > [!NOTE]
    > Miljövariabler miljövariabel SNC_LIB och SNC_LIB_64 ska inte anges på datorn där du har datagateway och SNC-bibliotek. Om kan de ha företräde framför SNC-bibliotek-värdet som skickas via anslutningen.
+
+<a name="safe-typing"></a>
+
+## <a name="safe-typing"></a>Säkert att skriva
+
+Som standard när du skapar din SAP-anslutning, används starkt att skriva för att kontrollera ogiltiga värden genom att utföra XML-verifiering mot schemat. Det här beteendet kan hjälpa dig att identifiera problem tidigare. Den **säkert att skriva** alternativet är tillgängligt för bakåtkompatibilitet och kontrollerar endast stränglängden. Om du väljer **säkert att skriva**, DATS typ och TIMS typ i SAP behandlas som strängar i stället för motsvarigheterna XML `xs:date` och `xs:time` där `xmlns:xs="http://www.w3.org/2001/XMLSchema"`. Säkert att skriva påverkar beteendet för alla schema-generering, skicka meddelandet för både nyttolasten ”skickats” och ”mottagits” svar och utlösare. 
+
+När starkt att skriva används (**säkert att skriva** inte aktiverad), schemat mappar DATS och TIMS-typer till enklare XML-typer:
+
+```xml
+<xs:element minOccurs="0" maxOccurs="1" name="UPDDAT" nillable="true" type="xs:date"/>
+<xs:element minOccurs="0" maxOccurs="1" name="UPDTIM" nillable="true" type="xs:time"/>
+```
+
+När du skickar meddelanden med stark skriva uppfyller DATS och TIMS svaret till formatet matchande XML-typ:
+
+```xml
+<DATE>9999-12-31</DATE>
+<TIME>23:59:59</TIME>
+```
+
+När **säkert att skriva** är aktiverad, schemat mappar DATS och TIMS typer till XML-sträng fält med längd, till exempel:
+
+```xml
+<xs:element minOccurs="0" maxOccurs="1" name="UPDDAT" nillable="true">
+  <xs:simpleType>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="8" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:element>
+<xs:element minOccurs="0" maxOccurs="1" name="UPDTIM" nillable="true">
+  <xs:simpleType>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="6" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:element>
+```
+
+När du skickar meddelanden med **säkert att skriva** aktiverad DATS och TIMS svaret ser ut som i följande exempel:
+
+```xml
+<DATE>99991231</DATE>
+<TIME>235959</TIME>
+```
+
 
 ## <a name="known-issues-and-limitations"></a>Kända problem och begränsningar
 

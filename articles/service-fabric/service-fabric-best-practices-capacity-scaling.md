@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: c72392e46805049703300dd6f60fc7bf08b9053b
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 9bddb6552b11dd506ee3e2c1c416c15da11048b7
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65235786"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258743"
 ---
 # <a name="capacity-planning-and-scaling"></a>Kapacitetsplanering och skalning
 
@@ -70,6 +70,9 @@ Med den nodegenskaper och placeringsbegränsningar som deklarerats, gör du föl
 2. Kör `Get-ServiceFabricNode` att se till att noden har gått över till inaktiverad. Annars kan du vänta tills noden är inaktiverad. Det kan ta ett par timmar för varje nod. Inte fortsätta förrän noden har gått över till inaktiverad.
 3. Minska antalet virtuella datorer med en i den nodtypen. Den högsta VM-instansen tas nu bort.
 4. Upprepa steg 1 till 3 efter behov, men aldrig skala ned antalet instanser i de primära nodtyperna mindre än tillförlitlighetsnivån kräver. Se [planera kapacitet för Service Fabric-kluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) för en lista över rekommenderade instanser.
+
+> [!NOTE]
+> Ett scenario som stöds när du vill utföra en lodrät skalning åtgärder är: Jag kan migrera Mina Service Fabric-kluster och program från ohanterade diskar till Managed Disks utan driftavbrott. Genom att etablera en ny virtuell dator-skalningsuppsättningar med hanterade diskar och hur programmet uppgraderar med placeringsbegränsningar som är inriktade på etablerad kapacitet. Service Fabric-klustret kan schemalägga din arbetsbelastning på etablerade klustret noden kapaciteten som distribueras genom att uppgradera domän utan driftavbrott. [Azure Load Balancers grundläggande SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#skus) backend-pool slutpunkter kan vara en virtuella datorer i en enskild tillgänglighetsuppsättning eller skalningsuppsättning för virtuell dator. Det innebär att du inte kan använda en grundläggande SKU-belastningsutjämnare om du flyttar dina Service Fabric-program för system mellan skalningsuppsättningar, utan att orsaka tillfälliga inaccessibility av Service Fabric-kluster hanteringsslutpunkten, även om klustret och dess program körs fortfarande; vanliga användare etablera en Standard-SKU-belastningsutjämnare när du utför en virtuell IP-adress (VIP)-växling mellan ett grundläggande SKU-LB- och Standard-SKU-Belastningsutjämnare resurser, för att minimera framtida ungefär 30 sekunder är det inaccessibility som krävs för VIP växlar.
 
 ## <a name="horizontal-scaling"></a>Horisontell skalning
 

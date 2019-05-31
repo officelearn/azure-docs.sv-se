@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2018
+ms.date: 05/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 0d1e269a1818f013bc14842bc541216d7f31bc84
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 69b83590fb9b25c68d231b732b985ba633bb6884
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60311135"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399204"
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>Skapa anpassade artefakter för din virtuella dator för DevTest Labs
 
@@ -56,14 +56,14 @@ I följande exempel visas de avsnitt som utgör den grundläggande strukturen i 
 | Elementnamn | Krävs? | Beskrivning |
 | --- | --- | --- |
 | $schema |Nej |Plats för JSON-schemafilen. Med hjälp av JSON-schema-fil kan du testa giltighet definitionsfilen. |
-| title |Ja |Namnet på den artefakt som visas i laboratoriet. |
+| rubrik |Ja |Namnet på den artefakt som visas i laboratoriet. |
 | description |Ja |Beskrivning av den artefakt som visas i laboratoriet. |
 | iconUri |Nej |URI för den ikon som visas i laboratoriet. |
 | targetOsType |Ja |Operativsystemet på den virtuella datorn där artefakten är installerad. Alternativ som stöds är Windows och Linux. |
 | parameters |Nej |Värden som tillhandahålls när artefakt installationskommandot körs på en dator. På så sätt kan du anpassa din artefakten. |
 | runCommand |Ja |Artefakten installationskommando som körs på en virtuell dator. |
 
-### <a name="artifact-parameters"></a>Artefaktparametrar
+### <a name="artifact-parameters"></a>Artefakten parametrar
 Ange vilka värden som en användare kan ange när de installerar en artefakt i avsnittet parametrar i definitionsfilen. Du kan hänvisa till dem i artefakten install-kommandot.
 
 För att definiera parametrar, använder du följande struktur:
@@ -89,14 +89,39 @@ Tillåtna typer är:
 * bool (alla giltiga JSON booleska)
 * matris (någon giltig JSON-matris)
 
+## <a name="secrets-as-secure-strings"></a>Hemligheter som säker strängar
+Deklarera hemligheter som säker strängar. Här är syntaxen för att deklarera en säker strängparameter i den `parameters` delen av den **artifactfile.json** fil:
+
+```json
+
+    "securestringParam": {
+      "type": "securestring",
+      "displayName": "Secure String Parameter",
+      "description": "Any text string is allowed, including spaces, and will be presented in UI as masked characters.",
+      "allowEmpty": false
+    },
+```
+
+Artefakten installationskommando, Kör PowerShell-skript som tar säker sträng som skapats med hjälp av kommandot ConvertTo-SecureString. 
+
+```json
+  "runCommand": {
+    "commandToExecute": "[concat('powershell.exe -ExecutionPolicy bypass \"& ./artifact.ps1 -StringParam ''', parameters('stringParam'), ''' -SecureStringParam (ConvertTo-SecureString ''', parameters('securestringParam'), ''' -AsPlainText -Force) -IntParam ', parameters('intParam'), ' -BoolParam:$', parameters('boolParam'), ' -FileContentsParam ''', parameters('fileContentsParam'), ''' -ExtraLogLines ', parameters('extraLogLines'), ' -ForceFail:$', parameters('forceFail'), '\"')]"
+  }
+```
+
+Komplett exempel artifactfile.json och artifact.ps1 (PowerShell-skript) finns i [det här exemplet på GitHub](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts/windows-test-paramtypes).
+
+En annan viktig sak att tänka på är inte att logga hemligheter i konsolen som avbildas utdata för felsökning av användaren. 
+
 ## <a name="artifact-expressions-and-functions"></a>Artefakten uttryck och funktioner
 Du kan använda uttryck och funktioner för att konstruera artefakten installationskommando.
 Uttryck står inom hakparenteser ([och]), och utvärderas när artefakten är installerad. Uttryck kan finnas var som helst i ett JSON-strängvärde. Uttryck returnerar alltid ett annat JSON-värde. Om du behöver använda en teckensträng som börjar med en hakparentes ([), måste du använda två hakparenteser ([[).
-Normalt kan använda du uttryck med functions för att konstruera ett värde. Precis som i JavaScript, funktionsanrop som är formaterade som **functionName (arg1, arg2, arg3)**.
+Normalt kan använda du uttryck med functions för att konstruera ett värde. Precis som i JavaScript, funktionsanrop som är formaterade som **functionName (arg1, arg2, arg3)** .
 
 I följande lista visas vanliga funktioner:
 
-* **parameters(parameterName)**: Returnerar ett parametervärde som tillhandahålls när artefakt kommandot körs.
+* **parameters(parameterName)** : Returnerar ett parametervärde som tillhandahålls när artefakt kommandot körs.
 * **sammanfoga (arg1, arg2, arg3,...)** : Kombinerar flera strängvärden. Den här funktionen kan ta en mängd olika argument.
 
 I följande exempel visas hur du använder uttryck och funktioner för att konstruera ett värde:

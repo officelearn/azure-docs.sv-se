@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 01/08/2019
-ms.openlocfilehash: c1006aa21b3009bb7508c7a24ab501d39737261c
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: 48c59ddc1e203030bd967911d536930cb94761d3
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65978230"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66356184"
 ---
 # <a name="securely-run-experiments-and-inference-inside-an-azure-virtual-network"></a>Kör säkert experiment och inferens i Azure-nätverk
 
@@ -141,7 +141,7 @@ När du lägger till de användardefinierade vägarna ange rutten för varje rel
 
 ![Exempel användardefinierad väg för adressprefixet](./media/how-to-enable-virtual-network/user-defined-route.png)
 
-Mer information finns i den [skapa en Azure Batch-pool i ett virtuellt nätverk](/azure/batch/batch-virtual-network.md#user-defined-routes-for-forced-tunneling) artikeln.
+Mer information finns i den [skapa en Azure Batch-pool i ett virtuellt nätverk](../../batch/batch-virtual-network.md#user-defined-routes-for-forced-tunneling) artikeln.
 
 ### <a name="create-machine-learning-compute-in-a-virtual-network"></a>Skapa en beräkning av Machine Learning i ett virtuellt nätverk
 
@@ -221,7 +221,7 @@ Om du vill använda en virtuell dator eller ett Azure HDInsight-kluster i ett vi
 
     * __Källtjänsttagg__: Select __AzureMachineLearning__.
 
-    * __Käll-portintervall__: Välj __*__.
+    * __Käll-portintervall__: Välj __*__ .
 
     * __Mål__: Välj __alla__.
 

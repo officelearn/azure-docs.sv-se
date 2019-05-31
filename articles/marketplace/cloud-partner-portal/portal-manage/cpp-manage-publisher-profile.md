@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: pabutler
-ms.openlocfilehash: 6ca0eb23dad218262eff5d80543628df273022c9
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: c97bf10daa8f062cc833c7d7c5f7b0ca4835ca6f
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64942243"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257541"
 ---
 # <a name="manage-your-azure-marketplace-and-appsource-publisher-profile"></a>Hantera dina Azure Marketplace och AppSource utgivarprofil
 
@@ -49,7 +49,7 @@ Du kan också länka ditt befintliga Dev Center-konto med din utgivarprofil på 
 > [!NOTE]
 > Developer Center Kontoregistrering är obligatoriskt för publicering betald marknadsplatsen SKU: er.
 
-Om du inte har ett Developer Center-konto kan du skapa ett konto som beskrivs i [registrera i Dev Center](../../register-dev-center.md).  Lägg sedan till den registrerade e-postadressen som ägare på partnerportalen i molnet för ditt erbjudande. Ägare kan bara lägga till den registrerade e-postadressen till din publiceringsprofil från den **användaren** avsnittet. Sedan logga in på portalen med samma e-postadress och länka ditt Dev Center-konto.
+Om du inte har ett Developer Center-konto kan du skapa ett konto som beskrivs i [registrera i Dev Center](https://docs.microsoft.com/azure/marketplace/register-dev-center).  Lägg sedan till den registrerade e-postadressen som ägare på partnerportalen i molnet för ditt erbjudande. Ägare kan bara lägga till den registrerade e-postadressen till din publiceringsprofil från den **användaren** avsnittet. Sedan logga in på portalen med samma e-postadress och länka ditt Dev Center-konto.
 
 ![Profilinformation Publisher - utgivare Profilbeskrivning](./media/publisherprofiledescription.png)
 

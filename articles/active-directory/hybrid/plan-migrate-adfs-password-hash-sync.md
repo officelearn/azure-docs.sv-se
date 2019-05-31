@@ -12,12 +12,12 @@ ms.date: 12/13/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d522b0740b144c39da81a9838f9d6e259fe62d22
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 180464e22b34c7b378643e738ea0c30ee5a4b11e
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60455578"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298892"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>Migrera från federation till synkronisering av lösenordshash för Azure Active Directory
 
@@ -86,7 +86,7 @@ För att verifiera din aktuella inloggning användarinställningar:
 
    * Om **lösenordshashsynkronisering** är inställd på **inaktiverad**, utför stegen i den här artikeln om du vill aktivera den.
    * Om **lösenordshashsynkronisering** är inställd på **aktiverad**, du kan hoppa över avsnittet **steg 1: Aktivera lösenordshashsynkronisering** i den här artikeln.
-4. På den **granska din lösning** , bläddrar du till **Active Directory Federation Services (AD FS)**.<br />
+4. På den **granska din lösning** , bläddrar du till **Active Directory Federation Services (AD FS)** .<br />
 
    * Om AD FS-konfigurationen visas i det här avsnittet, kan du på ett säkert sätt anta att AD FS ursprungligen konfigurerades med hjälp av Azure AD Connect. Du kan konvertera dina domäner från federerad identitet till hanterad identitet med hjälp av Azure AD Connect **ändra användarinloggning** alternativet. Processen beskrivs i avsnittet **alternativ A: Växla från federation till lösenordshashsynkronisering med Azure AD Connect**.
    * Om AD FS inte visas i de aktuella inställningarna, måste du manuellt konvertera dina domäner från federerad identitet till hanterad identitet med hjälp av PowerShell. Mer information om den här processen finns i avsnittet **alternativ B: Växla från federation till lösenordshashsynkronisering med Azure AD Connect och PowerShell**.
@@ -113,7 +113,7 @@ Mer information finns i dessa artiklar:
 * [Set-MsolDomainAuthentication](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainauthentication?view=azureadps-1.0)
 
 > [!NOTE]
-> Om **SupportsMfa** är inställd på **SANT**, du använder en lokal multifaktorautentisering lösning för att mata in en andra faktor-utmaning i autentiseringsflödet för användaren. Den här konfigurationen fungerar inte längre för scenarier med Azure AD-autentisering. 
+> Om **SupportsMfa** är inställd på **SANT**, du använder en lokal multifaktorautentisering lösning för att mata in en andra faktor-utmaning i autentiseringsflödet för användaren. Den här installationen inte längre fungerar för scenarier med Azure AD-autentisering när du har konverterat den här domänen från federerat till hanterad autentisering. När du har inaktiverat federation Server av relationen till din lokala federationsserver, vilket omfattar den lokala MFA-kort. 
 >
 > Använd i stället Azure Multi-Factor Authentication molnbaserad tjänst för att utföra samma funktion. Utvärdera din multifaktorautentiseringskrav noggrant innan du fortsätter. Innan du konverterar domäner, se till att du förstår hur du använder Azure Multi-Factor Authentication och licensiering konsekvenserna registreringsprocessen för användaren.
 

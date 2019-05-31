@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/15/2017
+ms.date: 05/26/2019
 ms.author: tomfitz
-ms.openlocfilehash: ab777b487159b009bf2cac6086bb09cc71714b0d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3d0a6d97440404904c041369a4631fdd3fb618b4
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60587758"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257551"
 ---
 # <a name="create-azure-portal-user-interface-for-your-managed-application"></a>Skapa Azure portalens användargränssnitt för det hanterade programmet
 Det här dokumentet introducerar grundkoncepten i filen createUiDefinition.json. Azure-portalen använder den här filen för att generera användargränssnittet för att skapa ett hanterat program.
@@ -48,6 +48,8 @@ Schemat för egenskapen parameters är beroende av en kombination av den angivna
 
 Inklusive `$schema` rekommenderas, men är valfritt. Om anges värdet för `version` måste matcha versionen inom den `$schema` URI.
 
+Du kan använda en JSON-redigerare för att skapa UI-definition eller du kan använda Användargränssnittet Definition sandbox-miljön för att skapa och förhandsgranska UI-definition. Mer information om sandbox-miljön finns i [testa din portalgränssnitt för Azure Managed Applications](test-createuidefinition.md).
+
 ## <a name="basics"></a>Grundläggande inställningar
 Grunderna i steget är alltid det första steget i guiden som skapades när Azure-portalen Parsar filen. Förutom att visa de element som anges i `basics`, portalen lägger in element för användare att välja den prenumeration, resursgrupp och plats för distributionen. I allmänhet ska element som frågar efter distribution hela parametrar, t.ex namnet på ett kluster eller administratör autentiseringsuppgifter placeras i det här steget.
 
@@ -59,7 +61,7 @@ Egenskapen stegen kan innehålla noll eller flera ytterligare åtgärder för at
 ## <a name="outputs"></a>Utdata
 Azure-portalen använder den `outputs` egenskapen att mappa element från `basics` och `steps` till parametrarna för distributionsmallen Azure Resource Manager. Nycklarna för den här ordlistan är namnen på mallparametrarna och värdena är egenskaper för utdata-objekt från de refererade elementen.
 
-Om du vill ange resursnamnet hanterat program, måste du inkludera ett värde med namnet `applicationResourceName` i egenskapen utdata. Om du inte anger det här värdet tilldelas ett GUID för namnet. Du kan inkludera en textruta i användargränssnittet som du begär ett namn från användaren.
+Om du vill ange resursnamnet hanterat program, måste du inkludera ett värde med namnet `applicationResourceName` i egenskapen utdata. Om du inte anger det här värdet, tilldelas ett GUID för namnet. Du kan inkludera en textruta i användargränssnittet som du begär ett namn från användaren.
 
 ```json
 "outputs": {
@@ -72,7 +74,7 @@ Om du vill ange resursnamnet hanterat program, måste du inkludera ett värde me
 ```
 
 ## <a name="functions"></a>Functions
-Liksom Mallfunktioner i Azure Resource Manager (både i syntax och funktioner), CreateUiDefinition tillhandahåller funktioner för att arbeta med elementens indata och utdata, samt funktioner, till exempel Conditions.
+Liksom Mallfunktioner i Azure Resource Manager (både i syntax och funktioner), CreateUiDefinition tillhandahåller funktioner för att arbeta med elementens indata och utdata och funktioner, till exempel Conditions.
 
 ## <a name="next-steps"></a>Nästa steg
 CreateUiDefinition.json själva filen om du har ett enkelt schema. Det verkliga djupet på det kommer från alla element som stöds och funktioner. Dessa objekt beskrivs i detalj på:

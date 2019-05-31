@@ -7,12 +7,12 @@ ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 6e3e01ca9bd459aa6c6aca8dfaacb98b1267fada
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: fb7f238bb5c04bb03ee500b1b953895cc88c0596
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65979352"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298926"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Fastställa orsaker till icke-kompatibilitet
 
@@ -22,7 +22,7 @@ När en Azure-resurs bedöms vara icke-kompatibla till en regel, är det bra att
 > - [Information om kompatibilitet](#compliance-details)
 > - [Ändra historik (förhandsversion)](#change-history-preview)
 
-## <a name="compliance-details"></a>Information om efterlevnad
+## <a name="compliance-details"></a>Information om kompatibilitet
 
 När en resurs är icke-kompatibla, information om kompatibilitet för den resursen är tillgängliga från den **principefterlevnad** sidan. Informationsfönstret efterlevnad innehåller följande information:
 
@@ -85,25 +85,29 @@ Dessa uppgifter förklara varför en resurs för närvarande inte är kompatibel
 
 Matrisen följande mappar varje möjligt _orsak_ till den ansvariga [villkor](../concepts/definition-structure.md#conditions) i principdefinitionen:
 
-|Reason | Villkor |
+|Reason | Tillstånd |
 |-|-|
 |Aktuellt värde måste innehålla målvärdet som en nyckel. |containsKey eller **inte** notContainsKey |
 |Aktuellt värde måste innehålla målvärdet. |innehåller eller **inte** notContains |
 |Aktuellt värde måste vara lika med målvärdet. |är lika med eller **inte** notEquals |
+|Aktuellt värde måste vara mindre än målvärdet. |mindre eller **inte** greaterOrEquals |
+|Aktuellt värde måste vara större än eller lika med målvärdet. |greaterOrEquals eller **inte** mindre |
+|Aktuellt värde måste vara större än målvärdet. |större eller **inte** lessOrEquals |
+|Aktuellt värde måste vara mindre än eller lika med målvärdet. |lessOrEquals eller **inte** större |
 |Aktuellt värde måste finnas. |Det finns |
-|Aktuellt värde måste finnas i målvärdet. |i eller **inte** notIn |
+|Aktuellt värde måste vara i målvärdet. |i eller **inte** notIn |
 |Aktuellt värde måste vara som målvärdet. |som eller **inte** notLike |
-|Det aktuella värdet måste matcha målvärdet skiftlägeskänsligt. |matcha eller **inte** notMatch |
-|Det aktuella värdet måste matcha målvärdet skiftlägesokänsligt. |matchInsensitively eller **inte** notMatchInsensitively |
+|Aktuellt värde måste vara skiftlägeskänslig matchning målvärdet. |matcha eller **inte** notMatch |
+|Aktuellt värde måste vara icke-skiftlägeskänsliga matchningen målvärdet. |matchInsensitively eller **inte** notMatchInsensitively |
 |Aktuellt värde får inte innehålla målvärdet som en nyckel. |notContainsKey eller **inte** containsKey|
 |Aktuellt värde får inte innehålla målvärdet. |notContains eller **inte** innehåller |
 |Aktuellt värde får inte vara lika med målvärdet. |notEquals eller **inte** är lika med |
 |Aktuellt värde får inte finnas. |**inte** finns  |
-|Aktuellt värde får inte finnas i målvärdet. |notIn eller **inte** i |
+|Aktuellt värde får inte vara i målvärdet. |notIn eller **inte** i |
 |Aktuellt värde får inte vara som målvärdet. |notLike eller **inte** som |
-|Det aktuella värdet får inte matcha målvärdet skiftlägeskänsligt. |notMatch eller **inte** matchar |
-|Det aktuella värdet får inte matcha målvärdet skiftlägesokänsligt. |notMatchInsensitively eller **inte** matchInsensitively |
-|Inga relaterade resurser matchar effektinformationen i principdefinitionen. |En resurs av typen som definierats i **then.details.type** och relaterad till den resurs som definierats i den **om** delen av principregeln finns inte. |
+|Aktuellt värde måste inte skiftlägeskänslig matchning målvärdet. |notMatch eller **inte** matchar |
+|Aktuellt värde måste inte icke-skiftlägeskänsliga matchningen målvärdet. |notMatchInsensitively eller **inte** matchInsensitively |
+|Inga relaterade resurser matcha informationen om principeffekten i principdefinitionen. |En resurs av typen som definierats i **then.details.type** och relaterad till den resurs som definierats i den **om** delen av principregeln finns inte. |
 
 ## <a name="compliance-details-for-guest-configuration"></a>Information om kompatibilitet för gäst-konfiguration
 
@@ -128,7 +132,7 @@ Du kan inte heller åtkomst att logga in på den virtuella datorn direkt men du 
    - **Resurstypen** – _guestConfigurationAssignments_ fullständigt namn.
    - **Senast utvärderad** – den senaste gången som gäst konfigurationstjänsten ett meddelande om Azure Policy om tillståndet för den virtuella måldatorn.
 
-   ![Visa efterlevnadsinformation.](../media/determine-non-compliance/guestconfig-assignment-view.png)
+   ![Visa information om kompatibilitet](../media/determine-non-compliance/guestconfig-assignment-view.png)
 
 1. Välj gäst Configuration tilldelningsnamn i den **namn** kolumnen för att öppna den **Resurskompatibilitet** sidan.
 
@@ -136,7 +140,7 @@ Du kan inte heller åtkomst att logga in på den virtuella datorn direkt men du 
 
 Den **gäst tilldelning** sidan visar information om alla tillgängliga kompatibilitet. Varje rad i vyn representerar en bedömning som utfördes på den virtuella datorn. I den **orsak** kolumn, en fras som beskriver varför den gäst-tilldelningen är _icke-kompatibla_ visas. Om du granskning att virtuella datorer bör vara ansluten till en domän, till exempel den **orsak** kolumnen visar text, inklusive det aktuella medlemskapet i domänen.
 
-![Visa efterlevnadsinformation.](../media/determine-non-compliance/guestconfig-compliance-details.png)
+![Visa information om kompatibilitet](../media/determine-non-compliance/guestconfig-compliance-details.png)
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 

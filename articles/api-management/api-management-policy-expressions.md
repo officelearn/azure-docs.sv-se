@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: apimpm
-ms.openlocfilehash: b8bd6e7c77faa54a8ebf0842cf140ef8aa73e953
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 9a19165f9ac15f7a40aea0501f960b06efbd63a3
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65834551"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304364"
 ---
 # <a name="api-management-policy-expressions"></a>Principuttryck för API Management
 Den här artikeln beskriver principuttryck syntaxen är C# 7. Varje uttryck har åtkomst till den angivna implicit [kontext](api-management-policy-expressions.md#ContextVariables) variabeln och tillåtet [delmängd](api-management-policy-expressions.md#CLRTypes) av .NET Framework-typer.
@@ -192,7 +192,7 @@ I följande tabell visas de .NET Framework-typerna och deras medlemmar som till�
 |System.Xml.Linq.XComment|Alla|
 |System.Xml.Linq.XContainer|Alla|
 |System.Xml.Linq.XDeclaration|Alla|
-|System.Xml.Linq.XDocument|Alla, utom: Läs in|
+|System.Xml.Linq.XDocument|Alla, utom: Laddning|
 |System.Xml.Linq.XDocumentType|Alla|
 |System.Xml.Linq.XElement|Alla|
 |System.Xml.Linq.XName|Alla|
@@ -210,26 +210,26 @@ En variabel med namnet `context` finns implicit i varje princip [uttryck](api-ma
 
 |Sammanhangsvariabel|Tillåtna metoder, egenskaper och parametervärden|
 |----------------------|-------------------------------------------------------|
-|Kontext|Api: IApi<br /><br /> Distribution<br /><br /> Förfluten tid: TimeSpan - tidsintervallet mellan värdet för tidsstämpeln och aktuell tid<br /><br /> LastError<br /><br /> Operation<br /><br /> Product<br /><br /> Begäran<br /><br /> RequestId: GUID - identifierare för unika begäran<br /><br /> Svar<br /><br /> Prenumeration<br /><br /> Tidsstämpel: DateTime - tidpunkt när en förfrågan togs emot<br /><br /> Spårning: bool - anger om spårning har aktiverats eller inaktiverats <br /><br /> Användare<br /><br /> Variabler: IReadOnlyDictionary < string, object ><br /><br /> Annullera Trace(message: string)|
-|context.Api|ID: sträng<br /><br /> IsCurrentRevision: bool<br /><br />  Namn: sträng<br /><br /> Sökväg: sträng<br /><br /> Revision: sträng<br /><br /> ServiceUrl: IUrl<br /><br /> Version: sträng |
-|context.Deployment|Region: sträng<br /><br /> Tjänstnamn: sträng<br /><br /> Certifikat: IReadOnlyDictionary<string, X509Certificate2>|
-|context.LastError|Källa: sträng<br /><br /> Orsak: sträng<br /><br /> Meddelande: sträng<br /><br /> Omfång: sträng<br /><br /> Avsnittet: sträng<br /><br /> Sökväg: sträng<br /><br /> PolicyId: sträng<br /><br /> Mer information om kontext. LastError, se [felhantering](api-management-error-handling-policies.md).|
-|context.Operation|ID: sträng<br /><br /> Metod: sträng<br /><br /> Namn: sträng<br /><br /> UrlTemplate: string|
-|context.Product|API: er: IEnumerable < IApi\><br /><br /> ApprovalRequired: bool<br /><br /> Grupper: IEnumerable < IGroup\><br /><br /> ID: sträng<br /><br /> Namn: sträng<br /><br /> Tillstånd: enum ProductState {NotPublished, publicerade}<br /><br /> SubscriptionLimit: int?<br /><br /> SubscriptionRequired: bool|
-|context.Request|Brödtext: IMessageBody<br /><br /> Certifikat: System.Security.Cryptography.X509Certificates.X509Certificate2<br /><br /> Rubriker: IReadOnlyDictionary < string, string [] ><br /><br /> IP-adress: sträng<br /><br /> MatchedParameters: IReadOnlyDictionary < sträng, sträng ><br /><br /> Metod: sträng<br /><br /> OriginalUrl:IUrl<br /><br /> URL: IUrl|
-|strängkontext. Request.Headers.GetValueOrDefault (headerName: sträng, defaultValue: sträng)|Huvudnamn: sträng<br /><br /> Standardvärde: sträng<br /><br /> Returnerar huvudvärden för CSV-begäran eller `defaultValue` om sidhuvudet inte hittas.|
-|context.Response|Brödtext: IMessageBody<br /><br /> Rubriker: IReadOnlyDictionary < string, string [] ><br /><br /> StatusCode: int<br /><br /> StatusReason: sträng|
-|strängkontext. Response.Headers.GetValueOrDefault (headerName: sträng, defaultValue: sträng)|Huvudnamn: sträng<br /><br /> Standardvärde: sträng<br /><br /> Returnerar CSV-svar värden i huvudet eller `defaultValue` om sidhuvudet inte hittas.|
-|context.Subscription|CreatedTime: DateTime<br /><br /> EndDate: DateTime?<br /><br /> ID: sträng<br /><br /> Nyckel: sträng<br /><br /> Namn: sträng<br /><br /> PrimaryKey: sträng<br /><br /> Sekundär nyckel: sträng<br /><br /> Startdatum: DateTime?|
-|context.User|E-post: sträng<br /><br /> Förnamn: sträng<br /><br /> Grupper: IEnumerable < IGroup\><br /><br /> ID: sträng<br /><br /> Identiteter: IEnumerable < IUserIdentity\><br /><br /> Efternamn: sträng<br /><br /> Obs: sträng<br /><br /> RegistrationDate: DateTime|
-|IApi|ID: sträng<br /><br /> Namn: sträng<br /><br /> Sökväg: sträng<br /><br /> Protokoll: IEnumerable < sträng\><br /><br /> ServiceUrl: IUrl<br /><br /> SubscriptionKeyParameterNames: ISubscriptionKeyParameterNames|
-|IGroup|ID: sträng<br /><br /> Namn: sträng|
-|IMessageBody|Som < T\>(preserveContent: bool = false): Där T: sträng JObject, JToken, JArray, XNode, XElement, XDocument<br /><br /> Den `context.Request.Body.As<T>` och `context.Response.Body.As<T>` metoderna används för att läsa en begäran och svaret meddelandetexten i en viss typ av `T`. Som standard metoden använder den ursprungliga brödtext meddelandeströmmen och återger den otillgänglig när den returnerar. Om du vill undvika det genom att använda metoden som fungerar på en kopia av brödtextströmmen, ange den `preserveContent` parameter `true`. Gå [här](api-management-transformation-policies.md#SetBody) att se ett exempel.|
-|IUrl|Värden: sträng<br /><br /> Sökväg: sträng<br /><br /> Port: int<br /><br /> Fråga: IReadOnlyDictionary < string, string [] ><br /><br /> QueryString: sträng<br /><br /> Schema: sträng|
-|IUserIdentity|ID: sträng<br /><br /> Providern: sträng|
-|ISubscriptionKeyParameterNames|Rubrik: sträng<br /><br /> Fråga: sträng|
-|sträng IUrl.Query.GetValueOrDefault (queryParameterName: sträng, defaultValue: sträng)|queryParameterName: sträng<br /><br /> Standardvärde: sträng<br /><br /> Returnerar kommaavgränsad frågeparametervärden eller `defaultValue` om parametern inte hittas.|
-|T context.Variables.GetValueOrDefault<T\>(variableName: string, defaultValue: T)|variableName: string<br /><br /> Standardvärde: t<br /><br /> Returnerar värdet på variabeln typkonverteras till typen `T` eller `defaultValue` om variabeln inte hittas.<br /><br /> Den här metoden genereras ett undantag om den angivna typen inte matchar den faktiska typen av returnerade variabeln.|
+|Kontext|[Api](#ref-context-api): [IApi](#ref-iapi)<br /><br /> [Distribution](#ref-context-deployment)<br /><br /> Förfluten tid: TimeSpan - tidsintervallet mellan värdet för tidsstämpeln och aktuell tid<br /><br /> [LastError](#ref-context-lasterror)<br /><br /> [Åtgärd](#ref-context-operation)<br /><br /> [Produkten](#ref-context-product)<br /><br /> [Förfrågan](#ref-context-request)<br /><br /> RequestId: GUID - identifierare för unika begäran<br /><br /> [Svar](#ref-context-response)<br /><br /> [Prenumeration](#ref-context-subscription)<br /><br /> Timestamp: DateTime - tidpunkt när en förfrågan togs emot<br /><br /> Spårning: bool - anger om spårning har aktiverats eller inaktiverats <br /><br /> [Användaren](#ref-context-user)<br /><br /> [Variabler](#ref-context-variables): IReadOnlyDictionary < string, object ><br /><br /> Annullera Trace(message: string)|
+|<a id="ref-context-api"></a>context.Api|ID: sträng<br /><br /> IsCurrentRevision: bool<br /><br />  Namn: sträng<br /><br /> Sökväg: sträng<br /><br /> Revision: sträng<br /><br /> ServiceUrl: [IUrl](#ref-iurl)<br /><br /> Version: sträng |
+|<a id="ref-context-deployment"></a>context.Deployment|Region: sträng<br /><br /> Tjänstnamn: sträng<br /><br /> Certifikat: IReadOnlyDictionary<string, X509Certificate2>|
+|<a id="ref-context-lasterror"></a>context.LastError|Källa: sträng<br /><br /> Orsak: sträng<br /><br /> Meddelande: sträng<br /><br /> Omfång: sträng<br /><br /> Avsnittet: sträng<br /><br /> Sökväg: sträng<br /><br /> PolicyId: sträng<br /><br /> Mer information om kontext. LastError, se [felhantering](api-management-error-handling-policies.md).|
+|<a id="ref-context-operation"></a>context.Operation|ID: sträng<br /><br /> Metod: sträng<br /><br /> Namn: sträng<br /><br /> UrlTemplate: string|
+|<a id="ref-context-product"></a>context.Product|API: er: IEnumerable <[IApi](#ref-iapi)\><br /><br /> ApprovalRequired: bool<br /><br /> Grupper: IEnumerable <[IGroup](#ref-igroup)\><br /><br /> ID: sträng<br /><br /> Namn: sträng<br /><br /> Tillstånd: enum ProductState {NotPublished, publicerade}<br /><br /> SubscriptionLimit: int?<br /><br /> SubscriptionRequired: bool|
+|<a id="ref-context-request"></a>context.Request|Body: [IMessageBody](#ref-imessagebody)<br /><br /> Certifikat: System.Security.Cryptography.X509Certificates.X509Certificate2<br /><br /> [Rubriker](#ref-context-request-headers): IReadOnlyDictionary < string, string [] ><br /><br /> IP-adress: sträng<br /><br /> MatchedParameters: IReadOnlyDictionary < sträng, sträng ><br /><br /> Metod: sträng<br /><br /> OriginalUrl: [IUrl](#ref-iurl)<br /><br /> URL: [IUrl](#ref-iurl)|
+|<a id="ref-context-request-headers"></a>strängkontext. Request.Headers.GetValueOrDefault (headerName: sträng, defaultValue: sträng)|Huvudnamn: sträng<br /><br /> Standardvärde: sträng<br /><br /> Returnerar huvudvärden för CSV-begäran eller `defaultValue` om sidhuvudet inte hittas.|
+|<a id="ref-context-response"></a>context.Response|Body: [IMessageBody](#ref-imessagebody)<br /><br /> [Rubriker](#ref-context-response-headers): IReadOnlyDictionary < string, string [] ><br /><br /> StatusCode: int<br /><br /> StatusReason: sträng|
+|<a id="ref-context-response-headers"></a>strängkontext. Response.Headers.GetValueOrDefault (headerName: sträng, defaultValue: sträng)|Huvudnamn: sträng<br /><br /> Standardvärde: sträng<br /><br /> Returnerar CSV-svar värden i huvudet eller `defaultValue` om sidhuvudet inte hittas.|
+|<a id="ref-context-subscription"></a>context.Subscription|CreatedTime: DateTime<br /><br /> EndDate: DateTime?<br /><br /> ID: sträng<br /><br /> Nyckel: sträng<br /><br /> Namn: sträng<br /><br /> PrimaryKey: sträng<br /><br /> Sekundär nyckel: sträng<br /><br /> Startdatum: DateTime?|
+|<a id="ref-context-user"></a>context.User|E-post: sträng<br /><br /> Förnamn: sträng<br /><br /> Grupper: IEnumerable <[IGroup](#ref-igroup)\><br /><br /> ID: sträng<br /><br /> Identiteter: IEnumerable <[IUserIdentity](#ref-iuseridentity)\><br /><br /> Efternamn: sträng<br /><br /> Obs: sträng<br /><br /> RegistrationDate: DateTime|
+|<a id="ref-iapi"></a>IApi|ID: sträng<br /><br /> Namn: sträng<br /><br /> Sökväg: sträng<br /><br /> Protokoll: IEnumerable < sträng\><br /><br /> ServiceUrl: [IUrl](#ref-iurl)<br /><br /> SubscriptionKeyParameterNames: [ISubscriptionKeyParameterNames](#ref-isubscriptionkeyparameternames)|
+|<a id="ref-igroup"></a>IGroup|ID: sträng<br /><br /> Namn: sträng|
+|<a id="ref-imessagebody"></a>IMessageBody|Som < T\>(preserveContent: bool = false): Där T: sträng JObject, JToken, JArray, XNode, XElement, XDocument<br /><br /> Den `context.Request.Body.As<T>` och `context.Response.Body.As<T>` metoderna används för att läsa en begäran och svaret meddelandetexten i en viss typ av `T`. Som standard metoden använder den ursprungliga brödtext meddelandeströmmen och återger den otillgänglig när den returnerar. Om du vill undvika det genom att använda metoden som fungerar på en kopia av brödtextströmmen, ange den `preserveContent` parameter `true`. Gå [här](api-management-transformation-policies.md#SetBody) att se ett exempel.|
+|<a id="ref-iurl"></a>IUrl|Värden: sträng<br /><br /> Sökväg: sträng<br /><br /> Port: int<br /><br /> [Fråga](#ref-iurl-query): IReadOnlyDictionary < string, string [] ><br /><br /> QueryString: sträng<br /><br /> Schema: sträng|
+|<a id="ref-iuseridentity"></a>IUserIdentity|ID: sträng<br /><br /> Providern: sträng|
+|<a id="ref-isubscriptionkeyparameternames"></a>ISubscriptionKeyParameterNames|Rubrik: sträng<br /><br /> Fråga: sträng|
+|<a id="ref-iurl-query"></a>sträng IUrl.Query.GetValueOrDefault (queryParameterName: sträng, defaultValue: sträng)|queryParameterName: sträng<br /><br /> Standardvärde: sträng<br /><br /> Returnerar kommaavgränsad frågeparametervärden eller `defaultValue` om parametern inte hittas.|
+|<a id="ref-context-variables"></a>T context.Variables.GetValueOrDefault<T\>(variableName: string, defaultValue: T)|variableName: string<br /><br /> Standardvärde: T<br /><br /> Returnerar värdet på variabeln typkonverteras till typen `T` eller `defaultValue` om variabeln inte hittas.<br /><br /> Den här metoden genereras ett undantag om den angivna typen inte matchar den faktiska typen av returnerade variabeln.|
 |BasicAuthCredentials AsBasic(input: this string)|inkommande: sträng<br /><br /> Om parametern innehåller ett giltigt grundläggande autentisering för HTTP-begäran auktoriseringsrubrikvärde, metoden returnerar ett objekt av typen `BasicAuthCredentials`; annars returnerar-metoden null.|
 |bool TryParseBasic (indata: den här strängen, resultat: ut BasicAuthCredentials)|inkommande: sträng<br /><br /> resultat: ut BasicAuthCredentials<br /><br /> Om parametern innehåller ett giltigt grundläggande HTTP-autentisering auktoriseringsvärde i rubriken returnerar-metoden `true` och resultatet parametern innehåller ett värde av typen `BasicAuthCredentials`; annars returnerar-metoden `false`.|
 |BasicAuthCredentials|Lösenord: sträng<br /><br /> Användar-ID: sträng|

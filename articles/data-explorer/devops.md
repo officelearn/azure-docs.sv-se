@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 05/05/2019
-ms.openlocfilehash: a70a887ccb19d9c1cbdb5f8ebf6aa8d4b25a0dfd
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 0628d5c07d7258cc4d68727c364e65bd81c78e8e
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65161077"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388983"
 ---
 # <a name="azure-devops-task-for-azure-data-explorer"></a>Azure DevOps-uppgift för Azure Data Explorer
 
@@ -67,7 +67,7 @@ Skapa följande exempel mappar (*Functions*, *principer*, *tabeller*) på Git-la
 
     ![Skapa variabel](media/devops/create-variable.png)
 
-    Du hittar din Endpoint_URL översiktssidan för din **Azure Data Explorer klustret** i Azure portal innehåller Azure Data Explorer-kluster-URI. Skapa URI: N i formatet `https://<Azure Data Explorer cluster URI>?DatabaseName=<DBName>`.  Till exempel, https://kustodocs.westus.kusto.windows.net?DatabaseName=SampleDB
+    Du hittar din Endpoint_URL översiktssidan för din **Azure Data Explorer klustret** i Azure portal innehåller Azure Data Explorer-kluster-URI. Skapa URI: N i formatet `https://<Azure Data Explorer cluster URI>?DatabaseName=<DBName>`.  Till exempel https:\//kustodocs.westus.kusto.windows.net?DatabaseName=SampleDB
 
     ![Azure Data Explorer kluster-URI](media/devops/adx-cluster-uri.png)
 
@@ -85,7 +85,7 @@ Skapa följande exempel mappar (*Functions*, *principer*, *tabeller*) på Git-la
 
 1. Klicka på **Kusto-kommandot** till vänster och uppdatera uppgiften med följande information:
     * **Visningsnamn**: Namnet på aktiviteten
-    * **Filsökväg**: I den **tabeller** uppgift, ange */Tables/*.csl eftersom tabellen skapas filer finns i den *tabell* mapp.
+    * **Filsökväg**: I den **tabeller** uppgift, ange */Tables/* .csl eftersom tabellen skapas filer finns i den *tabell* mapp.
     * **Slutpunkts-URL**: Ange den `EndPoint URL`variabel har skapats i föregående steg.
     * Välj **Använd tjänstslutpunkt** och välj **+ ny**.
 

@@ -3,25 +3,25 @@ title: Translator Text API språk metod
 titlesuffix: Azure Cognitive Services
 description: Använd metoden Translator Text API språk.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
-ms.author: v-jansko
-ms.openlocfilehash: 6e0342d876db424454526637322d67d55c0432a8
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.author: v-pawal
+ms.openlocfilehash: 415093610bfbc314e569eeeb658508bdfb021d9c
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65797298"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389716"
 ---
 # <a name="translator-text-api-30-languages"></a>Translator Text API 3.0: Språk
 
 Hämtar antal språk som stöds för närvarande av andra åtgärder för Translator Text API. 
 
-## <a name="request-url"></a>Fråge-URL
+## <a name="request-url"></a>URL för begäran
 
 Skicka en `GET` begäran om att:
 ```HTTP
@@ -48,7 +48,7 @@ Parametrarna som skickades mot frågesträngen är:
 Begärandehuvuden är:
 
 <table width="100%">
-  <th width="20%">Huvuden</th>
+  <th width="20%">Rubriker</th>
   <th>Beskrivning</th>
   <tr>
     <td>Accept-Language</td>
@@ -226,13 +226,13 @@ Strukturen för objektet response ändras inte utan en ändring i API-versionen.
 
 Listan över språk som stöds kommer inte ändras ofta. Spara nätverksbandbredd och förbättra svarstiden genom ett klientprogram bör cachelagring språkresurser och motsvarande enhetstagg (`ETag`). Sedan klientprogrammet kan med jämna mellanrum (till exempel en gång per dygn) skicka frågor till tjänsten för att hämta den senaste uppsättningen språk som stöds. Skicka aktuellt `ETag` värde i en `If-None-Match` huvudfältet gör att tjänsten för att optimera svaret. Om resursen inte har ändrats, returnerar tjänsten statuskod 304 och en tom svarstext.
 
-## <a name="response-headers"></a>Svarshuvud
+## <a name="response-headers"></a>Svarshuvuden
 
 <table width="100%">
-  <th width="20%">Huvuden</th>
+  <th width="20%">Rubriker</th>
   <th>Beskrivning</th>
   <tr>
-    <td>ETag</td>
+    <td>eTag</td>
     <td>Aktuella värdet för entitetstagg för de begärda grupperna med språk som stöds. Om du vill göra efterföljande förfrågningar effektivare klienten kan skicka den `ETag` värde i en `If-None-Match` huvudfältet.
     </td>
   </tr>

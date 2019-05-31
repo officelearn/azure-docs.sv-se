@@ -4,24 +4,41 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
-ms.openlocfilehash: f4ba467b6d80c9ccafba0a91c1f04152b92cf869
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: a5bde1a56bf6a1f5fca4b775c7c8e9bb7477eb6b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66140646"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240277"
 ---
-1. Besök [Azure Portal] på din Mac. Klicka på **Alla tjänster** > **App Services** > serverdelen du precis har skapat. I mobilappens inställningar väljer du det språk du vill använda:
+1. Öppna det hämtade klientprojektet med Xcode.
 
-   - Objective-C &ndash; **Snabbstart** > **iOS (Objective-C)**
-   - Swift &ndash; **Snabbstart** > **iOS (Swift)**
+2. Gå till den [Azure-portalen](https://portal.azure.com/) och navigera till den mobila appen som du skapade. På den `Overview` bladet letar du reda på URL: en som är den offentliga slutpunkten för din mobilapp. Exempel – sitename för min app name ”test123” kommer att https://test123.azurewebsites.net.
 
-     Under **3. Konfigurera klientprogrammet** klickar du på **Ladda ned**. Ett fullständigt Xcode-projekt som förkonfigurerats att ansluta till din serverdel hämtas. Öppna projektet med Xcode.
+3. Öppna filen för Swift projekt `ToDoTableViewController.swift` i den här mappen - ZUMOAPPNAME/ZUMOAPPNAME/ToDoTableViewController.swift. Programnamnet är `ZUMOAPPNAME`.
 
-1. Klicka på **Kör**-knappen för att skapa projektet och starta appen i iOS-simulatorn.
+4. I `viewDidLoad()` metod, Ersätt `ZUMOAPPURL` parameter med offentlig slutpunkt ovan.
 
-1. I appen klickar du på plusikonen (**+**), anger en beskrivande text, till exempel *Slutför självstudien*, och klickar sedan på knappen Spara. Detta skickar en POST-begäran till den Azure-serverdel som du distribuerade tidigare. Serverdelen infogar data från begäran i TodoItem-SQL-tabellen och returnerar information om det nyligen lagrade objektet tillbaka till mobilappen. Mobilappen visar dessa data i listan.
+    `let client = MSClient(applicationURLString: "ZUMOAPPURL")`
+
+    blir
+    
+    `let client = MSClient(applicationURLString: "https://test123.azurewebsites.net")`
+    
+5. Öppna filen för Objective-C-projekt, `QSTodoService.m` i den här mappen - ZUMOAPPNAME/ZUMOAPPNAME. Programnamnet är `ZUMOAPPNAME`.
+
+6. I `init` metod, Ersätt `ZUMOAPPURL` parameter med offentlig slutpunkt ovan.
+
+    `self.client = [MSClient clientWithApplicationURLString:@"ZUMOAPPURL"];`
+
+    blir
+    
+    `self.client = [MSClient clientWithApplicationURLString:@"https://test123.azurewebsites.net"];`
+
+7. Klicka på **Kör**-knappen för att skapa projektet och starta appen i iOS-simulatorn.
+
+8. I appen klickar du på plusikonen ( **+** ), anger en beskrivande text, till exempel *Slutför självstudien*, och klickar sedan på knappen Spara. Detta skickar en POST-begäran till den Azure-serverdel som du distribuerade tidigare. Serverdelen infogar data från begäran i TodoItem-SQL-tabellen och returnerar information om det nyligen lagrade objektet tillbaka till mobilappen. Mobilappen visar dessa data i listan.
 
    ![Snabbstart för appar som körs i iOS](./media/app-service-mobile-ios-quickstart/mobile-quickstart-startup-ios.png)
 
-[Azure Portal]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/

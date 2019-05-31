@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: scottwhi
 ms.custom: seodec2018
-ms.openlocfilehash: 38b2244d68de25f53d59dd4eb0a6beba03f0e51d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9368abe7d3b6ad6cf6e86b503dca4fca4f18739c
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60916690"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388463"
 ---
 # <a name="page-through-the-images-results"></a>Bläddrar igenom resultaten avbildningar
 
-När du anropar API: et för avbildning Search returnerar Bing en lista med resultat. Listan är en delmängd av det totala antalet resultat som är relevanta för frågan. För att få det uppskattade totala antalet tillgängliga resultat kan komma åt objektet svar [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#totalestimatedmatches) fält.  
+När du anropar API: et för avbildning Search returnerar Bing en lista med resultat. Listan är en delmängd av det totala antalet resultat som är relevanta för frågan. För att få det uppskattade totala antalet tillgängliga resultat kan komma åt objektet svar [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#totalestimatedmatches) fält.  
 
 I följande exempel visas den `totalEstimatedMatches` fält som innehåller bilder svar.  
 
@@ -34,7 +34,7 @@ I följande exempel visas den `totalEstimatedMatches` fält som innehåller bild
 }  
 ```  
 
-Om du vill bläddra igenom de tillgängliga avbildningarna, använda den [antal](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#count) och [offset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#offset) Frågeparametrar.  
+Om du vill bläddra igenom de tillgängliga avbildningarna, använda den [antal](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#count) och [offset](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#offset) Frågeparametrar.  
 
 Den `count` parametern anger antalet resultat som ska returneras i svaret. Det maximala antalet resultat som du kan begära i svaret är 150. Standardvärdet är 35. Det faktiska talet som levereras kan vara mindre än vad som begärts.
 
@@ -58,7 +58,7 @@ Host: api.cognitive.microsoft.com
 
 Du kan förvänta dig att om du sidan 35 bilder i taget du skulle ställa in den `offset` frågeparameter till 0 på din första begäran och sedan öka `offset` av 35 för varje efterföljande begäran. Några av resultat i det efterföljande svaret kan dock vara dubbletter i föregående svar. De första två bilderna i svaret kan exempelvis vara samma som de två sista bilderna från föregående svar.
 
-För att minimera duplicerade resultat måste använda den [nextOffset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#nextoffset) i den `Images` objekt. Den `nextOffset` fältet får du den `offset` ska användas för nästa förfrågan. Till exempel om du vill att sidan 30 bilder i taget, du kan ange `count` till 30 och `offset` till 0 på din första begäran. I nästa förfrågan, anger du `count` till 30 och `offset` till värdet för föregående svar `nextOffset`. Om du vill bläddra bakåt föreslår vi att underhålla en stack med föregående förskjutningar och dyker den senaste.
+För att minimera duplicerade resultat måste använda den [nextOffset](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#nextoffset) i den `Images` objekt. Den `nextOffset` fältet får du den `offset` ska användas för nästa förfrågan. Till exempel om du vill att sidan 30 bilder i taget, du kan ange `count` till 30 och `offset` till 0 på din första begäran. I nästa förfrågan, anger du `count` till 30 och `offset` till värdet för föregående svar `nextOffset`. Om du vill bläddra bakåt föreslår vi att underhålla en stack med föregående förskjutningar och dyker den senaste.
 
 > [!NOTE]
 > Växling gäller endast för bildsökning (/ bilder/Sök) och inte på information om bilder eller populära bilder (/ bilder/trender).

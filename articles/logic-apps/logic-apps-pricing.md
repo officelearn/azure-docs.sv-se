@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.topic: article
 ms.date: 05/22/2019
-ms.openlocfilehash: b37a6b6995df6f784b5f1b4a7a3f54d91faafc13
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 20e84482b31c4da991f3fdc9c7bbf6ee0e7f902a
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65990196"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299091"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Prismodellen för Azure Logic Apps
 
@@ -38,14 +38,14 @@ Med Azure Logic Apps-mätare alla åtgärder som körs i din logikapp. Mer infor
 
 ## <a name="fixed-pricing-model"></a>Fast prismodellen
 
-En [ *integreringstjänstmiljön* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) är ett privat, isolerad och dedikerad sätt för dig att skapa och köra logikappar som kan komma åt resurser i Azure-nätverk. För nya logic apps som körs i en ISE kan betalar du ett fast månadspris för inbyggda åtgärder och utlösare och för anslutningsappar av standardtyp.
+En [ *integreringstjänstmiljön* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) är ett privat, isolerad och dedikerad sätt för dig att skapa och köra logikappar som kan komma åt resurser i Azure-nätverk. För nya logic apps som körs i en ISE kan du betalar en [fast månadspris](https://azure.microsoft.com/pricing/details/logic-apps) för inbyggda åtgärder och utlösare och för anslutningsappar av standardtyp.
 
-Din ISE innehåller också en kostnadsfria anslutningstjänsten, som innehåller antalet anslutningar som du vill. Användningen av ytterligare Enterprise-anslutningar debiteras baserat på priset för Enterprise-förbrukning.
+Din ISE innehåller också en kostnadsfria anslutningstjänsten, som innehåller så många *anslutningar* som du vill ha. Användningen av ytterligare Enterprise-anslutningar debiteras baserat på den [Enterprise-pris för resursförbrukning](https://azure.microsoft.com/pricing/details/logic-apps). Endast Allmänt debiteras tillgängliga Enterprise-anslutningar enligt priserna för Enterprise-förbrukning. Förhandsversion av Enterprise-anslutningsappar debiteras enligt den [standardanslutningsprogram rate](https://azure.microsoft.com/pricing/details/logic-apps).
 
 > [!NOTE]
 > Inom en ISE, inbyggda utlösare och åtgärder visas den **Core** etikettera och kör i samma ISE som dina logic apps. Standard- och Enterprise-anslutningsappar som visar den **ISE** etikett som körs i samma ISE som dina logic apps. Kopplingar som inte visar etiketten ISE kör i tjänsten för global Logic Apps.
 
-Basenheten ISE har fast kapacitet, så om du behöver större dataflöde, kan du [lägga till fler skalningsenheter](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity), antingen under skapandet eller efteråt. 
+Basenheten ISE har fast kapacitet, så om du behöver större dataflöde, kan du [lägga till fler skalningsenheter](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity), antingen under skapandet eller efteråt. Logikappar som körs i en ISE inte drar på dig kostnader för kvarhållning av data.
 
 Mer specifik prisinformation finns i [Azure Logic Apps-priser](https://azure.microsoft.com/pricing/details/logic-apps).
 
@@ -108,7 +108,7 @@ Mer specifik prisinformation finns i [priser för Azure Logic Apps](https://azur
 
 ## <a name="data-retention"></a>Datakvarhållning
 
-Alla indata och utdata som lagras i din logikapp körningshistorik faktureras baserat på en logikapp [kör kvarhållningsperiod](logic-apps-limits-and-config.md#run-duration-retention-limits). Mer specifik prisinformation finns i [priser för Azure Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps).
+Förutom logikappar att köra i en integreringstjänstmiljö (ISE), alla indata och utdata som lagras i din logikapp körningshistorik faktureras baserat på en logikapp [kör kvarhållningsperiod](logic-apps-limits-and-config.md#run-duration-retention-limits). Logikappar som körs i en ISE inte drar på dig kostnader för kvarhållning av data. Mer specifik prisinformation finns i [priser för Azure Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps).
 
 För att hjälpa dig att övervaka lagringsanvändningen för din logikapp, kan du:
 

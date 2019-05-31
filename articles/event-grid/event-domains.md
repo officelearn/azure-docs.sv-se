@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: 131a55d130e7ebf619ee283e943c0b0a7b45edfd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 61821caa2450096bdbdde3461316ad21a82f6f18
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60562034"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304300"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>Förstå händelse domäner för att hantera Event Grid-ämnen
 
@@ -22,8 +22,6 @@ Den här artikeln beskriver hur du använder event domäner för att hantera fl�
 * Hantera auktorisering och autentisering.
 * Partitionera dina ämnen utan att hantera varje individuellt.
 * Undvik att publicera individuellt till var och en av dina slutpunkter i avsnittet.
-
-Den här funktionen är en förhandsversion. För att använda den, måste du installera en förhandsversion av tillägg eller modul. Anvisningar finns i [hantera ämnen och publicera händelser med hjälp av händelse domäner](how-to-event-domains.md).
 
 ## <a name="event-domain-overview"></a>Översikt över Event-domän
 
@@ -49,7 +47,7 @@ RBAC i händelsen domäner fungerar på samma sätt [hanteras åtkomstkontroll](
 
 ### <a name="built-in-roles"></a>Inbyggda roller
 
-Event Grid har två inbyggda rolldefinitioner att underlätta RBAC för att arbeta med händelsen domäner. Dessa roller är **EventGrid EventSubscription deltagare (förhandsgranskning)** och **EventGrid EventSubscription läsare (förhandsgranskning)**. Du kan tilldela dessa roller till användare som behöver prenumerera på ämnen i händelsedomän. Du kan begränsa rolltilldelning till endast som användarna behöver för att prenumerera på ämnet.
+Event Grid har två inbyggda rolldefinitioner att underlätta RBAC för att arbeta med händelsen domäner. Dessa roller är **EventGrid EventSubscription deltagare (förhandsgranskning)** och **EventGrid EventSubscription läsare (förhandsgranskning)** . Du kan tilldela dessa roller till användare som behöver prenumerera på ämnen i händelsedomän. Du kan begränsa rolltilldelning till endast som användarna behöver för att prenumerera på ämnet.
 
 Information om dessa roller finns i [inbyggda roller för Event Grid](security-authentication.md#built-in-roles).
 
@@ -99,18 +97,18 @@ Till exempel publicera följande matris med händelser skulle skicka händelse m
 Händelsen domäner hantera publicering till avsnitt åt dig. Du kan publicera alla händelser till domänens slutpunkten i stället för att publicera händelser till varje ämne som du hanterar individuellt. Event Grid ser till att varje händelse skickas till rätt avsnitt.
 
 ## <a name="limits-and-quotas"></a>Begränsningar och kvoter
+Här följer de begränsningar och kvoter som rör händelse domäner:
 
-### <a name="control-plane"></a>Kontrollplanet
+- 100 000 ämnen per event domän 
+- 100 händelse domäner per Azure-prenumeration 
+- 500 händelseprenumerationer per avsnitt i en händelsedomän
+- 50 domän omfång prenumerationer 
+- 5 000 händelser per andra inmatning frekvens (i en domän)
 
-Händelse-domäner är begränsade till 1 000 ämnen inom en domän och 50 händelseprenumerationer per avsnitt inom en domän i förhandsversionen. Händelseprenumerationer domän omfånget är också begränsad till 50.
-
-### <a name="data-plane"></a>Dataplanet
-
-I förhandsversionen begränsas händelsegenomflöde för en händelsedomän till samma 5 000 händelser per andra inmatning hastighet som anpassade ämnen är begränsad till.
+Om gränserna inte passar dig, nå ut till produktteamet genom att öppna ett supportärende eller genom att skicka ett e-postmeddelande till [ askgrid@microsoft.com ](mailto:askgrid.microsoft.com). 
 
 ## <a name="pricing"></a>Prissättning
-
-I förhandsversionen kan använda event domäner samma [operations priser](https://azure.microsoft.com/pricing/details/event-grid/) med alla andra funktioner i Event Grid.
+Händelsen domäner använder samma [operations priser](https://azure.microsoft.com/pricing/details/event-grid/) med alla andra funktioner i Event Grid.
 
 Åtgärder fungerar på samma sätt i händelsen domäner som i anpassade ämnen. Varje ingångshändelser på en händelse till en händelsedomän är en åtgärd och varje leveransförsök för en händelse är en åtgärd.
 

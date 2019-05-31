@@ -12,12 +12,12 @@ ms.author: josack
 ms.reviewer: sstein
 manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: e13907e96bba338648bddcc102e3b4f51887d0ea
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 73bc2d9889727a1633986e12642bd06cf2714632
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65949915"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357316"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Ny DBA i molnet – hantera din enda och delade databaser i Azure SQL Database
 
@@ -29,13 +29,33 @@ Flytta från den traditionella självhantering, lokal kontrollerad miljö till e
 
 Den här artikeln beskriver några av de grundläggande egenskaperna i Azure SQL Database som en plattform som du lätt kan använda när du arbetar med enskilda databaser och databaser i pooler i elastiska pooler. De är följande:
 
+- Övervaka databas med Azure portal
 - Företag affärskontinuitet och haveriberedskap recovery (BCDR)
 - Säkerhet och efterlevnad
 - Intelligent database-övervakning och underhåll
-- Dataflytt
+- Dataförflyttning
 
 > [!NOTE]
 > Den här artikeln gäller följande distributionsalternativ i Azure SQL Database: enkel databaser och elastiska pooler. Den gäller inte för hanterad instans-alternativ för distribution i SQL-databas.
+
+## <a name="monitor-databases-using-the-azure-portal"></a>Övervaka databaser med Azure-portalen
+
+I den [Azure-portalen](https://portal.azure.com/), du kan övervaka en individuell databas s användning genom att välja databasen och klicka på den **övervakning** diagram. Det öppnar **Mått**-fönstret, vilket du kan ändra genom att klicka på **Redigera diagram**-knappen. Lägg till följande mått:
+
+- CPU-procent
+- DTU-procent
+- Data IO-procent
+- Databasstorlek i procent
+
+När du har lagt till de här måtten, kan du fortsätta att visa dem i den **övervakning** diagram med mer information på den **mått** fönster. Alla fyra mätvärdena visar ett snittvärde för utnyttjandeprocent i förhållande till din databas **DTU:er**. Se den [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md) och [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md) artiklar för mer information om tjänstnivåer.  
+
+![Tjänstnivå-övervakning av databasprestanda.](./media/sql-database-single-database-monitoring/sqldb_service_tier_monitoring.png)
+
+Du kan också konfigurera aviseringar på prestandamåtten. Klicka på knappen **Lägg till avisering** i **mått**-fönstret. Följ guiden för att konfigurera aviseringen. Du har möjlighet att avisera om måttet överskrider ett visst tröskelvärde eller om måttet faller under ett visst tröskelvärde.
+
+Om du exempelvis förväntar dig att arbetsbelastningen på din databas kommer att öka, kan du välja att konfigurera en e-postavisering när din databas kommer upp i 80 % för något av prestandamåtten. Du kan använda detta som en tidig varning att veta när du kanske att växla till nästa högsta beräkningsstorleken.
+
+Prestandamåtten kan också hjälpa dig att avgöra om du kan Nedgradera till en lägre beräkningsstorleken. Anta att du använder en Standard S2-databas och alla prestandamått visar att databasen i snitt inte använder mer än 10 % vid något tillfälle. Det är då troligt att databasen skulle fungera bra i Standard S1. Dock vara medveten om arbetsbelastningar som varierar kraftigt innan du beslutar att flytta till en lägre beräkningsstorleken.
 
 ## <a name="business-continuity-and-disaster-recovery-bcdr"></a>Företag affärskontinuitet och haveriberedskap recovery (BCDR)
 
@@ -45,9 +65,9 @@ Funktioner för Business affärskontinuitet och haveriberedskap återställning 
 
 Du skapar inte säkerhetskopior i Azure SQL DB och det beror på att du inte behöver. SQL-databas säkerhetskopierar automatiskt databaser för dig, så att du inte längre måste bekymra dig om schemaläggning, tar och hantera säkerhetskopior. Plattformen tar en fullständig säkerhetskopiering varje vecka, differentiell säkerhetskopiering några timmars mellanrum och en logg säkerhetskopiering var femte minut så haveriberedskap är effektivt och den minimal förlusten av data. Den första fullständiga säkerhetskopieringen sker när du skapar en databas. Dessa säkerhetskopior är tillgängliga för dig för en viss tid som kallas ”Kvarhållningsperioden” och varierar beroende på tjänstnivå som du väljer. SQL-databas ger dig möjlighet att återställa till valfri punkt inom denna kvarhållning period med [peka i tiden Recovery (PITR)](sql-database-recovery-using-backups.md#point-in-time-restore).
 
-|Tjänstnivå|Kvarhållningsperiod i dagar|
+|Tjänstenivå|Kvarhållningsperiod i dagar|
 |---|:---:|
-|Grundläggande|7|
+|Basic|7|
 |Standard|35|
 |Premium|35|
 |||
@@ -113,7 +133,7 @@ En brandvägg förhindrar åtkomst till din server från en extern entitet genom
 
 Du kan skapa brandväggsregler på servernivå eller på databasnivå. Server på IP-brandväggsregler kan antingen skapas med hjälp av Azure portal eller med SSMS. Mer information om hur du ställer in en brandväggsregel på servernivå och databasnivå konfigureras finns: [Skapa IP-brandväggsregler i SQL Database](sql-database-security-tutorial.md#create-firewall-rules).
 
-#### <a name="service-endpoints"></a>Tjänstens slutpunkter
+#### <a name="service-endpoints"></a>Tjänstslutpunkter
 
 Som standard SQL-databasen är konfigurerad att ”Tillåt Azure-tjänster åtkomst till servern” – vilket innebär att alla virtuella datorer i Azure kan försöka ansluta till databasen. Dessa försök fortfarande behöver autentiserad. Men om du inte vill din databas för att vara tillgängliga för alla Azure-IP-adresser, kan du inaktivera ”Tillåt Azure-tjänster åtkomst till servern”. Du kan också konfigurera [VNet-tjänstslutpunkter](sql-database-vnet-service-endpoint-rule-overview.md).
 
@@ -135,7 +155,7 @@ Port 1433. SQL Database kommunicerar via den här porten. Om du vill ansluta ini
 
 Du kan stänga på granskning för att spåra databashändelser med SQL-databas. [SQL Database Auditing](sql-database-auditing.md) registrerar databashändelser och skriver dem till en granskningsloggfil i ditt Azure Storage-konto. Granskning är särskilt användbart om du planerar att få insikter om potentiella överträdelser av säkerhet och principer, upprätthålla regelefterlevnad osv. Det kan du definiera och konfigurera särskilda kategorier av händelser som du tror behöver granskning och baserat på att du kan få förkonfigurerade rapporter och en instrumentpanel för att få en översikt över händelser som inträffar i din databas. Du kan tillämpa principerna granskning på databasnivå eller på servernivå. En guide för hur du aktiverar granskning för servern/databasen, se: [Aktivera SQL Database Auditing](sql-database-security-tutorial.md#enable-security-features).
 
-#### <a name="threat-detection"></a>Hotidentifiering
+#### <a name="threat-detection"></a>Identifiering av hot
 
 Med [hotidentifiering](sql-database-threat-detection.md), får du möjlighet att agera på säkerhets- eller princip överträdelser som identifierats av granskning väldigt enkelt. Du behöver inte vara säkerhetsexpert att bemöta potentiella hot eller säkerhetsöverträdelser i systemet. Hotidentifiering har också vissa inbyggda funktioner som SQL Injection identifiering. SQL-inmatning är ett försök att ändra eller skada data och ett vanligt sätt för att angripa ett databasprogram i allmänhet. Hotidentifiering körs flera uppsättningar av algoritmer för att identifierar potentiella säkerhetsrisker och SQL-inmatningsattacker samt avvikande mönster i databasåtkomst (t.ex åtkomst från en ovanlig plats eller av ett bekant huvudnamn). Security införlivande eller andra avsedda administratörer får du ett e-postmeddelande om ett hot har identifierats på databasen. Varje avisering innehåller information om misstänkt aktivitet och rekommendationer om hur du ytterligare undersöka och åtgärda hot. Information om hur du aktiverar identifiering av hot finns: [Aktivera hotidentifiering](sql-database-security-tutorial.md#enable-security-features).
 

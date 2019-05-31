@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: spelluru
-ms.openlocfilehash: 33604a16f5895e20d4475d1dd8b27c34184feb72
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 915d1284d66438219fc9aba893512e5f6a5b02b3
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60345489"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305048"
 ---
 # <a name="event-handlers-in-azure-event-grid"></a>Händelsehanterare i Azure Event Grid
 
@@ -24,7 +24,7 @@ Den här artikeln innehåller länkar till innehåll för varje händelsehantera
 
 Använd Azure Automation för att bearbeta händelser med automatiserade runbooks.
 
-|Rubrik  |Beskrivning  |
+|Titel  |Beskrivning  |
 |---------|---------|
 |[Självstudie: Azure Automation med Event Grid och Microsoft Teams](ensure-tags-exists-on-new-virtual-machines.md) |Skapa en virtuell dator som skickar en händelse. Händelsen utlöses en Automation-runbook som den virtuella datorn med taggar och utlöser ett meddelande som skickas till en Microsoft Teams-kanal. |
 
@@ -34,7 +34,7 @@ Använd Azure Functions för serverlös svar på händelser.
 
 När du använder Azure Functions som hanterare kan du använda Event Grid-utlösaren i stället för allmänna HTTP-utlösare. Event Grid verifierar automatiskt Event Grid Function-utlösare. Med allmänna HTTP-utlösare måste du implementera [verifieringssvaret](security-authentication.md#webhook-event-delivery).
 
-|Rubrik  |Beskrivning  |
+|Titel  |Beskrivning  |
 |---------|---------|
 | [Event Grid-utlösare för Azure Functions](../azure-functions/functions-bindings-event-grid.md) | Översikt över användning av Event Grid-utlösaren i funktioner. |
 | [Självstudie: automatisera storleksändring av överförda bilder med Event Grid](resize-images-on-storage-blob-upload-event.md) | Användare ladda upp bilder genom webbapp till storage-konto. När en lagringsblob skapas, skickar en händelse i Event Grid till funktionsapp, som ändrar storlek på den uppladdade avbildningen. |
@@ -47,7 +47,7 @@ Använda Event Hubs när din lösning hämtar händelser snabbare än den kan be
 
 Händelsehubbar fungerar som en händelsekälla eller händelsehanterare. I följande artikel visar hur du använder Event Hubs som en hanterare.
 
-|Rubrik  |Beskrivning  |
+|Titel  |Beskrivning  |
 |---------|---------|
 | [Snabbstart: Dirigera anpassade händelser till Azure Event Hubs med Azure CLI och Event Grid](custom-event-to-eventhub.md) | Skickar en anpassad händelse till en händelsehubb för bearbetning av ett program. |
 | [Resource Manager-mall: anpassat ämne och Event Hubs-slutpunkt](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-event-hubs-handler)| En Resource Manager-mall som skapar en prenumeration för ett anpassat ämne. Den skickar händelser till en Azure Event Hubs. |
@@ -58,7 +58,7 @@ Exempel på Händelsehubbar som en källa finns [Händelsehubbar källa](event-s
 
 Använd Azure Relay-Hybridanslutningar för att skicka händelser till program som finns inom ett företagsnätverk och inte har en offentligt tillgänglig slutpunkt.
 
-|Rubrik  |Beskrivning  |
+|Titel  |Beskrivning  |
 |---------|---------|
 | [Självstudie: skicka händelser till hybridanslutning](custom-event-to-hybrid-connection.md) | Skickar en anpassad händelse till en befintlig hybridanslutning för bearbetning av ett lyssnarprogram. |
 
@@ -66,17 +66,39 @@ Använd Azure Relay-Hybridanslutningar för att skicka händelser till program s
 
 Använda Logic Apps automatisera affärsprocesser för att svara på händelser.
 
-|Rubrik  |Beskrivning  |
+|Titel  |Beskrivning  |
 |---------|---------|
 | [Självstudie: övervaka ändringar av virtuell dator med Azure Event Grid och Logic Apps](monitor-virtual-machine-changes-event-grid-logic-app.md) | En logikapp övervakar ändringar till en virtuell dator och skickar e-postmeddelanden om dessa ändringar. |
 | [Självstudie: skicka e-postaviseringar om Azure IoT Hub-händelser med hjälp av Logic Apps](publish-iot-hub-events-to-logic-apps.md) | En logikapp skickar ett e-postmeddelande varje gång som en enhet har lagts till i din IoT-hubb. |
 | [Självstudie: Azure Service Bus till Azure Event Grid integrationsexempel](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid skickar meddelanden från Service Bus-ämne app och logikapp. |
 
+## <a name="service-bus-queue-preview"></a>Service Bus-kö (förhandsversion)
+
+Använda Service Bus som en händelsehanterare för att dirigera dina händelser i Event Grid direkt till Service Bus-köer i buffring eller kommando och kontroll situationer i enterprise-program. Förhandsversionen av fungerar inte med Service Bus-ämnen och sessioner, men det fungerar med alla nivåer av Service Bus-köer.
+
+Observera, när Service Bus som en hanterare är i offentlig förhandsversion, måste du installera tillägget CLI eller PowerShell när du använder dem för att skapa prenumerationer på händelser.
+
+### <a name="using-cli"></a>Använda CLI
+
+Azure CLI i följande exempel prenumererar vi en ansluter och Event Grid-ämne till en Service Bus-kö:
+
+```azurecli-interactive
+# If you haven't already installed the extension, do it now.
+# This extension is required for preview features.
+az extension add --name eventgrid
+
+az eventgrid event-subscription create \
+    --name <my-event-subscription> \
+    --source-resource-id /subscriptions/{SubID}/resourceGroups/{RG}/providers/Microsoft.EventGrid/topics/topic1 \
+    --endpoint-type servicebusqueue \
+    --endpoint /subscriptions/{SubID}/resourceGroups/TestRG/providers/Microsoft.ServiceBus/namespaces/ns1/queues/queue1
+```
+
 ## <a name="queue-storage"></a>Queue Storage
 
 Använd Queue storage för att ta emot händelser som behöver hämtas. Du kan använda Queue storage när du har en tidskrävande process som tar för lång tid att svara. Genom att skicka händelser till Queue storage appen kan hämta och bearbeta händelser i sitt eget schema.
 
-|Rubrik  |Beskrivning  |
+|Titel  |Beskrivning  |
 |---------|---------|
 | [Snabbstart: Dirigera anpassade händelser till Azure Queue storage med Azure CLI och Event Grid](custom-event-to-queue-storage.md) | Beskriver hur du skickar anpassade händelser till en Queue storage. |
 
@@ -84,7 +106,7 @@ Använd Queue storage för att ta emot händelser som behöver hämtas. Du kan a
 
 Använda webhooks för anpassningsbara slutpunkter som svarar på aktiviteter.
 
-|Rubrik  |Beskrivning  |
+|Titel  |Beskrivning  |
 |---------|---------|
 | Snabbstart: skapa och dirigera anpassade händelser med - [Azure CLI](custom-event-quickstart.md), [PowerShell](custom-event-quickstart-powershell.md), och [portal](custom-event-quickstart-portal.md). | Lär dig mer om att skicka anpassade händelser till en WebHook. |
 | Snabbstart: Dirigera Blob storage-händelser till en anpassad webbslutpunkt med - [Azure CLI](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json), [PowerShell](../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=%2fazure%2fevent-grid%2ftoc.json), och [portal](blob-event-quickstart-portal.md). | Visar hur du skickar blob storage-händelser till en WebHook. |

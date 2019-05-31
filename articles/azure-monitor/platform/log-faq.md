@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: dcd546b4b4d8e47395535cd37e1629166c8c2e7f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 08e915354df4f4aa1d9a183e78cbad47460b8d37
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60394837"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66356211"
 ---
 # <a name="log-analytics-faq"></a>Vanliga frågor och svar om Log Analytics
 
@@ -35,7 +35,7 @@ S: De är samma sak. [Log Analytics ingår som en funktion i Azure Monitor](../.
 
 ### <a name="q-can-i-still-use-log-search"></a>F: Kan jag fortfarande använda Log Search? 
 
-S: Loggsökning för närvarande är fortfarande tillgängliga i OMS-portalen och i Azure-portalen under namnet **loggar (klassisk)**. OMS-portalen kommer officiellt dras tillbaka den 15 januari 2019. Den klassiska upplevelsen för loggar i Azure-portalen kommer att dras tillbaka gradvis och ersätts den nya upplevelsen för loggar. 
+S: Loggsökning för närvarande är fortfarande tillgängliga i OMS-portalen och i Azure-portalen under namnet **loggar (klassisk)** . OMS-portalen kommer officiellt dras tillbaka den 15 januari 2019. Den klassiska upplevelsen för loggar i Azure-portalen kommer att dras tillbaka gradvis och ersätts den nya upplevelsen för loggar. 
 
 ### <a name="q-can-i-still-use-advanced-analytics-portal"></a>F. Kan jag fortfarande använda Advanced Analytics-portalen? 
 Den nya upplevelsen för loggar i Azure-portalen är baserad på Advanced Analytics-portalen, men den fortfarande kan användas utanför Azure-portalen. En översikt över för att ta bort den här externa portalen tillkännages snart.
@@ -84,7 +84,7 @@ S: Lista över vyer och installerade lösningar är tillgängliga i Azure-portal
 
 ### <a name="q-why-i-cant-create-workspaces-in-west-central-us-region"></a>F. Varför kan jag skapa arbetsytor i regionen USA, västra region? 
 
-S: Den här regionen är tillfälligt vid kapacitetsgränsen. Gränsen planeras att åtgärdas under den första halvan av 2019.
+S: Den här regionen är tillfälligt vid kapacitetsgränsen. Den här gränsen är planerat åtgärdas slutet av September 2019.
 
 
 ### <a name="q-does-log-analytics-use-the-same-agent-as-azure-security-center"></a>F. Använder Log Analytics samma agent som Azure Security Center?
@@ -195,7 +195,7 @@ En gul varningsikon innebär att agenten har problem med kommunikationen med Log
 ### <a name="q-how-do-i-stop-an-agent-from-communicating-with-log-analytics"></a>F: Hur stoppar jag en agent från att kommunicera med Log Analytics?
 
 S: Ta bort datorn från listan över hanterade datorer OMS i System Center Operations Manager. Operations Manager uppdaterar konfigurationen av agenten inte längre rapporten till Log Analytics. Agenter som är direkt anslutna till Log Analytics, kan du hindra dem från kommunicerar via: Kontrollera panelen-, säkerhets- och inställningar, **Microsoft Monitoring Agent**.
-Under **Azure Log Analytics (OMS)**, ta bort alla arbetsytor som visas.
+Under **Azure Log Analytics (OMS)** , ta bort alla arbetsytor som visas.
 
 ### <a name="q-why-am-i-getting-an-error-when-i-try-to-move-my-workspace-from-one-azure-subscription-to-another"></a>F: Varför får jag ett fel när jag försöker flytta Min arbetsyta från en Azure-prenumeration till en annan?
 

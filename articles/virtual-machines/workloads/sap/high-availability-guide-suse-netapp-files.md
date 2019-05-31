@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/30/2019
 ms.author: radeltch
-ms.openlocfilehash: 3bd8600d0839c31a17221bb5421dc36165deb434
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b3b5a89b43eaa5c0851962aef414ec9c9b7440da
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142985"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357734"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>Hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server med Azure NetApp-filer för SAP-program
 
@@ -58,7 +58,7 @@ ms.locfileid: "65142985"
 [sap-hana-ha]:sap-hana-high-availability.md
 [nfs-ha]:high-availability-guide-suse-nfs.md
 
-Den här artikeln beskriver hur du distribuerar de virtuella datorerna, konfigurera virtuella datorer, installera kluster framework och installera en högtillgänglig SAP NetWeaver 7,50-system med hjälp av [Azure NetApp-filer (i allmänt tillgänglig förhandsversion)](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction/).
+Den här artikeln beskriver hur du distribuerar de virtuella datorerna, konfigurera virtuella datorer, installera kluster framework och installera en högtillgänglig SAP NetWeaver 7,50-system med hjälp av [Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction/).
 I exempelkonfigurationer, installationskommandon etc., ASCS-instans är antalet 00, ÄNDARE instansnummer 01, instansen för primära programmet (PROVIDERADRESSER) är 02 och programinstansen (AAS) är 03. SAP System-ID: T QAS används. 
 
 Den här artikeln förklarar hur att uppnå hög tillgänglighet för SAP NetWeaver-program med Azure NetApp-filer. Databas-lagret beskrivs inte i detalj i den här artikeln.
@@ -139,13 +139,13 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, ÄNDARE för SAP NetWeaver och SAP HANA-d
 
 SAP NetWeaver kräver delad lagring för katalogen transport och profil.  Innan du fortsätter med installationen av Azure NetApp filer infrastruktur, kan du bekanta dig med den [Azure NetApp Files dokumentation][anf-azure-doc]. Kontrollera om den valda Azure-regionen erbjuder Azure NetApp-filer. Följande länk visar tillgängligheten för Azure NetApp filer av Azure-region: [Azure NetApp filer tillgänglighet av Azure-Region][anf-avail-matrix].
 
-Funktionen Azure NetApp-filer är i offentlig förhandsversion i flera Azure-regioner. Innan du distribuerar Azure NetApp Files, registrera dig för förhandsversionen av Azure NetApp filer efter den [registrera Azure NetApp filer anvisningar][anf-register]. 
+Azure NetApp-filer finns i flera [Azure-regioner](https://azure.microsoft.com/global-infrastructure/services/?products=netapp). Innan du distribuerar Azure NetApp Files, begär du Kom igång med Azure NetApp filer, efter den [registrera Azure NetApp filer anvisningar][anf-register]. 
 
 ### <a name="deploy-azure-netapp-files-resources"></a>Distribuera Azure NetApp Files-resurser  
 
-Anvisningarna förutsätter att du redan har distribuerat [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview). Tänk på att Azure NetApp Files-resurser och de virtuella datorerna, där Azure NetApp Files-resurser ska monteras måste distribueras i samma Azure-nätverk.  
+Anvisningarna förutsätter att du redan har distribuerat [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview). NetApp-filer för Azure-resurser och de virtuella datorerna, där Azure NetApp Files-resurser ska monteras måste distribueras i samma Azure-nätverk eller i peerkopplade virtuella nätverk i Azure.  
 
-1. Om du inte har gjort det redan kan begära att [registrera i förhandsversionen av Azure NetApp](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register).  
+1. Om du inte har gjort det redan begära [Kom igång med Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register).  
 
 2. Skapa NetApp-kontot i den valda Azure-region, efter den [instruktioner för att skapa NetApp konto](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-netapp-account).  
 3. Konfigurera Azure NetApp Files kapacitet poolen följa den [anvisningar om hur du ställer in Azure NetApp Files kapacitet pool](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool).  
@@ -153,7 +153,7 @@ SAP Netweaver-arkitekturen som visas i den här artikeln använder en enda Azure
 
 4. Delegera ett undernät till Azure NetApp filer enligt beskrivningen i den [instruktioner Delegera ett undernät till Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-delegate-subnet).  
 
-5. Distribuera Azure NetApp Files volymer, efter den [instruktioner för att skapa en volym för Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes). Distribuera volymer i den avsedda Azure NetApp Files [undernät](https://docs.microsoft.com/rest/api/virtualnetwork/subnets). Tänk på att Azure NetApp Files-resurser och virtuella Azure-datorer måste vara i samma Azure-nätverk. Till exempel sapmnt<b>QAS</b>, usrsap<b>QAS</b>och så vidare är volymnamn och sapmnt<b>qas</b>, usrsap<b>qas</b>och så vidare är filepaths för Azure NetApp-filer volymer.  
+5. Distribuera Azure NetApp Files volymer, efter den [instruktioner för att skapa en volym för Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes). Distribuera volymer i den avsedda Azure NetApp Files [undernät](https://docs.microsoft.com/rest/api/virtualnetwork/subnets). Tänk på att Azure NetApp Files-resurser och virtuella Azure-datorer måste finnas i samma Azure-nätverk eller i peerkopplade virtuella nätverk i Azure. Till exempel sapmnt<b>QAS</b>, usrsap<b>QAS</b>och så vidare är volymnamn och sapmnt<b>qas</b>, usrsap<b>qas</b>och så vidare är filepaths för Azure NetApp-filer volymer.  
 
    1. volymen sapmnt<b>QAS</b> (nfs://10.1.0.4/sapmnt<b>qas</b>)
    2. volymen usrsap<b>QAS</b> (nfs://10.1.0.4/usrsap<b>qas</b>)
@@ -364,7 +364,7 @@ Följande objekt har prefixet antingen **[A]** – gäller för alla noder, **[1
    > [!NOTE]
    > Azure NetApp Files stöder för närvarande endast NFSv3. Inte utelämna nfsvers = 3 switch.
    
-   Starta om autofs för att montera de nya resurserna
+   Starta om `autofs` att montera de nya resurserna
     <pre><code>
       sudo systemctl enable autofs
       sudo service autofs restart
@@ -734,7 +734,7 @@ Följande objekt har prefixet antingen **[A]** – gäller för både PROVIDERAD
    /usr/sap/<b>QAS</b>/D<b>02</b> -nfsvers=3,nobind,sync <b>10.1.0.5</b>:/ursap<b>qas</b>pas
    </code></pre>
 
-   Starta om autofs för att montera de nya resurserna
+   Starta om `autofs` att montera de nya resurserna
 
    <pre><code>
    sudo systemctl enable autofs
@@ -759,7 +759,7 @@ Följande objekt har prefixet antingen **[A]** – gäller för både PROVIDERAD
    /usr/sap/<b>QAS</b>/D<b>03</b> -nfsvers=3,nobind,sync <b>10.1.0.4</b>:/usrsap<b>qas</b>aas
    </code></pre>
 
-   Starta om autofs för att montera de nya resurserna
+   Starta om `autofs` att montera de nya resurserna
 
    <pre><code>
    sudo systemctl enable autofs
@@ -1230,7 +1230,7 @@ Följande tester är en kopia av testfall i den [bästa praxis riktlinjer för S
    <pre><code>anftstsapcl1:~ # pgrep er.sapQAS | xargs kill -9
    </code></pre>
 
-   Om du endast kör kommandot en gång, sapstart startar om processen. Om du kör den tillräckligt sapstart kommer inte starta om ofta processen och resursen är i ett stoppat tillstånd. Kör följande kommandon som rot du rensar resurstillståndet för ÄNDARE instansen efter testet.
+   Om du bara köra kommandot en gång, `sapstart` kommer starta om processen. Om du kör den tillräckligt, ofta `sapstart` kommer inte att starta om processen och resursen är i ett stoppat tillstånd. Kör följande kommandon som rot du rensar resurstillståndet för ÄNDARE instansen efter testet.
 
    <pre><code>anftstsapcl1:~ # crm resource cleanup rsc_sap_QAS_ERS01
    </code></pre>

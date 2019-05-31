@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/21/2019
+ms.date: 05/24/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3afe27bf71d112b53c31ab696f71d4e1a0cf6b79
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 140b1263047849e13a44441c368e6357078574d8
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002495"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240816"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Hantera Azure Automation kör som-konton
 
@@ -45,7 +45,7 @@ Det finns två typer av kör som-konton:
 
 Om du vill skapa eller uppdatera en Kör som-konto, måste du ha specifika privilegier och behörigheter. En Global administratör i Azure Active Directory och ägare i en prenumeration kan utföra alla aktiviteter. I en situation där du har uppdelning av uppgifter, visas i följande tabell en lista över aktiviteterna, motsvarande cmdlet och behörigheter som krävs:
 
-|Uppgift|Cmdlet  |Minsta möjliga behörigheter  |Där du kan ange behörigheter|
+|Aktivitet|Cmdlet  |Minsta möjliga behörigheter  |Där du kan ange behörigheter|
 |---|---------|---------|---|
 |Skapa Azure AD-program|[New-AzureRmADApplication](/powershell/module/azurerm.resources/new-azurermadapplication)     | Developer Programroll<sup>1</sup>        |[Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Start > Azure Active Directory > App-registreringar |
 |Lägg till autentiseringsuppgift för programmet.|[New-AzureRmADAppCredential](/powershell/module/AzureRM.Resources/New-AzureRmADAppCredential)     | Programadministratör eller GLOBAL administratör<sup>1</sup>         |[Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Start > Azure Active Directory > App-registreringar|
@@ -54,7 +54,7 @@ Om du vill skapa eller uppdatera en Kör som-konto, måste du ha specifika privi
 |Skapa eller ta bort ett Automation-certifikat|[New-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/New-AzureRmAutomationCertificate)</br>[Remove-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationCertificate)     | Deltagare i resursgrupp         |Resursgruppen för Automation-konto|
 |Skapa eller ta bort en automationsanslutning|[New-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/New-AzureRmAutomationConnection)</br>[Remove-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationConnection)|Deltagare i resursgrupp |Resursgruppen för Automation-konto|
 
-<sup>1</sup> användare som inte är administratörer i din Azure AD-klient kan [registrera AD-program](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) om Azure AD-klient **användare kan registrera program** alternativet i **användarinställningar**sidan är inställd på **Ja**. Om inställningen appregistreringar anges till **nr**, användaren som utför den här åtgärden måste vara en **Global administratör** i Azure AD.
+<sup>1</sup> användare som inte är administratörer i din Azure AD-klient kan [registrera AD-program](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) om Azure AD-klient **användare kan registrera program** alternativet i **användarinställningar**sidan är inställd på **Ja**. Om inställningen appregistreringar anges till **nr**, användaren som utför den här åtgärden måste vara det som definieras i tabellen ovan.
 
 Om du inte är medlem i prenumerationens Active Directory-instans innan du läggs till i den **Global administratör** rollen på prenumerationen, läggs som gäst. I så fall kan du få en `You do not have permissions to create…` varning på den **Lägg till Automation-konto** sidan. Användare som har lagts till i den **Global administratör** rollen först kan tas bort från prenumerationens Active Directory-instans och läggs till igen så att de blir fullständiga användare i Active Directory. Du kan kontrollera detta i rutan **Azure Active Directory** på Azure Portal genom att välja **Användare och grupper**, välja **Alla användare**, välja den specifika användaren och sedan välja **Profil**. Värdet för attributet **Användartyp** under användarens profil bör inte vara lika med **Gäst**.
 
@@ -376,7 +376,7 @@ I Azure-portalen väljer du **prenumerationer** och välj prenumerationen för d
 
 ![Deltagare i prenumeration](media/manage-runas-account/automation-account-remove-subscription.png)
 
-Om du vill lägga till tjänstens huvudnamn till en resursgrupp, Välj resursgruppen i Azure-portalen och välj **åtkomstkontroll (IAM)**. Välj **Lägg till rolltilldelning**, öppnas den **Lägg till rolltilldelning** sidan. För **rollen**väljer **deltagare**. I den **Välj** text Skriv namnet på tjänstens huvudnamn för Kör som-kontot och väljer den i listan. Klicka på **Spara** för att spara ändringarna. Slutför de här stegen för de resursgrupper som du vill ge dina Azure Automation kör som tjänstens huvudnamn åtkomst till.
+Om du vill lägga till tjänstens huvudnamn till en resursgrupp, Välj resursgruppen i Azure-portalen och välj **åtkomstkontroll (IAM)** . Välj **Lägg till rolltilldelning**, öppnas den **Lägg till rolltilldelning** sidan. För **rollen**väljer **deltagare**. I den **Välj** text Skriv namnet på tjänstens huvudnamn för Kör som-kontot och väljer den i listan. Klicka på **Spara** för att spara ändringarna. Slutför de här stegen för de resursgrupper som du vill ge dina Azure Automation kör som tjänstens huvudnamn åtkomst till.
 
 ## <a name="misconfiguration"></a>Felaktig konfiguration
 

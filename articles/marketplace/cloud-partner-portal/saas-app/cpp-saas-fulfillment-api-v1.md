@@ -8,16 +8,20 @@ ms.topic: reference
 ms.date: 03/28/2019
 ms.author: pabutler
 ROBOTS: NOINDEX
-ms.openlocfilehash: 816bdc61f85fdf171870a5b552661b816ec65e2f
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 9b80f0fd36545de94e7128080dba5e516344c107
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64943145"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257503"
 ---
 # <a name="saas-fulfillment-apis-version-1--deprecated"></a>SaaS Techtrends API: er Version 1 (inaktuell)
 
 Den här artikeln förklarar hur du skapar ett SaaS-erbjudande med API: er. API: erna, består av REST-metoder och slutpunkter är nödvändiga för att tillåta prenumerationer till SaaS-erbjudande om du har säljer via Azure som valts.  
+
+> [!IMPORTANT] 
+> SaaS erbjuder funktioner har migrerats till den [Microsoft Partner Center](https://partner.microsoft.com/dashboard/directory).  Alla nya utgivare måste använda Partner Center för att skapa nya SaaS-erbjudanden och hantering av befintliga erbjudanden.  Aktuella utgivare med SaaS-erbjudanden migreras batchwise från partnerportalen i molnet till Partner Center.  Cloud Partner Portal visar statusmeddelanden för att ange när specifika befintliga erbjudanden har migrerats.
+> Mer information finns i [skapa ett nytt SaaS-erbjudande](../../partner-center-portal/create-new-saas-offer.md).
 
 > [!WARNING]
 > Det här den första versionen av API: et för SaaS betjäna är föråldrad; Använd i stället [SaaS Techtrends API V2](./cpp-saas-fulfillment-api-v2.md).  Detta API underhålls för närvarande endast för att hantera befintliga utgivare. 
@@ -27,7 +31,7 @@ Följande API: er tillhandahålls för att hjälpa dig integrera SaaS-tjänsten 
 -   Lös
 -   Prenumerera
 -   Konvertera
--   Avbryt prenumerationen
+-   Avbryt prenumeration
 
 
 ## <a name="api-methods-and-endpoints"></a>API-metoder och slutpunkter
@@ -68,7 +72,7 @@ När en användare omdirigeras till en ISV-webbplats, innehåller URL: en en tok
 | x-ms-correlationid | Nej           | En unik sträng som värde för åtgärden på klienten. Detta kopplat till alla händelser från klientåtgärden med händelser på serversidan. Om det här värdet inte anges något genereras och anges i svarshuvuden. |
 | innehållstyp       | Ja          | `application/json`                                        |
 | Auktorisering      | Ja          | JSON web token (JWT) ägartoken.                    |
-| x-ms-marketplace-token| Ja| Token Frågeparametern i URL: en när användaren omdirigeras till SaaS ISV-webbplats från Azure. **Obs!** Den här variabeln är endast giltig för 1 timme. Dessutom kan avkoda URL: en token-värde från webbläsaren innan du använder den.|
+| x-ms-marketplace-token| Ja| Token Frågeparametern i URL: en när användaren omdirigeras till SaaS ISV-webbplats från Azure. **Obs:** Den här variabeln är endast giltig för 1 timme. Dessutom kan avkoda URL: en token-värde från webbläsaren innan du använder den.|
 |  |  |  |
   
 
@@ -87,7 +91,7 @@ När en användare omdirigeras till en ISV-webbplats, innehåller URL: en en tok
 |--------------------|---------------|---------------------------------------|
 | id                 | String        | ID för SaaS-prenumerationen.          |
 | subscriptionName| String| Namnet på SaaS-prenumeration som anges av användaren i Azure när du prenumererar på SaaS-tjänsten.|
-| OfferId            | String        | Erbjudande-ID som du prenumererar. |
+| offerId            | String        | Erbjudande-ID som du prenumererar. |
 | planId             | String        | Plan-ID som du prenumererar.  |
 |  |  |  |
 
@@ -121,7 +125,7 @@ Prenumerera-slutpunkten tillåter användare att starta en prenumeration på en 
 
 **PUT**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/ *{subscriptionId}* ?api-version=2017-04-15**
 
 | **Parameternamn**  | **Beskrivning**                                       |
 |---------------------|-------------------------------------------------------|
@@ -186,7 +190,7 @@ Följ upp på begäran-åtgärdens status på åtgärd-location-rubriken för en
 
 **PATCH**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/ *{subscriptionId}* ?api-version=2017-04-15**
 
 | **Parameternamn**  | **Beskrivning**                                       |
 |---------------------|-------------------------------------------------------|
@@ -250,7 +254,7 @@ Borttagningsåtgärden på slutpunkten för prenumerera låter en användare tar
 
 **DELETE**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/ *{subscriptionId}* ?api-version=2017-04-15**
 
 | **Parameternamn**  | **Beskrivning**                                       |
 |---------------------|-------------------------------------------------------|
@@ -300,7 +304,7 @@ Den här slutpunkten tillåter användare att spåra status för utlösta async-
 
 **GET**
 
-**https://marketplaceapi.microsoft.com/api/saas/operations/*{Åtgärds-ID}*?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/operations/ *{Åtgärds-ID}* ?api-version=2017-04-15**
 
 | **Parameternamn**  | **Beskrivning**                                       |
 |---------------------|-------------------------------------------------------|
@@ -334,7 +338,7 @@ Den här slutpunkten tillåter användare att spåra status för utlösta async-
 | id                 | String        | ID för åtgärden.                                                                      |
 | status             | Enum          | Åtgärdsstatus något av följande: `In Progress`, `Succeeded`, eller `Failed`.          |
 | resourceLocation   | String        | Länka till den prenumeration som skapades eller ändrades. Detta hjälper klienten att hämta uppdaterade tillståndet post-åtgärd. Det här värdet har inte angetts för `Unsubscribe` åtgärder. |
-| skapad            | DateTime      | Åtgärden Skapandetid i UTC.                                                           |
+| Skapat            | DateTime      | Åtgärden Skapandetid i UTC.                                                           |
 | lastModified       | DateTime      | Senaste uppdateringen på åtgärden i UTC.                                                      |
 |  |  |  |
 
@@ -368,7 +372,7 @@ Get-åtgärd på prenumerera på slutpunkten låter en användare att hämta en 
 
 **GET**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/ *{subscriptionId}* ?api-version=2017-04-15**
 
 | **Parameternamn**  | **Beskrivning**                                       |
 |---------------------|-------------------------------------------------------|
@@ -406,7 +410,7 @@ Get-åtgärd på prenumerera på slutpunkten låter en användare att hämta en 
 | planId                 | String        | Plan-ID som du prenumererar.          |
 | saasSubscriptionName   | String        | Namnet på SaaS-prenumeration.                |
 | saasSubscriptionStatus | Enum          | Åtgärdsstatus.  Något av följande:  <br/> - `Subscribed`: Prenumerationen är aktiv.  <br/> - `Pending`: Användaren skapa resursen, men den inte är aktiverad av Programvaruutvecklaren.   <br/> - `Unsubscribed`: Användaren har avbrutit prenumerationen.   <br/> - `Suspended`: Användaren har avbrutit prenumerationen.   <br/> - `Deactivated`:  Azure-prenumeration har inaktiverats.  |
-| skapad                | DateTime      | Prenumerationen skapas tidsstämpelvärde i UTC. |
+| Skapat                | DateTime      | Prenumerationen skapas tidsstämpelvärde i UTC. |
 | lastModified           | DateTime      | Prenumeration ändrade tidsstämpelvärde i UTC. |
 |  |  |  |
 
@@ -478,7 +482,7 @@ Get-åtgärd på prenumerationer slutpunkt kan användaren att hämta alla prenu
 | planId                 | String        | Plan-ID som du prenumererar.          |
 | saasSubscriptionName   | String        | Namnet på SaaS-prenumeration.                |
 | saasSubscriptionStatus | Enum          | Åtgärdsstatus.  Något av följande:  <br/> - `Subscribed`: Prenumerationen är aktiv.  <br/> - `Pending`: Användaren skapa resursen, men den inte är aktiverad av Programvaruutvecklaren.   <br/> - `Unsubscribed`: Användaren har avbrutit prenumerationen.   <br/> - `Suspended`: Användaren har avbrutit prenumerationen.   <br/> - `Deactivated`:  Azure-prenumeration har inaktiverats.  |
-| skapad                | DateTime      | Prenumerationen skapas tidsstämpelvärde i UTC. |
+| Skapat                | DateTime      | Prenumerationen skapas tidsstämpelvärde i UTC. |
 | lastModified           | DateTime      | Prenumeration ändrade tidsstämpelvärde i UTC. |
 |  |  |  |
 

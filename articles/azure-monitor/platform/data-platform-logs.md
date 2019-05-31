@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 0203/26/2019
 ms.author: bwren
-ms.openlocfilehash: ec037b16840afe669ac3934beaa832f850cdcfb0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 897f2eef0a52838d6190cb85a6a7f4492250935b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60809171"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244861"
 ---
 # <a name="logs-in-azure-monitor"></a>Loggar i Azure Monitor
 
@@ -79,7 +79,7 @@ Azure Monitor kan samla in loggdata från olika källor båda i Azure och lokala
 | Data | Beskrivning |
 |:---|:---|
 | Azure Active Directory med granskningsloggar | Konfigurera diagnostikinställningar för varje katalog. Se [integrera Azure AD-loggar med Azure Monitor-loggar](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).  |
-| Aktivitetsloggar | Separat lagras som standard och kan användas för nära realtidsaviseringar. Installera Activity Log Analytics-lösningen för att skriva till Log Analytics-arbetsyta. Se [samla in och analysera Azure-aktivitetsloggar i Log Analytics](collect-activity-logs.md). |
+| Aktivitetsloggar | Separat lagras som standard och kan användas för nära realtidsaviseringar. Installera Activity log Analytics-lösningen att skriva till Log Analytics-arbetsyta. Se [samla in och analysera Azure-aktivitetsloggar i Log Analytics](activity-log-collect.md). |
 
 ### <a name="azure-resources"></a>Azure-resurser
 
@@ -99,7 +99,7 @@ Azure Monitor kan samla in loggdata från olika källor båda i Azure och lokala
 | System Center Operations Manager | Ansluta Operations Manager-hanteringsgrupp till Azure Monitor för att samla in händelse-och prestandadata från den lokala agenter till loggarna. Se [ansluta Operations Manager till Log Analytics](om-agents.md) mer information om den här konfigurationen. |
 
 
-### <a name="applications"></a>Appar
+### <a name="applications"></a>Program
 
 | Data | Beskrivning |
 |:---|:---|

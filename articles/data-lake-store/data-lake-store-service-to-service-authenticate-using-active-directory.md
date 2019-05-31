@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: a7fdcf396f586a65efa17e489d002f1c8847a193
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3fbf2f2540e8f1ca84aad2759b9a1fc790e4065d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60197008"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241363"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Tjänst-till-tjänst-autentisering med Azure Data Lake Storage Gen1 med Azure Active Directory
 > [!div class="op_single_selector"]
@@ -48,9 +48,9 @@ När du följa anvisningarna i länken ovan, se till att välja **Webbapp / API*
 ## <a name="step-2-get-application-id-authentication-key-and-tenant-id"></a>Steg 2: Hämta program-ID och autentiseringsnyckel klient-ID
 När du loggar in, behöver du ID: T för ditt program. Om programmet körs under sina egna autentiseringsuppgifter, måste du också en autentiseringsnyckel.
 
-* Anvisningar om hur du hämtar den program-ID och autentiseringsnyckel-nyckeln (kallas även för klienthemligheten) för ditt program finns i [Get ID och autentiseringsnyckel programnyckel](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key).
+* Anvisningar om hur du hämtar den program-ID och autentiseringsnyckel-nyckeln (kallas även för klienthemligheten) för ditt program finns i [Get ID och autentiseringsnyckel programnyckel](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
 
-* Anvisningar om hur du hämtar klient-ID finns i [hämta klient-ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
+* Anvisningar om hur du hämtar klient-ID finns i [hämta klient-ID](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
 
 ## <a name="step-3-assign-the-azure-ad-application-to-the-azure-data-lake-storage-gen1-account-file-or-folder"></a>Steg 3: Tilldela Azure AD-program till Azure Data Lake Storage Gen1 kontofilen eller mappen
 

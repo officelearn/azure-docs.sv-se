@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: 9ff756270c368d39b7ef78d7c1046f7c91169668
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: bf24b2d1395e128dc73361670ea93ac938574146
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62103754"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258787"
 ---
 # <a name="troubleshoot-ongoing-problems-in-azure-to-azure-vm-replication"></a>Felsökning av pågående problem i Azure till Azure VM-replikering
 
@@ -62,7 +62,7 @@ Azure Site Recovery har en gräns på förändringstakten för data, beroende p�
 
 Om en topp är från en databearbetning burst och data ändrar frekvensen är större än 10 MB/s (för Premium) och 2 MB/s (för Standard) för vissa tid och handlar om, replikering ska komma ifatt. Men om omsättningen är långt utöver stöds begränsa de flesta fall bör du överväga att något av följande alternativ om möjligt:
 
-* **Undanta en disk som orsakar en hög dataändringshastighet**: Du kan undanta en disk med hjälp av [PowerShell](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell#replicate-azure-virtual-machine).
+* **Undanta en disk som orsakar en hög dataändringshastighet**: Du kan undanta en disk med hjälp av [PowerShell](./azure-to-azure-exclude-disks.md). Du måste inaktivera replikering först om du vill undanta en disk. 
 * **Ändra nivå för disaster recovery Lagringsdisken**: Det här alternativet är bara möjlig om dataomsättningen för disken är mindre än 10 MB/s. Vi antar att en virtuell dator med en P10-disk som har en dataomsättning som är större än 8 MB/s men mindre än 10 MB/s. Om kunden kan använda en P30-disk för mållagring vid skydd, kan problemet lösas.
 
 ## <a name="Network-connectivity-problem"></a>Problem med nätverksanslutningen
@@ -76,3 +76,63 @@ Vi rekommenderar att du skapar en tjänstslutpunkt för ett nätverk i ditt virt
 
 ### <a name="network-connectivity"></a>Nätverksanslutning
 För Site Recovery-replikering till arbete, utgående anslutning till specifika URL: er eller IP-intervall krävs från den virtuella datorn. Om den virtuella datorn finns bakom en brandvägg eller använder regler för nätverkssäkerhetsgrupper (NSG) för att styra utgående anslutningar, kan du står inför ett av de här problemen. Om du vill kontrollera att alla URL: er är anslutna, se [utgående anslutning för Site Recovery-webbadresser](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges). 
+
+## <a name="error-id-153006---no-app-consistent-recovery-point-available-for-the-vm-in-the-last-xxx-minutes"></a>Fel-ID 153006 – ingen appkonsekvent återställningspunkt är tillgänglig för den virtuella datorn under de senaste ”XXX” minuterna
+
+Vissa av de vanligaste problemen visas nedan
+
+#### <a name="cause-1-known-issue-in-sql-server-20082008-r2"></a>Orsak 1: Kända problem i SQLServer 2008/2008 R2 
+**Hur du löser** : Det finns ett känt problem med SQLServer 2008/2008 R2. Se den här KB-artikeln [Azure Site Recovery Agent eller andra icke-komponenten VSS säkerhetskopiering misslyckas för en server som är värd för SQL Server 2008 R2](https://support.microsoft.com/help/4504103/non-component-vss-backup-fails-for-server-hosting-sql-server-2008-r2)
+
+#### <a name="cause-2-azure-site-recovery-jobs-fail-on-servers-hosting-any-version-of-sql-server-instances-with-autoclose-dbs"></a>Orsak 2: Azure Site Recovery-jobb misslyckas på servrar som är värd för någon version av SQL Server-instanser med AUTO_CLOSE databaser 
+**Hur du löser** : Se Kb [artikel](https://support.microsoft.com/help/4504104/non-component-vss-backups-such-as-azure-site-recovery-jobs-fail-on-ser) 
+
+
+#### <a name="cause-3-known-issue-in-sql-server-2016-and-2017"></a>Orsak 3: Kända problem i SQL Server 2016 och 2017
+**Hur du löser** : Se Kb [artikel](https://support.microsoft.com/help/4493364/fix-error-occurs-when-you-back-up-a-virtual-machine-with-non-component) 
+
+#### <a name="cause-4-you-are-using-storage-spaces-direct-configuration"></a>Orsak 4: Du använder Storage spaces direct-konfiguration
+**Hur du löser** : Azure Site Recovery kan inte skapa programkonsekvent återställningspunkt för Storage spaces direct-konfiguration. Se artikeln för att korrekt [konfigurera replikeringsprincipen](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication-s2d-vms)
+
+### <a name="more-causes-due-to-vss-related-issues"></a>Fler orsaker hittar på grund av VSS-relaterade problem:
+
+Felsök ytterligare genom att kontrollera filerna på källdatorn för att hämta den exakta felkoden för fel:
+    
+    C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\Application Data\ApplicationPolicyLogs\vacp.log
+
+Så här söker du upp felen i filen?
+Sök efter strängen ”vacpError” genom att öppna filen vacp.log i en textredigerare
+        
+    Ex: vacpError:220#Following disks are in FilteringStopped state [\\.\PHYSICALDRIVE1=5, ]#220|^|224#FAILED: CheckWriterStatus().#2147754994|^|226#FAILED to revoke tags.FAILED: CheckWriterStatus().#2147754994|^|
+
+I exemplet ovan **2147754994** är den felkod som meddelar dig om felet som visas nedan
+
+#### <a name="vss-writer-is-not-installed---error-2147221164"></a>VSS-skrivaren har inte installerats - fel 2147221164 
+
+*Hur du löser*: Azure Site Recovery använder för att generera konsekvenstagg för programmet Microsoft Volume Shadow copy Service (VSS). En VSS-providern för dess drift för att ta ögonblicksbilder av app konsekvens installeras. Den här VSS-providern har installerats som en tjänst. Om VSS-Provider-tjänsten inte är installerad, misslyckas programmet konsekvens ögonblicksbild med felet id 0x80040154 ”klassen har inte registrerats”. </br>
+Se [artikeln för felsökning av VSS writer installation](https://docs.microsoft.com/azure/site-recovery/vmware-azure-troubleshoot-push-install#vss-installation-failures) 
+
+#### <a name="vss-writer-is-disabled---error-2147943458"></a>VSS-skrivaren är inaktiverad - fel 2147943458
+
+**Hur du löser**: Azure Site Recovery använder för att generera konsekvenstagg för programmet Microsoft Volume Shadow copy Service (VSS). En VSS-providern för dess drift för att ta ögonblicksbilder av app konsekvens installeras. Den här VSS-providern har installerats som en tjänst. Om tjänsten VSS-Provider har inaktiverats kan misslyckas programmet konsekvent ögonblicksbild med fel-id ”den angivna tjänsten är inaktiverad och kan inte vara started(0x80070422)”. </br>
+
+- Om VSS är inaktiverad
+    - Kontrollera att starttypen för tjänsten VSS-Provider har angetts till **automatisk**.
+    - Starta om följande tjänster:
+        - VSS-tjänsten
+        - Azure Site Recovery VSS Provider
+        - VDS-tjänsten
+
+####  <a name="vss-provider-notregistered---error-2147754756"></a>VSS-PROVIDERN NOT_REGISTERED - fel 2147754756
+
+**Hur du löser**: Azure Site Recovery använder för att generera konsekvenstagg för programmet Microsoft Volume Shadow copy Service (VSS). Kontrollera om tjänsten Azure Site Recovery VSS Provider är installerat eller inte. </br>
+
+- Gör om Provider-installationen med hjälp av följande kommandon:
+- Avinstallera befintliga providern: C:\Program filer (x86) \Microsoft Azure Site Recovery\agent\InMageVSSProvider_Uninstall.cmd
+- Installera om: C:\Program filer (x86) \Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd
+ 
+Kontrollera att starttypen för tjänsten VSS-Provider har angetts till **automatisk**.
+    - Starta om följande tjänster:
+        - VSS-tjänsten
+        - Azure Site Recovery VSS Provider
+        - VDS-tjänsten

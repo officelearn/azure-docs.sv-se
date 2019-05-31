@@ -7,16 +7,20 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: pabutler
-ms.openlocfilehash: 1edaf89c056918f640a905b99d01775273b2c133
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: e31efb9a52ff004e6e35ddfc251732c014eedae9
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64941928"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257468"
 ---
 # <a name="register-a-saas-application"></a>Registrera ett SaaS-program
 
 Den här artikeln beskrivs hur du registrerar ett SaaS-program med hjälp av Microsofts [Azure-portalen](https://portal.azure.com/).  När en lyckad registrering visas en säkerhetstoken för Azure Active Directory (Azure AD) som du kan använda för att få åtkomst till SaaS betjäna API: er.  Läs mer om Azure AD, [vad är authentication?](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios)
+
+> [!IMPORTANT] 
+> SaaS erbjuder funktioner har migrerats till den [Microsoft Partner Center](https://partner.microsoft.com/dashboard/directory).  Alla nya utgivare måste använda Partner Center för att skapa nya SaaS-erbjudanden och hantering av befintliga erbjudanden.  Aktuella utgivare med SaaS-erbjudanden migreras batchwise från partnerportalen i molnet till Partner Center.  Cloud Partner Portal visar statusmeddelanden för att ange när specifika befintliga erbjudanden har migrerats.
+> Mer information finns i [skapa ett nytt SaaS-erbjudande](../../partner-center-portal/create-new-saas-offer.md).
 
 
 ## <a name="service-to-service-authentication-flow"></a>Autentiseringsflödet för tjänst-till-tjänst
@@ -39,13 +43,13 @@ Alla program som vill använda funktionerna i Azure AD måste först registreras
     ![SaaS AD App-registreringar](./media/saas-offer-app-registration-v1.png)
 
 4.  Ange ditt program på sidan Skapa\'s registreringsinformation:
-    -   **Namn**: Ange ett beskrivande programnamn
+    -   **Namn på**: Ange ett beskrivande programnamn
     -   **Programtyp**: 
         - Välj **Internt** för [klientprogram](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) som installeras lokalt på en enhet. Den här inställningen används för OAuth-offentliga [interna klienter](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#native-client).
         - Välj **webbapp / API** för [klientprogram](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) och [resurs/API-program](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#resource-server) som är installerade på en säker server. Den här inställningen används för OAuth-konfidentiella [webbklienter](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#web-client) och offentliga [användar-agent-baserade klienter](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#user-agent-based-client).
         Samma program kan även visa både en klient och resurs/API.
     -   **Inloggnings-URL**: För Web app/API-program, anger du den grundläggande Webbadressen för din app. Till exempel **http://localhost:31544** kanske URL-Adressen för en webbapp som körs på den lokala datorn. Användare använder sedan denna URL för att logga in till ett webbprogram för klienten.
-    -   **Omdirigerings-URI**: Ange den URI som används av Azure AD för att returnera tokensvar för interna program. Ange ett specifikt värde till ditt program, till exempel **http://MyFirstAADApp**.
+    -   **Omdirigerings-URI**: Ange den URI som används av Azure AD för att returnera tokensvar för interna program. Ange ett specifikt värde till ditt program, till exempel **http://MyFirstAADApp** .
 
         ![SaaS AD App-registreringar](./media/saas-offer-app-registration-v1-2.png)
 
@@ -72,7 +76,7 @@ HTTP-metod
 
 *Request URL*
 
-**https://login.microsoftonline.com/*{tenantId}*/oauth2/token**
+**https://login.microsoftonline.com/ *{tenantId}* /oauth2/token**
 
 *URI-parameter*
 
@@ -97,7 +101,7 @@ HTTP-metod
 |  _Typ av beviljande         | True         | Beviljandetyp. Standardvärdet är `client_credentials`.                    |
 |  Client_id          | True         |  Client/app-ID som är associerade med Azure AD-app.                  |
 |  client_secret      | True         |  Lösenordet som associeras med Azure AD-app.                               |
-|  Resurs           | True         |  Målresurs som token begärs. Standardvärdet är `62d94f6c-d599-489b-a797-3e10e42fbe22`. |
+|  Resource           | True         |  Målresurs som token begärs. Standardvärdet är `62d94f6c-d599-489b-a797-3e10e42fbe22`. |
 |  |  |  |
 
 

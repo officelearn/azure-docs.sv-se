@@ -10,12 +10,12 @@ ms.subservice: load data
 ms.date: 05/10/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 076a9c2cee5a976d1424a6c101822e374c20e83b
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.openlocfilehash: de5649498dddcec8c65f2cfca6dcb39fa20a9267
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65850555"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242246"
 ---
 # <a name="designing-a-polybase-data-loading-strategy-for-azure-sql-data-warehouse"></a>Designa en PolyBase för datainläsning strategi för Azure SQL Data Warehouse
 
@@ -87,7 +87,7 @@ Verktyg och tjänster som du kan använda för att flytta data till Azure Storag
 - [Azure Data Factory (ADF)](../data-factory/introduction.md) har en gateway som du kan installera på den lokala servern. Du kan skapa en pipeline som flyttar data från din lokala server upp till Azure Storage. Om du vill använda Data Factory med SQL Data Warehouse, se [läser in data i SQL Data Warehouse](/azure/data-factory/load-azure-sql-data-warehouse).
 
 
-## <a name="3-prepare-the-data-for-loading"></a>3 Förbereda data för inläsning
+## <a name="3-prepare-the-data-for-loading"></a>3. Förbereda data för inläsning
 
 Du kan behöva förbereda och rensa data i ditt storage-konto innan du läser in dem i SQL Data Warehouse. Förberedelse av data kan utföras medan dina data finns i källan, eftersom du exportera data till textfiler, eller när data är i Azure Storage.  Det är enklast att arbeta med data så tidigt i processen som möjligt.  
 

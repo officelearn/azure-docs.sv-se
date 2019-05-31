@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: af1e65cc7dfe1a0934056ad141f4c62a96627bbb
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 17c0d19ad0c4a846d5f75905fe9072f2fe0e0f78
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62127556"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66386757"
 ---
 # <a name="configure-your-hosted-ui-experience"></a>Konfigurera din värdbaserade användargränssnitt
 
@@ -78,7 +78,7 @@ Använda värdbaserad användargränssnitt, antingen:
   `https://ui.customsearch.ai/hosted?customConfig=YOUR-CUSTOM-CONFIG-ID`  
   
   > [!NOTE]
-  > Lägg till följande Frågeparametrar i URL: en efter behov. Information om dessa parametrar finns i [API för anpassad sökning](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters) referens.
+  > Lägg till följande Frågeparametrar i URL: en efter behov. Information om dessa parametrar finns i [API för anpassad sökning](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters) referens.
   >
   > - frågor och
   > - mkt
@@ -143,7 +143,7 @@ Följande konfiguration visas om du klickar på **visa avancerade konfiguratione
 
 | |  |
 |---------|---------|
-|Sidtitel   | Text som visas i avsnittet rubriken på sidan med sökresultat (inte för pop över layout).        |
+|Sidrubrik   | Text som visas i avsnittet rubriken på sidan med sökresultat (inte för pop över layout).        |
 |Verktygsfältet tema    | Anger bakgrundsfärgen för rubrikområdet på sökresultatsidan. |
 
 Följande konfigurationer visas om du klickar på **visa avancerade konfigurationer**.  
@@ -157,7 +157,7 @@ Följande konfigurationer visas om du klickar på **visa avancerade konfiguratio
 
 Följande konfigurationer gäller bara om du använder Användargränssnittet finns via HTML-slutpunkt (de inte gäller om du använder JavaScript-kodavsnitt).
 
-- Sidtitel
+- Sidrubrik
 - Verktygsfältet tema
 - Rubrik-URL för länk
 - URL: en logotyp

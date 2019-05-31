@@ -3,22 +3,22 @@ title: Hantera användning och kostnader för Azure Application Insights | Micro
 description: Hantera volymer för telemetri och övervaka kostnader i Application Insights.
 services: application-insights
 documentationcenter: ''
-author: mrbullwinkle
+author: DaleKoetke
 manager: carmonm
 ms.assetid: ebd0d843-4780-4ff3-bc68-932aa44185f6
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.reviewer: Dale.Koetke
-ms.date: 12/21/2018
-ms.author: mbullwin
-ms.openlocfilehash: edf724d6fd659ad4e8887a9c68467d17a33f5ccc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.reviewer: mbullwin
+ms.date: 05/29/2019
+ms.author: dalek
+ms.openlocfilehash: ebcb0922335a2bdc5423ec4e4bfce7c1cd71c46a
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60254615"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357269"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Hantera användning och kostnader för Application Insights
 
@@ -35,7 +35,7 @@ Priser för [Azure Application Insights] [ start] baserat på datavolymen som ma
 ### <a name="data-volume-details"></a>Datavolymer
 
 * Datavolym är antalet byte av telemetri som tagits emot av Application Insights. Datavolym mäts som storleken på den okomprimerade data paket för JSON som tas emot av Application Insights från ditt program. För [tabelldata som importerats till Analytics](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-import), datavolym mäts som den okomprimerade storleken för filer som skickas till Application Insights.
-* Programmets datavolymavgifter rapporteras på en ny faktureringsmätaren börjar med namnet **datainmatning** från och med April 2018. Det här ny mätare är delas mellan övervakning tekniker, till exempel program Insights och Log Analytics och är för närvarande under namnet på tjänsten **Log Analytics**. 
+* Programmets datavolymavgifter rapporteras på en ny faktureringsmätaren börjar med namnet **datainmatning** från och med April 2018. Detta ny mätare delas mellan övervakning tekniker, till exempel program Insights och Log Analytics och är för närvarande under namnet på tjänsten **Log Analytics**. 
 * [Live Metrics Stream](../../azure-monitor/app/live-stream.md) data inte räknas för prissättning.
 
 Löpande priser i din valuta och region, se [priser för Application Insights][pricing].
@@ -132,57 +132,56 @@ För att identifiera faktiska samplingsfrekvensen, oavsett om den har tillämpat
 
 Bevaras i varje post, `itemCount` anger hur många ursprungliga poster som representerar. Det är lika med 1 + antalet tidigare borttagna poster. 
 
-## <a name="automation"></a>Automation
-
-Du kan skriva ett skript för att ange prisplan med hjälp av Azure Resource Manager. [Lär dig mer](powershell.md#price).
-
 ## <a name="limits-summary"></a>Sammanfattning av gränser
 
 [!INCLUDE [application-insights-limits](../../../includes/application-insights-limits.md)]
 
 ## <a name="disable-daily-cap-e-mails"></a>Inaktivera e-postmeddelanden med daglig gräns
 
-Inaktivera de dagliga volume cap e-postmeddelandena, under den **konfigurera** delen av Application Insights-resursen i den **användning och uppskattade kostnader** väljer **dagligt tak** . Det finns inställningar för att skicka e-postmeddelande när gränsen har uppnåtts, samt när en justerbar varningsnivå har uppnåtts. Om du vill inaktivera alla dagligen relaterade cap volym e-postmeddelanden avmarkera båda rutorna.
+Inaktivera de dagliga volume cap e-postmeddelandena, under den **konfigurera** delen av Application Insights-resursen i den **användning och uppskattade kostnader** väljer **dagligt tak** . Det finns inställningar för att skicka e-postmeddelande när gränsen har uppnåtts, samt när en justerbar varningsnivå har uppnåtts. Om du vill inaktivera alla dagligt tak volymrelaterade avmarkera e-postmeddelanden båda rutorna.
 
-## <a name="legacy-enterprise-pricing-plan"></a>Äldre Enterprise-prisplanen
+## <a name="legacy-enterprise-per-node-pricing-tier"></a>Äldre Enterprise (Per nod) prisnivå
 
-För tidigt för Azure Application Insights finns det fortfarande två möjliga två prisavtalen: Basic och Enterprise. Grundläggande prisplanen är densamma som beskrivs ovan och är standard-prenumerationen. Den innehåller alla plan företagsfunktioner, utan extra kostnad. Basic-avtalet fakturor främst på mängden data som matas in. 
+För tidigt för Azure Application Insights finns det fortfarande två möjliga prisnivåer: Basic och Enterprise. Basic-prisnivån är densamma som beskrivs ovan och är den standardlagringsnivån. Den innehåller alla nivå företagsfunktioner, utan extra kostnad. Basic-nivån fakturor främst på mängden data som matas in. 
 
-Enterprise-avtalet har en avgift per nod, och varje nod som tar emot en dagliga datakvoten. I företaget debiteras prisavtal, du för data som matas in ovan ingår tilldelningen. Om du använder Operations Management Suite, bör du välja Enterprise-avtalet. 
+> [!NOTE]
+> Dessa äldre prisnivåer har bytt namn. Företaget prisnivån kallas nu **Per nod** och den Grundprissättningsnivån kallas nu **Per GB**. Dessa nya namn används nedan och i Azure-portalen.  
+
+På nivån Per nod (tidigare Enterprise) har en avgift per nod, och varje nod som tar emot en dagliga datakvoten. På prisnivån Per nod debiteras du för data som matas in ovan ingår tilldelningen. Om du använder Operations Management Suite, bör du välja på nivån Per nod. 
 
 Löpande priser i din valuta och region, se [priser för Application Insights](https://azure.microsoft.com/pricing/details/application-insights/).
 
 > [!NOTE]
 > I April 2018 kommer vi [introduceras](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) en ny Prismodell för Azure-övervakning. Den här modellen antar en enkel modell för ”betala per användning” i den fullständiga portföljen av övervakningstjänster. Läs mer om den [nya prissättningsmodellen](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs), hur till [utvärdera effekten av att flytta till den här modellen](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#assessing-the-impact-of-the-new-pricing-model) baserat på dina användningsmönster och [så här att den nya modellen](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#moving-to-the-new-pricing-model)
 
-### <a name="enterprise-plan-and-operations-management-suite-subscription-entitlements"></a>Enterprise-avtalet och Operations Management Suite-prenumerationens rättigheter
+### <a name="per-node-tier-and-operations-management-suite-subscription-entitlements"></a>Per nod-nivå och Operations Management Suite-prenumerationens rättigheter
 
-Kunder som köper Operations Management Suite E1 och E2 kan hämta Application Insights Enterprise som en ytterligare komponent utan ytterligare kostnad som [tidigare meddelats](https://blogs.technet.microsoft.com/msoms/2017/05/19/azure-application-insights-enterprise-as-part-of-operations-management-suite-subscription/). Mer specifikt ingår varje enhet i Operations Management Suite E1 eller E2 en nod för Application Insights Enterprise-planen. Varje nod för Application Insights ingår upp till 200 MB data per dag (separat från Log Analytics-datainmatning), med en datakvarhållning på 90 dagar utan extra kostnad. Planen beskrivs mer i detalj senare i artikeln. 
+Kunder som köper Operations Management Suite E1 och E2 kan hämta Application Insights Per nod som en ytterligare komponent utan ytterligare kostnad som [tidigare meddelats](https://blogs.technet.microsoft.com/msoms/2017/05/19/azure-application-insights-enterprise-as-part-of-operations-management-suite-subscription/). Mer specifikt ingår varje enhet i Operations Management Suite E1 eller E2 en nod för Application Insights Per nod-nivån. Varje nod för Application Insights ingår upp till 200 MB data per dag (separat från Log Analytics-datainmatning), med en datakvarhållning på 90 dagar utan extra kostnad. På nivån beskrivs mer i detalj senare i artikeln. 
 
-Eftersom den här planen är gäller endast för kunder med en Operations Management Suite-prenumeration kan ser kunder som inte har en Operations Management Suite-prenumeration inte något alternativ att välja den här planen.
+Eftersom den här nivån är gäller endast för kunder med en Operations Management Suite-prenumeration kan ser kunder som inte har en Operations Management Suite-prenumeration inte något alternativ att välja den här nivån.
 
 > [!NOTE]
-> För att säkerställa att du får den här rättigheten, måste Application Insights-resurser vara i företaget prisavtal. Den här rättigheten gäller endast som noder. Application Insights-resurser i Basic-avtalet inte är medveten om någon förmån. Den här rättigheten inte visas i de uppskattade kostnaderna som visas i den **användning och uppskattade kostnader** fönstret. Om du flyttar en prenumeration till den nya Azure övervakning prismodellen i April 2018 är också den enda planen som är tillgänglig i Basic-avtal. Flytta en prenumeration till den nya Azure-övervakning prismodellen är inte lämpligt om du har en Operations Management Suite-prenumeration.
+> För att säkerställa att du får den här rättigheten, måste Application Insights-resurser finnas i prisnivån Per nod. Den här rättigheten gäller endast som noder. Application Insights-resurser på nivån Per GB inte är medveten om någon förmån. Den här rättigheten inte visas i de uppskattade kostnaderna som visas i den **användning och uppskattade kostnader** fönstret. Om du flyttar en prenumeration till den nya Azure övervakning prismodellen i April 2018 dessutom är den enda nivån som är tillgängliga Per GB-nivå. Flytta en prenumeration till den nya Azure-övervakning prismodellen är inte lämpligt om du har en Operations Management Suite-prenumeration.
 
-### <a name="how-the-enterprise-plan-works"></a>Så här fungerar företagsplanen
+### <a name="how-the-per-node-tier-works"></a>Så här fungerar på nivån Per nod
 
-* Du betalar för varje nod som skickar telemetri för alla appar i Enterprise-avtalet.
+* Du betalar för varje nod som skickar telemetri för alla appar på nivån Per nod.
   * En *noden* är en fysisk eller virtuell server-dator eller en platform-as-a-service-rollinstans som är värd för din app.
   * Utveckling av datorer, klientwebbläsare och mobila enheter räknas inte som noder.
   * Om din app har flera komponenter som skickar telemetri, till exempel en webbtjänst och en serverarbetsroll räknas komponenterna separat.
   * [Live Metrics Stream](../../azure-monitor/app/live-stream.md) data inte räknas för prissättning. I en prenumeration är en av dina avgifter per nod, inte per app. Om du har fem noder som skickar telemetri för 12 appar, avgiften gäller för fem noder.
 * Även om avgifter anges per månad, debiteras du bara för en timme som en nod skickar telemetri från en app. Per timme avgiften gäller den citerade månadskostnaden divideras med 744 (antal timmar under en månad som 31 dagar).
 * En data-volymfördelning på 200 MB per dag får för varje nod som har identifierats (med per timme kornighet). Oanvända dataallokeringen är inte överföras mellan en dag till nästa.
-  * Om du väljer Enterprise prisavtal får varje prenumeration en daglig datakvot baserat på antalet noder som skickar telemetri till Application Insights-resurser i prenumerationen. Så om du har fem noder som skickar data hela dagen, får du en datapool på 1 GB som tillämpas på alla Application Insights-resurser i prenumerationen. Det spelar ingen roll om vissa noder skickar mer data än andra noder eftersom inkluderade data delas mellan alla noder. Om en viss dag får Application Insights-resurser mer data än vad som ingår i allokeringen av dagliga data för den här prenumerationen, gäller priserna för per GB extra data. 
+  * Om du väljer prisnivån Per nod får varje prenumeration en daglig datakvot baserat på antalet noder som skickar telemetri till Application Insights-resurser i prenumerationen. Så om du har fem noder som skickar data hela dagen, får du en datapool på 1 GB som tillämpas på alla Application Insights-resurser i prenumerationen. Det spelar ingen roll om vissa noder skickar mer data än andra noder eftersom inkluderade data delas mellan alla noder. Om en viss dag får mer data än vad som ingår i allokeringen av dagliga data för den här prenumerationen i Application Insights-resurser, gäller priserna för per GB extra data. 
   * Den dagliga datakvoten beräknas som antalet timmar under dagen (med UTC) att varje nod skickar telemetri dividerat med 24 multiplicerat med 200 MB. Så om du har fyra noder som skickar telemetri under 15 i 24 timmar under dagen inkluderade data för den dagen skulle vara ((4 &#215; 15) / 24) &#215; 200 MB = 500 MB. Till samma pris 2,30 USD per GB för överförbrukning är avgiften 1,15 USD om noderna som skickar 1 GB data den dagen.
-  * Enterprise-plan dagliga kvoten delas inte med program som du har valt Basic-avtal. Oanvända tilldelningen är inte överföras från dag till dag. 
+  * Per nod nivån dagliga kvoten delas inte med program som du har valt Per GB-nivå. Oanvända tilldelningen är inte överföras från dag till dag. 
 
 ### <a name="examples-of-how-to-determine-distinct-node-count"></a>Exempel på hur du fastställer distinkta nodantal
 
 | Scenario                               | Totalt antal dagliga nodantal |
 |:---------------------------------------|:----------------:|
 | 1 program med 3 Azure App Service-instanser och 1 virtuell server | 4 |
-| 3 program som körs på 2 virtuella datorer; Application Insights-resurser för dessa program finns i samma prenumeration och i Enterprise-avtalet | 2 | 
+| 3 program som körs på 2 virtuella datorer; Application Insights-resurser för dessa program finns i samma prenumeration och på nivån Per nod | 2 | 
 | 4 program vars program Insights-resurser finns i samma prenumeration; varje program som körs 2 instanser vid 16 låg belastning och 4 instanser under 8 belastning | 13.33 | 
 | Cloud services med 1 Worker-roll och 1 Webbroll, vart och ett körs 2 instanser | 4 | 
 | 5-nods Azure Service Fabric-kluster som kör 50 mikrotjänster; varje mikrotjänst 3 instanser körs | 5|
@@ -192,6 +191,11 @@ Eftersom den här planen är gäller endast för kunder med en Operations Manage
   * För tidigare versioner av SDK, den [Web SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) fungerar som de nyare SDK-versionerna, men [Core SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) rapporterar endast en nod, oavsett antalet värdar för programmet. 
   * Om ditt program använder SDK för att ange **Rollinstans** till ett anpassat värde som standard samma värde används för att bestämma antalet noder. 
   * Om du använder en ny SDK-version med en app som körs från klientdatorer eller mobilenheter, kanske antalet noder returnerar ett tal som är mycket stor (på grund av det stora antalet klientdatorer eller mobilenheter). 
+
+## <a name="automation"></a>Automation
+
+Du kan skriva ett skript för att ange prisnivån med hjälp av Azure Resource Manager. [Lär dig mer](powershell.md#price).
+
 
 ## <a name="next-steps"></a>Nästa steg
 

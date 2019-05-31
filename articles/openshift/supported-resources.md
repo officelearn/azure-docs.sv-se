@@ -2,18 +2,18 @@
 title: De resurser som stöds för Azure Red Hat OpenShift | Microsoft Docs
 description: Förstå vilka Azure-regioner och storlekar för virtuella datorer som stöds av Microsoft Azure Red Hat OpenShift.
 services: container-service
-author: tylermsft
-ms.author: twhitney
+author: jimzim
+ms.author: jzim
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 05/15/2019
-ms.openlocfilehash: 5182a5e325bd7883af1a7d102d3e02b277a5089e
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c226227797802ab58d1bcbaadb7e97e780b30560
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65788698"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306223"
 ---
 # <a name="azure-red-hat-openshift-resources"></a>Azure Red Hat OpenShift-resurser
 
@@ -36,7 +36,7 @@ Här följer stöds VM-storlekar som du kan ange för compute-noder i klustret A
 
 I följande storleken på beräkningsnoder stöds av Azure Red Hat OpenShift REST-API:
 
-|Storlek|vCPU|RAM|
+|Storlek|Virtuell processor|RAM|
 |-|-|-|
 |Standard D4s v3|4|16 GB|
 |Standard D8s v3|8|32 GB|
@@ -56,7 +56,7 @@ I följande storleken på beräkningsnoder stöds av Azure Red Hat OpenShift RES
 
 Följande master / infrastruktur nodstorlekar som stöds av Azure Red Hat OpenShift REST-API:
 
-|Storlek|vCPU|RAM|
+|Storlek|Virtuell processor|RAM|
 |-|-|-|
 |Standard D4s v3|4|16 GB|
 |Standard D8s v3|8|32 GB|

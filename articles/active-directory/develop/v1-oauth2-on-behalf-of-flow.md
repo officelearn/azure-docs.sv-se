@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/06/2017
+ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2983980786fc706d103c0147a0776f2ff8c2d4f
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 0f4ab484b76bb536dd4e9d3c4fff2c85d93e4a41
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545473"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235199"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Tjänst-till-tjänst anropar den användning som delegerad användaridentiteten i On-Behalf-Of-flöde
 
@@ -58,31 +58,32 @@ Registrera både mellannivå-tjänsten och klientprogrammet i Azure AD.
 1. Logga in på [Azure Portal](https://portal.azure.com).
 1. I det översta fältet väljer du ditt konto och tittar du under den **Directory** och välj en Active Directory-klient för ditt program.
 1. Välj **fler tjänster** i det vänstra fönstret och välj **Azure Active Directory**.
-1. Välj **appregistreringar** och sedan **ny programregistrering**.
+1. Välj **appregistreringar** och sedan **ny registrering**.
 1. Ange ett eget namn för programmet och välj vilken typ av program.
-    1. Beroende på vilken typ av program, ange inloggnings URL eller omdirigerings-URL till en bas-URL.
-    1. Välj **skapa** att skapa programmet.
+1. Under **Kontotyper som stöds** väljer du **Accounts in any organizational directory and personal Microsoft accounts** (Konton i alla organisationskataloger och personliga Microsoft-konton).
+1. Ange omdirigerings-URI till en bas-URL.
+1. Välj **Registrera** för att skapa programmet.
 1. Generera en klienthemlighet innan du avslutar Azure-portalen.
-   1. Välj ditt program i Azure-portalen och välj **inställningar**.
-   1. Välj **nycklar** på menyn Inställningar och lägger till en nyckel med en nyckel varaktighet på antingen ett eller två år.
-   1. När du sparar den här sidan visar nyckelvärdet i Azure-portalen. Kopiera och spara nyckelvärdet på en säker plats.
+1. Välj ditt program i Azure-portalen och välj **certifikat och hemligheter**.
+1. Välj **nya klienthemligheten** och lägga till en hemlighet med en varaktighet på antingen ett eller två år.
+1. När du sparar den här sidan visar värdet för hemligheten i Azure-portalen. Kopiera och spara det hemliga värdet på en säker plats.
 
-      > [!IMPORTANT]
-      > Du behöver för att konfigurera inställningar för program i din implementering. Värdet för nyckeln visas inte igen och den är inte ett hämtningsbart på annat sätt. Anteckna det så snart den är synlig i Azure-portalen.
+> [!IMPORTANT]
+> Du behöver hemligheten att konfigurera inställningar för program i din implementering. Den här hemligt värde visas inte igen och den är inte ett hämtningsbart på annat sätt. Anteckna det så snart den är synlig i Azure-portalen.
 
 ### <a name="register-the-client-application"></a>Registrera klientprogrammet
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 1. I det översta fältet väljer du ditt konto och tittar du under den **Directory** och välj en Active Directory-klient för ditt program.
 1. Välj **fler tjänster** i det vänstra fönstret och välj **Azure Active Directory**.
-1. Välj **appregistreringar** och sedan **ny programregistrering**.
+1. Välj **appregistreringar** och sedan **ny registrering**.
 1. Ange ett eget namn för programmet och välj vilken typ av program.
-   1. Beroende på vilken typ av program, ange inloggnings URL eller omdirigerings-URL till en bas-URL.
-   1. Välj **skapa** att skapa programmet.
-1. Konfigurera behörigheter för ditt program.
-   1. I menyn Inställningar väljer du den **nödvändiga behörigheter** avsnittet och välj sedan **Lägg till** och **Välj en API**.
-   1. Skriv namnet på tjänsten mellannivå i textfältet.
-   1. Välj **Select-behörigheter** och välj sedan **åtkomst tjänstnamn**.
+1. Under **Kontotyper som stöds** väljer du **Accounts in any organizational directory and personal Microsoft accounts** (Konton i alla organisationskataloger och personliga Microsoft-konton).
+1. Ange omdirigerings-URI till en bas-URL.
+1. Välj **Registrera** för att skapa programmet.
+1. Konfigurera behörigheter för ditt program. I **API-behörigheter**väljer **lägga till en behörighet** och sedan **Mina API: er**.
+1. Skriv namnet på tjänsten mellannivå i textfältet.
+1. Välj **Select-behörigheter** och välj sedan **åtkomst <service name>** .
 
 ### <a name="configure-known-client-applications"></a>Konfigurera kända klientprogram
 
@@ -110,13 +111,13 @@ När du använder en delad hemlighet, innehåller en tjänst-till-tjänst begär
 
 | Parameter |  | Beskrivning |
 | --- | --- | --- |
-| _typ av beviljande |obligatorisk | Typ av token begäran. En begäran om OBO använder en JSON Web Token (JWT) så värdet måste vara **urn: ietf:params:oauth:grant-typ: jwt-ägarautentisering**. |
-| försäkran |obligatorisk | Värdet för den åtkomst-token som används i begäran. |
-| client_id |obligatorisk | App-ID som tilldelats till tjänsten anropande under registreringen med Azure AD. För att hitta app-ID i Azure portal, Välj **Active Directory**, välj katalogen och välj sedan namnet på programmet. |
-| client_secret |obligatorisk | Nyckeln som har registrerats för den anropande tjänsten i Azure AD. Det här värdet ska ha har antecknat vid tidpunkten för registrering. |
-| resurs |obligatorisk | App-ID-URI för den mottagande tjänsten (säker resurs). För att hitta ID-URI: n i Azure portal, Välj **Active Directory** och välj katalogen. Välj namnet på programmet, Välj **alla inställningar**, och välj sedan **egenskaper**. |
-| requested_token_use |obligatorisk | Anger hur begäran ska bearbetas. Värdet måste vara i On-Behalf-Of-flöde **on_behalf_of**. |
-| scope |obligatorisk | Ett blanksteg avgränsade lista med omfattningar för token-begäran. För OpenID Connect, omfånget **openid** måste anges.|
+| _typ av beviljande |Krävs | Typ av token begäran. En begäran om OBO använder en JSON Web Token (JWT) så värdet måste vara **urn: ietf:params:oauth:grant-typ: jwt-ägarautentisering**. |
+| försäkran |Krävs | Värdet för den åtkomst-token som används i begäran. |
+| client_id |Krävs | App-ID som tilldelats till tjänsten anropande under registreringen med Azure AD. För att hitta app-ID i Azure portal, Välj **Active Directory**, välj katalogen och välj sedan namnet på programmet. |
+| client_secret |Krävs | Nyckeln som har registrerats för den anropande tjänsten i Azure AD. Det här värdet ska ha har antecknat vid tidpunkten för registrering. |
+| resurs |Krävs | App-ID-URI för den mottagande tjänsten (säker resurs). För att hitta ID-URI: n i Azure portal, Välj **Active Directory** och välj katalogen. Välj namnet på programmet, Välj **alla inställningar**, och välj sedan **egenskaper**. |
+| requested_token_use |Krävs | Anger hur begäran ska bearbetas. Värdet måste vara i On-Behalf-Of-flöde **on_behalf_of**. |
+| scope |Krävs | Ett blanksteg avgränsade lista med omfattningar för token-begäran. För OpenID Connect, omfånget **openid** måste anges.|
 
 #### <a name="example"></a>Exempel
 
@@ -144,14 +145,14 @@ En begäran för tjänst-till-tjänst åtkomst-token med ett certifikat innehål
 
 | Parameter |  | Beskrivning |
 | --- | --- | --- |
-| _typ av beviljande |obligatorisk | Typ av token begäran. En begäran om OBO använder en JWT-token för åtkomst så värdet måste vara **urn: ietf:params:oauth:grant-typ: jwt-ägarautentisering**. |
-| försäkran |obligatorisk | Värdet för den token som används i begäran. |
-| client_id |obligatorisk | App-ID som tilldelats till tjänsten anropande under registreringen med Azure AD. För att hitta app-ID i Azure portal, Välj **Active Directory**, välj katalogen och välj sedan namnet på programmet. |
-| client_assertion_type |obligatorisk |Värdet måste vara `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
-| client_assertion |obligatorisk | En JSON Web Token som du skapar och logga in med certifikatet du registrerade dig som autentiseringsuppgifter för ditt program. Se [certifikat autentiseringsuppgifter](active-directory-certificate-credentials.md) att lära dig om assertion format och om hur du registrerar ditt certifikat.|
-| resurs |obligatorisk | App-ID-URI för den mottagande tjänsten (säker resurs). För att hitta ID-URI: n i Azure portal, Välj **Active Directory** och välj katalogen. Välj namnet på programmet, Välj **alla inställningar**, och välj sedan **egenskaper**. |
-| requested_token_use |obligatorisk | Anger hur begäran ska bearbetas. Värdet måste vara i On-Behalf-Of-flöde **on_behalf_of**. |
-| scope |obligatorisk | Ett blanksteg avgränsade lista med omfattningar för token-begäran. För OpenID Connect, omfånget **openid** måste anges.|
+| _typ av beviljande |Krävs | Typ av token begäran. En begäran om OBO använder en JWT-token för åtkomst så värdet måste vara **urn: ietf:params:oauth:grant-typ: jwt-ägarautentisering**. |
+| försäkran |Krävs | Värdet för den token som används i begäran. |
+| client_id |Krävs | App-ID som tilldelats till tjänsten anropande under registreringen med Azure AD. För att hitta app-ID i Azure portal, Välj **Active Directory**, välj katalogen och välj sedan namnet på programmet. |
+| client_assertion_type |Krävs |Värdet måste vara `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
+| client_assertion |Krävs | En JSON Web Token som du skapar och logga in med certifikatet du registrerade dig som autentiseringsuppgifter för ditt program. Se [certifikat autentiseringsuppgifter](active-directory-certificate-credentials.md) att lära dig om assertion format och om hur du registrerar ditt certifikat.|
+| resurs |Krävs | App-ID-URI för den mottagande tjänsten (säker resurs). För att hitta ID-URI: n i Azure portal, Välj **Active Directory** och välj katalogen. Välj namnet på programmet, Välj **alla inställningar**, och välj sedan **egenskaper**. |
+| requested_token_use |Krävs | Anger hur begäran ska bearbetas. Värdet måste vara i On-Behalf-Of-flöde **on_behalf_of**. |
+| scope |Krävs | Ett blanksteg avgränsade lista med omfattningar för token-begäran. För OpenID Connect, omfånget **openid** måste anges.|
 
 Dessa parametrar är nästan samma sätt som med begäran från delad hemlighet förutom som det `client_secret parameter` ersatts av två parametrar: `client_assertion_type` och `client_assertion`.
 
@@ -254,13 +255,13 @@ En tjänst-till-tjänst-begäran för en SAML-försäkran innehåller följande 
 
 | Parameter |  | Beskrivning |
 | --- | --- | --- |
-| _typ av beviljande |obligatorisk | Typ av token begäran. Värdet måste vara begäran som använder en JWT **urn: ietf:params:oauth:grant-typ: jwt-ägarautentisering**. |
-| försäkran |obligatorisk | Värdet för den åtkomst-token som används i begäran.|
-| client_id |obligatorisk | App-ID som tilldelats till tjänsten anropande under registreringen med Azure AD. För att hitta app-ID i Azure portal, Välj **Active Directory**, välj katalogen och välj sedan namnet på programmet. |
-| client_secret |obligatorisk | Nyckeln som har registrerats för den anropande tjänsten i Azure AD. Det här värdet ska ha har antecknat vid tidpunkten för registrering. |
-| resurs |obligatorisk | App-ID-URI för den mottagande tjänsten (säker resurs). Det här är den resurs som kommer att målgruppen för SAML-token. För att hitta ID-URI: n i Azure portal, Välj **Active Directory** och välj katalogen. Välj namnet på programmet, Välj **alla inställningar**, och välj sedan **egenskaper**. |
-| requested_token_use |obligatorisk | Anger hur begäran ska bearbetas. Värdet måste vara i On-Behalf-Of-flöde **on_behalf_of**. |
-| requested_token_type | obligatorisk | Anger vilken typ av token begärs. Värdet kan vara **urn: ietf:params:oauth:token-typ: saml2** eller **urn: ietf:params:oauth:token-typ: saml1** beroende på kraven för den använda resursen. |
+| _typ av beviljande |Krävs | Typ av token begäran. Värdet måste vara begäran som använder en JWT **urn: ietf:params:oauth:grant-typ: jwt-ägarautentisering**. |
+| försäkran |Krävs | Värdet för den åtkomst-token som används i begäran.|
+| client_id |Krävs | App-ID som tilldelats till tjänsten anropande under registreringen med Azure AD. För att hitta app-ID i Azure portal, Välj **Active Directory**, välj katalogen och välj sedan namnet på programmet. |
+| client_secret |Krävs | Nyckeln som har registrerats för den anropande tjänsten i Azure AD. Det här värdet ska ha har antecknat vid tidpunkten för registrering. |
+| resurs |Krävs | App-ID-URI för den mottagande tjänsten (säker resurs). Det här är den resurs som kommer att målgruppen för SAML-token. För att hitta ID-URI: n i Azure portal, Välj **Active Directory** och välj katalogen. Välj namnet på programmet, Välj **alla inställningar**, och välj sedan **egenskaper**. |
+| requested_token_use |Krävs | Anger hur begäran ska bearbetas. Värdet måste vara i On-Behalf-Of-flöde **on_behalf_of**. |
+| requested_token_type | Krävs | Anger vilken typ av token begärs. Värdet kan vara **urn: ietf:params:oauth:token-typ: saml2** eller **urn: ietf:params:oauth:token-typ: saml1** beroende på kraven för den använda resursen. |
 
 Svaret innehåller en SAML-token som kodats i UTF8 och Base64url.
 

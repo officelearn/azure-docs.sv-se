@@ -6,14 +6,14 @@ manager: carmonm
 services: site-recovery
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/27/2018
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: d52aa3b39a17c42c0f0e0cb669c69d336b41ba48
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 866374df7d3a6973cfc5995afd5cc3c4b0145c48
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61035830"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66400008"
 ---
 # <a name="create-and-customize-recovery-plans"></a>Skapa och anpassa återställningsplaner
 
@@ -21,15 +21,15 @@ Den här artikeln beskriver hur du skapar och anpassar en återställningsplan i
 
 ## <a name="create-a-recovery-plan"></a>Skapa en återställningsplan
 
-1. I Recovery Services-valv väljer **Återställningsplaner (Site Recovery)** > **+ återställningsplan**.
+1. I Recovery Services-valv väljer **Återställningsplaner (Site Recovery)**  >  **+ återställningsplan**.
 2. I **skapa återställningsplan**, ange ett namn för schemat.
 3. Välj en källa och mål baserat på datorerna i planen och **Resource Manager** för distributionsmodellen. Källplatsen måste ha datorer som har aktiverats för redundans och återställning. 
 
    **Redundans** | **Källa** | **Mål** 
    --- | --- | ---
    Azure till Azure | Azure-region |Azure-region
-   VMware till Azure | Konfigurationsserver | Azure
-   Fysiska datorer till Azure | Konfigurationsserver | Azure   
+   VMware till Azure | Konfigurationsservern | Azure
+   Fysiska datorer till Azure | Konfigurationsservern | Azure   
    Hyper-V som hanteras av VMM till Azure  | Visningsnamn för VMM | Azure
    Hyper-V utan VMM till Azure | Hyper-V-platsnamn | Azure
    VMM till VMM |Eget namn för VMM | Visningsnamn för VMM 
@@ -65,18 +65,21 @@ Du kan anpassa en återställningsplan genom att lägga till ett skript eller en
     **Scenario** | **Redundans** | **Återställning efter fel**
     --- | --- | --- 
     Azure till Azure  | Runbook | Runbook
-    VMware till Azure | Runbook | Ej tillämpligt 
+    VMware till Azure | Runbook | Saknas 
     Hyper-V med VMM till Azure | Runbook | Skript
-    Hyper-V-plats till Azure | Runbook | Ej tillämpligt
+    Hyper-V-plats till Azure | Runbook | Saknas
     VMM till sekundär VMM | Skript | Skript
 
-1. I återställningsplanen, klickar du på de steg som åtgärden som ska läggas till och ange när åtgärden bör ske: en. Om du vill att åtgärden ska utföras innan datorer i gruppen startas efter en redundansväxling, Välj **Lägg till åtgärd**.
-    b. Om du vill att åtgärden ska inträffa när datorer i gruppen början efter en redundansväxling, Välj **Lägg till efteråtgärd**. Om du vill flytta positionen för åtgärden, Välj den **Flytta upp** eller **Flytta ned** knappar.
+1. Klicka på de steg som åtgärden som ska läggas till och ange när åtgärden bör ske i återställningsplanen:
+    1. Om du vill att åtgärden ska utföras innan datorer i gruppen startas efter en redundansväxling, Välj **Lägg till åtgärd**.
+    1. Om du vill att åtgärden ska inträffa när datorer i gruppen början efter en redundansväxling, Välj **Lägg till efteråtgärd**. Om du vill flytta positionen för åtgärden, Välj den **Flytta upp** eller **Flytta ned** knappar.
 2. I **Infoga åtgärd**väljer **skriptet** eller **manuell åtgärd**.
-3. Gör följande om du vill lägga till en manuell åtgärd ”en. Skriv ett namn för åtgärden och anger åtgärdsanvisningar. Den person som kör redundansväxlingen visas dessa instruktioner.
-    b. Ange om du vill lägga till den manuella åtgärden för alla typer av redundans (Test, växling vid fel, planerad redundans (om det behövs)). Klicka sedan på **OK**.
-4. Om du vill lägga till ett skript, gör du följande: en. Om du vill lägga till ett VMM-skript, väljer **redundans till VMM skript**, och i **skriptets sökväg** skriver du den relativa sökvägen till resursen. Exempel: om resursen finns på \\ <VMMServerName>\MSSCVMMLibrary\RPScripts, anger du sökvägen: \RPScripts\RPScript.PS1.
-    b. Om du vill lägga till ett Azure automation köra bok, ange den **Azure Automation-konto** där runbook finns och välja lämplig **Azure-Runbookskript**.
+3. Om du vill lägga till en manuell åtgärd gör du följande:
+    1. Skriv ett namn för åtgärden och anger åtgärdsanvisningar. Den person som kör redundansväxlingen visas dessa instruktioner.
+    1. Ange om du vill lägga till den manuella åtgärden för alla typer av redundans (Test, växling vid fel, planerad redundans (om det behövs)). Klicka sedan på **OK**.
+4. Om du vill lägga till ett skript, gör du följande:
+    1. Om du vill lägga till ett VMM-skript, väljer **redundans till VMM skript**, och i **skriptets sökväg** skriver du den relativa sökvägen till resursen. Exempel: om resursen finns på \\ \<VMMServerName > \MSSCVMMLibrary\RPScripts, anger du sökvägen: \RPScripts\RPScript.PS1.
+    1. Om du vill lägga till ett Azure automation köra bok, ange den **Azure Automation-konto** där runbook finns och välja lämplig **Azure-Runbookskript**.
 5. Köra ett redundanstest av återställningsplan för att se till att skriptet fungerar som förväntat.
 
 ## <a name="watch-a-video"></a>Titta på en video

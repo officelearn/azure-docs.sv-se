@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93ac5ef5f03f800a8f90259db3e382b3bc5c5e2c
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.openlocfilehash: e82a78953c4385f7688705d4ab3f697be9c3ddbd
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64875643"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235169"
 ---
 # <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Identity-datalagring för Europeiska kunder i Azure Active Directory
 Identitetsdata lagras av Azure AD i en geografisk plats baserat på den adress som tillhandahålls av din organisation när du prenumererar för Microsoft Online service som Office 365 och Azure. För information om din identitetsdata ska lagras, kan du använda den [var är dina data finns?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) avsnitt i Microsoft Trust Center.
@@ -28,7 +28,9 @@ För kunder som tillhandahålls en adress i Europa, ser de flesta av identitetsd
     
 - Alla tvåfaktorsautentisering med telefonsamtal eller SMS kommer från datacenter i USA och styrs även av globala leverantörer.
 - Push-meddelanden med hjälp av Microsoft Authenticator app som kommer från datacenter. Dessutom kan kan enheten leverantör specifika tjänster förekomma i play och dessa tjänster kanske utanför Europa.
-- OATH-koder verifieras alltid i USA. 
+- OATH-koder verifieras alltid i USA.
+
+Mer information om vilken användarinformation som samlas in av Azure Multi-Factor Authentication-servern (MFA-Server) och molnbaserade Azure MFA finns i [datainsamling för Azure Multi-Factor Authentication-användare](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-reporting-datacollection).
 
 ## <a name="microsoft-azure-active-directory-b2c-azure-ad-b2c"></a>Microsoft Azure Active Directory B2C (Azure AD B2C)
 

@@ -2,17 +2,17 @@
 title: Begränsningar för Windows Server-nodpooler i Azure Kubernetes Service (AKS)
 description: Mer information om kända begränsningar när du kör nodpooler för Windows Server och arbetsbelastningar för program i Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: tylermsft
 ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
-ms.author: iainfou
-ms.openlocfilehash: 3d249271995d96307722dadf6b3e012e63565e6a
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.author: twhitney
+ms.openlocfilehash: 34ece6e49332f781f688a8741db3514faf8c9a25
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956277"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304395"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Aktuella begränsningar för nodpooler för Windows Server och arbetsbelastningar för program i Azure Kubernetes Service (AKS)
 
@@ -21,9 +21,10 @@ Du kan skapa en pool för noden som kör Windows Server som gästoperativsysteme
 Den här artikeln beskriver några begränsningar och OS-koncept för Windows Server-noderna i AKS. Nodpooler för Windows Server finns för närvarande i förhandsversion.
 
 > [!IMPORTANT]
-> AKS-förhandsversionsfunktioner är självbetjäning och delta i. Förhandsversioner tillhandahålls för att samla in feedback och buggar från vår community. De stöds dock inte av teknisk support för Azure. Om du skapar ett kluster eller lägga till dessa funktioner i befintliga kluster, stöds klustret inte förrän funktionen är inte längre i förhandsversion och uppgraderas till allmän tillgänglighet (GA).
+> AKS-förhandsversionsfunktioner är självbetjäning, delta i. De tillhandahålls för att samla in feedback och buggar från vår community. I förhandsversionen kan är inte dessa funktioner avsedda för användning i produktion. Funktioner i offentliga förhandsversioner omfattas ”bästa prestanda” support. Hjälp från teamen för AKS-teknisk support är tillgänglig under kontorstid Pacific tidszon (Stillahavstid) endast. Mer information finns i följande supportartiklar:
 >
-> Om du stöter på problem med funktioner i förhandsversion [öppna ett ärende på AKS GitHub-lagringsplatsen] [ aks-github] med namnet på funktionen för förhandsgranskning i rubriken för bugg.
+> * [AKS supportprinciper][aks-support-policies]
+> * [Vanliga frågor om Azure-Support][aks-faq]
 
 ## <a name="limitations-for-windows-server-in-kubernetes"></a>Begränsningar för Windows Server i Kubernetes
 
@@ -57,6 +58,8 @@ Följande extra begränsningar gäller för Windows Server-noden pool stöd i AK
 - Förhandsversion av funktioner i AKS som nätverksprincip- och klustret autoskalningen inte är godkända för Windows Server-noder.
 - Ingående domänkontrollanter ska endast schemaläggas på Linux-noder med en NodeSelector.
 - Azure Dev blanksteg finns för närvarande endast för Linux-baserade nodpooler.
+- Gruppen hanterade tjänstkonton (gMSA) support när Windows-filservernoder som inte är anslutna till en Active Directory-domän inte är tillgänglig i AKS.
+    - Öppen källkod, uppströms [aks-engine] [ aks-engine] projekt för närvarande erbjuder stöd för gMSA om du vill använda den här funktionen.
 
 ## <a name="os-concepts-that-are-different"></a>OS-begrepp som skiljer sig
 
@@ -74,11 +77,13 @@ Du kommer igång med Windows Server-behållare i AKS, [skapar en pool för noden
 
 <!-- LINKS - external -->
 [upstream-limitations]: https://kubernetes.io/docs/setup/windows/#limitations
-[aks-github]: https://github.com/azure/aks/issues]
 [kubernetes]: https://kubernetes.io
+[aks-engine]: https://github.com/azure/aks-engine
 
 <!-- LINKS - internal -->
 [azure-network-models]: concepts-network.md#azure-virtual-networks
 [configure-azure-cni]: configure-azure-cni.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [windows-node-cli]: windows-container-cli.md
+[aks-support-policies]: support-policies.md
+[aks-faq]: faq.md

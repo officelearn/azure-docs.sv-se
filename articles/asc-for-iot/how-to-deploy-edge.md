@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/1/2019
 ms.author: mlottner
-ms.openlocfilehash: 5d56c878eab92a7152bc0b248cab5c2ebf7e6dde
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 85e342f08e5402e50e5b0dfd1fe2df90337f29ca
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65198399"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66254299"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Distribuera en modul för maskinvarusäkerhet på din IoT Edge-enhet
 
@@ -134,13 +134,13 @@ Det finns tre steg för att skapa en IoT Edge-distribution för Azure Security C
    
 1. Klicka på **Nästa**.
 
-#### <a name="step-2-specify-routes"></a>Steg 2: Ange rutter 
+#### <a name="step-2-specify-routes"></a>Steg 2: Ange vägar 
 
-1. I den **ange vägar** fliken genom att ange den **ASCForIoTToIoTHub** dirigera till **”från/meddelanden/moduler/azureiotsecurity/\* i $uppströms”**, och klicka på  **Nästa**.
+1. I den **ange vägar** fliken genom att ange den **ASCForIoTToIoTHub** dirigera till **”från/meddelanden/moduler/azureiotsecurity/\* i $uppströms”** , och klicka på  **Nästa**.
 
    ![Ange vägar](media/howto/edge-onboarding-9.png)
 
-#### <a name="step-3-review-deployment"></a>Steg 3: Granska distributionen
+#### <a name="step-3-review-deployment"></a>Steg 3: Granska distribution
 
 1. I den **granska distribution** , granska din information om distribution och sedan välja **skicka** att slutföra distributionen.
 
@@ -158,7 +158,7 @@ Om det uppstår ett problem, är container loggarna det bästa sättet att lära
    
    | Namn | BILD |
    | --- | --- |
-   | azureIoTSecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:0.0.3 |
+   | azureiotsecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:0.0.3 |
    | edgeHub | mcr.microsoft.com/ascforiot/edgehub:1.0.9-preview |
    | edgeAgent | mcr.microsoft.com/azureiotedge-agent:1.0 |
    

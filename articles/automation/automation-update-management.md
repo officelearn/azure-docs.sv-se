@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/29/2019
+ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b92083b78971ab00f87e073ba7f4944a6f828daf
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 885c5266e80114b54007d05d2220fbf5ea5ab84e
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65991647"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66397643"
 ---
 # <a name="update-management-solution-in-azure"></a>Lösningen för uppdateringshantering i Azure
 
@@ -262,7 +262,7 @@ Välj **saknade uppdateringar** att visa en lista med uppdateringar som saknas f
 
 ## <a name="view-update-deployments"></a>Visa uppdateringsdistributioner
 
-Välj den **distributioner av uppdateringar** fliken för att visa listan över befintliga uppdateringsdistributioner. Välj någon av uppdateringsdistributioner i tabellen för att öppna den **uppdatera distribution kör** fönstret för den distributionen.
+Välj den **distributioner av uppdateringar** fliken för att visa listan över befintliga uppdateringsdistributioner. Välj någon av uppdateringsdistributioner i tabellen för att öppna den **uppdatera distribution kör** fönstret för den distributionen. Jobbloggar lagras i högst 30 dagar.
 
 ![Översikt över uppdateringsdistributionens resultat](./media/automation-update-management/update-deployment-run.png)
 
@@ -583,7 +583,7 @@ De här grupperna definieras av en fråga, när en uppdateringsdistribution bör
 
 * Prenumeration
 * Resursgrupper
-* Sökvägar
+* Platser
 * Tags
 
 ![Välj grupper](./media/automation-update-management/select-groups.png)

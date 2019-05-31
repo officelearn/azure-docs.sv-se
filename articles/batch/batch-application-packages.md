@@ -12,15 +12,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 04/05/2019
+ms.date: 04/26/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ee54d37050991763e60a6feb96c75d80384a42ac
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c17835a4155e97395e8ae1b8e9ba6d2a42433f71
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64726664"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298733"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Distribuera program till beräkningsnoder med Batch-programpaket
 
@@ -43,7 +43,7 @@ I Azure Batch, en *program* refererar till en uppsättning version binärfiler s
 
 ![Översiktsdiagram över program och programpaket][1]
 
-### <a name="applications"></a>Appar
+### <a name="applications"></a>Program
 Ett program i Batch innehåller en eller flera program paket och anger alternativ för programmet. Ett program kan till exempel ange standardversion för program som paketet ska installeras på compute-noder och om dess paket kan uppdateras eller tas bort.
 
 ### <a name="application-packages"></a>Programpaket
@@ -142,7 +142,7 @@ Klicka på **Program** > **Lägg till**.
 
 Den **nytt program** fönstret visar följande fält om du vill ange inställningarna för ditt nya program och programpaket.
 
-**Program-id**
+**Program-ID**
 
 Det här fältet anger ID för det nya programmet som omfattas av standardregler för Azure Batch-ID-verifiering. Regler för att tillhandahålla ett program-ID är följande:
 
@@ -176,7 +176,7 @@ Om du vill lägga till en version av programpaketet för ett befintligt program,
 
 ![Lägg till application package-bladet i Azure-portalen][8]
 
-Som du kan se fälten stämmer överens med den **nytt program** fönstret men **program-id** rutan är inaktiverad. Som du gjorde för det nya programmet ange den **Version** för ditt nya paket, bläddra till din **programpaket** .zip filen och klicka sedan på **OK** att ladda upp paketet.
+Som du kan se fälten stämmer överens med den **nytt program** fönstret men **program-ID** rutan är inaktiverad. Som du gjorde för det nya programmet ange den **Version** för ditt nya paket, bläddra till din **programpaket** .zip filen och klicka sedan på **OK** att ladda upp paketet.
 
 ### <a name="update-or-delete-an-application-package"></a>Uppdatera eller ta bort ett programpaket
 Om du vill uppdatera eller ta bort ett befintligt programpaket, öppnar du informationen för programmet, klickar du på **paket**, klickar du på den **ellipsen** i raden i det programpaket som du vill ändra och välj den åtgärd som du vill utföra.

@@ -2,7 +2,7 @@
 title: Användningsfall för Azure Time Series Insights Preview | Microsoft Docs
 description: Förstå Azure Time Series Insights Preview användningsfall.
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 ms.workload: big-data
 manager: cshankar
 ms.service: time-series-insights
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: 27c79155a4630f49faf49f30b2d46bf1e0dffd90
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 787445d5186a173b2cba674b36cd95879cc863e5
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65508320"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389999"
 ---
 # <a name="azure-time-series-insights-preview-use-cases"></a>Azure Time Series Insights Preview-användningsfall
 
@@ -28,11 +28,11 @@ Den här artikeln innehåller mer specifikt kan följande frågor:
 * Vilka är fördelarna med att använda Time Series Insights för [operativa analys och effektiviteten](#operational-analysis-and-driving-process-efficiency)?
 * Vilka är fördelarna med att använda Time Series Insights för [advanced analytics](#advanced-analytics)?
 
-En översikt över dessa använder scenarier beskrivs nedan.
+En översikt över dessa använder scenarier beskrivs i följande avsnitt.
 
 ## <a name="introduction"></a>Introduktion
 
-Azure Time Series Insights är ett erbjudande för slutpunkt till slutpunkt-plattform som tjänst. Den används för att samla in, bearbeta, lagra, analysera och fråga efter data med mycket contextualized, tid-serien – optimerad IoT-skala. Time Series Insights är perfekt för operativa analys och undersökning av ad hoc-data. Time Series Insights är unikt utbyggbar och anpassade, tjänst, som uppfyller brett behöver industriella IoT-distributioner.
+Azure Time Series Insights är ett erbjudande för slutpunkt till slutpunkt-plattform som tjänst. Den används för att samla in, bearbeta, lagra, analysera och fråga efter data med mycket contextualized, tid-serien – optimerad IoT-skala. Time Series Insights är perfekt för operativa analys och undersökning av ad hoc-data. Time Series Insights är en unik omfattande, anpassade tjänsterbjudande som uppfyller brett behöver industriella IoT-distributioner.
 
 ## <a name="data-exploration-and-visual-anomaly-detection"></a>Datautforskning och visuell avvikelseidentifiering
 
@@ -54,7 +54,7 @@ Det finns tre primära sätt att interagera med data som lagras i Time Series In
 
     * Läs den [Time Series Insights JS-klientbiblioteket](tutorial-explore-js-client-lib.md) och [Time Series Insights klienten](https://github.com/Microsoft/tsiclient) dokumentation för mer information om JavaScript SDK.
 
-    * Läs mer om hur du delar URL: er och det nya Användargränssnittet genom att granska [visualisera data i explorer Preview](time-series-insights-update-explorer.md).
+    * Läs mer om hur du delar URL: er och det nya Användargränssnittet genom att granska [visualisera data i förhandsversionen av Azure Time Series Insights explorer](time-series-insights-update-explorer.md).
 
 - Det tredje sättet att starta är att använda det kraftfulla API: er för att köra frågor mot data som lagras i Time Series Insights. Time Series Insights har temporala operatorer som `from`, `to`, `first`, och `last`. Det har aggregeringar och transformeringar som `average`, `min`, `max`, `split by`, `order by`, och `DateHistogram`. Det har även filtrering operatörer som `has`, `in`, `and`, `or`, `greater than`, och `REGEX`. De här operatorerna aktivera applikationer nedströms för att snabbt hitta intressant trender och mönster i dina data. Du kan använda dem för att fylla i hemmagjorda visualiseringar för att upptäcka avvikelser.
 
@@ -97,7 +97,5 @@ Time Series Insights klyftan mellan IoT-data och avancerad analys på två enkel
 ## <a name="next-steps"></a>Nästa steg
 
 - Läs mer om den [förhandsversionen av Time Series Insights explorer](./time-series-insights-update-explorer.md).
-
-- Om du vill planera din miljö, läsa [Time Series Insights Preview planera](./time-series-insights-update-plan.md).
-
+- Läs [Time Series Insights Preview planera](./time-series-insights-update-plan.md) att planera din miljö.
 - Läs den [Time Series Insights klienten](https://github.com/Microsoft/tsiclient) dokumentation.

@@ -12,12 +12,12 @@ ms.date: 05/03/2019
 ms.author: mimart
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 41dde1579fc98db37ab7d92ce362d0a4ce9a82cf
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 23e5fc24e426c87bbc5062183f2ee2db0e546484
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65824562"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388203"
 ---
 # <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Upplevelse för slutanvändare för program i Azure Active Directory
 Azure Active Directory (Azure AD) erbjuder anpassningsbara sätt att distribuera program för slutanvändare i din organisation:
@@ -48,7 +48,7 @@ Läs mer om startprogrammet för Office 365, [appen visas i Office 365-appstarta
 ## <a name="direct-sign-on-to-federated-apps"></a>Direkt inloggning till federerade appar
 Mest federerade program som stöder SAML 2.0, WS-Federation och OpenID connect också support möjligheten för användare att börja på programmet och sedan hämta loggat in via Azure AD genom automatisk omdirigering eller genom att klicka på en länk för inloggning. Detta kallas tjänstleverantör-initieras inloggnings- och mest federerade program i Azure AD-programgalleriet har stöd för den här (se dokumentationen länkad från appens konfigurationen för enkel inloggning för guiden i Azure-portalen för information).
 
-![](./media/end-user-experiences/workdaymobile.png)
+![Exempel på en mobilapp inloggningssidan](./media/end-user-experiences/workdaymobile.png)
 
 ## <a name="direct-sign-on-links"></a>Inloggnings-länkar
 Azure AD stöder också enkel inloggning Direktlänkar till enskilda program som har stöd för lösenordsbaserad enkel inloggning, länkade enkel inloggning och någon form av federerad enkel inloggning.

@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 03/13/2019
 ms.author: sngun
-ms.openlocfilehash: cb8a97a29a14ecd5601495048bcbe1aff748d892
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 03f7f050e158ba30d2f89e79ffcc9e8723eb5268
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60626782"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298694"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK för SQL-API: Viktig information och resurser
 > [!div class="op_single_selector"]
@@ -198,7 +198,7 @@ SQL API Java SDK har stöd för synkrona åtgärder. Använd för asynkron suppo
 
 ### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
 * Har stöd för geospatiala Index
-* Verifierar id-egenskapen för alla resurser. ID: n för resurser får inte innehålla?, /, #, \, tecken eller sluta med ett blanksteg.
+* Verifierar ID-egenskapen för alla resurser. ID: n för resurser får inte innehålla?, /, #, \, tecken eller sluta med ett blanksteg.
 * Lägger till ny rubrik ”index omvandling status” ResourceResponse.
 
 ### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
@@ -215,6 +215,11 @@ Nya funktioner och funktionalitet och optimeringar läggs endast till den aktuel
 Varje begäran till Cosmos DB med hjälp av en pensionerad SDK avvisas av tjänsten.
 
 > [!WARNING]
+> Alla versioner **1.x** av SQL-SDK för Java tas ur bruk **30 maj 2020**.
+> 
+>
+
+> [!WARNING]
 > Alla versioner av SQL-SDK för Java före version **1.0.0** drogs tillbaka **29 februari 2016**.
 > 
 > 
@@ -228,37 +233,37 @@ Varje begäran till Cosmos DB med hjälp av en pensionerad SDK avvisas av tjäns
 | [2.1.1](#2.1.1) |13 december 2018 |--- |
 | [2.1.0](#2.1.0) |20 november 2018 |--- |
 | [2.0.0](#2.0.0) |Den 21 september 2018 |--- |
-| [1.16.4](#1.16.4) |Den 10 september 2018 |--- |
-| [1.16.3](#1.16.3) |09 september 2018 |--- |
-| [1.16.2](#1.16.2) |Den 29 juni 2018 |--- |
-| [1.16.1](#1.16.1) |16 maj 2018 |--- |
-| [1.16.0](#1.16.0) |Den 15 mars 2018 |--- |
-| [1.15.0](#1.15.0) |Den 14 november 2017 |--- |
-| [1.14.0](#1.14.0) |Den 28 oktober 2017 |--- |
-| [1.13.0](#1.13.0) |Den 25 augusti 2017 |--- |
-| [1.12.0](#1.12.0) |11 juli 2017 |--- |
-| [1.11.0](#1.11.0) |10 maj 2017 |--- |
-| [1.10.0](#1.10.0) |11 mars 2017 |--- |
-| [1.9.6](#1.9.6) |Den 21 februari 2017 |--- |
-| [1.9.5](#1.9.5) |Den 31 januari 2017 |--- |
-| [1.9.4](#1.9.4) |24 november 2016 |--- |
-| [1.9.3](#1.9.3) |Den 30 oktober 2016 |--- |
-| [1.9.2](#1.9.2) |Den 28 oktober 2016 |--- |
-| [1.9.1](#1.9.1) |26 oktober 2016 |--- |
-| [1.9.0](#1.9.0) |03 oktober 2016 |--- |
-| [1.8.1](#1.8.1) |Den 30 juni 2016 |--- |
-| [1.8.0](#1.8.0) |Den 14 juni 2016 |--- |
-| [1.7.1](#1.7.1) |Den 30 april 2016 |--- |
-| [1.7.0](#1.7.0) |Den 27 april 2016 |--- |
-| [1.6.0](#1.6.0) |Den 29 mars 2016 |--- |
-| [1.5.1](#1.5.1) |Den 31 december 2015 |--- |
-| [1.5.0](#1.5.0) |04 december 2015 |--- |
-| [1.4.0](#1.4.0) |05 oktober 2015 |--- |
-| [1.3.0](#1.3.0) |05 oktober 2015 |--- |
-| [1.2.0](#1.2.0) |05 augusti 2015 |--- |
-| [1.1.0](#1.1.0) |09 juli 2015 |--- |
-| 1.0.1 |Den 12 maj 2015 |--- |
-| [1.0.0](#1.0.0) |07 april 2015 |--- |
+| [1.16.4](#1.16.4) |Den 10 september 2018 |30 maj 2020 |
+| [1.16.3](#1.16.3) |09 september 2018 |30 maj 2020 |
+| [1.16.2](#1.16.2) |Den 29 juni 2018 |30 maj 2020 |
+| [1.16.1](#1.16.1) |16 maj 2018 |30 maj 2020 |
+| [1.16.0](#1.16.0) |Den 15 mars 2018 |30 maj 2020 |
+| [1.15.0](#1.15.0) |Den 14 november 2017 |30 maj 2020 |
+| [1.14.0](#1.14.0) |Den 28 oktober 2017 |30 maj 2020 |
+| [1.13.0](#1.13.0) |Den 25 augusti 2017 |30 maj 2020 |
+| [1.12.0](#1.12.0) |11 juli 2017 |30 maj 2020 |
+| [1.11.0](#1.11.0) |10 maj 2017 |30 maj 2020 |
+| [1.10.0](#1.10.0) |11 mars 2017 |30 maj 2020 |
+| [1.9.6](#1.9.6) |Den 21 februari 2017 |30 maj 2020 |
+| [1.9.5](#1.9.5) |Den 31 januari 2017 |30 maj 2020 |
+| [1.9.4](#1.9.4) |24 november 2016 |30 maj 2020 |
+| [1.9.3](#1.9.3) |Den 30 oktober 2016 |30 maj 2020 |
+| [1.9.2](#1.9.2) |Den 28 oktober 2016 |30 maj 2020 |
+| [1.9.1](#1.9.1) |26 oktober 2016 |30 maj 2020 |
+| [1.9.0](#1.9.0) |03 oktober 2016 |30 maj 2020 |
+| [1.8.1](#1.8.1) |Den 30 juni 2016 |30 maj 2020 |
+| [1.8.0](#1.8.0) |Den 14 juni 2016 |30 maj 2020 |
+| [1.7.1](#1.7.1) |Den 30 april 2016 |30 maj 2020 |
+| [1.7.0](#1.7.0) |Den 27 april 2016 |30 maj 2020 |
+| [1.6.0](#1.6.0) |Den 29 mars 2016 |30 maj 2020 |
+| [1.5.1](#1.5.1) |Den 31 december 2015 |30 maj 2020 |
+| [1.5.0](#1.5.0) |04 december 2015 |30 maj 2020 |
+| [1.4.0](#1.4.0) |05 oktober 2015 |30 maj 2020 |
+| [1.3.0](#1.3.0) |05 oktober 2015 |30 maj 2020 |
+| [1.2.0](#1.2.0) |05 augusti 2015 |30 maj 2020 |
+| [1.1.0](#1.1.0) |09 juli 2015 |30 maj 2020 |
+| 1.0.1 |Den 12 maj 2015 |30 maj 2020 |
+| [1.0.0](#1.0.0) |07 april 2015 |30 maj 2020 |
 | 0.9.5-prelease |09 mars 2015 |Den 29 februari 2016 |
 | 0.9.4-prelease |17 februari 2015 |Den 29 februari 2016 |
 | 0.9.3-prelease |13 januari 2015 |Den 29 februari 2016 |

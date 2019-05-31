@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 5/06/2019
+ms.date: 05/06/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad90cd66d922c29887aaa8094e798edb28022b27
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.openlocfilehash: e5c2d987a1556513e36fc0a81e903d9eefdcae68
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66015462"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388166"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Med hjälp av System för domänerna Identity Management (SCIM) att automatiskt etablera användare och grupper från Azure Active Directory till program
 
@@ -202,7 +202,7 @@ Det här avsnittet innehåller exempel SCIM begäranden som orsakats av Azure AD
 
 #### <a name="create-user"></a>Skapa användare
 
-###### <a name="request"></a>Begäran
+###### <a name="request"></a>Förfrågan
 *POST/användare*
 ```json
 {
@@ -259,7 +259,7 @@ Det här avsnittet innehåller exempel SCIM begäranden som orsakats av Azure AD
 
 #### <a name="get-user"></a>Hämta användare
 
-###### <a name="request"></a>Begäran
+###### <a name="request"></a>Förfrågan
 *GET /Users/5d48a0a8e9f04aa38008* 
 
 ###### <a name="response"></a>Svar
@@ -290,7 +290,7 @@ Det här avsnittet innehåller exempel SCIM begäranden som orsakats av Azure AD
 ```
 #### <a name="get-user-by-query"></a>Hämta användare av frågan
 
-##### <a name="request"></a>Begäran
+##### <a name="request"></a>Förfrågan
 *GET /Users?filter=userName eq "Test_User_dfeef4c5-5681-4387-b016-bdf221e82081"*
 
 ##### <a name="response"></a>Svar
@@ -329,7 +329,7 @@ Det här avsnittet innehåller exempel SCIM begäranden som orsakats av Azure AD
 
 #### <a name="get-user-by-query---zero-results"></a>Hämta användare av frågan - resultat
 
-##### <a name="request"></a>Begäran
+##### <a name="request"></a>Förfrågan
 *GET /Users?filter=userName eq "non-existent user"*
 
 ##### <a name="response"></a>Svar
@@ -347,7 +347,7 @@ Det här avsnittet innehåller exempel SCIM begäranden som orsakats av Azure AD
 
 #### <a name="update-user-multi-valued-properties"></a>Uppdatera användare [med flera värden egenskaper]
 
-##### <a name="request"></a>Begäran
+##### <a name="request"></a>Förfrågan
 *PATCH /Users/6764549bef60420686bc HTTP/1.1*
 ```json
 {
@@ -396,7 +396,7 @@ Det här avsnittet innehåller exempel SCIM begäranden som orsakats av Azure AD
 
 #### <a name="update-user-single-valued-properties"></a>Uppdatera användare [enkelvärdesattribut egenskaper]
 
-##### <a name="request"></a>Begäran
+##### <a name="request"></a>Förfrågan
 *KORRIGERA/användare/5171a35d82074e068ce2 HTTP/1.1*
 ```json
 {
@@ -439,7 +439,7 @@ Det här avsnittet innehåller exempel SCIM begäranden som orsakats av Azure AD
 
 #### <a name="delete-user"></a>Ta bort användare
 
-##### <a name="request"></a>Begäran
+##### <a name="request"></a>Förfrågan
 *Ta bort /Users/5171a35d82074e068ce2 HTTP/1.1*
 
 ##### <a name="response"></a>Svar
@@ -454,7 +454,7 @@ Det här avsnittet innehåller exempel SCIM begäranden som orsakats av Azure AD
 
 #### <a name="create-group"></a>Skapa grupp
 
-##### <a name="request"></a>Begäran
+##### <a name="request"></a>Förfrågan
 *POST/groups HTTP/1.1*
 ```json
 {
@@ -488,7 +488,7 @@ Det här avsnittet innehåller exempel SCIM begäranden som orsakats av Azure AD
 
 #### <a name="get-group"></a>Hämta grupp
 
-##### <a name="request"></a>Begäran
+##### <a name="request"></a>Förfrågan
 *GET /Groups/40734ae655284ad3abcc?excludedAttributes=members HTTP/1.1*
 
 ##### <a name="response"></a>Svar
@@ -509,7 +509,7 @@ Det här avsnittet innehåller exempel SCIM begäranden som orsakats av Azure AD
 
 #### <a name="get-group-by-displayname"></a>Hämta grupp av displayName
 
-##### <a name="request"></a>Begäran
+##### <a name="request"></a>Förfrågan
 */ Groups GET? excludedAttributes = medlemmar & filter = displayName eq ”displayName” HTTP/1.1*
 
 ##### <a name="response"></a>Svar
@@ -536,7 +536,7 @@ Det här avsnittet innehåller exempel SCIM begäranden som orsakats av Azure AD
 ```
 #### <a name="update-group-non-member-attributes"></a>Uppdatera grupp [icke-Medlemsattribut]
 
-##### <a name="request"></a>Begäran
+##### <a name="request"></a>Förfrågan
 *KORRIGERA/grupper/fa2ce26709934589afc5 HTTP/1.1*
 ```json
 {
@@ -554,7 +554,7 @@ Det här avsnittet innehåller exempel SCIM begäranden som orsakats av Azure AD
 
 ### <a name="update-group-add-members"></a>Uppdatera grupp [Lägg till medlemmar]
 
-##### <a name="request"></a>Begäran
+##### <a name="request"></a>Förfrågan
 *PATCH /Groups/a99962b9f99d4c4fac67 HTTP/1.1*
 ```json
 {
@@ -575,7 +575,7 @@ Det här avsnittet innehåller exempel SCIM begäranden som orsakats av Azure AD
 
 #### <a name="update-group-remove-members"></a>Uppdatera grupp [ta bort medlemmar]
 
-##### <a name="request"></a>Begäran
+##### <a name="request"></a>Förfrågan
 *PATCH /Groups/a99962b9f99d4c4fac67 HTTP/1.1*
 ```json
 {
@@ -594,9 +594,9 @@ Det här avsnittet innehåller exempel SCIM begäranden som orsakats av Azure AD
 ##### <a name="response"></a>Svar
 *HTTP/1.1 204 inget innehåll*
 
-#### <a name="delete-group"></a>Ta bort grupp
+#### <a name="delete-group"></a>ta bort grupp
 
-##### <a name="request"></a>Begäran
+##### <a name="request"></a>Förfrågan
 *DELETE /Groups/cdb1ce18f65944079d37 HTTP/1.1*
 
 ##### <a name="response"></a>Svar

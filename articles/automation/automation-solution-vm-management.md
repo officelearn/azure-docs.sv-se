@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/21/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2269eac0790e61dbf0ce893bbb737cb22d58d497
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: d4e1ad106b928c41bd6940d7c3713b5fb34afe3a
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002483"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389114"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Starta/stoppa virtuella datorer vid låg belastning på nätverket lösning i Azure Automation
 
@@ -71,7 +71,8 @@ Att distribuera den Starta/stoppa virtuella datorer utanför timmar lösningen t
 | Microsoft.OperationsManagement/solutions/write | Resursgrupp |
 | Microsoft.OperationalInsights/workspaces/* | Resursgrupp |
 | Microsoft.Insights/diagnosticSettings/write | Resursgrupp |
-| Microsoft.Insights/ActionGroups/WriteMicrosoft.Insights/ActionGroups/read | Resursgrupp |
+| Microsoft.Insights/ActionGroups/Write | Resursgrupp |
+| Microsoft.Insights/ActionGroups/read | Resursgrupp |
 | Microsoft.Resources/subscriptions/resourceGroups/read | Resursgrupp |
 | Microsoft.Resources/deployments/* | Resursgrupp |
 
@@ -138,7 +139,7 @@ Utför följande steg för att lägga till Starta/stoppa virtuella datorer vid l
 
    Här kan uppmanas du att:
    - Ange den **rikta ResourceGroup namn**. Dessa värden är Resursgruppsnamn som innehåller virtuella datorer som hanteras av den här lösningen. Du kan ange flera namn och skilja dem åt med semikolon (värden inte är skiftlägeskänsliga). Användning av jokertecken stöds om du vill inkludera virtuella datorer i alla resursgrupper i prenumerationen. Det här värdet lagras i den **External_Start_ResourceGroupNames** och **External_Stop_ResourceGroupNames** variabler.
-   - Ange den **VM uteslutningslista (sträng)**. Det här värdet är namnet på en eller flera virtuella datorer från målresursgruppen. Du kan ange flera namn och skilja dem åt med semikolon (värden inte är skiftlägeskänsliga). Användning av jokertecken stöds. Det här värdet lagras i den **External_ExcludeVMNames** variabeln.
+   - Ange den **VM uteslutningslista (sträng)** . Det här värdet är namnet på en eller flera virtuella datorer från målresursgruppen. Du kan ange flera namn och skilja dem åt med semikolon (värden inte är skiftlägeskänsliga). Användning av jokertecken stöds. Det här värdet lagras i den **External_ExcludeVMNames** variabeln.
    - Välj en **schema**. Det här värdet är ett återkommande datum och tid för att starta och stoppa virtuella datorer i target-resursgrupper. Som standard konfigureras schemat i 30 minuter från nu. Det går inte att välja en annan region. Om du vill konfigurera schemat för din specifika tidszon när du har konfigurerat lösningen, se [ändra schemat för start och avstängning](#modify-the-startup-and-shutdown-schedules).
    - Att ta emot **e-postmeddelanden** från en åtgärdsgrupp godkänner du standardvärdet för **Ja** och ange en giltig e-postadress. Om du väljer **nr** men besluta vid ett senare tillfälle att du vill ta emot e-postmeddelanden, kan du uppdatera den [åtgärdsgrupp](../azure-monitor/platform/action-groups.md) som skapas med giltiga e-postadresser avgränsade med kommatecken. Du måste också aktivera följande regler för avisering:
 
@@ -147,7 +148,7 @@ Utför följande steg för att lägga till Starta/stoppa virtuella datorer vid l
      - Sequenced_StartStop_Parent
 
      > [!IMPORTANT]
-     > Standardvärdet för **Målresursnamn** är en **&ast;**. Detta riktar sig mot alla virtuella datorer i en prenumeration. Om du inte vill att lösningen att fokusera på alla virtuella datorer i din prenumeration som det här värdet behöver uppdateras till en lista över resursgruppnamn innan du kan aktivera scheman.
+     > Standardvärdet för **Målresursnamn** är en **&ast;** . Detta riktar sig mot alla virtuella datorer i en prenumeration. Om du inte vill att lösningen att fokusera på alla virtuella datorer i din prenumeration som det här värdet behöver uppdateras till en lista över resursgruppnamn innan du kan aktivera scheman.
 
 8. När du har konfigurerat de ursprungliga inställningarna som krävs för lösningen, klickar du på **OK** att Stäng den **parametrar** och välj **skapa**. När alla inställningar verifieras har lösningen distribuerats till din prenumeration. Den här processen kan ta flera sekunder att slutföra och du kan spåra förloppet under **meddelanden** på menyn.
 
@@ -250,9 +251,9 @@ Alla överordnade runbooks är den _WhatIf_ parametern. När värdet **SANT**, _
 | --- | --- | ---|
 |AutoStop_CreateAlert_Child | VMObject <br> AlertAction <br> WebHookURI | Anropa från den överordnade runbooken. Denna runbook skapar aviseringar på basis av per resurs för AutoStop scenariot.|
 |AutoStop_CreateAlert_Parent | VMList<br> WhatIf: SANT eller FALSKT  | Skapar eller uppdaterar Azure Varningsregler på virtuella datorer i målgrupperna för prenumeration eller resursgrupp. <br> VMList: Kommaavgränsad lista över virtuella datorer. Till exempel _vm1, vm2 vm3_.<br> *WhatIf* verifierar runbook-logik utan att köra.|
-|AutoStop_Disable | inga | Inaktiverar AutoStop aviseringar och standardschemat.|
+|AutoStop_Disable | Ingen | Inaktiverar AutoStop aviseringar och standardschemat.|
 |AutoStop_StopVM_Child | WebHookData | Anropa från den överordnade runbooken. Varningsregler anropa denna runbook för att stoppa den virtuella datorn.|
-|Bootstrap_Main | inga | Används en gång för att ställa in startkonfigurationer, till exempel webhookURI, som normalt inte nås från Azure Resource Manager. Denna runbook tas bort automatiskt vid distributionen.|
+|Bootstrap_Main | Ingen | Används en gång för att ställa in startkonfigurationer, till exempel webhookURI, som normalt inte nås från Azure Resource Manager. Denna runbook tas bort automatiskt vid distributionen.|
 |ScheduledStartStop_Child | VMName <br> Åtgärd: Starta eller stoppa <br> ResourceGroupName | Anropa från den överordnade runbooken. Kör en starta eller stoppa åtgärd för schemalagda Stopp.|
 |ScheduledStartStop_Parent | Åtgärd: Starta eller stoppa <br>VMList <br> WhatIf: SANT eller FALSKT | Den här inställningen påverkar alla virtuella datorer i prenumerationen. Redigera den **External_Start_ResourceGroupNames** och **External_Stop_ResourceGroupNames** ska bara köras på dessa mål resursgrupper. Du kan också utesluta specifika virtuella datorer genom att uppdatera den **External_ExcludeVMNames** variabeln.<br> VMList: Kommaavgränsad lista över virtuella datorer. Till exempel _vm1, vm2 vm3_.<br> _WhatIf_ verifierar runbook-logik utan att köra.|
 |SequencedStartStop_Parent | Åtgärd: Starta eller stoppa <br> WhatIf: SANT eller FALSKT<br>VMList| Skapa taggar med namnet **sequencestart** och **sequencestop** på varje virtuell dator som du vill att aktivitetssekvensen Starta/Stoppa aktiviteten. Dessa taggnamn är skiftlägeskänsliga. Taggens värde ska vara ett positivt heltal (1, 2, 3) som motsvarar den ordning som du vill starta eller stoppa. <br> VMList: Kommaavgränsad lista över virtuella datorer. Till exempel _vm1, vm2 vm3_. <br> _WhatIf_ verifierar runbook-logik utan att köra. <br> **Obs!** Virtuella datorer måste vara inom resursgrupper som har definierats som External_Start_ResourceGroupNames och External_Stop_ResourceGroupNames External_ExcludeVMNames i Azure Automation-variabler. De måste ha lämpliga taggar för åtgärder ska börja gälla.|
@@ -421,7 +422,7 @@ Utför följande steg för att ta bort lösningen:
 1. Från ditt Automation-konto under **relaterade resurser**väljer **länkade arbetsytan**.
 1. Välj **går du till arbetsytan**.
 1. Under **Allmänt**väljer **lösningar**. 
-1. På den **lösningar** väljer lösningen **Start stoppa VM [Workspace]**. På den **VMManagementSolution [Workspace]** sida från menyn och välj **ta bort**.<br><br> ![Ta bort VM-Mgmt-lösning](media/automation-solution-vm-management/vm-management-solution-delete.png)
+1. På den **lösningar** väljer lösningen **Start stoppa VM [Workspace]** . På den **VMManagementSolution [Workspace]** sida från menyn och välj **ta bort**.<br><br> ![Ta bort VM-Mgmt-lösning](media/automation-solution-vm-management/vm-management-solution-delete.png)
 1. I den **ta bort lösningen** och bekräfta att du vill ta bort lösningen.
 1. Även om informationen har verifierats och lösningen har tagits bort, du kan spåra förloppet under **meddelanden** på menyn. Du kommer tillbaka till den **lösningar** sidan när processen för att ta bort lösningen har startat.
 

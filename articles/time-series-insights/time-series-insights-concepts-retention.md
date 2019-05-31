@@ -4,19 +4,19 @@ description: Den här artikeln beskrivs två inställningar som styr datalagring
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 ms.reviewer: jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: 443599e1b2876012bcbdf720bef7762a24e1ff90
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: e3336df30873b40d2b8a464d1f866b524f76776d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65790430"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237000"
 ---
 # <a name="understand-data-retention-in-azure-time-series-insights"></a>Förstå datakvarhållning i Azure Time Series Insights
 
@@ -42,7 +42,7 @@ Information om hur du växlar kvarhållning beteenden finns [konfigurera kvarhå
 
 Jämför beteende för kvarhållning av data:
 
-## <a name="purge-old-data"></a>Rensa gamla data
+## <a name="purge-old-data"></a>Radera gamla data
 
 - Detta är standardbeteendet för Time Series Insights-miljöer.  
 - Det här beteendet är att föredra när användare vill alltid se deras *senaste data* i sin Time Series Insights-miljö.
@@ -63,7 +63,7 @@ Jämför beteende för kvarhållning av data:
 
 När den här miljön dagliga ingångshändelser överskrider 0.166 GB per dag, kan inte lagras data i 180 dagar, eftersom vissa data hämtar rensas. Överväg det här samma miljö under en upptagen tidsperiod. Anta att den miljön ingress rate kan öka till en genomsnittlig 0.189 GB per dag. I den upptagna tidsramen håller 158 dagars data bevaras (30GB/0.189 = 158,73 dagars kvarhållning). Nu är mindre än tid för kvarhållning av önskade data.
 
-## <a name="pause-ingress"></a>Pausa inkommande
+## <a name="pause-ingress"></a>Pausa ingress
 
 - Den **pausa ingående** inställningen är utformat för att säkerställa att data inte tas bort om de storlek och antal har nått innan deras kvarhållningsperiod.  
 - **Pausa ingående** ger extra tid för användare att öka kapaciteten för sin miljö innan data tas bort på grund av brott mot lagringstid på

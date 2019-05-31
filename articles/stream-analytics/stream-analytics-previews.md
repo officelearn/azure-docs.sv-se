@@ -7,13 +7,13 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/07/2019
-ms.openlocfilehash: f3838bf6b9f7daa24c0cdb5b0c5a08d41d164530
-ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
+ms.date: 05/29/2019
+ms.openlocfilehash: e63937cedf44b1642e091a4744d898a26422be10
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65561139"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393690"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Azure Stream Analytics-förhandsversionsfunktioner
 
@@ -30,10 +30,6 @@ Azure Stream Analytics-jobb kan skapas i Visual Studio Code. Se våra [VS Code k
 ### <a name="anomaly-detection"></a>Avvikelseidentifiering
 
 Azure Stream Analytics introducerar nya machine learning-modeller med stöd för *topp* och *dalar* identifiering förutom dubbelriktad, långsam positiva och långsamma negativa trender identifiering. För mer information, besök [avvikelseidentifiering i Azure Stream Analytics](stream-analytics-machine-learning-anomaly-detection.md).
-
-### <a name="sql-database-reference-data"></a>Referensdata för SQL-databas
-
-Azure Stream Analytics har stöd för Azure SQL Database som en källa av indata för referensdata. Du kan använda SQL-databas som referensdata för ditt Stream Analytics-jobb i Azure-portalen och i Visual Studio med Stream Analytics-verktyg. Mer information, besök, [Använd referensdata från en SQL-databas till Azure Stream Analytics-jobb](sql-reference-data.md).
 
 ### <a name="integration-with-azure-machine-learning"></a>Integrering med Azure Machine Learning
 

@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
-ms.date: 4/30/2019
+ms.date: 5/31/2019
 ms.author: victorh
-ms.openlocfilehash: 78dd4b31991a15d3d946c47c5394f64bb3afea95
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: e2e29bf0068fae5d6f4987ec5c3f2a52b883e4bd
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "64947257"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418109"
 ---
 # <a name="what-is-azure-application-gateway"></a>Vad är Azure Application Gateway?
 
@@ -29,9 +29,9 @@ Den här typen av routning kallas belastningsutjämning för programlager (OSI l
 
 Följande funktioner ingår med Azure Application Gateway:
 
-## <a name="secure-sockets-layer-ssl-termination"></a>Secure Sockets Layer-avslutning (SSL)
+## <a name="secure-sockets-layer-ssltls-termination"></a>Secure Sockets Layer (SSL/TLS) avslutning
 
-Application Gateway stöder SSL-terminering vid gatewayen. Därefter flödar trafiken vanligtvis okrypterat fram till serverdels-servrarna. Den här funktionen bidrar till att befria webbservrarna från kostsam kryptering och dekryptering. Men ibland är inte okrypterad kommunikation till servrarna en acceptabel lösning. Det kan bero på säkerhets och kompatibilitetskrav, eller på att programmet bara accepterar en säker anslutning. För de här programmen stöder Application Gateway slutpunkt till slutpunkt-SSL-kryptering.
+Application gateway stöder SSL/TLS-terminering vid gatewayen, när flödar trafiken vanligtvis okrypterat fram till backend-servrarna. Den här funktionen bidrar till att befria webbservrarna från kostsam kryptering och dekryptering. Men ibland är inte okrypterad kommunikation till servrarna en acceptabel lösning. Det kan bero på säkerhets och kompatibilitetskrav, eller på att programmet bara accepterar en säker anslutning. Application gateway stöder för programmen från slutpunkt till slutpunkt SSL/TLS-kryptering.
 
 ## <a name="autoscaling"></a>Automatisk skalning
 

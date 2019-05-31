@@ -3,19 +3,19 @@ title: Referens för Translator Text API-version 3.0
 titlesuffix: Azure Cognitive Services
 description: Referensdokumentation för Translator Text API V3.0.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
-ms.author: v-jansko
-ms.openlocfilehash: b59e4d574264f82a5875edad65e99bfb57150197
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.author: v-pawal
+ms.openlocfilehash: 973d38413fa39fec1c50b5e9770b6114fa2c4c3d
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65796867"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66387517"
 ---
 # <a name="translator-text-api-v30"></a>Translator Text API v3.0
 
@@ -41,7 +41,7 @@ Förfrågningar till Microsoft Translator Text API är oftast hanteras av datace
 
 Om du vill tvinga begäran som ska hanteras av en specifik datacenter, ändrar du Global slutpunkt i API-begäran till den önskade regionala slutpunkten:
 
-|Beskrivning|Region|Grundläggande URL|
+|Beskrivning|Region|Bas-URL|
 |:--|:--|:--|
 |Azure|Global|  api.cognitive.microsofttranslator.com|
 |Azure|Nordamerika|   api-nam.cognitive.microsofttranslator.com|
@@ -55,7 +55,7 @@ Prenumererar på Translator Text API eller [flera-tjänsten för Cognitive Servi
 
 Det finns tre rubriker som du kan använda för att autentisera din prenumeration. Den här tabellen innehåller beskriver hur var och en används:
 
-|Huvuden|Beskrivning|
+|Rubriker|Beskrivning|
 |:----|:----|
 |OCP-Apim-Subscription-Key|*Använd med Cognitive Services-prenumeration om du skickar din hemliga nyckel*.<br/>Värdet är Azure hemlig nyckel för din prenumeration till Translator Text API.|
 |Auktorisering|*Använd med Cognitive Services-prenumeration om du skickar en autentiseringstoken.*<br/>Värdet är ägartoken: `Bearer <token>`.|
@@ -144,7 +144,7 @@ Felkoden är en 6-siffrig nummer kombinera 3-siffriga HTTP-statuskoden följt av
 | 400036| Målspråk (”till” fält) är ogiltig eller saknas.|
 | 400042| Någon av följande alternativ för angivna (”alternativ”) är inte giltig.|
 | 400043| Klienten trace-ID (ClientTraceId fält eller rubrik för X-ClientTranceId) är ogiltig eller saknas.|
-| 400050| Indatatexten är för långt.|
+| 400050| Indatatexten är för långt. Visa [begärandebegränsningar](../request-limits.md).|
 | 400064| Parametern ”översättning” är ogiltig eller saknas.|
 | 400070| Antalet mål skript (ToScript parameter) matchar inte target språk (för att parametern).|
 | 400071| Värdet är inte giltigt för TextType.|
@@ -152,14 +152,15 @@ Felkoden är en 6-siffrig nummer kombinera 3-siffriga HTTP-statuskoden följt av
 | 400073| Skript-parametern är inte giltig.|
 | 400074| Brödtexten i begäran är inte giltig JSON.|
 | 400075| Språk-par och kategori kombinationen är inte giltig.|
-| 400077| Den tillåtna storleken har överskridits.|
+| 400077| Den tillåtna storleken har överskridits. Visa [begärandebegränsningar](../request-limits.md).|
 | 400079| Den anpassade system som begärdes för översättning av från och till språk finns inte.|
 | 401000| Begäran har inte behörighet eftersom autentiseringsuppgifterna är saknas eller är ogiltig.|
 | 401015| ”De angivna autentiseringsuppgifterna är för API för taligenkänning. Den här begäran kräver autentiseringsuppgifter för Text-API. Använd en prenumeration på Translator Text API ”.|
 | 403000| Åtgärden tillåts inte.|
 | 403001| Åtgärden tillåts inte eftersom prenumerationen har överskridit den lediga kvoten.|
 | 405000| Begärandemetoden stöds inte för den begärda resursen.|
-| 408001| Den anpassade översättningssystemet begärt är inte tillgänglig ännu. Försök igen om några minuter.|
+| 408001| Den översättningssystemet begärt förbereds. Försök igen om några minuter.|
+| 408002| Tiden att vänta på inkommande dataström. Klienten kunde inte skapa en begäran inom den tid som servern var inställd på att vänta. Klienten kan upprepa begäran utan ändringar vid ett senare tillfälle.|
 | 415000| Content-Type-huvud är ogiltig eller saknas.|
 | 429000, 429001, 429002| Servern avvisade begäran eftersom klienten har överskridit begärandebegränsningar.|
 | 500000| Det uppstod ett oväntat fel. Om felet kvarstår kan du rapportera det med datum/tid för fel, begär identifierare från svarshuvud X-RequestId och klient-ID från begärandehuvudet X-ClientTraceId.|

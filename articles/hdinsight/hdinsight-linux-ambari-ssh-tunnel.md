@@ -6,14 +6,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 12/15/2018
+ms.date: 05/28/2019
 ms.author: hrasheed
-ms.openlocfilehash: 0361539cefbacb8fc0473a1f863cf2ae4638b444
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 943bf0f4bba014c31a11bb30bf8d3b6a7c11a343
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64682539"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299354"
 ---
 # <a name="use-ssh-tunneling-to-access-apache-ambari-web-ui-jobhistory-namenode-apache-oozie-and-other-web-uis"></a>Använda SSH-tunnlar för att komma åt Apache Ambari-webbgränssnittet, JobHistory, NameNode, Apache Oozie och andra web UIs
 
@@ -42,7 +42,7 @@ Om du använder skriptåtgärder för att anpassa ditt kluster, kräver alla tj�
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-* En SSH-klient. De flesta operativsystem tillhandahåller en SSH-klient via den `ssh` kommando. Mer information finns i [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).
+* En SSH-klient. Mer information finns i [Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 * En webbläsare som kan konfigureras för att använda en SOCKS5-proxy.
 
@@ -56,9 +56,9 @@ Om du använder skriptåtgärder för att anpassa ditt kluster, kräver alla tj�
 
 ## <a name="usessh"></a>Skapa en tunnel med SSH-kommandot
 
-Använd följande kommando för att skapa en SSH-tunnel med hjälp av den `ssh` kommando. Ersätt **sshuser** med en SSH-användare för din HDInsight-kluster och Ersätt **clustername** med namnet på ditt HDInsight-kluster:
+Använd följande kommando för att skapa en SSH-tunnel med hjälp av den `ssh` kommando. Ersätt `sshuser` med en SSH-användare för din HDInsight-kluster och Ersätt `clustername` med namnet på ditt HDInsight-kluster:
 
-```bash
+```cmd
 ssh -C2qTnNf -D 9876 sshuser@clustername-ssh.azurehdinsight.net
 ```
 
@@ -81,19 +81,20 @@ När kommandot har slutförts, dirigeras trafik som skickas till port 9876 på d
 
 ### <a name="create-or-load-a-session"></a>Skapa eller läsa in en session
 
-1. Öppna PuTTY och kontrollera **Session** väljs på den vänstra menyn. Om du redan har sparat en session väljer sessionsnamnet från den **sparade sessioner** listan och klicka på **belastningen**.
+1. Öppna PuTTY och kontrollera **Session** väljs på den vänstra menyn. Om du redan har sparat en session väljer sessionsnamnet från den **sparade sessioner** listan och välj **belastningen**.
 
 1. Om du inte redan har en sparad session, anger du information om din:
     * **Värdnamn (eller IP-adress)** -SSH-adressen för HDInsight-klustret. Till exempel **mycluster-ssh.azurehdinsight.net**
     * **Port** – 22
     * **Anslutningstypen** – SSH
-1. Klicka på **Spara**
+
+1. Välj **spara**
 
     ![Skapa SSH-session](./media/hdinsight-linux-ambari-ssh-tunnel/hdinsight-create-putty-session.png)
 
-2. I den **kategori** till vänster om dialogrutan, expandera **anslutning**, expandera **SSH**, och välj sedan **tunnlar**.
+1. I den **kategori** till vänster om dialogrutan, expandera **anslutning**, expandera **SSH**, och välj sedan **tunnlar**.
 
-3. Ange följande information på den **alternativ som styr SSH port vidarebefordran** formuläret:
+1. Ange följande information på den **alternativ som styr SSH port vidarebefordran** formuläret:
    
    * **Källport** – Porten på den klient som du vill vidarebefordra. Till exempel **9876**.
 
@@ -103,9 +104,9 @@ När kommandot har slutförts, dirigeras trafik som skickas till port 9876 på d
      
      ![Bild av tunneling alternativ](./media/hdinsight-linux-ambari-ssh-tunnel/puttytunnel.png)
 
-4. Klicka på **Lägg till** lägga till inställningarna och klicka sedan på **öppna** att öppna en SSH-anslutning.
+1. Välj **Lägg till** lägga till inställningarna och klicka sedan på **öppna** att öppna en SSH-anslutning.
 
-5. När du uppmanas logga in på servern.
+1. När du uppmanas logga in på servern.
 
 ## <a name="use-the-tunnel-from-your-browser"></a>Använda tunneln från din webbläsare
 
@@ -125,10 +126,10 @@ När kommandot har slutförts, dirigeras trafik som skickas till port 9876 på d
 
 När klustret har upprättats, Använd följande steg för att verifiera att du kan komma åt tjänsten web UIs Ambari Web:
 
-1. I webbläsaren går du till http\:/ / headnodehost:8080. Den `headnodehost` adress skickas via tunneln till klustret och Lös till huvudnoden som Ambari körs på. När du uppmanas, anger du det användarnamn för administratör (admin) och lösenord för klustret. Du kan uppmanas en gång med Ambari-webbgränssnittet. I så, fall ange informationen.
+1. I webbläsaren går du till `http://headnodehost:8080`. Den `headnodehost` adress skickas via tunneln till klustret och Lös till huvudnoden som Ambari körs på. När du uppmanas, anger du det användarnamn för administratör (admin) och lösenord för klustret. Du kan uppmanas en gång med Ambari-webbgränssnittet. I så, fall ange informationen.
 
    > [!NOTE]  
-   > När du använder http\://headnodehost:8080 adress att ansluta till klustret, du ansluter via tunneln. Kommunikationen skyddas med hjälp av SSH-tunnel i stället för HTTPS. Använda https för att ansluta via internet med hjälp av HTTPS,\:/ / clustername.azurehdinsight.net, där **clustername** är namnet på klustret.
+   > När du använder den `http://headnodehost:8080` -adressen för att ansluta till klustret, du ansluter via tunneln. Kommunikationen skyddas med hjälp av SSH-tunnel i stället för HTTPS. Om du vill ansluta via internet med hjälp av HTTPS, `https://clustername.azurehdinsight.net`, där `clustername` är namnet på klustret.
 
 2. Ambari-Webbgränssnittet Välj HDFS i listan till vänster på sidan.
 
@@ -138,23 +139,20 @@ När klustret har upprättats, Använd följande steg för att verifiera att du 
 
     ![Bild med expanderad meny med snabblänkar](./media/hdinsight-linux-ambari-ssh-tunnel/namenodedropdown.png)
 
-   > [!NOTE]  
-   > När du väljer __snabblänkar__, kan du få en wait-indikator. Det här tillståndet kan inträffa om du har en långsam Internetanslutning. Vänta en minut eller två innan data tas emot från servern och försök sedan listan igen.
-   >
-   > Vissa poster i den **snabblänkar** menyn kan vara klipps bort höger sida av skärmen. I så, fall expanderar du menyn med hjälp av musen och Använd högerpilen för att rulla skärmen till höger för att se resten av menyn.
+    > [!NOTE]  
+    > När du väljer __snabblänkar__, kan du få en wait-indikator. Det här tillståndet kan inträffa om du har en långsam Internetanslutning. Vänta en minut eller två innan data tas emot från servern och försök sedan listan igen.
+    >
+    > Vissa poster i den **snabblänkar** menyn kan vara klipps bort höger sida av skärmen. I så, fall expanderar du menyn med hjälp av musen och Använd högerpilen för att rulla skärmen till höger för att se resten av menyn.
 
 4. Visas en sida som liknar följande bild:
 
     ![Bild av NameNode Användargränssnittet](./media/hdinsight-linux-ambari-ssh-tunnel/namenode.png)
 
-   > [!NOTE]  
-   > Lägg märke till URL-Adressen för den här sidan. Det bör likna **http\://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster**. URI: N använder det interna fullständigt kvalificerade domännamnet (FQDN) för noden och är endast tillgänglig när du använder en SSH-tunnel.
+    > [!NOTE]  
+    > Lägg märke till URL-Adressen för den här sidan. Det bör likna `http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster`. URI: N använder det interna fullständigt kvalificerade domännamnet (FQDN) för noden och är endast tillgänglig när du använder en SSH-tunnel.
 
 ## <a name="next-steps"></a>Nästa steg
 
 Nu när du har lärt dig hur du skapar och använder en SSH-tunnel, se följande dokument för andra sätt att använda Ambari:
 
 * [Hantera HDInsight-kluster med hjälp av Apache Ambari](hdinsight-hadoop-manage-ambari.md)
-
-Mer information om hur du använder SSH med HDInsight finns i [använda SSH med HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
-

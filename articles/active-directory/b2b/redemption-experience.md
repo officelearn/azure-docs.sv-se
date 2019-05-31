@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d00808295d39247729f6e843ac59ad7b23407148
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 99fe386ec75e60a16f3095f22dccc3852883f8aa
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785424"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304516"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Inlösning av inbjudan Azure Active Directory B2B-samarbete
 
@@ -56,7 +56,7 @@ Information om hur du som en Innehavaradministratör kan länka till din organis
 
 ## <a name="terms-of-use"></a>Användningsvillkor
 
-Du kan visa användningsvillkoren till gästanvändaren under inledande inlösen med hjälp av Azure AD-villkoren i Använd funktion. I Azure Active Directory, kan du komma åt den här funktionen under **hantera** > **organisationens relationer** > **användningsvillkoren** eller under **Security** > **villkorlig åtkomst** > **användningsvillkoren**. Mer information finns i [Azure AD användningsvillkor Använd funktion](../conditional-access/terms-of-use.md).
+Du kan visa användningsvillkoren till gästanvändaren under inledande inlösen med hjälp av Azure AD-villkoren i Använd funktion. I Azure Active Directory, kan du komma åt den här funktionen under **hantera** > **organisationens relationer** > **användningsvillkoren** eller under **Security** > **villkorlig åtkomst** > **användningsvillkoren**. Mer information finns i [funktionen Azure AD-användningsvillkor](../conditional-access/terms-of-use.md).
 
 ![Skärmbild som visar nya användningsvillkor](media/redemption-experience/organizational-relationships-terms-of-use.png) 
 

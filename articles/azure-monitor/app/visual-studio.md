@@ -15,12 +15,12 @@ ms.date: 07/07/2017
 ms.pm_owner: daviste;NumberByColors
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: b22f52ce9aa7f57e5b6638eef580a2675d5c9b1f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1b2f429129c0bb9098f4f5029cb07ce06bc5db13
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60372592"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255119"
 ---
 # <a name="debug-your-applications-with-azure-application-insights-in-visual-studio"></a>Felsöka dina program med Azure Application Insights i Visual Studio
 I Visual Studio (2015 och senare) kan du analysera prestanda och diagnostisera problem i din ASP.NET-webbapp både när du felsöker och i produktion med hjälp av telemetri från [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md).
@@ -105,5 +105,5 @@ Det är också användbart om du har [anpassad telemetri](../../azure-monitor/ap
 |  |  |
 | --- | --- |
 | **[Lägga till mer information](../../azure-monitor/app/asp-net-more.md)**<br/>Övervaka användning, tillgänglighet, beroenden och undantag. Integrera spårningar från loggningsramverk. Skriv anpassad telemetri. |![Visual Studio](./media/visual-studio/64.png) |
-| **[Arbeta med Application Insights-portalen](../../azure-monitor/app/app-insights-dashboards.md)**<br/>Visa instrumentpaneler, kraftfulla verktyg för diagnostik och analys, aviseringar, en live beroendekarta för ditt program och exporterade telemetridata. |![Visual Studio](./media/visual-studio/62.png) |
+| **[Arbeta med Application Insights-portalen](../../azure-monitor/app/overview-dashboard.md)**<br/>Visa instrumentpaneler, kraftfulla verktyg för diagnostik och analys, aviseringar, en live beroendekarta för ditt program och exporterade telemetridata. |![Visual Studio](./media/visual-studio/62.png) |
 

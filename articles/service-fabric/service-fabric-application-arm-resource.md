@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: dekapur
-ms.openlocfilehash: e2e1b2ae354d26c3d9729e3a3fdf39bee43647ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: db515454c68fe3a7eb1a4616c3278d9fc93ddb2c
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60621470"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258665"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Hantera program och tjänster som Azure Resource Manager-resurser
 
@@ -258,6 +258,17 @@ Följande utdrag visar de olika typerna av resurser som kan hanteras via en mall
    > Den *apiVersion* måste anges till `"2017-07-01-preview"`. Den här mallen kan också distribueras oberoende av klustret, så länge klustret redan har distribuerats.
 
 5. Distribuera! 
+
+## <a name="remove-service-fabric-resource-provider-application-resource"></a>Ta bort resursen för Service Fabric Resource Provider-program
+Följande utlöser app-paket för att vara icke etablerade från klustret och detta kommer att rensa upp diskutrymme som används:
+```powershell
+Get-AzureRmResource -ResourceId /subscriptions/{sid}/resourceGroups/{rg}/providers/Microsoft.ServiceFabric/clusters/{cluster}/applicationTypes/{apptType}/versions/{version} -ApiVersion "2017-07-01-preview" | Remove-AzureRmResource -Force -ApiVersion "2017-07-01-preview"
+```
+Helt enkelt ta bort Microsoft.ServiceFabric/clusters/application från ARM-mallen avetablera inte programmet
+
+>[!NOTE]
+> När borttagningen är klar bör du inte ser versionen av paketet i SFX eller ARM längre. Du kan inte ta bort programmet typ version resursen som programmet körs med; ARM/SFRP hindrar detta. Om du försöker avetablera körs paketet förhindras SF runtime.
+
 
 ## <a name="manage-an-existing-application-via-resource-manager"></a>Hantera ett befintligt program via Resource Manager
 

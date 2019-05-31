@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
 ms.date: 11/07/2018
-ms.openlocfilehash: 4dbf53df4d3f34e80757f9575981b4b053587d97
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b1b281c7beac6b6cb48834e636edff818f89bf12
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61485159"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304146"
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Distribuera och utforska en enda klient fristående program som använder Azure SQL Database
 
@@ -25,9 +25,9 @@ I den här självstudien, distribuera och utforska Wingtip biljetter SaaS-exempe
 
 Fristående program eller mönster för app-per-klient distribuerar du en programinstans för varje klient.  Varje program är konfigurerad för en specifik klient och distribueras i en separat Azure-resursgrupp. Flera instanser av programmet etableras för att tillhandahålla en lösning för flera innehavare. Det här mönstret är bäst för lägre värden med klienter där klientisolering är högsta prioritet. Azure har partnerprogram som gör att resurser som ska distribueras till en klient-prenumeration och hanteras av en tjänsteleverantör för klientens räkning. 
 
-I den här självstudien distribuerar du tre fristående program för tre klienter i din Azure-prenumeration.  Du har fullständig åtkomst att utforska och arbeta med de olika programkomponenterna.
+I den här självstudien får distribuera du tre fristående program för tre klienter i din Azure-prenumeration.  Du har fullständig åtkomst att utforska och arbeta med de olika programkomponenterna.
 
-Programmet källa kod- och skript är tillgängliga i den [WingtipTicketsSaaS StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp) GitHub-lagringsplatsen. Programmet har skapats med hjälp av Visual Studio 2015 och det gick inte att öppna och kompilera i Visual Studio 2017 utan uppdatering.
+Programmet källa kod- och skript är tillgängliga i den [WingtipTicketsSaaS StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp) GitHub-lagringsplatsen. Programmet har skapats med hjälp av Visual Studio 2015 och inte har öppna och kompilera i Visual Studio 2019 utan uppdatering.
 
 
 I den här guiden lär du dig:
@@ -37,7 +37,7 @@ I den här guiden lär du dig:
 > * Var du kan hämta programmets källkod och skript.
 > * Om servrar och databaser som ingår i appen.
 
-Ytterligare självstudier kommer att släppas. De kan du utforska olika scenarier för hantering av baserat på det här mönstret för programmet.   
+Ytterligare självstudier kommer att släppas. De ska kan du utforska olika scenarier för hantering av baserat på det här mönstret för programmet.   
 
 ## <a name="deploy-the-wingtip-tickets-saas-standalone-application"></a>Distribuera Wingtip biljetter SaaS fristående program
 
@@ -56,7 +56,7 @@ Distribuera appen för de tre angivna innehavarna:
     > Vissa brandväggar för autentisering och servern har avsiktligt lämnats oskyddade i demonstrationssyfte. **Skapa en ny resursgrupp** för varje programdistribution.  Använd inte en befintlig resursgrupp. Använd inte det här programmet eller resurser som det skapar för produktion. Ta bort alla resursgrupper när du är klar med program för att stoppa relaterad fakturering.
 
     Det är bäst att använda endast gemena bokstäver, siffror och bindestreck i ditt resursnamn.
-    * För **resursgrupp**, Välj Skapa ny och ange sedan ett gemener namn för resursgruppen. **Wingtip-sa -\<venueName\>-\<användaren\>**  är det rekommendera mönstret.  För \<venueName\>, ersätter du jurisdiktionsort namnet utan blanksteg. För \<användaren\>, ersätta värdet för användaren nedan.  Med det här mönstret kanske resursgruppnamn *wingtip-sa-contosoconcerthall-af1*, *wingtip-sa-dogwooddojo-af1*, *wingtip-sa-fabrikamjazzclub-af1*.
+    * För **resursgrupp**, Välj Skapa ny och ange sedan ett gemener namn för resursgruppen. **Wingtip-sa -\<venueName\>-\<användaren\>**  är det rekommendera mönstret.  För \<venueName\>, Ersätt namnet på plats utan blanksteg. För \<användaren\>, Ersätt värdet för användaren nedan.  Med det här mönstret kanske resursgruppnamn *wingtip-sa-contosoconcerthall-af1*, *wingtip-sa-dogwooddojo-af1*, *wingtip-sa-fabrikamjazzclub-af1*.
     * Välj en **plats** från den nedrullningsbara listan.
 
     * För **användaren** -vi rekommenderar ett värde som kort användaren, till exempel din initialer plus en siffra: till exempel *af1*.
@@ -107,7 +107,7 @@ Varje klientdatabas är en 50 DTU *fristående* databas.
 <!--
 * Additional [tutorials that build on the Wingtip SaaS application](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * To learn about elastic pools, see [*What is an Azure SQL elastic pool*](sql-database-elastic-pool.md)
-* To learn about elastic jobs, see [*Managing scaled-out cloud databases*](sql-database-elastic-jobs-overview.md)
+* To learn about elastic jobs, see [*Managing scaled-out cloud databases*](elastic-jobs-overview.md)
 -->
 
 - Mer information om delade SaaS-program, se [designmönster för SaaS-program för flera innehavare](saas-tenancy-app-design-patterns.md).
@@ -126,6 +126,6 @@ I den här guiden har du lärt dig:
 > * Om servrar och databaser som ingår i appen.
 > * Hur du tar bort exempelresurser för att stoppa relaterad fakturering.
 
-Nu ska du prova den [etablera och katalogisera](saas-standaloneapp-provision-and-catalog.md) kursen som du vill utforska användningen av en katalog med klienter som gör att flera olika scenarier för flera klienter, till exempel schemat hanterings och klienttrafik analytics.
+Nu ska du prova den [etablera och katalogisera](saas-standaloneapp-provision-and-catalog.md) självstudien där du utforskar användningen av en katalog med klienter som gör att flera olika scenarier för flera klienter, till exempel schemat hanterings och klienttrafik analytics.
  
 

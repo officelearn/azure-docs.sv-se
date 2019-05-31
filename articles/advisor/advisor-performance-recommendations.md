@@ -8,12 +8,12 @@ ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: kasparks
-ms.openlocfilehash: 5850b683189136eac70451075933b0c57ecc37cd
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 8fdae1e12e56dcbcb56941726b0c089ad59b8fc8
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920453"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66254654"
 ---
 # <a name="improve-performance-of-azure-applications-with-azure-advisor"></a>Förbättra prestanda för Azure-program med Azure Advisor
 
@@ -93,6 +93,22 @@ Azure Advisor utnyttjar arbetsbelastning-baserade heuristik, till exempel antale
 
 ### <a name="scale-your-azure-mysql-azure-postgresql-or-azure-mariadb-server-to-a-higher-sku-to-prevent-connection-constraints"></a>Skala din Azure MySQL, Azure PostgreSQL eller Azure MariaDB-server till en högre SKU för att förhindra att anslutningsbegränsningar
 Varje ny anslutning till din databasserver upptar minne. Databas-serverns prestanda försämras om anslutningar till servern misslyckas grund av ett [övre gräns för](https://docs.microsoft.com/azure/postgresql/concepts-limits) i minnet. Azure Advisor ska identifiera servrar som kör med många anslutningsfel och rekommenderar att du uppgraderar din server anslutningar gränser för att ge mer minne till servern genom att skala upp beräkning eller använda minne Beräkningsoptimerade SKU: er, som har mer databearbetning per kärna.
+
+## <a name="scale-your-cache-to-a-different-size-or-sku-to-improve-cache-and-application-performance"></a>Skala ditt cacheminne till en annan storlek eller SKU: N för att förbättra Cache- och programprestanda
+
+Cache-instanser gör bäst ifrån sig när det inte körs under hög minnesbelastning, hög serverbelastningen eller hög nätverksbandbredden som kan orsaka att sluta att svara, uppleva dataförlust eller blir otillgänglig. Advisor ska identifiera Cache-instanser i dessa villkor och rekommenderar antingen tillämpa rekommenderade metoder för att minska minnesbelastning, belastningen på servern eller nätverksbandbredd eller skalning till en annan storlek eller SKU: N med högre kapacitet.
+
+## <a name="add-regions-with-traffic-to-your-azure-cosmos-db-account"></a>Lägga till regioner med trafik till ditt Azure Cosmos DB-konto
+
+Advisor identifierar Azure Cosmos DB-konton som har trafik från en region som inte ännu har konfigurerats och rekommenderar att lägga till den regionen. Detta förbättrar svarstiden för begäranden som kommer från den regionen och säkerställer tillgänglighet vid avbrott i regionen. [Mer information om globala data-distribution med Azure Cosmos DB](https://aka.ms/cosmos/globaldistribution)
+
+## <a name="configure-your-azure-cosmos-db-indexing-policy-with-customer-included-or-excluded-paths"></a>Konfigurera Azure Cosmos DB indexeringspolicy med kunden inkluderas och uteslutas sökvägar
+
+Azure Advisor identifierar Cosmos DB-behållare som använder standard indexeringspolicy men kan dra nytta av en anpassad indexeringsprincip baserat på mönster för arbetsbelastningen. Standard indexeringspolicy indexerar alla egenskaper, men med en anpassad indexeringsprincip med explicita inkluderade eller exkluderade sökvägar som används i frågefilter kan minska ru: er och lagringsutrymme för indexering. [Läs mer om hur du ändrar index principer](https://aka.ms/cosmosdb/modify-index-policy)
+
+## <a name="configure-your-azure-cosmos-db-query-page-size-maxitemcount-to--1"></a>Konfigurera ditt Azure Cosmos DB sidstorlek för fråga (MaxItemCount) till-1 
+
+Azure Advisor identifierar Azure Cosmos DB-behållare som använder sidstorlek för fråga om 100 och rekommenderar att du använder en sidstorlek-1 för snabbare sökningar. [Mer information om antal för maximalt antal objekt](https://aka.ms/cosmosdb/sql-api-query-metrics-max-item-count)
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Hur du kommer åt prestandarekommendationer i Advisor
 

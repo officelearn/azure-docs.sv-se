@@ -12,19 +12,19 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 9f61748a489987bf6c3f38e8ebfdab660198e10a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 59701c31e461bbd5d73ec708504139347f6075f2
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60585480"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241854"
 ---
 # <a name="scaling-out-with-azure-sql-database"></a>Skala ut med Azure SQL Database
 Du kan enkelt skala ut Azure SQL-databaser med hjälp av den **Elastic Database** verktyg. Dessa verktyg och funktioner kan du använda databasresurser av **Azure SQL Database** att skapa lösningar för transaktionsbelastningar och särskilt programvara som en tjänst (SaaS)-program. Elastic Database-funktioner består av den:
 
 * [Klientbibliotek för elastiska databaser](sql-database-elastic-database-client-library.md): Klientbiblioteket är en funktion som gör det möjligt att skapa och hantera shardade databaser.  Se [Kom igång med elastiska Databasverktyg](sql-database-elastic-scale-get-started.md).
 * [Verktyg för elastisk databas dela / sammanslå](sql-database-elastic-scale-overview-split-and-merge.md): flyttar data mellan shardade databaser. Det här verktyget är användbart för att flytta data från en databas för flera innehavare till en enda klient databas (eller vice versa). Se [elastiska databaser dela och slå samman verktyget självstudien](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
-* [Elastic Database-jobb](sql-database-elastic-jobs-overview.md) (förhandsversion): Du kan använda jobb för att hantera stora mängder Azure SQL-databaser. Enkelt utföra administrativa åtgärder, till exempel schemaändringar, hantering av autentiseringsuppgifter, uppdateringar av referensdata, insamling av prestandadata eller klient (kund) telemetriinsamling med jobb.
+* [Elastic Database-jobb](elastic-jobs-overview.md): Du kan använda jobb för att hantera stora mängder Azure SQL-databaser. Enkelt utföra administrativa åtgärder, till exempel schemaändringar, hantering av autentiseringsuppgifter, uppdateringar av referensdata, insamling av prestandadata eller klient (kund) telemetriinsamling med jobb.
 * [Elastisk databasfråga](sql-database-elastic-query-overview.md) (förhandsversion): Kan du köra en Transact-SQL-fråga som sträcker sig över flera databaser. På så sätt kan anslutningen till verktyg som Excel, Power BI, Tableau, osv.
 * [Elastiska transaktioner](sql-database-elastic-transactions-overview.md): Den här funktionen kan du köra transaktioner som sträcker sig över flera databaser i Azure SQL Database. Transaktioner elastiska databaser är tillgängliga för .NET-program med hjälp av ADO .NET och integrera med en bekant programmering upplevelse med hjälp av den [System.Transaction klasser](https://msdn.microsoft.com/library/system.transactions.aspx).
 

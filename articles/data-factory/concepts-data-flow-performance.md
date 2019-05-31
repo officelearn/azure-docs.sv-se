@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.date: 05/16/2019
-ms.openlocfilehash: 7fca586083f70e0b0f7e593d5203392260cd2136
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 90c7e4653b879c2432f08506cea08646e84bb69a
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66172347"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66297704"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Mappa data flöden prestanda- och justeringsguide
 
@@ -29,7 +29,7 @@ Azure Data Factory mappning Data flödar ger en kodfria Webbläsargränssnittet 
 
 ![Felsöka knappen](media/data-flow/debugb1.png "felsöka")
 
-## <a name="optimizing-for-azure-sql-database"></a>Optimera för Azure SQL Database
+## <a name="optimizing-for-azure-sql-database-and-azure-sql-data-warehouse"></a>Optimera för Azure SQL Database och Azure SQL Data Warehouse
 
 ![Käll-del](media/data-flow/sourcepart2.png "käll-delen")
 
@@ -65,6 +65,13 @@ Azure Data Factory mappning Data flödar ger en kodfria Webbläsargränssnittet 
 * Öka antalet kärnor som ökar antalet noder och du får mer processorkraft att fråga och skriva till din Azure SQL-databas.
 * Prova ”Compute Optimized” och ”Minnesoptimerad” alternativ för att tillämpa fler resurser till beräkningsnoderna.
 
+### <a name="unit-test-and-performance-test-with-debug"></a>Enhetstest och prestandatest med felsökning
+
+* Enhet testning dataflöden inställt när knappen ”Data flöda felsöka” på på.
+* Inuti dataflöde kan du använda fliken Dataförhandsgranskning på transformeringar för att visa resultatet av omvandling logik.
+* Enhetstest dina data som flödar från pipelinedesignern genom att placera en aktivitet för dataflöde på pipeline-design arbetsytan och använda knappen ”Felsökning” för att testa.
+* Testa i felsökningsläge fungerar mot en uppvärmning livekluster miljö utan att behöva vänta tills en just-in-time-kluster snurra upp.
+
 ### <a name="disable-indexes-on-write"></a>Inaktivera index vid skrivning
 * Använd en ADF lagrade proceduren pipelineaktivitet före ditt dataflöde aktivitet som inaktiverar index i din måltabeller som skrivs in från dina mottagare.
 * Lägg till en annan aktivitet för lagrad procedur som aktiverats dessa index efter ditt dataflöde aktivitet.
@@ -72,6 +79,34 @@ Azure Data Factory mappning Data flödar ger en kodfria Webbläsargränssnittet 
 ### <a name="increase-the-size-of-your-azure-sql-db"></a>Öka storleken på din Azure SQL-databas
 * Schemalägg en storleksändring av din källa och mottagare Azure SQL DB innan din körning som begränsar din pipeline för att öka dataflödet och minimera Azure begränsning när du når DTU.
 * Du kan ändra storlek databaserna tillbaka till sina kör normalt när pipeline-åtgärd har slutförts.
+
+## <a name="optimizing-for-azure-sql-data-warehouse"></a>Optimera för Azure SQL Data Warehouse
+
+### <a name="use-staging-to-load-data-in-bulk-via-polybase"></a>Använd mellanlagring att läsa in data i bulk via Polybase
+
+* För att undvika rad för rad bearbetning av data-floes, använder du alternativet ”mellanlagring” i inställningar för mottagare så att ADF kan dra nytta av Polybase för att undvika rad för rad infogningar till DW. Detta instruerar ADF om du vill använda Polybase så att data kan läsas samtidigt.
+* När du kör din flödesaktivitet för data från en pipeline med mellanlagring aktiverat, du måste välja Blob-lagringsplatsen för dina mellanlagring massinläsning.
+
+### <a name="increase-the-size-of-your-azure-sql-dw"></a>Öka storleken på din Azure SQL DW
+
+* Schemalägg en storleksändring av din källa och mottagare Azure SQL DW innan du kör din pipeline för att öka dataflödet och minimera Azure begränsning när du når DWU-gränserna.
+
+* Du kan ändra storlek databaserna tillbaka till sina kör normalt när pipeline-åtgärd har slutförts.
+
+## <a name="optimize-for-files"></a>Optimera för filer
+
+* Du kan styra hur många partitioner som ADF ska använda. På varje källa och mottagare transformering, samt varje enskild transformering, kan du ange ett partitioneringsschema. För mindre filer kan det hända att välja ”enskild Partition” kan ibland fungerar bättre och snabbare än ber Spark att partitionera dina små filer.
+* Om du inte har tillräckligt med information om dina källdata kan välja du ”resursallokering” partitionering och ange antalet partitioner.
+* Om du utforska dina data och upptäcker att du har kolumner som kan vara bra hash-nycklar, Använd Hash partitionering alternativet.
+
+### <a name="file-naming-options"></a>Alternativ för filnamn
+
+* Standard natur skriva transformerade data i ADF mappning Data flödar är att skriva till en datauppsättning som har en Blob eller ADLS-länkade tjänsten. Du bör ange den datauppsättningen så att den pekar till en mapp eller behållare, inte en namngiven fil.
+* Flöden dataanvändning Azure Databricks Spark för körning, vilket innebär att dina utdata kan delas över flera filer baserat på antingen standard Spark partitionering eller partitionering system som du har valt.
+* En mycket vanlig åtgärd i ADF Data flödar är att välja ”Spara till fil” så att alla dina filer för en del av utdata slås samman tillsammans i en enda utdatafilen.
+* Den här åtgärden kräver dock att utdata minskar till en enskild partition på en enskild klusternod.
+* Tänk på det när du väljer det här alternativet för populära. Du kan köra utanför klusterresurser för noden om du kombinerar många stora källfiler i en enda fil partition.
+* För att undvika att få slut beräkningsresurser för noden kan du hålla standard eller explicit partitioneringsschema i ADF som optimeras för prestanda, och sedan lägga till en efterföljande Kopieringsaktivitet i pipelinen som slår samman alla för en del filer från den utgående mappen till en ny enda filen. I princip skiljer åtgärden av omvandling från filen sammanslagning denna teknik och ger samma resultat som om du anger ”utdata till fil”.
 
 ## <a name="next-steps"></a>Nästa steg
 Se andra dataflöde artiklar:

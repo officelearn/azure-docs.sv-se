@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 04/29/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 66ec923f12c59d606056d48c09f1ba346e9a4d32
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 291ec651061b7a8a3ea3c0645a6bd6581d529ef6
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66170377"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66245015"
 ---
-## <a name="sign-in-to-azure"></a>Logga in till Azure 
+## <a name="sign-in-to-azure"></a>Logga in på Azure 
 
 Logga in på Azure Portal på https://portal.azure.com.
 
@@ -56,7 +56,6 @@ Skapa definitionen för galleriet bilden i galleriet. I det här exemplet heter 
 1. När distributionen är klar väljer du **gå till resurs**.
 
 
-
 ## <a name="create-an-image-version"></a>Skapa en Bildversion
 
 Skapa en Avbildningsversion från en hanterad avbildning. I det här exemplet är versionsnumret för avbildningen *1.0.0* och den replikeras till både *USA, västra centrala* och *södra centrala USA* datacenter. När du väljer målregioner för replikering, komma ihåg att du även inkludera den *källa* region som mål för replikering.
@@ -75,3 +74,20 @@ Tillåtna tecken för Avbildningsversion är siffror och punkter. Måste vara et
 1. När distributionen är klar väljer du **gå till resurs**.
 
 Det kan ta en stund att replikera avbildningen till alla målregionerna som.
+
+## <a name="share-the-gallery"></a>Dela galleriet
+
+Vi rekommenderar att du delar åtkomst på nivån för galleriet bilden. Följande vägleder dig genom att dela galleriet som du nyss skapade.
+
+1. Öppna [Azure-portalen](https://portal.azure.com).
+1. I menyn till vänster väljer **resursgrupper**. 
+1. Välj i listan över resursgrupper, **myGalleryRG**. Det öppnas bladet för resursgruppen.
+1. På menyn till vänster om den **myGalleryRG** väljer **åtkomstkontroll (IAM)** . 
+1. Under **Lägg till en rolltilldelning**väljer **Lägg till**. Den **Lägg till en rolltilldelning** fönstret öppnas. 
+1. Under **rollen**väljer **läsare**.
+1. Under **tilldela åtkomst till**, låt standardvärdet **Azure AD-användare, grupp eller tjänstens huvudnamn**.
+1. Under **Välj**, ange den e-postadressen för den person som du vill bjuda in.
+1. Om användaren är utanför organisationen, visas meddelandet **den här användaren kommer att skickas ett e-postmeddelande som gör det möjligt för dem att samarbeta med Microsoft.** Välj användare med e-postadress och klicka sedan på **spara**.
+
+Om användaren är utanför organisationen, får de en e-postinbjudan för att ansluta till organisationen. Användaren måste tacka ja till inbjudan och de kommer att kunna se galleriet och alla definitioner för avbildning och versioner i sin lista över resurser.
+

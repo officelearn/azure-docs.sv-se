@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: cynthn
-ms.openlocfilehash: 50d0d78e9dc0c7f51fcd82dd16eab5a180eae073
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 80c2a1f4b9b724058b8b573f265a3cb2a99302a0
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61402191"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305964"
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>Distribuera en Azure-dator med C# och Resource Manager-mall
 
@@ -36,7 +36,7 @@ I det här steget ska se du till att Visual Studio är installerat och du skapar
 
 1. Om du inte redan gjort installera [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio). Välj **.NET-skrivbordsutveckling** på arbetsbelastningar sidan och klicka sedan på **installera**. Sammanfattningsvis ska du se att **utvecklingsverktyg för .NET Framework 4 4.6** väljs automatiskt åt dig. Om du redan har installerat Visual Studio kan du lägga till .NET-arbetsbelastningen i Visual Studio-starta.
 2. I Visual Studio klickar du på **Arkiv** > **Nytt** > **Projekt**.
-3. I **mallar** > **Visual C#** väljer **Konsolapp (.NET Framework)**, ange *myDotnetProject* för namnet på den projektet, välj platsen för projektet och klicka sedan på **OK**.
+3. I **mallar** > **Visual C#** väljer **Konsolapp (.NET Framework)** , ange *myDotnetProject* för namnet på den projektet, välj platsen för projektet och klicka sedan på **OK**.
 
 ## <a name="install-the-packages"></a>Installera paket
 
@@ -166,7 +166,7 @@ I det här steget skapar du en mallfil som distribuerar resurserna och en fil me
 
 ### <a name="create-the-parameters-file"></a>Skapa parameterfilen
 
-Om du vill ange värden för parametrarna resurs som har definierats i mallen kan du skapa en parameterfil som innehåller värdena.
+Om du vill ange värden för parametrarna resurs i mallen kan du skapa en parameterfil som innehåller värdena.
 
 1. I Solution Explorer högerklickar du på *myDotnetProject* > **Lägg till** > **nytt objekt**, och välj sedan **textfil** i *Visual C#-objekt*. Ge filen namnet *Parameters.json*, och klicka sedan på **Lägg till**.
 2. Lägg till den här JSON-koden i filen som du skapade:
@@ -205,17 +205,17 @@ Innan du kan distribuera en mall, se till att du har åtkomst till en [Active Di
     Ersätt **&lt;prenumerations-id&gt;** med ditt prenumerations-ID **&lt;program-id&gt;** med Active Directory-program identifierare **&lt;autentiseringsnyckeln&gt;** med programnyckel och **&lt;klient-id&gt;** med klient-ID.
 
 3. Spara filen azureauth.properties.
-4. Ange en miljövariabel i Windows med namnet AZURE_AUTH_LOCATION med den fullständiga sökvägen till auktoriseringsfilen som du skapade, till exempel följande PowerShell-kommando kan användas:
+4. Ange en miljövariabel i Windows med namnet AZURE_AUTH_LOCATION med den fullständiga sökvägen till auktoriseringsfilen som du skapade, till exempel kan du använda följande PowerShell-kommando:
 
     ```powershell
-    [Environment]::SetEnvironmentVariable("AZURE_AUTH_LOCATION", "C:\Visual Studio 2017\Projects\myDotnetProject\myDotnetProject\azureauth.properties", "User")
+    [Environment]::SetEnvironmentVariable("AZURE_AUTH_LOCATION", "C:\Visual Studio 2019\Projects\myDotnetProject\myDotnetProject\azureauth.properties", "User")
     ```
 
     
 
 ## <a name="create-the-management-client"></a>Skapa management-klienten
 
-1. Öppna filen Program.cs för projektet som du skapade och sedan lägga till dessa using-satser till de befintliga-instruktionerna överst i filen:
+1. Öppna filen Program.cs för projektet som du skapade. Lägg sedan till dessa using-satser till de befintliga-instruktionerna överst i filen:
 
     ```csharp
     using Microsoft.Azure.Management.Compute.Fluent;

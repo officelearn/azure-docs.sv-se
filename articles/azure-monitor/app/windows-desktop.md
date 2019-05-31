@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: mbullwin
-ms.openlocfilehash: 95ff8d1a70325357fee4bc24fd96c1a1c7a73845
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 567163a5d5ce37eeffb5ef2bc6f9adb7c5b027ec
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60371486"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255727"
 ---
 # <a name="monitoring-usage-and-performance-in-classic-windows-desktop-apps"></a>Övervaka användning och prestanda för klassiska Windows-appar
 
@@ -37,7 +37,7 @@ Program som finns lokalt, i Azure och i andra moln kan dra nytta av Application 
    
     Om du använder ApplicationInsights.config, kontrollera att egenskaperna i Solution Explorer är inställda på **Byggåtgärd = Innehåll, Kopiera till utdatakatalog = Kopiera**.
 5. [Använda API](../../azure-monitor/app/api-custom-events-metrics.md) att skicka telemetri.
-6. Kör din app och se telemetri i den resurs du skapat i Azure Portal.
+6. Kör din app och se telemetri i den resurs du skapade i Azure-portalen.
 
 ## <a name="telemetry"></a>Exempelkod
 ```csharp
@@ -77,7 +77,7 @@ Program som finns lokalt, i Azure och i andra moln kan dra nytta av Application 
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-* [Skapa en instrumentpanel](../../azure-monitor/app/app-insights-dashboards.md)
+* [Skapa en instrumentpanel](../../azure-monitor/app/overview-dashboard.md)
 * [Diagnostiksökning](../../azure-monitor/app/diagnostic-search.md)
 * [Utforska mått](../../azure-monitor/app/metrics-explorer.md)
 * [Skriv analysfrågor](../../azure-monitor/app/analytics.md)

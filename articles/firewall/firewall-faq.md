@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 5/3/2019
+ms.date: 5/30/2019
 ms.author: victorh
-ms.openlocfilehash: 84b42654ec472ea2c7c81bed545f56b647158c95
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.openlocfilehash: 75b1131f2853cb444481b9c7a6c96e28f8537538
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66016010"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66384679"
 ---
 # <a name="azure-firewall-faq"></a>Vanliga frågor om Azure-brandväggen
 
@@ -25,7 +25,7 @@ Azure Firewall är en hanterad, molnbaserad tjänst för nätverkssäkerhet som 
 * Tillståndskänslig brandvägg som en tjänst
 * Inbyggd hög tillgänglighet med obegränsad skalbarhet i molnet
 * FQDN-filtrering
-* Taggar för fullständigt domännamn
+* FQDN-taggar
 * Regler för filtrering av nätverkstrafik
 * Stöd för utgående SNAT
 * Stöd för inkommande DNAT
@@ -34,7 +34,7 @@ Azure Firewall är en hanterad, molnbaserad tjänst för nätverkssäkerhet som 
 
 ## <a name="what-is-the-typical-deployment-model-for-azure-firewall"></a>Vad är den typiska distributionsmodellen för Azure-brandvägg?
 
-Du kan distribuera Azure-brandväggen på alla virtuella nätverk, men kunder normalt distribuerar den på en central virtuellt nätverk och peer-andra virtuella nätverk till den i en nav-och-eker-modell. Du kan sedan ange standardvägen från peer-kopplade virtuella nätverk så att den pekar till den här virtuella nätverket centrala brandväggen. Global VNet-peering stöds, men det rekommenderas inte på grund av potentiella prestanda och svarstidsproblem i olika regioner. Distribuera en brandvägg per region för bästa prestanda.
+Du kan distribuera Azure-brandväggen på alla virtuella nätverk, men kunder normalt distribuerar den på en central virtuellt nätverk och peer-andra virtuella nätverk till den i en nav-och-eker-modell. Du kan sedan ange standardvägen från peer-kopplade virtuella nätverk så att den pekar till den här virtuella nätverket centrala brandväggen. Det finns stöd för global VNet-peering, men det rekommenderas inte på grund av potentiella prestanda och svarstidsproblem i olika regioner. Distribuera en brandvägg per region för bästa prestanda.
 
 Fördelen med den här modellen är möjligheten att centralt utöva kontrollen i flera ekrar virtuella nätverk i olika prenumerationer. Det finns även kostnadsbesparingar som du inte behöver distribuera en brandvägg i varje virtuellt nätverk separat. Besparingarna mäts och koppla peering kostnad som baseras på trafikmönster kund.
 
@@ -71,6 +71,11 @@ Web Application Firewall (WAF) är en funktion i Application Gateway som ger ett
 ## <a name="what-is-the-difference-between-network-security-groups-nsgs-and-azure-firewall"></a>Vad är skillnaden mellan Nätverkssäkerhetsgrupper (NSG) och Azure-brandvägg?
 
 Azure brandväggstjänsten kompletterar network security group funktioner. Tillsammans kan de ger bättre ”skydd på djupet” nätverkssäkerhet. Nätverkssäkerhetsgrupper innehåller distribuerade layer filtrering av nätverkstrafik för att begränsa trafik till resurser i virtuella nätverk i varje prenumeration. Azure-brandväggen är en fullständigt administrerad, centraliserad nätverk brandväggen som-tjänst, vilket ger nätverks - och programnivå skydd i olika prenumerationer och virtuella nätverk.
+
+## <a name="are-network-security-groups-nsgs-supported-on-the-azure-firewall-subnet"></a>Nätverkssäkerhetsgrupper (NSG) stöds i Azure-brandvägg undernät?
+
+Azure-brandväggen är en hanterad tjänst med flera lager av skydd, inklusive plattform protection med NIC på NSG: er (inte ses).  På undernätsnivå behövs inte i brandväggen för Azure-undernät och har inaktiverats för att se till att inga avbrott i tjänsten.
+
 
 ## <a name="how-do-i-set-up-azure-firewall-with-my-service-endpoints"></a>Hur ställer jag in Azure-brandvägg med min tjänstslutpunkter?
 
@@ -125,7 +130,7 @@ Tvingad tunneltrafik stöds inte som standard, men den kan aktiveras med hjälp 
 
 Azure-brandväggen måste ha direkt Internetanslutning. Om din AzureFirewallSubnet lär sig en standardväg till ditt lokala nätverk via BGP, måste du åsidosätta detta med en 0.0.0.0/0 UDR med den **NextHopType** värdet **Internet** att upprätthålla direkt Ansluten till Internet. Som standard stöder Azure brandvägg inte framtvingad tunneling till ett lokalt nätverk.
 
-Men om din konfiguration kräver Tvingad tunneltrafik till ett lokalt nätverk, stöder Microsoft den på en fall till fall. Kontakta supporten, så att vi kan granska ditt ärende. Om godkända vi godkänna din prenumeration och se till att Internet-anslutning krävs brandväggen underhålls.
+Men om din konfiguration kräver Tvingad tunneltrafik till ett lokalt nätverk, stöder Microsoft den på en fall till fall. Kontakta supporten, så att vi kan granska ditt ärende. Om godkända vi låter din prenumeration och se till att Internet-anslutning krävs brandväggen upprätthålls.
 
 ## <a name="are-there-any-firewall-resource-group-restrictions"></a>Finns det någon brandvägg resource group begränsningar?
 
@@ -137,7 +142,7 @@ Nej. NAT-regler är implicit lägga till en regel för motsvarande för att till
 
 ## <a name="how-do-wildcards-work-in-an-application-rule-target-fqdn"></a>Hur fungerar jokertecken i ett program regelmål FQDN?
 
-Om du konfigurerar ***. contoso.com**, tillåter *anyvalue*. contoso.com, men inte contoso.com (domän överst). Om du vill tillåta överst domän måste du uttryckligen konfigurera den som ett FQDN-mål.
+Om du konfigurerar * **. contoso.com**, tillåter *anyvalue*. contoso.com, men inte contoso.com (domän överst). Om du vill tillåta överst domän måste du uttryckligen konfigurera den som ett FQDN-mål.
 
 ## <a name="what-does-provisioning-state-failed-mean"></a>Vad gör *Etableringsstatus: Det gick inte* betyder?
 

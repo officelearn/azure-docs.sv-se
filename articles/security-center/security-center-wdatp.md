@@ -3,7 +3,7 @@ title: Windows Defender Avancerat skydd med Azure Security Center
 description: Det här dokumentet introducerar integrering mellan Azure Security Center och Windows Defender Avancerat skydd.
 services: security-center
 documentationcenter: na
-author: barclayn
+author: monhaber
 manager: barbkess
 editor: ''
 ms.service: security-center
@@ -11,21 +11,23 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/13/2018
-ms.author: barclayn
-ms.openlocfilehash: 75ca1401f72e00454dc3355d31c8b8ea64669a72
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.date: 05/27/2018
+ms.author: monhaber
+ms.openlocfilehash: 8511f8987368d5746373f71e9f553013e385e0ee
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62129135"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258526"
 ---
 # <a name="windows-defender-advanced-threat-protection-with-azure-security-center"></a>Windows Defender Avancerat skydd med Azure Security Center
 
-Azure Security Center utöka utbudet Molnplattformar arbetsbelastning skydd genom att integrera med [Windows Defender Avancerat skydd](https://www.microsoft.com/en-us/WindowsForBusiness/windows-atp) (ATP).
-Den här ändringen ger dig omfattande funktioner för slutpunktsidentifiering och svar (EDR). Med Windows Defender ATP-integrering kan du upptäcka avvikelser. Du kan också upptäcka och svara på avancerade attacker på serverslutpunkter som övervakas av Azure Security Center.
+Azure Security Center utökar erbjudandet för arbetsbelastningsskydd för molnplattformar genom integration med [Windows Defender Avancerat skydd](https://www.microsoft.com/en-us/WindowsForBusiness/windows-atp) (ATP).
+Den här ändringen ger dig omfattande funktioner för identifiering och svar på slutpunkter (EDR). Med Windows Defender ATP-integrering kan du upptäcka avvikelser. Du kan också upptäcka och svara på avancerade attacker på serverslutpunkter som övervakas av Azure Security Center.
 
-Azure Security Center-kunder kan nu använda funktioner i Windows Defender ATP:
+## <a name="windows-defender-atp-features-in-security-center"></a>Windows Defender ATP-funktioner i Security Center
+
+Du får när du använder Windows Defender ATP:
 
 - **Nästa generations efter intrång identifiering sensorer**: Windows Defender ATP-sensorer för Windows-servrar samlar in ett brett utbud av beteendeanalys signaler.
 
@@ -53,9 +55,10 @@ Du kan ytterligare undersöka aviseringen genom att pivotera till Windows Defend
 
 ## <a name="platform-support"></a>Plattformssupport
 
-Den här funktionen stöder identifiering på Windows Server 2012 R2 och Windows Server 2016.
+Windows Defender ATP i Security Center har stöd för identifiering på Windows Server 2012 R2 och Windows Server 2016-operativsystem som hör till en prenumeration på tjänsten som Standard.
 
-Endast servrar i prenumerationer för standard-tjänstnivå stöds.
+> [!NOTE]
+> När du använder Azure Security Center för att övervaka servrar, skapas automatiskt en Windows Defender ATP-klient och Windows Defender ATP-data lagras i Europa som standard. Om du behöver flytta dina data till en annan plats, måste du kontakta Microsoft Support om du vill återställa klienten.
 
 ## <a name="onboarding-servers-to-security-center"></a>Onboarding-servrar till Security Center 
 
@@ -69,7 +72,6 @@ Att publicera servrar till Security Center, klickar du på **gå till Azure Secu
 4. Efter registrering, kan du övervaka datorer under **beräknings- och appar**.
 
    ![Integrera datorer](media/security-center-wdatp/onboard-computers.png)
-
 
 ## <a name="enable-windows-defender-atp-integration"></a>Aktivera Windows Defender ATP-integrering
 

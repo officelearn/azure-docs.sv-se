@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 59a801fd149a0f647298d94522f9eefc1ea6eb9f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d3cbc2d5be1f7addf833162b23c5db0786e9d361
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60821046"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66297483"
 ---
 # <a name="log-metrics-during-training-runs-in-azure-machine-learning"></a>Log mått vid träning körs i Azure Machine Learning
 
@@ -67,7 +67,7 @@ I följande exempel träna en enkel modell sklearn upphöjning lokalt i en lokal
 
 1. Skapa ett inlärningsskript i en lokal Jupyter-anteckningsbok. 
 
-   ``` python
+   ```python
    # load diabetes dataset, a well-known small dataset that comes with scikit-learn
    from sklearn.datasets import load_diabetes
    from sklearn.linear_model import Ridge

@@ -8,19 +8,20 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 4063e79a9415ac35b09cc77d0110c04e191b49c7
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 7a0e628eed861767d1eeb50b0ded7bb3d8807328
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66145880"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66271572"
 ---
-Delade bildgalleriet är en tjänst som hjälper dig att skapa struktur och organisation runt dina anpassade hanterade VM-avbildningar. Delade Image Galleries innehåller:
+Delade bildgalleriet är en tjänst som hjälper dig att skapa struktur och organisation runt dina hanterade avbildningar. Delade Image Galleries innehåller:
 
 - Hanterad global replikering av avbildningar.
 - Versionshantering och gruppering av avbildningar för enklare hantering.
-- Gör dina avbildningar med hög tillgänglighet med Zonredundant lagring (ZRS)-konton i regioner som har stöd för Tillgänglighetszoner. ZRS ger bättre återhämtning mot zonindelad fel.
-- Delning mellan prenumerationer och även mellan klienter, med hjälp av RBAC.
+- Med hög tillgänglighet bilder med Zonredundant lagring (ZRS) konton i regioner som har stöd för Tillgänglighetszoner. ZRS ger bättre återhämtning mot zonindelad fel.
+- Delning mellan prenumerationer och även mellan Active Directory (AD)-klienter, med hjälp av RBAC.
+- Skala dina distributioner med bild repliker i varje region.
 
 Med hjälp av en delad bildgalleriet kan du dela dina avbildningar till olika användare, tjänstens huvudnamn eller AD-grupper i din organisation. Delade bilder kan replikeras till flera regioner, för snabbare skalning av dina distributioner.
 
@@ -42,18 +43,18 @@ Funktionen delad bildgalleriet har flera resurstyper:
 
 ![Bild som visar hur du kan ha flera versioner av en avbildning i galleriet](./media/shared-image-galleries/shared-image-gallery.png)
 
-## <a name="image-definitions"></a>Avbildningsdefinitioner
+## <a name="image-definitions"></a>Bild-definitioner
 
 Definitionerna för avbildning är en logisk gruppering för versioner av en avbildning. Avbildningsdefinitionen innehåller information om varför avbildningen har skapats, vilka operativsystem som den är avsedd för och information om hur du använder avbildningen. En bild-definition är som en plan för alla detaljer gäller att skapa en viss avbildning. Du distribuera inte en virtuell dator från en bild-definition, men från versionsnumret för avbildningen som skapats från definitionen.
 
 
 Det finns tre parametrar för varje avbildningsdefinitionen som används i kombination - **Publisher**, **erbjuder** och **SKU**. De används för att hitta en viss avbildning definition. Du kan ha bild-versioner som delar en eller två, men inte alla tre värden.  Här är till exempel tre definitioner som avbildning och deras värden:
 
-|Bilddefinition|Utgivare|Erbjudande|SKU|
+|Bilddefinition|Utgivare|Erbjudande|Sku|
 |---|---|---|---|
-|myImage1|Contoso|Finans|Serverdel|
-|myImage2|Contoso|Finans|Klientdel|
-|myImage3|Testning|Finans|Klientdel|
+|myImage1|Contoso|Ekonomi|Serverdel|
+|myImage2|Contoso|Ekonomi|Klientdel|
+|myImage3|Testning|Ekonomi|Klientdel|
 
 Alla tre av dessa ha unika värden. Formatet är liknar hur du kan för närvarande ange utgivare, erbjudande och SKU för [Azure Marketplace-avbildningar](../articles/virtual-machines/windows/cli-ps-findimage.md) i Azure PowerShell för att hämta den senaste versionen av en Marketplace-avbildning. Varje avbildningsdefinitionen måste ha en unik uppsättning dessa värden.
 
@@ -77,15 +78,15 @@ Regioner visas i tabellen nedan. Alla offentliga regioner kan vara målregioner,
 
 | Regioner |
 |---------------------|-----------------|------------------|-----------------|
-| Australien, centrala   | USA, centrala – EUAP | Sydkorea, centrala    | Södra Storbritannien 2      |
-| Australien, centrala 2 | Asien, östra       | Sydkorea, södra      | Västra Storbritannien         |
-| Australien, östra      | Östra USA         | USA, norra centrala | USA, västra centrala  |
-| Australien, sydöstra | USA, östra 2       | Europa, norra     | Europa, västra     |
-| Brasilien, södra        | USA, östra 2 – EUAP  | USA, södra centrala | Indien, västra      |
-| Kanada, centrala      | Centrala Frankrike  | Indien, södra      | USA, västra         |
-| Kanada, östra         | Frankrike, södra    | Sydostasien   | USA, västra         |
-| Indien, centrala       | Japan, östra      | Norra Storbritannien         | USA, västra 2       |
-| Centrala USA          | Japan, västra      | Södra Storbritannien         |                 |
+| Australien, centrala   | USA, centrala – EUAP | Sydkorea, centrala    | Storbritannien, södra 2      |
+| Australien, centrala 2 | Östasien       | Sydkorea, södra      | Storbritannien, västra         |
+| Östra Australien      | Östra USA         | Norra centrala USA | Västra centrala USA |
+| Sydöstra Australien | USA, östra 2       | Norra Europa     | Västra Europa     |
+| Södra Brasilien        | East US 2 EUAP  | Södra centrala USA | Indien, västra      |
+| Centrala Kanada      | Frankrike, centrala  | Södra Indien      | Västra USA         |
+| Östra Kanada         | Frankrike, södra    | Sydostasien   | Västra USA         |
+| Indien, centrala       | Östra Japan      | Storbritannien, norra         | Västra USA 2       |
+| Centrala USA          | Västra Japan      | Storbritannien, södra         |                 |
 
 
 
@@ -102,7 +103,26 @@ Mer information finns i [Kontrollera resursanvändningen mot gränser](https://d
 ## <a name="scaling"></a>Skalning
 Delade galleri med avbildningar kan du ange antalet repliker som du vill att Azure ska hålla av avbildningarna. Detta hjälper i scenarier för flera virtuella datorer som VM-distributioner kan spridas till olika repliker, vilket minskar risken för att skapa en instans bearbetningen begränsas på grund av överbelastning av en enskild replik.
 
+
+Med delad galleriet med avbildningar kan du nu distribuera upp till 1 000 VM-instanser i en skalningsuppsättning för virtuell dator (upp från 600 med hanterade avbildningar). Bild repliker ger bättre distribution prestanda, tillförlitlighet och konsekvens.  Du kan ange en annan replikantal i varje målregion, baserat på dina behov för skala för regionen. Eftersom varje replik är en djup kopia av din avbildning, vis skala dina distributioner linjärt med varje extra replik. Vi är medvetna om inga två avbildningar eller regioner är samma, är här våra riktlinjer om hur du använder repliker i en region:
+
+- 20 virtuella dator som du skapar samtidigt, rekommenderar vi du behåller en replik. Till exempel om du skapar 120 virtuella datorer samtidigt med samma avbildning i en region, föreslår vi att du behåller minst 6 repliker av din avbildning. 
+- För varje set-distribution för skalning med upp till 600 instanser rekommenderar vi du behåller minst en replik. Till exempel om du skapar 5 skalningsuppsättningar samtidigt, var och en med 600 VM-instanser med samma avbildning i en region, föreslår vi att du behålla minst 5 repliker av din avbildning. 
+
+Vi rekommenderar alltid att du därför överetablerar antalet repliker beror på faktorer som avbildningens storlek, innehåll och OS-typen.
+
+
 ![Bild som visar hur du kan skala bilder](./media/shared-image-galleries/scaling.png)
+
+
+
+## <a name="make-your-images-highly-available"></a>Skapa hög tillgänglighet för dina avbildningar
+
+[Azure Zonredundant lagring (ZRS)](https://azure.microsoft.com/blog/azure-zone-redundant-storage-in-public-preview/) får elasticitet mot en Tillgänglighetszon fel i regionen. Med den allmänna tillgängligheten för delad galleri med avbildningar kan du spara bilder i ZRS-konton i regioner med Tillgänglighetszoner. 
+
+Du kan också välja typen för var och en av målregionerna som. Standard lagringskontotypen är Standard_LRS, men du kan välja Standard_ZRS för regioner med Tillgänglighetszoner. Kontrollera regionala tillgängligheten för ZRS [här](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs).
+
+![Bild som visar ZRS](./media/shared-image-galleries/zrs.png)
 
 
 ## <a name="replication"></a>Replikering
@@ -113,26 +133,25 @@ De regioner som en delad Avbildningsversion replikeras till kan uppdateras efter
 ![Bild som visar hur du kan replikera avbildningar](./media/shared-image-galleries/replication.png)
 
 
-## <a name="access"></a>Åtkomst
+## <a name="access"></a>Access
 
-Eftersom bildgalleriet för delade, delade avbildningen och delade Avbildningsversion alla resurser, kan de delas med hjälp av den inbyggda interna Azure RBAC styr. Med RBAC kan du dela dessa resurser till andra användare, tjänstens huvudnamn och grupper. Du kan också dela åtkomst till personer utanför den klient som de skapades i. När en användare har åtkomst till delade avbildningsversionen, kan de distribuera en virtuell dator eller en Virtual Machine Scale Sets.  Här är delningsapplikationen matrisen som hjälper dig att förstå vad användaren får åtkomst till:
+Eftersom den delade bildgalleriet och Avbildningsdefinitionen Avbildningsversion alla resurser, kan de delas med hjälp av den inbyggda interna Azure RBAC styr. Med RBAC kan du dela dessa resurser till andra användare, tjänstens huvudnamn och grupper. Du kan också dela åtkomst till personer utanför den klient som de skapades i. När en användare har åtkomst till delade avbildningsversionen, kan de distribuera en virtuell dator eller en Virtual Machine Scale Sets.  Här är delningsapplikationen matrisen som hjälper dig att förstå vad användaren får åtkomst till:
 
-| Delade med användaren     | Delat avbildningsgalleri | Delade bild | Delade Avbildningsversion |
+| Delade med användaren     | Delat bildgalleri | Bilddefinition | Avbildningsversion |
 |----------------------|----------------------|--------------|----------------------|
-| Delat avbildningsgalleri | Ja                  | Ja          | Ja                  |
-| Delade bild         | Nej                   | Ja          | Ja                  |
-| Delade Avbildningsversion | Nej                   | Nej           | Ja                  |
+| Delat bildgalleri | Ja                  | Ja          | Ja                  |
+| Bilddefinition     | Nej                   | Ja          | Ja                  |
 
-Vi rekommenderar att dela på nivån galleriet för bästa möjliga upplevelse. Läs mer om RBAC [hantera åtkomst till Azure-resurser med RBAC](../articles/role-based-access-control/role-assignments-portal.md).
+Vi rekommenderar att dela på nivån galleriet för bästa möjliga upplevelse. Vi rekommenderar inte att dela enskilda bild versioner. Läs mer om RBAC [hantera åtkomst till Azure-resurser med RBAC](../articles/role-based-access-control/role-assignments-portal.md).
 
-Bilder kan också delas, i skala, mellan klienter med hjälp av en app för flera klienter registrering. Läs mer om att dela bilder över klienter [dela galleriet VM-avbildningar i Azure-klienter](../articles/virtual-machines/linux/share-images-across-tenants.md).
+Bilder kan också delas, i skala, även över klienter med hjälp av en app för flera klienter registrering. Läs mer om att dela bilder över klienter [dela galleriet VM-avbildningar i Azure-klienter](../articles/virtual-machines/linux/share-images-across-tenants.md).
 
 ## <a name="billing"></a>Fakturering
 Tjänsten Shared Image Gallery erbjuds utan extra kostnad. Du kommer att debiteras för följande resurser:
 - Kostnader för lagring för att lagra delade bild-versioner. Kostnaden beror på antalet repliker av versionsnumret för avbildningen och antalet regioner versionen replikeras till. Till exempel om du har 2 avbildningar och båda replikeras till 3 regioner, kommer sedan du att ändras för 6 hanterade diskar baserat på deras storlek. Mer information finns i [priser för Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/).
 - Nätverks-kostnader för utgående trafik för replikering av den första bildversionen från källregionen till de replikerade regionerna. Efterföljande repliker hanteras i regionen, så det finns inga ytterligare avgifter. 
 
-## <a name="updating-resources"></a>Uppdaterar resurser
+## <a name="updating-resources"></a>Uppdatera resurser
 
 När du skapat kan du göra några ändringar till galleriet bildresurser. Det här är begränsat till:
  
@@ -148,7 +167,7 @@ definition av avbildningen:
 Avbildningsversion:
 - Regionala replikantal
 - Målregioner
-- Undantag från den senaste
+- Exkludera från senaste
 - Slutet av liv datum
 
 

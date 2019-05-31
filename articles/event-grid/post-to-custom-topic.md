@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/17/2019
 ms.author: spelluru
-ms.openlocfilehash: fc8877ed23b408ea041de67018a71cc203c5e8c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 14ae5f2a0b6a950889d8587cd4d03ff4fc9a171b
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66162043"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304217"
 ---
 # <a name="post-to-custom-topic-for-azure-event-grid"></a>Skicka till anpassat ämne för Azure Event Grid
 
@@ -39,7 +39,7 @@ Om du vill hämta slutpunkten för ett anpassat ämne med Azure PowerShell anvä
 (Get-AzEventGridTopic -ResourceGroupName <topic-resource-group> -Name <topic-name>).Endpoint
 ```
 
-## <a name="header"></a>Sidhuvud
+## <a name="header"></a>Huvud
 
 Inkludera ett huvudvärde med namnet i begäran, `aeg-sas-key` som innehåller en nyckel för autentisering.
 
@@ -76,7 +76,10 @@ Anpassade ämnen innehåller översta data samma fält som standard resurs-defin
 ]
 ```
 
-En beskrivning av de här egenskaperna finns i [Azure Event Grid Händelseschema](event-schema.md). När skicka händelser till en event grid-ämne kan matrisen ha en total storlek på upp till 1 MB. Varje händelse i matrisen är begränsat till 64 KB.
+En beskrivning av de här egenskaperna finns i [Azure Event Grid Händelseschema](event-schema.md). När skicka händelser till en event grid-ämne kan matrisen ha en total storlek på upp till 1 MB. Varje händelse i matrisen är begränsat till 64 KB (allmän tillgänglighet) eller 1 MB (förhandsversion).
+
+> [!NOTE]
+> En händelse av storlek på upp till 64 KB omfattas av allmän tillgänglighet (GA) serviceavtal (SLA). Stöd för en händelse av storlek på upp till 1 MB förhandsvisas just nu. Händelser över 64 KB debiteras i steg om 64 KB. 
 
 En giltig data-Händelseschema är till exempel:
 
@@ -103,7 +106,7 @@ När du publicera till avsnittet slutpunkten får du ett svar. Svaret är en HTT
 |Klart  | 200 OK  |
 |Händelsedata är i felaktigt format | 400 Felaktig förfrågan |
 |Ogiltig åtkomstnyckel | 401 Ej behörig |
-|Felaktig slutpunkt | 404 Kunde ej hittas |
+|Felaktig slutpunkt | 404 Hittades inte |
 |Matris eller händelse överskrider storleksgränsen | 413 nyttolast som är för stor |
 
 För fel har meddelandetexten följande format:

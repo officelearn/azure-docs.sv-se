@@ -15,12 +15,12 @@ ms.topic: reference
 ms.date: 03/20/2019
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f273104366b3e583bd98ebcc6d50387a3fb1d335
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 58de8de9a9fab67d743d4560ccda037d8f41301b
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64572821"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298991"
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: Versionshistorik
 Azure Active Directory-teamet uppdaterar regelbundet Azure AD Connect Health med nya funktioner. Den här artikeln visas de versioner och funktioner som har frisläppts.  
@@ -30,6 +30,13 @@ Azure Active Directory-teamet uppdaterar regelbundet Azure AD Connect Health med
 >
 
 Azure AD Connect Health för synkronisering är integrerat med Azure AD Connect-installationen. Läs mer om [historik för Azure AD Connect-versionen](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history) för feedback om funktioner, rösta på [Connect Health User Voice-kanal](https://feedback.azure.com/forums/169401-azure-active-directory/filters/new?category_id=165591)
+
+
+## <a name="may-2019"></a>Maj 2019
+**Agentuppdatering:** 
+* Azure AD Connect Health agent för AD FS (version 3.1.51.0) 
+   1. Felkorrigering att skilja mellan flera inloggningar som delar samma client-request-id.
+   2. Felkorrigering att parsa felaktigt användarnamn/lösenord fel på språk lokaliserade servrar.   
 
 ## <a name="april-2019"></a>April 2019
 **Agentuppdatering:** 

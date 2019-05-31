@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: scottwhi
 ms.custom: seodec2018
-ms.openlocfilehash: 024e007a34f71256d5cd148720412a0c57bb74ed
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2936b94d7ba791b1a4e5a9b95aca3ca3ecdb5904
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60240528"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66383439"
 ---
 # <a name="get-trending-images-from-the-web"></a>Visa populära bilder från webben
 
@@ -39,7 +39,7 @@ API: et för populära bilder stöder för närvarande endast följande marknade
 - en AU (engelska, Australien)  
 - zh-CN (kinesiska, Kina)
 
-Svaret innehåller en [TrendingImages](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#trendingimages) objekt som visar en lista över avbildningar efter kategori. Använda kategorins `title` att gruppera avbildningar i din användarupplevelse. Kategorier kan ändras varje dag.  
+Svaret innehåller en [TrendingImages](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#trendingimages) objekt som visar en lista över avbildningar efter kategori. Använda kategorins `title` att gruppera avbildningar i din användarupplevelse. Kategorier kan ändras varje dag.  
 
 ```json
 {
@@ -90,7 +90,7 @@ Svaret innehåller en [TrendingImages](https://docs.microsoft.com/rest/api/cogni
 
 Varje panel innehåller en bild och alternativ för att hämta relaterade bilder. För att få de relaterade bilderna kan du använda frågan `text` att anropa den [Image Search API](./search-the-web.md) och visa de relaterade bilderna själv. Du kan också använda URL: en i `webSearchUrl` ska användaren att Bings avbildningar sökresultatsidan som innehåller relaterade bilder.
 
-Om du anropar Image Sök-API för att hämta relaterade bilder, anger du den [id](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#id) frågeparameter med ID i den `id` fält. Anger ID säkerställer att svaret innehåller avbildningen (det är den första bilden i svaret) och dess relaterade bilder. Ange dessutom den [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) frågeparameter i texten i den `query` objektets `text` fält.
+Om du anropar Image Sök-API för att hämta relaterade bilder, anger du den [id](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#id) frågeparameter med ID i den `id` fält. Anger ID säkerställer att svaret innehåller avbildningen (det är den första bilden i svaret) och dess relaterade bilder. Ange dessutom den [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference) frågeparameter i texten i den `query` objektets `text` fält.
 
 I följande exempel visar hur du använder avbildnings-ID för att hämta relaterade bilder av John Smith i föregående populära bilder API-svaret.
 

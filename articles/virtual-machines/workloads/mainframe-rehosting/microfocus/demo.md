@@ -5,12 +5,12 @@ author: sread
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: be94cf0367f93f14249239fce5e09c8635a01136
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 7afe29cb98a294b2a30020ad48f8b27264386746
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62125482"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304850"
 ---
 # <a name="set-up-micro-focus-cics-bankdemo-for-micro-focus-enterprise-developer-40-on-azure"></a>Konfigurera Micro fokus CICS BankDemo för Micro fokus Enterprise Developer 4.0 på Azure
 
@@ -20,13 +20,13 @@ CICs står för kontrollsystem kund, transaktion-plattform som används av mång
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-- En virtuell dator med [företagsutvecklare](set-up-micro-focus-azure.md). Tänk på att företagsutvecklare har en fullständig instans av Enterprise-Server på den för utveckling och testning. Det här är instansen av Enterprise-Server som används för demon.
+- En virtuell dator med [företagsutvecklare](set-up-micro-focus-azure.md). Tänk på att företagsutvecklare har en fullständig instans av Enterprise-Server på den för utveckling och testning. Den här instansen är instans av Enterprise-Server som används för demon.
 
 - [SQL Server 2017 Express edition](https://www.microsoft.com/sql-server/sql-server-editions-express). Ladda ned och installera den på den virtuella datorn Developer Enterprise. Enterprise-servern kräver en databas för hanteringen av CICS regioner och BankDemo programmet använder också en SQL Server-databas som heter BANKDEMO. Den här demon förutsätter att du använder SQL Server Express för båda databaserna. När du installerar, väljer du grundläggande installationen.
 
 - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) (SSMS). SSMS används för att hantera databaser och köra ett T-SQL-skript. Ladda ned och installera den på den virtuella datorn Developer Enterprise.
 
-- [Visual Studio 2017](https://azure.microsoft.com/downloads/) med senaste servicepack eller [Visual Studio Community](https://visualstudio.microsoft.com/vs/community/), som du kan ladda ned kostnadsfritt.
+- [Visual Studio-2019](https://azure.microsoft.com/downloads/) med senaste servicepack eller [Visual Studio Community](https://visualstudio.microsoft.com/vs/community/), som du kan ladda ned kostnadsfritt.
 
 - Rumba Desktop eller någon annan 3270 emulatorn.
 
@@ -38,7 +38,7 @@ När du har installerat Enterprise Developer 4.0 på den virtuella datorn måste
 
 2. Klicka på den **Search** ikonen bredvid den **starta** knappen och skriv **Windows-funktioner**. Serverhanteraren Lägg till roller och funktioner som guiden öppnas.
 
-3. Välj **webbserverrollen (IIS)**, och kontrollera följande:
+3. Välj **webbserverrollen (IIS)** , och kontrollera följande alternativ:
 
     - Innehåll i webbhanteringsverktyg
     - IIS 6-Kompatibilitetshantering (Markera alla tillgängliga funktioner)
@@ -46,7 +46,7 @@ När du har installerat Enterprise Developer 4.0 på den virtuella datorn måste
     - IIS-hanteringsskript och verktyg
     - IIS Management Service
 
-4. Välj **World Wide Web Services**, och kontrollera följande:
+4. Välj **World Wide Web Services**, och kontrollera följande alternativ:
 
      Funktioner för programutveckling:
     - .NET-utökningsbarhet
@@ -54,17 +54,17 @@ När du har installerat Enterprise Developer 4.0 på den virtuella datorn måste
     - Vanliga HTTP-funktioner: Lägg till alla tillgängliga funktioner
     - Hälsa och diagnostik: Lägg till alla tillgängliga funktioner
     - Säkerhet:
-        - Grundläggande autentisering
+        - grundläggande autentisering
         - Windows-autentisering
 
 5. Välj **Windows Process Activation Service** och alla dess underordnade.
 
-6. För **funktioner**, kontrollera **Microsoft .NET framework 3.5.1**, och kontrollera följande:
+6. För **funktioner**, kontrollera **Microsoft .NET framework 3.5.1**, och kontrollera följande alternativ:
 
     - Windows Communication Foundation HTTP-aktivering
     - Windows Communication Foundation HTTP-aktivering
 
-7. För **funktioner**, kontrollera **Microsoft .NET framework 4.6**, och kontrollera följande:
+7. För **funktioner**, kontrollera **Microsoft .NET framework 4.6**, och kontrollera följande alternativ:
 
    - Namngiven Pipe-aktivering
    - TCP-aktivering
@@ -88,7 +88,7 @@ När du har installerat Enterprise Developer 4.0 på den virtuella datorn måste
 
 ## <a name="configure-the-local-system-account-for-sql-server"></a>Konfigurera det lokala systemkontot för SQL Server
 
-Vissa Enterprise Server-processer måste kunna logga in på SQL Server och skapa databaser och andra objekt. Dessa processer använder det lokala systemkontot så måste du ge sysadmin-behörighet till det kontot.
+Vissa Enterprise Server-processer måste kunna logga in SQL Server och skapa databaser och andra objekt. Dessa processer använder det lokala systemkontot så måste du ge sysadmin-behörighet till det kontot.
 
 1. Starta den **SSMS** och klicka på **Connect** att ansluta till den lokala SQLEXPRESS-servern med hjälp av Windows-autentisering. Det ska vara tillgängliga på den **servernamn** lista.
 
@@ -197,7 +197,7 @@ Frågan ska köras utan fel. När den är klar har du exempeldatabasen för Bank
 
      ![Ny databas XA Resursdefinitionen skärm](media/09-demo-xa.png)
 
-6. Klicka på ellipserna (**...** ) att ta fram guiden anslutningssträngen. För **servernamn**, typ **(lokal)\\SQLEXPRESS**. För **inloggning**väljer **Windows-autentisering**. Databasens namn, skriver du in **BANKDEMO**
+6. Klicka på ellipserna ( **...** ) att ta fram guiden anslutningssträngen. För **servernamn**, typ **(lokal)\\SQLEXPRESS**. För **inloggning**väljer **Windows-autentisering**. Databasens namn, skriver du in **BANKDEMO**
 
      ![Redigera anslutningssträng skärmen](media/10-demo-string.png)
 
@@ -208,7 +208,7 @@ Frågan ska köras utan fel. När den är klar har du exempeldatabasen för Bank
 > [!NOTE]
 > Det första steget är viktigt: Du måste ange regionen du använder XA-Resursdefinitionen som du nyss skapade.
 
-1. Navigera till den **BANDEMO CICS Region** under den **regioner behållare**, och välj sedan **redigera Region startfil** från den **åtgärder** fönstret. Rulla ned till SQL-egenskaper och ange **bankdemo** för den **XA-resursnamnet** , eller använda de tre punkterna för att välja den.
+1. Navigera till den **BANDEMO CICS Region** under den **regioner behållare**, och välj sedan **redigera Region startfil** från den **åtgärder** fönstret. Rulla ned till SQL-egenskaper och ange **bankdemo** för den **XA-resursnamnet**, eller använda de tre punkterna för att välja den.
 
 2. Klicka på den **spara** ikon för att spara dina ändringar.
 
@@ -216,13 +216,13 @@ Frågan ska köras utan fel. När den är klar har du exempeldatabasen för Bank
 
 4. Längst ned i den **Starta/Stoppa Region** som visas i den mellersta rutan väljer **starta**. Efter några sekunder börjar regionen.
 
-     ![SQL Starta/Stoppa box](/media/11-demo-sql.png)
+     ![SQL Starta/Stoppa box](media/11-demo-sql.png)
 
      ![CICS Region BANKDEMO - igång skärmen](media/12-demo-cics.png)
 
 ## <a name="create-a-listener"></a>Skapa en lyssnare
 
-Du måste skapa en lyssnare för TN3270-sessioner som har åtkomst till programmet BankDemo.
+Skapa en lyssnare för TN3270-sessioner som har åtkomst till programmet BankDemo.
 
 1. I den vänstra rutan expanderar **Configuration redigerare** och välj **lyssnare**.
 
@@ -236,7 +236,7 @@ Du måste skapa en lyssnare för TN3270-sessioner som har åtkomst till programm
 
 6. Lägga till en kanal för TN3270 genom att högerklicka på **BANKDEMO Region** och välja **Lägg till Channel**.
 
-7. För **namn**, ange **TN3270**. För **Port**, ange **9024**. (Observera att ESDEMO-program använder port 9230 så måste du använda en annan port.)
+7. För **namn**, ange **TN3270**. För **Port**, ange **9024**. ESDEMO programmet använder port 9230 så måste du använda en annan port.
 
 8. Om du vill spara filen, klickar du på den **spara** ikonen eller välj **filen** \> **spara**.
 
@@ -247,13 +247,13 @@ Du måste skapa en lyssnare för TN3270-sessioner som har åtkomst till programm
 
 ## <a name="configure-rumba-to-access-the-bankdemo-application"></a>Konfigurera surfa för att komma åt programmet BankDemo
 
-Det sista som du behöver göra är att konfigurera en 3270-session med surfa, en 3270-emulator. Det här steget kan du komma åt programmet BankDemo via lyssnare som du nyss skapade.
+Det sista som du behöver göra är att konfigurera en 3270-session med surfa, en 3270-emulator. Det här steget kan du komma åt programmet BankDemo via lyssnare som du skapade.
 
 1. Från Windows **starta** menyn Starta surfa Desktop.
 
 2. Under den **anslutningar** menyalternativet Välj **TN3270**.
 
-3. Klicka på **infoga** och skriv **127.0.0.1** för IP-adress och **9024** för användardefinierad-port.
+3. Klicka på **infoga** och skriv **127.0.0.1** för IP-adress och **9024** för den användardefinierade porten.
 
 4. Längst ned i dialogrutan klickar du på **Connect**. En svart CICS skärm visas.
 

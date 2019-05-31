@@ -1,6 +1,6 @@
 ---
 title: Administratörer hantera användare och enheter – Azure MFA - Azure Active Directory
-description: Här beskrivs hur du ändrar användarinställningar, till exempel tvinga användare att göra processen proof-up igen.
+description: Hur ändrar administratörer användarinställningar, till exempel tvinga användare att göra processen proof-up igen.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c78d6d901c050f6d1df8b53b34f0088d3ad8b0f8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 04d4848a00fd645bcf23342f27fe820ccf034a8b
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415147"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298847"
 ---
 # <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>Hantera användarinställningar med Azure Multi-Factor Authentication i molnet
 
@@ -42,6 +42,14 @@ Den här inställningen Tvingar användaren att slutföra registreringsprocessen
 7. Klicka på **Spara**.
 8. Klicka på **Stäng**.
 
+Organisationer kan utföra dessa steg med PowerShell med följande som en vägledning för att rensa den `StrongAuthenticationMethods` attribut:
+
+```PowerShell
+$Upn = "theuser@domain.com"
+$noMfaConfig = @()
+Set-MsolUser -UserPrincipalName $Upn -StrongAuthenticationMethods $noMfaConfig
+```
+
 ## <a name="delete-users-existing-app-passwords"></a>Ta bort användare som har befintliga applösenord
 
 Den här inställningen tar bort alla applösenord som en användare har skapat. Icke-webbläsarbaserade appar som är kopplade till dessa applösenord upphör att fungera tills ett nytt applösenord har skapats.
@@ -64,7 +72,7 @@ En av de konfigurerbara funktionerna i Azure Multi-Factor Authentication ger anv
 
 Användare kan välja bort tvåstegsverifiering för ett konfigurerbart antal dagar för sina vanliga enheter. Om ett konto komprometteras eller en betrodd enhet tappas bort, behöver du för att kunna ta bort den betrodda statusen och kräva tvåstegsverifiering igen.
 
-Den **Återställ multifaktorautentisering på alla sparade enheter** måste inställningen innebär att användaren utför en tvåstegsverifiering nästa gång de loggar in, oavsett om de har valt att markera sin enhet som betrodda.
+När alternativet är markerat, **Återställ multifaktorautentisering på alla sparade enheter** användare krävs för att utföra tvåstegsverifiering nästa gång de loggar in, även om de markerade enheten som betrodda.
 
 ### <a name="how-to-restore-mfa-on-all-suspended-devices-for-a-user"></a>Så här återställer du MFA på alla pausade enheter för en användare
 

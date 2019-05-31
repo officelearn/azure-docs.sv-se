@@ -8,12 +8,12 @@ ms.author: kasparks
 ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 793c881d08e8feb038cc6e7ac82b7e95384e1b55
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bdba3f135f852312af1692f77643095d865f1d06
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60467735"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66254671"
 ---
 # <a name="improve-availability-of-your-application-with-azure-advisor"></a>Förbättra tillgängligheten för ditt program med Azure Advisor
 
@@ -69,6 +69,30 @@ I aktiv-aktiv konfiguration, kommer båda instanserna av en VPN-gateway upprätt
 ## <a name="use-production-vpn-gateways-to-run-your-production-workloads"></a>Använd produktion VPN-gatewayer för att köra dina produktionsarbetsbelastningar
 
 Azure Advisor söker efter alla VPN-gatewayer som är en grundläggande SKU och rekommenderar att du använder en produktion SKU i stället. Grundläggande SKU: N är utformat för utveckling och testning. Produktion-SKU: er erbjuder ett högre antal tunnlar, BGP-stöd, aktiv-aktiv konfigurationsalternativ, anpassade Ipsec/IKE-principer och högre stabilitet och tillgänglighet.
+
+## <a name="repair-invalid-log-alert-rules"></a>Reparera ogiltig loggaviseringsregler
+
+Azure Advisor identifierar Varningsregler som har ogiltiga frågor som anges i deras villkoret-avsnitt. Loggvarningsregler som skapas i Azure Monitor och används för att köra analysfrågor vid angivna intervall. Frågans resultat avgöra om en avisering behöver aktiveras. Analytics-frågor kan bli ogiltigt övertid på grund av ändringar i refererade resurser, tabeller eller kommandon. Advisor rekommenderar att du korrigera frågan i varningsregeln att förhindra att den hämtar automatiskt inaktiv och säkerställa att övervakning täckning för dina resurser i Azure. [Läs mer om hur du felsöker Varningsregler](https://aka.ms/aa_logalerts_queryrepair)
+
+## <a name="configure-consistent-indexing-mode-on-your-cosmos-db-collection"></a>Konfigurera konsekvent indexering läge på din Cosmos DB-samling
+
+Azure Cosmos DB-behållare som konfigurerats med Lazy indexering läge kan påverka färskhet i frågeresultaten. Advisor identifierar behållare konfigureras på det här sättet och rekommenderar att du växlar till enhetligt läge. [Mer information om indexeringsprinciper i Cosmos DB](https://aka.ms/cosmosdb/how-to-manage-indexing-policy)
+
+## <a name="configure-your-azure-cosmos-db-containers-with-a-partition-key"></a>Konfigurera dina Azure Cosmos DB-behållare med en partitionsnyckel
+
+Azure Advisor identifierar Azure Cosmos DB partitionerade samlingar som närmar sig sin kvot allokerat lagringsutrymme. Blir du rekommenderad migrera dessa samlingar till nya samlingar med en definition av en partition så att de automatiskt kan skaländras ut av tjänsten. [Läs mer om hur du väljer en partitionsnyckel](https://aka.ms/cosmosdb/choose-partitionkey)
+
+## <a name="upgrade-your-azure-cosmos-db-net-sdk-to-the-latest-version-from-nuget"></a>Uppgradera ditt Azure Cosmos DB .NET SDK till den senaste versionen från Nuget
+
+Azure Advisor identifierar Azure Cosmos DB-konton som använder äldre versioner av .NET SDK och rekommenderar att du uppgraderar till den senaste versionen från Nuget för de senaste korrigeringarna, prestandaförbättringar och nya funktioner. [Mer information om Cosmos DB .NET SDK](https://aka.ms/cosmosdb/sql-api-sdk-dotnet)
+
+## <a name="upgrade-your-azure-cosmos-db-java-sdk-to-the-latest-version-from-maven"></a>Uppgradera ditt Azure Cosmos DB Java SDK till den senaste versionen från Maven
+
+Azure Advisor identifierar Azure Cosmos DB-konton som använder äldre versioner av Java SDK och rekommenderar att du uppgraderar till den senaste versionen från Maven för de senaste korrigeringarna, prestandaförbättringar och nya funktioner. [Mer information om Cosmos DB Java SDK](https://aka.ms/cosmosdb/sql-api-sdk-dotnet)
+
+## <a name="upgrade-your-azure-cosmos-db-spark-connector-to-the-latest-version-from-maven"></a>Uppgradera ditt Azure Cosmos DB Spark Connector till den senaste versionen från Maven
+
+Azure Advisor identifierar Azure Cosmos DB-konton som använder äldre versioner av Cosmos DB Spark-anslutningsappen och rekommenderar att du uppgraderar till den senaste versionen från Maven för de senaste korrigeringarna, prestandaförbättringar och nya funktioner. [Mer information om Cosmos DB Spark connector](https://aka.ms/cosmosdb/spark-connector)
 
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Hur du kommer åt rekommendationer för hög tillgänglighet i Advisor
 

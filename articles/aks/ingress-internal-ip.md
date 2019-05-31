@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 03/27/2019
+ms.date: 05/24/2019
 ms.author: iainfou
-ms.openlocfilehash: 4a648bd2704e93abedeefae14aee66ae8bfeecef
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 27d93f963003cfb30b8827d45c0472405b0ed0a6
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073908"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66392667"
 ---
 # <a name="create-an-ingress-controller-to-an-internal-virtual-network-in-azure-kubernetes-service-aks"></a>Skapa en ingress-kontrollanten för att ett internt virtuellt nätverk i Azure Kubernetes Service (AKS)
 
@@ -31,7 +31,7 @@ Du kan också:
 
 Den här artikeln använder Helm för att installera NGINX ingress-kontrollant, certifikathanterare och en exempelwebbapp. Du måste ha Helm initieras i AKS-klustret och använda ett tjänstkonto för Tiller. Läs mer om att konfigurera och använda Helm [installera program med Helm i Azure Kubernetes Service (AKS)][use-helm].
 
-Den här artikeln kräver också att du kör Azure CLI version 2.0.61 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
+Den här artikeln kräver också att du kör Azure CLI version 2.0.64 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
 
 ## <a name="create-an-ingress-controller"></a>Skapa en ingress-kontrollant
 
@@ -49,6 +49,8 @@ controller:
 
 Nu distribuera den *nginx-ingress* diagram med Helm. Om du vill använda manifestfilen skapade i föregående steg, lägger du till den `-f internal-ingress.yaml` parametern. För extra redundans två repliker av NGINX ingående kontrollenheterna distribueras med den `--set controller.replicaCount` parametern. Om du vill utnyttja alla fördelar med repliker av ingress-kontrollant, kontrollera att det finns fler än en nod i AKS-klustret.
 
+Ingress-kontrollant måste också schemaläggas på en Linux-nod. Windows Server-noder (för närvarande i förhandsversion i AKS) bör inte köra ingress-kontrollant. En nod-väljare anges med hjälp av den `--set nodeSelector` parametern ska berätta för Kubernetes-Schemaläggaren för att köra ingress-kontrollanten för NGINX på en Linux-baserade nod.
+
 > [!TIP]
 > I följande exempel skapas ett Kubernetes-namnområde för ingress-resurser med namnet *ingress-grundläggande*. Ange ett namnområde för din egen miljö efter behov. Om AKS-klustret inte RBAC aktiverat lägger du till `--set rbac.create=false` för Helm-kommandon.
 
@@ -60,7 +62,9 @@ kubectl create namespace ingress-basic
 helm install stable/nginx-ingress \
     --namespace ingress-basic \
     -f internal-ingress.yaml \
-    --set controller.replicaCount=2
+    --set controller.replicaCount=2 \
+    --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
+    --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux
 ```
 
 När tjänsten för Kubernetes belastningsutjämning har skapats för ingress-kontrollanten för NGINX kan tilldelas din interna IP-adressen som visas i följande Exempelutdata:
@@ -117,19 +121,19 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
 spec:
   rules:
   - http:
       paths:
-      - path: /
-        backend:
+      - backend:
           serviceName: aks-helloworld
           servicePort: 80
-      - path: /hello-world-two
-        backend:
+        path: /(.*)
+      - backend:
           serviceName: ingress-demo
           servicePort: 80
+        path: /hello-world-two(/|$)(.*)
 ```
 
 Skapa den ingående resursen med hjälp av den `kubectl apply -f hello-world-ingress.yaml` kommando.
@@ -154,7 +158,7 @@ Installera `curl` i en pod med hjälp av `apt-get`:
 apt-get update && apt-get install -y curl
 ```
 
-Nu komma åt adressen för din Kubernetes ingress domänkontrollant med hjälp av `curl`, till exempel *http://10.240.0.42*. Ange din egen interna IP-adressen som anges när du distribuerade ingress-kontrollanten för i det första steget i den här artikeln.
+Nu komma åt adressen för din Kubernetes ingress domänkontrollant med hjälp av `curl`, till exempel *http://10.240.0.42* . Ange din egen interna IP-adressen som anges när du distribuerade ingress-kontrollanten för i det första steget i den här artikeln.
 
 ```console
 curl -L http://10.240.0.42
@@ -173,7 +177,7 @@ $ curl -L 10.240.0.42
 [...]
 ```
 
-Lägg nu till */hello-world-two* sökvägen till adressen, till exempel *http://10.240.0.42/hello-world-two*. Andra demoprogrammet med anpassade rubriken returneras enligt följande komprimerade exempel på utdata:
+Lägg nu till */hello-world-two* sökvägen till adressen, till exempel *http://10.240.0.42/hello-world-two* . Andra demoprogrammet med anpassade rubriken returneras enligt följande komprimerade exempel på utdata:
 
 ```
 $ curl -L -k http://10.240.0.42/hello-world-two

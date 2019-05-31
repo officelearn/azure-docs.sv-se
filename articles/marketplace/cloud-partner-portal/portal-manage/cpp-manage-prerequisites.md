@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: pabutler
-ms.openlocfilehash: da594ca5793bbf61f393fb1380309403fd808cef
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 8c32043d9bf3ca68563ae01d415bdc0e1f6993f7
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64942221"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258131"
 ---
 # <a name="prerequisites-for-managing-accounts-on-the-cloud-partner-portal"></a>Förutsättningar för att hantera konton på partnerportalen i molnet 
 
@@ -23,12 +23,13 @@ Innan du kan använda den [Cloud Partner Portal](https://cloudpartner.azure.com/
 
 Noga igenom dina rättigheter och skyldigheter enligt den [avtalet om Microsofts](https://www.microsoft.com/servicesagreement) och [Microsofts Terms](https://www.microsoft.com/legal/intellectualproperty/copyright) innan du skapar ett konto.  
 
-Välj namnet på ditt konto noggrant.  Representerar din organisation, så att den inte får innehålla några ord upphovsrättsskyddade eller läget.  Microsoft tillåter exempelvis inte användning av dess upphovsrättsskyddade villkor, till exempel ”Azure” och ”Microsoft”, i namn på konto.  Mer information finns i [riktlinjer för Azure Marketplace](../../guidelines.md)
+Välj namnet på ditt konto noggrant.  Representerar din organisation, så att den inte får innehålla några ord upphovsrättsskyddade eller läget.  Microsoft tillåter exempelvis inte användning av dess upphovsrättsskyddade villkor, till exempel ”Azure” och ”Microsoft”, i namn på konto.  Mer information finns i [riktlinjer för Azure Marketplace](https://docs.microsoft.com/azure/marketplace/guidelines)
 
 
 ## <a name="registration-steps"></a>Steg för registrering
 
-I följande tabell visas steg som krävs för att fullständigt registrera som en utgivare för Microsoft-molnet.  Fullständiga anvisningar finns i [blir molnet Marketplace utgivare](../../become-publisher.md). 
+I följande tabell visas steg som krävs för att fullständigt registrera som en utgivare för Microsoft-molnet.  Fullständiga anvisningar finns i [blir molnet Marketplace utgivare](https://docs.microsoft.com/azure/marketplace/become-publisher
+). 
 
 
 |                   Steg                   |  Resulterande registrering eller resurs                     |

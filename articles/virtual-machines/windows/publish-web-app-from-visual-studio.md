@@ -13,16 +13,16 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: ghogen
-ms.openlocfilehash: 5298721b7f60cec677c22faf1b35011aab02defb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4b8e3ddf1cf5d61f730ce01a35ee0813b47ad2d2
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60204442"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305922"
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>Publicera en ASP.NET-Webbapp till en Azure virtuell dator från Visual Studio
 
-Det här dokumentet beskriver hur du publicerar ett ASP.NET-webbprogram till en Azure-dator (VM) med hjälp av den **Microsoft Azure Virtual Machines** publiceringsfunktionen i Visual Studio 2017.  
+Det här dokumentet beskriver hur du publicerar ett ASP.NET-webbprogram till en Azure-dator (VM) med hjälp av den **Microsoft Azure Virtual Machines** publiceringsfunktionen i Visual Studio 2019.  
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 För att kunna använda Visual Studio för att publicera ett ASP.NET-projekt till en Azure-dator, ställas den virtuella datorn ska in.
@@ -34,7 +34,7 @@ För att kunna använda Visual Studio för att publicera ett ASP.NET-projekt til
 ## <a name="publish-your-aspnet-web-app-to-the-azure-vm-using-visual-studio"></a>Publicera din ASP.NET-webbapp med Visual Studio Azure-datorn
 I följande avsnitt beskrivs hur du publicerar ett befintligt ASP.NET-webbprogram till en Azure-dator.
 
-1. Öppna din web app-lösning i Visual Studio 2017.
+1. Öppna din web app-lösning i Visual Studio 2019.
 2. Högerklicka på projektet i Solution Explorer och välj **publicera...**
 3. Använd pilen till höger på sidan för att bläddra igenom publiceringsalternativ tills du hittar **Microsoft Azure Virtual Machines**.  
 
@@ -58,7 +58,7 @@ I följande avsnitt beskrivs hur du publicerar ett befintligt ASP.NET-webbprogra
 
 7. Klicka på OK om du vill starta publiceringen.
 
-8. När du tillfrågas om autentiseringsuppgifter, anger du användarnamnet och lösenordet för ett användarkonto på målet virtuell dator som är konfigurerad med att publicera rättigheter (vanligtvis administratörens användarnamn och lösenord som användes när du skapade den virtuella datorn).  
+8. När du tillfrågas om autentiseringsuppgifter, anger du användarnamnet och lösenordet för ett användarkonto på målet virtuell dator som är konfigurerad med att publicera rättigheter. Dessa autentiseringsuppgifter är vanligtvis administratörens användarnamn och lösenord som används när du skapar den virtuella datorn.  
 
    ![WebDeploy-inloggning]
 
@@ -99,12 +99,12 @@ Inställningarna bör se ut ungefär så här:
 ![Publiceringsinställningar - anslutningssidan]
 
 #### <a name="save-user-name-and-password"></a>Spara användarnamn och lösenord
-- För att undvika att ange autentiseringsuppgifter varje gång du publicerar kan du fylla i den **användarnamn** och **lösenord** fält och välj den **spara lösenordet** box.
+- Undvik att ange autentiseringsuppgifter varje gång du publicerar. Du gör detta genom att fylla i den **användarnamn** och **lösenord** fält och välj den **spara lösenordet** box.
 - Använd den **Validera anslutningen** för att bekräfta att du har angett rätt information.
 
 #### <a name="deploy-to-clean-web-server"></a>Distribuera för att rensa webbserver
 
-- Om du vill kontrollera att servern har en ren till webbprogrammet efter varje överföring (och att inga andra filer lämnas hängande från en tidigare distribution) du kan kontrollera den **ta bort extra filer från destinationen** kryssrutan i den **inställningar** fliken.
+- Om du vill kontrollera att servern har en ren till webbprogrammet efter varje överföring och att inga andra filer lämnas från en tidigare distribution kan du den **ta bort extra filer från destinationen** kryssrutan i  **Inställningar för** fliken.
 
 - Varning: Publicera med den här inställningen tar bort alla filer som finns på webbservern (Wwwroot-katalog). Måste du veta vilket tillstånd datorn innan du publicerar det här alternativet. 
 

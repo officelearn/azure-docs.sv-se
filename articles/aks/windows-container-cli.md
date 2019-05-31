@@ -2,17 +2,17 @@
 title: Förhandsgranskning – skapa en Windows Server-behållare i ett kluster i Azure Kubernetes Service (AKS)
 description: Lär dig hur du snabbt skapar ett Kubernetes-kluster, distribuera ett program på en Windows Server-behållare i Azure Kubernetes Service (AKS) med hjälp av Azure CLI.
 services: container-service
-author: zr-msft
+author: tylermsft
 ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
-ms.author: zarhoads
-ms.openlocfilehash: 328fb9707c7151b8696cfb55e13567db90e45b7f
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.author: twhitney
+ms.openlocfilehash: 5f727cb5c56c31e769edcb365f6d571253174567
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65991144"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305302"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Förhandsgranskning – skapa en Windows Server-behållare i ett Azure Kubernetes Service (AKS)-kluster med Azure CLI
 
@@ -35,9 +35,10 @@ Om du väljer att installera och använda CLI lokalt måste den här artikeln kr
 När du har skapat ditt kluster som kan köra Windows Server-behållare måste du lägga till en ny nod-pool. Att lägga till en ny nodpool täcks i ett senare steg, men du måste först aktivera några funktioner i förhandsversion.
 
 > [!IMPORTANT]
-> AKS-förhandsversionsfunktioner är självbetjäning och delta i. Förhandsversioner tillhandahålls för att samla in feedback och buggar från vår community. De stöds dock inte av teknisk support för Azure. Om du skapar ett kluster eller lägga till dessa funktioner i befintliga kluster, stöds klustret inte förrän funktionen är inte längre i förhandsversion och uppgraderas till allmän tillgänglighet (GA).
+> AKS-förhandsversionsfunktioner är självbetjäning, delta i. De tillhandahålls för att samla in feedback och buggar från vår community. I förhandsversionen kan är inte dessa funktioner avsedda för användning i produktion. Funktioner i offentliga förhandsversioner omfattas ”bästa prestanda” support. Hjälp från teamen för AKS-teknisk support är tillgänglig under kontorstid Pacific tidszon (Stillahavstid) endast. Mer information finns i följande supportartiklar:
 >
-> Om du stöter på problem med funktioner i förhandsversion [öppna ett ärende på AKS GitHub-lagringsplatsen] [ aks-github] med namnet på funktionen för förhandsgranskning i rubriken för bugg.
+> * [AKS supportprinciper][aks-support-policies]
+> * [Vanliga frågor om Azure-Support][aks-faq]
 
 ### <a name="install-aks-preview-cli-extension"></a>Installera CLI-tillägg för aks-förhandsversion
     
@@ -276,7 +277,7 @@ sample  LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 
 ![Bild som visar Bläddra till ASP.NET-exempelprogrammet](media/windows-container/asp-net-sample-app.png)
 
-## <a name="delete-cluster"></a>Ta bort kluster
+## <a name="delete-cluster"></a>Ta bort klustret
 
 När klustret inte längre behövs kan du använda kommandot [az group delete][az-group-delete] för att ta bort resursgruppen, containertjänsten och alla relaterade resurser.
 
@@ -302,7 +303,6 @@ Om du vill lära dig mer om AKS, och gå igenom ett exempel med fullständig dis
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [node-selector]: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
 [dotnet-samples]: https://hub.docker.com/_/microsoft-dotnet-framework-samples/
-[aks-github]: https://github.com/azure/aks/issues
 [azure-cni]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 
 <!-- LINKS - internal -->
@@ -328,3 +328,5 @@ Om du vill lära dig mer om AKS, och gå igenom ett exempel med fullständig dis
 [kubernetes-dashboard]: kubernetes-dashboard.md
 [restricted-vm-sizes]: quotas-skus-regions.md#restricted-vm-sizes
 [use-advanced-networking]: configure-advanced-networking.md
+[aks-support-policies]: support-policies.md
+[aks-faq]: faq.md

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/16/2018
 ms.author: aljo
-ms.openlocfilehash: b4d3699c0327bb2771a358d3e3c2921bdc39ee5e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cb0f750f4049a1ce652c829f43928a95f30e6973
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60621574"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66302231"
 ---
 # <a name="service-fabric-application-and-service-security"></a>Service Fabric-program- och Tjänstsäkerhet
 En arkitektur för mikrotjänster kan ge [många fördelar](service-fabric-overview-microservices.md). Hantering av säkerhet för mikrotjänster, men är en utmaning och skiljer sig från traditionella oflexibla tillämpningar säkerhetshantering. 
@@ -36,7 +36,7 @@ Det första steget att göra API-nivå förtroendebeslut är autentisering. Aute
 
 Om tjänster kan nås direkt är en autentiseringstjänst som Azure Active Directory eller en dedikerad autentisering mikrotjänst som fungerar som en säkerhets-och säkerhetstokentjänst (STS) som kan användas för att autentisera användare. Lita på beslut som delas mellan tjänster med säkerhetstoken eller cookies. 
 
-För ASP.NET Core, den primära mekanismen för [autentisering av användare](/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/) är ASP.NET Core identitet medlemskapssystem. ASP.NET Core identitet lagrar information om användare (inklusive inloggningsinformation, roller och anspråk) i ett datalager som konfigurerats av utvecklaren. ASP.NET Core identitet har stöd för tvåfaktorautentisering.  Externa autentiseringsproviders stöds också, så att användare kan logga in med befintliga Autentiseringsprocesser från leverantörer som Microsoft, Google, Facebook eller Twitter. 
+För ASP.NET Core, den primära mekanismen för [autentisering av användare](/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/) är ASP.NET Core identitet medlemskapssystem. ASP.NET Core identitet lagrar information om användare (inklusive inloggningsinformation, roller och anspråk) i ett datalager som konfigurerats av utvecklaren. ASP.NET Core identitet har stöd för tvåfaktorautentisering.  Externa autentiseringsproviders stöds också, så att användare kan logga in med befintliga Autentiseringsprocesser från leverantörer som Microsoft, Google, Facebook eller Twitter.
 
 ### <a name="authorization"></a>Auktorisering
 När autentisering, tjänster måste du auktorisera användarnas åtkomst eller fastställer vad en användare kan göra. Den här processen kan en tjänst för att göra API: er tillgängliga för vissa autentiserade användare, men inte till alla. Auktorisering är rätvinkliga och oberoende av autentisering, vilket är en process för att fastställa vem en användare är. Autentisering kan skapa en eller flera identiteter för den aktuella användaren.

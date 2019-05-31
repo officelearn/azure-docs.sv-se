@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: jehollan
-ms.openlocfilehash: 75987e7cba9f373af5a434de9f273948c3c9ae75
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: de1915c7efb4bd8634228f341df2c57c443dd28e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544770"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242310"
 ---
 # <a name="azure-functions-premium-plan-preview"></a>Azure Functions Premium-prenumeration (förhandsversion)
 
@@ -91,7 +91,7 @@ az resource update -g <resource_group> -n <premium_plan_name> --set properties.m
 
 ### <a name="available-instance-skus"></a>Tillgänglig instans SKU: er
 
-När du skapar våra skala din plan kan välja du mellan tre instansstorlekar.  Du kommer att debiteras för det totala antalet kärnor och minne som förbrukas per sekund.  Din app kan automatiskt skala ut till flera instanser efter behov.  
+När du skapar eller skala din plan, kan du välja mellan tre instansstorlekar.  Du kommer att debiteras för det totala antalet kärnor och minne som förbrukas per sekund.  Din app kan automatiskt skala ut till flera instanser efter behov.  
 
 |SKU|Kärnor|Minne|Storage|
 |--|--|--|--|
@@ -105,24 +105,24 @@ Nedan visas regionerna som stöds för tillfället för den offentliga förhands
 
 |Region|
 |--|
-|Australien, östra|
-|Australien, sydöstra|
-|Kanada, centrala|
+|Östra Australien|
+|Sydöstra Australien|
+|Centrala Kanada|
 |Centrala USA|
-|Asien, östra|
+|Östasien|
 |USA, östra 2|
-|Centrala Frankrike|
-|Japan, västra|
+|Frankrike, centrala|
+|Västra Japan|
 |Sydkorea, centrala|
-|USA, norra centrala|
-|Europa, norra|
-|USA, södra centrala|
-|Indien, södra|
+|Norra centrala USA|
+|Norra Europa|
+|Södra centrala USA|
+|Södra Indien|
 |Sydostasien|
-|Västra Storbritannien|
-|Europa, västra|
+|Storbritannien, västra|
+|Västra Europa|
 |Indien, västra|
-|USA, västra|
+|Västra USA|
 
 ## <a name="known-issues"></a>Kända problem
 

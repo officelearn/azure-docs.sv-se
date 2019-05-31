@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: ce99e03cbd767b5e25871397ea9ae9a301132ab6
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 13580289144d798a57e636f15ab5bce629ff3572
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510980"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242284"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Läsa repliker i Azure Database för PostgreSQL – enskild Server
 
@@ -40,10 +40,9 @@ Huvudservern måste ha den `azure.replication_support` parameteruppsättning til
 
 När du börjar skapa replica arbetsflöde, skapas en tom Azure Database for PostgreSQL-server. Den nya servern är fylld med de data som fanns på huvudservern. Tiden för skapandet beror på mängden data på huvudservern och hur lång tid sedan den senaste veckovisa fullständiga säkerhetskopieringen. Tiden kan variera mellan några minuter till flera timmar.
 
-Läs replica-funktionen använder PostgreSQL fysiska replikering, inte logiska replikering. Strömning replikering med hjälp av replikering fack är standardläget för åtgärden. Om det behövs används loggöverföring för att komma ifatt.
+Varje replik är aktiverat för lagring [auto-väx](concepts-pricing-tiers.md#storage-auto-grow). Funktionen auto-grow kan repliken för att hålla jämna steg med data som replikeras till den och förhindra att ett avbrott i replikeringen på grund av av lagringsfel.
 
-> [!NOTE]
-> Om du inte har en avisering uppsättning lagring på dina servrar, rekommenderar vi att du gör det. Aviseringen informerar dig när en server närmar sig lagringsgränsen, vilket påverkar replikeringen.
+Läs replica-funktionen använder PostgreSQL fysiska replikering, inte logiska replikering. Strömning replikering med hjälp av replikering fack är standardläget för åtgärden. Om det behövs används loggöverföring för att komma ifatt.
 
 Lär dig hur du [skapar en skrivskyddad replik i Azure-portalen](howto-read-replicas-portal.md).
 

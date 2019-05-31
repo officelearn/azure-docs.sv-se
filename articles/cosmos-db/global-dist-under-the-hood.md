@@ -4,15 +4,15 @@ description: Den här artikeln ger teknisk information som rör global distribut
 author: dharmas-cosmos
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/31/2019
+ms.date: 05/23/2019
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 8c916a2fcff606a99e5c567318c1818ff7d5d273
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: c490657eb67a34e79c8dbaea31cb59b49cc6448e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65071952"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241099"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---under-the-hood"></a>Globala data-distribution med Azure Cosmos DB – under huven
 
@@ -68,7 +68,7 @@ Vi använder kodade vektor klockor (som innehåller region-ID och logiska klocko
 
 För Cosmos-databaser som konfigurerats med flera Skriv-regioner, innehåller systemet ett antal flexibla automatisk konflikt lösning principer för utvecklare att välja bland, inklusive: 
 
-- **Senaste-Write-Wins (LWW)**, som normalt används en systemdefinierade tidsstämpelsegenskapen (som baseras på protokollet tidssynkronisering clock). Cosmos DB kan du ange någon annan anpassad numeriska egenskap som ska användas för konfliktlösning.  
+- **Senaste-Write-Wins (LWW)** , som normalt används en systemdefinierade tidsstämpelsegenskapen (som baseras på protokollet tidssynkronisering clock). Cosmos DB kan du ange någon annan anpassad numeriska egenskap som ska användas för konfliktlösning.  
 - **Programdefinierade (anpassat) står i konflikt principen** (uttryckt via merge procedurer), som är utformat för programdefinierade semantik avstämningen av konflikter. De här procedurerna hämta anropas vid identifiering av Skriv-Skriv-konflikt inom ramen för en databastransaktion på serversidan. Systemet innehåller exakt en gång garanterar för körning av en merge-procedur som en del av protokollet åtagande. Det finns [flera står i konflikt lösning exempel](how-to-manage-conflicts.md) som du kan experimentera med.  
 
 ## <a name="consistency-models"></a>Konsekvensmodeller

@@ -5,14 +5,14 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 02/08/2017
+ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: 765596500e3ac294dc79f0785b12b03370fa652a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 49ef63969bd603c25d120dc5cb93ed30dda04241
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60893942"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257276"
 ---
 # <a name="notifying-patients-of-hl7-fhir-health-care-record-changes-using-logic-apps-and-azure-cosmos-db"></a>Meddela patienter av HL7 FHIR hälsovård poständringar med Logic Apps och Azure Cosmos DB
 
@@ -91,7 +91,7 @@ Vi använder den [ `CreateDocumentChangeFeedQuery` ](https://msdn.microsoft.com/
 - Int: Antal dokument som returneras
 
 **Utdata**
-- Klart: Statuskod: 200, Response: Lista över dokument (JSON-matris)
+- Lyckades: Statuskod: 200, Response: Lista över dokument (JSON-matris)
 - Fel: Statuskod: 404 svaret: ”Inga dokument hittades för”*resursnamn '* resurstyp ”
 
 <a id="api-app-source"></a>

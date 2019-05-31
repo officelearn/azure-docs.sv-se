@@ -11,12 +11,12 @@ ms.subservice: bing-image-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: f54003f4e1c60b80b500f49bb83d4b7adf2bc12a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f169f969a1acf4cefc8cee27f74a99730491176a
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60312880"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389417"
 ---
 # <a name="get-images-from-the-web-with-the-bing-image-search-api"></a>Hämta avbildningar från webben med sökning i Bing
 
@@ -45,7 +45,7 @@ GET https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=sailing+dinghi
 ```
 
 > [!NOTE]
-> Svar på frågor med hjälp av den `site:` operatör kan innehålla vuxet innehåll oavsett den [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#safesearch) inställningen. Använd bara `site:` om du är medveten om innehållet på domänen.
+> Svar på frågor med hjälp av den `site:` operatör kan innehålla vuxet innehåll oavsett den [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#safesearch) inställningen. Använd bara `site:` om du är medveten om innehållet på domänen.
 
 I följande exempel visas hur du hämtar små bilder från ContosoSailing.com som Bing har identifierat den senaste veckan.  
 
@@ -62,19 +62,19 @@ Host: api.cognitive.microsoft.com
 
  Image Search API returnerar som standard alla avbildningar som är relevanta för frågan. Om du vill filtrera de avbildningar som Bing returnerar (t.ex, för att returnera endast bilder med en genomskinlig bakgrund eller en viss storlek) använder du följande frågeparametrar:
 
-* [aspekt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#aspect)– filtrera avbildningar efter proportionerna (till exempel standard- eller wide skärmbilder).
-* [färg](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#color)– filtrera avbildningar från dominant färg eller svart och vit.
-* [färskhet](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#freshness)– filtrera avbildningar efter ålder (till exempel bilder som identifierats av Bing under den senaste veckan).
-* [höjd](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#height), [bredd](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#width)– filtrera avbildningar från bredd och höjd.
-* [imageContent](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imagecontent)– filtrera avbildningar efter innehåll (till exempel bilder som visar endast en persons ansikte).
-* [imageType](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imagetype)– filtrera avbildningar efter typ (till exempel ClipArt, animerade GIF-filer eller transparent bakgrund).
-* [licens](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#license)– filtrera avbildningar av typ av licens kopplad till platsen.
-* [storlek](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#size)– filtrera avbildningar efter storlek, till exempel små avbildningar upp till 200 x 200 bildpunkter.
+* [aspekt](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#aspect)– filtrera avbildningar efter proportionerna (till exempel standard- eller wide skärmbilder).
+* [färg](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#color)– filtrera avbildningar från dominant färg eller svart och vit.
+* [färskhet](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#freshness)– filtrera avbildningar efter ålder (till exempel bilder som identifierats av Bing under den senaste veckan).
+* [höjd](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#height), [bredd](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#width)– filtrera avbildningar från bredd och höjd.
+* [imageContent](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imagecontent)– filtrera avbildningar efter innehåll (till exempel bilder som visar endast en persons ansikte).
+* [imageType](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imagetype)– filtrera avbildningar efter typ (till exempel ClipArt, animerade GIF-filer eller transparent bakgrund).
+* [licens](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#license)– filtrera avbildningar av typ av licens kopplad till platsen.
+* [storlek](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#size)– filtrera avbildningar efter storlek, till exempel små avbildningar upp till 200 x 200 bildpunkter.
 
 Om du vill hämta bilder från en specifik domän använder du frågeoperatorn [site:](https://msdn.microsoft.com/library/ff795613.aspx).
 
  > [!NOTE]
- > Svar på frågor med hjälp av den `site:` operatör kan innehålla vuxet innehåll oavsett den [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#safesearch) inställningen. Använd bara `site:` om du är medveten om innehållet på domänen.
+ > Svar på frågor med hjälp av den `site:` operatör kan innehålla vuxet innehåll oavsett den [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#safesearch) inställningen. Använd bara `site:` om du är medveten om innehållet på domänen.
 
 I följande exempel visar hur du hämtar små bilder från ContosoSailing.com som Bing identifierats under den senaste veckan.  
 
@@ -89,7 +89,7 @@ Host: api.cognitive.microsoft.com
 
 ## <a name="bing-image-search-response-format"></a>Bildsökning i Bing svarsformat
 
-Svarsmeddelandet från Bing innehåller en [avbildningar](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#images) svar som innehåller en lista med avbildningar som Cognitive Services är relevant för frågan. Varje [bild](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#image) objekt i listan innehåller följande information om avbildningen: URL: en, dess storlek, dess dimensioner, dess kodningsformat, en URL till en miniatyrbild för avbildningen och den miniatyrbilden dimensioner.
+Svarsmeddelandet från Bing innehåller en [avbildningar](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) svar som innehåller en lista med avbildningar som Cognitive Services är relevant för frågan. Varje [bild](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#image) objekt i listan innehåller följande information om avbildningen: URL: en, dess storlek, dess dimensioner, dess kodningsformat, en URL till en miniatyrbild för avbildningen och den miniatyrbilden dimensioner.
 
 ```json
 {

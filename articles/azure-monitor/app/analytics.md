@@ -12,23 +12,20 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 02/02/2019
 ms.author: mbullwin
-ms.openlocfilehash: d75544a30a441b5178a1e9dd368f1ce41cd4d321
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f5819194e7967b5921f34223cad299752460de30
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64574271"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255646"
 ---
 # <a name="analytics-in-application-insights"></a>Analys i Application Insights
 Analytics är kraftfullt Sök och fråga i Verktyg för [Application Insights](app-insights-overview.md). Analytics är ett Webbverktyg så att ingen installation krävs.
-Om du redan har konfigurerat Application Insights för en av dina appar så att du kan analysera din Apps data genom att öppna Analytics från din app [översiktsbladet](app-insights-dashboards.md).
+Om du redan har konfigurerat Application Insights för en av dina appar kan du analysera din Apps data genom att öppna Analytics från översiktsbladet för din app.
 
 ![Öppna portal.azure.com, öppna Application Insights-resursen och klicka på Analytics.](./media/analytics/001.png)
 
 Du kan också använda den [Analytics playground](https://go.microsoft.com/fwlink/?linkid=859557) som är en kostnadsfri demomiljö med mycket exempeldata.
-<br>
-<br>
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/123/player] 
 
 ## <a name="relation-to-azure-monitor-logs"></a>Relation till Azure Monitor-loggar
 Application Insights analytics baseras på [Azure Data Explorer](/azure/data-explorer) som Azure Monitor-loggar och använder också den [Kusto-frågespråket](/azure/kusto/query). Den använder samma [log analytics-portalen](../log-query/get-started-portal.md) som Azure Monitor-loggar, även om dess data lagras i en separat partition.

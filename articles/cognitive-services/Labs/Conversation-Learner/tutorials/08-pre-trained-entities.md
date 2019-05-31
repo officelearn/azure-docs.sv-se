@@ -3,19 +3,19 @@ title: Lägga till Pre-Trained entiteter i en konversation Learner modell – Mi
 titleSuffix: Azure
 description: Lär dig hur du lägger till Pre-trained entiteter i en konversation Learner modell.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: dade442cb04f79ef75e65d6eb29128b105e72b40
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: nitinme
+ms.openlocfilehash: fb70983c2f9fd20368bb8c6803c9568b27141af7
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60707757"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389262"
 ---
 # <a name="how-to-add-pre-trained-entities"></a>Hur du lägger till Pre-trained entiteter
 Den här självstudien visar hur du lägger till Pre-Trained entiteter i konversationen Learner-modellen.

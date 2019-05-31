@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 1c77d0ea9e67c8d69f3f632cace164d8a0c4d921
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0821c749a6cb718e1b8abb74a2925bc041850eaf
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60562363"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305261"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Koncept i Azure Event Grid
 
@@ -22,7 +22,8 @@ Den här artikeln beskriver de viktigaste begreppen i Azure Event Grid.
 
 En händelse är den minsta mängden information som helt beskriver något som har inträffat i systemet. Varje händelse har common information, till exempel: källan för händelsen, tid händelsen tog plats och unik identifierare. Varje händelse har också specifik information som endast är relevanta för den specifika typen av händelse. Exempelvis kan en händelse om en ny fil skapas i Azure Storage innehåller information om filen, till exempel den `lastTimeModified` värde. Eller en händelse i Event Hubs har URL: en för filen avbildning. 
 
-Varje händelse är begränsat till 64 KB data.
+En händelse av storlek på upp till 64 KB omfattas av allmän tillgänglighet (GA) serviceavtal (SLA). Stöd för en händelse av storlek på upp till 1 MB förhandsvisas just nu. Händelser över 64 KB debiteras i steg om 64 KB. 
+
 
 De egenskaper som skickas i en händelse, se [Azure Event Grid Händelseschema](event-schema.md).
 
@@ -59,9 +60,6 @@ Exempel för att skapa prenumerationer finns:
 Information om hur du får din aktuella event grid-prenumerationer finns i [Query Event Grid-prenumerationer](query-event-subscriptions.md).
 
 ## <a name="event-subscription-expiration"></a>Händelse-prenumeration upphör att gälla
-
-Den [Event Grid-tillägget](/cli/azure/azure-cli-extensions-list) för Azure CLI kan du ange en giltighetstid datum när du skapar en händelseprenumeration. Om du använder REST-API kan använda `api-version=2018-09-15-preview`
-
 Händelseprenumerationen upphör att gälla automatiskt efter det datumet. Ange en giltighetstid för prenumerationer på händelser som krävs endast under en begränsad tid och du inte bekymra dig om att rensa dessa prenumerationer. När du skapar en händelseprenumeration för att testa ett scenario kanske du exempelvis vill ställa in ett utgångsdatum. 
 
 Ett exempel på hur ett förfallodatum, se [prenumerera med avancerade filter](how-to-filter-events.md#subscribe-with-advanced-filters).
@@ -82,7 +80,10 @@ Om Event Grid inte kan bekräfta att en händelse har tagits emot av prenumerant
 
 ## <a name="batching"></a>Batchbearbetning
 
-När du använder ett anpassat ämne, måste alltid händelser publiceras i en matris. Detta kan vara en batch med ett för lågt dataflöde scenarier, men för hög volym användningsfall, rekommenderar vi att du batch-flera händelser tillsammans per publicera för att uppnå högre effektivitet. Batchar kan vara upp till 1 MB. Varje händelse får fortfarande inte vara större än 64 KB.
+När du använder ett anpassat ämne, måste alltid händelser publiceras i en matris. Detta kan vara en batch med ett för lågt dataflöde scenarier, men för hög volym användningsfall, rekommenderar vi att du batch-flera händelser tillsammans per publicera för att uppnå högre effektivitet. Batchar kan vara upp till 1 MB. Varje händelse bör fortfarande inte vara större än 64 KB (allmän tillgänglighet) eller 1 MB (förhandsversion).
+
+> [!NOTE]
+> En händelse av storlek på upp till 64 KB omfattas av allmän tillgänglighet (GA) serviceavtal (SLA). Stöd för en händelse av storlek på upp till 1 MB förhandsvisas just nu. Händelser över 64 KB debiteras i steg om 64 KB. 
 
 ## <a name="next-steps"></a>Nästa steg
 

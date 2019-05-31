@@ -1,7 +1,7 @@
 ---
 title: Vad är en arbetsyta
 titleSuffix: Azure Machine Learning service
-description: Lär dig vilka en arbetsyta är och varför du behöver en för Azure Machine Learning-tjänsten.
+description: Arbetsytan är den översta resursen för Azure Machine Learning-tjänsten. Det sparar en historik över alla träningskörningar, inklusive loggar, mått, utdata och en ögonblicksbild av dina skript. Du använder den här informationen för att avgöra vilka kör utbildning ger den bästa modellen
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,20 +9,18 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 05/21/2019
-ms.openlocfilehash: 5785bf8f6538f1d91e7a23178e29487ebee14f29
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 3ecdf62cfed7d70873f3dc752bfacd134e367a90
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65989839"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388958"
 ---
-# <a name="what-is-an-azure-machine-learning-workspace"></a>Vad är en Azure Machine Learning-arbetsyta?
+# <a name="what-is-an-azure-machine-learning-service-workspace"></a>Vad är en arbetsyta för Azure Machine Learning-tjänsten?
 
-Arbetsytan är den översta resursen för Azure Machine Learning-tjänsten. Det ger en centraliserad plats för att arbeta med alla artefakter som du skapar när du använder Azure Machine Learning-tjänsten.
+Arbetsytan är den översta resursen för Azure Machine Learning-tjänsten, som tillhandahåller en centraliserad plats för att arbeta med alla artefakter som du skapar när du använder Azure Machine Learning-tjänsten.  Arbetsytan sparar en historik över alla träningskörningar, inklusive loggar, mått, utdata och en ögonblicksbild av dina skript. Du kan använda den här informationen för att avgöra vilka kör utbildning ger den bästa modellen.  
 
-Arbetsytan sparar en historik över träningskörningar, inklusive loggar, mått, utdata och en ögonblicksbild av dina skript. Du kan använda den här informationen för att avgöra vilka kör utbildning ger den bästa modellen.  
-
-När du har en modell som du vill kan registrera du den med arbetsytan. Du använder den registrerade modellen och bedömnings-skript för distribution till Azure Container Instances, Azure Kubernetes Service eller till en fält-programmable gate (FPGA) som en REST-baserade HTTP-slutpunkt. Du kan också distribuera modellen till en Azure IoT Edge-enhet som en modul.
+När du har en modell som du vill kan registrera du den med arbetsytan. Du sedan använda den registrerade modellen och bedömnings-skript för distribution till Azure Container Instances, Azure Kubernetes Service eller till en fält-programmable gate (FPGA) som en REST-baserade HTTP-slutpunkt. Du kan också distribuera modellen till en Azure IoT Edge-enhet som en modul.
 
 ## <a name="taxonomy"></a>Taxonomi 
 
@@ -50,7 +48,7 @@ Diagrammet visar följande komponenter i en arbetsyta:
 Du kan interagera med din arbetsyta på följande sätt:
 
 + På webben:
-    + [Azure Portal](https://azure.portal.com)
+    + [Azure Portal](https://portal.azure.com)
     + Den [visuella gränssnittet (förhandsversion)](ui-concept-visual-interface.md)
 + Med hjälp av Azure Machine Learning i Python [SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
 + Från kommandoraden med hjälp av Azure Machine Learning [CLI-tillägg](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli)
@@ -71,7 +69,7 @@ Maskininlärning läsa och/eller skriva artefakter till din arbetsyta.
 
 Du kan också utföra följande hanteringsaktiviteter för arbetsyta:
 
-| Hanteringsaktivitet för arbetsyta   | Portal              | SDK        | CLI        |
+| Hanteringsaktivitet för arbetsyta   | Portalen              | SDK        | CLI        |
 |---------------------------|------------------|------------|------------|
 | Skapa en arbetsyta        | **&check;**     | **&check;** | **&check;** |
 | Skapa och hantera beräkningsresurser    | **&check;**   | **&check;** |  **&check;**   |

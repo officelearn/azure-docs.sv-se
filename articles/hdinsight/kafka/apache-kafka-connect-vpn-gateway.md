@@ -7,13 +7,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2018
-ms.openlocfilehash: 93b5aeafafdc6ab7ee233f6360bb5e09f45b387f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/28/2019
+ms.openlocfilehash: ddff9ffb00f4167cb8f64a75b129711467de739d
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708834"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66297052"
 ---
 # <a name="connect-to-apache-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Ansluta till Apache Kafka på HDInsight via Azure-nätverk
 
@@ -197,8 +197,10 @@ Använd stegen i det här avsnittet för att skapa följande konfiguration:
     New-AzStorageAccount `
         -ResourceGroupName $resourceGroupName `
         -Name $storageName `
-        -Type Standard_GRS `
-        -Location $location
+        -SkuName Standard_GRS `
+        -Location $location `
+        -Kind StorageV2 `
+        -EnableHttpsTrafficOnly 1
 
     # Get the storage account keys and create a context
     $defaultStorageKey = (Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName `
@@ -240,7 +242,7 @@ Använd stegen i det här avsnittet för att skapa följande konfiguration:
 
 Som standard returnerar Apache Zookeeper domännamnet för asynkrona meddelandeköer i Kafka till klienter. Den här konfigurationen fungerar inte med VPN-klientprogrammet som den inte kan använda namnmatchning för entiteter i det virtuella nätverket. Använd följande steg för att konfigurera Kafka att annonsera IP-adresser i stället för domännamn för den här konfigurationen:
 
-1. Via en webbläsare går du till https://CLUSTERNAME.azurehdinsight.net. Ersätt __CLUSTERNAME__ med namnet på Kafka på HDInsight-klustret.
+1. Via en webbläsare går du till `https://CLUSTERNAME.azurehdinsight.net`. Ersätt `CLUSTERNAME` med namnet på Kafka på HDInsight-klustret.
 
     När du uppmanas, använda HTTPS-användarnamn och lösenord för klustret. Ambari-Webbgränssnittet för klustret visas.
 
@@ -320,7 +322,9 @@ Använd följande steg för att verifiera anslutningarna till Kafka, att skapa o
 
 2. Använd följande för att installera den [kafka-python](https://kafka-python.readthedocs.io/) klienten:
 
-        pip install kafka-python
+    ```bash
+    pip install kafka-python
+    ```
 
 3. Använd följande Python-kod för att skicka data till Kafka:
 

@@ -1,26 +1,26 @@
 ---
 title: Migrera Azure aviseringar för av hanteringshändelser till aktivitetsloggsaviseringar
 description: Aviseringar för av hanteringshändelser tas bort den 1 oktober. Förbered genom att migrera befintliga aviseringar.
-author: lingliw
+author: rboucher
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 04/12/19
-ms.author: v-lingwu
+ms.date: 08/14/2017
+ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: fb54e11c9da6bec2a1e0354317df6343140cbf09
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 78519dad85739b6e4d760bc34719837956638f48
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60255913"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388721"
 ---
 # <a name="migrate-azure-alerts-on-management-events-to-activity-log-alerts"></a>Migrera Azure aviseringar för av hanteringshändelser till aktivitetsloggsaviseringar
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 > [!WARNING]
-> Aviseringar för av hanteringshändelser kommer att inaktiveras på eller efter 1 oktober. Använd anvisningarna nedan för att förstå om du har dessa aviseringar och migrera dem fall i så.
+> Aviseringar för av hanteringshändelser kommer att stängas av på eller efter oktober 1,2017. Använd anvisningarna nedan för att förstå om du har dessa aviseringar och migrera dem fall i så.
 
 ## <a name="what-is-changing"></a>Vad ändras
 
@@ -32,7 +32,7 @@ Azure Monitor (tidigare Azure Insights) erbjuds en funktion för att skapa en av
 Följande PowerShell-skriptet returnerar en lista över alla aviseringar på management-händelser som du har i din prenumeration, samt villkoren på varje avisering.
 
 ```powershell
-Connect-AzAccount -Environment AzureChinaCloud
+Connect-AzAccount
 $alerts = $null
 foreach ($rg in Get-AzResourceGroup ) {
   $alerts += Get-AzAlertRule -ResourceGroup $rg.ResourceGroupName
@@ -115,3 +115,4 @@ Aviseringar för av hanteringshändelser som du tidigare har skapat flyttas inte
 * Granska den [avisering webhook för aktivitetslogg](../../azure-monitor/platform/activity-log-alerts-webhook.md)
 * Läs mer om [tjänstmeddelanden](../../azure-monitor/platform/service-notifications.md)
 * Läs mer om [åtgärdsgrupper](../../azure-monitor/platform/action-groups.md)
+

@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: f9a1e82cb60bf0ec32165294e7f4af3e93d042b0
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 44f16b3334b991e071fa85ca4cffbc0837f0a6ec
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66158548"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244430"
 ---
 # <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Bifoga en Cognitive Services-resurs med en kompetens i Azure Search 
 
 AI-algoritmer enheten den [cognitive indexering pipelines](cognitive-search-concept-intro.md) används för dokumentet funktioner i Azure Search. Dessa algoritmer är baserade på Azure Cognitive Services-resurser, inklusive [visuellt](https://azure.microsoft.com/services/cognitive-services/computer-vision/) för bildanalys och optisk teckenläsning (OCR) och [textanalys](https://azure.microsoft.com/services/cognitive-services/text-analytics/) för igenkänning av entiteter extrahering av diskussionsämne och andra enrichments. Som används av Azure Search för dokumentet berikande, algoritmerna är omslutna inuti en *färdighet*, placeras i en *kompetens*, och som refereras av en *indexeraren* under indexering.
 
-Du kan utöka ett begränsat antal dokument kostnadsfritt eller du kan koppla en fakturerbar Cognitive Services-resurs för större och mer frekventa arbetsbelastningar. I den här artikeln du lär dig hur du ansluter en fakturerbar Cognitive Services-resurs med dina cognitive färdigheter och utöka dokument under [Azure sökindexering](search-what-is-an-index.md).
+Du kan utöka ett begränsat antal dokument kostnadsfritt. Alternativt kan du koppla en fakturerbar Cognitive Services-resurs till en *kompetens* för större och mer frekventa arbetsbelastningar. I den här artikeln lär du att koppla en fakturerbar Cognitive Services-resurs för att utöka dokument under Azure Search [indexering](search-what-is-an-index.md).
 
 > [!NOTE]
 > Faktureringsbara händelser innehåller anrop till API: er med Cognitive Services- och bildfiler extrahering som en del av dokumentknäckning fasen i Azure Search. Det är kostnadsfritt för textextrahering från dokument eller som inte anropar Cognitive Services.
@@ -30,7 +30,9 @@ Du kan utöka ett begränsat antal dokument kostnadsfritt eller du kan koppla en
 
 ## <a name="same-region-requirement"></a>Krav på samma region
 
-Vi kräver att Azure Search och Azure Cognitive Services finns i samma region. I annat fall får du det här meddelandet vid körning: `"Provided key is not a valid CognitiveServices type key for the region of your search service."` Det går inte att flytta en tjänst i olika regioner. Om du får det här felet ska du skapa en ny tjänst i samma region och publicera dina index i enlighet med detta.
+Vi kräver att Azure Search och Azure Cognitive Services finns i samma region. I annat fall får du det här meddelandet vid körning: `"Provided key is not a valid CognitiveServices type key for the region of your search service."` 
+
+Det går inte att flytta en tjänst i olika regioner. Om du får det här felet kan skapa du en ny resurs för Cognitive Services i samma region som Azure Search.
 
 ## <a name="use-free-resources"></a>Använd kostnadsfria resurser
 
@@ -42,9 +44,9 @@ Kostnadsfri (begränsad enrichments) resurser är begränsade till 20 dokument p
 
    ![Öppna guiden Importera](media/search-get-started-portal/import-data-cmd2.png "öppna guiden Importera data")
 
-1. Välj en datakälla och fortsätta att **Lägg till kognitiv sökning (valfritt)**. En stegvis genomgång av den här guiden finns [Import, index och fråga med hjälp av portal-verktyg](search-get-started-portal.md).
+1. Välj en datakälla och fortsätta att **Lägg till kognitiv sökning (valfritt)** . En stegvis genomgång av den här guiden finns [Import, index och fråga med hjälp av portal-verktyg](search-get-started-portal.md).
 
-1. Expandera **bifoga Cognitive Services** och välj sedan **kostnadsfri (begränsad enrichments)**:
+1. Expandera **bifoga Cognitive Services** och välj sedan **kostnadsfri (begränsad enrichments)** :
 
    ![Expanderad bifoga Cognitive Services avsnittet](./media/cognitive-search-attach-cognitive-services/attach1.png "expanderas bifoga Cognitive Services-avsnitt")
 
@@ -56,7 +58,7 @@ Se till att koppla en fakturerbar Cognitive Services-resurs för arbetsbelastnin
 
 Du debiteras endast för färdigheter som anropar API: er för Cognitive Services. Du faktureras inte för [anpassade funktioner](cognitive-search-create-custom-skill-example.md), eller färdigheter som [text fusion](cognitive-search-skill-textmerger.md), [text delare](cognitive-search-skill-textsplit.md), och [formaren](cognitive-search-skill-shaper.md), som inte är API-baserad.
 
-1. Öppna guiden Importera data, Välj en datakälla och fortsätta att **Lägg till kognitiv sökning (valfritt)**.
+1. Öppna guiden Importera data, Välj en datakälla och fortsätta att **Lägg till kognitiv sökning (valfritt)** .
 
 1. Expandera **bifoga Cognitive Services** och välj sedan **Skapa ny resurs för Cognitive Services**. En ny flik öppnas så att du kan skapa resursen:
 

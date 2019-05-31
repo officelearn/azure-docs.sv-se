@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 05/29/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 82672136d6f9af50a3d91da2044f6e0ced4b44a6
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: ddaead7a0e616b3138dca0b18a58d64e38a46f9e
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65409368"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66356414"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Använda Azure Import/Export-tjänsten för att importera data till Azure Blob Storage
 
@@ -58,7 +58,7 @@ Utför följande steg för att förbereda enheterna.
 6.  Kör följande kommando för att förbereda disken. **Det kan ta flera timmar och dagar beroende på storleken på data.** 
 
     ```
-    ./WAImportExport.exe PrepImport /j:<journal file name> /id:session#<session number> /sk:<Storage account key> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /skipwrite 
+    ./WAImportExport.exe PrepImport /j:<journal file name> /id:session#<session number> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /skipwrite /enablecontentmd5 
     ```
     En journalfil skapas i samma mapp där du körde verktyget. Två filer skapas också – en *.xml* fil (mapp där du kör verktyget) och en *enhet manifest.xml* fil (mapp där data finns).
     
@@ -68,12 +68,12 @@ Utför följande steg för att förbereda enheterna.
     |---------|---------|
     |/j:     |Namnet på journal-fil med tillägget .jrn. En journalfil genereras per enhet. Vi rekommenderar att du använder disk-serienummer som namn på filen.         |
     |/ ID:     |Sessions-ID. Använd ett unikt sessions-nummer för varje instans av kommandot.      |
-    |/sk:     |Azure Storage-kontonyckel.         |
     |/t:     |Enhetsbeteckningen för disken som ska levereras. Till exempel enhet `D`.         |
     |/bk:     |BitLocker-nyckel för enheten. Dess numeriskt lösenord från utdata för `manage-bde -protectors -get D:`      |
     |/srcdir:     |Enhetsbeteckningen för disken som ska levereras följt av `:\`. Till exempel `D:\`.         |
     |/dstdir:     |Namnet på Målbehållaren i Azure Storage.         |
     |/skipwrite:     |Det alternativ som anger att det finns inga nya data som krävs för att kopiera och befintliga data på disken är förberedas.          |
+    |/enablecontentmd5:     |Alternativet när aktiverad säkerställer att MD5 beräknas vid uppladdning av blockblob-objekt till Azure.          |
 7. Upprepa föregående steg för varje disk som ska levereras. En journalfil med det angivna namnet skapas för varje körning av kommandoraden.
     
     > [!IMPORTANT]

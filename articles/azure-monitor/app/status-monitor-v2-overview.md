@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 976545f588895421e7c2be7e18b844d7994bc1ff
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 2adc706c5da4fa53ace2a8a471789e276878c491
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65779983"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255849"
 ---
 # <a name="status-monitor-v2"></a>Statusövervakare v2
 
@@ -34,7 +34,7 @@ Telemetri kommer att skickas till Azure-portalen där du kan [övervakaren](http
 https://www.powershellgallery.com/packages/Az.ApplicationMonitor
 
 
-## <a name="instructions"></a>Anvisningar
+## <a name="instructions"></a>Instruktioner
 - Granska våra [komma igång instruktioner](status-monitor-v2-get-started.md) och kom igång nu med kortfattade kodexempel.
 - Granska våra [detaljerade instruktioner](status-monitor-v2-detailed-instructions.md) för djupgående information om hur du kommer igång.
 
@@ -52,7 +52,7 @@ https://www.powershellgallery.com/packages/Az.ApplicationMonitor
 - [Kända problem](status-monitor-v2-troubleshoot.md#known-issues)
 
 
-## <a name="faq"></a>Vanliga frågor
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 - Stöder statusövervakaren v2 proxy installationer?
 
@@ -74,7 +74,7 @@ Visa telemetrin:
 * [Utforska mått](../../azure-monitor/app/metrics-explorer.md) för att övervaka prestanda och användning
 * [Sök efter händelser och loggar](../../azure-monitor/app/diagnostic-search.md) att diagnostisera problem
 * [Analys](../../azure-monitor/app/analytics.md) för mer avancerade frågor
-* [Skapa instrumentpaneler](../../azure-monitor/app/app-insights-dashboards.md)
+* [Skapa instrumentpaneler](../../azure-monitor/app/overview-dashboard.md)
 
 Lägg till mer telemetri:
 

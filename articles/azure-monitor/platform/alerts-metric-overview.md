@@ -7,12 +7,12 @@ ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: alerts
-ms.openlocfilehash: 59973d9530bf1c3ab3e77290b25e50860f9de0ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6138a9ff6bb6d34b09c49fa7b5dbb67cbf5eb1b6
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60712873"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244913"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Förstå hur arbetet aviseringar i mått i Azure Monitor
 
@@ -29,11 +29,11 @@ Anta att du har skapat en enkelt statiskt tröskelvärde måttaviseringsregel p�
 - Målresurs (Azure-resursen du vill övervaka): myVM
 - Mått: Procent CPU
 - Typ av villkor: Statisk
-- Tidsmängd (statistik som körs över råa måttvärden. Stöds tid aggregeringar är Min, Max, Avg, totalt): Medel
+- Tidsmängd (statistik som körs över råa måttvärden. Aggregeringar stöds tid är Min, Max, Avg, totalt antal, antal): Medel
 - Period (titt tillbaka fönstret över vilka mått värden kontrolleras): Under de senaste 5 minuterna
 - Frequency (frekvens som kontrollerar metrisk varning om villkoren uppfylls): 1 min
 - Operator: Större än
-- Tröskelvärde: 70
+- Tröskelvärde för: 70
 
 Från den tidpunkt som regeln har skapats körs var 1 min övervakaren och tittar på måttvärden under de senaste 5 minuterna och kontrollerar om medelvärdet för de här värdena överskrider 70. Om villkoret är uppfyllt det vill säga, den genomsnittliga CPU procent under de senaste 5 minuterna överskrider 70, aviseringsregeln utlöses ett meddelande om aktiverad. Om du har konfigurerat ett e-postmeddelande eller en web hook-åtgärd i åtgärdsgruppen som associeras med varningsregeln, får du ett meddelande som är aktiverad på båda.
 
@@ -44,7 +44,7 @@ Anta att du har skapat en enkel dynamiska tröskelvärden måttaviseringsregel p
 - Målresurs (Azure-resursen du vill övervaka): myVM
 - Mått: Procent CPU
 - Typ av villkor: Dynamisk
-- Tidsmängd (statistik som körs över råa måttvärden. Stöds tid aggregeringar är Min, Max, Avg, totalt): Medel
+- Tidsmängd (statistik som körs över råa måttvärden. Aggregeringar stöds tid är Min, Max, Avg, totalt antal, antal): Medel
 - Period (titt tillbaka fönstret över vilka mått värden kontrolleras): Under de senaste 5 minuterna
 - Frequency (frekvens som kontrollerar metrisk varning om villkoren uppfylls): 1 min
 - Operator: Större än
@@ -81,7 +81,7 @@ Anta att du har en apptjänstplan för din webbplats. Du vill övervaka CPU-anv�
 - Period: Under de senaste 5 minuterna
 - Frekvens: 1 min
 - Operator: GreaterThan
-- Tröskelvärde: 70
+- Tröskelvärde för: 70
 
 Som innan den här regeln övervakar om den genomsnittliga CPU-användningen under de senaste 5 minuterna överskrider 70%. Du kan dock övervaka två instanser som kör din webbplats med samma regel. Varje instans kommer få övervakas individuellt och du får meddelanden individuellt.
 
@@ -96,7 +96,7 @@ Anta att du har en webbapp som ser enorma begäran och du behöver du lägga til
 - Period: Under de senaste 5 minuterna
 - Frekvens: 1 min
 - Operator: GreaterThan
-- Tröskelvärde: 70
+- Tröskelvärde för: 70
 
 Den här regeln kommer automatiskt att övervaka alla värden för instans-dvs Du kan övervaka dina instanser när de uppstår utan att behöva ändra dina måttaviseringsregel igen.
 

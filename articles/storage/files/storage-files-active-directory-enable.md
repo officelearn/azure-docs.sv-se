@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/02/2019
 ms.author: rogarana
-ms.openlocfilehash: d5e2f9dba3afee953d296316e990b58c536cbdae
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 26251ebd3c83f6cd44203e1d3cc5f1b523a0d8d9
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65602016"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237778"
 ---
 # <a name="enable-azure-active-directory-authentication-over-smb-for-azure-files-preview"></a>Aktivera Azure Active Directory-autentisering över SMB för Azure Files (förhandsversion)
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -47,13 +47,13 @@ Innan du aktiverar Azure AD via SMB för Azure Files, kontrollera att du har slu
 
 2.  **Aktivera Azure AD Domain Services på Azure AD-klient.**
 
-    För att stödja autentisering med autentiseringsuppgifter för Azure AD, måste du aktivera Azure AD Domain Services för din Azure AD-klient. Om du inte är administratör för Azure AD-klient, kontakta administratören och följ de stegvisa anvisningarna till [aktivera Azure Active Directory Domain Services med Azure portal](../../active-directory-domain-services/active-directory-ds-getting-started.md).
+    För att stödja autentisering med autentiseringsuppgifter för Azure AD, måste du aktivera Azure AD Domain Services för din Azure AD-klient. Om du inte är administratör för Azure AD-klient, kontakta administratören och följ de stegvisa anvisningarna till [aktivera Azure Active Directory Domain Services med Azure portal](../../active-directory-domain-services/create-instance.md).
 
     Det tar vanligtvis cirka 15 minuter för en Azure AD Domain Services-distributionen har slutförts. Kontrollera att hälsotillståndet för din Azure AD Domain Services visar **kör**, med synkronisering av lösenordshash aktiverad, innan du fortsätter till nästa steg.
 
 3.  **Domänanslutning en Azure virtuell dator med Azure AD Domain Services.**
 
-    För att komma åt en filresurs med hjälp av Azure AD-autentiseringsuppgifter från en virtuell dator, måste den virtuella datorn vara domänansluten till Azure AD Domain Services. Mer information om hur du domänansluter en virtuell dator finns i [ansluta en Windows Server-dator till en hanterad domän](../../active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal.md).
+    För att komma åt en filresurs med hjälp av Azure AD-autentiseringsuppgifter från en virtuell dator, måste den virtuella datorn vara domänansluten till Azure AD Domain Services. Mer information om hur du domänansluter en virtuell dator finns i [ansluta en Windows Server-dator till en hanterad domän](../../active-directory-domain-services/join-windows-vm.md).
 
     > [!NOTE]
     > Azure AD-autentisering via SMB med Azure Files stöds bara på virtuella Azure-datorer som körs på OS-versioner ovan Windows 7 eller Windows Server 2008 R2.
@@ -79,7 +79,7 @@ Aktivera Azure AD-autentisering via SMB med hjälp av den [Azure-portalen](https
 
 1. I Azure-portalen går du till ett befintligt lagringskonto eller [skapa ett lagringskonto](../common/storage-quickstart-create-account.md).
 2. I den **inställningar** väljer **Configuration**.
-3. Aktivera **Azure Active Directory-autentisering för Azure Files (förhandsversion)**.
+3. Aktivera **Azure Active Directory-autentisering för Azure Files (förhandsversion)** .
 
 Följande bild visar hur du aktiverar Azure AD-autentisering över SMB för ditt lagringskonto.
 

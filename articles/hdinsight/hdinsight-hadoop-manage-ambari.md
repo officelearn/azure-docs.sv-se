@@ -6,20 +6,20 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 05/23/2019
 ms.author: hrasheed
-ms.openlocfilehash: 1659ab72620b6bf91eb932f8414a0f6600350e37
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 49e8fbef7af16e109c1e9f1e0d8c9aab1a008e21
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64714468"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258009"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Hantera HDInsight-kluster med hjälp av Apache Ambari-Webbgränssnittet
 
 [!INCLUDE [ambari-selector](../../includes/hdinsight-ambari-selector.md)]
 
-Apache Ambari förenklar hantering och övervakning av ett Apache Hadoop-kluster genom att tillhandahålla ett enkelt sätt att använda webbgränssnittet och REST API. Ambari ingår i Linux-baserade HDInsight-kluster och används för att övervaka klustret och gör ändringar i konfigurationen.
+Apache Ambari förenklar hantering och övervakning av ett Apache Hadoop-kluster genom att tillhandahålla ett enkelt sätt att använda webbgränssnittet och REST API. Ambari ingår i HDInsight-kluster och används för att övervaka klustret och gör ändringar i konfigurationen.
 
 Lär dig hur du använder Ambari-Webbgränssnittet med ett HDInsight-kluster i det här dokumentet.
 
@@ -27,14 +27,9 @@ Lär dig hur du använder Ambari-Webbgränssnittet med ett HDInsight-kluster i d
 
 [Apache Ambari](https://ambari.apache.org) förenklar Hadoop-hanteringen genom att tillhandahålla en enkel att använda webbgränssnittet. Du kan använda Ambari för att hantera och övervaka Hadoop-kluster. Utvecklare kan integrera de här funktionerna i sina program med hjälp av den [Ambari REST API: er](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
-Ambari-Webbgränssnittet är som standard med HDInsight-kluster som använder Linux-operativsystem.
-
-> [!IMPORTANT]  
-> Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). 
-
 ## <a name="connectivity"></a>Anslutning
 
-Ambari-Webbgränssnittet finns i ditt HDInsight-kluster på HTTPS://CLUSTERNAME.azurehdinsight.net, där **CLUSTERNAME** är namnet på klustret.
+Ambari-Webbgränssnittet finns i ditt HDInsight-kluster på `https://CLUSTERNAME.azurehdinsight.net`, där `CLUSTERNAME` är namnet på klustret.
 
 > [!IMPORTANT]  
 > Ansluta till Ambari på HDInsight kräver HTTPS. När du uppmanas att autentisera, använda namnet på administratörskontot och lösenordet du angav när klustret har skapats.
@@ -54,23 +49,17 @@ När du öppnar sidan Observera fältet högst upp. Det här fältet innehåller
 
 ![ambari-nav](./media/hdinsight-hadoop-manage-ambari/ambari-nav.png)
 
-* **Ambari-logotypen** -öppnas instrumentpanelen, som kan användas för att övervaka klustret.
-
-* **Kluster namnet # ops** – visar antalet pågående Ambari-åtgärder. Att välja klusternamnet eller **# ops** visar en lista över bakgrundsåtgärder.
-
-* **# aviseringar** -visar varningar eller kritiska varningar för klustret.
-
-* **Instrumentpanelen** -instrumentpanelen visas.
-
-* **Tjänster** -Information och konfiguration av inställningar för tjänster i klustret.
-
-* **Värdar** -Information och vilka konfigurationsinställningar för noderna i klustret.
-
-* **Aviseringar** – en logg över information, varningar och kritiska aviseringar.
-
-* **Administratören** -stack/Programvarutjänster som är installerade på klustret, tjänstens kontoinformation och Kerberos-säkerhet.
-
-* **Admin-knappen** -Ambari hantering, användarinställningar och utloggning.
+|Objekt |Beskrivning |
+|---|---|
+|Ambari-logotyp|Öppnas instrumentpanelen, som kan användas för att övervaka klustret.|
+|Namnet # ops-kluster|Visar antalet pågående Ambari-åtgärder. Att välja klusternamnet eller **# ops** visar en lista över bakgrundsåtgärder.|
+|# aviseringar|Visar varningar eller kritiska varningar för klustret.|
+|Instrumentpanel|Visar instrumentpanelen.|
+|Tjänster|Information om och konfiguration inställningar för tjänster i klustret.|
+|Värdar|Inställningar och konfigurationsinformation för noder i klustret.|
+|Aviseringar|En logg över information, varningar och kritiska aviseringar.|
+|Admin|Stack/Programvarutjänster som är installerade på klustret, tjänstens kontoinformation och Kerberos-säkerhet.|
+|Admin-knappen|Ambari-hantering, användarinställningar och logga ut.|
 
 ## <a name="monitoring"></a>Övervakning
 
@@ -162,31 +151,18 @@ Den **värdar** sidan listar alla värdar i klustret. Följ dessa steg för att 
 
 2. Använd den **åtgärder** menyn för att markera den åtgärd som du vill utföra:
 
-   * **Starta alla komponenter** -startar alla komponenter på värden.
-
-   * **Stoppa alla komponenter** -stoppa alla komponenter på värden.
-
-   * **Starta om alla komponenter** – stoppa och starta alla komponenter på värden.
-
-   * **Aktivera underhållsläget** -Undertrycker aviseringar för värden. Det här läget måste vara aktiverad om du utför åtgärder som genererar aviseringar. Exempel: stoppa och starta en tjänst.
-
-   * **Inaktivera underhållsläge** -returnerar värden till normal aviseringar.
-
-   * **Stoppa** -stoppas DataNode eller NodeManagers på värden.
-
-   * **Starta** -startar DataNode eller NodeManagers på värden.
-
-   * **Starta om** -stoppar och startar DataNode eller NodeManagers på värden.
-
-   * **Inaktivera** – tar bort en värd från klustret.
-
-     > [!NOTE]  
-     > Använd inte den här åtgärden på HDInsight-kluster.
-
-   * **Recommission** -lägger till en tidigare inaktiverade värd i klustret.
-
-     > [!NOTE]  
-     > Använd inte den här åtgärden på HDInsight-kluster.
+    |Objekt |Beskrivning |
+    |---|---|
+    |Starta alla komponenter|Starta alla komponenter på värden.|
+    |Stoppa alla komponenter|Stoppa alla komponenter på värden.|
+    |Starta om alla komponenter|Stoppa och starta alla komponenter på värden.|
+    |Aktivera underhållsläget|Undertrycker aviseringar för värden. Det här läget måste vara aktiverad om du utför åtgärder som genererar aviseringar. Exempel: stoppa och starta en tjänst.|
+    |Inaktivera underhållsläge|Returnerar värden till normal aviseringar.|
+    |Stoppa|Stoppar DataNode eller NodeManagers på värden.|
+    |Start|Startar DataNode eller NodeManagers på värden.|
+    |Starta om|Stoppar och startar DataNode eller NodeManagers på värden.|
+    |Inaktivera|Tar bort en värd från klustret. **Använd inte den här åtgärden på HDInsight-kluster.**|
+    |Recommission|Lägger till en tidigare inaktiverade värd i klustret. **Använd inte den här åtgärden på HDInsight-kluster.**|
 
 ### <a id="service"></a>Tjänster
 
@@ -226,7 +202,6 @@ Om du vill konfigurera en tjänst, använder du följande steg:
 ## <a name="ambari-views"></a>Ambari-vyer
 
 Ambari-vyer kan utvecklare plugin-UI-element i Ambari-Webbgränssnittet med den [Apache Ambari-vyer Framework](https://cwiki.apache.org/confluence/display/AMBARI/Views). HDInsight innehåller följande vyer med Hadoop-klustertyper:
-
 
 * Hive-vyn: Hive-vyn kan du köra Hive-frågor direkt från din webbläsare. Du kan spara frågor, visa resultat, spara resultaten för klusterlagring eller hämta resultaten till din lokala dator. Mer information om hur du använder Hive-vyer finns i [använda Apache Hive-vyer med HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md).
 

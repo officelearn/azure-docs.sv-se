@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 05/23/2017
+ms.date: 05/29/2019
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d4aae8eb29b9e90bd1cb84949e97e21ed68c04c
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: HT
+ms.openlocfilehash: d1466614dfeb8fa4d3d095bae070d01c6503c5bb
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65812774"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357229"
 ---
 # <a name="limitations-of-azure-ad-b2b-collaboration"></a>Begränsningar i Azure AD B2B-samarbete
 Azure Active Directory (Azure AD) B2B-samarbete är för närvarande de begränsningar som beskrivs i den här artikeln.
@@ -29,6 +29,9 @@ I B2B-samarbete flöden, vi lägga till användare i katalogen och uppdatera dem
 
 ## <a name="azure-ad-directories"></a>Azure AD-kataloger
 Azure AD B2B är föremål för Azure AD tjänstbegränsningar directory. Mer information om antal kataloger som en användare kan skapa och antal kataloger till som en användare eller gäst kan höra, finns i [Azure AD-tjänsten begränsningar](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-service-limits-restrictions).
+
+## <a name="national-clouds"></a>Nationella moln
+[Nationella moln](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud) är fysiskt isolerat instanser av Azure. B2B-samarbete stöds inte över gränser för nationella moln. Om din Azure-klient finns i det offentliga globalt molnet, kan du till exempel bjuda in användare vars konton finns i ett nationella moln. Be dem för en annan e-postadress för att samarbeta med användaren, eller skapa ett användarkonto för medlem för dem i din katalog.
 
 ## <a name="next-steps"></a>Nästa steg
 

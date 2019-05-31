@@ -11,18 +11,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/23/2019
 ms.author: juliako
-ms.openlocfilehash: bfe4bbae7953479f9b5b5ce9653fb3b8d4b2d092
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: fdf29924da31db0347938df89e698cb258c2336b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002385"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66225419"
 ---
 # <a name="filters"></a>Filter
 
-När du levererar ditt innehåll till kunder (liveuppspelningshändelser eller Video på begäran) kanske klienten behöver mer flexibilitet än vad som beskrivs i standard-tillgången manifestfil. Azure Media Services kan du definiera kontofilter och tillgången filter för ditt innehåll. 
+När du levererar ditt innehåll till kunder (liveuppspelningshändelser eller Video på begäran) kanske klienten behöver mer flexibilitet än vad som beskrivs i standard-tillgången manifestfil. Azure Media Services erbjuder [dynamiska manifest](filters-dynamic-manifest-overview.md) baserat på fördefinierade filter. 
 
 Filtren är serversidan regler som tillåter dina kunder att till exempel: 
 
@@ -32,24 +32,16 @@ Filtren är serversidan regler som tillåter dina kunder att till exempel:
 - Leverera endast den angivna återgivningar och/eller spårar för angivet språk som stöds av den enhet som används för att spela upp innehållet (”återgivningsfiltrering”). 
 - Justera Presentation fönstret (DVR) för att tillhandahålla en begränsad tidslängd DVR-perioden i spelaren (”justera presentationsfönster”).
 
-Media Services erbjuder [dynamiska manifest](filters-dynamic-manifest-overview.md) baserat på fördefinierade filter. När du har definierat filter kan klienterna använda dem i strömnings-URL. Filter kan tillämpas på protokoll för direktuppspelning med anpassningsbar bithastighet: Apple HTTP Live Streaming (HLS), MPEG-DASH och Smooth Streaming.
+Media Services kan du skapa **konto filter** och **tillgången filter** för ditt innehåll. Dessutom kan du associera din förinställda filter med en **Strömningspositionerare**.
 
-I följande tabell visas några exempel på URL: er med filter:
+## <a name="defining-filters"></a>Definiera filter
 
-|Protocol|Exempel|
-|---|---|
-|HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`<br/>Använd för HLS v3: `format=m3u8-aapl-v3`.|
-|MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
-|Smooth Streaming|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
-
-## <a name="define-filters"></a>Definiera filter
-
-Det finns två typer av tillgången filter: 
+Det finns två typer av filter: 
 
 * [Kontot filter](https://docs.microsoft.com/rest/api/media/accountfilters) (global) - kan tillämpas på alla tillgångar i Media Services-konto, har en livslängd på kontot.
 * [Tillgången filter](https://docs.microsoft.com/rest/api/media/assetfilters) (lokal) – endast kan tillämpas på en tillgång som filtret associerades när den har skapats, har en livslängd på tillgången. 
 
-[Kontot Filter](https://docs.microsoft.com/rest/api/media/accountfilters) och [tillgången Filter](https://docs.microsoft.com/rest/api/media/assetfilters) typer har exakt samma egenskaper för att definiera/beskriva filtret. Förutom när du skapar den **tillgången Filter**, måste du ange Tillgångsnamn som du vill associera filtret.
+**Kontot filter** och **tillgången filter** typer har exakt samma egenskaper för att definiera/beskriva filtret. Förutom när du skapar den **tillgången Filter**, måste du ange Tillgångsnamn som du vill associera filtret.
 
 Beroende på ditt scenario bestämma du vilken typ av ett filter är lämpligare (tillgången Filter eller kontofilter). Kontofilter är lämpliga för enhetsprofiler (återgivningsfiltrering) där tillgången filter kan användas för att trimma en specifik tillgång.
 
@@ -145,14 +137,22 @@ I följande exempel definierar ett Live Streaming filter:
 }
 ```
 
-## <a name="associate-filters-with-streaming-locator"></a>Associera filter med Strömningspositionerare
+## <a name="associating-filters-with-streaming-locator"></a>Associera filter med Strömningspositionerare
 
-Du kan ange en lista över [tillgång eller konto filter](filters-concept.md), vilket skulle gälla för dina [Strömningspositionerare](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body). Den [dynamisk Paketeraren](dynamic-packaging-overview.md) gäller den här listan över filter tillsammans med de som klienten anger i URL: en. Den här kombinationen genererar en [dynamiska Manifest](filters-dynamic-manifest-overview.md), som grundar sig på filter i URL: en + filter som du anger på Strömningspositionerare. Vi rekommenderar att du använder den här funktionen om du vill använda filter men inte vill exponera filternamn i URL: en.
+Du kan ange en lista över [tillgång eller konto filter](filters-concept.md) på din [Strömningspositionerare](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body). Den [dynamisk Paketeraren](dynamic-packaging-overview.md) gäller den här listan över filter tillsammans med de som klienten anger i URL: en. Den här kombinationen genererar en [dynamiska Manifest](filters-dynamic-manifest-overview.md), som grundar sig på filter i URL: en + filter som du anger på den Strömningspositionerare. 
 
 Se följande exempel:
 
 * [Associera filter med Strömningspositionerare – .NET](filters-dynamic-manifest-dotnet-howto.md#associate-filters-with-streaming-locator)
 * [Associera filter med Strömningspositionerare – CLI](filters-dynamic-manifest-cli-howto.md#associate-filters-with-streaming-locator)
+
+## <a name="updating-filters"></a>Uppdatera filter
+ 
+**Positionerare för direktuppspelning** kan inte uppdateras, medan filter kan uppdateras. 
+
+Det rekommenderas inte att uppdatera definitionen av filter som är associerade med ett aktivt publicerade **Strömningspositionerare**, särskilt när CDN är aktiverat. Direktuppspelning av servrar och CDN-nät kan ha interna cacheminnen som kan leda till inaktuella cachelagrade data som ska returneras. 
+
+Om filterdefinitionen behöver ändras bör du skapa ett nytt filter och lägger till den på den **Strömningspositionerare** URL eller publicera en ny **Strömningspositionerare** som refererar till filtret direkt.
 
 ## <a name="next-steps"></a>Nästa steg
 

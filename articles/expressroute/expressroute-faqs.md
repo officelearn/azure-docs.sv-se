@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 75c0deaa8bca94349091e3317e4ca70129bb4426
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 1a6f3fbc0160a78fb76f810257d3285725445eba
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65991613"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257969"
 ---
 # <a name="expressroute-faq"></a>Vanliga frågor och svar för ExpressRoute
 
@@ -288,7 +288,7 @@ Ja. ExpressRoute premium-avgifter gäller utöver avgifterna för ExpressRoute-k
 
 ## <a name="expressroute-local"></a>ExpressRoute lokal
 ### <a name="what-is-expressroute-local"></a>Vad är ExpressRoute lokal?
-Lokal ExpressRoute är en SKU för ExpressRoute-krets. En viktig funktion i lokala är att en lokal circit på en ExpressRoute peeringplats ger dig åtkomst till endast till en eller två Azure-regioner i eller nästan samma metro. Däremot får en standardkrets du tillgång till alla Azure-regioner i ett geopolitiska område och en Premium-krets till alla Azure-regioner globalt. 
+Lokal ExpressRoute är en SKU för ExpressRoute-krets. En viktig funktion i lokala är att en lokal krets på en ExpressRoute peeringplats ger dig åtkomst till endast till en eller två Azure-regioner i eller nästan samma metro. Däremot får en standardkrets du tillgång till alla Azure-regioner i ett geopolitiska område och en Premium-krets till alla Azure-regioner globalt. 
 
 ### <a name="what-are-the-benefits-of-expressroute-local"></a>Vilka är fördelarna med lokala ExpressRoute?
 När du behöver betala för utgående dataöverföring för Standard eller Premium ExpressRoute-krets kan betalar du inte utgående dataöverföring separat för din lokala ExpressRoute-krets. Med andra ord innehåller priset för ExpressRoute lokal dataöverföring. Lokal ExpressRoute är en mer prisvärt lösning om du har omfattande mängd data du överför och du kan hämta data via en privat anslutning till en ExpressRoute-peering plats nära dina önskade Azure-regioner. 

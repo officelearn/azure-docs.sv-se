@@ -3,20 +3,19 @@ title: Svordomar filtrering – Translator Text API
 titlesuffix: Azure Cognitive Services
 description: Använd siris filtrering i Translator Text API.
 services: cognitive-services
-author: Jann-Skotdal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-origin.date: 02/21/2019
-ms.date: 03/12/2019
-ms.author: v-junlch
-ms.openlocfilehash: bd7a05f2f597d1882293387e5aac8e4d7367d051
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 02/21/2019
+ms.author: v-pawal
+ms.openlocfilehash: 3ffe14450f0191b88a8d8a71b5f28ae4c59b68c1
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60880038"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66387587"
 ---
 # <a name="add-profanity-filtering-with-the-translator-text-api"></a>Lägg till svordomar filtrering med Translator Text API
 
@@ -31,9 +30,8 @@ Metoden Translate() tar parametern ”alternativ” som innehåller det nya elem
 | :---|:---|:---|:---|
 | NoAction | Standard. Samma som inte ange alternativet. Svordomar Överför från källan till målet. | 彼は変態です。 | Han är en tölp. |
 | Markerad | Olämpliga ord. omges av XML-taggar \<svordomar >... \</profanity >. | 彼は変態です。 | Han är en \<svordomar > jerk\</profanity >. |
-| Borttagen | Olämpliga ord. tas bort från utdata utan ersättning. | 彼は。 | Han är en. |
+| Borttaget | Olämpliga ord. tas bort från utdata utan ersättning. | 彼は。 | Han är en. |
 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"]
 > [Tillämpa svordomar filtrering med Translator API-anrop](reference/v3-0-translate.md)
-

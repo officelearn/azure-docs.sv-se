@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/14/2019
-ms.openlocfilehash: 395a231fcf43378a51e22427254abb196a46081e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a3f441a0dd7f7b9f402390e853bd1c28f282f653
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64709015"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66245097"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>Träna och distribuera en modell för maskininlärning
 
@@ -49,7 +49,7 @@ Använd följande steg för att distribuera en omtränings webbtjänst:
     Nu kan distribuera du träningsexperimentet som en omtränings webbtjänst som returnerar en tränad modell och utvärderingsresultat av modellen.
 
 1. Längst ned på arbetsytan för experimentet klickar du på **konfigurera Web Service**
-1. Välj **distribuera webbtjänst [nyhet]**. Azure Machine Learning Web Services-portalen öppnas på den **distribuera webbtjänsten** sidan.
+1. Välj **distribuera webbtjänst [nyhet]** . Azure Machine Learning Web Services-portalen öppnas på den **distribuera webbtjänsten** sidan.
 1. Skriv ett namn för din webbtjänst och välj en betalningsplan.
 1. Välj **Distribuera**.
 
@@ -59,7 +59,7 @@ Det här exemplet använder vi C# för att skapa omtränings-program. Du kan ock
 
 Använd följande steg för att anropa omtränings-API: erna:
 
-1. Skapa en C# konsolapp i Visual Studio: **Ny** > **projekt** > **Visual C#**   >  **Windows Classic Desktop**  >   **Konsolprogram (.NET Framework)**.
+1. Skapa en C# konsolapp i Visual Studio: **Ny** > **projekt** > **Visual C#**   >  **Windows Classic Desktop**  >   **Konsolprogram (.NET Framework)** .
 1. Logga in på Machine Learning Web Services-portalen.
 1. Klicka på den webbtjänst som du arbetar med.
 1. Klicka på **förbrukar**.
@@ -89,7 +89,7 @@ Exempelkoden BES laddar upp en fil från en lokal enhet (till exempel ”C:\temp
 1. Välj en för att lagra retrained modellen från listan över lagringskonton.
 1. I den vänstra kolumnen klickar du på **åtkomstnycklar**.
 1. Kopiera och spara den **primära åtkomstnyckel**.
-1. I den vänstra kolumnen klickar du på **behållare**.
+1. I den vänstra kolumnen klickar du på **Blobar**.
 1. Välj en befintlig behållare eller skapa en ny och spara namnet.
 
 Leta upp den *StorageAccountName*, *StorageAccountKey*, och *StorageContainerName* deklarationer, och uppdatera de värden som du sparade från portalen.

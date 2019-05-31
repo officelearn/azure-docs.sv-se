@@ -8,12 +8,12 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: bwren
-ms.openlocfilehash: ec6f3884504c94b7669df21882aeb2a1eb9d7220
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: af01ebdc72df096b45c4ca4e755b2ed3880bab65
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60520846"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255264"
 ---
 # <a name="get-started-with-azure-monitor-log-analytics"></a>Kom igång med Azure Monitor Log Analytics
 
@@ -46,7 +46,7 @@ Event | search "error"
 
 Den här frågan söker den _händelse_ tabellen för poster som innehåller termen ”error” i en egenskap.
 
-Frågor kan börja med antingen ett tabellnamn eller en **search** kommando. Exemplet ovan börjar med tabellnamnet _händelse_, som definierar omfattningen av frågan. Vertikalstreck (|) avgränsar kommandon, så resultatet av den första funktionen i indata för kommandot. Du kan lägga till valfritt antal kommandon till en enskild fråga.
+Frågor kan börja med antingen ett tabellnamn eller en **search** kommando. Exemplet ovan börjar med tabellnamnet _händelse_, som definierar omfattningen av frågan. Vertikalstreck (|) separerar kommandon, så att utdata från den första som fungerar som indata för kommandot. Du kan lägga till valfritt antal kommandon till en enskild fråga.
 
 Ett annat sätt att skriva samma frågan är:
 
@@ -137,7 +137,7 @@ Event
 
 Som standard visas resultaten i en tabell. Klicka på _diagram_ så visas resultaten i en grafisk vy:
 
-![Stapeldiagram](media/get-started-portal/bar-chart.png)
+![Liggande stapeldiagram](media/get-started-portal/bar-chart.png)
 
 Resultaten visas i ett stående stapeldiagram. Klicka på _staplat fraktionsdiagram_ och välj _cirkel_ att visa en annan vy av resultaten:
 

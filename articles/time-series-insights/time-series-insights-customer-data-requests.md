@@ -2,19 +2,19 @@
 title: Kundinformation begär funktioner i Azure Time Series Insights | Microsoft Docs
 description: Sammanfattning av Azure Time Series Insights-kund datafunktioner.
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 ms.date: 05/08/2019
 ms.topic: conceptual
 ms.service: time-series-insights
 services: time-series-insights
 ms.custom: seodec18
-ms.openlocfilehash: 67aea6b3d535eeb0838da4ac6990c50e607617bf
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: f99a54f5623100e057e0c02249f5886f46656a21
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546395"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66355932"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Sammanfattning av kundens datafunktioner
 
@@ -36,7 +36,7 @@ En Innehavaradministratör kan ta bort kunddata i Azure Portal.
 
 Innan du tar bort kunddata via portalen, bör du dock ta bort användarens åtkomstprinciper från Time Series Insights-miljön i Azure-portalen. Mer information finns i [bevilja åtkomst till en Time Series Insights-miljö med Azure-portalen](time-series-insights-data-access.md).
 
-Du kan också utföra delete-åtgärder på principer för åtkomst med hjälp av REST-API. Mer information finns i [åtkomstprinciper - ta bort](https://docs.microsoft.com/rest/api/time-series-insights-management/accesspolicies/delete).
+Du kan också utföra delete-åtgärder på principer för åtkomst med hjälp av REST-API. Mer information finns i [åtkomstprinciper - ta bort](/rest/api/time-series-insights/management/accesspolicies/delete).
 
 Time Series Insights är integrerad med principbladet i Azure-portalen. Både Time Series Insights och principbladet låter dig visa, exportera och ta bort data som lagras i tjänsten. Någon ta bort åtgärder som vidtagits i principbladet av Azure portal resulterar i borttagningen av användardata i Time Series Insights. Till exempel om en användare har en sparad personlig fråga kan raderas frågan från Time Series Insights explorer. Om användaren har en sparad delade fråga, kvarstår frågan, men användarinformationen tas bort permanent. Följande anmärkning innehåller anvisningar om hur du utför dessa uppgifter.
 
@@ -48,7 +48,7 @@ På liknande sätt att ta bort data, kan en Innehavaradministratör visa och exp
 
 Om du är en Innehavaradministratör kan visa du principerna för dataåtkomst i Time Series Insights-miljön i Azure-portalen. Mer information finns i [bevilja åtkomst till en Time Series Insights-miljö med Azure-portalen](time-series-insights-data-access.md).
 
-Det är också möjligt att utföra exportåtgärder på principer för åtkomst med hjälp av ”lista efter miljö”-åtgärd i den tillhandahållna REST-API. Mer information finns i [åtkomstprinciper - lista med miljö](https://docs.microsoft.com/rest/api/time-series-insights-management/accesspolicies/listbyenvironment).
+Det är också möjligt att utföra exportåtgärder på principer för åtkomst med hjälp av ”lista efter miljö”-åtgärd i den tillhandahållna REST-API. Mer information finns i [åtkomstprinciper - lista med miljö](/rest/api/time-series-insights/management/accesspolicies/listbyenvironment).
 
 ## <a name="to-delete-data-stored-within-time-series-insights"></a>Att ta bort data som lagras i Time Series Insights
 

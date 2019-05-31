@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: 0ff73e342a668fef6d405783c130cf216f8003b4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ffd9c4bfc934faff1664ff39c0e979a9d6c09487
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60395650"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399784"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Träffa IT Service Management Connector ITSM-produkter/tjänster
 Den här artikeln innehåller information om hur du konfigurerar anslutningen mellan din ITSM-produkt/tjänst och IT Service Management Connector (ITSMC) i Log Analytics för att centralt hantera dina arbetsuppgifter. Läs mer om ITSMC [översikt](../../azure-monitor/platform/itsmc-overview.md).
@@ -72,8 +72,8 @@ Använd följande procedur för att ansluta din System Center Service Manager-in
 | **Serveradress**   | Ange Webbadressen till Service Manager-webbapp. Mer information om Service Manager Web app är [här](#create-and-deploy-service-manager-web-app-service).
 | **Klient-ID**   | Ange klient-ID som du skapade (med hjälp av automatisk skriptet) för att autentisera webbappen. Mer information om automatiserat skript är [här.](../../azure-monitor/platform/itsmc-service-manager-script.md)|
 | **Klienthemlighet**   | Ange klienthemlighet genereras för detta ID.   |
-| **Datasynkroniseringsomfång**   | Välj Service Manager-arbetsuppgifter som du vill synkronisera via ITSMC.  Dessa fungerar objekt har importerats till Log Analytics. **Alternativ:**  Incidenter, ändringsbegäranden.|
-| **Synkronisera Data** | Ange antalet tidigare dagar som du vill att data från. **Maxgränsen**: 120 dagar. |
+| **Synkronisera Data**   | Välj Service Manager-arbetsuppgifter som du vill synkronisera via ITSMC.  Dessa fungerar objekt har importerats till Log Analytics. **Alternativ:**  Incidenter, ändringsbegäranden.|
+| **Datasynkroniseringsomfång** | Ange antalet tidigare dagar som du vill att data från. **Maxgränsen**: 120 dagar. |
 | **Skapa nytt konfigurationsobjekt i ITSM-lösning** | Välj det här alternativet om du vill skapa konfigurationsobjekt i ITSM-produkten. När du väljer skapar Log Analytics berörda konfigurationsobjekt som konfigurationsobjekt (när det gäller icke-existerande CIs) i ITSM-system som stöds. **Standard**: inaktiverad. |
 
 ![Service manager-anslutningen](media/itsmc-connections/service-manager-connection.png)
@@ -142,7 +142,7 @@ Du kan använda följande procedur för att konfigurera hybridanslutningen som s
    - **Slutpunktsport**: Typ 5724
    - **Servicebus-namnområdet**: Använd en befintlig servicebus namespace eller skapa en ny.
    - **Plats**: Välj platsen.
-   - **Namn**: Ange ett namn som servicebus om du skapar den.
+   - **Namn på**: Ange ett namn som servicebus om du skapar den.
 
      ![Hybrid anslutningsvärden](media/itsmc-connections/itsmc-new-hybrid-connection-values.png)
 6. Klicka på **OK** att Stäng den **skapa hybridanslutning** bladet och börja skapa hybridanslutningen.
@@ -185,11 +185,12 @@ Följande avsnitt innehåller information om hur du ansluter din ServiceNow-prod
 ### <a name="prerequisites"></a>Nödvändiga komponenter
 Kontrollera att följande krav är uppfyllda:
 - ITSMC installerad. Mer information: [Att lägga till IT Service Management Connector-lösningen](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution).
-- ServiceNow-versioner som stöds: London, Kingston, Jakarta, Istanbul, Helsinki, Geneva.
+- ServiceNow-versioner som stöds: Madrid, London, Kingston, Jakarta, Istanbul, Helsinki, Geneva.
 
 **ServiceNow Admins måste göra följande i sina ServiceNow-instans**:
 - Generera klient-ID och klienthemlighet för ServiceNow-produkten. Information om hur du skapar klient-ID och hemlighet finns i följande information som krävs:
 
+    - [Konfigurera OAuth för Madrid](https://docs.servicenow.com/bundle/madrid-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Konfigurera OAuth för London](https://docs.servicenow.com/bundle/london-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Konfigurera OAuth för Kingston](https://docs.servicenow.com/bundle/kingston-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Konfigurera OAuth för Jakarta](https://docs.servicenow.com/bundle/jakarta-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
@@ -318,7 +319,7 @@ Använd följande procedur för att skapa en Provance-anslutning:
 | **Anslutningsnamn**   | Skriv ett namn för den Provance-instans som du vill ansluta med ITSMC.  Du använder det här namnet senare när du konfigurerar arbetsobjekt i den här ITSM / visa detaljerad logganalys. |
 | **Partnertyp**   | Välj **Provance**. |
 | **Användarnamn**   | Ange det användarnamn som kan ansluta till ITSMC.    |
-| **Lösenord**   | Ange lösenordet som är associerade med det här användarnamnet. **Obs!** Användarnamn och lösenord används för att generera autentiseringstoken endast och lagras inte någonstans i tjänsten ITSMC. _|
+| **Lösenord**   | Ange lösenordet som är associerade med det här användarnamnet. **Obs:** Användarnamn och lösenord används för att generera autentiseringstoken endast och lagras inte någonstans i tjänsten ITSMC. _|
 | **Serveradress**   | Ange Webbadressen till din Provance-instans som du vill ansluta till ITSMC. |
 | **Klient-ID**   | Ange klient-ID för att autentisera den här anslutningen som du genererade i din Provance-instans.  Mer information om klient-ID finns i [hur du konfigurerar active directory-autentisering](../../app-service/configure-authentication-provider-aad.md). |
 | **Datasynkroniseringsomfång**   | Välj Provance arbetsobjekten som du vill synkronisera till Azure Log Analytics, via ITSMC.  Dessa objekt har importerats till logganalys fungerar.   **Alternativ:**   Incidenter, ändringsbegäranden.|
@@ -369,7 +370,7 @@ Använd följande procedur för att skapa en Provance-anslutning:
 | **Anslutningsnamn**   | Skriv ett namn för den Cherwell-instans som du vill ansluta till ITSMC.  Du använder det här namnet senare när du konfigurerar arbetsobjekt i den här ITSM / visa detaljerad logganalys. |
 | **Partnertyp**   | Välj **Cherwell.** |
 | **Användarnamn**   | Skriv användarnamnet Cherwell som kan ansluta till ITSMC. |
-| **Lösenord**   | Ange lösenordet som är associerade med det här användarnamnet. **Obs!** Användarnamn och lösenord används för att generera autentiseringstoken endast och lagras inte någonstans i ITSMC-tjänsten.|
+| **Lösenord**   | Ange lösenordet som är associerade med det här användarnamnet. **Obs:** Användarnamn och lösenord används för att generera autentiseringstoken endast och lagras inte någonstans i ITSMC-tjänsten.|
 | **Serveradress**   | Ange Webbadressen till din Cherwell-instans som du vill ansluta till ITSMC. |
 | **Klient-ID**   | Ange klient-ID för att autentisera den här anslutningen som du genererade i din instans av Cherwell.   |
 | **Datasynkroniseringsomfång**   | Välj Cherwell arbetsobjekten som du vill synkronisera via ITSMC.  Dessa objekt har importerats till logganalys fungerar.   **Alternativ:**  Incidenter, ändringsbegäranden. |

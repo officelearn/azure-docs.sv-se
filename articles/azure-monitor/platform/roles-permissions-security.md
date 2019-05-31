@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: bac57b18ec5474cfe3c27ad1079c5af7e1d2c451
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4949391aded58f27ba8acd5c9ec437e8933f9843
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60453122"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243428"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Kom igång med roller, behörigheter och säkerhet med Azure Monitor
 
@@ -24,15 +24,15 @@ Många team behöver strikt reglera åtkomst till övervakningsdata och inställ
 ## <a name="built-in-monitoring-roles"></a>Inbyggd övervakning roller
 Azure Monitor inbyggda roller är avsedda att begränsa åtkomsten till resurser i en prenumeration samtidigt som de som ansvarar för övervakning av infrastruktur för att hämta och konfigurera de data de behöver. Azure Monitor innehåller två out-of the box-roller: En övervakning läsare och deltagare övervakning.
 
-### <a name="monitoring-reader"></a>Övervakningsläsare
+### <a name="monitoring-reader"></a>Övervaka läsare
 Personer som har tilldelats rollen övervakning läsare kan visa alla övervakningsdata i en prenumeration men det går inte att ändra alla resurser eller redigera alla inställningar som rör övervakning av resurser. Den här rollen är lämplig för användare i en organisation, till exempel support eller åtgärder tekniker som behöver för att kunna:
 
 * Visa övervakning instrumentpaneler i portalen och skapa sina egna privata instrumentpaneler för övervakning.
-* Visa Varningsregler som definierats i [Azure-aviseringar](../../azure-monitor/platform/alerts-overview.md)
-* Fråga om mått med hjälp av den [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx), [PowerShell-cmdletar](../../azure-monitor/platform/powershell-quickstart-samples.md), eller [plattformsoberoende CLI](../../azure-monitor/platform/cli-samples.md).
+* Visa Varningsregler som definierats i [Azure-aviseringar](alerts-overview.md)
+* Fråga om mått med hjälp av den [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx), [PowerShell-cmdletar](powershell-quickstart-samples.md), eller [plattformsoberoende CLI](cli-samples.md).
 * Fråga med hjälp av portalen, Azure Monitor REST API, PowerShell-cmdletar eller plattformsoberoende CLI aktivitetsloggen.
-* Visa den [diagnostikinställningar](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings) för en resurs.
-* Visa den [loggprofilen](../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile) för en prenumeration.
+* Visa den [diagnostikinställningar](diagnostic-logs-overview.md#diagnostic-settings) för en resurs.
+* Visa den [loggprofilen](activity-log-export.md) för en prenumeration.
 * Visa inställningarna för automatisk skalning.
 * Visa Aviseringsaktivitet och inställningar.
 * Få åtkomst till Application Insights-data och visa data i AI-Analytics.
@@ -48,13 +48,13 @@ Personer som har tilldelats rollen övervakning läsare kan visa alla övervakni
 > 
 > 
 
-### <a name="monitoring-contributor"></a>Övervakningsdeltagare
+### <a name="monitoring-contributor"></a>Övervaka deltagare
 Personer som har tilldelats rollen övervakning deltagare kan visa alla övervakningsdata i en prenumeration och skapa eller ändra inställningar för övervakning, men kan inte ändra andra resurser. Den här rollen är en supermängd rollen Läsare för övervakning och är lämplig för medlemmar i en organisation övervakning team eller leverantörer av hanterade tjänster som, utöver behörigheterna som ovan, måste också kunna:
 
 * Publicera övervakning instrumentpaneler som en delad instrumentpanel.
-* Ange [diagnostikinställningar](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings) för en resurs.\*
-* Ange den [loggprofilen](../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile) för en prenumeration.\*
-* Ställ in Varningsregler aktivitet och inställningar via [Azure Alerts](../../azure-monitor/platform/alerts-overview.md).
+* Ange [diagnostikinställningar](diagnostic-logs-overview.md#diagnostic-settings) för en resurs.\*
+* Ange den [loggprofilen](activity-log-export.md) för en prenumeration.\*
+* Ställ in Varningsregler aktivitet och inställningar via [Azure Alerts](alerts-overview.md).
 * Skapa webbtester med Application Insights och komponenter.
 * Lista Log Analytics-arbetsyta delade nycklar.
 * Aktivera eller inaktivera Övervakningspaket i Log Analytics-arbetsyta.

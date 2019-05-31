@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 243a388ee59a1a550f80882b0af61e1f1db008ca
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: 9d5e06c3d72d87a87b41a52ed4df369ebc04dccd
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65977442"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66387085"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Övervaka scenariot i varaktiga funktioner - väder watcher exemplet
 
@@ -42,7 +42,7 @@ Det här exemplet övervakar en plats aktuella väderförhållanden och varnar e
 
 Det här exemplet omfattar med väder underjordiska API för att kontrollera aktuella väderförhållanden för en plats.
 
-Det första du behöver är ett väder underjordiska konto. Du kan skapa ett kostnadsfritt på [ https://www.wunderground.com/signup ](https://www.wunderground.com/signup). När du har ett konto måste du skaffa en API-nyckel. Du kan göra det genom att besöka [ https://www.wunderground.com/weather/api ](https://www.wunderground.com/weather/api), och sedan väljer nyckel inställningarna. Stratus utvecklaravtal är kostnadsfria och tillräcklig för att köra det här exemplet.
+Det första du behöver är ett väder underjordiska konto. Du kan skapa ett kostnadsfritt på [ https://www.wunderground.com/signup ](https://www.wunderground.com/signup). När du har ett konto måste du skaffa en API-nyckel. Du kan göra det genom att besöka [ https://www.wunderground.com/weather/api ](https://www.wunderground.com/weather/api/?MR=1), och sedan väljer nyckel inställningarna. Stratus utvecklaravtal är kostnadsfria och tillräcklig för att köra det här exemplet.
 
 När du har en API-nyckel, lägger du till följande **appinställningen** till din funktionsapp.
 

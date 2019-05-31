@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/18/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: f72ce02a8655ea97497098dc1412f69e07686861
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 42c94188c0c38448660998bcfc122ae626285566
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66147051"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66249071"
 ---
 ### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>Hur många slutpunkter på VPN-klienter kan jag ha i min punkt-till-plats-konfiguration?
 
@@ -38,9 +38,11 @@ Följande klientoperativsystem stöds:
 
 ### <a name="can-i-traverse-proxies-and-firewalls-using-point-to-site-capability"></a>Kan jag korsa proxyservrar och brandväggar med punkt-till-plats-funktionen?
 
-Azure stöder två alternativ för VPN för punkt-till-plats:
+Azure stöder tre typer av alternativ för punkt-till-plats-VPN:
 
 * SSTP (Secure Socket Tunneling Protocol). SSTP är en SSL-baserad lösning från Microsoft som kan ta sig igenom brandväggar eftersom de flesta brandväggar öppnar TCP-port 443 som SSL använder.
+
+* OpenVPN. OpenVPN är en SSL-baserad lösning som kan ta sig igenom brandväggar eftersom de flesta brandväggar öppnar TCP-porten som 443 som SSL använder.
 
 * IKEv2 VPN. IKEv2 VPN är en standardbaserad IPsec VPN-lösning som använder UDP-port 500 och 4500 och IP-protokoll nummer 50. Eftersom inte alla brandväggar öppnar dessa portar kan det hända att IKEv2 VPN inte kan komma igenom proxyservrar och brandväggar.
 
@@ -66,7 +68,7 @@ Det är svårt att bibehålla ett exakt dataflöde i VPN-tunnlarna. IPsec och SS
 
 ### <a name="can-i-use-any-software-vpn-client-for-point-to-site-that-supports-sstp-andor-ikev2"></a>Kan jag använda alla VPN-programklienter för punkt-till-plats som har stöd för SSTP och/eller IKEv2?
 
-Nej. Du kan bara använda den inbyggda VPN-klienten i Windows för SSTP, och den inbyggda VPN-klienten i Mac för IKEv2. Se listan över klientoperativsystem som stöds.
+Nej. Du kan bara använda den inbyggda VPN-klienten i Windows för SSTP, och den inbyggda VPN-klienten i Mac för IKEv2. Du kan dock använda OpenVPN-klienten på alla plattformar för att ansluta via OpenVPN-protokollet. Se listan över klientoperativsystem som stöds.
 
 ### <a name="does-azure-support-ikev2-vpn-with-windows"></a>Har Azure stöd för IKEv2 VPN-anslutningar i Windows?
 

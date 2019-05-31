@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/27/2019
+ms.date: 05/22/2019
 ms.author: juliako
-ms.openlocfilehash: 78e3897ec653326bcd88a538a6ea7d33938659b9
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 25c0fe7a179db484f18c1aca16471e39a739052c
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65761954"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299175"
 ---
 # <a name="dynamic-packaging"></a>Dynamisk paketering
 
@@ -31,6 +31,9 @@ Att dra nytta av **dynamisk paketering**, måste du ha en **tillgången** med en
 Detta innebär att du bara behöver lagra och betala för filerna i ett enda lagringsformat, och Media Services-tjänsten skapar och ger lämplig respons baserat på begäranden från en klient. 
 
 I Media Services används dynamisk paketering om du strömning live eller på begäran. 
+
+> [!NOTE]
+> För närvarande kan du inte hantera v3-resurser med Azure-portalen. Använd [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) eller en av [SDK:erna som stöds](media-services-apis-overview.md#sdks).
 
 ## <a name="common-on-demand-workflow"></a>Arbetsflöde för vanliga på begäran
 
@@ -92,10 +95,32 @@ Dynamisk paketering stöder MP4-filer som innehåller video kodad med [H.264](ht
 
 ## <a name="audio-codecs-supported-by-dynamic-packaging"></a>Ljud-codec som stöds av dynamisk paketering
 
-Dynamisk paketering stöder MP4-filer som innehåller ljud kodad med [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) (AAC-LC, HE-AAC v1, HE-AAC v2), [Dolby Digital Plus](https://en.wikipedia.org/wiki/Dolby_Digital_Plus)(förbättrad AC-3 eller E-AC3) Dolby Atmos eller [DTS](https://en.wikipedia.org/wiki/DTS_%28sound_system%29) (DTS Express, DTS LBR, DTS HD, DTS HD förlustfri). Direktuppspelning av Dolby Atmos innehåll stöds för standarder som MPEG-DASH-protokollet med vanliga Streaming Format (CSF) eller vanliga Media program Format (CMAF) fragmenterad MP4 och via HTTP Live Streaming (HLS) med CMAF.
+### <a name="mp4-files-support"></a>Stöd för MP4-filer
 
-> [!NOTE]
-> Dynamisk paketering har inte stöd för filer som innehåller [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital) (AC3) ljud (det är en äldre codec).
+MP4-filer som innehåller ljud kodad med stöd för dynamisk paketering 
+
+* [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) (AAC-LC, HE-AAC v1, HE-AAC v2)
+* [Dolby Digital Plus](https://en.wikipedia.org/wiki/Dolby_Digital_Plus)(förbättrad AC-3 eller E-AC3)
+* Dolby Atmos
+   
+   Direktuppspelning av Dolby Atmos innehåll stöds för standarder som MPEG-DASH-protokollet med vanliga Streaming Format (CSF) eller vanliga Media program Format (CMAF) fragmenterad MP4 och via HTTP Live Streaming (HLS) med CMAF.
+
+* [DTS](https://en.wikipedia.org/wiki/DTS_%28sound_system%29)
+
+    DTS-codec som stöds av DASH-CSF, DASH CMAF, HLS M2TS och HLS CMAF paketering format är:  
+
+    * DTS digitala omge (dtsc)
+    * DTS-HD hög upplösning och DTS-HD Master ljud (dtsh)
+    * DTS Express (dtse)
+    * DTS-HD förlustfri (inga kärnor) (dtsl)
+
+### <a name="hls-support"></a>Stöd för HLS
+
+Stöd för dynamisk paketering HLS (version 4 eller senare) för tillgångar som har flera ljudspår med flera codec och språk.
+
+### <a name="not-supported"></a>Stöds inte
+
+Dynamisk paketering har inte stöd för filer som innehåller [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital) (AC3) ljud (det är en äldre codec).
 
 ## <a name="dynamic-encryption"></a>Dynamisk kryptering
 
@@ -193,10 +218,7 @@ Här är ett exempel på ett Smooth Streaming-manifest:
 
 ## <a name="dynamic-manifest"></a>Dynamic Manifest
 
-Dynamisk filtrering används för att styra antalet spår, format, olika bithastigheter och presentation tidsfönster som skickas till spelarna. Mer information finns i [filter och dynamiska manifest](filters-dynamic-manifest-overview.md).
-
-> [!NOTE]
-> För närvarande kan du inte hantera v3-resurser med Azure-portalen. Använd [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) eller en av [SDK:erna som stöds](media-services-apis-overview.md#sdks).
+Dynamisk filtrering används för att styra antalet spår, format, olika bithastigheter och presentation tidsfönster som skickas till spelarna. Mer information finns i [före filtrering manifest med dynamiska Paketeraren](filters-dynamic-manifest-overview.md).
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>Ställ frågor, ge feedback, få uppdateringar
 

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3fcc1926d580007750e7e1f5a3de06ef6578e1b5
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: HT
+ms.openlocfilehash: c0f8a56df5b41236256115ced0d46a87c5ee91a5
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65957468"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66400240"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Konfigurera automatisk ML-experiment i Python
 
@@ -59,6 +59,14 @@ Klassificering | Regression | Time Series prognoser
 [Naive Bayes](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)|
 [Stokastisk brantaste Lutningsmetoden (Descent)](https://scikit-learn.org/stable/modules/sgd.html#sgd)|
 
+Använd den `task` parametern i den `AutoMLConfig` att ange din typ av experiment.
+
+```python
+from azureml.train.automl import AutoMLConfig
+
+# task can be one of classification, regression, forecasting
+automl_config = AutoMLConfig(task="classification")
+```
 
 ## <a name="data-source-and-format"></a>Datakällan och format
 Automatiserad maskininlärning har stöd för data som finns på din lokala dator eller i molnet, till exempel Azure Blob Storage. Data kan läsas in i scikit-Läs stöds dataformat. Du kan läsa data till:
@@ -121,7 +129,7 @@ Nyckel | Typ | Ömsesidigt uteslutande med    | Beskrivning
 ---|---|---|---
 X | Pandas-Dataframe eller Numpy matris | data_train, etikett, kolumner |  Alla funktioner för att träna med
 Y | Pandas-Dataframe eller Numpy matris |   etikett   | Märk data att träna med. Klassificering, bör vara en matris av heltal.
-X_valid | Pandas-Dataframe eller Numpy matris   | data_train, etikett | _Valfritt_ alla funktioner ska verifiera med. Om inte anges X delas mellan träna och validera
+X_valid | Pandas-Dataframe eller Numpy matris   | data_train, etikett | _Valfritt_ funktionen data som utgör uppsättningen verifiering. Om inte anges X delas mellan träna och validera
 y_valid |   Pandas-Dataframe eller Numpy matris | data_train, etikett | _Valfritt_ etikett data ska verifiera med. Om inte anges y delas mellan träna och validera
 sample_weight | Pandas-Dataframe eller Numpy matris |   data_train, etikett, kolumner| _Valfritt_ ett viktningsvärde för varje exempel. Använd när du vill tilldela olika vikter för din datapunkter
 sample_weight_valid | Pandas-Dataframe eller Numpy matris | data_train, etikett, kolumner |    _Valfritt_ ett viktningsvärde för varje Verifieringsexempel. Om inte anges sample_weight delas mellan träna och validera
@@ -129,30 +137,6 @@ data_train |    Pandas-Dataframe |  X, y, X_valid, y_valid |    Alla data (funkt
 etikett | sträng  | X, y, X_valid, y_valid |  Vilken kolumn i data_train representerar etiketten
 Kolumner | matris med strängar  ||  _Valfritt_ godkänd lista över kolumner som ska användas för funktioner
 cv_splits_indices   | Heltalsmatris ||  _Valfritt_ lista över index att dela data för mellan verifiering
-
-### <a name="load-and-prepare-data-using-data-prep-sdk"></a>Läsa in och förbereda data med dataförberedelser SDK
-Automatiserad maskininlärningsexperiment stöder inläsning av data och transformerar med dataförberedelser SDK. Med hjälp av SDK gör möjligheten att
-
->* Läsa in från många filtyper med parsning parametern inferens (kodning, avgränsare, rubriker)
->* Typ konverze med inferens under inläsningen av filen
->* Stödet för MS SQL Server och Azure Data Lake Storage
->* Lägg till kolumnen med ett uttryck
->* Sedan imputera värden som saknas
->* Härled kolumner med exempel
->* Filtrering
->* Anpassad Python-transformeringar
-
-Lär dig mer om data prep sdk finns den [hur du förbereder data för modellering av artikeln](how-to-load-data.md).
-Nedan visas ett exempel som läser in data med hjälp av data prep SDK: n.
-```python
-# The data referenced here was pulled from `sklearn.datasets.load_digits()`.
-simple_example_data_root = 'https://dprepdata.blob.core.windows.net/automl-notebook-data/'
-X = dprep.auto_read_file(simple_example_data_root + 'X.csv').skip(1)  # Remove the header row.
-# You can use `auto_read_file` which intelligently figures out delimiters and datatypes of a file.
-
-# Here we read a comma delimited file and convert all columns to integers.
-y = dprep.read_csv(simple_example_data_root + 'y.csv').to_long(dprep.ColumnSelector(term='.*', use_regex = True))
-```
 
 ## <a name="train-and-validation-data"></a>Träna och verifiering
 
@@ -374,7 +358,7 @@ Använd dessa 2 API: er på det första steget i anpassade modell som vill veta 
 
    Där:
 
-   |Utdata|Definition|
+   |Resultat|Definition|
    |----|--------|
    |RawFeatureName|Funktionen/indatakolumnen namn från den datauppsättning som angetts.|
    |TypeDetected|Identifierade datatype av indata-funktionen.|
@@ -501,6 +485,8 @@ from azureml.widgets import RunDetails
 RunDetails(local_run).show()
 ```
 ![funktionen vikten graph](./media/how-to-configure-auto-train/feature-importance.png)
+
+Mer information om hur modellen förklaringar och funktionen prioritet kan aktiveras i andra delar av SDK: N utanför automatiserade maskininlärning finns det [konceptet](machine-learning-interpretability-explainability.md) artikeln på interpretability.
 
 ## <a name="next-steps"></a>Nästa steg
 

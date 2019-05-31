@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/07/2018
+ms.date: 05/24/2018
 ms.author: jingwang
-ms.openlocfilehash: 1c8cbcd2e5f137b1e8381dcce164ae9a4b87e804
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: faf0cab55ec0cef034638d218f2172f3676ff39b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60998480"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66245113"
 ---
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>Kopiera data till ett Azure Search-index med hjälp av Azure Data Factory
 
@@ -41,7 +41,7 @@ Följande avsnitt innehåller information om egenskaper som används för att de
 
 Följande egenskaper har stöd för Azure Search länkade tjänsten:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen måste anges till: **AzureSearch** | Ja |
 | url | URL för Azure Search-tjänsten. | Ja |
@@ -77,9 +77,9 @@ Följande egenskaper har stöd för Azure Search länkade tjänsten:
 
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i artikeln datauppsättningar. Det här avsnittet innehåller en lista över egenskaper som stöds av Azure Search-datauppsättningen.
 
-Om du vill kopiera data till Azure Search, ange typegenskapen på datauppsättningen till **RelationalTable**. Följande egenskaper stöds:
+Om du vill kopiera data till Azure Search, stöds följande egenskaper:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för datauppsättningen måste anges till: **AzureSearchIndex** | Ja |
 | indexName | Namnet på Azure Search-index. Data Factory skapar inte indexet. Indexet måste finnas i Azure Search. | Ja |
@@ -110,7 +110,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data till Azure Search, ange typ av datakälla i kopieringsaktiviteten till **AzureSearchIndexSink**. Följande egenskaper stöds i kopieringsaktiviteten **mottagare** avsnittet:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **AzureSearchIndexSink** | Ja |
 | writeBehavior | Anger om du vill slå samman eller Ersätt när det finns redan ett dokument i indexet. Se den [WriteBehavior egenskapen](#writebehavior-property).<br/><br/>Tillåtna värden är: **Sammanfoga** (standard), och **överför**. | Nej |

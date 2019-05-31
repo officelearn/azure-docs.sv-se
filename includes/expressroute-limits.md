@@ -5,30 +5,30 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: include
-ms.date: 06/12/2018
+ms.date: 05/28/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: c025c431d826d3a2951a9eb5c09308695e172887
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 9f7f9b1504533e0ec503e97c086c380da71671a0
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66170693"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299714"
 ---
 | Resource | Standard-/ maxgräns |
 | --- | --- |
 | ExpressRoute-kretsar per prenumeration |10 |
 | ExpressRoute-kretsar per region per prenumeration, med Azure Resource Manager |10 |
-| Maximalt antal vägar för Azures privata peering med ExpressRoute-Standard |4,000 |
-| Maximalt antal vägar för Azures privata peering med ExpressRoute Premium-tillägget |10 000 |
-| Maximalt antal vägar för Azures privata peering från virtuella nätverkets adressutrymme för en ExpressRoute-anslutning |200 | 
-| Maximalt antal vägar för Microsoft Azure-peering med ExpressRoute-Standard |200 |
-| Maximalt antal vägar för Microsoft Azure-peering med ExpressRoute Premium-tillägget |200 |
+| Maximalt antal vägar som annonseras till Azures privata peering med ExpressRoute-Standard |4,000 |
+| Maximalt antal vägar som annonseras till Azures privata peering med ExpressRoute Premium-tillägget |10 000 |
+| Maximalt antal vägar som annonseras från Azures privata peering från virtuella nätverkets adressutrymme för en ExpressRoute-anslutning |200 |
+| Maximalt antal vägar som annonseras till Microsoft-peering med ExpressRoute-Standard |200 |
+| Maximalt antal vägar som annonseras till Microsoft-peering med ExpressRoute Premium-tillägget |200 |
 | Maximalt antal ExpressRoute-kretsar som är länkad till samma virtuella nätverk på samma plats för peering |4 |
 | Maximalt antal ExpressRoute-kretsar som är länkad till samma virtuella nätverk i olika peering-platser |4 |
-| Antalet virtuella nätverkslänkar som tillåts per ExpressRoute-krets |Se tabellen nedan. |
+| Antalet virtuella nätverkslänkar som tillåts per ExpressRoute-krets |Se den [antalet virtuella nätverk per ExpressRoute-krets](#vnetpercircuit) tabell.  |
 
-#### <a name="number-of-virtual-networks-per-expressroute-circuit"></a>Antalet virtuella nätverk per ExpressRoute-krets
+#### <a name="vnetpercircuit"></a> Antalet virtuella nätverk per ExpressRoute-krets
 | **Kretsstorlek** | **Antalet virtuella nätverkslänkar för Standard** | **Antalet virtuella nätverkslänkar med Premium-tillägg** |
 | --- | --- | --- |
 | 50 Mbit/s |10 |20 |

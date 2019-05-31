@@ -8,12 +8,12 @@ ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: kasparks
-ms.openlocfilehash: 188a79df99a174436808acd3d964abf9357cf4c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fef7b82e6969de16d1815250d2373c99021b0e86
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60467944"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66254729"
 ---
 # <a name="reduce-service-costs-using-azure-advisor"></a>Minska tjänstekostnaderna med hjälp av Azure Advisor
 
@@ -44,6 +44,13 @@ Advisor meddelar även om reserverade instanser som du har upphör att gälla in
 ## <a name="delete-unassociated-public-ip-addresses-to-save-money"></a>Ta bort olänkade offentliga IP-adresser för att spara pengar
 
 Advisor identifierar offentliga IP-adresser som inte är associerade till Azure-resurser, till exempel belastningsutjämnare eller virtuella datorer. De här offentliga IP-adresser som levereras med en nominell avgift. Om du inte planerar att använda dem, kan tar bort dem resultera i kostnadsbesparingar.
+
+## <a name="delete-azure-data-factory-pipelines-that-are-failing"></a>Ta bort Azure Data Factory-pipelines som misslyckas
+
+Azure Advisor identifierar Azure Data Factory-pipelines som misslyckas upprepade gånger och rekommenderar att du lösa problemen eller ta bort pipelines misslyckas om de inte längre behövs. Du kommer att debiteras för dessa pipelines även om även om de inte har du även om de inte importeras. 
+
+## <a name="use-standard-snapshots-for-managed-disks"></a>Använda ögonblicksbilder av Standard Managed Disks
+Om du vill spara 60% av kostnaderna, rekommenderar vi lagrar dina ögonblicksbilder i standardlagring, oavsett vilken lagringstyp av den överordnade disken. Det här är standardalternativet för Managed Disks-ögonblicksbilder. Azure Advisor identifierar ögonblicksbilder som är lagrade Premium Storage och det rekommenderas att migrera din ögonblicksbild från Premium till Standard Storage. [Läs mer om priser för Managed Disk](https://aka.ms/aa_manageddisksnapshot_learnmore)
 
 ## <a name="how-to-access-cost-recommendations-in-azure-advisor"></a>Hur du kommer åt kostnadsrekommendationer i Azure Advisor
 

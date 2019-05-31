@@ -14,18 +14,18 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 56077d018c1ae62809d51fc66d7f5aff93fb4c02
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7b3b3b019df70b6c27833afdd0447ecf32da32ff
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60821845"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305014"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs - geohaveriberedskap 
 
 När hela Azure-regioner eller Datacenter (om ingen [tillgänglighetszoner](../availability-zones/az-overview.md) används) drabbas, det är viktigt för att bearbeta till fortsätter att fungera i en annan region eller datacenter. Därför *geohaveriberedskap* och *Geo-replikering* är viktiga funktioner för vilket företag som helst. Azure Event Hubs stöder både geo-haveriberedskap och geo-replikering på namnområdesnivå. 
 
-Geo-disaster recovery-funktionen är globalt tillgänglig för Event Hubs Standard-SKU.
+Geo-disaster recovery-funktionen är globalt tillgänglig för Event Hubs Standard och dedikerade SKU. Observera att du kan bara geo-par namnområden på samma nivå av SKU: N. Till exempel om du har ett namnområde i ett kluster som erbjuds endast i vår dedikerade SKU, kan den bara kopplas till ett namnområde i ett annat kluster. 
 
 ## <a name="outages-and-disasters"></a>Avbrott och katastrofer
 

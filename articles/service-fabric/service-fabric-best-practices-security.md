@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 3349abfb1b7cf85247b1bb5de8eb53fa09299b74
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 449dbb04d58fe7980c845b8c5bc8d837b643c1be
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65136490"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66386733"
 ---
 # <a name="azure-service-fabric-security"></a>Azure Service Fabric-säkerhet 
 
@@ -201,6 +201,14 @@ I följande exempel visas hur du gör detta för Cosmos DB-resursen:
 ```bash
 cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBSCRIPTION>/resourceGroups/<YOUR RG>/providers/Microsoft.DocumentDB/databaseAccounts/<YOUR ACCOUNT>/listKeys?api-version=2016-03-31' -X POST -d "" -H "Authorization: Bearer $access_token" | python -c "import sys, json; print(json.load(sys.stdin)['primaryMasterKey'])")
 ```
+## <a name="windows-security-baselines"></a>Säkerheten i Windows
+[Vi rekommenderar att du implementerar en branschstandard-konfiguration som är allmänt kända och väl beprövad, till exempel Microsoft säkerheten, till skillnad från skapa en baslinje själv](https://docs.microsoft.com/windows/security/threat-protection/windows-security-baselines); ett alternativ för att etablera dessa på den virtuella datorn Skalningsuppsättningar är att använda Azure Desired State Configuration (DSC)-tilläggshanterare för att konfigurera de virtuella datorerna när de kommer online, så att de kör programvara för produktion.
+
+## <a name="azure-firewall"></a>Azure Firewall
+[Azure-brandväggen är en hanterad, molnbaserad säkerhet nätverkstjänst som skyddar dina Azure Virtual Network-resurser. Det är en fullständigt administrerad brandvägg som en tjänst med inbyggd hög tillgänglighet och skalbarhet i obegränsad molnet. ](https://docs.microsoft.com/azure/firewall/overview); detta gör möjligheten att begränsa utgående HTTP/S-trafik till en angiven lista med fullständigt kvalificerade domännamn (FQDN), inklusive jokertecken. Den här funktionen kräver inte SSL-avslutning. Dess bör du använda [Azure brandväggen FQDN taggar](https://docs.microsoft.com/azure/firewall/fqdn-tags) för Windows-uppdateringar och aktivera nätverkstrafik till Microsoft Windows Update slutpunkter kan flöda via brandväggen. [Distribuera Azure-brandväggen med hjälp av en mall](https://docs.microsoft.com/azure/firewall/deploy-template) innehåller ett exempel för Microsoft.Network/azureFirewalls resursdefinitionen för mallen.
+
+## <a name="tls-12"></a>TLS 1.2
+[TSG](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Security/TLS%20Configuration.md)
 
 ## <a name="windows-defender"></a>Windows Defender 
 

@@ -15,12 +15,12 @@ ms.date: 10/29/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2ba74961eb549afd2fcf7c10f2d8b981e389a2c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f63aebb9a9bbefe84ac36b92cd69e0d93de0ab76
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60381696"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298761"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>Felsök fel under synkronisering
 Fel kan uppstå när identitetsdata synkroniseras från Windows Server Active Directory (AD DS) till Azure Active Directory (AD Azure). Den här artikeln innehåller en översikt över olika typer av synkroniseringsfel några möjliga scenarier som orsakar dessa fel och potentiella sätt att åtgärda felen. Den här artikeln innehåller vanliga fel och kan inte omfatta alla eventuella fel.
@@ -190,7 +190,7 @@ För en synkroniserad användare ändrades UserPrincipalName-suffix från en fed
 
 #### <a name="example"></a>Exempel
 1. Bob Smith, ett konto för Contoso.com, hämtar läggas till som en ny användare i Active Directory med UserPrincipalName bob@contoso.com
-2. Bob flyttas till en annan avdelning contoso.com som kallas Fabrikam.com och hans UserPrincipalName ändras till bob@fabrikam.com
+2. Bob flyttas till en annan avdelning contoso.com som kallas Fabrikam.com och deras UserPrincipalName ändras till bob@fabrikam.com
 3. Både contoso.com och fabrikam.com domäner är federerade domäner med Azure Active Directory.
 4. Bobs userPrincipalName uppdateras inte och resulterar i ett ”FederatedDomainChangeError” synkroniseringsfel.
 
@@ -221,7 +221,7 @@ När ett attribut överskrider den tillåtna storleksgränsen, längdbegränsnin
 ### <a name="how-to-fix"></a>Hur du åtgärdar
 1. Kontrollera att attributet som orsakar felet ligger inom den tillåtna begränsningen.
 
-## <a name="existing-admin-role-conflict"></a>Konflikt för befintlig Adminroll
+## <a name="existing-admin-role-conflict"></a>Befintliga administratörsroll konflikt
 
 ### <a name="description"></a>Beskrivning
 En **konflikt med befintliga Admin-rollen** inträffar på ett användarobjekt under synkroniseringen när användarobjektet har:

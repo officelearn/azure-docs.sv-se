@@ -3,19 +3,19 @@ title: Translator Text API ordlista exempel metod
 titlesuffix: Azure Cognitive Services
 description: Använd exempel för Translator Text API ordlista-metoden.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
-ms.author: v-jansko
-ms.openlocfilehash: d48349b802023d9a05bf14898440837b7793715d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: v-pawal
+ms.openlocfilehash: 526fc3e51691773e27530a0fa775f4f07ee94acd
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60605130"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389779"
 ---
 # <a name="translator-text-api-30-dictionary-examples"></a>Translator Text API 3.0: Ordlisteexempel
 
@@ -41,7 +41,7 @@ Parametrarna som skickades mot frågesträngen är:
     <td>*Obligatoriska parametern*.<br/>Versionen av API: et som begärs av klienten. Värdet måste vara `3.0`.</td>
   </tr>
   <tr>
-    <td>från</td>
+    <td>from</td>
     <td>*Obligatoriska parametern*.<br/>Anger språket i indatatexten. Källspråk måste vara något av de [språk som stöds](./v3-0-languages.md) ingår i den `dictionary` omfång.</td>
   </tr>
   <tr>

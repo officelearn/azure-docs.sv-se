@@ -11,12 +11,12 @@ manager: carmonm
 ms.topic: article
 ms.assetid: 90f5cfc4-46b2-4ef7-8ac4-486bb0e3f289
 ms.date: 02/06/2019
-ms.openlocfilehash: f6d778ddbce16c223945d4683bd7a950bd2a0cb0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d0d40ca0ae6ccd4f709d7d94d52764d4affcc215
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61468014"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244703"
 ---
 # <a name="transform-xml-with-maps-in-azure-logic-apps-with-enterprise-integration-pack"></a>Transformera XML med kartor i Azure Logic Apps med Enterprise-Integrationspaket
 
@@ -28,11 +28,11 @@ Begränsningar som rör integrationskonton och artefakter som maps, se [begräns
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-* En Azure-prenumeration. Om du inte har någon prenumeration kan du <a href="https://azure.microsoft.com/free/" target="_blank">registrera ett kostnadsfritt Azure-konto</a>.
+* En Azure-prenumeration. Om du inte har någon prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
 * En [integrationskontot](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) där du lagrar dina kartor och andra artefakter för enterprise-integration och lösningar för business-to-business (B2B).
 
-* Om kartan refererar till en extern sammansättning, måste du ladda upp *både sammansättningen och kartan* till ditt integrationskonto. Se till att du *ladda upp sammansättningen först*, och överför sedan kartan som refererar till sammansättningen.
+* Om kartan refererar till en extern sammansättning, måste du ladda upp *både sammansättningen och kartan* till ditt integrationskonto. Se till att du [ *ladda upp sammansättningen först*](#add-assembly), och överför sedan kartan som refererar till sammansättningen.
 
   Om sammansättningen är 2 MB eller mindre, du kan lägga till sammansättningen i ditt integrationskonto *direkt* från Azure-portalen. Men om sammansättningen eller kartan är större än 2 MB men inte större än den [storleksgräns för sammansättningar eller maps](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits), finns följande alternativ:
 
@@ -50,9 +50,11 @@ Begränsningar som rör integrationskonton och artefakter som maps, se [begräns
 
 Du behöver inte en logikapp när du skapar och lägger till maps. Men om du vill använda en karta, din logikapp måste länka till ett integrationkonto där du lagrar som mappar. Lär dig [så här länkar du logikappar till integrationskonton](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account). Om du inte har en logikapp ännu kan du lära dig [hur du skapar logikappar](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
+<a name="add-assembly"></a>
+
 ## <a name="add-referenced-assemblies"></a>Lägg till refererade sammansättningar
 
-1. Logga in på <a href="https://portal.azure.com" target="_blank">Azure Portal</a> med autentiseringsuppgifterna för ditt Azure-konto.
+1. Logga in på [Azure Portal](https://portal.azure.com) med autentiseringsuppgifterna för ditt Azure-konto.
 
 1. För att hitta och öppna ditt integrationskonto på Azures Huvudmeny, Välj **alla tjänster**. 
    I sökrutan anger du ”integrationskontot”. 
@@ -74,6 +76,9 @@ Du behöver inte en logikapp när du skapar och lägger till maps. Men om du vil
 
 Utifrån din sammansättningsfilen storlek, följer du stegen för att ladda upp en sammansättning som antingen [upp till 2 MB](#smaller-assembly) eller [mer än 2 MB men bara upp till 8 MB](#larger-assembly).
 Gränser för antalet sammansättningen i integrationskonton, se [gränser och konfigurering för Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits).
+
+> [!NOTE]
+> Om du ändrar sammansättningen kan uppdatera du också kartan oavsett kartan har ändringar.
 
 <a name="smaller-assembly"></a>
 
@@ -99,7 +104,7 @@ Gränser för antalet sammansättningen i integrationskonton, se [gränser och k
 
 ### <a name="add-assemblies-more-than-2-mb"></a>Lägg till sammansättningar som är mer än 2 MB
 
-Om du vill lägga till större sammansättningar, kan du ladda upp sammansättningen till en Azure blobbehållare i Azure storage-kontot. Dina steg för att lägga till sammansättningar skiljer sig beroende om blob-behållare har offentlig läsbehörighet. Så först kontrollera om din blobbehållare har offentlig läsbehörighet genom att följa dessa steg: [Ange offentlig åtkomstnivå för blob-behållare](../vs-azure-tools-storage-explorer-blobs.md#set-the-public-access-level-for-a-blob-container)
+Om du vill lägga till större sammansättningar, kan du ladda upp sammansättningen till en Azure blobbehållare i Azure storage-kontot. Dina steg för att lägga till sammansättningar variera beroende på om din blobbehållare har offentlig läsbehörighet. Så först kontrollera om din blobbehållare har offentlig läsbehörighet genom att följa dessa steg: [Ange offentlig åtkomstnivå för blob-behållare](../vs-azure-tools-storage-explorer-blobs.md#set-the-public-access-level-for-a-blob-container)
 
 #### <a name="check-container-access-level"></a>Kontrollera åtkomstnivån för behållare
 
@@ -128,7 +133,7 @@ Om du vill lägga till större sammansättningar, kan du ladda upp sammansättni
 
 1. Gå tillbaka till Azure portal där de **lägga till sammansättningen** fönstret är öppet. 
    Ange ett namn för din sammansättningen. 
-   Välj **stor fil (större än 2 MB)**.
+   Välj **stor fil (större än 2 MB)** .
 
    Den **innehålls-URI** nu visas snarare än **sammansättningen** box.
 
@@ -153,7 +158,7 @@ På ditt integrationskonto **översikt** sidan under **komponenter**, **sammans�
 
 1. Gå tillbaka till Azure portal där de **lägga till sammansättningen** fönstret är öppet. 
    Ange ett namn för din sammansättningen. 
-   Välj **stor fil (större än 2 MB)**.
+   Välj **stor fil (större än 2 MB)** .
 
    Den **innehålls-URI** nu visas snarare än **sammansättningen** box.
 
@@ -170,7 +175,7 @@ Gränser på kartan antalet i integrationskonton för finns i [gränser och konf
 
 Du kan nu överföra kartan när du har överfört alla sammansättningar som refererar till kartan.
 
-1. Om du inte har loggat in redan, logga in på den <a href="https://portal.azure.com" target="_blank">Azure-portalen</a> med dina Azure-autentiseringsuppgifter. 
+1. Om du inte har loggat in redan, logga in på den [Azure-portalen](https://portal.azure.com) med dina Azure-autentiseringsuppgifter. 
 
 1. Om ditt integrationskonto inte redan är öppen på Azures Huvudmeny väljer **alla tjänster**. 
    I sökrutan anger du ”integrationskontot”. 
@@ -310,7 +315,7 @@ the map appears in the **Maps** list.
 
 Om du vill uppdatera en befintlig karta som du behöver ladda upp en ny karta-fil som innehåller de ändringar som du vill. Du kan dock först hämta karta för redigering.
 
-1. I den <a href="https://portal.azure.com" target="_blank">Azure-portalen</a>, hitta och öppna ditt integrationskonto, om inte redan är öppen.
+1. I den [Azure-portalen](https://portal.azure.com), hitta och öppna ditt integrationskonto, om inte redan är öppen.
 
 1. Välj på Azure-huvudmenyn **alla tjänster**. I sökrutan anger du ”integrationskontot”. Välj **integrationskonton**.
 
@@ -328,7 +333,7 @@ Om du vill uppdatera en befintlig karta som du behöver ladda upp en ny karta-fi
 
 ## <a name="delete-maps"></a>Ta bort mappar
 
-1. I den <a href="https://portal.azure.com" target="_blank">Azure-portalen</a>, hitta och öppna ditt integrationskonto, om inte redan är öppen.
+1. I den [Azure-portalen](https://portal.azure.com), hitta och öppna ditt integrationskonto, om inte redan är öppen.
 
 1. Välj på Azure-huvudmenyn **alla tjänster**. 
    I sökrutan anger du ”integrationskontot”. 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: fe08569937dc29ecbc66da1cb2c431cca11a8580
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 52c79a0b883ff4c9ac77d7523764384b88c06a08
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65835109"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389027"
 ---
 # <a name="azure-serial-console-for-linux"></a>Azure Seriekonsol för Linux
 
@@ -117,7 +117,9 @@ Seriell konsol kan inaktiveras för en specifik virtuell dator eller virtuell da
 > Om du vill aktivera eller inaktivera seriekonsol för en prenumeration, måste du ha skrivbehörighet till prenumerationen. Dessa behörigheter kan vara administratörer eller ägare. Anpassade roller kan också ha skrivbehörighet.
 
 ### <a name="subscription-level-disable"></a>Prenumerationsnivå inaktivera
-Seriell konsol kan inaktiveras för en hel prenumeration via den [inaktivera konsolen REST API-anrop](/rest/api/serialconsole/console/disableconsole). Du kan använda den **prova** funktionen som är tillgängliga på den här API-dokumentationssidan inaktiverar och aktiverar Seriell konsol för en prenumeration. Ange ditt prenumerations-ID för **subscriptionId**, ange **standard** för **standard**, och välj sedan **kör**. Azure CLI-kommandon är ännu inte tillgängliga.
+Seriell konsol kan inaktiveras för en hel prenumeration via den [inaktivera konsolen REST API-anrop](/rest/api/serialconsole/console/disableconsole). Den här åtgärden kräver deltagare administratörsnivå eller senare till prenumerationen. Du kan använda den **prova** funktionen som är tillgängliga på den här API-dokumentationssidan inaktiverar och aktiverar Seriell konsol för en prenumeration. Ange ditt prenumerations-ID för **subscriptionId**, ange **standard** för **standard**, och välj sedan **kör**. Azure CLI-kommandon är ännu inte tillgängliga.
+
+Om du vill aktivera seriekonsol för en prenumeration, använder den [aktivera konsolen REST API-anrop](/rest/api/serialconsole/console/enableconsole).
 
 ![Testa REST-API](./media/virtual-machines-serial-console/virtual-machine-serial-console-rest-api-try-it.png)
 
@@ -182,10 +184,10 @@ Eftersom de flesta felen är tillfälliga kan försöker anslutningen ofta åtg�
 
 Fel                            |   Åtgärd
 :---------------------------------|:--------------------------------------------|
-Det gick inte att hämta inställningarna för startdiagnostik för  *&lt;VMNAME&gt;*. Se till att startdiagnostik har aktiverats för den här virtuella datorn om du vill använda seriekonsolen. | Kontrollera att den virtuella datorn har [startdiagnostik](boot-diagnostics.md) aktiverat.
+Det gick inte att hämta inställningarna för startdiagnostik för  *&lt;VMNAME&gt;* . Se till att startdiagnostik har aktiverats för den här virtuella datorn om du vill använda seriekonsolen. | Kontrollera att den virtuella datorn har [startdiagnostik](boot-diagnostics.md) aktiverat.
 Den virtuella datorn är i tillståndet stoppad frigjord. Starta den virtuella datorn och försök Seriell konsol-anslutning. | Den virtuella datorn måste vara i tillståndet igång för att komma åt seriekonsolen.
 Du har inte behörighet att använda den här virtuella datorn med seriekonsolen. Kontrollera att du har minst deltagarbehörigheter för virtuell dator.| Seriell konsol-åtkomst kräver vissa behörigheter. Mer information finns i [krav](#prerequisites).
-Det går inte att fastställa resursgruppen för startdiagnostiklagringskonto  *&lt;STORAGEACCOUNTNAME&gt;*. Kontrollera att startdiagnostik har aktiverats för den här virtuella datorn och du har åtkomst till det här lagringskontot. | Seriell konsol-åtkomst kräver vissa behörigheter. Mer information finns i [krav](#prerequisites).
+Det går inte att fastställa resursgruppen för startdiagnostiklagringskonto  *&lt;STORAGEACCOUNTNAME&gt;* . Kontrollera att startdiagnostik har aktiverats för den här virtuella datorn och du har åtkomst till det här lagringskontot. | Seriell konsol-åtkomst kräver vissa behörigheter. Mer information finns i [krav](#prerequisites).
 Web socket är stängd eller kunde inte öppnas. | Du kan behöva godkänna `*.console.azure.com`. En mer detaljerad men längre metod är att godkänna den [Microsoft Azure Datacenter IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653), som ändras relativt regelbundet.
 Ett ”förbjuden”-svar påträffades vid åtkomst till den här Virtuella datorns lagringskonto för startdiagnostik. | Se till att startdiagnostik inte har en brandvägg för kontot. Ett lagringskonto för tillgänglig startdiagnostik är nödvändiga för seriekonsolen ska fungera.
 
@@ -198,6 +200,7 @@ Att trycka på **RETUR** när anslutningen popup-meddelandet inte orsakar en upp
 Seriell konsol text tar endast upp en del av skärmstorlek (ofta när du använder en textredigerare). | Seriell konsoler stöder inte förhandling om fönsterstorlek ([RFC 1073](https://www.ietf.org/rfc/rfc1073.txt)), vilket innebär att det blir inga SIGWINCH signalen skickas till uppdatera skärmens storlek och den virtuella datorn har ingen kunskap om storleken på din terminal. Installera xterm eller ett liknande verktyg för att förse dig med den `resize` kommandot och kör sedan `resize`.
 Klistra in lång sträng fungerar inte. | Seriekonsolen begränsar längden på strängar som klistras in i terminalen för att 2048 tecken för att förhindra överbelastning serieport bandbredd.
 Seriell konsol fungerar inte med en brandvägg för storage-konto. | Seriell konsol avsiktligt fungerar inte med storage-konto brandväggar aktiverad på startdiagnostiklagringskonto.
+Seriell konsol fungerar inte med ett lagringskonto med Azure Data Lake Storage Gen2 med hierarkisk namnområden. | Det här är ett känt problem med hierarkisk namnområden. För att lösa, kontrollera att den Virtuella datorns lagringskonto för startdiagnostik inte har skapats med hjälp av Azure Data Lake Storage Gen2. Det här alternativet kan bara anges när lagringskontot har skapats. Du kan behöva skapa en separat startdiagnostik storage-konto utan Azure Data Lake Storage Gen2 aktiverat för att åtgärda problemet.
 
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar

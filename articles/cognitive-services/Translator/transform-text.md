@@ -3,19 +3,19 @@ title: 'Omvandla text: Translator Text API'
 titlesuffix: Azure Cognitive Services
 description: Omvandla text med Translator Text API.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
-ms.author: v-jansko
-ms.openlocfilehash: 1319b7191d9b192897e1e8ab4900239bd9230bce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: v-pawal
+ms.openlocfilehash: 4d024fd30a77c011bab4f120c4ef3614aac09998
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60608325"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389691"
 ---
 # <a name="how-to-use-the-transformtext-method"></a>Hur du använder metoden TransformText
 

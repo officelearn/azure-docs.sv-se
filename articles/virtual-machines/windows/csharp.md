@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: ce05d097aa69aa1aadb8450e40722448bc5a7de0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 55b73f5f4e6998eb1eb8c5ebc873fa20f8722a3e
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61402049"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304578"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-c"></a>Skapa och hantera Windows virtuella datorer i Azure med C# #
 
@@ -41,7 +41,7 @@ Det tar cirka 20 minuter för att utföra de här stegen.
 
 1. Om du inte redan gjort installera [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio). Välj **.NET-skrivbordsutveckling** på arbetsbelastningar sidan och klicka sedan på **installera**. Sammanfattningsvis ska du se att **utvecklingsverktyg för .NET Framework 4 4.6** väljs automatiskt åt dig. Om du redan har installerat Visual Studio kan du lägga till .NET-arbetsbelastningen i Visual Studio-starta.
 2. I Visual Studio klickar du på **Arkiv** > **Nytt** > **Projekt**.
-3. I **mallar** > **Visual C#** väljer **Konsolapp (.NET Framework)**, ange *myDotnetProject* för namnet på den projektet, välj platsen för projektet och klicka sedan på **OK**.
+3. I **mallar** > **Visual C#** väljer **Konsolapp (.NET Framework)** , ange *myDotnetProject* för namnet på den projektet, välj platsen för projektet och klicka sedan på **OK**.
 
 ## <a name="install-the-package"></a>Installera paketet
 
@@ -80,12 +80,12 @@ Innan du startar det här steget, se till att du har åtkomst till en [Active Di
 4. Ange en miljövariabel i Windows med namnet AZURE_AUTH_LOCATION med den fullständiga sökvägen till auktoriseringsfilen som du skapade. Till exempel kan följande PowerShell-kommando användas:
 
     ```
-    [Environment]::SetEnvironmentVariable("AZURE_AUTH_LOCATION", "C:\Visual Studio 2017\Projects\myDotnetProject\myDotnetProject\azureauth.properties", "User")
+    [Environment]::SetEnvironmentVariable("AZURE_AUTH_LOCATION", "C:\Visual Studio 2019\Projects\myDotnetProject\myDotnetProject\azureauth.properties", "User")
     ```
 
 ### <a name="create-the-management-client"></a>Skapa management-klienten
 
-1. Öppna filen Program.cs för projektet som du skapade och sedan lägga till dessa using-satser till de befintliga-instruktionerna överst i filen:
+1. Öppna filen Program.cs för projektet som du skapade. Lägg sedan till dessa using-satser till de befintliga-instruktionerna överst i filen:
 
     ```
     using Microsoft.Azure.Management.Compute.Fluent;
@@ -365,7 +365,7 @@ Console.ReadLine();
 
 ### <a name="add-a-data-disk-to-the-vm"></a>Lägga till en datadisk till den virtuella datorn
 
-Lägg till den här kod till Main-metoden för att lägga till en datadisk som är 2 GB i storlek, han en LUN 0 och en typ av cachelagring av ReadWrite för att lägga till en datadisk till den virtuella datorn:
+Lägg till den här koden i Main-metoden för att lägga till en datadisk till den virtuella datorn. Det här exemplet lägger till en datadisk som är 2 GB i storlek, han en LUN 0 och en typ av cachelagring av ReadWrite:
 
 ```
 Console.WriteLine("Adding data disk to vm...");

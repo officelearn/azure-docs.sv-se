@@ -6,14 +6,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 05/27/2019
 ms.author: hrasheed
-ms.openlocfilehash: 2d0b8aba95787f179733dd596e783f097cba4299
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 16041d2b7a971c9ba479c133261930b38d130792
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64692132"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66252783"
 ---
 # <a name="ports-used-by-apache-hadoop-services-on-hdinsight"></a>Portar som används av Apache Hadoop-tjänster på HDInsight
 
@@ -28,14 +28,13 @@ Internt HDInsight implementeras av flera Azure virtuella datorer (noder i klustr
 > [!IMPORTANT]  
 > Om du inte anger ett virtuellt Azure nätverk som ett alternativ för HDInsight, skapas en automatiskt. Men du kan inte ansluta till andra datorer (till exempel andra Azure-datorer eller utvecklingsdatorn klienten) till den här virtuella nätverket.
 
-
 För att ansluta till fler datorer till det virtuella nätverket måste du först skapa det virtuella nätverket och ange den när du skapar HDInsight-kluster. Mer information finns i [utöka HDInsight-funktioner med hjälp av Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md)
 
 ## <a name="public-ports"></a>Offentliga portar
 
 Alla noder i ett HDInsight-kluster finns i Azure Virtual Network och kan inte nås direkt från internet. En offentlig gateway ger internet-åtkomst till följande portar som är gemensamma för alla typer av HDInsight-kluster.
 
-| Tjänst | Port | Protokoll | Beskrivning |
+| Tjänst | Port | Protocol | Beskrivning |
 | --- | --- | --- | --- |
 | sshd |22 |SSH |Ansluter klienter till sshd på den primära huvudnoden. Mer information finns i [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight). |
 | sshd |22 |SSH |Ansluter klienter till sshd på gränsnoden. Mer information finns i [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight). |
@@ -48,7 +47,7 @@ Alla noder i ett HDInsight-kluster finns i Azure Virtual Network och kan inte n�
 
 Följande är tillgängliga för specifika klustertyper:
 
-| Tjänst | Port | Protokoll | Klustertyp | Beskrivning |
+| Tjänst | Port | Protocol | Klustertyp | Beskrivning |
 | --- | --- | --- | --- | --- |
 | Stargate |443 |HTTPS |HBase |HBase REST-API. Se [komma igång med Apache HBase](hbase/apache-hbase-tutorial-get-started-linux.md) |
 | Livy |443 |HTTPS |Spark |Spark REST-API. Se [skicka Apache Spark-jobb via fjärranslutning med Apache Livy](spark/apache-spark-livy-rest-interface.md) |
@@ -74,7 +73,7 @@ Alla tjänster som exponeras offentligt på internet måste autentiseras:
 
 ### <a name="ambari"></a>Ambari
 
-| Tjänst | Noder | Port | URL-sökväg | Protokoll | 
+| Tjänst | Noder | Port | URL-sökväg | Protocol | 
 | --- | --- | --- | --- | --- |
 | Ambari-webbgränssnittet | Huvudnoder | 8080 | / | HTTP |
 | Ambari REST API | Huvudnoder | 8080 | /api/v1 | HTTP |
@@ -85,7 +84,7 @@ Exempel:
 
 ### <a name="hdfs-ports"></a>HDFS-portar
 
-| Tjänst | Noder | Port | Protokoll | Beskrivning |
+| Tjänst | Noder | Port | Protocol | Beskrivning |
 | --- | --- | --- | --- | --- |
 | NameNode webbgränssnittet |Huvudnoder |30070 |HTTPS |Webbgränssnittet för att visa status |
 | NameNode metadatatjänst |Huvudnoder |8020 |IPC |Metadata för fil-system |
@@ -96,7 +95,7 @@ Exempel:
 
 ### <a name="yarn-ports"></a>YARN-portar
 
-| Tjänst | Noder | Port | Protokoll | Beskrivning |
+| Tjänst | Noder | Port | Protocol | Beskrivning |
 | --- | --- | --- | --- | --- |
 | Resource Manager-Webbgränssnittet |Huvudnoder |8088 |HTTP |Webbgränssnittet för Resource Manager |
 | Resource Manager-Webbgränssnittet |Huvudnoder |8090 |HTTPS |Webbgränssnittet för Resource Manager |
@@ -104,26 +103,26 @@ Exempel:
 | Resurshanterarens scheduler |Huvudnoder |8030 |HTTP |Administrativt gränssnitt |
 | Programgränssnittet för Resource Manager |Huvudnoder |8050 |HTTP |Adressen för program manager-gränssnittet |
 | NodeManager |Alla arbetsnoder |30050 |&nbsp; |Adressen för hanteraren för behållare |
-| NodeManager webbgränssnittet |Alla arbetsnoder |30060 |HTTP |Resource manager-gränssnittet |
+| NodeManager webbgränssnittet |Alla arbetsnoder |30060 |HTTP |Resource Manager-gränssnittet |
 | Tidslinje-adress |Huvudnoder |10200 |RPC |Tidslinje service RPC-tjänsten. |
 | Tidslinje-Webbgränssnittet |Huvudnoder |8181 |HTTP |Tidslinje service-Webbgränssnittet |
 
 ### <a name="hive-ports"></a>Hive-portar
 
-| Tjänst | Noder | Port | Protokoll | Beskrivning |
+| Tjänst | Noder | Port | Protocol | Beskrivning |
 | --- | --- | --- | --- | --- |
 | HiveServer2 |Huvudnoder |10001 |Thrift |Tjänsten för att ansluta till Hive (Thrift/JDBC) |
 | Hive-metaarkiv |Huvudnoder |9083 |Thrift |Tjänsten för att ansluta till Hive-metadata (Thrift/JDBC) |
 
 ### <a name="webhcat-ports"></a>WebHCat portar
 
-| Tjänst | Noder | Port | Protokoll | Beskrivning |
+| Tjänst | Noder | Port | Protocol | Beskrivning |
 | --- | --- | --- | --- | --- |
 | WebHCat server |Huvudnoder |30111 |HTTP |Webb-API ovanpå HCatalog och andra Hadoop-tjänster |
 
 ### <a name="mapreduce-ports"></a>MapReduce-portar
 
-| Tjänst | Noder | Port | Protokoll | Beskrivning |
+| Tjänst | Noder | Port | Protocol | Beskrivning |
 | --- | --- | --- | --- | --- |
 | JobHistory |Huvudnoder |19888 |HTTP |MapReduce JobHistory webbgränssnittet |
 | JobHistory |Huvudnoder |10020 |&nbsp; |MapReduce JobHistory server |
@@ -131,21 +130,21 @@ Exempel:
 
 ### <a name="oozie"></a>Oozie
 
-| Tjänst | Noder | Port | Protokoll | Beskrivning |
+| Tjänst | Noder | Port | Protocol | Beskrivning |
 | --- | --- | --- | --- | --- |
 | Oozie server |Huvudnoder |11000 |HTTP |URL för Oozie-tjänsten |
 | Oozie server |Huvudnoder |11001 |HTTP |Port för Oozie-administratör |
 
 ### <a name="ambari-metrics"></a>Ambari-mått
 
-| Tjänst | Noder | Port | Protokoll | Beskrivning |
+| Tjänst | Noder | Port | Protocol | Beskrivning |
 | --- | --- | --- | --- | --- |
 | Tidslinje (programmet historik) |Huvudnoder |6188 |HTTP |Tidslinje service-Webbgränssnittet |
 | Tidslinje (programmet historik) |Huvudnoder |30200 |RPC |Tidslinje service-Webbgränssnittet |
 
 ### <a name="hbase-ports"></a>HBase-portar
 
-| Tjänst | Noder | Port | Protokoll | Beskrivning |
+| Tjänst | Noder | Port | Protocol | Beskrivning |
 | --- | --- | --- | --- | --- |
 | HMaster |Huvudnoder |16000 |&nbsp; |&nbsp; |
 | HMaster info-Webbgränssnittet |Huvudnoder |16010 |HTTP |Porten för HBase Master-webbgränssnittet |
@@ -154,18 +153,18 @@ Exempel:
 
 ### <a name="kafka-ports"></a>Kafka-portar
 
-| Tjänst | Noder | Port | Protokoll | Beskrivning |
+| Tjänst | Noder | Port | Protocol | Beskrivning |
 | --- | --- | --- | --- | --- |
 | Broker |Arbetsnoder |9092 |[Kafka-protokollet](https://kafka.apache.org/protocol.html) |Används för klientkommunikation |
 | &nbsp; |Zookeeper-noder |2181 |&nbsp; |Den port som klienter använder för att ansluta till Zookeeper |
 
 ### <a name="spark-ports"></a>Spark-portar
 
-| Tjänst | Noder | Port | Protokoll | URL-sökväg | Beskrivning |
+| Tjänst | Noder | Port | Protocol | URL-sökväg | Beskrivning |
 | --- | --- | --- | --- | --- | --- |
 | Spark Thrift-servrar |Huvudnoder |10002 |Thrift | &nbsp; | Tjänsten för att ansluta till Spark SQL (Thrift/JDBC) |
 | Livy-server | Huvudnoder | 8998 | HTTP | &nbsp; | Tjänsten för att köra instruktioner, jobb och program |
-| Jupyter-notebook-fil | Huvudnoder | 8001 | HTTP | &nbsp; | Jupyter notebook-webbplats |
+| Jupyter Notebook | Huvudnoder | 8001 | HTTP | &nbsp; | Jupyter notebook-webbplats |
 
 Exempel:
 

@@ -11,12 +11,12 @@ ms.subservice: bing-web-search
 ms.topic: reference
 ms.date: 02/12/2019
 ms.author: scottwhi
-ms.openlocfilehash: 8e5876c9141a3eb85593b12f45b0bde4c7984adf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e3d78a1b7488e7489b02e34e9733a5d741213855
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61431148"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66384894"
 ---
 # <a name="upgrade-from-bing-web-search-api-v5-to-v7"></a>Uppgradera från Bing Web Search API v5 till v7
 
@@ -56,7 +56,7 @@ RequestParameterInvalidValue|InvalidRequest.ParameterInvalidValue
 ResourceAccessDenied|InsufficientAuthorization
 ExceededVolume|RateLimitExceeded
 ExceededQpsLimit|RateLimitExceeded
-Disabled|InsufficientAuthorization.AuthorizationDisabled
+Inaktiverad|InsufficientAuthorization.AuthorizationDisabled
 UnexpectedError|ServerError.UnexpectedError
 DataSourceErrors|ServerError.ResourceError
 AuthorizationMissing|InvalidAuthorization.AuthorizationMissing
@@ -75,14 +75,14 @@ Blockerad|InvalidRequest.Blocked
 
 ### <a name="headers"></a>Rubriker
 
-- Har lagts till det valfria [Pragma](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#pragma) huvudet i begäran. Som standard returnerar Bing cachelagrat innehåll om det finns. Om du vill förhindra att Bing returnerar cachelagrat innehåll ska du ställa in huvudet Pragma på no-cache (till exempel Pragma: no-cache).
+- Har lagts till det valfria [Pragma](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#pragma) huvudet i begäran. Som standard returnerar Bing cachelagrat innehåll om det finns. Om du vill förhindra att Bing returnerar cachelagrat innehåll ska du ställa in huvudet Pragma på no-cache (till exempel Pragma: no-cache).
 
 ### <a name="query-parameters"></a>Frågeparametrar
 
-- Har lagts till i [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#answercount) frågeparameter. Använd den här parametern om du vill ange antal svar som du vill att svaret ska ingå. Svaren är valt baserat på rangordning. Exempel: Om du ställer in den här parametern till tre (3), svaret innehåller de tre översta rankad svar.  
+- Har lagts till i [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#answercount) frågeparameter. Använd den här parametern om du vill ange antal svar som du vill att svaret ska ingå. Svaren är valt baserat på rangordning. Exempel: Om du ställer in den här parametern till tre (3), svaret innehåller de tre översta rankad svar.  
 
-- Har lagts till i [marknadsföra](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#promote) frågeparameter. Använd den här parametern tillsammans med `answerCount` att uttryckligen innehåller en eller flera svar typer, oavsett deras rangordning. Till exempel för att flytta upp videor och bilder i svaret, ange du uppgradera till *videor, bilder*. Listan över svar som du vill flytta upp räknas inte mot den `answerCount` gränsen. Till exempel om `answerCount` är 2 och `promote` är inställd på *videor, bilder*, svaret kan innehålla webbsidor, nyheter, videor och bilder.
+- Har lagts till i [marknadsföra](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#promote) frågeparameter. Använd den här parametern tillsammans med `answerCount` att uttryckligen innehåller en eller flera svar typer, oavsett deras rangordning. Till exempel för att flytta upp videor och bilder i svaret, ange du uppgradera till *videor, bilder*. Listan över svar som du vill flytta upp räknas inte mot den `answerCount` gränsen. Till exempel om `answerCount` är 2 och `promote` är inställd på *videor, bilder*, svaret kan innehålla webbsidor, nyheter, videor och bilder.
 
 ### <a name="object-changes"></a>Objekt ändras
 
-- Har lagts till i `someResultsRemoved` automatiskt till den [WebAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webanswer) objekt. Fältet innehåller ett booleskt värde som anger om svaret exkluderad vissa resultat från web-svaret.  
+- Har lagts till i `someResultsRemoved` automatiskt till den [WebAnswer](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webanswer) objekt. Fältet innehåller ett booleskt värde som anger om svaret exkluderad vissa resultat från web-svaret.  

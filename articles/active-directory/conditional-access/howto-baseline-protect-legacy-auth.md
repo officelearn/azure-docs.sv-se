@@ -11,19 +11,19 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b562214d4bf8fd83f740e114a6d77200b4611649
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: e7eebc68ae8a55d636f3bc85e179bd7d6813be8d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66003228"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235562"
 ---
 # <a name="baseline-policy-block-legacy-authentication-preview"></a>Baslinjeprincip: Blockera äldre authentication (förhandsversion)
 
 Om du vill ge dina användare enkel åtkomst till dina appar i molnet, stöder Azure Active Directory (Azure AD) ett stort antal autentiseringsprotokoll, inklusive äldre autentisering. Äldre autentisering är en term som refererar till en autentiseringsbegäran som gjorts av:
 
 * Äldre Office-klienter som inte använder modern autentisering (till exempel Office 2010-klient)
-* Alla klienter som använder äldre e-postprotokoll, till exempel IMAP/SMPT/POP3
+* Alla klienter som använder äldre e-postprotokoll, till exempel IMAP/SMTP/POP3
 
 Idag kommer merparten av alla att kompromissa inloggningsförsök från äldre autentisering. Äldre autentisering har inte stöd för multifaktorautentisering (MFA). Även om du har en MFA-princip på din katalog kan en obehörig autentisera med ett äldre protokoll och kringgå MFA.
 
@@ -74,13 +74,13 @@ Om du använder MacOS, rekommenderar vi att uppgradera till Office för Mac 2016
 
 För Windows-baserade Outlook-klienter att använda modern autentisering, måste Exchange Online vara modern autentisering aktiverad. Om modern autentisering är inaktiverat för Exchange Online, Windows-baserade Outlook-klienter som har stöd för modern autentisering (Outlook 2013 eller senare) använder grundläggande autentisering för att ansluta till Exchange Online-postlådor.
 
-SharePoint Online är aktiverat för modern autentisering standard. Modern autentisering är aktiverat som standard i Exchange Online för kataloger som skapats efter den 1 augusti 2017. Men om du tidigare hade inaktiverats modern autentisering eller om du använder en katalog som skapades före detta datum, följer du stegen i följande artikel till [aktivera modern autentisering i Exchange Online](https://docs.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online).
+SharePoint Online är aktiverat för modern autentisering standard. Modern autentisering är aktiverat som standard i Exchange Online för kataloger som skapats efter den 1 augusti 2017. Men om du tidigare hade inaktiverats modern autentisering eller om du använder en katalog som skapades före detta datum, följer du stegen i följande artikel till [aktivera modern autentisering i Exchange Online](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online).
 
 ### <a name="step-4-skype-for-business"></a>Steg 4: Skype för företag
 
 För att förhindra att äldre autentiseringsbegäranden av Skype för företag, är det nödvändigt att aktivera modern autentisering för Skype för Business Online. Modern autentisering för Skype för företag är aktiverat som standard för kataloger som skapats efter den 1 augusti 2017.
 
-Om du vill aktivera modern autentisering i Skype för företag, föreslår vi att du övergången till Microsoft Teams, som har stöd för modern autentisering som standard. Om du inte kan tr just nu, kommer du måste aktivera modern autentisering för Skype för Business Online så att Skype för företag-klienter som startar med modern autentisering. Följ anvisningarna i artikeln [Skype för företag-topologier som stöds med Modern autentisering](https://docs.microsoft.com/en-us/skypeforbusiness/plan-your-deployment/modern-authentication/topologies-supported), steg att aktivera Modern autentisering för Skype för företag.
+Om du vill aktivera modern autentisering i Skype för företag, föreslår vi att du övergången till Microsoft Teams, som har stöd för modern autentisering som standard. Om du inte kan tr just nu, kommer du måste aktivera modern autentisering för Skype för Business Online så att Skype för företag-klienter som startar med modern autentisering. Följ anvisningarna i artikeln [Skype för företag-topologier som stöds med Modern autentisering](https://docs.microsoft.com/skypeforbusiness/plan-your-deployment/modern-authentication/topologies-supported), steg att aktivera Modern autentisering för Skype för företag.
 
 Förutom att aktivera modern autentisering för Skype för Business Online, rekommenderar vi modern authentication aktiveras för Exchange Online när du aktiverar modern autentisering för Skype för företag. Den här processen hjälper synkronisera tillståndet för modern autentisering i Exchange Online och Skype för företag – online och förhindrar flera inloggning anvisningarna för Skype för företag-klienter.
 
@@ -105,11 +105,11 @@ Steg för att aktivera modern autentisering finns i följande artiklar:
 
 Principen **baslinjeprincip: Blockera äldre authentication (förhandsversion)** är förkonfigurerad och visas högst upp när du navigerar till bladet för villkorlig åtkomst i Azure-portalen.
 
-Att aktivera den här principen och skydda dina administratörer:
+Aktivera den här principen och skydda din organisation:
 
 1. Logga in på den **Azure-portalen** som global administratör, säkerhetsadministratör eller administratör för villkorsstyrd åtkomst.
 1. Bläddra till **Azure Active Directory** > **villkorlig åtkomst**.
-1. Välj i listan med principer, **baslinjeprincip: Blockera äldre authentication (förhandsversion)**.
+1. Välj i listan med principer, **baslinjeprincip: Blockera äldre authentication (förhandsversion)** .
 1. Ange **aktiverar principen** till **Använd principen omedelbart**.
 1. Lägg till användare undantag genom att klicka på **användare** > **Välj exkluderade användare** och välja de användare som behöver som ska undantas. Klicka på **Välj** sedan **klar**.
 1. Klicka på **spara**.

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/23/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: 2fba8b0056c80a62837682a6820b68f71fba9ea8
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: HT
+ms.openlocfilehash: 0307dc5c83782119f6c10279563b8b9f0a999d28
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65952935"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236887"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Säkerhetskopiera SQL Server-databaser i virtuella Azure-datorer
 
@@ -49,7 +49,7 @@ För alla åtgärder kräver en SQL Server VM anslutning till Azure offentliga I
 
 Upprätta en anslutning med hjälp av något av följande alternativ:
 
-- **Tillåt Azure-datacenter IP-adressintervall**. Det här alternativet kan [IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653) i nedladdningen. Använd cmdleten Set-AzureNetworkSecurityRule för att komma åt en nätverkssäkerhetsgrupp (NSG). Om du är listan över tillåtna program endast regionspecifika IP-adresser, du får också måste du godkänna Azure Active Directory (Azure AD) servicetagg för att aktivera autentisering.
+- **Tillåt Azure-datacenter IP-adressintervall**. Det här alternativet kan [IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653) i nedladdningen. Använd cmdleten Set-AzureNetworkSecurityRule för att komma åt en nätverkssäkerhetsgrupp (NSG). Om du är säker mottagare listan endast regionspecifika IP-adresser, du måste också uppdatera listan över betrodda mottagare tjänsttaggen Azure Active Directory (Azure AD) för att aktivera autentisering.
 
 - **Tillåt åtkomst med hjälp av NSG taggar**. Om du använder NSG: er för att begränsa anslutning kan det här alternativet lägger till en regel för din NSG som tillåter utgående åtkomst till Azure Backup med hjälp av taggen AzureBackup. Förutom den här taggen måste du också motsvarande [regler](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) för Azure AD och Azure Storage för att tillåta anslutning för autentisering och överföring. Taggen AzureBackup är endast tillgänglig på PowerShell. Skapa en regel med hjälp av AzureBackup-taggen:
 
@@ -96,7 +96,8 @@ Undvik att använda följande element i databasnamn:
   * Avslutande och inledande blanksteg
   * Avslutande marks utropstecken (!)
   * Avslutande hakparenteser (])
-  * Från och med F:\
+  * Semikolon (;)
+  * Snedstreck (/)
 
 Alias är tillgänglig för tecken som inte stöds, men vi rekommenderar att du inte dem. Mer information finns i [Understanding the Table Service Data Model](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN) (Så här fungerar datamodellen för Table Storage).
 
@@ -162,7 +163,7 @@ Så här att identifiera databaser som körs på en virtuell dator:
 
      * Om du vill skydda fler än 50 databaser konfigurerar du flera säkerhetskopieringar.
      * Aktivera [ ](#enable-auto-protection) en hel instans eller AlwaysOn-tillgänglighetsgruppen. I den **AUTOPROTECT** listrutan, väljer **på**, och välj sedan **OK**.
-     
+
     > [!NOTE]
     > Den [automatiskt skydd](#enable-auto-protection) funktionen inte bara aktiverar skydd på alla befintliga databaser på samma gång, men också automatiskt skyddar eventuella nya databaser som läggs till i den instansen eller tillgänglighetsgruppen.  
 

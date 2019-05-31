@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: a1d2cc50b405df2c71d94e74973b3291a4e908cb
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
-ms.translationtype: HT
+ms.openlocfilehash: 04808dda193a3a472813cda852a1a2f24d00e112
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393477"
+ms.locfileid: "66417996"
 ---
 # <a name="content-key-policies"></a>Viktiga innehållsprinciper
 
@@ -25,7 +25,7 @@ Med medietjänster kan leverera du live och på begäran innehållet krypteras d
 
 Om du vill ange alternativ för kryptering på din stream, måste du skapa en [Streaming princip](streaming-policy-concept.md) och associera det med dina [Strömningspositionerare](streaming-locators-concept.md). Du skapar den [innehåll nyckel princip](https://docs.microsoft.com/rest/api/media/contentkeypolicies) att konfigurera hur innehållsnyckeln (som ger säker åtkomst till din [tillgångar](assets-concept.md)) levereras om du vill avsluta klienter. Du måste ange krav (begränsningar) på innehåll nyckel principen som måste uppfyllas för att nycklar med den angivna konfigurationen som ska levereras till klienterna. Policyn innehåll nyckeln behövs inte för Rensa streaming eller ladda ned. 
 
-Vanligtvis du associera din **innehåll nyckel princip** med din **Strömningspositionerare**. Du kan också ange principen innehåll nyckel i en princip för direktuppspelning (när du skapar en anpassad princip för strömning för avancerade scenarier). 
+Vanligtvis du associera din **innehåll nyckel princip** med din [Strömningspositionerare](streaming-locators-concept.md). Du kan också ange principen innehåll nyckel i en [Streaming princip](streaming-policy-concept.md) (när skapar en anpassad princip för strömning för avancerade scenarier). 
 
 Vi rekommenderar att Media Services för att skapa nycklar. Du skulle normalt en standardlagringen av långlivade nyckel och kontrollera om principer med **hämta**. Om du vill hämta nyckel, måste du anropa en separat åtgärd-metod för att hämta hemligheter eller autentiseringsuppgifter, finns i följande exempel.
 

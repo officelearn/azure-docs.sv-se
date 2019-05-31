@@ -70,7 +70,7 @@ Följande tabell innehåller en beskrivning för JSON-element som är specifika 
 | server |IP-adressen eller värdnamnet namnet på MongoDB-servern. |Ja |
 | port |TCP-port som MongoDB-servern använder för att lyssna efter klientanslutningar. |Valfritt, standardvärde: 27017 |
 | authenticationType |Grundläggande eller anonym. |Ja |
-| användarnamn |Användarkonto för att få åtkomst till MongoDB. |Ja (om du använder grundläggande autentisering). |
+| username |Användarkonto för att få åtkomst till MongoDB. |Ja (om du använder grundläggande autentisering). |
 | password |Lösenordet för användaren. |Ja (om du använder grundläggande autentisering). |
 | authSource |Namnet på MongoDB-databasen som du vill använda för att kontrollera dina autentiseringsuppgifter för autentisering. |Valfritt (om du använder grundläggande autentisering). standard: använder administratörskontot och databasen som anges med egenskapen databaseName. |
 | databaseName |Namnet på MongoDB-databasen som du vill komma åt. |Ja |
@@ -84,7 +84,7 @@ Den **typeProperties** avsnittet är olika för varje typ av datauppsättning oc
 
 | Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
-| Samlingsnamn |Namnet på samlingen i MongoDB-databas. |Ja |
+| collectionName |Namnet på samlingen i MongoDB-databas. |Ja |
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i den [skapa Pipelines](data-factory-create-pipelines.md) artikeln. Egenskaper, till exempel namn, beskrivning, indata och utdata tabeller och principen är tillgängliga för alla typer av aktiviteter.
@@ -95,7 +95,7 @@ När källan är av typen **MongoDbSource** följande egenskaper är tillgängli
 
 | Egenskap  | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| DocumentDB |Använd anpassad fråga för att läsa data. |SQL-92 frågesträngen. Till exempel: Välj * från MyTable. |Nej (om **collectionName** av **datauppsättning** har angetts) |
+| query |Använd anpassad fråga för att läsa data. |SQL-92 frågesträngen. Till exempel: Välj * från MyTable. |Nej (om **collectionName** av **datauppsättning** har angetts) |
 
 
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.workload: tbd
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: d27c0e9570959e01267d83a768ead45b48b7cea1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1520b01826de2a80d8baeccf4913fa180d385644
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60903303"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66256307"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights för Azure molntjänster
 [Application Insights] [ start] kan övervaka [Azure cloud-tjänstapparnas](https://azure.microsoft.com/services/cloud-services/) för tillgänglighet, prestanda, fel och användning genom att kombinera data från Application Insights SDK: er med [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) data från dina molntjänster. Med den feedback du får om appens prestanda och effektivitet kan du fatta välgrundade beslut om designen i varje utvecklingslivscykel.
@@ -41,7 +41,7 @@ Det här alternativet instrumenterar din app vid körning, vilket ger dig all te
 
 Om det här alternativet är allt du behöver, är du klar. 
 
-Nästa steg är [visa mätvärden från din app](../../azure-monitor/app/metrics-explorer.md), [frågor till dina data med Analytics](../../azure-monitor/app/analytics.md), och eventuellt att konfigurera en [instrumentpanelen](../../azure-monitor/app/app-insights-dashboards.md). 
+Nästa steg är [visa mätvärden från din app](../../azure-monitor/app/metrics-explorer.md), [frågor till dina data med Analytics](../../azure-monitor/app/analytics.md). 
 
 För att övervaka prestanda i webbläsaren, du kanske också vill ställa in [tillgänglighetstester](../../azure-monitor/app/monitor-web-app-availability.md) och [Lägg till kod till dina webbsidor](../../azure-monitor/app/javascript.md).
 
@@ -61,7 +61,7 @@ Telemetrin från din app lagras, analyseras och visas i en Azure-resurs av typen
 Varje resurs tillhör en resursgrupp. Resursgrupper används för att hantera kostnaderna för att bevilja åtkomst till gruppmedlemmar och för att distribuera uppdateringar i en enda samordnad transaktion. Du kan till exempel [skriva ett skript för att distribuera](../../azure-resource-manager/resource-group-template-deploy.md) en Azure-molntjänst och dess Application Insights-övervakningsresurser i en enda åtgärd.
 
 ### <a name="resources-for-components"></a>Resurser för komponenter
-Vi rekommenderar att du skapar en separat resurs för varje komponent i din app. Det vill säga skapar du en resurs för varje webbroll och arbetsroll. Du kan analysera varje komponent separat, men du skapar en [instrumentpanelen](../../azure-monitor/app/app-insights-dashboards.md) som sammanför de viktigaste diagrammen från alla komponenter, så att du kan jämföra och övervaka dem tillsammans i en enda vy. 
+Vi rekommenderar att du skapar en separat resurs för varje komponent i din app. Det vill säga skapar du en resurs för varje webbroll och arbetsroll. Du kan analysera varje komponent separat, men du skapar en [instrumentpanelen](../../azure-monitor/app/overview-dashboard.md) som sammanför de viktigaste diagrammen från alla komponenter, så att du kan jämföra och övervaka dem tillsammans i en enda vy. 
 
 En annan metod är att skicka telemetrin från mer än en roll till samma resurs, men [lägga till en dimensionsegenskap till varje telemetriobjekt](../../azure-monitor/app/api-filtering-sampling.md#add-properties-itelemetryinitializer) som identifierar dess källroll. Med den här metoden visar måttdiagram som till exempel undantag, visar normalt en sammanställning av antalen från olika roller, men du kan segmentera diagrammet efter rollidentifieraren vid behov. Du kan också filtrera sökningar efter samma dimension. Detta alternativ gör det lite enklare att visa allt på samma gång, men det kan även leda till viss förvirring mellan rollerna.
 
@@ -91,7 +91,7 @@ Om du har valt att skapa en separat resurs för varje roll, och kanske en separa
 ## <a name="set-up-azure-diagnostics-for-each-role"></a>Konfigurera Azure Diagnostics för varje roll
 Ange det här alternativet om du vill övervaka din app med Application Insights. För webbroller tillhandahåller det här alternativet prestandaövervakning, aviseringar, diagnostik och användningsanalys. För andra roller kan du söka efter och övervaka Azure Diagnostics som omstart, prestandaräknare och anrop till System.Diagnostics.Trace. 
 
-1. I Visual Studio Solution Explorer under  **\<YourCloudService >** > **roller**, öppnar du egenskaperna för varje roll.
+1. I Visual Studio Solution Explorer under  **\<YourCloudService >**  > **roller**, öppnar du egenskaperna för varje roll.
 
 1. I **Configuration**väljer den **skicka diagnostikdata till Application Insights** kryssrutan och välj sedan den Application Insights-resurs som du skapade tidigare.
 
@@ -229,7 +229,7 @@ Att hämta webbläsarbaserad telemetri, till exempel sidvisningar, sidinläsning
 Att vara säker din app är aktivt och effektivt, [konfigurera webbtester][availability].
 
 ## <a name="display-everything-together"></a>Visa allt tillsammans
-För en övergripande bild av systemet kan du visa de viktigaste Övervakningsdiagrammen på en [instrumentpanelen](../../azure-monitor/app/app-insights-dashboards.md). Du kan till exempel fästa antalet begäranden och fel för varje roll. 
+För en övergripande bild av systemet kan du visa de viktigaste Övervakningsdiagrammen på en [instrumentpanelen](../../azure-monitor/app/overview-dashboard.md). Du kan till exempel fästa antalet begäranden och fel för varje roll. 
 
 Om systemet använder andra Azure-tjänster som Stream Analytics, inkludera deras Övervakningsdiagrammen. 
 

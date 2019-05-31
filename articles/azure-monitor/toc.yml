@@ -837,6 +837,8 @@
                   href: platform/action-groups-create-resource-manager-template.md
                 - name: Implementera en Logikapp-åtgärd
                   href: platform/action-groups-logic-app.md
+                - name: Integrera det gemensamma aviseringsschemat med Logic Apps
+                  href: platform/alerts-common-schema-integrations.md
             - name: Lösning för aviseringshantering
               href: platform/alert-management-solution.md
             - name: Avisera i användargränssnitt

@@ -83,7 +83,7 @@
           displayName: roles
         - name: Extrahera friformsdata
           href: luis-tutorial-pattern-any.md
-    - name: Använda robot
+    - name: Använda V4 Bot Framework
       items:
         - name: 'Med C#'
           href: luis-csharp-tutorial-bf-v4.md
@@ -198,7 +198,7 @@
           href: luis-tutorial-bing-spellcheck.md
         - name: Med Speech-tjänsten
           href: luis-tutorial-speech-to-intent.md
-        - name: Med en robot
+        - name: Använda V3 Bot Framework
           items:
             - name: Robot för webbapp
               items:
@@ -279,6 +279,8 @@
       displayName: 'failover, fail-over, fail over, Europe, EU, Australia, business continuity, bcdr'
     - name: Gränser
       href: luis-boundaries.md
+    - name: Programinställningar
+      href: luis-reference-application-settings.md
     - name: Fördefinierad entitetsreferens
       items:
         - name: Entiteter per kultur

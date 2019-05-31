@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 3368be291770133cdfa10158f6e30540e17b8223
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f0e62c27885e2f6d5097194e1b9d869e167c4a4c
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61363761"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304974"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job-preview"></a>Använd referensdata från en SQL-databas för Azure Stream Analytics-jobb (förhandsversion)
 
@@ -59,16 +59,14 @@ Använd följande steg för att lägga till Azure SQL Database som en referens I
 
 ### <a name="visual-studio-prerequisites"></a>Visual Studio-krav
 
-1. Om du använder Visual Studio 2017, uppdatera 15.8.2 eller senare. Observera att 16,0 och senare stöds inte i det här läget.
-
-2. [Installera Stream Analytics-verktyg för Visual Studio](stream-analytics-tools-for-visual-studio-install.md). Följande versioner av Visual Studio stöds:
+1. [Installera Stream Analytics-verktyg för Visual Studio](stream-analytics-tools-for-visual-studio-install.md). Följande versioner av Visual Studio stöds:
 
    * Visual Studio 2015
-   * Visual Studio 2017
+   * Visual Studio 2019
 
-3. Bekanta dig med den [Stream Analytics-verktyg för Visual Studio](stream-analytics-quick-create-vs.md) Snabbstart.
+2. Bekanta dig med den [Stream Analytics-verktyg för Visual Studio](stream-analytics-quick-create-vs.md) Snabbstart.
 
-4. Skapa ett lagringskonto.
+3. Skapa ett lagringskonto.
 
 ### <a name="create-a-sql-database-table"></a>Skapa en SQL-databastabell
 
@@ -118,7 +116,7 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
 
 4. Öppna SQL-filen i redigeraren och skriva SQL-frågan.
 
-5. Om du använder Visual Studio 2017 och du har installerat SQL Server Data tools, du kan testa frågan genom att klicka på **kör**. Ett fönster med guiden kommer att visas för att ansluta till SQL-databasen och frågeresultatet visas i fönstret längst ned på sidan.
+5. Om du använder Visual Studio 2019 och du har installerat SQL Server Data tools, du kan testa frågan genom att klicka på **kör**. Ett fönster med guiden kommer att visas för att ansluta till SQL-databasen och frågeresultatet visas i fönstret längst ned på sidan.
 
 ### <a name="specify-storage-account"></a>Ange storage-konto
 
@@ -159,7 +157,7 @@ När du använder deltafråga [temporala tabeller i Azure SQL Database](../sql-d
  
 2. Redigera deltafråga. 
    
-   Den här frågan returnerar alla rader i din SQL-databas som har infogats eller togs bort inom en starttid  **\@deltaStartTime**, och en sluttid  **\@deltaEndTime**. Delta-frågan måste returnera samma kolumner som ögonblicksbild frågan, samt kolumnen  **_åtgärden_**. Den här kolumnen anger om raden har infogats eller tagits bort mellan  **\@deltaStartTime** och  **\@deltaEndTime**. De resulterande raderna är flaggade som **1** om posterna infogades eller **2** om tas bort. 
+   Den här frågan returnerar alla rader i din SQL-databas som har infogats eller togs bort inom en starttid  **\@deltaStartTime**, och en sluttid  **\@deltaEndTime**. Delta-frågan måste returnera samma kolumner som ögonblicksbild frågan, samt kolumnen  **_åtgärden_** . Den här kolumnen anger om raden har infogats eller tagits bort mellan  **\@deltaStartTime** och  **\@deltaEndTime**. De resulterande raderna är flaggade som **1** om posterna infogades eller **2** om tas bort. 
 
    För poster som har uppdaterats, gör den temporala tabellen bokföring genom att samla in en infogning och borttagning åtgärd. Stream Analytics-runtime gäller sedan delta frågans resultat för den tidigare ögonblicksbilden att hålla referensdata uppdaterade. Ett exempel på deltafråga som visas nedan:
 
@@ -174,6 +172,9 @@ När du använder deltafråga [temporala tabeller i Azure SQL Database](../sql-d
    ```
  
    Observera att Stream Analytics runtime regelbundet kan köra ögonblicksbild frågan förutom deltafråga för att lagra kontrollpunkter.
+
+## <a name="test-your-query"></a>Testa frågan
+   Det är viktigt att kontrollera att frågan returnerar förväntade datauppsättningen som Stream Analytics-jobbet ska använda som för referensdata. Om du vill testa frågan går du till indata Jobbtopologi avsnittet på portalen. Du kan sedan välja exempeldata på din SQL Database-referens som indata. När exemplet blir tillgänglig kan du hämta filen och kontrollera om data som returneras är som förväntat. Om du vill en optimera din utvecklings- och iterationer, rekommenderar vi att du använder den [Stream Analytics-verktyg för Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install). Du kan även andra verktyg för föredrar att först se till att frågan returnerar rätt resultaten från din Azure SQL-databas och använda det i ditt Stream Analytics-jobb. 
 
 ## <a name="faqs"></a>Vanliga frågor och svar
 
@@ -193,10 +194,6 @@ En kombination av båda de här måtten kan användas för att härleda om jobbe
 **Behöver jag en särskild typ av Azure SQL Database?**
 
 Azure Stream Analytics fungerar med alla typer av Azure SQL Database. Det är dock viktigt att förstå att uppdateringsfrekvensen för din referensindata kan påverka din frågebelastning. Om du vill använda frågealternativet delta, rekommenderar vi att du använder temporala tabeller i Azure SQL Database.
-
-**Kan jag ta prov på indata från SQL Database referensdata indata?**
-
-Den här funktionen är inte tillgänglig.
 
 **Varför Azure Stream Analytics lagrar ögonblicksbilder i Azure Storage-konto?**
 

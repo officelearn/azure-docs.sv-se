@@ -18,12 +18,12 @@ ms.date: 03/23/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5c6f1064d2d73ab3d99ca341cffd9b296723e97
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: acc30bc18921b79be3b5e5b2ae340eab29dd5bcf
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64571100"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305762"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Vad är åtkomstkontroller i Azure Active Directory villkorlig åtkomst?
 
@@ -170,7 +170,7 @@ Sessionskontroller aktiverar en begränsad upplevelse inom en molnapp. Sessionsk
 
 ![Kontroll](./media/controls/31.png)
 
-### <a name="use-app-enforced-restrictions"></a>Använd app-framtvingade begränsningar
+### <a name="use-app-enforced-restrictions"></a>Använd appframtvingade begränsningar
 
 Du kan använda den här kontrollen för att kräva Azure AD för att skicka enhetsinformation till de valda molnapparna. Informationen i gör det möjligt för moln-appar du behöver veta om en anslutning initieras från en kompatibel eller domänansluten enhet. Den här kontrollen stöder endast SharePoint Online och Exchange Online som valda molnappar. När du väljer använder molnappen enhetsinformationen för att ge användare, beroende på enhetens tillstånd, med en begränsad eller fullständig upplevelse.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: b4744201f506730303e190783acc60bfaa383720
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 9cd02172af5246c60b93a6e4696988268abed506
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65409813"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258688"
 ---
 # <a name="azure-database-security-best-practices"></a>Metodtips för Azure database-säkerhet
 Den här artikeln beskriver Metodtips för databassäkerhet.
@@ -165,6 +165,10 @@ Att dessa funktioner som hjälper dig att:
 - Identifiera och svara på potentiella hot.
 
 Dessutom integreras Hotidentifiering aviseringar med Azure Security Center för en central vy över säkerhetsläget hos alla dina Azure-resurser.
+
+## <a name="enable-feature-restrictions"></a>Aktivera funktionsbegränsningar
+
+Data i dina databaser kan exponeras mot angripare som använder angreppsmetoder som utnyttjar databasfel och fråga körningstider. Azure SQL Database innehåller ett antal funktionen begränsning mekanismer för att skydda din databas. Mer information finns i [funktionsbegränsningar för SQL Database](../sql-database/sql-database-feature-restrictions.md).
 
 ## <a name="next-steps"></a>Nästa steg
 Se [säkerhet i Azure-metodtips och mönster](security-best-practices-and-patterns.md) för flera beprövade metoder för att använda när du utforma, distribuera och hantera dina molnlösningar med hjälp av Azure.

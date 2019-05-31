@@ -2,7 +2,7 @@
 title: Planera förhandsversion av Azure Time Series Insights-miljön | Microsoft Docs
 description: Planera din förhandsversion av Azure Time Series Insights-miljö.
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 ms.workload: big-data
 manager: cshankar
 ms.service: time-series-insights
@@ -10,19 +10,19 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: b3fab86b2b2f0ad892e02cd089dbd7c45ce601d6
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 435e5f2163270672ac5f1f5695ca2fe9be22ee6b
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205761"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388739"
 ---
 # <a name="plan-your-azure-time-series-insights-preview-environment"></a>Planera förhandsversion av Azure Time Series Insights-miljön
 
-Den här artikeln beskriver Metodtips för att planera och komma igång snabbt med Azure Time Series Insights Preview.
+Den här artikeln beskriver Metodtips för att planera och komma igång snabbt med hjälp av förhandsversionen av Azure Time Series Insights.
 
 > [!NOTE]
-> Se [planera Azure Time Series Insights GA-miljön](time-series-insights-environment-planning.md), för bästa praxis för att planera en allmänt tillgänglig TSI-instans.
+> Metodtips att planera en allmänt tillgänglig Time Series Insights-instans, se [planera allmänt tillgängliga Azure Time Series Insights-miljön](time-series-insights-environment-planning.md).
 
 ## <a name="best-practices-for-planning-and-preparation"></a>Bästa praxis för planering och förberedelser
 
@@ -45,29 +45,29 @@ När du etablerar en förhandsversionen av Time Series Insights-miljö kan skapa
 
 Om du vill starta, behöver du tre ytterligare objekt:
 
-* En [Time Series-modell](./time-series-insights-update-tsm.md).
-* En [händelsekälla ansluten till Time Series Insights](./time-series-insights-how-to-add-an-event-source-iothub.md).
-* [Händelser som flödar till händelsekällan](./time-series-insights-send-events.md) som mappas båda till modellen och är i ett giltigt JSON-format.
+* En [Time Series-modell](./time-series-insights-update-tsm.md)
+* En [händelsekälla ansluten till Time Series Insights](./time-series-insights-how-to-add-an-event-source-iothub.md)
+* [Händelser som flödar till händelsekällan](./time-series-insights-send-events.md) som mappas båda till modellen och är i ett giltigt JSON-format
 
 ## <a name="configure-time-series-ids-and-timestamp-properties"></a>Konfigurera egenskaper för Time Series-ID och tidsstämpel
 
-Om du vill skapa en ny Time Series Insights-miljö, Välj en **Time Series-ID**. Detta fungerar så som en logisk partition för dina data. Enligt vad som anges, se till att ha Time Series-ID: N redo.
+Om du vill skapa en ny Time Series Insights-miljö, Välj en Time Series-ID. Detta fungerar så som en logisk partition för dina data. Enligt vad som anges, se till att ha Time Series-ID: N redo.
 
 > [!IMPORTANT]
 > Time Series-ID: N är *oföränderligt* och *kan inte ändras senare*. Kontrollera vart och ett före sista markering och första användning.
 
-Du kan välja upp till tre (3) för att unikt skilja dina resurser. Mer information finns i [bästa praxis för att välja en Time-ID](./time-series-insights-update-how-to-id.md) och [Storage och ingående](./time-series-insights-update-storage-ingress.md).
+Du kan välja upp till tre nycklar unikt skilja dina resurser. Mer information finns i [bästa praxis för att välja en Time-ID](./time-series-insights-update-how-to-id.md) och [Storage och ingående](./time-series-insights-update-storage-ingress.md).
 
 Tidsstämpel-egenskapen är också viktigt. Du kan ange den här egenskapen när du lägger till händelsekällor. Varje händelsekälla har en valfri tidsstämpel-egenskap som har använt för att spåra händelsekällor över tid. Tidstämpeln är skiftlägeskänsliga och måste vara formaterad enskilda varje händelsekälla-specifikationen.
 
 > [!TIP]
 > Kontrollera formatering och parsning kraven för din händelsekällor.
 
-Om fältet lämnas tomt används händelse sätta tidpunkten för en händelsekälla som händelsen tidsstämpel. Om du skickar historiska data eller gruppbaserade händelser, är anpassa tidsstämpel-egenskapen bättre än standardvärdet sätta tidpunkt för händelsen. Mer information finns i avsnittet om [hur du lägger till händelsekällor i IoT Hub](./time-series-insights-how-to-add-an-event-source-iothub.md).
+Om fältet lämnas tomt används händelse sätta tidpunkten för en händelsekälla som händelsen tidsstämpel. Om du skickar historiska data eller gruppbaserade händelser, är anpassa tidsstämpel-egenskapen bättre än standardvärdet sätta tidpunkt för händelsen. Läs om hur du vill veta mer [lägga till händelsekällor i Azure IoT Hub](./time-series-insights-how-to-add-an-event-source-iothub.md).
 
 ## <a name="understand-the-time-series-model"></a>Förstå tidsserien modell
 
-Du kan nu konfigurera Tidsseriemodell för din Time Series Insights-miljö. Den nya modellen gör det enkelt att söka efter och analysera IoT-data. Den stöder hantering, underhåll och berikande av time series-data och hjälper dig för att förbereda konsumenter datauppsättningar. Modellen använder **Time Series-ID: N**, som mappar till en instans som associerar unik resurs med variabler, typer och hierarkier. Läs mer om den nya [Tidsseriemodell](./time-series-insights-update-tsm.md).
+Du kan nu konfigurera Tidsseriemodell för din Time Series Insights-miljö. Den nya modellen gör det enkelt att söka efter och analysera IoT-data. Den stöder hantering, underhåll och berikande av time series-data och hjälper dig för att förbereda konsumenter datauppsättningar. Modellen använder Time Series-ID, som mappar till en instans som associerar unik resurs med variabler, typer och hierarkier. Läs mer om den nya [Tidsseriemodell](./time-series-insights-update-tsm.md).
 
 Modellen är dynamisk, så den kan genereras när som helst. Om du vill komma igång snabbt, skapa och ladda upp den innan du skicka data till Time Series Insights. Om du vill skapa din modell, se [använder den Tidsseriemodell](./time-series-insights-update-how-to-tsm.md).
 
@@ -79,8 +79,8 @@ Du kan kontrollera det sätt som du skickar händelser till Time Series Insights
 
 En bra tumregel:
 
-* Store-metadata i din Time Series-modell
-* Time Series-läge, instansfält och händelser innehåller endast nödvändig information, till exempel en **Time Series-ID** eller **tidsstämpel**.
+* Store metadata i din Time Series-modell.
+* Time Series-läge, instansfält och händelser innehåller endast nödvändig information, till exempel en Time Series-ID eller en tidsstämpel.
 
 Mer information finns i [forma händelser](./time-series-insights-send-events.md#json).
 
@@ -89,5 +89,4 @@ Mer information finns i [forma händelser](./time-series-insights-send-events.md
 ## <a name="next-steps"></a>Nästa steg
 
 - Läs mer om [storage och ingående](./time-series-insights-update-storage-ingress.md) i Time Series Insights Preview.
-
 - Lär dig mer om [datamodellering](./time-series-insights-update-tsm.md) i Time Series Insights Preview.

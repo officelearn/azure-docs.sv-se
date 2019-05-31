@@ -4,17 +4,17 @@ description: Autentisering för användning av Azure Maps-tjänster.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 02/12/2019
-ms.topic: tutorial
+ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: timlt
+manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 9dfe4024607e106565984d6d49de94d793bf7a8f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 22aba19e16e4349a5b495b307c9906f7ded5a636
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60799088"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393664"
 ---
 # <a name="authentication-with-azure-maps"></a>Autentisering med Azure Maps
 
@@ -79,7 +79,7 @@ Azure AD kan du styra åtkomsten till skyddade resurser med hjälp av RBAC. När
 
 Azure Maps stöder Läs åtkomstkontroll för enskilda användare, program och Azure-tjänster via hanterade identiteter för Azure-resurser i Azure AD.
 
-![Azure Maps-dataläsare (förhandsgranskning)](./media/azure-maps-authentication/concept.png)
+![Azure Maps Data-läsare (förhandsgranskning)](./media/azure-maps-authentication/concept.png)
 
 Information om hur du visar RBAC-inställningar finns i [hur du konfigurerar RBAC för Azure Maps](https://aka.ms/amrbac).
 

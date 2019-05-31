@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 05/28/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: e13bcb7d4eeded691669277b64aba9048f3bbefa
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 99aea38ec877074075eaec8cf9ab8da077901acf
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150423"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393117"
 ---
 # <a name="content-protection-with-dynamic-encryption"></a>Innehållsskydd med dynamisk kryptering
 
@@ -39,14 +39,13 @@ För att slutföra utformningen ”content protection” system/program, måste 
 
 1. Azure Media Services-kod
   
-   Den [DRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs) exemplet visas hur du implementerar multi-DRM-system med Media Services v3 och även använda Media Services licensnyckel/delivery service. Du kan kryptera varje tillgång med flera krypteringstyper (AES-128, PlayReady, Widevine, FairPlay). I dokumentationen om [direktuppspelningsprotokoll och krypteringstyper](#streaming-protocols-and-encryption-types) ser du vad som är bra att kombinera.
+   Den [DRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs) exemplet visas hur du implementerar multi-DRM system med Media Services v3 med hjälp av .NET. Den visar även hur du använder Media Services licensnyckel/delivery service. Du kan kryptera varje tillgång med flera krypteringstyper (AES-128, PlayReady, Widevine, FairPlay). I dokumentationen om [direktuppspelningsprotokoll och krypteringstyper](#streaming-protocols-and-encryption-types) ser du vad som är bra att kombinera.
   
    I exempel visas hur du:
 
-   1. Skapa och konfigurera [Innehållsprinciper nyckeln](https://docs.microsoft.com/rest/api/media/contentkeypolicies).
+   1. Skapa och konfigurera en [Innehållsprinciper nyckeln](content-key-policy-concept.md). Du skapar en **innehåll nyckel princip** att konfigurera hur innehållsnyckeln (som ger säker åtkomst till dina tillgångar) levereras om du vill avsluta klienter.    
 
       * Definiera auktorisering för leverans av licens, att ange logik för auktorisering baserat på anspråk i JWT.
-      * Konfigurera DRM kryptering genom att ange innehållsnyckeln.
       * Konfigurera [PlayReady](playready-license-template-overview.md), [Widevine](widevine-license-template-overview.md), och/eller [FairPlay](fairplay-license-overview.md) licenser. Mallarna kan du konfigurera rättigheter och behörigheter för var och en av de använda DRM: er.
 
         ```
@@ -54,11 +53,11 @@ För att slutföra utformningen ”content protection” system/program, måste 
         ContentKeyPolicyWidevineConfiguration widevineConfig = ConfigureWidevineLicenseTempate();
         ContentKeyPolicyFairPlayConfiguration fairPlayConfig = ConfigureFairPlayPolicyOptions();
         ```
-   2. Skapa en [Strömningspositionerare](https://docs.microsoft.com/rest/api/media/streaminglocators) som är konfigurerad för att strömma krypterat tillgången. 
+   2. Skapa en [Strömningspositionerare](streaming-locators-concept.md) som är konfigurerad för att strömma krypterat tillgången. 
   
-      Den **Strömningspositionerare** måste associeras med en [Streaming princip](https://docs.microsoft.com/rest/api/media/streamingpolicies). I det här exemplet anger vi StreamingLocator.StreamingPolicyName till principen ”Predefined_MultiDrmCencStreaming”. Den här principen anger att vi vill för två nycklar (kuvert och CENC) för att hämta genereras och ange på positionerare. Krypteringarna för kuvert, PlayReady och Widevine tillämpas därför (nyckeln levereras till uppspelningsklienten utifrån de konfigurerade DRM-licenserna). Om du dessutom vill kryptera strömmen med CBCS (FairPlay) använder du ”Predefined_MultiDrmStreaming”.
-    
-      Eftersom vi vill kryptera videon i **innehåll nyckel princip** att vi tidigare konfigurerade har också associeras med den **Strömningspositionerare**. 
+      Den **Strömningspositionerare** måste associeras med en [Streaming princip](streaming-policy-concept.md). I det här exemplet anger vi StreamingLocator.StreamingPolicyName till principen ”Predefined_MultiDrmCencStreaming”. PlayReady och Widevine krypteringar tillämpas, nyckeln levereras till klienten uppspelning baserat på de konfigurera DRM-licenserna. Om du dessutom vill kryptera strömmen med CBCS (FairPlay) använder du ”Predefined_MultiDrmStreaming”.
+      
+      Den Strömningspositionerare också är associerad med den **innehåll nyckel princip** som har definierats.
     
    3. Skapa en test-token.
 
@@ -102,11 +101,11 @@ HLS-protokollet stöder följande behållare format och krypteringsscheman.
 
 |Behållare-format|Krypteringsschemat|URL-exempel|
 |---|---|---|
-|Alla|AES|`https://amsv3account-usw22.streaming.media.azure.net/<id>/ignite.ism/manifest(format=m3u8-aapl,encryption=cbc)`|
-|MPG2-TS |CBCS (FairPlay) ||
-|CMAF(fmp4) |CBCS (FairPlay) |`https://amsv3account-usw22.streaming.media.azure.net/<id>/ignite.ism/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`|
-|MPG2-TS |CENC (PlayReady) ||
-|CMAF(fmp4) |CENC (PlayReady) ||
+|Alla|AES|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-aapl,encryption=cbc)`|
+|MPG2-TS |CBCS (FairPlay) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-aapl,encryption=cbcs-aapl)`|
+|CMAF(fmp4) |CBCS (FairPlay) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`|
+|MPG2-TS |CENC (PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-aapl,encryption=cenc)`|
+|CMAF(fmp4) |CENC (PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-cmaf,encryption=cenc)`|
 
 HLS/CMAF + FairPlay (inklusive – HEVC / H.265) stöds på följande enheter:
 
@@ -120,18 +119,18 @@ MPEG-DASH-protokollet stöder följande behållare format och krypteringsscheman
 
 |Behållare-format|Krypteringsschemat|URL-exempel
 |---|---|---|
-|Alla|AES|`https://amsv3account-usw22.streaming.media.azure.net/<id>/ignite.ism/manifest(format=mpd-time-csf,encryption=cbc)`|
-|CSF(fmp4) |CENC (Widevine + PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/<id>/ignite.ism/manifest(format=mpd-time-csf,encryption=cenc)`|
-|CMAF(fmp4)|CENC (Widevine + PlayReady)||
+|Alla|AES|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=mpd-time-csf,encryption=cbc)`|
+|CSF(fmp4) |CENC (Widevine + PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=mpd-time-csf,encryption=cenc)`|
+|CMAF(fmp4)|CENC (Widevine + PlayReady)|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=mpd-time-cmaf,encryption=cenc)`|
 
 ### <a name="smooth-streaming"></a>Smooth Streaming
 
 Smooth Streaming-protokollet stöder följande behållare format och krypteringsscheman.
 
-|Protokoll|Behållare-format|Krypteringsschemat|
+|Protocol|Behållare-format|Krypteringsschemat|
 |---|---|---|
-|fMP4|AES||
-|fMP4 | CENC (PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/<id>/ignite.ism/manifest(encryption=cenc)`|
+|fMP4|AES|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(encryption=cbc)`|
+|fMP4 | CENC (PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(encryption=cenc)`|
 
 ### <a name="browsers"></a>Webbläsare
 

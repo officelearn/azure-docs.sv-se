@@ -10,12 +10,12 @@ ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: scottwhi
-ms.openlocfilehash: 04c457fba5cb32cc1312ffac2c2f7c1470b5a46b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 235cc1c74c099a71d289d38369ebc10132564825
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60519019"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66383299"
 ---
 # <a name="news-search-api-upgrade-guide"></a>Uppgraderingsguide för Nyheter Sök-API
 
@@ -54,7 +54,7 @@ RequestParameterInvalidValue|InvalidRequest.ParameterInvalidValue
 ResourceAccessDenied|InsufficientAuthorization
 ExceededVolume|RateLimitExceeded
 ExceededQpsLimit|RateLimitExceeded
-Disabled|InsufficientAuthorization.AuthorizationDisabled
+Inaktiverad|InsufficientAuthorization.AuthorizationDisabled
 UnexpectedError|ServerError.UnexpectedError
 DataSourceErrors|ServerError.ResourceError
 AuthorizationMissing|InvalidAuthorization.AuthorizationMissing
@@ -70,24 +70,24 @@ Blockerad|InvalidRequest.Blocked
 
 ### <a name="object-changes"></a>Objekt ändras
 
-- Har lagts till i `contractualRules` automatiskt till den [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#newsarticle) objekt. Den `contractualRules` fältet innehåller en lista över regler som du måste följa (exempelvis artikeln attribution). Måste du använda den information som anges i `contractualRules` istället för att använda `provider`. Artikeln innehåller `contractualRules` endast när den [API för webbsökning](../bing-web-search/search-the-web.md) svaret innehåller ett nytt svar.
+- Har lagts till i `contractualRules` automatiskt till den [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle) objekt. Den `contractualRules` fältet innehåller en lista över regler som du måste följa (exempelvis artikeln attribution). Måste du använda den information som anges i `contractualRules` istället för att använda `provider`. Artikeln innehåller `contractualRules` endast när den [API för webbsökning](../bing-web-search/search-the-web.md) svaret innehåller ett nytt svar.
 
 ## <a name="non-breaking-changes"></a>Bakåtkompatibla ändringar
 
 ### <a name="query-parameters"></a>Frågeparametrar
 
-- Lagt till produkter som ett möjligt värde som du kan ställa in den [kategori](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#category) frågeparameter till. Se [kategorier av marknader](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference).
+- Lagt till produkter som ett möjligt värde som du kan ställa in den [kategori](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#category) frågeparameter till. Se [kategorier av marknader](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference).
 
-- Har lagts till i [SortBy](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#sortby) frågeparameter som returnerar populära ämnen sorterade efter datum med det senaste först.
+- Har lagts till i [SortBy](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#sortby) frågeparameter som returnerar populära ämnen sorterade efter datum med det senaste först.
 
-- Har lagts till i [eftersom](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#since) frågeparameter som returnerar populära ämnen som har identifierats av Bing på eller efter den angivna Unix-tidsstämpeln för epoch.
+- Har lagts till i [eftersom](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#since) frågeparameter som returnerar populära ämnen som har identifierats av Bing på eller efter den angivna Unix-tidsstämpeln för epoch.
 
 ### <a name="object-changes"></a>Objekt ändras
 
-- Har lagts till i `mentions` automatiskt till den [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#newsarticle) objekt. Den `mentions` fältet innehåller en lista över entiteter (personer eller platser) som hittades i artikeln.
+- Har lagts till i `mentions` automatiskt till den [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle) objekt. Den `mentions` fältet innehåller en lista över entiteter (personer eller platser) som hittades i artikeln.
 
-- Har lagts till i `video` automatiskt till den [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#newsarticle) objekt. Den `video` fältet innehåller en video som är relaterad till nyhetsartikeln. Videon är antingen en \<iframe\> som du kan bädda in eller en miniatyr i rörelse.
+- Har lagts till i `video` automatiskt till den [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle) objekt. Den `video` fältet innehåller en video som är relaterad till nyhetsartikeln. Videon är antingen en \<iframe\> som du kan bädda in eller en miniatyr i rörelse.
 
-- Har lagts till i `sort` automatiskt till den [nyheter](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#news) objekt. Den `sort` fältet visas sorteringsordningen av artiklarna. Till exempel sorteras artiklar efter relevans (standard) eller datum.
+- Har lagts till i `sort` automatiskt till den [nyheter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#news) objekt. Den `sort` fältet visas sorteringsordningen av artiklarna. Till exempel sorteras artiklar efter relevans (standard) eller datum.
 
-- Har lagts till i [SortValue](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#sortvalue) objekt som definierar en sorteringsordning. Den `isSelected` fältet som anger om svaret användas sorteringsordning. Om **SANT**, svaret används sorteringsordning. Om `isSelected` är **FALSKT**, du kan använda URL: en i den `url` fält som du vill begära en annan sorteringsordning.
+- Har lagts till i [SortValue](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#sortvalue) objekt som definierar en sorteringsordning. Den `isSelected` fältet som anger om svaret användas sorteringsordning. Om **SANT**, svaret används sorteringsordning. Om `isSelected` är **FALSKT**, du kan använda URL: en i den `url` fält som du vill begära en annan sorteringsordning.

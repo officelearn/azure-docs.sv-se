@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, Helm, tjänsten nät, tjänsten nät routning, kubectl, k8s '
-ms.openlocfilehash: 39ef23d04dc1cf1b48297ecf8f0accfef4935cd2
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 693abccd7e54a1dfef92cd57a715ac96bfd56a8c
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66158941"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234007"
 ---
 # <a name="troubleshooting-guide"></a>Felsökningsguide
 
@@ -242,7 +242,7 @@ Build-kontexten är på projekt/tjänstnivå som standard, kan därför ett bibl
 ### <a name="try"></a>Prova:
 Vad som behöver göras:
 1. Ändra den _azds.yaml_ filen för att ange build-kontext till lösningen nivå.
-2. Ändra den _Dockerfile_ och _Dockerfile.develop_ filer att referera till projektet (_.csproj_) filer på rätt sätt, i förhållande till den nya skapa kontexten.
+2. Ändra den _Dockerfile_ och _Dockerfile.develop_ filer att referera till projektet ( _.csproj_) filer på rätt sätt, i förhållande till den nya skapa kontexten.
 3. Plats en _.dockerignore_ filen bredvid SLN-filen och ändra vid behov.
 
 Du kan se ett exempel på https://github.com/sgreenmsft/buildcontextsample
@@ -404,3 +404,8 @@ Skapa en domänkontrollant med ett alternativt namn:
 ```cmd
 azds controller create --name my-controller --target-name MyAKS --resource-group MyResourceGroup
 ```
+
+## <a name="enabling-dev-spaces-failing-when-windows-node-pools-are-added-to-an-aks-cluster"></a>Aktivera Dev blanksteg misslyckas när Windows nodpooler läggs till i ett AKS-kluster
+
+### <a name="reason"></a>Reason
+För närvarande är Azure Dev blanksteg avsedd att köras på Linux-poddar och endast noder. Du kan inte aktivera Azure Dev blanksteg i ett AKS-kluster med en pool för Windows-nod för tillfället.

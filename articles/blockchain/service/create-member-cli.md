@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.service: azure-blockchain
 ms.reviewer: seal
 manager: femila
-ms.openlocfilehash: 4589a9de4c2a8fa43e4e653d4447c7a7715a6e42
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: be5a8151f0de0a33db09194a7159aded6848c78a
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399946"
+ms.locfileid: "66416184"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-blockchain-member-using-azure-cli"></a>Snabbstart: Skapa en Azure Blockchain Service blockchain medlem med hjälp av Azure CLI
 
@@ -71,7 +71,7 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har skapat en blockchain-medlem kan du prova någon av Anslut till transaktion noden snabbstarter för [Geth](connect-geth.md), [MetaMask](connect-metamask.md), eller [Truffle](connect-truffle.md).
+Nu när du har skapat en blockchain-medlem kan du prova någon av anslutningen snabbstarter för [Geth](connect-geth.md), [MetaMask](connect-metamask.md), eller [Truffle](connect-truffle.md).
 
 > [!div class="nextstepaction"]
 > [Använd Truffle för att ansluta till en tjänstnätverk Azure Blockchain](connect-truffle.md)

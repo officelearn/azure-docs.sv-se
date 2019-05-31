@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/26/2019
+ms.date: 05/30/2019
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: e0b9faeb796653abb4c061884ab2fbb78e867e71
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: ead3122d2040a544c6f09e434f27b7970f0d5840
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918986"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417859"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Hantera användning och kostnader med Azure Monitor-loggar
 
@@ -67,7 +67,7 @@ Granska [Log Analytics-användning och uppskattade kostnader](usage-estimated-co
 
 Följande steg beskriver hur du konfigurerar en gräns för att hantera mängden data som Log Analytics-arbetsytan kommer att mata in per dag.  
 
-1. Välj **Användning och uppskattade kostnader** i det vänstra fönstret på arbetsytan.
+1. Välj **Användning och beräknade kostnader** i det vänstra fönstret på arbetsytan.
 2. På den **användning och uppskattade kostnader** för den valda arbetsytan och klicka på **Datavolymhantering** högst upp på sidan. 
 3. Dagligt tak är **OFF** som standard – klickar du på **på** att aktivera den och ange sedan datavolymen i GB/dag.
 
@@ -85,7 +85,7 @@ Här följer de rekommenderade inställningarna för aviseringen för att komma 
    - Sökfråga: Åtgärden | där detalj har ”se”
    - Baserat på: Antal resultat
    - Villkor: Större än
-   - Tröskelvärde: 0
+   - Tröskelvärde för: 0
    - Period: 5 (minuter)
    - Frekvens: 5 (minuter)
 - Namn på aviseringsregel: Dagliga data nådd
@@ -151,13 +151,13 @@ Högre användning orsakas av en eller båda:
 
 ## <a name="understanding-nodes-sending-data"></a>Förstå noder som skickar data
 
-För att förstå hur många datorer (noder) och rapporterar data varje dag under den senaste månaden, använda
+För att förstå hur många datorer som rapporterar pulsslag varje dag under den senaste månaden, använda
 
 `Heartbeat | where TimeGenerated > startofday(ago(31d))
 | summarize dcount(Computer) by bin(TimeGenerated, 1d)    
 | render timechart`
 
-Hämta en lista över datorer som skickar **faktureras datatyper** (vissa datatyper är kostnadsfria), utnyttja den `_IsBillable` [egenskapen](log-standard-properties.md#_isbillable):
+Om du vill hämta en lista över datorer som kommer att debiteras som noder om arbetsytan finns i den äldre Per nod prisnivå, leta efter noder som skickar **faktureras datatyper** (vissa datatyper är kostnadsfria). Gör detta genom att använda den `_IsBillable` [egenskapen](log-standard-properties.md#_isbillable) och använda fältet längst till vänster för det fullständigt kvalificerade domännamnet. Detta returnerar en lista över datorer med faktureras data:
 
 `union withsource = tt * 
 | where _IsBillable == true 
@@ -165,15 +165,24 @@ Hämta en lista över datorer som skickar **faktureras datatyper** (vissa dataty
 | where computerName != ""
 | summarize TotalVolumeBytes=sum(_BilledSize) by computerName`
 
-Använd de här `union withsource = tt *` frågar sparsamt eftersom sökningar över datatyper är dyrt att köra. Den här frågan ersätter det gamla sättet att hämtar information om varje dator med datatypen användning.  
-
-Detta kan utökas för att returnera antalet datorer per timme som skickar faktureras datatyper (vilket är hur beräknar Log Analytics fakturerbara noder för äldre Per nod prisnivå):
+Antalet fakturerbara noder sett kan beräknas som: 
 
 `union withsource = tt * 
 | where _IsBillable == true 
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | where computerName != ""
-| summarize dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc`
+| billableNodes=dcount(computerName)`
+
+> [!NOTE]
+> Använd de här `union withsource = tt *` frågar sparsamt eftersom sökningar över datatyper är dyrt att köra. Den här frågan ersätter det gamla sättet att hämtar information om varje dator med datatypen användning.  
+
+En mer exakt beräkning av vad debiteras faktiskt är att få antalet datorer per timme som skickar faktureras datatyper. (För arbetsytor i den äldre prisnivån Per nod beräknar Log Analytics antalet noder som behöver faktureras på timbasis.) 
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| where computerName != ""
+| summarize billableNodes=dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc`
 
 ## <a name="understanding-ingested-data-volume"></a>Förstå som matas in datavolym
 
@@ -197,24 +206,19 @@ Se den **storlek** faktureringsbara händelser matas in per dator, använder den
 ```kusto
 union withsource = tt * 
 | where _IsBillable == true 
-| summarize Bytes=sum(_BilledSize) by  Computer | sort by Bytes nulls last
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| summarize Bytes=sum(_BilledSize) by  computerName | sort by Bytes nulls last
 ```
 
 Den `_IsBillable` [egenskapen](log-standard-properties.md#_isbillable) anger om den inmatade data tillkommer kostnader.
 
-Se den **antal** händelser matas in per dator, använda
-
-```kusto
-union withsource = tt *
-| summarize count() by Computer | sort by count_ nulls last
-```
-
-Om du vill se antalet faktureringsbara händelser matas in per dator 
+Att visa antalet **fakturerbara** händelser matas in per dator, använda 
 
 ```kusto
 union withsource = tt * 
 | where _IsBillable == true 
-| summarize count() by Computer  | sort by count_ nulls last
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| summarize eventCount=count() by computerName  | sort by count_ nulls last
 ```
 
 Om du vill se antalet för fakturerbar datatyper skickar data till en specifik dator Använd:

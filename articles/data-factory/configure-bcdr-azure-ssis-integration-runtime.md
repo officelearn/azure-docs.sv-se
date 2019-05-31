@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: dea0153b9ca6d8e751fd94cc558abd44b2591907
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f0612a688bb1e0fd79325b9a1f9b43731a210d10
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66120436"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399245"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-with-azure-sql-database-geo-replication-and-failover"></a>Konfigurera Azure-SSIS Integration Runtime med Azure SQL Database geo-replikering och redundans
 
@@ -100,6 +100,59 @@ Följ dessa steg för att stoppa din Azure-SSIS IR, växla IR till en ny region 
     Mer information om det här PowerShell-kommandot finns i [skapa Azure-SSIS integration runtime i Azure Data Factory](create-azure-ssis-integration-runtime.md)
 
 3. Starta IR igen.
+
+## <a name="scenario-3---attaching-an-existing-ssisdb-ssis-catalog-to-a-new-azure-ssis-ir"></a>Scenario 3 – koppla en befintlig SSISDB (SSIS-katalogen) till en ny Azure-SSIS IR
+
+När en ADF eller Azure-SSIS IR olycka inträffar i aktuell region, kan du göra din SSISDB är fortfarande fungerar med en ny Azure-SSIS IR i en ny region.
+
+### <a name="prerequisites"></a>Nödvändiga komponenter
+
+- Om du använder ett virtuellt nätverk i den aktuella regionen, som du behöver använda ett annat virtuellt nätverk i det nya området för att ansluta din Azure-SSIS integration runtime. Mer information finns i [ansluta en Azure-SSIS integration runtime till ett virtuellt nätverk](join-azure-ssis-integration-runtime-virtual-network.md).
+
+- Om du använder en anpassad installation kan du behöva förbereda en annan SAS-URI för blob-behållare som lagrar dina anpassade installationsskriptet och associerade filer, så att det fortsätter att vara tillgänglig under ett avbrott. Mer information finns i [konfigurera en anpassad installation på en Azure-SSIS integration runtime](how-to-configure-azure-ssis-ir-custom-setup.md).
+
+### <a name="steps"></a>Steg
+
+Följ dessa steg för att stoppa din Azure-SSIS IR, växla IR till en ny region och starta den igen.
+
+1. Köra den lagrade proceduren för att göra SSISDB bifogas **\<new_data_factory_name\>** eller  **\<new_integration_runtime_name\>** .
+   
+  ```SQL
+    EXEC [catalog].[failover_integration_runtime] @data_factory_name='<new_data_factory_name>', @integration_runtime_name='<new_integration_runtime_name>'
+   ```
+
+2. Skapa en ny datafabrik med namnet **\<new_data_factory_name\>** i det nya området. Mer information finns i Skapa en datafabrik.
+
+     ```powershell
+     Set-AzDataFactoryV2 -ResourceGroupName "new resource group name" `
+                         -Location "new region"`
+                         -Name "<new_data_factory_name>"
+     ```
+    Mer information om det här PowerShell-kommandot finns i [skapa en Azure-datafabrik med hjälp av PowerShell](quickstart-create-data-factory-powershell.md)
+
+3. Skapa en ny Azure-SSIS IR med namnet **\<new_integration_runtime_name\>** i det nya området med Azure PowerShell.
+
+    ```powershell
+    Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName "new resource group name" `
+                                           -DataFactoryName "new data factory name" `
+                                           -Name "<new_integration_runtime_name>" `
+                                           -Description $AzureSSISDescription `
+                                           -Type Managed `
+                                           -Location $AzureSSISLocation `
+                                           -NodeSize $AzureSSISNodeSize `
+                                           -NodeCount $AzureSSISNodeNumber `
+                                           -Edition $AzureSSISEdition `
+                                           -LicenseType $AzureSSISLicenseType `
+                                           -MaxParallelExecutionsPerNode $AzureSSISMaxParallelExecutionsPerNode `
+                                           -VnetId "new vnet" `
+                                           -Subnet "new subnet" `
+                                           -CatalogServerEndpoint $SSISDBServerEndpoint `
+                                           -CatalogPricingTier $SSISDBPricingTier
+    ```
+
+    Mer information om det här PowerShell-kommandot finns i [skapa Azure-SSIS integration runtime i Azure Data Factory](create-azure-ssis-integration-runtime.md)
+
+4. Starta IR igen.
 
 ## <a name="next-steps"></a>Nästa steg
 

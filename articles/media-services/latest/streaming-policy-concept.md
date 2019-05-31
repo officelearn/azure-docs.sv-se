@@ -9,71 +9,75 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 05/28/2019
 ms.author: juliako
-ms.openlocfilehash: 510899e44e4ea4a90e21473ee6af546744c2be2a
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: a813c77e81e51bfe13e75ed6c8d0e24b4d0fa645
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66120206"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66392928"
 ---
 # <a name="streaming-policies"></a>Principer för direktuppspelning
 
 I Azure Media Services v3 [Streaming principer](https://docs.microsoft.com/rest/api/media/streamingpolicies) gör det möjligt att definiera strömningsprotokoll och alternativ för kryptering för din [positionerare för direktuppspelning](streaming-locators-concept.md). Media Services v3 innehåller vissa fördefinierade Streaming principer så att du kan använda dem direkt för utvärderingsversionen eller produktion. 
 
-De tillgängliga fördefinierade Streaming principer:<br/>'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' and 'Predefined_MultiDrmStreaming'.
+De tillgängliga fördefinierade Streaming principer:<br/>
+* 'Predefined_DownloadOnly'
+* 'Predefined_ClearStreamingOnly'
+* 'Predefined_DownloadAndClearStreaming'
+* 'Predefined_ClearKey'
+* 'Predefined_MultiDrmCencStreaming' 
+* 'Predefined_MultiDrmStreaming'
 
-Om du har särskilda krav (t.ex, om du vill ange olika protokoll, måste du använda en anpassad nyckelleveranstjänst eller måste du använda en Rensa ljudspår) kan skapa du en anpassad princip för direktuppspelning. 
+Följande ”beslutsträdet” hjälper dig att välja en fördefinierad Streaming princip för ditt scenario.
 
- 
 > [!IMPORTANT]
 > * Egenskaper för **Streaming principer** som är av typen är alltid i UTC-format för datum/tid.
 > * Du bör utforma en begränsad uppsättning principer för ditt Media Services-konto och återanvända dem för din positionerare för direktuppspelning när samma alternativ behövs. Mer information finns i [kvoter och begränsningar](limits-quotas-constraints.md).
 
 ## <a name="decision-tree"></a>Beslutsträd
 
-Följande beslutsträd kan du välja en fördefinierad Streaming princip för ditt scenario.
+Klicka på bilden för att visa den i full storlek.  
 
-Klicka på bilden för att visa den i full storlek.  <br/>
-<a href="./media/streaming-policy/large.png" target="_blank"><img src="./media/streaming-policy/small.png"></a> 
+<a href="./media/streaming-policy/large.png" target="_blank"><img src="./media/streaming-policy/large.png"></a> 
 
-## <a name="examples"></a>Exempel
+Om kryptera ditt innehåll, måste du skapa en [innehåll nyckel princip](content-key-policy-concept.md), **innehåll nyckel princip** behövs inte för Rensa streaming eller ladda ned. 
 
-### <a name="not-encrypted"></a>Inte krypterat
+Om du har särskilda krav (t.ex, om du vill ange olika protokoll, måste du använda en anpassad nyckelleveranstjänst eller måste du använda en Rensa ljudspår), kan du [skapa](https://docs.microsoft.com/rest/api/media/streamingpolicies/create) en anpassad princip för direktuppspelning. 
 
-Om du vill att strömma din fil i-the-klartext (okrypterat), anger den fördefinierade tydlig policy som strömmande: att ”Predefined_ClearStreamingOnly” (i .NET, du kan använda PredefinedStreamingPolicy.ClearStreamingOnly enum).
+## <a name="get-a-streaming-policy-definition"></a>Hämta en strömmande principdefinition  
 
-```csharp
-StreamingLocator locator = await client.StreamingLocators.CreateAsync(
-    resourceGroup,
-    accountName,
-    locatorName,
-    new StreamingLocator
-    {
-        AssetName = assetName,
-        StreamingPolicyName = PredefinedStreamingPolicy.ClearStreamingOnly
-    });
+Om du vill se definitionen av en princip för direktuppspelning använder [hämta](https://docs.microsoft.com/rest/api/media/streamingpolicies/get) och ange namnet på principen. Exempel:
+
+### <a name="rest"></a>REST
+
+Begäran:
+
+```
+GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Media/mediaServices/contosomedia/streamingPolicies/clearStreamingPolicy?api-version=2018-07-01
 ```
 
-### <a name="encrypted"></a>Krypterad 
+Svar:
 
-Om du vill kryptera ditt innehåll med kuvert och cenc kryptering kan du ställa in principen till 'Predefined_MultiDrmCencStreaming'. Den här principen indikerar att du vill att två innehållsnycklar (kuvert och CENC) ska skapas och ställas in för positioneraren. Krypteringarna för kuvert, PlayReady och Widevine tillämpas därför (nyckeln levereras till uppspelningsklienten utifrån de konfigurerade DRM-licenserna).
-
-```csharp
-StreamingLocator locator = await client.StreamingLocators.CreateAsync(
-    resourceGroup,
-    accountName,
-    locatorName,
-    new StreamingLocator
-    {
-        AssetName = assetName,
-        StreamingPolicyName = "Predefined_MultiDrmCencStreaming",
-        DefaultContentKeyPolicyName = contentPolicyName
-    });
 ```
-
-Om du vill kryptera dataströmmen med CBCS (FairPlay), använder du 'Predefined_MultiDrmStreaming'.
+{
+  "name": "clearStreamingPolicy",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Media/mediaservices/contosomedia/streamingPolicies/clearStreamingPolicy",
+  "type": "Microsoft.Media/mediaservices/streamingPolicies",
+  "properties": {
+    "created": "2018-08-08T18:29:30.8501486Z",
+    "noEncryption": {
+      "enabledProtocols": {
+        "download": true,
+        "dash": true,
+        "hls": true,
+        "smoothStreaming": true
+      }
+    }
+  }
+}
+```
 
 ## <a name="filtering-ordering-paging"></a>Filtrering, skrivordning, växling
 

@@ -1,319 +1,173 @@
 ---
 title: Kopiera eller flytta data till Azure Storage med hjälp av AzCopy v10 | Microsoft Docs
-description: Du kan använda kommandoradsverktyget azcopy för att flytta eller kopiera data till och från blob-, data lake- och filinnehåll. Kopiera data till Azure Storage från lokala filer eller kopiera data inom eller mellan lagringskonton. Migrera enkelt dina data till Azure Storage.
+description: AzCopy är ett kommandoradsverktyg som du kan använda för att kopiera data till, från eller mellan lagringskonton. Den här artikeln får du ladda ned AzCopy, ansluta till ditt storage-konto och sedan överföra filer.
 services: storage
 author: normesta
 ms.service: storage
 ms.topic: article
-ms.date: 04/23/2019
+ms.date: 05/14/2019
 ms.author: normesta
-ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: b5a13dfd760f0c94343b151c9b4c1148c949e854
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: cc65d6d3f7e7dcc08ea29ecc8a299b556563135b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65789998"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236330"
 ---
-# <a name="transfer-data-with-azcopy-v10"></a>Överföra data med AzCopy v10
+# <a name="get-started-with-azcopy"></a>Kom igång med AzCopy
 
-AzCopy är kommandoradsverktyg för att kopiera data till eller från Microsoft Azure Blob- och storage. AzCopy erbjuder en omarbetad kommandoradsgränssnittet och ny arkitektur för tillförlitlig data överförs. Med AzCopy kan kopiera du data mellan ett filsystem och ett lagringskonto eller mellan lagringskonton.
+AzCopy är ett kommandoradsverktyg som du kan använda för att kopiera blobar och filer till eller från ett lagringskonto. Den här artikeln får du ladda ned AzCopy, ansluta till ditt storage-konto och sedan överföra filer.
 
-## <a name="whats-new-in-azcopy-v10"></a>Vad är nytt i AzCopy v10
+> [!NOTE]
+> AzCopy **V10** är versionen som för närvarande stöds av AzCopy.
+>
+> Om du vill använda AzCopy **v8.1**, finns i den [den tidigare versionen av AzCopy](#previous-version) i den här artikeln.
 
-- Synkroniserar filsystem till Azure Blob storage eller vice versa. Använd `azcopy sync <source> <destination>`. Perfekt för inkrementell kopia scenarier.
-- Har stöd för Azure Data Lake Storage Gen2 API: er. Använd `myaccount.dfs.core.windows.net` som en URI för att anropa API: er för Data Lake Storage Gen2.
-- Har stöd för kopiering av ett hela konto (endast Blob-tjänst) till ett annat konto.
-- Har stöd för kopiering av data från en Amazon Web Services S3-bucket.
-- Använder den nya [placera Block från URL: en](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) API: er för att konto kopia. Dataöverföringen är snabbare, eftersom krävs inte skickades till klienten.
-- Visar en lista över eller tar bort filer och blobar i en viss sökväg.
-- Stöd för mönster med jokertecken i en sökväg och--exkludera flaggor.
-- Skapar en jobbet och en tillhörande loggfil med varje AzCopy-instans. Du kan visa och starta om tidigare jobb och återuppta misslyckade jobb. AzCopy försöker automatiskt en överföring efter ett fel.
-- Allmän prestandaförbättringar för funktioner.
+<a id="download-and-install-azcopy" />
 
-## <a name="download-and-install-azcopy"></a>Ladda ned och installera AzCopy
+## <a name="download-azcopy"></a>Ladda ned AzCopy
 
-### <a name="latest-production-version-v10"></a>Senaste produktionsversionen (v10)
+Ladda ned den körbara filen med AzCopy V10 först till valfri mapp på datorn. Överväg att lägga till mappen AzCopy systemsökvägen för enkel användning av praktiska skäl.
 
-Hämta den senaste versionen av AzCopy:
 - [Windows](https://aka.ms/downloadazcopy-v10-windows) (zip)
 - [Linux](https://aka.ms/downloadazcopy-v10-linux) (tar)
 - [MacOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
 
-### <a name="latest-azcopy-supporting-table-storage-service-v73"></a>Senaste AzCopy stöd för Table storage-tjänsten (v7.3)
+> [!NOTE]
+> Om du vill kopiera data till och från din [Azure Table storage](https://docs.microsoft.com/azure/storage/tables/table-storage-overview) tjänsten och sedan installera [AzCopy version 7.3](https://aka.ms/downloadazcopynet).
 
-Ladda ned den [AzCopy v7.3 stöd för kopiering av data till/från Microsoft Azure Table storage-tjänsten](https://aka.ms/downloadazcopynet).
+## <a name="run-azcopy"></a>Kör AzCopy
 
-## <a name="post-installation-steps"></a>Anvisningarna efter installation
+Gå till katalogen där du hämtade filen från en kommandotolk.
 
-AzCopy kräver inte en installation. Öppna din önskade kommandoradsprogram och bläddra till mappen där `azcopy.exe` finns. Om det behövs kan du lägga till mappen AzCopy systemsökvägen för enkel användning.
+Om du vill visa en lista över AzCopy-kommandon skriver `azCopy`, och tryck sedan på RETUR-tangenten.
 
-## <a name="authentication-options"></a>Autentiseringsalternativ
+Mer information om ett visst kommando skriver `azCopy` följt av namnet på kommandot.
 
-AzCopy stöder följande alternativ när du autentiserar med Azure Storage:
-- **Azure Active Directory** (stöds för **Blob-och Data Lake Storage Gen2**). Använd ```.\azcopy login``` att logga in med Azure Active Directory.  Användaren bör ha [”Storage Blob Data-deltagare” rolltilldelningen](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac) att skriva till Blob storage med Azure Active Directory-autentisering. Autentisering via hanterade identiteter för Azure-resurser, använda `azcopy login --identity`.
-- **Delad signaturtoken för åtkomst [stöds för Blob-och Filtjänster]**. Lägg till token för delad åtkomst (signatur) till blob-sökväg på kommandoraden för att använda den. Du kan generera SAS-token med Azure-portalen [Lagringsutforskaren](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/), [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageblobsastoken), eller andra verktyg du väljer. Mer information finns i [exempel](https://docs.microsoft.com/azure/storage/blobs/common/storage-dotnet-shared-access-signature-part-1).
+Till exempel vill veta mer om den `copy` kommandot, skriver `azcopy copy`, och tryck sedan på RETUR-tangenten.
 
-## <a name="getting-started"></a>Komma igång
+Innan du kan göra något beskrivande med AzCopy, måste du bestämma hur du anger autentiseringsuppgifter till storage-tjänsten.
 
-> [!TIP]
-> **Föredrar du ett grafiskt användargränssnitt?**
->
-> [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), en skrivbordsklient som förenklar hantering Azure Storage-data nu använder AzCopy överföra data till och från Azure Storage för snabbare.
->
-> Aktivera AzCopy i Storage Explorer under den **förhandsversion** menyn.
-> ![Aktivera AzCopy som en motor för överföring i Azure Storage Explorer](media/storage-use-azcopy-v10/enable-azcopy-storage-explorer.jpg)
+## <a name="choose-how-youll-provide-authorization-credentials"></a>Välj hur du anger autentiseringsuppgifter
 
-AzCopy v10 har en egen dokumenterade syntax. När du har loggat in till Azure Active Directory, ut den allmänna syntaxen som följande:
+Du kan ange autentiseringsuppgifter med hjälp av Azure Active Directory (AD) eller genom att använda en signatur för delad åtkomst (SAS)-token.
 
-```azcopy
-.\azcopy <command> <arguments> --<flag-name>=<flag-value>
+Använd den här tabellen som vägledning:
 
-# Examples if you have logged into the Azure Active Directory:
-.\azcopy copy <source path> <destination path> --<flag-name>=<flag-value>
-.\azcopy cp "C:\local\path" "https://account.blob.core.windows.net/container" --recursive=true
-.\azcopy cp "C:\local\path\myfile" "https://account.blob.core.windows.net/container/myfile"
-.\azcopy cp "C:\local\path\*" "https://account.blob.core.windows.net/container"
+| Lagringstyp | Metod som för närvarande stöds för auktorisering |
+|--|--|
+|**Blob Storage** | Azure AD & SAS |
+|**BLOB-lagring (hierarkiska namnrymden)** | Azure AD |
+|**Fillagring** | Endast SAS |
 
-# Examples if you're using SAS tokens to authenticate:
-.\azcopy cp "C:\local\path" "https://account.blob.core.windows.net/container?st=2019-04-05T04%3A10%3A00Z&se=2019-04-13T04%3A10%3A00Z&sp=rwdl&sv=2018-03-28&sr=c&sig=Qdihej%2Bsbg4AiuyLVyQZklm9pSuVGzX27qJ508wi6Es%3D" --recursive=true
-.\azcopy cp "C:\local\path\myfile" "https://account.blob.core.windows.net/container/myfile?st=2019-04-05T04%3A10%3A00Z&se=2019-04-13T04%3A10%3A00Z&sp=rwdl&sv=2018-03-28&sr=c&sig=Qdihej%2Bsbg4AiuyLVyQZklm9pSuVGzX27qJ508wi6Es%3D"
-```
+### <a name="option-1-use-azure-ad"></a>Alternativ 1: Använd Azure AD
 
-Här är hur du kan hämta en lista över tillgängliga kommandon:
+Utbud av auktoriseringar som du behöver baseras på om du planerar att ladda upp filer eller hämta dem bara.
 
-```azcopy
-.\azcopy --help
-# To use the alias instead
-.\azcopy -h
-```
+#### <a name="authorization-to-upload-files"></a>Tillstånd att ladda upp filer
 
-Om du vill se hjälpsidan och exempel för ett visst kommando kör du följande kommando:
+Kontrollera att en av dessa roller har tilldelats till din identitet:
 
-```azcopy
-.\azcopy <cmd> --help
-# Example:
-.\azcopy cp -h
-```
+- [Storage Blob Data-deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor)
+- [Storage Blob Data-ägare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)
 
-## <a name="create-a-blob-container-or-file-share"></a>Skapa en blob-behållare eller filresurs 
+Dessa roller kan tilldelas till din identitet i någon av dessa scope:
 
-**Skapa en blobbehållare**
+- Behållare (filsystem)
+- Lagringskonto
+- Resursgrupp
+- Prenumeration
 
-```azcopy
-.\azcopy make "https://account.blob.core.windows.net/container-name"
-```
+Läs hur du kontrollerar och tilldela roller i [bevilja åtkomst till Azure blob och kö data med RBAC i Azure-portalen](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-**Skapa en filresurs**
+Du behöver inte ha någon av dessa roller som tilldelats din identitet om din identitet har lagts till i åtkomstkontrollistan (ACL) för den målbehållare eller mappen. I ACL måste din identitet skrivbehörighet i målmappen och körbehörighet för behållare samt alla överordnade mappar.
 
-```azcopy
-.\azcopy make "https://account.file.core.windows.net/share-name"
-```
+Mer information finns i [åtkomstkontroll i Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
 
-**Skapa en blob-behållare med hjälp av Azure Data Lake Storage Gen2**
+#### <a name="authorization-to-download-files"></a>Auktorisering att hämta filer
 
-Om du har aktiverat hierarkisk namnområden på Blob storage-kontot kan använda du följande kommando för att skapa en ny blobbehållare för att överföra filer.
+Kontrollera att en av dessa roller har tilldelats till din identitet:
 
-```azcopy
-.\azcopy make "https://account.dfs.core.windows.net/top-level-resource-name"
-```
+- [Storage Blob Data-läsare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader)
+- [Storage Blob Data-deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor)
+- [Storage Blob Data-ägare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)
 
-## <a name="copy-data-to-azure-storage"></a>Kopiera data till Azure Storage
+Dessa roller kan tilldelas till din identitet i någon av dessa scope:
 
-Använd kopieringskommandot för att överföra data från källan till målet. Käll- och målservrar kan vara en:
-- Lokalt filsystem
-- Azure Blob/virtuell katalog/behållare URI
-- Azure-filen/Directory/filresurs URI
-- Azure Data Lake Storage Gen2 filsystem/katalogfil URI
+- Behållare (filsystem)
+- Lagringskonto
+- Resursgrupp
+- Prenumeration
+
+Läs hur du kontrollerar och tilldela roller i [bevilja åtkomst till Azure blob och kö data med RBAC i Azure-portalen](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+
+Du behöver inte ha någon av dessa roller som tilldelats din identitet om din identitet har lagts till i åtkomstkontrollistan (ACL) för den målbehållare eller mappen. I ACL måste din identitet läsbehörighet på målmappen och körbehörighet för behållare samt alla överordnade mappar.
+
+Mer information finns i [åtkomstkontroll i Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
+
+#### <a name="authenticate-your-identity"></a>Verifiera din identitet
+
+När du har kontrollerat att din identitet har fått den nödvändiga säkerhetsnivån, öppna en kommandotolk, Skriv följande kommando och tryck sedan på RETUR-tangenten.
 
 ```azcopy
-.\azcopy copy <source path> <destination path> --<flag-name>=<flag-value>
-# Using the alias instead 
-.\azcopy cp <source path> <destination path> --<flag-name>=<flag-value>
+azcopy login
 ```
 
-Följande kommando laddar upp alla filer i mappen `C:\local\path` rekursivt till behållaren `mycontainer1`, skapa `path` katalogen i behållaren. När `--put-md5` flagga har angetts, AzCopy beräknar och lagrar md5-hash för varje fil i `Content-md5` egenskapen för motsvarande blob för senare användning.
+Det här kommandot returnerar en Autentiseringskod och Webbadressen till en webbplats. Öppna webbplatsen, ange koden och välj sedan den **nästa** knappen.
+
+![Skapa en container](media/storage-use-azcopy-v10/azcopy-login.png)
+
+Ett fönster för inloggning visas. Logga in på ditt Azure-konto med hjälp av dina Azure-autentiseringsuppgifter i det aktuella fönstret. När du har loggat in, kan du stänga webbläsaren och börja använda AzCopy.
+
+### <a name="option-2-use-a-sas-token"></a>Alternativ 2: Använda en SAS-token
+
+Du kan lägga till en SAS-token till varje källa eller mål-URL som använder i AzCopy-kommandon.
+
+Det här exemplet kommandot rekursivt kopierar data från en lokal katalog på en blobbehållare. En fiktiva SAS-token läggs till i slutet av den av behållarens Webbadress.
 
 ```azcopy
-.\azcopy cp "C:\local\path" "https://account.blob.core.windows.net/mycontainer1<sastoken>" --recursive=true --put-md5
+azcopy cp "C:\local\path" "https://account.blob.core.windows.net/mycontainer1/?sv=2018-03-28&ss=bjqt&srt=sco&sp=rwddgcup&se=2019-05-01T05:01:17Z&st=2019-04-30T21:01:17Z&spr=https&sig=MGCXiyEzbtttkr3ewJIh2AR8KrghSy1DGM9ovN734bQF4%3D" --recursive=true
 ```
 
-Följande kommando laddar upp alla filer i mappen `C:\local\path` (utan recursing i underkatalogerna) till behållaren `mycontainer1`:
+Mer information om SAS-token och hur du skaffa en finns [använda signaturer för delad åtkomst (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1).
 
-```azcopy
-.\azcopy cp "C:\local\path\*" "https://account.blob.core.windows.net/mycontainer1<sastoken>" --put-md5
-```
+## <a name="transfer-files"></a>Överföra filer
 
-Om du vill söka efter fler exempel, använder du följande kommando:
+När du har autentiserats din identitet eller hämta en SAS-token, kan du börja med att överföra filer.
 
-```azcopy
-.\azcopy cp -h
-```
+Exempel på kommandon finns i någon av följande artiklar.
 
-## <a name="copy-blob-data-between-two-storage-accounts"></a>Kopiera Blob-data mellan två lagringskonton
+- [Överföra data med AzCopy och blob storage](storage-use-azcopy-blobs.md)
 
-Kopiering av data mellan två lagringskonton använder den [placera Block från URL: en](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) API, och inte använda klientdatorns bandbredd i nätverket. Data kopieras mellan två Azure Storage servrar direkt, medan AzCopy samordnar bara kopieringen. Det här alternativet är för närvarande bara tillgänglig för Blob storage.
+- [Överföra data med AzCopy och fillagring](storage-use-azcopy-files.md)
 
-Om du vill kopiera alla Blob-data mellan två lagringskonton, använder du följande kommando:
-```azcopy
-.\azcopy cp "https://myaccount.blob.core.windows.net/<sastoken>" "https://myotheraccount.blob.core.windows.net/<sastoken>" --recursive=true
-```
+- [Överföra data med AzCopy och Amazon S3 buckets](storage-use-azcopy-s3.md)
 
-Om du vill kopiera en Blob-behållare till en annan Blob-behållare, använder du följande kommando:
-```azcopy
-.\azcopy cp "https://myaccount.blob.core.windows.net/mycontainer/<sastoken>" "https://myotheraccount.blob.core.windows.net/mycontainer/<sastoken>" --recursive=true
-```
+## <a name="configure-optimize-and-troubleshoot-azcopy"></a>Konfigurera, optimera och felsöka AzCopy
 
-## <a name="copy-a-vhd-image-to-a-storage-account"></a>Kopiera en VHD-avbildning till ett lagringskonto
+Se [konfigurera, optimera och felsöka AzCopy](storage-use-azcopy-configure.md)
 
-AzCopy som standard överför data till blockblobar. Ladda upp filer som Tilläggsblobbar och Sidblobbar använder du flaggan `--blob-type=[BlockBlob|PageBlob|AppendBlob]`.
+## <a name="use-azcopy-in-storage-explorer"></a>Använda AzCopy i Storage Explorer
 
-```azcopy
-.\azcopy cp "C:\local\path\mydisk.vhd" "https://myotheraccount.blob.core.windows.net/mycontainer/mydisk.vhd<sastoken>" --blob-type=PageBlob
-```
+Om du vill utnyttja fördelarna med AzCopy prestanda, men du föredrar att använda Storage Explorer i stället för kommandoraden för att interagera med dina filer, aktiverar du AzCopy i Storage Explorer.
 
-## <a name="sync-incremental-copy-and-delete-blob-storage-only"></a>Synkronisering: inkrementell kopiera och ta bort (endast Blob storage)
+I Storage Explorer väljer **förhandsversion**->**använda AzCopy för förbättrad Blob ladda upp och ladda ned**.
 
-Kommandot Synkronisera synkroniserar innehållet i en källkatalog i en katalog i målet, jämföra filnamn och senast ändrad tidsstämplar. Den här åtgärden innehåller valfria borttagningen av målfilerna om de inte finns i källan när den `--delete-destination=prompt|true` flagga har angetts. Ta bort beteendet är inaktiverad som standard. 
+![Aktivera AzCopy som en motor för överföring i Azure Storage Explorer](media/storage-use-azcopy-v10/enable-azcopy-storage-explorer.jpg)
 
-> [!NOTE] 
-> Använd den `--delete-destination` flaggan med försiktighet. Aktivera den [mjuk borttagning](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) funktionen innan du aktiverar delete beteende synkroniserade att förhindra oavsiktliga borttagningar i ditt konto. 
->
-> När `--delete-destination` har angetts till SANT, AzCopy tar bort filer som inte finns i källan från målet utan någon uppmaning till användaren. Om du vill uppmanas att bekräfta använda `--delete-destination=prompt`.
+> [!NOTE]
+> Du behöver aktivera den här inställningen om du har aktiverat ett hierarkiskt namnområde på ditt lagringskonto. Det beror på att Storage Explorer automatiskt använder AzCopy på storage-konton som har ett hierarkiskt namnområde.  
 
-Om du vill synkronisera det lokala filsystemet till storage-konto, använder du följande kommando:
+<a id="previous-version" />
 
-```azcopy
-.\azcopy sync "C:\local\path" "https://account.blob.core.windows.net/mycontainer1<sastoken>" --recursive=true
-```
+## <a name="use-the-previous-version-of-azcopy"></a>Använd den tidigare versionen av AzCopy
 
-Du kan också synkronisera en blob-behållare till ett lokalt filsystem:
+Om du vill använda den tidigare versionen av AzCopy (AzCopy v8.1) ser du något av följande länkar:
 
-```azcopy
-# The SAS token isn't required for Azure Active Directory authentication.
-.\azcopy sync "https://account.blob.core.windows.net/mycontainer1" "C:\local\path" --recursive=true
-```
-
-Det här kommandot synkroniserar stegvis källan till målet baserat på senaste ändrade tidsstämplar. Om du lägger till eller ta bort en fil i källan, gör AzCopy samma i målet. Före borttagningen uppmanar AzCopy dig att bekräfta.
-
-## <a name="copy-data-from-amazon-web-services-aws-s3"></a>Kopiera data från Amazon Web Services (AWS) S3
-
-Ange följande miljövariabler för att autentisera med AWS S3-bucket:
-
-```
-# For Windows:
-set AWS_ACCESS_KEY_ID=<your AWS access key>
-set AWS_SECRET_ACCESS_KEY=<AWS secret access key>
-# For Linux:
-export AWS_ACCESS_KEY_ID=<your AWS access key>
-export AWS_SECRET_ACCESS_KEY=<AWS secret access key>
-# For MacOS
-export AWS_ACCESS_KEY_ID=<your AWS access key>
-export AWS_SECRET_ACCESS_KEY=<AWS secret access key>
-```
-
-Om du vill kopiera en bucket på en blobbehållare, kör du följande kommando:
-
-```
-.\azcopy cp "https://s3.amazonaws.com/mybucket" "https://myaccount.blob.core.windows.net/mycontainer?<sastoken>" --recursive
-```
-
-Mer information om hur du kopierar data från AWS S3 med hjälp av AzCopy, finns på sidan [här](https://github.com/Azure/azure-storage-azcopy/wiki/Copy-from-AWS-S3).
-
-## <a name="advanced-configuration"></a>Avancerad konfiguration
-
-### <a name="configure-proxy-settings"></a>Konfigurera proxyinställningar
-
-Om du vill konfigurera proxyinställningarna för AzCopy v10 ange miljö variabeln https_proxy med hjälp av följande kommando:
-
-```cmd
-# For Windows:
-set https_proxy=<proxy IP>:<proxy port>
-# For Linux:
-export https_proxy=<proxy IP>:<proxy port>
-# For MacOS
-export https_proxy=<proxy IP>:<proxy port>
-```
-
-### <a name="optimize-throughput"></a>Optimera dataflöde
-
-Ställa in miljövariabeln AZCOPY_CONCURRENCY_VALUE konfigurera antalet samtidiga begäranden och för att kontrollera dataflöde prestanda- och förbrukning. Värdet anges till 300 som standard. Minska värdet begränsar bandbredd och Processorn som används av AzCopy v10.
-
-```cmd
-# For Windows:
-set AZCOPY_CONCURRENCY_VALUE=<value>
-# For Linux:
-export AZCOPY_CONCURRENCY_VALUE=<value>
-# For MacOS
-export AZCOPY_CONCURRENCY_VALUE=<value>
-# To check the current value of the variable on all the platforms
-.\azcopy env
-# If the value is blank then the default value is currently in use
-```
-
-### <a name="change-the-location-of-the-log-files"></a>Ändra platsen för loggfilerna
-
-Du kan ändra plats loggfiler om det behövs eller för att undvika att fylla OS-disken.
-
-```cmd
-# For Windows:
-set AZCOPY_LOG_LOCATION=<value>
-# For Linux:
-export AZCOPY_LOG_LOCATION=<value>
-# For MacOS
-export AZCOPY_LOG_LOCATION=<value>
-# To check the current value of the variable on all the platforms
-.\azcopy env
-# If the value is blank, then the default value is currently in use
-```
-### <a name="change-the-default-log-level"></a>Ändra standardnivån 
-
-AzCopy loggningsnivån är som standard information. Om du vill minska log detaljnivå för att spara diskutrymme kan du skriva över den inställningen med hjälp av ``--log-level`` alternativet. Tillgängliga loggningsnivåerna är: FELSÖKNING, INFO, varning, fel, PANIK och oåterkalleligt fel.
-
-### <a name="review-the-logs-for-errors"></a>Granska loggarna efter fel
-
-Följande kommando får alla fel med UPLOADFAILED status från 04dc9ca9-158f-7945-5933-564021086c79-loggen:
-
-```azcopy
-cat 04dc9ca9-158f-7945-5933-564021086c79.log | grep -i UPLOADFAILED
-```
-## <a name="troubleshooting"></a>Felsökning
-
-AzCopy skapar loggfiler och plan filer för alla jobb. Du kan använda loggarna för att undersöka och felsöka eventuella problem. Loggarna innehåller statusen för fel (UPLOADFAILED COPYFAILED och DOWNLOADFAILED), den fullständiga sökvägen och orsaken till felet. Jobbloggar och plan filer finns i % USERPROFILE\\.azcopy mapp på Windows eller $HOME\\.azcopy mapp på Mac och Linux.
-
-> [!IMPORTANT]
-> När du skickar en begäran om att Microsoft Support (eller felsöka problem som rör tredje part), dela den redigerade versionen av kommandot som du vill köra. Detta säkerställer att Signaturen inte är delas av misstag med vem som helst. Du hittar den redigerade versionen i början av loggfilen.
-
-### <a name="view-and-resume-jobs"></a>Visa och återuppta jobb
-
-Varje överföring åtgärden skapas ett jobb för AzCopy. Använd följande kommando för att visa historiken för jobb:
-
-```azcopy
-.\azcopy jobs list
-```
-
-Om du vill visa projektstatistik, använder du följande kommando:
-
-```azcopy
-.\azcopy jobs show <job-id>
-```
-
-Om du vill filtrera överföringar efter status, använder du följande kommando:
-
-```azcopy
-.\azcopy jobs show <job-id> --with-status=Failed
-```
-
-Använd följande kommando för att återuppta ett jobb som misslyckades/har avbrutits. Det här kommandot använder sin identifierare tillsammans med SAS-token som det är inte beständiga av säkerhetsskäl:
-
-```azcopy
-.\azcopy jobs resume <jobid> --source-sas="<sastokenhere>"
-.\azcopy jobs resume <jobid> --destination-sas="<sastokenhere>"
-```
+- [AzCopy i Windows (v8)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy)
+- [AzCopy i Linux (v8)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy-linux)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du har frågor eller problem med allmän feedback kan du skicka dem [på GitHub](https://github.com/Azure/azure-storage-azcopy).
-
-
+Om du har frågor eller problem med allmän feedback kan du skicka dem [på GitHub](https://github.com/Azure/azure-storage-azcopy) sidan.

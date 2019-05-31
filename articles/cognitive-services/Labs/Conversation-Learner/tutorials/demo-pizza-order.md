@@ -3,19 +3,19 @@ title: Demo Konversationsdeltagare modell, pizza beställning – Microsoft Cogn
 titleSuffix: Azure
 description: Lär dig hur du skapar en demo Konversationsdeltagare modell.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: 3fe11bef6c505771ee1e3f2e12e647eafc7c45d1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: nitinme
+ms.openlocfilehash: 010245480d8e1f59d5c1b92a9e717f73b5ba7f4c
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60430999"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389142"
 ---
 # <a name="demo-pizza-order"></a>Demo: Pizza ordning
 Den här demonstrationen visar en platt ordning bot, stöd för enkel pizza ordning genom att:

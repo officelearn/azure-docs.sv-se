@@ -7,14 +7,14 @@ manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-rada
+ms.author: v-pawal
 ms.topic: conceptual
-ms.openlocfilehash: 2e49a8c40396b03c231fa7fd484331b0e28d4cf6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 456860c74810a692b4839e4204ec0b78d5620864
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60513484"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66383013"
 ---
 # <a name="create-a-project"></a>Skapa ett projekt
 
@@ -46,7 +46,7 @@ Det är det första steget för att skapa en modell för att skapa projektet.
 
 3.  Klicka på Skapa
 
-## <a name="view-project-details"></a>Visa projektinformation
+## <a name="view-project-details"></a>Visa information
 
 Anpassad Translator denna sida visar de första 10 projekt på din arbetsyta. Den visar projektnamn, språk-par, kategori, status och BLEU poäng.
 
@@ -60,7 +60,7 @@ När du har valt ett projekt, ser du följande på projektsidan för:
 
 - Filterknapp dokument: Använd den här knappen för att filtrera och söka efter specifika dokument.
 
-    ![Visa projektinformation](media/how-to/how-to-view-project.png)
+    ![Visa information](media/how-to/how-to-view-project.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

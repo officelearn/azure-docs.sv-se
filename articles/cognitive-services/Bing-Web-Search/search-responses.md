@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 85087ce5a4fa3dd733f47a35bc18d76f1f4bc652
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 47a573fd4ed4d058b9f9a265c8774f0856371b94
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65606686"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390102"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Webbsökning i Bing struktur och svaret svarstyper  
 
-När du skickar webbsökning i Bing en sökbegäran, returneras en [ `SearchResponse` ](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#searchresponse) objekt i svarstexten. Objektet innehåller ett fält för varje svar som Bing var relevanta för frågan. Detta exempel visar ett svarsobjekt om Bing returneras alla svar på:
+När du skickar webbsökning i Bing en sökbegäran, returneras en [ `SearchResponse` ](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#searchresponse) objekt i svarstexten. Objektet innehåller ett fält för varje svar som Bing var relevanta för frågan. Detta exempel visar ett svarsobjekt om Bing returneras alla svar på:
 
 ```json
 {
@@ -38,11 +38,11 @@ När du skickar webbsökning i Bing en sökbegäran, returneras en [ `SearchResp
 }, ...
 ```
 
-Webbsökning i Bing returnerar vanligtvis en delmängd av svaren. Exempel: om frågetermen har *avseglingen dinghies*, svaret kan innehålla `webPages`, `images`, och `rankingResponse`. Om du inte har använt [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#responsefilter) för att filtrera ut webbsidor svaret alltid innehåller den `webpages` och `rankingResponse` svar.
+Webbsökning i Bing returnerar vanligtvis en delmängd av svaren. Exempel: om frågetermen har *avseglingen dinghies*, svaret kan innehålla `webPages`, `images`, och `rankingResponse`. Om du inte har använt [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter) för att filtrera ut webbsidor svaret alltid innehåller den `webpages` och `rankingResponse` svar.
 
 ## <a name="webpages-answer"></a>Webbsidor svar
 
-Den [webbsidor](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webanswer) svaret innehåller en lista med länkar till webbsidor som webbsökning i Bing fastställt var relevanta för frågan. Varje [webbsida](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webpage) i listan innehåller: sidans namn, url, visa URL, en kort beskrivning av innehållet och det datum som Bing att hitta innehållet.
+Den [webbsidor](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webanswer) svaret innehåller en lista med länkar till webbsidor som webbsökning i Bing fastställt var relevanta för frågan. Varje [webbsida](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webpage) i listan innehåller: sidans namn, url, visa URL, en kort beskrivning av innehållet och det datum som Bing att hitta innehållet.
 
 ```json
 {
@@ -65,7 +65,7 @@ The following shows an example of how you might display the webpage in a search 
 
 ## <a name="images-answer"></a>Svara på avbildningar
 
-Den [avbildningar](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#images) svaret innehåller en lista med avbildningar som Bing trodde var relevanta för frågan. Varje [bild](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#image) i listan innehåller URL: en för bilden, dess storlek, dess storlek och dess Kodningsformatet. Bildobjektet inkluderar även URL för en miniatyrbild av bilden och miniatyrbildens mått.
+Den [avbildningar](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) svaret innehåller en lista med avbildningar som Bing trodde var relevanta för frågan. Varje [bild](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#image) i listan innehåller URL: en för bilden, dess storlek, dess storlek och dess Kodningsformatet. Bildobjektet inkluderar även URL för en miniatyrbild av bilden och miniatyrbildens mått.
 
 ```json
 {
@@ -109,7 +109,7 @@ Mer information om avbildningen svar och avbildningar finns i [Image Search API]
 
 ## <a name="related-searches-answer"></a>Svara på relaterade sökningar
 
-Den [relatedSearches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#searchresponse-relatedsearches) svaret innehåller en lista över de mest populära relaterade frågor som gjorts av andra användare. Varje [fråga](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#query_obj) innehåller en frågesträng i listan (`text`), en frågesträng med markering tecken av träffar (`displayText`), och en URL (`webSearchUrl`) till Bings sökresultatsidan frågan.
+Den [relatedSearches](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#searchresponse-relatedsearches) svaret innehåller en lista över de mest populära relaterade frågor som gjorts av andra användare. Varje [fråga](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query_obj) innehåller en frågesträng i listan (`text`), en frågesträng med markering tecken av träffar (`displayText`), och en URL (`webSearchUrl`) till Bings sökresultatsidan frågan.
 
 ```json
 {
@@ -129,7 +129,7 @@ Nedan visas ett exempel på hur Närliggande sökningar i Bing.com.
 
 ## <a name="videos-answer"></a>Svara på videor
 
-Den [videor](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos) svaret innehåller en lista med videor som Bing trodde var relevanta för frågan. Varje [video](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#video) i listan innehåller URL: en för videon, dess varaktighet, dess storlek och dess Kodningsformatet. Videoobjektet innehåller även webbadressen till en miniatyrbild av videon och miniatyrbildens mått.
+Den [videor](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) svaret innehåller en lista med videor som Bing trodde var relevanta för frågan. Varje [video](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video) i listan innehåller URL: en för videon, dess varaktighet, dess storlek och dess Kodningsformatet. Videoobjektet innehåller även webbadressen till en miniatyrbild av videon och miniatyrbildens mått.
 
 ```json
 {
@@ -183,7 +183,7 @@ Mer information om video svar och videor finns [Video API för webbsökning](../
 
 ## <a name="news-answer"></a>Nyheter svar
 
-Den [nyheter](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#news) svaret innehåller en lista över artiklar som Bing trodde var relevanta för frågan. Varje [nyhetsartikel](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#newsarticle) i listan innehåller artikels namn, beskrivning och webbadressen till artikeln på värdens webbplats. Om artikeln innehåller en bild innehåller objektet även en miniatyr för bilden.
+Den [nyheter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#news) svaret innehåller en lista över artiklar som Bing trodde var relevanta för frågan. Varje [nyhetsartikel](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle) i listan innehåller artikels namn, beskrivning och webbadressen till artikeln på värdens webbplats. Om artikeln innehåller en bild innehåller objektet även en miniatyr för bilden.
 
 ```json
 {
@@ -218,7 +218,7 @@ Mer information om nyheter svar och nyhetsartiklar finns i [nyheter Search API](
 
 ## <a name="computation-answer"></a>Beräkningen svar
 
-Om användaren anger ett matematiska uttryck eller en fråga för konvertering av enhet, svaret kan innehålla en [beräkning](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#computation) svar. Den `computation` svaret innehåller normaliserat uttryck och dess resultat.
+Om användaren anger ett matematiska uttryck eller en fråga för konvertering av enhet, svaret kan innehålla en [beräkning](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#computation) svar. Den `computation` svaret innehåller normaliserat uttryck och dess resultat.
 
 En enhet konvertering fråga är en fråga som konverterar en enhet till en annan. Till exempel *hur många fot i 10 meter?* eller *hur många matskedar i en 1/4 cup?*
 
@@ -326,7 +326,7 @@ Matematiska uttryck som innehåller variabler (till exempel, 4 x + 6 = 18, där 
 
 ## <a name="timezone-answer"></a>Tidszon svar
 
-Om användaren anger en tids- eller fråga, svaret kan innehålla en [tidszon](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#timezone) svar. Det här svaret stöder implicit eller explicit-frågor. En implicit fråga, till exempel *vilken tid är det?*, returnerar den lokala tiden baserat på användarens plats. En explicit-fråga som *vilken tid är det i Seattle?*, returnerar den lokala tiden för Seattle, WA.
+Om användaren anger en tids- eller fråga, svaret kan innehålla en [tidszon](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#timezone) svar. Det här svaret stöder implicit eller explicit-frågor. En implicit fråga, till exempel *vilken tid är det?* , returnerar den lokala tiden baserat på användarens plats. En explicit-fråga som *vilken tid är det i Seattle?* , returnerar den lokala tiden för Seattle, WA.
 
 Den `timeZone` svaret innehåller namnet på platsen, aktuella UTC-datum och tid på den angivna platsen och UTC-förskjutning. Om gränsen för platsen är inom olika tidszoner, innehåller svaret den aktuella UTC-datum och tid för alla tidszoner inom gränsen. Eftersom Florida tillstånd faller inom två tidszoner, innehåller till exempel svaret lokalt datum och tid för båda tidszoner.  
 
@@ -417,7 +417,7 @@ Query: What time is it in the U.S.
 
 ## <a name="spellsuggestion-answer"></a>SpellSuggestion svar
 
-Om Bing avgör att användaren kan ha avsedd att söka efter något annat, svaret innehåller en [SpellSuggestions](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#spellsuggestions) objekt. Exempel: om en användare söker efter *carlos penna*, Bing kan bestämma att användaren sannolikt avsett att söka efter Carlos Pena i stället (baserat på senaste sökningar av *carlos penna*). Nedan visas ett exempel stavningskontroll svar.
+Om Bing avgör att användaren kan ha avsedd att söka efter något annat, svaret innehåller en [SpellSuggestions](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#spellsuggestions) objekt. Exempel: om en användare söker efter *carlos penna*, Bing kan bestämma att användaren sannolikt avsett att söka efter Carlos Pena i stället (baserat på senaste sökningar av *carlos penna*). Nedan visas ett exempel stavningskontroll svar.
 
 ```json
 "spellSuggestions": {
@@ -433,7 +433,7 @@ Nedan visas hur Bing använder stavning förslag.
 
 ![Bing stavning förslag exempel](./media/cognitive-services-bing-web-api/bing-web-spellingsuggestion.GIF)  
 
-## <a name="response-headers"></a>Svarshuvud
+## <a name="response-headers"></a>Svarshuvuden
 
 Svar från Bing Web Search API kan innehålla följande huvuden:
 
@@ -481,4 +481,4 @@ Nedan visas hur Bing använder stavning förslag.
 
 ## <a name="see-also"></a>Se också  
 
-* [Bing Web Search API-referens](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference)
+* [Bing Web Search API-referens](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)

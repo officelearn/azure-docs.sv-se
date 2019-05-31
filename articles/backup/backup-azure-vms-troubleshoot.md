@@ -8,26 +8,27 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: srinathvasireddy
-ms.openlocfilehash: 179f806fcff5ce0e384455fdc9db3b2253449eb0
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 23137cd686bcdba59880ff705a43b16ced992b59
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002319"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66303983"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Felsöka säkerhetskopiering av virtuell Azure-dator
 Du kan felsöka fel påträffades när med Azure Backup med den information som visas nedan:
 
-## <a name="backup"></a>Säkerhetskopiera
+## <a name="backup"></a>Backup
+Det här avsnittet beskriver fel i säkerhetskopieringen av virtuella Azure-dator.
 
-### <a name="copyingvhdsfrombackupvaulttakinglongtime--copying-backed-up-data-from-vault-timed-out"></a>CopyingVHDsFromBackUpVaultTakingLongTime – kopiera säkerhetskopierade data från valvet tidsgränsen uppnåddes
+## <a name="copyingvhdsfrombackupvaulttakinglongtime---copying-backed-up-data-from-vault-timed-out"></a>CopyingVHDsFromBackUpVaultTakingLongTime – kopiera säkerhetskopierade data från valvet tidsgränsen uppnåddes
 
 Felkod: CopyingVHDsFromBackUpVaultTakingLongTime <br/>
 Felmeddelande: Kopiera säkerhetskopierade data från valvet tidsgränsen uppnåddes
 
 Detta kan inträffa på grund av tillfälliga lagringsfel eller inte tillräckligt med storage-konto IOPS för backup-tjänsten för att överföra data till valvet inom tidsgränsen. Konfigurera säkerhetskopiering av virtuella datorer med hjälp av dessa [bästa praxis](backup-azure-vms-introduction.md#best-practices) och försök säkerhetskopieringen igen.
 
-### <a name="usererrorvmnotindesirablestate---vm-is-not-in-a-state-that-allows-backups"></a>UserErrorVmNotInDesirableState - VM är inte i ett tillstånd som tillåter säkerhetskopieringar.
+## <a name="usererrorvmnotindesirablestate---vm-is-not-in-a-state-that-allows-backups"></a>UserErrorVmNotInDesirableState - VM är inte i ett tillstånd som tillåter säkerhetskopieringar.
 
 Felkod: UserErrorVmNotInDesirableState <br/>
 Felmeddelande: Virtuell dator är inte i ett tillstånd som tillåter säkerhetskopieringar.<br/>
@@ -37,7 +38,7 @@ Säkerhetskopieringen misslyckades eftersom den virtuella datorn är i felläge.
 * Om den virtuella datorn är i ett tillfälligt tillstånd mellan **kör** och **stänga**, vänta på att ändra tillståndet. Sedan Utlös säkerhetskopieringsjobbet.
 *  Om den virtuella datorn är en Linux-VM och använder Security-Enhanced Linux-kernel-modul, utesluta Azure Linux Agent sökvägen **/var/lib/waagent** från säkerhetsprincip och se till att säkerhetskopieringstillägget installeras.
 
-### <a name="usererrorfsfreezefailed---failed-to-freeze-one-or-more-mount-points-of-the-vm-to-take-a-file-system-consistent-snapshot"></a>UserErrorFsFreezeFailed - det gick inte att frysa en eller flera monteringspunkter på den virtuella datorn ska använda en konsekvent ögonblicksbild för filsystemet
+## <a name="usererrorfsfreezefailed---failed-to-freeze-one-or-more-mount-points-of-the-vm-to-take-a-file-system-consistent-snapshot"></a>UserErrorFsFreezeFailed - det gick inte att frysa en eller flera monteringspunkter på den virtuella datorn ska använda en konsekvent ögonblicksbild för filsystemet
 
 Felkod: UserErrorFsFreezeFailed <br/>
 Felmeddelande: Det gick inte att frysa en eller flera monteringspunkter på den virtuella datorn för att ta en filsystemkonsekvent ögonblicksbild.
@@ -47,7 +48,7 @@ Felmeddelande: Det gick inte att frysa en eller flera monteringspunkter på den 
 * Kör en konsekvenskontroll för fil-system på dessa enheter med hjälp av den **fsck** kommando.
 * Montera enheterna igen och försök säkerhetskopieringen igen.</ol>
 
-### <a name="extensionsnapshotfailedcom--extensioninstallationfailedcom--extensioninstallationfailedmdtc---extension-installationoperation-failed-due-to-a-com-error"></a>ExtensionSnapshotFailedCOM / ExtensionInstallationFailedCOM / ExtensionInstallationFailedMDTC - tillägg/Installationsåtgärden misslyckades på grund av ett COM +-fel
+## <a name="extensionsnapshotfailedcom--extensioninstallationfailedcom--extensioninstallationfailedmdtc---extension-installationoperation-failed-due-to-a-com-error"></a>ExtensionSnapshotFailedCOM / ExtensionInstallationFailedCOM / ExtensionInstallationFailedMDTC - tillägg/Installationsåtgärden misslyckades på grund av ett COM +-fel
 
 Felkod: ExtensionSnapshotFailedCOM <br/>
 Felmeddelande: Ögonblicksbildsåtgärden misslyckades på grund av COM +-fel
@@ -55,7 +56,8 @@ Felmeddelande: Ögonblicksbildsåtgärden misslyckades på grund av COM +-fel
 Felkod: ExtensionInstallationFailedCOM  <br/>
 Felmeddelande: Tillägg/Installationsåtgärden misslyckades på grund av ett COM +-fel
 
-Felkod: ExtensionInstallationFailedMDTC felmeddelande: Tilläggsinstallationen misslyckades med felet ”COM + kunde inte kommunicera med Microsoft Distributed Transaction Coordinator
+Felkod: ExtensionInstallationFailedMDTC <br/>
+Felmeddelande: Tilläggsinstallationen misslyckades med felet ”COM + kunde inte kommunicera med Microsoft Distributed Transaction Coordinator <br/>
 
 Backup-åtgärden misslyckades på grund av ett problem med Windows-tjänsten **COM + System** program.  Följ dessa anvisningar för att lösa problemet:
 
@@ -69,7 +71,7 @@ Backup-åtgärden misslyckades på grund av ett problem med Windows-tjänsten **
     * Starta MSDTC-tjänsten
 * Starta tjänsten Windows **COM + System Application**. Efter den **COM + System Application** startar, utlöser en säkerhetskopiering från Azure-portalen.</ol>
 
-### <a name="extensionfailedvsswriterinbadstate---snapshot-operation-failed-because-vss-writers-were-in-a-bad-state"></a>ExtensionFailedVssWriterInBadState - ögonblicksbildsåtgärden misslyckades eftersom VSS-skrivare som fanns i ett felaktigt tillstånd
+## <a name="extensionfailedvsswriterinbadstate---snapshot-operation-failed-because-vss-writers-were-in-a-bad-state"></a>ExtensionFailedVssWriterInBadState - ögonblicksbildsåtgärden misslyckades eftersom VSS-skrivare som fanns i ett felaktigt tillstånd
 
 Felkod: ExtensionFailedVssWriterInBadState <br/>
 Felmeddelande: Ögonblicksbildsåtgärden misslyckades eftersom VSS-skrivare som fanns i ett felaktigt tillstånd.
@@ -79,7 +81,7 @@ Starta om VSS-skrivare som är i ett felaktigt tillstånd. Från en upphöjd kom
   * ```net stop serviceName```
   * ```net start serviceName```
 
-### <a name="extensionconfigparsingfailure--failure-in-parsing-the-config-for-the-backup-extension"></a>ExtensionConfigParsingFailure - det gick inte att parsa konfigurationen för säkerhetskopieringstillägget
+## <a name="extensionconfigparsingfailure--failure-in-parsing-the-config-for-the-backup-extension"></a>ExtensionConfigParsingFailure - det gick inte att parsa konfigurationen för säkerhetskopieringstillägget
 
 Felkod: ExtensionConfigParsingFailure<br/>
 Felmeddelande: Det gick inte att parsa konfigurationen för säkerhetskopieringstillägget.
@@ -108,7 +110,7 @@ Om du ser behörigheter i den **MachineKeys** katalog som skiljer sig från stan
     * Under **personliga** > **certifikat**, ta bort alla certifikat där **utfärdat till** är den klassiska distributionsmodellen eller **CRP: N för Windows Azure Certificate Generator**.
 3. Utlös en VM-säkerhetskopiering.
 
-### <a name="extensionstuckindeletionstate---extension-state-is-not-supportive-to-backup-operation"></a>ExtensionStuckInDeletionState - tillägget tillstånd är inte klarar säkerhetskopieringen
+## <a name="extensionstuckindeletionstate---extension-state-is-not-supportive-to-backup-operation"></a>ExtensionStuckInDeletionState - tillägget tillstånd är inte klarar säkerhetskopieringen
 
 Felkod: ExtensionStuckInDeletionState <br/>
 Felmeddelande: Statusen är inte klarar säkerhetskopieringen
@@ -121,7 +123,7 @@ Backup-åtgärden misslyckades på grund av inkonsekvent tillstånd för Säkerh
 * Prova att säkerhetskopiera igen när du har tagit bort säkerhetskopieringstillägget.
 * Vid nästföljande säkerhetskopiering installeras det nya tillägget med önskat tillstånd.
 
-### <a name="extensionfailedsnapshotlimitreachederror---snapshot-operation-failed-as-snapshot-limit-is-exceeded-for-some-of-the-disks-attached"></a>ExtensionFailedSnapshotLimitReachedError - ögonblicksbildsåtgärden misslyckades eftersom ögonblicksbildsgränsen har överskridits för vissa av de anslutna diskarna
+## <a name="extensionfailedsnapshotlimitreachederror---snapshot-operation-failed-as-snapshot-limit-is-exceeded-for-some-of-the-disks-attached"></a>ExtensionFailedSnapshotLimitReachedError - ögonblicksbildsåtgärden misslyckades eftersom ögonblicksbildsgränsen har överskridits för vissa av de anslutna diskarna
 
 Felkod: ExtensionFailedSnapshotLimitReachedError  <br/>
 Felmeddelande: Ögonblicksbildsåtgärden misslyckades eftersom ögonblicksbildsgränsen har överskridits för vissa av de anslutna diskarna
@@ -135,7 +137,7 @@ Felmeddelande: Ögonblicksbildsåtgärden misslyckades eftersom ögonblicksbilds
     * Se till att värdet för **isanysnapshotfailed** ställs in som false i /etc/azure/vmbackup.conf
     * Schemalägga Azure Site Recovery vid en annan tidpunkt, så att det inte står i konflikt säkerhetskopieringen.
 
-### <a name="extensionfailedtimeoutvmnetworkunresponsive---snapshot-operation-failed-due-to-inadequate-vm-resources"></a>ExtensionFailedTimeoutVMNetworkUnresponsive - ögonblicksbildsåtgärden misslyckades på grund av otillräckliga resurser för virtuell dator.
+## <a name="extensionfailedtimeoutvmnetworkunresponsive---snapshot-operation-failed-due-to-inadequate-vm-resources"></a>ExtensionFailedTimeoutVMNetworkUnresponsive - ögonblicksbildsåtgärden misslyckades på grund av otillräckliga resurser för virtuell dator.
 
 Felkod: ExtensionFailedTimeoutVMNetworkUnresponsive<br/>
 Felmeddelande: Ögonblicksbildsåtgärden misslyckades på grund av otillräckliga VM-resurser.
@@ -157,7 +159,7 @@ Detta säkerställer att ögonblicksbilderna tas via värden i stället för gä
 
 **Steg 3**: Försök [ökar storleken på VM](https://azure.microsoft.com/blog/resize-virtual-machines/) och försök igen
 
-### <a name="common-vm-backup-errors"></a>Vanliga fel för VM-säkerhetskopiering
+## <a name="common-vm-backup-errors"></a>Vanliga fel för VM-säkerhetskopiering
 
 | Felinformation | Lösning: |
 | ------ | --- |
@@ -239,7 +241,7 @@ Kontrollera versionen för VM-agenten på Windows virtuella datorer:
 ## <a name="troubleshoot-vm-snapshot-issues"></a>Felsöka problem med VM-ögonblicksbild
 Säkerhetskopiering av virtuella datorer är beroende av utfärda kommandon för ögonblicksbilden till underliggande lagring. Inte ha åtkomst till lagring eller fördröjningar i en ögonblicksbild-aktivitet körs kan det orsaka säkerhetskopieringsjobb misslyckas. Följande villkor kan orsaka ögonblicksbild aktivitet, fel:
 
-- **Nätverksåtkomst till lagring blockeras med hjälp av NSG**. Läs mer om hur du [upprätta nätverksåtkomst](backup-azure-arm-vms-prepare.md#establish-network-connectivity) till Storage med hjälp av antingen vitlistning av IP-adresser eller via en proxyserver.
+- **Nätverksåtkomst till lagring blockeras med hjälp av NSG**. Läs mer om hur du [upprätta nätverksåtkomst](backup-azure-arm-vms-prepare.md#establish-network-connectivity) till Storage med hjälp av antingen listan över IP-adresser eller via en proxyserver.
 - **Virtuella datorer med SQL Server säkerhetskopiering har konfigurerats kan orsaka fördröjning för uppgift för ögonblicksbild**. Som standard skapar säkerhetskopiering en VSS fullständig säkerhetskopiering på virtuella Windows-datorer. Virtuella datorer som kör SQL Server med SQL Server säkerhetskopiering har konfigurerats, kan fördröjningar ögonblicksbild. Om ögonblicksbild fördröjningar leda till Säkerhetskopieringsfel, anger du följande registernyckel:
 
    ```
@@ -262,8 +264,8 @@ Lösa offentliga internet-adresser diskuteras i [den här Support för Azure-blo
 
 När namnmatchning utförs korrekt måste åtkomst till Azure IP-adresser också anges. Om du vill avblockera åtkomst till Azure-infrastrukturen, gör du något av följande:
 
-- Tillåt IP-intervallen för Azure-datacenter:
-   1. Hämta listan över [Azure datacenter IP-adresser](https://www.microsoft.com/download/details.aspx?id=41653) tillåtas.
+- Tillåt lista över Azure-datacenter IP-adressintervall:
+   1. Hämta listan över [Azure datacenter IP-adresser](https://www.microsoft.com/download/details.aspx?id=41653) att vara i listan.
    1. Avblockera IP-adresser med hjälp av den [New-NetRoute](https://docs.microsoft.com/powershell/module/nettcpip/new-netroute) cmdlet. Kör denna cmdlet i Azure-dator, i ett upphöjt PowerShell-fönster. Kör som administratör.
    1. Lägga till regler i NSG, om du har en på plats, för att tillåta åtkomst till IP-adresser.
 - Skapa en sökväg för HTTP-trafik:

@@ -7,12 +7,12 @@ ms.service: azure
 ms.topic: article
 ms.date: 09/13/2018
 ms.author: tarcher
-ms.openlocfilehash: 7145a50bc53fd28afafd3de9c724b5e5f71624fa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 89108f02957990ad1c7eb736f39de89537f06db5
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60905900"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66297922"
 ---
 # <a name="store-terraform-state-in-azure-storage"></a>Tillstånd för Store-Terraform i Azure Storage
 
@@ -79,7 +79,7 @@ export ARM_ACCESS_KEY=$(az keyvault secret show --name terraform-backend-key --v
 
 Om du vill konfigurera Terraform för att använda serverdelen måste innehålla en *serverdel* med en typ av *azurerm* inuti Terraform-konfigurationen. Lägg till den *storage_account_name*, *container_name*, och *nyckel* värden till configuration-block.
 
-I följande exempel konfigurerar en Terraform-serverdel och skapar och Azure-resursgrupp. Ersätt värdena med värden från din miljö.
+I följande exempel konfigurerar en Terraform-serverdel och skapar en Azure-resursgrupp. Ersätt värdena med värden från din miljö.
 
 ```json
 terraform {

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: ad57f86e221a98461fcd1dc11b92f5665d6128d0
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: HT
+ms.openlocfilehash: e27829fe5ebf57552ef4e97a2bfc7b6aefd81dc8
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65786452"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66254407"
 ---
 # <a name="api-management-policies"></a>API Management-principer
 Det här avsnittet innehåller en referens för följande API Management-principer. Information om att lägga till och konfigurerar principer finns i [principer i API Management](api-management-howto-policies.md).  
@@ -39,12 +39,15 @@ Det här avsnittet innehåller en referens för följande API Management-princip
     -   [Verifiera JWT](api-management-access-restriction-policies.md#ValidateJWT) -tillämpar förekomst och giltigheten hos en JWT som extraheras från ett angivna HTTP-sidhuvud eller en angiven frågeparameter.  
 -   [Avancerade principer](api-management-advanced-policies.md#AdvancedPolicies)  
     -   [Kontrollflöde](api-management-advanced-policies.md#choose) – villkorligt gäller principrapporter som baseras på utvärderingen av booleska uttryck.  
-    -   [Vidarebefordra begäran](api-management-advanced-policies.md#ForwardRequest) -vidarebefordrar begäran till backend-tjänsten.  
-    -   [Logga till Event Hub](api-management-advanced-policies.md#log-to-eventhub) -skickar meddelanden i formatet som anges till ett meddelandemål som definieras av en Logger-enhet.  
+    -   [Vidarebefordra begäran](api-management-advanced-policies.md#ForwardRequest) -vidarebefordrar begäran till backend-tjänsten.
+    -   [Begränsa samtidighet](api-management-advanced-policies.md#LimitConcurrency) -förhindrar omges principer från att köras med mer än det angivna antalet begäranden i taget.
+    -   [Logga till Event Hub](api-management-advanced-policies.md#log-to-eventhub) -skickar meddelanden i formatet som anges till ett meddelandemål som definieras av en Logger-enhet.
+    -   [Simulera svar](api-management-advanced-policies.md#mock-response) -avbryter pipeline-körning och returnerar ett simulerat svar direkt till anroparen.
     -   [Försök](api-management-advanced-policies.md#Retry) -återförsök körningen av de slutna principrapporter om och tills villkoret är uppfyllt. Körningen upprepas med de angivna intervall och upp till den angivna antal nya försök.  
     -   [Returnera svaret](api-management-advanced-policies.md#ReturnResponse) -avbryter pipeline-körning och returnerar det angivna svaret direkt till anroparen.  
     -   [Skicka enkelriktade begäran](api-management-advanced-policies.md#SendOneWayRequest) -skickar en begäran till den angivna URL: en utan att vänta tills ett svar.  
-    -   [Skicka begäran](api-management-advanced-policies.md#SendRequest) -skickar en begäran till den angivna URL: en.  
+    -   [Skicka begäran](api-management-advanced-policies.md#SendRequest) -skickar en begäran till den angivna URL: en.
+    -   [Ange HTTP-proxy](api-management-advanced-policies.md#SetHttpProxy) – gör att du kan dirigera vidarebefordrade begäranden via en HTTP-proxy.
     -   [Ange variabel](api-management-advanced-policies.md#set-variable) -bevara ett värde i en namngiven sammanhangsvariabel för senare användning.  
     -   [Ange begärandemetoden](api-management-advanced-policies.md#SetRequestMethod) – kan du ändra HTTP-metoden för en begäran.  
     -   [Ange statuskoden](api-management-advanced-policies.md#SetStatus) -ändrar HTTP-statuskoden till det angivna värdet.  

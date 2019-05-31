@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: bf26af7fa4b1b31514fb82c5e28a85154b2e274a
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 9f7e2760ef8bf06a2e680dce90c323672ca9d491
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66158473"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66416056"
 ---
 * För omvandlingen krävs att den virtuella datorn startas om, så du bör schemalägga migreringen av dina virtuella datorer under en redan inställd underhållsperiod. 
 
@@ -20,7 +20,5 @@ ms.locfileid: "66158473"
 * Testa omvandlingen först. Migrera först en virtuell testdator innan du gör en migrering i produktion.
 
 * Under omvandlingen frigör du den virtuella datorn. Den virtuella datorn får en ny ip-adress när den startas efter omvandlingen. Om det behövs kan du [tilldela datorn en statisk ip-adress](../articles/virtual-network/virtual-network-ip-addresses-overview-arm.md).
-
-* De ursprungliga virtuella hårddiskarna och lagringskontot som användes av den virtuella datorn före omvandlingen tas inte bort. De kan medföra ytterligare kostnader. För att undvika att debiteras för dem kan du ta bort de ursprungliga virtuella hårddiskblobbarna när du har kontrollerat att omvandlingen har slutförts.
 
 * Granska den lägsta versionen av Azure VM-agenten som krävs för att stödja konverteringen. Information om hur du kontrollerar och uppdatera din agentversion finns i [lägsta version som stöds för VM-agenter i Azure](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
+ms.date: 05/27/2019
 ms.author: rkarlin
-ms.openlocfilehash: 0061fb7946e4c35f855d1a409cb9bc210c73641a
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 891f9fbd26b53b392ac84ed9d420b58558cd20c2
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65228301"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258422"
 ---
 # <a name="on-board-azure-sentinel-preview"></a>Integrera Azure Sentinel-förhandsversion
 
@@ -41,7 +41,7 @@ När du ansluter dina datakällor kan du välja från ett galleri med flytta ska
 - Log Analytics-arbetsyta. Lär dig hur du [skapa en Log Analytics-arbetsyta](../log-analytics/log-analytics-quick-create-workspace.md)
 
 -  Om du vill aktivera Azure Sentinel måste deltagarbehörighet för prenumerationen som arbetsytan Azure Sentinel finns. 
-- Om du vill använda Azure Sentinel, behöver du deltagare eller viewer behörigheter på den resursgrupp som arbetsytan hör till
+- Om du vill använda Azure Sentinel, behöver du deltagare eller läsare behörigheter på den resursgrupp som arbetsytan hör till
 - Ytterligare behörighet kan behövas för att ansluta specifika datakällor
  
 ## Aktivera Azure Sentinel <a name="enable"></a>
@@ -54,7 +54,7 @@ När du ansluter dina datakällor kan du välja från ett galleri med flytta ska
 1. Klicka på **+ Lägg till**.
 1. Välj den arbetsyta som du vill använda eller skapa en ny. Du kan köra Azure Sentinel på fler än en arbetsyta, men data är isolerade i en enda arbetsyta.
 
-   ![sök](./media/quickstart-onboard/choose-workspace.png)
+   ![Sök](./media/quickstart-onboard/choose-workspace.png)
 
    >[!NOTE] 
    > - **Arbetsytan, position** är det viktigt att förstå att alla data som strömmas till Azure Sentinel lagras i den geografiska platsen där du har valt.  

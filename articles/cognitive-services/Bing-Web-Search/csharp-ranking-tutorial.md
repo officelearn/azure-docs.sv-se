@@ -11,12 +11,12 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 05/08/2017
 ms.author: bking
-ms.openlocfilehash: 7c074d5d25453e2b2a1ddfc32422790235815f1c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6afaa2f497fa1a23d083c3ddd76359a49105732d
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61431165"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66384845"
 ---
 # <a name="build-a-console-app-search-client-in-c"></a>Skapa en app search konsolklient i C#
 
@@ -38,7 +38,7 @@ Om du vill följa självstudiekursen behöver du:
 
 Skapa ett projekt i Visual Studio med `Ctrl`+`Shift`+`N`.
 
-I den **nytt projekt** dialogrutan klickar du på **Visual C# > Windows Classic Desktop > konsolprogram (.NET Framework)**.
+I den **nytt projekt** dialogrutan klickar du på **Visual C# > Windows Classic Desktop > konsolprogram (.NET Framework)** .
 
 Ge programmet namnet **MyConsoleSearchApp**, och klicka sedan på **OK**.
 
@@ -221,7 +221,7 @@ Ta en titt på ett exempel web search-svar innan du visar hur du vill visa resul
 }
 ```
 
-Den `rankingResponse` JSON-objekt ([dokumentation](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse)) beskriver lämplig visningsordningen för sökresultat. Det innehåller en eller flera av följande, prioriterad grupper:
+Den `rankingResponse` JSON-objekt ([dokumentation](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse)) beskriver lämplig visningsordningen för sökresultat. Det innehåller en eller flera av följande, prioriterad grupper:
 
 - `pole`: Sökresultaten till får mest synliga behandling (till exempel visas ovanför den likriktade och sidopanelen).
 - `mainline`: Sökresultaten ska visas i den likriktade.

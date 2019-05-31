@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: 13379111706eaa816a8fa16cfe72711b7bf4d739
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f2a30d5a040c2713f04173e83732cea5fa19af3b
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60576498"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255291"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Övervaka dina Node-js-tjänster och -appar med Application Insights
 
-[Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) övervakar dina serverdelstjänster och komponenter när du har distribuerat dem för att hjälpa dig att [upptäcka och snabbt diagnostisera problem med prestanda och annat](../../azure-monitor/app/detect-triage-diagnose.md). Du kan använda Application Insights för Node.js-tjänster som finns i ditt datacenter, i virtuella Azure-datorer och webbappar och även i andra offentliga moln.
+[Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) övervakar dina serverdelstjänster och komponenter efter distributionen kan du upptäcka och snabbt diagnostisera prestandaproblem och andra problem. Du kan använda Application Insights för Node.js-tjänster som finns i ditt datacenter, i virtuella Azure-datorer och webbappar och även i andra offentliga moln.
 
 För att ta emot, lagra, och utforska dina övervakade data inkluderar du SKD:t i koden och konfigurerar en motsvarande Application Insights-resurs i Azure. SDK:t skickar data till den resursen för ytterligare analys och undersökning.
 
@@ -202,7 +202,7 @@ server.on("listening", () => {
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Övervaka din telemetri i portalen](../../azure-monitor/app/app-insights-dashboards.md)
+* [Övervaka din telemetri i portalen](../../azure-monitor/app/overview-dashboard.md)
 * [Skriv Analytics-frågor via din telemetri](../../azure-monitor/log-query/get-started-portal.md)
 
 <!--references-->

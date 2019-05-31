@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 0e0c83d411242be38992dd763dea72eda70ffbf4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e9c307b2b2e720881acb983a2a1b00ac8e03dac4
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60531826"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357067"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-the-rest-api"></a>Hantera åtkomst till Azure-resurser med RBAC och REST API
 
@@ -38,12 +38,16 @@ I RBAC lista för att lista åtkomstförsök kommer du rolltilldelningar. Vill s
 
 1. I URI: N, Ersätt *{omfång}* med den omfattning som du vill visa en lista över rolltilldelningar.
 
-    | Scope | Typ |
+    | Scope | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Prenumeration |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resursgrupp |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resurs |
-
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+    
+       
+     > [!NOTE]
+     > I exemplet ovan Microsoft.web är resursprovidern används som refererar till App service-instansen. På samma sätt kan du använda någon annan leverantör av resursen och skapa Scope-URI. För att förstå mer finns [Azure resursproviders och resurstyper](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services) stöds [Azure RM åtgärder för resursprovider](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations).  
+     
 1. Ersätt *{filter}* med villkor som du vill använda för att filtrera rolltilldelningslista.
 
     | Filter | Beskrivning |
@@ -77,11 +81,11 @@ För att skapa åtkomst i RBAC skapar du rolltilldelningar. Du kan skapa en roll
     
 1. I URI: N, Ersätt *{omfång}* med omfånget för rolltilldelningen.
 
-    | Scope | Typ |
+    | Scope | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Prenumeration |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resursgrupp |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resurs |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. Ersätt *{roleAssignmentName}* med GUID-identifierare rolltilldelningen.
 
@@ -105,11 +109,11 @@ I RBAC kan du ta bort en rolltilldelning för att ta bort åtkomst. Ta bort en r
 
 1. I URI: N, Ersätt *{omfång}* med omfattning för att ta bort rolltilldelningen.
 
-    | Scope | Typ |
+    | Scope | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Prenumeration |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resursgrupp |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resurs |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. Ersätt *{roleAssignmentName}* med GUID-identifierare rolltilldelningen.
 

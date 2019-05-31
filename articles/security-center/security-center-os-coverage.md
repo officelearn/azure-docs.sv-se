@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/02/2019
-ms.author: v-mohabe
-ms.openlocfilehash: 910e9acaea5c8f95dd344bc8e5454cd2bd3b7a25
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.date: 5/27/2019
+ms.author: monhaber
+ms.openlocfilehash: 807bde76bb6bb50490ee599768273a59c49d5e45
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65968325"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258690"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Plattformar och funktioner som stöds av Azure Security Center
 
@@ -27,7 +27,6 @@ Tillstånd säkerhetsövervakning och rekommendationer är tillgängliga för vi
 
 > [!NOTE]
 > Läs mer om den [klassiska och Resource Manager-distributionsmodeller](../azure-classic-rm.md) för Azure-resurser.
->
 >
 
 ## <a name="platforms-that-support-the-data-collection-agent"></a>Plattformar som stöder datainsamlingsagenterna 
@@ -46,20 +45,29 @@ Följande Windows-operativsystem som stöds:
 
 > [!NOTE]
 > Integrering med Windows Defender ATP stöder endast Windows Server 2012 R2 och Windows Server 2016.
->
->
 
 ### <a name="supported-platforms-for-linux-computers-and-vms"></a>Plattformar som stöds för Linux-datorer och virtuella datorer
+
 Följande Linux-operativsystem som stöds:
 
-* Version för Ubuntu 12.04 LTS, 14.04 LTS och 16.04 LTS.
-* Debian version 6, 7, 8 och 9.
-* CentOS 5, 6 och 7.
-* Red Hat Enterprise Linux (RHEL) version 5, 6 och 7.
-* SUSE Linux Enterprise Server (SLES) version 11 och 12.
-* Oracle Linux-versioner 5, 6 och 7.
-* Amazon Linux 2012.09 till 2017.
-* OpenSSL 1.1.0 stöds bara på 64-bitars x86_64 plattformar.
+> [!NOTE]
+> Eftersom listan med Linux-operativsystem som stöds ständigt, om du föredrar, klickar du på [här](https://github.com/microsoft/OMS-Agent-for-Linux#supported-linux-operating-systems) att visa den senaste listan över versioner som stöds, om det har gjorts ändringar sedan den här artikeln senast publicerades.
+
+64-bitars
+* CentOS 6 och 7
+* Amazon Linux 2017.09
+* Oracle Linux 6 och 7
+* Red Hat Enterprise Linux Server 6 och 7
+* Debian GNU/Linux 8 och 9
+* Ubuntu Linux 14.04 LTS, 16.04 LTS och 18.04 LTS
+* SUSE Linux Enterprise Server 12
+
+32-bitars
+* CentOS 6
+* Oracle Linux 6
+* Red Hat Enterprise Linux Server 6
+* Debian GNU/Linux 8 och 9
+* Ubuntu Linux 14.04 LTS och 16.04 LTS
 
 ## <a name="vms-and-cloud-services"></a>Virtuella datorer och molntjänster
 Virtuella datorer som körs i en molntjänst stöds också. Endast cloud services webb- och worker-roller som körs i produktionsplatser övervakas. Mer information om molntjänster finns [översikt av Azure Cloud Services](../cloud-services/cloud-services-choose-me.md).
@@ -70,25 +78,27 @@ Virtuella datorer som körs i en molntjänst stöds också. Endast cloud service
 > [!div class="mx-tableFixed"]
 > 
 
-|Server |Windows||Linux||
-|----|----|----|----|----|
-|Miljö|Azure|Icke-Azure|Azure|Icke-Azure|
-|VMBA hotidentifieringsaviseringar|✔|✔|✔ (på versioner som stöds)|✔|
-|Nätverksbaserade hotidentifieringsaviseringar|✔|X|✔|X|
-|Windows Defender ATP-integrering|✔ (på versioner som stöds)|✔|X|X|
-|Saknade uppdateringar|✔|✔|✔|✔|
-|Säkerhetskonfigurationer|✔|✔|✔|✔|
-|Slutpunktsskydd|✔|✔|X|X|
-|JIT VM-åtkomst|✔|X|✔|X|
-|Anpassningsbara programkontroller|✔|✔|✔|✔|
-|FIM|✔|✔|✔|✔|
-|Diskkryptering|✔|X|✔|X|
-|Tredjeparts-distribution|✔|X|✔|X|
-|Nätverkssäkerhetsgrupper (NSG)|✔|X|✔|X|
-|Fileless hotidentifiering|✔|✔|X|X|
-|Nätverkskarta|✔|X|✔|X|
-|Anpassningsbar nätverkskontroller|✔|X|✔|X|
-
+|Server|Windows||Linux||||Prissättning|
+|----|----|----|----|----|----|----|----|
+|**Miljö**|**Azure**||**Non-Azure**|**Azure**||**Non-Azure**||
+||**Virtuell dator**|**Virtual Machine Scale Sets**||**Virtuell dator**|**Virtual Machine Scale Sets**|
+|VMBA hotidentifieringsaviseringar|✔|✔|✔|✔ (på versioner som stöds)|✔ (på versioner som stöds)|✔|Hotidentifiering för rekommendationer (kostnadsfri) (Standard)|
+|Nätverksbaserade hotidentifieringsaviseringar|✔|✔|X|✔|✔|X|Standard|
+|Windows Defender ATP-integrering|✔ (på versioner som stöds)|✔ (på versioner som stöds)|✔|X|X|X|Standard|
+|Saknade uppdateringar|✔|✔|✔|✔|✔|✔|Lediga|
+|Säkerhetskonfigurationer|✔|✔|✔|✔|✔|✔|Lediga|
+|Endpoint protection-utvärdering|✔|✔|✔|X|X|X|Lediga|
+|JIT VM-åtkomst|✔|X|X|✔|X|X|Standard|
+|Anpassningsbara programkontroller|✔|X|✔|✔|X|✔|Standard|
+|FIM|✔|✔|✔|✔|✔|✔|Standard|
+|Utvärdering av kryptering av disk|✔|✔|X|✔|✔|X|Lediga|
+|Tredjeparts-distribution|✔|X|X|✔|X|X|Lediga|
+|Utvärdering av NSG: er|✔|✔|X|✔|✔|X|Lediga|
+|Fileless hotidentifiering|✔|✔|✔|X|X|X|Standard|
+|Nätverkskarta|✔|✔|X|✔|✔|X|Standard|
+|Anpassningsbar nätverkskontroller|✔|✔|X|✔|✔|X|Standard|
+|Instrumentpanel för efterlevnad av föreskrifter och rapporter|✔|✔|✔|✔|✔|✔|Standard|
+|Rekommendationer och hotidentifiering på Docker-värd IaaS-behållare|X|X|X|✔|✔|✔|Standard|
 
 ### <a name="supported-endpoint-protection-solutions"></a>Stöds slutpunktsskyddslösningar
 
@@ -96,7 +106,9 @@ I följande tabell innehåller en matris med:
  - Om du kan använda Azure Security Center för att installera varje lösning för dig.
  - Som endpoint protection lösningar Security Center kan identifiera. Om någon av följande lösningar för endpoint protection upptäcks rekommenderar Security Center inte installera något.
 
-| Endpoint Protection| Plattformar | Installation av Security Center | Security Center Discovery |
+Information om när rekommendationerna har genererats för var och en av dessa skydd finns i [Endpoint Protection-utvärdering och rekommendationer](security-center-endpoint-protection.md).
+
+| Slutpunktsskydd| Plattformar | Installation av Security Center | Security Center Discovery |
 |------|------|-----|-----|
 | Windows Defender (Microsoft-programvara mot skadlig kod)| Windows Server 2016| Nej, inbyggd i OS| Ja |
 | System Center Endpoint Protection (Microsoft-programvara mot skadlig kod) | Windows Server 2012 R2, 2012, 2008 R2 (Se kommentaren nedan) | Via tillägg | Ja |
@@ -108,13 +120,11 @@ I följande tabell innehåller en matris med:
 
 > [!NOTE]
 > - Identifiering av System Center Endpoint Protection (SCEP) på en Windows Server 2008 R2-dator kräver SCEP installeras efter PowerShell 3.0 (eller en övre version).
->
->
 
-## <a name="supported-paas-features"></a>PaaS-funktioner som stöds 
+## <a name="supported-paas-features"></a>PaaS-funktioner som stöds
 
 
-|Tjänst|Rekommendationer|Hotidentifiering|
+|Tjänst|Rekommendationer (kostnadsfri)|Hotidentifiering (Standard)|
 |----|----|----|
 |SQL|✔| ✔|
 |PostGreSQL*|✔| ✔|
@@ -124,11 +134,35 @@ I följande tabell innehåller en matris med:
 |Cloud Services|✔| X|
 |VNets|✔| Saknas|
 |Undernät|✔| Saknas|
-|Nätverkskort|✔| ✔|
-|Nätverkssäkerhetsgrupper (NSG)|✔| Saknas|
-|Prenumeration|✔| ✔|
+|Nätverkskort|✔| Saknas|
+|NSG:er|✔| Saknas|
+|Prenumeration|✔ **| ✔|
+|Apptjänst|✔| Saknas|
+|Batch|✔| Saknas|
+|Service fabric|✔| Saknas|
+|Automation-konto|✔| Saknas|
+|Lastbalanserare|✔| Saknas|
+|Search|✔| Saknas|
+|Service Bus|✔| Saknas|
+|Stream analytics|✔| Saknas|
+|Händelsehubb|✔| Saknas|
+|Logikappar|✔| Saknas|
+|Undernät|✔| Saknas|
+|Vnet|✔| Saknas|
+|Lagringskonto|✔| Saknas|
+|Redis|✔| Saknas|
+|SQL|✔| Saknas|
+|Data lake analytics|✔| Saknas|
+|Lagringskonto|✔| Saknas|
+|Prenumeration|✔| Saknas|
+|Nyckelvalv|✔| Saknas|
 
-\* Dessa funktioner stöds för närvarande i offentlig förhandsversion. 
+
+
+
+\* Dessa funktioner stöds för närvarande i offentlig förhandsversion.
+
+\*\* AAD-rekommendationer är bara tillgängliga för standardprenumerationer
 
 
 

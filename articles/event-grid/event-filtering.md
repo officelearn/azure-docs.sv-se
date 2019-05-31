@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: spelluru
-ms.openlocfilehash: 9f284fea701220906a994cf108ed58cb6998aef9
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 76a4c16afc9edef0a88ac9f2892de9738fd30289
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65187660"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305062"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Förstå händelse filtrering för Event Grid-prenumerationer
 
@@ -108,7 +108,7 @@ Alla strängjämförelser är fallet insensitve.
 Använd följande värden för händelser i Event Grid-schemat för nyckeln:
 
 * Id
-* Avsnitt
+* Ämne
 * Subject
 * Händelsetyp
 * DataVersion
@@ -117,7 +117,7 @@ Använd följande värden för händelser i Event Grid-schemat för nyckeln:
 Använd följande värden för händelser i molnet händelseschemat för nyckeln:
 
 * EventId
-* Källa
+* Source
 * Händelsetyp
 * EventTypeVersion
 * Händelsedata (till exempel Data.key1)
@@ -140,8 +140,6 @@ Avancerade filter har följande begränsningar:
 * Fem avancerade filter per event grid-prenumeration
 * 512 tecken per strängvärde
 * Fem värden för **i** och **inte i** operatorer
-* Nyckeln kan bara ha en kapslingsnivå (till exempel data.key1)
-* Anpassad Händelsescheman kan filtreras endast på översta fält
 
 Samma nyckel kan användas i mer än ett filter.
 

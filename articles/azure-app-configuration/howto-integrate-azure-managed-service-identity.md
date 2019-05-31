@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: ff098ebd23d2ce5a8c9c39f154375be1dae6a262
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 3977991386dbcd07e92f21d1ac541f486b4f7f0a
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408874"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393657"
 ---
 # <a name="integrate-with-azure-managed-identities"></a>Integrera med Azure hanterade identiteter
 
@@ -49,7 +49,7 @@ Du behöver följande för att kunna slutföra den här självstudiekursen:
 
 Om du vill konfigurera en hanterad identitet i portalen du först skapa ett program som vanligt och sedan aktivera funktionen.
 
-1. Skapa en app i den [Azure-portalen](https://aka.ms/azconfig/portal) som vanligt. Gå till den i portalen.
+1. Skapa en app i den [Azure-portalen](https://portal.azure.com) som vanligt. Gå till den i portalen.
 
 2. Rulla ned till den **inställningar** gruppen i den vänstra rutan och välj **identitet**.
 
@@ -59,9 +59,9 @@ Om du vill konfigurera en hanterad identitet i portalen du först skapa ett prog
 
 ## <a name="grant-access-to-app-configuration"></a>Bevilja åtkomst till App Configuration
 
-1. I den [Azure-portalen](https://aka.ms/azconfig/portal)väljer **alla resurser** och välj app-konfigurationsarkivet som du skapade i snabbstarten.
+1. I den [Azure-portalen](https://portal.azure.com)väljer **alla resurser** och välj app-konfigurationsarkivet som du skapade i snabbstarten.
 
-2. Välj **åtkomstkontroll (IAM)**.
+2. Välj **åtkomstkontroll (IAM)** .
 
 3. På den **Kontrollera åtkomst** fliken **Lägg till** i den **Lägg till rolltilldelning** kortet Användargränssnittet.
 
@@ -75,7 +75,7 @@ Om du vill konfigurera en hanterad identitet i portalen du först skapa ett prog
 
 ## <a name="use-a-managed-identity"></a>Använda en hanterad identitet
 
-1. Öppna *appsettings.json*, och Lägg till följande skript. Ersätt  *\<service_endpoint >*, inklusive parenteser med URL-Adressen till din app konfiguration av lagring:
+1. Öppna *appsettings.json*, och Lägg till följande skript. Ersätt  *\<service_endpoint >* , inklusive parenteser med URL-Adressen till din app konfiguration av lagring:
 
     ```json
     "AppConfig": {

@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
 ms.date: 01/17/2019
-ms.openlocfilehash: c49044d8bd96efb7e86cf54509c32033900be305
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 73c837897f4a104fabb4143d4b49fa3fbc258bb4
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60561780"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305018"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>Hantera ämnen och publicera händelser med händelse-domäner
 
@@ -27,10 +27,6 @@ Läs om event domäner i [förstå händelse domäner för att hantera Event Gri
 
 [!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
-## <a name="install-preview-feature"></a>Installera förhandsversionsfunktionen
-
-[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
-
 ## <a name="create-an-event-domain"></a>Skapa en händelsedomän
 
 Skapa en händelsedomän för att hantera stora mängder information.
@@ -38,10 +34,6 @@ Skapa en händelsedomän för att hantera stora mängder information.
 Om du använder Azure CLI använder du:
 
 ```azurecli-interactive
-# If you haven't already installed the extension, do it now.
-# This extension is required for preview features.
-az extension add --name eventgrid
-
 az eventgrid domain create \
   -g <my-resource-group> \
   --name <my-domain-name> \
@@ -51,10 +43,6 @@ az eventgrid domain create \
 Om du använder PowerShell använder du:
 
 ```azurepowershell-interactive
-# If you have not already installed the module, do it now.
-# This module is required for preview features.
-Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery
-
 New-AzureRmEventGridDomain `
   -ResourceGroupName <my-resource-group> `
   -Name <my-domain-name> `
@@ -203,6 +191,23 @@ Get-AzureRmEventGridDomainKey `
 ```
 
 Och Använd din favoritmetod för att göra en HTTP POST du publicerar dina händelser till Event Grid-domänen.
+
+## <a name="search-lists-of-topics-or-subscriptions"></a>Sök efter en lista över ämnen eller prenumerationer
+
+För att söka och hantering av stora mängder ämnen eller prenumerationer, stöder Event Grid-API: er lista en sidbrytning.
+
+### <a name="using-cli"></a>Använda CLI
+
+Om du vill använda det gör att du använder Azure CLI Event Grid-tilläggsversion 0.4.1 eller nyare.
+
+```azurecli-interactive
+# If you haven't already installed the extension, do it now.
+# This extension is required for preview features.
+az extension add --name eventgrid
+
+az eventgrid topic list \
+    --odata-query "contains(name, 'my-test-filter')"
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

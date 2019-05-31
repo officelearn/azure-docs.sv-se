@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 03/13/2019
 ms.author: pabutler
-ms.openlocfilehash: 65ff96ba3aea889ff5b2e2431578f9344f6d840b
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 258d21eae5af50b5dc0bed6887618e2999cae45a
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64938070"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257388"
 ---
 # <a name="virtual-machine-prerequisites"></a>Förutsättningar för virtuell dator
 
@@ -36,7 +36,7 @@ Affärskraven är procedurmässig avtalsenliga och juridiska skyldigheter:
 <!-- TD: Aren't most of these business requirements common to all AMP offerings?  If yes, then move to higher level, perhaps to the AMP section "Become a Cloud Marketplace Publisher" -->
 <!-- TD: Need references for remaining docs/business reqs!-->
 
-- Du måste vara ett registrerat moln Marketplace Publisher.  Om du inte är registrerad ännu, följer du stegen i artikeln [blir molnet Marketplace utgivare](../../become-publisher.md).
+- Du måste vara ett registrerat moln Marketplace Publisher.  Om du inte är registrerad ännu, följer du stegen i artikeln [blir molnet Marketplace utgivare](https://docs.microsoft.com/azure/marketplace/become-publisher).
 
     > [!NOTE]
     > Du bör använda samma konto för registrering av Microsoft Developer Center för att logga in på den [Cloud Partner Portal](https://cloudpartner.azure.com).

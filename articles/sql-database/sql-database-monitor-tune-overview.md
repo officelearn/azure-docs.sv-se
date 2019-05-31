@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: cae0fbd450e6b392e1689d4642181f6e5279752b
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
-ms.translationtype: HT
+ms.openlocfilehash: 2fa43fcd48736a3d044deb07ed690af580c3b987
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393215"
+ms.locfileid: "66416274"
 ---
 # <a name="monitoring-and-performance-tuning"></a>Övervakning och prestandajustering
 
@@ -143,6 +143,24 @@ WHERE
 GROUP BY q.query_hash
 ORDER BY count (distinct p.query_id) DESC
 ```
+### <a name="factors-influencing-query-plan-changes"></a>Faktorer som påverkar ändringar av frågeplan
+
+Plan kompileras om en fråga körning kan resultera i en genererad frågeplan som skiljer sig från vad cachelagrades ursprungligen. Det finns olika orsaker till varför en befintlig ursprungliga plan kan kompileras om automatiskt:
+- Ändringar i schemat som refereras av frågan
+- Dataändringar till de tabeller som refereras av frågan 
+- Ändringar i kontexten frågealternativ 
+
+En kompilerad plan kan matas ut från cachen för en mängd orsaker, bland annat instansen startas om, databasbegränsade konfigurationsändringar, minnesbelastning och explicit begäranden att rensa cacheminnet. Med hjälp av en RECOMPILE-tipset innebär dessutom en plan inte cachelagras.
+
+En kompileras om (eller en ny kompilering efter cache borttagningen) kan fortfarande resultera i generering av en identisk frågeplan körning från den som ursprungligen observerats.  Om det finns dock ändringar i planen jämfört med tidigare eller ursprungliga planen kan är följande de vanligaste förklaringarna till varför en plan för körning av frågan ändras:
+
+- **Ändra fysiska design**. Till exempel skapa nya index detta mer effektivt med kraven för en fråga som kan användas för en ny sammanställning om Frågeoptimeringen beslutar den är mer optimala för att använda det nya indexet än datastruktur som ursprungligen har valts för den första versionen av körningen av frågan.  Alla fysiska ändringar i de refererade objekt kan resultera i en ny valet av frågeplan under kompileringen.
+
+- **Server resurs skillnader**. I ett scenario där en plan skiljer sig på ”system A” och ”system B” – tillgängligheten för resurser, till exempel antalet tillgängliga processorer och kan påverka vilken plan hämtar genereras.  Till exempel om ett system har ett högre antal processorer, kan ett parallellt plan väljas. 
+
+- **Olika statistik**. Statistik som är associerade med de refererade objekt ändras eller avviker väsentligt från den ursprungliga system statistik.  Om statistiken ändrar och kompileras inträffar, använder Frågeoptimeringen statistik från och med den specifika tidpunkten i tid. Reviderade statistik kan ha mycket olika distributioner och frekvenser som inte är skiftläget för den ursprungliga kompileringen.  De här ändringarna används för att beräkna kardinalitet beräknar (antal rader som förväntat kan passera trädet logiska fråga).  Ändringar av kardinalitet uppskattningar kan leda oss att välja olika fysiska operatörer och associerade ordning för åtgärder.  Även mindre ändringar till statistik kan resultera i en plan för körning av ändrade frågan.
+
+- **Ändrade databasens kompatibilitet nivå eller kardinalitet kostnadsuppskattning version**.  Ändringar av kompatibilitetsnivån för databas kan aktivera nya strategier och funktioner som kan resultera i en annan frågeplan för körning.  Fråga körning plan val under kompileringen utöver kompatibilitetsnivån för databas, inaktivera eller aktivera spårningsflagga 4199 eller ändra tillståndet för begränsade databaskonfigurationen QUERY_OPTIMIZER_HOTFIXES kan också påverka.  Spårningsflaggor 9481 (force äldre CE) och 2312 (tvingar standard CE) är också planera att påverkas. 
 
 ### <a name="resolve-problem-queries-or-provide-more-resources"></a>Lösa problem med frågor eller ange fler resurser
 

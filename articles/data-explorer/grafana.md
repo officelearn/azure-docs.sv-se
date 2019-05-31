@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/05/2018
-ms.openlocfilehash: 188cb310cfc13fe2fc41ba3e01deb01068c0184d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 135f8f1c9c352f9d2307a8bf9ad1bec892aac179
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60447136"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399917"
 ---
 # <a name="visualize-data-from-azure-data-explorer-in-grafana"></a>Visualisera data från Azure Data Explorer i Grafana
 
@@ -154,8 +154,8 @@ Med tjänstens huvudnamn som tilldelats den *visningsprogram* roll du nu ange eg
     | Grafana UI | Azure Portal | Azure CLI |
     | --- | --- | --- |
     | Prenumeration-ID | PRENUMERATIONS-ID | SubscriptionId |
-    | Klient-ID | Katalog-ID | tenant |
-    | Klient-ID | Program-ID:t | appId |
+    | Klient-Id | Katalog-ID | tenant |
+    | Klient-Id | Program-ID:t | appId |
     | Klienthemlighet | Lösenord | password |
     | | | |
 
@@ -208,6 +208,6 @@ Nu du har konfigurerat Datautforskaren i Azure som en datakälla för Grafana, �
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Skriva frågor för Azure Data Explorer](write-queries.md)
+* [Skriva frågor för Azure Data Explorer](write-queries.md)
 
-[Självstudie: Visualisera data från Azure Data Explorer i Power BI](visualize-power-bi.md)
+* [Självstudie: Visualisera data från Azure Data Explorer i Power BI](visualize-power-bi.md)

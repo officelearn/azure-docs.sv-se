@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: pabutler
-ms.openlocfilehash: 0b14180c894977d822aa30ea5f46a2e21e247dc1
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: dd2e68c820a8c9e503a3539fd50bf3fba68e3949
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64942321"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257530"
 ---
 # <a name="dynamics-365-for-customer-engagement-prerequisites"></a>Dynamics 365 för kundengagemang förutsättningar
 
@@ -40,7 +40,7 @@ Din Dynamics 365 för kundengagemang program måste uppfylla de [Microsoft AppSo
 
 Affärskraven omfattar följande procedur, avtalsenliga och juridiska skyldigheter:
 
-* Du måste vara registrerad på den [Microsoft Partner Network (MPN)](https://partners.microsoft.com/PartnerProgram/simplifiedenrollment.aspx) eller vara en registrerad molnet Marketplace-utgivare. Om du inte är registrerad, följer du stegen i [blir molnet Marketplace utgivare](../../become-publisher.md).  (Använd i stället för det tredje steget i [AppSource partner nomineringsformuläret](https://appsource.microsoft.com/partners/signup)). 
+* Du måste vara registrerad på den [Microsoft Partner Network (MPN)](https://partners.microsoft.com/PartnerProgram/simplifiedenrollment.aspx) eller vara en registrerad molnet Marketplace-utgivare. Om du inte är registrerad, följer du stegen i [blir molnet Marketplace utgivare](https://docs.microsoft.com/azure/marketplace/become-publisher).  (Använd i stället för det tredje steget i [AppSource partner nomineringsformuläret](https://appsource.microsoft.com/partners/signup)). 
 
     >[!NOTE]
     >Du bör använda samma konto för registrering av Microsoft Developer Center för att logga in på partnerportalen i molnet. Du bör ha endast en Microsoft-konto för alla dina Azure Marketplace-erbjudanden. Det här kontot får inte vara specifika för enskilda tjänster eller erbjudanden.

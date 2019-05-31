@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 2/14/2018
 ms.author: robb
 ms.subservice: ''
-ms.openlocfilehash: 59cb14c86963d956b0bd63f65b10776dff4aa97f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ada62fbfa51604a6b3188c27d5c14da40c8ac116
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60452729"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66400214"
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Snabbstartsexempel för Azure Monitor PowerShell
 Den här artikeln visar exempel på PowerShell-kommandon för att få åtkomst till Azure Monitor-funktioner.
@@ -42,6 +42,11 @@ Du ser ett tecken på skärmen. När du loggar in ditt konto, TenantID, och stan
 Get-AzSubscription
 ```
 
+Se din fungerande kontext (vilken prenumeration din kommandon körs mot), använder du följande kommando:
+
+```powershell
+Get-AzContext
+```
 Om du vill ändra den fungerande kontexten till en annan prenumeration, använder du följande kommando:
 
 ```powershell
@@ -50,18 +55,23 @@ Set-AzContext -SubscriptionId <subscriptionid>
 
 
 ## <a name="retrieve-activity-log-for-a-subscription"></a>Hämta aktivitetsloggen för en prenumeration
-Använd den `Get-AzLog` cmdlet.  Här följer några vanliga exempel.
+Använd den [Get-AzLog](https://docs.microsoft.com/powershell/module/az.monitor/get-azlog) cmdlet.  Här följer några vanliga exempel. Aktivitetsloggen innehåller de senaste 90 dagarna av åtgärder. Använda datum innan den här gången resultaten i ett felmeddelande.  
+
+Se vilka aktuellt datum och tid är att verifiera vad att alltid använda i kommandona nedan:
+```powershell
+Get-Date
+```
 
 Hämta poster från den här tid/datum att presentera:
 
 ```powershell
-Get-AzLog -StartTime 2016-03-01T10:30
+Get-AzLog -StartTime 2019-03-01T10:30
 ```
 
 Hämta loggposter mellan flera tid/datum:
 
 ```powershell
-Get-AzLog -StartTime 2015-01-01T10:30 -EndTime 2015-01-01T11:30
+Get-AzLog -StartTime 2019-01-01T10:30 -EndTime 2015-01-01T11:30
 ```
 
 Hämta poster från en specifik resursgrupp:
@@ -85,13 +95,13 @@ Get-AzLog -Caller 'myname@company.com'
 Följande kommando hämtar de senaste 1 000 händelserna från aktivitetsloggen:
 
 ```powershell
-Get-AzLog -MaxEvents 1000
+Get-AzLog -MaxRecord 10
 ```
 
 `Get-AzLog` har stöd för många parametrar. Se den `Get-AzLog` ha mer information.
 
 > [!NOTE]
-> `Get-AzLog` endast ger 15 dagar tidigare. Med hjälp av den **- MaxEvents** parametern kan du fråga efter de senaste N-händelserna efter 15 dagar. Använda REST API eller SDK (C#-exempel med hjälp av SDK) till åtkomsthändelser som är äldre än 15 dagar. Om du inte använder **StartTime**, och standardvärdet är **EndTime** minus en timme. Om du inte använder **EndTime**, och standardvärdet är aktuell tid. Hela tiden är i UTC.
+> `Get-AzLog` endast ger 15 dagar tidigare. Med hjälp av den **, maxRecords,** parametern kan du fråga efter de senaste N-händelserna efter 15 dagar. Använda REST API eller SDK (C#-exempel med hjälp av SDK) till åtkomsthändelser som är äldre än 15 dagar. Om du inte använder **StartTime**, och standardvärdet är **EndTime** minus en timme. Om du inte använder **EndTime**, och standardvärdet är aktuell tid. Hela tiden är i UTC.
 > 
 > 
 
@@ -140,7 +150,7 @@ Du kan skapa e-post och webhook-egenskaper med hjälp av `New-AzAlertRuleEmail` 
 
 I följande tabell beskrivs de parametrar och värden som används för att skapa en avisering med mått.
 
-| Parameter | value |
+| parameter | value |
 | --- | --- |
 | Namn |simpletestdiskwrite |
 | Platsen för den här aviseringsregeln |Östra USA |

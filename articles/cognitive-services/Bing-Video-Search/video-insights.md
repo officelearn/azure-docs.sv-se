@@ -10,16 +10,16 @@ ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: scottwhi
-ms.openlocfilehash: b024d61c3542293202f0b409b8b3e520a75168c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c5f3a43a6c48714566b5c53b33fe541b50d61589
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61431811"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66383883"
 ---
 # <a name="get-insights-about-a-video"></a>Få insikter om en video
 
-Varje video som returneras av Sök-API för Bing-Video innehåller en video-ID som du kan använda för att få mer information om den, till exempel relaterade videor. För att få insikter om en video kan hämta dess [videoId](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#video-videoid) token i API-svaret. 
+Varje video som returneras av Sök-API för Bing-Video innehåller en video-ID som du kan använda för att få mer information om den, till exempel relaterade videor. För att få insikter om en video kan hämta dess [videoId](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video-videoid) token i API-svaret. 
 
 ```json
     "value" : [
@@ -34,7 +34,7 @@ Varje video som returneras av Sök-API för Bing-Video innehåller en video-ID s
     ],
 ```
 
-Därefter skicka en GET-begäran till slutpunkten för information om videon med-ID. Ange den [id](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#id) frågeparameter till den `videoId` token. Om du vill ange de insikter som du vill hämta, ange den [moduler](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#modulesrequested) frågeparameter. Om du vill hämta alla insikter, ange `modules` till alla. Svaret innehåller alla de insikter som du har begärt, om det är tillgängligt.
+Därefter skicka en GET-begäran till slutpunkten för information om videon med-ID. Ange den [id](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#id) frågeparameter till den `videoId` token. Om du vill ange de insikter som du vill hämta, ange den [moduler](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#modulesrequested) frågeparameter. Om du vill hämta alla insikter, ange `modules` till alla. Svaret innehåller alla de insikter som du har begärt, om det är tillgängligt.
 
 ```cURL
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/details?q=sailiing+dinghies&id=6DB795E11A6E3CBAAD636DB795E11A6E3CBAAD63&modules=All&mkt=en-us HTTP/1.1  
@@ -48,7 +48,7 @@ Host: api.cognitive.microsoft.com
 
 ## <a name="getting-related-videos-insights"></a>Informationshämtning relaterade videor  
 
-För att få videor som är relaterade till den angivna videon kan du ange den [moduler](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#modulesrequested) frågeparameter till `RelatedVideos`.
+För att få videor som är relaterade till den angivna videon kan du ange den [moduler](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#modulesrequested) frågeparameter till `RelatedVideos`.
   
 ```cURL  
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/details?q=sailiing+dinghies&id=6DB795E11A6E3CBAAD636DB795E11A6E3CBAAD63&modules=RelatedVideos&mkt=en-us HTTP/1.1  
@@ -60,7 +60,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com  
 ```  
 
-Svaret på den här begäran har en högsta [VideoDetails](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videodetails) objekt i stället för en [videor](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos) objekt.  
+Svaret på den här begäran har en högsta [VideoDetails](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videodetails) objekt i stället för en [videor](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) objekt.  
   
 ```json
 {

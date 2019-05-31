@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: pabutler
-ms.openlocfilehash: d35e221790c2f94caf582859f78389ecca987709
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 58451dd225a4f0625a6922bde672a6928ea50943
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64942207"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257495"
 ---
 # <a name="cloud-partner-portal-management"></a>Partnerportalen molnhantering
 
@@ -24,7 +24,7 @@ Det här avsnittet beskrivs vilka typer av åtgärder som är tillgängliga för
 Innan du använder Cloud Partner Portal, bör du bekanta dig med följande artiklar:
 
 - [Azure Marketplace-principer och villkor](../../policies-terms.md) visas de olika juridiska och tekniska krav och regler som gäller för användare av och utgivare kan den [Azure Marketplace](https://azuremarketplace.microsoft.com) och [AppSource](https://appsource.microsoft.com).
-- [Bli en Cloud Marketplace Publisher](../../become-publisher.md) innehåller en översikt över alla steg som krävs för att bli en officiella Microsoft cloud utgivare.
+- [Bli en Cloud Marketplace Publisher](https://docs.microsoft.com/azure/marketplace/become-publisher) innehåller en översikt över alla steg som krävs för att bli en officiella Microsoft cloud utgivare.
 
 
 ## <a name="account-creation-and-management"></a>Konto skapande och hantering

@@ -9,43 +9,45 @@ ms.topic: conceptual
 ms.author: mesameki
 author: mesameki
 ms.reviewer: larryfr
-ms.date: 04/29/2019
-ms.openlocfilehash: 4261e869fe17283886d7d8ea8101e03110d6dad4
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.date: 05/30/2019
+ms.openlocfilehash: 94309a019800b560cf6731d84cea324932e3f357
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65851997"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66398533"
 ---
 # <a name="model-interpretability-with-azure-machine-learning-service"></a>Modellen interpretability med Azure Machine Learning-tjänsten
 
-I den här artikeln får du lära dig att förklara varför din modell gjort förutsägelserna med interpretability paketet av Azure Machine Learning Python SDK.
+I den här artikeln får du lära dig hur att förklara varför förutsägelserna gjorts i din modell med de olika interpretability paket av Azure Machine Learning Python SDK.
 
-Använda klasser och metoder i det här paketet kan få du:
-+ Interpretability verkliga datauppsättningar i stor skala, under utbildning och inferens. 
+Använda klasser och metoder i SDK kan få du:
++ Funktionen vikten värden för både rådata och bakåtkompilerade funktioner
++ Interpretability verkliga datauppsättningar i stor skala, under utbildning och inferens.
 + Interaktiva visualiseringar som hjälper dig i identifiering av mönster i data och förklaringar på utbildning
-+ Funktionen vikten värden: både rådata och bakåtkompilerade funktioner
 
-Under fasen utbildning av utvecklingscykeln kan modellen designers och bedömare använda för att förklara utdata från en modell för intressenter att skapa förtroendet.  De även använda insikter om modellen för felsökning, verifierar beteendet för enhetsmodellen matchar deras mål, och att söka efter bias.
+Under fasen utbildning av utvecklingscykeln använder modellen designers och bedömare interpretability resultatet för en modell för att verifiera hypoteser och skapa förtroende med intressenter.  De även använda insikter om modellen för felsökning, verifierar beteendet för enhetsmodellen matchar deras mål, och att söka efter bias.
 
-Inferens eller modell bedömning är fasen där distribuerade modellen används för förutsägelse oftast på produktionsdata. Under den här fasen förklara dataexperter de resulterande förutsägelserna för de personer som använder din modell. Till exempel varför modellen neka en lånet eller förutsäga att en investeringsportfölj innebär en högre risk?
+I machine learning **funktioner** är datafält som används för att förutsäga en datapunkt för målet. Till exempel för att förutsäga kreditrisker kanske datafält för ålder, kontostorlek och konto ålder används. I det här fallet ålder, kontostorlek och konto ålder är **funktioner**. Funktionen vikten anger hur varje fält påverkas modellens förutsägelser. Till exempel kan ålder kraftigt användas i förutsägelsen medan kontostorlek och ålder inte påverkar prognosens noggrannhet kan förbättras avsevärt. Den här processen kan dataforskare att förklara resulterande förutsägelser så att intressenter har insyn i vilka datapunkter som är viktigast i modellen.
 
-Med hjälp av dessa erbjuder ni förklara maskininlärningsmodeller **globalt på alla data**, eller **lokalt på en viss datapunkt** med för avancerade tekniker i ett enkelt att använda och skalbart sätt.
+Med dessa verktyg kan du förklara maskininlärningsmodeller **globalt på alla data**, eller **lokalt på en specifik datapunkter** med för avancerade tekniker i ett enkelt att använda och skalbart sätt.
 
-Klasserna interpretability görs tillgängliga via två Python-paket. Lär dig hur du [installera SDK-paket för Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
+Klasserna interpretability görs tillgängliga via flera SDK-paket. Lär dig hur du [installera SDK-paket för Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 
-* [`azureml.explain.model`](https://docs.microsoft.com/python/api/azureml-explain-model/?view=azure-ml-py), det största paket, som innehåller funktioner som stöds av Microsoft. 
+* [`azureml.explain.model`](https://docs.microsoft.com/python/api/azureml-explain-model/?view=azure-ml-py), det största paket, som innehåller funktioner som stöds av Microsoft.
 
 * `azureml.contrib.explain.model`, preview och experimentella funktioner som du kan prova.
 
+* `azureml.train.automl.automlexplainer` paketet för att tolka automatiserade machine learning-modeller.
+
 > [!IMPORTANT]
-> Saker i contrib stöds inte fullt ut. När de experimentella funktionerna blir mogen, flyttas de gradvis till det huvudsakliga paketet.
+> Innehåll i den `contrib` namnområde stöds inte fullt ut. När de experimentella funktionerna blir mogen, flyttas de gradvis till det huvudsakliga namnområdet.
 
 ## <a name="how-to-interpret-your-model"></a>Så här tolkar du din modell
 
 Du kan använda interpretability klasser och metoder för att förstå modellens globala beteende eller specifika förutsägelser. Den tidigare versionen är globala förklaring och det senare kallas lokala förklaring.
 
-Metoderna som kan kategoriseras även baserat på om metoden är oberoende av modellen eller specifika modellen. Vissa metoder rikta in vissa typer av modeller. Till exempel gäller Formdatas trädet förklaring endast för trädet-baserade modellen. Vissa metoder behandlar modellen som en svart ruta, till exempel mimic förklaring eller Formdatas kernel förklaring. Den `explain` paketet utnyttjar dessa olika sätt utifrån datauppsättningar, modelltyper och användningsfall. 
+Metoderna som kan kategoriseras även baserat på om metoden är oberoende av modellen eller specifika modellen. Vissa metoder rikta in vissa typer av modeller. Till exempel gäller Formdatas trädet förklaring endast för trädet-baserade modellen. Vissa metoder behandlar modellen som en svart ruta, till exempel mimic förklaring eller Formdatas kernel förklaring. Den `explain` paketet utnyttjar dessa olika sätt utifrån datauppsättningar, modelltyper och användningsfall.
 
 Utdata är en uppsättning med information om hur en viss modell gör dess prognoser, till exempel:
 * Global/lokal relativa funktionen prioritet
@@ -103,9 +105,9 @@ Den `explain` paketet är utformat för att arbeta med både lokala och fjärran
 
 ### <a name="train-and-explain-locally"></a>Träna och förklarar lokalt
 
-1. Träna din modell i en lokal Jupyter-anteckningsbok. 
+1. Träna din modell i en lokal Jupyter-anteckningsbok.
 
-    ``` python
+    ```python
     # load breast cancer dataset, a well-known small dataset that comes with scikit-learn
     from sklearn.datasets import load_breast_cancer
     from sklearn import svm
@@ -126,8 +128,9 @@ Den `explain` paketet är utformat för att arbeta med både lokala och fjärran
     # "features" and "classes" fields are optional
     explainer = TabularExplainer(model, x_train, features=breast_cancer_data.feature_names, classes=classes)
     ```
+
     eller
-    
+
     ```python
     from azureml.explain.model.mimic.mimic_explainer import MimicExplainer
     from azureml.explain.model.mimic.models.lightgbm_model import LGBMExplainableModel
@@ -152,16 +155,18 @@ Den `explain` paketet är utformat för att arbeta med både lokala och fjärran
     ```python
     # explain the first data point in the test set
     local_explanation = explainer.explain_local(x_test[0])
-    
+
     # sorted feature importance values and feature names
     sorted_local_importance_names = local_explanation.get_ranked_local_names()
     sorted_local_importance_values = local_explanation.get_ranked_local_values()
     ```
+
     eller
+
     ```python
     # explain the first five data points in the test set
     local_explanation = explainer.explain_local(x_test[0:4])
-    
+
     # sorted feature importance values and feature names
     sorted_local_importance_names = local_explanation.get_ranked_local_names()
     sorted_local_importance_values = local_explanation.get_ranked_local_values()
@@ -173,14 +178,14 @@ Medan du kan träna på olika beräkningsmål som stöds av Azure Machine Learni
 
 1. Skapa ett inlärningsskript i en lokal Jupyter-anteckningsbok (till exempel run_explainer.py).
 
-    ``` python  
+    ```python
     run = Run.get_context()
     client = ExplanationClient.from_run(run)
-    
+
     # Train your model here
 
-    # explain predictions on your local machine   
-    # "features" and "classes" fields are optional 
+    # explain predictions on your local machine
+    # "features" and "classes" fields are optional
     explainer = TabularExplainer(model, x_train, features=breast_cancer_data.feature_names, classes=classes)
     # explain overall model predictions (global explanation)
     global_explanation = explainer.explain_global(x_test)
@@ -198,10 +203,9 @@ Medan du kan träna på olika beräkningsmål som stöds av Azure Machine Learni
 
 2. Följ anvisningarna på [konfigurera beräkningsmål för modellträning](how-to-set-up-training-targets.md#amlcompute) mer information om hur du konfigurerar en Azure Machine Learning Compute som din beräkningsmål och skicka in din utbildning-körning.
 
-3. Hämta förklaring i din lokal Jupyter-anteckningsbok. 
+3. Hämta förklaring i din lokal Jupyter-anteckningsbok.
 
-
-    ``` python
+    ```python
     from azureml.contrib.explain.model.explanation.explanation_client import ExplanationClient
     # Get model explanation data
     client = ExplanationClient.from_run(run)
@@ -239,6 +243,7 @@ Följande områden tillhandahåller en global vy av den tränade modellen tillsa
 [![Instrumentpanelen för visualisering globala](./media/machine-learning-interpretability-explainability/global-charts.png)](./media/machine-learning-interpretability-explainability/global-charts.png#lightbox)
 
 ### <a name="local-visualizations"></a>Lokala visualiseringar
+
 Du kan klicka på en enskild datapunkt när som helst av de föregående diagrammen att läsa in lokala funktion vikten området för den angivna datapunkten.
 
 |Rita|Beskrivning|
@@ -253,11 +258,11 @@ Använd följande kod för att läsa in instrumentpanelen för visualisering:
 from azureml.contrib.explain.model.visualize import ExplanationDashboard
 
 ExplanationDashboard(global_explanation, model, x_test)
-``` 
+```
 
 ## <a name="raw-feature-transformations"></a>Rå funktionen omvandlingar
 
-Du kan också skicka din funktion på transfomeringspipeline till förklaring att ta emot förklaringar när det gäller de råa funktionerna innan den transformering (snarare än bakåtkompilerade funktioner). Om du hoppar över det här ger förklaring förklaringar när det gäller bakåtkompilerade funktioner. 
+Du kan också skicka din funktion på transfomeringspipeline till förklaring att ta emot förklaringar när det gäller de råa funktionerna innan den transformering (snarare än bakåtkompilerade funktioner). Om du hoppar över det här ger förklaring förklaringar när det gäller bakåtkompilerade funktioner.
 
 Formatet för stöds transformationer är samma som det beskrivs i [sklearn pandas](https://github.com/scikit-learn-contrib/sklearn-pandas). I allmänhet stöds alla transformeringar så länge som de fungerar på en enda kolumn och därför är tydligt en till många.
 
@@ -292,33 +297,37 @@ tabular_explainer = TabularExplainer(clf.steps[-1][1], initialization_examples=x
 Förklaring kan distribueras tillsammans med den ursprungliga modellen och kan användas vid bedömning tid för att ange information om lokala förklaring. Processen för att distribuera en arbetsflödesbaserad förklaring påminner om att distribuera en modell och omfattar följande steg:
 
 1. Skapa ett objekt för förklaring:
+
    ```python
    from azureml.contrib.explain.model.tabular_explainer import TabularExplainer
 
    explainer = TabularExplainer(model, x_test)
-   ``` 
+   ```
 
 1. Skapa en arbetsflödesbaserad förklaring med hjälp av objektet förklaring:
+
    ```python
    scoring_explainer = explainer.create_scoring_explainer(x_test)
 
    # Pickle scoring explainer
    scoring_explainer_path = scoring_explainer.save('scoring_explainer_deploy')
-   ``` 
+   ```
 
 1. Konfigurera och registrera en avbildning som använder bedömningsmodell för förklaring.
+
    ```python
    # Register explainer model using the path from ScoringExplainer.save - could be done on remote compute
    run.upload_file('breast_cancer_scoring_explainer.pkl', scoring_explainer_path)
    model = run.register_model(model_name='breast_cancer_scoring_explainer', model_path='breast_cancer_scoring_explainer.pkl')
    print(model.name, model.id, model.version, sep = '\t')
-   ``` 
+   ```
 
 1. [Valfritt] Hämta bedömnings förklaring från molnet och testa förklaringarna
+
    ```python
    from azureml.contrib.explain.model.scoring.scoring_explainer import ScoringExplainer
 
-   # Retreive the scoring explainer model from cloud"
+   # Retrieve the scoring explainer model from cloud"
    scoring_explainer_model = Model(ws, 'breast_cancer_scoring_explainer')
    scoring_explainer_model_path = scoring_explainer_model.download(target_dir=os.getcwd(), exist_ok=True)
 
@@ -333,6 +342,7 @@ Förklaring kan distribueras tillsammans med den ursprungliga modellen och kan a
 1. Distribuera avbildningen till ett beräkningsmål:
 
    1. Skapa en bedömningsfilen (innan det här steget, följer du stegen i [distribuera modeller med Azure Machine Learning-tjänsten](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where) att registrera din ursprungliga prognosmodell med tidsserie)
+
         ```python
         %%writefile score.py
         import json
@@ -365,50 +375,55 @@ Förklaring kan distribueras tillsammans med den ursprungliga modellen och kan a
             local_importance_values = scoring_explainer.explain(data)
             # You can return any data type as long as it is JSON-serializable
             return {'predictions': predictions.tolist(), 'local_importance_values': local_importance_values}
-        ``` 
-    1. Definiera distributionskonfigurationen (den här konfigurationen beror på kraven i din modell. Följande exempel definierar en konfiguration som använder en processorkärna och 1 GB minne)
+        ```
+
+   1. Definiera distributionskonfigurationen (den här konfigurationen beror på kraven i din modell. Följande exempel definierar en konfiguration som använder en processorkärna och 1 GB minne)
+
         ```python
         from azureml.core.webservice import AciWebservice
 
-        aciconfig = AciWebservice.deploy_configuration(cpu_cores=1, 
-                                                       memory_gb=1, 
-                                                       tags={"data": "breastcancer",  
-                                                             "method" : "local_explanation"}, 
+        aciconfig = AciWebservice.deploy_configuration(cpu_cores=1,
+                                                       memory_gb=1,
+                                                       tags={"data": "breastcancer",
+                                                             "method" : "local_explanation"},
                                                        description='Get local explanations for breast cancer data')
-        ``` 
+        ```
 
-    1. Skapa en fil med miljö beroenden
+   1. Skapa en fil med miljö beroenden
 
         ```python
-        from azureml.core.conda_dependencies import CondaDependencies 
+        from azureml.core.conda_dependencies import CondaDependencies
 
         # WARNING: to install this, g++ needs to be available on the Docker image and is not by default (look at the next cell)
 
 
-        myenv = CondaDependencies.create(pip_packages=["azureml-defaults", "azureml-explain-model", "azureml-contrib-explain-model"], 
+        myenv = CondaDependencies.create(pip_packages=["azureml-defaults", "azureml-explain-model", "azureml-contrib-explain-model"],
                                         conda_packages=["scikit-learn"])
 
         with open("myenv.yml","w") as f:
             f.write(myenv.serialize_to_string())
-            
+
         with open("myenv.yml","r") as f:
             print(f.read())
-        ``` 
-    1. Skapa en anpassad docker-fil med g ++ installerat
+        ```
+
+   1. Skapa en anpassad docker-fil med g ++ installerat
 
         ```python
         %%writefile dockerfile
-        RUN apt-get update && apt-get install -y g++  
-        ``` 
-    1. Distribuera den skapa avbildningen (Uppskattad tidsåtgång: 5 minuter)
+        RUN apt-get update && apt-get install -y g++
+        ```
+
+   1. Distribuera den skapa avbildningen (Uppskattad tidsåtgång: 5 minuter)
+
         ```python
         from azureml.core.webservice import Webservice
         from azureml.core.image import ContainerImage
 
         # Use the custom scoring, docker, and conda files we created above
         image_config = ContainerImage.image_configuration(execution_script="score.py",
-                                                        docker_file="dockerfile", 
-                                                        runtime="python", 
+                                                        docker_file="dockerfile",
+                                                        runtime="python",
                                                         conda_file="myenv.yml")
 
         # Use configs and models generated above
@@ -419,9 +434,10 @@ Förklaring kan distribueras tillsammans med den ursprungliga modellen och kan a
                                             image_config=image_config)
 
         service.wait_for_deployment(show_output=True)
-        ``` 
+        ```
 
 1. Testa distributionen
+
     ```python
     import requests
 
@@ -438,9 +454,33 @@ Förklaring kan distribueras tillsammans med den ursprungliga modellen och kan a
     print("POST to url", service.scoring_uri)
     # can covert back to Python objects from json string if desired
     print("prediction:", resp.text)
-    ``` 
+    ```
 
 1. Rensa: Ta bort en distribuerad webbtjänst genom att använda `service.delete()`.
+
+## <a name="interpretability-in-automated-ml"></a>Interpretability i automatiserade ML
+
+Automatiserad maskininlärning innehåller paket för att tolka funktionen betydelse i auto-utbildade modeller. Dessutom kan klassificering scenarier du hämta klassnivå funktionen prioritet. Det finns två metoder för att aktivera det här beteendet i automatiserade maskininlärning:
+
+* Om du vill aktivera funktionen betydelse för en tränad ensemble modell, använda den [ `explain_model()` ](https://docs.microsoft.com/en-us/python/api/azureml-train-automl/azureml.train.automl.automlexplainer?view=azure-ml-py) funktion.
+
+    ```python
+    from azureml.train.automl.automlexplainer import explain_model
+
+    shap_values, expected_values, overall_summary, overall_imp, \
+        per_class_summary, per_class_imp = explain_model(fitted_model, X_train, X_test)
+    ```
+
+* Om du vill aktivera funktionen vikten för varje enskild innan utbildning, ange den `model_explainability` parameter `True` i den `AutoMLConfig` objekt, tillsammans med tillhandahåller verifieringsdata för. Använd sedan den [ `retrieve_model_explanation()` ](https://docs.microsoft.com/en-us/python/api/azureml-train-automl/azureml.train.automl.automlexplainer?view=azure-ml-py) funktion.
+
+    ```python
+    from azureml.train.automl.automlexplainer import retrieve_model_explanation
+
+    shap_values, expected_values, overall_summary, overall_imp, per_class_summary, \
+        per_class_imp = retrieve_model_explanation(best_run)
+    ```
+
+Mer information finns i den [how-to](how-to-configure-auto-train.md#explain-the-model-interpretability) om hur du aktiverar interpretability funktioner i automatiserade machine learning.
 
 ## <a name="next-steps"></a>Nästa steg
 

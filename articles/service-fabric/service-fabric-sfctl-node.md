@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 08ea0081c84ea31b2b71d03679b1b527cf94c075
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1e5b5876fa6277d1bad0989c543de667f75a066c
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60556788"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258735"
 ---
 # <a name="sfctl-node"></a>sfctl node
 Hantera de noder som formar ett kluster.
@@ -28,8 +28,8 @@ Hantera de noder som formar ett kluster.
 
 |Kommando|Beskrivning|
 | --- | --- |
-| inaktivera | Inaktivera en Service Fabric-klusternod med angivna inaktivering avsikt. |
-| aktivera | Aktivera en Service Fabric-klusternod som för närvarande har inaktiverats. |
+| Inaktivera | Inaktivera en Service Fabric-klusternod med angivna inaktivering avsikt. |
+| Aktivera | Aktivera en Service Fabric-klusternod som för närvarande har inaktiverats. |
 | hälsa | Hämtar hälsotillståndet för en Service Fabric-nod. |
 | info | Hämtar information om en viss nod i Service Fabric-klustret. |
 | lista | Hämtar listan över noder i Service Fabric-klustret. |
@@ -180,6 +180,8 @@ Hämtar information för belastning för en Service Fabric-nod för alla mått s
 Meddelar Service Fabric att det beständiga tillståndet på en nod har permanent bort eller tappas bort.
 
 Detta innebär att det inte går att återställa det sparade tillståndet för noden. Detta inträffar vanligtvis om en hårddisk har rensats ren, eller om en hårddisk kraschar. Noden har inte är tillgänglig för den här åtgärden ska lyckas. Den här åtgärden kan Service Fabric vet att replikerna på noden finns inte längre och som Service Fabric ska avbrytas väntar på dessa replikerna är igång. Kör inte denna cmdlet om tillståndet på noden inte har tagits bort och noden kan gå tillbaka med statusen intakta.
+
+Från och med Service Fabric 6.5, för att kunna använda denna cmdlet för startvärdesnoder,. Ändra seed-noder till vanliga (icke-) startvärdesnoder och sedan anropa denna cmdlet för att ta bort node-tillstånd. Om klustret körs på Azure, när noden seed kraschar, försöker Service Fabric ändra den automatiskt till en icke-seed-nod. Om du vill göra det gör att är antalet icke-startvärdesnoder i den primära nodtypen inte lägre än antalet ned startvärdesnoder. Om det behövs kan du lägga till fler noder till den primära nodtypen att uppnå detta. För fristående kluster om noden seed ned inte förväntas är igång med statusen intakta,. Ta bort noden från klustret, se [ta bort noder från fristående Service Fabric-kluster](/azure/service-fabric/service-fabric-cluster-windows-server-add-remove-nodes) 
 
 ### <a name="arguments"></a>Argument
 

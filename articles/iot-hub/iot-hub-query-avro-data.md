@@ -5,29 +5,29 @@ author: ash2017
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 05/29/2018
+ms.date: 05/15/2019
 ms.author: asrastog
-ms.openlocfilehash: 69c890cfc3db04fe625ed7ad008f545c01844834
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 84e1dd77c6e873dc2facb5126bbddf795192b60d
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61441634"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257752"
 ---
 # <a name="query-avro-data-by-using-azure-data-lake-analytics"></a>Fråga Avro-data med hjälp av Azure Data Lake Analytics
 
-Den här artikeln beskrivs hur du frågar Avro-data för att effektivt dirigera meddelanden från Azure IoT Hub till Azure-tjänster. [Message Routing](iot-hub-devguide-messages-d2c.md) kan du filtrera data med hjälp av komplexa frågor baserat på meddelandeegenskaper, meddelandetexten, device twin taggar och tvillingegenskaper. Om du vill veta mer om förfrågningar till funktionerna i meddelandet routning finns i artikeln om frågesyntax för routning till meddelandet. 
-<!--[Message Routing Query Syntax](iot-hub-devguide-routing-query-syntax.md). I don't have this article yet. -->
+Den här artikeln beskrivs hur du frågar Avro-data för att effektivt dirigera meddelanden från Azure IoT Hub till Azure-tjänster. [Message Routing](iot-hub-devguide-messages-d2c.md) kan du filtrera data med hjälp av komplexa frågor baserat på meddelandeegenskaper, meddelandetexten, device twin taggar och tvillingegenskaper. Mer information om förfrågningar till funktionerna i meddelandet routning finns i artikeln [meddelande frågesyntax för routning](iot-hub-devguide-routing-query-syntax.md).
 
-Utmaningen har som när Azure IoT Hub skickar meddelanden till Azure Blob storage, skriver IoT Hub innehållet i Avro-format, vilket har både ett meddelande brödtext egenskapen och ett meddelande. Skrivdata till Blob storage stöds av IoT Hub i Avro-data-format och det här formatet används inte för andra slutpunkter. Mer information finns i en artikel om hur du använder Azure Storage-behållare. Avro-formatet är perfekt för data och meddelandet konservering, är det svårt att använda den för att köra frågor mot data. Däremot är det mycket enklare för att fråga data med JSON- eller CSV-format.
+Utmaningen har varit att när Azure IoT Hub skickar meddelanden till Azure Blob storage, som standard IoT Hub skrivs innehållet i Avro-format, vilket har både ett meddelande brödtext egenskapen och ett meddelande. Avro-format används inte för andra slutpunkter. Avro-formatet är perfekt för data och meddelandet konservering, är det svårt att använda den för att köra frågor mot data. Däremot är det mycket enklare för att fråga data med JSON- eller CSV-format. IoT Hub stöder nu skriva data till Blob-lagring i JSON, samt AVRO.
 
-<!-- https://review.docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c?branch=pr-en-us-51566#azure-blob-storage  NEW LINK FOR 'WHEN USING STORAGE CONTAINERS' -->
+Mer information finns i [med hjälp av Azure Blob Storage som en slutpunkt för routning](iot-hub-devguide-messages-d2c.md#azure-blob-storage).
 
-Du kan använda många av big data-mönster för både omvandling samt skala data för att åtgärda icke-relationella stordata behov och format och lösa denna utmaning. En av mönster ”betala per fråga”, är Azure Data Lake Analytics, vilket är fokus i den här artikeln. Även om du enkelt kan utföra frågan i Hadoop eller andra lösningar är ofta bättre Data Lake Analytics lämpligt för den här metoden för ”betala per fråga”. 
+Du kan använda många av big data-mönster för både omvandling samt skala data för att åtgärda icke-relationella stordata behov och format och lösa denna utmaning. En av mönster ”betala per fråga”, är Azure Data Lake Analytics, vilket är fokus i den här artikeln. Även om du enkelt kan utföra frågan i Hadoop eller andra lösningar är ofta bättre Data Lake Analytics lämpligt för den här metoden för ”betala per fråga”.
 
 Det finns en ”extraktor” för Avro i U-SQL. Mer information finns i [U-SQL-Avro exempel](https://github.com/Azure/usql/tree/master/Examples/AvroExamples).
 
 ## <a name="query-and-export-avro-data-to-a-csv-file"></a>Fråga efter och exportera Avro-data till en CSV-fil
+
 I det här avsnittet ska du fråga efter data med Avro och exportera den till en CSV-fil i Azure Blob storage, men du kan enkelt placera data i andra databaser eller datalager.
 
 1. Konfigurera Azure IoT Hub att vidarebefordra data till en Azure Blob storage-slutpunkt med hjälp av en egenskap i meddelandetexten och välj meddelanden.
@@ -49,21 +49,21 @@ I det här avsnittet ska du fråga efter data med Avro och exportera den till en
 4. Konfigurera Azure Blob storage som ett ytterligare store, samma Blob storage som Azure IoT Hub skickar data till i Data Lake Analytics.
 
    ![Panelen ”datakällor”](./media/iot-hub-query-avro-data/query-avro-data-4.png)
- 
+
 5. Enligt beskrivningen i den [U-SQL-Avro exempel](https://github.com/Azure/usql/tree/master/Examples/AvroExamples), du behöver fyra DLL-filer. Överför filerna till en plats i din Data Lake Store-instans.
 
    ![Fyra överförda DLL-filer](./media/iot-hub-query-avro-data/query-avro-data-5.png)
 
 6. Skapa ett U-SQL-projekt i Visual Studio.
- 
+
    ! Skapa ett U-SQL-project](./media/iot-hub-query-avro-data/query-avro-data-6.png)
 
 7. Klistra in innehållet i följande skript i den nya filen. Ändra tre markerade avsnitt: Data Lake Analytics-kontot och associerade DLL sökvägarna rätt sökväg för ditt lagringskonto.
-    
+
    ![Tre avsnitt som ska ändras](./media/iot-hub-query-avro-data/query-avro-data-7a.png)
 
    Det faktiska U-SQL-skriptet för enkel utdata till en CSV-fil:
-    
+
     ```sql
         DROP ASSEMBLY IF EXISTS [Avro];
         CREATE ASSEMBLY [Avro] FROM @"/Assemblies/Avro/Avro.dll";
@@ -127,21 +127,21 @@ I det här avsnittet ska du fråga efter data med Avro och exportera den till en
         FROM @rs;
 
         OUTPUT @cnt TO @output_file USING Outputters.Text(); 
-    ```    
+    ```
 
     Det tog Data Lake Analytics fem minuter att köra följande skript, som var begränsat till 10 analysenheter och behandlas 177 filer. Resultatet visas i utdata för CSV-filen som visas i följande bild:
-    
+
     ![Resultatet av utdata till CSV-fil](./media/iot-hub-query-avro-data/query-avro-data-7b.png)
 
     ![Utdata som konverteras till CSV-fil](./media/iot-hub-query-avro-data/query-avro-data-7c.png)
 
     Om du vill parsa JSON, fortsätter du till steg 8.
-    
+
 8. De flesta IoT-meddelanden är i JSON-format. Genom att lägga till följande rader, kan du parsa meddelandet till en JSON-fil som kan lägga till WHERE-satserna och spara endast nödvändiga data.
 
     ```sql
-       @jsonify = 
-         SELECT Microsoft.Analytics.Samples.Formats.Json.JsonFunctions.JsonTuple(Encoding.UTF8.GetString(Body)) 
+       @jsonify =
+         SELECT Microsoft.Analytics.Samples.Formats.Json.JsonFunctions.JsonTuple(Encoding.UTF8.GetString(Body))
            AS message FROM @rs;
     
         /*
@@ -163,8 +163,8 @@ I det här avsnittet ska du fråga efter data med Avro och exportera den till en
         OUTPUT @cnt TO @output_file USING Outputters.Text();
     ```
 
-    Utdata visar en kolumn för varje objekt i den `SELECT` kommando. 
-    
+    Utdata visar en kolumn för varje objekt i den `SELECT` kommando.
+
     ![Utdata visar en kolumn för varje objekt](./media/iot-hub-query-avro-data/query-avro-data-8.png)
 
 ## <a name="next-steps"></a>Nästa steg

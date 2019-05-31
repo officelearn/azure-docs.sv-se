@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a20299887de827f25e4c3306f5e78c188c9a8a7f
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 95cde28bc4789346aabd58b5f7b543e1bbc989c1
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65969399"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357700"
 ---
 # <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>Installera SAP NetWeaver hög tillgänglighet på en Windows failover-kluster och filresursen för SAP ASCS/SCS-instanser i Azure
 
@@ -291,7 +291,7 @@ Set-Acl $UsrSAPFolder $Acl -Verbose
 
 ## <a name="create-a-virtual-host-name-for-the-clustered-sap-ascsscs-instance"></a>Skapa ett virtuellt värdnamn för den klustrade SAP ASCS/SCS-instansen
 
-Skapa en SAP ASCS/SCS klustrets nätverksnamn (till exempel **pr1 ascs [10.0.6.7]**), enligt beskrivningen i [skapa ett virtuellt värdnamn för den klustrade SAP ASCS/SCS-instansen] [ sap-high-availability-installation-wsfc-shared-disk-create-ascs-virt-host] .
+Skapa en SAP ASCS/SCS klustrets nätverksnamn (till exempel **pr1 ascs [10.0.6.7]** ), enligt beskrivningen i [skapa ett virtuellt värdnamn för den klustrade SAP ASCS/SCS-instansen] [ sap-high-availability-installation-wsfc-shared-disk-create-ascs-virt-host] .
 
 
 ## <a name="install-an-ascsscs-and-ers-instances-in-the-cluster"></a>Installera en ASCS/SCS och ÄNDARE instanser i klustret
@@ -300,7 +300,7 @@ Skapa en SAP ASCS/SCS klustrets nätverksnamn (till exempel **pr1 ascs [10.0.6.7
 
 Installera en SAP ASCS/SCS-instans i den första noden i klustret. Om du vill installera instansen i verktyget SAP SWPM installationen går du till:
 
-**\<Produkt >** > **\<DBMS >** > **Installation** > **ABAP-programserver** () eller **Java**) > **hög tillgänglighet System** > **ASCS/SCS-instans** > **första klusternoden**.
+**\<Produkt >**  >  **\<DBMS >**  > **Installation** > **ABAP-programserver** () eller **Java**) > **hög tillgänglighet System** > **ASCS/SCS-instans** > **första klusternoden**.
 
 ### <a name="add-a-probe-port"></a>Lägg till en avsökningsport
 
@@ -310,12 +310,12 @@ Konfigurera en SAP klusterresurs avsökningsporten SAP-SID-IP med hjälp av Powe
 
 Installera en SAP ASCS/SCS-instans i den andra noden i klustret. Om du vill installera instansen i verktyget SAP SWPM installationen går du till:
 
-**\<Produkt >** > **\<DBMS >** > **Installation** > **ABAP-programserver** () eller **Java**) > **hög tillgänglighet System** > **ASCS/SCS-instans** > **ny klusternod** .
+**\<Produkt >**  >  **\<DBMS >**  > **Installation** > **ABAP-programserver** () eller **Java**) > **hög tillgänglighet System** > **ASCS/SCS-instans** > **ny klusternod** .
 
 
 ## <a name="update-the-sap-ascsscs-instance-profile"></a>Uppdatera profilen för SAP ASCS/SCS-instans
 
-Uppdatera parametrar i profilen för SAP ASCS/SCS-instans \<SID >_ASCS/SCS\<Nr >_\<värd >.
+Uppdatera parametrar i profilen för SAP ASCS/SCS-instans \<SID >_ASCS/SCS\<Nr >_ \<värd >.
 
 
 | Parameternamn | Parametervärde |
@@ -324,7 +324,7 @@ Uppdatera parametrar i profilen för SAP ASCS/SCS-instans \<SID >_ASCS/SCS\<Nr >
 | enque/encni/set_so_keepalive  | **true** |
 | service/ha_check_node | **1** |
 
-Starta om SAP ASCS/SCS-instans. Ange `KeepAlive` parametrar på båda klusternoderna för SAP ASCS/SCS Följ instruktionerna för att [ange registerposter på klusternoderna av SAP ASCS/SCS-instans]([high-availability-guide]:high-availability-guide.md). 
+Starta om SAP ASCS/SCS-instans. Ange `KeepAlive` parametrar på båda klusternoderna för SAP ASCS/SCS Följ instruktionerna för att [ange registerposter på klusternoderna av SAP ASCS/SCS-instans][high-availability-guide]. 
 
 ## <a name="install-a-dbms-instance-and-sap-application-servers"></a>Installera en DBMS-instans och SAP-programservrar
 

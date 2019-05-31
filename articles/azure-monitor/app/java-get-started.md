@@ -12,17 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: lagayhar
-ms.openlocfilehash: bbf9c162cd52dc94ee820c8597f36f7cbfeace5a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4cc1456aa9928cbd4a24c203eab62e3e75b4d7c1
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60691332"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66256189"
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Komma igång med Application Insights i ett Java-webbprojekt
 
-
-[Application Insights](https://azure.microsoft.com/services/application-insights/) är en utökningsbar analystjänst för webbutvecklare som hjälper dig att förstå prestanda och användningen av ditt liveprogram. Att [automatiskt betalningsinstrument begäran, spåra beroenden och samla in prestandaräknare](auto-collect-dependencies.md#java), [diagnostisera prestandaproblem och undantag](../../azure-monitor/app/detect-triage-diagnose.md), och [skriva kod] [ api] att se vad användarna gör med din app. 
+[Application Insights](https://azure.microsoft.com/services/application-insights/) är en utökningsbar analystjänst för webbutvecklare som hjälper dig att förstå prestanda och användningen av ditt liveprogram. Att [automatiskt betalningsinstrument begäran, spåra beroenden och samla in prestandaräknare](auto-collect-dependencies.md#java), diagnostisera prestandaproblem och undantag, och [skriva kod] [ api] att se vad användarna gör med din app. 
 
 ![Skärmbild av översikt exempeldata](./media/java-get-started/overview-graphs.png)
 
@@ -487,7 +486,6 @@ Application Insights kan testa din webbplats med jämna mellanrum för att kontr
 * [Övervaka Unix-prestandaräknare](java-collectd.md)
 * Lägg till [övervakning till dina webbsidor](javascript.md) för att övervaka sidans belastning, AJAX-anrop, webbläsarundantag.
 * Skriv [anpassad telemetri](../../azure-monitor/app/api-custom-events-metrics.md) att spåra användningen i webbläsaren eller på servern.
-* Skapa [instrumentpaneler](../../azure-monitor/app/app-insights-dashboards.md) för att samordna nyckeldiagram för övervakning av systemet.
 * Använd [Analytics](../../azure-monitor/app/analytics.md) för kraftfulla frågor via telemetri från din app
 * Mer information finns i [Azure för Java-utvecklare](/java/azure).
 

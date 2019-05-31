@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/22/2019
 ms.author: absha
-ms.openlocfilehash: 07165a497e75934a65719e48a9af7d8d6906ee7b
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 66f61b5d6fcb86ed93e4dbae802ae7a80613c83d
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65538351"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66397843"
 ---
 # <a name="troubleshoot-azure-application-gateway-session-affinity-issues"></a>Felsöka Azure Application Gateway problem med Sessionstillhörighet
 
@@ -86,7 +86,7 @@ Följ anvisningarna för att identifiera det här problemet:
 
     ![Felsöka-session-tillhörighet-problem-3](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-3.png)
 
-        ![troubleshoot-session-affinity-issues-4](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-4.png)
+    ![Felsöka-session-tillhörighet-problem – 4](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-4.png)
 
 Programmet fortsätter att försök att ange cookien för varje begäran tills den får svar.
 
@@ -94,9 +94,9 @@ Programmet fortsätter att försök att ange cookien för varje begäran tills d
 
 Det här problemet uppstår eftersom Internet Explorer och andra webbläsare inte kan lagra eller använda cookien med en URL för kort namn.
 
-#### <a name="resolution"></a>Matchning
+#### <a name="resolution"></a>Lösning
 
-För att åtgärda problemet, bör du komma åt Application Gateway med hjälp av ett fullständigt domännamn. Till exempel använda [ http://website.com ](https://website.com/) eller [ http://appgw.website.com ](http://appgw.website.com/) .
+Åtgärda problemet genom att ansluta till Application Gateway med hjälp av ett fullständigt domännamn. Till exempel använda [ http://website.com ](https://website.com/) eller [ http://appgw.website.com ](http://appgw.website.com/) .
 
 ## <a name="additional-logs-to-troubleshoot"></a>Ytterligare loggar att felsöka
 
@@ -167,23 +167,23 @@ Använda felsökaren web valfri. I det här exemplet använder vi Fiddler för a
 
 2. Högerklicka på den körbara Installationsprogramfilen och kör som administratör för att installera.
 
-            ![troubleshoot-session-affinity-issues-12](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-12.png)
+    ![Felsöka-session-tillhörighet-problem – 12](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-12.png)
 
 3. När du öppnar Fiddler bör automatiskt börja samla in trafik (Observera hämtar i nedre vänstra hörnet). Tryck på F12 för att starta eller stoppa trafik avbildning.
 
-        ![troubleshoot-session-affinity-issues-13](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-13.png)
+    ![Felsöka-session-tillhörighet-problem – 13](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-13.png)
 
 4. Mest sannolikt du är intresserad av dekrypterade HTTPS-trafik, och du kan aktivera HTTPS-dekryptering genom att välja **verktyg** > **Fiddler alternativ**, och markera kryssrutan ” **dekryptera HTTPS-trafik**”.
 
-        ![troubleshoot-session-affinity-issues-14](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-14.png)
+    ![Felsöka-session-tillhörighet-problem – 14](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-14.png)
 
 5. Du kan ta bort tidigare orelaterade sessioner innan återge problemet genom att klicka på **X** (ikon) > **ta bort alla** följer skärmbild: 
 
-        ![troubleshoot-session-affinity-issues-15](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-15.png)
+    ![Felsöka-session-tillhörighet-problem-15](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-15.png)
 
 6. När du har återskapat problemet, spara filen för granskning genom att välja **filen** > **spara** > **alla sessioner...** . 
 
-        ![troubleshoot-session-affinity-issues-16](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-16.png)
+    ![Felsöka-session-tillhörighet-problem – 16](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-16.png)
 
 7. Kontrollera och analysera sessionsloggar för att fastställa vad problemet är.
 
@@ -194,11 +194,11 @@ Använda felsökaren web valfri. I det här exemplet använder vi Fiddler för a
    > [!NOTE]
    > Den här ARRAffinity-värdet är cookie-id som Application Gateway anger för att klienten ska skickas till en viss backend-server.
 
-    ![Felsöka-session-tillhörighet-problem – 17](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-17.png)
+   ![Felsöka-session-tillhörighet-problem – 17](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-17.png)
 
 - **Exempel B:** Nästa sessionsloggen följt av den tidigare en är klienten svarar tillbaka till Application Gateway, som har angetts i ARRAAFFINITY. Om ARRAffinity cookie-id matchar ska paketet skickas till samma backend-server som har använts tidigare. Kontrollera nästa flera rader med http-kommunikation för att se om klientens ARRAffinity cookie ändras.
 
-    ![Felsöka-session-tillhörighet-problem – 18](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-18.png)
+   ![Felsöka-session-tillhörighet-problem – 18](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-18.png)
 
 > [!NOTE]
 > För kommunikationen samma session bör cookien inte om du vill ändra. Kontrollera den översta rutan till höger och välj ”Cookies” fliken för att se om klienten är med hjälp av cookien och skickas tillbaka till Application Gateway. Om inte, klientens webbläsare inte är att behålla och använda cookien för konversationer. Klienten kan ibland finns.

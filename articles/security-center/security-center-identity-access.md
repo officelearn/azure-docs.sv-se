@@ -14,15 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 7cb8d494d32f2a9c192418bfab2d5ca9b679c5fe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 5517bb59d168ffa8d9339d9e765c385cef6db4ce
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60704993"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389480"
 ---
 # <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Övervaka identitet och åtkomst i Azure Security Center (förhandsversion)
 Den här artikeln hjälper dig att använda Azure Security Center för att övervaka användarnas identitets- och åtkomstrelaterade aktiviteter.
+
+> [!NOTE]
+> Den ”visa *klassiska* identitet och åtkomst” länk kommer att dras tillbaka den 31 juli 2019. Klicka på [här](security-center-features-retirement-july2019.md#menu_classicidentity) att lära dig om alternativa tjänster.
 
 > [!NOTE]
 > Övervaka identitet och åtkomst finns i förhandsversion och bara tillgängliga på standardnivån i Security Center. Mer information om prisalternativen för Security Center finns i [Priser](security-center-pricing.md).
@@ -47,7 +50,7 @@ Se [rekommendationer](security-center-identity-access.md#recommendations) för e
 ## <a name="monitoring-security-health"></a>Övervakning av säkerhetshälsa
 Du kan övervaka dina resursers säkerhetstillstånd på den **Security Center – översikt** instrumentpanelen. Den **resurser** avsnittet är en indikator för hälsotillstånd som visar allvarlighetsgrader för varje resurstyp.
 
-Du kan visa en lista över alla problem genom att välja **rekommendationer**. Under **resurser**, du kan visa en lista över problem som är specifika för beräkning och appar, datasäkerhet, nätverk, eller identitet och åtkomst. Mer information om hur du utför rekommendationerna finns i artikeln [Utföra säkerhetsrekommendationerna i Azure Security Center](security-center-recommendations.md).
+Du kan visa en lista över alla problem genom att välja **rekommendationer**. Under **resurser**, du kan visa en lista över problem som är specifika för beräkning och appar, datasäkerhet, nätverk, eller identitet och åtkomst. Mer information om hur du utför rekommendationerna finns i [utföra säkerhetsrekommendationerna i Azure Security Center](security-center-recommendations.md).
 
 En fullständig lista över rekommendationer för identitets- och se [rekommendationer](security-center-identity-access.md#recommendations).
 
@@ -115,10 +118,10 @@ Använd tabellen nedan som referens för att förstå de tillgängliga rekommend
 |Prenumeration|30|Ta bort externa konton med ägarbehörigheter från prenumerationen|Ta bort externa konton med ägarbehörigheter från prenumerationen för att förhindra oövervakad åtkomst. |
 |Prenumeration|30|Aktivera MFA för Azure-appen för enhetshantering konton med läsbehörigheter för din prenumeration|Aktivera Multi-Factor Authentication (MFA) för alla prenumerationskonton med läsbehörighet för att förhindra att överträdelser görs avseende konton och resurser.|
 |Prenumeration|25|Ta bort externa konton med skrivbehörigheter från prenumerationen|Ta bort externa konton med skrivbehörigheter från prenumerationen för att förhindra oövervakad åtkomst. |
-|Prenumeration|20|Ta bort inaktuella konton med ägarbehörigheter från prenumerationen|Ta bort inaktuella konton med ägarbehörigheter från dina prenumerationer.|
-|Prenumeration|5|Ta bort inaktuella konton från prenumerationen|Ta bort inaktuella konton från dina prenumerationer för att aktivera åtkomst till endast användare. |
+|Prenumeration|20|Ta bort inaktuella konton med ägarbehörigheter från prenumerationen|Ta bort inaktuella konton med ägarbehörigheter från dina prenumerationer. Inaktuella konton är de som inloggning har blockerats i Azure AD.|
+|Prenumeration|5|Ta bort inaktuella konton från prenumerationen|Ta bort inaktuella konton från dina prenumerationer för att aktivera åtkomst till endast användare. Inaktuella konton är de som inloggning har blockerats i Azure AD.|
 |Prenumeration|5|Ange mer än en ägare av din prenumeration|Ange mer än en prenumerationsägare för att du har administratörsåtkomst.|
-|Prenumeration|5|Tilldela upp till 3 ägare för din prenumeration|Ange färre än 3 prenumerationsägare för att minska risken för intrång genom en komprometterad ägare.|
+|Prenumeration|5|Ange upp till 3 ägare av din prenumeration|Ange färre än 3 prenumerationsägare för att minska risken för intrång genom en komprometterad ägare.|
 |Nyckelvalv|5|Aktivera diagnostikloggar i Key Vault|Aktivera loggar och behålla upp till ett år. På så sätt kan du återskapa aktivitet spår undersökning när en säkerhetsincident inträffar eller nätverket komprometteras. |
 |Prenumeration|15|Ta bort externa konton med läsbehörigheter från prenumerationen|Ta bort externa konton med läsprivilegier från din prenumeration för att förhindra oövervakad åtkomst.|
 |Prenumeration|1|Ange säkerhetskontaktinformation|Ange kontaktinformation för säkerhet för var och en av dina prenumerationer. Kontaktinformation är ett e-postadress och telefonnummer tal. Informationen används för att kontakta dig om vårt säkerhetsteam skulle upptäcka att dina resurser äventyras|

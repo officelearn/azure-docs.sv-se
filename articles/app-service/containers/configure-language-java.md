@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 3361013d8421cd859c834c07018356318d5e2989
-ms.sourcegitcommit: f4469b7bb1f380bf9dddaf14763b24b1b508d57c
+ms.openlocfilehash: cf9356c2792781558c4403608ff5de0e3aaddb6a
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66179808"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66254470"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Konfigurera ett Linux Java-program för Azure App Service
 
@@ -57,7 +57,7 @@ Aktivera [programloggning](../troubleshoot-diagnostic-logs.md?toc=%2fazure%2fapp
 
 Om programmet använder [Logback](https://logback.qos.ch/) eller [Log4j](https://logging.apache.org/log4j) för att analysera och du kan vidarebefordra spårning för granskning i Azure Application Insights med hjälp av loggning framework konfigurationsanvisningar i [Utforska Java spårningsloggar i Application Insights](/azure/application-insights/app-insights-java-trace-logs).
 
-### <a name="troubleshooting-tools"></a>Felsökningsverktyg
+### <a name="troubleshooting-tools"></a>Verktyg för felsökning
 
 De inbyggda Java-avbildningarna är baserade på den [Alpine Linux](https://alpine-linux.readthedocs.io/en/latest/getting_started.html) operativsystem. Använd den `apk` package manager för att installera alla felsökning verktyg eller kommandon.
 
@@ -164,7 +164,7 @@ for (Object key : map.keySet()) {
     }
 ```
 
-Om du vill logga ut användarna och utföra andra åtgärder, finns i dokumentationen om [App Service-autentisering och auktorisering](https://docs.microsoft.com/en-us/azure/app-service/app-service-authentication-how-to). Det finns också officiella dokumentationen på Tomcat [Objektparametern gränssnittet](https://tomcat.apache.org/tomcat-5.5-doc/servletapi/javax/servlet/http/HttpServletRequest.html) och dess metoder. Följande servleten metoder är också hydrerat baserat på din App Service-konfiguration:
+Om du vill logga ut användarna och utföra andra åtgärder, finns i dokumentationen om [App Service-autentisering och auktorisering](https://docs.microsoft.com/azure/app-service/app-service-authentication-how-to). Det finns också officiella dokumentationen på Tomcat [Objektparametern gränssnittet](https://tomcat.apache.org/tomcat-5.5-doc/servletapi/javax/servlet/http/HttpServletRequest.html) och dess metoder. Följande servleten metoder är också hydrerat baserat på din App Service-konfiguration:
 
 ```java
 public boolean isSecure()

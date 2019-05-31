@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2019
+ms.date: 05/30/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 536210922d13f66aaa5a09bd87bd2d92da8d416c
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: cfc9c027806cb1a3f65e67eda771894a7250ee67
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546117"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417663"
 ---
 # <a name="microsoft-identity-platform-protocols"></a>Microsoft identity-plattformen protokoll
 
@@ -48,7 +48,7 @@ I nästan alla flöden som OAuth 2.0 och OpenID Connect finns det fyra parter so
 Varje app som vill acceptera både personliga- och arbets-eller skolkonto måste registreras via den **appregistreringar** användarupplevelsen i den [Azure-portalen](https://aka.ms/appregistrations) innan den kan logga dessa användare i med hjälp av OAuth 2.0 eller OpenID Connect. Registreringsprocessen att samla in och tilldelar några värden till din app:
 
 * En **program-ID** som unikt identifierar din app
-* En **omdirigerings-URI** eller **Paketidentifierare** som kan användas för att dirigera svar tillbaka till din app
+* En **omdirigerings-URI** (valfritt) som kan användas för att dirigera svar tillbaka till din app
 * Några andra scenariespecifika-värden.
 
 Om du vill ha mer information lär du dig hur du [registrerar en app](quickstart-register-app.md).
@@ -64,7 +64,7 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
 
 Där den `{tenant}` kan ha något av fyra olika värden:
 
-| Value | Beskrivning |
+| Värde | Beskrivning |
 | --- | --- |
 | `common` | Gör att användare med både personliga Microsoft-konton och arbets-/ skolkonton från Azure AD för att logga in i programmet. |
 | `organizations` | Tillåter endast användare med arbets-/ skolkonton från Azure AD för att logga in i programmet. |

@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/16/2019
+ms.date: 05/24/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b3f070cafa026679eb9322ac7ba2eafe4c7e233d
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 33d0e5f92d5de104530882b204b1f196360511b2
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65826747"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236460"
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Överföra ägarskapet för en Azure-prenumeration till ett annat konto
 
@@ -59,7 +59,7 @@ ms.locfileid: "65826747"
    ![Första prenumeration överföring-webbsida](./media/billing-subscription-transfer/image4.png)
 
    ![Webbsida för överföring till andra prenumeration](./media/billing-subscription-transfer/image5.png)
-1. Klart! Prenumerationen överförs nu.
+1. Lyckades! Prenumerationen överförs nu.
 
 <a id="EA"></a>
 
@@ -82,7 +82,7 @@ Enterprise-administratören kan överföra ägarskapet för prenumerationer i en
 
 Prenumerationsöverföring med självbetjäning är tillgänglig för erbjudanden och prenumerationstyper som visas i följande tabell. För närvarande du kan inte överföra en kostnadsfri utvärderingsversion eller [Azure i Open (AIO)](https://azure.microsoft.com/offers/ms-azr-0111p/) prenumerationer. Du hittar en lösning i [flytta resurser till ny resursgrupp eller prenumeration](../azure-resource-manager/resource-group-move-resources.md). Om du vill överföra andra prenumerationer, som [sponsring](https://azure.microsoft.com/offers/ms-azr-0036p/) eller supportavtal, [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-| Erbjudande                                                                             | Erbjudandets nummer |
+| Erbjudandets namn                                                                             | Erbjudandets nummer |
 |----------------------------------------------------------------------------------------|--------------|
 | [Enterprise-avtal (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)\*|MS-AZR-0017P        |
 | [Microsoft Partner Network](https://azure.microsoft.com/offers/ms-azr-0025p/)          | MS-AZR-0025P        |
@@ -102,7 +102,9 @@ Prenumerationsöverföring med självbetjäning är tillgänglig för erbjudande
 
 ### <a name="whoisaa"></a> Vem är kontoadministratör för prenumerationen?
 
-Kontoadministratören är den person som har registrerat sig för eller har köpt Azure-prenumeration. De har behörighet att komma åt den [Kontocenter](https://account.azure.com/Subscriptions) och utföra olika hanteringsuppgifter som att skapa prenumerationer, avbryta prenumerationer, ändra faktureringen för en prenumeration eller ändra tjänstadministratör. Om du inte vet som är kontoadministratör för en prenumeration, tar du reda på det med hjälp av följande steg.
+Kontoadministratören är den person som har registrerat sig för eller har köpt Azure-prenumeration. De har behörighet att komma åt den [Kontocenter](https://account.azure.com/Subscriptions) och utföra olika hanteringsuppgifter som att skapa prenumerationer, avbryta prenumerationer, ändra faktureringen för en prenumeration eller ändra tjänstadministratör. Mer information om förståelse administratörsroller och behörigheter finns i [behörigheter för administratör i Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md)
+
+Om du inte vet som är kontoadministratör för en prenumeration, tar du reda på det med hjälp av följande steg.
 
 1. Gå till [prenumerationssidan i Azure-portalen](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 1. Välj den prenumeration som du vill kontrollera och tittar sedan under **inställningar**.

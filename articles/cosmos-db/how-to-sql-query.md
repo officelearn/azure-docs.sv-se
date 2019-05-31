@@ -4,14 +4,14 @@ description: Läs mer om SQL-syntax, databasbegrepp och SQL-frågor för Azure C
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 05/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: bbca0239053b8f3164055a07b376abc597b0348f
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 943ed63aed0f64ae6cbd62c52731c6ec73ddd0bd
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65954127"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388486"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>SQL-exempelfrågor för Azure Cosmos DB
 
@@ -550,13 +550,13 @@ I följande tabell visas resultatet av likhetsjämförelser i SQL API mellan tv�
 
 | **Op** | **Odefinierad** | **Null** | **Boolesk** | **Nummer** | **Sträng** | **Objekt** | **Matris** |
 |---|---|---|---|---|---|---|---|
-| **Odefinierad** | Odefinierat | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Odefinierat |
-| **Null** | Odefinierat | **Ok** | Odefinierat | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Odefinierat |
-| **Boolesk** | Odefinierat | Odefinierat | **Ok** | Odefinierat | Undefined (Odefinierad) | Undefined (Odefinierad) | Odefinierat |
-| **Nummer** | Odefinierat | Undefined (Odefinierad) | Odefinierat | **Ok** | Odefinierat | Undefined (Odefinierad) | Odefinierat |
-| **Sträng** | Odefinierat | Undefined (Odefinierad) | Undefined (Odefinierad) | Odefinierat | **Ok** | Odefinierat | Odefinierat |
-| **Objekt** | Odefinierat | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Odefinierat | **Ok** | Odefinierat |
-| **Matris** | Odefinierat | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Odefinierat | **Ok** |
+| **Odefinierad** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) |
+| **Null** | Undefined (Odefinierad) | **Ok** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) |
+| **Boolesk** | Undefined (Odefinierad) | Undefined (Odefinierad) | **Ok** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) |
+| **Nummer** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | **Ok** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) |
+| **Sträng** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | **Ok** | Undefined (Odefinierad) | Undefined (Odefinierad) |
+| **Objekt** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | **Ok** | Undefined (Odefinierad) |
+| **Matris** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | **Ok** |
 
 För jämförelseoperatorer som `>`, `>=`, `!=`, `<`, och `<=`, jämförelse över typer eller mellan två objekt eller matriser ger `Undefined`.  
 
@@ -568,27 +568,27 @@ Logiska operatorer arbetar med booleska värden. Följande tabeller visar de log
 
 **Operatorn OR** (ELLER)
 
-| ELLER | True | Falskt | Odefinierat |
+| ELLER | True | False | Undefined (Odefinierad) |
 | --- | --- | --- | --- |
 | True |True |True |True |
-| Falskt |True |Falskt |Odefinierat |
-| Odefinierat |True |Odefinierat |Undefined (Odefinierad) |
+| False |True |False |Undefined (Odefinierad) |
+| Undefined (Odefinierad) |True |Undefined (Odefinierad) |Undefined (Odefinierad) |
 
 **Operatorn AND** (OCH)
 
-| AND | True | Falskt | Odefinierat |
+| AND | True | False | Undefined (Odefinierad) |
 | --- | --- | --- | --- |
-| True |True |Falskt |Odefinierat |
-| Falskt |Falskt |Falskt |Falskt |
-| Odefinierat |Odefinierat |Falskt |Odefinierat |
+| True |True |False |Undefined (Odefinierad) |
+| False |False |False |False |
+| Undefined (Odefinierad) |Undefined (Odefinierad) |False |Undefined (Odefinierad) |
 
 **Operatorn NOT** (INTE)
 
 | NOT |  |
 | --- | --- |
-| True |Falskt |
-| Falskt |True |
-| Odefinierat |Odefinierat |
+| True |False |
+| False |True |
+| Undefined (Odefinierad) |Undefined (Odefinierad) |
 
 ## <a name="between-keyword"></a>Nyckelordet BETWEEN (mellan)
 
@@ -756,7 +756,7 @@ Den här frågan hämtar familjen `id` i stigande ordning efter namnet på stade
 
 ## <a id="OffsetLimitClause"></a>GRÄNSEN för OFFSET-sats
 
-GRÄNSEN för förskjutning är en valfri sats att hoppa över och sedan vidta vissa antal värden från frågan. Antalet förskjutning och GRÄNSEN för antal måste anges i instruktionen förskjutning GRÄNSEN.
+GRÄNSEN för förskjutning är en valfri sats att hoppa över och sedan vidta vissa antal värden från frågan. Antalet förskjutning och GRÄNSEN för antal måste anges i instruktionen förskjutning GRÄNSEN. För närvarande den här satsen stöds för frågor inom en enda partition, över partitioner frågor ännu stöd inte för den. 
 
 När GRÄNSEN för förskjutning används tillsammans med en ORDER BY-sats, skapas genom att göra hoppa över resultatuppsättningen och utför på sorterad värdena. Om någon ORDER BY-sats används, resulterar det i en deterministisk ordning med värden.
 
@@ -1294,11 +1294,11 @@ SQL-API: et stöder mängdfunktionerna. Summa och Genomsnittlig fungerar på num
 
 | Funktion | Beskrivning |
 |-------|-------------|
-| ANTAL | Returnerar antalet objekt i uttrycket. |
+| COUNT | Returnerar antalet objekt i uttrycket. |
 | SUM   | Returnerar summan av alla värden i uttrycket. |
 | MIN   | Returnerar minimivärdet i uttrycket. |
 | MAX   | Returnerar maxvärdet i uttrycket. |
-| MEDEL   | Returnerar medelvärdet av värdena i uttrycket. |
+| AVG   | Returnerar medelvärdet av värdena i uttrycket. |
 
 Du kan även aggregera över resultatet av en matris iteration. Mer information finns i den [Iteration](#Iteration) avsnittet.
 

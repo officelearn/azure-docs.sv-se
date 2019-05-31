@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/19/2019
 ms.author: victorh
-ms.openlocfilehash: 1259e755642563a7baad5496bc84ed736d5499f8
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.openlocfilehash: ee901fdcae9717cc6d03d7653bcaacc0c32518e0
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65849810"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66254308"
 ---
 # <a name="overview-of-ssl-termination-and-end-to-end-ssl-with-application-gateway"></a>Översikt över SSL-avslutning och slutpunkt till slutpunkt-SSL med Programgateway
 
@@ -20,7 +20,7 @@ Secure Sockets Layer (SSL) är den Standardsäkerhet för tekniken för att uppr
 
 ## <a name="ssl-termination"></a>SSL-avslutning
 
-Application Gateway stöder SSL-avslutning på gatewayen, när flödar trafiken vanligtvis okrypterat fram till backend-servrarna. Det finns flera fördelar med att göra SSL-avslutning på application gateway:
+Application Gateway stöder SSL-terminering vid gatewayen. Därefter flödar trafiken vanligtvis okrypterat fram till serverdelarna. Det finns flera fördelar med att göra SSL-avslutning på application gateway:
 
 - **Förbättrad prestanda** – största prestanda når när du gör SSL dekryptering är den första handskakningen. För att förbättra prestanda, servern gör dekrypteringen cachelagrar sessionscachen och hanterar TLS sessionsbiljetter. Om detta görs på application gateway, kan alla förfrågningar från samma klient använda cachelagrade värdena. Om det är klart på backend-servrar har varje gång den klientbegäranden går du till en annan server klienten till re‑authenticate. Användningen av TLS-biljetter kan minimera det här problemet, men de stöds inte av alla klienter och kan vara svårt att konfigurera och hantera.
 - **Bättre användning av backend-servrarna** – SSL/TLS-bearbetning är mycket Processorintensiva och blir mer intensiva nyckelstorlekar öka. Ta bort detta arbete från backend-servrarna låter dem fokusera på vad de är mest effektiva vid leverans av innehåll.
@@ -50,13 +50,13 @@ Application gateway stöder följande typer av certifikat:
 Mer information finns i [konfigurerar SSL-avslutning med application gateway](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal).
 
 ### <a name="size-of-the-certificate"></a>Storleken på certifikatet
-Personal Information Exchange (PFX)-fil med SSL-Certifikatsinformation får inte vara mer än 10 KB.
+Kontrollera den [Application Gateway begränsar](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits) avsnittet veta högsta SSL certifikat storleken som stöds.
 
 ## <a name="end-to-end-ssl-encryption"></a>Slutpunkt till slutpunkt SSL-kryptering
 
 Vissa kunder kan inte behöver ha en okrypterad kommunikation till backend-servrarna. Det kan bero på säkerhetskrav eller efterföljandekrav eller att programmet bara accepterar säkra anslutningar. För den typen av program, stöder Application Gateway nu slutpunkt-till-slutpunkt SSL-kryptering.
 
-Slutpunkt-till-slutpunkt-SSL låter dig skicka känsliga data säkert till serverdelen i krypterad samt dra nytta av fördelarna med Layer 7-belastningsutjämning funktioner som application gateway tillhandahåller. Vissa av dessa funktioner är cookiebaserad-tillhörighet, URL-baserad routning, stöd för routning baserat på platser eller möjligheten att injicera X-Forwarded-*-huvuden.
+Slutpunkt-till-slutpunkt-SSL låter dig skicka krypterade känsliga data säkert till serverdelen samt dra nytta av de fördelar med Layer 7-belastningsutjämningsfunktioner som Application Gateway tillhandahåller. Vissa av dessa funktioner är cookiebaserad-tillhörighet, URL-baserad routning, stöd för routning baserat på platser eller möjligheten att injicera X-Forwarded-*-huvuden.
 
 När den konfigurerats med slutpunkt-till-slutpunkt SSL-kommunikationsläge, terminerar Application Gateway användarens SSL-sessioner vid gatewayen och avkrypterar användartrafiken. Därefter appliceras de konfigurerade reglerna för att välja en lämplig serverdels-serverpoolinstans att dirigera trafiken till. Application Gateway startar sedan en ny SSL-anslutning till serverdels-servern och återkrypterar data med hjälp av serverdels-serverns offentliga nyckelcertifikat innan begäran skickas till serverdelen. Eventuella svar från webbservern genomgår samma process på väg tillbaka till användaren. Slutpunkt-till-slutpunkt SSL aktiveras genom att ställa in protokollinställningen i [serverdelens HTTP-inställnings](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http-settings) till HTTPS, som sedan appliceras till en serverdelspool.
 

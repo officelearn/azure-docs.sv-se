@@ -10,18 +10,18 @@ ms.subservice: bing-spell-check
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: 16efb97569aabbea28065b03e9944d6881c39eee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5ffd9f05bb429ba611a08d7985dbc9d509a9df0c
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60895388"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390170"
 ---
 # <a name="language-and-region-support-for-bing-spell-check-api"></a>Stöd för språk och din region för stavningskontroll i Bing
 
 Dessa språk som stöds av den stavningskontroll i Bing (endast i `spell` läge).
 
-Tänk på att du arbetar med ett annat språk än `en-US`, `mkt` ska anges och antingen `Accept-Language` eller `setLang` ska anges som det beskrivs i [Stavningskontrolls-API v7-referens](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)
+Tänk på att du arbetar med ett annat språk än `en-US`, `mkt` ska anges och antingen `Accept-Language` eller `setLang` ska anges som det beskrivs i [Stavningskontrolls-API v7-referens](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)
 
 | Språk    | Språkkod |
 |:----------- |:-------------:|

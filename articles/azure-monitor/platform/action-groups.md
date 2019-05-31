@@ -5,15 +5,15 @@ author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 5/10/2019
+ms.date: 5/30/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: fba5119feb1ff7a0170a573371e479caa5fc33eb
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: f4f10191ea28f73732f81eb9dc25321f82683652
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544482"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66416993"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Skapa och hantera åtgärdsgrupper i Azure portal
 ## <a name="overview"></a>Översikt ##
@@ -35,9 +35,9 @@ Information om hur du använder Azure Resource Manager-mallar för att konfigure
 1. I den [portal](https://portal.azure.com)väljer **övervakaren**. Den **övervakaren** fönstret konsoliderar alla dina övervakningsinställningar och -data i en vy.
 
     ![”Övervakningstjänsten”](./media/action-groups/home-monitor.png)
-1. Välj **aviseringar** därefter **hantera åtgärdsgrupper**.
+1. Välj **aviseringar** därefter **hanterar åtgärder**.
 
-    ![Hantera åtgärdsgrupper knappen](./media/action-groups/manage-action-groups.png)
+    ![Hantera åtgärder knappen](./media/action-groups/manage-action-groups.png)
 1. Välj **Lägg till åtgärdsgrupp**, och Fyll i fälten.
 
     ![Kommandot ”Lägg till åtgärdsgrupp”](./media/action-groups/add-action-group.png)
@@ -102,6 +102,8 @@ Käll-IP-adressintervall
  - 13.106.57.196
  - 52.244.68.117
  - 52.244.65.137
+ - 52.183.31.0
+ - 52.184.145.166
  - 51.4.138.199
  - 51.5.148.86
  - 51.5.149.19

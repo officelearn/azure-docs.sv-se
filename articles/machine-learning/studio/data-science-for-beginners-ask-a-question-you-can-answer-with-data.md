@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: sdgilley
 ms.author: sgilley
 ms.date: 03/22/2019
-ms.openlocfilehash: 815aeb9ae6036f08fc87e41980a623e2be8414e5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7343692e8484e50a02963b4528889a35cc1fcaa6
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60751271"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239081"
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>Ställ en fråga som du kan svara på med data
 ## <a name="video-3-data-science-for-beginners-series"></a>Video 3: Datavetenskap för nybörjare-serien
@@ -48,7 +48,7 @@ Vi har pratat om hur data science är processen för att förutsäga ett svar p�
 
 Vagt frågor behöver besvaras med ett namn eller en siffra. Måste vara en sharp fråga.
 
-Anta att du hittat ett magic ljus med en genie som sanningsenligt sätt svarar på alla frågor som du be. Men det är en mischievous genie och han kommer försök att göra sitt svar så vaga och förvirrande eftersom han kan få direkt med. Du vill fästa honom med en fråga som lufttätt så att han kan hjälpa men Berätta vad du vill veta.
+Anta att du hittat ett magic ljus med en genie som sanningsenligt sätt svarar på alla frågor som du be. Men det är en mischievous genie som kommer att försöka att göra deras svar så vaga och förvirrande eftersom de kan få direkt med. Du vill fästa dem med en fråga som lufttätt så att de kan hjälpa men Berätta vad du vill veta.
 
 Om du vill ställa en vagt fråga som ”vad som händer med Mina lager”?, kan svara på genie, ”priset ändras”. Det är ett sanningsenliga svar, men är inte det mycket bra.
 

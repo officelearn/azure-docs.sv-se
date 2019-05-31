@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: d8c2c69a81597c2702d608ccac8dceed1e832aff
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: bc33d65972e12591130389e0c3cb8697898d1da9
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65790234"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390343"
 ---
 # <a name="custom-search"></a>Anpassad sökning
 Med anpassad sökning i Bing kan du skapa skräddarsydda sökningar om ämnen som intresserar dig. Användarna ser sökresultat som skräddarsytts efter det innehåll som intresserar dem, i stället för att behöva bläddra bland irrelevanta sökresultat.
@@ -28,10 +28,10 @@ Slutpunkt: Returnerar sökförslag som JSON-resultat som är relevanta för anv�
  GET https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search  
 ```
 
-Exempel som beskriver hur du ställer in anpassad sökning i källor, finns det [självstudien](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/tutorials/custom-search-web-page). Mer information om huvuden, parametrar, marknaden koder, svarsobjekt, fel, o.s.v., se den [anpassad sökning i Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference) referens.
+Exempel som beskriver hur du ställer in anpassad sökning i källor, finns det [självstudien](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/tutorials/custom-search-web-page). Mer information om huvuden, parametrar, marknaden koder, svarsobjekt, fel, o.s.v., se den [anpassad sökning i Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference) referens.
 
 ## <a name="custom-search-response-json"></a>Anpassad sökning i svaret JSON
-En anpassad sökning i begäran returnerar resultat som JSON-objekt, se [svarsobjekten](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#response-objects). 
+En anpassad sökning i begäran returnerar resultat som JSON-objekt, se [svarsobjekten](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#response-objects). 
 
 ## <a name="custom-autosuggest"></a>Anpassade automatiska förslag
 Anpassade automatiska förslag i API: et kan du skicka en fråga för partiella sökterm till Bing och få tillbaka en lista över föreslagna frågor som du kan konfigurera. Med anpassade automatiska förslag att lägga till förslag som returneras av API: et och du kan också ange om du vill inkludera förslag som genererats av Bing.

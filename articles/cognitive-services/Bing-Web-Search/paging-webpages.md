@@ -11,16 +11,16 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: aahi
-ms.openlocfilehash: fa02c0913329ec740e3066b05b2e44a36ad379ce
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: a038dc2706c7cb128751630f8997851409886290
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65797808"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66384810"
 ---
 # <a name="how-to-page-through-results-from-the-bing-web-search-api"></a>Hur du bläddrar igenom resultaten från API för webbsökning i Bing
 
-När du anropar API för webbsökning i Bing returnerar en lista med resultat. Listan är en delmängd av det totala antalet resultat som är relevanta för frågan. För att få det uppskattade totala antalet tillgängliga resultat kan komma åt objektet svar [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) fält.  
+När du anropar API för webbsökning i Bing returnerar en lista med resultat. Listan är en delmängd av det totala antalet resultat som är relevanta för frågan. För att få det uppskattade totala antalet tillgängliga resultat kan komma åt objektet svar [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) fält.  
 
 I följande exempel visas den `totalEstimatedMatches` fält som innehåller en Web-svar.  
 
@@ -35,7 +35,7 @@ I följande exempel visas den `totalEstimatedMatches` fält som innehåller en W
 }  
 ```
 
-Om du vill bläddra igenom tillgängliga webbsidor, använda den [antal](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#count) och [offset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#offset) Frågeparametrar.  
+Om du vill bläddra igenom tillgängliga webbsidor, använda den [antal](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#count) och [offset](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#offset) Frågeparametrar.  
 
 Den `count` parametern anger antalet resultat som ska returneras i svaret. Det maximala antalet resultat som du kan begära i svaret är 50. Standardvärdet är 10. Det faktiska talet som levereras kan vara mindre än vad som begärts.
 
@@ -59,7 +59,7 @@ Ocp-Apim-Subscription-Key: 123456789ABCDE
 Host: api.cognitive.microsoft.com  
 ```
 
-API för webbsökning returnerar resultat som innehåller webbsidor och kan innehålla bilder, videor och nyheter. När du sidan sökresultaten växling i [WebAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webanswer) svar och inte andra svar, till exempel bilder eller nyheter. Exempel: Om du ställer in `count` till 50, du kommer tillbaka 50 webbsidan resultat, men svaret kan innehålla resultat för de andra svar. Svaret kan exempelvis omfatta 15 avbildningar och 4 nyhetsartiklar. Det är också möjligt att resultaten kan innehålla Nyheter på första sidan, men inte den andra sidan, eller tvärtom.   
+API för webbsökning returnerar resultat som innehåller webbsidor och kan innehålla bilder, videor och nyheter. När du sidan sökresultaten växling i [WebAnswer](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webanswer) svar och inte andra svar, till exempel bilder eller nyheter. Exempel: Om du ställer in `count` till 50, du kommer tillbaka 50 webbsidan resultat, men svaret kan innehålla resultat för de andra svar. Svaret kan exempelvis omfatta 15 avbildningar och 4 nyhetsartiklar. Det är också möjligt att resultaten kan innehålla Nyheter på första sidan, men inte den andra sidan, eller tvärtom.   
 
 Om du anger den `responseFilter` frågeparameter och omfattar inte webbsidor i filterlistan kan inte använda den `count` och `offset` parametrar. 
 

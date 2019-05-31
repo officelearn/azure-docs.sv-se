@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: 83ae5f923130ecb46b7b94cd8112ee45ae13e3f4
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: e4799ca099d608c3b8ecd16612b790f5654df7dd
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236252"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390422"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Konfigurera din Bing Custom Search
 
@@ -27,7 +27,7 @@ Använd följande när du definierar din snitt av webben:
 
 | Sektorn namn | Beskrivning                                                                                                                                                                                                                                                                                                |
 |------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Domän     | En sektor i domänen innehåller allt innehåll i en internet-domän. Till exempel `www.microsoft.com`. Om du utesluter `www.` orsakar Bing för att även söka domänens underdomäner. Exempel: Om du anger `microsoft.com`, Bing också returnerar resultat från `support.microsoft.com` eller `technet.microsoft.com`. |
+| Domain     | En sektor i domänen innehåller allt innehåll i en internet-domän. Till exempel `www.microsoft.com`. Om du utesluter `www.` orsakar Bing för att även söka domänens underdomäner. Exempel: Om du anger `microsoft.com`, Bing också returnerar resultat från `support.microsoft.com` eller `technet.microsoft.com`. |
 | Underordnad sida    | En underordnad sida sektor innehåller allt innehåll i den underordnad sida och sökvägar under den. Du kan ange högst två underordnade sidor i sökvägen. Till exempel, `www.microsoft.com/en-us/windows/`                                                                                                                       |
 | Webbsida    | En webbsida sektor kan inkludera endast den webbsidan i en anpassad sökning. Du kan du ange om du vill inkludera underordnade sidor.                                                                                                                                                                                  |
 
@@ -74,7 +74,7 @@ När du lägger till webb-sektorer till den **Active** lista, Bing Custom Search
 
 ## <a name="search-for-images-and-videos"></a>Sök efter bilder och videor
 
-Du kan söka efter bilder och videor på samma sätt som webbinnehåll med hjälp av den [anpassade bildsökning i Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-images-api-v7-reference) eller [anpassad sökning i Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-videos-api-v7-reference). Du kan visa de resultaten med den [finns Användargränssnittet](hosted-ui.md), eller API: erna. 
+Du kan söka efter bilder och videor på samma sätt som webbinnehåll med hjälp av den [anpassade bildsökning i Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference) eller [anpassad sökning i Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference). Du kan visa de resultaten med den [finns Användargränssnittet](hosted-ui.md), eller API: erna. 
 
 Dessa API: er som liknar anpassat [bildsökning i Bing](../Bing-Image-Search/overview.md) och [Videosökning](../Bing-Video-Search/search-the-web.md) API: er, men söka igenom hela webbplatsen och kräver inte den `customConfig` frågeparameter. Se dessa dokumentuppsättningar för mer information om arbete med bilder och videor. 
 
@@ -83,7 +83,7 @@ Dessa API: er som liknar anpassat [bildsökning i Bing](../Bing-Image-Search/ove
 Du kan testa din Sökinstans genom att använda förhandsgranskningsfönstret portalens till höger för att skicka sökfrågor och granska resultaten. 
 
 1. Under sökrutan, Välj **Mina instans**. Du kan jämföra resultaten från din sökupplevelse till Bing, genom att välja **Bing**. 
-2. Välj ett filter för säker sökning och som marknaden för att söka (se [frågeparametrar](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters)).
+2. Välj ett filter för säker sökning och som marknaden för att söka (se [frågeparametrar](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters)).
 3. Ange en fråga och tryck på RETUR eller klicka på sökikonen för att visa resultat från den aktuella konfigurationen. Du kan ändra din söktyp du utföra genom att klicka på **Web**, **bild**, eller **Video** att få motsvarande resultat. 
 
 <a name="adjustrank"></a>
@@ -95,7 +95,7 @@ På portalen kan du justera sökrankningen av innehåll från vissa domäner, un
 |            |                                                                                                                                                                      |
 |------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Blockera      | Flyttar den domän, en underordnad sida eller en webbsida i listan med blockerad. Bing undantar innehåll från den valda platsen inte visas i sökresultatet.                    |
-| Förstärkning      | Ökar innehåll i domänen eller en underordnad sida högre i sökresultatet.                                                                                        |
+| Boost      | Ökar innehåll i domänen eller en underordnad sida högre i sökresultatet.                                                                                        |
 | Flytta ned     | Flyttar ned innehåll från domänen eller underordnad sida lägre i sökresultaten. Du väljer om du vill flytta ned innehåll från domänen eller subpage webbsidan tillhör. |
 | Fästa till början | Flyttar den domän, en underordnad sida eller en webbsida att den **fästa** lista. Detta gör att webbsidan visas som det översta sökresultatet för en given sökfråga.                   |
 
@@ -131,9 +131,9 @@ Som standard webbsidor är endast fästa högst upp i sökresultaten när en anv
 
 | Värde | Beskrivning                                                                          |
 |---------------|----------------------------------------------------------------------------------|
-| Börjar med | PIN-koden finns en matchning om användarens frågesträngen som börjar med pin-kodens frågesträng |
-| Slutar med   | PIN-koden är en matchning om användarens frågesträngen som slutar med pin-kodens frågesträngen.  |
-| Innehåller    | PIN-koden är en matchning om användarens frågesträngen innehåller frågesträngen för den PIN-kod.   |
+| börjar med | PIN-koden finns en matchning om användarens frågesträngen som börjar med pin-kodens frågesträng |
+| slutar med   | PIN-koden är en matchning om användarens frågesträngen som slutar med pin-kodens frågesträngen.  |
+| innehåller    | PIN-koden är en matchning om användarens frågesträngen innehåller frågesträngen för den PIN-kod.   |
 
 
 Klicka på fästikonen Redigera om du vill ändra pin-kodens matchningsvillkor. I den **fråga matchningsvillkor** kolumn, klicka på listrutan och välj det nya villkoret du vill använda. Klicka på Spara ikon för att spara ändringen.

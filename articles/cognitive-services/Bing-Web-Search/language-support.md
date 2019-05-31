@@ -10,18 +10,18 @@ ms.subservice: bing-web-search
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: aahi
-ms.openlocfilehash: e657c4678c76e8ff667c1a3f30409fc157f52d16
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 18b124ca7f6f270488fa8e010d2b1c0404f8e9e2
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65798249"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66384780"
 ---
 # <a name="language-and-region-support-for-the-bing-web-search-api"></a>Stöd för språk och din region för Bing Web Search API
 
 Bing Web Search API har stöd för över tre dussin länder eller regioner många med flera olika språk. Ange ett land eller region med en fråga kan du förfina sökresultaten baserat på de land eller regioner intressen. Resultaten kan innehålla länkar till Bing och dessa länkar kan lokalisera Bing användarupplevelsen enligt den angivna land/region eller språk.
 
-Du kan ange ett land eller region med hjälp av den `cc` frågeparameter. När du anger ett land eller region måste du ange en eller flera språkkoder med den [ `Accept-Language` rubrik](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#headers). Använd den [marknader tabell](#markets) en lista över språk som stöds i varje marknad.
+Du kan ange ett land eller region med hjälp av den `cc` frågeparameter. När du anger ett land eller region måste du ange en eller flera språkkoder med den [ `Accept-Language` rubrik](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#headers). Använd den [marknader tabell](#markets) en lista över språk som stöds i varje marknad.
 
 Du kan också ange på marknaden med den `mkt` Frågeparametern och en kod från den **marknader** tabell. Ange en marknad samtidigt anger ett land / region och önskat språk. Du kan uttryckligen ange språk med den `setLang` frågeparameter.
 
@@ -43,14 +43,14 @@ Du kan också ange på marknaden med den `mkt` Frågeparametern och en kod från
 |Hongkong SAR|HK|
 |Indien|IN|
 |Indonesien|ID|
-|Italien|it|
+|Italien|IT|
 |Japan|JP|
 |Korea|KR|
 |Malaysia|MY|
-|Mexico|MX|
+|Mexiko|MX|
 |Nederländerna|NL|
 |Nya Zeeland|NZ|
-|Norge|NEJ|
+|Norge|NO|
 |Kina|CN|
 |Polen|PL|
 |Portugal|PT|
@@ -63,7 +63,7 @@ Du kan också ange på marknaden med den `mkt` Frågeparametern och en kod från
 |Schweiz|CH|
 |Taiwan|TW|
 |Turkiet|TR|
-|Storbritannien och Nordirland|GB|
+|Storbritannien|GB|
 |USA|USA|
 
 ## <a name="markets"></a>Marknader
@@ -71,12 +71,12 @@ Du kan också ange på marknaden med den `mkt` Frågeparametern och en kod från
 |Land/region|Språk|Marknaden kod|
 |-------|--------|-----------|
 |Argentina|Spanska|es-AR|
-|Australien|Engelska|SV-Australien|
+|Australien|Svenska|SV-Australien|
 |Österrike|Tyska|Tyskland-AT|
 |Belgien|Nederländska|nl-BE|
 |Belgien|Franska|fr-BE|
 |Brasilien|Portugisiska|pt-BR|
-|Kanada|Engelska|en CA: N|
+|Kanada|Svenska|en CA: N|
 |Kanada|Franska|fr-CA|
 |Chile|Spanska|es-CL|
 |Danmark|Danska|da-DK|
@@ -84,31 +84,31 @@ Du kan också ange på marknaden med den `mkt` Frågeparametern och en kod från
 |Frankrike|Franska|fr-FR|
 |Tyskland|Tyska|de-DE|
 |Hongkong SAR|Traditionell kinesiska|zh-HK|
-|Indien|Engelska|en Indien|
-|Indonesien|Engelska|en-ID|
+|Indien|Svenska|en Indien|
+|Indonesien|Svenska|en-ID|
 |Italien|Italienska|IT-IT|
-|Japan|japanska|ja-JP|
+|Japan|Japanska|ja-JP|
 |Korea|Koreanska|ko-KR|
-|Malaysia|Engelska|en-MY|
-|Mexico|Spanska|es-MX|
+|Malaysia|Svenska|en-MY|
+|Mexiko|Spanska|es-MX|
 |Nederländerna|Nederländska|NL-NL|
-|Nya Zeeland|Engelska|en NZ|
-|Norge|Norska (bokmål)|no-NO|
+|Nya Zeeland|Svenska|en NZ|
+|Norge|Norska|no-NO|
 |Kina|Kinesiska|zh-CN|
 |Polen|Polska|pl-PL|
 |Portugal|Portugisiska|PT-PT|
-|Filippinerna|Engelska|en-PH|
+|Filippinerna|Svenska|en-PH|
 |Ryssland|Ryska|ru-RU|
 |Saudiarabien|Arabiska|ar-SA|
-|Sydafrika|Engelska|en ZA|
+|Sydafrika|Svenska|en ZA|
 |Spanien|Spanska|es-ES|
 |Sverige|Svenska|SV-SE|
 |Schweiz|Franska|fr CH|
 |Schweiz|Tyska|Tyskland – CH|
 |Taiwan|Traditionell kinesiska|zh-TW|
 |Turkiet|Turkiska|TR-TR|
-|Storbritannien och Nordirland|Engelska|en-GB|
-|USA|Engelska|en-US|
+|Storbritannien|Svenska|en-GB|
+|USA|Svenska|en-US|
 |USA|Spanska|es-US|
 
 ## <a name="next-steps"></a>Nästa steg

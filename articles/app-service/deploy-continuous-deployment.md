@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/03/2018
 ms.author: cephalin;dariagrigoriu
 ms.custom: seodec18
-ms.openlocfilehash: fcb2c270b36d5efbe7b799787cf2a123b51bea5c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 384f709bb32f973efec39518eaa895e25136fe23
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60765728"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390640"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Kontinuerlig distribution till Azure App Service
 Den här artikeln visar hur du konfigurerar kontinuerlig distribution för [Azure App Service](overview.md). App Service möjliggör kontinuerlig distribution från BitBucket, GitHub, och [Azure DevOps-tjänsterna](https://www.visualstudio.com/team-services/) genom att dra i de senaste uppdateringarna från din befintliga lagringsplats i någon av dessa tjänster.
@@ -130,7 +130,7 @@ I den **konfigurera** sidan den **skapa** anger språkramverk som Azure DevOps-t
 
 I den **Test** väljer du om du vill aktivera belastningstester och klicka sedan på **Fortsätt**.
 
-Beroende på den [prisnivån](https://azure.microsoft.com/pricing/details/app-service/plans/) för din App Service-plan kan du också se en **distribuera till mellanlagring** sidan. Välj om du vill [aktivera distributionsplatser](deploy-staging-slots.md), klicka sedan på **Fortsätt**. 
+Beroende på den [prisnivån](https://azure.microsoft.com/pricing/details/app-service/plans/) för din App Service-plan kan du också se en **distribuera till mellanlagring** sidan. Välj om du vill [aktivera distributionsplatser](deploy-staging-slots.md), klicka sedan på **Fortsätt**. DevOps tillåter inte kontinuerlig leverans till produktionsplatsen. Det här är avsiktligt att förhindra oavsiktlig distributioner till produktion. Du bör konfigurera kontinuerlig leverans till en mellanlagringsplats, kontrollera ändringarna där och växla platserna när du är klar.
 
 ### <a name="finish-configuration"></a>Slut konfiguration
 

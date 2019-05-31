@@ -1,11 +1,8 @@
 ---
 title: Avbryt din Azure-prenumeration | Microsoft Docs
 description: Beskriver hur du avbryta din Azure-prenumeration, t.ex. kostnadsfri utvärderingsprenumeration
-services: ''
-documentationcenter: ''
-author: genlin
-manager: adpick
-editor: ''
+author: bandersmsft
+manager: amberb
 tags: billing
 ms.assetid: 3051d6b0-179f-4e3a-bda4-3fee7135eac5
 ms.service: billing
@@ -13,24 +10,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 1/23/2019
+ms.date: 5/30/2019
 ms.author: banders
-ms.openlocfilehash: 374224663323e75a1d1413c47490bd3aacd00267
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 235d93de56289bb2daaa661ee9806732da3b6d6a
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60918863"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417605"
 ---
 # <a name="cancel-your-subscription-for-azure"></a>Avbryta din prenumeration för Azure
 
-Du kan avbryta din Azure-prenumeration som den [kontoadministratör](billing-subscription-transfer.md#whoisaa). Efter att du avbryter prenumerationen upphör din åtkomst till Azure-tjänster och resurser.
+Endast en Azure-prenumeration [kontoadministratör](billing-subscription-transfer.md#whoisaa) kan avbryta en Azure-prenumeration. En administratör för Azure-prenumeration kan också [tilldela en annan användare som en prenumerationsadministratör](billing-add-change-azure-subscription-administrator.md#assign-a-user-as-an-administrator-of-a-subscription) så att de kan avbryta en prenumeration. Efter att du avbryter prenumerationen upphör din åtkomst till Azure-tjänster och resurser.
 
 Innan du avbryter din prenumeration:
 
 * Säkerhetskopiera dina data. Till exempel om du lagrar data i Azure storage och SQL, hämta en kopia. Om du har en virtuell dator kan du spara en avbildning av den lokalt.
 * Stänga av dina tjänster. Gå till den [resurser sidan i hanteringsportalen](https://ms.portal.azure.com/?flight=1#blade/HubsExtension/Resources/resourceType/Microsoft.Resources%2Fresources), och **stoppa** någon kör virtuella datorer, program eller andra tjänster.
 * Överväg att migrera dina data. Se [flytta resurser till ny resursgrupp eller prenumeration](../azure-resource-manager/resource-group-move-resources.md).
+* Du måste ta bort alla resurser och alla resursgrupper. Det är obligatoriskt att ta bort dem innan du kan avbryta en prenumeration. Varje resursgrupp måste tas bort separat. Vid borttagning av resursen, måste du bekräfta borttagningen genom att skriva resursgruppens namn.
 
 Om du avbryter ett betalt supportavtal för Azure faktureras du fortfarande för resten av prenumerationsperioden. Mer information finns i [supportavtal](https://azure.microsoft.com/support/plans/).
 
@@ -49,7 +47,7 @@ När du avbryter stoppas faktureringen omedelbart. Dock kan det ta upp till 10 m
 
 Efter det inaktiveras dina tjänster. Det innebär att dina virtuella datorer är frigjord tillfälliga IP-adresser frigörs och lagring är skrivskyddad.
 
-Om du avbryter en faktureringsperiod, kan vi skicka den slutgiltiga fakturan på din vanliga fakturadatum när den har löpt ut. 
+Om du avbryter en faktureringsperiod, kan vi skicka den slutgiltiga fakturan på din vanliga fakturadatum när den har löpt ut.
 
 Vi väntar du 90 dagar innan dina data tas bort permanent om du behöver åtkomst till den eller du ändrar dig. Vi debiterar inte du för att bevara data. Mer information finns i [Microsoft Trust Center – hur vi hanterar dina data](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409).
 

@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 2400f80c67527027aee3a98baaa869c5c66d46ee
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 93c65429ef7581f4a7d2e268034e4056d6f000c8
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64573636"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393125"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Med hjälp av referensdata för sökningar i Stream Analytics
 Referensdata (även kallat en uppslagstabell) är en begränsad mängd data som är statiska eller långsamt ändrad karaktär används för att utföra en sökning eller att korrelera med din dataström. I en IoT-scenario kan du till exempel lagra metadata om sensorer (som inte ändras ofta) i referensdata och träffa realtid IoT-dataströmmar. Azure Stream Analytics läser in referensdata i minnet för att uppnå bearbetning av dataströmmar med låg latens. Att göra använder referensdata i Azure Stream Analytics-jobb kan du vanligtvis använder en [referens Data ansluta](https://msdn.microsoft.com/library/azure/dn949258.aspx) i frågan. 
@@ -34,11 +34,11 @@ Om du vill konfigurera din referensdata, måste du först skapa en som är av ty
 |Indataalias   | Ett eget namn som ska användas i jobbet frågan för att referera till denna indata.   |
 |Lagringskonto   | Namnet på lagringskontot där dina blobar finns. Om den finns i samma prenumeration som ditt Stream Analytics-jobb kan du markera den i listrutan.   |
 |Lagringskontonyckel   | Den hemliga nyckeln som är associerade med lagringskontot. Det här fylls automatiskt om lagringskontot tillhör samma prenumeration som ditt Stream Analytics-jobb.   |
-|Lagringscontainer   | Behållare är en logisk gruppering för blobbar som lagras i Microsoft Azure Blob-tjänsten. När du laddar upp en blob till Blob-tjänsten måste du ange en behållare för blobben.   |
+|Storage-behållare   | Behållare är en logisk gruppering för blobbar som lagras i Microsoft Azure Blob-tjänsten. När du laddar upp en blob till Blob-tjänsten måste du ange en behållare för blobben.   |
 |Sökvägsmönster   | Sökvägen som används för att hitta dina blobbar i den angivna behållaren. I sökvägen, kan du välja att ange en eller flera instanser av följande 2 variabler:<BR>{date}, {time}<BR>Exempel 1: products/{date}/{time}/product-list.csv<BR>Exempel 2: products/{date}/product-list.csv<BR>Exempel 3: product-list.csv<BR><br> Om blobben som inte finns i den angivna sökvägen, väntar Stream Analytics-jobbet på obestämd tid blobben som ska bli tillgänglig.   |
 |[Valfritt] datumformat   | Om du har använt {date} i mönstret sökväg som du har angett, kan du välja datumformat där dina blobbar ordnas från listan över de format som stöds.<BR>Exempel: ÅÅÅÅ/MM/DD, MM/DD/ÅÅÅÅ osv.   |
 |[Valfritt] tidsformat   | Om du har använt {time} i mönstret sökväg som du har angett, kan du välja tidsformatet där dina blobbar ordnas från listan över de format som stöds.<BR>Exempel: HH, HH/mm eller HH-mm.  |
-|Händelseserialiseringsformat   | För att vara säker på att dina frågor fungerar som du vill, behöver Stream Analytics veta vilket serialiseringsformat du använder för inkommande dataströmmar. För referensdata är format som stöds CSV och JSON.  |
+|Händelseserialiseringsformat   | Om du vill se till att dina frågor fungerar som förväntat, Stream Analytics behöver veta vilket serialiseringsformat använder du för inkommande dataströmmar. För referensdata är format som stöds CSV och JSON.  |
 |Kodning   | UTF-8 är det enda kodformat som stöds för närvarande.  |
 
 ### <a name="static-reference-data"></a>Statiska referensdata
@@ -72,7 +72,7 @@ Azure Stream Analytics söker automatiskt efter uppdateras referensdatablobar me
 3. Referensdatablobar är **inte** sorteras efter blobens ”senast ändrad” tid men endast av tid och datum som anges i blob namn med hjälp av den {date} och {time} ersättning.
 3. Om du vill undvika att behöva lista stort antal blobbar, Överväg att ta bort mycket gamla blobbar som bearbetningen inte längre kommer att ske. Observera att ASA försätts har ombearbetning av en viss i vissa scenarier som en omstart.
 
-## <a name="azure-sql-database-preview"></a>Azure SQL-databas (förhandsversion)
+## <a name="azure-sql-database"></a>Azure SQL Database
 
 Azure SQL Database-referensdata hämtas av ditt Stream Analytics-jobb och lagras som en ögonblicksbild i minnet för bearbetning. Ögonblicksbild av din referensdata lagras också i en behållare i ett lagringskonto som du anger i konfigurationsinställningarna. Behållaren har skapats automatiskt när jobbet börjar. Om jobbet har stoppats eller försätts i ett felaktigt tillstånd, tas de automatisk skapade behållarna bort när jobbet startas om.  
 
@@ -94,7 +94,7 @@ Om du vill konfigurera din referensdata för SQL-databas, måste du först skapa
 |Användarnamn|Användarnamnet som är associerade med din Azure SQL Database.|
 |Lösenord|Lösenordet som associeras med din Azure SQL Database.|
 |Uppdatera regelbundet|Det här alternativet kan du välja ett intervall. Välja ”On” kan du ange uppdateringsfrekvensen i DD:HH:MM.|
-|Ögonblicksbildsfråga|Det här är standardalternativet för frågan som hämtar referensdata från din SQL-databas.|
+|Ögonblicksbild fråga|Det här är standardalternativet för frågan som hämtar referensdata från din SQL-databas.|
 |Deltafråga|Uppdateringsintervall, Välj att lägga till en deltafråga för avancerade scenarier med stora datauppsättningar och en kort.|
 
 ## <a name="size-limitation"></a>Storleksgräns

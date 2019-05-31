@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5524576ef21830ae13526dad2d8ac8a1d0864cf1
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: HT
+ms.openlocfilehash: 907cb598d708bfa26f53d2e43fef5456258c21b1
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956888"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393033"
 ---
 # <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy-preview"></a>SAML enkel inloggning för lokala program med Application Proxy (förhandsversion)
 
@@ -50,14 +50,14 @@ Tänk på följande när du ska självstudien:
 1. Välj **SAML** som metod för enkel inloggning.
 1. I den **ange in enkel inloggning med SAML** , redigera den **grundläggande SAML-konfiguration** data, och följ stegen i [RETUR SAML grundkonfiguration](configure-single-sign-on-non-gallery-applications.md#saml-based-single-sign-on) att konfigurera SAML-baserad autentisering för programmet.
 
-   * Kontrollera att den **svars-URL** matchar eller är en sökväg under den **externa URL: en** för dina lokala program som du har publicerat via programproxy. 
-   * Om programmet kräver en annan **svars-URL** för SAML-konfiguration, lägger du till detta som en **ytterligare** URL i listan och markera kryssrutan bredvid den för att ange den som primärt  **Svars-URL** att skicka IDP-initierat SAML-svar på.
-   * Se till att programmet också anger rätt för ett flöde för SP-initierat **svars-URL** eller URL för Konsumenttjänst för försäkran att använda för att ta emot autentiseringstoken.
+   * Kontrollera att den **svars-URL** matchar den **externa URL: en** för dina lokala program som du har publicerats via programproxy eller är en sökväg under den **externa URL: en**.
+   * För en IDP-initierad flöde där ditt program kräver en annan **svars-URL** för SAML-konfiguration, lägger du till detta som en **ytterligare** URL i listan och markera kryssrutan bredvid den för att ange den som den primär **svars-URL**.
+   * För ett flöde för SP-initierat kontrollerar du att backend-applikationer anger rätt **svars-URL** eller URL för Konsumenttjänst för försäkran att använda för att ta emot autentiseringstoken.
 
      ![Ange grundläggande SAML-konfigurationsdata](./media/application-proxy-configure-single-sign-on-on-premises-apps/basic-saml-configuration.png)
 
     > [!NOTE]
-    > Om backend-applikationer förväntar sig den **svars-URL** för att vara den interna URL: en, måste du installera Mina appar säker inloggning tillägget på användarnas enheter. Det här tillägget omdirigeras automatiskt till lämplig Application Proxy-tjänsten. Om du vill installera tillägget, se [Mina appar skyddat inloggningstillägg](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension).
+    > Om backend-applikationer förväntar sig den **svars-URL** om du vill att den interna URL: en måste antingen genom att använda [anpassade domäner](application-proxy-configure-custom-domain.md) ha samma interna och externa URL: er eller installera Mina appar säker inloggning tillägget på användarnas enheter. Det här tillägget omdirigeras automatiskt till lämplig Application Proxy-tjänsten. Om du vill installera tillägget, se [Mina appar skyddat inloggningstillägg](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension).
 
 ## <a name="test-your-app"></a>Testa din app
 

@@ -16,16 +16,18 @@ ms.topic: article
 ms.date: 02/22/2019
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: abd893c68f2e9cac713e09dd0bdafb7f277ae889
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5687e6d0094083a9ee58455cc72b0b2e4da32d65
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64707527"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417149"
 ---
 # <a name="update-the-storage-type-of-a-managed-disk"></a>Uppdatera lagringstypen för en hanterad disk
 
-Det finns fyra alternativ för Azure hanterade diskar: Azure Ultra disklagring-, Premium SSD-, Standard SSD- och Standard HDD. Du kan växla mellan dessa lagringstyper baserat på dina behov med lite avbrott. Den här funktionen stöds inte för ohanterade diskar. Men du kan enkelt [konvertera en ohanterad disk till en hanterad disk](convert-unmanaged-to-managed-disks.md) för att kunna växla mellan disktyper.
+Det finns fyra disktyper Azure hanterade diskar: Azure ultra SSD: er (förhandsversion), premium SSD, standard SSD och HDD-standard. Du kan växla mellan tre GA-disktyper (premium SSD, standard SSD och HDD-standard) baserat på dina behov. Du har ännu inte kan växla från eller till ett ultra SSD, måste du distribuera en ny.
+
+Den här funktionen stöds inte för ohanterade diskar. Men du kan enkelt [konvertera en ohanterad disk till en hanterad disk](convert-unmanaged-to-managed-disks.md) för att kunna växla mellan disktyper.
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 

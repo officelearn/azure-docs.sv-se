@@ -10,12 +10,12 @@ ms.date: 09/18/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 96d4c2c8d6c2dd7722b7377dd7a0ffd42acd3126
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9520cbb9973071bf1c52266d7718837607c1d10f
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64572515"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66256135"
 ---
 # <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Loggbaserade och preaggregeras mått i Application Insights
 
@@ -34,7 +34,7 @@ På samma gång, samla in en fullständig uppsättning händelser kan vara oprak
 
 ## <a name="pre-aggregated-metrics"></a>Preaggregeras mått
 
-Förutom loggbaserade mått levererat med 2018, Application Insights-teamet en offentlig förhandsversion av mått som lagras i en särskild databas som är optimerad för tidsserier. De nya mått behålls inte längre som enskilda händelser med många olika egenskaper. De lagras i stället som preaggregeras tidsserier och endast med viktiga dimensioner. Detta gör den nya måtten överlägsen när en fråga körs: hämtar data händer mycket snabbare och kräver mindre beräkningskapacitet. Detta innebär möjliggör nya scenarier som [nära avisering i realtid på dimensioner mått](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts)och mer responsiv [instrumentpaneler](https://docs.microsoft.com/azure/application-insights/app-insights-dashboards), med mera.
+Förutom loggbaserade mått levererat med 2018, Application Insights-teamet en offentlig förhandsversion av mått som lagras i en särskild databas som är optimerad för tidsserier. De nya mått behålls inte längre som enskilda händelser med många olika egenskaper. De lagras i stället som preaggregeras tidsserier och endast med viktiga dimensioner. Detta gör den nya måtten överlägsen när en fråga körs: hämtar data händer mycket snabbare och kräver mindre beräkningskapacitet. Detta innebär möjliggör nya scenarier som [nära avisering i realtid på dimensioner mått](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts)och mer responsiv [instrumentpaneler](https://docs.microsoft.com/azure/azure-monitor/app/overview-dashboard), med mera.
 
 > [!IMPORTANT]
 > Både loggbaserade och preaggregeras mått samexistera i Application Insights. Skilja mellan två i Application Insights UX preaggregeras mått kallas ”Standard mått (förhandsgranskning)”, medan de traditionella mått från händelserna har bytt namn till ”loggbaserade mått”.

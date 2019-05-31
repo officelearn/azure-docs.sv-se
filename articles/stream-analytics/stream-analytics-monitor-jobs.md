@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/20/2017
-ms.openlocfilehash: eaeb2b4decc7da4caa75cb2af68829b4bf7ce64d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7be57733f9bb5936747c77aa06bde3397eb84fa1
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61478903"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66302906"
 ---
 # <a name="programmatically-create-a-stream-analytics-job-monitor"></a>Skapa en Övervakare för Stream Analytics-jobb programmässigt
 
@@ -24,7 +24,7 @@ Den här artikeln visar hur du aktiverar övervakning av ett Stream Analytics-jo
 
 Innan du börjar den här processen, måste du ha följande krav:
 
-* Visual Studio 2017 eller 2015
+* Visual Studio-2019 eller 2015
 * [Azure .NET SDK](https://azure.microsoft.com/downloads/) hämtas och installeras
 * Ett befintligt Stream Analytics-jobb som måste ha övervakning har aktiverats
 

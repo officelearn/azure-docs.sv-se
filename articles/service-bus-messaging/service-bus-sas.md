@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2018
 ms.author: aschhab
-ms.openlocfilehash: 8f5c1755462d2bbd28dd7f8db427cda141817588
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a14e03c21de0b5388040943fbe5e9434271b567f
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61472237"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258821"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Service Bus åtkomstkontroll med signaturer för delad åtkomst
 
@@ -86,7 +86,9 @@ SHA-256('https://<yournamespace>.servicebus.windows.net/'+'\n'+ 1438205742)
 
 Token innehåller icke-hash-värden så att mottagaren kan omberäkna hash med samma parametrar, verifiera att utfärdaren är en giltig signeringsnyckel tillgång.
 
-Resurs-URI är den fullständiga URI för Service Bus-resurs som åtkomst begärs. Till exempel `http://<namespace>.servicebus.windows.net/<entityPath>` eller `sb://<namespace>.servicebus.windows.net/<entityPath>`, det vill säga `http://contoso.servicebus.windows.net/contosoTopics/T1/Subscriptions/S3`. URI: N måste vara [procentkodad](https://msdn.microsoft.com/library/4fkewx0t.aspx).
+Resurs-URI är den fullständiga URI för Service Bus-resurs som åtkomst begärs. Till exempel `http://<namespace>.servicebus.windows.net/<entityPath>` eller `sb://<namespace>.servicebus.windows.net/<entityPath>`, det vill säga `http://contoso.servicebus.windows.net/contosoTopics/T1/Subscriptions/S3`. 
+
+**URI: N måste vara [procentkodad](https://msdn.microsoft.com/library/4fkewx0t.aspx).**
 
 Auktoriseringsregeln för delad åtkomst som används för att signera måste konfigureras på enheten som anges av den här URI: N eller genom att ett hierarkisk överordnat objekt. Till exempel `http://contoso.servicebus.windows.net/contosoTopics/T1` eller `http://contoso.servicebus.windows.net` i föregående exempel.
 
@@ -275,7 +277,7 @@ I följande tabell visas de behörigheter som krävs för olika åtgärder på S
 | Hämta parametrarnas tillstånd som associeras med en message queue-session |Lyssna |En giltig kö-adress |
 | Ställa in tillståndet som är associerade med en message queue-session |Lyssna |En giltig kö-adress |
 | Schemalägga ett meddelande för senare leverans. till exempel [ScheduleMessageAsync()](/dotnet/api/microsoft.azure.servicebus.queueclient.schedulemessageasync#Microsoft_Azure_ServiceBus_QueueClient_ScheduleMessageAsync_Microsoft_Azure_ServiceBus_Message_System_DateTimeOffset_) |Lyssna | En giltig kö-adress
-| **Ämne** | | |
+| **Avsnittet** | | |
 | Skapa ett ämne |Hantera |Alla adresser för namnområde |
 | Ta bort ett ämne |Hantera |En giltig avsnittet adress |
 | Räkna upp avsnitt |Hantera |$ Resurser/ämnen |

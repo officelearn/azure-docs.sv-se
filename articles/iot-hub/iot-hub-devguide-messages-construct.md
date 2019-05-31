@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: 49a28c120ae71224195edcdb3809335aeea1fa3a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e80fb136220330ddc53d513b22ebcfa19a35117b
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61364324"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66252803"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Skapa och läsa IoT Hub-meddelanden
 
@@ -42,6 +42,8 @@ Meddelanden med IoT Hub enhet-till-molnet har följande egenskaper:
 * IoT Hub tillåter inte godtyckliga partitionering. Meddelanden från enheten till molnet partitioneras baserat på deras ursprung **deviceId**.
 
 * Enligt beskrivningen i [styra åtkomsten till IoT Hub](iot-hub-devguide-security.md), IoT Hub kan per enhet autentisering och åtkomstkontroll.
+
+* Du kan stämpel meddelanden med information som hamnar i Egenskaper för program. Mer information finns i [meddelande enrichments](iot-hub-message-enrichments-overview.md).
 
 Läs mer om hur du kodar och avkodar meddelandena som skickas med olika protokoll, [Azure IoT SDK: er](iot-hub-devguide-sdks.md).
 

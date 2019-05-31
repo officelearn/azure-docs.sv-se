@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: mayg
-ms.openlocfilehash: a1fbc8a42492b4a9c2254ccea2ddc2909219ad23
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 42ef6087663c48cad965be768f14920efa777a62
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65969340"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244331"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Om Azure Site Recovery Deployment Planner för VMware till Azure
 Den här artikeln utgör användarhandboken för Distributionshanteraren för Azure Site Recovery vid produktionsdistribution av VMware till Azure.
@@ -121,7 +121,7 @@ Om du har en tidigare version av distributionshanteraren gör du något av följ
 
 ## <a name="version-history"></a>Versionshistorik
 Den senaste versionen av Distributionshanteraren för Site Recovery är 2.4.
-Läs sidan med [versionshistorik för Distributionshanteraren för Site Recovery](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-deployment-planner-history) för information om korrigeringarna som har lagts till i varje uppdatering.
+Läs sidan med [versionshistorik för Distributionshanteraren för Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-deployment-planner-history) för information om korrigeringarna som har lagts till i varje uppdatering.
 
 ## <a name="next-steps"></a>Nästa steg
 [Kör Distributionshanteraren för Site Recovery](site-recovery-vmware-deployment-planner-run.md)

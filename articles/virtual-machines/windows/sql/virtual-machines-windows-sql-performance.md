@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 09/26/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 8d31f04c355b47720a1c9b0334042ba2f6654768
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c1f40c62fce61ba16dfdf289d54cd19c3739ce21
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61477356"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393773"
 ---
 # <a name="performance-guidelines-for-sql-server-in-azure-virtual-machines"></a>Prestandavägledning för SQL Server i Azure Virtual Machines
 
@@ -179,11 +179,22 @@ Det finns ett undantag till den här rekommendationen: _om TempDB-användningen 
 
 Vissa distributioner kan uppnå ytterligare prestandafördelarna med hjälp av mer avancerade tekniker i konfigurationen. I följande lista beskrivs några SQL Server-funktioner som kan hjälpa dig att få bättre prestanda:
 
-* **Säkerhetskopiering till Azure storage**: När du utför säkerhetskopiering för SQL Server som körs i Azure virtual machines, du kan använda [SQL Server-säkerhetskopiering till URL: en](https://msdn.microsoft.com/library/dn435916.aspx). Den här funktionen är tillgänglig från och med SQL Server 2012 SP1 CU2 och rekommenderas för säkerhetskopiering till de anslutna datadiskarna. När du säkerhetskopiering/återställning till och från Azure storage, Följ rekommendationerna som anges på [SQL Server-säkerhetskopiering till URL: en metodtips och felsökning och återställa från säkerhetskopior som lagras i Azure Storage](https://msdn.microsoft.com/library/jj919149.aspx). Du kan även automatisera dessa säkerhetskopior med hjälp av [automatisk säkerhetskopiering för SQL Server i Azure Virtual Machines](virtual-machines-windows-sql-automated-backup.md).
+### <a name="backup-to-azure-storage"></a>Säkerhetskopiering till Azure Storage
+När du utför säkerhetskopiering för SQL Server som körs i Azure virtual machines, du kan använda [SQL Server-säkerhetskopiering till URL: en](https://msdn.microsoft.com/library/dn435916.aspx). Den här funktionen är tillgänglig från och med SQL Server 2012 SP1 CU2 och rekommenderas för säkerhetskopiering till de anslutna datadiskarna. När du säkerhetskopiering/återställning till och från Azure storage, Följ rekommendationerna som anges på [SQL Server-säkerhetskopiering till URL: en metodtips och felsökning och återställa från säkerhetskopior som lagras i Azure Storage](https://msdn.microsoft.com/library/jj919149.aspx). Du kan även automatisera dessa säkerhetskopior med hjälp av [automatisk säkerhetskopiering för SQL Server i Azure Virtual Machines](virtual-machines-windows-sql-automated-backup.md).
 
-    Du kan använda innan SQL Server 2012, [SQL Server-säkerhetskopiering till Azure-verktyget](https://www.microsoft.com/download/details.aspx?id=40740). Det här verktyget kan bidra till att öka säkerhetskopiering dataflöde med hjälp av flera säkerhetskopiering stripe-mål.
+Du kan använda innan SQL Server 2012, [SQL Server-säkerhetskopiering till Azure-verktyget](https://www.microsoft.com/download/details.aspx?id=40740). Det här verktyget kan bidra till att öka säkerhetskopiering dataflöde med hjälp av flera säkerhetskopiering stripe-mål.
 
-* **SQL Server-datafiler i Azure**: Den här nya funktionen [SQL Server-datafiler i Azure](https://msdn.microsoft.com/library/dn385720.aspx), är tillgängliga från och med SQL Server 2014. Kör SQL Server med datafiler i Azure visar jämförbara prestandaegenskaper som med hjälp av Azure-datadiskar.
+### <a name="sql-server-data-files-in-azure"></a>SQL Server-datafiler i Azure
+
+Den här nya funktionen [SQL Server-datafiler i Azure](https://msdn.microsoft.com/library/dn385720.aspx), är tillgängliga från och med SQL Server 2014. Kör SQL Server med datafiler i Azure visar jämförbara prestandaegenskaper som med hjälp av Azure-datadiskar.
+
+### <a name="failover-cluster-instance-and-storage-spaces"></a>Redundansklusterinstans och lagringsutrymmen
+
+Om du använder lagringsutrymmen, när du lägger till noder i klustret på den **bekräftelse** avmarkerar du kryssrutan **lägga till alla tillgängliga lagringsenheter i klustret**. 
+
+![Avmarkera tillgängliga lagringsenheter](media/virtual-machines-windows-sql-performance/uncheck-eligible-cluster-storage.png)
+
+Om du använder lagringsutrymmen och inte avmarkera **lägga till alla tillgängliga lagringsenheter i klustret**, Windows kopplar från de virtuella diskarna under klustringsprocessen. Därför kan de visas inte i Diskhanteraren eller Explorer förrän lagringsutrymmen tas bort från klustret och återansluta med hjälp av PowerShell. Lagringsutrymmen grupperar flera diskar i lagringspooler. Mer information finns i [lagringsutrymmen](/windows-server/storage/storage-spaces/overview).
 
 ## <a name="next-steps"></a>Nästa steg
 

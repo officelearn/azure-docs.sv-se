@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 05/21/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 4685d02fa9a1f08d86bdbe2915b94f177235b864
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.openlocfilehash: 929a4ae2e954933bf00550770ba9d41319dc6241
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66016424"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418039"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Distribuera modeller med Azure Machine Learning-tjänsten
 
@@ -214,7 +214,7 @@ I det här exemplet innehåller konfigurationen följande objekt:
 
 Information om InferenceConfig funktioner finns i den [avancerad konfiguration](#advanced-config) avsnittet.
 
-### <a name="3-define-your-deployment-configuration"></a>3 Definiera din distributionskonfiguration
+### <a name="3-define-your-deployment-configuration"></a>3. Definiera din distributionskonfiguration
 
 Innan du distribuerar, måste du definiera distributionskonfigurationen. Distributionskonfigurationen är specifik för beräkningsmål som är värd för webbtjänsten. När du distribuerar lokalt måste du ange den port där tjänsten tar emot förfrågningar.
 
@@ -224,7 +224,7 @@ I följande tabell innehåller ett exempel på hur du skapar en distributionskon
 
 | Beräkningsmål | Konfigurationsexempel för distribution |
 | ----- | ----- |
-| Lokal | `deployment_config = LocalWebservice.deploy_configuration(port=8890)` |
+| Lokala | `deployment_config = LocalWebservice.deploy_configuration(port=8890)` |
 | Azure Container-instans | `deployment_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 | Azure Kubernetes Service | `deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 
@@ -235,9 +235,6 @@ I följande avsnitt visar hur du skapar distributionskonfigurationen och sedan a
 ### <a id="local"></a> Lokal distribution
 
 Om du vill distribuera lokalt, måste du ha **Docker installerat** på den lokala datorn.
-
-I exemplen i det här avsnittet används [deploy_from_image](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-), vilket kräver att du att registrera modellen och avbildning innan du gör en distribution. Mer information om andra distributionsmetoder finns [distribuera](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none-) och [deploy_from_model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-).
-
 
 + **Med hjälp av SDK**
 

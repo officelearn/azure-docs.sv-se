@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: e311a328c1c3d78fa8e5ba7065dcc6484006eaaf
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: bce9f3b3a574d27e2fb47fb9b2da9470c43fd2eb
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65235874"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399433"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Stöd matrix för haveriberedskap för lokala Hyper-V-datorer till Azure
 
@@ -157,10 +157,10 @@ Antal operativsystemdiskar | 1 | Kravkontroll misslyckas om stöds inte.
 Datadiskar | 16 eller mindre  | Kravkontroll misslyckas om stöds inte.
 VHD för datadiskstorleken | Upp till 4095 GB | Kravkontroll misslyckas om stöds inte.
 Nätverkskort | Flera nätverkskort stöds |
-Delad VHD | Stöds ej | Kravkontroll misslyckas om stöds inte.
-FC-disk | Stöds ej | Kravkontroll misslyckas om stöds inte.
+Delad VHD | Stöds inte | Kravkontroll misslyckas om stöds inte.
+FC-disk | Stöds inte | Kravkontroll misslyckas om stöds inte.
 Format för hårddisk | VHD <br/><br/> VHDX | Konverterar site Recovery automatiskt VHDX till VHD när du redundansväxlar till Azure. När du växlar tillbaka till den lokala virtuella datorer att fortsätta att använda VHDX-formatet.
-BitLocker | Stöds ej | BitLocker måste inaktiveras innan du aktiverar replikering för en virtuell dator.
+BitLocker | Stöds inte | BitLocker måste inaktiveras innan du aktiverar replikering för en virtuell dator.
 VM-namn | Mellan 1 och 63 tecken. Begränsat till bokstäver, siffror och bindestreck. VM-namnet måste börja och sluta med en bokstav eller en siffra. | Uppdatera värdet i VM-egenskaperna i Site Recovery.
 Typ av virtuell dator | Generation 1<br/><br/> Generation 2--Windows | Virtuella datorer i generation 2 med en OS-disktyp Basic (som innehåller en eller två datavolymer som formaterats som VHDX) och mindre än 300 GB diskutrymme som stöds.<br></br>Virtuella datorer i Linux Generation 2 stöds inte. [Läs mer](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).|
 

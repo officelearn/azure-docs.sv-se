@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2242c6fc46f5556de0b0dd63659670e9c3f998d
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 399f72c7819378ddc1566c2bdde94801b2c71687
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540193"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235298"
 ---
 # <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Anvisningar: Konfigurera användningsvillkor och sekretesspolicy för en app
 
@@ -56,33 +56,20 @@ Exempel: `https://myapp.com/terms-of-service` och `https://myapp.com/privacy-sta
 
 När användningsvillkor och sekretesspolicy är redo kan du lägga till länkar till dessa dokument i din app med någon av följande metoder:
 
-* [Via Azure portal](#registered-in-azure-portal)
-* [I Programregistreringsportalen eller Dev Center](#registered-in-app-reg-portal)
+* [Via Azure portal](#azure-portal)
 * [Med det app-objektet JSON](#app-object-json)
 * [Med hjälp av MSGraph beta REST API](#msgraph-beta-rest-api)
 
-### <a name="registered-in-azure-portal"></a>Om du har registrerat din app i Azure portal
-
-Följ dessa steg om du har registrerat din app i Azure-portalen.
+### <a name="azure-portal"></a>Med Azure portal
+Följ dessa steg i Azure-portalen.
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. Navigera till den **Appregistreringar** och väljer din app.
-3. Öppna den **egenskaper** i appen.
+3. Öppna den **varumärkesriktlinjer** fönstret.
 4. Fyll i **villkoren av tjänstens URL** och **URL till sekretesspolicy** fält.
 5. Spara ändringarna.
 
     ![App properties-avsnittet med villkor för och sekretesspolicy instruktionen URL: er](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
-
-### <a name="registered-in-app-reg-portal"></a>Om du har registrerat din app i portalen för registrering av program
-
-Följ dessa steg om du registrerade din app på Programregistreringsportalen eller Dev Center.
-
-1. Logga in på den [Programregistreringsportalen](https://apps.dev.microsoft.com/).
-2. Välj din app och bläddra till den **profil** avsnittet.
-3. Fyll i **villkoren av tjänstens URL** och **URL till sekretesspolicy** fält.
-4. Spara ändringarna.
-
-    ![App profilavsnittet med villkor för och sekretesspolicy instruktionen URL: er](./media/howto-add-terms-of-service-privacy-statement/app-registration-portal-profile-terms-service-privacy-statement-urls.png)
 
 ### <a name="app-object-json"></a>Med det app-objektet JSON
 

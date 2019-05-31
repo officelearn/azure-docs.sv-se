@@ -2,31 +2,24 @@
 title: Verifiera VPN-dataflöde till ett Microsoft Azure-nätverk | Microsoft Docs
 description: Syftet med det här dokumentet är att en användare verifiera nätverksgenomflöde från sina lokala resurser till en Azure virtuell dator.
 services: vpn-gateway
-documentationcenter: na
-author: chadmath
+author: cherylmc
 manager: jasmc
-editor: ''
-tags: azure-resource-manager,azure-service-management
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 06/15/2018
+ms.date: 05/29/2019
 ms.author: radwiv;chadmat;genli
-ms.openlocfilehash: 819415712d8e605825957aa602fc99dcf6902d82
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c1117afcf6254c32ebe0a4e72ad5619606098253
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60457568"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388614"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Hur du validerar VPN-dataflöde till ett virtuellt nätverk
 
 En anslutning för VPN-gateway låter dig upprätta säkra, mellan lokala anslutning mellan ditt virtuella nätverk i Azure och din lokala IT-infrastruktur.
 
-Den här artikeln visar hur du validerar dataflöde i nätverket från lokala resurser till en Azure-dator (VM). Det ger också felsökningsinformation.
+Den här artikeln visar hur du validerar dataflöde i nätverket från lokala resurser till en Azure-dator (VM). Det ger också felsökningsinformation. 
 
 >[!NOTE]
 >Den här artikeln är avsedd för att diagnostisera och åtgärda vanliga problem. Om det inte går att lösa problemet med hjälp av följande information, [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
@@ -127,7 +120,7 @@ Du uppleva långsamma filen hantera när du använder Windows Explorer eller dra
 - Inte tillräckligt med VM-disk Läs/Skriv hastighet. Mer information finns i [felsökning för Azure Storage](../storage/common/storage-e2e-troubleshooting.md).
 
 ## <a name="on-premises-device-external-facing-interface"></a>Den lokala enheten externt riktade gränssnitt
-Om den lokala VPN-enheten mot Internet-IP-adress som ingår i den [lokalt nätverk](vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway) definition i Azure kan uppstå oförmåga att sätta upp kopplar från VPN, sporadiska eller prestandaproblem.
+Om den lokala VPN-enheten mot Internet-IP-adress som ingår i den [lokalt nätverk](vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway) adress utrymme definition i Azure, kan uppstå oförmåga att sätta upp kopplar från VPN, sporadiska eller prestandaproblem.
 
 ## <a name="checking-latency"></a>Kontroll av svarstid
 Använd tracert att spåra till Microsoft Azure Edge-enhet för att avgöra om det finns några fördröjningar som överskrider 100 ms mellan hopp.

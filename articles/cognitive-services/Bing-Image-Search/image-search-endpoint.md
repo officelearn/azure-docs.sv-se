@@ -10,16 +10,16 @@ ms.subservice: bing-image-search
 ms.topic: article
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: 9b3edd10d2928a512b94e9273000439f80cb8f33
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 076dbb26c267cf65a0d6f3a9835375b09951f2aa
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65777085"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388518"
 ---
 # <a name="endpoints-for-the-bing-image-search-api"></a>Slutpunkter för API för Bing-bildsökning
 
-Den **Image Search API** innehåller tre slutpunkter.  Slutpunkt 1 returnerar bilder från webben baserat på en fråga. Slutpunkt 2 returnerar [ImageInsights](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imageinsightsresponse).  Slutpunkten 3 returnerar populära bilder.
+Den **Image Search API** innehåller tre slutpunkter.  Slutpunkt 1 returnerar bilder från webben baserat på en fråga. Slutpunkt 2 returnerar [ImageInsights](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imageinsightsresponse).  Slutpunkten 3 returnerar populära bilder.
 
 ## <a name="endpoints"></a>Slutpunkter
 
@@ -34,9 +34,9 @@ GET https://api.cognitive.microsoft.com/bing/v7.0/images/search
 ```
  GET or POST https://api.cognitive.microsoft.com/bing/v7.0/images/details
 ```
-En GET-begäran returnerar insikter om en avbildning, till exempel webbsidor med avbildningen. Inkludera den [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#insightstoken) parameter med en `GET` begäran.
+En GET-begäran returnerar insikter om en avbildning, till exempel webbsidor med avbildningen. Inkludera den [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#insightstoken) parameter med en `GET` begäran.
 
-Eller, du kan inkludera en binär i brödtexten i en `POST` begära och ange den [moduler](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#modulesrequested) parameter `RecognizedEntities`. Detta returnerar en [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference#insightstoken) ska användas som en parameter i ett efterföljande `GET` begäran, vilket returnerar information om personer i avbildningen.  Ange `modules` till `All` för att få alla insikter, förutom `RecognizedEntities` i resultatet av den `POST` utan att göra en annan anrop med den `insightsToken`.
+Eller, du kan inkludera en binär i brödtexten i en `POST` begära och ange den [moduler](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#modulesrequested) parameter `RecognizedEntities`. Detta returnerar en [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v5-reference#insightstoken) ska användas som en parameter i ett efterföljande `GET` begäran, vilket returnerar information om personer i avbildningen.  Ange `modules` till `All` för att få alla insikter, förutom `RecognizedEntities` i resultatet av den `POST` utan att göra en annan anrop med den `insightsToken`.
 
 
 **Slutpunkt 3:** Returnerar avbildningar som är populära utifrån search-begäranden som görs av andra. Bilderna är indelade i olika kategorier, till exempel baserat på anmärkningsvärda personer eller händelser.
@@ -46,7 +46,7 @@ GET https://api.cognitive.microsoft.com/bing/v7.0/images/trending
 
 En lista över marknader som har stöd för populära bilder, se [populära bilder](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/trending-images).
 
-Mer information om huvuden, parametrar, marknaden koder, svarsobjekt, fel, o.s.v., se den [bildsökning i Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) referens.
+Mer information om huvuden, parametrar, marknaden koder, svarsobjekt, fel, o.s.v., se den [bildsökning i Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference) referens.
 ## <a name="response-json"></a>Svaret JSON
 Svaret på en förfrågan för avbildningen search inkluderar resultat som JSON-objekt. Exempel för att tolka resultaten finns i den [självstudien](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app) och [källkod](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app-source).
 

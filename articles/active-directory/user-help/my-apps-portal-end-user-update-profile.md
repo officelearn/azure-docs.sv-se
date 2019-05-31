@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa6de024758d16b99569261e10d46f9328241427
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cf8484cdadcdb368c00351ca68e42652b475a7d4
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60483025"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305424"
 ---
 # <a name="update-your-profile-and-account-info-from-the-my-apps-portal"></a>Uppdatera din profil och konto information från portalen Mina appar
 Du kan använda ditt arbets- eller skolkonto med den webbaserade **Mina appar** portalen för att visa och starta många av organisationens molnbaserade appar, att uppdatera en del av din profil och konto information att se din **grupper** information och utföra **åtkomstgranskningar** för dina appar och grupper. Om du inte har åtkomst till den **Mina appar** portalen, måste du kontakta din supportavdelning för behörighet.
@@ -57,7 +57,7 @@ Uppdatera och hantera ditt arbete eller skola kontoinformation från den **profi
 
 - Ange ytterligare säkerhetsinformation för verifiering.
 
-- Granska din organisations användningsvillkor.
+- Granska användningsvillkoren för din organisation.
 
 - Logga ut från var som helst.
 
@@ -71,7 +71,7 @@ Om du vill ändra lösenordet för ditt arbets- eller skolkonto konto kan du vä
 
     ![Ändra lösenord, sida](media/my-apps-portal/my-apps-portal-change-password-page.png)
 
-3. Välj **Skicka**.
+3. Välj **skicka**.
 
     Ditt lösenord har ändrats. Du kommer att behöva logga in på alla appar som du tidigare har loggat in med ditt arbets- eller skolkonto.
 

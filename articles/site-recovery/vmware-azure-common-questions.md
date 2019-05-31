@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 05/10/2019
+ms.date: 05/30/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 4cc305e51113e67eb389bde8cb4cd28a3de8e3df
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 59be8e0585f0bedcafc868ee42f5113509c9c4ef
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65969312"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417770"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Vanliga frågor om VMware till Azure replikering
 
@@ -201,7 +201,7 @@ Site Recovery följer supportmodell N-4. [Läs mer](https://aka.ms/asr_support_s
 
 En omstart är rekommenderas, men är inte obligatoriskt för varje uppgradering. [Läs mer](https://aka.ms/asr_vmware_upgrades).
 
-## <a name="configuration-server"></a>Konfigurationsserver
+## <a name="configuration-server"></a>Konfigurationsservern
 
 ### <a name="what-does-the-configuration-server-do"></a>Vad gör configuration server?
 
@@ -285,7 +285,7 @@ Ja, men Observera att den fysiska datorn kan att växlas tillbaka endast till en
 
 I Recovery Services-valv väljer **Konfigurationsservrar** i **Site Recovery-infrastruktur** > **hantera**. I **servrar**väljer **ladda ned Registreringsnyckeln** att hämta valvautentiseringsfilen.
 
-## <a name="process-server"></a>Processerver
+## <a name="process-server"></a>Processervern
 
 ### <a name="why-am-i-unable-to-select-the-process-server-when-i-enable-replication"></a>Varför kan jag inte välja processerver när jag aktiverar replikering?
 

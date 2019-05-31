@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: apimpm
-ms.openlocfilehash: 532c1051522410c496fb3809c06c7e3a74340adb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 73785422a7c45a12671e6cd53da89609190a8352
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66141451"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243291"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Hur du använder Azure API Management med virtuella nätverk
 Azure-nätverk (Vnet) kan du placera någon av dina Azure-resurser i ett icke-internet-dirigerbara nätverk som du styr åtkomst till. Dessa nätverk kan sedan anslutas till ditt lokala nätverk med olika VPN-teknologier. Om du vill veta börjar mer om Azure Virtual Networks med den här informationen: [Översikt över Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
@@ -103,7 +103,7 @@ Följande är en lista över vanliga felkonfigurationsproblem som kan uppstå n�
 * **Installationen av anpassad DNS-server**: API Management-tjänsten är beroende av flera Azure-tjänster. När API Management finns i ett virtuellt nätverk med en anpassad DNS-server, måste den matcha värdnamnen för de Azure-tjänsterna. Följ [detta](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) vägledning för installationen av anpassad DNS. Se tabellen portar och andra krav som referens.
 
 > [!IMPORTANT]
-> Om du planerar att använda en anpassad DNS-servrar för det virtuella nätverket, bör du konfigurera den **innan** distribuera API Management-tjänsten till den. Annars måste du uppdatera API Management-tjänsten varje gång du ändrar DNS-servrar genom att köra den [gäller åtgärden för konfiguration](https://docs.microsoft.com/rest/api/apimanagement/ApiManagementService/ApplyNetworkConfigurationUpdates)
+> Om du planerar att använda en anpassad DNS-servrar för det virtuella nätverket, bör du konfigurera den **innan** distribuera API Management-tjänsten till den. Annars måste du uppdatera API Management-tjänsten varje gång du ändrar DNS-servrar genom att köra den [gäller åtgärden för konfiguration](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/ApiManagementService/ApplyNetworkConfigurationUpdates)
 
 * **Portar som krävs för API Management**: Inkommande och utgående trafik till undernätet där API Management har distribuerats kan kontrolleras med hjälp av [Nätverkssäkerhetsgrupp][Network Security Group]. Om någon av de här portarna är otillgängliga API Management kanske inte fungerar korrekt och kan bli otillgängliga. Med en eller flera av de här portarna blockerad är ett annat vanligt felkonfiguration problem när du använder API Management med ett virtuellt nätverk.
 
@@ -111,7 +111,7 @@ Följande är en lista över vanliga felkonfigurationsproblem som kan uppstå n�
 
 | Källa / målportar | Direction          | Transport-protokoll |   [Tjänsttaggar](../virtual-network/security-overview.md#service-tags) <br> Källa / mål   | Syfte (*)                                                 | Typ av virtuellt nätverk |
 |------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
-| * / 80, 443                  | Inkommande            | TCP                | INTERNET / VIRTUAL_NETWORK            | Klientkommunikation till API Management                      | Externa             |
+| * / 80, 443                  | Inkommande            | TCP                | INTERNET / VIRTUAL_NETWORK            | Klientkommunikation till API Management                      | Extern             |
 | * / 3443                     | Inkommande            | TCP                | ApiManagement / VIRTUAL_NETWORK       | Hanteringsslutpunkten för Azure-portalen och Powershell         | Externa och interna  |
 | * / 80, 443                  | Utgående           | TCP                | VIRTUAL_NETWORK / Storage             | **Beroende på Azure Storage**                             | Externa och interna  |
 | * / 80, 443                  | Utgående           | TCP                | VIRTUAL_NETWORK / AzureActiveDirectory | Azure Active Directory (om tillämpligt)                   | Externa och interna  |
@@ -170,7 +170,7 @@ Följande är en lista över vanliga felkonfigurationsproblem som kan uppstå n�
   > [!IMPORTANT]
   > När du har godkänt anslutningen, se till att ta bort alla resurser som har distribuerats i undernätet, innan du distribuerar API Management till undernätet.
 
-* **Inkrementella uppdateringar**: När du gör ändringar i nätverket, referera till [NetworkStatus API](https://docs.microsoft.com/rest/api/apimanagement/networkstatus), för att verifiera att API Management-tjänsten inte har förlorat åtkomst till någon av kritiska resurser som den är beroende. Statusen ska uppdateras var 15: e minut.
+* **Inkrementella uppdateringar**: När du gör ändringar i nätverket, referera till [NetworkStatus API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/networkstatus), för att verifiera att API Management-tjänsten inte har förlorat åtkomst till någon av kritiska resurser som den är beroende. Statusen ska uppdateras var 15: e minut.
 
 * **Resursnavigeringslänkar**: När du distribuerar till Resource Manager style vnet-undernät, reserverar API Management undernät, genom att skapa en länk-resursnavigeringen. Om undernätet innehåller redan en resurs från en annan leverantör, distributionen ska **misslyckas**. När du flyttar en API Management-tjänsten till ett annat undernät eller ta bort det, kommer vi på samma sätt kan ta bort den resursnavigeringslänken.
 

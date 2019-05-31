@@ -5,14 +5,14 @@ services: container-service
 author: zr-msft
 ms.service: container-service
 ms.topic: article
-ms.date: 03/06/2019
+ms.date: 05/23/2019
 ms.author: zarhoads
-ms.openlocfilehash: 2fcdb72fa2717659e78e6f767bdc73b0d7be0886
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 76a5391cbe142851d9b1f60ea9346af2e7a35d6a
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60465044"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66392141"
 ---
 # <a name="install-applications-with-helm-in-azure-kubernetes-service-aks"></a>Installera program med Helm i Azure Kubernetes Service (AKS)
 
@@ -24,7 +24,10 @@ Den här artikeln visar hur du konfigurerar och använder Helm i en Kubernetes-k
 
 Den här artikeln förutsätter att du har ett befintligt AKS-kluster. Om du behöver ett AKS-kluster finns i snabbstarten om AKS [med Azure CLI] [ aks-quickstart-cli] eller [med Azure portal][aks-quickstart-portal].
 
-Du måste också Helm CLI-verktyget, klienten som körs i utvecklingssystemet och gör att du kan starta, stoppa och hantera program med Helm. Om du använder Azure Cloud Shell är Helm CLI redan installerad. Installationsanvisningar på din lokala plattform finns [installera Helm][helm-install].
+Du måste också Helm CLI-verktyget, vilket är den klient som körs i utvecklingssystemet. Det kan du starta, stoppa och hantera program med Helm. Om du använder Azure Cloud Shell är Helm CLI redan installerad. Installationsanvisningar på din lokala plattform finns [installera Helm][helm-install].
+
+> [!IMPORTANT]
+> Helm är avsedd att köras på Linux-noder. Om du har Windows Server-noder i klustret måste du kontrollera att Helm poddar endast är schemalagda att köras på Linux-noder. Du måste också se till att alla Helm-diagram som du installerar också är schemalagda att köras på rätt noderna. Kommandona i den här artikeln [noden väljare] [ k8s-node-selector] att kontrollera att poddar schemaläggs för att rätta noder, men inte alla Helm-diagram kan exponera en nod-väljare. Du kan också överväga att använda andra alternativ på klustret som [taints][taints].
 
 ## <a name="create-a-service-account"></a>Skapa ett tjänstkonto
 
@@ -70,7 +73,7 @@ Du kan styra åtkomstnivån som Tiller har till klustret med en RBAC-aktiverade 
 För att distribuera en grundläggande Tiller i ett AKS-kluster måste använda den [”helm init”] [ helm-init] kommando. Om klustret inte är aktiverat RBAC, ta bort den `--service-account` argument och värde. Om du har konfigurerat TLS/SSL för Tiller och Helm, hoppa över det här steget för grundläggande initieringen och i stället ange de nödvändiga `--tiller-tls-` som visas i nästa exempel.
 
 ```console
-helm init --service-account tiller
+helm init --service-account tiller --node-selectors "beta.kubernetes.io/os"="linux"
 ```
 
 Om du har konfigurerat TLS/SSL mellan Helm och Tiller ger den `--tiller-tls-*` parametrar och namnen på dina egna certifikat, som visas i följande exempel:
@@ -82,7 +85,8 @@ helm init \
     --tiller-tls-key tiller.key.pem \
     --tiller-tls-verify \
     --tls-ca-cert ca.cert.pem \
-    --service-account tiller
+    --service-account tiller \
+    --node-selectors "beta.kubernetes.io/os"="linux"
 ```
 
 ## <a name="find-helm-charts"></a>Hitta Helm-diagram
@@ -141,78 +145,62 @@ Update Complete. ⎈ Happy Helming!⎈
 
 ## <a name="run-helm-charts"></a>Kör Helm-diagram
 
-Om du vill installera diagram med Helm, den [helm install] [ helm-install] kommandot och ange namnet på diagrammet för att installera. Om du vill se hur det fungerar, nu ska vi installera en grundläggande Wordpress-distribution med ett Helm-diagram. Om du har konfigurerat TLS/SSL kan du lägga till den `--tls` parametern för att använda ditt Helm-klientcertifikat.
+Om du vill installera diagram med Helm, den [helm install] [ helm-install] kommandot och ange namnet på diagrammet för att installera. Om du vill se installerar ett Helm-diagram i praktiken ska vi installera en grundläggande nginx-distribution med ett Helm-diagram. Om du har konfigurerat TLS/SSL kan du lägga till den `--tls` parametern för att använda ditt Helm-klientcertifikat.
 
 ```console
-helm install stable/wordpress
+helm install stable/nginx-ingress \
+    --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
+    --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux
 ```
 
 Följande komprimerade exempel på utdata visar Distributionsstatus för Kubernetes-resurser som skapas av Helm-diagrammet:
 
 ```
-$ helm install stable/wordpress
+$ helm install stable/nginx-ingress --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux
 
-NAME:   wishful-mastiff
-LAST DEPLOYED: Wed Mar  6 19:11:38 2019
+NAME:   flailing-alpaca
+LAST DEPLOYED: Thu May 23 12:55:21 2019
 NAMESPACE: default
 STATUS: DEPLOYED
 
 RESOURCES:
-==> v1beta1/Deployment
-NAME                       DESIRED  CURRENT  UP-TO-DATE  AVAILABLE  AGE
-wishful-mastiff-wordpress  1        1        1           0          1s
-
-==> v1beta1/StatefulSet
-NAME                     DESIRED  CURRENT  AGE
-wishful-mastiff-mariadb  1        1        1s
+==> v1/ConfigMap
+NAME                                      DATA  AGE
+flailing-alpaca-nginx-ingress-controller  1     0s
 
 ==> v1/Pod(related)
-NAME                                        READY  STATUS   RESTARTS  AGE
-wishful-mastiff-wordpress-6f96f8fdf9-q84sz  0/1    Pending  0         1s
-wishful-mastiff-mariadb-0                   0/1    Pending  0         1s
-
-==> v1/Secret
-NAME                       TYPE    DATA  AGE
-wishful-mastiff-mariadb    Opaque  2     2s
-wishful-mastiff-wordpress  Opaque  2     2s
-
-==> v1/ConfigMap
-NAME                           DATA  AGE
-wishful-mastiff-mariadb        1     2s
-wishful-mastiff-mariadb-tests  1     2s
-
-==> v1/PersistentVolumeClaim
-NAME                       STATUS   VOLUME   CAPACITY  ACCESS MODES  STORAGECLASS  AGE
-wishful-mastiff-wordpress  Pending  default  2s
+NAME                                                            READY  STATUS             RESTARTS  AGE
+flailing-alpaca-nginx-ingress-controller-56666dfd9f-bq4cl       0/1    ContainerCreating  0         0s
+flailing-alpaca-nginx-ingress-default-backend-66bc89dc44-m87bp  0/1    ContainerCreating  0         0s
 
 ==> v1/Service
-NAME                       TYPE          CLUSTER-IP   EXTERNAL-IP  PORT(S)                     AGE
-wishful-mastiff-mariadb    ClusterIP     10.1.116.54  <none>       3306/TCP                    2s
-wishful-mastiff-wordpress  LoadBalancer  10.1.217.64  <pending>    80:31751/TCP,443:31264/TCP  2s
+NAME                                           TYPE          CLUSTER-IP  EXTERNAL-IP  PORT(S)                     AGE
+flailing-alpaca-nginx-ingress-controller       LoadBalancer  10.0.109.7  <pending>    80:31219/TCP,443:32421/TCP  0s
+flailing-alpaca-nginx-ingress-default-backend  ClusterIP     10.0.44.97  <none>       80/TCP                      0s
 ...
 ```
 
-Det tar en minut eller två innan den *extern IP-adress* -adressen för Wordpress-tjänsten ska fyllas i och gör att du kan komma åt den med en webbläsare.
+Det tar en minut eller två innan den *extern IP-adress* -adressen för nginx-ingress-controller-tjänsten ska fyllas i och gör att du kan komma åt den med en webbläsare.
 
 ## <a name="list-helm-releases"></a>Lista Helm versioner
 
-Om du vill se en lista över versioner som är installerad på ditt kluster, använda den [helm lista] [ helm-list] kommando. I följande exempel visas den Wordpress-versionen som distribuerats i föregående steg. Om du har konfigurerat TLS/SSL kan du lägga till den `--tls` parametern för att använda ditt Helm-klientcertifikat.
+Om du vill se en lista över versioner som är installerad på ditt kluster, använda den [helm lista] [ helm-list] kommando. I följande exempel visas den nginx-ingress-versionen som distribuerats i föregående steg. Om du har konfigurerat TLS/SSL kan du lägga till den `--tls` parametern för att använda ditt Helm-klientcertifikat.
 
 ```console
 $ helm list
 
-NAME                REVISION    UPDATED                     STATUS      CHART            APP VERSION    NAMESPACE
-wishful-mastiff   1         Wed Mar  6 19:11:38 2019    DEPLOYED    wordpress-2.1.3  4.9.7          default
+NAME                REVISION    UPDATED                     STATUS      CHART                 APP VERSION   NAMESPACE
+flailing-alpaca   1         Thu May 23 12:55:21 2019    DEPLOYED    nginx-ingress-1.6.13    0.24.1      default
 ```
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du distribuerar ett Helm-diagram, skapas ett antal Kubernetes-resurser. Dessa resurser inkluderar poddar, distributioner och tjänster. Om du vill rensa de här resurserna kan använda den `helm delete` kommandot och ange namnet på din version som hittades i föregående `helm list` kommando. I följande exempel tar bort den versionen med namnet *wishful mastiff*:
+När du distribuerar ett Helm-diagram, skapas ett antal Kubernetes-resurser. Dessa resurser inkluderar poddar, distributioner och tjänster. Om du vill rensa de här resurserna kan använda den `helm delete` kommandot och ange namnet på din version som hittades i föregående `helm list` kommando. I följande exempel tar bort den versionen med namnet *flailing alpaca*:
 
 ```console
-$ helm delete wishful-mastiff
+$ helm delete flailing-alpaca
 
-release "wishful-mastiff" deleted
+release "flailing-alpaca" deleted
 ```
 
 ## <a name="next-steps"></a>Nästa steg
@@ -239,3 +227,5 @@ Mer information om hur du hanterar Kubernetes programdistributioner med Helm fin
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli
+[k8s-node-selector]: concepts-clusters-workloads.md#node-selectors
+[taints]: operator-best-practices-advanced-scheduler.md

@@ -7,14 +7,14 @@ author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 12/11/2017
+ms.date: 05/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: 15152196e45265985c8abb409523982bd4c5d427
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2cb99cfe765e1d3444f362e591812f5088c78c0e
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64697411"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393137"
 ---
 # <a name="get-started-with-an-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Kom igång med en Apache Hadoop-sandbox, ett emuleringsprogram på en virtuell dator
 
@@ -24,19 +24,16 @@ Lär dig hur du installerar Apache Hadoop-sandbox från Hortonworks på en virtu
 * [Oracle VirtualBox](https://www.virtualbox.org/). Hämta och installera det från [här](https://www.virtualbox.org/wiki/Downloads).
 
 
-
 ## <a name="download-and-install-the-virtual-machine"></a>Ladda ned och installera den virtuella datorn
-1. Bläddra till den [Hortonworks hämtar](https://hortonworks.com/downloads/#sandbox).
+1. Bläddra till den [Cloudera hämtar](https://www.cloudera.com/downloads/hortonworks-sandbox/hdp.html).
 
-2. Klicka på **hämta för VIRTUALBOX** att ladda ned Hortonworks sandbox-miljön på en virtuell dator. Du uppmanas att registrera med Hortonworks innan hämtningen påbörjas. Det tar en till två timmar att hämta beroende på nätverkets hastighet.
+2. Klicka på **VIRTUALBOX** under **Välj installationstyp** att ladda ned Hortonworks sandbox-miljön på en virtuell dator. Logga in eller Slutför produktformuläret.
 
-    ![Länk-avbildningen för ladda ned begränsat Hortonworks-läge för VirtualBox](./media/apache-hadoop-emulator-get-started/download-sandbox.png)
-3. Samma Webb-sidan klickar du på den **Import på virtuella** länken för att hämta en PDF-fil som innehåller installationsanvisningar för den virtuella datorn.
+1. Klicka på knappen **HDP SANDBOX (senaste)** att påbörja hämtningen.
 
-Om du vill hämta en äldre version sandbox-miljön för HDP Expandera arkivet:
+Anvisningar om hur du konfigurerar sandbox-miljön finns i [Sandbox-distribution och installerar guiden](https://hortonworks.com/tutorial/sandbox-deployment-and-install-guide/section/1/).
 
-![Hortonworks Sandbox-Arkiv](./media/apache-hadoop-emulator-get-started/hortonworks-sandbox-archive.png)
-
+Om du vill hämta en äldre version sandbox-miljön för HDP finns i länkarna under **äldre versioner**.
 
 ## <a name="start-the-virtual-machine"></a>Starta den virtuella datorn
 
@@ -52,7 +49,7 @@ Om du vill hämta en äldre version sandbox-miljön för HDP Expandera arkivet:
 1. Från den **börjar** steg i Hortonworks Sandbox-sida väljer **visa avancerade alternativ**. Använd informationen på den här sidan för att logga in på sandbox-miljön med hjälp av SSH. Använd namnet och lösenordet som angavs.
 
    > [!NOTE]
-   > Om du inte har en SSH-klient installerad kan du kan använda den webbaserade SSH som anges i av den virtuella datorn på **http://localhost:4200/**.
+   > Om du inte har en SSH-klient installerad kan du kan använda den webbaserade SSH som anges i av den virtuella datorn på **http://localhost:4200/** .
 
     Första gången du ansluter med hjälp av SSH uppmanas du att ändra lösenordet för rotkontot. Ange ett nytt lösenord som du använder när du loggar in med SSH.
 

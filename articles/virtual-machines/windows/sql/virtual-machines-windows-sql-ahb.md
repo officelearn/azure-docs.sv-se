@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 3f62557d024f56b7014784b6956f15a950f8cca7
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 1fb67600ea01629e7bf3ab4c7c470e4727b0e923
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926255"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393178"
 ---
 # <a name="how-to-change-the-licensing-model-for-a-sql-server-virtual-machine-in-azure"></a>Så här ändrar du så att licensieringsmodellen för en SQL Server-dator i Azure
 Den här artikeln beskriver hur du ändrar så att licensieringsmodellen för en SQL Server-dator i Azure med hjälp av den nya SQL-VM-resursprovidern - **Microsoft.SqlVirtualMachine**. Det finns två licensiering modeller för en virtuell dator (VM) som är värd för SQL Server – betala per användning, och Använd din egen licens (BYOL). Och nu, med hjälp av Azure portal, Azure CLI eller PowerShell kan du ändra vilken licensieringsmodell som använder SQL Server-dator. 
@@ -34,7 +34,7 @@ Växla mellan de två modellerna licens medför **utan avbrott**, startar inte d
 ## <a name="remarks"></a>Kommentarer
 
 
- - CSP-kunder kan använda AHB-förmånen genom att först distribuera en betala per virtuell dator och sedan konvertera den till bring-your-own-license. 
+ - Azure Cloud Solution Partner (CSP)-kunder kan använda Azure Hybrid-förmånen genom att först distribuera en betala per virtuell dator och sedan konvertera den till bring-your-own-license. 
  - När du registrerar en anpassad SQL Server-VM-avbildning med resursprovidern, ange licenstypen som = 'AHUB'. Lämna licensen ange tomma eller att ange 'PAYG' kommer registreringen att misslyckas. 
  - Om du släpper din SQL Server-VM-resurs ska du gå tillbaka till inställningen hårdkodade licens för avbildningen. 
  - Lägga till en SQL Server VM till en tillgänglighetsuppsättning måste återskapa den virtuella datorn. Som sådana, alla virtuella datorer som lagts till i en tillgänglighet set går tillbaka till typ av licens för betala per användning och AHB måste aktiveras igen. 

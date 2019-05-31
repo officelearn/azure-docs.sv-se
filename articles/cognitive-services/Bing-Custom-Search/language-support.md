@@ -10,22 +10,22 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: aahi
-ms.openlocfilehash: 56870a63f42c10b48cc2d8f0ae2995862be46d8f
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 85326ae9166f7ea15ec2f45c01755b8f9ef03aff
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65790246"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388567"
 ---
 # <a name="language-and-region-support-for-the-bing-custom-search-api"></a>Språk och din region stöd för API: et för Bing Custom Search
 
 API: et för Bing Custom Search har stöd för fler än tre dussin länder/regioner, många med flera olika språk.
 
-Men det är valfritt, begäran bör ange den [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#mkt) frågeparameter som identifierar marknaden där du vill att resultatet kommer från. En lista över valfria frågeparametrar, se [frågeparametrar](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters)
+Men det är valfritt, begäran bör ange den [mkt](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#mkt) frågeparameter som identifierar marknaden där du vill att resultatet kommer från. En lista över valfria frågeparametrar, se [frågeparametrar](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters)
 
 Du kan ange ett land/region med hjälp av den `cc` frågeparameter. Om du anger ett land/region, måste du även ange en eller flera språkkoder med hjälp av den `Accept-Language` rubrik. Språk som stöds varierar beroende på land/region de tilldelas för varje land/region i den **marknader** tabell.
 
-Den `Accept-Language` rubrik och `setLang` Frågeparametern är ömsesidigt uteslutande – inte ange båda. Mer information finns i [acceptera språk](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#acceptlanguage).
+Den `Accept-Language` rubrik och `setLang` Frågeparametern är ömsesidigt uteslutande – inte ange båda. Mer information finns i [acceptera språk](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#acceptlanguage).
 
 ## <a name="countriesregions"></a>Länder/regioner
 
@@ -45,14 +45,14 @@ Den `Accept-Language` rubrik och `setLang` Frågeparametern är ömsesidigt utes
 |Hongkong SAR|HK|
 |Indien|IN|
 |Indonesien|ID|
-|Italien|it|
+|Italien|IT|
 |Japan|JP|
 |Korea|KR|
 |Malaysia|MY|
-|Mexico|MX|
+|Mexiko|MX|
 |Nederländerna|NL|
 |Nya Zeeland|NZ|
-|Norge|NEJ|
+|Norge|NO|
 |Kina|CN|
 |Polen|PL|
 |Portugal|PT|
@@ -65,7 +65,7 @@ Den `Accept-Language` rubrik och `setLang` Frågeparametern är ömsesidigt utes
 |Schweiz|CH|
 |Taiwan|TW|
 |Turkiet|TR|
-|Storbritannien och Nordirland|GB|
+|Storbritannien|GB|
 |USA|USA|
 
 
@@ -74,12 +74,12 @@ Den `Accept-Language` rubrik och `setLang` Frågeparametern är ömsesidigt utes
 |Land/region|Språk|Marknaden kod|
 |-------|--------|-----------|
 |Argentina|Spanska|es-AR|
-|Australien|Engelska|SV-Australien|
+|Australien|Svenska|SV-Australien|
 |Österrike|Tyska|Tyskland-AT|
 |Belgien|Nederländska|nl-BE|
 |Belgien|Franska|fr-BE|
 |Brasilien|Portugisiska|pt-BR|
-|Kanada|Engelska|en CA: N|
+|Kanada|Svenska|en CA: N|
 |Kanada|Franska|fr-CA|
 |Chile|Spanska|es-CL|
 |Danmark|Danska|da-DK|
@@ -87,29 +87,29 @@ Den `Accept-Language` rubrik och `setLang` Frågeparametern är ömsesidigt utes
 |Frankrike|Franska|fr-FR|
 |Tyskland|Tyska|de-DE|
 |Hongkong SAR|Traditionell kinesiska|zh-HK|
-|Indien|Engelska|en Indien|
-|Indonesien|Engelska|en-ID|
+|Indien|Svenska|en Indien|
+|Indonesien|Svenska|en-ID|
 |Italien|Italienska|IT-IT|
-|Japan|japanska|ja-JP|
+|Japan|Japanska|ja-JP|
 |Korea|Koreanska|ko-KR|
-|Malaysia|Engelska|en-MY|
-|Mexico|Spanska|es-MX|
+|Malaysia|Svenska|en-MY|
+|Mexiko|Spanska|es-MX|
 |Nederländerna|Nederländska|NL-NL|
-|Nya Zeeland|Engelska|en NZ|
-|Norge|Norska (bokmål)|no-NO|
+|Nya Zeeland|Svenska|en NZ|
+|Norge|Norska|no-NO|
 |Kina|Kinesiska|zh-CN|
 |Polen|Polska|pl-PL|
 |Portugal|Portugisiska|PT-PT|
-|Filippinerna|Engelska|en-PH|
+|Filippinerna|Svenska|en-PH|
 |Ryssland|Ryska|ru-RU|
 |Saudiarabien|Arabiska|ar-SA|
-|Sydafrika|Engelska|en ZA|
+|Sydafrika|Svenska|en ZA|
 |Spanien|Spanska|es-ES|
 |Sverige|Svenska|SV-SE|
 |Schweiz|Franska|fr CH|
 |Schweiz|Tyska|Tyskland – CH|
 |Taiwan|Traditionell kinesiska|zh-TW|
 |Turkiet|Turkiska|TR-TR|
-|Storbritannien och Nordirland|Engelska|en-GB|
-|USA|Engelska|en-US|
+|Storbritannien|Svenska|en-GB|
+|USA|Svenska|en-US|
 |USA|Spanska|es-US|

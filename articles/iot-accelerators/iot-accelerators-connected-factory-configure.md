@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 3fd160fbccfb5298cefed6a731797ca6962b997c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e059762cbbf5de2ac03a8a74397e59c9b3bdb97e
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61450031"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66387101"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>Konfigurera ansluten fabrik lösningsaccelerator
 
@@ -282,7 +282,7 @@ OEE/KPI-siffror för ansluten fabrik simuleringen parametriseras genom att:
 * OPC UA-nodvärden ska tas med i beräkningen.
 * Hur bilden beräknas från telemetrivärden.
 
-Ansluten fabrik använder OEE-formler som publicerats av den https://www.oeefoundation.org.
+Ansluten fabrik använder OEE-formler som publicerats av den [ http://www.oeefoundation.org ](http://www.oeefoundation.org).
 
 Objekt för OPC UA-noden i stationer aktivera tagga för användning i OEE/KPI-beräkning. Den **relevans** egenskapen anger för vilken OEE/KPI-bild OPC UA-noden värdet ska användas. Den **OpCode** egenskapen definierar hur värdet är med i beräkningen.
 

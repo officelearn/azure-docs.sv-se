@@ -10,18 +10,26 @@ ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 05/29/2019
 ms.author: bwren
-ms.openlocfilehash: da9e322f74433df7066ec574db7a49123f96d76b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4c7e1225a8da1e20bc90986d1530b781f7f2c11a
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66130666"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357580"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Lösning för Office 365 i Azure (förhandsversion)
 
 ![Logotyp för Office 365](media/solution-office-365/icon.png)
+
+
+> [!NOTE]
+> Den rekommenderade metoden för att installera och konfigurera Office 365-lösningen är att aktivera den [Office 365-anslutning](../../sentinel/connect-office-365.md) i [Azure Sentinel](../../sentinel/overview.md) istället för att använda stegen i den här artikeln. Det här är en uppdaterad version av Office 365-lösning med en förbättrad konfigurationsupplevelse. Om du vill ansluta Azure AD-loggar den [Azure Sentinel Azure AD connector](../../sentinel/connect-azure-active-directory.md), vilket ger bättre loggdata än Office 365-management-loggar. 
+>
+> När du [Sentinel-publicera Azure](../../sentinel/quickstart-onboard.md), ange Log Analytics-arbetsytan som du vill installerad i Office 365-lösning. När du har aktiverat kopplingen lösningen blir tillgängliga i arbetsytan och används likadant som andra övervakningslösningar som du har installerat.
+>
+> Användare av Azure government-molnet måste installera Office 365 med hjälp av stegen i den här artikeln eftersom Azure Sentinel inte ännu finns i molnet för myndigheter.
 
 Hanteringslösning för Office 365 kan du övervaka din Office 365-miljö i Azure Monitor.
 
@@ -30,6 +38,7 @@ Hanteringslösning för Office 365 kan du övervaka din Office 365-miljö i Azur
 - Upptäck och undersök oönskad användarnas beteende och som kan anpassas efter organisationens behov.
 - Visa gransknings- och kompatibilitetskontroller. Du kan till exempel övervaka åtkomst filåtgärder på konfidentiella filer, som kan hjälpa dig med processen gransknings- och kompatibilitetskontroller.
 - Utföra operativa felsökning med hjälp av [logga frågor](../log-query/log-query-overview.md) ovanpå Office 365 aktivitetsdata för din organisation.
+
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -57,14 +66,14 @@ Samla in följande information innan du påbörjar den här proceduren.
 
 Från din Log Analytics-arbetsyta:
 
-- Arbetsytans namn: Arbetsytan där Office 365-data kommer att samlas in.
-- Resursgruppsnamn: Den resursgrupp som innehåller arbetsytan.
+- Namn på arbetsyta: Arbetsytan där Office 365-data kommer att samlas in.
+- Namn på resursgrupp: Den resursgrupp som innehåller arbetsytan.
 - Azure-prenumerations-ID: Den prenumeration som innehåller arbetsytan.
 
 Från din Office 365-prenumeration:
 
 - Användarnamn: E-postadress ett administrativt konto.
-- Klientorganisations-ID: Unikt ID för Office 365-prenumeration.
+- Klient-ID: Unikt ID för Office 365-prenumeration.
 - Klient-ID: 16 tecken lång sträng som representerar Office 365-klienten.
 - Klienthemlighet: Krypterad sträng som krävs för autentisering.
 
@@ -530,25 +539,25 @@ Alla poster som skapats i Log Analytics-arbetsyta i Azure Monitor med hjälp av 
 
 Följande egenskaper är gemensamma för alla Office 365-poster.
 
-| Egenskap  | Description |
+| Egenskap | Description |
 |:--- |:--- |
 | Type | *OfficeActivity* |
 | ClientIP | IP-adressen för den enhet som användes när aktiviteten loggades. IP-adressen visas i en IPv4- eller IPv6-adressformat. |
 | OfficeWorkload | Office 365-tjänst som posten refererar till.<br><br>AzureActiveDirectory<br>Exchange<br>SharePoint|
-| Operation | Namnet på användarens eller administratörens aktivitet.  |
+| Åtgärd | Namnet på användarens eller administratörens aktivitet.  |
 | OrganizationId | GUID för organisationens Office 365-klient. Det här värdet kommer alltid att samma för din organisation, oavsett Office 365-tjänst där det inträffar. |
 | RecordType | Typ av åtgärder som utförs. |
 | ResultStatus | Anger om åtgärden (anges i egenskapen Operation) lyckades eller inte. Möjliga värden är Succeeded eller PartiallySucceeded misslyckades. Värdet är för administratörsaktivitet för Exchange, antingen SANT eller FALSKT. |
-| UserId | UPN (User Principal Name) för den användare som utförde den åtgärd som resulterade i posten loggades, till exempel my_name@my_domain_name. Observera att poster för aktiviteter som utförs av Systemkonton (som SHAREPOINT\system eller NTAUTHORITY\SYSTEM) ingår också. | 
+| Användar-ID | UPN (User Principal Name) för den användare som utförde den åtgärd som resulterade i posten loggades, till exempel my_name@my_domain_name. Observera att poster för aktiviteter som utförs av Systemkonton (som SHAREPOINT\system eller NTAUTHORITY\SYSTEM) ingår också. | 
 | UserKey | Ett alternativt ID för den användare som identifieras i användar-ID-egenskapen.  Den här egenskapen har fyllts i med unikt passport-ID (PUID) för händelser som utförs av användare i SharePoint, OneDrive för företag och Exchange. Den här egenskapen kan även ange samma värde som egenskapen användar-ID för händelser som inträffar i andra tjänster och händelser som utförs av systemkonton|
-| UserType | Typ av användare som utförde åtgärden.<br><br>Administratör<br>Tillämpningsprogram<br>DcAdmin<br>Normal<br>Reserverad<br>ServicePrincipal<br>System |
+| UserType | Typ av användare som utförde åtgärden.<br><br>Admin<br>Program<br>DcAdmin<br>Vanliga<br>Reserverad<br>ServicePrincipal<br>System |
 
 
 ### <a name="azure-active-directory-base"></a>Azure Active Directory-bas
 
 Följande egenskaper är gemensamma för alla poster i Azure Active Directory.
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--- |:--- |
 | OfficeWorkload | AzureActiveDirectory |
 | RecordType     | AzureActiveDirectory |
@@ -560,11 +569,11 @@ Följande egenskaper är gemensamma för alla poster i Azure Active Directory.
 
 Dessa poster skapas när en Active Directory-användare försöker logga in.
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--- |:--- |
 | OfficeWorkload | AzureActiveDirectory |
 | RecordType     | AzureActiveDirectoryAccountLogon |
-| Tillämpningsprogram | Programmet som utlöser händelsen konto inloggning, till exempel Office 15. |
+| Program | Programmet som utlöser händelsen konto inloggning, till exempel Office 15. |
 | Klient | Information om klienten enhet, enhetens operativsystem och enhetens webbläsare som användes för den händelsens konto logga in. |
 | LoginStatus | Den här egenskapen är direkt från OrgIdLogon.LoginStatus. Mappningen av olika intressanta inloggningsfel kan göras av avisering algoritmer. |
 | UserDomain | Klient ID-Information (TII). | 
@@ -574,12 +583,12 @@ Dessa poster skapas när en Active Directory-användare försöker logga in.
 
 Dessa poster skapas för att ändra eller tillägg har gjorts i Azure Active Directory-objekt.
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--- |:--- |
 | OfficeWorkload | AzureActiveDirectory |
 | RecordType     | AzureActiveDirectory |
 | AADTarget | Den användare som åtgärden (som identifieras med egenskapen Operation) utfördes på. |
-| Aktör | Användaren eller tjänstens huvudnamn som utförde åtgärden. |
+| aktör | Användaren eller tjänstens huvudnamn som utförde åtgärden. |
 | ActorContextId | GUID för den organisation som aktören tillhör. |
 | ActorIpAddress | Skådespelare, IP-adress i IPV4 eller IPV6-adressformat. |
 | InterSystemsId | GUID som spårar åtgärder för komponenter i Office 365-tjänsten. |
@@ -592,7 +601,7 @@ Dessa poster skapas för att ändra eller tillägg har gjorts i Azure Active Dir
 
 Dessa poster skapas från Data Center Security granskningsdata.  
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--- |:--- |
 | EffectiveOrganization | Namnet på den klient som varit mål för höjning/cmdleten på. |
 | ElevationApprovedTime | Tidsstämpel för när höjningen har godkänts. |
@@ -608,7 +617,7 @@ Dessa poster skapas från Data Center Security granskningsdata.
 
 Dessa poster skapas när ändringar görs i Exchange-konfiguration.
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | RecordType     | ExchangeAdmin |
@@ -623,7 +632,7 @@ Dessa poster skapas när ändringar görs i Exchange-konfiguration.
 
 Dessa poster skapas när ändringar eller tillägg görs till Exchange-postlådor.
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | RecordType     | ExchangeItem |
@@ -646,7 +655,7 @@ Dessa poster skapas när ändringar eller tillägg görs till Exchange-postlådo
 
 Dessa poster skapas när en postlåda granskningspost skapas.
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | RecordType     | ExchangeItem |
@@ -661,7 +670,7 @@ Dessa poster skapas när en postlåda granskningspost skapas.
 
 Dessa poster skapas när ändringar eller tillägg som görs till Exchange-grupper.
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | OfficeWorkload | ExchangeItemGroup |
@@ -680,7 +689,7 @@ Dessa poster skapas när ändringar eller tillägg som görs till Exchange-grupp
 
 Dessa egenskaper är gemensamma för alla poster i SharePoint.
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--- |:--- |
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePoint |
@@ -697,7 +706,7 @@ Dessa egenskaper är gemensamma för alla poster i SharePoint.
 
 Dessa poster skapas när ändringar görs i SharePoint.
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--- |:--- |
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePoint |
@@ -710,7 +719,7 @@ Dessa poster skapas när ändringar görs i SharePoint.
 
 Dessa poster skapas som svar på filåtgärder i SharePoint.
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--- |:--- |
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePointFileOperation |

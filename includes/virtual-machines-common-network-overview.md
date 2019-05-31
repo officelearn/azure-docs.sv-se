@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 11/01/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 8b77dceb8f5dd8def2fda493104892b13a95bccc
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: cd3b7d6cc75afc5d83ff02a15b920d9f8b05f608
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66154804"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66391450"
 ---
 När du skapar en virtuell Azure-dator (VM) måste du skapa ett [virtuellt nätverk](../articles/virtual-network/virtual-networks-overview.md) (VNet) eller använda ett befintligt VNet. Du måste också bestämma hur dina virtuella datorer är avsedda att användas på VNet. Det är viktigt att [planera innan du skapar resurser](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) och att säkerställa att du förstår [begränsningarna för nätverksresurser](../articles/azure-subscription-service-limits.md#networking-limits).
 
 I följande bild visas virtuella datorer som webb- och databasservrar. Varje uppsättning virtuella datorer är tilldelade separata undernät i VNet.
 
-![Virtuellt Azure-nätverk](./media/virtual-machines-common-network-overview/vnetoverview.png)
+![Azure-virtuellt nätverk](./media/virtual-machines-common-network-overview/vnetoverview.png)
 
 Du kan skapa ett virtuellt nätverk innan du skapar en virtuell dator eller så kan du när du skapar en virtuell dator. Du skapar dessa resurser för att stödja kommunikation med en virtuell dator:
 
@@ -133,7 +133,7 @@ Den här tabellen anger de metoder som du kan använda för att skapa en interne
 
 | Metod | Beskrivning |
 | ------ | ----------- |
-| Azure Portal | Du kan för närvarande inte skapa en internetuppkopplad lastbalanserare med hjälp av Azure-portalen. |
+| Azure Portal |  Du kan [belastningsutjämna Internettrafik till virtuella datorer med Azure-portalen](../articles/load-balancer/tutorial-load-balancer-standard-manage-portal.md). |
 | [Azure PowerShell](../articles/load-balancer/load-balancer-get-started-internet-arm-ps.md) | För att ange identifierare för den offentliga IP-adressen som du skapade tidigare, använder [New-AzLoadBalancerFrontendIpConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerfrontendipconfig) med den **- PublicIpAddress** parametern. Använd [New AzLoadBalancerBackendAddressPoolConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig) att skapa konfigurationen av backend-adresspoolen. Använd [New AzLoadBalancerInboundNatRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerinboundnatruleconfig) att skapa inkommande NAT-regler som är associerade med IP-konfigurationen som du skapade. Använd [New AzLoadBalancerProbeConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerprobeconfig) att skapa de avsökningar som du behöver. Använd [New AzLoadBalancerRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerruleconfig) att skapa belastningsutjämningskonfigurationen. Använd [New AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancer) att skapa belastningsutjämnaren.|
 | [Azure CLI](../articles/load-balancer/load-balancer-get-started-internet-arm-cli.md) | Använd [az network lb create](https://docs.microsoft.com/cli/azure/network/lb) för att skapa den första konfigurationen för lastbalanseraren. Använd [az network lb frontend-ip create](https://docs.microsoft.com/cli/azure/network/lb/frontend-ip) för att lägga till de offentliga IP-adresser som du skapade tidigare. Använd [az network lb address-pool create](https://docs.microsoft.com/cli/azure/network/lb/address-pool) att lägga till konfigurationen av backend-adresspoolen. Använd [az network lb inbound-nat-rule create](https://docs.microsoft.com/cli/azure/network/lb/inbound-nat-rule) för att lägga till NAT-regler. Använd [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule) för att lägga till regler för lastbalanseraren. Använd [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe) för att lägga till avsökningar. |
 | [Mall](../articles/load-balancer/load-balancer-get-started-internet-arm-template.md) | Använd [2 virtuella datorer i en lastbalanserare och konfigurera NAT-regler på LB](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-loadbalancer-natrules) som en vägledning för att distribuera en lastbalanserare med en mall. |
@@ -142,7 +142,7 @@ Den här tabellen anger de metoder som du kan använda för att skapa en intern 
 
 | Metod | Beskrivning |
 | ------ | ----------- |
-| Azure Portal | Du kan för närvarande inte skapa en intern lastbalanserare med hjälp av Azure-portalen. |
+| Azure Portal | Du kan [belastningsutjämna intern trafik belastning med en grundläggande belastningsutjämnare i Azure-portalen](../articles/load-balancer/tutorial-load-balancer-basic-internal-portal.md). |
 | [Azure PowerShell](../articles/load-balancer/load-balancer-get-started-ilb-arm-ps.md) | För att ange en privat IP-adress i nätverkets undernät använder [New-AzLoadBalancerFrontendIpConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerfrontendipconfig) med den **- PrivateIpAddress** parametern. Använd [New AzLoadBalancerBackendAddressPoolConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig) att skapa konfigurationen av backend-adresspoolen. Använd [New AzLoadBalancerInboundNatRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerinboundnatruleconfig) att skapa inkommande NAT-regler som är associerade med IP-konfigurationen som du skapade. Använd [New AzLoadBalancerProbeConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerprobeconfig) att skapa de avsökningar som du behöver. Använd [New AzLoadBalancerRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerruleconfig) att skapa belastningsutjämningskonfigurationen. Använd [New AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancer) att skapa belastningsutjämnaren.|
 | [Azure CLI](../articles/load-balancer/load-balancer-get-started-ilb-arm-cli.md) | Använd kommandot [az network lb create](https://docs.microsoft.com/cli/azure/network/lb) för att skapa den första konfigurationen för lastbalanseraren. För att definiera den privata IP-adressen använder du [az network lb frontend-ip create](https://docs.microsoft.com/cli/azure/network/lb/frontend-ip) med parametern **--private-ip-address** parameter. Använd [az network lb address-pool create](https://docs.microsoft.com/cli/azure/network/lb/address-pool) att lägga till konfigurationen av backend-adresspoolen. Använd [az network lb inbound-nat-rule create](https://docs.microsoft.com/cli/azure/network/lb/inbound-nat-rule) för att lägga till NAT-regler. Använd [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule) för att lägga till regler för lastbalanseraren. Använd [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe) för att lägga till avsökningar.|
 | [Mall](../articles/load-balancer/load-balancer-get-started-ilb-arm-template.md) | Använd [2 virtuella datorer i en lastbalanserare och konfigurera NAT-regler på LB](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-internal-load-balancer) som en vägledning för att distribuera en lastbalanserare med en mall. |

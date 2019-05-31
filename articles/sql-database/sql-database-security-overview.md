@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
 ms.date: 05/14/2019
-ms.openlocfilehash: 7916e9493a5d572f844bca23a1dd7806e5fbe572
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: af14d5eb521d531f86433712a0d6c325ae7a1cd6
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65790163"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258631"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>En översikt över säkerhetsfunktionerna i Azure SQL Database
 
@@ -86,7 +86,7 @@ SQL Database skyddar kundernas data genom att tillhandahålla granskning och fun
 
 SQL Database-granskning spårar databasaktiviteter och hjälper dig upprätthålla överensstämmelse med säkerhetsstandarder genom att registrera databashändelser till en granskningslogg i ett kundägda Azure storage-konto. Granskning kan du övervaka pågående databasaktiviteter, samt analysera och undersöka historiska aktiviteter för att identifiera potentiella hot eller misstänkt missbruk och säkerhetsöverträdelser. Mer information finns i Kom igång med [SQL Database Auditing](sql-database-auditing.md).  
 
-### <a name="advanced-threat-protection"></a>Avancerat skydd
+### <a name="advanced-threat-protection"></a>Advanced Threat Protection
 
 Avancerat skydd analys av dina SQL Server-loggar för att identifiera avvikelser och potentiellt skadliga försök att komma åt eller utnyttja databaser. Aviseringar skapas för misstänkta aktiviteter som SQL-inmatning, potentiella data intrång och brute force angrepp eller efter avvikelser i access mönster för att fånga upp privilegieutökningar och haft intrång autentiseringsuppgifter använder. Aviseringar visas från den [Azure Security Center](https://azure.microsoft.com/services/security-center/), där finns information om misstänkta aktiviteter och rekommendationer för ytterligare undersökningar anges tillsammans med åtgärder för att minska risken. Avancerat skydd kan aktiveras per server för en ytterligare avgift. Mer information finns i [Kom igång med SQL Database Advanced Threat Protection](sql-database-threat-detection.md).
 
@@ -150,6 +150,10 @@ Mer information finns i [Kom igång med dataidentifiering och klassificering](sq
 ### <a name="compliance"></a>Efterlevnad
 
 Förutom ovanstående egenskaper och funktioner som kan hjälpa programmet att uppfylla olika säkerhetskrav, Azure SQL Database också granskas regelbundet och har certifierats mot ett antal efterlevnadsstandarder. Mer information finns i den [Microsoft Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) där du hittar den senaste listan med SQL Database-kompatibilitetscertifieringar.
+
+### <a name="feature-restrictions"></a>Funktionsbegränsningar
+
+Funktionen begränsningar kan förhindra vissa typer av SQL-inmatning från att läcka information om databasen, även när SQL-inmatning är klar. Mer information finns i [funktionsbegränsningar för Azure SQL Database](sql-database-feature-restrictions.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

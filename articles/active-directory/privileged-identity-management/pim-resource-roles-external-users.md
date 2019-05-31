@@ -15,12 +15,12 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f5846d2bd85a382b8e2aee539af405518e9fb221
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0afec1d6eded25a2d9b2389c950e2e21e06e0d54
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60289020"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66307067"
 ---
 # <a name="invite-guest-users-and-assign-azure-resource-roles-in-pim"></a>Bjud in gästanvändare och tilldela Azure-resursroller i PIM
 
@@ -91,11 +91,11 @@ Använda PIM kan du Bjud in Gäst och gör dem tillgängliga för en Azure-resur
 
 1. Klicka på **Välj en medlem eller en grupp**.
 
-    ![Välj en medlem eller grupp](./media/pim-resource-roles-external-users/select-member-group.png)
+    ![Välj en medlem eller en grupp](./media/pim-resource-roles-external-users/select-member-group.png)
 
 1. Om du vill bjuda in en gäst, klickar du på **bjuda in**.
 
-    ![Bjud in en gäst](./media/pim-resource-roles-external-users/invite-guest.png)
+    ![Bjud in gäst](./media/pim-resource-roles-external-users/invite-guest.png)
 
 1. När du har valt en gäst, klickar du på **bjuda in**.
 

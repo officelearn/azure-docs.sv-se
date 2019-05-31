@@ -4,7 +4,7 @@ description: Den här artikeln beskriver hur du följa bästa praxis när du pla
 services: time-series-insights
 ms.service: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: bf1f570319370fab99e2f52086bc81df259e3d35
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 1c6e8ef9effdb5cf31aee1603de28bed0d894cbb
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236531"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239095"
 ---
 # <a name="plan-your-azure-time-series-insights-ga-environment"></a>Planera Azure Time Series Insights GA-miljön
 
@@ -29,7 +29,7 @@ Den här artikeln beskriver hur du planerar din miljö för allmän tillgänglig
 
 > [!VIDEO https://www.youtube.com/embed/03x6zKDQ6DU]
 
-## <a name="best-practices"></a>Regelverk
+## <a name="best-practices"></a>Bästa praxis
 
 Det är bäst att komma igång med Time Series Insights om du vet hur mycket data som du förväntar dig att skicka per minut samt hur länge du behöver lagra dina data.  
 

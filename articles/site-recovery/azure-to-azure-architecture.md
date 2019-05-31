@@ -6,16 +6,16 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: 96873b5fdefc74893929f8150230118a162f195b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 25cf3914274e73e0789aa87e9288649d1b0cb1eb
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60791178"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399576"
 ---
-# <a name="azure-to-azure-disaster-recovery-architecture"></a>Azure-datorer disaster recovery-arkitekturen
+# <a name="azure-to-azure-disaster-recovery-architecture"></a>Haveriberedskapsarkitektur för Azure till Azure
 
 
 Den här artikeln beskriver arkitektur, komponenter och processer som används när du distribuerar haveriberedskap för virtuella Azure-datorer (VM) med hjälp av den [Azure Site Recovery](site-recovery-overview.md) service. Med disaster recovery konfigurera replikera virtuella Azure-datorer kontinuerligt från till ett annat mål-region. Om ett avbrott uppstår kan du växla över virtuella datorer till den sekundära regionen och komma åt dem därifrån. När allt kommer normalt att körs igen kan du växla tillbaka och fortsätta arbeta på den primära platsen.
@@ -74,7 +74,7 @@ Du kan hantera och ändra standard-principer replikeringsinställningarna enligt
 - Du kan ändra inställningarna när du aktiverar replikering.
 - Du kan skapa en replikeringsprincip när som helst och använda den när du aktiverar replikering.
 
-### <a name="multi-vm-consistency"></a>Multi-VM-konsekvens
+### <a name="multi-vm-consistency"></a>Konsekvens
 
 Om du vill att virtuella datorer att replikera tillsammans och har delat kraschkonsekventa och appkonsekventa återställningspunkter vid en redundansväxling, kan du samla dem i en replikeringsgrupp. Konsekvens påverkar arbetsbelastningens prestanda och bör endast användas för virtuella datorer som kör arbetsbelastningar som behöver enhetlighet på alla datorer. 
 
@@ -101,7 +101,7 @@ I följande tabell beskrivs olika typer av konsekvens.
 --- | --- | ---
 En konsekvent ögonblicksbild krascher samlar in data på disken när ögonblicksbilden togs. De omfattar inte något i minnet.<br/><br/> Den innehåller motsvarande data på disken som skulle vara närvarande om den virtuella datorn har kraschat eller kontakten hämtades från servern vid så snart som ögonblicksbilden togs.<br/><br/> En kraschkonsekvent garantera inte datakonsekvens för operativsystemet eller för appar på den virtuella datorn. | Skapar site Recovery kraschkonsekventa återställningspunkter var femte minut som standard. Den här inställningen kan inte ändras.<br/><br/>  | Idag är kan de flesta appar återställa från kraschkonsekventa återställningspunkter.<br/><br/> Kraschkonsekventa återställningspunkter är vanligen tillräckligt för replikering av operativsystem och program som till exempel DHCP-servrar och utskriftsservrar.
 
-### <a name="app-consistent"></a>Appkonsekvent
+### <a name="app-consistent"></a>Programkonsekvent
 
 **Beskrivning** | **Detaljer** | **Rekommendationen**
 --- | --- | ---

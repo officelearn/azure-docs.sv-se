@@ -8,12 +8,12 @@ manager: barbkess
 ms.date: 01/02/2019
 ms.service: key-vault
 ms.topic: conceptual
-ms.openlocfilehash: d003e851dcfa77b18a67450946a71e4a13ce495c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 00274f8e15006f6f58a7c5f153bf0bbc0d26afb9
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64700961"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66416439"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Tjänstslutpunkter i virtuella nätverk för Azure Key Vault
 
@@ -53,7 +53,7 @@ Mer information finns i [konfigurera Azure Key Vault-brandväggar och virtuella 
 > Tänk på följande konfigurationsbegränsningar:
 > * Högst 127 virtuella Nätverksregler och 127 IPv4-regler är tillåtna. 
 > * Små-adressintervall som använder det ”/ 31” eller ”/ 32” prefix storlekar inte stöds. Konfigurera i stället dessa intervall genom att använda enskilda regler för IP-adress.
-> * IP-Nätverksregler tillåts endast för offentliga IP-adresser. IP-adressintervall som reserverats för privata nätverk (som definieras i RFC 1918) är inte tillåtna i IP-regler. Privata nätverk innehåller adresser som börjar med **10.**, **172.16-31**, och **192.168.**. 
+> * IP-Nätverksregler tillåts endast för offentliga IP-adresser. IP-adressintervall som reserverats för privata nätverk (som definieras i RFC 1918) är inte tillåtna i IP-regler. Privata nätverk innehåller adresser som börjar med **10.** , **172.16-31**, och **192.168.** . 
 > * Endast IPv4-adresser stöds just nu.
 
 ## <a name="trusted-services"></a>Betrodda tjänster
@@ -62,13 +62,13 @@ Här är en lista över betrodda tjänster som får åtkomst till key vault om d
 
 |Betrodd tjänst|Användningsscenarier|
 | --- | --- |
-|Distributionstjänst för Azure Virtual Machines|[Distribuera certifikat till virtuella datorer från kundhanterad Key Vault](https://blogs.technet.microsoft.com/kv/2016/09/14/updated-deploy-certificates-to-vms-from-customer-managed-key-vault/).|
-|Distributionstjänst för Azure Resource Manager-mallar|[Skicka säkra värden under distributionen](../azure-resource-manager/resource-manager-keyvault-parameter.md).|
+|Distributionstjänst för Azure virtuella datorer|[Distribuera certifikat till virtuella datorer från kundhanterad Key Vault](https://blogs.technet.microsoft.com/kv/2016/09/14/updated-deploy-certificates-to-vms-from-customer-managed-key-vault/).|
+|Distributionstjänst för Azure Resource Manager-mall|[Skicka säkra värden under distributionen](../azure-resource-manager/resource-manager-keyvault-parameter.md).|
 |Azure Disk Encryption-volymkrypteringstjänst|Tillåt åtkomst till BitLocker Key (Windows-VM) eller DM lösenfras (Linux VM) och krypteringsnyckel, under distributionen av virtuella datorer. På så sätt kan [Azure Disk Encryption](../security/azure-security-disk-encryption.md).|
 |Azure Backup|Tillåt säkerhetskopiering och återställning av relevanta nycklar och hemligheter under säkerhetskopieringen av virtuella datorer i Azure, med hjälp av [Azure Backup](../backup/backup-introduction-to-azure-backup.md).|
 |Exchange Online och SharePoint Online|Tillåt åtkomst till kunden nyckel för Azure Storage Service Encryption med [nyckel kund](https://support.office.com/article/Controlling-your-data-in-Office-365-using-Customer-Key-f2cd475a-e592-46cf-80a3-1bfb0fa17697).|
 |Azure Information Protection|Tillåt åtkomst till klientnyckel för [Azure Information Protection.](https://docs.microsoft.com/azure/information-protection/what-is-information-protection)|
-|Azure App Service|[Distribuera Azure Web App-certifikat via Key Vault](https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/).|
+|Azure App Service|[Distribuera Azure Web App-certifikat via Key Vault](https://azure.github.io/AppService/2016/05/24/Deploying-Azure-Web-App-Certificate-through-Key-Vault.html).|
 |Azure SQL Database|[Transparent datakryptering med Bring Your Own Key-stöd för Azure SQL Database och Data Warehouse](../sql-database/transparent-data-encryption-byok-azure-sql.md?view=sql-server-2017&viewFallbackFrom=azuresqldb-current).|
 |Azure Storage|[Kryptering av lagringstjänst med Kundhanterade nycklar i Azure Key Vault](../storage/common/storage-service-encryption-customer-managed-keys.md).|
 |Azure Data Lake Store|[Kryptering av data i Azure Data Lake Store](../data-lake-store/data-lake-store-encryption.md) med en kundhanterad nyckel.|

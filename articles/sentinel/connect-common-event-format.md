@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/02/2019
 ms.author: rkarlin
-ms.openlocfilehash: 51fd1195942a7bae86bb4cc0af9df3146d6e45c2
-ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
+ms.openlocfilehash: 8e711c0586ce63d4293e2fb0914bbe884b55971f
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65921909"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389952"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>Ansluta din externa lösning med hjälp av Common Event Format
 
@@ -44,6 +44,8 @@ Anslutningen mellan Sentinel-Azure och din CEF-installation sker i tre steg:
 2. Syslog-agenten samlar in information och skickar dem på ett säkert sätt till Log Analytics, där den parsas och utökad.
 3. Agenten lagrar data i Log Analytics-arbetsytan så att den kan ta emot efter behov med analytics, Korrelations-regler och instrumentpaneler.
 
+> [!NOTE]
+> Agenten kan samla in loggar från flera källor, men de måste installeras på dedikerad proxy-datorn.
 
 ## <a name="step-1-connect-to-your-cef-appliance-via-dedicated-azure-vm"></a>Steg 1: Ansluta till din CEF-installation via dedikerade virtuella Azure-datorer
 
@@ -61,7 +63,7 @@ Du kan också distribuera agenten manuellt på en befintlig Azure-dator på en v
 1. Sentinel-Azure-portalen klickar du på **datakopplingar** och väljer du typen av installation. 
 
 1. Under **Linux Syslog-agentkonfiguration**:
-   - Välj **automatisk distribution** om du vill skapa en ny dator som är förinstallerade med agenten Sentinel-Azure och innehåller alla konfiguration behövs, enligt beskrivningen ovan. Välj **automatisk distribution** och klicka på **agenten för automatisk distribution**. Detta tar dig till sidan för en dedikerad Linux VM som automatiskt ansluter till din arbetsyta, är. Den virtuella datorn är en **standard D2s v3 (2 virtuella processorer, 8 GB minne)** och har en offentlig IP-adress.
+   - Välj **automatisk distribution** om du vill skapa en ny dator som är förinstallerade med agenten Sentinel-Azure och innehåller alla konfiguration behövs, enligt beskrivningen ovan. Välj **automatisk distribution** och klicka på **agenten för automatisk distribution**. Detta tar dig till sidan för en dedikerad Linux VM som automatiskt ansluter till din arbetsyta. Den virtuella datorn är en **standard D2s v3 (2 virtuella processorer, 8 GB minne)** och har en offentlig IP-adress.
       1. I den **anpassad distribution** anger din information och välja ett användarnamn och ett lösenord och om du samtycker till villkoren kan du köpa den virtuella datorn.
       1. Konfigurera installationen för att skicka loggar med inställningar som anges i anslutningssidan. Använd de här inställningarna för allmän Common Event Format-anslutningen:
          - Protocol = UDP
@@ -118,6 +120,13 @@ Om du inte använder Azure, distribuera manuellt Azure Sentinel-agenten ska kör
   
  Om du vill använda relevanta schemat i Log Analytics för CEF-händelser, söka efter `CommonSecurityLog`.
 
+## <a name="step-2-forward-common-event-format-cef-logs-to-syslog-agent"></a>Steg 2: Vidarebefordra Common Event Format (CEF) loggar till Syslog-agent
+
+Ange din säkerhetslösning för att skicka Syslog-meddelanden i CEF-format till Syslog-agenten. Kontrollera att du använder samma parametrar som visas i din agentkonfiguration. Det här är vanligtvis:
+
+- Port 514
+- Anläggning local4
+
 ## <a name="step-3-validate-connectivity"></a>Steg 3: Verifiera anslutningen
 
 Det kan ta höjningen tjugonde minut tills loggarna börjar visas i Log Analytics. 
@@ -128,7 +137,7 @@ Det kan ta höjningen tjugonde minut tills loggarna börjar visas i Log Analytic
 
 3. Se till att loggarna du skickar följer [RFC 5424](https://tools.ietf.org/html/rfc542).
 
-4. På den dator som kör Syslog-agenten, se till att dessa portar 514, 25226 är öppna och lyssna, med hjälp av kommandot `netstat -a -n:`. Mer information om hur du använder det här kommandot finns i [netstat(8) - Linux man sidan](https://linux.die.netman/8/netstat). Om den lyssnar på rätt sätt, visas följande:
+4. På den dator som kör Syslog-agenten, se till att dessa portar 514, 25226 är öppna och lyssna, med hjälp av kommandot `netstat -a -n:`. Mer information om hur du använder det här kommandot finns i [netstat(8) - Linux man sidan](https://linux.die.net/man/8/netstat). Om den lyssnar på rätt sätt, visas följande:
 
    ![Azure Sentinel-portar](./media/connect-cef/ports.png) 
 

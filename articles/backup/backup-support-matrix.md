@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: raynew
-ms.openlocfilehash: 51bd4b935b32bea20d3f5de0b8cda62dfdbf07b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 99dd3c0b07307f2d0bf97dbff697e32e648705ae
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60236629"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66400165"
 ---
 # <a name="azure-backup-support-matrix"></a>Stödmatris för Azure Backup
 
@@ -27,7 +27,7 @@ Andra support-matriser är tillgängliga:
 
 ## <a name="vault-support"></a>Stöd för valv
 
-Azure Backup använder Recovery Services-valv för att dirigera och hantera säkerhetskopior. Den använder även valv för att lagra säkerhetskopierade data. 
+Azure Backup använder Recovery Services-valv för att dirigera och hantera säkerhetskopior. Den använder även valv för att lagra säkerhetskopierade data.
 
 I följande tabell beskrivs funktioner i Recovery Services-valv:
 
@@ -36,8 +36,8 @@ I följande tabell beskrivs funktioner i Recovery Services-valv:
 **Valv i prenumerationen** | Upp till 500 Recovery Services-valv i en enstaka prenumeration.
 **Datorer i ett valv** | Upp till 1 000 virtuella datorer i Azure i ett enda valv.<br/><br/> Upp till 50 MABS kan servrar registreras i ett enda valv.
 **Datakällor i valvet lagring** | Maximal 54,400 GB. Det finns ingen gräns för säkerhetskopieringar av virtuella Azure-datorer.
-**Säkerhetskopieringar till valvet** | **Virtuella Azure-datorer:** En gång om dagen.<br/><br/>**Datorer som skyddas av DPM/MABS:** Två gånger per dag.<br/><br/> **Datorer som säkerhetskopieras direkt med hjälp av MARS-agenten:** Tre gånger per dag. 
-**Säkerhetskopior mellan valv** | Backup är inom en region.<br/><br/> Du behöver ett valv i varje Azure-region som innehåller virtuella datorer du vill säkerhetskopiera. Du kan inte säkerhetskopiera till en annan region. 
+**Säkerhetskopieringar till valvet** | **Virtuella Azure-datorer:** En gång om dagen.<br/><br/>**Datorer som skyddas av DPM/MABS:** Två gånger per dag.<br/><br/> **Datorer som säkerhetskopieras direkt med hjälp av MARS-agenten:** Tre gånger per dag.
+**Säkerhetskopior mellan valv** | Backup är inom en region.<br/><br/> Du behöver ett valv i varje Azure-region som innehåller virtuella datorer du vill säkerhetskopiera. Du kan inte säkerhetskopiera till en annan region.
 **Flytta valv** | Du kan [flytta valv](https://review.docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault) mellan prenumerationer eller mellan resursgrupper i samma prenumeration.
 **Flytta data mellan valv** | Flytta säkerhetskopierade data mellan valv stöds inte.
 **Ändra typ av valvet** | Du kan ändra lagringsreplikeringstyp (geo-redundant lagring eller lokalt redundant lagring) för ett valv innan säkerhetskopior lagras. När säkerhetskopiering börjar i valvet går det inte att ändra replikeringstypen.
@@ -69,7 +69,7 @@ Här är vad som stöds om du vill säkerhetskopiera virtuella Azure-datorer:
 **Dator** | **Vad som säkerhetskopieras** | **Plats** | **Funktioner**
 --- | --- | --- | ---
 **Azure säkerhetskopiering av virtuella datorer med hjälp av VM-tillägg** | Hel virtuell dator | Säkerhetskopiera till valvet. | Tillägget installeras när du aktiverar säkerhetskopiering för en virtuell dator.<br/><br/> Säkerhetskopiera en gång om dagen.<br/><br/> App-medvetna säkerhetskopiering för Windows-datorer filkonsekvent säkerhetskopiering för virtuella Linux-datorer. Du kan konfigurera app-konsekvens för Linux-datorer med hjälp av anpassade skript.<br/><br/> Återställ virtuell dator eller disk.<br/><br/> Det går inte att säkerhetskopiera en Azure-dator till en lokal plats.
-**Azure säkerhetskopiering av virtuella datorer med hjälp av MARS-agenten** | Filer, mappar | Säkerhetskopiera till valvet. | Säkerhetskopiera tre gånger per dag.<br/><br/> Om du vill säkerhetskopiera specifika filer eller mappar i stället för hela VM kan MARS-agenten köra tillsammans med VM-tillägget.
+**Azure säkerhetskopiering av virtuella datorer med hjälp av MARS-agenten** | Filer, mappar, systemtillstånd | Säkerhetskopiera till valvet. | Säkerhetskopiera tre gånger per dag.<br/><br/> Om du vill säkerhetskopiera specifika filer eller mappar i stället för hela VM kan MARS-agenten köra tillsammans med VM-tillägget.
 **Virtuell Azure-dator med DPM** | Filer, mappar, volymer, systemtillståndet eller AppData | Säkerhetskopiera till lokal lagring på Azure virtuella datorer som kör DPM. DPM säkerhetskopieras sedan till valvet. | App-medvetna ögonblicksbilder.<br/><br/> Fullständig granularitet för säkerhetskopiering och återställning.<br/><br/> Linux stöds för virtuella datorer (Hyper-V/VMware).<br/><br/> Oracle stöds inte.
 **Virtuell Azure-dator med MABS** | Filer, mappar, volymer, systemtillståndet eller AppData | Säkerhetskopiera till lokal lagring på Azure virtuella datorer som kör MABS. MABS säkerhetskopierar sedan till valvet. | App-medvetna ögonblicksbilder.<br/><br/> Fullständig granularitet för säkerhetskopiering och återställning.<br/><br/> Linux stöds för virtuella datorer (Hyper-V/VMware).<br/><br/> Oracle stöds inte.
 
@@ -122,7 +122,7 @@ Azure Backup stöder kryptering för data under överföring och i vila.
 **Lokala Windows-datorer eller virtuella Azure-datorer med DPM** | ![Ja][green] | ![Ja][green]
 **Lokala Windows-datorer eller virtuella Azure-datorer med MABS** | ![Ja][green] | ![Ja][green]
 
-## <a name="compression-support"></a>Stöd för komprimering
+## <a name="compression-support"></a>Komprimeringsstöd för
 
 Säkerhetskopiering stöder komprimering av säkerhetskopieringstrafik, som sammanfattas i tabellen nedan.
 
@@ -131,8 +131,8 @@ Säkerhetskopiering stöder komprimering av säkerhetskopieringstrafik, som samm
 
 **Dator** | **Komprimera till MABS/DPM (TCP)** | **Komprimera till valv (HTTPS)**
 --- | --- | ---
-**Direkt säkerhetskopiering av lokala Windows-datorer** | Ej tillämpligt | ![Ja][green]
-**Säkerhetskopiering av virtuella Azure-datorer med hjälp av VM-tillägg** | Ej tillämpligt | Ej tillämpligt
+**Direkt säkerhetskopiering av lokala Windows-datorer** | Saknas | ![Ja][green]
+**Säkerhetskopiering av virtuella Azure-datorer med hjälp av VM-tillägg** | Saknas | Saknas
 **Säkerhetskopieringen på från lokalt/Azure-datorer med hjälp av MABS/DPM** | ![Ja][green] | ![Ja][green]
 
 ## <a name="retention-limits"></a>Gräns för kvarhållning

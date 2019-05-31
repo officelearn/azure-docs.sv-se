@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/14/2019
 ms.author: iainfou
-ms.openlocfilehash: 4c2dad687d31597954b023dde9d1b9d69788fe04
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: HT
+ms.openlocfilehash: 13fbb20cde454a0aaab156a74a9fbcbac2d90d07
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66241407"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418124"
 ---
 # <a name="preview---limit-egress-traffic-for-cluster-nodes-and-control-access-to-required-ports-and-services-in-azure-kubernetes-service-aks"></a>Preview - gränsen för utgående trafik för klusternoder och kontrollera åtkomst till nödvändiga portar och tjänster i Azure Kubernetes Service (AKS)
 
@@ -69,7 +69,7 @@ Det finns två uppsättningar med portar och adresser i AKS:
 Följande utgående portar / Nätverksregler krävs för ett AKS-kluster:
 
 * TCP-port *443*
-* TCP-port *9000* för tunnel främre poden att kommunicera med tunnel slutet på API-servern.
+* TCP-port *9000* och TCP-port *22* för tunnel främre poden att kommunicera med tunnel slutet på API-servern.
 
 Följande FQDN / regler för program som krävs:
 

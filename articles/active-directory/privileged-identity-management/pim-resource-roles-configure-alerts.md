@@ -15,12 +15,12 @@ ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c15e4080308c3e7e2ff54312cd91fa1f3d68668a
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 827c42763eee39c717cedc90469ae765cc331272
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65602405"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66253838"
 ---
 # <a name="configure-security-alerts-for-azure-resource-roles-in-pim"></a>Konfigurera säkerhetsaviseringar för Azure-resursroller i PIM
 Azure Active Directory (Azure AD) Privileged Identity Management (PIM) genererar aviseringar när det finns misstänkt eller osäkra aktivitet i din miljö. När en avisering utlöses visas den på sidan aviseringar. 
@@ -33,11 +33,11 @@ Välj en avisering om du vill se en rapport som visar den användare eller de ro
 ![Aviseringsrapport](media/pim-resource-roles-configure-alerts/rbac-alert-info.png)
 
 ## <a name="alerts"></a>Aviseringar
-| Avisering | Severity | Utlös | Rekommendation |
+| Varning | Severity | Utlösare | Rekommendation |
 | --- | --- | --- | --- |
-| **För många ägare har tilldelats till en resurs** |Medium |För många användare har rollen ägare. |Granska användare i listan och omtilldela några mindre privilegierade roller. |
-| **För många permanenta ägare har tilldelats till en resurs** |Medium |För många användare tilldelas permanent till en roll. |Granska användare i listan och tilldela några kräver aktivering för rollen. |
-| **En duplicerad roll skapades** |Medium |Flera roller har samma villkor. |Använd bara en av dessa roller. |
+| **För många ägare har tilldelats till en resurs** |Medel |För många användare har rollen ägare. |Granska användare i listan och omtilldela några mindre privilegierade roller. |
+| **För många permanenta ägare har tilldelats till en resurs** |Medel |För många användare tilldelas permanent till en roll. |Granska användare i listan och tilldela några kräver aktivering för rollen. |
+| **En duplicerad roll skapades** |Medel |Flera roller har samma villkor. |Använd bara en av dessa roller. |
 
 
 ### <a name="severity"></a>Severity
@@ -54,4 +54,4 @@ Anpassa inställningar för olika aviseringar för att arbeta med din miljö och
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Konfigurera säkerhetsaviseringar för Azure-resursroller i PIM](pim-resource-roles-configure-alerts.md)
+- [Konfigurera Azure-resurs rollinställningar i PIM](pim-resource-roles-configure-role-settings.md)

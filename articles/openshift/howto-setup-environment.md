@@ -3,18 +3,18 @@ title: Konfigurera din utvecklingsmiljö för Azure Red Hat OpenShift | Microsof
 description: Här är förutsättningarna för att arbeta med Microsoft Azure Red Hat OpenShift.
 services: openshift
 keywords: Red hat openshift ställa in
-author: TylerMSFT
-ms.author: twhitney
+author: jimzim
+ms.author: jzim
 ms.date: 05/10/2019
 ms.topic: conceptual
 ms.service: openshift
 manager: jeconnoc
-ms.openlocfilehash: 6ba7e67620ebfd7ff98c1ba81c7cecb133288be7
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: f0ef421d7954aa33cf69e7de2f4902a86ed8b580
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65962136"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306407"
 ---
 # <a name="set-up-your-azure-red-hat-openshift-dev-environment"></a>Konfigurera Azure Red Hat OpenShift-utvecklingsmiljön
 
@@ -65,31 +65,43 @@ Använd följande instruktioner från ett Bash-gränssnitt om du har installerat
     az account set --subscription <SUBSCRIPTION ID>
     ```
 
-2. Registrera funktionen Microsoft.ContainerService openshiftmanagedcluster:
+1. Registrera funktionen Microsoft.ContainerService openshiftmanagedcluster:
 
     ```bash
     az feature register --namespace Microsoft.ContainerService -n openshiftmanagedcluster
     ```
 
-3. Registrera providern Microsoft.Solutions:
+1. Registrera providern Microsoft.Storage:
+
+    ```bash
+    az provider register -n Microsoft.Storage --wait
+    ```
+    
+1. Registrera Microsoft.Compute-providern:
+
+    ```bash
+    az provider register -n Microsoft.Compute --wait
+    ```
+
+1. Registrera providern Microsoft.Solutions:
 
     ```bash
     az provider register -n Microsoft.Solutions --wait
     ```
 
-4. Registrera Microsoft.Network-providern:
+1. Registrera Microsoft.Network-providern:
 
     ```bash
     az provider register -n Microsoft.Network --wait
     ```
 
-5. Registrera providern Microsoft.KeyVault:
+1. Registrera providern Microsoft.KeyVault:
 
     ```bash
     az provider register -n Microsoft.KeyVault --wait
     ```
 
-6. Uppdatera registreringen av resursprovidern Microsoft.ContainerService:
+1. Uppdatera registreringen av resursprovidern Microsoft.ContainerService:
 
     ```bash
     az provider register -n Microsoft.ContainerService --wait

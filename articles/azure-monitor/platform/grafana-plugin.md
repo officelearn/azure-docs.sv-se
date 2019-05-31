@@ -3,18 +3,18 @@ title: Övervaka Azure-tjänster och program med Grafana
 description: Dirigera Azure Monitor och Application Insights data så att du kan visa dem i Grafana.
 services: azure-monitor
 keywords: ''
-author: lingliw
-ms.author: v-lingwu
-ms.date: 04/12/19
+author: rboucher
+ms.author: robb
+ms.date: 11/06/2017
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: ''
-ms.openlocfilehash: 6ea8f4e591399e23b103871da115dbb937227ca9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e9a20aba84e79e87f84d63e4bdae3ba1aac062f5
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60396094"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66387195"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Övervaka dina Azure-tjänster i Grafana
 Du kan nu övervaka Azure-tjänster och program från [Grafana](https://grafana.com/) med hjälp av den [Azure Monitor-plugin-programmet för datakällans](https://grafana.com/plugins/grafana-azure-monitor-datasource). Plugin-programmet samlar in program-prestandadata som samlats in från Azure Monitor, inklusive olika loggar och mått. Du kan sedan visa dessa data på din Grafana-instrumentpanel.
@@ -103,7 +103,7 @@ När du har loggat in kan bör du se att plugin-programmet Azure Monitor data k�
      > [!NOTE]
      >
      > Standardfrågan medföljer plugin-programmet använder två makron: ”$__timeFilter() och $__interval. 
-     > Dessa makron Tillåt Grafana att dynamiskt beräkna tidsintervall och tidsintervallet, när du zoomar in på en del av ett diagram. Du kan ta bort dessa makron och använda ett normaltid filter som *TimeGenerated > ago(1)*, men som innebär att diagrammet inte stöder zoomning i funktionen.
+     > Dessa makron Tillåt Grafana att dynamiskt beräkna tidsintervall och tidsintervallet, när du zoomar in på en del av ett diagram. Du kan ta bort dessa makron och använda ett normaltid filter som *TimeGenerated > ago(1)* , men som innebär att diagrammet inte stöder zoomning i funktionen.
     
      ![Grafana graph-konfiguration för Azure Log Analytics](./media/grafana-plugin/grafana-graph-config-for-azure-log-analytics-dark.png)
 
@@ -119,8 +119,6 @@ Du kan även återanvända den här konfigurationen att inkludera mått från Pr
 
 Här är bra referensartiklar om hur du använder Telegraf, InfluxDB, Prometheus och Docker
  - [Så här övervakar du Systemmått med SKALSTRECK-Stack på Ubuntu 16.04](https://www.digitalocean.com/community/tutorials/how-to-monitor-system-metrics-with-the-tick-stack-on-ubuntu-16-04)
-
- - [Övervaka Docker Resursmått med Grafana, InfluxDB och Telegraf](https://blog.vpetkov.net/2016/08/04/monitor-docker-resource-metrics-with-grafana-influxdb-and-telegraf/)
 
  - [En övervakningslösning för Docker, behållare och tjänster i behållare](https://stefanprodan.com/2016/a-monitoring-solution-for-docker-hosts-containers-and-containerized-services/)
 
@@ -168,3 +166,4 @@ Om du har ställt in en Grafana-miljö på Azure, debiteras du när virtuella da
 
 ## <a name="next-steps"></a>Nästa steg
 * [Översikt över Azure Monitor-mått](data-platform.md)
+

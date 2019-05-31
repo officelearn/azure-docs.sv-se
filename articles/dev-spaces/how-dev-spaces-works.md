@@ -10,12 +10,12 @@ ms.date: 03/04/2019
 ms.topic: conceptual
 description: Beskriver processerna som power Azure Dev blanksteg och hur de konfigureras i konfigurationsfilen azds.yaml
 keywords: azds.yaml Azure Dev blanksteg, Dev blanksteg, Docker, Kubernetes, Azure, AKS, Azure Kubernetes-tjänst, behållare
-ms.openlocfilehash: f7cf5ae875fa0fb87322052df036d35e8e5e89a4
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: e437a53d640bbdad3cdeeba8fd73e1f9ffef4023
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65605428"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399838"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Hur Azure Dev blanksteg fungerar och är konfigurerad
 
@@ -80,7 +80,7 @@ Vi tar upp mer information om hur Azure Dev blanksteg fungerar i var och en av d
 ## <a name="prepare-your-aks-cluster"></a>Förbered ditt AKS-kluster
 
 Förbereda AKS-kluster omfattar:
-* Verifiera ditt AKS-kluster som finns i en region [stöds av Azure Dev blanksteg](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams).
+* Verifiera ditt AKS-kluster som finns i en region [stöds av Azure Dev blanksteg][supported-regions].
 * Verifiera att du kör Kubernetes 1.10.3 eller senare.
 * Att aktivera Azure Dev blanksteg på ditt kluster med hjälp av `az aks use-dev-spaces`
 
@@ -278,7 +278,7 @@ När en HTTP-begäran skickas till en tjänst från utanför klustret, går beg�
 
 När en HTTP-begäran skickas till en tjänst från en annan tjänst i klustret, går begäran först igenom den anropande service devspaces proxy-behållaren. Behållaren devspaces proxy tittar på HTTP-begäran och kontrollerar de `azds-route-as` rubrik. Baserat på rubriken, kollar behållaren devspaces proxy upp IP-adressen för tjänsten som är associerade med huvudets värde. Om en IP-adress hittas behållaren devspaces-proxy ska dras om begäran till IP-adress. Om en IP-adress inte hittas omdirigerar behållaren devspaces proxy begäran till den överordnade behållaren för programmet.
 
-Till exempel program *serviceA* och *serviceB* distribueras till en överordnad dev utrymme som kallas *standard*. *serviceA* förlitar sig på *serviceB* och gör HTTP-anrop till den. Azure-användare skapar en underordnad dev utrymme baserat på den *standard* utrymme som kallas *azureuser*. Azure-användare distribuerar också sin egen version av *serviceA* till sina underordnade utrymme. När en begäran skickas till *http://azureuser.s.default.serviceA.fedcba09...azds.io*:
+Till exempel program *serviceA* och *serviceB* distribueras till en överordnad dev utrymme som kallas *standard*. *serviceA* förlitar sig på *serviceB* och gör HTTP-anrop till den. Azure-användare skapar en underordnad dev utrymme baserat på den *standard* utrymme som kallas *azureuser*. Azure-användare distribuerar också sin egen version av *serviceA* till sina underordnade utrymme. När en begäran skickas till *http://azureuser.s.default.serviceA.fedcba09...azds.io* :
 
 ![Azure Dev blanksteg Routning](media/how-dev-spaces-works/routing.svg)
 
@@ -337,13 +337,13 @@ Den *install.set* egenskapen kan du konfigurera ett eller flera värden som du v
 
 I exemplet ovan den *install.set.replicaCount* egenskapen talar om för kontrollanten hur många instanser av programmet att köras i ditt dev-adressutrymme. Du kan öka det här värdet beroende på ditt scenario, men den har en inverkan på Koppla en felsökare till din programpodden. Mer information finns i den [felsökningsartikeln](troubleshooting.md).
 
-I den genererade Helm-diagrammet behållaravbildningen anges till *{{. Values.Image.Repository}} :{{. Values.Image.tag}}*. Den `azds.yaml` fil definierar *install.set.image.tag* egenskapen som *$(tag)* som standard som används som värde för *{{. Values.Image.tag}}*. Genom att ange den *install.set.image.tag* egenskapen i det här sättet tillåter behållaravbildningen för ditt program taggas på olika sätt när du kör Azure Dev blanksteg. I det specifika fallet, avbildningen har märkts som  *\<värdet från image.repository >: $(tag)*. Du måste använda den *$(tag)* variabeln som värde för *install.set.image.tag* för Dev blanksteg känner igen och leta rätt på behållaren i AKS-kluster.
+I den genererade Helm-diagrammet behållaravbildningen anges till *{{. Values.Image.Repository}} :{{. Values.Image.tag}}* . Den `azds.yaml` fil definierar *install.set.image.tag* egenskapen som *$(tag)* som standard som används som värde för *{{. Values.Image.tag}}* . Genom att ange den *install.set.image.tag* egenskapen i det här sättet tillåter behållaravbildningen för ditt program taggas på olika sätt när du kör Azure Dev blanksteg. I det specifika fallet, avbildningen har märkts som  *\<värdet från image.repository >: $(tag)* . Du måste använda den *$(tag)* variabeln som värde för *install.set.image.tag* för Dev blanksteg känner igen och leta rätt på behållaren i AKS-kluster.
 
-I exemplet ovan `azds.yaml` definierar *install.set.ingress.hosts*. Den *install.set.ingress.hosts* egenskapen definierar en värdnamnsformat för offentliga slutpunkter. Den här egenskapen används också *$(spacePrefix)*, *$(rootSpacePrefix)*, och *$(hostSuffix)*, vilket är värden som tillhandahålls av kontrollanten. 
+I exemplet ovan `azds.yaml` definierar *install.set.ingress.hosts*. Den *install.set.ingress.hosts* egenskapen definierar en värdnamnsformat för offentliga slutpunkter. Den här egenskapen används också *$(spacePrefix)* , *$(rootSpacePrefix)* , och *$(hostSuffix)* , vilket är värden som tillhandahålls av kontrollanten. 
 
 Den *$(spacePrefix)* är namnet på det underordnade dev utrymmet, som i form av *SPACENAME.s*. Den *$(rootSpacePrefix)* är namnet på det överordnade utrymmet. Till exempel om *azureuser* är en underordnad plats för *standard*, värdet för *$(rootSpacePrefix)* är *standard* och värdet för *$(spacePrefix)* är *azureuser.s*. Om utrymme inte är en underordnad utrymme *$(spacePrefix)* är tomt. Till exempel om den *standard* utrymme har överordnade utrymme, värdet för *$(rootSpacePrefix)* är *standard* och värdet för *$(spacePrefix)* är tomt. Den *$(hostSuffix)* är ett DNS-suffix som pekar på Azure Dev blanksteg ingående Controller som körs i AKS-klustret. Den här DNS-suffix motsvarar en DNS-post för jokertecken, till exempel  *\*. RANDOM_VALUE.EUs.azds.IO*, som skapades när Azure Dev blanksteg kontrollanten har lagts till i AKS-klustret.
 
-I ovanstående `azds.yaml` fil, du kan också uppdatera *install.set.ingress.hosts* ändra värdnamnet för ditt program. Exempel: Om du vill förenkla värdnamnet för ditt program från *$(spacePrefix)$(rootSpacePrefix)webfrontend$(hostSuffix)* till *$(spacePrefix)$(rootSpacePrefix)web$(hostSuffix)*.
+I ovanstående `azds.yaml` fil, du kan också uppdatera *install.set.ingress.hosts* ändra värdnamnet för ditt program. Exempel: Om du vill förenkla värdnamnet för ditt program från *$(spacePrefix)$(rootSpacePrefix)webfrontend$(hostSuffix)* till *$(spacePrefix)$(rootSpacePrefix)web$(hostSuffix)* .
 
 Om du vill skapa en behållare för ditt program, kontrollanten använder den nedan delar av den `azds.yaml` konfigurationsfil:
 
@@ -408,7 +408,7 @@ Du kan felsöka ditt program som körs direkt i ditt dev-adressutrymmet med hjä
 
 ![Felsöka din kod](media/get-started-node/debug-configuration-nodejs2.png)
 
-När du startar ditt program med Visual Studio Code eller Visual Studio för felsökning, de hanterar starta och ansluta till ditt dev-utrymme på samma sätt som att köra `azds up`. Klientsidan verktygsuppsättningen i Visual Studio Code och Visual Studio tillhandahåller även en extra parameter med specifik information för felsökning. Parametern innehåller namnet på felsökare avbildning, platsen för felsökningsprogrammet i felsökning bild och målplatsen i programmets behållaren att montera mappen felsökare. 
+När du startar ditt program med Visual Studio Code eller Visual Studio för felsökning, de hanterar starta och ansluta till ditt dev-utrymme på samma sätt som att köra `azds up`. Klientsidan verktygsuppsättningen i Visual Studio Code och Visual Studio tillhandahåller även en extra parameter med specifik information för felsökning. Parametern innehåller namnet på felsökare avbildning, platsen för felsökningsprogrammet i felsökning bild och målplatsen i programmets behållaren att montera mappen felsökare.
 
 Felsökare avbildningen bestäms automatiskt av verktyg för klientsidan. Den använder en metod som liknar den som används under Dockerfile och Helm-diagrammet generera när du kör `azds prep`. När felsökningen är monterad i programmets bild, körs det med hjälp av `azds exec`.
 
@@ -442,3 +442,7 @@ Kom igång med utveckling i grupp, se följande instruktionsartiklar:
 * [Grupputveckling - .NET Core med CLI och Visual Studio Code](team-development-netcore.md)
 * [Grupputveckling - .NET Core med Visual Studio](team-development-netcore-visualstudio.md)
 * [Grupputveckling – Node.js med CLI och Visual Studio Code](team-development-nodejs.md)
+
+
+
+[supported-regions]: about.md#supported-regions-and-configurations

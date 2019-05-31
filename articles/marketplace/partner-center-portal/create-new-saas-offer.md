@@ -7,12 +7,12 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 30e547759cbafabf5f762f671b09b0cbeea3a44c
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
-ms.translationtype: HT
+ms.openlocfilehash: 9750aa924ba4b6e4e5f3a51e5b34531d3fab0a6e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65851251"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243314"
 ---
 # <a name="create-a-new-saas-offer"></a>Skapa ett nytt SaaS-erbjudande
 
@@ -89,7 +89,7 @@ Programvara för licensavgifter visas som en fast avgift för varje månad, åte
 - Partner som har kvalificerat för den **minskas serviceavgift för Marketplace** visas en minskad transaktionsavgift på SaaS erbjuder från maj 2019 fram till juni 2020. I det här scenariot Microsoft fakturerar $100,00 för din programvarulicensen och betalar ut $90.00 till utgivaren.
 
 > [!NOTE]
-> **Minskad serviceavgift för Marketplace**: För vissa kan SaaS du att du har publicerat på vår kommersiella Marketplace, Microsoft minskar dess serviceavgift för Marketplace från 20% (enligt beskrivningen i Publiceringsavtalet för Microsoft) till 10%. För ditt erbjudande att kvalificera måste minst en av dina erbjudanden har angetts av Microsoft som antingen IP-medförsäljning är klara eller IP-medförsäljning prioriteras.  Kvalificering måste uppfyllas minst fem (5) arbetsdagar innan slutet av varje månad för att ta emot den här minskade serviceavgift för Marketplace för månaden.  Det minskar serviceavgift för Marketplace gäller inte för virtuella datorer, hanterade appar eller andra produkter som görs tillgängliga via vår kommersiella Marketplace.  Det minskar serviceavgift för Marketplace kommer bara att tillgängligt för kvalificerade erbjudanden för licensavgifter som samlas in av Microsoft mellan den 31 maj 2019 och den 30 juni 2020.  Efter den tiden kan returnerar serviceavgift för Marketplace till dess normala värde. 
+> **Minskad serviceavgift för Marketplace**: För vissa kan SaaS du att du har publicerat på vår kommersiella Marketplace, Microsoft minskar dess serviceavgift för Marketplace från 20% (enligt beskrivningen i Publiceringsavtalet för Microsoft) till 10%. För ditt erbjudande att kvalificera måste minst en av dina erbjudanden har angetts av Microsoft som antingen IP-medförsäljning är klara eller IP-medförsäljning prioriteras.  Kvalificering måste uppfyllas minst fem (5) arbetsdagar innan slutet av varje månad för att ta emot den här minskade serviceavgift för Marketplace för månaden.  Det minskar serviceavgift för Marketplace gäller inte för virtuella datorer, hanterade appar eller andra produkter som görs tillgängliga via vår kommersiella Marketplace.  Det minskar serviceavgift för Marketplace kommer bara att tillgängligt för kvalificerade erbjudanden för licensavgifter som samlas in av Microsoft mellan den 1 maj 2019 och den 30 juni 2020.  Efter den tiden kan returnerar serviceavgift för Marketplace till dess normala värde. 
 
 |**Microsoft fakturor**|**100 USD per månad**|
 |:---|:---|
@@ -112,11 +112,15 @@ Marknadsföra ditt företag med Microsoft genom att skapa en marketplace-lista. 
 ##### <a name="get-it-now-free"></a>Hämta den nu (kostnadsfritt)
 Lista ditt erbjudande till kunder utan kostnad genom att ange en giltig URL (som börjar med http eller https) där de kan komma åt din app.  Exempel: `https://contoso.com/saas-app`
 
-##### <a name="free-trial"></a>Gratis utvärderingsversion
+##### <a name="free-trial"></a>Kostnadsfri utvärderingsversion
 Lista ditt erbjudande till kunder på en kostnadsfri utvärderingsversion genom att ange en giltig URL (som börjar med http eller https) där de kan komma åt din app.  Exempel: `https://contoso.com/trial/saas-app`
 
 ##### <a name="contact-me"></a>Kontakta mig
 Samla in kontaktuppgifter till kunder genom att ansluta datorn kunden relation Management (CRM). Kunden ombeds för behörighet att dela sin information. Dessa kunduppgifter, tillsammans med erbjudandenamn, ID och marketplace där de går att hitta källan ditt erbjudande skickas till CRM-systemet som du har konfigurerat. Läs mer om hur du konfigurerar din CRM [Connect lead-hantering](#connect-lead-management). 
+
+## <a name="example-marketplace-offer-listing"></a>Exempel marketplace erbjuder lista
+
+![Exempel marketplace erbjudanden med anteckningar](./media/marketplace-offer.svg)
 
 ## <a name="enable-a-test-drive"></a>Aktivera en provkörning
 
@@ -177,7 +181,8 @@ Välj upp till två (2) branscher används för att gruppera ditt erbjudande i l
 Det här är ett valfritt fält som används i AppSource-marknadsplatsen för att identifiera det lägre versionsnumret för ditt erbjudande. 
 
 ### <a name="standard-contract"></a>Standardavtal
-- **Använda standardavtal?** 
+
+- **Använda standardavtal?**
 
 För att förenkla inköpsprocessen för kunder och minska juridiska komplexiteten för programvaruleverantörer, erbjuder Microsoft en standardavtal mall för att hjälpa att underlätta en transaktion i marketplace. 
 
@@ -185,7 +190,8 @@ I stället för att utforma anpassade villkor, kan Azure Marketplace-utgivare v�
 
 Standard kontraktet finns här: https://go.microsoft.com/fwlink/?linkid=2041178.
 
-##### <a name="terms-of-use"></a>Användningsvillkor
+#### <a name="terms-of-use"></a>Användningsvillkor
+
 Om din licensvillkoren skiljer sig från Standard kontraktet, kan du välja att ange dina egna juridiska villkor här. Du kan också ange upp till 10 000 tecknen i texten i det här fältet. Om dina användningsvillkor kräver en längre beskrivning, kan du ange en enskild URL-länk i fältet där din ytterligare licensvillkoren finns. Den visas för kunder som en aktiv länk.
 
 Kunder måste acceptera villkoren innan de kan testa din app. 
@@ -193,9 +199,11 @@ Kunder måste acceptera villkoren innan de kan testa din app.
 Kom ihåg att **spara** innan du går vidare till nästa avsnitt!
 
 ## <a name="offer-listing"></a>Erbjudandet lista
+
 Erbjudandet visar fliken visar språk (och marknader) där erbjudandet är tillgängligt, är för närvarande engelska (USA) bara tillgängliga. Dessutom kan visar den här sidan status för språkspecifika lista och datum/tid som det har lagts till. Du måste definiera marketplace-informationen (erbjuder namn, beskrivning, söktermer, etc.) för varje språk / marknaden.
 
 ### <a name="offer-listings"></a>Erbjudanderegistreringar
+
 Ange information som ska visas i marketplace, inklusive beskrivningar av ditt erbjudande och marknadsföring tillgångar.
 
 - **Namn på** (krävs): Namnet som anges här kommer att visas som rubrik på erbjudandet på marketplace(s) som du har valt. Namnet innehåller redan baserat på dina tidigare **nytt erbjudande** posten.  Detta kan vara produktnamn.  Detta får inte innehålla blanksteg, emojis (om de inte är varumärken och copyright symboler) och måste vara högst 50 tecken.
@@ -235,8 +243,7 @@ Kom ihåg att **spara** innan du går vidare till nästa avsnitt!
 - [Metodtips för marketplace erbjuder listor](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
 
 
-
-## <a name="preview"></a>Förhandsgranska
+## <a name="preview"></a>Förhandsversion
 
 Den **förhandsversion** fliken kan du definiera en begränsad **förhandsversion målgrupp** för att lansera ditt erbjudande innan du publicerar ditt erbjudande live till den bredare publiken i marketplace.
 
@@ -256,7 +263,7 @@ Den **teknisk konfiguration** fliken definierar teknisk information (URL-sökvä
 
 - **Webbadress för informationssida** (krävs): Definiera platsen URL som kunder kommer att dirigeras till hamnar på när du hämtar ditt erbjudande från marketplace. Den här URL: en kommer också att den slutpunkt som ska ta emot anslutningen API: er för att underlätta handel med Microsoft.
 
-- **Anslutningen webhook** (krävs): För alla asynkrona händelser som behöver skickar till dig för kundens räkning (exempel: Azure-prenumeration har gått ogiltig), vi kräver att du tillhandahåller en anslutning webhook. Om du inte redan har ett webhook-system på plats, den enklaste konfigurationen är att ha en Logikapp för HTTP-slutpunkt som ska lyssna efter alla händelser publiceras till den och hantera dem på rätt sätt (t.ex. https://prod-1westus.logic.azure.com:443/work). Mer information finns i [anropa, utlösare, eller kapsla arbetsflöden med HTTP-slutpunkter i logic apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint).
+- **Anslutningen webhook** (krävs): För alla asynkrona händelser som behöver skickar till dig för kundens räkning (exempel: Azure-prenumeration har gått ogiltig), vi kräver att du tillhandahåller en anslutning webhook. Om du inte redan har ett webhook-system på plats, den enklaste konfigurationen är att ha en Logikapp för HTTP-slutpunkt som ska lyssna efter alla händelser publiceras till den och hantera dem på rätt sätt (t.ex. https:\//prod-1westus.logic.azure.com:443/work). Mer information finns i [anropa, utlösare, eller kapsla arbetsflöden med HTTP-slutpunkter i logic apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint).
 
 - **Azure AD-klient-ID** (krävs): I Azure-portalen kräver vi att du [skapa en app i Azure Active Directory (AD)](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) så att vi kan verifiera anslutningen mellan våra två tjänster som finns bakom en autentiserad kommunikation. Att hitta den [klient-ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-tenant-id), gå till Azure Active Directory och välj **egenskaper**, leta efter den **katalog-ID** nummer anges (t.ex.) 50c464d3-4930-494c-963c-1e951d15360e).
 
@@ -270,14 +277,15 @@ Den **– översikt** fliken låter dig erbjuda en mängd olika alternativ inom 
 
 När du skapat visas din plan namn, ID, prismodeller, tillgänglighet (offentliga eller privata), aktuella publicera status och alla tillgängliga åtgärder.
 
--   **Åtgärder** tillgängliga i den **– översikt** varierar beroende på den aktuella statusen för din plan och kan innehålla:
-  - Om Planstatus är **Draft** – ta bort utkast
-  - Om Planstatus är **Live** – stoppa sälja plan eller synkronisera privata målgrupp
+**Åtgärder** tillgängliga i den **– översikt** varierar beroende på den aktuella statusen för din plan och kan innehålla:
+
+- Om Planstatus är **Draft** – ta bort utkast
+- Om Planstatus är **Live** – stoppa sälja plan eller synkronisera privata målgrupp
 
 **Skapa en ny plan** (minimum för en plan för kunder som väljer för att sälja via Microsoft)
 
 - **Plan-ID:** Skapa ett unikt plan-ID för varje plan i det här erbjudandet. Detta ID ska vara synliga för kunder i de produkten URL och Azure Resource Manager-mallarna (om tillämpligt). Använd endast gemena alfanumeriska tecken, bindestreck och understreck. Högst 50 tecken tillåts för den här planen-ID. Observera att det ID: T inte kan ändras efter att välja Skapa.
-- **Namn på prenumerationsavtal:** Kunderna ser det här namnet när du bestämmer vilken plan att välja i ditt erbjudande. Skapa en unik erbjudandenamn för varje plan i det här erbjudandet. Plannamnet används för att skilja programvaruplaner som kan vara en del av samma erbjudandet (t.ex. Erbjudandenamn: Windows Server. planer: Windows Server 2016, Windows Server 2019).
+- **Namn på prenumerationsavtal:** Kunderna ser det här namnet när du bestämmer vilken plan att välja i ditt erbjudande. Skapa en unik erbjudandenamn för varje plan i det här erbjudandet. Plannamnet används för att skilja programvaruplaner som kan vara en del av samma erbjudandet (t.ex. Erbjudandets namn: Windows Server. planer: Windows Server 2016, Windows Server 2019).
 
 ### <a name="plan-listing"></a>Plan lista
 
@@ -351,6 +359,9 @@ SaaS-erbjudanden använder klient-ID: N för att definiera en privat publik, kan
 > [!NOTE]
 > Privata målgrupp (eller begränsad publik) skiljer sig från en förhandsversion publik. I den **[förhandsversion](#preview)** fliken kan du definiera en förhandsversion publik. En förhandsversion publik får åtkomst till ditt erbjudande *tidigare* till erbjudandet live publiceras i marketplace. Medan privata målgrupp beteckning gäller endast för en specifik plan, förhandsversion målgruppen kan visa alla prenumerationer (privat eller inte), men endast i förhandsversionen begränsad medan planen testats och godkänts.
 
+## <a name="example-list-of-plans-within-a-marketplace-offer"></a>Exempel lista med planer inom ett marketplace-erbjudande
+
+![Exempel marketplace plan lista med anteckningar](./media/marketplace-plan.svg)
 
 ## <a name="test-drive"></a>Testkör
 

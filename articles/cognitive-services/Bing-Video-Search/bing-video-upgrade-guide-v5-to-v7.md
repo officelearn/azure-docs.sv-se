@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: scottwhi
-ms.openlocfilehash: 633981682bd8820d72a98b3fc6fbd802e0cd2afb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 32dc928147af8fbb3c84bdb76e50cee4fdabe17d
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60759902"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66386637"
 ---
 # <a name="video-search-api-upgrade-guide"></a>Video Uppgraderingsguide för API för webbsökning
 
@@ -55,7 +55,7 @@ RequestParameterInvalidValue|InvalidRequest.ParameterInvalidValue
 ResourceAccessDenied|InsufficientAuthorization
 ExceededVolume|RateLimitExceeded
 ExceededQpsLimit|RateLimitExceeded
-Disabled|InsufficientAuthorization.AuthorizationDisabled
+Inaktiverad|InsufficientAuthorization.AuthorizationDisabled
 UnexpectedError|ServerError.UnexpectedError
 DataSourceErrors|ServerError.ResourceError
 AuthorizationMissing|InvalidAuthorization.AuthorizationMissing
@@ -71,11 +71,11 @@ Blockerad|InvalidRequest.Blocked
 
 ### <a name="query-parameters"></a>Frågeparametrar
 
-- Byta namn på den `modulesRequested` frågeparameter till [moduler](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#modulesrequested).  
+- Byta namn på den `modulesRequested` frågeparameter till [moduler](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#modulesrequested).  
 
 ### <a name="object-changes"></a>Objekt ändras
 
-- Byta namn på den `nextOffsetAddCount` i [videor](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos) till `nextOffset`. Hur du använder förskjutningen har också ändrats. Tidigare, anger du den [offset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#offset) frågeparameter till den `nextOffset` värdet plus den föregående intervallförskjutning plus antal videor i resultatet. Nu kan du helt enkelt ställa in den `offset` frågeparameter till den `nextOffset` värde.  
+- Byta namn på den `nextOffsetAddCount` i [videor](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) till `nextOffset`. Hur du använder förskjutningen har också ändrats. Tidigare, anger du den [offset](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#offset) frågeparameter till den `nextOffset` värdet plus den föregående intervallförskjutning plus antal videor i resultatet. Nu kan du helt enkelt ställa in den `offset` frågeparameter till den `nextOffset` värde.  
   
-- Ändra datatypen för den `relatedVideos` från `Video[]` till [VideosModule](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videosmodule) (se [VideoDetails](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videodetails)).
+- Ändra datatypen för den `relatedVideos` från `Video[]` till [VideosModule](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videosmodule) (se [VideoDetails](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videodetails)).
 

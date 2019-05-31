@@ -5,15 +5,14 @@ author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-origin.date: 03/26/2019
-ms.date: 04/29/2019
-ms.author: v-yiso
-ms.openlocfilehash: 6d92273298c0448d7377acab6f3b8ea1cc1ed908
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 03/26/2019
+ms.author: hrasheed
+ms.openlocfilehash: 41420497bffd0abdc598e4c86b2dbda1466b2ce1
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60484889"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66252853"
 ---
 # <a name="azure-hdinsight-virtual-network-architecture"></a>Azure HDInsight virtuella nätverksarkitekturen
 
@@ -23,10 +22,10 @@ Den här artikeln beskriver de resurser som finns när du distribuerar ett HDIns
 
 Azure HDInsight-kluster har olika typer av virtuella datorer eller noder. Varje nodtyp spelar en roll i användningen av systemet. I följande tabell sammanfattas dessa nodtyper och deras roller i klustret.
 
-| Typ | Beskrivning |
+| Type | Beskrivning |
 | --- | --- |
 | Huvudnod |  För samtliga klustertyper utom Apache Storm värd huvudnoderna de processer som hanterar körning av det distribuerade programmet. Huvudnoden är också den nod som du kan SSH och kör program som koordineras sedan för att köra över klusterresurserna. Antal huvudnoder vara högst två för alla typer av klustret. |
-| ZooKeeper-nod | Zookeeper samordnar aktiviteter mellan noderna som gör databearbetning. Den också gör val av ledare för huvudnoden och håller reda på vilka huvudnoden körs en specifik huvudtjänsten. Antalet ZooKeeper-noder är fast på två. |
+| ZooKeeper-nod | Zookeeper samordnar aktiviteter mellan noderna som gör databearbetning. Den också gör val av ledare för huvudnoden och håller reda på vilka huvudnoden körs en specifik huvudtjänsten. Antalet ZooKeeper-noder är fast på alla tre. |
 | Arbetsnod | Representerar de noder som stöd för bearbetning av funktioner. Arbetsnoder kan läggs till eller tas bort från klustret för att skala databehandling kapaciteten och hantera kostnader. |
 | R Server-kantnoden | R Server-gränsnoden representerar den nod som du kan SSH och kör program som koordineras sedan för att köra över klusterresurserna. En kantnod delta inte i dataanalys i klustret. Den här noden är också värd R Studio Server, så att du kan köra R-program med hjälp av en webbläsare. |
 | Region-nod | Region Server körs i noden region (kallas även en datanod) för typen HBase-kluster. Regionservrar fungerar och hantera en del av de data som hanteras av HBase. Region-noder kan läggs till eller tas bort från klustret för att skala databehandling kapaciteten och hantera kostnader.|
@@ -48,7 +47,7 @@ I följande tabell sammanfattas de nio klusternoder som skapas när HDInsight di
 |Huvudnod | två |    |
 |Zookeeper-nod | tre | |
 |Arbetsnod | två | Det här antalet kan variera beroende på klusterkonfigurationen och skalning. Minst tre arbetsnoder krävs för Apache Kafka.  |
-|Gateway-noden | två | Gateway-noder är Azure-datorer som skapas på Azure, men visas inte i din prenumeration. Kontakta supporten om du måste starta om dessa noder. |
+|Gateway-nod | två | Gateway-noder är Azure-datorer som skapas på Azure, men visas inte i din prenumeration. Kontakta supporten om du måste starta om dessa noder. |
 
 I följande nätverksresurser finns skapas automatiskt i det virtuella nätverket som används med HDInsight:
 

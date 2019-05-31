@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eebb68218fd6f9cbda229aae3d9e544e87441562
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 5a0e0508babdd9ae703e38d58b079ab5fa16f68c
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192436"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66397883"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regler för dynamiskt medlemskap för grupper i Azure Active Directory
 
@@ -80,7 +80,7 @@ Här följer användaregenskaper som du kan använda för att skapa ett enkelt u
 | city |Någon strängvärde eller *null* |(user.city - eq ”value”) |
 | Land |Någon strängvärde eller *null* |(user.country - eq ”value”) |
 | companyName | Någon strängvärde eller *null* | (user.companyName -eq "value") |
-| avdelning |Någon strängvärde eller *null* |(user.department - eq ”value”) |
+| Avdelning |Någon strängvärde eller *null* |(user.department - eq ”value”) |
 | displayName |ett värde |(user.displayName -eq "value") |
 | employeeId |ett värde |(user.employeeId - eq ”value”)<br>(user.employeeId - ne *null*) |
 | facsimileTelephoneNumber |Någon strängvärde eller *null* |(user.facsimileTelephoneNumber -eq "value") |
@@ -98,7 +98,7 @@ Här följer användaregenskaper som du kan använda för att skapa ett enkelt u
 | sipProxyAddress |Någon strängvärde eller *null* |(user.sipProxyAddress - eq ”value”) |
 | state |Någon strängvärde eller *null* |(user.state - eq ”value”) |
 | streetAddress |Någon strängvärde eller *null* |(user.streetAddress - eq ”value”) |
-| surname |Någon strängvärde eller *null* |(user.surname - eq ”value”) |
+| Efternamn |Någon strängvärde eller *null* |(user.surname - eq ”value”) |
 | telephoneNumber |Någon strängvärde eller *null* |(user.telephoneNumber - eq ”value”) |
 | usageLocation |Två bokstäver landskod |(user.usageLocation -eq "US") |
 | userPrincipalName |ett värde |(user.userPrincipalName -eq "alias@domain") |
@@ -124,7 +124,7 @@ I följande tabell visas alla operatorer som stöds och deras syntax för ett en
 | Börjar inte med |-notStartsWith |
 | Börjar med |-startsWith |
 | Innehåller inte |-notContains |
-| Contains |-innehåller |
+| innehåller |-innehåller |
 | Matchar inte |-notMatch |
 | Matchning |-match |
 | I | -i |
@@ -353,7 +353,6 @@ Du kan använda följande enhetsattribut.
  deviceManufacturer | ett värde | (device.deviceManufacturer -eq "Samsung")
  deviceModel | ett värde | (device.deviceModel -eq "iPad Air")
  deviceOwnership | Privat, företag, okänt | (device.deviceOwnership - eq ”Company”)
- Domännamn | ett värde | (device.domainName -eq "contoso.com")
  enrollmentProfileName | Profil för registrering av Apple-enheter eller Windows Autopilot-profilnamn | (device.enrollmentProfileName -eq "DEP iPhones")
  isRooted | SANT FALSKT | (device.isRooted - eq SANT)
  managementType | MDM (för mobila enheter)<br>Datorn (för datorer som hanteras av Intune PC-agenten) | (device.managementType -eq "MDM")
@@ -372,4 +371,4 @@ Dessa artiklar innehåller ytterligare information om grupper i Azure Active Dir
 * [Skapa en ny grupp och lägga till medlemmar](../fundamentals/active-directory-groups-create-azure-portal.md)
 * [Hantera inställningar för en grupp](../fundamentals/active-directory-groups-settings-azure-portal.md)
 * [Hantera medlemskap i en grupp](../fundamentals/active-directory-groups-membership-azure-portal.md)
-* [Hantera dynamiska regler för användare i en grupp](groups-dynamic-membership.md)
+* [Hantera dynamiska regler för användare i en grupp](groups-create-rule.md)

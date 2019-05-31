@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3acaf86123f2cab871bc2f99cc873a73015875e2
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 2dd397e879dd76cabd119a3cbedff34041be2d13
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65989853"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298491"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Viktig information för Azure Machine Learning-tjänsten
 
@@ -24,6 +24,21 @@ I den här artikeln lär du dig om Azure Machine Learning-tjänstversioner.  En 
 + Azure Machine Learning [ **Data Förbered SDK**](https://aka.ms/data-prep-sdk)
 
 Se [lista över kända problem](resource-known-issues.md) att lära dig om kända fel och lösningar.
+
+## <a name="2019-05-28"></a>2019-05-28
+
+### <a name="azure-machine-learning-data-prep-sdk-v114"></a>Azure Machine Learning Data Prep SDK v1.1.4
+
++ **Nya funktioner**
+  + Du kan nu använda följande uttryck språk funktioner för att extrahera och parsa datetime-värden till nya kolumner.
+    + `RegEx.extract_record()` Extraherar datetime element till en ny kolumn.
+    + `create_datetime()` skapar datetime objekt från separata datetime-element.
+  + När du anropar `get_profile()`, kan du nu se att quantile kolumner är märkta som (beräknat) att tydligt visa att värdena inte med ungefärliga datum.
+  + Du kan nu använda ** globbing vid läsning från Azure Blob Storage.
+    + T.ex. `dprep.read_csv(path='https://yourblob.blob.core.windows.net/yourcontainer/**/data/*.csv')`
+
++ **Felkorrigeringar**
+  + En bugg som rör läsa en Parquet-fil från en fjärrkälla (Azure Blob).
 
 ## <a name="2019-05-14"></a>2019-05-14
 
@@ -147,7 +162,7 @@ Den [ `PipelineEndpoint` ](https://docs.microsoft.com/python/api/azureml-pipelin
 
 ### <a name="azure-machine-learning-data-prep-sdk-v112"></a>Azure Machine Learning Data Förbered SDK v1.1.2
 
-Anteckning: Data Prep Python SDK: N kommer inte längre installera `numpy` och `pandas` paket. Se [uppdateras Installationsinstruktioner](https://aka.ms/aml-data-prep-installation).
+Obs! Data Prep Python SDK: N kommer inte längre installera `numpy` och `pandas` paket. Se [uppdateras Installationsinstruktioner](https://aka.ms/aml-data-prep-installation).
 
 + **Nya funktioner**
   + Du kan nu använda Pivot-transformeringen.

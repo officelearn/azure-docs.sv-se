@@ -14,12 +14,12 @@ ms.custom: vs-azure
 ms.workload: azure-vs
 ms.date: 02/18/2019
 ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: 4d375b559019529bdc170ce6bab535481e0569e0
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: b8cc628ef7db198c5068bb3917cf41113ba1687a
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65873008"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417098"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Utveckla och distribuera WebJobs med hjälp av Visual Studio – Azure App Service
 
@@ -27,7 +27,7 @@ Den här artikeln förklarar hur du använder Visual Studio för att distribuera
 
 Du kan publicera en enkel webbapp för flera WebJobs. Se till att varje Webbjobb i en webbapp har ett unikt namn.
 
-Version 3.x för den [Azure WebJobs SDK](webjobs-sdk-how-to.md) kan du utveckla WebJobs som körs som .NET Core-appar, medan version 2.x stöder endast .NET Framework. Hur du distribuerar ett WebJobs-projekt är olika .NET Core-projekt jämfört med .NET Framework som.
+Version 3.x för den [Azure WebJobs SDK](webjobs-sdk-how-to.md) kan du utveckla WebJobs som körs som .NET Core-appar eller .NET Framework appar när .NET Framework-version 2.x stöder. Hur du distribuerar ett WebJobs-projekt skiljer sig för .NET Core-projekt jämfört med .NET Framework som.
 
 ## <a name="webjobs-as-net-core-console-apps"></a>WebJobs som .NET Core-konsolappar
 
@@ -144,7 +144,7 @@ Om du vill skapa ett nytt projekt för WebJobs-aktiverad, du kan använda projek
 > 
 
 #### <a id="createnolink"></a> Använda WebJobs nytt projekt mallen för ett oberoende WebJob
-1. Klicka på **filen** > **nytt projekt**, och sedan i den **nytt projekt** dialogrutan klickar du på **molnet**  >   **Azure WebJob (.NET Framework)**.
+1. Klicka på **filen** > **nytt projekt**, och sedan i den **nytt projekt** dialogrutan klickar du på **molnet**  >   **Azure WebJob (.NET Framework)** .
    
     ![Dialogrutan Nytt projekt som visar WebJob-mall](./media/webjobs-dotnet-deploy-vs/np.png)
 2. Följ anvisningarna som visas tidigare [gör konsolprogrammet projicera ett oberoende WebJobs-projekt](#convertnolink).
@@ -239,8 +239,8 @@ Följande inställningar stöds av WebJobs:
 | **Inställning** | **Typ**  | **Beskrivning** |
 | ----------- | --------- | --------------- |
 | `is_in_place` | Alla | Tillåter att jobbet ska köras på plats utan att först kopieras till en tillfällig mapp. Mer information finns i [WebJobs arbetskatalog](https://github.com/projectkudu/kudu/wiki/WebJobs#webjob-working-directory). |
-| `is_singleton` | Kontinuerlig | Endast köra WebJobs på en enda instans vid utskalning. Mer information finns i [ställa in en kontinuerlig jobb som singleton](https://github.com/projectkudu/kudu/wiki/WebJobs-API#set-a-continuous-job-as-singleton). |
-| `schedule` | Utlöst | Köra Webbjobbet på ett CRON-baserade schema. Mer information finns i den [timer utlösaren referensartikeln](../azure-functions/functions-bindings-timer.md#cron-expressions). |
+| `is_singleton` | Kontinuerlig igenkänning | Endast köra WebJobs på en enda instans vid utskalning. Mer information finns i [ställa in en kontinuerlig jobb som singleton](https://github.com/projectkudu/kudu/wiki/WebJobs-API#set-a-continuous-job-as-singleton). |
+| `schedule` | Utlöses | Köra Webbjobbet på ett CRON-baserade schema. Mer information finns i den [timer utlösaren referensartikeln](../azure-functions/functions-bindings-timer.md#cron-expressions). |
 | `stopping_wait_time`| Alla | Kan du styra beteendet avstängning. Mer information finns i [avslutning](https://github.com/projectkudu/kudu/wiki/WebJobs#graceful-shutdown). |
 
 ## <a name="next-steps"></a>Nästa steg

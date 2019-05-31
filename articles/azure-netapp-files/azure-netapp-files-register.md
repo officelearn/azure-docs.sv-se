@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: b-juche
-ms.openlocfilehash: fbe0b82008d7b15332c4e2cd62c49c611f20fe89
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: HT
+ms.openlocfilehash: 6f5d84dea2e835fd12a062b628181354295ed9f6
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65794703"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299215"
 ---
 # <a name="register-for-azure-netapp-files"></a>Registrera för Azure NetApp Files
 
@@ -60,12 +60,12 @@ För att kunna använda tjänsten behöver du registrera Azure-resursprovidern f
 
    Utdata från kommandot visas på följande sätt:
    
-       "id": "/subscriptions/<SubID>/providers/Microsoft.Features/providers/Microsoft.NetApp/features/publicPreviewADC",  
-       "name": "Microsoft.NetApp/publicPreviewADC" 
+       "id": "/subscriptions/<SubID>/providers/Microsoft.Features/providers/Microsoft.NetApp/features/ANFGA",  
+       "name": "Microsoft.NetApp/ANFGA" 
        
    `<SubID>` är ditt prenumerations-ID.
 
-    Om du inte ser funktionsnamnet `Microsoft.NetApp/publicPreviewADC`, du har inte åtkomst till tjänsten. Stoppa i det här steget. Följ instruktionerna i [skicka en väntelista begäran om åtkomst till tjänsten](#waitlist) att begära service åtkomst innan du fortsätter. 
+    Om du inte ser funktionsnamnet `Microsoft.NetApp/ANFGA`, du har inte åtkomst till tjänsten. Stoppa i det här steget. Följ instruktionerna i [skicka en väntelista begäran om åtkomst till tjänsten](#waitlist) att begära service åtkomst innan du fortsätter. 
 
 4. I Azure Cloud Shell-konsolen anger du följande kommando för att registrera Azure-resursprovidern: 
     

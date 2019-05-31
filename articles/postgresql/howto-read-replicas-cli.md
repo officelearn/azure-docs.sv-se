@@ -5,20 +5,20 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
-ms.openlocfilehash: 9730faf3191ef2e2bd0b6c3caddefa0492b33fc5
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.date: 05/28/2019
+ms.openlocfilehash: 9a6a1a744a8441d2f082d4d14a3aba8aa1cfc09e
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510243"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306028"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-cli"></a>Skapa och hantera skrivskyddade repliker från Azure CLI
 
 I den här artikeln får du lära dig hur du skapar och hanterar skrivskyddade repliker i Azure Database for PostgreSQL med Azure CLI. Läs mer om skrivskyddade repliker i den [översikt](concepts-read-replicas.md).
 
-> [!NOTE]
-> Azure CLI stöder ännu inte skapa repliker i en annan region än huvudservern. Du kan skapa en replik över flera regioner med den [Azure-portalen](howto-read-replicas-portal.md).
+> [!IMPORTANT]
+> Du kan skapa en skrivskyddad replik i samma region som din huvudservern eller i alla andra Azure-regioner valfri. Replikering över flera regioner är för närvarande i offentlig förhandsversion.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 - En [Azure Database for PostgreSQL-server](quickstart-create-server-up-azure-cli.md) vara huvudservern.
@@ -52,11 +52,19 @@ Den [az postgres serverreplik skapa](/cli/azure/postgres/server/replica?view=azu
 | Inställning | Exempelvärde | Beskrivning  |
 | --- | --- | --- |
 | resource-group | myresourcegroup |  Den resursgrupp där replikservern ska skapas.  |
-| namn | mydemoserver-replica | Namnet på den nya replikservern som skapas. |
+| name | mydemoserver-replica | Namnet på den nya replikservern som skapas. |
 | source-server | mydemoserver | Namn eller resurs-ID för befintliga huvudservern att replikera från. |
+
+Repliken har skapats i samma region som huvudserver i CLI exemplet nedan.
 
 ```azurecli-interactive
 az postgres server replica create --name mydemoserver-replica --source-server mydemoserver --resource-group myresourcegroup
+```
+
+Skapa en cross region läsas repliken, Använd den `--location` parametern. CLI-exemplet nedan skapar repliken i västra USA.
+
+```azurecli-interactive
+az postgres server replica create --name mydemoserver-replica --source-server mydemoserver --resource-group myresourcegroup --location westus
 ```
 
 Om du inte angett det `azure.replication_support` parameter **REPLIKEN** på en generell användning eller Minnesoptimerade huvudservern och starta om servern, du får ett felmeddelande. Slutföra de här två stegen innan du skapar en replik.

@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: scottwhi
-ms.openlocfilehash: 0af36fa68b2d801eed52e6f081b040fb56929c91
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 12549bb53a21dd657f51a4a02460ddc82c47bef8
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60613650"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66386390"
 ---
 # <a name="paging-through-video-search-results"></a>Växla genom videosökningsresultat
 
@@ -26,7 +26,7 @@ Bing-Videosökning returnerar en delmängd av alla sökresultat hittades för di
 
 ## <a name="total-estimated-matches"></a>Totala uppskattade matchningar
 
-Hämta det uppskattade antalet sökresultat hittades med den [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos-totalestimatedmatches) i JSON-svar.   
+Hämta det uppskattade antalet sökresultat hittades med den [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos-totalestimatedmatches) i JSON-svar.   
   
 ```json  
 {
@@ -39,7 +39,7 @@ Hämta det uppskattade antalet sökresultat hittades med den [totalEstimatedMatc
   
 ## <a name="paging-through-videos"></a>Växla genom videor
 
-Om du vill bläddra igenom tillgängliga videor, använda den [antal](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#count) och [offset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#offset) frågeparametrar när du skickar din begäran.  
+Om du vill bläddra igenom tillgängliga videor, använda den [antal](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#count) och [offset](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#offset) frågeparametrar när du skickar din begäran.  
   
 
 |Parameter  |Beskrivning  |
@@ -57,7 +57,7 @@ Ocp-Apim-Subscription-Key: 123456789ABCDE
 Host: api.cognitive.microsoft.com  
 ```  
 
-Om du använder standardvärdet för den [antal](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#count), behöver du bara ange den `offset` frågeparameter som i följande exempel.  
+Om du använder standardvärdet för den [antal](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#count), behöver du bara ange den `offset` frågeparameter som i följande exempel.  
   
 ```cURL  
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/search?q=sailing+dinghies&offset=40&mkt=en-us HTTP/1.1  
@@ -67,7 +67,7 @@ Host: api.cognitive.microsoft.com
 
 Om du bläddra igenom 35 videor i taget, anger du den `offset` frågeparameter till 0 på din första begäran och sedan öka `offset` av 35 för varje efterföljande begäran. Vissa resultat i nästa svaret kan dock innehålla dubbla video resultaten från föregående svar. De första två videorna i ett svar kan exempelvis vara samma som de två sista videorna från föregående svar.
 
-För att minimera duplicerade resultat måste använda den [nextOffset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos-nextoffset) i den `Videos` objekt.
+För att minimera duplicerade resultat måste använda den [nextOffset](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos-nextoffset) i den `Videos` objekt.
 
 Till exempel om du vill att sidan 30 videor i taget, du kan ange `count` till 30 och `offset` till 0 på din första begäran. I nästa förfrågan, anger du den `offset` frågeparameter till den `nextOffset` värde.
 

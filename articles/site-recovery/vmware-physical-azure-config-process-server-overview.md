@@ -5,20 +5,20 @@ author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 04/28/2019
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: 6f501e251f0b006bbbb4f64090cac5c3d61b7bf2
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 8b3815fc9dc44484779a70b51ebff4802265d53a
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523553"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417733"
 ---
 # <a name="about-site-recovery-components-configuration-process-master-target"></a>Om Site Recovery-komponenter (konfiguration, process, huvudmålserver)
 
 Den här artikeln beskrivs den konfiguration, process och huvudmålservrar som används för att replikera virtuella VMware-datorer och fysiska servrar till Azure med den [Site Recovery](site-recovery-overview.md) service.
 
-## <a name="configuration-server"></a>Konfigurationsserver
+## <a name="configuration-server"></a>Konfigurationsservern
 
 För haveriberedskap för lokala virtuella VMware-datorer och fysiska servrar, behöver du ett Site Recovery konfigurationsserver distribuerat lokalt.
 
@@ -32,7 +32,7 @@ För haveriberedskap för lokala virtuella VMware-datorer och fysiska servrar, b
 **Fysisk server-distribution** | Om den inte kan installeras som en VMware-VM, kan du installera den på en fysisk server. | [Distribuera](physical-azure-set-up-source.md#set-up-the-source-environment) konfigurationsservern manuellt.
 
 
-## <a name="process-server"></a>Processerver
+## <a name="process-server"></a>Processervern
 
 **Inställning** | **Detaljer** | **Länkar**
 --- | --- | ---

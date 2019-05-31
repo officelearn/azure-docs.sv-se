@@ -8,26 +8,28 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 4700573d3f5319599a6437d092e20d8013d2f7fb
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: 050d3314345e64e3d69a07367a0e9acc318fa106
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58632772"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66271562"
 ---
-| Resurs | Standardgräns | Övre gräns |
+| Resource | Standardgräns | Övre gräns |
 | --- | --- | --- |
 | Inställningarna för automatisk skalning |100 per region per prenumeration. | Samma som standard. |
 | Aviseringar för mått (klassisk) |100 aktiva Varningsregler per prenumeration. | Kontakta supporten. |
-| Måttaviseringar |100 aktiva Varningsregler per prenumeration. | Kontakta supporten. |
+| Måttaviseringar |1000 active Varningsregler per prenumeration (i offentliga moln) och 100 aktiva Varningsregler per prenumeration i Azure Kina och Azure Government. | Kontakta supporten. |
+| Aktivitetsloggaviseringar | 100 aktiva Varningsregler per prenumeration. | Samma som standard. |
+| Loggaviseringar | 512 | Kontakta supporten. |
 | Åtgärdsgrupper |2 000 åtgärdsgrupper per prenumeration. | Kontakta supporten. |
 
 **Åtgärden gruppspecifika gränser**
 
-| Resurs | Standardgräns | Övre gräns |
+| Resource | Standardgräns | Övre gräns |
 | --- | --- | --- |
-| Push för Azure-app | 10 azure åtgärder per åtgärdsgruppen. | Kontakta supporten. |
-| E-post | 1 000 e poståtgärder i en åtgärdsgrupp. Se även de [begränsar information frekvensbegränsningen](../articles/azure-monitor/platform/alerts-rate-limiting.md). | Kontakta supporten. |
+| Azure-app-push | 10 azure åtgärder per åtgärdsgruppen. | Kontakta supporten. |
+| Email | 1 000 e poståtgärder i en åtgärdsgrupp. Se även de [begränsar information frekvensbegränsningen](../articles/azure-monitor/platform/alerts-rate-limiting.md). | Kontakta supporten. |
 | ITSM | 10 ITSM-åtgärder i en åtgärdsgrupp. | Kontakta supporten. | 
 | Logikapp | 10 åtgärder för logikappar i en åtgärdsgrupp. | Kontakta supporten. |
 | Runbook | 10 runbook-åtgärder i en åtgärdsgrupp. | Kontakta supporten. |

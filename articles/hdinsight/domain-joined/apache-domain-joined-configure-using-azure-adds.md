@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 04/23/2019
-ms.openlocfilehash: b084790bf5a4edfed74dd95a40c11eec26d34dbe
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: e1bc99cdc089050fbfa931bbbc7b9a6a316a3a75
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415469"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240180"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Konfigurera ett HDInsight-kluster med Enterprise Security-paket med hjälp av Azure Active Directory Domain Services
 
@@ -31,13 +31,13 @@ I den här artikeln får du lära dig hur du konfigurerar ett HDInsight-kluster 
 >
 > Om klusterlagring är Azure Blob Storage (WASB) kan du inte inaktivera MFA.
 
-Aktivera AzureAD DS är en förutsättning innan du kan skapa ett HDInsight-kluster med ESP. Mer information finns i [aktivera Azure Active Directory Domain Services med Azure portal](../../active-directory-domain-services/active-directory-ds-getting-started.md). 
+Aktivera AzureAD DS är en förutsättning innan du kan skapa ett HDInsight-kluster med ESP. Mer information finns i [aktivera Azure Active Directory Domain Services med Azure portal](../../active-directory-domain-services/create-instance.md). 
 
 När Azure AD-DS har aktiverats kan alla användare och objekt synkroniserar från Azure Active Directory (AAD) till Azure AD DS-som standard. Längden på synkroniseringsåtgärden beror på antalet objekt i Azure AD. Synkroniseringen kan ta ett par dagar för hundratusentals objekt. 
 
-Du kan välja att synkronisera de grupper som behöver åtkomst till HDInsight-kluster. Det här alternativet för att synkronisera bara vissa grupper kallas *begränsade synkronisering*. Se [konfigurera omfång synkronisering från Azure AD till din hanterade domän](../../active-directory-domain-services/active-directory-ds-scoped-synchronization.md) anvisningar.
+Du kan välja att synkronisera de grupper som behöver åtkomst till HDInsight-kluster. Det här alternativet för att synkronisera bara vissa grupper kallas *begränsade synkronisering*. Se [konfigurera omfång synkronisering från Azure AD till din hanterade domän](../../active-directory-domain-services/scoped-synchronization.md) anvisningar.
 
-När du aktiverar säker LDAP, placera domännamnet i ämnesnamnet och det alternativa certifikatmottagarnamnet i certifikatet. Exempel: om ditt domännamn är *contoso100.onmicrosoft.com*, kontrollera exakt samma namn finns i certifikatets ämnesnamn och Alternativt ämnesnamn. Mer information finns i [konfigurera säkert LDAP för en Azure AD DS-domän hanterad](../../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md). Nedan visas ett exempel på hur du skapar ett självsignerat certifikat och har domännamnet (*contoso100.onmicrosoft.com*) i både ämnesnamn och DNS-namn (Alternativt ämnesnamn):
+När du aktiverar säker LDAP, placera domännamnet i ämnesnamnet och det alternativa certifikatmottagarnamnet i certifikatet. Exempel: om ditt domännamn är *contoso100.onmicrosoft.com*, kontrollera exakt samma namn finns i certifikatets ämnesnamn och Alternativt ämnesnamn. Mer information finns i [konfigurera säkert LDAP för en Azure AD DS-domän hanterad](../../active-directory-domain-services/configure-ldaps.md). Nedan visas ett exempel på hur du skapar ett självsignerat certifikat och har domännamnet (*contoso100.onmicrosoft.com*) i både ämnesnamn och DNS-namn (Alternativt ämnesnamn):
 
 ```powershell
 $lifetime=Get-Date

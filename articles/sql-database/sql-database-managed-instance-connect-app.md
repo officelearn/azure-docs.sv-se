@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 11/09/2018
-ms.openlocfilehash: 52a9cfa52cd63715addadcbfb367510ded56fd76
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 6cbfdc9e595ebdf682356990ec975dbd0514035d
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142732"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66297097"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Anslut ditt program till Azure SQL Database Managed Instance
 
@@ -56,7 +56,7 @@ Det finns två alternativ för hur du ansluter en lokal till Azure VNet:
 - Plats-till-plats VPN-anslutning ([Azure-portalen](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), [PowerShell](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md), [Azure CLI](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md))
 - [ExpressRoute](../expressroute/expressroute-introduction.md) anslutning  
 
-Om du har skapat en lokal plats till Azure-anslutningen har och du kan inte upprätta anslutning till hanterad instans kan du kontrollera om din brandvägg har öppna utgående anslutningar på SQL-port 1433 samt 11000 12000 portintervall för omdirigering.
+Om du har skapat en lokal plats till Azure-anslutningen har och du kan inte upprätta anslutning till hanterad instans kan du kontrollera om din brandvägg har öppna utgående anslutningar på SQL-port 1433 samt 11000 11999 portintervall för omdirigering.
 
 ## <a name="connect-an-application-on-the-developers-box"></a>Ansluta ett program på rutan utvecklare
 
@@ -96,7 +96,7 @@ Det här scenariot illustreras i följande diagram:
 
 För att felsöka problem med nätverksanslutningen, kontrollerar du följande:
 
-- Om det inte går att ansluta till Managed Instance från en Azure virtuell dator i samma virtuella nätverk men olika undernät kan du kontrollera om du har en Nätverkssäkerhetsgrupp som angetts på VM-undernät som blockerar åtkomst. Dessutom Observera att du behöver öppna utgående anslutning på SQL-port 1433 samt portar i intervallet 11000 12000 eftersom de behövs för att ansluta via omdirigering inom gränsen för Azure.
+- Om det inte går att ansluta till Managed Instance från en Azure virtuell dator i samma virtuella nätverk men olika undernät kan du kontrollera om du har en Nätverkssäkerhetsgrupp som angetts på VM-undernät som blockerar åtkomst. Dessutom Observera att du behöver öppna utgående anslutning på SQL-port 1433 samt portar i intervallet 11000 11999 eftersom de behövs för att ansluta via omdirigering inom gränsen för Azure.
 - Kontrollera att BGP-spridning är inställd på **aktiverad** för routningstabellen som är associerade med det virtuella nätverket.
 - Om du använder P2S VPN, kontrollera konfigurationen i Azure portal för att se om du ser **ingående/utgående trafik** siffror. Inte är noll talen anger att Azure är dirigera trafiken till och från den lokala.
 

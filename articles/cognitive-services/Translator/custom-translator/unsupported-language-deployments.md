@@ -3,21 +3,21 @@ title: Nepodporovaný jazyk distributioner - anpassad Translator
 titleSuffix: Azure Cognitive Services
 description: Så här distribuerar par språket stöds inte i anpassade Translator.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 04/24/2019
 ms.author: v-pawal
-ms.openlocfilehash: 09fbd771d945646fe385508779d38e4abb2ee293
-ms.sourcegitcommit: daf6538427ea6effef898f2ee3d857e5fa2dccbc
+ms.openlocfilehash: 0938ba2e839be603c557cc2a87dd0c5aa1dfe1e3
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64476512"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390614"
 ---
-# <a name="unsupported-language-deployments"></a>Nepodporovaný jazyk distributioner
+# <a name="unsupported-language-deployments"></a>Språkdistributioner som inte stöds
 
 <!--Custom Translator provides the highest-quality translations possible using the latest techniques in neural machine learning. While Microsoft intends to make neural training available in all languages, there are some limitations that prevent us from being able to offer neural machine translation in all language pairs.-->  
 

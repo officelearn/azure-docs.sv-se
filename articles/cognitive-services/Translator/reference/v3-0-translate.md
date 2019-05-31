@@ -3,25 +3,25 @@ title: API för textöversättning översätta metod
 titleSuffix: Azure Cognitive Services
 description: Använd metoden Translator Text API översätta.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
-ms.author: v-jansko
-ms.openlocfilehash: 5a2192c4555c2d84587ec8e39ce9ba94c985b541
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.author: v-pawal
+ms.openlocfilehash: be61d8932288b9a6b2cc96e53d3630124ec0f610
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235819"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389756"
 ---
 # <a name="translator-text-api-30-translate"></a>Translator Text API 3.0: Translate
 
 Översätter text.
 
-## <a name="request-url"></a>Fråge-URL
+## <a name="request-url"></a>URL för begäran
 
 Skicka en `POST` begäran om att:
 
@@ -45,7 +45,7 @@ Parametrarna som skickades mot frågesträngen är:
     <td><em>Valfri parameter</em>.<br/>Anger språket i indatatexten. Hitta vilka språk är tillgängliga att översätta från genom att leta upp <a href="./v3-0-languages.md">språk som stöds</a> med hjälp av den <code>translation</code> omfång. Om den <code>from</code> parametern inte anges, automatisk språkidentifiering används för att fastställa en källspråket.</td>
   </tr>
   <tr>
-    <td>i</td>
+    <td>till</td>
     <td><em>Obligatoriska parametern</em>.<br/>Anger språket i utdata texten. Målspråket som måste vara något av de <a href="./v3-0-languages.md">språk som stöds</a> ingår i den <code>translation</code> omfång. Till exempel använda <code>to=de</code> att översätta tyska.<br/>Det är möjligt att översätta på flera språk samtidigt genom att upprepa parametern i frågesträngen. Till exempel använda <code>to=de&to=it</code> att översätta tyska och italienska.</td>
   </tr>
   <tr>
@@ -94,14 +94,14 @@ Parametrarna som skickades mot frågesträngen är:
 Begärandehuvuden är:
 
 <table width="100%">
-  <th width="20%">Huvuden</th>
+  <th width="20%">Rubriker</th>
   <th>Beskrivning</th>
   <tr>
     <td>Rubriker för autentisering</td>
     <td><em>Nödvändiga begärandehuvudet</em>.<br/>Se <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">tillgängliga alternativ för autentisering</a>.</td>
   </tr>
   <tr>
-    <td>Innehållstyp</td>
+    <td>Content-Type</td>
     <td><em>Nödvändiga begärandehuvudet</em>.<br/>Anger innehållstypen för nyttolasten. Möjliga värden är: <code>application/json</code>.</td>
   </tr>
   <tr>
@@ -169,10 +169,10 @@ Ett lyckat svar är en JSON-matris med ett resultat för varje sträng i Indatam
 
 Exempel på JSON-svaren finns i den [exempel](#examples) avsnittet.
 
-## <a name="response-headers"></a>Svarshuvud
+## <a name="response-headers"></a>Svarshuvuden
 
 <table width="100%">
-  <th width="20%">Huvuden</th>
+  <th width="20%">Rubriker</th>
   <th>Beskrivning</th>
     <tr>
     <td>X-RequestId</td>

@@ -10,16 +10,16 @@ ms.subservice: load data
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 6bc1431ace55538c489d73e0a62d18f274c06d57
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: a8bca6c1e56595e4a7d64f9f388c9daca0b166ac
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65873764"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242909"
 ---
 # <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>Självstudier: Läsa in data till Azure SQL Data Warehouse
 
-I den här självstudien används PolyBase för att läsa in informationslagret WideWorldImportersDW från Azure Blob Storage till Azure SQL Data Warehouse. I självstudierna används [Azure-portalen](https://portal.azure.com) och [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) för att: 
+I den här självstudien används PolyBase för att läsa in informationslagret WideWorldImportersDW från Azure Blob Storage till Azure SQL Data Warehouse. I självstudierna används [Azure-portalen](https://portal.azure.com) och [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) för att:
 
 > [!div class="checklist"]
 > * Skapa ett informationslager på Azure-portalen
@@ -37,7 +37,6 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 ## <a name="before-you-begin"></a>Innan du börjar
 
 Innan du börjar med de här självstudierna ska du ladda ned och installera den senaste versionen av [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
-
 
 ## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure-portalen
 
@@ -1121,7 +1120,7 @@ Du gjorde detta:
 > * Visade förloppet för data under inläsning
 > * Skapade statistik på nyligen inlästa data
 
-Gå till migreringsöversikten för att lära dig att migrera en befintlig databas till SQL Data Warehouse.
+Gå vidare till utvecklingsöversikt att lära dig hur du migrerar en befintlig databas till SQL Data Warehouse.
 
 > [!div class="nextstepaction"]
->[Lär dig att migrera en befintlig databas till SQL Data Warehouse](sql-data-warehouse-overview-migrate.md)
+>[Information om designbeslut för att migrera en befintlig databas till SQL Data Warehouse](sql-data-warehouse-overview-develop.md)

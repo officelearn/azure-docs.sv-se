@@ -5,14 +5,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 04/30/2019
+ms.date: 05/28/2019
 ms.author: dacurwin
-ms.openlocfilehash: 5dbd4fefd5c5e1acd7e12ace547ddb8866b7f081
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1ac3cdecc79cafb9ea2697cca3c87b2ebe083d40
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148596"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66254854"
 ---
 # <a name="common-questions-about-backing-up-files-and-folders"></a>Vanliga frågor om hur du säkerhetskopierar filer och mappar 
 
@@ -101,7 +101,7 @@ Den här varningen kan visas även om du har konfigurerat en säkerhetskopiering
 Storleken på cachelagringsmappen avgör mängden data som säkerhetskopieras.
 - Volymer för cache-mappen bör ha ledigt utrymme som är lika med minst 5 – 10% av den totala mängden säkerhetskopierade data.
 - Om volymen har mindre än 5% ledigt utrymme, öka volymstorleken eller flytta cachelagringsmappen till en volym med tillräckligt med utrymme.
-- 
+- Om du säkerhetskopiera systemtillståndet i Windows, behöver du ytterligare 30-35 GB ledigt utrymme i volymen som innehåller cachemappen
 ### <a name="how-do-i-change-the-cache-location-for-the-mars-agent"></a>Hur ändrar jag cachelagringsplatsen för MARS-agenten?
 
 

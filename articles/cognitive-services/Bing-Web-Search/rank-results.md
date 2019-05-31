@@ -11,18 +11,18 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 03/17/2019
 ms.author: scottwhi
-ms.openlocfilehash: 9a49c4af474d7f0618bf0cff1a093e5cbb62fe2d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 677f6089f649aae720a6303a7e1512e3c7ebeca7
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60648830"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390123"
 ---
 # <a name="how-to-use-ranking-to-display-bing-web-search-api-results"></a>Hur du använder rangordning för att visa resultat för webbsökning i Bing  
 
-Varje sökning svaret innehåller en [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse) svar som anger hur du måste visa sökresultatet. Rangordning svaret grupperar resultaten av mainline innehållet och sidopanelen innehåll för en traditionell sökresultat sidan. Om du inte visa resultatet i en traditionell likriktade och sidopanelen format, måste du ange likriktade innehåll högre synlighet än sidopanelen innehållet.  
+Varje sökning svaret innehåller en [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse) svar som anger hur du måste visa sökresultatet. Rangordning svaret grupperar resultaten av mainline innehållet och sidopanelen innehåll för en traditionell sökresultat sidan. Om du inte visa resultatet i en traditionell likriktade och sidopanelen format, måste du ange likriktade innehåll högre synlighet än sidopanelen innehållet.  
 
-Inom varje grupp (mainline eller sidopanelen), [objekt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankinggroup-items) matris identifierar den ordning som innehållet måste finnas i. Varje objekt innehåller följande två sätt att identifiera resultatet i ett svar.  
+Inom varje grupp (mainline eller sidopanelen), [objekt](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankinggroup-items) matris identifierar den ordning som innehållet måste finnas i. Varje objekt innehåller följande två sätt att identifiera resultatet i ett svar.  
 
 -   `answerType` och `resultIndex` – den `answerType` fältet identifierar svar (till exempel webbsidan eller nyheter) och `resultIndex` identifierar ett resultat i svaret (till exempel nyhetsartikel). Indexet är nollbaserat.  
 
@@ -30,11 +30,11 @@ Inom varje grupp (mainline eller sidopanelen), [objekt](https://docs.microsoft.c
 
 Med hjälp av ID är enklare att använda eftersom du bara behöver matcha rangordning ID med ID: T för ett svar eller ett av resultaten. Om ett svar-objekt innehåller en `id` fältet, visa resultat som svaret finns tillsammans. Till exempel om den `News` objektet innehåller de `id` fältet, visa alla nyhetsartiklar tillsammans. Om den `News` objekt omfattar inte den `id` fältet och sedan varje nyhetsartikel innehåller en `id` fältet och svaret rangordning blandas i nyhetsartiklar med resultaten från andra svar.  
 
-Med hjälp av den `answerType` och `resultIndex` är lite mer komplicerad. Du använder `answerType` att identifiera det svar som innehåller resultatet ska visas. Sedan använder du `resultIndex` till index via svarets resultat att få resultat att visa. (Den `answerType` värdet är namnet på fältet i den [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#searchresponse) objekt.) Om du ska visa resultat som svaret finns tillsammans rangordning svaret objekt inte innehåller den `resultIndex` fält.  
+Med hjälp av den `answerType` och `resultIndex` är lite mer komplicerad. Du använder `answerType` att identifiera det svar som innehåller resultatet ska visas. Sedan använder du `resultIndex` till index via svarets resultat att få resultat att visa. (Den `answerType` värdet är namnet på fältet i den [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#searchresponse) objekt.) Om du ska visa resultat som svaret finns tillsammans rangordning svaret objekt inte innehåller den `resultIndex` fält.  
 
 ## <a name="ranking-response-example"></a>Rangordning svar-exempel
 
-Följande visar ett exempel [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse). Web-svaret inte innehåller en `id` fält, visa alla webbsidor individuellt baserat på rangordning (varje webbsidan innehåller en `id` fältet). Och eftersom de bilder, videoklipp och relaterade sökningar svar omfattar den `id` fält, visa resultatet av var och en av dessa tillsammans svar baserat på rangordning.
+Följande visar ett exempel [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse). Web-svaret inte innehåller en `id` fält, visa alla webbsidor individuellt baserat på rangordning (varje webbsidan innehåller en `id` fältet). Och eftersom de bilder, videoklipp och relaterade sökningar svar omfattar den `id` fält, visa resultatet av var och en av dessa tillsammans svar baserat på rangordning.
 
 ```json
 {  

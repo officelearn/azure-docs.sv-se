@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2019
 ms.author: tomfitz
-ms.openlocfilehash: bbbaef306b9ed2bb415b29bc6d96dcfe649338f9
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 95044373800441bdcc04bdb84e8485dce29f11e7
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205932"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357410"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Med hjälp av länkade och kapslade mallar när du distribuerar Azure-resurser
 
@@ -91,7 +91,7 @@ Om du vill kapsla mallen inom den huvudsakliga mallen använder den **mall** ege
 > [!NOTE]
 > Du kan inte använda parametrar eller variabler som definieras i den kapslade mallen för kapslade mallar. Du kan använda parametrar och variabler från den huvudsakliga mallen. I föregående exempel `[variables('storageName')]` hämtar ett värde från den huvudsakliga mallen, inte den kapslade mallen. Den här begränsningen gäller inte för externa mallar.
 >
-> För två resurser som definierats i en mall för kapslade och en resurs som beror på den andra, värdet för beroendet är helt enkelt namnet på den beroende resursen:
+> För två resurser som definierats i en kapslad mall och en resurs som beror på den andra, värdet för beroendet är helt enkelt namnet på den beroende resursen:
 > ```json
 > "dependsOn": [
 >   "[variables('storageAccountName')]"

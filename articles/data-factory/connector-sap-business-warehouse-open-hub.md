@@ -3,22 +3,21 @@ title: Kopiera data från SAP Business Warehouse via Open-hubb med Azure Data Fa
 description: Lär dig hur du kopierar data från SAP Business Warehouse (BW) via öppna hubben till mottagarens datalager genom att använda en Kopieringsaktivitet i en Azure Data Factory-pipeline.
 services: data-factory
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: linda33wj
+manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-origin.date: 03/08/2019
-ms.date: 04/22/2019
-ms.author: v-jay
-ms.openlocfilehash: c64842dc89c9519c738701558f510940f4cc148d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 03/08/2019
+ms.author: jingwang
+ms.openlocfilehash: 6fb989632d3165ac5e54e540aae4385fc2258c85
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60848902"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66256914"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Kopiera data från SAP Business Warehouse via Open-hubb med Azure Data Factory
 
@@ -30,7 +29,7 @@ Du kan kopiera data från SAP Business Warehouse via öppna hubben till alla dat
 
 Mer specifikt stöder den här öppna hubben för SAP Business Warehouse-anslutningen:
 
-- SAP Business Warehouse **version 7.01 eller senare (i en senaste SAP Support paketet Stack lanseras efter år 2015)**.
+- SAP Business Warehouse **version 7.01 eller senare (i en senaste SAP Support paketet Stack lanseras efter år 2015)** .
 - Kopiering av data via öppna Hub lokala måltabell som under kan vara DSO, InfoCube, MultiProvider, datakällan, osv.
 - Kopiera data med hjälp av grundläggande autentisering.
 - Ansluta till programservern.
@@ -97,7 +96,7 @@ Följande avsnitt innehåller information om egenskaper som används för att de
 
 Följande egenskaper har stöd för SAP Business Warehouse öppna hubben som är länkad tjänst:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen måste anges till: **SapOpenHub** | Ja |
 | server | Namnet på den server som SAP BW-instansen finns. | Ja |
@@ -135,11 +134,11 @@ Följande egenskaper har stöd för SAP Business Warehouse öppna hubben som är
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [datauppsättningar](concepts-datasets-linked-services.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av Salesforce-datauppsättning.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [datauppsättningar](concepts-datasets-linked-services.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av SAP BW Open Hub-datauppsättningen.
 
 För att kopiera data från och till SAP BW Open Hub, ange typegenskapen på datauppsättningen till **SapOpenHubTable**. Följande egenskaper stöds.
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen måste anges till **SapOpenHubTable**.  | Ja |
 | openHubDestinationName | Namnet på Öppna Hub målet att kopiera data från. | Ja |

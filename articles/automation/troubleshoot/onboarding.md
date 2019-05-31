@@ -4,16 +4,16 @@ description: Lär dig att felsöka onboarding med uppdateringshantering, ändrin
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/20/2019
+ms.date: 05/22/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 16a03840f6bbf44853cf01e50189a194672d153e
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 8867912d98897a695c1e59ebd4177301230281bb
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65145155"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399762"
 ---
 # <a name="troubleshoot-errors-when-onboarding-solutions"></a>Felsöka fel när onboarding-lösningar
 
@@ -42,6 +42,24 @@ Det här felet orsakas av felaktig eller saknas behörigheter på den virtuella 
 #### <a name="resolution"></a>Lösning
 
 Se till att du har tillräckliga behörigheter för att publicera den virtuella datorn. Granska den [behörigheter som krävs för att publicera datorer](../automation-role-based-access-control.md#onboarding) och försök att publicera lösningen igen. Om du får felet `The solution cannot be enabled on this VM because the permission to read the workspace is missing`, kontrollera att du har den `Microsoft.OperationalInsights/workspaces/read` behörighet för att kunna hitta om den virtuella datorn har publicerats i en arbetsyta.
+
+### <a name="diagnostic-logging"></a>Scenario: Onboarding misslyckas med meddelandet – Det gick inte att konfigurera Automatiseringskontot för diagnostikloggning
+
+#### <a name="issue"></a>Problem
+
+Följande meddelande visas när du försöker att publicera en virtuell dator till en lösning:
+
+```error
+Failed to configure automation account for diagnostic logging
+```
+
+#### <a name="cause"></a>Orsak
+
+Det här felet kan inträffa om prisnivån inte matchar prenumerationens faktureringsmodell. Mer information finns i [övervaka användning och uppskattade kostnader i Azure Monitor](http://aka.ms/PricingTierWarning).
+
+#### <a name="resolution"></a>Lösning
+
+Skapa Log Analytics-arbetsytan manuellt och upprepa onboarding-processen för att välja den arbetsyta som har skapats.
 
 ### <a name="computer-group-query-format-error"></a>Scenario: ComputerGroupQueryFormatError
 

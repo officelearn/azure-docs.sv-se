@@ -7,12 +7,12 @@ ms.service: analysis-services
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: chlound
-ms.openlocfilehash: abbad97e29f60e5f135017cd43f9d30eba1805ca
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 4cae93cff594ad561973f8029ea7335dc4c60263
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66142966"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357001"
 ---
 # <a name="refresh-with-azure-automation"></a>Uppdatera med Azure Automation
 
@@ -26,7 +26,7 @@ Ett exempel PowerShell-Runbook som visar att uppdatera en modell finns senare i 
 
 Alla anrop måste autentiseras med en giltig token för Azure Active Directory (OAuth 2).  I exemplet i den här artikeln använder tjänstens huvudnamn (SPN) för att autentisera till Azure Analysis Services.
 
-Mer information om hur du skapar ett huvudnamn för tjänsten finns]
+Mer information om hur du skapar ett huvudnamn för tjänsten finns [skapa ett huvudnamn för tjänsten med hjälp av Azure-portalen](../active-directory/develop/howto-create-service-principal-portal.md).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -145,7 +145,7 @@ Den **URL** är den URL som skapats från Webhooken.
 Den **brödtext** är ett JSON-dokument som ska innehålla följande egenskaper:
 
 
-|Egenskap   |Värde  |
+|Egenskap  |Värde  |
 |---------|---------|
 |**AnalysisServicesDatabase**     |Namnet på Azure Analysis Services-databasen <br/> Exempel: AdventureWorksDB         |
 |**AnalysisServicesServer**     |Azure Analysis Services-servernamnet. <br/> Exempel: https:\//westus.asazure.windows.net/servers/myserver/models/AdventureWorks/         |

@@ -6,14 +6,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 12/28/2018
+ms.date: 05/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: 9da9c6c438aac2c160a9ec7bc658e5d7b4ea207e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: cf1a6ffa61b41af5abd20dac13b85024001d2ed2
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64715182"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66394000"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>Skapa Linux-baserade kluster i HDInsight med hjälp av Azure portal
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -42,7 +42,7 @@ Azure-portalen visar de flesta av egenskaperna. Med hjälp av Azure Resource Man
    
     ![Skapa ett nytt kluster i Azure-portalen](./media/hdinsight-hadoop-create-linux-clusters-portal/hdinsight-create-cluster.png "skapa ett nytt kluster i Azure portal")
 
-1. På den **HDInsight** väljer **anpassad (storlek, inställningar, appar)**.
+1. På den **HDInsight** väljer **anpassad (storlek, inställningar, appar)** .
 
 1. Välj **1 grunderna**. Ange följande information.
 
@@ -92,7 +92,7 @@ Azure-portalen visar de flesta av egenskaperna. Med hjälp av Azure Resource Man
      Välj **nästa** att flytta till nästa sida.
 
 
-6. Från **4 program (valfritt)**, Välj alla program som du vill. Microsoft, oberoende programvaruleverantörer (ISV) eller om du kan utveckla programmen. Mer information finns i [installera program när klustret skapas](hdinsight-apps-install-applications.md#install-applications-during-cluster-creation).
+6. Från **4 program (valfritt)** , Välj alla program som du vill. Microsoft, oberoende programvaruleverantörer (ISV) eller om du kan utveckla programmen. Mer information finns i [installera program när klustret skapas](hdinsight-apps-install-applications.md#install-applications-during-cluster-creation).
 
     Välj **nästa** att flytta till nästa sida.
 

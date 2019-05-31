@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: reference
 ms.date: 08/15/2018
-ms.openlocfilehash: b42d376be0d26c8ced60344793dbc8f7dd4a3d53
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
-ms.translationtype: HT
+ms.openlocfilehash: 24e0a0ae2a6af964d3ed87d1817de6e5f403c9b1
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66303766"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66416344"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps-and-microsoft-flow"></a>Funktionsreferens för Definitionsspråk för arbetsflödet i Azure Logic Apps och Microsoft Flow
 
@@ -246,7 +246,8 @@ Fullständig referens om varje funktion finns i [lista i bokstavsordning](../log
 | [formDataMultiValues](../logic-apps/workflow-definition-language-functions-reference.md#formDataMultiValues) | Skapa en matris med värden som matchar ett nyckelnamn i *formulärdata* eller *formulärkodade* åtgärd utdata. |
 | [formDataValue](../logic-apps/workflow-definition-language-functions-reference.md#formDataValue) | Returnera ett enstaka värde som matchar ett nyckelnamn i en åtgärd *formulärdata* eller *formulärkodade utdata*. |
 | [Objekt](../logic-apps/workflow-definition-language-functions-reference.md#item) | Returnera det aktuella objektet i matrisen under åtgärdens aktuella iteration när inuti en upprepningsåtgärd över en matris. |
-| [objekt](../logic-apps/workflow-definition-language-functions-reference.md#items) | När du är i ett för varje eller gör tills loop, returnerar det aktuella objektet från den angivna loopen.|
+| [objekt](../logic-apps/workflow-definition-language-functions-reference.md#items) | När inuti en Foreach eller Until-loop, returnera det aktuella objektet från den angivna loopen.|
+| [iterationIndexes](../logic-apps/workflow-definition-language-functions-reference.md#iterationIndexes) | Returnera indexvärdet för den aktuella upprepningen när inuti en Until-loop. Du kan använda den här funktionen i kapslade tills slingor. |
 | [listCallbackUrl](../logic-apps/workflow-definition-language-functions-reference.md#listCallbackUrl) | Returnera ”Motringnings-URL” som anropar en utlösare eller åtgärder. |
 | [multipartBody](../logic-apps/workflow-definition-language-functions-reference.md#multipartBody) | Returnera brödtexten för en viss del i utdata för en åtgärd som har flera delar. |
 | [parameters](../logic-apps/workflow-definition-language-functions-reference.md#parameters) | Returnera värdet för en parameter som beskrivs i din arbetsflödesdefinitionen. |
@@ -2278,6 +2279,96 @@ Det här exemplet hämtar det aktuella objektet från den angivna för varje sli
 
 ```
 items('myForEachLoopName')
+```
+
+<a name="iterationIndexes"></a>
+
+### <a name="iterationindexes"></a>iterationIndexes
+
+Returnera indexvärdet för den aktuella upprepningen inuti en Until-loop. Du kan använda den här funktionen i kapslade tills slingor. 
+
+```
+iterationIndexes('<loopName>')
+```
+
+| Parameter | Krävs | Typ | Beskrivning | 
+| --------- | -------- | ---- | ----------- | 
+| <*loopName*> | Ja | String | Namn för Until-loop | 
+||||| 
+
+| Returvärde | Type | Beskrivning | 
+| ------------ | ---- | ----------- | 
+| <*index*> | Integer | Indexvärdet för den aktuella upprepningen i den angivna Until-loop | 
+|||| 
+
+*Exempel* 
+
+Det här exemplet skapar en räknarvariabeln och steg variabeln med ett under varje iteration i en Until-loop tills räknarvärdet fem. I exemplet skapas också en variabel som spårar det aktuella indexet för varje iteration. I Until-loop, under varje iteration ökar räknaren exemplet och tilldelar sedan räknarvärdet till det aktuella indexvärdet och ökar räknaren. Du kan fastställa det aktuella antalet iteration genom att hämta det aktuella indexvärdet när som helst.
+
+```
+{
+   "actions": {
+      "Create_counter_variable": {
+         "type": "InitializeVariable",
+         "inputs": {
+            "variables": [ 
+               {
+                  "name": "myCounter",
+                  "type": "Integer",
+                  "value": 0
+               }
+            ]
+         },
+         "runAfter": {}
+      },
+      "Create_current_index_variable": {
+         "type": "InitializeVariable",
+         "inputs": {
+            "variables": [
+               {
+                  "name": "myCurrentLoopIndex",
+                  "type": "Integer",
+                  "value": 0
+               }
+            ]
+         },
+         "runAfter": {
+            "Create_counter_variable": [ "Succeeded" ]
+         }
+      },
+      "Until": {
+         "type": "Until",
+         "actions": {
+            "Assign_current_index_to_counter": {
+               "type": "SetVariable",
+               "inputs": {
+                  "name": "myCurrentLoopIndex",
+                  "value": "@variables('myCounter')"
+               },
+               "runAfter": {
+                  "Increment_variable": [ "Succeeded" ]
+               }
+            },
+            "Increment_variable": {
+               "type": "IncrementVariable",
+               "inputs": {
+                  "name": "myCounter",
+                  "value": 1
+               },
+               "runAfter": {}
+            }
+         },
+         "expression": "@equals(variables('myCounter'), 5),
+         "limit": {
+            "count": 60,
+            "timeout": "PT1H"
+         },
+         "runAfter": {
+            "Create_current_index_variable": [ "Succeeded" ]
+         }
+      }
+   }
+}
 ```
 
 <a name="json"></a>

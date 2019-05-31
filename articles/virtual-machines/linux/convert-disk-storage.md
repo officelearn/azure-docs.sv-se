@@ -16,16 +16,18 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 2e7eb455a53abbe2df6ff72f091a599665732429
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: bc42bcbf7149f88eb895317a411c7acd5913d63d
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64724892"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417691"
 ---
 # <a name="convert-azure-managed-disks-storage-from-standard-to-premium-or-premium-to-standard"></a>Konvertera Azure managed disks-lagring från Standard till Premium- eller Premium till Standard
 
-Det finns fyra [disktyper](disks-types.md) för Azure-hanterade diskar: Azure Ultra disklagring-, Premium SSD-, Standard SSD- och Standard HDD. Du kan enkelt växla mellan Premium SSD-, Standard SSD- och Standard HDD-baserade på dina behov med lite avbrott. Den här funktionen stöds inte för ohanterade diskar eller Ultra disklagring. Men du kan enkelt [convert ohanterade till hanterade diskar](convert-unmanaged-to-managed-disks.md) för att kunna växla mellan disktyper.
+Det finns fyra disktyper Azure hanterade diskar: Azure ultra SSD: er (förhandsversion), premium SSD, standard SSD och HDD-standard. Du kan växla mellan tre GA-disktyper (premium SSD, standard SSD och HDD-standard) baserat på dina behov. Du har ännu inte kan växla från eller till ett ultra SSD, måste du distribuera en ny.
+
+Den här funktionen stöds inte för ohanterade diskar. Men du kan enkelt [konvertera en ohanterad disk till en hanterad disk](convert-unmanaged-to-managed-disks.md) för att kunna växla mellan disktyper.
 
 Den här artikeln visar hur du konverterar hanterade diskar från Standard till Premium- eller Premium till Standard med hjälp av Azure CLI. Om du vill installera eller uppgradera verktyget, se [installera Azure CLI](/cli/azure/install-azure-cli).
 

@@ -3,22 +3,22 @@ author: robinsh
 manager: philmea
 ms.author: robinsh
 ms.topic: include
-ms.date: 10/26/2018
-ms.openlocfilehash: 57a5de4c590ff98429aa1d4a0b96cebed6084a0f
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.date: 05/20/2019
+ms.openlocfilehash: c164433efc6a34a3a06676a3145feb18d3de80b9
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66146445"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66249049"
 ---
 ## <a name="add-a-consumer-group-to-your-iot-hub"></a>Lägg till en konsumentgrupp till din IoT hub
 
-Konsumentgrupper används av program för att hämta data från Azure IoT Hub. I den här självstudien skapar du en konsumentgrupp som ska användas av en kommande Azure-tjänst för att läsa data från IoT hub.
+[Konsumentgrupper](https://docs.microsoft.com/azure/event-hubs/event-hubs-features#event-consumers) ger oberoende vyer i händelseströmmen som gör att appar och Azure-tjänster oberoende använda data från samma Event Hub-slutpunkt. I det här avsnittet ska du lägga till en konsumentgrupp till din IoT-hubb inbyggd slutpunkt som används senare under den här självstudien att hämta data från slutpunkten.
 
 Följ dessa steg för att lägga till en konsumentgrupp till din IoT hub:
 
 1. Öppna IoT-hubben på [Azure-portalen](https://portal.azure.com/).
 
-2. I den vänstra rutan klickar du på **inbyggda slutpunkter**väljer **händelser** i den övre panelen och ange ett namn under **konsumentgrupper** i den högra rutan. Klicka på **spara** när du har ändrat den **standard TTL** värde och returnera den tillbaka till det ursprungliga värdet.
+2. I det vänstra fönstret, Välj **inbyggda slutpunkter**väljer **händelser** i den högra rutan, och ange ett namn under **konsumentgrupper**. Välj **Spara**.
 
    ![Skapa en konsumentgrupp i din IoT-hubb](./media/iot-hub-get-started-create-consumer-group/iot-hub-create-consumer-group-azure.png)

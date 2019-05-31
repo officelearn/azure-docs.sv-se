@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: dcab4d24ca948980f28483fd09f29588e0329b63
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 09ce4cdc6ab4556f0ba68507bb23d09e02ae0357
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65800975"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66296815"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Spårning av kundanvändning för Azure-partner
 
@@ -208,7 +208,7 @@ När du lägger till GUID i mallen eller i användaragenten och registrera GUID 
 
 När du ändrar din mall och kör en test-distribution kan du använda följande PowerShell-skript för att hämta de resurser som du har distribuerat och taggade.
 
-Du kan använda skriptet för att kontrollera att GUID som har lagts till Resource Manager-mallen. Skriptet gäller inte för Resource Manager API-distribution.
+Du kan använda skriptet för att kontrollera att GUID som har lagts till Resource Manager-mallen. Skriptet gäller inte för Resource Manager API eller Terraform distributioner.
 
 Logga in i Azure. Välj prenumerationen med distributionen som du vill kontrollera innan du kör skriptet. Kör skriptet inom ramen för prenumerationen för distributionen.
 
@@ -245,7 +245,7 @@ foreach ($deployment in $deployments){
 }
 ```
 
-## <a name="report"></a>Rapportera
+## <a name="report"></a>Rapport
 
 Du hittar i rapporten för kundens användning attribution på Partner Center analysera instrumentpanelen. ([https://partner.microsoft.com/en-us/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)). Du måste använda din Partner Center-autentiseringsuppgifter för att logga in om du vill se rapporten. Om du får problem med rapporten eller logga in, kan du skapa en supportbegäran som följa anvisningarna i avsnittet få stöd för.
 
@@ -316,7 +316,7 @@ Visa instruktioner med skärmdumpar på [ https://aka.ms/TechConsultInstructions
 
 Du kommer att kontaktas av en Microsoft-Partner teknisk konsult för att ställa in ett anrop till omfång för dina behov.
 
-## <a name="faq"></a>Vanliga frågor
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 **Vad är fördelen med att lägga till GUID för mallen?**
 

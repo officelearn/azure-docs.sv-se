@@ -10,18 +10,20 @@ ms.author: minxia
 author: mx-iao
 ms.date: 05/28/2019
 ms.custom: seodec18
-ms.openlocfilehash: f3d675d0eac1255974995fd7717192ec6a21bac1
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
-ms.translationtype: HT
+ms.openlocfilehash: 314917ce91407206d786b191df118893696ac82c
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/30/2019
-ms.locfileid: "66400216"
+ms.locfileid: "66417125"
 ---
-# <a name="use-azure-machine-learning-service-to-train-and-register-tensorflow-models"></a>Använda Azure Machine Learning-tjänsten för att träna och registrera TensorFlow-modeller
+# <a name="train-and-register-tensorflow-models-at-scale-with-azure-machine-learning-service"></a>Träna och registrera TensorFlow modeller i hög skala med Azure Machine Learning-tjänsten
 
 Den här artikeln visar hur du tränar och registrera en TensorFlow-modellen med hjälp av Azure Machine Learning-tjänsten. Vi ska använda populära [MNIST datauppsättning](http://yann.lecun.com/exdb/mnist/) att klassificera handskriven siffror med hjälp av ett djupa neurala nätverk som bygger på TensorFlow.
 
-Du kommer att kunna skala snabbt upp din med öppen källkod-utbildningsjobb med hjälp av elastisk molnberäkningsresurser med Azure Machine Learning-tjänsten. Du kommer även att kunna spåra dina träningskörningar, version modeller, distribuera modeller och mycket mer. Om du utvecklar en TensorFlow-modell från grunden eller du behöver en befintlig modell i molnet, är Azure Machine Learning-tjänsten här för att hjälpa dig att bygga produktionsklara modeller.
+Du kommer att kunna skala snabbt upp din med öppen källkod-utbildningsjobb med hjälp av elastisk molnberäkningsresurser med Azure Machine Learning-tjänsten. Du kommer även att kunna spåra dina träningskörningar, version modeller, distribuera modeller och mycket mer. 
+
+Om du utvecklar en TensorFlow-modell från grunden eller du behöver en befintlig modell i molnet, kan du skapa produktionsklara modeller med Azure Machine Learning-tjänsten.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 

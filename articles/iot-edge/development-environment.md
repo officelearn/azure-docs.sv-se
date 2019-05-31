@@ -8,12 +8,12 @@ ms.date: 01/04/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f3d1fb393138aeb590bc0645d6abe93652a52a5b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a6fc2af0cbe770ee787da757966bbc1647717e5a
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61247564"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66302672"
 ---
 # <a name="prepare-your-development-and-test-environment-for-iot-edge"></a>Förbereda utvecklings- och testmiljö för IoT Edge
 
@@ -62,11 +62,11 @@ Modul-mallar för vissa språk och tjänster har förutsättningar som krävs f�
 | Node.js | <ul><li>[Node.js](https://nodejs.org/) <li> [Yeoman](https://www.npmjs.com/package/yo) <li> [Azure IoT Edge Node.js-modulen generator](https://www.npmjs.com/package/generator-azure-iot-edge-module)</ul> |
 | Python |<ul><li> [Python](https://www.python.org/downloads/) <li> [Pip](https://pip.pypa.io/en/stable/installing/#installation) <li> [Cookiecutter](https://cookiecutter.readthedocs.io/en/latest/installation.html) <li> [Git](https://git-scm.com/) </ul> |
 
-### <a name="visual-studio-2017-extension"></a>Tillägget för Visual Studio 2017
+### <a name="visual-studio-20172019-extension"></a>Tillägget för Visual Studio 2017/2019
 
-Azure IoT Edge-verktyg för Visual Studio tillhandahåller en IoT Edge modul-mall som bygger C#. 
+Azure IoT Edge-verktyg för Visual Studio tillhandahåller en IoT Edge modul-mall som bygger C# och C. 
 
-Mer information och för att hämta Se [Azure IoT Edge-verktyg för Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools).
+Mer information och för att hämta Se [Azure IoT Edge-verktyg för Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) eller [Azure IoT Edge-verktyg för Visual Studio-2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools).
 
 ### <a name="iot-edge-dev-tool"></a>IoT Edge-utvecklingsverktyg
 
@@ -80,7 +80,7 @@ Det finns flera testverktyg för att hjälpa dig att simulera en IoT Edge-enhete
 
 Endast IoT Edge-körningen stöds för distributioner av produktion, men följande verktyg kan du simulera eller enkelt skapa IoT Edge-enheter för utveckling och testning. Dessa verktyg är inte ömsesidigt uteslutande, men kan fungera tillsammans för en komplett utvecklings-upplevelse. 
 
-| Verktyg | Även känt som | Plattformar som stöds | Bäst för |
+| Verktyget | Även känt som | Plattformar som stöds | Bäst för |
 | ---- | ------------- | ------------------- | --------- |
 | IoT EdgeHub utvecklingsverktyg  | iotedgehubdev | Windows, Linux, MacOS | Simulera en enhet för att felsöka moduler. |
 | Behållare för IoT Edge-utveckling | Microsoft/iotedgedev | Windows, Linux, MacOS | Utveckla utan att installera beroenden. |
@@ -109,7 +109,7 @@ Mer information finns i [som kör Azure IoT Edge i en behållare](https://github
 
 ### <a name="iot-edge-device-container"></a>IoT Edge-enhetsbehållare
 
-Enhetsbehållare IoT Edge är en fullständig IoT Edge-enhet, redo att köras på valfri dator med en motor för behållare. Behållaren enhet innehåller IoT Edge-körningen och en behållare-motorn. Varje instans av behållaren är en helt funktionella Automatisk etablering IoT Edge-enhet. Behållaren enhet har stöd för fjärrfelsökning av moduler, så länge det finns en nätverksväg i modulen. Behållaren enhet är bra för att snabbt skapa stora mängder IoT Edge-enheter att testa scenarier i skala eller DevOps-pipelines. Det har också stöd för distribution till kubernetes via helm. 
+Enhetsbehållare IoT Edge är en fullständig IoT Edge-enhet, redo att köras på valfri dator med en motor för behållare. Behållaren enhet innehåller IoT Edge-körningen och en behållare-motorn. Varje instans av behållaren är en helt funktionella Automatisk etablering IoT Edge-enhet. Behållaren enhet har stöd för fjärrfelsökning av moduler, så länge det finns en nätverksväg i modulen. Behållaren enhet är bra för att snabbt skapa stora mängder IoT Edge enheter för att testa scenarier i skala eller Azure-Pipelines. Det har också stöd för distribution till kubernetes via helm. 
 
 Mer information finns i [Azure IoT Edge-enhetsbehållare](https://github.com/toolboc/azure-iot-edge-device-container).
 

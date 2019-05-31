@@ -6,14 +6,14 @@ manager: briz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 08/13/2018
+ms.date: 05/15/2019
 ms.author: asrastog
-ms.openlocfilehash: fddea12d4c6b7d09d87174d29c645ef6da54af6f
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 094641baaa1472b481140072cd5d3d35d27d5ed7
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917430"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390528"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Använd IoT Hub meddelanderoutning för att skicka enhet-till-moln-meddelanden till olika slutpunkter
 
@@ -39,7 +39,7 @@ Du kan använda standard [Event Hubs-integrering och SDK: er](iot-hub-devguide-m
 
 ### <a name="azure-blob-storage"></a>Azure Blob Storage
 
-IoT-hubb har stöd för skrivning av data till Azure Blob Storage i den [Apache Avro](https://avro.apache.org/) samt JSON-format. Möjligheten att koda JSON-format finns i förhandsversion i alla regioner som IoT Hub inte är tillgängligt i östra USA, västra USA och Västeuropa. Standardvärdet är AVRO. Kodningsformatet kan anges endast när bloblagringsslutpunkt konfigureras. Formatet kan inte redigeras för en befintlig slutpunkt. När du använder JSON-kodning, måste du ange contentType till JSON och contentEncoding till UTF-8 i meddelandet [Systemegenskaper](iot-hub-devguide-routing-query-syntax.md#system-properties). Du kan välja Kodningsformatet med hjälp av IoT Hub Create eller Update REST API, särskilt de [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), Azure-portalen [Azure CLI](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest) eller [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubroutingendpoint?view=azps-1.3.0). Följande diagram visar hur du väljer Kodningsformatet i Azure Portal.
+IoT-hubb har stöd för skrivning av data till Azure Blob Storage i den [Apache Avro](https://avro.apache.org/) format samt som i JSON-format. Möjligheten att koda JSON-format är allmänt tillgänglig i alla regioner där IoT Hub är tillgänglig. Standardvärdet är AVRO. Kodningsformatet kan anges endast när bloblagringsslutpunkt konfigureras. Formatet kan inte redigeras för en befintlig slutpunkt. När du använder JSON-kodning, måste du ange contentType till JSON och contentEncoding till UTF-8 i meddelandet [Systemegenskaper](iot-hub-devguide-routing-query-syntax.md#system-properties). Om detta inte är inställt sedan skriver IoT Hub meddelanden i base 64-kodat format. Du kan välja Kodningsformatet med hjälp av IoT Hub Create eller Update REST API, särskilt de [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), Azure-portalen [Azure CLI](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest), eller [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubroutingendpoint?view=azps-1.3.0). Följande diagram visar hur du väljer Kodningsformatet i Azure-portalen.
 
 ![BLOB storage endpoint kodning](./media/iot-hub-devguide-messages-d2c/blobencoding.png)
 
@@ -95,15 +95,15 @@ Använd följande självstudier om du vill veta hur du läser meddelandet från 
 
 ## <a name="fallback-route"></a>Återställningsplats väg
 
-Återställningsplats vägen skickar alla meddelanden som inte uppfyller villkoren för frågan på någon av de befintliga vägarna till inbyggda-Event-Hubs (**meddelanden/händelser**), som är kompatibel med [Händelsehubbar](/azure/event-hubs/). Om meddelanderoutning är aktiverat kan du aktivera funktionen återställningsplats väg. När du har skapat en väg data slutar flöda till inbyggda-i-slutpunkten, såvida inte en väg skapas till denna slutpunkt. Om det finns inga vägar till inbyggda-i-slutpunkten och en återställningsplats väg är aktiverad, skickas endast meddelanden som inte matchar någon fråga villkoren på vägar till inbyggda-i-slutpunkten. Även om alla befintliga vägar tas bort måste återställningsplats väg aktiveras att ta emot alla data i inbyggda-i-slutpunkten. 
+Återställningsplats vägen skickar alla meddelanden som inte uppfyller villkoren för frågan på någon av de befintliga vägarna till inbyggda-Event-Hubs (**meddelanden/händelser**), som är kompatibel med [Händelsehubbar](/azure/event-hubs/). Om meddelanderoutning är aktiverat kan du aktivera funktionen återställningsplats väg. När du har skapat en väg data slutar flöda till inbyggda-i-slutpunkten, såvida inte en väg skapas till denna slutpunkt. Om det finns inga vägar till inbyggda-i-slutpunkten och en återställningsplats väg är aktiverad, skickas endast meddelanden som inte matchar någon fråga villkoren på vägar till inbyggda-i-slutpunkten. Även om alla befintliga vägar tas bort måste återställningsplats väg aktiveras att ta emot alla data i inbyggda-i-slutpunkten.
 
-Du kan aktivera/inaktivera återställningsplats vägen i Azure Portal -> meddelanderoutning bladet. Du kan också använda Azure Resource Manager för [FallbackRouteProperties](/rest/api/iothub/iothubresource/createorupdate#fallbackrouteproperties) att använda en anpassad slutpunkt för återställningsplats vägen.
+Du kan aktivera/inaktivera återställningsplats vägen i Azure portal -> meddelanderoutning bladet. Du kan också använda Azure Resource Manager för [FallbackRouteProperties](/rest/api/iothub/iothubresource/createorupdate#fallbackrouteproperties) att använda en anpassad slutpunkt för återställningsplats vägen.
 
 ## <a name="non-telemetry-events"></a>Icke-telemetrihändelser
 
 Förutom enhetstelemetri kan meddelanderoutning också skicka enheten Ändringshändelser för tvilling och Livscykelhändelser för enhet. Exempel: om en väg som har skapats med konfigurationen av datakällan **enhet Ändringshändelser för tvilling**, IoT Hub skickar meddelanden till slutpunkten som innehåller ändringen i enhetstvillingen. På samma sätt, om ett flöde skapas med datakällan som har angetts till **Livscykelhändelser för enhet**, IoT Hub skickar ett meddelande som anger om enheten har tagits bort eller skapas. 
 
-[IoT Hub är integrerat med Azure Event Grid](iot-hub-event-grid.md) att publicera enhetshändelser för att stödja realtid integreringar och automatisering av arbetsflöden baserat på dessa händelser. Se nyckeln [skillnaderna mellan meddelanderoutning och Event Grid](iot-hub-event-grid-routing-comparison.md) vill veta vilken som fungerar bäst för ditt scenario.
+[IoT Hub är integrerat med Azure Event Grid](iot-hub-event-grid.md) att publicera enhetshändelser för att stödja i realtid integreringar och automatisering av arbetsflöden baserat på dessa händelser. Se nyckeln [skillnaderna mellan meddelanderoutning och Event Grid](iot-hub-event-grid-routing-comparison.md) vill veta vilken som fungerar bäst för ditt scenario.
 
 ## <a name="testing-routes"></a>Testa vägar
 
@@ -117,11 +117,11 @@ I de flesta fall är den genomsnittliga ökningen av svarstiden mindre än 500 m
 
 ## <a name="monitoring-and-troubleshooting"></a>Övervakning och felsökning
 
-IoT Hub innehåller flera Routning och slutpunkten relaterade mått för att ge dig en översikt över hälsotillståndet för din hubb och meddelanden som skickas. Du kan kombinera information från flera mått för att identifiera rotorsaken till problem. Till exempel använda mått **routning: telemetrimeddelanden bort** eller **d2c.telemetry.egress.dropped** att identifiera hur många meddelanden som har tagits bort när de inte matchade frågor på någon av vägarna och återställningsplats vägen har inaktiverats. [IoT Hub mått](iot-hub-metrics.md) visar en lista över alla mått som är aktiverade som standard för din IoT-hubb.
+IoT Hub innehåller flera mått som är relaterade till Routning och slutpunkter för att ge dig en översikt över hälsotillståndet för din hubb och meddelanden som skickas. Du kan kombinera information från flera mått för att identifiera rotorsaken till problem. Till exempel använda mått **routning: telemetrimeddelanden bort** eller **d2c.telemetry.egress.dropped** att identifiera hur många meddelanden som har tagits bort när de inte matchade frågor på någon av vägarna och återställningsplats vägen har inaktiverats. [IoT Hub mått](iot-hub-metrics.md) visar en lista över alla mått som är aktiverade som standard för din IoT-hubb.
 
 Du kan använda REST-API [hämta Slutpunktshälsa](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) att hämta [hälsostatus](iot-hub-devguide-endpoints.md#custom-endpoints) slutpunkter. Vi rekommenderar att du använder den [IoT Hub mått](iot-hub-metrics.md) rör Routning meddelande svarstid för att identifiera och felsöka fel när slutpunktshälsa är döda eller är skadad. Till exempel för typ av slutpunkt Event Hubs, du kan övervaka **d2c.endpoints.latency.eventHubs**. Status för en defekt slutpunkt uppdateras till felfritt läge när IoT Hub har etablerat en konsekvent hälsotillstånd.
 
-Med hjälp av den **vägar** diagnostikloggar i Azure Monitor [diagnostikinställningar](../iot-hub/iot-hub-monitor-resource-health.md), kan du spårar fel som uppstår under utvärderingen av ett routning hälsa för frågan och slutpunkten som uppfattas av IoT Hub, till exempel När en slutpunkt är inaktiv. Dessa diagnostikloggar kan skickas till Azure Monitor-loggar, Event Hubs eller Azure Storage för anpassad bearbetning.
+Med hjälp av den **vägar** diagnostikloggar i Azure Monitor [diagnostikinställningar](../iot-hub/iot-hub-monitor-resource-health.md), kan du spåra fel som uppstår under utvärderingen av ett routning hälsa för frågan och slutpunkten som uppfattas av IoT Hub, till exempel när en slutpunkt är inaktiv. Dessa diagnostikloggar kan skickas till Azure Monitor-loggar, Event Hubs eller Azure Storage för anpassad bearbetning.
 
 ## <a name="next-steps"></a>Nästa steg
 

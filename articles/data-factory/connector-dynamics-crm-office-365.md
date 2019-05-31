@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: jingwang
-ms.openlocfilehash: 6a52749c78cd0f090e66220fe51e3d04985f96e7
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 481b19d0121e93c84d123579e91bcbfb9fb50815
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64869538"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66356963"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Kopiera data från och till Dynamics 365 (Common Data Service) eller Dynamics CRM med hjälp av Azure Data Factory
 
@@ -59,7 +59,7 @@ Följande egenskaper har stöd för den länkade tjänsten Dynamics.
 
 ### <a name="dynamics-365-and-dynamics-crm-online"></a>Dynamics 365 och Dynamics CRM Online
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen måste anges till **Dynamics**. | Ja |
 | deploymentType | Typen av distribution av Dynamics-instans. Det måste vara **”Online”** för Dynamics online. | Ja |
@@ -102,7 +102,7 @@ Följande egenskaper har stöd för den länkade tjänsten Dynamics.
 
 *Ytterligare egenskaper som jämför till Dynamics online är ”värdnamnet” och ”port”.*
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen måste anges till **Dynamics**. | Ja |
 | deploymentType | Typen av distribution av Dynamics-instans. Det måste vara **”OnPremisesWithIfd”** för Dynamics lokalt med IFD.| Ja |
@@ -148,7 +148,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 För att kopiera data från och till Dynamics, ange typegenskapen på datauppsättningen till **DynamicsEntity**. Följande egenskaper stöds.
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för datauppsättningen måste anges till **DynamicsEntity**. |Ja |
 | entityName | Det logiska namnet för att hämta entiteten. | Nej för källa (om ”query” i källan för aktiviteten har angetts), Ja för mottagare |
@@ -202,10 +202,10 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 För att kopiera data från Dynamics, ange typ av datakälla i kopieringsaktiviteten till **DynamicsSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnittet.
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för aktiviteten kopieringskälla måste anges till **DynamicsSource**. | Ja |
-| query | FetchXML är en upphovsrättsskyddad frågespråk som används i Dynamics (online och on-premises). Se följande exempel. Mer information finns i [skapa frågor med FeachXML](https://msdn.microsoft.com/library/gg328332.aspx). | Nej (om ”entityName” i datauppsättningen har angetts) |
+| query | FetchXML är en upphovsrättsskyddad frågespråk som används i Dynamics (online och on-premises). Se följande exempel. Mer information finns i [skapa frågor med FetchXML](https://msdn.microsoft.com/library/gg328332.aspx). | Nej (om ”entityName” i datauppsättningen har angetts) |
 
 >[!NOTE]
 >Kolumnen PK kopieras alltid även om kolumnen projektionen som du konfigurerar i FetchXML-fråga inte innehåller den.
@@ -266,15 +266,15 @@ För att kopiera data från Dynamics, ange typ av datakälla i kopieringsaktivit
 
 För att kopiera data till Dynamics, ange Mottagartyp i kopieringsaktiviteten till **DynamicsSink**. Följande egenskaper stöds i kopieringsaktiviteten **mottagare** avsnittet.
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Egenskapen type kopiera aktivitet komprimeringstyp måste anges till **DynamicsSink**. | Ja |
-| writeBehavior | Åtgärden Skriv beteende.<br/>Tillåtna värde är **”Upsert”**. | Ja |
+| writeBehavior | Åtgärden Skriv beteende.<br/>Tillåtna värde är **”Upsert”** . | Ja |
 | writeBatchSize | Antal rader för data som skrivs till Dynamics i varje batch. | Nej (standardvärdet är 10) |
 | ignoreNullValues | Anger om du vill ignorera null-värden från indata (utom nyckelfält) vid skrivning.<br/>Tillåtna värden är **SANT** och **FALSKT**.<br>- **True**: Lämna data i målobjektet oförändrade när du gör en upsert/uppdateringsåtgärd. Infoga ett definierat standardvärde när du gör en insert-åtgärd.<br/>- **False**: Uppdatera data i målobjektet till NULL när du gör en upsert/uppdateringsåtgärd. Infoga värdet NULL när du gör en insert-åtgärd. | Nej (standard är FALSKT) |
 
 >[!NOTE]
->Standardvärdet för mottagaren ”**writeBatchSize**” och Kopieringsaktivitet ”**[parallelCopies](copy-activity-performance.md#parallel-copy)**” för Dynamics-mottagaren är båda 10. Därför skickas 100 poster till Dynamics samtidigt.
+>Standardvärdet för mottagaren ”**writeBatchSize**” och Kopieringsaktivitet ” **[parallelCopies](copy-activity-performance.md#parallel-copy)** ” för Dynamics-mottagaren är båda 10. Därför skickas 100 poster till Dynamics samtidigt.
 
 För Dynamics 365 online, det finns en gräns på [2 samtidiga batch-anrop per organisation](https://msdn.microsoft.com/library/jj863631.aspx#Run-time%20limitations). Om den gränsen överskrids, genereras ett ”servern är upptagen” fel innan den första begäran någonsin har körts. Att hålla ”writeBatchSize” mindre än eller lika med 10 skulle undvika sådan begränsning för samtidiga anrop.
 

@@ -12,22 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload8: na
-ms.date: 01/14/2019
+ms.date: 05/28/2019
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 4f6a724fe6c1e8668084f1c1cefbaa01cffba181
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9f7d482b088003e3800debb2db9f6f26bda1672a
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60444625"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298175"
 ---
 # <a name="azure-log-integration-faq"></a>Azure-Loggintegrering vanliga frågor och svar
 
 Den här artikeln får du svar på vanliga frågor och svar (FAQ) om Azure Log Integration.
 
 >[!IMPORTANT]
-> Funktionen Azure Log integration upphör att gälla genom 06/01/2019. AzLog hämtningar har inaktiverats på den 27 juni 2018. För information om vad du gör Flytta framåt granska inlägget [Använd Azure monitor för att integrera med SIEM-verktyg](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
+> Funktionen Azure Log integration upphör att gälla genom 06/15/2019. AzLog hämtningar har inaktiverats på den 27 juni 2018. För information om vad du gör Flytta framåt granska inlägget [Använd Azure monitor för att integrera med SIEM-verktyg](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
 
 Azure Log Integration är en tjänst i Windows-operativsystemet som du kan använda för att integrera dina lokala säkerheten och händelsehantering (SIEM) hanteringssystem loggarna från dina Azure-resurser. Den här integreringen ger en enhetlig instrumentpanel för alla dina tillgångar, lokalt eller i molnet. Du kan sedan aggregera, korrelera, analysera och varna för säkerhetshändelser som är associerade med dina program.
 

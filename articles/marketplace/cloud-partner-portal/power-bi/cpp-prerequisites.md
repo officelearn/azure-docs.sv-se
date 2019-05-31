@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: pabutler
-ms.openlocfilehash: c6b9f54d073b671b55f259bfbb2aa70d9eacfdc4
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: c436522bd5f1a9d52b71d85b7b47ac9a089c0b25
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64943316"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258175"
 ---
 # <a name="power-bi-app-offer-prerequisites"></a>Power BI-appen erbjuder krav
 
@@ -29,7 +29,7 @@ När ditt tjänstprogram skapas och testas i Power BI, bör du spara programmets
 
 Affärskraven omfattar procedurmässig avtalsenliga och juridiska skyldigheter.  Måste du:
 
-- Vara ett registrerat moln marketplace-utgivare. Om du inte är registrerad, följer du stegen i [blir molnet Marketplace utgivare](../../become-publisher.md).
+- Vara ett registrerat moln marketplace-utgivare. Om du inte är registrerad, följer du stegen i [blir molnet Marketplace utgivare](https://docs.microsoft.com/azure/marketplace/become-publisher).
 
     > [!NOTE] 
     > Använda samma konto för registrering av Microsoft Developer Center för att logga in på den [Cloud Partner Portal](https://cloudpartner.azure.com). Du bör ha endast en Microsoft-konto för alla dina AppSource-erbjudanden. Konton bör inte vara specifika för enskilda tjänster eller erbjudanden.

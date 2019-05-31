@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 0de4da5792553b8e61ce8116988dc0d0b2c55488
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 3f4ef7f333525d7408d0345b917102cddb295386
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66130992"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255469"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-status-monitor"></a>Instrumentera webbappar vid körning med Application Insights Status Monitor
 
@@ -151,7 +151,7 @@ Starta sedan om statusövervakaren.
 
 * Eftersom Status Monitor är en .NET-program kan du också aktivera [.net spårning genom att lägga till lämpliga diagnostiken konfigurationsfilen](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/trace-debug/system-diagnostics-element). Till exempel i vissa fall det kan vara praktiskt att se vad som händer på nätverksnivå av [konfigurera nätverksspårning](https://docs.microsoft.com/dotnet/framework/network-programming/how-to-configure-network-tracing)
 
-### <a name="insufficient-permissions"></a>Otillräckliga behörigheter
+### <a name="insufficient-permissions"></a>Otillräcklig behörighet
   
 * Om du ser ett meddelande om ”otillräcklig behörighet” på servern provar du följande:
   * I IIS-hanteraren väljer du programpoolen, öppnar **Avancerade inställningar** och noterar identiteten under **Processmodell**.
@@ -321,7 +321,6 @@ Visa telemetrin:
 * [Utforska mått](../../azure-monitor/app/metrics-explorer.md) för att övervaka prestanda och användning
 * [Sök efter händelser och loggar][diagnostic] för att diagnostisera problem
 * [Analys](../../azure-monitor/app/analytics.md) för mer avancerade frågor
-* [Skapa instrumentpaneler](../../azure-monitor/app/app-insights-dashboards.md)
 
 Lägg till mer telemetri:
 

@@ -8,12 +8,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 5/13/2019
 ms.author: sajaya
-ms.openlocfilehash: 86efb6b655405500f994a5a5ec7acbd18c645004
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 1400c023e43179a9c8490334e262711486c75a2d
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65957857"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417920"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Vanliga frågor och svar om Azure Container Registry
 
@@ -121,7 +121,7 @@ För Powershell:
 az acr repository show-manifests -n myRegistry --repository myRepository --query "[?tags[0]==null].digest" -o tsv | %{ az acr repository delete -n myRegistry -t myRepository@$_ }
 ```
 
-Anteckning: Du kan lägga till `-y` i kommandot delete för att hoppa över bekräftelse.
+Obs! Du kan lägga till `-y` i kommandot delete för att hoppa över bekräftelse.
 
 Mer information finns i [ta bort avbildningar i Azure Container Registry](container-registry-delete.md).
 
@@ -253,10 +253,11 @@ Bild karantän är för närvarande en förhandsversion av funktionen för ACR. 
 - [Nya användarbehörigheter kan inte gälla omedelbart när du har uppdaterat](#new-user-permissions-may-not-be-effective-immediately-after-updating)
 - [Autentiseringsinformation ges inte i rätt format på direkta REST API-anrop](#authentication-information-is-not-given-in-the-correct-format-on-direct-rest-api-calls)
 - [Varför Azure-portalen inte innehåller alla mina databaser eller taggar?](#why-does-the-azure-portal-not-list-all-my-repositories-or-tags)
+- [Hur jag för att samla in spårningar http på Windows?](#how-do-i-collect-http-traces-on-windows)
 
 ### <a name="docker-pull-fails-with-error-nethttp-request-canceled-while-waiting-for-connection-clienttimeout-exceeded-while-awaiting-headers"></a>docker pull misslyckas med felkoden: net/http: begäran avbröts under väntan anslutning (Client.Timeout överskred medan du väntar på rubriker)
 
- - Om det här felet är ett tillfälligt fel, att försök lyckas. 
+ - Om det här felet är ett tillfälligt fel, att försök lyckas.
  - Om `docker pull` kontinuerligt misslyckas kan det vara ett problem med docker-daemon. Allmänt kan du minimera problemet genom att starta om docker-daemon. 
  - Om du ser det här problemet efter omstart docker-daemon, kan problemet vara vissa problem med nätverksanslutningen till datorn. Du kan kontrollera om Allmänt nätverk på datorn är felfri genom att prova ett kommando som `ping www.bing.com`.
  - Du bör alltid ha en mekanism för återförsök på alla docker-Klientåtgärder.
@@ -388,7 +389,29 @@ curl $redirect_url
 
 Om du använder Microsoft Edge-webbläsaren, kan du se högst 100 databaser eller taggar som anges. Om ditt register har fler än 100 databaser eller taggar, rekommenderar vi att du använder antingen webbläsaren Firefox eller Chrome för att lista alla.
 
-## <a name="tasks"></a>Aktiviteter
+### <a name="how-do-i-collect-http-traces-on-windows"></a>Hur jag för att samla in spårningar http på Windows?
+
+#### <a name="prerequisites"></a>Nödvändiga komponenter
+
+- Aktivera dekrypteringen https i fiddler:  <https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS>
+- Aktivera Docker för att använda en proxyserver via Docker-användargränssnittet: <https://docs.docker.com/docker-for-windows/#proxies>
+- Glöm inte att återställa när du är klar.  Docker fungerar inte med alternativet är aktiverat och fiddler körs inte.
+
+#### <a name="windows-containers"></a>Windows-containrar
+
+Konfigurera Docker-proxy till 127.0.0.1:8888
+
+#### <a name="linux-containers"></a>Linux-containrar
+
+Hitta IP-adressen för Docker vm virtuell växel:
+
+```powershell
+(Get-NetIPAddress -InterfaceAlias "*Docker*" -AddressFamily IPv4).IPAddress
+```
+
+Konfigurera Docker-proxyn till utdata för föregående kommando och port 8888 (till exempel 10.0.75.1:8888)
+
+## <a name="tasks"></a>Uppgifter
 
 - [Hur jag för att batch Avbryt körningar?](#how-do-i-batch-cancel-runs)
 - [Hur jag för att inkludera mappen .git i az acr build-kommandot?](#how-do-i-include-the-git-folder-in-az-acr-build-command)

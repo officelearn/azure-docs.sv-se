@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 6ada4a25f24a6dcbb1ebd54daad15b37127f7a21
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 980dc850537b7419e4ee48391acd5ba971fb3fed
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154194"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306720"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Felsökningsguide för Azure Storage Explorer
 
@@ -34,7 +34,7 @@ Kontakta administratören för Azure-konto om du är osäker på om du har rätt
 
 Du måste ha behörighet att lista lagringskonton. Du kan hämta den här behörigheten genom att de tilldelas rollen ”läsare”.
 
-#### <a name="list-storage-account-keys"></a>Lista nycklar för lagringskonto
+#### <a name="list-storage-account-keys"></a>Lista nycklar för Lagringskonto
 
 Lagringsutforskaren kan också använda nycklar för att autentisera begäranden. Du kan få åtkomst till nycklar med mer kraftfulla roller, till exempel rollen ”deltagare”.
 
@@ -81,7 +81,7 @@ Om du är osäker på var certifikaten som kommer från, kan du dessa steg för 
     * [Windows](https://slproweb.com/products/Win32OpenSSL.html) (någon av de enklare versionerna bör vara tillräckligt med)
     * Mac och Linux: ska ingå i ditt operativsystem
 2. Kör öppen SSL
-    * Windows: öppna installationskatalogen, klicka på **/bin/**, och dubbelklicka sedan på **openssl.exe**.
+    * Windows: öppna installationskatalogen, klicka på **/bin/** , och dubbelklicka sedan på **openssl.exe**.
     * Mac och Linux: kör **openssl** från en terminal.
 3. Kör `s_client -showcerts -connect microsoft.com:443`
 4. Leta efter självsignerade certifikat. Om du är osäker på vilka certifikat som är självsignerade, leta efter var som helst ämnet `("s:")` och `("i:")` är desamma.
@@ -94,7 +94,7 @@ Om du inte hittar något självsignerat certifikat med föregående steg kan du 
 
 ### <a name="blank-sign-in-dialog"></a>Tom inloggningsrutan
 
-Tom inloggning dialogrutor orsakas oftast av AD FS ber Storage Explorer att utföra en omdirigering, som inte stöds av Electron. Du kan försöka att använda enheten kod Flow för att logga in för att lösa problemet. Det gör du på följande sätt:
+Tom inloggning dialogrutor orsakas oftast av AD FS ber Storage Explorer att utföra en omdirigering, som inte stöds av Electron. Om du vill undvika det här problemet kan du försöker använda enheten kod Flow för att logga in. Utför följande steg för att göra det:
 
 1. Menyn: Förhandsgranskning -> ”använda kod Enhetsinloggning”.
 2. Öppna dialogrutan Anslut (antingen via ikonen plugin på den vänstra vertikalstreck eller ”Lägg till konto” på panelen konto).
@@ -109,15 +109,15 @@ Om du har problem med att logga in på kontot som du vill använda eftersom din 
 
 ### <a name="reauthentication-loop-or-upn-change"></a>Återautentisering slinga eller UPN-ändring
 
-Om du är i en loop omautentisering eller har ändrats UPN-namnet för ett av dina konton, kan du prova följande:
+Om du befinner dig i en loop omautentisering eller har ändrats UPN-namnet för ett av dina konton, kan du prova följande steg:
 
 1. Ta bort alla konton och stäng sedan Storage Explorer
 2. Ta bort den. IdentityService mappen från din dator. På Windows, mappen finns i `C:\users\<username>\AppData\Local`. Du kan hitta mapp i användarkatalogen roten för Mac och Linux.
-3. Om du använder Mac- eller Linux, måste du också ta bort posten Microsoft.Developer.IdentityService från ditt operativsystem keystore. På Mac är keystore ”gör väldigt lätt nyckelringar”-program. Programmet kallas vanligtvis ”nyckelringen” för Linux, men namnet kan vara olika beroende på din distribution.
+3. Om du använder Mac- eller Linux, måste du också ta bort posten Microsoft.Developer.IdentityService från keystore för ditt operativsystem. På Mac är keystore ”gör väldigt lätt nyckelringar”-program. Programmet kallas vanligtvis ”nyckelringen” för Linux, men namnet kan vara olika beroende på din distribution.
 
 ### <a name="conditional-access"></a>Villkorlig åtkomst
 
-Villkorlig åtkomst stöds inte när Lagringsutforskaren används på Windows 10, Linux eller macOS. Detta beror på en begränsning i AAD-biblioteket som används av Storage Explorer.
+Villkorlig åtkomst stöds inte när Lagringsutforskaren används på Windows 10, Linux eller macOS. Det här är på grund av en begränsning i AAD-biblioteket som används av Storage Explorer.
 
 ## <a name="mac-keychain-errors"></a>Mac-nyckelringen fel
 
@@ -136,25 +136,25 @@ MacOS nyckelring kan ibland hamna i ett tillstånd som orsakar problem med Stora
 
 ### <a name="general-sign-in-troubleshooting-steps"></a>Allmän inloggning felsökningssteg
 
-* Om du är på macOS och fönstret för inloggning visas aldrig över den ”väntar på verifiering...” dialogrutan försök [de här stegen](#mac-keychain-errors)
+* Om du är på macOS och fönstret inloggning aldrig visas ovanför den ”väntar på verifiering...” dialogrutan försök [de här stegen](#mac-keychain-errors)
 * Starta om Lagringsutforskaren
 * Om fönstret autentisering är tom, vänta minst en minut innan du stänger dialogrutan för autentisering.
 * Se till att proxy- och certifikat som är rätt konfigurerade, inställningar för både din dator och Storage Explorer.
-* Om du är på Windows och har tillgång till Visual Studio 2017 på samma dator och logga in, försök att logga in till Visual Studio 2017. Efter en lyckad inloggning till Visual Studio 2017, bör du kunna öppna Storage Explorer och se ditt konto på panelen konto.
+* Om du använder Windows och har tillgång till Visual Studio-2019 på samma dator och logga in, försök att logga in till Visual Studio-2019. Efter en lyckad inloggning till Visual Studio-2019, kan du öppna Storage Explorer och ser ditt konto-panelen.
 
 Om ingen av dessa metoder fungerar [öppna ett ärende på GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
 ### <a name="missing-subscriptions-and-broken-tenants"></a>Prenumerationer som saknas och bruten klienter
 
-Om det inte går att hämta dina prenumerationer när du har loggat in kan du prova följande metoder för felsökning:
+Om det inte går att hämta dina prenumerationer när du har loggat in kan du prova följande metoder:
 
-* Kontrollera att ditt konto har åtkomst till de prenumerationer som du förväntar dig. Du kan verifiera din åtkomst genom att logga in portalen för Azure-miljö du vill använda.
+* Kontrollera att ditt konto har åtkomst till de prenumerationer som du förväntar dig. Du kan verifiera din åtkomst genom att logga in portalen för Azure-miljön du försöker använda.
 * Se till att du har loggat in med rätt Azure miljö (Azure, Azure Kina 21Vianet, Azure Germany, Azure US Government eller anpassad miljö).
 * Om du är bakom en proxyserver, se till att du har konfigurerat Storage Explorer-proxyservern korrekt.
 * Försök att ta bort och lägga till kontot igen.
-* Om det finns en ”mer information”-länk, titta och se vilka felmeddelanden rapporteras för klienter som misslyckas. Om du är osäker på hur de felmeddelanden du se sedan gärna [öppna ett ärende på GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
+* Om det finns en ”mer information”-länk, titta och se vilka felmeddelanden rapporteras för klienter som misslyckas. Om you'ren't kontrollera vad som ska göras med fel meddelanden du se och sedan gärna [öppna ett ärende på GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
-## <a name="cannot-remove-attached-account-or-storage-resource"></a>Det går inte att ta bort bifogade konto eller storage-resurs
+## <a name="cant-remove-attached-account-or-storage-resource"></a>Det går inte att ta bort bifogade konto eller storage-resurs
 
 Om det inte går att ta bort ett anslutna konto eller en resurs för lagring via Användargränssnittet, kan du manuellt ta bort alla anslutna resurser genom att ta bort följande mappar:
 
@@ -190,7 +190,7 @@ Om du fortfarande har problem, kan du prova följande metoder:
 
 ### <a name="tools-for-diagnosing-issues"></a>Verktyg för att diagnostisera problem
 
-Om du har verktyg för nätverk, till exempel Fiddler för Windows kan du diagnostisera problem på följande sätt:
+Om du har verktyg för nätverk, till exempel Fiddler för Windows, kan du diagnostisera problem på följande sätt:
 
 * Om du behöver gå igenom din proxyserver kan du behöva konfigurera ditt nätverk verktyg för att ansluta via proxy.
 * Kontrollera det portnummer som används av ditt verktyg för nätverk.
@@ -203,15 +203,15 @@ Om du har verktyg för nätverk, till exempel Fiddler för Windows kan du diagno
 Om proxyinställningarna är korrekta, du kan behöva kontakta din serveradministratör för proxy och
 
 * Se till att proxyservern inte blockerar trafik till Azure management eller resurs-slutpunkter.
-* Kontrollera autentiseringsprotokoll som används av proxyservern. Lagringsutforskaren stöder för närvarande inte NTLM-proxyservrar.
+* Kontrollera autentiseringsprotokoll som används av proxyservern. NTLM-proxyservrar stöder inte för närvarande i Storage Explorer.
 
 ## <a name="unable-to-retrieve-children-error-message"></a>”Det gick inte att hämta underordnade” felmeddelande
 
 Om du är ansluten till Azure via en proxyserver, kontrollerar du att proxyinställningarna är korrekta. Om du har beviljats åtkomst till en resurs från ägaren av prenumerationen eller konto, kontrollera att du har läst eller lista över behörigheter för den resursen.
 
-## <a name="connection-string-does-not-have-complete-configuration-settings"></a>Anslutningssträngen har inte slutförts konfigurationsinställningar
+## <a name="connection-string-doesnt-have-complete-configuration-settings"></a>Anslutningssträngen inte har slutförts konfigurationsinställningar
 
-Om du får detta felmeddelande är det möjligt att du inte har behörigheten som krävs för att få nycklarna för ditt lagringskonto. Gå till portalen för att bekräfta om så är fallet, och leta upp ditt Storage-konto. Du kan snabbt göra detta genom att högerklicka på noden för ditt lagringskonto och klicka på ”Öppna i portalen”. När du gör det, går du till bladet ”åtkomstnycklar”. Om du inte har behörighet att visa nycklar, sedan visas en sida med meddelandet ”du inte har åtkomst”. Undvik problemet genom du antingen hämta kontonyckeln från någon annan och bifoga med namn och nyckel, eller du kan be någon för en SAS för lagringskontot och använda den för att ansluta till Storage-kontot.
+Om du får detta felmeddelande är det möjligt att du inte har behörigheten som krävs för att få nycklarna för ditt lagringskonto. Gå till portalen för att bekräfta om så är fallet, och leta upp ditt Storage-konto. Du kan snabbt göra detta genom att högerklicka på noden för ditt lagringskonto och klicka på ”Öppna i portalen”. När du gör det, går du till bladet ”åtkomstnycklar”. Om du inte har behörighet att visa nycklar kan sedan visas en sida med meddelandet ”du inte har åtkomst”. Undvik problemet genom du antingen hämta kontonyckeln från någon annan och bifoga med namn och nyckel, eller du kan be någon för en SAS för lagringskontot och använda den för att ansluta till Storage-kontot.
 
 Om du ser nycklar för kontot kan du rapportera problemet på GitHub så att vi kan hjälpa dig att lösa problemet.
 

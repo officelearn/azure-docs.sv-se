@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: ac7b662bc9ef4f3ae675c4cbde18e159383d3d8e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5c1bb1f959f920ea9bce23082ec531dc83d873ad
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64711794"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66356986"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Skapa dynamiska skisser genom parametrar
 
@@ -44,7 +44,8 @@ Om skisstilldelningen använder en **systemtilldelade hanterad identitet**, refe
 
 Om skisstilldelningen använder en **användartilldelade hanterad identitet**, referera till Key Vault _kan_ finns i en centraliserad prenumeration. Den hanterade identitet måste beviljas behörighet för Key Vault före skisstilldelningen.
 
-I båda fallen Key Vault måste ha **Aktivera åtkomst till Azure Resource Manager för malldistribution** konfigurerats på den **åtkomstprinciper** sidan. Läs anvisningarna om hur du aktiverar den här funktionen [Key Vault - aktivera malldistributionen](../../../managed-applications/key-vault-access.md#enable-template-deployment).
+> [!IMPORTANT]
+> I båda fallen Key Vault måste ha **Aktivera åtkomst till Azure Resource Manager för malldistribution** konfigurerats på den **åtkomstprinciper** sidan. Läs anvisningarna om hur du aktiverar den här funktionen [Key Vault - aktivera malldistributionen](../../../managed-applications/key-vault-access.md#enable-template-deployment).
 
 Läs mer om Azure Key Vault, [översikt över Key Vault](../../../key-vault/key-vault-overview.md).
 

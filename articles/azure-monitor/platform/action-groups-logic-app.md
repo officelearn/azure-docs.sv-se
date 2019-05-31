@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: e69158a6ee4d8415f52cf458c028cab56f481d8b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a33c6f6621e7fc7944bc116b27e5f26de88f77d9
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60235134"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389562"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Hur du utlöser komplexa åtgärder med Azure Monitor-aviseringar
 
@@ -26,7 +26,7 @@ Den allmänna processen är:
 
 -   Skapa logikapp för respektive typ av avisering.
 
--   Importera schemat för respektive aviseringstypen till logikappen.
+-   Importera en exempelnyttolast för respektive typ av avisering till logikappen.
 
 -   Definiera beteendet för logic app.
 
@@ -58,7 +58,7 @@ Processen påminner om du vill att logikappen att utföra olika åtgärder.
 
     ![Använda en exempelnyttolast](media/action-groups-logic-app/use-sample-payload-button.png "använda en exempelnyttolast")
 
-8.  Kopiera och klistra in följande exempelschema i dialogrutan:
+8.  Kopiera och klistra in följande exempelnyttolast i dialogrutan:
 
     ```json
         {
@@ -140,7 +140,7 @@ Nästa gång en avisering anropar din åtgärdsgrupp kallas logikappen.
 Azure Service Health-poster är en del av aktivitetsloggen. Processen för att skapa aviseringen liknar [skapar en aktivitetsloggavisering](#create-an-activity-log-alert-administrative), men med några ändringar:
 
 - Steg 1 till 7 är desamma.
-- Steg 8, Använd följande exempelschema för HTTP-begäran-utlösare:
+- Använd följande exempelnyttolast för HTTP-begäran-utlösare för steg 8:
 
     ```json
     {
@@ -228,7 +228,7 @@ Azure Service Health-poster är en del av aktivitetsloggen. Processen för att s
 Processen för att skapa en måttavisering liknar [skapar en aktivitetsloggavisering](#create-an-activity-log-alert-administrative), men med några ändringar:
 
 - Steg 1 till 7 är desamma.
-- Steg 8, Använd följande exempelschema för HTTP-begäran-utlösare:
+- Använd följande exempelnyttolast för HTTP-begäran-utlösare för steg 8:
 
     ```json
     {
@@ -281,11 +281,11 @@ Processen för att skapa en måttavisering liknar [skapar en aktivitetsloggavise
        
        ![”Metrisk varning nyttolast villkoret”](media/action-groups-logic-app/metric-alert-payload-condition.png "metrisk varning nyttolast villkor")
 
-  2. I den **om värdet är true** villkoret, lägga till en **för varje** loop och Microsoft Teams-åtgärd. Definiera meddelandet med hjälp av en kombination av HTML och dynamiskt innehåll.
+  1. I den **om värdet är true** villkoret, lägga till en **för varje** loop och Microsoft Teams-åtgärd. Definiera meddelandet med hjälp av en kombination av HTML och dynamiskt innehåll.
 
       ![”Åtgärd metrisk varning sant villkor efter”](media/action-groups-logic-app/metric-alert-true-condition-post-action.png "åtgärd för metrisk varning sant villkor efter")
 
-  3. I den **om falskt** villkoret, definiera en Microsoft Teams-åtgärd för att kommunicera att metrisk varning inte matchar kraven för logikappen. Innehåller JSON-nyttolast. Lägg märke till hur du refererar till den `triggerBody` dynamiskt innehåll i den `json()` uttryck.
+  1. I den **om falskt** villkoret, definiera en Microsoft Teams-åtgärd för att kommunicera att metrisk varning inte matchar kraven för logikappen. Innehåller JSON-nyttolast. Lägg märke till hur du refererar till den `triggerBody` dynamiskt innehåll i den `json()` uttryck.
 
       ![”Åtgärd metrisk varning falskt villkor efter”](media/action-groups-logic-app/metric-alert-false-condition-post-action.png "åtgärd för metrisk varning falskt villkor efter")
 
@@ -298,3 +298,4 @@ Logic Apps har ett antal olika anslutningar som gör det möjligt att utlösarå
 * Hämta en [översikt över Azure aktivitetsloggaviseringar](../../azure-monitor/platform/alerts-overview.md) och lär dig hur du får aviseringar.  
 * Lär dig hur du [konfigurera aviseringar när ett meddelande om Azure Service Health publiceras](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
 * Läs mer om [åtgärdsgrupper](../../azure-monitor/platform/action-groups.md).
+

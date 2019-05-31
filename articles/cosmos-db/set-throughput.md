@@ -4,14 +4,14 @@ description: Lär dig hur du ställer in dataflöde för Azure Cosmos-behållare
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 05/28/2019
 ms.author: rimman
-ms.openlocfilehash: 598a1562127a67c78f67cdd02b00d83d4a606739
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: f30155c0fbdbdd93ab4ffc3ae85ef2ad62b188c9
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65953559"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389238"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Etablera dataflöde på containrar och databaser
 
@@ -71,8 +71,7 @@ Följande bild visar hur en fysisk partition kan vara värd för en eller flera 
 Du kan kombinera de två modellerna. Etablering dataflöde på både databasen och behållaren tillåts. I följande exempel visar hur du etablera dataflöde för en Azure Cosmos-databas och en behållare:
 
 * Du kan skapa ett Azure Cosmos-databas med namnet *Z* med etablerat dataflöde på *”K”* ru: er. 
-* Därefter skapar fem behållare med namnet *A*, *B*, *C*, *D*, och *E* i databasen.
-* Du kan uttryckligen konfigurera *”P”* ru: er för dataflöde i behållaren med namnet *B*.
+* Därefter skapar fem behållare med namnet *A*, *B*, *C*, *D*, och *E* i databasen. När du skapar behållaren B, se till att aktivera **etablera dedikerat dataflöde för den här behållaren** och uttryckligen konfigurera *”P”* ru: er för dataflöde i den här behållaren. Observera att du kan konfigurera delade och dedikerade dataflöde endast när du skapar databasen och behållare. 
 * Den *”K”* RUs dataflöde delas mellan de fyra behållarna *A*, *C*, *D*, och *E*. Den exakta mängden dataflödet är tillgängligt för *A*, *C*, *D*, eller *E* varierar. Det finns inga serviceavtal för dataflöden i varje behållare.
 * Behållare med namnet *B* garanteras att hämta den *”P”* RUs dataflöde hela tiden. Den understöds av serviceavtal.
 

@@ -8,12 +8,12 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: f93f6c8891ba9f7407310a8f09387e97f5c1f578
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 65de80004dd05e3eb29f3313bc17405c40450d7a
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60401790"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66397131"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Felsöka fel med runbooks
 
@@ -305,6 +305,8 @@ Det här felet inträffar på grund av något av följande problem:
 
 4. Din runbook försökte anropa en körbar fil eller subprocess i en runbook som körs i en Azure sandbox. Det här scenariot stöds inte i Azure sandbox-miljöer.
 
+5. Din runbook försökte skriva för mycket Undantagsdata till utdataströmmen.
+
 #### <a name="resolution"></a>Lösning
 
 Någon av följande lösningar problemet på:
@@ -316,6 +318,8 @@ Någon av följande lösningar problemet på:
 * En annan lösning är att köra runbook på en [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md). Hybrid Worker-arbeten begränsas inte av minne och nätverk gränserna som Azure sandbox-miljöer.
 
 * Om du vill anropa en process (till exempel .exe eller subprocess.call) i en runbook kan du behöver köra runbook en [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md).
+
+* Det finns en gräns på 1MB på utdataströmmen för jobbet. Se till att du skriva anrop till en körbar fil eller underprocess i ett try-/ catch-block. Skriva meddelandet om de utlöser ett undantag från detta undantag till ett Automation-variabel. Detta förhindrar att det skrivs till utdataströmmen för jobbet.
 
 ### <a name="fails-deserialized-object"></a>Scenario: Runbook misslyckas på grund av avserialiserat objekt
 

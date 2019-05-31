@@ -11,17 +11,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/14/2019
+ms.date: 05/17/2019
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0208d25e4583672ad2110d959f8e255affbf3e0
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 8b5a16e2d5e3ac723675ebdb536a51d20412681f
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65764920"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235418"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Anvisningar: Använda portalen för att skapa en Azure AD-program och tjänstens huvudnamn som kan komma åt resurser
 
@@ -40,11 +40,11 @@ Låt oss sätta igång direkt i att skapa identiteten. Om du stöter på problem
 
    ![Välj appregistreringar](./media/howto-create-service-principal-portal/select-app-registrations.png)
 
-1. Välj **Ny programregistrering**.
+1. Välj **ny registrering**.
 
    ![Lägg till app](./media/howto-create-service-principal-portal/select-add-app.png)
 
-1. Ange ett namn och en URL för programmet. Välj **Webbapp/API** för den programtyp som du vill skapa. Du kan inte skapa autentiseringsuppgifter för en [programspecifik](../manage-apps/application-proxy-configure-native-client-application.md). Du kan inte använda den typen för ett automatiserat program. När du har angett värdena, Välj **skapa**.
+1. Ange ett namn för programmet. Välj ett stöds konto skriver, som bestämmer vem som kan använda programmet. Under **omdirigerings-URI**väljer **Web** för typ av program som du vill skapa. Ange URI: N där den åtkomst-token som skickas till.  Du kan inte skapa autentiseringsuppgifter för en [programspecifik](../manage-apps/application-proxy-configure-native-client-application.md). Du kan inte använda den typen för ett automatiserat program. När du har angett värdena, Välj **registrera**.
 
    ![namnprogram](./media/howto-create-service-principal-portal/create-app.png)
 
@@ -66,14 +66,14 @@ Du kan ange omfånget för den prenumerationen, resursgruppen eller resursen. Be
 
    Om du inte ser den prenumeration som du letar efter, väljer **globala prenumerationer filter**. Kontrollera att den prenumeration du vill har valts för portalen. 
 
-1. Välj **åtkomstkontroll (IAM)**.
+1. Välj **åtkomstkontroll (IAM)** .
 1. Välj **Lägg till rolltilldelning**.
 
    ![Välj Lägg till rolltilldelning](./media/howto-create-service-principal-portal/select-add.png)
 
 1. Välj den roll som du vill tilldela till programmet. Att tillåta program att köra åtgärder som att **omstart**, **starta** och **stoppa** instanser, väljer den **deltagare** roll. Som standard visas inte Azure AD-program i de tillgängliga alternativen. Sök efter namnet för att hitta ditt program, och markera den.
 
-   ![Välj roll](./media/howto-create-service-principal-portal/select-role.png)
+   ![Välja en roll](./media/howto-create-service-principal-portal/select-role.png)
 
 1. Välj **spara** Slutför tilldela rollen. Du ser ditt program i listan över användare som har tilldelats en roll för detta omfång.
 
@@ -81,31 +81,41 @@ Tjänstens huvudnamn har ställts in. Du kan börja använda det för att köra 
 
 ## <a name="get-values-for-signing-in"></a>Hämta värden för att logga in
 
-### <a name="get-tenant-id"></a>Hämta klientorganisations-ID
-
-När du programmässigt loggar in, måste du skicka klientorganisations-ID med din autentiseringsbegäran.
+När du programmässigt loggar in, måste du skicka klientorganisations-ID med din autentiseringsbegäran. Du måste också ID: T för ditt program och en autentiseringsnyckel. Hämta dessa värden med följande steg:
 
 1. Välj **Azure Active Directory**.
-1. Välj **egenskaper**.
-
-   ![Välj Azure AD-egenskaper](./media/howto-create-service-principal-portal/select-ad-properties.png)
-
-1. Kopiera den **katalog-ID** att få ditt klient-ID.
-
-   ![Klient-ID:t](./media/howto-create-service-principal-portal/copy-directory-id.png)
-
-### <a name="get-application-id-and-authentication-key"></a>Hämta nyckel för program-ID och autentiseringsnyckel
-
-Du måste också ID: T för ditt program och en autentiseringsnyckel. Hämta dessa värden med följande steg:
 
 1. Från **appregistreringar** i Azure AD, Välj ditt program.
 
    ![Välj program](./media/howto-create-service-principal-portal/select-app.png)
 
+1. Kopiera katalog (klient)-ID och lagra den i din programkod.
+
+    ![Klient-ID:t](./media/howto-create-service-principal-portal/copy-tenant-id.png)
+
 1. Kopiera **Program-ID:t** och lagra det i din programkod.
 
-   ![Klient-ID](./media/howto-create-service-principal-portal/copy-app-id.png)
+   ![Klientorganisations-ID](./media/howto-create-service-principal-portal/copy-app-id.png)
 
+## <a name="certificates-and-secrets"></a>Certifikat och hemligheter
+Deamon program kan använda två typer av autentiseringsuppgifter för att autentisera med Azure AD: certifikat och hemligheter.  Vi rekommenderar att du använder ett certifikat, men du kan också skapa en ny hemlighet för programmet.
+
+### <a name="upload-a-certificate"></a>Ladda upp ett certifikat
+
+Du kan använda ett befintligt certifikat om du har en.  Du kan också skapa ett självsignerat certifikat för testning. Öppna PowerShell och kör [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) med följande parametrar för att skapa ett självsignerat certifikat i användarens certifikatarkiv på datorn: `$cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocation "Cert:\CurrentUser\My"  -KeyExportPolicy Exportable -KeySpec Signature`.  Exportera det här certifikatet med hjälp av den [Hantera användarcertifikat](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in) MMC-snapin-modulen kan nås från Kontrollpanelen i Windows.
+
+Ladda upp certifikatet:
+1. Välj **certifikat och hemligheter**.
+
+   ![Välj inställningar](./media/howto-create-service-principal-portal/select-certs-secrets.png)
+1. Klicka på **överför certifikat** och välj certifikatet (ett befintligt certifikat eller det självsignerade certifikatet du exporterade).
+    ![Ladda upp certifikat](./media/howto-create-service-principal-portal/upload-cert.png)
+1. Klicka på **Lägg till**.
+
+När du har registrerat certifikatet med ditt program i portalen för registrering av programmet, måste du aktivera programkod för klienten att använda certifikatet.
+
+### <a name="create-a-new-application-secret"></a>Skapa en ny programhemlighet
+Om du väljer att inte använda ett certifikat, kan du skapa en ny hemlighet för programmet.
 1. Välj **certifikat och hemligheter**.
 
    ![Välj inställningar](./media/howto-create-service-principal-portal/select-certs-secrets.png)

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/06/2019
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: d46c545db9e1950988b49cdb577d074b6d04380c
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: f63b705f7967eeddaf522941d6db9be5d9f2719d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236592"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244992"
 ---
 # <a name="create-a-shared-image-gallery-using-the-azure-portal"></a>Skapa en delad bildgalleriet med Azure portal
 
@@ -67,6 +67,7 @@ Det här exemplet skapar en virtuell dator med namnet *myVMfromImage*i den *myRe
 1. Om du vill tillåta fjärråtkomst till den virtuella datorn under **offentliga inkommande portar**, Välj **valda portar** och välj sedan **RDP (port 3389)** från listrutan. Om du inte vill tillåta fjärråtkomst till den virtuella datorn, lämnar **ingen** markerats för **offentliga inkommande portar**.
 1. När du är klar väljer du den **granska + skapa** längst ned på sidan.
 1. När den virtuella datorn har klarat verifieringen väljer **skapa** längst ned på sidan för att starta distributionen.
+
 
 
 ## <a name="clean-up-resources"></a>Rensa resurser

@@ -12,33 +12,33 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/08/2019
-ms.author: v-mohabe
-ms.openlocfilehash: cfe633c5251842257a0bef5237ea6b80aeaf05e9
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.date: 05/29/2019
+ms.author: monhaber
+ms.openlocfilehash: e7420adfe1608df39ef72124817f1d6dadf07db8
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65968581"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66400141"
 ---
 # <a name="advanced-data-security-for-sql-servers-on-iaas"></a>Avancerad säkerhet för SQL-servrar på IaaS
-Avancerad säkerhet för SQL-servrar på IaaS är en enhetlig paket för avancerade funktioner för SQL-säkerhet. Den innehåller för närvarande funktioner för lyfta upp och åtgärda säkerhetsrisker i databasen och identifiera avvikande aktiviteter som kan tyda på ett hot mot din databas.
+Avancerad säkerhet för SQL-servrar på Azure Virtual Machines är en enhetlig paket för avancerade funktioner för SQL-säkerhet. Den innehåller för närvarande funktioner för lyfta upp och åtgärda säkerhetsrisker i databasen och identifiera avvikande aktiviteter som kan tyda på ett hot mot din databas. 
 
-Den här säkerhetsuppdateringen erbjudande för IaaS SQL-servrar är baserad på samma grundläggande teknik som används i den [avancerade datasäkerhet för Azure SQL Database-paketet](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security).
+Den här säkerhetsuppdateringen erbjudande för Azure virtuella datorer SQL-servrar är baserad på samma grundläggande teknik som används i den [avancerade datasäkerhet för Azure SQL Database-paketet](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security).
 
 
 ## <a name="overview"></a>Översikt
 
-Avancerade datasäkerhet (AD) innehåller en uppsättning avancerade säkerhetsfunktioner för SQL, som består av utvärdering av säkerhetsrisker och Avancerat skydd.
+Avancerade datasäkerhet tillhandahåller en uppsättning avancerade säkerhetsfunktioner för SQL, som består av utvärdering av säkerhetsrisker och Avancerat skydd.
 
 * [Sårbarhetsbedömning](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment) är ett enkelt sätt att konfigurera tjänsten som kan upptäcka, spåra och hjälper dig att åtgärda säkerhetsrisker i databasen. Den ger insyn i ditt säkerhetsläge och innehåller steg för att lösa säkerhetsproblem och förbättra din databas fortifications.
 * [Avancerat skydd](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview) identifierar avvikande aktiviteter som visar onormala och potentiellt skadliga försök att komma åt eller utnyttja SQL-servern. Ständigt övervakar din databas för misstänkta aktiviteter och innehåller åtgärdsorienterade säkerhetsaviseringar om avvikande mönster i databasåtkomst. Dessa aviseringar ger information om misstänkt aktivitet och rekommenderade åtgärder för att undersöka och åtgärda hot.
 
-## <a name="get-started-with-ads-for-iaas"></a>Kom igång med ANNONSER för IaaS
+## <a name="get-started-with-advanced-data-security-for-sql-on-azure-vms"></a>Kom igång med avancerad säkerhet för Data för SQL på Azure Virtual Machines
 
-Följande steg hjälper dig igång med ANNONSER för IaaS.
+Följande steg hjälper dig igång med avancerad säkerhet för Data för SQL på Azure Virtual Machines.
 
-### <a name="set-up-ads-for-iaas"></a>Konfigurera ANNONSER för IaaS
+### <a name="set-up-advanced-data-security-for-sql-on-azure-vms"></a>Konfigurera avancerade datasäkerhet för SQL på Azure Virtual Machines
 
 **Innan du börjar**: Du behöver en Log Analytics-arbetsyta för att lagra säkerhetsloggar som analyseras. Om du inte har någon så du kan skapa ett enkelt, enligt beskrivningen i [skapa en Log Analytics-arbetsyta i Azure-portalen](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
 
@@ -72,7 +72,7 @@ Du kan visa och hantera din aktuella säkerhetsaviseringar.
 
 1. Om du vill visa detaljerad information om aviseringen och åtgärder för att undersöka den aktuella hot och framtida hot-adressering, rulla nedåt i **allmän information** sidan, och i den **åtgärdssteg** klickar du på  **UNDERSÖKNINGSSTEG** länk.
 
-    ![Reparationssteg](./media/security-center-advanced-iaas-data/remediation-steps.png)
+    ![Åtgärdssteg](./media/security-center-advanced-iaas-data/remediation-steps.png)
 
 1. Om du vill visa loggfilerna som är associerade med en utlöst varningen kan du gå till **Log analytics-arbetsytor** och utför följande steg:
 
@@ -95,7 +95,7 @@ Du kan visa och hantera din aktuella säkerhetsaviseringar.
 
 Du kan ange en lista över mottagare som tar emot ett e-postmeddelande när ASC aviseringar genereras. E-postmeddelandet innehåller en direktlänk till aviseringen i Azure Security Center med all relevant information. 
 
-1. Gå till **Security Center** > **säkerhetsprincip** och på raden i den relevanta prenumeration klickar du på **redigera inställningar >**.
+1. Gå till **Security Center** > **säkerhetsprincip** och på raden i den relevanta prenumeration klickar du på **redigera inställningar >** .
 
     ![Prenumerationsinställningar](./media/security-center-advanced-iaas-data/subscription-settings.png)
 
@@ -120,7 +120,7 @@ Vulnerability assessment instrumentpanelen innehåller en översikt över utvär
 
 Du kan visa dina Vulnerability assessment resultat och rapporter direkt från Log Analytics.
 
-1. Gå till Log Analytics-arbetsytan med ADS-lösningen.
+1. Gå till Log Analytics-arbetsytan med avancerad säkerhet för Data-lösning.
 1. Gå till **lösningar** och välj den **Sårbarhetsbedömning för SQL** lösning.
 1. I den **sammanfattning** fönstret klickar du på **visa sammanfattning** och välj din **SQL Sårbarhetsbedömningsrapport**.
 
@@ -142,7 +142,7 @@ Du kan visa dina Vulnerability assessment resultat och rapporter direkt från Lo
 
 1. Du kan köra alla Log Analytics-frågor på dina data för utvärdering av säkerhetsrisker resultat, statistikforskning data efter dina behov.
 
-## <a name="advanced-threat-protection-for-sql-servers-on-iaas-alerts"></a>Avancerat skydd för SQL-servrar på IaaS-aviseringar
+## <a name="advanced-threat-protection-for-sql-servers-on-azure-vms-alerts"></a>Avancerat skydd för SQL-servrar på virtuella Azure-datorer aviseringar
 Aviseringarna genereras av onormala och potentiellt skadliga försök att komma åt eller utnyttja SQL-servrar. Dessa händelser kan utlösa följande aviseringar:
 
 ### <a name="anomalous-access-pattern-alerts"></a>Avvikande åtkomst mönstret aviseringar

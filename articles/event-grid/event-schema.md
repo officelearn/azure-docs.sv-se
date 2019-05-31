@@ -8,18 +8,21 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 01/20/2019
 ms.author: babanisa
-ms.openlocfilehash: b67d656ed6ab537a01696ec9c0c98f84b880f03b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4a795221790a9d56bcbfe30a50b0c838fb8d9e56
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60561570"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304237"
 ---
 # <a name="azure-event-grid-event-schema"></a>Schema för Azure Event Grid-händelse
 
 Den här artikeln beskriver egenskaper och scheman som är tillgängliga för alla händelser. Händelser som består av en uppsättning med fem obligatoriska strängegenskaper och ett nödvändiga data-objekt. Egenskaperna är vanliga i alla händelser från valfri utgivare. Dataobjektet har egenskaper som är specifika för varje utgivare. De här egenskaperna är specifika för resursleverantör, till exempel Azure Storage eller Azure Event Hubs för system-ämnen.
 
-Händelsekällor används för att skicka händelser till Azure Event Grid i en matris som kan ha flera händelseobjekt. När skicka händelser till en event grid-ämne kan matrisen ha en total storlek på upp till 1 MB. Varje händelse i matrisen är begränsat till 64 KB. Om en händelse eller matrisen är större än storleksgränserna, får du svaret **413 nyttolasten är för stor**.
+Händelsekällor används för att skicka händelser till Azure Event Grid i en matris som kan ha flera händelseobjekt. När skicka händelser till en event grid-ämne kan matrisen ha en total storlek på upp till 1 MB. Varje händelse i matrisen är begränsat till 64 KB (allmän tillgänglighet) eller 1 MB (förhandsversion). Om en händelse eller matrisen är större än storleksgränserna, får du svaret **413 nyttolasten är för stor**.
+
+> [!NOTE]
+> En händelse av storlek på upp till 64 KB omfattas av allmän tillgänglighet (GA) serviceavtal (SLA). Stöd för en händelse av storlek på upp till 1 MB förhandsvisas just nu. Händelser över 64 KB debiteras i steg om 64 KB. 
 
 Event Grid skickar händelser till prenumeranter i en matris som har en enda händelse. Det här beteendet kan ändras i framtiden.
 
@@ -83,7 +86,7 @@ Alla händelser har samma följande översta data:
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | ämne | string | Fullständig resurssökväg till händelsekällan. Det här fältet är inte skrivbar. Event Grid ger det här värdet. |
-| ämne | string | Publisher-definierade sökvägen till ämne för händelsen. |
+| Ämne | string | Publisher-definierade sökvägen till ämne för händelsen. |
 | Händelsetyp | string | En av typerna som registrerade händelsen för den här händelsekällan. |
 | eventTime | string | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
 | id | string | Unik identifierare för händelsen. |

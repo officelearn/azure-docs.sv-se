@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: f086850ecc2f15c41ab89db34b16d6d2e4a229cb
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 9b7bc043c748000f03a98a28f856299527015388
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956218"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66397813"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions-preview"></a>Använd Key Vault-referenser för App Service och Azure Functions (förhandsversion)
 
@@ -37,7 +37,7 @@ För att kunna läsa hemligheter från Nyckelvalvet, måste du ha ett valv som s
    > [!NOTE] 
    > Key Vault refererar till för närvarande endast stöd för system tilldelade hanterade identiteter. Användartilldelade identiteter kan inte användas.
 
-1. Skapa en [åtkomstprincipen i Nyckelvalvet](../key-vault/key-vault-secure-your-key-vault.md#key-vault-access-policies) för applikationsidentitet som du skapade tidigare. Aktivera hemliga behörighet ”Get” för den här principen. Konfigurera inte ”åtkomsträttigheter program” eller `appliationId` inställningar, eftersom det är inte kompatibel med en hanterad identitet.
+1. Skapa en [åtkomstprincipen i Nyckelvalvet](../key-vault/key-vault-secure-your-key-vault.md#key-vault-access-policies) för applikationsidentitet som du skapade tidigare. Aktivera hemliga behörighet ”Get” för den här principen. Konfigurera inte ”åtkomsträttigheter program” eller `applicationId` inställningar, eftersom det är inte kompatibel med en hanterad identitet.
 
 ## <a name="reference-syntax"></a>Referens-syntax
 

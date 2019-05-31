@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/08/2018
 ms.author: v-jamebr
-ms.openlocfilehash: 5ae2ca352c6d3cbe02b659a97fe3147c1a31128f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: df3156688f018aee4717271557220396827dd9e2
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60947463"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306833"
 ---
 # <a name="create-service-fabric-container-running-apache-tomcat-server-on-linux"></a>Skapa Service Fabric-behållare som kör Apache Tomcat-servern på Linux
 Apache Tomcat är en populär implementering med öppen källkod av Java Servlet och Server med Java-tekniker. Den här artikeln visar hur du skapar en behållare med Apache Tomcat och ett enkelt webbprogram, distribuerar du behållaren till Service Fabric-kluster som kör Linux och ansluta till webbprogrammet.  
@@ -111,9 +111,9 @@ Följ stegen i det här avsnittet och skapa en Docker-avbildning som är baserat
 ## <a name="push-the-tomcat-image-to-your-container-registry"></a>Överför Tomcat-avbildningen till behållarregistret
 Nu när du har kontrollerat att Tomcat-avbildningen körs i en behållare på utvecklingsdatorn kan du skicka den till en databas i ett behållarregister. Den här artikeln använder Azure Container Registry för att lagra avbildningen, men med vissa ändringar av steg du kan använda valfritt behållarregister som du väljer. I den här artikeln registernamnet antas vara *myregistry* och fullständig registernamnet är myregistry.azurecr.io. Ändra dem på lämpligt sätt för ditt scenario. 
 
-1. Kör `docker login` för att logga in till containerregistret med dina [autentiseringsuppgifter för registret](../container-registry/container-registry-authentication.md).
+1. Kör `docker login` att logga in till behållarregistret med dina [autentiseringsuppgifter för registret](../container-registry/container-registry-authentication.md).
 
-   I följande exempel skickas ID:t och lösenordet för ett Azure Active Directory [-tjänstobjekt](../active-directory/develop/app-objects-and-service-principals.md). Du kanske till exempel har tilldelat ett tjänstobjekt till registret för ett automatiseringsscenario. Du kan också logga in med ditt användarnamn och lösenord för registret.
+   I följande exempel skickas ID:t och lösenordet för ett Azure Active Directory [-tjänstobjekt](../active-directory/develop/app-objects-and-service-principals.md). Du kanske till exempel har tilldelat ett tjänstobjekt till registret för ett automatiseringsscenario. Eller, du kan logga in med ditt registreringsanvändarnamn och lösenord.
 
    ```bash
    docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword

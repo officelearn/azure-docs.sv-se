@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/13/2018
 ms.author: aljo
-ms.openlocfilehash: 0038de621a02a2edf3198686e1f2fc88fb917d9c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f1998ec2fe82b9fd52547fbccb208542b22bc949
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66161881"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306920"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Lägga till eller ta bort certifikat för Service Fabric-kluster i Azure
 Vi rekommenderar att du bekanta dig med hur Service Fabric använder X.509-certifikat och att du läser den [Klustersäkerhetsscenarier](service-fabric-cluster-security.md). Du måste förstå vad ett klustercertifikat är och vad som används för, innan du forsätter.
@@ -48,7 +48,7 @@ Om din avsikt är att ta bort det certifikat som har markerats primära, måste 
 
 ## <a name="add-a-secondary-certificate-using-resource-manager-powershell"></a>Lägg till ett sekundärt certifikat med hjälp av Powershell och Resource Manager
 > [!TIP]
-> Det är nu bättre och enklare sätt att lägga till ett sekundärt certifikat som använder den [Lägg till AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) cmdlet. Du behöver inte följa resten av stegen i det här avsnittet.  Dessutom behöver inte den mall som ursprungligen använde för att skapa och distribuera klustret när du använder den [Lägg till AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) cmdlet.
+> Det finns nu ett enklare och bättre sätt att lägga till ett sekundärt certifikat som använder den [Lägg till AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) cmdlet. Du behöver inte följa resten av stegen i det här avsnittet.  Dessutom behöver inte den mall som ursprungligen använde för att skapa och distribuera klustret när du använder den [Lägg till AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) cmdlet.
 
 De här stegen förutsätter att du är bekant med så här fungerar Resource Manager och har distribuerat minst en Service Fabric-kluster med en Resource Manager-mall och har den mall som du använde för att konfigurera klustret till hands. Det förutsätts även att du är nöjd med JSON.
 

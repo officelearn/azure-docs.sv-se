@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: raynew
-ms.openlocfilehash: 2267a4e836fe1aff214f40e34afa830de50fa2d5
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 2f48e0d8b46684d067fe2e32f241e28d94c2edbd
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471652"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399681"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Stöd matrix för virtuell Azure-säkerhetskopiering
 Du kan använda den [Azure Backup-tjänsten](backup-overview.md) för säkerhetskopiering av lokala datorer och arbetsbelastningar och virtuella Azure-datorer (VM). Den här artikeln sammanfattas support inställningar och begränsningar när du säkerhetskopierar virtuella Azure-datorer med Azure Backup.
@@ -40,7 +40,7 @@ Läs mer om backup [med hjälp av en reservserver](backup-architecture.md#archit
 
 **Åtgärd** | **Support**
 --- | ---
-Aktivera säkerhetskopiering när du skapar en Windows Azure VM | Stöd för:  Windows Server 2019 (Datacenter/Datacenter Core), Windows Server 2016 (Datacenter/Datacenter kärnor); Windows Server 2012 R2 Datacenter; Windows Server 2008 R2 (RTM och SP1)
+Aktivera säkerhetskopiering när du skapar en Windows Azure VM | Stöd för: <br/><br/> – Windows Server 2019 (Core Datacenter/Datacenter/Standard) <br/><br/> – Windows Server 2016 (Core Datacenter/Datacenter/Standard) <br/><br/> – Windows Server 2012 R2 (Datacenter/Standard) <br/><br/> – Windows Server 2008 R2 (RTM och SP1 Standard)
 Aktivera säkerhetskopiering när du skapar en Linux VM | Stöd för:<br/><br/> - Ubuntu Server: 18.04, 17.10, NR 17.04 FRÅN, 16.04 (LTS), 14.04 (LTS)<br/><br/> - Red Hat: RHEL 6.7, 6.8, 6.9, 7.2, 7.3, 7.4<br/><br/> - SUSE Linux Enterprise Server: 11 SP4, 12 SP2, 12 SP3, 15 <br/><br/> - Debian: 8, 9<br/><br/> - CentOS: 6.9, 7.3<br/><br/> - Oracle Linux: 6.7, 6.8, 6.9, 7.2, 7.3
 Säkerhetskopiera en virtuell dator som är avstängning/offline virtuell dator | Stöds.<br/><br/> Ögonblicksbilden är kraschkonsekventa, men inte appkonsekventa.
 Säkerhetskopiera diskar när du migrerar till hanterade diskar | Stöds.<br/><br/> Backup fortsätter att fungera. Ingen åtgärd krävs.
@@ -61,7 +61,7 @@ I följande tabell sammanfattas operativsystem som stöds när du säkerhetskopi
 
 **Scenario** | **OS-support**
 --- | ---
-Säkerhetskopiera med tillägget för Azure VM-agent | Windows-klient: Stöds ej<br/><br/> Windows Server 2019 (Datacenter/Datacenter Core), Windows Server 2016 (Datacenter/Datacenter kärnor); Windows Server 2012 R2 Datacenter; Windows Server 2008 R2 (RTM och SP1)
+Säkerhetskopiera med tillägget för Azure VM-agent | Windows-klient: Stöds inte<br/><br/>– Windows Server 2019 (Core Datacenter/Datacenter/Standard) <br/><br/> – Windows Server 2016 (Core Datacenter/Datacenter/Standard) <br/><br/> – Windows Server 2012 R2 (Datacenter/Standard) <br/><br/> – Windows Server 2008 R2 (RTM och SP1 Standard)
 Säkerhetskopiera med MARS-agenten | [Stöds](backup-support-matrix-mars-agent.md#support-for-direct-backups) operativsystem.
 Säkerhetskopiera med DPM/MABS | Operativsystem som stöds för säkerhetskopiering med [MABS](backup-mabs-protection-matrix.md) och [DPM](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-1807).
 
@@ -94,7 +94,7 @@ Den längsta förfallotiden för en återställningspunkt | Ingen gräns.
 Högsta säkerhetskopieringsfrekvensen till valv (Azure VM-tillägg) | En gång om dagen.
 Högsta säkerhetskopieringsfrekvensen till valv (MARS-agenten) | Tre säkerhetskopieringar per dag.
 Högsta säkerhetskopieringsfrekvens till DPM/MABS | Varje kvart för SQL Server.<br/><br/> En gång i timmen för andra arbetsbelastningar.
-Återställningspunkt för kvarhållning | Varje dag, vecka, månad och år.
+Kvarhållning av återställningspunkt | Varje dag, vecka, månad och år.
 Högsta kvarhållningsperiod | Beror på säkerhetskopieringsfrekvensen.
 Återställningspunkter på DPM-/MABS-disk | 64 för filservrar och 448 för app-servrar.<br/><br/> Bandåterställningspunkter är obegränsade för lokal DPM.
 

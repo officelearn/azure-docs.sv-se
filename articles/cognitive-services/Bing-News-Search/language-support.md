@@ -10,12 +10,12 @@ ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 1/10/2019
 ms.author: aahi
-ms.openlocfilehash: e8a7f6d20ed36c4b3e900602fb52e31dceefae88
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: d15058126f43fff328acfc563ffd081164a69a90
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65799333"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66384971"
 ---
 # <a name="language-and-region-support-for-the-bing-news-search-api"></a>Stöd för språk och din region för den nyhetssökning i Bing
 
@@ -37,24 +37,24 @@ För en lista över land/region koder som du kan ange i den `cc` frågeparameter
 |Österrike|Tyska|Tyskland-AT|
 |Schweiz|Tyska|Tyskland – CH|
 |Tyskland|Tyska|de-DE|
-|Australien|Engelska|SV-Australien|
-|Kanada|Engelska|en CA: N|
-|Storbritannien och Nordirland|Engelska|en-GB|
-|Indonesien|Engelska|en-ID|
-|Irland|Engelska|en IE|
-|Indien|Engelska|en Indien|
-|Malaysia|Engelska|en-MY|
-|Nya Zeeland|Engelska|en NZ|
-|Filippinerna|Engelska|en-PH|
-|Singapore|Engelska|en-SG|
-|USA|Engelska|en-US|
-|Engelska|Allmänt|en WW|
-|Engelska|Allmänt|en-XA|
-|Sydafrika|Engelska|en ZA|
+|Australien|Svenska|SV-Australien|
+|Kanada|Svenska|en CA: N|
+|Storbritannien|Svenska|en-GB|
+|Indonesien|Svenska|en-ID|
+|Irland|Svenska|en IE|
+|Indien|Svenska|en Indien|
+|Malaysia|Svenska|en-MY|
+|Nya Zeeland|Svenska|en NZ|
+|Filippinerna|Svenska|en-PH|
+|Singapore|Svenska|en-SG|
+|USA|Svenska|en-US|
+|Svenska|Allmänt|en WW|
+|Svenska|Allmänt|en-XA|
+|Sydafrika|Svenska|en ZA|
 |Argentina|Spanska|es-AR|
 |Chile|Spanska|es-CL|
 |Spanien|Spanska|es-ES|
-|Mexico|Spanska|es-MX|
+|Mexiko|Spanska|es-MX|
 |USA|Spanska|es-US|
 |Spanska|Allmänt|es-XL|
 |Finland|Finska|fi-FI|  
@@ -66,7 +66,7 @@ För en lista över land/region koder som du kan ange i den `cc` frågeparameter
 |Italien|Italienska|IT-IT|
 |Hongkong SAR|Traditionell kinesiska|zh-HK|  
 |Taiwan|Traditionell kinesiska|zh-TW|
-|Japan|japanska|ja-JP|  
+|Japan|Japanska|ja-JP|  
 |Korea|Koreanska|ko-KR|  
 |Nederländerna|Nederländska|NL-NL|  
 |Folkrepubliken Kina|Kinesiska|zh-CN|  
@@ -84,12 +84,12 @@ För en lista över land/region koder som du kan ange i den `cc` frågeparameter
 |---------------------|--------------|-----------------|
 |Danmark|Danska|da-DK|
 |Tyskland|Tyska|de-DE|
-|Australien|Engelska|SV-Australien|
-|Storbritannien och Nordirland|Engelska|en-GB|
-|USA|Engelska|en-US|
-|Engelska|Allmänt|en WW|
+|Australien|Svenska|SV-Australien|
+|Storbritannien|Svenska|en-GB|
+|USA|Svenska|en-US|
+|Svenska|Allmänt|en WW|
 |Chile|Spanska|es-CL|
-|Mexico|Spanska|es-MX|
+|Mexiko|Spanska|es-MX|
 |USA|Spanska|es-US|
 |Finland|Finska|fi-FI|  
 |Kanada|Franska|fr-CA|
@@ -106,11 +106,11 @@ För en lista över land/region koder som du kan ange i den `cc` frågeparameter
 |Land/region|Språk|Marknaden kod|  
 |---------------------|--------------|-----------------|
 |Tyskland|Tyska|de-DE|
-|Australien|Engelska|SV-Australien|
-|Storbritannien och Nordirland|Engelska|en-GB|
-|USA|Engelska|en-US|
-|Kanada|Engelska|en CA: N|
-|Indien|Engelska|en Indien|
+|Australien|Svenska|SV-Australien|
+|Storbritannien|Svenska|en-GB|
+|USA|Svenska|en-US|
+|Kanada|Svenska|en CA: N|
+|Indien|Svenska|en Indien|
 |Frankrike|Franska|fr-FR|
 |Kanada|Franska|fr-CA|
 |Brasilien|Portugisiska|pt-BR|
@@ -138,14 +138,14 @@ Följande är de koder för land/region som du kan ange i den `cc` frågeparamet
 |Hongkong SAR|HK|  
 |Indien|IN|  
 |Indonesien|ID|  
-|Italien|it|  
+|Italien|IT|  
 |Japan|JP|  
 |Korea|KR|  
 |Malaysia|MY|  
-|Mexico|MX|  
+|Mexiko|MX|  
 |Nederländerna|NL|  
 |Nya Zeeland|NZ|  
-|Norge|NEJ|  
+|Norge|NO|  
 |Folkrepubliken Kina|CN|  
 |Polen|PL|  
 |Portugal|PT|  
@@ -158,8 +158,8 @@ Följande är de koder för land/region som du kan ange i den `cc` frågeparamet
 |Schweiz|CH|  
 |Taiwan|TW|  
 |Turkiet|TR|  
-|Storbritannien och Nordirland|GB|  
+|Storbritannien|GB|  
 |USA|USA|
 
 ## <a name="next-steps"></a>Nästa steg
-Läs mer om Sök på Bing News-slutpunkter, [nyheter Search API-referens för v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference).
+Läs mer om Sök på Bing News-slutpunkter, [nyheter Search API-referens för v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference).

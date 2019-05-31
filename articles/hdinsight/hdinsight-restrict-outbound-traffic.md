@@ -7,13 +7,13 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: howto
-ms.date: 05/13/2019
-ms.openlocfilehash: 44b6f099b5b17329976b9fec3c0ac38b5e394221
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
-ms.translationtype: HT
+ms.date: 05/24/2019
+ms.openlocfilehash: c40bae6ac1af2489e4e77d2c280b95cccf8b5603
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65978005"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257838"
 ---
 # <a name="configure-outbound-network-traffic-restriction-for-azure-hdinsight-clusters-preview"></a>Konfigurera utgående trafik nätverksbegränsning för Azure HDInsight-kluster (förhandsversion)
 
@@ -32,38 +32,23 @@ Lösning för att skydda utgående adresser är att använda en brandväggsenhet
 ## <a name="configuring-azure-firewall-with-hdinsight"></a>Konfigurera Brandvägg för Azure med HDInsight
 
 Det finns en sammanfattning av stegen för att låsa utgående trafiken från dina befintliga HDInsight med Azure-brandvägg:
-1. Aktivera Tjänsteslutpunkter.
 1. Skapa en brandvägg.
 1. Lägga till regler för program i brandväggen
 1. Lägga till regler i brandväggen.
 1. Skapa en routningstabell.
 
-### <a name="enable-service-endpoints"></a>Aktivera Tjänsteslutpunkter
-
-Om du vill kringgå brandväggen (t.ex. att spara kostnader på dataöverföring) kan du aktivera tjänstslutpunkter för SQL och storage på ditt HDInsight-undernät. Eventuella Azure SQL-beroenden som klustret har måste konfigureras med Tjänsteslutpunkter även när du har aktiverat till Azure SQL Tjänsteslutpunkter.
-
-Om du vill aktivera rätt Tjänsteslutpunkter, gör du följande:
-
-1. Logga in på Azure Portal och välj det virtuella nätverket som HDInsight-kluster distribueras i.
-1. Välj **undernät** under **inställningar**.
-1. Välj det undernät där klustret distribueras.
-1. På skärmen för att redigera inställningar för undernät, klickar du på **Microsoft.SQL** och/eller **Microsoft.Storage** från den **tjänstslutpunkter**  >   **Tjänster** listrutan.
-1. Om du använder ett ESP-kluster så du måste också välja den **Microsoft.AzureActiveDirectory** tjänsteslutpunkt.
-1. Klicka på **Spara**.
-
 ### <a name="create-a-new-firewall-for-your-cluster"></a>Skapa en ny Brandvägg för ditt kluster
 
 1. Skapa ett undernät med namnet **AzureFirewallSubnet** i det virtuella nätverket där klustret finns. 
 1. Skapa en ny brandväggsregel **Test-FW01** med hjälp av stegen i [självstudien: Distribuera och konfigurera Azure-brandväggen med hjälp av Azure-portalen](../firewall/tutorial-firewall-deploy-portal.md#deploy-the-firewall).
-1. Välj ny brandvägg från Azure-portalen. Klicka på **regler** under **inställningar** > **regelsamling för programmet** > **lägga till programmet regelsamlingen**.
-
-    ![Rubrik: Lägg till programregelsamling](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection.png)
 
 ### <a name="configure-the-firewall-with-application-rules"></a>Konfigurera brandväggen med regler för program
 
 Skapa en regelsamling för program som gör att klustret för att skicka och ta emot viktiga kommunikation.
 
 Välj ny brandvägg **Test FW01** från Azure-portalen. Klicka på **regler** under **inställningar** > **regelsamling för programmet** > **lägga till programmet regelsamlingen**.
+
+![Rubrik: Lägg till regel programsamling](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection.png)
 
 På den **lägga till programmet regelsamlingen** skärmen, gör du följande:
 
@@ -75,12 +60,9 @@ På den **lägga till programmet regelsamlingen** skärmen, gör du följande:
     1. En regel som tillåter inloggningsaktivitet för Windows:
         1. I den **Target FQDN** avsnittet tillhandahåller en **namn**, och Ställ in **Source adresser** till `*`.
         1. Ange `https:443` under **protokoll: Port** och `login.windows.net` under **rikta FQDN**.
-    1. En regel som tillåter SQM-telemetri:
-        1. I den **Target FQDN** avsnittet tillhandahåller en **namn**, och Ställ in **Source adresser** till `*`.
-        1. Ange `https:443` under **protokoll: Port** och `sqm.telemetry.microsoft.com` under **rikta FQDN**.
     1. Om ditt kluster backas upp av WASB och du inte använder Tjänsteslutpunkter ovan, lägger du till en regel för WASB:
         1. I den **Target FQDN** avsnittet tillhandahåller en **namn**, och Ställ in **Source adresser** till `*`.
-        1. Ange `http` eller [https] beroende på om du använder wasb: / / eller wasbs: / / under **protokoll: Port** och URL: en för storage-konto under **Target FQDN**.
+        1. Ange `http` eller `https` beroende på om du använder wasb: / / eller wasbs: / / under **protokoll: Port** och URL: en för storage-konto under **Target FQDN**.
 1. Klicka på **Lägg till**.
 
 ![Rubrik: Ange programinformation regeln samling](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)
@@ -88,9 +70,6 @@ På den **lägga till programmet regelsamlingen** skärmen, gör du följande:
 ### <a name="configure-the-firewall-with-network-rules"></a>Konfigurera brandväggen med Nätverksregler
 
 Skapa regler för network för att korrekt konfigurera ditt HDInsight-kluster.
-
-> [!Important]
-> Du kan välja mellan att använda SQL-tjänsttaggar i brandväggen använder regler network enligt beskrivningen i det här avsnittet eller en SQL-tjänsten endpoint en beskrivs i [i avsnittet om tjänstslutpunkter](#enable-service-endpoints). Om du väljer att använda SQL-taggar i Nätverksregler kan du logga och granska SQL-trafik. Med hjälp av en tjänstslutpunkt har SQL-trafiken kringgår brandväggen.
 
 1. Välj ny brandvägg **Test FW01** från Azure-portalen.
 1. Klicka på **regler** under **inställningar** > **Network regelsamlingen** > **Lägg till nätverk regelsamlingen**.
@@ -112,12 +91,7 @@ Skapa regler för network för att korrekt konfigurera ditt HDInsight-kluster.
         1. Ange **Source adresser** `*`.
         1. Ange IP-adressen för ditt lagringskonto i **måladresser**.
         1. Ange **målportar** till `*`.
-    1. En regel för att möjliggöra kommunikation med Key Management-tjänsten för Windows aktivering.
-        1. I nästa rad i den **regler** avsnittet tillhandahåller en **namn** och välj **alla** från den **protokollet** listrutan.
-        1. Ange **Source adresser** `*`.
-        1. Ange **måladresser** till `*`.
-        1. Ange **målportar** till `1688`.
-    1. Om du använder Log Analytics kan du sedan skapa en regel för att aktivera kommunikation med Log Analytics-arbetsytan.
+    1. (Valfritt) Om du använder Log Analytics kan du sedan skapa en regel för att aktivera kommunikation med Log Analytics-arbetsytan.
         1. I nästa rad i den **regler** avsnittet tillhandahåller en **namn** och välj **alla** från den **protokollet** listrutan.
         1. Ange **Source adresser** `*`.
         1. Ange **måladresser** till `*`.
@@ -150,7 +124,7 @@ Till exempel för att konfigurera routningstabellen för ett kluster som skapats
 1. Klicka på **vägar** under **inställningar**.
 1. Klicka på **Lägg till** skapa vägar för IP-adresser i tabellen nedan.
 
-| Vägnamn | Adressprefix | Nästa hopptyp | Nästa hoppadress |
+| Vägnamn | Adressprefix | Nexthop-typ | Nexthop-adress |
 |---|---|---|---|
 | 168.61.49.99 | 168.61.49.99/32 | Internet | Saknas |
 | 23.99.5.239 | 23.99.5.239/32 | Internet | Saknas |

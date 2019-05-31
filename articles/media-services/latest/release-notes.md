@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 05/01/2019
+ms.date: 05/29/2019
 ms.author: juliako
-ms.openlocfilehash: 8f50188480b963d13460c79175ea6972d3e68f6a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: a5ce6467a547b9fded03b3b5a6f40f84d29d3618
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153070"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66385150"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 viktig information
 
@@ -36,7 +36,21 @@ Mer information finns i [riktlinjer för att flytta från Media Services v2 till
 
 ## <a name="may-2019"></a>Maj 2019
 
+### <a name="hls-v4-and-above-support-in-dynamic-packaging"></a>HLS v4 och högre stöd i dynamisk paketering 
+
+Lagt till HLS (version 4 eller senare) har stöd för i dynamisk paketering för tillgångar som har flera ljudspår med flera codec och språk.
+
+Mer information finns i [dynamisk paketering](dynamic-packaging-overview.md).
+
+### <a name="korea-regional-pair-is-open-for-media-services"></a>Korea regionala par är öppen för Media Services 
+
+Media Services är nu tillgängligt i regionerna Korea, centrala och Korea, södra. 
+
+Mer information finns i [moln och regioner där Media Services v3 finns](azure-clouds-regions.md).
+
 ### <a name="performance-improvements"></a>Prestandaförbättringar
+
+Har lagts till uppdateringar som innehåller prestandaförbättringar för Media Services.
 
 * Maximal filstorlek för bearbetning har uppdaterats. Se, [kvoter och begränsningar](limits-quotas-constraints.md).
 * [Kodning hastigheter förbättringar](media-reserved-units-cli-how-to.md#choosing-between-different-reserved-unit-types).
@@ -52,7 +66,7 @@ Mer information finns i [riktlinjer för att flytta från Media Services v2 till
 
 Dynamisk paketering nu stöder Dolby Atmos. Mer information finns i [ljud-codec som stöds av dynamisk paketering](dynamic-packaging-overview.md#audio-codecs-supported-by-dynamic-packaging).
 
-Du kan nu ange en lista över tillgång eller konto filter som skulle gälla för dina Strömningspositionerare. Mer information finns i [associera filter med Strömningspositionerare](filters-concept.md#associate-filters-with-streaming-locator).
+Du kan nu ange en lista över tillgång eller konto filter som skulle gälla för dina Strömningspositionerare. Mer information finns i [associera filter med Strömningspositionerare](filters-concept.md#associating-filters-with-streaming-locator).
 
 ## <a name="february-2019"></a>Februari 2019
 

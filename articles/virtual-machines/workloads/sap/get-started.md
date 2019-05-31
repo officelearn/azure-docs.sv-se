@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/15/2019
+ms.date: 05/24/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f14110cec0650927f74dfe3a38f06187c6df39de
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 8b8eebd7a7a8933d082741a3086ffcf03a58066f
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792668"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357713"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Använd Azure för att hantera och köra SAP-arbetsbelastningsscenarier
 
@@ -36,15 +36,12 @@ Som är värd för SAP-arbetsbelastningsscenarier i Azure kan också skapa krav 
 
 ## <a name="latest-changes"></a>Senaste ändringarna
 
+- Introduktion av ExpressRoute snabb sökväg och Global räckvidd för stora HANA-instanser i [SAP HANA (stora instanser) nätverksarkitektur](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture) och relaterade dokument
 - Versionen av [Azure HANA stora instanser styra via Azure portal](hana-li-portal.md)
-
 - Versionen av [hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server med Azure NetApp-filer för SAP-program](high-availability-guide-suse-netapp-files.md)
-
 - Information på **Linux OS parametern net.ipv4.tcp_timestamps** inställningar tillsammans med en Azure-belastningsutjämnare
 
-- Versionen av [konfigurationer för SAP-arbetsbelastning med tillgänglighetszoner i Azure](sap-ha-availability-zones.md)
 
-- Versionen av [SAP arbetsbelastning planerings- och Checklista](sap-deployment-checklist.md)
 
 
 

@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2019
+ms.date: 05/23/2019
 ms.author: lahugh
-ms.openlocfilehash: e6bb947503371e379e4d4972ddfc3614e129174b
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 183e2144317bf3f1c9a60443d393bdcb3fd7c04a
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65835212"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390550"
 ---
 # <a name="generation-2-vms-preview-on-azure"></a>Generation 2 virtuella datorer (förhandsversion) på Azure
 
@@ -30,7 +30,7 @@ ms.locfileid: "65835212"
 
 Stöd för generering 2 virtuella maskiner (VM) är nu tillgängligt som offentlig förhandsversion på Azure. Du kan inte ändra en virtuell dator generation när du har skapat den. Därför rekommenderar vi att du läser överväganden [här](https://docs.microsoft.com/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v) samt information om den här sidan innan du väljer en generation.
 
-Generation 2 virtuella datorer support viktiga funktioner som: ökat minne, Intel® programvara Guard tillägg (SGX) och virtuella beständigt minne (vPMEM), vilket inte stöds på virtuella datorer i generation 1. Virtuella datorer i generation 2 har vissa funktioner som ännu inte stöds på Azure. Mer information finns i den [funktioner](#features-and-capabilities) avsnittet. 
+Generation 2 virtuella datorer support viktiga funktioner som inte stöds på virtuella datorer i generation 1, till exempel: ökat minne, Intel® programvara Guard tillägg (SGX) och virtuella beständigt minne (vPMEM). Virtuella datorer i generation 2 har också vissa funktioner som ännu inte stöds på Azure. Mer information finns i den [funktioner](#features-and-capabilities) avsnittet.
 
 Virtuella datorer i generation 2 använda de nya arkitekturen i stället för UEFI-baserade Start i BIOS-baserad arkitektur som används av virtuella datorer i generation 1. Jämfört med virtuella datorer i generation 1, kan virtuella datorer i generation 2 har förbättrat start- och gånger. En översikt över virtuella datorer i generation 2 och några av de viktigaste skillnaderna mellan generation 1 och generation 2 finns i [bör jag skapa en virtuell dator i generation 1 eller 2 i Hyper-V?](https://docs.microsoft.com/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
 
@@ -84,7 +84,7 @@ Azure stöder för närvarande inte några av de funktioner som en lokal Hyper-V
 | Den anpassade avbildningen-Disk/växling OS         | :heavy_check_mark:         | :heavy_check_mark: |
 | Stöd för VM-skalningsuppsättningen | :heavy_check_mark:         | :heavy_check_mark: |
 | ASR/säkerhetskopiering                        | :heavy_check_mark:         | :x:                |
-| Delat avbildningsgalleri              | :heavy_check_mark:         | :x:                |
+| Delat bildgalleri              | :heavy_check_mark:         | :x:                |
 | Azure Disk Encryption             | :heavy_check_mark:         | :x:                |
 
 ## <a name="creating-a-generation-2-vm"></a>Skapa en generation 2 VM
@@ -113,6 +113,29 @@ Generation 2 virtuella datorer kan skapas från hanterad avbildning eller en han
 Generation 2 virtuella datorer kan även skapas med hjälp av VM-skalningsuppsättningar. Du kan skapa generation 2 virtuella datorer med hjälp av Azure VM-skalningsuppsättningar via Azure CLI.
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
+
+* **Är generation 2 virtuella datorer är tillgängliga i alla Azure-regioner?**  
+    Ja. men inte alla [generation 2 VM-storlekar](#generation-2-vm-sizes) är tillgängliga i varje region. Tillgängligheten för generation 2 virtuella datorer är beroende av tillgängligheten för VM-storleken.
+
+* **Finns det en prisskillnader mellan generation 1 och generation 2 virtuella datorer?**  
+    Det finns ingen skillnad i kostnaden för generation 1 och virtuella datorer i generation 2.
+
+* **Hur ökar jag OS-diskstorlekar på?**  
+  OS-diskar som är större än 2 TB är nya för generering 2 virtuella datorer. De flesta OS-diskar är mindre än 2 TB för virtuella datorer i generation 2 som standard, men diskens storlek kan ökas till högst rekommenderade 4 TB. Du kan öka OS-diskstorlekar på via Azure CLI eller Azure-portalen. Läs mer på expanderande diskar programmässigt [ändra storlek på en disk](expand-disks.md).
+
+  Så här ökar OS-diskstorlekar på Azure Portal:
+
+  * Gå till egenskapssidan för virtuell dator på Azure portal.
+
+  * Stänga av och frigör den virtuella datorn med hjälp av den **stoppa** knappen.
+
+  * I den **diskar** väljer du den OS-disk som du vill öka.
+
+  * Välj **Configuration** i den **diskar** avsnittet och uppdatera den **storlek** till önskat värde.
+  
+  * Gå tillbaka till egenskapssidan för virtuell dator och **starta** den virtuella datorn.
+
+  Du kan se en varning för OS-diskar som är större än 2 TB. Varningen gäller inte för virtuella datorer i generation 2; OS-diskstorlekar större än 4 TB är dock **rekommenderas inte.**
 
 * **Stöder virtuella datorer i generation 2 Accelererat nätverk?**  
     Ja, support för virtuella datorer av generation 2 [Accelerated Networking](../../virtual-network/create-vm-accelerated-networking-cli.md).

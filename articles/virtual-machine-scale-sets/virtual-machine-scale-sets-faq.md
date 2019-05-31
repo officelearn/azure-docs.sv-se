@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/25/2019
+ms.date: 05/24/2019
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: b5af6c5007130d71f94e1fa748adc333a8d08a48
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0674d8c98f4bf37bbf9417de60ff4c60910d802a
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64689328"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258294"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Vanliga frågor och svar för skalningsuppsättningar för virtuella Azure-datorer
 
@@ -621,11 +621,11 @@ Har du viss flexibilitet i hur du hanterar aviseringar för angivna tröskelvär
 
 ## <a name="patching-and-operations"></a>Uppdatering och drift
 
-### <a name="how-do-i-create-a-scale-set-in-an-existing-resource-group"></a>Hur skapar jag en skalningsuppsättning i en befintlig resursgrupp?
+### <a name="can-i-create-a-scale-set-in-an-existing-resource-group"></a>Kan jag skapa en skalningsuppsättning i en befintlig resursgrupp?
 
-Skapa skalningsuppsättningar i en befintlig resurs grupp är ännu inte möjligt i Azure Portal, men du kan ange en befintlig resursgrupp när distribuera en skalningsuppsättning från en Azure Resource Manager-mall. Du kan också ange en befintlig resursgrupp när du skapar en skalningsuppsättning med Azure PowerShell eller CLI.
+Ja, du kan skapa en skalningsuppsättning i en befintlig resursgrupp.
 
-### <a name="can-we-move-a-scale-set-to-another-resource-group"></a>Kan vi flytta en skalningsuppsättning till en annan resursgrupp?
+### <a name="can-i-move-a-scale-set-to-another-resource-group"></a>Kan jag flytta en skalningsuppsättning till en annan resursgrupp?
 
 Ja, kan du flytta scale Sets resurser till en ny prenumeration eller resursgrupp.
 

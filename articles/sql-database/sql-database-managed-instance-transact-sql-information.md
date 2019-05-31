@@ -12,12 +12,12 @@ ms.reviewer: sstein, carlrab, bonova
 manager: craigg
 ms.date: 03/13/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 17609212fcc7620dc0d6d617e7626d12c8bb0592
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.openlocfilehash: 5c8a15aa5198983a56a0238c1bb56f9345d07acc
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65852153"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258601"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database Managed Instance T-SQL skillnader från SQL Server
 
@@ -27,6 +27,7 @@ Den här artikeln sammanfattar och förklarar skillnader i syntaxen och beteende
 - [Security](#security) innehåller skillnader i [granskning](#auditing), [certifikat](#certificates), [autentiseringsuppgifter](#credential), [kryptografiproviders](#cryptographic-providers), [inloggningar och användare](#logins-and-users), och [tjänstnyckeln och tjänstens huvudnyckel](#service-key-and-service-master-key).
 - [Konfigurationen](#configuration) innehåller skillnader i [buffra pool tillägget](#buffer-pool-extension), [sortering](#collation), [kompatibilitetsnivå](#compatibility-levels), [databasspegling ](#database-mirroring), [databasalternativ](#database-options), [SQL Server Agent](#sql-server-agent), och [Tabellalternativ](#tables).
 - [Lär dig om funktionerna](#functionalities) innehåller [BULK INSERT/OPENROWSET](#bulk-insert--openrowset), [CLR](#clr), [DBCC](#dbcc), [distribuerade transaktioner](#distributed-transactions), [utökade händelser](#extended-events), [externa bibliotek](#external-libraries), [filestream- och FileTable](#filestream-and-filetable), [semantiska fulltextsökning](#full-text-semantic-search), [länkade servrar](#linked-servers), [PolyBase](#polybase), [replikering](#replication), [ÅTERSTÄLLA](#restore-statement), [Service Broker](#service-broker), [lagrade procedurer, funktioner och utlösare](#stored-procedures-functions-and-triggers).
+- [Miljöinställningar](#Environment) , till exempel konfigurationer för virtuella nätverk och undernät.
 - [Funktioner som har olika beteenden i hanterade instanser](#Changes).
 - [Temporära begränsningar och kända problem](#Issues).
 
@@ -46,7 +47,7 @@ Alternativ för distribution av Managed Instance tillhandahåller hög kompatibi
 - [DROP AVAILABILITY GROUP](https://docs.microsoft.com/sql/t-sql/statements/drop-availability-group-transact-sql)
 - Den [ange HADR](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-hadr) -satsen i den [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql) instruktionen
 
-### <a name="backup"></a>Säkerhetskopiera
+### <a name="backup"></a>Backup
 
 Hanterade instanser har automatisk säkerhetskopiering så att användare kan skapa fullständiga databasen `COPY_ONLY` säkerhetskopior. Differentiell, logg och av filögonblicksbilder stöds inte.
 
@@ -454,6 +455,19 @@ Cross-instans service broker stöds inte:
 - `xp_cmdshell` stöds inte. Se [xp_cmdshell](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql).
 - `Extended stored procedures` stöds inte, vilket inkluderar `sp_addextendedproc`  och `sp_dropextendedproc`. Se [utökade lagrade procedurer](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql).
 - `sp_attach_db`, `sp_attach_single_file_db`, och `sp_detach_db` stöds inte. Se [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql), och [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
+
+## <a name="Environment"></a>Environmet begränsningar
+
+### <a name="subnet"></a>Undernät
+- Du kan inte placera andra resurser (till exempel virtuella datorer) i undernätet som reserverats för din hanterade instans. Placera dessa resurser i andra undernät.
+- Undernätet måste ha tillräckligt många tillgängliga [IP-adresser](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Minimum är 16, medan rekommendation är att ha minst 32 IP-adresser i undernätet.
+- [Tjänstslutpunkter kan inte kopplas till undernätet för den hanterade instansen](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Kontrollera att tjänsten slutpunkter alternativet inaktiveras när du skapar det virtuella nätverket.
+- Antalet och typerna av instanser som du kan placera i undernätet har några [begränsningar och gränser](sql-database-managed-instance-resource-limits.md#strategies-for-deploying-mixed-general-purpose-and-business-critical-instances)
+- Det finns några [säkerhetsregler som måste tillämpas på undernätet](sql-database-managed-instance-connectivity-architecture.md#network-requirements).
+
+### <a name="vnet"></a>Virtuellt nätverk
+- Virtuellt nätverk kan distribueras med hjälp av Resource Manager - klassiska modellen för virtuellt nätverk stöds inte.
+- Vissa tjänster som App Service-miljöer, Logic apps och hanterade instanser (används för Geo-replikering, Transaktionsreplikering, eller via länkade servrar) kan inte komma åt hanterade instanser i olika regioner om sina virtuella nätverk är anslutna med [global peering](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers). Du kan ansluta till dessa resurser via ExpressRoute eller VNet-till-VNet via VNet-gatewayer.
 
 ## <a name="Changes"></a> Funktionalitetsförändringar
 

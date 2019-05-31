@@ -10,16 +10,16 @@ ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: scottwhi
-ms.openlocfilehash: 1d344f388b03acb3a81fcfde0e214eb7d82dc9b9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1eab92dcc9c1890e82f9999e26e54378a3687c6d
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60578733"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390479"
 ---
 # <a name="how-to-page-through-news-search-results"></a>Hur du bläddrar igenom nyhetssökningsresultat
 
-När du anropar API: et för Nyheter Search returnerar Bing en lista med resultat som är relevanta för din fråga. För att få det uppskattade totala antalet tillgängliga resultat kan komma åt objektet svar [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#news-totalmatches) fält.  
+När du anropar API: et för Nyheter Search returnerar Bing en lista med resultat som är relevanta för din fråga. För att få det uppskattade totala antalet tillgängliga resultat kan komma åt objektet svar [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#news-totalmatches) fält.  
   
 I följande exempel visas den `totalEstimatedMatches` fält som innehåller ett nytt svar.  
 
@@ -32,7 +32,7 @@ I följande exempel visas den `totalEstimatedMatches` fält som innehåller ett 
 }  
 ```  
   
-Om du vill bläddra igenom tillgängliga artiklar, använda den [antal](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#count) och [offset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#offset) Frågeparametrar.  
+Om du vill bläddra igenom tillgängliga artiklar, använda den [antal](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#count) och [offset](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#offset) Frågeparametrar.  
  
 
 |Parameter  |Beskrivning  |

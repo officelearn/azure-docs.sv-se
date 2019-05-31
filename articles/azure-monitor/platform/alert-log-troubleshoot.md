@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 1c7712fc2ce55a3d22995bb119a9ee485a064903
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8b1a9b3dee999a35950559a049230f7fdbbc47b6
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64683397"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399190"
 ---
 # <a name="troubleshoot-log-alerts-in-azure-monitor"></a>Felsöka loggaviseringar i Azure Monitor  
 
@@ -38,7 +38,7 @@ För att undvika förseningar systemet väntar och försöker aviseringsfrågan 
 
 Enligt beskrivningen i artikeln på [terminologi för loggaviseringar](../platform/alerts-unified-log.md#log-search-alert-rule---definition-and-types), hur lång tid som anges i konfigurationen anger tidsintervall för frågan. Frågan returnerar bara de poster som har skapats i det här intervallet. 
 
-Hur lång tid begränsar data hämtas för en loggfråga att förhindra missbruk och den kringgår alla tid-kommandon (t.ex. **sedan**) används i en loggfråga. Till exempel om hur lång tid har angetts till 60 minuter och frågan körs klockan 13:15, används bara de poster som har skapats mellan 12:15 PM och 1:15 för log-frågan. Om loggfråga använder ett tid-kommando som **sedan (1d)**, endast använder data mellan 12:15 PM och 1:15 i frågan eftersom tidsperioden är inställt på det här intervallet.
+Hur lång tid begränsar data hämtas för en loggfråga att förhindra missbruk och den kringgår alla tid-kommandon (t.ex. **sedan**) används i en loggfråga. Till exempel om hur lång tid har angetts till 60 minuter och frågan körs klockan 13:15, används bara de poster som har skapats mellan 12:15 PM och 1:15 för log-frågan. Om loggfråga använder ett tid-kommando som **sedan (1d)** , endast använder data mellan 12:15 PM och 1:15 i frågan eftersom tidsperioden är inställt på det här intervallet.
 
 Kontrollera att tidsperioden i konfigurationen matchar din fråga. Till exempel som visades tidigare, om log frågan använder **sedan (1d)** med grön markör hur lång tid ska vara inställd på 24 timmar och 1 440 minuter (visas i rött). Den här inställningen garanterar att frågan ska köras som avsett.
 
@@ -181,6 +181,7 @@ Följande exempelhändelse i aktivitetsloggen för Azure är för en varningsreg
 Varje loggvarningsregel som skapats i Azure Monitor som en del av dess konfiguration måste ange en analytics-fråga som tjänsten avisering ska köras med jämna mellanrum. Analytics-frågan kanske har rätt syntax vid tidpunkten för skapande eller uppdatering. Men ibland under en viss tidsperiod frågan i loggvarningsregel kan utveckla syntaxproblem och orsaka regelutförandet misslyckas. Några vanliga orsaker till varför en analytics-fråga i en loggvarningsregel kan utveckla fel är:
 
 - Frågan skrivs till [körs över flera resurser](../log-query/cross-workspace-query.md). Och en eller flera av de angivna resurserna finns inte längre.
+- [Metrisk måttenhet typ log avisering](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules) konfigurerats har en avisering fråga inte följer syntaxen normer
 - Det har inga dataflöde för analytics-plattformen. Den [Frågekörningen ger ett fel](https://dev.loganalytics.io/documentation/Using-the-API/Errors) eftersom det finns inga data för den angivna frågan.
 - Ändringar i [frågespråket](https://docs.microsoft.com/azure/kusto/query/) inkludera ett reviderade format för kommandon och funktioner. Frågan som anges tidigare i en aviseringsregel är därför inte längre giltig.
 

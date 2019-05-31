@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: pabutler
-ms.openlocfilehash: 296f843f9d09b57e12e867700f456126eca128b3
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 64039234a3863332ca19b915fb59a5271625d695
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64942888"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258191"
 ---
 # <a name="azure-application-prerequisites"></a>Krav för Azure-program
 
@@ -38,7 +38,8 @@ Mer information finns i [skapa Azure portal användargränssnittet för det hant
 
 Affärskraven omfattar följande procedur, avtalsenliga och juridiska skyldigheter:
 
-* Du måste vara ett registrerat moln Marketplace Publisher. Om du inte är registrerad, följer du stegen i artikeln [blir molnet Marketplace utgivare](../../become-publisher.md).
+* Du måste vara ett registrerat moln Marketplace Publisher. Om du inte är registrerad, följer du stegen i artikeln [blir molnet Marketplace utgivare](https://docs.microsoft.com/azure/marketplace/become-publisher
+).
 
 >[!NOTE]
 >Du bör använda samma konto för registrering av Microsoft Developer Center för att logga in på partnerportalen i molnet. Du bör ha endast en Microsoft-konto för alla dina Azure Marketplace-erbjudanden. Det här kontot får inte vara specifika för enskilda tjänster eller erbjudanden.

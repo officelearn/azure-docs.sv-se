@@ -5,14 +5,14 @@ services: batch
 ms.service: batch
 author: mscurrell
 ms.author: markscu
-ms.date: 9/25/2018
+ms.date: 05/28/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8d8df9935e935ac8d5a1194cfab103a006cf5546
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: b0a9d04fccce7ccbacb700f7af5126c6ae05140a
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791349"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357766"
 ---
 # <a name="check-for-pool-and-node-errors"></a>Kontrollera pool och nod
 
@@ -84,18 +84,27 @@ Du kan ange en eller flera programpaket för en pool. Batch laddar ned filer fö
 
 Noden [fel](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) egenskapen rapporterar inte går att ladda ned och expandera ett programpaket. Batch anger node-tillstånd till **oanvändbara**.
 
+### <a name="container-download-failure"></a>Fel vid hämtning av behållare
+
+Du kan ange en eller flera behållare referenser i en pool. Batch laddar ned de angivna behållarna till varje nod. Noden [fel](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) egenskapen rapporterar ett fel att ladda ned en behållare och anger Nodtillstånd till **oanvändbara**.
+
 ### <a name="node-in-unusable-state"></a>Nod i oanvändbar
 
 Azure Batch kan ställa in den [Nodtillstånd](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodestate) till **oanvändbara** av flera orsaker. Med Nodtillstånd inställd **oanvändbara**, aktiviteter kan inte schemaläggas till noden, men det tillkommer fortfarande avgifter.
 
-Batch försöker alltid att återställa oanvändbara noder, men kanske eller kanske inte är möjligt beroende på orsaken.
+Noder i ett **unsuable**, men utan [fel](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) tillståndet innebär att Batch är det går inte att kommunicera med den virtuella datorn. I det här fallet försöker Batch alltid återställa den virtuella datorn. Batch kommer inte automatiskt att försöka att återställa virtuella datorer som inte kunde installera programpaket eller behållare, även om deras tillstånd är **oanvändbara**.
 
 Om Batch kan ta reda på orsaken, noden [fel](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) egenskapen rapporterar den.
 
 Ytterligare exempel på orsaker till **oanvändbara** noder inkluderar:
 
 - En anpassad virtuell datoravbildning är ogiltig. Till exempel en bild som förbereds inte korrekt.
+
 - En virtuell dator flyttas på grund av en infrastruktur-fel eller en uppgradering av på låg nivå. Batch återställer noden.
+
+- En VM-avbildning har distribuerats på maskinvara som inte stöder den. Till exempel en ”HPC” VM-avbildning som körs på icke-HPC-maskinvara. Exempel: försöker köra en CentOS HPC-avbildning på en [Standard_D1_v2](../virtual-machines/linux/sizes-general.md#dv2-series) VM.
+
+- De virtuella datorerna är i ett [Azure-nätverk](batch-virtual-network.md), och trafik till huvudportarna har blockerats.
 
 ### <a name="node-agent-log-files"></a>Noden agentens loggfiler
 

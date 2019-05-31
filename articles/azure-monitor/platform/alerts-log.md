@@ -5,15 +5,15 @@ author: msvijayn
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/15/2018
+ms.date: 05/30/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: d893fb1023188498260813642678397a39bb2442
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.openlocfilehash: b7240b38e595fdcf9f9d4f995f71643154ee0f9b
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64872374"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399176"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Skapa, visa och hantera aviseringar med Azure Monitor
 
@@ -308,23 +308,36 @@ Följer strukturen för [skapa en schemalagd Frågeregler](https://docs.microsof
 
 Exempel-json ovan kan sparas som (exempelvis) sampleScheduledQueryRule.json i den här genomgången och kan distribueras med hjälp av [Azure Resource Manager i Azure-portalen](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
 
-## <a name="managing-log-alerts-using-powershell-cli-or-api"></a>Hantera aviseringar med PowerShell, CLI eller API
+## <a name="managing-log-alerts-using-powershell"></a>Hantera aviseringar med hjälp av PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Azure Monitor - [schemalagd fråge-API för regler](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) är en REST-API och helt kompatibla med Azure Resource Manager REST API. Därför kan den användas via Powershell med Resource Manager-cmdlet som Azure CLI.
+Azure Monitor - [schemalagd fråge-API för regler](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) är en REST-API och helt kompatibla med Azure Resource Manager REST API. Och PowerShell-cmdletar som anges nedan är tillgängliga för att utnyttja den [schemalagda regler fråge-API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/).
+
+1. [Ny AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrule) : PowerShell-cmdlet för att skapa en ny loggvarningsregel.
+1. [Set-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/set-azscheduledqueryrule) : PowerShell-cmdlet för att uppdatera en befintlig loggvarningsregel.
+1. [Ny AzScheduledQueryRuleSource](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrulesource) : PowerShell-cmdlet för att skapa eller uppdatera objektet Ange källa parametrar för en avisering om log. Används som indata av [New-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrule) och [Set-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/set-azscheduledqueryrule) cmdlet.
+1. [New-AzScheduledQueryRuleSchedule](https://docs.microsoft.com/powershell/module/az.monitor/New-AzScheduledQueryRuleSchedule): PowerShell-cmdlet för att skapa eller uppdatera objekt att ange schemaparametrarna för en avisering om log. Används som indata av [New-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrule) och [Set-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/set-azscheduledqueryrule) cmdlet.
+1. [New-AzScheduledQueryRuleAlertingAction](https://docs.microsoft.com/powershell/module/az.monitor/New-AzScheduledQueryRuleAlertingAction) : PowerShell-cmdlet för att skapa eller uppdatera objektet att ange åtgärdsparametrar för en avisering om log. Används som indata av [New-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrule) och [Set-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/set-azscheduledqueryrule) cmdlet.
+1. [Ny AzScheduledQueryRuleAznsActionGroup](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryruleaznsactiongroup) : PowerShell-cmdlet för att skapa eller uppdatera objekt och anger åtgärden grupperar parametrar för en avisering om log. Används som indata av [New AzScheduledQueryRuleAlertingAction](https://docs.microsoft.com/powershell/module/az.monitor/New-AzScheduledQueryRuleAlertingAction) cmdlet.
+1. [New-AzScheduledQueryRuleTriggerCondition](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition) : PowerShell-cmdlet för att skapa eller uppdatera objekt att ange parametrar för objektutlösare villkor för log-avisering. Används som indata av [New AzScheduledQueryRuleAlertingAction](https://docs.microsoft.com/powershell/module/az.monitor/New-AzScheduledQueryRuleAlertingAction) cmdlet.
+1. [New-AzScheduledQueryRuleLogMetricTrigger](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrulelogmetrictrigger) : PowerShell-cmdlet för att skapa eller uppdatera objekt som anger måttutlösare villkorsparametrarna för [metriska måttenheter typ log avisering](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules). Används som indata av [New AzScheduledQueryRuleTriggerCondition](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition) cmdlet.
+1. [Get-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/get-azscheduledqueryrule) : PowerShell-cmdlet i listan befintliga logga Varningsregler eller en specifik loggvarningsregel
+1. [Uppdatera AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/update-azscheduledqueryrule) : PowerShell-cmdlet för att aktivera eller inaktivera loggvarningsregler
+1. [Remove-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/remove-azscheduledqueryrule): PowerShell-cmdlet för att ta bort en befintlig loggvarningsregel
+
+> [!NOTE]
+> ScheduledQueryRules PowerShell-cmdlets kan endast hantera regler som har skapats cmdlet själva eller med hjälp av Azure Monitor - [schemalagda regler fråge-API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/). Logga Varningsregler som skapats med hjälp av äldre [API: et för Log Analytics-avisering](api-alerts.md) och äldre mallar för [sparade sökningar och aviseringar i Log Analytics](../insights/solutions-resources-searches-alerts.md) kan hanteras med ScheduledQueryRules PowerShell-cmdlets endast efter användaren [växlar API till inställningar för Log Analytics-aviseringar](alerts-log-api-switch.md).
+
+## <a name="managing-log-alerts-using-cli-or-api"></a>Hantera aviseringar med CLI eller API
+
+Azure Monitor - [schemalagd fråge-API för regler](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) är en REST-API och helt kompatibla med Azure Resource Manager REST API. Därför kan den användas via Powershell med Resource Manager-kommandon för Azure CLI.
 
 
 > [!NOTE]
 > Loggaviseringar för Log Analytics kan också hanteras med hjälp av äldre [Log Analytics-avisering API](api-alerts.md) och äldre mallar för [sparade sökningar och aviseringar i Log Analytics](../insights/solutions-resources-searches-alerts.md) samt. Mer information om hur du använder den nya ScheduledQueryRules API som beskrivs här som standard finns i [växla till nya API: et för Log Analytics-aviseringar](alerts-log-api-switch.md).
 
-Aviseringar har för närvarande inte dedikerade PowerShell eller CLI-kommandon för närvarande; men som på bilden nedan kan användas via Azure Resource Managers PowerShell-cmdlet för exemplet resursmall som visades tidigare (sampleScheduledQueryRule.json) i avsnittet resursmall:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName "contosoRG" -TemplateFile "D:\Azure\Templates\sampleScheduledQueryRule.json"
-```
-
-Bilden nedan användning via Azure Resource Manager-kommando i Azure CLI för exemplet resursmall som visades tidigare (sampleScheduledQueryRule.json) i avsnittet resursmall:
+Aviseringar har för närvarande inte dedikerade CLI-kommandon för närvarande; men som på bilden nedan kan användas via Azure Resource Manager CLI-kommando för exemplet resursmall som visades tidigare (sampleScheduledQueryRule.json) i avsnittet resursmall:
 
 ```azurecli
 az group deployment create --resource-group contosoRG --template-file sampleScheduledQueryRule.json

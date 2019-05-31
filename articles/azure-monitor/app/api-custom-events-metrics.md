@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: mbullwin
-ms.openlocfilehash: d0a4180a3ea28427b8d82c6f5cf86ef9fa51d580
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 6e20aef77625fe426526884c3fcee83019afd0c0
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785887"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299256"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Application Insights API för anpassade händelser och mått
 
@@ -53,7 +53,7 @@ Om du inte ännu inte har en referens i Application Insights SDK:
   * [Java-projekt](../../azure-monitor/app/java-get-started.md)
   * [Node.js-projekt](../../azure-monitor/app/nodejs.md)
   * [JavaScript i varje webbsida](../../azure-monitor/app/javascript.md) 
-* Inkludera följande i din enhets eller webbservers kod:
+* Inkludera i din enhets eller webbservers kod:
 
     *C#:* `using Microsoft.ApplicationInsights;`
 
@@ -299,7 +299,7 @@ Telemetri är tillgänglig i den `customMetrics` tabellen i [Application Insight
 * `valueSum` -Detta är summan av mätningar. Om du vill ha medelvärdet, dela med `valueCount`.
 * `valueCount` -Antalet mått som har aggregeras till detta `trackMetric(..)` anropa.
 
-## <a name="page-views"></a>Sidvisning
+## <a name="page-views"></a>Sidvisningar
 
 I en enhet eller en webbsida app skickas sidvystelemetri som standard när varje skärmbild eller sida har lästs in. Men du kan ändra det om du vill spåra sidvisningar vid ytterligare eller andra tider. I en app som visar flikarna eller blad, kanske du vill spåra en sida när användaren öppnar ett nytt blad.
 
@@ -712,7 +712,7 @@ dependencies
 
 ## <a name="flushing-data"></a>Tömmer data
 
-SDK: N skickar vanligtvis data som ibland valt att minimera påverkan på användaren. Men i vissa fall kan kanske du vill i bufferten – till exempel om du använder SDK: N i ett program som stängs av.
+SDK: N skickar vanligtvis data med jämna tidsintervall (vanligtvis 30 sekunder), eller när bufferten är fullständig (vanligtvis 500 objekt). Men i vissa fall kan kanske du vill i bufferten – till exempel om du använder SDK: N i ett program som stängs av.
 
 *C#*
 
@@ -782,7 +782,7 @@ Om din app grupperar användare i konton, kan du också ange en identifierare f�
 appInsights.setAuthenticatedUserContext(validatedId, accountId);
 ```
 
-I [Måttutforskaren](../../azure-monitor/app/metrics-explorer.md), du kan skapa ett diagram som räknar **autentiserad användare,**, och **användarkonton**.
+I [Måttutforskaren](../../azure-monitor/app/metrics-explorer.md), du kan skapa ett diagram som räknar **autentiserad användare,** , och **användarkonton**.
 
 Du kan också [search](../../azure-monitor/app/diagnostic-search.md) för klienten datapunkter med specifika användarnamn och -konton.
 

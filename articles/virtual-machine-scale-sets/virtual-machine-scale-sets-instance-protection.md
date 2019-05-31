@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2019
 ms.author: manayar
-ms.openlocfilehash: 6c271c2c9feb1520951b2a8e301da4878970d60a
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
-ms.translationtype: HT
+ms.openlocfilehash: 61430f5a43a04fa0e5b2f0c79ff03419c73aaf28
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66259429"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66416550"
 ---
 # <a name="instance-protection-for-azure-virtual-machine-scale-set-instances-preview"></a>Instans-skydd för Azure-datorer har angetts instances (förhandsversion)
 Azure VM scale sets kan du bättre flexibilitet när det gäller för dina arbetsbelastningar via [Autoskala](virtual-machine-scale-sets-autoscale-overview.md), så att du kan konfigurera när din infrastruktur måste skalas upp och när det skalas in. Skalningsuppsättningar kan du centralt hantera, konfigurera och uppdatera ett stort antal virtuella datorer via olika [versionsuppgraderingsprincipen](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) inställningar. Du kan konfigurera en uppdatering på skalningsuppsättningsmodell och den nya konfigurationen tillämpas automatiskt på varje scale set-instans om du har ställt in uppgraderingsprincipen för automatisk eller rullande.
@@ -30,7 +30,7 @@ När ditt program bearbetar trafik, det kan finnas situationer där du vill att 
 Den här artikeln beskrivs hur du kan tillämpa och använda annan instans-skyddsfunktioner med skalningsuppsättningsinstanser.
 
 > [!NOTE]
->Skydd av instans är för närvarande i offentlig förhandsversion. Inga delta i proceduren behövs för att använda funktionen förhandsversion som beskrivs nedan. Förhandsversionen av instans protection stöds bara med API-versionen 2019-03-01 och senare.
+>Skydd av instans är för närvarande i offentlig förhandsversion. Inga delta i proceduren behövs för att använda funktionen förhandsversion som beskrivs nedan. Förhandsversionen av instans protection stöds bara med API-versionen 2019-03-01 och på skalningsuppsättningar med hanterade diskar.
 
 ## <a name="types-of-instance-protection"></a>Typer av skydd för instansen
 Skalningsuppsättningar ger två typer av instans funktioner:

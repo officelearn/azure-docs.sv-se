@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: raynew
-ms.openlocfilehash: c5c3f498f62d6399534333f8166a514a10f044c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 350e13a4b1c01329bef1ec270af5ba007cd788aa
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60464428"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399754"
 ---
 # <a name="monitor-alerts-for-azure-virtual-machine-backups"></a>Övervaka varningar vid säkerhetskopiering av virtuella Azure-datorer
 
@@ -40,7 +40,7 @@ Om du vill visa information om den händelse som utlöste en avisering, måste d
     ![Aviseringar om säkerhetskopiering panelen](./media/backup-azure-monitor-vms/backup-alerts-critical.png)
 4. Om du vill visa detaljerad information om en viss avisering från listan över händelser, klickar du på aviseringen för att öppna dess **information** avsnittet.
 
-    ![Händelseinformation](./media/backup-azure-monitor-vms/audit-logs-event-detail.png)
+    ![Händelsebeskrivning](./media/backup-azure-monitor-vms/audit-logs-event-detail.png)
 
     Om du vill anpassa de attribut som visas i listan, se [visa ytterligare händelse attribut](backup-azure-monitor-vms.md)
 
@@ -69,8 +69,8 @@ Att ställa in e-postmeddelanden för aviseringar
 
    | Aviseringsnivå | Aviseringar skickas |
    | --- | --- |
-   | Kritisk | för Backup-fel, Återställningsfel |
-   | Varning | för säkerhetskopieringsjobb har slutförts med varningar (till exempel: vissa skrivare misslyckades vid skapande av en ögonblicksbild) |
+   | Kritiskt | för Backup-fel, Återställningsfel |
+   | Varning | för närvarande inga varningar är tillgängliga för Virtuella Azure-säkerhetskopieringar (till exempel: vissa skrivare misslyckades vid skapande av en ögonblicksbild) |
    | Information | för närvarande är inga informationsaviseringar tillgängliga för virtuell Azure-säkerhetskopiering |
 
 ### <a name="situations-where-email-isnt-sent-even-if-notifications-are-configured"></a>Situationer där det inte skickas e-postmeddelande även om meddelanden har konfigurerats

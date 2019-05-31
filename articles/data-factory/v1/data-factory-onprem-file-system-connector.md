@@ -73,7 +73,7 @@ Du kan länka ett lokalt filsystem till en Azure-datafabrik med den **lokala fil
 
 | Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
-| typ |Kontrollera att type-egenskapen är inställd på **OnPremisesFileServer**. |Ja |
+| type |Kontrollera att type-egenskapen är inställd på **OnPremisesFileServer**. |Ja |
 | host |Anger rotsökvägen i den mapp som du vill kopiera. Använd escape-tecknet ”\” för specialtecken i strängen. Se [exempel länkad tjänst-och datauppsättningen](#sample-linked-service-and-dataset-definitions) exempel. |Ja |
 | userid |Ange ID för den användare som har åtkomst till servern. |Nej (om du väljer encryptedCredential) |
 | password |Ange lösenordet för användaren (användar-ID). |Nej (om du väljer encryptedCredential |

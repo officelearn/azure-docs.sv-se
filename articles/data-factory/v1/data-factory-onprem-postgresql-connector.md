@@ -72,7 +72,7 @@ Följande avsnitt innehåller information om JSON-egenskaper som används för a
 ## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 Följande tabell innehåller en beskrivning för JSON-element som är specifika för PostgreSQL länkad tjänst.
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | type |Type-egenskapen måste anges till: **OnPremisesPostgreSql** |Ja |
 | server |Namnet på PostgreSQL-servern. |Ja |
@@ -88,7 +88,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Avsnittet typeProperties är olika för varje typ av datauppsättning och tillhandahåller information om platsen för data i datalagret. TypeProperties avsnittet för datauppsättningen av typen **RelationalTable** (som innehåller PostgreSQL datauppsättning) har följande egenskaper:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | tableName |Namnet på tabellen i PostgreSQL-databasinstansen som den länkade tjänsten refererar till. TableName är skiftlägeskänsligt. |Nej (om **fråga** av **RelationalSource** har angetts) |
 
@@ -99,9 +99,9 @@ Medan egenskaper som är tillgängliga i avsnittet typeProperties aktivitetens v
 
 När källan är av typen **RelationalSource** (som innehåller PostgreSQL), följande egenskaper är tillgängliga i avsnittet typeProperties:
 
-| Egenskap  | Beskrivning | Tillåtna värden | Krävs |
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| query |Använd anpassad fråga för att läsa data. |SQL-sträng. Till exempel: `"query": "select * from \"MySchema\".\"MyTable\""`. |Nej (om **tableName** av **datauppsättning** har angetts) |
+| DocumentDB |Använd anpassad fråga för att läsa data. |SQL-sträng. Till exempel: `"query": "select * from \"MySchema\".\"MyTable\""`. |Nej (om **tableName** av **datauppsättning** har angetts) |
 
 > [!NOTE]
 > Schema och tabellnamn är skiftlägeskänsliga. Sätter dem inom `""` (dubbla citattecken) i frågan.

@@ -83,7 +83,7 @@ HDInsight-piggningsåtgärd i en Datafabrik [pipeline](data-factory-create-pipel
 
 ## <a name="syntax-details"></a>Information om syntax
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | name |Namn på aktiviteten |Ja |
 | description |Text som beskriver vad aktiviteten används till |Nej |
@@ -211,7 +211,7 @@ För att använda parametriserade Pig-skriptet, gör du följande:
       }
     }
     ```
-* Pig-skriptet referera till parametrarna med hjälp av ”**$parameterName**” som visas i följande exempel:
+* Pig-skriptet referera till parametrarna med hjälp av ” **$parameterName**” som visas i följande exempel:
 
     ```
     PigSampleIn = LOAD '$Input' USING PigStorage(',') AS (ProfileID:chararray, SessionStart:chararray, Duration:int, SrcIPAddress:chararray, GameType:chararray);

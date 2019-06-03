@@ -18,6 +18,9 @@
       href: quickstart-load-balancer-standard-public-cli.md
     - name: Skapa en Standard Load Balancer – Azure PowerShell
       href: quickstart-create-standard-load-balancer-powershell.md
+    - name: Skapa Standard Load Balancer – Azure Resource Manager-mall
+      displayName: ARM
+      href: quickstart-load-balancer-standard-public-template.md
 - name: Självstudier
   items:
     - name: Belastningsutjämna Internettrafik till virtuella datorer

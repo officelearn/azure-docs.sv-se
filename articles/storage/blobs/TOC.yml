@@ -275,6 +275,8 @@
           href: storage-blob-event-overview.md
         - name: Funktioner för sidblob
           href: storage-blob-pageblob-overview.md
+        - name: Statiska webbplatser
+          href: storage-blob-static-website.md
     - name: Gör så här för att
       items:
         - name: Skapa och hantera lagringskonton
@@ -353,7 +355,7 @@
         - name: Ange och hämta egenskaper och metadata
           href: storage-properties-metadata.md
         - name: Var värd för en statisk webbplats
-          href: storage-blob-static-website.md
+          href: storage-blob-static-website-how-to.md
         - name: Mappa Azure CDN till en anpassad domän för åtkomst via HTTPS
           href: storage-https-custom-domain-cdn.md
         - name: Konfigurera ett anpassat domännamn

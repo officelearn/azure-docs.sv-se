@@ -22,6 +22,8 @@
   items:
     - name: Enkel inloggning till lokala resurser
       href: azuread-join-sso.md
+    - name: Primära uppdateringstoken
+      href: concept-primary-refresh-token.md
     - name: Hanterade Azure-arbetsstationer
       href: concept-azure-managed-workstation.md
 - name: Instruktionsguider
@@ -35,7 +37,7 @@
       href: azureadjoin-plan.md
     - name: Planera implementering av Azure AD-anslutningshybriden
       href: hybrid-azuread-join-plan.md
-    - name: Kontrollera Azure AD-anslutningshybriden för dina enheter
+    - name: Kontrollerad verifiering av Azure AD-anslutningshybrid
       href: hybrid-azuread-join-control.md
     - name: Tilldela lokala administratörer till Azure AD-anslutna enheter
       href: assign-local-admin.md

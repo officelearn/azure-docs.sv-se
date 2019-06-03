@@ -62,7 +62,7 @@ Följande avsnitt innehåller information om JSON-egenskaper som används för a
 ## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 Följande tabell innehåller en beskrivning för JSON-element som är specifika för Teradata länkad tjänst.
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | type |Type-egenskapen måste anges till: **OnPremisesTeradata** |Ja |
 | server |Namnet på Teradata-servern. |Ja |
@@ -83,7 +83,7 @@ Medan egenskaper som är tillgängliga i avsnittet typeProperties aktivitetens v
 
 När källan är av typen **RelationalSource** (som innehåller Teradata), följande egenskaper är tillgängliga i **typeProperties** avsnittet:
 
-| Egenskap  | Beskrivning | Tillåtna värden | Krävs |
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | query |Använd anpassad fråga för att läsa data. |SQL-sträng. Till exempel: Välj * från MyTable. |Ja |
 

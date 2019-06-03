@@ -205,6 +205,8 @@
               href: devtest-lab-announcements.md
             - name: Lägg till supportinformation till ett labb
               href: devtest-lab-internal-support-message.md
+            - name: Konfigurera ett delat bildgalleri i Azure DevTest Labs
+              href: configure-shared-image-gallery.md
         - name: Välj anpassad avbildning eller formel
           href: devtest-lab-comparing-vm-base-image-types.md
         - name: Hantera anpassade avbildningar

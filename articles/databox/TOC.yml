@@ -111,7 +111,7 @@
           items:
             - name: Hantera via Azure Portal
               href: data-box-portal-ui-admin.md
-            - name: Felsök diskproblem
+            - name: Felsöka Data Box Heavy-problem
               href: data-box-disk-troubleshoot.md
             - name: Kontakta supporten
               href: data-box-disk-contact-microsoft-support.md
@@ -121,12 +121,32 @@
           items:
             - name: Vad är Data Box – tung?
               href: data-box-heavy-overview.md
+        - name: Självstudier
+          items:
+            - name: 1 – Beställ
+              href: data-box-heavy-deploy-ordered.md
+            - name: 2 – Konfigurera
+              href: data-box-heavy-deploy-set-up.md
+            - name: 3 – Anslut och kopiera
+              items:
+                - name: Via SMB
+                  href: data-box-heavy-deploy-copy-data.md
+            - name: '4 – Returnera, ladda upp, bekräfta'
+              href: data-box-heavy-deploy-picked-up.md
         - name: Begrepp
           items:
             - name: Granska krav
               href: data-box-heavy-system-requirements.md
             - name: Förstå begränsningar
               href: data-box-heavy-limits.md
+        - name: Gör så här för att
+          items:
+            - name: Hantera via Azure Portal
+              href: data-box-portal-admin.md
+            - name: Felsöka enhetsproblem
+              href: data-box-troubleshoot.md
+            - name: Kontakta supporten
+              href: data-box-disk-contact-microsoft-support.md
     - name: Resurser
       items:
         - name: Data Box-produkt

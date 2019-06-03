@@ -85,15 +85,15 @@ HDInsight-piggningsåtgärd i en Datafabrik [pipeline](data-factory-create-pipel
 
 | Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
-| namn |Namn på aktiviteten |Ja |
+| name |Namn på aktiviteten |Ja |
 | description |Text som beskriver vad aktiviteten används till |Nej |
-| typ |HDinsightPig |Ja |
-| inmatningar |En eller flera inmatningar som används av Pig-aktivitet |Nej |
-| utdata |En eller flera av de utdata som genereras av Pig-aktivitet |Ja |
+| type |HDinsightPig |Ja |
+| inputs |En eller flera inmatningar som används av Pig-aktivitet |Nej |
+| outputs |En eller flera av de utdata som genereras av Pig-aktivitet |Ja |
 | linkedServiceName |Referens till HDInsight-kluster som är registrerad som en länkad tjänst i Data Factory |Ja |
-| skript |Ange infogat för Pig-skript |Nej |
-| skriptets sökväg |Store Pig-skriptet i Azure blob storage och ange sökvägen till filen. Använd ”skript” eller ”scriptPath-egenskapen. Båda kan inte användas tillsammans. Filnamnet är skiftlägeskänsligt. |Nej |
-| definierar |Ange parametrar som nyckel/värde-par för refererar till Pig-skript |Nej |
+| script |Ange infogat för Pig-skript |Nej |
+| scriptPath |Store Pig-skriptet i Azure blob storage och ange sökvägen till filen. Använd ”skript” eller ”scriptPath-egenskapen. Båda kan inte användas tillsammans. Filnamnet är skiftlägeskänsligt. |Nej |
+| defines |Ange parametrar som nyckel/värde-par för refererar till Pig-skript |Nej |
 
 ## <a name="example"></a>Exempel
 Anta att du har ett exempel på spel loggar analytics där du vill identifiera den tid som användes av spelare spel som startas av ditt företag.

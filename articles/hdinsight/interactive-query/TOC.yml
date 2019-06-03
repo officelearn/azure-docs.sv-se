@@ -320,12 +320,14 @@
       maintainContext: true
     - name: Nätverksåtkomst
       items:
+        - name: Arkitektur för virtuellt HDInsight-nätverk
+          href: ../hdinsight-virtual-network-architecture.md
+        - name: Använda brandväggen för att begränsa utgående trafik
+          href: ../hdinsight-restrict-outbound-traffic.md
         - name: HDInsight i ett virtuellt Azure-nätverk
           href: ../hdinsight-extend-hadoop-virtual-network.md
-          maintainContext: true
         - name: Ansluta HDInsight till det lokala nätverket
           href: ../connect-on-premises-network.md
-          maintainContext: true
     - name: Övervaka med hjälp av Azure Monitor-loggar
       items:
         - name: Använda Azure Monitor-loggar

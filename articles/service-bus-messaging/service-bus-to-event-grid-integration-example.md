@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: tutorial
 ms.date: 05/14/2019
 ms.author: spelluru
-ms.openlocfilehash: b29798bb87b7c5c677e7d80e552e45e8d1290541
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: b7dbc7dbc0b670de81a3f4603b0d52bce7559af8
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65786947"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428312"
 ---
 # <a name="respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions-and-azure-logic-apps"></a>Svara på Azure Service Bus-händelser som tagits emot via Azure Event Grid med hjälp av Azure Functions och Azure Logic Apps
 I den här självstudien får du lära dig hur du svarar på Azure Service Bus-händelser som tas emot via Azure Event Grid med hjälp av Azure Functions och Azure Logic Apps. Gör du följande steg:
@@ -120,7 +120,7 @@ Gör sedan följande steg:
     ![Funktionen app-utdata](./media/service-bus-to-event-grid-integration-example/function-run-output.png)
 3. Välj **hämta Funktionswebbadress** och noterar URL: en. 
 
-    ![Hämta funktionswebbadress](./media/service-bus-to-event-grid-integration-example/get-function-url.png)
+    ![Hämta Funktionswebbadress](./media/service-bus-to-event-grid-integration-example/get-function-url.png)
 
 # <a name="azure-functions-v1tabv1"></a>[Azure Functions V1](#tab/v1)
 
@@ -179,7 +179,7 @@ Gör sedan följande steg:
     ![Funktionen app-utdata](./media/service-bus-to-event-grid-integration-example/function-run-output.png)
 4. Välj **hämta Funktionswebbadress** och noterar URL: en. 
 
-    ![Hämta funktionswebbadress](./media/service-bus-to-event-grid-integration-example/get-function-url.png)
+    ![Hämta Funktionswebbadress](./media/service-bus-to-event-grid-integration-example/get-function-url.png)
 
 ---
 
@@ -280,13 +280,12 @@ Anslut en logikapp med Azure Service Bus och Azure Event Grid genom att följa d
     3. För **resursnamn**, ditt Service Bus-namnområde. 
     4. Välj **Lägg till ny parameter**, och välj **Suffixfilter**. 
     5. För **Suffixfilter**, anger du namnet på din andra Service Bus-ämnesprenumeration. 
-
         ![Logikappdesigner – Konfigurera händelse](./media/service-bus-to-event-grid-integration-example/logic-app-configure-event.png)
 6. Välj **+ nytt steg** i designer och utför följande steg:
     1. Sök efter **Service Bus**.
     2. Välj **Service Bus** i listan. 
     3. Välj **hämta meddelanden** i den **åtgärder** lista. 
-    4. Välj **hämta meddelanden från en ämnesprenumeration (peek-lock)**. 
+    4. Välj **hämta meddelanden från en ämnesprenumeration (peek-lock)** . 
 
         ![Logikappdesigner – get meddelanden åtgärd](./media/service-bus-to-event-grid-integration-example/service-bus-get-messages-step.png)
     5. Ange en **namn för anslutningen**. Exempel: **Hämta meddelanden från ämnesprenumeration**, och välj Service Bus-namnområdet. 

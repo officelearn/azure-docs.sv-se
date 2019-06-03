@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/14/2019
+ms.date: 05/30/2019
 ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 92a37133d84833c43fff5b1a6c31e003ef53f7de
-ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
+ms.openlocfilehash: b444ad799eaa356d654952c32ac58188de8d7131
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65619765"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417383"
 ---
 # <a name="tutorial-create-a-blockchain-application-in-azure-blockchain-workbench"></a>Självstudier: Skapa ett blockkedjeprogram i Azure Blockchain Workbench
 
@@ -39,9 +39,10 @@ Du lär dig följande:
 
 ## <a name="hello-blockchain"></a>Hej blockkedjan!
 
-Nu skapar vi ett grundläggande program där en begärare skickar en begäran och en svarare skickar ett svar på begäran. En ansökan kan till exempel vara ”Hej! Hur är det?”, och svaret kan vara ”Det är toppen!”. Både begäran och svaret registreras på den underliggande blockkedjan. 
+Nu skapar vi ett grundläggande program där en begärare skickar en begäran och en svarare skickar ett svar på begäran.
+En ansökan kan till exempel vara ”Hej! Hur är det?”, och svaret kan vara ”Det är toppen!”. Både begäran och svaret registreras på den underliggande blockkedjan.
 
-Följ stegen för att skapa programfilerna, eller så kan du [ladda ned exemplet från GitHub](https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/application-and-smart-contract-samples/hello-blockchain). 
+Följ stegen för att skapa programfilerna, eller så kan du [ladda ned exemplet från GitHub](https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/application-and-smart-contract-samples/hello-blockchain).
 
 ## <a name="configuration-file"></a>Konfigurationsfil
 
@@ -215,7 +216,7 @@ Avsnittet med programroller definierar de användarroller som kan agera eller de
 
 ### <a name="workflows"></a>Arbetsflöden
 
-Arbetsflöden definierar en eller flera steg och åtgärder i kontraktet. I scenariot med begäran–svar är det första steget (tillståndet) i arbetsflödet att en begärare (roll) vidtar en åtgärd (övergång) för att skicka en begäran (funktion). Nästa steg (tillstånd) är att en svarare (roll) vidtar en åtgärd (övergång) för att skicka ett svar (funktion). Arbetsflödet för ett program kan omfatta egenskaper, funktioner och tillstånd som krävs för att beskriva flödet i ett kontrakt. 
+Arbetsflöden definierar en eller flera steg och åtgärder i kontraktet. I scenariot med begäran–svar är det första steget (tillståndet) i arbetsflödet att en begärare (roll) vidtar en åtgärd (övergång) för att skicka en begäran (funktion). Nästa steg (tillstånd) är att en svarare (roll) vidtar en åtgärd (övergång) för att skicka ett svar (funktion). Arbetsflödet för ett program kan omfatta egenskaper, funktioner och tillstånd som krävs för att beskriva flödet i ett kontrakt.
 
 Mer information om innehållet i konfigurationsfiler finns i [referensen för konfiguration av Azure-blockkedjearbetsflöden](configuration.md).
 
@@ -229,24 +230,23 @@ Använd det redigeringsprogram du föredrar och skapa en fil som heter `HelloBlo
 
 ### <a name="version-pragma"></a>Pragmaversion
 
-Som bästa praxis anger du den version av Solidity som du har som mål. Genom att ange versionen minskar du risken för inkompatibiliteter med framtida Solidity-versioner. 
+Som bästa praxis anger du den version av Solidity som du har som mål. Genom att ange versionen minskar du risken för inkompatibiliteter med framtida Solidity-versioner.
 
 Lägg till följande pragmaversion längst upp i filen `HelloBlockchain.sol` med smart kontraktkod.
 
-
-  ``` solidity
-  pragma solidity ^0.4.20;
-  ```
+``` solidity
+pragma solidity >=0.4.25 <0.6.0;
+```
 
 ### <a name="configuration-and-smart-contract-code-relationship"></a>Konfiguration och kodrelation i smart kontrakt
 
-Blockchain Workbench använder konfigurationsfilen och filen med smart kontraktkod för att skapa ett blockkedjeprogram. Det finns en relation mellan det som definieras i konfigurationen och koden i det smarta kontraktet. Kontraktsinformation, funktioner, parametrar och typer krävs för matchning för att skapa programmet. Blockchain Workbench verifierar filerna innan programmet skapas. 
+Blockchain Workbench använder konfigurationsfilen och filen med smart kontraktkod för att skapa ett blockkedjeprogram. Det finns en relation mellan det som definieras i konfigurationen och koden i det smarta kontraktet. Kontraktsinformation, funktioner, parametrar och typer krävs för matchning för att skapa programmet. Blockchain Workbench verifierar filerna innan programmet skapas.
 
 ### <a name="contract"></a>Kontrakt
 
 Lägg till huvudet **kontrakt** i filen `HelloBlockchain.sol` med smart kontraktkod.
 
-```
+``` solidity
 contract HelloBlockchain {
 ```
 
@@ -254,17 +254,17 @@ contract HelloBlockchain {
 
 Tillståndsvariabler lagrar värden för tillståndet för varje kontraktsinstans. Tillståndsvariablerna i ditt kontrakt måste matcha de arbetsflödesegenskaper som definieras i konfigurationsfilen.
 
-Lägg till tillståndsvariablerna i ditt kontrakt i filen `HelloBlockchain.sol` med smart kontraktkod. 
+Lägg till tillståndsvariablerna i ditt kontrakt i filen `HelloBlockchain.sol` med smart kontraktkod.
 
-```
+``` solidity
     //Set of States
     enum StateType { Request, Respond}
-    
+
     //List of properties
     StateType public  State;
     address public  Requestor;
     address public  Responder;
-    
+
     string public RequestMessage;
     string public ResponseMessage;
 ```
@@ -275,11 +275,11 @@ Konstruktorn definierar indataparametrar för en ny instans med smart kontrakt f
 
 I konstruktorfunktionen skriver du eventuell affärslogik som du vill utföra innan du skapar kontraktet. Till exempel initierar du tillståndsvariablerna med startvärden.
 
-Lägg till konstruktorfunktionen i ditt kontrakt i filen `HelloBlockchain.sol` med smart kontraktkod. 
+Lägg till konstruktorfunktionen i ditt kontrakt i filen `HelloBlockchain.sol` med smart kontraktkod.
 
-```
+``` solidity
     // constructor function
-    constructor(string message) public
+    constructor(string memory message) public
     {
         Requestor = msg.sender;
         RequestMessage = message;
@@ -287,28 +287,29 @@ Lägg till konstruktorfunktionen i ditt kontrakt i filen `HelloBlockchain.sol` m
     }
 ```
 
-### <a name="functions"></a>Funktioner
+### <a name="functions"></a>Functions
 
 Funktioner är körbara enheter med affärslogik i ett kontrakt. Obligatoriska parametrar för funktionen definieras som funktionsparametrar i konfigurationsfilen. Antalet, ordningen och typen av parametrar måste stämma överens i båda filerna. Funktioner är associerade med övergångar i ett Blockchain Workbench-arbetsflöde i konfigurationsfilen. En övergång är en åtgärd som utförs för en flytt till nästa steg i ett programs arbetsflöde enligt vad som bestäms av kontraktet.
 
 Skriva eventuell affärslogik som du vill utföra i funktionen. Till exempel kan du ändra värdet för en tillståndsvariabel.
 
-1. Lägg till följande funktioner i ditt kontrakt i filen `HelloBlockchain.sol` med smart kontraktkod. 
+1. Lägg till följande funktioner i ditt kontrakt i filen `HelloBlockchain.sol` med smart kontraktkod.
 
-    ```
+    ``` solidity
         // call this function to send a request
-        function SendRequest(string requestMessage) public
+        function SendRequest(string memory requestMessage) public
         {
             if (Requestor != msg.sender)
             {
                 revert();
             }
+    
             RequestMessage = requestMessage;
             State = StateType.Request;
         }
     
         // call this function to send a response
-        function SendResponse(string responseMessage) public
+        function SendResponse(string memory responseMessage) public
         {
             Responder = msg.sender;
     
@@ -334,7 +335,7 @@ Om du vill lägga till ett blockkedjeprogram i Blockchain Workbench laddar du up
 Distributionen av blockkedjeprogrammet tar några minuter. När distributionen är klar visas det nya programmet i **Program**. 
 
 > [!NOTE]
-> Du kan även skapa blockkedjeprogram med hjälp av [Azure Blockchain Workbench REST API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench). 
+> Du kan även skapa blockkedjeprogram med hjälp av [Azure Blockchain Workbench REST API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench).
 
 ## <a name="add-blockchain-application-members"></a>Lägga till blockkedjeprogrammedlemmar
 

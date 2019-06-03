@@ -5,15 +5,15 @@ author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 29189a5919a01fcb897758fb64ca9e84b9381fb6
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 07a5ee6ccdaecc78c9a8e61ae9e64a5264e3a875
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65410905"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418350"
 ---
 # <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>Förbereda Azure-resurser för haveriberedskap för lokala datorer
 
@@ -55,7 +55,7 @@ Avbildningar av replikerade datorer lagras i Azure-lagringen. Virtuella Azure-da
 1. I den [Azure-portalen](https://portal.azure.com) menyn och välj **skapa en resurs** > **Storage** > **lagringskonto – blob, fil, tabell, kö** .
 2. I **Skapa lagringskonto** anger du ett namn för kontot.  Det namn du väljer måste vara unikt i Azure, vara från 3 till 24 tecken långt och endast använda gemena bokstäver och siffror. Den här självstudien använder **contosovmsacct1910171607**.
 3. För **Distributionsmodell** väljer du **Resource Manager**.
-4. I **typ av konto**väljer **Storage (general-purpose v1)**. Välj inte blobblagring.
+4. I **typ av konto**väljer **Storage (general-purpose v1)** . Välj inte blobblagring.
 5. I **Replikering** väljer du standardinställningen **Read-access geo-redundant storage** för lagringsredundans. Lämna den säker överföring krävs som inaktiverade.
 6. I **Prestanda** väljer du **Standard**. I **åtkomstnivå**, väljer du standardalternativet **frekvent**.
 7. I **prenumeration**, Välj den prenumeration där du vill skapa det nya lagringskontot.
@@ -68,7 +68,7 @@ Avbildningar av replikerade datorer lagras i Azure-lagringen. Virtuella Azure-da
 ## <a name="create-a-recovery-services-vault"></a>Skapa ett Recovery Services-valv
 
 1. I Azure-portalen väljer du **+ skapa en resurs**, och sedan söka på Azure Marketplace för Recovery Services.
-2. Välj **Backup och Site Recovery (OMS)**. Därefter öppnar den **Backup och Site Recovery** väljer **skapa**.
+2. Välj **Backup och Site Recovery (OMS)** . Därefter öppnar den **Backup och Site Recovery** väljer **skapa**.
 1. I **Recovery services-valv > namn**, ange ett eget namn som identifierar valvet. I den här självstudien använder du **ContosoVMVault**.
 2. I **Resursgrupp** väljer du en befintlig resursgrupp eller skapar en ny. Den här självstudien använder **contosoRG**.
 3. I **plats**, väljer du den region där valvet ska vara belägen. Den här självstudien använder **Västeuropa**.

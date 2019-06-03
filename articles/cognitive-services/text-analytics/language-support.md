@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 4f1ce8fd44a501f594f3093789d1ef03e664d018
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 69c14c6b98b572bc413f5a35696269e13344387e
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60829556"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417322"
 ---
 # <a name="language-and-region-support-for-the-text-analytics-api"></a>Stöd för språk och din region för Textanalys
 
@@ -23,7 +23,11 @@ Den här artikeln beskriver vilka språk som stöds för varje åtgärd: attityd
 
 ## <a name="language-detection"></a>Språkidentifiering
 
-API för textanalys kan identifiera upp till 120 olika språk. Språkidentifiering returnerar ”skript” för ett språk. Exempel för frasen ”jag har en hund” returneras `en` i stället för `en-US`. Endast specialfall är kinesiska, där identifieringsmöjligheter språk returnerar `zh_CHS` eller `zh_CHT` om det kan fastställa skriptet ges text som tillhandahålls. I situationer där ett visst skript inte kan identifieras för ett kinesiska dokument, returneras bara `zh`.
+API för textanalys kan identifiera en mängd olika språk, varianter, dialekter och vissa nationella inställningar/kulturella språk.  Språkidentifiering returnerar ”skript” för ett språk. Exempel för frasen ”jag har en hund” returneras `en` i stället för `en-US`. Endast specialfall är kinesiska, där identifieringsmöjligheter språk returnerar `zh_CHS` eller `zh_CHT` om det kan fastställa skriptet ges text som tillhandahålls. I situationer där ett visst skript inte kan identifieras för ett kinesiska dokument, returneras bara `zh`.
+
+Vi publicerar inte den exakta listan över språk för den här funktionen, men den kan identifiera en mängd olika språk, varianter, dialekter och vissa nationella inställningar/kulturella språk. 
+
+Om du har innehåll som uttrycks i ett språk som används mindre ofta kan försöka du språkidentifiering för att se om det returnerar en kod. Svaret för språk som inte kan identifieras är `unknown`.
 
 ## <a name="sentiment-analysis-key-phrase-extraction-and-named-entity-recognition"></a>Attitydanalys, extrahering av diskussionsämne och igenkänning av namngivna entiteter
 

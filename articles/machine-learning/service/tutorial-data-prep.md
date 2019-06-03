@@ -11,16 +11,16 @@ ms.author: MayMSFT
 ms.reviewer: trbye
 ms.date: 03/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: 67f3a0d10490c5c63dfe262d07985f51bb384e34
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: dabb43cb2fe9b66d5d83d163b74d2f22354e33b8
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65604488"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418024"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>Självstudier: Förbereda data för regressionsmodellering
 
-I den här självstudien får du lära dig hur du förbereder data för regression modellering med hjälp av den [databearbetningspaketet för Azure Machine Learning](https://aka.ms/data-prep-sdk). Du kör olika transformeringar för att filtrera och kombinera två olika datauppsättningar för taxiresor i New York.
+I den här självstudien får du lära dig hur du förbereder data för regression modellering med hjälp av den [databearbetningspaketet](https://aka.ms/data-prep-sdk) från den [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Du kör olika transformeringar för att filtrera och kombinera två olika datauppsättningar för taxiresor i New York.
 
 Den här självstudien är **del ett i en självstudieserie i två delar**. När du har slutfört den här självstudieserien kan du förutsäga kostnaden för en taxiresa genom att träna en modell med datafunktioner. Exempel på dessa funktioner är dag och tidpunkt för upphämtning, antalet passagerare och upphämtningsplats.
 
@@ -38,7 +38,7 @@ I den här kursen för du göra följande:
 Gå vidare till [Ställ in din utvecklingsmiljö](#start) och läs igenom stegen för notebook eller följ instruktionerna nedan för att hämta din notebook och kör den på Azure Notebooks eller din egen Notebook-server. För att köra anteckningsboken behöver du:
 
 * En notebook-server för Python 3.6 med följande installerat:
-    *  paket för azureml-förberedelse av data från Azure Machine Learning-SDK för Python
+    * Den `azureml-dataprep` paket från Azure Machine Learning-SDK
 * Anteckningsboken för självstudie
 
 * Använd en [molnet notebook-server i din arbetsyta](#azure) 
@@ -46,7 +46,7 @@ Gå vidare till [Ställ in din utvecklingsmiljö](#start) och läs igenom stegen
 
 ### <a name="azure"></a>Använda en cloud notebook-server i din arbetsyta
 
-Det är enkelt att komma igång med din egen molnbaserad notebook-server. Den [Azure Machine Learning-SDK för Python](https://aka.ms/aml-sdk) har redan installerats och konfigurerats för dig när du skapar den här molnresursen.
+Det är enkelt att komma igång med din egen molnbaserad notebook-server. Azure Machine Learning-SDK för Python har redan installerats och konfigurerats för dig när du skapar den här molnresursen.
 
 [!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
 
@@ -56,8 +56,8 @@ Det är enkelt att komma igång med din egen molnbaserad notebook-server. Den [A
 
 Skapa en lokal Jupyter Notebook-server på datorn enligt nedan.  När du har slutfört stegen kan du köra anteckningsboken **tutorials/regression-part1-data-prep.ipynb**.
 
-1. Slutför installationen av stegen i [Snabbstart för Azure Machine Learning Python](setup-create-workspace.md#sdk) att skapa en Miniconda-miljö.  Passa på att hoppa över avsnittet **Skapa en arbetsyta** om du vill, men du behöver det för [del 2](tutorial-auto-train-models.md) i den här självstudieserien.
-1. Installera den azureml-förberedelse av data i din miljö genom `pip install azureml-dataprep`.
+1. Slutför installationen av stegen i [Snabbstart för Azure Machine Learning Python](setup-create-workspace.md#sdk) att skapa en Miniconda-miljö och installera SDK.  Passa på att hoppa över avsnittet **Skapa en arbetsyta** om du vill, men du behöver det för [del 2](tutorial-auto-train-models.md) i den här självstudieserien.
+1. Den `azureml-dataprep` paketet installeras automatiskt när du installerar SDK.
 1. Klona [github-lagringsplatsen](https://aka.ms/aml-notebooks).
 
     ```
@@ -85,7 +85,7 @@ Använd följande för att installera nödvändiga paket om du inte redan har de
 pip install "azureml-dataprep[pandas]>=1.1.0,<1.2.0"
 ```
 
-Importera SDK:n.
+Importera paketet.
 
 ```python
 import azureml.dataprep as dprep
@@ -179,7 +179,7 @@ green_df.head(5)
       <th>dropoff_latitude</th>
       <th>passengers</th>
       <th>avstånd</th>
-      <th>kostnad</th>
+      <th>cost</th>
     </tr>
   </thead>
   <tbody>
@@ -320,7 +320,7 @@ combined_df.keep_columns(columns=[
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Typ</th>
+      <th>Type</th>
       <th>Min</th>
       <th>Max</th>
       <th>Antal</th>
@@ -472,7 +472,7 @@ latlong_filtered_df.keep_columns(columns=[
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Typ</th>
+      <th>Type</th>
       <th>Min</th>
       <th>Max</th>
       <th>Antal</th>
@@ -606,7 +606,7 @@ latlong_filtered_df.keep_columns(columns='store_forward').get_profile()
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Typ</th>
+      <th>Type</th>
       <th>Min</th>
       <th>Max</th>
       <th>Antal</th>
@@ -711,7 +711,7 @@ time_split_df.head(5)
       <th>dropoff_latitude</th>
       <th>passengers</th>
       <th>avstånd</th>
-      <th>kostnad</th>
+      <th>cost</th>
     </tr>
   </thead>
   <tbody>
@@ -909,7 +909,7 @@ transformed_features_df.head(5)
       <th>dropoff_latitude</th>
       <th>passengers</th>
       <th>avstånd</th>
-      <th>kostnad</th>
+      <th>cost</th>
     </tr>
   </thead>
   <tbody>

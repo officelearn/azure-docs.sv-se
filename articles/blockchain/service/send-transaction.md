@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: jackyhsu
 manager: femila
-ms.openlocfilehash: 80fabccb8a59bcd472812698f624d49dc26c24fa
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 9037c7b5498a5e0a37b05e5ee09891bf8066393d
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399125"
+ms.locfileid: "66417481"
 ---
 # <a name="tutorial-send-transactions-using-azure-blockchain-service"></a>Självstudier: Skicka transaktioner med Azure Blockchain-tjänsten
 
@@ -183,7 +183,7 @@ Du kan hämta den offentliga nyckeln från transaktionslistan för noden. Kopier
 
 ## <a name="create-smart-contract"></a>Skapa smarta kontrakt
 
-1. I mappen **kontrakt**, skapa en ny fil med namnet `SimpleStorage.sol`. Lägg till följande kod.
+1. I den **kontrakt** mapp, skapa en ny fil med namnet `SimpleStorage.sol`. Lägg till följande kod.
 
     ```solidity
     pragma solidity >=0.4.21 <0.6.0;
@@ -205,7 +205,7 @@ Du kan hämta den offentliga nyckeln från transaktionslistan för noden. Kopier
     }
     ```
     
-1. I mappen **migreringar**, skapa en ny fil med namnet `2_deploy_simplestorage.js`. Lägg till följande kod.
+1. I den **migreringar** mapp, skapa en ny fil med namnet `2_deploy_simplestorage.js`. Lägg till följande kod.
 
     ```solidity
     var SimpleStorage = artifacts.require("SimpleStorage.sol");
@@ -223,10 +223,10 @@ Du kan hämta den offentliga nyckeln från transaktionslistan för noden. Kopier
     |-------|-------------
     | \<Alpha noden offentlig nyckel\> | Offentlig nyckel för noden alpha
     | \<Ethereum kontoadress\> | Ethereum kontoadress som skapats i transaktionen standardnoden
-    
+
     I det här exemplet är det första värdet i den **storeData** värdet är inställt på 42.
 
-    **privateFor** definierar noderna som kontraktet är tillgänglig. I det här exemplet standard transaktion nodens konto kan omvandla privata transaktionerna till den **alpha** noden. Du måste lägga till offentliga nycklar för alla privata transaktion deltagare. Om du inte anger **privateFor:** och **från:** , smarta kontrakt transaktioner är offentliga och kan ses av alla medlemmarna.
+    **privateFor** definierar noderna som kontraktet är tillgänglig. I det här exemplet standard transaktion nodens konto kan omvandla privata transaktionerna till den **alpha** noden. Du kan lägga till offentliga nycklar för alla privata transaktion deltagare. Om du inte anger **privateFor:** och **från:** , smarta kontrakt transaktioner är offentliga och kan ses av alla medlemmarna.
 
 1. Spara alla filer genom att välja **fil > Spara allt**.
 

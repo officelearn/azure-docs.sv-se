@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/06/2019
 ms.author: sngun
-ms.openlocfilehash: 43aa0956ef1f44fa5705800ff2b424608ec75499
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 2c6af53aeec5d40f603d65595d93527107c0d80a
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65795604"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427714"
 ---
 # <a name="how-to-use-azure-kubernetes-with-azure-cosmos-db-preview"></a>Hur du använder Azure Kubernetes med Azure Cosmos DB (förhandsversion)
 
@@ -29,7 +29,7 @@ Läs mer om etcd API i Azure Cosmos DB i den [översikt](etcd-api-introduction.m
 
 1. Installera den senaste versionen av [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). Du kan ladda ned Azure CLI som är specifika för ditt operativsystem och installera.
 
-1. Installera den [v0.32.3](https://github.com/Azure/aks-engine/releases/tag/v0.32.3) versionen av Azure Kubernetes-motorn. Installationsinstruktioner för olika operativsystem är tillgängliga i [Azure Kubernetes Engine](https://github.com/Azure/aks-engine/blob/master/docs/tutorials/quickstart.md#install-aks-engine) sidan. Du behöver bara stegen från **installera AKS-motorn** delen av det länkade dokumentet. Extrahera zip-filen efter nedladdningen.
+1. Installera den [senaste versionen](https://github.com/Azure/aks-engine/releases) Azure Kubernetes-motorn. Installationsinstruktioner för olika operativsystem är tillgängliga i [Azure Kubernetes Engine](https://github.com/Azure/aks-engine/blob/master/docs/tutorials/quickstart.md#install-aks-engine) sidan. Du behöver bara stegen från **installera AKS-motorn** delen av det länkade dokumentet. Extrahera zip-filen efter nedladdningen.
 
    Azure Kubernetes-motor (**aks-engine**) genererar Azure Resource Manager-mallar för Kubernetes-kluster på Azure. Indata till aks-motorn är en kluster-definitionsfil som beskriver önskad klustret, inklusive orchestrator, funktioner och agenter. Strukturen för indatafilerna liknar offentliga API: et för Azure Kubernetes Service.
 
@@ -77,7 +77,7 @@ Läs mer om etcd API i Azure Cosmos DB i den [översikt](etcd-api-introduction.m
 1. Navigera till mappen där den Azure Kubernetes Engine körbara filen finns från Kommandotolken. Exempelvis kan du navigera till mappen som på Kommandotolken:
 
    ```cmd
-   cd "\aks-engine-v0.32.3-windows-amd64\aks-engine-v0.32.3-windows-amd64"
+   cd "\aks-engine-v0.36.3-windows-amd64\aks-engine-v0.36.3-windows-amd64"
    ```
 
 1. Öppna en textredigerare valfri och definiera en Resource Manager-mall som distribuerar Azure Kubernetes-kluster med Azure Cosmos DB etcd API. Kopiera följande JSON-definition till din textredigerare och spara filen som `apiModel.json`:

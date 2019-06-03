@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/11/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 90ffebf5f3375e94545f82a95f5c240ad845bd94
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 4ceff7d59443fe78fb8cf7164e5f31cf1acc189a
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66162181"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66420783"
 ---
 1. Logga in på [Firebase-konsolen](https://firebase.google.com/console/). Skapa ett nytt Firebase-projekt om du inte redan har ett.
 2. När du har skapat ett projekt väljer du **Lägg till Firebase till din Android-app**. 
@@ -36,4 +36,4 @@ ms.locfileid: "66162181"
     ![Välj Projektinställningar](./media/notification-hubs-enable-firebase-cloud-messaging/notification-hubs-firebase-console-project-settings.png)
 4. Om du inte har hämtat den **google-services.json** -fil som du kan göra så vidare den här sidan. 
 5. Växla till den **Cloud Messaging** fliken högst upp. 
-6. Kopiera och spara den **servernyckel** för senare användning. Du kan använda det här värdet för att konfigurera din meddelandehubb.
+6. Kopiera och spara den **äldre servernyckel** för senare användning. Du kan använda det här värdet för att konfigurera din meddelandehubb.

@@ -210,6 +210,8 @@
         - name: Rollbaserad åtkomstkontroll
           displayName: rbac
           href: role-based-access-control.md
+        - name: Säkerhetsattribut
+          href: cosmos-db-security-attributes.md
     - name: Företagsberedskap
       items:
         - name: Säkerhetskopiering och återställning på begäran online

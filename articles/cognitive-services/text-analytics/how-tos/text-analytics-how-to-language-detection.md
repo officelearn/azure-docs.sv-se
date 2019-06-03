@@ -9,18 +9,22 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 02/26/2019
 ms.author: aahi
-ms.openlocfilehash: 4ccb8665c9880e21897c81ed4b4ff534e52bb6d1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 481f7a7589a58baac922001d230f95198ed45eb7
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60829692"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417941"
 ---
 # <a name="example-how-to-detect-language-with-text-analytics"></a>Exempel: Hur man identifierar språk i Textanalys
 
-[Språkidentifiering-API:et](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) utvärderar textindata och för varje dokument och returnerar språkidentifierare med ett värde som anger styrkan hos analysen. Textanalysen kan identifiera upp till 120 språk.
+Den [språkidentifiering](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) funktion i API: et utvärderar text in- och för varje dokument och returnerar språkidentifierare med ett värde som anger styrkan hos analysen.
 
 Den här funktionen är användbar för innehållslager samlar in godtycklig text, där språket är okänt. Du kan parsa resultatet av den här analysen för att avgöra vilket språk som används i dokumentet. Svaret returnerar också ett resultat som återspeglar modellens förtroende (ett värde mellan 0 och 1).
+
+Vi publicerar inte den exakta listan över språk för den här funktionen, men den kan identifiera en mängd olika språk, varianter, dialekter och vissa nationella inställningar/kulturella språk. 
+
+Om du har innehåll som uttrycks i ett språk som används mindre ofta kan försöka du språkidentifiering för att se om det returnerar en kod. Svaret för språk som inte kan identifieras är `unknown`.
 
 > [!TIP]
 > Textanalys ger även en Linux-baserad Docker-containeravbildning för språkidentifiering, så att du kan [installera och köra Textanalys-containern](text-analytics-how-to-install-containers.md) nära dina data.
@@ -206,7 +210,7 @@ Resulterande utdata består av dominerande språket, med ett resultat på mindre
 
 I den här artikeln har du lärt känna begrepp och arbetsflöden för språkidentifiering med hjälp av textanalys i Cognitive Services. Det följande är en snabb påminnelse om de viktiga aspekter som förklarats och beskrivits tidigare:
 
-+ [Språkidentifierings-API:et](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) är tillgänglig för 120 språk.
++ [Språkidentifiering](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) är tillgänglig för en mängd olika språk, varianter, dialekter och vissa nationella inställningar/kulturella språk.
 + JSON-dokument i begärandetexten innehåller ID: T och text.
 + POST-begäran riktas till en `/languages`-slutpunkt med hjälp av en personligt anpassad [åtkomstnyckel och en slutpunkt](text-analytics-how-to-access-key.md) som är giltig för din prenumeration.
 + Svarsutdata, vilka består av språkidentifierare för varje dokument-ID, kan strömmas till vilken app som helst som tar emot JSON, inklusive Excel och Power BI bara för att nämna några.

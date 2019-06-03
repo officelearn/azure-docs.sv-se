@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 04/15/2019
+ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: d2de871176917dcc24d910b3742bdb2700c4f25d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: cb2ca7229524cf8d84041140129c7b9ca6876ea3
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64691758"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417803"
 ---
 # <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>Förbereda Azure-resurser för haveriberedskap för lokala datorer
 
@@ -55,7 +55,7 @@ För att slutföra dessa uppgifter måste ditt konto tilldelas en inbyggd roll s
 ## <a name="create-a-recovery-services-vault"></a>skapar ett Recovery Services-valv
 
 1. I Azure-portalen klickar du på **+ skapa en resurs**, och Sök på Marketplace efter **Recovery**.
-2. Klicka på **Backup och Site Recovery (OMS)**. På sidan Backup och Site Recovery klickar du på **Skapa**. 
+2. Klicka på **Backup och Site Recovery (OMS)** . På sidan Backup och Site Recovery klickar du på **Skapa**. 
 1. I **Recovery Services-valv** > **Namn** anger du ett eget namn som identifierar valvet. I de här självstudierna använder vi namnet **ContosoVMVault**.
 2. I **Resursgrupp** väljer du en befintlig resursgrupp eller skapar en ny. I den här självstudien använder vi **contosoRG**.
 3. I **Plats** väljer du den region där valvet ska finnas. Använder vi **Västeuropa**.

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 073166a594088bca04d81883247a5880fcbd1cb7
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: bd0160073898a5a83af2e7b2bba2dba007c04513
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66234499"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66425691"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-android"></a>Snabbstart: Kör exempelappen tal Devices SDK på Android
 
@@ -145,7 +145,7 @@ Om du vill verifiera din development kit-konfiguration, skapa och installera exe
 
    ![Exempelprogrammet tal Devices SDK exempel och alternativ](media/speech-devices-sdk/qsg-8.png)
 
-1. Nyligen tillagda är konversationen avskrift demon. Börja skriva med Startsession. Som standard är alla Gäst, men om du har deltagarens röst signaturer de kan placeras i en fil /video/participants.properties på enheten. Att generera röst signatur titt på [transkribera konversationer (SDK)](how-to-use-conversation-transcription-service.md).
+1. Prova nya konversationen avskrift demonstrationen. Börja skriva med Startsession. Som standard är alla gäst. Men om du har deltagarens röst signaturer de kan placeras i en fil `/video/participants.properties` på enheten. Om du vill skapa signaturen som röst, titta på [transkribera konversationer (SDK)](how-to-use-conversation-transcription-service.md).
 
    ![Konversationen avskrift demoprogram](media/speech-devices-sdk/qsg-15.png)
 

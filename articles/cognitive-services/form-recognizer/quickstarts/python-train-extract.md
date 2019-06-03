@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/24/2019
 ms.author: pafarley
-ms.openlocfilehash: 139c0c29033dc45d07fd0987c2eee92308512329
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 2657c69ef631c32b498404908014d8788d485989
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65906979"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417966"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-python"></a>Snabbstart: Träna en modell för formuläret Igenkännande och extrahera formulärdata med hjälp av REST-API med Python
 
@@ -45,9 +45,12 @@ När du har beviljats åtkomst till att använda formatet igenkännande, får du
 
 När formuläret Igenkännande resursen har distribution, hitta och välja den från den **alla resurser** listan på portalen. Välj sedan den **nycklar** fliken för att visa dina prenumerationsnycklar. Antingen nyckeln får din appåtkomst till resursen. Kopiera värdet för **nyckel 1**. Du kan använda den i nästa avsnitt.
 
-## <a name="create-and-run-the-sample"></a>Skapa och köra exemplet
+## <a name="train-a-form-recognizer-model"></a>Träna en modell för formuläret Igenkännande
 
-Du skapar och kör exemplet gör dessa ändringar till kodfragmentet nedan:
+Först behöver du en uppsättning träningsdata i en Azure Storage blob. Du bör ha minst fem exempelformulär (PDF-dokument och/eller avbildningar) av samma typ/struktur som dina huvudsakliga indata. Eller du kan använda ett tomt formulär. Formulärets filnamnet måste innehålla ordet ”Töm”.
+
+För att träna en modell för formuläret Igenkännande med hjälp av dokument i Azure blob-behållare, anropa den **träna** API genom att köra python-kod som följer. Innan du kör koden gör dessa ändringar:
+
 1. Ersätt `<Endpoint>` med slutpunkts-URL för formuläret Igenkännande resursen i Azure-region där du har fått din prenumerationsnycklar.
 1. Ersätt `<SAS URL>` med en Azure Blob storage-behållare som delad åtkomst (signatur) URL: en för platsen för träningsdata.  
 1. Ersätt `<Subscription key>` med prenumerationsnyckel som du kopierade i föregående steg.

@@ -11,16 +11,20 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: diberry
-ms.openlocfilehash: b114b1c3b1c421c6e6944666e3fd928d2aced966
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: f922f9c64f182377365192543305b48659c518da
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66225882"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417973"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Språkförståelse vanliga frågor (och svar FAQ)
 
 Den här artikeln innehåller svar på vanliga frågor och svar om Språkförståelse (LUIS).
+
+## <a name="whats-new"></a>Nyheter
+
+[Läs mer](whats-new.md) om vad som är nytt i Språkförståelse.
 
 <a name="luis-authoring"></a>
 
@@ -64,7 +68,7 @@ Cortana färdiga appar tagits bort 2017. De stöds inte längre.
 ### <a name="how-do-i-transfer-ownership-of-a-luis-app"></a>Hur jag för att överföra ägarskapet för en LUIS-app?
 Exportera en LUIS-app för att överföra en LUIS-app till Azure-prenumeration, och importera det med ett nytt konto. Uppdatera LUIS-app-ID i klientprogram som anropar den. Den nya appen kan returnera något annorlunda LUIS poäng från den ursprungliga appen.
 
-### <a name="a-prebuilt-entity-is-tagged-in-an-example-utterance-instead-of-my-custom-entity-how-do-i-fix-this"></a>En fördefinierade entitet markeras i en exempel-uttryck i stället för min anpassad entitet. Hur åtgärdar jag detta? 
+### <a name="a-prebuilt-entity-is-tagged-in-an-example-utterance-instead-of-my-custom-entity-how-do-i-fix-this"></a>En fördefinierade entitet markeras i en exempel-uttryck i stället för min anpassad entitet. Hur jag för att åtgärda detta? 
 
 Se [felsökning förskapade entiteter](luis-concept-entity-types.md#troubleshooting-prebuilt-entities).
 

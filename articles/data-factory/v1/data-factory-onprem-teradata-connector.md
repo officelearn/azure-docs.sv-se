@@ -67,7 +67,7 @@ Följande tabell innehåller en beskrivning för JSON-element som är specifika 
 | type |Type-egenskapen måste anges till: **OnPremisesTeradata** |Ja |
 | server |Namnet på Teradata-servern. |Ja |
 | authenticationType |Typ av autentisering som används för att ansluta till Teradata-databasen. Möjliga värden: Anonym, Basic och Windows. |Ja |
-| användarnamn |Ange användarnamnet om du använder grundläggande eller Windows-autentisering. |Nej |
+| username |Ange användarnamnet om du använder grundläggande eller Windows-autentisering. |Nej |
 | password |Ange lösenord för det användarkonto som du angav för användarnamnet. |Nej |
 | gatewayName |Namnet på den gateway som Data Factory-tjänsten ska använda för att ansluta till den lokala Teradata-databas. |Ja |
 
@@ -85,7 +85,7 @@ När källan är av typen **RelationalSource** (som innehåller Teradata), följ
 
 | Egenskap  | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| DocumentDB |Använd anpassad fråga för att läsa data. |SQL-sträng. Till exempel: Välj * från MyTable. |Ja |
+| query |Använd anpassad fråga för att läsa data. |SQL-sträng. Till exempel: Välj * från MyTable. |Ja |
 
 ### <a name="json-example-copy-data-from-teradata-to-azure-blob"></a>JSON-exempel: Kopiera data från Teradata till Azure Blob
 I följande exempel innehåller exempel JSON-definitioner som du kan använda för att skapa en pipeline med hjälp av [Azure-portalen](data-factory-copy-activity-tutorial-using-azure-portal.md) eller [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) eller [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). De visar hur du kopierar data från Teradata till Azure Blob Storage. Dock datan kan kopieras till någon av de mottagare som anges [här](data-factory-data-movement-activities.md#supported-data-stores-and-formats) använda Kopieringsaktivitet i Azure Data Factory.

@@ -68,10 +68,10 @@ Följande tabell innehåller en beskrivning för JSON-element som är specifika 
 | --- | --- | --- |
 | type |Type-egenskapen måste anges till: **OnPremisesSybase** |Ja |
 | server |Namnet på Sybase-servern. |Ja |
-| databas |Namnet på Sybase-databas. |Ja |
-| schemat |Namnet på schemat i databasen. |Nej |
+| database |Namnet på Sybase-databas. |Ja |
+| schema |Namnet på schemat i databasen. |Nej |
 | authenticationType |Typ av autentisering som används för att ansluta till Sybase-databasen. Möjliga värden: Anonym, Basic och Windows. |Ja |
-| användarnamn |Ange användarnamnet om du använder grundläggande eller Windows-autentisering. |Nej |
+| username |Ange användarnamnet om du använder grundläggande eller Windows-autentisering. |Nej |
 | password |Ange lösenord för det användarkonto som du angav för användarnamnet. |Nej |
 | gatewayName |Namnet på den gateway som Data Factory-tjänsten ska använda för att ansluta till den lokala Sybase-databas. |Ja |
 
@@ -93,7 +93,7 @@ När källan är av typen **RelationalSource** (som innehåller Sybase), följan
 
 | Egenskap  | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| DocumentDB |Använd anpassad fråga för att läsa data. |SQL-sträng. Till exempel: Välj * från MyTable. |Nej (om **tableName** av **datauppsättning** har angetts) |
+| query |Använd anpassad fråga för att läsa data. |SQL-sträng. Till exempel: Välj * från MyTable. |Nej (om **tableName** av **datauppsättning** har angetts) |
 
 
 ## <a name="json-example-copy-data-from-sybase-to-azure-blob"></a>JSON-exempel: Kopiera data från Sybase till Azure Blob

@@ -76,10 +76,10 @@ Följande tabell innehåller en beskrivning för JSON-element som är specifika 
 | --- | --- | --- |
 | type |Type-egenskapen måste anges till: **OnPremisesPostgreSql** |Ja |
 | server |Namnet på PostgreSQL-servern. |Ja |
-| databas |Namnet på PostgreSQL-databasen. |Ja |
-| schemat |Namnet på schemat i databasen. Schemanamnet är skiftlägeskänsligt. |Nej |
+| database |Namnet på PostgreSQL-databasen. |Ja |
+| schema |Namnet på schemat i databasen. Schemanamnet är skiftlägeskänsligt. |Nej |
 | authenticationType |Typ av autentisering som används för att ansluta till PostgreSQL-databasen. Möjliga värden: Anonym, Basic och Windows. |Ja |
-| användarnamn |Ange användarnamnet om du använder grundläggande eller Windows-autentisering. |Nej |
+| username |Ange användarnamnet om du använder grundläggande eller Windows-autentisering. |Nej |
 | password |Ange lösenord för det användarkonto som du angav för användarnamnet. |Nej |
 | gatewayName |Namnet på den gateway som Data Factory-tjänsten ska använda för att ansluta till den lokala PostgreSQL-databasen. |Ja |
 
@@ -101,7 +101,7 @@ När källan är av typen **RelationalSource** (som innehåller PostgreSQL), fö
 
 | Egenskap  | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| DocumentDB |Använd anpassad fråga för att läsa data. |SQL-sträng. Till exempel: `"query": "select * from \"MySchema\".\"MyTable\""`. |Nej (om **tableName** av **datauppsättning** har angetts) |
+| query |Använd anpassad fråga för att läsa data. |SQL-sträng. Till exempel: `"query": "select * from \"MySchema\".\"MyTable\""`. |Nej (om **tableName** av **datauppsättning** har angetts) |
 
 > [!NOTE]
 > Schema och tabellnamn är skiftlägeskänsliga. Sätter dem inom `""` (dubbla citattecken) i frågan.

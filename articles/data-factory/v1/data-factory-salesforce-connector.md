@@ -71,7 +71,7 @@ I följande tabell innehåller beskrivningar av JSON-element som är specifika f
 | --- | --- | --- |
 | type |Type-egenskapen måste anges till: **Salesforce**. |Ja |
 | environmentUrl | Ange URL: en för Salesforce-instans. <br><br> – Standardvärdet är ”https:\//login.salesforce.com”. <br> – Om du vill kopiera data från sandbox, ange ”https://test.salesforce.com”. <br> – Om du vill kopiera data från anpassad domän, ange, till exempel ”https://[domain].my.salesforce.com”. |Nej |
-| användarnamn |Ange ett användarnamn för användarkontot. |Ja |
+| username |Ange ett användarnamn för användarkontot. |Ja |
 | password |Ange ett lösenord för användarkontot. |Ja |
 | securityToken |Ange en säkerhetstoken för användarkontot. Se [hämta säkerhetstoken för](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) för instruktioner om hur du återställning/hämta en säkerhetstoken. Läs mer om säkerhetstoken i allmänhet i [säkerhets- och API: et](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm). |Ja |
 
@@ -98,7 +98,7 @@ I kopieringsaktiviteten när källan är av typen **RelationalSource** (som omfa
 
 | Egenskap  | Beskrivning | Tillåtna värden | Obligatoriskt |
 | --- | --- | --- | --- |
-| DocumentDB |Använd anpassad fråga för att läsa data. |En SQL-92-fråga eller [Salesforce objektet Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) fråga. Till exempel: `select * from MyTable__c`. |Nej (om den **tableName** av den **datauppsättning** har angetts) |
+| query |Använd anpassad fråga för att läsa data. |En SQL-92-fråga eller [Salesforce objektet Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) fråga. Till exempel: `select * from MyTable__c`. |Nej (om den **tableName** av den **datauppsättning** har angetts) |
 
 > [!IMPORTANT]
 > Den ”__c”-delen av API-namn krävs för alla anpassade objekt.

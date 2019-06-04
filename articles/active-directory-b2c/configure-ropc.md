@@ -73,7 +73,7 @@ Använd din favorit-API-program för utveckling för att generera ett API-anrop 
 | username | leadiocl@outlook.com |
 | password | Passxword1 |
 | grant_type | password |
-| scope | openid \<bef2222d56-552f-4a5b-b90a-1988a7d634c3 > offline_access |
+| omfång | openid \<bef2222d56-552f-4a5b-b90a-1988a7d634c3 > offline_access |
 | client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
 | response_type | token id_token |
 
@@ -113,7 +113,7 @@ Skapa en POST-anrop som den som visas här med informationen i följande tabell 
 | grant_type | refresh_token |
 | response_type | id_token |
 | client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
-| resource | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
+| resurs | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
 | refresh_token | eyJraWQiOiJacW9pQlp2TW5pYVc2MUY0TnlfR3... |
 
 *Client_id* och *resource* är de värden som du antecknade tidigare som program-ID *Refresh_token* är token som du fick i authentication-samtal som tidigare nämnts.

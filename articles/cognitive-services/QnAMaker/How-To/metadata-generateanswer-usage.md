@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 05/10/2019
+ms.date: 05/30/2019
 ms.author: tulasim
-ms.openlocfilehash: 2454e07e4fc4600f846acc7afbcc19cc0b677450
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 3088d0f161496cfd2e1cb8897cef36365ece9962
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792242"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496960"
 ---
 # <a name="get-a-knowledge-answer-with-the-generateanswer-api-and-metadata"></a>Hämta ett knowledge svar med GenerateAnswer API och metadata
 
@@ -71,8 +71,8 @@ https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
 |--|--|--|--|
 |URL-parameter för väg|Kunskapsbas-ID|string|GUID för kunskapsbasen.|
 |URL-parameter för väg|QnAMaker slutpunktsvärd|string|Värdnamnet för den slutpunkt som distribuerats i din Azure-prenumeration. Detta är tillgängligt på sidan inställningar när du har publicerat i knowledge base. |
-|Sidhuvud|Innehållstyp|string|Medietyp i texten som skickas till API: et. Standardvärdet är: ''|
-|Sidhuvud|Auktorisering|string|Din slutpunktsnyckeln (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
+|Huvud|Content-Type|string|Medietyp i texten som skickas till API: et. Standardvärdet är: ''|
+|Huvud|Auktorisering|string|Din slutpunktsnyckeln (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
 |Publicera brödtext|JSON-objekt|JSON|Fråga med inställningar|
 
 
@@ -80,12 +80,13 @@ JSON-texten har flera inställningar:
 
 |Brödtext JSON-egenskap|Krävs|Type|Syfte|
 |--|--|--|--|
-|`question`|obligatorisk|string|En användare-fråga som ska skickas till din kunskapsbas.|
-|`top`|valfri|heltal|Antal översta resultat ska ingå i utdata. Standardvärdet är 1.|
-|`userId`|valfri|string|Ett unikt ID för att identifiera användaren. Detta ID kommer att läggas till i chattloggarna.|
-|`scoreThreshold`|valfri|heltal|Endast svar med förtroendepoäng ovanför denna tröskel returneras. Standardvärdet är 0.|
-|`isTest`|valfri|boolesk|Om värdet är true, returnerar resultat från `testkb` Search-index i stället för publicerade index.|
-|`strictFilters`|valfri|string|Om anges talar du om QnA Maker att returnera endast de svar som har angivna metadata. Använd `none` som visar svaret ska ha inga filter för filmetadata. |
+|`question`|Krävs|string|En användare-fråga som ska skickas till din kunskapsbas.|
+|`top`|Valfritt|heltal|Antal översta resultat ska ingå i utdata. Standardvärdet är 1.|
+|`userId`|Valfritt|string|Ett unikt ID för att identifiera användaren. Detta ID kommer att läggas till i chattloggarna.|
+|`scoreThreshold`|Valfritt|heltal|Endast svar med förtroendepoäng ovanför denna tröskel returneras. Standardvärdet är 0.|
+|`isTest`|Valfritt|boolesk|Om värdet är true, returnerar resultat från `testkb` Search-index i stället för publicerade index.|
+|`strictFilters`|Valfritt|string|Om anges talar du om QnA Maker att returnera endast de svar som har angivna metadata. Använd `none` som visar svaret ska ha inga filter för filmetadata. |
+|`RankerType`|Valfritt|string|Om tillhörigheten `QuestionOnly`, talar om för QnA Maker att söka efter frågor endast. Om inte anges söker QnA Maker frågor och svar.
 
 Det ser ut som ett exempel på JSON-texten:
 
@@ -113,13 +114,13 @@ Ett lyckat svar returneras statusen 200 och ett JSON-svar.
 |Svar-egenskap (sorterat efter bedömning)|Syfte|
 |--|--|
 |poäng|En rangordning mellan 0 och 100.|
-|ID|Ett unikt ID för svaret.|
+|Id|Ett unikt ID för svaret.|
 |Frågor|Frågor som anges av användaren.|
 |Svar|Svaret på frågan.|
 |source|Namnet på källan svaret har extraherats, eller sparats i knowledge base.|
 |metadata|Metadata som associeras med svaret.|
 |metadata.name|Namn på metadata. (string, maximal längd: 100 krävs)|
-|metadata.value: Metadata-värde. (string, maximal längd: 100 krävs)|
+|metadata.value|Metadata-värde. (string, maximal längd: 100 krävs)|
 
 
 ```json
@@ -172,7 +173,7 @@ Eftersom det behövs endast för restaurang ”Paradise” resultat, kan du ange
 }
 ```
 
-<name="keep-context"></a>
+<a name="keep-context"></a>
 
 ## <a name="use-question-and-answer-results-to-keep-conversation-context"></a>Använda frågor och svar resultat för att hålla konversationen kontext
 
@@ -201,6 +202,21 @@ Svaret på GenerateAnswer innehåller motsvarande metadatainformation för match
             ]
         }
     ]
+}
+```
+
+## <a name="match-questions-only-by-text"></a>Matcha frågor endast genom text
+
+Som standard söker QnA Maker genom frågor och svar. Om du vill söka igenom frågor endast kan använda för att generera ett svar på `RankerType=QuestionOnly` i själva POST GenerateAnswer begäran.
+
+Du kan söka igenom de publicerade kb med `isTest=false`, eller i kb test med `isTest=true`.
+
+```json
+{
+  "question": "Hi",
+  "top": 30,
+  "isTest": true,
+  "RankerType":"QuestionOnly"
 }
 ```
 

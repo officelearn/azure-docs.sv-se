@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/20/2019
 ms.author: diberry
-ms.openlocfilehash: 0aab2250d6692d7db99c55b23604c08f5fe619a6
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 3ca166b287858b3e42aeda1421d1733fe24c81ab
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235707"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479713"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Använd uppföljning uppmanas du för att skapa flera varv en konversation
 
@@ -389,7 +389,11 @@ Du har lagt till anvisningarna i kunskapsbasen och testas flödet i rutan. Nu sk
 
 Den [text som visas och visningsordning](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update#promptdto), returneras i JSON-svar, det finns stöd för redigering av den [Update API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update). 
 
-Åtgärda – måste gå till överordnad och svaret kolumnen och sedan Redigera svar. 
+<!--
+
+FIX - Need to go to parent, then answer column, then edit answer. 
+
+-->
 
 ## <a name="next-steps"></a>Nästa steg
 

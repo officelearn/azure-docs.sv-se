@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/10/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 2677c993b759988b0a9906b357bcd352b243b5a7
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: b599beb6a8d14d0e62d236251fb5f5b1e1a8bcfd
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792680"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496931"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Bästa praxis för en kunskapsbas med QnA Maker
 Den [kunskapsbas för säkerhetsutveckling](../Concepts/development-lifecycle-knowledge-base.md) guidar dig om hur du hanterar din Kunskapsbas från början till slut. Använda dessa bästa metoder för att förbättra din kunskapsbas och ge bättre resultat för din robot program/chatt slutanvändare.
@@ -72,6 +72,9 @@ Kontrollera att du gör på bästa sätt rangordning-funktioner som har stöd f�
 ### <a name="choosing-a-threshold"></a>Välja ett tröskelvärde
 Standard-förtroendepoäng som används som ett tröskelvärde är 50, men du kan ändra den för din Kunskapsbas utifrån dina behov. Eftersom varje KB skiljer sig, bör du testa och välj tröskelvärde som passar bäst för din Kunskapsbas. Läs mer om den [förtroendepoäng](../Concepts/confidence-score.md). 
 
+### <a name="choosing-ranker-type"></a>Välja rankningen typ
+Som standard söker QnA Maker genom frågor och svar. Om du vill söka igenom frågor endast kan använda för att generera ett svar på `RankerType=QuestionOnly` i själva POST GenerateAnswer begäran.
+
 ### <a name="add-alternate-questions"></a>Lägga till alternativa frågor
 [Alternativa frågor](../How-To/edit-knowledge-base.md) förbättra sannolikheten för en matchning med en användarfråga. Alternativa frågor är användbara när det finns flera sätt samma fråga kan bli ombedd. Detta kan inkludera ändringar i meningen struktur och word-format.
 
@@ -103,7 +106,7 @@ Du kan till exempel ha två separata kunskapsbaser med följande frågor:
 |där är parkering *plats*|
 |där är ATM *plats*|
 
-Eftersom dessa två kunskapsbaser fraserats med mycket lik ord, ungefär poäng för många av användarfrågor som fraserats som kan leda till den här likheter *”där är den `<x>` plats”*. Försök att tydligt skilja med frågor som *”var är p-plats”* och *”var är ATM”*, genom att undvika ord som ”plats” som kan befinna sig i många frågor i din KB. 
+Eftersom dessa två kunskapsbaser fraserats med mycket lik ord, ungefär poäng för många av användarfrågor som fraserats som kan leda till den här likheter *”där är den `<x>` plats”* . Försök att tydligt skilja med frågor som *”var är p-plats”* och *”var är ATM”* , genom att undvika ord som ”plats” som kan befinna sig i många frågor i din KB. 
 
 ## <a name="collaborate"></a>Samarbeta
 QnA Maker kan användarna [samarbeta](../How-to/collaborate-knowledge-base.md) på en kunskapsbas. Användare behöver åtkomst till Azure QnA Maker resursgruppen för att komma åt kunskapsbaser. Vissa organisationer vilja indrivningen kunskapsbas redigering och underhåll och fortfarande kunna skydda åtkomsten till deras Azure-resurser. Den här redigeraren godkännaren modellen gör du genom att konfigurera två identiska [QnA Maker services](../How-to/set-up-qnamaker-service-azure.md) i olika prenumerationer och välja en för testning av redigera cykeln. När testningen är klar innehållet i kunskapsbasen överförs med en [import / export-](../Tutorials/migrate-knowledge-base.md) bearbeta till QnA Maker-tjänsten till godkännaren slutligen publicera kunskapsbasen och uppdatera slutpunkten.

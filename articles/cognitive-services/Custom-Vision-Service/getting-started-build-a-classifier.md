@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: anroth
-ms.openlocfilehash: d0f0f3b120187a7538989f219876a8c10569a98e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3cb67b57f406774b4bcaf57c24b8e7741068ced6
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60606352"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497311"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>Hur du skapar en klassificerare med anpassad visuellt innehåll
 
@@ -28,7 +28,7 @@ Om du vill använda Custom Vision Service för klassificering av avbildning mås
 
 
 ## <a name="create-custom-vision-resources-in-the-azure-portal"></a>Skapa anpassade Vision resurser i Azure portal
-Om du vill använda Custom Vision Service kommer du behöva skapa Custom Vision-utbildning och förutsägelser resurser i den i den [Azure-portalen](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision). Detta skapar både för träning och förutsägelser resurs. 
+Om du vill använda Custom Vision Service kommer du behöva skapa Custom Vision-utbildning och förutsägelser resurser i den [Azure-portalen](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision). Detta skapar både för träning och förutsägelser resurs. 
 
 ## <a name="create-a-new-project"></a>Skapa ett nytt projekt
 
@@ -70,8 +70,8 @@ Använda bilder med visual rad för att träna din modell effektivt. Välj avbil
 * Bakgrund
 * visualiseringsformat
 * person/grupperade subject(s)
-* storlek
-* typ
+* Storlek
+* type
 
 Kontrollera dessutom alla dina inlärningsbilder uppfylla följande kriterier:
 * .bmp, .jpg eller .png-format

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 06/03/2019
 ms.author: diberry
-ms.openlocfilehash: 8c2ed8932e67a2e0c83fe4e3fdf6783c24e56a6e
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 294905ccfd0ce8db6da8737277b0ce978ba837ea
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956992"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473528"
 ---
 # <a name="collaborating-with-other-authors"></a>Samarbeta med andra
 
@@ -31,7 +31,7 @@ Se [Azure Active Directory-klientanvändare](luis-how-to-collaborate.md#azure-ac
 
 ## <a name="luis-app-owner"></a>LUIS appägare
 
-Det konto som skapar en app är ägare och varje app har en enda ägare. Ägaren anges på appen **[inställningar](luis-how-to-collaborate.md)** sidan. Ägare kan ta bort appen får e-postmeddelande när slutpunkten kvoten är nådd 75% av den månatliga begränsningen. 
+Det konto som skapar en app är ägare och varje app har en enda ägare. Ägaren anges på appen **[inställningar](luis-how-to-collaborate.md)** sidan. Ägare får e-postmeddelande när slutpunkten kvoten är nådd 75% av den månatliga begränsningen. 
 
 ## <a name="authorization-roles"></a>Auktoriseringsroller
 LUIS stöder inte olika roller för ägare och medarbetare med ett undantag. Ägaren är det enda kontot som kan ta bort appen.
@@ -42,7 +42,7 @@ Om du är intresserad av att kontrollera åtkomst till modellen kan du överväg
 LUIS ger inte överlåtelse av äganderätt, men alla medarbetare kan exportera en app och sedan skapa en app genom att importera den. Tänk på den nya appen har ett annat App-ID. Ny krävs för appen ska vara utbildade, publiceras och den nya slutpunkten som används.
 
 ## <a name="luis-app-collaborators"></a>LUIS-app medarbetare
-En appägare kan lägga till medarbetare till en app. Ägaren måste lägga till den medarbetarens e-postadress på app  **[inställningar](luis-how-to-collaborate.md)**. Medarbetaren har fullständig åtkomst till appen. Om medarbetaren tar bort appen, appen tas bort från den medarbetarens konto men finns kvar i ägarens konto. 
+En appägare kan lägga till medarbetare till en app. Ägaren måste lägga till den medarbetarens e-postadress på app  **[inställningar](luis-how-to-collaborate.md)** . Medarbetaren har fullständig åtkomst till appen. Om medarbetaren tar bort appen, appen tas bort från den medarbetarens konto men finns kvar i ägarens konto. 
 
 Om du vill dela flera appar med medarbetare, måste den medarbetarens e-post har lagts till i varje app. 
 

@@ -1,5 +1,5 @@
 ---
-title: Entiteten matchare i en konversation Learner modell – Microsoft Cognitive Services | Microsoft Docs
+title: Entiteten matchare i en konversation Learner modell – Azure Cognitive Services | Microsoft Docs
 titleSuffix: Azure
 description: Lär dig hur du använder entiteten matchare i Konversationsdeltagare.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 7b5f5645a8b5d1d993f87d18503fe270f42c5de5
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 51f74f504f0ad70c8c7f73be8ee6a05add685824
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390033"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475751"
 ---
 # <a name="entity-resolvers"></a>Entiteten matchare
 
@@ -94,4 +94,4 @@ Starta på startsidan i Webbgränssnittet.
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Alternativa indata](./10-alternative-inputs.md)
+> [Enum entiteter](./tutorial-enum-set-entity.md)

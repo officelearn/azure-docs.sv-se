@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: diberry
-ms.openlocfilehash: 1f5aab607c5046df0dee4db5caf36b0b7de53c4d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: feb4622be14b51cfa72c33cda6c2477f799758c6
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60813919"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473585"
 ---
 # <a name="authoring-and-query-prediction-endpoint-keys-in-luis"></a>Skriv- och fråga förutsägelse endpoint nycklar i LUIS
 LUIS använder två nycklar: [redigering](#programmatic-key) och [endpoint](#endpoint-key). Redigering nyckeln skapas automatiskt åt dig när du skapar ditt Understanding Intelligent Service-konto. När du är redo att publicera LUIS-appen kan du behöva [skapa slutpunktsnyckeln](luis-how-to-azure-subscription.md), [tilldela den](luis-how-to-azure-subscription.md) till din LUIS-app och [använder den med slutpunkt-frågan](#use-endpoint-key-in-query). 
@@ -49,11 +49,11 @@ När du behöver **produktion endpoint frågor**, skapa en Azure-resurs och seda
 
 När process för att skapa Azure-resurs är klar [tilldela nyckeln](luis-how-to-azure-subscription.md) till appen. 
 
-    * Slutpunktsnyckeln kan en kvot på slutpunkten träffar baserat på vilken plan för användning som du angav när du skapar nyckeln. Se [priser för Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/?v=17.23h) information om priser.
+* Slutpunktsnyckeln kan en kvot på slutpunkten träffar baserat på vilken plan för användning som du angav när du skapar nyckeln. Se [priser för Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/?v=17.23h) information om priser.
 
-    * Slutpunktsnyckeln kan användas för alla dina LUIS-appar eller för specifika LUIS-appar. 
+* Slutpunktsnyckeln kan användas för alla dina LUIS-appar eller för specifika LUIS-appar. 
 
-    * Använd inte slutpunktsnyckeln för redigering av LUIS-appar. 
+* Använd inte slutpunktsnyckeln för redigering av LUIS-appar. 
 
 ## <a name="use-endpoint-key-in-query"></a>Använd slutpunktsnyckeln i fråga
 LUIS-slutpunkten accepterar två sorters fråga, både använda slutpunkten nyckel, men på olika platser:

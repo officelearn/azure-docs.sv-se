@@ -1,5 +1,5 @@
 ---
-title: Hur du använder Version taggning med en modell för konversationen Learner – Microsoft Cognitive Services | Microsoft Docs
+title: Hur du använder Version taggning med en modell för konversationen Learner – Azure Cognitive Services | Microsoft Docs
 titleSuffix: Azure
 description: Lär dig hur du använder versionshantering och taggning med en Konversationsdeltagare-modell.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 7a1d94700cf84068f918ecff4f4dd433358341e0
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 4067c7fb43cc200b8f49dbc14151c69a188e4e8e
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66388403"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475704"
 ---
 # <a name="how-to-use-version-tagging"></a>Hur du använder Version taggning
 
@@ -109,4 +109,4 @@ Du har nu sett hur versionshantering fungerar och hur du interagerar med robot s
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Demo – återställning av lösenord](./demo-password-reset.md)
+> [Enum entiteter och åtgärder för entitet](./tutorial-enum-set-entity.md)

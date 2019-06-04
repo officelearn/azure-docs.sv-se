@@ -67,7 +67,7 @@ Följande avsnitt innehåller information om JSON-egenskaper som används för a
 ## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 I följande tabell innehåller beskrivningar av JSON-element som är specifika för Salesforce-länkade tjänsten.
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | type |Type-egenskapen måste anges till: **Salesforce**. |Ja |
 | environmentUrl | Ange URL: en för Salesforce-instans. <br><br> – Standardvärdet är ”https:\//login.salesforce.com”. <br> – Om du vill kopiera data från sandbox, ange ”https://test.salesforce.com”. <br> – Om du vill kopiera data från anpassad domän, ange, till exempel ”https://[domain].my.salesforce.com”. |Nej |
@@ -80,7 +80,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Den **typeProperties** avsnittet är olika för varje typ av datauppsättning och tillhandahåller information om platsen för data i datalagret. TypeProperties avsnittet för en datauppsättning av typen **RelationalTable** har följande egenskaper:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | tableName |Namnet på tabellen i Salesforce. |Nej (om en **fråga** av **RelationalSource** har angetts) |
 
@@ -96,7 +96,7 @@ De egenskaper som är tillgängliga i avsnittet typeProperties i aktiviteten, å
 
 I kopieringsaktiviteten när källan är av typen **RelationalSource** (som omfattar Salesforce), följande egenskaper är tillgängliga i avsnittet typeProperties:
 
-| Egenskap  | Beskrivning | Tillåtna värden | Obligatoriskt |
+| Egenskap | Beskrivning | Tillåtna värden | Obligatoriskt |
 | --- | --- | --- | --- |
 | query |Använd anpassad fråga för att läsa data. |En SQL-92-fråga eller [Salesforce objektet Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) fråga. Till exempel: `select * from MyTable__c`. |Nej (om den **tableName** av den **datauppsättning** har angetts) |
 

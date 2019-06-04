@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: 80e5feeccc4acc3e1f3dab6b815c8605332c7c71
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 976830232453eee0993e64ac445c2e6a2f7e20ef
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65834320"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66478574"
 ---
 # <a name="personalizer-settings"></a>Personalizer inställningar
 
@@ -63,7 +63,9 @@ När du har ändrat den här inställningen, se till att välja **spara**.
 
 ### <a name="model-update-frequency"></a>Uppdateringsfrekvensen för modellen
 
-**Modellera uppdateringsfrekvensen** anger hur ofta en ny modell för Personalizer modellkomponenten. 
+Den senaste modellen tränas från utmärkelse API-anrop från varje händelse som active används inte automatiskt av Personalizer rangordnas anrop. Den **modellen uppdateringsfrekvensen** anger hur ofta modellen som rangordnas anropet uppdateras. 
+
+Hög modellen update frekvenser är användbara för situationer där du vill spåra ändringar i användarbeteenden noggrant. Exempel innefattar webbplatser som körs på live nyheter, viral innehåll eller live produkten budgivning. Du kan använda en 15 minuters frekvens i dessa scenarier. En lägre uppdateringsfrekvensen är effektiva för de flesta användningsfall. En minut frekvenser som uppdateringen är användbart när du felsöker ett program kod med hjälp av Personalizer, göra demonstrationer eller interaktivt testa machine learning aspekter.
 
 ![Uppdateringsfrekvensen för modellen anger hur ofta en ny modell för Personalizer modellkomponenten.](media/settings/configure-model-update-frequency-settings.png)
 
@@ -77,7 +79,7 @@ När du har ändrat den här inställningen, se till att välja **spara**.
 
 ## <a name="export-the-personalizer-model"></a>Exportera Personalizer modellen
 
-Från den resurshantering avsnittet **modell och principen**, granska modellskapandet och datum för senaste uppdatering och exportera den aktuella modellen.
+Från den resurshantering avsnittet **modell och principen**, granska modellskapandet och datum för senaste uppdatering och exportera den aktuella modellen. Du kan använda Azure-portalen eller Personalizer-API: er för att exportera en modellfil för arkivering. 
 
 ![Exportera den aktuella Personalizer modellen](media/settings/export-current-personalizer-model.png)
 

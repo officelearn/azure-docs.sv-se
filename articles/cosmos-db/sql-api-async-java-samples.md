@@ -5,14 +5,14 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: sample
-ms.date: 06/18/2018
+ms.date: 12/03/2018
 ms.author: sngun
-ms.openlocfilehash: 34551dcc64e6add2baa1ec94067037c98de67abe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 46858affe44d488a9ade1693713072fded18afed
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61330546"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475802"
 ---
 # <a name="azure-cosmos-db-async-java-examples-for-the-sql-api"></a>Azure Cosmos DB: Async Java-exempel för SQL-API:et
 
@@ -31,7 +31,7 @@ De senaste exempelprogrammen som utför CRUD-åtgärder och andra vanliga åtgä
 * Länkar till uppgifterna i var och en av Async Java-projektfilerna. 
 * Länkar till det relaterade API-referensinnehållet.
 
-**Förutsättningar**
+**Krav**
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
   

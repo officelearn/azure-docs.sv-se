@@ -4,14 +4,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 2/20/2019
 ms.author: erhopf
-ms.openlocfilehash: af61d975b540787b9b54d9fdea66773c10aeb6ac
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 27fcf32a9a268488da318567d3edc55d23bd8967
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66145453"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66482329"
 ---
-1. Starta Visual Studio 2017.
+1. Starta Visual Studio 2019.
 
 1. Kontrollera att arbetsbelastningen **Desktop development with C++** (Skrivbordsutveckling med C++) är tillgänglig. Välj **Verktyg** > **Get Tools and Features** (Hämta verktyg och funktioner) på menyraden i Visual Studio för att öppna installationsprogrammet för Visual Studio. Om den här arbetsbelastningen redan är aktiverad går du direkt till nästa steg.
 
@@ -25,7 +25,7 @@ ms.locfileid: "66145453"
 
 1. Om du behöver aktivera antingen C++-arbetsbelastning eller NuGet väljer du **Ändra** (i det nedre högra hörnet av dialogrutan). Installationen av de nya funktionerna tar en stund. Om båda funktionerna redan har aktiverats stänger du dialogrutan.
 
-1. Skapa ett nytt Windows-konsolprogram för Visual C++ i Windows Desktop. Börja med att välja **Arkiv** > **Nytt** > **Projekt** på menyn. I dialogrutan **Nytt projekt** expanderar du **Installerat** > **Visual C++** > **Windows Desktop** i den vänstra fönsterrutan. Välj sedan **Windows-konsolprogram**. För projektnamnet anger du *helloworld*.
+1. Skapa ett nytt Windows-konsolprogram för Visual C++ i Windows Desktop. Börja med att välja **Arkiv** > **Nytt** > **Projekt** på menyn. I dialogrutan **Nytt projekt** expanderar du **Installerat** > **Visual C++**  > **Windows Desktop** i den vänstra fönsterrutan. Välj sedan **Windows-konsolprogram**. För projektnamnet anger du *helloworld*.
 
     ![Skärmbild av dialogrutan Nytt projekt](../articles/cognitive-services/Speech-Service/media/sdk/qs-cpp-windows-01-new-console-app.png)
 

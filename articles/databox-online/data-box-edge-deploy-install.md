@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 03/20/2019
+ms.date: 05/31/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Data Box Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: 7062e9d829242a62dfa4f661c21ce6c56b0db69c
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 0a9939155d92897019dc1ad5651d249cda11b993
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924528"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476935"
 ---
 # <a name="tutorial-install-azure-data-box-edge"></a>Självstudier: Installera Azure Data Box Edge
 
@@ -70,7 +70,7 @@ Den här enheten levereras i en enda låda. Slutför följande steg för att pac
 1. Placera lådan på en plan, jämn yta.
 2. Kontrollera lådan och förpackningsskummet för att se om det förekommer krosskador, skärningar, vattenskador eller andra uppenbara skador. Om lådan eller förpackningen är allvarligt skadad ska du inte öppna den. Kontakta Microsoft Support för att få hjälp att bedöma om enheten är i gott skick.
 3. Packa upp lådan. När du har packat upp lådan kontrollerar du att det finns:
-    - En Edge-enhet med ett enskilt hölje
+    - En enda hölje Data Box Edge-enhet
     - Två strömkablar
     - En rail kit sammansättning
     - En säkerhet, miljö och föreskrifter broschyr
@@ -100,7 +100,7 @@ Leta upp komponenterna för att installera rail kit sammansättningen:
 1. Dell ReadyRails av två A7-II som glidande rail sammansättningar
 2. Två hook och slinga remmar
 
-![Identifiera rail kit innehåll](./media/data-box-edge-deploy-install/identify-rail-kit-contents.png)
+    ![Identifiera rail kit innehåll](./media/data-box-edge-deploy-install/identify-rail-kit-contents.png)
 
 ### <a name="install-and-remove-tool-less-rails-square-hole-or-round-hole-racks"></a>Installera och ta bort verktyg rails (kvadratisk hål eller runda hål rack)
 
@@ -109,10 +109,10 @@ Leta upp komponenterna för att installera rail kit sammansättningen:
 
 1. Placera vänster och höger rail slutet delar märkta **FRONT** inför inåt och förstå varje slutpunkt del till enhet i hål på de lodräta racklister framsida.
 2. Justera varje slutpunkt del i de nedre och övre hål av de önskade U adressutrymmena.
-3. Engagera spåret backend-servern tills den fullständigt platser på lodrät rack flänsens och låset klickar på plats. Upprepa dessa steg om du vill placera och enhet klientdelen del på flänsens lodrät rack.
+3. Engagera spåret backend-servern tills den fullständigt platser på lodrät rack flänsens och låset klickar på plats. Upprepa dessa steg om du vill placera och enhet frontend-del på flänsens lodrät rack.
 4. Ta bort rails, hämta knappen spärr versionen på slutet del mittpunkten och ta bort varje rail.
 
-![Installera och ta bort verktyg rails](./media/data-box-edge-deploy-install/installing-removing-tool-less-rails.png)
+    ![Installera och ta bort verktyg rails](./media/data-box-edge-deploy-install/installing-removing-tool-less-rails.png)
 
 ### <a name="install-and-remove-tooled-rails-threaded-hole-racks"></a>Installera och ta bort tooled rails (listvy hål rack)
 
@@ -124,7 +124,7 @@ Leta upp komponenterna för att installera rail kit sammansättningen:
 3. Ansluta till vänster och höger montera rails till front lodrät racklister med hjälp av två par skruvar.
 4. Dra tillbaka vänster och höger hakparentes vidarebefordra mot de bakre lodrät racklister och bifoga dem med hjälp av två par skruvar.
 
-![Installera och ta bort tooled rails](./media/data-box-edge-deploy-install/installing-removing-tooled-rails.png)
+    ![Installera och ta bort tooled rails](./media/data-box-edge-deploy-install/installing-removing-tooled-rails.png)
 
 ### <a name="install-the-system-in-a-rack"></a>Installera i en rack
 
@@ -133,7 +133,7 @@ Leta upp komponenterna för att installera rail kit sammansättningen:
 3. Skicka systemet inåt tills Lås steg klickar du på på plats.
 4. Tryck på bild-versionen Lås knappar på både rails och bild systemet i racket.
 
-![Installera system i ett rack](./media/data-box-edge-deploy-install/installing-system-rack.png)
+    ![Installera system i ett rack](./media/data-box-edge-deploy-install/installing-system-rack.png)
 
 ### <a name="remove-the-system-from-the-rack"></a>Ta bort systemet från racket
 
@@ -141,7 +141,7 @@ Leta upp komponenterna för att installera rail kit sammansättningen:
 2. Lås upp varje spak genom att rotera upp till dess version position.
 3. Rapportelementen sidor av systemet ordentligt och dra den framåt tills rail standoffs är längst fram av J-platserna. Lyft systemet upp och från racket och placera den på en nivå för angrepp.
 
-![Ta bort system från racket](./media/data-box-edge-deploy-install/removing-system-rack.png)
+    ![Ta bort system från racket](./media/data-box-edge-deploy-install/removing-system-rack.png)
 
 ### <a name="engage-and-release-the-slam-latch"></a>Engagera och frigöra slam spärr
 
@@ -152,7 +152,7 @@ Leta upp komponenterna för att installera rail kit sammansättningen:
 2. Lås engagera automatiskt när systemet pushas till racket och släpps genom att dra på Lås.
 3. Om du vill skydda system för leverans i racket eller för andra instabil miljöer, leta upp hårda montering skruven under varje Lås och öka varje skruv med ett #2 stjärnskruvmejsel.
 
-![Engagera och frigöra slam spärr](./media/data-box-edge-deploy-install/engaging-releasing-slam-latch.png)
+    ![Engagera och frigöra slam spärr](./media/data-box-edge-deploy-install/engaging-releasing-slam-latch.png)
 
 ### <a name="route-the-cables"></a>Dirigera kablarna
 
@@ -164,16 +164,16 @@ Leta upp komponenterna för att installera rail kit sammansättningen:
 3. Tråd hook och slinga remmar via fack på yttre CMA hakparenteserna på båda sidor av systemet för att skydda en kabel-paket.
 
 
-![Dirigera kablarna](./media/data-box-edge-deploy-install/routing-cables.png)
+    ![Dirigera kablarna](./media/data-box-edge-deploy-install/routing-cables.png)
 
 ## <a name="cable-the-device"></a>Kabelansluta enheten
 
-Följande procedurer beskriver hur du kabelansluter Edge-enheten för strömförsörjning och nätverk.
+Följande procedurer beskriver hur du kabelanslut din Data Box Edge-enhet för kraft och nätverk.
 
 Innan du börjar kabelansluta enheten behöver du följande:
 
-- Den fysiska Edge-enheten uppackad och rackmonterad.
-- Två strömkablar. 
+- Din Data Box fysiska gränsenheten, packa upp, och rack monterade.
+- Två strömkablar.
 - Minst en 1-GbE RJ-45-nätverkskabel för att ansluta till hanteringsgränssnittet. Det finns två 1-GbE-nätverksgränssnitt på enheten, ett för hantering och ett för data.
 - En 25-GbE SFP+-kopparkabel för varje datanätverksgränssnitt som ska konfigureras. Minst ett datanätverksgränssnitten PORT 2, PORT 3, PORT 4, PORT 5 eller PORT 6 måste vara anslutet till Internet (med anslutning till Azure).  
 - Åtkomst till två strömfördelare (rekommenderas).
@@ -181,34 +181,46 @@ Innan du börjar kabelansluta enheten behöver du följande:
 > [!NOTE]
 > - Om du ansluter bara ett nätverksgränssnitt för data, rekommenderar vi att du använder ett 25/10 GbE-nätverksgränssnitt som PORT 3, PORT 4, PORT 5 eller 6 PORT för att skicka data till Azure. 
 > - För att få bästa prestanda och hantera stora datavolymer bör du ansluta alla dataportar.
-> - Edge-enheten bör anslutas till datacenternätverket så att den kan mata in data från datakällservrar.
+> - Data Box Edge-enhet bör anslutas till datacenternätverket så att den kan hämta data från data källservrar.
 
-Edge-enheten 8 NVMe SSD-enheter. Frontpanel har även statuslampor och strömknappar. Enheten innehåller redundanta nätaggregat (PSU) i den bakre delen. Enheten har sex nätverksgränssnitt:
+På din Data Box Edge-enhet:
 
-- Två 1 Gbit/s-gränssnitt
-- Fyra 25 Gbit/s-gränssnitt kan också fungera som 10 Gbit/s-gränssnitt.
-- En hanteringsstyrenhet för baskort (BMC). 
+- Frontpanel har diskenheter och en strömknappen.
 
-Identifiera de olika portarna på backsidan av enheten.
- 
-  ![Baksidan på en kabelansluten enhet](./media/data-box-edge-deploy-install/backplane-cabled.png)
+    - Det finns 10 disk platser först i din enhet.
+    - Fack 0 har en 240 GB SATA-enhet som används som en operativsystemdisk. Fack 1 är tom och fack 2-9 är NVMe SSD användas som datadiskar.
+- Backend-plan innehåller redundant kraft anger enheter (PSUs).
+- Backend plan har sex nätverksgränssnitt:
 
-Enheten har två nätverkskort som motsvarar de 6 portarna: 
+    - Två 1 Gbit/s-gränssnitt.
+    - Fyra 25 Gbit/s-gränssnitt kan också fungera som 10 Gbit/s-gränssnitt.
+    - En hanteringsstyrenhet för baskort (BMC).
 
- - QLogic FastLinQ 41264
- - QLogic FastLinQ 41262
+- Backend plan har två nätverkskort som motsvarar de 6 portarna:
+
+    - QLogic FastLinQ 41264
+    - QLogic FastLinQ 41262
 
 En fullständig lista över stöds kablar, växlar och mottagarna för dessa nätverkskort finns i [Cavium FastlinQ 41000 serien samverkan matrisen](https://www.marvell.com/documents/xalflardzafh32cfvi0z/).
  
 Utför följande steg för att kabelansluta enheten för strömförsörjning och nätverk.
 
-1. Anslut strömkablarna till vart och ett av nätaggregaten i höljet. För att säkerställa hög tillgänglighet installerar och ansluter du båda nätaggregaten till olika strömkällor.
+1. Identifiera de olika portarna på din enhet tillbaka plan.
 
-2. Anslut strömkablarna till rackets strömfördelare (PDU). Se till att de två strömfördelarna använder separata strömkällor.
+    ![Säkerhetskopiering plan för en kablade enhet](./media/data-box-edge-deploy-install/backplane-cabled.png)
 
-3. Anslut PORT 1 på nätverksgränssnittet med 1 GbE till den dator som används för att konfigurera den fysiska enheten. PORT 1 är det dedikerade hanteringsgränssnittet.
+2. Hitta disk-platser och strömknappen på framsidan av enheten.
 
-4. Anslut en eller flera av PORT 2, PORT 3, PORT 4, PORT 5 eller 6 PORT till datacenternätverket/Internet. Om du ansluter PORT 2 använder du RJ-45-nätverkskabeln. Använd kablar SFP +-kopparkabel för 10/25 GbE-nätverksgränssnitt.  
+    ![Främre planet för en enhet](./media/data-box-edge-deploy-install/device-front-plane-labeled-1.png)
+
+3. Anslut strömkablarna till vart och ett av nätaggregaten i höljet. För att säkerställa hög tillgänglighet installerar och ansluter du båda nätaggregaten till olika strömkällor.
+4. Anslut strömkablarna till rackets strömfördelare (PDU). Se till att de två strömfördelarna använder separata strömkällor.
+5. Tryck på strömknappen för att aktivera enheten.
+6. Anslut PORT 1 på nätverksgränssnittet med 1 GbE till den dator som används för att konfigurera den fysiska enheten. PORT 1 är det dedikerade hanteringsgränssnittet.
+7. Anslut en eller flera av PORT 2, PORT 3, PORT 4, PORT 5 eller 6 PORT till datacenternätverket/Internet.
+
+    - Om du ansluter PORT 2 använder du RJ-45-nätverkskabeln.
+    - Använd kablar SFP +-kopparkabel för 10/25 GbE-nätverksgränssnitt.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -223,5 +235,3 @@ Gå vidare till nästa självstudie och lär dig hur du ansluter, konfigurerar o
 
 > [!div class="nextstepaction"]
 > [Ansluta och konfigurera Data Box Edge](./data-box-edge-deploy-connect-setup-activate.md)
-
-

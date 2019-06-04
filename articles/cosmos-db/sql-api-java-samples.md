@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: sample
-ms.date: 02/08/2018
+ms.date: 02/08/2019
 ms.author: sngun
-ms.openlocfilehash: c0b776bfbae1f79b000c553b8318e273699a2fa3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 075ddf2df5c8bd5c6eed04911be1f4a20faf6921
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60627226"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475758"
 ---
 # <a name="azure-cosmos-db-java-examples-for-the-sql-api"></a>Azure Cosmos DB: Java-exempel för SQL-API:et
 
@@ -32,7 +32,7 @@ De senaste exempelprogrammen som utför CRUD-åtgärder och andra vanliga åtgä
 * Länkar till uppgifterna i var och en av Java-projektfilerna. 
 * Länkar till det relaterade API-referensinnehållet.
 
-**Förutsättningar**
+**Krav**
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
   

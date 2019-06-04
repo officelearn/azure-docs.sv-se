@@ -15,7 +15,7 @@
         - name: Konfigurera privat molnmiljö
           href: quickstart-create-private-cloud.md
         - name: Skapa virtuell VMware-dator i privat moln
-          href: 'https://docs.azure.cloudsimple.com/quickstart-create-private-cloud-vmware-virtual-machine/'
+          href: quickstart-create-private-cloud-vmware-virtual-machine.md
         - name: Använda virtuella VMware-datorer på Azure
           href: quickstart-create-vmware-virtual-machine.md
     - name: Begrepp

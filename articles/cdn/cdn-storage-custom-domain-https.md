@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 7aaf4be23c806dda621430c4d1b0c142f41feb1f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 51fcb1e504f853973d9772bcece7e893a2d94e44
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60323883"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472146"
 ---
 # <a name="tutorial-access-storage-blobs-using-an-azure-cdn-custom-domain-over-https"></a>Självstudier: Lagringsblobar för åtkomst med hjälp av en anpassad Azure CDN-domän via HTTPS
 
@@ -44,7 +44,7 @@ Azure CDN ignorerar eventuella begränsningar som läggs till i SAS-token. Alla 
 Överväg att aktivera cachelagring av frågesträngar om du skapar flera SAS-webbadresser för samma blobslutpunkt. Då ser du till att varje webbadress behandlas som en unik entitet. Mer information finns i [Kontrollera cachelagringsbeteendet i Azure CDN med frågesträngar](cdn-query-string.md).
 
 ## <a name="http-to-https-redirection"></a>Omdirigering från HTTP till HTTPS
-Du kan välja att dirigera om HTTP-trafik till HTTPS genom att skapa en [regel för omdirigering av webbadresser](cdn-rules-engine-reference-features.md#url-redirect) i [Azure CDN-regelmotorn](cdn-rules-engine.md). För det här alternativet behöver du en profil av typen **Azure CDN Premium från Verizon**. 
+Du kan välja att dirigera om HTTP-trafik till HTTPS genom att skapa en [regel för omdirigering av webbadresser](cdn-verizon-premium-rules-engine-reference-features.md#url-redirect) i [Azure CDN-regelmotorn](cdn-verizon-premium-rules-engine.md). För det här alternativet behöver du en profil av typen **Azure CDN Premium från Verizon**.
 
 ![Omdirigeringsregel för webbadresser](./media/cdn-storage-custom-domain-https/cdn-url-redirect-rule.png)
 

@@ -8,14 +8,14 @@ ms.service: cognitive-services
 ms.subservice: luis
 ms.topic: include
 ms.custom: include file
-ms.date: 12/21/2018
+ms.date: 06/03/2019
 ms.author: diberry
-ms.openlocfilehash: 589569ac1f7b3ff44880062cee235c3aa4375011
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: f419fdf2e11fa57438bb7f9756a395e35b3164c0
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66123756"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479794"
 ---
 1. Logga in på LUIS-portalen med webbadressen [https://www.luis.ai](https://www.luis.ai). 
 
@@ -27,4 +27,5 @@ ms.locfileid: "66123756"
 
     ![Skapa ny LUIS-app för HumanResources](./media/cognitive-services-luis/tutorials-create-new-app/create-app.png)
 
-1. Välj **Done** (Klar). Appen visar sedan sidan **Avsikter** med avsikten **Ingen**.
+1. Välj **Done** (Klar). 
+

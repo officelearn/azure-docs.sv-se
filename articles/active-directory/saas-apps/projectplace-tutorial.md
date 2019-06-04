@@ -1,11 +1,11 @@
 ---
 title: 'Självstudier: Azure Active Directory-integrering med Projectplace | Microsoft Docs'
-description: I de här självstudierna lär du dig att konfigurera enkel inloggning mellan Azure Active Directory och Projectplace.
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Projectplace.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
-ms.reviewer: barbkess
+ms.reviewer: celested
 ms.assetid: 298059ca-b652-4577-916a-c31393d53d7a
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
@@ -13,178 +13,131 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/26/2019
+ms.date: 05/29/2019
 ms.author: jeedes
-ms.openlocfilehash: 17fbc6bc4f022a15c34c5ca7b9465be392cdc639
-ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: aae6de49a3df3f1e648b99aa9936d6af85fc020f
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65560633"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497293"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-projectplace"></a>Självstudier: Azure Active Directory-integrering med Projectplace
+# <a name="tutorial-integrate-projectplace-with-azure-active-directory"></a>Självstudier: Integrera Projectplace med Azure Active Directory
 
-I de här självstudierna lär du dig att integrera Projectplace med Azure Active Directory (AD Azure).
+I de här självstudierna lär du dig att integrera Projectplace med Azure Active Directory (AD Azure). När du integrerar Projectplace med Azure AD, kan du:
 
-Den här integrationen har följande fördelar:
+* Styr i Azure AD som har åtkomst till Projectplace.
+* Ge dina användare att automatiskt inloggad till Projectplace med sina Azure AD-konton.
+* Hantera konton på en central plats – Azure portal.
+* Användare kan etableras i Projectplace automatiskt.
 
-* Du kan använda Azure AD för att kontrollera vem som har åtkomst till Projectplace.
-* Du kan aktivera användarna att logga in automatiskt till Projectplace (enkel inloggning) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats: Azure-portalen.
-
-Läs mer om SaaS-appintegrering med Azure AD i [Enkel inloggning till program i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-
-Om du inte har någon Azure-prenumeration [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Läs mer om integrering av SaaS-app med Azure AD i [vad är programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Om du vill konfigurera Azure AD-integrering med Projectplace, behöver du:
+För att komma igång behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du registrera dig för en [utvärderingsmånad](https://azure.microsoft.com/pricing/free-trial/) prenumeration.
-* En Projectplace-prenumeration som har enkel inloggning aktiverat.
+* En Azure AD-prenumeration. Om du inte har en prenumeration kan du få en [kostnadsfritt konto](https://azure.microsoft.com/free/).
+* Aktiverat prenumeration Projectplace enkel inloggning (SSO).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien får du konfigurera och testa Azure AD enkel inloggning i en testmiljö.
+I den här självstudien, konfigurera och testa Azure AD enkel inloggning i en testmiljö. Har stöd för Projectplace **SP och IDP** initierad SSO och stöder **Just In Time** etableringen av användare.
 
-* Projectplace stöder SP-initierad SSO.
+## <a name="adding-projectplace-from-the-gallery"></a>Att lägga till Projectplace från galleriet
 
-## <a name="add-projectplace-from-the-gallery"></a>Lägg till Projectplace från galleriet
+För att konfigurera integrering av Projectplace i Azure AD, som du behöver lägga till Projectplace från galleriet i din lista över hanterade SaaS-appar.
 
-Om du vill konfigurera integrering av Projectplace i Azure AD, som du behöver lägga till Projectplace från galleriet i din lista över hanterade SaaS-appar.
-
-1. I den [Azure-portalen](https://portal.azure.com), i den vänstra rutan väljer **Azure Active Directory**:
-
-    ![Välj Azure Active Directory](common/select-azuread.png)
-
-2. Gå till **företagsprogram** > **alla program**:
-
-    ![Bladet för Enterprise-program](common/enterprise-applications.png)
-
-3. Om du vill lägga till ett program, Välj **nytt program** överst i fönstret:
-
-    ![Välj nytt program](common/add-new-app.png)
-
-4. I sökrutan anger **Projectplace**. Välj **Projectplace** i sökresultatet och välj sedan **Lägg till**.
-
-     ![Sökresultat](common/search-new-app.png)
+1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
+1. I det vänstra navigeringsfönstret, väljer den **Azure Active Directory** service.
+1. Gå till **företagsprogram** och välj sedan **alla program**.
+1. Om du vill lägga till nytt program, Välj **nytt program**.
+1. I den **Lägg till från galleriet** Skriv **Projectplace** i sökrutan.
+1. Välj **Projectplace** från resultaten panelen och lägger sedan till appen. Vänta några sekunder medan appen läggs till i din klient.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Projectplace med hjälp av en användare med namnet Britta Simon.
-Om du vill aktivera enkel inloggning, måste du upprätta en relation mellan en Azure AD-användare och motsvarande användare i Projectplace.
+Konfigurera och testa Azure AD enkel inloggning med Projectplace med en testanvändare kallas **B. Simon**. Du måste upprätta en länk förhållandet mellan en Azure AD-användare och den relaterade användaren i Projectplace för SSO ska fungera.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med Projectplace, måste du slutföra de här stegen:
+Om du vill konfigurera och testa Azure AD enkel inloggning med Projectplace, utför du följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  att aktivera funktionen för dina användare.
-2. **[Konfigurera Projectplace enkel inloggning](#configure-projectplace-single-sign-on)**  på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  att testa Azure AD enkel inloggning.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  att aktivera Azure AD enkel inloggning för användaren.
-5. **[Skapa en testanvändare Projectplace](#create-a-projectplace-test-user)**  som är länkad till en Azure AD-representation av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)**  att kontrollera att konfigurationen fungerar.
+1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)**  vill tillåta att användarna använda den här funktionen.
+2. **[Konfigurera Projectplace](#configure-projectplace)**  att konfigurera inställningar för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  att testa Azure AD enkel inloggning med B. Simon.
+4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  att aktivera B. Simon att använda Azure AD enkel inloggning.
+5. **[Skapa testanvändare Projectplace](#create-projectplace-test-user)**  har en motsvarighet för B. Simon i Projectplace som är länkad till en Azure AD-representation av användaren.
+6. **[Testa SSO](#test-sso)**  att kontrollera om konfigurationen fungerar.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+### <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
-I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen.
+Följ dessa steg om du vill aktivera enkel inloggning för Azure AD i Azure-portalen.
 
-Konfigurera Azure AD enkel inloggning med Projectplace genom att göra följande:
+1. I den [Azure-portalen](https://portal.azure.com/)på den **Projectplace** programsidan integration, hitta den **hantera** och väljer **enkel inloggning**.
+1. På den **väljer du en metod för enkel inloggning** väljer **SAML**.
+1. På den **ange in enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **SAML grundkonfiguration** att redigera inställningarna.
 
-1. I den [Azure-portalen](https://portal.azure.com/)på den **Projectplace** application integration markerar **enkel inloggning**:
+   ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-    ![Välj enkel inloggning](common/select-sso.png)
+1. På den **SAML grundkonfiguration** om du vill konfigurera programmet i **IDP** initierad läge, programmet är förkonfigurerad och nödvändiga URL: er är redan ifyllda på förhand med Azure . Användaren behöver för att spara konfigurationen genom att klicka på den **spara** knappen.
 
-2. I den **väljer du en metod för enkel inloggning** dialogrutan **SAML/WS-Fed** läge för att aktivera enkel inloggning:
+1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![Välj en metod för enkel inloggning](common/select-saml-option.png)
+    I rutan **Inloggnings-URL** anger du en URL: `https://service.projectplace.com`
 
-3. På den **ange in enkel inloggning med SAML** väljer den **redigera** ikonen för att öppna den **SAML grundkonfiguration** dialogrutan:
+1. På den **ange in enkel inloggning med SAML** sidan den **SAML-signeringscertifikat** klickar du på Kopiera **ikonen** att kopiera den **Appfederationsmetadata** , enligt dina behov och spara den i anteckningar.
 
-    ![Ikonen Redigera](common/edit-urls.png)
+   ![Länk för hämtning av certifikat](common/copy-metadataurl.png)
 
-4. I den **SAML grundkonfiguration** i dialogrutan den **inloggnings-URL** anger en URL i det här mönstret:
+1. På den **konfigurera Projectplace** avsnittet, kopiera den lämpliga URL: er efter behov.
 
-    `https://<company>.projectplace.com`
+   ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-   ![Dialogrutan för grundläggande SAML-konfiguration](common/sp-signonurl.png)
-    > [!NOTE]
-    > Det här värdet är en platshållare. Du måste använda faktiska inloggnings-URL: en. Kontakta den [Projectplace-supportteamet](https://success.planview.com/Projectplace/Support) att hämta värdet. Du kan också referera till de mönster som visas i den **SAML grundkonfiguration** dialogrutan i Azure-portalen.
+### <a name="configure-projectplace"></a>Konfigurera Projectplace
 
-5. På den **ange in enkel inloggning med SAML** sidan den **SAML-signeringscertifikat** väljer den **hämta** länka bredvid **Federation Metadata-XML** enligt krav och spara certifikatet på datorn:
-
-    ![Länk för nedladdning av certifikat](common/metadataxml.png)
-
-6. I den **konfigurera Projectplace** avsnittet, kopiera de lämpliga URL: er, baserat på dina krav.
-
-    ![Kopiera URL: er för konfiguration](common/copy-configuration-urls.png)
-
-    1. **Inloggnings-URL**.
-
-    1. **Azure AD-identifierare**.
-
-    1. **URL för utloggning**.
-
-### <a name="configure-projectplace-single-sign-on"></a>Konfigurera Projectplace enkel inloggning
-
-Att konfigurera enkel inloggning på den **Projectplace** sida, som du behöver skicka de hämtade **XML-Metadata för Federation** certifikat och URL: er som du kopierade från Azure portal för att den [ Projectplace-supportteamet](https://success.planview.com/Projectplace/Support). Det här laget säkerställer SAML SSO-anslutningen är korrekt inställda på båda sidorna.
+Att konfigurera enkel inloggning på den **Projectplace** sida, som du behöver skicka den kopierade **Appfederationsmetadata** från Azure portal för att den [Projectplace-supportteamet](https://success.planview.com/Projectplace/Support) . Det här laget säkerställer SAML SSO-anslutningen är korrekt inställda på båda sidorna.
 
 >[!NOTE]
->Konfigurationen för enkel inloggning måste utföras av den [Projectplace-supportteamet](https://success.planview.com/Projectplace/Support). Du får ett meddelande när konfigurationen är klar.
+>Konfigurationen för enkel inloggning måste utföras av den [Projectplace-supportteamet](https://success.planview.com/Projectplace/Support). Du får ett meddelande när konfigurationen är klar. 
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-I det här avsnittet skapar du en användare med namnet Britta Simon i Azure-portalen.
+I det här avsnittet skapar du en användare i Azure-portalen kallas B. Simon.
 
-1. I Azure-portalen väljer du **Azure Active Directory** i den vänstra rutan väljer **användare**, och välj sedan **alla användare**:
-
-    ![Välj alla användare](common/users.png)
-
-2. Välj **ny användare** överst på skärmen:
-
-    ![Välj ny användare](common/new-user.png)
-
-3. I den **användaren** dialogrutan rutan, vidta följande steg.
-
-    ![Användardialogrutan](common/user-properties.png)
-
-    1. I rutan **Namn** anger du **BrittaSimon**.
-  
-    1. I den **användarnamn** anger **BrittaSimon @\<företagsdomänen >.\< tillägget >**. (Till exempel BrittaSimon@contoso.com.)
-
-    1. Välj **visa lösenord**, och sedan skriva ned det värde som är i den **lösenord** box.
-
-    1. Välj **Skapa**.
+1. På menyn till vänster i Azure-portalen väljer du **Azure Active Directory**väljer **användare**, och välj sedan **alla användare**.
+1. Välj **ny användare** överst på skärmen.
+1. I den **användaren** egenskaper, Följ dessa steg:
+   1. I **Namn**-fältet skriver du `B. Simon`.  
+   1. I den **användarnamn** fältet, anger du den username@companydomain.extension. Till exempel `BrittaSimon@contoso.com`.
+   1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
+   1. Klicka på **Skapa**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet ska du aktivera Britta Simon att använda Azure AD enkel inloggning ger användarens företagsidentitet åtkomst till Projectplace.
+I det här avsnittet ska du aktivera B. Simon att använda Azure enkel inloggning om du beviljar åtkomst till Projectplace.
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**, och välj sedan **Projectplace**.
+1. I Azure-portalen väljer du **företagsprogram**, och välj sedan **alla program**.
+1. I listan med program väljer **Projectplace**.
+1. Appens översiktssidan, hitta den **hantera** och väljer **användare och grupper**.
 
-    ![Bladet Företagsprogram](common/enterprise-applications.png)
+   ![Länken ”användare och grupper”](common/users-groups-blade.png)
 
-2. I listan med program väljer **Projectplace**.
+1. Välj **Lägg till användare**och välj sedan **användare och grupper** i den **Lägg till tilldelning** dialogrutan.
 
-    ![Lista över program](common/all-applications.png)
+    ![Länken Lägg till användare](common/add-assign-user.png)
 
-3. I den vänstra rutan väljer **användare och grupper**:
+1. I den **användare och grupper** dialogrutan **B. Simon** från listan över användare klickar på **Välj** längst ned på skärmen.
+1. Om du förväntar dig något rollvärde i SAML-försäkran i den **Välj roll** dialogrutan Välj rätt roll för användaren i listan och klicka sedan på den **Välj** längst ned på skärmen.
+1. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-    ![Välj Användare och grupper](common/users-groups-blade.png)
+### <a name="create-projectplace-test-user"></a>Skapa Projectplace testanvändare
 
-4. Välj **Lägg till användare** och sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
-
-    ![Välj Lägg till användare](common/add-assign-user.png)
-
-5. I den **användare och grupper** dialogrutan **Britta Simon** i listan och klicka sedan på den **Välj** längst ned på skärmen.
-
-6. Om du förväntar dig ett rollvärde i SAML-försäkran i den **Välj roll** dialogrutan väljer du rätt roll för användaren i listan. Klicka på den **Välj** längst ned på skärmen.
-
-7. I dialogrutan **Lägg till tilldelning** väljer du **Tilldela**.
-
-### <a name="create-a-projectplace-test-user"></a>Skapa en Projectplace-testanvändare
+>[!NOTE]
+>Du kan hoppa över det här steget om du har aktiverat i Projectplace-etablering. Du kan ställa den [Projectplace-supportteamet](https://success.planview.com/Projectplace/Support) att aktivera etablerar, när klar användare kommer att skapas i Projectplace under den första inloggningen.
 
 Du måste lägga till dem till Projectplace om du vill aktivera Azure AD-användare att logga in till Projectplace. Du måste lägga till dem manuellt.
 
-Skapa ett användarkonto genom att göra följande:
+**Skapa ett användarkonto genom att göra följande:**
 
 1. Logga in på din **Projectplace** företagets platsen som en administratör.
 
@@ -209,15 +162,14 @@ Skapa ett användarkonto genom att göra följande:
 >[!NOTE]
 >Du kan också använda ett annat användarkonto skapas verktyg eller API tillhandahålls av Projectplace att lägga till användarkonton i Azure AD.
 
-### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-Nu ska du testa Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+### <a name="test-sso"></a>Testa enkel inloggning
 
-När du väljer panelen Projectplace i åtkomstpanelen, bör det vara loggas in automatiskt till Projectplace-instansen som du ställer in enkel inloggning. Mer information finns i [öppna och använda appar på portalen Mina appar](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du väljer panelen Projectplace i åtkomstpanelen, bör det vara loggas in automatiskt till Projectplace som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Självstudier för att integrera SaaS-program med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

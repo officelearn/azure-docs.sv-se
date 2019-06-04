@@ -9,10 +9,10 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 05/17/2019
 ms.openlocfilehash: a6a681ace95f9bab3c77e4a0f9982a2281c778b8
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/04/2019
 ms.locfileid: "65966441"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Självstudier: Extrahera, transformera och läsa in data med hjälp av Azure Databricks
@@ -95,7 +95,7 @@ I det här avsnittet skapar du en Azure Databricks-tjänst i Azure Portal.
 
 2. Ange följande värden under **Azure Databricks-tjänst** för att skapa en Databricks-tjänst:
 
-    |Egenskap   |Beskrivning  |
+    |Egenskap  |Beskrivning  |
     |---------|---------|
     |**Namn på arbetsyta**     | Ange ett namn för Databricks-arbetsytan.        |
     |**Prenumeration**     | I listrutan väljer du din Azure-prenumeration.        |

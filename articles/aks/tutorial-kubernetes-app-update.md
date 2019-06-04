@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: twhitney
 ms.custom: mvc
-ms.openlocfilehash: f183fd9c9aca3e1c8ed5e2e31d2a451fae92e0a4
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 05eac7e673ad01e9d3e0fb25f261444fd7bc4e6d
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66304488"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475510"
 ---
 # <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>Självstudier: Uppdatera ett program i Azure Kubernetes Service (AKS)
 
@@ -85,7 +85,10 @@ Använd [dockertagg][docker-tag] för att tagga avbildningen. Ersätt `<acrLogin
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v2
 ```
 
-Använd nu [docker push][docker-push] för att ladda upp avbildningen till registret. Ersätt `<acrLoginServer>` med namnet på din ACR-inloggningsserver. Om du får problem med push-överföring till ACR-registret, så kontrollera att du har kört kommandot [az acr login][az-acr-login].
+Använd nu [docker push][docker-push] för att ladda upp avbildningen till registret. Ersätt `<acrLoginServer>` med namnet på din ACR-inloggningsserver.
+
+> [!NOTE]
+> Om du får problem med push-överföring till ACR-registret, se till att du fortfarande är inloggad. Kör den [docker login] [ az-acr-login] kommando med hjälp av namnet på ditt Azure-Behållarregister som du skapade i den [skapa ett Azure Container Registry](tutorial-kubernetes-prepare-acr.md#create-an-azure-container-registry) steg. Till exempel `az acr login --name <azure container registry name>`.
 
 ```console
 docker push <acrLoginServer>/azure-vote-front:v2

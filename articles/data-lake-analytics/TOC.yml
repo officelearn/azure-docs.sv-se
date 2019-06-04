@@ -48,6 +48,8 @@
           href: data-lake-analytics-diagnostic-logs.md
         - name: Justera kvotgränser
           href: data-lake-analytics-quota-limits.md
+        - name: Planera haveriberedskap
+          href: data-lake-analytics-disaster-recovery.md
     - name: Utveckla U-SQL-program
       items:
         - name: U-SQL-språk

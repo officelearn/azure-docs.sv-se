@@ -5,6 +5,8 @@
   items:
     - name: Vad är Language Understanding?
       href: what-is-luis.md
+    - name: Nyheter
+      href: whats-new.md
 - name: Snabbstarter
   items:
     - name: Bygg en fördefinierad domänapp
@@ -197,8 +199,9 @@
         - name: Med Stavningskontroll i Bing v7
           href: luis-tutorial-bing-spellcheck.md
         - name: Med Speech-tjänsten
-          href: luis-tutorial-speech-to-intent.md
-        - name: Använda V3 Bot Framework
+          maintainContext: true
+          href: ../speech-service/how-to-recognize-intents-from-speech-csharp.md?toc=/azure/cognitive-services/luis/toc.json&bc=/azure/cognitive-services/luis/breadcrumb/toc.json
+        - name: Med en robot
           items:
             - name: Robot för webbapp
               items:
@@ -400,8 +403,6 @@
       href: 'https://github.com/Microsoft/Cognitive-Samples-IntelligentKiosk'
 - name: Resurser
   items:
-    - name: Nyheter
-      href: whats-new.md
     - name: Regional tillgänglighet
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
     - name: Stöd för språk och region

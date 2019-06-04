@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 05/07/2018
+ms.date: 06/03/2019
 ms.author: diberry
-ms.openlocfilehash: 71104ecf0514b61e4f0d224d25f2ace9457f3cd3
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 5e79de8dc8b4e81f427925b6e3d662bd4931804d
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65145549"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497029"
 ---
 # <a name="tutorial-get-well-formatted-data-from-the-utterance"></a>Självstudier: Hämta välformaterade data från yttrandet
 I den här självstudien skapar du en app för att extrahera konsekvent formaterade data från ett yttrande med hjälp av entiteten **Reguljärt uttryck**.
@@ -125,7 +125,11 @@ Skapa en entitet för reguljära uttryck för att ange för LUIS vad ett HRF-num
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-2. Gå till slutet av URL:en i adressen och ange `When were HRF-123456 and hrf-234567 published in the last year?`. Den sista frågesträngsparametern är `q`, yttrande**frågan**. Det här yttrandet är inte samma som någon av de märkta yttrandena. Därför är det ett bra test och bör returnera avsikten `FindForm` med de två formulärnumren `HRF-123456` och `hrf-234567`.
+2. Gå till i slutet av URL-adressen och ange följande uttryck:
+
+    `When were HRF-123456 and hrf-234567 published in the last year?`
+
+    Den sista frågesträngsparametern är `q`, yttrande**frågan**. Det här yttrandet är inte samma som någon av de märkta yttrandena. Därför är det ett bra test och bör returnera avsikten `FindForm` med de två formulärnumren `HRF-123456` och `hrf-234567`.
 
     ```json
     {

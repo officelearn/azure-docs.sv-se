@@ -1,11 +1,11 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med OutSystems | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och OutSystems.
+title: 'Självstudier: Azure Active Directory-integrering med OutSystems Azure AD | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och OutSystems Azure AD.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
-ms.reviewer: barbkess
+ms.reviewer: celested
 ms.assetid: cf6f99b7-0604-4db2-a72e-0d1a1d643a08
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
@@ -13,197 +13,138 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/102019
+ms.date: 05/30/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e5768b8f7c368e57d55656f0e82b199995be150
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 0ff4f8f45bee86013b3f3603ba12fc121de9d7ce
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65780951"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475701"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-outsystems"></a>Självstudier: Azure Active Directory-integrering med OutSystems
+# <a name="tutorial-integrate-outsystems-azure-ad-with-azure-active-directory"></a>Självstudier: Integrera OutSystems Azure AD med Azure Active Directory
 
-I den här självstudien får du lära dig hur du integrerar OutSystems med Azure Active Directory (AD Azure).
-Integrera OutSystems med Azure AD ger dig följande fördelar:
+I de här självstudierna lär du dig att integrera OutSystems Azure AD med Azure Active Directory (AD Azure). När du integrerar OutSystems Azure AD med Azure AD, kan du:
 
-* Du kan styra i Azure AD som har åtkomst till OutSystems.
-* Du kan aktivera användarna att vara automatiskt inloggad till OutSystems (Single Sign-On) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure portal.
+* Styr i Azure AD som har åtkomst till OutSystems Azure AD.
+* Ge dina användare att automatiskt inloggad till OutSystems Azure AD med sina Azure AD-konton.
+* Hantera konton på en central plats – Azure portal.
 
-Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+Läs mer om integrering av SaaS-app med Azure AD i [vad är programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Om du vill konfigurera Azure AD-integrering med OutSystems, behöver du följande objekt:
+För att komma igång behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en [kostnadsfritt konto](https://azure.microsoft.com/free/)
-* OutSystems enkel inloggning aktiverad prenumeration
+* En Azure AD-prenumeration. Om du inte har en prenumeration kan du få en [kostnadsfritt konto](https://azure.microsoft.com/free/).
+* Aktiverat prenumeration OutSystems Azure AD enkel inloggning (SSO).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
+I den här självstudien, konfigurera och testa Azure AD enkel inloggning i en testmiljö. OutSystems Azure AD stöder **SP och IDP** initierad SSO och stöder **Just In Time** etableringen av användare.
 
-* OutSystems stöder **SP och IDP** -initierad SSO
+## <a name="adding-outsystems-azure-ad-from-the-gallery"></a>Att lägga till OutSystems Azure AD från galleriet
 
-* OutSystems stöder **Just In Time** etableringen av användare
+Om du vill konfigurera integreringen av OutSystems Azure AD till Azure AD, som du behöver lägga till OutSystems Azure AD från galleriet i din lista över hanterade SaaS-appar.
 
-## <a name="adding-outsystems-from-the-gallery"></a>Att lägga till OutSystems från galleriet
-
-För att konfigurera integrering av OutSystems i Azure AD, som du behöver lägga till OutSystems från galleriet i din lista över hanterade SaaS-appar.
-
-**Utför följande steg för att lägga till OutSystems från galleriet:**
-
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
-
-    ![Azure Active Directory-knappen](common/select-azuread.png)
-
-2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
-
-    ![Bladet Företagsprogram](common/enterprise-applications.png)
-
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
-
-    ![Knappen Nytt program](common/add-new-app.png)
-
-4. I sökrutan skriver **OutSystems**väljer **OutSystems** resultatet panelen klickar **Lägg till** för att lägga till programmet.
-
-    ![OutSystems i resultatlistan](common/search-new-app.png)
+1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
+1. I det vänstra navigeringsfönstret, väljer den **Azure Active Directory** service.
+1. Gå till **företagsprogram** och välj sedan **alla program**.
+1. Om du vill lägga till nytt program, Välj **nytt program**.
+1. I den **Lägg till från galleriet** Skriv **OutSystems Azure AD** i sökrutan.
+1. Välj **OutSystems Azure AD** från resultaten panelen och lägger sedan till appen. Vänta några sekunder medan appen läggs till i din klient.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med OutSystems baserat på en testanvändare kallas **Britta Simon**.
-För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i OutSystems upprättas.
+Konfigurera och testa Azure AD enkel inloggning med Azure AD med en testanvändare kallas OutSystems **B. Simon**. För enkel inloggning ska fungera, måste du upprätta en länk förhållandet mellan en Azure AD-användare och den relaterade användaren i OutSystems Azure AD.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med OutSystems, måste du utföra följande byggblock:
+Slutför följande byggblock för att konfigurera och testa Azure AD enkel inloggning med OutSystems Azure AD:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Konfigurera OutSystems Single Sign-On](#configure-outsystems-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Skapa testanvändare OutSystems](#create-outsystems-test-user)**  – du har en motsvarighet för Britta Simon i OutSystems som är länkad till en Azure AD-representation av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)**  vill tillåta att användarna använda den här funktionen.
+2. **[Konfigurera OutSystems Azure AD](#configure-outsystems-azure-ad)**  att konfigurera inställningar för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  att testa Azure AD enkel inloggning med B. Simon.
+4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  att aktivera B. Simon att använda Azure AD enkel inloggning.
+5. **[Skapa OutSystems Azure AD-testanvändare](#create-outsystems-azure-ad-test-user)**  har en motsvarighet för B. Simon i OutSystems Azure AD som är länkad till en Azure AD-representation av användaren.
+6. **[Testa SSO](#test-sso)**  att kontrollera om konfigurationen fungerar.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
+### <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
-I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
+Följ dessa steg om du vill aktivera enkel inloggning för Azure AD i Azure-portalen.
 
-Utför följande steg för att konfigurera Azure AD enkel inloggning med OutSystems:
+1. I den [Azure-portalen](https://portal.azure.com/)på den **OutSystems Azure AD** programsidan integration, hitta den **hantera** och väljer **enkelinloggning**.
+1. På den **väljer du en metod för enkel inloggning** väljer **SAML**.
+1. På den **ange in enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **SAML grundkonfiguration** att redigera inställningarna.
 
-1. I den [Azure-portalen](https://portal.azure.com/)på den **OutSystems** application integration markerar **enkel inloggning**.
+   ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-    ![Konfigurera enkel inloggning för länken](common/select-sso.png)
-
-2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
-
-    ![Välja läge för enkel inloggning](common/select-saml-option.png)
-
-3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
-
-    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
-
-4. Om du vill konfigurera programmet i **IDP**-initierat läge gör du följande i avsnittet **Grundläggande SAML-konfiguration**:
-
-    ![OutSystems domän och URL: er med enkel inloggning för information](common/idp-intiated.png)
+1. Om du vill konfigurera programmet i **IDP**-initierat läge gör du följande i avsnittet **Grundläggande SAML-konfiguration**:
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster: `http://<YOURBASEURL>/IdP`
 
     b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<YOURBASEURL>/IdP/SSO.aspx`
 
-5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
-
-    ![OutSystems domän och URL: er med enkel inloggning för information](common/metadata-upload-additional-signon.png)
+1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
     I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://<YOURBASEURL>`
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [OutSystems klienten supportteamet](mailto:support@outsystems.com) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-6. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och spara den på datorn.
+1. På den **ange in enkel inloggning med SAML** sidan den **SAML-signeringscertifikat** avsnittet, hitta **XML-Metadata för Federation** och välj **hämta** att hämta certifikatet och spara den på din dator.
 
-    ![Länk för hämtning av certifikat](common/metadataxml.png)
+   ![Länk för hämtning av certifikat](common/metadataxml.png)
 
-7. På den **konfigurera OutSystems** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
+1. På den **konfigurera OutSystems Azure AD** avsnittet, kopiera den lämpliga URL: er efter behov.
 
-    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
+   ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    a. Inloggningswebbadress
-
-    b. Microsoft Azure Active Directory-identifierare
-
-    c. Utloggnings-URL
-
-### <a name="configure-outsystems-single-sign-on"></a>Konfigurera OutSystems Single Sign-On
+### <a name="configure-outsystems-azure-ad"></a>Configure OutSystems Azure AD
 
 Att konfigurera enkel inloggning på **OutSystems** sida, som du behöver skicka de hämtade **XML-Metadata för Federation** och lämpliga kopierade URL: er från Azure portal för att [OutSystems supportteam](mailto:support@outsystems.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
 
-### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
+I det här avsnittet skapar du en användare i Azure-portalen kallas B. Simon.
 
-1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
-
-    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
-
-2. Välj **Ny användare** överst på skärmen.
-
-    ![Knappen Ny användare](common/new-user.png)
-
-3. Genomför följande steg i Användaregenskaper.
-
-    ![Dialogrutan Användare](common/user-properties.png)
-
-    a. I fältet **Namn** anger du **BrittaSimon**.
-  
-    b. I den **användarnamn** fälttyp `brittasimon@yourcompanydomain.extension`. Till exempel, BrittaSimon@contoso.com
-
-    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
-
-    d. Klicka på **Skapa**.
+1. På menyn till vänster i Azure-portalen väljer du **Azure Active Directory**väljer **användare**, och välj sedan **alla användare**.
+1. Välj **ny användare** överst på skärmen.
+1. I den **användaren** egenskaper, Följ dessa steg:
+   1. I **Namn**-fältet skriver du `B. Simon`.  
+   1. I den **användarnamn** fältet, anger du den username@companydomain.extension. Till exempel `BrittaSimon@contoso.com`.
+   1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
+   1. Klicka på **Skapa**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till OutSystems.
+I det här avsnittet ska du aktivera B. Simon att använda Azure enkel inloggning genom att bevilja åtkomst till OutSystems Azure AD.
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **OutSystems**.
+1. I Azure-portalen väljer du **företagsprogram**, och välj sedan **alla program**.
+1. I listan med program väljer **OutSystems Azure AD**.
+1. Appens översiktssidan, hitta den **hantera** och väljer **användare och grupper**.
 
-    ![Bladet Företagsprogram](common/enterprise-applications.png)
+   ![Länken ”användare och grupper”](common/users-groups-blade.png)
 
-2. I listan med program väljer **OutSystems**.
+1. Välj **Lägg till användare**och välj sedan **användare och grupper** i den **Lägg till tilldelning** dialogrutan.
 
-    ![OutSystems länk i listan med program](common/all-applications.png)
+    ![Länken Lägg till användare](common/add-assign-user.png)
 
-3. På menyn till vänster väljer du **Användare och grupper**.
+1. I den **användare och grupper** dialogrutan **B. Simon** från listan över användare klickar på **Välj** längst ned på skärmen.
+1. Om du förväntar dig något rollvärde i SAML-försäkran i den **Välj roll** dialogrutan Välj rätt roll för användaren i listan och klicka sedan på den **Välj** längst ned på skärmen.
+1. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
-
-4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
-
-    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
-
-5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
-
-6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
-
-7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
-
-### <a name="create-outsystems-test-user"></a>Skapa OutSystems testanvändare
+### <a name="create-outsystems-azure-ad-test-user"></a>Skapa testanvändare OutSystems Azure AD
 
 I det här avsnittet skapas en användare som kallas Britta Simon i OutSystems. OutSystems stöder etableringen av just-in-time-användare som är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i OutSystems, skapas en ny efter autentisering.
 
-### <a name="test-single-sign-on"></a>Testa enkel inloggning 
+### <a name="test-sso"></a>Testa enkel inloggning
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
-
-När du klickar på panelen OutSystems i åtkomstpanelen, bör det vara loggas in automatiskt till OutSystems som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du väljer panelen OutSystems Azure AD i åtkomstpanelen, det bör vara loggas in automatiskt till OutSystems Azure AD som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

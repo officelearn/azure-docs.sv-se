@@ -1,5 +1,5 @@
 ---
-title: Binda befintligt anpassat SSL-certifikat – Azure App Service | Microsoft Docs
+title: Ladda upp och binda SSL-certifikat – Azure App Service | Microsoft Docs
 description: Lär dig hur du binder ett anpassat SSL-certifikat till din webbapp, din mobila serverdelstjänst för appar eller en API-app i Azure App Service.
 services: app-service\web
 documentationcenter: nodejs
@@ -15,16 +15,16 @@ ms.topic: tutorial
 ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 0a5b8bdbcd5a05574d824e3f57cfc23967278e27
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e0ee1e7c652ddf4126fc9658bf17d3e919d7a5c8
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66138725"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475345"
 ---
-# <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-app-service"></a>Självstudier: Bind ett befintligt anpassat SSL-certifikat till Azure App Service
+# <a name="tutorial-upload-and-bind-ssl-certificates-to-azure-app-service"></a>Självstudier: Ladda upp och binda SSL-certifikat till Azure App Service
 
-Med Azure App Service får du en automatiskt uppdaterad webbvärdtjänst med hög skalbarhet. Den här självstudien visar hur du binder ett anpassat SSL-certifikat som du har köpt från en betrodd certifikatutfärdare till [Azure App Service](overview.md). När du är klar så kommer du att ha åtkomst till din app på HTTPS-slutpunkten för din anpassade DNS-domän.
+Med [Azure App Service](overview.md) får du en automatiskt uppdaterad webbvärdtjänst med hög skalbarhet. Den här självstudien visar hur du skyddar en anpassad domän i App Service med ett certifikat som du har köpt från en betrodd certifikatutfärdare. Det får också lära dig hur du överför alla privata och offentliga certifikat behoven för dina appar. När du är klar så kommer du att ha åtkomst till din app på HTTPS-slutpunkten för din anpassade DNS-domän.
 
 ![Webbapp med anpassat SSL-certifikat](./media/app-service-web-tutorial-custom-ssl/app-with-custom-ssl.png)
 
@@ -32,51 +32,48 @@ I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Uppgradera appens prisnivå
-> * Binda ditt anpassade certifikat till App Service
+> * Skydda en anpassad domän med ett certifikat
+> * Ladda upp ett privat certifikat
+> * Ladda upp ett offentligt certifikat
 > * Förnya certifikat
-> * Framtvinga HTTPS
+> * Använda HTTPS
 > * Använda TLS 1.1/1.2
 > * Automatisera hantering av TLS med skript
-
-> [!NOTE]
-> Om du behöver ett anpassat SSL-certifikat kan du skaffa ett i Azure Portal direkt och binda det till din app. Följ [Självstudie för App Service Certificate](web-sites-purchase-ssl-web-site.md).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att slutföra den här självstudien behöver du:
 
 - [Skapa en App Service-app](/azure/app-service/)
-- [Mappa ett anpassat DNS-namn till din App Service-app](app-service-web-tutorial-custom-domain.md)
-- Skaffa ett SSL-certifikat från en betrodd certifikatutfärdare
-- Använd samma privata nyckel som när du registrerade din begäran om SSL-certifikatet
+- [Mappa ett anpassat DNS-namn till din App Service-app](app-service-web-tutorial-custom-domain.md) (om skydda en anpassad domän)
+- Skaffa ett certifikat från en betrodd certifikatutfärdare
+- Har den privata nyckeln som du använde för att registrera certifikatbegäran (för privata certifikat)
 
 <a name="requirements"></a>
 
-### <a name="requirements-for-your-ssl-certificate"></a>Krav för ditt SSL-certifikat
+## <a name="prepare-a-private-certificate"></a>Förbereda ett privat certifikat
 
-Om du vill använda ett certifikat i App Service måste certifikatet uppfylla alla följande krav:
+Om du vill skydda en domän, måste certifikatet uppfylla följande krav:
 
+* Konfigurerad för serverautentisering
 * Vara signerat av en betrodd certifikatutfärdare
 * Ha exporterats som en lösenordsskyddad PFX-fil
 * Innehålla en privat nyckel som är minst 2 048 bitar lång
 * Innehålla alla mellanliggande certifikat i certifikatkedjan
 
+> [!TIP]
+> Om du vill få ett anpassat SSL-certifikat kan du skaffa ett i Azure portal direkt och importera den till din app. Följ [Självstudie för App Service Certificate](web-sites-purchase-ssl-web-site.md).
+
 > [!NOTE]
 > **ECC-certifikat (Elliptic Curve Cryptography)** kan fungera med App Service, men behandlas inte i den här artikeln. Din certifikatutfärdare kan visa hur du skapar ECC-certifikat.
 
-[!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
-
-<a name="upload"></a>
-
-## <a name="bind-your-ssl-certificate"></a>Binda SSL-certifikatet
-
-Du är redo att överföra SSL-certifikatet till din app.
+När du har fått ett certifikat från certifikat-providern, följer du stegen i det här avsnittet för att förbereda för App Service.
 
 ### <a name="merge-intermediate-certificates"></a>Sammanfoga mellanliggande certifikat
 
-Om du får flera certifikat av din certifikatutfärdare i certifikatkedjan, måste du sammanfoga certifikaten i ordning. 
+Om du får flera certifikat av din certifikatutfärdare i certifikatkedjan, måste du sammanfoga certifikaten i ordning.
 
-Gör detta genom att öppna varje certifikat som du fick i ett redigeringsprogram. 
+Gör detta genom att öppna varje certifikat som du fick i ett redigeringsprogram.
 
 Skapa en fil för det sammanfogade certifikatet med namnet _mergedcertificate.crt_. I redigeringsprogrammet kopierar du innehållet i varje certifikat till den här filen. Ordningen på dina certifikat ska följa ordningen i certifikatkedjan, först med ditt certifikat och sist med rotcertifikatet. Det ser ut som i följande exempel:
 
@@ -112,45 +109,49 @@ När du uppmanas till det anger du ett exportlösenord. Det här lösenordet anv
 
 Om du använder IIS eller _Certreq.exe_ till att generera din certifikatbegäran, installerar du certifikatet på den lokala datorn och [exporterar sedan certifikatet till PFX](https://technet.microsoft.com/library/cc754329(v=ws.11).aspx).
 
-### <a name="upload-your-ssl-certificate"></a>Ladda upp SSL-certifikatet
+Du är nu klar överför certifikatet till App Service.
 
-Om du vill ladda upp ditt SSL-certifikat så0 klickar du på **SSL-inställningar** i den vänstra navigeringen i din app.
+[!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
 
-Klicka på **Ladda upp certifikat**. 
+<a name="upload"></a>
+
+## <a name="secure-a-custom-domain"></a>Skydda en anpassad domän
+
+> [!TIP]
+> Om du behöver ett anpassat SSL-certifikat kan du skaffa ett i Azure Portal direkt och binda det till din app. Följ [Självstudie för App Service Certificate](web-sites-purchase-ssl-web-site.md).
+
+Att skydda en [anpassad domän](app-service-web-tutorial-custom-domain.md) med ett certifikat från tredje part, som du överför den [förberett privata certifikat](#prepare-a-private-certificate) och kopplar den till den anpassade domänen, men App Service gör enklare för dig. Utför följande steg:
+
+Klicka på **anpassade domäner** i den vänstra navigeringen i din app och klicka på **Lägg till bindning** för domänen som du vill skydda. Om du inte ser **Lägg till bindning** för en domän, sedan du den redan är säker och ska ha en **Secure** SSL-tillstånd.
+
+![Lägg till bindning till domänen](./media/app-service-web-tutorial-custom-ssl/secure-domain-launch.png)
+
+Klicka på **Ladda upp certifikat**.
 
 I **PFX-certifikatsfil** väljer du din PFX-fil. I **Certifikatslösenord** skriver du lösenordet som du skapade när du exporterade PFX-filen.
 
 Klicka på **Överför**.
 
-![Överför certifikat](./media/app-service-web-tutorial-custom-ssl/upload-certificate-private1.png)
+![Överför certifikat för domänen](./media/app-service-web-tutorial-custom-ssl/secure-domain-upload.png)
 
-När App Service har överfört certifikatet visas det på sidan **SSL-inställningar**.
+Vänta tills Azure för att ladda upp certifikatet och starta dialogrutan för SSL-bindningar.
 
-![Certifikatet har laddats upp](./media/app-service-web-tutorial-custom-ssl/certificate-uploaded.png)
-
-### <a name="bind-your-ssl-certificate"></a>Binda SSL-certifikatet
-
-I avsnittet **SSL-bindningar** klickar du på **Lägg till bindning**.
-
-På sidan **Lägg till SSL-bindning** använder du listrutorna och väljer det domännamn som ska skyddas och det certifikat som ska användas.
+Välj det certifikat som du överförde och SSL-typ i dialogrutan bindningar för SSL, och klicka sedan på **Lägg till bindning för**.
 
 > [!NOTE]
-> Om du har laddat upp ett certifikat men inte ser domänens namn i listrutan**Värdnamn**, kan du försöka med att uppdatera webbläsarsidan.
+> Följande typer av SSL stöds:
 >
->
+> - **[SNI-baserad SSL](https://en.wikipedia.org/wiki/Server_Name_Indication)**  -flera SNI-baserad SSL-bindningar kan läggas till. Med det här alternativet kan flera SSL-certifikat skydda flera domäner på samma IP-adress. De flesta moderna webbläsare (inklusive Internet Explorer, Chrome, Firefox och Opera) stöder SNI (mer information om webbläsare som stöds finns i [Servernamnindikator](https://wikipedia.org/wiki/Server_Name_Indication)).
+> - **IP-baserad SSL** – Det går bara att lägga till en IP-baserad SSL-bindning. Med det här alternativet tillåts endast ett SSL-certifikat för att skydda en dedikerad offentlig IP-adress. Om du vill skydda flera domäner, måste du skydda alla med samma SSL-certifikat. Detta är det vanligaste alternativet för SSL-bindning.
 
-I **SSL-typ** väljer du om du vill använda **[Servernamnindikator (SNI)](https://en.wikipedia.org/wiki/Server_Name_Indication)** eller IP-baserad SSL.
+![Binda SSL till domänen](./media/app-service-web-tutorial-custom-ssl/secure-domain-bind.png)
 
-- **SNI-baserad SSL** – Du kan lägga till flera SNI-baserade SSL-bindningar. Med det här alternativet kan flera SSL-certifikat skydda flera domäner på samma IP-adress. De flesta moderna webbläsare (inklusive Internet Explorer, Chrome, Firefox och Opera) stöder SNI (mer information om webbläsare som stöds finns i [Servernamnindikator](https://wikipedia.org/wiki/Server_Name_Indication)).
-- **IP-baserad SSL** – Det går bara att lägga till en IP-baserad SSL-bindning. Med det här alternativet tillåts endast ett SSL-certifikat för att skydda en dedikerad offentlig IP-adress. Om du vill skydda flera domäner, måste du skydda alla med samma SSL-certifikat. Detta är det vanligaste alternativet för SSL-bindning.
+Domänens SSL-status bör nu ändras till **Secure**.
 
-Klicka på **Lägg till bindning**.
+![Domänen skyddas](./media/app-service-web-tutorial-custom-ssl/secure-domain-finished.png)
 
-![Binda SSL-certifikat](./media/app-service-web-tutorial-custom-ssl/bind-certificate.png)
-
-När App Service har laddat upp certifikatet, visas det i avsnitten **SSL-bindningar**.
-
-![Certifikat som är bundet till en webbapp](./media/app-service-web-tutorial-custom-ssl/certificate-bound.png)
+> [!NOTE]
+> En **Secure** tillstånd i den **anpassade domäner** innebär att den är skyddad med ett certifikat, men Apptjänst kontrollerar inte om certifikatet är självsignerat eller upphört att gälla, till exempel som också kan orsaka webbläsare till Visa ett fel eller en varning.
 
 ## <a name="remap-a-record-for-ip-ssl"></a>Mappa om en A-post för IP SSL
 
@@ -175,8 +176,6 @@ Allt som nu återstår är att kontrollera att HTTPS fungerar för din anpassade
 >
 > Om detta inte är fallet kan du ha utelämnat mellanliggande certifikat när du exporterade certifikatet till PFX-filen.
 
-<a name="bkmk_enforce"></a>
-
 ## <a name="renew-certificates"></a>Förnya certifikat
 
 Din inkommande IP-adress kan ändras när du tar bort en bindning, även om bindningen är IP-baserad. Detta är särskilt viktigt att ha i åtanke när du förnyar ett certifikat som redan finns i en IP-baserad bindning. Du kan förhindra att appens IP-adress ändras genom att följa stegen nedan i ordning:
@@ -185,13 +184,15 @@ Din inkommande IP-adress kan ändras när du tar bort en bindning, även om bind
 2. Bind det nya certifikatet till önskad anpassad domän utan att ta bort det gamla. Med den här åtgärden ersätts bindningen i stället för att den gamla tas bort.
 3. Ta bort det gamla certifikatet. 
 
-## <a name="enforce-https"></a>Framtvinga HTTPS
+<a name="bkmk_enforce"></a>
+
+## <a name="enforce-https"></a>Använda HTTPS
 
 Som standard kan alla fortfarande komma åt din app med HTTP. Du kan omdirigera alla HTTP-begäranden till HTTPS-porten.
 
 Välj **SSL-inställningar** i den vänstra navigeringen på din appsida. I **Endast HTTPS** väljer du **På**.
 
-![Framtvinga HTTPS](./media/app-service-web-tutorial-custom-ssl/enforce-https.png)
+![Använda HTTPS](./media/app-service-web-tutorial-custom-ssl/enforce-https.png)
 
 När åtgärden har slutförts går du till någon av de HTTP-webbadresser som pekar på din app. Exempel:
 
@@ -217,32 +218,32 @@ Du kan automatisera SSL-bindningar för din app med skript med hjälp av [Azure 
 
 Följande kommando laddar upp en exporterad PFX-fil och hämtar tumavtrycket.
 
-```bash
+```azurecli-interactive
 thumbprint=$(az webapp config ssl upload \
-    --name <app_name> \
-    --resource-group <resource_group_name> \
-    --certificate-file <path_to_PFX_file> \
-    --certificate-password <PFX_password> \
+    --name <app-name> \
+    --resource-group <resource-group-name> \
+    --certificate-file <path-to-PFX-file> \
+    --certificate-password <PFX-password> \
     --query thumbprint \
     --output tsv)
 ```
 
 Följande kommando lägger till en SNI-baserad SSL-bindning med tumavtrycket från föregående kommando.
 
-```bash
+```azurecli-interactive
 az webapp config ssl bind \
-    --name <app_name> \
-    --resource-group <resource_group_name>
+    --name <app-name> \
+    --resource-group <resource-group-name>
     --certificate-thumbprint $thumbprint \
     --ssl-type SNI \
 ```
 
 Följande kommando tvingar användning av TLS version 1.2 eller senare.
 
-```bash
+```azurecli-interactive
 az webapp config set \
-    --name <app_name> \
-    --resource-group <resource_group_name>
+    --name <app-name> \
+    --resource-group <resource-group-name>
     --min-tls-version 1.2
 ```
 
@@ -261,12 +262,10 @@ New-AzWebAppSSLBinding `
     -CertificatePassword <PFX_password> `
     -SslState SniEnabled
 ```
-## <a name="public-certificates-optional"></a>Offentliga certifikat (valfritt)
-Om din app behöver åtkomst till fjärranslutna resurser som en klient och fjärresursen kräver certifikatautentisering så kan du överföra [offentliga certifikat](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/) till din app. Offentliga certifikat krävs inte för SSL-bindningar för din app.
 
-Mer information om hur du läser in och använder ett offentligt certifikat i din app finns i [Använda ett SSL-certifikat i programkoden i Azure App Service](app-service-web-ssl-cert-load.md). Du kan även använda offentliga certifikat med appar i App Service Environment. Om du vill lagra certifikatet i certifikatarkivet LocalMachine kan behöva du använda en app på App Service Environment. Mer information finns i [Så här konfigurerar du offentliga certifikat till din App Service-app](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer).
+## <a name="use-certificates-in-your-code"></a>Använda certifikat i din kod
 
-![Överför offentligt certifikat](./media/app-service-web-tutorial-custom-ssl/upload-certificate-public1.png)
+Om din app behöver ansluta till fjärresurser och fjärresursen kräver certifikatautentisering, kan du ladda upp offentliga eller privata certifikat till din app. Du behöver inte att binda dessa certifikat till en anpassad domän i din app. Mer information finns i [Använda ett SSL-certifikat i programkoden i Azure App Service](app-service-web-ssl-cert-load.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -276,7 +275,7 @@ I den här självstudiekursen lärde du dig att:
 > * Uppgradera appens prisnivå
 > * Binda ditt anpassade certifikat till App Service
 > * Förnya certifikat
-> * Framtvinga HTTPS
+> * Använda HTTPS
 > * Använda TLS 1.1/1.2
 > * Automatisera hantering av TLS med skript
 

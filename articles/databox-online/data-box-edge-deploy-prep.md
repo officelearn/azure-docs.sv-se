@@ -6,18 +6,17 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 04/23/2019
+ms.date: 06/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: d7e66970db3397531c798bc37bf7c1f346e999bf
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 364ceabc3c9e7a577bd126b81bcd5256d947bbe3
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924778"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476773"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-edge"></a>Självstudier: Förbered att distribuera Azure Data Box Edge  
-
 
 Det här är den första självstudien i serien med distributionssjälvstudier som krävs för en fullständigt distribuera Azure Data Box Edge. Den här självstudien beskriver hur du förbereder Azure-portalen för att distribuera en Data Box Edge-resurs.
 
@@ -31,7 +30,6 @@ I den här guiden får du lära dig att:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-
 ### <a name="get-started"></a>Kom igång
 
 Gå igenom följande självstudier i angiven ordning för att distribuera Data Box Edge.
@@ -42,7 +40,7 @@ Gå igenom följande självstudier i angiven ordning för att distribuera Data B
 | 2. |**[Installera Data Box Edge](data-box-edge-deploy-install.md)**|Packa upp, rackmontera och kabelanslut den fysiska Data Box Edge-enheten.  |
 | 3. |**[Ansluta, konfigurera och aktivera Data Box Edge](data-box-edge-deploy-connect-setup-activate.md)** |Anslut till det lokala webbgränssnittet, slutför installationen av enheten och aktivera enheten. Enheten är redo att konfigurera SMB- eller NFS-resurser.  |
 | 4. |**[Överföra data med Data Box Edge](data-box-edge-deploy-add-shares.md)** |Lägg till resurser och anslut till resurser via SMB eller NFS. |
-| 5. |**[Transformera data med Data Box Edge](data-box-edge-deploy-configure-compute.md)** |Konfigurera Edge-moduler på enheten för att transformera data då de flyttas till Azure. |
+| 5. |**[Transformera data med Data Box Edge](data-box-edge-deploy-configure-compute.md)** |Konfigurera beräkning moduler på enheten för att transformera data som flyttas till Azure. |
 
 Nu kan du börja konfigurera Azure-portalen.
 
@@ -55,7 +53,11 @@ Följande är konfigurationskraven för din Data Box Edge-resurs, din Data Box E
 Innan du börjar ska du kontrollera att:
 
 - Din Microsoft Azure-prenumeration är aktiverad för en Data Box Edge-resurs. Prenumerationer med användningsbaserad betalning stöds inte.
-- Du har ägare eller deltagare som har åtkomst till din prenumeration.
+- Du har ägare eller deltagare som har åtkomst till på resursgruppnivå för Data Box Edge/Data Box-Gateway, IoT Hub och Azure Storage-resurser.
+
+    - Att skapa några Data Box-Edge / Data Box Gateway-resursen, bör du ha behörigheter som deltagare (eller högre) omfång på resursgruppnivå. Du måste också se till att den `Microsoft.DataBoxEdge` providern är registrerad. Gå till information om hur du registrerar [registerresursleverantören](data-box-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
+    - Kontrollera att den Microsoft.Devices-providern är registrerad för att skapa en IoT Hub-resurs. Gå till information om hur du registrerar [registerresursleverantören](data-box-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
+    - Om du vill skapa en resurs för Storage-kontot igen behöver du deltagare eller högre åtkomst begränsad på resursgruppsnivå. Azure Storage är som standard en registrerad resursprovider.
 - Du har administratören eller användaren åtkomst till Azure Active Directory Graph API. Mer information finns i [Azure Active Directory Graph API](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
 - Du har ditt Microsoft Azure lagringskonto med autentiseringsuppgifter.
 
@@ -64,7 +66,7 @@ Innan du börjar ska du kontrollera att:
 Innan du distribuerar en fysisk enhet kontrollerar du att:
 
 - Du har granskat den säkerhetsinformation som ingick i paketets leverans.
-- Du har en 1 U-plats tillgänglig i ett standardrack på 19 tum i ditt datacenter för att rackmontera enheten. 
+- Du har ett 1U fack som är tillgängliga i ett standard 19-tums rack i datacentret för rackmonterade enheten.
 - Du har tillgång till en plan, stabil och jämn arbetsyta där enheten kan stå på ett säkert sätt.
 - Platsen där du tänker konfigurera enheten har standardnätström från en oberoende källa eller en strömfördelare på racket (PDU) med en avbrottsfri kraftfälla (UPS).
 - Du har tillgång till en fysisk enhet.

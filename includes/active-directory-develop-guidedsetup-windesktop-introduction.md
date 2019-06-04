@@ -14,31 +14,31 @@ ms.workload: identity
 ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: f0cc888eaf3724737e9c868c69a641094a19348c
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: ae17ef749a353cd60227e31ba4dadf328b1dc935
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66121607"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66482451"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Anropa Microsoft Graph API från en Windows-skrivbordsapp
 
-Den här guiden visar hur en intern Windows Desktop .NET (XAML) program kan hämta en åtkomsttoken och anropa Microsoft Graph API eller andra API: er som behöver komma åt tokens från en Microsoft identity-plattformen för utvecklare (tidigare kallad Azure AD) v2.0-slutpunkten.
+Den här guiden visar hur ett internt program för Windows Desktop .NET (XAML) använder en åtkomsttoken för att anropa Microsoft Graph API. Appen kan också komma åt andra API: er som kräver åtkomsttoken från en Microsoft identity-plattformen för utvecklare v2.0-slutpunkten. Den här plattformen hette tidigare Azure AD.
 
 När du har slutfört guiden för kommer ditt program att kunna anropa ett skyddat API som använder personliga konton (inklusive outlook.com, live.com och andra). Programmet kommer också använda arbets- och skolkonton från alla företag eller organisation som använder Azure Active Directory.  
 
 > [!NOTE]
-> Guiden kräver Visual Studio 2015 Update 3 eller Visual Studio 2017. Inte har något av dessa versioner? [Ladda ned Visual Studio 2017 kostnadsfritt](https://www.visualstudio.com/downloads/).
+> Guiden kräver Visual Studio 2015 Update 3 eller Visual Studio 2019. Inte har något av dessa versioner? [Ladda ned Visual Studio 2019 kostnadsfritt](https://www.visualstudio.com/downloads/).
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Så här fungerar exempelapp som genererats av den här guiden
 
-![Visar hur exempelappen genereras av den här självstudier fungerar](./media/active-directory-develop-guidedsetup-windesktop-intro/windesktophowitworks.svg)
+![Visar hur exempelapp som genererats av den här kursen fungerar](./media/active-directory-develop-guidedsetup-windesktop-intro/windesktophowitworks.svg)
 
 Exempelprogrammet som du skapar med den här guiden gör det möjligt för en Windows Desktop-program som frågar Microsoft Graph API eller ett webb-API som accepterar token från en slutpunkt för Microsoft identity-plattformen. Det här scenariot kan du lägga till en token på HTTP-förfrågningar via auktoriseringsrubriken. Microsoft Authentication Library (MSAL) hanterar tokenförvärv och förnyelse.
 
 ## <a name="handling-token-acquisition-for-accessing-protected-web-apis"></a>Hantering av tokenförvärv för att komma åt skyddade webb-API: er
 
-När användaren har autentiserats får exempelprogrammet en token som kan användas för att fråga Microsoft Graph API eller ett webb-API som skyddas av Microsoft identity-plattformen för utvecklare.
+När användaren har autentiserats får exempelprogrammet en token som du kan använda för att fråga Microsoft Graph API eller ett webb-API som skyddas av Microsoft identity-plattformen för utvecklare.
 
 API: er som Microsoft Graph kräver en token för att tillåta åtkomst till specifika resurser. Till exempel krävs en token för att läsa en användares profil, få åtkomst till en användares kalender eller skicka e-post. Ditt program kan begära en åtkomst-token med MSAL för att komma åt resurserna genom att ange API-omfång. Den här åtkomsttoken läggs sedan till HTTP-auktoriseringsrubriken för varje anrop som görs mot den skyddade resursen.
 

@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 05/06/2019
+ms.date: 05/31/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 8ffc64359faab539ab74e354caad4081f31fcd43
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: d43a0e7c48db9dd42c7cf3b52e5d4072a4827898
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65790129"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479171"
 ---
 # <a name="tutorial-use-health-check-in-azure-deployment-manager-public-preview"></a>Självstudier: Hälsokontrollen för användning i Azure Deployment Manager (förhandsversion)
 
@@ -50,18 +50,18 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 För att kunna följa stegen i den här artikeln behöver du:
 
 * Fullständig [Använd Azure Deployment Manager med Resource Manager-mallar](./deployment-manager-tutorial.md).
-* Ladda ned [mallar och artefakter](https://armtutorials.blob.core.windows.net/admtutorial/ADMTutorial.zip) som används av den här självstudien. 
+* Ladda ned [mallar och artefakter](https://armtutorials.blob.core.windows.net/admtutorial/ADMTutorial.zip) som används av den här självstudien.
 
 ## <a name="create-a-health-check-service-simulator"></a>Skapa en hälsotillstånd Kontrollera service simulator
 
-I produktion använder du vanligtvis en eller flera övervakning providers. Microsoft har arbetat med några av företag så att du får en enkel kopiera och klistra in-lösning för att integrera hälsokontroller dina distributioner av övre service hälsoövervakning för att göra hälsotillstånd integration så enkel som möjligt. En lista över dessa företag finns i [hälsoövervakning providers](./deployment-manager-health-check.md#health-monitoring-providers). I den här självstudien skapar du en [Azure Function](/azure/azure-functions/) att simulera en hälsoövervakning för tjänsten. Den här funktionen tar en statuskod och returnerar samma kod. Distributionshanteraren för Azure-mall använder statuskoden för att avgöra hur du fortsätter med distributionen. 
+I produktion använder du vanligtvis en eller flera övervakning providers. Microsoft har arbetat med några av företag så att du får en enkel kopiera och klistra in-lösning för att integrera hälsokontroller dina distributioner av övre service hälsoövervakning för att göra hälsotillstånd integration så enkel som möjligt. En lista över dessa företag finns i [hälsoövervakning providers](./deployment-manager-health-check.md#health-monitoring-providers). I den här självstudien skapar du en [Azure Function](/azure/azure-functions/) att simulera en hälsoövervakning för tjänsten. Den här funktionen tar en statuskod och returnerar samma kod. Distributionshanteraren för Azure-mall använder statuskoden för att avgöra hur du fortsätter med distributionen.
 
 Följande två filer används för att distribuera Azure-funktion. Du behöver inte ladda ned filerna för att gå igenom självstudien.
 
-* Resource Manager-mall finns i [ https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json ](https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json). Du distribuerar den här mallen om du vill skapa en Azure-funktion.  
-* En zip-fil på Azure Function-källkod [ http://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip ](http://armtutorials.blob.core.windows.net/admtutorial/RestHealthTest.zip). Den här zip kallas anropas av Resource Manager-mallen.
+* Resource Manager-mall finns i [ https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json ](https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json). Du distribuerar den här mallen om du vill skapa en Azure-funktion.
+* En zip-fil på Azure Function-källkod [ http://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip ](http://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip). Den här zip kallas anropas av Resource Manager-mallen.
 
-För att distribuera Azure-funktion, Välj **prova** att öppna Azure Cloud shell och klistra in följande skript i fönstret shell.  Om du vill klistra in koden, högerklicka på shell-fönstret och välj sedan **klistra in**. 
+För att distribuera Azure-funktion, Välj **prova** att öppna Azure Cloud shell och klistra in följande skript i fönstret shell.  Om du vill klistra in koden, högerklicka på shell-fönstret och välj sedan **klistra in**.
 
 > [!IMPORTANT]
 > **projectName** i PowerShell skript används för att generera namn för Azure-tjänster som distribueras i den här självstudien. Olika Azure-tjänster har olika krav på namnen. För att säkerställa att distributionen är klar, väljer du ett namn med färre än 12 tecken innehåller bara gemena bokstäver och siffror.
@@ -81,7 +81,7 @@ Att kontrollera och testa Azure-funktion:
 1. Öppna [Azure-portalen](https://portal.azure.com).
 1. Öppna resursgruppen.  Standardnamnet är projektnamnet på med **rg** sist.
 1. Välj app service från resursgruppen.  Standardnamnet för app Service är projektnamn med **webapp** sist.
-1. Expandera **Functions**, och välj sedan **HttpTrigger1**. 
+1. Expandera **Functions**, och välj sedan **HttpTrigger1**.
 
     ![Azure Deployment Manager-hälsokontroll Azure-funktion](./media/deployment-manager-tutorial-health-check/azure-deployment-manager-hc-function.png)
 
@@ -178,7 +178,7 @@ Syftet med det här avsnittet är att hur du kan ta ett hälsotillstånd steg i 
     },
     ```
 
-    Baserat på definitionen, fortsätter distributionen om hälsotillståndet är antingen *felfri* eller *varning*. 
+    Baserat på definitionen, fortsätter distributionen om hälsotillståndet är antingen *felfri* eller *varning*.
 
 1. Uppdatera den **dependsON** av distributionen definition att inkludera nya hälsotillstånd Kontrollera steg:
 
@@ -189,7 +189,7 @@ Syftet med det här avsnittet är att hur du kan ta ett hälsotillstånd steg i 
     ],
     ```
 
-1. Uppdatera **stepGroups** att inkludera hälsotillstånd Kontrollera steg. Den **healthCheckStep** kallas i **postDeploymentSteps** av **stepGroup2**. **stepGroup3** och **stepGroup4** distribueras endast om hälsostatus är antingen *felfri* eller *varning*. 
+1. Uppdatera **stepGroups** att inkludera hälsotillstånd Kontrollera steg. Den **healthCheckStep** kallas i **postDeploymentSteps** av **stepGroup2**. **stepGroup3** och **stepGroup4** distribueras endast om hälsostatus är antingen *felfri* eller *varning*.
 
     ```json
     "stepGroups": [
@@ -265,7 +265,7 @@ Kontrollera att tjänsttopologin och de angivna resurserna har skapats på Azure
 
 ## <a name="deploy-the-rollout-with-the-unhealthy-status"></a>Distribuera distributionen med skadad status
 
-För att förenkla självstudien kan delas mallen reviderade distribution på följande plats så att du inte behöver att förbereda din egna kopia. Om du vill använda din egen, följer du anvisningarna i [självstudien: Använda Distributionshanteraren för Azure med Resource Manager-mallar](./deployment-manager-tutorial.md).
+För att förenkla självstudien kan delas mallen reviderade distribution på följande platser så att du inte behöver att förbereda din egna kopia. Om du vill använda din egen, följer du anvisningarna i [självstudien: Använda Distributionshanteraren för Azure med Resource Manager-mallar](./deployment-manager-tutorial.md).
 
 * Topologi mall: https://armtutorials.blob.core.windows.net/admtutorial/ADMTemplatesHC/CreateADMRollout.json
 * Artefakter store: https://armtutorials.blob.core.windows.net/admtutorial/ArtifactStore
@@ -394,7 +394,7 @@ När Azure-resurserna inte längre behövs rensar du de resurser som du har dist
     * **&lt;namePrefix>ServiceWUSrg**: Innehåller resurserna som definieras av ServiceWUS.
     * **&lt;namePrefix>ServiceEUSrg**: Innehåller resurserna som definieras av ServiceEUS.
     * Resursgruppen för den användardefinierade hanterade identiteten.
-3. Välj resursgruppens namn.  
+3. Välj resursgruppens namn.
 4. Välj **Ta bort resursgrupp** från menyn längst upp.
 5. Upprepa de två sista stegen för att ta bort andra resursgrupper som skapats av den här självstudien.
 

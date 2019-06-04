@@ -14,26 +14,26 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 86113246fab399e8364653198e9a6971317e3f2c
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 46247d42837f8ac181d33216d2b93d28e2533c09
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66121748"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66482395"
 ---
 # <a name="add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Lägga till inloggning med Microsoft till en ASP.NET-webbapp
 
 Den här guiden visar hur du implementerar inloggning med Microsoft med hjälp av en ASP.NET MVC-lösning med ett traditionellt webbläsarbaserade webbprogram med OpenID Connect.
 
-I slutet av den här guiden kommer programmet att kunna acceptera inloggningar av personliga konton (inklusive outlook.com, live.com och andra) samt arbets- och skolkonton från alla företag eller organisation som har integrerats med Azure Active Directory.
+I slutet av den här guiden kommer programmet att kunna godkänna inloggningar av personliga konton, till exempel outlook.com, live.com och andra. Dessa konton kan du också inkludera arbete och skolkonton från alla företag eller organisation som har integrerats med Azure Active Directory.
 
-> Den här guiden kräver Visual Studio 2017.  Saknas det?  [Ladda ned Visual Studio 2017 utan kostnad](https://www.visualstudio.com/downloads/)
+> Den här guiden kräver Visual Studio 2019.  Saknas det?  [Ladda ned Visual Studio 2019 utan kostnad](https://www.visualstudio.com/downloads/)
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Så här fungerar exempelapp som genererats av den här guiden
 
-![Visar hur exempelappen genereras av den här självstudier fungerar](media/active-directory-develop-guidedsetup-aspnetwebapp-intro/aspnetbrowsergeneral.svg)
+![Visar hur exempelapp som genererats av den här kursen fungerar](media/active-directory-develop-guidedsetup-aspnetwebapp-intro/aspnetbrowsergeneral.svg)
 
-Exempelprogrammet som skapats av den här guiden är baserat på scenariot där en användare använder webbläsaren för att komma åt en ASP.NET-webbplats som begär en användare att autentisera via en knapp för inloggning. I det här scenariot sker merparten av renderingen av webbsidan på serversidan.
+Exempelprogrammet som du skapar baseras på ett scenario där du använder webbläsaren för att få åtkomst till en ASP.NET-webbplats som begär en användare att autentisera via en knapp för inloggning. I det här scenariot sker merparten av renderingen av webbsidan på serversidan.
 
 ## <a name="libraries"></a>Bibliotek
 

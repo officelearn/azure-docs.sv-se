@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: tutorial
 ms.date: 03/11/2019
 ms.author: pafarley
-ms.openlocfilehash: fc49081c765834a0ed0e5199923606ced7daa081
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4a28e9f1f911e274f9a53275afa577024405b336
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60608312"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66474694"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>Självstudier: Moderering av videor och avskrifter
 
@@ -44,15 +44,15 @@ I den här självstudiekursen lär du dig att:
 
 Redigera den `App.config` filen och Lägg till den Active Directory-klientnamn och tjänstslutpunkter prenumerationsnycklar som anges av `#####`. Du behöver följande information:
 
-    |Nyckel|Beskrivning|
-    |-|-|
-    |`AzureMediaServiceRestApiEndpoint`|Slutpunkt för API:n till Azure Media Services (AMS)|
-    |`ClientSecret`|Prenumerationsnyckel för Azure Media Services|
-    |`ClientId`|Klient-ID för Azure Media Services|
-    |`AzureAdTenantName`|Active Directory-klientorganisationens namn som representerar din organisation|
-    |`ContentModeratorReviewApiSubscriptionKey`|Prenumerationsnyckel för gransknings-API:n i Content Moderator|
-    |`ContentModeratorApiEndpoint`|Slutpunkt för Content Moderator-API:n|
-    |`ContentModeratorTeamId`|Team-ID för Content Moderator|
+|Nyckel|Beskrivning|
+|-|-|
+|`AzureMediaServiceRestApiEndpoint`|Slutpunkt för API:n till Azure Media Services (AMS)|
+|`ClientSecret`|Prenumerationsnyckel för Azure Media Services|
+|`ClientId`|Klient-ID för Azure Media Services|
+|`AzureAdTenantName`|Active Directory-klientorganisationens namn som representerar din organisation|
+|`ContentModeratorReviewApiSubscriptionKey`|Prenumerationsnyckel för gransknings-API:n i Content Moderator|
+|`ContentModeratorApiEndpoint`|Slutpunkt för Content Moderator-API:n|
+|`ContentModeratorTeamId`|Team-ID för Content Moderator|
 
 ## <a name="examine-the-main-code"></a>Undersöka huvudsakliga koden
 

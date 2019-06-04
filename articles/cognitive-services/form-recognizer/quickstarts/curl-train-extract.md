@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: pafarley
-ms.openlocfilehash: 037c323b2ef9e0a2d264e3fd5f7655456c30a1be
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 351cb7ba2d7a55300a0ace999792a498cf72ebbb
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417463"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475263"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-curl"></a>Snabbstart: Träna en modell för formuläret Igenkännande och extrahera formulärdata med hjälp av REST-API med cURL
 
@@ -26,7 +26,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 För att slutföra den här snabbstarten måste du ha:
 - Åtkomst till förhandsversionen av formuläret Igenkännande begränsad åtkomst. För att få åtkomst till förhandsversionen kan fylla i och skicka den [formuläret Igenkännande åtkomstbegäran](https://aka.ms/FormRecognizerRequestAccess) formuläret.
 - [cURL](https://curl.haxx.se/windows/) installerad.
-- En uppsättning minst fem typer av samma typ. Du kan använda en [exempeldatauppsättning](https://go.microsoft.com/fwlink/?linkid=2090451) för den här snabbstarten.
+- En uppsättning minst fem typer av samma typ. Du använder dessa data för att träna modellen. Du kan använda en [exempeldatauppsättning](https://go.microsoft.com/fwlink/?linkid=2090451) för den här snabbstarten. Ladda upp data till roten i en Azure Blob Storage-konto.
 
 ## <a name="create-a-form-recognizer-resource"></a>Skapa en resurs för formuläret Igenkännande
 
@@ -47,7 +47,7 @@ När formuläret Igenkännande resursen har distribution, hitta och välja den f
 
 ## <a name="train-a-form-recognizer-model"></a>Träna en modell för formuläret Igenkännande
 
-Först behöver du en uppsättning träningsdata i en Azure Storage blob. Du bör ha minst fem exempelformulär (PDF-dokument och/eller avbildningar) av samma typ/struktur som dina huvudsakliga indata. Eller du kan använda ett tomt formulär. Formulärets filnamnet måste innehålla ordet ”Töm”.
+Först behöver du en uppsättning träningsdata i en Azure Storage blob. Du bör ha minst fem exempelformulär (PDF-dokument och/eller avbildningar) av samma typ/struktur som dina huvudsakliga indata. Eller du kan använda ett tomt formulär med två fyllts i formulär. Formuläret tomt namn måste innehålla ordet ”tom”.
 
 För att träna en modell för formuläret Igenkännande med hjälp av dokument i Azure blob-behållare, anropa den **träna** API genom att köra cURL-kommando som följer. Innan du kör kommandot gör dessa ändringar:
 

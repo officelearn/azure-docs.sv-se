@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: erhopf
-ms.openlocfilehash: f7f8e86f17b0fdb715afc96dba80db0746440cef
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3d51c7b7c2e8d7f9774018f54a6639bebb882420
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60653310"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66471546"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>Självstudier: Skapa en översättningsapp med WPF
 
@@ -76,12 +76,12 @@ Projektet kräver ett antal .NET Framework-sammansättningar och NewtonSoft.Json
 
 Vi lägger till sammansättningar i projektet för att serialisera och deserialisera objekt och för att hantera HTTP-begäranden och -svar.
 
-1. Leta upp projektet i Solution Explorer i Visual Studio (högra panelen). Högerklicka på projektet och välj sedan **Lägg till > Referens...**, vilket öppnar **Reference Manager**.
+1. Leta upp projektet i Solution Explorer i Visual Studio (högra panelen). Högerklicka på projektet och välj sedan **Lägg till > Referens...** , vilket öppnar **Reference Manager**.
    ![Lägga till sammansättningsreferenser](media/add-assemblies-sample.png)
 2. Fliken med sammansättningar visar alla .NET Framework-sammansättningar som är tillgängliga för referens. Använd sökfältet längst upp till höger på skärmen för att söka efter dessa referenser och lägg till dem i projektet:
-   * [System.Runtime.Serialization](https://docs.microsoft.com/dotnet/api/system.runtime.serialization?view=netframework-4.7.2)
-   * [System.Web](https://docs.microsoft.com/dotnet/api/system.web?view=netframework-4.7.2)
-   * [System.Web.Extensions](https://docs.microsoft.com/dotnet/api/system.web?view=netframework-4.7.2)
+   * [System.Runtime.Serialization](https://docs.microsoft.com/dotnet/api/system.runtime.serialization)
+   * [System.Web](https://docs.microsoft.com/dotnet/api/system.web)
+   * [System.Web.Extensions](https://docs.microsoft.com/dotnet/api/system.web)
 3. När du har lagt till dessa referenser i projektet kan du klicka på **OK** för att stänga **Reference Manager**.
 
 > [!NOTE]

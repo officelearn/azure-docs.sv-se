@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: form-recognizer
 ms.topic: overview
-ms.date: 05/28/2019
+ms.date: 05/31/2019
 ms.author: pafarley
-ms.openlocfilehash: f65375bfd826660f8583068875a1fddc545a86d7
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 1c9e68f643f27f70190b5847225692d554cc5480
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306538"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475438"
 ---
 # <a name="install-and-run-form-recognizer-containers"></a>Installera och köra formuläret Igenkännande behållare
 Formuläret Igenkännande gäller maskininlärningsteknik för att identifiera och extrahera nyckel / värde-par och tabeller från formulär. Det kopplar värden och tabellposter till dem och sedan returnerar strukturerade data som innehåller relationerna i den ursprungliga filen. Du kan anropa anpassade formulär Igenkännande modellen med hjälp av ett enkelt REST API för att minska komplexiteten och integrera enkelt i ditt automation-arbetsflödesprocessen eller annat program. Endast fem dokument (eller ett tomt formulär) behövs, så du kan få resultat snabbt, korrekt och anpassats efter dina specifika innehåll, utan tunga manuella åtgärder eller omfattande data science-expertis. Det kräver inte märkning av data eller data anteckning.
@@ -29,7 +29,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 Du måste uppfylla följande krav innan du använder formuläret Igenkännande behållare:
 
-|Obligatoriskt|Syfte|
+|Krävs|Syfte|
 |--|--|
 |Docker-motorn| Du behöver Docker-motorn installerad på en [värddatorn](#the-host-computer). Docker innehåller paket som konfigurerar Docker-miljön på [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), och [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Få en genomgång om grunderna för Docker och behållare finns i den [översikt över Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker måste konfigureras för att tillåta behållarna för att ansluta till och skicka faktureringsdata till Azure. <br><br> **På Windows**, Docker måste också konfigureras för att stödja Linux-behållare.<br><br>|
 |Liknar processen med Docker | Du bör ha grundläggande kunskaper om Docker-begrepp som register, databaser, behållare, och behållaravbildningar samt kunskaper om grundläggande `docker` kommandon.|
@@ -114,9 +114,9 @@ Ersätt parametrarna med dina egna värden i följande exempel `docker run` komm
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 8g --cpus 2 \
-containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer \
 --mount type=bind,source=c:\input,target=/input  \
 --mount type=bind,source=c:\output,target=/output \
+containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer \
 Eula=accept \
 Billing={BILLING_ENDPOINT_URI} \
 ApiKey={BILLING_KEY} \
@@ -142,6 +142,8 @@ Kör den första behållaren på port 5000.
 
 ```bash 
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
+--mount type=bind,source=c:\input,target=/input  \
+--mount type=bind,source=c:\output,target=/output \
 containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer \
 Eula=accept \
 Billing={BILLING_ENDPOINT_URI} \

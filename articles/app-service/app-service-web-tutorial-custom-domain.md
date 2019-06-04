@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/18/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: e670c00e7d43c449947908ac1d89587c8435b0a7
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 962955a405d12365f69519b004ea8f95d529a97c
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62129510"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475539"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Självstudier: Mappa ett befintligt anpassat DNS-namn till Azure App Service
 
@@ -48,7 +48,7 @@ För att slutföra den här självstudien behöver du:
   För att till exempel lägga till DNS-poster för `contoso.com` och `www.contoso.com` måste du kunna konfigurera DNS-inställningarna för rotdomänen `contoso.com`.
 
   > [!NOTE]
-  > Om du inte har något domännamn kan du [köpa en domän i Azure Portal](manage-custom-dns-buy-domain.md). 
+  > Om du inte har något domännamn kan du [köpa en domän i Azure Portal](manage-custom-dns-buy-domain.md).
 
 ## <a name="prepare-the-app"></a>Förbereda appen
 
@@ -72,7 +72,7 @@ Du ser hanteringssidan för App Service-appen.
 
 ### <a name="check-the-pricing-tier"></a>Kontrollera prisnivån
 
-I det vänstra navigeringsfältet på appsidan bläddrar du till avsnittet **Inställningar** och väljer **Skala upp (App Service-plan)**.
+I det vänstra navigeringsfältet på appsidan bläddrar du till avsnittet **Inställningar** och väljer **Skala upp (App Service-plan)** .
 
 ![Skala upp-menyn](./media/app-service-web-tutorial-custom-domain/scale-up-menu.png)
 
@@ -135,17 +135,17 @@ Välj **Anpassade domäner** i det vänstra navigeringsfönstret på appsidan i 
 
 På sidan **Anpassade domäner** för appen lägger du till det fullständigt kvalificerade DNS-namnet (`www.contoso.com`) i listan.
 
-Välj **+**-ikonen bredvid **Lägg till värddatornamn**.
+Välj **+** -ikonen bredvid **Lägg till värddatornamn**.
 
 ![Lägg till värddatornamn](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
-Skriv det fullständigt kvalificerade domännamnet som du lade till en CNAME-post för, till exempel `www.contoso.com`. 
+Skriv det fullständigt kvalificerade domännamnet som du lade till en CNAME-post för, till exempel `www.contoso.com`.
 
 Välj **Verifiera**.
 
 Sidan **Lägg till värddatornamn** visas. 
 
-Se till att **posttyp för värddatornamn** är inställd på **CNAME (www\.example.com eller en underdomän)**.
+Se till att **posttyp för värddatornamn** är inställd på **CNAME (www\.example.com eller en underdomän)** .
 
 Välj **Lägg till värddatornamn**.
 
@@ -156,7 +156,7 @@ Det kan ta en stund innan det nya värdnamnet återspeglas på sidan **Anpassade
 ![CNAME-posten har lagts till](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
 > [!NOTE]
-> Information om hur du lägger till en SSL-bindning finns i [Binda ett befintligt anpassat SSL-certifikat till Azure App Service](app-service-web-tutorial-custom-ssl.md).
+> En **Obs Secure** etikett för din anpassade domän innebär att den har ännu inte är bunden till ett SSL-certifikat och alla HTTPS-begäran från en webbläsare till din anpassade domän får och felet eller varningen, beroende på webbläsaren. Information om hur du lägger till en SSL-bindning finns i [Binda ett befintligt anpassat SSL-certifikat till Azure App Service](app-service-web-tutorial-custom-ssl.md).
 
 Om du har missat något steg eller stavat fel på något ord visas ett verifieringsfel längst ned på sidan.
 
@@ -166,7 +166,7 @@ Om du har missat något steg eller stavat fel på något ord visas ett verifieri
 
 ### <a name="map-an-a-record"></a>Mappa en A-post
 
-I kursexemplet lägger du till en A-post för rotdomänen (till exempel `contoso.com`). 
+I kursexemplet lägger du till en A-post för rotdomänen (till exempel `contoso.com`).
 
 <a name="info"></a>
 
@@ -174,7 +174,7 @@ I kursexemplet lägger du till en A-post för rotdomänen (till exempel `contoso
 
 För att kunna mappa A-posten behöver du appens externa IP-adress. Du hittar IP-adressen på sidan **Anpassade domäner** för appen i Azure Portal.
 
-Välj **Anpassade domäner** i det vänstra navigeringsfönstret på appsidan i Azure Portal. 
+Välj **Anpassade domäner** i det vänstra navigeringsfönstret på appsidan i Azure Portal.
 
 ![Meny för anpassad domän](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
@@ -191,9 +191,9 @@ På sidan **Anpassade domäner** kopierar du appens IP-adress.
 När du mappar en A-post till en app i App Service behöver du **två** DNS-poster:
 
 - En **A**-post för att mappa till appens IP-adress.
-- En **TXT**-post att mappa till appens standardvärdnamn `<app_name>.azurewebsites.net`. Den här posten används av App Service endast vid konfigurationen, för att verifiera att du äger den anpassade domänen. När din anpassade domän har verifierats och konfigurerats i App Service kan du ta bort TXT-posten. 
+- En **TXT**-post att mappa till appens standardvärdnamn `<app_name>.azurewebsites.net`. Den här posten används av App Service endast vid konfigurationen, för att verifiera att du äger den anpassade domänen. När din anpassade domän har verifierats och konfigurerats i App Service kan du ta bort TXT-posten.
 
-För `contoso.com`-domänexemplet skapar du A-posten och TXT-posten enligt följande tabell (`@` representerar vanligtvis rotdomänen). 
+För `contoso.com`-domänexemplet skapar du A-posten och TXT-posten enligt följande tabell (`@` representerar vanligtvis rotdomänen).
 
 | Posttyp | Värd | Värde |
 | - | - | - |
@@ -219,7 +219,7 @@ När posterna har lagts till ser sidan för DNS-poster ut som i följande exempe
 
 Gå till sidan **Anpassade domäner** för appen i Azure Portal, lägg till det fullständigt kvalificerade DNS-namnet (till exempel `contoso.com`) i listan.
 
-Välj **+**-ikonen bredvid **Lägg till värddatornamn**.
+Välj **+** -ikonen bredvid **Lägg till värddatornamn**.
 
 ![Lägg till värddatornamn](./media/app-service-web-tutorial-custom-domain/add-host-name.png)
 
@@ -229,7 +229,7 @@ Välj **Verifiera**.
 
 Sidan **Lägg till värddatornamn** visas. 
 
-Se till att **Posttyp för värddatornamn** har värdet **A-post (example.com)**.
+Se till att **Posttyp för värddatornamn** har värdet **A-post (example.com)** .
 
 Välj **Lägg till värddatornamn**.
 
@@ -240,7 +240,7 @@ Det kan ta en stund innan det nya värdnamnet återspeglas på sidan **Anpassade
 ![A-posten har lagts till](./media/app-service-web-tutorial-custom-domain/a-record-added.png)
 
 > [!NOTE]
-> Information om hur du lägger till en SSL-bindning finns i [Binda ett befintligt anpassat SSL-certifikat till Azure App Service](app-service-web-tutorial-custom-ssl.md).
+> En **Obs Secure** etikett för din anpassade domän innebär att den har ännu inte är bunden till ett SSL-certifikat och alla HTTPS-begäran från en webbläsare till din anpassade domän får och felet eller varningen, beroende på webbläsaren. Information om hur du lägger till en SSL-bindning finns i [Binda ett befintligt anpassat SSL-certifikat till Azure App Service](app-service-web-tutorial-custom-ssl.md).
 
 Om du har missat något steg eller stavat fel på något ord visas ett verifieringsfel längst ned på sidan.
 
@@ -250,7 +250,7 @@ Om du har missat något steg eller stavat fel på något ord visas ett verifieri
 
 ### <a name="map-a-wildcard-domain"></a>Mappa en domän med jokertecken
 
-I kursexemplet mappar du ett [DNS-namn med jokertecken](https://en.wikipedia.org/wiki/Wildcard_DNS_record) (till exempel `*.contoso.com`) till App Service-appen genom att lägga till en CNAME-post. 
+I kursexemplet mappar du ett [DNS-namn med jokertecken](https://en.wikipedia.org/wiki/Wildcard_DNS_record) (till exempel `*.contoso.com`) till App Service-appen genom att lägga till en CNAME-post.
 
 #### <a name="access-dns-records-with-domain-provider"></a>Använda DNS-poster med domänleverantör
 
@@ -268,9 +268,9 @@ När CNAME har lagts till ser sidan för DNS-poster ut som i följande exempel:
 
 #### <a name="enable-the-cname-record-mapping-in-the-app"></a>Aktivera CNAME-postmappning i appen
 
-Nu kan du lägga till valfri underdomän som matchar jokernamnet i appen ( `sub1.contoso.com` och `sub2.contoso.com` matchar till exempel `*.contoso.com`). 
+Nu kan du lägga till valfri underdomän som matchar jokernamnet i appen ( `sub1.contoso.com` och `sub2.contoso.com` matchar till exempel `*.contoso.com`).
 
-Välj **Anpassade domäner** i det vänstra navigeringsfönstret på appsidan i Azure Portal. 
+Välj **Anpassade domäner** i det vänstra navigeringsfönstret på appsidan i Azure Portal.
 
 ![Meny för anpassad domän](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
@@ -282,7 +282,7 @@ Ange ett fullständigt kvalificerat domännamn som matchar domänen med jokertec
 
 Knappen **Lägg till värddatornamn** aktiveras. 
 
-Se till att **posttyp för värddatornamn** är inställd på **CNAME-post (www\.example.com eller en underdomän)**.
+Se till att **posttyp för värddatornamn** är inställd på **CNAME-post (www\.example.com eller en underdomän)** .
 
 Välj **Lägg till värddatornamn**.
 
@@ -295,7 +295,7 @@ Välj ikonen **+** igen för att lägga till ytterligare ett värdnamn som match
 ![CNAME-posten har lagts till](./media/app-service-web-tutorial-custom-domain/cname-record-added-wildcard2.png)
 
 > [!NOTE]
-> Information om hur du lägger till en SSL-bindning finns i [Binda ett befintligt anpassat SSL-certifikat till Azure App Service](app-service-web-tutorial-custom-ssl.md).
+> En **Obs Secure** etikett för din anpassade domän innebär att den har ännu inte är bunden till ett SSL-certifikat och alla HTTPS-begäran från en webbläsare till din anpassade domän får och felet eller varningen, beroende på webbläsaren. Information om hur du lägger till en SSL-bindning finns i [Binda ett befintligt anpassat SSL-certifikat till Azure App Service](app-service-web-tutorial-custom-ssl.md).
 
 ## <a name="test-in-browser"></a>Testa i webbläsaren
 
@@ -322,7 +322,7 @@ Som standard dirigerar App Service webbegäranden till rotkatalogen för din app
 
 Det gör du genom att välja **Programinställningar** i det vänstra navigeringsfältet på sidan för webbappen. 
 
-Längst ned på sidan pekar den virtuella rotkatalogen `/` till `site\wwwroot` som standard, vilket är rotkatalogen för din appkod. Ändra den så att den pekar till exempelvis `site\wwwroot\public` i stället, och spara ändringarna. 
+Längst ned på sidan pekar den virtuella rotkatalogen `/` till `site\wwwroot` som standard, vilket är rotkatalogen för din appkod. Ändra den så att den pekar till exempelvis `site\wwwroot\public` i stället, och spara ändringarna.
 
 ![Anpassa virtuell katalog](./media/app-service-web-tutorial-custom-domain/customize-virtual-directory.png)
 
@@ -339,23 +339,23 @@ Följande kommando lägger till ett konfigurerat anpassat DNS-namn i en App Serv
 ```bash 
 az webapp config hostname add \
     --webapp-name <app_name> \
-    --resource-group <resource_group_name> \ 
-    --hostname <fully_qualified_domain_name> 
+    --resource-group <resource_group_name> \
+    --hostname <fully_qualified_domain_name>
 ``` 
 
-Mer information finns i [Mappa en anpassad domän till en webbapp](scripts/cli-configure-custom-domain.md). 
+Mer information finns i [Mappa en anpassad domän till en webbapp](scripts/cli-configure-custom-domain.md).
 
 ### <a name="azure-powershell"></a>Azure PowerShell 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Följande kommando lägger till ett konfigurerat anpassat DNS-namn i en App Service-app. 
+Följande kommando lägger till ett konfigurerat anpassat DNS-namn i en App Service-app.
 
 ```powershell  
 Set-AzWebApp `
     -Name <app_name> `
     -ResourceGroupName <resource_group_name> ` 
-    -HostNames @("<fully_qualified_domain_name>","<app_name>.azurewebsites.net") 
+    -HostNames @("<fully_qualified_domain_name>","<app_name>.azurewebsites.net")
 ```
 
 Mer information finns i [Tilldela en anpassad domän till en webbapp](scripts/powershell-configure-custom-domain.md).

@@ -55,7 +55,7 @@ Följande avsnitt innehåller information om egenskaper som används för att de
 
 Följande egenskaper har stöd för Oracle-länkade tjänsten.
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen måste anges till **Oracle**. | Ja |
 | connectionString | Anger information som behövs för att ansluta till Oracle Database-instans. <br/>Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory. Du kan också publicera lösenord i Azure Key Vault och använda pull i `password` konfiguration av anslutningssträngen. Följande exempel finns och [Store autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) artikel med mer information. <br><br>**Stöd för anslutningstypen**: Du kan använda **Oracle-SID** eller **Oracle-tjänstnamn** att identifiera din databas:<br>– Om du använder SID: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>– Om du använder tjänstens namn: `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | Ja |
@@ -160,7 +160,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 För att kopiera data från och till Oracle, ange typegenskapen på datauppsättningen till **OracleTable**. Följande egenskaper stöds.
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för datauppsättningen måste anges till **OracleTable**. | Ja |
 | tableName |Namnet på tabellen i Oracle-databas som den länkade tjänsten refererar till. | Ja |
@@ -192,7 +192,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 För att kopiera data från Oracle, ange typ av datakälla i kopieringsaktiviteten till **OracleSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnittet.
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för aktiviteten kopieringskälla måste anges till **OracleSource**. | Ja |
 | oracleReaderQuery | Använda anpassade SQL-frågan för att läsa data. Ett exempel är `"SELECT * FROM MyTable"`. | Nej |
@@ -235,7 +235,7 @@ Om du inte anger ”oracleReaderQuery”, de kolumner som definierats i avsnitte
 
 Om du vill kopiera data till Oracle, ange Mottagartyp i kopieringsaktiviteten till **OracleSink**. Följande egenskaper stöds i kopieringsaktiviteten **mottagare** avsnittet.
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Egenskapen type kopiera aktivitet komprimeringstyp måste anges till **OracleSink**. | Ja |
 | writeBatchSize | Infogar data i SQL-tabell när buffertstorleken når writeBatchSize.<br/>Tillåtna värden är heltal (antal rader). |Nej (standardvärdet är 10 000) |
@@ -284,13 +284,13 @@ När du kopierar data från och till Oracle, används följande mappningar från
 | CHAR |String |
 | CLOB |String |
 | DATE |DateTime |
-| FLYTTAL |Decimal, sträng (om precision > 28) |
-| HELTAL |Decimal, sträng (om precision > 28) |
+| FLOAT |Decimal, String (om precision > 28) |
+| INTEGER |Decimal, String (om precision > 28) |
 | LONG |String |
 | LONG RAW |Byte[] |
 | NCHAR |String |
 | NCLOB |String |
-| NUMBER |Decimal, sträng (om precision > 28) |
+| NUMBER |Decimal, String (om precision > 28) |
 | NVARCHAR2 |String |
 | RAW |Byte[] |
 | ROWID |String |

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 04/23/2019
+ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: f9650cdb6935fb45f0c59e8a114a9ce1c8e2d809
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d99b10598b9f16da2cf202330f0b5bac9219699f
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64686524"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476829"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway"></a>Självstudier: Förbereda för distribution av Azure Data Box-Gateway
 
@@ -51,7 +51,11 @@ Här hittar du konfigurationskraven för Data Box Gateway-resursen, Data Box Gat
 Innan du börjar ska du kontrollera att:
 
 - Microsoft Azure-prenumerationen ska ha stöd för Data Box gatewayresursen. Prenumerationer med användningsbaserad betalning stöds inte.
-- Du har ägare eller deltagare som har åtkomst till din prenumeration.
+- Du har ägare eller deltagare som har åtkomst till på resursgruppnivå för Data Box Edge/Data Box-Gateway, IoT Hub och Azure Storage-resurser.
+
+    - Att skapa några Data Box-Edge / Data Box Gateway-resursen, bör du ha behörigheter som deltagare (eller högre) omfång på resursgruppnivå. Du måste också se till att den `Microsoft.DataBoxEdge` providern är registrerad. Gå till information om hur du registrerar [registerresursleverantören](data-box-gateway-manage-access-power-connectivity-mode.md#register-resource-providers).
+    - Kontrollera att den Microsoft.Devices-providern är registrerad för att skapa en IoT Hub-resurs. Gå till information om hur du registrerar [registerresursleverantören](data-box-gateway-manage-access-power-connectivity-mode.md#register-resource-providers).
+    - Om du vill skapa en resurs för Storage-kontot igen behöver du deltagare eller högre åtkomst begränsad på resursgruppsnivå. Azure Storage är som standard en registrerad resursprovider.
 - Du har administratören eller användaren åtkomst till Azure Active Directory Graph API. Mer information finns i [Azure Active Directory Graph API](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
 - Du har ditt Microsoft Azure lagringskonto med autentiseringsuppgifter.
 

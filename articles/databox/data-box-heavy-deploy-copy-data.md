@@ -8,12 +8,12 @@ ms.subservice: heavy
 ms.topic: tutorial
 ms.date: 05/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 6bc7af30d409fb7add321953aa2e956a0a3c1840
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: 8ee96f2e06071d60eb97596687387fd80ba14cc3
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66427774"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496280"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-heavy-via-smb-preview"></a>Självstudier: Kopiera data till Azure Data Box tung via SMB (förhandsversion)
 
@@ -227,7 +227,7 @@ När du har anslutit till SMB-resursen kan du påbörja en datakopiering.
 
     ![Ladda ned felfiler](media/data-box-heavy-deploy-copy-data/download-error-files.png)
 
-    Mer information finns i [visa felloggarna under Datakopieringen till Data Box tung](data-box-logs.md#view-error-log-during-data-copy-to-data-box). En detaljerad lista över fel vid kopiering av data finns i [felsöka Data Box tung utfärdar](data-box-troubleshoot.md).
+    Mer information finns i [visa felloggarna under Datakopieringen till Data Box tung](data-box-logs.md#view-error-log-during-data-copy). En detaljerad lista över fel vid kopiering av data finns i [felsöka Data Box tung utfärdar](data-box-troubleshoot.md).
 
 5. Öppna felfilen i anteckningar. Följande fel-filen anger att data inte justerats korrekt.
 

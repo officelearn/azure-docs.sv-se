@@ -4,14 +4,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 2/20/2019
 ms.author: erhopf
-ms.openlocfilehash: fe2978e176b986164ebb01fddbd29481f8a117bd
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: faa93b75bde3a14e48baa7d27a3eb6439a137e44
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66145435"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66482379"
 ---
-1. Starta Visual Studio 2017.
+1. Starta Visual Studio 2019.
 
 1. Kontrollera att arbetsbelastningen **Universal Windows Platform-utveckling** är tillgänglig. Välj **Verktyg** > **Get Tools and Features** (Hämta verktyg och funktioner) på menyraden i Visual Studio för att öppna installationsprogrammet för Visual Studio. Om den här arbetsbelastningen redan är aktiverad stänger du dialogrutan.
 
@@ -19,11 +19,11 @@ ms.locfileid: "66145435"
 
     Annars markerar du rutan bredvid **.NET cross-platform development** (Plattformsoberoende .NET-utveckling) och väljer **Ändra** i det nedre högra hörnet av dialogrutan. Installationen av den nya funktionen tar en stund.
 
-1. Skapa en tom Visual C#-baserad Universal Windows-app. Börja med att välja **Arkiv** > **Nytt** > **Projekt** på menyn. I dialogrutan **Nytt projekt** expanderar du **Installerat** > **Visual C#** > **Windows Universal** i den vänstra rutan. Välj sedan **Tom app (Universal Windows)**. För projektnamnet anger du *helloworld*.
+1. Skapa en tom Visual C#-baserad Universal Windows-app. Börja med att välja **Arkiv** > **Nytt** > **Projekt** på menyn. I dialogrutan **Nytt projekt** expanderar du **Installerat** > **Visual C#**  > **Windows Universal** i den vänstra rutan. Välj sedan **Tom app (Universal Windows)** . För projektnamnet anger du *helloworld*.
 
     ![Skärmbild av dialogrutan Nytt projekt](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-01-new-blank-app.png)
 
-1. Tal-SDK kräver att ditt program skapas för Windows 10 Fall Creators Update eller senare. I fönstret **New Universal Windows Platform Project** (Nytt Universal Windows Platform-projekt) som visas väljer du **Windows 10 Fall Creators Update (10.0; Build 16299)** som **minimiversion**. I rutan **Målversion** väljer du den här eller en senare version och klickar sedan på **OK**.
+1. Tal-SDK kräver att ett program är utformat för Windows 10 Fall Creators Update eller senare. I fönstret **New Universal Windows Platform Project** (Nytt Universal Windows Platform-projekt) som visas väljer du **Windows 10 Fall Creators Update (10.0; Build 16299)** som **minimiversion**. I den **målversion** väljer den här versionen eller senare version, och klicka sedan på **OK**.
 
     ![Skärmbild av fönstret New Universal Windows Platform Project (Nytt Universal Windows Platform-projekt)](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-02-new-uwp-project.png)
 

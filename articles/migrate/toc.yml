@@ -20,14 +20,6 @@
       href: concepts-dependency-visualization.md
 - name: Instruktionsguider
   items:
-    - name: Metodtips för migrering
-      items:
-        - name: Metodtips för säkerhet och hantering efter migrering
-          href: migrate-best-practices-security-management.md
-        - name: Metodtips för nätverk efter migrering
-          href: migrate-best-practices-networking.md
-        - name: Metodtips för kostnad och storleksändring efter migrering
-          href: migrate-best-practices-costs.md
     - name: Migreringsexempel – Contoso-serien
       href: contoso-migration-overview.md
     - name: Utforska och utvärdera en stor miljö

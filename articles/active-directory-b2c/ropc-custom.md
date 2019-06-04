@@ -269,10 +269,10 @@ Använd din favorit-API-program för utveckling för att generera ett API-anrop 
 
 | Nyckel | Värde |
 | --- | ----- |
-| användarnamn | `user-account` |
+| username | `user-account` |
 | password | `password1` |
-| _typ av beviljande | password |
-| omfång | openid `application-id` offline_access |
+| grant_type | password |
+| scope | openid `application-id` offline_access |
 | client_id | `application-id` |
 | response_type | token id_token |
 
@@ -314,10 +314,10 @@ Skapa en POST-anrop som den som visas här. Använd informationen i följande ta
 
 | Nyckel | Värde |
 | --- | ----- |
-| _typ av beviljande | refresh_token |
+| grant_type | refresh_token |
 | response_type | id_token |
 | client_id | `application-id` |
-| resurs | `application-id` |
+| resource | `application-id` |
 | refresh_token | `refresh-token` |
 
 - Ersätt `application-id` med program-ID från den *ROPC_Auth_app* registrering.

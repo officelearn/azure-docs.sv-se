@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 06/04/2019
 ms.author: v-pawal
-ms.openlocfilehash: 157b809c1f1707cdaa561ab09486cf4886fff4e0
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: eccd0c47c1bfc071f43a6329406cd14f704d019e
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389232"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514295"
 ---
 # <a name="how-the-translator-text-api-counts-characters"></a>Hur Translator Text API räknar tecken
 
@@ -35,7 +35,7 @@ Vad räknas är:
 
 För skript utifrån ideogram, till exempel kinesiska och japanska Kanji, kommer Translator Text API fortfarande räkna antalet Unicode-koderna, ett tecken per ideogram. Undantag: Unicode surrogat antal som två tecken.
 
-Antalet begäranden, ord, byte eller meningar är inte relevant i antal tecken. 
+Antalet begäranden, ord, byte eller meningar är inte relevant i antal tecken.
 
 Anrop till metoder för identifiering och BreakSentence räknas inte tecknet förbrukningen. Men förväntar vi sig att anropen för att identifiera och BreakSentence metoder är i en rimlig proportion till användningen av andra funktioner som räknas. Om antalet identifiera eller BreakSentence anrop du gör överskrider antalet andra räknade metoder av 100 gånger Microsoft förbehåller sig att begränsa användningen av identifierings- och BreakSentence metoder.
 

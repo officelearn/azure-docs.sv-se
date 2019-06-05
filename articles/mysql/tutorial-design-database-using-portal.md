@@ -1,18 +1,18 @@
 ---
 title: 'Självstudier: Utforma en Azure Database for MySQL med hjälp av Azure-portalen'
-description: I den här självstudien beskrivs hur du skapar och hanterar en Azure Database for MySQL-server och en databas med Azure Portal.
+description: Den här självstudien beskrivs hur du skapar och hanterar Azure Database for MySQL-server och databas med hjälp av Azure-portalen.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: tutorial
 ms.date: 03/20/2018
 ms.custom: mvc
-ms.openlocfilehash: 0b637ab5f2b6234fed301a60ee1857960a464a33
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d9c6a16dd7e6c32a71d496abe8a67e23cc075a6d
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60342783"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515835"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-database-using-the-azure-portal"></a>Självstudier: Utforma en Azure Database for MySQL-databas med hjälp av Azure-portalen
 Azure Database för MySQL är en hanterad tjänst som låter dig köra, hantera och skala högtillgängliga MySQL-databaser i molnet. I Azure-portalen kan du enkelt hantera servern och utforma en databas.
@@ -58,6 +58,9 @@ En Azure Database för MySQL-server skapas med en definierad uppsättning [compu
     Prisnivå | **Generell användning**, **Gen 5**, **2 virtuella kärnor**, **5 GB**, **7 dagar**, **Geografiskt redundant** | Konfigurationerna för beräkning, lagring och säkerhetskopiering för den nya servern. Välj **Prisnivå**. Sedan väljer du fliken **Generell användning**. *Gen 5*, *2 virtuella kärnor*, *5 GB*, och *7 dagar* är standardvärdena för **Compute-generering**, **Virtuell kärna** , **Lagring** och **Kvarhållningsperiod för säkerhetskopior**. Du kan lämna dessa skjutreglage som de är. Välj **Geografiskt redundant** bland **redundansalternativen för säkerhetskopiering** om du vill använda geo-redundant lagring för dina serversäkerhetskopior. Spara den valda prisnivån genom att välja **OK**. På nästa skärmbild visas dessa val.
     
    ![Prisnivå](./media/tutorial-design-database-using-portal/3-pricing-tier.png)
+
+   > [!TIP]
+   > Med **automatisk tillväxt** aktiverade servern ökar lagring när du närmar dig allokerade gränsen, utan att påverka din arbetsbelastning.
 
 3. Klicka på **Skapa**. Efter några minuter körs en ny Azure Database för MySQL-server i molnet. Du kan klicka på knappen **Aviseringar** i verktygsfältet om du vill övervaka distribueringsprocessen.
 

@@ -2,20 +2,20 @@
 title: Självstudie – Bevilja åtkomst till ett ASP.NET webb-API – Azure Active Directory B2C | Microsoft Docs
 description: Självstudie om hur du använder Active Directory B2C för att skydda ett ASP.NET webb-API och anropa det från en ASP.NET-webbapp.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
-ms.author: davidmu
+ms.author: marsma
 ms.date: 02/04/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 77e3eaeffba862c727e021427e5f27967fcf35bd
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 6b93a7848e5c8516507c825d3064fb61a404e3cf
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64687986"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66507755"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-web-api-using-azure-active-directory-b2c"></a>Självstudier: Bevilja åtkomst till ett ASP.NET webb-API med hjälp av Azure Active Directory B2C
 
@@ -135,7 +135,7 @@ Följande två projekt finns i exempellösningen:
 
 Du måste köra både **TaskWebApp**- och **TaskService**-projektet. 
 
-1. Högerklicka på lösningen i Solution Explorer och välj **Ange startprojekt...**. 
+1. Högerklicka på lösningen i Solution Explorer och välj **Ange startprojekt...** . 
 2. Välj **Flera startprojekt**.
 3. Ändra **Åtgärd** för båda projekten till **Start**.
 4. Spara ändringarna genom att klicka på **OK**.

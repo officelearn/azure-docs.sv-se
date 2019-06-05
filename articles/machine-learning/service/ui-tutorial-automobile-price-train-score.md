@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/06/2019
-ms.openlocfilehash: 52b5291e4b56b5065b9dddd5b8908ade0c1a8387
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: e37e99323c92adad0b9e897af8c276a8ac153371
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "66019833"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515636"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-visual-interface"></a>Självstudier: Förutsäga bil pris med det visuella gränssnittet
 
@@ -80,11 +80,11 @@ Om du inte har slutfört snabbstarten, följer du stegen nedan för att snabbt s
 
 1. Skapa ett nytt experiment genom att välja **+ ny** längst ned i fönstret visuella gränssnittet.
 
-1. Välj **EXPERIMENT** >  **Tomt experiment**.
+1. Välj **experiment** >  **tomt Experiment**.
 
 1. Välj det fördefinierade experimentnamnet **”redan experimenterat lite skapas på...** ”överst på arbetsytan och Byt namn på den till något beskrivande. Till exempel **bilpriser**. Namnet behöver inte vara unikt.
 
-1. Till vänster om arbetsytan för experimentet finns en palett med datauppsättningar och moduler. Använd sökrutan överst på modulpaletten för att hitta moduler. Typ **bil** i sökrutan för att hitta datauppsättningen **Automobile price data (Raw)**. Dra datauppsättningen till experimentarbetsytan.
+1. Till vänster om arbetsytan för experimentet finns en palett med datauppsättningar och moduler. Använd sökrutan överst på modulpaletten för att hitta moduler. Typ **bil** i sökrutan för att hitta datauppsättningen **Automobile price data (Raw)** . Dra datauppsättningen till experimentarbetsytan.
 
     ![Skärmbild hitta datauppsättningen bil pris](./media/ui-tutorial-automobile-price-train-score/automobile-dataset.png)
 
@@ -167,7 +167,7 @@ Nu när du har tränat modellen med 70 procent av dina data, du kan använda den
 
 1. Typ **poängmodell** i sökrutan för att hitta den **Poängmodell** modulen och dra modulen till experimentarbetsytan. Anslut utdataporten för den **Träningsmodell** modul till vänstra indataporten för **Poängmodell**. Anslut utdataporten för testning (den högra porten) för den **dela Data** indataporten för modulen till höger för **Poängmodell**.
 
-1. Typ **utvärdera** i sökrutan för att hitta den **utvärdera modell** it dra modulen till experimentarbetsytan. Anslut utdataporten för den **Poängmodell** den vänstra indataporten för modulen **utvärdera modell**. Det slutliga experimentet bör se ut ungefär så här:
+1. Typ **utvärdera** i sökrutan för att hitta den **utvärdera modell** och dra modulen till experimentarbetsytan. Anslut utdataporten för den **Poängmodell** den vänstra indataporten för modulen **utvärdera modell**. Det slutliga experimentet bör se ut ungefär så här:
 
     ![Skärmbild som visar den slutliga korrekt konfigurationen av experimentet.](./media/ui-tutorial-automobile-price-train-score/final-graph.png)
 
@@ -183,8 +183,8 @@ Nu när du har tränat modellen med 70 procent av dina data, du kan använda den
 
 För din modell visas följande statistik:
 
-* **Medelabsolutfel (MAE)**: Medelvärdet av absoluta fel (ett fel är skillnaden mellan det förväntade och faktiska värdet).
-* **Rot medelvärdet cirkels fel (RMSE)**: Kvadratroten av genomsnittet av kvadratfel i förutsägelser som görs mot testdatauppsättningen.
+* **Medelabsolutfel (MAE)** : Medelvärdet av absoluta fel (ett fel är skillnaden mellan det förväntade och faktiska värdet).
+* **Rot medelvärdet cirkels fel (RMSE)** : Kvadratroten av genomsnittet av kvadratfel i förutsägelser som görs mot testdatauppsättningen.
 * **Relativt absolutfel**: Medelvärdet av absoluta fel i förhållande till den absoluta skillnaden mellan faktiska värden och medelvärdet av alla faktiska värden.
 * **Relativa kvadratfel**: Medelvärdet av kvadratfel i förhållande till kvadratskillnaden mellan faktiska värden och medelvärdet av alla faktiska värden.
 * **Bestämningskoefficient**: Även känt som R-kvadratvärdet, det här är ett statistiskt mått som anger hur väl en modell passar data.

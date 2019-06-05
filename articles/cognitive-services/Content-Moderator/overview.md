@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: overview
 ms.date: 02/20/2019
 ms.author: pafarley
-ms.openlocfilehash: 7e9c12c7da701fb627c51373e57f870d3fc77ac5
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: 14cf500cff9f1f7f8b1573862c3060326e6518fa
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65551330"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688855"
 ---
 # <a name="what-is-azure-content-moderator"></a>Vad är Azure Content Moderator?
 
@@ -25,11 +25,14 @@ Azure Content Moderator API är en kognitiv tjänst som kontrollerar innehåll m
 
 Följande är några scenarier där en programutvecklare eller ett team kan använda Content Moderator:
 
-- Marknadsplatser online som modererar produktkataloger och annat användargenererat innehåll
-- Spelföretag som modererar användargenererade spelartefakter och chattrum
-- Plattformar för sociala meddelanden som modererar bilder, text och videor som läggs till av användarna
-- Medieföretag som implementerar centraliserad moderering för sitt innehåll
-- K-12-utbildningslösningsföretag som filtrerar bort innehåll som är olämpligt för elever och lärare
+- Online marknadsplatser som måttlig produktkataloger och andra användargenererat innehåll.
+- Spel-företag som måttlig användargenererade spel artefakter och chattrum.
+- Sociala meddelanden-plattformar som måttlig bilder, text och videor som har lagts till av sina användare.
+- Media företag som implementerar centraliserad moderering för sitt innehåll.
+- K-12 education-lösningsleverantörer som filtrerar ut innehåll som är olämpligt för studenter och lärare.
+
+> [!NOTE]
+> Du kan inte använda Content Moderator för att upptäcka otillåten underordnade utnyttjande bilder. Men kvalificerade organisationer kan använda den [PhotoDNA molntjänst](https://www.microsoft.com/photodna "molntjänst från Microsoft PhotoDNA") till skärmen för den här typen av innehåll.
 
 ## <a name="what-it-includes"></a>Vad verktyget innehåller
 

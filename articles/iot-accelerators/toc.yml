@@ -147,16 +147,12 @@
       items:
         - name: Arkitektur för OPC-tvilling
           href: overview-opc-twin-architecture.md
-        - name: Arkitektur för ansluten fabrik
-          href: iot-accelerators-connected-factory-sample-walkthrough.md
     - name: Instruktionsguider
       items:
         - name: Ansluten fabrik
           items:
             - name: Använd instrumentpanelen
               href: iot-accelerators-connected-factory-dashboard.md
-            - name: Distribuera en gateway
-              href: iot-accelerators-connected-factory-gateway-deployment.md
             - name: Använd OPC-utgivaren
               href: 'https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md'
             - name: Konfigurera lösningsacceleratorn

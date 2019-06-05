@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.custom: mvc
-ms.openlocfilehash: 1eb24d90c3aefa81f53a3e31c0bd460f45e5a250
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1938a84d3e9c0ba8c84cbdbd2eee5b7ca448554d
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60626389"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515670"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-database-by-using-the-azure-portal"></a>Självstudier: Skapa en Azure Database for MariaDB-databas med hjälp av Azure-portalen
 
@@ -63,6 +63,9 @@ Du skapar en Azure Database for MariaDB-server med en definierad uppsättning [b
     Prisnivå | Se beskrivningen. | Konfigurationerna för beräkning, lagring och säkerhetskopiering för den nya servern. Välj **Prisnivå** > **Generell användning**. Behåll standardvärdena för följande inställningar:<br><ul><li>**Compute-generering** (Gen 5)</li><li>**vCore** (4 virtuella kärnor)</li><li>**Storage** (100 GB)</li><li>**Kvarhållningsperiod för säkerhetskopiering** (7 dagar)</li></ul><br>Välj **Geografiskt redundant** bland **redundansalternativen för säkerhetskopiering** om du vill använda geo-redundant lagring för dina serversäkerhetskopior. <br><br>Spara den valda prisnivån genom att välja **OK**. På nästa skärmbild visas dessa val.
     
    ![Prisnivå](./media/tutorial-design-database-using-portal/3-pricing-tier.png)
+
+   > [!TIP]
+   > Med **automatisk tillväxt** aktiverade servern ökar lagring när du närmar dig allokerade gränsen, utan att påverka din arbetsbelastning.
 
 4. Välj **Skapa**. Efter några minuter körs en ny Azure Database for MariaDB-server i molnet. Välj **Aviseringar** i verktygsfältet för att övervaka distributionsprocessen.
 
@@ -165,7 +168,7 @@ Anta att du av misstag har tagit bort en viktig databastabell och inte enkelt ka
 
 1. Leta rätt på din Azure Database for MariaDB i Azure-portalen. På **översiktssidan** väljer du **Återställ**.
 
-   ![Återställ en databas](./media/tutorial-design-database-using-portal/1-restore-a-db.png)
+   ![Återställa en databas](./media/tutorial-design-database-using-portal/1-restore-a-db.png)
 
 2. Ange eller välj följande information på sidan **Återställa**:
    

@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: f2984ed9a7edd36b166c0dff9aa87d86c6d2ab45
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 9709d18b00d65578ca3a63fe5044e0b9f7b52d58
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65800725"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515585"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Självstudier: Distribuera en bildklassificeringsmodell i Azure Container Instances
 
@@ -35,7 +35,7 @@ I den här delen av självstudien använder du Azure Machine Learning Service f�
 Container Instances är en bra lösning för testning och för att förstå arbetsflödet. För skalbara produktionsdistributioner kan du använda Azure Kubernetes Service. Mer information finns i [Hur och var man distribuerar](how-to-deploy-and-where.md).
 
 >[!NOTE]
-> Koden i den här artikeln har testats med Azure Machine Learning SDK version 1.0.8.
+> Koden i den här artikeln har testats med Azure Machine Learning SDK version 1.0.41.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 Gå vidare till [Set the development environment](#start) (Ange utvecklingsmiljö) för att läsa igenom stegen för anteckningsboken.  

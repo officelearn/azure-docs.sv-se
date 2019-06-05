@@ -70,8 +70,6 @@
       href: 'https://go.microsoft.com/fwlink/?linkid=865446'
     - name: API för Custom Vision Prediction
       href: 'https://go.microsoft.com/fwlink/?linkid=865445'
-    - name: Ordlista
-      href: glossary-of-terms.md
     - name: 'SDK:er'
       items:
         - name: .NET

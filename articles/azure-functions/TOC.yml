@@ -15,16 +15,6 @@
       href: functions-create-your-first-function-visual-studio.md
     - name: Skapa funktion – Visual Studio-kod
       href: functions-create-first-function-vs-code.md
-    - name: Skapa funktion – Node.js med Visual Studio Code
-      items:
-        - name: Komma igång
-          href: tutorial-javascript-vscode-get-started.md
-        - name: Skapa programmet
-          href: tutorial-javascript-vscode-create-app.md
-        - name: Kör och testa appen lokalt
-          href: tutorial-javascript-vscode-run-app.md
-        - name: Distribuera webbplatsen
-          href: tutorial-javascript-vscode-deploy-app.md
     - name: Skapa funktion – Java/Maven
       href: functions-create-first-java-maven.md
     - name: Skapa funktion – Python

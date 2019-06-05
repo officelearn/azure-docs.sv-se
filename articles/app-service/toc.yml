@@ -19,16 +19,6 @@
       href: app-service-web-get-started-dotnet-framework.md
     - name: Skapa Node.js-app
       href: app-service-web-get-started-nodejs.md
-    - name: Skapa Node.js-app med hjälp av Visual Studio Code
-      items:
-        - name: Komma igång
-          href: tutorial-javascript-vscode-get-started.md
-        - name: Skapa programmet
-          href: tutorial-javascript-vscode-create-app.md
-        - name: Distribuera webbplatsen
-          href: tutorial-javascript-vscode-deploy-app.md
-        - name: Visa loggar
-          href: tutorial-javascript-vscode-tail-logs.md
     - name: Skapa PHP-app
       href: app-service-web-get-started-php.md
     - name: Skapa Java-app

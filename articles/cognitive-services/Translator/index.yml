@@ -11,7 +11,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 02/21/2019
+  ms.date: 06/04/2019
   ms.author: v-jansko
 abstract:
   description: 'Translator Text är en molnbaserad maskinöversättningstjänst som du kan använda för att översätta text nästan i realtid via ett enkelt REST API-anrop. API:et använder modern teknik för neural maskinöversättning och erbjuder teknik för statistisk maskinöversättning. Custom Translator är ett tillägg för Translator Text API:et som du kan bygga neurala översättningssystem med. Det anpassade översättningssystemet kan användas för att översätta text med Translator Text API:et eller <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/">Microsoft Speech Services</a>. Listan med språk som stöds, både för neural och statistisk maskinöversättning, finns i <a href="languages.md">Språk som stöds</a>.'

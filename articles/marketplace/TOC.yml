@@ -58,8 +58,6 @@
         - name: Dina Marketplace-förmåner
           href: ./gtm-your-marketplace-benefits.md
           items:
-            - name: Marknadsför din verksamhet med Microsoft
-              href: ./gtm-promote-your-business.md
             - name: Önskade lösningar
               href: ./preferred-solutions.md
             - name: Integrerade lösningar

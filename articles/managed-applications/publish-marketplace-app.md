@@ -8,14 +8,14 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.date: 07/10/2018
+ms.date: 06/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: 61cac49c34eb193d641a94c9a7839282289dd9c7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 40132f67b135b0dc081180c34361047e59776b81
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64572577"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688560"
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Azure-hanterade program på Marketplace
 
@@ -42,7 +42,7 @@ Det finns även olika företagskrav. De är:
 För att kunna bli utgivare på Azure Marketplace måste du:
 
 1. Skapa ett Microsoft-ID – skapa ett Microsoft-konto med en e-postadress som tillhör företagets domän men inte en enskild användare. E-postadressen används för både Microsoft Developer Center och Cloud Partner Portal. Mer information finns i [Utgivarhandbok för Azure Marketplace](https://aka.ms/sellerguide).
-1. Skicka [nomineringsformuläret för Azure Marketplace](https://aka.ms/ampnomination) – För **Lösning som du vill publicera?** väljer du **Hanterat program**. När formuläret har skickats in granskar Marketplace Onboarding-teamet ditt program och verifierar begäran. Godkännandeprocessen kan ta upp till tre dagar. När din nominering har godkänts får du en kampanjkod som du använder för att undvika registreringsavgiften för Developer Center. Om du **inte** fyller i nomineringsformuläret för Marketplace får du betala en registreringsavgift på 99 USD.
+1. Skicka [Nomineringsformuläret för Azure Marketplace](https://aka.ms/ampnomination) – för **lösning som du vill publicera?** Välj **Managed Application**. När formuläret har skickats in granskar Marketplace Onboarding-teamet ditt program och verifierar begäran. Godkännandeprocessen kan ta upp till tre dagar. När din nominering har godkänts får du en kampanjkod som du använder för att undvika registreringsavgiften för Developer Center. Om du **inte** fyller i nomineringsformuläret för Marketplace får du betala en registreringsavgift på 99 USD.
 1. Registrera i [Developer Center](https://dev.windows.com/registration?accountprogram=azure) -Microsoft verifierar att din organisation är en giltig juridisk person med ett giltigt SKATTE-ID för landet/regionen där det är registrerat. Godkännandeprocessen kan ta 5 till 10 dagar. Använd kampanjkoden som du fick med e-post under nomineringsprocessen för att undvika registreringsavgift. Mer information finns i [Utgivarhandbok för Azure Marketplace](https://aka.ms/sellerguide).
 1. Logga in på [Cloud Partner Portal](https://cloudpartner.azure.com) – I utgivarprofilen kopplar du ditt Developer Center-konto till Marketplace-utgivarprofilen. Mer information finns i [Utgivarhandbok för Azure Marketplace](https://aka.ms/sellerguide).
 
@@ -66,7 +66,7 @@ Följande fält finns på formuläret för **erbjudandeinställningar**:
 
 * **Erbjudande-ID**: Ett unikt ID som identifierar erbjudandet i en utgivarprofil. ID:t visas i produktens webbadresser, Resource Manager-mallar och faktureringsrapporter. Det får bara innehålla gemena alfanumeriska tecken och bindestreck (-). ID:t får inte avslutas med ett bindestreck. Det kan innehålla högst 50 tecken. När ett erbjudande lanseras är det här fältet låst.
 * **Utgivar-ID**: I den här listrutan väljer du den utgivarprofil som du vill använda när du publicerar erbjudandet. När ett erbjudande lanseras är det här fältet låst.
-* **Namn**: Det här visningsnamnet för ditt erbjudande visas på Marketplace och i portalen. Det får innehålla högst 50 tecken. Ange ett igenkännligt varumärke för produkten. Ta inte med ditt företagsnamn här om det inte ingår i produktnamnet. Om du marknadsför erbjudandet på din egen webbplats måste du se till att namnet anges exakt som det visas på webbplatsen.
+* **Namn på**: Det här visningsnamnet för ditt erbjudande visas på Marketplace och i portalen. Det får innehålla högst 50 tecken. Ange ett igenkännligt varumärke för produkten. Ta inte med ditt företagsnamn här om det inte ingår i produktnamnet. Om du marknadsför erbjudandet på din egen webbplats måste du se till att namnet anges exakt som det visas på webbplatsen.
 
 När du är klar sparar du ditt arbete genom att välja **Spara**.
 
@@ -102,7 +102,9 @@ En SKU visas under det överordnade erbjudandet på Marketplace. Det visas som e
    Fyll i följande fält:
 
    * **Version**: Ange versionen för det paket du laddar upp. Versionsformatet ska vara `{number}.{number}.{number}{number}`.
-   * **Paketfil (.zip)**: Paketet innehåller två nödvändiga filer som komprimerats i ett .zip-paket. En av filerna är Resource Manager-mallen som definierar de resurser som ska distribueras för det hanterade programmet. Den andra filen definierar [användargränssnittet](create-uidefinition-overview.md) för konsumenter som distribuerar det hanterade programmet via portalen. I användargränssnittet anger du element som ger konsumenterna möjlighet att ange parametervärden.
+   * **Paketfil (.zip)** : Paketet innehåller två nödvändiga filer som komprimerats i ett .zip-paket. En av filerna är Resource Manager-mallen som definierar de resurser som ska distribueras för det hanterade programmet. Den andra filen definierar [användargränssnittet](create-uidefinition-overview.md) för konsumenter som distribuerar det hanterade programmet via portalen. I användargränssnittet anger du element som ger konsumenterna möjlighet att ange parametervärden.
+   * **Klient-ID**: Klient-ID för konton som du får åtkomst.
+   * **Aktivera JIT-åtkomst till**: Välj **Ja** att aktivera [just-in-time-åtkomstkontroll](request-just-in-time-access.md) för kontot. När aktiverad, kan du begära åtkomst till kundens konto för en angiven tidsperiod. Om du vill kräva att användare av det hanterade programmet ger ditt konto permanent åtkomst, Välj **nr**.
    * **PrincipalId**: Den här egenskapen är Azure Active Directory-ID:t (Azure AD) för en användare, en användargrupp eller ett program som har beviljats åtkomst till resurser i kundens prenumeration. Rolldefinitionen beskriver behörigheterna.
    * **Rolldefinition**: Den här egenskapen är en lista med alla inbyggda RBAC-roller (rollbaserade åtkomstkontroller) som tillhandahålls av Azure AD. Välj den roll som är mest lämplig för hantering av resurserna för kundens räkning.
    * **Principinställningar**: Använd [Azure Policy](../governance/policy/overview.md) på det hanterade programmet och ange efterlevnadskrav för de distribuerade lösningarna. Välj vilka principer du vill använda bland de tillgängliga alternativen. I fältet **Principparametrar** anger du en JSON-sträng med parametervärdena. Du kan läsa om principdefinitioner och parametervärdenas format i [Azure Policy-exempel](../governance/policy/samples/index.md).
@@ -117,7 +119,7 @@ I Marketplace-formulär anges fält som visas på [Azure Marketplace](https://az
 
 ### <a name="preview-subscription-ids"></a>ID:n för prenumerationer i förhandsversion
 
-Ange en lista över ID:n för Azure-prenumerationer som har åtkomst till erbjudandet när det har publicerats. Du kan använda de här vitlistade prenumerationerna för en förhandstestning av erbjudandet innan du gör det live. Du kan sammanställa en vitlista för upp till 100 prenumerationer i partnerportalen.
+Ange en lista över ID:n för Azure-prenumerationer som har åtkomst till erbjudandet när det har publicerats. Du kan använda de här vitlistade prenumerationerna för en förhandstestning av erbjudandet innan du gör det live. Du kan sammanställa en lista över tillåtna för upp till 100 prenumerationer i partnerportalen.
 
 ### <a name="suggested-categories"></a>Föreslagna kategorier
 

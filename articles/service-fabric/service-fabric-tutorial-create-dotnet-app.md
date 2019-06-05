@@ -15,18 +15,18 @@ ms.workload: NA
 ms.date: 01/14/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 097cb554523a9e75b265ca16e79769daf0a49b40
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 998d33730586316fe3bf423663ffae5148843ed0
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60864724"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515854"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Självstudier: Skapa och distribuera ett program med en ASP.NET Core Web API-klientdelstjänst och en tillståndskänslig serverdelstjänst
 
 Den här självstudien ingår i en serie.  Du får se hur du skapar ett Azure Service Fabric-program med en ASP.NET Core Web API-klientdel och en tillståndskänslig serverdelstjänst för att lagra dina data. När du är klar har du ett röstningsprogam med ASP.NET Core-webbklient som sparar röstningsresultat i en tillståndskänslig backend-tjänst i klustret. Om du inte vill skapa röstningsprogrammet manuellt kan du [ladda ned källkoden](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) för det färdiga programmet och gå vidare till [Gå igenom exempelprogrammet för röstning](#walkthrough_anchor).  Om du vill kan du visa en [videogenomgång](https://channel9.msdn.com/Events/Connect/2017/E100) av den här kursen.
 
-![Diagram över programmet](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
+![AngularJS+ASP.NET API-klientdel, ansluter till en tillståndskänslig serverdelstjänst i Service Fabric](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
 
 I del ett i den här serien lärde du dig att:
 
@@ -625,9 +625,9 @@ Gör så här om du vill se vad som händer i koden:
 
       ![Lägg till röst för frontwebbtjänst](./media/service-fabric-tutorial-create-dotnet-app/addvote-frontend.png)
 
-   2. Skapa först URL:en till ReverseProxy för serverdelstjänsten **(1)**.
-   3. Skicka sedan HTTP PUT-begäran till ReverseProxy **(2)**.
-   4. Till sist returneras svaret från serverdelstjänsten till klienten **(3)**.
+   2. Skapa först URL:en till ReverseProxy för serverdelstjänsten **(1)** .
+   3. Skicka sedan HTTP PUT-begäran till ReverseProxy **(2)** .
+   4. Till sist returneras svaret från serverdelstjänsten till klienten **(3)** .
 
 5. Tryck på **F5** för att fortsätta.
    1. Du befinner dig nu på brytpunkten i serverdelstjänsten.
@@ -636,7 +636,7 @@ Gör så här om du vill se vad som händer i koden:
 
    2. På den första raden i metoden **(1)** använder du `StateManager` för att hämta eller lägga till en tillförlitlig ordlista med namnet `counts`.
    3. All interaktion med värden i en tillförlitlig ordlista kräver en transaktion, den här använder instruktionen **(2)** som skapar den transaktionen.
-   4. I transaktionen uppdaterar du värdet för den relevanta nyckeln för röstningsalternativet och utför åtgärden **(3)**. När utförandemetoden returneras uppdateras data i ordlistan och replikeras till andra noder i klustret. Data har nu lagrats i klustret och serverdelstjänsten kan redundansväxla till andra noder och fortfarande ha data tillgängliga.
+   4. I transaktionen uppdaterar du värdet för den relevanta nyckeln för röstningsalternativet och utför åtgärden **(3)** . När utförandemetoden returneras uppdateras data i ordlistan och replikeras till andra noder i klustret. Data har nu lagrats i klustret och serverdelstjänsten kan redundansväxla till andra noder och fortfarande ha data tillgängliga.
 6. Tryck på **F5** för att fortsätta.
 
 Stoppa felsökningssessionen genom att trycka på **Skift + F5**.

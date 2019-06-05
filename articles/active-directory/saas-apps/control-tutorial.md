@@ -1,6 +1,6 @@
 ---
 title: 'Självstudier: Azure Active Directory-integrering med kontroll | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och kontroll.
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och affärskontinuitet kontroll.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,18 +16,18 @@ ms.topic: tutorial
 ms.date: 05/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 569021d79e74bc7a5a2582741109e1094ba90de8
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: aa66ae77ccc271e475d61b286e0f236429e40feb
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65862698"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66507513"
 ---
-# <a name="tutorial-integrate-control-with-azure-active-directory"></a>Självstudier: Integrera kontroll med Azure Active Directory
+# <a name="tutorial-integrate-continuity-control-with-azure-active-directory"></a>Självstudier: Integrera affärskontinuitet kontroll med Azure Active Directory
 
-I de här självstudierna lär du dig att integrera kontroll med Azure Active Directory (AD Azure). När du integrerar kontroll med Azure AD, kan du:
+I de här självstudierna lär du dig att integrera affärskontinuitet kontroll (kontroll) med Azure Active Directory (AD Azure). När du integrerar kontroll med Azure AD, kan du:
 
-* Styr i Azure AD som har åtkomst till kontrollen.
+* Hantera i Azure AD som har åtkomst till kontrollen.
 * Ge dina användare att automatiskt inloggad till kontroll med sina Azure AD-konton.
 * Hantera konton på en central plats – Azure portal.
 
@@ -38,7 +38,7 @@ Läs mer om integrering av SaaS-app med Azure AD i [vad är programåtkomst och 
 För att komma igång behöver du följande objekt:
 
 * En Azure AD-prenumeration. Om du inte har en prenumeration kan du få en månads kostnadsfri utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/).
-* Aktiverat prenumeration kontroll enkel inloggning (SSO).
+* En kontroll enkel inloggning (SSO) aktiverat prenumeration.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
@@ -83,7 +83,7 @@ Följ dessa steg om du vill aktivera enkel inloggning för Azure AD i Azure-port
     I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://<SUBDOMAIN>.continuity.net/auth/saml`
 
     > [!Note]
-    > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [kontroll klienten supportteamet](mailto:help@continuity.net) att hämta värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Värdet är inte verkligt. Uppdatera värdet med rätt underdomänen. SSO-underdomänen kan konfigureras på [kontroll autentiseringsstrategier](https://control.continuity.net/settings/account_profile#tab/security). Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 1. I avsnittet **SAML-signeringscertifikat** klickar du på knappen **Redigera** för att öppna dialogrutan **SAML-signeringscertifikat**.
 
@@ -93,19 +93,13 @@ Följ dessa steg om du vill aktivera enkel inloggning för Azure AD i Azure-port
 
     ![Kopiera värdet för Tumavtryck](common/copy-thumbprint.png)
 
-1. På den **ställa in kontroller** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
+1. På den **ställa in kontroller** avsnittet, kopiera inloggnings-URL och spara den på din dator.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    a. Inloggningswebbadress
-
-    b. Microsoft Azure Active Directory-identifierare
-
-    c. Utloggnings-URL
-
 ### <a name="configure-control-sso"></a>Konfigurera kontroll SSO
 
-Att konfigurera enkel inloggning på **kontroll** sida, som du behöver skicka den **tumavtrycksvärde** och lämpliga kopierade URL: er från Azure portal för att [kontroll supportteamet](mailto:help@continuity.net). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+Att konfigurera enkel inloggning på den **kontroll** sida, måste du uppdatera autentiseringsinställningarna för enkel inloggning för på [kontroll autentiseringsstrategier](https://control.continuity.net/settings/account_profile#tab/security). Uppdatera **URL för SAML SSO** med den **inloggnings-URL** och **certifikat fingeravtryck** med den **tumavtrycksvärde** från Azure-portalen.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -139,7 +133,7 @@ I det här avsnittet ska du aktivera Britta Simon att använda Azure enkel inlog
 
 ### <a name="create-control-test-user"></a>Skapa kontroll testanvändare
 
-I det här avsnittet skapar du en användare som kallas Britta Simon kontroll. Arbeta med [kontroll supportteamet](mailto:help@continuity.net) att lägga till användare i Control-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som kallas Britta Simon kontroll. Arbeta med [kontroll supportteamet](mailto:help@continuity.net) att lägga till användare i Control-plattformen. Använda Britta Simon Azure AD **användarnamn** att fylla i henne **identitet providern användar-ID** kontroll. Användare måste skapas och deras **identitet providern användar-ID** i kontrollen innan de kan använda enkel inloggning.
 
 ### <a name="test-sso"></a>Testa enkel inloggning
 

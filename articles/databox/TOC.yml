@@ -123,6 +123,10 @@
           items:
             - name: Vad är Data Box – tung?
               href: data-box-heavy-overview.md
+        - name: Snabbstarter
+          items:
+            - name: Konfiguration – Azure-portalen
+              href: data-box-heavy-quickstart-portal.md
         - name: Självstudier
           items:
             - name: 1 – Beställ

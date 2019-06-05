@@ -55,11 +55,11 @@
     - name: Självstudier
       items:
         - name: Aktivera resursprovider
-          href: 'https://docs.azure.cloudsimple.com/enable-cloudsimple-service/'
+          href: enable-cloudsimple-service.md
         - name: Skapa CloudSimple-tjänst
-          href: 'https://docs.azure.cloudsimple.com/create-cloudsimple-service/'
+          href: create-cloudsimple-service.md
         - name: Få åtkomst till CloudSimple-portalen
-          href: 'https://docs.azure.cloudsimple.com/access-cloudsimple-portal/'
+          href: access-cloudsimple-portal.md
         - name: Hantera noder
           items:
             - name: Köpa noder

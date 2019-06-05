@@ -13,6 +13,9 @@
       href: quick-backup-vm-powershell.md
     - name: Säkerhetskopiera en virtuell dator – CLI
       href: quick-backup-vm-cli.md
+    - name: Säkerhetskopiera en virtuell dator – Resource Manager-mall
+      displayName: ARM
+      href: quick-backup-vm-template.md
 - name: Självstudier
   items:
     - name: Säkerhetskopiera virtuella Azure-datorer enligt skala
@@ -249,6 +252,8 @@
           href: troubleshoot-azure-files.md
         - name: SQL Server
           href: backup-sql-server-azure-troubleshoot.md
+        - name: Systemtillstånd
+          href: backup-azure-system-state-troubleshoot.md
     - name: Övervaka Azure Backup-arbetsbelastningar
       items:
         - name: Använda Azure Portal

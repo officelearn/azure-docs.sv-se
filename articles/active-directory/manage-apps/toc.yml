@@ -74,7 +74,11 @@
         - name: Konfigurera SAML-tokenkryptering (förhandsversion)
           href: howto-saml-token-encryption.md
     - name: Enkel inloggning
-      href: what-is-single-sign-on.md
+      items:
+        - name: Vad är enkel inloggning
+          href: what-is-single-sign-on.md
+        - name: Planera en distribution för enkel inloggning
+          href: plan-sso-deployment.md
     - name: Slutanvändarportaler
       href: end-user-experiences.md
 - name: Instruktionsguider
@@ -93,7 +97,9 @@
           href: application-proxy-configure-for-claims-aware-applications.md
         - name: Registrera anslutningsapp – tyst installation
           href: application-proxy-register-connector-powershell.md
-        - name: Konfigurera ursprungliga klientappar
+        - name: 'Ge mobilappar och skrivbordsappar åtkomst till lokala API:er'
+          href: application-proxy-secure-api-access.md
+        - name: Konfigurera mobil- och skrivbordsklientappar
           href: application-proxy-configure-native-client-application.md
         - name: Konfigurera anpassad startsida
           href: application-proxy-configure-custom-home-page.md

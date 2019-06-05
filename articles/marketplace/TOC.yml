@@ -470,8 +470,12 @@
           href: ./partner-center-portal/manage-account.md
         - name: Hitta eller skapa ett arbetskonto för företag
           href: ./partner-center-portal/company-work-accounts.md
+        - name: Kontomigrering från CPP till Partnercenter
+          href: ./partner-center-portal/account-migration-from-cpp-to-pc.md
     - name: Skapa ett nytt erbjudande
       items:
+        - name: Checklista för skapande av erbjudande
+          href: ./partner-center-portal/offer-creation-checklist.md
         - name: Skapa ett SaaS-erbjudande
           href: ./partner-center-portal/create-new-saas-offer.md
         - name: 'API:er för uppfyllnad av SaaS'

@@ -105,6 +105,8 @@
           href: howto-configure-homepage.md
         - name: Anpassa användargränssnitt i program
           href: howto-customize-ui.md
+        - name: Använda programmallar
+          href: howto-use-app-templates.md
         - name: Hantera från Azure-portalen
           href: howto-manage-iot-central-from-portal.md
         - name: Hantera från Azure CLI
@@ -141,9 +143,9 @@
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
         - name: Time Series Insights
           href: /azure/time-series-insights
-    - name: Edge
+    - name: IoT Edge
       items:
-        - name: IoT Edge
+        - name: Azure IoT Edge
           href: /azure/iot-edge
         - name: 'SDK:er för IoT-enheter'
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'

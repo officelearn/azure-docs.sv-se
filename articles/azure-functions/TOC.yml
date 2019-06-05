@@ -15,6 +15,16 @@
       href: functions-create-your-first-function-visual-studio.md
     - name: Skapa funktion – Visual Studio-kod
       href: functions-create-first-function-vs-code.md
+    - name: Skapa funktion – Node.js med Visual Studio Code
+      items:
+        - name: Komma igång
+          href: tutorial-javascript-vscode-get-started.md
+        - name: Skapa programmet
+          href: tutorial-javascript-vscode-create-app.md
+        - name: Kör och testa appen lokalt
+          href: tutorial-javascript-vscode-run-app.md
+        - name: Distribuera webbplatsen
+          href: tutorial-javascript-vscode-deploy-app.md
     - name: Skapa funktion – Java/Maven
       href: functions-create-first-java-maven.md
     - name: Skapa funktion – Python
@@ -58,7 +68,7 @@
     - name: Ändra storlek på avbildning med Event Grid
       href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json
     - name: Skapa en webbapp utan server
-      href: 'https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database'
+      href: /learn/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr
     - name: Skapa en anpassad Linux-avbildning
       href: functions-create-function-linux-custom-image.md
     - name: Functions på IoT Edge

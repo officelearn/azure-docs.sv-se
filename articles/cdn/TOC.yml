@@ -42,7 +42,7 @@
       href: cdn-pop-list-api.md
     - name: Migrera från Standard Verizon Standard till Premium Verizon
       href: cdn-migrate.md
-    - name: DDoS Protection
+    - name: DDoS-skydd
       href: cdn-ddos.md
 - name: Instruktionsguider
   items:
@@ -94,7 +94,7 @@
         - name: Övervaka resurser
           href: cdn-resource-health.md
         - name: Åsidosätt beteende med regler
-          href: cdn-rules-engine.md
+          href: cdn-verizon-premium-rules-engine.md
         - name: Använda Traffic Manager
           href: cdn-traffic-manager.md
     - name: Analysera
@@ -134,15 +134,15 @@
           href: cdn-troubleshoot-allowed-ca.md
 - name: Referens
   items:
-    - name: Regelmotor – referens
-      href: cdn-rules-engine-reference.md
+    - name: Referens för Verizon Premium-regelmotor
+      href: cdn-verizon-premium-rules-engine-reference.md
       items:
         - name: Regelmotor – villkorliga uttryck
-          href: cdn-rules-engine-reference-conditional-expressions.md
+          href: cdn-verizon-premium-rules-engine-reference-conditional-expressions.md
         - name: Regelmotor – matchningsvillkor
-          href: cdn-rules-engine-reference-match-conditions.md
+          href: cdn-verizon-premium-rules-engine-reference-match-conditions.md
         - name: Regelmotor – funktioner
-          href: cdn-rules-engine-reference-features.md
+          href: cdn-verizon-premium-rules-engine-reference-features.md
         - name: HTTP-variabler
           href: cdn-http-variables.md
     - name: Verizon-specifika HTTP-huvuden
@@ -158,8 +158,6 @@
       href: /java/api/com.microsoft.azure.management.cdn
     - name: REST
       href: /rest/api/cdn/
-    - name: Resource Manager-mall
-      href: /azure/templates/microsoft.cdn/allversions
 - name: Resurser
   items:
     - name: Azure CDN POP-platser

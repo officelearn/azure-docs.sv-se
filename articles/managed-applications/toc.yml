@@ -39,6 +39,8 @@
           href: create-uidefinition-overview.md
         - name: Testa portalgränssnitt
           href: test-createuidefinition.md
+        - name: Begära just-in-time-åtkomst
+          href: request-just-in-time-access.md
         - name: Uppdatera hanterade resurser
           href: update-managed-resources.md
         - name: Använd portalen och publicera definition av program
@@ -51,6 +53,8 @@
       items:
         - name: Övervaka hanterat program
           href: monitor-managed-application-portal.md
+        - name: Godkänna just-in-time-åtkomst
+          href: approve-just-in-time-access.md
 - name: Referens
   items:
     - name: Azure CLI

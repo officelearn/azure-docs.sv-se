@@ -70,6 +70,8 @@
           href: waf-front-door-create-portal.md
         - name: Konfigurera WAF princip – Azure PowerShell
           href: waf-front-door-custom-rules-powershell.md
+        - name: Konfigurera botskydd
+          href: waf-front-door-policy-configure-bot-protection.md
         - name: Konfigurera anpassad svarskod
           href: waf-front-door-configure-custom-response-code.md
         - name: Konfigurera IP-begränsningar

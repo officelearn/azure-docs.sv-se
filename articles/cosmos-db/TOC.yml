@@ -600,6 +600,8 @@
       items:
         - name: Prestandatips
           items:
+            - name: Hämta mått för frågekörning
+              href: profile-sql-api-query.md
             - name: Justera prestanda för frågor
               href: sql-api-query-metrics.md
             - name: Prestandatips för .NET SDK

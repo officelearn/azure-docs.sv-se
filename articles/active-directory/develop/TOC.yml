@@ -55,7 +55,7 @@
           items:
             - name: .NET Core-konsolen (daemon)
               href: quickstart-v2-netcore-daemon.md
-            - name: ASP.NET-daemonwebbapp
+            - name: ASP.NET-daemon-webbapp
               href: 'https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2'
     - name: Självstudier
       items:

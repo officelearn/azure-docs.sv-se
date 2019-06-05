@@ -164,6 +164,8 @@
       items:
         - name: Kartkontroll
           href: 'https://docs.microsoft.com/javascript/api/azure-maps-javascript/'
+        - name: Ritningsverktyg
+          href: 'https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/'
         - name: Tjänstmodul
           href: 'https://docs.microsoft.com/javascript/api/azure-maps-rest/'
     - name: Resource Manager-mall

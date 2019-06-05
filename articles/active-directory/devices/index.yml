@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Dokumentation om Azure AD-enhetshantering
+title: Dokumentation om hantering av Azure AD-enhetsidentitet
 metadata:
   document_id: null
-  title: 'Dokumentation om Azure AD-enhetshantering – Självstudier, koncept, referenser | Microsoft Docs'
-  description: Se hur du konfigurerar och testar enhetshantering för Azure Active Directory.
+  title: 'Dokumentation om hantering av enhetsidentitet i Azure Active Directory – Självstudier, begrepp och referenser | Microsoft Docs'
+  description: Lär dig hur du konfigurerar och hanterar enhetsidentiteter i Azure AD.
   services: active-directory
   ms.subservice: devices
   author: MicrosoftGuyJFlo
@@ -16,7 +16,7 @@ metadata:
   ms.date: 08/14/2018
   ms.author: joflore
 abstract:
-  description: Dina användare får åtkomst till gemensamma tillgångar genom sina enheter. Som IT-administratör vill du nog ha kontroll över de här enheterna så att du kan skydda de gemensamma tillgångarna. På så sätt kan du se till att användarna får åtkomst till resurserna från enheter som uppfyller dina krav för säkerhet och efterlevnad.<br>Enhetshantering utgör även grunden för enhetsbaserad villkorsstyrd åtkomst. Med enhetsbaserad villkorsstyrd åtkomst kan du se till att endast hanterade enheter kan komma åt resurserna i miljön.
+  description: Via enheter i Azure AD får dina användare åtkomst till företagstillgångar. För att skydda företagstillgångar vill du som IT-administratör hantera enhetsidentiteterna i Azure AD. På så sätt kan du se till att användarna får åtkomst till resurserna från enheter som uppfyller dina krav för säkerhet och efterlevnad.<br>Hantering av enhetsidentitet utgör även grunden för enhetsbaserad villkorsstyrd åtkomst. Med enhetsbaserad villkorsstyrd åtkomst kan du se till att endast hanterade enheter kan komma åt resurserna i miljön.
 sections:
   - title: Stegvisa självstudier
     items:

@@ -163,7 +163,7 @@ catch(ServiceException $e){
 }
 ```
 
-Meddelanden skickas till (och tas emot från) Service Bus-köer är instanser av den [BrokeredMessage] [ BrokeredMessage] klass. [BrokeredMessage] [ BrokeredMessage] objekt har en uppsättning metoder som standard och egenskaper som används för att lagra anpassade programspecifika egenskaper och en brödtext med godtyckliga programdata.
+Meddelanden skickas till (och tas emot från) Service Bus-köer är instanser av den [BrokeredMessage][BrokeredMessage] klass. [BrokeredMessage][BrokeredMessage] objekt har en uppsättning metoder som standard och egenskaper som används för att lagra anpassade programspecifika egenskaper och en brödtext med godtyckliga programdata.
 
 Service Bus-köerna stöder en maximal meddelandestorlek på 256 kB på [standardnivån](service-bus-premium-messaging.md) och 1 MB på [premiumnivån](service-bus-premium-messaging.md). Rubriken, som inkluderar standardprogramegenskaperna och de anpassade programegenskaperna, kan ha en maximal storlek på 64 kB. Det finns ingen gräns för antalet meddelanden som kan finnas i en kö men det finns ett tak för den totala storleken för de meddelanden som ligger i en kö. Den här maxgräns för köstorlek är 5 GB.
 
